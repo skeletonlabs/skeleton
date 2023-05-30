@@ -1,14 +1,11 @@
-// Types
 import { create } from 'create-svelte';
 import fs from 'fs-extra';
 import got from 'got';
-import { bold, cyan, red } from 'kleur/colors';
-import { spawnSync } from 'node:child_process';
 import path from 'path';
 import process from 'process';
-import { dist, mkdirp, removeFilesExceptSync, whichPMRuns } from './utils.js';
-import * as url from 'url';
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+import { dist, mkdirp } from './utils.js';
+import { fileURLToPath } from 'url';
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 // NOTE: Any changes here must also be reflected in the --help output in utils.js and shortcut expansions in index.js.
 // Probably a good idea to do a search on the values you are changing to catch any other areas they are used in
@@ -19,8 +16,8 @@ export class SkeletonOptions {
 		this.name = 'new-skel-app';
 		this.template = 'skeleton';
 		this.types = 'typescript';
-		this.prettier = true;
-		this.eslint = true;
+		this.prettier = false;
+		this.eslint = false;
 		this.playwright = false;
 		this.vitest = false;
 
@@ -32,19 +29,32 @@ export class SkeletonOptions {
 		this.forms = false;
 		this.typography = false;
 		this.codeblocks = false;
-		this.popups = true;
+		this.popups = false;
 		this.inspector = false;
 		this.skeletontheme = 'skeleton';
 		this.skeletontemplate = 'bare';
-		this.packagemanager = 'pnpm';
-		this.packages = [];
+		this.packagemanager = 'npm';
+		this.packageVersionsAdded = false;
+		this.devDependencies = new Map([
+			['postcss', 'latest'],
+			['autoprefixer', 'latest'],
+			['tailwindcss', 'latest'],
+			['@tailwindcss/typography', 'latest'],
+			['@tailwindcss/forms', 'latest'],
+			['@skeletonlabs/skeleton', 'latest'],
+			['is-ci', 'latest'],
+			['@sveltejs/adapter-vercel', 'latest'],
+		]);
+		this.dependencies = new Map([
+			['highlight.js', 'latest'],
+			['@floating-ui/dom', 'latest'],
+		]);
 
 		// props below are private to the Skeleton team
 		this.verbose = false;
 		this.monorepo = false;
-		this.packages = [];
+		this.library = false;
 		this.skeletontemplatedir = '../templates';
-		this.workspace = '';
 	}
 }
 
@@ -52,76 +62,28 @@ export async function createSkeleton(opts) {
 	const startPath = process.cwd();
 
 	// Hidden option to change the install type to be a Svelte-Kit library project
-	if (opts?.library) {
+	if (opts.library) {
 		opts.template = 'skeletonlib';
 	}
 
-	//create-svelte will build the base install for us
+	// create-svelte will build the base install for us
 	await create(opts.path, opts);
 	process.chdir(opts.path);
 
-	// install packages
-	opts.packagemanager = whichPMRuns()?.name || 'npm';
-
-	// the order matters due to dependency resolution, because yarn
-	let packages = ['postcss', 'autoprefixer', 'tailwindcss', '@skeletonlabs/skeleton'];
-	// Extra packages for a monorepo install
-	if (opts?.monorepo) {
-		packages.push('@sveltejs/adapter-vercel');
-		packages.push('is-ci');
-	}
-
-	// Tailwind Packages
-	if (opts?.typography) packages.push('@tailwindcss/typography');
-	if (opts?.forms) packages.push('@tailwindcss/forms');
-
-	// Component dependencies
-	if (opts?.codeblocks) packages.push('highlight.js');
-	if (opts?.popups) packages.push('@floating-ui/dom');
-
-	let result = spawnSync(opts.packagemanager, ['add', '-D', ...packages], {
-		shell: true,
-	});
-
-	// Capture any errors from stderr and display for the user to report it to us
-	if (result?.stderr.toString().length) {
-		console.log(
-			red(
-				bold(
-					'The following was reported to stderr - please read carefully to determine whether it actually affects your install:\n',
-				),
-			),
-			result?.stderr.toString(),
-		);
-	}
-
-	// Just to help with any user error reports
-	if (opts.verbose) {
-		const stdout = result?.stdout.toString();
-		if (stdout.length) console.log(bold(cyan('stdout:')), stdout);
-		const stderr = result?.stderr.toString();
-		if (stderr.length) console.log(bold(red('stderr:')), stderr);
-	}
-
+	modifyPackageJson(opts);
 	// write out config files
-	out('svelte.config.js', createSvelteConfig(opts));
-	out('.vscode/settings.json', await createVSCodeSettings());
-	out('tailwind.config.cjs', createTailwindConfig(opts));
-	out('postcss.config.cjs', createPostCssConfig());
+	createSvelteConfig(opts);
+	await createVSCodeSettings();
+	createTailwindConfig(opts);
+	createPostCssConfig();
+	copyTemplate(opts);
 
 	// Monorepo additions
-	if (opts?.monorepo) {
-		fs.copySync(__dirname + '../README-MONO.md', process.cwd() + '/README.md', { overwrite: true });
+	if (opts.monorepo) {
+		fs.copySync(path.resolve(__dirname, '../README-MONO.md'), path.resolve(process.cwd(), 'README.md'), { overwrite: true });
 		mkdirp('scripts');
-		fs.copySync(__dirname + './swapdeps.mjs', process.cwd() + '/scripts/swapdeps.mjs', { overwrite: true });
-		let pkg = JSON.parse(fs.readFileSync('package.json'));
-		pkg.scripts['install'] = 'node ./scripts/swapdeps.mjs';
-		pkg.scripts['dep'] = 'vercel build && vercel deploy --prebuilt';
-		pkg.scripts['prod'] = 'vercel build --prod && vercel deploy --prebuilt --prod';
-		fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+		fs.copySync(path.resolve(__dirname, './swapdeps.mjs'), path.resolve(process.cwd(), '/scripts/swapdeps.mjs'), { overwrite: true });
 	}
-	// copy over selected template
-	copyTemplate(opts);
 	// creating the missing lib folder...
 	mkdirp(path.join('src', 'lib'));
 	// go back to starting location in case we get called again to create another template
@@ -129,16 +91,47 @@ export async function createSkeleton(opts) {
 	return opts;
 }
 
-async function createVSCodeSettings() {
-	try {
-		mkdirp('.vscode');
-		const data = await got('https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json').text();
-		return data;
-	} catch (error) {
-		console.error(
-			'Unable to download settings file for VSCode, please read manual instructions at https://skeleton.dev/guides/install',
-		);
+async function modifyPackageJson(opts) {
+	await getLatestPackageVersions(opts);
+	let pkgJson = JSON.parse(fs.readFileSync('./package.json'));
+
+	// the order matters due to dependency resolution, because yarn
+	for (const pkg of ['postcss', 'autoprefixer', 'tailwindcss', '@skeletonlabs/skeleton']) {
+		console.log(pkg, opts.devDependencies.get(pkg))
+		pkgJson.devDependencies[pkg] = opts.devDependencies.get(pkg);
+	};
+
+	// Extra packages and scripts for a monorepo install
+	if (opts.monorepo) {
+		['@sveltejs/adapter-vercel', 'is-ci'].forEach((pkg) => pkg.devDependencies[pkg] = opts.devDependencies.get(pkg));
+		pkgJson.scripts['install'] = 'node ./scripts/swapdeps.mjs';
+		pkgJson.scripts['dep'] = 'vercel build && vercel deploy --prebuilt';
+		pkgJson.scripts['prod'] = 'vercel build --prod && vercel deploy --prebuilt --prod';
+		pkgJson['deployConfig'] = { "@skeletonlabs/skeleton": "^1.0.0" }
 	}
+
+	// Tailwind Packages
+	if (opts.typography) ['@tailwindcss/typography'].forEach((pkg) => pkgJson.devDependencies[pkg] = opts.devDependencies.get(pkg));
+	if (opts.forms) ['@tailwindcss/forms'].forEach((pkg) => pkgJson.devDependencies[pkg] = opts.devDependencies.get(pkg));
+
+	// Component dependencies
+	if (opts.codeblocks) ['highlight.js'].forEach((pkg) => pkgJson.dependencies[pkg] = opts.dependencies.get(pkg));
+	if (opts.popups) ['@floating-ui/dom'].forEach((pkg) => pkgJson.dependencies[pkg] = opts.dependencies.get(pkg));
+	fs.writeFileSync('./package.json', JSON.stringify(pkgJson, null, 2));
+	console.log("New package.json written")
+}
+
+async function getLatestPackageVersions(opts) {
+	if (opts.packageVersionsAdded) return;
+	for await (const name of opts.devDependencies.keys()) {
+		const data = await got(`https://registry.npmjs.org/${name}/latest`).json();
+		opts.devDependencies.set(name, data.version);
+	};
+	for await (const name of opts.dependencies.keys()) {
+		const data = await got(`https://registry.npmjs.org/${name}/latest`).json();
+		opts.dependencies.set(name, data.version);
+	};
+	opts.packageVersionsAdded = true;
 }
 
 function createSvelteConfig(opts) {
@@ -161,14 +154,13 @@ const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
-	${
-		opts?.inspector
+	${opts?.inspector
 			? `
 	vitePlugin: {
 		inspector: true,   
 	},`
 			: ''
-	}
+		}
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
@@ -177,7 +169,21 @@ const config = {
 	}
 };
 export default config;`;
-	return str;
+	fs.writeFileSync('svelte.config.js', str);
+}
+
+async function createVSCodeSettings() {
+	try {
+		mkdirp('.vscode');
+		const data = await got(
+			'https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json',
+		).text();
+		fs.writeFileSync('.vscode/settings.json', data);
+	} catch (error) {
+		console.error(
+			'Unable to download settings file for VSCode, please read manual instructions at https://skeleton.dev/guides/install',
+		);
+	}
 }
 
 function createTailwindConfig(opts) {
@@ -208,7 +214,7 @@ module.exports = {
 	plugins: [${plugins.join(',')}],
 }
 `;
-	return str;
+	fs.writeFileSync('tailwind.config.cjs', str);
 }
 
 function createPostCssConfig() {
@@ -218,16 +224,15 @@ function createPostCssConfig() {
 		autoprefixer: {},
 	},
 }`;
-	return str;
+	fs.writeFileSync('postcss.config.cjs', str);
 }
 
 function copyTemplate(opts) {
 	const src = path.resolve(dist(opts.skeletontemplatedir), opts.skeletontemplate);
-
 	fs.copySync(src + '/src', './src', { overwrite: true });
 	fs.copySync(src + '/static', './static', { overwrite: true });
 
-	// All fonts are in the template static folder, so we need to remove the ones that are not relevant to the theme
+	// Determine which font is used by the theme, copy it over to the static folder
 	// and then update the app.postcss file to include the correct font
 	let fontFamily = '';
 	let fontFile = '';
@@ -236,19 +241,19 @@ function copyTemplate(opts) {
 		case 'modern':
 		case 'seasonal':
 			fontFamily = 'Quicksand';
-			fontFile = ['Quicksand.ttf'];
+			fontFile = 'Quicksand.ttf';
 			break;
 		case 'rocket':
 			fontFamily = 'Space Grotesk';
-			fontFile = ['SpaceGrotesk.ttf'];
+			fontFile = 'SpaceGrotesk.ttf';
 			break;
 		case 'seafoam':
 			fontFamily = 'Playfair Display';
-			fontFile = ['PlayfairDisplay-Italic.ttf'];
+			fontFile = 'PlayfairDisplay-Italic.ttf';
 			break;
 		case 'vintage':
 			fontFamily = 'Abril Fatface';
-			fontFile = ['AbrilFatface.ttf'];
+			fontFile = 'AbrilFatface.ttf';
 			break;
 		default:
 			fontFamily = '';
@@ -264,9 +269,7 @@ function copyTemplate(opts) {
 	font-display: swap;
 }`,
 		);
-		removeFilesExceptSync('./static/fonts/', fontFile);
-	} else {
-		fs.removeSync('./static/fonts');
+		fs.copySync(path.resolve(__dirname, '../fonts/', fontFile), './static/fonts/' + fontFile);
 	}
 
 	// patch back in their theme choice - it may have been replaced by the theme template, it may still be the correct auto-genned one, depends on the template - we don't care, this fixes it.
@@ -278,8 +281,10 @@ function copyTemplate(opts) {
 	content = content.replace(themeReg, `theme-${opts.skeletontheme}.css';`);
 	content = (opts.types === 'typescript' ? "<script lang='ts'>" : '<script>') + content.substring(content.indexOf('\n'));
 
+	// Add in the basic boilerplate for codeblocks and popups if they were selected and do a basic check for the import name to avoid duplicates
 	const scriptEndReg = /<\/script>/g;
-	if (opts?.highlightjs) {
+
+	if (opts?.codeblocks && opts.skeletontemplate != 'bare' && content.indexOf('highlight.js') === -1) {
 		content = content.replace(
 			scriptEndReg,
 			`
@@ -292,7 +297,7 @@ function copyTemplate(opts) {
 		);
 	}
 
-	if (opts?.highlightjs) {
+	if (opts?.popups && opts.skeletontemplate != 'bare' && content.indexOf('@floating-ui/dom') === -1) {
 		content = content.replace(
 			scriptEndReg,
 			`
@@ -306,18 +311,16 @@ function copyTemplate(opts) {
 
 	fs.writeFileSync('./src/routes/+layout.svelte', content);
 
-	// update the <body> to have the data-theme
-	content = fs.readFileSync('./src/app.html', {
-		encoding: 'utf8',
-		flag: 'r',
-	});
-	fs.writeFileSync(
-		'./src/app.html',
-		content.replace('<body>', `<body data-sveltekit-preload-data="hover" data-theme="${opts.skeletontheme}">`),
-	);
-}
+	if (opts.skeletontemplate != 'bare') {
+		// update the <body> to have the data-theme
+		content = fs.readFileSync('./src/app.html', {
+			encoding: 'utf8',
+			flag: 'r',
+		});
 
-function out(filename, data) {
-	if (data == undefined) return;
-	fs.writeFileSync(filename, data);
+		fs.writeFileSync(
+			'./src/app.html',
+			content.replace('<body>', `<body data-sveltekit-preload-data="hover" data-theme="${opts.skeletontheme}">`),
+		);
+	}
 }
