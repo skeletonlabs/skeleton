@@ -100,14 +100,14 @@
 	});
 
 	// Event Handlers ---
-	function onBackdropInteractionBegin(event: MouseEvent | TouchEvent): void {
+	function onBackdropInteractionBegin(event: MouseEvent): void {
 		if (!(event.target instanceof Element)) return;
 		const classList = event.target.classList;
 		if (classList.contains('modal-backdrop') || classList.contains('modal-transition')) {
 			registeredInteractionWithBackdrop = true;
 		}
 	}
-	function onBackdropInteractionEnd(event: MouseEvent | TouchEvent): void {
+	function onBackdropInteractionEnd(event: MouseEvent): void {
 		if (!(event.target instanceof Element)) return;
 		const classList = event.target.classList;
 		if ((classList.contains('modal-backdrop') || classList.contains('modal-transition')) && registeredInteractionWithBackdrop) {
@@ -195,9 +195,9 @@
 			class="modal-backdrop {classesBackdrop}"
 			data-testid="modal-backdrop"
 			on:mousedown|preventDefault={onBackdropInteractionBegin}
-			on:touchstart|preventDefault={onBackdropInteractionBegin}
 			on:mouseup|preventDefault={onBackdropInteractionEnd}
-			on:touchend|preventDefault={onBackdropInteractionEnd}
+			on:touchstart|preventDefault
+			on:touchend|preventDefault
 			transition:fade={{ duration }}
 			use:focusTrap={true}
 		>
