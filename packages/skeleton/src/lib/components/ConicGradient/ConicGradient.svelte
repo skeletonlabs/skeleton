@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { afterUpdate } from 'svelte';
-	import { tailwindDefaultColors } from './settings';
+	import { tailwindDefaultColors } from './settings.js';
 
 	// Types
-	import type { CssClasses } from '../..';
-	import type { ConicStop } from './types';
+	import type { CssClasses } from '../../index.js';
+	import type { ConicStop } from './types.js';
 
 	// Props
 	/**

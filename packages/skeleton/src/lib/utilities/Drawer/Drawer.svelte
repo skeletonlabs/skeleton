@@ -7,14 +7,14 @@
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Actions
-	import { focusTrap } from '../../actions/FocusTrap/focusTrap';
+	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
 
 	// Drawer Utils
-	import type { DrawerSettings } from './types';
-	import { drawerStore } from './stores';
+	import type { DrawerSettings } from './types.js';
+	import { drawerStore } from './stores.js';
 
 	// Props
 	/** Set the anchor position.

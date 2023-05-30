@@ -78,8 +78,9 @@
 						</p>
 						<h2 class="h2">Set Initial Classes</h2>
 						<p>
-							Import and add the following to your component. This will set the <code class="code">.dark</code> class on the root HTML element
-							in a highly performant manner.
+							Import and add the following to your component. This will set the <code class="code">.dark</code> class on the root HTML
+							element in a highly performant manner. Please note that the CLI installer inserts <code class="code">class="dark"</code>
+							statically in the <code class="code">html</code> element of app.html and you should remove it when going this route.
 						</p>
 						<CodeBlock language="ts" code={`import { setInitialClassState } from '@skeletonlabs/skeleton';`} />
 						<CodeBlock language="html" code={snippetSetInitClass} />
@@ -188,7 +189,7 @@
 						<h2 class="h2">Reference</h2>
 						<aside class="alert alert-message variant-ghost">
 							<!-- prettier-ignore -->
-							<p>View the Skeleton <a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>
+							<p>View the Skeleton <a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>
 						</aside>
 					{/if}
 				</svelte:fragment>

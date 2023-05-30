@@ -11,8 +11,8 @@
 		feature: DocsFeature.Element,
 		name: 'Core',
 		description: 'Provides a variety of globally scoped styles.',
-		stylesheetIncludes: ['all', 'core'],
-		source: 'styles/core.css'
+		stylesheetIncludes: ['skeleton', 'core'],
+		source: 'styles/partials/core.css'
 	};
 </script>
 
@@ -89,7 +89,7 @@
 	<p>
 		Lorem ipsum, dolor sit...
 	</p>
-</div>			
+</div>
 			`}
 					/>
 				</svelte:fragment>
