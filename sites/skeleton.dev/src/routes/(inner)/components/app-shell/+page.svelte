@@ -134,6 +134,13 @@
 				Implement the App Shell in your app's root layout in <code class="code">/src/routes/+layout.svelte</code>. Slot order does not
 				matter.
 			</p>
+			<!-- prettier-ignore -->
+			<aside class="alert alert-message variant-ghost-warning">
+				<p>
+					App Shell does not support window scoped scrolling due to some technical limitations. In order to scroll the content region first needs to be focused a click or mouse over. If you require window scoped scrolling it's recommended that you implement a custom layout instead of using App Shell.
+				</p>
+			</aside>
+			
 		</section>
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
