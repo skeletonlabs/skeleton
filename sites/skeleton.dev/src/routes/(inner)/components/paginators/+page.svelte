@@ -120,23 +120,21 @@ let page = {
 		<section class="space-y-4">
 			<h2 class="h2">Numeric Row</h2>
 			<p>Replaces the center text labels with a row of buttons that allow you to quickly navigate pages.</p>
+			<p>
+				If you plan to support small screens (e.g. mobile), then make sure to choose a small number for the <b>maxNumerals</b> prop, so it fits
+				on small screens.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4 text-token">
 						<Table source={{ head: sourceHeaders, body: sourceBodySliced }} />
-						<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} showNumericRow />
+						<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} showNumerals />
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<Paginator ... showNumericRow maxNumericSiblings={1}></Paginator>`} />
+					<CodeBlock language="html" code={`<Paginator ... showNumerals maxNumerals={1}></Paginator>`} />
 				</svelte:fragment>
 			</DocsPreview>
-			<aside class="alert alert-message variant-ghost-warning">
-				<p>
-					If you plan to support small screens (e.g. mobile), then make sure to choose a small number for the <b>maxNumericSiblings</b> prop,
-					so it fits on small screens.
-				</p>
-			</aside>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Client-Side Pagination</h2>

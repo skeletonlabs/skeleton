@@ -18,9 +18,9 @@
 	/** Show First and Last buttons. */
 	export let showFirstLastButtons = false;
 	/** Displays a numeric row of page buttons. */
-	export let showNumericRow = false;
+	export let showNumerals = false;
 	/** Maximum number of active page siblings in the numeric row.*/
-	export let maxNumericSiblings = 1;
+	export let maxNumerals = 1;
 	/** Provide classes to set flexbox justification. */
 	export let justify: CssClasses = 'justify-between';
 
@@ -58,7 +58,7 @@
 
 	// Local
 	let lastPage = Math.ceil(settings.size / settings.limit - 1);
-	let controlPages: number[] = getControlPages();
+	let controlPages: number[] = getNumerals();
 
 	// Functionality
 	function onChangeLength(): void {
@@ -67,7 +67,7 @@
 		dispatch('amount', settings.limit);
 
 		lastPage = Math.ceil(settings.size / settings.limit - 1);
-		controlPages = getControlPages();
+		controlPages = getNumerals();
 	}
 	function gotoPage(page: number) {
 		if (page < 0) return;
@@ -75,41 +75,41 @@
 		settings.offset = page;
 		/** @event {{ offset: number }} page Fires when the next/back buttons are pressed. */
 		dispatch('page', settings.offset);
-		controlPages = getControlPages();
+		controlPages = getNumerals();
 	}
-	function getControlPages() {
+	// Full row - no ellipsis
+	function getFullNumerals() {
 		const pages = [];
-
-		if (lastPage <= maxNumericSiblings * 2 + 1) {
-			for (let index = 0; index <= lastPage; index++) {
-				pages.push(index);
-			}
-			return pages;
+		for (let index = 0; index <= lastPage; index++) {
+			pages.push(index);
 		}
+		return pages;
+	}
+	function getNumerals() {
+		const pages = [];
+		const isWithinLeftSection = settings.offset < maxNumerals + 2;
+		const isWithinRightSection = settings.offset > lastPage - (maxNumerals + 2);
 
-		const isWithinLeftSection = settings.offset < maxNumericSiblings + 2;
-		const isWithinRightSection = settings.offset > lastPage - (maxNumericSiblings + 2);
+		if (lastPage <= maxNumerals * 2 + 1) return getFullNumerals();
 
 		pages.push(0);
-		if (!isWithinLeftSection) {
-			pages.push(-1);
-		}
+		if (!isWithinLeftSection) pages.push(-1);
 
-		if (!isWithinLeftSection && !isWithinRightSection) {
-			for (let i = settings.offset - maxNumericSiblings; i <= settings.offset + maxNumericSiblings; i++) {
+		// mid section - with only one ellipsis
+		if (isWithinLeftSection || isWithinRightSection) {
+			const sectionStart = isWithinLeftSection ? 1 : lastPage - (maxNumerals + 2);
+			const sectionEnd = isWithinRightSection ? lastPage - 1 : maxNumerals + 2;
+			for (let i = sectionStart; i <= sectionEnd; i++) {
 				pages.push(i);
 			}
+			// mid section - with both ellipses
 		} else {
-			const start = isWithinLeftSection ? 1 : lastPage - (maxNumericSiblings + 2);
-			const end = isWithinRightSection ? lastPage - 1 : maxNumericSiblings + 2;
-			for (let i = start; i <= end; i++) {
+			for (let i = settings.offset - maxNumerals; i <= settings.offset + maxNumerals; i++) {
 				pages.push(i);
 			}
 		}
 
-		if (!isWithinRightSection) {
-			pages.push(-1);
-		}
+		if (!isWithinRightSection) pages.push(-1);
 		pages.push(lastPage);
 
 		return pages;
@@ -119,7 +119,7 @@
 	$: classesButtonActive = (page: number) => {
 		return page === settings.offset ? `${active} pointer-events-none` : '';
 	};
-	$: maxNumericSiblings, onChangeLength();
+	$: maxNumerals, onChangeLength();
 	// Reactive Classes
 	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
@@ -171,7 +171,7 @@
 			</button>
 		{/if}
 		<!-- Center -->
-		{#if showNumericRow === false}
+		{#if showNumerals === false}
 			<!-- Details -->
 			<button type="button" class="{buttonClasses} pointer-events-none !text-sm">
 				{settings.offset * settings.limit + 1}-{Math.min(settings.offset * settings.limit + settings.limit, settings.size)}&nbsp;<span
