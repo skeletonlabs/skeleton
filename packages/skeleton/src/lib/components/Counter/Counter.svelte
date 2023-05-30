@@ -53,14 +53,19 @@
 	$: classesBase = `${cBase} ${padding} ${height} ${width} ${border} ${rounded} ${shadow} ${$$props.class ?? ''}`;
 	$: classesInner = `${cInner}`;
 
+	let tIn: TransitionFunction = fly,
+		tInProps: any = { y: 100, duration: 150, delay: 150, easing: elasticInOut },
+		tOut: TransitionFunction = fly,
+		tOutProps: any = { y: -100, duration: 150, easing: elasticInOut };
+
 	// Reactive Values
 	$: currentValue = values[index];
 	$: {
 		//Assign default values
-		let tIn: TransitionFunction = fly,
-			tInProps: any = { y: 100, duration: 150, delay: 150, easing: elasticInOut },
-			tOut: TransitionFunction = fly,
-			tOutProps: any = { y: -100, duration: 150, easing: elasticInOut };
+		tIn = fly;
+		tInProps = { y: 100, duration: 150, delay: 150, easing: elasticInOut };
+		tOut = fly;
+		tOutProps = { y: -100, duration: 150, easing: elasticInOut };
 
 		//Handle property precedence
 		if (transition) {
