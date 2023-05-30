@@ -4,7 +4,7 @@
 	import { onDestroy } from 'svelte';
 
 	// Types
-	import type { CssClasses, Transition, TransitionFunction } from '../..';
+	import type { CssClasses, Transition, TransitionFunction } from '../../index.js';
 
 	// Props (actions)
 	/** Provide the array of values to tick through. */
