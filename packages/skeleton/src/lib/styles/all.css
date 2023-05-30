@@ -19,7 +19,7 @@
 
 /* Typography Settings */
 @import 'partials/typography.css';
-@import 'partials/typography-prose.css';
+/* DEPRECATED: 'partials/typography-prose.css' must now be imported directly */
 
 /* === REQUIRED STYLESHEETS === */
 
