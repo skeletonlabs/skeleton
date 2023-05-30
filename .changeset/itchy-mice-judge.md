@@ -1,5 +1,5 @@
 ---
-"@skeletonlabs/skeleton": patch
+"@skeletonlabs/skeleton": minor
 ---
 
-Added a navigation slot to the Step component, this replaces the Back button for the first step only
+feat: Added a navigation slot to the Step component, this replaces the Back button for the first step only
