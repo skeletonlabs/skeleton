@@ -119,10 +119,9 @@ let page = {
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2 class="h2">Numeric Row</h2>
-			<p>Replaces the center text labels with a row of buttons that allow you to quickly navigate pages.</p>
+			<!-- prettier-ignore -->
 			<p>
-				If you plan to support small screens (e.g. mobile), then make sure to choose a small number for the <b>maxNumerals</b> prop, so it fits
-				on small screens.
+				Use <code class="code">showNumerals</code> to replace the text information with a row of buttons that allow you to quickly navigate pages. We recommend a small <code class="code">maxNumerals</code> amount if you plan to support mobile devices with limited screen real estate.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
