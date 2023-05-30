@@ -60,7 +60,6 @@
 	let lastPage = Math.ceil(settings.size / settings.limit - 1);
 	let controlPages: number[] = getNumerals();
 
-	// Functionality
 	function onChangeLength(): void {
 		settings.offset = 0;
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
@@ -69,6 +68,7 @@
 		lastPage = Math.ceil(settings.size / settings.limit - 1);
 		controlPages = getNumerals();
 	}
+
 	function gotoPage(page: number) {
 		if (page < 0) return;
 
@@ -77,6 +77,7 @@
 		dispatch('page', settings.offset);
 		controlPages = getNumerals();
 	}
+
 	// Full row - no ellipsis
 	function getFullNumerals() {
 		const pages = [];
@@ -85,6 +86,7 @@
 		}
 		return pages;
 	}
+
 	function getNumerals() {
 		const pages = [];
 		const isWithinLeftSection = settings.offset < maxNumerals + 2;
@@ -95,15 +97,15 @@
 		pages.push(0);
 		if (!isWithinLeftSection) pages.push(-1);
 
-		// mid section - with only one ellipsis
 		if (isWithinLeftSection || isWithinRightSection) {
+			// mid section - with only one ellipsis
 			const sectionStart = isWithinLeftSection ? 1 : lastPage - (maxNumerals + 2);
 			const sectionEnd = isWithinRightSection ? lastPage - 1 : maxNumerals + 2;
 			for (let i = sectionStart; i <= sectionEnd; i++) {
 				pages.push(i);
 			}
-			// mid section - with both ellipses
 		} else {
+			// mid section - with both ellipses
 			for (let i = settings.offset - maxNumerals; i <= settings.offset + maxNumerals; i++) {
 				pages.push(i);
 			}
