@@ -16,10 +16,10 @@ export type { PopupSettings } from './utilities/Popup/types.js';
 export type CssClasses = string;
 
 // Transition
-type Transition = (node: Element, params?: any) => TransitionConfig;
 interface AdditionalTransitionProps {
 	ignoreReducedMotion?: boolean;
 }
+export type Transition = (node: Element, params?: any) => TransitionConfig;
 export type TransitionParams<T extends Transition> = Parameters<T>[1] & AdditionalTransitionProps;
 export interface TransitionSettings<T extends Transition> {
 	transition: T;
