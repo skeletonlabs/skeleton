@@ -118,8 +118,8 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 					label: 'Modals',
 					keywords: 'overlay, dialog, notification, alert, confirm, prompt, multiple, form, list, embed, video'
 				},
-				{ href: '/utilities/toasts', label: 'Toasts', keywords: 'overlay, snack, snackbar, bar, action, alert, notification' },
-				{ href: '/utilities/popups', label: 'Popups', keywords: 'menu, tooltip, overlay, dropdown, combobox, drop, down, select' }
+				{ href: '/utilities/popups', label: 'Popups', keywords: 'menu, tooltip, overlay, dropdown, combobox, drop, down, select' },
+				{ href: '/utilities/toasts', label: 'Toasts', keywords: 'overlay, snack, snackbar, bar, action, alert, notification' }
 				// DELISTED UNTIL FURTHER NOTICE
 				// { href: '/utilities/data-tables', label: 'Data Tables', keywords: 'search, sort, page, pagination, async', badge: 'Experimental' }
 			]

@@ -4,10 +4,10 @@
 	import { flip } from 'svelte/animate';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Stores
-	import { toastStore } from './stores';
+	import { toastStore } from './stores.js';
 
 	// Props
 	/** Set the toast position.

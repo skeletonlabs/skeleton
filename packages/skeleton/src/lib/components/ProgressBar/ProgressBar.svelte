@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Props
 	/**

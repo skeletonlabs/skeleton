@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import type { AutocompleteOption } from './types';
+import type { AutocompleteOption } from './types.js';
 import Autocomplete from './Autocomplete.svelte';
 import { render } from '@testing-library/svelte';
 

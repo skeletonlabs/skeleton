@@ -17,7 +17,7 @@
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses, TransitionSettings } from '../..';
+	import type { CssClasses, TransitionSettings } from '../../index.js';
 
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;

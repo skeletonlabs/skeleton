@@ -105,7 +105,8 @@
 		<!-- prettier-ignore -->
 		<ol class="list-decimal list-inside space-y-2">
 			<li>Install <a class="anchor" href="https://pnpm.io/" target="_blank" rel="noreferrer">pnpm</a> globally using <code class="code">npm install -g pnpm</code>. Confirm via <code class="code">pnpm --version</code> in your terminal.</li>
-			<li>Run <code class="code">git clone https://github.com/skeletonlabs/skeleton.git</code> to clone the monorepo project.</li>
+			<li>Go to our <a href="https://github.com/skeletonlabs/skeleton" class="anchor" >repo</a> and press the Fork button in the top right.</li>
+			<li>Click the Code button in Github to clone down a copy of your fork to your local machine</li>
 			<li>Run <code class="code">cd skeleton</code> to move into the cloned monorepo project.</li>
 			<li>Delete your <code class="code">node_modules</code> directory, then run <code class="code">pnpm i</code> to install dependencies for all projects.</li>
 			<li>Run <code class="code">cd sites/skeleton.dev</code> to move into the Skeleton documentation project.</li>

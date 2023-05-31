@@ -7,8 +7,8 @@
 	import { slide } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses, TransitionSettings } from '../..';
-	
+	import type { CssClasses, TransitionSettings } from '../../index.js';
+
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
 
@@ -23,12 +23,18 @@
 	 * Provide the transition to use when values move in.
 	 * @type {TransitionSettings<TransitionIn>}
 	 */
-	export let transitionIn: TransitionSettings<TransitionIn> = { transition: slide as TransitionIn, params: { duration: transitions ? 200 : 0} };
+	export let transitionIn: TransitionSettings<TransitionIn> = {
+		transition: slide as TransitionIn,
+		params: { duration: transitions ? 200 : 0 }
+	};
 	/**
 	 * Provide the transition to use when values move out.
 	 * @type {TransitionSettings<TransitionOut>}
 	 */
-	export let transitionOut: TransitionSettings<TransitionOut> = { transition: slide as TransitionIn, params: { duration: transitions ? 200 : 0} };
+	export let transitionOut: TransitionSettings<TransitionOut> = {
+		transition: slide as TransitionIn,
+		params: { duration: transitions ? 200 : 0 }
+	};
 
 	// Props (parent)
 	/** Provide classes to set the accordion width. */

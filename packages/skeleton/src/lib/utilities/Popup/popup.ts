@@ -1,5 +1,5 @@
 import { get, writable, type Writable } from 'svelte/store';
-import type { PopupSettings } from './types';
+import type { PopupSettings } from './types.js';
 
 // Use a store to pass the Floating UI import references
 export const storePopup: Writable<any> = writable(undefined);
@@ -163,6 +163,8 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 			close();
 			return;
 		}
+		// Update focusable elements (important for Autocomplete)
+		focusablePopupElements = Array.from(elemPopup?.querySelectorAll(focusableAllowedList));
 		// On Tab or ArrowDown key
 		const triggerMenuFocused: boolean = popupState.open && document.activeElement === triggerNode;
 		if (

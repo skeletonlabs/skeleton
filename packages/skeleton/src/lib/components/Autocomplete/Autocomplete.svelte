@@ -4,7 +4,7 @@
 	// import {slide} from 'svelte/transition';
 
 	// Types
-	import type { AutocompleteOption } from './types';
+	import type { AutocompleteOption } from './types.js';
 
 	// Custom Dispatcher
 	const dispatch = createEventDispatcher();

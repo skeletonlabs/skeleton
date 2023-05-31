@@ -22,7 +22,7 @@
 				<div class="card variant-glass p-4">
 					<!-- prettier-ignore -->
 					<p>
-						The CLI uses <a class="anchor" href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> to install and configure Tailwind within your project.
+						The CLI will automatically install and configure Tailwind and PostCSS within your project.
 					</p>
 				</div>
 			{:else if $storeOnboardMethod === 'manual'}
@@ -64,7 +64,7 @@ module.exports = {
 		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
 	]
 }
-			`}
+`}
 				/>
 				<aside class="alert variant-ghost-warning">
 					<i class="fa-solid fa-triangle-exclamation text-2xl" />
