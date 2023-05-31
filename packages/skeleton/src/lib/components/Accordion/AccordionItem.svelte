@@ -74,6 +74,10 @@
 	// Silence warning about unused props:
 	const deprecated = [duration];
 
+	// Local
+	const { transition: trIn, params: trInParams } = transitionIn;
+	const { transition: trOut, params: trOutParams } = transitionOut;
+
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: Event): void {
 		if (autocollapse === true) {
@@ -149,8 +153,8 @@
 		<div
 			class="accordion-panel {classesPanel}"
 			id="accordion-panel-{id}"
-			in:transitionIn.transition|local={{ ...transitionIn.params }}
-			out:transitionOut.transition|local={{ ...transitionOut.params }}
+			in:trIn|local={{ ...trInParams }}
+			out:trOut|local={{ ...trOutParams }}
 			role="region"
 			aria-hidden={!openState}
 			aria-labelledby="accordion-control-{id}"

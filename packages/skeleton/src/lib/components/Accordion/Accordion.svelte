@@ -7,7 +7,7 @@
 	import { slide } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses, TransitionSettings } from '../../index.js';
+	import type { CssClasses, TransitionSettings, Transition } from '../../index.js';
 
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
@@ -32,7 +32,7 @@
 	 * @type {TransitionSettings<TransitionOut>}
 	 */
 	export let transitionOut: TransitionSettings<TransitionOut> = {
-		transition: slide as TransitionIn,
+		transition: slide as TransitionOut,
 		params: { duration: transitions ? 200 : 0 }
 	};
 
