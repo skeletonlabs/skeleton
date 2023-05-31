@@ -7,7 +7,7 @@
 	import { slide } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses, TransitionSettings, Transition } from '../../index.js';
+	import type { CssClasses, TransitionSettings, Transition } from '../../types.js';
 
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
@@ -15,6 +15,9 @@
 	// Props
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
+
+	/** DEPRECATED: use transitionIn and transitionOut instead. */
+	export let duration = 200; // ms
 
 	// Props (transition)
 	/** Enable/Disable transitions */
@@ -25,7 +28,7 @@
 	 */
 	export let transitionIn: TransitionSettings<TransitionIn> = {
 		transition: slide as TransitionIn,
-		params: { duration: transitions ? 200 : 0 }
+		params: { duration: transitions ? duration : 0 }
 	};
 	/**
 	 * Provide the transition to use when values move out.
@@ -33,7 +36,7 @@
 	 */
 	export let transitionOut: TransitionSettings<TransitionOut> = {
 		transition: slide as TransitionOut,
-		params: { duration: transitions ? 200 : 0 }
+		params: { duration: transitions ? duration : 0 }
 	};
 
 	// Props (parent)
@@ -65,11 +68,6 @@
 	export let regionPanel: CssClasses = 'space-y-4';
 	/** Provide arbitrary classes to the caret icon region. */
 	export let regionCaret: CssClasses = '';
-
-	/** DEPRECATED: use transition or transitionIn, transitionOut instead. */
-	export let duration = 200; // ms
-	// Silence warning about unused props:
-	const deprecated = [duration];
 
 	// Local
 	const active: Writable<string | null> = writable(null);

@@ -17,7 +17,7 @@
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses, TransitionSettings, Transition } from '../../index.js';
+	import type { CssClasses, TransitionSettings, Transition } from '../../types.js';
 
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
@@ -69,10 +69,8 @@
 	/** Provide arbitrary classes caret icon region. */
 	export let regionCaret: CssClasses = getContext('regionCaret');
 	// ---
-	/** DEPRECATED: use transition or transitionIn, transitionOut instead. */
+	/** DEPRECATED: use transitionIn and transitionOut instead. */
 	export let duration: number = getContext('duration');
-	// Silence warning about unused props:
-	const deprecated = [duration];
 
 	// Local
 	const { transition: trIn, params: trInParams } = transitionIn;
@@ -153,8 +151,8 @@
 		<div
 			class="accordion-panel {classesPanel}"
 			id="accordion-panel-{id}"
-			in:trIn|local={{ ...trInParams }}
-			out:trOut|local={{ ...trOutParams }}
+			in:trIn|local={{ ...trInParams, duration }}
+			out:trOut|local={{ ...trOutParams, duration }}
 			role="region"
 			aria-hidden={!openState}
 			aria-labelledby="accordion-control-{id}"

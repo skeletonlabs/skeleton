@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses } from '../../types.js';
 	import type { Action } from 'svelte/action';
 
 	// Props (initials)

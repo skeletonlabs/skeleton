@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses } from '../../types.js';
 
 	// Props (settings)
 	/** Query selector for the scrollable page element. */

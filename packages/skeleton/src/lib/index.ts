@@ -1,5 +1,4 @@
 // This file defines the short path imports for the package (ex: @skeletonlabs/skeleton/*)
-import type { TransitionConfig } from 'svelte/transition';
 
 // Types ---
 
@@ -11,20 +10,6 @@ export type { ToastSettings } from './utilities/Toast/types.js';
 export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
-
-// This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
-export type CssClasses = string;
-
-// Transition
-interface AdditionalTransitionProps {
-	ignoreReducedMotion?: boolean;
-}
-export type Transition = (node: Element, params?: any) => TransitionConfig;
-export type TransitionParams<T extends Transition> = Parameters<T>[1] & AdditionalTransitionProps;
-export interface TransitionSettings<T extends Transition> {
-	transition: T;
-	params?: TransitionParams<T>;
-}
 
 // Stores ---
 

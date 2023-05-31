@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte/internal';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses } from '../../types.js';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();

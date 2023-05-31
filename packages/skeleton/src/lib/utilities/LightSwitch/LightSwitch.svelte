@@ -3,7 +3,7 @@
 	import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState, getModeOsPrefers } from './lightswitch.js';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses } from '../../types.js';
 	type OnKeyDownEvent = KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement };
 
 	// Props

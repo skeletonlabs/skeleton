@@ -5,7 +5,7 @@
 	import { afterUpdate } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses } from '../../types.js';
 
 	// Props
 	/**

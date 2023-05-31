@@ -3,7 +3,7 @@
 	import { tailwindDefaultColors } from './settings.js';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses } from '../../types.js';
 	import type { ConicStop } from './types.js';
 
 	// Props
