@@ -12,13 +12,15 @@
 	import { getContext } from 'svelte';
 	import { createEventDispatcher } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
-	import { prefersReducedMotion } from '../../stores';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import { disabledTransition, type CssClasses, type TransitionSettings } from '../..';
+	import type { CssClasses, TransitionSettings } from '../..';
+
+	type TransitionIn = $$Generic<Transition>;
+	type TransitionOut = $$Generic<Transition>;
 
 	// Props (state)
 	/** Set open by default on load. */
@@ -42,9 +44,9 @@
 	/** The writable store that houses the auto-collapse active item UUID. */
 	export let active: Writable<string | null> = getContext('active');
 	/** Provide the transition to use when values move in. Set false to disable the transition.*/
-	export let transitionIn: TransitionSettings | false = getContext('transitionIn');
+	export let transitionIn: TransitionSettings<TransitionIn> = getContext('transitionIn');
 	/** Provide the transition to use when values move out. Set false to disable the transition.*/
-	export let transitionOut: TransitionSettings | false = getContext('transitionOut');
+	export let transitionOut: TransitionSettings<TransitionOut> = getContext('transitionOut');
 	// ---
 	/** Set the disabled state for this item. */
 	export let disabled: boolean = getContext('disabled');
@@ -71,16 +73,6 @@
 	export let duration: number = getContext('duration');
 	// Silence warning about unused props:
 	const deprecated = [duration];
-
-	// Transition
-	let { transition: trIn, params: trInParams } = transitionIn as TransitionSettings;
-	let { transition: trOut, params: trOutParams } = transitionOut as TransitionSettings;
-	if (transitionIn === false || ($prefersReducedMotion && !trInParams?.ignoreReducedMotion)) {
-		trIn = disabledTransition;
-	}
-	if (transitionOut === false || ($prefersReducedMotion && !trInParams?.ignoreReducedMotion)) {
-		trOut = disabledTransition;
-	}
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: Event): void {
@@ -157,8 +149,8 @@
 		<div
 			class="accordion-panel {classesPanel}"
 			id="accordion-panel-{id}"
-			in:trIn|local={{ ...trInParams }}
-			out:trOut|local={{ ...trOutParams }}
+			in:transitionIn.transition|local={{ ...transitionIn.params }}
+			out:transitionOut.transition|local={{ ...transitionOut.params }}
 			role="region"
 			aria-hidden={!openState}
 			aria-labelledby="accordion-control-{id}"

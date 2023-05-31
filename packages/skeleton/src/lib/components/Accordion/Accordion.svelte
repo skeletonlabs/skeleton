@@ -8,20 +8,27 @@
 
 	// Types
 	import type { CssClasses, TransitionSettings } from '../..';
+	
+	type TransitionIn = $$Generic<Transition>;
+	type TransitionOut = $$Generic<Transition>;
 
 	// Props
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
+
+	// Props (transition)
+	/** Enable/Disable transitions */
+	export let transitions = true;
 	/**
-	 * Provide the transition to use when values move in. Set false to disable the transition.
-	 * @type {TransitionSettings | false}
+	 * Provide the transition to use when values move in.
+	 * @type {TransitionSettings<TransitionIn>}
 	 */
-	export let transitionIn: TransitionSettings | false = { transition: slide, params: { duration: 200 } };
+	export let transitionIn: TransitionSettings<TransitionIn> = { transition: slide as TransitionIn, params: { duration: transitions ? 200 : 0} };
 	/**
-	 * Provide the transition to use when values move out. Set false to disable the transition.
-	 * @type {TransitionSettings | false}
+	 * Provide the transition to use when values move out.
+	 * @type {TransitionSettings<TransitionOut>}
 	 */
-	export let transitionOut: TransitionSettings | false = { transition: slide, params: { duration: 200 } };
+	export let transitionOut: TransitionSettings<TransitionOut> = { transition: slide as TransitionIn, params: { duration: transitions ? 200 : 0} };
 
 	// Props (parent)
 	/** Provide classes to set the accordion width. */
@@ -65,6 +72,7 @@
 	setContext('active', active);
 	setContext('autocollapse', autocollapse);
 	setContext('duration', duration);
+	setContext('transitions', transitions);
 	setContext('transitionIn', transitionIn);
 	setContext('transitionOut', transitionOut);
 	setContext('disabled', disabled);
