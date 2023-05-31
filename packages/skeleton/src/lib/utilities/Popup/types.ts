@@ -33,6 +33,10 @@ export interface PopupSettings {
 	target: string;
 	/** Set the placement position. Defaults 'bottom'. */
 	placement?: Placement;
+	/** Function that's passed upon opening the popup with the chosen event. */
+	open?: (event: Event, openFunction: Function) => Function;
+	/** Function that's passed upon closing the popup with the chosen event. */
+	close?: (event: Event, closeFunction: Function) => Function;
 	/** Query elements that close the popup when clicked. Defaults `'a[href], button'`. */
 	closeQuery?: string;
 	/** Optional callback function that reports state change. */

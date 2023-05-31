@@ -181,20 +181,20 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	// Event Listeners
 	switch (args.event) {
 		case 'click':
-			triggerNode.addEventListener('click', toggle, true);
-			window.addEventListener('click', onWindowClick, true);
+			triggerNode.addEventListener('click', args.open ? (event) => args.open?.(event, toggle) : toggle, true);
+			window.addEventListener('click', args.close ? (event) => args.close?.(event, onWindowClick) : onWindowClick, true);
 			break;
 		case 'hover':
-			triggerNode.addEventListener('mouseover', open, true);
-			triggerNode.addEventListener('mouseleave', () => close(), true);
+			triggerNode.addEventListener('mouseover', args.open ? (event) => args.open?.(event, open) : open, true);
+			triggerNode.addEventListener('mouseleave', args.close ? (event) => args.close?.(event, close) : (() => close()), true);
 			break;
 		case 'focus-blur':
-			triggerNode.addEventListener('focus', toggle, true);
-			triggerNode.addEventListener('blur', () => close(), true);
+			triggerNode.addEventListener('focus', args.open ? (event) => args.open?.(event, toggle) : toggle, true);
+			triggerNode.addEventListener('blur', args.close ? (event) => args.close?.(event, close) : (() => close()), true);
 			break;
 		case 'focus-click':
-			triggerNode.addEventListener('focus', open, true);
-			window.addEventListener('click', onWindowClick, true);
+			triggerNode.addEventListener('focus', args.open ? (event) => args.open?.(event, open) : open, true);
+			window.addEventListener('click', args.close ? (event) => args.close?.(event, onWindowClick) : onWindowClick, true);
 			break;
 		default:
 			throw new Error(`Event value of '${args.event}' is not supported. ${documentationLink}`);
