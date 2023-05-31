@@ -1,53 +1,63 @@
 // Action: Focus Trap
 export function focusTrap(node: HTMLElement, enabled: boolean) {
 	const elemWhitelist = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
-	let elemFirst: HTMLElement;
-	let elemLast: HTMLElement;
+	let firstFocusableChild: HTMLElement;
+	let lastFocusableChild: HTMLElement;
 
-	// When the first element is selected, shift+tab pressed, jump to the last selectable item.
-	function onFirstElemKeydown(e: KeyboardEvent): void {
-		if (e.shiftKey && e.code === 'Tab') {
-			e.preventDefault();
-			elemLast.focus();
+	function keydownHandler(event: KeyboardEvent) {
+
+		// We do not care for any keys other than tab so we return early, also return if focustrap is disabled
+		// Note: All code after this statement is with 'Tab is pressed' context in mind.
+		if (event.key !== 'Tab' || !enabled) return;
+
+		// If the user holds shift and the currently active element is the firstFocusableChild, focus the last child
+		if (event.shiftKey && document.activeElement === firstFocusableChild) {
+			event.preventDefault();
+			lastFocusableChild.focus();
+		} 
+
+		// If the currently active element is the lastFocusableChild, focus the first child
+		else if (!event.shiftKey && document.activeElement === lastFocusableChild) {
+			event.preventDefault();
+			firstFocusableChild.focus();
+		}
+
+		// If the activeElement is currently outside our node focus the first child
+		else if (!node.contains(document.activeElement)) {
+			event.preventDefault();
+			firstFocusableChild.focus();
 		}
 	}
+	document.addEventListener('keydown', keydownHandler);
 
-	// When the last item selected, tab pressed, jump to the first selectable item.
-	function onLastElemKeydown(e: KeyboardEvent): void {
-		if (!e.shiftKey && e.code === 'Tab') {
-			e.preventDefault();
-			elemFirst.focus();
-		}
+	// Get first and last focusable (and therefor tabbable) child from element
+	function getFirstAndLastFocusableChild(element: HTMLElement) {
+		const focusableChilds: HTMLElement[] = Array.from(element.querySelectorAll(elemWhitelist));
+		const first = focusableChilds.at(0);
+		const last = focusableChilds.at(-1);
+		return { first, last };
 	}
 
-	const onScanElements = (fromObserver: boolean) => {
-		if (enabled === false) return;
+	function determineFocusableChilds(fromObserver: boolean)  {
+		if (!enabled) return;
 		// Gather all focusable elements
 		const focusableElems: HTMLElement[] = Array.from(node.querySelectorAll(elemWhitelist));
 		if (focusableElems.length) {
-			// Set first/last focusable elements
-			elemFirst = focusableElems[0];
-			elemLast = focusableElems[focusableElems.length - 1];
+			// Get first and last focusable child from the node
+			const { first, last } = getFirstAndLastFocusableChild(node);
+			if (!first || !last) return;
+			firstFocusableChild = first;
+			lastFocusableChild = last;
 			// Auto-focus first focusable element only when not called from observer
-			if (!fromObserver) elemFirst.focus();
-			// Listen for keydown on first & last element
-			elemFirst.addEventListener('keydown', onFirstElemKeydown);
-			elemLast.addEventListener('keydown', onLastElemKeydown);
+			if (!fromObserver) firstFocusableChild.focus();
 		}
 	};
-	onScanElements(false);
-
-	function onCleanUp(): void {
-		if (elemFirst) elemFirst.removeEventListener('keydown', onFirstElemKeydown);
-		if (elemLast) elemLast.removeEventListener('keydown', onLastElemKeydown);
-	}
+	determineFocusableChilds(false);
+	
 
 	// When children of node are changed (added or removed)
 	const onObservationChange = (mutationRecords: MutationRecord[], observer: MutationObserver) => {
-		if (mutationRecords.length) {
-			onCleanUp();
-			onScanElements(true);
-		}
+		if (mutationRecords.length) determineFocusableChilds(true);
 		return observer;
 	};
 	const observer = new MutationObserver(onObservationChange);
@@ -57,10 +67,10 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	return {
 		update(newArgs: boolean) {
 			enabled = newArgs;
-			newArgs ? onScanElements(false) : onCleanUp();
+			if (newArgs) determineFocusableChilds(false)
 		},
 		destroy() {
-			onCleanUp();
+			document.removeEventListener('keydown', keydownHandler);
 			observer.disconnect();
 		}
 	};
