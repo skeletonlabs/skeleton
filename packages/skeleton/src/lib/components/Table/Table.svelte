@@ -4,7 +4,7 @@
 	import { tableA11y } from '../../utilities/DataTable/actions.js';
 
 	// Types
-	import type { TableSource } from '../../index.js';
+	import type { TableSource } from './types.js';
 	import type { CssClasses } from '../../types.js';
 
 	const dispatch = createEventDispatcher();

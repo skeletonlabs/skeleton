@@ -2,4 +2,5 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: dynamic-animations - Added Transition types, replaced accordion transitions with dynamic transitions.
+feat: Implemented dynamic transitions to the Accordion component.
+
