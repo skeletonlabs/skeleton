@@ -4,15 +4,14 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	let lastFocusableChild: HTMLElement;
 
 	function keydownHandler(event: KeyboardEvent) {
-		// We do not care for any keys other than tab so we return early, also return if focustrap is disabled
-		// Note: All code after this statement is with 'Tab is pressed' context in mind.
+		// Note: All code after this statement is with 'Tab is pressed' context in mind
 		if (event.key !== 'Tab' || !enabled) return;
-		// If the user holds shift and the currently active element is the firstFocusableChild, focus the last child
+		// If the user holds shift and the currently active element is the firstFocusableChild: focus the last child
 		if (event.shiftKey && document.activeElement === firstFocusableChild) {
 			event.preventDefault();
 			lastFocusableChild.focus();
 		}
-		// If the currently active element is the lastFocusableChild, focus the first child
+		// If the currently active element is the lastFocusableChild: focus the first child
 		else if (!event.shiftKey && document.activeElement === lastFocusableChild) {
 			event.preventDefault();
 			firstFocusableChild.focus();
