@@ -79,5 +79,11 @@
 				<a class="anchor" href="/utilities/drawers">drawers</a> to aid accessibility.
 			</p>
 		</section>
+		<h2 class="h2">Strict Mode</h2>
+		<!-- prettier-ignore -->
+		<p>
+			Add the <code class="code">data-focus-strict</code> attribute to the same element the focus trap action is applied to. When this is enabled, users will not be able to tab out of the target element. This is beneficial when creating custom overlays or modals. This is applied automatically for you when using Skeleton's drawer and modal features.
+		</p>
+		<CodeBlock class="w-full" language="html" code={`<div use:focusTrap={true} data-focus-strict>...</div>`} />
 	</svelte:fragment>
 </DocsShell>
