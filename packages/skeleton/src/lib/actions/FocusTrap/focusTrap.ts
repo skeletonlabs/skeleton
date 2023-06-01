@@ -64,7 +64,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 const focusableElementSelector = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 
 // Get first and last focusable child from element
-function getFirstAndLastFocusableChild(element: HTMLElement): { first: HTMLElement | undefined, last: HTMLElement | undefined } {
+function getFirstAndLastFocusableChild(element: HTMLElement): { first: HTMLElement | undefined; last: HTMLElement | undefined } {
 	const focusableChilds: HTMLElement[] = Array.from(element.querySelectorAll(focusableElementSelector));
 	const first = focusableChilds.at(0);
 	const last = focusableChilds.at(-1);
