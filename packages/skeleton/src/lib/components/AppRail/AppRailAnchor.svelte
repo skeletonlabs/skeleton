@@ -7,7 +7,7 @@
 	import { getContext } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Props
 	/** Enables the active state styles when set true. */
@@ -15,7 +15,7 @@
 
 	// Props (region)
 	/** Provide arbitrary classes to style the lead region. */
-	export let regionLead: CssClasses = '';
+	export let regionLead: CssClasses = 'flex justify-center items-center';
 	/** Provide arbitrary classes to style the label region. */
 	export let regionLabel: CssClasses = '';
 

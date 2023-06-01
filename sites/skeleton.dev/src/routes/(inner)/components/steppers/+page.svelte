@@ -38,16 +38,16 @@
 	// Local
 	let locked = true;
 
-	function onNextHandler(e: any): void {
+	function onNextHandler(e: CustomEvent): void {
 		console.log('event:next', e.detail);
 	}
-	function onBackHandler(e: any): void {
+	function onBackHandler(e: CustomEvent): void {
 		console.log('event:prev', e.detail);
 	}
-	function onStepHandler(e: any): void {
+	function onStepHandler(e: CustomEvent): void {
 		console.log('event:step', e.detail);
 	}
-	function onCompleteHandler(e: any): void {
+	function onCompleteHandler(e: CustomEvent): void {
 		console.log('event:complete', e.detail);
 		alert('Complete!');
 	}
@@ -63,6 +63,7 @@
 						<Step>
 							<svelte:fragment slot="header">Get Started!</svelte:fragment>
 							<p>This example Stepper will teach you how to use this component. Tap <u>next</u> to proceed to the next step.</p>
+							<!-- <svelte:fragment slot="navigation"><button class="btn variant-ghost-error">Abort</button></svelte:fragment> -->
 						</Step>
 						<Step>
 							<svelte:fragment slot="header">Going Back.</svelte:fragment>
@@ -150,7 +151,7 @@
 			<CodeBlock
 				language="ts"
 				code={`function onStepHandler(e: {step: number, state: {current: number, total: number}}): void {
-	console.log('event:step', e); 
+	console.log('event:step', e);
 }`}
 			/>
 			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:step={onStepHandler} on:back={onBackHandler}>...</Stepper>`} />
@@ -188,6 +189,25 @@
 			<p>
 				This can be overwritten per each Step as well, which updates the <em>default</em> and <em>header</em> slot placeholder text.
 			</p>
+		</section>
+		<!-- Navigation Slot -->
+		<section class="space-y-4">
+			<h2 class="h2">Navigation Slot</h2>
+			<!-- prettier-ignore -->
+			<p>
+				You may override the contents of the disabled Back button in the <u>first step</u> by supplying a <code class="code">navigation</code> slot. Use this to supply a message or implement a custom action. This is not supported for step two and forward.
+			</p>
+			<CodeBlock
+				language="html"
+				code={`
+<Step>
+	<p>(content)</p>
+	<svelte:fragment slot="navigation">
+		<button class="btn variant-ghost-error" on:click={triggerAbort}>Abort</button>
+	</svelte:fragment>
+</Step>
+			`}
+			/>
 		</section>
 	</svelte:fragment>
 </DocsShell>

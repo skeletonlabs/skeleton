@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Props
 	/**

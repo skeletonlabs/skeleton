@@ -8,7 +8,7 @@
 	import { setContext } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Props (rail)
 	/** Rail: Provide classes to set the background color. */

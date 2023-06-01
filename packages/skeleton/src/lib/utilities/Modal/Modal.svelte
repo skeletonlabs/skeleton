@@ -6,11 +6,11 @@
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
-	import { modalStore } from './stores';
-	import { focusTrap } from '../../actions/FocusTrap/focusTrap';
-	import type { ModalComponent, ModalSettings } from './types';
+	import { modalStore } from './stores.js';
+	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
+	import type { ModalComponent, ModalSettings } from './types.js';
 
 	// Props
 	/** Set the modal position within the backdrop container */
@@ -84,6 +84,7 @@
 		buttonTextSubmit
 	};
 	let currentComponent: ModalComponent | undefined;
+	let registeredInteractionWithBackdrop = false;
 
 	// Modal Store Subscription
 	modalStore.subscribe((modals: ModalSettings[]) => {
@@ -99,17 +100,24 @@
 	});
 
 	// Event Handlers ---
-
-	function onBackdropInteraction(event: MouseEvent | TouchEvent): void {
+	function onBackdropInteractionBegin(event: MouseEvent): void {
 		if (!(event.target instanceof Element)) return;
 		const classList = event.target.classList;
 		if (classList.contains('modal-backdrop') || classList.contains('modal-transition')) {
+			registeredInteractionWithBackdrop = true;
+		}
+	}
+	function onBackdropInteractionEnd(event: MouseEvent): void {
+		if (!(event.target instanceof Element)) return;
+		const classList = event.target.classList;
+		if ((classList.contains('modal-backdrop') || classList.contains('modal-transition')) && registeredInteractionWithBackdrop) {
 			// We return `undefined` to differentiate from the cancel button
 			if ($modalStore[0].response) $modalStore[0].response(undefined);
 			modalStore.close();
 			/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
 			dispatch('backdrop', event);
 		}
+		registeredInteractionWithBackdrop = false;
 	}
 
 	function onClose(): void {
@@ -186,8 +194,10 @@
 		<div
 			class="modal-backdrop {classesBackdrop}"
 			data-testid="modal-backdrop"
-			on:mousedown={onBackdropInteraction}
-			on:touchstart={onBackdropInteraction}
+			on:mousedown={onBackdropInteractionBegin}
+			on:mouseup={onBackdropInteractionEnd}
+			on:touchstart
+			on:touchend
 			transition:fade={{ duration }}
 			use:focusTrap={true}
 		>

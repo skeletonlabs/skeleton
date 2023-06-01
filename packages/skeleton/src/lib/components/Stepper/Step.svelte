@@ -1,11 +1,18 @@
 <!-- Reference: https://dribbble.com/shots/16221169-Figma-Material-Ui-components-Steppers-and-sliders -->
 <script lang="ts">
+	// Slots:
+	/**
+	 * @slot {{}} header - Overrides the header text label.
+	 * @slot {{}} navigation - Overrides the Back button position for the first step only.
+	 */
+
 	import { getContext, onDestroy } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
+	import type { StepperDispatchParent, StepperState } from './types.js';
 
 	// Props
 	export let locked = false;
@@ -19,8 +26,8 @@
 	export let regionNavigation: CssClasses = '';
 
 	// Context
-	export let state: Writable<any> = getContext('state');
-	export let dispatchParent: any = getContext('dispatchParent');
+	export let state: Writable<StepperState> = getContext('state');
+	export let dispatchParent: StepperDispatchParent = getContext('dispatchParent');
 	export let stepTerm: string = getContext('stepTerm');
 	export let gap: CssClasses = getContext('gap');
 	export let justify: CssClasses = getContext('justify');
@@ -91,10 +98,19 @@
 		<!-- Navigation -->
 		{#if $state.total > 1}
 			<div class="step-navigation {classesNavigation}" transition:fade|local={{ duration: 100 }}>
-				<button type={buttonBackType} class="btn {buttonBack}" on:click={onBack} disabled={$state.current === 0}
-					>{@html buttonBackLabel}</button
-				>
+				{#if stepIndex === 0 && $$slots.navigation}
+					<!-- Slot: Navigation -->
+					<div class="step-navigation-slot">
+						<slot name="navigation" />
+					</div>
+				{:else}
+					<!-- Button: Back -->
+					<button type={buttonBackType} class="btn {buttonBack}" on:click={onBack} disabled={$state.current === 0}>
+						{@html buttonBackLabel}
+					</button>
+				{/if}
 				{#if stepIndex < $state.total - 1}
+					<!-- Button: Next -->
 					<button type={buttonNextType} class="btn {buttonNext}" on:click={onNext} disabled={locked}>
 						{#if locked}
 							<svg class="w-3 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -106,6 +122,7 @@
 						<span>{@html buttonNextLabel}</span>
 					</button>
 				{:else}
+					<!-- Button: Complete -->
 					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>
 						{@html buttonCompleteLabel}
 					</button>

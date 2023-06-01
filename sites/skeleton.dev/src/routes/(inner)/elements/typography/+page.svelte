@@ -10,8 +10,8 @@
 		feature: DocsFeature.Element,
 		name: 'Typography',
 		description: 'Provides a variety of globally scoped typographic styles. Keeps common tags styled consistently throughout an app.',
-		stylesheetIncludes: ['all', 'typography'],
-		source: 'styles/typography.css'
+		stylesheetIncludes: ['skeleton', 'typography'],
+		source: 'styles/partials/typography.css'
 	};
 </script>
 
@@ -251,11 +251,11 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		<section class="space-y-4">
 			<h2 class="h2">Using the Tailwind Plugin</h2>
 			<!-- prettier-ignore -->
-			<p>Tailwind provides an <a class="anchor" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">official plugin</a> to automatically style HTML you do not control, such as CMS or blog content. Follow Tailwind's official instructions to install and configure this plugin within your project. You may then <a class="anchor" href="https://tailwindcss.com/docs/typography-plugin#element-modifiers" target="_blank" rel="noreferrer">set or adjust the modifiers for each element</a>. Skeleton provides a few default adaptive theme styles for common prose elements, such as: headings, paragraphs, and anchors. See the instruction provided below.</p>
+			<p>Tailwind provides an <a class="anchor" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">official plugin</a> to automatically style HTML you do not control, such as CMS or blog content. Follow Tailwind's official instructions to install and configure this plugin within your project, then <a class="anchor" href="https://tailwindcss.com/docs/typography-plugin#element-modifiers" target="_blank" rel="noreferrer">set or adjust the modifiers for each element</a>.</p>
 			<p class="font-bold">Method 1: Inline Utility Classes:</p>
 			<CodeBlock language="html" code={`<article class="prose lg:prose-xl prose-code:bg-purple-500"></article>`} />
 			<p class="font-bold">Method 2: Global Stylesheet Overrides</p>
-			<CodeBlock language="html" code={`<article class="prose lg:prose-xl"></article>`} />
+			<CodeBlock language="html" code={`<article class="prose"></article>`} />
 			<CodeBlock
 				language="css"
 				code={`
@@ -274,16 +274,30 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 				When overriding existing styles you may need to use <code class="code">!</code> to set <em>important</em>, such as
 				<code class="code">prose-code:!bg-purple-500</code>
 			</p>
+			<Accordion class="variant-ghost-warning rounded-container-token">
+				<AccordionItem>
+					<svelte:fragment slot="summary">
+						<div class="flex items-center space-x-2">
+							<h3 class="h3" data-toc-ignore>Default Prose Styling</h3>
+							<span class="badge variant-filled-warning">Deprecated</span>
+						</div>
+					</svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							Skeleton currently provides default styles for common prose elements when you import the following into your root layout <code
+								class="code">/src/routes/+layout.svelte</code
+							>. However, this will be removed in Skeleton v2+. Please consider maintaining this yourself via the methods above.
+						</p>
+						<CodeBlock language="ts" code={`import '@skeletonlabs/skeleton/styles/partials/typography-prose.css';`} />
+					</svelte:fragment>
+				</AccordionItem>
+			</Accordion>
 		</section>
 		<hr />
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
 				<h2 class="h2">Excluding Styles</h2>
 				<span class="badge variant-filled-warning">Deprecated</span>
-			</div>
-			<div class="alert variant-ghost-warning">
-				<!-- prettier-ignore -->
-				<p>This exemption class is only relevant when using on-by-default typography rather than the opt-in system. This is slated for deprecation and will be dropped in Skeleton v2.x+.</p>
 			</div>
 			<p>
 				Use the <code class="code">.unstyled</code> class to exclude and reset Skeleton's on-by-default typography styles, then apply new styles
@@ -308,6 +322,10 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+			<aside class="alert variant-ghost-warning">
+				<!-- prettier-ignore -->
+				<p>This class is only required for the "on-by-default" typography system and will no longer be needed in Skeleton v2+.</p>
+			</aside>
 		</section>
 	</svelte:fragment>
 </DocsShell>

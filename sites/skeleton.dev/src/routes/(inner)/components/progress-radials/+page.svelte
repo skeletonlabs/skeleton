@@ -35,7 +35,7 @@
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="ts" code={`let value: number = 50; // %`} />
-				<CodeBlock language="html" code={`<ProgressRadial {value}>{value}%</ProgressRadial>`} />
+				<CodeBlock language="html" code={`<ProgressRadial value={value}>{value}%</ProgressRadial>`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>

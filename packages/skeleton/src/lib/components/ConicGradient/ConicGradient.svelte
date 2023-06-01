@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { afterUpdate } from 'svelte';
-	import { tailwindDefaultColors } from './settings';
+	import { tailwindDefaultColors } from './settings.js';
 
 	// Types
-	import type { CssClasses } from '../..';
-	import type { ConicStop } from './types';
+	import type { CssClasses } from '../../index.js';
+	import type { ConicStop } from './types.js';
 
 	// Props
 	/**
@@ -20,6 +20,8 @@
 	export let width: CssClasses = 'w-24';
 	/** Style the legend hover effect. */
 	export let hover: CssClasses = 'bg-primary-hover-token';
+	/** Set the number of digits on the legend values. */
+	export let digits = 0;
 
 	// Props (regions)
 	/** Style the caption region above the gradient. */
@@ -62,7 +64,7 @@
 			return {
 				label: v.label,
 				color: setColorValue(v.color),
-				value: v.end - v.start
+				value: (v.end - v.start).toFixed(digits)
 			};
 		});
 	}

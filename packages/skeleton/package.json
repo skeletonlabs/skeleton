@@ -85,11 +85,14 @@
 			},
 			"./styles/*": "./dist/styles/*",
 			"./themes/*": "./dist/themes/*",
-			"./tailwind/skeleton.cjs": "./dist/tailwind/skeleton.cjs"
+			"./tailwind/skeleton.cjs": {
+				"types": "./dist/tailwind/skeleton.cts",
+				"default": "./dist/tailwind/skeleton.cjs"
+			}
 		},
 		"typesVersions": {
 			">4.0": {
-				"index": [
+				"index.d.ts": [
 					"./dist/index.d.ts"
 				],
 				"tailwind/skeleton.cjs": [
@@ -117,12 +120,5 @@
 		"./dist/tailwind/*",
 		"./dist/themes/*",
 		"!./dist/**/*.test.*"
-	],
-	"typesVersions": {
-		">4.0": {
-			"index": [
-				"./src/lib/index.ts"
-			]
-		}
-	}
+	]
 }
