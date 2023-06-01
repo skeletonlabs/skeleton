@@ -7,19 +7,16 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 		// We do not care for any keys other than tab so we return early, also return if focustrap is disabled
 		// Note: All code after this statement is with 'Tab is pressed' context in mind.
 		if (event.key !== 'Tab' || !enabled) return;
-
 		// If the user holds shift and the currently active element is the firstFocusableChild, focus the last child
 		if (event.shiftKey && document.activeElement === firstFocusableChild) {
 			event.preventDefault();
 			lastFocusableChild.focus();
 		}
-
 		// If the currently active element is the lastFocusableChild, focus the first child
 		else if (!event.shiftKey && document.activeElement === lastFocusableChild) {
 			event.preventDefault();
 			firstFocusableChild.focus();
 		}
-
 		// If the activeElement is currently outside our node focus the first child
 		else if (!node.contains(document.activeElement)) {
 			event.preventDefault();
@@ -30,17 +27,16 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 
 	function determineFocusableChilds(fromObserver: boolean) {
 		if (!enabled) return;
-		// Gather all focusable elements
-		const focusableElems: HTMLElement[] = Array.from(node.querySelectorAll(focusableElementSelector));
-		if (focusableElems.length) {
-			// Get first and last focusable child from the node
-			const { first, last } = getFirstAndLastFocusableChild(node);
-			if (!first || !last) return;
-			firstFocusableChild = first;
-			lastFocusableChild = last;
-			// Auto-focus first focusable element only when not called from observer
-			if (!fromObserver) firstFocusableChild.focus();
-		}
+		// Get first and last focusable child from the node
+		const { first, last } = getFirstAndLastFocusableChild(node);
+		// If there is not first (and thus last node, we return early)
+		if (!first || !last) return;
+		// Set the new found first and last focusable childs to the variables
+		firstFocusableChild = first;
+		lastFocusableChild = last;
+		// Auto-focus first focusable element only when not called from observer
+		if (!fromObserver) firstFocusableChild.focus();
+
 	}
 	determineFocusableChilds(false);
 
@@ -65,9 +61,10 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	};
 }
 
+// Selector to match any focusable (and thus tabbable) elements
 const focusableElementSelector = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 
-// Get first and last focusable (and therefor tabbable) child from element
+// Get first and last focusable child from element
 function getFirstAndLastFocusableChild(element: HTMLElement) {
 	const focusableChilds: HTMLElement[] = Array.from(element.querySelectorAll(focusableElementSelector));
 	const first = focusableChilds.at(0);
