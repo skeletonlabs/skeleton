@@ -73,5 +73,7 @@ function getFirstAndLastFocusableChild(element: HTMLElement): { first: HTMLEleme
 
 // Return wether a element has the data-strict-focus attribute
 function isFocusStrict(element: HTMLElement): boolean {
-	return element.dataset.strictFocus !== undefined;
+	const strictFocus = element.dataset.strictFocus;
+	if (strictFocus === '' || strictFocus?.toLocaleLowerCase() === 'true') return true;
+	return false;
 }
