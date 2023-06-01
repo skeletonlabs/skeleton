@@ -1,13 +1,7 @@
 module.exports = {
 	root: true,
 	parser: '@typescript-eslint/parser',
-	extends: [
-		'eslint:recommended',
-		'plugin:@typescript-eslint/recommended',
-		'plugin:svelte/prettier',
-		'plugin:svelte/recommended',
-		'prettier'
-	],
+	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:svelte/prettier', 'prettier'],
 	plugins: ['@typescript-eslint'],
 	ignorePatterns: ['*.cjs'],
 	overrides: [
@@ -24,6 +18,7 @@ module.exports = {
 		ecmaVersion: 2020,
 		extraFileExtensions: ['.svelte']
 	},
+	globals: { $$Generic: 'readable' },
 	env: {
 		browser: true,
 		es2017: true,
@@ -31,6 +26,6 @@ module.exports = {
 	},
 	rules: {
 		'no-useless-escape': 'off',
-		'svelte/no-at-html-tags': 'warn'
+		'svelte/no-at-html-tags': 'off'
 	}
 };

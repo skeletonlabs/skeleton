@@ -1,7 +1,7 @@
 module.exports = {
 	root: true,
 	parser: '@typescript-eslint/parser',
-	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:svelte/recommended', 'prettier'],
+	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:svelte/prettier', 'prettier'],
 	plugins: ['@typescript-eslint'],
 	ignorePatterns: ['*.cjs', '.temp/**/*'],
 	overrides: [
@@ -24,8 +24,9 @@ module.exports = {
 		es2017: true,
 		node: true
 	},
+	globals: { $$Generic: 'readable' },
 	rules: {
-		'svelte/no-at-html-tags': 'warn',
+		'svelte/no-at-html-tags': 'off',
 
 		'no-restricted-imports': 'off',
 		'@typescript-eslint/no-restricted-imports': [
