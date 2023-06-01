@@ -17,8 +17,8 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			event.preventDefault();
 			firstFocusableChild.focus();
 		}
-		// If the activeElement is currently outside our node focus the first child
-		else if (!node.contains(document.activeElement)) {
+		// If strictFocus is enabled and the activeElement is currently outside our node focus the first child
+		else if (isFocusStrict(node) && !node.contains(document.activeElement)) {
 			event.preventDefault();
 			firstFocusableChild.focus();
 		}
@@ -69,4 +69,9 @@ function getFirstAndLastFocusableChild(element: HTMLElement) {
 	const first = focusableChilds.at(0);
 	const last = focusableChilds.at(-1);
 	return { first, last };
+}
+
+// Return wether a element has the data-strict-focus attribute
+function isFocusStrict(element: HTMLElement): boolean {
+	return element.dataset.strictFocus !== undefined;
 }
