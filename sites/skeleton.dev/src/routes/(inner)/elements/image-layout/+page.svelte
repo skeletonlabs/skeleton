@@ -7,8 +7,6 @@
 	// Sveld
 	// import sveldComp from '@skeletonlabs/skeleton/.../Component.svelte?raw&sveld';
 
-	
-
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
