@@ -39,31 +39,31 @@
 			<svelte:fragment slot="preview">
 				<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI/128x128" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI/300x300" alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/s0fXOuyTH1M/128x128" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/s0fXOuyTH1M/300x300" alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/CKZQ6g_FB2Q/128x128" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/CKZQ6g_FB2Q/300x300" alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/VYuJLsF4XQQ/128x128" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/VYuJLsF4XQQ/300x300" alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/01D-_OtB8wQ/128x128" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/01D-_OtB8wQ/300x300" alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/eP2zYflRoNY/128x128" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/eP2zYflRoNY/300x300" alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/z_X0PxmBuIQ/128x128" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/z_X0PxmBuIQ/300x300" alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/1SEH8qv-Obo/128x128" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/1SEH8qv-Obo/300x300" alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/c64AB11j-po/128x128" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/c64AB11j-po/300x300" alt="" />
 					</div>
 				</div>
 			</svelte:fragment>
@@ -91,31 +91,11 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2 class="h2">Default gallery</h2>
-			<p>Show a collection of images with three pictures in a row</p>
-			<CodeBlock
-				language="html"
-				code={`
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-	<div>
-		<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI/128x128" alt="">
-	</div>
-	<div>
-		<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/CKZQ6g_FB2Q/128x128" alt="">
-	</div>
-	<div>
-		<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI/128x128" alt="">
-	</div>
-<div>
-			`}
-			/>
-		</section>
-		<section class="space-y-4">
 			<h2 class="h2">Masonary Gallery</h2>
 			<p>Show the images inside a masonry grid layouts with two columns.</p>
-			<DocsPreview>
+			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="grid grid-cols-2 md:grid-cols-2 gap-2">
+					<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
 						<div class="grid gap-4">
 							<div>
 								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI" alt="" />
@@ -124,61 +104,101 @@
 								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/s0fXOuyTH1M" alt="" />
 							</div>
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/ZalgcsKeUeA" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/tQ4fEcKfB1g" alt="" />
 							</div>
 						</div>
 						<div class="grid gap-4">
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/z_X0PxmBuIQ" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/SMvOSlgThHA" alt="" />
 							</div>
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/VYuJLsF4XQQ" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/azE50UpJDP0" alt="" />
 							</div>
 							<div>
 								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/CKZQ6g_FB2Q" alt="" />
 							</div>
 						</div>
-						<div />
-					</div></svelte:fragment
-				>
+						<div class="grid gap-4">
+							<div>
+								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/UhE2lwGn-DQ" alt="" />
+							</div>
+							<div>
+								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/VYuJLsF4XQQ" alt="" />
+							</div>
+							<div>
+								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/twVS-YjQn9Y" alt="" />
+							</div>
+						</div>
+						<div class="grid gap-4">
+							<div>
+								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/EkW1r_eDjRs" alt="" />
+							</div>
+							<div>
+								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/QDc-OQU9hFk" alt="" />
+							</div>
+							<div>
+								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/QK_VtGYQV_U" alt="" />
+							</div>
+						</div>
+					</div>
+				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
 						code={`
-
-<div class="grid grid-cols-2 md:grid-cols-2 gap-2">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
 	<div class="grid gap-4">
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI" alt="">
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI" alt="" />
 		</div>
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/s0fXOuyTH1M" alt="">
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/s0fXOuyTH1M" alt="" />
 		</div>
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/ZalgcsKeUeA" alt="">
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/tQ4fEcKfB1g" alt="" />
 		</div>
 	</div>
 	<div class="grid gap-4">
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/z_X0PxmBuIQ" alt="">
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/SMvOSlgThHA" alt="" />
 		</div>
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/VYuJLsF4XQQ" alt="">
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/azE50UpJDP0" alt="" />
 		</div>
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/CKZQ6g_FB2Q" alt="">
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/CKZQ6g_FB2Q" alt="" />
 		</div>
 	</div>
-<div>
+	<div class="grid gap-4">
+		<div>
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/UhE2lwGn-DQ" alt="" />
+		</div>
+		<div>
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/VYuJLsF4XQQ" alt="" />
+		</div>
+		<div>
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/twVS-YjQn9Y" alt="" />
+		</div>
+	</div>
+	<div class="grid gap-4">
+		<div>
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/EkW1r_eDjRs" alt="" />
+		</div>
+		<div>
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/QDc-OQU9hFk" alt="" />
+		</div>
+		<div>
+			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/QK_VtGYQV_U" alt="" />
+		</div>
+	</div>
 
-
-
-	`}
+</div>
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
-		<section class="space-y-4">
+		<!-- <section class="space-y-4">
 			<h2 class="h2">Featured image</h2>
 			<p>Used to feature the most important image and show a row of pictures below.</p>
 			<DocsPreview>
@@ -244,6 +264,15 @@
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+		</section> -->
+		<section class="space-y-4">
+			<h2 class="h2">Attribution</h2>
+			<p>
+				Image layout markup and styles provided courtesy
+				<a class="anchor" href="https://flowbite.com/" target="_blank" rel="noreferrer">Flowbite</a>. Please
+				<a class="anchor" href="https://www.skeleton.dev/blog/skeleton-plus-flowbite" target="_blank" rel="noreferrer">view our guide</a>
+				to learn more about integrating Flowbite in your Skeleton projects.
+			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>
