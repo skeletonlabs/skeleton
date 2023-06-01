@@ -73,8 +73,11 @@
 	export let duration: number = getContext('duration');
 
 	// Local
-	const { transition: trIn, params: trInParams } = transitionIn;
-	const { transition: trOut, params: trOutParams } = transitionOut;
+	let { transition: trIn, params: trInParams } = transitionIn;
+	let { transition: trOut, params: trOutParams } = transitionOut;
+	// DEPRECATED: drop the following when duration is removed
+	trInParams = { duration, ...trInParams };
+	trOutParams = { duration, ...trOutParams };
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: Event): void {
@@ -151,8 +154,8 @@
 		<div
 			class="accordion-panel {classesPanel}"
 			id="accordion-panel-{id}"
-			in:trIn|local={{ ...trInParams, duration }}
-			out:trOut|local={{ ...trOutParams, duration }}
+			in:trIn|local={{ ...trInParams }}
+			out:trOut|local={{ ...trOutParams }}
 			role="region"
 			aria-hidden={!openState}
 			aria-labelledby="accordion-control-{id}"
