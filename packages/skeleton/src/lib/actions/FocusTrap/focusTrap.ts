@@ -36,7 +36,6 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 		lastFocusableChild = last;
 		// Auto-focus first focusable element only when not called from observer
 		if (!fromObserver) firstFocusableChild.focus();
-
 	}
 	determineFocusableChilds(false);
 
