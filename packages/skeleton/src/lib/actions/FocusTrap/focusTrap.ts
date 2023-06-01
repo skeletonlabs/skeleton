@@ -17,7 +17,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			event.preventDefault();
 			firstFocusableChild.focus();
 		}
-		// If strictFocus is enabled and the activeElement is currently outside our node focus the first child
+		// If strictFocus is enabled and the activeElement is currently outside our node: focus the first child
 		else if (isFocusStrict(node) && !node.contains(document.activeElement)) {
 			event.preventDefault();
 			firstFocusableChild.focus();
@@ -60,11 +60,11 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	};
 }
 
-// Selector to match any focusable (and thus tabbable) elements
+// Selector that matches any focusable (and thus tabbable) elements
 const focusableElementSelector = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 
 // Get first and last focusable child from element
-function getFirstAndLastFocusableChild(element: HTMLElement) {
+function getFirstAndLastFocusableChild(element: HTMLElement): { first: HTMLElement | undefined, last: HTMLElement | undefined } {
 	const focusableChilds: HTMLElement[] = Array.from(element.querySelectorAll(focusableElementSelector));
 	const first = focusableChilds.at(0);
 	const last = focusableChilds.at(-1);
