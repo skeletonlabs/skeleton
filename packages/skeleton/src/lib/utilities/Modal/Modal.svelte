@@ -200,7 +200,7 @@
 			on:touchend
 			transition:fade={{ duration }}
 			use:focusTrap={true}
-			data-strict-focus
+			data-focus-strict
 		>
 			<!-- Transition Layer -->
 			<div class="modal-transition {classesTransitionLayer}" transition:fly={{ duration, opacity: flyOpacity, x: flyX, y: flyY }}>

@@ -1,7 +1,26 @@
 // Action: Focus Trap
+// DEPRECATED: replace the 'enabled: boolean' argument with '{enabled: boolean, strict?: boolean}' in v2.
 export function focusTrap(node: HTMLElement, enabled: boolean) {
 	let firstFocusableChild: HTMLElement;
 	let lastFocusableChild: HTMLElement;
+
+	// Selector that matches any focusable (and thus tabbable) elements
+	const focusableElementSelector = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+
+	// Get first and last focusable child from element
+	function getFirstAndLastFocusableChild(element: HTMLElement): { first: HTMLElement | undefined; last: HTMLElement | undefined } {
+		const focusableChilds: HTMLElement[] = Array.from(element.querySelectorAll(focusableElementSelector));
+		const first = focusableChilds.at(0);
+		const last = focusableChilds.at(-1);
+		return { first, last };
+	}
+
+	// Return wether a element has the data-focus-strict attribute
+	function isFocusStrict(element: HTMLElement): boolean {
+		const strictFocus = element.dataset.focusStrict;
+		if (strictFocus === '' || strictFocus?.toLocaleLowerCase() === 'true') return true;
+		return false;
+	}
 
 	function keydownHandler(event: KeyboardEvent) {
 		// Note: All code after this statement is with 'Tab is pressed' context in mind
@@ -22,8 +41,6 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			firstFocusableChild.focus();
 		}
 	}
-	document.addEventListener('keydown', keydownHandler);
-
 	function determineFocusableChilds(fromObserver: boolean) {
 		if (!enabled) return;
 		// Get first and last focusable child from the node
@@ -46,6 +63,8 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	const observer = new MutationObserver(onObservationChange);
 	observer.observe(node, { childList: true, subtree: true });
 
+	// Event Listener
+	document.addEventListener('keydown', keydownHandler);
 	// Lifecycle
 	return {
 		update(newArgs: boolean) {
@@ -57,22 +76,4 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			observer.disconnect();
 		}
 	};
-}
-
-// Selector that matches any focusable (and thus tabbable) elements
-const focusableElementSelector = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
-
-// Get first and last focusable child from element
-function getFirstAndLastFocusableChild(element: HTMLElement): { first: HTMLElement | undefined; last: HTMLElement | undefined } {
-	const focusableChilds: HTMLElement[] = Array.from(element.querySelectorAll(focusableElementSelector));
-	const first = focusableChilds.at(0);
-	const last = focusableChilds.at(-1);
-	return { first, last };
-}
-
-// Return wether a element has the data-strict-focus attribute
-function isFocusStrict(element: HTMLElement): boolean {
-	const strictFocus = element.dataset.strictFocus;
-	if (strictFocus === '' || strictFocus?.toLocaleLowerCase() === 'true') return true;
-	return false;
 }

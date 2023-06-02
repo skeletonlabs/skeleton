@@ -175,7 +175,7 @@
 		on:keypress
 		transition:fade|local={{ duration }}
 		use:focusTrap={true}
-		data-strict-focus
+		data-focus-strict
 	>
 		<!-- Drawer -->
 		<div
