@@ -24,7 +24,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<form class="w-full card p-4 text-token space-y-4" use:focusTrap={isFocused}>
+				<form class="w-full card p-4 text-token space-y-4" use:focusTrap={isFocused} data-focus-strict>
 					<label class="label">
 						<span>Name</span>
 						<input class="input" type="text" placeholder="Enter name..." />
@@ -73,17 +73,19 @@
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2 class="h2">Focusing Overlays</h2>
+			<h2 class="h2">Strict Mode</h2>
+			<p>
+				Add the <code class="code">data-focus-strict</code> attribute to the same element the focus trap action is applied to. When enabled,
+				users will not be able to tab outside the target region. This is beneficial for elements that require full focus, such as overlays.
+			</p>
+			<CodeBlock class="w-full" language="html" code={`<div use:focusTrap={true} data-focus-strict>...</div>`} />
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Skeleton Overlays</h2>
 			<p>
 				Skeleton automatically enables this action for overlays such as <a class="anchor" href="/utilities/modals">modals</a> and
 				<a class="anchor" href="/utilities/drawers">drawers</a> to aid accessibility.
 			</p>
 		</section>
-		<h2 class="h2">Strict Mode</h2>
-		<!-- prettier-ignore -->
-		<p>
-			Add the <code class="code">data-focus-strict</code> attribute to the same element the focus trap action is applied to. When this is enabled, users will not be able to tab out of the target element. This is beneficial when creating custom overlays or modals. This is applied automatically for you when using Skeleton's drawer and modal features.
-		</p>
-		<CodeBlock class="w-full" language="html" code={`<div use:focusTrap={true} data-focus-strict>...</div>`} />
 	</svelte:fragment>
 </DocsShell>
