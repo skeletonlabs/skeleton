@@ -87,7 +87,7 @@
 			<svelte:fragment slot="preview">
 				<div class="text-token w-full max-w-sm space-y-2">
 					<input class="input" type="search" name="ac-demo" bind:value={inputDemo} placeholder="Search..." />
-					<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
+					<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
 						<Autocomplete bind:input={inputDemo} options={flavorOptions} on:selection={onDemoSelection} />
 					</div>
 				</div>
@@ -132,7 +132,7 @@ function onFlavorSelection(event: any): void {
 				<CodeBlock
 					language="html"
 					code={`
-<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
+<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
 	<Autocomplete bind:input={inputDemo} options={flavorOptions} on:selection={onFlavorSelection} />
 </div>
 `}
@@ -178,7 +178,7 @@ const flavorOptions: AutocompleteOption[] = [
 							bind:value={inputAllowlist}
 							placeholder="Search..."
 						/>
-						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
+						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
 							<Autocomplete
 								bind:input={inputAllowlist}
 								options={flavorOptions}
@@ -203,7 +203,7 @@ const flavorOptions: AutocompleteOption[] = [
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-full max-w-sm space-y-2">
-						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
+						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
 							<Autocomplete options={flavorOptions} denylist={flavorDenylist} on:selection={onDeniedlistSelect} />
 						</div>
 					</div>
@@ -225,7 +225,7 @@ const flavorOptions: AutocompleteOption[] = [
 				<svelte:fragment slot="preview">
 					<div class="text-token w-full max-w-sm space-y-2">
 						<InputChip bind:input={inputChip} bind:value={inputChipList} name="chips" />
-						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
+						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
 							<Autocomplete bind:input={inputChip} options={flavorOptions} denylist={inputChipList} on:selection={onInputChipSelect} />
 						</div>
 					</div>
@@ -237,7 +237,7 @@ const flavorOptions: AutocompleteOption[] = [
 					<CodeBlock
 						language="html"
 						code={`
-<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
+<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
 	<Autocomplete
 		bind:input={inputChip}
 		options={flavorOptions}
@@ -265,7 +265,7 @@ const flavorOptions: AutocompleteOption[] = [
 							placeholder="Search..."
 							use:popup={popupSettings}
 						/>
-						<div data-popup="popupAutocomplete" class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
+						<div data-popup="popupAutocomplete" class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
 							<Autocomplete bind:input={inputPopupDemo} options={flavorOptions} on:selection={onPopupDemoSelect} />
 						</div>
 					</div>
@@ -303,6 +303,15 @@ let popupSettings: PopupSettings = {
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+		</section>
+
+		<section class="space-y-4">
+			<h2 class="h2">Browser Support</h2>
+			<p>
+				For Firefox, when wrapping the Autocomplete component in an parent element that uses <code class="code">overflow</code>
+				styling, make sure you add <code class="code">tabindex="-1"</code>. By doing this, it will ensure that tab navigation selects the
+				children within, instead of the wrapping element itself.
+			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

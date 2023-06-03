@@ -26,7 +26,7 @@
 	 * */
 	export let value: any;
 	/** Provide a hoverable title attribute for the tile. */
-	export let title: string = '';
+	export let title = '';
 
 	// Props (region)
 	/** Provide arbitrary classes to style the lead region. */

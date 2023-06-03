@@ -39,7 +39,7 @@
 				<section class="w-full text-token card p-4 space-y-4">
 					<p class="font-bold">Unordered List</p>
 					<ul class="list">
-						{#each listData as v, i}
+						{#each listData as v}
 							<li>
 								<Avatar src="https://source.unsplash.com/{v.avatar}/48x48" width="w-12" />
 								<span class="flex-auto">{v.name}</span>
