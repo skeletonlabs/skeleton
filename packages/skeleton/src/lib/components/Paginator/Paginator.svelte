@@ -43,7 +43,7 @@
 	/** Provide arbitrary classes to the active page buttons. */
 	export let active: CssClasses = 'variant-filled-primary';
 	/*** Set the base button classes. */
-	export let buttonClasses: CssClasses = '!px-3 !py-1.5';
+	export let buttonClasses: CssClasses = '!px-3 !py-1.5 fill-current';
 	/**
 	 * Set the label for the Previous button.
 	 * @type {string}
@@ -163,7 +163,7 @@
 		{#if showFirstLastButtons}
 			<button
 				type="button"
-				class={buttonClasses}
+				class="{buttonClasses} 0"
 				on:click={() => {
 					gotoPage(0);
 				}}
