@@ -41,7 +41,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			firstFocusableChild.focus();
 		}
 	}
-	function determineFocusableChilds(fromObserver: boolean) {
+	function determineFocusableChildren(fromObserver: boolean) {
 		if (!enabled) return;
 		// Get first and last focusable child from the node
 		const { first, last } = getFirstAndLastFocusableChild(node);
@@ -53,11 +53,11 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 		// Auto-focus first focusable element only when not called from observer
 		if (!fromObserver) firstFocusableChild.focus();
 	}
-	determineFocusableChilds(false);
+	determineFocusableChildren(false);
 
 	// When children of node are changed (added or removed)
 	const onObservationChange = (mutationRecords: MutationRecord[], observer: MutationObserver) => {
-		if (mutationRecords.length) determineFocusableChilds(true);
+		if (mutationRecords.length) determineFocusableChildren(true);
 		return observer;
 	};
 	const observer = new MutationObserver(onObservationChange);
@@ -69,7 +69,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	return {
 		update(newArgs: boolean) {
 			enabled = newArgs;
-			if (newArgs) determineFocusableChilds(false);
+			if (newArgs) determineFocusableChildren(false);
 		},
 		destroy() {
 			document.removeEventListener('keydown', keydownHandler);
