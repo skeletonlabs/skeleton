@@ -1,4 +1,7 @@
 // Action: Focus Trap
+
+import { hasFocusStrict, registerToStrictlyStack, removeFromStrictlyStack } from './shared.js';
+
 // DEPRECATED: replace the 'enabled: boolean' argument with '{enabled: boolean, strict?: boolean}' in v2.
 export function focusTrap(node: HTMLElement, enabled: boolean) {
 	let firstFocusableChild: HTMLElement;
@@ -50,6 +53,9 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	const observer = new MutationObserver(onObservationChange);
 	observer.observe(node, { childList: true, subtree: true });
 
+	// Register element
+	if (hasFocusStrict(node)) registerToStrictlyStack(node);
+
 	// Event Listener
 	document.addEventListener('keydown', keydownHandler);
 	// Lifecycle
@@ -59,6 +65,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			if (newArgs) determineFocusableChildren(false);
 		},
 		destroy() {
+			if (hasFocusStrict(node)) removeFromStrictlyStack(node);
 			document.removeEventListener('keydown', keydownHandler);
 			observer.disconnect();
 		}
