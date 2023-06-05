@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Fixed Toast jiggle animation on the last
+bugfix: Fixed Toast's jiggle animation
