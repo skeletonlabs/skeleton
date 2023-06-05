@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: modal backdrop interaction - register interaction on mousedown and close modal on mouseup
+feat: Modals now close on `mouseup` on backdrop clicks

@@ -1,6 +1,5 @@
 ---
-"skeleton.dev": patch
 "@skeletonlabs/skeleton": patch
 ---
 
-Add typing to the Stepper store, dispatchParent, and docs page.
+chore: Added types to the `Stepper` store and `dispatchParent`

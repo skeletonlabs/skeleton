@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: The `typography-prose.css` stylesheet must now be imported directly. 
+bugfix: `typography-prose.css` is now required to be imported directly

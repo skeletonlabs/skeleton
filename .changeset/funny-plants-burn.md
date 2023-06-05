@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-docs: Updated autocomplete documentation to demonstrate Firefox tab navigation fix for wrapping elements
+docs: Updated Autocomplete documentation to demonstrate Firefox tab navigation fix for wrapping elements

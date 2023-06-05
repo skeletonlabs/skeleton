@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: checking listBoxItem value equality deeply instead of by reference.
+bugfix: ListBoxItem is now compared by value rather than by reference

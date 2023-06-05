@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: updated focusablePopupElements onWindowKeyDown in popup to allow tabbing into changed lists in Autocomplete
+bugfix: Updated `focusablePopupElements` in Popup to allow tabbing into changed lists in Autocomplete

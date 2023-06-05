@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: updated `typesVersions` map to fix auto imports paths
+bugfix: Updated `typesVersions` map to fix auto imports paths
