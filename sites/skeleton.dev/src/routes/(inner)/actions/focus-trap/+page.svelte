@@ -17,6 +17,8 @@
 
 	// Local
 	let isFocused = false;
+	let isStrict = false;
+	$: shouldFocusStrictly = isStrict && isFocused
 </script>
 
 <DocsShell {settings}>
@@ -24,7 +26,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<form class="w-full card p-4 text-token space-y-4" use:focusTrap={isFocused} data-focus-strict>
+				<form class="w-full card p-4 text-token space-y-4" use:focusTrap={isFocused} data-focus-strict={isStrict}>
 					<label class="label">
 						<span>Name</span>
 						<input class="input" type="text" placeholder="Enter name..." />
@@ -39,8 +41,9 @@
 				</form>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
-				<div class="text-center">
+				<div class="flex justify-evenly">
 					<SlideToggle name="trap-focus" bind:checked={isFocused}>Enable Focus Trap</SlideToggle>
+					<SlideToggle disabled={!isFocused} name="trap-focus-strictly" bind:checked={shouldFocusStrictly}>Enable Strict Focus</SlideToggle>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
