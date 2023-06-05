@@ -18,7 +18,7 @@
 	// Local
 	let isFocused = false;
 	let isStrict = false;
-	$: shouldFocusStrictly = isStrict && isFocused
+	$: shouldFocusStrictly = isStrict && isFocused;
 </script>
 
 <DocsShell {settings}>

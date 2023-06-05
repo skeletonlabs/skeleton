@@ -26,12 +26,10 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 		if (event.shiftKey && document.activeElement === firstFocusableChild) {
 			event.preventDefault();
 			lastFocusableChild.focus();
-		}
-		else if (!event.shiftKey && document.activeElement === lastFocusableChild) {
+		} else if (!event.shiftKey && document.activeElement === lastFocusableChild) {
 			event.preventDefault();
 			firstFocusableChild.focus();
-		}
-		else if (isFocusStrict(node) && !node.contains(document.activeElement)) {
+		} else if (isFocusStrict(node) && !node.contains(document.activeElement)) {
 			event.preventDefault();
 			firstFocusableChild.focus();
 		}
