@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: Added numeric rows to Paginator
+feat: The Paginator component can now be displayed as a numeric row of pages

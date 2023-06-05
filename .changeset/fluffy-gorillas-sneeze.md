@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: `typography-prose.css` is now required to be imported directly
+bugfix: `typography-prose.css` must now be imported directly to enable the default Tailwind Typography plugin styles

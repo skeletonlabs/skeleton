@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Updated `focusablePopupElements` in Popup to allow tabbing into changed lists in Autocomplete
+bugfix: Updated `focusablePopupElements` in Popup to resolve issues when tabbing into Autocomplete options

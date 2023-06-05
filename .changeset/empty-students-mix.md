@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Fire Drawer's `backdrop` event only on backdrop interaction
+bugfix: The Drawer's `backdrop` event only fires on backdrop interaction

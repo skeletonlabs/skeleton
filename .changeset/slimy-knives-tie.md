@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: ListBoxItem is now compared by value rather than by reference
+bugfix: ListBoxItem now supports the use of objects for the `value` property

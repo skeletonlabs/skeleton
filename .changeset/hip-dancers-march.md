@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Fixed Toast's jiggle animation
+bugfix: Fixed an undesired jiggle within the animation for Toasts
