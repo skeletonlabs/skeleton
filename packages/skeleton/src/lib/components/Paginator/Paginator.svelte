@@ -163,7 +163,7 @@
 		{#if showFirstLastButtons}
 			<button
 				type="button"
-				class="{buttonClasses} 0"
+				class="{buttonClasses}"
 				on:click={() => {
 					gotoPage(0);
 				}}
