@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: Added `digits` prop to Conic Gradient
+feat: Added `digits` prop to Conic Gradient to limit decimal points

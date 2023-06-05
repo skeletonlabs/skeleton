@@ -1,5 +1,5 @@
 ---
-"@skeletonlabs/skeleton": patch
+"@skeletonlabs/skeleton": minor
 ---
 
-chore: Provide more forwarded events for the App Rail Tile and Anchor
+feat: Added additional forwarded events for AppRailTile and AppRailAnchor

@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-Add additional safeguard to scrollToHeading
+chore: Added additional type safeguard to the Table of Contents `scrollToHeading`

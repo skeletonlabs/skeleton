@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: replaced unicode arrows with template SVGs in paginator
+bugfix: Replaced unicode arrows with SVGs for the Paginator component

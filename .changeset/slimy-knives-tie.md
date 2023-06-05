@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: checking listBoxItem value equality deeply instead of by reference.
+bugfix: ListBoxItem now supports the use of objects for the `value` property

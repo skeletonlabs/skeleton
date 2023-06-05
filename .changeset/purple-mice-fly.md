@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-Added missing .dark .bg-variant-hover-token
+feat: Added a missing dark mode modifier for each background hover design token

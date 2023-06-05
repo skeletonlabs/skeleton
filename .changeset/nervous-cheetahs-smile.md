@@ -1,5 +1,5 @@
 ---
-"@skeletonlabs/skeleton": patch
+"@skeletonlabs/skeleton": minor
 ---
 
-chore: added a `background` prop to the slide toggle component
+feat: Added a `background` prop to the SlideToggle component
