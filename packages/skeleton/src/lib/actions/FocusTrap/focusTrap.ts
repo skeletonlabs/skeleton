@@ -4,18 +4,17 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	let firstFocusableChild: HTMLElement;
 	let lastFocusableChild: HTMLElement;
 
-	// Selector that matches any focusable (and thus tabbable) elements
 	const focusableElementSelector = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 
-	// Get first and last focusable child from element
-	function getFirstAndLastFocusableChild(element: HTMLElement): { first: HTMLElement | undefined; last: HTMLElement | undefined } {
+	type FirstAndLastFocusableChildren = { first?: HTMLElement; last?: HTMLElement };
+
+	function getFirstAndLastFocusableChild(element: HTMLElement): FirstAndLastFocusableChildren {
 		const focusableChilds: HTMLElement[] = Array.from(element.querySelectorAll(focusableElementSelector));
 		const first = focusableChilds.at(0);
 		const last = focusableChilds.at(-1);
 		return { first, last };
 	}
 
-	// Return wether an element has the data-focus-strict attribute
 	function isFocusStrict(element: HTMLElement): boolean {
 		const strictFocus = element.dataset.focusStrict;
 		return strictFocus === '' || strictFocus === 'true';
