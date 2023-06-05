@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	// Types
 	import type { CssClasses, PaginationSettings } from '../../index.js';
+	import { leftAngles, leftArrow, rightAngles, rightArrow } from './icons.js';
 
 	const dispatch = createEventDispatcher();
 
@@ -42,15 +43,27 @@
 	/** Provide arbitrary classes to the active page buttons. */
 	export let active: CssClasses = 'variant-filled-primary';
 	/*** Set the base button classes. */
-	export let buttonClasses: CssClasses = '!px-3 !py-1.5';
-	/** Set the label for the Previous button. */
-	export let buttonTextPrevious: CssClasses = '&larr;';
-	/** Set the label for the Next button. */
-	export let buttonTextNext: CssClasses = '&rarr;';
-	/** Set the label for the First button. */
-	export let buttonTextFirst: CssClasses = '&laquo;';
-	/** Set the label for the Last button. */
-	export let buttonTextLast: CssClasses = '&raquo;';
+	export let buttonClasses: CssClasses = '!px-3 !py-1.5 fill-current';
+	/**
+	 * Set the label for the Previous button.
+	 * @type {string}
+	 */
+	export let buttonTextPrevious: CssClasses = leftArrow;
+	/**
+	 * Set the label for the Next button.
+	 * @type {string}
+	 */
+	export let buttonTextNext: CssClasses = rightArrow;
+	/**
+	 * Set the label for the First button.
+	 * @type {string}
+	 */
+	export let buttonTextFirst: CssClasses = leftAngles;
+	/**
+	 * Set the label for the Last button.
+	 * @type {string}
+	 */
+	export let buttonTextLast: CssClasses = rightAngles;
 
 	// Base Classes
 	const cBase = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
