@@ -77,11 +77,17 @@
 	}
 
 	function onMouseEnter(index: number): void {
-		if ($toastStore[index]?.hoverVisible) toastStore.freeze(index);
+		if ($toastStore[index]?.hoverVisible) {
+			toastStore.freeze(index);
+			classesSnackbar += ' scale-[105%]';
+		}
 	}
 
 	function onMouseLeave(index: number): void {
-		if ($toastStore[index]?.hoverVisible) toastStore.unfreeze(index);
+		if ($toastStore[index]?.hoverVisible) {
+			toastStore.unfreeze(index);
+			classesSnackbar = classesSnackbar.replace(' scale-[105%]', '');
+		}
 	}
 
 	// Reactive
