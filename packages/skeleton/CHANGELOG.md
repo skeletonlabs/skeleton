@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 1.7.1
+
+### Patch Changes
+
+- bugfix: Resolved a bug preventing the prose stylesheet from being imported ([#1641](https://github.com/skeletonlabs/skeleton/pull/1641))
+
 ## 1.7.0
 
 ### Minor Changes
