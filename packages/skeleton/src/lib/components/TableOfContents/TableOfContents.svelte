@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Props (settings)
 	/** Query selector for the scrollable page element. */
@@ -42,7 +42,9 @@
 
 	// Local
 	let elemScrollParent: HTMLElement | null;
-	let allowedHeadingsList: any = [];
+	// this has a type error that shouldn't exist
+	// eslint-disable-next-line
+	let allowedHeadingsList: NodeListOf<HTMLElement> | undefined;
 	let filteredHeadingsList: HTMLElement[] = [];
 	let activeHeaderId: string;
 
@@ -89,8 +91,8 @@
 	// Scrolls to the selected heading
 	// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 	function scrollToHeading(headingElem: HTMLElement): void {
-		const elemTarget: any = document.querySelector(`#${headingElem.id}`);
-		elemTarget.scrollIntoView({ behavior: 'smooth' });
+		const elemTarget = document.querySelector(`#${headingElem.id}`);
+		if (elemTarget) elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
 
 	function pageScrollHandler(): void {
@@ -136,7 +138,7 @@
 	<div class="toc {classesBase}" transition:fade|local={{ duration: 100 }}>
 		<nav class="toc-list {classesList}">
 			<div class="toc-label {classesLabel}">{label}</div>
-			{#each filteredHeadingsList as headingElem, i}
+			{#each filteredHeadingsList as headingElem}
 				<!-- prettier-ignore -->
 				<li
 					class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {headingElem.id === activeHeaderId ? active : ''}"

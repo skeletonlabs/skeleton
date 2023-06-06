@@ -229,5 +229,13 @@ function scrollHandler(event: UIEvent & { currentTarget: EventTarget & HTMLDivEl
 			/>
 			<CodeBlock language="html" code={`<AppShell ... on:scroll={scrollHandler}>`} />
 		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Accessibility</h2>
+			<p>
+				Please be aware that the App Shell does not support window scoped scrolling. This may affect certain features, such as
+				pull-to-refresh on mobile. In order to scroll the page region you first need to focus the page with either a touch or click. If you
+				require window scoped scrolling we recommend you implement a custom layout in place of the App Shell.
+			</p>
+		</section>
 	</svelte:fragment>
 </DocsShell>

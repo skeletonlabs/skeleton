@@ -1,6 +1,6 @@
 import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 
-export let docShellDefaults: DocsShellSettings = {
+export const docShellDefaults: DocsShellSettings = {
 	// Heading
 	feature: DocsFeature.Component,
 	name: '(name)',

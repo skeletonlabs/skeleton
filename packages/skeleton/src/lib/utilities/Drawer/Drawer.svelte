@@ -7,14 +7,14 @@
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Actions
-	import { focusTrap } from '../../actions/FocusTrap/focusTrap';
+	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
 
 	// Drawer Utils
-	import type { DrawerSettings } from './types';
-	import { drawerStore } from './stores';
+	import type { DrawerSettings } from './types.js';
+	import { drawerStore } from './stores.js';
 
 	// Props
 	/** Set the anchor position.
@@ -127,12 +127,17 @@
 	}
 
 	// Input Handlers
-	function onBackdropInteraction(event: any): void {
-		if (event.target === elemBackdrop) drawerStore.close();
-		/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
-		dispatch('backdrop', event);
+	function onDrawerInteraction(event: MouseEvent): void {
+		if (event.target === elemBackdrop) {
+			drawerStore.close();
+			/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
+			dispatch('backdrop', event);
+		} else {
+			/** @event {{ event }} drawer - Fires on drawer interaction. */
+			dispatch('drawer', event);
+		}
 	}
-	function onKeydownWindow(event: any): void {
+	function onKeydownWindow(event: KeyboardEvent): void {
 		if (!$drawerStore) return;
 		if (event.code === 'Escape') drawerStore.close();
 	}
@@ -164,8 +169,9 @@
 		bind:this={elemBackdrop}
 		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
-		on:mousedown={onBackdropInteraction}
-		on:touchstart={onBackdropInteraction}
+		on:mousedown={onDrawerInteraction}
+		on:touchstart
+		on:touchend
 		on:keypress
 		transition:fade|local={{ duration }}
 		use:focusTrap={true}

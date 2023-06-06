@@ -1,6 +1,7 @@
 <script lang="ts">
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
+	import type { Action } from 'svelte/action';
 
 	// Props (initials)
 	/** Initials only - Provide up to two text characters. */
@@ -15,9 +16,8 @@
 	export let fallback = '';
 	/**
 	 * Image only. Provide an Svelte action reference, such as `filter`.
-	 * @type {function}
 	 */
-	export let action: any = () => {};
+	export let action: Action = () => {};
 	/** Image only. Provide Svelte action params, such as Apollo. */
 	export let actionParams = '';
 
@@ -43,7 +43,7 @@
 	$: classesBase = `${cBase} ${background} ${width} ${border} ${rounded} ${shadow} ${cursor} ${$$props.class ?? ''}`;
 
 	// Utility Functions
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}

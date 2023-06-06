@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 devDependencies:
   '@faker-js/faker':
@@ -40,9 +44,9 @@ devDependencies:
   eslint-config-prettier:
     specifier: ^8.8.0
     version: 8.8.0(eslint@8.37.0)
-  eslint-plugin-svelte3:
-    specifier: ^4.0.0
-    version: 4.0.0(eslint@8.37.0)(svelte@3.58.0)
+  eslint-plugin-svelte:
+    specifier: ^2.29.0
+    version: 2.29.0(eslint@8.37.0)(svelte@3.58.0)
   highlight.js:
     specifier: ^11.7.0
     version: 11.7.0
@@ -1243,14 +1247,30 @@ packages:
       eslint: 8.37.0
     dev: true
 
-  /eslint-plugin-svelte3@4.0.0(eslint@8.37.0)(svelte@3.58.0):
-    resolution: {integrity: sha512-OIx9lgaNzD02+MDFNLw0GEUbuovNcglg+wnd/UY0fbZmlQSz7GlQiQ1f+yX0XvC07XPcDOnFcichqI3xCwp71g==}
+  /eslint-plugin-svelte@2.29.0(eslint@8.37.0)(svelte@3.58.0):
+    resolution: {integrity: sha512-ukEC5z9ZXwDtwD8L12ei9doF9P/mQVeiLZiUxExWN9ZNTLNwZgfmEKx+s0tNio0YnYHzKz6qELxFei4SqVbLkQ==}
+    engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
-      eslint: '>=8.0.0'
-      svelte: ^3.2.0
+      eslint: ^7.0.0 || ^8.0.0-0
+      svelte: ^3.37.0
+    peerDependenciesMeta:
+      svelte:
+        optional: true
     dependencies:
+      '@eslint-community/eslint-utils': 4.4.0(eslint@8.37.0)
+      '@jridgewell/sourcemap-codec': 1.4.15
+      debug: 4.3.4
       eslint: 8.37.0
+      esutils: 2.0.3
+      known-css-properties: 0.27.0
+      postcss: 8.4.21
+      postcss-load-config: 3.1.4(postcss@8.4.21)
+      postcss-safe-parser: 6.0.0(postcss@8.4.21)
       svelte: 3.58.0
+      svelte-eslint-parser: 0.29.0(svelte@3.58.0)
+    transitivePeerDependencies:
+      - supports-color
+      - ts-node
     dev: true
 
   /eslint-scope@5.1.1:
@@ -1723,6 +1743,10 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /known-css-properties@0.27.0:
+    resolution: {integrity: sha512-uMCj6+hZYDoffuvAJjFAPz56E9uoowFHmTkqRtRq5WyC5Q6Cu/fTZKNQpX/RbzChBYLLl3lo8CjFZBAZXq9qFg==}
+    dev: true
+
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -2138,6 +2162,15 @@ packages:
     dependencies:
       postcss: 8.4.21
       postcss-selector-parser: 6.0.12
+    dev: true
+
+  /postcss-safe-parser@6.0.0(postcss@8.4.21):
+    resolution: {integrity: sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      postcss: ^8.3.3
+    dependencies:
+      postcss: 8.4.21
     dev: true
 
   /postcss-selector-parser@6.0.10:
@@ -2619,6 +2652,21 @@ packages:
       - sass
       - stylus
       - sugarss
+    dev: true
+
+  /svelte-eslint-parser@0.29.0(svelte@3.58.0):
+    resolution: {integrity: sha512-2uzOw9vRpSO3fo6NkbH7UynfCopQbMz/7LO9KT05YPvkB0uuFvFHex8+Ccv3gSrxHRvKS7FwJmV4H8WNWIzgWQ==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      svelte: ^3.37.0
+    peerDependenciesMeta:
+      svelte:
+        optional: true
+    dependencies:
+      eslint-scope: 7.2.0
+      eslint-visitor-keys: 3.4.1
+      espree: 9.5.2
+      svelte: 3.58.0
     dev: true
 
   /svelte-hmr@0.15.1(svelte@3.58.0):

@@ -1,5 +1,5 @@
 import { get, writable, type Writable } from 'svelte/store';
-import type { Middleware, PopupSettings } from './types';
+import type { PopupSettings } from './types.js';
 
 // Use a store to pass the Floating UI import references
 export const storePopup: Writable<any> = writable(undefined);
@@ -21,7 +21,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 
 	function setDomElements(): void {
 		elemPopup = document.querySelector(`[data-popup="${args.target}"]`) ?? document.createElement('div');
-		elemArrow = elemPopup?.querySelector(`.arrow`) ?? document.createElement('div');
+		elemArrow = elemPopup.querySelector(`.arrow`) ?? document.createElement('div');
 	}
 	setDomElements(); // init
 
@@ -73,7 +73,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 			// https://floating-ui.com/docs/arrow
 			if (elemArrow) {
 				const { x: arrowX, y: arrowY } = middlewareData.arrow;
-				// @ts-ignore
+				// @ts-expect-error implicit any
 				const staticSide = {
 					top: 'bottom',
 					right: 'left',
@@ -163,9 +163,16 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 			close();
 			return;
 		}
+		// Update focusable elements (important for Autocomplete)
+		focusablePopupElements = Array.from(elemPopup?.querySelectorAll(focusableAllowedList));
 		// On Tab or ArrowDown key
 		const triggerMenuFocused: boolean = popupState.open && document.activeElement === triggerNode;
-		if (triggerMenuFocused && (key === 'ArrowDown' || key === 'Tab') && focusableAllowedList.length > 0 && focusablePopupElements.length > 0) {
+		if (
+			triggerMenuFocused &&
+			(key === 'ArrowDown' || key === 'Tab') &&
+			focusableAllowedList.length > 0 &&
+			focusablePopupElements.length > 0
+		) {
 			event.preventDefault();
 			focusablePopupElements[0].focus();
 		}

@@ -1,14 +1,23 @@
-## Before submitting the PR:
-- [ ] Does your PR reference an issue? If not, please [chat to the team on Discord](https://discord.gg/EXqV7W8MtY) or [GitHub](https://github.com/skeletonlabs/skeleton/discussions) before submission.
-- [ ] Did you update and run tests before submission using `npm run test`?
-- [ ] Does your branch follow our [naming convention](https://www.skeleton.dev/docs/contributing)? If not, please amend the branch name using `branch -m new-branch-name`
-- [ ] Did you update documentation related to your new feature or changes?
+## Linked Issue
 
-## What does your PR address?
+Closes #{issueNumber}
 
-Please briefly describe your changes here.
+## Description
 
-### Tips
-- Tap "convert to draft" to indicate this is work in progress.
-- Link to an issue using the verbiage [Fixes #XX](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)
-- Linked issues will auto-close when the PR is merged.
+{description}
+
+## Changsets
+
+Instructions: Changesets automate our changelog. If you modify files in `/package/skeleton`, run `pnpm changeset` in the root of the monorepo, follow the prompts, then commit the markdown file. Changes that add features should be `minor` while chores and bugfixes should be `patch`. Please prefix the changeset message with `feat:`, `bugfix:` or `chore:`.
+
+## Checklist
+
+Please read and apply all [contribution requirements](https://www.skeleton.dev/docs/contributing).
+
+- [ ] This PR targets the `dev` branch (NEVER `master`)
+- [ ] Documentation reflects all relevant changes
+- [ ] Branch is prefixed with: `docs/`, `feat/`, `chore/`, `bugfix/`
+- [ ] Ensure Svelte and Typescript linting is current - run `pnpm check`
+- [ ] Ensure Prettier linting is current - run `pnpm format`
+- [ ] All test cases are passing - run `pnpm test`
+- [ ] Includes a changeset (if relevant; see above)

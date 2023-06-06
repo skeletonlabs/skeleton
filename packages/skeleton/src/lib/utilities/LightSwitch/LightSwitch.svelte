@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState, getModeOsPrefers } from './lightswitch';
+	import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState, getModeOsPrefers } from './lightswitch.js';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 	type OnKeyDownEvent = KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement };
 
 	// Props
@@ -71,7 +71,8 @@
 </script>
 
 <svelte:head>
-	{@html `<script nonce="%sveltekit.nonce%">(${setInitialClassState.toString()})();</script>`}
+	<!-- Workaround for a svelte parsing error: https://github.com/sveltejs/eslint-plugin-svelte/issues/492 -->
+	{@html `<\u{73}cript nonce="%sveltekit.nonce%">(${setInitialClassState.toString()})();</script>`}
 </svelte:head>
 
 <div

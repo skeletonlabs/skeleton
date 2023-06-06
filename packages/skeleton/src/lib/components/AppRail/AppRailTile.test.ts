@@ -20,18 +20,11 @@ describe('AppRailTile.svelte', () => {
 				regionLabel: 'TestAppRailTile',
 				selected: readable('/'),
 				active: 'bg-primary-500',
-				hover: 'bg-primary-500'
+				hover: 'bg-primary-500',
+				group: 'testGroup',
+				name: 'test'
 			}
 		});
 		expect(getByTestId('app-rail-tile')).toBeTruthy();
-	});
-
-	it('Overrides tag when href is passed', async () => {
-		const { getByTestId } = render(AppRailTile, {
-			props: {
-				href: '/about'
-			}
-		});
-		expect(getByTestId('app-rail-tile').querySelector('a')).toBeTruthy();
 	});
 });

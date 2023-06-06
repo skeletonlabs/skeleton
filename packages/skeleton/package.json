@@ -55,7 +55,7 @@
 		"autoprefixer": "10.4.14",
 		"eslint": "8.37.0",
 		"eslint-config-prettier": "8.8.0",
-		"eslint-plugin-svelte3": "4.0.0",
+		"eslint-plugin-svelte": "^2.29.0",
 		"jsdom": "21.1.1",
 		"postcss": "8.4.21",
 		"postcss-import": "15.1.0",
@@ -85,11 +85,14 @@
 			},
 			"./styles/*": "./dist/styles/*",
 			"./themes/*": "./dist/themes/*",
-			"./tailwind/skeleton.cjs": "./dist/tailwind/skeleton.cjs"
+			"./tailwind/skeleton.cjs": {
+				"types": "./dist/tailwind/skeleton.cts",
+				"default": "./dist/tailwind/skeleton.cjs"
+			}
 		},
 		"typesVersions": {
 			">4.0": {
-				"index": [
+				"index.d.ts": [
 					"./dist/index.d.ts"
 				],
 				"tailwind/skeleton.cjs": [
@@ -117,12 +120,5 @@
 		"./dist/tailwind/*",
 		"./dist/themes/*",
 		"!./dist/**/*.test.*"
-	],
-	"typesVersions": {
-		">4.0": {
-			"index": [
-				"./src/lib/index.ts"
-			]
-		}
-	}
+	]
 }

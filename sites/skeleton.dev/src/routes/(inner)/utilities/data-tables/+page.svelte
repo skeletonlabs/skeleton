@@ -40,7 +40,7 @@
 			// ['<kbd class="kbd">Enter</kbd> or <kbd class="kbd">Space</kbd>', 'Triggers the on:click event for the current row.']
 		]
 	};
-	const post = httpPosts.pop()!;
+	const post = httpPosts.pop() as (typeof httpPosts)[number];
 
 	// Store
 	const dataTableStore = createDataTableStore(httpPosts, {

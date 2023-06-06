@@ -4,7 +4,7 @@
 	// import {slide} from 'svelte/transition';
 
 	// Types
-	import type { AutocompleteOption } from './types';
+	import type { AutocompleteOption } from './types.js';
 
 	// Custom Dispatcher
 	const dispatch = createEventDispatcher();
@@ -118,7 +118,7 @@
 	{#if optionsFiltered.length > 0}
 		<nav class="autocomplete-nav {classesNav}">
 			<ul class="autocomplete-list {classesList}">
-				{#each optionsFiltered.slice(0, sliceLimit) as option, i (option)}
+				{#each optionsFiltered.slice(0, sliceLimit) as option (option)}
 					<li class="autocomplete-item {classesItem}">
 						<button class="autocomplete-button {classesButton}" type="button" on:click={() => onSelection(option)} on:click on:keypress>
 							{@html option.label}

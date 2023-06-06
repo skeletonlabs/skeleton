@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte/internal';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
@@ -21,7 +21,9 @@
 	 * @type {'sm' | 'md' | 'lg'}
 	 */
 	export let size = 'md';
-	/** Provide classes to set the checked state color. */
+	/** Provide classe to set the inactive state background color. */
+	export let background: CssClasses = 'bg-surface-400 dark:bg-surface-700';
+	/** Provide classes to set the active state background color. */
 	export let active: CssClasses = 'bg-surface-900 dark:bg-surface-300';
 	/** Provide classes to set the border styles. */
 	export let border: CssClasses = '';
@@ -59,7 +61,7 @@
 	}
 
 	// Interactive
-	$: cTrackActive = checked ? active : 'bg-surface-400 dark:bg-surface-700 cursor-pointer';
+	$: cTrackActive = checked ? active : `${background} cursor-pointer`;
 	$: cThumbBackground = checked ? 'bg-white/75' : 'bg-white';
 	$: cThumbPos = checked ? 'translate-x-full' : '';
 

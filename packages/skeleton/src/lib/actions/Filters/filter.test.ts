@@ -2,7 +2,7 @@ import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
 // Action
-import { filter } from '$lib/actions/Filters/filter';
+import { filter } from '$lib/actions/Filters/filter.js';
 
 // SVG Filters
 import Emerald from '$lib/actions/Filters/svg-filters/Emerald.svelte';
