@@ -18,6 +18,8 @@ export interface ToastSettings {
 	};
 	/** Hide dismiss button */
 	hideDismiss?: boolean;
+	/** Remain visible on Hover */
+	hoverVisible?: boolean;
 	/** Provide arbitrary CSS classes to style the toast. */
 	classes?: string;
 	/** Callback function that fires on trigger and close. */

@@ -83,6 +83,15 @@
 		toastStore.trigger(t);
 	}
 
+	function toastRemainVisibleOnHover(): void {
+		const t: ToastSettings = {
+			message: 'remain visible on hover.',
+			timeout: 5000,
+			hoverVisible: true
+		};
+		toastStore.trigger(t);
+	}
+
 	function toastBackground(background: string): void {
 		const t: ToastSettings = {
 			message: `The background was set as <u>${background}</u>.`,
@@ -222,7 +231,7 @@ toastStore.trigger(t);
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-			<!-- dismiss hidden -->
+			<!-- Hidden dismiss -->
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex gap-4">
@@ -237,6 +246,31 @@ const t: ToastSettings = {
 	message: 'The dismiss button is hidden.',
 	hideDismiss: true,
 	timeout: 10000
+};
+toastStore.trigger(t);
+`}
+					/>
+					<p>
+						Note: setting the <code class="code">hideDismiss</code> will auto set the <code class="code">autohide</code> property so users don't
+						have the toast staying on the screen infinitely
+					</p>
+				</svelte:fragment>
+			</DocsPreview>
+			<!-- remain visible on hover -->
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex gap-4">
+						<button class="btn variant-filled" on:click={toastRemainVisibleOnHover}>remain visible on hover</button>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const t: ToastSettings = {
+	message: 'remain visible on hover.',
+	timeout: 5000,
+	hoverVisible: true
 };
 toastStore.trigger(t);
 `}

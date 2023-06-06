@@ -76,6 +76,14 @@
 		toastStore.close($toastStore[index].id);
 	}
 
+	function onMouseEnter(index: number): void {
+		if ($toastStore[index]?.hoverVisible) toastStore.freeze(index);
+	}
+
+	function onMouseLeave(index: number): void {
+		if ($toastStore[index]?.hoverVisible) toastStore.unfreeze(index);
+	}
+
 	// Reactive
 	$: classesWrapper = `${cWrapper} ${cPosition} ${zIndex} ${$$props.class || ''}`;
 	$: classesSnackbar = `${cSnackbar} ${cAlign} ${padding}`;
@@ -109,7 +117,13 @@
 		<!-- List -->
 		<div class="snackbar {classesSnackbar}">
 			{#each filteredToasts as t, i (t)}
-				<div animate:flip={{ duration }} in:receive={{ key: t.id }} out:send={{ key: t.id }}>
+				<div
+					animate:flip={{ duration }}
+					in:receive={{ key: t.id }}
+					out:send={{ key: t.id }}
+					on:mouseenter={() => onMouseEnter(i)}
+					on:mouseleave={() => onMouseLeave(i)}
+				>
 					<!-- Toast -->
 					<div
 						class="toast {classesToast} {t.background ?? background} {t.classes ?? ''}"

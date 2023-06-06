@@ -58,6 +58,18 @@ function toastService() {
 				}
 				return tStore;
 			}),
+		/** remain visible on hover */
+		freeze: (index: number) =>
+			update((tStore) => {
+				if (tStore.length > 0) clearTimeout(tStore[index].timeoutId);
+				return tStore;
+			}),
+		/** cancel remain visible on leave */
+		unfreeze: (index: number) =>
+			update((tStore) => {
+				if (tStore.length > 0) tStore[index].timeoutId = handleAutoHide(tStore[index]);
+				return tStore;
+			}),
 		/** Remove all toasts from queue */
 		clear: () => set([])
 	};
