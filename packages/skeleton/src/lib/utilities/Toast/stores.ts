@@ -30,6 +30,8 @@ function toastService() {
 				const id: string = randomUUID();
 				// Trigger Callback
 				if (toast && toast.callback) toast.callback({ id, status: 'queued' });
+				// activate autohide when dismiss button is hidden.
+				if (toast.hideDismiss) toast.autohide = true;
 				// Merge with defaults
 				const tMerged: Toast = { ...toastDefaults, ...toast, id };
 				// Handle auto-hide, if needed

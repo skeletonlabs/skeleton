@@ -120,7 +120,7 @@
 						<div class="text-base">{@html t.message}</div>
 						<div class="toast-actions {cToastActions}">
 							{#if t.action}<button class={buttonAction} on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
-							<button class={buttonDismiss} on:click={() => toastStore.close(t.id)}>{buttonDismissLabel}</button>
+							{#if !t.hideDismiss}<button class={buttonDismiss} on:click={() => toastStore.close(t.id)}>{buttonDismissLabel}</button>{/if}
 						</div>
 					</div>
 				</div>

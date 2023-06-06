@@ -16,6 +16,8 @@ export interface ToastSettings {
 		/** The function triggered when the button is pressed. */
 		response: () => void;
 	};
+	/** Hide dismiss button */
+	hideDismiss?: boolean;
 	/** Provide arbitrary CSS classes to style the toast. */
 	classes?: string;
 	/** Callback function that fires on trigger and close. */
