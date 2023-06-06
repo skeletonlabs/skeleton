@@ -19,6 +19,9 @@
 		components: [{ sveld: sveldToast }]
 	};
 
+	// Local
+	let toastId = '';
+
 	// Triggers Toasts ---
 
 	function toastDemo(): void {
@@ -90,6 +93,18 @@
 			hoverVisible: true
 		};
 		toastStore.trigger(t);
+	}
+
+	function toastCloseProgrammatically(): void {
+		const t: ToastSettings = {
+			message: 'Programmatically closable toast',
+			autohide: false
+		};
+		toastId = toastStore.trigger(t);
+	}
+
+	function closeToast(): void {
+		toastStore.close(toastId);
 	}
 
 	function toastBackground(background: string): void {
@@ -275,10 +290,29 @@ const t: ToastSettings = {
 toastStore.trigger(t);
 `}
 					/>
-					<p>
-						Note: setting the <code class="code">hideDismiss</code> will auto set the <code class="code">autohide</code> property so users don't
-						have the toast staying on the screen infinitely
-					</p>
+				</svelte:fragment>
+			</DocsPreview>
+			<!-- close programmatically -->
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex gap-4">
+						<button class="btn variant-filled" on:click={toastCloseProgrammatically}>Programmatically closable toast</button>
+						<button class="btn variant-filled-error" on:click={closeToast}>Close toast</button>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const t: ToastSettings = {
+	message: 'Programmatically closable toast',
+};
+toastId = toastStore.trigger(t);
+
+// close toast
+toastStore.close(toastId);
+`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
 			<!-- Clear -->

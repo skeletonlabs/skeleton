@@ -25,9 +25,9 @@ function toastService() {
 	return {
 		subscribe,
 		/** Add a new toast to the queue. */
-		trigger: (toast: ToastSettings) =>
+		trigger: (toast: ToastSettings) => {
+			const id: string = randomUUID();
 			update((tStore) => {
-				const id: string = randomUUID();
 				// Trigger Callback
 				if (toast && toast.callback) toast.callback({ id, status: 'queued' });
 				// activate autohide when dismiss button is hidden.
@@ -40,8 +40,10 @@ function toastService() {
 				tStore.push(tMerged);
 				// Return
 				return tStore;
-			}),
-		/** Remove first toast in queue */
+			});
+			return id;
+		},
+		/** Remove toast in queue*/
 		close: (id: string) =>
 			update((tStore) => {
 				if (tStore.length > 0) {
