@@ -10,9 +10,9 @@
 	@apply prose-headings:text-token;
 	/* @apply prose-lead:{utility}; */
 	@apply prose-h1:font-heading-token prose-h1:text-3xl prose-h1:md:text-5xl;
-	@apply prose-h2:font-heading-token prose-h1:text-2xl prose-h1:md:text-4xl;
-	@apply prose-h3:font-heading-token prose-h1:text-xl prose-h1:md:text-2xl;
-	@apply prose-h4:font-heading-token prose-h1:text-lg prose-h1:md:text-xl;
+	@apply prose-h2:font-heading-token prose-h2:text-2xl prose-h2:md:text-4xl;
+	@apply prose-h3:font-heading-token prose-h3:text-xl prose-h3:md:text-2xl;
+	@apply prose-h4:font-heading-token prose-h4:text-lg prose-h4:md:text-xl;
 	@apply prose-p:text-base;
 	/* @apply prose-a:{utility}; */
 	@apply prose-a:text-primary-700 prose-a:dark:text-primary-500 prose-a:hover:brightness-110 prose-a:underline;
