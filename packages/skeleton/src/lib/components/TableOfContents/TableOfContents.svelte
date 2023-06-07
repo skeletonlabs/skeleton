@@ -138,7 +138,7 @@
 	<div class="toc {classesBase}" transition:fade|local={{ duration: 100 }}>
 		<nav class="toc-list {classesList}">
 			<div class="toc-label {classesLabel}">{label}</div>
-			{#each filteredHeadingsList as headingElem, i}
+			{#each filteredHeadingsList as headingElem}
 				<!-- prettier-ignore -->
 				<li
 					class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {headingElem.id === activeHeaderId ? active : ''}"

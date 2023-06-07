@@ -64,7 +64,7 @@
 	}
 </script>
 
-<label class="app-rail-tile {classesBase}" data-testid="app-rail-tile" {title}>
+<label class="app-rail-tile {classesBase}" data-testid="app-rail-tile" {title} on:mouseover on:mouseleave on:focus on:blur>
 	<!-- A11y attributes are not allowed on <label> -->
 	<div class="app-rail-wrapper {classesWrapper}" on:keydown on:keyup on:keypress>
 		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->

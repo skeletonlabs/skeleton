@@ -33,6 +33,27 @@
 	let checked: boolean;
 	let elemInput: HTMLElement;
 
+	// Functionality
+	function areDeeplyEqual(param1: unknown, param2: unknown) {
+		// check strict equality
+		if (param1 === param2) return true;
+		// check if props are not objects
+		if (!(param1 instanceof Object) || !(param2 instanceof Object)) return false;
+
+		// object keys
+		const keys1 = Object.keys(param1);
+		const keys2 = Object.keys(param2);
+		// check if number of keys are the same
+		if (keys1.length !== keys2.length) return false;
+		// Iterate over the keys and compare the values recursively
+		for (const key of keys1) {
+			const value1 = (param1 as Record<string, unknown>)[key];
+			const value2 = (param2 as Record<string, unknown>)[key];
+			if (!areDeeplyEqual(value1, value2)) return false;
+		}
+		return true;
+	}
+
 	// Svelte Checkbox Bugfix
 	// GitHub: https://github.com/sveltejs/svelte/issues/2308
 	// REPL: https://svelte.dev/repl/de117399559f4e7e9e14e2fc9ab243cc?version=3.12.1
@@ -65,7 +86,7 @@
 	}
 
 	// Reactive
-	$: selected = multiple ? group.includes(value) : group === value;
+	$: selected = multiple ? group.some((groupVal: unknown) => areDeeplyEqual(value, groupVal)) : areDeeplyEqual(group, value);
 	$: classesActive = selected ? active : hover;
 	$: classesBase = `${cBase} ${rounded} ${padding} ${classesActive} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;

@@ -25,15 +25,6 @@
 
 	// Local:
 	let currentVariant = 'variant-filled';
-	const href = '/elements/buttons';
-
-	// Reactive
-	$: props = {
-		tag: 'button',
-		variant: 'variant-filled-primary',
-		size: '',
-		disabled: false
-	};
 </script>
 
 <DocsShell {settings}>
