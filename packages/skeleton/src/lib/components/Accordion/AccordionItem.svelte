@@ -72,9 +72,6 @@
 	export let regionPanel: CssClasses = getContext('regionPanel');
 	/** Provide arbitrary classes caret icon region. */
 	export let regionCaret: CssClasses = getContext('regionCaret');
-	// ---
-	/** DEPRECATED: use transitionIn and transitionOut instead. */
-	export let duration: number = getContext('duration');
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: Event): void {

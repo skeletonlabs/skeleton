@@ -21,9 +21,6 @@
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
 
-	/** DEPRECATED: use transitionIn and transitionOut instead. */
-	export let duration = 200; // ms
-
 	// Props (transition)
 	/** Enable/Disable transitions */
 	export let transitions = true;
@@ -31,12 +28,12 @@
 	/** Provide the transition to use when values move in. */
 	export let transitionIn: TransitionIn = slide as TransitionIn;
 	/** Provide the transition params to use when values move in. */
-	export let transitionInParams: TransitionParams<TransitionIn> = { duration: transitions ? duration : 0 };
+	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 200 };
 
 	/** Provide the transition to use when values move out. */
 	export let transitionOut: TransitionOut = slide as TransitionOut;
 	/** Provide the transition params to use when values move out. */
-	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: transitions ? duration : 0 };
+	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 200 };
 
 	// Props (parent)
 	/** Provide classes to set the accordion width. */
