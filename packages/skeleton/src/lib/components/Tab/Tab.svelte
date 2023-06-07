@@ -25,6 +25,8 @@
 	 * @type {any}
 	 * */
 	export let value: any;
+	/** Provide a hoverable title attribute for the tab. */
+	export let title = '';
 
 	// Props (a11y)
 	/** Set the ARIA controls value to define which panel this tab controls. */
@@ -109,7 +111,7 @@
 	}
 </script>
 
-<label class={classesBase}>
+<label class={classesBase} {title}>
 	<!-- A11y attributes are not allowed on <label> -->
 	<div
 		class="tab {classesTab}"

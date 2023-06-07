@@ -3,29 +3,31 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import { TabGroup, Tab, CodeBlock } from '@skeletonlabs/skeleton';
+	import { TabGroup, Tab, CodeBlock, TabAnchor } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldTabGroup from '@skeletonlabs/skeleton/components/Tab/TabGroup.svelte?raw&sveld';
 	import sveldTab from '@skeletonlabs/skeleton/components/Tab/Tab.svelte?raw&sveld';
+	import sveldTabAnchor from '@skeletonlabs/skeleton/components/Tab/TabAnchor.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Tabs',
-		description: 'Use tabs to quickly switch between different views.',
-		imports: ['TabGroup', 'Tab'],
+		description: 'Use tabs to quickly switch between different views and pages.',
+		imports: ['TabGroup', 'Tab', 'TabAnchor'],
 		source: 'components/Tab',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/',
 		components: [
 			{ label: 'TabGroup', sveld: sveldTabGroup },
-			{ label: 'Tab', sveld: sveldTab, overrideProps: ['active', 'hover', 'flex', 'padding', 'rounded'] }
+			{ label: 'Tab', sveld: sveldTab, overrideProps: ['active', 'hover', 'flex', 'padding', 'rounded'] },
+			{ label: 'TabAnchor', sveld: sveldTabAnchor, overrideProps: ['active', 'hover', 'flex', 'padding', 'rounded'] }
 		]
 	};
 
 	// Local
 	let tabsBasic = 0;
 	let tabsFancy = 0;
-	let tabsBottomNav = 0;
+	let tabsBottomNav = '/books';
 	let desc = {
 		books: 'A written or printed work consisting of pages glued or sewn together along one side and bound in covers.',
 		movies: 'A story or event recorded by a camera as a set of moving images and shown in a theater or on television; a motion picture.',
@@ -44,6 +46,7 @@
 						<Tab bind:group={tabsBasic} name="books" value={0}>Books</Tab>
 						<Tab bind:group={tabsBasic} name="movies" value={1}>Movies</Tab>
 						<Tab bind:group={tabsBasic} name="tv" value={2}>Television</Tab>
+						<TabAnchor href="https://github.com/skeletonlabs/skeleton" target="_blank">Skeleton - Github</TabAnchor>
 						<!-- Panel -->
 						<svelte:fragment slot="panel">
 							{#if tabsBasic === 0}
@@ -66,6 +69,9 @@
 	<Tab bind:group={tabSet} name="tab1" value={0}>(label)</Tab>
 	<Tab bind:group={tabSet} name="tab2" value={1}>(label)</Tab>
 	<Tab bind:group={tabSet} name="tab3" value={2}>(label)</Tab>
+	<TabAnchor href="https://github.com/skeletonlabs/skeleton" target="_blank">
+		Skeleton - Github
+	</TabAnchor>
 	<!-- Tab Panels --->
 	<svelte:fragment slot="panel">
 		{#if tabSet === 0}
@@ -85,12 +91,66 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<!-- Tabs -->
 		<section class="space-y-4">
+			<h2 class="h2">Tabs</h2>
+			<p>We offer two types of tabs below. Consider mixing and matching these as needed.</p>
+			<h3 class="h3">Tab</h3>
 			<p>
-				Tabs utilize native radio groups to control state. Bind a shared <code class="code">group</code>
+				These tabs utilize native radio groups to control state. Bind a shared <code class="code">group</code>
 				value, then provide a unique <code class="code">value</code> per tab. Please note that using the <code class="code">panel</code> slot
 				is optional.
 			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<TabGroup>
+						<Tab bind:group={tabsBasic} name="tab" value={4} title="Tab">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
+							<span>Tab</span>
+						</Tab>
+					</TabGroup>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>The tab will show an active state when the group and tab <code class="code">value</code> match.</p>
+					<CodeBlock language="ts" code={`let tabSet: number = 0;`} />
+					<CodeBlock
+						language="html"
+						code={`
+<Tab bind:group={tabSet} name="tab1" value={0} title="Tab">
+	<svelte:fragment slot="lead">(icon)</svelte:fragment>
+	<span>Tab</span>
+</Tab>
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+			<h3 class="h3">TabAnchor</h3>
+			<p>
+				These tabs operate as <code class="code">anchor</code> tags, supporting <em>href, target, rel</em>, and more. Use these when you
+				wish to link to a new page when this tab is clicked.
+			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<TabGroup>
+						<TabAnchor href="/" target="_blank" title="Anchor">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
+							<span>Anchor</span>
+						</TabAnchor>
+					</TabGroup>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>The tab will show an active state when the group and tab <code class="code">value</code> match.</p>
+					<CodeBlock
+						language="html"
+						code={`
+<TabAnchor href="/" target="_blank" title="Anchor">
+	<svelte:fragment slot="lead">(icon)</svelte:fragment>
+	<span>Anchor</span>
+</TabAnchor>
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Justify</h2>
@@ -112,6 +172,23 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
+			<h2 class="h2">Page State</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Using the <a class="anchor" href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">SvelteKit page store</a>, you can dynamically highlight the active tab based on it's path.
+			</p>
+			<CodeBlock language="ts" code={`import { page } from '$app/stores';`} />
+			<CodeBlock
+				language="html"
+				code={`
+<TabGroup>
+	<TabAnchor href="/" selected={$page.url.pathname === '/'}>(icon)</TabAnchor>
+	<TabAnchor href="/about" selected={$page.url.pathname === '/about'}>(icon)</TabAnchor>
+</TabGroup>
+`}
+			/>
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Navigation</h2>
 			<p>
 				Tabs make a good choice for custom navigation bars alongside an <a class="anchor" href="/components/app-shell">App Shell</a> or within
@@ -128,19 +205,22 @@
 						border=""
 						class="bg-surface-100-800-token w-full"
 					>
-						<Tab bind:group={tabsBottomNav} name="books" value={0}>
+						<TabAnchor selected={tabsBottomNav === '/books'} on:click={() => (tabsBottomNav = '/books')}>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
 							Books
-						</Tab>
-						<Tab bind:group={tabsBottomNav} name="movies" value={1}>
+						</TabAnchor>
+						<TabAnchor selected={tabsBottomNav === '/movies'} on:click={() => (tabsBottomNav = '/movies')}>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-film" /></svelte:fragment>
 							Movies
-						</Tab>
-						<Tab bind:group={tabsBottomNav} name="tv" value={2}>
+						</TabAnchor>
+						<TabAnchor selected={tabsBottomNav === '/television'} on:click={() => (tabsBottomNav = '/television')}>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-tv" /></svelte:fragment>
 							Television
-						</Tab>
+						</TabAnchor>
 					</TabGroup>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="text-center"><code class="code">Simulated route:</code> {tabsBottomNav}</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
@@ -155,10 +235,10 @@
 	border=""
 	class="bg-surface-100-800-token w-full"
 >
-	<Tab bind:group={tabsBottomNav} name="books" value={0}>
+	<TabAnchor href="/" selected={$page.url.pathname === '/'}>
 		<svelte:fragment slot="lead">(icon)</svelte:fragment>
 		(label))
-	</Tab>
+	</TabAnchor>
 	<!-- ... -->
 </TabGroup>`}
 					/>
