@@ -17,7 +17,7 @@
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses, TransitionSettings, Transition } from '../../types.js';
+	import type { CssClasses, Transition, TransitionParams } from '../../types.js';
 
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
@@ -43,10 +43,14 @@
 	export let autocollapse: boolean = getContext('autocollapse');
 	/** The writable store that houses the auto-collapse active item UUID. */
 	export let active: Writable<string | null> = getContext('active');
+
 	/** Provide the transition to use when values move in. Set false to disable the transition.*/
-	export let transitionIn: TransitionSettings<TransitionIn> = getContext('transitionIn');
+	export let transitionIn: TransitionIn = getContext('transitionIn');
+	export let transitionInParams: TransitionParams<TransitionIn> = getContext('transitionInParams');
 	/** Provide the transition to use when values move out. Set false to disable the transition.*/
-	export let transitionOut: TransitionSettings<TransitionOut> = getContext('transitionOut');
+	export let transitionOut: TransitionOut = getContext('transitionOut');
+	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
+
 	// ---
 	/** Set the disabled state for this item. */
 	export let disabled: boolean = getContext('disabled');
@@ -71,13 +75,6 @@
 	// ---
 	/** DEPRECATED: use transitionIn and transitionOut instead. */
 	export let duration: number = getContext('duration');
-
-	// Local
-	let { transition: trIn, params: trInParams } = transitionIn;
-	let { transition: trOut, params: trOutParams } = transitionOut;
-	// DEPRECATED: drop the following when duration is removed
-	trInParams = { duration, ...trInParams };
-	trOutParams = { duration, ...trOutParams };
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: Event): void {
@@ -154,8 +151,8 @@
 		<div
 			class="accordion-panel {classesPanel}"
 			id="accordion-panel-{id}"
-			in:trIn|local={{ ...trInParams }}
-			out:trOut|local={{ ...trOutParams }}
+			in:transitionIn|local={transitionInParams}
+			out:transitionOut|local={transitionOutParams}
 			role="region"
 			aria-hidden={!openState}
 			aria-labelledby="accordion-control-{id}"

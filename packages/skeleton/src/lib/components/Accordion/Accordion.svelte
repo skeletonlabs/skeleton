@@ -1,16 +1,21 @@
-<script lang="ts">
+<script lang="ts" context="module">
+	import { slide } from 'svelte/transition';
+	import type { Transition } from '../../types.js';
+
+	type SlideTransition = typeof slide;
+	type TransitionIn = Transition;
+	type TransitionOut = Transition;
+</script>
+
+<script lang="ts" generics="TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition">
 	// Slots:
 	// NOTE: we cannot describe the default slot.
 
 	import { writable, type Writable } from 'svelte/store';
 	import { setContext } from 'svelte';
-	import { slide } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses, TransitionSettings, Transition } from '../../types.js';
-
-	type TransitionIn = $$Generic<Transition>;
-	type TransitionOut = $$Generic<Transition>;
+	import type { CssClasses, TransitionParams } from '../../types.js';
 
 	// Props
 	/** Set the auto-collapse mode. */
@@ -22,22 +27,16 @@
 	// Props (transition)
 	/** Enable/Disable transitions */
 	export let transitions = true;
-	/**
-	 * Provide the transition to use when values move in.
-	 * @type {TransitionSettings<TransitionIn>}
-	 */
-	export let transitionIn: TransitionSettings<TransitionIn> = {
-		transition: slide as TransitionIn,
-		params: { duration: transitions ? duration : 0 }
-	};
-	/**
-	 * Provide the transition to use when values move out.
-	 * @type {TransitionSettings<TransitionOut>}
-	 */
-	export let transitionOut: TransitionSettings<TransitionOut> = {
-		transition: slide as TransitionOut,
-		params: { duration: transitions ? duration : 0 }
-	};
+
+	/** Provide the transition to use when values move in. */
+	export let transitionIn: TransitionIn = slide as TransitionIn;
+	/** Provide the transition params to use when values move in. */
+	export let transitionInParams: TransitionParams<TransitionIn> = { duration: transitions ? duration : 0 };
+
+	/** Provide the transition to use when values move out. */
+	export let transitionOut: TransitionOut = slide as TransitionOut;
+	/** Provide the transition params to use when values move out. */
+	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: transitions ? duration : 0 };
 
 	// Props (parent)
 	/** Provide classes to set the accordion width. */
@@ -78,7 +77,9 @@
 	setContext('duration', duration);
 	setContext('transitions', transitions);
 	setContext('transitionIn', transitionIn);
+	setContext('transitionInParams', transitionInParams);
 	setContext('transitionOut', transitionOut);
+	setContext('transitionOutParams', transitionOutParams);
 	setContext('disabled', disabled);
 	setContext('padding', padding);
 	setContext('hover', hover);
