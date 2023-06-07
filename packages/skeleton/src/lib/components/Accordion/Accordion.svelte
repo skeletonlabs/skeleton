@@ -71,7 +71,6 @@
 	// Context API
 	setContext('active', active);
 	setContext('autocollapse', autocollapse);
-	setContext('duration', duration);
 	setContext('transitions', transitions);
 	setContext('transitionIn', transitionIn);
 	setContext('transitionInParams', transitionInParams);
