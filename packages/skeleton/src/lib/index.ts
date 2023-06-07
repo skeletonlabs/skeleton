@@ -10,7 +10,7 @@ export type { ToastSettings } from './utilities/Toast/types.js';
 export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
-export type * from './types.js';
+export type { CssClasses, Transition, TransitionParams, TransitionSettings } from './types.js';
 
 // Stores ---
 
