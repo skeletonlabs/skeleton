@@ -20,7 +20,7 @@
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",
 	"devDependencies": {
-		"@faker-js/faker": "^7.6.0",
+		"@faker-js/faker": "^8.0.2",
 		"@floating-ui/dom": "^1.2.9",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@sveltejs/adapter-vercel": "^3.0.1",
@@ -47,7 +47,7 @@
 		"tslib": "^2.5.3",
 		"typescript": "^5.0.3",
 		"vite": "^4.3.9",
-		"vitest": "^0.29.8"
+		"vitest": "^0.32.0"
 	},
 	"type": "module"
 }
