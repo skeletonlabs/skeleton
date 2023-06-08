@@ -17,7 +17,7 @@
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses, Transition, TransitionParams } from '../../types.js';
+	import { dynamicTransition, type CssClasses, type Transition, type TransitionParams } from '../../types.js';
 
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
@@ -44,10 +44,12 @@
 	/** The writable store that houses the auto-collapse active item UUID. */
 	export let active: Writable<string | null> = getContext('active');
 
-	/** Provide the transition to use when values move in. Set false to disable the transition.*/
+	/** Enable/Disable transitions */
+	export let transitions: boolean = getContext('transitions');
+	/** Provide the transition to use when values move in.*/
 	export let transitionIn: TransitionIn = getContext('transitionIn');
 	export let transitionInParams: TransitionParams<TransitionIn> = getContext('transitionInParams');
-	/** Provide the transition to use when values move out. Set false to disable the transition.*/
+	/** Provide the transition to use when values move out.*/
 	export let transitionOut: TransitionOut = getContext('transitionOut');
 	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
 
@@ -148,8 +150,8 @@
 		<div
 			class="accordion-panel {classesPanel}"
 			id="accordion-panel-{id}"
-			in:transitionIn|local={transitionInParams}
-			out:transitionOut|local={transitionOutParams}
+			in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+			out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 			role="region"
 			aria-hidden={!openState}
 			aria-labelledby="accordion-control-{id}"

@@ -13,3 +13,19 @@ export interface TransitionSettings<T extends Transition> {
 	transition: T;
 	params?: TransitionParams<T>;
 }
+
+export function dynamicTransition<T extends Transition>(
+	node: Element,
+	{
+		transition,
+		params,
+		enabled
+	}: {
+		transition: T;
+		params: TransitionParams<T>;
+		enabled: boolean;
+	}
+): TransitionConfig {
+	if (enabled) return transition(node, params);
+	return {};
+}
