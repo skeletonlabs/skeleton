@@ -7,7 +7,7 @@
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses } from '../../types.js';
+	import type { CssClasses } from '../../index.js';
 
 	// Actions
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';

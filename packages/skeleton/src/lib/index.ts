@@ -10,7 +10,13 @@ export type { ToastSettings } from './utilities/Toast/types.js';
 export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
-export type { CssClasses, Transition, TransitionParams, TransitionSettings, dynamicTransition } from './types.js';
+export type { Transition, TransitionParams, TransitionSettings } from './dynamic-transitions/types.js';
+
+// This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
+export type CssClasses = string;
+
+// Functions ---
+export { dynamicTransition } from './dynamic-transitions/types.js';
 
 // Stores ---
 

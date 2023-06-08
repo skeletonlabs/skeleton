@@ -5,7 +5,7 @@
 
 	// Types
 	import type { TableSource } from './types.js';
-	import type { CssClasses } from '../../types.js';
+	import type { CssClasses } from '../../index.js';
 
 	const dispatch = createEventDispatcher();
 

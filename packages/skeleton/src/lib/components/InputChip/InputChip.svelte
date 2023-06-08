@@ -4,7 +4,7 @@
 	import { flip } from 'svelte/animate';
 
 	// Types
-	import type { CssClasses } from '../../types.js';
+	import type { CssClasses } from '../../index.js';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();

@@ -5,7 +5,7 @@
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses } from '../../types.js';
+	import type { CssClasses } from '../../index.js';
 
 	import { storeHighlightJs } from './stores.js';
 	import { clipboard } from '../../actions/Clipboard/clipboard.js';

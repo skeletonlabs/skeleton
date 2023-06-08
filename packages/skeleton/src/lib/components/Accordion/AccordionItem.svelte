@@ -10,17 +10,19 @@
 	// DISPATCHED: document directly above the definition, like props (ex: paginator)
 
 	import { getContext } from 'svelte';
-	import { createEventDispatcher } from 'svelte/internal';
+	import { createEventDispatcher } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import { dynamicTransition, type CssClasses, type Transition, type TransitionParams } from '../../types.js';
-
+	import type { Transition, TransitionParams } from '../../dynamic-transitions/types.js';
+	import type { CssClasses } from '../../index.js';
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
+
+	import { dynamicTransition } from '../../dynamic-transitions/types.js';
 
 	// Props (state)
 	/** Set open by default on load. */

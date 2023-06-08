@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	// Types
 	import type { PaginationSettings } from './types.js';
-	import type { CssClasses } from '../../types.js';
+	import type { CssClasses } from '../../index.js';
 	import { leftAngles, leftArrow, rightAngles, rightArrow } from './icons.js';
 
 	const dispatch = createEventDispatcher();

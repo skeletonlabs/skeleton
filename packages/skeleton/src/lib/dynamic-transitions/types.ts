@@ -1,8 +1,5 @@
 import type { TransitionConfig } from 'svelte/transition';
 
-// This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
-export type CssClasses = string;
-
 // Transition
 interface AdditionalTransitionProps {
 	ignoreReducedMotion?: boolean;
