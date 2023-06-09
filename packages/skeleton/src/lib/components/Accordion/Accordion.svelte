@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 	import { slide } from 'svelte/transition';
-	import type { Transition } from '../../dynamic-transitions/types.js';
+	import type { Transition } from '../../types.js';
 
 	type SlideTransition = typeof slide;
 	type TransitionIn = Transition;
@@ -16,7 +16,7 @@
 
 	// Types
 	import type { CssClasses } from '../../index.js';
-	import type { TransitionParams } from '../../dynamic-transitions/types.js';
+	import type { TransitionParams } from '../../types.js';
 
 	// Props
 	/** Set the auto-collapse mode. */

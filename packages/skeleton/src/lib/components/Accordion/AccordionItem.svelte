@@ -12,17 +12,16 @@
 	import { getContext } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
 	import type { Writable } from 'svelte/store';
+	import { dynamicTransition } from '../../types.js';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { Transition, TransitionParams } from '../../dynamic-transitions/types.js';
+	import type { Transition, TransitionParams } from '../../types.js';
 	import type { CssClasses } from '../../index.js';
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
-
-	import { dynamicTransition } from '../../dynamic-transitions/types.js';
 
 	// Props (state)
 	/** Set open by default on load. */

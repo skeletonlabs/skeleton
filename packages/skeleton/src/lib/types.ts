@@ -1,6 +1,7 @@
 import type { TransitionConfig } from 'svelte/transition';
 
-// Transition
+// Transitions ---
+
 interface AdditionalTransitionProps {
 	ignoreReducedMotion?: boolean;
 }
@@ -10,7 +11,6 @@ export interface TransitionSettings<T extends Transition> {
 	transition: T;
 	params?: TransitionParams<T>;
 }
-
 export function dynamicTransition<T extends Transition>(
 	node: Element,
 	{
