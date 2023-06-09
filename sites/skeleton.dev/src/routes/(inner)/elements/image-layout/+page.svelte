@@ -91,7 +91,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2 class="h2">Masonry Gallery</h2>
-			<p>Show the images inside a masonry grid layouts with two columns.</p>
+			<p>Show the images inside a masonry grid layouts with multiple columns.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<section class="grid grid-cols-2 md:grid-cols-4 gap-2">
