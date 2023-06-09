@@ -66,7 +66,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			list: [
 				{ href: '/elements/chat', label: 'Chat', keywords: 'message, conversation, prompt, ai' },
 				{ href: '/elements/gradient-headings', label: 'Gradient Headings', keywords: 'header, h1, h2, h3' },
-				{ href: '/elements/image-layouts', label: 'Image Layout', keywords: 'image, layout, blocks, masonry, grid' }
+				{ href: '/elements/image-layouts', label: 'Image Layouts', keywords: 'image, layout, blocks, masonry, grid' }
 			]
 		}
 	],
