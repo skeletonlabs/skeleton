@@ -1,5 +1,0 @@
-feat:
----
-"skeleton.dev": minor
----
-
