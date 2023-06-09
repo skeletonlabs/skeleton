@@ -88,7 +88,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ href: '/components/autocomplete', label: 'Autocomplete', keywords: 'input, filter, fuzzy, auto, complete, suggest' },
 				{ href: '/components/avatars', label: 'Avatars', keywords: 'image, initial, filter' },
 				{ href: '/components/conic-gradients', label: 'Conic Gradients', keywords: 'chart, graph, circle, pie, spinner, legend' },
-				{ href: '/components/counter', label: 'Counter', keywords: 'scroll, count' },
+				{ href: '/components/counter', label: 'Counter', keywords: 'scroll, count, flipper', badge: 'Experimental' },
 				{ href: '/components/file-buttons', label: 'File Buttons', keywords: 'upload, form, input, file, media' },
 				{ href: '/components/file-dropzone', label: 'File Dropzone', keywords: 'upload, form, input, file, media, drag, drop' },
 				{ href: '/components/input-chips', label: 'Input Chips', keywords: 'multi, multiple, select, tags, form, validation' },

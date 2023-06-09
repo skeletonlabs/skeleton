@@ -14,21 +14,6 @@ export type { PopupSettings } from './utilities/Popup/types.js';
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;
 
-// Transition Animation Types
-export type EasingFunction = (t: number) => number;
-export interface TransitionConfig {
-	delay?: number;
-	duration?: number;
-	easing?: EasingFunction;
-	css?: (t: number, u: number) => string;
-	tick?: (t: number, u: number) => void;
-}
-export type TransitionFunction = (node: HTMLElement, opts: any) => TransitionConfig;
-export type Transition = {
-	transition: TransitionFunction;
-	props: any;
-};
-
 // Stores ---
 
 export { storeHighlightJs } from './utilities/CodeBlock/stores.js';
