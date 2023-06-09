@@ -10,9 +10,8 @@
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
-		name: 'Image Layout',
-		// cspell:disable-next-line
-		description: 'Create different layouts for images.'
+		name: 'Image Layouts',
+		description: 'Various layouts for displaying images.'
 		// imports: ['Template'],
 		// types: ['Template'],
 		// stylesheetIncludes: ['all', 'elements'],
@@ -37,7 +36,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+				<section class="grid grid-cols-2 md:grid-cols-3 gap-4">
 					<div>
 						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI/300x300" alt="" />
 					</div>
@@ -65,13 +64,13 @@
 					<div>
 						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/c64AB11j-po/300x300" alt="" />
 					</div>
-				</div>
+				</section>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock
 					language="html"
 					code={`
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<section class="grid grid-cols-2 md:grid-cols-3 gap-4">
 	<div>
 		<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI/128x128" alt="">
 	</div>
@@ -81,7 +80,7 @@
 	<div>
 		<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI/128x128" alt="">
 	</div>
-<div>
+<section>
 `}
 				/>
 			</svelte:fragment>
@@ -91,11 +90,11 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2 class="h2">Masonary Gallery</h2>
+			<h2 class="h2">Masonry Gallery</h2>
 			<p>Show the images inside a masonry grid layouts with two columns.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+					<section class="grid grid-cols-2 md:grid-cols-4 gap-2">
 						<div class="grid gap-4">
 							<div>
 								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI" alt="" />
@@ -140,13 +139,13 @@
 								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/QK_VtGYQV_U" alt="" />
 							</div>
 						</div>
-					</div>
+					</section>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
 						code={`
-<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+<section class="grid grid-cols-2 md:grid-cols-4 gap-2">
 	<div class="grid gap-4">
 		<div>
 			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI" alt="" />
@@ -192,7 +191,7 @@
 		</div>
 	</div>
 
-</div>
+</section>
 `}
 					/>
 				</svelte:fragment>
@@ -271,7 +270,7 @@
 				Image layout markup and styles provided courtesy
 				<a class="anchor" href="https://flowbite.com/" target="_blank" rel="noreferrer">Flowbite</a>. Please
 				<a class="anchor" href="https://www.skeleton.dev/blog/skeleton-plus-flowbite" target="_blank" rel="noreferrer">view our guide</a>
-				to learn more about integrating Flowbite in your Skeleton projects.
+				to learn more about integrating Flowbite elements and blocks in your Skeleton projects.
 			</p>
 		</section>
 	</svelte:fragment>
