@@ -1,9 +1,9 @@
 <script lang="ts">
 	// Slots:
 	/**
-	 * @slot {{}} 0 - Provide an empty rating shape.
-	 * @slot {{}} 0.5 - Provide a half full rating shape.
-	 * @slot {{}} 1 - Provide a full rating shape.
+	 * @slot {{}} empty - Provide an empty rating shape.
+	 * @slot {{}} half - Provide a half rating shape.
+	 * @slot {{}} full - Provide a full rating shape.
 	 */
 
 	// Types
@@ -29,13 +29,14 @@
 </script>
 
 <div class="rating-bar {classesBase}" data-testid="rating-bar">
+	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 	{#each Array(max) as _, i}
 		{#if Math.floor(value) >= i + 1}
-			<slot name="1" />
+			<slot name="full" />
 		{:else if value === i + 0.5}
-			<slot name="0.5" />
+			<slot name="half" />
 		{:else}
-			<slot name="0" />
+			<slot name="empty" />
 		{/if}
 	{/each}
 </div>

@@ -1,16 +1,16 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import RatingBar from '$lib/components/RatingBar/RatingBar.svelte';
+import Ratings from '$lib/components/Ratings/Ratings.svelte';
 
 describe('RatingBar.svelte', () => {
 	it('Renders with minimal props', async () => {
-		const { getByTestId } = render(RatingBar);
+		const { getByTestId } = render(Ratings);
 		expect(getByTestId('rating-bar')).toBeTruthy();
 	});
 
 	it('Renders with all props', () => {
-		const { getByTestId } = render(RatingBar, {
+		const { getByTestId } = render(Ratings, {
 			props: {
 				max: 10,
 				value: 5.5,

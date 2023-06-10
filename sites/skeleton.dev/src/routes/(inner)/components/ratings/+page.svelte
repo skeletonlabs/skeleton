@@ -3,19 +3,19 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import { RatingBar, CodeBlock } from '@skeletonlabs/skeleton';
+	import { Ratings, CodeBlock } from '@skeletonlabs/skeleton';
 	// Sveld
-	import sveldRatingBar from '@skeletonlabs/skeleton/components/RatingBar/RatingBar.svelte?raw&sveld';
+	import sveldRatings from '@skeletonlabs/skeleton/components/Ratings/Ratings.svelte?raw&sveld';
 	import { emptyStar, fullStar, halfStar } from './icons';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
-		name: 'Rating Bars',
+		name: 'Ratings',
 		description: 'Display a rating bar, also known as <code class="code">Star Rating</code>',
-		imports: ['RatingBar'],
-		source: 'components/RatingBar',
-		components: [{ label: 'RatingBar', sveld: sveldRatingBar }]
+		imports: ['Ratings'],
+		source: 'components/Ratings',
+		components: [{ label: 'Ratings', sveld: sveldRatings }]
 	};
 </script>
 
@@ -24,33 +24,33 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<RatingBar class="fill-yellow-600" value={3.5}>
-					<svelte:fragment slot="0">
+				<Ratings class="fill-on-primary-token" value={3.5}>
+					<svelte:fragment slot="empty">
 						{@html emptyStar}
 					</svelte:fragment>
-					<svelte:fragment slot="0.5">
+					<svelte:fragment slot="half">
 						{@html halfStar}
 					</svelte:fragment>
-					<svelte:fragment slot="1">
+					<svelte:fragment slot="full">
 						{@html fullStar}
 					</svelte:fragment>
-				</RatingBar>
+				</Ratings>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock
 					language="html"
 					code={`
-<RatingBar value={3.5} max={5}>
-    <svelte:fragment slot="0">
+<Ratings value={3.5} max={5}>
+    <svelte:fragment slot="empty">
         (empty icon)
     </svelte:fragment>
-    <svelte:fragment slot="0.5">
+    <svelte:fragment slot="half">
         (half full icon)
     </svelte:fragment>
-    <svelte:fragment slot="1">
+    <svelte:fragment slot="full">
         (full icon)
     </svelte:fragment>
-</RatingBar>
+</Ratings>
 			`}
 				/>
 			</svelte:fragment>
