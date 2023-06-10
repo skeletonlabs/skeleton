@@ -77,14 +77,14 @@
 	}
 
 	function onMouseEnter(index: number): void {
-		if ($toastStore[index]?.hoverVisible) {
+		if ($toastStore[index]?.hoverable) {
 			toastStore.freeze(index);
 			classesSnackbar += ' scale-[105%]';
 		}
 	}
 
 	function onMouseLeave(index: number): void {
-		if ($toastStore[index]?.hoverVisible) {
+		if ($toastStore[index]?.hoverable) {
 			toastStore.unfreeze(index);
 			classesSnackbar = classesSnackbar.replace(' scale-[105%]', '');
 		}
@@ -140,7 +140,7 @@
 						<div class="text-base">{@html t.message}</div>
 						<div class="toast-actions {cToastActions}">
 							{#if t.action}<button class={buttonAction} on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
-							{#if !t.hideDismiss}<button class={buttonDismiss} on:click={() => toastStore.close(t.id)}>{buttonDismissLabel}</button>{/if}
+							{#if !t.undismissible}<button class={buttonDismiss} on:click={() => toastStore.close(t.id)}>{buttonDismissLabel}</button>{/if}
 						</div>
 					</div>
 				</div>

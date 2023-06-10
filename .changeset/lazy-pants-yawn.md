@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: Toast enhancement - ability to `hide the close button`, ability to `remain visible on hover`, ability to `close toasts programmatically` by Id.
+feat: Expanded Toast features to allow hiding the dismiss button, allow toast to remain visible on hover, and programatically close each instance.
