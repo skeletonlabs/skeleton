@@ -1,7 +1,10 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
+import skeleton from '../../packages/plugin/src/tailwind/skeleton.js';
 
 const SKELETON_PATH = '../../packages/skeleton/src/lib';
-module.exports = {
+export default {
 	darkMode: 'class',
 	content: ['./src/**/*.{html,js,svelte,ts}', `${SKELETON_PATH}/**/*.{html,js,svelte,ts}`],
 	theme: {
@@ -11,9 +14,5 @@ module.exports = {
 			}
 		}
 	},
-	plugins: [
-		require('@tailwindcss/forms'),
-		require('@tailwindcss/typography'),
-		...require(`@skeletonlabs/skeleton/tailwind/skeleton.cjs`)({ intellisense: false })
-	]
+	plugins: [forms, typography, ...skeleton()]
 };
