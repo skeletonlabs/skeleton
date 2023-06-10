@@ -1,0 +1,7 @@
+/* Stylesheet: typography.css */
+
+@layer base {
+	body {
+		@apply text-base font-token text-token;
+	}
+}

@@ -1,0 +1,204 @@
+/* === Variants === */
+/* A canned set of reusable variant styles. */
+
+@layer components {
+	/* Outline -- supports ringed and host variants */
+	.variant-outline-primary {
+		@apply ring-[1px] ring-primary-500 dark:ring-primary-500 ring-inset;
+	}
+	.variant-outline-secondary {
+		@apply ring-[1px] ring-secondary-500 dark:ring-secondary-500 ring-inset;
+	}
+	.variant-outline-tertiary {
+		@apply ring-[1px] ring-tertiary-500 dark:ring-tertiary-500 ring-inset;
+	}
+	.variant-outline-success {
+		@apply ring-[1px] ring-success-500 dark:ring-success-500 ring-inset;
+	}
+	.variant-outline-warning {
+		@apply ring-[1px] ring-warning-500 dark:ring-warning-500 ring-inset;
+	}
+	.variant-outline-error {
+		@apply ring-[1px] ring-error-500 dark:ring-error-500 ring-inset;
+	}
+	.variant-outline,
+	.variant-outline-surface {
+		@apply ring-[1px] ring-surface-500 dark:ring-surface-500 ring-inset;
+	}
+
+	/* ------------------------ */
+
+	/* === Filled === */
+
+	.variant-filled {
+		@apply bg-surface-900-50-token text-surface-50-900-token;
+	}
+	.variant-filled-primary {
+		@apply bg-primary-500 dark:bg-primary-500 text-on-primary-token dark:text-on-primary-token;
+	}
+	.variant-filled-secondary {
+		@apply bg-secondary-500 dark:bg-secondary-500 text-on-secondary-token dark:text-on-secondary-token;
+	}
+	.variant-filled-tertiary {
+		@apply bg-tertiary-500 dark:bg-tertiary-500 text-on-tertiary-token dark:text-on-tertiary-token;
+	}
+	.variant-filled-success {
+		@apply bg-success-500 dark:bg-success-500 text-on-success-token dark:text-on-success-token;
+	}
+	.variant-filled-warning {
+		@apply bg-warning-500 dark:bg-warning-500 text-on-warning-token dark:text-on-warning-token;
+	}
+	.variant-filled-error {
+		@apply bg-error-500 dark:bg-error-500 text-on-error-token dark:text-on-error-token;
+	}
+	.variant-filled-surface {
+		@apply bg-surface-400-500-token text-on-surface-token dark:text-on-surface-token;
+	}
+
+	/* === Ringed === */
+
+	.variant-ringed {
+		@apply bg-transparent dark:bg-transparent variant-outline;
+	}
+	.variant-ringed-primary {
+		@apply bg-transparent dark:bg-transparent variant-outline-primary;
+	}
+	.variant-ringed-secondary {
+		@apply bg-transparent dark:bg-transparent variant-outline-secondary;
+	}
+	.variant-ringed-tertiary {
+		@apply bg-transparent dark:bg-transparent variant-outline-tertiary;
+	}
+	.variant-ringed-success {
+		@apply bg-transparent dark:bg-transparent variant-outline-success;
+	}
+	.variant-ringed-warning {
+		@apply bg-transparent dark:bg-transparent variant-outline-warning;
+	}
+	.variant-ringed-error {
+		@apply bg-transparent dark:bg-transparent variant-outline-error;
+	}
+	.variant-ringed-surface {
+		@apply bg-transparent dark:bg-transparent variant-outline-surface;
+	}
+
+	/* === Ghost === */
+
+	.variant-ghost-primary {
+		@apply bg-primary-500/20 dark:bg-primary-500/20 variant-outline-primary;
+	}
+	.variant-ghost-secondary {
+		@apply bg-secondary-500/20 dark:bg-secondary-500/20 variant-outline-secondary;
+	}
+	.variant-ghost-tertiary {
+		@apply bg-tertiary-500/20 dark:bg-tertiary-500/20 variant-outline-tertiary;
+	}
+	.variant-ghost-success {
+		@apply bg-success-500/20 dark:bg-success-500/20 variant-outline-success;
+	}
+	.variant-ghost-warning {
+		@apply bg-warning-500/20 dark:bg-warning-500/20 variant-outline-warning;
+	}
+	.variant-ghost-error {
+		@apply bg-error-500/20 dark:bg-error-500/20 variant-outline-error;
+	}
+	.variant-ghost,
+	.variant-ghost-surface {
+		@apply bg-surface-500/20 dark:bg-surface-500/20 variant-outline-surface;
+	}
+
+	/* === Soft === */
+
+	.variant-soft-primary {
+		@apply bg-primary-400/20 dark:bg-primary-500/20 text-primary-700-200-token !ring-0;
+	}
+	.variant-soft-secondary {
+		@apply bg-secondary-400/20 dark:bg-secondary-500/20 text-secondary-700-200-token !ring-0;
+	}
+	.variant-soft-tertiary {
+		@apply bg-tertiary-400/20 dark:bg-tertiary-500/20 text-tertiary-700-200-token !ring-0;
+	}
+	.variant-soft-success {
+		@apply bg-success-400/20 dark:bg-success-500/20 text-success-700-200-token !ring-0;
+	}
+	.variant-soft-warning {
+		@apply bg-warning-400/20 dark:bg-warning-500/20 text-warning-700-200-token !ring-0;
+	}
+	.variant-soft-error {
+		@apply bg-error-400/20 dark:bg-error-500/20 text-error-700-200-token !ring-0;
+	}
+	.variant-soft,
+	.variant-soft-surface {
+		@apply bg-surface-400/20 dark:bg-surface-500/20 text-surface-700-200-token !ring-0;
+	}
+
+	/* === Glass === */
+
+	.variant-glass-primary {
+		@apply bg-primary-500/20 dark:bg-primary-500/20 backdrop-blur-lg;
+	}
+	.variant-glass-secondary {
+		@apply bg-secondary-500/20 dark:bg-secondary-500/20 backdrop-blur-lg;
+	}
+	.variant-glass-tertiary {
+		@apply bg-tertiary-500/20 dark:bg-tertiary-500/20 backdrop-blur-lg;
+	}
+	.variant-glass-success {
+		@apply bg-success-500/20 dark:bg-success-500/20 backdrop-blur-lg;
+	}
+	.variant-glass-warning {
+		@apply bg-warning-500/20 dark:bg-warning-500/20 backdrop-blur-lg;
+	}
+	.variant-glass-error {
+		@apply bg-error-500/20 dark:bg-error-500/20 backdrop-blur-lg;
+	}
+	.variant-glass-surface {
+		@apply bg-surface-500/20 dark:bg-surface-500/20 backdrop-blur-lg;
+	}
+	.variant-glass {
+		@apply bg-surface-50/30 dark:bg-surface-900/30 backdrop-blur-lg;
+	}
+
+	/* === Gradients === */
+
+	/* Core Trio */
+	.variant-gradient-primary-secondary {
+		@apply from-primary-500 to-secondary-500 text-on-primary-token;
+	}
+	.variant-gradient-secondary-tertiary {
+		@apply from-secondary-500 to-tertiary-500 text-on-secondary-token;
+	}
+	.variant-gradient-tertiary-primary {
+		@apply from-tertiary-500 to-primary-500 text-on-tertiary-token;
+	}
+	/* Core Trio (reversed) */
+	.variant-gradient-secondary-primary {
+		@apply from-secondary-500 to-primary-500 text-on-secondary-token;
+	}
+	.variant-gradient-tertiary-secondary {
+		@apply from-tertiary-500 to-secondary-500 text-on-tertiary-token;
+	}
+	.variant-gradient-primary-tertiary {
+		@apply from-primary-500 to-tertiary-500 text-on-primary-token;
+	}
+	/* State Trio */
+	.variant-gradient-success-warning {
+		@apply from-success-500 to-warning-500 text-on-success-token;
+	}
+	.variant-gradient-warning-error {
+		@apply from-warning-500 to-error-500 text-on-secondary-token;
+	}
+	.variant-gradient-error-success {
+		@apply from-error-500 to-success-500 text-on-error-token;
+	}
+	/* State Trio (reversed) */
+	.variant-gradient-warning-success {
+		@apply from-warning-500 to-success-500 text-on-warning-token;
+	}
+	.variant-gradient-error-warning {
+		@apply from-error-500 to-warning-500 text-on-secondary-token;
+	}
+	.variant-gradient-success-error {
+		@apply from-success-500 to-error-500 text-on-success-token;
+	}
+}

@@ -1,0 +1,49 @@
+/* Stylesheet: typography-prose.css */
+
+/* Provides default styling for the Tailwind Typography plugin via element modifiers. */
+/* https://tailwindcss.com/docs/typography-plugin */
+
+.prose {
+	@apply text-base font-token text-token;
+	/* Element Modifiers */
+	/* https://tailwindcss.com/docs/typography-plugin#element-modifiers */
+	@apply prose-headings:text-token;
+	/* @apply prose-lead:{utility}; */
+	@apply prose-h1:font-heading-token prose-h1:text-3xl prose-h1:md:text-5xl;
+	@apply prose-h2:font-heading-token prose-h1:text-2xl prose-h1:md:text-4xl;
+	@apply prose-h3:font-heading-token prose-h1:text-xl prose-h1:md:text-2xl;
+	@apply prose-h4:font-heading-token prose-h1:text-lg prose-h1:md:text-xl;
+	@apply prose-p:text-base;
+	/* @apply prose-a:{utility}; */
+	@apply prose-a:text-primary-700 prose-a:dark:text-primary-500 prose-a:hover:brightness-110 prose-a:underline;
+	@apply prose-blockquote:text-token prose-blockquote:text-base prose-blockquote:!border-secondary-500;
+	/* @apply prose-figure:{utility}; */
+	@apply prose-figcaption:text-token prose-figcaption:!text-sm prose-figcaption:italic prose-figcaption:text-center mt-3;
+	@apply prose-strong:text-token;
+	@apply prose-em:text-token;
+	/* @apply prose-ol:{utility}; */
+	/* @apply prose-ul:{utility}; */
+	@apply prose-li:text-base;
+	/* @apply prose-table:{utility}; */
+	/* @apply prose-thead:{utility}; */
+	/* @apply prose-tr:{utility}; */
+	/* @apply prose-th:{utility}; */
+	/* @apply prose-td:{utility}; */
+	/* @apply prose-img:{utility}; */
+	/* @apply prose-video:{utility}; */
+	/* @apply prose-hr:{utility}; */
+
+	/* The following have special use cases and must be handled seperately */
+	/* @apply prose-code:{utility}; */
+	/* @apply prose-pre:{utility}; */
+}
+
+/* NOTE: keep these in sync with typography.css */
+.prose pre:not(.code-block pre) {
+	@apply font-mono text-base bg-neutral-900/90 text-white p-4 whitespace-pre-wrap overflow-x-auto rounded-container-token;
+}
+.prose code:is(:not(pre *)) {
+	@apply font-mono text-xs text-primary-700 dark:text-primary-400 whitespace-nowrap;
+	@apply bg-primary-500/30 dark:bg-primary-500/20;
+	@apply py-0.5 px-1 rounded;
+}
