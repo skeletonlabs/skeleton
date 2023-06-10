@@ -2,6 +2,7 @@
 	import { slide } from 'svelte/transition';
 	import type { Transition } from '../../types.js';
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type SlideTransition = typeof slide;
 	type TransitionIn = Transition;
 	type TransitionOut = Transition;
