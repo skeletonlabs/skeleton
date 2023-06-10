@@ -3,4 +3,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: Added svelte `RatingBar` component.
+feat: Added svelte `Ratings` component.
