@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // The Skeleton Tailwind Plugin
 // Tailwind Docs: https://tailwindcss.com/docs/plugins
 // Skeleton Docs: https://www.skeleton.dev/docs/get-started
@@ -14,29 +15,43 @@ import tokensFills from './tokens/fills.js';
 import tokensText from './tokens/text.js';
 import tokensRings from './tokens/rings.js';
 
-// these are the crimes we commit because they decided to not export their types :]
-type CSSRuleObject = Omit<Parameters<Parameters<Parameters<typeof plugin>['0']>['0']['addUtilities']>['0'], 'CSSRuleObject[]'>;
+export const coreUtilities = {
+	// Implement Skeleton design token classes
+	...tokensBackgrounds(),
+	...tokensBorders(),
+	...tokensBorderRadius(),
+	...tokensFills(),
+	...tokensText(),
+	...tokensRings()
+};
 
-export const corePlugin = plugin(
-	({ addUtilities }) => {
-		addUtilities({
-			// Implement Skeleton design token classes
-			...tokensBackgrounds(),
-			...tokensBorders(),
-			...tokensBorderRadius(),
-			...tokensFills(),
-			...tokensText(),
-			...tokensRings()
-		});
-	},
-	{
-		theme: {
-			extend: {
-				// Implement Skeleton theme colors
-				colors: themeColors()
-			}
+export const coreConfig = {
+	theme: {
+		extend: {
+			// Implement Skeleton theme colors
+			colors: themeColors()
 		}
 	}
-);
+};
 
-export default corePlugin;
+// export const coreClasses = getSkeletonClasses();
+
+export function getSkeletonClasses() {
+	// try/catch because it will throw when generated-classes.js isn't generated yet
+	try {
+		const { components, base } = require('./generated/generated-classes.js');
+
+		if (typeof components !== 'object' || typeof base !== 'object') {
+			console.error('Failed to load Skeleton classes');
+			process.exitCode = 1;
+		}
+
+		return { components, base };
+	} catch {
+		console.error("generated-classes.js hasn't generated yet");
+	}
+}
+
+export const corePlugin = plugin(({ addUtilities }) => {
+	addUtilities(coreUtilities);
+}, coreConfig);
