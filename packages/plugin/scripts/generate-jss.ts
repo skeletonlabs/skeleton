@@ -2,13 +2,14 @@
 import type { CssInJs } from 'postcss-js';
 import { generateBaseTWStyles, transpileCssToJs } from './compile-css-to-js.js';
 import { mkdir, writeFile, unlink } from 'fs/promises';
+import plugin from 'tailwindcss/plugin.js';
 
 const INTELLISENSE_FILE_NAME = 'generated-classes.js';
 const GENERATED_DIR_PATH = `./src/tailwind/generated`;
 
 async function exec() {
-	// Deletes the previously generated CSS-in-JS file. If we don't, our plugin will
-	// add duplicate classes to our newly generated CSS-in-JS file.
+	// // Deletes the previously generated CSS-in-JS file. If we don't, our plugin will
+	// // add duplicate classes to our newly generated CSS-in-JS file.
 	await unlink(`${GENERATED_DIR_PATH}/${INTELLISENSE_FILE_NAME}`).catch(() => {
 		// file doesn't exist, don't worry about it
 	});
@@ -20,13 +21,20 @@ async function exec() {
 
 	const baseTWStyles = await generateBaseTWStyles();
 
-	const generatedJSS = await transpileCssToJs('./src/styles/test.css');
-	const purgedJSS = removeDuplicateClasses(generatedJSS, baseTWStyles);
+	const generatedComponentJSS = await transpileCssToJs('./src/styles/components.css');
+	const componentClasses = removeDuplicateClasses(generatedComponentJSS, baseTWStyles);
+
+	const componentPlugin = plugin(({ addComponents }) => {
+		addComponents(componentClasses);
+	});
+	const generatedBaseJSS = await transpileCssToJs('./src/styles/base.css', [componentPlugin]);
+	const baseStyles = removeDuplicateClasses(generatedBaseJSS, baseTWStyles);
 
 	// Creates the generated CSS-in-JS file
-	await writeFile(`${GENERATED_DIR_PATH}/${INTELLISENSE_FILE_NAME}`, `export const classes = ${JSON.stringify(purgedJSS)}`).catch((e) =>
-		console.error(e)
-	);
+	await writeFile(
+		`${GENERATED_DIR_PATH}/${INTELLISENSE_FILE_NAME}`,
+		`module.exports = { components: ${JSON.stringify(componentClasses)}, base: ${JSON.stringify(baseStyles)} };`
+	).catch((e) => console.error(e));
 }
 
 // Purges the generated CSS-in-JS file of duplicate TW classes
