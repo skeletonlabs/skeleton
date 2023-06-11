@@ -7,7 +7,7 @@ type Options = {
 
 const { components, base } = getSkeletonClasses()!;
 
-export const skeleton = plugin.withOptions<Options>(
+const skeleton = plugin.withOptions<Options>(
 	// Plugin Creator
 	(options) => {
 		return ({ addBase, addComponents, addUtilities, theme, config }) => {
@@ -26,3 +26,5 @@ export const skeleton = plugin.withOptions<Options>(
 );
 
 // consider exposing 'prefix' for users
+
+export default skeleton;

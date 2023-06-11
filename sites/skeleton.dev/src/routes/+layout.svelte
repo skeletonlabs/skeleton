@@ -38,11 +38,6 @@
 	import ModalExampleEmbed from '$lib/modals/examples/ModalExampleEmbed.svelte';
 	import ModalExampleImage from '$lib/modals/examples/ModalExampleImage.svelte';
 
-	// Skeleton Stylesheets
-	// import '@skeletonlabs/skeleton/styles/all.css';
-	import '@skeletonlabs/skeleton/styles/skeleton.css';
-	// import '@skeletonlabs/skeleton/styles/skeleton-minimal.css';
-	// import '@skeletonlabs/skeleton/styles/partials/typography-prose.css';
 	// The Skeleton blog stylesheet
 	import '$lib/styles/blog.css';
 	// Global Stylesheets

@@ -16,5 +16,5 @@ export default {
 			}
 		}
 	},
-	plugins: [forms, typography, ...skeleton()]
+	plugins: [forms, typography, skeleton]
 };
