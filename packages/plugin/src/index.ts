@@ -42,6 +42,4 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 	}
 );
 
-// consider exposing 'prefix' for users
-
 export default skeleton;
