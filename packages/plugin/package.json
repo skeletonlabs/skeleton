@@ -6,10 +6,11 @@
 	"scripts": {
 		"dev": "tsup --watch --onSuccess \"tsx ./scripts/generate-jss.ts\"",
 		"build": "tsup",
+		"sync": "tsx ./scripts/generate-jss.ts && tsup",
 		"package": "node ./scripts/pre-build.js && pnpm build:jss && svelte-kit sync && svelte-package && node ./scripts/post-build.js",
 		"lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
-		"build:jss": "tsx ./scripts/generate-jss.ts --package"
+		"build:jss": "tsx ./scripts/generate-jss.ts"
 	},
 	"repository": {
 		"type": "git",
