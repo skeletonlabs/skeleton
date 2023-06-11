@@ -3,7 +3,7 @@ import type { CssInJs } from 'postcss-js';
 import { generateBaseTWStyles, transpileCssToJs } from './compile-css-to-js.js';
 import { mkdir, writeFile, unlink } from 'fs/promises';
 
-const INTELLISENSE_FILE_NAME = 'intellisense-classes.json';
+const INTELLISENSE_FILE_NAME = 'generated-classes.js';
 const GENERATED_DIR_PATH = `./src/tailwind/generated`;
 
 async function exec() {
@@ -21,15 +21,17 @@ async function exec() {
 	const baseTWStyles = await generateBaseTWStyles();
 
 	const generatedJSS = await transpileCssToJs('./src/styles/test.css');
-	const purgedJSS = await removeDuplicateClasses(generatedJSS, baseTWStyles);
+	const purgedJSS = removeDuplicateClasses(generatedJSS, baseTWStyles);
 
 	// Creates the generated CSS-in-JS file
-	await writeFile(`${GENERATED_DIR_PATH}/${INTELLISENSE_FILE_NAME}`, `${JSON.stringify(purgedJSS)}`).catch((e) => console.error(e));
+	await writeFile(`${GENERATED_DIR_PATH}/${INTELLISENSE_FILE_NAME}`, `export const classes = ${JSON.stringify(purgedJSS)}`).catch((e) =>
+		console.error(e)
+	);
 }
 
 // Purges the generated CSS-in-JS file of duplicate TW classes
-async function removeDuplicateClasses(cssInJs: CssInJs, baseTWStyles: CssInJs) {
-	// We'll delete all the TW Base styles
+function removeDuplicateClasses(cssInJs: CssInJs, baseTWStyles: CssInJs) {
+	// We'll delete all the TW Base styles (i.e. html {...} body {...} etc.)
 	for (const [key] of Object.entries(cssInJs)) {
 		if (baseTWStyles[key] !== undefined) delete cssInJs[key];
 	}
