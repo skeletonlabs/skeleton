@@ -11,9 +11,8 @@
 		"moduleResolution": "nodenext",
 		"lib": ["ES2020"],
 		"target": "ES2020",
-		"module": "ES2020",
-		"typeRoots": ["./node_modules/@types", "./scripts/@types"],
-		"baseUrl": "."
+		"module": "CommonJS",
+		"typeRoots": ["./node_modules/@types", "./scripts/@types"]
 	},
 	"include": ["src", "scripts"]
 }

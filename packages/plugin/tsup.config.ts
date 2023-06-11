@@ -4,6 +4,8 @@ export default defineConfig({
 	entry: ['src/index.ts'],
 	outDir: 'dist',
 	sourcemap: true,
-	clean: true,
-	format: ['cjs', 'esm']
+	format: ['cjs'],
+	publicDir: 'src/styles',
+	tsconfig: 'tsconfig.json',
+	ignoreWatch: ['src/tailwind/generated']
 });
