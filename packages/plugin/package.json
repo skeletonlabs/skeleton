@@ -4,10 +4,9 @@
 	"description": "A SvelteKit component library.",
 	"private": true,
 	"scripts": {
-		"dev": "tsup --watch --onSuccess \"tsx ./scripts/generate-jss.ts\"",
-		"build": "tsup",
-		"sync": "tsx ./scripts/generate-jss.ts && tsup",
-		"package": "node ./scripts/pre-build.js && pnpm build:jss && svelte-kit sync && svelte-package && node ./scripts/post-build.js",
+		"dev": "node ./scripts/watcher.js",
+		"build": "build:jss && tsup",
+		"sync": "pnpm build:jss && tsup",
 		"lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"build:jss": "tsx ./scripts/generate-jss.ts"
@@ -40,6 +39,7 @@
 		"@types/postcss-import": "^14.0.0",
 		"@typescript-eslint/eslint-plugin": "5.59.9",
 		"@typescript-eslint/parser": "5.59.9",
+		"chokidar": "^3.5.3",
 		"eslint": "8.42.0",
 		"eslint-config-prettier": "8.8.0",
 		"postcss": "8.4.24",
