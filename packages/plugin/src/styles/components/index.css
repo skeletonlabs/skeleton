@@ -1,3 +1,4 @@
+@import 'core.css';
 @import 'typography.css';
 @import 'variants.css';
-@import 'elements.css';
+@import 'elements/index.css';

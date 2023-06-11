@@ -1,0 +1,9 @@
+/* Stylesheet: forms.css */
+
+@layer base {
+	/* Range Input */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
+	[type='range'] {
+		@apply w-full accent-surface-900 dark:accent-surface-50;
+	}
+}
