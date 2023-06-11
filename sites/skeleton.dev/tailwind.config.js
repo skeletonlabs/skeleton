@@ -1,7 +1,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
-import { skeleton } from '../../packages/plugin/dist/index.js';
+import skeleton from '../../packages/plugin/dist/index.js';
 
 const SKELETON_PATH = '../../packages/skeleton/src/lib';
 
