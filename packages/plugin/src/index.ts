@@ -1,27 +1,25 @@
 import plugin from 'tailwindcss/plugin.js';
 import { coreConfig, coreUtilities, getSkeletonClasses } from './tailwind/core.js';
-type Options = {
-	intellisense: boolean;
-	theme: string;
+type ConfigOptions = {
+	intellisense?: boolean;
+	theme?: string;
+	prefix?: string;
 };
 
 const { components, base } = getSkeletonClasses()!;
 
-const skeleton = plugin.withOptions<Options>(
+const skeleton = plugin.withOptions<ConfigOptions>(
 	// Plugin Creator
 	(options) => {
-		return ({ addBase, addComponents, addUtilities, theme, config }) => {
+		return ({ addBase, addComponents, addUtilities, config }) => {
 			addBase(base);
 			addUtilities(coreUtilities);
-			addComponents(components, {
-				respectImportant: true,
-				respectPrefix: true
-			});
+			addComponents(components);
 		};
 	},
 	// Config
 	(options) => {
-		return { ...coreConfig };
+		return { ...coreConfig, prefix: options?.prefix };
 	}
 );
 

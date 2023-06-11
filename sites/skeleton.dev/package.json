@@ -23,6 +23,7 @@
 		"@faker-js/faker": "^7.6.0",
 		"@floating-ui/dom": "^1.2.5",
 		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/plugin": "workspace:*",
 		"@sveltejs/adapter-vercel": "^2.4.3",
 		"@sveltejs/kit": "^1.15.0",
 		"@tailwindcss/forms": "^0.5.3",
