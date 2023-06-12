@@ -12,11 +12,12 @@ const generatedPath = resolve('.', join('src', 'tailwind', 'generated'));
 let locked = false;
 
 chokidar.watch(pathToStyles, { ignored: [generatedPath] }).on('change', (path) => {
+	const now = Date.now();
 	console.log(`[Build Start]: File Updated: ${basename(path)}`);
 	if (!locked) {
 		locked = true;
 		exec('pnpm -F @skeletonlabs/plugin build', () => {
-			console.log('[Build End]: Completed');
+			console.log(`[Build End]: Completed in ${Date.now() - now}ms`);
 			locked = false;
 		});
 	}
