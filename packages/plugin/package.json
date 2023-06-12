@@ -10,7 +10,8 @@
 		"package": "pnpm build:jss && tsup",
 		"lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
-		"build:jss": "tsx ./scripts/generate-jss.ts"
+		"build:jss": "tsx ./scripts/generate-jss.ts",
+		"convert": "tsx ./scripts/convert-theme.ts && pnpm format"
 	},
 	"repository": {
 		"type": "git",
