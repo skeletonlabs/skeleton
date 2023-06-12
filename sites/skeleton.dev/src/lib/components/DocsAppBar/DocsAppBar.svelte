@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { enhance, type SubmitFunction } from '$app/forms';
+	import { enhance } from '$app/forms';
 
 	// Types
 	import type { ModalSettings, DrawerSettings } from '@skeletonlabs/skeleton';
+	import type { SubmitFunction } from '@sveltejs/kit';
 
 	// Docs
 	import DocsLogoFull from '$lib/components/DocsLogos/DocsLogoFull.svelte';
