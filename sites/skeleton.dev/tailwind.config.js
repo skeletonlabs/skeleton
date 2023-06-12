@@ -18,5 +18,21 @@ export default {
 			}
 		}
 	},
-	plugins: [forms, typography, skeleton]
+	plugins: [
+		forms,
+		typography,
+		skeleton({
+			themes: [
+				{ name: 'crimson', extras: true },
+				{ name: 'gold-nouveau', extras: true },
+				{ name: 'hamlindigo', extras: true },
+				{ name: 'modern', extras: true },
+				{ name: 'rocket', extras: true },
+				{ name: 'sahara', extras: true },
+				{ name: 'seafoam', extras: true },
+				{ name: 'skeleton', extras: true },
+				{ name: 'vintage', extras: true }
+			]
+		})
+	]
 };
