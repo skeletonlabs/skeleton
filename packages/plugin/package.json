@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "pnpm build && node ./scripts/watcher.js",
 		"build": "tsx ./scripts/generate-jss.ts && tsup",
-		"sync": "pnpm build:jss && tsup",
+		"sync": "pnpm build:jss && tsup --dts",
+		"package": "pnpm build:jss && tsup --dts",
 		"lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"build:jss": "tsx ./scripts/generate-jss.ts"
