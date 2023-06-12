@@ -53,7 +53,7 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 			}
 
 			// Theme configuration
-			options.themes?.forEach((theme) => {
+			options?.themes?.forEach((theme) => {
 				// it's a preset theme but just the name was passed in
 				if (typeof theme === 'string') {
 					const themeName = theme;
