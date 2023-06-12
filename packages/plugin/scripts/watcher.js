@@ -9,7 +9,15 @@ const generatedPath = resolve('.', join('src', 'tailwind', 'generated'));
 
 // Simple watcher to detect changes in /packages/plugin/src
 // This will rebuild the package on any `src` file changes.
+let locked = false;
+
 chokidar.watch(pathToStyles, { ignored: [generatedPath] }).on('change', (path) => {
-	console.log(`[Rebuilding]: File Updated: ${basename(path)}`);
-	exec('pnpm -F @skeletonlabs/plugin build');
+	console.log(`[Build Start]: File Updated: ${basename(path)}`);
+	if (!locked) {
+		locked = true;
+		exec('pnpm -F @skeletonlabs/plugin build', () => {
+			console.log('[Build End]: Completed');
+			locked = false;
+		});
+	}
 });
