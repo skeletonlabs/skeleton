@@ -91,7 +91,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>We offer to types of Tab components, but recommend you avoiding mixing these to ensure a consistent user experience.</p>
+			<p>We offer two types of Tab components, but recommend you avoiding mixing these to ensure a consistent user experience.</p>
 			<h3 class="h3">Tab</h3>
 			<p>
 				See the featured example above for reference. Maintains an active selection state, which is ideal for quickly switching panel
