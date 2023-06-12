@@ -6,7 +6,7 @@
 import plugin from 'tailwindcss/plugin.js';
 
 // Skeleton Theme Modules
-import themeColors from './themes/colors.js';
+import themeColors from './colors.js';
 // Skeleton Design Token Modules
 import tokensBackgrounds from './tokens/backgrounds.js';
 import tokensBorders from './tokens/borders.js';
