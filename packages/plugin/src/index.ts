@@ -11,34 +11,29 @@ type ConfigOptions = {
 	 * @default ''
 	 */
 	prefix?: string;
+	important?: boolean;
 	/**
 	 * Whether to include Skeleton's base styles.
 	 * @default true
 	 */
 	base?: boolean;
-	theme?: string;
 };
-
-const { components, base } = getSkeletonClasses()!;
 
 const skeleton = plugin.withOptions<ConfigOptions>(
 	// Plugin Creator
 	(options) => {
 		return ({ addBase, addComponents, addUtilities, config }) => {
-			const userConfig = config();
-			const skeletonConfig = userConfig['skeleton'];
+			const { components, base } = getSkeletonClasses();
 
-			if (skeletonConfig) console.dir(skeletonConfig);
-
-			console.dir({ options, config: skeletonConfig });
 			if (options?.base !== false) addBase(base);
+
 			addUtilities(coreUtilities);
 			addComponents(components);
 		};
 	},
 	// Config
 	(options) => {
-		return { ...coreConfig, prefix: options?.prefix };
+		return { ...coreConfig, prefix: options?.prefix, important: options?.important };
 	}
 );
 

@@ -50,6 +50,8 @@ export function getSkeletonClasses() {
 	} catch {
 		console.error("generated-classes.js hasn't generated yet");
 	}
+
+	return { components: undefined, base: undefined };
 }
 
 export const corePlugin = plugin(({ addUtilities }) => {
