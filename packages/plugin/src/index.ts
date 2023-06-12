@@ -53,32 +53,30 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 			}
 
 			// Theme configuration
-			if (options?.themes) {
-				options.themes.forEach((theme) => {
-					// it's a preset theme but just the name was passed in
-					if (typeof theme === 'string') {
-						const themeName = theme;
-						// we only want the properties
-						baseStyles[`:root [data-theme='${themeName}']`] = themes[themeName].properties;
-						return;
+			options.themes?.forEach((theme) => {
+				// it's a preset theme but just the name was passed in
+				if (typeof theme === 'string') {
+					const themeName = theme;
+					// we only want the properties
+					baseStyles[`:root [data-theme='${themeName}']`] = themes[themeName].properties;
+					return;
+				}
+
+				// it's a preset theme
+				if (!('properties' in theme)) {
+					baseStyles[`:root [data-theme='${theme.name}']`] = themes[theme.name].properties;
+
+					if (theme.extras === true) {
+						// extras are opt-in
+						baseStyles = { ...baseStyles, ...themes[theme.name].extras };
 					}
+					return;
+				}
 
-					// it's a preset theme
-					if (!('properties' in theme)) {
-						baseStyles[`:root [data-theme='${theme.name}']`] = themes[theme.name].properties;
-
-						if (theme.extras === true) {
-							// extras are opt-in
-							baseStyles = { ...baseStyles, ...themes[theme.name].extras };
-						}
-						return;
-					}
-
-					// it's a custom theme
-					baseStyles[`:root [data-theme='${theme.name}']`] = theme.properties;
-					baseStyles = { ...baseStyles, ...theme.extras };
-				});
-			}
+				// it's a custom theme
+				baseStyles[`:root [data-theme='${theme.name}']`] = theme.properties;
+				baseStyles = { ...baseStyles, ...theme.extras };
+			});
 
 			addBase(baseStyles);
 			addUtilities(coreUtilities);
