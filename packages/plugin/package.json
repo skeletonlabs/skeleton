@@ -5,7 +5,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "pnpm build && node ./scripts/watcher.js",
-		"build": "pnpm build:jss && tsup",
+		"build": "tsx ./scripts/generate-jss.ts && tsup",
 		"sync": "pnpm build:jss && tsup",
 		"lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
