@@ -80,7 +80,7 @@
 	function toastHiddenDismiss(): void {
 		const t: ToastSettings = {
 			message: 'The dismiss button is hidden.',
-			undismissible: true,
+			hideDismiss: true,
 			timeout: 10000
 		};
 		toastStore.trigger(t);
@@ -259,14 +259,14 @@ toastStore.trigger(t);
 						code={`
 const t: ToastSettings = {
 	message: 'The dismiss button is hidden.',
-	undismissible: true,
+	hideDismiss: true,
 	timeout: 10000
 };
 toastStore.trigger(t);
 `}
 					/>
 					<p>
-						When using the <code class="code">dismissable</code> option <code class="code">autohide</code> is required and enabled by default.
+						When using the <code class="code">hideDismiss</code> option <code class="code">autohide</code> is required and enabled by default.
 					</p>
 				</svelte:fragment>
 			</DocsPreview>
