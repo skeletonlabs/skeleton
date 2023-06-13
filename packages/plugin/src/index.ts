@@ -1,6 +1,8 @@
 import plugin from 'tailwindcss/plugin.js';
+import postcssJs from 'postcss-js';
 import { coreConfig, coreUtilities, getSkeletonClasses } from './tailwind/core.js';
 import { themes, getThemeProperties } from './tailwind/themes/index.js';
+import { prefixSelector } from './tailwind/prefixSelector.js';
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
 import type { ConfigOptions, CustomTheme, PresetTheme } from './types.js';
 
@@ -10,6 +12,7 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 		return ({ addBase, addComponents, addUtilities }) => {
 			const { components, base } = getSkeletonClasses();
 			let baseStyles: CSSRuleObject = {};
+			let componentStyles: CSSRuleObject = {};
 
 			// Base styles configuration
 			if (options?.base !== false) {
@@ -42,14 +45,25 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 				baseStyles = { ...baseStyles, ...theme.extras };
 			});
 
+			// Prefix component classes
+			if (options?.prefix) {
+				const prefix = options?.prefix;
+				const root = postcssJs.parse(components);
+				root.walkRules((rule) => {
+					rule.selector = prefixSelector(prefix, rule.selector);
+				});
+
+				componentStyles = postcssJs.objectify(root);
+			}
+
 			addBase(baseStyles);
-			addUtilities(coreUtilities);
-			addComponents(components);
+			addUtilities(coreUtilities, { respectPrefix: false });
+			addComponents(componentStyles, { respectPrefix: false });
 		};
 	},
 	// Config
-	(options) => {
-		return { ...coreConfig, prefix: options?.prefix };
+	() => {
+		return { ...coreConfig };
 	}
 );
 

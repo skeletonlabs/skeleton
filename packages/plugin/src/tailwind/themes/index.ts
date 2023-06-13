@@ -13,18 +13,6 @@ export const themes = { crimson, 'gold-nouveau': goldNouveau, hamlindigo, modern
 
 export type PresetThemes = ObjectKeys<typeof themes>;
 
-export const presetThemeProperties: Record<PresetThemes, ThemeProperties> = {
-	skeleton: skeleton['properties'],
-	'gold-nouveau': goldNouveau['properties'],
-	crimson: crimson['properties'],
-	sahara: sahara['properties'],
-	hamlindigo: hamlindigo['properties'],
-	modern: modern['properties'],
-	rocket: rocket['properties'],
-	seafoam: seafoam['properties'],
-	vintage: vintage['properties']
-};
-
 export function getThemeProperties(themeName: PresetThemes) {
 	return themes[themeName].properties;
 }
