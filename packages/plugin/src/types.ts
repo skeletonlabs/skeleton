@@ -25,7 +25,7 @@ export type ConfigOptions = {
 	 */
 	base?: boolean;
 	/**
-	 * Customizable themes
+	 * Customizable themes.
 	 */
 	themes?: Array<PresetTheme | CustomTheme | PresetThemes>;
 };
@@ -81,8 +81,9 @@ export type CustomTheme = {
 	/**
 	 * Extras for your custom theme.
 	 *
-	 * Be sure to prefix the property names with `[data-theme='theme-name']` so that these extras
-	 * can be applied when the value of `data-theme` is set to the name of your custom theme.
+	 * **NOTE:** It's important to prefix the property names with
+	 * `[data-theme='theme-name']` so that these extras can be applied
+	 * when the value of `data-theme` is set to the name of your custom theme.
 	 *
 	 * @example
 	 * extras = {
