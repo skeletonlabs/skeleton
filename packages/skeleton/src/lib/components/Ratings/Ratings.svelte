@@ -1,10 +1,12 @@
 <script lang="ts">
 	// Slots:
 	/**
-	 * @slot {{}} empty - Provide an empty rating shape.
-	 * @slot {{}} half - Provide a half rating shape.
-	 * @slot {{}} full - Provide a full rating shape.
+	 * @slot {{}} empty - Provide an empty rating icon.
+	 * @slot {{}} half - Provide a half rating icon.
+	 * @slot {{}} full - Provide a full rating icon.
 	 */
+
+	import { createEventDispatcher } from 'svelte/internal';
 
 	// Types
 	import type { CssClasses } from '../../index.js';
@@ -25,6 +27,20 @@
 	/** Provide classes to set the horizontal spacing style. */
 	export let spacing: CssClasses = 'space-x-2';
 
+	// Props (regions)
+	/** Provide arbitrary classes to the icon region. */
+	export let regionIcon: CssClasses = '';
+
+	// Event Dispatcher
+	const dispatch = createEventDispatcher();
+
+	function iconClick(index: number): void {
+		/** @event {{ index: number  }} icon - Fires when an icons is clicked */
+		dispatch('icon', {
+			index: index + 1
+		});
+	}
+
 	// Classes
 	const cBase = 'w-full flex';
 
@@ -32,15 +48,15 @@
 	$: classesBase = `${cBase} ${text} ${fill} ${justify} ${spacing} ${$$props.class ?? ''}`;
 </script>
 
-<div class="rating-bar {classesBase}" data-testid="rating-bar">
+<div class="ratings {classesBase}" data-testid="rating-bar">
 	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 	{#each Array(max) as _, i}
 		{#if Math.floor(value) >= i + 1}
-			<slot name="full" />
+			<button class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="full" /></button>
 		{:else if value === i + 0.5}
-			<slot name="half" />
+			<button class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="half" /></button>
 		{:else}
-			<slot name="empty" />
+			<button class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="empty" /></button>
 		{/if}
 	{/each}
 </div>

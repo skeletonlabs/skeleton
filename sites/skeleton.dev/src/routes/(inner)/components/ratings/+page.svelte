@@ -20,6 +20,15 @@
 
 	// Local
 	let value = { current: 3.5, max: 5 };
+
+	function logger(event: CustomEvent<{ index: number }>): void {
+		console.log(`Icon with index [${event.detail.index}] was clicked`);
+	}
+
+	function updateInteractiveValue(event: CustomEvent<{ index: number }>): void {
+		console.log(`Icon with index [${event.detail.index}] was clicked`);
+		value.current = event.detail.index;
+	}
 </script>
 
 <DocsShell {settings}>
@@ -27,7 +36,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="grid grid-cols-[1fr_auto] gap-4 place-items-center">
 			<svelte:fragment slot="preview">
-				<Ratings fill="fill-on-primary-token" value={value.current} max={value.max}>
+				<Ratings fill="fill-on-primary-token" value={value.current} max={value.max} on:icon={logger}>
 					<svelte:fragment slot="empty">
 						{@html icons.starEmpty}
 					</svelte:fragment>
@@ -76,7 +85,7 @@
 			<h2 class="h2">Binding</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Ratings class="fill-token" value={value.current} max={value.max}>
+					<Ratings class="fill-token" value={value.current} max={value.max} on:icon={logger}>
 						<svelte:fragment slot="empty">
 							{@html icons.circleEmpty}
 						</svelte:fragment>
@@ -104,10 +113,48 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
+			<h2 class="h2">User Interactivity</h2>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<Ratings class="fill-token" bind:value={value.current} max={value.max} on:icon={updateInteractiveValue}>
+						<svelte:fragment slot="empty">
+							{@html icons.starEmpty}
+						</svelte:fragment>
+						<svelte:fragment slot="half">
+							{@html icons.starHalf}
+						</svelte:fragment>
+						<svelte:fragment slot="full">
+							{@html icons.starFull}
+						</svelte:fragment>
+					</Ratings>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+function iconClick(event: CustomEvent<{index:number}>): void {
+	value.current = event.detail.index;
+}
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<Ratings bind:value={value.current} max={value.max} on:icon={iconClick}>
+	<svelte:fragment slot="empty">(icon)</svelte:fragment>
+	<svelte:fragment slot="half">(con)</svelte:fragment>
+	<svelte:fragment slot="full">(icon)</svelte:fragment>
+</Ratings>
+			`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Emoji</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Ratings class="fill-token" value={value.current} max={value.max}>
+					<Ratings class="fill-token" value={value.current} max={value.max} on:icon={logger}>
 						<svelte:fragment slot="empty">
 							<span class="text-3xl">⚪</span>
 						</svelte:fragment>
