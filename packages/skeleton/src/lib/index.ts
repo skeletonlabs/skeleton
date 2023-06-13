@@ -93,6 +93,7 @@ export { default as Step } from './components/Stepper/Step.svelte';
 export { default as Table } from './components/Table/Table.svelte';
 export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
+export { default as TabAnchor } from './components/Tab/TabAnchor.svelte';
 export { default as TableOfContents } from './components/TableOfContents/TableOfContents.svelte';
 // Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
