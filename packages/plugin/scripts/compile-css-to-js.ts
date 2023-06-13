@@ -43,7 +43,7 @@ export async function transpileCssToJs(cssEntryPath: string, plugins: Config['pl
 
 	const cssInJs = postcssJs.objectify(result2.root);
 
-	return structuredClone(cssInJs); // return as a POJO
+	return cssInJs;
 }
 
 // Generates all TW base styles so that we can use this to
@@ -59,5 +59,5 @@ export async function generateBaseTWStyles() {
 
 	const cssInJs = postcssJs.objectify(result.root);
 
-	return structuredClone(cssInJs); // return as a POJO
+	return cssInJs;
 }

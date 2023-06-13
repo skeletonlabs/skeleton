@@ -16,7 +16,8 @@ async function exec() {
 	const baseTWStyles = await generateBaseTWStyles();
 
 	const generatedComponentJSS = await transpileCssToJs('./src/styles/components.css');
-	const componentClasses = removeDuplicateClasses(generatedComponentJSS, baseTWStyles);
+	const cleanedComponentClasses = removeDuplicateClasses(generatedComponentJSS, baseTWStyles);
+	const componentClasses = patchMediaQueries(cleanedComponentClasses);
 
 	const componentPlugin = plugin(({ addComponents }) => {
 		addComponents(componentClasses);
@@ -36,6 +37,24 @@ function removeDuplicateClasses(cssInJs: CssInJs, baseTWStyles: CssInJs) {
 	// We'll delete all the TW Base styles (i.e. html {...} body {...} etc.)
 	for (const key of Object.keys(cssInJs)) {
 		if (baseTWStyles[key] !== undefined) delete cssInJs[key];
+	}
+
+	return cssInJs;
+}
+
+// Moves all of the media queries towards the end of the cssInJs object.
+function patchMediaQueries(cssInJs: CssInJs) {
+	const mediaQueries: CssInJs = {};
+
+	for (const key of Object.keys(cssInJs)) {
+		if (key.startsWith('@media')) {
+			mediaQueries[key] = cssInJs[key];
+			delete cssInJs[key];
+		}
+	}
+
+	for (const key of Object.keys(mediaQueries)) {
+		cssInJs[key] = mediaQueries[key];
 	}
 
 	return cssInJs;
