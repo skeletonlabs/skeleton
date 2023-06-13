@@ -9,6 +9,9 @@ export type ConfigOptions = {
 	 * that conflict with other plugins. For example, our `btn` class
 	 * can often conflict with other UI libraries.
 	 *
+	 * **NOTE:** Only use this if you're using this plugin WITHOUT
+	 * our accompanying component library, `@skeletonlabs/skeleton`.
+	 *
 	 * @example
 	 * // Skeleton classes will be prefixed with 'sk-' (e.g., sk-btn)
 	 * prefix = 'sk-'
@@ -44,7 +47,7 @@ export type CustomTheme = {
 	 *
 	 * To generate a custom theme,
 	 * visit our Theme Generator.
-	 * @link https://skeleton.dev/docs/generator
+	 * @see https://skeleton.dev/docs/generator
 	 *
 	 * @example
 	 * properties = {
