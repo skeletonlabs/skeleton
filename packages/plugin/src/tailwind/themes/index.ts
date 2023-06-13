@@ -25,6 +25,10 @@ export const presetThemeProperties: Record<PresetThemes, ThemeProperties> = {
 	vintage: vintage['properties']
 };
 
+export function getThemeProperties(themeName: PresetThemes) {
+	return themes[themeName].properties;
+}
+
 export type ObjectValues<T> = T[keyof T];
 export type ObjectKeys<T> = keyof T;
 
