@@ -6,7 +6,8 @@ export type ConfigOptions = {
 	 * Prefixes Skeleton component classes with a specified string.
 	 *
 	 * This should be used when there are Skeleton class names
-	 * that conflict with other plugins.
+	 * that conflict with other plugins. For example, our `btn` class
+	 * can often conflict with other UI libraries.
 	 *
 	 * @example
 	 * // Skeleton classes will be prefixed with 'sk-' (e.g., sk-btn)
