@@ -45,7 +45,7 @@ export type ThemeConfig = {
 	 * 			'--theme-font-color-dark': 'var(--color-primary-100)',
 	 * 			// ...
 	 * 		},
-	 * 		extras: {
+	 * 		extras: { // optional
 	 * 			"[data-theme='my-custom-theme'] h1": {
 	 * 				fontWeight: "400"
 	 * 			}
