@@ -1,5 +1,5 @@
 import type { CSSRuleObject } from 'tailwindcss/types/config';
-import type { PresetThemes, ThemeProperties } from './tailwind/themes';
+import type { PresetTheme, ThemeProperties } from './tailwind/themes';
 
 export type ConfigOptions = {
 	/**
@@ -25,12 +25,57 @@ export type ConfigOptions = {
 	 */
 	base?: boolean;
 	/**
-	 * Customizable themes.
+	 * Theme config for configuring your themes.
 	 */
-	themes?: Array<PresetTheme | CustomTheme | PresetThemes>;
+	themes?: ThemeConfig;
 };
 
-export type CustomTheme = {
+export type ThemeConfig = {
+	/**
+	 * Custom themes can be enabled by passing them to this option.
+	 *
+	 * @example
+	 * custom = [
+	 * 	{
+	 * 		name: "my-custom-theme",
+	 * 		properties: {
+	 * 			'--theme-font-family-base': 'system-ui',
+	 * 			'--theme-font-family-heading': "'Space Grotesk', sans-serif",
+	 * 			'--theme-font-color-base': 'var(--color-primary-900)',
+	 * 			'--theme-font-color-dark': 'var(--color-primary-100)',
+	 * 			// ...
+	 * 		},
+	 * 		extras: {
+	 * 			"[data-theme='my-custom-theme'] h1": {
+	 * 				fontWeight: "400"
+	 * 			}
+	 * 		}
+	 * 	}
+	 * ]
+	 *
+	 *
+	 */
+	custom?: Array<CustomThemeConfig>;
+	/**
+	 * Preset themes can be enabled by passing them to this option.
+	 *
+	 * @example
+	 * // Preset themes can be enabled by simply passing their names
+	 * preset = [ "skeleton", "modern", "rocket" ]
+	 *
+	 * @example
+	 * // Or by passing an object, enabling the ability
+	 * // to enable a preset's `extras`
+	 * preset = [
+	 * 	{ name: "skeleton", extras: true },
+	 * 	{ name: "modern", extras: true },
+	 * ]
+	 *
+	 */
+	preset?: Array<PresetThemeConfig | PresetTheme>;
+};
+
+export type CustomThemeConfig = {
 	/**
 	 * The name of your custom theme.
 	 *
@@ -43,10 +88,9 @@ export type CustomTheme = {
 	 */
 	name: string;
 	/**
-	 * You can define your own custom theme properties here.
+	 * Define your own custom theme properties here.
 	 *
-	 * To generate a custom theme,
-	 * visit our Theme Generator.
+	 * To generate a custom theme, visit our Theme Generator.
 	 * @see https://skeleton.dev/docs/generator
 	 *
 	 * @example
@@ -95,11 +139,11 @@ export type CustomTheme = {
 	extras?: CSSRuleObject;
 };
 
-export type PresetTheme = {
+export type PresetThemeConfig = {
 	/**
 	 * Name of one of our provided theme presets.
 	 */
-	name: PresetThemes;
+	name: PresetTheme;
 	/**
 	 * Whether to include the preset theme extras. Disabled by default.
 	 *

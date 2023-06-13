@@ -11,9 +11,9 @@ import type { CSSRuleObject } from 'tailwindcss/types/config.js';
 
 export const themes = { crimson, 'gold-nouveau': goldNouveau, hamlindigo, modern, rocket, sahara, seafoam, skeleton, vintage };
 
-export type PresetThemes = ObjectKeys<typeof themes>;
+export type PresetTheme = ObjectKeys<typeof themes>;
 
-export function getThemeProperties(themeName: PresetThemes) {
+export function getThemeProperties(themeName: PresetTheme) {
 	return themes[themeName].properties;
 }
 

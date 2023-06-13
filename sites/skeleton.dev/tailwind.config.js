@@ -1,3 +1,4 @@
+// @ts-check
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
@@ -22,17 +23,19 @@ export default {
 		forms,
 		typography,
 		skeleton({
-			themes: [
-				{ name: 'crimson', extras: true },
-				{ name: 'gold-nouveau', extras: true },
-				{ name: 'hamlindigo', extras: true },
-				{ name: 'modern', extras: true },
-				{ name: 'rocket', extras: true },
-				{ name: 'sahara', extras: true },
-				{ name: 'seafoam', extras: true },
-				{ name: 'skeleton', extras: true },
-				{ name: 'vintage', extras: true }
-			]
+			themes: {
+				preset: [
+					{ name: 'crimson', extras: true },
+					{ name: 'gold-nouveau', extras: true },
+					{ name: 'hamlindigo', extras: true },
+					{ name: 'modern', extras: true },
+					{ name: 'rocket', extras: true },
+					{ name: 'sahara', extras: true },
+					{ name: 'seafoam', extras: true },
+					{ name: 'skeleton', extras: true },
+					{ name: 'vintage', extras: true }
+				]
+			}
 		})
 	]
 };

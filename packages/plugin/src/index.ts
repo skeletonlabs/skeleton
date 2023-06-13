@@ -4,7 +4,7 @@ import { coreConfig, coreUtilities, getSkeletonClasses } from './tailwind/core.j
 import { themes, getThemeProperties } from './tailwind/themes/index.js';
 import { prefixSelector } from './tailwind/prefixSelector.js';
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
-import type { ConfigOptions, CustomTheme, PresetTheme } from './types.js';
+import type { ConfigOptions, CustomThemeConfig, PresetThemeConfig, ThemeConfig } from './types.js';
 
 const skeleton = plugin.withOptions<ConfigOptions>(
 	// Plugin Creator
@@ -19,8 +19,15 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 				baseStyles = { ...base };
 			}
 
-			// Theme configuration
-			options?.themes?.forEach((theme) => {
+			// Custom Themes configuration
+			options?.themes?.custom?.forEach((theme) => {
+				// it's a custom theme
+				baseStyles[`:root [data-theme='${theme.name}']`] = theme.properties;
+				baseStyles = { ...baseStyles, ...theme.extras };
+			});
+
+			// Preset Themes configuration
+			options?.themes?.preset?.forEach((theme) => {
 				// it's a preset theme but just the name was passed in
 				if (typeof theme === 'string') {
 					const themeName = theme;
@@ -39,10 +46,6 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 					}
 					return;
 				}
-
-				// it's a custom theme
-				baseStyles[`:root [data-theme='${theme.name}']`] = theme.properties;
-				baseStyles = { ...baseStyles, ...theme.extras };
 			});
 
 			// Prefix component classes
@@ -67,5 +70,7 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 	}
 );
 
-export { getThemeProperties, skeleton, CustomTheme, ConfigOptions, PresetTheme };
+export { getThemeProperties, skeleton };
+export type { CustomThemeConfig, ConfigOptions, PresetThemeConfig, ThemeConfig };
+
 export default skeleton;
