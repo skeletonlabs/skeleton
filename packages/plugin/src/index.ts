@@ -12,7 +12,7 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 		return ({ addBase, addComponents, addUtilities }) => {
 			const { components, base } = getSkeletonClasses();
 			let baseStyles: CSSRuleObject = {};
-			let componentStyles: CSSRuleObject = {};
+			let componentStyles = components;
 
 			// Base styles configuration
 			if (options?.base !== false) {
