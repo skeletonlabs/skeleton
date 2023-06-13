@@ -57,7 +57,7 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 			}
 
 			addBase(baseStyles);
-			addUtilities(coreUtilities, { respectPrefix: false });
+			addUtilities(coreUtilities);
 			addComponents(componentStyles, { respectPrefix: false });
 		};
 	},
