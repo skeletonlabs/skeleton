@@ -55,8 +55,28 @@
 		/>
 	</section>
 
-	<!-- <section class="space-y-4">
+	<section class="space-y-4">
 		<h2 class="h2">Reduced Motion</h2>
-		<p>We'll need to cover more about <code class="code">prefers-reduced-motion</code> here...</p>
-	</section> -->
+		<p>
+			To ensure a better experience for users who are sensitive to motion or have vestibular disorders, the default behavior is to disable
+			transitions when the user has activated <code class="code">prefers-reduced-motion</code> in their browser settings.
+		</p>
+		<p>
+			If there are minor transitions that you still want to enable, you can override the default behavior and enable them even when <code
+				class="code">prefers-reduced-motion</code
+			> is set by the user.
+		</p>
+		<h3 class="h3">Store</h3>
+		<p>
+			The <code class="code">prefersReducedMotionStore</code> provides a way to access the user's preferred motion setting.
+		</p>
+		<CodeBlock
+			language="ts"
+			code={`
+import { prefersReducedMotionStore } from '@skeletonlabs/skeleton';
+
+const userMotionPreference = $prefersReducedMotionStore;
+			`}
+		/>
+	</section>
 </LayoutPage>
