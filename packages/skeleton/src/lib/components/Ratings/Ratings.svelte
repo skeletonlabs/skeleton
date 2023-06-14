@@ -52,11 +52,11 @@
 	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 	{#each Array(max) as _, i}
 		{#if Math.floor(value) >= i + 1}
-			<button class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="full" /></button>
+			<button type="button" class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="full" /></button>
 		{:else if value === i + 0.5}
-			<button class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="half" /></button>
+			<button type="button" class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="half" /></button>
 		{:else}
-			<button class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="empty" /></button>
+			<button type="button" class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="empty" /></button>
 		{/if}
 	{/each}
 </div>
