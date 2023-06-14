@@ -206,7 +206,9 @@ toastStore.trigger(t);
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-			<!-- Fixed -->
+			<h3 class="h3">Timing</h3>
+			<p>Use the following setting to adjust the toast timing.</p>
+			<!-- No Timeout -->
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex gap-4">
@@ -246,11 +248,16 @@ toastStore.trigger(t);
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+			<h3 class="h3">Dismiss</h3>
+			<p>
+				Use the <code class="code">hideDismiss</code> option to disable the dismiss button. When using this setting
+				<code class="code">autohide</code> option enabled by default.
+			</p>
 			<!-- Hidden dismiss -->
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex gap-4">
-						<button class="btn variant-filled" on:click={toastHiddenDismiss}>Hidden dismiss</button>
+						<button class="btn variant-filled" on:click={toastHiddenDismiss}>Hide Dismiss</button>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -265,11 +272,10 @@ const t: ToastSettings = {
 toastStore.trigger(t);
 `}
 					/>
-					<p>
-						When using the <code class="code">hideDismiss</code> option <code class="code">autohide</code> is required and enabled by default.
-					</p>
 				</svelte:fragment>
 			</DocsPreview>
+			<h3 class="h3">Hover State</h3>
+			<p>Use the <code class="code">hoverable</code> option to keep the toast visible while hovering with a mouse cursor.</p>
 			<!-- remain visible on hover -->
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -295,10 +301,12 @@ toastStore.trigger(t);
 			<h3 class="h3">Clear</h3>
 			<p>Use <code class="code">toastStore.clear()</code> to clear the entire toast store queue.</p>
 			<CodeBlock language="ts" code={`toastStore.clear();`} />
+		</section>
+		<!-- Programatic -->
+		<section class="space-y-4">
 			<!-- Programatic -->
-			<h3 class="h3">Programatic</h3>
-			<p>Create a reference ID for your toast so that you may programatically close the toast on demand.</p>
-
+			<h2 class="h2">Programatic</h2>
+			<p>Create a reference for your toast so that you may programatically close it on demand.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex gap-4">

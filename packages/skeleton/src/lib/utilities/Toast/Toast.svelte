@@ -138,10 +138,12 @@
 						data-testid="toast"
 					>
 						<div class="text-base">{@html t.message}</div>
-						<div class="toast-actions {cToastActions}">
-							{#if t.action}<button class={buttonAction} on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
-							{#if !t.hideDismiss}<button class={buttonDismiss} on:click={() => toastStore.close(t.id)}>{buttonDismissLabel}</button>{/if}
-						</div>
+						{#if t.action || !t.hideDismiss}
+							<div class="toast-actions {cToastActions}">
+								{#if t.action}<button class={buttonAction} on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
+								{#if !t.hideDismiss}<button class={buttonDismiss} on:click={() => toastStore.close(t.id)}>{buttonDismissLabel}</button>{/if}
+							</div>
+						{/if}
 					</div>
 				</div>
 			{/each}
