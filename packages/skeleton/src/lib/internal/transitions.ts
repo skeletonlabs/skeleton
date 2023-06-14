@@ -1,9 +1,12 @@
 import type { TransitionConfig } from 'svelte/transition';
+import { get } from 'svelte/store';
+import { prefersReducedMotion } from '../utilities/PrefersReducedMotion/PrefersReducedMotion.js';
 
+// Transitions ---
 export function dynamicTransition<T extends Transition>(node: Element, dynParams: DynamicTransitionParams<T>): TransitionConfig {
 	const { transition, params, enabled } = dynParams;
 
-	if (enabled) return transition(node, params);
+	if (enabled && (!get(prefersReducedMotion) || ignoreReducedMotion)) return transition(node, params);
 
 	return {};
 }
@@ -14,12 +17,6 @@ type DynamicTransitionParams<T extends Transition> = {
 	enabled: boolean;
 };
 
-// Transitions ---
-
-interface AdditionalTransitionProps {
-	ignoreReducedMotion?: boolean;
-}
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Transition = (node: Element, params?: any) => TransitionConfig;
-export type TransitionParams<T extends Transition> = Parameters<T>[1] & AdditionalTransitionProps;
+export type TransitionParams<T extends Transition> = Parameters<T>[1];
