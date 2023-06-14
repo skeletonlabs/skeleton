@@ -1,11 +1,4 @@
-<script lang="ts" context="module">
-	import type { Transition, TransitionParams, CssClasses } from '../../index.js';
-
-	type TransitionIn = Transition;
-	type TransitionOut = Transition;
-</script>
-
-<script lang="ts" generics="TransitionIn extends Transition, TransitionOut extends Transition">
+<script lang="ts">
 	// Slots:
 	/**
 	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
@@ -23,6 +16,11 @@
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
+
+	// Types
+	import type { CssClasses, Transition, TransitionParams } from '../../index.js';
+	type TransitionIn = $$Generic<Transition>;
+	type TransitionOut = $$Generic<Transition>;
 
 	// Props (state)
 	/** Set open by default on load. */
@@ -48,11 +46,31 @@
 
 	/** Enable/Disable transitions */
 	export let transitions: boolean = getContext('transitions');
-	/** Provide the transition to use when values move in.*/
+	/**
+	 * Provide the transition to use when values move in.
+	 *
+	 * The default transition is `slide`
+	 *
+	 * @type {TransitionIn}
+	 */
 	export let transitionIn: TransitionIn = getContext('transitionIn');
+	/**
+	 * Transition params that will be passed to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
 	export let transitionInParams: TransitionParams<TransitionIn> = getContext('transitionInParams');
-	/** Provide the transition to use when values move out.*/
+	/**
+	 * Provide the transition to use when values move out.
+	 *
+	 * The default transition is `slide`
+	 *
+	 * @type {TransitionOut}
+	 */
 	export let transitionOut: TransitionOut = getContext('transitionOut');
+	/**
+	 * Transition params that will be passed to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
 	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
 
 	// ---

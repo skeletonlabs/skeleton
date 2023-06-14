@@ -23,14 +23,32 @@
 	/** Enable/Disable transitions */
 	export let transitions = true;
 
-	/** Provide the transition to use when values move in. */
+	/**
+	 * Provide the transition to use when values move in.
+	 *
+	 * The default transition is `slide`
+	 *
+	 * @type {TransitionIn}
+	 */
 	export let transitionIn: TransitionIn = slide as TransitionIn;
-	/** Provide the transition params to use when values move in. */
+	/**
+	 * Transition params that will be passed to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
 	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 200 };
 
-	/** Provide the transition to use when values move out. */
+	/**
+	 * Provide the transition to use when values move out.
+	 *
+	 * The default transition is `slide`
+	 *
+	 * @type {TransitionOut}
+	 */
 	export let transitionOut: TransitionOut = slide as TransitionOut;
-	/** Provide the transition params to use when values move out. */
+	/**
+	 * Transition params that will be passed to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
 	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 200 };
 
 	// Props (parent)
