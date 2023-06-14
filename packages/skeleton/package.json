@@ -14,7 +14,7 @@
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"sync": "svelte-kit sync",
+		"sync": "svelte-kit sync && pnpm build:jss",
 		"build:jss": "node ./scripts/generate-jss.js --package"
 	},
 	"repository": {
