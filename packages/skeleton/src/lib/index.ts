@@ -84,6 +84,7 @@ export { default as ListBoxItem } from './components/ListBox/ListBoxItem.svelte'
 export { default as Paginator } from './components/Paginator/Paginator.svelte';
 export { default as ProgressBar } from './components/ProgressBar/ProgressBar.svelte';
 export { default as ProgressRadial } from './components/ProgressRadial/ProgressRadial.svelte';
+export { default as Ratings } from './components/Ratings/Ratings.svelte';
 export { default as RadioGroup } from './components/Radio/RadioGroup.svelte';
 export { default as RadioItem } from './components/Radio/RadioItem.svelte';
 export { default as RangeSlider } from './components/RangeSlider/RangeSlider.svelte';
