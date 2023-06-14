@@ -1,4 +1,11 @@
-<script lang="ts">
+<script lang="ts" context="module">
+	import type { Transition, TransitionParams, CssClasses } from '../../index.js';
+
+	type TransitionIn = Transition;
+	type TransitionOut = Transition;
+</script>
+
+<script lang="ts" generics="TransitionIn extends Transition, TransitionOut extends Transition">
 	// Slots:
 	/**
 	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
@@ -11,17 +18,11 @@
 
 	import { getContext } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
+	import { dynamicTransition } from '../../internal/transitions.js';
 	import type { Writable } from 'svelte/store';
-	import { dynamicTransition } from '../../types.js';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
-
-	// Types
-	import type { Transition, TransitionParams } from '../../types.js';
-	import type { CssClasses } from '../../index.js';
-	type TransitionIn = $$Generic<Transition>;
-	type TransitionOut = $$Generic<Transition>;
 
 	// Props (state)
 	/** Set open by default on load. */

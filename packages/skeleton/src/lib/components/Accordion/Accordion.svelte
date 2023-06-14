@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 	import { slide } from 'svelte/transition';
-	import type { Transition } from '../../types.js';
+	import type { Transition, TransitionParams, CssClasses } from '../../index.js';
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type SlideTransition = typeof slide;
@@ -14,10 +14,6 @@
 
 	import { writable, type Writable } from 'svelte/store';
 	import { setContext } from 'svelte';
-
-	// Types
-	import type { CssClasses } from '../../index.js';
-	import type { TransitionParams } from '../../types.js';
 
 	// Props
 	/** Set the auto-collapse mode. */
