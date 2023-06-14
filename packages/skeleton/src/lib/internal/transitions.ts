@@ -17,6 +17,10 @@ type DynamicTransitionParams<T extends Transition> = {
 	enabled: boolean;
 };
 
+interface AdditionalTransitionProps {
+	ignoreReducedMotion?: boolean;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Transition = (node: Element, params?: any) => TransitionConfig;
-export type TransitionParams<T extends Transition> = Parameters<T>[1];
+export type TransitionParams<T extends Transition> = Parameters<T>[1] & AdditionalTransitionProps;
