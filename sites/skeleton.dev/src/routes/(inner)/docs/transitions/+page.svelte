@@ -6,61 +6,47 @@
 <LayoutPage>
 	<header class="space-y-4">
 		<h1 class="h1">Transitions</h1>
+		<!-- prettier-ignore -->
 		<p>
-			Skeleton provides an easy way to change all transitions used by our components to assure maximum <code class="code">flexibility</code>
-			and <code class="code">customizability</code>.
+			Skeleton provides a simple interface for modifying Svelte component transitions. This supports all <a class="anchor" href="https://svelte.dev/docs#run-time-svelte-transition" target="_blank" rel="noreferrer">Svelte-provided transitions</a>, such as: <code class="code">fade</code>, <code class="code">blur</code>, <code class="code">fly</code>, <code class="code">slide</code>, <code class="code">scale</code>, <code class="code">draw</code>, and <code class="code">crossfade</code>. As well as custom <a class="anchor" href="https://svelte.dev/tutorial/custom-css-transitions" target="_blank" rel="noreferrer">CSS</a> and <a class="anchor" href="https://svelte.dev/tutorial/custom-js-transitions" target="_blank" rel="noreferrer">Javascript</a> transitions.
 		</p>
 	</header>
 
 	<hr />
 
-	<!-- Default Transition -->
 	<section class="space-y-4">
-		<h2 class="h2">Default Transition</h2>
-		<p>
-			Each component That uses a transition is supplied with a default <code class="code">TransitionIn</code> and
-			<code class="code">TransitionOut</code>
-			props with <code class="code">TransitionInParams</code> and <code class="code">TransitionOutParams</code> presenting the parameters for
-			the transitions respectively.
-		</p>
+		<div class="card variant-glass p-4 text-center space-y-4">
+			<span class="chip variant-soft">
+				<i class="fa-solid fa-right-left text-[16px]" />
+				<span>Transitions</span>
+			</span>
+			<p class="text-sm">Look for this indicator on each component page. If present, custom transitions are supported.</p>
+		</div>
 	</section>
 
-	<hr />
-
 	<section class="space-y-4">
-		<h2 class="h2">Change Transition</h2>
-		<p>
-			To change the default transition you can use one of Svelte default transitions or provide your own custom <code class="code">Css</code
-			>
-			or <code class="code">Js</code> transition.
-		</p>
-		<CodeBlock
-			language="html"
-			code={`
-<ExampleComponent transitionIn={slide} transitionOut={yourCustomTransition} />
-`}
-		/>
+		<h2 class="h2">Properties</h2>
+		<p>Provide the transition and transition parameters as follows.</p>
+		<h3 class="h3">Transition In</h3>
+		<CodeBlock language="html" code={`<ExampleComponent transitionIn={fade} transitionInParams={{ duration: 200 }} />`} />
+		<h3 class="h3">Transition Out</h3>
+		<CodeBlock language="html" code={`<ExampleComponent transitionOut={fade} transitionOutParams={{ duration: 200 }} />`} />
 	</section>
 
-	<hr />
-
 	<section class="space-y-4">
-		<h2 class="h2">Change Parameters</h2>
-		<p>To update the parameters of the default transition or supply parameters for your custom transition</p>
-		<CodeBlock
-			language="html"
-			code={`
-<ExampleComponent transitionInParams={{ duration: 300 }} 
-                  transitionOut={yourCustomTransition} transitionOutParams={{ customParam: value }}/>
-`}
-		/>
+		<h2 class="h2">Parameters</h2>
+		<p>You can modify parameters for both the default <em>in</em> and <em>out</em> transitions.</p>
+		<CodeBlock language="html" code={`<ExampleComponent transitionInParams={{ duration: 400 }} />`} />
 	</section>
-
-	<hr />
 
 	<section class="space-y-4">
 		<h2 class="h2">Disable Transitions</h2>
-		<p>Disable all transitions for a component is applied using the prop <code class="code">transitions</code></p>
+		<p>
+			To disable all transitions for a single component, set <code class="code">transitions</code> to <em>false</em>. This will affect both
+			the
+			<em>in</em>
+			and <em>out</em> transitions.
+		</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -69,10 +55,8 @@
 		/>
 	</section>
 
-	<hr />
-
-	<section class="space-y-4">
-		<h2 class="h2">prefers-reduced-motion</h2>
-		<p>more info to follow...</p>
-	</section>
+	<!-- <section class="space-y-4">
+		<h2 class="h2">Reduced Motion</h2>
+		<p>We'll need to cover more about <code class="code">prefers-reduced-motion</code> here...</p>
+	</section> -->
 </LayoutPage>

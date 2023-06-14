@@ -77,6 +77,13 @@
 				<span>WAI-ARIA</span>
 			</a>
 		{/if}
+		<!-- Transitions -->
+		{#if pageData.transitions}
+			<a class={cChip} href="/docs/transitions">
+				<i class="fa-solid fa-right-left text-[16px]" />
+				<span>Transitions</span>
+			</a>
+		{/if}
 		<!-- Dependencies -->
 		{#if pageData.dependencies?.length}
 			{#each pageData.dependencies as d}
