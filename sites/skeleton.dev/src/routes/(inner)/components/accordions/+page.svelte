@@ -9,7 +9,6 @@
 	// Sveld
 	import sveldAccordion from '@skeletonlabs/skeleton/components/Accordion/Accordion.svelte?raw&sveld';
 	import sveldAccordionItem from '@skeletonlabs/skeleton/components/Accordion/AccordionItem.svelte?raw&sveld';
-	import { fade } from 'svelte/transition';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

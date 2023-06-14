@@ -5,46 +5,56 @@ const postcssImport = require('postcss-import');
 const tailwindcss = require('tailwindcss');
 
 // Transpiles all of our library's CSS to JS
-async function transpileCssToJs() {
-	const cssEntryPath = './src/lib/styles/skeleton.css';
+async function transpileCssToJs(cssEntryPath, plugins = []) {
+	const selectors = [];
+
+	// We'll first get all the custom the class names,
+	// then we can feed that into the TW preprocessor as the `content`
+	// so that TW can detect and generate them properly
+
+	const css = fs.readFileSync(cssEntryPath, 'utf8');
+	const processor = postcss([postcssImport()]);
+	const result = await processor.process(css, { from: cssEntryPath });
+
+	result.root.walk((node) => {
+		if (node.type === 'rule') {
+			selectors.push(...node.selectors);
+		}
+	});
+
 	// Custom tailwind config so that we only use the necessities
 	const twConfig = {
 		darkMode: 'class',
-		content: ['./src/**/*.{html,js,svelte,ts}'],
-		plugins: [require('@tailwindcss/typography'), require('../src/lib/tailwind/core.cjs')]
-	};
-
-	const css = fs.readFileSync(cssEntryPath, 'utf8');
-	const result = await postcss().use(postcssImport()).use(tailwindcss(twConfig)).process(css, { from: cssEntryPath });
-	const cssInJs = postcssJs.objectify(result.root);
-
-	return structuredClone(cssInJs); // return as a POJO
-}
-
-// Generates all of the TW classes so that we can use this to remove duplicates in our plugin.
-// Takes ~8 seconds to run.
-async function generateAllTWClasses() {
-	console.log("First time running, generating all tailwind classes... this may take a while... (it's only once though!)");
-	const cssEntryPath = './src/lib/styles/partials/tailwind.css';
-
-	// Special tailwind config so that all TW classes are included
-	const twConfig = {
-		content: [{ raw: '' }],
-		safelist: [
-			{
-				pattern: /.*/
-			}
+		content: [{ raw: selectors.join(' ') }],
+		plugins: [
+			require('../src/lib/tailwind/core.cjs'),
+			// add skeleton component classes for the base styles
+			...plugins
 		]
 	};
 
-	const css = fs.readFileSync(cssEntryPath, 'utf8');
-	const result = await postcss().use(tailwindcss(twConfig)).process(css, { from: cssEntryPath });
-	const cssInJs = postcssJs.objectify(result.root);
+	const result2 = await postcss([postcssImport(), tailwindcss(twConfig)]).process(css, { from: cssEntryPath });
+	if (result2.root.type === 'document') throw Error('This should never happen');
 
-	// Caches the TW classes so we don't have to generate them again after the initial run
-	fs.writeFileSync('./.temp/twClasses.cjs', `module.exports = ${JSON.stringify(cssInJs)}`);
+	const cssInJs = postcssJs.objectify(result2.root);
 
-	return structuredClone(cssInJs); // return as a POJO
+	return cssInJs;
 }
 
-module.exports = { transpileCssToJs, generateAllTWClasses };
+// Generates all TW base styles so that we can use this to
+// the remove duplicates in our plugin.
+// Takes ~600ms second to run.
+async function generateBaseTWStyles() {
+	const twConfig = {
+		content: [{ raw: 'w-1' }]
+	};
+
+	const result = await postcss(tailwindcss(twConfig)).process('@tailwind base', { from: undefined });
+	if (result.root.type === 'document') throw Error('This should never happen');
+
+	const cssInJs = postcssJs.objectify(result.root);
+
+	return cssInJs;
+}
+
+module.exports = { transpileCssToJs, generateBaseTWStyles };

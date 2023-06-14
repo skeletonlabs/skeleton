@@ -3,7 +3,7 @@
 	/**
 	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
 	 * @slot {{}} summary - Provide the interactive summary of each item.
-	 * @slot {{}} content - Provide the content content of each item.
+	 * @slot {{}} content - Provide the content of each item.
 	 */
 	// Events:
 	// FORWARDED: do not document these, breaks the type definition
@@ -11,15 +11,14 @@
 
 	import { getContext } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
+	import { dynamicTransition } from '../../internal/transitions.js';
 	import type { Writable } from 'svelte/store';
-	import { dynamicTransition } from '../../types.js';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { Transition, TransitionParams } from '../../types.js';
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, Transition, TransitionParams } from '../../index.js';
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
 
@@ -47,11 +46,31 @@
 
 	/** Enable/Disable transitions */
 	export let transitions: boolean = getContext('transitions');
-	/** Provide the transition to use when values move in.*/
+	/**
+	 * Provide the transition to use when values move in.
+	 *
+	 * The default transition is `slide`
+	 *
+	 * @type {TransitionIn}
+	 */
 	export let transitionIn: TransitionIn = getContext('transitionIn');
+	/**
+	 * Transition params that will be passed to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
 	export let transitionInParams: TransitionParams<TransitionIn> = getContext('transitionInParams');
-	/** Provide the transition to use when values move out.*/
+	/**
+	 * Provide the transition to use when values move out.
+	 *
+	 * The default transition is `slide`
+	 *
+	 * @type {TransitionOut}
+	 */
 	export let transitionOut: TransitionOut = getContext('transitionOut');
+	/**
+	 * Transition params that will be passed to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
 	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
 
 	// ---

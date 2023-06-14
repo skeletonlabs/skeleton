@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 	import { slide } from 'svelte/transition';
-	import type { Transition } from '../../types.js';
+	import type { Transition, TransitionParams, CssClasses } from '../../index.js';
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type SlideTransition = typeof slide;
@@ -15,10 +15,6 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { setContext } from 'svelte';
 
-	// Types
-	import type { CssClasses } from '../../index.js';
-	import type { TransitionParams } from '../../types.js';
-
 	// Props
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
@@ -27,14 +23,32 @@
 	/** Enable/Disable transitions */
 	export let transitions = true;
 
-	/** Provide the transition to use when values move in. */
+	/**
+	 * Provide the transition to use when values move in.
+	 *
+	 * The default transition is `slide`
+	 *
+	 * @type {TransitionIn}
+	 */
 	export let transitionIn: TransitionIn = slide as TransitionIn;
-	/** Provide the transition params to use when values move in. */
+	/**
+	 * Transition params that will be passed to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
 	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 200 };
 
-	/** Provide the transition to use when values move out. */
+	/**
+	 * Provide the transition to use when values move out.
+	 *
+	 * The default transition is `slide`
+	 *
+	 * @type {TransitionOut}
+	 */
 	export let transitionOut: TransitionOut = slide as TransitionOut;
-	/** Provide the transition params to use when values move out. */
+	/**
+	 * Transition params that will be passed to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
 	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 200 };
 
 	// Props (parent)
