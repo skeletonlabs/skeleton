@@ -53,7 +53,7 @@ export {
 // Local Storage Store
 export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore.js';
 // Prefers-reduced-motion
-export { prefersReducedMotion } from './utilities/PrefersReducedMotion/PrefersReducedMotion.js';
+export { prefersReducedMotionStore } from './utilities/PrefersReducedMotion/PrefersReducedMotion.js';
 // Component Utilities
 export { tableSourceMapper, tableSourceValues, tableMapperValues } from './components/Table/utils.js';
 

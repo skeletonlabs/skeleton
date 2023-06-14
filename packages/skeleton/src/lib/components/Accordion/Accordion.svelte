@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 	import { slide } from 'svelte/transition';
-	import type { Transition, TransitionParams, CssClasses } from '../../index.js';
+	import { type Transition, type TransitionParams, type CssClasses, prefersReducedMotionStore } from '../../index.js';
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type SlideTransition = typeof slide;
@@ -20,8 +20,11 @@
 	export let autocollapse = false;
 
 	// Props (transition)
-	/** Enable/Disable transitions */
-	export let transitions = true;
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
 
 	/**
 	 * Provide the transition to use when values move in.
