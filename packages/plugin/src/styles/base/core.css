@@ -5,6 +5,8 @@
 
 	body {
 		@apply bg-surface-50-900-token;
+		/* Typography */
+		@apply text-base font-token text-token;
 	}
 
 	/* === Selection === */

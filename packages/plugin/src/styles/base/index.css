@@ -1,5 +1,4 @@
 /* Core should be optional in the plugin */
 @import 'core.css';
-@import 'typography.css';
 @import 'forms.css';
-@import 'elements/index.css';
+@import 'elements.css';

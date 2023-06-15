@@ -3,10 +3,6 @@
 @layer components {
 	/* === States === */
 
-	button:disabled {
-		@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
-	}
-
 	.button-base-styles {
 		/* Size (match base) */
 		@apply text-base;
@@ -69,11 +65,6 @@
 	}
 	.btn-icon-xl {
 		@apply text-xl aspect-square w-[63px];
-	}
-
-	/* File Input Button */
-	input[type='file']:not(.file-dropzone-input)::file-selector-button {
-		@apply border-0 btn variant-filled btn-sm mr-2;
 	}
 
 	/* === Button Groups === */
