@@ -19,41 +19,6 @@
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
 
-	// Props (transition)
-	/**
-	 * Enable/Disable transitions
-	 * @type {boolean}
-	 */
-	export let transitions = !$prefersReducedMotionStore;
-
-	/**
-	 * Provide the transition to use when values move in.
-	 *
-	 * The default transition is `slide`
-	 *
-	 * @type {TransitionIn}
-	 */
-	export let transitionIn: TransitionIn = slide as TransitionIn;
-	/**
-	 * Transition params that will be passed to `transitionIn`.
-	 * @type {TransitionParams}
-	 */
-	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 200 };
-
-	/**
-	 * Provide the transition to use when values move out.
-	 *
-	 * The default transition is `slide`
-	 *
-	 * @type {TransitionOut}
-	 */
-	export let transitionOut: TransitionOut = slide as TransitionOut;
-	/**
-	 * Transition params that will be passed to `transitionOut`.
-	 * @type {TransitionParams}
-	 */
-	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 200 };
-
 	// Props (parent)
 	/** Provide classes to set the accordion width. */
 	export let width: CssClasses = 'w-full';
@@ -84,17 +49,39 @@
 	/** Provide arbitrary classes to the caret icon region. */
 	export let regionCaret: CssClasses = '';
 
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition to used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = slide as TransitionIn;
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 200 };
+	/**
+	 * Provide the transition to used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = slide as TransitionOut;
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 200 };
+
 	// Local
 	const active: Writable<string | null> = writable(null);
 
 	// Context API
 	setContext('active', active);
 	setContext('autocollapse', autocollapse);
-	setContext('transitions', transitions);
-	setContext('transitionIn', transitionIn);
-	setContext('transitionInParams', transitionInParams);
-	setContext('transitionOut', transitionOut);
-	setContext('transitionOutParams', transitionOutParams);
 	setContext('disabled', disabled);
 	setContext('padding', padding);
 	setContext('hover', hover);
@@ -104,6 +91,11 @@
 	setContext('regionControl', regionControl);
 	setContext('regionPanel', regionPanel);
 	setContext('regionCaret', regionCaret);
+	setContext('transitions', transitions);
+	setContext('transitionIn', transitionIn);
+	setContext('transitionInParams', transitionInParams);
+	setContext('transitionOut', transitionOut);
+	setContext('transitionOutParams', transitionOutParams);
 
 	// Reactive
 	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;

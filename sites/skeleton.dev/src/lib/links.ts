@@ -21,7 +21,8 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{
 					href: '/docs/transitions',
 					label: 'Transitions',
-					keywords: 'transition, transitions, blur, fade, fly, slide, scale, draw, prefers, reduced, motion'
+					keywords: 'transition, transitions, blur, fade, fly, slide, scale, draw, crossfade, prefers, reduced, motion',
+					badge: 'New'
 				}
 			]
 		},

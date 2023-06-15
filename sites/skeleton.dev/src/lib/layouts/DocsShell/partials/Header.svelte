@@ -78,8 +78,8 @@
 			</a>
 		{/if}
 		<!-- Transitions -->
-		{#if pageData.transitions}
-			<a class={cChip} href="/docs/transitions">
+		{#if pageData.transitionIn || pageData.transitionOut}
+			<a class={cChip} href="/docs/transitions" title={`In: ${pageData.transitionIn}, Out: ${pageData.transitionOut}`}>
 				<i class="fa-solid fa-right-left text-[16px]" />
 				<span>Transitions</span>
 			</a>

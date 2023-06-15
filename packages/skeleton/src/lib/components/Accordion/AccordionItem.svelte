@@ -44,35 +44,6 @@
 	/** The writable store that houses the auto-collapse active item UUID. */
 	export let active: Writable<string | null> = getContext('active');
 
-	/** Enable/Disable transitions */
-	export let transitions: boolean = getContext('transitions');
-	/**
-	 * Provide the transition to use when values move in.
-	 *
-	 * The default transition is `slide`
-	 *
-	 * @type {TransitionIn}
-	 */
-	export let transitionIn: TransitionIn = getContext('transitionIn');
-	/**
-	 * Transition params that will be passed to `transitionIn`.
-	 * @type {TransitionParams}
-	 */
-	export let transitionInParams: TransitionParams<TransitionIn> = getContext('transitionInParams');
-	/**
-	 * Provide the transition to use when values move out.
-	 *
-	 * The default transition is `slide`
-	 *
-	 * @type {TransitionOut}
-	 */
-	export let transitionOut: TransitionOut = getContext('transitionOut');
-	/**
-	 * Transition params that will be passed to `transitionOut`.
-	 * @type {TransitionParams}
-	 */
-	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
-
 	// ---
 	/** Set the disabled state for this item. */
 	export let disabled: boolean = getContext('disabled');
@@ -94,6 +65,30 @@
 	export let regionPanel: CssClasses = getContext('regionPanel');
 	/** Provide arbitrary classes caret icon region. */
 	export let regionCaret: CssClasses = getContext('regionCaret');
+
+	// Props (transitions)
+	/** Enable/Disable transitions */
+	export let transitions: boolean = getContext('transitions');
+	/**
+	 * Provide the transition to used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = getContext('transitionIn');
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = getContext('transitionInParams');
+	/**
+	 * Provide the transition to used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = getContext('transitionOut');
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: Event): void {
