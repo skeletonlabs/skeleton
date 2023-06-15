@@ -13,7 +13,7 @@ const tailwindcss = tw as unknown as PluginCreator<string | Config | { config: s
 export async function transpileCssToJs(cssEntryPath: string, plugins: Config['plugins'] = []) {
 	const selectors: string[] = [];
 
-	// We'll first get all the custom the class names,
+	// We'll first get all the custom class names,
 	// then we can feed that into the TW preprocessor as the `content`
 	// so that TW can detect and generate them properly
 
