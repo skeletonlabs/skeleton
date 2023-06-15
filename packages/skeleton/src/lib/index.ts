@@ -84,6 +84,7 @@ export { default as ListBoxItem } from './components/ListBox/ListBoxItem.svelte'
 export { default as Paginator } from './components/Paginator/Paginator.svelte';
 export { default as ProgressBar } from './components/ProgressBar/ProgressBar.svelte';
 export { default as ProgressRadial } from './components/ProgressRadial/ProgressRadial.svelte';
+export { default as Ratings } from './components/Ratings/Ratings.svelte';
 export { default as RadioGroup } from './components/Radio/RadioGroup.svelte';
 export { default as RadioItem } from './components/Radio/RadioItem.svelte';
 export { default as RangeSlider } from './components/RangeSlider/RangeSlider.svelte';
@@ -93,6 +94,7 @@ export { default as Step } from './components/Stepper/Step.svelte';
 export { default as Table } from './components/Table/Table.svelte';
 export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
+export { default as TabAnchor } from './components/Tab/TabAnchor.svelte';
 export { default as TableOfContents } from './components/TableOfContents/TableOfContents.svelte';
 // Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';

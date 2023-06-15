@@ -59,7 +59,7 @@
 	};
 
 	// On Row Selected
-	function onSelected(meta: any): void {
+	function onSelected(meta: unknown): void {
 		console.log('on:selected', meta);
 	}
 </script>

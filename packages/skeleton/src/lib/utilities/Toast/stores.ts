@@ -25,11 +25,13 @@ function toastService() {
 	return {
 		subscribe,
 		/** Add a new toast to the queue. */
-		trigger: (toast: ToastSettings) =>
+		trigger: (toast: ToastSettings) => {
+			const id: string = randomUUID();
 			update((tStore) => {
-				const id: string = randomUUID();
 				// Trigger Callback
 				if (toast && toast.callback) toast.callback({ id, status: 'queued' });
+				// activate autohide when dismiss button is hidden.
+				if (toast.hideDismiss) toast.autohide = true;
 				// Merge with defaults
 				const tMerged: Toast = { ...toastDefaults, ...toast, id };
 				// Handle auto-hide, if needed
@@ -38,8 +40,10 @@ function toastService() {
 				tStore.push(tMerged);
 				// Return
 				return tStore;
-			}),
-		/** Remove first toast in queue */
+			});
+			return id;
+		},
+		/** Remove toast in queue*/
 		close: (id: string) =>
 			update((tStore) => {
 				if (tStore.length > 0) {
@@ -54,6 +58,18 @@ function toastService() {
 						tStore.splice(index, 1);
 					}
 				}
+				return tStore;
+			}),
+		/** remain visible on hover */
+		freeze: (index: number) =>
+			update((tStore) => {
+				if (tStore.length > 0) clearTimeout(tStore[index].timeoutId);
+				return tStore;
+			}),
+		/** cancel remain visible on leave */
+		unfreeze: (index: number) =>
+			update((tStore) => {
+				if (tStore.length > 0) tStore[index].timeoutId = handleAutoHide(tStore[index]);
 				return tStore;
 			}),
 		/** Remove all toasts from queue */

@@ -1,5 +1,5 @@
 /// <reference types="@sveltejs/kit" />
-/// <reference types="vite-plugin-sveld" />
+/// <reference types="../vite-plugin-sveld" />
 
 // See https://kit.svelte.dev/docs/types#the-app-namespace
 // for information about these interfaces
