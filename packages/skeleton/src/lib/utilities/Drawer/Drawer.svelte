@@ -1,5 +1,23 @@
-<script lang="ts">
-	import { fade, fly } from 'svelte/transition';
+<script lang="ts" context="module">
+	import { fly, fade } from 'svelte/transition';
+	import { type Transition, type TransitionParams, prefersReducedMotionStore } from '../../index.js';
+	import { dynamicTransition } from '../../internal/transitions.js';
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type FlyTransition = typeof fly;
+	type DrawerTransitionIn = Transition;
+	type DrawerTransitionOut = Transition;
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type FadeTransition = typeof fade;
+	type BackdropTransitionIn = Transition;
+	type BackdropTransitionOut = Transition;
+</script>
+
+<script
+	lang="ts"
+	generics="DrawerTransitionIn extends Transition = FlyTransition, DrawerTransitionOut extends Transition = FlyTransition, BackdropTransitionIn extends Transition = FadeTransition, BackdropTransitionOut extends Transition = FadeTransition"
+>
 	import { createEventDispatcher } from 'svelte';
 	import { BROWSER } from 'esm-env';
 
@@ -21,8 +39,6 @@
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
 	export let position: 'left' | 'top' | 'right' | 'bottom' = 'left';
-	/** Define the Svelte transition animation duration. */
-	export let duration = 150;
 
 	// Props (backdrop)
 	/** Backdrop - Provide classes to set the backdrop background color */
@@ -60,6 +76,58 @@
 	/** Provide an ID of the element describing the drawer. */
 	export let describedby = '';
 
+	// Local
+	let elemBackdrop: HTMLElement;
+	let elemDrawer: HTMLElement;
+	let anim = { x: 0, y: 0 };
+
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition used in drawer on entry.
+	 * @type {DrawerTransitionIn}
+	 */
+	export let drawerTransitionIn: DrawerTransitionIn = fly as DrawerTransitionIn;
+	/**
+	 * Transition params provided to `DrawerTransitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let drawerTransitionInParams: TransitionParams<DrawerTransitionIn> = { duration: 150 };
+	/**
+	 * Provide the transition used in drawer on exit.
+	 * @type {DrawerTransitionOut}
+	 */
+	export let drawerTransitionOut: DrawerTransitionOut = fly as DrawerTransitionOut;
+	/**
+	 * Transition params provided to `DrawerTransitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let drawerTransitionOutParams: TransitionParams<DrawerTransitionOut> = { duration: 150 };
+	/**
+	 * Provide the transition used in backdrop on entry.
+	 * @type {BackdropTransitionIn}
+	 */
+	export let backdropTransitionIn: BackdropTransitionIn = fade as BackdropTransitionIn;
+	/**
+	 * Transition params provided to `BackdropTransitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let backdropTransitionInParams: TransitionParams<BackdropTransitionIn> = { duration: 150 };
+	/**
+	 * Provide the transition used in backdrop on exit.
+	 * @type {BackdropTransitionOut}
+	 */
+	export let backdropTransitionOut: BackdropTransitionOut = fade as BackdropTransitionOut;
+	/**
+	 * Transition params provided to `BackdropTransitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let backdropTransitionOutParams: TransitionParams<BackdropTransitionOut> = { duration: 150 };
+
 	// Presets
 	// prettier-ignore
 	const presets = {
@@ -73,16 +141,11 @@
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
 	const cDrawer = 'overflow-y-auto transition-transform';
 
-	// Local
-	let elemBackdrop: HTMLElement;
-	let elemDrawer: HTMLElement;
-	let anim = { x: 0, y: 0 };
-
 	// Record a record of default props on init
 	// NOTE: these must stay in sync with the props implemented above.
 	// prettier-ignore
 	const propDefaults = {
-		position, duration,
+		position,
 		bgBackdrop, blur, padding,
 		bgDrawer, border, rounded, shadow,
 		width, height,
@@ -94,7 +157,6 @@
 	// NOTE: these must stay in sync with the props implemented above.
 	function applyPropSettings(settings: DrawerSettings): void {
 		position = settings.position || propDefaults.position;
-		duration = settings.duration || propDefaults.duration;
 		// Backdrop
 		bgBackdrop = settings.bgBackdrop || propDefaults.bgBackdrop;
 		blur = settings.blur || propDefaults.blur;
@@ -173,7 +235,8 @@
 		on:touchstart
 		on:touchend
 		on:keypress
-		transition:fade|local={{ duration }}
+		in:dynamicTransition|local={{ transition: backdropTransitionIn, params: backdropTransitionInParams, enabled: transitions }}
+		out:dynamicTransition|local={{ transition: backdropTransitionOut, params: backdropTransitionOutParams, enabled: transitions }}
 		use:focusTrap={true}
 	>
 		<!-- Drawer -->
@@ -185,7 +248,16 @@
 			aria-modal="true"
 			aria-labelledby={labelledby}
 			aria-describedby={describedby}
-			transition:fly|local={{ x: anim.x, y: anim.y, duration }}
+			in:dynamicTransition|local={{
+				transition: drawerTransitionIn,
+				params: { x: anim.x, y: anim.y, ...drawerTransitionInParams },
+				enabled: transitions
+			}}
+			out:dynamicTransition|local={{
+				transition: drawerTransitionOut,
+				params: { x: anim.x, y: anim.y, ...drawerTransitionOutParams },
+				enabled: transitions
+			}}
 		>
 			<!-- Slot: Default -->
 			<slot />
