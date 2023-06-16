@@ -130,7 +130,7 @@ drawerStore.open(drawerSettings);
 		<section class="space-y-4">
 			<h2 class="h2">Styling</h2>
 			<p>
-				For global styles, apply changes via props directly to the Modal component. However, you may also override styles per drawer
+				For global styles, apply changes via props directly to the Drawer component. However, you may also override styles per drawer
 				instance via the <code class="code">DrawerSettings</code>.
 			</p>
 			<DocsPreview background="neutral">
