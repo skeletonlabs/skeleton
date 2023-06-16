@@ -20,9 +20,7 @@
 		source: 'utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
 		components: [{ sveld: sveldDrawer }],
-		keyboard: [['<kbd class="kbd">Esc</kbd>', ' Closes the drawer.']],
-		transitionIn: 'backdrop fade / drawer fly',
-		transitionOut: 'backdrop fade / drawer fly'
+		keyboard: [['<kbd class="kbd">Esc</kbd>', ' Closes the drawer.']]
 	};
 
 	function trigger(position: 'left' | 'top' | 'right' | 'bottom'): void {

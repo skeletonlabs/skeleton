@@ -34,8 +34,8 @@
 			['<code class="code">.w-modal-slim</code>', '-', 'Create a slimmer modal. Great for small component modals.'],
 			['<code class="code">.w-modal-wide</code>', '-', 'Create a wider modal. Great for full screen component modals.']
 		],
-		transitionIn: 'backdrop fade / modal fly / modal content fly',
-		transitionOut: 'backdrop fade / modal fly / modal content fly'
+		transitionIn: 'fly',
+		transitionOut: 'fly'
 	};
 
 	// Demo ---
