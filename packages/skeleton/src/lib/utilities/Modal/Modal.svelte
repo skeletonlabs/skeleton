@@ -1,6 +1,26 @@
-<script lang="ts">
+<script lang="ts" context="module">
+	import { fly, fade } from 'svelte/transition';
+	import { type Transition, type TransitionParams, prefersReducedMotionStore } from '../../index.js';
+	import { dynamicTransition } from '../../internal/transitions.js';
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type FlyTransition = typeof fly;
+	type ModalTransitionIn = Transition;
+	type ModalTransitionOut = Transition;
+	type ModalContentTransitionIn = Transition;
+	type ModalContentTransitionOut = Transition;
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type FadeTransition = typeof fade;
+	type BackdropTransitionIn = Transition;
+	type BackdropTransitionOut = Transition;
+</script>
+
+<script
+	lang="ts"
+	generics="ModalTransitionIn extends Transition = FlyTransition, ModalTransitionOut extends Transition = FlyTransition, ModalContentTransitionIn extends Transition = FlyTransition, ModalContentTransitionOut extends Transition = FlyTransition, BackdropTransitionIn extends Transition = FadeTransition, BackdropTransitionOut extends Transition = FadeTransition"
+>
 	import { createEventDispatcher } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
@@ -69,6 +89,73 @@
 	export let regionBody: CssClasses = 'max-h-[200px] overflow-hidden';
 	/** Provide arbitrary classes to modal footer region. */
 	export let regionFooter: CssClasses = 'flex justify-end space-x-2';
+
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition used in modal on entry.
+	 * @type {ModalTransitionIn}
+	 */
+	export let modalTransitionIn: ModalTransitionIn = fly as ModalTransitionIn;
+	/**
+	 * Transition params provided to `ModalTransitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let modalTransitionInParams: TransitionParams<ModalTransitionIn> = { duration: 150, opacity: 0, x: 0, y: 100 };
+	/**
+	 * Provide the transition used in modal on exit.
+	 * @type {ModalTransitionOut}
+	 */
+	export let modalTransitionOut: ModalTransitionOut = fly as ModalTransitionOut;
+	/**
+	 * Transition params provided to `ModalTransitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let modalTransitionOutParams: TransitionParams<ModalTransitionOut> = { duration: 150, opacity: 0, x: 0, y: 100 };
+	/**
+	 * Provide the transition used in modal content on entry.
+	 * @type {ModalContentTransitionIn}
+	 */
+	export let modalContentTransitionIn: ModalContentTransitionIn = fly as ModalContentTransitionIn;
+	/**
+	 * Transition params provided to `ModalContentTransitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let modalContentTransitionInParams: TransitionParams<ModalContentTransitionIn> = { duration: 150, opacity: 0, y: 100 };
+	/**
+	 * Provide the transition used in modal content on exit.
+	 * @type {ModalContentTransitionOut}
+	 */
+	export let modalContentTransitionOut: ModalContentTransitionOut = fly as ModalContentTransitionOut;
+	/**
+	 * Transition params provided to `ModalContentTransitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let modalContentTransitionOutParams: TransitionParams<ModalContentTransitionOut> = { duration: 150, opacity: 0, y: 100 };
+	/**
+	 * Provide the transition used in backdrop on entry.
+	 * @type {BackdropTransitionIn}
+	 */
+	export let backdropTransitionIn: BackdropTransitionIn = fade as BackdropTransitionIn;
+	/**
+	 * Transition params provided to `BackdropTransitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let backdropTransitionInParams: TransitionParams<BackdropTransitionIn> = { duration: 150 };
+	/**
+	 * Provide the transition used in backdrop on exit.
+	 * @type {BackdropTransitionOut}
+	 */
+	export let backdropTransitionOut: BackdropTransitionOut = fade as BackdropTransitionOut;
+	/**
+	 * Transition params provided to `BackdropTransitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let backdropTransitionOutParams: TransitionParams<BackdropTransitionOut> = { duration: 150 };
 
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0';
@@ -198,11 +285,16 @@
 			on:mouseup={onBackdropInteractionEnd}
 			on:touchstart
 			on:touchend
-			transition:fade={{ duration }}
+			in:dynamicTransition|local={{ transition: backdropTransitionIn, params: backdropTransitionInParams, enabled: transitions }}
+			out:dynamicTransition|local={{ transition: backdropTransitionOut, params: backdropTransitionOutParams, enabled: transitions }}
 			use:focusTrap={true}
 		>
 			<!-- Transition Layer -->
-			<div class="modal-transition {classesTransitionLayer}" transition:fly={{ duration, opacity: flyOpacity, x: flyX, y: flyY }}>
+			<div
+				class="modal-transition {classesTransitionLayer}"
+				in:dynamicTransition|local={{ transition: modalTransitionIn, params: modalTransitionInParams, enabled: transitions }}
+				out:dynamicTransition|local={{ transition: modalTransitionOut, params: modalTransitionOutParams, enabled: transitions }}
+			>
 				{#if $modalStore[0].type !== 'component'}
 					<!-- Modal: Presets -->
 					<div
@@ -211,7 +303,16 @@
 						role="dialog"
 						aria-modal="true"
 						aria-label={$modalStore[0].title ?? ''}
-						transition:fly={{ duration, opacity: 0, y: 100 }}
+						in:dynamicTransition|local={{
+							transition: modalContentTransitionIn,
+							params: modalContentTransitionInParams,
+							enabled: transitions
+						}}
+						out:dynamicTransition|local={{
+							transition: modalContentTransitionOut,
+							params: modalContentTransitionOutParams,
+							enabled: transitions
+						}}
 					>
 						<!-- Header -->
 						{#if $modalStore[0]?.title}

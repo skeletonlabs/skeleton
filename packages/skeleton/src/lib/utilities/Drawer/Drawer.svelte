@@ -76,11 +76,6 @@
 	/** Provide an ID of the element describing the drawer. */
 	export let describedby = '';
 
-	// Local
-	let elemBackdrop: HTMLElement;
-	let elemDrawer: HTMLElement;
-	let anim = { x: 0, y: 0 };
-
 	// Props (transition)
 	/**
 	 * Enable/Disable transitions
@@ -136,6 +131,11 @@
 		left: { alignment: 'justify-start', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tr-container-token rounded-br-container-token' },
 		right: { alignment: 'justify-end', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tl-container-token rounded-bl-container-token' }
 	};
+
+	// Local
+	let elemBackdrop: HTMLElement;
+	let elemDrawer: HTMLElement;
+	let anim = { x: 0, y: 0 };
 
 	// Classes
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
