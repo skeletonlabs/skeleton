@@ -71,7 +71,7 @@
 	 */
 	export let transitions = !$prefersReducedMotionStore;
 	/**
-	 * Provide the transition to used on entry.
+	 * Provide the transition used on entry.
 	 * @type {TransitionIn}
 	 */
 	export let transitionIn: TransitionIn = slide as TransitionIn;
@@ -81,7 +81,7 @@
 	 */
 	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 200 };
 	/**
-	 * Provide the transition to used on exit.
+	 * Provide the transition used on exit.
 	 * @type {TransitionOut}
 	 */
 	export let transitionOut: TransitionOut = slide as TransitionOut;
