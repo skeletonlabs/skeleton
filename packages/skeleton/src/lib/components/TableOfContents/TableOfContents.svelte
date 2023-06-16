@@ -1,9 +1,16 @@
-<script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
+<script lang="ts" context="module">
 	import { fade } from 'svelte/transition';
+	import { type Transition, type TransitionParams, type CssClasses, prefersReducedMotionStore } from '../../index.js';
 
-	// Types
-	import type { CssClasses } from '../../index.js';
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type FadeTransition = typeof fade;
+	type TransitionIn = Transition;
+	type TransitionOut = Transition;
+</script>
+
+<script lang="ts" generics="TransitionIn extends Transition = FadeTransition, TransitionOut extends Transition = FadeTransition">
+	import { onDestroy, onMount } from 'svelte';
+	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// Props (settings)
 	/** Query selector for the scrollable page element. */
@@ -34,6 +41,33 @@
 	export let regionLabel: CssClasses = 'font-bold';
 	/** Provide arbitrary styles for the list element. */
 	export let regionList: CssClasses = '';
+
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition to used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = fade as TransitionIn;
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 100 };
+	/**
+	 * Provide the transition to used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = fade as TransitionOut;
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 100 };
 
 	// Classes
 	const cLabel = 'p-4 pt-0';
@@ -135,7 +169,11 @@
 <!-- @component Allows you to quickly navigate the hierarchy of headings for the current page. -->
 
 {#if filteredHeadingsList.length > 0}
-	<div class="toc {classesBase}" transition:fade|local={{ duration: 100 }}>
+	<div
+		class="toc {classesBase}"
+		in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+		out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+	>
 		<nav class="toc-list {classesList}">
 			<div class="toc-label {classesLabel}">{label}</div>
 			{#each filteredHeadingsList as headingElem}
