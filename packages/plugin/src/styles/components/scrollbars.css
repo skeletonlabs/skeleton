@@ -1,16 +1,10 @@
 @layer components {
-	/* Hide Scrollbars */
+	/* === Hide Scrollbars === */
 	.hide-scrollbar::-webkit-scrollbar {
 		display: none;
 	}
 	.hide-scrollbar {
 		-ms-overflow-style: none; /* IE/Edge */
 		scrollbar-width: none; /* Firefox */
-	}
-
-	/* === Horizontal Rules === */
-
-	.divider-vertical {
-		@apply inline-block border-l border-solid border-surface-300-600-token min-h-[10px] mx-auto;
 	}
 }

@@ -1,4 +1,5 @@
-@import 'core.css';
+@import 'scrollbars.css';
+@import 'dividers.css';
 @import 'typography.css';
 @import 'elements/index.css';
 @import 'variants.css';
