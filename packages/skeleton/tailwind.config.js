@@ -1,4 +1,4 @@
-import skeleton from '../../packages/plugin/dist/index.js';
+import { skeleton } from '../../packages/plugin/dist/index.js';
 
 /** @type {import("tailwindcss").Config} */
 export default {
