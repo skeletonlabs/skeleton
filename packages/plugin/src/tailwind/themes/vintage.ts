@@ -88,7 +88,7 @@ const vintage = {
 		'--color-surface-800': '38 33 29',
 		'--color-surface-900': '31 27 24'
 	},
-	extras: {
+	enhancements: {
 		"[data-theme='vintage'] h1,\n[data-theme='vintage'] h2,\n[data-theme='vintage'] h3,\n[data-theme='vintage'] h4,\n[data-theme='vintage'] h5,\n[data-theme='vintage'] h6":
 			{ letterSpacing: '1px' },
 		"[data-theme='vintage']": {

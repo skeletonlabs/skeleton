@@ -25,15 +25,15 @@ export default {
 		skeleton({
 			themes: {
 				preset: [
-					{ name: 'crimson', extras: true },
-					{ name: 'gold-nouveau', extras: true },
-					{ name: 'hamlindigo', extras: true },
-					{ name: 'modern', extras: true },
-					{ name: 'rocket', extras: true },
-					{ name: 'sahara', extras: true },
-					{ name: 'seafoam', extras: true },
-					{ name: 'skeleton', extras: true },
-					{ name: 'vintage', extras: true }
+					{ name: 'crimson', enhancements: true },
+					{ name: 'gold-nouveau', enhancements: true },
+					{ name: 'hamlindigo', enhancements: true },
+					{ name: 'modern', enhancements: true },
+					{ name: 'rocket', enhancements: true },
+					{ name: 'sahara', enhancements: true },
+					{ name: 'seafoam', enhancements: true },
+					{ name: 'skeleton', enhancements: true },
+					{ name: 'vintage', enhancements: true }
 				]
 			}
 		})

@@ -23,7 +23,7 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 			options?.themes?.custom?.forEach((theme) => {
 				// it's a custom theme
 				baseStyles[`:root [data-theme='${theme.name}']`] = theme.properties;
-				baseStyles = { ...baseStyles, ...theme.extras };
+				baseStyles = { ...baseStyles, ...theme.enhancements };
 			});
 
 			// Preset Themes configuration
@@ -40,9 +40,9 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 				if (!('properties' in theme)) {
 					baseStyles[`:root [data-theme='${theme.name}']`] = themes[theme.name].properties;
 
-					if (theme.extras === true) {
-						// extras are opt-in
-						baseStyles = { ...baseStyles, ...themes[theme.name].extras };
+					if (theme.enhancements === true) {
+						// enhancements are opt-in
+						baseStyles = { ...baseStyles, ...themes[theme.name].enhancements };
 					}
 					return;
 				}

@@ -45,7 +45,7 @@ export type ThemeConfig = {
 	 * 			'--theme-font-color-dark': 'var(--color-primary-100)',
 	 * 			// ...
 	 * 		},
-	 * 		extras: { // optional
+	 * 		enhancements: { // optional
 	 * 			"[data-theme='my-custom-theme'] h1": {
 	 * 				fontWeight: "400"
 	 * 			}
@@ -65,10 +65,10 @@ export type ThemeConfig = {
 	 *
 	 * @example
 	 * // Or by passing an object, enabling the ability
-	 * // to enable a preset's `extras`
+	 * // to enable a preset's `enhancements`
 	 * preset = [
-	 * 	{ name: "skeleton", extras: true },
-	 * 	{ name: "modern", extras: true },
+	 * 	{ name: "skeleton", enhancements: true },
+	 * 	{ name: "modern", enhancements: true },
 	 * ]
 	 *
 	 */
@@ -123,20 +123,20 @@ export type CustomThemeConfig = {
 	 */
 	properties: ThemeProperties;
 	/**
-	 * Extras for your custom theme.
+	 * Enhancements for your custom theme.
 	 *
 	 * **NOTE:** It's important to prefix the property names with
-	 * `[data-theme='theme-name']` so that these extras can be applied
+	 * `[data-theme='theme-name']` so that these enhancements can be applied
 	 * when the value of `data-theme` is set to the name of your custom theme.
 	 *
 	 * @example
-	 * extras = {
+	 * enhancements = {
 	 * 	"[data-theme='my-custom-theme'] h1": {
 	 * 		fontWeight: "400"
 	 * 	}
 	 * }
 	 */
-	extras?: CSSRuleObject;
+	enhancements?: CSSRuleObject;
 };
 
 export type PresetThemeConfig = {
@@ -145,16 +145,16 @@ export type PresetThemeConfig = {
 	 */
 	name: PresetTheme;
 	/**
-	 * Whether to include the preset theme extras. Disabled by default.
+	 * Whether to include the preset theme enhancements. Disabled by default.
 	 *
 	 * This implements additional settings such as background gradients,
 	 * header font weights, and more.
 	 *
 	 * @example
 	 * // These are disabled by default, so you must enable them to opt-in
-	 * skeleton({ themes: [{ name: "skeleton", extras: true }] })
+	 * skeleton({ themes: [{ name: "skeleton", enhancements: true }] })
 	 *
 	 * @default false
 	 */
-	extras?: boolean;
+	enhancements?: boolean;
 };

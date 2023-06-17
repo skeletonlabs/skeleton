@@ -87,7 +87,7 @@ const skeleton = {
 		'--color-surface-800': '44 54 86',
 		'--color-surface-900': '36 44 70'
 	},
-	extras: {
+	enhancements: {
 		"[data-theme='skeleton'] h1,\n[data-theme='skeleton'] h2,\n[data-theme='skeleton'] h3,\n[data-theme='skeleton'] h4,\n[data-theme='skeleton'] h5,\n[data-theme='skeleton'] h6":
 			{ fontWeight: 'bold' },
 		"[data-theme='skeleton']": {

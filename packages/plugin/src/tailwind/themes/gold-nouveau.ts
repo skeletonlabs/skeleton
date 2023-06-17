@@ -87,7 +87,7 @@ const goldNouveau = {
 		'--color-surface-800': '35 22 49',
 		'--color-surface-900': '18 11 24'
 	},
-	extras: {
+	enhancements: {
 		".dark [data-theme='gold-nouveau']": {
 			'--on-primary': '0 0 0',
 			'--color-primary-50': '251 247 224',
