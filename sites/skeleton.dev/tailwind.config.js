@@ -4,7 +4,7 @@ import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 
 // Must be imported directly so that the tailwind extension can detect file changes
-import skeleton from '../../packages/plugin/dist/index.js';
+import { skeleton } from '../../packages/plugin/dist/index.js';
 
 const SKELETON_PATH = '../../packages/skeleton/src/lib';
 

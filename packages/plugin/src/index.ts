@@ -71,5 +71,3 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 
 export { getThemeProperties, skeleton };
 export type { CustomThemeConfig, ConfigOptions, PresetThemeConfig, ThemeConfig };
-
-export default skeleton;
