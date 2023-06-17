@@ -122,21 +122,6 @@ export type CustomThemeConfig = {
 	 * }
 	 */
 	properties: ThemeProperties;
-	/**
-	 * Enhancements for your custom theme.
-	 *
-	 * **NOTE:** It's important to prefix the property names with
-	 * `[data-theme='theme-name']` so that these enhancements can be applied
-	 * when the value of `data-theme` is set to the name of your custom theme.
-	 *
-	 * @example
-	 * enhancements = {
-	 * 	"[data-theme='my-custom-theme'] h1": {
-	 * 		fontWeight: "400"
-	 * 	}
-	 * }
-	 */
-	enhancements?: CSSRuleObject;
 };
 
 export type PresetThemeConfig = {

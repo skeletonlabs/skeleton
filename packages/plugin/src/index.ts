@@ -23,7 +23,6 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 			options?.themes?.custom?.forEach((theme) => {
 				// it's a custom theme
 				baseStyles[`:root [data-theme='${theme.name}']`] = theme.properties;
-				baseStyles = { ...baseStyles, ...theme.enhancements };
 			});
 
 			// Preset Themes configuration
