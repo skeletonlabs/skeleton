@@ -3,7 +3,7 @@ module.exports = {
 	parser: '@typescript-eslint/parser',
 	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
 	plugins: ['@typescript-eslint'],
-	ignorePatterns: ['*.cjs', '.temp/**/*'],
+	ignorePatterns: ['*.cjs', 'dist/**/*'],
 	overrides: [],
 	env: {
 		es2017: true,
