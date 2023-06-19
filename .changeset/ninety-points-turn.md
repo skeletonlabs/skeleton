@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-chore: Updated dependencies
+chore: Updated all project depedencies
