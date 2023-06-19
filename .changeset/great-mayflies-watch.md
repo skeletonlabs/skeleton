@@ -2,4 +2,4 @@
 "skeleton.dev": minor
 ---
 
-feat: Added `Carousel` TailwindCss Block.
+feat: Added `Scroll Containers` TailwindCss Block.
