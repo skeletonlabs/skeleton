@@ -27,7 +27,7 @@
 	}
 	function updateButtonStates() {
 		isScrollAtStart = scrollContainer.scrollLeft === 0;
-		isScrollAtEnd = scrollContainer.scrollLeft === (scrollContainer.scrollWidth - scrollContainer.clientWidth);
+		isScrollAtEnd = scrollContainer.scrollLeft === scrollContainer.scrollWidth - scrollContainer.clientWidth;
 	}
 </script>
 
@@ -151,28 +151,68 @@
 
 						<!-- Thumbnails -->
 						<div class="flex md:justify-center py-2 gap-2 snap-x snap-mandatory overflow-x-auto scroll-smooth">
-							<button type="button" class="btn p-0 snap-center rounded-none" aria-label="scroll to image1" on:click={() => onThumbnailClick(0)}>
+							<button
+								type="button"
+								class="btn p-0 snap-center rounded-none"
+								aria-label="scroll to image1"
+								on:click={() => onThumbnailClick(0)}
+							>
 								<Avatar src="https://source.unsplash.com/vjUokUWbFOs/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
 							</button>
-							<button type="button" class="btn p-0 snap-center rounded-none" aria-label="scroll to image2" on:click={() => onThumbnailClick(1)}>
+							<button
+								type="button"
+								class="btn p-0 snap-center rounded-none"
+								aria-label="scroll to image2"
+								on:click={() => onThumbnailClick(1)}
+							>
 								<Avatar src="https://source.unsplash.com/1aJuPtQJX_I/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
 							</button>
-							<button type="button" class="btn p-0 snap-center rounded-none" aria-label="scroll to image3" on:click={() => onThumbnailClick(2)}>
+							<button
+								type="button"
+								class="btn p-0 snap-center rounded-none"
+								aria-label="scroll to image3"
+								on:click={() => onThumbnailClick(2)}
+							>
 								<Avatar src="https://source.unsplash.com/Jp6O3FFRdEI/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
 							</button>
-							<button type="button" class="btn p-0 snap-center rounded-none" aria-label="scroll to image4" on:click={() => onThumbnailClick(3)}>
+							<button
+								type="button"
+								class="btn p-0 snap-center rounded-none"
+								aria-label="scroll to image4"
+								on:click={() => onThumbnailClick(3)}
+							>
 								<Avatar src="https://source.unsplash.com/I3C_eojFVQY/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
 							</button>
-							<button type="button" class="btn p-0 snap-center rounded-none" aria-label="scroll to image5" on:click={() => onThumbnailClick(4)}>
+							<button
+								type="button"
+								class="btn p-0 snap-center rounded-none"
+								aria-label="scroll to image5"
+								on:click={() => onThumbnailClick(4)}
+							>
 								<Avatar src="https://source.unsplash.com/s0fXOuyTH1M/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
 							</button>
-							<button type="button" class="btn p-0 snap-center rounded-none" aria-label="scroll to image6" on:click={() => onThumbnailClick(5)}>
+							<button
+								type="button"
+								class="btn p-0 snap-center rounded-none"
+								aria-label="scroll to image6"
+								on:click={() => onThumbnailClick(5)}
+							>
 								<Avatar src="https://source.unsplash.com/QDc-OQU9hFk/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
 							</button>
-							<button type="button" class="btn p-0 snap-center rounded-none" aria-label="scroll to image7" on:click={() => onThumbnailClick(6)}>
+							<button
+								type="button"
+								class="btn p-0 snap-center rounded-none"
+								aria-label="scroll to image7"
+								on:click={() => onThumbnailClick(6)}
+							>
 								<Avatar src="https://source.unsplash.com/2BOFizfc438/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
 							</button>
-							<button type="button" class="btn p-0 snap-center rounded-none" aria-label="scroll to image8" on:click={() => onThumbnailClick(7)}>
+							<button
+								type="button"
+								class="btn p-0 snap-center rounded-none"
+								aria-label="scroll to image8"
+								on:click={() => onThumbnailClick(7)}
+							>
 								<Avatar src="https://source.unsplash.com/q5EGoKHQEe8/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
 							</button>
 						</div>
@@ -203,7 +243,7 @@ function updateButtonStates() {
 					<CodeBlock
 						language="html"
 						code={`
-	<div class="card p-6 space-y-6 relative w-96 md:w-full">
+<div class="card p-6 space-y-6 relative w-96 md:w-full">
 	<div class="flex gap-6 pb-2 snap-x snap-mandatory overflow-x-auto scroll-smooth"
 		bind:this={scrollContainer}
 		on:scroll={updateButtonStates}>
