@@ -4,7 +4,8 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import { CodeBlock, Avatar } from '@skeletonlabs/skeleton';
+	import { CodeBlock, Ratings, Avatar } from '@skeletonlabs/skeleton';
+	import { icons } from './icons';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -14,20 +15,108 @@
 	};
 
 	// Local
-	let scrollContainer: HTMLDivElement;
-	let isScrollAtStart = true;
-	let isScrollAtEnd = false;
+	const products = [
+		{
+			name: 'Decoration Skulls',
+			liked: false,
+			imageUrl: 'https://source.unsplash.com/UhE2lwGn-DQ/176x176',
+			price: '10$',
+			ratingValue: 2.5
+		},
+		{
+			name: 'Dead Mannequin',
+			liked: true,
+			imageUrl: 'https://source.unsplash.com/qTWbIahyFL0/176x176',
+			price: '150$',
+			ratingValue: 4
+		},
+		{
+			name: 'Pumpkin',
+			liked: false,
+			imageUrl: 'https://source.unsplash.com/q5EGoKHQEe8/176x176',
+			price: '5$',
+			ratingValue: 5
+		},
+		{
+			name: 'Mini Skeletons',
+			liked: true,
+			imageUrl: 'https://source.unsplash.com/TjREnoQyMQQ/176x176',
+			price: '2$',
+			ratingValue: 4.5
+		},
+		{
+			name: 'Skeleton Cake',
+			liked: false,
+			imageUrl: 'https://source.unsplash.com/CBtDiI74mSg/176x176',
+			price: '20$',
+			ratingValue: 1.5
+		},
+		{
+			name: 'Mermaid',
+			liked: false,
+			imageUrl: 'https://source.unsplash.com/eQqcz7NWyH4/176x176',
+			price: '500$',
+			ratingValue: 3
+		},
+		{
+			name: 'Crown',
+			liked: false,
+			imageUrl: 'https://source.unsplash.com/hVpFBq-PSgQ/176x176',
+			price: '99$',
+			ratingValue: 1
+		},
+		{
+			name: 'Cool Skeleton',
+			liked: false,
+			imageUrl: 'https://source.unsplash.com/5ZiGQ-8s_k8/176x176',
+			price: '20$',
+			ratingValue: 5
+		},
+		{
+			name: 'Skull Wall Decorator',
+			liked: true,
+			imageUrl: 'https://source.unsplash.com/kIww5ykb898/176x176',
+			price: '75$',
+			ratingValue: 1.5
+		}
+	];
+	let imageScrollContainer: HTMLDivElement;
+	let productsScrollContainer: HTMLDivElement;
 
 	function onThumbnailClick(index: number) {
-		scrollContainer.scroll(scrollContainer.clientWidth * index, 0);
+		imageScrollContainer.scroll(imageScrollContainer.clientWidth * index, 0);
 	}
 	function onNextPrevImage(nextImage: boolean) {
-		const scrollAmount = nextImage ? scrollContainer.clientWidth : -scrollContainer.clientWidth;
-		scrollContainer.scrollBy(scrollAmount, 0);
+		let scrollX = 0;
+		if (nextImage) {
+			// scroll to start
+			if (imageScrollContainer.scrollLeft === imageScrollContainer.scrollWidth - imageScrollContainer.clientWidth) scrollX = 0;
+			// scroll to next
+			else scrollX = imageScrollContainer.scrollLeft + imageScrollContainer.clientWidth;
+		} else {
+			// scroll to end
+			if (imageScrollContainer.scrollLeft === 0) scrollX = imageScrollContainer.clientWidth * imageScrollContainer.childElementCount;
+			// scroll to previous
+			else scrollX = imageScrollContainer.scrollLeft - imageScrollContainer.clientWidth;
+		}
+		imageScrollContainer.scroll(scrollX, 0);
 	}
-	function updateButtonStates() {
-		isScrollAtStart = scrollContainer.scrollLeft === 0;
-		isScrollAtEnd = scrollContainer.scrollLeft === scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+	function onNextPrevProduct(nextProduct: boolean) {
+		let scrollX = 0;
+		if (nextProduct) {
+			// scroll to start
+			if (productsScrollContainer.scrollLeft === productsScrollContainer.scrollWidth - productsScrollContainer.clientWidth) scrollX = 0;
+			// scroll to next
+			else scrollX = productsScrollContainer.scrollLeft + productsScrollContainer.clientWidth;
+		} else {
+			// scroll to end
+			if (productsScrollContainer.scrollLeft === 0)
+				scrollX = productsScrollContainer.clientWidth * productsScrollContainer.childElementCount;
+			// scroll to previous
+			else scrollX = productsScrollContainer.scrollLeft - productsScrollContainer.clientWidth;
+		}
+		productsScrollContainer.scroll(scrollX, 0);
 	}
 </script>
 
@@ -99,11 +188,7 @@
 			<DocsPreview>
 				<svelte:fragment slot="preview">
 					<div class="card p-6 space-y-6 relative w-96 md:w-full">
-						<div
-							class="flex gap-6 pb-2 snap-x snap-mandatory overflow-x-auto scroll-smooth"
-							bind:this={scrollContainer}
-							on:scroll={updateButtonStates}
-						>
+						<div class="flex gap-6 pb-2 snap-x snap-mandatory overflow-x-auto scroll-smooth" bind:this={imageScrollContainer}>
 							<!-- Images -->
 							<div class="snap-center shrink-0 w-full">
 								<img class="shrink-0 rounded-lg w-full shadow-xl" src="https://source.unsplash.com/vjUokUWbFOs/720x405" alt="" />
@@ -134,7 +219,6 @@
 							<button
 								type="button"
 								class="btn-icon btn-icon-lg variant-filled absolute left-0 bottom-1/2"
-								disabled={isScrollAtStart}
 								on:click={() => onNextPrevImage(false)}
 							>
 								<i class="fa-solid fa-arrow-left" />
@@ -142,7 +226,6 @@
 							<button
 								type="button"
 								class="btn-icon btn-icon-lg variant-filled absolute right-0 bottom-1/2"
-								disabled={isScrollAtEnd}
 								on:click={() => onNextPrevImage(true)}
 							>
 								<i class="fa-solid fa-arrow-right" />
@@ -222,21 +305,27 @@
 					<CodeBlock
 						language="ts"
 						code={`
-let scrollContainer: HTMLDivElement;
-let isScrollAtStart = true;
-let isScrollAtEnd = false;
+let container: HTMLDivElement;
 
 function onThumbnailClick(index: number) {
-	scrollContainer.scroll(scrollContainer.clientWidth * index, 0);
+	container.scroll(container.clientWidth * index, 0);
 }
 function onNextPrevImage(nextImage: boolean) {
-	const scrollAmount = nextImage ? scrollContainer.clientWidth : -scrollContainer.clientWidth;
-	scrollContainer.scrollBy(scrollAmount, 0);
-}
-function updateButtonStates() {
-	isScrollAtStart = scrollContainer.scrollLeft === 0;
-	isScrollAtEnd = scrollContainer.scrollLeft === (scrollContainer.scrollWidth 
-		- scrollContainer.clientWidth);
+	let scrollX = 0;
+	if(nextImage) {
+		// scroll to start
+		if(container.scrollLeft === container.scrollWidth - container.clientWidth) 
+			scrollX = 0;
+		// scroll to next
+		else scrollX = container.scrollLeft + container.clientWidth;
+	} else {
+		// scroll to end
+		if(container.scrollLeft === 0)
+			scrollX = container.clientWidth * container.childElementCount;
+		// scroll to previous
+		else scrollX = container.scrollLeft - container.clientWidth;
+	}
+	container.scroll(scrollX, 0);
 }
 					`}
 					/>
@@ -245,8 +334,7 @@ function updateButtonStates() {
 						code={`
 <div class="card p-6 space-y-6 relative w-96 md:w-full">
 	<div class="flex gap-6 pb-2 snap-x snap-mandatory overflow-x-auto scroll-smooth"
-		bind:this={scrollContainer}
-		on:scroll={updateButtonStates}>
+		bind:this={container}>
 		<!-- Images -->
 		<div class="snap-center shrink-0 w-full">
 			<img class="shrink-0 rounded-lg w-full shadow-xl" src="" alt="" />
@@ -257,7 +345,6 @@ function updateButtonStates() {
 		<button
 			type="button"
 			class="btn-icon btn-icon-lg variant-filled absolute left-0 bottom-1/2"
-			disabled={isScrollAtStart}
 			on:click={() => onNextPrevImage(false)}
 		>
 			<i class="fa-solid fa-arrow-left" />
@@ -265,7 +352,6 @@ function updateButtonStates() {
 		<button
 			type="button"
 			class="btn-icon btn-icon-lg variant-filled absolute right-0 bottom-1/2"
-			disabled={isScrollAtEnd}
 			on:click={() => onNextPrevImage(true)}
 		>
 			<i class="fa-solid fa-arrow-right" />
@@ -284,6 +370,112 @@ function updateButtonStates() {
 	</div>
 </div>
 `}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+
+		<!-- Carousel -->
+		<section class="space-y-4">
+			<h2 class="h2">Products Carousels</h2>
+			<DocsPreview>
+				<svelte:fragment slot="preview">
+					<div class="grid grid-cols-[auto,1fr,auto] gap-2">
+						<button type="button" class="btn-icon btn-icon-lg variant-filled h-14 self-center" on:click={() => onNextPrevProduct(false)}>
+							<i class="fa-solid fa-arrow-left" />
+						</button>
+						<div
+							class="flex gap-3 pb-3 snap-x snap-mandatory overflow-x-auto scroll-smooth xl:w-[700px] w-56"
+							bind:this={productsScrollContainer}
+						>
+							<!-- Products -->
+							{#each products as product}
+								<div class="card shadow-lg p-6 gap-3 variant-filled snap-center shrink-0 flex flex-col items-center relative">
+									<button
+										type="button"
+										class="btn-icon btn-icon-sm variant-filled absolute top-2 right-2 fill-red-600"
+										on:click={() => (product.liked = !product.liked)}
+									>
+										{@html product.liked ? icons.heartFull : icons.heartEmpty}
+									</button>
+									<img class="w-44 h-44 rounded" src={product.imageUrl} alt="" loading="lazy" />
+									<p>{product.name}</p>
+									<p>{product.price}</p>
+									<Ratings fill="fill-yellow-500" value={product.ratingValue}>
+										<svelte:fragment slot="empty">
+											{@html icons.starEmpty}
+										</svelte:fragment>
+										<svelte:fragment slot="half">
+											{@html icons.starHalf}
+										</svelte:fragment>
+										<svelte:fragment slot="full">
+											{@html icons.starFull}
+										</svelte:fragment>
+									</Ratings>
+									<button type="button" class="btn variant-ghost-primary"> Add To Cart </button>
+								</div>
+							{/each}
+						</div>
+						<button type="button" class="btn-icon btn-icon-lg variant-filled h-14 self-center" on:click={() => onNextPrevProduct(true)}>
+							<i class="fa-solid fa-arrow-right" />
+						</button>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let container: HTMLDivElement;
+
+function onNextPrevProduct(nextProduct: boolean) {
+	let scrollX = 0;
+	if(nextProduct) {
+		// scroll to start
+		if(container.scrollLeft === container.scrollWidth - container.clientWidth) 
+			scrollX = 0;
+		// scroll to next
+		else scrollX = container.scrollLeft + container.clientWidth;
+	} else {
+		// scroll to end
+		if(container.scrollLeft === 0)
+			scrollX = container.clientWidth * container.childElementCount;
+		// scroll to previous
+		else scrollX = container.scrollLeft - container.clientWidth;
+	}
+	container.scroll(scrollX, 0);
+}
+					`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<div class="grid grid-cols-[auto,1fr,auto] gap-2">
+	<!-- Prev button -->
+	<button
+		type="button"
+		class="btn-icon btn-icon-lg variant-filled h-14 self-center"
+		on:click={() => onNextPrevProduct(false)}
+	>
+		<i class="fa-solid fa-arrow-left" />
+	</button>
+	<div class="flex gap-3 pb-3 snap-x snap-mandatory overflow-x-auto scroll-smooth xl:w-[700px] w-56"
+		bind:this={container}>
+		<!-- Products -->
+		<div class="card variant-filled shadow-lg p-6 gap-3 snap-center shrink-0 flex flex-col items-center">
+			<!-- Product content -->
+		</div>
+		<!-- ... -->
+	</div>
+	<!-- Next button -->
+	<button
+		type="button"
+		class="btn-icon btn-icon-lg variant-filled h-14 self-center"
+		on:click={() => onNextPrevProduct(true)}
+	>
+		<i class="fa-solid fa-arrow-right" />
+	</button>
+</div>
+					`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
