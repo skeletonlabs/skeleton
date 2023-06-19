@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: Added anchor tab to TabGroup.
+feat: Implemented a new TabAnchor component for Tabs

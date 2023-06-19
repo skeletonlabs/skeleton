@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: fixed drawer backdrop blur typo.
+bugfix: Fixed a typo for the Drawer component's backdrop `blur` property

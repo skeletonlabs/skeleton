@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: fixed Typography-Prose headers typo.
+bugfix: Fixed a typo for the typography-prose.css headers
