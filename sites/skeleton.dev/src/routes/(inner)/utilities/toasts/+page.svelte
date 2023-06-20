@@ -302,11 +302,10 @@ toastStore.trigger(t);
 			<p>Use <code class="code">toastStore.clear()</code> to clear the entire toast store queue.</p>
 			<CodeBlock language="ts" code={`toastStore.clear();`} />
 		</section>
-		<!-- Programatic -->
+		<!-- Programmatic -->
 		<section class="space-y-4">
-			<!-- Programatic -->
-			<h2 class="h2">Programatic</h2>
-			<p>Create a reference for your toast so that you may programatically close it on demand.</p>
+			<h2 class="h2">Programmatic</h2>
+			<p>Create a reference for your toast so that you may programmatically close it on demand.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex gap-4">
