@@ -177,6 +177,7 @@
 		use:focusTrap={true}
 	>
 		<!-- Drawer -->
+		<!-- separate In/Out so anim values update -->
 		<div
 			bind:this={elemDrawer}
 			class="drawer {classesDrawer}"
@@ -185,7 +186,8 @@
 			aria-modal="true"
 			aria-labelledby={labelledby}
 			aria-describedby={describedby}
-			transition:fly|local={{ x: anim.x, y: anim.y, duration }}
+			in:fly|local={{ x: anim.x, y: anim.y, duration }}
+			out:fly|local={{ x: anim.x, y: anim.y, duration }}
 		>
 			<!-- Slot: Default -->
 			<slot />
