@@ -1,5 +1,25 @@
 # @skeletonlabs/skeleton
 
+## 1.8.0
+
+### Minor Changes
+
+- feat: Implemented a new TabAnchor component for Tabs ([#1645](https://github.com/skeletonlabs/skeleton/pull/1645))
+
+- feat: Expanded Toast features to allow hiding the dismiss button, allow toast to remain visible on hover, and programatically close each instance ([#1637](https://github.com/skeletonlabs/skeleton/pull/1637))
+
+- feat: Added svelte Ratings component ([#1654](https://github.com/skeletonlabs/skeleton/pull/1654))
+
+### Patch Changes
+
+- bugfix: Fixed a typo for the Drawer component's backdrop `blur` property ([#1663](https://github.com/skeletonlabs/skeleton/pull/1663))
+
+- bugfix: Tailwind plugin intellisense now properly displays all component classes ([#1664](https://github.com/skeletonlabs/skeleton/pull/1664))
+
+- chore: Updated all project depedencies ([#1648](https://github.com/skeletonlabs/skeleton/pull/1648))
+
+- bugfix: Fixed a typo for the typography-prose.css headers ([#1647](https://github.com/skeletonlabs/skeleton/pull/1647))
+
 ## 1.7.1
 
 ### Patch Changes
