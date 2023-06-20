@@ -1,6 +1,6 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import type { UserConfig } from 'vite';
-import sveld from 'vite-plugin-sveld';
+import sveld from './vite-plugin-sveld';
 
 // Import package.json version
 import { readFileSync } from 'fs';

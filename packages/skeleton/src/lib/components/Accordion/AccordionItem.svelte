@@ -3,7 +3,7 @@
 	/**
 	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
 	 * @slot {{}} summary - Provide the interactive summary of each item.
-	 * @slot {{}} content - Provide the content content of each item.
+	 * @slot {{}} content - Provide the content of each item.
 	 */
 	// Events:
 	// FORWARDED: do not document these, breaks the type definition
