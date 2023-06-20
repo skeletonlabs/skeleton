@@ -186,6 +186,7 @@
 		use:focusTrap={true}
 	>
 		<!-- Drawer -->
+		<!-- separate In/Out so anim values update -->
 		<div
 			bind:this={elemDrawer}
 			class="drawer {classesDrawer}"
@@ -194,7 +195,12 @@
 			aria-modal="true"
 			aria-labelledby={labelledby}
 			aria-describedby={describedby}
-			transition:dynamicTransition|local={{
+			in:dynamicTransition|local={{
+				transition: fly,
+				params: { x: anim.x, y: anim.y, duration: 150 },
+				enabled: transitions
+			}}
+			out:dynamicTransition|local={{
 				transition: fly,
 				params: { x: anim.x, y: anim.y, duration: 150 },
 				enabled: transitions
