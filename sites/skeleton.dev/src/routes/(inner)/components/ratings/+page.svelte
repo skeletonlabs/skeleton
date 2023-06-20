@@ -114,9 +114,10 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">User Interactivity</h2>
+			<p>Use <code class="code">iconType="button"</code> to make the icons interactive.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Ratings class="fill-token" bind:value={value.current} max={value.max} on:icon={updateInteractiveValue}>
+					<Ratings class="fill-token" bind:value={value.current} max={value.max} iconType="button" on:icon={updateInteractiveValue}>
 						<svelte:fragment slot="empty">
 							{@html icons.starEmpty}
 						</svelte:fragment>
@@ -140,7 +141,8 @@ function iconClick(event: CustomEvent<{index:number}>): void {
 					<CodeBlock
 						language="html"
 						code={`
-<Ratings bind:value={value.current} max={value.max} on:icon={iconClick}>
+<Ratings bind:value={value.current} max={value.max} 
+	iconType="button" on:icon={iconClick}>
 	<svelte:fragment slot="empty">(icon)</svelte:fragment>
 	<svelte:fragment slot="half">(icon)</svelte:fragment>
 	<svelte:fragment slot="full">(icon)</svelte:fragment>
