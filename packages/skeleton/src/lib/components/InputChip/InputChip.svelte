@@ -63,9 +63,10 @@
 
 	// Local
 	let inputValid = true;
-	let chipValues: Array<{ val: (typeof value)[0]; id: number }> = value.map((val) => {
-		return { val: val, id: Math.random() };
-	});
+	let chipValues: Array<{ val: (typeof value)[0]; id: number }> =
+		value?.map((val) => {
+			return { val: val, id: Math.random() };
+		}) || [];
 
 	// Reset Form
 	function resetFormHandler() {
@@ -152,10 +153,11 @@
 	$: classesInterface = `${cInterface}`;
 	$: classesChipList = `${cChipList}`;
 	$: classesInputField = `${cInputField}`;
-	$: chipValues = value.map((val, i) => {
-		if (chipValues[i]?.val === val) return chipValues[i];
-		return { id: Math.random(), val: val };
-	});
+	$: chipValues =
+		value?.map((val, i) => {
+			if (chipValues[i]?.val === val) return chipValues[i];
+			return { id: Math.random(), val: val };
+		}) || [];
 </script>
 
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>

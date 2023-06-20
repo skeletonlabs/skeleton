@@ -66,7 +66,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			list: [
 				{ href: '/elements/chat', label: 'Chat', keywords: 'message, conversation, prompt, ai' },
 				{ href: '/elements/gradient-headings', label: 'Gradient Headings', keywords: 'header, h1, h2, h3' },
-				{ href: '/elements/image-layouts', label: 'Image Layouts', keywords: 'image, layout, blocks, masonry, grid' }
+				{ href: '/elements/image-layouts', label: 'Image Layouts', keywords: 'image, layout, blocks, masonry, grid,' }
 			]
 		}
 	],
@@ -96,7 +96,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ href: '/components/paginators', label: 'Paginators', keywords: 'nav, navigation, table, data, list' },
 				{ href: '/components/progress-bars', label: 'Progress Bars', keywords: 'meter, track, indeterminate, determinate, min, max' },
 				{ href: '/components/progress-radials', label: 'Progress Radials', keywords: 'meter, track, indeterminate, determinate, spin' },
-				{ href: '/components/ratings', label: 'Ratings', keywords: 'rating, rate, ratings, bar, star' },
+				{ href: '/components/ratings', label: 'Ratings', keywords: 'rating, rate, ratings, bar, star', badge: 'Beta' },
 				{ href: '/components/radio-groups', label: 'Radio Groups', keywords: 'input, form, select, selection' },
 				{ href: '/components/range-sliders', label: 'Range Sliders', keywords: 'value, min, max, step,, tick, input, form' },
 				{ href: '/components/slide-toggles', label: 'Slide Toggles', keywords: 'check, checkbox, toggle, input, form' },
