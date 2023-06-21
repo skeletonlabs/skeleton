@@ -123,45 +123,53 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<DocsPreview background="bg-surface-900">
+		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="gap-6 flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
 					<div
-						class="card variant-ghost-primary text-on-primary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-ghost-primary text-on-primary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-ghost-primary text-on-primary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-ghost-primary text-on-primary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-ghost-primary text-on-primary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-ghost-primary text-on-primary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-ghost-primary text-on-primary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+					>
+						(Content)
+					</div>
+					<div
+						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<p class="text-center">Scroll left or right to see snapping effect.</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock
@@ -185,7 +193,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Carousels</h2>
 			<p>Using the scroll container, we can create fully functional carousels</p>
-			<DocsPreview>
+			<DocsPreview background="bg-surface-900">
 				<svelte:fragment slot="preview">
 					<div class="card p-6 space-y-6 relative w-96 md:w-full">
 						<div class="flex gap-6 pb-2 snap-x snap-mandatory overflow-x-auto scroll-smooth" bind:this={imageScrollContainer}>
@@ -378,7 +386,7 @@ function onNextPrevImage(nextImage: boolean) {
 		<!-- Carousel -->
 		<section class="space-y-4">
 			<h2 class="h2">Products Carousels</h2>
-			<DocsPreview>
+			<DocsPreview background="bg-surface-900">
 				<svelte:fragment slot="preview">
 					<div class="grid grid-cols-[auto,1fr,auto] gap-2">
 						<button type="button" class="btn-icon btn-icon-lg variant-filled h-14 self-center" on:click={() => onNextPrevProduct(false)}>
