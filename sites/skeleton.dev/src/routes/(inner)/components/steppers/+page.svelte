@@ -150,7 +150,7 @@
 			<p>Events are fired when the next or previous steps are pressed, step fires for both cases.</p>
 			<CodeBlock
 				language="ts"
-				code={`function onStepHandler(e: {step: number, detail: {state: {current: number, total: number}, step: number}}): void {
+				code={`function onStepHandler(e: {detail: {state: {current: number, total: number}, step: number}}): void {
 	console.log('event:step', e);
 }`}
 			/>
