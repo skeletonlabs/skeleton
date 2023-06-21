@@ -212,6 +212,100 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 
 	<hr />
 
+	<!-- Dynamic Transitions -->
+	<section class="space-y-4">
+		<h2 class="h2">Dynamic Transitions</h2>
+		<p>
+			Skeleton utilizes dynamic transitions, enabling users to fully customize them. Please follow these <code class="code">guidelines</code
+			> when implementing transitions within components.
+		</p>
+		<!-- Implementation -->
+		<h3 class="h3">Implementation</h3>
+		<p>
+			Please review existing components for examples of this in practice. <a
+				class="anchor"
+				target="_blank"
+				href="https://github.com/skeletonlabs/skeleton/blob/master/packages/skeleton/src/lib/components/Autocomplete/Autocomplete.svelte"
+				>Autocomplete</a
+			>
+		</p>
+		<p>
+			Define the transition types in a <code class="code">context="module"</code> script, so you can use it as generic in the script attributes.
+		</p>
+		<CodeBlock
+			language="ts"
+			code={`
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type SlideTransition = typeof slide; // switch with your transition
+type TransitionIn = Transition;
+type TransitionOut = Transition;
+		`}
+		/>
+		<p>Supply the generics in the <code class="code">script</code> attributes.</p>
+		<CodeBlock
+			language="html"
+			code={`${'<'}script lang="ts" generics="TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition"${'>'}
+// ...
+${'<'}${'/script'}>`}
+		/>
+		<p>Define the following properties:</p>
+		<ul class="list-disc list-outside ml-4 space-y-1">
+			<li>
+				<code class="code">transition</code>. *make sure to set it to <code class="code">!$prefersReducedMotionStore</code> to apply the
+				<a class="anchor" href="/docs/transitions#reduced-motion" target="_blank">Reduced motion rules</a>.
+			</li>
+			<li>
+				<code class="code">transitionIn</code>.
+			</li>
+			<li>
+				<code class="code">transitionInParams</code>.
+			</li>
+			<li>
+				<code class="code">transitionOut</code>.
+			</li>
+			<li>
+				<code class="code">transitionOutParams</code>.
+			</li>
+		</ul>
+		<p>Apply the transition as follows:</p>
+		<CodeBlock
+			language="ts"
+			code={`
+import { dynamicTransition } from '../../internal/transitions.js';
+		`}
+		/>
+		<CodeBlock
+			language="html"
+			code={`
+<SomeComponent
+	in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+	out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+/>
+		`}
+		/>
+		<!-- Documentation -->
+		<h3 class="h3">Documentation</h3>
+		<p>
+			Please review existing docs for examples of this in practice. <a class="anchor" target="_blank" href="/components/autocomplete"
+				>Autocomplete</a
+			>
+		</p>
+		<p>Add the transitions props to <code class="code">DocsShellSettings</code></p>
+		<CodeBlock
+			language="ts"
+			code={`
+const settings: DocsShellSettings = {
+	// ...
+	transitionIn: 'slide',
+	transitionOut: 'slide'
+};
+		`}
+		/>
+		<p>This will display the <code class="code">Transitions</code> badge on the docs page.</p>
+	</section>
+
+	<hr />
+
 	<!-- Pitfalls -->
 	<section class="space-y-4">
 		<h2 class="h2">Pitfalls</h2>
