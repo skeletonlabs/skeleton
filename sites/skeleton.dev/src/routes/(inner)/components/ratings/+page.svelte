@@ -54,7 +54,7 @@
 					code={`
 <Ratings value={3.5} max={5}>
     <svelte:fragment slot="empty">(icon)</svelte:fragment>
-    <svelte:fragment slot="half">(con)</svelte:fragment>
+    <svelte:fragment slot="half">(icon)</svelte:fragment>
     <svelte:fragment slot="full">(icon)</svelte:fragment>
 </Ratings>
 			`}
@@ -104,7 +104,7 @@
 						code={`
 <Ratings bind:value={value.current} max={value.max}>
 	<svelte:fragment slot="empty">(icon)</svelte:fragment>
-	<svelte:fragment slot="half">(con)</svelte:fragment>
+	<svelte:fragment slot="half">(icon)</svelte:fragment>
 	<svelte:fragment slot="full">(icon)</svelte:fragment>
 </Ratings>
 			`}
@@ -142,7 +142,7 @@ function iconClick(event: CustomEvent<{index:number}>): void {
 						code={`
 <Ratings bind:value={value.current} max={value.max} on:icon={iconClick}>
 	<svelte:fragment slot="empty">(icon)</svelte:fragment>
-	<svelte:fragment slot="half">(con)</svelte:fragment>
+	<svelte:fragment slot="half">(icon)</svelte:fragment>
 	<svelte:fragment slot="full">(icon)</svelte:fragment>
 </Ratings>
 			`}
