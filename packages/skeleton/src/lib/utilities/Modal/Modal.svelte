@@ -30,16 +30,6 @@
 	/** Register a list of reusable component modals. */
 	export let components: Record<string, ModalComponent> = {};
 
-	// Props (transitions)
-	/** The open/close animation duration. Set '0' (zero) to disable. */
-	export let duration = 150;
-	/** Set the fly transition opacity. */
-	export let flyOpacity = 0;
-	/** Set the fly transition X axis value. */
-	export let flyX = 0;
-	/** Set the fly transition Y axis value. */
-	export let flyY = 100;
-
 	// Props (modal)
 	/** Provide classes to style the modal background. */
 	export let background: CssClasses = 'bg-surface-100-800-token';
@@ -194,11 +184,6 @@
 	// Source: https://discord.com/channels/457912077277855764/1037768846855118909
 	$: parent = {
 		position,
-		// ---
-		duration,
-		flyOpacity,
-		flyX,
-		flyY,
 		// ---
 		background,
 		width,
