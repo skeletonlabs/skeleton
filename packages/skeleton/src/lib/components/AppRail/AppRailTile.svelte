@@ -58,7 +58,7 @@
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 
 	// RestProps
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}
