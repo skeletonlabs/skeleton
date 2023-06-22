@@ -198,11 +198,11 @@
 			on:mouseup={onBackdropInteractionEnd}
 			on:touchstart
 			on:touchend
-			transition:fade={{ duration }}
+			transition:fade|global={{ duration }}
 			use:focusTrap={true}
 		>
 			<!-- Transition Layer -->
-			<div class="modal-transition {classesTransitionLayer}" transition:fly={{ duration, opacity: flyOpacity, x: flyX, y: flyY }}>
+			<div class="modal-transition {classesTransitionLayer}" transition:fly|global={{ duration, opacity: flyOpacity, x: flyX, y: flyY }}>
 				{#if $modalStore[0].type !== 'component'}
 					<!-- Modal: Presets -->
 					<div
@@ -211,7 +211,7 @@
 						role="dialog"
 						aria-modal="true"
 						aria-label={$modalStore[0].title ?? ''}
-						transition:fly={{ duration, opacity: 0, y: 100 }}
+						transition:fly|global={{ duration, opacity: 0, y: 100 }}
 					>
 						<!-- Header -->
 						{#if $modalStore[0]?.title}

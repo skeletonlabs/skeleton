@@ -125,8 +125,8 @@
 			{#each filteredToasts as t, i (t)}
 				<div
 					animate:flip={{ duration }}
-					in:receive={{ key: t.id }}
-					out:send={{ key: t.id }}
+					in:receive|global={{ key: t.id }}
+					out:send|global={{ key: t.id }}
 					on:mouseenter={() => onMouseEnter(i)}
 					on:mouseleave={() => onMouseLeave(i)}
 				>
