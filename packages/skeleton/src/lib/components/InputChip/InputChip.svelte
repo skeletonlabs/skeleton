@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte/internal';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import { fly, scale } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 

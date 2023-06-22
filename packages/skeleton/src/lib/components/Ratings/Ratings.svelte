@@ -6,7 +6,7 @@
 	 * @slot {{}} full - Provide a full rating icon.
 	 */
 
-	import { createEventDispatcher } from 'svelte/internal';
+	import { createEventDispatcher } from 'svelte';
 
 	// Types
 	import type { CssClasses } from '../../index.js';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte/internal';
+	import { createEventDispatcher } from 'svelte';
 
 	// Types
 	import type { CssClasses } from '../../index.js';

@@ -10,7 +10,7 @@
 	// DISPATCHED: document directly above the definition, like props (ex: paginator)
 
 	import { getContext } from 'svelte';
-	import { createEventDispatcher } from 'svelte/internal';
+	import { createEventDispatcher } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { slide } from 'svelte/transition';
 
