@@ -17,7 +17,7 @@
 	/**
 	 * Image only. Provide a Svelte action reference, such as `filter`.
 	 */
-	export let action: Action<HTMLElement, any> = () => {};
+	export let action: Action<HTMLElement, string> = () => {};
 	/** Image only. Provide Svelte action params, such as Apollo. */
 	export let actionParams = '';
 
