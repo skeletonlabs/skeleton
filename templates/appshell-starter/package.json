@@ -9,16 +9,12 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
-    "format": "prettier --plugin-search-dir . --write .",
-    "install": "node ./scripts/swapdeps.mjs",
-    "dep": "vercel build && vercel deploy --prebuilt",
-    "prod": "vercel build --prod && vercel deploy --prebuilt --prod"
+    "format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
     "@floating-ui/dom": "^1.2.9",
     "@skeletonlabs/skeleton": "workspace:^",
     "@sveltejs/adapter-auto": "^2.0.0",
-    "@sveltejs/adapter-vercel": "^2.4.3",
     "@sveltejs/kit": "^1.5.0",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
@@ -26,7 +22,6 @@
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte": "^2.26.0",
-    "is-ci": "^3.0.1",
     "postcss": "^8.4.24",
     "prettier": "^2.8.0",
     "prettier-plugin-svelte": "^2.8.1",
