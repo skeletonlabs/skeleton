@@ -3,8 +3,12 @@
 	import { createEventDispatcher } from 'svelte';
 	import { BROWSER } from 'esm-env';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type DrawerEvent = {
+		backdrop: MouseEvent;
+		drawer: MouseEvent;
+	};
+	const dispatch = createEventDispatcher<DrawerEvent>();
 
 	// Types
 	import type { CssClasses } from '../../index.js';

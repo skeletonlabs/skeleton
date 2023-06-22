@@ -4,7 +4,12 @@
 	import type { CssClasses, PaginationSettings } from '../../index.js';
 	import { leftAngles, leftArrow, rightAngles, rightArrow } from './icons.js';
 
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type PaginatorEvent = {
+		amount: number;
+		page: number;
+	};
+	const dispatch = createEventDispatcher<PaginatorEvent>();
 
 	// Props
 	/**

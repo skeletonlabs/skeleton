@@ -7,7 +7,12 @@
 	import type { CssClasses } from '../../index.js';
 
 	// Event Dispatcher
-	const dispatch = createEventDispatcher();
+	type InputChipEvent = {
+		add: { event: Event; chipIndex: number; chipValue: string };
+		remove: { event: Event; chipIndex: number; chipValue: string };
+		invalid: { event: Event; input: string };
+	};
+	const dispatch = createEventDispatcher<InputChipEvent>();
 
 	// Props
 	/** Bind the input value. */

@@ -6,7 +6,11 @@
 	// Types
 	import type { CssClasses, TableSource } from '../../index.js';
 
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type TableEvent = {
+		selected: string[];
+	};
+	const dispatch = createEventDispatcher<TableEvent>();
 
 	// Props
 	/**

@@ -15,7 +15,10 @@
 	import { slide } from 'svelte/transition';
 
 	// Event Dispatcher
-	const dispatch = createEventDispatcher();
+	type AccordionItemEvent = {
+		toggle: { event?: Event; id: string; open: boolean; autocollapse: boolean };
+	};
+	const dispatch = createEventDispatcher<AccordionItemEvent>();
 
 	// Types
 	import type { CssClasses } from '../../index.js';

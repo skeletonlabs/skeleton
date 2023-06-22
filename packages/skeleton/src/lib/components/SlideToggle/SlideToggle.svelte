@@ -4,8 +4,11 @@
 	// Types
 	import type { CssClasses } from '../../index.js';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type SlideToggleEvent = {
+		keyup: KeydownEvent;
+	};
+	const dispatch = createEventDispatcher<SlideToggleEvent>();
 
 	// Props
 	/**
@@ -49,14 +52,18 @@
 		default: trackSize = 'w-16 h-8';
 	}
 
+	type KeydownEvent = KeyboardEvent & {
+		currentTarget: EventTarget & HTMLDivElement;
+	};
 	// A11y Input Handlers
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeydownEvent): void {
 		// Enter/Space to toggle element
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
 			/** @event {{ event }} keyup Fires when the component is focused and key is pressed. */
 			dispatch('keyup', event);
-			event.target.firstChild.click();
+			const inputElem = event.currentTarget.firstChild as HTMLLabelElement;
+			inputElem.click();
 		}
 	}
 

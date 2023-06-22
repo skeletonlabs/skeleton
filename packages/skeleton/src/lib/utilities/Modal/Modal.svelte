@@ -2,8 +2,11 @@
 	import { createEventDispatcher } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type ModalEvent = {
+		backdrop: MouseEvent;
+	};
+	const dispatch = createEventDispatcher<ModalEvent>();
 
 	// Types
 	import type { CssClasses } from '../../index.js';
