@@ -73,7 +73,7 @@
 		"esm-env": "1.0.0"
 	},
 	"peerDependencies": {
-		"svelte": ">= 3.55.0 || >= 4"
+		"svelte": "^3.55.0 || ^4.0.0"
 	},
 	"publishConfig": {
 		"types": "./dist/index.d.ts",
