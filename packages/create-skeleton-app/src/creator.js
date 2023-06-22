@@ -85,7 +85,7 @@ export async function createSkeleton(opts) {
 		fs.copySync(path.resolve(__dirname, './swapdeps.mjs'), path.resolve(process.cwd(), '/scripts/swapdeps.mjs'), { overwrite: true });
 	}
 	// creating the missing lib folder...
-	mkdirp(path.join('src', 'lib'));
+	// mkdirp(path.join('src', 'lib'));
 	// go back to starting location in case we get called again to create another template
 	process.chdir(startPath);
 	return opts;
@@ -97,16 +97,13 @@ async function modifyPackageJson(opts) {
 
 	// the order matters due to dependency resolution, because yarn
 	for (const pkg of ['postcss', 'autoprefixer', 'tailwindcss', '@skeletonlabs/skeleton']) {
-		console.log(pkg, opts.devDependencies.get(pkg))
 		pkgJson.devDependencies[pkg] = opts.devDependencies.get(pkg);
 	};
 
 	// Extra packages and scripts for a monorepo install
 	if (opts.monorepo) {
 		['@sveltejs/adapter-vercel', 'is-ci'].forEach((pkg) => pkg.devDependencies[pkg] = opts.devDependencies.get(pkg));
-		pkgJson.scripts['install'] = 'node ./scripts/swapdeps.mjs';
-		pkgJson.scripts['dep'] = 'vercel build && vercel deploy --prebuilt';
-		pkgJson.scripts['prod'] = 'vercel build --prod && vercel deploy --prebuilt --prod';
+		//TODO copy over github workflows for deploying to Vercel
 		pkgJson['deployConfig'] = { "@skeletonlabs/skeleton": "^1.0.0" }
 	}
 
@@ -118,7 +115,6 @@ async function modifyPackageJson(opts) {
 	if (opts.codeblocks) ['highlight.js'].forEach((pkg) => pkgJson.dependencies[pkg] = opts.dependencies.get(pkg));
 	if (opts.popups) ['@floating-ui/dom'].forEach((pkg) => pkgJson.dependencies[pkg] = opts.dependencies.get(pkg));
 	fs.writeFileSync('./package.json', JSON.stringify(pkgJson, null, 2));
-	console.log("New package.json written")
 }
 
 async function getLatestPackageVersions(opts) {

@@ -45,10 +45,10 @@
     "got": "^13.0.0",
     "kleur": "^4.1.5",
     "mri": "^1.2.0",
-    "semver": "^7.5.1"
+    "semver": "^7.5.2"
   },
   "devDependencies": {
-    "eslint": "^8.41.0",
+    "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0"
   }
 }

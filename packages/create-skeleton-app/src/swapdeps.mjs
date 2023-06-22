@@ -3,56 +3,28 @@ import isCI from 'is-ci';
 import { readFileSync, writeFileSync } from 'fs';
 import { execSync } from 'child_process';
 
-// no it can't be run on preinstall
-// no it can't be a nice little npm package
-// yes it's running install twice
-// yes it's a hack
-// but it works (on Vercel at least)
-
 export function makeWorkspacePackageLinks(pkg) {
-	if (pkg?.deployConfig?.dependencies != undefined) {
-		for (const [dep, version] of Object.entries(pkg.deployConfig.dependencies)) {
-			pkg.dependencies[dep] = 'workspace:^';
+	['dependencies', 'devDependencies', 'peerDependencies'].forEach((depType) => {
+		if (pkg?.deployConfig[depType] != undefined) {
+			for (const [dep, version] of Object.entries(pkg.deployConfig[depType])) {
+				pkg[depType][dep] = 'workspace:^';
+			}
 		}
-	}
-	if (pkg?.deployConfig?.devDependencies != undefined) {
-		for (const [devDep, version] of Object.entries(pkg.deployConfig.devDependencies)) {
-			pkg.devDependencies[devDep] = 'workspace:^';
-		}
-	}
-	if (pkg?.deployConfig?.peerDependencies != undefined) {
-		for (const [peerDep, version] of Object.entries(pkg.deployConfig.dependencies)) {
-			pkg.peerDependencies[peerDep] = 'workspace:^';
-		}
-	}
+	});
 }
 
 export function makeVersionedPackageLinks(pkg) {
 	let clean = true;
-	if (pkg?.deployConfig?.dependencies != undefined) {
-		for (const [dep, version] of Object.entries(pkg.deployConfig.dependencies)) {
-			if (pkg.dependencies[dep] !== version) {
-				pkg.dependencies[dep] = version;
-				clean = false;
+	['dependencies', 'devDependencies', 'peerDependencies'].forEach((depType) => {
+		if (pkg?.deployConfig[depType] != undefined) {
+			for (const [dep, version] of Object.entries(pkg.deployConfig[depType])) {
+				if (pkg[depType][dep] !== version) {
+					pkg[depType][dep] = version;
+					clean = false;
+				}
 			}
 		}
-	}
-	if (pkg?.deployConfig?.devDependencies != undefined) {
-		for (const [devDep, version] of Object.entries(pkg?.deployConfig?.devDependencies)) {
-			if (pkg?.devDependencies[devDep] !== version) {
-				pkg.devDependencies[devDep] = version;
-				clean = false;
-			}
-		}
-	}
-	if (pkg?.deployConfig?.peerDependencies != undefined) {
-		for (const [peerDep, version] of Object.entries(pkg?.deployConfig?.devDependencies)) {
-			if (pkg?.peerDependencies[peerDep] !== version) {
-				pkg.peerDependencies[peerDep] = version;
-				clean = false;
-			}
-		}
-	}
+	});
 	return { pkg: pkg, clean: clean };
 }
 
