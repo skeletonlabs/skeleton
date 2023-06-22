@@ -4,7 +4,7 @@
 	import { tableA11y } from '../../utilities/DataTable/actions.js';
 
 	// Types
-	import type { CssClasses, TableSource } from '../../index.js';
+	import type { CssClasses, SvelteEvent, TableSource } from '../../index.js';
 
 	// Event Dispatcher
 	type TableEvent = {
@@ -42,7 +42,7 @@
 	export let regionFootCell: CssClasses = '';
 
 	// Row Click Handler
-	function onRowClick(event: MouseEvent | KeyboardEvent, rowIndex: number): void {
+	function onRowClick(event: SvelteEvent<MouseEvent | KeyboardEvent, HTMLTableRowElement>, rowIndex: number): void {
 		if (!interactive) return;
 		event.preventDefault();
 		event.stopPropagation();
@@ -53,7 +53,7 @@
 	}
 
 	// Row Keydown Handler
-	function onRowKeydown(event: KeyboardEvent, rowIndex: number): void {
+	function onRowKeydown(event: SvelteEvent<KeyboardEvent, HTMLTableRowElement>, rowIndex: number): void {
 		if (['Enter', 'Space'].includes(event.code)) onRowClick(event, rowIndex);
 	}
 

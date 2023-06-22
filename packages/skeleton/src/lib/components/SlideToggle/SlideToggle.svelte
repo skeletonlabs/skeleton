@@ -2,11 +2,11 @@
 	import { createEventDispatcher } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Event Dispatcher
 	type SlideToggleEvent = {
-		keyup: KeydownEvent;
+		keyup: SvelteEvent<KeyboardEvent, HTMLDivElement>;
 	};
 	const dispatch = createEventDispatcher<SlideToggleEvent>();
 
@@ -52,11 +52,8 @@
 		default: trackSize = 'w-16 h-8';
 	}
 
-	type KeydownEvent = KeyboardEvent & {
-		currentTarget: EventTarget & HTMLDivElement;
-	};
 	// A11y Input Handlers
-	function onKeyDown(event: KeydownEvent): void {
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, HTMLDivElement>) {
 		// Enter/Space to toggle element
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
@@ -80,7 +77,7 @@
 	$: classesThumb = `${cThumb} ${rounded} ${cThumbBackground} ${cThumbPos}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}

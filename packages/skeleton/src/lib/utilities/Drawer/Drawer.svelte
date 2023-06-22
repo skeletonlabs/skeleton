@@ -11,7 +11,7 @@
 	const dispatch = createEventDispatcher<DrawerEvent>();
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Actions
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
@@ -131,7 +131,7 @@
 	}
 
 	// Input Handlers
-	function onDrawerInteraction(event: MouseEvent): void {
+	function onDrawerInteraction(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
 		if (event.target === elemBackdrop) {
 			drawerStore.close();
 			/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
@@ -141,7 +141,7 @@
 			dispatch('drawer', event);
 		}
 	}
-	function onKeydownWindow(event: KeyboardEvent): void {
+	function onKeydownWindow(event: SvelteEvent<KeyboardEvent, Window>): void {
 		if (!$drawerStore) return;
 		if (event.code === 'Escape') drawerStore.close();
 	}

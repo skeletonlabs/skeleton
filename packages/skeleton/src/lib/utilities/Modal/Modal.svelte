@@ -9,7 +9,7 @@
 	const dispatch = createEventDispatcher<ModalEvent>();
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	import { modalStore } from './stores.js';
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
@@ -103,14 +103,14 @@
 	});
 
 	// Event Handlers ---
-	function onBackdropInteractionBegin(event: MouseEvent): void {
+	function onBackdropInteractionBegin(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
 		if (!(event.target instanceof Element)) return;
 		const classList = event.target.classList;
 		if (classList.contains('modal-backdrop') || classList.contains('modal-transition')) {
 			registeredInteractionWithBackdrop = true;
 		}
 	}
-	function onBackdropInteractionEnd(event: MouseEvent): void {
+	function onBackdropInteractionEnd(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
 		if (!(event.target instanceof Element)) return;
 		const classList = event.target.classList;
 		if ((classList.contains('modal-backdrop') || classList.contains('modal-transition')) && registeredInteractionWithBackdrop) {
@@ -133,7 +133,7 @@
 		modalStore.close();
 	}
 
-	function onPromptSubmit(event: SubmitEvent): void {
+	function onPromptSubmit(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
 		event.preventDefault();
 		if ($modalStore[0].response) $modalStore[0].response(promptValue);
 		modalStore.close();
@@ -141,7 +141,7 @@
 
 	// A11y ---
 
-	function onKeyDown(event: KeyboardEvent): void {
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, Window>): void {
 		if (!$modalStore.length) return;
 		if (event.code === 'Escape') onClose();
 	}
