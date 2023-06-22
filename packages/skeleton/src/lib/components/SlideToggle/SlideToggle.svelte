@@ -21,7 +21,7 @@
 	 * @type {'sm' | 'md' | 'lg'}
 	 */
 	export let size = 'md';
-	/** Provide classe to set the inactive state background color. */
+	/** Provide classes to set the inactive state background color. */
 	export let background: CssClasses = 'bg-surface-400 dark:bg-surface-700';
 	/** Provide classes to set the active state background color. */
 	export let active: CssClasses = 'bg-surface-900 dark:bg-surface-300';
