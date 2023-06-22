@@ -127,42 +127,42 @@
 			<svelte:fragment slot="preview">
 				<div class="gap-6 flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
 					<div
-						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
 					<div
-						class="card variant-filled-secondary text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
+						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
 					>
 						(Content)
 					</div>
@@ -383,106 +383,22 @@ function onNextPrevImage(nextImage: boolean) {
 			</DocsPreview>
 		</section>
 
-		<!-- Carousel -->
+		<!-- Movies Carousel -->
 		<section class="space-y-4">
-			<h2 class="h2">Products Carousels</h2>
+			<h2 class="h2">Movies Carousels</h2>
 			<DocsPreview background="bg-surface-900">
 				<svelte:fragment slot="preview">
-					<div class="grid grid-cols-[auto,1fr,auto] gap-2">
-						<button type="button" class="btn-icon btn-icon-lg variant-filled h-14 self-center" on:click={() => onNextPrevProduct(false)}>
-							<i class="fa-solid fa-arrow-left" />
-						</button>
-						<div
-							class="flex gap-3 pb-3 snap-x snap-mandatory overflow-x-auto scroll-smooth xl:w-[700px] w-56"
-							bind:this={productsScrollContainer}
-						>
-							<!-- Products -->
-							{#each products as product}
-								<div class="card shadow-lg p-6 gap-3 variant-filled snap-center shrink-0 flex flex-col items-center relative">
-									<button
-										type="button"
-										class="btn-icon btn-icon-sm variant-filled absolute top-2 right-2 fill-red-600"
-										on:click={() => (product.liked = !product.liked)}
-									>
-										{@html product.liked ? icons.heartFull : icons.heartEmpty}
-									</button>
-									<img class="w-44 h-44 rounded" src={product.imageUrl} alt="" loading="lazy" />
-									<p>{product.name}</p>
-									<p>{product.price}</p>
-									<Ratings fill="fill-yellow-500" value={product.ratingValue}>
-										<svelte:fragment slot="empty">
-											{@html icons.starEmpty}
-										</svelte:fragment>
-										<svelte:fragment slot="half">
-											{@html icons.starHalf}
-										</svelte:fragment>
-										<svelte:fragment slot="full">
-											{@html icons.starFull}
-										</svelte:fragment>
-									</Ratings>
-									<button type="button" class="btn variant-ghost-primary"> Add To Cart </button>
-								</div>
-							{/each}
-						</div>
-						<button type="button" class="btn-icon btn-icon-lg variant-filled h-14 self-center" on:click={() => onNextPrevProduct(true)}>
-							<i class="fa-solid fa-arrow-right" />
-						</button>
-					</div>
+					
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="ts"
 						code={`
-let container: HTMLDivElement;
-
-function onNextPrevProduct(nextProduct: boolean) {
-	let scrollX = 0;
-	if(nextProduct) {
-		// scroll to start
-		if(container.scrollLeft === container.scrollWidth - container.clientWidth) 
-			scrollX = 0;
-		// scroll to next
-		else scrollX = container.scrollLeft + container.clientWidth;
-	} else {
-		// scroll to end
-		if(container.scrollLeft === 0)
-			scrollX = container.clientWidth * container.childElementCount;
-		// scroll to previous
-		else scrollX = container.scrollLeft - container.clientWidth;
-	}
-	container.scroll(scrollX, 0);
-}
 					`}
 					/>
 					<CodeBlock
 						language="html"
 						code={`
-<div class="grid grid-cols-[auto,1fr,auto] gap-2">
-	<!-- Prev button -->
-	<button
-		type="button"
-		class="btn-icon btn-icon-lg variant-filled h-14 self-center"
-		on:click={() => onNextPrevProduct(false)}
-	>
-		<i class="fa-solid fa-arrow-left" />
-	</button>
-	<div class="flex gap-3 pb-3 snap-x snap-mandatory overflow-x-auto scroll-smooth xl:w-[700px] w-56"
-		bind:this={container}>
-		<!-- Products -->
-		<div class="card variant-filled shadow-lg p-6 gap-3 snap-center shrink-0 flex flex-col items-center">
-			<!-- Product content -->
-		</div>
-		<!-- ... -->
-	</div>
-	<!-- Next button -->
-	<button
-		type="button"
-		class="btn-icon btn-icon-lg variant-filled h-14 self-center"
-		on:click={() => onNextPrevProduct(true)}
-	>
-		<i class="fa-solid fa-arrow-right" />
-	</button>
-</div>
 					`}
 					/>
 				</svelte:fragment>
