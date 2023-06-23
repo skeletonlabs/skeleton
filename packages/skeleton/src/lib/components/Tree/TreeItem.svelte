@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
+	import { getContext, createEventDispatcher } from 'svelte';
 
 	// Types
 	import type { CssClasses } from '../../index.js';
@@ -30,6 +30,11 @@
 	/** Provide arbitrary classes to the children region. */
 	export let regionChildren: CssClasses = getContext('regionChildren');
 
+	// events
+	const dispatch = createEventDispatcher();
+	/** @event {{ open: boolean }} toggle - Fires on open or close. */
+	$: dispatch('toggle', { open: open });
+
 	// Classes
 	const cBase = '';
 	const cSummary = 'list-none flex items-center cursor-pointer space-x-2';
@@ -50,6 +55,9 @@
 		role="treeitem"
 		aria-selected="false"
 		aria-expanded={$$slots.children ? open : undefined}
+		on:click
+		on:keydown
+		on:keyup
 	>
 		<!-- Caret -->
 		{#if $$slots.children}

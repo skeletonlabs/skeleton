@@ -15,13 +15,13 @@ describe('Tree.svelte', () => {
 				width: 'w-full',
 				spacing: 'space-y-1',
 				padding: 'py-2',
+				noContentPadding: 'pl-5',
 				hover: 'hover:bg-primary-hover-token',
 				rounded: 'rounded-container-token',
 				caretOpen: 'rotate-180',
 				caretClosed: 'rotate-90',
 				regionSummary: 'bg-red-600',
 				regionCaret: 'bg-red-600',
-				regionCheckbox: 'bg-red-600',
 				regionChildren: 'bg-red-600',
 				labelledby: 'tree label'
 			}
