@@ -7,10 +7,7 @@
 	// Props (state)
 	/** Set open by default on load. */
 	export let open = false;
-
 	// Context API
-	/** Enable selection of multiple items. */
-	export let multiple: boolean = getContext('multiple');
 	// ---
 	/** Provide classes to set the tree item padding styles. */
 	export let padding: CssClasses = getContext('padding');
@@ -18,8 +15,6 @@
 	export let noContentPadding: CssClasses = getContext('noContentPadding');
 	/** Provide classes to set the tree item hover styles. */
 	export let hover: CssClasses = getContext('hover');
-	/** Provide classes to set the tree item active background styles. */
-	export let active: CssClasses = getContext('active');
 	/** Provide classes to set the tree item rounded styles. */
 	export let rounded: CssClasses = getContext('rounded');
 	// ---
@@ -28,6 +23,8 @@
 	/** Set the rotation of the item caret in the closed state. */
 	export let caretClosed: CssClasses = getContext('caretClosed');
 	// ---
+	/** Provide arbitrary classes to the tree item summary region. */
+	export let regionSummary: CssClasses = '';
 	/** Provide arbitrary classes to the caret icon region. */
 	export let regionCaret: CssClasses = getContext('regionCaret');
 	/** Provide arbitrary classes to the children region. */
@@ -37,34 +34,23 @@
 	const cBase = '';
 	const cSummary = 'list-none flex items-center cursor-pointer space-x-2';
 	const cControlCaret = 'fill-current w-3 transition-transform duration-[200ms]';
-	const cChildren = '';
-
-	// Local
-	let group: string | string[] = getContext('group');
-	let checked: boolean;
-	let elemInput: HTMLElement;
-	// unique value
-	let value = Number(Math.random()).toString(32);
+	const cChildren = 'pl-5';
 
 	// Reactive Classes
-	$: classesActive = selected ? active : hover;
 	$: classesBase = `${cBase} ${$$slots.children ? '' : noContentPadding} ${$$props.class ?? ''}`;
-	$: classesSummary = `${cSummary} ${rounded} ${padding} ${classesActive}`;
+	$: classesSummary = `${cSummary} ${regionSummary} ${rounded} ${padding} ${hover}`;
 	$: classesCaretState = open ? caretOpen : caretClosed;
 	$: classesControlCaret = `${cControlCaret} ${regionCaret} ${classesCaretState}`;
 	$: classesChildren = `${cChildren} ${regionChildren}`;
-	$: selected = multiple ? (group as string[]).some((groupVal: string) => groupVal === value) : group === value;
 </script>
 
 <details bind:open class="tree-item {classesBase}" data-testid="tree-item">
-	<summary class="tree-item-summary {classesSummary}">
-		<div class="h-0 w-0 overflow-hidden">
-			{#if multiple}
-				<input bind:this={elemInput} type="checkbox" {value} bind:checked tabindex="-1" on:click on:change />
-			{:else}
-				<input bind:this={elemInput} type="radio" bind:group {value} tabindex="-1" on:click on:change />
-			{/if}
-		</div>
+	<summary
+		class="tree-item-summary {classesSummary}"
+		role="treeitem"
+		aria-selected="false"
+		aria-expanded={$$slots.children ? open : undefined}
+	>
 		<!-- Caret -->
 		{#if $$slots.children}
 			<div class="tree-summary-caret {classesControlCaret}">
@@ -86,7 +72,7 @@
 			<slot />
 		</div>
 	</summary>
-	<span class="tree-item-children {classesChildren}">
+	<div class="tree-item-children {classesChildren}" role="group">
 		<slot name="children" />
-	</span>
+	</div>
 </details>

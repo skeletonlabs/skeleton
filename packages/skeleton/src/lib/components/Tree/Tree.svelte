@@ -5,8 +5,6 @@
 	import type { CssClasses } from '../../index.js';
 
 	// Props (parent)
-	/** Enable selection of multiple items. */
-	export let multiple = false;
 	/** Provide classes to set the tree width. */
 	export let width: CssClasses = 'w-full';
 	/** Provide classes to set the vertical spacing between items. */
@@ -16,11 +14,9 @@
 	/** Provide classes to set the tree item padding styles. */
 	export let padding: CssClasses = 'py-2 px-2';
 	/** Provide classes to set the tree item padding styles, when no content are present. */
-	export let noContentPadding: CssClasses = 'px-5';
+	export let noContentPadding: CssClasses = 'pl-5';
 	/** Provide classes to set the tree item hover styles. */
 	export let hover: CssClasses = 'hover:variant-soft';
-	/** Provide classes to set the tree item active background styles. */
-	export let active: CssClasses = 'variant-filled';
 	/** Provide classes to set the tree item rounded styles. */
 	export let rounded: CssClasses = 'rounded-container-token';
 
@@ -31,6 +27,8 @@
 	export let caretClosed: CssClasses = '';
 
 	// Props (regions)
+	/** Provide arbitrary classes to the tree item summary region. */
+	export let regionSummary: CssClasses = '';
 	/** Provide arbitrary classes to the caret icon region. */
 	export let regionCaret: CssClasses = '';
 	/** Provide arbitrary classes to the children region. */
@@ -40,20 +38,14 @@
 	/** Provide the ARIA labelledby value. */
 	export let labelledby = '';
 
-	// Local
-	// unique group id
-	const group: string | string[] = multiple ? [] : Number(Math.random()).toString(32);
-
 	// Context API
-	setContext('multiple', multiple);
-	setContext('group', group);
 	setContext('padding', padding);
 	setContext('noContentPadding', noContentPadding);
 	setContext('hover', hover);
-	setContext('active', active);
 	setContext('rounded', rounded);
 	setContext('caretOpen', caretOpen);
 	setContext('caretClosed', caretClosed);
+	setContext('regionSummary', regionSummary);
 	setContext('regionCaret', regionCaret);
 	setContext('regionChildren', regionChildren);
 

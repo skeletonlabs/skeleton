@@ -35,7 +35,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="text-center">
 			<svelte:fragment slot="preview">
-				<Tree>
+				<Tree selectionMode="single">
 					<TreeItem>
 						<svelte:fragment slot="lead">
 							<i class="fa-regular fa-folder-closed" />
