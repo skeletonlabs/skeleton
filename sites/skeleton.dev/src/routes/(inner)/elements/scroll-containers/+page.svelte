@@ -57,7 +57,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<DocsPreview>
+		<DocsPreview regionFooter="text-center">
 			<svelte:fragment slot="preview">
 				<div class="gap-6 flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
 					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
@@ -87,7 +87,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
-				<p class="text-center">Scroll left or right to see snapping effect.</p>
+				<p>Scroll left or right to see snapping effect.</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock
@@ -111,7 +111,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Carousels</h2>
 			<p>Using the scroll container, we can create fully functional carousels</p>
-			<DocsPreview background="bg-surface-900">
+			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="card p-6 space-y-6 relative w-96 md:w-full">
 						<div class="flex gap-6 pb-2 snap-x snap-mandatory overflow-x-auto scroll-smooth" bind:this={imageScrollContainer}>
@@ -305,7 +305,7 @@ function onNextPrevImage(nextImage: boolean) {
 		<!-- Multi Column Carousel -->
 		<section class="space-y-4">
 			<h2 class="h2">Multi column carousels</h2>
-			<DocsPreview background="bg-surface-900">
+			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="grid grid-cols-[auto,1fr,auto] gap-1 xl:w-[715px] lg:w-[490px] w-72">
 						<!-- Prev Button -->
