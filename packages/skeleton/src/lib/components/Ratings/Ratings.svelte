@@ -16,11 +16,8 @@
 	export let value = 0;
 	/** Maximum rating value. */
 	export let max = 5;
-	/**
-	 * Defines the icon element type.
-	 * @type {'div' | 'button'}
-	 */
-	export let iconType: 'div' | 'button' = 'div';
+	/** Enables interactive mode for each rating icon. */
+	export let interactive = false;
 
 	// Props (styles)
 	/** Provide classes to set the text color. */
@@ -50,6 +47,8 @@
 	const cBase = 'w-full flex';
 
 	// Reactive
+	$: elemInteractive = interactive ? 'button' : 'span';
+	$: attrInteractive = interactive ? { type: 'button' } : {};
 	$: classesBase = `${cBase} ${text} ${fill} ${justify} ${spacing} ${$$props.class ?? ''}`;
 </script>
 
@@ -57,26 +56,17 @@
 	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 	{#each Array(max) as _, i}
 		{#if Math.floor(value) >= i + 1}
-			<svelte:element
-				this={iconType}
-				type={iconType === 'button' ? 'button' : undefined}
-				class="rating-icon {regionIcon}"
-				on:click={() => iconClick(i)}><slot name="full" /></svelte:element
-			>
+			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
+				<slot name="full" />
+			</svelte:element>
 		{:else if value === i + 0.5}
-			<svelte:element
-				this={iconType}
-				type={iconType === 'button' ? 'button' : undefined}
-				class="rating-icon {regionIcon}"
-				on:click={() => iconClick(i)}><slot name="half" /></svelte:element
-			>
+			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
+				<slot name="half" />
+			</svelte:element>
 		{:else}
-			<svelte:element
-				this={iconType}
-				type={iconType === 'button' ? 'button' : undefined}
-				class="rating-icon {regionIcon}"
-				on:click={() => iconClick(i)}><slot name="empty" /></svelte:element
-			>
+			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
+				<slot name="empty" />
+			</svelte:element>
 		{/if}
 	{/each}
 </div>
