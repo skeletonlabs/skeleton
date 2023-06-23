@@ -35,13 +35,27 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="text-center">
 			<svelte:fragment slot="preview">
-				<Tree checkable={true}>
+				<Tree>
 					<TreeItem>
 						<svelte:fragment slot="lead">
 							<i class="fa-regular fa-folder-closed" />
 						</svelte:fragment>
 						parent
 						<svelte:fragment slot="children">
+							<TreeItem>
+								<svelte:fragment slot="lead">
+									<i class="fa-regular fa-folder-closed" />
+								</svelte:fragment>
+								parent
+								<svelte:fragment slot="children">
+									<TreeItem>
+										<svelte:fragment slot="lead">
+											<i class="fa-regular fa-file" />
+										</svelte:fragment>
+										child
+									</TreeItem>
+								</svelte:fragment>
+							</TreeItem>
 							<TreeItem>
 								<svelte:fragment slot="lead">
 									<i class="fa-regular fa-folder-closed" />
