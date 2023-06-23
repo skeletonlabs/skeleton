@@ -26,16 +26,15 @@ describe('Actions: Filter', () => {
 		render(GreenFall);
 		render(NoirLight);
 		render(Noir);
-		const elements: HTMLCollection = document.getElementsByClassName('filter');
+		const elements = document.getElementsByClassName('filter');
 		for (const element of elements) {
-			const el: any = element;
-			expect(el.getAttribute('class').includes('filter'));
+			expect(element.getAttribute('class')?.includes('filter'));
 		}
 	});
 
 	it('Test the node gets the filter url', async () => {
-		const elem: any = document.createElement('div');
+		const elem = document.createElement('div');
 		filter(elem, 'XPro');
-		expect(elem.getAttribute('style').includes('filter: url("#Emerald")'));
+		expect(elem.getAttribute('style')?.includes('filter: url("#Emerald")'));
 	});
 });
