@@ -3,85 +3,20 @@
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
+	import * as moviesData from './movies.json';
 	// Components
-	import { CodeBlock, Ratings, Avatar } from '@skeletonlabs/skeleton';
-	import { icons } from './icons';
+	import { CodeBlock, Avatar } from '@skeletonlabs/skeleton';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Scroll Containers',
-		description: 'Create a scroll container using Tailwind.'
+		description: "Create a scroll container that snaps to it's content using TailwindCss"
 	};
 
 	// Local
-	const products = [
-		{
-			name: 'Decoration Skulls',
-			liked: false,
-			imageUrl: 'https://source.unsplash.com/UhE2lwGn-DQ/176x176',
-			price: '10$',
-			ratingValue: 2.5
-		},
-		{
-			name: 'Dead Mannequin',
-			liked: true,
-			imageUrl: 'https://source.unsplash.com/qTWbIahyFL0/176x176',
-			price: '150$',
-			ratingValue: 4
-		},
-		{
-			name: 'Pumpkin',
-			liked: false,
-			imageUrl: 'https://source.unsplash.com/q5EGoKHQEe8/176x176',
-			price: '5$',
-			ratingValue: 5
-		},
-		{
-			name: 'Mini Skeletons',
-			liked: true,
-			imageUrl: 'https://source.unsplash.com/TjREnoQyMQQ/176x176',
-			price: '2$',
-			ratingValue: 4.5
-		},
-		{
-			name: 'Skeleton Cake',
-			liked: false,
-			imageUrl: 'https://source.unsplash.com/CBtDiI74mSg/176x176',
-			price: '20$',
-			ratingValue: 1.5
-		},
-		{
-			name: 'Mermaid',
-			liked: false,
-			imageUrl: 'https://source.unsplash.com/eQqcz7NWyH4/176x176',
-			price: '500$',
-			ratingValue: 3
-		},
-		{
-			name: 'Crown',
-			liked: false,
-			imageUrl: 'https://source.unsplash.com/hVpFBq-PSgQ/176x176',
-			price: '99$',
-			ratingValue: 1
-		},
-		{
-			name: 'Cool Skeleton',
-			liked: false,
-			imageUrl: 'https://source.unsplash.com/5ZiGQ-8s_k8/176x176',
-			price: '20$',
-			ratingValue: 5
-		},
-		{
-			name: 'Skull Wall Decorator',
-			liked: true,
-			imageUrl: 'https://source.unsplash.com/kIww5ykb898/176x176',
-			price: '75$',
-			ratingValue: 1.5
-		}
-	];
 	let imageScrollContainer: HTMLDivElement;
-	let productsScrollContainer: HTMLDivElement;
+	let moviesScrollContainer: HTMLDivElement;
 
 	function onThumbnailClick(index: number) {
 		imageScrollContainer.scroll(imageScrollContainer.clientWidth * index, 0);
@@ -102,21 +37,20 @@
 		imageScrollContainer.scroll(scrollX, 0);
 	}
 
-	function onNextPrevProduct(nextProduct: boolean) {
+	function onNextPrevMovie(nextMovie: boolean) {
 		let scrollX = 0;
-		if (nextProduct) {
+		if (nextMovie) {
 			// scroll to start
-			if (productsScrollContainer.scrollLeft === productsScrollContainer.scrollWidth - productsScrollContainer.clientWidth) scrollX = 0;
+			if (moviesScrollContainer.scrollLeft === moviesScrollContainer.scrollWidth - moviesScrollContainer.clientWidth) scrollX = 0;
 			// scroll to next
-			else scrollX = productsScrollContainer.scrollLeft + productsScrollContainer.clientWidth;
+			else scrollX = moviesScrollContainer.scrollLeft + moviesScrollContainer.clientWidth;
 		} else {
 			// scroll to end
-			if (productsScrollContainer.scrollLeft === 0)
-				scrollX = productsScrollContainer.clientWidth * productsScrollContainer.childElementCount;
+			if (moviesScrollContainer.scrollLeft === 0) scrollX = moviesScrollContainer.clientWidth * moviesScrollContainer.childElementCount;
 			// scroll to previous
-			else scrollX = productsScrollContainer.scrollLeft - productsScrollContainer.clientWidth;
+			else scrollX = moviesScrollContainer.scrollLeft - moviesScrollContainer.clientWidth;
 		}
-		productsScrollContainer.scroll(scrollX, 0);
+		moviesScrollContainer.scroll(scrollX, 0);
 	}
 </script>
 
@@ -126,44 +60,28 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="gap-6 flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
-					<div
-						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
-					>
+					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
 						(Content)
 					</div>
-					<div
-						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
-					>
+					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
 						(Content)
 					</div>
-					<div
-						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
-					>
+					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
 						(Content)
 					</div>
-					<div
-						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
-					>
+					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
 						(Content)
 					</div>
-					<div
-						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
-					>
+					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
 						(Content)
 					</div>
-					<div
-						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
-					>
+					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
 						(Content)
 					</div>
-					<div
-						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
-					>
+					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
 						(Content)
 					</div>
-					<div
-						class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32"
-					>
+					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
 						(Content)
 					</div>
 				</div>
@@ -355,24 +273,25 @@ function onNextPrevImage(nextImage: boolean) {
 			class="btn-icon btn-icon-lg variant-filled absolute left-0 bottom-1/2"
 			on:click={() => onNextPrevImage(false)}
 		>
-			<i class="fa-solid fa-arrow-left" />
+			(icon)
 		</button>
 		<button
 			type="button"
 			class="btn-icon btn-icon-lg variant-filled absolute right-0 bottom-1/2"
 			on:click={() => onNextPrevImage(true)}
 		>
-			<i class="fa-solid fa-arrow-right" />
+			(icon)
 		</button>
 	</div>
 	
 	<!-- Thumbnails -->
 	<div class="flex md:justify-center pb-2 gap-2 snap-x snap-mandatory overflow-x-auto scroll-smooth">
 		<button type="button" class="btn p-0 snap-center" on:click={() => onThumbnailClick(0)}>
-			<Avatar src="" width="w-16" rounded="rounded-lg"/>
+			<img class="w-16 rounded-lg" src="" alt="" />
 		</button>
-		<button type="button" class="btn p-0 snap-center rounded-none" on:click={() => onThumbnailClick(1)}>
-			<Avatar src="" width="w-16" rounded="rounded-lg"/>
+		<button type="button" class="btn p-0 snap-center rounded-none" 
+			on:click={() => onThumbnailClick(1)}>
+			<img class="w-16 rounded-lg" src="" alt="" />
 		</button>
 		<!-- ... -->
 	</div>
@@ -383,22 +302,86 @@ function onNextPrevImage(nextImage: boolean) {
 			</DocsPreview>
 		</section>
 
-		<!-- Movies Carousel -->
+		<!-- Multi Column Carousel -->
 		<section class="space-y-4">
-			<h2 class="h2">Movies Carousels</h2>
+			<h2 class="h2">Multi column carousels</h2>
 			<DocsPreview background="bg-surface-900">
 				<svelte:fragment slot="preview">
-					
+					<div class="grid grid-cols-[auto,1fr,auto] gap-1 xl:w-[715px] lg:w-[490px] w-72">
+						<!-- Prev Button -->
+						<button type="button" class="btn-icon xl:btn-icon-lg variant-filled self-center" on:click={() => onNextPrevMovie(false)}>
+							<i class="fa-solid fa-arrow-left" />
+						</button>
+						<!-- Movies -->
+						<div class="flex p-2 px-1 gap-3 snap-x snap-mandatory overflow-x-auto scroll-smooth" bind:this={moviesScrollContainer}>
+							{#each moviesData.movies as movie}
+								<a
+									class="card shadow-lg variant-filled p-2 gap-3 snap-start lg:snap-start lg:scroll-ml-1 shrink-0 flex flex-col w-[188px]
+									items-center cursor-pointer hover:variant-filled-secondary"
+									href={movie.url}
+									target="_blank"
+								>
+									<img class="w-44 h-60 rounded" src={movie.imageUrl} alt="" loading="lazy" />
+									<p class="text-center">{movie.name}</p>
+								</a>
+							{/each}
+						</div>
+						<!-- Next Button -->
+						<button type="button" class="btn-icon xl:btn-icon-lg variant-filled self-center" on:click={() => onNextPrevMovie(true)}>
+							<i class="fa-solid fa-arrow-right" />
+						</button>
+					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="ts"
 						code={`
+let container: HTMLDivElement;
+
+function onNextPrevMovie(nextMovie: boolean) {
+	let scrollX = 0;
+	if (nextMovie) {
+		// scroll to start
+		if (container.scrollLeft === container.scrollWidth - container.clientWidth) scrollX = 0;
+		// scroll to next
+		else scrollX = container.scrollLeft + container.clientWidth;
+	} else {
+		// scroll to end
+		if (container.scrollLeft === 0) scrollX = container.clientWidth * container.childElementCount;
+		// scroll to previous
+		else scrollX = container.scrollLeft - container.clientWidth;
+	}
+	container.scroll(scrollX, 0);
+}
 					`}
 					/>
 					<CodeBlock
 						language="html"
 						code={`
+<div class="grid grid-cols-[auto,1fr,auto] gap-1 xl:w-[715px] lg:w-[490px] w-72">
+	<!-- Prev Button -->
+	<button type="button" class="btn-icon xl:btn-icon-lg variant-filled self-center" 
+		on:click={() => onNextPrevMovie(false)}>
+		(icon)
+	</button>
+	<!-- Movies -->
+	<div class="flex p-2 px-1 gap-3 snap-x snap-mandatory overflow-x-auto scroll-smooth" 
+		bind:this={container}>
+		{#each movies as movie}
+			<a class="card shadow-lg variant-filled p-2 gap-3 snap-start lg:snap-start lg:scroll-ml-1 
+				shrink-0 flex flex-col w-[188px] items-center 
+				cursor-pointer hover:variant-filled-secondary" href={movie.url}	target="_blank">
+				<img class="w-44 h-60 rounded" src={movie.imageUrl} alt="" />
+				<p class="text-center">{movie.name}</p>
+			</a>
+		{/each}
+	</div>
+	<!-- Next Button -->
+	<button type="button" class="btn-icon xl:btn-icon-lg variant-filled self-center" 
+		on:click={() => onNextPrevMovie(true)}>
+		(icon)
+	</button>
+</div>
 					`}
 					/>
 				</svelte:fragment>
