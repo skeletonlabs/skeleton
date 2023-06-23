@@ -46,6 +46,8 @@
 	export let height: CssClasses = '';
 	/** Provide a class to override the z-index */
 	export let zIndex: CssClasses = 'z-40';
+	/** Drawer - Enable/Disable opacity transition */
+	export let opacityTransition = true;
 
 	// Props (regions)
 	/** Provide arbitrary classes to the backdrop region. */
@@ -91,7 +93,7 @@
 		position,
 		bgBackdrop, blur, padding,
 		bgDrawer, border, rounded, shadow,
-		width, height,
+		width, height, opacityTransition,
 		labelledby, describedby,
 		regionBackdrop, regionDrawer
 	};
@@ -111,6 +113,7 @@
 		shadow = settings.shadow || propDefaults.shadow;
 		width = settings.width || propDefaults.width;
 		height = settings.height || propDefaults.height;
+		opacityTransition = settings.opacityTransition || propDefaults.opacityTransition;
 		// Regions
 		regionBackdrop = settings.regionBackdrop || propDefaults.regionBackdrop;
 		regionDrawer = settings.regionDrawer || propDefaults.regionDrawer;
@@ -178,10 +181,15 @@
 		on:touchstart
 		on:touchend
 		on:keypress
-		transition:dynamicTransition|local={{
+		in:dynamicTransition|local={{
 			transition: fade,
 			params: { duration: 150 },
-			enabled: transitions
+			enabled: transitions && opacityTransition
+		}}
+		out:dynamicTransition|local={{
+			transition: fade,
+			params: { duration: 150 },
+			enabled: transitions && opacityTransition
 		}}
 		use:focusTrap={true}
 	>
@@ -197,12 +205,12 @@
 			aria-describedby={describedby}
 			in:dynamicTransition|local={{
 				transition: fly,
-				params: { x: anim.x, y: anim.y, duration: 150 },
+				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
 				enabled: transitions
 			}}
 			out:dynamicTransition|local={{
 				transition: fly,
-				params: { x: anim.x, y: anim.y, duration: 150 },
+				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
 				enabled: transitions
 			}}
 		>
