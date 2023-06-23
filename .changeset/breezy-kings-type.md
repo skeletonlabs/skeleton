@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Enhanced types for the `clipboard` action.
+bugfix: Enhanced types for the `clipboard` action
