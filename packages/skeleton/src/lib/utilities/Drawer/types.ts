@@ -41,7 +41,7 @@ export interface DrawerSettings {
 	/** Drawer - Provide classes to override the height.*/
 	height?: string;
 	/** Drawer - Enable/Disable opacity transition */
-	opacityTransition: boolean;
+	opacityTransition?: boolean;
 
 	// --- Regions ---
 	/** Provide arbitrary classes to the backdrop region. */
