@@ -159,10 +159,10 @@
 							<i class="fa-solid fa-arrow-left" />
 						</button>
 						<!-- Full Images -->
-						<div bind:this={elemCarousel} class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
+						<div bind:this={elemCarousel} class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
 							{#each unsplashIds as unsplashId}
 								<img
-									class="snap-center w-full rounded-container-token"
+									class="snap-center w-[1024px] rounded-container-token"
 									src="https://source.unsplash.com/{unsplashId}/1024x768"
 									alt={unsplashId}
 									loading="lazy"
@@ -231,10 +231,10 @@ function carouselRight(): void {
 		<i class="fa-solid fa-arrow-left" />
 	</button>
 	<!-- Full Images -->
-	<div bind:this={elemCarousel} class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
+	<div bind:this={elemCarousel} class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
 		{#each unsplashIds as unsplashId}
 			<img
-				class="snap-center w-full rounded-container-token"
+				class="snap-center w-[1024px] rounded-container-token"
 				src="https://source.unsplash.com/{unsplashId}/1024x768"
 				alt={unsplashId}
 				loading="lazy"
