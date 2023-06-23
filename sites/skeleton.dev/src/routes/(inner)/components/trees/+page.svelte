@@ -25,8 +25,7 @@
 				sveld: sveldTreeItem,
 				overrideProps: []
 			}
-		],
-		keyboard: []
+		]
 	};
 </script>
 
@@ -35,84 +34,48 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="text-center">
 			<svelte:fragment slot="preview">
-				<Tree selectionMode="single">
+				<Tree>
 					<TreeItem>
-						<svelte:fragment slot="lead">
-							<i class="fa-regular fa-folder-closed" />
-						</svelte:fragment>
-						parent
+						<p>Item 1</p>
 						<svelte:fragment slot="children">
 							<TreeItem>
-								<svelte:fragment slot="lead">
-									<i class="fa-regular fa-folder-closed" />
-								</svelte:fragment>
-								parent
+								<p>Child 1</p>
+							</TreeItem>
+							<TreeItem>
+								<p>Child 2</p>
+							</TreeItem>
+							<TreeItem>
+								<p>Child 3</p>
+							</TreeItem>
+						</svelte:fragment>
+					</TreeItem>
+					<TreeItem>
+						<p>Item 2</p>
+						<svelte:fragment slot="children">
+							<TreeItem>
+								<p>Child 1</p>
 								<svelte:fragment slot="children">
 									<TreeItem>
-										<svelte:fragment slot="lead">
-											<i class="fa-regular fa-file" />
-										</svelte:fragment>
-										child
+										<p>Child of Child 1</p>
+									</TreeItem>
+									<TreeItem>
+										<p>Child of Child 2</p>
+									</TreeItem>
+									<TreeItem>
+										<p>Child of Child 3</p>
 									</TreeItem>
 								</svelte:fragment>
 							</TreeItem>
 							<TreeItem>
-								<svelte:fragment slot="lead">
-									<i class="fa-regular fa-folder-closed" />
-								</svelte:fragment>
-								parent
-								<svelte:fragment slot="children">
-									<TreeItem>
-										<svelte:fragment slot="lead">
-											<i class="fa-regular fa-file" />
-										</svelte:fragment>
-										child
-									</TreeItem>
-								</svelte:fragment>
+								<p>Child 2</p>
 							</TreeItem>
 							<TreeItem>
-								<svelte:fragment slot="lead">
-									<i class="fa-regular fa-file" />
-								</svelte:fragment>
-								child
-							</TreeItem>
-							<TreeItem>
-								<svelte:fragment slot="lead">
-									<i class="fa-regular fa-file" />
-								</svelte:fragment>
-								child
-							</TreeItem>
-							<TreeItem>
-								<svelte:fragment slot="lead">
-									<i class="fa-regular fa-file" />
-								</svelte:fragment>
-								child
-							</TreeItem>
-							<TreeItem>
-								<svelte:fragment slot="lead">
-									<i class="fa-regular fa-file" />
-								</svelte:fragment>
-								child
+								<p>Child 3</p>
 							</TreeItem>
 						</svelte:fragment>
 					</TreeItem>
 					<TreeItem>
-						<svelte:fragment slot="lead">
-							<i class="fa-regular fa-folder-closed" />
-						</svelte:fragment>
-						tree item
-					</TreeItem>
-					<TreeItem>
-						<svelte:fragment slot="lead">
-							<i class="fa-regular fa-folder-closed" />
-						</svelte:fragment>
-						tree item
-					</TreeItem>
-					<TreeItem>
-						<svelte:fragment slot="lead">
-							<i class="fa-regular fa-folder-closed" />
-						</svelte:fragment>
-						tree item
+						<p>Item 3</p>
 					</TreeItem>
 				</Tree>
 			</svelte:fragment>
