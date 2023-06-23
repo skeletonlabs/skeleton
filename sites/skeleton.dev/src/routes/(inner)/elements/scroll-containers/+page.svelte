@@ -3,298 +3,274 @@
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
-	import * as moviesData from './movies.json';
+
+	// Data
+	import { movies } from './movies';
+
 	// Components
-	import { CodeBlock, Avatar } from '@skeletonlabs/skeleton';
+	import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Scroll Containers',
-		description: "Create a scroll container that snaps to it's content using TailwindCss"
+		description: 'Create scrolling containers using the scroll snap features from Tailwind.'
 	};
 
-	// Local
-	let imageScrollContainer: HTMLDivElement;
-	let moviesScrollContainer: HTMLDivElement;
+	// Options
+	const snapOptions = ['snap-start', 'snap-end', 'snap-center', 'snap-align-none'];
+	let currentSnap = snapOptions[0];
 
-	function onThumbnailClick(index: number) {
-		imageScrollContainer.scroll(imageScrollContainer.clientWidth * index, 0);
-	}
-	function onNextPrevImage(nextImage: boolean) {
-		let scrollX = 0;
-		if (nextImage) {
-			// scroll to start
-			if (imageScrollContainer.scrollLeft === imageScrollContainer.scrollWidth - imageScrollContainer.clientWidth) scrollX = 0;
-			// scroll to next
-			else scrollX = imageScrollContainer.scrollLeft + imageScrollContainer.clientWidth;
-		} else {
-			// scroll to end
-			if (imageScrollContainer.scrollLeft === 0) scrollX = imageScrollContainer.clientWidth * imageScrollContainer.childElementCount;
-			// scroll to previous
-			else scrollX = imageScrollContainer.scrollLeft - imageScrollContainer.clientWidth;
-		}
-		imageScrollContainer.scroll(scrollX, 0);
+	// Carousel ---
+
+	let elemCarousel: HTMLDivElement;
+	const unsplashIds = ['vjUokUWbFOs', '1aJuPtQJX_I', 'Jp6O3FFRdEI', 'I3C_eojFVQY', 's0fXOuyTH1M', 'z_X0PxmBuIQ'];
+
+	function carouselLeft(): void {
+		const x =
+			elemCarousel.scrollLeft === 0
+				? elemCarousel.clientWidth * elemCarousel.childElementCount // loop
+				: elemCarousel.scrollLeft - elemCarousel.clientWidth; // step left
+		elemCarousel.scroll(x, 0);
 	}
 
-	function onNextPrevMovie(nextMovie: boolean) {
-		let scrollX = 0;
-		if (nextMovie) {
-			// scroll to start
-			if (moviesScrollContainer.scrollLeft === moviesScrollContainer.scrollWidth - moviesScrollContainer.clientWidth) scrollX = 0;
-			// scroll to next
-			else scrollX = moviesScrollContainer.scrollLeft + moviesScrollContainer.clientWidth;
-		} else {
-			// scroll to end
-			if (moviesScrollContainer.scrollLeft === 0) scrollX = moviesScrollContainer.clientWidth * moviesScrollContainer.childElementCount;
-			// scroll to previous
-			else scrollX = moviesScrollContainer.scrollLeft - moviesScrollContainer.clientWidth;
-		}
-		moviesScrollContainer.scroll(scrollX, 0);
+	function carouselRight(): void {
+		const x =
+			elemCarousel.scrollLeft === elemCarousel.scrollWidth - elemCarousel.clientWidth
+				? 0 // loop
+				: elemCarousel.scrollLeft + elemCarousel.clientWidth; // step right
+		elemCarousel.scroll(x, 0);
+	}
+
+	function carouselThumbnail(index: number) {
+		elemCarousel.scroll(elemCarousel.clientWidth * index, 0);
+	}
+
+	// Multi-Column ---
+
+	let elemMovies: HTMLDivElement;
+
+	function multiColumnLeft(): void {
+		let x = 0;
+		if (elemMovies.scrollLeft !== 0) x = elemMovies.scrollLeft - elemMovies.clientWidth;
+		elemMovies.scroll(x, 0);
+	}
+
+	function multiColumnRight(): void {
+		let x = 0;
+		if (elemMovies.scrollLeft !== elemMovies.scrollWidth - elemMovies.clientWidth) x = elemMovies.scrollLeft + elemMovies.clientWidth;
+		elemMovies.scroll(x, 0);
 	}
 </script>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<DocsPreview regionFooter="text-center">
+		<DocsPreview regionPreview="text-token" regionViewport="!p-0" regionFooter="text-center">
 			<svelte:fragment slot="preview">
-				<div class="gap-6 flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
-					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
-						(Content)
-					</div>
-					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
-						(Content)
-					</div>
-					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
-						(Content)
-					</div>
-					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
-						(Content)
-					</div>
-					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
-						(Content)
-					</div>
-					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
-						(Content)
-					</div>
-					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
-						(Content)
-					</div>
-					<div class="card variant-filled text-on-secondary-token snap-center shrink-0 w-40 md:w-80 flex justify-center items-center h-32">
-						(Content)
-					</div>
+				<div class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto px-4 py-10">
+					{#each Array.from({ length: 8 }) as _, i}
+						<div class="card {currentSnap} shrink-0 w-40 md:w-80 text-center py-20">{i + 1}</div>
+					{/each}
 				</div>
-			</svelte:fragment>
-			<svelte:fragment slot="footer">
-				<p>Scroll left or right to see snapping effect.</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock
 					language="html"
 					code={`
-<div class="flex gap-6 snap-x snap-mandatory overflow-x-auto scroll-smooth">
-	<div class="snap-center shrink-0">
-		(Content)
-	</div>
-	<!-- ... -->
+<div class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto px-4 py-10">
+	{#each Array.from({ length: 8 }) as _, i}
+		<div class="card ${currentSnap} shrink-0 w-40 md:w-80 text-center py-20">{i + 1}</div>
+	{/each}
 </div>
 `}
 				/>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="flex justify-between items-center gap-4">
+					<select bind:value={currentSnap} class="select w-auto">
+						{#each snapOptions as o}
+							<option value={o}>{o}</option>
+						{/each}
+					</select>
+					<p>Scroll left or right to demo snapping.</p>
+				</div>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<!-- Tailwind References -->
+		<section class="space-y-4">
+			<h2 class="h2">Tailwind References</h2>
+			<p>Use the following links to learn more about Tailwind's scroll behavior and snap features.</p>
+			<div class="table-container">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Feature</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-behavior" target="_blank">scroll-behavior</a></td>
+							<td>Controls the scroll behavior of an element.</td>
+						</tr>
+						<tr>
+							<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-margin" target="_blank">scroll-margin</a></td>
+							<td>Controls the scroll offset around items in a snap container.</td>
+						</tr>
+						<tr>
+							<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-padding" target="_blank">scroll-padding</a></td>
+							<td>Controls an element's scroll offset within a snap container.</td>
+						</tr>
+						<tr>
+							<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-snap-align" target="_blank">scroll-snap-align</a></td>
+							<td>Controls the scroll snap alignment of an element.</td>
+						</tr>
+						<tr>
+							<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-snap-stop" target="_blank">scroll-snap-stop</a></td>
+							<td>Controls whether you can skip past possible snap positions.</td>
+						</tr>
+						<tr>
+							<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-snap-type" target="_blank">scroll-snap-type</a></td>
+							<td>Controls how strictly snap points are enforced in a snap container.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
 		<!-- Carousel -->
 		<section class="space-y-4">
 			<h2 class="h2">Carousels</h2>
-			<p>Using the scroll container, we can create fully functional carousels</p>
-			<DocsPreview background="neutral">
+			<p>
+				Using Scroll Containers, we can create a fully functional carousel, complete with thumbnail selection. This introduces javascript
+				logic to control the carousel navigation on demand.
+			</p>
+			<DocsPreview regionPreview="grid grid-cols-1 gap-4" background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="card p-6 space-y-6 relative w-96 md:w-full">
-						<div class="flex gap-6 pb-2 snap-x snap-mandatory overflow-x-auto scroll-smooth" bind:this={imageScrollContainer}>
-							<!-- Images -->
-							<div class="snap-center shrink-0 w-full">
-								<img class="shrink-0 rounded-lg w-full shadow-xl" src="https://source.unsplash.com/vjUokUWbFOs/720x405" alt="" />
-							</div>
-							<div class="snap-center shrink-0 w-full">
-								<img class="shrink-0 rounded-lg w-full shadow-xl" src="https://source.unsplash.com/1aJuPtQJX_I/720x405" alt="" />
-							</div>
-							<div class="snap-center shrink-0 w-full">
-								<img class="shrink-0 rounded-lg w-full shadow-xl" src="https://source.unsplash.com/Jp6O3FFRdEI/720x405" alt="" />
-							</div>
-							<div class="snap-center shrink-0 w-full">
-								<img class="shrink-0 rounded-lg w-full shadow-xl" src="https://source.unsplash.com/I3C_eojFVQY/720x405" alt="" />
-							</div>
-							<div class="snap-center shrink-0 w-full">
-								<img class="shrink-0 rounded-lg w-full shadow-xl" src="https://source.unsplash.com/s0fXOuyTH1M/720x405" alt="" />
-							</div>
-							<div class="snap-center shrink-0 w-full">
-								<img class="shrink-0 rounded-lg w-full shadow-xl" src="https://source.unsplash.com/QDc-OQU9hFk/720x405" alt="" />
-							</div>
-							<div class="snap-center shrink-0 w-full">
-								<img class="shrink-0 rounded-lg w-full shadow-xl" src="https://source.unsplash.com/2BOFizfc438/720x405" alt="" />
-							</div>
-							<div class="snap-center shrink-0 w-full">
-								<img class="shrink-0 rounded-lg w-full shadow-xl" src="https://source.unsplash.com/q5EGoKHQEe8/720x405" alt="" />
-							</div>
-
-							<!-- Next, Prev buttons -->
-							<button
-								type="button"
-								class="btn-icon btn-icon-lg variant-filled absolute left-0 bottom-1/2"
-								on:click={() => onNextPrevImage(false)}
-							>
-								<i class="fa-solid fa-arrow-left" />
-							</button>
-							<button
-								type="button"
-								class="btn-icon btn-icon-lg variant-filled absolute right-0 bottom-1/2"
-								on:click={() => onNextPrevImage(true)}
-							>
-								<i class="fa-solid fa-arrow-right" />
-							</button>
+					<!-- Carousel -->
+					<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+						<!-- Button: Left -->
+						<button type="button" class="btn-icon variant-filled" on:click={carouselLeft}>
+							<i class="fa-solid fa-arrow-left" />
+						</button>
+						<!-- Full Images -->
+						<div bind:this={elemCarousel} class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
+							{#each unsplashIds as unsplashId}
+								<img
+									class="snap-center w-full rounded-container-token"
+									src="https://source.unsplash.com/{unsplashId}/1024x768"
+									alt={unsplashId}
+									loading="lazy"
+								/>
+							{/each}
 						</div>
-
-						<!-- Thumbnails -->
-						<div class="flex md:justify-center py-2 gap-2 snap-x snap-mandatory overflow-x-auto scroll-smooth">
-							<button
-								type="button"
-								class="btn p-0 snap-center rounded-none"
-								aria-label="scroll to image1"
-								on:click={() => onThumbnailClick(0)}
-							>
-								<Avatar src="https://source.unsplash.com/vjUokUWbFOs/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
+						<!-- Button: Right -->
+						<button type="button" class="btn-icon variant-filled" on:click={carouselRight}>
+							<i class="fa-solid fa-arrow-right" />
+						</button>
+					</div>
+					<!-- Thumbnails -->
+					<div class="card p-4 grid grid-cols-6 gap-4">
+						{#each unsplashIds as unsplashId, i}
+							<button type="button" on:click={() => carouselThumbnail(i)}>
+								<img
+									class="rounded-container-token"
+									src="https://source.unsplash.com/{unsplashId}/256x256"
+									alt={unsplashId}
+									loading="lazy"
+								/>
 							</button>
-							<button
-								type="button"
-								class="btn p-0 snap-center rounded-none"
-								aria-label="scroll to image2"
-								on:click={() => onThumbnailClick(1)}
-							>
-								<Avatar src="https://source.unsplash.com/1aJuPtQJX_I/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
-							</button>
-							<button
-								type="button"
-								class="btn p-0 snap-center rounded-none"
-								aria-label="scroll to image3"
-								on:click={() => onThumbnailClick(2)}
-							>
-								<Avatar src="https://source.unsplash.com/Jp6O3FFRdEI/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
-							</button>
-							<button
-								type="button"
-								class="btn p-0 snap-center rounded-none"
-								aria-label="scroll to image4"
-								on:click={() => onThumbnailClick(3)}
-							>
-								<Avatar src="https://source.unsplash.com/I3C_eojFVQY/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
-							</button>
-							<button
-								type="button"
-								class="btn p-0 snap-center rounded-none"
-								aria-label="scroll to image5"
-								on:click={() => onThumbnailClick(4)}
-							>
-								<Avatar src="https://source.unsplash.com/s0fXOuyTH1M/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
-							</button>
-							<button
-								type="button"
-								class="btn p-0 snap-center rounded-none"
-								aria-label="scroll to image6"
-								on:click={() => onThumbnailClick(5)}
-							>
-								<Avatar src="https://source.unsplash.com/QDc-OQU9hFk/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
-							</button>
-							<button
-								type="button"
-								class="btn p-0 snap-center rounded-none"
-								aria-label="scroll to image7"
-								on:click={() => onThumbnailClick(6)}
-							>
-								<Avatar src="https://source.unsplash.com/2BOFizfc438/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
-							</button>
-							<button
-								type="button"
-								class="btn p-0 snap-center rounded-none"
-								aria-label="scroll to image8"
-								on:click={() => onThumbnailClick(7)}
-							>
-								<Avatar src="https://source.unsplash.com/q5EGoKHQEe8/720x405" width="w-16" rounded="rounded-lg" loading="lazy" />
-							</button>
-						</div>
+						{/each}
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
+					<h2 class="h2">Carousel</h2>
 					<CodeBlock
 						language="ts"
 						code={`
-let container: HTMLDivElement;
-
-function onThumbnailClick(index: number) {
-	container.scroll(container.clientWidth * index, 0);
+let elemCarousel: HTMLDivElement;
+const unsplashIds = ['vjUokUWbFOs', '1aJuPtQJX_I', 'Jp6O3FFRdEI', 'I3C_eojFVQY', 's0fXOuyTH1M', 'z_X0PxmBuIQ'];
+					`}
+					/>
+					<CodeBlock
+						language="ts"
+						code={`
+function carouselLeft(): void {
+	const x =
+		elemCarousel.scrollLeft === 0
+			? elemCarousel.clientWidth * elemCarousel.childElementCount // loop
+			: elemCarousel.scrollLeft - elemCarousel.clientWidth; // step left
+	elemCarousel.scroll(x, 0);
 }
-function onNextPrevImage(nextImage: boolean) {
-	let scrollX = 0;
-	if(nextImage) {
-		// scroll to start
-		if(container.scrollLeft === container.scrollWidth - container.clientWidth) 
-			scrollX = 0;
-		// scroll to next
-		else scrollX = container.scrollLeft + container.clientWidth;
-	} else {
-		// scroll to end
-		if(container.scrollLeft === 0)
-			scrollX = container.clientWidth * container.childElementCount;
-		// scroll to previous
-		else scrollX = container.scrollLeft - container.clientWidth;
-	}
-	container.scroll(scrollX, 0);
+					`}
+					/>
+					<CodeBlock
+						language="ts"
+						code={`
+
+function carouselRight(): void {
+	const x =
+		elemCarousel.scrollLeft === elemCarousel.scrollWidth - elemCarousel.clientWidth
+			? 0 // loop
+			: elemCarousel.scrollLeft + elemCarousel.clientWidth; // step right
+	elemCarousel.scroll(x, 0);
 }
 					`}
 					/>
 					<CodeBlock
 						language="html"
 						code={`
-<div class="card p-6 space-y-6 relative w-96 md:w-full">
-	<div class="flex gap-6 pb-2 snap-x snap-mandatory overflow-x-auto scroll-smooth"
-		bind:this={container}>
-		<!-- Images -->
-		<div class="snap-center shrink-0 w-full">
-			<img class="shrink-0 rounded-lg w-full shadow-xl" src="" alt="" />
-		</div>
-		<!-- ... -->
-
-		<!-- Next, Prev buttons -->
-		<button
-			type="button"
-			class="btn-icon btn-icon-lg variant-filled absolute left-0 bottom-1/2"
-			on:click={() => onNextPrevImage(false)}
-		>
-			(icon)
-		</button>
-		<button
-			type="button"
-			class="btn-icon btn-icon-lg variant-filled absolute right-0 bottom-1/2"
-			on:click={() => onNextPrevImage(true)}
-		>
-			(icon)
-		</button>
+<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+	<!-- Button: Left -->
+	<button type="button" class="btn-icon variant-filled" on:click={carouselLeft}>
+		<i class="fa-solid fa-arrow-left" />
+	</button>
+	<!-- Full Images -->
+	<div bind:this={elemCarousel} class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
+		{#each unsplashIds as unsplashId}
+			<img
+				class="snap-center w-full rounded-container-token"
+				src="https://source.unsplash.com/{unsplashId}/1024x768"
+				alt={unsplashId}
+				loading="lazy"
+			/>
+		{/each}
 	</div>
-	
-	<!-- Thumbnails -->
-	<div class="flex md:justify-center pb-2 gap-2 snap-x snap-mandatory overflow-x-auto scroll-smooth">
-		<button type="button" class="btn p-0 snap-center" on:click={() => onThumbnailClick(0)}>
-			<img class="w-16 rounded-lg" src="" alt="" />
+	<!-- Button: Right -->
+	<button type="button" class="btn-icon variant-filled" on:click={carouselRight}>
+		<i class="fa-solid fa-arrow-right" />
+	</button>
+</div>
+`}
+					/>
+					<h2 class="h2">Carousel Thumbnails</h2>
+					<CodeBlock
+						language="ts"
+						code={`
+function carouselThumbnail(index: number) {
+	elemCarousel.scroll(elemCarousel.clientWidth * index, 0);
+}
+				`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<div class="card p-4 grid grid-cols-6 gap-4">
+	{#each unsplashIds as unsplashId, i}
+		<button type="button" on:click={() => carouselThumbnail(i)}>
+			<img
+				class="rounded-container-token"
+				src="https://source.unsplash.com/{unsplashId}/256x256"
+				alt={unsplashId}
+				loading="lazy"
+			/>
 		</button>
-		<button type="button" class="btn p-0 snap-center rounded-none" 
-			on:click={() => onThumbnailClick(1)}>
-			<img class="w-16 rounded-lg" src="" alt="" />
-		</button>
-		<!-- ... -->
-	</div>
+	{/each}
 </div>
 `}
 					/>
@@ -302,32 +278,32 @@ function onNextPrevImage(nextImage: boolean) {
 			</DocsPreview>
 		</section>
 
-		<!-- Multi Column Carousel -->
+		<!-- Multi-Column -->
 		<section class="space-y-4">
-			<h2 class="h2">Multi column carousels</h2>
-			<DocsPreview background="neutral">
+			<h2 class="h2">Multi-Column</h2>
+			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
-					<div class="grid grid-cols-[auto,1fr,auto] gap-1 xl:w-[715px] lg:w-[490px] w-72">
-						<!-- Prev Button -->
-						<button type="button" class="btn-icon xl:btn-icon-lg variant-filled self-center" on:click={() => onNextPrevMovie(false)}>
+					<div class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+						<!-- Button: Left -->
+						<button type="button" class="btn-icon variant-filled" on:click={multiColumnLeft}>
 							<i class="fa-solid fa-arrow-left" />
 						</button>
-						<!-- Movies -->
-						<div class="flex p-2 px-1 gap-3 snap-x snap-mandatory overflow-x-auto scroll-smooth" bind:this={moviesScrollContainer}>
-							{#each moviesData.movies as movie}
-								<a
-									class="card shadow-lg variant-filled p-2 gap-3 snap-start lg:snap-start lg:scroll-ml-1 shrink-0 flex flex-col w-[188px]
-									items-center cursor-pointer hover:variant-filled-secondary"
-									href={movie.url}
-									target="_blank"
-								>
-									<img class="w-44 h-60 rounded" src={movie.imageUrl} alt="" loading="lazy" />
-									<p class="text-center">{movie.name}</p>
+						<!-- Carousel -->
+						<div bind:this={elemMovies} class="snap-x snap-mandatory scroll-smooth flex gap-2 pb-2 overflow-x-auto">
+							{#each movies as movie}
+								<a href={movie.url} target="_blank" class="shrink-0 w-[28%] snap-start">
+									<img
+										class="rounded-container-token hover:brightness-125"
+										src={movie.imageUrl}
+										alt={movie.name}
+										title={movie.name}
+										loading="lazy"
+									/>
 								</a>
 							{/each}
 						</div>
-						<!-- Next Button -->
-						<button type="button" class="btn-icon xl:btn-icon-lg variant-filled self-center" on:click={() => onNextPrevMovie(true)}>
+						<!-- Button-Right -->
+						<button type="button" class="btn-icon variant-filled" on:click={multiColumnRight}>
 							<i class="fa-solid fa-arrow-right" />
 						</button>
 					</div>
@@ -336,54 +312,53 @@ function onNextPrevImage(nextImage: boolean) {
 					<CodeBlock
 						language="ts"
 						code={`
-let container: HTMLDivElement;
+let elemMovies: HTMLDivElement;
 
-function onNextPrevMovie(nextMovie: boolean) {
-	let scrollX = 0;
-	if (nextMovie) {
-		// scroll to start
-		if (container.scrollLeft === container.scrollWidth - container.clientWidth) scrollX = 0;
-		// scroll to next
-		else scrollX = container.scrollLeft + container.clientWidth;
-	} else {
-		// scroll to end
-		if (container.scrollLeft === 0) scrollX = container.clientWidth * container.childElementCount;
-		// scroll to previous
-		else scrollX = container.scrollLeft - container.clientWidth;
-	}
-	container.scroll(scrollX, 0);
+function multiColumnLeft(): void {
+	let x = 0;
+	if (elemMovies.scrollLeft !== 0) x = elemMovies.scrollLeft - elemMovies.clientWidth;
+	elemMovies.scroll(x, 0);
+}
+
+function multiColumnRight(): void {
+	let x = 0;
+	if (elemMovies.scrollLeft !== elemMovies.scrollWidth - elemMovies.clientWidth) x = elemMovies.scrollLeft + elemMovies.clientWidth;
+	elemMovies.scroll(x, 0);
 }
 					`}
 					/>
 					<CodeBlock
 						language="html"
 						code={`
-<div class="grid grid-cols-[auto,1fr,auto] gap-1 xl:w-[715px] lg:w-[490px] w-72">
-	<!-- Prev Button -->
-	<button type="button" class="btn-icon xl:btn-icon-lg variant-filled self-center" 
-		on:click={() => onNextPrevMovie(false)}>
-		(icon)
+<div class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+	<!-- Button: Left -->
+	<button type="button" class="btn-icon variant-filled" on:click={multiColumnLeft}>
+		<i class="fa-solid fa-arrow-left" />
 	</button>
-	<!-- Movies -->
-	<div class="flex p-2 px-1 gap-3 snap-x snap-mandatory overflow-x-auto scroll-smooth" 
-		bind:this={container}>
-		{#each movies as movie}
-			<a class="card shadow-lg variant-filled p-2 gap-3 snap-start lg:snap-start lg:scroll-ml-1 
-				shrink-0 flex flex-col w-[188px] items-center 
-				cursor-pointer hover:variant-filled-secondary" href={movie.url}	target="_blank">
-				<img class="w-44 h-60 rounded" src={movie.imageUrl} alt="" />
-				<p class="text-center">{movie.name}</p>
+	<!-- Carousel -->
+	<div bind:this={elemMovies} class="snap-x snap-mandatory scroll-smooth flex gap-2 pb-2 overflow-x-auto">
+		{#each moviesData.movies as movie}
+			<a href={movie.url} target="_blank" class="shrink-0 w-[28%] snap-start">
+				<img
+					class="rounded-container-token hover:brightness-125"
+					src={movie.imageUrl}
+					alt={movie.name}
+					title={movie.name}
+					loading="lazy"
+				/>
 			</a>
 		{/each}
 	</div>
-	<!-- Next Button -->
-	<button type="button" class="btn-icon xl:btn-icon-lg variant-filled self-center" 
-		on:click={() => onNextPrevMovie(true)}>
-		(icon)
+	<!-- Button-Right -->
+	<button type="button" class="btn-icon variant-filled" on:click={multiColumnRight}>
+		<i class="fa-solid fa-arrow-right" />
 	</button>
 </div>
 					`}
 					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<a class="btn btn-sm variant-soft" href="https://www.themoviedb.org/" target="_blank">Attribution: TMDB</a>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
