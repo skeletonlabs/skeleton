@@ -1,6 +1,9 @@
 // Action: Filter
 
-export function filter(node: HTMLElement, filterName: string) {
+type Filters = ['Apollo', 'BlueNight', 'Emerald', 'GreenFall', 'Noir', 'NoirLight', 'Rustic', 'Summer84', 'XPro'];
+type FilterName = `#${Filters[number]}` | (string & {});
+
+export function filter(node: HTMLElement, filterName: FilterName) {
 	// Return if no filterName provided
 	if (filterName === undefined) return;
 
@@ -10,7 +13,7 @@ export function filter(node: HTMLElement, filterName: string) {
 	applyFilter();
 
 	return {
-		update(newArgs: any) {
+		update(newArgs: FilterName) {
 			filterName = newArgs;
 			applyFilter();
 		}
