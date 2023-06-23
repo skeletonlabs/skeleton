@@ -51,7 +51,7 @@
 	let elemMovies: HTMLDivElement;
 
 	function multiColumnLeft(): void {
-		let x = 0;
+		let x = elemMovies.scrollWidth;
 		if (elemMovies.scrollLeft !== 0) x = elemMovies.scrollLeft - elemMovies.clientWidth;
 		elemMovies.scroll(x, 0);
 	}
