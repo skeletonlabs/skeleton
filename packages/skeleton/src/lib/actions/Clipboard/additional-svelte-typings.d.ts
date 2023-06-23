@@ -1,5 +1,5 @@
 declare namespace svelteHTML {
 	interface HTMLAttributes<T> {
-		'on:copyComplete'?: (event: any) => any;
+		'on:copyComplete'?: () => void;
 	}
 }
