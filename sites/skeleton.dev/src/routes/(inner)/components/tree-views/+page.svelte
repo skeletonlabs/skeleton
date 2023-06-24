@@ -3,26 +3,26 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import { Tree, TreeItem } from '@skeletonlabs/skeleton';
+	import { TreeView, TreeViewItem } from '@skeletonlabs/skeleton';
 	// Utilities
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 	// Sveld
-	import sveldTree from '@skeletonlabs/skeleton/components/Tree/Tree.svelte?raw&sveld';
-	import sveldTreeItem from '@skeletonlabs/skeleton/components/Tree/TreeItem.svelte?raw&sveld';
+	import sveldTreeView from '@skeletonlabs/skeleton/components/TreeView/TreeView.svelte?raw&sveld';
+	import sveldTreeViewItem from '@skeletonlabs/skeleton/components/TreeView/TreeViewItem.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
-		name: 'Trees',
+		name: 'Tree Views',
 		description: 'Display information in a hierarchical structure using collapsible nodes.',
-		imports: ['Tree', 'TreeItem'],
-		source: 'components/Tree',
+		imports: ['TreeView', 'TreeViewItem'],
+		source: 'components/TreeView',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/treeview/',
 		components: [
-			{ label: 'Tree', sveld: sveldTree },
+			{ label: 'TreeView', sveld: sveldTreeView },
 			{
-				label: 'TreeItem',
-				sveld: sveldTreeItem,
+				label: 'TreeViewItem',
+				sveld: sveldTreeViewItem,
 				overrideProps: []
 			}
 		]
@@ -34,64 +34,64 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="text-center">
 			<svelte:fragment slot="preview">
-				<Tree class="text-on-primary-token">
-					<TreeItem on:toggle={(e) => console.log(e.detail.open)}>
+				<TreeView class="text-on-primary-token">
+					<TreeViewItem on:toggle={(e) => console.log(e.detail.open)}>
 						<p>Item 1</p>
 						<svelte:fragment slot="children">
-							<TreeItem>
+							<TreeViewItem>
 								<p>Child 1</p>
 								<svelte:fragment slot="children">
-									<TreeItem>
+									<TreeViewItem>
 										<p>child of child 1</p>
-									</TreeItem>
-									<TreeItem>
+									</TreeViewItem>
+									<TreeViewItem>
 										<p>child of child 2</p>
-									</TreeItem>
+									</TreeViewItem>
 								</svelte:fragment>
-							</TreeItem>
-							<TreeItem>
+							</TreeViewItem>
+							<TreeViewItem>
 								<p>Child 2</p>
-							</TreeItem>
+							</TreeViewItem>
 						</svelte:fragment>
-					</TreeItem>
-					<TreeItem>
+					</TreeViewItem>
+					<TreeViewItem>
 						<p>Item 2</p>
 						<svelte:fragment slot="children">
-							<TreeItem>
+							<TreeViewItem>
 								<p>child</p>
-							</TreeItem>
+							</TreeViewItem>
 						</svelte:fragment>
-					</TreeItem>
-				</Tree>
+					</TreeViewItem>
+				</TreeView>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock
 					language="html"
 					code={`
-<Tree>
-	<TreeItem>
+<TreeView>
+	<TreeViewItem>
 		(item 1)
 		<svelte:fragment slot="children">
-			<TreeItem>
+			<TreeViewItem>
 				(child 1)
 				<svelte:fragment slot="children">
-					<TreeItem>
+					<TreeViewItem>
 						(child of child 1)
-					</TreeItem>
-					<TreeItem>
+					</TreeViewItem>
+					<TreeViewItem>
 						(child of child 2)
-					</TreeItem>
+					</TreeViewItem>
 				</svelte:fragment>
-			</TreeItem>
-			<TreeItem>
+			</TreeViewItem>
+			<TreeViewItem>
 				(child 2)
-			</TreeItem>
+			</TreeViewItem>
 		</svelte:fragment>
-	</TreeItem>
-	<TreeItem>
+	</TreeViewItem>
+	<TreeViewItem>
 		(item 2)
-	</TreeItem>
-</Tree>
+	</TreeViewItem>
+</TreeView>
 				`}
 				/>
 			</svelte:fragment>
@@ -103,41 +103,41 @@
 			<h2 class="h2">Icons</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Tree>
-						<TreeItem open>
+					<TreeView>
+						<TreeViewItem open>
 							<svelte:fragment slot="lead">
 								<i class="fa-solid fa-skull" />
 							</svelte:fragment>
 							<p>Item 1</p>
 							<svelte:fragment slot="children">
-								<TreeItem>
+								<TreeViewItem>
 									<svelte:fragment slot="lead">
 										<i class="fa-solid fa-skull-crossbones" />
 									</svelte:fragment>
 									<p>child 1</p>
-								</TreeItem>
-								<TreeItem>
+								</TreeViewItem>
+								<TreeViewItem>
 									<svelte:fragment slot="lead">
 										<i class="fa-solid fa-skull-crossbones" />
 									</svelte:fragment>
 									<p>child 2</p>
-								</TreeItem>
+								</TreeViewItem>
 							</svelte:fragment>
-						</TreeItem>
-					</Tree>
+						</TreeViewItem>
+					</TreeView>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
 						code={`
-<Tree>
-	<TreeItem>
+<TreeView>
+	<TreeViewItem>
 		<svelte:fragment slot="lead">
 			(icon)
 		</svelte:fragment>
 		(item 1)
-	</TreeItem>
-</Tree>
+	</TreeViewItem>
+</TreeView>
 					`}
 					/>
 				</svelte:fragment>

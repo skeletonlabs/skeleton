@@ -1,19 +1,18 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import Tree from '$lib/components/Tree/Tree.svelte';
+import TreeItem from '$lib/components/TreeView/TreeViewItem.svelte';
 
-describe('Tree.svelte', () => {
+describe('TreeItem.svelte', () => {
 	it('Renders with minimal props', async () => {
-		const { getByTestId } = render(Tree);
-		expect(getByTestId('tree')).toBeTruthy();
+		const { getByTestId } = render(TreeItem);
+		expect(getByTestId('tree-item')).toBeTruthy();
 	});
 
 	it('Renders with all props', async () => {
-		const { getByTestId } = render(Tree, {
+		const { getByTestId } = render(TreeItem, {
 			props: {
-				width: 'w-full',
-				spacing: 'space-y-1',
+				open: true,
 				padding: 'py-2',
 				noContentPadding: 'pl-5',
 				hover: 'hover:bg-primary-hover-token',
@@ -22,10 +21,9 @@ describe('Tree.svelte', () => {
 				caretClosed: 'rotate-90',
 				regionSummary: 'bg-red-600',
 				regionCaret: 'bg-red-600',
-				regionChildren: 'bg-red-600',
-				labelledby: 'tree label'
+				regionChildren: 'bg-red-600'
 			}
 		});
-		expect(getByTestId('tree')).toBeTruthy();
+		expect(getByTestId('tree-item')).toBeTruthy();
 	});
 });
