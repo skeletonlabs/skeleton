@@ -58,7 +58,8 @@
 
 	function multiColumnRight(): void {
 		let x = 0;
-		if (elemMovies.scrollLeft !== elemMovies.scrollWidth - elemMovies.clientWidth) x = elemMovies.scrollLeft + elemMovies.clientWidth;
+		// -1 is used because different browsers use different methods to round scrollWidth pixels.
+		if (elemMovies.scrollLeft < elemMovies.scrollWidth - elemMovies.clientWidth - 1) x = elemMovies.scrollLeft + elemMovies.clientWidth;
 		elemMovies.scroll(x, 0);
 	}
 </script>
@@ -322,7 +323,8 @@ function multiColumnLeft(): void {
 
 function multiColumnRight(): void {
 	let x = 0;
-	if (elemMovies.scrollLeft !== elemMovies.scrollWidth - elemMovies.clientWidth) x = elemMovies.scrollLeft + elemMovies.clientWidth;
+	// -1 is used because different browsers use different methods to round scrollWidth pixels.
+	if (elemMovies.scrollLeft < elemMovies.scrollWidth - elemMovies.clientWidth - 1) x = elemMovies.scrollLeft + elemMovies.clientWidth;
 	elemMovies.scroll(x, 0);
 }
 					`}
