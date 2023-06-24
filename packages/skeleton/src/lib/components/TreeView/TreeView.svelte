@@ -13,8 +13,8 @@
 	// Props (children)
 	/** Provide classes to set the tree item padding styles. */
 	export let padding: CssClasses = 'py-4 px-4';
-	/** Provide classes to set the tree item padding styles, when no content are present. */
-	export let noContentPadding: CssClasses = 'pl-5';
+	/** Provide classes to set the tree children indentation */
+	export let indent: CssClasses = 'ml-4';
 	/** Provide classes to set the tree item hover styles. */
 	export let hover: CssClasses = 'hover:variant-soft';
 	/** Provide classes to set the tree item rounded styles. */
@@ -40,7 +40,7 @@
 
 	// Context API
 	setContext('padding', padding);
-	setContext('noContentPadding', noContentPadding);
+	setContext('indent', indent);
 	setContext('hover', hover);
 	setContext('rounded', rounded);
 	setContext('caretOpen', caretOpen);

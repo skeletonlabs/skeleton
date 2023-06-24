@@ -34,35 +34,37 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="text-center">
 			<svelte:fragment slot="preview">
-				<TreeView class="text-on-primary-token">
-					<TreeViewItem on:toggle={(e) => console.log(e.detail.open)}>
-						<p>Item 1</p>
-						<svelte:fragment slot="children">
-							<TreeViewItem>
-								<p>Child 1</p>
-								<svelte:fragment slot="children">
-									<TreeViewItem>
-										<p>child of child 1</p>
-									</TreeViewItem>
-									<TreeViewItem>
-										<p>child of child 2</p>
-									</TreeViewItem>
-								</svelte:fragment>
-							</TreeViewItem>
-							<TreeViewItem>
-								<p>Child 2</p>
-							</TreeViewItem>
-						</svelte:fragment>
-					</TreeViewItem>
-					<TreeViewItem>
-						<p>Item 2</p>
-						<svelte:fragment slot="children">
-							<TreeViewItem>
-								<p>child</p>
-							</TreeViewItem>
-						</svelte:fragment>
-					</TreeViewItem>
-				</TreeView>
+				<div class="w-full max-w-[480px] card p-4 text-token">
+					<TreeView>
+						<TreeViewItem on:toggle={(e) => console.log(e.detail.open)}>
+							<p>Item 1</p>
+							<svelte:fragment slot="children">
+								<TreeViewItem>
+									<p>Child 1</p>
+									<svelte:fragment slot="children">
+										<TreeViewItem>
+											<p>child of child 1</p>
+										</TreeViewItem>
+										<TreeViewItem>
+											<p>child of child 2</p>
+										</TreeViewItem>
+									</svelte:fragment>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>Child 2</p>
+								</TreeViewItem>
+							</svelte:fragment>
+						</TreeViewItem>
+						<TreeViewItem>
+							<p>Item 2</p>
+							<svelte:fragment slot="children">
+								<TreeViewItem>
+									<p>child</p>
+								</TreeViewItem>
+							</svelte:fragment>
+						</TreeViewItem>
+					</TreeView>
+				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock

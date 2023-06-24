@@ -13,9 +13,9 @@ describe('TreeItem.svelte', () => {
 		const { getByTestId } = render(TreeItem, {
 			props: {
 				open: true,
-				padding: 'py-2',
-				noContentPadding: 'pl-5',
-				hover: 'hover:bg-primary-hover-token',
+				padding: 'py-4',
+				indent: 'ml-4',
+				hover: 'hover:variant-soft',
 				rounded: 'rounded-container-token',
 				caretOpen: 'rotate-180',
 				caretClosed: 'rotate-90',

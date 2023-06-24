@@ -11,8 +11,8 @@
 	// ---
 	/** Provide classes to set the tree item padding styles. */
 	export let padding: CssClasses = getContext('padding');
-	/** Provide classes to set the tree item padding styles, when no content are present. */
-	export let noContentPadding: CssClasses = getContext('noContentPadding');
+	/** Provide classes to set the tree children indentation */
+	export let indent: CssClasses = getContext('indent');
 	/** Provide classes to set the tree item hover styles. */
 	export let hover: CssClasses = getContext('hover');
 	/** Provide classes to set the tree item rounded styles. */
@@ -39,14 +39,15 @@
 	const cBase = '';
 	const cSummary = 'list-none flex items-center cursor-pointer space-x-2';
 	const cControlCaret = 'fill-current w-3 transition-transform duration-[200ms]';
-	const cChildren = 'pl-4';
+	const cChildren = '';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${$$slots.children ? '' : noContentPadding} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesSummary = `${cSummary} ${regionSummary} ${rounded} ${padding} ${hover}`;
 	$: classesCaretState = open ? caretOpen : caretClosed;
-	$: classesControlCaret = `${cControlCaret} ${regionCaret} ${classesCaretState}`;
-	$: classesChildren = `${cChildren} ${regionChildren}`;
+	$: classesCaretVisible = $$slots.children ? 'visible' : 'invisible';
+	$: classesControlCaret = `${cControlCaret} ${classesCaretVisible} ${regionCaret} ${classesCaretState}`;
+	$: classesChildren = `${cChildren} ${indent} ${regionChildren}`;
 </script>
 
 <details bind:open class="tree-item {classesBase}" data-testid="tree-item">
@@ -60,16 +61,14 @@
 		on:keyup
 	>
 		<!-- Caret -->
-		{#if $$slots.children}
-			<div class="tree-summary-caret {classesControlCaret}">
-				<!-- SVG Caret -->
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-					<path
-						d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-					/>
-				</svg>
-			</div>
-		{/if}
+		<div class="tree-summary-caret {classesControlCaret}">
+			<!-- SVG Caret -->
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+				<path
+					d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+				/>
+			</svg>
+		</div>
 		<!-- Lead -->
 		{#if $$slots.lead}
 			<div class="tree-item-lead">

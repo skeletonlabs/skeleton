@@ -14,9 +14,9 @@ describe('Tree.svelte', () => {
 			props: {
 				width: 'w-full',
 				spacing: 'space-y-1',
-				padding: 'py-2',
-				noContentPadding: 'pl-5',
-				hover: 'hover:bg-primary-hover-token',
+				padding: 'py-4',
+				indent: 'ml-4',
+				hover: 'hover:variant-soft',
 				rounded: 'rounded-container-token',
 				caretOpen: 'rotate-180',
 				caretClosed: 'rotate-90',
