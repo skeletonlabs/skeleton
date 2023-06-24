@@ -12,7 +12,6 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
-    "@floating-ui/dom": "^1.2.9",
     "@skeletonlabs/skeleton": "workspace:^",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/kit": "^1.5.0",
