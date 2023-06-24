@@ -12,7 +12,7 @@
 
 	// Props (children)
 	/** Provide classes to set the tree item padding styles. */
-	export let padding: CssClasses = 'py-2 px-2';
+	export let padding: CssClasses = 'py-4 px-4';
 	/** Provide classes to set the tree item padding styles, when no content are present. */
 	export let noContentPadding: CssClasses = 'pl-5';
 	/** Provide classes to set the tree item hover styles. */

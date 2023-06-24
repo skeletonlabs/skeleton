@@ -39,7 +39,7 @@
 	const cBase = '';
 	const cSummary = 'list-none flex items-center cursor-pointer space-x-2';
 	const cControlCaret = 'fill-current w-3 transition-transform duration-[200ms]';
-	const cChildren = 'pl-5';
+	const cChildren = 'pl-4';
 
 	// Reactive Classes
 	$: classesBase = `${cBase} ${$$slots.children ? '' : noContentPadding} ${$$props.class ?? ''}`;
