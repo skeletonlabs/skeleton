@@ -23,8 +23,8 @@ devDependencies:
     specifier: 9.3.0
     version: 9.3.0
   '@testing-library/svelte':
-    specifier: 4.0.0
-    version: 4.0.0(svelte@4.0.0)
+    specifier: 4.0.1
+    version: 4.0.1(svelte@4.0.0)
   '@typescript-eslint/eslint-plugin':
     specifier: 5.59.9
     version: 5.59.9(@typescript-eslint/parser@5.59.9)(eslint@8.42.0)(typescript@5.0.3)
@@ -571,8 +571,8 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/svelte@4.0.0(svelte@4.0.0):
-    resolution: {integrity: sha512-LRsrUm0FPn/PSdiyFGpix7i3VwgvF65Uw6eLboTM84SWGvRnBlE0VkawrhGl49Phh2nyZ7mS7M0gtVl3OM1eKQ==}
+  /@testing-library/svelte@4.0.1(svelte@4.0.0):
+    resolution: {integrity: sha512-rvqkMlkXPtbtMbYQsWTb666yBAJVrTJcek2TlDogBKhxwYKqbWgvtTftMNclPi5aLgy+QGndTyIf4gtdFKaiXA==}
     engines: {node: '>= 10'}
     peerDependencies:
       svelte: ^3 || ^4
