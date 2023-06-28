@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { crawlPage } from '../../index.js';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	// Types
 	import type { CssClasses } from '../../index.js';
@@ -26,6 +26,8 @@
 	export let scrollParent = '#page';
 	/** Query selector for the element to scan for headings. */
 	export let target = '#page';
+	/** Add flashing animation to selected elements */
+	export let flashing = true;
 
 	// Props (styles)
 	/** Set the component width style. */
@@ -54,33 +56,59 @@
 
 	// Functionality
 	export function refreshList() {
-		const targetElement = document.querySelector(target) as HTMLElement | null;
 		const includeQuery = includeList.map((item) => item.query).join(',');
 		if (targetElement === null || includeQuery.length === 0) return;
 
 		filteredElements = crawlPage(targetElement, includeQuery, excludeQuery);
+		pageScrollHandler();
 	}
-
 	function getIndentation(element: HTMLElement): string {
 		if (!element) return '';
-
 		for (const includedItem of includeList) {
 			const query = includedItem.query;
 			if (query.toLowerCase() === element.tagName?.toLowerCase() || query === element.id || element.classList?.contains(query))
 				return includedItem.indentClass;
 		}
-
 		return '';
+	}
+	function scrollToElement(element: HTMLElement) {
+		// TODO: change to auto if prefersReducedMotion is set.
+		element?.scrollIntoView({ behavior: 'smooth' });
+		if (flashing) {
+			element?.classList.add('animate-pulse');
+			setTimeout(() => {
+				element?.classList.remove('animate-pulse');
+			}, 2000);
+		}
+	}
+	function pageScrollHandler() {
+		let smallestTopValue = Infinity;
+		filteredElements.forEach((element) => {
+			const rect = element.getBoundingClientRect();
+			const isVisible = rect.top >= 0 && rect.bottom >= (scrollElement?.getBoundingClientRect().top ?? 0);
+			if (isVisible && rect.top < smallestTopValue) {
+				smallestTopValue = rect.top;
+				activeElement = element;
+			}
+		});
 	}
 
 	// Lifecycle
 	onMount(() => {
+		targetElement = document.querySelector(target) as HTMLElement | null;
+		scrollElement = document.querySelector(scrollParent) as HTMLElement | null;
+		scrollElement?.addEventListener('scroll', pageScrollHandler);
 		refreshList();
+	});
+	onDestroy(() => {
+		scrollElement?.removeEventListener('scroll', pageScrollHandler);
 	});
 
 	// Local
 	let filteredElements: HTMLElement[] = [];
 	let activeElement: HTMLElement;
+	let targetElement: HTMLElement | null;
+	let scrollElement: HTMLElement | null;
 
 	// Reactive
 	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;
@@ -96,7 +124,7 @@
 			{#each filteredElements as filteredElement}
 				<li
 					class="toc-list-item {classesListItem} {getIndentation(filteredElement)} {activeElement === filteredElement ? active : ''}"
-					on:click={() => console.log()}
+					on:click={() => scrollToElement(filteredElement)}
 					on:click
 					on:keypress
 				>

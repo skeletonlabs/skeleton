@@ -31,6 +31,10 @@
 	function toggle(key: keyof typeof state): void {
 		state[key] = !state[key];
 	}
+	function scrollHandler(event: CustomEvent<HTMLElement>) {
+		const targetElement = event.detail;
+		console.log(targetElement.scrollTop);
+	}
 </script>
 
 <DocsShell {settings}>
@@ -43,6 +47,7 @@
 				</svelte:fragment>
 				<svelte:fragment slot="preview">
 					<AppShell
+						on:scroll={scrollHandler}
 						class="card h-full p-1"
 						slotSidebarLeft="grid grid-cols-1"
 						slotSidebarRight="grid grid-cols-1"
