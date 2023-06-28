@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { getImageLink } from '$lib/images';
 	import { Avatar, ProgressRadial, RadioGroup, RadioItem, SlideToggle, LightSwitch } from '@skeletonlabs/skeleton';
 
 	// Local
@@ -10,7 +11,7 @@
 <div class="aspect-video relative">
 	<!-- Avatar -->
 	<div class="anim-float-avatar absolute z-[1] top-[32%] left-[40%]">
-		<Avatar src="https://source.unsplash.com/YOErFW8AfkI/128x128" width="w-32" shadow="shadow-xl" />
+		<Avatar src={getImageLink({ id: 'YOErFW8AfkI', w: 128, h: 128 })} width="w-32" shadow="shadow-xl" />
 	</div>
 	<!-- Progress Radial -->
 	<div class="anim-float-progress anim-delay-200 absolute z-[1] top-[0%] left-[10%]">

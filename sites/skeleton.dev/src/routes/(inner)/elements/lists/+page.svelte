@@ -4,6 +4,7 @@
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
+	import { getImageLink } from '$lib/images';
 	// Components
 	import { Avatar, CodeBlock } from '@skeletonlabs/skeleton';
 
@@ -28,7 +29,7 @@
 		{ avatar: 'YOErFW8AfkI', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'A' },
 		{ avatar: 'z_X0PxmBuIQ', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'B' },
 		{ avatar: '8vKVlNIbAc4', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'C' }
-	];
+	] as const;
 </script>
 
 <DocsShell {settings}>
@@ -41,7 +42,7 @@
 					<ul class="list">
 						{#each listData as v}
 							<li>
-								<Avatar src="https://source.unsplash.com/{v.avatar}/48x48" width="w-12" />
+								<Avatar src={getImageLink({ id: v.avatar, w: 48, h: 48 })} width="w-12" />
 								<span class="flex-auto">{v.name}</span>
 								<span>⋮</span>
 							</li>

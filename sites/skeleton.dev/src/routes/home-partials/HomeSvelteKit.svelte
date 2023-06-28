@@ -1,5 +1,6 @@
 <script lang="ts">
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
+	import { getImageLink } from '$lib/images';
 	// Utilities
 	import { modalStore, type ModalSettings } from '@skeletonlabs/skeleton';
 	// Components
@@ -11,7 +12,7 @@
 
 	// Local
 	let showcase = 'components';
-	const imgPlaceholder = `https://source.unsplash.com/YOErFW8AfkI/200x200`;
+	const imgPlaceholder = `${getImageLink({ id: 'YOErFW8AfkI', w: 200, h: 200 })}`;
 
 	function modalDemo(): void {
 		const modal: ModalSettings = {
