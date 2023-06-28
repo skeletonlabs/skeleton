@@ -21,13 +21,13 @@
 		{ query: 'h6', indentClass: 'ml-12' }
 	];
 	/** Query selector for elements to exclude from the list. */
-	export let excludeQuery: string = 'h3';
+	export let excludeQuery: string = '';
 	/** Query selector for the scrollable page element. */
 	export let scrollParent = '#page';
 	/** Query selector for the element to scan for headings. */
 	export let target = '#page';
-	/** Add flashing animation to selected elements */
-	export let flashing = true;
+	/** Change this prop to trigger update. */
+	export let triggerUpdate:unknown = undefined;
 
 	// Props (styles)
 	/** Set the component width style. */
@@ -55,13 +55,6 @@
 	const cListItem = 'px-4 py-2 cursor-pointer';
 
 	// Functionality
-	export function refreshList() {
-		const includeQuery = includeList.map((item) => item.query).join(',');
-		if (targetElement === null || includeQuery.length === 0) return;
-
-		filteredElements = crawlPage(targetElement, includeQuery, excludeQuery);
-		pageScrollHandler();
-	}
 	function getIndentation(element: HTMLElement): string {
 		if (!element) return '';
 		for (const includedItem of includeList) {
@@ -72,14 +65,13 @@
 		return '';
 	}
 	function scrollToElement(element: HTMLElement) {
-		// TODO: change to auto if prefersReducedMotion is set.
-		element?.scrollIntoView({ behavior: 'smooth' });
-		if (flashing) {
-			element?.classList.add('animate-pulse');
-			setTimeout(() => {
-				element?.classList.remove('animate-pulse');
-			}, 2000);
-		}
+		if(!scrollElement) return;
+		console.log(element);
+		scrollElement.scrollTo({
+			top: element.offsetTop - scrollElement.offsetTop,
+			// TODO: change to auto if prefersReducedMotion is set.
+			behavior: `smooth`
+		})
 	}
 	function pageScrollHandler() {
 		let smallestTopValue = Infinity;
@@ -92,6 +84,15 @@
 			}
 		});
 	}
+	function refreshList(): void {
+		const notSelectorQuery = `:not(${excludeQuery})`;
+		const includeQuery = includeList.map((item) => item.query + (excludeQuery ? notSelectorQuery : '')).join(',');
+		if (!targetElement || includeQuery.length === 0) return;
+		filteredElements = [...targetElement.querySelectorAll(includeQuery)] as HTMLElement[]
+		pageScrollHandler();
+	}
+
+	$: triggerUpdate, refreshList();
 
 	// Lifecycle
 	onMount(() => {

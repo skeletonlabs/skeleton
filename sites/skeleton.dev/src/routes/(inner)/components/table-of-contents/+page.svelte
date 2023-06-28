@@ -3,7 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Utilities
-	import { ListBox, ListBoxItem, CodeBlock } from '@skeletonlabs/skeleton';
+	import { TableOfContents, CodeBlock } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldTableOfContents from '@skeletonlabs/skeleton/components/TableOfContents/TableOfContents.svelte?raw&sveld';
 
@@ -26,16 +26,35 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<div class="card p-4 text-token rounded-container-token w-96">
-					<p class="font-bold pb-4 ml-4">On This Page</p>
-					<ListBox active="variant-filled-primary" hover="hover:bg-primary-hover-token" class="pointer-events-none">
-						<ListBoxItem group={value} name="toc" value={0}>Demo</ListBoxItem>
-						<ListBoxItem group={value} name="toc" value={1}>How It Works</ListBoxItem>
-						<ListBoxItem group={value} name="toc" value={2} class="ml-4">Key Props</ListBoxItem>
-						<ListBoxItem group={value} name="toc" value={3} class="ml-4">...</ListBoxItem>
-						<ListBoxItem group={value} name="toc" value={4}>Ignore a Heading</ListBoxItem>
-						<ListBoxItem group={value} name="toc" value={5}>...</ListBoxItem>
-					</ListBox>
+				<div class="card p-4 text-token rounded-container-token w-full grid grid-cols-2 gap-4">
+					<div id="mainDemo" class="toc-demo h-64 overflow-y-auto">
+						<h2 class="h2">H2</h2>
+						<div class="flex flex-col gap-4 my-4">
+							<div class="placeholder animate-pulse" />
+							<div class="placeholder animate-pulse" />
+						</div>
+						<h3 class="h3">H3</h3>
+						<div class="flex flex-col gap-4 my-4">
+							<div class="placeholder animate-pulse" />
+							<div class="placeholder animate-pulse" />
+						</div>
+						<h4 class="h4">H4</h4>
+						<div class="flex flex-col gap-4 my-4">
+							<div class="placeholder animate-pulse" />
+							<div class="placeholder animate-pulse" />
+						</div>
+						<h5 class="h5">H5</h5>
+						<div class="flex flex-col gap-4 my-4">
+							<div class="placeholder animate-pulse" />
+							<div class="placeholder animate-pulse" />
+						</div>
+						<h6 class="h6">H6</h6>
+						<div class="flex flex-col gap-4 my-4">
+							<div class="placeholder animate-pulse" />
+							<div class="placeholder animate-pulse" />
+						</div>
+					</div>
+					<TableOfContents target='#mainDemo' scrollParent='#mainDemo'/>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">

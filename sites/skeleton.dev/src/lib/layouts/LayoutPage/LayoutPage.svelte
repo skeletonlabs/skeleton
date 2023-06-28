@@ -43,7 +43,7 @@
 			{/if}
 			<!-- Table of Contents -->
 			{#key tocKey}
-				<TableOfContents target=".layout-docs-content" minimumHeadings={1} />
+				<TableOfContents target=".layout-docs-content" excludeQuery=".toc-demo>*" />
 			{/key}
 		</aside>
 	{/if}
