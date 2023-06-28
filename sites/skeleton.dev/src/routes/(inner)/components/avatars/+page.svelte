@@ -3,6 +3,7 @@
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
+	import { getImageLink } from '$lib/images';
 	// Components
 	import { Avatar, CodeBlock, filter } from '@skeletonlabs/skeleton';
 	// Filter SVGs
@@ -21,7 +22,7 @@
 	};
 
 	// Local
-	const imgPlaceholder = 'https://source.unsplash.com/YOErFW8AfkI/128x128';
+	const imgPlaceholder = getImageLink({ id: 'YOErFW8AfkI', w: 128, h: 128 });
 	const borderStyles = 'border-4 border-surface-300-600-token hover:!border-primary-500';
 
 	const roundedMapping = {

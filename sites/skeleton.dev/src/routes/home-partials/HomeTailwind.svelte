@@ -1,5 +1,6 @@
 <script lang="ts">
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
+	import { getImageLink } from '$lib/images';
 	// Components
 	import { ListBox, ListBoxItem } from '@skeletonlabs/skeleton';
 	// Utilities
@@ -17,7 +18,7 @@
 				{#if showcase === 'elements'}
 					<div class="card shadow-xl overflow-hidden max-w-[400px] text-token">
 						<header>
-							<img src="https://source.unsplash.com/vjUokUWbFOs/400x175" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
+							<img src={getImageLink({ id: 'vjUokUWbFOs', w: 400, h: 175 })} class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 						</header>
 						<div class="p-4 space-y-4">
 							<h6 class="h6">Announcements</h6>
