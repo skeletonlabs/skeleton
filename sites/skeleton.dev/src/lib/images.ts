@@ -5,11 +5,13 @@ type ImageLinkArgs = {
 	h: number;
 	/** Image Width */
 	w: number;
+	/** Adds the fit=max query param */
+	max?: boolean;
 };
 
-export function getImageLink({ id, h, w }: ImageLinkArgs): string {
+export function getImageLink({ id, h, w, max }: ImageLinkArgs): string {
 	const path = images[id].raw;
-	return `${path}&h=${h}&w=${w}`;
+	return `${path}&w=${w}&h=${h}&auto=format&fit=${max ? 'max' : 'crop'}`;
 }
 
 type ImageKey = keyof typeof images;
