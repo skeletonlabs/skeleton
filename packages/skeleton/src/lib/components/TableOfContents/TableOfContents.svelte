@@ -20,7 +20,7 @@
 		{ query: 'h6', indentClass: 'ml-12' }
 	];
 	/** Query selector for elements to exclude from the list. */
-	export let excludeQuery: string = '';
+	export let excludeQuery = '';
 	/** Query selector for the scrollable page element. */
 	export let scrollParent = '#page';
 	/** Query selector for the element to scan for headings. */
