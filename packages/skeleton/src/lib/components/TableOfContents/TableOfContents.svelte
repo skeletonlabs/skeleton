@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { crawlPage } from '../../index.js';
 	import { onDestroy, onMount } from 'svelte';
 
 	// Types
@@ -55,60 +54,74 @@
 	const cListItem = 'px-4 py-2 cursor-pointer';
 
 	// Functionality
-	function getIndentation(element: HTMLElement): string {
+	function getIndent(element: HTMLElement): string {
 		if (!element) return '';
 		for (const includedItem of includeList) {
 			const query = includedItem.query;
-			if (query.toLowerCase() === element.tagName?.toLowerCase() || query === element.id || element.classList?.contains(query))
+			// check if query matches the type of the element.
+			if (query.toLowerCase() === element.tagName?.toLowerCase())
+				return includedItem.indentClass;
+
+			// check if query matches the Id of the element.
+			if (query.startsWith('#') && query.substring(1) === element.id)
+				return includedItem.indentClass;
+
+			// check if query matches a class in the element.
+			if(query.startsWith('.') && element.classList?.contains(query.substring(1)))
 				return includedItem.indentClass;
 		}
 		return '';
 	}
 	function scrollToElement(element: HTMLElement) {
 		if(!scrollElement) return;
-		console.log(element);
-		scrollElement.scrollTo({
-			top: element.offsetTop - scrollElement.offsetTop,
+		scrollElement.scrollBy({
+			// distance between parent and target child.
+			top: element.getBoundingClientRect().top - scrollElement.getBoundingClientRect().top,
 			// TODO: change to auto if prefersReducedMotion is set.
 			behavior: `smooth`
-		})
+		});
 	}
-	function pageScrollHandler() {
+	// iterate through all elements, gets the top visible element and sets it as active.
+	function activateTopVisibleElement() {
 		let smallestTopValue = Infinity;
+
 		filteredElements.forEach((element) => {
-			const rect = element.getBoundingClientRect();
-			const isVisible = rect.top >= 0 && rect.bottom >= (scrollElement?.getBoundingClientRect().top ?? 0);
-			if (isVisible && rect.top < smallestTopValue) {
-				smallestTopValue = rect.top;
+			const elementPos = element.getBoundingClientRect();
+			const parentTop = scrollElement?.getBoundingClientRect().top ?? 0;
+			const isVisible = elementPos.top >= 0 && elementPos.bottom >= parentTop;
+			if (isVisible && elementPos.top < smallestTopValue) {
+				smallestTopValue = elementPos.top;
 				activeElement = element;
 			}
 		});
 	}
 	function refreshList(): void {
-		const notSelectorQuery = `:not(${excludeQuery})`;
-		const includeQuery = includeList.map((item) => item.query + (excludeQuery ? notSelectorQuery : '')).join(',');
-		if (!targetElement || includeQuery.length === 0) return;
-		filteredElements = [...targetElement.querySelectorAll(includeQuery)] as HTMLElement[]
-		pageScrollHandler();
+		// include :not() only when exclude query is not empty.
+		const notSelectorQuery = excludeQuery ? `:not(${excludeQuery})` : '';
+		// join all include queries. ex: h2,h3,h4,h5,h6
+		const includeQuery = includeList.map((item) => item.query).join(',');
+		if (!parentElement || includeQuery.length === 0) return;
+		filteredElements = [...parentElement.querySelectorAll(`${notSelectorQuery}:is(${includeQuery})`)] as HTMLElement[];
+		activateTopVisibleElement();
 	}
-
+	// whenever the variable change, the function will be called.
 	$: triggerUpdate, refreshList();
 
 	// Lifecycle
 	onMount(() => {
-		targetElement = document.querySelector(target) as HTMLElement | null;
+		parentElement = document.querySelector(target) as HTMLElement | null;
 		scrollElement = document.querySelector(scrollParent) as HTMLElement | null;
-		scrollElement?.addEventListener('scroll', pageScrollHandler);
+		scrollElement?.addEventListener('scroll', activateTopVisibleElement);
 		refreshList();
 	});
 	onDestroy(() => {
-		scrollElement?.removeEventListener('scroll', pageScrollHandler);
+		scrollElement?.removeEventListener('scroll', activateTopVisibleElement);
 	});
 
 	// Local
 	let filteredElements: HTMLElement[] = [];
 	let activeElement: HTMLElement;
-	let targetElement: HTMLElement | null;
+	let parentElement: HTMLElement | null;
 	let scrollElement: HTMLElement | null;
 
 	// Reactive
@@ -124,7 +137,7 @@
 			<div class="toc-title {classesTitle}">{title}</div>
 			{#each filteredElements as filteredElement}
 				<li
-					class="toc-list-item {classesListItem} {getIndentation(filteredElement)} {activeElement === filteredElement ? active : ''}"
+					class="toc-list-item {classesListItem} {getIndent(filteredElement)} {activeElement === filteredElement ? active : ''}"
 					on:click={() => scrollToElement(filteredElement)}
 					on:click
 					on:keypress

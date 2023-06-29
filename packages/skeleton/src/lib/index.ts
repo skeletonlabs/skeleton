@@ -10,6 +10,7 @@ export type { ToastSettings } from './utilities/Toast/types.js';
 export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
+export type { QueryIndent } from './components/TableOfContents/types.js';
 
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;
@@ -63,7 +64,6 @@ export { filter } from './actions/Filters/filter.js';
 export { focusTrap } from './actions/FocusTrap/focusTrap.js';
 // Utility Actions
 export { popup } from './utilities/Popup/popup.js';
-export { crawlPage } from './utilities/PageCrawler/PageCrawler.js';
 // Svelte Components ---
 
 export { default as Accordion } from './components/Accordion/Accordion.svelte';
