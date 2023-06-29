@@ -21,7 +21,7 @@
 	const includeDemoList: QueryIndent[] = [
 		{ query: 'span', indentClass: 'ml-3' },
 		{ query: '.classExample', indentClass: 'ml-6' },
-		{ query: '#idExample', indentClass: 'ml-9'}
+		{ query: '#idExample', indentClass: 'ml-9' }
 	];
 </script>
 
@@ -58,16 +58,19 @@
 							<div class="placeholder animate-pulse" />
 						</div>
 					</div>
-					<TableOfContents target='#mainDemo' scrollParent='#mainDemo'/>
+					<TableOfContents target="#mainDemo" scrollParent="#mainDemo" />
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`
+				<CodeBlock
+					language="html"
+					code={`
 <TableOfContents target='#demo' scrollParent='#demo'/>
 <div id="demo">
 	<!-- ... -->
 </div>
-				`} />
+				`}
+				/>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -81,40 +84,45 @@
 			<p>The prop <code class="code">IncludeList</code> defines all elements to include and their indentation.</p>
 			<p>Note: provide only a <em>single</em> <code class="code">selector query</code> per object.</p>
 			<DocsPreview regionPreview="w-full grid grid-cols-2 gap-4" background="neutral">
-				<svelte:fragment slot="preview" >
-						<div id="includeDemo" class="toc-demo h-64 overflow-y-auto">
-							<span>type Example</span>
-							<div class="flex flex-col gap-4 my-4">
-								<div class="placeholder animate-pulse" />
-								<div class="placeholder animate-pulse" />
-							</div>
-							<p class="classExample">classExample</p>
-							<div class="flex flex-col gap-4 my-4">
-								<div class="placeholder animate-pulse" />
-								<div class="placeholder animate-pulse" />
-							</div>
-							<div id="idExample">ID Example</div>
-							<div class="flex flex-col gap-4 my-4">
-								<div class="placeholder animate-pulse" />
-								<div class="placeholder animate-pulse" />
-							</div>
-							<div>Not included Example</div>
-							<div class="flex flex-col gap-4 my-4">
-								<div class="placeholder animate-pulse" />
-								<div class="placeholder animate-pulse" />
-							</div>
+				<svelte:fragment slot="preview">
+					<div id="includeDemo" class="toc-demo h-64 overflow-y-auto">
+						<span>type Example</span>
+						<div class="flex flex-col gap-4 my-4">
+							<div class="placeholder animate-pulse" />
+							<div class="placeholder animate-pulse" />
 						</div>
-						<TableOfContents target='#includeDemo' scrollParent='#includeDemo' includeList={includeDemoList}/>
+						<p class="classExample">classExample</p>
+						<div class="flex flex-col gap-4 my-4">
+							<div class="placeholder animate-pulse" />
+							<div class="placeholder animate-pulse" />
+						</div>
+						<div id="idExample">ID Example</div>
+						<div class="flex flex-col gap-4 my-4">
+							<div class="placeholder animate-pulse" />
+							<div class="placeholder animate-pulse" />
+						</div>
+						<div>Not included Example</div>
+						<div class="flex flex-col gap-4 my-4">
+							<div class="placeholder animate-pulse" />
+							<div class="placeholder animate-pulse" />
+						</div>
+					</div>
+					<TableOfContents target="#includeDemo" scrollParent="#includeDemo" includeList={includeDemoList} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`
+					<CodeBlock
+						language="ts"
+						code={`
 const includedElements: QueryIndent[] = [
 	{ query: 'span', indentClass: 'ml-3' },
 	{ query: '.classExample', indentClass: 'ml-6' },
 	{ query: '#idExample', indentClass: 'ml-9'}
 ];
-					`}/>
-					<CodeBlock language="html" code={`
+					`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
 <div id="page">
 	<span>type Example</span>
 	<p class="classExample">classExample</p>
@@ -122,10 +130,11 @@ const includedElements: QueryIndent[] = [
 	<p>Not included Example</p>
 </div>
 <TableOfContents includeList={includedElements}/>
-					`}/>
+					`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
-		<hr/>
+		<hr />
 	</svelte:fragment>
 </DocsShell>

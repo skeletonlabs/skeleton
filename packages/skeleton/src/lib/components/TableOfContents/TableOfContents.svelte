@@ -26,7 +26,7 @@
 	/** Query selector for the element to scan for headings. */
 	export let target = '#page';
 	/** Change this prop to trigger update. */
-	export let triggerUpdate:unknown = undefined;
+	export let triggerUpdate: unknown = undefined;
 
 	// Props (styles)
 	/** Set the component width style. */
@@ -59,21 +59,18 @@
 		for (const includedItem of includeList) {
 			const query = includedItem.query;
 			// check if query matches the type of the element.
-			if (query.toLowerCase() === element.tagName?.toLowerCase())
-				return includedItem.indentClass;
+			if (query.toLowerCase() === element.tagName?.toLowerCase()) return includedItem.indentClass;
 
 			// check if query matches the Id of the element.
-			if (query.startsWith('#') && query.substring(1) === element.id)
-				return includedItem.indentClass;
+			if (query.startsWith('#') && query.substring(1) === element.id) return includedItem.indentClass;
 
 			// check if query matches a class in the element.
-			if(query.startsWith('.') && element.classList?.contains(query.substring(1)))
-				return includedItem.indentClass;
+			if (query.startsWith('.') && element.classList?.contains(query.substring(1))) return includedItem.indentClass;
 		}
 		return '';
 	}
 	function scrollToElement(element: HTMLElement) {
-		if(!scrollElement) return;
+		if (!scrollElement) return;
 		scrollElement.scrollBy({
 			// distance between parent and target child.
 			top: element.getBoundingClientRect().top - scrollElement.getBoundingClientRect().top,
