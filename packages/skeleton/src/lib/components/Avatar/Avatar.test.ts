@@ -30,8 +30,8 @@ describe('Avatar.svelte', () => {
 
 	it('Image shown when src prop set', async () => {
 		const { getByTestId } = render(Avatar, { props: { src: imgTextSrc } });
-		const elemImage: any = getByTestId('avatar').querySelector('.avatar-image');
-		expect(elemImage.src).to.eq(imgTextSrc);
+		const elemImage = getByTestId('avatar').querySelector<HTMLImageElement>('.avatar-image');
+		expect(elemImage?.src).to.eq(imgTextSrc);
 	});
 
 	it('Initials shown when no image source provided', async () => {

@@ -2,6 +2,7 @@
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
+	import { getImageLink } from '$lib/images';
 	// Components
 	import { RadioGroup, RadioItem, CodeBlock } from '@skeletonlabs/skeleton';
 	// Actions
@@ -20,8 +21,8 @@
 	};
 
 	// Local
-	let activeImg = 'YOErFW8AfkI';
-	$: imgPlaceholder = `https://source.unsplash.com/${activeImg}/200x200`;
+	let activeImg: '8vKVlNIbAc4' | 'YOErFW8AfkI' | 'z_X0PxmBuIQ' = 'YOErFW8AfkI';
+	$: imgPlaceholder = getImageLink({ id: activeImg, h: 200, w: 200 });
 	let method = 0;
 </script>
 

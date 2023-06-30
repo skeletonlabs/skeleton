@@ -2,6 +2,7 @@
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
+	import { getImageLink } from '$lib/images';
 	// Utilities
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 	// Sveld
@@ -38,31 +39,31 @@
 			<svelte:fragment slot="preview">
 				<section class="grid grid-cols-2 md:grid-cols-3 gap-4">
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI/300x300" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'YOErFW8AfkI', w: 300, h: 300 })} alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/s0fXOuyTH1M/300x300" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 's0fXOuyTH1M', w: 300, h: 300 })} alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/CKZQ6g_FB2Q/300x300" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'CKZQ6g_FB2Q', w: 300, h: 300 })} alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/VYuJLsF4XQQ/300x300" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'VYuJLsF4XQQ', w: 300, h: 300 })} alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/01D-_OtB8wQ/300x300" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: '01D-_OtB8wQ', w: 300, h: 300 })} alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/eP2zYflRoNY/300x300" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'eP2zYflRoNY', w: 300, h: 300 })} alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/z_X0PxmBuIQ/300x300" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'z_X0PxmBuIQ', w: 300, h: 300 })} alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/1SEH8qv-Obo/300x300" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: '1SEH8qv-Obo', w: 300, h: 300 })} alt="" />
 					</div>
 					<div>
-						<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/c64AB11j-po/300x300" alt="" />
+						<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'c64AB11j-po', w: 300, h: 300 })} alt="" />
 					</div>
 				</section>
 			</svelte:fragment>
@@ -72,13 +73,13 @@
 					code={`
 <section class="grid grid-cols-2 md:grid-cols-3 gap-4">
 	<div>
-		<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI/128x128" alt="">
+		<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'YOErFW8AfkI', w: 128, h: 128 })}" alt="">
 	</div>
 	<div>
-		<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/CKZQ6g_FB2Q/128x128" alt="">
+		<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'CKZQ6g_FB2Q', w: 128, h: 128 })}" alt="">
 	</div>
 	<div>
-		<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI/128x128" alt="">
+		<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'YOErFW8AfkI', w: 128, h: 128 })}" alt="">
 	</div>
 <section>
 `}
@@ -97,46 +98,46 @@
 					<section class="grid grid-cols-2 md:grid-cols-4 gap-2">
 						<div class="grid gap-4">
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'YOErFW8AfkI', w: 300, h: 300, max: true })} alt="" />
 							</div>
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/s0fXOuyTH1M" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 's0fXOuyTH1M', w: 300, h: 300, max: true })} alt="" />
 							</div>
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/tQ4fEcKfB1g" alt="" />
-							</div>
-						</div>
-						<div class="grid gap-4">
-							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/SMvOSlgThHA" alt="" />
-							</div>
-							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/azE50UpJDP0" alt="" />
-							</div>
-							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/CKZQ6g_FB2Q" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'tQ4fEcKfB1g', w: 300, h: 300, max: true })} alt="" />
 							</div>
 						</div>
 						<div class="grid gap-4">
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/UhE2lwGn-DQ" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'SMvOSlgThHA', w: 300, h: 300, max: true })} alt="" />
 							</div>
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/VYuJLsF4XQQ" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'azE50UpJDP0', w: 300, h: 300, max: true })} alt="" />
 							</div>
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/twVS-YjQn9Y" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'CKZQ6g_FB2Q', w: 300, h: 300, max: true })} alt="" />
 							</div>
 						</div>
 						<div class="grid gap-4">
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/EkW1r_eDjRs" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'UhE2lwGn-DQ', w: 300, h: 300, max: true })} alt="" />
 							</div>
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/QDc-OQU9hFk" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'VYuJLsF4XQQ', w: 300, h: 300, max: true })} alt="" />
 							</div>
 							<div>
-								<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/QK_VtGYQV_U" alt="" />
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'twVS-YjQn9Y', w: 300, h: 300, max: true })} alt="" />
+							</div>
+						</div>
+						<div class="grid gap-4">
+							<div>
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'EkW1r_eDjRs', w: 300, h: 300, max: true })} alt="" />
+							</div>
+							<div>
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'QDc-OQU9hFk', w: 300, h: 300, max: true })} alt="" />
+							</div>
+							<div>
+								<img class="h-auto max-w-full rounded-lg" src={getImageLink({ id: 'QK_VtGYQV_U', w: 300, h: 300, max: true })} alt="" />
 							</div>
 						</div>
 					</section>
@@ -148,46 +149,46 @@
 <section class="grid grid-cols-2 md:grid-cols-4 gap-2">
 	<div class="grid gap-4">
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/YOErFW8AfkI" alt="" />
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'YOErFW8AfkI', w: 300, h: 300, max: true })}" />
 		</div>
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/s0fXOuyTH1M" alt="" />
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 's0fXOuyTH1M', w: 300, h: 300, max: true })}" alt="" />
 		</div>
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/tQ4fEcKfB1g" alt="" />
-		</div>
-	</div>
-	<div class="grid gap-4">
-		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/SMvOSlgThHA" alt="" />
-		</div>
-		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/azE50UpJDP0" alt="" />
-		</div>
-		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/CKZQ6g_FB2Q" alt="" />
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'tQ4fEcKfB1g', w: 300, h: 300, max: true })}" alt="" />
 		</div>
 	</div>
 	<div class="grid gap-4">
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/UhE2lwGn-DQ" alt="" />
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'SMvOSlgThHA', w: 300, h: 300, max: true })}" alt="" />
 		</div>
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/VYuJLsF4XQQ" alt="" />
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'azE50UpJDP0', w: 300, h: 300, max: true })}" alt="" />
 		</div>
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/twVS-YjQn9Y" alt="" />
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'CKZQ6g_FB2Q', w: 300, h: 300, max: true })}" alt="" />
 		</div>
 	</div>
 	<div class="grid gap-4">
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/EkW1r_eDjRs" alt="" />
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'UhE2lwGn-DQ', w: 300, h: 300, max: true })}" alt="" />
 		</div>
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/QDc-OQU9hFk" alt="" />
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'VYuJLsF4XQQ', w: 300, h: 300, max: true })}" alt="" />
 		</div>
 		<div>
-			<img class="h-auto max-w-full rounded-lg" src="https://source.unsplash.com/QK_VtGYQV_U" alt="" />
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'twVS-YjQn9Y', w: 300, h: 300, max: true })}" alt="" />
+		</div>
+	</div>
+	<div class="grid gap-4">
+		<div>
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'EkW1r_eDjRs', w: 300, h: 300, max: true })}" alt="" />
+		</div>
+		<div>
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'QDc-OQU9hFk', w: 300, h: 300, max: true })}" alt="" />
+		</div>
+		<div>
+			<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'QK_VtGYQV_U', w: 300, h: 300, max: true })}" alt="" />
 		</div>
 	</div>
 

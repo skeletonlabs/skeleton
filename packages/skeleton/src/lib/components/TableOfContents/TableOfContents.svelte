@@ -143,6 +143,9 @@
 		<nav class="toc-list {classesList}">
 			<div class="toc-title {classesTitle}">{title}</div>
 			{#each filteredElements as filteredElement}
+				<!-- TODO: Remove for V2 -->
+				<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+				<!-- prettier-ignore -->
 				<li
 					class="toc-list-item {classesListItem} {getIndent(filteredElement)} {activeElement === filteredElement ? active : ''}"
 					on:click={() => scrollToElement(filteredElement)}
