@@ -12,7 +12,7 @@
 	/** Set the title text. */
 	export let title = 'On This Page';
 	/**
-	 * List of included queries and their indentation classes. when empty headings are included.
+	 * List of included queries and their indentation classes.
 	 * @type {QueryIndent[]}
 	 */
 	export let includeList: QueryIndent[] = [
@@ -26,9 +26,12 @@
 	export let excludeQuery = '';
 	/** Query selector for the scrollable page element. */
 	export let scrollParent = '#page';
-	/** Query selector for the element to scan for headings. */
+	/** Query selector for the element to scan. */
 	export let target = '#page';
-	/** Change this prop to trigger update. */
+	/** 
+	 * Change this prop to trigger update.
+	 * @type {unknown}
+	 */
 	export let triggerUpdate: unknown = undefined;
 
 	// Props (styles)
@@ -136,7 +139,7 @@
 </script>
 
 {#if filteredElements.length > 0}
-	<aside class="toc {classesBase}">
+	<aside class="toc {classesBase}" data-testid="toc">
 		<nav class="toc-list {classesList}">
 			<div class="toc-title {classesTitle}">{title}</div>
 			{#each filteredElements as filteredElement}

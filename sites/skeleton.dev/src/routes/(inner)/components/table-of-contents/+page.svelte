@@ -11,14 +11,14 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Table of Contents',
-		description: 'Allows you to quickly navigate the hierarchy of headings for the current page.',
-		imports: ['TableOfContents'],
+		description: 'Allows you to quickly navigate the hierarchy of a page.',
+		imports: ['TableOfContents', 'type QueryIndent'],
 		source: 'components/TableOfContents',
 		components: [{ sveld: sveldTableOfContents }]
 	};
 
 	// Local
-	const includeDemoList: QueryIndent[] = [
+	const demoList: QueryIndent[] = [
 		{ query: 'span', indentClass: 'ml-3' },
 		{ query: '.classExample', indentClass: 'ml-6' },
 		{ query: '#idExample', indentClass: 'ml-9' }
@@ -81,10 +81,10 @@
 		<section class="space-y-4">
 			<h2 class="h2">Target & Scroll parent</h2>
 			<h3 class="h3">Target</h3>
-			<p>The <code class="code">target</code> prop defines the element, which its children will be scanned and listed in the Toc.</p>
+			<p>The <code class="code">target</code> prop defines the element, which its children will be scanned and listed in the Table of contents.</p>
 			<h3 class="h3">Scroll parent</h3>
 			<p>
-				The <code class="code">scrollParent</code> prop defines the element, which will scroll when a Toc link is clicked. This could also
+				The <code class="code">scrollParent</code> prop defines the element, which will scroll when a Table of contents link is clicked. This could also
 				be the same element as the <code class="code">target</code>.
 			</p>
 		</section>
@@ -95,7 +95,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Include Elements</h2>
 			<p>
-				The prop <code class="code">IncludeList</code> defines all elements to include and their indentation. By default it defines the
+				The prop <code class="code">IncludeList</code> defines all elements to include and their indentation. By default, it defines the
 				headings <code class="code">h2-h6</code>.
 			</p>
 			<p>Note: provide only a <em>single</em> <code class="code">selector query</code> per object.</p>
@@ -123,7 +123,7 @@
 							<div class="placeholder animate-pulse" />
 						</div>
 					</div>
-					<TableOfContents target="#includeDemo" scrollParent="#includeDemo" includeList={includeDemoList} />
+					<TableOfContents target="#includeDemo" scrollParent="#includeDemo" includeList={demoList} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
@@ -172,7 +172,7 @@ const includedElements: QueryIndent[] = [
 							<div class="placeholder animate-pulse" />
 							<div class="placeholder animate-pulse" />
 						</div>
-						<h3 class="h3">H3 (excluded)</h3>
+						<h3 class="h3 ignore-me">H3 (excluded)</h3>
 						<div class="flex flex-col gap-4 m-4">
 							<div class="placeholder animate-pulse" />
 							<div class="placeholder animate-pulse" />
@@ -193,7 +193,7 @@ const includedElements: QueryIndent[] = [
 							<div class="placeholder animate-pulse" />
 						</div>
 					</div>
-					<TableOfContents target="#excludeDemo" scrollParent="#excludeDemo" excludeQuery="h3,h5" />
+					<TableOfContents target="#excludeDemo" scrollParent="#excludeDemo" excludeQuery=".ignore-me,h5" />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
@@ -206,7 +206,7 @@ const includedElements: QueryIndent[] = [
 	<h5 class="h5">H5 (excluded)</h5>
 	<h6 class="h6">H6</h6>
 </div>
-<TableOfContents excludeQuery="h3,h5"/>
+<TableOfContents excludeQuery="ignore-me,h5"/>
 					`}
 					/>
 				</svelte:fragment>
@@ -218,10 +218,10 @@ const includedElements: QueryIndent[] = [
 		<section class="space-y-4">
 			<h2 class="h2">Update Links</h2>
 			<p>
-				To trigger an update of the TOC links, change the value of the prop <code class="code">triggerUpdate</code>. This prop accepts any
+				To trigger an update of the Table of contents links, change the value of the prop <code class="code">triggerUpdate</code>. This prop accepts any
 				value and will only react to changes.
 			</p>
-			<p>For example, to update the TOC links on navigation, use:</p>
+			<p>For example, to update the Table of contents links on navigation, use:</p>
 			<CodeBlock
 				language="html"
 				code={`
