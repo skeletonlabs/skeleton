@@ -81,11 +81,13 @@
 		<section class="space-y-4">
 			<h2 class="h2">Target & Scroll parent</h2>
 			<h3 class="h3">Target</h3>
-			<p>The <code class="code">target</code> prop defines the element, which its children will be scanned and listed in the Table of contents.</p>
+			<p>
+				The <code class="code">target</code> prop defines the element, which its children will be scanned and listed in the Table of contents.
+			</p>
 			<h3 class="h3">Scroll parent</h3>
 			<p>
-				The <code class="code">scrollParent</code> prop defines the element, which will scroll when a Table of contents link is clicked. This could also
-				be the same element as the <code class="code">target</code>.
+				The <code class="code">scrollParent</code> prop defines the element, which will scroll when a Table of contents link is clicked.
+				This could also be the same element as the <code class="code">target</code>.
 			</p>
 		</section>
 
@@ -218,8 +220,8 @@ const includedElements: QueryIndent[] = [
 		<section class="space-y-4">
 			<h2 class="h2">Update Links</h2>
 			<p>
-				To trigger an update of the Table of contents links, change the value of the prop <code class="code">triggerUpdate</code>. This prop accepts any
-				value and will only react to changes.
+				To trigger an update of the Table of contents links, change the value of the prop <code class="code">triggerUpdate</code>. This prop
+				accepts any value and will only react to changes.
 			</p>
 			<p>For example, to update the Table of contents links on navigation, use:</p>
 			<CodeBlock

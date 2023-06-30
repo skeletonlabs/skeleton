@@ -28,7 +28,7 @@
 	export let scrollParent = '#page';
 	/** Query selector for the element to scan. */
 	export let target = '#page';
-	/** 
+	/**
 	 * Change this prop to trigger update.
 	 * @type {unknown}
 	 */
