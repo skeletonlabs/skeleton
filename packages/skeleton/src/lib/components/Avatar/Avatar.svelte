@@ -15,9 +15,9 @@
 	/** Provide the fallback image element source. */
 	export let fallback = '';
 	/**
-	 * Image only. Provide an Svelte action reference, such as `filter`.
+	 * Image only. Provide a Svelte action reference, such as `filter`.
 	 */
-	export let action: Action = () => {};
+	export let action: Action<HTMLElement, string> = () => {};
 	/** Image only. Provide Svelte action params, such as Apollo. */
 	export let actionParams = '';
 
@@ -49,6 +49,8 @@
 	}
 </script>
 
+<!-- TODO: Remove for V2 -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <figure class="avatar {classesBase}" data-testid="avatar" on:click on:keydown on:keyup on:keypress>
 	{#if src}
 		<img

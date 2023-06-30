@@ -6,7 +6,7 @@
 	 * @slot {{}} full - Provide a full rating icon.
 	 */
 
-	import { createEventDispatcher } from 'svelte/internal';
+	import { createEventDispatcher } from 'svelte';
 
 	// Types
 	import type { CssClasses } from '../../index.js';
@@ -34,7 +34,10 @@
 	export let regionIcon: CssClasses = '';
 
 	// Event Dispatcher
-	const dispatch = createEventDispatcher();
+	type RatingsEvent = {
+		icon: { index: number };
+	};
+	const dispatch = createEventDispatcher<RatingsEvent>();
 
 	function iconClick(index: number): void {
 		/** @event {{ index: number  }} icon - Fires when an icons is clicked */

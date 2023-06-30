@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Props
 	/**
@@ -40,7 +40,7 @@
 	let elemInput: HTMLElement;
 
 	// A11y Key Down Handler
-	function onKeyDown(event: KeyboardEvent): void {
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, HTMLDivElement>): void {
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
 			elemInput.click();
@@ -54,7 +54,7 @@
 	$: classesBase = `${cBase} ${padding} ${rounded} ${classesActive} ${classesDisabled} ${$$props.class ?? ''}`;
 
 	// RestProps
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}

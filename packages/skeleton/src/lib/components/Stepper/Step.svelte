@@ -12,7 +12,7 @@
 
 	// Types
 	import type { CssClasses } from '../../index.js';
-	import type { StepperDispatchParent, StepperState } from './types.js';
+	import type { StepperEventDispatcher, StepperState } from './types.js';
 
 	// Props
 	export let locked = false;
@@ -27,7 +27,7 @@
 
 	// Context
 	export let state: Writable<StepperState> = getContext('state');
-	export let dispatchParent: StepperDispatchParent = getContext('dispatchParent');
+	export let dispatchParent = getContext<StepperEventDispatcher>('dispatchParent');
 	export let stepTerm: string = getContext('stepTerm');
 	export let gap: CssClasses = getContext('gap');
 	export let justify: CssClasses = getContext('justify');
