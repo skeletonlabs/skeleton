@@ -169,6 +169,8 @@
 
 {#if $drawerStore.open === true}
 	<!-- Backdrop -->
+	<!-- TODO: Remove for V2 -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		bind:this={elemBackdrop}
 		class="drawer-backdrop {classesBackdrop}"

@@ -194,6 +194,8 @@
 {#if $modalStore.length > 0}
 	{#key $modalStore}
 		<!-- Backdrop -->
+		<!-- TODO: Remove for V2 -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
 			class="modal-backdrop {classesBackdrop}"
 			data-testid="modal-backdrop"
