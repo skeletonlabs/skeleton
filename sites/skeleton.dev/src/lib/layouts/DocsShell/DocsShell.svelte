@@ -57,7 +57,7 @@
 	$: classesPanels = `${cPanels}`;
 </script>
 
-<LayoutPage class="doc-shell {classesBase}" tocKey={tabPanel}>
+<LayoutPage class="doc-shell {classesBase}" tocTriggerUpdate={tabPanel}>
 	<!-- Header -->
 	<Header {pageData} />
 

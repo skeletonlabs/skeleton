@@ -207,7 +207,7 @@
 		<!-- Theme Settings -->
 		<section class="card p-4 grid grid-cols-2 gap-4 col-span-2 lg:col-span-1">
 			<!-- Fonts -->
-			<h3 class="h3 col-span-2" data-toc-ignore>Fonts</h3>
+			<h3 class="h3 col-span-2 toc-ignore">Fonts</h3>
 			<label class="label">
 				<span>Base</span>
 				<select class="select" bind:value={$storeThemGenForm.fontBase} disabled={!$storePreview}>
@@ -221,7 +221,7 @@
 				</select>
 			</label>
 			<!-- Text Color -->
-			<h3 class="h3 col-span-2" data-toc-ignore>Text Color</h3>
+			<h3 class="h3 col-span-2 toc-ignore">Text Color</h3>
 			<label class="label">
 				<span>Light Mode</span>
 				<select class="select" bind:value={$storeThemGenForm.textColorLight} disabled={!$storePreview}>
@@ -235,7 +235,7 @@
 				</select>
 			</label>
 			<!-- Border Radius -->
-			<h3 class="h3 col-span-2" data-toc-ignore>Border Radius</h3>
+			<h3 class="h3 col-span-2 toc-ignore">Border Radius</h3>
 			<label class="label">
 				<span>Base</span>
 				<select class="select" bind:value={$storeThemGenForm.roundedBase} disabled={!$storePreview}>
@@ -250,7 +250,7 @@
 				</select>
 			</label>
 			<!-- Border Size -->
-			<h3 class="h3 col-span-2" data-toc-ignore>Border Size</h3>
+			<h3 class="h3 col-span-2 toc-ignore">Border Size</h3>
 			<label class="label">
 				<span>Base</span>
 				<select class="select" bind:value={$storeThemGenForm.borderBase} disabled={!$storePreview}>
@@ -261,7 +261,7 @@
 
 		<!-- Previews -->
 		<section class="card variant-glass p-4 space-y-8 col-span-2 lg:col-span-1">
-			<h3 class="h3" data-toc-ignore>Preview</h3>
+			<h3 class="h3 toc-ignore">Preview</h3>
 			<!-- Buttons -->
 			<div class="grid grid-cols-3 gap-4">
 				<button class="btn variant-filled-primary">primary</button>

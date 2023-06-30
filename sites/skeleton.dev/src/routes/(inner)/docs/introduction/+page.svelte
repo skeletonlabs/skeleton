@@ -131,9 +131,9 @@
 	<section class="space-y-4">
 		<h2 class="h2">Comparisons</h2>
 		<p>A quick comparison to alternative open source UI libraries.</p>
-		<Accordion autocollapse class="card variant-glass p-2">
+		<Accordion autocollapse class="card variant-glass p-2 toc-ignore">
 			<AccordionItem open>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Tailwind UI</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Tailwind UI</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<a class="anchor" href="https://tailwindui.com/" target="_blank" rel="noreferrer">https://tailwindui.com/</a>
 					<p>
@@ -146,7 +146,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Flowbite</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Flowbite</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<a class="anchor" href="https://flowbite.com/" target="_blank" rel="noreferrer">https://flowbite.com/</a>
 					<p>
@@ -164,7 +164,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Daisy UI</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Daisy UI</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<a class="anchor" href="https://daisyui.com/" target="_blank" rel="noreferrer">https://daisyui.com/</a>
 					<p>
@@ -190,7 +190,7 @@
 		<p>A list of common questions and issues from our community.</p>
 		<Accordion autocollapse class="card variant-glass p-2">
 			<AccordionItem open>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Is Typescript required?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Is Typescript required?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						No, Skeleton does not require Typescript, though we highly recommend it. Please be aware all documentation examples are written
@@ -204,7 +204,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>What package managers are supported?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">What package managers are supported?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						We support <a class="anchor" href="https://docs.npmjs.com/about-npm" target="_blank" rel="noreferrer"
@@ -214,7 +214,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Can I use a monorepo?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Can I use a monorepo?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						Yes, but please be mindful of the <code class="code">node_modules</code> path in your project configuration. We <u>do not</u> tailor
@@ -223,7 +223,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Do you have a project roadmap?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Do you have a project roadmap?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						Yes, <a class="anchor" href="https://github.com/skeletonlabs/skeleton/discussions/503" target="_blank" rel="noreferrer"
@@ -233,7 +233,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>How can I contribute?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">How can I contribute?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						See the <a class="anchor" href="/docs/contributing">contribution guide</a>. This covers all requirements for getting started.
@@ -241,7 +241,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Where can I learn Svelte and SvelteKit?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Where can I learn Svelte and SvelteKit?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						We recommend the official <a class="anchor" href="https://svelte.dev/docs" target="_blank" rel="noreferrer">documentation</a>
@@ -253,7 +253,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Where can I learn Tailwind?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Where can I learn Tailwind?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						We recommend the official <a class="anchor" href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer"
@@ -265,7 +265,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Why is VS Code reordering my imports?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Why is VS Code reordering my imports?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						VS Code has an optional opt-in feature for automatically reordering imports. This is disabled by default. If this is enabled it

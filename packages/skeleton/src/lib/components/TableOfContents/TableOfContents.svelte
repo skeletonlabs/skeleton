@@ -1,9 +1,12 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
+	import { onDestroy, onMount, createEventDispatcher } from 'svelte';
 
 	// Types
 	import type { CssClasses } from '../../index.js';
 	import type { QueryIndent } from './types.js';
+
+	// Events
+	const dispatch = createEventDispatcher();
 
 	// Props
 	/** Set the title text. */
@@ -100,6 +103,10 @@
 		if (!parentElement || includeQuery.length === 0) return;
 		filteredElements = [...parentElement.querySelectorAll(`${notSelectorQuery}:is(${includeQuery})`)] as HTMLElement[];
 		activateTopVisibleElement();
+		/** @event {{ filteredElements: HTMLElement[] }} updateList - Fires when the links list is updated. */
+		dispatch('updateList', {
+			filteredElements: filteredElements
+		});
 	}
 	// whenever the variable change, the function will be called.
 	$: triggerUpdate, refreshList();

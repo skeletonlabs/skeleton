@@ -148,7 +148,7 @@ body {
 			<svelte:fragment slot="panel">
 				{#if tabsFontImport === 0}
 					<!-- 1 -->
-					<h3 class="h3" data-toc-ignore>1. Download a Font</h3>
+					<h3 class="h3 toc-ignore">1. Download a Font</h3>
 					<p>Select a font on Google Fonts, then tap the "Download Family" button near the top-right of the page.</p>
 					<div class="card variant-glass p-4 flex justify-center items-center gap-2">
 						{#each activeFonts as f}
@@ -159,7 +159,7 @@ body {
 						{/each}
 					</div>
 					<!-- 2 -->
-					<h3 class="h3" data-toc-ignore>2. Add the Font Files</h3>
+					<h3 class="h3 toc-ignore">2. Add the Font Files</h3>
 					<p>
 						Unzip the downloaded file, then copy all font files to the <code class="code">/static/fonts</code> directory in the root of your
 						SvelteKit project. When available we recommend using variable fonts as they require only a single file. Otherwise copy all
@@ -169,7 +169,7 @@ body {
 						<CodeBlock language="plaintext" code={`/static/fonts/${f.file}`} />
 					{/each}
 					<!-- 3 -->
-					<h3 class="h3" data-toc-ignore>3. Apply @font-face</h3>
+					<h3 class="h3 toc-ignore">3. Apply @font-face</h3>
 					<!-- prettier-ignore -->
 					<p>At the top of your global stylesheet <code class="code">/src/app.postcss</code> append the <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="noreferrer">@font-face</a> settings per each font. The <code class="code">font-family</code> assigns the font's reference name, while <code class="code">src</code> points to the font file(s) in your <code class="code">/static/fonts</code> directory.</p>
 					{#each activeFonts as f}
@@ -186,7 +186,7 @@ body {
 						/>
 					{/each}
 					<!-- 4 -->
-					<h3 class="h3" data-toc-ignore>4. Set the Font Family.</h3>
+					<h3 class="h3 toc-ignore">4. Set the Font Family.</h3>
 					<p>
 						Use CSS Property overrides or open your custom theme to set the font family for <em>base</em> and
 						<em>heading</em> properties. Be sure to use the same reference name set above or your font <u>will not work</u>.
@@ -204,7 +204,7 @@ body {
 						/>
 					{/each}
 					<!-- 5 -->
-					<h3 class="h3" data-toc-ignore>5. Preloading Fonts.</h3>
+					<h3 class="h3 toc-ignore">5. Preloading Fonts.</h3>
 					<p>
 						To avoid your page flickering during hydration, consider preloading fonts within the <code class="code">head</code>
 						tag in <code class="code">app.html</code>
@@ -228,7 +228,7 @@ body {
 						<p><strong>Warning:</strong> please be aware that using remote imports are typically not GDPR compliant.</p>
 					</aside>
 					<!-- 1 -->
-					<h3 class="h3" data-toc-ignore>1. Select a Font</h3>
+					<h3 class="h3 toc-ignore">1. Select a Font</h3>
 					<p>
 						Choose a font on Google Fonts, select each font weight you wish to use, then tap the "View Select Families" icon button at the
 						very top-right of the page. Under the "Use on the Web" section, choose <code class="code">@import</code>, then copy the import
@@ -242,7 +242,7 @@ body {
 							</a>
 						{/each}
 					</div>
-					<h3 class="h3" data-toc-ignore>2. Set the Import</h3>
+					<h3 class="h3 toc-ignore">2. Set the Import</h3>
 					<p>
 						Open your global stylesheet in <code class="code">/src/app.postcss</code> and paste the import statement at the top of the file.
 					</p>
@@ -250,7 +250,7 @@ body {
 						<CodeBlock language="css" code={`@import url('${f.import}');`} />
 					{/each}
 					<!-- 3 -->
-					<h3 class="h3" data-toc-ignore>3. Set the Font Family.</h3>
+					<h3 class="h3 toc-ignore">3. Set the Font Family.</h3>
 					<p>
 						Google Fonts also provides a recommend font family set. Copy the provided set, then apply this to either the <em>base</em> or
 						<em>heading</em> properties as desired.

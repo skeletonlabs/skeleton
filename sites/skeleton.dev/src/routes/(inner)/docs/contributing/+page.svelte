@@ -20,7 +20,7 @@
 		<!-- Article: How to Contribute -->
 		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributing/requirements">
 			<div class="space-y-4">
-				<h3 class="h3" data-toc-ignore>Concepts and Best Practices</h3>
+				<h3 class="h3 toc-ignore">Concepts and Best Practices</h3>
 				<p>New to open source? Read this detailed guide covering the basics.</p>
 			</div>
 			<a
@@ -35,7 +35,7 @@
 		<!-- GitHub: First Contributions -->
 		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributing/requirements">
 			<div class="space-y-4">
-				<h3 class="h3" data-toc-ignore>Step-by-Step Guide</h3>
+				<h3 class="h3 toc-ignore">Step-by-Step Guide</h3>
 				<p>Follow a guided tour showing you how to make your first contribution.</p>
 			</div>
 			<a
@@ -56,7 +56,7 @@
 		<!-- Basics -->
 		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
-				<h3 class="h3" data-toc-ignore>Requirements</h3>
+				<h3 class="h3 toc-ignore">Requirements</h3>
 				<p>Read Skeleton's requirements and review our recommended workflow process.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/requirements"> Read Guide </a>
@@ -64,7 +64,7 @@
 		<!-- Style Guide -->
 		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
-				<h3 class="h3" data-toc-ignore>Style Guide</h3>
+				<h3 class="h3 toc-ignore">Style Guide</h3>
 				<p>View our recommended conventions for writing code, naming properties, and more.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/style-guide"> Read Guide </a>
@@ -72,7 +72,7 @@
 		<!-- Sveld for Components -->
 		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
-				<h3 class="h3" data-toc-ignore>Sveld for Components</h3>
+				<h3 class="h3 toc-ignore">Sveld for Components</h3>
 				<p>Learn how we use Sveld to automatically document components.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/sveld"> Read Guide </a>
@@ -80,7 +80,7 @@
 		<!-- Documentation Pages -->
 		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
-				<h3 class="h3" data-toc-ignore>Documentation Pages</h3>
+				<h3 class="h3 toc-ignore">Documentation Pages</h3>
 				<p>Learn how to properly document features within Skeleton.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/documentation"> Read Guide </a>
@@ -92,7 +92,7 @@
 		<h2 class="h2">Videos</h2>
 		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
-				<h3 class="h3" data-toc-ignore>Automated Tests</h3>
+				<h3 class="h3 toc-ignore">Automated Tests</h3>
 				<p>View a video by Skeleton contributors discussing best practices for testing.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="https://youtu.be/Ru3FtSzN128" target="_blank" rel="noreferrer">

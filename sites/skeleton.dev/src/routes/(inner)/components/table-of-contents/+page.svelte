@@ -95,8 +95,8 @@
 		<section class="space-y-4">
 			<h2 class="h2">Include Elements</h2>
 			<p>
-				The prop <code class="code">IncludeList</code> defines all elements to include and their indentation. By default it defines all
-				headings from <code class="code">h2-h6</code>.
+				The prop <code class="code">IncludeList</code> defines all elements to include and their indentation. By default it defines the
+				headings <code class="code">h2-h6</code>.
 			</p>
 			<p>Note: provide only a <em>single</em> <code class="code">selector query</code> per object.</p>
 			<DocsPreview regionPreview="w-full grid grid-cols-2 gap-4" background="neutral">
@@ -172,7 +172,7 @@ const includedElements: QueryIndent[] = [
 							<div class="placeholder animate-pulse" />
 							<div class="placeholder animate-pulse" />
 						</div>
-						<h3 class="h3">H3</h3>
+						<h3 class="h3">H3 (excluded)</h3>
 						<div class="flex flex-col gap-4 m-4">
 							<div class="placeholder animate-pulse" />
 							<div class="placeholder animate-pulse" />
@@ -182,7 +182,7 @@ const includedElements: QueryIndent[] = [
 							<div class="placeholder animate-pulse" />
 							<div class="placeholder animate-pulse" />
 						</div>
-						<h5 class="h5">H5</h5>
+						<h5 class="h5">H5 (excluded)</h5>
 						<div class="flex flex-col gap-4 m-4">
 							<div class="placeholder animate-pulse" />
 							<div class="placeholder animate-pulse" />
@@ -193,29 +193,20 @@ const includedElements: QueryIndent[] = [
 							<div class="placeholder animate-pulse" />
 						</div>
 					</div>
-					<TableOfContents target="#excludeDemo" scrollParent="#excludeDemo" />
+					<TableOfContents target="#excludeDemo" scrollParent="#excludeDemo" excludeQuery="h3,h5" />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock
-						language="ts"
-						code={`
-const includedElements: QueryIndent[] = [
-	{ query: 'span', indentClass: 'ml-3' },
-	{ query: '.classExample', indentClass: 'ml-6' },
-	{ query: '#idExample', indentClass: 'ml-9'}
-];
-					`}
-					/>
 					<CodeBlock
 						language="html"
 						code={`
 <div id="page">
-	<span>type Example</span>
-	<p class="classExample">classExample</p>
-	<p id="idExample">ID Example</p>
-	<p>Not included Example</p>
+	<h2 class="h2">H2</h2>
+	<h3 class="h3">H3 (excluded)</h3>
+	<h4 class="h4">H4</h4>
+	<h5 class="h5">H5 (excluded)</h5>
+	<h6 class="h6">H6</h6>
 </div>
-<TableOfContents includeList={includedElements}/>
+<TableOfContents excludeQuery="h3,h5"/>
 					`}
 					/>
 				</svelte:fragment>
@@ -223,5 +214,20 @@ const includedElements: QueryIndent[] = [
 		</section>
 
 		<hr />
+
+		<section class="space-y-4">
+			<h2 class="h2">Update Links</h2>
+			<p>
+				To trigger an update of the TOC links, change the value of the prop <code class="code">triggerUpdate</code>. This prop accepts any
+				value and will only react to changes.
+			</p>
+			<p>For example, to update the TOC links on navigation, use:</p>
+			<CodeBlock
+				language="html"
+				code={`
+<TableOfContents triggerUpdate={$page.url.pathname}/>
+			`}
+			/>
+		</section>
 	</svelte:fragment>
 </DocsShell>

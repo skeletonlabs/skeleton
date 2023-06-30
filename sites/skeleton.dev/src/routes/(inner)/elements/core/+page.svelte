@@ -76,7 +76,7 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="card p-4 max-h-[200px] overflow-auto space-y-4">
-						<h3 class="h3" data-toc-ignore>Test Scrolling Here</h3>
+						<h3 class="h3 toc-ignore">Test Scrolling Here</h3>
 						<p>{faker.lorem.paragraph(50)}</p>
 					</div>
 				</svelte:fragment>
@@ -85,7 +85,7 @@
 						language="html"
 						code={`
 <div class="card p-4 max-h-[200px] overflow-auto space-y-4">
-	<h3 class="h3" data-toc-ignore>Test Scrolling Here</h3>
+	<h3 class="h3">Test Scrolling Here</h3>
 	<p>
 		Lorem ipsum, dolor sit...
 	</p>

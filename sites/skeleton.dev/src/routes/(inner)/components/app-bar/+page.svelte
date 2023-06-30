@@ -67,7 +67,7 @@
 						<svelte:fragment slot="lead">
 							<i class="fa-solid fa-arrow-left text-2xl" />
 						</svelte:fragment>
-						<h2 class="h2" data-toc-ignore>Title</h2>
+						<h2 class="h2 toc-ignore">Title</h2>
 						<svelte:fragment slot="trail">
 							<i class="fa-solid fa-paperclip text-xl" />
 							<i class="fa-regular fa-calendar text-xl" />
@@ -94,7 +94,7 @@
 			<h2 class="h2">Barebones</h2>
 			<DocsPreview background="neutral" regionViewport="!text-current">
 				<svelte:fragment slot="preview">
-					<AppBar class="w-full"><h2 class="h2" data-toc-ignore>Title</h2></AppBar>
+					<AppBar class="w-full"><h2 class="h2 toc-ignore">Title</h2></AppBar>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<AppBar>(title)</AppBar>`} />
@@ -114,7 +114,7 @@
 						<svelte:fragment slot="lead">
 							<i class="fa-solid fa-bars text-2xl" />
 						</svelte:fragment>
-						<h2 class="h2" data-toc-ignore>Title</h2>
+						<h2 class="h2 toc-ignore">Title</h2>
 						<svelte:fragment slot="trail">
 							<i class="fa-solid fa-circle-user text-3xl" />
 						</svelte:fragment>

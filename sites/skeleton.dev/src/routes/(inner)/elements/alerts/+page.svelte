@@ -41,8 +41,8 @@
 				<!-- Primary -->
 				<aside class="alert {currentVariant}">
 					<i class="fa-solid fa-triangle-exclamation text-4xl" />
-					<div class="alert-message" data-toc-ignore>
-						<h3 class="h3" data-toc-ignore>Warning</h3>
+					<div class="alert-message">
+						<h3 class="h3 toc-ignore">Warning</h3>
 						<p>{message}</p>
 					</div>
 					<div class="alert-actions">

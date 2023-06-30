@@ -46,7 +46,7 @@
 						</header>
 						<div class="p-4 space-y-4">
 							<h6 class="h6">Announcements</h6>
-							<h3 class="h3" data-toc-ignore>Skeleton is Awesome!</h3>
+							<h3 class="h3 toc-ignore">Skeleton is Awesome!</h3>
 							<article>
 								<p>
 									<!-- cspell:disable -->

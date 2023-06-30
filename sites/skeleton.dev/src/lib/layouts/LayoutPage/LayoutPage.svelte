@@ -4,7 +4,7 @@
 
 	// Props
 	export let sidebar = true;
-	export let tocKey: any = undefined;
+	export let tocTriggerUpdate: unknown = undefined;
 
 	// Classes
 	const cBase = 'page-padding flex items-start gap-10';
@@ -42,9 +42,15 @@
 				</div> -->
 			{/if}
 			<!-- Table of Contents -->
-			{#key tocKey}
-				<TableOfContents target=".layout-docs-content" excludeQuery=".toc-demo>*" />
-			{/key}
+			<TableOfContents
+				target=".layout-docs-content"
+				excludeQuery=".toc-demo>*,.toc-ignore"
+				triggerUpdate={tocTriggerUpdate}
+				includeList={[
+					{ query: 'h2', indentClass: '' },
+					{ query: 'h3', indentClass: 'ml-3' }
+				]}
+			/>
 		</aside>
 	{/if}
 </div>

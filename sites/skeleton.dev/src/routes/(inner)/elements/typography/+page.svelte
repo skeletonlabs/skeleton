@@ -29,7 +29,7 @@
 				<AccordionItem open>
 					<svelte:fragment slot="lead"><i class="fa-solid fa-square-check text-xl w-6 text-center" /></svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3 class="h3" data-toc-ignore>What does opt-in mean?</h3>
+						<h3 class="h3 toc-ignore">What does opt-in mean?</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
@@ -42,7 +42,7 @@
 				<AccordionItem>
 					<svelte:fragment slot="lead"><i class="fa-solid fa-square-check text-xl w-6 text-center" /></svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3 class="h3" data-toc-ignore>Simplified CSS Selectors</h3>
+						<h3 class="h3 toc-ignore">Simplified CSS Selectors</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<!-- prettier-ignore -->
@@ -96,7 +96,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 				<AccordionItem>
 					<svelte:fragment slot="lead"><i class="fa-solid fa-truck-moving text-xl w-6 text-center" /></svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3 class="h3" data-toc-ignore>Migration Guide</h3>
+						<h3 class="h3 toc-ignore">Migration Guide</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<!-- prettier-ignore -->
@@ -121,8 +121,8 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 				<svelte:fragment slot="preview">
 					<div class="text-center space-y-4">
 						<h1 class="h1">Skeleton H1</h1>
-						<h2 class="h2" data-toc-ignore>Skeleton H2</h2>
-						<h3 class="h3" data-toc-ignore>Skeleton H3</h3>
+						<h2 class="h2 toc-ignore">Skeleton H2</h2>
+						<h3 class="h3 toc-ignore">Skeleton H3</h3>
 						<h4 class="h4">Skeleton H4</h4>
 						<h5 class="h5">Skeleton H5</h5>
 						<h6 class="h6">Skeleton H6</h6>
@@ -278,7 +278,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 				<AccordionItem>
 					<svelte:fragment slot="summary">
 						<div class="flex items-center space-x-2">
-							<h3 class="h3" data-toc-ignore>Default Prose Styling</h3>
+							<h3 class="h3 toc-ignore">Default Prose Styling</h3>
 							<span class="badge variant-filled-warning">Deprecated</span>
 						</div>
 					</svelte:fragment>
@@ -306,7 +306,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-center">
-						<h2 class="unstyled" data-toc-ignore>Unstyled H2</h2>
+						<h2 class="unstyled toc-ignore">Unstyled H2</h2>
 						<p class="unstyled">Unstyled paragraph element.</p>
 						<a href="/" class="unstyled">Unstyled anchor element.</a>
 					</div>

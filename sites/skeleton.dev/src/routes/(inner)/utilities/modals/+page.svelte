@@ -403,7 +403,7 @@ modalStore.trigger(modal);
 			<p>See the additional information below to learn how to use custom component modals.</p>
 			<Accordion autocollapse class="card variant-glass p-4">
 				<AccordionItem open>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Store Data</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Accessing Store Data</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
 							Import and use the <code class="code">modalStore</code>. All provided data is available within your component via
@@ -412,13 +412,13 @@ modalStore.trigger(modal);
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>The Visible Modal</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">The Visible Modal</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>The foremost and visible modal in your queue uses index zero <code class="code">$modalStore[0]</code>.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Modal Parent Properties</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Modal Parent Properties</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
 							The Modal component in your root layout is considered the "parent" component. Your custom modal component will be generated
@@ -430,7 +430,7 @@ modalStore.trigger(modal);
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Triggering a Response</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Triggering a Response</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
 							Use the <code class="code">$modalStore[0].response('myResponseDataHere');</code> trigger the response function and return a value.
@@ -438,7 +438,7 @@ modalStore.trigger(modal);
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Closing a Modal</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Closing a Modal</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
 							Use the <code class="code">parent.onClose()</code> or <code class="code">modalStore.close()</code> methods to close the modal.
@@ -446,13 +446,13 @@ modalStore.trigger(modal);
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Metadata</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Accessing Metadata</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>Arbitrary metadata is available using <code class="code">$modalStore[0].meta?.someKey</code>.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Standardize Modal Widths</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3 toc-ignore">Standardize Modal Widths</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<!-- prettier-ignore -->
 						<p>
