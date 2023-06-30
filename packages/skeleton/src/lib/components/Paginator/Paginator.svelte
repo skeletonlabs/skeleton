@@ -168,6 +168,7 @@
 		{#if showFirstLastButtons}
 			<button
 				type="button"
+				aria-label="First page"
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(0);
@@ -181,6 +182,7 @@
 		{#if showPreviousNextButtons}
 			<button
 				type="button"
+				aria-label="Previous page"
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(settings.offset - 1);
@@ -210,6 +212,7 @@
 		{#if showPreviousNextButtons}
 			<button
 				type="button"
+				aria-label="Next page"
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(settings.offset + 1);
@@ -223,6 +226,7 @@
 		{#if showFirstLastButtons}
 			<button
 				type="button"
+				aria-label="Last page"
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(lastPage);
