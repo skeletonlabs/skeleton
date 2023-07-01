@@ -237,7 +237,6 @@
 				{#if $modalStore[0].type !== 'component'}
 					<!-- Modal: Presets -->
 					<div class="modal {classesModal}" data-testid="modal" role="dialog" aria-modal="true" aria-label={$modalStore[0].title ?? ''}>
-
 						<!-- Header -->
 						{#if $modalStore[0]?.title}
 							<header class="modal-header {regionHeader}">{@html $modalStore[0].title}</header>

@@ -278,8 +278,8 @@ import { dynamicTransition } from '../../internal/transitions.js';
 			language="html"
 			code={`
 <SomeComponent
-	in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
-	out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+	in:dynamicTransition={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+	out:dynamicTransition={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 />
 		`}
 		/>

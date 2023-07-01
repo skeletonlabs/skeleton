@@ -10,7 +10,7 @@
 	const dispatch = createEventDispatcher<DrawerEvent>();
 
 	// Types
-	import { type CssClasses, prefersReducedMotionStore, SvelteEvent } from '../../index.js';
+	import { type CssClasses, type SvelteEvent, prefersReducedMotionStore } from '../../index.js';
 
 	// Actions
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
@@ -187,12 +187,12 @@
 		on:touchstart
 		on:touchend
 		on:keypress
-		in:dynamicTransition|local={{
+		in:dynamicTransition={{
 			transition: fade,
 			params: { duration: 150 },
 			enabled: transitions && opacityTransition
 		}}
-		out:dynamicTransition|local={{
+		out:dynamicTransition={{
 			transition: fade,
 			params: { duration: 150 },
 			enabled: transitions && opacityTransition
@@ -209,12 +209,12 @@
 			aria-modal="true"
 			aria-labelledby={labelledby}
 			aria-describedby={describedby}
-			in:dynamicTransition|local={{
+			in:dynamicTransition={{
 				transition: fly,
 				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
 				enabled: transitions
 			}}
-			out:dynamicTransition|local={{
+			out:dynamicTransition={{
 				transition: fly,
 				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
 				enabled: transitions

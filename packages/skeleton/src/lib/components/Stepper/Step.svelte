@@ -11,9 +11,8 @@
 	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// Types
-	import type { StepperDispatchParent, StepperState } from './types.js';
-	import type { CssClasses, Transition, TransitionParams } from '../../index.js';
 	import type { StepperEventDispatcher, StepperState } from './types.js';
+	import type { CssClasses, Transition, TransitionParams } from '../../index.js';
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
 
@@ -126,8 +125,8 @@
 		{#if $state.total > 1}
 			<div
 				class="step-navigation {classesNavigation}"
-				in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
-				out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+				in:dynamicTransition={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+				out:dynamicTransition={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 			>
 				{#if stepIndex === 0 && $$slots.navigation}
 					<!-- Slot: Navigation -->

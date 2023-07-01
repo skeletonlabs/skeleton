@@ -171,8 +171,8 @@
 {#if filteredHeadingsList.length > 0}
 	<div
 		class="toc {classesBase}"
-		in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
-		out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+		in:dynamicTransition={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+		out:dynamicTransition={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 	>
 		<nav class="toc-list {classesList}">
 			<div class="toc-label {classesLabel}">{label}</div>
