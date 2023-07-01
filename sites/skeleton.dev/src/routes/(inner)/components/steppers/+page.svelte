@@ -29,7 +29,8 @@
 					'buttonNext',
 					'buttonNextLabel',
 					'buttonComplete',
-					'buttonCompleteLabel'
+					'buttonCompleteLabel',
+					'buttonCompleteVisible'
 				]
 			}
 		]
@@ -189,6 +190,32 @@
 			<p>
 				This can be overwritten per each Step as well, which updates the <em>default</em> and <em>header</em> slot placeholder text.
 			</p>
+		</section>
+		<!-- Complete Button Visibility -->
+		<section class="space-y-4">
+			<h2 class="h2">Complete Button Visibility</h2>
+			<p>
+				In some cases, like when the rest of the steps are optional, you might want to make the <code class="code">complete</code> button
+				visible. This can be achieved by setting the prop <code class="code">completeButtonVisible</code>.
+			</p>
+			<p>Note: The value of <code class="code">completeButtonVisible</code> is ignored on last step.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<!-- required step -->
+<Step>...</Step>
+<!-- required step -->
+<Step>...</Step>
+
+<!-- optional step -->
+<Step completeButtonVisible={true}>...</Step>
+<!-- optional step -->
+<Step completeButtonVisible={true}>...</Step>
+
+<!-- optional step, last step -->
+<Step>...</Step>
+			`}
+			/>
 		</section>
 		<!-- Navigation Slot -->
 		<section class="space-y-4">

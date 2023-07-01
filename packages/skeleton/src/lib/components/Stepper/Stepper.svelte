@@ -53,6 +53,8 @@
 	export let buttonCompleteType: StepperButton = 'button';
 	/** Provide the HTML label content for the complete button. */
 	export let buttonCompleteLabel = 'Complete';
+	/** Set this prop to make the complete button visible. It is autoset on last step */
+	export let buttonCompleteVisible = false;
 
 	// Props (regions)
 	/** Provide arbitrary classes to the stepper header region. */
@@ -81,6 +83,7 @@
 	setContext('buttonComplete', buttonComplete);
 	setContext('buttonCompleteType', buttonCompleteType);
 	setContext('buttonCompleteLabel', buttonCompleteLabel);
+	setContext('buttonCompleteVisible', buttonCompleteVisible);
 
 	// Classes
 	const cBase = 'space-y-4';

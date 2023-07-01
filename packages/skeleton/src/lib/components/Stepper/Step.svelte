@@ -40,6 +40,7 @@
 	export let buttonComplete: CssClasses = getContext('buttonComplete');
 	export let buttonCompleteType: 'submit' | 'reset' | 'button' = getContext('buttonCompleteType');
 	export let buttonCompleteLabel: string = getContext('buttonCompleteLabel');
+	export let buttonCompleteVisible: boolean = getContext('buttonCompleteVisible');
 
 	// Register step on init (keep these paired)
 	const stepIndex = $state.total;
@@ -58,6 +59,7 @@
 
 		if (locked) return;
 		$state.current++;
+
 		/** @event { $state } next - Fires when the NEXT button is pressed per step.  */
 		dispatchParent('next', { step: stepIndex, state: $state });
 		dispatchParent('step', { step: stepIndex, state: $state });
@@ -109,24 +111,27 @@
 						{@html buttonBackLabel}
 					</button>
 				{/if}
-				{#if stepIndex < $state.total - 1}
-					<!-- Button: Next -->
-					<button type={buttonNextType} class="btn {buttonNext}" on:click={onNext} disabled={locked}>
-						{#if locked}
-							<svg class="w-3 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-								<path
-									d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"
-								/>
-							</svg>
-						{/if}
-						<span>{@html buttonNextLabel}</span>
-					</button>
-				{:else}
-					<!-- Button: Complete -->
-					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>
-						{@html buttonCompleteLabel}
-					</button>
-				{/if}
+				<div>
+					{#if stepIndex < $state.total - 1}
+						<!-- Button: Next -->
+						<button type={buttonNextType} class="btn {buttonNext}" on:click={onNext} disabled={locked}>
+							{#if locked}
+								<svg class="w-3 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+									<path
+										d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"
+									/>
+								</svg>
+							{/if}
+							<span>{@html buttonNextLabel}</span>
+						</button>
+					{/if}
+					{#if stepIndex === $state.total - 1 || buttonCompleteVisible}
+						<!-- Button: Complete -->
+						<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>
+							{@html buttonCompleteLabel}
+						</button>
+					{/if}
+				</div>
 			</div>
 		{/if}
 	</div>
