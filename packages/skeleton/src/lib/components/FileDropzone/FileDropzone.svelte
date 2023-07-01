@@ -44,7 +44,7 @@
 	$: classesInterface = `${cInterface}`;
 
 	// Pruned RestProps
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}

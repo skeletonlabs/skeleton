@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 	import { fade } from 'svelte/transition';
-	import { type Transition, type TransitionParams, type CssClasses, prefersReducedMotionStore } from '../../index.js';
+	import { type Transition, type TransitionParams, prefersReducedMotionStore } from '../../index.js';
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type FadeTransition = typeof fade;
@@ -14,10 +14,11 @@
 	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// Types
-	import type { StepperButton, StepperDispatchParent, StepperState } from './types.js';
+	import type { CssClasses } from '../../index.js';
+	import type { StepperButton, StepperEvent, StepperState } from './types.js';
 
 	// Event Dispatcher
-	const dispatchParent: StepperDispatchParent = createEventDispatcher();
+	const dispatch = createEventDispatcher<StepperEvent>();
 
 	// Props
 	/** Provide classes to style the stepper header gap. */
@@ -101,7 +102,7 @@
 
 	// Context
 	setContext('state', state);
-	setContext('dispatchParent', dispatchParent);
+	setContext('dispatchParent', dispatch);
 	setContext('stepTerm', stepTerm);
 	setContext('gap', gap);
 	setContext('justify', justify);

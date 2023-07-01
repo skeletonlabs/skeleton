@@ -13,6 +13,7 @@
 	// Types
 	import type { StepperDispatchParent, StepperState } from './types.js';
 	import type { CssClasses, Transition, TransitionParams } from '../../index.js';
+	import type { StepperEventDispatcher, StepperState } from './types.js';
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
 
@@ -29,7 +30,7 @@
 
 	// Context
 	export let state: Writable<StepperState> = getContext('state');
-	export let dispatchParent: StepperDispatchParent = getContext('dispatchParent');
+	export let dispatchParent = getContext<StepperEventDispatcher>('dispatchParent');
 	export let stepTerm: string = getContext('stepTerm');
 	export let gap: CssClasses = getContext('gap');
 	export let justify: CssClasses = getContext('justify');

@@ -12,6 +12,7 @@ export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
 export type { Transition, TransitionParams } from './internal/transitions.js';
 export type { CssClasses } from './types.js';
+export type SvelteEvent<E extends Event = Event, T extends EventTarget = Element> = E & { currentTarget: EventTarget & T };
 
 // Stores ---
 

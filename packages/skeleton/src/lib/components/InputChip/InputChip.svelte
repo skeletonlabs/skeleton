@@ -18,14 +18,19 @@
 	lang="ts"
 	generics="ListTransitionIn extends Transition = FlyTransition, ListTransitionOut extends Transition = FlyTransition, ChipTransitionIn extends Transition = ScaleTransition, ChipTransitionOut extends Transition = ScaleTransition"
 >
-	import { createEventDispatcher, onMount } from 'svelte/internal';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import { flip } from 'svelte/animate';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Event Dispatcher
-	const dispatch = createEventDispatcher();
+	type InputChipEvent = {
+		add: { event: SubmitEvent; chipIndex: number; chipValue: string };
+		remove: { event: MouseEvent; chipIndex: number; chipValue: string };
+		invalid: { event: SubmitEvent; input: string };
+	};
+	const dispatch = createEventDispatcher<InputChipEvent>();
 
 	// Props
 	/** Bind the input value. */
@@ -177,7 +182,7 @@
 		return true;
 	}
 
-	function addChip(event: Event): void {
+	function addChip(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
 		event.preventDefault();
 		// Validate
 		inputValid = validate();
@@ -200,7 +205,7 @@
 		input = '';
 	}
 
-	function removeChip(event: Event, chipIndex: number, chipValue: string): void {
+	function removeChip(event: SvelteEvent<MouseEvent, HTMLButtonElement>, chipIndex: number, chipValue: string): void {
 		if ($$restProps.disabled) return;
 		// Remove value from array
 		value.splice(chipIndex, 1);

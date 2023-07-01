@@ -58,7 +58,7 @@
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 
 	// RestProps
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}
@@ -66,6 +66,8 @@
 
 <label class="app-rail-tile {classesBase}" data-testid="app-rail-tile" {title} on:mouseover on:mouseleave on:focus on:blur>
 	<!-- A11y attributes are not allowed on <label> -->
+	<!-- TODO: Remove for V2 -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class="app-rail-wrapper {classesWrapper}" on:keydown on:keyup on:keypress>
 		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 		<div class="h-0 w-0 overflow-hidden">

@@ -12,11 +12,14 @@
 <script lang="ts" generics="TransitionIn extends Transition = FlyTransition, TransitionOut extends Transition = FlyTransition">
 	import { createEventDispatcher } from 'svelte';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type ModalEvent = {
+		backdrop: MouseEvent;
+	};
+	const dispatch = createEventDispatcher<ModalEvent>();
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	import { modalStore } from './stores.js';
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
@@ -127,14 +130,14 @@
 	});
 
 	// Event Handlers ---
-	function onBackdropInteractionBegin(event: MouseEvent): void {
+	function onBackdropInteractionBegin(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
 		if (!(event.target instanceof Element)) return;
 		const classList = event.target.classList;
 		if (classList.contains('modal-backdrop') || classList.contains('modal-transition')) {
 			registeredInteractionWithBackdrop = true;
 		}
 	}
-	function onBackdropInteractionEnd(event: MouseEvent): void {
+	function onBackdropInteractionEnd(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
 		if (!(event.target instanceof Element)) return;
 		const classList = event.target.classList;
 		if ((classList.contains('modal-backdrop') || classList.contains('modal-transition')) && registeredInteractionWithBackdrop) {
@@ -157,7 +160,7 @@
 		modalStore.close();
 	}
 
-	function onPromptSubmit(event: SubmitEvent): void {
+	function onPromptSubmit(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
 		event.preventDefault();
 		if ($modalStore[0].response) $modalStore[0].response(promptValue);
 		modalStore.close();
@@ -165,7 +168,7 @@
 
 	// A11y ---
 
-	function onKeyDown(event: KeyboardEvent): void {
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, Window>): void {
 		if (!$modalStore.length) return;
 		if (event.code === 'Escape') onClose();
 	}
@@ -213,6 +216,8 @@
 {#if $modalStore.length > 0}
 	{#key $modalStore}
 		<!-- Backdrop -->
+		<!-- TODO: Remove for V2 -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
 			class="modal-backdrop {classesBackdrop}"
 			data-testid="modal-backdrop"
@@ -220,18 +225,19 @@
 			on:mouseup={onBackdropInteractionEnd}
 			on:touchstart
 			on:touchend
-			transition:dynamicTransition|local={{ transition: fade, params: { duration: 150 }, enabled: transitions }}
+			transition:dynamicTransition|global={{ transition: fade, params: { duration: 150 }, enabled: transitions }}
 			use:focusTrap={true}
 		>
 			<!-- Transition Layer -->
 			<div
 				class="modal-transition {classesTransitionLayer}"
-				in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
-				out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+				in:dynamicTransition|global={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+				out:dynamicTransition|global={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 			>
 				{#if $modalStore[0].type !== 'component'}
 					<!-- Modal: Presets -->
 					<div class="modal {classesModal}" data-testid="modal" role="dialog" aria-modal="true" aria-label={$modalStore[0].title ?? ''}>
+
 						<!-- Header -->
 						{#if $modalStore[0]?.title}
 							<header class="modal-header {regionHeader}">{@html $modalStore[0].title}</header>
