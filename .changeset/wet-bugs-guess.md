@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: InputChips should handle undefined values
+bugfix: `InputChips` can now handle `undefined` values

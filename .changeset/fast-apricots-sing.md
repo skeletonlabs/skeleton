@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Fixed double drawers unexpected closing direction.
+bugfix: resolved an issue when the drawer position suddenly changes sides

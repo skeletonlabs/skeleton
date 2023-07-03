@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: paginator buttons are now accessible.
+bugfix: paginator buttons now include accessible ARIA label props

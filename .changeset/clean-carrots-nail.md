@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: removed horizontal space on vertical radio group.
+bugfix: resolved a spacing issue when using the vertical `radio group` setting
