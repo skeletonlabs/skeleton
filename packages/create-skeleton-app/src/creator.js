@@ -70,7 +70,7 @@ export async function createSkeleton(opts) {
 	await create(opts.path, opts);
 	process.chdir(opts.path);
 
-	modifyPackageJson(opts);
+	await modifyPackageJson(opts);
 	// write out config files
 	createSvelteConfig(opts);
 	await createVSCodeSettings();
@@ -94,7 +94,6 @@ export async function createSkeleton(opts) {
 async function modifyPackageJson(opts) {
 	await getLatestPackageVersions(opts);
 	let pkgJson = JSON.parse(fs.readFileSync('./package.json'));
-
 	// the order matters due to dependency resolution, because yarn
 	for (const pkg of ['postcss', 'autoprefixer', 'tailwindcss', '@skeletonlabs/skeleton']) {
 		pkgJson.devDependencies[pkg] = opts.devDependencies.get(pkg);
@@ -114,6 +113,12 @@ async function modifyPackageJson(opts) {
 	// Component dependencies
 	if (opts.codeblocks) ['highlight.js'].forEach((pkg) => pkgJson.dependencies[pkg] = opts.dependencies.get(pkg));
 	if (opts.popups) ['@floating-ui/dom'].forEach((pkg) => pkgJson.dependencies[pkg] = opts.dependencies.get(pkg));
+
+	// Template specific packages
+	const csaMeta = JSON.parse(fs.readFileSync(dist(`${opts.skeletontemplatedir}/${opts.skeletontemplate}/csa-meta.json`), 'utf8'));
+	if (csaMeta.dependencies) {pkgJson.dependencies = {...pkgJson.dependencies, ...csaMeta.dependencies}};
+	if (csaMeta.devDependencies) {pkgJson.devDependencies = {...pkgJson.devDependencies, ...csaMeta.devDependencies}};
+	if (csaMeta.peerDependencies) {pkgJson.peerDependencies = {...pkgJson.peerDependencies, ...csaMeta.peerDependencies}};
 	fs.writeFileSync('./package.json', JSON.stringify(pkgJson, null, 2));
 }
 

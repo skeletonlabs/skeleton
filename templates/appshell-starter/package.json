@@ -6,12 +6,14 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "playwright test",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
+    "@playwright/test": "^1.35.1",
     "@skeletonlabs/skeleton": "workspace:^",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/kit": "^1.5.0",
@@ -32,7 +34,7 @@
     "vite": "^4.3.0"
   },
   "deployConfig": {
-    "@skeletonlabs/skeleton":"^1.0.0"
+    "@skeletonlabs/skeleton": "^1.0.0"
   },
   "type": "module"
 }

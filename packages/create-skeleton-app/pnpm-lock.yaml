@@ -24,8 +24,8 @@ dependencies:
     specifier: ^1.2.0
     version: 1.2.0
   semver:
-    specifier: ^7.5.2
-    version: 7.5.2
+    specifier: ^7.5.3
+    version: 7.5.3
 
 devDependencies:
   eslint:
@@ -203,12 +203,12 @@ packages:
     engines: {node: '>=14.16'}
     dev: false
 
-  /cacheable-request@10.2.11:
-    resolution: {integrity: sha512-kn0t0oJnlFo1Nzl/AYQzS/oByMtmaqLasFUa7MUMsiTrIHy8TxSkx2KzWCybE3Nuz1F4sJRGnLAfUGsPe47viQ==}
+  /cacheable-request@10.2.12:
+    resolution: {integrity: sha512-qtWGB5kn2OLjx47pYUkWicyOpK1vy9XZhq8yRTXOy+KAmjjESSRLx6SiExnnaGGUP1NM6/vmygMu0fGylNh9tw==}
     engines: {node: '>=14.16'}
     dependencies:
       '@types/http-cache-semantics': 4.0.1
-      get-stream: 7.0.0
+      get-stream: 6.0.1
       http-cache-semantics: 4.1.1
       keyv: 4.5.2
       mimic-response: 4.0.0
@@ -472,11 +472,6 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /get-stream@7.0.0:
-    resolution: {integrity: sha512-ql6FW5b8tgMYvI4UaoxG3EQN3VyZ6VeQpxNBGg5BZ4xD4u+HJeprzhMMA4OCBEGQgSR+m87pstWMpiVW64W8Fw==}
-    engines: {node: '>=16'}
-    dev: false
-
   /glob-parent@6.0.2:
     resolution: {integrity: sha512-XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==}
     engines: {node: '>=10.13.0'}
@@ -509,7 +504,7 @@ packages:
       '@sindresorhus/is': 5.4.1
       '@szmarczak/http-timer': 5.0.1
       cacheable-lookup: 7.0.0
-      cacheable-request: 10.2.11
+      cacheable-request: 10.2.12
       decompress-response: 6.0.0
       form-data-encoder: 2.1.4
       get-stream: 6.0.1
@@ -813,8 +808,8 @@ packages:
       queue-microtask: 1.2.3
     dev: true
 
-  /semver@7.5.2:
-    resolution: {integrity: sha512-SoftuTROv/cRjCze/scjGyiDtcUyxw1rgYQSZY7XTmtR5hX+dm76iDbTH8TkLPHCQmlbQVSSbNZCPM2hb0knnQ==}
+  /semver@7.5.3:
+    resolution: {integrity: sha512-QBlUtyVk/5EeHbi7X0fw6liDZc7BBmEaSYn01fMU1OUYbf6GPsbTtd8WmnqbI20SeycoHSeiybkE/q1Q+qlThQ==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:

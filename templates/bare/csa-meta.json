@@ -2,5 +2,15 @@
 	"position": 5,
 	"label": "Bare Bones",
 	"description": "A blank slate for you to create your app",
-	"enabled": true
+	"enabled": true,
+	"dependencies": {
+		"@namescope/dep": "1.0.0"
+	},
+	"devDependencies": {
+		"@namescope/devdep": "1.0.0"
+	},
+	"peerDependencies": {
+		"@namescope/peerdep": "1.0.0"
+	},
+	"foldersToCopy": ["src","static"]
 }

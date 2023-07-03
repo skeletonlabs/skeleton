@@ -5,7 +5,7 @@ import mri from 'mri';
 import { bold, cyan, gray, grey, red } from 'kleur/colors';
 import { intro, text, select, multiselect, spinner } from '@clack/prompts';
 import events from 'events';
-import { dist, getHelpText, goodbye } from './utils.js';
+import { dist, getHelpText, goodbye, whichPMRuns } from './utils.js';
 import path from 'path';
 import semver from 'semver';
 // Minimum version required for Svelte Kit
@@ -17,35 +17,34 @@ async function main() {
 		process.exit(1);
 	}
 
-	// This is required to handle spawning processes
-	events.EventEmitter.defaultMaxListeners = 15;
-
 	const startPath = process.cwd();
+	let defaults = new SkeletonOptions();
 	// grab any passed arguments from the command line
 	let opts = await parseArgs();
 
-	if ('quiet' in opts) {
-		// in quiet mode we prefill the defaults, then overlay the passed options and bypass all of askForMissingParams so that it
-		// doesn't have to constantly check for quietmode all the time.
-		let defaults = new SkeletonOptions();
-		opts = Object.assign(defaults, opts);
-	} else {
-		// in interactive mode we ask the user to fill anything not passed in
+	if (!opts?.quiet) {
 		opts = await askForMissingParams(opts);
 	}
+	opts = Object.assign(defaults, opts);
+	opts.packagemanager = whichPMRuns()?.name;
 
 	// Now that we have all of the options, lets create it.
-	const s = spinner();
-	s.start('Installing');
-	await createSkeleton(opts);
-	s.stop('Done installing');
-	// And give the user some final information on what to do Next
 	if (!opts?.quiet) {
+		const s = spinner();
+		s.start('Installing');
+	}
+
+	await createSkeleton(opts);
+
+	if (!opts?.quiet) {
+		s.stop('Done installing');
+		// And give the user some final information on what to do Next
+
 		const pm = opts.packagemanager;
-		let runString = `${pm} dev\n`;
+		let runString = `${pm} install\n${pm} dev\n`;
 
 		if (pm == 'npm') {
-			runString = 'npm run dev\n';
+			runString = 'npm install\nnpm run dev\n';
 		}
 		let finalInstructions = bold(cyan(`\nDone! You can now:\n\n`));
 		if (startPath != opts.path) {
@@ -118,22 +117,21 @@ function checkIfDirSafeToInstall(path) {
 		);
 
 	if (conflicts.length > 0) {
-		console.log("create-skeleton-app doesn't support updating an existing project, it needs a new empty directory to install into");
-		console.log(`The directory ${path} contains files that could conflict:`);
-		console.log();
+		console.error("create-skeleton-app doesn't support updating an existing project, it needs a new empty directory to install into");
+		console.error(`The directory ${path} contains files that could conflict:\n`);
 		for (const file of conflicts) {
 			try {
 				const stats = fs.lstatSync(path + '/' + file);
 				if (stats.isDirectory()) {
-					console.log(`  ${red(file)}/`);
+					console.error(`  ${red(file)}/`);
 				} else {
-					console.log(`  ${red(file)}`);
+					console.error(`  ${red(file)}`);
 				}
 			} catch {
-				console.log(`  ${red(file)}`);
+				console.error(`  ${red(file)}`);
 			}
 		}
-		console.log('Either try using a new directory name, or remove the files listed above.');
+		console.error('Either try using a new directory name, or remove the files listed above.');
 		process.exit(1);
 	}
 }
@@ -203,29 +201,6 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		optionalInstalls.every((value) => (opts[value] = true));
 	}
 
-	// Additional packages to install
-	if (
-		!['forms', 'typography', 'codeblocks', 'popups'].every((value) => {
-			return Object.keys(opts).includes(value);
-		})
-	) {
-		const packages = await multiselect({
-			message: 'What other packages would you like to install:',
-			initialValues: ['forms', 'typography', 'codeblocks', 'popups'].filter((value) => {
-				return Object.keys(opts).includes(value);
-			}),
-			options: [
-				{ value: 'forms', label: 'Add Tailwind forms ?' },
-				{ value: 'typography', label: 'Add Tailwind typography ?' },
-				{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js) ?' },
-				{ value: 'popups', label: 'Add Popups (installs floating-ui) ?' },
-			],
-			required: false,
-		});
-		goodbye(packages);
-		packages.every((value) => (opts[value] = true));
-	}
-
 	// Skeleton Theme Selection
 	if (!('skeletontheme' in opts)) {
 		opts.skeletontheme = await select({
@@ -245,10 +220,12 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		goodbye(opts.skeletontheme);
 	}
 
+	const templateDir = opts.skeletontemplatedir || '../templates';
+
 	//Skeleton Template Selection
 	if (!('skeletontemplate' in opts)) {
 		// need to check whether a templatedir has been passed in (might be from a script in package.json pointing to real template projects)
-		const templateDir = opts.skeletontemplatedir || '../templates';
+
 		let parsedChoices = [];
 		fs.readdirSync(dist(templateDir)).forEach((dir) => {
 			const meta_file = dist(`${templateDir}/${dir}/csa-meta.json`);
@@ -270,9 +247,40 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		goodbye(opts.skeletontemplate);
 	}
 
-	const skelOpts = new SkeletonOptions();
-	Object.assign(skelOpts, opts);
-	return skelOpts;
+	// Additional packages to install - these can be influenced by the template selected
+	if (!['forms', 'typography', 'codeblocks', 'popups'].every((value) => {
+		return Object.keys(opts).includes(value);
+	})) {
+		const csaMeta = JSON.parse(fs.readFileSync(dist(`${templateDir}/${opts.skeletontemplate}/csa-meta.json`), 'utf8'));
+		let msg = "";
+		["dependencies", "devDependencies", "peerDependencies"].forEach((depType) => {
+			if (csaMeta[depType]) {
+				Object.keys(csaMeta[depType]).forEach((dep) => {
+					msg += dep + "\n";
+				});
+			}
+		});
+		if (msg.length > 0) {
+			msg = "The following packages are required by the template: \n" + msg + "\n";
+		}
+		const packages = await multiselect({
+			message: msg + 'What other packages would you like to install:',
+			initialValues: ['forms', 'typography', 'codeblocks', 'popups'].filter((value) => {
+				return Object.keys(opts).includes(value);
+			}),
+			options: [
+				{ value: 'forms', label: 'Add Tailwind forms ?' },
+				{ value: 'typography', label: 'Add Tailwind typography ?' },
+				{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js) ?' },
+				{ value: 'popups', label: 'Add Popups (installs floating-ui) ?' }
+			],
+			required: false,
+		});
+		goodbye(packages);
+		packages.every((value) => (opts[value] = true));
+	}
+
+	return opts;
 }
 
 main();
