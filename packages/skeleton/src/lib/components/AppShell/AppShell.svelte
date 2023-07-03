@@ -12,7 +12,7 @@
 	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	interface $$Events {
-		scroll: SvelteEvent<Event, HTMLDivElement>;
+		scroll: SvelteEvent<UIEvent, HTMLDivElement>;
 	}
 
 	// Props (regions)
