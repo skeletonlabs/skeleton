@@ -6,7 +6,7 @@
 	 * @slot {{}} full - Provide a full rating icon.
 	 */
 
-	import { createEventDispatcher } from 'svelte/internal';
+	import { createEventDispatcher } from 'svelte';
 
 	// Types
 	import type { CssClasses } from '../../index.js';
@@ -16,6 +16,8 @@
 	export let value = 0;
 	/** Maximum rating value. */
 	export let max = 5;
+	/** Enables interactive mode for each rating icon. */
+	export let interactive = false;
 
 	// Props (styles)
 	/** Provide classes to set the text color. */
@@ -32,7 +34,10 @@
 	export let regionIcon: CssClasses = '';
 
 	// Event Dispatcher
-	const dispatch = createEventDispatcher();
+	type RatingsEvent = {
+		icon: { index: number };
+	};
+	const dispatch = createEventDispatcher<RatingsEvent>();
 
 	function iconClick(index: number): void {
 		/** @event {{ index: number  }} icon - Fires when an icons is clicked */
@@ -45,6 +50,8 @@
 	const cBase = 'w-full flex';
 
 	// Reactive
+	$: elemInteractive = interactive ? 'button' : 'span';
+	$: attrInteractive = interactive ? { type: 'button' } : {};
 	$: classesBase = `${cBase} ${text} ${fill} ${justify} ${spacing} ${$$props.class ?? ''}`;
 </script>
 
@@ -52,11 +59,17 @@
 	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 	{#each Array(max) as _, i}
 		{#if Math.floor(value) >= i + 1}
-			<button type="button" class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="full" /></button>
+			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
+				<slot name="full" />
+			</svelte:element>
 		{:else if value === i + 0.5}
-			<button type="button" class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="half" /></button>
+			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
+				<slot name="half" />
+			</svelte:element>
 		{:else}
-			<button type="button" class="rating-icon {regionIcon}" on:click={() => iconClick(i)}><slot name="empty" /></button>
+			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
+				<slot name="empty" />
+			</svelte:element>
 		{/if}
 	{/each}
 </div>

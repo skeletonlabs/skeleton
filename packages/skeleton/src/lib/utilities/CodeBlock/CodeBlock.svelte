@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type CodeBlockEvent = {
+		copy: never;
+	};
+	const dispatch = createEventDispatcher<CodeBlockEvent>();
 
 	// Types
 	import type { CssClasses } from '../../index.js';
@@ -61,8 +64,8 @@
 		copyState = true;
 		// prettier-ignore
 		setTimeout(() => { copyState = false; }, 2000);
-		/** @event {{}} copy - Fires when the Copy button is pressed.  */
-		dispatch('copy', {});
+		/** @event {} copy - Fires when the Copy button is pressed.  */
+		dispatch('copy');
 	}
 
 	// Trigger syntax highlighting if highlight.js is available

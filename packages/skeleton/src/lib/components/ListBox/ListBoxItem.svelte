@@ -8,7 +8,7 @@
 	import { getContext } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Props
 	/** Set the radio group binding value. */
@@ -78,7 +78,7 @@
 	}
 
 	// A11y Key Down Handler
-	function onKeyDown(event: KeyboardEvent): void {
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, HTMLDivElement>): void {
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
 			elemInput.click();

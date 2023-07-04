@@ -6,8 +6,11 @@
 	// Types
 	import type { AutocompleteOption } from './types.js';
 
-	// Custom Dispatcher
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type AutocompleteEvent = {
+		selection: AutocompleteOption;
+	};
+	const dispatch = createEventDispatcher<AutocompleteEvent>();
 
 	// Props
 	/**

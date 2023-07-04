@@ -9,7 +9,11 @@
 	 */
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
+
+	interface $$Events {
+		scroll: SvelteEvent<UIEvent, HTMLDivElement>;
+	}
 
 	// Props (regions)
 	/** Apply arbitrary classes to the entire `#page` region. */

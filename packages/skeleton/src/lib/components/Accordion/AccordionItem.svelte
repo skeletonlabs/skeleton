@@ -10,15 +10,18 @@
 	// DISPATCHED: document directly above the definition, like props (ex: paginator)
 
 	import { getContext } from 'svelte';
-	import { createEventDispatcher } from 'svelte/internal';
+	import { createEventDispatcher } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { slide } from 'svelte/transition';
 
 	// Event Dispatcher
-	const dispatch = createEventDispatcher();
+	type AccordionItemEvent = {
+		toggle: { event?: Event; id: string; open: boolean; autocollapse: boolean };
+	};
+	const dispatch = createEventDispatcher<AccordionItemEvent>();
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Props (state)
 	/** Set open by default on load. */
@@ -66,7 +69,7 @@
 	export let regionCaret: CssClasses = getContext('regionCaret');
 
 	// Change open behavior based on auto-collapse mode
-	function setActive(event?: Event): void {
+	function setActive(event?: SvelteEvent<MouseEvent, HTMLButtonElement>): void {
 		if (autocollapse === true) {
 			// Set item active
 			active.set(id);
@@ -78,7 +81,7 @@
 		onToggle(event);
 	}
 
-	function onToggle(event?: Event): void {
+	function onToggle(event?: SvelteEvent<MouseEvent, HTMLButtonElement>): void {
 		const currentOpenState = autocollapse ? $active === id : open;
 		/** @event {{ event: Event, id: string, open: boolean, autocollapse: boolean }} toggle - Fires when an accordion item is toggled. */
 		dispatch('toggle', { event, id: `accordion-control-${id}`, open: currentOpenState, autocollapse });

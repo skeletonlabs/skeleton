@@ -150,14 +150,14 @@
 			<p>Events are fired when the next or previous steps are pressed, step fires for both cases.</p>
 			<CodeBlock
 				language="ts"
-				code={`function onStepHandler(e: {step: number, state: {current: number, total: number}}): void {
+				code={`function onStepHandler(e: {detail: {state: {current: number, total: number}, step: number}}): void {
 	console.log('event:step', e);
 }`}
 			/>
 			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:step={onStepHandler} on:back={onBackHandler}>...</Stepper>`} />
 			<blockquote class="blockquote">
-				TIP: <code class="code">e.state.current</code> contains the step shown to the user after navigation,
-				<code class="code">e.step</code> contains the step where navigation occurred.
+				TIP: <code class="code">e.detail.state.current</code> contains the step shown to the user after navigation,
+				<code class="code">e.detail.step</code> contains the step where navigation occurred.
 			</blockquote>
 		</section>
 		<!-- Locked State -->

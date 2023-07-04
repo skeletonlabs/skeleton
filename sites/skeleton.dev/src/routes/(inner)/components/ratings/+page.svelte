@@ -54,7 +54,7 @@
 					code={`
 <Ratings value={3.5} max={5}>
     <svelte:fragment slot="empty">(icon)</svelte:fragment>
-    <svelte:fragment slot="half">(con)</svelte:fragment>
+    <svelte:fragment slot="half">(icon)</svelte:fragment>
     <svelte:fragment slot="full">(icon)</svelte:fragment>
 </Ratings>
 			`}
@@ -104,7 +104,7 @@
 						code={`
 <Ratings bind:value={value.current} max={value.max}>
 	<svelte:fragment slot="empty">(icon)</svelte:fragment>
-	<svelte:fragment slot="half">(con)</svelte:fragment>
+	<svelte:fragment slot="half">(icon)</svelte:fragment>
 	<svelte:fragment slot="full">(icon)</svelte:fragment>
 </Ratings>
 			`}
@@ -114,9 +114,10 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">User Interactivity</h2>
+			<p>Use the <code class="code">interactive</code> prop and <code class="code">on:icon</code> events to add interactivity.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Ratings class="fill-token" bind:value={value.current} max={value.max} on:icon={updateInteractiveValue}>
+					<Ratings class="fill-token" bind:value={value.current} max={value.max} interactive on:icon={updateInteractiveValue}>
 						<svelte:fragment slot="empty">
 							{@html icons.starEmpty}
 						</svelte:fragment>
@@ -140,9 +141,9 @@ function iconClick(event: CustomEvent<{index:number}>): void {
 					<CodeBlock
 						language="html"
 						code={`
-<Ratings bind:value={value.current} max={value.max} on:icon={iconClick}>
+<Ratings bind:value={value.current} max={value.max} interactive on:icon={iconClick}>
 	<svelte:fragment slot="empty">(icon)</svelte:fragment>
-	<svelte:fragment slot="half">(con)</svelte:fragment>
+	<svelte:fragment slot="half">(icon)</svelte:fragment>
 	<svelte:fragment slot="full">(icon)</svelte:fragment>
 </Ratings>
 			`}

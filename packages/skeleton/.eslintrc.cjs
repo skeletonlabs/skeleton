@@ -35,6 +35,8 @@ module.exports = {
 		],
 
 		'no-empty-function': 'off',
-		'@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }]
+		'@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }],
+
+		'@typescript-eslint/ban-types': ['error', { types: { '{}': false }, extendDefaults: true }]
 	}
 };
