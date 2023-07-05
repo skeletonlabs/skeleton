@@ -16,7 +16,7 @@ chokidar.watch(pathToStyles, { ignored: [generatedPath] }).on('change', (path) =
 	console.log(`[Build Start]: File Updated: ${basename(path)}`);
 	if (!locked) {
 		locked = true;
-		exec('pnpm -F @skeletonlabs/plugin build', () => {
+		exec('pnpm -F @skeletonlabs/tw-plugin build', () => {
 			console.log(`[Build End]: Completed in ${Date.now() - now}ms`);
 			locked = false;
 		});
