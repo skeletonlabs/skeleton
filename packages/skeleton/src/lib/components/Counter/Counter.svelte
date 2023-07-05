@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { elasticInOut } from 'svelte/easing';
+	import { sineInOut } from 'svelte/easing';
 	import { onDestroy } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
 
@@ -51,7 +51,7 @@
 	const cInner = 'overflow-hidden flex flex-col items-center';
 
 	// Local
-	const easing = elasticInOut;
+	const easing = sineInOut;
 	let transitionInterval: ReturnType<typeof setInterval>;
 
 	transitionInterval = setInterval(() => {
