@@ -1,5 +1,5 @@
 {
-	"name": "@skeletonlabs/plugin",
+	"name": "@skeletonlabs/tw-plugin",
 	"version": "0.0.1",
 	"description": "Core plugin for Skeleton.",
 	"private": true,

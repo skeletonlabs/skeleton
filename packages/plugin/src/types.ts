@@ -105,7 +105,7 @@ export type CustomThemeConfig = {
 	 * @example
 	 * // If you wish to extend one of our preset themes, you can do so
 	 * // with our provided `getThemeProperties()` function.
-	 * import { getThemeProperties } from "@skeletonlabs/plugin";
+	 * import { getThemeProperties } from "@skeletonlabs/tw-plugin";
 	 *
 	 * properties = {
 	 * 	...getThemeProperties("skeleton"),
