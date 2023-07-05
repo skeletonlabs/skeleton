@@ -2,7 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import { elasticInOut } from 'svelte/easing';
 	import { onDestroy } from 'svelte';
-	import { createEventDispatcher } from 'svelte/internal';
+	import { createEventDispatcher } from 'svelte';
 
 	// Types
 	import type { CssClasses } from '../../index.js';
@@ -48,7 +48,7 @@
 
 	// Base Classes
 	const cBase = `inline-block`;
-	const cInner = 'overflow-hidden flex flex-col';
+	const cInner = 'overflow-hidden flex flex-col items-center';
 
 	// Local
 	const easing = elasticInOut;
@@ -85,8 +85,8 @@
 <span class={classesBase} data-testid="counter">
 	<span class={classesInner}>
 		{#key current}
-			<span in:fly|local={{ y: 100, duration, delay: duration, easing }} out:fly|local={{ y: -100, duration, easing }}>
-				<slot {current}>{current}</slot>
+			<span in:fly={{ y: 100, duration, delay: duration, easing }} out:fly={{ y: -100, duration, easing }}>
+				<slot {current}>{@html current}</slot>
 			</span>
 		{/key}
 	</span>

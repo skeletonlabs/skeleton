@@ -20,8 +20,14 @@
 	};
 
 	// Local
-	const months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 	const partyPhrases = ['1999', 'the end of the world', 'ya birthday'];
+	const emojis = [
+		'<i class="fa-solid fa-skull"></i>',
+		'<i class="fa-solid fa-skull-crossbones"></i>',
+		'<i class="fa-solid fa-book-skull"></i>',
+		'<i class="fa-solid fa-bone"></i>'
+	];
 
 	let direction: 'forward' | 'backward' | 'random' = 'forward';
 	let index: any;
@@ -134,7 +140,7 @@
 				<svelte:fragment slot="preview">
 					<p>
 						My favorite month is <Counter values={months} color="text-primary-500" weight="font-bold" let:current>
-							{current.toLowerCase()}
+							{(current + '').toLowerCase()}
 						</Counter>
 					</p>
 				</svelte:fragment>
@@ -146,6 +152,33 @@
 	My favorite month is <Counter values={months} let:current>
 		{current.toLowerCase()}
 	</Counter>
+</p>
+						`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Rich content</h2>
+			<p><code class="code">HTML</code> in the values array are rendered.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<p>
+						Skeleton UI <Counter values={emojis} />
+					</p>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const emojis = ['(icon)', '(icon)', '(icon)', '(icon)'];
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<p>
+	Skeleton UI <Counter values={emojis} />
 </p>
 						`}
 					/>
