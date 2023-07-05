@@ -3,11 +3,15 @@
 	import { createEventDispatcher } from 'svelte';
 	import { BROWSER } from 'esm-env';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type DrawerEvent = {
+		backdrop: MouseEvent;
+		drawer: MouseEvent;
+	};
+	const dispatch = createEventDispatcher<DrawerEvent>();
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Actions
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
@@ -127,7 +131,7 @@
 	}
 
 	// Input Handlers
-	function onDrawerInteraction(event: MouseEvent): void {
+	function onDrawerInteraction(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
 		if (event.target === elemBackdrop) {
 			drawerStore.close();
 			/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
@@ -137,7 +141,7 @@
 			dispatch('drawer', event);
 		}
 	}
-	function onKeydownWindow(event: KeyboardEvent): void {
+	function onKeydownWindow(event: SvelteEvent<KeyboardEvent, Window>): void {
 		if (!$drawerStore) return;
 		if (event.code === 'Escape') drawerStore.close();
 	}
@@ -165,6 +169,8 @@
 
 {#if $drawerStore.open === true}
 	<!-- Backdrop -->
+	<!-- TODO: Remove for V2 -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		bind:this={elemBackdrop}
 		class="drawer-backdrop {classesBackdrop}"

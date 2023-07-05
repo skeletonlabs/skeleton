@@ -222,7 +222,9 @@
 			<CodeBlock
 				language="ts"
 				code={`
-function scrollHandler(event: UIEvent & { currentTarget: EventTarget & HTMLDivElement; }) {
+import type { ComponentEvents } from 'svelte';
+
+function scrollHandler(event: ComponentEvents<AppShell>['scroll']) {
 	console.log(event.currentTarget.scrollTop);
 }
 `}

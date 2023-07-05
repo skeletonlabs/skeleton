@@ -1,6 +1,6 @@
 // Action: Clipboard
-
-export function clipboard(node: HTMLElement, args: any) {
+type ClipboardArgs = string | { element: string } | { input: string };
+export function clipboard(node: HTMLElement, args: ClipboardArgs) {
 	const fireCopyCompleteEvent = () => {
 		node.dispatchEvent(new CustomEvent('copyComplete'));
 	};
@@ -8,15 +8,17 @@ export function clipboard(node: HTMLElement, args: any) {
 		// Handle `data-clipboard` target based on object key
 		if (typeof args === 'object') {
 			// Element Inner HTML
-			if (Object.prototype.hasOwnProperty.call(args, 'element')) {
-				const element: HTMLElement | null = document.querySelector(`[data-clipboard="${args.element}"]`);
-				copyToClipboard(element?.innerHTML, 'text/html').then(fireCopyCompleteEvent);
+			if ('element' in args) {
+				const element = document.querySelector<HTMLElement>(`[data-clipboard="${args.element}"]`);
+				if (!element) throw new Error(`Missing HTMLElement with an attribute of [data-clipboard="${args.element}"]`);
+				copyToClipboard(element.innerHTML, 'text/html').then(fireCopyCompleteEvent);
 				return;
 			}
 			// Form Input Value
-			if (Object.prototype.hasOwnProperty.call(args, 'input')) {
-				const input: HTMLInputElement | null = document.querySelector(`[data-clipboard="${args.input}"]`);
-				copyToClipboard(input?.value).then(fireCopyCompleteEvent);
+			if ('input' in args) {
+				const input = document.querySelector<HTMLInputElement>(`[data-clipboard="${args.input}"]`);
+				if (!input) throw new Error(`Missing HTMLInputElement with an attribute of [data-clipboard="${args.input}"]`);
+				copyToClipboard(input.value).then(fireCopyCompleteEvent);
 				return;
 			}
 		}
@@ -27,7 +29,7 @@ export function clipboard(node: HTMLElement, args: any) {
 	node.addEventListener('click', onClick);
 	// Lifecycle
 	return {
-		update(newArgs: any) {
+		update(newArgs: ClipboardArgs) {
 			args = newArgs;
 		},
 		destroy() {
@@ -37,7 +39,7 @@ export function clipboard(node: HTMLElement, args: any) {
 }
 
 // Shared copy method
-async function copyToClipboard(data: any, mimeType = 'text/plain') {
+async function copyToClipboard(data: BlobPart, mimeType = 'text/plain') {
 	if (navigator.clipboard.write) {
 		await navigator.clipboard.write([
 			new ClipboardItem({

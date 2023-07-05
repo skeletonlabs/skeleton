@@ -60,6 +60,8 @@
 	$: classesPanel = `${cPanel} ${regionPanel}`;
 </script>
 
+<!-- TODO: Remove for V2 -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="tab-group {classesBase}" data-testid="tab-group" on:click on:keypress on:keydown on:keyup>
 	<!-- Tab List -->
 	<div class="tab-list {classesList}" role="tablist" aria-labelledby={labelledby}>
