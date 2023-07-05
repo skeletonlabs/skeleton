@@ -15,5 +15,6 @@ vite.config.ts.timestamp-**.mjs
 /packages/*
 !/packages/create-skeleton-app
 !/packages/skeleton
+!/packages/plugin
 /sites/*
 !/sites/skeleton.dev

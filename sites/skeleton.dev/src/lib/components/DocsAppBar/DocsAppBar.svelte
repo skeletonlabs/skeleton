@@ -14,8 +14,8 @@
 	import { AppBar, LightSwitch, popup, modalStore } from '@skeletonlabs/skeleton';
 
 	// Stores
-	import { storeTheme } from '$lib/stores/stores';
 	import { drawerStore } from '@skeletonlabs/skeleton';
+	import { storeTheme } from '$lib/stores/stores';
 
 	// Local
 	let isOsMac = false;
@@ -66,14 +66,13 @@
 		// { type: 'test', name: 'Test', icon: '🚧' },
 	];
 
-	const setTheme: SubmitFunction = () => {
-		return async ({ result, update }) => {
-			await update();
-			if (result.type === 'success') {
-				const theme = result.data?.theme as string;
-				storeTheme.set(theme);
-			}
-		};
+	const setTheme: SubmitFunction = ({ formData }) => {
+		const theme = formData.get('theme')?.toString();
+
+		if (theme) {
+			document.body.setAttribute('data-theme', theme);
+			$storeTheme = theme;
+		}
 	};
 </script>
 
@@ -151,7 +150,7 @@
 		<!-- Theme -->
 		<div>
 			<!-- trigger -->
-			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme' }}>
+			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme', closeQuery: 'a[href]' }}>
 				<i class="fa-solid fa-palette text-lg md:!hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<i class="fa-solid fa-caret-down opacity-50" />

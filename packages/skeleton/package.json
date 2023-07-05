@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"package": "node ./scripts/pre-build.js && pnpm build:jss && svelte-kit sync && svelte-package && node ./scripts/post-build.js",
+		"package": "node ./scripts/pre-build.js && svelte-kit sync && svelte-package && node ./scripts/post-build.js",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -14,8 +14,7 @@
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"sync": "svelte-kit sync && pnpm build:jss",
-		"build:jss": "node ./scripts/generate-jss.js --package"
+		"sync": "svelte-kit sync"
 	},
 	"repository": {
 		"type": "git",
@@ -82,21 +81,12 @@
 				"types": "./dist/index.d.ts",
 				"svelte": "./dist/index.js",
 				"default": "./dist/index.js"
-			},
-			"./styles/*": "./dist/styles/*",
-			"./themes/*": "./dist/themes/*",
-			"./tailwind/skeleton.cjs": {
-				"types": "./dist/tailwind/skeleton.cts",
-				"default": "./dist/tailwind/skeleton.cjs"
 			}
 		},
 		"typesVersions": {
 			">4.0": {
 				"index.d.ts": [
 					"./dist/index.d.ts"
-				],
-				"tailwind/skeleton.cjs": [
-					"./dist/tailwind/skeleton.d.cts"
 				]
 			}
 		}
@@ -116,9 +106,6 @@
 		"./dist/**/*.d.ts",
 		"./dist/**/*.cjs",
 		"./dist/**/*.d.cts",
-		"./dist/styles/*",
-		"./dist/tailwind/*",
-		"./dist/themes/*",
 		"!./dist/**/*.test.*"
 	]
 }
