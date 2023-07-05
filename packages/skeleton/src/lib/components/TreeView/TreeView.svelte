@@ -20,17 +20,19 @@
 	/** Provide classes to set the tree item rounded styles. */
 	export let rounded: CssClasses = 'rounded-container-token';
 
-	// Props (caret)
+	// Props (symbols)
 	/** Set the rotation of the item caret in the open state. */
 	export let caretOpen: CssClasses = 'rotate-180';
 	/** Set the rotation of the item caret in the closed state. */
 	export let caretClosed: CssClasses = '';
+	/* Set the hyphen symbol opacity for non-expandable rows. */
+	export let hyphenOpacity: CssClasses = 'opacity-10';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the tree item summary region. */
 	export let regionSummary: CssClasses = '';
-	/** Provide arbitrary classes to the caret icon region. */
-	export let regionCaret: CssClasses = '';
+	/** Provide arbitrary classes to the symbol icon region. */
+	export let regionSymbol: CssClasses = '';
 	/** Provide arbitrary classes to the children region. */
 	export let regionChildren: CssClasses = '';
 
@@ -45,8 +47,9 @@
 	setContext('rounded', rounded);
 	setContext('caretOpen', caretOpen);
 	setContext('caretClosed', caretClosed);
+	setContext('hyphenOpacity', hyphenOpacity);
 	setContext('regionSummary', regionSummary);
-	setContext('regionCaret', regionCaret);
+	setContext('regionSymbol', regionSymbol);
 	setContext('regionChildren', regionChildren);
 
 	// Reactive
