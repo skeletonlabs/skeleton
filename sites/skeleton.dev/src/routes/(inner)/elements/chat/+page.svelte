@@ -145,7 +145,7 @@
 					<div class="p-4 space-y-4 overflow-y-auto">
 						<small class="opacity-50">Contacts</small>
 						<ListBox active="variant-filled-primary">
-							{#each people as person, i}
+							{#each people as person}
 								<ListBoxItem bind:group={currentPerson} name="people" value={person}>
 									<svelte:fragment slot="lead">
 										<Avatar src="https://i.pravatar.cc/?img={person.avatar}" width="w-8" />
@@ -162,7 +162,7 @@
 				<div class="grid grid-row-[1fr_auto]">
 					<!-- Conversation -->
 					<section bind:this={elemChat} class="max-h-[500px] p-4 overflow-y-auto space-y-4">
-						{#each messageFeed as bubble, i}
+						{#each messageFeed as bubble}
 							{#if bubble.host === true}
 								<div class="grid grid-cols-[auto_1fr] gap-2">
 									<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" width="w-12" />
@@ -330,7 +330,7 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<section class="w-full max-h-[400px] p-4 overflow-y-auto space-y-4">
-						{#each messageFeed.slice(0, 2) as bubble, i}
+						{#each messageFeed.slice(0, 2) as bubble}
 							{#if bubble.host === true}
 								<pre class="pre">host: {JSON.stringify(bubble, null, 2)}</pre>
 							{:else}
@@ -400,7 +400,7 @@ let messageFeed = [
 				<svelte:fragment slot="preview">
 					<!-- Conversation -->
 					<section class="max-h-[500px] p-4 overflow-y-auto space-y-4">
-						{#each messageFeed.slice(0, 2) as bubble, i}
+						{#each messageFeed.slice(0, 2) as bubble}
 							{#if bubble.host === true}
 								<div class="grid grid-cols-[auto_1fr] gap-2">
 									<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" width="w-12" />

@@ -1,11 +1,14 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte/internal';
+	import { createEventDispatcher } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type SlideToggleEvent = {
+		keyup: SvelteEvent<KeyboardEvent, HTMLDivElement>;
+	};
+	const dispatch = createEventDispatcher<SlideToggleEvent>();
 
 	// Props
 	/**
@@ -21,7 +24,9 @@
 	 * @type {'sm' | 'md' | 'lg'}
 	 */
 	export let size = 'md';
-	/** Provide classes to set the checked state color. */
+	/** Provide classes to set the inactive state background color. */
+	export let background: CssClasses = 'bg-surface-400 dark:bg-surface-700';
+	/** Provide classes to set the active state background color. */
 	export let active: CssClasses = 'bg-surface-900 dark:bg-surface-300';
 	/** Provide classes to set the border styles. */
 	export let border: CssClasses = '';
@@ -48,18 +53,19 @@
 	}
 
 	// A11y Input Handlers
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, HTMLDivElement>) {
 		// Enter/Space to toggle element
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
 			/** @event {{ event }} keyup Fires when the component is focused and key is pressed. */
 			dispatch('keyup', event);
-			event.target.firstChild.click();
+			const inputElem = event.currentTarget.firstChild as HTMLLabelElement;
+			inputElem.click();
 		}
 	}
 
 	// Interactive
-	$: cTrackActive = checked ? active : 'bg-surface-400 dark:bg-surface-700 cursor-pointer';
+	$: cTrackActive = checked ? active : `${background} cursor-pointer`;
 	$: cThumbBackground = checked ? 'bg-white/75' : 'bg-white';
 	$: cThumbPos = checked ? 'translate-x-full' : '';
 
@@ -71,7 +77,7 @@
 	$: classesThumb = `${cThumb} ${rounded} ${cThumbBackground} ${cThumbPos}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}

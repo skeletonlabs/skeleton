@@ -3,6 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import { variants } from '$lib/components/DocsPreview/options';
+	import { getImageLink } from '$lib/images';
 	// Components
 	import { Avatar, CodeBlock } from '@skeletonlabs/skeleton';
 
@@ -42,7 +43,7 @@
 					<!-- Detailed -->
 					<a class="card {currentVariant} card-hover overflow-hidden" href="/elements/cards">
 						<header>
-							<img src="https://source.unsplash.com/vjUokUWbFOs/400x175" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
+							<img src={getImageLink({ id: 'vjUokUWbFOs', w: 400, h: 175 })} class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 						</header>
 						<div class="p-4 space-y-4">
 							<h6 class="h6">Announcements</h6>
@@ -58,7 +59,7 @@
 						</div>
 						<hr class="opacity-50" />
 						<footer class="p-4 flex justify-start items-center space-x-4">
-							<Avatar src="https://source.unsplash.com/YOErFW8AfkI/32x32" width="w-8" />
+							<Avatar src={getImageLink({ id: 'YOErFW8AfkI', w: 32, h: 32 })} width="w-8" />
 							<div class="flex-auto flex justify-between items-center">
 								<h6 class="font-bold">By Alex</h6>
 								<small>On {new Date().toLocaleDateString()}</small>

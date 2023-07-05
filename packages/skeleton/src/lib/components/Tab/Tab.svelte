@@ -7,7 +7,7 @@
 	import { getContext } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Props
 	/**
@@ -25,6 +25,8 @@
 	 * @type {any}
 	 * */
 	export let value: any;
+	/** Provide a hoverable title attribute for the tab. */
+	export let title = '';
 
 	// Props (a11y)
 	/** Set the ARIA controls value to define which panel this tab controls. */
@@ -56,7 +58,7 @@
 	let elemInput: HTMLElement;
 
 	// A11y Key Down Handler
-	function onKeyDown(event: KeyboardEvent): void {
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, HTMLDivElement>): void {
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
 			elemInput.click();
@@ -103,13 +105,13 @@
 	$: classesTab = `${regionTab}`;
 
 	// RestProps
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}
 </script>
 
-<label class={classesBase}>
+<label class={classesBase} {title}>
 	<!-- A11y attributes are not allowed on <label> -->
 	<div
 		class="tab {classesTab}"

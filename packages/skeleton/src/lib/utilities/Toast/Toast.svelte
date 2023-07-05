@@ -76,6 +76,20 @@
 		toastStore.close($toastStore[index].id);
 	}
 
+	function onMouseEnter(index: number): void {
+		if ($toastStore[index]?.hoverable) {
+			toastStore.freeze(index);
+			classesSnackbar += ' scale-[105%]';
+		}
+	}
+
+	function onMouseLeave(index: number): void {
+		if ($toastStore[index]?.hoverable) {
+			toastStore.unfreeze(index);
+			classesSnackbar = classesSnackbar.replace(' scale-[105%]', '');
+		}
+	}
+
 	// Reactive
 	$: classesWrapper = `${cWrapper} ${cPosition} ${zIndex} ${$$props.class || ''}`;
 	$: classesSnackbar = `${cSnackbar} ${cAlign} ${padding}`;
@@ -109,19 +123,26 @@
 		<!-- List -->
 		<div class="snackbar {classesSnackbar}">
 			{#each filteredToasts as t, i (t)}
-				<div animate:flip={{ duration }} in:receive={{ key: t.id }} out:send={{ key: t.id }}>
+				<div
+					animate:flip={{ duration }}
+					in:receive|global={{ key: t.id }}
+					out:send|global={{ key: t.id }}
+					on:mouseenter={() => onMouseEnter(i)}
+					on:mouseleave={() => onMouseLeave(i)}
+					role={t.hideDismiss ? 'alert' : 'alertdialog'}
+					aria-live="polite"
+				>
 					<!-- Toast -->
-					<div
-						class="toast {classesToast} {t.background ?? background} {t.classes ?? ''}"
-						role="alert"
-						aria-live="polite"
-						data-testid="toast"
-					>
+					<div class="toast {classesToast} {t.background ?? background} {t.classes ?? ''}" data-testid="toast">
 						<div class="text-base">{@html t.message}</div>
-						<div class="toast-actions {cToastActions}">
-							{#if t.action}<button class={buttonAction} on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
-							<button class={buttonDismiss} on:click={() => toastStore.close(t.id)}>{buttonDismissLabel}</button>
-						</div>
+						{#if t.action || !t.hideDismiss}
+							<div class="toast-actions {cToastActions}">
+								{#if t.action}<button class={buttonAction} on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
+								{#if !t.hideDismiss}<button class={buttonDismiss} aria-label="Dismiss toast" on:click={() => toastStore.close(t.id)}
+										>{buttonDismissLabel}</button
+									>{/if}
+							</div>
+						{/if}
 					</div>
 				</div>
 			{/each}

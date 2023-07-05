@@ -63,7 +63,7 @@
 	$: classesInput = `${cBaseInput} ${accent}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}

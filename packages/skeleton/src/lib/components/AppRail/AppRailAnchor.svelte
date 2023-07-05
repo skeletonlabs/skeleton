@@ -38,7 +38,7 @@
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 
 	// RestProps
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}
@@ -52,6 +52,10 @@
 	on:keydown
 	on:keyup
 	on:keypress
+	on:mouseover
+	on:mouseleave
+	on:focus
+	on:blur
 	data-testid="app-rail-anchor"
 >
 	<div class="app-rail-wrapper {classesWrapper}">

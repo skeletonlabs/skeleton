@@ -3,11 +3,15 @@
 	import { createEventDispatcher } from 'svelte';
 	import { BROWSER } from 'esm-env';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type DrawerEvent = {
+		backdrop: MouseEvent;
+		drawer: MouseEvent;
+	};
+	const dispatch = createEventDispatcher<DrawerEvent>();
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Actions
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
@@ -28,7 +32,7 @@
 	/** Backdrop - Provide classes to set the backdrop background color */
 	export let bgBackdrop: CssClasses = 'bg-surface-backdrop-token';
 	/** Backdrop - Provide classes to set the blur style. */
-	export let blur: CssClasses = 'backdrop-blur-xs';
+	export let blur: CssClasses = '';
 	/** Backdrop - Provide classes to set padding. */
 	export let padding: CssClasses = '';
 
@@ -127,12 +131,17 @@
 	}
 
 	// Input Handlers
-	function onBackdropInteraction(event: any): void {
-		if (event.target === elemBackdrop) drawerStore.close();
-		/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
-		dispatch('backdrop', event);
+	function onDrawerInteraction(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
+		if (event.target === elemBackdrop) {
+			drawerStore.close();
+			/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
+			dispatch('backdrop', event);
+		} else {
+			/** @event {{ event }} drawer - Fires on drawer interaction. */
+			dispatch('drawer', event);
+		}
 	}
-	function onKeydownWindow(event: any): void {
+	function onKeydownWindow(event: SvelteEvent<KeyboardEvent, Window>): void {
 		if (!$drawerStore) return;
 		if (event.code === 'Escape') drawerStore.close();
 	}
@@ -160,17 +169,21 @@
 
 {#if $drawerStore.open === true}
 	<!-- Backdrop -->
+	<!-- TODO: Remove for V2 -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		bind:this={elemBackdrop}
 		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
-		on:mousedown={onBackdropInteraction}
-		on:touchstart={onBackdropInteraction}
+		on:mousedown={onDrawerInteraction}
+		on:touchstart
+		on:touchend
 		on:keypress
 		transition:fade|local={{ duration }}
 		use:focusTrap={true}
 	>
 		<!-- Drawer -->
+		<!-- separate In/Out so anim values update -->
 		<div
 			bind:this={elemDrawer}
 			class="drawer {classesDrawer}"
@@ -179,7 +192,8 @@
 			aria-modal="true"
 			aria-labelledby={labelledby}
 			aria-describedby={describedby}
-			transition:fly|local={{ x: anim.x, y: anim.y, duration }}
+			in:fly|local={{ x: anim.x, y: anim.y, duration }}
+			out:fly|local={{ x: anim.x, y: anim.y, duration }}
 		>
 			<!-- Slot: Default -->
 			<slot />

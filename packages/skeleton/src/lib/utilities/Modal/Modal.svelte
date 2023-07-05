@@ -2,11 +2,14 @@
 	import { createEventDispatcher } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type ModalEvent = {
+		backdrop: MouseEvent;
+	};
+	const dispatch = createEventDispatcher<ModalEvent>();
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	import { modalStore } from './stores.js';
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
@@ -84,6 +87,7 @@
 		buttonTextSubmit
 	};
 	let currentComponent: ModalComponent | undefined;
+	let registeredInteractionWithBackdrop = false;
 
 	// Modal Store Subscription
 	modalStore.subscribe((modals: ModalSettings[]) => {
@@ -99,17 +103,24 @@
 	});
 
 	// Event Handlers ---
-
-	function onBackdropInteraction(event: MouseEvent | TouchEvent): void {
+	function onBackdropInteractionBegin(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
 		if (!(event.target instanceof Element)) return;
 		const classList = event.target.classList;
 		if (classList.contains('modal-backdrop') || classList.contains('modal-transition')) {
+			registeredInteractionWithBackdrop = true;
+		}
+	}
+	function onBackdropInteractionEnd(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
+		if (!(event.target instanceof Element)) return;
+		const classList = event.target.classList;
+		if ((classList.contains('modal-backdrop') || classList.contains('modal-transition')) && registeredInteractionWithBackdrop) {
 			// We return `undefined` to differentiate from the cancel button
 			if ($modalStore[0].response) $modalStore[0].response(undefined);
 			modalStore.close();
 			/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
 			dispatch('backdrop', event);
 		}
+		registeredInteractionWithBackdrop = false;
 	}
 
 	function onClose(): void {
@@ -122,7 +133,7 @@
 		modalStore.close();
 	}
 
-	function onPromptSubmit(event: SubmitEvent): void {
+	function onPromptSubmit(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
 		event.preventDefault();
 		if ($modalStore[0].response) $modalStore[0].response(promptValue);
 		modalStore.close();
@@ -130,7 +141,7 @@
 
 	// A11y ---
 
-	function onKeyDown(event: KeyboardEvent): void {
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, Window>): void {
 		if (!$modalStore.length) return;
 		if (event.code === 'Escape') onClose();
 	}
@@ -183,16 +194,20 @@
 {#if $modalStore.length > 0}
 	{#key $modalStore}
 		<!-- Backdrop -->
+		<!-- TODO: Remove for V2 -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
 			class="modal-backdrop {classesBackdrop}"
 			data-testid="modal-backdrop"
-			on:mousedown={onBackdropInteraction}
-			on:touchstart={onBackdropInteraction}
-			transition:fade={{ duration }}
+			on:mousedown={onBackdropInteractionBegin}
+			on:mouseup={onBackdropInteractionEnd}
+			on:touchstart
+			on:touchend
+			transition:fade|global={{ duration }}
 			use:focusTrap={true}
 		>
 			<!-- Transition Layer -->
-			<div class="modal-transition {classesTransitionLayer}" transition:fly={{ duration, opacity: flyOpacity, x: flyX, y: flyY }}>
+			<div class="modal-transition {classesTransitionLayer}" transition:fly|global={{ duration, opacity: flyOpacity, x: flyX, y: flyY }}>
 				{#if $modalStore[0].type !== 'component'}
 					<!-- Modal: Presets -->
 					<div
@@ -201,7 +216,7 @@
 						role="dialog"
 						aria-modal="true"
 						aria-label={$modalStore[0].title ?? ''}
-						transition:fly={{ duration, opacity: 0, y: 100 }}
+						transition:fly|global={{ duration, opacity: 0, y: 100 }}
 					>
 						<!-- Header -->
 						{#if $modalStore[0]?.title}

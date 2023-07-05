@@ -50,7 +50,7 @@
 	</header>
 	<!-- Results -->
 	{#if results.length > 0}
-		<nav class="list-nav {cResults}">
+		<nav class="list-nav {cResults}" tabindex="-1">
 			{#each results as category}
 				<div class="text-sm font-bold p-4">{category.title}</div>
 				<ul>

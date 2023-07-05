@@ -19,6 +19,9 @@
 		components: [{ sveld: sveldToast }]
 	};
 
+	// Local
+	let toastId = '';
+
 	// Triggers Toasts ---
 
 	function toastDemo(): void {
@@ -72,6 +75,36 @@
 			timeout: 10000
 		};
 		toastStore.trigger(t);
+	}
+
+	function toastHiddenDismiss(): void {
+		const t: ToastSettings = {
+			message: 'The dismiss button is hidden.',
+			hideDismiss: true,
+			timeout: 10000
+		};
+		toastStore.trigger(t);
+	}
+
+	function toastRemainVisibleOnHover(): void {
+		const t: ToastSettings = {
+			message: 'remain visible on hover.',
+			timeout: 5000,
+			hoverable: true
+		};
+		toastStore.trigger(t);
+	}
+
+	function toastCloseProgrammatically(): void {
+		const t: ToastSettings = {
+			message: 'Programmatically closable toast',
+			autohide: false
+		};
+		toastId = toastStore.trigger(t);
+	}
+
+	function closeToast(): void {
+		toastStore.close(toastId);
 	}
 
 	function toastBackground(background: string): void {
@@ -173,7 +206,9 @@ toastStore.trigger(t);
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-			<!-- Fixed -->
+			<h3 class="h3">Timing</h3>
+			<p>Use the following setting to adjust the toast timing.</p>
+			<!-- No Timeout -->
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex gap-4">
@@ -213,10 +248,86 @@ toastStore.trigger(t);
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+			<h3 class="h3">Dismiss</h3>
+			<p>
+				Use the <code class="code">hideDismiss</code> option to disable the dismiss button. When using this setting
+				<code class="code">autohide</code> option enabled by default.
+			</p>
+			<!-- Hidden dismiss -->
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex gap-4">
+						<button class="btn variant-filled" on:click={toastHiddenDismiss}>Hide Dismiss</button>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const t: ToastSettings = {
+	message: 'The dismiss button is hidden.',
+	hideDismiss: true,
+	timeout: 10000
+};
+toastStore.trigger(t);
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+			<h3 class="h3">Hover State</h3>
+			<p>Use the <code class="code">hoverable</code> option to keep the toast visible while hovering with a mouse cursor.</p>
+			<!-- remain visible on hover -->
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex gap-4">
+						<button class="btn variant-filled" on:click={toastRemainVisibleOnHover}>Visible on Hover</button>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const t: ToastSettings = {
+	message: 'remain visible on hover.',
+	timeout: 5000,
+	hoverable: true
+};
+toastStore.trigger(t);
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 			<!-- Clear -->
 			<h3 class="h3">Clear</h3>
 			<p>Use <code class="code">toastStore.clear()</code> to clear the entire toast store queue.</p>
 			<CodeBlock language="ts" code={`toastStore.clear();`} />
+		</section>
+		<!-- Programmatic -->
+		<section class="space-y-4">
+			<h2 class="h2">Programmatic</h2>
+			<p>Create a reference for your toast so that you may programmatically close it on demand.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex gap-4">
+						<button class="btn variant-filled" on:click={toastCloseProgrammatically}>Show</button>
+						<button class="btn variant-filled-error" on:click={closeToast}>Close</button>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const t: ToastSettings = {
+	message: 'Programmatically closable toast',
+};
+toastId = toastStore.trigger(t);
+
+// close toast
+toastStore.close(toastId);
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<!-- Styling -->
 		<section class="space-y-4">

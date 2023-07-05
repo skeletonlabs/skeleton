@@ -138,7 +138,9 @@
 	<div class="toc {classesBase}" transition:fade|local={{ duration: 100 }}>
 		<nav class="toc-list {classesList}">
 			<div class="toc-label {classesLabel}">{label}</div>
-			{#each filteredHeadingsList as headingElem, i}
+			{#each filteredHeadingsList as headingElem}
+				<!-- TODO: Remove for V2 -->
+				<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 				<!-- prettier-ignore -->
 				<li
 					class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {headingElem.id === activeHeaderId ? active : ''}"

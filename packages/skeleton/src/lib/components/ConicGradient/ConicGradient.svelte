@@ -20,6 +20,8 @@
 	export let width: CssClasses = 'w-24';
 	/** Style the legend hover effect. */
 	export let hover: CssClasses = 'bg-primary-hover-token';
+	/** Set the number of digits on the legend values. */
+	export let digits = 0;
 
 	// Props (regions)
 	/** Style the caption region above the gradient. */
@@ -62,7 +64,7 @@
 			return {
 				label: v.label,
 				color: setColorValue(v.color),
-				value: v.end - v.start
+				value: (v.end - v.start).toFixed(digits)
 			};
 		});
 	}
@@ -93,6 +95,8 @@
 	{#if legend && generatedLegendList}
 		<ul class="conic-list list {classesLegend}">
 			{#each generatedLegendList as { color, label, value }}
+				<!-- TODO: Remove for V2 -->
+				<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 				<li class="conic-item {hover}" on:click on:keydown on:keyup on:keypress>
 					<span class="conic-swatch {cSwatch}" style:background={color} />
 					<span class="conic-label flex-auto">{label}</span>

@@ -103,7 +103,7 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<RadioGroup rounded="rounded-container-token" display="flex-col">
-						{#each timeNames as name, i}
+						{#each timeNames as name}
 							<RadioItem bind:group={timeVertical} label={name} {name} value={name}>{name}</RadioItem>
 						{/each}
 					</RadioGroup>

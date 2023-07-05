@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { getImageLink } from '$lib/images';
 	import { TabGroup, Tab, ProgressBar } from '@skeletonlabs/skeleton';
 
 	// Local
@@ -7,7 +8,7 @@
 		simple: {
 			base: 'variant-soft-primary font-sans rounded-container-token',
 			header: 'bg-primary-500 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-container-token rounded-tr-container-token',
-			src: 'https://source.unsplash.com/3vj6GJ_lTa8/200x200',
+			src: getImageLink({ id: '3vj6GJ_lTa8', w: 200, h: 200 }),
 			img: 'bg-black w-full aspect-square rounded-full',
 			text1: 'text-on-primary-token text-lg opacity-75',
 			text2: 'text-on-primary-token font-bold text-xl sm:text-3xl',
@@ -20,7 +21,7 @@
 		elegant: {
 			base: 'bg-white text-black font-serif shadow',
 			header: 'bg-neutral-100 p-4 grid grid-cols-3 gap-8 items-center',
-			src: 'https://source.unsplash.com/C5NOq1BKlAk/200x200',
+			src: getImageLink({ id: 'C5NOq1BKlAk', w: 200, h: 200 }),
 			img: 'bg-black bg-black/50 w-full aspect-square scale-110 transition-transform',
 			text1: 'text-lg opacity-50',
 			text2: 'text-xl sm:text-3xl',
@@ -33,7 +34,7 @@
 		playful: {
 			base: 'bg-blue-700 text-white font-sans rounded-3xl shadow-xl',
 			header: 'bg-blue-800 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-3xl rounded-tr-3xl',
-			src: 'https://source.unsplash.com/wzj86-5JVcM/200x200',
+			src: getImageLink({ id: 'wzj86-5JVcM', w: 200, h: 200 }),
 			img: 'bg-black w-full aspect-square rounded-3xl scale-110 -translate-x-4 -translate-y-4 transition-transform',
 			text1: 'text-lg text-amber-300',
 			text2: 'font-bold text-xl sm:text-3xl',
@@ -46,7 +47,7 @@
 		brutalist: {
 			base: 'bg-black text-white font-mono overflow-hidden',
 			header: 'bg-white text-black p-4 grid grid-cols-3 gap-8 items-center',
-			src: 'https://source.unsplash.com/hTv8aaPziOQ/200x200',
+			src: getImageLink({ id: 'hTv8aaPziOQ', w: 200, h: 200 }),
 			img: 'bg-black w-full aspect-square transition-transform border-r-4 border-b-4 border-teal-300',
 			text1: 'text-lg text-teal-300',
 			text2: 'font-bold text-xl sm:text-3xl',

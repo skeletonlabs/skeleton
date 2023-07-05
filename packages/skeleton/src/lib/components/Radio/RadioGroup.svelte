@@ -12,7 +12,7 @@
 	/** Provide classes to set the border styles. */
 	export let border: CssClasses = 'border-token border-surface-400-500-token';
 	/** Provide classes horizontal spacing between items. */
-	export let spacing: CssClasses = 'space-x-1';
+	export let spacing: CssClasses = '';
 	/** Provide classes to set the border radius. */
 	export let rounded: CssClasses = 'rounded-token';
 
@@ -44,6 +44,8 @@
 	const cBase = 'p-1';
 
 	// Reactive
+	// display space-x only on row flex as it is not needed on column flex.
+	$: spacing = `${display.includes('flex-col') ? '' : 'space-x-1'}`;
 	$: classesBase = `${cBase} ${display} ${background} ${border} ${spacing} ${rounded} ${$$props.class ?? ''}`;
 </script>
 
