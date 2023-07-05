@@ -86,9 +86,9 @@
 		placement: 'top',
 		state: (e: Record<string, boolean>) => console.log(e)
 	};
-	const popupMiddlware: PopupSettings = {
+	const popupMiddleware: PopupSettings = {
 		event: 'click',
-		target: 'popupMiddlware',
+		target: 'popupMiddleware',
 		placement: 'top',
 		middleware: {
 			offset: 24
@@ -169,7 +169,7 @@ const popupFeatured: PopupSettings = {
 				/>
 				<p>
 					Note the <code class="code">.arrow</code> element is optional, but will create and position an arrow automatically when available.
-					Just make sure the background color amtches your popup element's background color!
+					Just make sure the background color matches your popup element's background color!
 				</p>
 			</svelte:fragment>
 		</DocsPreview>
@@ -483,8 +483,8 @@ const popupState: PopupSettings = {
 			</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
-					<button class="btn variant-filled" use:popup={popupMiddlware}>Show Popup</button>
-					<div class="card p-4" data-popup="popupMiddlware">
+					<button class="btn variant-filled" use:popup={popupMiddleware}>Show Popup</button>
+					<div class="card p-4" data-popup="popupMiddleware">
 						<p>This popup has an offset of 24 px.</p>
 						<div class="arrow bg-surface-100-800-token" />
 					</div>
@@ -493,7 +493,7 @@ const popupState: PopupSettings = {
 					<CodeBlock
 						language="ts"
 						code={`
-	let popupMiddlware: PopupSettings = {
+	let popupMiddleware: PopupSettings = {
 	// ...
 	middleware: {
 		// https://floating-ui.com/docs/offset
@@ -504,7 +504,7 @@ const popupState: PopupSettings = {
 		// flip: { ... },\n
 		// https://floating-ui.com/docs/arrow
 		// arrow: { ... },\n
-		// Optional Middlware ---\n
+		// Optional Middleware ---\n
 		// https://floating-ui.com/docs/size
 		// size: { ... },\n
 		// https://floating-ui.com/docs/autoPlacement
@@ -534,7 +534,7 @@ const popupState: PopupSettings = {
 		<section class="space-y-4">
 			<h2 class="h2">Combobox</h2>
 			<p>
-				The goal of Skeleton is to combine primative elements and components to build more complex UI. For example, by combining a Button,
+				The goal of Skeleton is to combine primitive elements and components to build more complex UI. For example, by combining a Button,
 				Popup, and ListBox you can create a highly customizable combobox.
 			</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
