@@ -3,10 +3,6 @@
 @layer base {
 	/* === States === */
 
-	button:disabled {
-		@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
-	}
-
 	/* File Input Button */
 	input[type='file']:not(.file-dropzone-input)::file-selector-button {
 		@apply border-0 btn variant-filled btn-sm mr-2;
