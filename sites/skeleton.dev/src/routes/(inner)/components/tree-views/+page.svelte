@@ -43,10 +43,10 @@
 									<p>Child 1</p>
 									<svelte:fragment slot="children">
 										<TreeViewItem>
-											<p>child of child 1</p>
+											<p>Child of Child 1</p>
 										</TreeViewItem>
 										<TreeViewItem>
-											<p>child of child 2</p>
+											<p>Child of Child 2</p>
 										</TreeViewItem>
 									</svelte:fragment>
 								</TreeViewItem>
@@ -59,7 +59,7 @@
 							<p>Item 2</p>
 							<svelte:fragment slot="children">
 								<TreeViewItem>
-									<p>child</p>
+									<p>Child</p>
 								</TreeViewItem>
 							</svelte:fragment>
 						</TreeViewItem>
@@ -75,18 +75,18 @@
 		(item 1)
 		<svelte:fragment slot="children">
 			<TreeViewItem>
-				(child 1)
+				(Child 1)
 				<svelte:fragment slot="children">
 					<TreeViewItem>
-						(child of child 1)
+						(Child of Child 1)
 					</TreeViewItem>
 					<TreeViewItem>
-						(child of child 2)
+						(Child of Child 2)
 					</TreeViewItem>
 				</svelte:fragment>
 			</TreeViewItem>
 			<TreeViewItem>
-				(child 2)
+				(Child 2)
 			</TreeViewItem>
 		</svelte:fragment>
 	</TreeViewItem>
@@ -99,8 +99,10 @@
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
+
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<!-- Icons -->
 		<section class="space-y-4">
 			<h2 class="h2">Icons</h2>
 			<DocsPreview background="neutral">
@@ -116,13 +118,13 @@
 									<svelte:fragment slot="lead">
 										<i class="fa-solid fa-skull-crossbones" />
 									</svelte:fragment>
-									<p>child 1</p>
+									<p>Child 1</p>
 								</TreeViewItem>
 								<TreeViewItem>
 									<svelte:fragment slot="lead">
 										<i class="fa-solid fa-skull-crossbones" />
 									</svelte:fragment>
-									<p>child 2</p>
+									<p>Child 2</p>
 								</TreeViewItem>
 							</svelte:fragment>
 						</TreeViewItem>
