@@ -28,7 +28,7 @@
 
 	// Classes
 	const cBase = 'unstyled';
-	const cWrapper = 'flex flex-col justify-center items-stretch  aspect-square text-center space-y-1';
+	const cWrapper = 'flex flex-col justify-center items-stretch text-center space-y-1';
 	const cLabel = 'font-bold text-xs';
 
 	// State
