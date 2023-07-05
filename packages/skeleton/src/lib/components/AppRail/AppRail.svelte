@@ -31,17 +31,21 @@
 	export let regionTrail: CssClasses = '';
 
 	// Props (tiles/anchors)
-	/** Tile: Provide classes to set the tile hover background color. */
+	/** Provide classes to set the tile/anchor hover background color. */
 	export let hover: CssClasses = 'bg-primary-hover-token';
-	/** Tile: Provide classes to set the tile active tile background. */
+	/** Provide classes to set the tile/anchor active tile background. */
 	export let active: CssClasses = 'bg-primary-active-token';
-	/** Tile: Provide classes to set the tile vertical spacing. */
+	/** Provide classes to set the tile/anchor vertical spacing. */
 	export let spacing: CssClasses = 'space-y-1';
+	/** Provide classes to set the tile/anchor aspect ratio. */
+	export let aspectRatio: CssClasses = 'aspect-square';
 
 	// Context
 	setContext('active', active);
 	setContext('hover', hover);
 	setContext('spacing', spacing);
+	setContext('width', width);
+	setContext('aspectRatio', aspectRatio);
 
 	// Base Classes
 	const cBase = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';

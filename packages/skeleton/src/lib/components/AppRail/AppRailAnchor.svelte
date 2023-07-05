@@ -23,17 +23,19 @@
 	export let hover: CssClasses = getContext('hover');
 	export let active: CssClasses = getContext('active');
 	export let spacing: CssClasses = getContext('spacing');
+	export let width: CssClasses = getContext('width');
+	export let aspectRatio: CssClasses = getContext('aspectRatio');
 
 	// Classes
 	const cBase = 'unstyled';
-	const cWrapper = 'w-full aspect-square flex flex-col justify-center items-stretch text-center space-y-1';
+	const cWrapper = 'flex flex-col justify-center items-stretch  aspect-square text-center space-y-1';
 	const cLabel = 'font-bold text-xs';
 
 	// State
 	$: classActive = selected ? active : '';
 	// Reactive
 	$: classesBase = `${cBase}  ${$$props.class || ''}`;
-	$: classesWrapper = `${cWrapper} ${hover} ${spacing} ${classActive}`;
+	$: classesWrapper = `${cWrapper} ${width} ${aspectRatio} ${hover} ${spacing} ${classActive}`;
 	$: classesLead = `${regionLead}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 
