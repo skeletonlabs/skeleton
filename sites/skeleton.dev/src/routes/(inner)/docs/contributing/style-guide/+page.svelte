@@ -216,81 +216,92 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 	<section class="space-y-4">
 		<h2 class="h2">Dynamic Transitions</h2>
 		<p>
-			Skeleton utilizes dynamic transitions, enabling users to fully customize them. Please follow these <code class="code">guidelines</code
-			> when implementing transitions within components.
+			Skeleton has a convention for implement dynamic transitions within components. Please follow the guidelines below to ensure you are
+			following our standard for this process.
 		</p>
+		<blockquote class="blockquote">
+			TIP: You may reference existing components to view this in practice: <a
+				class="anchor"
+				href="https://github.com/skeletonlabs/skeleton/blob/master/packages/skeleton/src/lib/components/Accordion/Accordion.svelte"
+				target="_blank"
+			>
+				Accordion
+			</a>
+		</blockquote>
 		<!-- Implementation -->
 		<h3 class="h3">Implementation</h3>
 		<p>
-			Please review existing components for examples of this in practice. <a
-				class="anchor"
-				target="_blank"
-				href="https://github.com/skeletonlabs/skeleton/blob/master/packages/skeleton/src/lib/components/Autocomplete/Autocomplete.svelte"
-				>Autocomplete</a
-			>
-		</p>
-		<p>
-			Define the transition types in a <code class="code">context="module"</code> script, so you can use it as generic in the script attributes.
+			Define transition types in a <code class="code">context="module"</code> script tag so you can use it as generic for the standard script
+			tag attributes.
 		</p>
 		<CodeBlock
 			language="ts"
 			code={`
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type SlideTransition = typeof slide; // switch with your transition
-type TransitionIn = Transition;
-type TransitionOut = Transition;
+${'<'}script context="module"${'>'}
+	import { slide } from 'svelte/transition';
+	import {
+		type Transition,
+		type TransitionParams,
+		type CssClasses, prefersReducedMotionStore
+	} from '../../index.js';\n
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type SlideTransition = typeof slide; // switch with your transition
+	type TransitionIn = Transition;
+	type TransitionOut = Transition;
+${'<'}${'/script'}>
 		`}
 		/>
-		<p>Supply the generics in the <code class="code">script</code> attributes.</p>
+		<p>Supply the generics in the standard <code class="code">script</code> tag attributes.</p>
 		<CodeBlock
 			language="html"
-			code={`${'<'}script lang="ts" generics="TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition"${'>'}
+			code={`
+${'<'}script
+	lang="ts"
+	generics="TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition"
+${'>'}
 // ...
-${'<'}${'/script'}>`}
+${'<'}${'/script'}>
+	`}
 		/>
 		<p>Define the following properties:</p>
 		<ul class="list-disc list-outside ml-4 space-y-1">
 			<li>
-				<code class="code">transition</code>. *make sure to set it to <code class="code">!$prefersReducedMotionStore</code> to apply the
+				<code class="code">transition</code> - default to <code class="code">!$prefersReducedMotionStore</code> to adhere to the
 				<a class="anchor" href="/docs/transitions#reduced-motion" target="_blank">Reduced motion rules</a>.
 			</li>
 			<li>
-				<code class="code">transitionIn</code>.
+				<code class="code">transitionIn</code> - the transition on entry.
 			</li>
 			<li>
-				<code class="code">transitionInParams</code>.
+				<code class="code">transitionInParams</code> - the parameters for the entry transition.
 			</li>
 			<li>
-				<code class="code">transitionOut</code>.
+				<code class="code">transitionOut</code> - the transition on exit.
 			</li>
 			<li>
-				<code class="code">transitionOutParams</code>.
+				<code class="code">transitionOutParams</code> - the parameters for the entry transition.
 			</li>
 		</ul>
-		<p>Apply the transition as follows:</p>
-		<CodeBlock
-			language="ts"
-			code={`
-import { dynamicTransition } from '../../internal/transitions.js';
-		`}
-		/>
-		<CodeBlock
-			language="html"
-			code={`
-<SomeComponent
-	in:dynamicTransition={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
-	out:dynamicTransition={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
-/>
-		`}
-		/>
+		<h3 class="h3">Implementing Transitions</h3>
+		<p>
+			See the dedicated <a class="anchor" href="/docs/transitions">Transitions</a> page for examples of how to implement custom transitions for
+			a component.
+		</p>
 		<!-- Documentation -->
 		<h3 class="h3">Documentation</h3>
-		<p>
-			Please review existing docs for examples of this in practice. <a class="anchor" target="_blank" href="/components/autocomplete"
-				>Autocomplete</a
+		<blockquote class="blockquote">
+			TIP: Review existing component pages to view how this is presented in practice: <a
+				class="anchor"
+				href="/components/accordions"
+				target="_blank"
 			>
+				Accordions
+			</a>
+		</blockquote>
+		<p>
+			Add the <code class="code">transitionX</code> props to <code class="code">DocsShellSettings</code> to indicate that dynamic transitions
+			are available.
 		</p>
-		<p>Add the transitions props to <code class="code">DocsShellSettings</code></p>
 		<CodeBlock
 			language="ts"
 			code={`
@@ -301,7 +312,6 @@ const settings: DocsShellSettings = {
 };
 		`}
 		/>
-		<p>This will display the <code class="code">Transitions</code> badge on the docs page.</p>
 	</section>
 
 	<hr />
