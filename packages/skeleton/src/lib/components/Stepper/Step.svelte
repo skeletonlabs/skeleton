@@ -125,8 +125,8 @@
 		{#if $state.total > 1}
 			<div
 				class="step-navigation {classesNavigation}"
-				in:dynamicTransition={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
-				out:dynamicTransition={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+				in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+				out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 			>
 				{#if stepIndex === 0 && $$slots.navigation}
 					<!-- Slot: Navigation -->

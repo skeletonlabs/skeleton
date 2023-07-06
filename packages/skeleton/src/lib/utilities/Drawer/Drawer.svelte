@@ -187,12 +187,12 @@
 		on:touchstart
 		on:touchend
 		on:keypress
-		in:dynamicTransition={{
+		in:dynamicTransition|local={{
 			transition: fade,
 			params: { duration: 150 },
 			enabled: transitions && opacityTransition
 		}}
-		out:dynamicTransition={{
+		out:dynamicTransition|local={{
 			transition: fade,
 			params: { duration: 150 },
 			enabled: transitions && opacityTransition
@@ -209,12 +209,12 @@
 			aria-modal="true"
 			aria-labelledby={labelledby}
 			aria-describedby={describedby}
-			in:dynamicTransition={{
+			in:dynamicTransition|local={{
 				transition: fly,
 				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
 				enabled: transitions
 			}}
-			out:dynamicTransition={{
+			out:dynamicTransition|local={{
 				transition: fly,
 				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
 				enabled: transitions

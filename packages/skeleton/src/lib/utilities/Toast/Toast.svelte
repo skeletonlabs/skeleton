@@ -137,12 +137,12 @@
 			{#each filteredToasts as t, i (t)}
 				<div
 					animate:flip={{ duration: transitions ? 250 : 0 }}
-					in:dynamicTransition={{
+					in:dynamicTransition|local={{
 						transition: transitionIn,
 						params: { x: animAxis.x, y: animAxis.y, ...transitionInParams },
 						enabled: transitions
 					}}
-					out:dynamicTransition={{
+					out:dynamicTransition|local={{
 						transition: transitionOut,
 						params: { x: animAxis.x, y: animAxis.y, ...transitionOutParams },
 						enabled: transitions

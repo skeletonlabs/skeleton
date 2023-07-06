@@ -168,8 +168,8 @@
 		<div
 			class="accordion-panel {classesPanel}"
 			id="accordion-panel-{id}"
-			in:dynamicTransition={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
-			out:dynamicTransition={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+			in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+			out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 			role="region"
 			aria-hidden={!openState}
 			aria-labelledby="accordion-control-{id}"

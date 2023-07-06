@@ -160,8 +160,8 @@
 				{#each optionsFiltered.slice(0, sliceLimit) as option (option)}
 					<li
 						class="autocomplete-item {classesItem}"
-						in:dynamicTransition={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
-						out:dynamicTransition={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+						in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+						out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 					>
 						<button class="autocomplete-button {classesButton}" type="button" on:click={() => onSelection(option)} on:click on:keypress>
 							{@html option.label}
