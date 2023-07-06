@@ -136,7 +136,7 @@
 		<div class="snackbar {classesSnackbar}">
 			{#each filteredToasts as t, i (t)}
 				<div
-					animate:flip={{ duration: 250 }}
+					animate:flip={{ duration: transitions ? 250 : 0 }}
 					in:dynamicTransition={{
 						transition: transitionIn,
 						params: { x: animAxis.x, y: animAxis.y, ...transitionInParams },
