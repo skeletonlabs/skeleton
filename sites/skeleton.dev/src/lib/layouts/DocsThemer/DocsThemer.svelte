@@ -12,6 +12,7 @@
 
 	// Local Utils
 	import { storePreview } from './stores';
+	import { storeTheme } from '$lib/stores/stores';
 	import type { ColorSettings, FormTheme, ContrastReport } from './types';
 	import { inputSettings, fontSettings } from './settings';
 	import { type Palette, generatePalette, generateA11yOnColor, hexValueIsValid, getPassReport } from './colors';
@@ -71,7 +72,6 @@
 	function onPreviewToggle(): void {
 		if ($storePreview === false) {
 			localStorage.removeItem('storeThemGenForm');
-			location.reload(); // required
 		}
 	}
 

@@ -11,6 +11,9 @@ devDependencies:
   '@floating-ui/dom':
     specifier: ^1.2.9
     version: 1.2.9
+  '@skeletonlabs/tw-plugin':
+    specifier: workspace:*
+    version: link:../../packages/plugin
   '@skeletonlabs/skeleton':
     specifier: workspace:*
     version: link:../../packages/skeleton

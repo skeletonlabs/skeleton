@@ -71,6 +71,16 @@
 	 */
 	export let buttonTextLast: CssClasses = rightAngles;
 
+	// Props (A11y)
+	/** Provide the ARIA label for the First page button. */
+	export let labelFirst = 'First page';
+	/** Provide the ARIA label for the Previous page button. */
+	export let labelPrevious = 'Previous page';
+	/** Provide the ARIA label for the Next page button. */
+	export let labelNext = 'Next page';
+	/** Provide the ARIA label for the Last page button. */
+	export let labelLast = 'Last page';
+
 	// Base Classes
 	const cBase = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
 	const cLabel = 'w-full md:w-auto';
@@ -169,6 +179,7 @@
 		{#if showFirstLastButtons}
 			<button
 				type="button"
+				aria-label={labelFirst}
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(0);
@@ -182,6 +193,7 @@
 		{#if showPreviousNextButtons}
 			<button
 				type="button"
+				aria-label={labelPrevious}
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(settings.offset - 1);
@@ -211,6 +223,7 @@
 		{#if showPreviousNextButtons}
 			<button
 				type="button"
+				aria-label={labelNext}
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(settings.offset + 1);
@@ -224,6 +237,7 @@
 		{#if showFirstLastButtons}
 			<button
 				type="button"
+				aria-label={labelLast}
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(lastPage);
