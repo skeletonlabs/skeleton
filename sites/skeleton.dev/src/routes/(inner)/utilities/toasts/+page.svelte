@@ -16,7 +16,9 @@
 		imports: ['Toast', 'toastStore'],
 		types: ['ToastSettings'],
 		source: 'utilities/Toast',
-		components: [{ sveld: sveldToast }]
+		components: [{ sveld: sveldToast }],
+		transitionIn: 'fly',
+		transitionOut: 'fly'
 	};
 
 	// Local

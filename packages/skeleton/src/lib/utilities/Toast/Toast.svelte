@@ -1,10 +1,16 @@
-<script lang="ts">
-	import { crossfade } from 'svelte/transition';
-	import { cubicInOut } from 'svelte/easing';
-	import { flip } from 'svelte/animate';
+<script lang="ts" context="module">
+	import { fly } from 'svelte/transition';
+	import { type Transition, type TransitionParams, type CssClasses, prefersReducedMotionStore } from '../../index.js';
+	import { dynamicTransition } from '../../internal/transitions.js';
 
-	// Types
-	import type { CssClasses } from '../../index.js';
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type FlyTransition = typeof fly;
+	type TransitionIn = Transition;
+	type TransitionOut = Transition;
+</script>
+
+<script lang="ts" generics="TransitionIn extends Transition = FlyTransition, TransitionOut extends Transition = FlyTransition">
+	import { flip } from 'svelte/animate';
 
 	// Stores
 	import { toastStore } from './stores.js';
@@ -44,6 +50,33 @@
 	export let buttonDismiss: CssClasses = 'btn-icon btn-icon-sm variant-filled';
 	/** The button label text. */
 	export let buttonDismissLabel = '✕';
+
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition to used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = fly as TransitionIn;
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 250 };
+	/**
+	 * Provide the transition to used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = fly as TransitionOut;
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 250 };
 
 	// Base Classes
 	const cWrapper = 'flex fixed top-0 left-0 right-0 bottom-0 pointer-events-none';
@@ -96,25 +129,6 @@
 	$: classesToast = `${cToast} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// Filtered Toast Store
 	$: filteredToasts = Array.from($toastStore).slice(0, max);
-
-	// Crossfade animation for Toasts
-	const [send, receive] = crossfade({
-		duration: (d) => Math.sqrt(d * duration),
-
-		fallback(node) {
-			const style = getComputedStyle(node);
-			const transform = style.transform === 'none' ? '' : style.transform;
-
-			return {
-				duration,
-				easing: cubicInOut,
-				css: (t, u) => `
-					transform: ${transform} scale(${t}) translate(${u * animAxis.x}%, ${u * animAxis.y}%);
-					opacity: ${t}
-				`
-			};
-		}
-	});
 </script>
 
 {#if $toastStore.length}
@@ -125,8 +139,16 @@
 			{#each filteredToasts as t, i (t)}
 				<div
 					animate:flip={{ duration }}
-					in:receive|global={{ key: t.id }}
-					out:send|global={{ key: t.id }}
+					in:dynamicTransition={{
+						transition: transitionIn,
+						params: { x: animAxis.x, y: animAxis.y, ...transitionInParams },
+						enabled: transitions
+					}}
+					out:dynamicTransition={{
+						transition: transitionOut,
+						params: { x: animAxis.x, y: animAxis.y, ...transitionOutParams },
+						enabled: transitions
+					}}
 					on:mouseenter={() => onMouseEnter(i)}
 					on:mouseleave={() => onMouseLeave(i)}
 					role={t.hideDismiss ? 'alert' : 'alertdialog'}
