@@ -22,8 +22,6 @@
 	export let position: 't' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br' = 'b';
 	/** Maximum toasts that can show at once. */
 	export let max = 3;
-	/** The duration of the fly in/out animation. */
-	export let duration = 250;
 
 	// Props (styles)
 	/** Provide classes to set the background color. */
@@ -138,7 +136,7 @@
 		<div class="snackbar {classesSnackbar}">
 			{#each filteredToasts as t, i (t)}
 				<div
-					animate:flip={{ duration }}
+					animate:flip={{ duration: 250 }}
 					in:dynamicTransition={{
 						transition: transitionIn,
 						params: { x: animAxis.x, y: animAxis.y, ...transitionInParams },
