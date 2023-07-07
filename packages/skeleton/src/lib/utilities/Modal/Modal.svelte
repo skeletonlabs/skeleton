@@ -76,7 +76,7 @@
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 overflow-y-auto';
 	const cTransitionLayer = 'w-full h-fit min-h-full p-4 overflow-y-auto flex justify-center';
-	const cModal = 'block'; // max-h-full overflow-y-auto overflow-x-hidden
+	const cModal = 'block overflow-y-auto'; // max-h-full overflow-y-auto overflow-x-hidden
 	const cModalImage = 'w-full h-auto';
 
 	// Local
