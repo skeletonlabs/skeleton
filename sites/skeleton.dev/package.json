@@ -36,6 +36,7 @@
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-svelte": "^2.30.0",
 		"highlight.js": "^11.8.0",
+		"minimatch": "^9.0.3",
 		"postcss": "^8.4.24",
 		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.10.1",
