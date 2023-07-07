@@ -61,23 +61,20 @@
 	// Local
 	$: listedOptions = options;
 
-	// Allowed Options
-	function filterByAllowed(): void {
+	function filterByAllowDeny() {
+		// Allowed Options
 		if (allowlist.length) {
 			listedOptions = [...options].filter((option: AutocompleteOption) => allowlist.includes(option.value));
-		} else {
-			// IMPORTANT: required if the list goes from populated -> empty
-			listedOptions = [...options];
 		}
-	}
 
-	// Denied Options
-	function filterByDenied(): void {
+		// Denied Options
 		if (denylist.length) {
 			const denySet = new Set(denylist);
 			listedOptions = [...options].filter((option: AutocompleteOption) => !denySet.has(option.value));
-		} else {
-			// IMPORTANT: required if the list goes from populated -> empty
+		}
+
+		// Reset options
+		if (!allowlist.length && !denylist.length) {
 			listedOptions = [...options];
 		}
 	}
@@ -103,8 +100,7 @@
 	}
 
 	// State
-	$: if (allowlist) filterByAllowed();
-	$: if (denylist) filterByDenied();
+	$: if (allowlist || denylist) filterByAllowDeny();
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
 	$: sliceLimit = limit !== undefined ? limit : optionsFiltered.length;
 	// Reactive
