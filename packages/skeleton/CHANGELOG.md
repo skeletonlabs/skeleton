@@ -1,5 +1,27 @@
 # @skeletonlabs/skeleton
 
+## 1.9.0
+
+### Minor Changes
+
+- feat: Adds support for Svelte 4 ([#1690](https://github.com/skeletonlabs/skeleton/pull/1690))
+
+### Patch Changes
+
+- bugfix: Enhanced types for the `clipboard` action ([#1692](https://github.com/skeletonlabs/skeleton/pull/1692))
+
+- bugfix: resolved a spacing issue when using the vertical `radio group` setting ([#1696](https://github.com/skeletonlabs/skeleton/pull/1696))
+
+- bugfix: resolved an issue when the drawer position suddenly changes sides ([#1679](https://github.com/skeletonlabs/skeleton/pull/1679))
+
+- bugfix: paginator buttons now include accessible ARIA label props ([#1709](https://github.com/skeletonlabs/skeleton/pull/1709))
+
+- bugfix: fixed `scroll` event type in `AppShell` ([#1715](https://github.com/skeletonlabs/skeleton/pull/1715))
+
+- bugfix: Enhanced types for the `filter` action ([#1693](https://github.com/skeletonlabs/skeleton/pull/1693))
+
+- bugfix: `InputChips` can now handle `undefined` values ([#1678](https://github.com/skeletonlabs/skeleton/pull/1678))
+
 ## 1.8.0
 
 ### Minor Changes

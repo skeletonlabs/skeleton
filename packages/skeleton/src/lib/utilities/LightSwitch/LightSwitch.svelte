@@ -3,8 +3,7 @@
 	import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState, getModeOsPrefers } from './lightswitch.js';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
-	type OnKeyDownEvent = KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement };
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Props
 	/** Provide classes to set the light background color. */
@@ -43,7 +42,7 @@
 	}
 
 	// A11y Input Handlers
-	function onKeyDown(event: OnKeyDownEvent): void {
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, HTMLDivElement>): void {
 		// Enter/Space triggers selection event
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();

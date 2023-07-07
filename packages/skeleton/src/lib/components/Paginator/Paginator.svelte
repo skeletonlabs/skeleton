@@ -4,7 +4,12 @@
 	import type { CssClasses, PaginationSettings } from '../../index.js';
 	import { leftAngles, leftArrow, rightAngles, rightArrow } from './icons.js';
 
-	const dispatch = createEventDispatcher();
+	// Event Dispatcher
+	type PaginatorEvent = {
+		amount: number;
+		page: number;
+	};
+	const dispatch = createEventDispatcher<PaginatorEvent>();
 
 	// Props
 	/**
@@ -65,12 +70,22 @@
 	 */
 	export let buttonTextLast: CssClasses = rightAngles;
 
+	// Props (A11y)
+	/** Provide the ARIA label for the First page button. */
+	export let labelFirst = 'First page';
+	/** Provide the ARIA label for the Previous page button. */
+	export let labelPrevious = 'Previous page';
+	/** Provide the ARIA label for the Next page button. */
+	export let labelNext = 'Next page';
+	/** Provide the ARIA label for the Last page button. */
+	export let labelLast = 'Last page';
+
 	// Base Classes
 	const cBase = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
 	const cLabel = 'w-full md:w-auto';
 
 	// Local
-	let lastPage = Math.ceil(settings.size / settings.limit - 1);
+	let lastPage = Math.max(0, Math.ceil(settings.size / settings.limit - 1));
 	let controlPages: number[] = getNumerals();
 
 	function onChangeLength(): void {
@@ -78,7 +93,7 @@
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
 		dispatch('amount', settings.limit);
 
-		lastPage = Math.ceil(settings.size / settings.limit - 1);
+		lastPage = Math.max(0, Math.ceil(settings.size / settings.limit - 1));
 		controlPages = getNumerals();
 	}
 
@@ -130,11 +145,17 @@
 		return pages;
 	}
 
+	function updateSize(size: number) {
+		lastPage = Math.max(0, Math.ceil(size / settings.limit - 1));
+		controlPages = getNumerals();
+	}
+
 	// State
 	$: classesButtonActive = (page: number) => {
 		return page === settings.offset ? `${active} pointer-events-none` : '';
 	};
 	$: maxNumerals, onChangeLength();
+	$: updateSize(settings.size);
 	// Reactive Classes
 	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
@@ -163,6 +184,7 @@
 		{#if showFirstLastButtons}
 			<button
 				type="button"
+				aria-label={labelFirst}
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(0);
@@ -176,6 +198,7 @@
 		{#if showPreviousNextButtons}
 			<button
 				type="button"
+				aria-label={labelPrevious}
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(settings.offset - 1);
@@ -205,6 +228,7 @@
 		{#if showPreviousNextButtons}
 			<button
 				type="button"
+				aria-label={labelNext}
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(settings.offset + 1);
@@ -218,6 +242,7 @@
 		{#if showFirstLastButtons}
 			<button
 				type="button"
+				aria-label={labelLast}
 				class={buttonClasses}
 				on:click={() => {
 					gotoPage(lastPage);
