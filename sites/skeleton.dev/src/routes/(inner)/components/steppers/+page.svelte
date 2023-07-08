@@ -196,9 +196,9 @@
 			<h2 class="h2">Complete Button Visibility</h2>
 			<p>
 				In some cases, like when the rest of the steps are optional, you might want to make the <code class="code">complete</code> button
-				visible. This can be achieved by setting the prop <code class="code">completeButtonVisible</code>.
+				visible. This can be achieved by setting the prop <code class="code">buttonCompleteVisible</code>.
 			</p>
-			<p>Note: The value of <code class="code">completeButtonVisible</code> is ignored on last step.</p>
+			<p>Note: The value of <code class="code">buttonCompleteVisible</code> is ignored on last step.</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -208,9 +208,9 @@
 <Step>...</Step>
 
 <!-- optional step -->
-<Step completeButtonVisible={true}>...</Step>
+<Step buttonCompleteVisible={true}>...</Step>
 <!-- optional step -->
-<Step completeButtonVisible={true}>...</Step>
+<Step buttonCompleteVisible={true}>...</Step>
 
 <!-- optional step, last step -->
 <Step>...</Step>
