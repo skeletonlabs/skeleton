@@ -62,28 +62,30 @@
 	$: listedOptions = options;
 
 	function filterByAllowDeny() {
+		let _options = [...options];
 		// Allowed Options
 		if (allowlist.length) {
-			listedOptions = [...options].filter((option: AutocompleteOption) => allowlist.includes(option.value));
+			_options = _options.filter((option) => allowlist.includes(option.value));
 		}
 
 		// Denied Options
 		if (denylist.length) {
-			const denySet = new Set(denylist);
-			listedOptions = [...options].filter((option: AutocompleteOption) => !denySet.has(option.value));
+			_options = _options.filter((option) => !denylist.includes(option.value));
 		}
 
 		// Reset options
 		if (!allowlist.length && !denylist.length) {
-			listedOptions = [...options];
+			_options = options;
 		}
+
+		listedOptions = _options;
 	}
 
 	function filterOptions(): AutocompleteOption[] {
 		// Create a local copy of options
 		let _options = [...listedOptions];
 		// Filter options
-		_options = _options.filter((option: AutocompleteOption) => {
+		_options = _options.filter((option) => {
 			// Format the input search value
 			const inputFormatted = String(input).toLowerCase().trim();
 			// Format the option
@@ -100,7 +102,7 @@
 	}
 
 	// State
-	$: if (allowlist || denylist) filterByAllowDeny();
+	$: if (allowlist.length || denylist.length) filterByAllowDeny();
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
 	$: sliceLimit = limit !== undefined ? limit : optionsFiltered.length;
 	// Reactive
