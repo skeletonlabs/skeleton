@@ -50,8 +50,6 @@
 	export let height: CssClasses = '';
 	/** Provide a class to override the z-index */
 	export let zIndex: CssClasses = 'z-40';
-	/** Drawer - Enable/Disable opacity transition */
-	export let opacityTransition = true;
 
 	// Props (regions)
 	/** Provide arbitrary classes to the backdrop region. */
@@ -71,6 +69,8 @@
 	 * @type {boolean}
 	 */
 	export let transitions = !$prefersReducedMotionStore;
+	/** Drawer - Enable/Disable opacity transition */
+	export let opacityTransition = true;
 
 	// Presets
 	// prettier-ignore
