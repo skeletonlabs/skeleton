@@ -223,7 +223,7 @@ export function getPassReport(textColor: string, backgroundColor: string): PassR
 				? 'is satisfactory for larger text'
 				: largeAA
 				? 'has poor contrast'
-				: 'fails contrast guidelines')
+				: 'fail contrast guidelines')
 	};
 	return {
 		textColor: _textColor,
