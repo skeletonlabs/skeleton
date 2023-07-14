@@ -115,8 +115,7 @@
 		scrollElement.scrollBy({
 			// distance between parent and target child.
 			top: element.getBoundingClientRect().top - scrollElement.getBoundingClientRect().top,
-			// TODO: change to auto if prefersReducedMotion is set.
-			behavior: `smooth`
+			behavior: transitions ? 'smooth' : 'auto'
 		});
 	}
 	// iterate through all elements, gets the top visible element and sets it as active.
@@ -174,9 +173,12 @@
 </script>
 
 {#if filteredElements.length > 0}
-	<aside class="toc {classesBase}" data-testid="toc"
+	<aside
+		class="toc {classesBase}"
+		data-testid="toc"
 		in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
-		out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}>
+		out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+	>
 		<nav class="toc-list {classesList}">
 			<div class="toc-title {classesTitle}">{title}</div>
 			{#each filteredElements as filteredElement}
