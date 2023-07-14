@@ -14,7 +14,9 @@
 		description: 'Allows you to quickly navigate the hierarchy of a page.',
 		imports: ['TableOfContents', 'type QueryIndent'],
 		source: 'components/TableOfContents',
-		components: [{ sveld: sveldTableOfContents }]
+		components: [{ sveld: sveldTableOfContents }],
+		transitionIn: 'fade',
+		transitionOut: 'fade'
 	};
 
 	// Local

@@ -30,7 +30,9 @@
 			['<kbd class="kbd">Tab</kbd>', 'Focus the next accordion item.'],
 			['<kbd class="kbd">Shift + Tab</kbd> ', 'Focus the previous accordion item.'],
 			['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Toggles the item panel open or closed.']
-		]
+		],
+		transitionIn: 'slide',
+		transitionOut: 'slide'
 	};
 
 	// Local

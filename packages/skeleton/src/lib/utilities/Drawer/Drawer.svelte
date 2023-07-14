@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { fade, fly } from 'svelte/transition';
 	import { createEventDispatcher } from 'svelte';
 	import { BROWSER } from 'esm-env';
 
@@ -11,7 +10,7 @@
 	const dispatch = createEventDispatcher<DrawerEvent>();
 
 	// Types
-	import type { CssClasses, SvelteEvent } from '../../index.js';
+	import { type CssClasses, type SvelteEvent, prefersReducedMotionStore } from '../../index.js';
 
 	// Actions
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
@@ -19,14 +18,14 @@
 	// Drawer Utils
 	import type { DrawerSettings } from './types.js';
 	import { drawerStore } from './stores.js';
+	import { fade, fly } from 'svelte/transition';
+	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// Props
 	/** Set the anchor position.
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
 	export let position: 'left' | 'top' | 'right' | 'bottom' = 'left';
-	/** Define the Svelte transition animation duration. */
-	export let duration = 150;
 
 	// Props (backdrop)
 	/** Backdrop - Provide classes to set the backdrop background color */
@@ -64,6 +63,15 @@
 	/** Provide an ID of the element describing the drawer. */
 	export let describedby = '';
 
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/** Drawer - Enable/Disable opacity transition */
+	export let opacityTransition = true;
+
 	// Presets
 	// prettier-ignore
 	const presets = {
@@ -73,23 +81,23 @@
 		right: { alignment: 'justify-end', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tl-container-token rounded-bl-container-token' }
 	};
 
-	// Classes
-	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
-	const cDrawer = 'overflow-y-auto transition-transform';
-
 	// Local
 	let elemBackdrop: HTMLElement;
 	let elemDrawer: HTMLElement;
 	let anim = { x: 0, y: 0 };
 
+	// Classes
+	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
+	const cDrawer = 'overflow-y-auto transition-transform';
+
 	// Record a record of default props on init
 	// NOTE: these must stay in sync with the props implemented above.
 	// prettier-ignore
 	const propDefaults = {
-		position, duration,
+		position,
 		bgBackdrop, blur, padding,
 		bgDrawer, border, rounded, shadow,
-		width, height,
+		width, height, opacityTransition,
 		labelledby, describedby,
 		regionBackdrop, regionDrawer
 	};
@@ -98,7 +106,6 @@
 	// NOTE: these must stay in sync with the props implemented above.
 	function applyPropSettings(settings: DrawerSettings): void {
 		position = settings.position || propDefaults.position;
-		duration = settings.duration || propDefaults.duration;
 		// Backdrop
 		bgBackdrop = settings.bgBackdrop || propDefaults.bgBackdrop;
 		blur = settings.blur || propDefaults.blur;
@@ -110,6 +117,7 @@
 		shadow = settings.shadow || propDefaults.shadow;
 		width = settings.width || propDefaults.width;
 		height = settings.height || propDefaults.height;
+		opacityTransition = settings.opacityTransition || propDefaults.opacityTransition;
 		// Regions
 		regionBackdrop = settings.regionBackdrop || propDefaults.regionBackdrop;
 		regionDrawer = settings.regionDrawer || propDefaults.regionDrawer;
@@ -179,7 +187,16 @@
 		on:touchstart
 		on:touchend
 		on:keypress
-		transition:fade|local={{ duration }}
+		in:dynamicTransition|local={{
+			transition: fade,
+			params: { duration: 150 },
+			enabled: transitions && opacityTransition
+		}}
+		out:dynamicTransition|local={{
+			transition: fade,
+			params: { duration: 150 },
+			enabled: transitions && opacityTransition
+		}}
 		use:focusTrap={true}
 	>
 		<!-- Drawer -->
@@ -192,8 +209,16 @@
 			aria-modal="true"
 			aria-labelledby={labelledby}
 			aria-describedby={describedby}
-			in:fly|local={{ x: anim.x, y: anim.y, duration }}
-			out:fly|local={{ x: anim.x, y: anim.y, duration }}
+			in:dynamicTransition|local={{
+				transition: fly,
+				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
+				enabled: transitions
+			}}
+			out:dynamicTransition|local={{
+				transition: fly,
+				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
+				enabled: transitions
+			}}
 		>
 			<!-- Slot: Default -->
 			<slot />

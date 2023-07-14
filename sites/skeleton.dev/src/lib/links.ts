@@ -17,7 +17,13 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ href: '/docs/colors', label: 'Colors', keywords: 'theme, colors, swatches' },
 				{ href: '/docs/styling', label: 'Styling', keywords: 'styles, styling, props, classes, class, css' },
 				{ href: '/docs/tokens', label: 'Design Tokens', keywords: 'theme, color, pairing, css, utility' },
-				{ href: '/docs/variants', label: 'Variants', keywords: 'variant, variants, presets, backgrounds, classes' }
+				{ href: '/docs/variants', label: 'Variants', keywords: 'variant, variants, presets, backgrounds, classes' },
+				{
+					href: '/docs/transitions',
+					label: 'Transitions',
+					keywords: 'transition, transitions, blur, fade, fly, slide, scale, draw, crossfade, prefers, reduced, motion',
+					badge: 'New'
+				}
 			]
 		},
 		{
@@ -97,7 +103,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ href: '/components/paginators', label: 'Paginators', keywords: 'nav, navigation, table, data, list' },
 				{ href: '/components/progress-bars', label: 'Progress Bars', keywords: 'meter, track, indeterminate, determinate, min, max' },
 				{ href: '/components/progress-radials', label: 'Progress Radials', keywords: 'meter, track, indeterminate, determinate, spin' },
-				{ href: '/components/ratings', label: 'Ratings', keywords: 'rating, rate, ratings, bar, star', badge: 'Beta' },
+				{ href: '/components/ratings', label: 'Ratings', keywords: 'rating, rate, ratings, bar, star' },
 				{ href: '/components/radio-groups', label: 'Radio Groups', keywords: 'input, form, select, selection' },
 				{ href: '/components/range-sliders', label: 'Range Sliders', keywords: 'value, min, max, step,, tick, input, form' },
 				{ href: '/components/slide-toggles', label: 'Slide Toggles', keywords: 'check, checkbox, toggle, input, form' },

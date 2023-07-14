@@ -8,6 +8,7 @@
 		"preinstall": "npx only-allow pnpm",
 		"getall": "node scripts/checkout.cjs && pnpm i",
 		"postinstall": "pnpm -r sync",
+		"dev": "pnpm --no-sort --filter=skeleton.dev --filter=@skeletonlabs/tw-plugin dev",
 		"csa": "node ./packages/create-skeleton-app/src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=welcome -p=sites --monorepo --inspector",
 		"csl": "node ./packages/create-skeleton-app/src/index.js --types=typescript --library --prettier --eslint --playwright --vitest --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=bare -p=packages --monorepo --inspector",
 		"templategen": "node ./scripts/template-gen.js",

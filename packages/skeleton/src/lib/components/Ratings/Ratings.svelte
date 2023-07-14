@@ -59,14 +59,20 @@
 	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 	{#each Array(max) as _, i}
 		{#if Math.floor(value) >= i + 1}
+			<!-- TODO: Remove for V2 -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
 				<slot name="full" />
 			</svelte:element>
 		{:else if value === i + 0.5}
+			<!-- TODO: Remove for V2 -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
 				<slot name="half" />
 			</svelte:element>
 		{:else}
+			<!-- TODO: Remove for V2 -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
 				<slot name="empty" />
 			</svelte:element>
