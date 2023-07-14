@@ -4,7 +4,6 @@
 	"description": "Core plugin for Skeleton.",
 	"private": true,
 	"scripts": {
-		"dev": "pnpm build && node ./scripts/watcher.js",
 		"build": "tsx ./scripts/generate-jss.ts && tsup",
 		"sync": "pnpm build:jss && tsup",
 		"package": "pnpm build:jss && tsup",
@@ -41,7 +40,6 @@
 		"@types/postcss-import": "^14.0.0",
 		"@typescript-eslint/eslint-plugin": "5.59.9",
 		"@typescript-eslint/parser": "5.59.9",
-		"chokidar": "^3.5.3",
 		"eslint": "8.42.0",
 		"eslint-config-prettier": "8.8.0",
 		"postcss": "8.4.24",

@@ -1,4 +1,3 @@
-#!/usr/bin/env tsx
 import type { CssInJs } from 'postcss-js';
 import { generateBaseTWStyles, transpileCssToJs } from './compile-css-to-js.js';
 import { mkdir, writeFile } from 'fs/promises';

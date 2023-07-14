@@ -1,4 +1,3 @@
-import type { CSSRuleObject } from 'tailwindcss/types/config';
 import type { PresetTheme, ThemeProperties } from './tailwind/themes';
 
 export type ConfigOptions = {

@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -17,9 +17,6 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: 5.59.9
     version: 5.59.9(eslint@8.42.0)(typescript@5.0.3)
-  chokidar:
-    specifier: ^3.5.3
-    version: 3.5.3
   eslint:
     specifier: 8.42.0
     version: 8.42.0
