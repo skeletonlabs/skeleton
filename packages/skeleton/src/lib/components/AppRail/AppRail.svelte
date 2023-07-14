@@ -44,23 +44,28 @@
 	setContext('active', active);
 	setContext('hover', hover);
 	setContext('spacing', spacing);
-	setContext('width', width);
 	setContext('aspectRatio', aspectRatio);
 
 	// Base Classes
 	const cBase = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';
+	const cRegionLead = 'box-border';
+	const cRegionDefault = 'box-border';
+	const cRegionTrail = 'box-border';
 
 	// Reactive
 	$: classesBase = `${cBase} ${background} ${border} ${width} ${height} ${gap} ${$$props.class || ''}`;
+	$: classesRegionLead = `${cRegionLead} ${regionLead}`;
+	$: classesRegionDefault = `${cRegionDefault} ${regionDefault}`;
+	$: classesRegionTrail = `${cRegionTrail} ${regionTrail}`;
 </script>
 
 <!-- @component A vertical navigation rail component. -->
 
 <div class="app-rail {classesBase}" data-testid="app-rail">
 	<!-- Slot: lead -->
-	<div class="app-bar-lead {regionLead}"><slot name="lead" /></div>
+	<div class="app-bar-lead {classesRegionLead}"><slot name="lead" /></div>
 	<!-- Slot: Default -->
-	<div class="app-bar-default {regionDefault}"><slot /></div>
+	<div class="app-bar-default {classesRegionDefault}"><slot /></div>
 	<!-- Slot: lead -->
-	<div class="app-bar-trail {regionTrail}"><slot name="trail" /></div>
+	<div class="app-bar-trail {classesRegionTrail}"><slot name="trail" /></div>
 </div>
