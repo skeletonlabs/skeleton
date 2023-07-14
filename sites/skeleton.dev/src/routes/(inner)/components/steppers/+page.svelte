@@ -32,7 +32,9 @@
 					'buttonCompleteLabel'
 				]
 			}
-		]
+		],
+		transitionIn: 'fade',
+		transitionOut: 'fade'
 	};
 
 	// Local

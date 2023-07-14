@@ -18,7 +18,9 @@
 		source: 'components/InputChip',
 		components: [{ sveld: sveldInputChip }],
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
-		restProps: 'input'
+		restProps: 'input',
+		transitionIn: 'list fly / chip scale',
+		transitionOut: 'list fly / chip scale'
 	};
 
 	// Local

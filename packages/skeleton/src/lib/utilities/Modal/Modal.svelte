@@ -1,6 +1,16 @@
-<script lang="ts">
+<script lang="ts" context="module">
+	import { fly, fade } from 'svelte/transition';
+	import { type Transition, type TransitionParams, prefersReducedMotionStore } from '../../index.js';
+	import { dynamicTransition } from '../../internal/transitions.js';
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type FlyTransition = typeof fly;
+	type TransitionIn = Transition;
+	type TransitionOut = Transition;
+</script>
+
+<script lang="ts" generics="TransitionIn extends Transition = FlyTransition, TransitionOut extends Transition = FlyTransition">
 	import { createEventDispatcher } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
 
 	// Event Dispatcher
 	type ModalEvent = {
@@ -22,16 +32,6 @@
 	// Props (components)
 	/** Register a list of reusable component modals. */
 	export let components: Record<string, ModalComponent> = {};
-
-	// Props (transitions)
-	/** The open/close animation duration. Set '0' (zero) to disable. */
-	export let duration = 150;
-	/** Set the fly transition opacity. */
-	export let flyOpacity = 0;
-	/** Set the fly transition X axis value. */
-	export let flyX = 0;
-	/** Set the fly transition Y axis value. */
-	export let flyY = 100;
 
 	// Props (modal)
 	/** Provide classes to style the modal background. */
@@ -72,6 +72,33 @@
 	export let regionBody: CssClasses = 'max-h-[200px] overflow-hidden';
 	/** Provide arbitrary classes to modal footer region. */
 	export let regionFooter: CssClasses = 'flex justify-end space-x-2';
+
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition used on entry.
+	 * @type {ModalTransitionIn}
+	 */
+	export let transitionIn: TransitionIn = fly as TransitionIn;
+	/**
+	 * Transition params provided to `TransitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 150, opacity: 0, x: 0, y: 100 };
+	/**
+	 * Provide the transition used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = fly as TransitionOut;
+	/**
+	 * Transition params provided to `TransitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 150, opacity: 0, x: 0, y: 100 };
 
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0';
@@ -161,11 +188,6 @@
 	$: parent = {
 		position,
 		// ---
-		duration,
-		flyOpacity,
-		flyX,
-		flyY,
-		// ---
 		background,
 		width,
 		height,
@@ -203,21 +225,18 @@
 			on:mouseup={onBackdropInteractionEnd}
 			on:touchstart
 			on:touchend
-			transition:fade|global={{ duration }}
+			transition:dynamicTransition|global={{ transition: fade, params: { duration: 150 }, enabled: transitions }}
 			use:focusTrap={true}
 		>
 			<!-- Transition Layer -->
-			<div class="modal-transition {classesTransitionLayer}" transition:fly|global={{ duration, opacity: flyOpacity, x: flyX, y: flyY }}>
+			<div
+				class="modal-transition {classesTransitionLayer}"
+				in:dynamicTransition|global={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+				out:dynamicTransition|global={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+			>
 				{#if $modalStore[0].type !== 'component'}
 					<!-- Modal: Presets -->
-					<div
-						class="modal {classesModal}"
-						data-testid="modal"
-						role="dialog"
-						aria-modal="true"
-						aria-label={$modalStore[0].title ?? ''}
-						transition:fly|global={{ duration, opacity: 0, y: 100 }}
-					>
+					<div class="modal {classesModal}" data-testid="modal" role="dialog" aria-modal="true" aria-label={$modalStore[0].title ?? ''}>
 						<!-- Header -->
 						{#if $modalStore[0]?.title}
 							<header class="modal-header {regionHeader}">{@html $modalStore[0].title}</header>

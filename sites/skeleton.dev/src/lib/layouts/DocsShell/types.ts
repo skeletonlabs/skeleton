@@ -79,6 +79,10 @@ export interface DocsShellSettings {
 	classes?: [string, string, string][];
 	/** Keyboard interaction table source [name, description]. */
 	keyboard?: [string, string][];
+	/** Indicates the transitionIn transition used (ex: fade) */
+	transitionIn?: string;
+	/** Indicates the transitionOut transition used (ex: fade) */
+	transitionOut?: string;
 }
 
 // NOTE: this will be removed alongside the move to the JSDocs documentation.

@@ -10,10 +10,8 @@ export type { ToastSettings } from './utilities/Toast/types.js';
 export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
-
-// This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
-export type CssClasses = string;
-export type SvelteEvent<E extends Event = Event, T extends EventTarget = Element> = E & { currentTarget: EventTarget & T };
+export type { Transition, TransitionParams } from './internal/transitions.js';
+export type { CssClasses, SvelteEvent } from './types.js';
 
 // Stores ---
 
@@ -54,6 +52,8 @@ export {
 } from './utilities/LightSwitch/lightswitch.js';
 // Local Storage Store
 export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore.js';
+// Prefers-reduced-motion
+export { prefersReducedMotionStore } from './utilities/PrefersReducedMotion/PrefersReducedMotion.js';
 // Component Utilities
 export { tableSourceMapper, tableSourceValues, tableMapperValues } from './components/Table/utils.js';
 
