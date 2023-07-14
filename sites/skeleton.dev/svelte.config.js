@@ -1,5 +1,9 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -7,7 +11,11 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [
 		vitePreprocess({
-			postcss: true
+			style: {
+				css: {
+					postcss: join(__dirname, 'postcss.config.cjs')
+				}
+			}
 		})
 	],
 	kit: {
