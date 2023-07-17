@@ -201,8 +201,8 @@
 			data-testid="modal-backdrop"
 			on:mousedown={onBackdropInteractionBegin}
 			on:mouseup={onBackdropInteractionEnd}
-			on:touchstart
-			on:touchend
+			on:touchstart|passive
+			on:touchend|passive
 			transition:fade|global={{ duration }}
 			use:focusTrap={true}
 		>
