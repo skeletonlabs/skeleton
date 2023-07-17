@@ -238,10 +238,12 @@
 							</footer>
 						{:else if $modalStore[0].type === 'confirm'}
 							<!-- Template: Confirm -->
-							<footer class="modal-footer {regionFooter}">
-								<button type="button" class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
-								<button type="submit" class="btn {buttonPositive}" on:click={onConfirm}>{buttonTextConfirm}</button>
-							</footer>
+							<form on:submit={onConfirm}>
+								<footer class="modal-footer {regionFooter}">
+									<button type="button" class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
+									<button type="submit" class="btn {buttonPositive}" on:click={onConfirm}>{buttonTextConfirm}</button>
+								</footer>
+							</form>
 						{:else if $modalStore[0].type === 'prompt'}
 							<!-- Template: Prompt -->
 							<form class="space-y-4" on:submit={onPromptSubmit}>
