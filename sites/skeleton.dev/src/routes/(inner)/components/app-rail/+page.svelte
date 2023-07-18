@@ -23,8 +23,8 @@
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [
 			{ label: 'AppRail', sveld: sveldAppRail },
-			{ label: 'AppRailTile', sveld: sveldAppRailTile, overrideProps: ['hover', 'active', 'spacing'] },
-			{ label: 'AppRailAnchor', sveld: sveldAppRailAnchor, overrideProps: ['hover', 'active', 'spacing'] }
+			{ label: 'AppRailTile', sveld: sveldAppRailTile, overrideProps: ['hover', 'active', 'spacing', 'width', 'aspectRatio'] },
+			{ label: 'AppRailAnchor', sveld: sveldAppRailAnchor, overrideProps: ['hover', 'active', 'spacing', 'width', 'aspectRatio'] }
 		],
 		restProps: 'AppRailTile | AppRailAnchor'
 	};

@@ -85,7 +85,7 @@
 	const cLabel = 'w-full md:w-auto';
 
 	// Local
-	let lastPage = Math.ceil(settings.size / settings.limit - 1);
+	let lastPage = Math.max(0, Math.ceil(settings.size / settings.limit - 1));
 	let controlPages: number[] = getNumerals();
 
 	function onChangeLength(): void {
@@ -93,7 +93,7 @@
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
 		dispatch('amount', settings.limit);
 
-		lastPage = Math.ceil(settings.size / settings.limit - 1);
+		lastPage = Math.max(0, Math.ceil(settings.size / settings.limit - 1));
 		controlPages = getNumerals();
 	}
 
@@ -145,11 +145,17 @@
 		return pages;
 	}
 
+	function updateSize(size: number) {
+		lastPage = Math.max(0, Math.ceil(size / settings.limit - 1));
+		controlPages = getNumerals();
+	}
+
 	// State
 	$: classesButtonActive = (page: number) => {
 		return page === settings.offset ? `${active} pointer-events-none` : '';
 	};
 	$: maxNumerals, onChangeLength();
+	$: updateSize(settings.size);
 	// Reactive Classes
 	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;

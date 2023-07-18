@@ -97,6 +97,8 @@ export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
 export { default as TabAnchor } from './components/Tab/TabAnchor.svelte';
 export { default as TableOfContents } from './components/TableOfContents/TableOfContents.svelte';
+export { default as TreeView } from './components/TreeView/TreeView.svelte';
+export { default as TreeViewItem } from './components/TreeView/TreeViewItem.svelte';
 // Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
 export { default as Modal } from './utilities/Modal/Modal.svelte';
