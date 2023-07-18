@@ -24,6 +24,9 @@
 	export let active: CssClasses = getContext('active');
 	export let hover: CssClasses = getContext('hover');
 	export let padding: CssClasses = getContext('padding');
+	export let regionLead: CssClasses = getContext('regionLead');
+	export let regionDefault: CssClasses = getContext('regionDefault');
+	export let regionTrail: CssClasses = getContext('regionTrail');
 
 	// Classes
 	const cBase = 'cursor-pointer -outline-offset-[3px]';
@@ -85,11 +88,19 @@
 		}
 	}
 
+	// Base Classes
+	const cRegionLead = '';
+	const cRegionDefault = 'flex-1';
+	const cRegionTrail = '';
+
 	// Reactive
 	$: selected = multiple ? group.some((groupVal: unknown) => areDeeplyEqual(value, groupVal)) : areDeeplyEqual(group, value);
 	$: classesActive = selected ? active : hover;
 	$: classesBase = `${cBase} ${rounded} ${padding} ${classesActive} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
+	$: classesRegionLead = `${cRegionLead} ${regionLead}`;
+	$: classesRegionDefault = `${cRegionDefault} ${regionDefault}`;
+	$: classesRegionTrail = `${cRegionTrail} ${regionTrail}`;
 </script>
 
 <label>
@@ -116,11 +127,11 @@
 		<!-- <slot /> -->
 		<div class="listbox-label {classesLabel}">
 			<!-- Slot: Lead -->
-			{#if $$slots.lead}<div class="listbox-label-lead"><slot name="lead" /></div>{/if}
+			{#if $$slots.lead}<div class="listbox-label-lead {classesRegionLead}"><slot name="lead" /></div>{/if}
 			<!-- Slot: Default -->
-			<div class="listbox-label-content flex-1"><slot /></div>
+			<div class="listbox-label-content {classesRegionDefault}"><slot /></div>
 			<!-- Slot: Trail -->
-			{#if $$slots.trail}<div class="listbox-label-trail"><slot name="trail" /></div>{/if}
+			{#if $$slots.trail}<div class="listbox-label-trail {classesRegionTrail}"><slot name="trail" /></div>{/if}
 		</div>
 	</div>
 </label>
