@@ -103,6 +103,12 @@
 			</button>
 			<!-- popup -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="features">
+				<a class="btn variant-filled w-full" href="https://store.skeleton.dev" target="_blank">
+					<!-- <i class="fa-solid fa-cart-shopping" /> -->
+					<span>Skeleton Store</span>
+					<span class="badge variant-filled-secondary">New</span>
+				</a>
+				<hr class="!my-4" />
 				<nav class="list-nav">
 					<ul>
 						<li>
@@ -163,6 +169,7 @@
 						<h6 class="h6">Mode</h6>
 						<LightSwitch />
 					</section>
+					<hr />
 					<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
 						<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
 							<ul>
@@ -183,8 +190,9 @@
 							</ul>
 						</form>
 					</nav>
+					<hr />
 					<div>
-						<a class="btn variant-ghost-surface w-full" href="/docs/generator">Create a Theme</a>
+						<a class="btn variant-filled w-full" href="/docs/generator">Create a Theme</a>
 					</div>
 				</div>
 				<div class="arrow bg-surface-100-800-token" />

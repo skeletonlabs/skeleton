@@ -41,6 +41,11 @@
 			<span>Home</span>
 		</AppRailAnchor>
 		<!-- prettier-ignore -->
+		<AppRailAnchor href="https://store.skeleton.dev" target="_blank" class="lg:hidden" on:click={() => { onClickAnchor() }}>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-cart-shopping text-2xl" /></svelte:fragment>
+			<span>Store</span>
+		</AppRailAnchor>
+		<!-- prettier-ignore -->
 		<AppRailAnchor href="/blog" class="lg:hidden" on:click={() => { onClickAnchor() }}>
 			<svelte:fragment slot="lead"><i class="fa-solid fa-bullhorn text-2xl" /></svelte:fragment>
 			<span>Blog</span>
