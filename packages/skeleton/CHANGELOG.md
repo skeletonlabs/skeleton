@@ -1,5 +1,21 @@
 # @skeletonlabs/skeleton
 
+## 1.10.0
+
+### Minor Changes
+
+- feat: AppRail has better support for padding, Tile and Anchors now include an `aspectRatio` property. ([#1727](https://github.com/skeletonlabs/skeleton/pull/1727))
+
+- feat: A new `Tree View` component has been added. ([#1691](https://github.com/skeletonlabs/skeleton/pull/1691))
+
+### Patch Changes
+
+- bugfix: Fix accessibility warning in Ratings component due to applied `on:click` for non-interactive elements. ([#1739](https://github.com/skeletonlabs/skeleton/pull/1739))
+
+- bugfix: Resolved an issue with Popups that caused them to be interactive when closed. ([#1721](https://github.com/skeletonlabs/skeleton/pull/1721))
+
+- bugfix: Resolved an issue that prevented the Autocomplete `allowedlist` feature from working as expected. ([#1736](https://github.com/skeletonlabs/skeleton/pull/1736))
+
 ## 1.9.0
 
 ### Minor Changes
