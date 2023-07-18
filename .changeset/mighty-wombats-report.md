@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: `AppRail tiles & anchors` providing more controls over size and aspect ratio.
+feat: AppRail has better support for padding, Tile and Anchors now include an `aspectRatio` property.

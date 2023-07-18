@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: Added `Tree` component.
+feat: A new `Tree View` component has been added.

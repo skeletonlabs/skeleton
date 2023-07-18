@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Autocomplete `allowedlist`.
+bugfix: Resolved an issue that prevented the Autocomplete `allowedlist` feature from working as expected.

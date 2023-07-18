@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: `Popup` content is not interactable when closed.
+bugfix: Resolved an issue with Popups that caused them to be interactive when closed.
