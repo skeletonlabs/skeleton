@@ -5,6 +5,11 @@
 	import type { CssClasses } from '../../index.js';
 
 	// Props (parent)
+	/**
+	 * Provide the tree selection mode.
+	 * @type {'multi' | 'single' | 'none'}
+	 */
+	export let selection: 'multi' | 'single' | 'none' = 'none';
 	/** Provide classes to set the tree width. */
 	export let width: CssClasses = 'w-full';
 	/** Provide classes to set the vertical spacing between items. */
@@ -41,6 +46,7 @@
 	export let labelledby = '';
 
 	// Context API
+	setContext('selection', selection);
 	setContext('padding', padding);
 	setContext('indent', indent);
 	setContext('hover', hover);

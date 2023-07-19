@@ -7,6 +7,8 @@
 	// Props (state)
 	/** Set open by default on load. */
 	export let open = false;
+	/** Set selection state. */
+	export let selected = false;
 	// Props (styles)
 	/** Provide classes to set the horizontal spacing. */
 	export let spacing: CssClasses = 'space-x-4';
@@ -35,6 +37,10 @@
 	/** Provide arbitrary classes to the children region. */
 	export let regionChildren: CssClasses = getContext('regionChildren');
 
+	// Locals
+	let selection: 'multi' | 'single' | 'none' = getContext('selection');
+	let treeItem: HTMLDetailsElement;
+
 	// events
 	const dispatch = createEventDispatcher();
 	/** @event {{ open: boolean }} toggle - Fires on open or close. */
@@ -46,6 +52,50 @@
 	const cSymbol = 'fill-current w-3 text-center transition-transform duration-[200ms]';
 	const cChildren = '';
 
+	// Functionality
+	function onMultiSelectionChange() {
+		// select/unselect all children
+		treeItem.querySelectorAll('input[type="checkbox"].tree-item-checkbox').forEach((input) => {
+			(input as HTMLInputElement).checked = selected;
+		});
+		// update state of parents
+		getParents().forEach((parent) => {
+			let checkboxes = [...parent.querySelectorAll('input[type="checkbox"].tree-item-checkbox')] as HTMLInputElement[];
+			// save parents checkbox, and delete it from array
+			const parentCheckbox = checkboxes[0];
+			checkboxes = checkboxes.slice(1);
+			// all children are checked => check parent
+			if (checkboxes.every((checkbox) => checkbox.checked)) {
+				parentCheckbox.checked = true;
+				parentCheckbox.indeterminate = false;
+			}
+			// some children are checked => Indeterminate parent
+			else if (checkboxes.some((checkbox) => checkbox.checked)) {
+				parentCheckbox.checked = false;
+				parentCheckbox.indeterminate = true;
+			}
+			// no children are checked => uncheck parent
+			else {
+				parentCheckbox.checked = false;
+				parentCheckbox.indeterminate = false;
+			}
+		});
+	}
+
+	function getParents(): HTMLDetailsElement[] {
+		let treeItemParents: HTMLDetailsElement[] = [];
+		let currentParent = treeItem.parentElement;
+
+		// get all parents until the first div with class 'tree' (root)
+		while (currentParent && !currentParent.classList.contains('tree')) {
+			if (currentParent.tagName === 'DETAILS') treeItemParents.push(currentParent as HTMLDetailsElement);
+
+			currentParent = currentParent.parentElement;
+		}
+
+		return treeItemParents;
+	}
+
 	// Reactive State Classes
 	$: classesCaretState = open ? caretOpen : caretClosed;
 	// $: classesCaretVisible = $$slots.children ? 'block' : 'hidden';
@@ -56,13 +106,15 @@
 	$: classesCaret = `${classesCaretState}`;
 	$: classesHyphen = `${hyphenOpacity}`;
 	$: classesChildren = `${cChildren} ${indent} ${regionChildren}`;
+
+	$: console.log(selected);
 </script>
 
-<details bind:open class="tree-item {classesBase}" data-testid="tree-item">
+<details bind:open class="tree-item {classesBase}" data-testid="tree-item" bind:this={treeItem}>
 	<summary
 		class="tree-item-summary {classesSummary}"
 		role="treeitem"
-		aria-selected="false"
+		aria-selected={selected}
 		aria-expanded={$$slots.children ? open : undefined}
 		on:click
 		on:keydown
@@ -83,6 +135,10 @@
 				</svg>
 			{/if}
 		</div>
+		<!-- Selection -->
+		{#if selection === 'multi'}
+			<input class="checkbox tree-item-checkbox" type="checkbox" bind:checked={selected} on:change={onMultiSelectionChange} on:change />
+		{/if}
 		<!-- Slot: Lead -->
 		{#if $$slots.lead}
 			<div class="tree-item-lead">

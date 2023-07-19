@@ -27,6 +27,9 @@
 			}
 		]
 	};
+
+	let test = false;
+	$: console.log(test);
 </script>
 
 <DocsShell {settings}>
@@ -142,6 +145,57 @@
 		(item 1)
 	</TreeViewItem>
 </TreeView>
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<!-- Selection -->
+		<section class="space-y-4">
+			<h2 class="h2">Selection</h2>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<TreeView selection="multi">
+						<TreeViewItem open bind:selected={test}>
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-folder" />
+							</svelte:fragment>
+							<p>Folder</p>
+							<svelte:fragment slot="children">
+								<TreeViewItem>
+									<svelte:fragment slot="lead">
+										<i class="fa-solid fa-folder" />
+									</svelte:fragment>
+									<p>Folder 2</p>
+									<svelte:fragment slot="children">
+										<TreeViewItem>
+											<svelte:fragment slot="lead">
+												<i class="fa-solid fa-file" />
+											</svelte:fragment>
+											<p>File 1</p>
+										</TreeViewItem>
+										<TreeViewItem>
+											<svelte:fragment slot="lead">
+												<i class="fa-solid fa-file" />
+											</svelte:fragment>
+											<p>File 2</p>
+										</TreeViewItem>
+									</svelte:fragment>
+								</TreeViewItem>
+								<TreeViewItem>
+									<svelte:fragment slot="lead">
+										<i class="fa-solid fa-file" />
+									</svelte:fragment>
+									<p>File 2</p>
+								</TreeViewItem>
+							</svelte:fragment>
+						</TreeViewItem>
+					</TreeView>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
 					`}
 					/>
 				</svelte:fragment>
