@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import got from 'got';
 import path from 'path';
 import process from 'process';
-import { dist, mkdirp, setNestedValue } from './utils.js';
+import { mkdirp, setNestedValue, checkIfDirSafeToInstall } from './utils.js';
 import { fileURLToPath } from 'url';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
@@ -15,7 +15,7 @@ export class SkeletonOptions {
 	constructor() {
 		this.name = 'skeleton-app';
 		this.template = 'skeleton';
-		this.types = 'typescript';
+		this.types = 'typescript'; //'typescript' | 'checkjs' | null;
 		this.prettier = false;
 		this.eslint = false;
 		this.playwright = false;
@@ -66,6 +66,12 @@ export async function createSkeleton(opts) {
 	if (opts.library) {
 		opts.template = 'skeletonlib';
 	}
+	// We could have been called directly as an API, so we still need to check if the directory is safe to install into
+	try {
+		checkIfDirSafeToInstall(opts.path);
+	} catch (error) {
+		throw error;
+	}
 
 	// create-svelte will build the base install for us
 	await create(opts.path, opts);
@@ -113,15 +119,14 @@ async function modifyPackageJson(opts) {
 	if (opts.mdsvex) pkgJson.devDependencies['mdsvex'] = opts.devDependencies.get('mdsvex');
 	if (opts.typography) pkgJson.devDependencies['@tailwindcss/typography'] = opts.devDependencies.get('@tailwindcss/typography');
 	if (opts.forms) pkgJson.devDependencies['@tailwindcss/forms'] = opts.devDependencies.get('@tailwindcss/forms');
-	if (opts.codeblocks) setNestedValue(pkgJson, ['dependencies',"highlight.js"], opts.dependencies.get('highlight.js'));
-	if (opts.popups) setNestedValue(pkgJson, ['dependencies','@floating-ui/dom'], opts.dependencies.get('@floating-ui/dom'));
+	if (opts.codeblocks) setNestedValue(pkgJson, ['dependencies', "highlight.js"], opts.dependencies.get('highlight.js'));
+	if (opts.popups) setNestedValue(pkgJson, ['dependencies', '@floating-ui/dom'], opts.dependencies.get('@floating-ui/dom'));
 
 	// Template specific packages
-	console.log("Attempting to read:", opts.skeletontemplatedir)
 	const csaMeta = JSON.parse(fs.readFileSync(opts.skeletontemplate, 'utf8'));
-	if (csaMeta.dependencies) {pkgJson.dependencies = {...pkgJson.dependencies, ...csaMeta.dependencies}};
-	if (csaMeta.devDependencies) {pkgJson.devDependencies = {...pkgJson.devDependencies, ...csaMeta.devDependencies}};
-	if (csaMeta.peerDependencies) {pkgJson.peerDependencies = {...pkgJson.peerDependencies, ...csaMeta.peerDependencies}};
+	if (opts.meta?.dependencies) { pkgJson.dependencies = { ...pkgJson.dependencies, ...opts.meta.dependencies } };
+	if (opts.meta?.devDependencies) { pkgJson.devDependencies = { ...pkgJson.devDependencies, ...opts.meta.devDependencies } };
+	if (opts.meta?.peerDependencies) { pkgJson.peerDependencies = { ...pkgJson.peerDependencies, ...opts.meta.peerDependencies } };
 	fs.writeFileSync('./package.json', JSON.stringify(pkgJson, null, 2));
 }
 
@@ -150,7 +155,7 @@ function createSvelteConfig(opts) {
 	}
 	str += `import { vitePreprocess } from '@sveltejs/kit/vite';\n`
 
-	if (opts.mdsvex){
+	if (opts.mdsvex) {
 		str += `import { mdsvex } from 'mdsvex'
 		
 /** @type {import('mdsvex').MdsvexOptions} */
@@ -163,14 +168,14 @@ const mdsvexOptions = {
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte'${opts.mdsvex && `, '.md'`}],
+	extensions: ['.svelte'${opts.mdsvex ? `, '.md'`: ''}],
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: [${opts.mdsvex && 'mdsvex(mdsvexOptions),'} vitePreprocess()],
-	${opts.inspector && `
+	preprocess: [${opts.mdsvex ? 'mdsvex(mdsvexOptions),' : ''} vitePreprocess()],
+	${opts.inspector ? `
 	vitePlugin: {
 		inspector: true,   
-	},`}
+	},` : ''}
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
@@ -217,7 +222,7 @@ ${pluginImports.join('\n')}
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: 'class',
-	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'))],
+	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],
 	theme: {
 		extend: {},
 	},
@@ -287,9 +292,14 @@ function copyTemplate(opts) {
 		encoding: 'utf8',
 		flag: 'r',
 	});
-	const themeReg = /theme-.*\.css';$/gim;
-	content = content.replace(themeReg, `theme-${opts.skeletontheme}.css';`);
-	content = (opts.types === 'typescript' ? "<script lang='ts'>" : '<script>') + content.substring(content.indexOf('\n'));
+	//If the template is a premium version we replace ../theme.css with Skeletons packaged theme
+	if (opts.meta?.type === 'premium') {
+		content = content.replace("../theme.css", `@skeletonlabs/skeleton/themes/theme-${opts.skeletontheme}.css`);
+	} else {
+		const themeReg = /theme-.*\.css';$/gim;
+		content = content.replace(themeReg, `theme-${opts.skeletontheme}.css';`);
+		content = (opts.types === 'typescript' ? "<script lang='ts'>" : '<script>') + content.substring(content.indexOf('\n'));
+	}
 
 	// Add in the basic boilerplate for codeblocks and popups if they were selected and do a basic check for the import name to avoid duplicates
 	const scriptEndReg = /<\/script>/g;
