@@ -108,11 +108,11 @@ async function parseArgs() {
 		],
 	});
 
-	// If a user invokes 'create-app blah foo', it falls into the _ catch all list, the best we can do is take the first one and use that as the name
+	// If a user invokes 'create-app blah foo', it falls into the _ catch all list, the best we can do is take the first one and use that as the path
 	// if args are passed in incorrectly such as --prettier=0 instead of --prettier=false then a 0 will be added to the _ collection, we check that the
 	// first one isn't a bungled arg set to 0
 	if (opts._.length && opts._[0] != 0) {
-		opts.name = opts._[0];
+		opts.path = opts._[0];
 	}
 	// Show help if specified regardless of how many other options are specified, have fun updating the text string in utils.ts :(
 	if ('help' in opts) {
@@ -148,7 +148,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 				}
 			},
 		});
-		goodbye(opts.name);
+		goodbye(opts.path);
 	}
 
 	// Skeleton Template Selection
