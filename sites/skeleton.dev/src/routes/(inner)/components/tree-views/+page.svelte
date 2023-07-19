@@ -110,21 +110,21 @@
 					<TreeView>
 						<TreeViewItem open>
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-skull" />
+								<i class="fa-solid fa-folder" />
 							</svelte:fragment>
-							<p>Item 1</p>
+							<p>Folder</p>
 							<svelte:fragment slot="children">
 								<TreeViewItem>
 									<svelte:fragment slot="lead">
-										<i class="fa-solid fa-skull-crossbones" />
+										<i class="fa-solid fa-file" />
 									</svelte:fragment>
-									<p>Child 1</p>
+									<p>File 1</p>
 								</TreeViewItem>
 								<TreeViewItem>
 									<svelte:fragment slot="lead">
-										<i class="fa-solid fa-skull-crossbones" />
+										<i class="fa-solid fa-file" />
 									</svelte:fragment>
-									<p>Child 2</p>
+									<p>File 2</p>
 								</TreeViewItem>
 							</svelte:fragment>
 						</TreeViewItem>
