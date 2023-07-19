@@ -22,6 +22,14 @@
 	/** Provide classes to set the listbox item padding styles. */
 	export let padding: CssClasses = 'px-4 py-2';
 
+	// Props (regions)
+	/** Provide arbitrary classes to style the lead region. */
+	export let regionLead: CssClasses = '';
+	/** Provide arbitrary classes to the default region. */
+	export let regionDefault: CssClasses = '';
+	/** Provide arbitrary classes to the trail region. */
+	export let regionTrail: CssClasses = '';
+
 	// Props (a11y)
 	/** Provide the ARIA labelledby value. */
 	export let labelledby = '';
@@ -32,6 +40,9 @@
 	setContext('active', active);
 	setContext('hover', hover);
 	setContext('padding', padding);
+	setContext('regionLead', regionLead);
+	setContext('regionDefault', regionDefault);
+	setContext('regionTrail', regionTrail);
 
 	// Classes
 	const cBase = '';
