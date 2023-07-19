@@ -27,6 +27,7 @@
     "node": ">=14.16"
   },
   "scripts": {
+    "prep": "node scripts/prepare-templates.mjs",
     "dev": "node src/index.js -p=../../../atest --skeletontemplatedir=../../templates/skeleton-template-portfolio",
     "long": "node src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t crimson --skeletontemplate=welcome",
     "pub:beta": "node scripts/prepare-templates.mjs && npm publish --tag beta",
@@ -50,6 +51,7 @@
   },
   "devDependencies": {
     "eslint": "^8.43.0",
-    "eslint-config-prettier": "^8.8.0"
+    "eslint-config-prettier": "^8.8.0",
+    "zip-a-folder": "^2.0.0"
   }
 }

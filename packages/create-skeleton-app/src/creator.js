@@ -168,7 +168,7 @@ const mdsvexOptions = {
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte'${opts.mdsvex ? `, '.md'`: ''}],
+	extensions: ['.svelte'${opts.mdsvex ? `, '.md'` : ''}],
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: [${opts.mdsvex ? 'mdsvex(mdsvexOptions),' : ''} vitePreprocess()],
@@ -294,7 +294,9 @@ function copyTemplate(opts) {
 	});
 	//If the template is a premium version we replace ../theme.css with Skeletons packaged theme
 	if (opts.meta?.type === 'premium') {
-		content = content.replace("../theme.css", `@skeletonlabs/skeleton/themes/theme-${opts.skeletontheme}.css`);
+		if (!opts.skeletontheme === 'built-in') {
+			content = content.replace("../theme.css", `@skeletonlabs/skeleton/themes/theme-${opts.skeletontheme}.css`);
+		}
 	} else {
 		const themeReg = /theme-.*\.css';$/gim;
 		content = content.replace(themeReg, `theme-${opts.skeletontheme}.css';`);

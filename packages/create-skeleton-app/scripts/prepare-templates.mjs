@@ -1,21 +1,30 @@
 // copy the src, static, csa-meta.json directories and files from templates/* directory to the local template directory
 import fs from 'fs';
 import { join } from 'path';
+import { dist } from '../src/utils.js';
+import fg from 'fast-glob';
+import { zip, COMPRESSION_LEVEL } from 'zip-a-folder';
 
-function copyTemplates() {
-	fs.readdirSync('../../templates').forEach((template) => {
-		const basePath = `../../templates/${template}`;
-		if (!fs.existsSync(join(basePath, 'csa-meta.json'))) return;
-		//read csa-meta.json
-		const csaMeta = JSON.parse(fs.readFileSync(join(basePath, 'csa-meta.json'), 'utf8'));
-		if (!csaMeta.enabled || csaMeta.type == "premium") return;
-		//copy the folders that are specified in the csa-meta.json
-		csaMeta?.foldersToCopy?.forEach((folder) => {
-			fs.cpSync(join(basePath, folder), join(`./templates/${template}`, folder), { recursive: true });
-		});
-		//copy the csa-meta.json file
-		fs.cpSync(join(basePath, 'csa-meta.json'), join(`./templates/${template}`, 'csa-meta.json'));
+async function copyTemplates() {
+	const basePath = dist('../../../templates')
+	const metaFiles = fg.sync(['**/csa-meta.json'], { cwd: basePath , deep:2 })
+	console.dir(metaFiles)
+	metaFiles.forEach(async (metaFile) => {
+		const csaMeta = JSON.parse(fs.readFileSync(join(basePath, metaFile), 'utf8'));
+		if (!csaMeta.enabled ) return;
+		if (csaMeta.type == "premium") {
+			//zip up the template and put it in the dist directory
+			fs.rmdirSync(join(basePath, metaFile, '..', 'node_modules'), { recursive: true });
+			await zip(join(basePath, metaFile, '..'), join(basePath, metaFile.split('/')[0] + '.zip'), COMPRESSION_LEVEL.high);
+		} else {
+			//copy the folders that are specified in the csa-meta.json
+			csaMeta?.foldersToCopy?.forEach((folder) => {
+				fs.cpSync(join(basePath, metaFile, '..', folder), join(`./templates/${metaFile.split('/')[0]}`, folder), { recursive: true });
+			});
+			//copy the csa-meta.json file
+			fs.cpSync(join(basePath, metaFile), join(`./templates/${metaFile}`));
+		}
 	});
 }
 
-copyTemplates();
+await copyTemplates();
