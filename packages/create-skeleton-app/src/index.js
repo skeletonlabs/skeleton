@@ -25,9 +25,13 @@ async function main() {
 	let opts = await parseArgs();
 	// need to set some defaults if they are not passed in
 	if (!('quiet' in opts)) opts.quiet = false;
-	if (!('skeletontemplatedir' in opts)) opts.skeletontemplatedir = '../templates';
-	// Resolve can handle multiple absolute paths so passing in a relative or absolute path is fine
-	opts.skeletontemplatedir = resolve(process.cwd(), opts.skeletontemplatedir);
+	// if no templatedir is provided we have to account for the dist location
+	if (!('skeletontemplatedir' in opts)) {
+		opts.skeletontemplatedir = resolve(dist('.'), '../templates');
+	} else {
+		// Resolve can handle multiple absolute paths so passing in a relative or absolute path is fine
+		opts.skeletontemplatedir = resolve(process.cwd(), opts.skeletontemplatedir);
+	}
 
 	try {
 		checkIfDirSafeToInstall(opts.path);
@@ -156,7 +160,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	// skeletontemplatedir is the path to the templates directory, it's either passed in as an arg or set to cwd
 	// it may be a single directory with a csa-meta in the root, 
 	// or it holds multiple directories with csa-meta files in them and skeletontemplate selects that sub folder.
-	
+
 	let templateFound = false;
 	// they have asked for a specific template within the folder
 	if (opts?.skeletontemplate) {
@@ -170,7 +174,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	}
 	// no template specified, so scan the templatedir for csa-meta files
 	if (!templateFound) {
-		const metaFiles = fg.sync(['**/csa-meta.json'], { cwd: opts.skeletontemplatedir, deep:2 })
+		const metaFiles = fg.sync(['**/csa-meta.json'], { cwd: opts.skeletontemplatedir, deep: 2 })
 		if (metaFiles.length === 0) {
 			console.error(`No templates found in ${opts.skeletontemplatedir}`);
 			process.exit(1);
@@ -181,7 +185,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			const path = join(opts.skeletontemplatedir, meta_file);
 			const { position, label, description, enabled } = JSON.parse(fs.readFileSync(path, 'utf8'));
 			if (enabled) {
-				parsedChoices.push({ position, label, hint: description, value: path});
+				parsedChoices.push({ position, label, hint: description, value: path });
 			}
 		});
 		parsedChoices.sort((a, b) => a.position - b.position);
@@ -195,7 +199,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	opts.meta = JSON.parse(fs.readFileSync(opts.skeletontemplate, 'utf8'));
 	// The template may require certain install options that are set in the requiredFeatures array, lets set them on opts so that we don't allow them to be changed
 	if (opts.meta.requiredFeatures) {
-		opts.meta.requiredFeatures.forEach((val) => {Object.assign(opts, val)})
+		opts.meta.requiredFeatures.forEach((val) => { Object.assign(opts, val) })
 	}
 
 	// If it's a premium template, wording needs to be change to indicate that there is a theme already built in
@@ -236,10 +240,10 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	let optionalPackages = packages.filter((pkg) => !pkg.force);
 	// Get list of forced packages to display to the user
 	let msg = ''
-	packages.forEach((p) => {if (p.force) msg += p.package + '\n'});
-	if (msg.length > 0){
+	packages.forEach((p) => { if (p.force) msg += p.package + '\n' });
+	if (msg.length > 0) {
 		msg = `\nThe following packages will be installed because they are required by the template:\n\n${msg}\nWhat other packages would you like to install:`;
-	}else{
+	} else {
 		msg = `\nWhat other packages would you like to install:`;
 	}
 
