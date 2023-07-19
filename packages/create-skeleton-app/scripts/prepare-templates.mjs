@@ -8,13 +8,12 @@ import { zip, COMPRESSION_LEVEL } from 'zip-a-folder';
 async function copyTemplates() {
 	const basePath = dist('../../../templates')
 	const metaFiles = fg.sync(['**/csa-meta.json'], { cwd: basePath , deep:2 })
-	console.dir(metaFiles)
 	metaFiles.forEach(async (metaFile) => {
 		const csaMeta = JSON.parse(fs.readFileSync(join(basePath, metaFile), 'utf8'));
 		if (!csaMeta.enabled ) return;
 		if (csaMeta.type == "premium") {
 			//zip up the template and put it in the dist directory
-			fs.rmdirSync(join(basePath, metaFile, '..', 'node_modules'), { recursive: true });
+			fs.rm(join(basePath, metaFile, '..', 'node_modules'), { recursive: true }, (e) => console.error(e.message));
 			await zip(join(basePath, metaFile, '..'), join(basePath, metaFile.split('/')[0] + '.zip'), COMPRESSION_LEVEL.high);
 		} else {
 			//copy the folders that are specified in the csa-meta.json
