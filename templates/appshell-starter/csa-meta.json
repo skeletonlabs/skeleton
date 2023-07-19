@@ -3,14 +3,6 @@
 	"label": "AppShell starter",
 	"description": "Starter site with AppShell and AppBar",
 	"enabled": true,
-	"dependencies": {
-		"@namescope/dep": "1.0.0"
-	},
-	"devDependencies": {
-		"@namescope/devdep": "1.0.0"
-	},
-	"peerDependencies": {
-		"@namescope/peerdep": "1.0.0"
-	},
+	"type": "built-in",
 	"foldersToCopy": ["src","static"]
 }

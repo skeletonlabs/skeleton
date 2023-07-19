@@ -5,12 +5,10 @@ import { join } from 'path';
 function copyTemplates() {
 	fs.readdirSync('../../templates').forEach((template) => {
 		const basePath = `../../templates/${template}`;
-		//check for csa-meta.json
-		console.log(join(basePath, 'csa-meta.json'))
 		if (!fs.existsSync(join(basePath, 'csa-meta.json'))) return;
 		//read csa-meta.json
 		const csaMeta = JSON.parse(fs.readFileSync(join(basePath, 'csa-meta.json'), 'utf8'));
-		if (!csaMeta.enabled) return;
+		if (!csaMeta.enabled || csaMeta.type == "premium") return;
 		//copy the folders that are specified in the csa-meta.json
 		csaMeta?.foldersToCopy?.forEach((folder) => {
 			fs.cpSync(join(basePath, folder), join(`./templates/${template}`, folder), { recursive: true });

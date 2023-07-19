@@ -4,10 +4,11 @@ import fs from 'fs-extra';
 import mri from 'mri';
 import { bold, cyan, gray, grey, red } from 'kleur/colors';
 import { intro, text, select, multiselect, spinner } from '@clack/prompts';
-import events from 'events';
-import { dist, getHelpText, goodbye, whichPMRuns } from './utils.js';
-import path from 'path';
+import { dist, getHelpText, goodbye, whichPMRuns, checkIfDirSafeToInstall } from './utils.js';
+import path, { resolve, join } from 'node:path';
 import semver from 'semver';
+import fg from 'fast-glob';
+
 // Minimum version required for Svelte Kit
 const requiredVersion = '16.14.0';
 
@@ -19,24 +20,34 @@ async function main() {
 
 	const startPath = process.cwd();
 	let defaults = new SkeletonOptions();
+
 	// grab any passed arguments from the command line
 	let opts = await parseArgs();
+	// need to set some defaults if they are not passed in
+	if (!('quiet' in opts)) opts.quiet = false;
+	if (!('skeletontemplatedir' in opts)) opts.skeletontemplatedir = '../templates';
+	// Resolve can handle multiple absolute paths so passing in a relative or absolute path is fine
+	opts.skeletontemplatedir = resolve(process.cwd(), opts.skeletontemplatedir);
 
-	if (!opts?.quiet) {
+	// TODO: Need to determine best place to check - we may have a path arg passed in, we may have to ask for it, we may need to default to my-skeleton-app if in quiet mode
+	// test the path to make sure it is safe to install
+	checkIfDirSafeToInstall(opts.path);
+
+	if (!opts.quiet) {
 		opts = await askForMissingParams(opts);
 	}
 	opts = Object.assign(defaults, opts);
 	opts.packagemanager = whichPMRuns()?.name;
 
 	// Now that we have all of the options, lets create it.
-	if (!opts?.quiet) {
-		const s = spinner();
+	const s = spinner();
+	if (!opts.quiet) {
 		s.start('Installing');
 	}
 
 	await createSkeleton(opts);
 
-	if (!opts?.quiet) {
+	if (!opts.quiet) {
 		s.stop('Done installing');
 		// And give the user some final information on what to do Next
 
@@ -65,7 +76,6 @@ async function parseArgs() {
 	const opts = mri(argv, {
 		alias: {
 			h: 'help',
-			n: 'name',
 			p: 'path',
 			t: 'skeletontheme',
 			m: 'monorepo',
@@ -76,7 +86,6 @@ async function parseArgs() {
 			'help',
 			'quiet',
 			'monorepo',
-			'skeletonui',
 			'library',
 			'prettier',
 			'eslint',
@@ -87,7 +96,7 @@ async function parseArgs() {
 			'popups',
 			'forms',
 			'typography',
-			'verbose',
+			'mdsvex'
 		],
 	});
 
@@ -105,36 +114,6 @@ async function parseArgs() {
 	return opts;
 }
 
-function checkIfDirSafeToInstall(path) {
-	// Check if the directory already exists.
-	if (!fs.existsSync(path)) return;
-
-	//lets see whats in there
-	const conflicts = fs
-		.readdirSync(path)
-		.filter((file) =>
-			/^(package.json|svelte.config.js|tailwind.config.cjs|pnpm-lock.yaml|postcss.config.cjs|vite.config.ts)$/.test(file),
-		);
-
-	if (conflicts.length > 0) {
-		console.error("create-skeleton-app doesn't support updating an existing project, it needs a new empty directory to install into");
-		console.error(`The directory ${path} contains files that could conflict:\n`);
-		for (const file of conflicts) {
-			try {
-				const stats = fs.lstatSync(path + '/' + file);
-				if (stats.isDirectory()) {
-					console.error(`  ${red(file)}/`);
-				} else {
-					console.error(`  ${red(file)}`);
-				}
-			} catch {
-				console.error(`  ${red(file)}`);
-			}
-		}
-		console.error('Either try using a new directory name, or remove the files listed above.');
-		process.exit(1);
-	}
-}
 /**
  * @param {SkeletonOptions} opts
  */
@@ -148,21 +127,20 @@ ${bold(cyan('Welcome to Skeleton 💀! A UI toolkit for Svelte + Tailwind'))}
 Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issues')} if none exists already.`);
 
 	//NOTE: When doing checks here, make sure to test for the presence of the prop, not the prop value as it may be set to false deliberately.
-	if (!('name' in opts)) {
-		opts.name = await text({
-			message: 'Name for your new project:?',
-			placeholder: 'my-app',
+	if (!('path' in opts)) {
+		opts.path = await text({
+			message: 'Where should we install your project (Enter for current directory) ?',
+			placeholder: 'skeleton-app',
 			validate(value) {
 				if (value.length === 0) return `App name is required!`;
+				const safeCheck = checkIfDirSafeToInstall(resolve(process.cwd(), value));
+				if (!safeCheck.safe) {
+					return `The directory ${value} contains files that could conflict:\n${safeCheck.conflicts.join()}\nEither try using a new directory, or remove the files listed above.`;
+				}
 			},
 		});
 		goodbye(opts.name);
 	}
-	// test the path to make sure it is safe to install
-	if (opts.path === undefined) opts.path = process.cwd();
-	opts.name = opts.name.replace(/\s+/g, '-').toLowerCase();
-	opts.path = path.resolve(opts.path, opts.name);
-	checkIfDirSafeToInstall(opts.path);
 
 	if (!('types' in opts)) {
 		opts.types = await select({
@@ -201,6 +179,53 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		optionalInstalls.every((value) => (opts[value] = true));
 	}
 
+	//Skeleton Template Selection
+	// TODO: do we still need skeletontemplate?  Can we just use the skeletontemplatedir?
+	// skeletontemplatedir is the path to the templates directory, there may be a template with a csa-meta sitting directly within that folder
+	// or it holds multiple directories with csa-meta files in them and skeletontemplate selects that sub folder.
+
+	let templateFound = false;
+	// they have asked for a specific template within the folder
+	if (opts?.skeletontemplate) {
+		opts.skeletontemplate = resolve(opts.skeletontemplatedir, opts.skeletontemplate, 'csa-meta.json');
+		//check that it exists
+		if (!fs.existsSync(opts.skeletontemplate)) {
+			console.error(`The template ${opts.skeletontemplate} does not exist`);
+			process.exit(1);
+		}
+		templateFound = true;
+	}
+
+	if (!templateFound) {
+		const metaFiles = fg.sync(['**/csa-meta.json'], { cwd: resolve(process.cwd(), opts.skeletontemplatedir), deep:2 })
+		if (metaFiles.length === 0) {
+			console.error(`No templates found in ${opts.skeletontemplatedir}`);
+			process.exit(1);
+		}
+		let parsedChoices = [];
+
+		metaFiles.forEach((meta_file) => {
+			const path = join(opts.skeletontemplatedir, meta_file);
+			const { position, label, description, enabled } = JSON.parse(fs.readFileSync(path, 'utf8'));
+			if (enabled) {
+				parsedChoices.push({
+					position,
+					label,
+					hint: description,
+					value: path
+				});
+			}
+		});
+		parsedChoices.sort((a, b) => a.position - b.position);
+		opts.skeletontemplate = await select({
+			message: 'Which Skeleton app template?',
+			options: parsedChoices,
+		});
+		goodbye(opts.skeletontemplate);
+	}
+	
+	console.log("THIS IS THE TEMPLATE",opts.skeletontemplate)
+
 	// Skeleton Theme Selection
 	if (!('skeletontheme' in opts)) {
 		opts.skeletontheme = await select({
@@ -220,59 +245,54 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		goodbye(opts.skeletontheme);
 	}
 
-	const templateDir = opts.skeletontemplatedir || '../templates';
-
-	//Skeleton Template Selection
-	if (!('skeletontemplate' in opts)) {
-		// need to check whether a templatedir has been passed in (might be from a script in package.json pointing to real template projects)
-
-		let parsedChoices = [];
-		fs.readdirSync(dist(templateDir)).forEach((dir) => {
-			const meta_file = dist(`${templateDir}/${dir}/csa-meta.json`);
-			const { position, label, description, enabled } = JSON.parse(fs.readFileSync(meta_file, 'utf8'));
-			if (enabled) {
-				parsedChoices.push({
-					position,
-					label,
-					hint: description,
-					value: dir,
-				});
-			}
-		});
-		parsedChoices.sort((a, b) => a.position - b.position);
-		opts.skeletontemplate = await select({
-			message: 'Which Skeleton app template?',
-			options: parsedChoices,
-		});
-		goodbye(opts.skeletontemplate);
-	}
-
 	// Additional packages to install - these can be influenced by the template selected
-	if (!['forms', 'typography', 'codeblocks', 'popups'].every((value) => {
+	if (!['forms', 'typography', 'codeblocks', 'popups', 'mdsvex'].every((value) => {
 		return Object.keys(opts).includes(value);
 	})) {
-		const csaMeta = JSON.parse(fs.readFileSync(dist(`${templateDir}/${opts.skeletontemplate}/csa-meta.json`), 'utf8'));
+		const csaMeta = JSON.parse(fs.readFileSync(opts.skeletontemplate), 'utf8');
 		let msg = "";
 		["dependencies", "devDependencies", "peerDependencies"].forEach((depType) => {
 			if (csaMeta[depType]) {
-				Object.keys(csaMeta[depType]).forEach((dep) => {
+				Object.keys(csaMeta[depType]).forEach((dep) => { 
 					msg += dep + "\n";
+					switch(dep){
+						case "@tailwindcss/forms":
+							opts.forms = true;
+							break;
+						case "@tailwindcss/typography":
+							opts.typography = true;
+							break;
+						case "highlight.js":
+							opts.codeblocks = true;
+							break;
+						case "@floating-ui/dom":
+							opts.popups = true;
+							break;
+						case "mdsvex":
+							opts.mdsvex = true;
+							break;
+					}
 				});
 			}
 		});
 		if (msg.length > 0) {
 			msg = "The following packages are required by the template: \n" + msg + "\n";
 		}
+		// check which options are set and fill the initialValues array
+		console.log(['forms', 'typography', 'codeblocks', 'popups', 'mdsvex'].filter((value) => {
+			return Object.keys(opts).includes(value);
+		}))
 		const packages = await multiselect({
 			message: msg + 'What other packages would you like to install:',
-			initialValues: ['forms', 'typography', 'codeblocks', 'popups'].filter((value) => {
-				return Object.keys(opts).includes(value);
+			initialValues: ['forms', 'typography', 'codeblocks', 'popups', 'mdsvex'].filter((value) => {
+				if ( Object.keys(opts).includes(value)) {return value;}
 			}),
 			options: [
-				{ value: 'forms', label: 'Add Tailwind forms ?' },
-				{ value: 'typography', label: 'Add Tailwind typography ?' },
-				{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js) ?' },
-				{ value: 'popups', label: 'Add Popups (installs floating-ui) ?' }
+				{ value: 'forms', label: 'Add Tailwind forms ?', disabled: true },//csaMeta?.devDependencies?.['@tailwindcss/forms'] ? true : false },
+				{ value: 'typography', label: 'Add Tailwind typography ?', disabled: csaMeta?.devDependencies?.['@tailwindcss/typography'] ? true : false },
+				{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js) ?', disabled: csaMeta?.dependencies?.['highlight.js'] ? true : false },
+				{ value: 'popups', label: 'Add Popups (installs floating-ui) ?', disabled: csaMeta?.dependencies?.['@floating-ui/dom'] ? true : false },
+				{ value: 'mdsvex', label: 'Add Markdown support (installs mdsvex) ?', disabled: csaMeta?.devDependencies?.['mdsvex'] ? true : false}
 			],
 			required: false,
 		});

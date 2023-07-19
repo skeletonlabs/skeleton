@@ -3,8 +3,9 @@
 	"label": "Bare Bones",
 	"description": "A blank slate for you to create your app",
 	"enabled": true,
-	"dependencies": {},
-	"devDependencies": {},
-	"peerDependencies": {},
-	"foldersToCopy": ["src","static"]
+	"type": "built-in",
+	"foldersToCopy": [
+		"src",
+		"static"
+	]
 }

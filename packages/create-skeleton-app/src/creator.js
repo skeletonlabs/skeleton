@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import got from 'got';
 import path from 'path';
 import process from 'process';
-import { dist, mkdirp } from './utils.js';
+import { dist, mkdirp, setNestedValue } from './utils.js';
 import { fileURLToPath } from 'url';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
@@ -13,7 +13,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 export class SkeletonOptions {
 	// svelte-create expects these options, do not change the names or values.
 	constructor() {
-		this.name = 'new-skel-app';
+		this.name = 'skeleton-app';
 		this.template = 'skeleton';
 		this.types = 'typescript';
 		this.prettier = false;
@@ -30,9 +30,11 @@ export class SkeletonOptions {
 		this.typography = false;
 		this.codeblocks = false;
 		this.popups = false;
+		this.mdsvex = false;
 		this.inspector = false;
 		this.skeletontheme = 'skeleton';
 		this.skeletontemplate = 'bare';
+		this.skeletontemplatedir = '../templates';
 		this.packagemanager = 'npm';
 		this.packageVersionsAdded = false;
 		this.devDependencies = new Map([
@@ -42,8 +44,8 @@ export class SkeletonOptions {
 			['@tailwindcss/typography', 'latest'],
 			['@tailwindcss/forms', 'latest'],
 			['@skeletonlabs/skeleton', 'latest'],
-			['is-ci', 'latest'],
 			['@sveltejs/adapter-vercel', 'latest'],
+			['mdsvex', 'latest'],
 		]);
 		this.dependencies = new Map([
 			['highlight.js', 'latest'],
@@ -54,7 +56,6 @@ export class SkeletonOptions {
 		this.verbose = false;
 		this.monorepo = false;
 		this.library = false;
-		this.skeletontemplatedir = '../templates';
 	}
 }
 
@@ -81,8 +82,9 @@ export async function createSkeleton(opts) {
 	// Monorepo additions
 	if (opts.monorepo) {
 		fs.copySync(path.resolve(__dirname, '../README-MONO.md'), path.resolve(process.cwd(), 'README.md'), { overwrite: true });
-		mkdirp('scripts');
-		fs.copySync(path.resolve(__dirname, './swapdeps.mjs'), path.resolve(process.cwd(), '/scripts/swapdeps.mjs'), { overwrite: true });
+		// mkdirp('scripts');
+		// TODO: remove swapdeps script and use package instead
+		// fs.copySync(path.resolve(__dirname, './swapdeps.mjs'), path.resolve(process.cwd(), '/scripts/swapdeps.mjs'), { overwrite: true });
 	}
 	// creating the missing lib folder...
 	// mkdirp(path.join('src', 'lib'));
@@ -101,21 +103,22 @@ async function modifyPackageJson(opts) {
 
 	// Extra packages and scripts for a monorepo install
 	if (opts.monorepo) {
-		['@sveltejs/adapter-vercel', 'is-ci'].forEach((pkg) => pkg.devDependencies[pkg] = opts.devDependencies.get(pkg));
-		//TODO copy over github workflows for deploying to Vercel
+		['@sveltejs/adapter-vercel'].forEach((pkg) => pkg.devDependencies[pkg] = opts.devDependencies.get(pkg));
+		// TODO copy over github workflows for deploying to Vercel
+		// TODO auto-detect if we are in a mono from '@pnpm/find-workspace-dir';
 		pkgJson['deployConfig'] = { "@skeletonlabs/skeleton": "^1.0.0" }
 	}
 
-	// Tailwind Packages
-	if (opts.typography) ['@tailwindcss/typography'].forEach((pkg) => pkgJson.devDependencies[pkg] = opts.devDependencies.get(pkg));
-	if (opts.forms) ['@tailwindcss/forms'].forEach((pkg) => pkgJson.devDependencies[pkg] = opts.devDependencies.get(pkg));
-
-	// Component dependencies
-	if (opts.codeblocks) ['highlight.js'].forEach((pkg) => pkgJson.dependencies[pkg] = opts.dependencies.get(pkg));
-	if (opts.popups) ['@floating-ui/dom'].forEach((pkg) => pkgJson.dependencies[pkg] = opts.dependencies.get(pkg));
+	// Optional packages
+	if (opts.mdsvex) pkgJson.devDependencies['mdsvex'] = opts.devDependencies.get('mdsvex');
+	if (opts.typography) pkgJson.devDependencies['@tailwindcss/typography'] = opts.devDependencies.get('@tailwindcss/typography');
+	if (opts.forms) pkgJson.devDependencies['@tailwindcss/forms'] = opts.devDependencies.get('@tailwindcss/forms');
+	if (opts.codeblocks) setNestedValue(pkgJson, ['dependencies',"highlight.js"], opts.dependencies.get('highlight.js'));
+	if (opts.popups) setNestedValue(pkgJson, ['dependencies','@floating-ui/dom'], opts.dependencies.get('@floating-ui/dom'));
 
 	// Template specific packages
-	const csaMeta = JSON.parse(fs.readFileSync(dist(`${opts.skeletontemplatedir}/${opts.skeletontemplate}/csa-meta.json`), 'utf8'));
+	console.log("Attempting to read:", opts.skeletontemplatedir)
+	const csaMeta = JSON.parse(fs.readFileSync(opts.skeletontemplate, 'utf8'));
 	if (csaMeta.dependencies) {pkgJson.dependencies = {...pkgJson.dependencies, ...csaMeta.dependencies}};
 	if (csaMeta.devDependencies) {pkgJson.devDependencies = {...pkgJson.devDependencies, ...csaMeta.devDependencies}};
 	if (csaMeta.peerDependencies) {pkgJson.peerDependencies = {...pkgJson.peerDependencies, ...csaMeta.peerDependencies}};
@@ -140,28 +143,34 @@ function createSvelteConfig(opts) {
 	// this will break the using of all CSS preprocessing as well, which is undesirable.
 	// Here we will just return the typescript default setup
 	let str = '';
-	if (opts?.monorepo) {
-		str += `import adapter from '@sveltejs/adapter-vercel';\n`;
+	if (opts.monorepo) {
+		str += `import adapter from '@sveltejs/adapter-vercel';\nimport path from 'path';\n`;
 	} else {
 		str += `import adapter from '@sveltejs/adapter-auto';\n`;
 	}
-	str += `import { vitePreprocess } from '@sveltejs/kit/vite';`;
-	if (opts?.monorepo) {
-		str += `\nimport path from 'path';`;
+	str += `import { vitePreprocess } from '@sveltejs/kit/vite';\n`
+
+	if (opts.mdsvex){
+		str += `import { mdsvex } from 'mdsvex'
+		
+/** @type {import('mdsvex').MdsvexOptions} */
+const mdsvexOptions = {
+	extensions: ['.md'],
+}`;
 	}
+
 	str += `
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+	extensions: ['.svelte'${opts.mdsvex && `, '.md'`}],
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: vitePreprocess(),
-	${opts?.inspector
-			? `
+	preprocess: [${opts.mdsvex && 'mdsvex(mdsvexOptions),'} vitePreprocess()],
+	${opts.inspector && `
 	vitePlugin: {
 		inspector: true,   
-	},`
-			: ''
-		}
+	},`}
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
@@ -208,7 +217,7 @@ ${pluginImports.join('\n')}
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: 'class',
-	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],
+	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'))],
 	theme: {
 		extend: {},
 	},
@@ -229,7 +238,7 @@ function createPostCssConfig() {
 }
 
 function copyTemplate(opts) {
-	const src = path.resolve(dist(opts.skeletontemplatedir), opts.skeletontemplate);
+	const src = opts.skeletontemplate.substring(0, opts.skeletontemplate.lastIndexOf("/"));
 	fs.copySync(src + '/src', './src', { overwrite: true });
 	fs.copySync(src + '/static', './static', { overwrite: true });
 

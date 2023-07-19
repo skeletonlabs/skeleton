@@ -1,7 +1,8 @@
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'node:url';
 import { cancel, isCancel } from '@clack/prompts';
-import path from 'path';
+import path from 'node:path';
 import fs from 'fs-extra';
+import columnify from 'columnify';
 
 export function whichPMRuns() {
 	const userAgent = process.env.npm_config_user_agent;
@@ -12,9 +13,20 @@ export function whichPMRuns() {
 	const separatorPos = pmSpec.lastIndexOf('/');
 	const name = pmSpec?.substring(0, separatorPos);
 	return {
-		name: name === 'npminstall' ? 'cnpm' : name,
+		name: name === 'npminstall' ? 'npm' : name,
 		version: pmSpec?.substring(separatorPos + 1),
 	};
+}
+// Set a JSON value when the parent keys may not exist
+export function setNestedValue(obj, path, value) {
+    let current = obj;
+    for (let i = 0; i < path.length - 1; i++) {
+        if (current[path[i]] === undefined) {
+            current[path[i]] = {};
+        }
+        current = current[path[i]];
+    }
+    current[path[path.length - 1]] = value;
 }
 
 /** @param {string} dir */
@@ -54,41 +66,62 @@ export function goodbye(option) {
 	}
 }
 
-export function getHelpText() {
-	// Must use spaces for adjustments as output can get very wonky with tab output
-	// Why not array of arrays, TBH it's more readable in source like this and easy to edit with column selection etc.
-	// But the advantage would be that padEnd could be adjusted to the console.width... will wait for feedback.
-	return `
-Option              Short   Quiet Default   Values                      Description
---help              -h                                                  This help screen
---quiet             -q                                                  Quiet mode - see below
---verbose           -v                                                  Show shell output for troubleshooting
---name              -n      new-skel-app    string, no spaces           Name of the directory for the project
---types                     typescript      typescript|checkjs          TypeScript or JavaScript with JSDoc
---prettier                  true            true|false                  Whether Prettier is added
---eslint                    true            true|false                  Whether ESLint is added
---playwright                false           true|false                  Whether Playwright is added
---vitest                    false           true|false                  Whether Vitest is added
---codeblocks                false           true|false                  Install codeblock optional dependencies
---popups                    true            true|false                  Install popups dependencies
---path              -p      ''              relative or absolute path   Location to install, name is appended
---forms                     false           true|false                  Add Tailwinds Forms plugin
---typography                false           true|false                  Add Tailwinds Typography plugin
---skeletontheme     -t      skeleton        skeleton                    Choose one for the Skeleton theme
-                                            modern
-                                            hamlindigo
-                                            rocket
-                                            sahara
-                                            gold-nouveau
-                                            vintage
-                                            seafoam
-                                            crimson
---skeletontemplate          bare            bare                        The Skeleton template to use
-                                            welcome
+export function checkIfDirSafeToInstall(path) {
+	// Check if the directory already exists.
+	if (!fs.existsSync(path)) return;
 
+	//lets see whats in there
+	const conflicts = fs
+		.readdirSync(path)
+		.filter((file) =>
+			/^(package.json|svelte.config.js|tailwind.config.cjs|postcss.config.cjs|vite.config.ts)$/.test(file),
+		);
+
+	if (conflicts.length > 0) {
+		// console.error("create-skeleton-app doesn't support updating an existing project, it needs a new empty directory to install into");
+		// console.error(`The directory ${path} contains files that could conflict:\n`);
+		return {safe: false, conflicts: conflicts};
+		// console.error('Either try using a new directory, or remove the files listed above.');
+		// process.exit(1);
+	} else {
+		return {safe: true};
+	}
+}
+
+export function getHelpText() {
+	// TODO: Ensure options are up to date
+	const data = [
+		{Option: '--help', Short: '-h', 'Quiet Default': '', Value: '', Description: 'This help screen'},
+		{Option: '--quiet', Short: '-q', 'Quiet Default': '', Value: '', Description: 'Quiet mode - see below'},
+		{Option: '--name', Short: '-n', 'Quiet Default': 'skeleton-app', Value: 'skeleton-app', Description: 'Name of the directory for the project'},
+		{Option: '--path', Short: '-p', 'Quiet Default': "''", Value: 'relative or absolute path', Description: 'Location to install, name is appended'},
+		{Option: '--types', Short: '', 'Quiet Default': 'typescript', Value: 'typescript|checkjs', Description: 'TypeScript or JavaScript with JSDoc'},
+		{Option: '--prettier', Short: '', 'Quiet Default': 'true', Value: 'true|false', Description: 'Whether Prettier is added'},
+		{Option: '--eslint', Short: '', 'Quiet Default': 'true', Value: 'true|false', Description: 'Whether ESLint is added'},
+		{Option: '--playwright', Short: '', 'Quiet Default': 'false', Value: 'true|false', Description: 'Whether Playwright is added'},
+		{Option: '--vitest', Short: '', 'Quiet Default': 'false', Value: 'true|false', Description: 'Whether Vitest is added'},
+		{Option: '--codeblocks', Short: '', 'Quiet Default': 'false', Value: 'true|false', Description: 'Install codeblock optional dependencies'},
+		{Option: '--popups', Short: '', 'Quiet Default': 'false', Value: 'true|false', Description: 'Install popups dependencies'},
+		{Option: '--mdsvex', Short: '', 'Quiet Default': "false", Value: 'true|false', Description: 'Install mdsvex for markdown processing'},
+		{Option: '--forms', Short: '', 'Quiet Default': 'false', Value: 'true|false', Description: 'Install Tailwinds Forms plugin'},
+		{Option: '--typography', Short: '', 'Quiet Default': 'false', Value: 'true|false', Description: 'Install Tailwinds Typography plugin'},
+		{Option: '--skeletontemplatedir', Short: '', 'Quiet Default': '', Value: '', Description: 'Path to directory containing templates'},
+		{Option: '--skeletontheme', Short: '-t', 'Quiet Default': 'skeleton', Value: 'skeleton', Description: 'Choose one for the Skeleton theme'},
+		{Option: '', Short: '', 'Quiet Default': 'modern', Value: 'modern', Description: ''},
+		{Option: '', Short: '', 'Quiet Default': 'hamlindigo', Value: 'hamlindigo', Description: ''},
+		{Option: '', Short: '', 'Quiet Default': 'rocket', Value: 'rocket', Description: ''},
+		{Option: '', Short: '', 'Quiet Default': 'sahara', Value: 'sahara', Description: ''},
+		{Option: '', Short: '', 'Quiet Default': 'gold-nouveau', Value: 'gold-nouveau', Description: ''},
+		{Option: '', Short: '', 'Quiet Default': 'vintage', Value: 'vintage', Description: ''},
+		{Option: '', Short: '', 'Quiet Default': 'seafoam', Value: 'seafoam', Description: ''},
+		{Option: '', Short: '', 'Quiet Default': 'crimson', Value: 'crimson', Description: ''},
+		{Option: '--skeletontemplate', Short: '', 'Quiet Default': 'bare', Value: 'bare', Description: 'Name of built in template to use'},
+		{Option: '', Short: '', 'Quiet Default': 'welcome', Value: 'welcome', Description: ''}
+	]
+	return columnify(data, {columns: ['Option', 'Short', 'Default', 'Value', 'Description']}) + `
+	
 Quiet mode is for automated installs for testing, CI/CD.  It will take all of the default values in the
 Quiet Default column, but you can provide any other flags to override as you see fit.  If you just want
 to generate a new project but still ask for a name, you need to provide all the other args except the 
-ones to be filled in by the user.
-`;
+ones to be filled in by the user.\n`;
 }

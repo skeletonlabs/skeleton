@@ -27,20 +27,21 @@
     "node": ">=14.16"
   },
   "scripts": {
-    "dev": "node src/index.js",
+    "dev": "node src/index.js -p=../../../atest --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=true --forms=true --mdsvex=true -t crimson --skeletontemplatedir=../../templates --skeletontemplate=skeleton-template-blog --inspector=true",
     "long": "node src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t crimson --skeletontemplate=welcome",
-    "prepublish": "node scripts/prepare-templates.mjs",
-    "pub:beta": "npm publish --tag beta",
-    "pub:next": "npm publish --tag next",
-    "pub:release": "npm publish",
-    "release": "npm publish",
+    "pub:beta": "node scripts/prepare-templates.mjs && npm publish --tag beta",
+    "pub:next": "node scripts/prepare-templates.mjs && npm publish --tag next",
+    "pub:release": "node scripts/prepare-templates.mjs && npm publish",
+    "release": "node scripts/prepare-templates.mjs && npm publish",
     "lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
     "format": "prettier --plugin-search-dir . --write .",
     "test": "node tests/create-all.mjs --experimental-fetch"
   },
   "dependencies": {
     "@clack/prompts": "^0.6.3",
+    "columnify": "^1.6.0",
     "create-svelte": "^4.2.0",
+    "fast-glob": "^3.3.0",
     "fs-extra": "^11.1.1",
     "got": "^13.0.0",
     "kleur": "^4.1.5",
