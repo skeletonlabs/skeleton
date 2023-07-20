@@ -245,7 +245,7 @@ function createPostCssConfig() {
 function copyTemplate(opts) {
 	// Use the paths specified in the csaMeta to determine what files/folders to copy over
 	opts.meta.foldersToCopy.forEach((folder) => {
-		fs.copySync(path.resolve(opts.skeletontemplatedir, folder), path.resolve('./',folder), { overwrite: true });
+		fs.copySync(path.resolve(opts.skeletontemplatedir, folder), path.resolve('./', folder), { overwrite: true });
 	});
 
 	// Determine which font is used by the theme, copy it over to the static folder
@@ -290,13 +290,10 @@ function copyTemplate(opts) {
 	}
 
 	// patch back in their theme choice - it may have been replaced by the theme template, it may still be the correct auto-genned one, depends on the template - we don't care, this fixes it.
-	let content = fs.readFileSync('./src/routes/+layout.svelte', {
-		encoding: 'utf8',
-		flag: 'r',
-	});
+	let content = fs.readFileSync('./src/routes/+layout.svelte', { encoding: 'utf8' });
 	//If the template is a premium version we replace ../theme.css with Skeletons packaged theme
 	if (opts.meta?.type === 'premium') {
-		if (!opts.skeletontheme === 'built-in') {
+		if (opts.skeletontheme != 'built-in') {
 			content = content.replace("../theme.css", `@skeletonlabs/skeleton/themes/theme-${opts.skeletontheme}.css`);
 		}
 	} else {
@@ -334,7 +331,7 @@ function copyTemplate(opts) {
 	}
 
 	fs.writeFileSync('./src/routes/+layout.svelte', content);
-	
+
 	// Update the data-theme attribute in the app.html file
 	content = fs.readFileSync('./src/app.html', { encoding: 'utf8' });
 	const dataThemeRegex = /data-theme=".*"/gim;
