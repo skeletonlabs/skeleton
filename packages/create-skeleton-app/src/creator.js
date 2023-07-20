@@ -250,6 +250,7 @@ function copyTemplate(opts) {
 
 	// Determine which font is used by the theme, copy it over to the static folder
 	// and then update the app.postcss file to include the correct font
+	// Themes can by applied to any template, so we can't have the fonts as part of the templates themselves.
 	let fontFamily = '';
 	let fontFile = '';
 	switch (opts.skeletontheme) {
