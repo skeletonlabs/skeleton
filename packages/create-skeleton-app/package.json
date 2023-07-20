@@ -1,6 +1,6 @@
 {
   "name": "create-skeleton-app",
-  "version": "0.0.46-beta.4",
+  "version": "0.0.46-beta.5",
   "description": "Use this CLI app to setup a new Skeleton application in a new SvelteKit project.",
   "keywords": [
     "skeleton",

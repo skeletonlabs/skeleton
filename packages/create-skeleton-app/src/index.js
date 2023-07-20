@@ -195,8 +195,9 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		});
 		goodbye(opts.skeletontemplate);
 	}
-
+	// Now that we have the template, lets get the meta data from it and the base path
 	opts.meta = JSON.parse(fs.readFileSync(opts.skeletontemplate, 'utf8'));
+	opts.skeletontemplatedir = path.dirname(opts.skeletontemplate);
 	// The template may require certain install options that are set in the requiredFeatures array, lets set them on opts so that we don't allow them to be changed
 	if (opts.meta.requiredFeatures) {
 		opts.meta.requiredFeatures.forEach((val) => { Object.assign(opts, val) })

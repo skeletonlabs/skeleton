@@ -243,9 +243,10 @@ function createPostCssConfig() {
 }
 
 function copyTemplate(opts) {
-	const src = opts.skeletontemplate.substring(0, opts.skeletontemplate.lastIndexOf("/"));
-	fs.copySync(src + '/src', './src', { overwrite: true });
-	fs.copySync(src + '/static', './static', { overwrite: true });
+	// Use the paths specified in the csaMeta to determine what files/folders to copy over
+	opts.meta.foldersToCopy.forEach((folder) => {
+		fs.copySync(path.resolve(opts.skeletontemplatedir, folder), path.resolve('./',folder), { overwrite: true });
+	});
 
 	// Determine which font is used by the theme, copy it over to the static folder
 	// and then update the app.postcss file to include the correct font
