@@ -13,7 +13,8 @@ async function copyTemplates() {
 		if (!csaMeta.enabled ) return;
 		if (csaMeta.type == "premium") {
 			//zip up the template and put it in the dist directory
-			fs.rm(join(basePath, metaFile, '..', 'node_modules'), { recursive: true }, (e) => console.error(e.message));
+			const errHandler = (e) => { if (e) console.error(e.message) }
+			await fs.rm(join(basePath, metaFile, '..', 'node_modules'), { recursive: true }, errHandler);
 			await zip(join(basePath, metaFile, '..'), join(basePath, metaFile.split('/')[0] + '.zip'), COMPRESSION_LEVEL.high);
 		} else {
 			//copy the folders that are specified in the csa-meta.json
