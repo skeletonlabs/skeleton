@@ -1,6 +1,6 @@
 {
   "name": "create-skeleton-app",
-  "version": "0.0.46-beta.3",
+  "version": "0.0.46-beta.4",
   "description": "Use this CLI app to setup a new Skeleton application in a new SvelteKit project.",
   "keywords": [
     "skeleton",
@@ -28,7 +28,7 @@
   },
   "scripts": {
     "prep": "node scripts/prepare-templates.mjs",
-    "dev": "node src/index.js -p=../../../atest --skeletontemplatedir=../../templates/skeleton-template-portfolio",
+    "dev": "node src/index.js -p=../../../atest --skeletontemplatedir=../../templates/",
     "long": "node src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t crimson --skeletontemplate=welcome",
     "pub:beta": "node scripts/prepare-templates.mjs && npm publish --tag beta",
     "pub:next": "node scripts/prepare-templates.mjs && npm publish --tag next",

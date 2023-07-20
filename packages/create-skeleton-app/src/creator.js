@@ -332,17 +332,10 @@ function copyTemplate(opts) {
 	}
 
 	fs.writeFileSync('./src/routes/+layout.svelte', content);
+	
+	// Update the data-theme attribute in the app.html file
+	content = fs.readFileSync('./src/app.html', { encoding: 'utf8' });
+	const dataThemeRegex = /data-theme=".*"/gim;
+	fs.writeFileSync('./src/app.html', content.replace(dataThemeRegex, `data-theme="${opts.skeletontheme}"`));
 
-	if (opts.skeletontemplate != 'bare') {
-		// update the <body> to have the data-theme
-		content = fs.readFileSync('./src/app.html', {
-			encoding: 'utf8',
-			flag: 'r',
-		});
-
-		fs.writeFileSync(
-			'./src/app.html',
-			content.replace('<body>', `<body data-sveltekit-preload-data="hover" data-theme="${opts.skeletontheme}">`),
-		);
-	}
 }

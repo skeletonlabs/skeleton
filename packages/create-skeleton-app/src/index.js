@@ -255,7 +255,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			required: false,
 		});
 		goodbye(packages);
-		packages.every((value) => (opts[value] = true));
+		packageChoices.every((value) => (opts[value] = true));
 	}
 
 	if (!('types' in opts)) {
