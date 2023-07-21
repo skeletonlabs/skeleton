@@ -48,7 +48,8 @@
 
 	// Classes
 	const cBase = '';
-	const cSummary = 'list-none flex items-center cursor-pointer';
+	// [&::-webkit-details-marker]:hidden -> hide default arrow on webkit browsers
+	const cSummary = 'list-none [&::-webkit-details-marker]:hidden flex items-center cursor-pointer';
 	const cSymbol = 'fill-current w-3 text-center transition-transform duration-[200ms]';
 	const cChildren = '';
 
@@ -98,7 +99,6 @@
 
 	// Reactive State Classes
 	$: classesCaretState = open ? caretOpen : caretClosed;
-	// $: classesCaretVisible = $$slots.children ? 'block' : 'hidden';
 	// Reactive Classes
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesSummary = `${cSummary} ${spacing} ${rounded} ${padding} ${hover} ${regionSummary}`;
@@ -106,8 +106,6 @@
 	$: classesCaret = `${classesCaretState}`;
 	$: classesHyphen = `${hyphenOpacity}`;
 	$: classesChildren = `${cChildren} ${indent} ${regionChildren}`;
-
-	$: console.log(selected);
 </script>
 
 <details bind:open class="tree-item {classesBase}" data-testid="tree-item" bind:this={treeItem}>
