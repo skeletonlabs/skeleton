@@ -299,13 +299,14 @@ function copyTemplate(opts) {
 	} else {
 		const themeReg = /theme-.*\.css';$/gim;
 		content = content.replace(themeReg, `theme-${opts.skeletontheme}.css';`);
-		content = (opts.types === 'typescript' ? "<script lang='ts'>" : '<script>') + content.substring(content.indexOf('\n'));
 	}
+	// Set the script ype depending on their choice of typescript or checkjs
+	content = (opts.types === 'typescript' ? "<script lang='ts'>" : '<script>') + content.substring(content.indexOf('\n'));
 
 	// Add in the basic boilerplate for codeblocks and popups if they were selected and do a basic check for the import name to avoid duplicates
 	const scriptEndReg = /<\/script>/g;
 
-	if (opts?.codeblocks && opts.skeletontemplate != 'bare' && content.indexOf('highlight.js') === -1) {
+	if (opts.codeblocks && content.indexOf('highlight.js') === -1) {
 		content = content.replace(
 			scriptEndReg,
 			`
@@ -318,7 +319,7 @@ function copyTemplate(opts) {
 		);
 	}
 
-	if (opts?.popups && opts.skeletontemplate != 'bare' && content.indexOf('@floating-ui/dom') === -1) {
+	if (opts?.popups && content.indexOf('@floating-ui/dom') === -1) {
 		content = content.replace(
 			scriptEndReg,
 			`

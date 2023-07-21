@@ -19,5 +19,4 @@ vite.config.ts.timestamp-**.mjs
 /sites/*
 !/sites/skeleton.dev
 /templates/*
-!/templates/appshell-starter
-!/templates/bare
+!/templates/scripts
