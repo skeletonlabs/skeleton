@@ -7,12 +7,21 @@
 	// Props (state)
 	/** Set open by default on load. */
 	export let open = false;
-	/** Set selection state. */
-	export let selected = false;
 	// Props (styles)
 	/** Provide classes to set the horizontal spacing. */
 	export let spacing: CssClasses = 'space-x-4';
+	// Props (selection)
+	/** Set the radio group binding value. */
+	export let group: unknown = undefined;
+	/** Set a unique name value for the input. */
+	export let name: string | undefined = undefined;
+	/** Set the input's value. */
+	export let value: unknown = undefined;
 	// Context API
+	/** Enable tree-view selection */
+	export let selection: boolean = getContext('selection');
+	/** Enable selection of multiple items. */
+	export let multiple: boolean = getContext('multiple');
 	// ---
 	/** Provide classes to set the tree item padding styles. */
 	export let padding: CssClasses = getContext('padding');
@@ -37,9 +46,35 @@
 	/** Provide arbitrary classes to the children region. */
 	export let regionChildren: CssClasses = getContext('regionChildren');
 
-	// Locals
-	let selection: 'multi' | 'single' | 'none' = getContext('selection');
-	let treeItem: HTMLDetailsElement;
+	// Local
+	let checked: boolean;
+
+	// Functionality
+	// Svelte Checkbox Bugfix
+	// GitHub: https://github.com/sveltejs/svelte/issues/2308
+	// REPL: https://svelte.dev/repl/de117399559f4e7e9e14e2fc9ab243cc?version=3.12.1
+	$: if (multiple) updateCheckbox(group);
+	$: if (multiple) updateGroup(checked);
+	function updateCheckbox(group: any) {
+		checked = group.indexOf(value) >= 0;
+	}
+	function updateGroup(checked: boolean) {
+		// group is not array
+		if (!Array.isArray(group)) return;
+
+		const index = group.indexOf(value);
+		if (checked) {
+			if (index < 0) {
+				group.push(value);
+				group = group;
+			}
+		} else {
+			if (index >= 0) {
+				group.splice(index, 1);
+				group = group;
+			}
+		}
+	}
 
 	// events
 	const dispatch = createEventDispatcher();
@@ -53,50 +88,6 @@
 	const cSymbol = 'fill-current w-3 text-center transition-transform duration-[200ms]';
 	const cChildren = '';
 
-	// Functionality
-	function onMultiSelectionChange() {
-		// select/unselect all children
-		treeItem.querySelectorAll('input[type="checkbox"].tree-item-checkbox').forEach((input) => {
-			(input as HTMLInputElement).checked = selected;
-		});
-		// update state of parents
-		getParents().forEach((parent) => {
-			let checkboxes = [...parent.querySelectorAll('input[type="checkbox"].tree-item-checkbox')] as HTMLInputElement[];
-			// save parents checkbox, and delete it from array
-			const parentCheckbox = checkboxes[0];
-			checkboxes = checkboxes.slice(1);
-			// all children are checked => check parent
-			if (checkboxes.every((checkbox) => checkbox.checked)) {
-				parentCheckbox.checked = true;
-				parentCheckbox.indeterminate = false;
-			}
-			// some children are checked => Indeterminate parent
-			else if (checkboxes.some((checkbox) => checkbox.checked)) {
-				parentCheckbox.checked = false;
-				parentCheckbox.indeterminate = true;
-			}
-			// no children are checked => uncheck parent
-			else {
-				parentCheckbox.checked = false;
-				parentCheckbox.indeterminate = false;
-			}
-		});
-	}
-
-	function getParents(): HTMLDetailsElement[] {
-		let treeItemParents: HTMLDetailsElement[] = [];
-		let currentParent = treeItem.parentElement;
-
-		// get all parents until the first div with class 'tree' (root)
-		while (currentParent && !currentParent.classList.contains('tree')) {
-			if (currentParent.tagName === 'DETAILS') treeItemParents.push(currentParent as HTMLDetailsElement);
-
-			currentParent = currentParent.parentElement;
-		}
-
-		return treeItemParents;
-	}
-
 	// Reactive State Classes
 	$: classesCaretState = open ? caretOpen : caretClosed;
 	// Reactive Classes
@@ -108,11 +99,11 @@
 	$: classesChildren = `${cChildren} ${indent} ${regionChildren}`;
 </script>
 
-<details bind:open class="tree-item {classesBase}" data-testid="tree-item" bind:this={treeItem}>
+<details bind:open class="tree-item {classesBase}" data-testid="tree-item">
 	<summary
 		class="tree-item-summary {classesSummary}"
 		role="treeitem"
-		aria-selected={selected}
+		aria-selected="false"
 		aria-expanded={$$slots.children ? open : undefined}
 		on:click
 		on:keydown
@@ -133,10 +124,16 @@
 				</svg>
 			{/if}
 		</div>
+
 		<!-- Selection -->
-		{#if selection === 'multi'}
-			<input class="checkbox tree-item-checkbox" type="checkbox" bind:checked={selected} on:change={onMultiSelectionChange} on:change />
+		{#if selection && name && group}
+			{#if multiple}
+				<input class="checkbox" type="checkbox" {name} {value} bind:checked on:click on:change />
+			{:else}
+				<input class="radio" type="radio" bind:group {name} {value} on:click on:change />
+			{/if}
 		{/if}
+
 		<!-- Slot: Lead -->
 		{#if $$slots.lead}
 			<div class="tree-item-lead">

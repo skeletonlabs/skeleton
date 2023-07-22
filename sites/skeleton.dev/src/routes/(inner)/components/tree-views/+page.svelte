@@ -28,8 +28,11 @@
 		]
 	};
 
-	let test = false;
-	$: console.log(test);
+	// Locals
+	let valueSingle: string = 'books';
+	let booksSingle: string = 'Clean Code';
+	let valueMultiple = ['books', 'movies'];
+	let booksMultiple = ['Clean Code', 'The Art of Unix Programming'];
 </script>
 
 <DocsShell {settings}>
@@ -153,51 +156,179 @@
 		<!-- Selection -->
 		<section class="space-y-4">
 			<h2 class="h2">Selection</h2>
+			<p>Enable selection using the prop <code class="code">selection</code></p>
+			<h3 class="h3">Single</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<TreeView selection="multi">
-						<TreeViewItem open bind:selected={test}>
+					<TreeView selection={true}>
+						<TreeViewItem bind:group={valueSingle} name="medium" value="books">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-folder" />
+								<i class="fa-solid fa-book-skull" />
 							</svelte:fragment>
-							<p>Folder</p>
+							<p>Books</p>
 							<svelte:fragment slot="children">
-								<TreeViewItem>
-									<svelte:fragment slot="lead">
-										<i class="fa-solid fa-folder" />
-									</svelte:fragment>
-									<p>Folder 2</p>
-									<svelte:fragment slot="children">
-										<TreeViewItem>
-											<svelte:fragment slot="lead">
-												<i class="fa-solid fa-file" />
-											</svelte:fragment>
-											<p>File 1</p>
-										</TreeViewItem>
-										<TreeViewItem>
-											<svelte:fragment slot="lead">
-												<i class="fa-solid fa-file" />
-											</svelte:fragment>
-											<p>File 2</p>
-										</TreeViewItem>
-									</svelte:fragment>
+								<TreeViewItem bind:group={booksSingle} name="books" value="Clean Code">
+									<p>Clean Code</p>
 								</TreeViewItem>
-								<TreeViewItem>
-									<svelte:fragment slot="lead">
-										<i class="fa-solid fa-file" />
-									</svelte:fragment>
-									<p>File 2</p>
+								<TreeViewItem bind:group={booksSingle} name="books" value="The Clean Coder">
+									<p>The Clean Coder</p>
+								</TreeViewItem>
+								<TreeViewItem bind:group={booksSingle} name="books" value="The Art of Unix Programming">
+									<p>The Art of Unix Programming</p>
 								</TreeViewItem>
 							</svelte:fragment>
+						</TreeViewItem>
+						<TreeViewItem bind:group={valueSingle} name="medium" value="movies">
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-film" />
+							</svelte:fragment>
+							<p>Movies</p>
+						</TreeViewItem>
+						<TreeViewItem bind:group={valueSingle} name="medium" value="tv">
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-tv" />
+							</svelte:fragment>
+							<p>TV</p>
 						</TreeViewItem>
 					</TreeView>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
+						language="ts"
+						code={`
+let mediumSingle: string = 'books';
+let booksSingle: string = 'Clean Code';
+`}
+					/>
+					<CodeBlock
 						language="html"
 						code={`
-					`}
+<TreeView selection={true}>
+	<TreeViewItem bind:group={mediumSingle} name="medium" value="books">
+		<svelte:fragment slot="lead">
+			(icon)
+		</svelte:fragment>
+		<p>Books</p>
+		<svelte:fragment slot="children">
+			<TreeViewItem bind:group={booksSingle} name="books" value="Clean Code">
+				<p>Clean Code</p>
+			</TreeViewItem>
+			<TreeViewItem bind:group={booksSingle} name="books" value="The Clean Coder">
+				<p>The Clean Coder</p>
+			</TreeViewItem>
+			<TreeViewItem bind:group={booksSingle} name="books" value="The Art of Unix Programming">
+				<p>The Art of Unix Programming</p>
+			</TreeViewItem>
+		</svelte:fragment>
+	</TreeViewItem>
+	<TreeViewItem bind:group={mediumSingle} name="medium" value="movies">
+		<svelte:fragment slot="lead">
+			(icon)
+		</svelte:fragment>
+		<p>Movies</p>
+	</TreeViewItem>
+	<TreeViewItem bind:group={mediumSingle} name="medium" value="tv">
+		<svelte:fragment slot="lead">
+			(icon)
+		</svelte:fragment>
+		<p>TV</p>
+	</TreeViewItem>
+</TreeView>
+			`}
 					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="text-center"><code class="code">Selected medium: {valueSingle} <br /> Selected book: {booksSingle}</code></div>
+				</svelte:fragment>
+			</DocsPreview>
+			<h3 class="h3">Multiple</h3>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<TreeView selection={true} multiple={true}>
+						<TreeViewItem bind:group={valueMultiple} name="medium" value="books">
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-book-skull" />
+							</svelte:fragment>
+							<p>Books</p>
+							<svelte:fragment slot="children">
+								<TreeViewItem bind:group={booksMultiple} name="books" value="Clean Code">
+									<p>Clean Code</p>
+								</TreeViewItem>
+								<TreeViewItem bind:group={booksMultiple} name="books" value="The Clean Coder">
+									<p>The Clean Coder</p>
+								</TreeViewItem>
+								<TreeViewItem bind:group={booksMultiple} name="books" value="The Art of Unix Programming">
+									<p>The Art of Unix Programming</p>
+								</TreeViewItem>
+							</svelte:fragment>
+						</TreeViewItem>
+						<TreeViewItem bind:group={valueMultiple} name="medium" value="movies">
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-film" />
+							</svelte:fragment>
+							<p>Movies</p>
+						</TreeViewItem>
+						<TreeViewItem bind:group={valueMultiple} name="medium" value="tv">
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-tv" />
+							</svelte:fragment>
+							<p>TV</p>
+						</TreeViewItem>
+					</TreeView>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let mediumMultiple = ['books', 'movies'];
+let booksMultiple = ['Clean Code', 'The Art of Unix Programming']
+`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<TreeView selection={true} multiple={true}>
+	<TreeViewItem bind:group={mediumMultiple} name="medium" value="books">
+		<svelte:fragment slot="lead">
+			(icon)
+		</svelte:fragment>
+		<p>Books</p>
+		<svelte:fragment slot="children">
+			<TreeViewItem bind:group={booksMultiple} name="books" value="Clean Code">
+				<p>Clean Code</p>
+			</TreeViewItem>
+			<TreeViewItem bind:group={booksMultiple} name="books" value="The Clean Coder">
+				<p>The Clean Coder</p>
+			</TreeViewItem>
+			<TreeViewItem bind:group={booksMultiple} name="books" value="The Art of Unix Programming">
+				<p>The Art of Unix Programming</p>
+			</TreeViewItem>
+		</svelte:fragment>
+	</TreeViewItem>
+	<TreeViewItem bind:group={mediumMultiple} name="medium" value="movies">
+		<svelte:fragment slot="lead">
+			(icon)
+		</svelte:fragment>
+		<p>Movies</p>
+	</TreeViewItem>
+	<TreeViewItem bind:group={mediumMultiple} name="medium" value="tv">
+		<svelte:fragment slot="lead">
+			(icon)
+		</svelte:fragment>
+		<p>TV</p>
+	</TreeViewItem>
+</TreeView>
+			`}
+					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="text-center">
+						<code class="code"
+							>Selected mediums: {valueMultiple.length ? valueMultiple : 'None'} <br /> Selected books: {booksMultiple.length
+								? booksMultiple
+								: 'None'}</code
+						>
+					</div>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
