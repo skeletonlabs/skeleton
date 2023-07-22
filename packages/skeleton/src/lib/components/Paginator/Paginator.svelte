@@ -70,7 +70,7 @@
 	 */
 	export let buttonTextLast: CssClasses = rightAngles;
 	/** Set the label for the pages separator. */
-	export let separatorText = "of";
+	export let separatorText = 'of';
 
 	// Props (A11y)
 	/** Provide the ARIA label for the First page button. */
