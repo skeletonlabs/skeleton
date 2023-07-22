@@ -69,6 +69,8 @@
 	 * @type {string}
 	 */
 	export let buttonTextLast: CssClasses = rightAngles;
+	/** Set the label for the pages separator. */
+	export let separatorText = "of";
 
 	// Props (A11y)
 	/** Provide the ARIA label for the First page button. */
@@ -213,7 +215,7 @@
 			<!-- Details -->
 			<button type="button" class="{buttonClasses} pointer-events-none !text-sm">
 				{settings.offset * settings.limit + 1}-{Math.min(settings.offset * settings.limit + settings.limit, settings.size)}&nbsp;<span
-					class="opacity-50">of {settings.size}</span
+					class="opacity-50">{separatorText} {settings.size}</span
 				>
 			</button>
 		{:else}
