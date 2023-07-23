@@ -503,5 +503,79 @@ let children: TreeViewItem[] = [];
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Disabled</h2>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<TreeView disabled>
+						<TreeViewItem open>
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-book-skull" />
+							</svelte:fragment>
+							<p>Books</p>
+							<svelte:fragment slot="children">
+								<TreeViewItem>
+									<p>Clean Code</p>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>The Clean Coder</p>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>The Art of Unix Programming</p>
+								</TreeViewItem>
+							</svelte:fragment>
+						</TreeViewItem>
+						<TreeViewItem>
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-film" />
+							</svelte:fragment>
+							<p>Movies</p>
+							<svelte:fragment slot="children">
+								<TreeViewItem>
+									<p>Clean Code</p>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>The Clean Coder</p>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>The Art of Unix Programming</p>
+								</TreeViewItem>
+							</svelte:fragment>
+						</TreeViewItem>
+						<TreeViewItem>
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-tv" />
+							</svelte:fragment>
+							<p>TV</p>
+						</TreeViewItem>
+					</TreeView>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<!-- Disable tree -->
+<TreeView disabled>
+	<!-- ... -->
+</TreeView>
+
+<!-- Disable tree items -->
+<TreeView>
+	<TreeViewItem disabled>
+		<!-- ... -->
+	</TreeViewItem>
+	<!-- Opened, disabled Tree item -->
+	<TreeViewItem open disabled>
+		<!-- ... -->
+	</TreeViewItem>
+</TreeView>
+			`}
+					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<p>Select children of <code class="code">Books</code> to see relational checking.</p>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
 	</svelte:fragment>
 </DocsShell>

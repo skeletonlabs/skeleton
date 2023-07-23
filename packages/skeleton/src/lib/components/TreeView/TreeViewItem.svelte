@@ -10,6 +10,8 @@
 	// Props (state)
 	/** Set open by default on load. */
 	export let open = false;
+	/** Set the tree disabled state */
+	export let disabled: boolean = getContext('disabled');
 	/**
 	 * Set the radio group binding value.
 	 * @type {unknown}
@@ -67,6 +69,10 @@
 	let indeterminate = false;
 
 	// Functionality
+	function onSummaryClick(event: MouseEvent) {
+		// prevent any action when disabled
+		if (disabled) event.preventDefault();
+	}
 	// Svelte Checkbox Bugfix
 	// GitHub: https://github.com/sveltejs/svelte/issues/2308
 	// REPL: https://svelte.dev/repl/de117399559f4e7e9e14e2fc9ab243cc?version=3.12.1
@@ -184,24 +190,27 @@
 	const cSummary = 'list-none [&::-webkit-details-marker]:hidden flex items-center cursor-pointer';
 	const cSymbol = 'fill-current w-3 text-center transition-transform duration-[200ms]';
 	const cChildren = '';
+	const cDisabled = 'opacity-50 !cursor-not-allowed';
 
 	// Reactive State Classes
 	$: classesCaretState = open && $$slots.children ? caretOpen : caretClosed;
 	// Reactive Classes
+	$: classesDisabled = disabled ? cDisabled : '';
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
-	$: classesSummary = `${cSummary} ${spacing} ${rounded} ${padding} ${hover} ${regionSummary}`;
+	$: classesSummary = `${cSummary} ${classesDisabled} ${spacing} ${rounded} ${padding} ${hover} ${regionSummary}`;
 	$: classesSymbol = `${cSymbol} ${classesCaret} ${regionSymbol}`;
 	$: classesCaret = `${classesCaretState}`;
 	$: classesHyphen = `${hyphenOpacity}`;
 	$: classesChildren = `${cChildren} ${indent} ${regionChildren}`;
 </script>
 
-<details bind:open class="tree-item {classesBase}" data-testid="tree-item">
+<details bind:open class="tree-item {classesBase}" data-testid="tree-item" aria-disabled={disabled}>
 	<summary
 		class="tree-item-summary {classesSummary}"
 		role="treeitem"
-		aria-selected="false"
+		aria-selected={checked}
 		aria-expanded={$$slots.children ? open : undefined}
+		on:click={onSummaryClick}
 		on:click
 		on:keydown
 		on:keyup

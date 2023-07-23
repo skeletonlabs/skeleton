@@ -9,6 +9,8 @@
 	export let selection = false;
 	/** Enable selection of multiple items. */
 	export let multiple = false;
+	/** Set the tree disabled state */
+	export let disabled = false;
 	/** Provide classes to set the tree width. */
 	export let width: CssClasses = 'w-full';
 	/** Provide classes to set the vertical spacing between items. */
@@ -47,6 +49,7 @@
 	// Context API
 	setContext('selection', selection);
 	setContext('multiple', multiple);
+	setContext('disabled', disabled);
 	setContext('padding', padding);
 	setContext('indent', indent);
 	setContext('hover', hover);
@@ -60,10 +63,8 @@
 
 	// Reactive
 	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;
-
-	let child: any;
 </script>
 
-<div class="tree {classesBase}" data-testid="tree" role="tree" aria-multiselectable="true" aria-label={labelledby}>
+<div class="tree {classesBase}" data-testid="tree" role="tree" aria-multiselectable="true" aria-label={labelledby} aria-disabled={disabled}>
 	<slot />
 </div>
