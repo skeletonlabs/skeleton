@@ -42,6 +42,7 @@
 	let childrenMultiple: TreeViewItem[] = [];
 
 	let expandTree: TreeView;
+	let selectTree: TreeView;
 
 	let selectMultiple: string[] = [];
 </script>
@@ -677,7 +678,7 @@ tree.collapseAll();
 			<p>Note: These functions are excecuted only in <code class="code">multiple</code> selection mode.</p>
 			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
 				<svelte:fragment slot="preview">
-					<TreeView selection multiple bind:this={expandTree}>
+					<TreeView selection multiple bind:this={selectTree}>
 						<TreeViewItem bind:group={selectMultiple} name="s_medium" value="books">
 							<svelte:fragment slot="lead">
 								<i class="fa-solid fa-book-skull" />
@@ -699,8 +700,8 @@ tree.collapseAll();
 					</TreeView>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
-					<button class="btn variant-filled-primary" on:click={expandTree.selectAll}> Select all </button>
-					<button class="btn variant-filled-secondary" on:click={expandTree.deselectAll}> Deselect all </button>
+					<button class="btn variant-filled-primary" on:click={selectTree.selectAll}> Select all </button>
+					<button class="btn variant-filled-secondary" on:click={selectTree.deselectAll}> Deselect all </button>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
