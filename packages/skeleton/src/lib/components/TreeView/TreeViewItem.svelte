@@ -186,7 +186,7 @@
 	const cChildren = '';
 
 	// Reactive State Classes
-	$: classesCaretState = open ? caretOpen : caretClosed;
+	$: classesCaretState = open && $$slots.children ? caretOpen : caretClosed;
 	// Reactive Classes
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesSummary = `${cSummary} ${spacing} ${rounded} ${padding} ${hover} ${regionSummary}`;
