@@ -40,6 +40,10 @@
 	let relationalMediumMultiple = ['movies'];
 	let relationalBooksMultiple: string[] = [];
 	let childrenMultiple: TreeViewItem[] = [];
+
+	let expandTree: TreeView;
+
+	let selectMultiple: string[] = [];
 </script>
 
 <DocsShell {settings}>
@@ -168,7 +172,7 @@
 			<h3 class="h3">Single</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<TreeView selection={true}>
+					<TreeView selection>
 						<TreeViewItem bind:group={mediumSingle} name="medium" value="books">
 							<svelte:fragment slot="lead">
 								<i class="fa-solid fa-book-skull" />
@@ -211,7 +215,7 @@ let booksSingle: string = 'Clean Code';
 					<CodeBlock
 						language="html"
 						code={`
-<TreeView selection={true}>
+<TreeView selection>
 	<TreeViewItem bind:group={mediumSingle} name="medium" value="books">
 		<svelte:fragment slot="lead">
 			(icon)
@@ -253,7 +257,7 @@ let booksSingle: string = 'Clean Code';
 			<h3 class="h3">Multiple</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<TreeView selection={true} multiple={true}>
+					<TreeView selection multiple>
 						<TreeViewItem bind:group={mediumMultiple} name="medium" value="books">
 							<svelte:fragment slot="lead">
 								<i class="fa-solid fa-book-skull" />
@@ -296,7 +300,7 @@ let booksMultiple = ['Clean Code', 'The Art of Unix Programming']
 					<CodeBlock
 						language="html"
 						code={`
-<TreeView selection={true} multiple={true}>
+<TreeView selection multiple>
 	<TreeViewItem bind:group={mediumMultiple} name="medium" value="books">
 		<svelte:fragment slot="lead">
 			(icon)
@@ -348,7 +352,7 @@ let booksMultiple = ['Clean Code', 'The Art of Unix Programming']
 			</p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
-					<TreeView selection={true}>
+					<TreeView selection>
 						<TreeViewItem bind:group={relationalMediumSingle} name="r_medium" value="books" open children={childrenSingle}>
 							<svelte:fragment slot="lead">
 								<i class="fa-solid fa-book-skull" />
@@ -397,7 +401,7 @@ let children: TreeViewItem[] = [];
 					<CodeBlock
 						language="html"
 						code={`
-<TreeView selection={true}>
+<TreeView selection>
 	<TreeViewItem bind:group={mediumSingle} name="medium" value="books" children={children}>
 		<svelte:fragment slot="lead">
 			(icon)
@@ -426,7 +430,7 @@ let children: TreeViewItem[] = [];
 			</DocsPreview>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
-					<TreeView selection={true} multiple={true}>
+					<TreeView selection multiple>
 						<TreeViewItem bind:group={relationalMediumMultiple} name="r_medium" value="books" open children={childrenMultiple}>
 							<svelte:fragment slot="lead">
 								<i class="fa-solid fa-book-skull" />
@@ -475,7 +479,7 @@ let children: TreeViewItem[] = [];
 					<CodeBlock
 						language="html"
 						code={`
-<TreeView selection={true} multiple={true}>
+<TreeView selection multiple>
 	<TreeViewItem bind:group={mediumMultiple} name="medium" value="books" children={children}>
 		<svelte:fragment slot="lead">
 			(icon)
@@ -572,8 +576,151 @@ let children: TreeViewItem[] = [];
 			`}
 					/>
 				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<!-- Expand/Collapse all -->
+		<section class="space-y-4">
+			<h2 class="h2">Expand/Collapse all</h2>
+			<p>
+				By binding to the <code class="code">tree</code> we can call the functions <code class="code">expandAll()</code>,
+				<code class="code">collapseAll()</code>.
+			</p>
+			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
+				<svelte:fragment slot="preview">
+					<TreeView bind:this={expandTree}>
+						<TreeViewItem>
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-book-skull" />
+							</svelte:fragment>
+							<p>Books</p>
+							<svelte:fragment slot="children">
+								<TreeViewItem>
+									<p>Clean Code</p>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>The Clean Coder</p>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>The Art of Unix Programming</p>
+								</TreeViewItem>
+							</svelte:fragment>
+						</TreeViewItem>
+						<TreeViewItem>
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-film" />
+							</svelte:fragment>
+							<p>Movies</p>
+							<svelte:fragment slot="children">
+								<TreeViewItem>
+									<p>The Flash</p>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>Guardians of the Galaxy</p>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>Black Panther</p>
+								</TreeViewItem>
+							</svelte:fragment>
+						</TreeViewItem>
+						<TreeViewItem>
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-tv" />
+							</svelte:fragment>
+							<p>TV</p>
+							<svelte:fragment slot="children">
+								<TreeViewItem>
+									<p>The Simpsons</p>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>Rick and Morty</p>
+								</TreeViewItem>
+								<TreeViewItem>
+									<p>Family Guy</p>
+								</TreeViewItem>
+							</svelte:fragment>
+						</TreeViewItem>
+					</TreeView>
+				</svelte:fragment>
 				<svelte:fragment slot="footer">
-					<p>Select children of <code class="code">Books</code> to see relational checking.</p>
+					<button class="btn variant-filled-primary" on:click={expandTree.expandAll}> Expand all </button>
+					<button class="btn variant-filled-secondary" on:click={expandTree.collapseAll}> Collapse all </button>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let tree: TreeView;
+// expand all
+tree.expandAll();
+// collapse all
+tree.collapseAll();
+					`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<TreeView bind:this={tree}>
+	<!-- ... -->
+</TreeView>
+			`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<!-- Select/Deselect all -->
+		<section class="space-y-4">
+			<h2 class="h2">Select/Deselect all</h2>
+			<p>
+				By binding to the <code class="code">tree</code> we can call the functions <code class="code">selectAll()</code>,
+				<code class="code">deselectAll()</code>.
+			</p>
+			<p>Note: These functions are excecuted only in <code class="code">multiple</code> selection mode.</p>
+			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
+				<svelte:fragment slot="preview">
+					<TreeView selection multiple bind:this={expandTree}>
+						<TreeViewItem bind:group={selectMultiple} name="s_medium" value="books">
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-book-skull" />
+							</svelte:fragment>
+							<p>Books</p>
+						</TreeViewItem>
+						<TreeViewItem bind:group={selectMultiple} name="s_medium" value="movies">
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-film" />
+							</svelte:fragment>
+							<p>Movies</p>
+						</TreeViewItem>
+						<TreeViewItem bind:group={selectMultiple} name="s_medium" value="tv">
+							<svelte:fragment slot="lead">
+								<i class="fa-solid fa-tv" />
+							</svelte:fragment>
+							<p>TV</p>
+						</TreeViewItem>
+					</TreeView>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<button class="btn variant-filled-primary" on:click={expandTree.selectAll}> Select all </button>
+					<button class="btn variant-filled-secondary" on:click={expandTree.deselectAll}> Deselect all </button>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let tree: TreeView;
+// select all
+tree.selectAll();
+// deselect all
+tree.deselectAll();
+					`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<TreeView bind:this={tree} selection multiple>
+	<!-- ... -->
+</TreeView>
+			`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

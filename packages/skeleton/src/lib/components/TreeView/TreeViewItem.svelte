@@ -234,9 +234,9 @@
 		<!-- Selection -->
 		{#if selection && name && group}
 			{#if multiple}
-				<input class="checkbox" type="checkbox" {name} {value} bind:checked bind:indeterminate on:click on:change />
+				<input class="checkbox tree-item-checkbox" type="checkbox" {name} {value} bind:checked bind:indeterminate on:click on:change />
 			{:else}
-				<input class="radio" type="radio" bind:group {name} {value} on:click on:change />
+				<input class="radio tree-item-radio" type="radio" bind:group {name} {value} on:click on:change />
 			{/if}
 		{/if}
 

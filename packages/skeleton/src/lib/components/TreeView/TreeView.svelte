@@ -46,6 +46,68 @@
 	/** Provide the ARIA labelledby value. */
 	export let labelledby = '';
 
+	// Functionality
+	/**
+	 * expands all tree view items.
+	 * @type {() => void}
+	 */
+	export function expandAll(): void {
+		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
+		detailsElements.forEach((details) => {
+			if (!details.open) {
+				const summary: HTMLElement | null = details.querySelector('summary.tree-item-summary');
+				if (summary) summary.click();
+			}
+		});
+	}
+	/**
+	 * collapses all tree view items.
+	 * @type {() => void}
+	 */
+	export function collapseAll() {
+		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
+		detailsElements.forEach((details) => {
+			if (details.open) {
+				const summary: HTMLElement | null = details.querySelector('summary.tree-item-summary');
+				if (summary) summary.click();
+			}
+		});
+	}
+	/**
+	 * select all tree view items. Only available in Multiple selection mode.
+	 * @type {() => void}
+	 */
+	export function selectAll() {
+		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
+		detailsElements.forEach((details) => {
+			const input: HTMLInputElement | null = details.querySelector('input[type="checkbox"].tree-item-checkbox');
+			if (!input) return;
+			if (!input.checked) {
+				// needs delay
+				setTimeout(() => {
+					input.click();
+				}, 5);
+			}
+		});
+	}
+	/**
+	 * deselect all tree view items. Only available in Multiple selection mode.
+	 * @type {() => void}
+	 */
+	export function deselectAll() {
+		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
+		detailsElements.forEach((details) => {
+			const input: HTMLInputElement | null = details.querySelector('input[type="checkbox"].tree-item-checkbox');
+			if (!input) return;
+			if (input.checked) {
+				// needs delay
+				setTimeout(() => {
+					input.click();
+				}, 5);
+			}
+		});
+	}
+
 	// Context API
 	setContext('selection', selection);
 	setContext('multiple', multiple);
@@ -63,8 +125,19 @@
 
 	// Reactive
 	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;
+
+	// Locals
+	let tree: HTMLDivElement;
 </script>
 
-<div class="tree {classesBase}" data-testid="tree" role="tree" aria-multiselectable="true" aria-label={labelledby} aria-disabled={disabled}>
+<div
+	bind:this={tree}
+	class="tree {classesBase}"
+	data-testid="tree"
+	role="tree"
+	aria-multiselectable="true"
+	aria-label={labelledby}
+	aria-disabled={disabled}
+>
 	<slot />
 </div>
