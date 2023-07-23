@@ -1,22 +1,38 @@
+<!-- To access props and events using reference -->
+<svelte:options accessors />
+
 <script lang="ts">
-	import { getContext, createEventDispatcher } from 'svelte';
+	import { getContext, createEventDispatcher, onMount } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent, TreeViewItem } from '../../index.js';
 
 	// Props (state)
 	/** Set open by default on load. */
 	export let open = false;
+	/**
+	 * Set the radio group binding value.
+	 * @type {unknown}
+	 */
+	export let group: unknown = undefined;
+	/**
+	 * Set a unique name value for the input.
+	 * @type {string | undefined}
+	 */
+	export let name: string | undefined = undefined;
+	/**
+	 * Set the input's value.
+	 * @type {unknown}
+	 */
+	export let value: unknown = undefined;
+	/**
+	 * Provide children references to support relational checking.
+	 * @type {TreeViewItem[]}
+	 */
+	export let children: TreeViewItem[] = [];
 	// Props (styles)
 	/** Provide classes to set the horizontal spacing. */
 	export let spacing: CssClasses = 'space-x-4';
-	// Props (selection)
-	/** Set the radio group binding value. */
-	export let group: unknown = undefined;
-	/** Set a unique name value for the input. */
-	export let name: string | undefined = undefined;
-	/** Set the input's value. */
-	export let value: unknown = undefined;
 	// Context API
 	/** Enable tree-view selection */
 	export let selection: boolean = getContext('selection');
@@ -40,14 +56,15 @@
 	export let hyphenOpacity: CssClasses = getContext('hyphenOpacity');
 	// ---
 	/** Provide arbitrary classes to the tree item summary region. */
-	export let regionSummary: CssClasses = '';
+	export let regionSummary: CssClasses = getContext('regionSummary');
 	/** Provide arbitrary classes to the symbol icon region. */
 	export let regionSymbol: CssClasses = getContext('regionSymbol');
 	/** Provide arbitrary classes to the children region. */
 	export let regionChildren: CssClasses = getContext('regionChildren');
 
-	// Local
-	let checked: boolean;
+	// Locals
+	let checked = false;
+	let indeterminate = false;
 
 	// Functionality
 	// Svelte Checkbox Bugfix
@@ -55,18 +72,17 @@
 	// REPL: https://svelte.dev/repl/de117399559f4e7e9e14e2fc9ab243cc?version=3.12.1
 	$: if (multiple) updateCheckbox(group);
 	$: if (multiple) updateGroup(checked);
-	function updateCheckbox(group: any) {
+	function updateCheckbox(group: unknown) {
+		if (!Array.isArray(group)) return;
 		checked = group.indexOf(value) >= 0;
 	}
 	function updateGroup(checked: boolean) {
-		// group is not array
 		if (!Array.isArray(group)) return;
 
 		const index = group.indexOf(value);
 		if (checked) {
 			if (index < 0) {
-				group.push(value);
-				group = group;
+				group = [...group, value];
 			}
 		} else {
 			if (index >= 0) {
@@ -76,10 +92,91 @@
 		}
 	}
 
+	// called when a child's value is changed
+	function onChildrenValueChange(event: SvelteEvent<Event, HTMLInputElement>, child: TreeViewItem) {
+		if (multiple) {
+			// all groups must be arrays in multiple mode
+			if (!Array.isArray(group)) return;
+			const childrenValues = children.map((c) => c.value);
+			const index = group.indexOf(value);
+			// all children are checked => check parent
+			if (childrenValues.every((c) => Array.isArray(child.group) && child.group.includes(c))) {
+				if (index < 0) {
+					indeterminate = false;
+					group = [...group, value];
+				}
+				// not all children are checked => uncheck parent
+			} else {
+				if (index >= 0) {
+					group.splice(index, 1);
+					group = group;
+				}
+				// set parent to indeterminate if some of the children are checked
+				indeterminate = childrenValues.some((c) => Array.isArray(child.group) && child.group.includes(c));
+			}
+			// single selection mode
+		} else {
+			// child is checked, but parent isn't checked
+			if (event.currentTarget.checked && group !== value) {
+				// check parent
+				group = value;
+			}
+		}
+	}
+
+	// called every time the group's value changes
+	function onGroupValueChange(_group: unknown) {
+		// don't override children groups when parent is set to indeterminate
+		if (children.length === 0 || indeterminate) return;
+
+		if (multiple) {
+			// group must by array in multiple mode
+			if (!Array.isArray(_group)) return;
+			const index = _group.indexOf(value);
+
+			const checkChild = (child: TreeViewItem) => {
+				if (!child || !Array.isArray(child.group)) return;
+				if (child.group.indexOf(child.value) < 0) {
+					// child.group = [...child.group, child.value] won't work here.
+					child.group.push(child.value);
+					child.group = child.group;
+				}
+			};
+			const uncheckChild = (child: TreeViewItem) => {
+				if (!child || !Array.isArray(child.group)) return;
+				const childIndex = child.group.indexOf(child.value);
+				if (childIndex >= 0) {
+					child.group.splice(childIndex, 1);
+					child.group = child.group;
+				}
+			};
+
+			// if parent is checked, check all children, else uncheck all children
+			children.forEach(index >= 0 ? checkChild : uncheckChild);
+			// single selection mode
+		} else {
+			// parent is not checked
+			if (_group !== value) {
+				// uncheck all children
+				children.forEach((child) => {
+					child.group = [];
+				});
+			}
+		}
+	}
+	$: onGroupValueChange(group);
+
 	// events
 	const dispatch = createEventDispatcher();
 	/** @event {{ open: boolean }} toggle - Fires on open or close. */
 	$: dispatch('toggle', { open: open });
+
+	// Lifecycle
+	onMount(() => {
+		children.forEach((child) => {
+			child.$on('change', (event) => onChildrenValueChange(event as SvelteEvent<Event, HTMLInputElement>, child));
+		});
+	});
 
 	// Classes
 	const cBase = '';
@@ -128,7 +225,7 @@
 		<!-- Selection -->
 		{#if selection && name && group}
 			{#if multiple}
-				<input class="checkbox" type="checkbox" {name} {value} bind:checked on:click on:change />
+				<input class="checkbox" type="checkbox" {name} {value} bind:checked bind:indeterminate on:click on:change />
 			{:else}
 				<input class="radio" type="radio" bind:group {name} {value} on:click on:change />
 			{/if}
