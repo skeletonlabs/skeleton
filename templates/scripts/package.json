@@ -1,0 +1,16 @@
+{
+  "name": "template-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Scripts for setting up and deploying templates",
+  "main": "index.js",
+  "scripts": {
+    "gen": "node template-gen.js"
+  },
+  "keywords": [],
+  "author": "Nik <nik@niktek.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "fast-glob": "^3.3.0"
+  }
+}

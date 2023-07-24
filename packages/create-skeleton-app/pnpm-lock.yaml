@@ -34,15 +34,15 @@ dependencies:
     version: 7.5.4
 
 devDependencies:
+  archiver:
+    specifier: ^5.3.1
+    version: 5.3.1
   eslint:
     specifier: ^8.45.0
     version: 8.45.0
   eslint-config-prettier:
     specifier: ^8.8.0
     version: 8.8.0(eslint@8.45.0)
-  zip-a-folder:
-    specifier: ^2.0.0
-    version: 2.0.0
 
 packages:
 
@@ -1197,13 +1197,6 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-    dev: true
-
-  /zip-a-folder@2.0.0:
-    resolution: {integrity: sha512-D/TfWs3pFy96RE9AgXbC1ZzKcmoFHSkcUrQP7wDr+tHqBvGy7jj/BuGEWwOvjHjlC7mssCPZAzSS6Kuv7D881A==}
-    dependencies:
-      archiver: 5.3.1
-      is-glob: 4.0.3
     dev: true
 
   /zip-stream@4.1.0:

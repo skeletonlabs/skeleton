@@ -3,7 +3,7 @@ import fs from 'fs';
 import { join } from 'path';
 import { dist } from '../src/utils.js';
 import fg from 'fast-glob';
-import { zip, COMPRESSION_LEVEL } from 'zip-a-folder';
+import archiver from 'archiver';
 
 async function copyTemplates() {
 	const basePath = dist('../../../templates')
@@ -13,9 +13,7 @@ async function copyTemplates() {
 		if (!csaMeta.enabled ) return;
 		if (csaMeta.type == "premium") {
 			//zip up the template and put it in the dist directory
-			const errHandler = (e) => { if (e) console.error(e.message) }
-			await fs.rm(join(basePath, metaFile, '..', 'node_modules'), { recursive: true }, errHandler);
-			await zip(join(basePath, metaFile, '..'), join(basePath, metaFile.split('/')[0] + '.zip'), COMPRESSION_LEVEL.high);
+			zipFolder(join(basePath, metaFile, '..'), join(basePath, metaFile.split('/')[0] + '.zip'));
 		} else {
 			//copy the folders that are specified in the csa-meta.json
 			csaMeta?.foldersToCopy?.forEach((folder) => {
@@ -25,6 +23,16 @@ async function copyTemplates() {
 			fs.cpSync(join(basePath, metaFile), join(`./templates/${metaFile}`));
 		}
 	});
+}
+
+function zipFolder(sourceFolder, outputFile) {
+	const output = fs.createWriteStream(outputFile);
+	output.on('close', function() {console.log('done writing: ' + archive.pointer() + ' total bytes')});
+	const archive = archiver('zip');
+	archive.on('error', function(err) { throw err});
+	archive.glob('**/*', {cwd: sourceFolder, ignore: ['**/node_modules/**', '**/.git/**']});
+	archive.pipe(output);
+	archive.finalize();
 }
 
 await copyTemplates();

@@ -1,10 +1,12 @@
-import { SkeletonOptions, createSkeleton } from '../packages/create-skeleton-app/src/creator.js'
+import { SkeletonOptions, createSkeleton } from '../../packages/create-skeleton-app/src/creator.js'
 
 let opts = new SkeletonOptions()
 
 opts.templatepath = 'packages/create-skeleton-app/templates';
 opts.quiet = true;
 opts.monorepo = true;
+
+const themes = ['skeleton','modern', 'hamlindigo', 'rocket', 'sahara', 'gold-nouveau', 'vintage', 'seafoam', 'crimson'];
 
 opts.name = 'barebones';
 opts.skeletontemplate = 'bare';

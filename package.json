@@ -17,7 +17,8 @@
 		"ci:release": "pnpm ci:package && pnpm ci:publish",
 		"ci:lint": "pnpm -r lint",
 		"ci:check": "pnpm -r check",
-		"cs": "changeset"
+		"cs": "changeset",
+		"checkout": "node scripts/checkout.mjs"
 	},
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",
