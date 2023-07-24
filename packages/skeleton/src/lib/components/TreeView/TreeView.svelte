@@ -2,7 +2,8 @@
 	import { setContext } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, TreeViewNode } from '../../index.js';
+	import TreeViewDataDrivenItem from './TreeViewDataDrivenItem.svelte';
 
 	// Props (parent)
 	/** Enable tree-view selection */
@@ -11,6 +12,9 @@
 	export let multiple = false;
 	/** Set the tree disabled state */
 	export let disabled = false;
+	/** Provide data-driven nodes. */
+	export let nodes: TreeViewNode[] = [];
+
 	/** Provide classes to set the tree width. */
 	export let width: CssClasses = 'w-full';
 	/** Provide classes to set the vertical spacing between items. */
@@ -139,5 +143,9 @@
 	aria-label={labelledby}
 	aria-disabled={disabled}
 >
-	<slot />
+	{#if !nodes || nodes.length === 0}
+		<slot />
+	{:else}
+		<TreeViewDataDrivenItem {nodes} />
+	{/if}
 </div>

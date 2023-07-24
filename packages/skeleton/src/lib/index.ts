@@ -10,6 +10,7 @@ export type { ToastSettings } from './utilities/Toast/types.js';
 export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
+export type { TreeViewNode } from './components/TreeView/types.js';
 
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;
@@ -99,6 +100,7 @@ export { default as TabAnchor } from './components/Tab/TabAnchor.svelte';
 export { default as TableOfContents } from './components/TableOfContents/TableOfContents.svelte';
 export { default as TreeView } from './components/TreeView/TreeView.svelte';
 export { default as TreeViewItem } from './components/TreeView/TreeViewItem.svelte';
+export { default as TreeViewDataDrivenItem } from './components/TreeView/TreeViewDataDrivenItem.svelte';
 // Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
 export { default as Modal } from './utilities/Modal/Modal.svelte';

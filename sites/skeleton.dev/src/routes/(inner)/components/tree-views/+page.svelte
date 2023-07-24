@@ -3,7 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import { TreeView, TreeViewItem } from '@skeletonlabs/skeleton';
+	import { TreeView, TreeViewItem, type TreeViewNode } from '@skeletonlabs/skeleton';
 	// Utilities
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 	// Sveld
@@ -45,6 +45,24 @@
 	let selectTree: TreeView;
 
 	let selectMultiple: string[] = [];
+
+	let simpleDD: TreeViewNode[] = [
+		{
+			content: 'Books',
+			lead: '<i class="fa-solid fa-book-skull"></i>',
+			open: true,
+			children: [{ content: 'Clean Code' }, { content: 'The Clean Coder' }, { content: 'The Art of Unix Programming' }]
+		},
+		{
+			content: 'Movies',
+			lead: '<i class="fa-solid fa-film"></i>',
+			children: [{ content: 'The Flash' }, { content: 'Guardians of the Galaxy' }, { content: 'Black Panther' }]
+		},
+		{
+			content: 'TV',
+			lead: '<i class="fa-solid fa-tv"></i>'
+		}
+	];
 </script>
 
 <DocsShell {settings}>
@@ -721,6 +739,41 @@ tree.deselectAll();
 	<!-- ... -->
 </TreeView>
 			`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Data driven tree-view</h2>
+			<h3 class="h3">Simple</h3>
+			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
+				<svelte:fragment slot="preview">
+					<TreeView nodes={simpleDD} />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let nodes: TreeViewNode[] = [
+	{
+		content: 'Books',
+		lead: '(icon)',
+		open: true,
+		children: [
+			{ content: 'Clean Code' },
+			{ content: 'The Clean Coder' },
+			{ content: 'The Art of Unix Programming' },
+		]
+	},
+	// ...
+]
+						`}
+					/>
+					<CodeBlock
+						langauge="html"
+						code={`
+<TreeView nodes={nodes}/>
+						`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>

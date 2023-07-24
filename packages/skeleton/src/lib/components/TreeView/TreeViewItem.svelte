@@ -10,7 +10,7 @@
 	// Props (state)
 	/** Set open by default on load. */
 	export let open = false;
-	/** Set the tree disabled state */
+	/** Set the tree item disabled state */
 	export let disabled: boolean = getContext('disabled');
 	/**
 	 * Set the radio group binding value.
@@ -63,6 +63,12 @@
 	export let regionSymbol: CssClasses = getContext('regionSymbol');
 	/** Provide arbitrary classes to the children region. */
 	export let regionChildren: CssClasses = getContext('regionChildren');
+
+	// Props (work around)
+	/** Don't use this prop, workaround until svelte implements conditional slots */
+	export let hideLead = false;
+	/** Don't use this prop, workaround until svelte implements conditional slots */
+	export let hideChildren = false;
 
 	// Locals
 	let checked = false;
@@ -193,7 +199,7 @@
 	const cDisabled = 'opacity-50 !cursor-not-allowed';
 
 	// Reactive State Classes
-	$: classesCaretState = open && $$slots.children ? caretOpen : caretClosed;
+	$: classesCaretState = open && $$slots.children && !hideChildren ? caretOpen : caretClosed;
 	// Reactive Classes
 	$: classesDisabled = disabled ? cDisabled : '';
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
@@ -217,7 +223,7 @@
 	>
 		<!-- Symbol -->
 		<div class="tree-summary-symbol {classesSymbol}">
-			{#if $$slots.children}
+			{#if $$slots.children && !hideChildren}
 				<!-- SVG Caret -->
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 					<path
@@ -241,7 +247,7 @@
 		{/if}
 
 		<!-- Slot: Lead -->
-		{#if $$slots.lead}
+		{#if $$slots.lead && !hideLead}
 			<div class="tree-item-lead">
 				<slot name="lead" />
 			</div>
