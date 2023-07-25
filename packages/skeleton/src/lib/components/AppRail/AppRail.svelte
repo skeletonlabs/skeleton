@@ -63,9 +63,13 @@
 
 <div class="app-rail {classesBase}" data-testid="app-rail">
 	<!-- Slot: lead -->
-	<div class="app-bar-lead {classesRegionLead}"><slot name="lead" /></div>
+	{#if $$slots.lead}
+		<div class="app-bar-lead {classesRegionLead}"><slot name="lead" /></div>
+	{/if}
 	<!-- Slot: Default -->
 	<div class="app-bar-default {classesRegionDefault}"><slot /></div>
 	<!-- Slot: lead -->
-	<div class="app-bar-trail {classesRegionTrail}"><slot name="trail" /></div>
+	{#if $$slots.trail}
+		<div class="app-bar-trail {classesRegionTrail}"><slot name="trail" /></div>
+	{/if}
 </div>
