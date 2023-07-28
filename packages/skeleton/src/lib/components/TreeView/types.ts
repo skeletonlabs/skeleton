@@ -9,4 +9,10 @@ export interface TreeViewNode {
 	disabled?: boolean;
 	/** children nodes. */
 	children?: TreeViewNode[];
+	/** Set the input's value. */
+	value?: unknown;
+	/** input checked */
+	checked?: boolean;
+	/** input is set to indeterminate, only availabe in multiple selection mode. */
+	indeterminate?: boolean;
 }

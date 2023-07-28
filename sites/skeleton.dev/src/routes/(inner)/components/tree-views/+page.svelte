@@ -15,7 +15,7 @@
 		feature: DocsFeature.Component,
 		name: 'Tree Views',
 		description: 'Display information in a hierarchical structure using collapsible nodes.',
-		imports: ['TreeView', 'TreeViewItem'],
+		imports: ['TreeView', 'TreeViewItem', 'type TreeViewNode'],
 		source: 'components/TreeView',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/treeview/',
 		components: [
@@ -23,18 +23,34 @@
 			{
 				label: 'TreeViewItem',
 				sveld: sveldTreeViewItem,
-				overrideProps: []
+				overrideProps: [
+					'open',
+					'selection',
+					'multiple',
+					'disabled',
+					'padding',
+					'indent',
+					'hover',
+					'rounded',
+					'caretOpen',
+					'hyphenOpacity',
+					'regionSummary',
+					'regionSymbol',
+					'regionChildren'
+				]
 			}
 		]
 	};
 
 	// Locals
+	// single
 	let mediumSingle: string = 'books';
 	let booksSingle: string = 'Clean Code';
 	let relationalMediumSingle: string = 'books';
 	let relationalBooksSingle: string = 'Clean Code';
 	let childrenSingle: TreeViewItem[] = [];
 
+	// multi
 	let mediumMultiple = ['books', 'movies'];
 	let booksMultiple = ['Clean Code', 'The Art of Unix Programming'];
 	let relationalMediumMultiple = ['movies'];
@@ -51,16 +67,87 @@
 			content: 'Books',
 			lead: '<i class="fa-solid fa-book-skull"></i>',
 			open: true,
-			children: [{ content: 'Clean Code' }, { content: 'The Clean Coder' }, { content: 'The Art of Unix Programming' }]
+			children: [
+				{ content: 'Clean Code', value: 'Clean Code' },
+				{ content: 'The Clean Coder', value: 'The Clean Coder' },
+				{ content: 'The Art of Unix Programming', value: 'The Art of Unix Programming' }
+			],
+			value: 'books'
 		},
 		{
 			content: 'Movies',
 			lead: '<i class="fa-solid fa-film"></i>',
-			children: [{ content: 'The Flash' }, { content: 'Guardians of the Galaxy' }, { content: 'Black Panther' }]
+			children: [
+				{ content: 'The Flash', value: 'The Flash' },
+				{ content: 'Guardians of the Galaxy', value: 'Guardians of the Galaxy' },
+				{ content: 'Black Panther', value: 'Black Panther' }
+			],
+			value: 'movies'
 		},
 		{
 			content: 'TV',
-			lead: '<i class="fa-solid fa-tv"></i>'
+			lead: '<i class="fa-solid fa-tv"></i>',
+			value: 'tv'
+		}
+	];
+
+	let singleDD: TreeViewNode[] = [
+		{
+			content: 'Books',
+			lead: '<i class="fa-solid fa-book-skull"></i>',
+			open: true,
+			checked: true,
+			children: [
+				{ content: 'Clean Code', value: 'Clean Code' },
+				{ content: 'The Clean Coder', value: 'The Clean Coder' },
+				{ content: 'The Art of Unix Programming', value: 'The Art of Unix Programming', checked: true }
+			],
+			value: 'books'
+		},
+		{
+			content: 'Movies',
+			lead: '<i class="fa-solid fa-film"></i>',
+			children: [
+				{ content: 'The Flash', value: 'The Flash' },
+				{ content: 'Guardians of the Galaxy', value: 'Guardians of the Galaxy' },
+				{ content: 'Black Panther', value: 'Black Panther' }
+			],
+			value: 'movies'
+		},
+		{
+			content: 'TV',
+			lead: '<i class="fa-solid fa-tv"></i>',
+			value: 'tv'
+		}
+	];
+
+	let multipleDD: TreeViewNode[] = [
+		{
+			content: 'Books',
+			lead: '<i class="fa-solid fa-book-skull"></i>',
+			open: true,
+			indeterminate: true,
+			children: [
+				{ content: 'Clean Code', value: 'Clean Code' },
+				{ content: 'The Clean Coder', value: 'The Clean Coder', checked: true },
+				{ content: 'The Art of Unix Programming', value: 'The Art of Unix Programming', checked: true }
+			],
+			value: 'books'
+		},
+		{
+			content: 'Movies',
+			lead: '<i class="fa-solid fa-film"></i>',
+			children: [
+				{ content: 'The Flash', value: 'The Flash' },
+				{ content: 'Guardians of the Galaxy', value: 'Guardians of the Galaxy' },
+				{ content: 'Black Panther', value: 'Black Panther' }
+			],
+			value: 'movies'
+		},
+		{
+			content: 'TV',
+			lead: '<i class="fa-solid fa-tv"></i>',
+			value: 'tv'
 		}
 	];
 </script>
@@ -444,7 +531,7 @@ let children: TreeViewItem[] = [];
 					/>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
-					<p>Select <code class="code">Movies</code> to see relational checking.</p>
+					<p>Check <code class="code">Movies</code> to see relational checking in action.</p>
 				</svelte:fragment>
 			</DocsPreview>
 			<DocsPreview background="neutral" regionFooter="text-center">
@@ -522,10 +609,11 @@ let children: TreeViewItem[] = [];
 					/>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
-					<p>Select children of <code class="code">Books</code> to see relational checking.</p>
+					<p>Check children of <code class="code">Books</code> to see relational checking in action.</p>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
+		<!-- Disbled -->
 		<section class="space-y-4">
 			<h2 class="h2">Disabled</h2>
 			<DocsPreview background="neutral">
@@ -602,7 +690,7 @@ let children: TreeViewItem[] = [];
 			<h2 class="h2">Expand/Collapse all</h2>
 			<p>
 				By binding to the <code class="code">tree</code> we can call the functions <code class="code">expandAll()</code>,
-				<code class="code">collapseAll()</code>.
+				<code class="code">collapseAll()</code> directly from the bound object.
 			</p>
 			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
 				<svelte:fragment slot="preview">
@@ -691,7 +779,7 @@ tree.collapseAll();
 			<h2 class="h2">Select/Deselect all</h2>
 			<p>
 				By binding to the <code class="code">tree</code> we can call the functions <code class="code">selectAll()</code>,
-				<code class="code">deselectAll()</code>.
+				<code class="code">deselectAll()</code> directly from the bound object.
 			</p>
 			<p>Note: These functions are excecuted only in <code class="code">multiple</code> selection mode.</p>
 			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
@@ -743,12 +831,14 @@ tree.deselectAll();
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
+		<!-- Data-Driven -->
 		<section class="space-y-4">
 			<h2 class="h2">Data driven tree-view</h2>
-			<h3 class="h3">Simple</h3>
+			<!-- Simple data driven -->
+			<h3 class="h3">Simple data driven</h3>
 			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
 				<svelte:fragment slot="preview">
-					<TreeView nodes={simpleDD} />
+					<TreeView bind:nodes={simpleDD} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
@@ -770,9 +860,82 @@ let nodes: TreeViewNode[] = [
 						`}
 					/>
 					<CodeBlock
-						langauge="html"
+						language="html"
 						code={`
 <TreeView nodes={nodes}/>
+						`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+			<!-- Single data driven -->
+			<h3 class="h3">Single data driven</h3>
+			<p>
+				Note: relational checking is auto applied in <code class="code">Data-Driven</code> mode. This means setting a child as checked in the
+				initial data, won't have effect if the parent wasn't checked too.
+			</p>
+			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
+				<svelte:fragment slot="preview">
+					<TreeView bind:nodes={singleDD} selection />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let nodes: TreeViewNode[] = [
+	{
+		content: 'Books',
+		lead: '(icon)',
+		open: true,
+		checked: true,
+		children: [
+			{ content: 'Clean Code' },
+			{ content: 'The Clean Coder' },
+			{ content: 'The Art of Unix Programming', checked: true },
+		]
+	},
+	// ...
+]
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<TreeView bind:nodes={nodes} selection/>
+						`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+			<!-- Multiple data driven -->
+			<h3 class="h3">Multiple data driven</h3>
+			<p>Note: relational checking is auto applied in <code class="code">Data-Driven</code> mode.</p>
+			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
+				<svelte:fragment slot="preview">
+					<TreeView bind:nodes={multipleDD} selection multiple />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let nodes: TreeViewNode[] = [
+	{
+		content: 'Books',
+		lead: '(icon)',
+		open: true,
+		indeterminate: true,
+		children: [
+			{ content: 'Clean Code', checked: true },
+			{ content: 'The Clean Coder', checked: true },
+			{ content: 'The Art of Unix Programming' },
+		]
+	},
+	// ...
+]
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<TreeView bind:nodes={nodes} selection multiple/>
 						`}
 					/>
 				</svelte:fragment>

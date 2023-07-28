@@ -2,16 +2,17 @@
 <svelte:options accessors />
 
 <script lang="ts">
-	import { getContext, createEventDispatcher, onMount } from 'svelte';
+	// Slots:
+	/**
+	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
+	 * @slot {{}} children - Provide TreeView item children.
+	 */
+	import { getContext, createEventDispatcher } from 'svelte';
 
 	// Types
 	import type { CssClasses, SvelteEvent, TreeViewItem } from '../../index.js';
 
 	// Props (state)
-	/** Set open by default on load. */
-	export let open = false;
-	/** Set the tree item disabled state */
-	export let disabled: boolean = getContext('disabled');
 	/**
 	 * Set the radio group binding value.
 	 * @type {unknown}
@@ -36,10 +37,16 @@
 	/** Provide classes to set the horizontal spacing. */
 	export let spacing: CssClasses = 'space-x-4';
 	// Context API
+	/** Set open by default on load. */
+	export let open: boolean = getContext('open');
 	/** Enable tree-view selection */
 	export let selection: boolean = getContext('selection');
 	/** Enable selection of multiple items. */
 	export let multiple: boolean = getContext('multiple');
+	/** Set the tree item disabled state */
+	export let disabled: boolean = getContext('disabled');
+	/** Set the check state to indeterminate(-). */
+	export let indeterminate = false;
 	// ---
 	/** Provide classes to set the tree item padding styles. */
 	export let padding: CssClasses = getContext('padding');
@@ -64,7 +71,7 @@
 	/** Provide arbitrary classes to the children region. */
 	export let regionChildren: CssClasses = getContext('regionChildren');
 
-	// Props (work around)
+	// Props (work-around)
 	/** Don't use this prop, workaround until svelte implements conditional slots */
 	export let hideLead = false;
 	/** Don't use this prop, workaround until svelte implements conditional slots */
@@ -72,7 +79,6 @@
 
 	// Locals
 	let checked = false;
-	let indeterminate = false;
 
 	// Functionality
 	function onSummaryClick(event: MouseEvent) {
@@ -105,12 +111,13 @@
 	}
 
 	// called when a child's value is changed
-	function onChildrenValueChange(event: SvelteEvent<Event, HTMLInputElement>, child: TreeViewItem) {
+	function onChildValueChange(event: SvelteEvent<Event, HTMLInputElement>, child: TreeViewItem) {
 		if (multiple) {
 			// all groups must be arrays in multiple mode
 			if (!Array.isArray(group)) return;
 			const childrenValues = children.map((c) => c.value);
 			const index = group.indexOf(value);
+
 			// all children are checked => check parent
 			if (childrenValues.every((c) => Array.isArray(child.group) && child.group.includes(c))) {
 				if (index < 0) {
@@ -139,8 +146,7 @@
 	// called every time the group's value changes
 	function onGroupValueChange(_group: unknown) {
 		// don't override children groups when parent is set to indeterminate
-		if (children.length === 0 || indeterminate) return;
-
+		if (!children || children.length === 0 || indeterminate) return;
 		if (multiple) {
 			// group must by array in multiple mode
 			if (!Array.isArray(_group)) return;
@@ -183,11 +189,9 @@
 	/** @event {{ open: boolean }} toggle - Fires on open or close. */
 	$: dispatch('toggle', { open: open });
 
-	// Lifecycle
-	onMount(() => {
-		children.forEach((child) => {
-			child.$on('change', (event) => onChildrenValueChange(event as SvelteEvent<Event, HTMLInputElement>, child));
-		});
+	// whenever children are changed, reassign on:change events.
+	$: children.forEach((child) => {
+		if (child) child.$on('change', (event) => onChildValueChange(event as SvelteEvent<Event, HTMLInputElement>, child));
 	});
 
 	// Classes
@@ -238,7 +242,7 @@
 		</div>
 
 		<!-- Selection -->
-		{#if selection && name && group}
+		{#if selection && name && group !== undefined}
 			{#if multiple}
 				<input class="checkbox tree-item-checkbox" type="checkbox" {name} {value} bind:checked bind:indeterminate on:click on:change />
 			{:else}

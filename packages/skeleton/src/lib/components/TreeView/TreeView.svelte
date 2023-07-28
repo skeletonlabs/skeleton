@@ -6,21 +6,25 @@
 	import TreeViewDataDrivenItem from './TreeViewDataDrivenItem.svelte';
 
 	// Props (parent)
-	/** Enable tree-view selection */
+	/** Enable tree-view selection. */
 	export let selection = false;
 	/** Enable selection of multiple items. */
 	export let multiple = false;
-	/** Set the tree disabled state */
-	export let disabled = false;
-	/** Provide data-driven nodes. */
+	/**
+	 * Provide data-driven nodes.
+	 * @type {TreeViewNode[]}
+	 */
 	export let nodes: TreeViewNode[] = [];
-
 	/** Provide classes to set the tree width. */
 	export let width: CssClasses = 'w-full';
 	/** Provide classes to set the vertical spacing between items. */
 	export let spacing: CssClasses = 'space-y-1';
 
 	// Props (children)
+	/** Set open by default on load. */
+	export let open = false;
+	/** Set the tree disabled state */
+	export let disabled = false;
 	/** Provide classes to set the tree item padding styles. */
 	export let padding: CssClasses = 'py-4 px-4';
 	/** Provide classes to set the tree children indentation */
@@ -68,7 +72,7 @@
 	 * collapses all tree view items.
 	 * @type {() => void}
 	 */
-	export function collapseAll() {
+	export function collapseAll(): void {
 		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
 		detailsElements.forEach((details) => {
 			if (details.open) {
@@ -81,7 +85,7 @@
 	 * select all tree view items. Only available in Multiple selection mode.
 	 * @type {() => void}
 	 */
-	export function selectAll() {
+	export function selectAll(): void {
 		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
 		detailsElements.forEach((details) => {
 			const input: HTMLInputElement | null = details.querySelector('input[type="checkbox"].tree-item-checkbox');
@@ -98,7 +102,7 @@
 	 * deselect all tree view items. Only available in Multiple selection mode.
 	 * @type {() => void}
 	 */
-	export function deselectAll() {
+	export function deselectAll(): void {
 		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
 		detailsElements.forEach((details) => {
 			const input: HTMLInputElement | null = details.querySelector('input[type="checkbox"].tree-item-checkbox');
@@ -113,6 +117,7 @@
 	}
 
 	// Context API
+	setContext('open', open);
 	setContext('selection', selection);
 	setContext('multiple', multiple);
 	setContext('disabled', disabled);
@@ -143,9 +148,9 @@
 	aria-label={labelledby}
 	aria-disabled={disabled}
 >
-	{#if !nodes || nodes.length === 0}
-		<slot />
+	{#if nodes && nodes.length > 0}
+		<TreeViewDataDrivenItem bind:nodes />
 	{:else}
-		<TreeViewDataDrivenItem {nodes} />
+		<slot />
 	{/if}
 </div>
