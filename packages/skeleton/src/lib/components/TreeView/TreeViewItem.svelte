@@ -79,6 +79,8 @@
 
 	// Locals
 	let checked = false;
+	let treeItem: HTMLDetailsElement;
+	let childrenDiv: HTMLDivElement;
 
 	// Functionality
 	function onSummaryClick(event: MouseEvent) {
@@ -194,6 +196,72 @@
 		if (child) child.$on('change', (event) => onChildValueChange(event as SvelteEvent<Event, HTMLInputElement>, child));
 	});
 
+	// A11y Key Down Handler
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, HTMLDivElement>): void {
+		function getRootTree(): HTMLDivElement | undefined {
+			let currentElement: HTMLElement | null = treeItem;
+			while (currentElement !== null) {
+				if (currentElement.classList.contains('tree')) return currentElement as HTMLDivElement;
+				currentElement = currentElement.parentElement;
+			}
+			return undefined;
+		}
+		let rootTree: HTMLDivElement | undefined = undefined;
+		switch (event.code) {
+			case 'ArrowRight':
+				if (!open) open = true;
+				else if ($$slots.children && !hideChildren) {
+					// focus on first child
+					const child = childrenDiv.querySelector('details>summary') as HTMLElement;
+					if (child) child.focus();
+				}
+				break;
+			case 'ArrowLeft':
+				if (open) open = false;
+				else {
+					// focus on parent
+					const parent = treeItem.parentElement?.parentElement;
+					if (parent && parent.tagName === 'DETAILS') (parent.querySelector('summary') as HTMLElement).focus();
+				}
+				break;
+			case 'Home':
+				event.preventDefault();
+				rootTree = getRootTree();
+				// focus on first node
+				if (rootTree) rootTree?.querySelector('summary')?.focus();
+				break;
+			case 'End':
+				event.preventDefault();
+				rootTree = getRootTree();
+				let lastVisibleElement: HTMLElement | undefined | null = null;
+				// focus on last node
+				if (rootTree) {
+					const detailsElements = rootTree?.querySelectorAll('details');
+					if (!detailsElements) return;
+					// start from last details
+					for (let i = detailsElements.length - 1; i >= 0; i--) {
+						const details = detailsElements[i];
+						// when details is on root level or the parent of details is open
+						if (details.parentElement?.classList?.contains('tree') || details.parentElement?.parentElement?.getAttribute('open') !== null) {
+							lastVisibleElement = details;
+							break;
+							// when details is not on root level but parent is not details
+						} else if (details.parentElement?.parentElement?.tagName !== 'details') {
+							lastVisibleElement = details.parentElement.parentElement;
+							break;
+						}
+					}
+
+					// focus on last visible node
+					if (lastVisibleElement) {
+						const summary = lastVisibleElement.querySelector('summary');
+						if (summary) summary.focus();
+					}
+				}
+				break;
+		}
+	}
+
 	// Classes
 	const cBase = '';
 	// [&::-webkit-details-marker]:hidden -> hide default arrow on webkit browsers
@@ -214,14 +282,15 @@
 	$: classesChildren = `${cChildren} ${indent} ${regionChildren}`;
 </script>
 
-<details bind:open class="tree-item {classesBase}" data-testid="tree-item" aria-disabled={disabled}>
+<details bind:this={treeItem} bind:open class="tree-item {classesBase}" data-testid="tree-item" aria-disabled={disabled}>
 	<summary
 		class="tree-item-summary {classesSummary}"
 		role="treeitem"
-		aria-selected={checked}
+		aria-selected={selection ? checked : undefined}
 		aria-expanded={$$slots.children ? open : undefined}
 		on:click={onSummaryClick}
 		on:click
+		on:keydown={onKeyDown}
 		on:keydown
 		on:keyup
 	>
@@ -261,7 +330,7 @@
 			<slot />
 		</div>
 	</summary>
-	<div class="tree-item-children {classesChildren}" role="group">
+	<div bind:this={childrenDiv} class="tree-item-children {classesChildren}" role="group">
 		<slot name="children" />
 	</div>
 </details>

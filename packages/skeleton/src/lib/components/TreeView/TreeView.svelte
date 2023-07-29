@@ -144,7 +144,7 @@
 	class="tree {classesBase}"
 	data-testid="tree"
 	role="tree"
-	aria-multiselectable="true"
+	aria-multiselectable={multiple}
 	aria-label={labelledby}
 	aria-disabled={disabled}
 >

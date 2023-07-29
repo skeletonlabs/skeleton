@@ -39,6 +39,14 @@
 					'regionChildren'
 				]
 			}
+		],
+		keyboard: [
+			['<kbd class="kbd">Tab</kbd>', "Focus the next tree-view item or it's input."],
+			['<kbd class="kbd">Shift + Tab</kbd> ', "Focus the previous tree-view item or it's input."],
+			['<kbd class="kbd">Right arrow</kbd>', 'Opens closed tree-view item or move focus to first child of open tree-view item.'],
+			['<kbd class="kbd">Left arrow</kbd>', 'Closes open tree-view item or move focus to parent of closed tree-view item.'],
+			['<kbd class="kbd">Home</kbd>', 'move focus to first tree-view item.'],
+			['<kbd class="kbd">End</kbd>', 'move focus to last tree-view item.']
 		]
 	};
 
