@@ -206,7 +206,10 @@
 			}
 			return undefined;
 		}
+
 		let rootTree: HTMLDivElement | undefined = undefined;
+		let lastVisibleElement: HTMLElement | undefined | null = null;
+
 		switch (event.code) {
 			case 'ArrowRight':
 				if (!open) open = true;
@@ -233,7 +236,6 @@
 			case 'End':
 				event.preventDefault();
 				rootTree = getRootTree();
-				let lastVisibleElement: HTMLElement | undefined | null = null;
 				// focus on last node
 				if (rootTree) {
 					const detailsElements = rootTree?.querySelectorAll('details');
