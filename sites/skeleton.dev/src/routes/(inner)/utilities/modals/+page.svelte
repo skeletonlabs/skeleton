@@ -145,7 +145,6 @@
 				<button class="btn variant-filled" on:click={modalDemo}>Show Modal</button>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<p>Implement a single instance of the modal component in your app's root layout above the App Shell (if present).</p>
 				<CodeBlock language="html" code={`<Modal />\n\n<!-- <AppShell>...</AppShell> -->`} />
 			</svelte:fragment>
 		</DocsPreview>
@@ -155,13 +154,18 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<!-- prettier-ignore -->
-		<aside class="alert alert-message variant-ghost-warning">
-			<p>
-				This feature uses the <a class="anchor" href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
-				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
-			</p>
-		</aside>
+		<!-- Implementation -->
+		<section class="space-y-4">
+			<h2 class="h2">Implementation</h2>
+			<p>Implement a single instance of the modal component in your app's root layout above the App Shell (if present).</p>
+			<!-- prettier-ignore -->
+			<aside class="alert alert-message variant-ghost-warning">
+				<p>
+					This feature uses the <a class="anchor" href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
+					and reusable via a Svelte writable store. Do not reimplement this component for each route page.
+				</p>
+			</aside>
+		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Modal Store</h2>
 			<p>When you wish to trigger a modal, import the <code class="code">modalStore</code>, which acts as the modal queue.</p>
