@@ -12,7 +12,7 @@ export const load: PageLoad = async ({ fetch }) => {
 	return { contributors: getContributors() };
 };
 
-type Contributor = {
+export type Contributor = {
 	login: string;
 	id: number;
 	node_id: string;

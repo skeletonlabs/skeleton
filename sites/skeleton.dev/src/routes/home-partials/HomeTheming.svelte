@@ -2,9 +2,23 @@
 	import { getImageLink } from '$lib/images';
 	import { TabGroup, Tab, ProgressBar } from '@skeletonlabs/skeleton';
 
+	type Theme = {
+		base: string;
+		header: string;
+		src: string;
+		img: string;
+		text1: string;
+		text2: string;
+		text3: string;
+		progressTrack: string;
+		progressMeter: string;
+		footer: string;
+		button: string;
+	};
+
 	// Local
 	let theme = 'simple';
-	const themeStyles: any = {
+	const themeStyles: Record<string, Theme> = {
 		simple: {
 			base: 'variant-soft-primary font-sans rounded-container-token',
 			header: 'bg-primary-500 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-container-token rounded-tr-container-token',
