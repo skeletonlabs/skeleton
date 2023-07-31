@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: fixed typo in logo-clouds styles
+bugfix: fixed a minor typo in the Logo Cloud stylesheet

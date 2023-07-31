@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: fixed Scroll to the top of the modal, when the modal is bigger than the view.
+bugfix: resolved a scrolling issue when Modals exceeds the visible screen size
