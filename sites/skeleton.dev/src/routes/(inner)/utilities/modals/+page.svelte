@@ -145,7 +145,34 @@
 				<button class="btn variant-filled" on:click={modalDemo}>Show Modal</button>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<Modal />\n\n<!-- <AppShell>...</AppShell> -->`} />
+				<p>Implement a single instance of the modal component your app's root layout, above the App Shell (if present).</p>
+				<CodeBlock
+					language="html"
+					code={`
+<Modal />\n
+<!-- <AppShell>...</AppShell> -->
+				`}
+				/>
+				<p>
+					When you wish to trigger a modal, import <code class="code">modalStore</code> and
+					<code class="code">ModalSettings</code>, then follow the example below.
+				</p>
+				<CodeBlock
+					language="ts"
+					code={`
+import { modalStore, type ModalSettings } from '@skeletonlabs/skeleton';\n
+// Provide the modal settings
+const modal: ModalSettings = {
+	type: 'alert',
+	title: 'Example Alert',
+	body: 'This is an example modal.',
+	image: 'https://i.imgur.com/WOgTG96.gif',
+};\n
+// Trigger the modal:
+modalStore.trigger(modal);
+				`}
+				/>
+				<p>For more examples and configuration options, see the documentation below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -154,17 +181,24 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<!-- Implementation -->
+		<!-- prettier-ignore -->
+		<aside class="alert alert-message variant-ghost-warning">
+			<p>
+				This feature uses the <a class="anchor" href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
+				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
+			</p>
+		</aside>
 		<section class="space-y-4">
-			<h2 class="h2">Implementation</h2>
-			<p>Implement a single instance of the modal component in your app's root layout above the App Shell (if present).</p>
-			<!-- prettier-ignore -->
-			<aside class="alert alert-message variant-ghost-warning">
-				<p>
-					This feature uses the <a class="anchor" href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
-					and reusable via a Svelte writable store. Do not reimplement this component for each route page.
-				</p>
-			</aside>
+			<h2 class="h2">Modal Component</h2>
+			<p>Implement a single instance of the modal component in your app's root layout, above the App Shell (if present).</p>
+			<CodeBlock
+				language="html"
+				code={`
+<Modal />
+
+<!-- <AppShell>...</AppShell> -->
+				`}
+			/>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Modal Store</h2>
