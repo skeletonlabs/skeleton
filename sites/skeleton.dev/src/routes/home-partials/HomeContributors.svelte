@@ -1,7 +1,8 @@
 <script lang="ts">
 	import DocsLogoLabs from '$lib/components/DocsLogos/DocsLogoLabs.svelte';
 	import { Avatar } from '@skeletonlabs/skeleton';
-	export let contributors: any[];
+	import type { Contributor } from '../+page';
+	export let contributors: Contributor[];
 </script>
 
 <div class="space-y-10">

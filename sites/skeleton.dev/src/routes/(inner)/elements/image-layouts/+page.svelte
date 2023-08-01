@@ -81,7 +81,7 @@
 	<div>
 		<img class="h-auto max-w-full rounded-lg" src="${getImageLink({ id: 'YOErFW8AfkI', w: 128, h: 128 })}" alt="">
 	</div>
-<section>
+</section>
 `}
 				/>
 			</svelte:fragment>

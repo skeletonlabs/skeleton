@@ -10,7 +10,7 @@
 	/* === Logo Item (Child) === */
 
 	.logo-item {
-		@apply: flex-auto text-center space-x-4 shadow;
+		@apply flex-auto text-center space-x-4 shadow;
 		/* Center Contents */
 		@apply flex justify-center items-center space-x-4;
 		/* Background */

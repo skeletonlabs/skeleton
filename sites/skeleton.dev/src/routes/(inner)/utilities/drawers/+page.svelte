@@ -78,8 +78,34 @@
 					</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<p>Implement a single instance of the drawer component in your app's root layout above the App Shell (if present).</p>
-				<CodeBlock language="html" code={`<Drawer />\n\n<!-- <AppShell>...</AppShell> -->`} />
+				<p>Implement a single instance of the drawer component your app's root layout, above the App Shell (if present).</p>
+				<CodeBlock
+					language="html"
+					code={`
+<Drawer>
+	<p>Hello Skeleton</p>
+</Drawer>\n
+<!-- <AppShell>...</AppShell> -->
+				`}
+				/>
+				<p>
+					When you wish to trigger a toast message, import <code class="code">drawerStore</code>, then follow the example below.
+				</p>
+				<CodeBlock
+					language="ts"
+					code={`
+import { drawerStore } from '@skeletonlabs/skeleton';\n
+// Open the drawer:
+function drawerOpen(): void {
+	drawerStore.open();
+}\n
+// Close the drawer:
+function drawerOpen(): void {
+	drawerStore.close();
+}
+				`}
+				/>
+				<p>For more examples and configuration options, see the documentation below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -93,6 +119,19 @@
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
+		<!-- Drawer Component -->
+		<section class="space-y-4">
+			<h2 class="h2">Drawer Component</h2>
+			<p>Implement a single instance of the drawer component in your app's root layout, above the App Shell (if present).</p>
+			<CodeBlock
+				language="html"
+				code={`
+<Drawer>(contents)</Drawer>
+
+<!-- <AppShell>...</AppShell> -->
+				`}
+			/>
+		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Drawer Store</h2>
 			<p>Import this anywhere you wish to control the Drawer. Provides an interface to control the drawer component.</p>

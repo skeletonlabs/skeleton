@@ -136,11 +136,31 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
+				<p>Implement a single instance of the toast component your app's root layout, above the App Shell (if present).</p>
+				<CodeBlock
+					language="html"
+					code={`
+<Toast />\n
+<!-- <AppShell>...</AppShell> -->
+				`}
+				/>
 				<p>
-					Import and add a single instance of the Toast component in your app's root layout. Since this is in global scope it will be
-					possible to reuse this feature throughout your entire application.
+					When you wish to trigger a toast message, import <code class="code">toastStore</code> and
+					<code class="code">ToastSettings</code>, then follow the example below.
 				</p>
-				<CodeBlock language="html" code={`<Toast />`} />
+				<CodeBlock
+					language="ts"
+					code={`
+import { toastStore, type ToastSettings } from '@skeletonlabs/skeleton';\n
+// Provide the toast settings
+const t: ToastSettings = {
+	message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
+};\n
+// Trigger the toast:
+toastStore.trigger(t);
+				`}
+				/>
+				<p>For more examples and configuration options, see the documentation below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -154,6 +174,19 @@
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
+		<!-- Toast Component -->
+		<section class="space-y-4">
+			<h2 class="h2">Toast Component</h2>
+			<p>Implement a single instance of the toast component in your app's root layout, above the App Shell (if present).</p>
+			<CodeBlock
+				language="html"
+				code={`
+<Toast />
+
+<!-- <AppShell>...</AppShell> -->
+				`}
+			/>
+		</section>
 		<!-- Toast Store -->
 		<section class="space-y-4">
 			<h2 class="h2">Toast Store</h2>
