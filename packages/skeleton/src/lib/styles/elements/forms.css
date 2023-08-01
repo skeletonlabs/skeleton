@@ -274,8 +274,8 @@
 		@apply bg-surface-500/10 dark:bg-surface-500/20;
 		/* Border */
 		@apply border-0 border-b-2;
-		/* Blur */
-		@apply backdrop-blur;
+		/* Blur / high CPU usage on some browsers, see https://github.com/skeletonlabs/skeleton/issues/1805 */
+		/* @apply backdrop-blur; */
 	}
 	.variant-form-material[type='file'] {
 		@apply !py-1.5;
