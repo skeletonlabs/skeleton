@@ -1,5 +1,21 @@
 # @skeletonlabs/skeleton
 
+## 1.11.0
+
+### Minor Changes
+
+- chore: Added `separatorText` prop to Paginator to allow localization ([#1791](https://github.com/skeletonlabs/skeleton/pull/1791))
+
+- feat: Added region props in `ListBox` and `ListBoxItem`. ([#1771](https://github.com/skeletonlabs/skeleton/pull/1771))
+
+### Patch Changes
+
+- bugfix: Removed `backdrop-blur` from `variant-form-material` because of high CPU usage on some browsers. ([#1807](https://github.com/skeletonlabs/skeleton/pull/1807))
+
+- bugfix: fixed a minor typo in the Logo Cloud stylesheet ([#1769](https://github.com/skeletonlabs/skeleton/pull/1769))
+
+- bugfix: resolved a scrolling issue when Modals exceeds the visible screen size ([#1695](https://github.com/skeletonlabs/skeleton/pull/1695))
+
 ## 1.10.0
 
 ### Minor Changes
