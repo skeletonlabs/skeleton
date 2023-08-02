@@ -90,9 +90,8 @@
 		<nav class="toc-list {classesList}">
 			<div class="toc-title {classesTitle}">{title}</div>
 			{#each links as link}
-				<a href={link.href}
-				   class="toc-button-item {classesButtonItem} {link.indent}">
-				   {link.text}
+				<a href={link.href} class="toc-button-item {classesButtonItem} {link.indent}">
+					{link.text}
 				</a>
 			{/each}
 		</nav>
