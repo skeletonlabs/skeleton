@@ -88,8 +88,8 @@
 			<span class="badge variant-filled-warning">New in v2</span>
 		</div>
 		<p>
-			Skeleton now defines theme settings via CSS-in-JS format. This allows means themes can be easily injected into the Skeleton Tailwind
-			plugin rather than requiring additional CSS stylesheet imports.
+			Skeleton now defines theme settings via CSS-in-JS format. This allows themes to be easily injected into the Skeleton Tailwind plugin
+			rather than requiring additional CSS stylesheet imports.
 		</p>
 	</section>
 
@@ -125,14 +125,14 @@ plugins: [
 	`}
 		/>
 		<p>
-			Open <code class="code">/src/app.html</code> and define the theme active theme using the <code class="code">data-theme</code> attribute.
-			You can modify this attribute to dynamically switch between themes as desired.
+			Open <code class="code">/src/app.html</code> and define the active theme using the <code class="code">data-theme</code> attribute. You
+			can modify this attribute to dynamically switch between themes.
 		</p>
 		<CodeBlock language="html" code={`<body data-theme="skeleton">`} />
 		<h3 class="h3">Enhancements</h3>
 		<p>
 			Preset themes may implement additional optional features for your theme, including: setting font weights, background mesh gradients,
-			and more. To enable these settings use <code class="code">enhancements</code> as shown below.
+			and more. To enable these settings, use <code class="code">enhancements</code> as shown below.
 		</p>
 		<CodeBlock
 			language="ts"
