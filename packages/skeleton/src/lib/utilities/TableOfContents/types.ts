@@ -1,7 +1,10 @@
 import type { CssClasses } from '../../index.js';
 
-export interface QueryIndent {
-	/** single selector query */
-	query: string;
-	indentClass: CssClasses;
+export interface TOCLink {
+	/** href of the link */
+	href: string;
+	/** text of the link */
+	text: string;
+	/** indent class of the link */
+	indent?: CssClasses;
 }

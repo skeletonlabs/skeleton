@@ -10,7 +10,7 @@ export type { ToastSettings } from './utilities/Toast/types.js';
 export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
-export type { QueryIndent } from './utilities/TableOfContents/types.js';
+export type { TOCLink } from './utilities/TableOfContents/types.js';
 export type { Transition, TransitionParams } from './internal/transitions.js';
 export type { CssClasses, SvelteEvent } from './types.js';
 
