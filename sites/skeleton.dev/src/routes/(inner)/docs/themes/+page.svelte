@@ -96,7 +96,10 @@
 	<hr />
 
 	<section class="space-y-4">
-		<h2 class="h2">Tailwind Plugin Settings</h2>
+		<div class="h2 flex items-center gap-2">
+			<h2 class="h2">Tailwind Plugin Settings</h2>
+			<span class="badge variant-filled-warning">New in v2</span>
+		</div>
 		<p>
 			Themes are configured via Skeleton's Tailwind plugin in your <code class="code">tailwind.config.[cjs|js|ts]</code>, found in your
 			project root.
