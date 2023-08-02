@@ -2,6 +2,9 @@
 	import { storeOnboardMethod } from '$lib/stores/stores';
 	// Components
 	import { Tab, TabGroup, CodeBlock } from '@skeletonlabs/skeleton';
+
+	// Local
+	let tabConfigFormat = 'cjs';
 </script>
 
 <!-- Header -->
@@ -49,12 +52,20 @@
 					/>
 				</div>
 				<h3 class="h3">Tailwind Configuration</h3>
-				<p>
-					Apply the following changes to your <code class="code">tailwind.config.[cjs|js|ts]</code>, found in the root of your project.
-				</p>
-				<CodeBlock
-					language="js"
-					code={`
+				<p>Apply the following changes to your <code class="code">tailwind.config.[cjs|js|ts]</code>, found in the root of your project.</p>
+				<TabGroup regionPanel="space-y-4">
+					<!-- Tabs -->
+					<Tab bind:group={tabConfigFormat} name="cjs" value="cjs">CommonJS (.cjs)</Tab>
+					<Tab bind:group={tabConfigFormat} name="js" value="js">Javascript (.js)</Tab>
+					<Tab bind:group={tabConfigFormat} name="ts" value="ts">Typescript (.ts)</Tab>
+					<!-- Panel -->
+					<svelte:fragment slot="panel">
+						{#if tabConfigFormat === 'cjs'}
+							<CodeBlock
+								language="cjs"
+								code={`
+// @ts-check
+
 // 1. Import the Skeleton plugin
 const { skeleton } = require('@skeletonlabs/tw-plugin');
 
@@ -78,8 +89,77 @@ module.exports = {
 		skeleton
 	]
 }
-`}
-				/>
+						`}
+							/>
+						{:else if tabConfigFormat === 'js'}
+							<CodeBlock
+								language="js"
+								code={`
+// @ts-check
+import { join } from 'path';
+
+// 1. Import the Skeleton plugin
+import { skeleton } from '@skeletonlabs/tw-plugin';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+	// 2. Opt for dark mode to be handled via the class method
+	darkMode: 'class',
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		// 3. Append the path to the Skeleton package
+		require('path').join(require.resolve(
+			'@skeletonlabs/skeleton'),
+			'../**/*.{html,js,svelte,ts}'
+		)
+	],
+	theme: {
+		extend: {},
+	},
+	plugins: [
+		// 4. Append the Skeleton plugin (after other plugins)
+		skeleton
+	]
+}
+						`}
+							/>
+						{:else}
+							<CodeBlock
+								language="ts"
+								code={`
+import { join } from 'path';
+import type { Config } from 'tailwindcss';
+
+// 1. Import the Skeleton plugin
+import { skeleton } from '@skeletonlabs/tw-plugin';
+
+const config = {
+	// 2. Opt for dark mode to be handled via the class method
+	darkMode: 'class',
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		// 3. Append the path to the Skeleton package
+		require('path').join(require.resolve(
+			'@skeletonlabs/skeleton'),
+			'../**/*.{html,js,svelte,ts}'
+		)
+	],
+	theme: {
+		extend: {},
+	},
+	plugins: [
+		// 4. Append the Skeleton plugin (after other plugins)
+		skeleton
+	]
+} satisfies Config;
+
+export default config;
+						`}
+							/>
+						{/if}
+					</svelte:fragment>
+				</TabGroup>
+
 				<!-- <aside class="alert variant-ghost-warning">
 					<i class="fa-solid fa-triangle-exclamation text-2xl" />
 					<div class="alert-message">

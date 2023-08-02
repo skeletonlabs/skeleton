@@ -21,37 +21,16 @@
 
 	<hr />
 
-	<!-- Instructions -->
-	<!-- <section class="space-y-4">
-		<h2 class="h2">Importing Your Theme</h2>
-		<p>
-			Copy and paste your theme CSS into <code class="code">/src/theme.postcss</code>, then import the theme into your root layout in
-			<code class="code">/src/routes/+layout.svelte</code> instead of a premade Skeleton theme. Keep the order as shown.
-		</p>
-		<CodeBlock
-			language="ts"
-			code={`
-// Your custom Skeleton theme:
-import '../theme.postcss';\n
-// This contains the bulk of Skeletons required styles:
-import '@skeletonlabs/skeleton/styles/skeleton.css';\n
-// Finally, your application's global stylesheet (sometimes labeled 'app.css')
-import '../app.postcss';
-						`}
-		/>
-	</section> -->
-
 	<!-- Instructions (v2) -->
 	<section class="space-y-4">
 		<h2 class="h2">Implement Your Theme</h2>
-		<!-- pretiter-ignore -->
+		<!-- prettier-ignore -->
 		<p>
-			Generate your theme above, copy the source, then paste this into a new file in the root of your project with a disticting name, such
-			as: <code class="code">my-custom-theme.[ts|js]</code>.
+			Generate your theme above, copy the source, then paste this into a new file in the root of your project with a distinct name, such as: <code class="code">my-custom-theme.[ts|js]</code>. Make sure to strip out the Typescript type information within your theme if you opt for the Javascript format.
 		</p>
-		<p>Open <code class="code">tailwind.config.[js,cjs,ts]</code>, found in the root of your project, and import your custom theme.</p>
+		<p>Open <code class="code">tailwind.config.[cjs|js|ts]</code> found in the root of your project, and import your custom theme.</p>
 		<CodeBlock language="ts" code={`import myCustomTheme from './my-custom-theme'`} />
-		<p>Within this same file, register your new theme via the Skeleton Tailwind plugin settings as shown below.</p>
+		<p>Within this same file, register your custom theme via the Skeleton Tailwind plugin settings as shown below.</p>
 		<CodeBlock
 			language="ts"
 			code={`
@@ -73,7 +52,7 @@ plugins: [
 		</p>
 		<CodeBlock language="html" code={`<body data-theme="my-custom-theme">`} />
 		<!-- prettier-ignore -->
-		<p>Note that custom themes can be registered and used with <a href="/docs/themes#register-themes" class="anchor">Skeleton preset themes</a>.</p>
+		<p>Note that custom themes can be registered alongside <a href="/docs/themes#register-themes" class="anchor">Skeleton's preset themes</a>, allowing you to switch between these as desired.</p>
 	</section>
 
 	<hr />

@@ -98,7 +98,7 @@
 	<section class="space-y-4">
 		<h2 class="h2">Tailwind Plugin Settings</h2>
 		<p>
-			Themes are configured via Skeleton's Tailwind plugin in your <code class="code">tailwind.config.[js,cjs,ts]</code>, found in your
+			Themes are configured via Skeleton's Tailwind plugin in your <code class="code">tailwind.config.[cjs|js|ts]</code>, found in your
 			project root.
 		</p>
 		<h3 class="h3">Register Themes</h3>
