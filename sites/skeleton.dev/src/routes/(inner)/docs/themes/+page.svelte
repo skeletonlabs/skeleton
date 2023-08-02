@@ -96,11 +96,70 @@
 	<hr />
 
 	<section class="space-y-4">
+		<h2 class="h2">Tailwind Plugin Settings</h2>
+		<p>
+			Themes are configured via Skeleton's Tailwind plugin in your <code class="code">tailwind.config.[js,cjs,ts]</code>, found in your
+			project root.
+		</p>
+		<h3 class="h3">Register Themes</h3>
+		<p>
+			Skeleton provides a number of <a class="anchor" href="/docs/get-started#preset-themes">preset themes</a> out of the box. Register one or
+			more within your Tailwind plugin settings.
+		</p>
+		<CodeBlock
+			language="ts"
+			code={`
+plugins: [
+	skeleton({
+		themes: {
+			// Register a single theme:
+			preset: [ "skeleton" ]\n
+			// Register multiple themes:
+			// preset: [ "skeleton", "modern", "crimson" ] 
+		}
+	})
+]
+	`}
+		/>
+		<p>
+			Open <code class="code">/src/app.html</code> and define the theme active theme using the <code class="code">data-theme</code> attribute.
+			You can modify this attribute to dynamically switch between themes as desired.
+		</p>
+		<CodeBlock language="html" code={`<body data-theme="skeleton">`} />
+		<h3 class="h3">Enhancements</h3>
+		<p>
+			Preset themes may implement additional optional features for your theme, including: setting font weights, background mesh gradients,
+			and more. To enable these settings use <code class="code">enhancements</code> as shown below.
+		</p>
+		<CodeBlock
+			language="ts"
+			code={`
+plugins: [
+	skeleton({
+		themes: {
+			// Enable 'enhancements' as shown below:
+			preset: [
+				{ name: "skeleton", enhancements: true }
+			] 
+		}
+	})
+]
+	`}
+		/>
+		<h3 class="h3">Custom Themes</h3>
+		<p>
+			View the <a class="anchor" href="/docs/generator">theme generator</a> for more information about custom themes.
+		</p>
+	</section>
+
+	<hr />
+
+	<section class="space-y-4">
 		<h2 class="h2">Backgrounds</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Your app's background color is set automatically via a <a class="anchor" href="https://www.skeleton.dev/docs/tokens">design token</a>.
-			This utilizes <code class="code">--color-surface-50</code> for light mode and <code class="code">--color-surface-900</code> for dark mode by default. Here's a few examples illustrating how to modify this in <code class="code">app.postcss</code>:
+			The background color of your application is set automatically using one of Skeleton's <a class="anchor" href="https://www.skeleton.dev/docs/tokens">design token</a> styles.
+			This utilizes <code class="code">--color-surface-50</code> for light mode and <code class="code">--color-surface-900</code> for dark mode by default. See the examples below to learn how to modify this in your <code class="code">app.postcss</code>:
 		</p>
 		<CodeBlock
 			language="css"

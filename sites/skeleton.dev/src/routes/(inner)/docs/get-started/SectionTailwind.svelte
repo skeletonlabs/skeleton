@@ -50,8 +50,7 @@
 				</div>
 				<h3 class="h3">Tailwind Configuration</h3>
 				<p>
-					Apply these following three changes to your <code class="code">tailwind.config.[cjs|js|ts]</code>, found in the root of your
-					project.
+					Apply the following changes to your <code class="code">tailwind.config.[cjs|js|ts]</code>, found in the root of your project.
 				</p>
 				<CodeBlock
 					language="js"

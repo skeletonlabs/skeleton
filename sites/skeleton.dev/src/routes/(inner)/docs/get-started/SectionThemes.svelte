@@ -31,10 +31,7 @@ plugins: [
 		Themes <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">integrate with Tailwind</a> to support <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a> and <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, as well as Skeleton's <a class="anchor" href="/docs/tokens">design tokens</a>.
 	</p>
 	<h3 class="h3">Preset Themes</h3>
-	<p>
-		Skeleton provides a number of preset themes out of the box. To switch themes, open <code class="code">tailwind.config.[cjs|js|ts]</code>
-		found in the root of your project, then modify the settings as shown below. Select a theme to update the code snippet.
-	</p>
+	<p>Skeleton provides a number of preset themes out of the box. Select a theme to update the instruction below.</p>
 	<!-- Presets -->
 	<div class="card variant-glass p-4 space-y-4">
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -59,13 +56,21 @@ plugins: [
 				</div>
 			{/each}
 		</nav>
+		<p>
+			First, enable the theme in your <code class="code">tailwind.config.[cjs|js|ts]</code>
+			found in the root of your project.
+		</p>
 		<CodeBlock language="ts" code={activeThemeStylesheet} />
+		<p>
+			Next, open <code class="code">/src/app.html</code> and define the theme active theme using the <code class="code">data-theme</code> attribute.
+		</p>
+		<CodeBlock language="html" code={`<body data-theme="${activeTheme.file}">`} />
 	</div>
 
 	<!-- Theme Customization -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Learn how extend preset themes, customize backgrounds, and add custom fonts.</p>
+			<p>Learn more about Skeleton themes in this comprehensive guide.</p>
 			<a class="btn variant-filled-secondary" href="/docs/themes">Themes &rarr;</a>
 		</div>
 	</div>
@@ -73,7 +78,7 @@ plugins: [
 	<!-- Generator -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Interested in creating your own custom theme? Try the Skeleton theme generator.</p>
+			<p>Ready to create a custom theme? Try the Theme Generator.</p>
 			<a class="btn variant-filled-secondary" href="/docs/generator">Generator &rarr;</a>
 		</div>
 	</div>
