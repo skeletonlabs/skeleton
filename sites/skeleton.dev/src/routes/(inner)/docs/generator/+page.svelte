@@ -29,7 +29,7 @@
 			Generate your theme above, copy the source, then paste this into a new file in the root of your project with a distinct name, such as: <code class="code">my-custom-theme.[ts|js]</code>. Make sure to strip out the Typescript type information within your theme if you opt for the Javascript format.
 		</p>
 		<p>Open <code class="code">tailwind.config.[cjs|js|ts]</code> found in the root of your project, and import your custom theme.</p>
-		<CodeBlock language="ts" code={`import myCustomTheme from './my-custom-theme'`} />
+		<CodeBlock language="ts" code={`import { myCustomTheme } from './my-custom-theme'`} />
 		<p>Within this same file, register your custom theme via the Skeleton Tailwind plugin settings as shown below.</p>
 		<CodeBlock
 			language="ts"
