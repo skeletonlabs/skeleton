@@ -57,12 +57,11 @@ plugins: [
 			{/each}
 		</nav>
 		<p>
-			First, enable the theme in your <code class="code">tailwind.config.[cjs|js|ts]</code>
-			found in the root of your project.
+			First, register your desired theme in <code class="code">tailwind.config.[cjs|js|ts]</code>, found in the root of your project.
 		</p>
 		<CodeBlock language="ts" code={activeThemeStylesheet} />
 		<p>
-			Next, open <code class="code">/src/app.html</code> and define the theme active theme using the <code class="code">data-theme</code> attribute.
+			Next, open <code class="code">/src/app.html</code> and define the active theme via the <code class="code">data-theme</code> attribute.
 		</p>
 		<CodeBlock language="html" code={`<body data-theme="${activeTheme.file}">`} />
 	</div>

@@ -354,7 +354,7 @@ export const myCustomTheme: CustomThemeConfig = {
 			<div class="card variant-glass p-4 text-center">
 				<!-- prettier-ignore -->
 				<button class="btn btn-lg variant-filled-primary font-bold" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
-					{!showThemeCSS ? 'Show' : 'Hide'} Theme CSS
+					{!showThemeCSS ? 'Show' : 'Hide'} Theme Source
 				</button>
 			</div>
 		</footer>

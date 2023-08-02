@@ -22,7 +22,7 @@
 	<hr />
 
 	<!-- Instructions -->
-	<section class="space-y-4">
+	<!-- <section class="space-y-4">
 		<h2 class="h2">Importing Your Theme</h2>
 		<p>
 			Copy and paste your theme CSS into <code class="code">/src/theme.postcss</code>, then import the theme into your root layout in
@@ -39,6 +39,41 @@ import '@skeletonlabs/skeleton/styles/skeleton.css';\n
 import '../app.postcss';
 						`}
 		/>
+	</section> -->
+
+	<!-- Instructions (v2) -->
+	<section class="space-y-4">
+		<h2 class="h2">Implement Your Theme</h2>
+		<!-- pretiter-ignore -->
+		<p>
+			Generate your theme above, copy the source, then paste this into a new file in the root of your project with a disticting name, such
+			as: <code class="code">my-custom-theme.[ts|js]</code>.
+		</p>
+		<p>Open <code class="code">tailwind.config.[js,cjs,ts]</code>, found in the root of your project, and import your custom theme.</p>
+		<CodeBlock language="ts" code={`import myCustomTheme from './my-custom-theme'`} />
+		<p>Within this same file, register your new theme via the Skeleton Tailwind plugin settings as shown below.</p>
+		<CodeBlock
+			language="ts"
+			code={`
+
+plugins: [
+	skeleton({
+		themes: {
+			custom: [
+				myCustomTheme
+			]
+		}
+	})
+]
+				`}
+		/>
+		<p>
+			Open <code class="code">/src/app.html</code> and define your theme using the <code class="code">data-theme</code>
+			attribute. The value should match the <code class="code">name</code> field set within your theme source code.
+		</p>
+		<CodeBlock language="html" code={`<body data-theme="my-custom-theme">`} />
+		<!-- prettier-ignore -->
+		<p>Note that custom themes can be registered and used with <a href="/docs/themes#register-themes" class="anchor">Skeleton preset themes</a>.</p>
 	</section>
 
 	<hr />
