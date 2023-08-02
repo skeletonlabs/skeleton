@@ -12,7 +12,7 @@
 		feature: DocsFeature.Utility,
 		name: 'Table of Contents',
 		description: 'Allows you to quickly navigate the hierarchy of a page.',
-		imports: ['TableOfContents', 'type QueryIndent'],
+		imports: ['TableOfContents', 'type TOCLink'],
 		source: 'utilities/TableOfContents',
 		components: [{ sveld: sveldTableOfContents }],
 		transitionIn: 'fade',
@@ -82,9 +82,20 @@
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock
+					language="ts"
+					code={`
+const links: TOCLink[] = [
+	{ href: '#h2', text: 'h2' },
+	{ href: '#h3', text: 'h3', indent: 'ml-3' },
+	{ href: '#h4', text: 'h4', indent: 'ml-6' },
+	{ href: '#h5', text: 'h5', indent: 'ml-9' },
+	{ href: '#h6', text: 'h6', indent: 'ml-12' }
+];
+					`}/>
+				<CodeBlock
 					language="html"
 					code={`
-<TableOfContents target='#demo' scrollParent='#demo'/>
+<TableOfContents target='#demo' scrollParent='#demo' links={links}/>
 <div id="demo">
 	<!-- ... -->
 </div>
@@ -95,5 +106,45 @@
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
-	<svelte:fragment slot="usage" />
+	<svelte:fragment slot="usage">
+		<!-- Manual Permalinks -->
+		<section class="space-y-4">
+			<h2 class="h2">Manual Permalinks</h2>
+			<p>The Table-Of-Contents is added to a page by following these steps:</p>
+			<h3 class="h3">Prepare Permalinks</h3>
+			<p>start by adding permalinks to where the links should point to.</p>
+			<CodeBlock 
+				language="html"
+				code={`
+<h2 class="h2">Some title</h2>
+
+<!-- after adding the permalink -->
+<h2 class="h2">
+	Some title
+	<a id="title1"><span class="hidden">permalink</span></a>
+</h2>
+
+<!--...-->
+				`}/>
+			<p>Note: the hidden span is added to suppress the a11y warning.</p>
+			<h3 class="h3">Create links</h3>
+			<p>The TOC expects a list of links that reference to the permalinks.</p>
+			<CodeBlock
+				language="ts"
+				code={`
+const links: TOCLink[] = [
+	{ href: '#h2', text: 'h2' },
+	//...
+];
+				`}/>
+			<h3 class="h3">Add TOC</h3>
+			<p>Add the TOC component.</p>
+			<p>Note: make sure to add the <code class="code">target</code> and <code class="code">scrollParent</code> so highlighting the active element works as expected.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<TableOfContents target='#demo' scrollParent='#demo' links={links}/>
+				`}/>
+		</section>
+	</svelte:fragment>
 </DocsShell>

@@ -9,6 +9,7 @@
 </script>
 
 <script lang="ts" generics="TransitionIn extends Transition = FadeTransition, TransitionOut extends Transition = FadeTransition">
+	import { onMount, onDestroy } from 'svelte';
 	import { dynamicTransition } from '../../internal/transitions.js';
 	import type { TOCLink } from './types.js';
 
@@ -20,6 +21,10 @@
 	 * @type {TOCLink[]}
 	 */
 	export let links: TOCLink[] = [];
+	/** Query selector for the scrollable page element. */
+	export let scrollParent = '#page';
+	/** Query selector for the element containing the permalinks. */
+	export let target = '#page';
 
 	// Props (styles)
 	/** Set the component width style. */
@@ -68,6 +73,38 @@
 	 */
 	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 100 };
 
+	// Locals
+	let activeLinkId : string | null = null;
+	let parentElement: HTMLElement | null;
+	let scrollElement: HTMLElement | null;
+
+	// Functionality
+	// iterate through all elements, gets the id of the top visible element and sets it as active.
+	function activateTopVisibleElement() {
+		let smallestTopValue = Infinity;
+		links.forEach((link) => {
+			const element = parentElement?.querySelector(`${link.href}`) as HTMLAnchorElement | null;
+			if(!element) return;
+			const elementPos = element.getBoundingClientRect();
+			const parentTop = scrollElement?.getBoundingClientRect().top ?? 0;
+			const isVisible = elementPos.top >= 0 && elementPos.bottom >= parentTop;
+			if (isVisible && elementPos.top < smallestTopValue) {
+				smallestTopValue = elementPos.top;
+				activeLinkId = element.id;
+			}
+		});
+	}
+
+	onMount(() => {
+		parentElement = document.querySelector(target) as HTMLElement | null;
+		scrollElement = document.querySelector(scrollParent) as HTMLElement | null;
+		scrollElement?.addEventListener('scroll', activateTopVisibleElement);
+		activateTopVisibleElement();
+	});
+	onDestroy(() => {
+		scrollElement?.removeEventListener('scroll', activateTopVisibleElement);
+	});
+
 	// Classes
 	const cTitle = 'p-4 pt-0';
 	const cList = 'list-none flex flex-col space-y-1';
@@ -90,7 +127,7 @@
 		<nav class="toc-list {classesList}">
 			<div class="toc-title {classesTitle}">{title}</div>
 			{#each links as link}
-				<a href={link.href} class="toc-button-item {classesButtonItem} {link.indent}">
+				<a href={link.href} class="toc-button-item {classesButtonItem} {link.indent} {activeLinkId === link.href.replace('#', '') ? active : ''}">
 					{link.text}
 				</a>
 			{/each}
