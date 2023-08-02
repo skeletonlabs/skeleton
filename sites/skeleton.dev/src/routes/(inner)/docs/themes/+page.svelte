@@ -221,22 +221,6 @@ body {
 		<p>
             Fonts may be installed from a local or remote source. For <a class="anchor" href="https://gdpr.eu/" target="_blank" rel="noreferrer">GDPR compliance</a> and optimal performance we recommend installing the fonts locally. For this guide we'll demonstrate this process using free fonts from <a class="anchor" href="https://fonts.google.com/" target="_blank" rel="noreferrer">Google Fonts</a>.
 		</p>
-		{#if activeTheme.fonts.length && activeTheme.file !== 'custom'}
-			<aside class="alert variant-ghost-warning">
-				<i class="fa-solid fa-circle-exclamation" />
-				<div class="alert-message">
-					<p>
-						The <code class="code">{activeTheme.name}</code> theme makes use of custom fonts. We recommend you follow the instruction below.
-					</p>
-				</div>
-			</aside>
-		{:else if activeTheme.file !== 'custom'}
-			<aside class="alert variant-ghost">
-				<div class="alert-message">
-					<p>The <code class="code">{activeTheme.name}</code> theme does not make use of a custom font.</p>
-				</div>
-			</aside>
-		{/if}
 		<TabGroup regionPanel="space-y-4">
 			<Tab bind:group={tabsFontImport} name="tab1" value={0}>Local (recommended)</Tab>
 			<Tab bind:group={tabsFontImport} name="tab2" value={1}>Remote</Tab>
