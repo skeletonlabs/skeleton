@@ -33,24 +33,39 @@
 					</p>
 					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 					<!-- prettier-ignore -->
-					<p>Then open your global stylesheet in <code class="code">/src/app.postcss</code> and remove the following three <a class="anchor" href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redundant as Skeleton automatically handles these in our stylesheets for you.</p>
-					<div class="space-y-[1px]">
-						<del class="del">@tailwind base;</del>
-						<del class="del">@tailwind components;</del>
-						<del class="del">@tailwind utilities;</del>
-					</div>
+					<p>
+						Then open your global stylesheet in <code class="code">/src/app.postcss</code> and ensure the following
+						<a class="anchor" href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> are present. Svelte-Add will implement this for you automatically.
+					</p>
+					<CodeBlock
+						language="css"
+						code={`
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;\n
+/* (your custom styles here) */
+					`}
+					/>
 				</div>
-				<p>Apply these following three changes to your <code class="code">tailwind.config.cjs</code>, found in the root of your project.</p>
+				<h3 class="h3">Tailwind Configuration</h3>
+				<p>
+					Apply these following three changes to your <code class="code">tailwind.config.[cjs|js|ts]</code>, found in the root of your
+					project.
+				</p>
 				<CodeBlock
 					language="js"
 					code={`
+// 1. Import the Skeleton plugin
+const { skeleton } = require('@skeletonlabs/tw-plugin');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	// 1. Apply the dark mode class setting:
+	// 2. Opt for dark mode to be handled via the class method
 	darkMode: 'class',
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
-		// 2. Append the path for the Skeleton NPM package and files:
+		// 3. Append the path to the Skeleton package
 		require('path').join(require.resolve(
 			'@skeletonlabs/skeleton'),
 			'../**/*.{html,js,svelte,ts}'
@@ -60,28 +75,29 @@ module.exports = {
 		extend: {},
 	},
 	plugins: [
-		// 3. Append the Skeleton plugin to the end of this list
-		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
+		// 4. Append the Skeleton plugin (after other plugins)
+		skeleton
 	]
 }
 `}
 				/>
-				<aside class="alert variant-ghost-warning">
+				<!-- <aside class="alert variant-ghost-warning">
 					<i class="fa-solid fa-triangle-exclamation text-2xl" />
 					<div class="alert-message">
 						Skeleton's Tailwind plugin cannot operate alongside plugins from other UI libraries, such as <strong>Flowbite</strong> or
 						<strong>Daisy</strong>. All three plugins modify similar settings, which means they will conflict.
 					</div>
-				</aside>
+				</aside> -->
+				<h3 class="h3">Dark Mode Support</h3>
 				<p>
-					Note that your app will default to light mode. To manually set dark mode, append the following class to the HTML element within <code
-						class="code">/src/app.html</code
-					>.
+					Note that your app will default to light mode. If you wish to default to dark mode, append the following class to the HTML element
+					within <code class="code">/src/app.html</code>. View
+					<a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's documentation</a> for more information.
 				</p>
 				<CodeBlock language="html" code={`<html class="dark">`} />
 				<p>
-					If you wish to be able to toggle dark mode, review the <a class="anchor" href="/utilities/lightswitches">Lightswitch</a> utility features
-					when you complete this setup process.
+					Skeleton also provides a <a class="anchor" href="/utilities/lightswitches" target="_blank">Lightswitch</a> utility if you wish toggle
+					between light and dark modes.
 				</p>
 			{/if}
 		</svelte:fragment>

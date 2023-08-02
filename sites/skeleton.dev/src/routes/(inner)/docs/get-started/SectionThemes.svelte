@@ -2,11 +2,20 @@
 	import { storeOnboardMethod } from '$lib/stores/stores';
 	import { themes } from '$lib/themes';
 	// Components
-	import { TabGroup, Tab, CodeBlock } from '@skeletonlabs/skeleton';
+	import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	// Local
 	let activeTheme = themes[1];
-	$: activeThemeStylesheet = `import '@skeletonlabs/skeleton/themes/theme-${activeTheme.file}.css';`;
+	// $: activeThemeStylesheet = `import '@skeletonlabs/skeleton/themes/theme-${activeTheme.file}.css';`;
+	$: activeThemeStylesheet = `
+plugins: [
+	skeleton({
+		themes: {
+			preset: [ "${activeTheme.file}" ]
+		}
+	})
+]\n
+`;
 
 	// Copy Theme Import to Clipboard
 	function setActiveTheme(theme: any): void {
@@ -19,25 +28,13 @@
 	<h2 class="h2">Themes</h2>
 	<!-- prettier-ignore -->
 	<p>
-		Skeleton themes <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">integrate with Tailwind</a> and support <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a>, <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, and our powerful <a class="anchor" href="/docs/tokens">design tokens system</a>.
+		Themes <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">integrate with Tailwind</a> to support <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a> and <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, as well as Skeleton's <a class="anchor" href="/docs/tokens">design tokens</a>.
 	</p>
-
-	<TabGroup regionPanel="space-y-4">
-		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
-		<Tab bind:group={$storeOnboardMethod} name="manual" value="manual">Manual Install</Tab>
-	</TabGroup>
-	{#if $storeOnboardMethod === 'cli'}
-		<p>
-			The CLI will automatically import your preferred preset theme in <code class="code">src/routes/+layout.svelte</code>. You may change
-			this at any time.
-		</p>
-	{:else if $storeOnboardMethod === 'manual'}
-		<!-- prettier-ignore -->
-		<p>
-			If you wish to use another preset theme, select it from the list below to reveal the import statement. Import it in your root layout in <code class="code">/src/routes/+layout.svelte</code>. Take care to replace any existing theme.
-		</p>
-	{/if}
-
+	<h3 class="h3">Preset Themes</h3>
+	<p>
+		Skeleton provides a number of preset themes out of the box. To switch themes, open <code class="code">tailwind.config.[cjs|js|ts]</code>
+		found in the root of your project, then modify the settings as shown below. Select a theme to update the code snippet.
+	</p>
 	<!-- Presets -->
 	<div class="card variant-glass p-4 space-y-4">
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-5">
