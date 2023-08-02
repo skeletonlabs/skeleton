@@ -28,7 +28,7 @@ cd my-skeleton-app
 			{:else if $storeOnboardMethod === 'manual'}
 				<!-- prettier-ignore -->
 				<p>
-					If you have an existing SvelteKit application, skip to the next step. Otherwise let's let's create a <a class="anchor" href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">SvelteKit project</a>.
+					If you have an existing SvelteKit application, skip to the next step. Otherwise let's create a <a class="anchor" href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">SvelteKit project</a>.
 				</p>
 				<CodeBlock
 					language="console"
