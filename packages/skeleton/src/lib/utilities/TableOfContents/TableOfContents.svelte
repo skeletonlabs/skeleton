@@ -74,7 +74,7 @@
 	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 100 };
 
 	// Locals
-	let activeLinkId : string | null = null;
+	let activeLinkId: string | null = null;
 	let parentElement: HTMLElement | null;
 	let scrollElement: HTMLElement | null;
 
@@ -84,7 +84,7 @@
 		let smallestTopValue = Infinity;
 		links.forEach((link) => {
 			const element = parentElement?.querySelector(`${link.href}`) as HTMLAnchorElement | null;
-			if(!element) return;
+			if (!element) return;
 			const elementPos = element.getBoundingClientRect();
 			const parentTop = scrollElement?.getBoundingClientRect().top ?? 0;
 			const isVisible = elementPos.top >= 0 && elementPos.bottom >= parentTop;
@@ -127,7 +127,10 @@
 		<nav class="toc-list {classesList}">
 			<div class="toc-title {classesTitle}">{title}</div>
 			{#each links as link}
-				<a href={link.href} class="toc-button-item {classesButtonItem} {link.indent} {activeLinkId === link.href.replace('#', '') ? active : ''}">
+				<a
+					href={link.href}
+					class="toc-button-item {classesButtonItem} {link.indent} {activeLinkId === link.href.replace('#', '') ? active : ''}"
+				>
 					{link.text}
 				</a>
 			{/each}
