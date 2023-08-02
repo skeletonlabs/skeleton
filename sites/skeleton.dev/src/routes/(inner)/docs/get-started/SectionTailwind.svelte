@@ -108,7 +108,7 @@ export default {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
 		// 3. Append the path to the Skeleton package
-		require('path').join(require.resolve(
+		join(require.resolve(
 			'@skeletonlabs/skeleton'),
 			'../**/*.{html,js,svelte,ts}'
 		)
@@ -139,7 +139,7 @@ const config = {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
 		// 3. Append the path to the Skeleton package
-		require('path').join(require.resolve(
+		join(require.resolve(
 			'@skeletonlabs/skeleton'),
 			'../**/*.{html,js,svelte,ts}'
 		)
