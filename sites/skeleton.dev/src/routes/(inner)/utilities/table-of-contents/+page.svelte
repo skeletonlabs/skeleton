@@ -5,15 +5,15 @@
 	// Utilities
 	import { TableOfContents, CodeBlock, type QueryIndent } from '@skeletonlabs/skeleton';
 	// Sveld
-	import sveldTableOfContents from '@skeletonlabs/skeleton/components/TableOfContents/TableOfContents.svelte?raw&sveld';
+	import sveldTableOfContents from '@skeletonlabs/skeleton/utilities/TableOfContents/TableOfContents.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
-		feature: DocsFeature.Component,
+		feature: DocsFeature.Utility,
 		name: 'Table of Contents',
 		description: 'Allows you to quickly navigate the hierarchy of a page.',
 		imports: ['TableOfContents', 'type QueryIndent'],
-		source: 'components/TableOfContents',
+		source: 'utilities/TableOfContents',
 		components: [{ sveld: sveldTableOfContents }],
 		transitionIn: 'fade',
 		transitionOut: 'fade'

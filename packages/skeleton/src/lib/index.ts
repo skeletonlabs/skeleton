@@ -10,7 +10,7 @@ export type { ToastSettings } from './utilities/Toast/types.js';
 export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
-export type { QueryIndent } from './components/TableOfContents/types.js';
+export type { QueryIndent } from './utilities/TableOfContents/types.js';
 export type { Transition, TransitionParams } from './internal/transitions.js';
 export type { CssClasses, SvelteEvent } from './types.js';
 
@@ -96,13 +96,13 @@ export { default as Table } from './components/Table/Table.svelte';
 export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
 export { default as TabAnchor } from './components/Tab/TabAnchor.svelte';
-export { default as TableOfContents } from './components/TableOfContents/TableOfContents.svelte';
 // Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
 export { default as Modal } from './utilities/Modal/Modal.svelte';
 export { default as Drawer } from './utilities/Drawer/Drawer.svelte';
 export { default as LightSwitch } from './utilities/LightSwitch/LightSwitch.svelte';
 export { default as Toast } from './utilities/Toast/Toast.svelte';
+export { default as TableOfContents } from './utilities/TableOfContents/TableOfContents.svelte';
 // Filter Components
 export { default as Apollo } from './actions/Filters/svg-filters/Apollo.svelte';
 export { default as BlueNight } from './actions/Filters/svg-filters/BlueNight.svelte';
