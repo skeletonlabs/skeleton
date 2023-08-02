@@ -3,11 +3,31 @@
 	// Docs
 	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
 	// Components
-	import { Tab, TabGroup, CodeBlock } from '@skeletonlabs/skeleton';
+	import { Tab, TabGroup, CodeBlock, type TableSource, Table } from '@skeletonlabs/skeleton';
 
 	// Local
 	let activeTheme = themes[1];
 	let tabsFontImport = 0;
+
+	// Table
+	const sourceCssProperties = [
+		['<code class="code">--theme-font-family-base</code>', 'Set the font family for your default base text.'],
+		['<code class="code">--theme-font-family-heading</code>', 'Set the font family for your heading text.'],
+		['<code class="code">--theme-font-color-base</code>', 'Set the default text color for light mode.'],
+		['<code class="code">--theme-font-color-dark</code>', 'Set the default text color for dark mode.'],
+		['<code class="code">--theme-rounded-base</code>', 'Set the border radius size for small elements, such as buttons, inputs, etc.'],
+		['<code class="code">--theme-rounded-container</code>', 'Set the border radicus for large elements, such as cards and textfields'],
+		['<code class="code">--theme-border-base</code>', 'Set the default border size for various elements, including inputs.'],
+		// Theme On-X Colors
+		['<code class="code">--on-[color]</code>', 'Set the accessible overlapping text or fill color.'],
+		['<code class="code">--color-[color]-[shade]</code>', 'Defines each color and shade value for your theme.']
+	];
+	const tableCssProperties: TableSource = {
+		// A list of heading labels.
+		head: ['CSS Property', 'Description'],
+		// The data visibly shown in your table body UI.
+		body: sourceCssProperties
+	};
 
 	// Reactive
 	$: activeFonts = activeTheme.fonts.length ? activeTheme.fonts : themes[0].fonts;
@@ -17,46 +37,93 @@
 	<header class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
 		<div class="space-y-4">
 			<h1 class="h1">Themes</h1>
-			<p>Learn more about customizing Skeleton themes.</p>
+			<p>Learn more about Skeleton themes and customizing.</p>
 		</div>
 	</header>
 
-	<section class="sticky top-4 z-[1] card variant-glass p-4 space-y-4">
-		<p class="!text-center">Select your current theme to tailor the instructions below.</p>
-		<label class="max-w-md mx-auto">
-			<select class="select" bind:value={activeTheme}>
-				{#each themes as theme}
-					<option value={theme}>{theme.name}</option>
-				{/each}
-			</select>
-		</label>
+	<hr />
+
+	<section class="space-y-4">
+		<h2 class="h2">CSS Custom Properties</h2>
+		<!-- prettier-ignore -->
+		<p>
+			Skeleton themes are generated using a number of <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a>, also known as as CSS variables.
+		</p>
+		<Table source={tableCssProperties} />
+		<h3 class="h3">Overwriting Properties</h3>
+		<!-- prettier-ignore -->
+		<p>
+			Similar to variables in other languages, these can be modified and overwritten as desired. By adding the following snippet in <code class="code">/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> border radius styles for your active theme.
+		</p>
+		<CodeBlock
+			language="css"
+			code={`
+:root {
+	--theme-rounded-base: 20px;
+	--theme-rounded-container: 4px;
+}
+		`}
+		/>
+		<p>Likewise, you can override font family settings for your <em>base</em> and <em>heading</em> text settings as shown below.</p>
+		<CodeBlock
+			language="css"
+			code={`
+:root {
+    --theme-font-family-base: 'MyCustomFont', sans-serif;
+    --theme-font-family-heading: 'MyCustomFont', sans-serif;
+}
+		`}
+		/>
+		<!-- prettier-ignore -->
+		<p>
+			For heavy modifications, consider cloning Skeleton's preset themes and implementing as a custom theme. Follow the guide provide on our <a class="anchor" href="/docs/generator">theme generator</a> documentation for more information.
+		</p>
 	</section>
 
-	{#if activeTheme.file !== 'custom'}
-		<section class="space-y-4">
-			<h2 class="h2">Preset Extras</h2>
-			<p>
-				When using preset themes provided by Skeleton, consider implementing the <code class="code">data-theme</code> attribute on the
-				<em>body</em>
-				tag in <code class="code">app.html</code>. This implements additional settings such as background gradients, header font weights,
-				and more.
-			</p>
-			<CodeBlock language="html" code={`<body data-theme="` + activeTheme.file + `">`} />
-		</section>
-	{/if}
+	<hr />
+
+	<section class="space-y-4">
+		<div class="h2 flex items-center gap-2">
+			<h2>CSS-in-JS Format</h2>
+			<span class="badge variant-filled-warning">New in v2</span>
+		</div>
+		<p>
+			Skeleton now defines theme settings via CSS-in-JS format. This allows means themes can be easily injected into the Skeleton Tailwind
+			plugin rather than requiring additional CSS stylesheet imports.
+		</p>
+	</section>
+
+	<hr />
 
 	<section class="space-y-4">
 		<h2 class="h2">Backgrounds</h2>
+		<!-- prettier-ignore -->
 		<p>
-			Your app's background is automatically set via a <a class="anchor" href="https://www.skeleton.dev/docs/tokens">design token</a> class.
-			Adjust your theme's color scheme to customize. This affects both light and dark mode.
+			Your app's background color is set automatically via a <a class="anchor" href="https://www.skeleton.dev/docs/tokens">design token</a>.
+			This utilizes <code class="code">--color-surface-50</code> for light mode and <code class="code">--color-surface-900</code> for dark mode by default. Here's a few examples illustrating how to modify this in <code class="code">app.postcss</code>:
 		</p>
-		<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }`} />
+		<CodeBlock
+			language="css"
+			code={`
+/* Default setting: */
+body { @apply bg-surface-50-900-token; }
+
+/* Example: modified to the primary color via a design token: */
+body { @apply bg-primary-50-900-token; }
+
+/* Example: modified to the secondary color via Tailwind: */
+body { @apply bg-secondary-50 dark:bg-secondary-900; }
+
+/* Example: modified using vanilla CSS: */
+body { background: red; }
+.dark body { background: blue; }
+		`}
+		/>
 		<div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-center">
 			<div class="space-y-4">
-				<h3 class="h3">Background Images</h3>
+				<h3 class="h3">Images and Gradients</h3>
 				<p>
-					You may optionally provide a background image, including the use of CSS mesh gradients. Mix in theme color properties to create
+					You may optionally provide a background image, including the use of a CSS mesh gradient. Mix in theme color properties to create
 					fully adaptive gradient backgrounds.
 				</p>
 			</div>
@@ -84,40 +151,7 @@ body {
 		/>
 	</section>
 
-	<section class="space-y-4">
-		<h2 class="h2">CSS Properties</h2>
-		<!-- prettier-ignore -->
-		<p>
-			If you open any existing theme, you can see they are made up of a number of <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a> (aka CSS Variables). Similar to Javascript variables these can be modified and overwritten as desired. For example, if you add the following snippet to your global stylesheet in <code class="code">/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> rounding styles for your current theme.
-		</p>
-		<CodeBlock
-			language="css"
-			code={`
-:root {
-	--theme-rounded-base: 20px;
-	--theme-rounded-container: 4px;
-}
-		`}
-		/>
-		<p>
-			Likewise, if you wish to implement a custom font family for a preset theme, you can modify the <em>base</em> and
-			<em>heading</em>
-			properties as shown below.
-		</p>
-		<CodeBlock
-			language="css"
-			code={`
-:root {
-    --theme-font-family-base: 'MyCustomFont', sans-serif;
-    --theme-font-family-heading: 'MyCustomFont', sans-serif;
-}
-		`}
-		/>
-		<!-- prettier-ignore -->
-		<p>
-			<a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src/lib/themes" target="_blank" rel="noreferrer">View any existing theme</a> for a full list of available CSS custom properties. For heavy modifications to preset themes, consider copying the theme to your local project and use it like any other custom theme.
-		</p>
-	</section>
+	<hr />
 
 	<section class="space-y-4">
 		<h2 class="h2">Custom Fonts</h2>
