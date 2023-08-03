@@ -3,7 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Utilities
-	import { TableOfContents, CodeBlock, type TOCLink } from '@skeletonlabs/skeleton';
+	import { TableOfContents, CodeBlock, type TOCLink, crawl, tocStore } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldTableOfContents from '@skeletonlabs/skeleton/utilities/TableOfContents/TableOfContents.svelte?raw&sveld';
 
@@ -27,6 +27,8 @@
 		{ href: '#h5', text: 'h5', indent: 'ml-9' },
 		{ href: '#h6', text: 'h6', indent: 'ml-12' }
 	];
+
+	$: console.log($tocStore);
 </script>
 
 <DocsShell {settings}>
@@ -35,7 +37,7 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="card p-4 text-token rounded-container-token w-full grid grid-cols-2 gap-4">
-					<div id="mainDemo" class="toc-demo h-64 overflow-y-auto">
+					<div id="mainDemo" class="h-64 overflow-y-auto">
 						<h2 class="h2">
 							H2
 							<a id="h2"><span class="hidden">permalink</span></a>
@@ -122,7 +124,7 @@ const links: TOCLink[] = [
 <!-- after adding the permalink -->
 <h2 class="h2">
 	Some title
-	<a id="title1"><span class="hidden">permalink</span></a>
+	<a id="title1" class="permalink"><span class="hidden">permalink</span></a>
 </h2>
 
 <!--...-->
@@ -151,6 +153,94 @@ const links: TOCLink[] = [
 				code={`
 <TableOfContents target='#demo' scrollParent='#demo' links={links}/>
 				`}
+			/>
+		</section>
+		<!-- Generate Permalinks -->
+		<section class="space-y-4">
+			<h2 class="h2">Generate Permalinks</h2>
+			<p>Using the action <code class="code">crawl</code> you can auto-generate permalinks for headings <code class="code">h2-h6</code>.</p>
+			<p>
+				The generated Links are then saved to the <code class="code">tocStore</code> which can be used to supply the TOC with the needed links.
+			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="card p-4 text-token rounded-container-token w-full grid grid-cols-2 gap-4">
+						<div id="autoDemo" class="h-64 overflow-y-auto" use:crawl={true}>
+							<h2 id="autoDemo2" class="h2">AutoDemo2</h2>
+							<div class="flex flex-col gap-4 m-4">
+								<div class="placeholder animate-pulse" />
+								<div class="placeholder animate-pulse" />
+							</div>
+							<h3 id="AutoDemo3" class="h3">AutoDemo3</h3>
+							<div class="flex flex-col gap-4 m-4">
+								<div class="placeholder animate-pulse" />
+								<div class="placeholder animate-pulse" />
+							</div>
+							<h4 id="AutoDemo4" class="h4">AutoDemo4</h4>
+							<div class="flex flex-col gap-4 m-4">
+								<div class="placeholder animate-pulse" />
+								<div class="placeholder animate-pulse" />
+							</div>
+							<h5 id="AutoDemo5" class="h5">AutoDemo5</h5>
+							<div class="flex flex-col gap-4 m-4">
+								<div class="placeholder animate-pulse" />
+								<div class="placeholder animate-pulse" />
+							</div>
+							<h6 id="AutoDemo6" class="h6">AutoDemo6</h6>
+							<div class="flex flex-col gap-4 m-4">
+								<div class="placeholder animate-pulse" />
+								<div class="placeholder animate-pulse" />
+							</div>
+						</div>
+						<TableOfContents target="#autoDemo" scrollParent="#autoDemo" links={$tocStore} />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>Note: every heading must have a unique <code class="code">id</code>, these id's are then used as the id of the permalink.</p>
+					<p>Note: the param <code class="code">true</code> indicate that the crawler should generate the links not only scan them.</p>
+					<CodeBlock
+						language="html"
+						code={`
+<div id="autoDemo" use:crawl={true}>
+	<h2 id="autoDemo2" class="h2">
+		AutoDemo2
+	</h2>
+	<!--...-->
+</div>
+<TableOfContents target="#autoDemo" scrollParent="#autoDemo" links={$tocStore}/>
+						`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+			<h3 class="h3">Ignore auto-generated headings</h3>
+			<p>
+				all headings with the data attribute <code class="code">data-toc-ignore</code> are ignored when auto-generating or scanning permalinks.
+			</p>
+			<CodeBlock
+				language="html"
+				code={`
+<h2 id="ignoredHeading" class="h2" data-toc-ignore>
+	AutoDemo2
+</h2>
+				`}
+			/>
+		</section>
+		<!-- Scan Permalinks -->
+		<section class="space-y-4">
+			<h2 class="h2">Scan Permalinks</h2>
+			<p>You can only scan for permalinks (instead of generating them) by passing false to the <code class="code">crawl</code> action.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<div id="scanDemo" use:crawl={false}>
+	<h2 class="h2">
+		AutoDemo2
+		<a id="scanDemo2" class="permalink"><span class="hidden">permalink</span></a>
+	</h2>
+	<!--...-->
+</div>
+<TableOfContents target="#scanDemo" scrollParent="#scanDemo" links={$tocStore}/>
+						`}
 			/>
 		</section>
 	</svelte:fragment>

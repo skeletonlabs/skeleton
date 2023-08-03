@@ -65,6 +65,7 @@ export { filter } from './actions/Filters/filter.js';
 export { focusTrap } from './actions/FocusTrap/focusTrap.js';
 // Utility Actions
 export { popup } from './utilities/Popup/popup.js';
+export { crawl, tocStore } from './utilities/TableOfContents/TOCCrawler.js';
 // Svelte Components ---
 
 export { default as Accordion } from './components/Accordion/Accordion.svelte';
