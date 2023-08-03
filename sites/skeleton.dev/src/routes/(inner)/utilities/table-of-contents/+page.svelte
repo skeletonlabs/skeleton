@@ -27,8 +27,6 @@
 		{ href: '#h5', text: 'h5', indent: 'ml-9' },
 		{ href: '#h6', text: 'h6', indent: 'ml-12' }
 	];
-
-	$: console.log($tocStore);
 </script>
 
 <DocsShell {settings}>
