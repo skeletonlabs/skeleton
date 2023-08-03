@@ -28,10 +28,10 @@ plugins: [
 	<h2 class="h2">Themes</h2>
 	<!-- prettier-ignore -->
 	<p>
-		Themes <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">integrate with Tailwind</a> to support <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a> and <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, as well as Skeleton's <a class="anchor" href="/docs/tokens">design tokens</a>.
+		Skeleton leans into <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">Tailwind's best practices</a> when implementing themes. This includes support for <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a> and <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>. Themes also enable Skeleton's <a class="anchor" href="/docs/tokens" target="_blank">design tokens</a> system.
 	</p>
 	<h3 class="h3">Preset Themes</h3>
-	<p>Skeleton provides a number of preset themes out of the box. Select a theme to update the instruction below.</p>
+	<p>Skeleton provides a number of preset themes out of the box. Choose a theme below for specific instruction.</p>
 	<!-- Presets -->
 	<div class="card variant-glass p-4 space-y-4">
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -57,11 +57,13 @@ plugins: [
 			{/each}
 		</nav>
 		<p>
-			First, register your desired theme in <code class="code">tailwind.config.[cjs|js|ts]</code>, found in the root of your project.
+			First, register your desired theme in <code class="code">tailwind.config.[cjs|js|ts]</code>, found in the root of your project. This
+			will ensure it's loaded and available.
 		</p>
 		<CodeBlock language="ts" code={activeThemeStylesheet} />
 		<p>
-			Next, open <code class="code">/src/app.html</code> and define the active theme via the <code class="code">data-theme</code> attribute.
+			Next, open <code class="code">/src/app.html</code> and define the active theme to display via the <code class="code">data-theme</code>
+			attribute.
 		</p>
 		<CodeBlock language="html" code={`<body data-theme="${activeTheme.file}">`} />
 	</div>

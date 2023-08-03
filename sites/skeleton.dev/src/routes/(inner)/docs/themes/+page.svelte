@@ -15,11 +15,11 @@
 		['<code class="code">--theme-font-family-heading</code>', 'Set the font family for your heading text.'],
 		['<code class="code">--theme-font-color-base</code>', 'Set the default text color for light mode.'],
 		['<code class="code">--theme-font-color-dark</code>', 'Set the default text color for dark mode.'],
-		['<code class="code">--theme-rounded-base</code>', 'Set the border radius size for small elements, such as buttons, inputs, etc.'],
-		['<code class="code">--theme-rounded-container</code>', 'Set the border radicus for large elements, such as cards and textfields'],
-		['<code class="code">--theme-border-base</code>', 'Set the default border size for various elements, including inputs.'],
+		['<code class="code">--theme-rounded-base</code>', 'Set the border radius for small elements, such as buttons, inputs, etc.'],
+		['<code class="code">--theme-rounded-container</code>', 'Set the border radius for large elements, such as cards, textfields, etc.'],
+		['<code class="code">--theme-border-base</code>', 'Set the default border size for elements, including inputs.'],
 		// Theme On-X Colors
-		['<code class="code">--on-[color]</code>', 'Set the accessible overlapping text or fill color.'],
+		['<code class="code">--on-[color]</code>', 'Set an accessible overlapping text or fill color per each theme color.'],
 		['<code class="code">--color-[color]-[shade]</code>', 'Defines each color and shade value for your theme.']
 	];
 	const tableCssProperties: TableSource = {
@@ -53,7 +53,7 @@
 		<h3 class="h3">Overwriting Properties</h3>
 		<!-- prettier-ignore -->
 		<p>
-			Similar to variables in other languages, these can be modified and overwritten as desired. By adding the following snippet in <code class="code">/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> border radius styles for your active theme.
+			Similar to variables in other languages, CSS properties can be overwritten. By adding the following snippet in <code class="code">/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> border radius styles for your active theme.
 		</p>
 		<CodeBlock
 			language="css"
@@ -64,7 +64,7 @@
 }
 		`}
 		/>
-		<p>Likewise, you can override font family settings for your <em>base</em> and <em>heading</em> text settings as shown below.</p>
+		<p>Likewise, you can override <em>base</em> and <em>heading</em> font family settings as shown below.</p>
 		<CodeBlock
 			language="css"
 			code={`
@@ -76,7 +76,7 @@
 		/>
 		<!-- prettier-ignore -->
 		<p>
-			For heavy modifications, consider cloning Skeleton's preset themes and implementing as a custom theme. Follow the guide provide on our <a class="anchor" href="/docs/generator">theme generator</a> documentation for more information.
+			For deeper customization, consider cloning Skeleton's preset themes, modifying each as desired, then implementing as a custom theme. Follow the <a class="anchor" href="/docs/generator">theme generator implementation guide</a> for more information.
 		</p>
 	</section>
 
@@ -88,8 +88,8 @@
 			<span class="badge variant-filled-warning">New in v2</span>
 		</div>
 		<p>
-			Skeleton now defines theme settings via CSS-in-JS format. This allows themes to be easily injected into the Skeleton Tailwind plugin
-			rather than requiring additional CSS stylesheet imports.
+			Skeleton now defines theme settings via the CSS-in-JS format. This allows themes to be easily registered within the Skeleton Tailwind
+			plugin, rather than relying on additional stylesheet imports.
 		</p>
 	</section>
 
@@ -106,8 +106,8 @@
 		</p>
 		<h3 class="h3">Register Themes</h3>
 		<p>
-			Skeleton provides a number of <a class="anchor" href="/docs/get-started#preset-themes">preset themes</a> out of the box. Register one or
-			more within your Tailwind plugin settings.
+			Skeleton provides a number of <a class="anchor" href="/docs/get-started#preset-themes">preset themes</a> out of the box. You'll need to
+			register at least one theme to load them and make them available to use.
 		</p>
 		<CodeBlock
 			language="ts"
@@ -115,24 +115,22 @@
 plugins: [
 	skeleton({
 		themes: {
-			// Register a single theme:
-			preset: [ "skeleton" ]\n
-			// Register multiple themes:
-			// preset: [ "skeleton", "modern", "crimson" ] 
+			// Register each theme within this array:
+			preset: [ "skeleton", "modern", "crimson" ] 
 		}
 	})
 ]
 	`}
 		/>
 		<p>
-			Open <code class="code">/src/app.html</code> and define the active theme using the <code class="code">data-theme</code> attribute. You
-			can modify this attribute to dynamically switch between themes.
+			Open <code class="code">/src/app.html</code> and define the active theme to display using the <code class="code">data-theme</code> attribute.
+			You can modify this attribute to dynamically switch between any registered theme.
 		</p>
 		<CodeBlock language="html" code={`<body data-theme="skeleton">`} />
 		<h3 class="h3">Enhancements</h3>
 		<p>
-			Preset themes may implement additional optional features for your theme, including: setting font weights, background mesh gradients,
-			and more. To enable these settings, use <code class="code">enhancements</code> as shown below.
+			Preset themes may sometimes include additional optional features, such as: heading font weights, background mesh gradients, and more.
+			To enable these settings, include <code class="code">enhancements</code> as shown below.
 		</p>
 		<CodeBlock
 			language="ts"
@@ -140,8 +138,8 @@ plugins: [
 plugins: [
 	skeleton({
 		themes: {
-			// Enable 'enhancements' as shown below:
 			preset: [
+				// Enable 'enhancements' per each registered theme:
 				{ name: "skeleton", enhancements: true }
 			] 
 		}
@@ -151,7 +149,8 @@ plugins: [
 		/>
 		<h3 class="h3">Custom Themes</h3>
 		<p>
-			View the <a class="anchor" href="/docs/generator">theme generator</a> for more information about custom themes.
+			View the <a class="anchor" href="/docs/generator">theme generator</a> for more information about implementing custom themes. Note that
+			it is possible to mix and match preset and custom themes.
 		</p>
 	</section>
 
@@ -161,8 +160,7 @@ plugins: [
 		<h2 class="h2">Backgrounds</h2>
 		<!-- prettier-ignore -->
 		<p>
-			The background color of your application is set automatically using one of Skeleton's <a class="anchor" href="https://www.skeleton.dev/docs/tokens">design token</a> styles.
-			This utilizes <code class="code">--color-surface-50</code> for light mode and <code class="code">--color-surface-900</code> for dark mode by default. See the examples below to learn how to modify this in your <code class="code">app.postcss</code>:
+			The background color of your application is automatically set using one of Skeleton's <a class="anchor" href="https://www.skeleton.dev/docs/tokens">design token</a> styles. By default, this utilizes <code class="code">--color-surface-50</code> for light mode and <code class="code">--color-surface-900</code> for dark mode. Use your global stylesheet <code class="code">app.postcss</code> to modify this.
 		</p>
 		<CodeBlock
 			language="css"
@@ -170,13 +168,15 @@ plugins: [
 /* Default setting: */
 body { @apply bg-surface-50-900-token; }
 
-/* Example: modified to the primary color via a design token: */
+/* --- */
+
+/* Example: primary color via a design token: */
 body { @apply bg-primary-50-900-token; }
 
-/* Example: modified to the secondary color via Tailwind: */
+/* Example: secondary color via Tailwind: */
 body { @apply bg-secondary-50 dark:bg-secondary-900; }
 
-/* Example: modified using vanilla CSS: */
+/* Example: using vanilla CSS: */
 body { background: red; }
 .dark body { background: blue; }
 		`}
@@ -185,8 +185,8 @@ body { background: red; }
 			<div class="space-y-4">
 				<h3 class="h3">Images and Gradients</h3>
 				<p>
-					You may optionally provide a background image, including the use of a CSS mesh gradient. Mix in theme color properties to create
-					fully adaptive gradient backgrounds.
+					You may optionally provide a background image, including the use of a CSS mesh gradient. Replace the static color values with
+					theme color properties to create a fully adaptive gradient background.
 				</p>
 			</div>
 			<div>

@@ -21,16 +21,17 @@
 
 	<hr />
 
-	<!-- Instructions (v2) -->
+	<!-- Implement (v2) -->
 	<section class="space-y-4">
-		<h2 class="h2">Implement Your Theme</h2>
+		<h2 class="h2">How to Implement</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Generate your theme above, copy the source, then paste this into a new file in the root of your project with a distinct name, such as: <code class="code">my-custom-theme.[ts|js]</code>. Make sure to strip out the Typescript type information within your theme if you opt for the Javascript format.
+			Generate your theme above, copy the source code, then paste this into a new file in the root of your project with a distinct name, such as: <code class="code">my-custom-theme.[ts|js]</code>. If you opt for the Javascript format, make sure to strip out any Typescript type information.
 		</p>
+		<!-- Instruction -->
 		<p>Open <code class="code">tailwind.config.[cjs|js|ts]</code> found in the root of your project, and import your custom theme.</p>
 		<CodeBlock language="ts" code={`import { myCustomTheme } from './my-custom-theme'`} />
-		<p>Within this same file, register your custom theme via the Skeleton Tailwind plugin settings as shown below.</p>
+		<p>Within this file, register your custom theme via the Skeleton Tailwind plugin settings.</p>
 		<CodeBlock
 			language="ts"
 			code={`
@@ -48,11 +49,30 @@ plugins: [
 		/>
 		<p>
 			Open <code class="code">/src/app.html</code> and define your theme using the <code class="code">data-theme</code>
-			attribute. The value should match the <code class="code">name</code> field set within your theme source code.
+			attribute. The value should match the <code class="code">name</code> field set within your theme's source code.
 		</p>
 		<CodeBlock language="html" code={`<body data-theme="my-custom-theme">`} />
 		<!-- prettier-ignore -->
-		<p>Note that custom themes can be registered alongside <a href="/docs/themes#register-themes" class="anchor">Skeleton's preset themes</a>, allowing you to switch between these as desired.</p>
+		<p>Note that custom themes can be registered along with <a href="/docs/themes#register-themes" class="anchor">Skeleton's preset themes</a>, allowing you to switch between these as desired.</p>
+	</section>
+
+	<hr />
+
+	<section class="space-y-4">
+		<h2 class="h2">Migrate from v1 to v2</h2>
+		<!-- Alert -->
+		<aside class="alert variant-ghost">
+			<div class="alert-message">
+				<p>
+					Need help migrating your theme from the <strong>v1 CSS format</strong> to the <strong>v2 CSS-in-JS format</strong>? Try this handy
+					conversion tool.
+				</p>
+			</div>
+			<div class="alert-actions">
+				<!-- <a class="btn variant-soft" href="/" target="_blank">View Guide</a> -->
+				<a class="btn variant-filled" href="https://transform.tools/css-to-js" target="_blank">Conversion Tool &rarr;</a>
+			</div>
+		</aside>
 	</section>
 
 	<hr />
