@@ -177,7 +177,7 @@
 
 {#if $drawerStore.open === true}
 	<!-- Backdrop -->
-	<!-- TODO: Remove for V2 -->
+	<!-- FIXME: resolve a11y warnings -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		bind:this={elemBackdrop}
