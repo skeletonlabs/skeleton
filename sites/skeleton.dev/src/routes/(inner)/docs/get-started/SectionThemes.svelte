@@ -2,11 +2,20 @@
 	import { storeOnboardMethod } from '$lib/stores/stores';
 	import { themes } from '$lib/themes';
 	// Components
-	import { TabGroup, Tab, CodeBlock } from '@skeletonlabs/skeleton';
+	import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	// Local
 	let activeTheme = themes[1];
-	$: activeThemeStylesheet = `import '@skeletonlabs/skeleton/themes/theme-${activeTheme.file}.css';`;
+	// $: activeThemeStylesheet = `import '@skeletonlabs/skeleton/themes/theme-${activeTheme.file}.css';`;
+	$: activeThemeStylesheet = `
+plugins: [
+	skeleton({
+		themes: {
+			preset: [ "${activeTheme.file}" ]
+		}
+	})
+]\n
+`;
 
 	// Copy Theme Import to Clipboard
 	function setActiveTheme(theme: any): void {
@@ -19,25 +28,10 @@
 	<h2 class="h2">Themes</h2>
 	<!-- prettier-ignore -->
 	<p>
-		Skeleton themes <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">integrate with Tailwind</a> and support <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a>, <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, and our powerful <a class="anchor" href="/docs/tokens">design tokens system</a>.
+		Skeleton leans into <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">Tailwind's best practices</a> when implementing themes. This includes support for <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a> and <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>. Themes also enable Skeleton's <a class="anchor" href="/docs/tokens" target="_blank">design tokens</a> system.
 	</p>
-
-	<TabGroup regionPanel="space-y-4">
-		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
-		<Tab bind:group={$storeOnboardMethod} name="manual" value="manual">Manual Install</Tab>
-	</TabGroup>
-	{#if $storeOnboardMethod === 'cli'}
-		<p>
-			The CLI will automatically import your preferred preset theme in <code class="code">src/routes/+layout.svelte</code>. You may change
-			this at any time.
-		</p>
-	{:else if $storeOnboardMethod === 'manual'}
-		<!-- prettier-ignore -->
-		<p>
-			If you wish to use another preset theme, select it from the list below to reveal the import statement. Import it in your root layout in <code class="code">/src/routes/+layout.svelte</code>. Take care to replace any existing theme.
-		</p>
-	{/if}
-
+	<h3 class="h3">Preset Themes</h3>
+	<p>Skeleton provides a number of preset themes out of the box. Choose a theme below for specific instruction.</p>
 	<!-- Presets -->
 	<div class="card variant-glass p-4 space-y-4">
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -62,13 +56,22 @@
 				</div>
 			{/each}
 		</nav>
+		<p>
+			First, register your desired theme in <code class="code">tailwind.config.[cjs|js|ts]</code>, found in the root of your project. This
+			will ensure it's loaded and available.
+		</p>
 		<CodeBlock language="ts" code={activeThemeStylesheet} />
+		<p>
+			Next, open <code class="code">/src/app.html</code> and define the active theme to display via the <code class="code">data-theme</code>
+			attribute.
+		</p>
+		<CodeBlock language="html" code={`<body data-theme="${activeTheme.file}">`} />
 	</div>
 
 	<!-- Theme Customization -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Learn how extend preset themes, customize backgrounds, and add custom fonts.</p>
+			<p>Learn more about Skeleton themes in this comprehensive guide.</p>
 			<a class="btn variant-filled-secondary" href="/docs/themes">Themes &rarr;</a>
 		</div>
 	</div>
@@ -76,7 +79,7 @@
 	<!-- Generator -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Interested in creating your own custom theme? Try the Skeleton theme generator.</p>
+			<p>Ready to create a custom theme? Try the Theme Generator.</p>
 			<a class="btn variant-filled-secondary" href="/docs/generator">Generator &rarr;</a>
 		</div>
 	</div>

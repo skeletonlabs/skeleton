@@ -28,7 +28,7 @@ cd my-skeleton-app
 			{:else if $storeOnboardMethod === 'manual'}
 				<!-- prettier-ignore -->
 				<p>
-					If you have an existing SvelteKit application, skip to installing the Skeleton package from NPM. Otherwise let's begin by creating a new <a class="anchor" href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">SvelteKit project</a>.
+					If you have an existing SvelteKit application, skip to the next step. Otherwise let's create a <a class="anchor" href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">SvelteKit project</a>.
 				</p>
 				<CodeBlock
 					language="console"
@@ -39,12 +39,11 @@ npm install
 		`}
 				/>
 				<!-- Install NPM Package -->
+				<!-- prettier-ignore -->
 				<p>
-					Install the <a class="anchor" href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer"
-						>Skeleton package</a
-					> from NPM.
+					Install the packages for <a class="anchor" href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer">Skeleton</a> and the <a class="anchor" href="https://www.npmjs.com/package/@skeletonlabs/tw-plugin" target="_blank" rel="noreferrer">Skeleton Tailwind plugin</a>.
 				</p>
-				<CodeBlock language="console" code={`npm i @skeletonlabs/skeleton --save-dev`} />
+				<CodeBlock language="console" code={`npm i -D @skeletonlabs/skeleton @skeletonlabs/tw-plugin`} />
 			{/if}
 		</svelte:fragment>
 	</TabGroup>
