@@ -17,7 +17,7 @@
 	 * Pass the page setting object.
 	 * @type {PaginationSettings}
 	 */
-	export let settings: PaginationSettings = { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] };
+	export let settings: PaginationSettings = { page: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] };
 	/** Sets selection and buttons to disabled state on-demand. */
 	export let disabled = false;
 	/** Show Previous and Next buttons. */
@@ -90,7 +90,7 @@
 	let controlPages: number[] = getNumerals();
 
 	function onChangeLength(): void {
-		settings.offset = 0;
+		settings.page = 0;
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
 		dispatch('amount', settings.limit);
 
@@ -101,9 +101,9 @@
 	function gotoPage(page: number) {
 		if (page < 0) return;
 
-		settings.offset = page;
-		/** @event {{ offset: number }} page Fires when the next/back buttons are pressed. */
-		dispatch('page', settings.offset);
+		settings.page = page;
+		/** @event {{ page: number }} page Fires when the next/back buttons are pressed. */
+		dispatch('page', settings.page);
 		controlPages = getNumerals();
 	}
 
@@ -118,8 +118,8 @@
 
 	function getNumerals() {
 		const pages = [];
-		const isWithinLeftSection = settings.offset < maxNumerals + 2;
-		const isWithinRightSection = settings.offset > lastPage - (maxNumerals + 2);
+		const isWithinLeftSection = settings.page < maxNumerals + 2;
+		const isWithinRightSection = settings.page > lastPage - (maxNumerals + 2);
 
 		if (lastPage <= maxNumerals * 2 + 1) return getFullNumerals();
 
@@ -135,7 +135,7 @@
 			}
 		} else {
 			// mid section - with both ellipses
-			for (let i = settings.offset - maxNumerals; i <= settings.offset + maxNumerals; i++) {
+			for (let i = settings.page - maxNumerals; i <= settings.page + maxNumerals; i++) {
 				pages.push(i);
 			}
 		}
@@ -148,7 +148,7 @@
 
 	// State
 	$: classesButtonActive = (page: number) => {
-		return page === settings.offset ? `${active} pointer-events-none` : '';
+		return page === settings.page ? `${active} pointer-events-none` : '';
 	};
 	$: maxNumerals, onChangeLength();
 	// Reactive Classes
@@ -184,7 +184,7 @@
 				on:click={() => {
 					gotoPage(0);
 				}}
-				disabled={disabled || settings.offset === 0}
+				disabled={disabled || settings.page === 0}
 			>
 				{@html buttonTextFirst}
 			</button>
@@ -196,9 +196,9 @@
 				aria-label={labelPrevious}
 				class={buttonClasses}
 				on:click={() => {
-					gotoPage(settings.offset - 1);
+					gotoPage(settings.page - 1);
 				}}
-				disabled={disabled || settings.offset === 0}
+				disabled={disabled || settings.page === 0}
 			>
 				{@html buttonTextPrevious}
 			</button>
@@ -207,7 +207,7 @@
 		{#if showNumerals === false}
 			<!-- Details -->
 			<button type="button" class="{buttonClasses} pointer-events-none !text-sm">
-				{settings.offset * settings.limit + 1}-{Math.min(settings.offset * settings.limit + settings.limit, settings.size)}&nbsp;<span
+				{settings.page * settings.limit + 1}-{Math.min(settings.page * settings.limit + settings.limit, settings.size)}&nbsp;<span
 					class="opacity-50">of {settings.size}</span
 				>
 			</button>
@@ -226,9 +226,9 @@
 				aria-label={labelNext}
 				class={buttonClasses}
 				on:click={() => {
-					gotoPage(settings.offset + 1);
+					gotoPage(settings.page + 1);
 				}}
-				disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}
+				disabled={disabled || (settings.page + 1) * settings.limit >= settings.size}
 			>
 				{@html buttonTextNext}
 			</button>
@@ -242,7 +242,7 @@
 				on:click={() => {
 					gotoPage(lastPage);
 				}}
-				disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}
+				disabled={disabled || (settings.page + 1) * settings.limit >= settings.size}
 			>
 				{@html buttonTextLast}
 			</button>
