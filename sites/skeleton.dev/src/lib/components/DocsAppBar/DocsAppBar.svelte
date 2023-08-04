@@ -103,12 +103,6 @@
 			</button>
 			<!-- popup -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="features">
-				<a class="btn variant-filled w-full" href="https://store.skeleton.dev" target="_blank">
-					<!-- <i class="fa-solid fa-cart-shopping" /> -->
-					<span>Skeleton Store</span>
-					<span class="badge variant-filled-secondary">New</span>
-				</a>
-				<hr class="!my-4" />
 				<nav class="list-nav">
 					<ul>
 						<li>
@@ -127,6 +121,12 @@
 							<a href="/blog">
 								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
 								<span>Blog</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://store.skeleton.dev" target="_blank">
+								<span class="w-6 text-center"><i class="fa-solid fa-shopping-cart" /></span>
+								<span>Skeleton Store</span>
 							</a>
 						</li>
 						<hr class="!my-4" />
