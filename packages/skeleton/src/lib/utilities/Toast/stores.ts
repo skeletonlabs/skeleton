@@ -9,12 +9,24 @@ const toastDefaults: ToastSettings = { message: 'Missing Toast Message', autohid
 const TOAST_STORE_KEY = 'toastStore';
 
 /**
- * Retrieves the `toastStore`. Must be called inside of a `.svelte` file.
+ * Retrieves the `toastStore`.
+ *
+ * @example
+ * ```ts
+ * import { getToastStore } from "@skeletonlabs/skeleton";
+ *
+ * const toastStore = getToastStore();
+ *
+ * toastStore.open({ message: "Welcome!" });
+ * ```
  */
 export function getToastStore(): ToastStore {
 	const toastStore = getContext<ToastStore | undefined>(TOAST_STORE_KEY);
 
-	if (!toastStore) throw new Error('toastStore is not initialized. Please do the following things');
+	if (!toastStore)
+		throw new Error(
+			'toastStore is not initialized. Please ensure that `initializeStores()` is invoked in the root layout file of this app!'
+		);
 
 	return toastStore;
 }

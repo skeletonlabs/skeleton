@@ -7,12 +7,24 @@ import type { ModalSettings } from './types.js';
 const MODAL_STORE_KEY = 'modalStore';
 
 /**
- * Retrieves the `modalStore`. Must be called inside of a `.svelte` file.
+ * Retrieves the `modalStore`.
+ *
+ * @example
+ * ```ts
+ * import { getmodalStore } from "@skeletonlabs/skeleton";
+ *
+ * const modalStore = getModalStore();
+ *
+ * modalStore.trigger({ type: "alert", title: "Welcome!" });
+ * ```
  */
 export function getModalStore(): ModalStore {
 	const modalStore = getContext<ModalStore | undefined>(MODAL_STORE_KEY);
 
-	if (!modalStore) throw new Error('modalStore is not initialized. Please do the following things');
+	if (!modalStore)
+		throw new Error(
+			'modalStore is not initialized. Please ensure that `initializeStores()` is invoked in the root layout file of this app!'
+		);
 
 	return modalStore;
 }
