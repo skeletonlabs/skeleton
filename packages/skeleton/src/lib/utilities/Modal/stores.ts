@@ -1,8 +1,8 @@
 // Modal Store Queue
 
 import { writable } from 'svelte/store';
-import type { ModalSettings } from './types.js';
 import { getContext, setContext } from 'svelte';
+import type { ModalSettings } from './types.js';
 
 const MODAL_STORE_KEY = 'modalStore';
 
