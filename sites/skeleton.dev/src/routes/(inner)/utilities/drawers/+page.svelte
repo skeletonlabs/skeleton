@@ -8,14 +8,15 @@
 	import sveldDrawer from '@skeletonlabs/skeleton/utilities/Drawer/Drawer.svelte?raw&sveld';
 
 	// Drawer Utils
-	import { drawerStore, type DrawerSettings } from '@skeletonlabs/skeleton';
+	import { getDrawerStore, type DrawerSettings } from '@skeletonlabs/skeleton';
+	const drawerStore = getDrawerStore();
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
 		name: 'Drawers',
 		description: 'Displays an overlay panel that attaches to any side of the screen.',
-		imports: ['Drawer', 'drawerStore'],
+		imports: ['Drawer', 'getDrawerStore'],
 		types: ['DrawerSettings'],
 		source: 'utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
@@ -79,6 +80,7 @@
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<p>Implement a single instance of the drawer component in your app's root layout above the App Shell (if present).</p>
+				<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
 				<CodeBlock language="html" code={`<Drawer />\n\n<!-- <AppShell>...</AppShell> -->`} />
 			</svelte:fragment>
 		</DocsPreview>
@@ -96,6 +98,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Drawer Store</h2>
 			<p>Import this anywhere you wish to control the Drawer. Provides an interface to control the drawer component.</p>
+			<CodeBlock language="ts" code={`import { getDrawerStore } from "@skeletonlabs/skeleton";\n\nconst drawerStore = getDrawerStore();`} />
 			<h3 class="h3">Open</h3>
 			<CodeBlock language="ts" code={`drawerStore.open();`} />
 			<h3 class="h3">Close</h3>
@@ -212,17 +215,6 @@ drawerStore.open(settings);
 			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessibility. View the <a class="anchor" href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessibility.</p>
-		</section>
-		<!-- SvelteKit SSR Warning -->
-		<!-- prettier-ignore -->
-		<section class="space-y-4">
-			<h2 class="h2">SvelteKit SSR Warning</h2>
-			<div class="space-y-4">
-				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
-					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
-				</div>
-			</div>
 		</section>
 	</svelte:fragment>
 </DocsShell>

@@ -14,8 +14,9 @@
 	import { AppBar, LightSwitch, popup, getModalStore } from '@skeletonlabs/skeleton';
 
 	// Stores
-	import { drawerStore } from '@skeletonlabs/skeleton';
+	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { storeTheme } from '$lib/stores/stores';
+	const drawerStore = getDrawerStore();
 
 	// Local
 	let isOsMac = false;

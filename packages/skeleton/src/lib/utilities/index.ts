@@ -1,5 +1,6 @@
 import { initializeModalStore } from './Modal/stores.js';
 import { initializeToastStore } from './Toast/stores.js';
+import { initializeDrawerStore } from './Drawer/stores.js';
 
 type Opts = {
 	modal: boolean;
@@ -11,6 +12,7 @@ type Opts = {
 export function initializeStores(opts: Opts = { modal: true, toast: true, drawer: true, popup: true, lightswitch: true }) {
 	const modalStore = initializeModalStore();
 	const toastStore = initializeToastStore();
+	const drawerStore = initializeDrawerStore();
 
-	return { modalStore, toastStore };
+	return { drawerStore, modalStore, toastStore };
 }
