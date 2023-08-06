@@ -7,7 +7,7 @@ import type { ModalSettings } from './types.js';
 const MODAL_STORE_KEY = 'modalStore';
 
 /**
- * Must be called inside of a `.svelte` file.
+ * Retrieves the `modalStore`. Must be called inside of a `.svelte` file.
  */
 export function getModalStore(): ModalStore {
 	const modalStore = getContext<ModalStore | undefined>(MODAL_STORE_KEY);
@@ -18,7 +18,7 @@ export function getModalStore(): ModalStore {
 }
 
 /**
- * Initializes the modalStore
+ * Initializes the `modalStore`.
  */
 export function initializeModalStore(): ModalStore {
 	const modalStore = modalService();
