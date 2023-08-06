@@ -13,7 +13,9 @@
 
 	// Modals Utils
 	import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
-	import { modalStore } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+
+	const modalStore = getModalStore();
 
 	// Stores
 	let tabCustom = 'register';
@@ -23,7 +25,7 @@
 		feature: DocsFeature.Utility,
 		name: 'Modals',
 		description: 'High priority dialogs and modals using a dynamic queue system.',
-		imports: ['Modal', 'modalStore'],
+		imports: ['Modal', 'getModalStore'],
 		types: ['ModalSettings', 'ModalComponent'],
 		source: 'utilities/Modal',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/',
@@ -147,8 +149,24 @@
 				<button class="btn variant-filled" on:click={modalDemo}>Show Modal</button>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<p>Implement a single instance of the modal component in your app's root layout above the App Shell (if present).</p>
-				<CodeBlock language="html" code={`<Modal />\n\n<!-- <AppShell>...</AppShell> -->`} />
+				<p>In your app's root layout, import the Modal component and the store initializer function.</p>
+				<CodeBlock
+					language="typescript"
+					code={`
+import { Modal, initializeStores } from "@skeletonlabs/skeleton";
+
+initializeStores();
+`}
+				/>
+				<p>Add a single instance of the Modal component above the App Shell (if present).</p>
+				<CodeBlock
+					language="html"
+					code={`
+<Modal />
+
+<!-- <AppShell>...</AppShell> -->
+`}
+				/>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -166,8 +184,18 @@
 		</aside>
 		<section class="space-y-4">
 			<h2 class="h2">Modal Store</h2>
-			<p>When you wish to trigger a modal, import the <code class="code">modalStore</code>, which acts as the modal queue.</p>
-			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';`} />
+			<p>
+				When you wish to trigger a modal, import the <code class="code">getModalStore</code> function and invoke it to retrieve the
+				<code class="code">modalStore</code>, which is a Svelte store that acts as the modal queue.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+import { getModalStore } from '@skeletonlabs/skeleton';
+			
+const modalStore = getModalStore();
+			`}
+			/>
 			<h3 class="h3">Trigger</h3>
 			<p>
 				The <code class="code">title</code>, <code class="code">body</code>, and <code class="code">image</code> are available to all modals.
@@ -468,17 +496,6 @@ modalStore.trigger(modal);
 			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessibility. View the <a class="anchor" href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessibility.</p>
-		</section>
-		<!-- SvelteKit SSR Warning -->
-		<!-- prettier-ignore -->
-		<section class="space-y-4">
-			<h2 class="h2">SvelteKit SSR Warning</h2>
-			<div class="space-y-4">
-				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
-					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
-				</div>
-			</div>
 		</section>
 	</svelte:fragment>
 </DocsShell>

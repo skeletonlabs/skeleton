@@ -11,7 +11,7 @@
 	import DocsIcon from '$lib/components/DocsIcon/DocsIcon.svelte';
 
 	// Components & Utilities
-	import { AppBar, LightSwitch, popup, modalStore } from '@skeletonlabs/skeleton';
+	import { AppBar, LightSwitch, popup, getModalStore } from '@skeletonlabs/skeleton';
 
 	// Stores
 	import { drawerStore } from '@skeletonlabs/skeleton';
@@ -19,6 +19,7 @@
 
 	// Local
 	let isOsMac = false;
+	const modalStore = getModalStore();
 
 	// Set Search Keyboard Shortcut
 	if (browser) {

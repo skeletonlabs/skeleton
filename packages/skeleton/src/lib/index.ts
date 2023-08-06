@@ -13,15 +13,13 @@ export type { PopupSettings } from './utilities/Popup/types.js';
 export type { Transition, TransitionParams } from './internal/transitions.js';
 export type { CssClasses, SvelteEvent } from './types.js';
 
-// Stores ---
-
+// Utilities ---
 export { storeHighlightJs } from './utilities/CodeBlock/stores.js';
 export { storePopup } from './utilities/Popup/popup.js';
 export { drawerStore } from './utilities/Drawer/stores.js';
-export { modalStore } from './utilities/Modal/stores.js';
+export { getModalStore } from './utilities/Modal/stores.js';
 export { toastStore } from './utilities/Toast/stores.js';
-
-// Utilities ---
+export { initializeStores } from './utilities/index.js';
 
 // Data Table
 export {
