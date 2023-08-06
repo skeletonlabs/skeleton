@@ -18,7 +18,7 @@ export { storeHighlightJs } from './utilities/CodeBlock/stores.js';
 export { storePopup } from './utilities/Popup/popup.js';
 export { drawerStore } from './utilities/Drawer/stores.js';
 export { getModalStore } from './utilities/Modal/stores.js';
-export { toastStore } from './utilities/Toast/stores.js';
+export { getToastStore } from './utilities/Toast/stores.js';
 export { initializeStores } from './utilities/index.js';
 
 // Data Table

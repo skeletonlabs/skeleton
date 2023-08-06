@@ -3,8 +3,11 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import { CodeBlock } from '@skeletonlabs/skeleton';
+
 	// Toasts
-	import { toastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	const toastStore = getToastStore();
+
 	// Sveld
 	import sveldToast from '@skeletonlabs/skeleton/utilities/Toast/Toast.svelte?raw&sveld';
 
@@ -13,7 +16,7 @@
 		feature: DocsFeature.Utility,
 		name: 'Toasts',
 		description: 'Simple notifications utilizing a dynamic queue system.',
-		imports: ['Toast', 'toastStore'],
+		imports: ['Toast', 'getToastStore'],
 		types: ['ToastSettings'],
 		source: 'utilities/Toast',
 		components: [{ sveld: sveldToast }],
@@ -142,6 +145,7 @@
 					Import and add a single instance of the Toast component in your app's root layout. Since this is in global scope it will be
 					possible to reuse this feature throughout your entire application.
 				</p>
+				<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
 				<CodeBlock language="html" code={`<Toast />`} />
 			</svelte:fragment>
 		</DocsPreview>
@@ -162,7 +166,7 @@
 			<p>The Toast Store acts as a queue for your toast messages.</p>
 			<CodeBlock
 				language="ts"
-				code={`import { toastStore } from '@skeletonlabs/skeleton';
+				code={`import { getToastStore } from '@skeletonlabs/skeleton';\n\nconst toastStore = getToastStore();
 			`}
 			/>
 			<!-- Trigger -->
@@ -414,17 +418,6 @@ const t: ToastSettings = {
 };
 `}
 			/>
-		</section>
-		<!-- SvelteKit SSR Warning -->
-		<!-- prettier-ignore -->
-		<section class="space-y-4">
-			<h2 class="h2">SvelteKit SSR Warning</h2>
-			<div class="space-y-4">
-				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
-					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
-				</div>
-			</div>
 		</section>
 	</svelte:fragment>
 </DocsShell>

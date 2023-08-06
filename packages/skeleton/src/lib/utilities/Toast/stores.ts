@@ -1,9 +1,32 @@
 // Toast Store Queue
 
 import { writable } from 'svelte/store';
+import { getContext, setContext } from 'svelte';
 import type { ToastSettings, Toast } from './types.js';
 
 const toastDefaults: ToastSettings = { message: 'Missing Toast Message', autohide: true, timeout: 5000 };
+
+const TOAST_STORE_KEY = 'toastStore';
+
+/**
+ * Retrieves the `toastStore`. Must be called inside of a `.svelte` file.
+ */
+export function getToastStore(): ToastStore {
+	const toastStore = getContext<ToastStore | undefined>(TOAST_STORE_KEY);
+
+	if (!toastStore) throw new Error('toastStore is not initialized. Please do the following things');
+
+	return toastStore;
+}
+
+/**
+ * Initializes the `toastStore`.
+ */
+export function initializeToastStore(): ToastStore {
+	const toastStore = toastService();
+
+	return setContext(TOAST_STORE_KEY, toastStore);
+}
 
 // Note for security; differentiates the queued toasts
 function randomUUID(): string {
@@ -11,19 +34,40 @@ function randomUUID(): string {
 	return Number(random).toString(32);
 }
 
-// If toast should auto-hide, wait X time, then close by ID
-function handleAutoHide(toast: Toast) {
-	if (toast.autohide === true) {
-		return setTimeout(() => {
-			toastStore.close(toast.id);
-		}, toast.timeout);
-	}
-}
-
+type ToastStore = ReturnType<typeof toastService>;
 function toastService() {
 	const { subscribe, set, update } = writable<Toast[]>([]);
+
+	/** Remove toast in queue*/
+	const close = (id: string) =>
+		update((tStore) => {
+			if (tStore.length > 0) {
+				const index = tStore.findIndex((t) => t.id === id);
+				const selectedToast = tStore[index];
+				if (selectedToast) {
+					// Trigger Callback
+					if (selectedToast.callback) selectedToast.callback({ id, status: 'closed' });
+					// Clear timeout
+					if (selectedToast.timeoutId) clearTimeout(selectedToast.timeoutId);
+					// Remove
+					tStore.splice(index, 1);
+				}
+			}
+			return tStore;
+		});
+
+	// If toast should auto-hide, wait X time, then close by ID
+	function handleAutoHide(toast: Toast) {
+		if (toast.autohide === true) {
+			return setTimeout(() => {
+				close(toast.id);
+			}, toast.timeout);
+		}
+	}
+
 	return {
 		subscribe,
+		close,
 		/** Add a new toast to the queue. */
 		trigger: (toast: ToastSettings) => {
 			const id: string = randomUUID();
@@ -43,30 +87,13 @@ function toastService() {
 			});
 			return id;
 		},
-		/** Remove toast in queue*/
-		close: (id: string) =>
-			update((tStore) => {
-				if (tStore.length > 0) {
-					const index = tStore.findIndex((t) => t.id === id);
-					const selectedToast = tStore[index];
-					if (selectedToast) {
-						// Trigger Callback
-						if (selectedToast.callback) selectedToast.callback({ id, status: 'closed' });
-						// Clear timeout
-						if (selectedToast.timeoutId) clearTimeout(selectedToast.timeoutId);
-						// Remove
-						tStore.splice(index, 1);
-					}
-				}
-				return tStore;
-			}),
-		/** remain visible on hover */
+		/** Remain visible on hover */
 		freeze: (index: number) =>
 			update((tStore) => {
 				if (tStore.length > 0) clearTimeout(tStore[index].timeoutId);
 				return tStore;
 			}),
-		/** cancel remain visible on leave */
+		/** Cancel remain visible on leave */
 		unfreeze: (index: number) =>
 			update((tStore) => {
 				if (tStore.length > 0) tStore[index].timeoutId = handleAutoHide(tStore[index]);
@@ -76,5 +103,3 @@ function toastService() {
 		clear: () => set([])
 	};
 }
-
-export const toastStore = toastService();

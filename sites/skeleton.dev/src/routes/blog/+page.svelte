@@ -3,7 +3,8 @@
 	import type { PageData } from './$types';
 	export let data: PageData;
 
-	import { toastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	const toastStore = getToastStore();
 
 	// Blog Utils
 	import { getBlogList, blogDateFormatter } from './blog-service';
