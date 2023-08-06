@@ -42,6 +42,10 @@
 				and more.
 			</p>
 			<CodeBlock language="html" code={`<body data-theme="` + activeTheme.file + `">`} />
+			<p>
+				You will also need to change import at `routes/+layout.svelte` file to reference the new theme.
+			</p>
+			<CodeBlock language="ts" code={`import '@skeletonlabs/skeleton/themes/theme-` + activeTheme.file + `.css';`} />
 		</section>
 	{/if}
 
