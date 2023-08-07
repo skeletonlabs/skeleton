@@ -12,11 +12,9 @@
 		feature: DocsFeature.Component,
 		name: 'Table of Contents',
 		description: 'Allows you to quickly navigate the hierarchy of headings for the current page.',
-		imports: ['TableOfContents'],
+		imports: ['TableOfContents', 'tocCrawler'],
 		source: 'components/TableOfContents',
-		components: [{ sveld: sveldTableOfContents }],
-		transitionIn: 'fade',
-		transitionOut: 'fade'
+		components: [{ sveld: sveldTableOfContents }]
 	};
 
 	// Local
@@ -26,95 +24,97 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<DocsPreview>
+		<DocsPreview class="hidden xl:block">
 			<svelte:fragment slot="preview">
-				<div class="card p-4 text-token rounded-container-token w-96">
-					<p class="font-bold pb-4 ml-4">On This Page</p>
-					<ListBox active="variant-filled-primary" hover="hover:bg-primary-hover-token" class="pointer-events-none">
-						<ListBoxItem group={value} name="toc" value={0}>Demo</ListBoxItem>
-						<ListBoxItem group={value} name="toc" value={1}>How It Works</ListBoxItem>
-						<ListBoxItem group={value} name="toc" value={2} class="ml-4">Key Props</ListBoxItem>
-						<ListBoxItem group={value} name="toc" value={3} class="ml-4">...</ListBoxItem>
-						<ListBoxItem group={value} name="toc" value={4}>Ignore a Heading</ListBoxItem>
-						<ListBoxItem group={value} name="toc" value={5}>...</ListBoxItem>
-					</ListBox>
-				</div>
-			</svelte:fragment>
-			<svelte:fragment slot="footer">
-				<p class="w-full text-center">Please note the example above is simulated.</p>
+				<p>See example on <strong>page right</strong> &rarr;</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<TableOfContents target="#toc-target" />`} />
+				<p>Set the action on the element containing headings to catalog. H2-H6 are supported by default.</p>
+				<CodeBlock language="ts" code={`import { tocCrawler } from '@skeletonlabs/skeleton';`} />
+				<CodeBlock
+					language="html"
+					code={`
+<div use:tocCrawler={{ mode: 'generate' }}>
+	<h2>Heading 2</h2>
+	<p>...</p>
+	<h3>Heading 3</h3>
+	<p>...</p>
+</div>
+				`}
+				/>
+				<p>Finally, implement the component, which will display the generated list of links.</p>
+				<CodeBlock language="html" code={`<TableOfContents />`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p>Add the component to a page, set the target property, then a list of links will be auto-generated based on HTML headings.</p>
+		<!-- How it Works -->
 		<section class="space-y-4">
 			<h2 class="h2">How It Works</h2>
-			<h3 class="h3">Key Props</h3>
-			<p>The following props are critical to how this operates.</p>
-			<div class="table-container">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Property</th>
-							<th>Example</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<!-- prettier-ignore -->
-					<tbody>
-						<tr>
-							<td><code class="code">scrollParent</code></td>
-							<td>"#page"</td>
-							<td><a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the scrollable page element.</td>
-						</tr>
-						<tr>
-							<td><code class="code">target</code></td>
-							<td>"#page"</td>
-							<td><a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the element to scan for headings.</td>
-						</tr>
-						<tr>
-							<td><code class="code">allowedHeadings</code></td>
-							<td>'h2, h3'</td>
-							<td><a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the allowed headings. From H2-H6.</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
 			<h3 class="h3">Heading IDs</h3>
+			<p>Each heading on the page requires a unique ID that acts as the scroll target for inner-page navigation.</p>
+			<CodeBlock language="html" code={`<h2 class="h2" id="how-it-works">How it Works</h2>`} />
+			<h3 class="h3">Anchor Links</h3>
 			<p>
-				The component will scan the target region and query all matching headings. If a heading has an <code class="code">ID</code> set, that
-				will be used as the scroll target, otherwise an ID will be auto-generated and assigned.
+				The Table of Contents list of links will point to each target ID as shown below. Note the use of <code class="code">#</code>. When
+				clicked, the browser will automatically scroll the page to this unique element ID on the page.
 			</p>
-			<h3 class="h3">Click to Scroll</h3>
-			<p>
-				When a link is clicked, the scrollable parent container will be scrolled using the JavaScript <code class="code"
-					>scrollIntoView</code
-				> method. This will smoothly scroll the container element to the heading with the matching ID.
-			</p>
+			<CodeBlock language="html" code={`<a href="#how-it-works">How It Works</a>`} />
 		</section>
+		<hr />
+		<!-- Settings -->
 		<section class="space-y-4">
-			<h2 class="h2">Ignore a Heading</h2>
+			<h2 class="h2">Settings</h2>
+			<h3 class="h3">Automatic IDs</h3>
 			<p>
-				By default, the Table of Contents creates links for <em>all headings</em> within the target region. If you wish to ignore certain headings,
-				add the following data attribute to that heading.
+				Set <code class="code">mode: generate</code> for <code class="code">tocCrawler</code> to automatically generate and set unique IDs based
+				on the text content of the heading. If an ID has already been set manually, it will be used instead. If this setting is not enabled,
+				then you are responsible for implementing all heading IDs.
 			</p>
-			<CodeBlock language="html" code={`<h2 class="h2" data-toc-ignore>Ignore Me!</h2>`} />
-		</section>
-		<section class="space-y-4">
-			<h2 class="h2">Screen Reader Headings</h2>
+			<CodeBlock language="html" code={`<div use:tocCrawler={{ mode: 'generate' }}>`} />
+			<h3 class="h3">Ignore Headings</h3>
+			<p>
+				To ignore a heading in the target region, simply append a <code class="code">data-toc-ignore</code> attribute.
+			</p>
+			<CodeBlock language="html" code={`<h2 class="h2" data-toc-ignore>Ignore Me</h2>`} />
+			<h3 class="h3">Append Headings</h3>
 			<!-- prettier-ignore -->
-			<p>If you wish to include a section link that's not visibly shown within the target element, use <a class="anchor" href="https://tailwindcss.com/docs/screen-readers#screen-reader-only-elements" target="_blank" rel="noreferrer">Screen Reader</a> <code class="code">.sr-only</code> class from Tailwind.</p>
+			<p>Use the Tailwind-provided <a class="anchor" href="https://tailwindcss.com/docs/screen-readers#screen-reader-only-elements" target="_blank" rel="noreferrer">Screen Reader</a> <code class="code">.sr-only</code> class to append an invisible heading.</p>
 			<CodeBlock language="html" code={`<h2 class="sr-only">Include Me!</h2>`} />
 		</section>
+		<hr />
+		<!-- Styling -->
 		<section class="space-y-4">
-			<h2 class="h2">Sticky Positioning</h2>
+			<h2 class="h2">Styling</h2>
+			<h3 class="h3">Smooth Scrolling</h3>
 			<!-- prettier-ignore -->
-			<p>See Tailwind's documentation on <a class="anchor" href="https://tailwindcss.com/docs/position#sticky-positioning-elements" target="_blank" rel="noreferrer">sticky positioning</a> if you wish to keep the Table of Contents component visible during scrolling.</p>
+			<p>
+				Use Tailwind's <a class="anchor" href="https://tailwindcss.com/docs/scroll-behavior" target="_blank">scroll behavior</a> styles to enable smooth scrolling on the scrollable element.
+			</p>
+			<CodeBlock
+				language="html"
+				code={`
+<!-- If using the App Shell: -->
+<AppShell regionPage="scroll-smooth"></AppShell>\n
+<!-- If NOT using the App Shell: -->
+<body class="scroll-smooth"></body>
+			`}
+			/>
+			<h3 class="h3">Scroll Margin Offset</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Use Tailwind's <a class="anchor" href="https://tailwindcss.com/docs/scroll-margin" target="_blank">scroll margin</a> if you need to offset and account for sticky headers
+			</p>
+			<blockquote class="blockquote">NOTE: this is not currently supported for Skeleton's App Shell.</blockquote>
+			<CodeBlock language="html" code={`<body class="scroll-mt-4"></body>`} />
+			<h3 class="h3">Sticky Positioning</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Use Tailwind's <a class="anchor" href="https://tailwindcss.com/docs/position#sticky-positioning-elements" target="_blank" rel="noreferrer">sticky positioning</a> styles to keep the Table of Contents component visible while scrolling.
+			</p>
+			<CodeBlock language="html" code={`<TableOfContents class="sticky top-10" />`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>
