@@ -23,18 +23,6 @@ export { toastStore } from './utilities/Toast/stores.js';
 
 // Utilities ---
 
-// Data Table
-export {
-	// Types
-	type DataTableModel,
-	type DataTableOptions,
-	// Utilities
-	createDataTableStore,
-	dataTableHandler,
-	// Svelte Actions
-	tableInteraction,
-	tableA11y
-} from './utilities/DataTable/DataTable.js';
 // Lightswitch
 export {
 	// Stores

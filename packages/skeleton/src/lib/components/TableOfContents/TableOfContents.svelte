@@ -177,7 +177,7 @@
 		<nav class="toc-list {classesList}">
 			<div class="toc-label {classesLabel}">{label}</div>
 			{#each filteredHeadingsList as headingElem}
-				<!-- TODO: Remove for V2 -->
+				<!-- FIXME: resolve a11y warnings -->
 				<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 				<!-- prettier-ignore -->
 				<li
