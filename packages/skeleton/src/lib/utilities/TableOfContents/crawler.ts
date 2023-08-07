@@ -1,4 +1,4 @@
-// Action: Table of Conents Crawler
+// Action: Table of Contents Crawler
 
 import { tocStore } from './stores.js';
 import type { tocHeadingLink } from './types.js';
@@ -10,52 +10,39 @@ interface arguments {
 
 export function tocCrawler(node: HTMLElement, args?: arguments) {
 	let queryElements = 'h2, h3, h4, h5, h6';
+	let permalinks: tocHeadingLink[] = [];
 
 	function init(): void {
-		// If generate mode, generate heading permalinks, else query only
-		args?.mode === 'generate' ? generate() : query();
+		// Reset the permalinks array:
+		permalinks = [];
 		// Set accepted list of query elements
 		if (args?.queryElements) queryElements = args.queryElements;
+		// Query and process the headings
+		queryHeadings();
 	}
 
-	function generate(): void {
+	function queryHeadings(): void {
 		const headings: NodeListOf<HTMLElement> | undefined = node.querySelectorAll(queryElements);
-		const permalinks: tocHeadingLink[] = [];
 		headings.forEach((elemHeading: HTMLElement) => {
-			// If not ID present, generate one
-			if (!elemHeading.id) {
-				let newId = elemHeading.firstChild?.textContent
+			// If heading has ignore attribute, skip it
+			if (elemHeading.hasAttribute('data-toc-ignore')) return;
+			// If generate mode and heading ID not present, assign one
+			if (args?.mode === 'generate' && !elemHeading.id) {
+				let newHeadingId = elemHeading.firstChild?.textContent
 					?.trim()
 					.replaceAll(/[^a-zA-Z0-9 ]/g, '')
 					.replaceAll(' ', '-')
 					.toLowerCase();
-				elemHeading.id = newId || '';
+				elemHeading.id = newHeadingId || '';
 			}
-			// Push to permalinks list
+			// Push heading data to the permalink array
 			permalinks.push({
 				element: elemHeading.nodeName.toLowerCase(),
 				id: elemHeading.id,
 				text: elemHeading.firstChild?.textContent?.trim() || ''
 			});
 		});
-		// Populate the store
-		tocStore.set(permalinks);
-	}
-
-	// Query all available headings in the target region
-	function query(): void {
-		const headings: NodeListOf<HTMLElement> | undefined = node.querySelectorAll(queryElements);
-		const permalinks: tocHeadingLink[] = [];
-		// Scan headings for IDs, push to permalinks list
-		headings.forEach((elemHeading: HTMLElement) => {
-			if (!elemHeading.id) return;
-			permalinks.push({
-				element: elemHeading.nodeName.toLowerCase(),
-				id: elemHeading.id,
-				text: elemHeading.firstChild?.textContent?.trim() || ''
-			});
-		});
-		// Populate the store
+		// Set the store with the permalink array
 		tocStore.set(permalinks);
 	}
 
