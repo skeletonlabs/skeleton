@@ -4,7 +4,6 @@
 
 	// Props
 	export let sidebar = true;
-	// export let tocKey: any = undefined;
 
 	// Classes
 	const cBase = 'page-padding flex items-start gap-10';
@@ -42,10 +41,7 @@
 				</div> -->
 			{/if}
 			<!-- Table of Contents -->
-			<!-- {#key tocKey} -->
-			<!-- target=".layout-docs-content" minimumHeadings={1} -->
 			<TableOfContents />
-			<!-- {/key} -->
 		</aside>
 	{/if}
 </div>

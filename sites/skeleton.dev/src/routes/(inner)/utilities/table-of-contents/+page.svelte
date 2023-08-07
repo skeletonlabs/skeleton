@@ -5,7 +5,7 @@
 	// Utilities
 	import { ListBox, ListBoxItem, CodeBlock } from '@skeletonlabs/skeleton';
 	// Sveld
-	import sveldTableOfContents from '@skeletonlabs/skeleton/components/TableOfContents/TableOfContents.svelte?raw&sveld';
+	import sveldTableOfContents from '@skeletonlabs/skeleton/utilities/TableOfContents/TableOfContents.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

@@ -2,7 +2,9 @@
 	import { tocStore } from './stores.js';
 
 	/** Provide text for the title. Accepts HTML. */
-	export let title: string = 'On This Page';
+	export let title = 'On This Page';
+	/** Provide classes to set the active link styles. */
+	export let active = '!variant-filled-primary';
 
 	// Local
 	const indentMargins = {
@@ -12,6 +14,11 @@
 		h5: 'ml-12',
 		h6: 'ml-16'
 	};
+	let activeId = '';
+
+	function setActiveId(id: string): void {
+		activeId = id;
+	}
 </script>
 
 {#if $tocStore.length}
@@ -19,9 +26,15 @@
 		{#if title}<p class="font-bold mb-4 ml-3">{@html title}</p>{/if}
 		<ul>
 			{#each $tocStore as tocHeading}
-				<!-- <pre class="pre">{JSON.stringify(tocHeading, null, 2)}</pre> -->
 				<li class={indentMargins[tocHeading.element]}>
-					<a href="#{tocHeading.id}">{tocHeading.text}</a>
+					<!-- prettier-ignore -->
+					<a
+						href="#{tocHeading.id}"
+						class={tocHeading.id === activeId ? active : ''}
+						on:click={() => { setActiveId(tocHeading.id) }}
+					>
+						{tocHeading.text}
+					</a>
 				</li>
 			{/each}
 		</ul>
