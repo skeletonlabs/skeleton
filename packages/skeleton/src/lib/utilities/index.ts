@@ -20,9 +20,7 @@ import { initializeDrawerStore } from './Drawer/stores.js';
  * ```
  */
 export function initializeStores() {
-	const modalStore = initializeModalStore();
-	const toastStore = initializeToastStore();
-	const drawerStore = initializeDrawerStore();
-
-	return { drawerStore, modalStore, toastStore };
+	initializeModalStore();
+	initializeToastStore();
+	initializeDrawerStore();
 }
