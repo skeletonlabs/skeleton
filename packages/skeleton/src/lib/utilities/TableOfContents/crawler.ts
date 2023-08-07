@@ -4,8 +4,12 @@ import { tocStore } from './stores.js';
 import type { tocHeadingLink } from './types.js';
 
 interface arguments {
-	mode?: string;
+	/** Set generate mode to automatically set heading IDs. */
+	mode?: 'generate' | undefined;
+	/** Provide query list of elements. Defaults h2-h6. */
 	queryElements?: string;
+	/** Reload the action when this key value changes. */
+	key: any;
 }
 
 export function tocCrawler(node: HTMLElement, args?: arguments) {
