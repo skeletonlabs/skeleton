@@ -62,7 +62,7 @@
 				<li class="toc-list-item {classesListItem} {indentStyles[tocHeading.element]}">
 					<a
 						href="#{tocHeading.id}"
-						class="toc-anchor {classesAnchor} {tocHeading.id === activeId ? active : inactive}"
+						class="toc-anchor {classesAnchor} {tocHeading.id === activeId.replace('#', '') ? active : inactive}"
 						on:click={() => {
 							activeId = tocHeading.id;
 						}}
