@@ -44,6 +44,8 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
+				<!-- Use this to test full width sizing -->
+				<!-- <RadioGroup class="text-token w-full" display="flex"> -->
 				<RadioGroup class="text-token">
 					<RadioItem bind:group={justify} name="justify" value={0}>
 						<i class="fa-solid fa-align-left" />
@@ -124,8 +126,8 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Full Width</h2>
-			<p>Set <em>regionLabel</em> to <code class="code">flex-auto</code> to stretch and fill the full width.</p>
-			<CodeBlock language="html" code={`<RadioGroup regionLabel="flex-auto">...</RadioGroup>`} />
+			<p>Set <em>display</em> to <code class="code">flex</code> to stretch and fill the full width.</p>
+			<CodeBlock language="html" code={`<RadioGroup display="flex">...</RadioGroup>`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Radio Attributes</h2>
