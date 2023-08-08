@@ -2,7 +2,7 @@
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
-// Components
+	// Components
 	import { CodeBlock, RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldRadioGroup from '@skeletonlabs/skeleton/components/Radio/RadioGroup.svelte?raw&sveld';
@@ -19,7 +19,11 @@
 		restProps: 'RadioItem input',
 		components: [
 			{ label: 'RadioGroup', sveld: sveldRadioGroup },
-			{ label: 'RadioItem', sveld: sveldRadioItem, overrideProps: ['padding', 'hover', 'accent', 'color', 'fill', 'rounded', 'regionLabel'] }
+			{
+				label: 'RadioItem',
+				sveld: sveldRadioItem,
+				overrideProps: ['padding', 'hover', 'accent', 'color', 'fill', 'rounded', 'regionLabel']
+			}
 		],
 		keyboard: [
 			['<kbd class="kbd">Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],

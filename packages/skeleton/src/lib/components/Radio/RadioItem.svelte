@@ -31,7 +31,7 @@
 	export let hover: CssClasses = getContext('hover');
 	export let color: CssClasses = getContext('color');
 	export let fill: CssClasses = getContext('fill');
-	export let regionLabel: CssClasses = getContext('regionLabel')
+	export let regionLabel: CssClasses = getContext('regionLabel');
 
 	// Classes
 	const cBase = 'flex-auto text-base text-center cursor-pointer';
