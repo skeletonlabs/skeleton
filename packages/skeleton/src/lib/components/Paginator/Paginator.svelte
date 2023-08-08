@@ -90,11 +90,16 @@
 	let controlPages: number[] = getNumerals();
 
 	function onChangeLength(): void {
-		settings.page = 0;
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
 		dispatch('amount', settings.limit);
 
 		lastPage = Math.ceil(settings.size / settings.limit - 1);
+
+		// ensure page in limit range
+		if (settings.page > lastPage) {
+			settings.page = lastPage;
+		}
+
 		controlPages = getNumerals();
 	}
 
