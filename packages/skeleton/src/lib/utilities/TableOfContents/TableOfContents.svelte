@@ -66,7 +66,7 @@
 						href="#{tocHeading.id}"
 						class="toc-anchor {classesAnchor} {tocHeading.id === reactiveActiveId ? active : inactive}"
 						on:click={() => {
-							activeId = tocHeading.id;
+							reactiveActiveId = tocHeading.id;
 						}}
 					>
 						{tocHeading.text}

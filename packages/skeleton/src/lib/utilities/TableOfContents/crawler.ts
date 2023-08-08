@@ -78,6 +78,9 @@ export function tocCrawler(node: HTMLElement, args?: arguments) {
 		update(newArgs: any) {
 			args = newArgs;
 			init();
+		},
+		destroy() {
+			if (scrollTarget) document.querySelector(scrollTarget)?.removeEventListener('scroll', onWindowScroll);
 		}
 	};
 }

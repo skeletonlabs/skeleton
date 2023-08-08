@@ -111,7 +111,8 @@
 				The <code class="code">tocCrawler</code> action can automatically select the top visible heading when you supply a
 				<code class="code">scrollTarget</code> element. That being the element that handles scrolling for the page. By default this is set
 				to target the <code class="code">body</code> element. When using the Skeleton App Shell designate
-				<code class="code">#page</code> element as shown.
+				<code class="code">scrollTarget: '#page'</code> element as shown. To disble this feature, set
+				<code class="code">scrollTarget: ''</code>.
 			</p>
 			<blockquote class="blockquote">
 				NOTE: depending on your page layout, the page may not scroll low enough to activate the final links in the list.
