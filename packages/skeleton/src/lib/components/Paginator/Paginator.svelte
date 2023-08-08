@@ -91,11 +91,16 @@
 	let controlPages: number[] = getNumerals();
 
 	function onChangeLength(): void {
-		settings.offset = 0;
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
 		dispatch('amount', settings.limit);
 
 		lastPage = Math.max(0, Math.ceil(settings.size / settings.limit - 1));
+
+		// ensure offset in limit range
+		if (settings.offset > lastPage) {
+			settings.offset = lastPage;
+		}
+
 		controlPages = getNumerals();
 	}
 
