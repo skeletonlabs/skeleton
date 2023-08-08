@@ -2,8 +2,8 @@
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
-	// Components
-	import { RadioGroup, RadioItem, CodeBlock } from '@skeletonlabs/skeleton';
+// Components
+	import { CodeBlock, RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldRadioGroup from '@skeletonlabs/skeleton/components/Radio/RadioGroup.svelte?raw&sveld';
 	import sveldRadioItem from '@skeletonlabs/skeleton/components/Radio/RadioItem.svelte?raw&sveld';
@@ -19,7 +19,7 @@
 		restProps: 'RadioItem input',
 		components: [
 			{ label: 'RadioGroup', sveld: sveldRadioGroup },
-			{ label: 'RadioItem', sveld: sveldRadioItem, overrideProps: ['padding', 'hover', 'accent', 'color', 'fill', 'rounded'] }
+			{ label: 'RadioItem', sveld: sveldRadioItem, overrideProps: ['padding', 'hover', 'accent', 'color', 'fill', 'rounded', 'regionLabel'] }
 		],
 		keyboard: [
 			['<kbd class="kbd">Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],
@@ -120,8 +120,8 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Full Width</h2>
-			<p>Set <em>display</em> to <code class="code">flex</code> to stretch and fill the full width.</p>
-			<CodeBlock language="html" code={`<RadioGroup display="flex">...</RadioGroup>`} />
+			<p>Set <em>regionLabel</em> to <code class="code">flex-auto</code> to stretch and fill the full width.</p>
+			<CodeBlock language="html" code={`<RadioGroup regionLabel="flex-auto">...</RadioGroup>`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Radio Attributes</h2>
