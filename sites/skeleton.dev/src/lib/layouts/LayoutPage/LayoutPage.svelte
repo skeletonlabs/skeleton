@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	import { storeVercelProductionMode } from '$lib/stores/stores';
 	import { TableOfContents } from '@skeletonlabs/skeleton';
 
@@ -35,7 +37,7 @@
 				></script>
 			{/if}
 			<!-- Table of Contents -->
-			<TableOfContents title="On This Page" />
+			<TableOfContents title="On This Page" activeId={$page.url.hash} />
 		</aside>
 	{/if}
 </div>

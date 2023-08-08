@@ -3,7 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Utilities
-	import { ListBox, ListBoxItem, CodeBlock } from '@skeletonlabs/skeleton';
+	import { CodeBlock } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldTableOfContents from '@skeletonlabs/skeleton/utilities/TableOfContents/TableOfContents.svelte?raw&sveld';
 
@@ -16,9 +16,6 @@
 		source: 'components/TableOfContents',
 		components: [{ sveld: sveldTableOfContents }]
 	};
-
-	// Local
-	let value = 0;
 </script>
 
 <DocsShell {settings}>
@@ -52,9 +49,11 @@
 		<!-- How it Works -->
 		<section class="space-y-4">
 			<h2 class="h2">How It Works</h2>
+			<!-- Heading IDs -->
 			<h3 class="h3">Heading IDs</h3>
 			<p>Each page heading requires a unique ID that acts as the scroll target for inner-page navigation.</p>
 			<CodeBlock language="html" code={`<h2 class="h2" id="how-it-works">How it Works</h2>`} />
+			<!-- Anchor Links -->
 			<h3 class="h3">Anchor Links</h3>
 			<p>
 				Each link within the Table of Contents then points to the matching target ID as shown below. Note the use of <code class="code"
@@ -67,6 +66,7 @@
 		<!-- Settings -->
 		<section class="space-y-4">
 			<h2 class="h2">Settings</h2>
+			<!-- Automatic IDs -->
 			<h3 class="h3">Automatic IDs</h3>
 			<p>
 				Set <code class="code">mode: generate</code> to enable <code class="code">tocCrawler</code> to automatically generate and set unique
@@ -85,15 +85,18 @@
 <h2 class="h2" id="my-custom-id">Title Two</h2>
 			`}
 			/>
+			<!-- Ignore Headings -->
 			<h3 class="h3">Ignore Headings</h3>
 			<p>
 				To ignore a heading in the target region, append a <code class="code">data-toc-ignore</code> attribute. The crawler will skip this.
 			</p>
 			<CodeBlock language="html" code={`<h2 class="h2" data-toc-ignore>Ignore Me</h2>`} />
+			<!-- Append Headings -->
 			<h3 class="h3">Append Headings</h3>
 			<!-- prettier-ignore -->
 			<p>Use the Tailwind-provided <a class="anchor" href="https://tailwindcss.com/docs/screen-readers#screen-reader-only-elements" target="_blank" rel="noreferrer">Screen Reader</a> <code class="code">.sr-only</code> class to append an invisible heading.</p>
 			<CodeBlock language="html" code={`<h2 class="sr-only">Include Me!</h2>`} />
+			<!-- Keyed Updates -->
 			<h3 class="h3">Keyed Updates</h3>
 			<p>
 				In some situations you may want to force the cralwer action to update on demand. Use the <code class="code">key</code> parameter and
@@ -102,11 +105,20 @@
 			</p>
 			<CodeBlock language="ts" code={`const tabIndex = 0;`} />
 			<CodeBlock language="html" code={`<div use:tocCrawler={{ key: tabIndex }}>`} />
+			<!-- Active on Load -->
+			<h3 class="h3">Active on Load</h3>
+			<p>
+				By using the SvelteKit's <code class="code">$page</code> store we can pass and set the active link on page load. This passes the URL
+				hash, which determines the active link. This is optional, but useful when deep-linking within a page.
+			</p>
+			<CodeBlock language="ts" code={`import { page } from '$app/stores';`} />
+			<CodeBlock language="html" code={`<TableOfContents activeId={$page.url.hash} />`} />
 		</section>
 		<hr />
 		<!-- Styling -->
 		<section class="space-y-4">
 			<h2 class="h2">Styling</h2>
+			<!-- Smooth Scrolling -->
 			<h3 class="h3">Smooth Scrolling</h3>
 			<!-- prettier-ignore -->
 			<p>
@@ -121,13 +133,15 @@
 <body class="scroll-smooth"></body>
 			`}
 			/>
-			<h3 class="h3">Scroll Margin Offset</h3>
+			<!-- Scroll Margin -->
+			<h3 class="h3">Scroll Margin</h3>
 			<!-- prettier-ignore -->
 			<p>
 				Use Tailwind's <a class="anchor" href="https://tailwindcss.com/docs/scroll-margin" target="_blank">scroll margin</a> styles if you need to offset for sticky headers
 			</p>
 			<blockquote class="blockquote">NOTE: not currently supported for Skeleton's App Shell.</blockquote>
 			<CodeBlock language="html" code={`<body class="scroll-mt-[100px]"></body>`} />
+			<!-- Sticky Positioning -->
 			<h3 class="h3">Sticky Positioning</h3>
 			<!-- prettier-ignore -->
 			<p>

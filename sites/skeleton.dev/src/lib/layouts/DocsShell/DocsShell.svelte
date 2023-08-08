@@ -58,7 +58,6 @@
 	$: classesPanels = `${cPanels}`;
 </script>
 
-<!-- tocKey={tabPanel} -->
 <LayoutPage class="doc-shell {classesBase}">
 	<!-- Header -->
 	<Header {pageData} />
