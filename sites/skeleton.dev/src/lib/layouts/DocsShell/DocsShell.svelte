@@ -76,7 +76,7 @@
 	{/if}
 
 	<!-- Panels -->
-	<div id="panels" class={classesPanels} use:tocCrawler={{ mode: 'generate', key: tabPanel }}>
+	<div id="panels" class={classesPanels} use:tocCrawler={{ mode: 'generate', scrollTarget: '#page', key: tabPanel }}>
 		<!-- Panel: Usage -->
 		{#if tabPanel === 'usage'}
 			<!-- Slot: Sandbox -->

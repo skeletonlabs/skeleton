@@ -4,7 +4,7 @@
 	// Types
 	import type { CssClasses } from '../../index.js';
 	// Stores
-	import { tocStore } from './stores.js';
+	import { tocStore, tocActiveId } from './stores.js';
 
 	// Props (styles)
 	/** Provide text for the title. Accepts HTML. */
@@ -44,6 +44,8 @@
 	const cListItem = 'block';
 	const cAnchor = '';
 
+	// State
+	$: reactiveActiveId = $tocActiveId ? $tocActiveId : activeId.replace('#', '');
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesTitle = `${cTitle} ${regionTitle}`;
@@ -62,7 +64,7 @@
 				<li class="toc-list-item {classesListItem} {indentStyles[tocHeading.element]}">
 					<a
 						href="#{tocHeading.id}"
-						class="toc-anchor {classesAnchor} {tocHeading.id === activeId.replace('#', '') ? active : inactive}"
+						class="toc-anchor {classesAnchor} {tocHeading.id === reactiveActiveId ? active : inactive}"
 						on:click={() => {
 							activeId = tocHeading.id;
 						}}

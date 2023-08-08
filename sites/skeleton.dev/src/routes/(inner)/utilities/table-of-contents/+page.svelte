@@ -105,14 +105,18 @@
 			</p>
 			<CodeBlock language="ts" code={`const tabIndex = 0;`} />
 			<CodeBlock language="html" code={`<div use:tocCrawler={{ key: tabIndex }}>`} />
-			<!-- Active on Load -->
-			<h3 class="h3">Active on Load</h3>
+			<!-- Active on Scroll -->
+			<h3 class="h3">Active on Scroll</h3>
 			<p>
-				By using the SvelteKit's <code class="code">$page</code> store we can pass and set the active link on page load. This passes the URL
-				hash, which determines the active link. This is optional, but useful when deep-linking within a page.
+				The <code class="code">tocCrawler</code> action can automatically select the top visible heading when you supply a
+				<code class="code">scrollTarget</code> element. That being the element that handles scrolling for the page. By default this is set
+				to target the <code class="code">body</code> element. When using the Skeleton App Shell designate
+				<code class="code">#page</code> element as shown.
 			</p>
-			<CodeBlock language="ts" code={`import { page } from '$app/stores';`} />
-			<CodeBlock language="html" code={`<TableOfContents activeId={$page.url.hash} />`} />
+			<blockquote class="blockquote">
+				NOTE: depending on your page layout, the page may not scroll low enough to activate the final links in the list.
+			</blockquote>
+			<CodeBlock language="html" code={`<div use:tocCrawler={{ scrollTarget: '#page' }}>`} />
 		</section>
 		<hr />
 		<!-- Styling -->
