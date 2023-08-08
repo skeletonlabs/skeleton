@@ -53,7 +53,7 @@
 </script>
 
 {#if $tocStore.length}
-	<nav class="toc {classesBase}" data-testid="toc" transition:fade={{ duration: 100 }}>
+	<nav class="toc {classesBase}" data-testid="toc" transition:fade|local={{ duration: 100 }}>
 		{#if title}
 			<span class="toc-title {classesTitle}">{@html title}</span>
 		{/if}

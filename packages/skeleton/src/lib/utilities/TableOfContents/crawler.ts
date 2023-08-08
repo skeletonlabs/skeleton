@@ -9,7 +9,7 @@ interface arguments {
 	/** Provide query list of elements. Defaults h2-h6. */
 	queryElements?: string;
 	/** Reload the action when this key value changes. */
-	key: any;
+	key: unknown;
 }
 
 export function tocCrawler(node: HTMLElement, args?: arguments) {
