@@ -34,8 +34,7 @@ export function tocCrawler(node: HTMLElement, args?: arguments) {
 	}
 
 	function queryHeadings(): void {
-		if (!headings?.length) return;
-		headings.forEach((elemHeading: HTMLElement) => {
+		headings?.forEach((elemHeading: HTMLElement) => {
 			// If heading has ignore attribute, skip it
 			if (elemHeading.hasAttribute('data-toc-ignore')) return;
 			// If generate mode and heading ID not present, assign one
