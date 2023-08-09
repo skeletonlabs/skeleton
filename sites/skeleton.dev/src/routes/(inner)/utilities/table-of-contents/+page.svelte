@@ -3,7 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Utilities
-	import { CodeBlock } from '@skeletonlabs/skeleton';
+	import { CodeBlock, TableOfContents } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldTableOfContents from '@skeletonlabs/skeleton/utilities/TableOfContents/TableOfContents.svelte?raw&sveld';
 
@@ -21,9 +21,9 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<DocsPreview class="hidden xl:block">
+		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<p>See example on <strong>page right</strong> &rarr;</p>
+				<div class="card p-4 text-token"><TableOfContents /></div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<p>Set the <code class="code">tocCrawler</code> action on the element with headings to catalog. Supports H2-H6 by default.</p>
