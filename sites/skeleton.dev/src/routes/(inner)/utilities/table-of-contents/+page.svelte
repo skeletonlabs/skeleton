@@ -129,6 +129,9 @@
 			<p>
 				Use Tailwind's <a class="anchor" href="https://tailwindcss.com/docs/scroll-behavior" target="_blank">scroll behavior</a> styles to enable smooth scrolling on the scrollable element.
 			</p>
+			<blockquote class="blockquote">
+				Make considerations for the <a class="anchor" href="/docs/transitions#reduced-motion">Reduced Motion</a> settings for proper accessability.
+			</blockquote>
 			<CodeBlock
 				language="html"
 				code={`
