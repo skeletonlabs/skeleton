@@ -1,9 +1,9 @@
 // Action: Table of Contents Crawler
 
 import { tocStore, tocActiveId } from './stores.js';
-import type { tocHeadingLink } from './types.js';
+import type { TOCHeadingLink } from './types.js';
 
-interface arguments {
+interface TOCCrawlerArgs {
 	/** Set generate mode to automatically set heading IDs. */
 	mode?: 'generate' | undefined;
 	/** Provide query list of elements. Defaults h2-h6. */
@@ -14,11 +14,11 @@ interface arguments {
 	key?: unknown;
 }
 
-export function tocCrawler(node: HTMLElement, args?: arguments) {
+export function tocCrawler(node: HTMLElement, args?: TOCCrawlerArgs) {
 	let queryElements = 'h2, h3, h4, h5, h6';
 	let scrollTarget = 'body';
 	let headings: NodeListOf<HTMLElement> | undefined;
-	let permalinks: tocHeadingLink[] = [];
+	let permalinks: TOCHeadingLink[] = [];
 
 	function init(): void {
 		// Reset headings
@@ -34,7 +34,7 @@ export function tocCrawler(node: HTMLElement, args?: arguments) {
 	}
 
 	function queryHeadings(): void {
-		headings?.forEach((elemHeading: HTMLElement) => {
+		headings?.forEach((elemHeading) => {
 			// If heading has ignore attribute, skip it
 			if (elemHeading.hasAttribute('data-toc-ignore')) return;
 			// If generate mode and heading ID not present, assign one
@@ -58,17 +58,19 @@ export function tocCrawler(node: HTMLElement, args?: arguments) {
 	}
 
 	// Listens to scroll event, determines top-most heading, provides that to the `tocActiveId` store
-	function onWindowScroll(e: Event): void {
+	function onWindowScroll(e: WindowEventMap['scroll']): void {
 		if (!headings?.length) return;
-		const targetElem = e.target as HTMLElement;
+		const targetElem = e.target;
+		if (!(targetElem instanceof HTMLElement)) throw new Error('scrollTarget is not an HTMLElement');
+
 		const scrollableTop = targetElem.getBoundingClientRect().top || 0;
 		const headingSizeThreshold = 40; // px
-		const topVisibleHeader = [...headings].find((elemHeading: HTMLElement) => {
+
+		for (const elemHeading of headings) {
 			const headerBoundTop = elemHeading.getBoundingClientRect().top;
 			const offsetTop = headerBoundTop - scrollableTop + headingSizeThreshold;
-			if (offsetTop >= 0) return elemHeading;
-		});
-		if (topVisibleHeader) tocActiveId.set(topVisibleHeader.id);
+			if (offsetTop >= 0) return tocActiveId.set(elemHeading.id);
+		}
 	}
 
 	// Lifecycle
@@ -76,7 +78,7 @@ export function tocCrawler(node: HTMLElement, args?: arguments) {
 	if (scrollTarget) document.querySelector(scrollTarget)?.addEventListener('scroll', onWindowScroll);
 
 	return {
-		update(newArgs: any) {
+		update(newArgs: TOCCrawlerArgs) {
 			args = newArgs;
 			init();
 		},
