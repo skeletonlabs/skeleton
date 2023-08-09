@@ -1,8 +1,8 @@
-name: Publish Skeleton
+name: Publish Prerelease Skeleton v2
 on:
   push:
     branches:
-      - master
+      - v2
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -53,18 +53,3 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Update tw-settings.json after publish
-        if: steps.changesets.outputs.published == 'true'
-        continue-on-error: true
-        run: |
-          git add ./packages/skeleton/scripts/tw-settings.json
-          git commit -m "updated tw-settings.json"
-          git push
-
-      - name: Merge master into dev after publish
-        if: steps.changesets.outputs.published == 'true'
-        run: |
-          git checkout dev
-          git merge master
-          git push
