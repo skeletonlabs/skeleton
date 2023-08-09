@@ -1,5 +1,5 @@
 ---
-"@skeletonlabs/skeleton": minor
+"@skeletonlabs/skeleton": major
 ---
 
-breaking: Table of Conents component has been reimagined and reimplemented from the ground up
+breaking: Table of Contents component has been reimplemented from the ground up
