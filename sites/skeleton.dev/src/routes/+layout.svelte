@@ -23,7 +23,7 @@
 	import { storePreview } from '$lib/layouts/DocsThemer/stores';
 
 	// Components & Utilities
-	import { AppShell, Modal, Toast, initializeStores } from '@skeletonlabs/skeleton';
+	import { AppShell, Modal, Toast, initializeStores, prefersReducedMotionStore } from '@skeletonlabs/skeleton';
 	initializeStores();
 
 	// Docs Components
@@ -148,6 +148,7 @@
 	// Reactive
 	// Disable left sidebar on homepage
 	$: slotSidebarLeft = matchPathWhitelist($page.url.pathname) ? 'w-0' : 'bg-surface-50-900-token lg:w-auto';
+	$: allyPageSmoothScroll = !$prefersReducedMotionStore ? 'scroll-smooth' : '';
 </script>
 
 <svelte:head>
@@ -191,7 +192,7 @@
 <DocsDrawer />
 
 <!-- App Shell -->
-<AppShell {slotSidebarLeft} regionPage="overflow-y-scroll" slotFooter="bg-black p-4">
+<AppShell {slotSidebarLeft} regionPage={allyPageSmoothScroll} slotFooter="bg-black p-4">
 	<!-- Header -->
 	<svelte:fragment slot="header">
 		<DocsAppBar />

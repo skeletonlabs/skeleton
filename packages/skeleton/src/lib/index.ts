@@ -16,6 +16,7 @@ export type { CssClasses, SvelteEvent } from './types.js';
 // Utilities ---
 export { storeHighlightJs } from './utilities/CodeBlock/stores.js';
 export { storePopup } from './utilities/Popup/popup.js';
+export { tocStore } from './utilities/TableOfContents/stores.js';
 export { getDrawerStore } from './utilities/Drawer/stores.js';
 export { getModalStore } from './utilities/Modal/stores.js';
 export { getToastStore } from './utilities/Toast/stores.js';
@@ -50,6 +51,7 @@ export { filter } from './actions/Filters/filter.js';
 export { focusTrap } from './actions/FocusTrap/focusTrap.js';
 // Utility Actions
 export { popup } from './utilities/Popup/popup.js';
+export { tocCrawler } from './utilities/TableOfContents/crawler.js';
 
 // Svelte Components ---
 
@@ -82,13 +84,13 @@ export { default as Table } from './components/Table/Table.svelte';
 export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
 export { default as TabAnchor } from './components/Tab/TabAnchor.svelte';
-export { default as TableOfContents } from './components/TableOfContents/TableOfContents.svelte';
 // Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
 export { default as Modal } from './utilities/Modal/Modal.svelte';
 export { default as Drawer } from './utilities/Drawer/Drawer.svelte';
 export { default as LightSwitch } from './utilities/LightSwitch/LightSwitch.svelte';
 export { default as Toast } from './utilities/Toast/Toast.svelte';
+export { default as TableOfContents } from './utilities/TableOfContents/TableOfContents.svelte';
 // Filter Components
 export { default as Apollo } from './actions/Filters/svg-filters/Apollo.svelte';
 export { default as BlueNight } from './actions/Filters/svg-filters/BlueNight.svelte';

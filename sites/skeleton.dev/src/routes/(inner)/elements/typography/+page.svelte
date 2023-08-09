@@ -27,9 +27,9 @@
 						<h1 class="h1">Skeleton H1</h1>
 						<h2 class="h2" data-toc-ignore>Skeleton H2</h2>
 						<h3 class="h3" data-toc-ignore>Skeleton H3</h3>
-						<h4 class="h4">Skeleton H4</h4>
-						<h5 class="h5">Skeleton H5</h5>
-						<h6 class="h6">Skeleton H6</h6>
+						<h4 class="h4" data-toc-ignore>Skeleton H4</h4>
+						<h5 class="h5" data-toc-ignore>Skeleton H5</h5>
+						<h6 class="h6" data-toc-ignore>Skeleton H6</h6>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

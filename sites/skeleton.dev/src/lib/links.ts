@@ -109,8 +109,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ href: '/components/slide-toggles', label: 'Slide Toggles', keywords: 'check, checkbox, toggle, input, form' },
 				{ href: '/components/steppers', label: 'Steppers', keywords: 'intro, onboard, onboarding, form, progress' },
 				{ href: '/components/tabs', label: 'Tabs', keywords: 'select, selection, panel' },
-				{ href: '/components/tables', label: 'Tables', keywords: 'data, entry' },
-				{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' }
+				{ href: '/components/tables', label: 'Tables', keywords: 'data, entry' }
 			]
 		}
 	],
@@ -128,7 +127,10 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 					keywords: 'overlay, dialog, notification, alert, confirm, prompt, multiple, form, list, embed, video'
 				},
 				{ href: '/utilities/popups', label: 'Popups', keywords: 'menu, tooltip, overlay, dropdown, combobox, drop, down, select' },
-				{ href: '/utilities/toasts', label: 'Toasts', keywords: 'overlay, snack, snackbar, bar, action, alert, notification' }
+				{ href: '/utilities/toasts', label: 'Toasts', keywords: 'overlay, snack, snackbar, bar, action, alert, notification' },
+				{ href: '/utilities/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation', badge: 'Beta' }
+				// DELISTED UNTIL FURTHER NOTICE
+				// { href: '/utilities/data-tables', label: 'Data Tables', keywords: 'search, sort, page, pagination, async', badge: 'Experimental' }
 			]
 		}
 	]
