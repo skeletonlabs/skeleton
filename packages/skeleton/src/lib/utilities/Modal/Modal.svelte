@@ -21,8 +21,8 @@
 	// Types
 	import type { CssClasses, SvelteEvent } from '../../index.js';
 
-	import { modalStore } from './stores.js';
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
+	import { getModalStore } from './stores.js';
 	import type { ModalComponent, ModalSettings } from './types.js';
 
 	// Props
@@ -115,6 +115,8 @@
 	};
 	let currentComponent: ModalComponent | undefined;
 	let registeredInteractionWithBackdrop = false;
+
+	const modalStore = getModalStore();
 
 	// Modal Store Subscription
 	modalStore.subscribe((modals: ModalSettings[]) => {
@@ -216,7 +218,7 @@
 {#if $modalStore.length > 0}
 	{#key $modalStore}
 		<!-- Backdrop -->
-		<!-- TODO: Remove for V2 -->
+		<!-- FIXME: resolve a11y warnings -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
 			class="modal-backdrop {classesBackdrop}"

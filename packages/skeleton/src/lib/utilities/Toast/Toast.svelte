@@ -13,7 +13,8 @@
 	import { flip } from 'svelte/animate';
 
 	// Stores
-	import { toastStore } from './stores.js';
+	import { getToastStore } from './stores.js';
+	const toastStore = getToastStore();
 
 	// Props
 	/** Set the toast position.

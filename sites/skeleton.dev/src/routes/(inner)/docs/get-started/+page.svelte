@@ -4,7 +4,6 @@
 	import SectionInstall from './SectionInstall.svelte';
 	import SectionTailwind from './SectionTailwind.svelte';
 	import SectionThemes from './SectionThemes.svelte';
-	// import SectionStylesheets from './SectionStylesheets.svelte';
 </script>
 
 <LayoutPage>
@@ -18,6 +17,5 @@
 	<hr />
 	<SectionInstall />
 	<SectionTailwind />
-	<!-- <SectionStylesheets /> -->
 	<SectionThemes />
 </LayoutPage>

@@ -95,7 +95,7 @@
 	{#if legend && generatedLegendList}
 		<ul class="conic-list list {classesLegend}">
 			{#each generatedLegendList as { color, label, value }}
-				<!-- TODO: Remove for V2 -->
+				<!-- FIXME: resolve a11y warnings -->
 				<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 				<li class="conic-item {hover}" on:click on:keydown on:keyup on:keypress>
 					<span class="conic-swatch {cSwatch}" style:background={color} />

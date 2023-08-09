@@ -17,7 +17,7 @@
 
 	// Drawer Utils
 	import type { DrawerSettings } from './types.js';
-	import { drawerStore } from './stores.js';
+	import { getDrawerStore } from './stores.js';
 	import { fade, fly } from 'svelte/transition';
 	import { dynamicTransition } from '../../internal/transitions.js';
 
@@ -85,6 +85,7 @@
 	let elemBackdrop: HTMLElement;
 	let elemDrawer: HTMLElement;
 	let anim = { x: 0, y: 0 };
+	const drawerStore = getDrawerStore();
 
 	// Classes
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
@@ -177,7 +178,7 @@
 
 {#if $drawerStore.open === true}
 	<!-- Backdrop -->
-	<!-- TODO: Remove for V2 -->
+	<!-- FIXME: resolve a11y warnings -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		bind:this={elemBackdrop}

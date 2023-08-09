@@ -59,13 +59,6 @@
 	export let regionButton = 'w-full';
 	/** Provide arbitrary classes to empty message. */
 	export let regionEmpty = 'text-center';
-	// TODO: These are slated to be removed!
-	/** DEPRECATED: replace with allowlist */
-	export let whitelist: unknown[] = [];
-	/** DEPRECATED: replace with denylist */
-	export let blacklist: unknown[] = [];
-	// Silence warning about unused props:
-	const deprecated = [whitelist, blacklist];
 
 	// Props (transition)
 	/**
