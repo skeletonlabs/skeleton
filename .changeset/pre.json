@@ -1,11 +1,11 @@
 {
-  "mode": "pre",
-  "tag": "rc",
-  "initialVersions": {
-    "create-skeleton-app": "0.0.44",
-    "@skeletonlabs/tw-plugin": "0.0.1",
-    "@skeletonlabs/skeleton": "1.11.0",
-    "skeleton.dev": "1.0.1"
-  },
-  "changesets": []
+	"mode": "pre",
+	"tag": "rc",
+	"initialVersions": {
+		"create-skeleton-app": "0.0.44",
+		"@skeletonlabs/tw-plugin": "0.0.0",
+		"@skeletonlabs/skeleton": "1.11.0",
+		"skeleton.dev": "1.0.1"
+	},
+	"changesets": []
 }
