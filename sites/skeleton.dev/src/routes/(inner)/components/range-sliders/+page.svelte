@@ -93,19 +93,19 @@
 			</p>
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
 				<div class="card p-2 !bg-green-500 text-black">
-					<h4 class="h4">Chrome</h4>
+					<h4 class="h4" data-toc-ignore>Chrome</h4>
 					<span>Full</span>
 				</div>
 				<div class="card p-2 !bg-green-500 text-black">
-					<h4 class="h4">Edge</h4>
+					<h4 class="h4" data-toc-ignore>Edge</h4>
 					<span>Full</span>
 				</div>
 				<div class="card p-2 !bg-yellow-500 text-black">
-					<h4 class="h4">Safari</h4>
+					<h4 class="h4" data-toc-ignore>Safari</h4>
 					<span>Partial</span>
 				</div>
 				<div class="card p-2 !bg-green-500 text-black">
-					<h4 class="h4">Firefox</h4>
+					<h4 class="h4" data-toc-ignore>Firefox</h4>
 					<span>Full</span>
 				</div>
 			</div>

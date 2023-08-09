@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { storeVercelProductionMode } from '$lib/stores/stores';
-	import { TableOfContents } from '@skeletonlabs/skeleton';
+	import { TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
 
 	// Props
 	export let sidebar = true;
+	export let tocKey: unknown = undefined;
 
 	// Classes
 	const cBase = 'page-padding flex items-start gap-10';
@@ -18,7 +19,7 @@
 
 <div class="layout-docs {classesBase}">
 	<!-- Content -->
-	<div class="layout-docs-content {classesColLeft}">
+	<div class="layout-docs-content {classesColLeft}" use:tocCrawler={{ mode: 'generate', scrollTarget: '#page', key: tocKey }}>
 		<slot />
 	</div>
 	<!-- Aside -->

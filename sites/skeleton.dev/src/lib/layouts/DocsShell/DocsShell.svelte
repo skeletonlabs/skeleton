@@ -17,7 +17,6 @@
 	import PanelSlots from './partials/PanelSlots.svelte';
 	// Utilities
 	import { docShellDefaults } from '$lib/layouts/DocsShell/defaults';
-	import { tocCrawler } from '@skeletonlabs/skeleton';
 
 	// Props
 	export let settings: DocsShellSettings;
@@ -58,7 +57,7 @@
 	$: classesPanels = `${cPanels}`;
 </script>
 
-<LayoutPage class="doc-shell {classesBase}">
+<LayoutPage class="doc-shell {classesBase}" tocKey={tabPanel}>
 	<!-- Header -->
 	<Header {pageData} />
 
@@ -75,8 +74,10 @@
 		</TabGroup>
 	{/if}
 
+	<pre class="pre">{$page.url}</pre>
+
 	<!-- Panels -->
-	<div id="panels" class={classesPanels} use:tocCrawler={{ mode: 'generate', scrollTarget: '#page', key: tabPanel }}>
+	<div id="panels" class={classesPanels}>
 		<!-- Panel: Usage -->
 		{#if tabPanel === 'usage'}
 			<!-- Slot: Sandbox -->
