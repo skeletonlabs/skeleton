@@ -62,9 +62,10 @@ export function tocCrawler(node: HTMLElement, args?: arguments) {
 		if (!headings?.length) return;
 		const targetElem = e.target as HTMLElement;
 		const scrollableTop = targetElem.getBoundingClientRect().top || 0;
+		const headingSizeThreshold = 40; // px
 		const topVisibleHeader = [...headings].find((elemHeading: HTMLElement) => {
 			const headerBoundTop = elemHeading.getBoundingClientRect().top;
-			const offsetTop = headerBoundTop - scrollableTop;
+			const offsetTop = headerBoundTop - scrollableTop + headingSizeThreshold;
 			if (offsetTop >= 0) return elemHeading;
 		});
 		if (topVisibleHeader) tocActiveId.set(topVisibleHeader.id);
