@@ -74,8 +74,6 @@
 		</TabGroup>
 	{/if}
 
-	<pre class="pre">{$page.url}</pre>
-
 	<!-- Panels -->
 	<div id="panels" class={classesPanels}>
 		<!-- Panel: Usage -->
