@@ -11,7 +11,7 @@ interface arguments {
 	/* Provide a reference to the scrollable page element. */
 	scrollTarget?: string;
 	/** Reload the action when this key value changes. */
-	key: unknown;
+	key?: unknown;
 }
 
 export function tocCrawler(node: HTMLElement, args?: arguments) {
