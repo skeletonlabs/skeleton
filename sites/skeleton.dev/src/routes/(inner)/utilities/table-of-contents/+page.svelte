@@ -56,9 +56,9 @@
 			<!-- Anchor Links -->
 			<h3 class="h3">Anchor Links</h3>
 			<p>
-				Each link within the Table of Contents then points to the matching target ID as shown below. Note the use of <code class="code"
+				Each link within the Table of Contents then points to the matching target ID as shown below. Note the use of the <code class="code"
 					>#</code
-				>. When clicked, the browser will automatically scroll so this element to be at the top of the visible screen.
+				>. When clicked, the browser will automatically scroll so that the targeted element is at the top of the visible screen.
 			</p>
 			<CodeBlock language="html" code={`<a href="#how-it-works">How It Works</a>`} />
 		</section>
@@ -70,7 +70,7 @@
 			<h3 class="h3">Automatic IDs</h3>
 			<p>
 				Set <code class="code">mode: generate</code> to enable <code class="code">tocCrawler</code> to automatically generate and set unique
-				IDs per all headings within the region the action is applied to.
+				IDs for all headings that are descendents of the element the action is applied to.
 			</p>
 			<CodeBlock language="html" code={`<div use:tocCrawler={{ mode: 'generate' }}>`} />
 			<p>See the example below. Note this <u>will not</u> overwrite IDs you have set manually.</p>
@@ -99,7 +99,7 @@
 			<!-- Keyed Updates -->
 			<h3 class="h3">Keyed Updates</h3>
 			<p>
-				In some situations you may want to force the cralwer action to update on demand. Use the <code class="code">key</code> parameter and
+				In some situations you may want to force the crawler action to update on demand. Use the <code class="code">key</code> parameter and
 				pass a value that will be modified. This operates similar to Svelte's
 				<a class="anchor" href="https://svelte.dev/tutorial/key-blocks" target="_blank">key blocks</a>.
 			</p>
@@ -109,9 +109,9 @@
 			<h3 class="h3">Active on Scroll</h3>
 			<p>
 				The <code class="code">tocCrawler</code> action can automatically select the top visible heading when you supply a
-				<code class="code">scrollTarget</code> element. That being the element that handles scrolling for the page. By default this is set
-				to target the <code class="code">body</code> element. When using the Skeleton App Shell designate
-				<code class="code">scrollTarget: '#page'</code> element as shown. To disble this feature, set
+				<code class="code">scrollTarget</code> element. That being the element that handles scrolling for the page. By default, this is set
+				to target the <code class="code">body</code> element. When using the Skeleton App Shell, designate
+				<code class="code">scrollTarget: '#page'</code> element as shown below. To disable this feature, set
 				<code class="code">scrollTarget: ''</code>.
 			</p>
 			<blockquote class="blockquote">

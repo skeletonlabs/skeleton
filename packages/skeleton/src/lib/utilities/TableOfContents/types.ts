@@ -1,6 +1,6 @@
 // Table of Content Types
 
-export interface tocHeadingLink {
+export interface TOCHeadingLink {
 	element: string;
 	id: string;
 	text: string;
