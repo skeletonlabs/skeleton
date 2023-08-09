@@ -39,7 +39,7 @@ export function tocCrawler(node: HTMLElement, args?: arguments) {
 			if (elemHeading.hasAttribute('data-toc-ignore')) return;
 			// If generate mode and heading ID not present, assign one
 			if (args?.mode === 'generate' && !elemHeading.id) {
-				let newHeadingId = elemHeading.firstChild?.textContent
+				const newHeadingId = elemHeading.firstChild?.textContent
 					?.trim()
 					.replaceAll(/[^a-zA-Z0-9 ]/g, '')
 					.replaceAll(' ', '-')
@@ -58,9 +58,10 @@ export function tocCrawler(node: HTMLElement, args?: arguments) {
 	}
 
 	// Listens to scroll event, determines top-most heading, provides that to the `tocActiveId` store
-	function onWindowScroll(e: any): void {
+	function onWindowScroll(e: Event): void {
 		if (!headings?.length) return;
-		const scrollableTop = e.target.getBoundingClientRect().top || 0;
+		const targetElem = e.target as HTMLElement;
+		const scrollableTop = targetElem.getBoundingClientRect().top || 0;
 		const topVisibleHeader = [...headings].find((elemHeading: HTMLElement) => {
 			const headerBoundTop = elemHeading.getBoundingClientRect().top;
 			const offsetTop = headerBoundTop - scrollableTop;

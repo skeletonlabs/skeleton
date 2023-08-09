@@ -19,7 +19,7 @@
 	 * Set indentation per each queried element.
 	 * @type {Record(string, string)}
 	 */
-	export let indentStyles = {
+	export let indentStyles: Record<string, string> = {
 		h2: '',
 		h3: 'ml-4',
 		h4: 'ml-8',
