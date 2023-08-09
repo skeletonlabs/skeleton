@@ -36,7 +36,7 @@
 				></script>
 			{/if}
 			<!-- Table of Contents -->
-			<TableOfContents title="On This Page" />
+			<TableOfContents>On the Page</TableOfContents>
 		</aside>
 	{/if}
 </div>

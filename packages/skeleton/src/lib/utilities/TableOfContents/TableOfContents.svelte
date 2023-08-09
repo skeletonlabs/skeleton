@@ -7,8 +7,6 @@
 	import { tocStore, tocActiveId } from './stores.js';
 
 	// Props (styles)
-	/** Provide text for the title. Accepts HTML. */
-	export let title = 'Table of Contents';
 	/** Provide classes to set the inactive anchor styles. */
 	export let inactive: CssClasses = 'opacity-60 hover:opacity-100';
 	/** Provide classes to set the active anchor styles. */
@@ -28,8 +26,8 @@
 	};
 
 	// Props (regions)
-	/** Provide arbitrary classes to style the title element. */
-	export let regionTitle: CssClasses = '';
+	/** Provide arbitrary classes to the lead regions, used for titles. */
+	export let regionLead: CssClasses = 'font-bold';
 	/** Provide arbitrary classes to style the list element. */
 	export let regionList: CssClasses = '';
 	/** Provide arbitrary classes to style the list item elements. */
@@ -39,7 +37,6 @@
 
 	// Styles
 	const cBase = 'space-y-4';
-	const cTitle = 'font-bold';
 	const cList = 'space-y-2';
 	const cListItem = 'block';
 	const cAnchor = '';
@@ -48,7 +45,6 @@
 	$: reactiveActiveId = $tocActiveId ? $tocActiveId : activeId.replace('#', '');
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
-	$: classesTitle = `${cTitle} ${regionTitle}`;
 	$: classesList = `${cList} ${regionList}`;
 	$: classesListItem = `${cListItem} ${regionListItem}`;
 	$: classesAnchor = `${cAnchor} ${regionAnchor}`;
@@ -56,9 +52,11 @@
 
 {#if $tocStore.length}
 	<nav class="toc {classesBase}" data-testid="toc" transition:fade|local={{ duration: 100 }}>
-		{#if title}
-			<span class="toc-title {classesTitle}">{@html title}</span>
-		{/if}
+		<!-- Slot: Default (title) -->
+		<div class={regionLead}>
+			<slot>Table of Contents</slot>
+		</div>
+		<!-- List -->
 		<ul class="toc-list {classesList}">
 			{#each $tocStore as tocHeading}
 				<li class="toc-list-item {classesListItem} {indentStyles[tocHeading.element]}">

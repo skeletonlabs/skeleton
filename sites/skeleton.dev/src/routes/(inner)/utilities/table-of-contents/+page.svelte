@@ -91,8 +91,8 @@
 				To ignore a heading in the target region, append a <code class="code">data-toc-ignore</code> attribute. The crawler will skip this.
 			</p>
 			<CodeBlock language="html" code={`<h2 class="h2" data-toc-ignore>Ignore Me</h2>`} />
-			<!-- Append Headings -->
-			<h3 class="h3">Append Headings</h3>
+			<!-- Invisible Headings -->
+			<h3 class="h3">Invisible Headings</h3>
 			<!-- prettier-ignore -->
 			<p>Use the Tailwind-provided <a class="anchor" href="https://tailwindcss.com/docs/screen-readers#screen-reader-only-elements" target="_blank" rel="noreferrer">Screen Reader</a> <code class="code">.sr-only</code> class to append an invisible heading.</p>
 			<CodeBlock language="html" code={`<h2 class="sr-only">Include Me!</h2>`} />
