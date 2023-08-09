@@ -34,11 +34,6 @@
 		transitionIn: 'slide',
 		transitionOut: 'slide'
 	};
-
-	// Local
-	const loremIpsum =
-		// cspell:disable-next-line
-		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eligendi quibusdam odit, temporibus ullam ab enim expedita eum officia ipsum, laboriosam, nobis quasi laborum aspernatur reiciendis dignissimos optio sunt distinctio.';
 </script>
 
 <DocsShell {settings}>

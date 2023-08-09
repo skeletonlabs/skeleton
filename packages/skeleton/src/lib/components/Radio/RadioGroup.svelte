@@ -27,6 +27,8 @@
 	export let color: CssClasses = '';
 	/** Provide classes to set the highlighted SVG fill color. */
 	export let fill: CssClasses = '';
+	/** Provide classes for the label region. */
+	export let regionLabel: CssClasses = '';
 
 	// Props (a11y)
 	/** Provide the ARIA labelledby value. */
@@ -39,6 +41,7 @@
 	setContext('hover', hover);
 	setContext('color', color);
 	setContext('fill', fill);
+	setContext('regionLabel', regionLabel);
 
 	// Classes
 	const cBase = 'p-1';

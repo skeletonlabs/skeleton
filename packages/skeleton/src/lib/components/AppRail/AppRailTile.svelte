@@ -38,10 +38,12 @@
 	export let hover: CssClasses = getContext('hover');
 	export let active: CssClasses = getContext('active');
 	export let spacing: CssClasses = getContext('spacing');
+	export let width: CssClasses = getContext('width');
+	export let aspectRatio: CssClasses = getContext('aspectRatio');
 
 	// Classes
 	const cBase = 'cursor-pointer';
-	const cWrapper = 'w-full aspect-square flex flex-col justify-center items-stretch';
+	const cWrapper = 'flex flex-col justify-center items-stretch';
 	const cInterface = 'text-center';
 	const cLabel = 'font-bold text-xs';
 
@@ -51,8 +53,8 @@
 	// State
 	$: classActive = group === value ? active : '';
 	// Reactive
-	$: classesBase = `${cBase}  ${$$props.class || ''}`;
-	$: classesWrapper = `${cWrapper} ${hover} ${classActive}`;
+	$: classesBase = `${cBase} ${$$props.class || ''}`;
+	$: classesWrapper = `${cWrapper} ${aspectRatio} ${width} ${hover} ${classActive}`;
 	$: classesInterface = `${cInterface} ${spacing}`;
 	$: classesLead = `${regionLead}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;

@@ -31,9 +31,11 @@
 	export let hover: CssClasses = getContext('hover');
 	export let color: CssClasses = getContext('color');
 	export let fill: CssClasses = getContext('fill');
+	export let regionLabel: CssClasses = getContext('regionLabel');
 
 	// Classes
-	const cBase = 'flex-auto text-base text-center cursor-pointer';
+	const cBase = 'flex-auto';
+	const cWrapper = 'text-base text-center cursor-pointer';
 	const cDisabled = 'opacity-50 cursor-not-allowed';
 
 	// Local
@@ -47,11 +49,13 @@
 		}
 	}
 
-	// Reactive
+	// State
 	$: checked = value === group;
 	$: classesActive = checked ? `${active} ${color} ${fill}` : hover;
 	$: classesDisabled = $$props.disabled ? cDisabled : '';
-	$: classesBase = `${cBase} ${padding} ${rounded} ${classesActive} ${classesDisabled} ${$$props.class ?? ''}`;
+	// Reactive
+	$: classsBase = `${cBase}`;
+	$: classesWrapper = `${cWrapper} ${padding} ${rounded} ${classesActive} ${classesDisabled} ${$$props.class ?? ''}`;
 
 	// RestProps
 	function prunedRestProps() {
@@ -60,10 +64,10 @@
 	}
 </script>
 
-<label>
+<label class="radio-label {classsBase} {regionLabel}">
 	<!-- A11y attributes are not allowed on <label> -->
 	<div
-		class="radio-item {classesBase}"
+		class="radio-item {classesWrapper}"
 		data-testid="radio-item"
 		role="radio"
 		aria-checked={checked}

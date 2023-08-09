@@ -180,6 +180,18 @@ initializeStores();
 			</p>
 		</aside>
 		<section class="space-y-4">
+			<h2 class="h2">Modal Component</h2>
+			<p>Implement a single instance of the modal component in your app's root layout, above the App Shell (if present).</p>
+			<CodeBlock
+				language="html"
+				code={`
+<Modal />
+
+<!-- <AppShell>...</AppShell> -->
+				`}
+			/>
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Modal Store</h2>
 			<p>
 				When you wish to trigger a modal, import the <code class="code">getModalStore</code> function and invoke it to retrieve the

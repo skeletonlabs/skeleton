@@ -11,6 +11,7 @@ export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
 export type { Transition, TransitionParams } from './internal/transitions.js';
+export type { TreeViewNode } from './components/TreeView/types.js';
 export type { CssClasses, SvelteEvent } from './types.js';
 
 // Utilities ---
@@ -84,6 +85,9 @@ export { default as Table } from './components/Table/Table.svelte';
 export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
 export { default as TabAnchor } from './components/Tab/TabAnchor.svelte';
+export { default as TreeView } from './components/TreeView/TreeView.svelte';
+export { default as TreeViewItem } from './components/TreeView/TreeViewItem.svelte';
+export { default as TreeViewDataDrivenItem } from './components/TreeView/TreeViewDataDrivenItem.svelte';
 // Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
 export { default as Modal } from './utilities/Modal/Modal.svelte';

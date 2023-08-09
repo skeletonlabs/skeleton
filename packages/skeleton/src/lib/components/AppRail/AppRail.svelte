@@ -31,32 +31,41 @@
 	export let regionTrail: CssClasses = '';
 
 	// Props (tiles/anchors)
-	/** Tile: Provide classes to set the tile hover background color. */
+	/** Provide classes to set the tile/anchor hover background color. */
 	export let hover: CssClasses = 'bg-primary-hover-token';
-	/** Tile: Provide classes to set the tile active tile background. */
+	/** Provide classes to set the tile/anchor active tile background. */
 	export let active: CssClasses = 'bg-primary-active-token';
-	/** Tile: Provide classes to set the tile vertical spacing. */
+	/** Provide classes to set the tile/anchor vertical spacing. */
 	export let spacing: CssClasses = 'space-y-1';
+	/** Provide classes to set the tile/anchor aspect ratio. */
+	export let aspectRatio: CssClasses = 'aspect-square';
 
 	// Context
 	setContext('active', active);
 	setContext('hover', hover);
 	setContext('spacing', spacing);
+	setContext('aspectRatio', aspectRatio);
 
 	// Base Classes
 	const cBase = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';
+	const cRegionLead = 'box-border';
+	const cRegionDefault = 'box-border';
+	const cRegionTrail = 'box-border';
 
 	// Reactive
 	$: classesBase = `${cBase} ${background} ${border} ${width} ${height} ${gap} ${$$props.class || ''}`;
+	$: classesRegionLead = `${cRegionLead} ${regionLead}`;
+	$: classesRegionDefault = `${cRegionDefault} ${regionDefault}`;
+	$: classesRegionTrail = `${cRegionTrail} ${regionTrail}`;
 </script>
 
 <!-- @component A vertical navigation rail component. -->
 
 <div class="app-rail {classesBase}" data-testid="app-rail">
 	<!-- Slot: lead -->
-	<div class="app-bar-lead {regionLead}"><slot name="lead" /></div>
+	<div class="app-bar-lead {classesRegionLead}"><slot name="lead" /></div>
 	<!-- Slot: Default -->
-	<div class="app-bar-default {regionDefault}"><slot /></div>
+	<div class="app-bar-default {classesRegionDefault}"><slot /></div>
 	<!-- Slot: lead -->
-	<div class="app-bar-trail {regionTrail}"><slot name="trail" /></div>
+	<div class="app-bar-trail {classesRegionTrail}"><slot name="trail" /></div>
 </div>

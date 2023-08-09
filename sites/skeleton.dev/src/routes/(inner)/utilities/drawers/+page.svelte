@@ -100,6 +100,19 @@
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
+		<!-- Drawer Component -->
+		<section class="space-y-4">
+			<h2 class="h2">Drawer Component</h2>
+			<p>Implement a single instance of the drawer component in your app's root layout, above the App Shell (if present).</p>
+			<CodeBlock
+				language="html"
+				code={`
+<Drawer>(contents)</Drawer>
+
+<!-- <AppShell>...</AppShell> -->
+				`}
+			/>
+		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Drawer Store</h2>
 			<p>Import this anywhere you wish to control the Drawer. Provides an interface to control the drawer component.</p>

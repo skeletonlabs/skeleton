@@ -101,9 +101,9 @@
 	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 150, opacity: 0, x: 0, y: 100 };
 
 	// Base Styles
-	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0';
-	const cTransitionLayer = 'w-full h-full p-4 overflow-y-auto flex justify-center';
-	const cModal = 'block'; // max-h-full overflow-y-auto overflow-x-hidden
+	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 overflow-y-auto';
+	const cTransitionLayer = 'w-full h-fit min-h-full p-4 overflow-y-auto flex justify-center';
+	const cModal = 'block overflow-y-auto'; // max-h-full overflow-y-auto overflow-x-hidden
 	const cModalImage = 'w-full h-auto';
 
 	// Local
@@ -225,8 +225,8 @@
 			data-testid="modal-backdrop"
 			on:mousedown={onBackdropInteractionBegin}
 			on:mouseup={onBackdropInteractionEnd}
-			on:touchstart
-			on:touchend
+			on:touchstart|passive
+			on:touchend|passive
 			transition:dynamicTransition|global={{ transition: fade, params: { duration: 150 }, enabled: transitions }}
 			use:focusTrap={true}
 		>

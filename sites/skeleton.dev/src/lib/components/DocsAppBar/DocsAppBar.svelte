@@ -124,6 +124,12 @@
 								<span>Blog</span>
 							</a>
 						</li>
+						<li>
+							<a href="https://store.skeleton.dev" target="_blank">
+								<span class="w-6 text-center"><i class="fa-solid fa-shopping-cart" /></span>
+								<span>Skeleton Store</span>
+							</a>
+						</li>
 						<hr class="!my-4" />
 						<li>
 							<a href="/elements/core">
@@ -164,6 +170,7 @@
 						<h6 class="h6">Mode</h6>
 						<LightSwitch />
 					</section>
+					<hr />
 					<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
 						<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
 							<ul>
@@ -184,8 +191,9 @@
 							</ul>
 						</form>
 					</nav>
+					<hr />
 					<div>
-						<a class="btn variant-ghost-surface w-full" href="/docs/generator">Create a Theme</a>
+						<a class="btn variant-filled w-full" href="/docs/generator">Create a Theme</a>
 					</div>
 				</div>
 				<div class="arrow bg-surface-100-800-token" />

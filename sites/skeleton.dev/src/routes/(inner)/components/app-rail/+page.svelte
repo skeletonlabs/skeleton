@@ -23,8 +23,8 @@
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [
 			{ label: 'AppRail', sveld: sveldAppRail },
-			{ label: 'AppRailTile', sveld: sveldAppRailTile, overrideProps: ['hover', 'active', 'spacing'] },
-			{ label: 'AppRailAnchor', sveld: sveldAppRailAnchor, overrideProps: ['hover', 'active', 'spacing'] }
+			{ label: 'AppRailTile', sveld: sveldAppRailTile, overrideProps: ['hover', 'active', 'spacing', 'width', 'aspectRatio'] },
+			{ label: 'AppRailAnchor', sveld: sveldAppRailAnchor, overrideProps: ['hover', 'active', 'spacing', 'width', 'aspectRatio'] }
 		],
 		restProps: 'AppRailTile | AppRailAnchor'
 	};
@@ -131,7 +131,7 @@
 					<CodeBlock
 						language="html"
 						code={`
-<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="tile-1>
+<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="tile-1">
 	<svelte:fragment slot="lead">(icon)</svelte:fragment>
 	<span>Tile 1</span>
 </AppRailTile>

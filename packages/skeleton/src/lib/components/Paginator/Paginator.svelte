@@ -70,6 +70,8 @@
 	 * @type {string}
 	 */
 	export let buttonTextLast: CssClasses = rightAngles;
+	/** Set the label for the pages separator. */
+	export let separatorText = 'of';
 
 	// Props (A11y)
 	/** Provide the ARIA label for the First page button. */
@@ -86,7 +88,7 @@
 	const cLabel = 'w-full md:w-auto';
 
 	// Local
-	let lastPage = Math.ceil(settings.size / settings.limit - 1);
+	let lastPage = Math.max(0, Math.ceil(settings.size / settings.limit - 1));
 	let controlPages: number[] = getNumerals();
 
 	function onChangeLength(): void {
@@ -151,11 +153,17 @@
 		return pages;
 	}
 
+	function updateSize(size: number) {
+		lastPage = Math.max(0, Math.ceil(size / settings.limit - 1));
+		controlPages = getNumerals();
+	}
+
 	// State
 	$: classesButtonActive = (page: number) => {
 		return page === settings.page ? `${active} pointer-events-none` : '';
 	};
 	$: maxNumerals, onChangeLength();
+	$: updateSize(settings.size);
 	// Reactive Classes
 	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
@@ -213,7 +221,7 @@
 			<!-- Details -->
 			<button type="button" class="{buttonClasses} pointer-events-none !text-sm">
 				{settings.page * settings.limit + 1}-{Math.min(settings.page * settings.limit + settings.limit, settings.size)}&nbsp;<span
-					class="opacity-50">of {settings.size}</span
+					class="opacity-50">{separatorText} {settings.size}</span
 				>
 			</button>
 		{:else}

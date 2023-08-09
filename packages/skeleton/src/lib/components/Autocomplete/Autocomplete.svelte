@@ -90,32 +90,31 @@
 	// Local
 	$: listedOptions = options;
 
-	// Allowed Options
-	function filterByAllowed(): void {
+	function filterByAllowDeny(allowlist: unknown[], denylist: unknown[]) {
+		let _options = [...options];
+		// Allowed Options
 		if (allowlist.length) {
-			listedOptions = [...options].filter((option: AutocompleteOption) => allowlist.includes(option.value));
-		} else {
-			// IMPORTANT: required if the list goes from populated -> empty
-			listedOptions = [...options];
+			_options = _options.filter((option) => allowlist.includes(option.value));
 		}
-	}
 
-	// Denied Options
-	function filterByDenied(): void {
+		// Denied Options
 		if (denylist.length) {
-			const denySet = new Set(denylist);
-			listedOptions = [...options].filter((option: AutocompleteOption) => !denySet.has(option.value));
-		} else {
-			// IMPORTANT: required if the list goes from populated -> empty
-			listedOptions = [...options];
+			_options = _options.filter((option) => !denylist.includes(option.value));
 		}
+
+		// Reset options
+		if (!allowlist.length && !denylist.length) {
+			_options = options;
+		}
+
+		listedOptions = _options;
 	}
 
 	function filterOptions(): AutocompleteOption[] {
 		// Create a local copy of options
 		let _options = [...listedOptions];
 		// Filter options
-		_options = _options.filter((option: AutocompleteOption) => {
+		_options = _options.filter((option) => {
 			// Format the input search value
 			const inputFormatted = String(input).toLowerCase().trim();
 			// Format the option
@@ -132,8 +131,7 @@
 	}
 
 	// State
-	$: if (allowlist) filterByAllowed();
-	$: if (denylist) filterByDenied();
+	$: filterByAllowDeny(allowlist, denylist);
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
 	$: sliceLimit = limit !== undefined ? limit : optionsFiltered.length;
 	// Reactive

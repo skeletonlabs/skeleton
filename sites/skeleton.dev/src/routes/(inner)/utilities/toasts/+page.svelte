@@ -162,6 +162,19 @@
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
+		<!-- Toast Component -->
+		<section class="space-y-4">
+			<h2 class="h2">Toast Component</h2>
+			<p>Implement a single instance of the toast component in your app's root layout, above the App Shell (if present).</p>
+			<CodeBlock
+				language="html"
+				code={`
+<Toast />
+
+<!-- <AppShell>...</AppShell> -->
+				`}
+			/>
+		</section>
 		<!-- Toast Store -->
 		<section class="space-y-4">
 			<h2 class="h2">Toast Store</h2>

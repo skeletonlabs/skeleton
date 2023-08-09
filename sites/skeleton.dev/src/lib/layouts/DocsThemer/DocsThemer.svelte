@@ -37,12 +37,35 @@
 		roundedContainer: '8px',
 		borderBase: '1px'
 	});
+	resetColorOnInvalidHex();
 
 	// Local
 	let cssOutput = '';
 	let cssInJsOutput = '';
 	let showThemeCSS = false;
 	let conReports: ContrastReport[] = getContrastReports();
+
+	// only called when initializing the component to avoid color errors.
+	// must be called before onMount.
+	function resetColorOnInvalidHex() {
+		const colorMapping = {
+			primary: '#0FBA81',
+			secondary: '#4F46E5',
+			tertiary: '#0EA5E9',
+			success: '#84cc16',
+			warning: '#EAB308',
+			error: '#D41976',
+			surface: '#495a8f'
+		};
+
+		$storeThemGenForm.colors.forEach((color: ColorSettings, i: number) => {
+			if (hexValueIsValid(color.hex)) return;
+
+			if (color.key in colorMapping) {
+				$storeThemGenForm.colors[i].hex = colorMapping[color.key];
+			}
+		});
+	}
 
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {

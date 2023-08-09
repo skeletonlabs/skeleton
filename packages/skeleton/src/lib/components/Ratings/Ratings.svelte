@@ -46,36 +46,44 @@
 		});
 	}
 
+	function isFull(value: number, index: number) {
+		return Math.floor(value) >= index + 1;
+	}
+
+	function isHalf(value: number, index: number) {
+		return value === index + 0.5;
+	}
+
 	// Classes
 	const cBase = 'w-full flex';
 
 	// Reactive
-	$: elemInteractive = interactive ? 'button' : 'span';
-	$: attrInteractive = interactive ? { type: 'button' } : {};
 	$: classesBase = `${cBase} ${text} ${fill} ${justify} ${spacing} ${$$props.class ?? ''}`;
 </script>
 
 <div class="ratings {classesBase}" data-testid="rating-bar">
 	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-	{#each Array(max) as _, i}
-		{#if Math.floor(value) >= i + 1}
-			<!-- FIXME: resolve a11y warnings -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
-				<slot name="full" />
-			</svelte:element>
-		{:else if value === i + 0.5}
-			<!-- FIXME: resolve a11y warnings -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
-				<slot name="half" />
-			</svelte:element>
+	{#each { length: max } as _, i}
+		{#if interactive}
+			<button class="rating-icon {regionIcon}" type="button" on:click={() => iconClick(i)}>
+				{#if isFull(value, i)}
+					<slot name="full" />
+				{:else if isHalf(value, i)}
+					<slot name="half" />
+				{:else}
+					<slot name="empty" />
+				{/if}
+			</button>
 		{:else}
-			<!-- FIXME: resolve a11y warnings -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<svelte:element this={elemInteractive} {...attrInteractive} class="rating-icon {regionIcon}" on:click={() => iconClick(i)}>
-				<slot name="empty" />
-			</svelte:element>
+			<span class="rating-icon {regionIcon}">
+				{#if isFull(value, i)}
+					<slot name="full" />
+				{:else if isHalf(value, i)}
+					<slot name="half" />
+				{:else}
+					<slot name="empty" />
+				{/if}
+			</span>
 		{/if}
 	{/each}
 </div>
