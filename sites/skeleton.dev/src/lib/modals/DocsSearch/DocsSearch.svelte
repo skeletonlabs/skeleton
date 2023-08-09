@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { menuNavLinks, type List } from '$lib/links';
-	import { modalStore } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
 
 	// Classes
 	const cBase =
@@ -15,6 +15,7 @@
 	let searchTerm = '';
 	let resultsCopy = [...menuNavLinks['/docs'], ...menuNavLinks['/elements'], ...menuNavLinks['/svelte'], ...menuNavLinks['/utilities']];
 	let results = resultsCopy;
+	const modalStore = getModalStore();
 
 	// Elements
 	let elemDocSearch: HTMLElement;

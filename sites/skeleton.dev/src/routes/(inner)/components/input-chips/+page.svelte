@@ -3,7 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import { CodeBlock, InputChip, toastStore } from '@skeletonlabs/skeleton';
+	import { CodeBlock, InputChip, getToastStore } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldInputChip from '@skeletonlabs/skeleton/components/InputChip/InputChip.svelte?raw&sveld';
 
@@ -30,6 +30,7 @@
 	let emails = ['john@email.com', 'jane@email.com', 'sally@email.com'];
 	let musicalGenres = ['rock', 'r&b', 'pop'];
 	let musicalGenresWhitelist = ['rock', 'pop', 'hip-hop', 'metal', 'techno', 'r&b'];
+	const toastStore = getToastStore();
 
 	function isValidEmail(value: string): boolean {
 		return value.includes('@') && value.includes('.');

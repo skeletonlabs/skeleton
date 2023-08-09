@@ -1,7 +1,7 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import { toastStore } from '$lib/utilities/Toast/stores.js';
+import { getToastStore } from '$lib/utilities/Toast/stores.js';
 import type { ToastSettings } from './types.js';
 import Toast from '$lib/utilities/Toast/Toast.svelte';
 
@@ -17,6 +17,8 @@ const toastMessage: ToastSettings = {
 };
 
 describe('Toast.svelte', () => {
+	const toastStore = getToastStore();
+
 	it('Renders modal alert', async () => {
 		toastStore.trigger(toastMessage);
 		const { getByTestId } = render(Toast);

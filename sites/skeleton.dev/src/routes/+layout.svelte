@@ -23,7 +23,8 @@
 	import { storePreview } from '$lib/layouts/DocsThemer/stores';
 
 	// Components & Utilities
-	import { AppShell, Modal, Toast } from '@skeletonlabs/skeleton';
+	import { AppShell, Modal, Toast, initializeStores } from '@skeletonlabs/skeleton';
+	initializeStores();
 
 	// Docs Components
 	import DocsAppBar from '$lib/components/DocsAppBar/DocsAppBar.svelte';
@@ -144,7 +145,6 @@
 			meta.twitter.image = post.twitter_image || post.feature_image;
 		}
 	});
-
 	// Reactive
 	// Disable left sidebar on homepage
 	$: slotSidebarLeft = matchPathWhitelist($page.url.pathname) ? 'w-0' : 'bg-surface-50-900-token lg:w-auto';

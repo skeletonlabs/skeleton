@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ListBox, ListBoxItem, modalStore } from '@skeletonlabs/skeleton';
+	import { ListBox, ListBoxItem, getModalStore } from '@skeletonlabs/skeleton';
 
 	// Props
 	/** Exposes parent props to this component. */
@@ -7,6 +7,7 @@
 
 	// Local
 	let flavor = 'chocolate';
+	const modalStore = getModalStore();
 
 	// Handle Form Submission
 	function onFormSubmit(): void {
