@@ -70,7 +70,7 @@
 			<h3 class="h3">Automatic IDs</h3>
 			<p>
 				Set <code class="code">mode: generate</code> to enable <code class="code">tocCrawler</code> to automatically generate and set unique
-				IDs per all headings within the region the action is applied to.
+				IDs for all headings that are descendents of the element the action is applied to.
 			</p>
 			<CodeBlock language="html" code={`<div use:tocCrawler={{ mode: 'generate' }}>`} />
 			<p>See the example below. Note this <u>will not</u> overwrite IDs you have set manually.</p>
