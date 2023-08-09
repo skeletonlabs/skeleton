@@ -141,12 +141,14 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
+				<!-- prettier-ignore -->
 				<p>
-					Import and add a single instance of the Toast component in your app's root layout. Since this is in global scope it will be
-					possible to reuse this feature throughout your entire application.
+					Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, or Toast features, and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
 				</p>
 				<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
-				<CodeBlock language="html" code={`<Toast />`} />
+				<p>Implement a single instance of the toast component in your app's root layout, above the App Shell (if present).</p>
+				<CodeBlock language="html" code={`<Toast />\n\n<!-- <AppShell>...</AppShell> -->`} />
+				<p>We'll cover triggering this feature on-demand in the documentation below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
