@@ -11,14 +11,15 @@
 		"dev": "pnpm --no-sort --filter=skeleton.dev --filter=@skeletonlabs/tw-plugin dev",
 		"csa": "node ./packages/create-skeleton-app/src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=welcome -p=sites --monorepo --inspector",
 		"csl": "node ./packages/create-skeleton-app/src/index.js --types=typescript --library --prettier --eslint --playwright --vitest --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=bare -p=packages --monorepo --inspector",
-		"templategen": "node ./scripts/template-gen.js",
+		"templategen": "node ./scripts/template-gen.mjs",
 		"format": "pnpm --parallel format",
 		"ci:publish": "changeset publish",
 		"ci:package": "pnpm -r package",
 		"ci:release": "pnpm ci:package && pnpm ci:publish",
 		"ci:lint": "pnpm -r lint",
 		"ci:check": "pnpm -r check",
-		"cs": "changeset"
+		"cs": "changeset",
+		"checkout": "node scripts/checkout.mjs"
 	},
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",

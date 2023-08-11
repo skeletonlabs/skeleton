@@ -11,10 +11,15 @@ coverage
 src/lib/tailwind/generated
 *.tgz
 vite.config.ts.timestamp-**.mjs
+.vscode/launch.json
 
 /packages/*
 !/packages/create-skeleton-app
+/packages/create-skeleton-app/tests/generated/
 !/packages/skeleton
 !/packages/plugin
 /sites/*
 !/sites/skeleton.dev
+/templates/*
+!/templates/scripts
+repos.json
