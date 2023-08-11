@@ -1,35 +1,33 @@
 /* Tailwind Elements: elements.css */
 
-@layer base {
-	/* === States === */
+/* === States === */
 
-	/* File Input Button */
-	input[type='file']:not(.file-dropzone-input)::file-selector-button {
-		@apply border-0 btn variant-filled btn-sm mr-2;
-	}
+/* File Input Button */
+input[type='file']:not(.file-dropzone-input)::file-selector-button {
+	@apply border-0 btn variant-filled btn-sm mr-2;
+}
 
-	/* Range Input */
-	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
-	[type='range'] {
-		@apply w-full accent-surface-900 dark:accent-surface-50;
-	}
+/* Range Input */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
+[type='range'] {
+	@apply w-full accent-surface-900 dark:accent-surface-50;
+}
 
-	/* === Sort Styles ==== */
+/* === Sort Styles ==== */
 
-	[data-sort] {
-		@apply hover:bg-primary-hover-token cursor-pointer;
-		/* Sort Icon - invisible by default */
-		@apply after:opacity-0 after:!ml-2 after:!content-['↓'];
-	}
+[data-sort] {
+	@apply hover:bg-primary-hover-token cursor-pointer;
+	/* Sort Icon - invisible by default */
+	@apply after:opacity-0 after:!ml-2 after:!content-['↓'];
+}
 
-	/* === Popup === */
+/* === Popup === */
 
-	[data-popup] {
-		/* https://floating-ui.com/docs/computeposition#usage */
-		@apply absolute top-0 left-0;
-		/* Set hidden on page load */
-		@apply hidden;
-		/* Transitions */
-		@apply transition-opacity duration-150;
-	}
+[data-popup] {
+	/* https://floating-ui.com/docs/computeposition#usage */
+	@apply absolute top-0 left-0;
+	/* Set hidden on page load */
+	@apply hidden;
+	/* Transitions */
+	@apply transition-opacity duration-150;
 }
