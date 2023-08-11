@@ -7,7 +7,8 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			title: 'Docs',
 			list: [
 				{ href: '/docs/introduction', label: 'Introduction', keywords: 'svelte, sirens, license, release' },
-				{ href: '/docs/get-started', label: 'Get Started', keywords: 'start, install, cli, tailwind, themes, stylesheets' }
+				{ href: '/docs/get-started', label: 'Get Started', keywords: 'start, install, cli, tailwind, themes, stylesheets' },
+				{ href: '/docs/quickstart', label: 'Quickstart', keywords: 'start, setup, tutorial, guide' }
 			]
 		},
 		{
@@ -30,7 +31,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			title: 'Resources',
 			list: [
 				{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
-				{ href: '/docs/quickstart', label: 'Quickstart', keywords: 'start, setup, tutorial, guide' },
+				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, vite, tree, shaking, bundle, optimize', badge: 'New' },
 				{ href: '/docs/contributing', label: 'Contributing', keywords: 'branch, pr' }
 			]
 		}
