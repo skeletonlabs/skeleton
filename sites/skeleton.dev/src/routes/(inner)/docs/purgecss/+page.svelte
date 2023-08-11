@@ -125,7 +125,7 @@ h3 {
 		<h2 class="h2">Attribution</h2>
 		<!-- prettier-ignore -->
 		<p>
-			This <a class="anchor" href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank" rel="noreferrer">plugin</a>  is provided courtesy of Skeleton co-maintainer <a class="anchor" href="https://github.com/joshnuss" target="_blank" rel="noreferrer">Adrian Gonz (aka CokaKoala)</a>.
+			This <a class="anchor" href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank" rel="noreferrer">plugin</a>  is provided courtesy of Skeleton co-maintainer <a class="anchor" href="https://github.com/AdrianGonz97" target="_blank" rel="noreferrer">Adrian (aka CokaKoala)</a>.
 		</p>
 	</section>
 </LayoutPage>
