@@ -1,16 +1,24 @@
 {
-  "name": "template-scripts",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Scripts for setting up and deploying templates",
-  "main": "index.js",
-  "scripts": {
-    "gen": "node template-gen.js"
-  },
-  "keywords": [],
-  "author": "Nik <nik@niktek.io>",
-  "license": "MIT",
-  "devDependencies": {
-    "fast-glob": "^3.3.0"
-  }
+	"name": "template-scripts",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Scripts for setting up and deploying templates",
+	"main": "index.js",
+	"scripts": {
+		"gen": "node template-gen.mjs",
+		"inst": "pnpm --filter 'test-*' install",
+		"upsnap": "pnpm --workspace-concurrency=1 --filter 'test-*' test:integration --update-snapshots",
+		"test": "pnpm --workspace-concurrency=1 --filter 'test-*' test:integration",
+		"test:base": "pnpm --workspace-concurrency=1 --filter 'test-bare-skeleton' test:integration",
+		"test:appshell": "pnpm --workspace-concurrency=1 --filter 'test-appshell-*' test:integration",
+		"test:bare": "pnpm --workspace-concurrency=1 --filter 'test-bare-*' test:integration",
+		"test:blog": "pnpm --workspace-concurrency=1 --filter 'test-blog-*' test:integration",
+		"test:portfolio": "pnpm --workspace-concurrency=1 --filter 'test-portfolio-*' test:integration"
+	},
+	"keywords": [],
+	"author": "Nik <nik@niktek.io>",
+	"license": "MIT",
+	"devDependencies": {
+		"fast-glob": "^3.3.0"
+	}
 }

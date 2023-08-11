@@ -5,7 +5,7 @@ import mri from 'mri';
 import { bold, cyan, gray, grey, red } from 'kleur/colors';
 import { intro, text, select, multiselect, spinner } from '@clack/prompts';
 import { dist, getHelpText, goodbye, whichPMRuns, checkIfDirSafeToInstall } from './utils.js';
-import path, { resolve, join } from 'node:path';
+import path, { resolve, join } from 'path';
 import semver from 'semver';
 import fg from 'fast-glob';
 
@@ -152,6 +152,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 				}
 			},
 		});
+		opts.name = opts.path
 		goodbye(opts.path);
 	}
 
@@ -162,8 +163,8 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	// or it holds multiple directories with csa-meta files in them and skeletontemplate selects that sub folder.
 
 	let templateFound = false;
-	// they have asked for a specific template within the folder
 	if (opts?.skeletontemplate) {
+		// they have asked for a specific template within the folder
 		opts.skeletontemplate = resolve(opts.skeletontemplatedir, opts.skeletontemplate, 'csa-meta.json');
 		//check that it exists
 		if (!fs.existsSync(opts.skeletontemplate)) {
@@ -180,7 +181,6 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			process.exit(1);
 		}
 		let parsedChoices = [];
-
 		metaFiles.forEach((meta_file) => {
 			const path = join(opts.skeletontemplatedir, meta_file);
 			const { position, label, description, enabled } = JSON.parse(fs.readFileSync(path, 'utf8'));
@@ -197,11 +197,10 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	}
 	// Now that we have the template, lets get the meta data from it and the base path
 	opts.meta = JSON.parse(fs.readFileSync(opts.skeletontemplate, 'utf8'));
-	opts.skeletontemplatedir = path.dirname(opts.skeletontemplate);
-	// The template may require certain install options that are set in the requiredFeatures array, lets set them on opts so that we don't allow them to be changed
 	if (opts.meta.requiredFeatures) {
 		opts.meta.requiredFeatures.forEach((val) => { Object.assign(opts, val) })
 	}
+	opts.skeletontemplatedir = path.dirname(opts.skeletontemplate);
 
 	// If it's a premium template, wording needs to be change to indicate that there is a theme already built in
 	// Skeleton Theme Selection

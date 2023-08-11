@@ -38,6 +38,18 @@ export function mkdirp(dir) {
 		throw e;
 	}
 }
+// If true insert
+export function iti(valToBeTruthy, valToReturnIfTruthy, valToReturnIfFalsy) {
+	if (valToBeTruthy) {
+		return valToReturnIfTruthy;
+	} else {
+		if (valToReturnIfFalsy === undefined) {
+			return '';
+		} else {
+			return valToReturnIfFalsy;
+		}
+	}
+}
 
 export function dist(pathToFind) {
 	let pathAdjust = '';
@@ -67,21 +79,23 @@ export function goodbye(option) {
 }
 
 export function checkIfDirSafeToInstall(path) {
-	if (!fs.existsSync(path)) return;
+	// no dir, no conflicts
+	if (!fs.existsSync(path)) {
+		return true;
+	}
 	let conflicts = fs.readdirSync(path)
-	
 	conflicts = conflicts.filter((file) =>
 		/^(package.json|svelte.config.js|tailwind.config.cjs|postcss.config.cjs|vite.config.ts)$/.test(file),
 	);
 
 	if (conflicts.length > 0) {
-		let err = new Error(`The directory ${path} contains files that could conflict:\n${conflicts.join('\n')}\n\nPlease provide a clean directory to install into.`);
+		const err = new Error(`The directory ${path} contains files that could conflict:\n${conflicts.join('\n')}\n\nPlease provide a clean directory to install into.`);
 		throw err
 	}
 
-	// 10 was picked because it is in something like a ~/projects directory and it would be annoying to strip out the added files and folders
+	// 10 was picked because if it's in something like a ~/projects directory and it would be annoying to strip out the added files and folders
 	if (conflicts.length > 10) {
-		let err = new Error(`The directory ${path} contains too many files/folders to safely install.`);
+		const err = new Error(`The directory ${path} contains too many files/folders to safely install.`);
 		throw err
 	}
 	return true;
