@@ -28,7 +28,7 @@
 		<h2 class="h2">Introduction</h2>
 		<h3 class="h3">Motivation</h3>
 		<p>
-			Tailwind UI component libraries like Skeleton, Tailwind, and Flowbite provide a number of benefits, but come with an important caveat
+			Tailwind UI component libraries like Skeleton, Flowbite, and Daisy UI provide a number of benefits, but come with an important caveat
 			- Tailwind generates classes for all imported components, regardless if they are used in the project or not. This leads to a larger
 			than necessary CSS bundle.
 		</p>
