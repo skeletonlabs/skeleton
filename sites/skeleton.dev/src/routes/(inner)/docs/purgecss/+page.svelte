@@ -91,7 +91,7 @@ const config: UserConfig = {
 		/>
 		<p>Alternatively, can safelist selectors directly within your stylesheets using special comments.</p>
 		<CodeBlock
-			language="ts"
+			language="css"
 			code={`
 /*! purgecss start ignore */\n
 h1 {
