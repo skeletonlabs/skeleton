@@ -45,19 +45,3 @@ export async function transpileCssToJs(cssEntryPath: string, plugins: Config['pl
 
 	return cssInJs;
 }
-
-// Generates all TW base styles so that we can use this to
-// the remove duplicates in our plugin.
-// Takes ~600ms second to run.
-export async function generateBaseTWStyles() {
-	const twConfig = {
-		content: [{ raw: 'w-1' }]
-	} satisfies Config;
-
-	const result = await postcss(tailwindcss(twConfig)).process('@tailwind base', { from: undefined });
-	if (result.root.type === 'document') throw Error('This should never happen');
-
-	const cssInJs = postcssJs.objectify(result.root);
-
-	return cssInJs;
-}
