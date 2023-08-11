@@ -215,6 +215,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			{ label: 'Vintage', value: 'vintage' },
 			{ label: 'Seafoam', value: 'seafoam' },
 			{ label: 'Crimson', value: 'crimson' },
+			{ label: cyan('Custom'), value: 'custom' , hint: 'Will ask for a name next'},
 		]
 		if (opts.meta.type === 'premium') {
 			themeChoices.unshift({ label: 'Use templates built in theme', value: 'builtin' });
@@ -225,7 +226,18 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		});
 		goodbye(opts.skeletontheme);
 	}
-
+	if (opts.skeletontheme === 'custom') {
+		opts.skeletontheme = await text({
+			message: 'Enter a name for your custom theme:',
+			placeholder: 'mytheme',
+			validate(value) {
+				if (value.length === 0) {
+					return 'Please enter a name for your custom theme';
+				}
+			},
+		});
+		goodbye(opts.skeletontheme);
+	}
 	// Additional packages to install - these can be influenced by the template selected
 	let packages = [
 		{ value: 'forms', label: 'Add Tailwind forms ?', package: '@tailwindcss/forms', force: false },

@@ -38,8 +38,8 @@ export function mkdirp(dir) {
 		throw e;
 	}
 }
-// If true insert
-export function iti(valToBeTruthy, valToReturnIfTruthy, valToReturnIfFalsy) {
+// Insert If True
+export function iit(valToBeTruthy, valToReturnIfTruthy, valToReturnIfFalsy) {
 	if (valToBeTruthy) {
 		return valToReturnIfTruthy;
 	} else {
