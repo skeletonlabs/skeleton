@@ -31,7 +31,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			title: 'Resources',
 			list: [
 				{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
-				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, purge, css, vite, tree, shaking, bundle, optimize' },
+				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, vite, tree, shaking, bundle, optimize', badge: 'New' },
 				{ href: '/docs/contributing', label: 'Contributing', keywords: 'branch, pr' }
 			]
 		}
