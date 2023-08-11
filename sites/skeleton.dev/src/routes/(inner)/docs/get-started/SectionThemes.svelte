@@ -6,13 +6,10 @@
 
 	// Local
 	let activeTheme = themes[1];
-	// $: activeThemeStylesheet = `import '@skeletonlabs/skeleton/themes/theme-${activeTheme.file}.css';`;
 	$: activeThemeStylesheet = `
 plugins: [
 	skeleton({
-		themes: {
-			preset: [ "${activeTheme.file}" ]
-		}
+		themes: { preset: [ "${activeTheme.file}" ] }
 	})
 ]\n
 `;
@@ -25,21 +22,15 @@ plugins: [
 
 <!-- Header -->
 <section class="space-y-4">
-	<h2 class="h2">Themes</h2>
-	<!-- prettier-ignore -->
-	<p>
-		Skeleton leans into <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">Tailwind's best practices</a> when implementing themes. This includes support for <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a> and <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>. Themes also enable Skeleton's <a class="anchor" href="/docs/tokens" target="_blank">design tokens</a> system.
-	</p>
-	<h3 class="h3">Preset Themes</h3>
-	<p>Skeleton provides a number of preset themes out of the box. Choose a theme below for specific instruction.</p>
+	<h2 class="h2">Add Themes</h2>
+	<p>Skeleton provides several preset themes out of the box. Select a theme to learn how to implement it.</p>
 	<!-- Presets -->
-	<div class="card variant-glass p-4 space-y-4">
-		<nav class="grid grid-cols-1 md:grid-cols-3 gap-5">
+	<div class="space-y-4">
+		<nav class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			{#each themes.slice(1, themes.length) as preset}
 				<div
-					class="card p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4 hover:scale-105 transition-transform"
+					class="card card-hover p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4"
 					style:background={preset.surface}
-					class:scale-105={preset.file === activeTheme.file}
 					on:click={() => {
 						setActiveTheme(preset);
 					}}
@@ -47,22 +38,24 @@ plugins: [
 						setActiveTheme(preset);
 					}}
 				>
-					<p class="text-center font-bold !text-lg" data-toc-ignore>{preset.name}</p>
-					<ul class="flex justify-center items-center -space-x-1">
-						{#each preset.colors as color}
-							<li class="aspect-square w-4 xl:w-5 rounded-full" style:background={color} />
-						{/each}
-					</ul>
+					<div class="flex justify-between items-center gap-4">
+						<span class="text-center font-bold">{preset.name}</span>
+						<ul class="flex justify-center items-center -space-x-1">
+							{#each preset.colors as color}
+								<li class="aspect-square w-3 xl:w-4 rounded-full" style:background={color} />
+							{/each}
+						</ul>
+					</div>
 				</div>
 			{/each}
 		</nav>
 		<p>
-			First, register your desired theme in <code class="code">tailwind.config.[cjs|js|ts]</code>, found in the root of your project. This
-			will ensure it's loaded and available.
+			First, register you preferred theme(s) in <code class="code">tailwind.config.[ts|js|cjs]</code>. This will ensure each theme is
+			available to use.
 		</p>
 		<CodeBlock language="ts" code={activeThemeStylesheet} />
 		<p>
-			Next, open <code class="code">/src/app.html</code> and define the active theme to display via the <code class="code">data-theme</code>
+			Next, open <code class="code">/src/app.html</code> and set the active theme using the <code class="code">data-theme</code>
 			attribute.
 		</p>
 		<CodeBlock language="html" code={`<body data-theme="${activeTheme.file}">`} />
@@ -71,16 +64,16 @@ plugins: [
 	<!-- Theme Customization -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Learn more about Skeleton themes in this comprehensive guide.</p>
-			<a class="btn variant-filled-secondary" href="/docs/themes">Themes &rarr;</a>
+			<p>Learn more about Skeleton themes and customization.</p>
+			<a class="btn variant-filled-secondary" href="/docs/themes">Themes Guide &rarr;</a>
 		</div>
 	</div>
 
-	<!-- Generator -->
+	<!-- Theme Generator -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Ready to create a custom theme? Try the Theme Generator.</p>
-			<a class="btn variant-filled-secondary" href="/docs/generator">Generator &rarr;</a>
+			<p>Create a custom theme using the theme generator.</p>
+			<a class="btn variant-filled-secondary" href="/docs/generator">Theme Generator &rarr;</a>
 		</div>
 	</div>
 </section>

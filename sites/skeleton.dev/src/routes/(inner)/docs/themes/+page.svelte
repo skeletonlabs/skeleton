@@ -37,7 +37,10 @@
 	<header class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
 		<div class="space-y-4">
 			<h1 class="h1">Themes</h1>
-			<p>Learn more about Skeleton themes and customizing.</p>
+			<!-- prettier-ignore -->
+			<p>
+				Skeleton leans into <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">Tailwind's best practices</a> when implementing themes. This includes support for <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a> and <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>. Themes also enable Skeleton's <a class="anchor" href="/docs/tokens" target="_blank">design tokens</a> system.
+			</p>
 		</div>
 	</header>
 
@@ -101,7 +104,7 @@
 			<span class="badge variant-filled-warning">New in v2</span>
 		</div>
 		<p>
-			Themes are configured via Skeleton's Tailwind plugin in your <code class="code">tailwind.config.[cjs|js|ts]</code>, found in your
+			Themes are configured via Skeleton's Tailwind plugin in your <code class="code">tailwind.config.[ts|js|cjs]</code>, found in your
 			project root.
 		</p>
 		<h3 class="h3">Register Themes</h3>
@@ -151,6 +154,24 @@ plugins: [
 		<p>
 			View the <a class="anchor" href="/docs/generator">theme generator</a> for more information about implementing custom themes. Note that
 			it is possible to mix and match preset and custom themes.
+		</p>
+	</section>
+
+	<hr />
+
+	<section class="space-y-4">
+		<h2 class="h2">Dark Mode</h2>
+		<p>
+			By default Tailwind opts for light mode. If you wish to default to dark mode, append the following class to the <code class="code"
+				>html</code
+			>
+			element within <code class="code">/src/app.html</code>. View
+			<a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's documentation</a> for more information.
+		</p>
+		<CodeBlock language="html" code={`<html class="dark">`} />
+		<p>
+			Note that Skeleton also provides a <a class="anchor" href="/utilities/lightswitches" target="_blank">Lightswitch</a> utility if you wish
+			toggle between light and dark modes.
 		</p>
 	</section>
 
