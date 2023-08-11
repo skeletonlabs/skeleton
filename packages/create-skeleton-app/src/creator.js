@@ -53,7 +53,9 @@ export class SkeletonOptions {
 	set metaObject(value) {
 		this.meta = value;
 		if (this.meta.requiredFeatures) {
-			this.meta.requiredFeatures.forEach((val) => { Object.assign(this, val) })
+			this.meta.requiredFeatures.forEach((val) => {
+				Object.assign(this, val);
+			});
 		}
 	}
 }
@@ -79,13 +81,14 @@ export async function createSkeleton(opts) {
 			opts.metaObject = JSON.parse(readFileSync(opts.skeletontemplate, 'utf8'));
 		} else {
 			const err = new Error(`Could not find skeleton template meta file at ${opts.skeletontemplate}`);
-			throw err
+			throw err;
 		}
 	}
 
 	await modifyPackageJson(opts);
 	// write out config files
 	createSvelteConfig(opts);
+	createViteConfig(opts);
 	await createVSCodeSettings();
 	createTailwindConfig(opts);
 	createPostCssConfig();
@@ -102,20 +105,26 @@ export async function createSkeleton(opts) {
 }
 
 async function modifyPackageJson(opts) {
-	
 	let pkgJson = JSON.parse(readFileSync('./package.json'));
-	
+
 	// add required packages
-	for (const pkg of ['postcss', 'autoprefixer', 'tailwindcss', '@skeletonlabs/skeleton', '@skeletonlabs/tw-plugin']) {
+	for (const pkg of [
+		'postcss',
+		'autoprefixer',
+		'tailwindcss',
+		'@skeletonlabs/skeleton',
+		'@skeletonlabs/tw-plugin',
+		'vite-plugin-tailwind-purgecss',
+	]) {
 		setNestedValue(pkgJson, ['devDependencies', pkg], 'latest');
-	};
+	}
 
 	// Extra packages and scripts for a monorepo install
 	if (opts.monorepo) {
-		['@sveltejs/adapter-vercel'].forEach((pkg) => pkg.devDependencies[pkg] = opts.devDependencies.get(pkg));
+		['@sveltejs/adapter-vercel'].forEach((pkg) => (pkg.devDependencies[pkg] = opts.devDependencies.get(pkg)));
 		// TODO copy over github workflows for deploying to CF
 		// TODO auto-detect if we are in a mono from '@pnpm/find-workspace-dir';
-		pkgJson['deployConfig'] = { "@skeletonlabs/skeleton": "^1.0.0" }
+		pkgJson['deployConfig'] = { '@skeletonlabs/skeleton': '^1.0.0' };
 	}
 
 	// Optional packages
@@ -127,28 +136,32 @@ async function modifyPackageJson(opts) {
 	if (opts.popups) setNestedValue(pkgJson, ['dependencies', '@floating-ui/dom'], 'latest');
 
 	// Template specific packages
-	if (opts.meta?.dependencies) { pkgJson.dependencies = { ...pkgJson.dependencies, ...opts.meta.dependencies } };
-	if (opts.meta?.devDependencies) { pkgJson.devDependencies = { ...pkgJson.devDependencies, ...opts.meta.devDependencies } };
+	if (opts.meta?.dependencies) {
+		pkgJson.dependencies = { ...pkgJson.dependencies, ...opts.meta.dependencies };
+	}
+	if (opts.meta?.devDependencies) {
+		pkgJson.devDependencies = { ...pkgJson.devDependencies, ...opts.meta.devDependencies };
+	}
 
 	await getLatestPackageVersions(pkgJson);
 	writeFileSync('./package.json', JSON.stringify(pkgJson, null, 2));
 }
 
 async function getLatestPackageVersions(pkgJson) {
-	const devDeps = Object.keys(pkgJson.devDependencies)
+	const devDeps = Object.keys(pkgJson.devDependencies);
 	for await (const pkg of devDeps) {
 		if (pkgJson.devDependencies[pkg] == 'latest') {
 			const data = await got(`https://registry.npmjs.org/${pkg}/latest`).json();
 			pkgJson.devDependencies[pkg] = data.version;
 		}
-	};
-	const deps = pkgJson.dependencies == undefined ? [] : Object.keys(pkgJson.dependencies)
+	}
+	const deps = pkgJson.dependencies == undefined ? [] : Object.keys(pkgJson.dependencies);
 	for await (const pkg of deps) {
 		if (pkgJson.dependencies[pkg] == 'latest') {
 			const data = await got(`https://registry.npmjs.org/${pkg}/latest`).json();
 			pkgJson.dependencies[pkg] = data.version;
 		}
-	};
+	}
 }
 
 function createSvelteConfig(opts) {
@@ -164,18 +177,18 @@ const mdsvexOptions = {
 	const inspectorConfig = `
 	vitePlugin: {
 		inspector: true,
-	},`
-	
+	},`;
+
 	let str = `import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 ${iit(opts.mdsvex, mdsvexConfig)}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte'${iit(opts.mdsvex,`, '.md'`)}],
+	extensions: ['.svelte'${iit(opts.mdsvex, `, '.md'`)}],
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: [${iit(opts.mdsvex,'mdsvex(mdsvexOptions),')} vitePreprocess()],
+	preprocess: [${iit(opts.mdsvex, 'mdsvex(mdsvexOptions),')} vitePreprocess()],
 	${iit(opts.inspector, inspectorConfig)}
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
@@ -188,13 +201,26 @@ export default config;`;
 	writeFileSync('svelte.config.js', str);
 }
 
+function createViteConfig(opts) {
+	const filename = opts.types == 'typescript' ? 'vite.config.ts' : 'vite.config.js';
+	let contents = `import { purgeCss } from 'vite-plugin-tailwind-purgecss';`;
+	contents += readFileSync(filename);
+	// use a regex to find the sveltekit() plugin location and insert the purge plugin after it
+	contents = contents.replace(/sveltekit\(\),/, 'sveltekit(), purgeCss()');
+	writeFileSync(filename, contents);
+}
+
 async function createVSCodeSettings() {
 	try {
 		mkdirp('.vscode');
-		const data = await got('https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json').text();
+		const data = await got(
+			'https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json',
+		).text();
 		writeFileSync('.vscode/settings.json', data);
 	} catch (error) {
-		console.error('Unable to download settings file for VSCode, please read manual instructions at https://skeleton.dev/guides/install');
+		console.error(
+			'Unable to download settings file for VSCode, please read manual instructions at https://skeleton.dev/guides/install',
+		);
 	}
 }
 
@@ -218,7 +244,7 @@ function createTailwindConfig(opts) {
 		createCustomTheme(opts);
 		plugins.push(`skeleton({ themes: { custom: [${opts.skeletontheme}] }})`);
 	}
-	
+
 	const str = `import { join } from 'path'
 ${iit(opts.types == 'typescript', `import type { Config } from 'tailwindcss'`)}
 ${pluginImports.join('\n')}
@@ -337,8 +363,8 @@ export const ${opts.skeletontheme}${iit(opts.types == 'typescript', ': CustomThe
 		"--color-surface-800": "44 54 86", // #2c3656
 		"--color-surface-900": "36 44 70", // #242c46
 	}
-}`
-	let filename = opts.skeletontheme + ".js"
+}`;
+	let filename = opts.skeletontheme + '.js';
 	writeFileSync(join('src', filename), str);
 }
 function createPostCssConfig() {
@@ -389,18 +415,20 @@ function copyTemplate(opts) {
 			fontFile = '';
 	}
 	if (fontFamily !== '') {
-		appendFileSync('./src/app.postcss',
+		appendFileSync(
+			'./src/app.postcss',
 			`
 @font-face {
 	font-family: '${fontFamily}';
 	src: url('/fonts/${fontFile}');
 	font-display: swap;
-}`);
+}`,
+		);
 		cpSync(resolve(__dirname, '../fonts/', fontFile), './static/fonts/' + fontFile);
 	}
 
 	// patch back in their theme choice - it may have been replaced by the theme template, it may still be the correct auto-genned one, depends on the template - we don't care, this fixes it.
-	let content = readFileSync(resolve(opts.path,'src/routes/+layout.svelte'), { encoding: 'utf8' });
+	let content = readFileSync(resolve(opts.path, 'src/routes/+layout.svelte'), { encoding: 'utf8' });
 
 	// Set the script ype depending on their choice of typescript or checkjs
 	content = (opts.types === 'typescript' ? `<script lang="ts">` : '<script>') + content.substring(content.indexOf('\n'));
@@ -436,9 +464,9 @@ function copyTemplate(opts) {
 	writeFileSync('./src/routes/+layout.svelte', content);
 
 	// Update the data-theme attribute in the app.html file
-	content = readFileSync(resolve(opts.path,'src/app.html'), { encoding: 'utf8' });
+	content = readFileSync(resolve(opts.path, 'src/app.html'), { encoding: 'utf8' });
 	const dataThemeRegex = /data-theme=".*"/gim;
-	writeFileSync(resolve(opts.path,'src/app.html'), content.replace(dataThemeRegex, `data-theme="${opts.skeletontheme}"`));
+	writeFileSync(resolve(opts.path, 'src/app.html'), content.replace(dataThemeRegex, `data-theme="${opts.skeletontheme}"`));
 }
 
 function createTestConfig() {

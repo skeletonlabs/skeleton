@@ -4,8 +4,5 @@
 	"description": "A blank slate for you to create your app",
 	"enabled": true,
 	"type": "built-in",
-	"foldersToCopy": [
-		"src",
-		"static"
-	]
+	"foldersToCopy": ["src", "static"]
 }

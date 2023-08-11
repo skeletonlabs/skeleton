@@ -4,8 +4,5 @@
 	"description": "Starter site with AppShell and AppBar",
 	"enabled": true,
 	"type": "built-in",
-	"foldersToCopy": [
-		"src",
-		"static"
-	]
+	"foldersToCopy": ["src", "static"]
 }

@@ -108,7 +108,7 @@ async function parseArgs() {
 			'popups',
 			'forms',
 			'typography',
-			'mdsvex'
+			'mdsvex',
 		],
 	});
 
@@ -152,14 +152,14 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 				}
 			},
 		});
-		opts.name = opts.path
+		opts.name = opts.path;
 		goodbye(opts.path);
 	}
 
 	// Skeleton Template Selection
 	// We have to ask for the template first as it may dictate things like required packages and typechecking
 	// skeletontemplatedir is the path to the templates directory, it's either passed in as an arg or set to cwd
-	// it may be a single directory with a csa-meta in the root, 
+	// it may be a single directory with a csa-meta in the root,
 	// or it holds multiple directories with csa-meta files in them and skeletontemplate selects that sub folder.
 
 	let templateFound = false;
@@ -175,7 +175,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	}
 	// no template specified, so scan the templatedir for csa-meta files
 	if (!templateFound) {
-		const metaFiles = fg.sync(['**/csa-meta.json'], { cwd: opts.skeletontemplatedir, deep: 2 })
+		const metaFiles = fg.sync(['**/csa-meta.json'], { cwd: opts.skeletontemplatedir, deep: 2 });
 		if (metaFiles.length === 0) {
 			console.error(`No templates found in ${opts.skeletontemplatedir}`);
 			process.exit(1);
@@ -198,7 +198,9 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	// Now that we have the template, lets get the meta data from it and the base path
 	opts.meta = JSON.parse(fs.readFileSync(opts.skeletontemplate, 'utf8'));
 	if (opts.meta.requiredFeatures) {
-		opts.meta.requiredFeatures.forEach((val) => { Object.assign(opts, val) })
+		opts.meta.requiredFeatures.forEach((val) => {
+			Object.assign(opts, val);
+		});
 	}
 	opts.skeletontemplatedir = path.dirname(opts.skeletontemplate);
 
@@ -215,8 +217,8 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			{ label: 'Vintage', value: 'vintage' },
 			{ label: 'Seafoam', value: 'seafoam' },
 			{ label: 'Crimson', value: 'crimson' },
-			{ label: cyan('Custom'), value: 'custom' , hint: 'Will ask for a name next'},
-		]
+			{ label: cyan('Custom'), value: 'custom', hint: 'Will ask for a name next' },
+		];
 		if (opts.meta.type === 'premium') {
 			themeChoices.unshift({ label: 'Use templates built in theme', value: 'builtin' });
 		}
@@ -244,15 +246,19 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		{ value: 'typography', label: 'Add Tailwind typography ?', package: '@tailwindcss/typography', force: false },
 		{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js) ?', package: 'highlight.js', force: false },
 		{ value: 'popups', label: 'Add Popups (installs floating-ui) ?', package: '@floating-ui/dom', force: false },
-		{ value: 'mdsvex', label: 'Add Markdown support (installs mdsvex) ?', package: 'mdsvex', force: false }
+		{ value: 'mdsvex', label: 'Add Markdown support (installs mdsvex) ?', package: 'mdsvex', force: false },
 	];
 	// Force the packages that are required by the template
-	packages.forEach((pkg) => { if (opts[pkg.value] != undefined) pkg.force = true });
+	packages.forEach((pkg) => {
+		if (opts[pkg.value] != undefined) pkg.force = true;
+	});
 	// Now we can ask the user about any options that are not forced to be installed
 	let optionalPackages = packages.filter((pkg) => !pkg.force);
 	// Get list of forced packages to display to the user
-	let msg = ''
-	packages.forEach((p) => { if (p.force) msg += p.package + '\n' });
+	let msg = '';
+	packages.forEach((p) => {
+		if (p.force) msg += p.package + '\n';
+	});
 	if (msg.length > 0) {
 		msg = `\nThe following packages will be installed because they are required by the template:\n\n${msg}\nWhat other packages would you like to install:`;
 	} else {
