@@ -105,7 +105,7 @@ h2 {
 		/>
 		<p>You may also safelist selectors directly within each declaration block.</p>
 		<CodeBlock
-			language="ts"
+			language="css"
 			code={`
 h3 {
 	/*! purgecss ignore current */
