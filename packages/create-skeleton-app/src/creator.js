@@ -36,20 +36,11 @@ export class SkeletonOptions {
 		this.skeletontemplate = 'skeleton-template-bare';
 		this.skeletontemplatedir = '../templates';
 		this.packagemanager = 'npm';
-		this.packageVersionsAdded = false;
 		this.devDependencies = new Map([
 			['postcss', 'latest'],
 			['autoprefixer', 'latest'],
 			['tailwindcss', 'latest'],
-			['@tailwindcss/typography', 'latest'],
-			['@tailwindcss/forms', 'latest'],
 			['@skeletonlabs/skeleton', 'latest'],
-			['@sveltejs/adapter-vercel', 'latest'],
-			['mdsvex', 'latest'],
-		]);
-		this.dependencies = new Map([
-			['highlight.js', 'latest'],
-			['@floating-ui/dom', 'latest'],
 		]);
 
 		// props below are private to the Skeleton team
@@ -111,14 +102,12 @@ export async function createSkeleton(opts) {
 }
 
 async function modifyPackageJson(opts) {
-	await getLatestPackageVersions(opts);
+	
 	let pkgJson = JSON.parse(readFileSync('./package.json'));
-
-	for (const [pkg, version] of opts.dependencies) {
-		setNestedValue(pkgJson, ['dependencies', pkg], version);
-	};
-	for (const [pkg, version] of opts.devDependencies) {
-		setNestedValue(pkgJson, ['devDependencies', pkg], version);
+	
+	// add required packages
+	for (const pkg of ['postcss', 'autoprefixer', 'tailwindcss', '@skeletonlabs/skeleton']) {
+		setNestedValue(pkgJson, ['devDependencies', pkg], 'latest');
 	};
 
 	// Extra packages and scripts for a monorepo install
@@ -130,29 +119,35 @@ async function modifyPackageJson(opts) {
 	}
 
 	// Optional packages
-	if (opts.mdsvex) pkgJson.devDependencies['mdsvex'] = opts.devDependencies.get('mdsvex');
-	if (opts.typography) pkgJson.devDependencies['@tailwindcss/typography'] = opts.devDependencies.get('@tailwindcss/typography');
-	if (opts.forms) pkgJson.devDependencies['@tailwindcss/forms'] = opts.devDependencies.get('@tailwindcss/forms');
-	if (opts.codeblocks) setNestedValue(pkgJson, ['dependencies', 'highlight.js'], opts.dependencies.get('highlight.js'));
-	if (opts.popups) setNestedValue(pkgJson, ['dependencies', '@floating-ui/dom'], opts.dependencies.get('@floating-ui/dom'));
+	if (opts.mdsvex) pkgJson.devDependencies['mdsvex'] = 'latest';
+	if (opts.typography) pkgJson.devDependencies['@tailwindcss/typography'] = 'latest';
+	if (opts.forms) pkgJson.devDependencies['@tailwindcss/forms'] = 'latest';
+	if (opts.codeblocks) setNestedValue(pkgJson, ['dependencies', 'highlight.js'], 'latest');
+	if (opts.popups) setNestedValue(pkgJson, ['dependencies', '@floating-ui/dom'], 'latest');
 
 	// Template specific packages
 	if (opts.meta?.dependencies) { pkgJson.dependencies = { ...pkgJson.dependencies, ...opts.meta.dependencies } };
 	if (opts.meta?.devDependencies) { pkgJson.devDependencies = { ...pkgJson.devDependencies, ...opts.meta.devDependencies } };
+
+	await getLatestPackageVersions(pkgJson);
 	writeFileSync('./package.json', JSON.stringify(pkgJson, null, 2));
 }
 
-async function getLatestPackageVersions(opts) {
-	if (opts.packageVersionsAdded) return;
-	for await (const name of opts.devDependencies.keys()) {
-		const data = await got(`https://registry.npmjs.org/${name}/latest`).json();
-		opts.devDependencies.set(name, data.version);
+async function getLatestPackageVersions(pkgJson) {
+	const devDeps = Object.keys(pkgJson.devDependencies)
+	for await (const pkg of devDeps) {
+		if (pkgJson.devDependencies[pkg] == 'latest') {
+			const data = await got(`https://registry.npmjs.org/${pkg}/latest`).json();
+			pkgJson.devDependencies[pkg] = data.version;
+		}
 	};
-	for await (const name of opts.dependencies.keys()) {
-		const data = await got(`https://registry.npmjs.org/${name}/latest`).json();
-		opts.dependencies.set(name, data.version);
+	const deps = pkgJson.dependencies == undefined ? [] : Object.keys(pkgJson.dependencies)
+	for await (const pkg of deps) {
+		if (pkgJson.dependencies[pkg] == 'latest') {
+			const data = await got(`https://registry.npmjs.org/${pkg}/latest`).json();
+			pkgJson.dependencies[pkg] = data.version;
+		}
 	};
-	opts.packageVersionsAdded = true;
 }
 
 function createSvelteConfig(opts) {
