@@ -6,6 +6,8 @@ import { rm } from 'fs';
 import fg from 'fast-glob';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
+// This is no longer needed as we test the templates directory in their repo which 
+// you can use the checkout script form the root to popuplate
 async function generateTemplates() {
 	console.log('Generating templates');
 	await rm(resolve(cwd(), 'installs'), { recursive: true }, (err) => { if (err) console.log(err.message) });

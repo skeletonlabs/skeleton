@@ -15,23 +15,23 @@ const themes = [
 	'crimson',
 ];
 themes.forEach((theme) => {
-	test(`Screenshot test ${template} ${theme}`, async ({ page }) => {
+	test(`Screenshot light ${template} ${theme}`, async ({ page }) => {
+		//await page.emulateMedia({ colorScheme: 'light', forcedColors: 'active' });
 		await page.goto('/');
 		await page.evaluate((newTheme) => {
 			document.body.setAttribute('data-theme', newTheme);
+			document.documentElement.classList.remove('dark');
 		}, theme);
 		await expect(page).toHaveScreenshot(`${template}-${theme}.png`);
 	});
+	
+	test(`Screenshot dark ${template} ${theme}`, async ({ page }) => {
+		//await page.emulateMedia({ colorScheme: 'dark', forcedColors: 'active' });
+		await page.goto('/');
+		await page.evaluate((newTheme) => {
+			document.body.setAttribute('data-theme', newTheme);
+			document.documentElement.classList.add('dark');
+		}, theme);
+		await expect(page).toHaveScreenshot(`${template}-${theme}-dark.png`);
+	});
 });
-// test(`Screenshot matches golden image for ${template}-${theme}`, async ({ page }) => {
-// 	await page.goto('/');
-// 	await expect(page).toHaveScreenshot(`${template}-${theme}.png`);
-// });
-// test.use({ colorScheme: 'dark' });
-// test(`Screenshot matches golden dark image for ${template}-${theme}-dark`, async ({	page }) => {
-// 	await page.goto('/');
-// 	await expect(page).toHaveScreenshot(`${template}-${theme}-dark.png`);
-// });
-
-// let body = document.body
-// body.setAttribute('data-theme','crimson')

@@ -46,4 +46,4 @@ function zipFolder(sourceFolder, outputFile) {
 	archive.finalize();
 }
 
-await copyTemplates();
+copyTemplates();

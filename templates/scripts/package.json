@@ -5,9 +5,7 @@
 	"description": "Scripts for setting up and deploying templates",
 	"main": "index.js",
 	"scripts": {
-		"gen": "node template-gen.mjs",
-		"inst": "pnpm --filter 'test-*' install",
-		"upsnap": "pnpm --workspace-concurrency=1 --filter 'test-*' test:integration --update-snapshots",
+		"upsnap": "pnpm --filter 'skeleton-template-*' test:integration --update-snapshots",
 		"test": "pnpm --no-bail --filter 'skeleton-template-*' test:integration"
 	},
 	"keywords": [],
