@@ -17,12 +17,17 @@ async function copyTemplates() {
 		} else {
 			//copy the folders that are specified in the csa-meta.json
 			csaMeta?.foldersToCopy?.forEach((folder) => {
-				fs.cpSync(join(basePath, metaFile, '..', folder), join(`./templates/${metaFile.split('/')[0]}`, folder), {
+				fs.cpSync(join(basePath, metaFile, '..', folder), join('templates', metaFile.split('/')[0], folder), {
 					recursive: true,
 				});
 			});
 			//copy the csa-meta.json file
-			fs.cpSync(join(basePath, metaFile), join(`./templates/${metaFile}`));
+			fs.cpSync(join(basePath, metaFile), join('templates', metaFile));
+			// remove the fonts folder and font css from app.postcss that was required for testing
+			fs.rmSync(join('templates', metaFile.split('/')[0], 'static', 'fonts'), { recursive: true });
+			let appPostcss = fs.readFileSync(join('templates', metaFile.split('/')[0], 'src', 'app.postcss'), 'utf8');
+			appPostcss = appPostcss.replace(/\/\*[\s\S]*?\*\/[\s\S]*$/g, '');
+			fs.writeFileSync(join('templates', metaFile.split('/')[0], 'src', 'app.postcss'), appPostcss);
 		}
 	});
 }

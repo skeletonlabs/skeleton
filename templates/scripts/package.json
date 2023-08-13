@@ -8,15 +8,10 @@
 		"gen": "node template-gen.mjs",
 		"inst": "pnpm --filter 'test-*' install",
 		"upsnap": "pnpm --workspace-concurrency=1 --filter 'test-*' test:integration --update-snapshots",
-		"test": "pnpm --workspace-concurrency=1 --no-bail --filter 'test-*' test:integration",
-		"test:base": "pnpm --workspace-concurrency=1 --no-bail --filter 'test-bare-skeleton' test:integration",
-		"test:appshell": "pnpm --workspace-concurrency=1 --no-bail --filter 'test-appshell-*' test:integration",
-		"test:bare": "pnpm --workspace-concurrency=1 --no-bail --filter 'test-bare-*' test:integration",
-		"test:blog": "pnpm --workspace-concurrency=1 --no-bail --filter 'test-blog-*' test:integration",
-		"test:portfolio": "pnpm --workspace-concurrency=1 --no-bail --filter 'test-portfolio-*' test:integration"
+		"test": "pnpm --no-bail --filter 'skeleton-template-*' test:integration"
 	},
 	"keywords": [],
-	"author": "Nik <nik@niktek.io>",
+	"author": "Skeleton Admin <admin@skeletonlabs.co>",
 	"license": "MIT",
 	"devDependencies": {
 		"fast-glob": "^3.3.0"
