@@ -64,7 +64,6 @@ export async function createSkeleton(opts) {
 	// When being run multiple times in a row, we need to make sure we return to this current directory
 	// and not the newly created projects subdir
 	const startPath = cwd();
-
 	// Hidden option to change the install type to be a Svelte-Kit library project
 	if (opts.library) {
 		opts.template = 'skeletonlib';
@@ -75,7 +74,6 @@ export async function createSkeleton(opts) {
 	// create-svelte will build the base install for us
 	await create(opts.path, opts);
 	chdir(opts.path);
-
 	if (opts.meta == undefined) {
 		if (existsSync(opts.skeletontemplate)) {
 			opts.metaObject = JSON.parse(readFileSync(opts.skeletontemplate, 'utf8'));
@@ -105,7 +103,8 @@ export async function createSkeleton(opts) {
 }
 
 async function modifyPackageJson(opts) {
-	let pkgJson = JSON.parse(readFileSync('./package.json'));
+	const pkgPath = join(cwd(), 'package.json');
+	let pkgJson = JSON.parse(readFileSync(pkgPath));
 
 	// add required packages
 	for (const pkg of [
@@ -144,7 +143,7 @@ async function modifyPackageJson(opts) {
 	}
 
 	await getLatestPackageVersions(pkgJson);
-	writeFileSync('./package.json', JSON.stringify(pkgJson, null, 2));
+	writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2));
 }
 
 async function getLatestPackageVersions(pkgJson) {
@@ -198,25 +197,24 @@ const config = {
 	}
 };
 export default config;`;
-	writeFileSync('svelte.config.js', str);
+	writeFileSync(join(cwd(), 'svelte.config.js'), str);
 }
 
 function createViteConfig(opts) {
-	const filename = opts.types == 'typescript' ? 'vite.config.ts' : 'vite.config.js';
-	let contents = `import { purgeCss } from 'vite-plugin-tailwind-purgecss';`;
+	const filename = join(cwd(), opts.types == 'typescript' ? 'vite.config.ts' : 'vite.config.js');
+	let contents = `import { purgeCss } from 'vite-plugin-tailwind-purgecss';\n`;
 	contents += readFileSync(filename);
-	// use a regex to find the sveltekit() plugin location and insert the purge plugin after it
 	contents = contents.replace(/sveltekit\(\),/, 'sveltekit(), purgeCss()');
 	writeFileSync(filename, contents);
 }
 
 async function createVSCodeSettings() {
 	try {
-		mkdirp('.vscode');
+		mkdirp(join(cwd(), '.vscode'));
 		const data = await got(
 			'https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json',
 		).text();
-		writeFileSync('.vscode/settings.json', data);
+		writeFileSync(join(cwd(), '.vscode', 'settings.json'), data);
 	} catch (error) {
 		console.error(
 			'Unable to download settings file for VSCode, please read manual instructions at https://skeleton.dev/guides/install',
@@ -259,7 +257,7 @@ module.exports = {
 	plugins: [${plugins.join(',')}],
 }${iit(opts.types == 'typescript', ' satisfies Config')};
 `;
-	writeFileSync('tailwind.config.ts', str);
+	writeFileSync(join(cwd(), 'tailwind.config.ts'), str);
 }
 
 function createCustomTheme(opts) {
@@ -374,7 +372,7 @@ function createPostCssConfig() {
 		autoprefixer: {},
 	},
 }`;
-	writeFileSync('postcss.config.cjs', str);
+	writeFileSync(join(cwd(), 'postcss.config.cjs'), str);
 }
 
 function copyTemplate(opts) {
@@ -416,7 +414,7 @@ function copyTemplate(opts) {
 	}
 	if (fontFamily !== '') {
 		appendFileSync(
-			'./src/app.postcss',
+			join(cwd(), 'src', 'app.postcss'),
 			`
 @font-face {
 	font-family: '${fontFamily}';
@@ -424,12 +422,11 @@ function copyTemplate(opts) {
 	font-display: swap;
 }`,
 		);
-		cpSync(resolve(__dirname, '../fonts/', fontFile), './static/fonts/' + fontFile);
+		cpSync(resolve(__dirname, '../fonts/', fontFile), join(cwd(), 'static', 'fonts', fontFile));
 	}
-
+	const layoutFile = resolve(cwd(), 'src/routes/+layout.svelte');
 	// patch back in their theme choice - it may have been replaced by the theme template, it may still be the correct auto-genned one, depends on the template - we don't care, this fixes it.
-	let content = readFileSync(resolve(opts.path, 'src/routes/+layout.svelte'), { encoding: 'utf8' });
-
+	let content = readFileSync(layoutFile, { encoding: 'utf8' });
 	// Set the script ype depending on their choice of typescript or checkjs
 	content = (opts.types === 'typescript' ? `<script lang="ts">` : '<script>') + content.substring(content.indexOf('\n'));
 
@@ -461,7 +458,7 @@ function copyTemplate(opts) {
 		);
 	}
 
-	writeFileSync('./src/routes/+layout.svelte', content);
+	writeFileSync(layoutFile, content);
 
 	// Update the data-theme attribute in the app.html file
 	content = readFileSync(resolve(opts.path, 'src/app.html'), { encoding: 'utf8' });

@@ -152,9 +152,10 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 				}
 			},
 		});
-		opts.name = opts.path;
 		goodbye(opts.path);
 	}
+	// name to set in package.json
+	opts.name = opts.path;
 
 	// Skeleton Template Selection
 	// We have to ask for the template first as it may dictate things like required packages and typechecking
@@ -273,7 +274,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			required: false,
 		});
 		goodbye(packages);
-		packageChoices.forEach((value) => (opts[value] = packageChoices[value]));
+		packageChoices.forEach((value) => (opts[value] = true));
 	}
 
 	if (!('types' in opts)) {
@@ -310,9 +311,8 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			required: false,
 		});
 		goodbye(optionalInstalls);
-		optionalInstalls.every((value) => (opts[value] = true));
+		optionalInstalls.forEach((value) => (opts[value] = true));
 	}
-
 	return opts;
 }
 

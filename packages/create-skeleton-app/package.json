@@ -1,6 +1,6 @@
 {
 	"name": "create-skeleton-app",
-	"version": "0.0.46-beta.7",
+	"version": "0.0.47",
 	"description": "Use this CLI app to setup a new Skeleton application in a new SvelteKit project.",
 	"keywords": [
 		"skeleton",
@@ -21,7 +21,8 @@
 	"bin": "./src/index.js",
 	"files": [
 		"src/**",
-		"templates/**"
+		"templates/**",
+		"fonts/**"
 	],
 	"engines": {
 		"node": ">=14.16"

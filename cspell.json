@@ -1,7 +1,19 @@
 {
 	"language": "en",
-	"ignorePaths": ["src/lib/tailwind/generated/**", "static/**", "pnpm-lock.yaml", "package-lock.json", "yarn.lock", "package/**"],
-	"dictionaries": ["html", "typescript", "softwareTerms", "companies"],
+	"ignorePaths": [
+		"src/lib/tailwind/generated/**",
+		"static/**",
+		"pnpm-lock.yaml",
+		"package-lock.json",
+		"yarn.lock",
+		"package/**"
+	],
+	"dictionaries": [
+		"html",
+		"typescript",
+		"softwareTerms",
+		"companies"
+	],
 	"allowCompoundWords": true,
 	"words": [
 		"Abril",
@@ -14,6 +26,7 @@
 		"bluenight",
 		"callout",
 		"carbonads",
+		"checkjs",
 		"Chicunamictlán",
 		"Codepen",
 		"colindex",
@@ -122,7 +135,6 @@
 		"Vercel",
 		"vite",
 		"Vitest",
-		"vite",
 		"wght",
 		"Wonka",
 		"xmark",
