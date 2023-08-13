@@ -6,12 +6,12 @@
 	<div class="flex justify-center gap-4">
 		<a
 			class="btn variant-filled"
-			href="https://stackblitz.com/fork/github/skeletonlabs/repl/tree/main/welcome"
+			href="https://sveltelab.dev/github.com/skeletonlabs/skeleton-template-bare/tree/main/"
 			target="_blank"
 			rel="noreferrer"
 		>
 			<i class="fa-solid fa-bolt" />
-			<span>Via StackBlitz</span>
+			<span>Via SvelteLab</span>
 		</a>
 		<a href="/docs/get-started" class="btn variant-filled">
 			<span>Install Skeleton</span>
