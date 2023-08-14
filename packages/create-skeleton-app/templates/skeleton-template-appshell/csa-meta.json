@@ -1,0 +1,8 @@
+{
+	"position": 10,
+	"label": "AppShell starter",
+	"description": "Starter site with AppShell and AppBar",
+	"enabled": true,
+	"type": "built-in",
+	"foldersToCopy": ["src", "static"]
+}

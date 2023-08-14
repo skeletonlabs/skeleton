@@ -11,6 +11,8 @@ coverage
 src/lib/tailwind/generated
 *.tgz
 vite.config.ts.timestamp-**.mjs
+.vscode/launch.json
+repos.json
 
 /packages/*
 !/packages/create-skeleton-app
@@ -18,3 +20,4 @@ vite.config.ts.timestamp-**.mjs
 !/packages/plugin
 /sites/*
 !/sites/skeleton.dev
+/templates/*
