@@ -1,7 +1,7 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import { modalStore } from '$lib/utilities/Modal/stores.js';
+import { getModalStore } from '$lib/utilities/Modal/stores.js';
 import type { ModalSettings } from '$lib/utilities/Modal/types.js';
 
 import Modal from '$lib/utilities/Modal/Modal.svelte';
@@ -27,6 +27,8 @@ const modalPrompt: ModalSettings = {
 };
 
 describe('Modal.svelte', () => {
+	const modalStore = getModalStore();
+
 	it('Renders modal alert', async () => {
 		modalStore.trigger(modalAlert);
 		const { getByTestId } = render(Modal);

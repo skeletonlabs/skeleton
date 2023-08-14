@@ -3,8 +3,11 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import { CodeBlock } from '@skeletonlabs/skeleton';
+
 	// Toasts
-	import { toastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	const toastStore = getToastStore();
+
 	// Sveld
 	import sveldToast from '@skeletonlabs/skeleton/utilities/Toast/Toast.svelte?raw&sveld';
 
@@ -13,10 +16,12 @@
 		feature: DocsFeature.Utility,
 		name: 'Toasts',
 		description: 'Simple notifications utilizing a dynamic queue system.',
-		imports: ['Toast', 'toastStore'],
+		imports: ['Toast', 'getToastStore'],
 		types: ['ToastSettings'],
 		source: 'utilities/Toast',
-		components: [{ sveld: sveldToast }]
+		components: [{ sveld: sveldToast }],
+		transitionIn: 'fly',
+		transitionOut: 'fly'
 	};
 
 	// Local
@@ -136,11 +141,14 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
+				<!-- prettier-ignore -->
 				<p>
-					Import and add a single instance of the Toast component in your app's root layout. Since this is in global scope it will be
-					possible to reuse this feature throughout your entire application.
+					Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, or Toast features, and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
 				</p>
-				<CodeBlock language="html" code={`<Toast />`} />
+				<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
+				<p>Implement a single instance of the toast component in your app's root layout, above the App Shell (if present).</p>
+				<CodeBlock language="html" code={`<Toast />\n\n<!-- <AppShell>...</AppShell> -->`} />
+				<p>We'll cover triggering this feature on-demand in the documentation below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -154,13 +162,26 @@
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
+		<!-- Toast Component -->
+		<section class="space-y-4">
+			<h2 class="h2">Toast Component</h2>
+			<p>Implement a single instance of the toast component in your app's root layout, above the App Shell (if present).</p>
+			<CodeBlock
+				language="html"
+				code={`
+<Toast />
+
+<!-- <AppShell>...</AppShell> -->
+				`}
+			/>
+		</section>
 		<!-- Toast Store -->
 		<section class="space-y-4">
 			<h2 class="h2">Toast Store</h2>
 			<p>The Toast Store acts as a queue for your toast messages.</p>
 			<CodeBlock
 				language="ts"
-				code={`import { toastStore } from '@skeletonlabs/skeleton';
+				code={`import { getToastStore } from '@skeletonlabs/skeleton';\n\nconst toastStore = getToastStore();
 			`}
 			/>
 			<!-- Trigger -->
@@ -412,17 +433,6 @@ const t: ToastSettings = {
 };
 `}
 			/>
-		</section>
-		<!-- SvelteKit SSR Warning -->
-		<!-- prettier-ignore -->
-		<section class="space-y-4">
-			<h2 class="h2">SvelteKit SSR Warning</h2>
-			<div class="space-y-4">
-				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
-					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
-				</div>
-			</div>
 		</section>
 	</svelte:fragment>
 </DocsShell>

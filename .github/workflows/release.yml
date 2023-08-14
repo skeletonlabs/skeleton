@@ -53,7 +53,7 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Update tw-settings.json after publish
         if: steps.changesets.outputs.published == 'true'
         continue-on-error: true

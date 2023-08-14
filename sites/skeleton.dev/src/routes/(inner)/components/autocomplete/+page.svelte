@@ -24,7 +24,9 @@
 			['<kbd class="kbd">Tab</kbd>', 'Select the next autocomplete option.'],
 			['<kbd class="kbd">Shift</kbd> + <kbd class="kbd">Tab</kbd>', 'Select the previous autocomplete option.'],
 			['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Select the current autocomplete option.']
-		]
+		],
+		transitionIn: 'slide',
+		transitionOut: 'slide'
 	};
 
 	// Local

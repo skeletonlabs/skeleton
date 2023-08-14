@@ -4,7 +4,7 @@
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import { variants } from '$lib/components/DocsPreview/options';
 	// Components
-	import { CodeBlock, toastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	import { CodeBlock, getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -35,6 +35,7 @@
 		chocolate: false,
 		strawberry: false
 	};
+	const toastStore = getToastStore();
 
 	function triggerToast(term: string): void {
 		const t: ToastSettings = { message: `You selected the <u>${term}</u> action.` };

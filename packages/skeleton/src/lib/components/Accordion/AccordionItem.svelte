@@ -11,8 +11,8 @@
 
 	import { getContext } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
+	import { dynamicTransition } from '../../internal/transitions.js';
 	import type { Writable } from 'svelte/store';
-	import { slide } from 'svelte/transition';
 
 	// Event Dispatcher
 	type AccordionItemEvent = {
@@ -21,7 +21,9 @@
 	const dispatch = createEventDispatcher<AccordionItemEvent>();
 
 	// Types
-	import type { CssClasses, SvelteEvent } from '../../index.js';
+	import type { CssClasses, Transition, TransitionParams, SvelteEvent } from '../../index.js';
+	type TransitionIn = $$Generic<Transition>;
+	type TransitionOut = $$Generic<Transition>;
 
 	// Props (state)
 	/** Set open by default on load. */
@@ -44,8 +46,7 @@
 	export let autocollapse: boolean = getContext('autocollapse');
 	/** The writable store that houses the auto-collapse active item UUID. */
 	export let active: Writable<string | null> = getContext('active');
-	/** Set the drawer animation duration. */
-	export let duration: number = getContext('duration');
+
 	// ---
 	/** Set the disabled state for this item. */
 	export let disabled: boolean = getContext('disabled');
@@ -67,6 +68,30 @@
 	export let regionPanel: CssClasses = getContext('regionPanel');
 	/** Provide arbitrary classes caret icon region. */
 	export let regionCaret: CssClasses = getContext('regionCaret');
+
+	// Props (transitions)
+	/** Enable/Disable transitions */
+	export let transitions: boolean = getContext('transitions');
+	/**
+	 * Provide the transition to used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = getContext('transitionIn');
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = getContext('transitionInParams');
+	/**
+	 * Provide the transition to used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = getContext('transitionOut');
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: SvelteEvent<MouseEvent, HTMLButtonElement>): void {
@@ -143,7 +168,8 @@
 		<div
 			class="accordion-panel {classesPanel}"
 			id="accordion-panel-{id}"
-			transition:slide|local={{ duration }}
+			in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+			out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 			role="region"
 			aria-hidden={!openState}
 			aria-labelledby="accordion-control-{id}"

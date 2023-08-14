@@ -11,14 +11,16 @@
 	import DocsIcon from '$lib/components/DocsIcon/DocsIcon.svelte';
 
 	// Components & Utilities
-	import { AppBar, LightSwitch, popup, modalStore } from '@skeletonlabs/skeleton';
+	import { AppBar, LightSwitch, popup, getModalStore } from '@skeletonlabs/skeleton';
 
 	// Stores
+	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { storeTheme } from '$lib/stores/stores';
-	import { drawerStore } from '@skeletonlabs/skeleton';
+	const drawerStore = getDrawerStore();
 
 	// Local
 	let isOsMac = false;
+	const modalStore = getModalStore();
 
 	// Set Search Keyboard Shortcut
 	if (browser) {
@@ -66,14 +68,13 @@
 		// { type: 'test', name: 'Test', icon: '🚧' },
 	];
 
-	const setTheme: SubmitFunction = () => {
-		return async ({ result, update }) => {
-			await update();
-			if (result.type === 'success') {
-				const theme = result.data?.theme as string;
-				storeTheme.set(theme);
-			}
-		};
+	const setTheme: SubmitFunction = ({ formData }) => {
+		const theme = formData.get('theme')?.toString();
+
+		if (theme) {
+			document.body.setAttribute('data-theme', theme);
+			$storeTheme = theme;
+		}
 	};
 </script>
 
@@ -103,12 +104,6 @@
 			</button>
 			<!-- popup -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="features">
-				<a class="btn variant-filled w-full" href="https://store.skeleton.dev" target="_blank">
-					<!-- <i class="fa-solid fa-cart-shopping" /> -->
-					<span>Skeleton Store</span>
-					<span class="badge variant-filled-secondary">New</span>
-				</a>
-				<hr class="!my-4" />
 				<nav class="list-nav">
 					<ul>
 						<li>
@@ -127,6 +122,12 @@
 							<a href="/blog">
 								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
 								<span>Blog</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://store.skeleton.dev" target="_blank">
+								<span class="w-6 text-center"><i class="fa-solid fa-shopping-cart" /></span>
+								<span>Skeleton Store</span>
 							</a>
 						</li>
 						<hr class="!my-4" />
@@ -157,7 +158,7 @@
 		<!-- Theme -->
 		<div>
 			<!-- trigger -->
-			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme' }}>
+			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme', closeQuery: 'a[href]' }}>
 				<i class="fa-solid fa-palette text-lg md:!hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<i class="fa-solid fa-caret-down opacity-50" />

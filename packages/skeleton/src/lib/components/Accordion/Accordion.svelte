@@ -1,18 +1,23 @@
-<script lang="ts">
+<script lang="ts" context="module">
+	import { slide } from 'svelte/transition';
+	import { type Transition, type TransitionParams, type CssClasses, prefersReducedMotionStore } from '../../index.js';
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type SlideTransition = typeof slide;
+	type TransitionIn = Transition;
+	type TransitionOut = Transition;
+</script>
+
+<script lang="ts" generics="TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition">
 	// Slots:
 	// NOTE: we cannot describe the default slot.
 
 	import { writable, type Writable } from 'svelte/store';
 	import { setContext } from 'svelte';
 
-	// Types
-	import type { CssClasses } from '../../index.js';
-
 	// Props
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
-	/** Set the drawer animation duration in milliseconds. */
-	export let duration = 200; // ms
 
 	// Props (parent)
 	/** Provide classes to set the accordion width. */
@@ -44,13 +49,39 @@
 	/** Provide arbitrary classes to the caret icon region. */
 	export let regionCaret: CssClasses = '';
 
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition to used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = slide as TransitionIn;
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 200 };
+	/**
+	 * Provide the transition to used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = slide as TransitionOut;
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 200 };
+
 	// Local
 	const active: Writable<string | null> = writable(null);
 
 	// Context API
 	setContext('active', active);
 	setContext('autocollapse', autocollapse);
-	setContext('duration', duration);
 	setContext('disabled', disabled);
 	setContext('padding', padding);
 	setContext('hover', hover);
@@ -60,6 +91,11 @@
 	setContext('regionControl', regionControl);
 	setContext('regionPanel', regionPanel);
 	setContext('regionCaret', regionCaret);
+	setContext('transitions', transitions);
+	setContext('transitionIn', transitionIn);
+	setContext('transitionInParams', transitionInParams);
+	setContext('transitionOut', transitionOut);
+	setContext('transitionOutParams', transitionOutParams);
 
 	// Reactive
 	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;

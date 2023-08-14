@@ -39,14 +39,9 @@
 		<CodeBlock language="ts" code={formatImportSnippet()} />
 	{/if}
 	<!-- Element Style Tree -->
-	{#if pageData.feature === 'Tailwind' && pageData.stylesheetIncludes?.length}
-		<aside class="alert card variant-glass">
-			<div class="alert-message">
-				<p>Provided by Skeleton's <code class="code">skeleton.css</code> stylesheet.</p>
-			</div>
-			<a href="/docs/get-started#stylesheets" class="btn btn-sm variant-filled">Reference</a>
-		</aside>
-	{/if}
+	<!-- {#if pageData.feature === 'Tailwind' && pageData.stylesheetIncludes?.length}
+		(target only Tailwind Element pages)
+	{/if} -->
 	<!-- Metadata Chips -->
 	<section class="flex flex-wrap gap-2">
 		<!-- Package -->
@@ -75,6 +70,13 @@
 			<a class={cChip} href={pageData.aria} target="_blank" rel="noreferrer">
 				<i class="fa-solid fa-universal-access text-[16px]" />
 				<span>WAI-ARIA</span>
+			</a>
+		{/if}
+		<!-- Transitions -->
+		{#if pageData.transitionIn || pageData.transitionOut}
+			<a class={cChip} href="/docs/transitions" title={`In: ${pageData.transitionIn}, Out: ${pageData.transitionOut}`}>
+				<i class="fa-solid fa-right-left text-[16px]" />
+				<span>Transitions</span>
 			</a>
 		{/if}
 		<!-- Dependencies -->

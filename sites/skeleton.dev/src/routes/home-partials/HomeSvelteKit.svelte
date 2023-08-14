@@ -2,7 +2,7 @@
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import { getImageLink } from '$lib/images';
 	// Utilities
-	import { modalStore, type ModalSettings } from '@skeletonlabs/skeleton';
+	import { getModalStore, type ModalSettings } from '@skeletonlabs/skeleton';
 	// Components
 	import { Accordion, AccordionItem, ListBox, ListBoxItem } from '@skeletonlabs/skeleton';
 	// Actions
@@ -13,6 +13,7 @@
 	// Local
 	let showcase = 'components';
 	const imgPlaceholder = `${getImageLink({ id: 'YOErFW8AfkI', w: 200, h: 200 })}`;
+	const modalStore = getModalStore();
 
 	function modalDemo(): void {
 		const modal: ModalSettings = {

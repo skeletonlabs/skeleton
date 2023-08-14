@@ -20,13 +20,13 @@
 
 <div>
 	<!-- Promo Banner -->
-	<div class="variant-filled-secondary p-4 flex justify-between items-center gap-4">
+	<!-- <div class="variant-filled-secondary p-4 flex justify-between items-center gap-4">
 		<div class="flex items-center gap-6">
 			<i class="fa-solid fa-cart-shopping text-xl" />
 			<p><strong>Skeleton Store</strong> now available! Get premium templates designed for Skeleton.</p>
 		</div>
 		<a class="btn variant-filled" href="https://store.skeleton.dev" target="_blank">Visit Store</a>
-	</div>
+	</div> -->
 
 	<!-- hero -->
 	<header id="hero" class="bg-surface-100-800-token hero-gradient">

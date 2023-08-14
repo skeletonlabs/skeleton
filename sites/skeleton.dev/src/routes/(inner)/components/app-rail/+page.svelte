@@ -131,7 +131,7 @@
 					<CodeBlock
 						language="html"
 						code={`
-<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="tile-1>
+<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="tile-1">
 	<svelte:fragment slot="lead">(icon)</svelte:fragment>
 	<span>Tile 1</span>
 </AppRailTile>

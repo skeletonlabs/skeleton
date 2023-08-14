@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { storeVercelProductionMode } from '$lib/stores/stores';
-	import { TableOfContents } from '@skeletonlabs/skeleton';
+	import { TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
 
 	// Props
 	export let sidebar = true;
-	export let tocKey: any = undefined;
+	export let tocKey: unknown = undefined;
 
 	// Classes
 	const cBase = 'page-padding flex items-start gap-10';
@@ -19,14 +19,14 @@
 
 <div class="layout-docs {classesBase}">
 	<!-- Content -->
-	<div class="layout-docs-content {classesColLeft}">
+	<div class="layout-docs-content {classesColLeft}" use:tocCrawler={{ mode: 'generate', scrollTarget: '#page', key: tocKey }}>
 		<slot />
 	</div>
 	<!-- Aside -->
 	{#if sidebar}
 		<!-- Ad Position -->
 		<aside class="layout-cols-aside {classesColRight}">
-			<!-- Production Ad -->
+			<!-- Ad Position (production only) -->
 			{#if $storeVercelProductionMode === true}
 				<script
 					async
@@ -34,17 +34,9 @@
 					src="//cdn.carbonads.com/carbon.js?serve=CWYD627U&placement=carbonadsnet"
 					id="_carbonads_js"
 				></script>
-				<!-- cspell:enable -->
-			{:else}
-				<!-- Staging Placeholder -->
-				<!-- <div class="bg-surface-50-900-token ring-[1px] ring-surface-500/10 w-[286px] h-[120px] flex justify-center items-center">
-					<span class="opacity-25">(ad)</span>
-				</div> -->
 			{/if}
 			<!-- Table of Contents -->
-			{#key tocKey}
-				<TableOfContents target=".layout-docs-content" minimumHeadings={1} />
-			{/key}
+			<TableOfContents>On the Page</TableOfContents>
 		</aside>
 	{/if}
 </div>

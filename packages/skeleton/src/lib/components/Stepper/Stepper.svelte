@@ -1,7 +1,17 @@
-<script lang="ts">
+<script lang="ts" context="module">
+	import { fade } from 'svelte/transition';
+	import { type Transition, type TransitionParams, prefersReducedMotionStore } from '../../index.js';
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type FadeTransition = typeof fade;
+	type TransitionIn = Transition;
+	type TransitionOut = Transition;
+</script>
+
+<script lang="ts" generics="TransitionIn extends Transition = FadeTransition, TransitionOut extends Transition = FadeTransition">
 	import { createEventDispatcher, setContext } from 'svelte';
 	import { type Writable, writable } from 'svelte/store';
-	import { fade } from 'svelte/transition';
+	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// Types
 	import type { CssClasses } from '../../index.js';
@@ -60,6 +70,33 @@
 	/** Provide arbitrary classes to the stepper content region. */
 	export let regionContent: CssClasses = '';
 
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition to used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = fade as TransitionIn;
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 100 };
+	/**
+	 * Provide the transition to used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = fade as TransitionOut;
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 100 };
+
 	// Stores
 	let state: Writable<StepperState> = writable({ current: start, total: 0 });
 
@@ -81,6 +118,12 @@
 	setContext('buttonComplete', buttonComplete);
 	setContext('buttonCompleteType', buttonCompleteType);
 	setContext('buttonCompleteLabel', buttonCompleteLabel);
+	// ---
+	setContext('transitions', transitions);
+	setContext('transitionIn', transitionIn);
+	setContext('transitionInParams', transitionInParams);
+	setContext('transitionOut', transitionOut);
+	setContext('transitionOutParams', transitionOutParams);
 
 	// Classes
 	const cBase = 'space-y-4';
@@ -101,7 +144,11 @@
 <div class="stepper {classesBase}" data-testid="stepper">
 	<!-- Header -->
 	{#if $state.total}
-		<header class="stepper-header {classesHeader}" transition:fade|local={{ duration: 100 }}>
+		<header
+			class="stepper-header {classesHeader}"
+			in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+			out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+		>
 			{#each Array.from(Array($state.total).keys()) as step}
 				<div class="stepper-header-step {classesHeaderStep}" class:flex-1={isActive(step)}>
 					<span class="badge {classesBadge(step)}">{isActive(step) ? `${stepTerm} ${step + 1}` : step + 1}</span>

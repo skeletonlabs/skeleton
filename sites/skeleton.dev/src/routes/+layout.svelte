@@ -20,11 +20,11 @@
 	import type { ModalComponent } from '@skeletonlabs/skeleton';
 
 	// Stores
-	import { storeTheme } from '$lib/stores/stores';
 	import { storePreview } from '$lib/layouts/DocsThemer/stores';
 
 	// Components & Utilities
-	import { AppShell, Modal, Toast } from '@skeletonlabs/skeleton';
+	import { AppShell, Modal, Toast, initializeStores, prefersReducedMotionStore } from '@skeletonlabs/skeleton';
+	initializeStores();
 
 	// Docs Components
 	import DocsAppBar from '$lib/components/DocsAppBar/DocsAppBar.svelte';
@@ -38,11 +38,6 @@
 	import ModalExampleEmbed from '$lib/modals/examples/ModalExampleEmbed.svelte';
 	import ModalExampleImage from '$lib/modals/examples/ModalExampleImage.svelte';
 
-	// Skeleton Stylesheets
-	// import '@skeletonlabs/skeleton/styles/all.css';
-	import '@skeletonlabs/skeleton/styles/skeleton.css';
-	// import '@skeletonlabs/skeleton/styles/skeleton-minimal.css';
-	// import '@skeletonlabs/skeleton/styles/partials/typography-prose.css';
 	// The Skeleton blog stylesheet
 	import '$lib/styles/blog.css';
 	// Global Stylesheets
@@ -53,7 +48,7 @@
 	export let data: LayoutServerData;
 	// Pass to Store for Ad Conditionals
 	// IMPORTANT: DO NOT MODIFY THIS UNLESS YOU KNOW WHAT YOU'RE DOING
-	import { storeVercelProductionMode } from '$lib/stores/stores';
+	import { storeTheme, storeVercelProductionMode } from '$lib/stores/stores';
 	storeVercelProductionMode.set(data.vercelEnv === 'production');
 	// Init Vercel Analytics
 	if ($storeVercelProductionMode) import('@vercel/analytics').then((mod) => mod.inject());
@@ -96,8 +91,8 @@
 	}
 
 	// Set body `data-theme` based on current theme status
-	storeTheme.subscribe(setBodyThemeAttribute);
 	storePreview.subscribe(setBodyThemeAttribute);
+	storeTheme.subscribe(setBodyThemeAttribute);
 	function setBodyThemeAttribute(): void {
 		if (!browser) return;
 		document.body.setAttribute('data-theme', $storePreview ? 'generator' : $storeTheme);
@@ -150,12 +145,10 @@
 			meta.twitter.image = post.twitter_image || post.feature_image;
 		}
 	});
-
 	// Reactive
-	// Current Theme Data
-	$: ({ currentTheme } = data);
 	// Disable left sidebar on homepage
 	$: slotSidebarLeft = matchPathWhitelist($page.url.pathname) ? 'w-0' : 'bg-surface-50-900-token lg:w-auto';
+	$: allyPageSmoothScroll = !$prefersReducedMotionStore ? 'scroll-smooth' : '';
 </script>
 
 <svelte:head>
@@ -191,9 +184,6 @@
 	<meta name="twitter:title" content={meta.twitter.title} />
 	<meta name="twitter:description" content={meta.twitter.description} />
 	<meta name="twitter:image" content={meta.twitter.image} />
-
-	<!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
-	{@html `\<style\>${currentTheme}}\</style\>`}
 </svelte:head>
 
 <!-- Overlays -->
@@ -202,7 +192,7 @@
 <DocsDrawer />
 
 <!-- App Shell -->
-<AppShell {slotSidebarLeft} regionPage="overflow-y-scroll" slotFooter="bg-black p-4">
+<AppShell {slotSidebarLeft} regionPage={allyPageSmoothScroll} slotFooter="bg-black p-4">
 	<!-- Header -->
 	<svelte:fragment slot="header">
 		<DocsAppBar />
