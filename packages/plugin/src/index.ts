@@ -16,7 +16,7 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 
 			// Base styles configuration
 			if (options?.base !== false) {
-				baseStyles = { ...base };
+				addBase(base);
 			}
 
 			// Custom Themes configuration

@@ -5,7 +5,7 @@
 </script>
 
 <section class="space-y-4">
-	<h2 class="h2">Install Skeleton</h2>
+	<h2 class="h2">Create Your Project</h2>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
 		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
@@ -14,36 +14,31 @@
 		<svelte:fragment slot="panel">
 			{#if $storeOnboardMethod === 'cli'}
 				<p>
-					If you're creating a new project we <u>highly recommend</u> this option. The CLI will not only scaffold a new SvelteKit project for
-					you, but automatically configure Skeleton, install Tailwind, and add optional dependencies on demand.
+					We <u>highly recommend</u> the Skeleton CLI for creating new Skeleton projects. This will automatically scaffold a new SvelteKit application,
+					install Tailwind, configure Skeleton, and more.
 				</p>
 				<CodeBlock
 					language="console"
 					code={`
 npm create skeleton-app@latest my-skeleton-app
-	- Enable SvelteKit's Typescript syntax (recommended)
+	- Enable Typescript when prompted (recommended)
 cd my-skeleton-app
 						`}
 				/>
 			{:else if $storeOnboardMethod === 'manual'}
 				<!-- prettier-ignore -->
 				<p>
-					If you have an existing SvelteKit application, skip to the next step. Otherwise let's create a <a class="anchor" href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">SvelteKit project</a>.
+					First we'll generate a new <a class="anchor" href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">SvelteKit project</a>. If you already have a SvelteKit project, skip to the next step.
 				</p>
 				<CodeBlock
 					language="console"
 					code={`
 npm create svelte@latest my-skeleton-app
+	- Enable Typescript when prompted (recommended)
 cd my-skeleton-app
 npm install
 		`}
 				/>
-				<!-- Install NPM Package -->
-				<!-- prettier-ignore -->
-				<p>
-					Install the packages for <a class="anchor" href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer">Skeleton</a> and the <a class="anchor" href="https://www.npmjs.com/package/@skeletonlabs/tw-plugin" target="_blank" rel="noreferrer">Skeleton Tailwind plugin</a>.
-				</p>
-				<CodeBlock language="console" code={`npm i -D @skeletonlabs/skeleton @skeletonlabs/tw-plugin`} />
 			{/if}
 		</svelte:fragment>
 	</TabGroup>
