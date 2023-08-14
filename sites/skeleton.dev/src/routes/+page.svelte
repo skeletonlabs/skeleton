@@ -20,13 +20,20 @@
 
 <div>
 	<!-- Promo Banner -->
-	<!-- <div class="variant-filled-secondary p-4 flex justify-between items-center gap-4">
-		<div class="flex items-center gap-6">
-			<i class="fa-solid fa-cart-shopping text-xl" />
-			<p><strong>Skeleton Store</strong> now available! Get premium templates designed for Skeleton.</p>
+	<div class="variant-filled-warning p-4">
+		<div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
+			<div class="flex items-center gap-6">
+				<span class="text-xl">🎉</span>
+				<p>The Skeleton v2.0 Release Candidate is now available!</p>
+			</div>
+			<div class="flex gap-4">
+				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/discussions/1845" target="_blank">What's New?</a>
+				<a class="btn variant-filled" href="https://skeleton-docs-git-v2-skeleton-labs.vercel.app/docs/get-started" target="_blank">
+					Docs &rarr;
+				</a>
+			</div>
 		</div>
-		<a class="btn variant-filled" href="https://store.skeleton.dev" target="_blank">Visit Store</a>
-	</div> -->
+	</div>
 
 	<!-- hero -->
 	<header id="hero" class="bg-surface-100-800-token hero-gradient">
