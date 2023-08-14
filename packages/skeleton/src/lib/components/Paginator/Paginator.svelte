@@ -95,7 +95,7 @@
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
 		dispatch('amount', settings.limit);
 
-		lastPage = Math.ceil(settings.size / settings.limit - 1);
+		lastPage = Math.max(0, Math.ceil(settings.size / settings.limit - 1));
 
 		// ensure page in limit range
 		if (settings.page > lastPage) {
