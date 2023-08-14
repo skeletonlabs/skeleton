@@ -28,16 +28,14 @@
 		"node": ">=14.16"
 	},
 	"scripts": {
-		"prep": "node scripts/prepare-templates.mjs",
+		"prep": "node scripts/prepare-templates.mjs  && pnpm format",
 		"dev": "node src/index.js -p=../../../atest --skeletontemplatedir=../../templates/",
 		"long": "node src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t crimson --skeletontemplate=welcome",
 		"pub:beta": "node scripts/prepare-templates.mjs && npm publish --tag beta",
 		"pub:next": "node scripts/prepare-templates.mjs && npm publish --tag next",
 		"pub:release": "node scripts/prepare-templates.mjs && npm publish",
-		"release": "node scripts/prepare-templates.mjs && npm publish",
 		"lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
-		"format": "prettier --plugin-search-dir . --write .",
-		"test": "node tests/create-all.mjs --experimental-fetch"
+		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"dependencies": {
 		"@clack/prompts": "^0.6.3",
