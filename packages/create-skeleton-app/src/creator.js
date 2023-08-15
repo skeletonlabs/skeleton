@@ -83,7 +83,7 @@ export async function createSkeleton(opts) {
 			throw err;
 		}
 	}
-	
+
 	// mri may only receive a single template and pass it to us as a string
 	if (typeof opts.skeletontheme === 'string') {
 		opts.skeletontheme = [opts.skeletontheme];
@@ -441,7 +441,6 @@ function copyTemplate(opts) {
 	src: url('/fonts/${fontFile}');
 	font-display: swap;
 }`;
-			console.log(`Copying font`, resolve(__dirname, '../fonts/', fontFile), join(cwd(), 'static', 'fonts', fontFile));
 			cpSync(resolve(__dirname, '../fonts/', fontFile), join(cwd(), 'static', 'fonts', fontFile));
 		}
 	}
