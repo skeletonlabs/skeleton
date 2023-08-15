@@ -210,7 +210,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [sveltekit(), purgeCss()]
 });
-`
+`;
 	writeFileSync(filename, contents);
 }
 
