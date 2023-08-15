@@ -17,10 +17,11 @@
 					We <u>highly recommend</u> the Skeleton CLI for creating new Skeleton projects. This will automatically scaffold a new SvelteKit application,
 					install Tailwind, configure Skeleton, and more.
 				</p>
+				<!-- TODO: revert to `@latest` tag when v2 RC test period ends! -->
 				<CodeBlock
 					language="console"
 					code={`
-npm create skeleton-app@latest my-skeleton-app
+npm create skeleton-app@rc my-skeleton-app
 	- Enable Typescript when prompted (recommended)
 cd my-skeleton-app
 						`}
