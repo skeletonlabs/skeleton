@@ -223,31 +223,40 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		if (opts.meta.type === 'premium') {
 			themeChoices.unshift({ label: 'Use templates built in theme', value: 'builtin' });
 		}
-		opts.skeletontheme = await select({
-			message: 'Select a theme:',
+		opts.skeletontheme = await multiselect({
+			message: 'Select a theme (top most selection will be default):',
 			options: themeChoices,
+			required: true,
 		});
 		goodbye(opts.skeletontheme);
 	}
-	if (opts.skeletontheme === 'custom') {
-		opts.skeletontheme = await text({
+
+	if (opts.skeletontheme.includes('custom')) {
+		let customName = await text({
 			message: 'Enter a name for your custom theme:',
-			placeholder: 'mytheme',
+			placeholder: 'theme_name',
 			validate(value) {
 				if (value.length === 0) {
 					return 'Please enter a name for your custom theme';
 				}
+				// regex to check if value can be used as a variable name, it cannot allow hyphens
+				if (!/^[a-zA-Z_$][a-zA-Z_$0-9]*$/.test(value)) {
+					return 'Name for theme must be a valid syntax for a Javascript variable name';
+				}
 			},
 		});
-		goodbye(opts.skeletontheme);
+		opts.skeletontheme.pop('custom');
+		opts.skeletontheme.push({ custom: customName });
+		goodbye();
 	}
+
 	// Additional packages to install - these can be influenced by the template selected
 	let packages = [
 		{ value: 'forms', label: 'Add Tailwind forms ?', package: '@tailwindcss/forms', force: false },
 		{ value: 'typography', label: 'Add Tailwind typography ?', package: '@tailwindcss/typography', force: false },
 		{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js) ?', package: 'highlight.js', force: false },
 		{ value: 'popups', label: 'Add Popups (installs floating-ui) ?', package: '@floating-ui/dom', force: false },
-		{ value: 'mdsvex', label: 'Add Markdown support (installs mdsvex) ?', package: 'mdsvex', force: false },
+		// { value: 'mdsvex', label: 'Add Markdown support (installs mdsvex) ?', package: 'mdsvex', force: false },
 	];
 	// Force the packages that are required by the template
 	packages.forEach((pkg) => {
@@ -274,7 +283,9 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			required: false,
 		});
 		goodbye(packages);
-		packageChoices.forEach((value) => (opts[value] = true));
+		if (Array.isArray(packageChoices)) {
+			packageChoices.forEach((value) => (opts[value] = true));
+		}
 	}
 
 	if (!('types' in opts)) {

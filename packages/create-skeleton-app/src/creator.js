@@ -5,6 +5,7 @@ import { join, resolve } from 'path';
 import { cwd, chdir } from 'process';
 import { mkdirp, setNestedValue, checkIfDirSafeToInstall, iit } from './utils.js';
 import { fileURLToPath } from 'url';
+
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 export const presetThemes = ['skeleton', 'modern', 'hamlindigo', 'rocket', 'sahara', 'gold-nouveau', 'vintage', 'seafoam', 'crimson'];
@@ -33,7 +34,7 @@ export class SkeletonOptions {
 		this.popups = false;
 		this.mdsvex = false;
 		this.inspector = false;
-		this.skeletontheme = 'skeleton';
+		this.skeletontheme = ['skeleton'];
 		this.skeletontemplate = 'skeleton-template-bare';
 		this.skeletontemplatedir = '../templates';
 		this.packagemanager = 'npm';
@@ -235,13 +236,21 @@ function createTailwindConfig(opts) {
 		plugins.push(`typography`);
 	}
 	pluginImports.push(`import { skeleton } from '@skeletonlabs/tw-plugin'`);
-	if (presetThemes.includes(opts.skeletontheme)) {
-		plugins.push(`skeleton({ themes: { preset: [{ name: '${opts.skeletontheme}', enhancements: true }] }})`);
-	} else {
-		pluginImports.push(`import { ${opts.skeletontheme} } from './src/${opts.skeletontheme}.js'`);
-		createCustomTheme(opts);
-		plugins.push(`skeleton({ themes: { custom: [${opts.skeletontheme}] }})`);
+	// Can't use JSON.stringify because we node code literals in there without everything being coerced to quoted strings
+	// space on the end is important
+	let presetConfig = '{ themes: { preset: [ ';
+	let customConfig = '';
+	for (const theme of opts.skeletontheme) {
+		if (typeof theme === 'string') {
+			presetConfig += `{ name: "${theme}", enhancements: true },`;
+		} else {
+			pluginImports.push(`import { ${theme.custom} } from './src/${theme.custom}.js'`);
+			customConfig = `, custom:[${theme.custom}]`;
+			createCustomTheme(opts, theme.custom);
+		}
 	}
+	const finalConfig = presetConfig.slice(0, -1) + ']' + customConfig + '}}';
+	plugins.push(`skeleton(${finalConfig})`);
 
 	const str = `import { join } from 'path'
 ${iit(opts.types == 'typescript', `import type { Config } from 'tailwindcss'`)}
@@ -257,14 +266,14 @@ module.exports = {
 	plugins: [${plugins.join(',')}],
 }${iit(opts.types == 'typescript', ' satisfies Config')};
 `;
-	writeFileSync(join(cwd(), 'tailwind.config.ts'), str);
+	writeFileSync(join(cwd(), `tailwind.config.${iit(opts.types == 'typescript', 'ts', 'js')}`), str);
 }
 
-function createCustomTheme(opts) {
+function createCustomTheme(opts, name) {
 	const str = `// You can also use the generator at https://skeleton.dev/docs/generator to create these values for you
 ${iit(opts.types == 'typescript', `import type { CustomThemeConfig } from '@skeletonlabs/tw-plugin';`)}
-export const ${opts.skeletontheme}${iit(opts.types == 'typescript', ': CustomThemeConfig')} = {
-	name: '${opts.skeletontheme}',
+export const ${name}${iit(opts.types == 'typescript', ': CustomThemeConfig')} = {
+	name: '${name}',
 	properties: {
 		// =~= Theme Properties =~=
 		"--theme-font-family-base": "system-ui",
@@ -362,7 +371,7 @@ export const ${opts.skeletontheme}${iit(opts.types == 'typescript', ': CustomThe
 		"--color-surface-900": "36 44 70", // #242c46
 	}
 }`;
-	let filename = opts.skeletontheme + '.js';
+	let filename = name + iit(opts.types == 'typescript', '.ts', '.js');
 	writeFileSync(join('src', filename), str);
 }
 function createPostCssConfig() {
@@ -389,41 +398,45 @@ function copyTemplate(opts) {
 	// Themes can by applied to any template, so we can't have the fonts as part of the templates themselves.
 	let fontFamily = '';
 	let fontFile = '';
-	switch (opts.skeletontheme) {
-		case 'gold-nouveau':
-		case 'modern':
-		case 'seasonal':
-			fontFamily = 'Quicksand';
-			fontFile = 'Quicksand.ttf';
-			break;
-		case 'rocket':
-			fontFamily = 'Space Grotesk';
-			fontFile = 'SpaceGrotesk.ttf';
-			break;
-		case 'seafoam':
-			fontFamily = 'Playfair Display';
-			fontFile = 'PlayfairDisplay-Italic.ttf';
-			break;
-		case 'vintage':
-			fontFamily = 'Abril Fatface';
-			fontFile = 'AbrilFatface.ttf';
-			break;
-		default:
-			fontFamily = '';
-			fontFile = '';
-	}
-	if (fontFamily !== '') {
-		appendFileSync(
-			join(cwd(), 'src', 'app.postcss'),
-			`
+	let addedFontConfig = '';
+	for (const theme of opts.skeletontheme) {
+		switch (theme) {
+			case 'gold-nouveau':
+			case 'modern':
+			case 'seasonal':
+				fontFamily = 'Quicksand';
+				fontFile = 'Quicksand.ttf';
+				break;
+			case 'rocket':
+				fontFamily = 'Space Grotesk';
+				fontFile = 'SpaceGrotesk.ttf';
+				break;
+			case 'seafoam':
+				fontFamily = 'Playfair Display';
+				fontFile = 'PlayfairDisplay-Italic.ttf';
+				break;
+			case 'vintage':
+				fontFamily = 'Abril Fatface';
+				fontFile = 'AbrilFatface.ttf';
+				break;
+			default:
+				fontFamily = '';
+				fontFile = '';
+		}
+		if (fontFamily !== '') {
+			addedFontConfig += `
+/* ${theme} theme */
 @font-face {
 	font-family: '${fontFamily}';
 	src: url('/fonts/${fontFile}');
 	font-display: swap;
-}`,
-		);
-		cpSync(resolve(__dirname, '../fonts/', fontFile), join(cwd(), 'static', 'fonts', fontFile));
+}`;
+			console.log(`Copying font`, resolve(__dirname, '../fonts/', fontFile), join(cwd(), 'static', 'fonts', fontFile));
+			cpSync(resolve(__dirname, '../fonts/', fontFile), join(cwd(), 'static', 'fonts', fontFile));
+		}
 	}
+	appendFileSync(join(cwd(), 'src', 'app.postcss'), addedFontConfig);
+
 	const layoutFile = resolve(cwd(), 'src/routes/+layout.svelte');
 	// patch back in their theme choice - it may have been replaced by the theme template, it may still be the correct auto-genned one, depends on the template - we don't care, this fixes it.
 	let content = readFileSync(layoutFile, { encoding: 'utf8' });
@@ -463,7 +476,13 @@ function copyTemplate(opts) {
 	// Update the data-theme attribute in the app.html file
 	content = readFileSync(resolve(opts.path, 'src/app.html'), { encoding: 'utf8' });
 	const dataThemeRegex = /data-theme=".*"/gim;
-	writeFileSync(resolve(opts.path, 'src/app.html'), content.replace(dataThemeRegex, `data-theme="${opts.skeletontheme}"`));
+	let activeTheme = 'skeleton';
+	if (typeof opts.skeletontheme[0] === 'string') {
+		activeTheme = opts.skeletontheme[0];
+	} else {
+		activeTheme = opts.skeletontheme[0].custom;
+	}
+	writeFileSync(resolve(opts.path, 'src/app.html'), content.replace(dataThemeRegex, `data-theme="${activeTheme}"`));
 }
 
 function createTestConfig() {
