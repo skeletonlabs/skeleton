@@ -203,9 +203,14 @@ export default config;`;
 
 function createViteConfig(opts) {
 	const filename = join(cwd(), opts.types == 'typescript' ? 'vite.config.ts' : 'vite.config.js');
-	let contents = `import { purgeCss } from 'vite-plugin-tailwind-purgecss';\n`;
-	contents += readFileSync(filename);
-	contents = contents.replace(/sveltekit\(\),/, 'sveltekit(), purgeCss()');
+	let contents = `import { purgeCss } from 'vite-plugin-tailwind-purgecss';
+import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+	plugins: [sveltekit(), purgeCss()]
+});
+`
 	writeFileSync(filename, contents);
 }
 
