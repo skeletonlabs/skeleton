@@ -83,6 +83,11 @@ export async function createSkeleton(opts) {
 			throw err;
 		}
 	}
+	
+	// mri may only receive a single template and pass it to us as a string
+	if (typeof opts.skeletontheme === 'string') {
+		opts.skeletontheme = [opts.skeletontheme];
+	}
 
 	await modifyPackageJson(opts);
 	// write out config files
