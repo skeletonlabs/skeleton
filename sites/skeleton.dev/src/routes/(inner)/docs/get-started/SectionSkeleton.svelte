@@ -24,7 +24,8 @@
 				<p>
 					Install the packages for <a class="anchor" href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer">Skeleton</a> and the <a class="anchor" href="https://www.npmjs.com/package/@skeletonlabs/tw-plugin" target="_blank" rel="noreferrer">Skeleton Tailwind plugin</a>.
 				</p>
-				<CodeBlock language="console" code={`npm i -D @skeletonlabs/skeleton @skeletonlabs/tw-plugin`} />
+				<!-- TODO: revert to `@latest` tag when v2 RC test period ends! -->
+				<CodeBlock language="console" code={`npm i -D @skeletonlabs/skeleton@rc @skeletonlabs/tw-plugin@rc`} />
 			{/if}
 		</svelte:fragment>
 	</TabGroup>
