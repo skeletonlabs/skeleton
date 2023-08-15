@@ -1,5 +1,19 @@
 # @skeletonlabs/skeleton
 
+## 1.12.0
+
+### Minor Changes
+
+- feat: Added `regionLabel` prop to Radio Groups ([#1836](https://github.com/skeletonlabs/skeleton/pull/1836))
+
+### Patch Changes
+
+- bugfix: `autocomplete` fixed reactive update when allow and deny lists are empty. ([#1825](https://github.com/skeletonlabs/skeleton/pull/1825))
+
+- bugfix: Fixed `.bg-hover-primary-token` color in dark mode. ([#1824](https://github.com/skeletonlabs/skeleton/pull/1824))
+
+- bugfix: InputChips updates bound value only once. ([#1768](https://github.com/skeletonlabs/skeleton/pull/1768))
+
 ## 1.11.0
 
 ### Minor Changes
