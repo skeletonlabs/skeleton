@@ -61,7 +61,7 @@
 	// Local
 	$: listedOptions = options;
 
-	function filterByAllowDeny() {
+	function filterByAllowDeny(allowlist: unknown[], denylist: unknown[]) {
 		let _options = [...options];
 		// Allowed Options
 		if (allowlist.length) {
@@ -102,7 +102,7 @@
 	}
 
 	// State
-	$: if (allowlist.length || denylist.length) filterByAllowDeny();
+	$: filterByAllowDeny(allowlist, denylist);
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
 	$: sliceLimit = limit !== undefined ? limit : optionsFiltered.length;
 	// Reactive

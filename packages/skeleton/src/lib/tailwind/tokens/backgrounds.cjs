@@ -18,7 +18,7 @@ module.exports = () => {
 		// Hover
 		// Example: .bg-primary-hover-token
 		classes[`.bg-${n}-hover-token:hover`] = { 'background-color': `rgb(var(--color-${n}-500) / ${hoverAlpha})` };
-		classes[`.dark .bg-${n}-hover-token:hover`] = { 'background-color': `rgb(var(--color-${n}-200) / ${hoverAlpha})` };
+		classes[`.dark .bg-${n}-hover-token:hover`] = { 'background-color': `rgb(var(--color-${n}-500) / ${hoverAlpha})` };
 
 		// Active
 		// Example: .bg-primary-active-token
