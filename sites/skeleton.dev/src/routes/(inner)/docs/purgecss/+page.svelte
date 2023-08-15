@@ -51,7 +51,7 @@
 		<!-- prettier-ignore -->
 		<aside class="alert variant-ghost">
             <p>
-                Last updated for <code class="code">v0.0.3</code>. View <a href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank" class="anchor">GitHub</a> for the the latest instructions.
+                Last updated for <code class="code">v0.1.0</code>. View <a href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank" class="anchor">GitHub</a> for the the latest instructions.
             </p>
         </aside>
 		<h3 class="h3">Installation</h3>
