@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 2.0.0-rc.1
+
+### Patch Changes
+
+- bugfix: Fixed an issue where the paginator page would be set to -1 if the size was 0 ([#1861](https://github.com/skeletonlabs/skeleton/pull/1861))
+
 ## 2.0.0-rc.0
 
 ### Major Changes
