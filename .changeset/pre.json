@@ -1,31 +1,30 @@
 {
-  "mode": "pre",
-  "tag": "rc",
-  "initialVersions": {
-    "create-skeleton-app": "0.0.44",
-    "@skeletonlabs/tw-plugin": "0.0.0",
-    "@skeletonlabs/skeleton": "1.11.0",
-    "skeleton.dev": "1.0.1"
-  },
-  "changesets": [
-    "calm-dryers-peel",
-    "clean-roses-vanish",
-    "clean-tables-boil",
-    "fast-queens-travel",
-    "flat-insects-film",
-    "forty-cobras-leave",
-    "forty-seahorses-tan",
-    "fresh-carrots-lick",
-    "fresh-crews-drum",
-    "kind-sheep-look",
-    "light-pumpkins-worry",
-    "loud-fans-serve",
-    "new-zebras-share",
-    "real-plums-collect",
-    "shy-suits-provide",
-    "slimy-ads-talk",
-    "spicy-horses-wonder",
-    "spotty-cows-travel",
-    "twenty-spoons-hope"
-  ]
+	"mode": "pre",
+	"tag": "rc",
+	"initialVersions": {
+		"create-skeleton-app": "0.0.44",
+		"@skeletonlabs/tw-plugin": "0.0.0",
+		"@skeletonlabs/skeleton": "1.11.0",
+		"skeleton.dev": "1.0.1"
+	},
+	"changesets": [
+		"calm-dryers-peel",
+		"clean-roses-vanish",
+		"clean-tables-boil",
+		"fast-queens-travel",
+		"flat-insects-film",
+		"forty-cobras-leave",
+		"forty-seahorses-tan",
+		"fresh-carrots-lick",
+		"fresh-crews-drum",
+		"kind-sheep-look",
+		"light-pumpkins-worry",
+		"loud-fans-serve",
+		"real-plums-collect",
+		"shy-suits-provide",
+		"slimy-ads-talk",
+		"spicy-horses-wonder",
+		"spotty-cows-travel",
+		"twenty-spoons-hope"
+	]
 }
