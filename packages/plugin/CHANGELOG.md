@@ -1,5 +1,11 @@
 # @skeletonlabs/tw-plugin
 
+## 0.0.1-rc.3
+
+### Patch Changes
+
+- chore: Fix release tag ([#1730](https://github.com/skeletonlabs/skeleton/pull/1730))
+
 ## 0.0.1-rc.2
 
 ### Patch Changes
