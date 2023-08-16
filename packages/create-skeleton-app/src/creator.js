@@ -44,7 +44,7 @@ export class SkeletonOptions {
 			['tailwindcss', 'latest'],
 			['@skeletonlabs/skeleton', '2.0.0-rc.1'],
 			['@skeletonlabs/tw-plugin', '0.0.1-rc.3'],
-			['vite-plugin-tailwind-purgecss', 'latest']
+			['vite-plugin-tailwind-purgecss', 'latest'],
 		]);
 
 		// props below are private to the Skeleton team
