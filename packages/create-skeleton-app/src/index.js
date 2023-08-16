@@ -5,7 +5,7 @@ import mri from 'mri';
 import { bold, cyan, gray, grey, red } from 'kleur/colors';
 import { intro, text, select, multiselect, spinner } from '@clack/prompts';
 import { dist, getHelpText, goodbye, whichPMRuns, checkIfDirSafeToInstall } from './utils.js';
-import path, { resolve, join } from 'path';
+import { resolve, join, relative, dirname, basename } from 'path';
 import semver from 'semver';
 import fg from 'fast-glob';
 
@@ -71,7 +71,7 @@ async function main() {
 		}
 		let finalInstructions = bold(cyan(`\nDone! You can now:\n\n`));
 		if (startPath != opts.path) {
-			finalInstructions += bold(cyan(`cd ${path.relative(startPath, opts.path)}\n`));
+			finalInstructions += bold(cyan(`cd ${relative(startPath, opts.path)}\n`));
 		}
 		finalInstructions += bold(cyan(runString));
 		finalInstructions += grey(`Need some help or found an issue? Visit us on Discord https://discord.gg/EXqV7W8MtY`);
@@ -155,7 +155,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		goodbye(opts.path);
 	}
 	// name to set in package.json
-	opts.name = opts.path;
+	opts.name = basename(opts.path);
 
 	// Skeleton Template Selection
 	// We have to ask for the template first as it may dictate things like required packages and typechecking
@@ -203,7 +203,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			Object.assign(opts, val);
 		});
 	}
-	opts.skeletontemplatedir = path.dirname(opts.skeletontemplate);
+	opts.skeletontemplatedir = dirname(opts.skeletontemplate);
 
 	// If it's a premium template, wording needs to be change to indicate that there is a theme already built in
 	// Skeleton Theme Selection

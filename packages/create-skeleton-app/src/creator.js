@@ -42,7 +42,9 @@ export class SkeletonOptions {
 			['postcss', 'latest'],
 			['autoprefixer', 'latest'],
 			['tailwindcss', 'latest'],
-			['@skeletonlabs/skeleton', 'latest'],
+			['@skeletonlabs/skeleton', '2.0.0-rc.1'],
+			['@skeletonlabs/tw-plugin', '0.0.1-rc.3'],
+			['vite-plugin-tailwind-purgecss', 'latest'],
 		]);
 
 		// props below are private to the Skeleton team
@@ -113,15 +115,8 @@ async function modifyPackageJson(opts) {
 	let pkgJson = JSON.parse(readFileSync(pkgPath));
 
 	// add required packages
-	for (const pkg of [
-		'postcss',
-		'autoprefixer',
-		'tailwindcss',
-		'@skeletonlabs/skeleton',
-		'@skeletonlabs/tw-plugin',
-		'vite-plugin-tailwind-purgecss',
-	]) {
-		setNestedValue(pkgJson, ['devDependencies', pkg], 'latest');
+	for (const [pkg, version] of opts.devDependencies) {
+		setNestedValue(pkgJson, ['devDependencies', pkg], version);
 	}
 
 	// Extra packages and scripts for a monorepo install
