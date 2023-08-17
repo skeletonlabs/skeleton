@@ -87,6 +87,7 @@ const modern = {
 		'--color-surface-800': '59 61 145',
 		'--color-surface-900': '49 50 118'
 	},
+	properties_dark: {},
 	enhancements: {
 		"[data-theme='modern'] h1,\n[data-theme='modern'] h2,\n[data-theme='modern'] h3,\n[data-theme='modern'] h4,\n[data-theme='modern'] h5,\n[data-theme='modern'] h6,\n[data-theme='modern'] a,\n[data-theme='modern'] button":
 			{ fontWeight: 'bold' },

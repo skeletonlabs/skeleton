@@ -88,6 +88,7 @@ const seafoam = {
 		'--color-surface-800': '22 125 127',
 		'--color-surface-900': '18 102 104'
 	},
+	properties_dark: {},
 	enhancements: {
 		"[data-theme='seafoam'] h1,\n[data-theme='seafoam'] h2,\n[data-theme='seafoam'] h3,\n[data-theme='seafoam'] h4,\n[data-theme='seafoam'] h5,\n[data-theme='seafoam'] h6":
 			{ fontWeight: 'bold', fontStyle: 'italic', letterSpacing: '1px' },

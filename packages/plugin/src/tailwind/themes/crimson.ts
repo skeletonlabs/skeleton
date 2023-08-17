@@ -88,6 +88,7 @@ const crimson = {
 		'--color-surface-800': '26 28 38',
 		'--color-surface-900': '21 23 31'
 	},
+	properties_dark: {},
 	enhancements: {}
 } satisfies Theme;
 
