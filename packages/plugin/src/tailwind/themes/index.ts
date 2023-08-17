@@ -20,7 +20,12 @@ export function getThemeProperties(themeName: PresetTheme) {
 export type ObjectValues<T> = T[keyof T];
 export type ObjectKeys<T> = keyof T;
 
-export type Theme = { properties: ThemeProperties; enhancements: CSSRuleObject };
+export type Theme = {
+	properties: ThemeProperties;
+	properties_dark: Partial<ThemeProperties>;
+	enhancements: CSSRuleObject;
+};
+
 export type ThemeProperties = {
 	/* =~= Theme Properties =~= */
 	'--theme-font-family-base': string;

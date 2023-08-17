@@ -88,6 +88,7 @@ const hamlindigo = {
 		'--color-surface-800': '59 71 98',
 		'--color-surface-900': '49 58 80'
 	},
+	properties_dark: {},
 	enhancements: {
 		"[data-theme='hamlindigo']": {
 			backgroundImage:

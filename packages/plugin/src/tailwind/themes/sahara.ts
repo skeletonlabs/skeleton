@@ -89,6 +89,7 @@ const sahara = {
 		'--color-surface-800': '131 47 61',
 		'--color-surface-900': '107 38 49'
 	},
+	properties_dark: {},
 	enhancements: {
 		"[data-theme='sahara'] h1,\n[data-theme='sahara'] h2,\n[data-theme='sahara'] h3,\n[data-theme='sahara'] h4,\n[data-theme='sahara'] h5,\n[data-theme='sahara'] h6":
 			{ fontWeight: '600' },

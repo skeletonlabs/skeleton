@@ -87,6 +87,7 @@ const rocket = {
 		'--color-surface-800': '60 70 83',
 		'--color-surface-900': '49 57 68'
 	},
+	properties_dark: {},
 	enhancements: {
 		"[data-theme='rocket'] h1,\n[data-theme='rocket'] h2,\n[data-theme='rocket'] h3,\n[data-theme='rocket'] h4,\n[data-theme='rocket'] h5,\n[data-theme='rocket'] h6":
 			{ fontWeight: 'bold' },

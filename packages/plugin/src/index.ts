@@ -23,6 +23,7 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 			options?.themes?.custom?.forEach((theme) => {
 				// it's a custom theme
 				baseStyles[`:root [data-theme='${theme.name}']`] = theme.properties;
+				if (theme.properties_dark) baseStyles[`.dark [data-theme='${theme.name}']`] = theme.properties_dark;
 			});
 
 			// Preset Themes configuration
@@ -32,12 +33,14 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 					const themeName = theme;
 					// we only want the properties
 					baseStyles[`:root [data-theme='${themeName}']`] = themes[themeName].properties;
+					baseStyles[`.dark [data-theme='${themeName}']`] = themes[themeName].properties_dark;
 					return;
 				}
 
 				// it's a preset theme
 				if (!('properties' in theme)) {
 					baseStyles[`:root [data-theme='${theme.name}']`] = themes[theme.name].properties;
+					baseStyles[`.dark [data-theme='${theme.name}']`] = themes[theme.name].properties_dark;
 
 					if (theme.enhancements === true) {
 						// enhancements are opt-in

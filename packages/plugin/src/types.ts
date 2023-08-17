@@ -121,6 +121,10 @@ export type CustomThemeConfig = {
 	 * }
 	 */
 	properties: ThemeProperties;
+	/**
+	 * Optional properties that are applied in dark mode.
+	 */
+	properties_dark?: Partial<ThemeProperties>;
 };
 
 export type PresetThemeConfig = {
