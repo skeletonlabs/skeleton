@@ -204,7 +204,8 @@
 		<div>
 			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'sponsor' }}>
-				<span>Sponsor</span>
+				<i class="fa-solid fa-heart text-lg md:!hidden" />
+				<span class="hidden md:inline-block">Sponsor</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
 			<!-- popup -->
@@ -262,7 +263,7 @@
 		<div class="md:inline md:ml-4">
 			<button class="btn space-x-4 variant-soft hover:variant-soft-primary" on:click={triggerSearch}>
 				<i class="fa-solid fa-magnifying-glass text-sm" />
-				<small>{isOsMac ? '⌘' : 'Ctrl'}+K</small>
+				<small class="hidden md:inline-block">{isOsMac ? '⌘' : 'Ctrl'}+K</small>
 			</button>
 		</div>
 
