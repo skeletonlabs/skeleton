@@ -1,5 +1,11 @@
 # @skeletonlabs/tw-plugin
 
+## 0.1.0-rc.4
+
+### Minor Changes
+
+- feat: Added optional properties that are applied in dark mode ([#1896](https://github.com/skeletonlabs/skeleton/pull/1896))
+
 ## 0.0.1-rc.3
 
 ### Patch Changes
