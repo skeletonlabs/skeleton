@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { writeFile } from 'fs/promises';
 import postcss from 'postcss';
 import postcssJs from 'postcss-js';
-import type { Theme } from '../src/tailwind/themes';
+import type { PresetTheme } from '../src/tailwind/themes';
 
 // Converts a theme's .css file into a .ts file.
 export async function convertTheme(name: string) {
@@ -17,9 +17,11 @@ export async function convertTheme(name: string) {
 	delete cssInJs[':root'];
 
 	const theme = {
+		name,
 		properties: properties,
-		enhancements: { ...cssInJs }
-	} satisfies Theme;
+		enhancements: { ...cssInJs },
+		properties_dark: {}
+	} satisfies PresetTheme;
 
 	// Creates the generated CSS-in-JS file
 	await writeFile(

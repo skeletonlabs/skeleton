@@ -1,6 +1,7 @@
-import type { Theme } from './index.js';
+import type { PresetTheme } from './index.js';
 
 const seafoam = {
+	name: 'seafoam',
 	properties: {
 		'--theme-font-family-base':
 			"Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,\n\t\t'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -107,6 +108,6 @@ const seafoam = {
 			backgroundSize: 'cover'
 		}
 	}
-} satisfies Theme;
+} satisfies PresetTheme;
 
 export default seafoam;

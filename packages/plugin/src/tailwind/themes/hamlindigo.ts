@@ -1,6 +1,7 @@
-import type { Theme } from './index.js';
+import type { PresetTheme } from './index.js';
 
 const hamlindigo = {
+	name: 'hamlindigo',
 	properties: {
 		'--theme-font-family-base':
 			"Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,\n\t\t'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -99,6 +100,6 @@ const hamlindigo = {
 				"url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%233b4762' fill-opacity='0.2'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E\")"
 		}
 	}
-} satisfies Theme;
+} satisfies PresetTheme;
 
 export default hamlindigo;

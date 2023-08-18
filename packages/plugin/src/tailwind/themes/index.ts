@@ -7,22 +7,27 @@ import sahara from './sahara.js';
 import seafoam from './seafoam.js';
 import skeleton from './skeleton.js';
 import vintage from './vintage.js';
+import wintry from './wintry.js';
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
 
-export const themes = { crimson, 'gold-nouveau': goldNouveau, hamlindigo, modern, rocket, sahara, seafoam, skeleton, vintage };
+export const themes = { crimson, 'gold-nouveau': goldNouveau, hamlindigo, modern, rocket, sahara, seafoam, skeleton, vintage, wintry };
 
-export type PresetTheme = ObjectKeys<typeof themes>;
+export type PresetThemeName = ObjectKeys<typeof themes>;
 
-export function getThemeProperties(themeName: PresetTheme) {
+export function getThemeProperties(themeName: PresetThemeName) {
 	return themes[themeName].properties;
 }
 
 export type ObjectValues<T> = T[keyof T];
 export type ObjectKeys<T> = keyof T;
 
-export type Theme = {
+export type BaseTheme = {
+	name: string;
 	properties: ThemeProperties;
 	properties_dark: Partial<ThemeProperties>;
+};
+
+export type PresetTheme = BaseTheme & {
 	enhancements: CSSRuleObject;
 };
 

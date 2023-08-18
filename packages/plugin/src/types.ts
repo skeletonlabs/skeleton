@@ -1,4 +1,4 @@
-import type { PresetTheme, ThemeProperties } from './tailwind/themes';
+import type { BaseTheme, PresetThemeName, ThemeProperties } from './tailwind/themes';
 
 export type ConfigOptions = {
 	/**
@@ -71,10 +71,10 @@ export type ThemeConfig = {
 	 * ]
 	 *
 	 */
-	preset?: Array<PresetThemeConfig | PresetTheme>;
+	preset?: Array<PresetThemeConfig | PresetThemeName>;
 };
 
-export type CustomThemeConfig = {
+export type CustomThemeConfig = BaseTheme & {
 	/**
 	 * The name of your custom theme.
 	 *
@@ -131,7 +131,7 @@ export type PresetThemeConfig = {
 	/**
 	 * Name of one of our provided theme presets.
 	 */
-	name: PresetTheme;
+	name: PresetThemeName;
 	/**
 	 * Whether to include the preset theme enhancements. Disabled by default.
 	 *

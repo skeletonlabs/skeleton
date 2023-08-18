@@ -1,6 +1,7 @@
-import type { Theme } from './index.js';
+import type { PresetTheme } from './index.js';
 
 const goldNouveau = {
+	name: 'gold-nouveau',
 	properties: {
 		'--theme-font-family-base': 'system-ui, sans-serif',
 		'--theme-font-family-heading': "'Quicksand', sans-serif",
@@ -112,6 +113,6 @@ const goldNouveau = {
 			backgroundSize: 'cover'
 		}
 	}
-} satisfies Theme;
+} satisfies PresetTheme;
 
 export default goldNouveau;
