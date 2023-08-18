@@ -1,6 +1,7 @@
-import type { Theme } from './index.js';
+import type { PresetTheme } from './index.js';
 
 const wintry = {
+	name: 'wintry',
 	properties: {
 		'--theme-font-family-heading': 'Inter, system-ui, sans-serif',
 		'--theme-font-family-base': 'system-ui',
@@ -104,6 +105,6 @@ const wintry = {
 				'radial-gradient(at 50% 0%, rgba(var(--color-secondary-500) / 0.18) 0px, transparent 75%), radial-gradient(at 100% 0%, rgba(var(--color-tertiary-500) / 0.18) 0px, transparent 50%)'
 		}
 	}
-} satisfies Theme;
+} satisfies PresetTheme;
 
 export default wintry;
