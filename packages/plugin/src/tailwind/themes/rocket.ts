@@ -1,6 +1,7 @@
-import type { Theme } from './index.js';
+import type { PresetTheme } from './index.js';
 
 const rocket = {
+	name: 'rocket',
 	properties: {
 		'--theme-font-family-base': 'system-ui',
 		'--theme-font-family-heading': "'Space Grotesk', sans-serif",
@@ -100,6 +101,6 @@ const rocket = {
 			backgroundSize: 'cover'
 		}
 	}
-} satisfies Theme;
+} satisfies PresetTheme;
 
 export default rocket;

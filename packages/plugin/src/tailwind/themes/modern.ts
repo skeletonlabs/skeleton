@@ -1,6 +1,7 @@
-import type { Theme } from './index.js';
+import type { PresetTheme } from './index.js';
 
 const modern = {
+	name: 'modern',
 	properties: {
 		'--theme-font-family-base': "'Quicksand', sans-serif",
 		'--theme-font-family-heading': "'Quicksand', sans-serif",
@@ -108,6 +109,6 @@ const modern = {
 			backgroundSize: 'cover'
 		}
 	}
-} satisfies Theme;
+} satisfies PresetTheme;
 
 export default modern;

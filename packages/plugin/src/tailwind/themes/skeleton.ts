@@ -1,6 +1,7 @@
-import type { Theme } from './index.js';
+import type { PresetTheme } from './index.js';
 
 const skeleton = {
+	name: 'skeleton',
 	properties: {
 		'--theme-font-family-base': 'system-ui',
 		'--theme-font-family-heading': 'system-ui',
@@ -100,6 +101,6 @@ const skeleton = {
 			backgroundSize: 'cover'
 		}
 	}
-} satisfies Theme;
+} satisfies PresetTheme;
 
 export default skeleton;
