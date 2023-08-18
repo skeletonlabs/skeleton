@@ -56,6 +56,7 @@
 
 	const themes = [
 		{ type: 'skeleton', name: 'Skeleton', icon: '💀' },
+		{ type: 'wintry', name: 'Wintry', icon: '🌨️', badge: 'New' },
 		{ type: 'modern', name: 'Modern', icon: '🤖' },
 		{ type: 'rocket', name: 'Rocket', icon: '🚀' },
 		{ type: 'seafoam', name: 'Seafoam', icon: '🧜‍♀️' },
@@ -174,7 +175,7 @@
 					<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
 						<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
 							<ul>
-								{#each themes as { icon, name, type }}
+								{#each themes as { icon, name, type, badge }}
 									<li>
 										<button
 											class="option w-full h-full"
@@ -184,7 +185,8 @@
 											class:bg-primary-active-token={$storeTheme === type}
 										>
 											<span>{icon}</span>
-											<span>{name}</span>
+											<span class="flex-auto text-left">{name}</span>
+											{#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if}
 										</button>
 									</li>
 								{/each}

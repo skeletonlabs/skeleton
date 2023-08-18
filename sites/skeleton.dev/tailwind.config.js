@@ -32,7 +32,8 @@ export default {
 					{ name: 'sahara', enhancements: true },
 					{ name: 'seafoam', enhancements: true },
 					{ name: 'skeleton', enhancements: true },
-					{ name: 'vintage', enhancements: true }
+					{ name: 'vintage', enhancements: true },
+					{ name: 'wintry', enhancements: true }
 				]
 			}
 		})
