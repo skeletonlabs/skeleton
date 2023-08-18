@@ -36,7 +36,7 @@
 			['<code class="code">.rounded-token</code>', '', 'Border radius for small elements: buttons, badges, chips, etc.'],
 			['<code class="code">.rounded-[corner]-token</code>', vCorners, 'Corner border radius styles for small elements.'],
 			['<code class="code">.rounded-container-token</code>', '', 'Border radius for large elements, such as cards and textareas'],
-			['<code class="code">.rounded-[corner]-container-token</code>', vCorners, 'Corner border radius styles large small elements.']
+			['<code class="code">.rounded-[corner]-container-token</code>', vCorners, 'Corner border radius styles for large elements.']
 		]
 	};
 	const tableBorder: TableSource = {
