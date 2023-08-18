@@ -17,8 +17,10 @@ export async function convertTheme(name: string) {
 	delete cssInJs[':root'];
 
 	const theme = {
+		name,
 		properties: properties,
-		enhancements: { ...cssInJs }
+		enhancements: { ...cssInJs },
+		properties_dark: {}
 	} satisfies PresetTheme;
 
 	// Creates the generated CSS-in-JS file
