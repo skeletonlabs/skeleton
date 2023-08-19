@@ -5,10 +5,22 @@ import { join, resolve } from 'path';
 import { cwd, chdir } from 'process';
 import { mkdirp, setNestedValue, checkIfDirSafeToInstall, iit } from './utils.js';
 import { fileURLToPath } from 'url';
+import JSON5 from 'json5';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
-export const presetThemes = ['skeleton', 'modern', 'hamlindigo', 'rocket', 'sahara', 'gold-nouveau', 'vintage', 'seafoam', 'crimson'];
+export const presetThemes = [
+	'skeleton',
+	'wintry',
+	'modern',
+	'hamlindigo',
+	'rocket',
+	'sahara',
+	'gold-nouveau',
+	'vintage',
+	'seafoam',
+	'crimson',
+];
 // NOTE: Any changes here must also be reflected in the --help output in utils.js and shortcut expansions in index.js.
 // Probably a good idea to do a search on the values you are changing to catch any other areas they are used in
 
@@ -43,7 +55,7 @@ export class SkeletonOptions {
 			['autoprefixer', 'latest'],
 			['tailwindcss', 'latest'],
 			['@skeletonlabs/skeleton', '2.0.0-rc.1'],
-			['@skeletonlabs/tw-plugin', '0.0.1-rc.3'],
+			['@skeletonlabs/tw-plugin', '0.1.0-rc.5'],
 			['vite-plugin-tailwind-purgecss', 'latest'],
 		]);
 
@@ -228,7 +240,7 @@ async function createVSCodeSettings() {
 	}
 }
 
-function createTailwindConfig(opts) {
+export function createTailwindConfig(opts) {
 	let plugins = [];
 	let pluginImports = [];
 
@@ -241,34 +253,36 @@ function createTailwindConfig(opts) {
 		plugins.push(`typography`);
 	}
 	pluginImports.push(`import { skeleton } from '@skeletonlabs/tw-plugin'`);
-	// Can't use JSON.stringify because we node code literals in there without everything being coerced to quoted strings
-	// space on the end is important
-	let presetConfig = '{ themes: { preset: [ ';
-	let customConfig = '';
+	// Can't use JSON.stringify because we need code literals in there without everything being coerced to quoted strings
+
+	let configs = { themes: { preset: [], custom: [] } };
 	for (const theme of opts.skeletontheme) {
 		if (typeof theme === 'string') {
-			presetConfig += `{ name: "${theme}", enhancements: true },`;
+			configs.themes.preset.push({ name: theme, enhancements: true });
 		} else {
-			pluginImports.push(`import { ${theme.custom} } from './src/${theme.custom}.js'`);
-			customConfig = `, custom:[${theme.custom}]`;
+			pluginImports.push(`import { ${theme.custom} } from './src/${theme.custom}'`);
+			configs.themes.custom.push(theme.custom);
 			createCustomTheme(opts, theme.custom);
 		}
 	}
-	const finalConfig = presetConfig.slice(0, -1) + ']' + customConfig + '}}';
-	plugins.push(`skeleton(${finalConfig})`);
+	if (configs.themes.preset.length == 0) delete configs.themes.preset;
+	if (configs.themes.custom.length == 0) delete configs.themes.custom;
+	let configsStr = JSON5.stringify(configs, { space: '\t' });
+	configsStr = configsStr.replace(/^/gm, `\t\t`).slice(2);
+
+	plugins.push(`skeleton(${configsStr}),`);
 
 	const str = `import { join } from 'path'
 ${iit(opts.types == 'typescript', `import type { Config } from 'tailwindcss'`)}
-${pluginImports.join('\n')}
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+${pluginImports.join(';\n')}
+${iit(opts.types == 'checkjs', `/** @type {import('tailwindcss').Config} */`)}
+export default {
 	darkMode: 'class',
 	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],
 	theme: {
 		extend: {},
 	},
-	plugins: [${plugins.join(',')}],
+	plugins: [\n\t\t${plugins.join(',\n\t\t')}\n\t\],
 }${iit(opts.types == 'typescript', ' satisfies Config')};
 `;
 	writeFileSync(join(cwd(), `tailwind.config.${iit(opts.types == 'typescript', 'ts', 'js')}`), str);

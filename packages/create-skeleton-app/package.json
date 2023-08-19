@@ -1,6 +1,6 @@
 {
 	"name": "create-skeleton-app",
-	"version": "0.0.46-rc.3",
+	"version": "0.0.46-rc.6",
 	"description": "Use this CLI app to setup a new Skeleton application in a new SvelteKit project.",
 	"keywords": [
 		"skeleton",
@@ -29,10 +29,11 @@
 	},
 	"scripts": {
 		"prep": "node scripts/prepare-templates.mjs && pnpm format",
+		"tw": "node scripts/tw.mjs",
 		"dev": "node src/index.js -p=../../../atest --skeletontemplatedir=../../templates/",
 		"long": "node src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t crimson --skeletontemplate=welcome",
 		"pub:beta": "pnpm prep && npm publish --tag beta",
-		"pub:next": "pnpm prep && npm publish --tag next",
+		"pub:rc": "pnpm prep && npm publish --tag rc",
 		"pub:release": "pnpm prep && npm publish",
 		"lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
 		"format": "prettier --plugin-search-dir . --write ."
@@ -46,7 +47,8 @@
 		"got": "^13.0.0",
 		"kleur": "^4.1.5",
 		"mri": "^1.2.0",
-		"semver": "^7.5.4"
+		"semver": "^7.5.4",
+		"json5": "^2.2.3"
 	},
 	"devDependencies": {
 		"archiver": "^5.3.1",
