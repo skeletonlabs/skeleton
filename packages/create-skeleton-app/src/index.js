@@ -210,6 +210,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	if (!('skeletontheme' in opts)) {
 		let themeChoices = [
 			{ label: 'Skeleton', value: 'skeleton' },
+			{ label: 'Wintry', value: 'wintry' },
 			{ label: 'Modern', value: 'modern' },
 			{ label: 'Hamlindigo', value: 'hamlindigo' },
 			{ label: 'Rocket', value: 'rocket' },
