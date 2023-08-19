@@ -23,6 +23,9 @@ dependencies:
   got:
     specifier: ^13.0.0
     version: 13.0.0
+  json5:
+    specifier: ^2.2.3
+    version: 2.2.3
   kleur:
     specifier: ^4.1.5
     version: 4.1.5
@@ -43,9 +46,6 @@ devDependencies:
   eslint-config-prettier:
     specifier: ^8.10.0
     version: 8.10.0(eslint@8.46.0)
-  json5:
-    specifier: ^2.2.3
-    version: 2.2.3
 
 packages:
 
@@ -793,7 +793,7 @@ packages:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
     engines: {node: '>=6'}
     hasBin: true
-    dev: true
+    dev: false
 
   /jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
