@@ -1,5 +1,11 @@
 # @skeletonlabs/tw-plugin
 
+## 0.1.0-rc.5
+
+### Minor Changes
+
+- feat: Added a new `wintry` preset theme ([#1902](https://github.com/skeletonlabs/skeleton/pull/1902))
+
 ## 0.1.0-rc.4
 
 ### Minor Changes
