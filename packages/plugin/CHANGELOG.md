@@ -1,5 +1,11 @@
 # @skeletonlabs/tw-plugin
 
+## 0.1.0-rc.6
+
+### Patch Changes
+
+- fix: `properties_dark` for `CustomThemeConfig` is now optional ([#1911](https://github.com/skeletonlabs/skeleton/pull/1911))
+
 ## 0.1.0-rc.5
 
 ### Minor Changes
