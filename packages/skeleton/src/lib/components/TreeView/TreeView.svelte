@@ -81,40 +81,6 @@
 			}
 		});
 	}
-	/**
-	 * select all tree view items. Only available in Multiple selection mode.
-	 * @type {() => void}
-	 */
-	export function selectAll(): void {
-		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
-		detailsElements.forEach((details) => {
-			const input: HTMLInputElement | null = details.querySelector('input[type="checkbox"].tree-item-checkbox');
-			if (!input) return;
-			if (!input.checked) {
-				// needs delay
-				setTimeout(() => {
-					input.click();
-				}, 5);
-			}
-		});
-	}
-	/**
-	 * deselect all tree view items. Only available in Multiple selection mode.
-	 * @type {() => void}
-	 */
-	export function deselectAll(): void {
-		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
-		detailsElements.forEach((details) => {
-			const input: HTMLInputElement | null = details.querySelector('input[type="checkbox"].tree-item-checkbox');
-			if (!input) return;
-			if (input.checked) {
-				// needs delay
-				setTimeout(() => {
-					input.click();
-				}, 5);
-			}
-		});
-	}
 
 	// Context API
 	setContext('open', open);
@@ -149,7 +115,7 @@
 	aria-disabled={disabled}
 >
 	{#if nodes && nodes.length > 0}
-		<TreeViewDataDrivenItem bind:nodes />
+		<TreeViewDataDrivenItem bind:nodes on:change on:click on:toggle on:keydown on:keyup />
 	{:else}
 		<slot />
 	{/if}
