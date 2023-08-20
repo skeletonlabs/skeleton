@@ -74,7 +74,7 @@ export type ThemeConfig = {
 	preset?: Array<PresetThemeConfig | PresetThemeName>;
 };
 
-export type CustomThemeConfig = BaseTheme & {
+export type CustomThemeConfig = {
 	/**
 	 * The name of your custom theme.
 	 *
