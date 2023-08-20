@@ -123,6 +123,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 			if (args.state) args.state({ state: popupState.open });
 			// Update the DOM
 			elemPopup.style.opacity = '0';
+			elemPopup.style.pointerEvents = 'none';
 			// disable popup interactions
 			elemPopup.setAttribute('inert', '');
 			// Cleanup Floating UI autoUpdate (close only)
