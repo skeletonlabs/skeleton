@@ -66,8 +66,8 @@
 		}
 	});
 
-	// update nodes when the group change
-	$: if (group) {
+	// Functionality
+	function onGroupChange() {
 		if (multiple) {
 			nodes.forEach((node) => {
 				if (!Array.isArray(group)) return;
@@ -98,6 +98,7 @@
 			bind:indeterminate={node.indeterminate}
 			bind:value={node.value}
 			bind:children={children[i]}
+			on:change={onGroupChange}
 			on:change
 			on:click
 			on:toggle

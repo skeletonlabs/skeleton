@@ -66,9 +66,6 @@
 	let childrenMultiple: TreeViewItem[] = [];
 
 	let expandTree: TreeView;
-	let selectTree: TreeView;
-
-	let selectMultiple: string[] = [];
 
 	let simpleDD: TreeViewNode[] = [
 		{
