@@ -133,8 +133,8 @@
 
 	// Local
 	let inputValid = true;
-	let chipValues: Array<{ val: (typeof value)[0]; id: number }> =
-		value?.map((val) => {
+	let chipValues: Array<{ val: (typeof value)[0]; id: number }> = [];
+	$: chipValues = value?.map((val) => {
 			return { val: val, id: Math.random() };
 		}) || [];
 
