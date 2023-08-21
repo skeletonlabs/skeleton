@@ -44,7 +44,7 @@ export function tocCrawler(node: HTMLElement, args?: TOCCrawlerArgs) {
 					.replaceAll(/[^a-zA-Z0-9 ]/g, '')
 					.replaceAll(' ', '-')
 					.toLowerCase();
-				elemHeading.id = newHeadingId || '';
+				elemHeading.id = `toc-${newHeadingId}`;
 			}
 			// Push heading data to the permalink array
 			permalinks.push({
