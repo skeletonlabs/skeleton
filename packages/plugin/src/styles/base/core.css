@@ -38,7 +38,7 @@ html {
 	@apply rounded-token bg-surface-400-500-token;
 }
 ::-webkit-scrollbar-corner {
-	@apply bg-transparent;
+	@apply !bg-surface-50-900-token;
 }
 
 /* Firefox */
