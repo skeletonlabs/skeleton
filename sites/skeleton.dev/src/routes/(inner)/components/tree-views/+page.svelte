@@ -825,9 +825,9 @@ let myTreeViewNodes: TreeViewNode[] = [
 		open: true,
 		indeterminate: true,
 		children: [
-			{ content: 'Clean Code', checked: true },
+			{ content: 'Clean Code' },
 			{ content: 'The Clean Coder', checked: true },
-			{ content: 'The Art of Unix Programming' },
+			{ content: 'The Art of Unix Programming', checked: true },
 		]
 	},
 	// ...

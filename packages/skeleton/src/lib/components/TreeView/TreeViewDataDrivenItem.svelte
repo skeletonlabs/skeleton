@@ -41,7 +41,7 @@
 						// all children are checked => check item
 						else if (node.children.every((c) => c.checked)) {
 							node.indeterminate = false;
-							node.checked = true;
+							group = [...group, node.value];
 						}
 						// not all children are checked => indeterminate item
 						else if (node.children.some((c) => c.checked)) {
