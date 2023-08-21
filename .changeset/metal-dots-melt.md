@@ -2,4 +2,4 @@
 "@skeletonlabs/tw-plugin": patch
 ---
 
-bugfix:Scrollbar corners now have a transparent background.
+bugfix: Webkit scrollbars corners now match track background coloring
