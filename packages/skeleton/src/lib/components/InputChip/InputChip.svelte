@@ -198,8 +198,6 @@
 		// Append value to array
 		value.push(input);
 		value = value;
-		chipValues.push({ val: input, id: Math.random() });
-		chipValues = chipValues;
 		/** @event {{ event: Event, chipIndex: number, chipValue: string }} add - Fires when a chip is added. */
 		dispatch('add', { event, chipIndex: value.length - 1, chipValue: input });
 		// Clear input value
@@ -211,8 +209,6 @@
 		// Remove value from array
 		value.splice(chipIndex, 1);
 		value = value;
-		chipValues.splice(chipIndex, 1);
-		chipValues = chipValues;
 		/** @event {{ event: Event, chipIndex: number, chipValue: string }} remove - Fires when a chip is removed. */
 		dispatch('remove', { event, chipIndex, chipValue });
 	}
