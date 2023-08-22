@@ -14,7 +14,7 @@
 	 */
 	export let name: string;
 	/** Provide classes to set the width. */
-	export let width: CssClasses = 'w-full';
+	export let width: CssClasses = '';
 	/** Provide a button variant or other class styles. */
 	export let button: CssClasses = 'btn variant-filled';
 

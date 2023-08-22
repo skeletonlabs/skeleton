@@ -72,12 +72,22 @@
 					<div class="btn-group-vertical variant-filled">
 						<button>Update</button>
 						<button>Delete</button>
-						<FileButton name="files" button="">Upload</FileButton>
+						<FileButton name="files" button="" width="w-full">Upload</FileButton>
 						<button>Download</button>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<FileButton name="files" button="">Upload</FileButton>`} />
+					<CodeBlock
+						language="html"
+						code={`
+<div class="btn-group-vertical variant-filled">
+	<button>Update</button>
+	<button>Delete</button>
+	<FileButton name="files" button="" width="w-full">Upload</FileButton>
+	<button>Download</button>
+</div>
+					`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
