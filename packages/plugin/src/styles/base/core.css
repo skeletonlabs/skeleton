@@ -37,6 +37,9 @@ html {
 ::-webkit-scrollbar-thumb {
 	@apply rounded-token bg-surface-400-500-token;
 }
+::-webkit-scrollbar-corner {
+	@apply !bg-surface-50-900-token;
+}
 
 /* Firefox */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
