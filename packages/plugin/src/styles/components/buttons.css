@@ -80,9 +80,9 @@
 	/* === Button Groups === */
 
 	.btn-group {
-		@apply inline-flex overflow-hidden !space-x-0 rounded-token;
+		@apply inline-flex overflow-hidden space-x-0 rounded-token;
 		/* Safari: hover overflow fix for border radius */
-		isolation: isolate;
+		/* isolation: isolate; */
 	}
 	.btn-group-vertical {
 		@apply btn-group flex-col space-y-0 rounded-container-token;
@@ -95,9 +95,23 @@
 	.btn-group a,
 	.btn-group-vertical button,
 	.btn-group-vertical a {
-		@apply button-base-styles hover:bg-blend-lighten active:bg-blend-darken !border-0;
+		@apply  button-base-styles hover:bg-blend-lighten active:bg-blend-darken !border-0;
 		/* Reset Anchor Styles */
 		@apply !no-underline;
+	}
+
+	/* Horizontal Button / Anchors */
+	.btn-group button,
+	.btn-group a {
+		/* Handle rounding of first and last button */
+		@apply first:rounded-tl-token first:rounded-bl-token last:rounded-tr-token last:rounded-br-token
+	}
+	
+	/* Horizontal Button / Anchors */
+	.btn-group-vertical button,
+	.btn-group-vertical a {
+		/* Handle rounding of first and last button */
+		@apply first:rounded-tl-token first:rounded-tr-token last:rounded-bl-token last:rounded-br-token
 	}
 
 	/* Set Neutral Divider */
