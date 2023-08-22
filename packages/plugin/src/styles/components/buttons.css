@@ -80,7 +80,7 @@
 	/* === Button Groups === */
 
 	.btn-group {
-		@apply inline-flex flex-row space-x-0 overflow-hidden rounded-token;
+		@apply inline-flex overflow-hidden !space-x-0 rounded-token;
 		/* Safari: hover overflow fix for border radius */
 		isolation: isolate;
 	}
@@ -95,9 +95,9 @@
 	.btn-group a,
 	.btn-group-vertical button,
 	.btn-group-vertical a {
-		@apply button-base-styles hover:bg-surface-50/[3%] active:bg-surface-900/[3%];
+		@apply button-base-styles hover:bg-blend-lighten active:bg-blend-darken !border-0;
 		/* Reset Anchor Styles */
-		@apply !no-underline !text-inherit;
+		@apply !no-underline;
 	}
 
 	/* Set Neutral Divider */

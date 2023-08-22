@@ -193,6 +193,44 @@
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+			<p>Button groups with different styles</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex flex-col gap-8">
+						<div class="btn-group">
+							<button class="variant-filled-primary">Create</button>
+							<button class="variant-filled-success">Read</button>
+							<button class="variant-filled-warning">Update</button>
+							<button class="variant-filled-error">Delete</button>
+						</div>
+						<div class="btn-group">
+							<button class="variant-ghost-primary">Create</button>
+							<button class="variant-ghost-success">Read</button>
+							<button class="variant-ghost-warning">Update</button>
+							<button class="variant-ghost-error">Delete</button>
+						</div>
+						<div class="btn-group">
+							<button class="variant-soft-primary">Create</button>
+							<button class="variant-soft-success">Read</button>
+							<button class="variant-soft-warning">Update</button>
+							<button class="variant-soft-error">Delete</button>
+						</div>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<div class="btn-group">
+	<button class="variant-filled-primary">Create</button>
+	<button class="variant-filled-success">Read</button>
+	<button class="variant-filled-warning">Update</button>
+	<button class="variant-filled-error">Delete</button>
+</div>
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">SvelteKit Link Options</h2>
