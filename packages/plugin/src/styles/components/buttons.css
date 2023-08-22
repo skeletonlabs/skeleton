@@ -95,7 +95,7 @@
 	.btn-group a,
 	.btn-group-vertical button,
 	.btn-group-vertical a {
-		@apply  button-base-styles hover:bg-blend-lighten active:bg-blend-darken !border-0;
+		@apply button-base-styles hover:bg-blend-lighten active:bg-blend-darken !border-0;
 		/* Reset Anchor Styles */
 		@apply !no-underline;
 	}
@@ -104,14 +104,14 @@
 	.btn-group button,
 	.btn-group a {
 		/* Handle rounding of first and last button */
-		@apply first:rounded-tl-token first:rounded-bl-token last:rounded-tr-token last:rounded-br-token
+		@apply first:rounded-tl-token first:rounded-bl-token last:rounded-tr-token last:rounded-br-token;
 	}
 
 	/* Vertical Button / Anchors */
 	.btn-group-vertical button,
 	.btn-group-vertical a {
 		/* Handle rounding of first and last button */
-		@apply first:rounded-tl-container-token first:rounded-tr-container-token last:rounded-bl-container-token last:rounded-br-container-token
+		@apply first:rounded-tl-container-token first:rounded-tr-container-token last:rounded-bl-container-token last:rounded-br-container-token;
 	}
 
 	/* Set Neutral Divider */
