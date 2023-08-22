@@ -60,10 +60,10 @@
 	 * @type {() => void}
 	 */
 	export function expandAll(): void {
-		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
+		const detailsElements = tree.querySelectorAll<HTMLDetailsElement>('details.tree-item');
 		detailsElements.forEach((details) => {
 			if (!details.open) {
-				const summary: HTMLElement | null = details.querySelector('summary.tree-item-summary');
+				const summary = details.querySelector<HTMLElement>('summary.tree-item-summary');
 				if (summary) summary.click();
 			}
 		});
@@ -73,10 +73,10 @@
 	 * @type {() => void}
 	 */
 	export function collapseAll(): void {
-		const detailsElements = [...tree.querySelectorAll('details.tree-item')] as HTMLDetailsElement[];
+		const detailsElements = tree.querySelectorAll<HTMLDetailsElement>('details.tree-item');
 		detailsElements.forEach((details) => {
 			if (details.open) {
-				const summary: HTMLElement | null = details.querySelector('summary.tree-item-summary');
+				const summary = details.querySelector<HTMLElement>('summary.tree-item-summary');
 				if (summary) summary.click();
 			}
 		});
