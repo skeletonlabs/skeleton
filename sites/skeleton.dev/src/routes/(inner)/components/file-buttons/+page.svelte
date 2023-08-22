@@ -57,10 +57,37 @@
 			<p>Use the <code class="code">button</code> property to provide classes for the button, such as variant styles.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<FileButton name="files" button="variant-soft-primary">Upload</FileButton>
+					<FileButton name="files" button="btn variant-soft-primary">Upload</FileButton>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<FileButton name="files" button="variant-soft-primary">Upload</FileButton>`} />
+					<CodeBlock language="html" code={`<FileButton name="files" button="btn variant-soft-primary">Upload</FileButton>`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Usage with Button Groups</h2>
+			<p>Button Groups expect the child button elements to be native <code class="code">button</code> elements without styles.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="btn-group-vertical variant-filled">
+						<button>Update</button>
+						<button>Delete</button>
+						<FileButton name="files" button="" width="w-full">Upload</FileButton>
+						<button>Download</button>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<div class="btn-group-vertical variant-filled">
+	<button>Update</button>
+	<button>Delete</button>
+	<FileButton name="files" button="" width="w-full">Upload</FileButton>
+	<button>Download</button>
+</div>
+					`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
