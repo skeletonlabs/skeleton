@@ -230,7 +230,7 @@
 				if (!open) open = true;
 				else if ($$slots.children && !hideChildren) {
 					// focus on first child
-					const child = childrenDiv.querySelector('details>summary') as HTMLElement;
+					const child = childrenDiv.querySelector<HTMLElement>('details>summary');
 					if (child) child.focus();
 				}
 				break;
@@ -239,7 +239,7 @@
 				else {
 					// focus on parent
 					const parent = treeItem.parentElement?.parentElement;
-					if (parent && parent.tagName === 'DETAILS') (parent.querySelector('summary') as HTMLElement).focus();
+					if (parent && parent.tagName === 'DETAILS') parent.querySelector<HTMLElement>('summary')?.focus();
 				}
 				break;
 			case 'Home':
