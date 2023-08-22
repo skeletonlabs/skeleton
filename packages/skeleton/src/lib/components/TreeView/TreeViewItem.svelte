@@ -101,7 +101,8 @@
 		const index = group.indexOf(value);
 		if (checked) {
 			if (index < 0) {
-				group = [...group, value];
+				group.push(value);
+				group = group;
 			}
 		} else {
 			if (index >= 0) {
@@ -127,7 +128,8 @@
 			else if (childrenValues.every((c) => Array.isArray(childrenGroup) && childrenGroup.includes(c))) {
 				indeterminate = false;
 				if (index < 0) {
-					group = [...group, value];
+					group.push(value);
+					group = group;
 				}
 			}
 			// not all children are checked => indeterminate item

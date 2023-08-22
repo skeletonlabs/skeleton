@@ -41,7 +41,8 @@
 						// all children are checked => check item
 						else if (node.children.every((c) => c.checked)) {
 							node.indeterminate = false;
-							group = [...group, node.value];
+							group.push(node.value);
+							group = group;
 						}
 						// not all children are checked => indeterminate item
 						else if (node.children.some((c) => c.checked)) {
@@ -53,7 +54,8 @@
 							node.checked = false;
 						}
 					} else if (node.checked) {
-						group = [...group, node.value];
+						group.push(node.value);
+						group = group;
 					}
 				});
 				// single selection mode
