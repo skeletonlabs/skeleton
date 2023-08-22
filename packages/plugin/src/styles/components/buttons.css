@@ -85,7 +85,7 @@
 		/* isolation: isolate; */
 	}
 	.btn-group-vertical {
-		@apply btn-group flex-col space-y-0 rounded-container-token;
+		@apply inline-flex flex-col overflow-hidden space-0 rounded-container-token;
 		/* Safari: hover overflow fix for border radius */
 		isolation: isolate;
 	}
@@ -106,12 +106,12 @@
 		/* Handle rounding of first and last button */
 		@apply first:rounded-tl-token first:rounded-bl-token last:rounded-tr-token last:rounded-br-token
 	}
-	
-	/* Horizontal Button / Anchors */
+
+	/* Vertical Button / Anchors */
 	.btn-group-vertical button,
 	.btn-group-vertical a {
 		/* Handle rounding of first and last button */
-		@apply first:rounded-tl-token first:rounded-tr-token last:rounded-bl-token last:rounded-br-token
+		@apply first:rounded-tl-container-token first:rounded-tr-container-token last:rounded-bl-container-token last:rounded-br-container-token
 	}
 
 	/* Set Neutral Divider */
