@@ -79,7 +79,7 @@
 				code={`
 <!-- Before: -->
 <h2 class="h2">Title One</h2>
-<h2 class="h2" id="my-custom-id">Title Two</h2>\n
+<h2 class="h2" id="toc-my-custom-id">Title Two</h2>\n
 <!-- After: -->
 <h2 class="h2" id="title-one">Title One</h2>
 <h2 class="h2" id="my-custom-id">Title Two</h2>
