@@ -76,6 +76,7 @@
 		@apply border-token border-surface-400-500-token focus:border-primary-500;
 	}
 	.checkbox:checked,
+	.checkbox:indeterminate,
 	.radio:checked {
 		@apply bg-primary-500 hover:bg-primary-500 focus:bg-primary-500 focus:ring-0;
 	}
