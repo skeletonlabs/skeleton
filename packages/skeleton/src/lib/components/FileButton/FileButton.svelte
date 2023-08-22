@@ -14,12 +14,9 @@
 	 */
 	export let name: string;
 	/** Provide classes to set the width. */
-	export let width: CssClasses = '';
+	export let width: CssClasses = 'w-full';
 	/** Provide a button variant or other class styles. */
-	export let button: CssClasses = 'variant-filled';
-
-	// Classes
-	const cButton = 'btn';
+	export let button: CssClasses = 'btn variant-filled';
 
 	// Local
 	let elemFileInput: HTMLElement;
@@ -35,7 +32,7 @@
 
 	// Reactive
 	$: classesBase = `${$$props.class ?? ''}`;
-	$: classesButton = `${cButton} ${button} ${width}`;
+	$: classesButton = `${button} ${width}`;
 </script>
 
 <div class="file-button {classesBase}" data-testid="file-button">
