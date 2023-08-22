@@ -1,6 +1,5 @@
 ---
-"skeleton.dev": patch
 "@skeletonlabs/skeleton": patch
 ---
 
-Allow unstyled File Buttons
+Chore: Update file button `button` prop to allow for unstyled buttons
