@@ -60,7 +60,7 @@
 					<FileButton name="files" button="btn variant-soft-primary">Upload</FileButton>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<FileButton name="files" button="variant-soft-primary">Upload</FileButton>`} />
+					<CodeBlock language="html" code={`<FileButton name="files" button="btn variant-soft-primary">Upload</FileButton>`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
