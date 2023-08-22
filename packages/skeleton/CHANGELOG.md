@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton
 
+## 2.0.0-rc.2
+
+### Patch Changes
+
+- Chore: Update file button `button` prop to allow for unstyled buttons ([#1919](https://github.com/skeletonlabs/skeleton/pull/1919))
+
+- bugfix: fix background color of checkbox in indeterminate state ([#1917](https://github.com/skeletonlabs/skeleton/pull/1917))
+
 ## 2.0.0-rc.1
 
 ### Patch Changes

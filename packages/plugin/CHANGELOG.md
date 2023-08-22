@@ -1,5 +1,11 @@
 # @skeletonlabs/tw-plugin
 
+## 0.1.0-rc.7
+
+### Patch Changes
+
+- bugfix: Webkit scrollbars corners now match track background coloring ([#1908](https://github.com/skeletonlabs/skeleton/pull/1908))
+
 ## 0.1.0-rc.6
 
 ### Patch Changes
