@@ -223,7 +223,7 @@ export const myCustomTheme: CustomThemeConfig = {
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
 				{#each $storeThemGenForm.colors as colorRow, i}
-					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_200px] gap-2 lg:gap-4">
+					<div class="grid grid-cols-1 lg:grid-cols-[185px_1fr_200px] gap-2 lg:gap-4">
 						<label class="label">
 							<span>{colorRow.label}</span>
 							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
