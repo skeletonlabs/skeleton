@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 2.0.0-rc.3
+
+### Patch Changes
+
+- bugfix: Updates to the relational Tree View now work as expected ([#1910](https://github.com/skeletonlabs/skeleton/pull/1910))
+
 ## 2.0.0-rc.2
 
 ### Patch Changes
