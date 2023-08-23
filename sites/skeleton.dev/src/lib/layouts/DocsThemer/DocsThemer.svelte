@@ -12,11 +12,11 @@
 
 	// Local Utils
 	import { storePreview } from './stores';
-	import { storeTheme } from '$lib/stores/stores';
 	import type { ColorSettings, FormTheme, ContrastReport } from './types';
 	import { inputSettings, fontSettings } from './settings';
 	import { type Palette, generatePalette, generateA11yOnColor, hexValueIsValid, getPassReport } from './colors';
 	import type { PopupSettings } from '@skeletonlabs/skeleton';
+	import { generateAnalogousColors, generateComplementaryColors, generateHighContrastColors, generateMonochromaticColors, generateNeutralWithAccentColors, generatePastelColors, generateRandomHexColors, generateSplitComplementaryColors, generateTetradicColors, generateTriadicColors, randomHexCode } from './colorTheories';
 
 	// Stores
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
@@ -66,12 +66,28 @@
 			}
 		});
 	}
+		
+	const colorTheories = {
+		"Random": generateRandomHexColors,
+		"Complementary": generateComplementaryColors,
+		"Analogous": generateAnalogousColors,
+		"Triadic": generateTriadicColors,
+		"Split Complementary": generateSplitComplementaryColors,
+		"Tetradic": generateTetradicColors,
+		"Monochromatic": generateMonochromaticColors,
+		"Neutral With Accents": generateNeutralWithAccentColors,
+		"Pastel": generatePastelColors,
+		"High Contrast": generateHighContrastColors,
+	};
+	let selectedColorTheory: keyof typeof colorTheories = "Random";
 
 	function randomize(): void {
+		const baseColor = randomHexCode();
+		const colors = colorTheories[selectedColorTheory](baseColor, 7 )
 		$storeThemGenForm.colors.forEach((_, i: number) => {
-			const randomHexCode = '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0');
-			$storeThemGenForm.colors[i].hex = randomHexCode;
-			$storeThemGenForm.colors[i].on = generateA11yOnColor(randomHexCode);
+			const currentHex = colors[i];
+			$storeThemGenForm.colors[i].hex = currentHex;
+			$storeThemGenForm.colors[i].on = generateA11yOnColor(currentHex);
 		});
 	}
 
@@ -216,6 +232,16 @@ export const myCustomTheme: CustomThemeConfig = {
 			<header class="p-4 col-span-2 flex justify-between items-center">
 				<div class="flex items-center space-x-4">
 					<LightSwitch />
+				</div>
+				<div>
+					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+						<div class="input-group-shim">Color Theory</div>
+						<select class="select" bind:value={selectedColorTheory}>
+							{#each Object.keys(colorTheories) as colorTheory}
+								<option value={colorTheory}>{colorTheory}</option>
+							{/each}
+						</select>
+					</div>	
 				</div>
 				<button class="btn variant-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
 			</header>
