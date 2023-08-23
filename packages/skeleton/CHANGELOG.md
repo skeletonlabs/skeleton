@@ -4,9 +4,9 @@
 
 ### Patch Changes
 
-- Chore: Update file button `button` prop to allow for unstyled buttons ([#1919](https://github.com/skeletonlabs/skeleton/pull/1919))
+- chore: Update file button `button` prop to allow for unstyled buttons ([#1919](https://github.com/skeletonlabs/skeleton/pull/1919))
 
-- bugfix: fix background color of checkbox in indeterminate state ([#1917](https://github.com/skeletonlabs/skeleton/pull/1917))
+- bugfix: Fixed background color of checkbox in indeterminate state ([#1917](https://github.com/skeletonlabs/skeleton/pull/1917))
 
 ## 2.0.0-rc.1
 
@@ -20,9 +20,9 @@
 
 - breaking: Introduced dynamic transitions for various components ([#1533](https://github.com/skeletonlabs/skeleton/pull/1533))
 
-- breaking: removed deprecated `whitelist` and `blacklist` properties from the Autocomplete component ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
+- breaking: Removed deprecated `whitelist` and `blacklist` properties from the Autocomplete component ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
 
-- breaking: removed the long-deprecated Skeleton Data Table feature ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
+- breaking: Removed the long-deprecated Skeleton Data Table feature ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
 
 - breaking: Refactored global stores to use contexts for `Toast`, `Drawer`, and `Modal` utilities ([#1831](https://github.com/skeletonlabs/skeleton/pull/1831))
 
@@ -30,13 +30,21 @@
 
 - breaking: Table of Contents component has been reimplemented from the ground up ([#1832](https://github.com/skeletonlabs/skeleton/pull/1832))
 
-- breaking: removed all references to Skeleton's legacy typography system, including `typography-prose.css` and `.unstyled` ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
+- breaking: Removed all references to Skeleton's legacy typography system, including `typography-prose.css` and `.unstyled` ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
 
-- breaking: renamed the Paginator `offset` property to `page` for better semantics ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
+- breaking: Renamed the Paginator `offset` property to `page` for better semantics ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
 
 ### Minor Changes
 
 - feat: Added `tree-view` single/multi selection mode, Enabled `data-driven` for tree-view. ([#1779](https://github.com/skeletonlabs/skeleton/pull/1779))
+
+### Patch Changes
+
+- bugfix: prevent `Paginator` from resetting it's page on length change. ([#1837](https://github.com/skeletonlabs/skeleton/pull/1837))
+
+## 1.12.0
+
+### Minor Changes
 
 - feat: Added `regionLabel` prop to Radio Groups ([#1836](https://github.com/skeletonlabs/skeleton/pull/1836))
 
@@ -45,8 +53,6 @@
 - bugfix: `autocomplete` fixed reactive update when allow and deny lists are empty. ([#1825](https://github.com/skeletonlabs/skeleton/pull/1825))
 
 - bugfix: Fixed `.bg-hover-primary-token` color in dark mode. ([#1824](https://github.com/skeletonlabs/skeleton/pull/1824))
-
-- bugfix: prevent `Paginator` from resetting it's page on length change. ([#1837](https://github.com/skeletonlabs/skeleton/pull/1837))
 
 - bugfix: InputChips updates bound value only once. ([#1768](https://github.com/skeletonlabs/skeleton/pull/1768))
 
