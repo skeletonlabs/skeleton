@@ -6,7 +6,6 @@ export interface ColorSettings {
 	hex: string;
 	rgb: string;
 	on: string;
-	locked: boolean;
 }
 
 export interface FormTheme {

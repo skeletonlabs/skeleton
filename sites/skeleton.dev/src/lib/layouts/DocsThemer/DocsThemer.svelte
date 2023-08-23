@@ -21,13 +21,13 @@
 	// Stores
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
 		colors: [
-			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0', locked: false },
-			{ key: 'secondary', label: 'Secondary', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255', locked: false },
-			{ key: 'tertiary', label: 'Tertiary', hex: '#0EA5E9', rgb: '0 0 0', on: '0 0 0', locked: false },
-			{ key: 'success', label: 'Success', hex: '#84cc16', rgb: '0 0 0', on: '0 0 0', locked: false },
-			{ key: 'warning', label: 'Warning', hex: '#EAB308', rgb: '0 0 0', on: '0 0 0', locked: false },
-			{ key: 'error', label: 'Error', hex: '#D41976', rgb: '0 0 0', on: '255 255 255', locked: false },
-			{ key: 'surface', label: 'Surface', hex: '#495a8f', rgb: '0 0 0', on: '255 255 255', locked: false }
+			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' },
+			{ key: 'secondary', label: 'Secondary', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255' },
+			{ key: 'tertiary', label: 'Tertiary', hex: '#0EA5E9', rgb: '0 0 0', on: '0 0 0' },
+			{ key: 'success', label: 'Success', hex: '#84cc16', rgb: '0 0 0', on: '0 0 0' },
+			{ key: 'warning', label: 'Warning', hex: '#EAB308', rgb: '0 0 0', on: '0 0 0' },
+			{ key: 'error', label: 'Error', hex: '#D41976', rgb: '0 0 0', on: '255 255 255' },
+			{ key: 'surface', label: 'Surface', hex: '#495a8f', rgb: '0 0 0', on: '255 255 255' }
 		],
 		fontBase: 'system',
 		fontHeadings: 'system',
@@ -69,7 +69,6 @@
 
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {
-			if ($storeThemGenForm.colors[i].locked) return;
 			const randomHexCode = '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0');
 			$storeThemGenForm.colors[i].hex = randomHexCode;
 			$storeThemGenForm.colors[i].on = generateA11yOnColor(randomHexCode);
@@ -223,27 +222,12 @@ export const myCustomTheme: CustomThemeConfig = {
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
 				{#each $storeThemGenForm.colors as colorRow, i}
-					<div class="grid grid-cols-1 lg:grid-cols-[185px_1fr_200px] gap-2 lg:gap-4">
+					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_200px] gap-2 lg:gap-4">
 						<label class="label">
 							<span>{colorRow.label}</span>
 							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
 								<input class="input" type="color" bind:value={colorRow.hex} disabled={!$storePreview} />
-								<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-									<input class="input" type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
-									<button
-										class="input-group-shim !p-2"
-										on:click|preventDefault={() => ($storeThemGenForm.colors[i].locked = !$storeThemGenForm.colors[i].locked)}
-										disabled={!$storePreview}
-									>
-										<span>
-											{#if $storeThemGenForm.colors[i].locked}
-												<i class="fa-solid fa-lock" />
-											{:else}
-												<i class="fa-solid fa-lock-open" />
-											{/if}
-										</span>
-									</button>
-								</div>
+								<input class="input" type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
 							</div>
 						</label>
 						<Swatch color={colorRow.key} />
