@@ -16,7 +16,19 @@
 	import { inputSettings, fontSettings } from './settings';
 	import { type Palette, generatePalette, generateA11yOnColor, hexValueIsValid, getPassReport } from './colors';
 	import type { PopupSettings } from '@skeletonlabs/skeleton';
-	import { generateAnalogousColors, generateComplementaryColors, generateHighContrastColors, generateMonochromaticColors, generateNeutralWithAccentColors, generatePastelColors, generateRandomHexColors, generateSplitComplementaryColors, generateTetradicColors, generateTriadicColors, randomHexCode } from './colorTheories';
+	import {
+		generateAnalogousColors,
+		generateComplementaryColors,
+		generateHighContrastColors,
+		generateMonochromaticColors,
+		generateNeutralWithAccentColors,
+		generatePastelColors,
+		generateRandomHexColors,
+		generateSplitComplementaryColors,
+		generateTetradicColors,
+		generateTriadicColors,
+		randomHexCode
+	} from './colorTheories';
 
 	// Stores
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
@@ -66,24 +78,24 @@
 			}
 		});
 	}
-		
+
 	const colorTheories = {
-		"Random": generateRandomHexColors,
-		"Complementary": generateComplementaryColors,
-		"Analogous": generateAnalogousColors,
-		"Triadic": generateTriadicColors,
-		"Split Complementary": generateSplitComplementaryColors,
-		"Tetradic": generateTetradicColors,
-		"Monochromatic": generateMonochromaticColors,
-		"Neutral With Accents": generateNeutralWithAccentColors,
-		"Pastel": generatePastelColors,
-		"High Contrast": generateHighContrastColors,
+		Random: generateRandomHexColors,
+		Complementary: generateComplementaryColors,
+		Analogous: generateAnalogousColors,
+		Triadic: generateTriadicColors,
+		'Split Complementary': generateSplitComplementaryColors,
+		Tetradic: generateTetradicColors,
+		Monochromatic: generateMonochromaticColors,
+		'Neutral With Accents': generateNeutralWithAccentColors,
+		Pastel: generatePastelColors,
+		'High Contrast': generateHighContrastColors
 	};
-	let selectedColorTheory: keyof typeof colorTheories = "Random";
+	let selectedColorTheory: keyof typeof colorTheories = 'Random';
 
 	function randomize(): void {
 		const baseColor = randomHexCode();
-		const colors = colorTheories[selectedColorTheory](baseColor, 7 )
+		const colors = colorTheories[selectedColorTheory](baseColor, 7);
 		$storeThemGenForm.colors.forEach((_, i: number) => {
 			const currentHex = colors[i];
 			$storeThemGenForm.colors[i].hex = currentHex;
@@ -241,7 +253,7 @@ export const myCustomTheme: CustomThemeConfig = {
 								<option value={colorTheory}>{colorTheory}</option>
 							{/each}
 						</select>
-					</div>	
+					</div>
 				</div>
 				<button class="btn variant-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
 			</header>
