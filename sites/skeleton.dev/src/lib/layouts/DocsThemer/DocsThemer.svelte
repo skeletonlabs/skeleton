@@ -17,6 +17,7 @@
 	import { inputSettings, fontSettings } from './settings';
 	import { type Palette, generatePalette, generateA11yOnColor, hexValueIsValid, getPassReport } from './colors';
 	import type { PopupSettings } from '@skeletonlabs/skeleton';
+	import { themes } from '$lib/themes';
 
 	// Stores
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
@@ -38,6 +39,19 @@
 		borderBase: '1px'
 	});
 	resetColorOnInvalidHex();
+
+	function setCurrentThemeColors(currentTheme: string) {
+		const currentThemeConfig = themes.find((t) => t.file === currentTheme);
+		if (!currentThemeConfig) return;
+		currentThemeConfig.colors.forEach((hex: string, i: number) => {
+			$storeThemGenForm.colors[i].hex = hex;
+			$storeThemGenForm.colors[i].on = generateA11yOnColor(hex);
+		});
+		$storeThemGenForm.colors[$storeThemGenForm.colors.length - 1].hex = currentThemeConfig.surface;
+		$storeThemGenForm.colors[$storeThemGenForm.colors.length - 1].hex = generateA11yOnColor(currentThemeConfig.surface);
+	}
+
+	$: setCurrentThemeColors($storeTheme);
 
 	// Local
 	let cssOutput = '';
