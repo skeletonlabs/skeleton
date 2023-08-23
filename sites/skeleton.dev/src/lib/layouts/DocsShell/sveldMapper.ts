@@ -7,7 +7,12 @@ export function sveldMapperProps(component: Component): TableSource {
 	const { props } = component.sveld;
 	const propsHeadings = ['Name', 'Type', 'Value', 'Description'];
 	// Filter props with undefined types (exclude getContext)
-	const propsFiltered = props.filter((p: any) => p.type !== undefined);
+	const propsFiltered = props.filter((p: any) => {
+		// Filter out Tree View export function props
+		if (['expandAll', 'collapseAll', 'onParentChange'].includes(p.name)) return;
+		// Return all undefined
+		return p.type !== undefined;
+	});
 	// Return table headings/source
 	function cleanValue(value: string | undefined): string {
 		if (value === undefined || value === '' || value === "''") return '-';

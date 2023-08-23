@@ -2,13 +2,10 @@
 	/**
 	 * This component is only in Data-driven tree-view to add children recursively.
 	 */
-	import { createEventDispatcher, getContext, onMount } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import TreeViewDataDrivenItem from './TreeViewDataDrivenItem.svelte';
 	import TreeViewItem from './TreeViewItem.svelte';
 	import type { TreeViewNode } from './types.js';
-
-	// events
-	const dispatch = createEventDispatcher();
 
 	// this can't be passed using context, since we have to pass it to recursive children.
 	/** Provide data-driven nodes. */
@@ -32,42 +29,68 @@
 		if (selection) {
 			group = multiple ? [] : '';
 			// manage group (checking) on initialization.
-			nodes.forEach((node) => {
-				if (!node.checked) return;
-
-				if (multiple) {
+			if (multiple) {
+				nodes.forEach((node) => {
 					if (!Array.isArray(group)) return;
-					group.push(node.value);
-				} else {
+					// handle relations
+					if (node.children && node.children.length > 0) {
+						// at least one child is indeterminate => indeterminate item
+						if (node.children.some((c) => c.indeterminate)) {
+							node.indeterminate = true;
+						}
+						// all children are checked => check item
+						else if (node.children.every((c) => c.checked)) {
+							node.indeterminate = false;
+							group.push(node.value);
+							group = group;
+						}
+						// not all children are checked => indeterminate item
+						else if (node.children.some((c) => c.checked)) {
+							node.indeterminate = true;
+						}
+						// all children are unchecked => uncheck item
+						else {
+							node.indeterminate = false;
+							node.checked = false;
+						}
+					} else if (node.checked) {
+						group.push(node.value);
+						group = group;
+					}
+				});
+				// single selection mode
+			} else {
+				nodes.forEach((node) => {
+					if (!node.checked) return;
 					group = node.value;
-				}
-			});
+				});
+			}
 		}
 	});
 
 	// Functionality
-	function onCheckChange() {
-		nodes.forEach((node) => {
-			if (multiple) {
+	function onGroupChange() {
+		if (multiple) {
+			nodes.forEach((node) => {
 				if (!Array.isArray(group)) return;
 				node.checked = group.includes(node.value);
-			} else {
-				node.checked = group === node.value;
-			}
-		});
-		nodes = nodes;
-		// notify parent to update values. Important to recursively update parents.
-		dispatch('change');
+			});
+		} else {
+			nodes.forEach((node) => {
+				node.checked = node.value === group;
+			});
+		}
 	}
 
-	export let parents: TreeViewItem[] = [];
+	// important to pass children up to items (recursively)
+	export let treeItems: TreeViewItem[] = [];
 	let children: TreeViewItem[][] = [];
 </script>
 
 {#if nodes && nodes.length > 0}
 	{#each nodes as node, i}
 		<TreeViewItem
-			bind:this={parents[i]}
+			bind:this={treeItems[i]}
 			bind:open={node.open}
 			hideLead={!node.lead}
 			hideChildren={!node.children || node.children.length === 0}
@@ -77,16 +100,19 @@
 			bind:indeterminate={node.indeterminate}
 			bind:value={node.value}
 			bind:children={children[i]}
-			on:change={onCheckChange}
+			on:change={onGroupChange}
+			on:change
 			on:click
 			on:toggle
+			on:keydown
+			on:keyup
 		>
 			{@html node.content}
 			<svelte:fragment slot="lead">
 				{@html node.lead}
 			</svelte:fragment>
 			<svelte:fragment slot="children">
-				<TreeViewDataDrivenItem nodes={node.children} on:change={onCheckChange} bind:parents={children[i]} />
+				<TreeViewDataDrivenItem bind:nodes={node.children} bind:treeItems={children[i]} />
 			</svelte:fragment>
 		</TreeViewItem>
 	{/each}

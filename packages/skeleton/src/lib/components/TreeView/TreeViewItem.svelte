@@ -98,11 +98,11 @@
 	}
 	function updateGroup(checked: boolean) {
 		if (!Array.isArray(group)) return;
-
 		const index = group.indexOf(value);
 		if (checked) {
 			if (index < 0) {
-				group = [...group, value];
+				group.push(value);
+				group = group;
 			}
 		} else {
 			if (index >= 0) {
@@ -113,78 +113,93 @@
 	}
 
 	// called when a child's value is changed
-	function onChildValueChange(event: SvelteEvent<Event, HTMLInputElement>, child: TreeViewItem) {
+	function onChildValueChange() {
 		if (multiple) {
 			// all groups must be arrays in multiple mode
 			if (!Array.isArray(group)) return;
 			const childrenValues = children.map((c) => c.value);
+			const childrenGroup = children[0].group;
 			const index = group.indexOf(value);
-
-			// all children are checked => check parent
-			if (childrenValues.every((c) => Array.isArray(child.group) && child.group.includes(c))) {
+			// at least one child is indeterminate => indeterminate item
+			if (children.some((c) => c.indeterminate)) {
+				indeterminate = true;
+			}
+			// all children are checked => check item
+			else if (childrenValues.every((c) => Array.isArray(childrenGroup) && childrenGroup.includes(c))) {
+				indeterminate = false;
 				if (index < 0) {
-					indeterminate = false;
-					group = [...group, value];
+					group.push(value);
+					group = group;
 				}
-				// not all children are checked => uncheck parent
-			} else {
+			}
+			// not all children are checked => indeterminate item
+			else if (childrenValues.some((c) => Array.isArray(childrenGroup) && childrenGroup.includes(c))) {
+				indeterminate = true;
+			}
+			// all children are unchecked => uncheck item
+			else {
+				indeterminate = false;
 				if (index >= 0) {
 					group.splice(index, 1);
 					group = group;
 				}
-				// set parent to indeterminate if some of the children are checked
-				indeterminate = childrenValues.some((c) => Array.isArray(child.group) && child.group.includes(c));
 			}
-			// single selection mode
-		} else {
-			// child is checked, but parent isn't checked
-			if (event.currentTarget.checked && group !== value) {
-				// check parent
+		}
+		// single selection mode
+		else {
+			if (group !== value) {
+				// check item
 				group = value;
 			}
 		}
+		// important to notify parent of item
+		dispatch('change');
 	}
 
-	// called every time the group's value changes
-	function onGroupValueChange(_group: unknown) {
-		// don't override children groups when parent is set to indeterminate
-		if (!children || children.length === 0 || indeterminate) return;
-		if (multiple) {
-			// group must by array in multiple mode
-			if (!Array.isArray(_group)) return;
-			const index = _group.indexOf(value);
+	// used to update children of item when checked / unchecked in multiple mode
+	export function onParentChange() {
+		if (!multiple || !children || children.length === 0) return;
 
-			const checkChild = (child: TreeViewItem) => {
-				if (!child || !Array.isArray(child.group)) return;
-				if (child.group.indexOf(child.value) < 0) {
-					// child.group = [...child.group, child.value] won't work here.
-					child.group.push(child.value);
-					child.group = child.group;
-				}
-			};
-			const uncheckChild = (child: TreeViewItem) => {
-				if (!child || !Array.isArray(child.group)) return;
-				const childIndex = child.group.indexOf(child.value);
-				if (childIndex >= 0) {
-					child.group.splice(childIndex, 1);
-					child.group = child.group;
-				}
-			};
+		// group must by array in multiple mode
+		if (!Array.isArray(group)) return;
+		const index = group.indexOf(value);
 
-			// if parent is checked, check all children, else uncheck all children
-			children.forEach(index >= 0 ? checkChild : uncheckChild);
-			// single selection mode
-		} else {
-			// parent is not checked
-			if (_group !== value) {
-				// uncheck all children
-				children.forEach((child) => {
-					child.group = [];
-				});
+		const checkChild = (child: TreeViewItem) => {
+			if (!child || !Array.isArray(child.group)) return;
+			child.indeterminate = false;
+			if (child.group.indexOf(child.value) < 0) {
+				// child.group = [...child.group, child.value] won't work here.
+				child.group.push(child.value);
+				child.group = child.group;
 			}
+		};
+		const uncheckChild = (child: TreeViewItem) => {
+			if (!child || !Array.isArray(child.group)) return;
+			child.indeterminate = false;
+			const childIndex = child.group.indexOf(child.value);
+			if (childIndex >= 0) {
+				child.group.splice(childIndex, 1);
+				child.group = child.group;
+			}
+		};
+
+		children.forEach((child) => {
+			// if parent is checked, check all children, else uncheck all children
+			index >= 0 ? checkChild(child) : uncheckChild(child);
+			// notify children to update values
+			child.onParentChange();
+		});
+	}
+
+	// used to update children of item when checked / unchecked in single mode
+	$: if (!multiple && group) {
+		if (group !== value) {
+			// uncheck all children
+			children.forEach((child) => {
+				if (child) child.group = [];
+			});
 		}
 	}
-	$: onGroupValueChange(group);
 
 	// events
 	const dispatch = createEventDispatcher();
@@ -193,7 +208,7 @@
 
 	// whenever children are changed, reassign on:change events.
 	$: children.forEach((child) => {
-		if (child) child.$on('change', (event) => onChildValueChange(event as SvelteEvent<Event, HTMLInputElement>, child));
+		if (child) child.$on('change', () => onChildValueChange());
 	});
 
 	// A11y Key Down Handler
@@ -215,7 +230,7 @@
 				if (!open) open = true;
 				else if ($$slots.children && !hideChildren) {
 					// focus on first child
-					const child = childrenDiv.querySelector('details>summary') as HTMLElement;
+					const child = childrenDiv.querySelector<HTMLElement>('details>summary');
 					if (child) child.focus();
 				}
 				break;
@@ -224,7 +239,7 @@
 				else {
 					// focus on parent
 					const parent = treeItem.parentElement?.parentElement;
-					if (parent && parent.tagName === 'DETAILS') (parent.querySelector('summary') as HTMLElement).focus();
+					if (parent && parent.tagName === 'DETAILS') parent.querySelector<HTMLElement>('summary')?.focus();
 				}
 				break;
 			case 'Home':
@@ -315,7 +330,17 @@
 		<!-- Selection -->
 		{#if selection && name && group !== undefined}
 			{#if multiple}
-				<input class="checkbox tree-item-checkbox" type="checkbox" {name} {value} bind:checked bind:indeterminate on:click on:change />
+				<input
+					class="checkbox tree-item-checkbox"
+					type="checkbox"
+					{name}
+					{value}
+					bind:checked
+					bind:indeterminate
+					on:click
+					on:change
+					on:change={onParentChange}
+				/>
 			{:else}
 				<input class="radio tree-item-radio" type="radio" bind:group {name} {value} on:click on:change />
 			{/if}

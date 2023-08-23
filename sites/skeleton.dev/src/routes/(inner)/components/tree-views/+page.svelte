@@ -66,9 +66,6 @@
 	let childrenMultiple: TreeViewItem[] = [];
 
 	let expandTree: TreeView;
-	let selectTree: TreeView;
-
-	let selectMultiple: string[] = [];
 
 	let simpleDD: TreeViewNode[] = [
 		{
@@ -730,56 +727,6 @@ let booksChildren: TreeViewItem[] = [];
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-			<!-- Toggle All -->
-			<h3 class="h3">Toggle All</h3>
-			<p>By binding to the tree view component we can then toggle selection for all items.</p>
-			<blockquote class="blockquote">
-				Note: Available only when using <code class="code">multiple</code> selection mode.
-			</blockquote>
-			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
-				<svelte:fragment slot="preview">
-					<TreeView selection multiple bind:this={selectTree}>
-						<TreeViewItem bind:group={selectMultiple} name="s_medium" value="books">
-							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-book-skull" />
-							</svelte:fragment>
-							<p>Books</p>
-						</TreeViewItem>
-						<TreeViewItem bind:group={selectMultiple} name="s_medium" value="movies">
-							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-film" />
-							</svelte:fragment>
-							<p>Movies</p>
-						</TreeViewItem>
-						<TreeViewItem bind:group={selectMultiple} name="s_medium" value="tv">
-							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-tv" />
-							</svelte:fragment>
-							<p>TV</p>
-						</TreeViewItem>
-					</TreeView>
-				</svelte:fragment>
-				<svelte:fragment slot="footer">
-					<button class="btn variant-filled" on:click={selectTree.selectAll}> Select </button>
-					<button class="btn variant-filled" on:click={selectTree.deselectAll}> Deselect </button>
-				</svelte:fragment>
-				<svelte:fragment slot="source">
-					<CodeBlock
-						language="ts"
-						code={`
-let tree: TreeView;\n
-tree.selectAll();
-tree.deselectAll();
-					`}
-					/>
-					<CodeBlock
-						language="html"
-						code={`
-<TreeView bind:this={tree} selection multiple></TreeView>
-			`}
-					/>
-				</svelte:fragment>
-			</DocsPreview>
 		</section>
 
 		<hr />
@@ -875,9 +822,9 @@ let myTreeViewNodes: TreeViewNode[] = [
 		open: true,
 		indeterminate: true,
 		children: [
-			{ content: 'Clean Code', checked: true },
+			{ content: 'Clean Code' },
 			{ content: 'The Clean Coder', checked: true },
-			{ content: 'The Art of Unix Programming' },
+			{ content: 'The Art of Unix Programming', checked: true },
 		]
 	},
 	// ...
