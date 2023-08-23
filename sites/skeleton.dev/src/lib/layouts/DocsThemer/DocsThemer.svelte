@@ -228,7 +228,7 @@ export const myCustomTheme: CustomThemeConfig = {
 							<span>{colorRow.label}</span>
 							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
 								<input class="input" type="color" bind:value={colorRow.hex} disabled={!$storePreview} />
-								<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+								<div class="input-group grid-cols-[auto_1fr]">
 									<input class="input" type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
 									<button
 										class="input-group-shim !p-2"
@@ -259,7 +259,7 @@ export const myCustomTheme: CustomThemeConfig = {
 									<!-- Badge -->
 									{#if $storePreview}
 										<div
-											class="input-group-shim !px-3"
+											class="input-group-shim !px-2"
 											use:popup={{ ...tooltipSettings, ...{ target: 'popup-' + i } }}
 											class:!text-stone-900={conReports[i].contrastReport.fails}
 											class:!bg-red-500={conReports[i].contrastReport.fails}
