@@ -2,4 +2,4 @@
 "create-skeleton-app": patch
 ---
 
-Fixed @rc pinning
+bugfix: Fixed `@rc` pinning

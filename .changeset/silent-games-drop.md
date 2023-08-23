@@ -2,4 +2,4 @@
 "@skeletonlabs/tw-plugin": minor
 ---
 
-feat: Added a new `wintry` preset theme
+feat: Added the brand new `wintry` preset theme

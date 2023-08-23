@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: `autocomplete` fixed reactive update when allow and deny lists are empty.
+bugfix: Autocomplete now allows for reactive updates when `allowlist` or `denylist` are empty

@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": major
 ---
 
-breaking: removed the long-deprecated Skeleton Data Table feature
+breaking: Removed the long-deprecated Skeleton Data Table feature
