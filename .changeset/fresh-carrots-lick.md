@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: Added `tree-view` single/multi selection mode, Enabled `data-driven` for tree-view.
+feat: Added Tree View single/multi selection mode, enabled data-driven Tree View

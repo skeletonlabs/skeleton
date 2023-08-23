@@ -1,5 +1,5 @@
 ---
-"@skeletonlabs/skeleton": minor
+"@skeletonlabs/skeleton": patch
 ---
 
-feat: Added `regionLabel` prop to Radio Groups
+chore: Added `regionLabel` prop to Radio Groups

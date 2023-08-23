@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-Chore: Update file button `button` prop to allow for unstyled buttons
+chore: Update File Button `button` prop now includes `.btn` class to allow removing all styles

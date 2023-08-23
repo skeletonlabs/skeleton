@@ -1,5 +1,5 @@
 ---
-"@skeletonlabs/skeleton": major
+"@skeletonlabs/skeleton": minor
 ---
 
-breaking: renamed the Paginator `offset` property to `page` for better semantics
+breaking: Renamed the Paginator `offset` property to `page` for better semantics

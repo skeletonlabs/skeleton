@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Tree-view relational updates are now working as expected.
+bugfix: Updates to the relational Tree View now work as expected

@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: fix background color of checkbox in indeterminate state
+chore: The checkbox `indeterminate` state now uses theme styling by default

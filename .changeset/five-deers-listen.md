@@ -2,4 +2,4 @@
 "@skeletonlabs/tw-plugin": minor
 ---
 
-feat: Added optional properties that are applied in dark mode
+feat: Added `properties_dark` to themes for CSS properties that are applied only in dark mode

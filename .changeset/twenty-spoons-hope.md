@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: InputChips updates bound value only once.
+bugfix: Input Chips now updates binded `value` only once
