@@ -21,10 +21,13 @@ export function getThemeProperties(themeName: PresetThemeName) {
 export type ObjectValues<T> = T[keyof T];
 export type ObjectKeys<T> = keyof T;
 
+/* Allows for arbitrary properties to be defined */
+type ArbitraryProps = Record<string, string>;
+
 export type BaseTheme = {
 	name: string;
-	properties: ThemeProperties;
-	properties_dark: Partial<ThemeProperties>;
+	properties: ThemeProperties & ArbitraryProps;
+	properties_dark: Partial<ThemeProperties & ArbitraryProps>;
 };
 
 export type PresetTheme = BaseTheme & {
@@ -32,8 +35,6 @@ export type PresetTheme = BaseTheme & {
 };
 
 export type ThemeProperties = {
-	/* Allows for arbitrary properties to be defined */
-	[property: string]: string;
 	/* =~= Theme Properties =~= */
 	'--theme-font-family-base': string;
 	'--theme-font-family-heading': string;
