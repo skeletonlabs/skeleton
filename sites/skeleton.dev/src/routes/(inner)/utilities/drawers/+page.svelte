@@ -115,7 +115,10 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Drawer Store</h2>
-			<p>Import this anywhere you wish to control the Drawer. Provides an interface to control the drawer component.</p>
+			<p>Provides an interface to control the drawer component.</p>
+			<blockquote class="blockquote">
+				NOTE: To retrieve the store, <code class="code">getDrawerStore</code> must be invoked at the <u>top level</u> of your component!
+			</blockquote>
 			<CodeBlock language="ts" code={`import { getDrawerStore } from "@skeletonlabs/skeleton";\n\nconst drawerStore = getDrawerStore();`} />
 			<h3 class="h3">Open</h3>
 			<CodeBlock language="ts" code={`drawerStore.open();`} />

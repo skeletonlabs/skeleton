@@ -106,7 +106,7 @@
 			component: c,
 			title: 'Custom Form Component',
 			body: 'Complete the form below and then press submit.',
-			response: (r: any) => console.log('response:', r)
+			response: (r) => console.log('response:', r)
 		};
 		modalStore.trigger(modal);
 	}
@@ -117,7 +117,7 @@
 			component: 'exampleList',
 			title: 'Custom List Component',
 			body: 'Make your selection then press submit.',
-			response: (r: any) => console.log('response:', r)
+			response: (r) => console.log('response:', r)
 		};
 		modalStore.trigger(modal);
 	}
@@ -197,6 +197,9 @@ initializeStores();
 				When you wish to trigger a modal, import the <code class="code">getModalStore</code> function and invoke it to retrieve the
 				<code class="code">modalStore</code>, which is a Svelte store that acts as the modal queue.
 			</p>
+			<blockquote class="blockquote">
+				NOTE: To retrieve the store, <code class="code">getModalStore</code> must be invoked at the <u>top level</u> of your component!
+			</blockquote>
 			<CodeBlock
 				language="ts"
 				code={`

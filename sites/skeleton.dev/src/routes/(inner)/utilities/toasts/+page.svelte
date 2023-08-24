@@ -179,6 +179,9 @@
 		<section class="space-y-4">
 			<h2 class="h2">Toast Store</h2>
 			<p>The Toast Store acts as a queue for your toast messages.</p>
+			<blockquote class="blockquote">
+				NOTE: To retrieve the store, <code class="code">getToastStore</code> must be invoked at the <u>top level</u> of your component!
+			</blockquote>
 			<CodeBlock
 				language="ts"
 				code={`import { getToastStore } from '@skeletonlabs/skeleton';\n\nconst toastStore = getToastStore();
