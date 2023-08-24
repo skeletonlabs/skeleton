@@ -26,7 +26,7 @@
 		name: 'Modals',
 		description: 'High priority dialogs and modals using a dynamic queue system.',
 		imports: ['Modal', 'getModalStore'],
-		types: ['ModalSettings', 'ModalComponent'],
+		types: ['ModalSettings', 'ModalComponent', 'ModalStore'],
 		source: 'utilities/Modal',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/',
 		components: [{ sveld: sveldModal }],

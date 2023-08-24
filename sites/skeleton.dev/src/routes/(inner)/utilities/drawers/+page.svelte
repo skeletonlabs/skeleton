@@ -17,7 +17,7 @@
 		name: 'Drawers',
 		description: 'Displays an overlay panel that attaches to any side of the screen.',
 		imports: ['Drawer', 'getDrawerStore'],
-		types: ['DrawerSettings'],
+		types: ['DrawerSettings', 'DrawerStore'],
 		source: 'utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
 		components: [{ sveld: sveldDrawer }],
