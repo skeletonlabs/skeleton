@@ -9,13 +9,17 @@ const MODAL_STORE_KEY = 'modalStore';
 /**
  * Retrieves the `modalStore`.
  *
+ * This can *ONLY* be called from the **top level** of components!
+ *
  * @example
- * ```ts
- * import { getmodalStore } from "@skeletonlabs/skeleton";
+ * ```svelte
+ * <script>
+ * 	import { getmodalStore } from "@skeletonlabs/skeleton";
  *
- * const modalStore = getModalStore();
+ * 	const modalStore = getModalStore();
  *
- * modalStore.trigger({ type: "alert", title: "Welcome!" });
+ * 	modalStore.trigger({ type: "alert", title: "Welcome!" });
+ * </script>
  * ```
  */
 export function getModalStore(): ModalStore {
