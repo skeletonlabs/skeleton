@@ -38,7 +38,7 @@ export function initializeModalStore(): ModalStore {
 	return setContext(MODAL_STORE_KEY, modalStore);
 }
 
-type ModalStore = ReturnType<typeof modalService>;
+export type ModalStore = ReturnType<typeof modalService>;
 function modalService() {
 	const { subscribe, set, update } = writable<ModalSettings[]>([]);
 	return {

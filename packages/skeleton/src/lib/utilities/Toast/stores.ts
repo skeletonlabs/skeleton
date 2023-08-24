@@ -46,7 +46,7 @@ function randomUUID(): string {
 	return Number(random).toString(32);
 }
 
-type ToastStore = ReturnType<typeof toastService>;
+export type ToastStore = ReturnType<typeof toastService>;
 function toastService() {
 	const { subscribe, set, update } = writable<Toast[]>([]);
 

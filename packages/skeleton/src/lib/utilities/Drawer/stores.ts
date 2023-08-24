@@ -38,7 +38,7 @@ export function initializeDrawerStore(): DrawerStore {
 	return setContext(DRAWER_STORE_KEY, drawerStore);
 }
 
-type DrawerStore = ReturnType<typeof drawerService>;
+export type DrawerStore = ReturnType<typeof drawerService>;
 function drawerService() {
 	const { subscribe, set, update } = writable<DrawerSettings>({});
 	return {
