@@ -19,19 +19,10 @@
 </script>
 
 <div>
-	<!-- Promo Banner -->
-	<div class="variant-filled-warning p-4">
-		<div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
-			<div class="flex items-center gap-6">
-				<span class="text-xl">🎉</span>
-				<p>The Skeleton v2.0 Release Candidate is now available!</p>
-			</div>
-			<div class="flex gap-4">
-				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/discussions/1845" target="_blank">What's New?</a>
-				<a class="btn variant-filled" href="https://skeleton-docs-git-v2-skeleton-labs.vercel.app/docs/get-started" target="_blank">
-					Docs &rarr;
-				</a>
-			</div>
+	<!-- Banner -->
+	<div class="variant-filled-surface p-4">
+		<div class="w-full max-w-7xl mx-auto text-center">
+			<p>You are viewing the archived Skeleton v1.0 documentation.</p>
 		</div>
 	</div>
 
