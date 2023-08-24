@@ -32,6 +32,8 @@ export type PresetTheme = BaseTheme & {
 };
 
 export type ThemeProperties = {
+	/* Allows for arbitrary properties to be defined */
+	[property: string]: string;
 	/* =~= Theme Properties =~= */
 	'--theme-font-family-base': string;
 	'--theme-font-family-heading': string;
