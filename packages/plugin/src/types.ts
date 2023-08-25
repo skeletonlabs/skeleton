@@ -1,4 +1,4 @@
-import type { BaseTheme, PresetThemeName, ThemeProperties } from './tailwind/themes';
+import type { PresetThemeName, ThemeProperties } from './tailwind/themes';
 
 export type ConfigOptions = {
 	/**
