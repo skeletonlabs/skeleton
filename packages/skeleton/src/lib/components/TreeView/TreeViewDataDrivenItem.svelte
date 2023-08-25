@@ -80,6 +80,15 @@
 				node.checked = node.value === group;
 			});
 		}
+		nodes = nodes;
+	}
+
+	// trigger reactivity on toggle only when node has children.
+	function onToggleChange(e: CustomEvent<{ open: boolean }>, node: TreeViewNode) {
+		if (node.children && node.children.length > 0) {
+			node.open = e.detail.open;
+			nodes = nodes;
+		}
 	}
 
 	// important to pass children up to items (recursively)
@@ -91,7 +100,7 @@
 	{#each nodes as node, i}
 		<TreeViewItem
 			bind:this={treeItems[i]}
-			bind:open={node.open}
+			open={node.open}
 			hideLead={!node.lead}
 			hideChildren={!node.children || node.children.length === 0}
 			bind:disabled={node.disabled}
@@ -103,6 +112,7 @@
 			on:change={onGroupChange}
 			on:change
 			on:click
+			on:toggle={(e) => onToggleChange(e, node)}
 			on:toggle
 			on:keydown
 			on:keyup

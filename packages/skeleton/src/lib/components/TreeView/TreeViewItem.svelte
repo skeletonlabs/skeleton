@@ -204,7 +204,7 @@
 	// events
 	const dispatch = createEventDispatcher();
 	/** @event {{ open: boolean }} toggle - Fires on open or close. */
-	$: dispatch('toggle', { open: open });
+	$: if ($$slots.children && !hideChildren) dispatch('toggle', { open: open });
 
 	// whenever children are changed, reassign on:change events.
 	$: children.forEach((child) => {
