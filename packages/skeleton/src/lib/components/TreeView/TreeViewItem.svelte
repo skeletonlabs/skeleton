@@ -123,6 +123,10 @@
 			// at least one child is indeterminate => indeterminate item
 			if (children.some((c) => c.indeterminate)) {
 				indeterminate = true;
+				if (index >= 0) {
+					group.splice(index, 1);
+					group = group;
+				}
 			}
 			// all children are checked => check item
 			else if (childrenValues.every((c) => Array.isArray(childrenGroup) && childrenGroup.includes(c))) {
@@ -135,6 +139,10 @@
 			// not all children are checked => indeterminate item
 			else if (childrenValues.some((c) => Array.isArray(childrenGroup) && childrenGroup.includes(c))) {
 				indeterminate = true;
+				if (index >= 0) {
+					group.splice(index, 1);
+					group = group;
+				}
 			}
 			// all children are unchecked => uncheck item
 			else {
