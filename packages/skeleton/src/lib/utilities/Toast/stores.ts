@@ -11,13 +11,17 @@ const TOAST_STORE_KEY = 'toastStore';
 /**
  * Retrieves the `toastStore`.
  *
+ * This can *ONLY* be called from the **top level** of components!
+ *
  * @example
- * ```ts
- * import { getToastStore } from "@skeletonlabs/skeleton";
+ * ```svelte
+ * <script>
+ * 	import { getToastStore } from "@skeletonlabs/skeleton";
  *
- * const toastStore = getToastStore();
+ * 	const toastStore = getToastStore();
  *
- * toastStore.open({ message: "Welcome!" });
+ * 	toastStore.open({ message: "Welcome!" });
+ * </script>
  * ```
  */
 export function getToastStore(): ToastStore {
@@ -46,7 +50,7 @@ function randomUUID(): string {
 	return Number(random).toString(32);
 }
 
-type ToastStore = ReturnType<typeof toastService>;
+export type ToastStore = ReturnType<typeof toastService>;
 function toastService() {
 	const { subscribe, set, update } = writable<Toast[]>([]);
 

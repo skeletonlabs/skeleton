@@ -17,7 +17,7 @@
 		name: 'Drawers',
 		description: 'Displays an overlay panel that attaches to any side of the screen.',
 		imports: ['Drawer', 'getDrawerStore'],
-		types: ['DrawerSettings'],
+		types: ['DrawerSettings', 'DrawerStore'],
 		source: 'utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
 		components: [{ sveld: sveldDrawer }],
@@ -79,14 +79,7 @@
 					</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<!-- prettier-ignore -->
-				<p>
-					Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, or Toast features, and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
-				</p>
-				<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
-				<p>Implement a single instance of the drawer component in your app's root layout, above the App Shell (if present).</p>
-				<CodeBlock language="html" code={`<Drawer />\n\n<!-- <AppShell>...</AppShell> -->`} />
-				<p>We'll cover triggering this feature on-demand in the documentation below.</p>
+				<p>There are a several steps involved to utilize this feature. Please refer to the documented instruction below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -100,22 +93,24 @@
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
-		<!-- Drawer Component -->
 		<section class="space-y-4">
-			<h2 class="h2">Drawer Component</h2>
+			<h2 class="h2">Prerequisites</h2>
+			<h3 class="h3">Initialize Stores</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, and Toast stores and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
+			</p>
+			<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
+			<h3 class="h3">Drawer Component</h3>
 			<p>Implement a single instance of the drawer component in your app's root layout, above the App Shell (if present).</p>
-			<CodeBlock
-				language="html"
-				code={`
-<Drawer>(contents)</Drawer>
-
-<!-- <AppShell>...</AppShell> -->
-				`}
-			/>
+			<CodeBlock language="html" code={`<Drawer />\n\n<!-- <AppShell>...</AppShell> -->`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Drawer Store</h2>
-			<p>Import this anywhere you wish to control the Drawer. Provides an interface to control the drawer component.</p>
+			<p>Provides an interface to control the drawer component.</p>
+			<blockquote class="blockquote">
+				NOTE: To retrieve the store, <code class="code">getDrawerStore</code> must be invoked at the <u>top level</u> of your component!
+			</blockquote>
 			<CodeBlock language="ts" code={`import { getDrawerStore } from "@skeletonlabs/skeleton";\n\nconst drawerStore = getDrawerStore();`} />
 			<h3 class="h3">Open</h3>
 			<CodeBlock language="ts" code={`drawerStore.open();`} />

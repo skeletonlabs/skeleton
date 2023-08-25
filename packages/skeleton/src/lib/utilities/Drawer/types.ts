@@ -1,5 +1,7 @@
 // Drawer Types
 
+export type { DrawerStore } from './stores.js';
+
 export interface DrawerSettings {
 	open?: boolean;
 	/** A unique identifier, useful for setting contents. */

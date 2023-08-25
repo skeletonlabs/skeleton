@@ -26,7 +26,7 @@
 		name: 'Modals',
 		description: 'High priority dialogs and modals using a dynamic queue system.',
 		imports: ['Modal', 'getModalStore'],
-		types: ['ModalSettings', 'ModalComponent'],
+		types: ['ModalSettings', 'ModalComponent', 'ModalStore'],
 		source: 'utilities/Modal',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/',
 		components: [{ sveld: sveldModal }],
@@ -106,7 +106,7 @@
 			component: c,
 			title: 'Custom Form Component',
 			body: 'Complete the form below and then press submit.',
-			response: (r: any) => console.log('response:', r)
+			response: (r) => console.log('response:', r)
 		};
 		modalStore.trigger(modal);
 	}
@@ -117,7 +117,7 @@
 			component: 'exampleList',
 			title: 'Custom List Component',
 			body: 'Make your selection then press submit.',
-			response: (r: any) => console.log('response:', r)
+			response: (r) => console.log('response:', r)
 		};
 		modalStore.trigger(modal);
 	}
@@ -149,21 +149,7 @@
 				<button class="btn variant-filled" on:click={modalDemo}>Show Modal</button>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<!-- prettier-ignore -->
-				<p>
-					Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, or Toast features, and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
-				</p>
-				<CodeBlock
-					language="typescript"
-					code={`
-import { Modal, initializeStores } from "@skeletonlabs/skeleton";
-
-initializeStores();
-`}
-				/>
-				<p>Implement a single instance of the modal component in your app's root layout, above the App Shell (if present).</p>
-				<CodeBlock language="html" code={`<Modal />\n\n<!-- <AppShell>...</AppShell> -->`} />
-				<p>We'll cover triggering this feature on-demand in the documentation below.</p>
+				<p>There are a several steps involved to utilize this feature. Please refer to the documented instruction below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -180,16 +166,16 @@ initializeStores();
 			</p>
 		</aside>
 		<section class="space-y-4">
-			<h2 class="h2">Modal Component</h2>
+			<h2 class="h2">Prerequisites</h2>
+			<h3 class="h3">Initialize Stores</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, and Toast stores and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
+			</p>
+			<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
+			<h3 class="h3">Modal Component</h3>
 			<p>Implement a single instance of the modal component in your app's root layout, above the App Shell (if present).</p>
-			<CodeBlock
-				language="html"
-				code={`
-<Modal />
-
-<!-- <AppShell>...</AppShell> -->
-				`}
-			/>
+			<CodeBlock language="html" code={`<Modal />\n\n<!-- <AppShell>...</AppShell> -->`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Modal Store</h2>
@@ -197,6 +183,9 @@ initializeStores();
 				When you wish to trigger a modal, import the <code class="code">getModalStore</code> function and invoke it to retrieve the
 				<code class="code">modalStore</code>, which is a Svelte store that acts as the modal queue.
 			</p>
+			<blockquote class="blockquote">
+				NOTE: To retrieve the store, <code class="code">getModalStore</code> must be invoked at the <u>top level</u> of your component!
+			</blockquote>
 			<CodeBlock
 				language="ts"
 				code={`

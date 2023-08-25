@@ -9,13 +9,17 @@ const DRAWER_STORE_KEY = 'drawerStore';
 /**
  * Retrieves the `drawerStore`.
  *
+ * This can *ONLY* be called from the **top level** of components!
+ *
  * @example
- * ```ts
- * import { getDrawerStore } from "@skeletonlabs/skeleton";
+ * ```svelte
+ * <script>
+ * 	import { getDrawerStore } from "@skeletonlabs/skeleton";
  *
- * const drawerStore = getDrawerStore();
+ * 	const drawerStore = getDrawerStore();
  *
- * drawerStore.open();
+ * 	drawerStore.open();
+ * </script>
  * ```
  */
 export function getDrawerStore(): DrawerStore {
@@ -38,7 +42,7 @@ export function initializeDrawerStore(): DrawerStore {
 	return setContext(DRAWER_STORE_KEY, drawerStore);
 }
 
-type DrawerStore = ReturnType<typeof drawerService>;
+export type DrawerStore = ReturnType<typeof drawerService>;
 function drawerService() {
 	const { subscribe, set, update } = writable<DrawerSettings>({});
 	return {
