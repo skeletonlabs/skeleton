@@ -141,14 +141,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<!-- prettier-ignore -->
-				<p>
-					Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, or Toast features, and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
-				</p>
-				<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
-				<p>Implement a single instance of the toast component in your app's root layout, above the App Shell (if present).</p>
-				<CodeBlock language="html" code={`<Toast />\n\n<!-- <AppShell>...</AppShell> -->`} />
-				<p>We'll cover triggering this feature on-demand in the documentation below.</p>
+				<p>There are a several steps involved to utilize this feature. Please refer to the documented instruction below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -162,18 +155,18 @@
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
-		<!-- Toast Component -->
 		<section class="space-y-4">
-			<h2 class="h2">Toast Component</h2>
+			<h2 class="h2">Prerequisites</h2>
+			<h3 class="h3">Initialize Stores</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, and Toast stores and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
+			</p>
+			<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
+			<h3 class="h3">Toast Component</h3>
 			<p>Implement a single instance of the toast component in your app's root layout, above the App Shell (if present).</p>
-			<CodeBlock
-				language="html"
-				code={`
-<Toast />
-
-<!-- <AppShell>...</AppShell> -->
-				`}
-			/>
+			<CodeBlock language="html" code={`<Toast />\n\n<!-- <AppShell>...</AppShell> -->`} />
+			<p>We'll cover triggering this feature on-demand in the documentation below.</p>
 		</section>
 		<!-- Toast Store -->
 		<section class="space-y-4">
