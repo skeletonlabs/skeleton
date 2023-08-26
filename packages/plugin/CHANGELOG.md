@@ -1,5 +1,11 @@
 # @skeletonlabs/tw-plugin
 
+## 0.1.0-rc.8
+
+### Patch Changes
+
+- bugfix: Allow `properties` and `properties_dark` to define arbitrary properties ([#1937](https://github.com/skeletonlabs/skeleton/pull/1937))
+
 ## 0.1.0-rc.7
 
 ### Patch Changes
