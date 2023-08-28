@@ -1,8 +1,8 @@
-name: Publish Prerelease Skeleton v2
+name: Publish Prerelease Skeleton rc
 on:
   push:
     branches:
-      - v2
+      - rc
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
