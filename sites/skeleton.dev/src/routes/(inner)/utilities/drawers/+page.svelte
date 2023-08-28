@@ -8,16 +8,17 @@
 	import sveldDrawer from '@skeletonlabs/skeleton/utilities/Drawer/Drawer.svelte?raw&sveld';
 
 	// Drawer Utils
-	import { drawerStore, type DrawerSettings } from '@skeletonlabs/skeleton';
+	import { getDrawerStore, type DrawerSettings } from '@skeletonlabs/skeleton';
+	const drawerStore = getDrawerStore();
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
 		name: 'Drawers',
 		description: 'Displays an overlay panel that attaches to any side of the screen.',
-		imports: ['Drawer', 'drawerStore'],
-		types: ['DrawerSettings'],
-		source: 'utilities/Drawer',
+		imports: ['Drawer', 'getDrawerStore'],
+		types: ['DrawerSettings', 'DrawerStore'],
+		source: 'packages/skeleton/src/lib/utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
 		components: [{ sveld: sveldDrawer }],
 		keyboard: [['<kbd class="kbd">Esc</kbd>', ' Closes the drawer.']]
@@ -78,34 +79,7 @@
 					</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<p>Implement a single instance of the drawer component your app's root layout, above the App Shell (if present).</p>
-				<CodeBlock
-					language="html"
-					code={`
-<Drawer>
-	<p>Hello Skeleton</p>
-</Drawer>\n
-<!-- <AppShell>...</AppShell> -->
-				`}
-				/>
-				<p>
-					When you wish to trigger a toast message, import <code class="code">drawerStore</code>, then follow the example below.
-				</p>
-				<CodeBlock
-					language="ts"
-					code={`
-import { drawerStore } from '@skeletonlabs/skeleton';\n
-// Open the drawer:
-function drawerOpen(): void {
-	drawerStore.open();
-}\n
-// Close the drawer:
-function drawerOpen(): void {
-	drawerStore.close();
-}
-				`}
-				/>
-				<p>For more examples and configuration options, see the documentation below.</p>
+				<p>There are a several steps involved to utilize this feature. Please refer to the documented instruction below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -119,22 +93,25 @@ function drawerOpen(): void {
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
-		<!-- Drawer Component -->
 		<section class="space-y-4">
-			<h2 class="h2">Drawer Component</h2>
+			<h2 class="h2">Prerequisites</h2>
+			<h3 class="h3">Initialize Stores</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, and Toast stores and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
+			</p>
+			<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
+			<h3 class="h3">Drawer Component</h3>
 			<p>Implement a single instance of the drawer component in your app's root layout, above the App Shell (if present).</p>
-			<CodeBlock
-				language="html"
-				code={`
-<Drawer>(contents)</Drawer>
-
-<!-- <AppShell>...</AppShell> -->
-				`}
-			/>
+			<CodeBlock language="html" code={`<Drawer />\n\n<!-- <AppShell>...</AppShell> -->`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Drawer Store</h2>
-			<p>Import this anywhere you wish to control the Drawer. Provides an interface to control the drawer component.</p>
+			<p>Provides an interface to control the drawer component.</p>
+			<blockquote class="blockquote">
+				NOTE: To retrieve the store, <code class="code">getDrawerStore</code> must be invoked at the <u>top level</u> of your component!
+			</blockquote>
+			<CodeBlock language="ts" code={`import { getDrawerStore } from "@skeletonlabs/skeleton";\n\nconst drawerStore = getDrawerStore();`} />
 			<h3 class="h3">Open</h3>
 			<CodeBlock language="ts" code={`drawerStore.open();`} />
 			<h3 class="h3">Close</h3>
@@ -251,17 +228,6 @@ drawerStore.open(settings);
 			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessibility. View the <a class="anchor" href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessibility.</p>
-		</section>
-		<!-- SvelteKit SSR Warning -->
-		<!-- prettier-ignore -->
-		<section class="space-y-4">
-			<h2 class="h2">SvelteKit SSR Warning</h2>
-			<div class="space-y-4">
-				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
-					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
-				</div>
-			</div>
 		</section>
 	</svelte:fragment>
 </DocsShell>

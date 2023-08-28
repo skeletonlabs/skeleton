@@ -14,7 +14,7 @@
 		description: 'Provides container elements that wrap and separate content',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/cards'],
-		source: 'styles/elements/cards.css',
+		source: 'packages/plugin/src/styles/components/cards.css',
 		classes: [
 			['<code class="code">.card</code>', '-', 'Adds basic card styling to any block element.'],
 			['<code class="code">.card-header</code>', '-', 'The header region of the card.'],
@@ -46,7 +46,7 @@
 							<img src={getImageLink({ id: 'vjUokUWbFOs', w: 400, h: 175 })} class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 						</header>
 						<div class="p-4 space-y-4">
-							<h6 class="h6">Announcements</h6>
+							<h6 class="h6" data-toc-ignore>Announcements</h6>
 							<h3 class="h3" data-toc-ignore>Skeleton is Awesome!</h3>
 							<article>
 								<p>
@@ -61,7 +61,7 @@
 						<footer class="p-4 flex justify-start items-center space-x-4">
 							<Avatar src={getImageLink({ id: 'YOErFW8AfkI', w: 32, h: 32 })} width="w-8" />
 							<div class="flex-auto flex justify-between items-center">
-								<h6 class="font-bold">By Alex</h6>
+								<h6 class="font-bold" data-toc-ignore>By Alex</h6>
 								<small>On {new Date().toLocaleDateString()}</small>
 							</div>
 						</footer>

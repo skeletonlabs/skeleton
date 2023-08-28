@@ -1,5 +1,7 @@
 // Modal Types
 
+export type { ModalStore } from './stores.js';
+
 export interface ModalComponent {
 	/** Import and provide your component reference. */
 	ref: any;

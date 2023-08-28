@@ -4,7 +4,7 @@
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import { variants } from '$lib/components/DocsPreview/options';
 	// Components
-	import { CodeBlock, toastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	import { CodeBlock, getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -13,7 +13,7 @@
 		description: 'Interactive elements for actions, selection, or filtering.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/chips'],
-		source: 'styles/elements/chips.css',
+		source: 'packages/plugin/src/styles/components/chips.css',
 		classes: [
 			['<code class="code">chip</code>', '', 'Provides the standard chip style.'],
 			['<code class="code">chip-[color]</code>', '<a class="anchor" href="/docs/colors">Any theme color.</a>', 'Applies a variant style.'],
@@ -35,6 +35,7 @@
 		chocolate: false,
 		strawberry: false
 	};
+	const toastStore = getToastStore();
 
 	function triggerToast(term: string): void {
 		const t: ToastSettings = { message: `You selected the <u>${term}</u> action.` };

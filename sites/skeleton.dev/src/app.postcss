@@ -1,5 +1,7 @@
 /* Global Stylesheet */
 
+@import 'tailwind.postcss';
+
 /* Ad Styles */
 @import 'app-ads.postcss';
 
@@ -46,17 +48,4 @@ body {
 }
 .page-section {
 	@apply space-y-4;
-}
-
-/* Heading Permalinks */
-.permalink {
-	@apply w-0 invisible inline-block text-base pl-2 -translate-y-1;
-}
-h1:hover .permalink,
-h2:hover .permalink,
-h3:hover .permalink,
-h4:hover .permalink,
-h5:hover .permalink,
-h6:hover .permalink {
-	@apply visible w-auto;
 }

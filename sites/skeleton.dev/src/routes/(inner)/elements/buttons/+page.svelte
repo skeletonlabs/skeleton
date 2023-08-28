@@ -14,12 +14,12 @@
 		description: 'Provides a robust set of button styles, including preset variants.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/buttons'],
-		source: 'styles/elements/buttons.css',
+		source: 'packages/plugin/src/styles/components/buttons.css',
 		classes: [
 			['<code class="code">.btn</code>', '-', 'Creates a text button using a button or anchor.'],
 			['<code class="code">.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
-			['<code class="code">.btn-[value]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
-			['<code class="code">.btn-icon-[value]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.']
+			['<code class="code">.btn-[value]</code>', 'sm | md | lg | xl', 'Canned button sizes that define padding and text sizes.'],
+			['<code class="code">.btn-icon-[value]</code>', 'sm | md | lg | xl', 'Canned icon button sizes that define padding and text sizes.']
 		]
 	};
 
@@ -93,13 +93,16 @@
 		</p>
 		<section class="space-y-4">
 			<h2 class="h2">Sizes</h2>
-			<p>A number of canned size presets are available via <code class="code">.btn-[size]</code>.</p>
+			<p>
+				A number of canned size presets are available via <code class="code">.btn-[size]</code>. Default sizing matches
+				<code class="code">btn-md</code>.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="space-y-4">
 						<div class="flex justify-center items-center gap-4">
 							<button type="button" class="btn btn-sm variant-filled">sm</button>
-							<button type="button" class="btn variant-filled">base</button>
+							<button type="button" class="btn variant-filled">md</button>
 							<button type="button" class="btn btn-lg variant-filled">lg</button>
 							<button type="button" class="btn btn-xl variant-filled">xl</button>
 						</div>
@@ -125,7 +128,7 @@
 						language="html"
 						code={`
 <button type="button" class="btn btn-sm variant-filled">sm</button>
-<button type="button" class="btn variant-filled">base</button>
+<button type="button" class="btn variant-filled">md</button>
 <button type="button" class="btn btn-lg variant-filled">lg</button>
 <button type="button" class="btn btn-xl variant-filled">xl</button>
 `}

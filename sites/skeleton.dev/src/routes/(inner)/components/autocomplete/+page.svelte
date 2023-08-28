@@ -17,14 +17,16 @@
 		description: 'Displays a list of suggested options.',
 		imports: ['Autocomplete'],
 		types: ['AutocompleteOption'],
-		source: 'components/Autocomplete',
+		source: 'packages/skeleton/src/lib/components/Autocomplete',
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [{ sveld: sveldAutocomplete }],
 		keyboard: [
 			['<kbd class="kbd">Tab</kbd>', 'Select the next autocomplete option.'],
 			['<kbd class="kbd">Shift</kbd> + <kbd class="kbd">Tab</kbd>', 'Select the previous autocomplete option.'],
 			['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Select the current autocomplete option.']
-		]
+		],
+		transitionIn: 'slide',
+		transitionOut: 'slide'
 	};
 
 	// Local

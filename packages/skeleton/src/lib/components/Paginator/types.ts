@@ -1,8 +1,8 @@
 // Pagination Types
 
 export interface PaginationSettings {
-	/** Index of the first list item to display. */
-	offset: number;
+	/** Index of the current page to display. */
+	page: number;
 	/** Current number of items to display. */
 	limit: number;
 	/** The total size (length) of your source content. */

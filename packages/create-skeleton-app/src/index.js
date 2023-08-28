@@ -4,10 +4,11 @@ import fs from 'fs-extra';
 import mri from 'mri';
 import { bold, cyan, gray, grey, red } from 'kleur/colors';
 import { intro, text, select, multiselect, spinner } from '@clack/prompts';
-import events from 'events';
-import { dist, getHelpText, goodbye } from './utils.js';
-import path from 'path';
+import { dist, getHelpText, goodbye, whichPMRuns, checkIfDirSafeToInstall } from './utils.js';
+import { resolve, join, relative, dirname, basename } from 'path';
 import semver from 'semver';
+import fg from 'fast-glob';
+
 // Minimum version required for Svelte Kit
 const requiredVersion = '16.14.0';
 
@@ -17,39 +18,60 @@ async function main() {
 		process.exit(1);
 	}
 
-	// This is required to handle spawning processes
-	events.EventEmitter.defaultMaxListeners = 15;
-
 	const startPath = process.cwd();
+	let defaults = new SkeletonOptions();
+
 	// grab any passed arguments from the command line
 	let opts = await parseArgs();
-
-	if ('quiet' in opts) {
-		// in quiet mode we prefill the defaults, then overlay the passed options and bypass all of askForMissingParams so that it
-		// doesn't have to constantly check for quietmode all the time.
-		let defaults = new SkeletonOptions();
-		opts = Object.assign(defaults, opts);
+	// need to set some defaults if they are not passed in
+	if (!('quiet' in opts)) opts.quiet = false;
+	// if no templatedir is provided we have to account for the dist location
+	if (!('skeletontemplatedir' in opts)) {
+		opts.skeletontemplatedir = resolve(dist('.'), '../templates');
 	} else {
-		// in interactive mode we ask the user to fill anything not passed in
+		// Resolve can handle multiple absolute paths so passing in a relative or absolute path is fine
+		opts.skeletontemplatedir = resolve(process.cwd(), opts.skeletontemplatedir);
+	}
+
+	try {
+		checkIfDirSafeToInstall(opts.path);
+	} catch (e) {
+		console.error(red(`\n${e.message}`));
+		process.exit(1);
+	}
+
+	if (!opts.quiet) {
 		opts = await askForMissingParams(opts);
 	}
+	opts = Object.assign(defaults, opts);
+	opts.packagemanager = whichPMRuns()?.name;
 
 	// Now that we have all of the options, lets create it.
 	const s = spinner();
-	s.start('Installing');
-	await createSkeleton(opts);
-	s.stop('Done installing');
-	// And give the user some final information on what to do Next
-	if (!opts?.quiet) {
+	if (!opts.quiet) {
+		s.start('Installing');
+	}
+
+	try {
+		await createSkeleton(opts);
+	} catch (e) {
+		console.error(red(`\n${e.message}`));
+		process.exit(1);
+	}
+
+	if (!opts.quiet) {
+		s.stop('Done installing');
+		// And give the user some final information on what to do Next
+
 		const pm = opts.packagemanager;
-		let runString = `${pm} dev\n`;
+		let runString = `${pm} install\n${pm} dev\n`;
 
 		if (pm == 'npm') {
-			runString = 'npm run dev\n';
+			runString = 'npm install\nnpm run dev\n';
 		}
 		let finalInstructions = bold(cyan(`\nDone! You can now:\n\n`));
 		if (startPath != opts.path) {
-			finalInstructions += bold(cyan(`cd ${path.relative(startPath, opts.path)}\n`));
+			finalInstructions += bold(cyan(`cd ${relative(startPath, opts.path)}\n`));
 		}
 		finalInstructions += bold(cyan(runString));
 		finalInstructions += grey(`Need some help or found an issue? Visit us on Discord https://discord.gg/EXqV7W8MtY`);
@@ -66,7 +88,6 @@ async function parseArgs() {
 	const opts = mri(argv, {
 		alias: {
 			h: 'help',
-			n: 'name',
 			p: 'path',
 			t: 'skeletontheme',
 			m: 'monorepo',
@@ -77,7 +98,6 @@ async function parseArgs() {
 			'help',
 			'quiet',
 			'monorepo',
-			'skeletonui',
 			'library',
 			'prettier',
 			'eslint',
@@ -88,15 +108,15 @@ async function parseArgs() {
 			'popups',
 			'forms',
 			'typography',
-			'verbose',
+			'mdsvex',
 		],
 	});
 
-	// If a user invokes 'create-app blah foo', it falls into the _ catch all list, the best we can do is take the first one and use that as the name
+	// If a user invokes 'create-app blah foo', it falls into the _ catch all list, the best we can do is take the first one and use that as the path
 	// if args are passed in incorrectly such as --prettier=0 instead of --prettier=false then a 0 will be added to the _ collection, we check that the
 	// first one isn't a bungled arg set to 0
 	if (opts._.length && opts._[0] != 0) {
-		opts.name = opts._[0];
+		opts.path = opts._[0];
 	}
 	// Show help if specified regardless of how many other options are specified, have fun updating the text string in utils.ts :(
 	if ('help' in opts) {
@@ -106,37 +126,6 @@ async function parseArgs() {
 	return opts;
 }
 
-function checkIfDirSafeToInstall(path) {
-	// Check if the directory already exists.
-	if (!fs.existsSync(path)) return;
-
-	//lets see whats in there
-	const conflicts = fs
-		.readdirSync(path)
-		.filter((file) =>
-			/^(package.json|svelte.config.js|tailwind.config.cjs|pnpm-lock.yaml|postcss.config.cjs|vite.config.ts)$/.test(file),
-		);
-
-	if (conflicts.length > 0) {
-		console.log("create-skeleton-app doesn't support updating an existing project, it needs a new empty directory to install into");
-		console.log(`The directory ${path} contains files that could conflict:`);
-		console.log();
-		for (const file of conflicts) {
-			try {
-				const stats = fs.lstatSync(path + '/' + file);
-				if (stats.isDirectory()) {
-					console.log(`  ${red(file)}/`);
-				} else {
-					console.log(`  ${red(file)}`);
-				}
-			} catch {
-				console.log(`  ${red(file)}`);
-			}
-		}
-		console.log('Either try using a new directory name, or remove the files listed above.');
-		process.exit(1);
-	}
-}
 /**
  * @param {SkeletonOptions} opts
  */
@@ -150,21 +139,155 @@ ${bold(cyan('Welcome to Skeleton 💀! A UI toolkit for Svelte + Tailwind'))}
 Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issues')} if none exists already.`);
 
 	//NOTE: When doing checks here, make sure to test for the presence of the prop, not the prop value as it may be set to false deliberately.
-	if (!('name' in opts)) {
-		opts.name = await text({
-			message: 'Name for your new project:?',
-			placeholder: 'my-app',
+	if (!('path' in opts)) {
+		opts.path = await text({
+			message: 'Where should we install your project (Enter for current directory) ?',
+			placeholder: '',
 			validate(value) {
-				if (value.length === 0) return `App name is required!`;
+				if (value.length === 0) value = '.';
+				try {
+					checkIfDirSafeToInstall(resolve(process.cwd(), value));
+				} catch (e) {
+					return e.message;
+				}
 			},
 		});
-		goodbye(opts.name);
+		goodbye(opts.path);
 	}
-	// test the path to make sure it is safe to install
-	if (opts.path === undefined) opts.path = process.cwd();
-	opts.name = opts.name.replace(/\s+/g, '-').toLowerCase();
-	opts.path = path.resolve(opts.path, opts.name);
-	checkIfDirSafeToInstall(opts.path);
+	// name to set in package.json
+	opts.name = basename(opts.path);
+
+	// Skeleton Template Selection
+	// We have to ask for the template first as it may dictate things like required packages and typechecking
+	// skeletontemplatedir is the path to the templates directory, it's either passed in as an arg or set to cwd
+	// it may be a single directory with a csa-meta in the root,
+	// or it holds multiple directories with csa-meta files in them and skeletontemplate selects that sub folder.
+
+	let templateFound = false;
+	if (opts?.skeletontemplate) {
+		// they have asked for a specific template within the folder
+		opts.skeletontemplate = resolve(opts.skeletontemplatedir, opts.skeletontemplate, 'csa-meta.json');
+		//check that it exists
+		if (!fs.existsSync(opts.skeletontemplate)) {
+			console.error(`The template ${opts.skeletontemplate} does not exist`);
+			process.exit(1);
+		}
+		templateFound = true;
+	}
+	// no template specified, so scan the templatedir for csa-meta files
+	if (!templateFound) {
+		const metaFiles = fg.sync(['**/csa-meta.json'], { cwd: opts.skeletontemplatedir, deep: 2 });
+		if (metaFiles.length === 0) {
+			console.error(`No templates found in ${opts.skeletontemplatedir}`);
+			process.exit(1);
+		}
+		let parsedChoices = [];
+		metaFiles.forEach((meta_file) => {
+			const path = join(opts.skeletontemplatedir, meta_file);
+			const { position, label, description, enabled } = JSON.parse(fs.readFileSync(path, 'utf8'));
+			if (enabled) {
+				parsedChoices.push({ position, label, hint: description, value: path });
+			}
+		});
+		parsedChoices.sort((a, b) => a.position - b.position);
+		opts.skeletontemplate = await select({
+			message: 'Which Skeleton app template?',
+			options: parsedChoices,
+		});
+		goodbye(opts.skeletontemplate);
+	}
+	// Now that we have the template, lets get the meta data from it and the base path
+	opts.meta = JSON.parse(fs.readFileSync(opts.skeletontemplate, 'utf8'));
+	if (opts.meta.requiredFeatures) {
+		opts.meta.requiredFeatures.forEach((val) => {
+			Object.assign(opts, val);
+		});
+	}
+	opts.skeletontemplatedir = dirname(opts.skeletontemplate);
+
+	// If it's a premium template, wording needs to be change to indicate that there is a theme already built in
+	// Skeleton Theme Selection
+	if (!('skeletontheme' in opts)) {
+		let themeChoices = [
+			{ label: 'Skeleton', value: 'skeleton' },
+			{ label: 'Wintry', value: 'wintry' },
+			{ label: 'Modern', value: 'modern' },
+			{ label: 'Hamlindigo', value: 'hamlindigo' },
+			{ label: 'Rocket', value: 'rocket' },
+			{ label: 'Sahara', value: 'sahara' },
+			{ label: 'Gold Nouveau', value: 'gold-nouveau' },
+			{ label: 'Vintage', value: 'vintage' },
+			{ label: 'Seafoam', value: 'seafoam' },
+			{ label: 'Crimson', value: 'crimson' },
+			{ label: cyan('Custom'), value: 'custom', hint: 'Will ask for a name next' },
+		];
+		if (opts.meta.type === 'premium') {
+			themeChoices.unshift({ label: 'Use templates built in theme', value: 'builtin' });
+		}
+		opts.skeletontheme = await multiselect({
+			message: 'Select a theme (top most selection will be default):',
+			options: themeChoices,
+			required: true,
+		});
+		goodbye(opts.skeletontheme);
+	}
+
+	if (opts.skeletontheme.includes('custom')) {
+		let customName = await text({
+			message: 'Enter a name for your custom theme:',
+			placeholder: 'theme_name',
+			validate(value) {
+				if (value.length === 0) {
+					return 'Please enter a name for your custom theme';
+				}
+				// regex to check if value can be used as a variable name, it cannot allow hyphens
+				if (!/^[a-zA-Z_$][a-zA-Z_$0-9]*$/.test(value)) {
+					return 'Name for theme must be a valid syntax for a Javascript variable name';
+				}
+			},
+		});
+		opts.skeletontheme.pop('custom');
+		opts.skeletontheme.push({ custom: customName });
+		goodbye();
+	}
+
+	// Additional packages to install - these can be influenced by the template selected
+	let packages = [
+		{ value: 'forms', label: 'Add Tailwind forms ?', package: '@tailwindcss/forms', force: false },
+		{ value: 'typography', label: 'Add Tailwind typography ?', package: '@tailwindcss/typography', force: false },
+		{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js) ?', package: 'highlight.js', force: false },
+		{ value: 'popups', label: 'Add Popups (installs floating-ui) ?', package: '@floating-ui/dom', force: false },
+		// { value: 'mdsvex', label: 'Add Markdown support (installs mdsvex) ?', package: 'mdsvex', force: false },
+	];
+	// Force the packages that are required by the template
+	packages.forEach((pkg) => {
+		if (opts[pkg.value] != undefined) pkg.force = true;
+	});
+	// Now we can ask the user about any options that are not forced to be installed
+	let optionalPackages = packages.filter((pkg) => !pkg.force);
+	// Get list of forced packages to display to the user
+	let msg = '';
+	packages.forEach((p) => {
+		if (p.force) msg += p.package + '\n';
+	});
+	if (msg.length > 0) {
+		msg = `\nThe following packages will be installed because they are required by the template:\n\n${msg}\nWhat other packages would you like to install:`;
+	} else {
+		msg = `\nWhat other packages would you like to install:`;
+	}
+
+	if (optionalPackages.length > 0) {
+		// check which options are set and fill the initialValues array
+		const packageChoices = await multiselect({
+			message: msg,
+			options: optionalPackages,
+			required: false,
+		});
+		goodbye(packages);
+		if (Array.isArray(packageChoices)) {
+			packageChoices.forEach((value) => (opts[value] = true));
+		}
+	}
 
 	if (!('types' in opts)) {
 		opts.types = await select({
@@ -200,79 +323,9 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			required: false,
 		});
 		goodbye(optionalInstalls);
-		optionalInstalls.every((value) => (opts[value] = true));
+		optionalInstalls.forEach((value) => (opts[value] = true));
 	}
-
-	// Additional packages to install
-	if (
-		!['forms', 'typography', 'codeblocks', 'popups'].every((value) => {
-			return Object.keys(opts).includes(value);
-		})
-	) {
-		const packages = await multiselect({
-			message: 'What other packages would you like to install:',
-			initialValues: ['forms', 'typography', 'codeblocks', 'popups'].filter((value) => {
-				return Object.keys(opts).includes(value);
-			}),
-			options: [
-				{ value: 'forms', label: 'Add Tailwind forms ?' },
-				{ value: 'typography', label: 'Add Tailwind typography ?' },
-				{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js) ?' },
-				{ value: 'popups', label: 'Add Popups (installs floating-ui) ?' },
-			],
-			required: false,
-		});
-		goodbye(packages);
-		packages.every((value) => (opts[value] = true));
-	}
-
-	// Skeleton Theme Selection
-	if (!('skeletontheme' in opts)) {
-		opts.skeletontheme = await select({
-			message: 'Select a theme:',
-			options: [
-				{ label: 'Skeleton', value: 'skeleton' },
-				{ label: 'Modern', value: 'modern' },
-				{ label: 'Hamlindigo', value: 'hamlindigo' },
-				{ label: 'Rocket', value: 'rocket' },
-				{ label: 'Sahara', value: 'sahara' },
-				{ label: 'Gold Nouveau', value: 'gold-nouveau' },
-				{ label: 'Vintage', value: 'vintage' },
-				{ label: 'Seafoam', value: 'seafoam' },
-				{ label: 'Crimson', value: 'crimson' },
-			],
-		});
-		goodbye(opts.skeletontheme);
-	}
-
-	//Skeleton Template Selection
-	if (!('skeletontemplate' in opts)) {
-		// need to check whether a templatedir has been passed in (might be from a script in package.json pointing to real template projects)
-		const templateDir = opts.skeletontemplatedir || '../templates';
-		let parsedChoices = [];
-		fs.readdirSync(dist(templateDir)).forEach((dir) => {
-			const meta_file = dist(`${templateDir}/${dir}/csa-meta.json`);
-			const { position, label, description, enabled } = JSON.parse(fs.readFileSync(meta_file, 'utf8'));
-			if (enabled) {
-				parsedChoices.push({
-					position,
-					label,
-					description,
-					value: dir,
-				});
-			}
-		});
-		parsedChoices.sort((a, b) => a.position - b.position);
-		opts.skeletontemplate = await select({
-			message: 'Which Skeleton app template?',
-			options: parsedChoices,
-		});
-		goodbye(opts.skeletontemplate);
-	}
-
-	const skelOpts = new SkeletonOptions();
-	Object.assign(skelOpts, opts);
-	return skelOpts;
+	return opts;
 }
 
 main();

@@ -13,7 +13,7 @@
 		name: 'Forms',
 		description: 'Pair with the Tailwind Forms plugin to style various input fields.',
 		stylesheetIncludes: ['all', 'forms'],
-		source: 'styles/elements/forms.css',
+		source: 'packages/plugin/src/styles/base/forms.css',
 		dependencies: [{ label: 'Tailwind Forms Plugin', url: 'https://github.com/tailwindlabs/tailwindcss-forms' }],
 		classes: [
 			['<code class="code">.legend</code>', '', 'Provides theme styles to legend elements.'],

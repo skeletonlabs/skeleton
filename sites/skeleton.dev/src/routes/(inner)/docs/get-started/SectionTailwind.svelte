@@ -2,16 +2,14 @@
 	import { storeOnboardMethod } from '$lib/stores/stores';
 	// Components
 	import { Tab, TabGroup, CodeBlock } from '@skeletonlabs/skeleton';
+
+	// Local
+	let tabConfigFormat = 'ts';
 </script>
 
 <!-- Header -->
 <section class="space-y-4">
-	<h2 class="h2">Tailwind CSS</h2>
-	<p>
-		Skeleton features tight integration with <a class="anchor" href="https://tailwindcss.com/" target="_blank" rel="noreferrer"
-			>Tailwind CSS</a
-		>.
-	</p>
+	<h2 class="h2">Install Tailwind</h2>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
 		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
@@ -19,38 +17,124 @@
 		<!-- Panel -->
 		<svelte:fragment slot="panel">
 			{#if $storeOnboardMethod === 'cli'}
-				<div class="card variant-glass p-4">
-					<!-- prettier-ignore -->
-					<p>
-						The CLI will automatically install and configure Tailwind and PostCSS within your project.
-					</p>
-				</div>
+				<aside class="alert variant-ghost p-4">
+					<i class="fa-solid fa-circle-check" />
+					<div class="alert-message">
+						<p>The CLI will automatically install Tailwind and configure all required settings.</p>
+					</div>
+				</aside>
 			{:else if $storeOnboardMethod === 'manual'}
 				<div class="space-y-4">
+					<!-- prettier-ignore -->
 					<p>
-						<a class="anchor" href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it easy
-						to setup Tailwind in your project. Run the following commands in your terminal.
+						<a class="anchor" href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> automates the process of installing Tailwind in SvelteKit.
 					</p>
 					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
-					<!-- prettier-ignore -->
-					<p>Then open your global stylesheet in <code class="code">/src/app.postcss</code> and remove the following three <a class="anchor" href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redundant as Skeleton automatically handles these in our stylesheets for you.</p>
-					<div class="space-y-[1px]">
-						<del class="del">@tailwind base;</del>
-						<del class="del">@tailwind components;</del>
-						<del class="del">@tailwind utilities;</del>
-					</div>
 				</div>
-				<p>Apply these following three changes to your <code class="code">tailwind.config.cjs</code>, found in the root of your project.</p>
-				<CodeBlock
-					language="js"
-					code={`
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-	// 1. Apply the dark mode class setting:
+				<h3 class="h3">Tailwind Configuration</h3>
+				<p>
+					Let's make a few modifications to the <code class="code">tailwind.config.[ts|js|cjs]</code>, found in the root of your project.
+				</p>
+				<TabGroup regionPanel="space-y-4">
+					<!-- Tabs -->
+					<Tab bind:group={tabConfigFormat} name="ts" value="ts">Typescript (.ts)</Tab>
+					<Tab bind:group={tabConfigFormat} name="js" value="js">Javascript (.js)</Tab>
+					<Tab bind:group={tabConfigFormat} name="cjs" value="cjs">CommonJS (.cjs)</Tab>
+					<!-- Panel -->
+					<svelte:fragment slot="panel">
+						{#if tabConfigFormat === 'ts'}
+							<p>For SvelteKit projects using Typescript, install the standard node type definitions.</p>
+							<CodeBlock language="console" code={`npm add -D @types/node`} />
+							<p>Then, setup your Tailwind configuration using the <code class="code">.ts</code> file extension.</p>
+							<CodeBlock
+								language="ts"
+								code={`
+import { join } from 'path';
+import type { Config } from 'tailwindcss';
+
+// 1. Import the Skeleton plugin
+import { skeleton } from '@skeletonlabs/tw-plugin';
+
+const config = {
+	// 2. Opt for dark mode to be handled via the class method
 	darkMode: 'class',
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
-		// 2. Append the path for the Skeleton NPM package and files:
+		// 3. Append the path to the Skeleton package
+		join(require.resolve(
+			'@skeletonlabs/skeleton'),
+			'../**/*.{html,js,svelte,ts}'
+		)
+	],
+	theme: {
+		extend: {},
+	},
+	plugins: [
+		// 4. Append the Skeleton plugin (after other plugins)
+		skeleton
+	]
+} satisfies Config;
+
+export default config;
+						`}
+							/>
+						{:else if tabConfigFormat === 'js'}
+							<p>
+								For SvelteKit projects using Javascript or JSDoc, implement your Tailwind configuration using the <code class="code"
+									>.js</code
+								> file extension.
+							</p>
+							<CodeBlock
+								language="js"
+								code={`
+// @ts-check
+import { join } from 'path';
+
+// 1. Import the Skeleton plugin
+import { skeleton } from '@skeletonlabs/tw-plugin';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+	// 2. Opt for dark mode to be handled via the class method
+	darkMode: 'class',
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		// 3. Append the path to the Skeleton package
+		join(require.resolve(
+			'@skeletonlabs/skeleton'),
+			'../**/*.{html,js,svelte,ts}'
+		)
+	],
+	theme: {
+		extend: {},
+	},
+	plugins: [
+		// 4. Append the Skeleton plugin (after other plugins)
+		skeleton
+	]
+}
+						`}
+							/>
+						{:else}
+							<aside class="alert variant-ghost-warning">
+								<p>Skeleton no longer recommends the CommonJS format. We've included this merely as reference.</p>
+							</aside>
+							<CodeBlock
+								language="cjs"
+								code={`
+
+// @ts-check
+
+// 1. Import the Skeleton plugin
+const { skeleton } = require('@skeletonlabs/tw-plugin');
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+	// 2. Opt for dark mode to be handled via the class method
+	darkMode: 'class',
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		// 3. Append the path to the Skeleton package
 		require('path').join(require.resolve(
 			'@skeletonlabs/skeleton'),
 			'../**/*.{html,js,svelte,ts}'
@@ -60,29 +144,21 @@ module.exports = {
 		extend: {},
 	},
 	plugins: [
-		// 3. Append the Skeleton plugin to the end of this list
-		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
+		// 4. Append the Skeleton plugin (after other plugins)
+		skeleton
 	]
 }
-`}
-				/>
-				<aside class="alert variant-ghost-warning">
-					<i class="fa-solid fa-triangle-exclamation text-2xl" />
-					<div class="alert-message">
-						Skeleton's Tailwind plugin cannot operate alongside plugins from other UI libraries, such as <strong>Flowbite</strong> or
-						<strong>Daisy</strong>. All three plugins modify similar settings, which means they will conflict.
-					</div>
+						`}
+							/>
+						{/if}
+					</svelte:fragment>
+				</TabGroup>
+				<aside class="alert variant-ghost">
+					<p>
+						See our <a class="anchor" href="/docs/themes#dark-mode" target="_blank">Themes</a> guide to learn more about using Tailwind's light
+						and dark mode options.
+					</p>
 				</aside>
-				<p>
-					Note that your app will default to light mode. To manually set dark mode, append the following class to the HTML element within <code
-						class="code">/src/app.html</code
-					>.
-				</p>
-				<CodeBlock language="html" code={`<html class="dark">`} />
-				<p>
-					If you wish to be able to toggle dark mode, review the <a class="anchor" href="/utilities/lightswitches">Lightswitch</a> utility features
-					when you complete this setup process.
-				</p>
 			{/if}
 		</svelte:fragment>
 	</TabGroup>

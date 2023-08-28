@@ -13,7 +13,9 @@
 
 	// Modals Utils
 	import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
-	import { modalStore } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+
+	const modalStore = getModalStore();
 
 	// Stores
 	let tabCustom = 'register';
@@ -23,9 +25,9 @@
 		feature: DocsFeature.Utility,
 		name: 'Modals',
 		description: 'High priority dialogs and modals using a dynamic queue system.',
-		imports: ['Modal', 'modalStore'],
-		types: ['ModalSettings', 'ModalComponent'],
-		source: 'utilities/Modal',
+		imports: ['Modal', 'getModalStore'],
+		types: ['ModalSettings', 'ModalComponent', 'ModalStore'],
+		source: 'packages/skeleton/src/lib/utilities/Modal',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/',
 		components: [{ sveld: sveldModal }],
 		keyboard: [['<kbd class="kbd">Esc</kbd>', ' Dismisses the foremost modal.']],
@@ -33,7 +35,9 @@
 			['<code class="code">.w-modal</code>', '-', 'Sets a standard responsive width for modals.'],
 			['<code class="code">.w-modal-slim</code>', '-', 'Create a slimmer modal. Great for small component modals.'],
 			['<code class="code">.w-modal-wide</code>', '-', 'Create a wider modal. Great for full screen component modals.']
-		]
+		],
+		transitionIn: 'fly',
+		transitionOut: 'fly'
 	};
 
 	// Demo ---
@@ -102,7 +106,7 @@
 			component: c,
 			title: 'Custom Form Component',
 			body: 'Complete the form below and then press submit.',
-			response: (r: any) => console.log('response:', r)
+			response: (r) => console.log('response:', r)
 		};
 		modalStore.trigger(modal);
 	}
@@ -113,7 +117,7 @@
 			component: 'exampleList',
 			title: 'Custom List Component',
 			body: 'Make your selection then press submit.',
-			response: (r: any) => console.log('response:', r)
+			response: (r) => console.log('response:', r)
 		};
 		modalStore.trigger(modal);
 	}
@@ -145,34 +149,7 @@
 				<button class="btn variant-filled" on:click={modalDemo}>Show Modal</button>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<p>Implement a single instance of the modal component your app's root layout, above the App Shell (if present).</p>
-				<CodeBlock
-					language="html"
-					code={`
-<Modal />\n
-<!-- <AppShell>...</AppShell> -->
-				`}
-				/>
-				<p>
-					When you wish to trigger a modal, import <code class="code">modalStore</code> and
-					<code class="code">ModalSettings</code>, then follow the example below.
-				</p>
-				<CodeBlock
-					language="ts"
-					code={`
-import { modalStore, type ModalSettings } from '@skeletonlabs/skeleton';\n
-// Provide the modal settings
-const modal: ModalSettings = {
-	type: 'alert',
-	title: 'Example Alert',
-	body: 'This is an example modal.',
-	image: 'https://i.imgur.com/WOgTG96.gif',
-};\n
-// Trigger the modal:
-modalStore.trigger(modal);
-				`}
-				/>
-				<p>For more examples and configuration options, see the documentation below.</p>
+				<p>There are a several steps involved to utilize this feature. Please refer to the documented instruction below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -189,21 +166,34 @@ modalStore.trigger(modal);
 			</p>
 		</aside>
 		<section class="space-y-4">
-			<h2 class="h2">Modal Component</h2>
+			<h2 class="h2">Prerequisites</h2>
+			<h3 class="h3">Initialize Stores</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, and Toast stores and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
+			</p>
+			<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
+			<h3 class="h3">Modal Component</h3>
 			<p>Implement a single instance of the modal component in your app's root layout, above the App Shell (if present).</p>
-			<CodeBlock
-				language="html"
-				code={`
-<Modal />
-
-<!-- <AppShell>...</AppShell> -->
-				`}
-			/>
+			<CodeBlock language="html" code={`<Modal />\n\n<!-- <AppShell>...</AppShell> -->`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Modal Store</h2>
-			<p>When you wish to trigger a modal, import the <code class="code">modalStore</code>, which acts as the modal queue.</p>
-			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';`} />
+			<p>
+				When you wish to trigger a modal, import the <code class="code">getModalStore</code> function and invoke it to retrieve the
+				<code class="code">modalStore</code>, which is a Svelte store that acts as the modal queue.
+			</p>
+			<blockquote class="blockquote">
+				NOTE: To retrieve the store, <code class="code">getModalStore</code> must be invoked at the <u>top level</u> of your component!
+			</blockquote>
+			<CodeBlock
+				language="ts"
+				code={`
+import { getModalStore } from '@skeletonlabs/skeleton';
+			
+const modalStore = getModalStore();
+			`}
+			/>
 			<h3 class="h3">Trigger</h3>
 			<p>
 				The <code class="code">title</code>, <code class="code">body</code>, and <code class="code">image</code> are available to all modals.
@@ -504,17 +494,6 @@ modalStore.trigger(modal);
 			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessibility. View the <a class="anchor" href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessibility.</p>
-		</section>
-		<!-- SvelteKit SSR Warning -->
-		<!-- prettier-ignore -->
-		<section class="space-y-4">
-			<h2 class="h2">SvelteKit SSR Warning</h2>
-			<div class="space-y-4">
-				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
-					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
-				</div>
-			</div>
 		</section>
 	</svelte:fragment>
 </DocsShell>

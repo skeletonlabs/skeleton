@@ -14,7 +14,7 @@
 		name: 'Listboxes',
 		description: 'Interactive listboxes that maintain selection state.',
 		imports: ['ListBox', 'ListBoxItem'],
-		source: 'components/ListBox',
+		source: 'packages/skeleton/src/lib/components/ListBox',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/listbox/',
 		components: [
 			{ label: 'ListBox', sveld: sveldListBox },

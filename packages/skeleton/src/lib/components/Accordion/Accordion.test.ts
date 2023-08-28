@@ -13,7 +13,6 @@ describe('Accordion.svelte', () => {
 		const { getByTestId } = render(Accordion, {
 			props: {
 				autocollapse: true,
-				duration: 200,
 				spacing: 'space-y-1',
 				padding: 'py-2 px-4',
 				hover: 'hover:bg-primary-hover-token',

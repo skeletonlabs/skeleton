@@ -1,4 +1,15 @@
-<script lang="ts">
+<script lang="ts" context="module">
+	import { slide } from 'svelte/transition';
+	import { type Transition, type TransitionParams, prefersReducedMotionStore } from '../../index.js';
+	import { dynamicTransition } from '../../internal/transitions.js';
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type SlideTransition = typeof slide;
+	type TransitionIn = Transition;
+	type TransitionOut = Transition;
+</script>
+
+<script lang="ts" generics="TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition">
 	import { createEventDispatcher } from 'svelte';
 	// import { flip } from 'svelte/animate';
 	// import {slide} from 'svelte/transition';
@@ -48,15 +59,33 @@
 	export let regionButton = 'w-full';
 	/** Provide arbitrary classes to empty message. */
 	export let regionEmpty = 'text-center';
-	// TODO: These are slated to be removed!
-	/** DEPRECATED: replace with allowlist */
-	export let whitelist: unknown[] = [];
-	/** DEPRECATED: replace with denylist */
-	export let blacklist: unknown[] = [];
-	/** DEPRECATED: Set the animation duration. Use zero to disable. */
-	export let duration = 200;
-	// Silence warning about unused props:
-	const deprecated = [whitelist, blacklist, duration];
+
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = slide as TransitionIn;
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 200 };
+	/**
+	 * Provide the transition used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = slide as TransitionOut;
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 200 };
 
 	// Local
 	$: listedOptions = options;
@@ -114,13 +143,17 @@
 	$: classesEmpty = `${regionEmpty}`;
 </script>
 
-<!-- animate:flip={{ duration }} transition:slide|local={{ duration }} -->
+<!-- animate:flip={{ duration }} -->
 <div class="autocomplete {classesBase}" data-testid="autocomplete">
 	{#if optionsFiltered.length > 0}
 		<nav class="autocomplete-nav {classesNav}">
 			<ul class="autocomplete-list {classesList}">
 				{#each optionsFiltered.slice(0, sliceLimit) as option (option)}
-					<li class="autocomplete-item {classesItem}">
+					<li
+						class="autocomplete-item {classesItem}"
+						in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+						out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+					>
 						<button class="autocomplete-button {classesButton}" type="button" on:click={() => onSelection(option)} on:click on:keypress>
 							{@html option.label}
 						</button>

@@ -18,7 +18,7 @@
 		name: 'Progress Bars',
 		description: 'An indicator showing the progress or completion of a task.',
 		imports: ['ProgressBar'],
-		source: 'components/ProgressBar',
+		source: 'packages/skeleton/src/lib/components/ProgressBar',
 		aria: 'https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role',
 		components: [{ sveld: sveldProgressBar }]
 	};

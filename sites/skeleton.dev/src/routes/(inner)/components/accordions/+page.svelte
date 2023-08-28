@@ -16,7 +16,7 @@
 		name: 'Accordions',
 		description: 'Divide content into collapsible sections.',
 		imports: ['Accordion', 'AccordionItem'],
-		source: 'components/Accordion',
+		source: 'packages/skeleton/src/lib/components/Accordion',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/accordion/',
 		components: [
 			{ label: 'Accordion', sveld: sveldAccordion },
@@ -30,7 +30,9 @@
 			['<kbd class="kbd">Tab</kbd>', 'Focus the next accordion item.'],
 			['<kbd class="kbd">Shift + Tab</kbd> ', 'Focus the previous accordion item.'],
 			['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Toggles the item panel open or closed.']
-		]
+		],
+		transitionIn: 'slide',
+		transitionOut: 'slide'
 	};
 </script>
 
