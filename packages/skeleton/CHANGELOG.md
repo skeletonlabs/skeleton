@@ -1,5 +1,45 @@
 # @skeletonlabs/skeleton
 
+## 2.0.0
+
+### Major Changes
+
+- breaking: Introduced dynamic transitions for various components ([#1533](https://github.com/skeletonlabs/skeleton/pull/1533))
+
+- breaking: Removed deprecated `whitelist` and `blacklist` properties from the Autocomplete component ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
+
+- breaking: Removed the long-deprecated Skeleton Data Table feature ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
+
+- breaking: Refactored global stores to use contexts for `Toast`, `Drawer`, and `Modal` utilities ([#1831](https://github.com/skeletonlabs/skeleton/pull/1831))
+
+- breaking: Overhauled the Tailwind plugin and separated it into its own package: `@skeletonlabs/tw-plugin` (#1660) ([#1730](https://github.com/skeletonlabs/skeleton/pull/1730))
+
+- breaking: Table of Contents component has been rebuilt and reimplemented from the ground up ([#1832](https://github.com/skeletonlabs/skeleton/pull/1832))
+
+- breaking: Removed all references to Skeleton's legacy typography system, including `typography-prose.css` and `.unstyled` ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
+
+- breaking: Renamed the Paginator `offset` property to `page` for better semantics ([#1822](https://github.com/skeletonlabs/skeleton/pull/1822))
+
+### Minor Changes
+
+- feat: Added Tree View single/multi selection mode, enabled data-driven Tree View ([#1866](https://github.com/skeletonlabs/skeleton/pull/1866))
+
+### Patch Changes
+
+- bugfix: Updates to the relational Tree View now work as expected ([#1910](https://github.com/skeletonlabs/skeleton/pull/1910))
+
+- bugfix: Paginator no longer resets `page` value on length change ([#1837](https://github.com/skeletonlabs/skeleton/pull/1837))
+
+- chore: Update File Button `button` prop now includes `.btn` class to allow removing all styles ([#1919](https://github.com/skeletonlabs/skeleton/pull/1919))
+
+- bugfix: Fixed an issue where the paginator page would be set to -1 if `size` was 0 ([#1861](https://github.com/skeletonlabs/skeleton/pull/1861))
+
+- chore: Update Table of Contents to include optional `prefix` and `suffix` parameters ([#1956](https://github.com/skeletonlabs/skeleton/pull/1956))
+
+- chore: Rollback Input Chip change that introduced reactivity bug ([#1957](https://github.com/skeletonlabs/skeleton/pull/1957))
+
+- chore: The checkbox `indeterminate` state now uses theme styling by default ([#1917](https://github.com/skeletonlabs/skeleton/pull/1917))
+
 ## 2.0.0-rc.3
 
 ### Patch Changes
