@@ -79,10 +79,24 @@
 				code={`
 <!-- Before: -->
 <h2 class="h2">Title One</h2>
-<h2 class="h2" id="toc-my-custom-id">Title Two</h2>\n
+<h2 class="h2" id="my-custom-id">Title Two</h2>\n
 <!-- After: -->
 <h2 class="h2" id="title-one">Title One</h2>
 <h2 class="h2" id="my-custom-id">Title Two</h2>
+			`}
+			/>
+			<!-- Prefixes and Suffixes -->
+			<h3 class="h3">Prefixes and Suffixes</h3>
+			<!-- prettier-ignore -->
+			<p>
+				We recommend setting a custom heading (per the instruction above) if a conflict is found within your page. However, you may also hardcode a <code class="code">prefix</code> or <code class="code">suffix</code> to all generated IDs as follows:
+			</p>
+			<CodeBlock
+				language="html"
+				code={`
+<div use:tocCrawler={{ mode: 'generate', prefix: 'foo', suffix: 'bar' }}>\n
+<!-- Ex: foo-title-one-bar -->
+<!-- Ex: foo-title-two-bar -->
 			`}
 			/>
 			<!-- Ignore Headings -->
