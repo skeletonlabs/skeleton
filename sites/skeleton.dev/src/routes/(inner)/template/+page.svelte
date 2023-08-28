@@ -17,7 +17,7 @@
 		types: ['Template'],
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/template'],
-		source: 'components/Template',
+		source: 'packages/skeleton/src/lib/components/Template',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/'
 		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
 		// components: [{sveld: sveldComp}],

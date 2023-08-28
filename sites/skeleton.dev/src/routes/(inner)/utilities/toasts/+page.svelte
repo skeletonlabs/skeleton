@@ -18,7 +18,7 @@
 		description: 'Simple notifications utilizing a dynamic queue system.',
 		imports: ['Toast', 'getToastStore'],
 		types: ['ToastSettings', 'ToastStore'],
-		source: 'utilities/Toast',
+		source: 'packages/skeleton/src/lib/utilities/Toast',
 		components: [{ sveld: sveldToast }],
 		transitionIn: 'fly',
 		transitionOut: 'fly'

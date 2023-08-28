@@ -14,7 +14,7 @@
 		description: 'Create conic gradient data visualizations for pie charts, loading spinners, and more.',
 		imports: ['ConicGradient'],
 		types: ['ConicStop'],
-		source: 'components/ConicGradient',
+		source: 'packages/skeleton/src/lib/components/ConicGradient',
 		components: [{ sveld: sveldConicGradient }]
 	};
 

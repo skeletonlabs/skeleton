@@ -17,7 +17,7 @@
 		description: 'Displays a list of suggested options.',
 		imports: ['Autocomplete'],
 		types: ['AutocompleteOption'],
-		source: 'components/Autocomplete',
+		source: 'packages/skeleton/src/lib/components/Autocomplete',
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [{ sveld: sveldAutocomplete }],
 		keyboard: [

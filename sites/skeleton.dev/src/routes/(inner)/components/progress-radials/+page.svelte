@@ -13,7 +13,7 @@
 		name: 'Progress Radials',
 		description: 'Displays a radial indicator showing the progress or completion of a task.',
 		imports: ['ProgressRadial'],
-		source: 'components/ProgressRadial',
+		source: 'packages/skeleton/src/lib/components/ProgressRadial',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/meter/',
 		components: [{ sveld: sveldProgressRadial }]
 	};

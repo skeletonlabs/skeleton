@@ -13,7 +13,7 @@
 		description: 'Provides a robust set of non-interactive badge styles.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/badges'],
-		source: 'styles/elements/badges.css',
+		source: 'packages/plugin/src/styles/components/badges.css',
 		classes: [
 			['<code class="code">badge</code>', '-', 'Provides the standard Badge style.'],
 			['<code class="code">badge-icon</code>', '-', 'Provides the Icon Badge style.']

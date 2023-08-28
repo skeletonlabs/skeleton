@@ -13,7 +13,7 @@
 		name: 'File Dropzone',
 		description: 'Allow upload of files with drag and drop.',
 		imports: ['FileDropzone'],
-		source: 'components/FileDropzone',
+		source: 'packages/skeleton/src/lib/components/FileDropzone',
 		components: [{ sveld: sveldFileDropzone }],
 		restProps: 'input'
 	};

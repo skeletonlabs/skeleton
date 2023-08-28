@@ -14,7 +14,7 @@
 		name: 'App Shell',
 		description: 'Responsive shell for controlling application layout.',
 		imports: ['AppShell'],
-		source: 'components/AppShell',
+		source: 'packages/skeleton/src/lib/components/AppShell',
 		components: [{ sveld: sveldAppShell }]
 	};
 

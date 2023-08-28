@@ -16,7 +16,7 @@
 		name: 'Filters',
 		description: 'Apply Instagram-like filter effects to images.',
 		imports: ['filter'],
-		source: 'actions/Filters',
+		source: 'packages/skeleton/src/lib/actions/Filters',
 		parameters: [['<code class="code">(default)</code>', 'string', '-', '-', 'The name of the filter, such as "Apollo".']]
 	};
 

@@ -22,7 +22,7 @@
 		description: 'Utilize a data-driven model to create simple presentational tables.',
 		imports: ['Table'],
 		types: ['TableSource'],
-		source: 'components/Table',
+		source: 'packages/skeleton/src/lib/components/Table',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/',
 		components: [{ sveld: sveldTable }],
 		keyboard: [

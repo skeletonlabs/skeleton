@@ -15,7 +15,7 @@
 		description: 'Provides styles for static list elements.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/lists'],
-		source: 'styles/elements/lists.css',
+		source: 'packages/plugin/src/styles/components/lists.css',
 		classes: [
 			['<code class="code">.list</code>', '-', 'Class for defining an unordered or ordered list.'],
 			['<code class="code">.list-dl</code>', '-', 'Class for defining a description list.'],

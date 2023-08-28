@@ -13,7 +13,7 @@
 		name: 'Range Sliders',
 		description: 'Capture input from a range of values, including optional ticks.',
 		imports: ['RangeSlider'],
-		source: 'components/RangeSlider',
+		source: 'packages/skeleton/src/lib/components/RangeSlider',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/slider/',
 		components: [{ sveld: sveldRangeSlider }],
 		restProps: 'input',
