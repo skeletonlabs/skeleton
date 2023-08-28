@@ -63,7 +63,7 @@
 
 <div class="ratings {classesBase}" data-testid="rating-bar">
 	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-	{#each Array(max) as _, i}
+	{#each { length: max } as _, i}
 		{#if interactive}
 			<button class="rating-icon {regionIcon}" type="button" on:click={() => iconClick(i)}>
 				{#if isFull(value, i)}

@@ -1,6 +1,6 @@
 {
 	"name": "create-skeleton-app",
-	"version": "0.0.44",
+	"version": "0.0.48-rc.6",
 	"description": "Use this CLI app to setup a new Skeleton application in a new SvelteKit project.",
 	"keywords": [
 		"skeleton",
@@ -21,34 +21,38 @@
 	"bin": "./src/index.js",
 	"files": [
 		"src/**",
-		"templates/**"
+		"templates/**",
+		"fonts/**"
 	],
 	"engines": {
 		"node": ">=14.16"
 	},
 	"scripts": {
-		"dev": "node src/index.js",
+		"prep": "node scripts/prepare-templates.mjs && pnpm format",
+		"tw": "node scripts/tw.mjs",
+		"dev": "node src/index.js -p=../../../atest --skeletontemplatedir=../../templates/",
 		"long": "node src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t crimson --skeletontemplate=welcome",
-		"pub:beta": "npm publish --tag beta",
-		"pub:next": "npm publish --tag next",
-		"pub:release": "npm publish",
-		"release": "npm publish",
+		"pub:beta": "pnpm prep && npm publish --tag beta",
+		"pub:rc": "pnpm prep && npm publish --tag rc",
+		"pub:release": "pnpm prep && npm publish",
 		"lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"dependencies": {
 		"@clack/prompts": "^0.6.3",
-		"create-svelte": "^4.2.0",
+		"columnify": "^1.6.0",
+		"create-svelte": "^5.0.5",
+		"fast-glob": "^3.3.1",
 		"fs-extra": "^11.1.1",
-		"got": "^12.6.0",
+		"got": "^13.0.0",
 		"kleur": "^4.1.5",
 		"mri": "^1.2.0",
-		"semver": "^7.5.1"
+		"semver": "^7.5.4",
+		"json5": "^2.2.3"
 	},
 	"devDependencies": {
-		"eslint": "^8.41.0",
-		"eslint-config-prettier": "^8.8.0",
-		"prettier": "^2.8.8",
-		"svelte": "^3.59.1"
+		"archiver": "^5.3.1",
+		"eslint": "^8.46.0",
+		"eslint-config-prettier": "^8.10.0"
 	}
 }

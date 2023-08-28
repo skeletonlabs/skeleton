@@ -11,14 +11,16 @@
 	import DocsIcon from '$lib/components/DocsIcon/DocsIcon.svelte';
 
 	// Components & Utilities
-	import { AppBar, LightSwitch, popup, modalStore } from '@skeletonlabs/skeleton';
+	import { AppBar, LightSwitch, popup, getModalStore } from '@skeletonlabs/skeleton';
 
 	// Stores
+	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { storeTheme } from '$lib/stores/stores';
-	import { drawerStore } from '@skeletonlabs/skeleton';
+	const drawerStore = getDrawerStore();
 
 	// Local
 	let isOsMac = false;
+	const modalStore = getModalStore();
 
 	// Set Search Keyboard Shortcut
 	if (browser) {
@@ -54,6 +56,7 @@
 
 	const themes = [
 		{ type: 'skeleton', name: 'Skeleton', icon: '💀' },
+		{ type: 'wintry', name: 'Wintry', icon: '🌨️', badge: 'New' },
 		{ type: 'modern', name: 'Modern', icon: '🤖' },
 		{ type: 'rocket', name: 'Rocket', icon: '🚀' },
 		{ type: 'seafoam', name: 'Seafoam', icon: '🧜‍♀️' },
@@ -66,21 +69,20 @@
 		// { type: 'test', name: 'Test', icon: '🚧' },
 	];
 
-	const setTheme: SubmitFunction = () => {
-		return async ({ result, update }) => {
-			await update();
-			if (result.type === 'success') {
-				const theme = result.data?.theme as string;
-				storeTheme.set(theme);
-			}
-		};
+	const setTheme: SubmitFunction = ({ formData }) => {
+		const theme = formData.get('theme')?.toString();
+
+		if (theme) {
+			document.body.setAttribute('data-theme', theme);
+			$storeTheme = theme;
+		}
 	};
 </script>
 
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
 <svelte:window on:keydown|stopPropagation={onWindowKeydown} />
 
-<AppBar shadow="shadow-xl">
+<AppBar shadow="shadow-2xl" slotTrail="!space-x-2">
 	<svelte:fragment slot="lead">
 		<div class="flex items-center space-x-4">
 			<!-- Hamburger Menu -->
@@ -150,14 +152,14 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="arrow bg-surface-100-800-token" />
+				<!-- <div class="arrow bg-surface-100-800-token" /> -->
 			</div>
 		</div>
 
 		<!-- Theme -->
 		<div>
 			<!-- trigger -->
-			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme' }}>
+			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme', closeQuery: 'a[href]' }}>
 				<i class="fa-solid fa-palette text-lg md:!hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
@@ -173,7 +175,7 @@
 					<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
 						<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
 							<ul>
-								{#each themes as { icon, name, type }}
+								{#each themes as { icon, name, type, badge }}
 									<li>
 										<button
 											class="option w-full h-full"
@@ -183,7 +185,8 @@
 											class:bg-primary-active-token={$storeTheme === type}
 										>
 											<span>{icon}</span>
-											<span>{name}</span>
+											<span class="flex-auto text-left">{name}</span>
+											{#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if}
 										</button>
 									</li>
 								{/each}
@@ -195,38 +198,17 @@
 						<a class="btn variant-filled w-full" href="/docs/generator">Create a Theme</a>
 					</div>
 				</div>
-				<div class="arrow bg-surface-100-800-token" />
+				<!-- <div class="arrow bg-surface-100-800-token" /> -->
 			</div>
-		</div>
-
-		<!-- Social -->
-		<!-- prettier-ignore -->
-		<section class="hidden sm:inline-flex space-x-4">
-			<a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
-				<i class="fa-brands fa-discord text-lg" />
-			</a>
-			<a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
-				<i class="fa-brands fa-github text-lg" />
-			</a>
-		</section>
-
-		<!-- Search -->
-		<div class="md:inline md:ml-4">
-			<button class="btn p-2 px-4 space-x-4 variant-soft hover:variant-soft-primary" on:click={triggerSearch}>
-				<i class="fa-solid fa-magnifying-glass" />
-				<span class="hidden md:inline-block badge variant-soft">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
-			</button>
 		</div>
 
 		<!-- Sponsor -->
 		<div>
 			<!-- trigger -->
-			<button
-				class="btn py-1.5 variant-soft hover:variant-soft-primary hidden sm:inline-block"
-				use:popup={{ event: 'click', target: 'sponsor' }}
-			>
-				<i class="fa-solid fa-heart" />
+			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'sponsor' }}>
+				<i class="fa-solid fa-heart text-lg md:!hidden" />
 				<span class="hidden md:inline-block">Sponsor</span>
+				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
 			<!-- popup -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="sponsor">
@@ -252,8 +234,49 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="arrow bg-surface-100-800-token" />
+				<!-- <div class="arrow bg-surface-100-800-token" /> -->
 			</div>
 		</div>
+
+		<!-- Version -->
+		<div class="relative hidden lg:block">
+			<!-- trigger -->
+			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'version' }}>
+				<span>Version</span>
+				<i class="fa-solid fa-caret-down opacity-50" />
+			</button>
+			<!-- popup -->
+			<div class="card p-4 w-60 shadow-xl" data-popup="version">
+				<nav class="list-nav">
+					<ul>
+						<li>
+							<a href="https://v1.skeleton.dev/" target="_blank">
+								<span>Skeleton v1 Docs</span>
+								<span class="w-6 text-center"><i class="fa-solid fa-arrow-up-right-from-square opacity-50" /></span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- <div class="arrow bg-surface-100-800-token" /> -->
+			</div>
+		</div>
+
+		<!-- Search -->
+		<div class="md:inline md:ml-4">
+			<button class="btn space-x-4 variant-soft hover:variant-soft-primary" on:click={triggerSearch}>
+				<i class="fa-solid fa-magnifying-glass text-sm" />
+				<small class="hidden md:inline-block">{isOsMac ? '⌘' : 'Ctrl'}+K</small>
+			</button>
+		</div>
+
+		<!-- Social -->
+		<section class="hidden sm:inline-flex space-x-1">
+			<a class="btn-icon hover:variant-soft-primary" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
+				<i class="fa-brands fa-github text-lg" />
+			</a>
+			<a class="btn-icon hover:variant-soft-primary" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
+				<i class="fa-brands fa-discord text-lg" />
+			</a>
+		</section>
 	</svelte:fragment>
 </AppBar>

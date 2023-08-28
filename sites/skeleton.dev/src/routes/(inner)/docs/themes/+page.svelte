@@ -3,11 +3,31 @@
 	// Docs
 	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
 	// Components
-	import { Tab, TabGroup, CodeBlock } from '@skeletonlabs/skeleton';
+	import { Tab, TabGroup, CodeBlock, type TableSource, Table } from '@skeletonlabs/skeleton';
 
 	// Local
 	let activeTheme = themes[1];
 	let tabsFontImport = 0;
+
+	// Table
+	const sourceCssProperties = [
+		['<code class="code">--theme-font-family-base</code>', 'Set the font family for your default base text.'],
+		['<code class="code">--theme-font-family-heading</code>', 'Set the font family for your heading text.'],
+		['<code class="code">--theme-font-color-base</code>', 'Set the default text color for light mode.'],
+		['<code class="code">--theme-font-color-dark</code>', 'Set the default text color for dark mode.'],
+		['<code class="code">--theme-rounded-base</code>', 'Set the border radius for small elements, such as buttons, inputs, etc.'],
+		['<code class="code">--theme-rounded-container</code>', 'Set the border radius for large elements, such as cards, textfields, etc.'],
+		['<code class="code">--theme-border-base</code>', 'Set the default border size for elements, including inputs.'],
+		// Theme On-X Colors
+		['<code class="code">--on-[color]</code>', 'Set an accessible overlapping text or fill color per each theme color.'],
+		['<code class="code">--color-[color]-[shade]</code>', 'Defines each color and shade value for your theme.']
+	];
+	const tableCssProperties: TableSource = {
+		// A list of heading labels.
+		head: ['CSS Property', 'Description'],
+		// The data visibly shown in your table body UI.
+		body: sourceCssProperties
+	};
 
 	// Reactive
 	$: activeFonts = activeTheme.fonts.length ? activeTheme.fonts : themes[0].fonts;
@@ -17,47 +37,177 @@
 	<header class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
 		<div class="space-y-4">
 			<h1 class="h1">Themes</h1>
-			<p>Learn more about customizing Skeleton themes.</p>
+			<!-- prettier-ignore -->
+			<p>
+				Skeleton leans into <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">Tailwind's best practices</a> when implementing themes. This includes support for <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a> and <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>. Themes also enable Skeleton's <a class="anchor" href="/docs/tokens" target="_blank">design tokens</a> system.
+			</p>
 		</div>
 	</header>
 
-	<section class="sticky top-4 z-[1] card variant-glass p-4 space-y-4">
-		<p class="!text-center">Select your current theme to tailor the instructions below.</p>
-		<label class="max-w-md mx-auto">
-			<select class="select" bind:value={activeTheme}>
-				{#each themes as theme}
-					<option value={theme}>{theme.name}</option>
-				{/each}
-			</select>
-		</label>
+	<hr />
+
+	<section class="space-y-4">
+		<h2 class="h2">CSS Custom Properties</h2>
+		<!-- prettier-ignore -->
+		<p>
+			Skeleton themes are generated using a number of <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a>, also known as as CSS variables.
+		</p>
+		<Table source={tableCssProperties} />
+		<h3 class="h3">Overwriting Properties</h3>
+		<!-- prettier-ignore -->
+		<p>
+			Similar to variables in other languages, CSS properties can be overwritten. By adding the following snippet in <code class="code">/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> border radius styles for your active theme.
+		</p>
+		<CodeBlock
+			language="css"
+			code={`
+:root {
+	--theme-rounded-base: 20px;
+	--theme-rounded-container: 4px;
+}
+		`}
+		/>
+		<p>Likewise, you can override <em>base</em> and <em>heading</em> font family settings as shown below.</p>
+		<CodeBlock
+			language="css"
+			code={`
+:root {
+    --theme-font-family-base: 'MyCustomFont', sans-serif;
+    --theme-font-family-heading: 'MyCustomFont', sans-serif;
+}
+		`}
+		/>
+		<!-- prettier-ignore -->
+		<p>
+			For deeper customization, consider cloning Skeleton's preset themes, modifying each as desired, then implementing as a custom theme. Follow the <a class="anchor" href="/docs/generator">theme generator implementation guide</a> for more information.
+		</p>
 	</section>
 
-	{#if activeTheme.file !== 'custom'}
-		<section class="space-y-4">
-			<h2 class="h2">Preset Extras</h2>
-			<p>
-				When using preset themes provided by Skeleton, consider implementing the <code class="code">data-theme</code> attribute on the
-				<em>body</em>
-				tag in <code class="code">app.html</code>. This implements additional settings such as background gradients, header font weights,
-				and more.
-			</p>
-			<CodeBlock language="html" code={`<body data-theme="` + activeTheme.file + `">`} />
-		</section>
-	{/if}
+	<hr />
+
+	<section class="space-y-4">
+		<div class="h2 flex items-center gap-2">
+			<h2>CSS-in-JS Format</h2>
+			<span class="badge variant-filled-warning">New in v2</span>
+		</div>
+		<p>
+			Skeleton now defines theme settings via the CSS-in-JS format. This allows themes to be easily registered within the Skeleton Tailwind
+			plugin, rather than relying on additional stylesheet imports.
+		</p>
+	</section>
+
+	<hr />
+
+	<section class="space-y-4">
+		<div class="h2 flex items-center gap-2">
+			<h2 class="h2">Tailwind Plugin Settings</h2>
+			<span class="badge variant-filled-warning">New in v2</span>
+		</div>
+		<p>
+			Themes are configured via Skeleton's Tailwind plugin in your <code class="code">tailwind.config.[ts|js|cjs]</code>, found in your
+			project root.
+		</p>
+		<h3 class="h3">Register Themes</h3>
+		<p>
+			Skeleton provides a number of <a class="anchor" href="/docs/get-started#preset-themes">preset themes</a> out of the box. You'll need to
+			register at least one theme to load them and make them available to use.
+		</p>
+		<CodeBlock
+			language="ts"
+			code={`
+plugins: [
+	skeleton({
+		themes: {
+			// Register each theme within this array:
+			preset: [ "skeleton", "modern", "crimson" ] 
+		}
+	})
+]
+	`}
+		/>
+		<p>
+			Open <code class="code">/src/app.html</code> and define the active theme to display using the <code class="code">data-theme</code> attribute.
+			You can modify this attribute to dynamically switch between any registered theme.
+		</p>
+		<CodeBlock language="html" code={`<body data-theme="skeleton">`} />
+		<h3 class="h3">Enhancements</h3>
+		<p>
+			Preset themes may sometimes include additional optional features, such as: heading font weights, background mesh gradients, and more.
+			To enable these settings, include <code class="code">enhancements</code> as shown below.
+		</p>
+		<CodeBlock
+			language="ts"
+			code={`
+plugins: [
+	skeleton({
+		themes: {
+			preset: [
+				// Enable 'enhancements' per each registered theme:
+				{ name: "skeleton", enhancements: true }
+			] 
+		}
+	})
+]
+	`}
+		/>
+		<h3 class="h3">Custom Themes</h3>
+		<p>
+			View the <a class="anchor" href="/docs/generator">theme generator</a> for more information about implementing custom themes. Note that
+			it is possible to mix and match preset and custom themes.
+		</p>
+	</section>
+
+	<hr />
+
+	<section class="space-y-4">
+		<h2 class="h2">Dark Mode</h2>
+		<p>
+			By default Tailwind opts for light mode. If you wish to default to dark mode, append the following class to the <code class="code"
+				>html</code
+			>
+			element within <code class="code">/src/app.html</code>. View
+			<a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's documentation</a> for more information.
+		</p>
+		<CodeBlock language="html" code={`<html class="dark">`} />
+		<p>
+			Note that Skeleton also provides a <a class="anchor" href="/utilities/lightswitches" target="_blank">Lightswitch</a> utility if you wish
+			toggle between light and dark modes.
+		</p>
+	</section>
+
+	<hr />
 
 	<section class="space-y-4">
 		<h2 class="h2">Backgrounds</h2>
+		<!-- prettier-ignore -->
 		<p>
-			Your app's background is automatically set via a <a class="anchor" href="https://www.skeleton.dev/docs/tokens">design token</a> class.
-			Adjust your theme's color scheme to customize. This affects both light and dark mode.
+			The background color of your application is automatically set using one of Skeleton's <a class="anchor" href="https://www.skeleton.dev/docs/tokens">design token</a> styles. By default, this utilizes <code class="code">--color-surface-50</code> for light mode and <code class="code">--color-surface-900</code> for dark mode. Use your global stylesheet <code class="code">app.postcss</code> to modify this.
 		</p>
-		<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }`} />
+		<CodeBlock
+			language="css"
+			code={`
+/* Default setting: */
+body { @apply bg-surface-50-900-token; }
+
+/* --- */
+
+/* Example: primary color via a design token: */
+body { @apply bg-primary-50-900-token; }
+
+/* Example: secondary color via Tailwind: */
+body { @apply bg-secondary-50 dark:bg-secondary-900; }
+
+/* Example: using vanilla CSS: */
+body { background: red; }
+.dark body { background: blue; }
+		`}
+		/>
 		<div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-center">
 			<div class="space-y-4">
-				<h3 class="h3">Background Images</h3>
+				<h3 class="h3">Images and Gradients</h3>
 				<p>
-					You may optionally provide a background image, including the use of CSS mesh gradients. Mix in theme color properties to create
-					fully adaptive gradient backgrounds.
+					You may optionally provide a background image, including the use of a CSS mesh gradient. Replace the static color values with
+					theme color properties to create a fully adaptive gradient background.
 				</p>
 			</div>
 			<div>
@@ -84,40 +234,7 @@ body {
 		/>
 	</section>
 
-	<section class="space-y-4">
-		<h2 class="h2">CSS Properties</h2>
-		<!-- prettier-ignore -->
-		<p>
-			If you open any existing theme, you can see they are made up of a number of <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a> (aka CSS Variables). Similar to Javascript variables these can be modified and overwritten as desired. For example, if you add the following snippet to your global stylesheet in <code class="code">/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> rounding styles for your current theme.
-		</p>
-		<CodeBlock
-			language="css"
-			code={`
-:root {
-	--theme-rounded-base: 20px;
-	--theme-rounded-container: 4px;
-}
-		`}
-		/>
-		<p>
-			Likewise, if you wish to implement a custom font family for a preset theme, you can modify the <em>base</em> and
-			<em>heading</em>
-			properties as shown below.
-		</p>
-		<CodeBlock
-			language="css"
-			code={`
-:root {
-    --theme-font-family-base: 'MyCustomFont', sans-serif;
-    --theme-font-family-heading: 'MyCustomFont', sans-serif;
-}
-		`}
-		/>
-		<!-- prettier-ignore -->
-		<p>
-			<a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src/lib/themes" target="_blank" rel="noreferrer">View any existing theme</a> for a full list of available CSS custom properties. For heavy modifications to preset themes, consider copying the theme to your local project and use it like any other custom theme.
-		</p>
-	</section>
+	<hr />
 
 	<section class="space-y-4">
 		<h2 class="h2">Custom Fonts</h2>
@@ -125,22 +242,6 @@ body {
 		<p>
             Fonts may be installed from a local or remote source. For <a class="anchor" href="https://gdpr.eu/" target="_blank" rel="noreferrer">GDPR compliance</a> and optimal performance we recommend installing the fonts locally. For this guide we'll demonstrate this process using free fonts from <a class="anchor" href="https://fonts.google.com/" target="_blank" rel="noreferrer">Google Fonts</a>.
 		</p>
-		{#if activeTheme.fonts.length && activeTheme.file !== 'custom'}
-			<aside class="alert variant-ghost-warning">
-				<i class="fa-solid fa-circle-exclamation" />
-				<div class="alert-message">
-					<p>
-						The <code class="code">{activeTheme.name}</code> theme makes use of custom fonts. We recommend you follow the instruction below.
-					</p>
-				</div>
-			</aside>
-		{:else if activeTheme.file !== 'custom'}
-			<aside class="alert variant-ghost">
-				<div class="alert-message">
-					<p>The <code class="code">{activeTheme.name}</code> theme does not make use of a custom font.</p>
-				</div>
-			</aside>
-		{/if}
 		<TabGroup regionPanel="space-y-4">
 			<Tab bind:group={tabsFontImport} name="tab1" value={0}>Local (recommended)</Tab>
 			<Tab bind:group={tabsFontImport} name="tab2" value={1}>Remote</Tab>

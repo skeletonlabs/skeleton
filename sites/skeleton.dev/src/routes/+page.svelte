@@ -20,17 +20,15 @@
 
 <div>
 	<!-- Promo Banner -->
-	<div class="variant-filled-warning p-4">
+	<div class="variant-filled-primary p-4">
 		<div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
 			<div class="flex items-center gap-6">
 				<span class="text-xl">🎉</span>
-				<p>The Skeleton v2.0 Release Candidate is now available!</p>
+				<p class="text-lg">Skeleton v2.0 is now available!</p>
 			</div>
 			<div class="flex gap-4">
-				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/discussions/1845" target="_blank">What's New?</a>
-				<a class="btn variant-filled" href="https://skeleton-docs-git-v2-skeleton-labs.vercel.app/docs/get-started" target="_blank">
-					Docs &rarr;
-				</a>
+				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/discussions/1945" target="_blank">What's New?</a>
+				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/discussions/1947" target="_blank">Migration Guide</a>
 			</div>
 		</div>
 	</div>

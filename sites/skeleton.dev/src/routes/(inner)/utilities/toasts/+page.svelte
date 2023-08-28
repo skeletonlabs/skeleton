@@ -3,8 +3,11 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import { CodeBlock } from '@skeletonlabs/skeleton';
+
 	// Toasts
-	import { toastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+	const toastStore = getToastStore();
+
 	// Sveld
 	import sveldToast from '@skeletonlabs/skeleton/utilities/Toast/Toast.svelte?raw&sveld';
 
@@ -13,10 +16,12 @@
 		feature: DocsFeature.Utility,
 		name: 'Toasts',
 		description: 'Simple notifications utilizing a dynamic queue system.',
-		imports: ['Toast', 'toastStore'],
-		types: ['ToastSettings'],
-		source: 'utilities/Toast',
-		components: [{ sveld: sveldToast }]
+		imports: ['Toast', 'getToastStore'],
+		types: ['ToastSettings', 'ToastStore'],
+		source: 'packages/skeleton/src/lib/utilities/Toast',
+		components: [{ sveld: sveldToast }],
+		transitionIn: 'fly',
+		transitionOut: 'fly'
 	};
 
 	// Local
@@ -136,31 +141,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<p>Implement a single instance of the toast component your app's root layout, above the App Shell (if present).</p>
-				<CodeBlock
-					language="html"
-					code={`
-<Toast />\n
-<!-- <AppShell>...</AppShell> -->
-				`}
-				/>
-				<p>
-					When you wish to trigger a toast message, import <code class="code">toastStore</code> and
-					<code class="code">ToastSettings</code>, then follow the example below.
-				</p>
-				<CodeBlock
-					language="ts"
-					code={`
-import { toastStore, type ToastSettings } from '@skeletonlabs/skeleton';\n
-// Provide the toast settings
-const t: ToastSettings = {
-	message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
-};\n
-// Trigger the toast:
-toastStore.trigger(t);
-				`}
-				/>
-				<p>For more examples and configuration options, see the documentation below.</p>
+				<p>There are a several steps involved to utilize this feature. Please refer to the documented instruction below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -174,26 +155,29 @@ toastStore.trigger(t);
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
-		<!-- Toast Component -->
 		<section class="space-y-4">
-			<h2 class="h2">Toast Component</h2>
+			<h2 class="h2">Prerequisites</h2>
+			<h3 class="h3">Initialize Stores</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, and Toast stores and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
+			</p>
+			<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
+			<h3 class="h3">Toast Component</h3>
 			<p>Implement a single instance of the toast component in your app's root layout, above the App Shell (if present).</p>
-			<CodeBlock
-				language="html"
-				code={`
-<Toast />
-
-<!-- <AppShell>...</AppShell> -->
-				`}
-			/>
+			<CodeBlock language="html" code={`<Toast />\n\n<!-- <AppShell>...</AppShell> -->`} />
+			<p>We'll cover triggering this feature on-demand in the documentation below.</p>
 		</section>
 		<!-- Toast Store -->
 		<section class="space-y-4">
 			<h2 class="h2">Toast Store</h2>
 			<p>The Toast Store acts as a queue for your toast messages.</p>
+			<blockquote class="blockquote">
+				NOTE: To retrieve the store, <code class="code">getToastStore</code> must be invoked at the <u>top level</u> of your component!
+			</blockquote>
 			<CodeBlock
 				language="ts"
-				code={`import { toastStore } from '@skeletonlabs/skeleton';
+				code={`import { getToastStore } from '@skeletonlabs/skeleton';\n\nconst toastStore = getToastStore();
 			`}
 			/>
 			<!-- Trigger -->
@@ -445,17 +429,6 @@ const t: ToastSettings = {
 };
 `}
 			/>
-		</section>
-		<!-- SvelteKit SSR Warning -->
-		<!-- prettier-ignore -->
-		<section class="space-y-4">
-			<h2 class="h2">SvelteKit SSR Warning</h2>
-			<div class="space-y-4">
-				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
-					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
-				</div>
-			</div>
 		</section>
 	</svelte:fragment>
 </DocsShell>

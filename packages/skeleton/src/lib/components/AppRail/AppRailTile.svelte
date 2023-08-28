@@ -68,7 +68,7 @@
 
 <label class="app-rail-tile {classesBase}" data-testid="app-rail-tile" {title} on:mouseover on:mouseleave on:focus on:blur>
 	<!-- A11y attributes are not allowed on <label> -->
-	<!-- TODO: Remove for V2 -->
+	<!-- FIXME: resolve a11y warnings -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class="app-rail-wrapper {classesWrapper}" on:keydown on:keyup on:keypress>
 		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->

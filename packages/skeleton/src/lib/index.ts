@@ -4,39 +4,25 @@
 
 export type { AutocompleteOption } from './components/Autocomplete/types.js';
 export type { ConicStop } from './components/ConicGradient/types.js';
-export type { DrawerSettings } from './utilities/Drawer/types.js';
-export type { ModalSettings, ModalComponent } from './utilities/Modal/types.js';
-export type { ToastSettings } from './utilities/Toast/types.js';
+export type { DrawerSettings, DrawerStore } from './utilities/Drawer/types.js';
+export type { ModalSettings, ModalComponent, ModalStore } from './utilities/Modal/types.js';
+export type { ToastSettings, ToastStore } from './utilities/Toast/types.js';
 export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';
 export type { PopupSettings } from './utilities/Popup/types.js';
-
-// This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
-export type CssClasses = string;
-export type SvelteEvent<E extends Event = Event, T extends EventTarget = Element> = E & { currentTarget: EventTarget & T };
-
-// Stores ---
-
-export { storeHighlightJs } from './utilities/CodeBlock/stores.js';
-export { storePopup } from './utilities/Popup/popup.js';
-export { drawerStore } from './utilities/Drawer/stores.js';
-export { modalStore } from './utilities/Modal/stores.js';
-export { toastStore } from './utilities/Toast/stores.js';
+export type { Transition, TransitionParams } from './internal/transitions.js';
+export type { TreeViewNode } from './components/TreeView/types.js';
+export type { CssClasses, SvelteEvent } from './types.js';
 
 // Utilities ---
+export { storeHighlightJs } from './utilities/CodeBlock/stores.js';
+export { storePopup } from './utilities/Popup/popup.js';
+export { tocStore } from './utilities/TableOfContents/stores.js';
+export { getDrawerStore } from './utilities/Drawer/stores.js';
+export { getModalStore } from './utilities/Modal/stores.js';
+export { getToastStore } from './utilities/Toast/stores.js';
+export { initializeStores } from './utilities/index.js';
 
-// Data Table
-export {
-	// Types
-	type DataTableModel,
-	type DataTableOptions,
-	// Utilities
-	createDataTableStore,
-	dataTableHandler,
-	// Svelte Actions
-	tableInteraction,
-	tableA11y
-} from './utilities/DataTable/DataTable.js';
 // Lightswitch
 export {
 	// Stores
@@ -54,6 +40,8 @@ export {
 } from './utilities/LightSwitch/lightswitch.js';
 // Local Storage Store
 export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore.js';
+// Prefers-reduced-motion
+export { prefersReducedMotionStore } from './utilities/PrefersReducedMotion/PrefersReducedMotion.js';
 // Component Utilities
 export { tableSourceMapper, tableSourceValues, tableMapperValues } from './components/Table/utils.js';
 
@@ -64,6 +52,7 @@ export { filter } from './actions/Filters/filter.js';
 export { focusTrap } from './actions/FocusTrap/focusTrap.js';
 // Utility Actions
 export { popup } from './utilities/Popup/popup.js';
+export { tocCrawler } from './utilities/TableOfContents/crawler.js';
 
 // Svelte Components ---
 
@@ -96,15 +85,16 @@ export { default as Table } from './components/Table/Table.svelte';
 export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
 export { default as TabAnchor } from './components/Tab/TabAnchor.svelte';
-export { default as TableOfContents } from './components/TableOfContents/TableOfContents.svelte';
 export { default as TreeView } from './components/TreeView/TreeView.svelte';
 export { default as TreeViewItem } from './components/TreeView/TreeViewItem.svelte';
+export { default as TreeViewDataDrivenItem } from './components/TreeView/TreeViewDataDrivenItem.svelte';
 // Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
 export { default as Modal } from './utilities/Modal/Modal.svelte';
 export { default as Drawer } from './utilities/Drawer/Drawer.svelte';
 export { default as LightSwitch } from './utilities/LightSwitch/LightSwitch.svelte';
 export { default as Toast } from './utilities/Toast/Toast.svelte';
+export { default as TableOfContents } from './utilities/TableOfContents/TableOfContents.svelte';
 // Filter Components
 export { default as Apollo } from './actions/Filters/svg-filters/Apollo.svelte';
 export { default as BlueNight } from './actions/Filters/svg-filters/BlueNight.svelte';

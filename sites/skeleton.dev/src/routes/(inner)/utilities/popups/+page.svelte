@@ -17,7 +17,7 @@
 		types: ['PopupSettings'],
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/popups'],
-		source: 'utilities/Popup',
+		source: 'packages/skeleton/src/lib/utilities/Popup',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/menu/',
 		classes: [
 			['<code class="code">[data-popup]</code>', '', `Follows Floating UI's best practices. Sets hidden by default.`],

@@ -13,7 +13,7 @@
 		name: 'Lightswitch',
 		description: `Components and utilities to toggle <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">Tailwind's dark mode</a>.`,
 		imports: ['LightSwitch'],
-		source: 'utilities/LightSwitch',
+		source: 'packages/skeleton/src/lib/utilities/LightSwitch',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/switch/',
 		components: [{ sveld: sveldLightSwitch }],
 		keyboard: [['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Toggle the switch state.']]

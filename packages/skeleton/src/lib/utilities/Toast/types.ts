@@ -1,5 +1,7 @@
 // Toast interface types
 
+export type { ToastStore } from './stores.js';
+
 export interface ToastSettings {
 	/** Provide the toast message. Supports HTML. */
 	message: string;

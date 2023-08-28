@@ -1,5 +1,4 @@
-import type { Writable } from 'svelte/store';
-import { localStorageStore } from '@skeletonlabs/skeleton';
+import { writable } from 'svelte/store';
 
 // Theme Generator Live Preview State
-export const storePreview: Writable<boolean> = localStorageStore('storePreview', false);
+export const storePreview = writable(false);

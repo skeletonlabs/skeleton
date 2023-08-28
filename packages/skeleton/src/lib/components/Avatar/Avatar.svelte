@@ -49,7 +49,7 @@
 	}
 </script>
 
-<!-- TODO: Remove for V2 -->
+<!-- FIXME: resolve a11y warnings -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <figure class="avatar {classesBase}" data-testid="avatar" on:click on:keydown on:keyup on:keypress>
 	{#if src}

@@ -11,7 +11,7 @@
 		name: 'Clipboard',
 		description: 'Allows you to quickly copy data to the clipboard.',
 		imports: ['clipboard'],
-		source: 'actions/Clipboard',
+		source: 'packages/skeleton/src/lib/actions/Clipboard',
 		parameters: [
 			['<code class="code">element</code>', 'string', '-', '-', `HTML element's <em>data-clipboard</em> ID value.`],
 			['<code class="code">input</code>', 'string', '-', '-', `Input element's <em>data-clipboard</em> ID value.`]

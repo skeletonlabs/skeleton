@@ -1,6 +1,24 @@
-<script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
+<script lang="ts" context="module">
 	import { fly, scale } from 'svelte/transition';
+	import { type Transition, type TransitionParams, prefersReducedMotionStore } from '../../index.js';
+	import { dynamicTransition } from '../../internal/transitions.js';
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type FlyTransition = typeof fly;
+	type ListTransitionIn = Transition;
+	type ListTransitionOut = Transition;
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type ScaleTransition = typeof scale;
+	type ChipTransitionIn = Transition;
+	type ChipTransitionOut = Transition;
+</script>
+
+<script
+	lang="ts"
+	generics="ListTransitionIn extends Transition = FlyTransition, ListTransitionOut extends Transition = FlyTransition, ChipTransitionIn extends Transition = ScaleTransition, ChipTransitionOut extends Transition = ScaleTransition"
+>
+	import { createEventDispatcher, onMount } from 'svelte';
 	import { flip } from 'svelte/animate';
 
 	// Types
@@ -45,7 +63,7 @@
 	 */
 	export let validation: (...args: any[]) => boolean = () => true;
 
-	/** The duration of the animated fly effect. */
+	/** The duration of the flip (first, last, invert, play) animation. */
 	export let duration = 150;
 	/** Set the required state for this input field. */
 	export let required = false;
@@ -59,6 +77,53 @@
 	export let padding: CssClasses = 'p-2';
 	/** Provide classes to set border radius styles. */
 	export let rounded: CssClasses = 'rounded-container-token';
+
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition used in list on entry.
+	 * @type {ListTransitionIn}
+	 */
+	export let listTransitionIn: ListTransitionIn = fly as ListTransitionIn;
+	/**
+	 * Transition params provided to `ListTransitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let listTransitionInParams: TransitionParams<ListTransitionIn> = { duration: 150, opacity: 0, y: -20 };
+	/**
+	 * Provide the transition used in list on exit.
+	 * @type {ListTransitionOut}
+	 */
+	export let listTransitionOut: ListTransitionOut = fly as ListTransitionOut;
+	/**
+	 * Transition params provided to `ListTransitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let listTransitionOutParams: TransitionParams<ListTransitionOut> = { duration: 150, opacity: 0, y: -20 };
+	/**
+	 * Provide the transition used in chip on entry.
+	 * @type {ChipTransitionIn}
+	 */
+	export let chipTransitionIn: ChipTransitionIn = scale as ChipTransitionIn;
+	/**
+	 * Transition params provided to `ChipTransitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let chipTransitionInParams: TransitionParams<ChipTransitionIn> = { duration: 150, opacity: 0 };
+	/**
+	 * Provide the transition used in chip on exit.
+	 * @type {ChipTransitionOut}
+	 */
+	export let chipTransitionOut: ChipTransitionOut = scale as ChipTransitionOut;
+	/**
+	 * Transition params provided to `ChipTransitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let chipTransitionOutParams: TransitionParams<ChipTransitionOut> = { duration: 150, opacity: 0 };
 
 	// Classes
 	const cBase = 'textarea cursor-pointer';
@@ -158,6 +223,11 @@
 	$: classesInterface = `${cInterface}`;
 	$: classesChipList = `${cChipList}`;
 	$: classesInputField = `${cInputField}`;
+	$: chipValues =
+		value?.map((val, i) => {
+			if (chipValues[i]?.val === val) return chipValues[i];
+			return { id: Math.random(), val: val };
+		}) || [];
 </script>
 
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
@@ -186,7 +256,11 @@
 		</form>
 		<!-- Chip List -->
 		{#if chipValues.length}
-			<div class="input-chip-list {classesChipList}" transition:fly|local={{ duration, opacity: 0, y: -20 }}>
+			<div
+				class="input-chip-list {classesChipList}"
+				in:dynamicTransition|local={{ transition: listTransitionIn, params: listTransitionInParams, enabled: transitions }}
+				out:dynamicTransition|local={{ transition: listTransitionOut, params: listTransitionOutParams, enabled: transitions }}
+			>
 				{#each chipValues as { id, val }, i (id)}
 					<!-- Wrapping div required for FLIP animation -->
 					<div animate:flip={{ duration }}>
@@ -200,7 +274,8 @@
 							on:keypress
 							on:keydown
 							on:keyup
-							transition:scale|local={{ duration, opacity: 0 }}
+							in:dynamicTransition|local={{ transition: chipTransitionIn, params: chipTransitionInParams, enabled: transitions }}
+							out:dynamicTransition|local={{ transition: chipTransitionOut, params: chipTransitionOutParams, enabled: transitions }}
 						>
 							<span>{val}</span>
 							<span>✕</span>

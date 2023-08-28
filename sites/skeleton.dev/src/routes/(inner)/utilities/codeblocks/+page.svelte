@@ -15,7 +15,7 @@
 			'Displays pre-formatted source code, with optional support for <a href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> syntax highlighting.',
 		imports: ['CodeBlock'],
 		stylesheets: ['highlight-js'],
-		source: 'utilities/CodeBlock',
+		source: 'packages/skeleton/src/lib/utilities/CodeBlock',
 		components: [{ sveld: sveldCodeBlock }],
 		dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }]
 	};

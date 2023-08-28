@@ -15,7 +15,7 @@
 		name: 'Paginators',
 		description: 'Navigate between multiple pages of content.',
 		imports: ['Paginator'],
-		source: 'components/Paginator',
+		source: 'packages/skeleton/src/lib/components/Paginator',
 		components: [{ sveld: sveldPaginator }]
 	};
 
@@ -26,12 +26,12 @@
 		.map(() => Object.values(faker.science.chemicalElement()));
 
 	// Reactive
-	let page = {
-		offset: 0,
+	let paginationSettings = {
+		page: 0,
 		limit: 3,
 		size: sourceBody.length,
 		amounts: [1, 2, 3, 5, sourceBody.length]
-	} as PaginationSettings;
+	} satisfies PaginationSettings;
 
 	// Demo options
 	let state = {
@@ -51,7 +51,10 @@
 	}
 
 	// Reactive
-	$: sourceBodySliced = sourceBody.slice(page.offset * page.limit, page.offset * page.limit + page.limit);
+	$: sourceBodySliced = sourceBody.slice(
+		paginationSettings.page * paginationSettings.limit,
+		paginationSettings.page * paginationSettings.limit + paginationSettings.limit
+	);
 </script>
 
 <DocsShell {settings}>
@@ -62,7 +65,7 @@
 				<div class="w-full space-y-4 text-token">
 					<Table source={{ head: sourceHeaders, body: sourceBodySliced }} />
 					<Paginator
-						bind:settings={page}
+						bind:settings={paginationSettings}
 						on:page={onPageChange}
 						on:amount={onAmountChange}
 						showFirstLastButtons={state.firstLast}
@@ -75,20 +78,19 @@
 				<CodeBlock
 					language="ts"
 					code={`
-// PaginatorSettings
-let page = {
-	offset: 0,
+let paginationSettings = {
+	page: 0,
 	limit: 5,
 	size: source.length,
 	amounts: [1,2,5,10],
-};
+} satisfies PaginationSettings;
 					`}
 				/>
 				<CodeBlock
 					language="html"
 					code={`
 <Paginator
-	bind:settings={page}
+	bind:settings={paginationSettings}
 	showFirstLastButtons="{${state.firstLast}}"
 	showPreviousNextButtons="{${state.previousNext}}"
 />
@@ -127,7 +129,7 @@ let page = {
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4 text-token">
 						<Table source={{ head: sourceHeaders, body: sourceBodySliced }} />
-						<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} showNumerals />
+						<Paginator bind:settings={paginationSettings} on:page={onPageChange} on:amount={onAmountChange} showNumerals />
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -146,8 +148,8 @@ let page = {
 				language="ts"
 				code={`
 $: paginatedSource = source.slice(
-	page.offset * page.limit,             // start
-	page.offset * page.limit + page.limit // end
+	paginationSettings.page * paginationSettings.limit,
+	paginationSettings.page * paginationSettings.limit + paginationSettings.limit
 );`}
 			/>
 			<CodeBlock
@@ -161,7 +163,7 @@ $: paginatedSource = source.slice(
 				`}
 			/>
 			<p>
-				Or combine with the <a href="/components/tables">Table</a> component.
+				Or combine with the <a class="anchor" href="/components/tables">Table</a> component.
 			</p>
 			<CodeBlock
 				language="ts"

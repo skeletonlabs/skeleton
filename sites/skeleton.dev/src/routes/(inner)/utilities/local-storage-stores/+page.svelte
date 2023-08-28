@@ -11,7 +11,7 @@
 		description:
 			'An extended version of the <a class="anchor" href="https://svelte.dev/tutorial/writable-stores" target="_blank" rel="noreferrer">Svelte writable store</a> that includes pub/sub to local storage.',
 		imports: ['localStorageStore'],
-		source: 'utilities/LocalStorageStore'
+		source: 'packages/skeleton/src/lib/utilities/LocalStorageStore'
 	};
 </script>
 

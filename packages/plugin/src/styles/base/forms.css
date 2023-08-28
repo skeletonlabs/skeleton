@@ -1,0 +1,61 @@
+/* Stylesheet: forms.css */
+
+/* === Resets === */
+
+fieldset,
+legend,
+label {
+	@apply block;
+}
+
+/* Placeholders */
+::-moz-placeholder {
+	@apply text-surface-500-400-token;
+}
+:-ms-input-placeholder {
+	@apply text-surface-500-400-token;
+}
+::placeholder {
+	@apply text-surface-500-400-token;
+}
+
+/* Date Calendar Picker (Webkit) */
+input::-webkit-calendar-picker-indicator {
+	@apply dark:invert;
+}
+
+/* Search Input "X" Cancel Button (Webkit) */
+/* Source: https://stackoverflow.com/a/64267916 */
+input[type='search']::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z'/%3E%3C/svg%3E")
+		no-repeat 50% 50%;
+	@apply h-4 w-4 rounded-full bg-contain opacity-0 pointer-events-none;
+}
+input[type='search']:focus::-webkit-search-cancel-button {
+	@apply opacity-100 pointer-events-auto;
+}
+input[type='search']::-webkit-search-cancel-button {
+	@apply dark:invert;
+}
+
+/* Progress Bar */
+progress {
+	webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	@apply w-full h-2 overflow-hidden rounded-token;
+	@apply bg-surface-400-500-token;
+}
+progress::-webkit-progress-bar {
+	@apply bg-surface-400-500-token;
+}
+progress::-webkit-progress-value {
+	@apply bg-surface-900-50-token;
+}
+::-moz-progress-bar {
+	@apply bg-surface-900-50-token;
+}
+:indeterminate::-moz-progress-bar {
+	width: 0;
+}

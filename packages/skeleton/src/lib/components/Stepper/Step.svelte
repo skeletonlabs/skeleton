@@ -8,11 +8,13 @@
 
 	import { getContext, onDestroy } from 'svelte';
 	import type { Writable } from 'svelte/store';
-	import { fade } from 'svelte/transition';
+	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
 	import type { StepperEventDispatcher, StepperState } from './types.js';
+	import type { CssClasses, Transition, TransitionParams } from '../../index.js';
+	type TransitionIn = $$Generic<Transition>;
+	type TransitionOut = $$Generic<Transition>;
 
 	// Props
 	export let locked = false;
@@ -40,6 +42,30 @@
 	export let buttonComplete: CssClasses = getContext('buttonComplete');
 	export let buttonCompleteType: 'submit' | 'reset' | 'button' = getContext('buttonCompleteType');
 	export let buttonCompleteLabel: string = getContext('buttonCompleteLabel');
+
+	// Props (transitions)
+	/** Enable/Disable transitions */
+	export let transitions: boolean = getContext('transitions');
+	/**
+	 * Provide the transition to used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = getContext('transitionIn');
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = getContext('transitionInParams');
+	/**
+	 * Provide the transition to used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = getContext('transitionOut');
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
 
 	// Register step on init (keep these paired)
 	const stepIndex = $state.total;
@@ -97,7 +123,11 @@
 		</div>
 		<!-- Navigation -->
 		{#if $state.total > 1}
-			<div class="step-navigation {classesNavigation}" transition:fade|local={{ duration: 100 }}>
+			<div
+				class="step-navigation {classesNavigation}"
+				in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+				out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+			>
 				{#if stepIndex === 0 && $$slots.navigation}
 					<!-- Slot: Navigation -->
 					<div class="step-navigation-slot">

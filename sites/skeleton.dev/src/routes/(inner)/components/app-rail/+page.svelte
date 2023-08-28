@@ -19,7 +19,7 @@
 		name: 'App Rail',
 		description: 'A side navigation rail component',
 		imports: ['AppRail', 'AppRailTile', 'AppRailAnchor'],
-		source: 'components/AppRail',
+		source: 'packages/skeleton/src/lib/components/AppRail',
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [
 			{ label: 'AppRail', sveld: sveldAppRail },

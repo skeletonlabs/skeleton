@@ -14,7 +14,7 @@
 		name: 'Ratings',
 		description: 'Create an visual representation of a numeric range.',
 		imports: ['Ratings'],
-		source: 'components/Ratings',
+		source: 'packages/skeleton/src/lib/components/Ratings',
 		components: [{ label: 'Ratings', sveld: sveldRatings }]
 	};
 
