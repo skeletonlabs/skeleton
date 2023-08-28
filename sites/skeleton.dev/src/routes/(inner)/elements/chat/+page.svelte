@@ -473,7 +473,8 @@ let messageFeed = [
 		</section>
 
 		<section class="space-y-4">
-			<h2 class="h2">Prompt</h2>
+			<!-- NOTE: id provided to avoid ToC conflict -->
+			<h2 class="h2" id="prompt-field">Prompt</h2>
 			<p>
 				We can utilize a Skeleton <a class="anchor" href="/elements/forms">Input Group</a> to create a custom text prompt.
 			</p>

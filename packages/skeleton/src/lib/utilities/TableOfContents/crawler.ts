@@ -12,6 +12,10 @@ interface TOCCrawlerArgs {
 	scrollTarget?: string;
 	/** Reload the action when this key value changes. */
 	key?: unknown;
+	/* Provide a prefix for ToC links, to help keep them unique. */
+	prefix?: string;
+	/* Provide a suffix for ToC links, to help keep them unique. */
+	suffix?: string;
 }
 
 export function tocCrawler(node: HTMLElement, args?: TOCCrawlerArgs) {
@@ -44,7 +48,9 @@ export function tocCrawler(node: HTMLElement, args?: TOCCrawlerArgs) {
 					.replaceAll(/[^a-zA-Z0-9 ]/g, '')
 					.replaceAll(' ', '-')
 					.toLowerCase();
-				elemHeading.id = `toc-${newHeadingId}`;
+				const prefix = args.prefix ? `${args.prefix}-` : '';
+				const suffix = args.suffix ? `-${args.suffix}` : '';
+				elemHeading.id = prefix + newHeadingId + suffix;
 			}
 			// Push heading data to the permalink array
 			permalinks.push({
