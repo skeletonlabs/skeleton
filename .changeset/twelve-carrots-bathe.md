@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-Rollback Input Chip change that introduced reactivity bug
+chore: Rollback Input Chip change that introduced reactivity bug
