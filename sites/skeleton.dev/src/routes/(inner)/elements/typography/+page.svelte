@@ -11,7 +11,7 @@
 		name: 'Typography',
 		description: 'Provides a variety of globally scoped typographic styles. Keeps common tags styled consistently throughout an app.',
 		stylesheetIncludes: ['skeleton', 'typography'],
-		source: 'styles/partials/typography.css'
+		source: 'packages/plugin/src/styles/components/typography.css'
 	};
 </script>
 

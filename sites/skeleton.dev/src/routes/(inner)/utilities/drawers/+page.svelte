@@ -18,7 +18,7 @@
 		description: 'Displays an overlay panel that attaches to any side of the screen.',
 		imports: ['Drawer', 'getDrawerStore'],
 		types: ['DrawerSettings', 'DrawerStore'],
-		source: 'utilities/Drawer',
+		source: 'packages/skeleton/src/lib/utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
 		components: [{ sveld: sveldDrawer }],
 		keyboard: [['<kbd class="kbd">Esc</kbd>', ' Closes the drawer.']]

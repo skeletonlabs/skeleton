@@ -14,7 +14,7 @@
 		description: 'Provides a set of styles for native HTML table elements.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/tables'],
-		source: 'styles/elements/tables.css',
+		source: 'packages/plugin/src/styles/components/tables.css',
 		classes: [
 			['<code class="code">.table-container</code>', '-', 'Apply to a wrapping parent element to enable responsive scrolling.'],
 			['<code class="code">.table</code>', '-', 'Apply to a native HTML table element to add table styles.'],

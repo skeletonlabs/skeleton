@@ -14,7 +14,7 @@
 		description: 'Provides container elements that wrap and separate content',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/cards'],
-		source: 'styles/elements/cards.css',
+		source: 'packages/plugin/src/styles/components/cards.css',
 		classes: [
 			['<code class="code">.card</code>', '-', 'Adds basic card styling to any block element.'],
 			['<code class="code">.card-header</code>', '-', 'The header region of the card.'],

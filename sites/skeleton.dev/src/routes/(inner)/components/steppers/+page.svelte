@@ -14,7 +14,7 @@
 		name: 'Steppers',
 		description: 'Divide and present content in sequenced steps.',
 		imports: ['Stepper', 'Step'],
-		source: 'components/Stepper',
+		source: 'packages/skeleton/src/lib/components/Stepper',
 		components: [
 			{ label: 'Stepper', sveld: sveldStepper },
 			{

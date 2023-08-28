@@ -27,7 +27,7 @@
 		description: 'High priority dialogs and modals using a dynamic queue system.',
 		imports: ['Modal', 'getModalStore'],
 		types: ['ModalSettings', 'ModalComponent', 'ModalStore'],
-		source: 'utilities/Modal',
+		source: 'packages/skeleton/src/lib/utilities/Modal',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/',
 		components: [{ sveld: sveldModal }],
 		keyboard: [['<kbd class="kbd">Esc</kbd>', ' Dismisses the foremost modal.']],

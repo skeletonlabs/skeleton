@@ -13,7 +13,7 @@
 		name: 'Gradient Headings',
 		description: 'Create gradient-colored heading styles.',
 		// imports: ['GradientHeading'],
-		// source: 'components/GradientHeading'
+		// source: 'packages/skeleton/src/lib/components/GradientHeading'
 		dependencies: [{ label: 'Tailwind Gradients', url: 'https://tailwindcss.com/docs/gradient-color-stops' }]
 	};
 </script>

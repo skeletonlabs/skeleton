@@ -10,7 +10,7 @@
 		feature: DocsFeature.Element,
 		name: 'Variants',
 		description: 'Canned styles available to easily customize elements, components, and more.',
-		source: 'tailwind/tokens'
+		source: 'packages/plugin/src/styles/components/variants.css'
 	};
 </script>
 

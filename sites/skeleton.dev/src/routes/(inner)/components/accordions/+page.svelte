@@ -16,7 +16,7 @@
 		name: 'Accordions',
 		description: 'Divide content into collapsible sections.',
 		imports: ['Accordion', 'AccordionItem'],
-		source: 'components/Accordion',
+		source: 'packages/skeleton/src/lib/components/Accordion',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/accordion/',
 		components: [
 			{ label: 'Accordion', sveld: sveldAccordion },

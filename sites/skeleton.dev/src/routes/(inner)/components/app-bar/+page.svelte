@@ -15,7 +15,7 @@
 		description:
 			'A header element for the top of your page layout. Pairs well with the <a class="anchor" href="/components/app-shell">App Shell</a>.',
 		imports: ['AppBar'],
-		source: 'components/AppBar',
+		source: 'packages/skeleton/src/lib/components/AppBar',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/',
 		components: [{ sveld: sveldAppBar }]
 	};

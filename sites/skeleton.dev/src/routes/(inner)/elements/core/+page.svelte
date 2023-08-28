@@ -12,7 +12,7 @@
 		name: 'Core',
 		description: 'Provides a variety of globally scoped styles.',
 		stylesheetIncludes: ['skeleton', 'core'],
-		source: 'styles/partials/core.css'
+		source: 'packages/plugin/src/styles/base/core.css'
 	};
 </script>
 

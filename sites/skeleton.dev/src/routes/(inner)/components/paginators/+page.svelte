@@ -15,7 +15,7 @@
 		name: 'Paginators',
 		description: 'Navigate between multiple pages of content.',
 		imports: ['Paginator'],
-		source: 'components/Paginator',
+		source: 'packages/skeleton/src/lib/components/Paginator',
 		components: [{ sveld: sveldPaginator }]
 	};
 

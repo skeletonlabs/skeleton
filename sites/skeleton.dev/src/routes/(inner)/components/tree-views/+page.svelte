@@ -16,7 +16,7 @@
 		name: 'Tree Views',
 		description: 'Display information in a hierarchical structure using collapsible nodes.',
 		imports: ['TreeView', 'TreeViewItem', 'type TreeViewNode'],
-		source: 'components/TreeView',
+		source: 'packages/skeleton/src/lib/components/TreeView',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/treeview/',
 		components: [
 			{ label: 'TreeView', sveld: sveldTreeView },

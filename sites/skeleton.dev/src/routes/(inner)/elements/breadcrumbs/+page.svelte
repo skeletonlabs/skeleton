@@ -13,7 +13,7 @@
 		description: 'Displays the current navigation hierarchy.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/breadcrumbs'],
-		source: 'styles/elements/breadcrumbs.css',
+		source: 'packages/plugin/src/styles/components/breadcrumbs.css',
 		classes: [
 			['<code class="code">breadcrumb</code>', '-', 'Add to an <em>ol</em> tag element.'],
 			['<code class="code">breadcrumb-nonresponsive</code>', '-', 'Shows all crumbs on small mobile breakpoints.'],

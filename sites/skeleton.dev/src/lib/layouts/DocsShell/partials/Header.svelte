@@ -10,8 +10,9 @@
 	const cChip = 'chip variant-soft hover:variant-filled';
 
 	// Local
-	const githubSourcePath = 'https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src';
-	const githubDocSourcePath = 'https://github.com/skeletonlabs/skeleton/blob/master/sites/skeleton.dev/src';
+	const githubBranch = 'master'; // IMPORTANT: for testing only, keep as 'master'
+	const githubFeatureSourcePath = `https://github.com/skeletonlabs/skeleton/blob/${githubBranch}`;
+	const githubPageSourcePath = `https://github.com/skeletonlabs/skeleton/blob/${githubBranch}/sites/skeleton.dev/src`;
 
 	function formatImportSnippet(): string {
 		let snippet = ``;
@@ -53,14 +54,14 @@
 		{/if} -->
 		<!-- Source -->
 		{#if pageData.source}
-			<a class={cChip} href={`${githubSourcePath}/lib/${pageData.source}`} target="_blank" rel="noreferrer">
+			<a class={cChip} href={`${githubFeatureSourcePath}/${pageData.source}`} target="_blank" rel="noreferrer">
 				<i class="fa-brands fa-github text-[16px]" />
 				<span>Source</span>
 			</a>
 		{/if}
 		<!-- Doc Source -->
 		{#if pageData.docsPath}
-			<a class={cChip} href={`${githubDocSourcePath}/routes/(inner)${pageData.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">
+			<a class={cChip} href={`${githubPageSourcePath}/routes/(inner)${pageData.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">
 				<i class="fa-solid fa-code" />
 				<span>Page Source</span>
 			</a>

@@ -11,7 +11,7 @@
 		name: 'Focus Trap',
 		description: 'Allows you to contain tab focus within a target element on-demand.',
 		imports: ['focusTrap'],
-		source: 'actions/FocusTrap',
+		source: 'packages/skeleton/src/lib/actions/FocusTrap',
 		parameters: [['<code class="code">(default)</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`]]
 	};
 

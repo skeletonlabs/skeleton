@@ -13,7 +13,7 @@
 		name: 'Table of Contents',
 		description: 'Allows you to quickly navigate the hierarchy of headings for the current page.',
 		imports: ['TableOfContents', 'tocCrawler'],
-		source: 'components/TableOfContents',
+		source: 'packages/skeleton/src/lib/utilities/TableOfContents',
 		components: [{ sveld: sveldTableOfContents }]
 	};
 </script>

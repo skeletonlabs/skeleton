@@ -12,7 +12,7 @@
 		description: 'Provides "skeleton" placeholders that can display while content loads.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/placeholders'],
-		source: 'styles/elements/placeholders.css',
+		source: 'packages/plugin/src/styles/components/placeholders.css',
 		classes: [
 			['<code class="code">placeholder</code>', '-', 'Applies the default placeholder style.'],
 			['<code class="code">placeholder-circle</code>', '-', 'Applies the circular placeholder style.']

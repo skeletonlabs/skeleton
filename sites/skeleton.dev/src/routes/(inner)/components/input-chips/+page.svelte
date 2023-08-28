@@ -15,7 +15,7 @@
 		imports: ['InputChip'],
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/forms', 'elements/chips'],
-		source: 'components/InputChip',
+		source: 'packages/skeleton/src/lib/components/InputChip',
 		components: [{ sveld: sveldInputChip }],
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		restProps: 'input',

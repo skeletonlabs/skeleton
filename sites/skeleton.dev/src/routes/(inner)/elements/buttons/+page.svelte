@@ -14,7 +14,7 @@
 		description: 'Provides a robust set of button styles, including preset variants.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/buttons'],
-		source: 'styles/elements/buttons.css',
+		source: 'packages/plugin/src/styles/components/buttons.css',
 		classes: [
 			['<code class="code">.btn</code>', '-', 'Creates a text button using a button or anchor.'],
 			['<code class="code">.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
