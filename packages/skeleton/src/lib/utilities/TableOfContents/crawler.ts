@@ -49,7 +49,7 @@ export function tocCrawler(node: HTMLElement, args?: TOCCrawlerArgs) {
 					.replaceAll(' ', '-')
 					.toLowerCase();
 				const prefix = args.prefix ? `${args.prefix}-` : '';
-				const suffix = args.suffix ? `${args.suffix}-` : '';
+				const suffix = args.suffix ? `-${args.suffix}` : '';
 				elemHeading.id = prefix + newHeadingId + suffix;
 			}
 			// Push heading data to the permalink array
