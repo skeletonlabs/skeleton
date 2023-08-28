@@ -54,8 +54,8 @@ export class SkeletonOptions {
 			['postcss', 'latest'],
 			['autoprefixer', 'latest'],
 			['tailwindcss', 'latest'],
-			['@skeletonlabs/skeleton', '2.0.0-rc.1'],
-			['@skeletonlabs/tw-plugin', '0.1.0-rc.5'],
+			['@skeletonlabs/skeleton', 'latest'],
+			['@skeletonlabs/tw-plugin', 'latest'],
 			['vite-plugin-tailwind-purgecss', 'latest'],
 		]);
 
