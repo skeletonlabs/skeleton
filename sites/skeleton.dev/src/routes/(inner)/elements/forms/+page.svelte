@@ -130,17 +130,20 @@
 						>Tailwind Forms plugin</a
 					>
 					to your
-					<code class="code">tailwind.config.cjs</code>
+					<code class="code">tailwind.config.[ts|js],</code>
 				</p>
 				<CodeBlock
 					language="js"
 					code={`
-module.exports = {
+import forms from '@tailwindcss/forms';
+
+export default {
+	//...
 	plugins: [
-		require('@tailwindcss/forms'),
-		// NOTE: Insert above the 'skeleton.cjs' plugin
+		forms,
+		//...
 	],
-}
+};
 				`}
 				/>
 			</div>
