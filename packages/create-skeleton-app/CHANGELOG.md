@@ -1,5 +1,11 @@
 # create-skeleton-app
 
+## 0.0.50
+
+### Patch Changes
+
+- Fixed check for custom template and empty path ([#1980](https://github.com/skeletonlabs/skeleton/pull/1980))
+
 ## 0.0.49
 
 ### Patch Changes
