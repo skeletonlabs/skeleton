@@ -4,7 +4,7 @@
 	"description": "monorepo for @skeletonlabs/skeleton",
 	"private": true,
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "pnpm -F @skeletonlabs/skeleton test",
 		"preinstall": "npx only-allow pnpm",
 		"getall": "node scripts/checkout.cjs && pnpm i",
 		"postinstall": "pnpm -r sync",
