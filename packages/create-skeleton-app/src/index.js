@@ -154,6 +154,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		});
 		goodbye(opts.path);
 	}
+	if (opts?.path == undefined) opts.path = "."
 	// name to set in package.json
 	opts.name = basename(opts.path);
 

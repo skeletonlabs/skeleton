@@ -268,7 +268,7 @@ export function createTailwindConfig(opts) {
 	if (configs.themes.preset.length == 0) delete configs.themes.preset;
 	if (configs.themes.custom.length == 0) delete configs.themes.custom;
 	let configsStr = JSON5.stringify(configs, { space: '\t' });
-	if (configs.themes.custom.length) {
+	if (configs.themes?.custom?.length) {
 		// stringify adds quotes around the custom theme imported variable, we need to remove them
 		configsStr = configsStr.replace(`'${configs.themes.custom}'`, configs.themes.custom);
 	}
