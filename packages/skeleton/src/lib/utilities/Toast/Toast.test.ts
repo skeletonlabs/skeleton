@@ -1,9 +1,9 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import { getToastStore } from '$lib/utilities/Toast/stores.js';
 import type { ToastSettings } from './types.js';
 import Toast from '$lib/utilities/Toast/Toast.svelte';
+import ToastTest from './ToastTest.svelte';
 
 // Toast Payload
 const toastMessage: ToastSettings = {
@@ -17,18 +17,14 @@ const toastMessage: ToastSettings = {
 };
 
 describe('Toast.svelte', () => {
-	const toastStore = getToastStore();
 
 	it('Renders modal alert', async () => {
-		toastStore.trigger(toastMessage);
-		const { getByTestId } = render(Toast);
+		const { getByTestId } = render(ToastTest, { props: { toastSettings: [toastMessage] } });
 		expect(getByTestId('toast')).toBeTruthy();
 	});
 
 	it('Renders only the configured max toasts at a time', async () => {
-		toastStore.trigger({ message: '1' });
-		toastStore.trigger({ message: '2' });
-		const { getAllByTestId } = render(Toast, { max: 1 });
+		const { getAllByTestId } = render(ToastTest, { props: { max: 1, toastSettings: [{ message: '1' }, { message: '2' }] } });
 		expect(getAllByTestId('toast').length).toBe(1);
 	});
 });
