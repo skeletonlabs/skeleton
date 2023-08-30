@@ -54,30 +54,30 @@
 	let inputChip = '';
 	let inputChipList: string[] = ['vanilla', 'chocolate'];
 
-	function onDemoSelection(event: any): void {
+	function onDemoSelection(event: CustomEvent<AutocompleteOption>): void {
 		console.log(event.detail);
 		inputDemo = event.detail.label;
 	}
 
-	function onAllowedlistSelect(event: any): void {
+	function onAllowedlistSelect(event: CustomEvent<AutocompleteOption>): void {
 		console.log(event.detail);
 		inputAllowlist = event.detail.label;
 	}
 
-	function onDeniedlistSelect(event: any): void {
+	function onDeniedlistSelect(event: CustomEvent<AutocompleteOption>): void {
 		console.log(event.detail);
-		flavorDenylist = [event.detail.value];
+		flavorDenylist = [event.detail.value as string];
 	}
 
-	function onInputChipSelect(event: any): void {
+	function onInputChipSelect(event: CustomEvent<AutocompleteOption>): void {
 		console.log('onInputChipSelect', event.detail);
-		if (inputChipList.includes(event.detail.value) === false) {
-			inputChipList = [...inputChipList, event.detail.value];
+		if (inputChipList.includes(event.detail.value as string) === false) {
+			inputChipList = [...inputChipList, event.detail.value as string];
 			inputChip = '';
 		}
 	}
 
-	function onPopupDemoSelect(event: any): void {
+	function onPopupDemoSelect(event: CustomEvent<AutocompleteOption>): void {
 		inputPopupDemo = event.detail.label;
 	}
 </script>
@@ -115,7 +115,7 @@ const flavorOptions: AutocompleteOption[] = [
 				<CodeBlock
 					language="ts"
 					code={`
-function onFlavorSelection(event: any): void {
+function onFlavorSelection(event: CustomEvent<AutocompleteOption>): void {
 	inputDemo = event.detail.label;
 }
 				`}
