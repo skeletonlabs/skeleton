@@ -20,7 +20,7 @@
 
 <div>
 	<!-- Promo Banner -->
-	<!-- <div class="variant-filled-primary p-4">
+	<div class="variant-filled-primary p-4">
 		<div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
 			<div class="flex items-center gap-6">
 				<span class="text-xl">🎉</span>
@@ -31,7 +31,7 @@
 				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/discussions/1947" target="_blank">Migration Guide</a>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
 	<!-- hero -->
 	<header id="hero" class="bg-surface-100-800-token hero-gradient">
