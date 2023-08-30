@@ -1,5 +1,11 @@
 # create-skeleton-app
 
+## 0.0.49
+
+### Patch Changes
+
+- Fix custom theme being passed in as string in TW conf ([#1976](https://github.com/skeletonlabs/skeleton/pull/1976))
+
 ## 0.0.48
 
 ### Patch Changes
