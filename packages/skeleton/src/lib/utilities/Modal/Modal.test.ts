@@ -1,8 +1,7 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import { getModalStore } from '$lib/utilities/Modal/stores.js';
-import type { ModalSettings } from '$lib/utilities/Modal/types.js';
+import type { ModalSettings } from './types.js';
 
 import ModalTest from './ModalTest.svelte';
 

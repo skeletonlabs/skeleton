@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { initializeModalStore, getModalStore } from '$lib/utilities/Modal/stores.js';
-	import Modal from '$lib/utilities/Modal/Modal.svelte';
-	import type { ModalSettings } from '$lib/utilities/Modal/types.js';
+	import { initializeModalStore, getModalStore } from './stores.js';
+	import Modal from './Modal.svelte';
+	import type { ModalSettings } from './types.js';
 
 	export let modalSetting: ModalSettings;
 
