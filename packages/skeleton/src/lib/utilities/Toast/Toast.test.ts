@@ -17,7 +17,6 @@ const toastMessage: ToastSettings = {
 };
 
 describe('Toast.svelte', () => {
-
 	it('Renders modal alert', async () => {
 		const { getByTestId } = render(ToastTest, { props: { toastSettings: [toastMessage] } });
 		expect(getByTestId('toast')).toBeTruthy();

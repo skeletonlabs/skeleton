@@ -28,19 +28,19 @@ const modalPrompt: ModalSettings = {
 
 describe('Modal.svelte', () => {
 	it('Renders modal alert', async () => {
-		const { getByTestId } = render(ModalTest, {props: {modalSetting: modalAlert}});
+		const { getByTestId } = render(ModalTest, { props: { modalSetting: modalAlert } });
 		expect(getByTestId('modal-backdrop')).toBeTruthy();
 		expect(getByTestId('modal')).toBeTruthy();
 	});
 
 	it('Renders modal confirm', async () => {
-		const { getByTestId } = render(ModalTest, {props: {modalSetting: modalConfirm}});
+		const { getByTestId } = render(ModalTest, { props: { modalSetting: modalConfirm } });
 		expect(getByTestId('modal-backdrop')).toBeTruthy();
 		expect(getByTestId('modal')).toBeTruthy();
 	});
 
 	it('Renders modal prompt', async () => {
-		const { getByTestId } = render(ModalTest, {props: {modalSetting: modalPrompt}});
+		const { getByTestId } = render(ModalTest, { props: { modalSetting: modalPrompt } });
 		expect(getByTestId('modal-backdrop')).toBeTruthy();
 		expect(getByTestId('modal')).toBeTruthy();
 	});
