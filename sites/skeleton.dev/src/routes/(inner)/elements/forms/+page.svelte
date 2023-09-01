@@ -508,6 +508,40 @@ export default {
 						language="html"
 						code={`
 <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+  <div class="input-group-shim">https://</div>
+  <input type="text" placeholder="www.example.com" />
+</div>
+		`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+  <div class="input-group-shim"><i class="fa-solid fa-dollar-sign" /></div>
+  <input type="text" placeholder="Amount" />
+  <select>
+    <option>USD</option>
+    <option>CAD</option>
+    <option>EURO</option>
+  </select>
+</div>
+		`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<div class="input-group input-group-divider grid-cols-[1fr_auto]">
+  <input type="text" placeholder="Enter Username..." />
+  <a href="/elements/forms" title="Username already in use.">
+    <i class="fa-solid fa-circle-exclamation text-warning-500 animate-pulse" />
+  </a>
+</div>
+		`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 	<div class="input-group-shim">(segment)</div>
 	<input type="search" placeholder="Search..." />
 	<button class="variant-filled-secondary">Submit</button>
