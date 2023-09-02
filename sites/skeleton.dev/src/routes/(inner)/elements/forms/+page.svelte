@@ -507,6 +507,7 @@ export default {
 					<CodeBlock
 						language="html"
 						code={`
+<p>Website</p>
 <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
   <div class="input-group-shim">https://</div>
   <input type="text" placeholder="www.example.com" />
@@ -516,8 +517,9 @@ export default {
 					<CodeBlock
 						language="html"
 						code={`
+<p>Amount</p>
 <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-  <div class="input-group-shim"><i class="fa-solid fa-dollar-sign" /></div>
+  <div class="input-group-shim">(icon)</div>
   <input type="text" placeholder="Amount" />
   <select>
     <option>USD</option>
@@ -530,19 +532,19 @@ export default {
 					<CodeBlock
 						language="html"
 						code={`
+<p>Username</p>
 <div class="input-group input-group-divider grid-cols-[1fr_auto]">
   <input type="text" placeholder="Enter Username..." />
-  <a href="/elements/forms" title="Username already in use.">
-    <i class="fa-solid fa-circle-exclamation text-warning-500 animate-pulse" />
-  </a>
+  <a href="" title="Username already in use.">(icon)</a>
 </div>
 		`}
 					/>
 					<CodeBlock
 						language="html"
 						code={`
+<p>Search</p>
 <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-	<div class="input-group-shim">(segment)</div>
+	<div class="input-group-shim">(icon)</div>
 	<input type="search" placeholder="Search..." />
 	<button class="variant-filled-secondary">Submit</button>
 </div>
