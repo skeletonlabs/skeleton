@@ -217,6 +217,26 @@
 			</aside>
 		</section>
 		<section class="space-y-4">
+			<h2 class="h2">Scroll to Top on Navigation</h2>
+			<p>
+				If you wish to have the App Shell page region auto-scroll to the top when navigating, add the following to your root layout in <code
+					class="code">/src/routes/+layout.svelte</code
+				>.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+afterNavigate((params: any) => {
+    const isNewPage: boolean = params.from && params.to && params.from.route.id !== params.to.route.id;
+    const elemPage = document.querySelector('#page');
+    if (isNewPage && elemPage !== null) {
+        elemPage.scrollTop = 0;
+    }
+});
+`}
+			/>
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Tracking Scroll Position</h2>
 			<p>Use the <code class="code">on:scroll</code> event to detect when the page region is scrolled vertically.</p>
 			<CodeBlock
