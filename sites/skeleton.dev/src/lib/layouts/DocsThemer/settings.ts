@@ -37,7 +37,7 @@ export const fontSettings: Record<string, string> = {
 	// Tailwind Serif
 	serif: `ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif`,
 	// Tailwind Mono
-	mono: `ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', "Courier New", monospace`,
+	mono: `ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace`,
 	// System UI
 	system: `system-ui`
 };
