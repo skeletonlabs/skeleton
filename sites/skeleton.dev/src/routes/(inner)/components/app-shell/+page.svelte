@@ -232,10 +232,10 @@ function scrollHandler(event: ComponentEvents<AppShell>['scroll']) {
 			<CodeBlock language="html" code={`<AppShell ... on:scroll={scrollHandler}>`} />
 		</section>
 		<section class="space-y-4">
-			<h2 class="h2">Scroll Gutters</h2>
+			<h2 class="h2">Scrollbar Gutter</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Use the <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter" target="_blank">scroll gutter</a> property to adjust how the page region scrollbar gutters are handled. View a <a class="anchor" href="https://www.youtube.com/shorts/mg49F9qUs38" target="_blank">quick demo video</a>.
+				Use the <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter" target="_blank">scrollbar gutter</a> property to adjust how the page region scrollbar gutters are handled. View a <a class="anchor" href="https://www.youtube.com/shorts/mg49F9qUs38" target="_blank">quick demo video</a>.
 			</p>
 			<CodeBlock language="ts" code={`<AppShell scrollGutter="auto">...</AppShell>`} />
 		</section>
