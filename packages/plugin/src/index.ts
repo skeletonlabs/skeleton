@@ -26,6 +26,11 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 				if (theme.properties_dark) {
 					baseStyles[`.dark [data-theme='${theme.name}']`] = theme.properties_dark;
 				}
+
+				// add your own enhancements
+				if (theme.enhancements) {
+					baseStyles = { ...baseStyles, ...theme.enhancements };
+				}
 			});
 
 			// Preset Themes configuration
