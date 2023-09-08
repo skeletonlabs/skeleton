@@ -1,15 +1,19 @@
 <script lang="ts" context="module">
 	import { slide } from 'svelte/transition';
-	import { type Transition, type TransitionParams, prefersReducedMotionStore } from '../../index.js';
+	import { prefersReducedMotionStore, type Transition, type TransitionParams } from '../../index.js';
 	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type SlideTransition = typeof slide;
 	type TransitionIn = Transition;
 	type TransitionOut = Transition;
+	type Value = unknown;
 </script>
 
-<script lang="ts" generics="TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition">
+<script
+	lang="ts"
+	generics="Value = unknown, TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition"
+>
 	import { createEventDispatcher } from 'svelte';
 	// import { flip } from 'svelte/animate';
 	// import {slide} from 'svelte/transition';
@@ -19,33 +23,33 @@
 
 	// Event Dispatcher
 	type AutocompleteEvent = {
-		selection: AutocompleteOption;
+		selection: AutocompleteOption<Value>;
 	};
 	const dispatch = createEventDispatcher<AutocompleteEvent>();
 
 	// Props
 	/**
 	 * Bind the input value.
-	 * @type {unknown}
+	 * @type {Value | undefined}
 	 */
-	export let input: unknown = undefined;
+	export let input: Value | undefined = undefined;
 	/**
 	 * Define values for the list.
-	 * @type {AutocompleteOption[]}
+	 * @type {AutocompleteOption<Value>[]}
 	 */
-	export let options: AutocompleteOption[] = [];
+	export let options: AutocompleteOption<Value>[] = [];
 	/** Limit the total number of suggestions. */
 	export let limit: number | undefined = undefined;
 	/**
 	 * Provide allowlist values.
-	 * @type {unknown[]}
+	 * @type {Value[]}
 	 */
-	export let allowlist: unknown[] = [];
+	export let allowlist: Value[] = [];
 	/**
 	 * Provide denylist values.
-	 * @type {unknown[]}
+	 * @type {Value[]}
 	 */
-	export let denylist: unknown[] = [];
+	export let denylist: Value[] = [];
 	/** Provide a HTML markup to display when no match is found. */
 	export let emptyState = 'No Results Found.';
 	// Props (region)
@@ -90,20 +94,20 @@
 	// Local
 	$: listedOptions = options;
 
-	function filterByAllowDeny(allowlist: unknown[], denylist: unknown[]) {
+	function filterByAllowDeny(_allowlist: typeof allowlist, _denylist: typeof denylist) {
 		let _options = [...options];
 		// Allowed Options
-		if (allowlist.length) {
-			_options = _options.filter((option) => allowlist.includes(option.value));
+		if (_allowlist.length) {
+			_options = _options.filter((option) => _allowlist.includes(option.value));
 		}
 
 		// Denied Options
-		if (denylist.length) {
-			_options = _options.filter((option) => !denylist.includes(option.value));
+		if (_denylist.length) {
+			_options = _options.filter((option) => !_denylist.includes(option.value));
 		}
 
 		// Reset options
-		if (!allowlist.length && !denylist.length) {
+		if (!_allowlist.length && !_denylist.length) {
 			_options = options;
 		}
 
@@ -125,7 +129,7 @@
 		return _options;
 	}
 
-	function onSelection(option: AutocompleteOption) {
+	function onSelection(option: AutocompleteOption<Value>) {
 		/** @event {AutocompleteOption} selection - Fire on option select. */
 		dispatch('selection', option);
 	}
