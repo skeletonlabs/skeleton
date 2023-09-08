@@ -1,4 +1,5 @@
 import type { PresetThemeName, ThemeProperties } from './tailwind/themes';
+import type { CSSRuleObject } from 'tailwindcss/types/config.js';
 
 export type ConfigOptions = {
 	/**
@@ -125,6 +126,13 @@ export type CustomThemeConfig = {
 	 * Optional properties that are applied in dark mode.
 	 */
 	properties_dark?: Partial<ThemeProperties>;
+	/**
+	 * Optional enhancements that are applied to the custom theme.
+	 *
+	 * Need help to convert your CSS to a CSSRuleObject?
+	 * @see https://transform.tools/css-to-js
+	 */
+	enhancements?: CSSRuleObject;
 };
 
 export type PresetThemeConfig = {
