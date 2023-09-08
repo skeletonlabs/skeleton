@@ -25,14 +25,16 @@ export function tocCrawler(node: HTMLElement, args?: TOCCrawlerArgs) {
 	let permalinks: TOCHeadingLink[] = [];
 
 	function init(): void {
-		// Reset headings
-		headings = node.querySelectorAll(queryElements);
-		// Reset the permalinks array:
-		permalinks = [];
 		// Set accepted list of query elements
+		// (IMPORTANT: must proceed resetting `headings` below)
 		if (args?.queryElements) queryElements = args.queryElements;
 		// Set the desired scroll target to monitor
 		if (args?.scrollTarget) scrollTarget = args.scrollTarget;
+
+		// Reset local values
+		headings = node.querySelectorAll(queryElements);
+		permalinks = [];
+
 		// Query and process the headings
 		queryHeadings();
 	}
