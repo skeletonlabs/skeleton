@@ -114,7 +114,7 @@
 		listedOptions = _options;
 	}
 
-	function filterOptions(): AutocompleteOption[] {
+	function filterOptions(): AutocompleteOption<Value>[] {
 		// Create a local copy of options
 		let _options = [...listedOptions];
 		// Filter options
@@ -130,14 +130,14 @@
 	}
 
 	function onSelection(option: AutocompleteOption<Value>) {
-		/** @event {AutocompleteOption} selection - Fire on option select. */
+		/** @event {AutocompleteOption<Value>} selection - Fire on option select. */
 		dispatch('selection', option);
 	}
 
 	// State
 	$: filterByAllowDeny(allowlist, denylist);
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
-	$: sliceLimit = limit !== undefined ? limit : optionsFiltered.length;
+	$: sliceLimit = limit ?? optionsFiltered.length;
 	// Reactive
 	$: classesBase = `${$$props.class ?? ''}`;
 	$: classesNav = `${regionNav}`;

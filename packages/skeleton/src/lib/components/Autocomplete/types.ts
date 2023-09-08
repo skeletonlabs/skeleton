@@ -1,7 +1,7 @@
 // Autocomplete Types
 
 export interface AutocompleteOption<Value = unknown> {
-	/** provide a unique display label per option. Supports HTML. */
+	/** Provide a unique display label per option. Supports HTML. */
 	label: string;
 	/** Provide a unique option value. */
 	value: Value;
