@@ -54,6 +54,28 @@ plugins: [
 		<CodeBlock language="html" code={`<body data-theme="my-custom-theme">`} />
 		<!-- prettier-ignore -->
 		<p>Note that custom themes can be registered along with <a href="/docs/themes#register-themes" class="anchor">Skeleton's preset themes</a>, allowing you to switch between these as desired.</p>
+
+		<h3 class="h3">Enhancements</h3>
+		<p>
+			Custom themes can also include additional optional features such as: heading font weights, background mesh gradients, and more. To
+			enable these features, include <code class="code">enhancements</code> as shown below.
+		</p>
+		<CodeBlock
+			language="ts"
+			code={`
+enhancements: {
+    "[data-theme='custom'] h1": { fontWeight: 'bold' },
+    "[data-theme='custom']": {
+        backgroundImage:
+        'radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%),\n\t\t\tradial-gradient(at 98% 1%, rgba(var(--color-error-500) / 0.33) 0px, transparent 50%)',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
+  }
+}
+                `}
+		/>
 	</section>
 
 	<hr />
