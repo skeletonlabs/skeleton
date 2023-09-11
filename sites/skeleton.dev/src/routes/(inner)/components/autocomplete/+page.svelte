@@ -67,13 +67,13 @@
 
 	function onDeniedlistSelect(event: CustomEvent<FlavorOption>): void {
 		console.log(event.detail);
-		flavorDenylist = [event.detail.value as string];
+		flavorDenylist = [event.detail.value];
 	}
 
 	function onInputChipSelect(event: CustomEvent<FlavorOption>): void {
 		console.log('onInputChipSelect', event.detail);
-		if (inputChipList.includes(event.detail.value as string) === false) {
-			inputChipList = [...inputChipList, event.detail.value as string];
+		if (inputChipList.includes(event.detail.value) === false) {
+			inputChipList = [...inputChipList, event.detail.value];
 			inputChip = '';
 		}
 	}
