@@ -94,20 +94,20 @@
 	// Local
 	$: listedOptions = options;
 
-	function filterByAllowDeny(_allowlist: typeof allowlist, _denylist: typeof denylist) {
+	function filterByAllowDeny(allowlist: Value[], denylist: Value[]) {
 		let _options = [...options];
 		// Allowed Options
-		if (_allowlist.length) {
-			_options = _options.filter((option) => _allowlist.includes(option.value));
+		if (allowlist.length) {
+			_options = _options.filter((option) => allowlist.includes(option.value));
 		}
 
 		// Denied Options
-		if (_denylist.length) {
-			_options = _options.filter((option) => !_denylist.includes(option.value));
+		if (denylist.length) {
+			_options = _options.filter((option) => !denylist.includes(option.value));
 		}
 
 		// Reset options
-		if (!_allowlist.length && !_denylist.length) {
+		if (!allowlist.length && !denylist.length) {
 			_options = options;
 		}
 
