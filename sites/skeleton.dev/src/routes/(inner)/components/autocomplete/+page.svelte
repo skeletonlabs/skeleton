@@ -39,15 +39,15 @@
 
 	let inputDemo = '';
 	let inputAllowlist = '';
-	type FlavorOption = AutocompleteOption<string>;
-	const flavorOptions = [
+	type FlavorOption = AutocompleteOption<string, { healthy: boolean }>;
+	const flavorOptions: FlavorOption[] = [
 		{ label: 'Vanilla', value: 'vanilla', keywords: 'plain, basic', meta: { healthy: false } },
 		{ label: 'Chocolate', value: 'chocolate', keywords: 'dark, white', meta: { healthy: false } },
 		{ label: 'Strawberry', value: 'strawberry', keywords: 'fruit', meta: { healthy: true } },
 		{ label: 'Neapolitan', value: 'neapolitan', keywords: 'mix, strawberry, chocolate, vanilla', meta: { healthy: false } },
 		{ label: 'Pineapple', value: 'pineapple', keywords: 'fruit', meta: { healthy: true } },
 		{ label: 'Peach', value: 'peach', keywords: 'fruit', meta: { healthy: true } }
-	] satisfies FlavorOption[];
+	];
 	const flavorAllowlist = ['neapolitan', 'pineapple', 'peach'];
 	let flavorDenylist = ['vanilla', 'chocolate'];
 

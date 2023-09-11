@@ -8,11 +8,13 @@
 	type TransitionIn = Transition;
 	type TransitionOut = Transition;
 	type Value = unknown;
+	type Meta = unknown;
 </script>
 
 <script
 	lang="ts"
-	generics="Value = unknown, TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition"
+	generics="Value = unknown, Meta = unknown, 
+	TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition"
 >
 	import { createEventDispatcher } from 'svelte';
 	// import { flip } from 'svelte/animate';
@@ -20,10 +22,11 @@
 
 	// Types
 	import type { AutocompleteOption } from './types.js';
+	type Option = AutocompleteOption<Value, Meta>;
 
 	// Event Dispatcher
 	type AutocompleteEvent = {
-		selection: AutocompleteOption<Value>;
+		selection: Option;
 	};
 	const dispatch = createEventDispatcher<AutocompleteEvent>();
 
@@ -35,9 +38,9 @@
 	export let input: Value | undefined = undefined;
 	/**
 	 * Define values for the list.
-	 * @type {AutocompleteOption<Value>[]}
+	 * @type {Option[]}
 	 */
-	export let options: AutocompleteOption<Value>[] = [];
+	export let options: Option[] = [];
 	/** Limit the total number of suggestions. */
 	export let limit: number | undefined = undefined;
 	/**
@@ -114,7 +117,7 @@
 		listedOptions = _options;
 	}
 
-	function filterOptions(): AutocompleteOption<Value>[] {
+	function filterOptions(): Option[] {
 		// Create a local copy of options
 		let _options = [...listedOptions];
 		// Filter options
@@ -129,8 +132,8 @@
 		return _options;
 	}
 
-	function onSelection(option: AutocompleteOption<Value>) {
-		/** @event {AutocompleteOption<Value>} selection - Fire on option select. */
+	function onSelection(option: Option) {
+		/** @event {Option} selection - Fire on option select. */
 		dispatch('selection', option);
 	}
 
