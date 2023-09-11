@@ -1,5 +1,5 @@
 ---
-'@skeletonlabs/skeleton': patch
+'@skeletonlabs/skeleton': minor
 ---
 
-bugfix:Added support for type generics on values provided to Autocomplete component
+feat: Added support for generic types on values provided to Autocomplete component
