@@ -44,14 +44,22 @@
 	import '../app.postcss';
 
 	// Handle Vercel Production Mode
-	import type { LayoutServerData } from './$types';
-	export let data: LayoutServerData;
+	storeVercelProductionMode.set(env?.PUBLIC_VERCEL_ENV === 'production');
 	// Pass to Store for Ad Conditionals
 	// IMPORTANT: DO NOT MODIFY THIS UNLESS YOU KNOW WHAT YOU'RE DOING
 	import { storeTheme, storeVercelProductionMode } from '$lib/stores/stores';
-	storeVercelProductionMode.set(data.vercelEnv === 'production');
-	// Init Vercel Analytics
-	if ($storeVercelProductionMode) import('@vercel/analytics').then((mod) => mod.inject());
+	import { env } from '$env/dynamic/public';
+	import { onMount } from 'svelte';
+	// Init Fathom Analytics
+	onMount(() => {
+		if ($storeVercelProductionMode && env.PUBLIC_FATHOM_ID && env.PUBLIC_FATHOM_URL) {
+			import('fathom-client').then((Fathom) =>
+				Fathom.load(env.PUBLIC_FATHOM_ID, {
+					url: env.PUBLIC_FATHOM_URL
+				})
+			);
+		}
+	});
 
 	// SEO Meta tags
 	const metaDefaults = {

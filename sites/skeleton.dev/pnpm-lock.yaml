@@ -4,97 +4,108 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-devDependencies:
-  '@faker-js/faker':
-    specifier: ^8.0.2
-    version: 8.0.2
-  '@floating-ui/dom':
-    specifier: ^1.2.9
-    version: 1.2.9
-  '@skeletonlabs/skeleton':
-    specifier: workspace:*
-    version: link:../../packages/skeleton
-  '@skeletonlabs/tw-plugin':
-    specifier: workspace:*
-    version: link:../../packages/plugin
-  '@sveltejs/adapter-vercel':
-    specifier: ^3.0.1
-    version: 3.0.1(@sveltejs/kit@1.20.2)
-  '@sveltejs/kit':
-    specifier: ^1.20.2
-    version: 1.20.2(svelte@3.59.1)(vite@4.3.9)
-  '@tailwindcss/forms':
-    specifier: ^0.5.3
-    version: 0.5.3(tailwindcss@3.3.2)
-  '@tailwindcss/typography':
-    specifier: ^0.5.9
-    version: 0.5.9(tailwindcss@3.3.2)
-  '@typescript-eslint/eslint-plugin':
-    specifier: ^5.59.9
-    version: 5.59.9(@typescript-eslint/parser@5.59.9)(eslint@8.42.0)(typescript@5.0.3)
-  '@typescript-eslint/parser':
-    specifier: ^5.59.9
-    version: 5.59.9(eslint@8.42.0)(typescript@5.0.3)
-  '@vercel/analytics':
-    specifier: ^1.0.1
-    version: 1.0.1
-  autoprefixer:
-    specifier: ^10.4.14
-    version: 10.4.14(postcss@8.4.24)
-  eslint:
-    specifier: ^8.42.0
-    version: 8.42.0
-  eslint-config-prettier:
-    specifier: ^8.8.0
-    version: 8.8.0(eslint@8.42.0)
-  eslint-plugin-svelte:
-    specifier: ^2.30.0
-    version: 2.30.0(eslint@8.42.0)(svelte@3.59.1)
-  highlight.js:
-    specifier: ^11.8.0
-    version: 11.8.0
-  minimatch:
-    specifier: ^9.0.3
-    version: 9.0.3
-  postcss:
-    specifier: ^8.4.24
-    version: 8.4.24
-  prettier:
-    specifier: ^2.8.8
-    version: 2.8.8
-  prettier-plugin-svelte:
-    specifier: ^2.10.1
-    version: 2.10.1(prettier@2.8.8)(svelte@3.59.1)
-  query-string:
-    specifier: ^8.1.0
-    version: 8.1.0
-  sveld:
-    specifier: ^0.18.1
-    version: 0.18.1(postcss@8.4.24)
-  svelte:
-    specifier: ^3.59.1
-    version: 3.59.1
-  svelte-check:
-    specifier: ^3.4.3
-    version: 3.4.3(postcss@8.4.24)(svelte@3.59.1)
-  svelte-preprocess:
-    specifier: ^5.0.4
-    version: 5.0.4(postcss@8.4.24)(svelte@3.59.1)(typescript@5.0.3)
-  tailwindcss:
-    specifier: ^3.3.2
-    version: 3.3.2
-  tslib:
-    specifier: ^2.5.3
-    version: 2.5.3
-  typescript:
-    specifier: ^5.0.3
-    version: 5.0.3
-  vite:
-    specifier: ^4.3.9
-    version: 4.3.9(@types/node@20.1.4)
-  vitest:
-    specifier: ^0.32.0
-    version: 0.32.0
+importers:
+
+  .:
+    devDependencies:
+      '@faker-js/faker':
+        specifier: ^8.0.2
+        version: 8.0.2
+      '@floating-ui/dom':
+        specifier: ^1.2.9
+        version: 1.2.9
+      '@skeletonlabs/skeleton':
+        specifier: workspace:*
+        version: link:../../packages/skeleton
+      '@skeletonlabs/tw-plugin':
+        specifier: workspace:*
+        version: link:../../packages/plugin
+      '@sveltejs/adapter-vercel':
+        specifier: ^3.0.1
+        version: 3.0.1(@sveltejs/kit@1.20.2)
+      '@sveltejs/kit':
+        specifier: ^1.20.2
+        version: 1.20.2(svelte@3.59.1)(vite@4.3.9)
+      '@tailwindcss/forms':
+        specifier: ^0.5.3
+        version: 0.5.3(tailwindcss@3.3.2)
+      '@tailwindcss/typography':
+        specifier: ^0.5.9
+        version: 0.5.9(tailwindcss@3.3.2)
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^5.59.9
+        version: 5.59.9(@typescript-eslint/parser@5.59.9)(eslint@8.42.0)(typescript@5.0.3)
+      '@typescript-eslint/parser':
+        specifier: ^5.59.9
+        version: 5.59.9(eslint@8.42.0)(typescript@5.0.3)
+      autoprefixer:
+        specifier: ^10.4.14
+        version: 10.4.14(postcss@8.4.24)
+      eslint:
+        specifier: ^8.42.0
+        version: 8.42.0
+      eslint-config-prettier:
+        specifier: ^8.8.0
+        version: 8.8.0(eslint@8.42.0)
+      eslint-plugin-svelte:
+        specifier: ^2.30.0
+        version: 2.30.0(eslint@8.42.0)(svelte@3.59.1)
+      fathom-client:
+        specifier: ^3.5.0
+        version: 3.5.0
+      highlight.js:
+        specifier: ^11.8.0
+        version: 11.8.0
+      minimatch:
+        specifier: ^9.0.3
+        version: 9.0.3
+      postcss:
+        specifier: ^8.4.24
+        version: 8.4.24
+      prettier:
+        specifier: ^2.8.8
+        version: 2.8.8
+      prettier-plugin-svelte:
+        specifier: ^2.10.1
+        version: 2.10.1(prettier@2.8.8)(svelte@3.59.1)
+      query-string:
+        specifier: ^8.1.0
+        version: 8.1.0
+      sveld:
+        specifier: ^0.18.1
+        version: 0.18.1(postcss@8.4.24)
+      svelte:
+        specifier: ^3.59.1
+        version: 3.59.1
+      svelte-check:
+        specifier: ^3.4.3
+        version: 3.4.3(postcss@8.4.24)(svelte@3.59.1)
+      svelte-preprocess:
+        specifier: ^5.0.4
+        version: 5.0.4(postcss@8.4.24)(svelte@3.59.1)(typescript@5.0.3)
+      tailwindcss:
+        specifier: ^3.3.2
+        version: 3.3.2
+      tslib:
+        specifier: ^2.5.3
+        version: 2.5.3
+      typescript:
+        specifier: ^5.0.3
+        version: 5.0.3
+      vite:
+        specifier: ^4.3.9
+        version: 4.3.9(@types/node@20.1.4)
+      vitest:
+        specifier: ^0.32.0
+        version: 0.32.0
+
+  ../..: {}
+
+  ../../packages/create-skeleton-app: {}
+
+  ../../packages/plugin: {}
+
+  ../../packages/skeleton: {}
 
 packages:
 
@@ -758,10 +769,6 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.59.9
       eslint-visitor-keys: 3.4.1
-    dev: true
-
-  /@vercel/analytics@1.0.1:
-    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==}
     dev: true
 
   /@vercel/nft@0.22.6:
@@ -1458,6 +1465,10 @@ packages:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
     dependencies:
       reusify: 1.0.4
+    dev: true
+
+  /fathom-client@3.5.0:
+    resolution: {integrity: sha512-BiRDS9Q9a8Zma0H717FWC5cvf545K/CsxBpxKT22TcSl1EbRhhlHWIJgrdeiQUfdorBK2ppy09TwMOhRsbos/A==}
     dev: true
 
   /file-entry-cache@6.0.1:
