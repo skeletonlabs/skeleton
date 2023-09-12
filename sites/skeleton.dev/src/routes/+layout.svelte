@@ -44,7 +44,8 @@
 	import '../app.postcss';
 
 	// Handle Vercel Production Mode
-	storeVercelProductionMode.set(env?.PUBLIC_VERCEL_ENV === 'production');
+	export let data;
+	storeVercelProductionMode.set(data.vercelEnv === 'production');
 	// Pass to Store for Ad Conditionals
 	// IMPORTANT: DO NOT MODIFY THIS UNLESS YOU KNOW WHAT YOU'RE DOING
 	import { storeTheme, storeVercelProductionMode } from '$lib/stores/stores';
