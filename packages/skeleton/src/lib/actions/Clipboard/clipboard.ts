@@ -40,21 +40,25 @@ export function clipboard(node: HTMLElement, args: ClipboardArgs) {
 
 // Shared copy method
 async function copyToClipboard(data: BlobPart, mimeType = 'text/plain') {
-	if (navigator.clipboard.write) {
-		await navigator.clipboard.write([
-			new ClipboardItem({
-				[mimeType]: new Blob([data], {
-					type: mimeType
-				}),
-				['text/plain']: new Blob([data], {
-					type: 'text/plain'
+	try {
+		if (navigator.clipboard.write) {
+			await navigator.clipboard.write([
+				new ClipboardItem({
+					[mimeType]: new Blob([data], {
+						type: mimeType
+					}),
+					['text/plain']: new Blob([data], {
+						type: 'text/plain'
+					})
 				})
-			})
-		]);
-	} else {
-		// fallback since .writeText has wider browser support
-		await new Promise((resolve) => {
-			resolve(navigator.clipboard.writeText(String(data)));
-		});
+			]);
+		} else {
+			// fallback since .writeText has wider browser support
+			await new Promise((resolve) => {
+				resolve(navigator.clipboard.writeText(String(data)));
+			});
+		}
+	} catch (exception) {
+		console.log('Could not write to clipboard because of: ', exception);
 	}
 }
