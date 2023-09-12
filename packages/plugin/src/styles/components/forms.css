@@ -111,7 +111,10 @@
 
 	.input:disabled,
 	.textarea:disabled,
-	.select:disabled {
+	.select:disabled,
+	.input-group > input:disabled,
+	.input-group > textarea:disabled,
+	.input-group > select:disabled {
 		@apply !opacity-50 !cursor-not-allowed hover:!brightness-100;
 	}
 

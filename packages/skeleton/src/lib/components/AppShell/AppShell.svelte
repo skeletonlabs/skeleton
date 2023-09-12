@@ -15,6 +15,10 @@
 		scroll: SvelteEvent<UIEvent, HTMLDivElement>;
 	}
 
+	// Props
+	/** Set `scrollbar-gutter` style. */
+	export let scrollbarGutter = 'auto';
+
 	// Props (regions)
 	/** Apply arbitrary classes to the entire `#page` region. */
 	export let regionPage: CssClasses = '';
@@ -65,7 +69,7 @@
 		{/if}
 
 		<!-- Page -->
-		<div id="page" class="{regionPage} {cPage}" on:scroll>
+		<div id="page" class="{regionPage} {cPage}" style:scrollbarGutter on:scroll>
 			<!-- Slot: Page Header -->
 			{#if $$slots.pageHeader}
 				<header id="page-header" class="flex-none {classesPageHeader}"><slot name="pageHeader">(slot:header)</slot></header>
