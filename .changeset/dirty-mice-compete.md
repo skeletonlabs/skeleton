@@ -2,5 +2,4 @@
 "create-skeleton-app": patch
 ---
 
-Removed highlightjs
-- highlightjs defaults to installing support for all languages and this makes the final bundle size massive.  It is recommended to install this manually with the selected languages you need.
+cli: The `Highlight.js` depedency is no longer provide via the CLI prompts. We're investiging a means to prevent it from installing all languages by default, which bloats your project size. For now, please follow the Code Block documentation to install manually

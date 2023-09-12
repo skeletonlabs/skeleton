@@ -2,4 +2,4 @@
 "@skeletonlabs/tw-plugin": minor
 ---
 
-feat:Added disabled input styling for inputs within input groups
+feat: Enable disabled input styling for inputs within input groups
