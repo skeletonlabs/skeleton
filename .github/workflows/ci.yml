@@ -41,6 +41,8 @@ jobs:
         run: pnpm ci:check
         env:
           VERCEL_ENV: dev
+          PUBLIC_FATHOM_URL: dev
+          PUBLIC_FATHOM_ID: dev
 
   lint:
     name: Run linter
