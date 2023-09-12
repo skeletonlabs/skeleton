@@ -1,5 +1,15 @@
 # @skeletonlabs/tw-plugin
 
+## 0.2.0
+
+### Minor Changes
+
+- feat: Enable disabled input styling for inputs within input groups ([#2018](https://github.com/skeletonlabs/skeleton/pull/2018))
+
+### Patch Changes
+
+- bugfix: Wintry theme `on-` color contrast accessability improved ([#2016](https://github.com/skeletonlabs/skeleton/pull/2016))
+
 ## 0.1.0
 
 ### Minor Changes
