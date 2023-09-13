@@ -101,10 +101,10 @@
 	}
 
 	/* Set Neutral Divider */
-	.btn-group * + * {
+	.btn-group > * + * {
 		@apply border-t-0 border-l border-surface-500/20;
 	}
-	.btn-group-vertical * + * {
+	.btn-group-vertical > * + * {
 		@apply border-t border-l-0 border-surface-500/20;
 	}
 }
