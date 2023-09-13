@@ -8,8 +8,8 @@
 	<header class="space-y-4">
 		<h1 class="h1">Sponsorship</h1>
 		<p>
-			Sponsorship is a fundamental way to support your open source project, including Skeleton. Funds provided by our sponsors cover
-			operation costs, fund paid promotion, support contributors, and more.
+			Sponsorship is a fundamental way to support open source projects, including Skeleton. Funds provided by our sponsors cover operation
+			costs, fund paid promotion, support contributors, and more.
 		</p>
 	</header>
 
@@ -62,13 +62,13 @@
 		<h3 class="h3">Discord Role</h3>
 		<!-- prettier-ignore -->
 		<p>
-			Sponsorship of $10 USD or higher provides access to a <code class="code">sponsor</code> role on Discord, this provides access to a
+			Sponsorship of <span class="badge variant-filled-error">(Tier Name TBD)</span> or higher provides access to a <code class="code">sponsor</code> role on Discord, enabling a
 			special <code class="code">#sponsors</code> channel which provides a direct line of communication with Skeleton contributors. Please contact a member of the Discord moderator team if this role is not automatically assigned.
 		</p>
 		<h3 class="h3">Premium Templates</h3>
 		<!-- prettier-ignore -->
 		<p>
-			Sponsorship of <span class="badge variant-filled-error">(Tier TBD)</span> or higher unlocks access to <u>all</u> of the following premium website templates.
+			Sponsorship of <span class="badge variant-filled-error">(Tier Name TBD)</span> or higher unlocks access to <u>all</u> premium website templates.
 		</p>
 		<div class="grid grid-cols-1 gap-4">
 			<!-- Template: Blog -->
@@ -108,7 +108,7 @@
 					<h3 class="h3" data-toc-ignore>How may I access my templates?</h3>
 				</svelte:fragment>
 				<svelte:fragment slot="content">
-					<p>Once sponsored, you will gain immediate access to a private GitHub respository containing all available templates.</p>
+					<p>While your sponsorship is active, you gain access to a private GitHub respository containing all available templates.</p>
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
@@ -281,7 +281,7 @@
 		<h2 class="h2">Ko-Fi Incentives</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Sponsorship of $10 USD or higher provides access to a <code class="code">sponsor</code> role on Discord, this provides access to a
+			Sponsorship of <span class="badge variant-filled-error">(Tier Name TBD)</span> or higher provides access to a <code class="code">sponsor</code> role on Discord, enabling a
 			special <code class="code">#sponsors</code> channel which provides a direct line of communication with Skeleton contributors. Please contact a member of the Discord moderator team if this role is not automatically assigned.
 		</p>
 		<aside class="alert variant-soft">Please note that premium templates are not currently available to this service.</aside>
@@ -292,7 +292,7 @@
 		<h2 class="h2">Patreon Incentives</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Sponsorship of $10 USD or higher provides access to a <code class="code">sponsor</code> role on Discord, this provides access to a
+			Sponsorship of <span class="badge variant-filled-error">(Tier Name TBD)</span> or higher provides access to a <code class="code">sponsor</code> role on Discord, enabling a
 			special <code class="code">#sponsors</code> channel which provides a direct line of communication with Skeleton contributors. Please contact a member of the Discord moderator team if this role is not automatically assigned.
 		</p>
 		<aside class="alert variant-soft">Please note that premium templates are not currently available to this service.</aside>
