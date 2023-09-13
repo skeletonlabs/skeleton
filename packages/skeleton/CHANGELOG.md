@@ -1,5 +1,15 @@
 # @skeletonlabs/skeleton
 
+## 2.1.0
+
+### Minor Changes
+
+- feat: App Shell now includes a new `scrollbarGutter` property ([#2014](https://github.com/skeletonlabs/skeleton/pull/2014))
+
+### Patch Changes
+
+- bugfix: Resolved issue in Table of Contents that prevented `queryElements` from working as expected ([#2017](https://github.com/skeletonlabs/skeleton/pull/2017))
+
 ## 2.0.0
 
 ### Major Changes

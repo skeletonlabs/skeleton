@@ -129,7 +129,7 @@ async function parseArgs() {
 /**
  * @param {SkeletonOptions} opts
  */
-export async function askForMissingParams(opts) {
+async function askForMissingParams(opts) {
 	const { version } = JSON.parse(fs.readFileSync(dist('../package.json'), 'utf-8'));
 
 	intro(`Create Skeleton App ${gray(`(version ${version})`)}
@@ -141,7 +141,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	//NOTE: When doing checks here, make sure to test for the presence of the prop, not the prop value as it may be set to false deliberately.
 	if (!('path' in opts)) {
 		opts.path = await text({
-			message: 'Where should we install your project (Enter for current directory) ?',
+			message: 'Where should we install your project (Enter for current directory)?',
 			placeholder: '',
 			validate(value) {
 				if (value.length === 0) value = '.';
@@ -249,16 +249,16 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		});
 		opts.skeletontheme.pop('custom');
 		opts.skeletontheme.push({ custom: customName });
-		goodbye();
+		goodbye(customName);
 	}
 
 	// Additional packages to install - these can be influenced by the template selected
 	let packages = [
-		{ value: 'forms', label: 'Add Tailwind forms ?', package: '@tailwindcss/forms', force: false },
-		{ value: 'typography', label: 'Add Tailwind typography ?', package: '@tailwindcss/typography', force: false },
-		{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js) ?', package: 'highlight.js', force: false },
-		{ value: 'popups', label: 'Add Popups (installs floating-ui) ?', package: '@floating-ui/dom', force: false },
-		// { value: 'mdsvex', label: 'Add Markdown support (installs mdsvex) ?', package: 'mdsvex', force: false },
+		{ value: 'forms', label: 'Add Tailwind forms?', package: '@tailwindcss/forms', force: false },
+		{ value: 'typography', label: 'Add Tailwind typography?', package: '@tailwindcss/typography', force: false },
+		// { value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js)?', package: 'highlight.js', force: false },
+		{ value: 'popups', label: 'Add Popups (installs floating-ui)?', package: '@floating-ui/dom', force: false },
+		// { value: 'mdsvex', label: 'Add Markdown support (installs mdsvex)?', package: 'mdsvex', force: false },
 	];
 	// Force the packages that are required by the template
 	packages.forEach((pkg) => {
@@ -284,7 +284,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			options: optionalPackages,
 			required: false,
 		});
-		goodbye(packages);
+		goodbye(packageChoices);
 		if (Array.isArray(packageChoices)) {
 			packageChoices.forEach((value) => (opts[value] = true));
 		}
@@ -298,8 +298,9 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 				{ value: 'checkjs', label: 'Yes, using JavaScript with JSDoc comments' },
 				{ value: null, label: 'No' },
 			],
+			required: true,
 		});
-		goodbye(opts.type);
+		goodbye(opts.types);
 	}
 
 	// Setup dev oriented packages and settings
@@ -316,10 +317,10 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			}),
 			options: [
 				{ value: 'eslint', label: 'Add ESLint for code linting?' },
-				{ value: 'prettier', label: 'Add Prettier for code formatting ?' },
-				{ value: 'playwright', label: 'Add Playwright for browser testing ?' },
-				{ value: 'vitest', label: 'Add Vitest for unit testing ?' },
-				{ value: 'inspector', label: 'Add Svelte Inspector for quick access to your source files from the browser ?' },
+				{ value: 'prettier', label: 'Add Prettier for code formatting?' },
+				{ value: 'playwright', label: 'Add Playwright for browser testing?' },
+				{ value: 'vitest', label: 'Add Vitest for unit testing?' },
+				{ value: 'inspector', label: 'Add Svelte Inspector for quick access to your source files from the browser?' },
 			],
 			required: false,
 		});
@@ -329,4 +330,4 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	return opts;
 }
 
-main();
+main().catch(console.error);

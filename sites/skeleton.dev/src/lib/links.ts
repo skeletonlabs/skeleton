@@ -22,8 +22,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{
 					href: '/docs/transitions',
 					label: 'Transitions',
-					keywords: 'transition, transitions, blur, fade, fly, slide, scale, draw, crossfade, prefers, reduced, motion',
-					badge: 'New'
+					keywords: 'transition, transitions, blur, fade, fly, slide, scale, draw, crossfade, prefers, reduced, motion'
 				}
 			]
 		},
@@ -31,7 +30,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			title: 'Resources',
 			list: [
 				{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
-				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, vite, tree, shaking, bundle, optimize', badge: 'New' },
+				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, vite, tree, shaking, bundle, optimize' },
 				{ href: '/docs/contributing', label: 'Contributing', keywords: 'branch, pr' }
 			]
 		}

@@ -61,7 +61,8 @@
 		<CodeBlock
 			language="css"
 			code={`
-:root {
+/* NOTE: set your target theme name (ex: skeleton, wintry, modern, etc) */\n
+:root [data-theme='skeleton'] {
 	--theme-rounded-base: 20px;
 	--theme-rounded-container: 4px;
 }
@@ -71,7 +72,8 @@
 		<CodeBlock
 			language="css"
 			code={`
-:root {
+/* NOTE: set your target theme name (ex: skeleton, wintry, modern, etc) */\n
+:root [data-theme='skeleton'] {
     --theme-font-family-base: 'MyCustomFont', sans-serif;
     --theme-font-family-heading: 'MyCustomFont', sans-serif;
 }
@@ -296,7 +298,8 @@ body {
 						<CodeBlock
 							language="css"
 							code={`
-:root {
+/* NOTE: set your target theme name (ex: skeleton, wintry, modern, etc) */\n
+:root [data-theme='skeleton'] {
     --theme-font-family-base: '${f.name}', sans-serif;
     --theme-font-family-heading: '${f.name}', sans-serif;
     /* ... */
@@ -345,7 +348,8 @@ body {
 					</div>
 					<h3 class="h3" data-toc-ignore>2. Set the Import</h3>
 					<p>
-						Open your global stylesheet in <code class="code">/src/app.postcss</code> and paste the import statement at the top of the file.
+						Open your global stylesheet in <code class="code">/src/app.postcss</code> and paste the import statement at the top of the file,
+						above all <code class="code">@tailwind</code> directives.
 					</p>
 					{#each activeFonts as f}
 						<CodeBlock language="css" code={`@import url('${f.import}');`} />
@@ -360,7 +364,8 @@ body {
 						<CodeBlock
 							language="css"
 							code={`
-:root {
+/* NOTE: set your target theme name (ex: skeleton, wintry, modern, etc) */\n
+:root [data-theme='skeleton'] {
     --theme-font-family-base: '${f.name}', sans-serif;
     --theme-font-family-heading: '${f.name}', sans-serif;
     /* ... */

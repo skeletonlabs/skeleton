@@ -177,8 +177,8 @@ export const myCustomTheme: CustomThemeConfig = {
     name: 'my-custom-theme',
     properties: {
 		// =~= Theme Properties =~=
-		"--theme-font-family-base": "${fontSettings[$storeThemGenForm.fontBase]}",
-		"--theme-font-family-heading": "${fontSettings[$storeThemGenForm.fontHeadings]}",
+		"--theme-font-family-base": \`${fontSettings[$storeThemGenForm.fontBase]}\`,
+		"--theme-font-family-heading": \`${fontSettings[$storeThemGenForm.fontHeadings]}\`,
 		"--theme-font-color-base": "${$storeThemGenForm.textColorLight}",
 		"--theme-font-color-dark": "${$storeThemGenForm.textColorDark}",
 		"--theme-rounded-base": "${$storeThemGenForm.roundedBase}",
