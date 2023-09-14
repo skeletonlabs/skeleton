@@ -55,6 +55,11 @@
 			<p>Apply the following changes to your app's root component in <code class="code">/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="ts" code={`import hljs from 'highlight.js';`} />
 			<p>
+				This imports all languages supported by Highlight.js. In order to reduce bundle size, it is recommended to only import the languages
+				you need. Refer to the <a href="https://highlightjs.org/#usage" class="anchor" target="_blank">Highlight.js usage guide</a> on how to
+				do that.
+			</p>
+			<p>
 				Import any <a
 					class="anchor"
 					href="https://github.com/highlightjs/highlight.js/tree/main/src/styles"
@@ -65,8 +70,13 @@
 			<CodeBlock language="ts" code={`import 'highlight.js/styles/github-dark.css';`} />
 			<p>Finally, import the CodeBlock's writable store and pass a referenced to Highlight.js.</p>
 			<CodeBlock language="ts" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);`} />
-			<p>If you are using <a class="anchor" href="/docs/purgecss" target="_blank">PurgeCSS</a>, safelist the imported classes in <code class="code">vite.config.ts</code> so that they will not be removed during the build.</p>
-			<CodeBlock language="ts" code={`
+			<p>
+				If you are using <a class="anchor" href="/docs/purgecss" target="_blank">PurgeCSS</a>, safelist the imported classes in
+				<code class="code">vite.config.ts</code> so that they will not be removed during the build.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
 import { purgeCss } from 'vite-plugin-tailwind-purgecss';\n
 const config: UserConfig = {
 	plugins: [
@@ -79,7 +89,8 @@ const config: UserConfig = {
 		}),
 	],
 };
-			`}/>
+			`}
+			/>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Line Numbers</h2>
