@@ -50,6 +50,8 @@
 	export let shadow: CssClasses = 'shadow-xl';
 	/** Provide a class to override the z-index */
 	export let zIndex: CssClasses = 'z-[999]';
+	/** Provide classes to style the transition layer padding. */
+	export let transitionLayerPadding = 'p-4';
 
 	// Props (buttons)
 	/** Provide classes for neutral buttons, such as Cancel. */
@@ -102,7 +104,7 @@
 
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 overflow-y-auto';
-	const cTransitionLayer = 'w-full h-fit min-h-full p-4 overflow-y-auto flex justify-center';
+	const cTransitionLayer = 'w-full h-fit min-h-full overflow-y-auto flex justify-center';
 	const cModal = 'block overflow-y-auto'; // max-h-full overflow-y-auto overflow-x-hidden
 	const cModalImage = 'w-full h-auto';
 
@@ -179,7 +181,7 @@
 	$: cPosition = $modalStore[0]?.position ?? position;
 	// Reactive
 	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${zIndex} ${$$props.class ?? ''} ${$modalStore[0]?.backdropClasses ?? ''}`;
-	$: classesTransitionLayer = `${cTransitionLayer} ${cPosition ?? ''}`;
+	$: classesTransitionLayer = `${cTransitionLayer} ${transitionLayerPadding} ${cPosition ?? ''}`;
 	$: classesModal = `${cModal} ${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow} ${
 		$modalStore[0]?.modalClasses ?? ''
 	}`;
