@@ -86,7 +86,6 @@
 				an
 				<code class="code">input</code> reference to the action.
 			</p>
-
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-token card variant-soft p-4 flex items-center gap-4">
@@ -110,7 +109,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Secure Context</h2>
 			<!-- prettier-ignore -->
-			<p>This action utilizes the <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard" target="_blank">Clipboard API </a> which means it can only function properly inside <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts" target="_blank">Secure Context</a>. To prevent your app from throwing errors Skeleton detects when this action is used outside of Secure Context and informs you by logging an error message to the console. You can learn how to prevent this from happening by visiting the website provided by the links.</p>
+			<p>This action utilizes the native browser <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard" target="_blank">Clipboard API </a> which only functio0ns within a <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts" target="_blank">Secure Context</a>. For best results ensure your app is served with <code class="code">https://</code>. Skeleton will produce a console error when this is triggered outside a Secure Context.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>
