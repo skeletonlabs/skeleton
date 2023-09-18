@@ -17,7 +17,7 @@
 		<h2 class="h2">Get Started</h2>
 		<p>To begin, let's scaffold our project using the Skeleton CLI. Note that we've listed a couple required options for this guide.</p>
 		<CodeBlock
-			language="console"
+			language="shell"
 			code={`
 npm create skeleton-app@latest my-skeleton-app
 	- Enable SvelteKit's Typescript syntax

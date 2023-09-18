@@ -124,7 +124,7 @@
 			</p>
 			<!-- Written -->
 			<div class="flex-auto space-y-4">
-				<CodeBlock language="console" code={`npm install -D @tailwindcss/forms`} />
+				<CodeBlock language="shell" code={`npm install -D @tailwindcss/forms`} />
 				<p>
 					Prepend the <a class="anchor" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer"
 						>Tailwind Forms plugin</a

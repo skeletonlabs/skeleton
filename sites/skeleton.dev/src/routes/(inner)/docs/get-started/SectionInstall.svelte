@@ -18,7 +18,7 @@
 					install Tailwind, configure Skeleton, and more.
 				</p>
 				<CodeBlock
-					language="console"
+					language="shell"
 					code={`
 npm create skeleton-app@latest my-skeleton-app
 	- Enable Typescript when prompted (recommended)
@@ -31,7 +31,7 @@ cd my-skeleton-app
 					First we'll generate a new <a class="anchor" href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">SvelteKit project</a>. If you already have a SvelteKit project, skip to the next step.
 				</p>
 				<CodeBlock
-					language="console"
+					language="shell"
 					code={`
 npm create svelte@latest my-skeleton-app
 	- Enable Typescript when prompted (recommended)

@@ -48,17 +48,32 @@
 				<a class="anchor" href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> is a required dependency to enable
 				syntax highlighting.
 			</p>
-			<CodeBlock language="console" code={`npm install highlight.js`} />
+			<CodeBlock language="shell" code={`npm install highlight.js`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Configure Your Project</h2>
-			<p>Apply the following changes to your app's root component in <code class="code">/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="ts" code={`import hljs from 'highlight.js';`} />
 			<p>
-				This imports all languages supported by Highlight.js. In order to reduce bundle size, it is recommended to only import the languages
-				you need. Refer to the <a href="https://highlightjs.org/#usage" class="anchor" target="_blank">Highlight.js usage guide</a> on how to
-				do that.
+				To reduce your bundle size, we'll only import and register select languages for (ex: HTML, CSS, JS, TS). Please refer to the
+				<a href="https://highlightjs.org/#usage" class="anchor" target="_blank">Highlight.js usage guide</a> for more instruction.
 			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+import hljs from 'highlight.js/lib/core';\n
+// Import each language module you require
+import xml from 'highlight.js/lib/languages/xml'; // for HTML
+import css from 'highlight.js/lib/languages/css';
+import javascript from 'highlight.js/lib/languages/javascript';
+import typescript from 'highlight.js/lib/languages/typescript';
+import shell from 'highlight.js/lib/languages/shell';\n
+// Register each imported language module
+hljs.registerLanguage('xml', xml); // for HTML
+hljs.registerLanguage('css', css);
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('typescript', typescript);
+hljs.registerLanguage('shell', shell);
+			`}
+			/>
 			<p>
 				Import any <a
 					class="anchor"
@@ -101,17 +116,17 @@ const config: UserConfig = {
 			<CodeBlock lineNumbers language="html" code={`<p>\n\tThe quick brown fox jumped over the lazy dog.\n</p>`} />
 		</section>
 		<section class="space-y-4">
-			<h2 class="h2">Supported Languages</h2>
+			<h2 class="h2">Language</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Syntax highlighting will appear when a valid <a class="anchor" href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">language alias</a> is provided to the CodeBlock's <code class="code">language</code> prop.
+				Syntax highlighting will appear when a valid <a class="anchor" href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">language alias</a> is provided to the Code Block's <code class="code">language</code> property. For common web languages we recommend the shorthand values: <code class="code">html</code>, <code class="code">css</code>, <code class="code">js</code>, <code class="code">ts</code>, and <code class="code">shell</code>.
 			</p>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Accessibility</h2>
 			<p>
-				Uses <code class="code">pre-wrap</code> by default to support keyboard-only navigation. Please be mindful of color contrast when customizing
-				the design.
+				Uses <code class="code">pre-wrap</code> by default to support keyboard-only navigation. Please be mindful of color contrast ratios when
+				customizing the design of your Code Block components.
 			</p>
 		</section>
 	</svelte:fragment>

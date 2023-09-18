@@ -29,7 +29,7 @@
 					<p>
 						<a class="anchor" href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> automates the process of installing Tailwind in SvelteKit.
 					</p>
-					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
+					<CodeBlock language="shell" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 				</div>
 				<h3 class="h3">Tailwind Configuration</h3>
 				<p>
@@ -44,7 +44,7 @@
 					<svelte:fragment slot="panel">
 						{#if tabConfigFormat === 'ts'}
 							<p>For SvelteKit projects using Typescript, install the standard node type definitions.</p>
-							<CodeBlock language="console" code={`npm add -D @types/node`} />
+							<CodeBlock language="shell" code={`npm add -D @types/node`} />
 							<p>Then, setup your Tailwind configuration using the <code class="code">.ts</code> file extension.</p>
 							<CodeBlock
 								language="ts"
