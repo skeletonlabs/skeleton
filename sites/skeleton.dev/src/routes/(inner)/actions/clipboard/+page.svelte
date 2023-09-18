@@ -109,7 +109,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Secure Context</h2>
 			<!-- prettier-ignore -->
-			<p>This action utilizes the native browser <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard" target="_blank">Clipboard API </a> which only functio0ns within a <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts" target="_blank">Secure Context</a>. For best results ensure your app is served with <code class="code">https://</code>. Skeleton will produce a console error when this is triggered outside a Secure Context.</p>
+			<p>This action utilizes the native browser <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard" target="_blank">Clipboard API </a> which only functions within a <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts" target="_blank">Secure Context</a>. For best results ensure your app is served with <code class="code">https://</code>. Skeleton will produce a console error when this is triggered outside a Secure Context.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>
