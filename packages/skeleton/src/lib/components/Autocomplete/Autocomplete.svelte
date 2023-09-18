@@ -38,7 +38,7 @@
 	export let input: Value | undefined = undefined;
 	/**
 	 * Define values for the list.
-	 * @type {Option[]}
+	 * @type {AutocompleteOption[]}
 	 */
 	export let options: Option[] = [];
 	/** Limit the total number of suggestions. */
