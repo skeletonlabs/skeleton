@@ -66,15 +66,11 @@
 		<h3 class="h3">Premium Templates</h3>
 		<!-- prettier-ignore -->
 		<p>
-			Sponsorship of the <u>Gold Tier or higher</u> unlocks access to all premium templates higlighted below.
+			Sponsorship of the <u>Gold Tier or higher</u> unlocks access to all premium templates higlighted below. Tap to preview.
 		</p>
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<!-- Template: Portfolio -->
-			<a
-				class="card variant-glass hover:variant-filled p-4 space-y-4"
-				href="https://skeleton-template-portfolio.vercel.app/"
-				target="_blank"
-			>
+			<a class="card hover:variant-filled-primary p-4 space-y-4" href="https://skeleton-template-portfolio.vercel.app/" target="_blank">
 				<h3 class="h3" data-toc-ignore>Portfolio</h3>
 				<img
 					class="rounded-container-token shadow"
@@ -88,7 +84,7 @@
 				</p>
 			</a>
 			<!-- Template: Blog -->
-			<a class="card variant-glass hover:variant-filled p-4 space-y-4" href="https://skeleton-template-blog.vercel.app/" target="_blank">
+			<a class="card hover:variant-filled-primary p-4 space-y-4" href="https://skeleton-template-blog.vercel.app/" target="_blank">
 				<h3 class="h3" data-toc-ignore>Blog</h3>
 				<img
 					class="rounded-container-token shadow"
@@ -103,7 +99,7 @@
 			</a>
 		</div>
 
-		<h3 class="h3">Template FAQs</h3>
+		<!-- <h3 class="h3">Template FAQs</h3> -->
 		<Accordion autocollapse class="card variant-glass p-2">
 			<AccordionItem open>
 				<svelte:fragment slot="summary">
