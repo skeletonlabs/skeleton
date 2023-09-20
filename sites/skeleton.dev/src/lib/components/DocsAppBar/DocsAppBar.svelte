@@ -175,7 +175,8 @@
 					<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
 						<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
 							<ul>
-								{#each themes as { icon, name, type, badge }}
+								<!-- , badge -->
+								{#each themes as { icon, name, type }}
 									<li>
 										<button
 											class="option w-full h-full"
@@ -186,7 +187,7 @@
 										>
 											<span>{icon}</span>
 											<span class="flex-auto text-left">{name}</span>
-											{#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if}
+											<!-- {#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if} -->
 										</button>
 									</li>
 								{/each}
