@@ -8,12 +8,10 @@
 	<header class="space-y-4">
 		<h1 class="h1">Sponsorship</h1>
 		<p>
-			Sponsorship is a fundamental way to support open source projects, including Skeleton. Funds provided by our sponsors cover operation
-			costs, fund paid promotion, support contributors, and more.
+			Sponsorship is a fundamental way to support open source projects such as Skeleton. Funds provided by sponsors cover operation costs,
+			fund paid promotion, support contributors, and more. Choose from any of the services listed below.
 		</p>
 	</header>
-
-	<hr />
 
 	<!-- Sponsorship -->
 	<section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -28,7 +26,7 @@
 				width="w-40"
 				src="https://github.blog/wp-content/uploads/2019/05/mona-heart-featured.png?resize=1600%2C850"
 			/>
-			<h2 class="h4" data-toc-ignore>Github Sponsors</h2>
+			<h2 class="h4" data-toc-ignore>Github</h2>
 		</a>
 		<a
 			class="card card-hover !bg-[#1AC0FF] p-4 md:py-10 lg:py-20 flex flex-col items-center space-y-4"
@@ -62,17 +60,35 @@
 		<h3 class="h3">Discord Role</h3>
 		<!-- prettier-ignore -->
 		<p>
-			Sponsorship of <span class="badge variant-filled-error">(Tier Name TBD)</span> or higher provides access to a <code class="code">sponsor</code> role on Discord, enabling a
+			Sponsorship of the <u>Silver Tier or higher</u> provides access to a <code class="code">sponsor</code> role on Discord, enabling a
 			special <code class="code">#sponsors</code> channel which provides a direct line of communication with Skeleton contributors. Please contact a member of the Discord moderator team if this role is not automatically assigned.
 		</p>
 		<h3 class="h3">Premium Templates</h3>
 		<!-- prettier-ignore -->
 		<p>
-			Sponsorship of <span class="badge variant-filled-error">(Tier Name TBD)</span> or higher unlocks access to <u>all</u> premium website templates.
+			Sponsorship of the <u>Gold Tier or higher</u> unlocks access to all premium templates higlighted below.
 		</p>
-		<div class="grid grid-cols-1 gap-4">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+			<!-- Template: Portfolio -->
+			<a
+				class="card variant-glass hover:variant-filled p-4 space-y-4"
+				href="https://skeleton-template-portfolio.vercel.app/"
+				target="_blank"
+			>
+				<h3 class="h3" data-toc-ignore>Portfolio</h3>
+				<img
+					class="rounded-container-token shadow"
+					src="https://github.com/skeletonlabs/skeleton/assets/1509726/4ab925f5-5d76-4cd5-b8a8-33c151f57adb"
+					alt="portfolio"
+				/>
+				<p>
+					A personal portfolio template, this template allows you to quickly and easily edit a static file to maintain your list of personal
+					projects. Easily modify the images and stats on the homepage to make it your own. Makes use of the recently added Wintry theme by
+					default, but easily switch to any theme you prefer.
+				</p>
+			</a>
 			<!-- Template: Blog -->
-			<a class="card card-hover variant-glass p-4 space-y-4" href="https://skeleton-template-blog.vercel.app/" target="_blank">
+			<a class="card variant-glass hover:variant-filled p-4 space-y-4" href="https://skeleton-template-blog.vercel.app/" target="_blank">
 				<h3 class="h3" data-toc-ignore>Blog</h3>
 				<img
 					class="rounded-container-token shadow"
@@ -82,21 +98,7 @@
 				<p>
 					This template provides a fully featured blog, allowing you to generate and maintain posts using Markdown via mdsvex. Includes full
 					support for multiple authors and filtering by custom categories. All Markdown frontmatter is type safe and easy to expand.
-					Includes a bold design with prominent graphics, headings, and a classy black and white theme.
-				</p>
-			</a>
-			<!-- Template: Portfolio -->
-			<a class="card card-hover variant-glass p-4 space-y-4" href="https://skeleton-template-portfolio.vercel.app/" target="_blank">
-				<h3 class="h3" data-toc-ignore>Portfolio</h3>
-				<img
-					class="rounded-container-token shadow"
-					src="https://github.com/skeletonlabs/skeleton/assets/1509726/4ab925f5-5d76-4cd5-b8a8-33c151f57adb"
-					alt="portfolio"
-				/>
-				<p>
-					A personal portfolio template, this template allows you to quickly and easily edit a static file to maintain your list of personal
-					projects. Easily modify the images and stats on the homepage to make it your own. Comes bundled with a simple but elegant
-					blue-hued theme.
+					Including a unique and classy black and white theme.
 				</p>
 			</a>
 		</div>
@@ -108,41 +110,15 @@
 					<h3 class="h3" data-toc-ignore>How may I access my templates?</h3>
 				</svelte:fragment>
 				<svelte:fragment slot="content">
-					<p>While your sponsorship is active, you gain access to a private GitHub respository containing all available templates.</p>
+					<!-- prettier-ignore -->
+					<p>
+						While your sponsorship is active, you gain access to a <a class="anchor" href="https://github.com/skeletonlabs/skeleton-templates" target="_blank">private GitHub respository</a> containing all available templates.
+					</p>
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
 				<svelte:fragment slot="summary">
-					<h3 class="h3" data-toc-ignore>How do I install templates?</h3>
-				</svelte:fragment>
-				<svelte:fragment slot="content">
-					<p>You can install website templates through one of the two options detailed below.</p>
-					<!-- Method 1: CLI -->
-					<h4 class="h4 !mt-10">Method 1: CLI Install</h4>
-					<div class="space-y-4">
-						<p>1. Download the template zip file.</p>
-						<p>2. Use NPM (or similiar) to run the CLI and point at the local unzipped template files.</p>
-						<pre class="pre">npm create skeleton-app@latest --skeletontheme=./path/to/unzipped/template/</pre>
-						<p>3. Follow the CLI instructions. Note that <u>Typescript is required</u> for all templates.</p>
-					</div>
-					<!-- Method 2: Basic -->
-					<h4 class="h4 !mt-10">Method 2: Manual Install</h4>
-					<div class="space-y-4">
-						<p>1. Download the template zip file.</p>
-						<p>2. Unzip the file and rename the directory as desired. (ex: my-blog)</p>
-						<p>3. Point your terminal at the contents of the unzipped directory.</p>
-						<p>4. Use NPM (or similiar) to install all package depdencies.</p>
-						<pre class="pre">npm install</pre>
-						<p>5. Start your local SvelteKit dev server.</p>
-						<pre class="pre">npm run dev</pre>
-						<p>6. Point your browser at the local server address shown in the terminal, which defaults to:</p>
-						<pre class="pre">http://localhost:5173/</pre>
-					</div>
-				</svelte:fragment>
-			</AccordionItem>
-			<AccordionItem>
-				<svelte:fragment slot="summary">
-					<h3 class="h3" data-toc-ignore>What features do templates include?</h3>
+					<h3 class="h3" data-toc-ignore>What makes these templates so special?</h3>
 				</svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
@@ -176,12 +152,36 @@
 			</AccordionItem>
 			<AccordionItem>
 				<svelte:fragment slot="summary">
+					<h3 class="h3" data-toc-ignore>Can I use other preset or custom themes?</h3>
+				</svelte:fragment>
+				<svelte:fragment slot="content">
+					<p>
+						Absolutely. Each template implements the latest version of the Skeleton adaptive theme system, which fully supports all preset
+						or custom themes out of the box.
+					</p>
+					<video
+						class="bg-black w-full h-auto rounded-container-token overflow-hidden shadow-xl"
+						poster="https://cdn.shopify.com/s/files/1/0785/8565/9703/files/portfolio.png"
+						width="1920"
+						height="1080"
+						autoplay
+						loop
+						muted
+					>
+						<source src="https://s3.us-east-2.amazonaws.com/cdn.endigodesign.com/endigo_design/skeleton/store-video.mp4" type="video/mp4" />
+						Your browser does not support the video tag.
+						<track kind="captions" />
+					</video>
+				</svelte:fragment>
+			</AccordionItem>
+			<AccordionItem>
+				<svelte:fragment slot="summary">
 					<h3 class="h3" data-toc-ignore>Do templates have license restrictions?</h3>
 				</svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
-						Yes, templates provided as sponsorship incentives include a limited Personal License. If you're interested in a Commercial or
-						Enterprise license, <a class="anchor" href="mailto:admin@skeleton.dev">please contact Skeleton Labs</a>.
+						Yes, templates provided as sponsorship incentives are limited to the <u>Personal License</u>. If you're interested in either the
+						Commercial or Enterprise licenses, please contact <a class="anchor" href="mailto:admin@skeleton.dev">Skeleton Labs</a>.
 					</p>
 					<div class="grid grid-cols-1 xl:grid-cols-3 gap-4 items-start">
 						<section class="card p-8 space-y-4">
@@ -213,7 +213,6 @@
 							<hr class="opacity-30" />
 							<p>Reserved for large scale use and extended redistribution. Please contact Skeleton Labs for more information.</p>
 							<div class="grid grid-cols-1 gap-2">
-								<a class="btn variant-soft w-full" href="mailto:admin@skeleton.dev">Contact</a>
 								<a class="btn variant-filled w-full" href="/docs/sponsorship/licensing" target="_blank">License Terms</a>
 							</div>
 						</section>
@@ -225,7 +224,7 @@
 					<h3 class="h3" data-toc-ignore>Is support available for templates?</h3>
 				</svelte:fragment>
 				<svelte:fragment slot="content">
-					<p>Yes, support is provided from the standard community GitHub or Discord support channels.</p>
+					<p>Yes, support is provided through the private GitHub respository, or via our standard Discord support channels.</p>
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
@@ -263,14 +262,42 @@
 				</svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
-						Yes, each template is built using best practices, which means we build all tempaltes to fully support Typescript. If you wish to
-						learn Typescript, we recommend the free <a
+						Yes, each template is built with Typescript and is recommended as a best practice. If you wish to learn Typescript, we recommend
+						the free <a
 							class="anchor"
 							href="https://www.totaltypescript.com/tutorials/beginners-typescript"
 							target="_blank"
 							rel="noreferrer">Total Typescript</a
 						> course by Matt Pocock.
 					</p>
+				</svelte:fragment>
+			</AccordionItem>
+			<AccordionItem>
+				<svelte:fragment slot="summary">
+					<h3 class="h3" data-toc-ignore>How do I install and use each template?</h3>
+				</svelte:fragment>
+				<svelte:fragment slot="content">
+					<!-- Method 1: CLI -->
+					<h4 class="h4 !mt-4">Method 1: CLI Install</h4>
+					<div class="space-y-4">
+						<p>1. Download the template zip file from the private respository.</p>
+						<p>2. Use NPM (or similiar) to run the CLI and point at the local unzipped template files.</p>
+						<pre class="pre">npm create skeleton-app@latest --skeletontheme=./path/to/unzipped/template/</pre>
+						<p>3. Follow the CLI instructions. Note that <u>Typescript is required</u> for all templates.</p>
+					</div>
+					<!-- Method 2: Basic -->
+					<h4 class="h4 !mt-10">Method 2: Manual Install</h4>
+					<div class="space-y-4">
+						<p>1. Download the template zip file from the private respository.</p>
+						<p>2. Unzip the file and rename the directory as desired. (ex: my-blog)</p>
+						<p>3. Point your terminal at the contents of the unzipped directory.</p>
+						<p>4. Use NPM (or similiar) to install all package depdencies.</p>
+						<pre class="pre">npm install</pre>
+						<p>5. Start your local SvelteKit dev server.</p>
+						<pre class="pre">npm run dev</pre>
+						<p>6. Point your browser at the local server address shown in the terminal, which defaults to:</p>
+						<pre class="pre">http://localhost:5173/</pre>
+					</div>
 				</svelte:fragment>
 			</AccordionItem>
 		</Accordion>
@@ -281,7 +308,7 @@
 		<h2 class="h2">Ko-Fi Incentives</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Sponsorship of <span class="badge variant-filled-error">(Tier Name TBD)</span> or higher provides access to a <code class="code">sponsor</code> role on Discord, enabling a
+			Sponsorship of the <u>Silver Tier or higher</u> provides access to a <code class="code">sponsor</code> role on Discord, enabling a
 			special <code class="code">#sponsors</code> channel which provides a direct line of communication with Skeleton contributors. Please contact a member of the Discord moderator team if this role is not automatically assigned.
 		</p>
 		<aside class="alert variant-soft">Please note that premium templates are not currently available to this service.</aside>
@@ -292,7 +319,7 @@
 		<h2 class="h2">Patreon Incentives</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Sponsorship of <span class="badge variant-filled-error">(Tier Name TBD)</span> or higher provides access to a <code class="code">sponsor</code> role on Discord, enabling a
+			Sponsorship of the <u>Silver Tier or higher</u> provides access to a <code class="code">sponsor</code> role on Discord, enabling a
 			special <code class="code">#sponsors</code> channel which provides a direct line of communication with Skeleton contributors. Please contact a member of the Discord moderator team if this role is not automatically assigned.
 		</p>
 		<aside class="alert variant-soft">Please note that premium templates are not currently available to this service.</aside>
