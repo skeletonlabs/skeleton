@@ -31,15 +31,14 @@ function extractScriptsFromComponents(dir) {
 					const node = ts.createSourceFile(name, script, ts.ScriptTarget.Latest);
 					filesToProps[name].scriptNodes.push(node);
 				}
-
 			}
 		}
 	});
 }
 function extractScriptBlocks(content) {
 	let scriptBlocks = [];
-	let startString = "<script";
-	let endString = "</script>";
+	let startString = '<script';
+	let endString = '</script>';
 	let curPos = 0;
 	while (curPos != -1) {
 		curPos = content.indexOf(startString, curPos);
@@ -47,10 +46,10 @@ function extractScriptBlocks(content) {
 			break;
 		}
 		// ignore attributes in script tag
-		curPos = content.indexOf(">", curPos) + 1;
+		curPos = content.indexOf('>', curPos) + 1;
 		let endPos = content.indexOf(endString, curPos);
 		if (endPos == -1) {
-			console.log("Error: missing closing tag for script block");
+			console.log('Error: missing closing tag for script block');
 		}
 		scriptBlocks.push(content.substring(curPos, endPos));
 		curPos = endPos;
@@ -82,7 +81,10 @@ function _extractJSDocBlocks(file, tsNode) {
 					}
 					break;
 				case ts.SyntaxKind.ExpressionStatement:
-					filesToProps[file].props[node.expression.arguments[0].text] = { comment: jsDoc.tags[jsDoc.tags.length - 1].comment ?? '', type: 'event' };
+					filesToProps[file].props[node.expression.arguments[0].text] = {
+						comment: jsDoc.tags[jsDoc.tags.length - 1].comment ?? '',
+						type: 'event'
+					};
 					break;
 			}
 		}
