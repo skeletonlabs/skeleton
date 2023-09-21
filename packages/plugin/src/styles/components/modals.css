@@ -14,4 +14,9 @@
 	.w-modal-wide {
 		@apply w-full max-w-[80%];
 	}
+
+	.modal-footer .btn:focus:not(:focus-visible) {
+		outline-style: auto;
+		@apply outline-[-webkit-focus-ring-color];
+	}
 }
