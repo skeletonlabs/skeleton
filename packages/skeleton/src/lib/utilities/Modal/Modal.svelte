@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
-	import { fly, fade } from 'svelte/transition';
-	import { type Transition, type TransitionParams, prefersReducedMotionStore } from '../../index.js';
+	import { fade, fly } from 'svelte/transition';
+	import { prefersReducedMotionStore, type Transition, type TransitionParams } from '../../index.js';
 	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -81,7 +81,7 @@
 	export let transitions = !$prefersReducedMotionStore;
 	/**
 	 * Provide the transition used on entry.
-	 * @type {ModalTransitionIn}
+	 * @type {TransitionIn}
 	 */
 	export let transitionIn: TransitionIn = fly as TransitionIn;
 	/**
@@ -218,11 +218,10 @@
 {#if $modalStore.length > 0}
 	{#key $modalStore}
 		<!-- Backdrop -->
-		<!-- FIXME: resolve a11y warnings -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
 			class="modal-backdrop {classesBackdrop}"
 			data-testid="modal-backdrop"
+			role="presentation"
 			on:mousedown={onBackdropInteractionBegin}
 			on:mouseup={onBackdropInteractionEnd}
 			on:touchstart|passive
