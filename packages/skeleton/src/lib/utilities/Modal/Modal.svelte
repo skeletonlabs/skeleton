@@ -107,7 +107,7 @@
 	const cModalImage = 'w-full h-auto';
 
 	// Local
-	let promptValue: any;
+	let promptValue: string;
 	const buttonTextDefaults: Record<string, string> = {
 		buttonTextCancel,
 		buttonTextConfirm,
