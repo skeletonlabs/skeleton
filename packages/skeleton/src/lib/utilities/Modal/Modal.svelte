@@ -31,6 +31,7 @@
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
 	import { getModalStore } from './stores.js';
 	import type { ModalComponent, ModalSettings } from './types.js';
+	type ComponentRegistry = { [K in keyof ComponentRecord]: ModalComponent<ComponentRecord[K]> };
 
 	// Props
 	/** Set the modal position within the backdrop container */
@@ -38,7 +39,7 @@
 
 	// Props (components)
 	/** Register a list of reusable component modals. */
-	export let components: { [K in keyof ComponentRecord]: ModalComponent<ComponentRecord[K]> } = {} as any;
+	export let components: ComponentRegistry = {} as ComponentRegistry;
 	// Props (modal)
 	/** Provide classes to style the modal background. */
 	export let background: CssClasses = 'bg-surface-100-800-token';
