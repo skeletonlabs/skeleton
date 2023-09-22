@@ -12,7 +12,6 @@
 	import sveldModal from '@skeletonlabs/skeleton/utilities/Modal/Modal.svelte?raw&sveld';
 
 	// Modals Utils
-	import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
 	import { getModalStore } from '@skeletonlabs/skeleton';
 
 	const modalStore = getModalStore();

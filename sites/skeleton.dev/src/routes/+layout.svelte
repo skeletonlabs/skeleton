@@ -74,14 +74,6 @@
 	};
 	let isBlogArticle = false;
 
-	// Registered list of Components for Modals
-	const modalComponentRegistry: Record<string, ModalComponent> = {
-		modalSearch: { ref: DocsSearch },
-		exampleList: { ref: ModalExampleList },
-		exampleEmbed: { ref: ModalExampleEmbed },
-		exampleImage: { ref: ModalExampleImage }
-	};
-
 	function matchPathWhitelist(pageUrlPath: string): boolean {
 		// If homepage route
 		if (pageUrlPath === '/') return true;
@@ -187,7 +179,14 @@
 </svelte:head>
 
 <!-- Overlays -->
-<Modal components={modalComponentRegistry} />
+<Modal
+	components={{
+		modalSearch: { ref: DocsSearch },
+		exampleList: { ref: ModalExampleList },
+		exampleEmbed: { ref: ModalExampleEmbed },
+		exampleImage: { ref: ModalExampleImage }
+	}}
+/>
 <Toast />
 <DocsDrawer />
 

@@ -7,10 +7,17 @@
 	type FlyTransition = typeof fly;
 	type TransitionIn = Transition;
 	type TransitionOut = Transition;
+	type DefaultComponentRecord = Record<string, SvelteComponent>;
+	type ComponentRecord = DefaultComponentRecord;
 </script>
 
-<script lang="ts" generics="TransitionIn extends Transition = FlyTransition, TransitionOut extends Transition = FlyTransition">
+<script
+	lang="ts"
+	generics="TransitionIn extends Transition = FlyTransition, TransitionOut extends Transition = FlyTransition, 
+	ComponentRecord extends DefaultComponentRecord = DefaultComponentRecord"
+>
 	import { createEventDispatcher } from 'svelte';
+	import type { SvelteComponent } from 'svelte';
 
 	// Event Dispatcher
 	type ModalEvent = {
@@ -31,8 +38,7 @@
 
 	// Props (components)
 	/** Register a list of reusable component modals. */
-	export let components: Record<string, ModalComponent> = {};
-
+	export let components: { [K in keyof ComponentRecord]: ModalComponent<ComponentRecord[K]> } = {} as any;
 	// Props (modal)
 	/** Provide classes to style the modal background. */
 	export let background: CssClasses = 'bg-surface-100-800-token';
