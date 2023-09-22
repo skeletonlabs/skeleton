@@ -15,14 +15,14 @@ const modalConfirm: ModalSettings = {
 	type: 'confirm',
 	title: 'Please Confirm',
 	body: 'Are you sure you wish to proceed?',
-	response: (r: boolean) => console.log(r)
+	response: (r) => console.log(r)
 };
 const modalPrompt: ModalSettings = {
 	type: 'prompt',
 	title: 'Enter Name',
 	body: 'Provide your first name in the field below.',
 	value: 'foobar',
-	response: (r: string) => console.log(r)
+	response: (r) => console.log(r)
 };
 
 describe('Modal.svelte', () => {

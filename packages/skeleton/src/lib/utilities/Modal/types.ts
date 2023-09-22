@@ -11,8 +11,13 @@ export interface ModalComponent {
 	slot?: string;
 }
 
-export type ModalType = 'alert' | 'confirm' | 'prompt' | 'component';
-export type ModalValue<Type extends ModalType> = false | (Type extends 'prompt' ? string : Type extends 'confirm' ? boolean : never);
+type ModalResponseRecord = {
+	alert: never;
+	confirm: boolean;
+	prompt: string;
+	component: any;
+};
+type ModalType = keyof ModalResponseRecord;
 export type ModalSettings<Type extends ModalType = ModalType> = Type extends Type
 	? {
 			/** Designate what type of component will display. */
@@ -32,7 +37,7 @@ export type ModalSettings<Type extends ModalType = ModalType> = Type extends Typ
 			/** Provide your component reference key or object. */
 			component?: ModalComponent | string;
 			/** Provide a function. Returns the response value. */
-			response?: (r?: ModalValue<Type> & {}) => void; // "& {}"" forces TS to unwrap the type so consumers see actual union instead of an alias
+			response?: (r?: ModalResponseRecord[Type] | false) => void;
 			/** Provide arbitrary classes to the backdrop. */
 			backdropClasses?: string;
 			/** Provide arbitrary classes to the modal window. */
