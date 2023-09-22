@@ -11,7 +11,7 @@
 
 	// Handle Form Submission
 	function onFormSubmit(): void {
-		if ($modalStore[0].response) $modalStore[0].response(flavor);
+		if ($modalStore[0].response && $modalStore[0].type === 'component') $modalStore[0].response(flavor);
 		modalStore.close();
 	}
 

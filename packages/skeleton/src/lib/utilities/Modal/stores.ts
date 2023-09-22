@@ -1,8 +1,8 @@
 // Modal Store Queue
 
 import { writable } from 'svelte/store';
-import { getContext, setContext } from 'svelte';
-import type { ModalSettings } from './types.js';
+import { SvelteComponent, getContext, setContext } from 'svelte';
+import type { ModalSettings, ModalType } from './types.js';
 
 const MODAL_STORE_KEY = 'modalStore';
 
@@ -50,7 +50,7 @@ function modalService() {
 		set,
 		update,
 		/** Append to end of queue. */
-		trigger: (modal: ModalSettings) =>
+		trigger: <T extends ModalType, C extends SvelteComponent>(modal: ModalSettings<T, C>) =>
 			update((mStore) => {
 				mStore.push(modal);
 				return mStore;

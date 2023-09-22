@@ -1,14 +1,15 @@
 // Modal Types
 
-import type { ComponentType, SvelteComponent } from 'svelte';
+import type { ComponentProps, ComponentType, SvelteComponent } from 'svelte';
+import type { HTMLInputAttributes } from 'svelte/elements';
 
 export type { ModalStore } from './stores.js';
 
-export interface ModalComponent {
+export interface ModalComponent<Component extends SvelteComponent = SvelteComponent> {
 	/** Import and provide your component reference. */
-	ref: ComponentType<SvelteComponent>;
+	ref: ComponentType<Component>;
 	/** Provide component props as key/value pairs. */
-	props?: Record<string, unknown>;
+	props?: ComponentProps<Component>;
 	/** Provide an HTML template literal for the default slot. */
 	slot?: string;
 }
@@ -19,8 +20,8 @@ type ModalResponseRecord = {
 	prompt: string;
 	component: any;
 };
-type ModalType = keyof ModalResponseRecord;
-export type ModalSettings<Type extends ModalType = ModalType> = Type extends Type
+export type ModalType = keyof ModalResponseRecord;
+export type ModalSettings<Type extends ModalType = ModalType, Component extends SvelteComponent = SvelteComponent> = Type extends Type
 	? {
 			/** Designate what type of component will display. */
 			type: Type;
@@ -35,9 +36,9 @@ export type ModalSettings<Type extends ModalType = ModalType> = Type extends Typ
 			/** By default, used to provide a prompt value. */
 			value?: string;
 			/** Provide input attributes as key/value pairs. */
-			valueAttr?: object;
-			/** Provide your component reference key or object. */
-			component?: ModalComponent | string;
+			valueAttr?: HTMLInputAttributes;
+			/** Provide your component reference key or object. Type has to be `component` to take effect */
+			component?: Type extends 'component' ? ModalComponent<Component> | string : never;
 			/** Provide a function. Returns the response value. */
 			response?: (r?: ModalResponseRecord[Type] | false) => void;
 			/** Provide arbitrary classes to the backdrop. */

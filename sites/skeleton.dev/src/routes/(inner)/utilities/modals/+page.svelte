@@ -43,101 +43,91 @@
 	// Demo ---
 
 	function modalDemo(): void {
-		const modal: ModalSettings = {
+		modalStore.trigger({
 			type: 'alert',
 			title: 'Hello Skeleton',
 			body: 'This modal example includes a title, body, and image.',
 			image: 'https://i.imgur.com/TykCy5e.gif'
 			// image: 'https://i.imgur.com/WOgTG96.gif'
-		};
-		modalStore.trigger(modal);
+		});
 	}
 
 	// Variants ---
 
 	function modalAlert(): void {
-		const modal: ModalSettings = {
+		modalStore.trigger({
 			type: 'alert',
 			title: 'Hello World!',
 			body: 'This simple alert modal uses <code class="code">type: alert</code>.'
-		};
-		modalStore.trigger(modal);
+		});
 	}
 
 	function modalConfirm(): void {
-		const modal: ModalSettings = {
+		modalStore.trigger({
 			type: 'confirm',
 			title: 'Please Confirm',
 			body: 'Are you sure you wish to proceed?',
 			response: (r) => console.log('response:', r)
-		};
-		modalStore.trigger(modal);
+		});
 	}
 
 	function modalPrompt(): void {
-		const modal: ModalSettings = {
+		modalStore.trigger({
 			type: 'prompt',
 			title: 'Enter Name',
 			body: 'Provide your first name in the field below.',
 			value: 'Skeleton',
 			valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
-			response: (r) => console.log('response:', r)
-		};
-		modalStore.trigger(modal);
+			response: (r) => console.log('response:', r, typeof r)
+		});
 	}
 
 	function modalMultiple(): void {
 		[1, 2, 3].forEach((dNum: number) => {
-			const modal: ModalSettings = {
+			modalStore.trigger({
 				type: 'alert',
 				title: `Modal ${dNum}`,
 				body: `The modal body of ${dNum}.`
-			};
-			modalStore.trigger(modal);
+			});
 		});
 	}
 
 	// Custom ---
 
 	function modalComponentForm(): void {
-		const c: ModalComponent = { ref: ModalExampleForm };
-		const modal: ModalSettings = {
+		modalStore.trigger({
 			type: 'component',
-			component: c,
+			component: { ref: ModalExampleForm },
 			title: 'Custom Form Component',
 			body: 'Complete the form below and then press submit.',
 			response: (r) => console.log('response:', r)
-		};
-		modalStore.trigger(modal);
+		});
 	}
 
 	function modalComponentList(): void {
-		const modal: ModalSettings = {
+		modalStore.trigger({
 			type: 'component',
 			component: 'exampleList',
 			title: 'Custom List Component',
 			body: 'Make your selection then press submit.',
 			response: (r) => console.log('response:', r)
-		};
-		modalStore.trigger(modal);
+		});
 	}
 
 	function modalComponentEmbed(): void {
-		const modal: ModalSettings = {
+		modalStore.trigger({
 			type: 'component',
 			component: 'exampleEmbed'
-		};
-		modalStore.trigger(modal);
+		});
 	}
 
 	function modalComponentImage(): void {
-		const modal: ModalSettings = {
+		modalStore.trigger({
 			type: 'component',
 			component: 'exampleImage',
 			image: 'https://i.imgur.com/WOgTG96.gif',
 			meta: { source: 'Silly Symphonies - The Skeleton Dance' }
-		};
-		modalStore.trigger(modal);
+		});
 	}
 </script>
 
