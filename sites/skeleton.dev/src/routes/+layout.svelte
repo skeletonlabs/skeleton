@@ -16,9 +16,6 @@
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
 
-	// Types
-	import type { ModalComponent } from '@skeletonlabs/skeleton';
-
 	// Stores
 	import { storePreview } from '$lib/layouts/DocsThemer/stores';
 
