@@ -187,7 +187,7 @@ const popupFeatured: PopupSettings = {
 				To begin, install <a class="anchor" href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> from NPM. This
 				is <u>required</u> for popups to function.
 			</p>
-			<CodeBlock language="console" code={`npm install @floating-ui/dom`} />
+			<CodeBlock language="shell" code={`npm install @floating-ui/dom`} />
 			<p>Import Floating UI into your application's root layout <code class="code">/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="ts" code={`import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';`} />
 			<p>

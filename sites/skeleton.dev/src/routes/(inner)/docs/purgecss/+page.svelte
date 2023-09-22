@@ -55,7 +55,7 @@
             </p>
         </aside>
 		<h3 class="h3">Installation</h3>
-		<CodeBlock language="console" code={`npm i -D vite-plugin-tailwind-purgecss`} />
+		<CodeBlock language="shell" code={`npm i -D vite-plugin-tailwind-purgecss`} />
 		<h3 class="h3">Add to Vite</h3>
 		<p>Implement the following in <code class="code">vite.config.ts</code>, found in the root of your project.</p>
 		<CodeBlock

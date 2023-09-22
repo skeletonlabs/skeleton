@@ -269,7 +269,7 @@ body {
 						static font file assets to the <code class="code">/static/fonts</code> directory.
 					</p>
 					{#each activeFonts as f}
-						<CodeBlock language="plaintext" code={`/static/fonts/${f.file}`} />
+						<CodeBlock language="shell" code={`/static/fonts/${f.file}`} />
 					{/each}
 					<!-- 3 -->
 					<h3 class="h3" data-toc-ignore>3. Apply @font-face</h3>
