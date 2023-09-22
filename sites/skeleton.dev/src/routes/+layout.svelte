@@ -106,9 +106,9 @@
 	}
 
 	// Lifecycle
-	afterNavigate((params: any) => {
+	afterNavigate((params) => {
 		// Scroll to top
-		const isNewPage: boolean = params.from && params.to && params.from.route.id !== params.to.route.id;
+		const isNewPage: boolean = !!params.from && !!params.to && params.from.route.id !== params.to.route.id;
 		const elemPage = document.querySelector('#page');
 		if (isNewPage && elemPage !== null) {
 			elemPage.scrollTop = 0;

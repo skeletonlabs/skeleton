@@ -69,7 +69,7 @@
 			type: 'confirm',
 			title: 'Please Confirm',
 			body: 'Are you sure you wish to proceed?',
-			response: (r: boolean) => console.log('response:', r)
+			response: (r) => console.log('response:', r)
 		};
 		modalStore.trigger(modal);
 	}
@@ -81,7 +81,7 @@
 			body: 'Provide your first name in the field below.',
 			value: 'Skeleton',
 			valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
-			response: (r: string) => console.log('response:', r)
+			response: (r) => console.log('response:', r)
 		};
 		modalStore.trigger(modal);
 	}

@@ -117,12 +117,13 @@
 	let registeredInteractionWithBackdrop = false;
 
 	const modalStore = getModalStore();
+	$: currentModal = $modalStore[0];
 
 	// Modal Store Subscription
 	modalStore.subscribe((modals: ModalSettings[]) => {
 		if (!modals.length) return;
 		// Set Prompt input value and type
-		if (modals[0].type === 'prompt') promptValue = modals[0].value;
+		if (modals[0].type === 'prompt' && modals[0].value) promptValue = modals[0].value;
 		// Override button text per instance, if available
 		buttonTextCancel = modals[0].buttonTextCancel || buttonTextDefaults.buttonTextCancel;
 		buttonTextConfirm = modals[0].buttonTextConfirm || buttonTextDefaults.buttonTextConfirm;
@@ -144,7 +145,7 @@
 		const classList = event.target.classList;
 		if ((classList.contains('modal-backdrop') || classList.contains('modal-transition')) && registeredInteractionWithBackdrop) {
 			// We return `undefined` to differentiate from the cancel button
-			if ($modalStore[0].response) $modalStore[0].response(undefined);
+			if (currentModal.response) currentModal.response(undefined);
 			modalStore.close();
 			/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
 			dispatch('backdrop', event);
@@ -153,18 +154,22 @@
 	}
 
 	function onClose(): void {
-		if ($modalStore[0].response) $modalStore[0].response(false);
+		if (currentModal.response) currentModal.response(false);
 		modalStore.close();
 	}
 
 	function onConfirm(): void {
-		if ($modalStore[0].response) $modalStore[0].response(true);
+		if (currentModal.type !== 'confirm') return;
+
+		if (currentModal.response) currentModal.response(true);
 		modalStore.close();
 	}
 
 	function onPromptSubmit(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
+		if (currentModal.type !== 'prompt') return;
 		event.preventDefault();
-		if ($modalStore[0].response) $modalStore[0].response(promptValue);
+
+		if (currentModal.response) currentModal.response(promptValue);
 		modalStore.close();
 	}
 
@@ -176,12 +181,12 @@
 	}
 
 	// State
-	$: cPosition = $modalStore[0]?.position ?? position;
+	$: cPosition = currentModal?.position ?? position;
 	// Reactive
-	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${zIndex} ${$$props.class ?? ''} ${$modalStore[0]?.backdropClasses ?? ''}`;
+	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${zIndex} ${$$props.class ?? ''} ${currentModal?.backdropClasses ?? ''}`;
 	$: classesTransitionLayer = `${cTransitionLayer} ${cPosition ?? ''}`;
 	$: classesModal = `${cModal} ${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow} ${
-		$modalStore[0]?.modalClasses ?? ''
+		currentModal?.modalClasses ?? ''
 	}`;
 	// IMPORTANT: add values to pass to the children templates.
 	// There is a way to self-reference component values, but it involves svelte-internal and is not yet stable.
@@ -235,34 +240,34 @@
 				in:dynamicTransition|global={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
 				out:dynamicTransition|global={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 			>
-				{#if $modalStore[0].type !== 'component'}
+				{#if currentModal.type !== 'component'}
 					<!-- Modal: Presets -->
-					<div class="modal {classesModal}" data-testid="modal" role="dialog" aria-modal="true" aria-label={$modalStore[0].title ?? ''}>
+					<div class="modal {classesModal}" data-testid="modal" role="dialog" aria-modal="true" aria-label={currentModal.title ?? ''}>
 						<!-- Header -->
-						{#if $modalStore[0]?.title}
-							<header class="modal-header {regionHeader}">{@html $modalStore[0].title}</header>
+						{#if currentModal?.title}
+							<header class="modal-header {regionHeader}">{@html currentModal.title}</header>
 						{/if}
 						<!-- Body -->
-						{#if $modalStore[0]?.body}
-							<article class="modal-body {regionBody}">{@html $modalStore[0].body}</article>
+						{#if currentModal?.body}
+							<article class="modal-body {regionBody}">{@html currentModal.body}</article>
 						{/if}
 						<!-- Image -->
-						{#if $modalStore[0]?.image && typeof $modalStore[0]?.image === 'string'}
-							<img class="modal-image {cModalImage}" src={$modalStore[0]?.image} alt="Modal" />
+						{#if currentModal?.image && typeof currentModal?.image === 'string'}
+							<img class="modal-image {cModalImage}" src={currentModal?.image} alt="Modal" />
 						{/if}
 						<!-- Type -->
-						{#if $modalStore[0].type === 'alert'}
+						{#if currentModal.type === 'alert'}
 							<!-- Template: Alert -->
 							<footer class="modal-footer {regionFooter}">
 								<button type="button" class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
 							</footer>
-						{:else if $modalStore[0].type === 'confirm'}
+						{:else if currentModal.type === 'confirm'}
 							<!-- Template: Confirm -->
 							<footer class="modal-footer {regionFooter}">
 								<button type="button" class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
 								<button type="button" class="btn {buttonPositive}" on:click={onConfirm}>{buttonTextConfirm}</button>
 							</footer>
-						{:else if $modalStore[0].type === 'prompt'}
+						{:else if currentModal.type === 'prompt'}
 							<!-- Template: Prompt -->
 							<form class="space-y-4" on:submit={onPromptSubmit}>
 								<input class="modal-prompt-input input" name="prompt" type="text" bind:value={promptValue} {...$modalStore[0].valueAttr} />
@@ -277,11 +282,11 @@
 					<!-- Modal: Components -->
 					<!-- Note: keep `contents` class to allow widths from children -->
 					<div
-						class="modal contents {$modalStore[0]?.modalClasses ?? ''}"
+						class="modal contents {currentModal?.modalClasses ?? ''}"
 						data-testid="modal-component"
 						role="dialog"
 						aria-modal="true"
-						aria-label={$modalStore[0].title ?? ''}
+						aria-label={currentModal.title ?? ''}
 					>
 						{#if currentComponent?.slot}
 							<svelte:component this={currentComponent?.ref} {...currentComponent?.props} {parent}>
