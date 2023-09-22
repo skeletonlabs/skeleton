@@ -1,10 +1,12 @@
 // Modal Types
 
+import type { ComponentType, SvelteComponent } from 'svelte';
+
 export type { ModalStore } from './stores.js';
 
 export interface ModalComponent {
 	/** Import and provide your component reference. */
-	ref: any;
+	ref: ComponentType<SvelteComponent>;
 	/** Provide component props as key/value pairs. */
 	props?: Record<string, unknown>;
 	/** Provide an HTML template literal for the default slot. */
