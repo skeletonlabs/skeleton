@@ -66,7 +66,7 @@
 		<h3 class="h3">Premium Templates</h3>
 		<!-- prettier-ignore -->
 		<p>
-			Sponsorship of the <u>Gold Tier or higher</u> unlocks access to all premium templates higlighted below. Tap to preview.
+			Sponsorship of the <u>Gold Tier or higher</u> unlocks access to all templates below. Select any template to preview.
 		</p>
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<!-- Template: Portfolio -->
@@ -172,7 +172,7 @@
 			</AccordionItem>
 			<AccordionItem>
 				<svelte:fragment slot="summary">
-					<h3 class="h3" data-toc-ignore>Do templates have license restrictions?</h3>
+					<h3 class="h3" data-toc-ignore>Are templates subject to license restrictions?</h3>
 				</svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
@@ -187,7 +187,6 @@
 							<ul class="list-disc list-inside space-y-2">
 								<li>Single application</li>
 								<li>Limited to 1 domain</li>
-								<li>Includes free updates</li>
 								<li>Includes documentation</li>
 							</ul>
 							<a class="btn variant-filled w-full" href="/docs/sponsorship/licensing" target="_blank">License Terms</a>
@@ -197,9 +196,8 @@
 							<hr class="opacity-30" />
 							<p>Intended for use within commercial organizations and agencies.</p>
 							<ul class="list-disc list-inside space-y-2">
-								<li>Multi application</li>
+								<li>Multiple applications</li>
 								<li>Unlimited domains</li>
-								<li>Includes free updates</li>
 								<li>Includes documentation</li>
 							</ul>
 							<a class="btn variant-filled w-full" href="/docs/sponsorship/licensing" target="_blank">License Terms</a>
@@ -305,9 +303,11 @@
 		<!-- prettier-ignore -->
 		<p>
 			Sponsorship of the <u>Silver Tier or higher</u> provides access to a <code class="code">sponsor</code> role on Discord, enabling a
-			special <code class="code">#sponsors</code> channel which provides a direct line of communication with Skeleton contributors. Please contact a member of the Discord moderator team if this role is not automatically assigned.
+			special <code class="code">#sponsors</code> channel which provides a direct line of communication with Skeleton contributors.
 		</p>
-		<aside class="alert variant-soft">Please note that premium templates are not currently available to this service.</aside>
+		<aside class="alert variant-soft">
+			<p>Please note that <strong>premium templates</strong> are not currently available to this service.</p>
+		</aside>
 	</section>
 
 	<!-- Patreon -->
@@ -316,8 +316,10 @@
 		<!-- prettier-ignore -->
 		<p>
 			Sponsorship of the <u>Silver Tier or higher</u> provides access to a <code class="code">sponsor</code> role on Discord, enabling a
-			special <code class="code">#sponsors</code> channel which provides a direct line of communication with Skeleton contributors. Please contact a member of the Discord moderator team if this role is not automatically assigned.
+			special <code class="code">#sponsors</code> channel which provides a direct line of communication with Skeleton contributors.
 		</p>
-		<aside class="alert variant-soft">Please note that premium templates are not currently available to this service.</aside>
+		<aside class="alert variant-soft">
+			<p>Please note that <strong>premium templates</strong> are not currently available to this service.</p>
+		</aside>
 	</section>
 </LayoutPage>
