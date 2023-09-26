@@ -1,5 +1,14 @@
 # create-skeleton-app
 
+## 0.0.52
+
+### Patch Changes
+
+- CSA: Fix relative pathing and network handling: ([#2060](https://github.com/skeletonlabs/skeleton/pull/2060))
+
+  - On windows when creating a custom theme, there was a writing issues due to how windows handled relative pathing
+  - If CSA was unable to download content from github, it could leave the install in an incomplete state. Fetching is now left to the end of the install process.
+
 ## 0.0.51
 
 ### Patch Changes

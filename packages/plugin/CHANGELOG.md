@@ -1,5 +1,13 @@
 # @skeletonlabs/tw-plugin
 
+## 0.2.1
+
+### Patch Changes
+
+- bugfix: Added `disabled` style for the `.btn-icon` class ([#2062](https://github.com/skeletonlabs/skeleton/pull/2062))
+
+- bugfix: Fixed `btn-group` styles affecting children of its children ([#2043](https://github.com/skeletonlabs/skeleton/pull/2043))
+
 ## 0.2.0
 
 ### Minor Changes
