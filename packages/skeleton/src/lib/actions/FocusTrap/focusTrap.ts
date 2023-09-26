@@ -1,6 +1,7 @@
 // Action: Focus Trap
 export function focusTrap(node: HTMLElement, enabled: boolean) {
-	const elemWhitelist = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+	const elemWhitelist =
+		'a[href]:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), textarea:not([tabindex="-1"]), select:not([tabindex="-1"]), details:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
 	let elemFirst: HTMLElement;
 	let elemLast: HTMLElement;
 
@@ -14,6 +15,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 
 	// When the last item selected, tab pressed, jump to the first selectable item.
 	function onLastElemKeydown(e: KeyboardEvent): void {
+		console.log;
 		if (!e.shiftKey && e.code === 'Tab') {
 			e.preventDefault();
 			elemFirst.focus();
