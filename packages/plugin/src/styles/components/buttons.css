@@ -25,7 +25,8 @@
 		@apply button-base-styles rounded-token active:scale-[95%] active:brightness-90;
 	}
 
-	.btn:disabled {
+	.btn:disabled,
+	.btn-icon:disabled {
 		@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
 	}
 
@@ -101,10 +102,10 @@
 	}
 
 	/* Set Neutral Divider */
-	.btn-group * + * {
+	.btn-group > * + * {
 		@apply border-t-0 border-l border-surface-500/20;
 	}
-	.btn-group-vertical * + * {
+	.btn-group-vertical > * + * {
 		@apply border-t border-l-0 border-surface-500/20;
 	}
 }

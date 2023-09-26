@@ -284,11 +284,13 @@
 						aria-modal="true"
 						aria-label={$modalStore[0].title ?? ''}
 					>
-						<svelte:component this={currentComponent?.ref} {...currentComponent?.props} {parent}>
-							{#if currentComponent?.slot}
+						{#if currentComponent?.slot}
+							<svelte:component this={currentComponent?.ref} {...currentComponent?.props} {parent}>
 								{@html currentComponent?.slot}
-							{/if}
-						</svelte:component>
+							</svelte:component>
+						{:else}
+							<svelte:component this={currentComponent?.ref} {...currentComponent?.props} {parent} />
+						{/if}
 					</div>
 				{/if}
 			</div>

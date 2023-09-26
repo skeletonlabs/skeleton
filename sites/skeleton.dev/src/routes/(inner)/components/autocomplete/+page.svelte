@@ -39,7 +39,8 @@
 
 	let inputDemo = '';
 	let inputAllowlist = '';
-	const flavorOptions: AutocompleteOption[] = [
+	type FlavorOption = AutocompleteOption<string, { healthy: boolean }>;
+	const flavorOptions: FlavorOption[] = [
 		{ label: 'Vanilla', value: 'vanilla', keywords: 'plain, basic', meta: { healthy: false } },
 		{ label: 'Chocolate', value: 'chocolate', keywords: 'dark, white', meta: { healthy: false } },
 		{ label: 'Strawberry', value: 'strawberry', keywords: 'fruit', meta: { healthy: true } },
@@ -47,37 +48,37 @@
 		{ label: 'Pineapple', value: 'pineapple', keywords: 'fruit', meta: { healthy: true } },
 		{ label: 'Peach', value: 'peach', keywords: 'fruit', meta: { healthy: true } }
 	];
-	const flavorAllowlist: string[] = ['neapolitan', 'pineapple', 'peach'];
-	let flavorDenylist: string[] = ['vanilla', 'chocolate'];
+	const flavorAllowlist = ['neapolitan', 'pineapple', 'peach'];
+	let flavorDenylist = ['vanilla', 'chocolate'];
 
 	// Input Chip
 	let inputChip = '';
-	let inputChipList: string[] = ['vanilla', 'chocolate'];
+	let inputChipList = ['vanilla', 'chocolate'];
 
-	function onDemoSelection(event: CustomEvent<AutocompleteOption>): void {
+	function onDemoSelection(event: CustomEvent<FlavorOption>): void {
 		console.log(event.detail);
 		inputDemo = event.detail.label;
 	}
 
-	function onAllowedlistSelect(event: CustomEvent<AutocompleteOption>): void {
+	function onAllowedlistSelect(event: CustomEvent<FlavorOption>): void {
 		console.log(event.detail);
 		inputAllowlist = event.detail.label;
 	}
 
-	function onDeniedlistSelect(event: CustomEvent<AutocompleteOption>): void {
+	function onDeniedlistSelect(event: CustomEvent<FlavorOption>): void {
 		console.log(event.detail);
-		flavorDenylist = [event.detail.value as string];
+		flavorDenylist = [event.detail.value];
 	}
 
-	function onInputChipSelect(event: CustomEvent<AutocompleteOption>): void {
+	function onInputChipSelect(event: CustomEvent<FlavorOption>): void {
 		console.log('onInputChipSelect', event.detail);
-		if (inputChipList.includes(event.detail.value as string) === false) {
-			inputChipList = [...inputChipList, event.detail.value as string];
+		if (inputChipList.includes(event.detail.value) === false) {
+			inputChipList = [...inputChipList, event.detail.value];
 			inputChip = '';
 		}
 	}
 
-	function onPopupDemoSelect(event: CustomEvent<AutocompleteOption>): void {
+	function onPopupDemoSelect(event: CustomEvent<FlavorOption>): void {
 		inputPopupDemo = event.detail.label;
 	}
 </script>
@@ -101,7 +102,7 @@
 				<CodeBlock
 					language="ts"
 					code={`
-const flavorOptions: AutocompleteOption[] = [
+const flavorOptions: AutocompleteOption<string>[] = [
 	{ label: 'Vanilla', value: 'vanilla', keywords: 'plain, basic', meta: { healthy: false } },
 	{ label: 'Chocolate', value: 'chocolate', keywords: 'dark, white', meta: { healthy: false } },
 	{ label: 'Strawberry', value: 'strawberry', keywords: 'fruit', meta: { healthy: true } },
@@ -115,7 +116,7 @@ const flavorOptions: AutocompleteOption[] = [
 				<CodeBlock
 					language="ts"
 					code={`
-function onFlavorSelection(event: CustomEvent<AutocompleteOption>): void {
+function onFlavorSelection(event: CustomEvent<AutocompleteOption<string>>): void {
 	inputDemo = event.detail.label;
 }
 				`}
@@ -160,7 +161,7 @@ function onFlavorSelection(event: CustomEvent<AutocompleteOption>): void {
 			<CodeBlock
 				language="ts"
 				code={`
-const flavorOptions: AutocompleteOption[] = [
+const flavorOptions: AutocompleteOption<string>[] = [
 	{ ..., keywords: 'mix, strawberry, chocolate, vanilla' },
 	{ ..., meta: { healthy: false } },
 ];

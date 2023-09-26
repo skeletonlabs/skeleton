@@ -1,51 +1,58 @@
 <script lang="ts" context="module">
 	import { slide } from 'svelte/transition';
-	import { type Transition, type TransitionParams, prefersReducedMotionStore } from '../../index.js';
+	import { prefersReducedMotionStore, type Transition, type TransitionParams } from '../../index.js';
 	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type SlideTransition = typeof slide;
 	type TransitionIn = Transition;
 	type TransitionOut = Transition;
+	type Value = unknown;
+	type Meta = unknown;
 </script>
 
-<script lang="ts" generics="TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition">
+<script
+	lang="ts"
+	generics="Value = unknown, Meta = unknown, 
+	TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition"
+>
 	import { createEventDispatcher } from 'svelte';
 	// import { flip } from 'svelte/animate';
 	// import {slide} from 'svelte/transition';
 
 	// Types
 	import type { AutocompleteOption } from './types.js';
+	type Option = AutocompleteOption<Value, Meta>;
 
 	// Event Dispatcher
 	type AutocompleteEvent = {
-		selection: AutocompleteOption;
+		selection: Option;
 	};
 	const dispatch = createEventDispatcher<AutocompleteEvent>();
 
 	// Props
 	/**
 	 * Bind the input value.
-	 * @type {unknown}
+	 * @type {Value | undefined}
 	 */
-	export let input: unknown = undefined;
+	export let input: Value | undefined = undefined;
 	/**
 	 * Define values for the list.
 	 * @type {AutocompleteOption[]}
 	 */
-	export let options: AutocompleteOption[] = [];
+	export let options: Option[] = [];
 	/** Limit the total number of suggestions. */
 	export let limit: number | undefined = undefined;
 	/**
 	 * Provide allowlist values.
-	 * @type {unknown[]}
+	 * @type {Value[]}
 	 */
-	export let allowlist: unknown[] = [];
+	export let allowlist: Value[] = [];
 	/**
 	 * Provide denylist values.
-	 * @type {unknown[]}
+	 * @type {Value[]}
 	 */
-	export let denylist: unknown[] = [];
+	export let denylist: Value[] = [];
 	/** Provide a HTML markup to display when no match is found. */
 	export let emptyState = 'No Results Found.';
 	// Props (region)
@@ -90,7 +97,7 @@
 	// Local
 	$: listedOptions = options;
 
-	function filterByAllowDeny(allowlist: unknown[], denylist: unknown[]) {
+	function filterByAllowDeny(allowlist: Value[], denylist: Value[]) {
 		let _options = [...options];
 		// Allowed Options
 		if (allowlist.length) {
@@ -110,7 +117,7 @@
 		listedOptions = _options;
 	}
 
-	function filterOptions(): AutocompleteOption[] {
+	function filterOptions(): Option[] {
 		// Create a local copy of options
 		let _options = [...listedOptions];
 		// Filter options
@@ -125,15 +132,15 @@
 		return _options;
 	}
 
-	function onSelection(option: AutocompleteOption) {
-		/** @event {AutocompleteOption} selection - Fire on option select. */
+	function onSelection(option: Option) {
+		/** @event {Option} selection - Fire on option select. */
 		dispatch('selection', option);
 	}
 
 	// State
 	$: filterByAllowDeny(allowlist, denylist);
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
-	$: sliceLimit = limit !== undefined ? limit : optionsFiltered.length;
+	$: sliceLimit = limit ?? optionsFiltered.length;
 	// Reactive
 	$: classesBase = `${$$props.class ?? ''}`;
 	$: classesNav = `${regionNav}`;

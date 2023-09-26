@@ -56,7 +56,7 @@
 
 	const themes = [
 		{ type: 'skeleton', name: 'Skeleton', icon: '💀' },
-		{ type: 'wintry', name: 'Wintry', icon: '🌨️', badge: 'New' },
+		{ type: 'wintry', name: 'Wintry', icon: '🌨️' },
 		{ type: 'modern', name: 'Modern', icon: '🤖' },
 		{ type: 'rocket', name: 'Rocket', icon: '🚀' },
 		{ type: 'seafoam', name: 'Seafoam', icon: '🧜‍♀️' },
@@ -125,12 +125,12 @@
 								<span>Blog</span>
 							</a>
 						</li>
-						<li>
+						<!-- <li>
 							<a href="https://store.skeleton.dev" target="_blank">
 								<span class="w-6 text-center"><i class="fa-solid fa-shopping-cart" /></span>
 								<span>Skeleton Store</span>
 							</a>
-						</li>
+						</li> -->
 						<hr class="!my-4" />
 						<li>
 							<a href="/elements/core">
@@ -175,7 +175,8 @@
 					<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
 						<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
 							<ul>
-								{#each themes as { icon, name, type, badge }}
+								<!-- , badge -->
+								{#each themes as { icon, name, type }}
 									<li>
 										<button
 											class="option w-full h-full"
@@ -186,7 +187,7 @@
 										>
 											<span>{icon}</span>
 											<span class="flex-auto text-left">{name}</span>
-											{#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if}
+											<!-- {#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if} -->
 										</button>
 									</li>
 								{/each}
@@ -195,7 +196,10 @@
 					</nav>
 					<hr />
 					<div>
-						<a class="btn variant-filled w-full" href="/docs/generator">Create a Theme</a>
+						<a class="btn variant-filled w-full" href="/docs/generator">
+							<i class="fa-solid fa-palette" />
+							<span>Create a Theme</span>
+						</a>
 					</div>
 				</div>
 				<!-- <div class="arrow bg-surface-100-800-token" /> -->
@@ -212,28 +216,38 @@
 			</button>
 			<!-- popup -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="sponsor">
-				<nav class="list-nav">
-					<ul>
-						<li>
-							<a href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer">
-								<span class="w-6 text-center"><i class="fa-solid fa-mug-saucer" /></span>
-								<span>Ko-Fi</span>
-							</a>
-						</li>
-						<li>
-							<a href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer">
-								<span class="w-6 text-center"><i class="fa-brands fa-github" /></span>
-								<span>GitHub</span>
-							</a>
-						</li>
-						<li>
-							<a href="https://patreon.com/user?u=83786276" target="_blank" rel="noreferrer">
-								<span class="w-6 text-center"><i class="fa-brands fa-patreon" /></span>
-								<span>Patreon</span>
-							</a>
-						</li>
-					</ul>
-				</nav>
+				<div class="space-y-4">
+					<nav class="list-nav">
+						<ul>
+							<li>
+								<a href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer">
+									<span class="w-6 text-center"><i class="fa-brands fa-github" /></span>
+									<span>GitHub</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer">
+									<span class="w-6 text-center"><i class="fa-solid fa-mug-saucer" /></span>
+									<span>Ko-Fi</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://patreon.com/user?u=83786276" target="_blank" rel="noreferrer">
+									<span class="w-6 text-center"><i class="fa-brands fa-patreon" /></span>
+									<span>Patreon</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<hr />
+					<div>
+						<a class="btn variant-filled w-full" href="/docs/sponsorship">
+							<i class="fa-solid fa-gift" />
+							<span>Incentives</span>
+							<span class="badge variant-filled-secondary">New</span>
+						</a>
+					</div>
+				</div>
 				<!-- <div class="arrow bg-surface-100-800-token" /> -->
 			</div>
 		</div>

@@ -190,9 +190,9 @@
 		<p>
 			To check for linting issues via <a class="anchor" href="https://prettier.io/" target="_blank" rel="noreferrer">Prettier</a>, run:
 		</p>
-		<CodeBlock language="console" code={`pnpm lint`} />
+		<CodeBlock language="shell" code={`pnpm lint`} />
 		<p>To automatically apply suggested linting changes, run:</p>
-		<CodeBlock language="console" code={`pnpm format`} />
+		<CodeBlock language="shell" code={`pnpm format`} />
 
 		<!-- Automated Tests -->
 		<h3 class="h3">Automated Tests</h3>
@@ -200,7 +200,7 @@
 			Tests are handled via <a class="anchor" href="https://vitest.dev/" target="_blank" rel="noreferrer">Vitest</a>, which is similar to
 			Jest. Make sure to run all tests before submitting new pull requests.
 		</p>
-		<CodeBlock language="console" code={`pnpm test`} />
+		<CodeBlock language="shell" code={`pnpm test`} />
 
 		<!-- Spell Checking -->
 		<h3 class="h3">Spell Checking</h3>
@@ -218,7 +218,7 @@
 			extension for VS Code. You can add words to the dictionary using this extension, or by editing <code class="code">cspell.json</code> at
 			the root of the repository.
 		</p>
-		<CodeBlock language="console" code={`pnpm cspell "**" --no-progress`} />
+		<CodeBlock language="shell" code={`pnpm cspell "**" --no-progress`} />
 	</section>
 
 	<!-- Dependencies -->
