@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: component modal's default slot is always true
+bugfix: Resolved issue where component modal's default slot is always `true`
