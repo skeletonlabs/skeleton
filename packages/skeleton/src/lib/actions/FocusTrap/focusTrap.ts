@@ -15,7 +15,6 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 
 	// When the last item selected, tab pressed, jump to the first selectable item.
 	function onLastElemKeydown(e: KeyboardEvent): void {
-		console.log;
 		if (!e.shiftKey && e.code === 'Tab') {
 			e.preventDefault();
 			elemFirst.focus();
