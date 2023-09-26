@@ -107,15 +107,17 @@ export async function createSkeleton(opts) {
 	// write out config files
 	createSvelteConfig(opts);
 	createViteConfig(opts);
-	await createVSCodeSettings();
 	createTailwindConfig(opts);
-	createPostCssConfig();
+	createPostCssConfig(opts);
 	copyTemplate(opts);
 
 	// Monorepo additions
 	if (opts.monorepo) cpSync(resolve(__dirname, '../README-MONO.md'), resolve(cwd(), 'README.md'), { force: true });
 
 	if (opts.test) createTestConfig(opts);
+
+	// Do this last as the network might fail behind certain firewalls
+	await createVSCodeSettings();
 	// go back to starting location in case we get called again to create another template
 	chdir(startPath);
 	opts.meta = undefined;
@@ -395,16 +397,16 @@ export const ${name}${iit(opts.types == 'typescript', ': CustomThemeConfig')} = 
 	}
 }`;
 	let filename = name + iit(opts.types == 'typescript', '.ts', '.js');
-	writeFileSync(join('src', filename), str);
+	writeFileSync(join(cwd(), 'src', filename), str);
 }
-function createPostCssConfig() {
+function createPostCssConfig(opts) {
 	const str = `module.exports = {
 	plugins: {
 		tailwindcss: {},
 		autoprefixer: {},
 	},
 }`;
-	writeFileSync(join(cwd(), 'postcss.config.cjs'), str);
+	writeFileSync(join(cwd(), 'postcss.config' + iit(opts.types == 'typescript', '.ts', '.js')), str);
 }
 
 function copyTemplate(opts) {
