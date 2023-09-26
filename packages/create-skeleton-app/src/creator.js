@@ -399,14 +399,14 @@ export const ${name}${iit(opts.types == 'typescript', ': CustomThemeConfig')} = 
 	let filename = name + iit(opts.types == 'typescript', '.ts', '.js');
 	writeFileSync(join(cwd(), 'src', filename), str);
 }
-function createPostCssConfig(opts) {
+function createPostCssConfig() {
 	const str = `module.exports = {
 	plugins: {
 		tailwindcss: {},
 		autoprefixer: {},
 	},
 }`;
-	writeFileSync(join(cwd(), 'postcss.config' + iit(opts.types == 'typescript', '.ts', '.js')), str);
+	writeFileSync(join(cwd(), 'postcss.config.cjs'), str);
 }
 
 function copyTemplate(opts) {
