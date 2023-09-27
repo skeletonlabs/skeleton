@@ -18,9 +18,9 @@ export type { CssClasses, SvelteEvent } from './types.js';
 export { storeHighlightJs } from './utilities/CodeBlock/stores.js';
 export { storePopup } from './utilities/Popup/popup.js';
 export { tocStore } from './utilities/TableOfContents/stores.js';
-export { getDrawerStore } from './utilities/Drawer/stores.js';
-export { getModalStore } from './utilities/Modal/stores.js';
-export { getToastStore } from './utilities/Toast/stores.js';
+export { initializeDrawerStore, getDrawerStore } from './utilities/Drawer/stores.js';
+export { initializeModalStore, getModalStore } from './utilities/Modal/stores.js';
+export { initializeToastStore, getToastStore } from './utilities/Toast/stores.js';
 export { initializeStores } from './utilities/index.js';
 
 // Lightswitch
