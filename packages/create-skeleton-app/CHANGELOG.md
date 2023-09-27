@@ -1,5 +1,11 @@
 # create-skeleton-app
 
+## 0.0.53
+
+### Patch Changes
+
+- Reverted to cjs extension for postcss ([#2078](https://github.com/skeletonlabs/skeleton/pull/2078))
+
 ## 0.0.52
 
 ### Patch Changes
