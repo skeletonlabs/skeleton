@@ -5,7 +5,7 @@
 	// Slots:
 	/**
 	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
-	 * @slot {{}} trail - Allows for an optional trailing element, such as an icon.
+	 * @slot {{}} trail - Allows for an optional trailing element, such as action icons.
 	 * @slot {{}} children - Provide TreeView item children.
 	 */
 	import { getContext, createEventDispatcher } from 'svelte';
