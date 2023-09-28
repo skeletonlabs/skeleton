@@ -5,6 +5,7 @@
 	// Slots:
 	/**
 	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
+	 * @slot {{}} trail - Allows for an optional trailing element, such as an icon.
 	 * @slot {{}} children - Provide TreeView item children.
 	 */
 	import { getContext, createEventDispatcher } from 'svelte';
@@ -74,6 +75,8 @@
 	// Props (work-around)
 	/** Don't use this prop, workaround until svelte implements conditional slots */
 	export let hideLead = false;
+	/** Don't use this prop, workaround until svelte implements conditional slots */
+	export let hideTrail = false;
 	/** Don't use this prop, workaround until svelte implements conditional slots */
 	export let hideChildren = false;
 
@@ -356,6 +359,12 @@
 		<div class="tree-item-content">
 			<slot />
 		</div>
+		<!-- Slot: Trail -->
+		{#if $$slots.trail && !hideTrail}
+			<div class="tree-item-trail">
+				<slot name="trail" />
+			</div>
+		{/if}
 	</summary>
 	<div bind:this={childrenDiv} class="tree-item-children {classesChildren}" role="group">
 		<slot name="children" />

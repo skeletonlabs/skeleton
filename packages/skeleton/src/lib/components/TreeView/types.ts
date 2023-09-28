@@ -3,6 +3,8 @@ export interface TreeViewNode {
 	content: string;
 	/** Lead content. accepts HTML. */
 	lead?: string;
+	/** Trail content. accepts HTML. */
+	trail?: string;
 	/** Set open by default on load. */
 	open?: boolean;
 	/** Set the tree disabled state. */

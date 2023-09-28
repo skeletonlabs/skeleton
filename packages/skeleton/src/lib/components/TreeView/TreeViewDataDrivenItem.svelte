@@ -93,6 +93,7 @@
 			bind:this={treeItems[i]}
 			bind:open={node.open}
 			hideLead={!node.lead}
+			hideTrail={!node.trail}
 			hideChildren={!node.children || node.children.length === 0}
 			bind:disabled={node.disabled}
 			bind:group
@@ -110,6 +111,9 @@
 			{@html node.content}
 			<svelte:fragment slot="lead">
 				{@html node.lead}
+			</svelte:fragment>
+			<svelte:fragment slot="trail">
+				{@html node.trail}
 			</svelte:fragment>
 			<svelte:fragment slot="children">
 				<TreeViewDataDrivenItem bind:nodes={node.children} bind:treeItems={children[i]} />
