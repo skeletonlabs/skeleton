@@ -226,6 +226,8 @@
 			<CodeBlock
 				language="ts"
 				code={`
+import { afterNavigate } from '$app/navigation';
+
 afterNavigate((params: any) => {
     const isNewPage: boolean = params.from && params.to && params.from.route.id !== params.to.route.id;
     const elemPage = document.querySelector('#page');
