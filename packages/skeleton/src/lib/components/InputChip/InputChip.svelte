@@ -230,7 +230,7 @@
 	$: classesBase = `${cBase} ${padding} ${rounded} ${$$props.class ?? ''} ${classesInvalid}`;
 	$: classesChipWrapper = `${cChipWrapper} ${regionChipWrapper}`;
 	$: classesChipList = `${cChipList} ${regionChipList}`;
-	$: classesInputField = `${cInputField} ${regionInput}`;
+	$: classesInput = `${cInputField} ${regionInput}`;
 	$: chipValues =
 		value?.map((val, i) => {
 			if (chipValues[i]?.val === val) return chipValues[i];
@@ -254,7 +254,7 @@
 				type="text"
 				bind:value={input}
 				placeholder={$$restProps.placeholder ?? 'Enter values...'}
-				class="input-chip-field {classesInputField}"
+				class="input-chip-field {classesInput}"
 				on:input={onInputHandler}
 				on:input
 				on:focus
