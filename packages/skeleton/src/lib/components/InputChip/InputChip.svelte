@@ -83,7 +83,7 @@
 	export let regionInputField: CssClasses = '';
 	/** Provide arbitrary classes to style the chip list region. */
 	export let regionChipList: CssClasses = '';
-	/** Provide arbitrary classes to style the chip list region. */
+	/** Provide arbitrary classes to style the chip wrapper region. */
 	export let regionChipWrapper: CssClasses = '';
 
 	// Props (transition)
