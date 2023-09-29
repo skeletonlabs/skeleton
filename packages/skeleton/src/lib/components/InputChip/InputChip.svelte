@@ -79,12 +79,12 @@
 	export let rounded: CssClasses = 'rounded-container-token';
 
 	// Props (regions)
-	/** Provide arbitrary classes to style the input field region. */
-	export let regionInputField: CssClasses = '';
-	/** Provide arbitrary classes to style the chip list region. */
-	export let regionChipList: CssClasses = '';
 	/** Provide arbitrary classes to style the chip wrapper region. */
 	export let regionChipWrapper: CssClasses = '';
+	/** Provide arbitrary classes to style the chip list region. */
+	export let regionChipList: CssClasses = '';
+	/** Provide arbitrary classes to style the input field region. */
+	export let regionInput: CssClasses = '';
 
 	// Props (transition)
 	/**
@@ -230,7 +230,7 @@
 	$: classesBase = `${cBase} ${padding} ${rounded} ${$$props.class ?? ''} ${classesInvalid}`;
 	$: classesChipWrapper = `${cChipWrapper} ${regionChipWrapper}`;
 	$: classesChipList = `${cChipList} ${regionChipList}`;
-	$: classesInputField = `${cInputField} ${regionInputField}`;
+	$: classesInputField = `${cInputField} ${regionInput}`;
 	$: chipValues =
 		value?.map((val, i) => {
 			if (chipValues[i]?.val === val) return chipValues[i];
