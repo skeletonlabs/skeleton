@@ -45,34 +45,76 @@
 		<section class="space-y-4">
 			<h2 class="h2">Styling</h2>
 			<p>
-				Use the <code class="code">stroke</code> <code class="code">meter</code> <code class="code">track</code> or <code class="code">roundedLineCap</code> properties to style the
-				radial.
+				Use the <code class="code">stroke</code> <code class="code">meter</code> <code class="code">track</code> or
+				<code class="code">roundedLineCap</code> properties to style the radial.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-center">
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-primary-500" track="stroke-primary-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
+							<ProgressRadial
+								stroke={strokeProps.value}
+								meter="stroke-primary-500"
+								track="stroke-primary-500/30"
+								width="w-full"
+								roundedLineCap={strokeProps.roundedLineCap}
+								value={50}
+							/>
 							<p>Primary</p>
 						</div>
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-secondary-500" track="stroke-secondary-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
+							<ProgressRadial
+								stroke={strokeProps.value}
+								meter="stroke-secondary-500"
+								track="stroke-secondary-500/30"
+								width="w-full"
+								roundedLineCap={strokeProps.roundedLineCap}
+								value={50}
+							/>
 							<p>Secondary</p>
 						</div>
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-tertiary-500" track="stroke-tertiary-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
+							<ProgressRadial
+								stroke={strokeProps.value}
+								meter="stroke-tertiary-500"
+								track="stroke-tertiary-500/30"
+								width="w-full"
+								roundedLineCap={strokeProps.roundedLineCap}
+								value={50}
+							/>
 							<p>Tertiary</p>
 						</div>
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-success-500" track="stroke-success-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
+							<ProgressRadial
+								stroke={strokeProps.value}
+								meter="stroke-success-500"
+								track="stroke-success-500/30"
+								width="w-full"
+								roundedLineCap={strokeProps.roundedLineCap}
+								value={50}
+							/>
 							<p>Success</p>
 						</div>
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-warning-500" track="stroke-warning-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
+							<ProgressRadial
+								stroke={strokeProps.value}
+								meter="stroke-warning-500"
+								track="stroke-warning-500/30"
+								width="w-full"
+								roundedLineCap={strokeProps.roundedLineCap}
+								value={50}
+							/>
 							<p>Warning</p>
 						</div>
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-error-500" track="stroke-error-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
+							<ProgressRadial
+								stroke={strokeProps.value}
+								meter="stroke-error-500"
+								track="stroke-error-500/30"
+								width="w-full"
+								roundedLineCap={strokeProps.roundedLineCap}
+								value={50}
+							/>
 							<p>Error</p>
 						</div>
 					</div>

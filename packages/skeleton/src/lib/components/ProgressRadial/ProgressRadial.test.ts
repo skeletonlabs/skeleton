@@ -19,7 +19,7 @@ describe('ProgressRadial.svelte', () => {
 				color: 'fill-black dark:fill-white',
 				font: 56,
 				label: 'testProgressRadial1',
-				roundedLineCap: true,
+				roundedLineCap: true
 			}
 		});
 		expect(getByTestId('progress-radial')).toBeTruthy();
