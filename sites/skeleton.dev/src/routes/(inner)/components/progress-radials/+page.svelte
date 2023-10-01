@@ -3,7 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import { ProgressRadial, CodeBlock } from '@skeletonlabs/skeleton';
+	import { ProgressRadial, CodeBlock, SlideToggle } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldProgressRadial from '@skeletonlabs/skeleton/components/ProgressRadial/ProgressRadial.svelte?raw&sveld';
 
@@ -20,7 +20,7 @@
 
 	// Reactive
 	$: props = { value: 50, max: 100, step: 10 };
-	$: strokeProps = { value: 100, max: 400, step: 20 };
+	$: strokeProps = { value: 100, max: 400, step: 20, roundedLineCap: true };
 </script>
 
 <DocsShell {settings}>
@@ -45,47 +45,48 @@
 		<section class="space-y-4">
 			<h2 class="h2">Styling</h2>
 			<p>
-				Use the <code class="code">stroke</code> <code class="code">meter</code> or <code class="code">track</code>properties to style the
+				Use the <code class="code">stroke</code> <code class="code">meter</code> <code class="code">track</code> or <code class="code">roundedLineCap</code> properties to style the
 				radial.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-center">
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-primary-500" track="stroke-primary-500/30" width="w-full" />
+							<ProgressRadial stroke={strokeProps.value} meter="stroke-primary-500" track="stroke-primary-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
 							<p>Primary</p>
 						</div>
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-secondary-500" track="stroke-secondary-500/30" width="w-full" />
+							<ProgressRadial stroke={strokeProps.value} meter="stroke-secondary-500" track="stroke-secondary-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
 							<p>Secondary</p>
 						</div>
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-tertiary-500" track="stroke-tertiary-500/30" width="w-full" />
+							<ProgressRadial stroke={strokeProps.value} meter="stroke-tertiary-500" track="stroke-tertiary-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
 							<p>Tertiary</p>
 						</div>
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-success-500" track="stroke-success-500/30" width="w-full" />
+							<ProgressRadial stroke={strokeProps.value} meter="stroke-success-500" track="stroke-success-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
 							<p>Success</p>
 						</div>
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-warning-500" track="stroke-warning-500/30" width="w-full" />
+							<ProgressRadial stroke={strokeProps.value} meter="stroke-warning-500" track="stroke-warning-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
 							<p>Warning</p>
 						</div>
 						<div class="p-4 space-y-2">
-							<ProgressRadial stroke={strokeProps.value} meter="stroke-error-500" track="stroke-error-500/30" width="w-full" />
+							<ProgressRadial stroke={strokeProps.value} meter="stroke-error-500" track="stroke-error-500/30" width="w-full" roundedLineCap={strokeProps.roundedLineCap} value={50} />
 							<p>Error</p>
 						</div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
-					<div class="w-48 mx-auto">
+					<div class="w-80 mx-auto flex">
 						<input type="range" min="20" max={strokeProps.max} step={strokeProps.step} bind:value={strokeProps.value} />
+						<SlideToggle class="ml-4" name="rounded" size="sm" bind:checked={strokeProps.roundedLineCap}>Rounded</SlideToggle>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
-						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" />`}
+						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" roundedLineCap={${strokeProps.roundedLineCap}} />`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
