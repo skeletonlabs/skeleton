@@ -20,6 +20,9 @@
 			[`<div class="${cSwatch} bg-surface-500" />`, '[style]-surface-[50-900]', 'The base level colors, used for backgrounds.']
 		]
 	};
+
+	const shadesArr = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+	const colorsArr = ['Primary', 'Secondary', 'Tertiary', 'Success', 'Warning', 'Error', 'Surface'];
 </script>
 
 <LayoutPage>
@@ -31,6 +34,51 @@
 	<hr />
 
 	<Table source={tableProps} />
+
+	<!-- Color Palette -->
+	<section class="space-y-4">
+		<div class="sm:block hidden">
+			<h2 class="h2">Color Palette</h2>
+			<div class="grid grid-cols-10 grid-rows-11 gap-x-2">
+				{#each colorsArr as label}
+					<h3 class="grid col-span-11 py-1">
+						{label}:
+					</h3>
+					{#each shadesArr as test}
+						<div
+							class="bg-{label.toLowerCase()}-{test} {test == 500
+								? 'col-span-1'
+								: ''} outline outline-1 outline-black rounded font-extrabold text-on-[{label.toLowerCase()}]-token text-center relative z-20"
+						>
+							<div class="text-on-{label.toLowerCase()}-token">
+								{test == 500 ? test : ''}
+							</div>
+						</div>
+					{/each}
+				{/each}
+			</div>
+		</div>
+		<div class="sm:hidden block" data-toc-ignore>
+			<h2 class="h2" data-toc-ignore>Color Palette Mobile</h2>
+			<div class="grid grid-rows-9 gap-x-2 max-[430px]:flex-col max-[430px]:gap-x-0" data-toc-ignore>
+				{#each colorsArr as label}
+					<h3 class="row-start-1 text-center max-[430px]:p-0 p-1 text-xs max-[640px]:text-[8px]" data-toc-ignore>
+						{label == 'Secondary' ? 'Second.' : label}
+					</h3>
+					<div class="w-full h-full grid grid-rows-9 gap-y-4">
+						{#each shadesArr as test}
+							<div
+								class="bg-{label.toLowerCase()}-{test} outline outline-1 h-6 outline-black rounded-lg font-extrabold text-on-[{label.toLowerCase()}]-token text-center col-span-1"
+							>
+								{test == 500 ? test : ''}
+							</div>
+						{/each}
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
 
 	<!-- Reference -->
 	<section class="space-y-4">
