@@ -15,6 +15,8 @@
 	export let stroke = 40; // px
 	/** Sets the base font size. Scales responsively. */
 	export let font = 56; // px
+	/** Sets whether the stoke-linecap of the radial is rounded or not */
+	export let roundedLineCap: boolean = false;
 
 	// Props (styles)
 	/** Provide classes to set the width. */
@@ -85,6 +87,7 @@
 			style:stroke-dasharray="{circumference}
 			{circumference}"
 			style:stroke-dashoffset={dashoffset}
+			stroke-linecap={roundedLineCap ? 'round' : 'butt'}
 		/>
 
 		<!-- Center Text -->
