@@ -75,13 +75,13 @@
 	<!-- Draw SVG -->
 	<svg viewBox="0 0 {baseSize} {baseSize}" class="rounded-full" class:animate-spin={value === undefined}>
 		<!-- Track -->
-		<circle class="progress-radial-track {cBaseTrack} {track}" stroke-width={stroke} r={baseSize / 2} cx="50%" cy="50%" />
+		<circle class="progress-radial-track {cBaseTrack} {track}" stroke-width={stroke} r={baseSize / 2 - stroke / 2} cx="50%" cy="50%" />
 
 		<!-- Meter -->
 		<circle
 			class="progress-radial-meter {cBaseMeter} {meter}"
 			stroke-width={stroke}
-			r={baseSize / 2}
+			r={baseSize / 2 - stroke / 2}
 			cx="50%"
 			cy="50%"
 			style:stroke-dasharray="{circumference}
