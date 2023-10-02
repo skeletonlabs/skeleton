@@ -36,7 +36,7 @@
 	<Table source={tableProps} />
 
 	<!-- Color Palette -->
-	<section class="space-y-4">
+	<section class="space-y-4 bg-red-500">
 		<div class="sm:block hidden">
 			<h2 class="h2">Color Palette</h2>
 			<div class="grid grid-cols-10 grid-rows-11 gap-x-2">
@@ -48,7 +48,7 @@
 						<div
 							class="bg-{label.toLowerCase()}-{test} {test == 500
 								? 'col-span-1'
-								: ''} outline outline-1 outline-black rounded font-extrabold text-on-[{label.toLowerCase()}]-token text-center relative z-20"
+								: ''} outline outline-1 outline-black rounded font-extrabold text-on-[{label.toLowerCase()}]-token text-center"
 						>
 							<div class="text-on-{label.toLowerCase()}-token">
 								{test == 500 ? test : ''}
