@@ -36,7 +36,7 @@
 	<Table source={tableProps} />
 
 	<!-- Color Palette -->
-	<section class="space-y-4 bg-red-500">
+	<section class="space-y-4">
 		<div class="sm:block hidden">
 			<h2 class="h2">Color Palette</h2>
 			<div class="grid grid-cols-10 grid-rows-11 gap-x-2">
