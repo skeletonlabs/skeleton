@@ -9,6 +9,10 @@
 	 */
 	export let files: FileList | undefined = undefined;
 	/**
+	 * File input reference.
+	 */
+	export let fileInput: HTMLInputElement | undefined = undefined;
+	/**
 	 * Required. Set a unique name for the file input.
 	 * @type {string}
 	 */
@@ -55,6 +59,7 @@
 	<!-- NOTE: keep `bind:files` here, unlike FileButton -->
 	<input
 		bind:files
+		bind:this={fileInput}
 		type="file"
 		{name}
 		class="dropzone-input {classesInput}"
@@ -68,6 +73,9 @@
 		on:keydown
 		on:keyup
 		on:keypress
+		on:focus
+		on:focusin
+		on:focusout
 	/>
 	<!-- Interface -->
 	<div class="dropzone-interface {classesInterface} {regionInterface}">
