@@ -28,7 +28,7 @@ export interface Middleware {
 
 export interface PopupSettings {
 	/** Provide the event type. */
-	event: 'click' | 'hover' | 'focus-blur' | 'focus-click';
+	event: 'click' | 'hover' | 'focus-blur' | 'focus-click' | 'press';
 	/** Match the popup data value `data-popup="targetNameHere"` */
 	target: string;
 	/** Set the placement position. Defaults 'bottom'. */

@@ -67,6 +67,11 @@
 		target: 'popupFocusClick',
 		placement: 'top'
 	};
+	const popupPress: PopupSettings = {
+		event: 'press',
+		target: 'popupPress',
+		placement: 'top'
+	};
 	// ---
 	let currentPosition: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
 	$: popupPlacement = {
@@ -365,6 +370,44 @@ const popupFocusClick: PopupSettings = {
 						code={`
 <div class="card p-4 variant-filled" data-popup="popupFocusClick">
 	<p>Shows on focus, hides on click.</p>
+	<div class="arrow variant-filled" />
+</div>
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+			<!-- Press -->
+			<h3 class="h3">Press</h3>
+			<p>
+				Show the popup on long press, closed when clicking outside. Useful for mobile menus. Supports the <code class="code"
+					>closeQuery</code
+				> feature.
+			</p>
+			<DocsPreview background="neutral" regionPreview="text-token">
+				<svelte:fragment slot="preview">
+					<button class="btn variant-filled" use:popup={popupPress}>Long Press</button>
+					<div class="card p-4 variant-filled" data-popup="popupPress">
+						<p>Shows on long press, hides on an outside click.</p>
+						<div class="arrow variant-filled" />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const popupPress: PopupSettings = {
+	event: 'press',
+	target: 'popupPress',
+	placement: 'bottom'
+};
+					`}
+					/>
+					<CodeBlock language="html" code={`<input type="text" class="input" placeholder="Press" use:popup={popupPress} />`} />
+					<CodeBlock
+						language="html"
+						code={`
+<div class="card p-4 variant-filled" data-popup="popupPress">
+	<p>Shows on long-press, hides on click.</p>
 	<div class="arrow variant-filled" />
 </div>
 					`}
