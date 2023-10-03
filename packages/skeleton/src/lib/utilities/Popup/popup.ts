@@ -104,7 +104,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		elemPopup.style.display = 'block';
 		elemPopup.style.opacity = '1';
 		elemPopup.style.pointerEvents = 'auto';
-		elemPopup.setAttribute('data-long-pressed', "true")
+		elemPopup.setAttribute('data-long-pressed', 'true');
 		// enable popup interactions
 		elemPopup.removeAttribute('inert');
 		// Trigger Floating UI autoUpdate (open only)
@@ -155,7 +155,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		});
 	}
 	function onMouseDownAfterPress(): void {
-		if (elemPopup.getAttribute('data-long-pressed') === "true") {
+		if (elemPopup.getAttribute('data-long-pressed') === 'true') {
 			elemPopup.removeAttribute('data-long-pressed');
 			close();
 		}
@@ -208,7 +208,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 			break;
 		case 'press':
 			triggerNode.addEventListener('long-press', open, true);
-			triggerNode.addEventListener('mousedown', onMouseDownAfterPress, true)
+			triggerNode.addEventListener('mousedown', onMouseDownAfterPress, true);
 			window.addEventListener('click', onWindowClick, true);
 			break;
 		default:
