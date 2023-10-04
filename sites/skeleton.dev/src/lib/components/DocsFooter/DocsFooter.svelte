@@ -74,7 +74,7 @@
 				<a class="btn variant-soft" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
 					<i class="fa-brands fa-discord" />
 				</a>
-				<a class="btn variant-soft" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">
+				<a class="btn variant-soft" href="https://x.com/SkeletonUI" target="_blank" rel="noreferrer">
 					<i class="fa-brands fa-x-twitter" />
 				</a>
 				<a class="btn variant-soft" href="https://www.youtube.com/@skeletonlabs" target="_blank" rel="noreferrer">
