@@ -41,7 +41,7 @@
 		<p>Shade 500 is used as the default value.</p>
 		<div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
 			<!-- primary -->
-			<div>
+			<div class="rounded-container-token overflow-hidden">
 				<div class="bg-primary-500 p-2 py-4"><span class="text-on-primary-token">Primary</span></div>
 				<div class="bg-primary-50 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">50</span></div>
 				<div class="bg-primary-100 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">100</span></div>
@@ -55,7 +55,7 @@
 				<div class="bg-primary-900 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">900</span></div>
 			</div>
 			<!-- secondary -->
-			<div>
+			<div class="rounded-container-token overflow-hidden">
 				<div class="bg-secondary-500 p-2 py-4"><span class="text-on-secondary-token">Secondary</span></div>
 				<div class="bg-secondary-50 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">50</span></div>
 				<div class="bg-secondary-100 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">100</span></div>
@@ -69,7 +69,7 @@
 				<div class="bg-secondary-900 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">900</span></div>
 			</div>
 			<!-- tertiary -->
-			<div>
+			<div class="rounded-container-token overflow-hidden">
 				<div class="bg-tertiary-500 p-2 py-4"><span class="text-on-tertiary-token">Tertiary</span></div>
 				<div class="bg-tertiary-50 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">50</span></div>
 				<div class="bg-tertiary-100 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">100</span></div>
@@ -83,7 +83,7 @@
 				<div class="bg-tertiary-900 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">900</span></div>
 			</div>
 			<!-- success -->
-			<div>
+			<div class="rounded-container-token overflow-hidden">
 				<div class="bg-success-500 p-2 py-4"><span class="text-on-success-token">Success</span></div>
 				<div class="bg-success-50 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">50</span></div>
 				<div class="bg-success-100 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">100</span></div>
@@ -97,7 +97,7 @@
 				<div class="bg-success-900 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">900</span></div>
 			</div>
 			<!-- warning -->
-			<div>
+			<div class="rounded-container-token overflow-hidden">
 				<div class="bg-warning-500 p-2 py-4"><span class="text-on-warning-token">Warning</span></div>
 				<div class="bg-warning-50 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">50</span></div>
 				<div class="bg-warning-100 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">100</span></div>
@@ -111,7 +111,7 @@
 				<div class="bg-warning-900 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">900</span></div>
 			</div>
 			<!-- error -->
-			<div>
+			<div class="rounded-container-token overflow-hidden">
 				<div class="bg-error-500 p-2 py-4"><span class="text-on-error-token">Error</span></div>
 				<div class="bg-error-50 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">50</span></div>
 				<div class="bg-error-100 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">100</span></div>
@@ -125,7 +125,7 @@
 				<div class="bg-error-900 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">900</span></div>
 			</div>
 			<!-- surface -->
-			<div class="col-span-2">
+			<div class="rounded-container-token overflow-hidden col-span-2">
 				<div class="bg-surface-500 p-2 py-4"><span class="text-on-surface-token">Surface</span></div>
 				<div class="bg-surface-50 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">50</span></div>
 				<div class="bg-surface-100 p-2"><span class="bg-black/30 text-white p-1 text-xs rounded">100</span></div>
