@@ -3,7 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import { ProgressRadial, CodeBlock, SlideToggle } from '@skeletonlabs/skeleton';
+	import { ProgressRadial, CodeBlock } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldProgressRadial from '@skeletonlabs/skeleton/components/ProgressRadial/ProgressRadial.svelte?raw&sveld';
 
@@ -20,7 +20,7 @@
 
 	// Reactive
 	$: props = { value: 50, max: 100, step: 10 };
-	$: strokeProps = { value: 100, max: 400, step: 20, roundedLineCap: true };
+	$: strokeProps = { value: 100, max: 400, step: 20, strokeLinecap: 'butt' };
 </script>
 
 <DocsShell {settings}>
@@ -45,8 +45,8 @@
 		<section class="space-y-4">
 			<h2 class="h2">Styling</h2>
 			<p>
-				Use the <code class="code">stroke</code> <code class="code">meter</code> <code class="code">track</code> or
-				<code class="code">roundedLineCap</code> properties to style the radial.
+				Use the <code class="code">meter</code>, or <code class="code">track</code>, <code class="code">stroke</code>,
+				<code class="code">strokeLinecap</code> properties to style the radial.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -57,7 +57,7 @@
 								meter="stroke-primary-500"
 								track="stroke-primary-500/30"
 								width="w-full"
-								roundedLineCap={strokeProps.roundedLineCap}
+								strokeLinecap={strokeProps.strokeLinecap}
 								value={50}
 							/>
 							<p>Primary</p>
@@ -68,7 +68,7 @@
 								meter="stroke-secondary-500"
 								track="stroke-secondary-500/30"
 								width="w-full"
-								roundedLineCap={strokeProps.roundedLineCap}
+								strokeLinecap={strokeProps.strokeLinecap}
 								value={50}
 							/>
 							<p>Secondary</p>
@@ -79,7 +79,7 @@
 								meter="stroke-tertiary-500"
 								track="stroke-tertiary-500/30"
 								width="w-full"
-								roundedLineCap={strokeProps.roundedLineCap}
+								strokeLinecap={strokeProps.strokeLinecap}
 								value={50}
 							/>
 							<p>Tertiary</p>
@@ -90,7 +90,7 @@
 								meter="stroke-success-500"
 								track="stroke-success-500/30"
 								width="w-full"
-								roundedLineCap={strokeProps.roundedLineCap}
+								strokeLinecap={strokeProps.strokeLinecap}
 								value={50}
 							/>
 							<p>Success</p>
@@ -101,7 +101,7 @@
 								meter="stroke-warning-500"
 								track="stroke-warning-500/30"
 								width="w-full"
-								roundedLineCap={strokeProps.roundedLineCap}
+								strokeLinecap={strokeProps.strokeLinecap}
 								value={50}
 							/>
 							<p>Warning</p>
@@ -112,7 +112,7 @@
 								meter="stroke-error-500"
 								track="stroke-error-500/30"
 								width="w-full"
-								roundedLineCap={strokeProps.roundedLineCap}
+								strokeLinecap={strokeProps.strokeLinecap}
 								value={50}
 							/>
 							<p>Error</p>
@@ -120,15 +120,21 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
-					<div class="w-80 mx-auto flex">
-						<input type="range" min="20" max={strokeProps.max} step={strokeProps.step} bind:value={strokeProps.value} />
-						<SlideToggle class="ml-4" name="rounded" size="sm" bind:checked={strokeProps.roundedLineCap}>Rounded</SlideToggle>
+					<div class="flex justify-between items-center gap-4">
+						<div class="w-60">
+							<input type="range" min="20" max={strokeProps.max} step={strokeProps.step} bind:value={strokeProps.value} />
+						</div>
+						<select bind:value={strokeProps.strokeLinecap} class="select w-auto">
+							{#each ['butt', 'round', 'square'] as v}
+								<option value={v}>{v}</option>
+							{/each}
+						</select>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
-						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" roundedLineCap={${strokeProps.roundedLineCap}} />`}
+						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" strokeLinecap={${strokeProps.strokeLinecap}} />`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
