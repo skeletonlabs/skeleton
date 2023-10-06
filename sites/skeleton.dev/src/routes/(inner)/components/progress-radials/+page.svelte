@@ -20,7 +20,7 @@
 
 	// Reactive
 	$: props = { value: 50, max: 100, step: 10 };
-	$: strokeProps = { value: 100, max: 400, step: 20, strokeLinecap: 'butt' };
+	$: strokeProps = { value: 100, max: 400, step: 20 };
 	let strokeLinecap: 'butt' | 'round' | 'square' = 'butt';
 </script>
 
