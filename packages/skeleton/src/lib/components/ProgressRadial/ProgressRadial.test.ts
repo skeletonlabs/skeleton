@@ -18,7 +18,8 @@ describe('ProgressRadial.svelte', () => {
 				meter: 'stroke-black dark:stroke-white',
 				color: 'fill-black dark:fill-white',
 				font: 56,
-				label: 'testProgressRadial1'
+				label: 'testProgressRadial1',
+				roundedLineCap: true
 			}
 		});
 		expect(getByTestId('progress-radial')).toBeTruthy();
