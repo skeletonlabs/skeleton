@@ -21,6 +21,7 @@
 	// Reactive
 	$: props = { value: 50, max: 100, step: 10 };
 	$: strokeProps = { value: 100, max: 400, step: 20, strokeLinecap: 'butt' };
+	let strokeLinecap: 'butt' | 'round' | 'square' = 'butt';
 </script>
 
 <DocsShell {settings}>
@@ -57,7 +58,7 @@
 								meter="stroke-primary-500"
 								track="stroke-primary-500/30"
 								width="w-full"
-								strokeLinecap={strokeProps.strokeLinecap}
+								{strokeLinecap}
 								value={50}
 							/>
 							<p>Primary</p>
@@ -68,7 +69,7 @@
 								meter="stroke-secondary-500"
 								track="stroke-secondary-500/30"
 								width="w-full"
-								strokeLinecap={strokeProps.strokeLinecap}
+								{strokeLinecap}
 								value={50}
 							/>
 							<p>Secondary</p>
@@ -79,7 +80,7 @@
 								meter="stroke-tertiary-500"
 								track="stroke-tertiary-500/30"
 								width="w-full"
-								strokeLinecap={strokeProps.strokeLinecap}
+								{strokeLinecap}
 								value={50}
 							/>
 							<p>Tertiary</p>
@@ -90,7 +91,7 @@
 								meter="stroke-success-500"
 								track="stroke-success-500/30"
 								width="w-full"
-								strokeLinecap={strokeProps.strokeLinecap}
+								{strokeLinecap}
 								value={50}
 							/>
 							<p>Success</p>
@@ -101,7 +102,7 @@
 								meter="stroke-warning-500"
 								track="stroke-warning-500/30"
 								width="w-full"
-								strokeLinecap={strokeProps.strokeLinecap}
+								{strokeLinecap}
 								value={50}
 							/>
 							<p>Warning</p>
@@ -112,7 +113,7 @@
 								meter="stroke-error-500"
 								track="stroke-error-500/30"
 								width="w-full"
-								strokeLinecap={strokeProps.strokeLinecap}
+								{strokeLinecap}
 								value={50}
 							/>
 							<p>Error</p>
@@ -124,7 +125,7 @@
 						<div class="w-60">
 							<input type="range" min="20" max={strokeProps.max} step={strokeProps.step} bind:value={strokeProps.value} />
 						</div>
-						<select bind:value={strokeProps.strokeLinecap} class="select w-auto">
+						<select bind:value={strokeLinecap} class="select w-auto">
 							{#each ['butt', 'round', 'square'] as v}
 								<option value={v}>{v}</option>
 							{/each}
@@ -134,7 +135,7 @@
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
-						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" strokeLinecap={${strokeProps.strokeLinecap}} />`}
+						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" strokeLinecap={${strokeLinecap}} />`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
