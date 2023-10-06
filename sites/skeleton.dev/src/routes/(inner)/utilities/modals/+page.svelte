@@ -384,8 +384,8 @@ new Promise<boolean>((resolve) => {
 				<svelte:fragment slot="panel">
 					{#if tabCustom === 'register'}
 						<p>
-							This will create a set of reusable components globally avialable to your application. Add the following to your your root
-							layout in <code class="code">/src/routes/+layout.svelte</code>.
+							This will create a set of reusable custom modals that are globally avialable to your application. Add the following to your
+							your root layout in <code class="code">/src/routes/+layout.svelte</code>.
 						</p>
 						<CodeBlock
 							language="ts"
@@ -403,7 +403,8 @@ const modalRegistry: Record<string, ModalComponent> = {
 						<p>Provide the <code class="code">modalRegistry</code> to the modal component, which also resides in your root layout.</p>
 						<CodeBlock language="html" code={`<Modal components={modalRegistry} />`} />
 						<p>
-							When triggering a new component, set the value of <code class="code">component</code> to the unique modal ID as registered above.
+							Then, when triggering a new component, set the value of <code class="code">component</code> to the unique modal ID as registered
+							above.
 						</p>
 						<CodeBlock
 							language="ts"
