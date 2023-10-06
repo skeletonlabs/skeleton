@@ -77,7 +77,7 @@
 			body: 'Provide your first name in the field below.',
 			value: 'Skeleton',
 			valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
-			response: (r) => console.log('response:', r, typeof r)
+			response: (r) => console.log('response:', r)
 		});
 	}
 
