@@ -54,6 +54,10 @@
 	import '$lib/styles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
+	// Font Awesome
+	import '@fortawesome/fontawesome-free/css/fontawesome.css';
+	import '@fortawesome/fontawesome-free/css/brands.css';
+	import '@fortawesome/fontawesome-free/css/solid.css';
 
 	// Handle Vercel Production Mode
 	import type { LayoutServerData } from './$types';
