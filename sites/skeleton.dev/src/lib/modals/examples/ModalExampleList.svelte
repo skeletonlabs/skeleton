@@ -1,9 +1,11 @@
 <script lang="ts">
-	import { ListBox, ListBoxItem, getModalStore } from '@skeletonlabs/skeleton';
-
+	import type { SvelteComponent } from 'svelte';
+	export let parent: SvelteComponent;
+	
 	// Props
 	/** Exposes parent props to this component. */
-	export let parent: any;
+	
+	import { ListBox, ListBoxItem, getModalStore } from '@skeletonlabs/skeleton';
 
 	// Local
 	let flavor = 'chocolate';

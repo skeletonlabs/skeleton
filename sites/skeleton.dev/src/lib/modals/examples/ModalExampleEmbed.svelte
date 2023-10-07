@@ -1,12 +1,16 @@
 <script lang="ts">
-	import { getModalStore } from '@skeletonlabs/skeleton';
 	import type { SvelteComponent } from 'svelte';
-
-	const modalStore = getModalStore();
-
 	// Props
 	/** Exposes parent props to this component. */
 	export let parent: SvelteComponent;
+
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	
+	
+
+	const modalStore = getModalStore();
+
+	
 
 	// Base Classes
 	const cBase = 'relative w-modal-wide shadow-xl';
