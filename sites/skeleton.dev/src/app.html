@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+	<head>
+		<meta charset="utf-8" />
 
-<head>
-	<meta charset="utf-8" />
+		<!-- NOTE: SEO handled in root layout: /src/+layout.svelte -->
 
-	<!-- NOTE: SEO handled in root layout: /src/+layout.svelte -->
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		%sveltekit.head%
+	</head>
 
-	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	%sveltekit.head%
-</head>
-
-<body data-theme="">
-	<div class="h-full overflow-hidden contents">%sveltekit.body%</div>
-</body>
-
+	<body data-theme="">
+		<div class="h-full overflow-hidden contents">%sveltekit.body%</div>
+	</body>
 </html>

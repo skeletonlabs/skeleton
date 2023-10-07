@@ -3,7 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import { CodeBlock, Accordion, AccordionItem } from '@skeletonlabs/skeleton';
+	import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

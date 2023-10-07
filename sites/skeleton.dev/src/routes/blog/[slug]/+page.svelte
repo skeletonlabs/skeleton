@@ -19,11 +19,12 @@
 		// Element Page
 		elemPage = document.querySelector('#page');
 		// CodeBlock Highlight
-		document.querySelectorAll('pre code').forEach((elem: any) => {
+		document.querySelectorAll('pre code').forEach((elem: Element) => {
+			if (!(elem instanceof HTMLElement)) return;
 			hljs.highlightElement(elem);
 		});
 		// Table
-		document.querySelectorAll('table').forEach((elem: any) => {
+		document.querySelectorAll('table').forEach((elem: Element) => {
 			elem.classList.add('table');
 		});
 	});
@@ -34,6 +35,8 @@
 
 	// Local
 	const post = data.posts[0];
+
+	console.log(post);
 </script>
 
 <!-- NOTE: SEO handled in root page layout -->
