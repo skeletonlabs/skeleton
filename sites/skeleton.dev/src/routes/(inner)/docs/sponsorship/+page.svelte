@@ -1,6 +1,6 @@
 <script lang="ts">
 	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
-	import { Accordion, AccordionItem, Avatar, CodeBlock } from '@skeletonlabs/skeleton';
+	import { Accordion, AccordionItem, Avatar } from '@skeletonlabs/skeleton';
 </script>
 
 <LayoutPage>
