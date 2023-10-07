@@ -46,9 +46,10 @@
 	let currentInput: InputSettings = fieldSettings.inputs[0];
 	let colorValue = '#bada55';
 
-	function mapInputAttributes(obj: any): any {
+	function mapInputAttributes(obj: InputSettings): string {
+
 		return Object.keys(obj)
-			.map((key: any) => `${key}="${obj[key]}"`)
+			.map(([key, value]) => `${key}="${value}"`)
 			.join(' ');
 	}
 </script>
