@@ -7,6 +7,18 @@
 	// Field Settings
 	import { fieldSettings } from './settings';
 
+	interface InputSettings {
+    title: string;
+    type: HTMLInputElement['type'];
+    placeholder?: string;
+    readonly?: boolean;
+    disabled?: boolean;
+    multiple?: boolean;
+    autocomplete?: string;
+    tabindex?: string;
+}
+
+
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
@@ -31,7 +43,7 @@
 	};
 
 	// Local
-	let currentInput: any = fieldSettings.inputs[0];
+	let currentInput: InputSettings = fieldSettings.inputs[0];
 	let colorValue = '#bada55';
 
 	function mapInputAttributes(obj: any): any {
