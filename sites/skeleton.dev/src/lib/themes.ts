@@ -1,7 +1,22 @@
 // Preset Themes
 
-const ghPath = 'https://github.com/skeletonlabs/skeleton/blob/master/src/themes';
-export const themes: any[] = [
+interface Font {
+    source: string;
+    name: string;
+    file: string;
+    import: string;
+}
+
+interface Theme {
+    file: string;
+    name: string;
+    colors: string[];
+    surface: string;
+    fonts: Font[];
+}
+
+
+export const themes: Theme[] = [
 	// Custom (IMPORTANT: must remain the first option)
 	{
 		file: 'custom',
