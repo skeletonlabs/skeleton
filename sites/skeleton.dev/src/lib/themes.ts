@@ -1,6 +1,6 @@
 // Preset Themes
 interface Font {
-	url?:string;
+	url?: string;
 	source: string;
 	name: string;
 	file: string;
