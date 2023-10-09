@@ -1,6 +1,7 @@
 export type BlogList = {
 	meta: Meta;
 	posts: Post[];
+	vercelEnv: string;
 };
 
 type Meta = {
