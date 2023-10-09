@@ -350,7 +350,7 @@ new Promise<boolean>((resolve) => {
 				<h2 class="h2">Component Modals</h2>
 				<span class="badge variant-filled-warning">Advanced</span>
 			</div>
-			<p>Skeleton allows you to generate custom modals using Svelte components. See several examples provided below.</p>
+			<p>Skeleton allows you to generate custom modals using Svelte components.</p>
 			<h3 class="sr-only">Example Modals</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
