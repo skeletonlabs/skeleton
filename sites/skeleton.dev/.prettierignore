@@ -13,3 +13,5 @@ pnpm-lock.yaml
 /static/font-awesome
 /static/fonts
 .vercel
+/src/app.html
+package.json
