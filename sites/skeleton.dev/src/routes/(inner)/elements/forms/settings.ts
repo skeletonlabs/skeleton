@@ -8,12 +8,12 @@ export const fieldSettings: {
 		disabled?: boolean;
 		multiple?: boolean;
 		autocomplete?: string;
-		tabindex?: string;
+		tabindex?: number;
 	}[];
 } = {
 	inputs: [
 		{ title: 'Input (text)', type: 'text', placeholder: 'input text' },
-		{ title: 'Input (readonly)', type: 'text', placeholder: 'input readonly', readonly: true, tabindex: '-1' },
+		{ title: 'Input (readonly)', type: 'text', placeholder: 'input readonly', readonly: true, tabindex: -1 },
 		{ title: 'Input (disabled)', type: 'text', placeholder: 'input disabled', disabled: true },
 		{ title: 'Input (email)', type: 'email', placeholder: 'john@example.com', autocomplete: 'email' },
 		{ title: 'Input (email, multiple)', type: 'email', multiple: true, placeholder: 'john@example.com, susy@example.com' },

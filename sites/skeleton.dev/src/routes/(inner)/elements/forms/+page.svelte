@@ -15,7 +15,7 @@
 		disabled?: boolean;
 		multiple?: boolean;
 		autocomplete?: string;
-		tabindex?: string;
+		tabindex?: number;
 	}
 
 	// Docs Shell
