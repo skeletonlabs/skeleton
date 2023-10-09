@@ -6,7 +6,7 @@ export interface PaginationSettings {
 	/** Current number of items to display. */
 	limit: number;
 	/** The total size (length) of your source content. */
-	size: number;
+	size?: number;
 	/** List of amounts available to the select input */
 	amounts: number[];
 }

@@ -88,14 +88,14 @@
 	const cLabel = 'w-full md:w-auto';
 
 	// Local
-	let lastPage = Math.max(0, Math.ceil(settings.size / settings.limit - 1));
+	let lastPage = Math.max(0, Math.ceil(settings.size ?? 0 / settings.limit - 1));
 	let controlPages: number[] = getNumerals();
 
 	function onChangeLength(): void {
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
 		dispatch('amount', settings.limit);
 
-		lastPage = Math.max(0, Math.ceil(settings.size / settings.limit - 1));
+		lastPage = Math.max(0, Math.ceil(settings.size ?? 0 / settings.limit - 1));
 
 		// ensure page in limit range
 		if (settings.page > lastPage) {
@@ -163,7 +163,7 @@
 		return page === settings.page ? `${active} pointer-events-none` : '';
 	};
 	$: maxNumerals, onChangeLength();
-	$: updateSize(settings.size);
+	$: updateSize(settings.size ?? 0);
 	// Reactive Classes
 	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
@@ -220,11 +220,12 @@
 		{#if showNumerals === false}
 			<!-- Details -->
 			<button type="button" class="{buttonClasses} pointer-events-none !text-sm">
-				{settings.page * settings.limit + 1}-{Math.min(settings.page * settings.limit + settings.limit, settings.size)}&nbsp;<span
-					class="opacity-50">{separatorText} {settings.size}</span
-				>
+				{settings.page * settings.limit + 1}-{Math.min(settings.page * settings.limit + settings.limit, settings.size ?? Infinity)}&nbsp;
+				{#if settings.size !== undefined}
+					<span class="opacity-50">{separatorText} {settings.size}</span>
+				{/if}
 			</button>
-		{:else}
+		{:else if settings.size !== undefined}
 			<!-- Numeric Row -->
 			{#each controlPages as page}
 				<button type="button" class="{buttonClasses} {classesButtonActive(page)}" on:click={() => gotoPage(page)}>
@@ -241,13 +242,13 @@
 				on:click={() => {
 					gotoPage(settings.page + 1);
 				}}
-				disabled={disabled || (settings.page + 1) * settings.limit >= settings.size}
+				disabled={disabled || (settings.page + 1) * settings.limit >= (settings.size ?? Infinity)}
 			>
 				{@html buttonTextNext}
 			</button>
 		{/if}
 		<!-- Button: last -->
-		{#if showFirstLastButtons}
+		{#if showFirstLastButtons && settings.size !== undefined}
 			<button
 				type="button"
 				aria-label={labelLast}
