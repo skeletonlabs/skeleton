@@ -9,6 +9,10 @@
 	 */
 	export let files: FileList | undefined = undefined;
 	/**
+	 * File input reference.
+	 */
+	export let fileInput: HTMLInputElement | undefined = undefined;
+	/**
 	 * Required. Set a unique name for the file input.
 	 * @type {string}
 	 */
@@ -18,11 +22,8 @@
 	/** Provide a button variant or other class styles. */
 	export let button: CssClasses = 'btn variant-filled';
 
-	// Local
-	let elemFileInput: HTMLElement;
-
 	function onButtonClick(): void {
-		elemFileInput.click();
+		if (fileInput) fileInput.click();
 	}
 
 	function prunedRestProps() {
@@ -38,7 +39,7 @@
 <div class="file-button {classesBase}" data-testid="file-button">
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 	<div class="w-0 h-0 overflow-hidden">
-		<input type="file" bind:this={elemFileInput} bind:files {name} {...prunedRestProps()} on:change />
+		<input type="file" bind:this={fileInput} bind:files {name} {...prunedRestProps()} on:change />
 	</div>
 	<!-- Button -->
 	<button

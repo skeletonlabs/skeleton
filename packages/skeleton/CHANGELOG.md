@@ -1,5 +1,19 @@
 # @skeletonlabs/skeleton
 
+## 2.2.0
+
+### Minor Changes
+
+- bugfix: fixes for the new `scrollbarGutter` property in AppShell ([#2048](https://github.com/skeletonlabs/skeleton/pull/2048))
+
+### Patch Changes
+
+- bugfix: ensure styling is applied properly to the lock icon within the stepper component ([#2056](https://github.com/skeletonlabs/skeleton/pull/2056))
+
+- bugfix: Resolved issue where component modal's default slot is always `true` ([#2054](https://github.com/skeletonlabs/skeleton/pull/2054))
+
+- bugfix: Added check and error message to clipboard action when used outside secure context ([#2044](https://github.com/skeletonlabs/skeleton/pull/2044))
+
 ## 2.1.0
 
 ### Minor Changes

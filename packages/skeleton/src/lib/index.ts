@@ -87,7 +87,8 @@ export { default as Tab } from './components/Tab/Tab.svelte';
 export { default as TabAnchor } from './components/Tab/TabAnchor.svelte';
 export { default as TreeView } from './components/TreeView/TreeView.svelte';
 export { default as TreeViewItem } from './components/TreeView/TreeViewItem.svelte';
-export { default as TreeViewDataDrivenItem } from './components/TreeView/TreeViewDataDrivenItem.svelte';
+export { default as RecursiveTreeView } from './components/TreeView/RecursiveTreeView.svelte';
+export { default as RecursiveTreeViewItem } from './components/TreeView/RecursiveTreeViewItem.svelte';
 // Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
 export { default as Modal } from './utilities/Modal/Modal.svelte';

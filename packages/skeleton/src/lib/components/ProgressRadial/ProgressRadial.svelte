@@ -15,6 +15,8 @@
 	export let stroke = 40; // px
 	/** Sets the base font size. Scales responsively. */
 	export let font = 56; // px
+	/** Sets the stoke-linecap value */
+	export let strokeLinecap: 'butt' | 'round' | 'square' = 'butt';
 
 	// Props (styles)
 	/** Provide classes to set the width. */
@@ -37,7 +39,7 @@
 
 	// Calculated Values
 	const baseSize = 512; // px
-	const radius: number = baseSize / 2;
+	const radius: number = baseSize / 2 - stroke / 2;
 	let circumference: number = radius;
 	let dashoffset: number;
 
@@ -73,18 +75,19 @@
 	<!-- Draw SVG -->
 	<svg viewBox="0 0 {baseSize} {baseSize}" class="rounded-full" class:animate-spin={value === undefined}>
 		<!-- Track -->
-		<circle class="progress-radial-track {cBaseTrack} {track}" stroke-width={stroke} r={baseSize / 2} cx="50%" cy="50%" />
+		<circle class="progress-radial-track {cBaseTrack} {track}" stroke-width={stroke} r={radius} cx="50%" cy="50%" />
 
 		<!-- Meter -->
 		<circle
 			class="progress-radial-meter {cBaseMeter} {meter}"
 			stroke-width={stroke}
-			r={baseSize / 2}
+			r={radius}
 			cx="50%"
 			cy="50%"
 			style:stroke-dasharray="{circumference}
 			{circumference}"
 			style:stroke-dashoffset={dashoffset}
+			stroke-linecap={strokeLinecap}
 		/>
 
 		<!-- Center Text -->

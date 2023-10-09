@@ -25,7 +25,8 @@
 		@apply button-base-styles rounded-token active:scale-[95%] active:brightness-90;
 	}
 
-	.btn:disabled {
+	.btn:disabled,
+	.btn-icon:disabled {
 		@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
 	}
 

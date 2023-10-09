@@ -3,19 +3,21 @@
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import { TreeView, TreeViewItem, type TreeViewNode } from '@skeletonlabs/skeleton';
+	import { TreeView, TreeViewItem, RecursiveTreeView } from '@skeletonlabs/skeleton';
 	// Utilities
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldTreeView from '@skeletonlabs/skeleton/components/TreeView/TreeView.svelte?raw&sveld';
 	import sveldTreeViewItem from '@skeletonlabs/skeleton/components/TreeView/TreeViewItem.svelte?raw&sveld';
+	import sveldRecursiveTreeView from '@skeletonlabs/skeleton/components/TreeView/RecursiveTreeView.svelte?raw&sveld';
+	import { nodes } from './exampleData';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Tree Views',
 		description: 'Display information in a hierarchical structure using collapsible nodes.',
-		imports: ['TreeView', 'TreeViewItem', 'type TreeViewNode'],
+		imports: ['TreeView', 'TreeViewItem', 'RecursiveTreeView', 'type TreeViewNode'],
 		source: 'packages/skeleton/src/lib/components/TreeView',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/treeview/',
 		components: [
@@ -38,7 +40,8 @@
 					'regionSymbol',
 					'regionChildren'
 				]
-			}
+			},
+			{ label: 'RecursiveTreeView', sveld: sveldRecursiveTreeView }
 		],
 		keyboard: [
 			['<kbd class="kbd">Tab</kbd>', "Focus the next tree-view item or it's input."],
@@ -67,94 +70,11 @@
 
 	let expandTree: TreeView;
 
-	let simpleDD: TreeViewNode[] = [
-		{
-			content: 'Books',
-			lead: '<i class="fa-solid fa-book-skull"></i>',
-			open: true,
-			children: [
-				{ content: 'Clean Code', value: 'Clean Code' },
-				{ content: 'The Clean Coder', value: 'The Clean Coder' },
-				{ content: 'The Art of Unix Programming', value: 'The Art of Unix Programming' }
-			],
-			value: 'books'
-		},
-		{
-			content: 'Movies',
-			lead: '<i class="fa-solid fa-film"></i>',
-			children: [
-				{ content: 'The Flash', value: 'The Flash' },
-				{ content: 'Guardians of the Galaxy', value: 'Guardians of the Galaxy' },
-				{ content: 'Black Panther', value: 'Black Panther' }
-			],
-			value: 'movies'
-		},
-		{
-			content: 'TV',
-			lead: '<i class="fa-solid fa-tv"></i>',
-			value: 'tv'
-		}
-	];
-
-	let singleDD: TreeViewNode[] = [
-		{
-			content: 'Books',
-			lead: '<i class="fa-solid fa-book-skull"></i>',
-			open: true,
-			checked: true,
-			children: [
-				{ content: 'Clean Code', value: 'Clean Code' },
-				{ content: 'The Clean Coder', value: 'The Clean Coder' },
-				{ content: 'The Art of Unix Programming', value: 'The Art of Unix Programming', checked: true }
-			],
-			value: 'books'
-		},
-		{
-			content: 'Movies',
-			lead: '<i class="fa-solid fa-film"></i>',
-			children: [
-				{ content: 'The Flash', value: 'The Flash' },
-				{ content: 'Guardians of the Galaxy', value: 'Guardians of the Galaxy' },
-				{ content: 'Black Panther', value: 'Black Panther' }
-			],
-			value: 'movies'
-		},
-		{
-			content: 'TV',
-			lead: '<i class="fa-solid fa-tv"></i>',
-			value: 'tv'
-		}
-	];
-
-	let multipleDD: TreeViewNode[] = [
-		{
-			content: 'Books',
-			lead: '<i class="fa-solid fa-book-skull"></i>',
-			open: true,
-			indeterminate: true,
-			children: [
-				{ content: 'Clean Code', value: 'Clean Code' },
-				{ content: 'The Clean Coder', value: 'The Clean Coder', checked: true },
-				{ content: 'The Art of Unix Programming', value: 'The Art of Unix Programming', checked: true }
-			],
-			value: 'books'
-		},
-		{
-			content: 'Movies',
-			lead: '<i class="fa-solid fa-film"></i>',
-			children: [
-				{ content: 'The Flash', value: 'The Flash' },
-				{ content: 'Guardians of the Galaxy', value: 'Guardians of the Galaxy' },
-				{ content: 'Black Panther', value: 'Black Panther' }
-			],
-			value: 'movies'
-		},
-		{
-			content: 'TV',
-			lead: '<i class="fa-solid fa-tv"></i>',
-			value: 'tv'
-		}
-	];
+	let expandedNodes: string[] = [];
+	let disabledNodes: string[] = ['programming'];
+	let singleCheckedNodes: string[] = [];
+	let multiCheckedNodes: string[] = ['javascript'];
+	let indeterminateNodes: string[] = [];
 </script>
 
 <DocsShell {settings}>
@@ -734,62 +654,25 @@ let booksChildren: TreeViewItem[] = [];
 		<!-- Recursive Mode -->
 		<section class="space-y-4">
 			<h2 class="h2">Recursive Mode</h2>
-			<p>Tree views can be generated using a recursive data-driven method.</p>
-			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
-				<svelte:fragment slot="preview">
-					<TreeView bind:nodes={simpleDD} />
-				</svelte:fragment>
-				<svelte:fragment slot="source">
-					<CodeBlock
-						language="ts"
-						code={`
-let myTreeViewNodes: TreeViewNode[] = [
-	{
-		content: 'Books',
-		lead: '(icon)',
-		open: true,
-		children: [
-			{ content: 'Clean Code' },
-			{ content: 'The Clean Coder' },
-			{ content: 'The Art of Unix Programming' },
-		]
-	},
-	// ...
-]
-						`}
-					/>
-					<CodeBlock
-						language="html"
-						code={`
-<TreeView nodes={myTreeViewNodes}/>
-						`}
-					/>
-				</svelte:fragment>
-			</DocsPreview>
-			<!-- Single Selection -->
-			<h3 class="h3">Single Selection</h3>
-			<!-- prettier-ignore -->
 			<p>
-				Relational checking is automatically applied when generating your list in a recursive manner. Setting a child as <code class="code">checked</code> will not automatically affect the parent.
+				Tree views can be generated with a recursive data-driven method using the <code class="code">RecursiveTreeView</code> components.
 			</p>
 			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
 				<svelte:fragment slot="preview">
-					<TreeView bind:nodes={singleDD} selection />
+					<RecursiveTreeView {nodes} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
+					<p>To get expected results make sure to include a <em>unique Id</em> for each node.</p>
 					<CodeBlock
 						language="ts"
 						code={`
 let myTreeViewNodes: TreeViewNode[] = [
 	{
-		content: 'Books',
+		id: 'unique-id'
+		content: 'content',
 		lead: '(icon)',
-		open: true,
-		checked: true,
 		children: [
-			{ content: 'Clean Code' },
-			{ content: 'The Clean Coder' },
-			{ content: 'The Art of Unix Programming', checked: true },
+			//...
 		]
 	},
 	// ...
@@ -799,44 +682,139 @@ let myTreeViewNodes: TreeViewNode[] = [
 					<CodeBlock
 						language="html"
 						code={`
-<TreeView bind:nodes={myTreeViewNodes} selection/>
+<RecursiveTreeView nodes={nodes} />
 						`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-			<!-- Multiple Selection -->
-			<h3 class="h3">Multiple Selection</h3>
-			<p>Relational checking is automatically applied when generating your list in a recursive manner.</p>
+			<!-- Expanded -->
+			<h3 class="h3">Expanded</h3>
+			<!-- prettier-ignore -->
+			<p>
+				To access and modify the expanded nodes use <code class="code">expandedNodes</code> array prop.
+			</p>
 			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
 				<svelte:fragment slot="preview">
-					<TreeView bind:nodes={multipleDD} selection multiple />
+					<RecursiveTreeView {nodes} bind:expandedNodes />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="ts"
 						code={`
-let myTreeViewNodes: TreeViewNode[] = [
-	{
-		content: 'Books',
-		lead: '(icon)',
-		open: true,
-		indeterminate: true,
-		children: [
-			{ content: 'Clean Code' },
-			{ content: 'The Clean Coder', checked: true },
-			{ content: 'The Art of Unix Programming', checked: true },
-		]
-	},
-	// ...
-]
+let myTreeViewNodes: TreeViewNode[] = //...
+let expandedNodes : string[] = [];
 						`}
 					/>
 					<CodeBlock
 						language="html"
 						code={`
-<TreeView bind:nodes={myTreeViewNodes} selection multiple/>
+<RecursiveTreeView nodes={nodes} bind:expandedNodes={expandedNodes} />
 						`}
 					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<span>Expanded nodes: <code class="code">{expandedNodes}</code></span>
+				</svelte:fragment>
+			</DocsPreview>
+			<!-- Disabled -->
+			<h3 class="h3">Disabled</h3>
+			<!-- prettier-ignore -->
+			<p>
+				To access and modify the disabled nodes use <code class="code">disabledNodes</code> array prop.
+			</p>
+			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
+				<svelte:fragment slot="preview">
+					<RecursiveTreeView {nodes} bind:disabledNodes />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let myTreeViewNodes: TreeViewNode[] = //...
+let disabledNodes : string[] = [];
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<RecursiveTreeView nodes={nodes} bind:disabledNodes={disabledNodes} />
+						`}
+					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<span>Disabled nodes: <code class="code">{disabledNodes}</code></span>
+				</svelte:fragment>
+			</DocsPreview>
+			<!-- Selection -->
+			<h3 class="h3">Selection</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Just like normal Tree-view, Recursive Tree-view supports selection with both <em>single</em> and <em>multiple</em> modes.
+			</p>
+			<p>To access and modify the checked nodes use <code class="code">checkedNodes</code> array prop.</p>
+			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
+				<svelte:fragment slot="preview">
+					<RecursiveTreeView selection {nodes} bind:checkedNodes={singleCheckedNodes} />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let myTreeViewNodes: TreeViewNode[] = //...
+let checkedNodes : string[] = [];
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<RecursiveTreeView selection nodes={nodes} bind:checkedNodes={checkedNodes} />
+						`}
+					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<span>checked nodes: <code class="code">{singleCheckedNodes}</code></span>
+				</svelte:fragment>
+			</DocsPreview>
+
+			<!-- Relational Selection -->
+			<h3 class="h3">Relational Selection</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Just like normal Tree-view, Recursive Tree-view supports relational selection using the prop <code class="code">relational</code>.
+			</p>
+			<p>To access and modify the checked nodes use <code class="code">checkedNodes</code> array prop.</p>
+			<p>
+				In multiple relational selection mode, an extra array prop <code class="code">indeterminateNodes</code> is available to indicate indeterminate
+				nodes.
+			</p>
+			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
+				<svelte:fragment slot="preview">
+					<RecursiveTreeView selection multiple relational {nodes} bind:checkedNodes={multiCheckedNodes} bind:indeterminateNodes />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let myTreeViewNodes: TreeViewNode[] = //...
+let checkedNodes : string[] = [];
+let indeterminateNodes : string[] = [];
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<RecursiveTreeView 
+	selection 
+	multiple 
+	relational 
+	nodes={nodes} 
+	bind:checkedNodes={checkedNodes} 
+	bind:indeterminateNodes={indeterminateNodes}/>
+						`}
+					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<span>indeterminate nodes: <code class="code whitespace-normal">{indeterminateNodes}</code></span>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

@@ -162,7 +162,7 @@
 
 	/* success */
 	.input-success {
-		@apply !bg-success-200 !border-success-500 !text-success-700;
+		@apply bg-success-200 dark:bg-success-200 border-success-500 dark:border-success-500 text-success-700 dark:text-success-700;
 	}
 	.input-success::-moz-placeholder {
 		@apply text-success-700;
@@ -176,7 +176,7 @@
 
 	/* warning */
 	.input-warning {
-		@apply !bg-warning-200 !border-warning-500 !text-warning-700;
+		@apply bg-warning-200 dark:bg-warning-200 border-warning-500 dark:border-warning-500 text-warning-700 dark:text-warning-700;
 	}
 	.input-warning::-moz-placeholder {
 		@apply text-warning-700;
@@ -190,7 +190,7 @@
 
 	/* error */
 	.input-error {
-		@apply !bg-error-200 !border-error-500 !text-error-500;
+		@apply bg-error-200 dark:bg-error-200 border-error-500 dark:border-error-500 text-error-500 dark:text-error-500;
 	}
 	.input-error::-moz-placeholder {
 		@apply text-error-500;
