@@ -6,7 +6,6 @@ interface Font {
 	file: string;
 	import: string;
 }
-
 interface Theme {
 	file: string;
 	name: string;
