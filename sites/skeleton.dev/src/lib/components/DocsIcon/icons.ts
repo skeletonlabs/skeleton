@@ -9,6 +9,7 @@ export type Icon = {
 };
 
 export type Icons = {
+	[key: string]: Icon;
 	placeholder: Icon;
 	svelte: Icon;
 	tailwind: Icon;
