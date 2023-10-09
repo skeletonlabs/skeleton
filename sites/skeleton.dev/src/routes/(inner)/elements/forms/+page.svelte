@@ -8,16 +8,15 @@
 	import { fieldSettings } from './settings';
 
 	interface InputSettings {
-    title: string;
-    type: HTMLInputElement['type'];
-    placeholder?: string;
-    readonly?: boolean;
-    disabled?: boolean;
-    multiple?: boolean;
-    autocomplete?: string;
-    tabindex?: string;
-}
-
+		title: string;
+		type: HTMLInputElement['type'];
+		placeholder?: string;
+		readonly?: boolean;
+		disabled?: boolean;
+		multiple?: boolean;
+		autocomplete?: string;
+		tabindex?: string;
+	}
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -47,7 +46,6 @@
 	let colorValue = '#bada55';
 
 	function mapInputAttributes(obj: InputSettings): string {
-
 		return Object.keys(obj)
 			.map(([key, value]) => `${key}="${value}"`)
 			.join(' ');

@@ -13,22 +13,20 @@ plugins: [
 ]\n
 `;
 
-interface Font {
-    source: string;
-    name: string;
-    file: string;
-    import: string;
-}
+	interface Font {
+		source: string;
+		name: string;
+		file: string;
+		import: string;
+	}
 
-interface ActiveTheme {
-	file: string;
-	name: string;
-	fonts: Font[];
-	colors: string[];
-	surface: string;
-}
-
-
+	interface ActiveTheme {
+		file: string;
+		name: string;
+		fonts: Font[];
+		colors: string[];
+		surface: string;
+	}
 
 	// Copy Theme Import to Clipboard
 	function setActiveTheme(theme: ActiveTheme): void {

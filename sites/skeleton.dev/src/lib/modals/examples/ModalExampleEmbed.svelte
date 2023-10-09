@@ -5,12 +5,8 @@
 	export let parent: SvelteComponent;
 
 	import { getModalStore } from '@skeletonlabs/skeleton';
-	
-	
 
 	const modalStore = getModalStore();
-
-	
 
 	// Base Classes
 	const cBase = 'relative w-modal-wide shadow-xl';

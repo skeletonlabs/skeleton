@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { SvelteComponent } from 'svelte';
 	export let parent: SvelteComponent;
-	
+
 	// Props
 	/** Exposes parent props to this component. */
-	
+
 	import { ListBox, ListBoxItem, getModalStore } from '@skeletonlabs/skeleton';
 
 	// Local

@@ -1,4 +1,4 @@
-import type { Component, ComponentProps, ComponentSlots, ComponentEvents} from './types';
+import type { Component, ComponentProps, ComponentSlots, ComponentEvents } from './types';
 
 import type { TableSource } from '@skeletonlabs/skeleton';
 

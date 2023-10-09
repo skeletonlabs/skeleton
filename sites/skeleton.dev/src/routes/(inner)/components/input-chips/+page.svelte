@@ -37,8 +37,8 @@
 	}
 
 	function onInvalidHandler(event: CustomEvent): void {
-		console.log("type of event", event);
-		
+		console.log('type of event', event);
+
 		toastStore.trigger({
 			message: `"${event.detail.input}" is an invalid value. Please try again!`,
 			background: 'variant-filled-error'

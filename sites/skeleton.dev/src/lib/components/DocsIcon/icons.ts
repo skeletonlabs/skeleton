@@ -4,14 +4,14 @@
     Copyright 2022 Fonticons, Inc
 */
 export type Icon = {
-    viewBox?: string;
-    path: string;
+	viewBox?: string;
+	path: string;
 };
 
 export type Icons = {
-    placeholder: Icon;
-    svelte: Icon;
-    tailwind: Icon;
+	placeholder: Icon;
+	svelte: Icon;
+	tailwind: Icon;
 };
 
 export const icons: Icons = {

@@ -1,20 +1,19 @@
 // Preset Themes
 
 interface Font {
-    source: string;
-    name: string;
-    file: string;
-    import: string;
+	source: string;
+	name: string;
+	file: string;
+	import: string;
 }
 
 interface Theme {
-    file: string;
-    name: string;
-    colors: string[];
-    surface: string;
-    fonts: Font[];
+	file: string;
+	name: string;
+	colors: string[];
+	surface: string;
+	fonts: Font[];
 }
-
 
 export const themes: Theme[] = [
 	// Custom (IMPORTANT: must remain the first option)

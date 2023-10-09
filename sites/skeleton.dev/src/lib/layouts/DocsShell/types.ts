@@ -86,25 +86,25 @@ export interface DocsShellSettings {
 }
 
 export interface ComponentProps {
-    name: string;
-    type?: string;
-    value?: string;
-    description?: string;
+	name: string;
+	type?: string;
+	value?: string;
+	description?: string;
 }
 
 export interface ComponentSlots {
-    name: string;
-    default?: boolean;
-    fallback?: boolean;
-    description?: string;
+	name: string;
+	default?: boolean;
+	fallback?: boolean;
+	description?: string;
 }
 
 export interface ComponentEvents {
-    name: string;
-    type: string;
-    element?: string;
-    detail?: string;
-    description?: string;
+	name: string;
+	type: string;
+	element?: string;
+	detail?: string;
+	description?: string;
 }
 
 // NOTE: this will be removed alongside the move to the JSDocs documentation.
