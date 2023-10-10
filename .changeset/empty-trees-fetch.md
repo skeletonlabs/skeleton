@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: fixed focusTrap escaping hidden inputs
+bugfix: Resolved an issue that allowed focusTrap to escape hidden inputs

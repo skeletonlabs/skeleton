@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-chore:RTL compatibility in Accordion component
+chore: Accordion now has RTL compatibility via the use of the `text-start` class

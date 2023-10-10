@@ -2,4 +2,4 @@
 "@skeletonlabs/tw-plugin": patch
 ---
 
-bugfix: Splitted light/dark CSS classes for input validation variants
+bugfix: Separated light/dark classes for input validation variants
