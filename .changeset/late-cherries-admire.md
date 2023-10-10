@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-breaking: Added missing regions to Input-chip and changed css class `input-chip-interface` to `input-chip-wrapper`.
+feat: Added `input-chip-interface` and `input-chip-wrapper` region classes to Input Chips.
