@@ -530,6 +530,50 @@ const popupState: PopupSettings = {
 
 		<hr />
 
+		<!-- Handling Loops -->
+		<section class="space-y-4">
+			<h2 class="h2">Handling Loops</h2>
+			<p>
+				Popups maintain a 1-1 relationship between the trigger and the popup element. This means when using <code class="code">#each</code> block
+				to iterate and create a set of popups, you must provide a unique popup element and popup settings.
+			</p>
+			<DocsPreview background="neutral" regionPreview="text-token">
+				<svelte:fragment slot="preview">
+					<div class="grid grid-cols-1 gap-2">
+						{#each ['A', 'B', 'C'] as label, i}
+							<!-- Trigger -->
+							<button class="btn variant-filled" use:popup={{ event: 'click', target: 'loopExample-' + i, placement: 'top' }}>
+								Show {label}
+							</button>
+							<!-- Popup -->
+							<div class="card p-4 shadow-xl" data-popup="loopExample-{i}">Popup {label}</div>
+						{/each}
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>
+						Inline popup settings for each <code class="code">use:popup</code> directive, and take note of how the index
+						<code class="code">i</code>
+						is appended to both <code class="code">target</code> and
+						<code class="code">data-popup</code>.
+					</p>
+					<CodeBlock
+						language="html"
+						code={`
+{#each ['A', 'B', 'C'] as label, i}
+	<!-- Trigger -->
+	<button use:popup={{ event: 'click', target: 'loopExample-' + i, placement: 'top' }}>
+		Show {label}
+	</button>
+	<!-- Popup -->
+	<div data-popup="loopExample-{i}">Popup {label}</div>
+{/each}
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+
 		<!-- Combobox -->
 		<section class="space-y-4">
 			<h2 class="h2">Combobox</h2>

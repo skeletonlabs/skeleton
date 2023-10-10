@@ -47,12 +47,12 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p>
+		<section class="space-y-4">
 			Uses <code class="code">input[type='file']</code> and allows for all native input features and accessibility. Including
 			<code class="code">multiple</code>,
 			<code class="code">accept</code>, and <code class="code">required</code>.
-		</p>
-		<div class="space-y-4">
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Customization</h2>
 			<p>
 				Customize the component with the available <code class="code">icon</code>, <code class="code">message</code>, and
@@ -80,18 +80,18 @@
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-		</div>
-		<div class="space-y-4">
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Binding Method</h2>
 			<p>Use a <code class="code">FileList</code> to bind the file data.</p>
 			<CodeBlock language="ts" code={`let files: FileList;`} />
 			<CodeBlock language="html" code={`<FileDropzone ... bind:files={files} />`} />
-		</div>
-		<div class="space-y-4">
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">On Change Event</h2>
 			<p>Use the <code class="code">on:change</code> event to monitor file selection or changes.</p>
 			<CodeBlock language="ts" code={`function onChangeHandler(e: Event): void {\n\tconsole.log('file data:', e);\n}`} />
 			<CodeBlock language="html" code={`<FileDropzone ... on:change={onChangeHandler}>Upload</FileDropzone>`} />
-		</div>
+		</section>
 	</svelte:fragment>
 </DocsShell>

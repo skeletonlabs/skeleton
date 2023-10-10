@@ -1,4 +1,5 @@
 import { sveltekit } from '@sveltejs/kit/vite';
+import { purgeCss } from 'vite-plugin-tailwind-purgecss';
 import type { UserConfig } from 'vite';
 import skeletonPluginWatcher from './vite-plugin-skeleton-plugin-watcher';
 import sveld from './vite-plugin-sveld';
@@ -9,7 +10,17 @@ const json = readFileSync('../../packages/skeleton/package.json', 'utf8');
 const pkg = JSON.parse(json);
 
 const config: UserConfig = {
-	plugins: [sveltekit(), sveld(), skeletonPluginWatcher()],
+	plugins: [
+		sveltekit(),
+		sveld(),
+		skeletonPluginWatcher(),
+		purgeCss({
+			safelist: {
+				// any selectors that begin with "hljs-" will not be purged
+				greedy: [/^hljs-/]
+			}
+		})
+	],
 	define: {
 		__PACKAGE__: pkg
 	}
