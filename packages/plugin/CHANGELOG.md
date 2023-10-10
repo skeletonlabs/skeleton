@@ -1,5 +1,13 @@
 # @skeletonlabs/tw-plugin
 
+## 0.2.2
+
+### Patch Changes
+
+- bugfix: Separated light/dark classes for input validation variants ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- bugfix: Resolved an issue where the Ring design token would generate invalid CSS when using the important modifier `!` ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
 ## 0.2.1
 
 ### Patch Changes
