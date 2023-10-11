@@ -7,7 +7,7 @@ interface Font {
 	import: string;
 }
 
-interface Theme {
+export interface Theme {
 	file: string;
 	name: string;
 	colors: string[];
