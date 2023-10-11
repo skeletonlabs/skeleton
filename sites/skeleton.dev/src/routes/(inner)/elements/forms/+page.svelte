@@ -35,7 +35,7 @@
 	let colorValue = '#bada55';
 
 	function mapInputAttributes(obj: InputSettings): string {
-		return Object.keys(obj)
+		return Object.entries(obj)
 			.map(([key, value]) => `${key}="${value}"`)
 			.join(' ');
 	}
