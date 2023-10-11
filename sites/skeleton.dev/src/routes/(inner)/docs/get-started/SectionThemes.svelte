@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { themes } from '$lib/themes';
+	import { themes, type Theme } from '$lib/themes';
 	// Components
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 
