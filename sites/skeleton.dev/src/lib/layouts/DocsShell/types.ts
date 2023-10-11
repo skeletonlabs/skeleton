@@ -1,3 +1,5 @@
+import type { SveldJson } from 'sveld-types';
+
 export enum DocsFeature {
 	Element = 'Tailwind',
 	Component = 'Svelte Component',
@@ -22,21 +24,7 @@ export interface Component {
 	/** Provide a list of props that children can override. */
 	overrideProps?: string[];
 	/** Provide the raw component Sveld doc source. */
-	sveld: any; // SveldJson; // FIXME: we need to resolve this type
-}
-
-export interface SveldJson {
-	name?: string;
-	type?: string;
-	description?: string;
-	value?: string;
-	detail?: string;
-	element?: string;
-	tags?: {
-		tag: string;
-		value?: string;
-	}[];
-	[key: string]: unknown;
+	sveld: SveldJson;
 }
 
 export interface DocsShellSettings {
@@ -83,28 +71,6 @@ export interface DocsShellSettings {
 	transitionIn?: string;
 	/** Indicates the transitionOut transition used (ex: fade) */
 	transitionOut?: string;
-}
-
-export interface ComponentProps {
-	name: string;
-	type?: string;
-	value?: string;
-	description?: string;
-}
-
-export interface ComponentSlots {
-	name: string;
-	default?: boolean;
-	fallback?: boolean;
-	description?: string;
-}
-
-export interface ComponentEvents {
-	name: string;
-	type: string;
-	element?: string;
-	detail?: string;
-	description?: string;
 }
 
 // NOTE: this will be removed alongside the move to the JSDocs documentation.
