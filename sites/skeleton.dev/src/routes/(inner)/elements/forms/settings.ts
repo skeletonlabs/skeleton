@@ -1,16 +1,5 @@
 // Form Field Settings
-export const fieldSettings: {
-	inputs: {
-		title: string;
-		type: HTMLInputElement['type'];
-		placeholder?: string;
-		readonly?: boolean;
-		disabled?: boolean;
-		multiple?: boolean;
-		autocomplete?: string;
-		tabindex?: number;
-	}[];
-} = {
+export const fieldSettings: { inputs: InputSettings[] } = {
 	inputs: [
 		{ title: 'Input (text)', type: 'text', placeholder: 'input text' },
 		{ title: 'Input (readonly)', type: 'text', placeholder: 'input readonly', readonly: true, tabindex: -1 },
@@ -29,3 +18,14 @@ export const fieldSettings: {
 		{ title: 'Input (url)', type: 'url', multiple: true, placeholder: 'example.com' }
 	]
 };
+
+export interface InputSettings {
+	title: string;
+	type: HTMLInputElement['type'];
+	placeholder?: string;
+	readonly?: boolean;
+	disabled?: boolean;
+	multiple?: boolean;
+	autocomplete?: string;
+	tabindex?: number;
+}

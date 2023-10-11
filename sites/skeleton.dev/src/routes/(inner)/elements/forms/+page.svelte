@@ -5,18 +5,7 @@
 	// Components
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 	// Field Settings
-	import { fieldSettings } from './settings';
-
-	interface InputSettings {
-		title: string;
-		type: HTMLInputElement['type'];
-		placeholder?: string;
-		readonly?: boolean;
-		disabled?: boolean;
-		multiple?: boolean;
-		autocomplete?: string;
-		tabindex?: number;
-	}
+	import { fieldSettings, type InputSettings } from './settings';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -42,7 +31,7 @@
 	};
 
 	// Local
-	let currentInput: InputSettings = fieldSettings.inputs[0];
+	let currentInput = fieldSettings.inputs[0];
 	let colorValue = '#bada55';
 
 	function mapInputAttributes(obj: InputSettings): string {
