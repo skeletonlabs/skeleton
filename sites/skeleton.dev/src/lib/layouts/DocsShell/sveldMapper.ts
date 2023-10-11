@@ -35,7 +35,7 @@ export function sveldMapperSlots(component: Component): TableSource {
 		body: slots.map((s) => {
 			// prettier-ignore
 			return [
-				`<code class="code">${s.name?.replaceAll('__', '')}</code>`,
+				`<code class="code">${s.name.replaceAll('__', '')}</code>`,
 				s.default ? '&check;' : '-',
 				s.fallback ? '&check;' : '-',
 				// s.slot_props ? s.slot_props : '-', // NOTE: we don't currently use this
