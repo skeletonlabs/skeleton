@@ -14,7 +14,7 @@ plugins: [
 `;
 
 	// Copy Theme Import to Clipboard
-	function setActiveTheme(theme: ActiveTheme): void {
+	function setActiveTheme(theme: Theme): void {
 		activeTheme = theme;
 	}
 </script>
