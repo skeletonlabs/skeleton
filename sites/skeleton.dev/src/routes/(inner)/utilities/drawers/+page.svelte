@@ -25,7 +25,7 @@
 	};
 
 	function trigger(position: 'left' | 'top' | 'right' | 'bottom'): void {
-		const s: DrawerSettings = { id: 'demo', position, duration: 7000 };
+		const s: DrawerSettings = { id: 'demo', position, duration: 2500 };
 		drawerStore.open(s);
 	}
 	function triggerStyled(): void {
