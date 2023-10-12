@@ -48,7 +48,7 @@
 			id: 'demo',
 			position: 'left',
 			// Metadata
-			meta: 'Metadata Received!',
+			meta: 'Metadata Received!'
 		};
 		drawerStore.open(drawerSettings);
 	}

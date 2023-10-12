@@ -32,7 +32,7 @@
 	export let regionBackdrop: CssClasses = '';
 	/** Region - Provide arbitrary classes to the drawer region. */
 	export let regionDrawer: CssClasses = '';
-	
+
 	// Props (drawer)
 	/** Drawer - Define the Svelte transition animation duration.*/
 	export let duration: number = 150;
@@ -87,7 +87,7 @@
 	let elemBackdrop: HTMLElement;
 	let elemDrawer: HTMLElement;
 	let anim = { x: 0, y: 0 };
-		const drawerStore = getDrawerStore();
+	const drawerStore = getDrawerStore();
 
 	// Classes
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
