@@ -65,7 +65,6 @@
 	// Pass to Store for Ad Conditionals
 	// IMPORTANT: DO NOT MODIFY THIS UNLESS YOU KNOW WHAT YOU'RE DOING
 	import { storeTheme, storeVercelProductionMode } from '$lib/stores/stores';
-	import type { AfterNavigate } from '@sveltejs/kit';
 	storeVercelProductionMode.set(data.vercelEnv === 'production');
 	// Init Vercel Analytics
 	if ($storeVercelProductionMode) import('@vercel/analytics').then((mod) => mod.inject());
