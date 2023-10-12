@@ -35,8 +35,6 @@
 
 	// Local
 	const post = data.posts[0];
-
-	console.log(post);
 </script>
 
 <!-- NOTE: SEO handled in root page layout -->
