@@ -27,15 +27,15 @@
 	 */
 	export let position: 'left' | 'top' | 'right' | 'bottom' = 'left';
 
-	// Props (backdrop)
-	/** Backdrop - Provide classes to set the backdrop background color */
-	export let bgBackdrop: CssClasses = 'bg-surface-backdrop-token';
-	/** Backdrop - Provide classes to set the blur style. */
-	export let blur: CssClasses = '';
-	/** Backdrop - Provide classes to set padding. */
-	export let padding: CssClasses = '';
-
+	// Props (regions)
+	/** Region - Provide arbitrary classes to the backdrop region. */
+	export let regionBackdrop: CssClasses = '';
+	/** Region - Provide arbitrary classes to the drawer region. */
+	export let regionDrawer: CssClasses = '';
+	
 	// Props (drawer)
+	/** Drawer - Define the Svelte transition animation duration.*/
+	export let duration: number = 150;
 	/** Drawer - Provide classes to set the drawer background color. */
 	export let bgDrawer: CssClasses = 'bg-surface-100-800-token';
 	/** Drawer - Provide classes to set border color. */
@@ -48,28 +48,30 @@
 	export let width: CssClasses = '';
 	/** Drawer - Provide classes to override the height. */
 	export let height: CssClasses = '';
-	/** Provide a class to override the z-index */
+
+	// Props (backdrop)
+	/** Backdrop - Provide classes to set the backdrop background color */
+	export let bgBackdrop: CssClasses = 'bg-surface-backdrop-token';
+	/** Backdrop - Provide classes to set the blur style. */
+	export let blur: CssClasses = '';
+	/** Backdrop - Provide classes to set padding. */
+	export let padding: CssClasses = '';
+	/** Backdrop - Provide a class to override the z-index */
 	export let zIndex: CssClasses = 'z-40';
 
-	// Props (regions)
-	/** Provide arbitrary classes to the backdrop region. */
-	export let regionBackdrop: CssClasses = '';
-	/** Provide arbitrary classes to the drawer region. */
-	export let regionDrawer: CssClasses = '';
-
 	// Props (a11y)
-	/** Provide an ID of the element labeling the drawer. */
+	/** a11y = Provide an ID of the element labeling the drawer. */
 	export let labelledby = '';
-	/** Provide an ID of the element describing the drawer. */
+	/** a11y = Provide an ID of the element describing the drawer. */
 	export let describedby = '';
 
 	// Props (transition)
 	/**
-	 * Enable/Disable transitions
+	 * Transition - Enable/Disable transitions
 	 * @type {boolean}
 	 */
 	export let transitions = !$prefersReducedMotionStore;
-	/** Drawer - Enable/Disable opacity transition */
+	/** Transition - Enable/Disable opacity transition of Drawer */
 	export let opacityTransition = true;
 
 	// Presets
@@ -85,7 +87,7 @@
 	let elemBackdrop: HTMLElement;
 	let elemDrawer: HTMLElement;
 	let anim = { x: 0, y: 0 };
-	const drawerStore = getDrawerStore();
+		const drawerStore = getDrawerStore();
 
 	// Classes
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
@@ -100,13 +102,14 @@
 		bgDrawer, border, rounded, shadow,
 		width, height, opacityTransition,
 		labelledby, describedby,
-		regionBackdrop, regionDrawer
+		regionBackdrop, regionDrawer, duration
 	};
 
 	// Override provided props, else restore prop defaults
 	// NOTE: these must stay in sync with the props implemented above.
 	function applyPropSettings(settings: DrawerSettings): void {
 		position = settings.position || propDefaults.position;
+		duration = settings.duration || propDefaults.duration;
 		// Backdrop
 		bgBackdrop = settings.bgBackdrop || propDefaults.bgBackdrop;
 		blur = settings.blur || propDefaults.blur;
@@ -190,12 +193,12 @@
 		on:keypress
 		in:dynamicTransition|local={{
 			transition: fade,
-			params: { duration: 150 },
+			params: { duration: duration },
 			enabled: transitions && opacityTransition
 		}}
 		out:dynamicTransition|local={{
 			transition: fade,
-			params: { duration: 150 },
+			params: { duration: duration },
 			enabled: transitions && opacityTransition
 		}}
 		use:focusTrap={true}
@@ -212,12 +215,12 @@
 			aria-describedby={describedby}
 			in:dynamicTransition|local={{
 				transition: fly,
-				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
+				params: { x: anim.x, y: anim.y, duration: duration ? duration : 150, opacity: opacityTransition ? undefined : 1 },
 				enabled: transitions
 			}}
 			out:dynamicTransition|local={{
 				transition: fly,
-				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
+				params: { x: anim.x, y: anim.y, duration: duration ? duration : 150, opacity: opacityTransition ? undefined : 1 },
 				enabled: transitions
 			}}
 		>
