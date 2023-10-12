@@ -109,7 +109,7 @@
 	// NOTE: these must stay in sync with the props implemented above.
 	function applyPropSettings(settings: DrawerSettings): void {
 		position = settings.position || propDefaults.position;
-		duration = settings.duration || propDefaults.duration;
+
 		// Backdrop
 		bgBackdrop = settings.bgBackdrop || propDefaults.bgBackdrop;
 		blur = settings.blur || propDefaults.blur;
@@ -121,10 +121,12 @@
 		shadow = settings.shadow || propDefaults.shadow;
 		width = settings.width || propDefaults.width;
 		height = settings.height || propDefaults.height;
-		opacityTransition = settings.opacityTransition || propDefaults.opacityTransition;
 		// Regions
 		regionBackdrop = settings.regionBackdrop || propDefaults.regionBackdrop;
 		regionDrawer = settings.regionDrawer || propDefaults.regionDrawer;
+		//Transitions
+		opacityTransition = settings.opacityTransition || propDefaults.opacityTransition;
+		duration = settings.duration || propDefaults.duration;
 		// A11y
 		labelledby = settings.labelledby || propDefaults.labelledby;
 		describedby = settings.describedby || propDefaults.describedby;
