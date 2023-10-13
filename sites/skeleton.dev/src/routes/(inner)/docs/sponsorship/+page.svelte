@@ -1,6 +1,6 @@
 <script lang="ts">
 	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
-	import { Accordion, AccordionItem, Avatar, CodeBlock } from '@skeletonlabs/skeleton';
+	import { Accordion, AccordionItem, Avatar } from '@skeletonlabs/skeleton';
 </script>
 
 <LayoutPage>
@@ -108,7 +108,7 @@
 				<svelte:fragment slot="content">
 					<!-- prettier-ignore -->
 					<p>
-						While your sponsorship is active, you gain access to a <a class="anchor" href="https://github.com/skeletonlabs/skeleton-templates" target="_blank">private GitHub respository</a> containing all available templates.
+						While your sponsorship is active, you gain access to a <a class="anchor" href="https://github.com/skeletonlabs/skeleton-templates" target="_blank">private GitHub repository</a> containing all available templates.
 					</p>
 				</svelte:fragment>
 			</AccordionItem>
@@ -218,7 +218,7 @@
 					<h3 class="h3" data-toc-ignore>Is support available for templates?</h3>
 				</svelte:fragment>
 				<svelte:fragment slot="content">
-					<p>Yes, support is provided through the private GitHub respository, or via our standard Discord support channels.</p>
+					<p>Yes, support is provided through the private GitHub repository, or via our standard Discord support channels.</p>
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
@@ -274,18 +274,18 @@
 					<!-- Method 1: CLI -->
 					<h4 class="h4 !mt-4">Method 1: CLI Install</h4>
 					<div class="space-y-4">
-						<p>1. Download the template zip file from the private respository.</p>
-						<p>2. Use NPM (or similiar) to run the CLI and point at the local unzipped template files.</p>
+						<p>1. Download the template zip file from the private repository.</p>
+						<p>2. Use NPM (or similar) to run the CLI and point at the local unzipped template files.</p>
 						<pre class="pre">npm create skeleton-app@latest --skeletontheme=./path/to/unzipped/template/</pre>
 						<p>3. Follow the CLI instructions. Note that <u>Typescript is required</u> for all templates.</p>
 					</div>
 					<!-- Method 2: Basic -->
 					<h4 class="h4 !mt-10">Method 2: Manual Install</h4>
 					<div class="space-y-4">
-						<p>1. Download the template zip file from the private respository.</p>
+						<p>1. Download the template zip file from the private repository.</p>
 						<p>2. Unzip the file and rename the directory as desired. (ex: my-blog)</p>
 						<p>3. Point your terminal at the contents of the unzipped directory.</p>
-						<p>4. Use NPM (or similiar) to install all package depdencies.</p>
+						<p>4. Use NPM (or similar) to install all package dependencies.</p>
 						<pre class="pre">npm install</pre>
 						<p>5. Start your local SvelteKit dev server.</p>
 						<pre class="pre">npm run dev</pre>

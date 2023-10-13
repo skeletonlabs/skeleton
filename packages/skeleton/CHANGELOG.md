@@ -1,5 +1,36 @@
 # @skeletonlabs/skeleton
 
+## 2.3.0
+
+### Minor Changes
+
+- - feat: File Dropzone and File Button now include a `fileInput` prop to reference to the input element. ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+  - feat: File Dropzone now forwards the `on:focus`, `on:focusin`, and `on:focusout` events.
+
+- feat: Added `input-chip-interface` and `input-chip-wrapper` region classes to Input Chips. ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- feat: Multiple revisions to the Tree View component: ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+  - Enhanced and properly named non-recursive Tree View events.
+  - Separated the recursive Tree View under the new component RecursiveTreeView.
+  - RecursiveTreeView now utilizes the `relational` prop to enable relational checking.
+  - RecursiveTreeView is now using ID arrays with 2-way binding to control the Tree View state, including:
+    - `expandedNodes`
+    - `disabledNodes`
+    - `checkedNodes`
+    - `indeterminateNodes` (affects only multiple relational mode)
+  - TreeViewNode now requires a unique ID to support the new checking system.
+
+### Patch Changes
+
+- bugfix: Resolved an issue that allowed focusTrap to escape hidden inputs ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- feat: Added a `strokeLinecap` property to to Progress Radials, enabling rounded styling ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- chore: Accordion now has RTL compatibility via the use of the `text-start` class ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- bugfix: Added `title` prop to Lightswitch component for better i18n support ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
 ## 2.2.0
 
 ### Minor Changes
