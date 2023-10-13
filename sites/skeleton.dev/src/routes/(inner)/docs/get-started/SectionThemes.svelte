@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { storeOnboardMethod } from '$lib/stores/stores';
-	import { themes } from '$lib/themes';
+	import { themes, type Theme } from '$lib/themes';
 	// Components
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 
@@ -15,7 +14,7 @@ plugins: [
 `;
 
 	// Copy Theme Import to Clipboard
-	function setActiveTheme(theme: any): void {
+	function setActiveTheme(theme: Theme): void {
 		activeTheme = theme;
 	}
 </script>
