@@ -1,7 +1,5 @@
 ---
-"@skeletonlabs/skeleton": major
+"@skeletonlabs/skeleton": minor
 ---
 
-Pre Change Grandfather + Drawer Duration Control
-
-This is not a breaking change, previous working Drawer components are grandfathered-in.
+feat: added a transition `duration` property to the Drawer componenta and `DrawerSettings`
