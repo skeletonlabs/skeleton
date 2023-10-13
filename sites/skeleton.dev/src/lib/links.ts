@@ -39,6 +39,10 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 					badge: 'New'
 				}
 			]
+		},
+		{
+			title: 'Integrations',
+			list: [{ href: '/docs/tauri', label: 'Tauri', keywords: 'Tauri, desktop, setup, install' }]
 		}
 	],
 	'/elements': [
