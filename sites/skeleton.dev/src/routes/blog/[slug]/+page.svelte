@@ -19,11 +19,12 @@
 		// Element Page
 		elemPage = document.querySelector('#page');
 		// CodeBlock Highlight
-		document.querySelectorAll('pre code').forEach((elem: any) => {
+		document.querySelectorAll('pre code').forEach((elem) => {
+			if (!(elem instanceof HTMLElement)) return;
 			hljs.highlightElement(elem);
 		});
 		// Table
-		document.querySelectorAll('table').forEach((elem: any) => {
+		document.querySelectorAll('table').forEach((elem) => {
 			elem.classList.add('table');
 		});
 	});
