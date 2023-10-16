@@ -177,6 +177,49 @@ const popupFeatured: PopupSettings = {
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<aside class="flex flex-col items-start gap-2 alert alert-message variant-ghost-warning">
+			<p>
+				It is important not to override any of the css selector for the initial popup display. Below is the css. 
+			</p>
+			<CodeBlock
+				language="css"
+				code={`
+[data-popup] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	transition-property: opacity;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-duration: .15s
+}
+		`}
+			/>
+			<p>
+				If you were to use for
+				example a div with class <code class="code">flex</code> it would override the display property and not hide the popup on first load.
+			</p>
+			<p>Works ✅</p>
+			<CodeBlock
+				language="css"
+				code={`
+<div data-popup="popupClick">
+	<div class="flex">
+		Popup
+	</div>
+</div>
+			`}
+			/>
+			<p>Breaks ❌</p>
+			<CodeBlock
+				language="css"
+				code={`
+<div class="flex" data-popup="popupClick">
+	Popup
+</div>
+			`}
+			/>
+		</aside>
 		<!-- Installation -->
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
