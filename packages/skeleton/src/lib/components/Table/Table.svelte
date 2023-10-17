@@ -99,7 +99,7 @@
 							aria-colindex={cellIndex + 1}
 							tabindex={cellIndex === 0 ? 0 : -1}
 						>
-							{@html cell === "0" ? cell : (cell ? cell : '-')}
+							{@html Number(cell) === 0 ? cell : (cell ? cell : '-')}
 						</td>
 					{/each}
 				</tr>
