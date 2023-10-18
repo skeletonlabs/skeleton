@@ -16,7 +16,7 @@ const config: UserConfig = {
 		skeletonPluginWatcher(),
 		purgeCss({
 			safelist: {
-				// Allow any selectors that match the following conditions:
+				// Allow selectors with a regex match:
 				greedy: [
 					// Used for Highlight.js (code blocks)
 					/^hljs-/,
