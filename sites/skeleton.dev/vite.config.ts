@@ -16,8 +16,13 @@ const config: UserConfig = {
 		skeletonPluginWatcher(),
 		purgeCss({
 			safelist: {
-				// any selectors that begin with "hljs-" will not be purged
-				greedy: [/^hljs-/]
+				// Allow any selectors that match the following conditions:
+				greedy: [
+					// Used for Highlight.js (code blocks)
+					/^hljs-/,
+					// Used for Carbon ad styles
+					/carbonads/
+				]
 			}
 		})
 	],
