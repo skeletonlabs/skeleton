@@ -1,7 +1,7 @@
 <script lang="ts">
+	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
-	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import { CodeBlock, LightSwitch, Tab, TabGroup } from '@skeletonlabs/skeleton';
 	// Sveld
@@ -121,7 +121,7 @@
 												<tr>
 													<td><code class="code">$modeCurrent</code></td>
 													<td><em>true | false</em></td>
-													<td>The current currently active mode setting.</td>
+													<td>The current active mode setting.</td>
 												</tr>
 											</tbody>
 										</table>
