@@ -46,7 +46,7 @@
 		color = c;
 	}
 
-	function filter(flavor: string): void {
+	function toggleFilter(flavor: string): void {
 		flavors[flavor] = !flavors[flavor];
 	}
 </script>
@@ -161,7 +161,7 @@
 							<!-- prettier-ignore -->
 							<span
 								class="chip {flavors[f] ? 'variant-filled' : 'variant-soft'}"
-								on:click={() => { filter(f); }}
+								on:click={() => { toggleFilter(f); }}
 								on:keypress
 							>
 								{#if flavors[f]}<span><i class="fa-solid fa-check" /></span>{/if}
@@ -187,13 +187,13 @@ let flavors: Record<string, boolean> = {
 {#each Object.keys(flavors) as f}
 	<span
 		class="chip {flavors[f] ? 'variant-filled' : 'variant-soft'}"
-		on:click={() => { filter(f); }}
+		on:click={() => { toggleFilter(f); }}
 		on:keypress
 	>
 		{#if flavors[f]}<span>(icon)</span>{/if}
 		<span class="capitalize">{f}</span>
 	</span>
-{/each}
+{/each}http://localhost:5173/
 `}
 					/>
 				</svelte:fragment>
