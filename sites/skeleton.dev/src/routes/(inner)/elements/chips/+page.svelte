@@ -193,7 +193,7 @@ let flavors: Record<string, boolean> = {
 		{#if flavors[f]}<span>(icon)</span>{/if}
 		<span class="capitalize">{f}</span>
 	</span>
-{/each}http://localhost:5173/
+{/each}
 `}
 					/>
 				</svelte:fragment>
