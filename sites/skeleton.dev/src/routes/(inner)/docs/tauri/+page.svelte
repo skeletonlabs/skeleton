@@ -8,8 +8,8 @@
 	<header class="space-y-4">
 		<h1 class="h1">Tauri</h1>
 		<p>
-			The following guide will cover the basics for generating a new <a href="https://tauri.app" class="anchor">Tauri</a> app using both SvelteKit
-			and Skeleton.
+			The following guide will cover the basics for generating a new <a class="anchor" href="https://tauri.app" target="_blank">Tauri</a> app
+			using both SvelteKit and Skeleton.
 		</p>
 	</header>
 
@@ -18,16 +18,16 @@
 	<!-- What's Tauri? -->
 	<section class="space-y-4">
 		<p class="text-xl space-y-4">
-			<a href="https://tauri.app" class="anchor">Tauri</a> is a toolkit that helps developers make applications for the major desktop platforms
-			- using virtually any frontend framework in existence. The core is built with Rust, and the CLI leverages Node.js making Tauri a genuinely
-			polyglot approach to creating and maintaining great apps.
+			<a class="anchor" href="https://tauri.app/about/intro" target="_blank">Tauri</a> is a toolkit that helps developers make applications for
+			the major desktop platforms - using virtually any frontend framework in existence. The core is built with Rust, and the CLI leverages Node.js
+			making Tauri a genuinely polyglot approach to creating and maintaining great apps.
 		</p>
 	</section>
 
 	<!-- Prerequisites -->
 	<section class="space-y-4">
 		<h2 class="h2">Prerequisites</h2>
-		<p>To get started, please install all Rust and system dependencies. Follow all instructions provided by the official Tauri guide.</p>
+		<p>Before you start, install all required Rust and system dependencies. See the following guide for complete instructions.</p>
 		<div class="card variant-glass p-4 py-10 text-center">
 			<a class="btn variant-filled" href="https://tauri.app/v1/guides/getting-started/prerequisites" target="_blank">
 				<span>Tauri Prerequisites Guide</span>
@@ -41,7 +41,7 @@
 		<h2 class="h2">Video Guide</h2>
 		<!-- prettier-ignore -->
 		<p>
-			The following video will guide you through the process of integrating Tauri and SvelteKit. You may then follow our <a class="anchor" href="/docs/get-started">manual install instructions</a> to install Skeleton to this project.
+			The following video will guide you through the process of integrating Tauri and SvelteKit. You may then follow our <a class="anchor" href="/docs/get-started">manual install instructions</a> to install and add Skeleton to your project.
 		</p>
 		<iframe
 			class="w-full aspect-video mx-auto rounded-container-token shadow"
@@ -81,7 +81,7 @@ npm install
 			</p>
 			<CodeBlock language="shell" code={`npm install --save-dev @sveltejs/adapter-static`} />
 			<p>
-				Open <code class="code">svelte.config.[ts|js]</code> in the root of your project, then switch from
+				Locate <code class="code">svelte.config.[ts|js]</code> in the root of your project, then switch from
 				<code class="code">adapter-auto</code>
 				to <code class="code">adapter-static</code>.
 			</p>
@@ -105,7 +105,7 @@ export default config;
 			/>
 			<!-- prettier-ignore -->
 			<p>
-				Open your root layout, found in <code class="code">/src/routes/+layout.svelte</code>, then append the follow two lines at the top of the script tag. This will disable both server-side rendering (SSR) and prerendering. 
+				Open your root layout, found in <code class="code">/src/routes/+layout.svelte</code>, then append the following two lines at the top of the script tag. This will disable both server-side rendering (SSR) and prerendering. 
 			</p>
 			<CodeBlock
 				language="js"
@@ -118,11 +118,13 @@ export const ssr = false
 		<!-- Install Tauri -->
 		<div class="space-y-4">
 			<h3 class="h3">Install Tauri</h3>
-			<p>Tauri offers a friendly CLI to make the automate the install process. Run the following command in your terminal.</p>
+			<p>Tauri offers a friendly CLI to easily automate the install process. Run the following command in your terminal.</p>
 			<CodeBlock language="shell" code={`npm install --save-dev @tauri-apps/cli`} />
-			<p>Look for <code class="code">package.json</code> in the root of your project. Open this and append the following script command.</p>
+			<p>
+				Locate <code class="code">package.json</code> in the root of your project, open this and append the following script command.
+			</p>
 			<CodeBlock language="json" code={`"scripts": {\n\t"tauri": "tauri"\n}`} />
-			<p>Run the following command in your terminal, taking care to use the recommendations settings provided below.</p>
+			<p>Run the following command in your terminal. Please take care to use the recommendations settings provided below.</p>
 			<CodeBlock language="shell" code={`npm run tauri init`} />
 			<dl class="list-dl">
 				<div>
@@ -175,7 +177,7 @@ export const ssr = false
 		<div class="space-y-4">
 			<h3 class="h3">Verify Install</h3>
 			<p>
-				Once installed, look for <code class="code">/src-tauri</code> in the root of your project. This houses all Tauri assets, including:
+				Once installed, look for <code class="code">/src-tauri</code> in the root of your project. This houses the following critical Tauri assets:
 			</p>
 			<ul class="list-disc list-inside space-y-2">
 				<li><code class="code">Cargo.toml</code> - similar to <code class="code">package.json</code>, but for Rust.</li>
@@ -186,7 +188,7 @@ export const ssr = false
 		<!-- Run the App -->
 		<div class="space-y-4">
 			<h3 class="h3">Run the App</h3>
-			<p>Run the following command to start your Tauri application.</p>
+			<p>Use the following command to start your Tauri application.</p>
 			<CodeBlock language="shell" code={`npm run tauri dev`} />
 		</div>
 	</section>
@@ -196,7 +198,7 @@ export const ssr = false
 	<!-- Starter Template -->
 	<section class="space-y-4">
 		<h2 class="h2">Starter Template</h2>
-		<p>If you're looking for a quick starter or reference project, refer to our opinionated template on GitHub.</p>
+		<p>If you're looking for a quick start or reference project, please refer to our opinionated template on GitHub.</p>
 		<div class="card variant-glass p-4 py-10 text-center">
 			<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton-starter-tauri" target="_blank">
 				<i class="fa-brands fa-github" />
