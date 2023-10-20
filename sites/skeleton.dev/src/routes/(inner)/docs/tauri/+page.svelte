@@ -8,41 +8,40 @@
 	<header class="space-y-4">
 		<h1 class="h1">Tauri</h1>
 		<p>
-			This guide will walk you through the basics of creating a new desktop (and maybe mobile?) Tauri app using SvelteKit and Skeleton as
-			your frontend.
+			The following guide will cover the basics for generating a new <a href="https://tauri.app" class="anchor">Tauri</a> app using both SvelteKit
+			and Skeleton.
 		</p>
 	</header>
 
 	<hr />
 
+	<!-- What's Tauri? -->
 	<section class="space-y-4">
-		<h2 class="h2">What is Tauri?</h2>
-		<p><a href="https://tauri.app" class="anchor">Tauri</a> is a framework that lets you build</p>
-		<blockquote class="blockquote">smaller, faster, and more secure desktop applications with a web frontend</blockquote>
-		<p>
-			To achieve that, it uses Rust as the backend of your application. But don't worry, you don't necessarily need to know Rust to use it!
-			Tauri exposes many useful APIs and many plugins let you handle backend related stuff without leaving your JavaScript/TypeScript. For
-			example, the <a href="https://github.com/tauri-apps/tauri-plugin-sql" class="anchor">tauri-plugin-sql</a> lets you support sqlite, mysql
-			and postgres without even touching Rust!
+		<p class="text-xl space-y-4">
+			<a href="https://tauri.app" class="anchor">Tauri</a> is a toolkit that helps developers make applications for the major desktop platforms
+			- using virtually any frontend framework in existence. The core is built with Rust, and the CLI leverages Node.js making Tauri a genuinely
+			polyglot approach to creating and maintaining great apps.
 		</p>
-		<div class="alert variant-ghost">
-			<i class="fa-solid fa-triangle-exclamation" />
-			<p>
-				We will create an app from scratch, but you can also easily use your existing SvelteKit or Tauri + SvelteKit project. Follow the
-				corresponding section below to add Skeleton or Tauri depending on your needs.
-			</p>
+	</section>
+
+	<!-- Prerequisites -->
+	<section class="space-y-4">
+		<h2 class="h2">Prerequisites</h2>
+		<p>To get started, please install all Rust and system dependencies. Follow all instructions provided by the official Tauri guide.</p>
+		<div class="card variant-glass p-4 py-10 text-center">
+			<a class="btn variant-filled" href="https://tauri.app/v1/guides/getting-started/prerequisites" target="_blank">
+				<span>Tauri Prerequisites Guide</span>
+				<i class="fa-solid fa-up-right-from-square" />
+			</a>
 		</div>
 	</section>
 
 	<!-- Video -->
 	<section class="space-y-4">
-		<h2 class="h2">Video guide</h2>
+		<h2 class="h2">Video Guide</h2>
+		<!-- prettier-ignore -->
 		<p>
-			If you prefer a visual guide, you can follow the next excellent video on how to setup Tauri with SvelteKit. Take into account that
-			Skeleton is not being installed in the video, so you will have to do it manually following our step by step <a
-				href="https://www.skeleton.dev/docs/get-started#install-skeleton"
-				class="anchor">guide in the Get Started section</a
-			>
+			The following video will guide you through the process of integrating Tauri and SvelteKit. You may then follow our <a class="anchor" href="/docs/get-started">manual install instructions</a> to install Skeleton to this project.
 		</p>
 		<iframe
 			class="w-full aspect-video mx-auto rounded-container-token shadow"
@@ -54,55 +53,41 @@
 		/>
 	</section>
 
-	<!-- Prerequisites -->
 	<section class="space-y-4">
-		<h2 class="h2">Prerequisites</h2>
-		<p>
-			To begin with, you need to install some prerequisites, like Rust and system dependencies. The installation process depends on your OS,
-			so we recommend following the <a href="https://tauri.app/v1/guides/getting-started/prerequisites" class="anchor"
-				>official Tauri guide</a
-			>
-		</p>
-	</section>
-
-	<section class="space-y-4">
-		<h2 class="h2">Create your Skeleton project</h2>
-		<p>
-			The first step is to create your SvelteKit project with Skeleton. There are two ways to do it. The easiest one is to use the Skeleton
-			CLI that will automatically scaffold a new SvelteKit application, install Tailwind, configure Skeleton, and more.
-		</p>
-		<CodeBlock
-			language="shell"
-			code={`
-npm create skeleton-app@latest my-skeleton-app
+		<h2 class="h2">Manual Installation</h2>
+		<!-- Setup Skeleton -->
+		<div class="space-y-4">
+			<h3 class="h3">Setup Skeleton</h3>
+			<!-- prettier-ignore -->
+			<p>
+				To begin, we'll use the Skeleton CLI to scaffold a new project. This will automatically install SvelteKit, Tailwind, and Skeleton. If you're using an existing SvelteKit project, please refer to our <a class="anchor" href="https://www.skeleton.dev/docs/get-started#install-skeleton" >manual install instructions</a>.
+			</p>
+			<CodeBlock
+				language="shell"
+				code={`
+npm create skeleton-app@latest skeleton-tauri-app
 	- Enable Typescript when prompted (recommended)
-cd my-skeleton-app
+cd skeleton-tauri-app
 npm install
-						`}
-		/>
-		<p>
-			If you already have a SvelteKit project then you will need to install and configure Skeleton manually following our step by step <a
-				href="https://www.skeleton.dev/docs/get-started#install-skeleton"
-				class="anchor">guide in the Get Started section</a
-			>
-		</p>
-	</section>
-
-	<section class="space-y-4">
-		<h2 class="h2">Modify your Skeleton project for Tauri</h2>
-		<p>
-			As Rust will be our backend, Tauri uses SvelteKit as a <a href="https://kit.svelte.dev/docs/adapter-static" class="anchor"
-				>static site generator (SSG)</a
-			>. To setup SSG first you need to install the adapter-static
-		</p>
-		<CodeBlock language="shell" code={`npm install --save-dev @sveltejs/adapter-static`} />
-		<p>
-			Then you need to replace the adapter-auto in your <code class="code">svelte.config.[ts|js]</code> with the adapter-static. Your
-			<code class="code">svelte.config.[ts|js]</code> file should look like this:
-		</p>
-		<CodeBlock
-			language="js"
-			code={`
+				`}
+			/>
+		</div>
+		<!-- Prepare Your App -->
+		<div class="space-y-4">
+			<h3 class="h3">Prepare Your App</h3>
+			<!-- prettier-ignore -->
+			<p>
+				Since Tauri will use Rust as the backend, we'll adjust SvelteKit to use <a class="anchor" href="https://kit.svelte.dev/docs/adapter-static" target="_blank">static site generation (SSG)</a>. This makes use of SvelteKit's <code class="code">adapter-static</code>.
+			</p>
+			<CodeBlock language="shell" code={`npm install --save-dev @sveltejs/adapter-static`} />
+			<p>
+				Open <code class="code">svelte.config.[ts|js]</code> in the root of your project, then switch from
+				<code class="code">adapter-auto</code>
+				to <code class="code">adapter-static</code>.
+			</p>
+			<CodeBlock
+				language="js"
+				code={`
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
@@ -116,137 +101,135 @@ const config = {
 };
 
 export default config;
-						`}
-		/>
-		<p>
-			Lastly, you need to disable SSR and enable prerendering by adding these two lines to your root <code class="code"
-				>+layout.[ts|js]</code
-			>
-		</p>
-		<CodeBlock
-			language="js"
-			code={`
+					`}
+			/>
+			<!-- prettier-ignore -->
+			<p>
+				Open your root layout, found in <code class="code">/src/routes/+layout.svelte</code>, then append the follow two lines at the top of the script tag. This will disable both server-side rendering (SSR) and prerendering. 
+			</p>
+			<CodeBlock
+				language="js"
+				code={`
 export const prerender = true
 export const ssr = false
-						`}
-		/>
-		<p>Now your app is ready to install Tauri.</p>
+					`}
+			/>
+		</div>
+		<!-- Install Tauri -->
+		<div class="space-y-4">
+			<h3 class="h3">Install Tauri</h3>
+			<p>Tauri offers a friendly CLI to make the automate the install process. Run the following command in your terminal.</p>
+			<CodeBlock language="shell" code={`npm install --save-dev @tauri-apps/cli`} />
+			<p>Look for <code class="code">package.json</code> in the root of your project. Open this and append the following script command.</p>
+			<CodeBlock language="json" code={`"scripts": {\n\t"tauri": "tauri"\n}`} />
+			<p>Run the following command in your terminal, taking care to use the recommendations settings provided below.</p>
+			<CodeBlock language="shell" code={`npm run tauri init`} />
+			<dl class="list-dl">
+				<div>
+					<span class="badge-icon variant-soft p-4">1</span>
+					<span class="flex-auto">
+						<dt class="font-bold">What is your app name?</dt>
+						<dd>Set the desired name of the generated bundle</dd>
+					</span>
+				</div>
+				<div>
+					<span class="badge-icon variant-soft p-4">2</span>
+					<span class="flex-auto">
+						<dt class="font-bold">What should the window title be?</dt>
+						<dd>Set the desired title of the main window</dd>
+					</span>
+				</div>
+				<div>
+					<span class="badge-icon variant-soft p-4">3</span>
+					<span class="flex-auto">
+						<dt class="font-bold">
+							Where are your web assets (HTML/CSS/JS) relative to <code class="code">/src-tauri/tauri.conf.json</code>?
+						</dt>
+						<dd>Set the default to <code class="code">../build</code></dd>
+					</span>
+				</div>
+				<div>
+					<span class="badge-icon variant-soft p-4">4</span>
+					<span class="flex-auto">
+						<dt class="font-bold">What is the URL of your dev server?</dt>
+						<dd>SvelteKit's default is <code class="code">http://localhost:5173</code></dd>
+					</span>
+				</div>
+				<div>
+					<span class="badge-icon variant-soft p-4">5</span>
+					<span class="flex-auto">
+						<dt class="font-bold">What is your frontend dev command?</dt>
+						<dd>If using NPM, set this to <code class="code">npm run dev</code></dd>
+					</span>
+				</div>
+				<div>
+					<span class="badge-icon variant-soft p-4">6</span>
+					<span class="flex-auto">
+						<dt class="font-bold">What is your frontend build command?</dt>
+						<dd>If using NPM, set this to <code class="code">npm run build</code></dd>
+					</span>
+				</div>
+			</dl>
+		</div>
+		<!-- Verify Install -->
+		<div class="space-y-4">
+			<h3 class="h3">Verify Install</h3>
+			<p>
+				Once installed, look for <code class="code">/src-tauri</code> in the root of your project. This houses all Tauri assets, including:
+			</p>
+			<ul class="list-disc list-inside space-y-2">
+				<li><code class="code">Cargo.toml</code> - similar to <code class="code">package.json</code>, but for Rust.</li>
+				<li><code class="code">tauri.conf.json</code> - the Tauri configuration file.</li>
+				<li><code class="code">src/main.rs</code> - the entry point of your Rust backend.</li>
+			</ul>
+		</div>
+		<!-- Run the App -->
+		<div class="space-y-4">
+			<h3 class="h3">Run the App</h3>
+			<p>Run the following command to start your Tauri application.</p>
+			<CodeBlock language="shell" code={`npm run tauri dev`} />
+		</div>
 	</section>
 
+	<hr />
+
+	<!-- Starter Template -->
 	<section class="space-y-4">
-		<h2 class="h2">Add the Tauri backend</h2>
-		<p>
-			It's time to add Tauri to your project. For that. Tauri offers a nice CLI to make the installation easy. First install it with the
-			next command:
-		</p>
-		<CodeBlock language="shell" code={`npm install --save-dev @tauri-apps/cli`} />
-		<p>Then, you will also need to add tauri as a script in your <code class="code">package.json</code></p>
-		<CodeBlock
-			language="json"
-			code={`
-"scripts": {
-  "tauri": "tauri"
-}
-						`}
-		/>
-		<p>
-			Now it's as easy as to run tauri init in your terminal while on the root of your previously created Skeleton project. But don't hurry!
-			You will need to change some defaults so don't press Y to every question (check below before running the script).
-		</p>
-		<CodeBlock language="shell" code={`npm run tauri init`} />
-		<p>The CLI will ask you the following question. Be careful to change the default answers when specified.</p>
-		<ol class="list">
-			<li>
-				<span class="badge-icon p-4 variant-soft-primary">1.</span>
-				<span class="flex-auto"
-					><dt class="font-bold">What is your app name?</dt>
-					<dd class="text-sm">The name of your app. This is how the final bundle will be called.</dd></span
-				>
-			</li>
-			<li>
-				<span class="badge-icon p-4 variant-soft-primary">2.</span>
-				<span class="flex-auto"
-					><dt class="font-bold">What should the window title be?</dt>
-					<dd class="text-sm">The title of the main window.</dd></span
-				>
-			</li>
-			<li>
-				<span class="badge-icon p-4 variant-soft-primary">3.</span>
-				<span class="flex-auto"
-					><dt class="font-bold">
-						Where are your web assets (HTML/CSS/JS) located relative to the /src-tauri/tauri.conf.json file that will be created?
-					</dt>
-					<dd class="text-sm">Change the default to <code class="code">../build</code>.</dd></span
-				>
-			</li>
-			<li>
-				<span class="badge-icon p-4 variant-soft-primary">4.</span>
-				<span class="flex-auto"
-					><dt class="font-bold">What is the URL of your dev server?</dt>
-					<dd class="text-sm">Add the URL of your server, which is <code class="code">http://localhost:5173</code> by default.</dd></span
-				>
-			</li>
-			<li>
-				<span class="badge-icon p-4 variant-soft-primary">5.</span>
-				<span class="flex-auto"
-					><dt class="font-bold">What is your frontend dev command?</dt>
-					<dd class="text-sm">If your are using npm, this will be <code class="code">npm run dev</code>.</dd></span
-				>
-			</li>
-			<li>
-				<span class="badge-icon p-4 variant-soft-primary">6.</span>
-				<span class="flex-auto"
-					><dt class="font-bold">What is your frontend build command?</dt>
-					<dd class="text-sm">If your are using npm, this will be <code class="code">npm run build</code>.</dd></span
-				>
-			</li>
-		</ol>
-		<p>
-			And that's it! After running the script you should be able to see a <code class="code">src-tauri</code> folder in your root with your
-			rust backend and some important files as <code class="code">Cargo.toml</code> (kind of Rust package.json),
-			<code class="code">tauri.conf.json</code>
-			(Tauri configuration file) and <code class="code">src/main.rs</code> (the entry point of your Rust backend), among others.
-		</p>
-		<p>You can now run tauri dev and look at your beautiful desktp app.</p>
-		<CodeBlock language="shell" code={`npm run tauri dev`} />
+		<h2 class="h2">Starter Template</h2>
+		<p>If you're looking for a quick starter or reference project, refer to our opinionated template on GitHub.</p>
+		<div class="card variant-glass p-4 py-10 text-center">
+			<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton-starter-tauri" target="_blank">
+				<i class="fa-brands fa-github" />
+				<span>View Starter Template</span>
+				<i class="fa-solid fa-up-right-from-square" />
+			</a>
+		</div>
 	</section>
 
-	<!-- Template -->
-	<section class="space-y-4">
-		<h2 class="h2">Premade template</h2>
-		<p>
-			Although we recommend to setup everything manually as detailed before, we also want to offer you a complete template for you to use.
-			Take into account that is an opinionated template but you can edit it for your needs following our many guides in our site.
-		</p>
-		<!-- TODO: ADD TEMPLATE REPO LINK -->
-	</section>
+	<hr />
 
-	<!-- Done -->
+	<!-- Learn More -->
 	<section class="space-y-4">
-		<h2 class="h2">Further Reading</h2>
-		<p>
-			Congrats! You have now created a simple desktop app using Tauri, SvelteKit and Skeleton. To start working on it we highly recommend
-			these resources:
-		</p>
-		<ol class="list">
-			<li>
-				<span class="badge-icon p-4 variant-soft-secondary"><i class="fa-solid fa-book" /></span><span class="flex-auto"
-					><a href="https://tauri.app/v1/guides/development/development-cycle" class="anchor">Tauri Guides and Documentation</a>, from which
-					this guide was heavily inspired</span
-				>
-			</li>
-			<li>
-				<span class="badge-icon p-4 variant-soft-secondary"><i class="fa-solid fa-book" /></span><span class="flex-auto"
-					><a href="https://doc.rust-lang.org/book/" class="anchor">The Rust Book</a></span
-				>
-			</li>
-			<li>
-				<span class="badge-icon p-4 variant-soft-secondary"><i class="fa-solid fa-book" /></span><span class="flex-auto"
-					>Check out our various web-related recommendations in <a href="https://www.skeleton.dev/docs/introduction#faqs" class="anchor"
-						>the introduction</a
-					>
+		<h2 class="h2">Learn More</h2>
+		<dl class="list-dl">
+			<div>
+				<span class="badge-icon variant-soft-secondary p-4">
+					<i class="fa-solid fa-book" />
 				</span>
-			</li>
-		</ol>
+				<span class="flex-auto">
+					<a class="anchor" href="https://tauri.app/v1/guides/development/development-cycle" target="_blank">
+						Official Tauri Documentation &rarr;
+					</a>
+				</span>
+			</div>
+			<div>
+				<span class="badge-icon variant-soft-secondary p-4">
+					<i class="fa-solid fa-book" />
+				</span>
+				<span class="flex-auto">
+					<a class="anchor" href="https://doc.rust-lang.org/book/" target="_blank">The Rust Book &rarr;</a>
+				</span>
+			</div>
+		</dl>
 	</section>
 </LayoutPage>
