@@ -642,7 +642,7 @@ const popupCombobox: PopupSettings = {
 			<h2 class="h2">Z-Index Stacking</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Please note that neither Skelton nor Floating-UI <a class="anchor" href="https://floating-ui.com/docs/misc#z-index-stacking">define a default z-index</a> for popups.
+				Please note that neither Skeleton nor Floating-UI <a class="anchor" href="https://floating-ui.com/docs/misc#z-index-stacking">define a default z-index</a> for popups.
 			</p>
 		</section>
 
