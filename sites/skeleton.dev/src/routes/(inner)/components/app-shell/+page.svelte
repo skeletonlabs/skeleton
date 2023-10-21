@@ -226,10 +226,11 @@
 			<CodeBlock
 				language="ts"
 				code={`
+import type { AfterNavigate } from '@sveltejs/kit';
 import { afterNavigate } from '$app/navigation';
 
-afterNavigate((params: any) => {
-    const isNewPage: boolean = params.from && params.to && params.from.route.id !== params.to.route.id;
+afterNavigate((params: AfterNavigate) => {
+    const isNewPage: boolean = params.from?.route.id !== params.to?.route.id;
     const elemPage = document.querySelector('#page');
     if (isNewPage && elemPage !== null) {
         elemPage.scrollTop = 0;
