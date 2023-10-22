@@ -37,7 +37,7 @@
 	// Locals
 	let group: unknown = multiple ? [] : '';
 	let name = '';
-	
+
 	function toggleNode(node: TreeViewNode, open: boolean) {
 		// toggle only nodes with children
 		if (!node.children?.length) return;
@@ -88,10 +88,10 @@
 		}
 	}
 
-	if(selection && multiple) {
-		nodes.forEach(node => {
-			if(!Array.isArray(group)) return;
-			if(checkedNodes.includes(node.id) && !group.includes(node.id)) {
+	if (selection && multiple) {
+		nodes.forEach((node) => {
+			if (!Array.isArray(group)) return;
+			if (checkedNodes.includes(node.id) && !group.includes(node.id)) {
 				group.push(node.id);
 			}
 		});

@@ -114,11 +114,10 @@
 				group = group;
 			}
 		}
-		if(!indeterminate) {
+		if (!indeterminate) {
 			onParentChange();
 		}
 	}
-
 
 	$: if (!multiple) updateRadio(group);
 	$: if (!multiple) updateRadioGroup(checked);
@@ -223,7 +222,7 @@
 			child.onParentChange();
 		});
 	}
-	
+
 	// used to update children of item when checked / unchecked in single mode
 	$: if (!multiple && group !== undefined) {
 		if (group !== value) {

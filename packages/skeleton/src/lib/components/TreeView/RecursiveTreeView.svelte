@@ -106,6 +106,6 @@
 	aria-disabled={disabled}
 >
 	{#if nodes && nodes.length > 0}
-		<RecursiveTreeViewItem {nodes} bind:expandedNodes bind:disabledNodes bind:checkedNodes bind:indeterminateNodes/>
+		<RecursiveTreeViewItem {nodes} bind:expandedNodes bind:disabledNodes bind:checkedNodes bind:indeterminateNodes />
 	{/if}
 </div>
