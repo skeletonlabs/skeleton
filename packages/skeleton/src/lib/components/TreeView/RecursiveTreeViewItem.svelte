@@ -88,14 +88,22 @@
 		}
 	}
 
-	if (selection && multiple) {
-		nodes.forEach((node) => {
-			if (!Array.isArray(group)) return;
-			if (checkedNodes.includes(node.id) && !group.includes(node.id)) {
-				group.push(node.id);
-			}
-		});
-		group = group;
+	if (selection) {
+		if (multiple) {
+			nodes.forEach((node) => {
+				if (!Array.isArray(group)) return;
+				if (checkedNodes.includes(node.id) && !group.includes(node.id)) {
+					group.push(node.id);
+				}
+			});
+			group = group;
+		} else {
+			nodes.forEach((node) => {
+				if (checkedNodes.includes(node.id) && group !== node.id) {
+					group = node.id;
+				}
+			});
+		}
 	}
 
 	onMount(async () => {
