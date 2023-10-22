@@ -46,7 +46,7 @@
 		color = c;
 	}
 
-	function filter(flavor: string): void {
+	function toggle(flavor: string): void {
 		flavors[flavor] = !flavors[flavor];
 	}
 </script>
@@ -161,7 +161,7 @@
 							<!-- prettier-ignore -->
 							<span
 								class="chip {flavors[f] ? 'variant-filled' : 'variant-soft'}"
-								on:click={() => { filter(f); }}
+								on:click={() => { toggle(f); }}
 								on:keypress
 							>
 								{#if flavors[f]}<span><i class="fa-solid fa-check" /></span>{/if}
@@ -182,12 +182,20 @@ let flavors: Record<string, boolean> = {
 `}
 					/>
 					<CodeBlock
+						language="ts"
+						code={`
+function toggle(flavor: string): void {
+	flavors[flavor] = !flavors[flavor];
+}
+`}
+					/>
+					<CodeBlock
 						language="html"
 						code={`
 {#each Object.keys(flavors) as f}
 	<span
 		class="chip {flavors[f] ? 'variant-filled' : 'variant-soft'}"
-		on:click={() => { filter(f); }}
+		on:click={() => { toggle(f); }}
 		on:keypress
 	>
 		{#if flavors[f]}<span>(icon)</span>{/if}
