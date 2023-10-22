@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
+	import { setContext, tick } from 'svelte';
 
 	// Types
 	import type { CssClasses, TreeViewNode } from '../../index.js';
@@ -106,6 +106,6 @@
 	aria-disabled={disabled}
 >
 	{#if nodes && nodes.length > 0}
-		<RecursiveTreeViewItem {nodes} bind:expandedNodes bind:disabledNodes bind:checkedNodes bind:indeterminateNodes />
+		<RecursiveTreeViewItem {nodes} bind:expandedNodes bind:disabledNodes bind:checkedNodes bind:indeterminateNodes/>
 	{/if}
 </div>
