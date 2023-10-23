@@ -98,7 +98,16 @@
 
 	function onClick(event: CustomEvent<{ id: string }>) {
 		/** @event {{id:string}} click - Fires on tree item click */
-		dispatch('click', event);
+		dispatch('click', {
+			id: event.detail.id
+		});
+	}
+
+	function onToggle(event: CustomEvent<{ id: string }>) {
+		/** @event {{id:string}} toggle - Fires on tree item toggle */
+		dispatch('toggle', {
+			id: event.detail.id
+		});
 	}
 
 	// Reactive
@@ -114,6 +123,14 @@
 	aria-disabled={disabled}
 >
 	{#if nodes && nodes.length > 0}
-		<RecursiveTreeViewItem {nodes} bind:expandedNodes bind:disabledNodes bind:checkedNodes bind:indeterminateNodes on:click={onClick} />
+		<RecursiveTreeViewItem
+			{nodes}
+			bind:expandedNodes
+			bind:disabledNodes
+			bind:checkedNodes
+			bind:indeterminateNodes
+			on:click={onClick}
+			on:toggle={onToggle}
+		/>
 	{/if}
 </div>

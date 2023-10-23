@@ -148,6 +148,11 @@
 				dispatch('click', {
 					id: node.id
 				})}
+			on:toggle={() => {
+				dispatch('toggle', {
+					id: node.id
+				});
+			}}
 		>
 			{@html node.content}
 			<svelte:fragment slot="lead">
@@ -161,6 +166,14 @@
 					bind:checkedNodes
 					bind:indeterminateNodes
 					bind:treeItems={children[i]}
+					on:click={(e) =>
+						dispatch('click', {
+							id: e.detail.id
+						})}
+					on:toggle={(e) =>
+						dispatch('toggle', {
+							id: e.detail.id
+						})}
 				/>
 			</svelte:fragment>
 		</TreeViewItem>
