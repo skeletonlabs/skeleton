@@ -72,9 +72,9 @@
 
 	let expandedNodes: string[] = [];
 	let disabledNodes: string[] = ['programming'];
-	let singleCheckedNodes: string[] = [];
+	let singleCheckedNodes: string[] = ['programming'];
 	let multiCheckedNodes: string[] = ['javascript'];
-	let indeterminateNodes: string[] = [];
+	let indeterminateNodes: string[] = ['programming', 'language'];
 </script>
 
 <DocsShell {settings}>
@@ -761,7 +761,7 @@ let disabledNodes : string[] = [];
 						language="ts"
 						code={`
 let myTreeViewNodes: TreeViewNode[] = //...
-let checkedNodes : string[] = [];
+let checkedNodes : string[] = ['programming'];
 						`}
 					/>
 					<CodeBlock
@@ -796,8 +796,8 @@ let checkedNodes : string[] = [];
 						language="ts"
 						code={`
 let myTreeViewNodes: TreeViewNode[] = //...
-let checkedNodes : string[] = [];
-let indeterminateNodes : string[] = [];
+let checkedNodes : string[] = ['javascript'];
+let indeterminateNodes : string[] = ['programming', 'language'];
 						`}
 					/>
 					<CodeBlock
