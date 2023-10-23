@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 
 	// Types
 	import type { CssClasses, TreeViewNode } from '../../index.js';
@@ -93,6 +93,14 @@
 	setContext('regionSymbol', regionSymbol);
 	setContext('regionChildren', regionChildren);
 
+	// events
+	const dispatch = createEventDispatcher();
+
+	function onClick(event: CustomEvent<{ id: string }>) {
+		/** @event {{id:string}} click - Fires on tree item click */
+		dispatch('click', event);
+	}
+
 	// Reactive
 	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;
 </script>
@@ -106,6 +114,6 @@
 	aria-disabled={disabled}
 >
 	{#if nodes && nodes.length > 0}
-		<RecursiveTreeViewItem {nodes} bind:expandedNodes bind:disabledNodes bind:checkedNodes bind:indeterminateNodes />
+		<RecursiveTreeViewItem {nodes} bind:expandedNodes bind:disabledNodes bind:checkedNodes bind:indeterminateNodes on:click={onClick} />
 	{/if}
 </div>
