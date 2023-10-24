@@ -183,7 +183,7 @@
 	<ul>
 		<li>
 			<a href="/elements/lists">
-				<span class="badge bg-primary-500">💀</span>
+				<span class="badge bg-primary-500">📋</span>
 				<span class="flex-auto">Skeleton</span>
 			</a>
 		</li>
@@ -200,14 +200,14 @@
 				language="html"
 				code={`
 <nav class="list-nav">
-	<ul>
-		<li>
-			<a href="/elements/lists" class={classesActive(href="/elements/lists")}>
-				<span class="badge bg-primary-500">💀</span>
-				<span class="flex-auto">Skeleton</span>
-			</a>
-		</li>
-	</ul>
+    <ul>
+        <li>
+            <a href="/elements/lists" class={classesActive("/elements/lists")}>
+                <span class="badge bg-primary-500">📋</span>
+                <span class="flex-auto">Lists</span>
+            </a>
+        </li>
+    </ul>
 </nav>
 `}
 			/>
