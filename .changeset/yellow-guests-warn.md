@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: fixes a linting error on ProgressRadial
+bugfix: Fixed a linting error on the linting error on Progress Radial component

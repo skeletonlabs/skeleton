@@ -2,6 +2,7 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: Added recursive tree-view enhancements including:
+feat: Added recursive Tree View component enhancements including:
+
 - Added `click` and `toggle` events.
-- `lead` and `content` props now accepts Svelte components in addition to HTML content.
+- The `lead` and `content` props now accepts Svelte components and HTML content.

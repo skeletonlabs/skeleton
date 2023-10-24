@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: added a transition `duration` property to the Drawer componenta and `DrawerSettings`
+feat: Added a transition `duration` property to the Drawer component as well as `DrawerSettings`

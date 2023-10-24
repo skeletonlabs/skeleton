@@ -2,4 +2,4 @@
 "@skeletonlabs/tw-plugin": patch
 ---
 
-chore: Updated modal focus state style
+chore: Improved the default modal focus state styles. Focus should now be shown by default.
