@@ -27,7 +27,7 @@
 	<!-- Prerequisites -->
 	<section class="space-y-4">
 		<h2 class="h2">Prerequisites</h2>
-		<p>Before you start, install all required Rust and system dependencies. See the following guide for complete instructions.</p>
+		<p>Before you begin, make sure to install all required Rust language and system dependencies per the guide below.</p>
 		<div class="card variant-glass p-4 py-10 text-center">
 			<a class="btn variant-filled" href="https://tauri.app/v1/guides/getting-started/prerequisites" target="_blank">
 				<span>Tauri Prerequisites Guide</span>
@@ -38,10 +38,13 @@
 
 	<!-- Video -->
 	<section class="space-y-4">
-		<h2 class="h2">Video Guide</h2>
+		<div class="flex items-center space-x-2">
+			<h2 class="h2">Video Guide</h2>
+			<span class="badge variant-filled-warning">Optional</span>
+		</div>
 		<!-- prettier-ignore -->
 		<p>
-			The following video will guide you through the process of integrating Tauri and SvelteKit. You may then follow our <a class="anchor" href="/docs/get-started">manual install instructions</a> to install and add Skeleton to your project.
+			For visual learners, the following video will guide you through the process of integrating Tauri and SvelteKit. You can then follow these instructions to <a class="anchor" href="/docs/get-started">manually add Skeleton</a> to your project.
 		</p>
 		<iframe
 			class="w-full aspect-video mx-auto rounded-container-token shadow"
@@ -54,7 +57,7 @@
 	</section>
 
 	<section class="space-y-4">
-		<h2 class="h2">Manual Installation</h2>
+		<h2 class="h2">Manual Guide</h2>
 		<!-- Setup Skeleton -->
 		<div class="space-y-4">
 			<h3 class="h3">Setup Skeleton</h3>
@@ -105,13 +108,13 @@ export default config;
 			/>
 			<!-- prettier-ignore -->
 			<p>
-				Open your root layout, found in <code class="code">/src/routes/+layout.svelte</code>, then append the following two lines at the top of the script tag. This will disable both server-side rendering (SSR) and prerendering. 
+				Open your root layout, found in <code class="code">/src/routes/+layout.svelte</code>, then append the following two lines at the top of the script tag. This disables server-side rendering (SSR) while enabling prerendering. 
 			</p>
 			<CodeBlock
 				language="js"
 				code={`
-export const prerender = true
-export const ssr = false
+export const ssr = false;
+export const prerender = true;
 					`}
 			/>
 		</div>
