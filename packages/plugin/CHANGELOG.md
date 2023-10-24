@@ -1,5 +1,13 @@
 # @skeletonlabs/tw-plugin
 
+## 0.2.3
+
+### Patch Changes
+
+- bugfix: Added disabled state styles for `.btn-group` children, such as buttons ([#2160](https://github.com/skeletonlabs/skeleton/pull/2160))
+
+- chore: Improved the default modal focus state styles. Focus should now be shown by default. ([#2065](https://github.com/skeletonlabs/skeleton/pull/2065))
+
 ## 0.2.2
 
 ### Patch Changes
