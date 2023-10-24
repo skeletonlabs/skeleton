@@ -78,13 +78,7 @@
 	<!-- A11y attributes are not allowed on <label> -->
 	<!-- FIXME: resolve a11y warnings -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div 
-		class="app-rail-wrapper {classesWrapper}" 
-		tabindex="0" 
-		role="button"
-		on:keydown={onKeyDown} 
-		on:keyup
-		on:keypress>
+	<div class="app-rail-wrapper {classesWrapper}" tabindex="0" role="button" on:keydown={onKeyDown} on:keyup on:keypress>
 		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 		<div class="h-0 w-0 overflow-hidden">
 			<input bind:this={elemInput} type="radio" bind:group {name} {value} {...prunedRestProps()} tabindex="-1" on:click on:change />
