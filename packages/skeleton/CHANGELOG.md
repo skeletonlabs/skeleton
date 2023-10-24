@@ -1,5 +1,20 @@
 # @skeletonlabs/skeleton
 
+## 2.4.0
+
+### Minor Changes
+
+- feat: Added recursive Tree View component enhancements including: ([#2181](https://github.com/skeletonlabs/skeleton/pull/2181))
+
+  - Added `click` and `toggle` events.
+  - The `lead` and `content` props now accepts Svelte components and HTML content.
+
+- feat: Added a transition `duration` property to the Drawer component as well as `DrawerSettings` ([#2139](https://github.com/skeletonlabs/skeleton/pull/2139))
+
+### Patch Changes
+
+- bugfix: Fixed a linting error on the linting error on Progress Radial component ([#2134](https://github.com/skeletonlabs/skeleton/pull/2134))
+
 ## 2.3.0
 
 ### Minor Changes
