@@ -10,7 +10,7 @@
 	import sveldTreeView from '@skeletonlabs/skeleton/components/TreeView/TreeView.svelte?raw&sveld';
 	import sveldTreeViewItem from '@skeletonlabs/skeleton/components/TreeView/TreeViewItem.svelte?raw&sveld';
 	import sveldRecursiveTreeView from '@skeletonlabs/skeleton/components/TreeView/RecursiveTreeView.svelte?raw&sveld';
-	import { nodes } from './exampleData';
+	import { nodes, leadExampleNodes } from './exampleData';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -682,7 +682,44 @@ let myTreeViewNodes: TreeViewNode[] = [
 					<CodeBlock
 						language="html"
 						code={`
-<RecursiveTreeView nodes={nodes} />
+<RecursiveTreeView nodes={myTreeViewNodes} />
+						`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+			<!--Svelte Component-->
+			<h3 class="h3">Svelte Components</h3>
+			<p>
+				The props <code class="code">lead</code> and <code class="code">content</code> supports Svelte Components in addition to HTML content.
+			</p>
+			<DocsPreview background="neutral" regionFooter="flex justify-center gap-4">
+				<svelte:fragment slot="preview">
+					<RecursiveTreeView nodes={leadExampleNodes} />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>To get expected results make sure to include a <em>unique Id</em> for each node.</p>
+					<CodeBlock
+						language="ts"
+						code={`
+import ExampleComponent from './exampleComponent.svelte';
+
+let myTreeViewNodes: TreeViewNode[] = [
+	{
+		id: 'unique-id'
+		content: 'content',
+		lead: ExampleComponent,
+		leadProps: {
+			myProp: 'myValue',
+		}
+	},
+	// ...
+]
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<RecursiveTreeView nodes={myTreeViewNodes} />
 						`}
 					/>
 				</svelte:fragment>
@@ -737,7 +774,7 @@ let disabledNodes : string[] = [];
 					<CodeBlock
 						language="html"
 						code={`
-<RecursiveTreeView nodes={nodes} bind:disabledNodes={disabledNodes} />
+<RecursiveTreeView nodes={myTreeViewNodes} bind:disabledNodes={disabledNodes} />
 						`}
 					/>
 				</svelte:fragment>
@@ -767,7 +804,7 @@ let checkedNodes : string[] = [];
 					<CodeBlock
 						language="html"
 						code={`
-<RecursiveTreeView selection nodes={nodes} bind:checkedNodes={checkedNodes} />
+<RecursiveTreeView selection nodes={myTreeViewNodes} bind:checkedNodes={checkedNodes} />
 						`}
 					/>
 				</svelte:fragment>
@@ -807,7 +844,7 @@ let indeterminateNodes : string[] = [];
 	selection 
 	multiple 
 	relational 
-	nodes={nodes} 
+	nodes={myTreeViewNodes} 
 	bind:checkedNodes={checkedNodes} 
 	bind:indeterminateNodes={indeterminateNodes}/>
 						`}

@@ -121,7 +121,7 @@
 												<tr>
 													<td><code class="code">$modeCurrent</code></td>
 													<td><em>true | false</em></td>
-													<td>The current currently active mode setting.</td>
+													<td>The current active mode setting.</td>
 												</tr>
 											</tbody>
 										</table>
