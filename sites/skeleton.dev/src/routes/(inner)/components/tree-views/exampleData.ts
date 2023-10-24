@@ -1,4 +1,5 @@
 import type { TreeViewNode } from '@skeletonlabs/skeleton';
+import ExampleComponent from './exampleComponent.svelte';
 
 export const nodes: TreeViewNode[] = [
 	{
@@ -219,5 +220,32 @@ export const nodes: TreeViewNode[] = [
 				]
 			}
 		]
+	}
+];
+
+export const leadExampleNodes: TreeViewNode[] = [
+	{
+		id: 'person1',
+		content: 'Susan',
+		lead: ExampleComponent,
+		leadProps: {
+			avatarId: 31
+		}
+	},
+	{
+		id: 'person2',
+		content: 'Michael',
+		lead: ExampleComponent,
+		leadProps: {
+			avatarId: 14
+		}
+	},
+	{
+		id: 'person3',
+		content: 'Melissa',
+		lead: ExampleComponent,
+		leadProps: {
+			avatarId: 9
+		}
 	}
 ];

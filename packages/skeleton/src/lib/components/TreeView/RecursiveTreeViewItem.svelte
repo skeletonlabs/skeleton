@@ -154,9 +154,17 @@
 				});
 			}}
 		>
-			{@html node.content}
+			{#if typeof node.content === 'string'}
+				{@html node.content}
+			{:else}
+				<svelte:component this={node.content} {...node.contentProps} />
+			{/if}
 			<svelte:fragment slot="lead">
-				{@html node.lead}
+				{#if typeof node.lead === 'string'}
+					{@html node.lead}
+				{:else}
+					<svelte:component this={node.lead} {...node.leadProps} />
+				{/if}
 			</svelte:fragment>
 			<svelte:fragment slot="children">
 				<RecursiveTreeViewItem
