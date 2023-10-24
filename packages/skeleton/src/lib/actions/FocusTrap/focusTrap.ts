@@ -21,10 +21,17 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 		}
 	}
 
+	// Sort focusable elements by tabindex, positive first, then 0
+	const sortByTabIndex = (focusableElems: HTMLElement[]): HTMLElement[] => {
+		const sortedFocusableElems = focusableElems.filter((elem) => elem.tabIndex > 0).sort((a, b) => a.tabIndex - b.tabIndex);
+		sortedFocusableElems.push(...focusableElems.filter((elem) => (elem.tabIndex = 0)));
+		return sortedFocusableElems;
+	};
+
 	const onScanElements = (fromObserver: boolean) => {
 		if (enabled === false) return;
-		// Gather all focusable elements
-		const focusableElems: HTMLElement[] = Array.from(node.querySelectorAll(elemWhitelist));
+		// Gather all focusable elements, sorted according to tabindex
+		const focusableElems: HTMLElement[] = sortByTabIndex(Array.from(node.querySelectorAll(elemWhitelist)));
 		if (focusableElems.length) {
 			// Set first/last focusable elements
 			elemFirst = focusableElems[0];
