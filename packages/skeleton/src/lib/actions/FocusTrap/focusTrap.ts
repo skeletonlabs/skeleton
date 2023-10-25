@@ -23,9 +23,20 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 
 	// Sort focusable elements by tabindex, positive first, then 0
 	const sortByTabIndex = (focusableElems: HTMLElement[]): HTMLElement[] => {
-		const sortedFocusableElems = focusableElems.filter((elem) => elem.tabIndex > 0).sort((a, b) => a.tabIndex - b.tabIndex);
-		sortedFocusableElems.push(...focusableElems.filter((elem) => (elem.tabIndex = 0)));
+		const sortedFocusableElems = focusableElems.filter((el) => el.tabIndex > 0).sort((a, b) => a.tabIndex - b.tabIndex);
+		sortedFocusableElems.push(...focusableElems.filter((el) => el.tabIndex == 0 || !el.tabIndex));
 		return sortedFocusableElems;
+	};
+
+	// Get focusTrapTarget element or first focusable element
+	const getFocusTrapTarget = (elemFirst: HTMLElement) => {
+		// If there is a form with a data-tabindex attribute, get it
+		const form = node.querySelector<HTMLElement>('form[data-tabindex]');
+		// If not, return null, focusTrap will switch to default behavior
+		if (!form) return elemFirst;
+		// Get data-indextab value or 0, as a number
+		const tabIndex = +(form.getAttribute('data-tabindex') || '0');
+		return form.querySelector<HTMLElement>('[tabindex="' + tabIndex + '"]') || elemFirst;
 	};
 
 	const onScanElements = (fromObserver: boolean) => {
@@ -36,8 +47,8 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			// Set first/last focusable elements
 			elemFirst = focusableElems[0];
 			elemLast = focusableElems[focusableElems.length - 1];
-			// Auto-focus first focusable element only when not called from observer
-			if (!fromObserver) elemFirst.focus();
+			// Auto-focus focusTrapTarget or first focusable element only when not called from observer
+			if (!fromObserver) getFocusTrapTarget(elemFirst).focus();
 			// Listen for keydown on first & last element
 			elemFirst.addEventListener('keydown', onFirstElemKeydown);
 			elemLast.addEventListener('keydown', onLastElemKeydown);
