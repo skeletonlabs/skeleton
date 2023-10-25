@@ -6,7 +6,7 @@
 	const cBase =
 		'card bg-surface-100/60 dark:bg-surface-500/30 backdrop-blur-lg overflow-hidden w-full max-w-[800px] shadow-xl mt-8 mb-auto';
 	const cHeader = 'bg-surface-300-600-token flex items-center';
-	const cSearchInput = 'bg-transparent border-0 ring-0 focus:ring-0 w-full p-4 text-lg';
+	const cSearchInput = 'bg-transparent border-0 ring-0 focus:ring-0 w-full m-2 ml-4 text-lg';
 	const cResults = 'overflow-x-auto max-h-[480px] hide-scrollbar';
 	const cResultAnchor = '!rounded-none justify-between hover:variant-soft focus:!variant-filled-primary outline-0';
 	const cFooter = 'hidden md:flex items-center gap-2 bg-surface-300-600-token p-4 text-xs font-bold';

@@ -2,7 +2,7 @@
 	import TreeViewItem from './TreeViewItem.svelte';
 	import RecursiveTreeViewItem from './RecursiveTreeViewItem.svelte';
 	import type { TreeViewNode } from './types.js';
-	import { getContext, onMount } from 'svelte';
+	import { createEventDispatcher, getContext, onMount } from 'svelte';
 
 	// this can't be passed using context, since we have to pass it to recursive children.
 	/** Provide data-driven nodes. */
@@ -37,6 +37,9 @@
 	// Locals
 	let group: unknown = multiple ? [] : '';
 	let name = '';
+
+	// events
+	const dispatch = createEventDispatcher();
 
 	function toggleNode(node: TreeViewNode, open: boolean) {
 		// toggle only nodes with children
@@ -137,10 +140,27 @@
 			indeterminate={indeterminateNodes.includes(node.id)}
 			on:toggle={(e) => toggleNode(node, e.detail.open)}
 			on:groupChange={(e) => checkNode(node, e.detail.checked, e.detail.indeterminate)}
+			on:click={() =>
+				dispatch('click', {
+					id: node.id
+				})}
+			on:toggle={() => {
+				dispatch('toggle', {
+					id: node.id
+				});
+			}}
 		>
-			{@html node.content}
+			{#if typeof node.content === 'string'}
+				{@html node.content}
+			{:else}
+				<svelte:component this={node.content} {...node.contentProps} />
+			{/if}
 			<svelte:fragment slot="lead">
-				{@html node.lead}
+				{#if typeof node.lead === 'string'}
+					{@html node.lead}
+				{:else}
+					<svelte:component this={node.lead} {...node.leadProps} />
+				{/if}
 			</svelte:fragment>
 			<svelte:fragment slot="children">
 				<RecursiveTreeViewItem
@@ -150,6 +170,14 @@
 					bind:checkedNodes
 					bind:indeterminateNodes
 					bind:treeItems={children[i]}
+					on:click={(e) =>
+						dispatch('click', {
+							id: e.detail.id
+						})}
+					on:toggle={(e) =>
+						dispatch('toggle', {
+							id: e.detail.id
+						})}
 				/>
 			</svelte:fragment>
 		</TreeViewItem>
