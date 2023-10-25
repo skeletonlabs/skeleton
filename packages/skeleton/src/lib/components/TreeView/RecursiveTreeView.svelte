@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import { createEventDispatcher, setContext } from 'svelte';
 
 	// Types
