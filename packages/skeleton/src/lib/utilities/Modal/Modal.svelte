@@ -103,7 +103,7 @@
 	 * Index that focusTrap will target.
 	 * @type {number}
 	 */
-	export let tabIndex: number;
+	export let tabIndex: number = 0;
 
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 overflow-y-auto';
