@@ -42,4 +42,6 @@ export interface ModalSettings {
 	buttonTextSubmit?: string;
 	/** Pass arbitrary data per modal instance. */
 	meta?: any;
+	/** Provide an index for the element to focus on (check focusTrap action) */
+	tabIndex?: number;
 }
