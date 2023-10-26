@@ -58,4 +58,6 @@ export interface DrawerSettings {
 	labelledby?: string;
 	/** Provide an ID of the element describing the drawer.*/
 	describedby?: string;
+	/** Provide an index for the element to focus on (check focusTrap action) */
+	tabIndex?: number;
 }

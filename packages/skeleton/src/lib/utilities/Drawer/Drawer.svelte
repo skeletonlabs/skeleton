@@ -204,7 +204,7 @@
 			params: { duration },
 			enabled: transitions && opacityTransition
 		}}
-		use:focusTrap={true}
+		use:focusTrap={{ enabled: true, tabIndex: $drawerStore.tabIndex }}
 	>
 		<!-- Drawer -->
 		<!-- separate In/Out so anim values update -->
