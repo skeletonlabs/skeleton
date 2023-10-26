@@ -3,7 +3,6 @@ type FocusTrapArgs = boolean | { enabled: boolean; tabIndex?: number };
 export function focusTrap(node: HTMLElement, args: FocusTrapArgs) {
 	let enabled = typeof args === 'boolean' ? args : args.enabled;
 	const tabIndex = typeof args === 'boolean' ? null : args.tabIndex;
-	// export function focusTrap(node: HTMLElement, enabled: boolean, tabIndex?: number) {
 	const elemWhitelist =
 		'a[href]:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), textarea:not([tabindex="-1"]), select:not([tabindex="-1"]), details:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
 	let elemFirst: HTMLElement;
@@ -42,14 +41,12 @@ export function focusTrap(node: HTMLElement, args: FocusTrapArgs) {
 	const onScanElements = (fromObserver: boolean) => {
 		if (enabled === false) return;
 		// Gather all focusable elements, sorted according to tabindex
-		// const focusableElems: HTMLElement[] = sortByTabIndex(Array.from(node.querySelectorAll(elemWhitelist)));
 		const focusableElems: HTMLElement[] = sortByTabIndex(Array.from(node.querySelectorAll(elemWhitelist)));
 		if (focusableElems.length) {
 			// Set first/last focusable elements
 			elemFirst = focusableElems[0];
 			elemLast = focusableElems[focusableElems.length - 1];
 			// Auto-focus focusTrapTarget or first focusable element only when not called from observer
-			// if (!fromObserver) getFocusTrapTarget(elemFirst).focus();
 			if (!fromObserver) getFocusTrapTarget(elemFirst).focus();
 			// Listen for keydown on first & last element
 			elemFirst.addEventListener('keydown', onFirstElemKeydown);
