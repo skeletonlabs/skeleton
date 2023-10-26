@@ -97,7 +97,7 @@
 							class="{regionCell}"
 							role="gridcell"
 							aria-colindex={cellIndex + 1}
-							tabindex={cellIndex === 0 ? 0 : -1}
+							tabindex={cellIndex === 0 && interactive ? 0 : -1}
 						>
 							{@html Number(cell) === 0 ? cell : (cell ? cell : '-')}
 						</td>
