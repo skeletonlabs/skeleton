@@ -384,7 +384,7 @@ new Promise<boolean>((resolve) => {
 				<svelte:fragment slot="panel">
 					{#if tabCustom === 'register'}
 						<p>
-							This will create a set of reusable custom modals that are globally avialable to your application. Add the following to your
+							This will create a set of reusable custom modals that are globally available to your application. Add the following to your
 							your root layout in <code class="code">/src/routes/+layout.svelte</code>.
 						</p>
 						<CodeBlock
