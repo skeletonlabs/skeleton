@@ -1,5 +1,9 @@
+type FocusTrapArgs = boolean | { enabled: boolean; tabIndex?: number };
 // Action: Focus Trap
-export function focusTrap(node: HTMLElement, enabled: boolean) {
+export function focusTrap(node: HTMLElement, args: FocusTrapArgs) {
+	let enabled = typeof args === 'boolean' ? args : args.enabled;
+	const tabIndex = typeof args === 'boolean' ? null : args.tabIndex;
+	// export function focusTrap(node: HTMLElement, enabled: boolean, tabIndex?: number) {
 	const elemWhitelist =
 		'a[href]:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), textarea:not([tabindex="-1"]), select:not([tabindex="-1"]), details:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
 	let elemFirst: HTMLElement;
@@ -30,24 +34,22 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 
 	// Get focusTrapTarget element or first focusable element
 	const getFocusTrapTarget = (elemFirst: HTMLElement) => {
-		// If there is a form with a data-tabindex attribute, get it
-		const form = node.querySelector<HTMLElement>('form[data-tabindex]');
-		// If not, return null, focusTrap will switch to default behavior
-		if (!form) return elemFirst;
-		// Get data-indextab value or 0, as a number
-		const tabIndex = +(form.getAttribute('data-tabindex') || '0');
-		return form.querySelector<HTMLElement>('[tabindex="' + tabIndex + '"]') || elemFirst;
+		if (!tabIndex) return elemFirst;
+		// Return element with data-tabindex matching value, or elemFirst
+		return node.querySelector<HTMLElement>('[data-tabindex="' + tabIndex + '"]') || elemFirst;
 	};
 
 	const onScanElements = (fromObserver: boolean) => {
 		if (enabled === false) return;
 		// Gather all focusable elements, sorted according to tabindex
+		// const focusableElems: HTMLElement[] = sortByTabIndex(Array.from(node.querySelectorAll(elemWhitelist)));
 		const focusableElems: HTMLElement[] = sortByTabIndex(Array.from(node.querySelectorAll(elemWhitelist)));
 		if (focusableElems.length) {
 			// Set first/last focusable elements
 			elemFirst = focusableElems[0];
 			elemLast = focusableElems[focusableElems.length - 1];
 			// Auto-focus focusTrapTarget or first focusable element only when not called from observer
+			// if (!fromObserver) getFocusTrapTarget(elemFirst).focus();
 			if (!fromObserver) getFocusTrapTarget(elemFirst).focus();
 			// Listen for keydown on first & last element
 			elemFirst.addEventListener('keydown', onFirstElemKeydown);
@@ -74,9 +76,10 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 
 	// Lifecycle
 	return {
-		update(newArgs: boolean) {
-			enabled = newArgs;
-			newArgs ? onScanElements(false) : onCleanUp();
+		update(newArgs: FocusTrapArgs) {
+			args = newArgs;
+			enabled = typeof args === 'boolean' ? args : args.enabled;
+			enabled ? onScanElements(false) : onCleanUp();
 		},
 		destroy() {
 			onCleanUp();
