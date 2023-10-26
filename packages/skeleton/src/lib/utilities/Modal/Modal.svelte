@@ -228,7 +228,7 @@
 			on:touchstart|passive
 			on:touchend|passive
 			transition:dynamicTransition|global={{ transition: fade, params: { duration: 150 }, enabled: transitions }}
-			use:focusTrap={true}
+			use:focusTrap={{ enabled: true, tabIndex: $modalStore[0].tabIndex }}
 		>
 			<!-- Transition Layer -->
 			<div
