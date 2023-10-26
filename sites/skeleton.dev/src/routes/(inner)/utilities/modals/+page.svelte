@@ -280,8 +280,26 @@ modalStore.trigger(modal);
 		</section>
 		<!-- Modal Settings -->
 		<section class="space-y-4">
-			<h2 class="h2">Modal Settings</h2>
-			<p>These additional settings are available to all modals.</p>
+			<div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-center">
+				<div class="space-y-4">
+					<h2 class="h2">Modal Settings</h2>
+					<p>
+						Define settings <u>per modal instance</u> via the <code class="code">trigger()</code> method. These are similar to modal properties,
+						but do not provide the same breath of options.
+					</p>
+				</div>
+				<div>
+					<a
+						class="btn variant-filled font-bold"
+						href="https://github.com/skeletonlabs/skeleton/blob/master/packages/skeleton/src/lib/utilities/Modal/types.ts#L14"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<span>Available Settings</span>
+						<i class="fa-solid fa-arrow-up-right-from-square" />
+					</a>
+				</div>
+			</div>
 			<!-- prettier-ignore -->
 			<CodeBlock
 				language="ts"
@@ -294,6 +312,13 @@ const modal: ModalSettings = {\n
 	meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }\n
 };`}
 			/>
+		</section>
+		<!-- Modal Properties -->
+		<section class="space-y-4">
+			<h2 class="h2">Modal Properties</h2>
+			<p>
+				Define <u>global settings</u> for all modal instances. Tap the "Props" tab at the top of the page for a full list of options.
+			</p>
 		</section>
 		<!-- Async Response -->
 		<section class="space-y-4">
@@ -325,7 +350,8 @@ new Promise<boolean>((resolve) => {
 				<h2 class="h2">Component Modals</h2>
 				<span class="badge variant-filled-warning">Advanced</span>
 			</div>
-			<p>To create custom modals, generate a new component, then pass this to the Modal system.</p>
+			<p>Skeleton allows you to generate custom modals using Svelte components.</p>
+			<h3 class="sr-only">Example Modals</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
@@ -335,158 +361,240 @@ new Promise<boolean>((resolve) => {
 						<button class="btn variant-filled" on:click={modalComponentImage}>Image</button>
 					</div>
 				</svelte:fragment>
-				<svelte:fragment slot="footer">
+				<svelte:fragment slot="source">
 					<div class="text-center">
-						<!-- prettier-ignore -->
-						<a class="btn variant-ghost" href="https://github.com/skeletonlabs/skeleton/tree/master/sites/skeleton.dev/src/lib/modals/examples" target="_blank" rel="noreferrer">View Source Code</a>
+						<a
+							class="btn variant-ghost"
+							href="https://github.com/skeletonlabs/skeleton/tree/master/sites/skeleton.dev/src/lib/modals/examples"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<i class="fa-brands fa-github" />
+							<span>View Source on GitHub</span>
+							<i class="fa-solid fa-arrow-up-right-from-square" />
+						</a>
 					</div>
 				</svelte:fragment>
-				<svelte:fragment slot="source">
-					<TabGroup regionPanel="space-y-4">
-						<Tab bind:group={tabCustom} name="component-modals" value="register">Reusable Registry</Tab>
-						<Tab bind:group={tabCustom} name="component-modals" value="direct">Direct Method</Tab>
-						<!-- Panel -->
-						<svelte:fragment slot="panel">
-							{#if tabCustom === 'register'}
-								<!-- prettier-ignore -->
-								<p>
-									Import custom components in your root layout, create a modal registry object, then pass this object to the Modal <code class="code">components</code> property.
-								</p>
-								<CodeBlock
-									language="ts"
-									code={`
-// import ModalComponentOne from '...';
-// import ModalComponentTwo from '...';\n
-const modalComponentRegistry: Record<string, ModalComponent> = {\n
-	// Custom Modal 1
-	modalComponentOne: {
-		// Pass a reference to your custom component
-		ref: ModalComponentOne,
-		// Add the component properties as key/value pairs
-		props: { background: 'bg-red-500' },
-		// Provide a template literal for the default component slot
-		slot: '<p>Skeleton</p>'
-	},\n
-	// Custom Modal 2
-	modalComponentTwo: { ref: ModalComponentTwo },\n
+			</DocsPreview>
+			<h3 class="h3">Choose a Method</h3>
+			<TabGroup regionList="!grid grid-cols-2" regionPanel="space-y-4">
+				<Tab bind:group={tabCustom} name="component-modals" value="register">Registry (recommended)</Tab>
+				<Tab bind:group={tabCustom} name="component-modals" value="direct">Direct</Tab>
+				<!-- Panel -->
+				<svelte:fragment slot="panel">
+					{#if tabCustom === 'register'}
+						<p>
+							This will create a set of reusable custom modals that are globally avialable to your application. Add the following to your
+							your root layout in <code class="code">/src/routes/+layout.svelte</code>.
+						</p>
+						<CodeBlock
+							language="ts"
+							code={`
+import ModalComponentOne from '/example/path/here';
+import ModalComponentTwo from '/example/path/here';\n
+const modalRegistry: Record<string, ModalComponent> = {
+	// Set a unique modal ID, then pass the component reference
+	modalComponentOne: { ref: ModalComponentOne },
+	modalComponentTwo: { ref: ModalComponentTwo },
 	// ...
 };
-									`}
-								/>
-								<CodeBlock language="html" code={`<Modal components={modalComponentRegistry} />`} />
-								<p>
-									When triggering a component, pass <code class="code">component: string</code>, where the value represents the registry
-									object key.
-								</p>
-								<CodeBlock
-									language="ts"
-									code={`
+							`}
+						/>
+						<p>Provide the <code class="code">modalRegistry</code> to the modal component, which also resides in your root layout.</p>
+						<CodeBlock language="html" code={`<Modal components={modalRegistry} />`} />
+						<p>
+							Then, when triggering a new component, set the value of <code class="code">component</code> to the unique modal ID as registered
+							above.
+						</p>
+						<CodeBlock
+							language="ts"
+							code={`
 const modal: ModalSettings = {
 	type: 'component',
-	// Pass the component registry key as a string:
 	component: 'modalComponentOne',
 };
 modalStore.trigger(modal);
-									`}
-								/>
-							{:else if tabCustom === 'direct'}
-								<p>
-									For one-off components you can create a <code class="code">ModalComponent</code> object containing your component, props, and
-									slot values.
-								</p>
-								<CodeBlock
-									language="ts"
-									code={`
-// import MyCustomComponent from '...';\n
-const modalComponent: ModalComponent = {
-	// Pass a reference to your custom component
-	ref: MyCustomComponent,
-	// Add the component properties as key/value pairs
-	props: { background: 'bg-red-500' },
-	// Provide a template literal for the default component slot
-	slot: '<p>Skeleton</p>'
-};
-									`}
-								/>
-								<p>
-									When triggering a component, pass the <code class="code">component: ModalComponent</code> directly to
-									<code class="code">ModalSettings</code>.
-								</p>
-								<CodeBlock
-									language="ts"
-									code={`
+							`}
+						/>
+					{:else if tabCustom === 'direct'}
+						<p>This will implement a single component for a one-off modal instance.</p>
+						<CodeBlock
+							language="ts"
+							code={`
+import MyCustomComponent from '/example/path/here';\n
+const modalComponent: ModalComponent = { ref: MyCustomComponent };\n
 const modal: ModalSettings = {
 	type: 'component',
-	// Pass the component directly:
 	component: modalComponent,
 };
 modalStore.trigger(modal);
-									`}
-								/>
-							{/if}
-						</svelte:fragment>
-					</TabGroup>
+							`}
+						/>
+					{/if}
 				</svelte:fragment>
-			</DocsPreview>
-			<p>See the additional information below to learn how to use custom component modals.</p>
+			</TabGroup>
+			<h3 class="h3">Creating a Component</h3>
+			<p>Learn more about how to construct a custom modal component via the tips below.</p>
 			<Accordion autocollapse class="card variant-glass p-4">
 				<AccordionItem open>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Store Data</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Modal Store Data</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>
-							Import and use the <code class="code">modalStore</code>. All provided data is available within your component via
-							<code class="code">$modalStore[0]</code>.
-						</p>
+						<p>When creating a custom component, make sure to import the modal store. This should proceed all following tips.</p>
+						<CodeBlock
+							language="ts"
+							code={`
+import { getModalStore } from '@skeletonlabs/skeleton';\n
+const modalStore = getModalStore();
+							`}
+						/>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>The Visible Modal</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Determining the Active Modal</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>The foremost and visible modal in your queue uses index zero <code class="code">$modalStore[0]</code>.</p>
+						<p>
+							The active and visible modal in your queue is always available at the zero index: <code class="code">$modalStore[0]</code>.
+						</p>
+						<CodeBlock language="ts" code={`if ($modalStore[0]) console.log($modalStore[0].title);`} />
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Modal Parent Properties</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Template Conditional</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
-							The Modal component in your root layout is considered the "parent" component. Your custom modal component will be generated
-							within this. All properties for the parent component are passed down via the <code class="code">parent</code> prop. For
-							example
-							<code class="code">parent.background</code> would provide the <em>background</em> property value.
+							Wrap your component template markup in an <code class="code">#if</code> statement before accessing modal store values.
 						</p>
-						<p>Tap the <em>Props</em> tab on this page to view a full list of available <code class="code">parent</code> props.</p>
+						<CodeBlock
+							language="html"
+							code={`
+{#if $modalStore[0]}
+	<header>{$modalStore[0].title}</header>
+	<article>{$modalStore[0].body}</article>
+{/if}
+						`}
+						/>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Triggering a Response</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Inherit Modal Component Props</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
-							Use the <code class="code">$modalStore[0].response('myResponseDataHere');</code> trigger the response function and return a value.
+							The modal component in your root layout is considered the "parent" component, which includes a set of global configuration
+							properties. For example:
 						</p>
+						<CodeBlock language="html" code={`<Modal background="bg-green-500" />`} />
+						<blockquote class="blockquote">
+							TIP: tap the <u>Props</u> tab at the top of this page for a full list of available properties.
+						</blockquote>
+						<p>
+							Custom modal components are then generated within this using <code class="code">svelte:component</code>. By default, Skeleton
+							provides all parent props to your custom component using a
+							<code class="code">parent</code>
+							prop. This can be enabled by adding the following to your custom component.
+						</p>
+						<CodeBlock language="ts" code={`export let parent: any;`} />
+						<p>You may then access and use any parent value.</p>
+						<CodeBlock language="html" code={`<pre class="pre">{JSON.stringify(parent)}</pre>`} />
+						<CodeBlock language="html" code={`<pre class="pre">background: {parent.background}</pre>`} />
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Returning a Response Value</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							Use the <code class="code">$modalStore[0].response()</code> callback method to return a modal response value.
+						</p>
+						<CodeBlock language="ts" code={`$modalStore[0].response({ foo: 'bar' });`} />
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Passing Arbitrary Data</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>When triggering a component, use the Modal Settings <code class="code">meta</code> key to pass arbitrary data.</p>
+						<CodeBlock
+							language="ts"
+							code={`
+const modal: ModalSettings = {
+	// ...
+	meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }
+};
+							`}
+						/>
+						<p>You can then use <code class="code">$modalStore[0].meta</code> within your custom component to retrieve this data.</p>
+						<CodeBlock language="html" code={`<pre class="pre">{JSON.stringify($modalStore[0].meta)}</pre>`} />
+						<CodeBlock language="html" code={`<pre class="pre">foo: {$modalStore[0].meta.foo}</pre>`} />
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Component Props and Slots</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							When creating a <code class="code">ModalComponent</code> instance, you can <u>optionally</u> pass
+							<code class="code">props</code>
+							and default
+							<code class="code">slot</code> values as shown.
+						</p>
+						<CodeBlock
+							language="ts"
+							code={`
+import MyCustomComponent from '/example/path/here';\n
+const modalComponent: ModalComponent = {
+	ref: MyCustomComponent
+	props: { foo: 'bar' },
+	slot: '<p>Skeleton</p>'
+};
+							`}
+						/>
+						<p>These values be utilized per standard Svelte component conventions.</p>
+						<CodeBlock language="ts" code={`export let foo = 'fizzbuzz';`} />
+						<CodeBlock language="html" code={`<slot />`} />
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Setting the Modal Width</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							Skeleton's modal component uses a <code class="code">width</code> property, which can use either an arbitrary width class, or any
+							of the canned options provided below:
+						</p>
+						<ul class="list-disc list-outside ml-4 space-y-1">
+							<li><code class="code">.w-modal</code> - the standard modal size.</li>
+							<li><code class="code">.w-modal-slim</code> - the smaller modal width.</li>
+							<li><code class="code">.w-modal-wide</code> - the larger modal width.</li>
+						</ul>
+						<p>Your custom component can either inherit this from the <code class="code">parent.width</code> property.</p>
+						<CodeBlock
+							language="html"
+							code={`
+{#if $modalStore[0]}
+	<div class="{parent.width}">
+		<h2 class="h2">Wide Modal</h2>
+		<p>This will be a wide modal.</p>
+	</div>
+{/if}
+						`}
+						/>
+						<p>Likewise these classes can be defined directly into the template.</p>
+						<CodeBlock
+							language="html"
+							code={`
+{#if $modalStore[0]}
+	<div class="w-modal-wide">
+		<h2 class="h2">Wide Modal</h2>
+		<p>This will be a wide modal.</p>
+	</div>
+{/if}
+						`}
+						/>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
 					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Closing a Modal</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>
-							Use the <code class="code">parent.onClose()</code> or <code class="code">modalStore.close()</code> methods to close the modal.
-						</p>
+						<p>You can use either method below to close self close the modal. Use this for "cancel" actions.</p>
+						<CodeBlock language="ts" code={`parent.onClose();`} />
+						<CodeBlock language="ts" code={`modalStore.close();`} />
 					</svelte:fragment>
-				</AccordionItem>
-				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Metadata</h3></svelte:fragment>
-					<svelte:fragment slot="content">
-						<p>Arbitrary metadata is available using <code class="code">$modalStore[0].meta?.someKey</code>.</p>
-					</svelte:fragment>
-				</AccordionItem>
-				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Standardize Modal Widths</h3></svelte:fragment>
-					<svelte:fragment slot="content">
-						<!-- prettier-ignore -->
-						<p>
-							Standard <em>alert</em>, <em>confirm</em>, and <em>prompt</em> modals include a <code class="code">width</code> property to adjust the width size. If you wish to resize your custom component modals, apply the Tailwind width utility classes directly within your component markup. To help standardize modal widths we provided three canned options: <code class="code">.w-modal</code>, <code class="code">.w-modal-slim</code>, and <code class="code">.w-modal-wide</code>.
-					</svelte:fragment
-					>
 				</AccordionItem>
 			</Accordion>
 		</section>

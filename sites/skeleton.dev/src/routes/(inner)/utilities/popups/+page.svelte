@@ -637,12 +637,56 @@ const popupCombobox: PopupSettings = {
 
 		<hr />
 
+		<section class="space-y-4">
+			<h2 class="h2">Avoiding Style Conflicts</h2>
+			<p>
+				Please use caution when adjusting the default styling for the <code class="code">[data-popup]</code> element. Specifically in regards
+				to the inherent display, position, and transition properties. These are critical for ensuring the popup loads and displays as expected.
+			</p>
+			<CodeBlock
+				language="css"
+				code={`
+[data-popup] {
+	/* Display */
+	display: none;
+	/* Position */
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* Transitions */
+	transition-property: opacity;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-duration: .15s
+}
+		`}
+			/>
+			<p>Use a child element to introduce new classes and avoid overwriting default values.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<!-- Works ✅ -->
+<div data-popup="popupStyled">
+	<div class="flex">...</div>
+</div>
+			`}
+			/>
+			<CodeBlock
+				language="html"
+				code={`
+<!-- Breaks ❌ -->
+<div class="flex" data-popup="popupStyled">
+	...
+</div>
+			`}
+			/>
+		</section>
+
 		<!-- Z-index -->
 		<section class="space-y-4">
 			<h2 class="h2">Z-Index Stacking</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Please note that neither Skelton nor Floating-UI <a class="anchor" href="https://floating-ui.com/docs/misc#z-index-stacking">define a default z-index</a> for popups.
+				Please note that neither Skeleton nor Floating-UI <a class="anchor" href="https://floating-ui.com/docs/misc#z-index-stacking">define a default z-index</a> for popups.
 			</p>
 		</section>
 
