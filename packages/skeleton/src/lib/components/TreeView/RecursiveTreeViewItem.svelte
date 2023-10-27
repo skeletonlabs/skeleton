@@ -2,7 +2,7 @@
 	import TreeViewItem from './TreeViewItem.svelte';
 	import RecursiveTreeViewItem from './RecursiveTreeViewItem.svelte';
 	import type { TreeViewNode } from './types.js';
-	import { createEventDispatcher, getContext, onMount, tick } from 'svelte';
+	import { createEventDispatcher, getContext, onMount } from 'svelte';
 
 	// this can't be passed using context, since we have to pass it to recursive children.
 	/** Provide data-driven nodes. */
@@ -34,10 +34,8 @@
 	let multiple: boolean = getContext('multiple');
 	let relational: boolean = getContext('relational');
 
-	let tempCheckedNodes: string[] = [];
-
 	// Locals
-	let group: unknown;
+	let group: unknown = multiple ? [] : '';
 	let name = '';
 
 	// events
@@ -93,33 +91,31 @@
 		}
 	}
 
-	// init check flow will messup the checked nodes, so we save it to reassign it onMount.
-	tempCheckedNodes = [...checkedNodes];
+	if (selection) {
+		if (multiple) {
+			nodes.forEach((node) => {
+				if (!Array.isArray(group)) return;
+				if (checkedNodes.includes(node.id) && !group.includes(node.id)) {
+					group.push(node.id);
+				}
+			});
+			group = group;
+		} else {
+			nodes.forEach((node) => {
+				if (checkedNodes.includes(node.id) && group !== node.id) {
+					group = node.id;
+				}
+			});
+		}
+	}
+
 	onMount(async () => {
 		if (selection) {
 			// random number as name
 			name = String(Math.random());
 
-			// init groups if not initialized yet
-			if (group === undefined) {
-				if (multiple) {
-					group = [];
-					nodes.forEach((node) => {
-						if (checkedNodes.includes(node.id) && Array.isArray(group)) group.push(node.id);
-					});
-					group = group;
-				} else if (!nodes.some((node) => checkedNodes.includes(node.id))) {
-					group = '';
-				}
-			}
-
 			// remove relational links
 			if (!relational) treeItems = [];
-
-			// reassign checkNodes to ensure component starting with the correct check values.
-			checkedNodes = [];
-			await tick();
-			checkedNodes = [...tempCheckedNodes];
 		}
 	});
 
