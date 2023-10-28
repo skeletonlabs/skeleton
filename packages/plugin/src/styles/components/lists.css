@@ -26,7 +26,9 @@
 	}
 	.list-dl div {
 		/* @apply bg-blue-500; */
-		@apply flex items-center space-x-4 whitespace-nowrap;
+		@apply flex items-center space-x-4;
+		/* Wrapping */
+		@apply whitespace-normal break-words;
 		/* Padding */
 		@apply p-2;
 		/* Theme: Rounded */
@@ -36,7 +38,9 @@
 	.list-nav a,
 	.list-nav button,
 	.list-option {
-		@apply flex items-center space-x-4 whitespace-nowrap;
+		@apply flex items-center space-x-4;
+		/* Wrapping */
+		@apply whitespace-normal break-words;
 		/* Padding */
 		@apply px-4 py-2;
 		/* Hover */
