@@ -2,4 +2,4 @@
 "@skeletonlabs/tw-plugin": patch
 ---
 
-Fix lists wrapping
+chore: lists wrapping
