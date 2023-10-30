@@ -26,9 +26,13 @@ export function focusTrap(node: HTMLElement, args: FocusTrapArgs) {
 
 	// Sort focusable elements by tabindex, positive first, then 0
 	const sortByTabIndex = (focusableElems: HTMLElement[]): HTMLElement[] => {
-		const sortedFocusableElems = focusableElems.filter((el) => el.tabIndex > 0).sort((a, b) => a.tabIndex - b.tabIndex);
-		sortedFocusableElems.push(...focusableElems.filter((el) => el.tabIndex == 0 || !el.tabIndex));
-		return sortedFocusableElems;
+		return focusableElems
+			.filter((elem) => elem.tabIndex >= 0)
+			.sort((a, b) => {
+				if (a.tabIndex === 0 && b.tabIndex > 0) return 1; // Move 0 to end of array
+				else if (a.tabIndex > 0 && b.tabIndex === 0) return -1; // Move 0 to end of array
+				else return a.tabIndex - b.tabIndex; // Sort non-zero values in ascending order
+			});
 	};
 
 	// Get focusTrapTarget element or first focusable element
