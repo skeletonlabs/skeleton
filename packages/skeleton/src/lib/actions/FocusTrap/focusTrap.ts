@@ -1,4 +1,4 @@
-type FocusTrapArgs = boolean | { enabled: boolean; tabIndex?: number };
+type FocusTrapArgs = boolean | { enabled: boolean; tabIndex?: string };
 // Action: Focus Trap
 export function focusTrap(node: HTMLElement, args: FocusTrapArgs) {
 	let enabled = typeof args === 'boolean' ? args : args.enabled;
@@ -33,7 +33,7 @@ export function focusTrap(node: HTMLElement, args: FocusTrapArgs) {
 
 	// Get focusTrapTarget element or first focusable element
 	const getFocusTrapTarget = (elemFirst: HTMLElement) => {
-		if (!tabIndex) return elemFirst;
+		if (!tabIndex || !tabIndex.length) return elemFirst;
 		// Return element with data-tabindex matching value, or elemFirst
 		return node.querySelector<HTMLElement>('[data-tabindex="' + tabIndex + '"]') || elemFirst;
 	};

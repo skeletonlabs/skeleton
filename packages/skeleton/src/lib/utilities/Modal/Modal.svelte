@@ -101,9 +101,9 @@
 	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 150, opacity: 0, x: 0, y: 100 };
 	/**
 	 * Index that focusTrap will target.
-	 * @type {number}
+	 * @type {string}
 	 */
-	export let tabIndex: number = 0;
+	export let tabIndex: string = '';
 
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 overflow-y-auto';

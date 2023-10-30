@@ -75,9 +75,9 @@
 	export let opacityTransition = true;
 	/**
 	 * Index that focusTrap will target.
-	 * @type {number}
+	 * @type {string}
 	 */
-	export let tabIndex: number;
+	export let tabIndex: string = '';
 
 	// Presets
 	// prettier-ignore
