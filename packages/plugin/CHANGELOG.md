@@ -1,5 +1,29 @@
 # @skeletonlabs/tw-plugin
 
+## 0.2.3
+
+### Patch Changes
+
+- bugfix: Added disabled state styles for `.btn-group` children, such as buttons ([#2160](https://github.com/skeletonlabs/skeleton/pull/2160))
+
+- chore: Improved the default modal focus state styles. Focus should now be shown by default. ([#2065](https://github.com/skeletonlabs/skeleton/pull/2065))
+
+## 0.2.2
+
+### Patch Changes
+
+- bugfix: Separated light/dark classes for input validation variants ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- bugfix: Resolved an issue where the Ring design token would generate invalid CSS when using the important modifier `!` ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+## 0.2.1
+
+### Patch Changes
+
+- bugfix: Added `disabled` style for the `.btn-icon` class ([#2062](https://github.com/skeletonlabs/skeleton/pull/2062))
+
+- bugfix: Fixed `btn-group` styles affecting children of its children ([#2043](https://github.com/skeletonlabs/skeleton/pull/2043))
+
 ## 0.2.0
 
 ### Minor Changes

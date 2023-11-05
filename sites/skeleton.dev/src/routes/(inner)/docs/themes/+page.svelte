@@ -213,7 +213,7 @@ body { background: red; }
 				</p>
 			</div>
 			<div>
-				<a class="btn variant-filled-secondary font-bold" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">
+				<a class="btn variant-filled font-bold" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">
 					<span>Create a Mesh</span>
 					<i class="fa-solid fa-arrow-up-right-from-square" />
 				</a>
@@ -269,7 +269,7 @@ body {
 						static font file assets to the <code class="code">/static/fonts</code> directory.
 					</p>
 					{#each activeFonts as f}
-						<CodeBlock language="plaintext" code={`/static/fonts/${f.file}`} />
+						<CodeBlock language="shell" code={`/static/fonts/${f.file}`} />
 					{/each}
 					<!-- 3 -->
 					<h3 class="h3" data-toc-ignore>3. Apply @font-face</h3>

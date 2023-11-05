@@ -107,15 +107,17 @@ export async function createSkeleton(opts) {
 	// write out config files
 	createSvelteConfig(opts);
 	createViteConfig(opts);
-	await createVSCodeSettings();
 	createTailwindConfig(opts);
-	createPostCssConfig();
+	createPostCssConfig(opts);
 	copyTemplate(opts);
 
 	// Monorepo additions
 	if (opts.monorepo) cpSync(resolve(__dirname, '../README-MONO.md'), resolve(cwd(), 'README.md'), { force: true });
 
 	if (opts.test) createTestConfig(opts);
+
+	// Do this last as the network might fail behind certain firewalls
+	await createVSCodeSettings();
 	// go back to starting location in case we get called again to create another template
 	chdir(startPath);
 	opts.meta = undefined;
@@ -220,9 +222,21 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit(), purgeCss()]
-});
-`;
+	plugins: [sveltekit(), purgeCss(`;
+
+	if (opts.codeblocks) {
+		contents += `{
+			safelist: {
+				// any selectors that begin with "hljs-" will not be purged
+				greedy: [/^hljs-/],
+			},
+		}),
+	],
+});`;
+	} else {
+		contents += `)]
+});`;
+	}
 	writeFileSync(filename, contents);
 }
 
@@ -395,7 +409,7 @@ export const ${name}${iit(opts.types == 'typescript', ': CustomThemeConfig')} = 
 	}
 }`;
 	let filename = name + iit(opts.types == 'typescript', '.ts', '.js');
-	writeFileSync(join('src', filename), str);
+	writeFileSync(join(cwd(), 'src', filename), str);
 }
 function createPostCssConfig() {
 	const str = `module.exports = {
@@ -473,9 +487,18 @@ function copyTemplate(opts) {
 			scriptEndReg,
 			`
 	// Highlight JS
-	import hljs from 'highlight.js';
+	import hljs from 'highlight.js/lib/core';
 	import 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+	import xml from 'highlight.js/lib/languages/xml'; // for HTML
+	import css from 'highlight.js/lib/languages/css';
+	import javascript from 'highlight.js/lib/languages/javascript';
+	import typescript from 'highlight.js/lib/languages/typescript';
+
+	hljs.registerLanguage('xml', xml); // for HTML
+	hljs.registerLanguage('css', css);
+	hljs.registerLanguage('javascript', javascript);
+	hljs.registerLanguage('typescript', typescript);
 	storeHighlightJs.set(hljs);
 </script>`,
 		);

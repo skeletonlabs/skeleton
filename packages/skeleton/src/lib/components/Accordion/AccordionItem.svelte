@@ -37,7 +37,7 @@
 
 	// Classes
 	const cBase = '';
-	const cControl = 'text-left w-full flex items-center space-x-4';
+	const cControl = 'text-start w-full flex items-center space-x-4';
 	const cControlCaret = 'fill-current w-3 transition-transform duration-[200ms]';
 	const cPanel = '';
 

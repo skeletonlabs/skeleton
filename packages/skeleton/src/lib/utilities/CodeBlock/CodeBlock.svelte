@@ -56,6 +56,7 @@
 	function languageFormatter(lang: string): string {
 		if (lang === 'js') return 'javascript';
 		if (lang === 'ts') return 'typescript';
+		if (lang === 'shell') return 'terminal';
 		return lang;
 	}
 

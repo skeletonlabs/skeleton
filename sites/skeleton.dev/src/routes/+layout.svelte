@@ -1,7 +1,19 @@
 <!-- Layout: (root) -->
 <script lang="ts">
 	// Dependency: Highlight JS
-	import hljs from 'highlight.js';
+	import hljs from 'highlight.js/lib/core';
+	import xml from 'highlight.js/lib/languages/xml';
+	import css from 'highlight.js/lib/languages/css';
+	import json from 'highlight.js/lib/languages/json';
+	import javascript from 'highlight.js/lib/languages/javascript';
+	import typescript from 'highlight.js/lib/languages/typescript';
+	import shell from 'highlight.js/lib/languages/shell';
+	hljs.registerLanguage('xml', xml);
+	hljs.registerLanguage('css', css);
+	hljs.registerLanguage('json', json);
+	hljs.registerLanguage('javascript', javascript);
+	hljs.registerLanguage('typescript', typescript);
+	hljs.registerLanguage('shell', shell);
 	import '$lib/styles/highlight-js.css';
 	import { storeHighlightJs } from '@skeletonlabs/skeleton';
 	storeHighlightJs.set(hljs);
@@ -39,6 +51,10 @@
 	import '$lib/styles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
+	// Font Awesome
+	import '@fortawesome/fontawesome-free/css/fontawesome.css';
+	import '@fortawesome/fontawesome-free/css/brands.css';
+	import '@fortawesome/fontawesome-free/css/solid.css';
 
 	// Handle Vercel Production Mode
 	import type { LayoutServerData } from './$types';
@@ -97,7 +113,7 @@
 	// Lifecycle
 	afterNavigate((params) => {
 		// Scroll to top
-		const isNewPage: boolean = !!params.from && !!params.to && params.from.route.id !== params.to.route.id;
+		const isNewPage = !!params.from && !!params.to && params.from.route.id !== params.to.route.id;
 		const elemPage = document.querySelector('#page');
 		if (isNewPage && elemPage !== null) {
 			elemPage.scrollTop = 0;

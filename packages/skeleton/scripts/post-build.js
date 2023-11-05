@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
 import fs from 'fs';
 import ts from 'typescript';
 
@@ -14,37 +15,59 @@ function extractScriptsFromComponents(dir) {
 	const leadingCharsToStrip = 8; //strip the src/lib/ from the filenames when adding it to the filesToProps mapping
 	const list = fs.readdirSync(dir);
 	list.forEach((file) => {
-		file = dir + '/' + file;
+		file = join(dir, file);
 		const stat = fs.statSync(file);
 		if (stat && stat.isDirectory()) {
 			extractScriptsFromComponents(file);
 		} else {
 			if (file.endsWith('svelte')) {
 				const src = readFileSync(file).toString();
-				// Split out the script block with lang='ts' section so that we can pass it to the TS compiler
-				// there can be multiple script elements e.g. context='module'
-				const begin = src.indexOf('"ts">\n') + 1;
-				const script = src.substring(begin, src.indexOf('</script>', begin));
+				const scripts = extractScriptBlocks(src);
 				// the first param is the filename, it is not for reading from the file, but rather for when ts reports issues
 				// it is also not creating an actual source file, but rather an AST.
-				const node = ts.createSourceFile(file.slice(leadingCharsToStrip), script, ts.ScriptTarget.Latest);
-				filesToProps[file.slice(leadingCharsToStrip)] = { node: node };
+				const name = file.slice(leadingCharsToStrip);
+				filesToProps[name] = { scriptNodes: [], props: {} };
+				for (const script of scripts) {
+					const node = ts.createSourceFile(name, script, ts.ScriptTarget.Latest);
+					filesToProps[name].scriptNodes.push(node);
+				}
 			}
 		}
 	});
 }
+function extractScriptBlocks(content) {
+	let scriptBlocks = [];
+	let startString = '<script';
+	let endString = '</script>';
+	let curPos = 0;
+	while (curPos != -1) {
+		curPos = content.indexOf(startString, curPos);
+		if (curPos == -1) {
+			break;
+		}
+		// ignore attributes in script tag
+		curPos = content.indexOf('>', curPos) + 1;
+		let endPos = content.indexOf(endString, curPos);
+		if (endPos == -1) {
+			console.log('Error: missing closing tag for script block');
+		}
+		scriptBlocks.push(content.substring(curPos, endPos));
+		curPos = endPos;
+	}
+	return scriptBlocks;
+}
 
 function extractJSDocBlocks() {
 	for (const file in filesToProps) {
-		let propsObj = {};
-		_extractJSDocBlocks(filesToProps[file].node, propsObj);
-		filesToProps[file].props = propsObj;
+		for (const node of filesToProps[file].scriptNodes) {
+			_extractJSDocBlocks(file, node);
+		}
 	}
 }
 
 // Recursive function for traversing node hierarchy to get JSDocs blocks, different node types have the information we want in different places
-function _extractJSDocBlocks(srcFile, propsObj) {
-	ts.forEachChild(srcFile, (node) => {
+function _extractJSDocBlocks(file, tsNode) {
+	ts.forEachChild(tsNode, (node) => {
 		if (node?.jsDoc) {
 			// console.log(srcFile);
 			const jsDoc = node.jsDoc[node.jsDoc.length - 1];
@@ -52,23 +75,26 @@ function _extractJSDocBlocks(srcFile, propsObj) {
 			switch (node.kind) {
 				case ts.SyntaxKind.FirstStatement:
 					if (declaration.type?.typeName?.escapedText == 'CssClasses') {
-						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment, type: 'css' };
+						filesToProps[file].props[declaration.name.escapedText] = { comment: jsDoc.comment, type: 'css' };
 					} else {
-						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment, type: 'prop' };
+						filesToProps[file].props[declaration.name.escapedText] = { comment: jsDoc.comment, type: 'prop' };
 					}
 					break;
 				case ts.SyntaxKind.ExpressionStatement:
-					propsObj[node.expression.arguments[0].text] = { comment: jsDoc.tags[jsDoc.tags.length - 1].comment ?? '', type: 'event' };
+					filesToProps[file].props[node.expression.arguments[0].text] = {
+						comment: jsDoc.tags[jsDoc.tags.length - 1].comment ?? '',
+						type: 'event'
+					};
 					break;
 			}
 		}
-		_extractJSDocBlocks(node, propsObj);
+		_extractJSDocBlocks(file, node);
 	});
 }
 
 function writeJSDocsToDefinitionFiles() {
 	// these two will probably bite us in the ass later on..  but the maximum damage will be no descriptions in intellisense, can live with that.
-	const propsBegin = 'props: {';
+	const propsBegin = '[x: string]: any;';
 	const eventsBegin = 'events: {';
 	const blockEnd = '}';
 	// we only insert JSDocs for properties that had a JSDoc block declared for them in the component file. Some props that might be defined
@@ -130,7 +156,6 @@ function generateKeyWordsFromProps() {
 
 extractScriptsFromComponents('src/lib/components');
 extractScriptsFromComponents('src/lib/utilities');
-extractJSDocBlocks();
 extractJSDocBlocks();
 writeJSDocsToDefinitionFiles();
 generateKeyWordsFromProps();

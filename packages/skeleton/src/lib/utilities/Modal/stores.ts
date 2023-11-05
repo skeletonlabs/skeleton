@@ -14,7 +14,7 @@ const MODAL_STORE_KEY = 'modalStore';
  * @example
  * ```svelte
  * <script>
- * 	import { getmodalStore } from "@skeletonlabs/skeleton";
+ * 	import { getModalStore } from "@skeletonlabs/skeleton";
  *
  * 	const modalStore = getModalStore();
  *
