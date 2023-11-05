@@ -236,23 +236,15 @@ const flavorOptions: AutocompleteOption<string>[] = [
 		<!-- Custom Filter -->
 		<section class="space-y-4">
 			<h2 class="h2">Custom filter</h2>
-			<p>Provide a custom filter function using the prop <code class="code">filterFunction</code></p>
+			<p>Provide a custom filter function using the prop <code class="code">filter</code></p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-full max-w-sm space-y-2">
 						<input class="input" type="search" name="ac-demo" bind:value={inputDemo} placeholder="Search..." />
 						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
-							<Autocomplete
-								bind:input={inputDemo}
-								options={flavorOptions}
-								filterFunction={customFilterFunction}
-								on:selection={onDemoSelection}
-							/>
+							<Autocomplete bind:input={inputDemo} options={flavorOptions} filter={customFilterFunction} on:selection={onDemoSelection} />
 						</div>
 					</div>
-				</svelte:fragment>
-				<svelte:fragment slot="footer">
-					<span class="text-sm">This example uses a custom filter to filter options after value only.</span>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
@@ -274,7 +266,7 @@ function customFilterFunction() : AutocompleteOption<string>[] {
 }
 					`}
 					/>
-					<CodeBlock language="html" code={`<Autocomplete ... filterFunction={customFilterFunction} />`} />
+					<CodeBlock language="html" code={`<Autocomplete ... filter={customFilterFunction} />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

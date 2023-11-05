@@ -70,7 +70,7 @@
 	 * Provide a custom filter function.
 	 * @type {() => AutocompleteOption[]}
 	 */
-	export let filterFunction: () => Option[] = filterOptions;
+	export let filter: () => Option[] = filterOptions;
 
 	// Props (transition)
 	/**
@@ -144,7 +144,7 @@
 
 	// State
 	$: filterByAllowDeny(allowlist, denylist);
-	$: optionsFiltered = input ? filterFunction() : listedOptions;
+	$: optionsFiltered = input ? filter() : listedOptions;
 	$: sliceLimit = limit ?? optionsFiltered.length;
 	// Reactive
 	$: classesBase = `${$$props.class ?? ''}`;
