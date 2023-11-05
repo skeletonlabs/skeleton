@@ -4,8 +4,7 @@
 	import type { Contributor } from '../+page';
 	export let contributors: Contributor[];
 
-	$: firstPartContributors = contributors.slice(0, 32);
-	$: secondPartContributors = contributors.slice(32, 100);
+	$: contributors = contributors.slice(0, 100);
 </script>
 
 <div class="space-y-10">
@@ -40,20 +39,10 @@
 			</section>
 		</div>
 	</div>
-	<!-- first 30 Contributors -->
+	<!-- Contributors -->
 	<div class="space-y-4 text-center lg:text-left">
-		<div class="grid grid-cols-8 gap-4 max-w-2xl mx-auto">
-			{#each firstPartContributors as c}
-				<a href={c.html_url} target="_blank" rel="noreferrer" title={c.login}>
-					<Avatar loading="lazy" src={c.avatar_url} width="w-full" background="bg-black" />
-				</a>
-			{/each}
-		</div>
-	</div>
-	<!-- rest of contribtors -->
-	<div class="space-y-4 text-center lg:text-left">
-		<div class="grid grid-cols-12 gap-4 max-w-2xl mx-auto">
-			{#each secondPartContributors as c}
+		<div class="grid grid-cols-8 md:grid-cols-12 gap-4 max-w-4xl mx-auto">
+			{#each contributors as c}
 				<a href={c.html_url} target="_blank" rel="noreferrer" title={c.login}>
 					<Avatar loading="lazy" src={c.avatar_url} width="w-full" background="bg-black" />
 				</a>
