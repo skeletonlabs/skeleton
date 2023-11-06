@@ -191,8 +191,8 @@
 		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
 		on:mousedown={onDrawerInteraction}
-		on:touchstart
-		on:touchend
+		on:touchstart|passive
+		on:touchend|passive
 		on:keypress
 		in:dynamicTransition|local={{
 			transition: fade,
