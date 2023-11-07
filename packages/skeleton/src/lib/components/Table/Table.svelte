@@ -68,7 +68,7 @@
 	<table
 		class="{classesTable}"
 		class:table-interactive={interactive}
-		role="grid"
+		role={interactive ? "grid" : "table"}
 		use:tableA11y
 	>
 		<!-- on:keydown={(e) => onTableKeydown(elemTable, e)} -->
@@ -76,7 +76,7 @@
 		<thead class="table-head {regionHead}">
 			<tr>
 				{#each source.head as heading }
-					<th class="{regionHeadCell}">{@html heading}</th>
+					<th class="{regionHeadCell}" role="columnheader">{@html heading}</th>
 				{/each}
 			</tr>
 		</thead>
@@ -95,9 +95,9 @@
 						<!-- prettier-ignore -->
 						<td
 							class="{regionCell}"
-							role="gridcell"
+							role={interactive ? "gridcell" : "cell"}
 							aria-colindex={cellIndex + 1}
-							tabindex={cellIndex === 0 ? 0 : -1}
+							tabindex={cellIndex === 0 && interactive ? 0 : -1}
 						>
 							{@html Number(cell) === 0 ? cell : (cell ? cell : '-')}
 						</td>
