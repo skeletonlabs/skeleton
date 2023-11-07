@@ -539,7 +539,7 @@ const modal: ModalSettings = {
 							code={`
 import MyCustomComponent from '/example/path/here';\n
 const modalComponent: ModalComponent = {
-	ref: MyCustomComponent
+	ref: MyCustomComponent,
 	props: { foo: 'bar' },
 	slot: '<p>Skeleton</p>'
 };
