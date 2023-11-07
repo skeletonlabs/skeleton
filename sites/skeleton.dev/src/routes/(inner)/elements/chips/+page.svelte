@@ -56,7 +56,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<button class="chip {currentVariant}">Chip</button>
+				<span class="chip {currentVariant}">Chip</span>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
 				<div class="flex justify-center gap-4">
