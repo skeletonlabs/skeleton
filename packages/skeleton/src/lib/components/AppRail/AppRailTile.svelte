@@ -7,7 +7,7 @@
 	import { getContext } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
+	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Props
 	/**
@@ -43,7 +43,7 @@
 
 	// Classes
 	const cBase = 'cursor-pointer';
-	const cWrapper = 'flex flex-col justify-center items-stretch';
+	const cWrapper = 'flex flex-col justify-center items-stretch w-full';
 	const cInterface = 'text-center';
 	const cLabel = 'font-bold text-xs';
 
@@ -59,6 +59,14 @@
 	$: classesLead = `${regionLead}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 
+	// A11y Key Down Handler
+	function onKeyDown(event: SvelteEvent<KeyboardEvent, HTMLButtonElement>): void {
+		if (['Enter', 'Space'].includes(event.code)) {
+			event.preventDefault();
+			elemInput.click();
+		}
+	}
+
 	// RestProps
 	function prunedRestProps() {
 		delete $$restProps.class;
@@ -68,9 +76,7 @@
 
 <label class="app-rail-tile {classesBase}" data-testid="app-rail-tile" {title} on:mouseover on:mouseleave on:focus on:blur>
 	<!-- A11y attributes are not allowed on <label> -->
-	<!-- FIXME: resolve a11y warnings -->
-	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div class="app-rail-wrapper {classesWrapper}" on:keydown on:keyup on:keypress>
+	<button class="app-rail-wrapper {classesWrapper}" tabindex="0" on:keydown={onKeyDown} on:keyup on:keypress>
 		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 		<div class="h-0 w-0 overflow-hidden">
 			<input bind:this={elemInput} type="radio" bind:group {name} {value} {...prunedRestProps()} tabindex="-1" on:click on:change />
@@ -80,5 +86,5 @@
 			{#if $$slots.lead}<div class="app-rail-lead {classesLead}"><slot name="lead" /></div>{/if}
 			<div class="app-rail-label {classesLabel}"><slot /></div>
 		</div>
-	</div>
+	</button>
 </label>
