@@ -235,8 +235,8 @@ const flavorOptions: AutocompleteOption<string>[] = [
 		</section>
 		<!-- Custom Filter -->
 		<section class="space-y-4">
-			<h2 class="h2">Custom filter</h2>
-			<p>Provide a custom filter function using the prop <code class="code">filter</code></p>
+			<h2 class="h2">Custom Filter</h2>
+			<p>Provide a custom filter function using the prop <code class="code">filter</code>.</p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-full max-w-sm space-y-2">
@@ -250,23 +250,21 @@ const flavorOptions: AutocompleteOption<string>[] = [
 					<CodeBlock
 						language="ts"
 						code={`
-// custom filter function
-function customFilterFunction() : AutocompleteOption<string>[] {
+function myCustomFilter(): AutocompleteOption<string>[] {
 	// Create a local copy of options
 	let _options = [...flavorOptions];
 	// Filter options
-	_options = _options.filter((option) => {
-		// Format the input search value
+	return _options.filter((option) => {
+		// Format the input and option values
 		const inputFormatted = String(inputValue).toLowerCase().trim();
+		const optionFormatted = option.value.toLowerCase().trim();
 		// Check Match with value only
-		if (option.value.toLowerCase().trim().includes(inputFormatted)) return option;
+		if (optionFormatted.includes(inputFormatted)) return option;
 	});
-	// return filtered options
-	return _options;
 }
 					`}
 					/>
-					<CodeBlock language="html" code={`<Autocomplete ... filter={customFilterFunction} />`} />
+					<CodeBlock language="html" code={`<Autocomplete ... filter={myCustomFilter} />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
