@@ -92,10 +92,9 @@
 				>
 					{#each row as cell, cellIndex}
 						<!-- Cell -->
-						<!-- prettier-ignore -->
 						<td
 							class="{regionCell}"
-							role={interactive ? "gridcell" : "cell"}
+							role="gridcell"
 							aria-colindex={cellIndex + 1}
 							tabindex={cellIndex === 0 && interactive ? 0 : -1}
 						>
