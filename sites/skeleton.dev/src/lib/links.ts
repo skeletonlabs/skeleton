@@ -35,14 +35,13 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{
 					href: '/docs/sponsorship',
 					label: 'Sponsorship',
-					keywords: 'sponsor, funding, contribute, support, github, ko-fi, patreon',
-					badge: 'New'
+					keywords: 'sponsor, funding, contribute, support, github, ko-fi, patreon'
 				}
 			]
 		},
 		{
 			title: 'Integrations',
-			list: [{ href: '/docs/tauri', label: 'Tauri', keywords: 'Tauri, desktop, setup, install' }]
+			list: [{ href: '/docs/tauri', label: 'Tauri', keywords: 'Tauri, desktop, setup, install', badge: 'New' }]
 		}
 	],
 	'/elements': [

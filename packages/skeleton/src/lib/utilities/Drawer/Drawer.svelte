@@ -20,6 +20,7 @@
 	import { getDrawerStore } from './stores.js';
 	import { fade, fly } from 'svelte/transition';
 	import { dynamicTransition } from '../../internal/transitions.js';
+	import { cubicIn } from 'svelte/easing';
 
 	// Props
 	/** Set the anchor position.
@@ -191,8 +192,8 @@
 		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
 		on:mousedown={onDrawerInteraction}
-		on:touchstart
-		on:touchend
+		on:touchstart|passive
+		on:touchend|passive
 		on:keypress
 		in:dynamicTransition|local={{
 			transition: fade,
@@ -223,7 +224,7 @@
 			}}
 			out:dynamicTransition|local={{
 				transition: fly,
-				params: { x: anim.x, y: anim.y, duration, opacity: opacityTransition ? undefined : 1 },
+				params: { x: anim.x, y: anim.y, duration, opacity: opacityTransition ? undefined : 1, easing: cubicIn },
 				enabled: transitions
 			}}
 		>

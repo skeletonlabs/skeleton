@@ -93,20 +93,12 @@
 	// REPL: https://svelte.dev/repl/de117399559f4e7e9e14e2fc9ab243cc?version=3.12.1
 	$: if (multiple) updateCheckbox(group, indeterminate);
 	$: if (multiple) updateGroup(checked, indeterminate);
-	$: if (!multiple) updateRadio(group);
-	$: if (!multiple) updateRadioGroup(checked);
-	let initUpdate = true;
 	function updateCheckbox(group: unknown, indeterminate: boolean) {
 		if (!Array.isArray(group)) return;
 		checked = group.indexOf(value) >= 0;
 		/** @event {{checked: boolean, indeterminate: boolean}} groupChange - Fires when the group changes */
 		dispatch('groupChange', { checked: checked, indeterminate: indeterminate });
 		dispatch('childChange');
-		// called only once when initializing to apply default checks
-		if (initUpdate) {
-			onParentChange();
-			initUpdate = false;
-		}
 	}
 	function updateGroup(checked: boolean, indeterminate: boolean) {
 		if (!Array.isArray(group)) return;
@@ -115,19 +107,20 @@
 			if (index < 0) {
 				group.push(value);
 				group = group;
-				// called only when the group changes
-				onParentChange();
 			}
 		} else {
 			if (index >= 0) {
 				group.splice(index, 1);
 				group = group;
-				// called only when the group changes
-				onParentChange();
 			}
+		}
+		if (!indeterminate) {
+			onParentChange();
 		}
 	}
 
+	$: if (!multiple) updateRadio(group);
+	$: if (!multiple) updateRadioGroup(checked);
 	function updateRadio(group: unknown) {
 		checked = group === value;
 		/** @event {{checked: boolean, indeterminate: boolean}} groupChange - Fires when the group changes */

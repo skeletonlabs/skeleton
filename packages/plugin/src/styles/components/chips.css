@@ -9,10 +9,14 @@
 		@apply rounded;
 		/* Flex Columns */
 		@apply inline-flex justify-center items-center space-x-2;
-		/* States */
-		@apply hover:brightness-[1.15];
 		/* Transitions */
 		@apply transition-all;
+	}
+
+	/* Interactive chips should have a hover state */
+	a.chip,
+	button.chip {
+		@apply hover:brightness-[1.15];
 	}
 
 	.chip-disabled,
