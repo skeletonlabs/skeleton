@@ -87,14 +87,14 @@
 				<svelte:fragment slot="preview">
 					<!-- prettier-ignore -->
 					<div class="flex justify-center space-x-2">
-						<span class="chip variant-soft hover:variant-filled" on:click={()=>{triggerToast('like')}} on:keypress>
+						<button class="chip variant-soft hover:variant-filled" on:click={()=>{triggerToast('like')}} on:keypress>
 							<i class="fa-solid fa-heart" />
 							<span>Like</span>
-						</span>
-						<span class="chip variant-soft hover:variant-filled" on:click={()=>{triggerToast('share')}} on:keypress>
+						</button>
+						<button class="chip variant-soft hover:variant-filled" on:click={()=>{triggerToast('share')}} on:keypress>
 							<i class="fa-solid fa-share" />
 							<span>Share</span>
-						</span>
+						</button>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -122,14 +122,14 @@
 					<div class="flex justify-center space-x-2">
 						{#each ['red', 'blue', 'green'] as c}
 							<!-- prettier-ignore -->
-							<span
+							<button
 								class="chip {color === c ? 'variant-filled' : 'variant-soft'}"
 								on:click={() => { section(c); }}
 								on:keypress
 							>
 								{#if color === c}<span><i class="fa-solid fa-check" /></span>{/if}
 								<span>{c}</span>
-							</span>
+							</button>
 						{/each}
 					</div>
 				</svelte:fragment>
@@ -159,14 +159,14 @@
 					<div class="flex justify-center space-x-2">
 						{#each Object.keys(flavors) as f}
 							<!-- prettier-ignore -->
-							<span
+							<button
 								class="chip {flavors[f] ? 'variant-filled' : 'variant-soft'}"
 								on:click={() => { toggle(f); }}
 								on:keypress
 							>
 								{#if flavors[f]}<span><i class="fa-solid fa-check" /></span>{/if}
 								<span class="capitalize">{f}</span>
-							</span>
+					</button>
 						{/each}
 					</div>
 				</svelte:fragment>
