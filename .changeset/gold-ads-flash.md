@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: fixed tree-view bug preventing clicking tree elements.
+bugfix: Fixed Tree View component bug that prevented clicking Tree elements.

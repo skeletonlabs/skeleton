@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: drawer animates smoothly when closing.
+bugfix: Drawers now have a smoother close animation by default

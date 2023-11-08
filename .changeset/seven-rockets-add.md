@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: apprail tile swap div for button for accessibility
+bugfix: Improved keyboard interaction and accessability for the AppRailTile

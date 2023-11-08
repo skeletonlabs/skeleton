@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: table cells are not focusable when `interactive` is not set.
+bugfix: Table cells are only focusable when the `interactive` prop is enabled
