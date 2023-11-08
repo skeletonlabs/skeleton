@@ -1,5 +1,11 @@
 # @skeletonlabs/tw-plugin
 
+## 0.2.4
+
+### Patch Changes
+
+- chore: Tailwind Element list styles should now support text wrapping by default ([#2200](https://github.com/skeletonlabs/skeleton/pull/2200))
+
 ## 0.2.3
 
 ### Patch Changes
