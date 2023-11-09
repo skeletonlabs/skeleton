@@ -177,6 +177,23 @@ let tableHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
 <Table source={{ head: tableHeaders, body: paginatedSource }} />
 				`}
 			/>
+			<p>
+				If the paginated data source is dynamic, you might want to update the size parameter accordingly with the data. To achieve this, you can
+				use a Svelte reactive declaration to update it accordingly.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+let paginationSettings = {
+    page: 0,
+    limit: 5,
+    size: source.length,
+    amounts: [1, 2, 5, 10],
+} satisfies PaginationSettings;
+
+$: paginationSettings.size= source.length;
+				`}
+			/>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Server-Side Pagination</h2>
