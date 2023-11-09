@@ -108,7 +108,7 @@ export default config;
 			/>
 			<!-- prettier-ignore -->
 			<p>
-				Open your root layout, found in <code class="code">/src/routes/+layout.svelte</code>, then append the following two lines at the top of the script tag. This disables server-side rendering (SSR) while enabling prerendering. 
+				Open your root layout, found in <code class="code">/src/routes/+layout.[ts|js]</code>, then append the following two lines at the top of the script tag. This disables server-side rendering (SSR) while enabling prerendering. 
 			</p>
 			<CodeBlock
 				language="js"
