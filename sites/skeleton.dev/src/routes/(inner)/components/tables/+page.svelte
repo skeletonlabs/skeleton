@@ -80,11 +80,11 @@
 					language="ts"
 					code={`
 const sourceData = [
-	{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-	{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-	{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-	{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-	{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
+	{ position: 1, name: '${sourceData[0].name}', number: ${sourceData[0].atomicNumber}, symbol: '${sourceData[0].symbol}' },
+	{ position: 2, name: '${sourceData[1].name}', number: ${sourceData[1].atomicNumber}, symbol: '${sourceData[1].symbol}' },
+	{ position: 3, name: '${sourceData[2].name}', number: ${sourceData[2].atomicNumber}, symbol: '${sourceData[2].symbol}' },
+	{ position: 4, name: '${sourceData[3].name}', number: ${sourceData[3].atomicNumber}, symbol: '${sourceData[3].symbol}' },
+	{ position: 5, name: '${sourceData[4].name}', number: ${sourceData[4].atomicNumber}, symbol: '${sourceData[4].symbol}' },
 ];
 				`}
 				/>
@@ -97,11 +97,11 @@ const sourceData = [
 					code={`
 const tableSimple: TableSource = {
 	// A list of heading labels.
-	head: ['Name', 'Symbol', 'Weight'],
+	head: ['Name', 'Symbol', 'Number'],
 	// The data visibly shown in your table body UI.
-	body: tableMapperValues(sourceData, ['name', 'symbol', 'weight']),
+	body: tableMapperValues(sourceData, ['name', 'symbol', 'atomicNumber']),
 	// Optional: The data returned when interactive is enabled and a row is clicked.
-	meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
+	meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'atomicNumber']),
 	// Optional: A list of footer labels.
 	foot: ['Total', '', '<code class="code">${sourceData.length}</code>']
 };
@@ -144,10 +144,10 @@ const tableSimple: TableSource = {
 				<CodeBlock
 					language="ts"
 					code={`
-tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
+tableMapperValues(sourceData, ['name', 'symbol', 'atomicNumber'])\n
 //	[
-//		['Hydrogen', 'H', '1.0079'],
-//		['Helium', 'He', '4.0026'],
+//		['${sourceData[0].name}', '${sourceData[0].symbol}', '${sourceData[0].atomicNumber}'],
+//		['${sourceData[1].name}', '${sourceData[1].symbol}', '${sourceData[1].atomicNumber}'],
 //		...
 //	]
 				`}
@@ -160,8 +160,8 @@ tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
 					code={`
 tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
 //[
-//		{ name: 'Hydrogen', symbol: 'H', weight: '1.0079' },
-//		{ name: 'Helium', symbol: 'He', weight: '4.0026' },
+//		{ name: '${sourceData[0].name}', symbol: '${sourceData[0].symbol}', weight: '${sourceData[0].atomicNumber}' },
+//		{ name: '${sourceData[1].name}', symbol: '${sourceData[1].symbol}', weight: '${sourceData[1].atomicNumber}' }
 //		...
 //]
 					`}
@@ -178,8 +178,8 @@ tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
 					code={`
 tableSourceValues(sourceData);\n
 //[
-//		[ 1, 'Hydrogen', '1.0079', 'H' ],
-//		[ 2, 'Helium', '4.0026', 'He' ],
+//		[ 1, '${sourceData[0].name}', '${sourceData[0].atomicNumber}', '${sourceData[0].symbol}' ],
+//		[ 2, '${sourceData[1].name}', '${sourceData[1].atomicNumber}', '${sourceData[1].symbol}' ],
 //		...
 //]
 `}
