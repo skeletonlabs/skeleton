@@ -148,6 +148,8 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		}
 		// Handle Close Query State
 		const closeQueryString: string = args.closeQuery === undefined ? 'a[href], button' : args.closeQuery;
+		// Return if no closeQuery is provided
+		if (closeQueryString === '') return;
 		const closableMenuElements = elemPopup?.querySelectorAll(closeQueryString);
 		closableMenuElements?.forEach((elem) => {
 			if (elem.contains(event.target)) close();
