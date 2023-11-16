@@ -119,6 +119,7 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<section class="space-y-4" />
 		<section class="space-y-4">
 			<h2 class="h2">Auto-Collapse Mode</h2>
 			<p>Enable the <code class="code">autocollapse</code> setting to limit display to one accordion panel at a time.</p>
@@ -153,20 +154,8 @@
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
 								<p>
-									Svelte applications and components are defined in .svelte files, which are HTML files extended with templating syntax that is based on JavaScript and is similar to JSX. Svelte repurposes JavaScript's native labeled statement syntax $: to mark reactive statements. Top-level variables become the component's state and exported variables become the properties that the component receives. Additionally, the JavaScript code syntax can be used for templating in HTML elements and components, which is shown below:
+									Svelte applications and components are defined in .svelte files, which are HTML files extended with templating syntax that is based on JavaScript and is similar to JSX. Svelte repurposes JavaScript's native labeled statement syntax $: to mark reactive statements. Top-level variables become the component's state and exported variables become the properties that the component receives. Additionally, the JavaScript code syntax can be used for templating in HTML elements and components.
 								</p>
-								<CodeBlock
-									language="html"
-									code={`
-<script>
-    let count = 1;
-    $: doubled = count * 2;
-</script>
-
-<p>{count} * 2 = {doubled}</p>
-
-<button on:click={() => count = count + 1}>Count</button>`}
-								/>
 							</svelte:fragment>
 						</AccordionItem>
 					</Accordion>
@@ -183,7 +172,6 @@
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
-		<section class="space-y-4" />
 		<section class="space-y-4">
 			<h2 class="h2">Open on Load</h2>
 			<p>
