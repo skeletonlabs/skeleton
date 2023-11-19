@@ -194,6 +194,10 @@ let paginationSettings = {
 $: paginationSettings.size= source.length;
 				`}
 			/>
+            <p>
+                With this pagination setup, it's important to update the paginationSettings directly for reactivity. 
+                Simply updating a reference to source will not trigger the reactivity. 
+            </p>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Server-Side Pagination</h2>
