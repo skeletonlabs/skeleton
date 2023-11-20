@@ -1,10 +1,9 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import { modalStore } from '$lib/utilities/Modal/stores.js';
-import type { ModalSettings } from '$lib/utilities/Modal/types.js';
+import type { ModalSettings } from './types.js';
 
-import Modal from '$lib/utilities/Modal/Modal.svelte';
+import ModalTest from './ModalTest.svelte';
 
 // Modal Payloads
 const modalAlert: ModalSettings = {
@@ -28,22 +27,19 @@ const modalPrompt: ModalSettings = {
 
 describe('Modal.svelte', () => {
 	it('Renders modal alert', async () => {
-		modalStore.trigger(modalAlert);
-		const { getByTestId } = render(Modal);
+		const { getByTestId } = render(ModalTest, { props: { modalSetting: modalAlert } });
 		expect(getByTestId('modal-backdrop')).toBeTruthy();
 		expect(getByTestId('modal')).toBeTruthy();
 	});
 
 	it('Renders modal confirm', async () => {
-		modalStore.trigger(modalConfirm);
-		const { getByTestId } = render(Modal);
+		const { getByTestId } = render(ModalTest, { props: { modalSetting: modalConfirm } });
 		expect(getByTestId('modal-backdrop')).toBeTruthy();
 		expect(getByTestId('modal')).toBeTruthy();
 	});
 
 	it('Renders modal prompt', async () => {
-		modalStore.trigger(modalPrompt);
-		const { getByTestId } = render(Modal);
+		const { getByTestId } = render(ModalTest, { props: { modalSetting: modalPrompt } });
 		expect(getByTestId('modal-backdrop')).toBeTruthy();
 		expect(getByTestId('modal')).toBeTruthy();
 	});

@@ -104,6 +104,8 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		elemPopup.style.display = 'block';
 		elemPopup.style.opacity = '1';
 		elemPopup.style.pointerEvents = 'auto';
+		// enable popup interactions
+		elemPopup.removeAttribute('inert');
 		// Trigger Floating UI autoUpdate (open only)
 		// https://floating-ui.com/docs/autoUpdate
 		popupState.autoUpdateCleanup = autoUpdate(triggerNode, elemPopup, render);
@@ -121,7 +123,8 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 			if (args.state) args.state({ state: popupState.open });
 			// Update the DOM
 			elemPopup.style.opacity = '0';
-			elemPopup.style.pointerEvents = 'none';
+			// disable popup interactions
+			elemPopup.setAttribute('inert', '');
 			// Cleanup Floating UI autoUpdate (close only)
 			if (popupState.autoUpdateCleanup) popupState.autoUpdateCleanup();
 			// Trigger callback
@@ -145,6 +148,8 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		}
 		// Handle Close Query State
 		const closeQueryString: string = args.closeQuery === undefined ? 'a[href], button' : args.closeQuery;
+		// Return if no closeQuery is provided
+		if (closeQueryString === '') return;
 		const closableMenuElements = elemPopup?.querySelectorAll(closeQueryString);
 		closableMenuElements?.forEach((elem) => {
 			if (elem.contains(event.target)) close();

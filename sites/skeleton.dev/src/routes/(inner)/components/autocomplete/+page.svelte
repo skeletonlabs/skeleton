@@ -17,14 +17,16 @@
 		description: 'Displays a list of suggested options.',
 		imports: ['Autocomplete'],
 		types: ['AutocompleteOption'],
-		source: 'components/Autocomplete',
+		source: 'packages/skeleton/src/lib/components/Autocomplete',
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [{ sveld: sveldAutocomplete }],
 		keyboard: [
 			['<kbd class="kbd">Tab</kbd>', 'Select the next autocomplete option.'],
 			['<kbd class="kbd">Shift</kbd> + <kbd class="kbd">Tab</kbd>', 'Select the previous autocomplete option.'],
 			['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Select the current autocomplete option.']
-		]
+		],
+		transitionIn: 'slide',
+		transitionOut: 'slide'
 	};
 
 	// Local
@@ -37,7 +39,8 @@
 
 	let inputDemo = '';
 	let inputAllowlist = '';
-	const flavorOptions: AutocompleteOption[] = [
+	type FlavorOption = AutocompleteOption<string, { healthy: boolean }>;
+	const flavorOptions: FlavorOption[] = [
 		{ label: 'Vanilla', value: 'vanilla', keywords: 'plain, basic', meta: { healthy: false } },
 		{ label: 'Chocolate', value: 'chocolate', keywords: 'dark, white', meta: { healthy: false } },
 		{ label: 'Strawberry', value: 'strawberry', keywords: 'fruit', meta: { healthy: true } },
@@ -45,29 +48,29 @@
 		{ label: 'Pineapple', value: 'pineapple', keywords: 'fruit', meta: { healthy: true } },
 		{ label: 'Peach', value: 'peach', keywords: 'fruit', meta: { healthy: true } }
 	];
-	const flavorAllowlist: string[] = ['neapolitan', 'pineapple', 'peach'];
-	let flavorDenylist: string[] = ['vanilla', 'chocolate'];
+	const flavorAllowlist = ['neapolitan', 'pineapple', 'peach'];
+	let flavorDenylist = ['vanilla', 'chocolate'];
 
 	// Input Chip
 	let inputChip = '';
-	let inputChipList: string[] = ['vanilla', 'chocolate'];
+	let inputChipList = ['vanilla', 'chocolate'];
 
-	function onDemoSelection(event: any): void {
+	function onDemoSelection(event: CustomEvent<FlavorOption>): void {
 		console.log(event.detail);
 		inputDemo = event.detail.label;
 	}
 
-	function onAllowedlistSelect(event: any): void {
+	function onAllowedlistSelect(event: CustomEvent<FlavorOption>): void {
 		console.log(event.detail);
 		inputAllowlist = event.detail.label;
 	}
 
-	function onDeniedlistSelect(event: any): void {
+	function onDeniedlistSelect(event: CustomEvent<FlavorOption>): void {
 		console.log(event.detail);
 		flavorDenylist = [event.detail.value];
 	}
 
-	function onInputChipSelect(event: any): void {
+	function onInputChipSelect(event: CustomEvent<FlavorOption>): void {
 		console.log('onInputChipSelect', event.detail);
 		if (inputChipList.includes(event.detail.value) === false) {
 			inputChipList = [...inputChipList, event.detail.value];
@@ -75,8 +78,21 @@
 		}
 	}
 
-	function onPopupDemoSelect(event: any): void {
+	function onPopupDemoSelect(event: CustomEvent<FlavorOption>): void {
 		inputPopupDemo = event.detail.label;
+	}
+
+	function customFilterFunction(): FlavorOption[] {
+		// Create a local copy of options
+		let _options = [...flavorOptions];
+		// Filter options
+		_options = _options.filter((option) => {
+			// Format the input search value
+			const inputFormatted = String(inputDemo).toLowerCase().trim();
+			// Check Match
+			if (option.value.toLowerCase().trim().includes(inputFormatted)) return option;
+		});
+		return _options;
 	}
 </script>
 
@@ -99,7 +115,7 @@
 				<CodeBlock
 					language="ts"
 					code={`
-const flavorOptions: AutocompleteOption[] = [
+const flavorOptions: AutocompleteOption<string>[] = [
 	{ label: 'Vanilla', value: 'vanilla', keywords: 'plain, basic', meta: { healthy: false } },
 	{ label: 'Chocolate', value: 'chocolate', keywords: 'dark, white', meta: { healthy: false } },
 	{ label: 'Strawberry', value: 'strawberry', keywords: 'fruit', meta: { healthy: true } },
@@ -113,7 +129,7 @@ const flavorOptions: AutocompleteOption[] = [
 				<CodeBlock
 					language="ts"
 					code={`
-function onFlavorSelection(event: any): void {
+function onFlavorSelection(event: CustomEvent<AutocompleteOption<string>>): void {
 	inputDemo = event.detail.label;
 }
 				`}
@@ -158,7 +174,7 @@ function onFlavorSelection(event: any): void {
 			<CodeBlock
 				language="ts"
 				code={`
-const flavorOptions: AutocompleteOption[] = [
+const flavorOptions: AutocompleteOption<string>[] = [
 	{ ..., keywords: 'mix, strawberry, chocolate, vanilla' },
 	{ ..., meta: { healthy: false } },
 ];
@@ -214,6 +230,41 @@ const flavorOptions: AutocompleteOption[] = [
 				<svelte:fragment slot="source">
 					<CodeBlock language="ts" code={`let flavorDenylist: string[] = ['vanilla', 'chocolate'];`} />
 					<CodeBlock language="html" code={`<Autocomplete ... denylist={flavorDenylist} />`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<!-- Custom Filter -->
+		<section class="space-y-4">
+			<h2 class="h2">Custom Filter</h2>
+			<p>Provide a custom filter function using the prop <code class="code">filter</code>.</p>
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					<div class="text-token w-full max-w-sm space-y-2">
+						<input class="input" type="search" name="ac-demo" bind:value={inputDemo} placeholder="Search..." />
+						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
+							<Autocomplete bind:input={inputDemo} options={flavorOptions} filter={customFilterFunction} on:selection={onDemoSelection} />
+						</div>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+function myCustomFilter(): AutocompleteOption<string>[] {
+	// Create a local copy of options
+	let _options = [...flavorOptions];
+	// Filter options
+	return _options.filter((option) => {
+		// Format the input and option values
+		const inputFormatted = String(inputValue).toLowerCase().trim();
+		const optionFormatted = option.value.toLowerCase().trim();
+		// Check Match with value only
+		if (optionFormatted.includes(inputFormatted)) return option;
+	});
+}
+					`}
+					/>
+					<CodeBlock language="html" code={`<Autocomplete ... filter={myCustomFilter} />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

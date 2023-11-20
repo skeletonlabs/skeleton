@@ -15,7 +15,7 @@
 		name: 'Tabs',
 		description: 'Use tabs to quickly switch between different views and pages.',
 		imports: ['TabGroup', 'Tab', 'TabAnchor'],
-		source: 'components/Tab',
+		source: 'packages/skeleton/src/lib/components/Tab',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/',
 		components: [
 			{ label: 'TabGroup', sveld: sveldTabGroup },

@@ -5,7 +5,7 @@
 	// Components
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 	// Field Settings
-	import { fieldSettings } from './settings';
+	import { fieldSettings, type InputSettings } from './settings';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -13,7 +13,7 @@
 		name: 'Forms',
 		description: 'Pair with the Tailwind Forms plugin to style various input fields.',
 		stylesheetIncludes: ['all', 'forms'],
-		source: 'styles/elements/forms.css',
+		source: 'packages/plugin/src/styles/base/forms.css',
 		dependencies: [{ label: 'Tailwind Forms Plugin', url: 'https://github.com/tailwindlabs/tailwindcss-forms' }],
 		classes: [
 			['<code class="code">.legend</code>', '', 'Provides theme styles to legend elements.'],
@@ -31,12 +31,12 @@
 	};
 
 	// Local
-	let currentInput: any = fieldSettings.inputs[0];
+	let currentInput = fieldSettings.inputs[0];
 	let colorValue = '#bada55';
 
-	function mapInputAttributes(obj: any): any {
-		return Object.keys(obj)
-			.map((key: any) => `${key}="${obj[key]}"`)
+	function mapInputAttributes(obj: InputSettings): string {
+		return Object.entries(obj)
+			.map(([key, value]) => `${key}="${value}"`)
 			.join(' ');
 	}
 </script>
@@ -124,23 +124,26 @@
 			</p>
 			<!-- Written -->
 			<div class="flex-auto space-y-4">
-				<CodeBlock language="console" code={`npm install -D @tailwindcss/forms`} />
+				<CodeBlock language="shell" code={`npm install -D @tailwindcss/forms`} />
 				<p>
 					Prepend the <a class="anchor" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer"
 						>Tailwind Forms plugin</a
 					>
 					to your
-					<code class="code">tailwind.config.cjs</code>
+					<code class="code">tailwind.config.[ts|js],</code>
 				</p>
 				<CodeBlock
 					language="js"
 					code={`
-module.exports = {
+import forms from '@tailwindcss/forms';
+
+export default {
+	//...
 	plugins: [
-		require('@tailwindcss/forms'),
-		// NOTE: Insert above the 'skeleton.cjs' plugin
+		forms,
+		//...
 	],
-}
+};
 				`}
 				/>
 			</div>
@@ -504,8 +507,44 @@ module.exports = {
 					<CodeBlock
 						language="html"
 						code={`
+<p>Website</p>
 <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-	<div class="input-group-shim">(segment)</div>
+  <div class="input-group-shim">https://</div>
+  <input type="text" placeholder="www.example.com" />
+</div>
+		`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<p>Amount</p>
+<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+  <div class="input-group-shim">(icon)</div>
+  <input type="text" placeholder="Amount" />
+  <select>
+    <option>USD</option>
+    <option>CAD</option>
+    <option>EURO</option>
+  </select>
+</div>
+		`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<p>Username</p>
+<div class="input-group input-group-divider grid-cols-[1fr_auto]">
+  <input type="text" placeholder="Enter Username..." />
+  <a href="/" title="Username already in use.">(icon)</a>
+</div>
+		`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<p>Search</p>
+<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+	<div class="input-group-shim">(icon)</div>
 	<input type="search" placeholder="Search..." />
 	<button class="variant-filled-secondary">Submit</button>
 </div>

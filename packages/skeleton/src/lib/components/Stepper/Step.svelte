@@ -8,11 +8,13 @@
 
 	import { getContext, onDestroy } from 'svelte';
 	import type { Writable } from 'svelte/store';
-	import { fade } from 'svelte/transition';
+	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// Types
-	import type { CssClasses } from '../../index.js';
 	import type { StepperEventDispatcher, StepperState } from './types.js';
+	import type { CssClasses, Transition, TransitionParams } from '../../index.js';
+	type TransitionIn = $$Generic<Transition>;
+	type TransitionOut = $$Generic<Transition>;
 
 	// Props
 	export let locked = false;
@@ -40,6 +42,30 @@
 	export let buttonComplete: CssClasses = getContext('buttonComplete');
 	export let buttonCompleteType: 'submit' | 'reset' | 'button' = getContext('buttonCompleteType');
 	export let buttonCompleteLabel: string = getContext('buttonCompleteLabel');
+
+	// Props (transitions)
+	/** Enable/Disable transitions */
+	export let transitions: boolean = getContext('transitions');
+	/**
+	 * Provide the transition to used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = getContext('transitionIn');
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = getContext('transitionInParams');
+	/**
+	 * Provide the transition to used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = getContext('transitionOut');
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
 
 	// Register step on init (keep these paired)
 	const stepIndex = $state.total;
@@ -97,7 +123,11 @@
 		</div>
 		<!-- Navigation -->
 		{#if $state.total > 1}
-			<div class="step-navigation {classesNavigation}" transition:fade|local={{ duration: 100 }}>
+			<div
+				class="step-navigation {classesNavigation}"
+				in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+				out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+			>
 				{#if stepIndex === 0 && $$slots.navigation}
 					<!-- Slot: Navigation -->
 					<div class="step-navigation-slot">
@@ -113,7 +143,7 @@
 					<!-- Button: Next -->
 					<button type={buttonNextType} class="btn {buttonNext}" on:click={onNext} disabled={locked}>
 						{#if locked}
-							<svg class="w-3 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+							<svg class="w-3 aspect-square fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 								<path
 									d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"
 								/>

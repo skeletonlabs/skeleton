@@ -16,7 +16,6 @@ describe('Stepper.svelte', () => {
 			props: {
 				active: writable(0),
 				length: 0,
-				duration: 200,
 				// Props (timeline)
 				color: 'text-white',
 				background: 'bg-secondary-500 text-white',

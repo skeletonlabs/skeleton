@@ -1,5 +1,7 @@
 // Drawer Types
 
+export type { DrawerStore } from './stores.js';
+
 export interface DrawerSettings {
 	open?: boolean;
 	/** A unique identifier, useful for setting contents. */
@@ -16,8 +18,6 @@ export interface DrawerSettings {
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
 	position?: 'left' | 'top' | 'right' | 'bottom';
-	/** Define the Svelte transition animation duration.*/
-	duration?: number;
 
 	// --- Backdrop ---
 	/** Backdrop - Provide classes to set the backdrop background color*/
@@ -40,6 +40,12 @@ export interface DrawerSettings {
 	width?: string;
 	/** Drawer - Provide classes to override the height.*/
 	height?: string;
+
+	// -- Transitions ---
+	/** Define the Svelte transition animation duration.*/
+	duration?: number;
+	/** Drawer - Enable/Disable opacity transition */
+	opacityTransition?: boolean;
 
 	// --- Regions ---
 	/** Provide arbitrary classes to the backdrop region. */

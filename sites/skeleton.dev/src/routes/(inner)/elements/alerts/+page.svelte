@@ -16,7 +16,7 @@
 		description: 'Displays customizable alerts to attract attention and provide critical actions.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/alerts'],
-		source: 'styles/elements/alerts.css',
+		source: 'packages/plugin/src/styles/components/alerts.css',
 		classes: [
 			['<code class="code">alert</code>', '', 'Provide basic alert styles to a block element.'],
 			['<code class="code">alert-message</code>', '', 'The message body styles. Contains a title and message.'],

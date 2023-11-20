@@ -14,7 +14,7 @@
 		name: 'App Shell',
 		description: 'Responsive shell for controlling application layout.',
 		imports: ['AppShell'],
-		source: 'components/AppShell',
+		source: 'packages/skeleton/src/lib/components/AppShell',
 		components: [{ sveld: sveldAppShell }]
 	};
 
@@ -217,6 +217,29 @@
 			</aside>
 		</section>
 		<section class="space-y-4">
+			<h2 class="h2">Scroll to Top on Navigation</h2>
+			<p>
+				If you wish to have the App Shell page region auto-scroll to the top when navigating, add the following to your root layout in <code
+					class="code">/src/routes/+layout.svelte</code
+				>.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+import type { AfterNavigate } from '@sveltejs/kit';
+import { afterNavigate } from '$app/navigation';
+
+afterNavigate((params: AfterNavigate) => {
+    const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
+    const elemPage = document.querySelector('#page');
+    if (isNewPage && elemPage !== null) {
+        elemPage.scrollTop = 0;
+    }
+});
+`}
+			/>
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Tracking Scroll Position</h2>
 			<p>Use the <code class="code">on:scroll</code> event to detect when the page region is scrolled vertically.</p>
 			<CodeBlock
@@ -230,6 +253,14 @@ function scrollHandler(event: ComponentEvents<AppShell>['scroll']) {
 `}
 			/>
 			<CodeBlock language="html" code={`<AppShell ... on:scroll={scrollHandler}>`} />
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Scrollbar Gutter</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Use the <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter" target="_blank">scrollbar gutter</a> property to adjust how the page region scrollbar gutters are handled. View a <a class="anchor" href="https://www.youtube.com/shorts/mg49F9qUs38" target="_blank">quick demo video</a>.
+			</p>
+			<CodeBlock language="ts" code={`<AppShell scrollbarGutter="auto">...</AppShell>`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Accessibility</h2>

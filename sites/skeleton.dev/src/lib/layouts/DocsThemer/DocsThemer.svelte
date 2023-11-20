@@ -36,11 +36,35 @@
 		roundedContainer: '8px',
 		borderBase: '1px'
 	});
+	resetColorOnInvalidHex();
 
 	// Local
 	let cssOutput = '';
+	let cssInJsOutput = '';
 	let showThemeCSS = false;
 	let conReports: ContrastReport[] = getContrastReports();
+
+	// only called when initializing the component to avoid color errors.
+	// must be called before onMount.
+	function resetColorOnInvalidHex() {
+		const colorMapping = {
+			primary: '#0FBA81',
+			secondary: '#4F46E5',
+			tertiary: '#0EA5E9',
+			success: '#84cc16',
+			warning: '#EAB308',
+			error: '#D41976',
+			surface: '#495a8f'
+		};
+
+		$storeThemGenForm.colors.forEach((color: ColorSettings, i: number) => {
+			if (hexValueIsValid(color.hex)) return;
+
+			if (color.key in colorMapping) {
+				$storeThemGenForm.colors[i].hex = colorMapping[color.key];
+			}
+		});
+	}
 
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {
@@ -50,6 +74,7 @@
 		});
 	}
 
+	// CSS output (for live preview)
 	function generateColorCSS(): string {
 		let newCSS = '';
 		const newPalette: Record<string, Palette> = {};
@@ -68,10 +93,28 @@
 		return newCSS;
 	}
 
+	// CSS-in-JS output (for theme file)
+	function generateColorCssInJS(): string {
+		let newCssInJs = '';
+		const newPalette: Record<string, Palette> = {};
+		// Loop store colors
+		$storeThemGenForm.colors.forEach((color: ColorSettings, i: number) => {
+			const colorKey = color.key;
+			// Generate the new color palette hex/rgb/on values
+			newPalette[color.key] = generatePalette($storeThemGenForm.colors[i].hex);
+			// The color set comment
+			newCssInJs += `// ${colorKey} | ${newPalette[colorKey][500].hex} \n\t\t`;
+			// CSS props for shade 50-900 per each color
+			for (let [k, v] of Object.entries(newPalette[colorKey])) {
+				newCssInJs += `"--color-${colorKey}-${k}": "${v.rgb}", // ${v.hex}\n\t\t`;
+			}
+		});
+		return newCssInJs;
+	}
+
 	function onPreviewToggle(): void {
 		if ($storePreview === false) {
 			localStorage.removeItem('storeThemGenForm');
-			location.reload(); // required
 		}
 	}
 
@@ -104,6 +147,7 @@
 	}
 
 	$: if ($storeThemGenForm && hexValuesAreValid($storeThemGenForm.colors)) {
+		// CSS output (for live preview)
 		cssOutput = `
 :root {
 	/* =~= Theme Properties =~= */
@@ -124,6 +168,32 @@
 	--on-surface: ${$storeThemGenForm.colors[6]?.on};
 	/* =~= Theme Colors  =~= */
 	${generateColorCSS()}
+}`;
+		// CSS-in-JS output (for theme file)
+		cssInJsOutput = `
+import type { CustomThemeConfig } from '@skeletonlabs/tw-plugin';\n
+export const myCustomTheme: CustomThemeConfig = {
+    name: 'my-custom-theme',
+    properties: {
+		// =~= Theme Properties =~=
+		"--theme-font-family-base": \`${fontSettings[$storeThemGenForm.fontBase]}\`,
+		"--theme-font-family-heading": \`${fontSettings[$storeThemGenForm.fontHeadings]}\`,
+		"--theme-font-color-base": "${$storeThemGenForm.textColorLight}",
+		"--theme-font-color-dark": "${$storeThemGenForm.textColorDark}",
+		"--theme-rounded-base": "${$storeThemGenForm.roundedBase}",
+		"--theme-rounded-container": "${$storeThemGenForm.roundedContainer}",
+		"--theme-border-base": "${$storeThemGenForm.borderBase}",
+		// =~= Theme On-X Colors =~=
+		"--on-primary": "${$storeThemGenForm.colors[0]?.on}",
+		"--on-secondary": "${$storeThemGenForm.colors[1]?.on}",
+		"--on-tertiary": "${$storeThemGenForm.colors[2]?.on}",
+		"--on-success": "${$storeThemGenForm.colors[3]?.on}",
+		"--on-warning": "${$storeThemGenForm.colors[4]?.on}",
+		"--on-error": "${$storeThemGenForm.colors[5]?.on}",
+		"--on-surface": "${$storeThemGenForm.colors[6]?.on}",
+		// =~= Theme Colors  =~=
+		${generateColorCssInJS()}
+	}
 }`;
 	}
 
@@ -302,11 +372,11 @@
 
 		<!-- CSS Output -->
 		<footer class="col-span-2 space-y-4">
-			{#if showThemeCSS}<CodeBlock language="css" code={cssOutput} />{/if}
+			{#if showThemeCSS}<CodeBlock language="ts" code={cssInJsOutput} />{/if}
 			<div class="card variant-glass p-4 text-center">
 				<!-- prettier-ignore -->
 				<button class="btn btn-lg variant-filled-primary font-bold" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
-					{!showThemeCSS ? 'Show' : 'Hide'} Theme CSS
+					{!showThemeCSS ? 'Show' : 'Hide'} Theme Source
 				</button>
 			</div>
 		</footer>

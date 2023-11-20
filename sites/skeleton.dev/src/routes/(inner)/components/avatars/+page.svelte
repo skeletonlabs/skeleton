@@ -17,7 +17,7 @@
 		name: 'Avatars',
 		description: 'Display user avatars with an image or initials.',
 		imports: ['Avatar'],
-		source: 'components/Avatar',
+		source: 'packages/skeleton/src/lib/components/Avatar',
 		components: [{ sveld: sveldAvatar }]
 	};
 

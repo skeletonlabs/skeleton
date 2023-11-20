@@ -14,7 +14,7 @@
 		name: 'Steppers',
 		description: 'Divide and present content in sequenced steps.',
 		imports: ['Stepper', 'Step'],
-		source: 'components/Stepper',
+		source: 'packages/skeleton/src/lib/components/Stepper',
 		components: [
 			{ label: 'Stepper', sveld: sveldStepper },
 			{
@@ -32,7 +32,9 @@
 					'buttonCompleteLabel'
 				]
 			}
-		]
+		],
+		transitionIn: 'fade',
+		transitionOut: 'fade'
 	};
 
 	// Local
@@ -180,8 +182,8 @@
 			<CodeBlock
 				language="html"
 				code={`
-<!-- French: Marcher 1, Marcher 2, ... -->
-<Step stepTerm='Marcher'>...</Step>\n
+<!-- French: Étape 1, Étape 2, ... -->
+<Step stepTerm='Étape'>...</Step>\n
 <!-- Spanish: Paso 1, Paso 2, ... -->
 <Step stepTerm='Paso'>...</Step>
 			`}

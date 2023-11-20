@@ -3,7 +3,7 @@
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	// Components
-	import { RadioGroup, RadioItem, CodeBlock } from '@skeletonlabs/skeleton';
+	import { CodeBlock, RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldRadioGroup from '@skeletonlabs/skeleton/components/Radio/RadioGroup.svelte?raw&sveld';
 	import sveldRadioItem from '@skeletonlabs/skeleton/components/Radio/RadioItem.svelte?raw&sveld';
@@ -14,12 +14,16 @@
 		name: 'Radio Groups',
 		description: 'Capture feedback limited to a small set of options.',
 		imports: ['RadioGroup', 'RadioItem'],
-		source: 'components/Radio',
+		source: 'packages/skeleton/src/lib/components/Radio',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/',
 		restProps: 'RadioItem input',
 		components: [
 			{ label: 'RadioGroup', sveld: sveldRadioGroup },
-			{ label: 'RadioItem', sveld: sveldRadioItem, overrideProps: ['padding', 'hover', 'accent', 'color', 'fill', 'rounded'] }
+			{
+				label: 'RadioItem',
+				sveld: sveldRadioItem,
+				overrideProps: ['padding', 'hover', 'accent', 'color', 'fill', 'rounded', 'regionLabel']
+			}
 		],
 		keyboard: [
 			['<kbd class="kbd">Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],
@@ -40,6 +44,8 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
+				<!-- Use this to test full width sizing -->
+				<!-- <RadioGroup class="text-token w-full" display="flex"> -->
 				<RadioGroup class="text-token">
 					<RadioItem bind:group={justify} name="justify" value={0}>
 						<i class="fa-solid fa-align-left" />

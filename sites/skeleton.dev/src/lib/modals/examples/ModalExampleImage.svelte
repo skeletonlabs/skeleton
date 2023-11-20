@@ -1,7 +1,14 @@
 <script lang="ts">
-	import { modalStore } from '@skeletonlabs/skeleton';
+	import type { SvelteComponent } from 'svelte';
 
-	export let parent: any;
+	// Stores
+	import { getModalStore } from '@skeletonlabs/skeleton';
+
+	// Props
+	/** Exposes parent props to this component. */
+	export let parent: SvelteComponent;
+
+	const modalStore = getModalStore();
 
 	const cButton = 'fixed top-4 right-4 z-50 font-bold shadow-xl';
 	const cImage = 'max-w-[90%] max-h-[90%] rounded-container-token overflow-hidden shadow-xl';

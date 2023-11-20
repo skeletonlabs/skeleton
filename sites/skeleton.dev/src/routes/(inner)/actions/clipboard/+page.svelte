@@ -11,7 +11,7 @@
 		name: 'Clipboard',
 		description: 'Allows you to quickly copy data to the clipboard.',
 		imports: ['clipboard'],
-		source: 'actions/Clipboard',
+		source: 'packages/skeleton/src/lib/actions/Clipboard',
 		parameters: [
 			['<code class="code">element</code>', 'string', '-', '-', `HTML element's <em>data-clipboard</em> ID value.`],
 			['<code class="code">input</code>', 'string', '-', '-', `Input element's <em>data-clipboard</em> ID value.`]
@@ -86,7 +86,6 @@
 				an
 				<code class="code">input</code> reference to the action.
 			</p>
-
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-token card variant-soft p-4 flex items-center gap-4">
@@ -107,5 +106,10 @@
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
+		<section class="space-y-4">
+			<h2 class="h2">Secure Context</h2>
+			<!-- prettier-ignore -->
+			<p>This action utilizes the native browser <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard" target="_blank">Clipboard API </a> which only functions within a <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts" target="_blank">Secure Context</a>. For best results ensure your app is served with <code class="code">https://</code>. Skeleton will produce a console error when this is triggered outside a Secure Context.</p>
+		</section>
 	</svelte:fragment>
 </DocsShell>

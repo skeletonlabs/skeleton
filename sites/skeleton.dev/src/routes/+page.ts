@@ -4,15 +4,15 @@ import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ fetch }) => {
 	const getContributors = async () => {
 		if (!browser) return []; // only fetch on the browser
-		const res = await fetch('https://api.github.com/repos/skeletonlabs/skeleton/contributors');
+		const res = await fetch('https://api.github.com/repos/skeletonlabs/skeleton/contributors?per_page=102');
 		if (!res.ok) return []; // return an empty list
 		const body = (await res.json()) as Contributor[];
-		return body;
+		return body.filter((c) => c.login !== 'github-actions[bot]' && c.login !== 'LukeHagar');
 	};
 	return { contributors: getContributors() };
 };
 
-type Contributor = {
+export type Contributor = {
 	login: string;
 	id: number;
 	node_id: string;

@@ -1,12 +1,15 @@
 <script lang="ts">
-	import { ListBox, ListBoxItem, modalStore } from '@skeletonlabs/skeleton';
+	import type { SvelteComponent } from 'svelte';
+
+	import { ListBox, ListBoxItem, getModalStore } from '@skeletonlabs/skeleton';
 
 	// Props
 	/** Exposes parent props to this component. */
-	export let parent: any;
+	export let parent: SvelteComponent;
 
 	// Local
 	let flavor = 'chocolate';
+	const modalStore = getModalStore();
 
 	// Handle Form Submission
 	function onFormSubmit(): void {

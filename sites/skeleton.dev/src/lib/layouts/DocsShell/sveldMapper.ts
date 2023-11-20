@@ -7,7 +7,12 @@ export function sveldMapperProps(component: Component): TableSource {
 	const { props } = component.sveld;
 	const propsHeadings = ['Name', 'Type', 'Value', 'Description'];
 	// Filter props with undefined types (exclude getContext)
-	const propsFiltered = props.filter((p: any) => p.type !== undefined);
+	const propsFiltered = props.filter((p) => {
+		// Filter out Tree View export function props
+		if (['expandAll', 'collapseAll', 'onParentChange'].includes(p.name)) return;
+		// Return all undefined
+		return p.type !== undefined;
+	});
 	// Return table headings/source
 	function cleanValue(value: string | undefined): string {
 		if (value === undefined || value === '' || value === "''") return '-';
@@ -15,8 +20,8 @@ export function sveldMapperProps(component: Component): TableSource {
 	}
 	return {
 		head: propsHeadings,
-		body: propsFiltered.map((p: any) => {
-			return [`<code class="code">${p.name}<?code>`, `<em>${p.type}</em>`, cleanValue(p.value), p.description ? p?.description : '-'];
+		body: propsFiltered.map((p) => {
+			return [`<code class="code">${p.name}<?code>`, `<em>${p.type}</em>`, cleanValue(p.value), p.description ? p.description : '-'];
 		})
 	};
 }
@@ -27,7 +32,7 @@ export function sveldMapperSlots(component: Component): TableSource {
 	const slotsHeadings = ['Name', 'Default', 'Fallback', 'Description'];
 	return {
 		head: slotsHeadings,
-		body: slots.map((s: any) => {
+		body: slots.map((s) => {
 			// prettier-ignore
 			return [
 				`<code class="code">${s.name.replaceAll('__', '')}</code>`,
@@ -46,7 +51,7 @@ export function sveldMapperEvents(component: Component): TableSource {
 	const eventsHeadings = ['Name', 'Type', 'Element', 'Response', 'Description'];
 	return {
 		head: eventsHeadings,
-		body: events.map((e: any) => {
+		body: events.map((e) => {
 			// prettier-ignore
 			return [
 				`<code class="code">on:${e.name}</code>`,

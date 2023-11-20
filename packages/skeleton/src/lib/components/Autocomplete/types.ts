@@ -1,12 +1,12 @@
 // Autocomplete Types
 
-export interface AutocompleteOption {
-	/** provide a unique display label per option. Supports HTML. */
+export interface AutocompleteOption<Value = unknown, Meta = unknown> {
+	/** Provide a unique display label per option. Supports HTML. */
 	label: string;
 	/** Provide a unique option value. */
-	value: unknown;
+	value: Value;
 	/** Provide a comma separated list of keywords. */
-	keywords?: any;
+	keywords?: string;
 	/** Pass arbitrary data per option. */
-	meta?: any;
+	meta?: Meta;
 }

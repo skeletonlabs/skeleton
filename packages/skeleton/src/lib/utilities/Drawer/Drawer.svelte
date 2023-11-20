@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { fade, fly } from 'svelte/transition';
 	import { createEventDispatcher } from 'svelte';
 	import { BROWSER } from 'esm-env';
 
@@ -11,30 +10,23 @@
 	const dispatch = createEventDispatcher<DrawerEvent>();
 
 	// Types
-	import type { CssClasses, SvelteEvent } from '../../index.js';
+	import { type CssClasses, type SvelteEvent, prefersReducedMotionStore } from '../../index.js';
 
 	// Actions
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
 
 	// Drawer Utils
 	import type { DrawerSettings } from './types.js';
-	import { drawerStore } from './stores.js';
+	import { getDrawerStore } from './stores.js';
+	import { fade, fly } from 'svelte/transition';
+	import { dynamicTransition } from '../../internal/transitions.js';
+	import { cubicIn } from 'svelte/easing';
 
 	// Props
 	/** Set the anchor position.
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
 	export let position: 'left' | 'top' | 'right' | 'bottom' = 'left';
-	/** Define the Svelte transition animation duration. */
-	export let duration = 150;
-
-	// Props (backdrop)
-	/** Backdrop - Provide classes to set the backdrop background color */
-	export let bgBackdrop: CssClasses = 'bg-surface-backdrop-token';
-	/** Backdrop - Provide classes to set the blur style. */
-	export let blur: CssClasses = '';
-	/** Backdrop - Provide classes to set padding. */
-	export let padding: CssClasses = '';
 
 	// Props (drawer)
 	/** Drawer - Provide classes to set the drawer background color. */
@@ -49,7 +41,15 @@
 	export let width: CssClasses = '';
 	/** Drawer - Provide classes to override the height. */
 	export let height: CssClasses = '';
-	/** Provide a class to override the z-index */
+
+	// Props (backdrop)
+	/** Backdrop - Provide classes to set the backdrop background color */
+	export let bgBackdrop: CssClasses = 'bg-surface-backdrop-token';
+	/** Backdrop - Provide classes to set the blur style. */
+	export let blur: CssClasses = '';
+	/** Backdrop - Provide classes to set padding. */
+	export let padding: CssClasses = '';
+	/** Backdrop - Provide a class to override the z-index */
 	export let zIndex: CssClasses = 'z-40';
 
 	// Props (regions)
@@ -64,6 +64,17 @@
 	/** Provide an ID of the element describing the drawer. */
 	export let describedby = '';
 
+	// Props (transition)
+	/** Set the transition duration in milliseconds. */
+	export let duration: number = 200;
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/** Enable/Disable opacity transition of Drawer */
+	export let opacityTransition = true;
+
 	// Presets
 	// prettier-ignore
 	const presets = {
@@ -73,32 +84,34 @@
 		right: { alignment: 'justify-end', width: 'w-[90%]', height: 'h-full', rounded: 'rounded-tl-container-token rounded-bl-container-token' }
 	};
 
-	// Classes
-	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
-	const cDrawer = 'overflow-y-auto transition-transform';
-
 	// Local
 	let elemBackdrop: HTMLElement;
 	let elemDrawer: HTMLElement;
 	let anim = { x: 0, y: 0 };
+	const drawerStore = getDrawerStore();
+
+	// Classes
+	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
+	const cDrawer = 'overflow-y-auto transition-transform';
 
 	// Record a record of default props on init
 	// NOTE: these must stay in sync with the props implemented above.
 	// prettier-ignore
 	const propDefaults = {
-		position, duration,
+		position,
 		bgBackdrop, blur, padding,
 		bgDrawer, border, rounded, shadow,
-		width, height,
+		width, height, opacityTransition,
+		regionBackdrop, regionDrawer,
 		labelledby, describedby,
-		regionBackdrop, regionDrawer
+		duration
 	};
 
 	// Override provided props, else restore prop defaults
 	// NOTE: these must stay in sync with the props implemented above.
 	function applyPropSettings(settings: DrawerSettings): void {
 		position = settings.position || propDefaults.position;
-		duration = settings.duration || propDefaults.duration;
+
 		// Backdrop
 		bgBackdrop = settings.bgBackdrop || propDefaults.bgBackdrop;
 		blur = settings.blur || propDefaults.blur;
@@ -116,6 +129,9 @@
 		// A11y
 		labelledby = settings.labelledby || propDefaults.labelledby;
 		describedby = settings.describedby || propDefaults.describedby;
+		// Transitions
+		opacityTransition = settings.opacityTransition || propDefaults.opacityTransition;
+		duration = settings.duration || propDefaults.duration;
 	}
 
 	function applyAnimationSettings(): void {
@@ -169,17 +185,26 @@
 
 {#if $drawerStore.open === true}
 	<!-- Backdrop -->
-	<!-- TODO: Remove for V2 -->
+	<!-- FIXME: resolve a11y warnings -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		bind:this={elemBackdrop}
 		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
 		on:mousedown={onDrawerInteraction}
-		on:touchstart
-		on:touchend
+		on:touchstart|passive
+		on:touchend|passive
 		on:keypress
-		transition:fade|local={{ duration }}
+		in:dynamicTransition|local={{
+			transition: fade,
+			params: { duration },
+			enabled: transitions && opacityTransition
+		}}
+		out:dynamicTransition|local={{
+			transition: fade,
+			params: { duration },
+			enabled: transitions && opacityTransition
+		}}
 		use:focusTrap={true}
 	>
 		<!-- Drawer -->
@@ -192,8 +217,16 @@
 			aria-modal="true"
 			aria-labelledby={labelledby}
 			aria-describedby={describedby}
-			in:fly|local={{ x: anim.x, y: anim.y, duration }}
-			out:fly|local={{ x: anim.x, y: anim.y, duration }}
+			in:dynamicTransition|local={{
+				transition: fly,
+				params: { x: anim.x, y: anim.y, duration, opacity: opacityTransition ? undefined : 1 },
+				enabled: transitions
+			}}
+			out:dynamicTransition|local={{
+				transition: fly,
+				params: { x: anim.x, y: anim.y, duration, opacity: opacityTransition ? undefined : 1, easing: cubicIn },
+				enabled: transitions
+			}}
 		>
 			<!-- Slot: Default -->
 			<slot />

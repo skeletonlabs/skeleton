@@ -1,40 +1,58 @@
-<script lang="ts">
+<script lang="ts" context="module">
+	import { slide } from 'svelte/transition';
+	import { prefersReducedMotionStore, type Transition, type TransitionParams } from '../../index.js';
+	import { dynamicTransition } from '../../internal/transitions.js';
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	type SlideTransition = typeof slide;
+	type TransitionIn = Transition;
+	type TransitionOut = Transition;
+	type Value = unknown;
+	type Meta = unknown;
+</script>
+
+<script
+	lang="ts"
+	generics="Value = unknown, Meta = unknown, 
+	TransitionIn extends Transition = SlideTransition, TransitionOut extends Transition = SlideTransition"
+>
 	import { createEventDispatcher } from 'svelte';
 	// import { flip } from 'svelte/animate';
 	// import {slide} from 'svelte/transition';
 
 	// Types
 	import type { AutocompleteOption } from './types.js';
+	type Option = AutocompleteOption<Value, Meta>;
 
 	// Event Dispatcher
 	type AutocompleteEvent = {
-		selection: AutocompleteOption;
+		selection: Option;
 	};
 	const dispatch = createEventDispatcher<AutocompleteEvent>();
 
 	// Props
 	/**
 	 * Bind the input value.
-	 * @type {unknown}
+	 * @type {Value | undefined}
 	 */
-	export let input: unknown = undefined;
+	export let input: Value | undefined = undefined;
 	/**
 	 * Define values for the list.
 	 * @type {AutocompleteOption[]}
 	 */
-	export let options: AutocompleteOption[] = [];
+	export let options: Option[] = [];
 	/** Limit the total number of suggestions. */
 	export let limit: number | undefined = undefined;
 	/**
 	 * Provide allowlist values.
-	 * @type {unknown[]}
+	 * @type {Value[]}
 	 */
-	export let allowlist: unknown[] = [];
+	export let allowlist: Value[] = [];
 	/**
 	 * Provide denylist values.
-	 * @type {unknown[]}
+	 * @type {Value[]}
 	 */
-	export let denylist: unknown[] = [];
+	export let denylist: Value[] = [];
 	/** Provide a HTML markup to display when no match is found. */
 	export let emptyState = 'No Results Found.';
 	// Props (region)
@@ -48,45 +66,67 @@
 	export let regionButton = 'w-full';
 	/** Provide arbitrary classes to empty message. */
 	export let regionEmpty = 'text-center';
-	// TODO: These are slated to be removed!
-	/** DEPRECATED: replace with allowlist */
-	export let whitelist: unknown[] = [];
-	/** DEPRECATED: replace with denylist */
-	export let blacklist: unknown[] = [];
-	/** DEPRECATED: Set the animation duration. Use zero to disable. */
-	export let duration = 200;
-	// Silence warning about unused props:
-	const deprecated = [whitelist, blacklist, duration];
+	/**
+	 * Provide a custom filter function.
+	 * @type {() => AutocompleteOption[]}
+	 */
+	export let filter: () => Option[] = filterOptions;
+
+	// Props (transition)
+	/**
+	 * Enable/Disable transitions
+	 * @type {boolean}
+	 */
+	export let transitions = !$prefersReducedMotionStore;
+	/**
+	 * Provide the transition used on entry.
+	 * @type {TransitionIn}
+	 */
+	export let transitionIn: TransitionIn = slide as TransitionIn;
+	/**
+	 * Transition params provided to `transitionIn`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionInParams: TransitionParams<TransitionIn> = { duration: 200 };
+	/**
+	 * Provide the transition used on exit.
+	 * @type {TransitionOut}
+	 */
+	export let transitionOut: TransitionOut = slide as TransitionOut;
+	/**
+	 * Transition params provided to `transitionOut`.
+	 * @type {TransitionParams}
+	 */
+	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 200 };
 
 	// Local
 	$: listedOptions = options;
 
-	// Allowed Options
-	function filterByAllowed(): void {
+	function filterByAllowDeny(allowlist: Value[], denylist: Value[]) {
+		let _options = [...options];
+		// Allowed Options
 		if (allowlist.length) {
-			listedOptions = [...options].filter((option: AutocompleteOption) => allowlist.includes(option.value));
-		} else {
-			// IMPORTANT: required if the list goes from populated -> empty
-			listedOptions = [...options];
+			_options = _options.filter((option) => allowlist.includes(option.value));
 		}
-	}
 
-	// Denied Options
-	function filterByDenied(): void {
+		// Denied Options
 		if (denylist.length) {
-			const denySet = new Set(denylist);
-			listedOptions = [...options].filter((option: AutocompleteOption) => !denySet.has(option.value));
-		} else {
-			// IMPORTANT: required if the list goes from populated -> empty
-			listedOptions = [...options];
+			_options = _options.filter((option) => !denylist.includes(option.value));
 		}
+
+		// Reset options
+		if (!allowlist.length && !denylist.length) {
+			_options = options;
+		}
+
+		listedOptions = _options;
 	}
 
-	function filterOptions(): AutocompleteOption[] {
+	function filterOptions(): Option[] {
 		// Create a local copy of options
 		let _options = [...listedOptions];
 		// Filter options
-		_options = _options.filter((option: AutocompleteOption) => {
+		_options = _options.filter((option) => {
 			// Format the input search value
 			const inputFormatted = String(input).toLowerCase().trim();
 			// Format the option
@@ -97,16 +137,15 @@
 		return _options;
 	}
 
-	function onSelection(option: AutocompleteOption) {
-		/** @event {AutocompleteOption} selection - Fire on option select. */
+	function onSelection(option: Option) {
+		/** @event {Option} selection - Fire on option select. */
 		dispatch('selection', option);
 	}
 
 	// State
-	$: if (allowlist) filterByAllowed();
-	$: if (denylist) filterByDenied();
-	$: optionsFiltered = input ? filterOptions() : listedOptions;
-	$: sliceLimit = limit !== undefined ? limit : optionsFiltered.length;
+	$: filterByAllowDeny(allowlist, denylist);
+	$: optionsFiltered = input ? filter() : listedOptions;
+	$: sliceLimit = limit ?? optionsFiltered.length;
 	// Reactive
 	$: classesBase = `${$$props.class ?? ''}`;
 	$: classesNav = `${regionNav}`;
@@ -116,13 +155,17 @@
 	$: classesEmpty = `${regionEmpty}`;
 </script>
 
-<!-- animate:flip={{ duration }} transition:slide|local={{ duration }} -->
+<!-- animate:flip={{ duration }} -->
 <div class="autocomplete {classesBase}" data-testid="autocomplete">
 	{#if optionsFiltered.length > 0}
 		<nav class="autocomplete-nav {classesNav}">
 			<ul class="autocomplete-list {classesList}">
 				{#each optionsFiltered.slice(0, sliceLimit) as option (option)}
-					<li class="autocomplete-item {classesItem}">
+					<li
+						class="autocomplete-item {classesItem}"
+						in:dynamicTransition|local={{ transition: transitionIn, params: transitionInParams, enabled: transitions }}
+						out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
+					>
 						<button class="autocomplete-button {classesButton}" type="button" on:click={() => onSelection(option)} on:click on:keypress>
 							{@html option.label}
 						</button>

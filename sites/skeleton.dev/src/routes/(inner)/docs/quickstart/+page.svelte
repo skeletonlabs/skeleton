@@ -17,7 +17,7 @@
 		<h2 class="h2">Get Started</h2>
 		<p>To begin, let's scaffold our project using the Skeleton CLI. Note that we've listed a couple required options for this guide.</p>
 		<CodeBlock
-			language="console"
+			language="shell"
 			code={`
 npm create skeleton-app@latest my-skeleton-app
 	- Enable SvelteKit's Typescript syntax
@@ -66,9 +66,8 @@ npm run dev
 	<section class="space-y-4">
 		<h2 class="h2">Page Setup</h2>
 		<p>
-			Let's add some basic content to our homepage. Open <code class="code">/src/routes/+page.svelte</code> and replace the contents with
-			the following. This will provide multiple elements automatically styled by the <code class="code">skeleton.css</code> stylesheet in our
-			root layout.
+			Let's add some basic content to our homepage. Open <code class="code">/src/routes/+page.svelte</code> and replace the contents with the
+			following. This will provide multiple elements automatically styled by Skeleton.
 		</p>
 		<!-- cspell:disable -->
 		<CodeBlock

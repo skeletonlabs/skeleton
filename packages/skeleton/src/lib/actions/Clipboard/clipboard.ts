@@ -1,6 +1,12 @@
 // Action: Clipboard
 type ClipboardArgs = string | { element: string } | { input: string };
 export function clipboard(node: HTMLElement, args: ClipboardArgs) {
+	if (!window.isSecureContext) {
+		console.error(
+			'Clipboard action failed: app not running in secure context, see: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard'
+		);
+		return;
+	}
 	const fireCopyCompleteEvent = () => {
 		node.dispatchEvent(new CustomEvent('copyComplete'));
 	};
