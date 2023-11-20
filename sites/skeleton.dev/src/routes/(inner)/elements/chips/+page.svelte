@@ -101,10 +101,10 @@
 					<CodeBlock
 						language="html"
 						code={`
-<span class="chip variant-soft hover:variant-filled" on:click={doSomething}>
+<button class="chip variant-soft hover:variant-filled" on:click={doSomething}>
 	<span>(icon)</span>
 	<span>Action</span>
-</span>
+</button>
 `}
 					/>
 				</svelte:fragment>
@@ -139,14 +139,14 @@
 						language="html"
 						code={`
 {#each ['red', 'blue', 'green'] as c}
-	<span
+	<button
 		class="chip {color === c ? 'variant-filled' : 'variant-soft'}"
 		on:click={() => { section(c); }}
 		on:keypress
 	>
 		{#if color === c}(<span>(icon)</span>){/if}
 		<span>{c}</span>
-	</span>
+	</button>
 {/each}
 `}
 					/>
@@ -166,7 +166,7 @@
 							>
 								{#if flavors[f]}<span><i class="fa-solid fa-check" /></span>{/if}
 								<span class="capitalize">{f}</span>
-					</button>
+							</button>
 						{/each}
 					</div>
 				</svelte:fragment>
@@ -193,14 +193,14 @@ function toggle(flavor: string): void {
 						language="html"
 						code={`
 {#each Object.keys(flavors) as f}
-	<span
+	<button
 		class="chip {flavors[f] ? 'variant-filled' : 'variant-soft'}"
 		on:click={() => { toggle(f); }}
 		on:keypress
 	>
 		{#if flavors[f]}<span>(icon)</span>{/if}
 		<span class="capitalize">{f}</span>
-	</span>
+	</button>
 {/each}
 `}
 					/>
