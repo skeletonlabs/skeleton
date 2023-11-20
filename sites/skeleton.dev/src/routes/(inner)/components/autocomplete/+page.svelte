@@ -81,6 +81,19 @@
 	function onPopupDemoSelect(event: CustomEvent<FlavorOption>): void {
 		inputPopupDemo = event.detail.label;
 	}
+
+	function customFilterFunction(): FlavorOption[] {
+		// Create a local copy of options
+		let _options = [...flavorOptions];
+		// Filter options
+		_options = _options.filter((option) => {
+			// Format the input search value
+			const inputFormatted = String(inputDemo).toLowerCase().trim();
+			// Check Match
+			if (option.value.toLowerCase().trim().includes(inputFormatted)) return option;
+		});
+		return _options;
+	}
 </script>
 
 <DocsShell {settings}>
@@ -217,6 +230,41 @@ const flavorOptions: AutocompleteOption<string>[] = [
 				<svelte:fragment slot="source">
 					<CodeBlock language="ts" code={`let flavorDenylist: string[] = ['vanilla', 'chocolate'];`} />
 					<CodeBlock language="html" code={`<Autocomplete ... denylist={flavorDenylist} />`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<!-- Custom Filter -->
+		<section class="space-y-4">
+			<h2 class="h2">Custom Filter</h2>
+			<p>Provide a custom filter function using the prop <code class="code">filter</code>.</p>
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					<div class="text-token w-full max-w-sm space-y-2">
+						<input class="input" type="search" name="ac-demo" bind:value={inputDemo} placeholder="Search..." />
+						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto" tabindex="-1">
+							<Autocomplete bind:input={inputDemo} options={flavorOptions} filter={customFilterFunction} on:selection={onDemoSelection} />
+						</div>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+function myCustomFilter(): AutocompleteOption<string>[] {
+	// Create a local copy of options
+	let _options = [...flavorOptions];
+	// Filter options
+	return _options.filter((option) => {
+		// Format the input and option values
+		const inputFormatted = String(inputValue).toLowerCase().trim();
+		const optionFormatted = option.value.toLowerCase().trim();
+		// Check Match with value only
+		if (optionFormatted.includes(inputFormatted)) return option;
+	});
+}
+					`}
+					/>
+					<CodeBlock language="html" code={`<Autocomplete ... filter={myCustomFilter} />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

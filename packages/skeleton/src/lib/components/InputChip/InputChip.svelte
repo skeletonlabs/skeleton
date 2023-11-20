@@ -78,6 +78,14 @@
 	/** Provide classes to set border radius styles. */
 	export let rounded: CssClasses = 'rounded-container-token';
 
+	// Props (regions)
+	/** Provide arbitrary classes to style the chip wrapper region. */
+	export let regionChipWrapper: CssClasses = '';
+	/** Provide arbitrary classes to style the chip list region. */
+	export let regionChipList: CssClasses = '';
+	/** Provide arbitrary classes to style the input field region. */
+	export let regionInput: CssClasses = '';
+
 	// Props (transition)
 	/**
 	 * Enable/Disable transitions
@@ -127,7 +135,7 @@
 
 	// Classes
 	const cBase = 'textarea cursor-pointer';
-	const cInterface = 'space-y-4';
+	const cChipWrapper = 'space-y-4';
 	const cChipList = 'flex flex-wrap gap-2';
 	const cInputField = 'unstyled bg-transparent border-0 !ring-0 p-0 w-full';
 
@@ -220,9 +228,9 @@
 	$: classesInvalid = inputValid === false ? invalid : '';
 	// Reactive
 	$: classesBase = `${cBase} ${padding} ${rounded} ${$$props.class ?? ''} ${classesInvalid}`;
-	$: classesInterface = `${cInterface}`;
-	$: classesChipList = `${cChipList}`;
-	$: classesInputField = `${cInputField}`;
+	$: classesChipWrapper = `${cChipWrapper} ${regionChipWrapper}`;
+	$: classesChipList = `${cChipList} ${regionChipList}`;
+	$: classesInput = `${cInputField} ${regionInput}`;
 	$: chipValues =
 		value?.map((val, i) => {
 			if (chipValues[i]?.val === val) return chipValues[i];
@@ -238,15 +246,15 @@
 			{#each value as option}<option value={option}>{option}</option>{/each}
 		</select>
 	</div>
-	<!-- Interface -->
-	<div class="input-chip-interface {classesInterface}">
+	<!-- Chip Wrapper -->
+	<div class="input-chip-wrapper {classesChipWrapper}">
 		<!-- Input Field -->
 		<form on:submit={addChip}>
 			<input
 				type="text"
 				bind:value={input}
 				placeholder={$$restProps.placeholder ?? 'Enter values...'}
-				class="input-chip-field {classesInputField}"
+				class="input-chip-field {classesInput}"
 				on:input={onInputHandler}
 				on:input
 				on:focus

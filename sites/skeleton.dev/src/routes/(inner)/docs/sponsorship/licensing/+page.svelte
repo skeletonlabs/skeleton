@@ -1,6 +1,5 @@
 <script lang="ts">
 	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
-	import { Avatar, CodeBlock } from '@skeletonlabs/skeleton';
 </script>
 
 <LayoutPage>

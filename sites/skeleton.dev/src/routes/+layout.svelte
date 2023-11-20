@@ -54,6 +54,10 @@
 	import '$lib/styles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
+	// Font Awesome
+	import '@fortawesome/fontawesome-free/css/fontawesome.css';
+	import '@fortawesome/fontawesome-free/css/brands.css';
+	import '@fortawesome/fontawesome-free/css/solid.css';
 
 	// Handle Vercel Production Mode
 	import type { LayoutServerData } from './$types';
@@ -118,9 +122,10 @@
 	}
 
 	// Lifecycle
-	afterNavigate((params: any) => {
+	afterNavigate((params) => {
 		// Scroll to top
-		const isNewPage: boolean = params.from && params.to && params.from.route.id !== params.to.route.id;
+		console.log(params.from?.url.pathname, params.to?.url.pathname);
+		const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
 		const elemPage = document.querySelector('#page');
 		if (isNewPage && elemPage !== null) {
 			elemPage.scrollTop = 0;

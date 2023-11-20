@@ -66,6 +66,11 @@
 	export let regionButton = 'w-full';
 	/** Provide arbitrary classes to empty message. */
 	export let regionEmpty = 'text-center';
+	/**
+	 * Provide a custom filter function.
+	 * @type {() => AutocompleteOption[]}
+	 */
+	export let filter: () => Option[] = filterOptions;
 
 	// Props (transition)
 	/**
@@ -139,7 +144,7 @@
 
 	// State
 	$: filterByAllowDeny(allowlist, denylist);
-	$: optionsFiltered = input ? filterOptions() : listedOptions;
+	$: optionsFiltered = input ? filter() : listedOptions;
 	$: sliceLimit = limit ?? optionsFiltered.length;
 	// Reactive
 	$: classesBase = `${$$props.class ?? ''}`;
