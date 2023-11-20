@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 2.5.1
+
+### Patch Changes
+
+- chore: Adjust popup 'onWindowClick' to respect an empty 'queryString' ([#2237](https://github.com/skeletonlabs/skeleton/pull/2237))
+
 ## 2.5.0
 
 ### Minor Changes
