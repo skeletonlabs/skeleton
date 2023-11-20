@@ -177,27 +177,6 @@ let tableHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
 <Table source={{ head: tableHeaders, body: paginatedSource }} />
 				`}
 			/>
-			<p>
-				If the paginated data source is dynamic, you might want to update the size parameter accordingly with the data. To achieve this, you can
-				use a Svelte reactive declaration to update it accordingly.
-			</p>
-			<CodeBlock
-				language="ts"
-				code={`
-let paginationSettings = {
-    page: 0,
-    limit: 5,
-    size: source.length,
-    amounts: [1, 2, 5, 10],
-} satisfies PaginationSettings;
-
-$: paginationSettings.size= source.length;
-				`}
-			/>
-            <p>
-                With this pagination setup, it's important to update the paginationSettings directly for reactivity. 
-                Simply updating a reference to source will not trigger the reactivity. 
-            </p>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Server-Side Pagination</h2>
@@ -215,6 +194,26 @@ function onAmountChange(e: CustomEvent): void {
 			`}
 			/>
 			<CodeBlock language="html" code={`<Paginator ... on:page={onPageChange} on:amount={onAmountChange}></Paginator>`} />
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Handling Reactivity</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Use the following technique if you wish to update pagination data in a reactive manner. Make sure to update <code class="code" >paginationSettings</code> directly, as <a class="anchor" href="https://learn.svelte.dev/tutorial/updating-arrays-and-objects" target="_blank">updating a reference to source will not trigger the reactivity</a>.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+let paginationSettings = {
+    page: 0,
+    limit: 5,
+    size: source.length,
+    amounts: [1, 2, 5, 10],
+} satisfies PaginationSettings;
+
+$: paginationSettings.size = source.length;
+				`}
+			/>
 		</section>
 		<hr />
 		<!-- See Also -->
