@@ -15,7 +15,7 @@
 		parameters: [
 			['<code class="code">(default)</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`],
 			['<code class="code">enabled</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`],
-			['<code class="code">tabIndex</code>', 'number', '-', '-', `Index of the element to focus on.`]
+			['<code class="code">tabIndex</code>', 'string', '-', '-', `Index of the element to focus on.`]
 		]
 	};
 
@@ -76,12 +76,12 @@
 			<h2 class="h2">Specifying the target of the focus</h2>
 			<p>
 				Sometimes, you just don't want the first focusable element to get the focus. You can add <code class="code">data-tabindex</code> attributes
-				to the elements you may want to focus, and pass an object to focusTrap()
+				to the elements you may want to focus, and pass an object to focusTrap() instead of a boolean.
 			</p>
 
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<form class="w-full card p-4 text-token space-y-4" use:focusTrap={{ enabled: isFocusedSpecified, tabIndex: 2 }}>
+					<form class="w-full card p-4 text-token space-y-4" use:focusTrap={{ enabled: isFocusedSpecified, tabIndex: '2' }}>
 						<label class="label">
 							<span>Name</span>
 							<input data-tabindex="1" class="input" type="text" placeholder="Enter name..." />
@@ -105,7 +105,7 @@
 					<CodeBlock
 						language="html"
 						code={`
-<form use:focusTrap={{ enabled: isFocusedSpecified, tabIndex: 2 }}>
+<form use:focusTrap={{ enabled: isFocusedSpecified, tabIndex: '2' }}>
 	<input data-tabindex="1" type="text" placeholder="Name" />
 	<input data-tabindex="2" type="email" placeholder="Email" />
 	<button class="btn variant-filled-primary">Submit</button>
