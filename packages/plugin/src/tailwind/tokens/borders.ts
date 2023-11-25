@@ -7,6 +7,7 @@ export const borders = (): CssClasses => {
 	const classes: CssClasses = {
 		// Border Width - ex: .border-token
 		'.border-token': { 'border-width': 'var(--theme-border-base)' }
+
 	};
 	settings.colorNames.forEach((n) => {
 		// Color Pairings
@@ -14,6 +15,8 @@ export const borders = (): CssClasses => {
 		settings.colorPairings.forEach((p) => {
 			classes[`.border-${n}-${p.light}-${p.dark}-token`] = { 'border-color': `rgb(var(--color-${n}-${p.light}))` };
 			classes[`.dark .border-${n}-${p.light}-${p.dark}-token`] = { 'border-color': `rgb(var(--color-${n}-${p.dark}))` };
+			classes[`.divide-${n}-${p.light}-${p.dark}-token`] = { 'border-color': `rgb(var(--color-${n}-${p.light}))` };
+			classes[`.divide-${n}-${p.light}-${p.dark}-token`] = { 'border-color': `rgb(var(--color-${n}-${p.dark}))` };
 		});
 	});
 	return classes;

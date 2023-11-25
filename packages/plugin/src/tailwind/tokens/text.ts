@@ -26,6 +26,7 @@ export const text = (): CssClasses => {
 		settings.colorPairings.forEach((p) => {
 			classes[`.text-${n}-${p.light}-${p.dark}-token`] = { color: `rgb(var(--color-${n}-${p.light}))` };
 			classes[`.dark .text-${n}-${p.light}-${p.dark}-token`] = { color: `rgb(var(--color-${n}-${p.dark}))` };
+			classes[`.decoration`]
 		});
 	});
 	return classes;
