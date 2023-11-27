@@ -1,8 +1,5 @@
-type FocusTrapArgs = boolean | { enabled: boolean; tabIndex?: string };
 // Action: Focus Trap
-export function focusTrap(node: HTMLElement, args: FocusTrapArgs) {
-	let enabled = typeof args === 'boolean' ? args : args.enabled;
-	const tabIndex = typeof args === 'boolean' ? null : args.tabIndex;
+export function focusTrap(node: HTMLElement, enabled: boolean) {
 	const elemWhitelist =
 		'a[href]:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), textarea:not([tabindex="-1"]), select:not([tabindex="-1"]), details:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
 	let elemFirst: HTMLElement;
@@ -35,11 +32,19 @@ export function focusTrap(node: HTMLElement, args: FocusTrapArgs) {
 			});
 	};
 
-	// Get focusTrapTarget element or first focusable element
+	type FocusindexElement = HTMLElement & { dataset: { focusindex: string } };
+
+	// Get element with smallest focusindex value, or first focusable element
 	const getFocusTrapTarget = (elemFirst: HTMLElement) => {
-		if (!tabIndex || !tabIndex.length) return elemFirst;
-		// Return element with data-tabindex matching value, or elemFirst
-		return node.querySelector<HTMLElement>('[data-tabindex="' + tabIndex + '"]') || elemFirst;
+		// Get elements with data-focusindex attribute
+		const focusindexElements = [...node.querySelectorAll<FocusindexElement>('[data-focusindex]')];
+		if (!focusindexElements || focusindexElements.length === 0) return elemFirst;
+		// return smallest focusindex element or elemFirst
+		return (
+			focusindexElements.sort((a, b) => {
+				return +a.dataset.focusindex - +b.dataset.focusindex;
+			})[0] || elemFirst
+		);
 	};
 
 	const onScanElements = (fromObserver: boolean) => {
@@ -77,10 +82,9 @@ export function focusTrap(node: HTMLElement, args: FocusTrapArgs) {
 
 	// Lifecycle
 	return {
-		update(newArgs: FocusTrapArgs) {
-			args = newArgs;
-			enabled = typeof args === 'boolean' ? args : args.enabled;
-			enabled ? onScanElements(false) : onCleanUp();
+		update(newArgs: boolean) {
+			enabled = newArgs;
+			newArgs ? onScanElements(false) : onCleanUp();
 		},
 		destroy() {
 			onCleanUp();

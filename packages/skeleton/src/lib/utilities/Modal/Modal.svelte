@@ -99,11 +99,6 @@
 	 * @type {TransitionParams}
 	 */
 	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 150, opacity: 0, x: 0, y: 100 };
-	/**
-	 * Index that focusTrap will target.
-	 * @type {string}
-	 */
-	export let tabIndex: string = '';
 
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 overflow-y-auto';
@@ -214,7 +209,6 @@
 		regionBody,
 		regionFooter,
 		// ---
-		tabIndex,
 		onClose
 	};
 </script>
@@ -234,7 +228,7 @@
 			on:touchstart|passive
 			on:touchend|passive
 			transition:dynamicTransition|global={{ transition: fade, params: { duration: 150 }, enabled: transitions }}
-			use:focusTrap={{ enabled: true, tabIndex: $modalStore[0].tabIndex }}
+			use:focusTrap={true}
 		>
 			<!-- Transition Layer -->
 			<div

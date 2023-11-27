@@ -73,11 +73,6 @@
 	export let transitions = !$prefersReducedMotionStore;
 	/** Enable/Disable opacity transition of Drawer */
 	export let opacityTransition = true;
-	/**
-	 * Index that focusTrap will target.
-	 * @type {string}
-	 */
-	export let tabIndex: string = '';
 
 	// Presets
 	// prettier-ignore
@@ -108,8 +103,7 @@
 		width, height, opacityTransition,
 		regionBackdrop, regionDrawer,
 		labelledby, describedby,
-		duration,
-		tabIndex
+		duration
 	};
 
 	// Override provided props, else restore prop defaults
@@ -137,7 +131,6 @@
 		// Transitions
 		opacityTransition = settings.opacityTransition || propDefaults.opacityTransition;
 		duration = settings.duration || propDefaults.duration;
-		tabIndex = settings.tabIndex || propDefaults.tabIndex;
 	}
 
 	function applyAnimationSettings(): void {
@@ -211,7 +204,7 @@
 			params: { duration },
 			enabled: transitions && opacityTransition
 		}}
-		use:focusTrap={{ enabled: true, tabIndex: $drawerStore.tabIndex }}
+		use:focusTrap={true}
 	>
 		<!-- Drawer -->
 		<!-- separate In/Out so anim values update -->

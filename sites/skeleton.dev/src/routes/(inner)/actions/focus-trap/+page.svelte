@@ -12,18 +12,14 @@
 		description: 'Allows you to contain tab focus within a target element on-demand.',
 		imports: ['focusTrap'],
 		source: 'packages/skeleton/src/lib/actions/FocusTrap',
-		parameters: [
-			['<code class="code">(default)</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`],
-			['<code class="code">enabled</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`],
-			['<code class="code">tabIndex</code>', 'string', '-', '-', `Index of the element to focus on.`]
-		]
+		parameters: [['<code class="code">(default)</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`]]
 	};
 
 	// Local
 	let isFocused = false;
-	let isFocusedSpecified = false;
+	let isFocused2 = false;
 	$: console.log(isFocused);
-	$: console.log(isFocusedSpecified);
+	$: console.log(isFocused2);
 </script>
 
 <DocsShell {settings}>
@@ -73,22 +69,22 @@
 		</p>
 		<!-- Specifying Focus -->
 		<div class="space-y-4">
-			<h2 class="h2">Specifying the target of the focus</h2>
+			<h2 class="h2">Specifying target(s) of the focus</h2>
 			<p>
-				Sometimes, you just don't want the first focusable element to get the focus. You can add <code class="code">data-tabindex</code> attributes
-				to the elements you may want to focus, and pass an object to focusTrap() instead of a boolean.
+				Sometimes, you just don't want the first focusable element to get the focus. You can add <code class="code">data-focusindex</code> attributes
+				to the elements you may want to focus, focusTrap will target the lowest index.
 			</p>
 
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<form class="w-full card p-4 text-token space-y-4" use:focusTrap={{ enabled: isFocusedSpecified, tabIndex: '2' }}>
+					<form class="w-full card p-4 text-token space-y-4" use:focusTrap={isFocused2}>
 						<label class="label">
 							<span>Name</span>
-							<input data-tabindex="1" class="input" type="text" placeholder="Enter name..." />
+							<input data-focusindex="1" class="input" type="text" placeholder="Enter name..." value="Bob" />
 						</label>
 						<label class="label">
 							<span>Email</span>
-							<input data-tabindex="2" class="input" type="email" placeholder="Enter email address..." />
+							<input data-focusindex="0" class="input" type="email" placeholder="Enter email address..." />
 						</label>
 						<div class="text-right">
 							<button class="btn variant-filled">Submit Form</button>
@@ -97,17 +93,17 @@
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="text-center">
-						<SlideToggle name="trap-focus" bind:checked={isFocusedSpecified}>Enable Specified Focus Trap</SlideToggle>
+						<SlideToggle name="trap-focus" bind:checked={isFocused2}>Enable Focus Trap Target(s)</SlideToggle>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let isFocusedSpecified: boolean = true;`} />
+					<CodeBlock language="ts" code={`let isFocused2: boolean = true;`} />
 					<CodeBlock
 						language="html"
 						code={`
-<form use:focusTrap={{ enabled: isFocusedSpecified, tabIndex: '2' }}>
-	<input data-tabindex="1" type="text" placeholder="Name" />
-	<input data-tabindex="2" type="email" placeholder="Email" />
+<form use:focusTrap={isFocused2}>
+	<input data-focusindex="1" type="text" placeholder="Name" value="Bob" />
+	<input data-focusindex="0" type="email" placeholder="Email" />
 	<button class="btn variant-filled-primary">Submit</button>
 </form>
 							`}
