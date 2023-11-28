@@ -136,11 +136,11 @@
 
 	function onModalHeightChange(modal: HTMLDivElement) {
 		let modalHeight = modal?.clientHeight;
-		if(!modalHeight) modalHeight = (modal?.firstChild as HTMLElement)?.clientHeight;
-		
+		if (!modalHeight) modalHeight = (modal?.firstChild as HTMLElement)?.clientHeight;
+
 		// modal is closed
 		if (!modalHeight) return;
-		
+
 		if (modalHeight > windowHeight) {
 			backdropOverflow = 'overflow-y-auto';
 		} else {
