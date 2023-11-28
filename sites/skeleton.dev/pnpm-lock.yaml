@@ -98,8 +98,8 @@ devDependencies:
     specifier: ^4.3.9
     version: 4.3.9(@types/node@20.1.4)
   vite-plugin-tailwind-purgecss:
-    specifier: ^0.1.3
-    version: 0.1.3(vite@4.3.9)
+    specifier: ^0.1.4
+    version: 0.1.4(vite@4.3.9)
   vitest:
     specifier: ^0.32.0
     version: 0.32.0
@@ -3116,8 +3116,8 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-tailwind-purgecss@0.1.3(vite@4.3.9):
-    resolution: {integrity: sha512-VVz9fwKBEEFSbj/rKxtwtczvoSrIqbzbo6S+MT7gH0CsmKNwlx947VMoV8B085ocxGCuFlddOPRDszNXLi2nTQ==}
+  /vite-plugin-tailwind-purgecss@0.1.4(vite@4.3.9):
+    resolution: {integrity: sha512-iL43Amym6/TWKHcHwCjQl2LLLKhil7WQH7oMtDSOCzINFuKS3STaQrI5SDCl+waqheezv9WmI2gNuIWY+o5hsA==}
     peerDependencies:
       vite: ^4.1.1
     dependencies:
