@@ -22,6 +22,7 @@
 	// Local
 	let tabSection = 0;
 	let tabInterface = 0;
+	let osTabs = 0;
 	// prettier-ignore
 	const snippetAutoModeWatcher = '\<svelte:head\>{@html `\<script\>${autoModeWatcher.toString()} autoModeWatcher();\</script\>`}\</svelte:head\>';
 	// prettier-ignore
@@ -60,21 +61,47 @@
 							operate. It is best suited within a fixed header element that's always visible on the page.
 						</p>
 					{:else if tabSection === 1}
-						<!-- OS Preference -->
-						<p>
-							Alternatively, Skeleton provides a utility method to adjust the mode based on operating system preference. Use this in place
-							of a Lightswitch component.
-						</p>
-						<p>First, import the following in <code class="code">/src/routes/+layout.svelte</code>.</p>
-						<CodeBlock language="ts" code={`import { autoModeWatcher } from '@skeletonlabs/skeleton';`} />
-						<p>Then add the following in your root layout template markup.</p>
-						<CodeBlock language="html" code={snippetAutoModeWatcher} />
-						<p>Note that Mac OS will update immediately, while other operating systems require a browser refresh.</p>
+						<TabGroup regionPanel="space-y-4">
+							<Tab bind:group={osTabs} name="interface" value={0}>SSR</Tab>
+							<Tab bind:group={osTabs} name="interface" value={1}>No SSR</Tab>
+							<svelte:fragment slot="panel">
+								{#if osTabs === 0}
+									<!-- OS Preference -->
+									<h2 class="h2">SSR</h2>
+									<p>
+										Skeleton provides a utility method to adjust the mode based on operating system preference. Use this in place of a
+										Lightswitch component.
+									</p>
+									<p>First, import the following in <code class="code">/src/routes/+layout.svelte</code>.</p>
+									<CodeBlock language="ts" code={`import { autoModeWatcher } from '@skeletonlabs/skeleton';`} />
+									<p>Then add the following in your root layout template markup.</p>
+									<CodeBlock language="html" code={snippetAutoModeWatcher} />
+
+									<p>Note that Mac OS will update immediately, while other operating systems require a browser refresh.</p>
+								{:else}
+									<h2 class="h2 line-through">No SSR</h2>
+									<p>Your <code class="code">/src/routes/+layout.ts</code> should look like this</p>
+									<CodeBlock language="ts" code={`export const ssr = false;`} />
+									<p>Add the following to your root <code class="code">/src/routes/+layout.svelte</code> file</p>
+									<CodeBlock
+										language="ts"
+										code={`
+import { autoModeWatcher } from '@skeletonlabs/skeleton'; 
+import { onMount } from 'svelte';
+
+onMount(() => {					
+	autoModeWatcher.toString();						
+	autoModeWatcher();
+)}`}
+									/>
+								{/if}
+							</svelte:fragment>
+						</TabGroup>
 					{:else if tabSection === 2}
 						<!-- Build Your Own -->
 						<p>
-							Finally, Skeleton provides utility methods to interface with the all settings and data the Lightswitch uses under the hood.
-							This provides a way for you to generate a custom toggle interface.
+							Skeleton provides utility methods to interface with the all settings and data the Lightswitch uses under the hood. This
+							provides a way for you to generate a custom toggle interface.
 						</p>
 						<h2 class="h2">Set Initial Classes</h2>
 						<p>
