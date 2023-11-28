@@ -17,9 +17,9 @@
 
 	// Local
 	let isFocused = false;
-	let isFocused2 = false;
+	let isOrderFocused = false;
 	$: console.log(isFocused);
-	$: console.log(isFocused2);
+	$: console.log(isOrderFocused);
 </script>
 
 <DocsShell {settings}>
@@ -69,15 +69,15 @@
 		</p>
 		<!-- Specifying Focus -->
 		<div class="space-y-4">
-			<h2 class="h2">Specifying target(s) of the focus</h2>
+			<h2 class="h2">Focus Order</h2>
 			<p>
-				Sometimes, you just don't want the first focusable element to get the focus. You can add <code class="code">data-focusindex</code> attributes
-				to the elements you may want to focus, focusTrap will target the lowest index.
+				Specify the order of focusable elements by assigning a value to the <code class="code">data-focusindex</code> attribute. The element
+				with the lowest value will be focused first.
 			</p>
 
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<form class="w-full card p-4 text-token space-y-4" use:focusTrap={isFocused2}>
+					<form class="w-full card p-4 text-token space-y-4" use:focusTrap={isOrderFocused}>
 						<label class="label">
 							<span>Name</span>
 							<input data-focusindex="1" class="input" type="text" placeholder="Enter name..." value="Bob" />
@@ -93,15 +93,15 @@
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="text-center">
-						<SlideToggle name="trap-focus" bind:checked={isFocused2}>Enable Focus Trap Target(s)</SlideToggle>
+						<SlideToggle name="trap-focus" bind:checked={isOrderFocused}>Enable Focus Order</SlideToggle>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let isFocused2: boolean = true;`} />
+					<CodeBlock language="ts" code={`let isOrderFocused: boolean = true;`} />
 					<CodeBlock
 						language="html"
 						code={`
-<form use:focusTrap={isFocused2}>
+<form use:focusTrap={isOrderFocused}>
 	<input data-focusindex="1" type="text" placeholder="Name" value="Bob" />
 	<input data-focusindex="0" type="email" placeholder="Email" />
 	<button class="btn variant-filled-primary">Submit</button>
