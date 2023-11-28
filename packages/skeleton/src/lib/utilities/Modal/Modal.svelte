@@ -102,7 +102,7 @@
 
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0';
-	const cTransitionLayer = 'w-full h-fit min-h-full p-4 overflow-y-auto flex justify-center';
+	const cTransitionLayer = 'w-full h-fit min-h-full max-h-screen p-4 overflow-y-auto flex justify-center';
 	const cModal = 'block overflow-y-auto'; // max-h-full overflow-y-auto overflow-x-hidden
 	const cModalImage = 'w-full h-auto';
 
@@ -117,7 +117,7 @@
 	let registeredInteractionWithBackdrop = false;
 	let modalElement: HTMLDivElement;
 	let windowHeight: number;
-	let cBackdropOverflow: CssClasses = 'overflow-y-hidden';
+	let backdropOverflow = 'overflow-y-hidden';
 
 	const modalStore = getModalStore();
 
@@ -134,18 +134,21 @@
 		currentComponent = typeof modals[0].component === 'string' ? components[modals[0].component] : modals[0].component;
 	});
 
-	function onModalHeightChange(modalHeight: number | null) {
+	function onModalHeightChange(modal: HTMLDivElement) {
+		let modalHeight = modal?.clientHeight;
+		if(!modalHeight) modalHeight = (modal?.firstChild as HTMLElement)?.clientHeight;
+		
 		// modal is closed
 		if (!modalHeight) return;
-
+		
 		if (modalHeight > windowHeight) {
-			cBackdropOverflow = 'overflow-y-auto';
+			backdropOverflow = 'overflow-y-auto';
 		} else {
-			cBackdropOverflow = 'overflow-y-hidden';
+			backdropOverflow = 'overflow-y-hidden';
 		}
 	}
 	// first child of the modal is the content.
-	$: onModalHeightChange((modalElement?.firstChild as HTMLElement)?.clientHeight);
+	$: onModalHeightChange(modalElement);
 
 	// Event Handlers ---
 	function onBackdropInteractionBegin(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
@@ -237,7 +240,7 @@
 		<!-- FIXME: resolve a11y warnings -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
-			class="modal-backdrop {classesBackdrop} {cBackdropOverflow}"
+			class="modal-backdrop {classesBackdrop} {backdropOverflow}"
 			data-testid="modal-backdrop"
 			on:mousedown={onBackdropInteractionBegin}
 			on:mouseup={onBackdropInteractionEnd}
