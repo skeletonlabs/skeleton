@@ -79,7 +79,7 @@
 
 									<p>Note that Mac OS will update immediately, while other operating systems require a browser refresh.</p>
 								{:else}
-									<h2 class="h2 line-through">No SSR</h2>
+									<h2 class="h2">No SSR</h2>
 									<p>Your <code class="code">/src/routes/+layout.ts</code> should look like this</p>
 									<CodeBlock language="ts" code={`export const ssr = false;`} />
 									<p>Add the following to your root <code class="code">/src/routes/+layout.svelte</code> file</p>
