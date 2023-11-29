@@ -12,6 +12,7 @@ describe('AccordionItem.svelte', () => {
 	it('Renders with all props', async () => {
 		const { getByTestId } = render(AccordionItem, {
 			open: true,
+			id: 'accordion-item-id',
 			padding: 'py-2 px-4',
 			hover: 'hover:bg-primary-hover-token',
 			rounded: 'rounded-container-token',
@@ -21,5 +22,9 @@ describe('AccordionItem.svelte', () => {
 		});
 		expect(getByTestId('accordion-item')).toBeTruthy();
 		expect(getByTestId('accordion-item').querySelector('.accordion-control')?.className).to.contain('py-2 px-4');
+		setTimeout(() => {
+			// id is assigned after component is mounted so a little timeout is necessary here
+			expect(getByTestId('accordion-item').querySelector('.accordion-control')?.id).toStrictEqual('accordion-item-id');
+		}, 50);
 	});
 });
