@@ -27,7 +27,8 @@
 	<section class="space-y-4">
 		<h2 class="h2">Introduction</h2>
 		<p>
-			The Figma kit is designed to match the structure of the components and properties in Skeleton. This helps designers & developers create stunning user interfaces faster.
+			The Figma kit is designed to match the structure of the components and properties in Skeleton. This helps designers & developers
+			create stunning user interfaces faster.
 		</p>
 		<h3 class="h3">Features</h3>
 		<ol class="list">
@@ -65,7 +66,8 @@
 			This <a class="anchor" href="https://www.figma.com/community/file/1266774078142216791" target="_blank" rel="noreferrer">UI kit</a> is maintained by <a class="anchor" href="https://github.com/mmailaender" target="_blank" rel="noreferrer">Micha</a> and <a class="anchor" href="https://github.com/bohdank1995" target="_blank" rel="noreferrer">Bohdan</a>.
 		</p>
 		<p>
-			If you have any questions or feedback, please feel free to share it in Discord with a ping to <code class="code">@Micha</code> or <code class="code">@Bodya</code>
+			If you have any questions or feedback, please feel free to share it in Discord with a ping to <code class="code">@Micha</code> or
+			<code class="code">@Bodya</code>
 		</p>
 	</section>
 </LayoutPage>
