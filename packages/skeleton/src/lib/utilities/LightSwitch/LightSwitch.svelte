@@ -6,6 +6,9 @@
 	import type { CssClasses, SvelteEvent } from '../../index.js';
 
 	// Props
+	/** Customize the `title` attribute for the component.  */
+	export let title = 'Toggle light or dark mode.';
+	// Props (styles)
 	/** Provide classes to set the light background color. */
 	export let bgLight: CssClasses = 'bg-surface-50';
 	/** Provide classes to set the dark background color. */
@@ -85,7 +88,7 @@
 	role="switch"
 	aria-label="Light Switch"
 	aria-checked={$modeCurrent}
-	title="Toggle {$modeCurrent === true ? 'Dark' : 'Light'} Mode"
+	{title}
 	tabindex="0"
 >
 	<!-- Thumb -->

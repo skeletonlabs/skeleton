@@ -27,7 +27,7 @@ export const rings = (): CssClasses => {
 		// Example: .ring-outline-token
 		'.ring-outline-token': {
 			...ringOutlineShared,
-			'--tw-ring-color': 'rgb(23 23 23 / 0.05);' // neutral-900, 5% opacity
+			'--tw-ring-color': 'rgb(23 23 23 / 0.05)' // neutral-900, 5% opacity
 		},
 		'.dark .ring-outline-token': {
 			...ringOutlineShared,

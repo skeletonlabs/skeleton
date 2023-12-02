@@ -41,7 +41,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="text-center">
 			<svelte:fragment slot="preview">
-				<Accordion autocollapse class="card p-4 text-token">
+				<Accordion class="card p-4 text-token">
 					<AccordionItem open>
 						<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center" /></svelte:fragment>
 						<svelte:fragment slot="summary"><p class="font-bold">What is Día de los Muertos?</p></svelte:fragment>
@@ -123,7 +123,54 @@
 		<section class="space-y-4">
 			<h2 class="h2">Auto-Collapse Mode</h2>
 			<p>Enable the <code class="code">autocollapse</code> setting to limit display to one accordion panel at a time.</p>
-			<CodeBlock language="html" code={`<Accordion autocollapse>...</Accordion>`} />
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<h2 class="h2">Auto-Collapse Mode</h2>
+				<p>Enable the <code class="code">autocollapse</code> setting to limit display to one accordion panel at a time.</p>
+				<svelte:fragment slot="preview">
+					<Accordion autocollapse class="card p-4 text-token">
+						<AccordionItem>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-question text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">What is Svelte?</p></svelte:fragment>
+							<svelte:fragment slot="content">
+								<!-- prettier-ignore -->
+								<p>
+									In short, Svelte is a way of writing user interface components — like a navigation bar, comment section, or contact form — that users see and interact with in their browsers. The Svelte compiler converts your components to JavaScript that can be run to render the HTML for the page and to CSS that styles the page.
+								</p>
+							</svelte:fragment>
+						</AccordionItem>
+						<AccordionItem>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-calendar text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">When was it first released?</p></svelte:fragment>
+							<svelte:fragment slot="content">
+								<!-- prettier-ignore -->
+								<p>
+									Version 1 of Svelte was written in JavaScript and was released on 29 November 2016. It was basically Reactive with a compiler. The name Svelte was chosen by Rich Harris and his coworkers at The Guardian.
+								</p>
+							</svelte:fragment>
+						</AccordionItem>
+						<AccordionItem>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-code text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">How do I write Svelte code?</p></svelte:fragment>
+							<svelte:fragment slot="content">
+								<!-- prettier-ignore -->
+								<p>
+									Svelte applications and components are defined in .svelte files, which are HTML files extended with templating syntax that is based on JavaScript and is similar to JSX. Svelte repurposes JavaScript's native labeled statement syntax $: to mark reactive statements. Top-level variables become the component's state and exported variables become the properties that the component receives. Additionally, the JavaScript code syntax can be used for templating in HTML elements and components.
+								</p>
+							</svelte:fragment>
+						</AccordionItem>
+					</Accordion>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<Accordion autocollapse>
+	<!-- ... -->
+</Accordion>
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Open on Load</h2>

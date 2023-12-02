@@ -2,9 +2,8 @@
 	import { page } from '$app/stores';
 
 	import DocsIcon from '$lib/components/DocsIcon/DocsIcon.svelte';
-	import { AppRail, AppRailTile, AppRailAnchor } from '@skeletonlabs/skeleton';
-	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { menuNavLinks } from '$lib/links';
+	import { AppRail, AppRailAnchor, AppRailTile, getDrawerStore } from '@skeletonlabs/skeleton';
 
 	// Local
 	let currentRailCategory: keyof typeof menuNavLinks | undefined = undefined;
@@ -21,7 +20,7 @@
 		let basePath: string = page.url.pathname.split('/')[1];
 		if (!basePath) return;
 		// Translate base path to link section
-		if (['docs', 'essentials', 'resources'].includes(basePath)) currentRailCategory = '/docs';
+		if (['docs', 'essentials', 'resources', 'integrations'].includes(basePath)) currentRailCategory = '/docs';
 		if (['tokens', 'base', 'elements', 'blocks'].includes(basePath)) currentRailCategory = '/elements';
 		if (['components', 'actions'].includes(basePath)) currentRailCategory = '/svelte';
 		if (['utilities'].includes(basePath)) currentRailCategory = '/utilities';

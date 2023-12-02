@@ -3,8 +3,19 @@
     License - https://fontawesome.com/license (Commercial License)
     Copyright 2022 Fonticons, Inc
 */
+export type Icon = {
+	viewBox?: string;
+	path: string;
+};
 
-export const icons: any = {
+export type Icons = {
+	[key: string]: Icon;
+	placeholder: Icon;
+	svelte: Icon;
+	tailwind: Icon;
+};
+
+export const icons: Icons = {
 	// Default Placeholder
 	// Source: https://fontawesome.com/icons/image?s=solid
 	placeholder: {

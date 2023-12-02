@@ -5,7 +5,7 @@
 	// Components
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 	// Field Settings
-	import { fieldSettings } from './settings';
+	import { fieldSettings, type InputSettings } from './settings';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -31,12 +31,12 @@
 	};
 
 	// Local
-	let currentInput: any = fieldSettings.inputs[0];
+	let currentInput = fieldSettings.inputs[0];
 	let colorValue = '#bada55';
 
-	function mapInputAttributes(obj: any): any {
-		return Object.keys(obj)
-			.map((key: any) => `${key}="${obj[key]}"`)
+	function mapInputAttributes(obj: InputSettings): string {
+		return Object.entries(obj)
+			.map(([key, value]) => `${key}="${value}"`)
 			.join(' ');
 	}
 </script>

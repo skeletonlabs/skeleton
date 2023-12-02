@@ -256,7 +256,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 	let packages = [
 		{ value: 'forms', label: 'Add Tailwind forms?', package: '@tailwindcss/forms', force: false },
 		{ value: 'typography', label: 'Add Tailwind typography?', package: '@tailwindcss/typography', force: false },
-		// { value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js)?', package: 'highlight.js', force: false },
+		{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js)?', package: 'highlight.js', force: false },
 		{ value: 'popups', label: 'Add Popups (installs floating-ui)?', package: '@floating-ui/dom', force: false },
 		// { value: 'mdsvex', label: 'Add Markdown support (installs mdsvex)?', package: 'mdsvex', force: false },
 	];

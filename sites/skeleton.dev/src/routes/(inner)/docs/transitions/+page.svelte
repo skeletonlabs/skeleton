@@ -73,7 +73,7 @@
 		</p>
 		<h3 class="h3">Force Enable</h3>
 		<p>
-			For components with subtle transitions, you may choose to override this behavior by applying a property of <code class="code">{`transition={true}`}</code> to the component. We encourage you to use this setting with caution though.
+			For components with subtle transitions, you may choose to override this behavior by applying a property of <code class="code">{`transitions={true}`}</code> to the component. We encourage you to use this setting with caution though.
 		</p>
 		<h3 class="h3">Store</h3>
 		<p>

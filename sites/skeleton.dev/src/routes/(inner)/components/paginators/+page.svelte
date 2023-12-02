@@ -195,6 +195,26 @@ function onAmountChange(e: CustomEvent): void {
 			/>
 			<CodeBlock language="html" code={`<Paginator ... on:page={onPageChange} on:amount={onAmountChange}></Paginator>`} />
 		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Handling Reactivity</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Use the following technique if you wish to update pagination data in a reactive manner. Make sure to update <code class="code" >paginationSettings</code> directly, as <a class="anchor" href="https://learn.svelte.dev/tutorial/updating-arrays-and-objects" target="_blank">updating a reference to source will not trigger the reactivity</a>.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+let paginationSettings = {
+    page: 0,
+    limit: 5,
+    size: source.length,
+    amounts: [1, 2, 5, 10],
+} satisfies PaginationSettings;
+
+$: paginationSettings.size = source.length;
+				`}
+			/>
+		</section>
 		<hr />
 		<!-- See Also -->
 		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">

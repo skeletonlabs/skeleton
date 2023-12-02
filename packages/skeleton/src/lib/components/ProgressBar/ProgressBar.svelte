@@ -16,11 +16,13 @@
 	export let height: CssClasses = 'h-2';
 	/** Provide classes to set rounded styles. */
 	export let rounded: CssClasses = 'rounded-token';
+	/** Provide classes to set the meter transition styles. */
+	export let transition: CssClasses = 'transition-[width]';
 
 	// Props (elements)
-	/** Provide arbitrary classes to style the meter element. */
+	/** Sets the base classes of the meter element. */
 	export let meter: CssClasses = 'bg-surface-900-50-token';
-	/** Provide arbitrary classes to style the track element. */
+	/** Sets the base classes of the track element. */
 	export let track: CssClasses = 'bg-surface-200-700-token';
 
 	// Props A11y
@@ -38,8 +40,8 @@
 	$: indeterminate = value === undefined || value < 0;
 	$: classesIndeterminate = indeterminate ? 'animIndeterminate' : '';
 	// Reactive Classes
-	$: classesTrack = `${cTrack} ${height} ${rounded} ${track} ${$$props.class ?? ''}`;
-	$: classesMeter = `${cMeter} ${rounded} ${classesIndeterminate} ${meter}`;
+	$: classesTrack = `${cTrack} ${track} ${height} ${rounded} ${$$props.class ?? ''}`;
+	$: classesMeter = `${cMeter} ${meter} ${rounded} ${classesIndeterminate} ${transition}`;
 </script>
 
 <!-- Track -->

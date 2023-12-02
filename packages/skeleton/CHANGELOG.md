@@ -1,5 +1,77 @@
 # @skeletonlabs/skeleton
 
+## 2.5.1
+
+### Patch Changes
+
+- chore: Adjust popup 'onWindowClick' to respect an empty 'queryString' ([#2237](https://github.com/skeletonlabs/skeleton/pull/2237))
+
+## 2.5.0
+
+### Minor Changes
+
+- feat: Autocomplete now accepts custom filter function using the prop `filter` ([#2208](https://github.com/skeletonlabs/skeleton/pull/2208))
+
+### Patch Changes
+
+- bugfix: Fixed Tree View component bug that prevented clicking Tree elements. ([#2171](https://github.com/skeletonlabs/skeleton/pull/2171))
+
+- bugfix: Table cells are only focusable when the `interactive` prop is enabled ([#2194](https://github.com/skeletonlabs/skeleton/pull/2194))
+
+- bugfix: Improved keyboard interaction and accessability for the AppRailTile ([#2172](https://github.com/skeletonlabs/skeleton/pull/2172))
+
+- bugfix: Drawers now have a smoother close animation by default ([#2219](https://github.com/skeletonlabs/skeleton/pull/2219))
+
+- bugfix: Drawer touch events are now passive ([#2220](https://github.com/skeletonlabs/skeleton/pull/2220))
+
+- chore: Progress Bar and Progress Radial now include dedicated `transition` props ([#2196](https://github.com/skeletonlabs/skeleton/pull/2196))
+
+## 2.4.0
+
+### Minor Changes
+
+- feat: Added recursive Tree View component enhancements including: ([#2181](https://github.com/skeletonlabs/skeleton/pull/2181))
+
+  - Added `click` and `toggle` events.
+  - The `lead` and `content` props now accepts Svelte components and HTML content.
+
+- feat: Added a transition `duration` property to the Drawer component as well as `DrawerSettings` ([#2139](https://github.com/skeletonlabs/skeleton/pull/2139))
+
+### Patch Changes
+
+- bugfix: Fixed a linting error on the linting error on Progress Radial component ([#2134](https://github.com/skeletonlabs/skeleton/pull/2134))
+
+## 2.3.0
+
+### Minor Changes
+
+- - feat: File Dropzone and File Button now include a `fileInput` prop to reference to the input element. ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+  - feat: File Dropzone now forwards the `on:focus`, `on:focusin`, and `on:focusout` events.
+
+- feat: Added `input-chip-interface` and `input-chip-wrapper` region classes to Input Chips. ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- feat: Multiple revisions to the Tree View component: ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+  - Enhanced and properly named non-recursive Tree View events.
+  - Separated the recursive Tree View under the new component RecursiveTreeView.
+  - RecursiveTreeView now utilizes the `relational` prop to enable relational checking.
+  - RecursiveTreeView is now using ID arrays with 2-way binding to control the Tree View state, including:
+    - `expandedNodes`
+    - `disabledNodes`
+    - `checkedNodes`
+    - `indeterminateNodes` (affects only multiple relational mode)
+  - TreeViewNode now requires a unique ID to support the new checking system.
+
+### Patch Changes
+
+- bugfix: Resolved an issue that allowed focusTrap to escape hidden inputs ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- feat: Added a `strokeLinecap` property to to Progress Radials, enabling rounded styling ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- chore: Accordion now has RTL compatibility via the use of the `text-start` class ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- bugfix: Added `title` prop to Lightswitch component for better i18n support ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
 ## 2.2.0
 
 ### Minor Changes
