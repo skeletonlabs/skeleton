@@ -76,7 +76,15 @@
 	};
 	const tableDivide: TableSource = {
 		head: headings,
-		body: [['<code class="code">.divide-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]]
+		// body: [['<code class="code">.divide-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings + `\n` + ` <a class='anchor href='https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-line' target="_blank">text-decoration-line</a>`]]
+		body: [
+			[
+				'<code class="code">.divide-[color]-[pairings]-token</code>',
+				`${vColorsAll}<br>${vPairings}`,
+				descPairings +
+					`\nMust include <a class='anchor' href='https://tailwindcss.com/docs/text-decoration' target="_blank">text-decoration</a>`
+			]
+		]
 	};
 	const tableMisc: TableSource = {
 		head: headings,
