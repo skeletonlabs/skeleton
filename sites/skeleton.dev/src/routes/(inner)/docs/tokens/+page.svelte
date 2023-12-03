@@ -43,8 +43,7 @@
 		head: headings,
 		body: [
 			['<code class="code">.border-token</code>', '', "Implements your theme's configured border size."],
-			['<code class="code">.border-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings],
-			['<code class="code">.divide-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
+			['<code class="code">.border-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableFills: TableSource = {
@@ -74,6 +73,10 @@
 	const tableTDecoration: TableSource = {
 		head: headings,
 		body: [['<code class="code">.decoration-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]]
+	};
+	const tableDivide: TableSource = {
+		head: headings,
+		body: [['<code class="code">.divide-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]]
 	};
 	const tableMisc: TableSource = {
 		head: headings,
@@ -153,6 +156,11 @@
 		<section class="space-y-4">
 			<h2 class="h2">Borders</h2>
 			<Table source={tableBorder} />
+		</section>
+		<!-- Divides -->
+		<section class="space-y-4">
+			<h2 class="h2">Divide</h2>
+			<Table source={tableFills} />
 		</section>
 		<!-- Fills -->
 		<section class="space-y-4">
