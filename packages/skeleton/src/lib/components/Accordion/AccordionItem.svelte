@@ -16,7 +16,7 @@
 
 	// Event Dispatcher
 	type AccordionItemEvent = {
-		toggle: { event?: Event; id: string; open: boolean; autocollapse: boolean };
+		toggle: { event?: Event; id: string; panelId: string; open: boolean; autocollapse: boolean };
 	};
 	const dispatch = createEventDispatcher<AccordionItemEvent>();
 
@@ -108,8 +108,14 @@
 
 	function onToggle(event?: SvelteEvent<MouseEvent, HTMLButtonElement>): void {
 		const currentOpenState = autocollapse ? $active === id : open;
-		/** @event {{ event: Event, id: string, open: boolean, autocollapse: boolean }} toggle - Fires when an accordion item is toggled. */
-		dispatch('toggle', { event, id: `accordion-control-${id}`, open: currentOpenState, autocollapse });
+		/** @event {{ event: Event, id: string, panelId: string, open: boolean, autocollapse: boolean }} toggle - Fires when an accordion item is toggled. */
+		dispatch('toggle', {
+			event,
+			id,
+			panelId: `accordion-panel-${id}`,
+			open: currentOpenState,
+			autocollapse
+		});
 	}
 
 	// If auto-collapse mode enabled and item is set open, set as this item active
@@ -133,7 +139,7 @@
 	<button
 		type="button"
 		class="accordion-control {classesControl}"
-		id="accordion-control-{id}"
+		{id}
 		on:click={setActive}
 		on:click
 		on:keydown
@@ -172,7 +178,7 @@
 			out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 			role="region"
 			aria-hidden={!openState}
-			aria-labelledby="accordion-control-{id}"
+			aria-labelledby={id}
 		>
 			<slot name="content">(content)</slot>
 		</div>
