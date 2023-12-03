@@ -43,7 +43,8 @@
 		head: headings,
 		body: [
 			['<code class="code">.border-token</code>', '', "Implements your theme's configured border size."],
-			['<code class="code">.border-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
+			['<code class="code">.border-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings],
+			['<code class="code">.divide-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableFills: TableSource = {
@@ -69,6 +70,10 @@
 			['<code class="code">.text-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.'],
 			['<code class="code">.text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
+	};
+	const tableTDecoration: TableSource = {
+		head: headings,
+		body: [['<code class="code">.decoration-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]]
 	};
 	const tableMisc: TableSource = {
 		head: headings,
@@ -164,6 +169,11 @@
 		<section class="space-y-4">
 			<h2 class="h2">Text</h2>
 			<Table source={tableText} />
+		</section>
+		<!--Text Decoration-->
+		<section class="space-y-4">
+			<h2 class="h2">Text Decoration</h2>
+			<Table source={tableTDecoration} />
 		</section>
 		<!-- Accent -->
 		<section class="space-y-4">
