@@ -160,7 +160,8 @@
 		<!-- Divides -->
 		<section class="space-y-4">
 			<h2 class="h2">Divide</h2>
-			<Table source={tableFills} />
+			<p>Utility for controlling the border color between elements.</p>
+			<Table source={tableDivide} />
 		</section>
 		<!-- Fills -->
 		<section class="space-y-4">
