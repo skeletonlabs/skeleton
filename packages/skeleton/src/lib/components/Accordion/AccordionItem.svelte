@@ -179,7 +179,7 @@
 			out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 			role="region"
 			aria-hidden={!openState}
-			aria-labelledby={id}
+			aria-labelledby="accordion-control-{id}"
 		>
 			<slot name="content">(content)</slot>
 		</div>
