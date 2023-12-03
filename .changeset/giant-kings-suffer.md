@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Accordion Item ID is now passed verbatim to the `on:toggle` event details
+bugfix: Accordion Item `on:toggle` event now provides `id`, `controlId`, and `panelId` values
