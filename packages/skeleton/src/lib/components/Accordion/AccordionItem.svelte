@@ -108,7 +108,7 @@
 
 	function onToggle(event?: SvelteEvent<MouseEvent, HTMLButtonElement>): void {
 		const currentOpenState = autocollapse ? $active === id : open;
-		/** @event {{ event: Event, id: string, open: boolean, autocollapse: boolean }} toggle - Fires when an accordion item is toggled. */
+		/** @event {{ event: Event, id: string, controlId: string, panelId: string, open: boolean, autocollapse: boolean }} toggle - Fires when an accordion item is toggled. */
 		dispatch('toggle', {
 			event,
 			id,
