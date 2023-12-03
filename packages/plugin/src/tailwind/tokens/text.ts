@@ -29,7 +29,7 @@ export const text = (): CssClasses => {
 			classes[`.dark .text-${n}-${p.light}-${p.dark}-token`] = { color: `rgb(var(--color-${n}-${p.dark}))` };
 			//Text Decoration
 			classes[`.decoration-${n}-${p.light}-${p.dark}-token`] = { 'text-decoration-color': `rgb(var(--color-${n}-${p.light}))` };
-			classes[`.dark .decoration-${n}-${p.light}-${p.dark}-token`] = {'text-decoration-color': `rgb(var(--color-${n}-${p.dark}))` };
+			classes[`.dark .decoration-${n}-${p.light}-${p.dark}-token`] = { 'text-decoration-color': `rgb(var(--color-${n}-${p.dark}))` };
 		});
 	});
 	return classes;

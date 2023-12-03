@@ -66,7 +66,7 @@
 
 	// Props (transition)
 	/** Set the transition duration in milliseconds. */
-	export let duration: number = 200;
+	export let duration = 200;
 	/**
 	 * Enable/Disable transitions
 	 * @type {boolean}

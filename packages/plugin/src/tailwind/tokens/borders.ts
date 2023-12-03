@@ -7,7 +7,6 @@ export const borders = (): CssClasses => {
 	const classes: CssClasses = {
 		// Border Width - ex: .border-token
 		'.border-token': { 'border-width': 'var(--theme-border-base)' }
-
 	};
 	settings.colorNames.forEach((n) => {
 		// Color Pairings
