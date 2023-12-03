@@ -81,8 +81,8 @@
 			[
 				'<code class="code">.divide-[color]-[pairings]-token</code>',
 				`${vColorsAll}<br>${vPairings}`,
-				descPairings +
-					`\nMust include <a class='anchor' href='https://tailwindcss.com/docs/text-decoration' target="_blank">text-decoration</a>`
+				`\nImplements a <a class='anchor' href='https://tailwindcss.com/docs/text-decoration' target="_blank">text-decoration</a> color. ` + descPairings
+					
 			]
 		]
 	};
