@@ -12,8 +12,12 @@ export const borders = (): CssClasses => {
 		// Color Pairings
 		// Example: .border-primary-50-900-token | .border-primary-900-50-token
 		settings.colorPairings.forEach((p) => {
+			// Standard Border
 			classes[`.border-${n}-${p.light}-${p.dark}-token`] = { 'border-color': `rgb(var(--color-${n}-${p.light}))` };
 			classes[`.dark .border-${n}-${p.light}-${p.dark}-token`] = { 'border-color': `rgb(var(--color-${n}-${p.dark}))` };
+			// Divide Border
+			classes[`.divide-${n}-${p.light}-${p.dark}-token`] = { 'border-color': `rgb(var(--color-${n}-${p.light}))` };
+			classes[`.dark .divide-${n}-${p.light}-${p.dark}-token`] = { 'border-color': `rgb(var(--color-${n}-${p.dark}))` };
 		});
 	});
 	return classes;
