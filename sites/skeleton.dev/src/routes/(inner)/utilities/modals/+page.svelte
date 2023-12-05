@@ -599,6 +599,77 @@ const modalComponent: ModalComponent = {
 			</Accordion>
 		</section>
 		<section class="space-y-4">
+			<h2 class="h2">Built-in Responses</h2>
+			<!-- prettier-ignore -->
+			<p>There are 3 built-in response types for modals:</p>
+			<Accordion autocollapse class="card variant-glass p-4">
+				<AccordionItem open>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Alert Modal</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>For alert modals, no response will be returned. The modal will simply close when the user clicks the "Cancel" button.</p>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Confirm Modal</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							Confirm modals, as the name implies, will return either <code class="code">true</code> or <code class="code">false</code>.
+							Clicking the "OK" button will return <code class="code">true</code>, while other interactions such as pressing "Cancel" or
+							using the backdrop will return <code class="code">false</code>.
+						</p>
+						<CodeBlock
+							language="ts"
+							code={`
+const modal: ModalSettings = {
+	type: 'confirm',
+	title: 'Please Confirm',
+	body: 'Are you sure you wish to proceed?',
+	response: (r: boolean) => console.log('response:', r) /* true or false */
+};
+`}
+						/>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Prompt Modal</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							Prompt modals provide more versatility, allowing the user to decide the response type of the modal. Clicking on "Cancel"
+							button or backdrop will give back a response value <code class="code">false</code>, while the value of the input field will be
+							returned when the "OK" button is pressed. Note that though input type might not be text, the response will be of type
+							<code class="code">string</code>.
+						</p>
+						<CodeBlock
+							language="ts"
+							code={`
+const modal: ModalSettings = {
+	type: 'prompt',
+	title: 'Enter Name',
+	body: 'Provide your first name in the field below.',
+	value: 'Skeleton',
+	valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
+	response: (r) => console.log('response:', r) /* string or false */
+};
+`}
+						/>
+						<CodeBlock
+							language="ts"
+							code={`
+const modal: ModalSettings = {
+	type: 'prompt',
+	title: 'Enter Age',
+	body: 'How old are you?',
+	value: "21",
+	valueAttr: { type: 'number', min: 0, max: 100, required: true },
+	response: (r) => console.log('response:', r) /* number in string format or false */
+};
+`}
+						/>
+					</svelte:fragment>
+				</AccordionItem>
+			</Accordion>
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessibility. View the <a class="anchor" href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessibility.</p>
