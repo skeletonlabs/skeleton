@@ -1,6 +1,6 @@
 ---
-"skeleton.dev": minor
-"@skeletonlabs/skeleton": minor
+'skeleton.dev': minor
+'@skeletonlabs/skeleton': minor
 ---
 
-Add slots to allow customizing AccordionItem open/close icons.
+feat: Add slots to allow customizing AccordionItem open/close icons.
