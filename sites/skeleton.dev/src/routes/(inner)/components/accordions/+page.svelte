@@ -1,7 +1,7 @@
 <script lang="ts">
+	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
-	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
 	// Utilities
@@ -179,6 +179,72 @@
 				to a single item.
 			</p>
 			<CodeBlock language="html" code={`<AccordionItem open>...</AccordionItem>`} />
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Open / Close Icons</h2>
+			<p>
+				Set Custom <code class="code">iconClosed</code> and/or <code class="code">iconOpen</code> slots for an
+				<code class="code">&lt;AccordionItem /&gt;</code>
+			</p>
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					<Accordion class="card p-4 text-token">
+						<AccordionItem>
+							<svelte:fragment slot="summary">Plus / Minus</svelte:fragment>
+							<svelte:fragment slot="content"></svelte:fragment>
+							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-minus"></i></svelte:fragment>
+							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-plus"></i></svelte:fragment>
+						</AccordionItem>
+						<AccordionItem>
+							<svelte:fragment slot="summary">Smiley / Surprise</svelte:fragment>
+							<svelte:fragment slot="content"></svelte:fragment>
+							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-face-surprise"></i></svelte:fragment>
+							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-face-smile"></i></svelte:fragment>
+						</AccordionItem>
+						<AccordionItem>
+							<svelte:fragment slot="summary">Caret (default)</svelte:fragment>
+							<svelte:fragment slot="content"></svelte:fragment>
+						</AccordionItem>
+					</Accordion>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<Accordion class="card p-4 text-token">
+	<AccordionItem>
+		<svelte:fragment slot="summary">Plus / Minus</svelte:fragment>
+		<svelte:fragment slot="content">(content)</svelte:fragment>
+		<svelte:fragment slot="iconClosed">
+			<!-- Custom Minus Icon -->
+			<i class="fa-solid fa-minus"></i>
+		</svelte:fragment>
+		<svelte:fragment slot="iconOpen">
+			<!-- Custom Plus Icon -->
+			<i class="fa-solid fa-plus"></i>
+		</svelte:fragment>
+	</AccordionItem>
+	<AccordionItem>
+		<svelte:fragment slot="summary">Smiley / Surprise</svelte:fragment>
+		<svelte:fragment slot="content">(content)</svelte:fragment>
+		<svelte:fragment slot="iconClosed">
+			<!-- Custom Surprised Icon -->
+			<i class="fa-solid fa-face-surprise"></i>
+		</svelte:fragment>
+		<svelte:fragment slot="iconOpen">
+			<!-- Custom Smiley Icon -->
+			<i class="fa-solid fa-face-smile"></i>
+		</svelte:fragment>
+	</AccordionItem>
+	<AccordionItem>
+		<svelte:fragment slot="summary">Caret (default)</svelte:fragment>
+		<svelte:fragment slot="content">(content)</svelte:fragment>
+	</AccordionItem>
+</Accordion>
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 	</svelte:fragment>
 </DocsShell>

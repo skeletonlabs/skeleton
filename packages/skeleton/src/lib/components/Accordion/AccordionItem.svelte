@@ -4,26 +4,25 @@
 	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
 	 * @slot {{}} summary - Provide the interactive summary of each item.
 	 * @slot {{}} content - Provide the content of each item.
+	 * @slot {{}} iconClosed - Allows for an optional element when the AccordionItem is closed, such as an icon
+	 * @slot {{}} iconOpen - Allows for an optional element when the AccordionItem is open, such as an icon
 	 */
 	// Events:
 	// FORWARDED: do not document these, breaks the type definition
 	// DISPATCHED: document directly above the definition, like props (ex: paginator)
 
-	import { getContext } from 'svelte';
-	import { createEventDispatcher } from 'svelte';
-	import { dynamicTransition } from '../../internal/transitions.js';
+	import { createEventDispatcher, getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
-
+	import { dynamicTransition } from '../../internal/transitions.js';
+	// Types
+	import type { CssClasses, SvelteEvent, Transition, TransitionParams } from '../../index.js';
+	type TransitionIn = $$Generic<Transition>;
+	type TransitionOut = $$Generic<Transition>;
 	// Event Dispatcher
 	type AccordionItemEvent = {
 		toggle: { event?: Event; id: string; panelId: string; open: boolean; autocollapse: boolean };
 	};
 	const dispatch = createEventDispatcher<AccordionItemEvent>();
-
-	// Types
-	import type { CssClasses, Transition, TransitionParams, SvelteEvent } from '../../index.js';
-	type TransitionIn = $$Generic<Transition>;
-	type TransitionOut = $$Generic<Transition>;
 
 	// Props (state)
 	/** Set open by default on load. */
@@ -159,15 +158,30 @@
 		<div class="accordion-summary flex-1">
 			<slot name="summary">(summary)</slot>
 		</div>
-		<!-- Caret -->
-		<div class="accordion-summary-caret {classesControlCaret}">
-			<!-- SVG Caret -->
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-				<path
-					d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-				/>
-			</svg>
-		</div>
+		<!-- Close/Open Icon -->
+		{#if openState}
+			<slot name="iconClosed">
+				<!-- SVG Caret -->
+				<div class="accordion-summary-caret {classesControlCaret}">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+						<path
+							d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+						/>
+					</svg>
+				</div>
+			</slot>
+		{:else}
+			<slot name="iconOpen">
+				<!-- SVG Caret -->
+				<div class="accordion-summary-caret {classesControlCaret}">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+						<path
+							d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+						/>
+					</svg>
+				</div>
+			</slot>
+		{/if}
 	</button>
 	<!-- Panel -->
 	{#if openState}
