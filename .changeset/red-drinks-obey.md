@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-bugfix: ProgressBar component classesMeter applied twice in the template #2280
+bugfix: ProgressBar component classesMeter applied twice in the template
