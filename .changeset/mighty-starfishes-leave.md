@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Numeric row is now disabled when using the prop `disabled` on the Paginator.
+bugfix: The Paginator numeric row now adheres to the `disabled` state
