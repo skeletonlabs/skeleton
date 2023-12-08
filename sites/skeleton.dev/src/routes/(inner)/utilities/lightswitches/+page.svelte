@@ -89,8 +89,7 @@
 import { autoModeWatcher } from '@skeletonlabs/skeleton'; 
 import { onMount } from 'svelte';
 
-onMount(() => {					
-	autoModeWatcher.toString();						
+onMount(() => {										
 	autoModeWatcher();
 )}`}
 									/>
