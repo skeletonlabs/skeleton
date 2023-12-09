@@ -64,6 +64,7 @@
 						<TabGroup regionPanel="space-y-4">
 							<Tab bind:group={osTabs} name="interface" value={0}>SSR</Tab>
 							<Tab bind:group={osTabs} name="interface" value={1}>No SSR</Tab>
+							<Tab bind:group={osTabs} name="interface" value={2}>Other Frameworks</Tab>
 							<svelte:fragment slot="panel">
 								{#if osTabs === 0}
 									<!-- OS Preference -->
@@ -78,11 +79,11 @@
 									<CodeBlock language="html" code={snippetAutoModeWatcher} />
 
 									<p>Note that Mac OS will update immediately, while other operating systems require a browser refresh.</p>
-								{:else}
+								{:else if osTabs === 1}
 									<h2 class="h2">No SSR</h2>
 									<p>Your <code class="code">/src/routes/+layout.ts</code> should look like this</p>
 									<CodeBlock language="ts" code={`export const ssr = false;`} />
-									<p>Add the following to your root <code class="code">/src/routes/+layout.svelte</code> file</p>
+									<p>Add the following to your root <code class="code">+layout.svelte</code> file</p>
 									<CodeBlock
 										language="ts"
 										code={`
@@ -93,6 +94,14 @@ onMount(() => {
 	autoModeWatcher();
 })`}
 									/>
+									{:else}
+									<p>If using Skeleton in a framework other than SvelteKit, ensure that <code class="code">autoModeWatcher()</code> is called as a script in <code class="code">html</code> head.</p>
+
+									<aside class="alert alert-message variant-ghost-warning">
+										<p>
+											This feature is not supported by Skeleton maintainers, but should function if you follow these instructions.
+										</p>
+									</aside>
 								{/if}
 							</svelte:fragment>
 						</TabGroup>
