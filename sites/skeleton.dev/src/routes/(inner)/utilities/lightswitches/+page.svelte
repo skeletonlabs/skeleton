@@ -91,7 +91,7 @@ import { onMount } from 'svelte';
 
 onMount(() => {										
 	autoModeWatcher();
-(})`}
+})`}
 									/>
 								{/if}
 							</svelte:fragment>
