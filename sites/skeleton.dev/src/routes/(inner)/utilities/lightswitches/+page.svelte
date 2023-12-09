@@ -99,7 +99,7 @@ onMount(() => {
 
 									<aside class="alert alert-message variant-ghost-warning">
 										<p>
-											This feature is not supported by Skeleton maintainers, but should function if you follow these instructions.
+											This use case is not supported by Skeleton maintainers, but should function if you follow these instructions.
 										</p>
 									</aside>
 								{/if}
