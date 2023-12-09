@@ -94,13 +94,14 @@ onMount(() => {
 	autoModeWatcher();
 })`}
 									/>
-									{:else}
-									<p>If using Skeleton in a framework other than SvelteKit, ensure that <code class="code">autoModeWatcher()</code> is called as a script in <code class="code">html</code> head.</p>
+								{:else}
+									<p>
+										If using Skeleton in a framework other than SvelteKit, ensure that <code class="code">autoModeWatcher()</code> is called
+										as a script in <code class="code">html</code> head.
+									</p>
 
 									<aside class="alert alert-message variant-ghost-warning">
-										<p>
-											This use case is not supported by Skeleton maintainers, but should function if you follow these instructions.
-										</p>
+										<p>This use case is not supported by Skeleton maintainers, but should function if you follow these instructions.</p>
 									</aside>
 								{/if}
 							</svelte:fragment>
