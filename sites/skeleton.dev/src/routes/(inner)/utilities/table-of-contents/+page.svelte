@@ -125,7 +125,7 @@
 			<CodeBlock
 				language="html"
 				code={`
-<script>
+<\u{73}cript>
 	/* tabIndex value changing will trigger the crawler
 	to update the table of contents based on the content of the new tab. */
 	let tabIndex = 0;
@@ -134,7 +134,7 @@
 	setTimeout(() => {
 		tabIndex = 1;
 	}, 1000);
-</script>
+</\u{73}cript> 
 
 <div use:tocCrawler={{ key: tabIndex }}>
 `}
