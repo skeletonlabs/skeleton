@@ -124,7 +124,6 @@
 	// Lifecycle
 	afterNavigate((params) => {
 		// Scroll to top
-		console.log(params.from?.url.pathname, params.to?.url.pathname);
 		const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
 		const elemPage = document.querySelector('#page');
 		if (isNewPage && elemPage !== null) {
