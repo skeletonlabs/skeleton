@@ -49,7 +49,7 @@ plugins: [
 			{/each}
 		</nav>
 		<p>
-			First, register you preferred theme(s) in <code class="code">tailwind.config.[ts|js|cjs]</code>. This will ensure each theme is
+			First, register your preferred theme(s) in <code class="code">tailwind.config.[ts|js|cjs]</code>. This will ensure each theme is
 			available to use.
 		</p>
 		<CodeBlock language="ts" code={activeThemeStylesheet} />

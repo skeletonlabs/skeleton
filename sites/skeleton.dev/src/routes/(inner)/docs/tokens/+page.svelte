@@ -70,6 +70,22 @@
 			['<code class="code">.text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
+	const tableTDecoration: TableSource = {
+		head: headings,
+		body: [['<code class="code">.decoration-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]]
+	};
+	const tableDivide: TableSource = {
+		head: headings,
+		// body: [['<code class="code">.divide-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings + `\n` + ` <a class='anchor href='https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-line' target="_blank">text-decoration-line</a>`]]
+		body: [
+			[
+				'<code class="code">.divide-[color]-[pairings]-token</code>',
+				`${vColorsAll}<br>${vPairings}`,
+				`\nImplements a <a class='anchor' href='https://tailwindcss.com/docs/text-decoration' target="_blank">text-decoration</a> color. ` +
+					descPairings
+			]
+		]
+	};
 	const tableMisc: TableSource = {
 		head: headings,
 		body: [
@@ -149,6 +165,12 @@
 			<h2 class="h2">Borders</h2>
 			<Table source={tableBorder} />
 		</section>
+		<!-- Divides -->
+		<section class="space-y-4">
+			<h2 class="h2">Divide</h2>
+			<p>Utility for controlling the border color between elements.</p>
+			<Table source={tableDivide} />
+		</section>
 		<!-- Fills -->
 		<section class="space-y-4">
 			<h2 class="h2">SVG Fill Color</h2>
@@ -164,6 +186,11 @@
 		<section class="space-y-4">
 			<h2 class="h2">Text</h2>
 			<Table source={tableText} />
+		</section>
+		<!--Text Decoration-->
+		<section class="space-y-4">
+			<h2 class="h2">Text Decoration</h2>
+			<Table source={tableTDecoration} />
 		</section>
 		<!-- Accent -->
 		<section class="space-y-4">

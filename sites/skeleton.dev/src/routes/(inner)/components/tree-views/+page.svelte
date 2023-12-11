@@ -668,7 +668,7 @@ let booksChildren: TreeViewItem[] = [];
 						code={`
 let myTreeViewNodes: TreeViewNode[] = [
 	{
-		id: 'unique-id'
+		id: 'unique-id',
 		content: 'content',
 		lead: '(icon)',
 		children: [
@@ -705,7 +705,7 @@ import ExampleComponent from './exampleComponent.svelte';
 
 let myTreeViewNodes: TreeViewNode[] = [
 	{
-		id: 'unique-id'
+		id: 'unique-id',
 		content: 'content',
 		lead: ExampleComponent,
 		leadProps: {

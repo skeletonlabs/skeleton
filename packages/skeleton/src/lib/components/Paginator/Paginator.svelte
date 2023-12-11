@@ -227,7 +227,7 @@
 		{:else}
 			<!-- Numeric Row -->
 			{#each controlPages as page}
-				<button type="button" class="{buttonClasses} {classesButtonActive(page)}" on:click={() => gotoPage(page)}>
+				<button type="button" {disabled} class="{buttonClasses} {classesButtonActive(page)}" on:click={() => gotoPage(page)}>
 					{page >= 0 ? page + 1 : '...'}
 				</button>
 			{/each}
