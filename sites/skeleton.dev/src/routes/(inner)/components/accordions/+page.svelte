@@ -191,19 +191,19 @@
 					<Accordion class="card p-4 text-token">
 						<AccordionItem>
 							<svelte:fragment slot="summary">Plus / Minus</svelte:fragment>
-							<svelte:fragment slot="content"></svelte:fragment>
-							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-minus"></i></svelte:fragment>
-							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-plus"></i></svelte:fragment>
+							<svelte:fragment slot="content" />
+							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-minus" /></svelte:fragment>
+							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-plus" /></svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
 							<svelte:fragment slot="summary">Smiley / Surprise</svelte:fragment>
-							<svelte:fragment slot="content"></svelte:fragment>
-							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-face-surprise"></i></svelte:fragment>
-							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-face-smile"></i></svelte:fragment>
+							<svelte:fragment slot="content" />
+							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-face-surprise" /></svelte:fragment>
+							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-face-smile" /></svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
 							<svelte:fragment slot="summary">Caret (default)</svelte:fragment>
-							<svelte:fragment slot="content"></svelte:fragment>
+							<svelte:fragment slot="content" />
 						</AccordionItem>
 					</Accordion>
 				</svelte:fragment>
