@@ -49,6 +49,7 @@
 	import ModalExampleList from '$lib/modals/examples/ModalExampleList.svelte';
 	import ModalExampleEmbed from '$lib/modals/examples/ModalExampleEmbed.svelte';
 	import ModalExampleImage from '$lib/modals/examples/ModalExampleImage.svelte';
+	import ModalFullScreen from '$lib/modals/examples/ModalFullScreen.svelte';
 
 	// The Skeleton blog stylesheet
 	import '$lib/styles/blog.css';
@@ -95,7 +96,8 @@
 		modalSearch: { ref: DocsSearch },
 		exampleList: { ref: ModalExampleList },
 		exampleEmbed: { ref: ModalExampleEmbed },
-		exampleImage: { ref: ModalExampleImage }
+		exampleImage: { ref: ModalExampleImage },
+		fullScreen: { ref: ModalFullScreen }
 	};
 
 	function matchPathWhitelist(pageUrlPath: string): boolean {
@@ -124,7 +126,6 @@
 	// Lifecycle
 	afterNavigate((params) => {
 		// Scroll to top
-		console.log(params.from?.url.pathname, params.to?.url.pathname);
 		const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
 		const elemPage = document.querySelector('#page');
 		if (isNewPage && elemPage !== null) {

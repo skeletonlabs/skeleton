@@ -139,6 +139,15 @@
 		};
 		modalStore.trigger(modal);
 	}
+
+	function modalFullScreen(): void {
+		const modal: ModalSettings = {
+			type: 'component',
+			component: 'fullScreen',
+			title: 'Full screen Modal'
+		};
+		modalStore.trigger(modal);
+	}
 </script>
 
 <DocsShell {settings}>
@@ -343,6 +352,31 @@ new Promise<boolean>((resolve) => {
 });
 	`}
 			/>
+		</section>
+		<!-- Full screen Modal -->
+		<section class="space-y-4">
+			<h2 class="h2">Full screen Modal</h2>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="grid grid-cols-1 md:max-w-[480px] mx-auto">
+						<button class="btn variant-filled" on:click={modalFullScreen}>Full screen</button>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<div class="text-center">
+						<a
+							class="btn variant-ghost"
+							href="https://github.com/skeletonlabs/skeleton/tree/master/sites/skeleton.dev/src/lib/modals/examples"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<i class="fa-brands fa-github" />
+							<span>View Source on GitHub</span>
+							<i class="fa-solid fa-arrow-up-right-from-square" />
+						</a>
+					</div>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<!-- Component Modals -->
 		<section class="space-y-4">
