@@ -578,7 +578,7 @@ const popupState: PopupSettings = {
 		<section class="space-y-4">
 			<h2 class="h2">Combobox</h2>
 			<p>
-				The goal of Skeleton is to combine primitive elements and components to build more complex UI. For example, by combining a Button,
+				The goal of Skeleton is to combine primitive elements and components to build a more complex UI. For example, by combining a Button,
 				Popup, and ListBox you can create a highly customizable combobox.
 			</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
