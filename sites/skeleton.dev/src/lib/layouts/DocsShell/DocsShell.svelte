@@ -17,6 +17,7 @@
 	import PanelSlots from './partials/PanelSlots.svelte';
 	// Utilities
 	import { docShellDefaults } from '$lib/layouts/DocsShell/defaults';
+	// SvelteKit
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
 
@@ -57,7 +58,6 @@
 	$: classesBase = `${cBase}`;
 	$: classesTabs = `${cTabs}`;
 	$: classesPanels = `${cPanels}`;
-
 	$: if (browser) {
 		const url = new URL($page.url);
 		url.searchParams.set('tab', tabPanel);
