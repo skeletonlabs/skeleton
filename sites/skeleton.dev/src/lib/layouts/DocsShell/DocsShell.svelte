@@ -31,7 +31,8 @@
 	const cPanels = 'space-y-10';
 
 	// Local
-	let tabPanel = $page.url.searchParams.get('tab') || 'usage';
+	const defaultTab = 'usage';
+	let tabPanel = $page.url.searchParams.get('tab') || defaultTab;
 
 	// Page Data
 	const pageData: DocsShellSettings = {
@@ -60,7 +61,11 @@
 	$: classesPanels = `${cPanels}`;
 	$: if (browser) {
 		const url = new URL($page.url);
-		url.searchParams.set('tab', tabPanel);
+		if (tabPanel === defaultTab) {
+			url.searchParams.delete('tab');
+		} else {
+			url.searchParams.set('tab', tabPanel);
+		}
 		goto(url, { replaceState: true });
 	}
 </script>
