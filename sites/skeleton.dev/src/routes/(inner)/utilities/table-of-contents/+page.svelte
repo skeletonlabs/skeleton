@@ -134,6 +134,26 @@
 			<CodeBlock language="html" code={`<div use:tocCrawler={{ scrollTarget: '#page' }}>`} />
 		</section>
 		<hr />
+		<!-- Dynamic attributes -->
+		<section class="space-y-4">
+			<h2 class="h2">Dynamic Attributes</h2>
+			<p>Generating links constructed from dynamic attributes may result in unexpected behavior.</p>
+			<h3 class="h3">Example</h3>
+			<CodeBlock language="html" code={`<h2 class="h2">Greetings {name}</h2>`} />
+			<p>Svelte will compile this header to:</p>
+			<CodeBlock language="html" code={`<h2 class="h2">"Greetings " "skeleton"</h2>`} />
+			<p>which means the header now has two children: "Greetings " and "skeleton".</p>
+			<p>
+				Since the Table of Contents targets only the first child to avoid including any icons, etc., in the link, we end up with links
+				missing parts of the text.
+			</p>
+			<h3 class="h3">Solution</h3>
+			<p>Using string interpolation solves the problem, by updating the code to:</p>
+			<CodeBlock language="html" code={`<h2 class="h2">{\`Greetings \${name}\`}</h2>`} />
+			<p>The component will be compiled to:</p>
+			<CodeBlock language="html" code={`<h2 class="h2">"Greetings skeleton"</h2>`} />
+		</section>
+		<hr />
 		<!-- Styling -->
 		<section class="space-y-4">
 			<h2 class="h2">Styling</h2>
