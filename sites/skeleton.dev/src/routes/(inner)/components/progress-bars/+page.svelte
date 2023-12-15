@@ -80,6 +80,40 @@
 					<CodeBlock language="html" code={`<ProgressBar value={undefined} />`} />
 				</svelte:fragment>
 			</DocsPreview>
+			<h3 class="h3">Custom animation</h3>
+			<p>
+				To use a custom indeterminate animation, provide the animation class with the <code class="code">indeterminateAnimation</code> property.
+			</p>
+			<p>
+				Define or import your animation in the global stylesheet because Svelte uses component-based styles and those defined in the
+				component won't apply to the ProgressBar.
+			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="w-full space-y-10">
+						<ProgressBar indeterminateAnimation="progressbar-anim-indeterminate-example" />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="css"
+						code={`
+/* Global Stylesheet */
+
+.anim-indeterminate {
+	transform-origin: 0% 50%;
+	animation: anim-indeterminate  2s infinite linear;
+}
+@keyframes anim-indeterminate {
+	0% { transform: translateX(50%) scaleX(0.5); }
+	50% { transform: translateX(0) scaleX(0.5); }
+	100% { transform: translateX(50%) scaleX(0.5); }
+}
+`}
+					/>
+					<CodeBlock language="html" code={`<ProgressBar indeterminateAnimation="anim-indeterminate"/>`} />
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Native Alternative</h2>

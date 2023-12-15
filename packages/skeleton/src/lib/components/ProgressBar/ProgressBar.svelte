@@ -18,6 +18,8 @@
 	export let rounded: CssClasses = 'rounded-token';
 	/** Provide classes to set the meter transition styles. */
 	export let transition: CssClasses = 'transition-[width]';
+	/** Provide classes to a custom indeterminate animation. */
+	export let indeterminateAnimation: CssClasses = 'animIndeterminate';
 
 	// Props (elements)
 	/** Sets the base classes of the meter element. */
@@ -38,7 +40,7 @@
 
 	// Indeterminate State
 	$: indeterminate = value === undefined || value < 0;
-	$: classesIndeterminate = indeterminate ? 'animIndeterminate' : '';
+	$: classesIndeterminate = indeterminate ? indeterminateAnimation : '';
 	// Reactive Classes
 	$: classesTrack = `${cTrack} ${track} ${height} ${rounded} ${$$props.class ?? ''}`;
 	$: classesMeter = `${cMeter} ${meter} ${rounded} ${classesIndeterminate} ${transition}`;
