@@ -113,15 +113,15 @@
 			<!-- Keyed Updates -->
 			<h3 class="h3">Keyed Updates</h3>
 			<p>
-				In some situations you may want to force the crawler action to update on demand. Use the <code class="code">key</code> parameter
-				and pass a value that will be modified, which operates similar to Svelte's
+				In some situations you may want to force the crawler action to update on demand. Use the <code class="code">key</code> parameter and
+				pass a value that will be modified, which operates similar to Svelte's
 				<a class="anchor" href="https://svelte.dev/tutorial/key-blocks" target="_blank">key blocks</a>. This can be useful for scanning for
 				new page headers for tabbed content.
 			</p>
 			<CodeBlock
 				language="ts"
 				code={`
-const tabIndex = 0;\n
+let tabIndex = 0;\n
 // Modifying this value triggers the crawler to run again:
 // tabindex = 1;
 			`}
