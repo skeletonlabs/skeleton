@@ -5,14 +5,16 @@
 	import type { CssClasses } from '../../index.js';
 
 	// Props (Group)
-	/** Provide display classes. Set `flex` to stretch full width. */
+	/** Provide display classes. Use `flex` to stretch full width. */
 	export let display: CssClasses = 'inline-flex';
+	/** Provide classes to set flex-direction. Use `flex-col` for vertical layout. */
+	export let flexDirection: CssClasses = 'inline-flex';
+	/** Provide classes to set gap spacing between items. */
+	export let gap: CssClasses = 'gap-1';
 	/** Provide classes to set the base background color. */
 	export let background: CssClasses = 'bg-surface-200-700-token';
 	/** Provide classes to set the border styles. */
 	export let border: CssClasses = 'border-token border-surface-400-500-token';
-	/** Provide classes horizontal spacing between items. */
-	export let spacing: CssClasses = '';
 	/** Provide classes to set the border radius. */
 	export let rounded: CssClasses = 'rounded-token';
 
@@ -47,9 +49,7 @@
 	const cBase = 'p-1';
 
 	// Reactive
-	// display space-x only on row flex as it is not needed on column flex.
-	$: spacing = `${display.includes('flex-col') ? '' : 'space-x-1'}`;
-	$: classesBase = `${cBase} ${display} ${background} ${border} ${spacing} ${rounded} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${display} ${flexDirection} ${gap} ${background} ${border} ${rounded} ${$$props.class ?? ''}`;
 </script>
 
 <div class="radio-group {classesBase}" data-testid="radio-group" role="radiogroup" aria-labelledby={labelledby}>

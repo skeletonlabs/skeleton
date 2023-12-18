@@ -80,6 +80,34 @@
 					<CodeBlock language="html" code={`<ProgressBar value={undefined} />`} />
 				</svelte:fragment>
 			</DocsPreview>
+			<h3 class="h3">Custom Animation</h3>
+			<p>Use the <code class="code">animIndeterminate</code> prop to pass a custom CSS animation for the progress bar meter.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="w-full space-y-10">
+						<ProgressBar animIndeterminate="anim-progress-bar-example" />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>Define your new animation class in your global stylesheet <code class="code">app.postcss</code>.</p>
+					<CodeBlock
+						language="css"
+						code={`
+.anim-progress-bar {
+	transform-origin: 0% 50%;
+	animation: anim-progress-bar 2s infinite linear;
+}
+@keyframes anim-progress-bar {
+	0% { transform: translateX(50%) scaleX(0.5); }
+	50% { transform: translateX(0) scaleX(0.5); }
+	100% { transform: translateX(50%) scaleX(0.5); }
+}
+`}
+					/>
+					<p>Append the animation class to via the <code class="code">animIndeterminate</code> prop.</p>
+					<CodeBlock language="html" code={`<ProgressBar animIndeterminate="anim-progress-bar"/>`} />
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Native Alternative</h2>

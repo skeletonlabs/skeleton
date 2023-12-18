@@ -149,7 +149,7 @@
 				<button class="btn variant-filled" on:click={modalDemo}>Show Modal</button>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<p>There are a several steps involved to utilize this feature. Please refer to the documented instruction below.</p>
+				<p>There are several steps involved to utilize this feature. Please refer to the documented instructions below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -285,7 +285,7 @@ modalStore.trigger(modal);
 					<h2 class="h2">Modal Settings</h2>
 					<p>
 						Define settings <u>per modal instance</u> via the <code class="code">trigger()</code> method. These are similar to modal properties,
-						but do not provide the same breath of options.
+						but do not provide the same breadth of options.
 					</p>
 				</div>
 				<div>
@@ -384,7 +384,7 @@ new Promise<boolean>((resolve) => {
 				<svelte:fragment slot="panel">
 					{#if tabCustom === 'register'}
 						<p>
-							This will create a set of reusable custom modals that are globally avialable to your application. Add the following to your
+							This will create a set of reusable custom modals that are globally available to your application. Add the following to your
 							your root layout in <code class="code">/src/routes/+layout.svelte</code>.
 						</p>
 						<CodeBlock
@@ -434,12 +434,12 @@ modalStore.trigger(modal);
 				</svelte:fragment>
 			</TabGroup>
 			<h3 class="h3">Creating a Component</h3>
-			<p>Learn more about how to construct a custom modal component via the tips below.</p>
+			<p>Learn more about how to construct a custom modal component using the tips below.</p>
 			<Accordion autocollapse class="card variant-glass p-4">
 				<AccordionItem open>
 					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Modal Store Data</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>When creating a custom component, make sure to import the modal store. This should proceed all following tips.</p>
+						<p>When creating a custom component, make sure to import the modal store. This should occur before all following steps.</p>
 						<CodeBlock
 							language="ts"
 							code={`
@@ -591,7 +591,7 @@ const modalComponent: ModalComponent = {
 				<AccordionItem>
 					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Closing a Modal</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>You can use either method below to close self close the modal. Use this for "cancel" actions.</p>
+						<p>You can use either method below to close the modal. Use this for "cancel" actions.</p>
 						<CodeBlock language="ts" code={`parent.onClose();`} />
 						<CodeBlock language="ts" code={`modalStore.close();`} />
 					</svelte:fragment>
