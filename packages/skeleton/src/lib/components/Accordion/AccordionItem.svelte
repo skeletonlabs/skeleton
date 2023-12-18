@@ -14,14 +14,16 @@
 	import { createEventDispatcher, getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { dynamicTransition } from '../../internal/transitions.js';
-	// Types
 	import type { CssClasses, SvelteEvent, Transition, TransitionParams } from '../../index.js';
+
+	// Types
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
-	// Event Dispatcher
 	type AccordionItemEvent = {
 		toggle: { event?: Event; id: string; panelId: string; open: boolean; autocollapse: boolean };
 	};
+
+	// Event Dispatcher
 	const dispatch = createEventDispatcher<AccordionItemEvent>();
 
 	// Props (state)
@@ -37,7 +39,7 @@
 	// Classes
 	const cBase = '';
 	const cControl = 'text-start w-full flex items-center space-x-4';
-	const cControlCaret = 'fill-current w-3 transition-transform duration-[200ms]';
+	const cControlIcons = 'fill-current w-3 transition-transform duration-[200ms]';
 	const cPanel = '';
 
 	// Context API
@@ -65,7 +67,8 @@
 	export let regionControl: CssClasses = getContext('regionControl');
 	/** Provide arbitrary classes to content panel region. */
 	export let regionPanel: CssClasses = getContext('regionPanel');
-	/** Provide arbitrary classes caret icon region. */
+	// FIXME: this will need to be renamed `regionIcons` in the future
+	/** Provide arbitrary classes default region. */
 	export let regionCaret: CssClasses = getContext('regionCaret');
 
 	// Props (transitions)
@@ -91,6 +94,11 @@
 	 * @type {TransitionParams}
 	 */
 	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
+
+	const svgCaretIcon = `
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class={classesControlCaret}>
+			<path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+		</svg>`;
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: SvelteEvent<MouseEvent, HTMLButtonElement>): void {
@@ -127,7 +135,8 @@
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesControl = `${cControl} ${padding} ${hover} ${rounded} ${regionControl}`;
 	$: classesCaretState = openState ? caretOpen : caretClosed;
-	$: classesControlCaret = `${cControlCaret} ${regionCaret} ${classesCaretState}`;
+	$: classesControlCaret = `${cControlIcons} ${regionCaret} ${classesCaretState}`;
+	$: classesControlIcons = `${cControlIcons} ${regionCaret}`;
 	$: classesPanel = `${cPanel} ${padding} ${rounded} ${regionPanel}`;
 </script>
 
@@ -158,29 +167,20 @@
 		<div class="accordion-summary flex-1">
 			<slot name="summary">(summary)</slot>
 		</div>
-		<!-- Close/Open Icon -->
-		{#if openState}
-			<slot name="iconClosed">
-				<!-- SVG Caret -->
-				<div class="accordion-summary-caret {classesControlCaret}">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-						<path
-							d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-						/>
-					</svg>
-				</div>
-			</slot>
+		<!-- Icons -->
+		{#if $$slots.iconClosed || $$slots.iconOpen}
+			<!-- Custom -->
+			<!-- If a custom icon is provided, do not use rotation -->
+			<div class="accordion-summary-icons {classesControlIcons}">
+				{#if openState}
+					<slot name="iconClosed">{@html svgCaretIcon}</slot>
+				{:else}
+					<slot name="iconOpen">{@html svgCaretIcon}</slot>
+				{/if}
+			</div>
 		{:else}
-			<slot name="iconOpen">
-				<!-- SVG Caret -->
-				<div class="accordion-summary-caret {classesControlCaret}">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-						<path
-							d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-						/>
-					</svg>
-				</div>
-			</slot>
+			<!-- SVG Caret -->
+			<div class="accordion-summary-caret {classesControlCaret}">{@html svgCaretIcon}</div>
 		{/if}
 	</button>
 	<!-- Panel -->
