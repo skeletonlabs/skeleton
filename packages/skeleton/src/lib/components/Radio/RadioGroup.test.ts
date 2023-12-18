@@ -15,7 +15,7 @@ describe('RadioGroup.svelte', () => {
 		const { getByTestId } = render(RadioGroup, {
 			props: {
 				display: 'inline-flex',
-				spacing: 'space-x-2',
+				gap: 'gap-1',
 				background: 'bg-surface-300 dark:bg-surface-700',
 				hover: 'hover:bg-primary-500/10',
 				accent: 'bg-primary-500 !text-white',
