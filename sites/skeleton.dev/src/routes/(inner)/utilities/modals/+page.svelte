@@ -499,7 +499,33 @@ const modalStore = getModalStore();
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Returning a Response Value</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Default Response Values</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<CodeBlock
+							language="ts"
+							code={`
+const modal: ModalSettings = {
+	// ...
+	response: (r: boolean | undefined) => console.log('response:', r) 
+};
+modalStore.trigger(modal);
+						`}
+						/>
+						<p>Alerts, Confirm, and Prompt modals can provide the following response values.</p>
+						<ol class="list-decimal list-inside space-y-2">
+							<li><code class="code">true</code> - when the <u>Positive</u> button is tapped (ex: Confirm)</li>
+							<li><code class="code">false</code> - when the <u>Negative</u> button is tapped (ex: Cancel)</li>
+							<li><code class="code">undefined</code> - when the <u>Backdrop</u> is tapped, which surrounds the modal window.</li>
+						</ol>
+						<div class="card p-4 variant-ghost-warning">
+							<p>
+								All modals, including component modals, will respond with <code class="code">undefined</code> when the backdrop is tapped.
+							</p>
+						</div>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Returning a Custom Response Value</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
 							Use the <code class="code">$modalStore[0].response()</code> callback method to return a modal response value.
