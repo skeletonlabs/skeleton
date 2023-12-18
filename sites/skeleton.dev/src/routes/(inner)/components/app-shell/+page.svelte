@@ -230,7 +230,7 @@ import type { AfterNavigate } from '@sveltejs/kit';
 import { afterNavigate } from '$app/navigation';
 
 afterNavigate((params: AfterNavigate) => {
-    const isNewPage: boolean = params.from?.route.id !== params.to?.route.id;
+    const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
     const elemPage = document.querySelector('#page');
     if (isNewPage && elemPage !== null) {
         elemPage.scrollTop = 0;

@@ -1,7 +1,7 @@
 <script lang="ts">
+	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
-	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
 	// Utilities
@@ -9,6 +9,9 @@
 	// Sveld
 	import sveldAccordion from '@skeletonlabs/skeleton/components/Accordion/Accordion.svelte?raw&sveld';
 	import sveldAccordionItem from '@skeletonlabs/skeleton/components/Accordion/AccordionItem.svelte?raw&sveld';
+
+	const loremIpsum =
+		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ipsa inventore, deserunt tempora ullam accusantium sed ipsam iste impedit beatae praesentium quisquam itaque voluptatibus laborum sunt tenetur, minima porro corrupti.';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -41,7 +44,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="text-center">
 			<svelte:fragment slot="preview">
-				<Accordion autocollapse class="card p-4 text-token">
+				<Accordion class="card p-4 text-token">
 					<AccordionItem open>
 						<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center" /></svelte:fragment>
 						<svelte:fragment slot="summary"><p class="font-bold">What is Día de los Muertos?</p></svelte:fragment>
@@ -123,7 +126,44 @@
 		<section class="space-y-4">
 			<h2 class="h2">Auto-Collapse Mode</h2>
 			<p>Enable the <code class="code">autocollapse</code> setting to limit display to one accordion panel at a time.</p>
-			<CodeBlock language="html" code={`<Accordion autocollapse>...</Accordion>`} />
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<h2 class="h2">Auto-Collapse Mode</h2>
+				<p>Enable the <code class="code">autocollapse</code> setting to limit display to one accordion panel at a time.</p>
+				<svelte:fragment slot="preview">
+					<Accordion autocollapse class="card p-4 text-token">
+						<AccordionItem open>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">What is Día de los Muertos?</p></svelte:fragment>
+							<svelte:fragment slot="content">
+								<!-- prettier-ignore -->
+								<p>
+									While Halloween and Day of the Dead occur nearly in tandem and share similar customs (candy, face painting, and community gathering), the two are not related. Halloween has ancient Celtic roots, while Day of the Dead has its own origins that date back to the Indigenous people of Mexico and Central America.
+								</p>
+							</svelte:fragment>
+						</AccordionItem>
+						<AccordionItem>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-clock text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">When did it begin?</p></svelte:fragment>
+							<svelte:fragment slot="content">
+								<!-- prettier-ignore -->
+								<p>
+									Roughly 3000 years ago, amongst the Aztec, Toltec, and Mayans, death and the dead were seen as a natural part of life that should be honored and celebrated, rather than mourned. In particular, the Nahua people of central Mexico believed the deceased traveled on a years-long journey to Chicunamictlán, the Land of the Dead. The living would provide supplies, such as food and water to aid them on the trek. This practice inspired the modern tradition of creating altars —known as ofrendas— at their homes, in addition to leaving offerings at the gravesites of loved ones.
+								</p>
+							</svelte:fragment>
+						</AccordionItem>
+					</Accordion>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<Accordion autocollapse>
+	<!-- ... -->
+</Accordion>
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Open on Load</h2>
@@ -132,6 +172,47 @@
 				to a single item.
 			</p>
 			<CodeBlock language="html" code={`<AccordionItem open>...</AccordionItem>`} />
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Custom Icons</h2>
+			<p>
+				Set the <code class="code">iconOpen</code> and <code class="code">iconClosed</code> slots within the Accordion Item component.
+			</p>
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					<Accordion class="card p-4 text-token">
+						<AccordionItem>
+							<svelte:fragment slot="summary"><strong>Default: Caret</strong></svelte:fragment>
+							<svelte:fragment slot="content">{loremIpsum}</svelte:fragment>
+						</AccordionItem>
+						<AccordionItem>
+							<svelte:fragment slot="summary"><strong>Custom: Plus and Minus</strong></svelte:fragment>
+							<svelte:fragment slot="content">{loremIpsum}</svelte:fragment>
+							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-minus" /></svelte:fragment>
+							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-plus" /></svelte:fragment>
+						</AccordionItem>
+						<AccordionItem>
+							<svelte:fragment slot="summary"><strong>Custom: Smiley and Surprise</strong></svelte:fragment>
+							<svelte:fragment slot="content">{loremIpsum}</svelte:fragment>
+							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-face-surprise" /></svelte:fragment>
+							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-face-smile" /></svelte:fragment>
+						</AccordionItem>
+					</Accordion>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<blockquote class="blockquote">TIP: abstract both fragments to a single standalone component for reusability.</blockquote>
+					<CodeBlock
+						language="html"
+						code={`
+<AccordionItem>
+	<svelte:fragment slot="iconClosed">(icon closed)</svelte:fragment>
+	<svelte:fragment slot="iconOpen">(icon open)</svelte:fragment>
+	<!-- ... -->
+</AccordionItem>
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 	</svelte:fragment>
 </DocsShell>

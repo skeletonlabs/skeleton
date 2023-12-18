@@ -4,26 +4,27 @@
 	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
 	 * @slot {{}} summary - Provide the interactive summary of each item.
 	 * @slot {{}} content - Provide the content of each item.
+	 * @slot {{}} iconClosed - Allows for an optional element when the AccordionItem is closed, such as an icon
+	 * @slot {{}} iconOpen - Allows for an optional element when the AccordionItem is open, such as an icon
 	 */
 	// Events:
 	// FORWARDED: do not document these, breaks the type definition
 	// DISPATCHED: document directly above the definition, like props (ex: paginator)
 
-	import { getContext } from 'svelte';
-	import { createEventDispatcher } from 'svelte';
-	import { dynamicTransition } from '../../internal/transitions.js';
+	import { createEventDispatcher, getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
-
-	// Event Dispatcher
-	type AccordionItemEvent = {
-		toggle: { event?: Event; id: string; open: boolean; autocollapse: boolean };
-	};
-	const dispatch = createEventDispatcher<AccordionItemEvent>();
+	import { dynamicTransition } from '../../internal/transitions.js';
+	import type { CssClasses, SvelteEvent, Transition, TransitionParams } from '../../index.js';
 
 	// Types
-	import type { CssClasses, Transition, TransitionParams, SvelteEvent } from '../../index.js';
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;
+	type AccordionItemEvent = {
+		toggle: { event?: Event; id: string; panelId: string; open: boolean; autocollapse: boolean };
+	};
+
+	// Event Dispatcher
+	const dispatch = createEventDispatcher<AccordionItemEvent>();
 
 	// Props (state)
 	/** Set open by default on load. */
@@ -38,7 +39,7 @@
 	// Classes
 	const cBase = '';
 	const cControl = 'text-start w-full flex items-center space-x-4';
-	const cControlCaret = 'fill-current w-3 transition-transform duration-[200ms]';
+	const cControlIcons = 'fill-current w-3 transition-transform duration-[200ms]';
 	const cPanel = '';
 
 	// Context API
@@ -66,7 +67,8 @@
 	export let regionControl: CssClasses = getContext('regionControl');
 	/** Provide arbitrary classes to content panel region. */
 	export let regionPanel: CssClasses = getContext('regionPanel');
-	/** Provide arbitrary classes caret icon region. */
+	// FIXME: this will need to be renamed `regionIcons` in the future
+	/** Provide arbitrary classes default region. */
 	export let regionCaret: CssClasses = getContext('regionCaret');
 
 	// Props (transitions)
@@ -93,6 +95,11 @@
 	 */
 	export let transitionOutParams: TransitionParams<TransitionOut> = getContext('transitionOutParams');
 
+	const svgCaretIcon = `
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class={classesControlCaret}>
+			<path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+		</svg>`;
+
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: SvelteEvent<MouseEvent, HTMLButtonElement>): void {
 		if (autocollapse === true) {
@@ -108,8 +115,14 @@
 
 	function onToggle(event?: SvelteEvent<MouseEvent, HTMLButtonElement>): void {
 		const currentOpenState = autocollapse ? $active === id : open;
-		/** @event {{ event: Event, id: string, open: boolean, autocollapse: boolean }} toggle - Fires when an accordion item is toggled. */
-		dispatch('toggle', { event, id: `accordion-control-${id}`, open: currentOpenState, autocollapse });
+		/** @event {{ event: Event, id: string, panelId: string, open: boolean, autocollapse: boolean }} toggle - Fires when an accordion item is toggled. */
+		dispatch('toggle', {
+			event,
+			id,
+			panelId: `accordion-panel-${id}`,
+			open: currentOpenState,
+			autocollapse
+		});
 	}
 
 	// If auto-collapse mode enabled and item is set open, set as this item active
@@ -122,7 +135,8 @@
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesControl = `${cControl} ${padding} ${hover} ${rounded} ${regionControl}`;
 	$: classesCaretState = openState ? caretOpen : caretClosed;
-	$: classesControlCaret = `${cControlCaret} ${regionCaret} ${classesCaretState}`;
+	$: classesControlCaret = `${cControlIcons} ${regionCaret} ${classesCaretState}`;
+	$: classesControlIcons = `${cControlIcons} ${regionCaret}`;
 	$: classesPanel = `${cPanel} ${padding} ${rounded} ${regionPanel}`;
 </script>
 
@@ -133,7 +147,7 @@
 	<button
 		type="button"
 		class="accordion-control {classesControl}"
-		id="accordion-control-{id}"
+		{id}
 		on:click={setActive}
 		on:click
 		on:keydown
@@ -153,15 +167,21 @@
 		<div class="accordion-summary flex-1">
 			<slot name="summary">(summary)</slot>
 		</div>
-		<!-- Caret -->
-		<div class="accordion-summary-caret {classesControlCaret}">
+		<!-- Icons -->
+		{#if $$slots.iconClosed || $$slots.iconOpen}
+			<!-- Custom -->
+			<!-- If a custom icon is provided, do not use rotation -->
+			<div class="accordion-summary-icons {classesControlIcons}">
+				{#if openState}
+					<slot name="iconClosed">{@html svgCaretIcon}</slot>
+				{:else}
+					<slot name="iconOpen">{@html svgCaretIcon}</slot>
+				{/if}
+			</div>
+		{:else}
 			<!-- SVG Caret -->
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-				<path
-					d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-				/>
-			</svg>
-		</div>
+			<div class="accordion-summary-caret {classesControlCaret}">{@html svgCaretIcon}</div>
+		{/if}
 	</button>
 	<!-- Panel -->
 	{#if openState}
@@ -172,7 +192,7 @@
 			out:dynamicTransition|local={{ transition: transitionOut, params: transitionOutParams, enabled: transitions }}
 			role="region"
 			aria-hidden={!openState}
-			aria-labelledby="accordion-control-{id}"
+			aria-labelledby={id}
 		>
 			<slot name="content">(content)</slot>
 		</div>

@@ -1,5 +1,43 @@
 # @skeletonlabs/skeleton
 
+## 2.6.0
+
+### Minor Changes
+
+- bugfix: Resolves a bug in ProgressBar where the meter classes were applied twice ([#2288](https://github.com/skeletonlabs/skeleton/pull/2288))
+
+### Patch Changes
+
+- bugfix: Accordion Item `on:toggle` event now provides properly formatted `id` and `panelId` values ([#2279](https://github.com/skeletonlabs/skeleton/pull/2279))
+
+- bugfix: The Paginator numeric row now adheres to the `disabled` state ([#2269](https://github.com/skeletonlabs/skeleton/pull/2269))
+
+## 2.5.1
+
+### Patch Changes
+
+- chore: Adjust popup 'onWindowClick' to respect an empty 'queryString' ([#2237](https://github.com/skeletonlabs/skeleton/pull/2237))
+
+## 2.5.0
+
+### Minor Changes
+
+- feat: Autocomplete now accepts custom filter function using the prop `filter` ([#2208](https://github.com/skeletonlabs/skeleton/pull/2208))
+
+### Patch Changes
+
+- bugfix: Fixed Tree View component bug that prevented clicking Tree elements. ([#2171](https://github.com/skeletonlabs/skeleton/pull/2171))
+
+- bugfix: Table cells are only focusable when the `interactive` prop is enabled ([#2194](https://github.com/skeletonlabs/skeleton/pull/2194))
+
+- bugfix: Improved keyboard interaction and accessability for the AppRailTile ([#2172](https://github.com/skeletonlabs/skeleton/pull/2172))
+
+- bugfix: Drawers now have a smoother close animation by default ([#2219](https://github.com/skeletonlabs/skeleton/pull/2219))
+
+- bugfix: Drawer touch events are now passive ([#2220](https://github.com/skeletonlabs/skeleton/pull/2220))
+
+- chore: Progress Bar and Progress Radial now include dedicated `transition` props ([#2196](https://github.com/skeletonlabs/skeleton/pull/2196))
+
 ## 2.4.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @skeletonlabs/tw-plugin
 
+## 0.3.0
+
+### Minor Changes
+
+- feat: Added design tokens for `divide` and `decoration` ([#2290](https://github.com/skeletonlabs/skeleton/pull/2290))
+
+## 0.2.4
+
+### Patch Changes
+
+- chore: Tailwind Element list styles should now support text wrapping by default ([#2200](https://github.com/skeletonlabs/skeleton/pull/2200))
+
 ## 0.2.3
 
 ### Patch Changes

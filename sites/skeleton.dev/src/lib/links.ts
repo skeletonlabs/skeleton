@@ -30,19 +30,19 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			title: 'Resources',
 			list: [
 				{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
+				{ href: '/docs/figma', label: 'Figma', keywords: 'figma, design, mock, wireframe, ui, kit', badge: 'New' },
 				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, vite, tree, shaking, bundle, optimize' },
 				{ href: '/docs/contributing', label: 'Contributing', keywords: 'branch, pr' },
 				{
 					href: '/docs/sponsorship',
 					label: 'Sponsorship',
-					keywords: 'sponsor, funding, contribute, support, github, ko-fi, patreon',
-					badge: 'New'
+					keywords: 'sponsor, funding, contribute, support, github, ko-fi, patreon'
 				}
 			]
 		},
 		{
 			title: 'Integrations',
-			list: [{ href: '/docs/tauri', label: 'Tauri', keywords: 'Tauri, desktop, setup, install' }]
+			list: [{ href: '/docs/tauri', label: 'Tauri', keywords: 'Tauri, desktop, setup, install' }] // , badge: 'New'
 		}
 	],
 	'/elements': [

@@ -79,7 +79,7 @@
 					</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<p>There are a several steps involved to utilize this feature. Please refer to the documented instruction below.</p>
+				<p>There are several steps involved to utilize this feature. Please refer to the documented instructions below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>

@@ -18,6 +18,8 @@
 	export let rounded: CssClasses = 'rounded-token';
 	/** Provide classes to set the meter transition styles. */
 	export let transition: CssClasses = 'transition-[width]';
+	/** Provide classes to replace the default animation styles. */
+	export let animIndeterminate: CssClasses = 'anim-indeterminate';
 
 	// Props (elements)
 	/** Sets the base classes of the meter element. */
@@ -38,7 +40,7 @@
 
 	// Indeterminate State
 	$: indeterminate = value === undefined || value < 0;
-	$: classesIndeterminate = indeterminate ? 'animIndeterminate' : '';
+	$: classesIndeterminate = indeterminate ? animIndeterminate : '';
 	// Reactive Classes
 	$: classesTrack = `${cTrack} ${track} ${height} ${rounded} ${$$props.class ?? ''}`;
 	$: classesMeter = `${cMeter} ${meter} ${rounded} ${classesIndeterminate} ${transition}`;
@@ -55,16 +57,16 @@
 	aria-valuemax={max - min}
 >
 	<!-- Meter -->
-	<div class="progress-bar-meter {classesMeter} {classesMeter}" style:width="{indeterminate ? 100 : fillPercent}%" />
+	<div class="progress-bar-meter {classesMeter}" style:width="{indeterminate ? 100 : fillPercent}%" />
 </div>
 
 <style lang="postcss">
-	.animIndeterminate {
+	.anim-indeterminate {
 		transform-origin: 0% 50%;
-		animation: animIndeterminate 2s infinite linear;
+		animation: anim-indeterminate 2s infinite linear;
 	}
 	/* prettier-ignore */
-	@keyframes animIndeterminate {
+	@keyframes anim-indeterminate {
 		0% { transform: translateX(0) scaleX(0); }
 		40% { transform: translateX(0) scaleX(0.4); }
 		100% { transform: translateX(100%) scaleX(0.5); }
