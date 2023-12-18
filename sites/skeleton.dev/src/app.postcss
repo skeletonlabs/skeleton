@@ -50,13 +50,19 @@ body {
 	@apply space-y-4;
 }
 
-.progressbar-anim-indeterminate-example {
+/* Progress Bar - Custom Animation Example */
+.anim-progress-bar-example {
 	transform-origin: 0% 50%;
-	animation: progressbar-anim-indeterminate-example 2s infinite linear;
+	animation: anim-progress-bar-example 2s infinite linear;
 }
-/* prettier-ignore */
-@keyframes progressbar-anim-indeterminate-example {
-	0% { transform: translateX(50%) scaleX(0.5); }
-	50% { transform: translateX(0) scaleX(0.5); }
-	100% { transform: translateX(50%) scaleX(0.5); }
+@keyframes anim-progress-bar-example {
+	0% {
+		transform: translateX(50%) scaleX(0.5);
+	}
+	50% {
+		transform: translateX(0) scaleX(0.5);
+	}
+	100% {
+		transform: translateX(50%) scaleX(0.5);
+	}
 }
