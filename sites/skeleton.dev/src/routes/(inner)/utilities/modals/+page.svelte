@@ -499,7 +499,33 @@ const modalStore = getModalStore();
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Returning a Response Value</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Default Response Values</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<CodeBlock
+							language="ts"
+							code={`
+const modal: ModalSettings = {
+	// ...
+	response: (r: string) => console.log('response:', r) 
+};
+modalStore.trigger(modal);
+						`}
+						/>
+						<p>Alerts, Confirm, and Prompt modals can provide the following response values.</p>
+						<ol class="list-decimal list-inside space-y-2">
+							<li><code class="code">true</code> - when the <u>Positive</u> button is tapped (ex: Confirm)</li>
+							<li><code class="code">false</code> - when the <u>Negative</u> button is tapped (ex: Cancel)</li>
+							<li><code class="code">undefined</code> - when tapping the backdrop region surrounding the modal.</li>
+						</ol>
+						<div class="card p-4 variant-ghost-warning">
+							<p>
+								All modals, including component modals, will respond with <code class="code">undefined</code> when the backdrop is tapped.
+							</p>
+						</div>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Returning a Custom Response Value</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
 							Use the <code class="code">$modalStore[0].response()</code> callback method to return a modal response value.
@@ -594,77 +620,6 @@ const modalComponent: ModalComponent = {
 						<p>You can use either method below to close self close the modal. Use this for "cancel" actions.</p>
 						<CodeBlock language="ts" code={`parent.onClose();`} />
 						<CodeBlock language="ts" code={`modalStore.close();`} />
-					</svelte:fragment>
-				</AccordionItem>
-			</Accordion>
-		</section>
-		<section class="space-y-4">
-			<h2 class="h2">Built-in Responses</h2>
-			<!-- prettier-ignore -->
-			<p>There are 3 built-in response types for modals:</p>
-			<Accordion autocollapse class="card variant-glass p-4">
-				<AccordionItem open>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Alert Modal</h3></svelte:fragment>
-					<svelte:fragment slot="content">
-						<p>For alert modals, no response will be returned. The modal will simply close when the user clicks the "Cancel" button.</p>
-					</svelte:fragment>
-				</AccordionItem>
-				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Confirm Modal</h3></svelte:fragment>
-					<svelte:fragment slot="content">
-						<p>
-							Confirm modals, as the name implies, will return either <code class="code">true</code> or <code class="code">false</code>.
-							Clicking the "OK" button will return <code class="code">true</code>, while pressing "Cancel" will return <code class="code">false</code>. 
-							Backdrop interaction will return <code class="code">undefined</code>.
-						</p>
-						<CodeBlock
-							language="ts"
-							code={`
-const modal: ModalSettings = {
-	type: 'confirm',
-	title: 'Please Confirm',
-	body: 'Are you sure you wish to proceed?',
-	response: (r: boolean) => console.log('response:', r) /* true or false */
-};
-`}
-						/>
-					</svelte:fragment>
-				</AccordionItem>
-				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Prompt Modal</h3></svelte:fragment>
-					<svelte:fragment slot="content">
-						<p>
-							Prompt modals provide more versatility, allowing the user to decide the response type of the modal. Clicking on "Cancel"
-							button will give back a response value <code class="code">false</code>, while the value of the input field will be
-							returned when the "OK" button is pressed. Note that though input type might not be text, the response will be of type
-							<code class="code">string</code>. Similar to Confirm modals, clicking on the backdrop will return <code class="code">undefined</code>.
-						</p>
-						<CodeBlock
-							language="ts"
-							code={`
-const modal: ModalSettings = {
-	type: 'prompt',
-	title: 'Enter Name',
-	body: 'Provide your first name in the field below.',
-	value: 'Skeleton',
-	valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
-	response: (r) => console.log('response:', r) /* string or false */
-};
-`}
-						/>
-						<CodeBlock
-							language="ts"
-							code={`
-const modal: ModalSettings = {
-	type: 'prompt',
-	title: 'Enter Age',
-	body: 'How old are you?',
-	value: "21",
-	valueAttr: { type: 'number', min: 0, max: 100, required: true },
-	response: (r) => console.log('response:', r) /* number in string format or false */
-};
-`}
-						/>
 					</svelte:fragment>
 				</AccordionItem>
 			</Accordion>
