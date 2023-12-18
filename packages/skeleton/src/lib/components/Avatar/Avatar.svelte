@@ -8,7 +8,7 @@
 	export let initials = 'AB';
 	/** Initials only - Provide classes to set the SVG text fill color. */
 	export let fill: CssClasses = 'fill-token';
-	/** Initials only - Provide a font size for the initials */
+	/** Initials only - Set the base font size for the scalable SVG text. */
 	export let fontSize = 150;
 
 	// Props (actions)
