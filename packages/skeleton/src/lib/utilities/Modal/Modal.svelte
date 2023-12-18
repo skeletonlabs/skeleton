@@ -129,14 +129,15 @@
 	// Modal Store Subscription
 	modalStore.subscribe((modals: ModalSettings[]) => {
 		if (!modals.length) return;
+		const modal = modals[0];
 		// Set Prompt input value and type
-		if (modals[0].type === 'prompt' && modals[0].value) promptValue = modals[0].value;
+		if (modal.type === 'prompt' && modal.value) promptValue = modal.value;
 		// Override button text per instance, if available
-		buttonTextCancel = modals[0].buttonTextCancel || buttonTextDefaults.buttonTextCancel;
-		buttonTextConfirm = modals[0].buttonTextConfirm || buttonTextDefaults.buttonTextConfirm;
-		buttonTextSubmit = modals[0].buttonTextSubmit || buttonTextDefaults.buttonTextSubmit;
+		buttonTextCancel = modal.buttonTextCancel || buttonTextDefaults.buttonTextCancel;
+		buttonTextConfirm = modal.buttonTextConfirm || buttonTextDefaults.buttonTextConfirm;
+		buttonTextSubmit = modal.buttonTextSubmit || buttonTextDefaults.buttonTextSubmit;
 		// Set Active Component
-		currentComponent = typeof modals[0].component === 'string' ? components[modals[0].component] : modals[0].component;
+		currentComponent = typeof modal.component === 'string' ? components[modal.component] : modal.component;
 	});
 
 	// Event Handlers ---
@@ -278,7 +279,7 @@
 						{:else if currentModal.type === 'prompt'}
 							<!-- Template: Prompt -->
 							<form class="space-y-4" on:submit={onPromptSubmit}>
-								<input class="modal-prompt-input input" name="prompt" type="text" bind:value={promptValue} {...$modalStore[0].valueAttr} />
+								<input class="modal-prompt-input input" name="prompt" type="text" bind:value={promptValue} {...currentModal.valueAttr} />
 								<footer class="modal-footer {regionFooter}">
 									<button type="button" class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
 									<button type="submit" class="btn {buttonPositive}">{buttonTextSubmit}</button>
