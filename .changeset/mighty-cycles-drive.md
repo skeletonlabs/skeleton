@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: Added the prop `indeterminateAnimation` to customize the ProgressBar indeterminate animation.
+feat: Added a `animIndeterminate` prop to customize the ProgressBar indeterminate animation.
