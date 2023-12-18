@@ -614,8 +614,8 @@ const modalComponent: ModalComponent = {
 					<svelte:fragment slot="content">
 						<p>
 							Confirm modals, as the name implies, will return either <code class="code">true</code> or <code class="code">false</code>.
-							Clicking the "OK" button will return <code class="code">true</code>, while pressing "Cancel" will return <code class="code">false</code>. 
-							Backdrop interaction will return <code class="code">undefined</code>.
+							Clicking the "OK" button will return <code class="code">true</code>, while pressing "Cancel" will return
+							<code class="code">false</code>. Backdrop interaction will return <code class="code">undefined</code>.
 						</p>
 						<CodeBlock
 							language="ts"
@@ -635,9 +635,10 @@ const modal: ModalSettings = {
 					<svelte:fragment slot="content">
 						<p>
 							Prompt modals provide more versatility, allowing the user to decide the response type of the modal. Clicking on "Cancel"
-							button will give back a response value <code class="code">false</code>, while the value of the input field will be
-							returned when the "OK" button is pressed. Note that though input type might not be text, the response will be of type
-							<code class="code">string</code>. Similar to Confirm modals, clicking on the backdrop will return <code class="code">undefined</code>.
+							button will give back a response value <code class="code">false</code>, while the value of the input field will be returned
+							when the "OK" button is pressed. Note that though input type might not be text, the response will be of type
+							<code class="code">string</code>. Similar to Confirm modals, clicking on the backdrop will return
+							<code class="code">undefined</code>.
 						</p>
 						<CodeBlock
 							language="ts"
