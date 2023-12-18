@@ -113,31 +113,22 @@
 			<!-- Keyed Updates -->
 			<h3 class="h3">Keyed Updates</h3>
 			<p>
-				In some situations you may want to force the crawler action to update on demand, for example updating what content is available on
-				the page for different tabs. You can test this switching tabs at the top of this page. Switching to Props and Slots tabs will take
-				away our table of contents since these tabs contain 1 singular elements. Check out how these tabs interact with table of contents <a
-					href="/components/tabs"
-					class="anchor"
-					target="_blank">here</a
-				>. Use the <code class="code">key</code> parameter and pass a value that will be modified. This operates similar to Svelte's
-				<a class="anchor" href="https://svelte.dev/tutorial/key-blocks" target="_blank">key blocks</a>.
+				In some situations you may want to force the crawler action to update on demand. This can be handled similar to Svelte's
+				<a class="anchor" href="https://svelte.dev/tutorial/key-blocks" target="_blank">key blocks</a>. Which can be useful for scanning for
+				new page headers for tabbed content.
 			</p>
 			<CodeBlock
-				language="html"
+				language="ts"
 				code={`
-<\u{73}cript>
-	/* tabIndex value changing will trigger the crawler
-	to update the table of contents based on the content of the new tab. */
-	let tabIndex = 0;
-
-	// After 1 second, ToC will update.
-	setTimeout(() => {
-		tabIndex = 1;
-	}, 1000);
-</\u{73}cript> 
-
-<div use:tocCrawler={{ key: tabIndex }}>
-`}
+const tabIndex = 0;\n
+// Modifying this value triggers the crawler to run again:
+// tabindex = 1;
+			`}
+			/>
+			<CodeBlock
+				language="html"
+				code={`<div use:tocCrawler={{ key: tabIndex }}>
+				`}
 			/>
 			<!-- Active on Scroll -->
 			<h3 class="h3">Active on Scroll</h3>
