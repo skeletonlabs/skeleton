@@ -70,7 +70,7 @@
 			<h3 class="h3">Automatic IDs</h3>
 			<p>
 				Set <code class="code">mode: generate</code> to enable <code class="code">tocCrawler</code> to automatically generate and set unique
-				IDs for all headings that are descendents of the element the action is applied to.
+				IDs for all headings that are descendants of the element the action is applied to.
 			</p>
 			<CodeBlock language="html" code={`<div use:tocCrawler={{ mode: 'generate' }}>`} />
 			<p>See the example below. Note this <u>will not</u> overwrite IDs you have set manually.</p>
@@ -113,8 +113,8 @@
 			<!-- Keyed Updates -->
 			<h3 class="h3">Keyed Updates</h3>
 			<p>
-				In some situations you may want to force the crawler action to update on demand. Use the <code class="code">key</code> parameter and
-				pass a value that will be modified. This operates similar to Svelte's
+				In some situations, you may want to force the crawler action to update on demand. Use the <code class="code">key</code> parameter
+				and pass a value that will be modified. This operates similar to Svelte's
 				<a class="anchor" href="https://svelte.dev/tutorial/key-blocks" target="_blank">key blocks</a>.
 			</p>
 			<CodeBlock language="ts" code={`const tabIndex = 0;`} />
@@ -123,8 +123,8 @@
 			<h3 class="h3">Active on Scroll</h3>
 			<p>
 				The <code class="code">tocCrawler</code> action can automatically select the top visible heading when you supply a
-				<code class="code">scrollTarget</code> element. That being the element that handles scrolling for the page. By default, this is set
-				to target the <code class="code">body</code> element. When using the Skeleton App Shell, designate
+				<code class="code">scrollTarget</code> element. That is the element that handles scrolling for the page. By default, this is set to
+				target the <code class="code">body</code> element. When using the Skeleton App Shell, designate
 				<code class="code">scrollTarget: '#page'</code> element as shown below. To disable this feature, set
 				<code class="code">scrollTarget: ''</code>.
 			</p>
@@ -168,7 +168,7 @@
 				Use Tailwind's <a class="anchor" href="https://tailwindcss.com/docs/scroll-behavior" target="_blank">scroll behavior</a> styles to enable smooth scrolling on the scrollable element.
 			</p>
 			<blockquote class="blockquote">
-				Make considerations for the <a class="anchor" href="/docs/transitions#reduced-motion">Reduced Motion</a> settings for proper accessability.
+				Make considerations for the <a class="anchor" href="/docs/transitions#reduced-motion">Reduced Motion</a> settings for proper accessibility.
 			</blockquote>
 			<CodeBlock
 				language="html"
