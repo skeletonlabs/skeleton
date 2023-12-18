@@ -113,8 +113,8 @@
 			<!-- Keyed Updates -->
 			<h3 class="h3">Keyed Updates</h3>
 			<p>
-				In some situations, you may want to force the crawler action to update on demand. Use the <code class="code">key</code> parameter and
-				pass a value that will be modified. This operates similar to Svelte's
+				In some situations, you may want to force the crawler action to update on demand. Use the <code class="code">key</code> parameter
+				and pass a value that will be modified. This operates similar to Svelte's
 				<a class="anchor" href="https://svelte.dev/tutorial/key-blocks" target="_blank">key blocks</a>.
 			</p>
 			<CodeBlock language="ts" code={`const tabIndex = 0;`} />
@@ -123,8 +123,8 @@
 			<h3 class="h3">Active on Scroll</h3>
 			<p>
 				The <code class="code">tocCrawler</code> action can automatically select the top visible heading when you supply a
-				<code class="code">scrollTarget</code> element. That is the element that handles scrolling for the page. By default, this is set
-				to target the <code class="code">body</code> element. When using the Skeleton App Shell, designate
+				<code class="code">scrollTarget</code> element. That is the element that handles scrolling for the page. By default, this is set to
+				target the <code class="code">body</code> element. When using the Skeleton App Shell, designate
 				<code class="code">scrollTarget: '#page'</code> element as shown below. To disable this feature, set
 				<code class="code">scrollTarget: ''</code>.
 			</p>
