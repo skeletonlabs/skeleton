@@ -8,7 +8,7 @@
 	/** Provide display classes. Use `flex` to stretch full width. */
 	export let display: CssClasses = 'inline-flex';
 	/** Provide classes to set flex-direction. Use `flex-col` for vertical layout. */
-	export let flexDirection: CssClasses = 'inline-flex';
+	export let flexDirection: CssClasses = 'flex-row';
 	/** Provide classes to set gap spacing between items. */
 	export let gap: CssClasses = 'gap-1';
 	/** Provide classes to set the base background color. */
