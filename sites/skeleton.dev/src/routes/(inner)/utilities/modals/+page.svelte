@@ -506,7 +506,7 @@ const modalStore = getModalStore();
 							code={`
 const modal: ModalSettings = {
 	// ...
-	response: (r: string) => console.log('response:', r) 
+	response: (r: boolean | undefined) => console.log('response:', r) 
 };
 modalStore.trigger(modal);
 						`}
@@ -515,7 +515,7 @@ modalStore.trigger(modal);
 						<ol class="list-decimal list-inside space-y-2">
 							<li><code class="code">true</code> - when the <u>Positive</u> button is tapped (ex: Confirm)</li>
 							<li><code class="code">false</code> - when the <u>Negative</u> button is tapped (ex: Cancel)</li>
-							<li><code class="code">undefined</code> - when tapping the backdrop region surrounding the modal.</li>
+							<li><code class="code">undefined</code> - when the <u>Backdrop</u> is tapped, which surrounds the modal window.</li>
 						</ol>
 						<div class="card p-4 variant-ghost-warning">
 							<p>
