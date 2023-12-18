@@ -59,13 +59,11 @@
 	$: classesBase = `${cBase}`;
 	$: classesTabs = `${cTabs}`;
 	$: classesPanels = `${cPanels}`;
+	// Handle tab URL param for deep linking
 	$: if (browser) {
 		const url = new URL($page.url);
-		if (tabPanel === defaultTab) {
-			url.searchParams.delete('tab');
-		} else {
-			url.searchParams.set('tab', tabPanel);
-		}
+		url.searchParams.delete('tab');
+		if (tabPanel !== defaultTab) url.searchParams.set('tab', tabPanel);
 		goto(url, { replaceState: true });
 	}
 </script>
