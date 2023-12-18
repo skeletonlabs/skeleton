@@ -149,7 +149,7 @@
 				<button class="btn variant-filled" on:click={modalDemo}>Show Modal</button>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<p>There are a several steps involved to utilize this feature. Please refer to the documented instruction below.</p>
+				<p>There are several steps involved to utilize this feature. Please refer to the documented instructions below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -439,7 +439,7 @@ modalStore.trigger(modal);
 				<AccordionItem open>
 					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Modal Store Data</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>When creating a custom component, make sure to import the modal store. This should proceed with all the following tips.</p>
+						<p>When creating a custom component, make sure to import the modal store. This should occur before all following steps.</p>
 						<CodeBlock
 							language="ts"
 							code={`
