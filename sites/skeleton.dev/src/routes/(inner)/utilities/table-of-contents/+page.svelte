@@ -134,6 +134,30 @@
 			<CodeBlock language="html" code={`<div use:tocCrawler={{ scrollTarget: '#page' }}>`} />
 		</section>
 		<hr />
+		<!-- Dynamic Headings -->
+		<section class="space-y-4">
+			<h2 class="h2">Dynamic Headings</h2>
+			<p>Generating links constructed using dynamic heading text may result in unexpected behavior.</p>
+			<CodeBlock language="html" code={`<h2 class="h2">Greetings {name}</h2>`} />
+			<p>Svelte will compile and treat this as two seperate DOM elements, only the first of which is included in the generated link.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<!-- DOM -->
+<h2 class="h2" id="greetings">
+	"Greetings "
+	"skeleton"
+</h2>`}
+			/>
+			<CodeBlock language="html" code={`<!-- Generated Link -->\n<a href="#greetings">Greetings</a>`} />
+			<h3 class="h3">Solution</h3>
+			<p>Use string interpolation to resolve this issue.</p>
+			<CodeBlock language="html" code={`<h2 class="h2">{\`Greetings \${name}\`}</h2>`} />
+			<p>The component will be compiled as follows.</p>
+			<CodeBlock language="html" code={`<!-- DOM -->\n<h2 class="h2" id="greetings-skeleton">"Greetings Skeleton"</h2>`} />
+			<CodeBlock language="html" code={`<!-- Generated Link -->\n<a href="#greetings-skeleton">Greetings Skeleton</a>`} />
+		</section>
+		<hr />
 		<!-- Styling -->
 		<section class="space-y-4">
 			<h2 class="h2">Styling</h2>
