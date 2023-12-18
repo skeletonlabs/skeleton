@@ -105,10 +105,10 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Vertical</h2>
-			<p>Set <em>display</em> to <code class="code">flex-col</code> for a vertical layout.</p>
+			<p>Set <code class="code">flexDirection="flex-col"</code> to utilize a vertical layout.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<RadioGroup rounded="rounded-container-token" display="flex-col">
+					<RadioGroup rounded="rounded-container-token" flexDirection="flex-col">
 						{#each timeNames as name}
 							<RadioItem bind:group={timeVertical} label={name} {name} value={name}>{name}</RadioItem>
 						{/each}
@@ -118,7 +118,7 @@
 					<CodeBlock
 						language="html"
 						code={`
-<RadioGroup rounded="rounded-container-token" display="flex-col">...</RadioGroup>
+<RadioGroup rounded="rounded-container-token" flexDirection="flex-col">...</RadioGroup>
 `}
 					/>
 				</svelte:fragment>
