@@ -70,7 +70,7 @@
 			<h3 class="h3">Automatic IDs</h3>
 			<p>
 				Set <code class="code">mode: generate</code> to enable <code class="code">tocCrawler</code> to automatically generate and set unique
-				IDs for all headings that are descendents of the element the action is applied to.
+				IDs for all headings that are descendants of the element the action is applied to.
 			</p>
 			<CodeBlock language="html" code={`<div use:tocCrawler={{ mode: 'generate' }}>`} />
 			<p>See the example below. Note this <u>will not</u> overwrite IDs you have set manually.</p>
@@ -114,17 +114,29 @@
 			<h3 class="h3">Keyed Updates</h3>
 			<p>
 				In some situations you may want to force the crawler action to update on demand. Use the <code class="code">key</code> parameter and
-				pass a value that will be modified. This operates similar to Svelte's
-				<a class="anchor" href="https://svelte.dev/tutorial/key-blocks" target="_blank">key blocks</a>.
+				pass a value that will be modified, which operates similar to Svelte's
+				<a class="anchor" href="https://svelte.dev/tutorial/key-blocks" target="_blank">key blocks</a>. This can be useful for scanning for
+				new page headers for tabbed content.
 			</p>
-			<CodeBlock language="ts" code={`const tabIndex = 0;`} />
-			<CodeBlock language="html" code={`<div use:tocCrawler={{ key: tabIndex }}>`} />
+			<CodeBlock
+				language="ts"
+				code={`
+let tabIndex = 0;\n
+// Modifying this value triggers the crawler to run again:
+// tabindex = 1;
+			`}
+			/>
+			<CodeBlock
+				language="html"
+				code={`<div use:tocCrawler={{ key: tabIndex }}>
+				`}
+			/>
 			<!-- Active on Scroll -->
 			<h3 class="h3">Active on Scroll</h3>
 			<p>
 				The <code class="code">tocCrawler</code> action can automatically select the top visible heading when you supply a
-				<code class="code">scrollTarget</code> element. That being the element that handles scrolling for the page. By default, this is set
-				to target the <code class="code">body</code> element. When using the Skeleton App Shell, designate
+				<code class="code">scrollTarget</code> element. That is the element that handles scrolling for the page. By default, this is set to
+				target the <code class="code">body</code> element. When using the Skeleton App Shell, designate
 				<code class="code">scrollTarget: '#page'</code> element as shown below. To disable this feature, set
 				<code class="code">scrollTarget: ''</code>.
 			</p>
@@ -132,6 +144,30 @@
 				NOTE: depending on your page layout, the page may not scroll low enough to activate the final links in the list.
 			</blockquote>
 			<CodeBlock language="html" code={`<div use:tocCrawler={{ scrollTarget: '#page' }}>`} />
+		</section>
+		<hr />
+		<!-- Dynamic Headings -->
+		<section class="space-y-4">
+			<h2 class="h2">Dynamic Headings</h2>
+			<p>Generating links constructed using dynamic heading text may result in unexpected behavior.</p>
+			<CodeBlock language="html" code={`<h2 class="h2">Greetings {name}</h2>`} />
+			<p>Svelte will compile and treat this as two seperate DOM elements, only the first of which is included in the generated link.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<!-- DOM -->
+<h2 class="h2" id="greetings">
+	"Greetings "
+	"skeleton"
+</h2>`}
+			/>
+			<CodeBlock language="html" code={`<!-- Generated Link -->\n<a href="#greetings">Greetings</a>`} />
+			<h3 class="h3">Solution</h3>
+			<p>Use string interpolation to resolve this issue.</p>
+			<CodeBlock language="html" code={`<h2 class="h2">{\`Greetings \${name}\`}</h2>`} />
+			<p>The component will be compiled as follows.</p>
+			<CodeBlock language="html" code={`<!-- DOM -->\n<h2 class="h2" id="greetings-skeleton">"Greetings Skeleton"</h2>`} />
+			<CodeBlock language="html" code={`<!-- Generated Link -->\n<a href="#greetings-skeleton">Greetings Skeleton</a>`} />
 		</section>
 		<hr />
 		<!-- Styling -->
@@ -144,7 +180,7 @@
 				Use Tailwind's <a class="anchor" href="https://tailwindcss.com/docs/scroll-behavior" target="_blank">scroll behavior</a> styles to enable smooth scrolling on the scrollable element.
 			</p>
 			<blockquote class="blockquote">
-				Make considerations for the <a class="anchor" href="/docs/transitions#reduced-motion">Reduced Motion</a> settings for proper accessability.
+				Make considerations for the <a class="anchor" href="/docs/transitions#reduced-motion">Reduced Motion</a> settings for proper accessibility.
 			</blockquote>
 			<CodeBlock
 				language="html"

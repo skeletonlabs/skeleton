@@ -141,7 +141,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<p>There are a several steps involved to utilize this feature. Please refer to the documented instruction below.</p>
+				<p>There are several steps involved to utilize this feature. Please refer to the documented instructions below.</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -349,7 +349,7 @@ toastStore.close(toastId);
 		<!-- Styling -->
 		<section class="space-y-4">
 			<h2 class="h2">Styling</h2>
-			<p>We recommend applying global styles via the Toast component props. Though you can provide styles per toast instance.</p>
+			<p>We recommend applying global styles via the Toast component props. However, you may also provide styles per toast instance.</p>
 			<h3 class="h3">Backgrounds</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
