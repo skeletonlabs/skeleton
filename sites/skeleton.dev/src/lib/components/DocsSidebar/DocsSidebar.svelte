@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 
 	import DocsIcon from '$lib/components/DocsIcon/DocsIcon.svelte';
@@ -24,6 +25,11 @@
 		if (['tokens', 'base', 'elements', 'blocks'].includes(basePath)) currentRailCategory = '/elements';
 		if (['components', 'actions'].includes(basePath)) currentRailCategory = '/svelte';
 		if (['utilities'].includes(basePath)) currentRailCategory = '/utilities';
+	});
+
+	// Close drawer on navigation
+	onNavigate(() => {
+		drawerStore.close();
 	});
 
 	// Reactive
@@ -78,7 +84,7 @@
 			<nav class="list-nav">
 				<ul>
 					{#each segment.list as { href, label, badge }}
-						<li on:keypress on:click={drawerStore.close}>
+						<li>
 							<a {href} class={listboxItemActive(href)} data-sveltekit-preload-data="hover">
 								<span class="flex-auto">{@html label}</span>
 								{#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if}
