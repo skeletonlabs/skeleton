@@ -1,7 +1,7 @@
 <script lang="ts">
+	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
-	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
 	// Utilities
@@ -9,6 +9,9 @@
 	// Sveld
 	import sveldAccordion from '@skeletonlabs/skeleton/components/Accordion/Accordion.svelte?raw&sveld';
 	import sveldAccordionItem from '@skeletonlabs/skeleton/components/Accordion/AccordionItem.svelte?raw&sveld';
+
+	const loremIpsum =
+		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ipsa inventore, deserunt tempora ullam accusantium sed ipsam iste impedit beatae praesentium quisquam itaque voluptatibus laborum sunt tenetur, minima porro corrupti.';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -128,33 +131,23 @@
 				<p>Enable the <code class="code">autocollapse</code> setting to limit display to one accordion panel at a time.</p>
 				<svelte:fragment slot="preview">
 					<Accordion autocollapse class="card p-4 text-token">
-						<AccordionItem>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-question text-xl w-6 text-center" /></svelte:fragment>
-							<svelte:fragment slot="summary"><p class="font-bold">What is Svelte?</p></svelte:fragment>
+						<AccordionItem open>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">What is Día de los Muertos?</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
 								<p>
-									In short, Svelte is a way of writing user interface components — like a navigation bar, comment section, or contact form — that users see and interact with in their browsers. The Svelte compiler converts your components to JavaScript that can be run to render the HTML for the page and to CSS that styles the page.
+									While Halloween and Day of the Dead occur nearly in tandem and share similar customs (candy, face painting, and community gathering), the two are not related. Halloween has ancient Celtic roots, while Day of the Dead has its own origins that date back to the Indigenous people of Mexico and Central America.
 								</p>
 							</svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-calendar text-xl w-6 text-center" /></svelte:fragment>
-							<svelte:fragment slot="summary"><p class="font-bold">When was it first released?</p></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-clock text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">When did it begin?</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
 								<p>
-									Version 1 of Svelte was written in JavaScript and was released on 29 November 2016. It was basically Reactive with a compiler. The name Svelte was chosen by Rich Harris and his coworkers at The Guardian.
-								</p>
-							</svelte:fragment>
-						</AccordionItem>
-						<AccordionItem>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-code text-xl w-6 text-center" /></svelte:fragment>
-							<svelte:fragment slot="summary"><p class="font-bold">How do I write Svelte code?</p></svelte:fragment>
-							<svelte:fragment slot="content">
-								<!-- prettier-ignore -->
-								<p>
-									Svelte applications and components are defined in .svelte files, which are HTML files extended with templating syntax that is based on JavaScript and is similar to JSX. Svelte repurposes JavaScript's native labeled statement syntax $: to mark reactive statements. Top-level variables become the component's state and exported variables become the properties that the component receives. Additionally, the JavaScript code syntax can be used for templating in HTML elements and components.
+									Roughly 3000 years ago, amongst the Aztec, Toltec, and Mayans, death and the dead were seen as a natural part of life that should be honored and celebrated, rather than mourned. In particular, the Nahua people of central Mexico believed the deceased traveled on a years-long journey to Chicunamictlán, the Land of the Dead. The living would provide supplies, such as food and water to aid them on the trek. This practice inspired the modern tradition of creating altars —known as ofrendas— at their homes, in addition to leaving offerings at the gravesites of loved ones.
 								</p>
 							</svelte:fragment>
 						</AccordionItem>
@@ -179,6 +172,47 @@
 				to a single item.
 			</p>
 			<CodeBlock language="html" code={`<AccordionItem open>...</AccordionItem>`} />
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Custom Icons</h2>
+			<p>
+				Set the <code class="code">iconOpen</code> and <code class="code">iconClosed</code> slots within the Accordion Item component.
+			</p>
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					<Accordion class="card p-4 text-token">
+						<AccordionItem>
+							<svelte:fragment slot="summary"><strong>Default: Caret</strong></svelte:fragment>
+							<svelte:fragment slot="content">{loremIpsum}</svelte:fragment>
+						</AccordionItem>
+						<AccordionItem>
+							<svelte:fragment slot="summary"><strong>Custom: Plus and Minus</strong></svelte:fragment>
+							<svelte:fragment slot="content">{loremIpsum}</svelte:fragment>
+							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-minus" /></svelte:fragment>
+							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-plus" /></svelte:fragment>
+						</AccordionItem>
+						<AccordionItem>
+							<svelte:fragment slot="summary"><strong>Custom: Smiley and Surprise</strong></svelte:fragment>
+							<svelte:fragment slot="content">{loremIpsum}</svelte:fragment>
+							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-face-surprise" /></svelte:fragment>
+							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-face-smile" /></svelte:fragment>
+						</AccordionItem>
+					</Accordion>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<blockquote class="blockquote">TIP: abstract both fragments to a single standalone component for reusability.</blockquote>
+					<CodeBlock
+						language="html"
+						code={`
+<AccordionItem>
+	<svelte:fragment slot="iconClosed">(icon closed)</svelte:fragment>
+	<svelte:fragment slot="iconOpen">(icon open)</svelte:fragment>
+	<!-- ... -->
+</AccordionItem>
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 	</svelte:fragment>
 </DocsShell>
