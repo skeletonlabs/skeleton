@@ -71,8 +71,9 @@
 		<div class="space-y-4">
 			<h2 class="h2">Focus Order</h2>
 			<p>
-				Specify the order of focusable elements by assigning a value to the <code class="code">data-focusindex</code> attribute. The element
-				with the lowest value will be focused first.
+				Set the default focus value using <code class="code">data-focusindex</code> attribute. Elements with this data attribute and the lowest
+				value will be focused first. Additional values can be supplied in the case of conditional rendering. Note that this can be used for Skeleton
+				Drawer and Modal content, which implement the focus trap by default.
 			</p>
 
 			<DocsPreview background="neutral">
@@ -93,16 +94,16 @@
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="text-center">
-						<SlideToggle name="trap-focus" bind:checked={isOrderFocused}>Enable Focus Order</SlideToggle>
+						<SlideToggle name="trap-focus" bind:checked={isOrderFocused}>Enable Focus Trap</SlideToggle>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let isOrderFocused: boolean = true;`} />
 					<CodeBlock
 						language="html"
 						code={`
-<form use:focusTrap={isOrderFocused}>
+<form use:focusTrap={true}>
 	<input data-focusindex="1" type="text" placeholder="Name" value="Bob" />
+	<!-- Email will be the first focused -->
 	<input data-focusindex="0" type="email" placeholder="Email" />
 	<button class="btn variant-filled-primary">Submit</button>
 </form>
