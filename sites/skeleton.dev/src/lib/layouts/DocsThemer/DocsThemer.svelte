@@ -14,7 +14,7 @@
 	import { storePreview } from './stores';
 	import type { ColorSettings, FormTheme, ContrastReport } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import { type Palette, generatePalette, generateA11yOnColor, hexValueIsValid, getPassReport } from './colors';
+	import { type Palette, generatePalette, generateA11yOnColor, hexValueIsValid, getPassReport, createStyleBlock } from './colors';
 	import type { PopupSettings } from '@skeletonlabs/skeleton';
 
 	// Stores
@@ -197,7 +197,7 @@ export const myCustomTheme: CustomThemeConfig = {
 }`;
 	}
 
-	$: livePreviewStylesheet = $storePreview ? `\<style\>${cssOutput}\</style\>` : '';
+	$: livePreviewStylesheet = $storePreview ? createStyleBlock(cssOutput) : '';
 </script>
 
 <!-- Live Preview of Generated Theme -->

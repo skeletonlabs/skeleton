@@ -237,3 +237,7 @@ export function getPassReport(textColor: string, backgroundColor: string): PassR
 		fails
 	};
 }
+
+export function createStyleBlock(cssOutput: string) {
+	return `<style>${cssOutput}</style>`;
+}
