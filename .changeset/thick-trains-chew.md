@@ -1,5 +1,5 @@
 ---
-"@skeletonlabs/skeleton": minor
+"@skeletonlabs/skeleton": patch
 ---
 
-bugfix: RadioGroup now supports a `flexDirection` and `gap` props for handling vertical layouts and item spacing respectively.
+bugfix: RadioGroup now includes `flexDirection` and `gap` props for handling vertical layouts and item spacing respectively

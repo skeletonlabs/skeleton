@@ -1,5 +1,5 @@
 ---
-"@skeletonlabs/skeleton": minor
+"@skeletonlabs/skeleton": patch
 ---
 
-feat: Added a `animIndeterminate` prop to customize the ProgressBar indeterminate animation.
+chore: Added a `animIndeterminate` prop to customize the ProgressBar indeterminate animation.

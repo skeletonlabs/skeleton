@@ -1,5 +1,5 @@
 ---
-"@skeletonlabs/skeleton": minor
+"@skeletonlabs/skeleton": patch
 ---
 
-feat: Add slots to allow customizing AccordionItem open/close icons.
+chroe: AccordionItem now includes `iconOpen` and `iconClosed` slots for custom open/closed icons
