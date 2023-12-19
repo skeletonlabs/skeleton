@@ -1,10 +1,13 @@
 <script lang="ts">
-	// Props
-	/** Exposes parent props to this component. */
-	export let parent: any;
+	import type { SvelteComponent } from 'svelte';
 
 	// Stores
 	import { getModalStore } from '@skeletonlabs/skeleton';
+
+	// Props
+	/** Exposes parent props to this component. */
+	export let parent: SvelteComponent;
+
 	const modalStore = getModalStore();
 
 	// Form Data

@@ -3,6 +3,8 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import type { Contributor } from '../+page';
 	export let contributors: Contributor[];
+
+	$: contributors = contributors.slice(0, 100);
 </script>
 
 <div class="space-y-10">
@@ -11,7 +13,7 @@
 		<h2 class="h2">Built by Awesome People.</h2>
 		<p>Here are a few of the people responsible for creating and maintaining Skeleton.</p>
 	</div>
-	<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-4 items-center">
+	<div class="flex justify-center">
 		<!-- Skeleton Labs -->
 		<div class="card variant-soft-secondary overflow-hidden">
 			<header class="variant-filled-secondary grid grid-cols-[1fr_auto_auto] gap-4 items-center p-4 md:p-8 md:py-8">
@@ -36,15 +38,15 @@
 				</div>
 			</section>
 		</div>
-		<!-- Contributors -->
-		<div class="space-y-4 text-center lg:text-left">
-			<div class="grid grid-cols-6 gap-4 max-w-[480px] mx-auto">
-				{#each contributors as c}
-					<a href={c.html_url} target="_blank" rel="noreferrer" title={c.login}>
-						<Avatar src={c.avatar_url} width="w-full" background="bg-black" />
-					</a>
-				{/each}
-			</div>
+	</div>
+	<!-- Contributors -->
+	<div class="space-y-4 text-center lg:text-left">
+		<div class="grid grid-cols-8 md:grid-cols-12 gap-4 max-w-4xl mx-auto">
+			{#each contributors as c}
+				<a href={c.html_url} target="_blank" rel="noreferrer" title={c.login}>
+					<Avatar loading="lazy" src={c.avatar_url} width="w-full" background="bg-black" />
+				</a>
+			{/each}
 		</div>
 	</div>
 </div>

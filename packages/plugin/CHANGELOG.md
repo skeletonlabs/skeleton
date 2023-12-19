@@ -1,5 +1,33 @@
 # @skeletonlabs/tw-plugin
 
+## 0.3.0
+
+### Minor Changes
+
+- feat: Added design tokens for `divide` and `decoration` ([#2290](https://github.com/skeletonlabs/skeleton/pull/2290))
+
+## 0.2.4
+
+### Patch Changes
+
+- chore: Tailwind Element list styles should now support text wrapping by default ([#2200](https://github.com/skeletonlabs/skeleton/pull/2200))
+
+## 0.2.3
+
+### Patch Changes
+
+- bugfix: Added disabled state styles for `.btn-group` children, such as buttons ([#2160](https://github.com/skeletonlabs/skeleton/pull/2160))
+
+- chore: Improved the default modal focus state styles. Focus should now be shown by default. ([#2065](https://github.com/skeletonlabs/skeleton/pull/2065))
+
+## 0.2.2
+
+### Patch Changes
+
+- bugfix: Separated light/dark classes for input validation variants ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
+- bugfix: Resolved an issue where the Ring design token would generate invalid CSS when using the important modifier `!` ([#2130](https://github.com/skeletonlabs/skeleton/pull/2130))
+
 ## 0.2.1
 
 ### Patch Changes

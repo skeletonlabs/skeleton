@@ -36,7 +36,7 @@
 		return value.includes('@') && value.includes('.');
 	}
 
-	function onInvalidHandler(event: any): void {
+	function onInvalidHandler(event: CustomEvent): void {
 		toastStore.trigger({
 			message: `"${event.detail.input}" is an invalid value. Please try again!`,
 			background: 'variant-filled-error'

@@ -22,6 +22,7 @@ describe('Avatar.svelte', () => {
 				// Props (initials)
 				initials: 'AB',
 				text: 'text-xl',
+				fontSize: 100,
 				color: 'text-white'
 			}
 		});

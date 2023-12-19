@@ -222,9 +222,21 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit(), purgeCss()]
-});
-`;
+	plugins: [sveltekit(), purgeCss(`;
+
+	if (opts.codeblocks) {
+		contents += `{
+			safelist: {
+				// any selectors that begin with "hljs-" will not be purged
+				greedy: [/^hljs-/],
+			},
+		}),
+	],
+});`;
+	} else {
+		contents += `)]
+});`;
+	}
 	writeFileSync(filename, contents);
 }
 
@@ -475,9 +487,18 @@ function copyTemplate(opts) {
 			scriptEndReg,
 			`
 	// Highlight JS
-	import hljs from 'highlight.js';
+	import hljs from 'highlight.js/lib/core';
 	import 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+	import xml from 'highlight.js/lib/languages/xml'; // for HTML
+	import css from 'highlight.js/lib/languages/css';
+	import javascript from 'highlight.js/lib/languages/javascript';
+	import typescript from 'highlight.js/lib/languages/typescript';
+
+	hljs.registerLanguage('xml', xml); // for HTML
+	hljs.registerLanguage('css', css);
+	hljs.registerLanguage('javascript', javascript);
+	hljs.registerLanguage('typescript', typescript);
 	storeHighlightJs.set(hljs);
 </script>`,
 		);

@@ -14,4 +14,10 @@
 	.w-modal-wide {
 		@apply w-full max-w-[80%];
 	}
+
+	/* Provides initial focus selection styles on opening the modal */
+	.modal *:focus:not([tabindex='-1']):not(.input):not(.textarea):not(.select):not(.input-group) {
+		outline-style: auto;
+		@apply outline-[-webkit-focus-ring-color];
+	}
 }

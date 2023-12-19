@@ -213,7 +213,7 @@ body { background: red; }
 				</p>
 			</div>
 			<div>
-				<a class="btn variant-filled-secondary font-bold" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">
+				<a class="btn variant-filled font-bold" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">
 					<span>Create a Mesh</span>
 					<i class="fa-solid fa-arrow-up-right-from-square" />
 				</a>

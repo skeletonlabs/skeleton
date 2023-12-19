@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { faker } from '@faker-js/faker';
 	import { writable, type Writable } from 'svelte/store';
 	// Docs
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
@@ -46,15 +45,19 @@
 	};
 
 	// Local
-	const sourceData = Array(5)
-		.fill(undefined)
-		.map(() => faker.science.chemicalElement());
+	const sourceData = [
+		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+		{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+		{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' }
+	];
 
 	// Table Simple
 	const tableSimple: TableSource = {
-		head: ['Symbol', 'Name', 'Number'],
-		body: tableMapperValues(sourceData, ['symbol', 'name', 'atomicNumber']),
-		meta: tableMapperValues(sourceData, ['name', 'symbol', 'atomicNumber']),
+		head: ['Symbol', 'Name', 'weight'],
+		body: tableMapperValues(sourceData, ['symbol', 'name', 'weight']),
+		meta: tableMapperValues(sourceData, ['name', 'symbol', 'weight']),
 		foot: ['Total Elements', '', `<span class="badge variant-soft-primary">${sourceData.length} Elements</span>`]
 	};
 
