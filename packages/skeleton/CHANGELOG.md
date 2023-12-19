@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton
 
+## 2.6.1
+
+### Patch Changes
+
+- chore: Added a `animIndeterminate` prop to customize the ProgressBar indeterminate animation. ([#2317](https://github.com/skeletonlabs/skeleton/pull/2317))
+
+- chroe: AccordionItem now includes `iconOpen` and `iconClosed` slots for custom open/closed icons ([#2285](https://github.com/skeletonlabs/skeleton/pull/2285))
+
+- chore: Added a new `fontSize` prop to the Avatar component to control the size of the initials ([#2322](https://github.com/skeletonlabs/skeleton/pull/2322))
+
+- bugfix: RadioGroup now includes `flexDirection` and `gap` props for handling vertical layouts and item spacing respectively ([#2309](https://github.com/skeletonlabs/skeleton/pull/2309))
+
 ## 2.6.0
 
 ### Minor Changes
