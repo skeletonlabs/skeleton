@@ -49,7 +49,7 @@
 	import ModalExampleList from '$lib/modals/examples/ModalExampleList.svelte';
 	import ModalExampleEmbed from '$lib/modals/examples/ModalExampleEmbed.svelte';
 	import ModalExampleImage from '$lib/modals/examples/ModalExampleImage.svelte';
-	import ModalFullScreen from '$lib/modals/examples/ModalFullScreen.svelte';
+	import ModalExampleFullscreen from '$lib/modals/examples/ModalExampleFullscreen.svelte';
 
 	// The Skeleton blog stylesheet
 	import '$lib/styles/blog.css';
@@ -97,7 +97,7 @@
 		exampleList: { ref: ModalExampleList },
 		exampleEmbed: { ref: ModalExampleEmbed },
 		exampleImage: { ref: ModalExampleImage },
-		fullScreen: { ref: ModalFullScreen }
+		fullScreen: { ref: ModalExampleFullscreen }
 	};
 
 	function matchPathWhitelist(pageUrlPath: string): boolean {

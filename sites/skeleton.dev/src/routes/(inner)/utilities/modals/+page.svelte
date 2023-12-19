@@ -140,11 +140,12 @@
 		modalStore.trigger(modal);
 	}
 
-	function modalFullScreen(): void {
+	function modalComponentFullscreen(): void {
 		const modal: ModalSettings = {
 			type: 'component',
 			component: 'fullScreen',
-			title: 'Full screen Modal'
+			title: 'Full screen Modal',
+			backdropClasses: '!p-0'
 		};
 		modalStore.trigger(modal);
 	}
@@ -353,31 +354,6 @@ new Promise<boolean>((resolve) => {
 	`}
 			/>
 		</section>
-		<!-- Full screen Modal -->
-		<section class="space-y-4">
-			<h2 class="h2">Full screen Modal</h2>
-			<DocsPreview background="neutral">
-				<svelte:fragment slot="preview">
-					<div class="grid grid-cols-1 md:max-w-[480px] mx-auto">
-						<button class="btn variant-filled" on:click={modalFullScreen}>Full screen</button>
-					</div>
-				</svelte:fragment>
-				<svelte:fragment slot="source">
-					<div class="text-center">
-						<a
-							class="btn variant-ghost"
-							href="https://github.com/skeletonlabs/skeleton/tree/master/sites/skeleton.dev/src/lib/modals/examples"
-							target="_blank"
-							rel="noreferrer"
-						>
-							<i class="fa-brands fa-github" />
-							<span>View Source on GitHub</span>
-							<i class="fa-solid fa-arrow-up-right-from-square" />
-						</a>
-					</div>
-				</svelte:fragment>
-			</DocsPreview>
-		</section>
 		<!-- Component Modals -->
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
@@ -388,11 +364,12 @@ new Promise<boolean>((resolve) => {
 			<h3 class="sr-only">Example Modals</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
+					<div class="grid grid-cols-1 md:grid-cols-5 gap-4 md:max-w-[480px] mx-auto">
 						<button class="btn variant-filled" on:click={modalComponentForm}>Form</button>
 						<button class="btn variant-filled" on:click={modalComponentList}>List</button>
 						<button class="btn variant-filled" on:click={modalComponentEmbed}>Embed</button>
 						<button class="btn variant-filled" on:click={modalComponentImage}>Image</button>
+						<button class="btn variant-filled" on:click={modalComponentFullscreen}>Full</button>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
