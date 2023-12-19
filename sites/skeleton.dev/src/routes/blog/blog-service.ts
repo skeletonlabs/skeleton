@@ -1,19 +1,23 @@
 // Blog Utility Methods
 
+import type { PageLoad } from './$types';
+
 // HTTP ---
 
 const baseUrl = 'https://skeleton.ghost.io/ghost/api/content';
 const ghostKey = 'c76a270f160dbf241b27b81dc2';
 const headers = { 'Accept-Version': 'v5.0' };
 
-export async function getBlogList(page = 1) {
+type Fetch = Parameters<PageLoad>[0]['fetch'];
+
+export async function getBlogList(fetch: Fetch, page = 1) {
 	const http = await fetch(`${baseUrl}/posts/?key=${ghostKey}&page=${page}&include=tags`, { headers });
 	const res = (await http.json()) as BlogList;
 	if (http.ok) return res;
 	throw new Error(http.statusText);
 }
 
-export async function getBlogPost(slug: string) {
+export async function getBlogPost(fetch: Fetch, slug: string) {
 	const http = await fetch(`${baseUrl}/posts/slug/${slug}/?key=${ghostKey}&include=tags,authors`, { headers });
 	const res = (await http.json()) as BlogList;
 	if (http.ok) return res;

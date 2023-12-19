@@ -10,11 +10,11 @@
 	import { getBlogList, blogDateFormatter } from './blog-service';
 
 	function onPrevPage(): void {
-		getBlogList(data.meta.pagination.page - 1).then((res) => (data = res));
+		getBlogList(fetch, data.meta.pagination.page - 1).then((res) => (data = res));
 	}
 
 	function onNextPage(): void {
-		getBlogList(data.meta.pagination.page + 1).then((res) => (data = res));
+		getBlogList(fetch, data.meta.pagination.page + 1).then((res) => (data = res));
 	}
 
 	function copyRSSToClipboard(): void {
