@@ -121,7 +121,6 @@
 	// Modal Store Subscription
 	$: if ($modalStore.length) handleModals($modalStore);
 
-	// Handle Modals
 	function handleModals(modals: ModalSettings[]) {
 		// Set Prompt input value and type
 		if (modals[0].type === 'prompt') promptValue = modals[0].value;
