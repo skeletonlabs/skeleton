@@ -54,8 +54,9 @@
 	}
 
 	.table tbody td {
-		/* NOTE: removed this to allow wrapping */
-		@apply text-sm px-3 py-4 align-top whitespace-nowrap lg:whitespace-normal;
+		/* FIXME: let's abstract the whitespace setting to a standalone utility class in v3 */
+		/* https://github.com/skeletonlabs/skeleton/issues/2302#issuecomment-1865051861 */
+		@apply text-sm px-3 py-4 align-top whitespace-nowrap md:whitespace-normal;
 	}
 
 	.table-compact tbody td {
