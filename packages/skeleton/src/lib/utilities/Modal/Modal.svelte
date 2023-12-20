@@ -122,8 +122,9 @@
 	const modalStore = getModalStore();
 
 	// Modal Store Subscription
-	modalStore.subscribe((modals: ModalSettings[]) => {
-		if (!modals.length) return;
+	$: if ($modalStore.length) handleModals($modalStore);
+
+	function handleModals(modals: ModalSettings[]) {
 		// Set Prompt input value and type
 		if (modals[0].type === 'prompt') promptValue = modals[0].value;
 		// Override button text per instance, if available
@@ -132,7 +133,7 @@
 		buttonTextSubmit = modals[0].buttonTextSubmit || buttonTextDefaults.buttonTextSubmit;
 		// Set Active Component
 		currentComponent = typeof modals[0].component === 'string' ? components[modals[0].component] : modals[0].component;
-	});
+	}
 
 	function onModalHeightChange(modal: HTMLDivElement) {
 		let modalHeight = modal?.clientHeight;
