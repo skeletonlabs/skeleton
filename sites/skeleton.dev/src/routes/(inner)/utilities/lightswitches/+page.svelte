@@ -107,7 +107,10 @@ onMount(() => {
 						/>
 					{:else}
 						<!-- Other Frameworks -->
-						<p>If using Skeleton in a framework other than SvelteKit, ensure that <code class="code">autoModeWatcher()</code> is called as a script in <code class="code">html</code> head. </p>
+						<p>
+							If using Skeleton in a framework other than SvelteKit, ensure that <code class="code">autoModeWatcher()</code> is called as a
+							script in <code class="code">html</code> head.
+						</p>
 						<aside class="alert alert-message variant-ghost-warning">
 							<p>Please note this use case is not officially supported by Skeleton.</p>
 						</aside>
@@ -241,6 +244,13 @@ onMount(() => {
 					{/if}
 				</svelte:fragment>
 			</TabGroup>
+		</section>
+		<section>
+			<h2 class="h2">Reference</h2>
+			<aside class="alert alert-message variant-ghost">
+				<!-- prettier-ignore -->
+				<p>View the Skeleton <a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>
+			</aside>
 		</section>
 	</svelte:fragment>
 </DocsShell>
