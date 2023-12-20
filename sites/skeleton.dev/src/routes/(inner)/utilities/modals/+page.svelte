@@ -139,6 +139,16 @@
 		};
 		modalStore.trigger(modal);
 	}
+
+	function modalComponentFullscreen(): void {
+		const modal: ModalSettings = {
+			type: 'component',
+			component: 'fullScreen',
+			title: 'Full screen Modal',
+			backdropClasses: '!p-0'
+		};
+		modalStore.trigger(modal);
+	}
 </script>
 
 <DocsShell {settings}>
@@ -354,11 +364,12 @@ new Promise<boolean>((resolve) => {
 			<h3 class="sr-only">Example Modals</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
+					<div class="grid grid-cols-1 md:grid-cols-5 gap-4 md:max-w-[480px] mx-auto">
 						<button class="btn variant-filled" on:click={modalComponentForm}>Form</button>
 						<button class="btn variant-filled" on:click={modalComponentList}>List</button>
 						<button class="btn variant-filled" on:click={modalComponentEmbed}>Embed</button>
 						<button class="btn variant-filled" on:click={modalComponentImage}>Image</button>
+						<button class="btn variant-filled" on:click={modalComponentFullscreen}>Full</button>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

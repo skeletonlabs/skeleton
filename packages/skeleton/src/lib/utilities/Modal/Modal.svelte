@@ -101,7 +101,7 @@
 	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 150, opacity: 0, x: 0, y: 100 };
 
 	// Base Styles
-	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 overflow-y-auto';
+	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0';
 	const cTransitionLayer = 'w-full h-fit min-h-full p-4 overflow-y-auto flex justify-center';
 	const cModal = 'block overflow-y-auto'; // max-h-full overflow-y-auto overflow-x-hidden
 	const cModalImage = 'w-full h-auto';
@@ -115,6 +115,9 @@
 	};
 	let currentComponent: ModalComponent | undefined;
 	let registeredInteractionWithBackdrop = false;
+	let modalElement: HTMLDivElement;
+	let windowHeight: number;
+	let backdropOverflow = 'overflow-y-hidden';
 
 	const modalStore = getModalStore();
 
@@ -130,6 +133,22 @@
 		// Set Active Component
 		currentComponent = typeof modals[0].component === 'string' ? components[modals[0].component] : modals[0].component;
 	});
+
+	function onModalHeightChange(modal: HTMLDivElement) {
+		let modalHeight = modal?.clientHeight;
+		if (!modalHeight) modalHeight = (modal?.firstChild as HTMLElement)?.clientHeight;
+
+		// modal is closed
+		if (!modalHeight) return;
+
+		if (modalHeight > windowHeight) {
+			backdropOverflow = 'overflow-y-auto';
+		} else {
+			backdropOverflow = 'overflow-y-hidden';
+		}
+	}
+	// first child of the modal is the content.
+	$: onModalHeightChange(modalElement);
 
 	// Event Handlers ---
 	function onBackdropInteractionBegin(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
@@ -213,7 +232,7 @@
 	};
 </script>
 
-<svelte:window on:keydown={onKeyDown} />
+<svelte:window bind:innerHeight={windowHeight} on:keydown={onKeyDown} />
 
 {#if $modalStore.length > 0}
 	{#key $modalStore}
@@ -221,7 +240,7 @@
 		<!-- FIXME: resolve a11y warnings -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
-			class="modal-backdrop {classesBackdrop}"
+			class="modal-backdrop {classesBackdrop} {backdropOverflow}"
 			data-testid="modal-backdrop"
 			on:mousedown={onBackdropInteractionBegin}
 			on:mouseup={onBackdropInteractionEnd}
@@ -238,7 +257,14 @@
 			>
 				{#if $modalStore[0].type !== 'component'}
 					<!-- Modal: Presets -->
-					<div class="modal {classesModal}" data-testid="modal" role="dialog" aria-modal="true" aria-label={$modalStore[0].title ?? ''}>
+					<div
+						class="modal {classesModal}"
+						bind:this={modalElement}
+						data-testid="modal"
+						role="dialog"
+						aria-modal="true"
+						aria-label={$modalStore[0].title ?? ''}
+					>
 						<!-- Header -->
 						{#if $modalStore[0]?.title}
 							<header class="modal-header {regionHeader}">{@html $modalStore[0].title}</header>
@@ -278,6 +304,7 @@
 					<!-- Modal: Components -->
 					<!-- Note: keep `contents` class to allow widths from children -->
 					<div
+						bind:this={modalElement}
 						class="modal contents {$modalStore[0]?.modalClasses ?? ''}"
 						data-testid="modal-component"
 						role="dialog"
