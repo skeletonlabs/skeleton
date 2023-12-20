@@ -39,7 +39,7 @@
 
 	// Base Classes
 	let cBase = 'flex aspect-square text-surface-50 font-semibold justify-center items-center overflow-hidden isolate';
-	let cImage = 'w-full h-full object-cover';
+	let cImage = 'w-full object-cover';
 
 	// Reactive Classes
 	$: classesBase = `${cBase} ${background} ${width} ${border} ${rounded} ${shadow} ${cursor} ${$$props.class ?? ''}`;
