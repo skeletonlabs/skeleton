@@ -125,7 +125,7 @@
 	modalStore.subscribe((modals: ModalSettings[]) => {
 		if (!modals.length) return;
 		// Set Prompt input value and type
-		if (modals[0].type === 'prompt') promptValue = modals[0].value?.toString();
+		if (modals[0].type === 'prompt') promptValue = modals[0].value;
 		// Override button text per instance, if available
 		buttonTextCancel = modals[0].buttonTextCancel || buttonTextDefaults.buttonTextCancel;
 		buttonTextConfirm = modals[0].buttonTextConfirm || buttonTextDefaults.buttonTextConfirm;
@@ -183,7 +183,11 @@
 
 	function onPromptSubmit(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
 		event.preventDefault();
-		if ($modalStore[0].response) $modalStore[0].response(promptValue);
+		if ($modalStore[0].response) {
+			if ($modalStore[0].valueAttr !== undefined && 'type' in $modalStore[0].valueAttr && $modalStore[0].valueAttr.type === 'number')
+				$modalStore[0].response(parseInt(promptValue));
+			else $modalStore[0].response(promptValue);
+		}
 		modalStore.close();
 	}
 

@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Modal Prompt always returns string as result.
+bugfix: Modal Prompt of type number returns number as result.
