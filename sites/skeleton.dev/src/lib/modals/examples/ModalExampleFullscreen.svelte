@@ -10,12 +10,8 @@
 
 	const modalStore = getModalStore();
 
-	/*
-		Notes:
-		- Use `w-screen h-screen` to fit the visible canvas size.
-		- Use `-m-4` to counter the backdrop padding (FIXME: incoming in Skeleton v3+)
-	*/
-	const cBase = 'bg-surface-100-800-token w-screen h-screen -m-4 p-4 flex justify-center items-center';
+	// Notes: Use `w-screen h-screen` to fit the visible canvas size.
+	const cBase = 'bg-surface-100-800-token w-screen h-screen p-4 flex justify-center items-center';
 </script>
 
 {#if $modalStore[0]}
