@@ -24,9 +24,9 @@
 	let tabInterface = 0;
 	let osTabs = 0;
 	// prettier-ignore
-	const snippetAutoModeWatcher = '\<svelte:head\>{@html `\<script\>${autoModeWatcher.toString()} autoModeWatcher();\</script\>`}\</svelte:head\>';
+	const snippetAutoModeWatcher = '\<svelte:head\>{@html \'\<script\>(\' + autoModeWatcher.toString() + \')();\</script\>\'}\</svelte:head\>';
 	// prettier-ignore
-	const snippetSetInitClass = '\<svelte:head\>{@html `\<script\>(${setInitialClassState.toString()})();\</script\>`}\</svelte:head\>';
+	const snippetSetInitClass = '\<svelte:head\>{@html \'\<script\>(\' + setInitialClassState.toString() + \')();\</script\>\'}\</svelte:head\>';
 </script>
 
 <DocsShell {settings}>
