@@ -20,6 +20,8 @@ const config: UserConfig = {
 				greedy: [
 					// Used for Highlight.js (code blocks)
 					/^hljs-/,
+					// Used for Highlight.js (code blocks)
+					/^kg-/,
 					// Used for Carbon ad styles
 					/carbonads/
 				]
