@@ -5,7 +5,7 @@ import { join, resolve, basename } from 'path';
 
 export default function skeletonPluginWatcher(): Plugin {
 	const pluginSrcPath = resolve('.', join('..', '..', 'packages', 'plugin', 'src'));
-	const mm = new Minimatch(join(pluginSrcPath, '**/*'));
+	const mm = new Minimatch('**/packages/plugin/src/**/*');
 	let locked = false;
 
 	return {
@@ -13,7 +13,7 @@ export default function skeletonPluginWatcher(): Plugin {
 		configureServer(vite) {
 			vite.watcher.add(pluginSrcPath);
 			vite.watcher.on('all', async (event, path) => {
-				if (mm.match(path) && !path.includes('/generated/')) {
+				if (mm.match(path) && !path.includes('generated')) {
 					console.log(`[TW Plugin]: File Updated: ${basename(path)}`);
 					if (!locked) {
 						locked = true;
