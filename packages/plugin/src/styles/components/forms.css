@@ -121,7 +121,7 @@
 	.input[readonly],
 	.textarea[readonly],
 	.select[readonly] {
-		@apply !border-0 !cursor-not-allowed hover:!brightness-100;
+		@apply !border-transparent !cursor-not-allowed hover:!brightness-100;
 	}
 
 	/* === Input Groups === */
