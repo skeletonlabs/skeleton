@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-Replaced manual subscription with automatic subscriptions handled by svelte
+bugfix: Replaced modal manual subscription with an automatic subscription handled by Svelte
