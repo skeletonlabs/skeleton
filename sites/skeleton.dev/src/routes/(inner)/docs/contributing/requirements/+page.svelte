@@ -206,7 +206,7 @@
 		<h3 class="h3">Spell Checking</h3>
 		<p>
 			Skeleton uses <a class="anchor" href="https://cspell.org" target="_blank" rel="noreferrer">Cspell</a> to check for spelling errors. We
-			reccomend installing the
+			recommend installing the
 			<a
 				class="anchor"
 				href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker"
