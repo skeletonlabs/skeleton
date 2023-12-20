@@ -461,7 +461,7 @@ export default {
 			</ul>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+					<div class="w-full grid grid-cols-1 gap-4">
 						<label class="label">
 							<span>Website</span>
 							<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
