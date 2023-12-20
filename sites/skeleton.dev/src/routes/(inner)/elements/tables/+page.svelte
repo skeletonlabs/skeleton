@@ -7,6 +7,9 @@
 	// Components
 	import { CodeBlock, TabGroup, Tab } from '@skeletonlabs/skeleton';
 
+	const lorem =
+		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis animi, ullam excepturi at necessitatibus magni, voluptatem unde tenetur aliquam maxime quibusdam beatae non atque enim, fugit officiis temporibus aperiam cumque.';
+
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
@@ -57,7 +60,7 @@
 						<tbody>
 							{#each tableArr as row}
 								<tr>
-									<td>{row.name}</td>
+									<td>{row.name} - {lorem}</td>
 									<td>{row.symbol}</td>
 									<td><span class="badge variant-soft-primary">{row.atomicNumber}</span></td>
 								</tr>
