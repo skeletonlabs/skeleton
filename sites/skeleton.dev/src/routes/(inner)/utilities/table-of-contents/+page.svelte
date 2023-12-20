@@ -63,6 +63,19 @@
 			<CodeBlock language="html" code={`<a href="#how-it-works">How It Works</a>`} />
 		</section>
 		<hr />
+		<!-- Title -->
+		<section class="space-y-4">
+			<h2 class="h2">Custom Title</h2>
+			<p>Customize the table of contents title by editing the default Slot content.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<TableOfContents>
+	<h1>title here</h1>
+</TableOfContents>`}
+			/>
+		</section>
+		<hr />
 		<!-- Settings -->
 		<section class="space-y-4">
 			<h2 class="h2">Settings</h2>
