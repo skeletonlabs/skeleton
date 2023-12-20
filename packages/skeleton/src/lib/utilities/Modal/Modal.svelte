@@ -125,7 +125,7 @@
 	modalStore.subscribe((modals: ModalSettings[]) => {
 		if (!modals.length) return;
 		// Set Prompt input value and type
-		if (modals[0].type === 'prompt') promptValue = modals[0].value;
+		if (modals[0].type === 'prompt') promptValue = modals[0].value?.toString();
 		// Override button text per instance, if available
 		buttonTextCancel = modals[0].buttonTextCancel || buttonTextDefaults.buttonTextCancel;
 		buttonTextConfirm = modals[0].buttonTextConfirm || buttonTextDefaults.buttonTextConfirm;
