@@ -24,9 +24,9 @@
 	let tabInterface = 0;
 	let osTabs = 0;
 	// prettier-ignore
-	const snippetAutoModeWatcher = '\<svelte:head\>{@html `\<script\>${autoModeWatcher.toString()} autoModeWatcher();\</script\>`}\</svelte:head\>';
+	const snippetAutoModeWatcher = '\<svelte:head\>{@html \'\<script\>(\' + autoModeWatcher.toString() + \')();\</script\>\'}\</svelte:head\>';
 	// prettier-ignore
-	const snippetSetInitClass = '\<svelte:head\>{@html `\<script\>(${setInitialClassState.toString()})();\</script\>`}\</svelte:head\>';
+	const snippetSetInitClass = '\<svelte:head\>{@html \'\<script\>(\' + setInitialClassState.toString() + \')();\</script\>\'}\</svelte:head\>';
 </script>
 
 <DocsShell {settings}>
@@ -111,120 +111,8 @@ onMount(() => {
 							If using Skeleton in a framework other than SvelteKit, ensure that <code class="code">autoModeWatcher()</code> is called as a
 							script in <code class="code">html</code> head.
 						</p>
-						<h2 class="h2">Set Initial Classes</h2>
-						<p>
-							Import and add the following to your component. This will set the <code class="code">.dark</code> class on the root HTML
-							element in a highly performant manner. Please note that the CLI installer inserts <code class="code">class="dark"</code>
-							statically in the <code class="code">html</code> element of app.html and you should remove it when going this route.
-						</p>
-						<CodeBlock language="ts" code={`import { setInitialClassState } from '@skeletonlabs/skeleton';`} />
-						<CodeBlock language="html" code={snippetSetInitClass} />
-						<h2 class="h2">Interface Methods</h2>
-						<p>
-							Light mode is represented by <code class="code">true</code>, while dark mode is represented by
-							<code class="code">false</code>.
-						</p>
-						<TabGroup regionPanel="space-y-4">
-							<Tab bind:group={tabInterface} name="interface" value={0}>Stores</Tab>
-							<Tab bind:group={tabInterface} name="interface" value={1}>Getters</Tab>
-							<Tab bind:group={tabInterface} name="interface" value={2}>Setters</Tab>
-							<!-- Tab Panels --->
-							<svelte:fragment slot="panel">
-								{#if tabInterface === 0}
-									<!-- Stores -->
-									<CodeBlock language="ts" code={`import { modeOsPrefers, modeUserPrefers, modeCurrent } from '@skeletonlabs/skeleton';`} />
-									<div class="table-container">
-										<table class="table table-hover">
-											<thead>
-												<tr>
-													<th>Store</th>
-													<th>Value</th>
-													<th>Description</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><code class="code">$modeOsPrefers</code></td>
-													<td><em>true | false</em></td>
-													<td>The current operating system setting preference.</td>
-												</tr>
-												<tr>
-													<td><code class="code">$modeUserPrefers</code></td>
-													<td><em>true | false | undefined</em></td>
-													<td>The current user's selected preference.</td>
-												</tr>
-												<tr>
-													<td><code class="code">$modeCurrent</code></td>
-													<td><em>true | false</em></td>
-													<td>The current active mode setting.</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								{:else if tabInterface === 1}
-									<!-- Getters -->
-									<CodeBlock
-										language="ts"
-										code={`import { getModeOsPrefers, getModeUserPrefers, getModeAutoPrefers } from '@skeletonlabs/skeleton';`}
-									/>
-									<div class="table-container">
-										<table class="table table-hover">
-											<thead>
-												<tr>
-													<th>Store</th>
-													<th>Return Type</th>
-													<th>Description</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><code class="code">getModeOsPrefers()</code></td>
-													<td><em>true | false</em></td>
-													<td>Returns the operating system setting preference.</td>
-												</tr>
-												<tr>
-													<td><code class="code">getModeUserPrefers()</code></td>
-													<td><em>true | false | undefined</em></td>
-													<td>Returns the user's selected preference.</td>
-												</tr>
-												<tr>
-													<td><code class="code">getModeAutoPrefers()</code></td>
-													<td><em>true | false</em></td>
-													<td>Returns the user preference if available, else the OS preference.</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								{:else if tabInterface === 2}
-									<!-- Setters -->
-									<CodeBlock language="ts" code={`import { setModeUserPrefers, setModeCurrent } from '@skeletonlabs/skeleton';`} />
-									<div class="table-container">
-										<table class="table table-hover">
-											<thead>
-												<tr>
-													<th>Store</th>
-													<th>Description</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><code class="code">setModeUserPrefers(value)</code></td>
-													<td>Set the user preference value.</td>
-												</tr>
-												<tr>
-													<td><code class="code">setModeCurrent(value)</code></td>
-													<td>Set the current active mode value.</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								{/if}
-							</svelte:fragment>
-						</TabGroup>
-						<h2 class="h2">Reference</h2>
-						<aside class="alert alert-message variant-ghost">
-							<!-- prettier-ignore -->
-							<p>View the Skeleton <a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>
+						<aside class="alert alert-message variant-ghost-warning">
+							<p>Please note this use case is not officially supported by Skeleton.</p>
 						</aside>
 					{/if}
 				</svelte:fragment>
@@ -356,6 +244,13 @@ onMount(() => {
 					{/if}
 				</svelte:fragment>
 			</TabGroup>
+		</section>
+		<section>
+			<h2 class="h2">Reference</h2>
+			<aside class="alert alert-message variant-ghost">
+				<!-- prettier-ignore -->
+				<p>View the Skeleton <a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>
+			</aside>
 		</section>
 	</svelte:fragment>
 </DocsShell>
