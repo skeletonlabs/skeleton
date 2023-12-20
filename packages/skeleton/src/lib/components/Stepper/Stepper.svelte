@@ -100,12 +100,39 @@
 	// Stores
 	let state: Writable<StepperState> = writable({ current: start, total: 0 });
 
+	// Event Handlers
+	async function onNext(locked: boolean, stepIndex: number) {
+		// Allows any forms to submit before the Step is removed from the DOM:
+		// https://github.com/skeletonlabs/skeleton/issues/1328
+		await new Promise((resolve) => setTimeout(resolve));
+
+		if (locked) return;
+		$state.current++;
+		/** @event { step: number, $state: StepperState } next - Fires when the NEXT button is pressed per step.  */
+		dispatch('next', { step: stepIndex, state: $state });
+		/** @event { step: number, $state: StepperState } step - Fires when a next/previous step occurs.  */
+		dispatch('step', { step: stepIndex, state: $state });
+	}
+	function onBack(stepIndex: number) {
+		$state.current--;
+		/** @event { step: number, $state: StepperState } back - Fires when the BACK button is pressed per step.  */
+		dispatch('back', { step: stepIndex, state: $state });
+		dispatch('step', { step: stepIndex, state: $state });
+	}
+	function onComplete(stepIndex: number) {
+		/** @event { step: number, $state: StepperState } complete - Fires when the COMPLETE button is pressed.  */
+		dispatch('complete', { step: stepIndex, state: $state });
+	}
+
 	// Context
 	setContext('state', state);
-	setContext('dispatchParent', dispatch);
 	setContext('stepTerm', stepTerm);
 	setContext('gap', gap);
 	setContext('justify', justify);
+	// ---
+	setContext('onNext', onNext);
+	setContext('onBack', onBack);
+	setContext('onComplete', onComplete);
 	// ---
 	setContext('buttonBack', buttonBack);
 	setContext('buttonBackType', buttonBackType);

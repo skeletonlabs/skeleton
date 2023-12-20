@@ -29,10 +29,12 @@
 
 	// Context
 	export let state: Writable<StepperState> = getContext('state');
-	export let dispatchParent = getContext<StepperEventDispatcher>('dispatchParent');
 	export let stepTerm: string = getContext('stepTerm');
 	export let gap: CssClasses = getContext('gap');
 	export let justify: CssClasses = getContext('justify');
+	export let onNext: (locked: boolean, stepIndex: number) => void = getContext('onNext');
+	export let onBack: (stepIndex: number) => void = getContext('onBack');
+	export let onComplete: (stepIndex: number) => void = getContext('onComplete');
 	export let buttonBack: CssClasses = getContext('buttonBack');
 	export let buttonBackType: 'submit' | 'reset' | 'button' = getContext('buttonBackType');
 	export let buttonBackLabel: string = getContext('buttonBackLabel');
@@ -77,28 +79,6 @@
 	const cContent = 'space-y-4';
 	const cNavigation = 'flex';
 
-	async function onNext() {
-		// Allows any forms to submit before the Step is removed from the DOM:
-		// https://github.com/skeletonlabs/skeleton/issues/1328
-		await new Promise((resolve) => setTimeout(resolve));
-
-		if (locked) return;
-		$state.current++;
-		/** @event { $state } next - Fires when the NEXT button is pressed per step.  */
-		dispatchParent('next', { step: stepIndex, state: $state });
-		dispatchParent('step', { step: stepIndex, state: $state });
-	}
-	function onBack() {
-		$state.current--;
-		/** @event { $state } back - Fires when the BACK button is pressed per step.  */
-		dispatchParent('back', { step: stepIndex, state: $state });
-		dispatchParent('step', { step: stepIndex, state: $state });
-	}
-	function onComplete() {
-		/** @event { $state } complete - Fires when the COMPLETE button is pressed.  */
-		dispatchParent('complete', { step: stepIndex, state: $state });
-	}
-
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesHeader = `${cHeader} ${regionHeader}`;
@@ -135,13 +115,13 @@
 					</div>
 				{:else}
 					<!-- Button: Back -->
-					<button type={buttonBackType} class="btn {buttonBack}" on:click={onBack} disabled={$state.current === 0}>
+					<button type={buttonBackType} class="btn {buttonBack}" on:click={() => onBack(stepIndex)} disabled={$state.current === 0}>
 						{@html buttonBackLabel}
 					</button>
 				{/if}
 				{#if stepIndex < $state.total - 1}
 					<!-- Button: Next -->
-					<button type={buttonNextType} class="btn {buttonNext}" on:click={onNext} disabled={locked}>
+					<button type={buttonNextType} class="btn {buttonNext}" on:click={() => onNext(locked, stepIndex)} disabled={locked}>
 						{#if locked}
 							<svg class="w-3 aspect-square fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 								<path
@@ -153,7 +133,7 @@
 					</button>
 				{:else}
 					<!-- Button: Complete -->
-					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>
+					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={() => onComplete(stepIndex)} disabled={locked}>
 						{@html buttonCompleteLabel}
 					</button>
 				{/if}
