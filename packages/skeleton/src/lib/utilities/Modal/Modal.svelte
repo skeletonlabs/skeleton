@@ -184,7 +184,11 @@
 
 	function onPromptSubmit(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
 		event.preventDefault();
-		if ($modalStore[0].response) $modalStore[0].response(promptValue);
+		if ($modalStore[0].response) {
+			if ($modalStore[0].valueAttr !== undefined && 'type' in $modalStore[0].valueAttr && $modalStore[0].valueAttr.type === 'number')
+				$modalStore[0].response(parseInt(promptValue));
+			else $modalStore[0].response(promptValue);
+		}
 		modalStore.close();
 	}
 
