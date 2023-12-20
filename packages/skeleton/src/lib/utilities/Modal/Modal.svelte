@@ -25,13 +25,13 @@
 	import { getModalStore } from './stores.js';
 	import type { ModalComponent, ModalSettings } from './types.js';
 
-	// Props
-	/** Set the modal position within the backdrop container */
-	export let position: CssClasses = 'items-center';
-
 	// Props (components)
 	/** Register a list of reusable component modals. */
 	export let components: Record<string, ModalComponent> = {};
+
+	// Props (backdrop)
+	/** Set the modal position within the backdrop container */
+	export let position: CssClasses = 'items-center';
 
 	// Props (modal)
 	/** Provide classes to style the modal background. */
@@ -64,8 +64,8 @@
 	export let buttonTextSubmit: CssClasses = 'Submit';
 
 	// Props (regions)
-	/** Provide classes to style the backdrop. */
-	export let regionBackdrop: CssClasses = 'bg-surface-backdrop-token';
+	/** Provide arbitrary classes to the backdrop region. */
+	export let regionBackdrop: CssClasses = '';
 	/** Provide arbitrary classes to modal header region. */
 	export let regionHeader: CssClasses = 'text-2xl font-bold';
 	/** Provide arbitrary classes to modal body region. */
@@ -101,8 +101,8 @@
 	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 150, opacity: 0, x: 0, y: 100 };
 
 	// Base Styles
-	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0';
-	const cTransitionLayer = 'w-full h-fit min-h-full p-4 overflow-y-auto flex justify-center';
+	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 bg-surface-backdrop-token p-4';
+	const cTransitionLayer = 'w-full h-fit min-h-full overflow-y-auto flex justify-center';
 	const cModal = 'block overflow-y-auto'; // max-h-full overflow-y-auto overflow-x-hidden
 	const cModalImage = 'w-full h-auto';
 
