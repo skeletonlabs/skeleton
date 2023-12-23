@@ -313,14 +313,7 @@
 				{#each chipValues as { id, val }, i (id)}
 					<!-- Wrapping div required for FLIP animation -->
 					<div animate:flip={{ duration }}>
-						<button
-							type="button"
-							class="chip {chips}"
-							on:click={(e) => {
-								removeChipInternally(e, i, val);
-						removeChip(e, i, val);
-ions }}
-						>
+						<button type="button" class="chip {chips}" on:click={(e) => removeChipInternally(e, i, val)}>
 							<span>{val}</span>
 							<span>✕</span>
 						</button>
