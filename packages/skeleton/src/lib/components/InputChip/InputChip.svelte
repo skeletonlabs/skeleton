@@ -28,7 +28,10 @@
 	type InputChipEvent = {
 		add: { event: SubmitEvent; chipIndex: number; chipValue: string };
 		remove: { event: MouseEvent; chipIndex: number; chipValue: string };
+		addManually: { chipIndex: number; chipValue: string };
+		removeManually: { chipValue: string };
 		invalid: { event: SubmitEvent; input: string };
+		invalidManually: { input: string };
 	};
 	const dispatch = createEventDispatcher<InputChipEvent>();
 
@@ -170,27 +173,53 @@
 		inputValid = true;
 	}
 
-	function validate(): boolean {
-		if (!input) return false;
-		// Format: trim value
-		input = input.trim();
-		// Custom validation
-		if (validation !== undefined && !validation(input)) return false;
-		// Maximum
-		if (max !== -1 && value.length >= max) return false;
-		// Minimum Character Length
-		if (minlength !== -1 && input.length < minlength) return false;
-		// Maximum Character Length
-		if (maxlength !== -1 && input.length > maxlength) return false;
-		// Whitelist (if available)
-		if (whitelist.length > 0 && !whitelist.includes(input)) return false;
-		// Value is unique
-		if (allowDuplicates === false && value.includes(input)) return false;
-		// State is valid
-		return true;
+	function validateCustom(chip: string) {
+		return validation === undefined || validation(chip);
 	}
 
-	function addChip(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
+	function validateCount() {
+		return max === -1 || value.length < max;
+	}
+
+	function validateLength(chip: string) {
+		return (minlength === -1 || chip.length >= minlength) && (maxlength === -1 || chip.length <= maxlength);
+	}
+
+	function validateWhiteList(chip: string) {
+		return whitelist.length === 0 || whitelist.includes(chip);
+	}
+
+	function validateDuplicates(chip: string) {
+		return allowDuplicates || !value.includes(chip);
+	}
+
+	function validate(chip: string = ''): boolean {
+		if (!chip && !input) return false;
+		// Format: trim value
+		chip = chip !== '' ? chip.trim() : input.trim();
+		return validateCustom(chip) && validateCount() && validateLength(chip) && validateWhiteList(chip) && validateDuplicates(chip);
+	}
+
+	function addChipCommon(chip: string) {
+		// Format: to lowercase (if enabled)
+		chip = allowUpperCase ? chip : chip.toLowerCase();
+		// Append value to array
+		value.push(chip);
+		value = value;
+		chipValues.push({ val: chip, id: Math.random() });
+		chipValues = chipValues;
+	}
+
+	function removeChipCommon(chip: string) {
+		let chipIndex = value.indexOf(chip);
+		// Remove value from array
+		value.splice(chipIndex, 1);
+		value = value;
+		chipValues.splice(chipIndex, 1);
+		chipValues = chipValues;
+	}
+
+	function addChipInternally(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
 		event.preventDefault();
 		// Validate
 		inputValid = validate();
@@ -200,28 +229,40 @@
 			dispatch('invalid', { event, input });
 			return;
 		}
-		// Format: to lowercase (if enabled)
-		input = allowUpperCase ? input : input.toLowerCase();
-		// Append value to array
-		value.push(input);
-		value = value;
-		chipValues.push({ val: input, id: Math.random() });
-		chipValues = chipValues;
+		addChipCommon(input);
 		/** @event {{ event: Event, chipIndex: number, chipValue: string }} add - Fires when a chip is added. */
 		dispatch('add', { event, chipIndex: value.length - 1, chipValue: input });
 		// Clear input value
 		input = '';
 	}
 
-	function removeChip(event: SvelteEvent<MouseEvent, HTMLButtonElement>, chipIndex: number, chipValue: string): void {
+	function removeChipInternally(event: SvelteEvent<MouseEvent, HTMLButtonElement>, chipIndex: number, chipValue: string): void {
 		if ($$restProps.disabled) return;
-		// Remove value from array
-		value.splice(chipIndex, 1);
-		value = value;
-		chipValues.splice(chipIndex, 1);
-		chipValues = chipValues;
+		removeChipCommon(chipValue);
 		/** @event {{ event: Event, chipIndex: number, chipValue: string }} remove - Fires when a chip is removed. */
 		dispatch('remove', { event, chipIndex, chipValue });
+	}
+
+	// Export functions
+	export function addChip(chip: string) {
+		// Validate
+		inputValid = validate(chip);
+		// When the onInvalid hook is present
+		if (inputValid === false) {
+			/** @event {{ input: string  }} invalidManually - Fires when the manually added value is invalid. */
+			dispatch('invalidManually', { input: chip });
+			return;
+		}
+		addChipCommon(chip);
+		/** @event {{ chipIndex: number, chipValue: string }} addManually - Fires when a chip is added manually. */
+		dispatch('addManually', { chipIndex: value.length - 1, chipValue: chip });
+	}
+
+	export function removeChip(chip: string) {
+		if ($$restProps.disabled) return;
+		removeChipCommon(chip);
+		/** @event {{ chipValue: string }} removeManually - Fires when a chip is removed manually. */
+		dispatch('removeManually', { chipValue: chip });
 	}
 
 	// State
@@ -249,7 +290,7 @@
 	<!-- Chip Wrapper -->
 	<div class="input-chip-wrapper {classesChipWrapper}">
 		<!-- Input Field -->
-		<form on:submit={addChip}>
+		<form on:submit={addChipInternally}>
 			<input
 				type="text"
 				bind:value={input}
@@ -276,14 +317,9 @@
 							type="button"
 							class="chip {chips}"
 							on:click={(e) => {
-								removeChip(e, i, val);
-							}}
-							on:click
-							on:keypress
-							on:keydown
-							on:keyup
-							in:dynamicTransition|local={{ transition: chipTransitionIn, params: chipTransitionInParams, enabled: transitions }}
-							out:dynamicTransition|local={{ transition: chipTransitionOut, params: chipTransitionOutParams, enabled: transitions }}
+								removeChipInternally(e, i, val);
+						removeChip(e, i, val);
+ions }}
 						>
 							<span>{val}</span>
 							<span>✕</span>
