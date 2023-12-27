@@ -18,6 +18,7 @@ repos.json
 !/packages/create-skeleton-app
 !/packages/skeleton
 !/packages/plugin
+!/packages/skeleton-next
 /sites/*
 !/sites/skeleton.dev
 /templates/*
