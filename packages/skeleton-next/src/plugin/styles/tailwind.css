@@ -1,0 +1,17 @@
+/* Stylesheet: tailwind.css */
+
+/* 
+   https://tailwindcss.com/docs/functions-and-directives
+*/
+
+/**
+ * This injects Tailwind's component classes and any component classes
+ * registered by plugins.
+ */
+@tailwind components;
+
+/**
+ * This injects Tailwind's utility classes and any utility classes registered
+ * by plugins.
+ */
+@tailwind utilities;

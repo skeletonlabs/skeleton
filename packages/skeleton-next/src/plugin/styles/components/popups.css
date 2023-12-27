@@ -1,0 +1,9 @@
+/* Tailwind Elements: popups.css */
+
+@layer components {
+	/* === Popup === */
+
+	[data-popup] .arrow {
+		@apply absolute rotate-45 w-2 h-2;
+	}
+}

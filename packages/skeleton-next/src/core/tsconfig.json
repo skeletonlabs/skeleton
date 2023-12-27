@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"verbatimModuleSyntax": true,
+		"lib": ["ES2022"],
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "NodeNext",
+		"typeRoots": ["../../node_modules/@types"]
+	},
+	"include": ["."]
+}

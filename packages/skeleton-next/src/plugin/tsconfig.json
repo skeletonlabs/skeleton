@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"verbatimModuleSyntax": true,
+		"lib": ["ES2020"],
+		"target": "ES2020",
+		"module": "CommonJS",
+		"moduleResolution": "NodeNext",
+		"typeRoots": ["../../node_modules/@types", "../../scripts/@types"]
+	},
+	"include": [".", "../../scripts"],
+	"exclude": ["tailwind/generated/**/*"]
+}
