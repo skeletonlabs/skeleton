@@ -39,7 +39,7 @@ export const coreConfig = {
 export function getSkeletonClasses() {
 	// try/catch because it will throw when generated-classes.js isn't generated yet
 	try {
-		const { components, base } = require('./generated/generated-classes.js');
+		const { components, base } = require('./generated/generated-classes.cjs');
 
 		if (typeof components !== 'object' || typeof base !== 'object') {
 			console.error('Failed to load Skeleton classes');
@@ -48,7 +48,7 @@ export function getSkeletonClasses() {
 
 		return { components, base };
 	} catch {
-		console.error("generated-classes.js hasn't generated yet");
+		console.error("generated-classes.cjs hasn't generated yet");
 	}
 
 	return { components: undefined, base: undefined };
