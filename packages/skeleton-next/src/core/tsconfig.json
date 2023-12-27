@@ -11,7 +11,7 @@
 		"verbatimModuleSyntax": true,
 		"lib": ["ES2022"],
 		"target": "ES2022",
-		"module": "ESNext",
+		"module": "ESNext", // error can be ignored
 		"moduleResolution": "NodeNext",
 		"typeRoots": ["../../node_modules/@types"]
 	},
