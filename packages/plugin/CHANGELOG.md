@@ -1,5 +1,13 @@
 # @skeletonlabs/tw-plugin
 
+## 0.3.1
+
+### Patch Changes
+
+- chore: Table element styles now use the `md:` breakpoint for adjusting whitespace settings for cells ([#2339](https://github.com/skeletonlabs/skeleton/pull/2339))
+
+- bugfix: Fixed input style layout shift when the `readonly` attribute is set ([#2330](https://github.com/skeletonlabs/skeleton/pull/2330))
+
 ## 0.3.0
 
 ### Minor Changes
