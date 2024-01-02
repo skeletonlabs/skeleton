@@ -1,11 +1,13 @@
+import type { ActionReturn } from 'svelte/action';
+
 // Action: Clipboard
 type ClipboardArgs = string | { element: string } | { input: string };
-export function clipboard(node: HTMLElement, args: ClipboardArgs) {
+type ClipboardAttributes = { 'on:copyComplete'?: () => void };
+export function clipboard(node: HTMLElement, args: ClipboardArgs): ActionReturn<ClipboardArgs, ClipboardAttributes> {
 	if (!window.isSecureContext) {
-		console.error(
+		throw new Error(
 			'Clipboard action failed: app not running in secure context, see: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard'
 		);
-		return;
 	}
 	const fireCopyCompleteEvent = () => {
 		node.dispatchEvent(new CustomEvent('copyComplete'));
