@@ -2,4 +2,4 @@
 "@skeletonlabs/tw-plugin": patch
 ---
 
-bugfix: fixed Input layout shift when the readonly state changes.
+bugfix: Fixed input style layout shift when the `readonly` attribute is set

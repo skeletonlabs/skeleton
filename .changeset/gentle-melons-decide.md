@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Replaced modal manual subscription with an automatic subscription handled by Svelte
+bugfix: The Modal system's subscription has been updated to avoid a potential memory leak issue

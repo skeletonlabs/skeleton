@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: fixed Modal shifting on open
+bugfix: Fixed an issue where Models would shift or wobble slightly on open

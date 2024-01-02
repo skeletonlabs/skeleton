@@ -1,5 +1,5 @@
 ---
-"@skeletonlabs/skeleton": minor
+"@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Step events now happen in the parent Stepper, matching the documentation spec
+bugfix: Step events have been moved to the parent Stepper component to match the documentation spec

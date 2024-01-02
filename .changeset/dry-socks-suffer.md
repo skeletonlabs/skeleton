@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: Have focusTrap action focused on a specific element using tabIndex
+feat: The focusTrap action can not take a set of `tabIndex` values to denote initial tab focus
