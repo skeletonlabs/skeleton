@@ -45,7 +45,7 @@
 	};
 
 	// Local
-	const sourceData = [
+	let sourceData = [
 		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
 		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
 		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
@@ -118,6 +118,7 @@ const tableSimple: TableSource = {
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<!-- Interactive Mode -->
 		<section class="space-y-4">
 			<h2 class="h2">Interactive Mode</h2>
 			<p>
@@ -127,6 +128,29 @@ const tableSimple: TableSource = {
 				<code class="code">meta</code> value.
 			</p>
 			<CodeBlock language="html" code={`<Table ... interactive={true} on:selected={mySelectionHandler} />`} />
+		</section>
+		<!-- Handling Reactive Data -->
+		<section class="space-y-4">
+			<h2 class="h2">Handling Reactive Data</h2>
+			<!-- prettier-ignore -->
+			<p>
+				In some scenarios you may need need to reactive manner. Since <code class="code">TableSource</code> is a Javascript object, it will need to follow Svelte's rules for <a class="anchor" href="https://learn.svelte.dev/tutorial/updating-arrays-and-objects" target="_blank" rel="noreferrer">reactive object updates</a>.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+function setTableSource(): TableSource {
+	return {
+		head: ['Symbol', 'Name', 'weight'],
+		body: tableMapperValues(sourceData, ['symbol', 'name', 'weight']),
+		meta: tableMapperValues(sourceData, ['name', 'symbol', 'weight']),
+		foot: ['Total Elements', '', \`<span class="badge variant-soft-primary">${sourceData.length} Elements</span>\`]
+	};
+}\n
+// If sourceData updates, set the new TableSource values
+$: tableSimple = sourceData ? setTableSource() : undefined;
+		`}
+			/>
 		</section>
 		<!-- Table Utilities -->
 		<section class="space-y-4">
