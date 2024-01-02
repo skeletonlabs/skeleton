@@ -1,5 +1,25 @@
 # @skeletonlabs/skeleton
 
+## 2.7.0
+
+### Minor Changes
+
+- feat: The focusTrap action can not take a set of `tabIndex` values to denote initial tab focus ([#2191](https://github.com/skeletonlabs/skeleton/pull/2191))
+
+### Patch Changes
+
+- bugfix: Step events have been moved to the parent Stepper component to match the documentation spec ([#2341](https://github.com/skeletonlabs/skeleton/pull/2341))
+
+- bugfix: The Modal system's subscription has been updated to avoid a potential memory leak issue ([#2336](https://github.com/skeletonlabs/skeleton/pull/2336))
+
+- bugfix: Resolved a Safari browser styling issue when Avatars are placed inside AppBar ([#2333](https://github.com/skeletonlabs/skeleton/pull/2333))
+
+- chore: Modal backdrop padding can now be overwritten via `regionProp` and `backdropClasses` ([#2332](https://github.com/skeletonlabs/skeleton/pull/2332))
+
+- bugfix: Modal Prompt of type number now returns number instead of a string ([#2334](https://github.com/skeletonlabs/skeleton/pull/2334))
+
+- bugfix: Fixed an issue where Models would shift or wobble slightly on open ([#2255](https://github.com/skeletonlabs/skeleton/pull/2255))
+
 ## 2.6.1
 
 ### Patch Changes
