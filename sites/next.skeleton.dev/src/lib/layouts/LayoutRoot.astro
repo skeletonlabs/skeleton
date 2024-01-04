@@ -1,0 +1,30 @@
+---
+import "@styles/app.css";
+
+interface Props {
+  title?: string;
+  classList?: string;
+}
+
+const {
+  title = 'The UI toolkit',
+  classList
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Skeleton - {title}</title>
+  </head>
+  <body>
+    <main class:list={[classList]}>
+      <slot />
+    </main>
+  </body>
+</html>
