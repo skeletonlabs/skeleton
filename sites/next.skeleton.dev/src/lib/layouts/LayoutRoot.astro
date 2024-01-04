@@ -22,9 +22,9 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>Skeleton - {title}</title>
   </head>
-  <body>
-    <main class:list={[classList]}>
+  <body class:list={[classList]}>
+    <div style="display: contents" class="h-full overflow-hidden">
       <slot />
-    </main>
+    </div>
   </body>
 </html>

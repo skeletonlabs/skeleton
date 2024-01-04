@@ -1,0 +1,53 @@
+---
+const linksTop = [
+    {href: '/', label: 'Home'},
+];
+const linksComponents = [
+    {href: '/components/accordions', label: 'Accordions'},
+    {href: '/components/avatars', label: 'Avatars'},
+];
+const linksResources = [
+    {href: 'https://github.com/skeletonlabs/skeleton', label: 'GitHub'},
+    {href: 'https://discord.gg/EXqV7W8MtY', label: 'Discord'},
+];
+---
+<div class="h-full grid grid-rows-[auto_1fr]">
+    <!-- Header -->
+    <header class="border-b border-neutral-900 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="font-bold">Skeleton</span>
+            <nav class="flex gap-4 text-sm">
+                {linksResources.map(l => <a class="anchor" href={l.href} target="_blank">{l.label}</a>)}
+            </nav>
+        </div>
+    </header>
+    <!-- Page -->
+    <section class="container mx-auto grid grid-cols-[280px_1fr_280px]">
+        <!-- Navigation -->
+        <aside class="p-10 overflow-y-auto space-y-10 text-sm">
+            <!-- Links (top) -->
+            <div class="flex flex-col gap-3">
+                <span class="font-bold">Get Started</span>
+                {linksTop.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+            </div>
+            <!-- Links (components) -->
+            <div class="flex flex-col gap-3">
+                <span class="font-bold">Components</span>
+                {linksComponents.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+            </div>
+            <!-- Links (resources) -->
+            <div class="flex flex-col gap-3">
+                <span class="font-bold">Resources</span>
+                {linksResources.map(l => <a class="anchor" href={l.href} target="_blank">{l.label}</a>)}
+            </div>
+        </aside>
+        <!-- Main -->
+        <main class="p-10 overflow-y-auto">
+            <slot />
+        </main>
+        <!-- Table of Contents -->
+        <aside class="p-10">
+            <p class="opacity-10">(sidebar)</p>
+        </aside>
+    </section>
+</div>

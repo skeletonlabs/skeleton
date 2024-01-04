@@ -1,3 +1,48 @@
+html,
 body {
-  @apply bg-black text-white;
+  @apply h-full overflow-hidden;
+}
+
+body {
+  @apply bg-neutral-950 text-white;
+}
+
+/* Elemements --- */
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  @apply font-bold;
+}
+.h1 {
+  @apply text-4xl;
+}
+.h2 {
+  @apply text-3xl;
+}
+.h3 {
+  @apply text-xl;
+}
+
+.anchor {
+  @apply text-white/50 hover:text-white/100;
+}
+
+.hr {
+  @apply block bg-white/10 border-0 h-[1px];
+}
+
+/* Buttons */
+
+.btn {
+  @apply border border-white/10 hover:border-white/30 text-white py-2 px-4 rounded;
+}
+
+/* Card */
+
+.card {
+  @apply block p-4 rounded;
 }
