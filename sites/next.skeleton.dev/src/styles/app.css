@@ -1,4 +1,3 @@
-html,
-body {
-  @apply h-full overflow-hidden;
+.anchor {
+  @apply no-underline;
 }

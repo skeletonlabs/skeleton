@@ -1,28 +1,20 @@
 ---
 import LayoutDocs from "@lib/layouts/LayoutDocs.astro";
+
+const layoutProps = {
+    categoryId: 2,
+    title: 'Accordions',
+    description: 'Divide content into collapsible sections.',
+};
 ---
 
-<LayoutDocs>
-    <div class="space-y-10">
-        <!-- Breadcrumbs -->
-        <div class="flex gap-2 text-xs">
-            <span class="opacity-50">Components</span>
-            <span class="opacity-50">&rsaquo;</span>
-            <span>Accordions</span>
-        </div>
-        <!-- Header -->
-        <header class="space-y-4">
-            <h1 class="h1">Accordions</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </header>
-        <!-- Preview -->
-        <section class="card p-4 variant-ghost-primary">
-            <div class="text-center opacity-50">Preview.</div>
-        </section>
-        <!-- Content -->
-        <section>
-            <p>The page contents go here.</p>
-        </section>
-    </div>
+<LayoutDocs {...layoutProps}>
+    <!-- Preview -->
+    <Fragment slot="preview">
+        <p>{layoutProps.title} Preview.</p>
+    </Fragment>
+    <!-- Usage -->
+    <section class="space-y-4">
+        <p>The {layoutProps.title} usage goes here.</p>
+    </section>
 </LayoutDocs>
-

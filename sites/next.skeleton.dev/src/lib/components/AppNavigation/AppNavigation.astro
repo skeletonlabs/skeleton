@@ -1,0 +1,29 @@
+---
+const linksDocs = [
+    {href: '/docs/introduction', label: 'Introduction'},
+];
+const linksTailwind = [
+    {href: '/tailwind/buttons', label: 'Buttons'},
+];
+const linksComponents = [
+    {href: '/components/accordions', label: 'Accordions'},
+];
+---
+
+<aside class="p-10 overflow-y-auto space-y-10 text-sm">
+    <!-- Top -->
+    <div class="flex flex-col gap-3">
+        <span class="font-bold">Docs</span>
+        {linksDocs.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+    </div>
+    <!-- Tailwind -->
+    <div class="flex flex-col gap-3">
+        <span class="font-bold">Tailwind</span>
+        {linksTailwind.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+    </div>
+    <!-- Components -->
+    <div class="flex flex-col gap-3">
+        <span class="font-bold">Components</span>
+        {linksComponents.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+    </div>
+</aside>

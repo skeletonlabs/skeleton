@@ -1,0 +1,15 @@
+---
+const linksResources = [
+    {href: 'https://github.com/skeletonlabs/skeleton', label: 'GitHub'},
+    {href: 'https://discord.gg/EXqV7W8MtY', label: 'Discord'},
+];
+---
+
+<header class="sticky top-0 z-10 border-b border-surface-800 bg-surface-50 dark:bg-surface-900 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <a class="font-bold" href="/">Skeleton</a>
+        <nav class="flex gap-4 text-sm">
+            {linksResources.map(l => <a class="anchor" href={l.href} target="_blank">{l.label}</a>)}
+        </nav>
+    </div>
+</header>
