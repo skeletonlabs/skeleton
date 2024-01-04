@@ -13,7 +13,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -22,9 +22,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>Skeleton - {title}</title>
   </head>
-  <body class:list={[classList]} data-theme="">
-    <div style="display: contents" class="h-full overflow-hidden">
-      <slot />
-    </div>
+  <body class:list={[classList]} data-theme="wintry">
+    <slot />
   </body>
 </html>
