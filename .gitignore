@@ -21,4 +21,5 @@ repos.json
 !/packages/skeleton-next
 /sites/*
 !/sites/skeleton.dev
+!/sites/next.skeleton.dev
 /templates/*
