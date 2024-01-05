@@ -26,9 +26,13 @@ const {
     description = '(description missing)',
     preview = true
 } = Astro.props;
+
+const layoutProps = {
+    title
+}
 ---
 
-<LayoutRoot>
+<LayoutRoot {...layoutProps}>
     <div class="relative flex min-h-screen flex-col bg-background">
         <!-- Header -->
         <AppHeader />

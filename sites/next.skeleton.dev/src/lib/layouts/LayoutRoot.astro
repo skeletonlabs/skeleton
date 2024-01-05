@@ -7,7 +7,7 @@ interface Props {
 }
 
 const {
-  title = 'The UI toolkit',
+  title,
   classList
 } = Astro.props;
 ---
@@ -18,9 +18,9 @@ const {
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>Skeleton - {title}</title>
+    <title>{title ? `${title} - ` : null}Skeleton</title>
   </head>
   <body class:list={[classList]} data-theme="wintry">
     <slot />
