@@ -1,17 +1,50 @@
-name: Checkout, pnpm install
-on:
-  workflow_call:
-    inputs:
-      package_dir:
-        required: true
-        type: string
+name: 'Hello World'
+description: 'Greet someone'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+runs:
+  using: "composite"
+  steps:
+    - run: echo Hello ${{ inputs.who-to-greet }}.
+      shell: bash
+    - id: random-number-generator
+      run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+      shell: bash
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+    - run: goodbye.sh
+      shell: bash
 
-jobs:
-  checkout_install_with_pnpm:
-    runs-on: ubuntu-latest
-    steps:
-      - name: ShowVars
-        run: echo "${{ inputs.package_dir }}"
+
+
+
+
+
+
+
+
+
+
+
+
+# name: Checkout, pnpm install
+# description: Foo
+# inputs:
+#   package_dir:
+#     required: true
+#     type: string
+# runs:
+#   using: "composite"
+#   steps:
+#     - name: ShowVars
+#     run: echo "${{ inputs.package_dir }}"
       # - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       # - run: echo "Do we get the paths ? ${{ github.event.paths }}"
       # - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
