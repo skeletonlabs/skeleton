@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
 import react from "@astrojs/react";
+import cloudflare from "@astrojs/cloudflare";
 import skeletonPluginWatcher from "./skeleton-plugin-watcher.js";
 
 // https://astro.build/config
@@ -18,4 +19,6 @@ export default defineConfig({
 	vite: {
 		plugins: [skeletonPluginWatcher()],
 	},
+	output: "server",
+	adapter: cloudflare(),
 });

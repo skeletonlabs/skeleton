@@ -1,4 +1,4 @@
-import { skeleton } from "@skeletonlabs/skeleton-next/plugin";
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
 
 // TODO: remove this
 const enhancements = false;

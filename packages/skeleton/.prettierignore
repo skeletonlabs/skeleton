@@ -15,4 +15,4 @@ pnpm-lock.yaml
 /.temp
 /dist
 /scripts/tw-settings.json
-/src/lib/tailwind/generated
+src/plugin/tailwind/generated

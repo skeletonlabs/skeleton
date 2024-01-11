@@ -1,5 +1,5 @@
 {
-	"name": "skeleton.dev",
+	"name": "next.skeleton.dev",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/skeletonlabs/skeleton.git"
@@ -17,10 +17,11 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.3.4",
+		"@astrojs/cloudflare": "^8.0.2",
 		"@astrojs/react": "^3.0.9",
 		"@astrojs/svelte": "^5.0.3",
 		"@astrojs/tailwind": "^5.1.0",
-		"@skeletonlabs/skeleton-next": "workspace:*",
+		"@skeletonlabs/skeleton": "workspace:*",
 		"astro": "^4.1.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
