@@ -17,7 +17,7 @@ Please read and apply all [contribution requirements](https://www.skeleton.dev/d
 - [ ] This PR targets the `dev` branch (NEVER `master`)
 - [ ] Documentation reflects all relevant changes
 - [ ] Branch is prefixed with: `docs/`, `feat/`, `chore/`, `bugfix/`
-- [ ] Ensure Svelte and Typescript linting is current - run `pnpm ci:check`
+- [ ] Ensure linting is current - run `pnpm ci:check`
 - [ ] Ensure Prettier linting is current - run `pnpm format`
 - [ ] All test cases are passing - run `pnpm test`
 - [ ] Includes a changeset (if relevant; see above)
