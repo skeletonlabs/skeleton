@@ -8,9 +8,9 @@ import { join, resolve, basename } from "node:path";
 export default function skeletonPluginWatcher() {
 	const pluginSrcPath = resolve(
 		".",
-		join("..", "..", "packages", "skeleton-next", "src", "plugin")
+		join("..", "..", "packages", "skeleton", "src", "plugin")
 	);
-	const mm = new Minimatch("**/packages/skeleton-next/src/plugin/**/*");
+	const mm = new Minimatch("**/packages/skeleton/src/plugin/**/*");
 	let locked = false;
 
 	return {
@@ -23,7 +23,7 @@ export default function skeletonPluginWatcher() {
 					if (!locked) {
 						locked = true;
 						const now = Date.now();
-						exec("pnpm -F @skeletonlabs/skeleton-next build", () => {
+						exec("pnpm -F @skeletonlabs/skeleton build", () => {
 							console.log(`[TW Plugin]: Completed in ${Date.now() - now}ms`);
 							locked = false;
 						});
@@ -33,7 +33,7 @@ export default function skeletonPluginWatcher() {
 		},
 		async buildStart() {
 			const now = Date.now();
-			exec("pnpm -F @skeletonlabs/skeleton-next build", () => {
+			exec("pnpm -F @skeletonlabs/skeleton build", () => {
 				console.log(`[TW Plugin]: Completed in ${Date.now() - now}ms`);
 			});
 		},
