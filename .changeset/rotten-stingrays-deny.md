@@ -2,4 +2,4 @@
 "create-skeleton-app": patch
 ---
 
-Vertically center content for barebones template.
+bugfix:Vertically center content for barebones template.
