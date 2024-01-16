@@ -43,7 +43,7 @@
 		{ id: 4, avatar: 24, name: 'Lara' },
 		{ id: 5, avatar: 9, name: 'Melissa' }
 	];
-	let currentPerson: Person = people[0];
+	let currentPersonId: number = people[0].id;
 
 	// Messages
 	let messageFeed: MessageFeed[] = [
@@ -144,16 +144,22 @@
 					<!-- List -->
 					<div class="p-4 space-y-4 overflow-y-auto">
 						<small class="opacity-50">Contacts</small>
-						<ListBox active="variant-filled-primary">
+						<div class="flex flex-col space-y-1">
 							{#each people as person}
-								<ListBoxItem bind:group={currentPerson} name="people" value={person}>
-									<svelte:fragment slot="lead">
-										<Avatar src="https://i.pravatar.cc/?img={person.avatar}" width="w-8" />
-									</svelte:fragment>
-									{person.name}
-								</ListBoxItem>
+								<button
+									type="button"
+									class="btn w-full flex items-center space-x-4 {person.id === currentPersonId
+										? 'variant-filled-primary'
+										: 'bg-surface-hover-token'}"
+									on:click={() => (currentPersonId = person.id)}
+								>
+									<Avatar src="https://i.pravatar.cc/?img={person.avatar}" width="w-8" />
+									<span class="flex-1 text-start">
+										{person.name}
+									</span>
+								</button>
 							{/each}
-						</ListBox>
+						</div>
 					</div>
 					<!-- Footer -->
 					<!-- <footer class="border-t border-surface-500/30 p-4">(footer)</footer> -->
