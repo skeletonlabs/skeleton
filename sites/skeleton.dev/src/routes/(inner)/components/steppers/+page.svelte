@@ -182,10 +182,13 @@
 			<CodeBlock
 				language="html"
 				code={`
-<!-- French: Étape 1, Étape 2, ... -->
-<Step stepTerm='Étape'>...</Step>\n
-<!-- Spanish: Paso 1, Paso 2, ... -->
-<Step stepTerm='Paso'>...</Step>
+<!-- German: Schritt 1, Schritt 2, ... This will override the stepTerm in the Step Counter at the top -->
+<Stepper stepTerm="Schritt">
+	<!-- French: Étape 1, Étape 2, ... This will override the stepTerm in the default heading & content of the step -->
+	<Step stepTerm='Étape'>...</Step>\n
+	<!-- Spanish: Paso 1, Paso 2, ... This will override the stepTerm in the default heading & content of the step -->
+	<Step stepTerm='Paso'>...</Step>
+</Stepper>
 			`}
 			/>
 			<p>
