@@ -39,7 +39,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Strategy: Class</h2>
 			<p>
-				We recommend this approach for most users. Please note the Lightswitch copmonent must be present on page load in order to operate.
+				We recommend this approach for most users. Please note the Lightswitch component must be present on page load in order to operate.
 				For best results, insert this in a fixed element that appears on every page.
 			</p>
 			<CodeBlock
