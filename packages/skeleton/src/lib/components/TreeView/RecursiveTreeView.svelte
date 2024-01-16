@@ -43,10 +43,6 @@
 	export let spacing: CssClasses = 'space-y-1';
 
 	// Props (children)
-	/** Set open by default on load. */
-	export let open = false;
-	/** Set the tree disabled state */
-	export let disabled = false;
 	/** Provide classes to set the tree item padding styles. */
 	export let padding: CssClasses = 'py-4 px-4';
 	/** Provide classes to set the tree children indentation */
@@ -77,11 +73,9 @@
 	export let labelledby = '';
 
 	// Context API
-	setContext('open', open);
 	setContext('selection', selection);
 	setContext('multiple', multiple);
 	setContext('relational', relational);
-	setContext('disabled', disabled);
 	setContext('padding', padding);
 	setContext('indent', indent);
 	setContext('hover', hover);
@@ -114,14 +108,7 @@
 	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;
 </script>
 
-<div
-	class="tree {classesBase}"
-	data-testid="tree"
-	role="tree"
-	aria-multiselectable={multiple}
-	aria-label={labelledby}
-	aria-disabled={disabled}
->
+<div class="tree {classesBase}" data-testid="tree" role="tree" aria-multiselectable={multiple} aria-label={labelledby}>
 	{#if nodes && nodes.length > 0}
 		<RecursiveTreeViewItem
 			{nodes}
