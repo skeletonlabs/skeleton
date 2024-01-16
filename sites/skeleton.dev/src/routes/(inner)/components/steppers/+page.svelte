@@ -184,9 +184,9 @@
 				code={`
 <!-- German: Schritt 1, Schritt 2, ... This will override the stepTerm in the Step Counter at the top -->
 <Stepper stepTerm="Schritt">
-	<!-- French: Étape 1, Étape 2, ... This will override the stepTerm in the default heading & content of the step -->
-	<Step stepTerm='Étape'>...</Step>\n
-	<!-- Spanish: Paso 1, Paso 2, ... This will override the stepTerm in the default heading & content of the step -->
+	<!-- French: Étape 1, Étape 2, ... This will override the stepTerm in the default heading & content -->
+	<Step stepTerm='Étape'>...</Step>
+	<!-- Spanish: Paso 1, Paso 2, ... This will override the stepTerm in the default heading & content -->
 	<Step stepTerm='Paso'>...</Step>
 </Stepper>
 			`}
