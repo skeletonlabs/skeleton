@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 2.7.1
+
+### Patch Changes
+
+- chore: Use the `ActionReturn` type for the `clipboard` action ([#2376](https://github.com/skeletonlabs/skeleton/pull/2376))
+
 ## 2.7.0
 
 ### Minor Changes
