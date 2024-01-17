@@ -21,6 +21,9 @@ export const colors = () => {
 	const contrastPalette: Palette = {};
 	settings.colorNames.forEach((n) => (basePalette[n] = generatePaletteContrast(n, '')));
 	settings.colorNames.forEach((n) => (contrastPalette[`${n}-contrast`] = generatePaletteContrast(n, '-contrast')));
+
+	console.log({ ...basePalette, ...contrastPalette });
+
 	return { ...basePalette, ...contrastPalette };
 };
 
