@@ -33,8 +33,10 @@ const next = {
 		'--color-primary-300-contrast': 'var(--color-primary-contrast-dark)',
 		'--color-primary-400': '87 207 167',
 		'--color-primary-400-contrast': 'var(--color-primary-contrast-dark)',
+
 		// '--color-primary-500': '15 186 129',
 		'--color-primary-500': '236 72 153',
+
 		'--color-primary-500-contrast': 'var(--color-primary-contrast-dark)',
 		'--color-primary-600': '14 167 116',
 		'--color-primary-600-contrast': 'var(--color-primary-contrast-light)',
