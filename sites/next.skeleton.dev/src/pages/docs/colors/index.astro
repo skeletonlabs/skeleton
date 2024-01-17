@@ -12,33 +12,33 @@ const palette = [
 	{
 		name: 'Primary',
 		ramp: [
-			{base: 'bg-primary-50', contrast: 'text-white' },
-			{base: 'bg-primary-100', contrast: 'text-white' },
-			{base: 'bg-primary-200', contrast: 'text-white' },
-			{base: 'bg-primary-300', contrast: 'text-white' },
-			{base: 'bg-primary-400', contrast: 'text-white' },
-			{base: 'bg-primary-500', contrast: 'text-white' },
-			{base: 'bg-primary-600', contrast: 'text-white' },
-			{base: 'bg-primary-700', contrast: 'text-white' },
-			{base: 'bg-primary-800', contrast: 'text-white' },
-			{base: 'bg-primary-900', contrast: 'text-white' },
-			{base: 'bg-primary-950', contrast: 'text-white' },
+			{ value: 50,  base: 'bg-primary-50', contrast: 'bg-primary-50-contrast' },
+			{ value: 100, base: 'bg-primary-100', contrast: 'bg-primary-100-contrast' },
+			{ value: 200, base: 'bg-primary-200', contrast: 'bg-primary-200-contrast' },
+			{ value: 300, base: 'bg-primary-300', contrast: 'bg-primary-300-contrast' },
+			{ value: 400, base: 'bg-primary-400', contrast: 'bg-primary-400-contrast' },
+			{ value: 500, base: 'bg-primary-500', contrast: 'bg-primary-500-contrast' },
+			{ value: 600, base: 'bg-primary-600', contrast: 'bg-primary-600-contrast' },
+			{ value: 700, base: 'bg-primary-700', contrast: 'bg-primary-700-contrast' },
+			{ value: 800, base: 'bg-primary-800', contrast: 'bg-primary-800-contrast' },
+			{ value: 900, base: 'bg-primary-900', contrast: 'bg-primary-900-contrast' },
+			{ value: 950, base: 'bg-primary-950', contrast: 'bg-primary-950-contrast' },
 		]
 	},
 	// {
 	// 	name: 'Secondary',
 	// 	ramp: [
-	// 		{base: 'bg-secondary-50', contrast: 'text-white' },
-	// 		{base: 'bg-secondary-100', contrast: 'text-white' },
-	// 		{base: 'bg-secondary-200', contrast: 'text-white' },
-	// 		{base: 'bg-secondary-300', contrast: 'text-white' },
-	// 		{base: 'bg-secondary-400', contrast: 'text-white' },
-	// 		{base: 'bg-secondary-500', contrast: 'text-white' },
-	// 		{base: 'bg-secondary-600', contrast: 'text-white' },
-	// 		{base: 'bg-secondary-700', contrast: 'text-white' },
-	// 		{base: 'bg-secondary-800', contrast: 'text-white' },
-	// 		{base: 'bg-secondary-900', contrast: 'text-white' },
-	// 		{base: 'bg-secondary-950', contrast: 'text-white' },
+	// 		{ value: 50,  base: 'bg-secondary-50', contrast: 'text-white' },
+	// 		{ value: 100, base: 'bg-secondary-100', contrast: 'text-white' },
+	// 		{ value: 200, base: 'bg-secondary-200', contrast: 'text-white' },
+	// 		{ value: 300, base: 'bg-secondary-300', contrast: 'text-white' },
+	// 		{ value: 400, base: 'bg-secondary-400', contrast: 'text-white' },
+	// 		{ value: 500, base: 'bg-secondary-500', contrast: 'text-white' },
+	// 		{ value: 600, base: 'bg-secondary-600', contrast: 'text-white' },
+	// 		{ value: 700, base: 'bg-secondary-700', contrast: 'text-white' },
+	// 		{ value: 800, base: 'bg-secondary-800', contrast: 'text-white' },
+	// 		{ value: 900, base: 'bg-secondary-900', contrast: 'text-white' },
+	// 		{ value: 950, base: 'bg-secondary-950', contrast: 'text-white' },
 	// 	]
 	// },
 ];
@@ -52,7 +52,11 @@ const palette = [
 			<div class="grid grid-cols-11">
 				{/* Loop Ramp */}
 				{color.ramp.map(shade => (
-					<div class={`${shade.base} p-2`}><span class={`${shade.contrast} bg-black/50 p-1 text-xs rounded`}>50</span></div>
+					<div class={`${shade.base} p-2 flex justify-center items-center`}>
+						<span class={`${shade.contrast} bg-black/50 px-1 py-0.5 text-xs rounded`}>
+							{shade.value}
+						</span>
+					</div>
 				))}
 			</div>
 		))}

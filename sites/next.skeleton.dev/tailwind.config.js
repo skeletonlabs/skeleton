@@ -1,4 +1,5 @@
-import { skeleton } from "@skeletonlabs/skeleton/plugin";
+// import { skeleton } from "@skeletonlabs/skeleton/plugin";
+import { skeleton } from "../../packages/skeleton/dist/plugin/index.cjs";
 
 /** @type {import('tailwindcss').Config} */
 export default {
