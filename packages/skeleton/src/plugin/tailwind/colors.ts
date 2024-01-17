@@ -5,20 +5,23 @@ import settings from './settings.js';
 
 type Shade = { [shadeValue: number]: string };
 
-// ex: `50: 'rgb(var(--color-primary-50) / <alpha-value>)'`
-function generatePaletteShades(colorName: string) {
+// base: `50: 'rgb(var(--color-primary-50) / <alpha-value>)'`
+// contrast: `50: 'rgb(var(--color-primary-50-contrast) / <alpha-value>)'`
+function generatePaletteContrast(colorName: string, suffix: string) {
 	const shadeObj: Shade = {};
-	settings.colorShades.forEach((s) => (shadeObj[s] = `rgb(var(--color-${colorName}-${s}) / <alpha-value>)`));
+	settings.colorShades.forEach((s) => (shadeObj[s] = `rgb(var(--color-${colorName}-${s}${suffix}) / <alpha-value>)`));
 	return shadeObj;
 }
 
 type Palette = { [colorName: string]: Shade };
 
-// Generate a a color shade palette 50-900 per each color available
+// Generate a a color shade palette 50-950 per each color available
 export const colors = () => {
-	const paletteObj: Palette = {};
-	settings.colorNames.forEach((n) => (paletteObj[n] = generatePaletteShades(n)));
-	return paletteObj;
+	const basePalette: Palette = {};
+	const contrastPalette: Palette = {};
+	settings.colorNames.forEach((n) => (basePalette[n] = generatePaletteContrast(n, '')));
+	settings.colorNames.forEach((n) => (contrastPalette[`${n}-contrast`] = generatePaletteContrast(n, '-contrast')));
+	return { ...basePalette, ...contrastPalette };
 };
 
 export default colors;

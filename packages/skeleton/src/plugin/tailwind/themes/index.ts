@@ -8,9 +8,22 @@ import seafoam from './seafoam.js';
 import skeleton from './skeleton.js';
 import vintage from './vintage.js';
 import wintry from './wintry.js';
+import next from './next.js';
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
 
-export const themes = { crimson, 'gold-nouveau': goldNouveau, hamlindigo, modern, rocket, sahara, seafoam, skeleton, vintage, wintry };
+export const themes = {
+	crimson,
+	'gold-nouveau': goldNouveau,
+	hamlindigo,
+	modern,
+	rocket,
+	sahara,
+	seafoam,
+	skeleton,
+	vintage,
+	wintry,
+	next
+};
 
 export type PresetThemeName = ObjectKeys<typeof themes>;
 
