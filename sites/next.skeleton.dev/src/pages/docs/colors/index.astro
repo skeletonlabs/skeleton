@@ -1,0 +1,60 @@
+---
+import LayoutDocs from "@lib/layouts/LayoutDocs.astro";
+
+const layoutProps = {
+    categoryId: 1,
+    title: 'Colors',
+    description: 'The Skeleton color system.',
+    preview: false
+};
+
+const palette = [
+	{
+		name: 'Primary',
+		ramp: [
+			{base: 'bg-primary-50', contrast: 'text-white' },
+			{base: 'bg-primary-100', contrast: 'text-white' },
+			{base: 'bg-primary-200', contrast: 'text-white' },
+			{base: 'bg-primary-300', contrast: 'text-white' },
+			{base: 'bg-primary-400', contrast: 'text-white' },
+			{base: 'bg-primary-500', contrast: 'text-white' },
+			{base: 'bg-primary-600', contrast: 'text-white' },
+			{base: 'bg-primary-700', contrast: 'text-white' },
+			{base: 'bg-primary-800', contrast: 'text-white' },
+			{base: 'bg-primary-900', contrast: 'text-white' },
+			{base: 'bg-primary-950', contrast: 'text-white' },
+		]
+	},
+	// {
+	// 	name: 'Secondary',
+	// 	ramp: [
+	// 		{base: 'bg-secondary-50', contrast: 'text-white' },
+	// 		{base: 'bg-secondary-100', contrast: 'text-white' },
+	// 		{base: 'bg-secondary-200', contrast: 'text-white' },
+	// 		{base: 'bg-secondary-300', contrast: 'text-white' },
+	// 		{base: 'bg-secondary-400', contrast: 'text-white' },
+	// 		{base: 'bg-secondary-500', contrast: 'text-white' },
+	// 		{base: 'bg-secondary-600', contrast: 'text-white' },
+	// 		{base: 'bg-secondary-700', contrast: 'text-white' },
+	// 		{base: 'bg-secondary-800', contrast: 'text-white' },
+	// 		{base: 'bg-secondary-900', contrast: 'text-white' },
+	// 		{base: 'bg-secondary-950', contrast: 'text-white' },
+	// 	]
+	// },
+];
+---
+
+<LayoutDocs {...layoutProps}>
+	<!-- Colors -->
+    <section class="bg-neutral-950 p-4 space-y-4">
+		<!-- Loop Colors -->
+		{palette.map(color => (
+			<div class="grid grid-cols-11">
+				{/* Loop Ramp */}
+				{color.ramp.map(shade => (
+					<div class={`${shade.base} p-2`}><span class={`${shade.contrast} bg-black/50 p-1 text-xs rounded`}>50</span></div>
+				))}
+			</div>
+		))}
+    </section>
+</LayoutDocs>
