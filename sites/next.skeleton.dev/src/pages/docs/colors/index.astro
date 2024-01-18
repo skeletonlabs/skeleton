@@ -122,23 +122,84 @@ const palette = [
 		]
 	},
 ];
+
+
 ---
 
 <LayoutDocs {...layoutProps}>
 	<!-- Colors -->
-    <section class="space-y-0.5">
+    <section class="space-y-4">
+		<h2 class="h2">Palette</h2>
 		<!-- Loop Colors -->
-		{palette.map(color => (
-			<div class="grid grid-cols-11 gap-0.5">
-				{/* Loop Ramp */}
-				{color.ramp.map(shade => (
-					<div class={`${shade.base} p-2 flex justify-center items-center`}>
-						<span class={`${shade.contrast} font-bold text-sm rounded`}>
-							{shade.value}
-						</span>
+		<div class="space-y-4 lg:space-y-0.5">
+			{palette.map(color => (
+				<div class="grid grid-cols-1 lg:grid-cols-[100px_auto] gap-1 lg:gap-4 items-center">
+					<strong>{color.name}</strong>
+					<div class="grid grid-cols-11 gap-0.5">
+						{/* Loop Ramp */}
+						{color.ramp.map(shade => (
+							<div class={`${shade.base} py-3 flex justify-center items-center`}>
+								<strong class:list={[ shade.contrast, { underline: shade.value === 500 }, 'text-sm rounded' ]} >
+									{shade.value}
+								</strong>
+							</div>
+						))}
 					</div>
-				))}
-			</div>
-		))}
+				</div>
+			))}
+		</div>
     </section>
+	<!-- Color Pairings -->
+	<section class="space-y-4">
+		<h2 class="h2">Pairings</h2>
+		<!-- Loop Colors -->
+		<div class="grid grid-cols-[112px_1fr] gap-2 md:gap-8 item-center">
+			<div class="bg-primary-500 aspect-square flex justify-center items-center">
+				<strong class="text-primary-contrast-500 text-sm rounded">500</strong>
+			</div>
+			<div>
+				<div class="grid grid-cols-5 gap-2 md:gap-8">
+					<div class="bg-primary-400 py-3 flex justify-center items-center">
+						<strong class="text-primary-contrast-400 text-sm rounded">Light: 400</strong>
+					</div>
+					<div class="bg-primary-300 py-3 flex justify-center items-center">
+						<strong class="text-primary-contrast-300 text-sm rounded">Light: 300</strong>
+					</div>
+					<div class="bg-primary-200 py-3 flex justify-center items-center">
+						<strong class="text-primary-contrast-200 text-sm rounded">Light: 200</strong>
+					</div>
+					<div class="bg-primary-100 py-3 flex justify-center items-center">
+						<strong class="text-primary-contrast-100 text-sm rounded">Light: 100</strong>
+					</div>
+					<div class="bg-primary-50 py-3 flex justify-center items-center">
+						<strong class="text-primary-contrast-50 text-sm rounded">Light: 50</strong>
+					</div>
+				</div>
+				<div class="grid grid-cols-5 gap-2 md:gap-8">
+					<span class="text-center">↕</span>
+					<span class="text-center">↕</span>
+					<span class="text-center">↕</span>
+					<span class="text-center">↕</span>
+					<span class="text-center">↕</span>
+				</div>
+				<div class="grid grid-cols-5 gap-2 md:gap-8">
+					<div class="bg-primary-600 py-3 flex justify-center items-center">
+						<strong class="text-primary-contrast-600 text-sm rounded">Dark: 600</strong>
+					</div>
+					<div class="bg-primary-700 py-3 flex justify-center items-center">
+						<strong class="text-primary-contrast-700 text-sm rounded">Dark: 700</strong>
+					</div>
+					<div class="bg-primary-800 py-3 flex justify-center items-center">
+						<strong class="text-primary-contrast-800 text-sm rounded">Dark: 800</strong>
+					</div>
+					<div class="bg-primary-900 py-3 flex justify-center items-center">
+						<strong class="text-primary-contrast-900 text-sm rounded">Dark: 900</strong>
+					</div>
+					<div class="bg-primary-950 py-3 flex justify-center items-center">
+						<strong class="text-primary-contrast-950 text-sm rounded">Dark: 950</strong>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </LayoutDocs>
