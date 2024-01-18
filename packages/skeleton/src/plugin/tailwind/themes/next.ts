@@ -22,7 +22,6 @@ const next = {
 
 		// Primary
 		'--on-primary': '0 0 0', // TODO: remove
-		// ---
 		'--color-primary-50': '242 247 253',
 		'--color-primary-100': '229 237 249',
 		'--color-primary-200': '197 219 242',
@@ -34,10 +33,8 @@ const next = {
 		'--color-primary-800': '27 68 113',
 		'--color-primary-900': '28 58 94',
 		'--color-primary-950': '19 37 62',
-		// ---
 		'--color-primary-contrast-dark': 'var(--color-primary-950)',
 		'--color-primary-contrast-light': 'var(--color-primary-50)',
-		// ---
 		'--color-primary-contrast-50': 'var(--color-primary-contrast-dark)',
 		'--color-primary-contrast-100': 'var(--color-primary-contrast-dark)',
 		'--color-primary-contrast-200': 'var(--color-primary-contrast-dark)',
@@ -52,7 +49,6 @@ const next = {
 
 		// Secondary
 		'--on-secondary': '255 255 255', // TODO: REMOVE
-		// ---
 		'--color-secondary-50': '237 239 255',
 		'--color-secondary-100': '222 226 255',
 		'--color-secondary-200': '196 201 255',
@@ -64,10 +60,8 @@ const next = {
 		'--color-secondary-800': '64 41 170',
 		'--color-secondary-900': '55 41 134',
 		'--color-secondary-950': '34 24 78',
-		// ---
 		'--color-secondary-contrast-dark': 'var(--color-secondary-950)',
 		'--color-secondary-contrast-light': 'var(--color-secondary-50)',
-		// ---
 		'--color-secondary-contrast-50': 'var(--color-secondary-contrast-dark)',
 		'--color-secondary-contrast-100': 'var(--color-secondary-contrast-dark)',
 		'--color-secondary-contrast-200': 'var(--color-secondary-contrast-dark)',
@@ -82,7 +76,6 @@ const next = {
 
 		// Tertiary
 		'--on-tertiary': '0 0 0', // TODO: REMOVE
-		// ---
 		'--color-tertiary-50': '244 244 254',
 		'--color-tertiary-100': '236 234 253',
 		'--color-tertiary-200': '219 216 252',
@@ -94,10 +87,8 @@ const next = {
 		'--color-tertiary-800': '80 40 175',
 		'--color-tertiary-900': '67 35 143',
 		'--color-tertiary-950': '40 20 97',
-		// ---
 		'--color-tertiary-contrast-dark': 'var(--color-tertiary-950)',
 		'--color-tertiary-contrast-light': 'var(--color-tertiary-50)',
-		// ---
 		'--color-tertiary-contrast-50': 'var(--color-tertiary-contrast-dark)',
 		'--color-tertiary-contrast-100': 'var(--color-tertiary-contrast-dark)',
 		'--color-tertiary-contrast-200': 'var(--color-tertiary-contrast-dark)',
@@ -112,7 +103,6 @@ const next = {
 
 		// Success
 		'--on-success': '0 0 0', // TODO: REMOVE
-		// ---
 		'--color-success-50': '243 250 235',
 		'--color-success-100': '228 243 212',
 		'--color-success-200': '203 233 173',
@@ -124,10 +114,8 @@ const next = {
 		'--color-success-800': '53 84 32',
 		'--color-success-900': '47 72 31',
 		'--color-success-950': '22 39 12',
-		// ---
 		'--color-success-contrast-dark': 'var(--color-success-950)',
 		'--color-success-contrast-light': 'var(--color-success-50)',
-		// ---
 		'--color-success-contrast-50': 'var(--color-success-contrast-dark)',
 		'--color-success-contrast-100': 'var(--color-success-contrast-dark)',
 		'--color-success-contrast-200': 'var(--color-success-contrast-dark)',
@@ -142,7 +130,6 @@ const next = {
 
 		// Warning
 		'--on-warning': '0 0 0', // TODO: REMOVE
-		// ---
 		'--color-warning-50': '255 247 237',
 		'--color-warning-100': '255 237 213',
 		'--color-warning-200': '255 216 169',
@@ -154,10 +141,8 @@ const next = {
 		'--color-warning-800': '155 53 17',
 		'--color-warning-900': '125 46 17',
 		'--color-warning-950': '67 21 7',
-		// ---
 		'--color-warning-contrast-dark': 'var(--color-warning-950)',
 		'--color-warning-contrast-light': 'var(--color-warning-50)',
-		// ---
 		'--color-warning-contrast-50': 'var(--color-warning-contrast-dark)',
 		'--color-warning-contrast-100': 'var(--color-warning-contrast-dark)',
 		'--color-warning-contrast-200': 'var(--color-warning-contrast-dark)',
@@ -172,7 +157,6 @@ const next = {
 
 		// Error
 		'--on-error': '255 255 255', // TODO: REMOVE
-		// ---
 		'--color-error-50': '255 241 243',
 		'--color-error-100': '255 227 230',
 		'--color-error-200': '255 204 212',
@@ -184,10 +168,8 @@ const next = {
 		'--color-error-800': '163 14 62',
 		'--color-error-900': '139 16 60',
 		'--color-error-950': '78 3 27',
-		// ---
 		'--color-error-contrast-dark': 'var(--color-error-950)',
 		'--color-error-contrast-light': 'var(--color-error-50)',
-		// ---
 		'--color-error-contrast-50': 'var(--color-error-contrast-dark)',
 		'--color-error-contrast-100': 'var(--color-error-contrast-dark)',
 		'--color-error-contrast-200': 'var(--color-error-contrast-dark)',
@@ -202,7 +184,6 @@ const next = {
 
 		// Surface
 		'--on-surface': '255 255 255', // TODO: REMOVE
-		// ---
 		'--color-surface-50': '250 250 249',
 		'--color-surface-100': '245 245 244',
 		'--color-surface-200': '231 229 228',
@@ -214,10 +195,8 @@ const next = {
 		'--color-surface-800': '41 37 36',
 		'--color-surface-900': '23 25 26',
 		'--color-surface-950': '17 17 20',
-		// ---
 		'--color-surface-contrast-dark': 'var(--color-surface-950)',
 		'--color-surface-contrast-light': 'var(--color-surface-50)',
-		// ---
 		'--color-surface-contrast-50': 'var(--color-surface-contrast-dark)',
 		'--color-surface-contrast-100': 'var(--color-surface-contrast-dark)',
 		'--color-surface-contrast-200': 'var(--color-surface-contrast-dark)',
