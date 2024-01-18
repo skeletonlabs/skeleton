@@ -9,7 +9,7 @@ type Shade = { [shadeValue: number]: string };
 // contrast: `50: 'rgb(var(--color-primary-50-contrast) / <alpha-value>)'`
 function generatePaletteContrast(colorName: string, suffix: string) {
 	const shadeObj: Shade = {};
-	settings.colorShades.forEach((s) => (shadeObj[s] = `rgb(var(--color-${colorName}-${s}${suffix}) / <alpha-value>)`));
+	settings.colorShades.forEach((s) => (shadeObj[s] = `rgb(var(--color-${colorName}${suffix}-${s}) / <alpha-value>)`));
 	return shadeObj;
 }
 
