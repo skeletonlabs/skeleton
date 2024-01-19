@@ -1,27 +1,30 @@
-// Extends Tailwind with Skeleton theme-specific colors values
-// Doc: https://tailwindcss.com/docs/customizing-colors#using-css-variables
+// Skeleton Colors
+// https://tailwindcss.com/docs/customizing-colors#using-css-variables
 
 import settings from '../settings.js';
 
 type Shade = { [shadeValue: number]: string };
+type Palette = { [colorName: string]: Shade };
 
-// base: `50: 'rgb(var(--color-primary-50) / <alpha-value>)'`
-// contrast: `50: 'rgb(var(--color-primary-50-contrast) / <alpha-value>)'`
-function generatePaletteContrast(colorName: string, suffix: string) {
+function generatePaletteRamp(colorName: string, suffix: string) {
 	const shadeObj: Shade = {};
+	// Loop Shades (50-950)
+	// Example:`50: 'rgb(var(--color-primary-50) / <alpha-value>)'`
+	// Example:`50: 'rgb(var(--color-primary-contrast-50) / <alpha-value>)'`
 	settings.colorShades.forEach((s) => (shadeObj[s] = `rgb(var(--color-${colorName}${suffix}-${s}) / <alpha-value>)`));
 	return shadeObj;
 }
 
-type Palette = { [colorName: string]: Shade };
-
-// Generate a a color shade palette 50-950 per each color available
 export const colors = () => {
-	const basePalette: Palette = {};
-	const contrastPalette: Palette = {};
-	settings.colorNames.forEach((n) => (basePalette[n] = generatePaletteContrast(n, '')));
-	settings.colorNames.forEach((n) => (contrastPalette[`${n}-contrast`] = generatePaletteContrast(n, '-contrast')));
-	return { ...basePalette, ...contrastPalette };
+	const palette: Palette = {};
+	// Loop Color Names
+	settings.colorNames.forEach((colorName) => {
+		// Generate Base Colors
+		palette[colorName] = generatePaletteRamp(colorName, '');
+		// Generate Contrast Colors
+		palette[`${colorName}-contrast`] = generatePaletteRamp(colorName, '-contrast');
+	});
+	return palette;
 };
 
 export default colors;

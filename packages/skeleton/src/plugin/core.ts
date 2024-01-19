@@ -5,8 +5,9 @@
 
 import plugin from 'tailwindcss/plugin.js';
 
-// Skeleton Theme Modules
-import themeColors from './extends/colors.js';
+// Skeleton Extensions
+import colors from './extends/colors.js';
+
 // Skeleton Design Token Modules
 import tokensBackgrounds from './extends/backgrounds.js';
 import tokensBorders from './extends/borders.js';
@@ -30,7 +31,7 @@ export const coreConfig = {
 	theme: {
 		extend: {
 			// Implement Skeleton theme colors
-			colors: themeColors()
+			colors: colors()
 		}
 	}
 };
