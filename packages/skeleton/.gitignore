@@ -8,6 +8,6 @@ dist
 !.env.example
 coverage
 .temp
-src/plugin/extends/generated
+src/plugin/generated
 *.tgz
 *.log

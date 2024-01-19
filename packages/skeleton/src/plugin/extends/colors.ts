@@ -1,7 +1,7 @@
 // Extends Tailwind with Skeleton theme-specific colors values
 // Doc: https://tailwindcss.com/docs/customizing-colors#using-css-variables
 
-import settings from './settings.js';
+import settings from '../settings.js';
 
 type Shade = { [shadeValue: number]: string };
 

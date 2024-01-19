@@ -4,7 +4,7 @@ import { mkdir, writeFile } from 'fs/promises';
 import plugin from 'tailwindcss/plugin.js';
 
 const INTELLISENSE_FILE_NAME = 'generated-classes.cjs';
-const GENERATED_DIR_PATH = `./src/plugin/extends/generated`;
+const GENERATED_DIR_PATH = `./src/plugin/generated`;
 
 async function exec() {
 	// Makes directory that stores our generated CSS-in-JS

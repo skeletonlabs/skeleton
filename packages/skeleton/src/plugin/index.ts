@@ -1,8 +1,8 @@
 import plugin from 'tailwindcss/plugin.js';
 import postcssJs from 'postcss-js';
-import { coreConfig, coreUtilities, getSkeletonClasses } from './extends/core.js';
+import { coreConfig, coreUtilities, getSkeletonClasses } from './core.js';
 import { themes, getThemeProperties } from './themes/index.js';
-import { prefixSelector } from './extends/prefixSelector.js';
+import { prefixSelector } from './prefixSelector.js';
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
 import type { ConfigOptions, CustomThemeConfig, PresetThemeConfig, ThemeConfig } from './types.js';
 

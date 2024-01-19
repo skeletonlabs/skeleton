@@ -15,4 +15,4 @@ pnpm-lock.yaml
 /.temp
 /dist
 /scripts/tw-settings.json
-src/plugin/extends/generated
+src/plugin/generated
