@@ -1,5 +1,5 @@
 import { Config } from 'tailwindcss';
-import { corePlugin } from './src/plugin/tailwind/core.js';
+import { corePlugin } from './src/plugin/extends/core.js';
 
 const config = {
 	darkMode: 'class',

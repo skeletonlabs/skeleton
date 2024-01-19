@@ -1,5 +1,7 @@
+@import '../tailwind.css';
+
+/* Global */
 @import 'scrollbars.css';
-@import 'dividers.css';
 @import 'typography.css';
 
 /* Elements */
@@ -17,7 +19,9 @@
 @import 'tables.css';
 
 /* Utilities */
+@import 'dividers.css';
 @import 'modals.css';
 @import 'popups.css';
 
+/* Variants */
 @import 'variants.css';

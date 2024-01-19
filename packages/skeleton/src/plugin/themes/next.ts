@@ -18,7 +18,6 @@ const next = {
 		'--theme-border-base': '1px',
 
 		// Colors ---
-		// '--color-primary-500': '236 72 153',
 
 		// Primary
 		'--on-primary': '0 0 0', // TODO: remove
@@ -27,7 +26,10 @@ const next = {
 		'--color-primary-200': '197 219 242',
 		'--color-primary-300': '146 189 231',
 		'--color-primary-400': '87 154 217',
+
 		'--color-primary-500': '49 126 198',
+		// '--color-primary-500': '236 72 153',
+
 		'--color-primary-600': '32 93 158',
 		'--color-primary-700': '29 79 135',
 		'--color-primary-800': '27 68 113',

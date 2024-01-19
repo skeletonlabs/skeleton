@@ -8,6 +8,6 @@ dist
 !.env.example
 coverage
 .temp
-src/plugin/tailwind/generated
+src/plugin/extends/generated
 *.tgz
 *.log

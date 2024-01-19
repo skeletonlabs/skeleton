@@ -4,7 +4,7 @@ import { mkdir, writeFile } from 'fs/promises';
 import plugin from 'tailwindcss/plugin.js';
 
 const INTELLISENSE_FILE_NAME = 'generated-classes.cjs';
-const GENERATED_DIR_PATH = `./src/plugin/tailwind/generated`;
+const GENERATED_DIR_PATH = `./src/plugin/extends/generated`;
 
 async function exec() {
 	// Makes directory that stores our generated CSS-in-JS
@@ -12,13 +12,13 @@ async function exec() {
 		// directory already exists
 	});
 
-	const generatedComponentJSS = await transpileCssToJs('./src/plugin/styles/components.css');
+	const generatedComponentJSS = await transpileCssToJs('./src/plugin/components/index.css');
 	const componentClasses = patchMediaQueries(generatedComponentJSS);
 
 	const componentPlugin = plugin(({ addComponents }) => {
 		addComponents(componentClasses);
 	});
-	const baseStyles = await transpileCssToJs('./src/plugin/styles/base.css', [componentPlugin]);
+	const baseStyles = await transpileCssToJs('./src/plugin/base/index.css', [componentPlugin]);
 
 	// Creates the generated CSS-in-JS file
 	await writeFile(
