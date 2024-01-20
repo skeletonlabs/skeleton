@@ -135,7 +135,7 @@
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
-						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" strokeLinecap={${strokeLinecap}} />`}
+						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" strokeLinecap="${strokeLinecap}" />`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
