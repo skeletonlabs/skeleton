@@ -9,6 +9,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"verbatimModuleSyntax": true,
+		"noEmit": true,
 		"lib": ["ES2022"],
 		"target": "ES2022",
 		"module": "NodeNext",
@@ -16,5 +17,5 @@
 		"typeRoots": ["../../node_modules/@types", "../../scripts/@types"]
 	},
 	"include": [".", "../../scripts"],
-	"exclude": ["extends/generated/**/*"]
+	"exclude": ["tailwind/generated/**/*"]
 }
