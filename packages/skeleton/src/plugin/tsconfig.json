@@ -17,5 +17,5 @@
 		"typeRoots": ["../../node_modules/@types", "../../scripts/@types"]
 	},
 	"include": [".", "../../scripts"],
-	"exclude": ["tailwind/generated/**/*"]
+	"exclude": ["./generated/**/*"]
 }
