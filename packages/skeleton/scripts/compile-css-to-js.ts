@@ -1,6 +1,6 @@
 import postcss, { type PluginCreator } from 'postcss';
 import postcssJs from 'postcss-js';
-import { readFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
 import postcssImport from 'postcss-import';
 import tw from 'tailwindcss';
 import type { Config } from 'tailwindcss';
