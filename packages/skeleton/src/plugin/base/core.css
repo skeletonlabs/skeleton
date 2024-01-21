@@ -4,7 +4,7 @@
 
 body {
 	/* Background Color */
-	@apply bg-surface-50 dark:bg-surface-950;
+	@apply bg-surface-50-950;
 	/* Text Color */
 	@apply text-surface-950-50;
 	/* Typography */
@@ -37,14 +37,14 @@ html {
 	@apply w-2 h-2;
 }
 ::-webkit-scrollbar-track {
-	@apply bg-surface-50 dark:bg-surface-950 px-[1px];
+	@apply bg-surface-50-950 px-[1px];
 }
 ::-webkit-scrollbar-thumb {
 	/* @apply rounded-token */
-	@apply bg-surface-400 dark:bg-surface-600;
+	@apply bg-surface-400-600;
 }
 ::-webkit-scrollbar-corner {
-	@apply bg-surface-50 dark:bg-surface-950;
+	@apply bg-surface-50-950;
 }
 
 /* Firefox */
