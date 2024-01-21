@@ -4,7 +4,7 @@
 
 body {
 	/* Background Color */
-	@apply bg-surface-50-950;
+	@apply bg-surface-50 dark:bg-surface-950;
 	/* Text Color */
 	@apply text-surface-950-50;
 	/* Typography */
