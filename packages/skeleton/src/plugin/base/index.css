@@ -1,6 +1,5 @@
 @import '../tailwind.css';
 
-/* Core should be optional in the plugin */
 @import 'core.css';
-@import 'forms.css';
-@import 'elements.css';
+/* @import 'forms.css'; */
+/* @import 'elements.css'; */

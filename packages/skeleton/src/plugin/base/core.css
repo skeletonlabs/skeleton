@@ -3,10 +3,12 @@
 /* === Body Styles === */
 
 body {
-	/* @apply bg-surface-50-900-token; */
+	/* Background Color */
 	@apply bg-surface-50 dark:bg-surface-950;
+	/* Text Color */
+	@apply text-surface-950-50;
 	/* Typography */
-	@apply text-base font-token text-token;
+	/* @apply text-base font-token text-token; */
 }
 
 /* === Selection === */
@@ -15,12 +17,14 @@ body {
 	@apply bg-primary-500/30;
 }
 
-/* === Focus === */
+/* === Outline === */
 
-/* Outline (do not change) */
+/* Feel free to modify the outline, but NEVER remove it! */
 /* http://www.outlinenone.com/ */
 
-/* Mobile tap highlight */
+/* === Mobile Touch === */
+
+/* Mobile Tap Highlight Color (WebKit) */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
 html {
 	-webkit-tap-highlight-color: rgba(128, 128, 128, 0.5);
@@ -28,18 +32,19 @@ html {
 
 /* === Scrollbars === */
 
+/* Chrome/Safari/Edge */
 ::-webkit-scrollbar {
-	@apply w-2;
-	@apply h-2;
+	@apply w-2 h-2;
 }
 ::-webkit-scrollbar-track {
-	@apply !bg-surface-50-900-token px-[1px];
+	@apply bg-surface-50 dark:bg-surface-950 px-[1px];
 }
 ::-webkit-scrollbar-thumb {
-	@apply rounded-token bg-surface-400-500-token;
+	/* @apply rounded-token */
+	@apply bg-surface-400 dark:bg-surface-600;
 }
 ::-webkit-scrollbar-corner {
-	@apply !bg-surface-50-900-token;
+	@apply bg-surface-50 dark:bg-surface-950;
 }
 
 /* Firefox */
@@ -49,10 +54,4 @@ html {
 }
 html.dark {
 	scrollbar-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, 0.05);
-}
-
-/* === Horizontal Rules === */
-
-hr:not(.divider) {
-	@apply block border-t border-solid border-surface-300-600-token;
 }

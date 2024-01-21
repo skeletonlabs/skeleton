@@ -1,11 +1,11 @@
 @import '../tailwind.css';
 
 /* Global */
-@import 'scrollbars.css';
-@import 'typography.css';
+/* @import 'scrollbars.css'; */
+/* @import 'typography.css'; */
 
 /* Elements */
-@import 'alerts.css';
+/* @import 'alerts.css';
 @import 'badges.css';
 @import 'breadcrumbs.css';
 @import 'buttons.css';
@@ -13,15 +13,15 @@
 @import 'codeblocks.css';
 @import 'chips.css';
 @import 'forms.css';
+@import 'horizontal-rules.css';
 @import 'lists.css';
 @import 'logo-clouds.css';
 @import 'placeholders.css';
-@import 'tables.css';
+@import 'tables.css'; */
 
 /* Utilities */
-@import 'dividers.css';
-@import 'modals.css';
-@import 'popups.css';
+/* @import 'modals.css'; */
+/* @import 'popups.css'; */
 
 /* Variants */
-@import 'variants.css';
+/* @import 'variants.css'; */

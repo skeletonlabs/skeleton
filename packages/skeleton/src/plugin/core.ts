@@ -8,29 +8,34 @@ import plugin from 'tailwindcss/plugin.js';
 // Skeleton Extensions
 import colors from './extends/colors.js';
 
-// Skeleton Design Token Modules
-import tokensBackgrounds from './extends/backgrounds.js';
-import tokensBorders from './extends/borders.js';
-import tokensBorderRadius from './extends/border-radius.js';
-import tokensFills from './extends/fills.js';
-import tokensText from './extends/text.js';
-import tokensRings from './extends/rings.js';
+// Skeleton Utilities
+import backgrounds from './utilities/color-pairings.js';
 
-// IMPORTANT: KEEP THIS FOR `/utilities/presets.ts`
+// Skeleton Design Token Modules
+// import tokensBorders from './extends/borders.js';
+// import tokensBorderRadius from './extends/border-radius.js';
+// import tokensFills from './extends/fills.js';
+// import tokensText from './extends/text.js';
+// import tokensRings from './extends/rings.js';
+
+// Inject Skeleton utility classes
 export const coreUtilities = {
-	// Implement Skeleton design token classes
-	...tokensBackgrounds(),
-	...tokensBorders(),
-	...tokensBorderRadius(),
-	...tokensFills(),
-	...tokensText(),
-	...tokensRings()
+	// ...tokensBorders(),
+	// ...tokensBorderRadius(),
+	// ...tokensFills(),
+	// ...tokensText(),
+	// ...tokensRings()
+
+	// Newly added:
+	...backgrounds()
+	// ...presets()
 };
 
+// Extends the Tailwind Config with Skeleton features
 export const coreConfig = {
 	theme: {
 		extend: {
-			// Implement Skeleton theme colors
+			// backgroundColor: backgrounds(),
 			colors: colors()
 		}
 	}
