@@ -6,11 +6,12 @@ const next = {
 		// Typography ---
 		// https://designcode.io/typographic-scales
 
+		// 1.067, 1.125, 1.2, 1.250, 1.333, 1.414, 1.5, 1.618
 		'--type-scale-factor': '1.067' /* Minor Second */,
 
 		'--type-scale-1': 'calc(12px * var(--type-scale-factor))',
 		'--type-scale-2': 'calc(14px * var(--type-scale-factor))',
-		'--type-scale-3': 'calc(16px * var(--type-scale-factor))', // <--
+		'--type-scale-3': 'calc(16px * var(--type-scale-factor))',
 		'--type-scale-4': 'calc(18px * var(--type-scale-factor))',
 		'--type-scale-5': 'calc(20px * var(--type-scale-factor))',
 		'--type-scale-6': 'calc(24px * var(--type-scale-factor))',
@@ -22,22 +23,32 @@ const next = {
 		'--base-font-color-dark': 'var(--color-surface-50)',
 		'--base-font-family': 'system-ui',
 		'--base-font-size': 'initial',
-		'--base-font-style': 'normal',
-		'--base-font-weight': 'normal',
 		'--base-line-height': 'initial',
+		'--base-font-weight': 'normal',
+		'--base-font-style': 'normal',
 		'--base-letter-spacing': '0em',
 
 		'--heading-font-color': 'var(--color-surface-950)',
 		'--heading-font-color-dark': 'var(--color-surface-50)',
 		'--heading-font-family': 'var(--base-font-family)',
 		'--heading-font-size': 'var(--base-font-size)',
-		'--heading-font-style': 'normal',
-		'--heading-font-weight': 'bold',
 		'--heading-line-height': 'var(--base-line-height)',
+		'--heading-font-weight': 'bold',
+		'--heading-font-style': 'normal',
 		'--heading-letter-spacing': 'var(--base-letter-spacing)',
 
 		'--anchor-font-color': 'var(--color-primary-500)',
 		'--anchor-font-color-dark': 'var(--color-primary-500)',
+		'--anchor-font-family': 'var(--base-font-family)',
+		'--anchor-font-size': 'var(--base-font-size)',
+		'--anchor-line-height': 'var(--base-line-height)',
+		'--anchor-font-weight': 'var(--base-font-weight)',
+		'--anchor-font-style': 'var(--base-font-style)',
+		'--anchor-letter-spacing': 'var(--base-letter-spacing)',
+		'--anchor-text-decoration': 'none',
+		'--anchor-text-decoration-hover': 'underline',
+		'--anchor-text-decoration-active': 'var(--anchor-text-decoration-hover)',
+		'--anchor-text-decoration-focus': 'var(--anchor-text-decoration-hover)',
 
 		// Borders / Radius
 
@@ -49,16 +60,12 @@ const next = {
 		// Colors ---
 
 		// Primary
-		'--on-primary': '0 0 0', // TODO: remove
 		'--color-primary-50': '242 247 253',
 		'--color-primary-100': '229 237 249',
 		'--color-primary-200': '197 219 242',
 		'--color-primary-300': '146 189 231',
 		'--color-primary-400': '87 154 217',
-
-		'--color-primary-500': '49 126 198',
-		// '--color-primary-500': '236 72 153',
-
+		'--color-primary-500': '49 126 198', // '--color-primary-500': '236 72 153',
 		'--color-primary-600': '32 93 158',
 		'--color-primary-700': '29 79 135',
 		'--color-primary-800': '27 68 113',
@@ -79,7 +86,6 @@ const next = {
 		'--color-primary-contrast-950': 'var(--color-primary-contrast-light)',
 
 		// Secondary
-		'--on-secondary': '255 255 255', // TODO: REMOVE
 		'--color-secondary-50': '237 239 255',
 		'--color-secondary-100': '222 226 255',
 		'--color-secondary-200': '196 201 255',
@@ -106,7 +112,6 @@ const next = {
 		'--color-secondary-contrast-950': 'var(--color-secondary-contrast-light)',
 
 		// Tertiary
-		'--on-tertiary': '0 0 0', // TODO: REMOVE
 		'--color-tertiary-50': '244 244 254',
 		'--color-tertiary-100': '236 234 253',
 		'--color-tertiary-200': '219 216 252',
@@ -133,7 +138,6 @@ const next = {
 		'--color-tertiary-contrast-950': 'var(--color-tertiary-contrast-light)',
 
 		// Success
-		'--on-success': '0 0 0', // TODO: REMOVE
 		'--color-success-50': '243 250 235',
 		'--color-success-100': '228 243 212',
 		'--color-success-200': '203 233 173',
@@ -160,7 +164,6 @@ const next = {
 		'--color-success-contrast-950': 'var(--color-success-contrast-light)',
 
 		// Warning
-		'--on-warning': '0 0 0', // TODO: REMOVE
 		'--color-warning-50': '255 247 237',
 		'--color-warning-100': '255 237 213',
 		'--color-warning-200': '255 216 169',
@@ -187,7 +190,6 @@ const next = {
 		'--color-warning-contrast-950': 'var(--color-warning-contrast-light)',
 
 		// Error
-		'--on-error': '255 255 255', // TODO: REMOVE
 		'--color-error-50': '255 241 243',
 		'--color-error-100': '255 227 230',
 		'--color-error-200': '255 204 212',
@@ -214,7 +216,6 @@ const next = {
 		'--color-error-contrast-950': 'var(--color-error-contrast-light)',
 
 		// Surface
-		'--on-surface': '255 255 255', // TODO: REMOVE
 		'--color-surface-50': '250 250 249',
 		'--color-surface-100': '245 245 244',
 		'--color-surface-200': '231 229 228',

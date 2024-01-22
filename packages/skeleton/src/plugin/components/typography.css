@@ -18,22 +18,22 @@
 		@apply heading-letter-spacing;
 	}
 	.h1 {
-		@apply type-scale-7 md:type-scale-9;
+		@apply type-scale-8 md:type-scale-9;
 	}
 	.h2 {
-		@apply type-scale-6 md:type-scale-8;
+		@apply type-scale-7 md:type-scale-8;
 	}
 	.h3 {
-		@apply type-scale-5 md:type-scale-7;
+		@apply type-scale-6 md:type-scale-7;
 	}
 	.h4 {
-		@apply type-scale-4 md:type-scale-6;
+		@apply type-scale-5 md:type-scale-6;
 	}
 	.h5 {
-		@apply type-scale-3 md:type-scale-5;
+		@apply type-scale-4 md:type-scale-5;
 	}
 	.h6 {
-		@apply type-scale-2 md:type-scale-4;
+		@apply type-scale-3 md:type-scale-4;
 	}
 
 	/* Paragraph --- */
@@ -44,7 +44,17 @@
 	/* Anchors --- */
 
 	.anchor {
-		@apply anchor-font-color dark:anchor-font-color-dark hover:underline;
+		@apply anchor-font-color dark:anchor-font-color-dark;
+		@apply anchor-font-family;
+		@apply anchor-font-size;
+		@apply anchor-font-style;
+		@apply anchor-font-weight;
+		@apply anchor-line-height;
+		@apply anchor-letter-spacing;
+		@apply anchor-text-decoration;
+		@apply hover:anchor-text-decoration-hover;
+		@apply active:anchor-text-decoration-active;
+		@apply focus:anchor-text-decoration-focus;
 	}
 
 	/* Blockquote --- */
