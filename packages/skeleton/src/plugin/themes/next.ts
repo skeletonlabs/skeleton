@@ -95,7 +95,7 @@ const next = {
 
 		// Borders ---
 
-		'--radii-default': '9999px',
+		'--radii-default': '8px',
 		'--radii-container': '16px',
 
 		'--border-width-default': '1px',

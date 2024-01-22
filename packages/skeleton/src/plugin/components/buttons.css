@@ -1,0 +1,48 @@
+/* Components: Buttons */
+
+@layer components {
+	.btn,
+	.btn-icon {
+		@apply bg-surface-950-50;
+		@apply text-surface-contrast-950 dark:text-surface-contrast-50 font-medium;
+		@apply rounded;
+	}
+	.btn {
+		@apply btn-md;
+	}
+	.btn-icon {
+		@apply btn-icon-md;
+	}
+
+	/* Button Sizes --- */
+
+	.btn-sm,
+	.btn-md,
+	.btn-lg {
+		@apply inline-flex justify-center items-center;
+	}
+	.btn-sm {
+		@apply type-scale-1 min-h-6 px-2 py-1;
+	}
+	.btn-md {
+		@apply type-scale-2 min-h-8 px-3 py-1.5;
+	}
+	.btn-lg {
+		@apply type-scale-4 min-h-10 px-5 py-2;
+	}
+
+	.btn-icon-sm,
+	.btn-icon-md,
+	.btn-icon-lg {
+		@apply inline-flex justify-center items-center;
+	}
+	.btn-icon-sm {
+		@apply type-scale-1 size-6 p-1;
+	}
+	.btn-icon-md {
+		@apply type-scale-2 size-8 p-1.5;
+	}
+	.btn-icon-lg {
+		@apply type-scale-4 size-10 p-2;
+	}
+}
