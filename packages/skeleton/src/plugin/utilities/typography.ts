@@ -14,6 +14,10 @@ export const typography = () => {
 		'.type-scale-7': { 'font-size': 'var(--type-scale-7)' },
 		'.type-scale-8': { 'font-size': 'var(--type-scale-8)' },
 		'.type-scale-9': { 'font-size': 'var(--type-scale-9)' },
+		'.type-scale-10': { 'font-size': 'var(--type-scale-10)' },
+		'.type-scale-11': { 'font-size': 'var(--type-scale-11)' },
+		'.type-scale-12': { 'font-size': 'var(--type-scale-12)' },
+		'.type-scale-13': { 'font-size': 'var(--type-scale-13)' },
 		// Base Font
 		'.base-font-color': { color: 'rgb(var(--base-font-color))' },
 		'.base-font-color-dark': { color: 'rgb(var(--base-font-color-dark))' },

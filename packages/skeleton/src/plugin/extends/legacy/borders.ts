@@ -1,7 +1,7 @@
 // Design Tokens: Borders
 // Doc: https://www.skeleton.dev/docs/tokens
 
-import { settings, type CssClasses } from '../settings.js';
+import { settings, type CssClasses } from '../../settings.js';
 
 export const borders = (): CssClasses => {
 	const classes: CssClasses = {

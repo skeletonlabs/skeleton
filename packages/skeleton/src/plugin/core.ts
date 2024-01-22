@@ -5,12 +5,15 @@
 
 import plugin from 'tailwindcss/plugin.js';
 
-// Skeleton Extensions
-import colors from './extends/colors.js';
-
-// Skeleton Utilities
+// Skeleton - Tailwind Utilities
 import colorPairings from './utilities/color-pairings.js';
 import typography from './utilities/typography.js';
+
+// Skeleton - Tailwind Replacements
+import spacing from './replaces/spacing.js';
+
+// Skeleton - Tailwind Extensions
+import colors from './extends/colors.js';
 
 // Skeleton Design Token Modules
 // import tokensBorders from './extends/borders.js';
@@ -38,8 +41,10 @@ export const coreUtilities = {
 // Extends the Tailwind Config with Skeleton features
 export const coreConfig = {
 	theme: {
+		// Replace
+		spacing: spacing(),
+		// Extend
 		extend: {
-			// backgroundColor: backgrounds(),
 			colors: colors()
 		}
 	}

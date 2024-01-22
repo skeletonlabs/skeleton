@@ -1,7 +1,7 @@
 // Design Tokens: Rings
 // Doc: https://www.skeleton.dev/docs/tokens
 
-import { settings, type CssClasses } from '../settings.js';
+import { settings, type CssClasses } from '../../settings.js';
 
 // Local
 const ringTokenTheme = {

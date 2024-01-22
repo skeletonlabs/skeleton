@@ -60,14 +60,13 @@
 	/* Blockquote --- */
 
 	.blockquote {
-		/* FIXME: spacing */
 		@apply italic border-l border-l-surface-300 dark:border-l-surface-700 pl-4;
 	}
 
 	/* Keyboard --- */
 
 	.kbd {
-		/* FIXME: spacing, rounded */
+		/* FIXME: rounded */
 		@apply font-mono text-sm text-surface-contrast-500 whitespace-nowrap;
 		@apply bg-surface-500 overflow-x-auto py-0.5 px-1 rounded;
 	}
@@ -75,14 +74,14 @@
 	/* Preformated / Code --- */
 
 	.pre {
-		/* FIXME: spacing, rounded */
+		/* FIXME: rounded */
 		@apply bg-neutral-900 dark:bg-neutral-800 text-white whitespace-pre-wrap overflow-x-auto p-4;
 	}
 
 	.code {
-		/* FIXME: spacing, rounded */
-		@apply font-mono text-sm text-primary-contrast-500 whitespace-nowrap;
-		@apply bg-primary-500 overflow-x-auto py-0.5 px-1 rounded;
+		/* FIXME: rounded */
+		@apply font-mono text-xs text-primary-contrast-500 whitespace-nowrap;
+		@apply bg-primary-500 overflow-x-auto py-0.5 px-1.5 rounded;
 	}
 
 	/* Insertions / Deletions --- */
@@ -91,7 +90,6 @@
 
 	.ins,
 	.del {
-		/* FIXME: spacing */
 		@apply block relative p-0.5 pl-5;
 		text-decoration: none;
 	}

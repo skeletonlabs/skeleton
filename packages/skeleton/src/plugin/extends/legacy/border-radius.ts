@@ -1,7 +1,7 @@
 // Design Tokens: Border Radius
 // Doc: https://www.skeleton.dev/docs/tokens
 
-import type { CssClasses } from '../settings.js';
+import type { CssClasses } from '../../settings.js';
 
 // const settings = require('../settings.cjs');
 export const borderRadius = (): CssClasses => {

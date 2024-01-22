@@ -1,7 +1,7 @@
 // Design Tokens: SVG Fill
 // Doc: https://www.skeleton.dev/docs/tokens
 
-import { settings, type CssClasses } from '../settings.js';
+import { settings, type CssClasses } from '../../settings.js';
 
 export const fills = (): CssClasses => {
 	const classes: CssClasses = {
