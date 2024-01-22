@@ -93,12 +93,12 @@ const next = {
 		'--anchor-text-decoration-active': 'var(--anchor-text-decoration-hover)',
 		'--anchor-text-decoration-focus': 'var(--anchor-text-decoration-hover)',
 
-		// Borders / Radius
+		// Borders ---
 
-		'--theme-rounded-base': '9999px',
-		'--theme-rounded-container': '8px',
+		'--radii-default': '9999px',
+		'--radii-container': '16px',
 
-		'--theme-border-base': '1px',
+		'--border-width-default': '1px',
 
 		// Colors ---
 

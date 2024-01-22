@@ -5,47 +5,29 @@
 
 import plugin from 'tailwindcss/plugin.js';
 
-// Skeleton - Tailwind Utilities
-import colorPairings from './utilities/color-pairings.js';
-import typography from './utilities/typography.js';
+// Utilities
+import utilColorPairings from './utilities/color-pairings.js';
+import utilTypography from './utilities/typography.js';
+// Replaces
+import replaceSpacing from './replaces/spacing.js';
+// Extends
+import extendColors from './extends/colors.js';
+import extendBorders from './extends/borders.js';
 
-// Skeleton - Tailwind Replacements
-import spacing from './replaces/spacing.js';
-
-// Skeleton - Tailwind Extensions
-import colors from './extends/colors.js';
-
-// Skeleton Design Token Modules
-// import tokensBorders from './extends/borders.js';
-// import tokensBorderRadius from './extends/border-radius.js';
-// import tokensFills from './extends/fills.js';
-// import tokensText from './extends/text.js';
-// import tokensRings from './extends/rings.js';
-
-// Inject Skeleton utility classes
 export const coreUtilities = {
-	// ...tokensBorders(),
-	// ...tokensBorderRadius(),
-	// ...tokensFills(),
-	// ...tokensText(),
-	// ...tokensRings()
-
-	// Newly added:
-	...colorPairings(),
-	...typography()
+	...utilColorPairings(),
+	...utilTypography()
 	// ...presets()
 };
 
-// console.log(coreUtilities);
-
-// Extends the Tailwind Config with Skeleton features
 export const coreConfig = {
 	theme: {
 		// Replace
-		spacing: spacing(),
+		...replaceSpacing(),
 		// Extend
 		extend: {
-			colors: colors()
+			...extendColors(),
+			...extendBorders()
 		}
 	}
 };

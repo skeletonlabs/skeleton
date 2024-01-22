@@ -20,7 +20,7 @@ function directional(key: string) {
 	return [key, `${key}-t`, `${key}-b`, `${key}-l`, `${key}-r`];
 }
 
-export const colorPairings = () => {
+export const utilColorPairings = () => {
 	const properties = ['bg', 'text', ...directional('border'), 'ring', 'accent', 'shadow', 'decoration', 'divide', 'outline', 'caret'];
 	const classes: CssClasses = {};
 	// Loop each color name
@@ -40,4 +40,4 @@ export const colorPairings = () => {
 	return classes;
 };
 
-export default colorPairings;
+export default utilColorPairings;

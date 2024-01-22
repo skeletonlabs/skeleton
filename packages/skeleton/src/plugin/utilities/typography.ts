@@ -2,7 +2,7 @@
 
 import { type CssClasses } from '../settings.js';
 
-export const typography = () => {
+export const utilTypography = () => {
 	return {
 		// Typographic Scale
 		'.type-scale-1': { 'font-size': 'var(--type-scale-1)' },
@@ -52,4 +52,4 @@ export const typography = () => {
 	} satisfies CssClasses;
 };
 
-export default typography;
+export default utilTypography;

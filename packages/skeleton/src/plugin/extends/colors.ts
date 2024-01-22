@@ -15,16 +15,18 @@ function generatePaletteRamp(colorName: string, suffix: string) {
 	return shadeObj;
 }
 
-export const colors = () => {
-	const palette: Palette = {};
+export const extendColors = () => {
+	const colorPalette: Palette = {};
 	// Loop Color Names
 	settings.colorNames.forEach((colorName) => {
 		// Generate Base Colors
-		palette[colorName] = generatePaletteRamp(colorName, '');
+		colorPalette[colorName] = generatePaletteRamp(colorName, '');
 		// Generate Contrast Colors
-		palette[`${colorName}-contrast`] = generatePaletteRamp(colorName, '-contrast');
+		colorPalette[`${colorName}-contrast`] = generatePaletteRamp(colorName, '-contrast');
 	});
-	return palette;
+	return {
+		colors: colorPalette
+	};
 };
 
-export default colors;
+export default extendColors;
