@@ -9,7 +9,8 @@ import plugin from 'tailwindcss/plugin.js';
 import colors from './extends/colors.js';
 
 // Skeleton Utilities
-import backgrounds from './utilities/color-pairings.js';
+import colorPairings from './utilities/color-pairings.js';
+import typography from './utilities/typography.js';
 
 // Skeleton Design Token Modules
 // import tokensBorders from './extends/borders.js';
@@ -27,9 +28,12 @@ export const coreUtilities = {
 	// ...tokensRings()
 
 	// Newly added:
-	...backgrounds()
+	...colorPairings(),
+	...typography()
 	// ...presets()
 };
+
+// console.log(coreUtilities);
 
 // Extends the Tailwind Config with Skeleton features
 export const coreConfig = {

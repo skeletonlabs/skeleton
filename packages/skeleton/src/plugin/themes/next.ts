@@ -4,11 +4,40 @@ const next = {
 	name: 'next',
 	properties: {
 		// Typography ---
+		// https://designcode.io/typographic-scales
 
-		'--theme-font-family-base': 'system-ui',
-		'--theme-font-family-heading': 'system-ui',
-		'--theme-font-color-base': '0 0 0',
-		'--theme-font-color-dark': '255 255 255',
+		'--type-scale-factor': '1.067' /* Minor Second */,
+
+		'--type-scale-1': 'calc(12px * var(--type-scale-factor))',
+		'--type-scale-2': 'calc(14px * var(--type-scale-factor))',
+		'--type-scale-3': 'calc(16px * var(--type-scale-factor))', // <--
+		'--type-scale-4': 'calc(18px * var(--type-scale-factor))',
+		'--type-scale-5': 'calc(20px * var(--type-scale-factor))',
+		'--type-scale-6': 'calc(24px * var(--type-scale-factor))',
+		'--type-scale-7': 'calc(28px * var(--type-scale-factor))',
+		'--type-scale-8': 'calc(35px * var(--type-scale-factor))',
+		'--type-scale-9': 'calc(60px * var(--type-scale-factor))',
+
+		'--base-font-color': 'var(--color-surface-950)',
+		'--base-font-color-dark': 'var(--color-surface-50)',
+		'--base-font-family': 'system-ui',
+		'--base-font-size': 'initial',
+		'--base-font-style': 'normal',
+		'--base-font-weight': 'normal',
+		'--base-line-height': 'initial',
+		'--base-letter-spacing': '0em',
+
+		'--heading-font-color': 'var(--color-surface-950)',
+		'--heading-font-color-dark': 'var(--color-surface-50)',
+		'--heading-font-family': 'var(--base-font-family)',
+		'--heading-font-size': 'var(--base-font-size)',
+		'--heading-font-style': 'normal',
+		'--heading-font-weight': 'bold',
+		'--heading-line-height': 'var(--base-line-height)',
+		'--heading-letter-spacing': 'var(--base-letter-spacing)',
+
+		'--anchor-font-color': 'var(--color-primary-500)',
+		'--anchor-font-color-dark': 'var(--color-primary-500)',
 
 		// Borders / Radius
 

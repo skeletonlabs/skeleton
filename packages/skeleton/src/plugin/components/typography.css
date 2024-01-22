@@ -1,75 +1,87 @@
-/* Stylesheet: typography-next.css */
-
-/*
-This represents the OPT-IN typography styles.
-*/
+/* Components: Typography */
 
 @layer components {
-	/* === Headings === */
+	/* Headings --- */
 
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		@apply heading-font-color dark:heading-font-color-dark;
+		@apply heading-font-family;
+		@apply heading-font-size;
+		@apply heading-font-style;
+		@apply heading-font-weight;
+		@apply heading-line-height;
+		@apply heading-letter-spacing;
+	}
 	.h1 {
-		@apply font-heading-token text-3xl md:text-5xl;
+		@apply type-scale-7 md:type-scale-9;
 	}
 	.h2 {
-		@apply font-heading-token text-2xl md:text-4xl;
+		@apply type-scale-6 md:type-scale-8;
 	}
 	.h3 {
-		@apply font-heading-token text-xl md:text-2xl;
+		@apply type-scale-5 md:type-scale-7;
 	}
 	.h4 {
-		@apply font-heading-token text-lg md:text-xl;
+		@apply type-scale-4 md:type-scale-6;
 	}
 	.h5 {
-		@apply font-heading-token text-base md:text-lg;
+		@apply type-scale-3 md:type-scale-5;
 	}
 	.h6 {
-		@apply font-heading-token text-sm md:text-base;
+		@apply type-scale-2 md:type-scale-4;
 	}
 
-	/* === Elements === */
+	/* Paragraph --- */
 
+	/* NOTE: paragraph inherits the body styles default. */
 	/* p { ... } */
 
+	/* Anchors --- */
+
 	.anchor {
-		@apply text-primary-700 dark:text-primary-500 hover:brightness-110 underline;
+		@apply anchor-font-color dark:anchor-font-color-dark hover:underline;
 	}
+
+	/* Blockquote --- */
 
 	.blockquote {
-		@apply text-token text-base italic border-l-8 border-l-secondary-500 px-4 pl-4;
+		/* FIXME: spacing */
+		@apply italic border-l border-l-surface-300 dark:border-l-surface-700 pl-4;
 	}
 
-	/* Keyboard */
+	/* Keyboard --- */
+
 	.kbd {
-		@apply font-sans font-bold text-sm;
-		@apply bg-surface-300-600-token px-1.5 py-[3px] rounded;
-		@apply ring-[1px] ring-surface-900 ring-inset;
-		@apply border-b-2 border-surface-900;
+		/* FIXME: spacing, rounded */
+		@apply font-mono text-sm text-surface-contrast-500 whitespace-nowrap;
+		@apply bg-surface-500 overflow-x-auto py-0.5 px-1 rounded;
 	}
 
-	/* Timestamps */
-	.time {
-		@apply text-sm text-surface-500 dark:text-surface-400;
-	}
-
-	/* === Preformatted / Code === */
-	/* For use outside of Skeleton's CodeBlock component */
+	/* Preformated / Code --- */
 
 	.pre {
-		@apply font-mono text-base bg-neutral-900/90 text-white p-4 whitespace-pre-wrap overflow-x-auto rounded-container-token;
+		/* FIXME: spacing, rounded */
+		@apply bg-neutral-900 dark:bg-neutral-800 text-white whitespace-pre-wrap overflow-x-auto p-4;
 	}
 
 	.code {
-		@apply font-mono text-xs text-primary-700 dark:text-primary-400 whitespace-nowrap;
-		@apply bg-primary-500/30 dark:bg-primary-500/20;
-		@apply py-0.5 px-1 rounded;
+		/* FIXME: spacing, rounded */
+		@apply font-mono text-sm text-primary-contrast-500 whitespace-nowrap;
+		@apply bg-primary-500 overflow-x-auto py-0.5 px-1 rounded;
 	}
 
-	/* === Insertions / Deletions  ==== */
+	/* Insertions / Deletions --- */
 	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
 	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
 
 	.ins,
 	.del {
+		/* FIXME: spacing */
 		@apply block relative p-0.5 pl-5;
 		text-decoration: none;
 	}
@@ -86,9 +98,9 @@ This represents the OPT-IN typography styles.
 	}
 
 	.ins {
-		@apply font-mono bg-success-500 text-on-success-token;
+		@apply font-mono bg-success-500 text-success-contrast-500;
 	}
 	.del {
-		@apply font-mono bg-error-500 text-on-error-token;
+		@apply font-mono bg-error-500 text-error-contrast-500;
 	}
 }

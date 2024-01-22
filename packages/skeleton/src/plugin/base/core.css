@@ -5,10 +5,14 @@
 body {
 	/* Background Color */
 	@apply bg-surface-50 dark:bg-surface-950;
-	/* Text Color */
-	@apply text-surface-950-50;
 	/* Typography */
-	/* @apply text-base font-token text-token; */
+	@apply base-font-color dark:base-font-color-dark;
+	@apply base-font-family;
+	@apply base-font-size;
+	@apply base-font-style;
+	@apply base-font-weight;
+	@apply base-line-height;
+	@apply base-letter-spacing;
 }
 
 /* === Selection === */

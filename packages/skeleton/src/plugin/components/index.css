@@ -1,10 +1,10 @@
 @import '../tailwind.css';
 
-/* Global */
+/* Common */
+@import 'typography.css';
 /* @import 'scrollbars.css'; */
-/* @import 'typography.css'; */
 
-/* Elements */
+/* Components */
 /* @import 'alerts.css';
 @import 'badges.css';
 @import 'breadcrumbs.css';

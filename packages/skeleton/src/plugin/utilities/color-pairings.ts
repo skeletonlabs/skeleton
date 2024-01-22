@@ -16,9 +16,13 @@ ex: {property}-primary-50-950 | {property}-primary-950-50
 
 import { settings, type CssClasses } from '../settings.js';
 
+function directional(key: string) {
+	return [key, `${key}-t`, `${key}-b`, `${key}-l`, `${key}-r`];
+}
+
 export const colorPairings = () => {
-	const properties = ['bg', 'text', 'border', 'ring', 'accent', 'shadow', 'decoration', 'divide', 'outline', 'caret'];
-	const colorPairings: CssClasses = {};
+	const properties = ['bg', 'text', ...directional('border'), 'ring', 'accent', 'shadow', 'decoration', 'divide', 'outline', 'caret'];
+	const classes: CssClasses = {};
 	// Loop each color name
 	settings.colorNames.forEach((n) => {
 		// Loop each property
@@ -26,14 +30,14 @@ export const colorPairings = () => {
 			// Loop each color pairing set
 			settings.colorPairings.forEach((p) => {
 				// Generate the class name
-				colorPairings[`.${property}-${n}-${p.light}-${p.dark}`] = {
+				classes[`.${property}-${n}-${p.light}-${p.dark}`] = {
 					// Generate the @apply styles
 					[`@apply ${property}-${n}-${p.light} dark:${property}-${n}-${p.dark}`]: {}
 				};
 			});
 		});
 	});
-	return colorPairings;
+	return classes;
 };
 
 export default colorPairings;

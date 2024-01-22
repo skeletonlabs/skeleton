@@ -1,0 +1,56 @@
+---
+import LayoutDocs from "@lib/layouts/LayoutDocs.astro";
+
+const layoutProps = {
+    categoryId: 1,
+    title: 'Typography',
+    description: 'The Skeleton typography system.',
+    preview: false
+};
+---
+
+<LayoutDocs {...layoutProps}>
+	<!-- Headings -->
+    <section class="space-y-4">
+        <h1 class="h1">Heading 1</h1>
+        <h2 class="h2">Heading 2</h2>
+        <h3 class="h3">Heading 3</h3>
+        <h4 class="h4">Heading 4</h4>
+        <h5 class="h5">Heading 5</h5>
+        <h6 class="h6">Heading 6</h6>
+        
+    </section>
+    <!-- Paragraph -->
+    <section class="space-y-4">
+        <p>Paragraph - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta error, quas iste, hic quos saepe expedita odio ratione distinctio eligendi iure sint, obcaecati eaque. Soluta ex libero quae odio exercitationem.</p>
+    </section>
+    <!-- Blockquote -->
+    <section class="space-y-4">
+        <blockquote class="blockquote">Blockquote - "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta error, quas iste, hic quos saepe expedita odio ratione distinctio eligendi iure sint, obcaecati eaque. Soluta ex libero quae odio exercitationem."</blockquote>
+    </section>
+    <!-- Anchor -->
+    <section class="space-y-4">
+        <a class="anchor" href="/">Anchor</a>
+    </section>
+    <!-- Pre-Formatted -->
+    <section class="space-y-4">
+        <pre class="pre">Pre - The quick brown fox jumps over the lazy dog.</pre>
+    </section>
+    <!-- Code -->
+    <section class="space-y-4">
+        <div>Insert the <code class="code">.example</code> class here.</div>
+    </section>
+    <!-- KBD -->
+    <section class="space-y-4">
+        <div>Press <kbd class="kbd">⌘</kbd> + <kbd class="kbd">C</kbd> to copy.</div>
+    </section>
+    <!-- Ins / Del -->
+    <section class="space-y-4">
+        <div>
+            <del class="del"><s>Always</s> Gonna Give You Up</del>
+            <ins class="ins" cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022">
+                Never Gonna Give You Up
+            </ins>
+        </div>
+    </section>
+</LayoutDocs>
