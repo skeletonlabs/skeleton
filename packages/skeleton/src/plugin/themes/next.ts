@@ -94,16 +94,15 @@ const next = {
 		'--anchor-text-decoration-focus': 'var(--anchor-text-decoration-hover)',
 
 		// Borders ---
+		// Covers: rounded, borders, divides, outlines, rings
 
 		'--radii-default': '6px',
 		'--radii-container': '12px',
 
 		'--border-width-default': '1px',
-
-		// TODO: implement these
-		// "--divide-width-default": "var(--border-width-default)",
-		// "--outline-width-default": "var(--border-width-default)",
-		// "--ring-width-default": "var(--border-width-default)",
+		'--divide-width-default': 'var(--border-width-default)',
+		'--outline-width-default': 'var(--border-width-default)',
+		'--ring-width-default': 'var(--border-width-default)',
 
 		// Colors ---
 
