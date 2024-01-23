@@ -3,10 +3,19 @@
 @layer components {
 	.btn,
 	.btn-icon {
-		@apply bg-surface-950-50;
-		@apply text-surface-contrast-950 dark:text-surface-contrast-50 font-medium;
-		@apply rounded;
+		@apply font-medium rounded shadow;
+		@apply inline-flex items-center justify-center gap-4 whitespace-nowrap;
+		@apply disabled:pointer-events-none disabled:opacity-50;
 	}
+
+	/* Temp Preset */
+	.btn,
+	.btn-icon {
+		@apply bg-surface-950-50 text-surface-contrast-950 dark:text-surface-contrast-50;
+	}
+
+	/* Button Sizes --- */
+
 	.btn {
 		@apply btn-md;
 	}
@@ -14,35 +23,27 @@
 		@apply btn-icon-md;
 	}
 
-	/* Button Sizes --- */
-
-	.btn-sm,
-	.btn-md,
-	.btn-lg {
-		@apply inline-flex justify-center items-center;
-	}
 	.btn-sm {
-		@apply type-scale-1 min-h-6 px-2 py-1;
+		@apply text-xs h-6 px-4 py-2;
 	}
 	.btn-md {
-		@apply type-scale-2 min-h-8 px-3 py-1.5;
+		@apply text-inherit h-9 px-4 py-2;
 	}
 	.btn-lg {
-		@apply type-scale-4 min-h-10 px-5 py-2;
+		@apply text-xl h-12 px-4 py-2;
 	}
 
-	.btn-icon-sm,
-	.btn-icon-md,
-	.btn-icon-lg {
-		@apply inline-flex justify-center items-center;
-	}
 	.btn-icon-sm {
-		@apply type-scale-1 size-6 p-1;
+		@apply text-xs size-6 p-2;
 	}
 	.btn-icon-md {
-		@apply type-scale-2 size-8 p-1.5;
+		@apply text-inherit size-9 p-2;
 	}
 	.btn-icon-lg {
-		@apply type-scale-4 size-10 p-2;
+		@apply text-xl size-12 p-2;
 	}
+
+	/* Button Groups --- */
+
+	/* .btn-group {} */
 }
