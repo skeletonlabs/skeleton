@@ -16,7 +16,11 @@ function generatePaletteRamp(colorName: string, suffix: string) {
 }
 
 export const extendColors = () => {
-	const colorPalette: Palette = {};
+	const colorPalette: Palette = {
+		// https://tailwindcss.com/docs/background-color#arbitrary-values
+		'body-color': 'rgb(var(--body-background-color))',
+		'body-color-dark': 'rgb(var(--body-background-color-dark))'
+	};
 	// Loop Color Names
 	settings.colorNames.forEach((colorName) => {
 		// Generate Base Colors

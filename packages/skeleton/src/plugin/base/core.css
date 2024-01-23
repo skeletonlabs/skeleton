@@ -3,8 +3,8 @@
 /* === Body Styles === */
 
 body {
-	/* Background Color */
-	@apply bg-surface-50 dark:bg-surface-950;
+	/* Background */
+	@apply bg-body-color dark:bg-body-color-dark;
 	/* Typography */
 	@apply base-font-color dark:base-font-color-dark;
 	@apply base-font-family;
