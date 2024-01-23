@@ -71,8 +71,8 @@ const next = {
 		'--base-font-style': 'normal',
 		'--base-letter-spacing': '0em',
 
-		'--heading-font-color': 'var(--color-primary-950)',
-		'--heading-font-color-dark': 'var(--color-surface-50)',
+		'--heading-font-color': 'inherit',
+		'--heading-font-color-dark': 'inherit',
 		'--heading-font-family': 'var(--base-font-family)',
 		'--heading-font-size': 'var(--base-font-size)',
 		'--heading-line-height': 'var(--base-line-height)',

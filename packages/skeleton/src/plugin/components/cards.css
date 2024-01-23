@@ -2,7 +2,7 @@
 
 @layer components {
 	.card {
-		@apply bg-surface-100-900 rounded;
+		@apply rounded;
 	}
 
 	a.card {

@@ -15,11 +15,11 @@ const banner = 'https://images.unsplash.com/photo-1620562303747-ba21ca6f1530?ixi
     <Fragment slot="preview">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <!-- Minimal -->
-            <div class="card p-4 flex justify-center items-center">
+            <div class="card preset-filled-surface-100-900 p-4 flex justify-center items-center">
                 <span>Minimal</span>
             </div>
             <!-- Detailed -->
-            <a class="card card-hover border border-surface-200-800 divide-y divide-surface-200-800 overflow-hidden" href="#">
+            <a class="card preset-filled-surface-100-900 card-hover overflow-hidden" href="#">
                 <!-- Header -->
                 <header>
                     <img src={banner} class="w-full aspect-[21/9]" alt="banner" />
@@ -32,6 +32,8 @@ const banner = 'https://images.unsplash.com/photo-1620562303747-ba21ca6f1530?ixi
                     </div>
                     <p class="opacity-60">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.</p>
                 </article>
+                <!-- Horz Rules -->
+                <hr class="opacity-5">
                 <!-- Footer -->
                 <footer class="p-4 flex justify-between items-center gap-4">
                     <h6 class="opacity-40">By Alex</h6>

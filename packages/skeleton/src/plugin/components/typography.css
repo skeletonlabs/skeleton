@@ -78,8 +78,9 @@
 	}
 
 	.code {
-		@apply font-mono text-xs text-primary-contrast-500 whitespace-nowrap;
-		@apply bg-primary-500 overflow-x-auto py-0.5 px-1.5 rounded;
+		@apply preset-tonal-primary;
+		@apply font-mono text-xs whitespace-nowrap;
+		@apply overflow-x-auto py-0.5 px-1.5 rounded;
 	}
 
 	/* Insertions / Deletions --- */
