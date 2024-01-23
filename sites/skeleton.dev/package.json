@@ -34,6 +34,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.59.9",
 		"@typescript-eslint/parser": "^5.59.9",
 		"@vercel/analytics": "^1.0.1",
+		"@vincjo/datatables": "^1.14.4",
 		"autoprefixer": "^10.4.14",
 		"eslint": "^8.42.0",
 		"eslint-config-prettier": "^8.8.0",
