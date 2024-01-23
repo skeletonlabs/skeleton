@@ -1,7 +1,7 @@
 // Skeleton Spacing
 // https://tailwindcss.com/docs/customizing-spacing
 
-export const replaceSpacing = () => {
+export const extendSpacing = () => {
 	return {
 		spacing: {
 			'0': '0',
@@ -42,4 +42,4 @@ export const replaceSpacing = () => {
 	} satisfies Record<string, Record<string, string>>;
 };
 
-export default replaceSpacing;
+export default extendSpacing;

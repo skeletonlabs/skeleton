@@ -9,9 +9,10 @@ import plugin from 'tailwindcss/plugin.js';
 import utilColorPairings from './utilities/color-pairings.js';
 import utilTypography from './utilities/typography.js';
 // Replaces
-import replaceSpacing from './replaces/spacing.js';
+// ...
 // Extends
 import extendColors from './extends/colors.js';
+import extendSpacing from './extends/spacing.js';
 import extendBorders from './extends/borders.js';
 
 export const coreUtilities = {
@@ -23,10 +24,11 @@ export const coreUtilities = {
 export const coreConfig = {
 	theme: {
 		// Replace
-		...replaceSpacing(),
+		// ...
 		// Extend
 		extend: {
 			...extendColors(),
+			...extendSpacing(),
 			...extendBorders()
 		}
 	}

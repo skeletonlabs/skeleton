@@ -71,7 +71,7 @@ const next = {
 		'--base-font-style': 'normal',
 		'--base-letter-spacing': '0em',
 
-		'--heading-font-color': 'var(--color-surface-950)',
+		'--heading-font-color': 'var(--color-primary-950)',
 		'--heading-font-color-dark': 'var(--color-surface-50)',
 		'--heading-font-family': 'var(--base-font-family)',
 		'--heading-font-size': 'var(--base-font-size)',
@@ -99,6 +99,11 @@ const next = {
 		'--radii-container': '12px',
 
 		'--border-width-default': '1px',
+
+		// TODO: implement these
+		// "--divide-width-default": "var(--border-width-default)",
+		// "--outline-width-default": "var(--border-width-default)",
+		// "--ring-width-default": "var(--border-width-default)",
 
 		// Colors ---
 
