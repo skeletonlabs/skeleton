@@ -1,0 +1,15 @@
+/* Components: Cards */
+
+@layer components {
+	.card {
+		@apply bg-surface-100-900 rounded;
+	}
+
+	a.card {
+		@apply transition-all hover:brightness-90 dark:hover:brightness-110;
+	}
+
+	.card-hover {
+		@apply transition-all hover:scale-105 hover:shadow-xl;
+	}
+}

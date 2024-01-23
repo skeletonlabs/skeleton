@@ -1,0 +1,47 @@
+---
+import LayoutDocs from "@lib/layouts/LayoutDocs.astro";
+
+const layoutProps = {
+    categoryId: 1,
+    title: 'Cards',
+    description: 'Provides container elements that wrap and separate content.'
+};
+
+const banner = 'https://images.unsplash.com/photo-1620562303747-ba21ca6f1530?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY2MjR8&ixlib=rb-4.0.3&w=400&h=175&auto=format&fit=crop';
+---
+
+<LayoutDocs {...layoutProps}>
+    <!-- Preview -->
+    <Fragment slot="preview">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <!-- Minimal -->
+            <div class="card p-4 flex justify-center items-center">
+                <span>Minimal</span>
+            </div>
+            <!-- Detailed -->
+            <a class="card card-hover border border-surface-200-800 divide-y divide-surface-200-800 overflow-hidden" href="#">
+                <!-- Header -->
+                <header>
+                    <img src={banner} class="w-full aspect-[21/9]" alt="banner" />
+                </header>
+                <!-- Article -->
+                <article class="p-4 space-y-4">
+                    <div>
+                        <h2 class="h6">Announcements</h2>
+                        <h3 class="h3">Skeleton is Awesome!</h3>    
+                    </div>
+                    <p class="opacity-60">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.</p>
+                </article>
+                <!-- Footer -->
+                <footer class="p-4 flex justify-between items-center gap-4">
+                    <h6 class="opacity-40">By Alex</h6>
+                    <small class="opacity-40">On {new Date().toLocaleDateString()}</small>
+                </footer>
+            </a>
+        </div>
+    </Fragment>
+    <!-- Usage -->
+    <section class="space-y-4">
+        <p>The {layoutProps.title} usage goes here.</p>
+    </section>
+</LayoutDocs>
