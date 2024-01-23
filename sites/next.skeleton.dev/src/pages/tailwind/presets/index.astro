@@ -4,7 +4,7 @@ import LayoutDocs from "@lib/layouts/LayoutDocs.astro";
 const layoutProps = {
     categoryId: 1,
     title: 'Presets',
-    description: 'Provides a robust set of preset styles for buttons, cards, and more.',
+    description: 'Provides a robust preset combination of styles for used with buttons, cards, badges, and more.',
     preview: false
 };
 
@@ -20,7 +20,7 @@ const baseClasses = 'flex justify-center items-center p-4 rounded';
         <pre class="pre">{`.preset-filled-{color}-{pairing}`}</pre>
         <div class="grid grid-cols-2 gap-4">
             <!-- Neutral -->
-            <div class:list={baseClasses} class="preset-filled-neutral">(neutral)</div>
+            <div class:list={baseClasses} class="preset-filled">(neutral)</div>
             <!-- Colors -->
             <div class:list={baseClasses} class="preset-filled-primary-950-50">950-50</div>
             <div class:list={baseClasses} class="preset-filled-primary-900-100">900-100</div>
@@ -39,7 +39,7 @@ const baseClasses = 'flex justify-center items-center p-4 rounded';
         <h2 class="h2">Tonal</h2>
         <pre class="pre">{`.preset-tonal-{color}`}</pre>
         <div class="grid grid-cols-2 gap-4">
-            <div class:list={baseClasses} class="preset-tonal-neutral">(neutral)</div>
+            <div class:list={baseClasses} class="preset-tonal">(neutral)</div>
             <div class:list={baseClasses} class="preset-tonal-primary">primary</div>
             <div class:list={baseClasses} class="preset-tonal-secondary">secondary</div>
             <div class:list={baseClasses} class="preset-tonal-tertiary">tertiary</div>
@@ -54,7 +54,7 @@ const baseClasses = 'flex justify-center items-center p-4 rounded';
         <pre class="pre">{`.preset-outlined-{color}-{pairing}`}</pre>
         <div class="grid grid-cols-2 gap-4">
             <!-- Neutral -->
-            <div class:list={baseClasses} class="preset-outlined-neutral">(neutral)</div>
+            <div class:list={baseClasses} class="preset-outlined">(neutral)</div>
             <!-- Colors -->
             <div class:list={baseClasses} class="preset-outlined-primary-950-50">950-50</div>
             <div class:list={baseClasses} class="preset-outlined-primary-900-100">900-100</div>

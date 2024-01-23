@@ -1,22 +1,14 @@
 // Skeleton Presets
 
-/* 
-    TODO:
-    - Translate `/components/variants.css` to Tailwind utility classes.
-    - These will be renamed from `variants` -> `presets` to avoid confusion with `@tailwind variants`
-    - Convert from CSS format to JS format
-    - Integrated into the plugin via: `core.ts` -> `coreUtilities`
-*/
-
 import { settings, type CssClasses } from '../settings.js';
 
 // '.preset-foo': { '@apply xxx': {} },
 export const utilPresets = () => {
 	const classes: CssClasses = {
 		// Neutral Presets
-		'.preset-filled-neutral': { '@apply bg-neutral-950 dark:bg-neutral-50 text-neutral-50 dark:text-neutral-950': {} },
-		'.preset-tonal-neutral': { '@apply bg-neutral-950/5 dark:bg-neutral-50/5': {} },
-		'.preset-outlined-neutral': { '@apply ring ring-inset ring-neutral-950 dark:ring-neutral-50': {} }
+		'.preset-filled': { '@apply bg-neutral-950 dark:bg-neutral-50 text-neutral-50 dark:text-neutral-950': {} },
+		'.preset-tonal': { '@apply bg-neutral-950/5 dark:bg-neutral-50/5': {} },
+		'.preset-outlined': { '@apply ring ring-inset ring-neutral-950 dark:ring-neutral-50': {} }
 	};
 	// Loop each color name
 	settings.colorNames.forEach((n) => {
