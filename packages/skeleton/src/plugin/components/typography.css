@@ -74,12 +74,10 @@
 	/* Preformated / Code --- */
 
 	.pre {
-		/* FIXME: rounded */
-		@apply bg-neutral-900 dark:bg-neutral-800 text-white whitespace-pre-wrap overflow-x-auto p-4;
+		@apply bg-neutral-900 dark:bg-neutral-800 text-white whitespace-pre-wrap overflow-x-auto p-4 rounded-container;
 	}
 
 	.code {
-		/* FIXME: rounded */
 		@apply font-mono text-xs text-primary-contrast-500 whitespace-nowrap;
 		@apply bg-primary-500 overflow-x-auto py-0.5 px-1.5 rounded;
 	}

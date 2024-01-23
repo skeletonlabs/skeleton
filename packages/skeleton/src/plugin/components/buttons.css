@@ -8,12 +8,6 @@
 		@apply disabled:pointer-events-none disabled:opacity-50;
 	}
 
-	/* Temp Preset */
-	.btn,
-	.btn-icon {
-		@apply bg-surface-950-50 text-surface-contrast-950 dark:text-surface-contrast-50;
-	}
-
 	/* Button Sizes --- */
 
 	.btn {

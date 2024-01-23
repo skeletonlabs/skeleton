@@ -1,0 +1,78 @@
+---
+import LayoutDocs from "@lib/layouts/LayoutDocs.astro";
+
+const layoutProps = {
+    categoryId: 1,
+    title: 'Presets',
+    description: 'Provides a robust set of preset styles for buttons, cards, and more.',
+    preview: false
+};
+
+const baseClasses = 'flex justify-center items-center p-4 rounded';
+---
+
+<LayoutDocs {...layoutProps}>
+    <!-- Preview -->
+    <!-- <Fragment slot="preview"></Fragment> -->
+    <!-- Usage -->
+    <section class="space-y-4">
+        <h2 class="h2">Filled</h2>
+        <pre class="pre">{`.preset-filled-{color}-{pairing}`}</pre>
+        <div class="grid grid-cols-2 gap-4">
+            <!-- Neutral -->
+            <div class:list={baseClasses} class="preset-filled-neutral">(neutral)</div>
+            <!-- Colors -->
+            <div class:list={baseClasses} class="preset-filled-primary-950-50">950-50</div>
+            <div class:list={baseClasses} class="preset-filled-primary-900-100">900-100</div>
+            <div class:list={baseClasses} class="preset-filled-primary-800-200">800-200</div>
+            <div class:list={baseClasses} class="preset-filled-primary-700-300">700-300</div>
+            <div class:list={baseClasses} class="preset-filled-primary-600-400">600-400</div>
+            <div class:list={baseClasses} class="preset-filled-primary-500">500</div>
+            <div class:list={baseClasses} class="preset-filled-primary-400-600">400-600</div>
+            <div class:list={baseClasses} class="preset-filled-primary-300-700">300-700</div>
+            <div class:list={baseClasses} class="preset-filled-primary-200-800">200-800</div>
+            <div class:list={baseClasses} class="preset-filled-primary-100-900">100-900</div>
+            <div class:list={baseClasses} class="preset-filled-primary-50-950">50-950</div>
+        </div>
+    </section>
+    <section class="space-y-4">
+        <h2 class="h2">Tonal</h2>
+        <pre class="pre">{`.preset-tonal-{color}`}</pre>
+        <div class="grid grid-cols-2 gap-4">
+            <div class:list={baseClasses} class="preset-tonal-neutral">(neutral)</div>
+            <div class:list={baseClasses} class="preset-tonal-primary">primary</div>
+            <div class:list={baseClasses} class="preset-tonal-secondary">secondary</div>
+            <div class:list={baseClasses} class="preset-tonal-tertiary">tertiary</div>
+            <div class:list={baseClasses} class="preset-tonal-success">success</div>
+            <div class:list={baseClasses} class="preset-tonal-warning">warning</div>
+            <div class:list={baseClasses} class="preset-tonal-error">error</div>
+            <div class:list={baseClasses} class="preset-tonal-surface">surface</div>
+        </div>
+    </section>
+    <section class="space-y-4">
+        <h2 class="h2">Outlined</h2>
+        <pre class="pre">{`.preset-outlined-{color}-{pairing}`}</pre>
+        <div class="grid grid-cols-2 gap-4">
+            <!-- Neutral -->
+            <div class:list={baseClasses} class="preset-outlined-neutral">(neutral)</div>
+            <!-- Colors -->
+            <div class:list={baseClasses} class="preset-outlined-primary-950-50">950-50</div>
+            <div class:list={baseClasses} class="preset-outlined-primary-900-100">900-100</div>
+            <div class:list={baseClasses} class="preset-outlined-primary-800-200">800-200</div>
+            <div class:list={baseClasses} class="preset-outlined-primary-700-300">700-300</div>
+            <div class:list={baseClasses} class="preset-outlined-primary-600-400">600-400</div>
+            <div class:list={baseClasses} class="preset-outlined-primary-500">500</div>
+            <div class:list={baseClasses} class="preset-outlined-primary-400-600">400-600</div>
+            <div class:list={baseClasses} class="preset-outlined-primary-300-700">300-700</div>
+            <div class:list={baseClasses} class="preset-outlined-primary-200-800">200-800</div>
+            <div class:list={baseClasses} class="preset-outlined-primary-100-900">100-900</div>
+            <div class:list={baseClasses} class="preset-outlined-primary-50-950">50-950</div>
+        </div>
+    </section>
+    <section class="space-y-4">
+        <h2 class="h2">Gradients</h2>
+        <p>
+            See the <a href="https://tailwindcss.com/docs/gradient-color-stops" target="_blank" class="anchor">Tailwind Gradient Stops</a> documentation for more information.
+        </p>
+    </section>
+</LayoutDocs>

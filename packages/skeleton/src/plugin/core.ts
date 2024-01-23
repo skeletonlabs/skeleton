@@ -8,6 +8,7 @@ import plugin from 'tailwindcss/plugin.js';
 // Utilities
 import utilColorPairings from './utilities/color-pairings.js';
 import utilTypography from './utilities/typography.js';
+import utilPresets from './utilities/presets.js';
 // Replaces
 // ...
 // Extends
@@ -17,8 +18,8 @@ import extendBorders from './extends/borders.js';
 
 export const coreUtilities = {
 	...utilColorPairings(),
-	...utilTypography()
-	// ...presets()
+	...utilTypography(),
+	...utilPresets()
 };
 
 export const coreConfig = {

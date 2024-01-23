@@ -62,7 +62,7 @@ const next = {
 		'--type-scale-12': 'calc(6rem * var(--type-scale-factor))', // 96px
 		'--type-scale-13': 'calc(8rem * var(--type-scale-factor))', // 128px
 
-		'--base-font-color': '0 0 0',
+		'--base-font-color': 'var(--color-surface-950)',
 		'--base-font-color-dark': 'var(--color-surface-50)',
 		'--base-font-family': 'system-ui',
 		'--base-font-size': 'inherit',
