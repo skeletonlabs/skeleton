@@ -15,37 +15,40 @@ body {
 	@apply base-letter-spacing;
 }
 
-/* === Selection === */
+/* === Focus & Selection === */
 
 ::selection {
 	@apply bg-primary-500/30;
 }
 
-/* === Outline === */
-
-/* Feel free to modify the outline, but NEVER remove it! */
-/* http://www.outlinenone.com/ */
-
-/* === Mobile Touch === */
-
-/* Mobile Tap Highlight Color (WebKit) */
+/* WebKit Mobile Tap Highlight Color */
+/* IMPORTANT: keep this, it's useful for mobile accessability. */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
 html {
 	-webkit-tap-highlight-color: rgba(128, 128, 128, 0.5);
 }
 
+/* Focus Outlines */
+/* IMPORTANT: keep this, it's useful for mobile accessability. */
+/* http://www.outlinenone.com/ */
+
 /* === Scrollbars === */
+/* NOTE: does not support Tailwind dark mode styling. */
+
+/* https://css-tricks.com/almanac/properties/s/scrollbar-gutter/ */
+:root {
+	scrollbar-gutter: stable both-edges;
+}
 
 /* Chrome/Safari/Edge */
 ::-webkit-scrollbar {
 	@apply w-2 h-2;
 }
 ::-webkit-scrollbar-track {
-	@apply bg-surface-50-950 px-[1px];
+	@apply bg-transparent py-1;
 }
 ::-webkit-scrollbar-thumb {
-	/* @apply rounded-token */
-	@apply bg-surface-400-600;
+	@apply bg-surface-500/30 rounded;
 }
 ::-webkit-scrollbar-corner {
 	@apply bg-surface-50-950;
@@ -55,7 +58,4 @@ html {
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
 html {
 	scrollbar-color: rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.05);
-}
-html.dark {
-	scrollbar-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, 0.05);
 }

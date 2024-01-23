@@ -1,6 +1,13 @@
 /* Elements: tables.css */
 
 @layer components {
+	/* NOTE: moved from /base/elements.css */
+	[data-sort] {
+		@apply hover:bg-primary-hover-token cursor-pointer;
+		/* Sort Icon - invisible by default */
+		@apply after:opacity-0 after:!ml-2 after:!content-['↓'];
+	}
+
 	.table-container {
 		@apply overflow-x-auto w-full rounded-container-token;
 	}

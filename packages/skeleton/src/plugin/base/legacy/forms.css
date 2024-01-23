@@ -24,6 +24,17 @@ input::-webkit-calendar-picker-indicator {
 	@apply dark:invert;
 }
 
+/* File Input Button */
+input[type='file']:not(.file-dropzone-input)::file-selector-button {
+	@apply border-0 btn variant-filled btn-sm mr-2;
+}
+
+/* Range Input */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
+[type='range'] {
+	@apply w-full accent-surface-900 dark:accent-surface-50;
+}
+
 /* Search Input "X" Cancel Button (Webkit) */
 /* Source: https://stackoverflow.com/a/64267916 */
 input[type='search']::-webkit-search-cancel-button {
