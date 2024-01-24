@@ -42,4 +42,66 @@ const layoutProps = {
     <section class="space-y-4">
         <p>The {layoutProps.title} usage goes here.</p>
     </section>
+    <!-- Presets -->
+    <section class="space-y-4">
+        <h2 class="h2">Presets</h2>
+        <div class="card-outlined-centered">
+            <div class="space-y-4">
+                <div class="flex gap-4">
+                    <button type="button" class="btn preset-filled-primary-500">Button</button>
+                    <button type="button" class="btn preset-tonal-primary">Button</button>
+                    <button type="button" class="btn preset-outlined-primary-500">Button</button>
+                </div>
+                <div class="flex gap-4">
+                    <button type="button" class="btn preset-filled-secondary-500">Button</button>
+                    <button type="button" class="btn preset-tonal-secondary">Button</button>
+                    <button type="button" class="btn preset-outlined-secondary-500">Button</button>
+                </div>
+                <div class="flex gap-4">
+                    <button type="button" class="btn preset-filled-tertiary-500">Button</button>
+                    <button type="button" class="btn preset-tonal-tertiary">Button</button>
+                    <button type="button" class="btn preset-outlined-tertiary-500">Button</button>
+                </div>
+                <div class="flex gap-4">
+                    <button type="button" class="btn preset-filled-success-500">Button</button>
+                    <button type="button" class="btn preset-tonal-success">Button</button>
+                    <button type="button" class="btn preset-outlined-success-500">Button</button>
+                </div>
+                <div class="flex gap-4">
+                    <button type="button" class="btn preset-filled-warning-500">Button</button>
+                    <button type="button" class="btn preset-tonal-warning">Button</button>
+                    <button type="button" class="btn preset-outlined-warning-500">Button</button>
+                </div>
+                <div class="flex gap-4">
+                    <button type="button" class="btn preset-filled-error-500">Button</button>
+                    <button type="button" class="btn preset-tonal-error">Button</button>
+                    <button type="button" class="btn preset-outlined-error-500">Button</button>
+                </div>
+                <div class="flex gap-4">
+                    <button type="button" class="btn preset-filled-surface-500">Button</button>
+                    <button type="button" class="btn preset-tonal-surface">Button</button>
+                    <button type="button" class="btn preset-outlined-surface-500">Button</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Disabled -->
+    <section class="space-y-4">
+        <h2 class="h2">Disabled</h2>
+        <div class="card-outlined-centered">
+            <button type="button" class="btn preset-filled-primary-500" disabled>Button</button>
+        </div>
+    </section>
+    <!-- Group -->
+    <section class="space-y-4">
+        <h2 class="h2">Group</h2>
+        <div class="card-outlined-centered">
+            <nav class="btn-group preset-outlined-surface-200-800 flex-col md:flex-row p-2">
+                <button type="button" class="btn preset-filled">Foo</button>
+                <button type="button" class="btn hover:preset-tonal">Bar</button>
+                <button type="button" class="btn hover:preset-tonal">Fizz</button>
+                <button type="button" class="btn hover:preset-tonal">Buzz</button>
+            </nav>
+        </div>
+    </section>
 </LayoutDocs>

@@ -3,9 +3,10 @@
 @layer components {
 	.btn,
 	.btn-icon {
-		@apply font-medium rounded shadow;
+		@apply font-medium rounded;
 		@apply inline-flex items-center justify-center gap-4 whitespace-nowrap;
 		@apply disabled:pointer-events-none disabled:opacity-50;
+		@apply transition-all hover:brightness-90 dark:hover:brightness-110;
 	}
 
 	/* Button Sizes --- */
@@ -39,5 +40,7 @@
 
 	/* Button Groups --- */
 
-	/* .btn-group {} */
+	.btn-group {
+		@apply flex gap-2 rounded-container overflow-hidden p-2;
+	}
 }

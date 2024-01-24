@@ -2,7 +2,7 @@
 
 @layer components {
 	.card {
-		@apply rounded;
+		@apply rounded-container;
 	}
 
 	a.card {
