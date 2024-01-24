@@ -7,7 +7,9 @@ const layoutProps = {
     description: 'Provides container elements that wrap and separate content.'
 };
 
-const banner = 'https://images.unsplash.com/photo-1620562303747-ba21ca6f1530?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY2MjR8&ixlib=rb-4.0.3&w=400&h=175&auto=format&fit=crop';
+// Source: https://unsplash.com/photos/a-bird-flying-over-a-mountain-range-at-sunset-HghkWDMuHx4
+const bannerId = 'photo-1705852592864-1a31a6c9260a';
+const banner = `https://images.unsplash.com/${bannerId}?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY2MjR8&ixlib=rb-4.0.3&w=400&h=175&auto=format&fit=crop`;
 ---
 
 <LayoutDocs {...layoutProps}>
@@ -22,13 +24,13 @@ const banner = 'https://images.unsplash.com/photo-1620562303747-ba21ca6f1530?ixi
             <a class="docs-card-filled-flush card-hover overflow-hidden" href="#">
                 <!-- Header -->
                 <header>
-                    <img src={banner} class="w-full aspect-[21/9]" alt="banner" />
+                    <img src={banner} class="grayscale hue-rotate-90 w-full aspect-[21/9]" alt="banner" />
                 </header>
                 <!-- Article -->
                 <article class="p-4 space-y-4">
                     <div>
                         <h2 class="h6">Announcements</h2>
-                        <h3 class="h3">Skeleton is Awesome!</h3>    
+                        <h3 class="h3">Skeleton is Awesome</h3>    
                     </div>
                     <p class="opacity-60">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.</p>
                 </article>
@@ -36,14 +38,14 @@ const banner = 'https://images.unsplash.com/photo-1620562303747-ba21ca6f1530?ixi
                 <hr class="opacity-5">
                 <!-- Footer -->
                 <footer class="p-4 flex justify-between items-center gap-4">
-                    <h6 class="opacity-40">By Alex</h6>
+                    <small class="opacity-40">By Alex</small>
                     <small class="opacity-40">On {new Date().toLocaleDateString()}</small>
                 </footer>
             </a>
         </div>
     </Fragment>
     <!-- Usage -->
-    <section class="space-y-4">
+    <!-- <section class="space-y-4">
         <p>The {layoutProps.title} usage goes here.</p>
-    </section>
+    </section> -->
 </LayoutDocs>
