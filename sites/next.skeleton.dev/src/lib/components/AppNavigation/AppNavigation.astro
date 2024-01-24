@@ -7,37 +7,41 @@ const {
   classList
 } = Astro.props;
 
-const linksDocs = [
-    {href: '/docs/introduction', label: 'Introduction'},
-    {href: '/docs/colors', label: 'Colors'},
-    {href: '/docs/typography', label: 'Typography'},
-    {href: '/docs/spacing', label: 'Spacing'},
-    {href: '/docs/presets', label: 'Presets'},
-];
-const linksTailwind = [
-    {href: '/tailwind/buttons', label: 'Buttons'},
-    {href: '/tailwind/cards', label: 'Cards'},
-];
-const linksComponents = [
-    {href: '/components/accordions', label: 'Accordions'},
-];
+const navigation = {
+    linksDocs: [
+        {href: '/docs/introduction', label: 'Introduction'},
+        {href: '/docs/colors', label: 'Colors'},
+        {href: '/docs/typography', label: 'Typography'},
+        {href: '/docs/spacing', label: 'Spacing'},
+        {href: '/docs/presets', label: 'Presets'},
+    ],
+    linksTailwind: [
+        {href: '/tailwind/buttons', label: 'Buttons'},
+        {href: '/tailwind/cards', label: 'Cards'},
+        {href: '/tailwind/forms', label: 'Forms & Inputs'},
+    ],
+    linksComponents: [
+        {href: '/components/accordions', label: 'Accordions'},
+    ],
+};
+
 ---
 
 <aside class="p-10 overflow-y-auto space-y-10 text-sm" class:list={[classList]}>
     <!-- Top -->
     <div class="flex flex-col gap-3">
         <span class="font-bold">Docs</span>
-        {linksDocs.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+        {navigation.linksDocs.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
     </div>
     <!-- Tailwind -->
     <div class="flex flex-col gap-3">
         <span class="font-bold">Tailwind</span>
-        {linksTailwind.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+        {navigation.linksTailwind.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
     </div>
     <!-- Components -->
     <div class="flex flex-col gap-3">
         <span class="font-bold">Components</span>
-        {linksComponents.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+        {navigation.linksComponents.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
     </div>
     <!-- DEBUG: Use this to test with lots of links -->
     <!-- <div class="flex flex-col gap-3">

@@ -1,6 +1,8 @@
 // import { skeleton } from "@skeletonlabs/skeleton/plugin";
 import { skeleton } from "../../packages/skeleton/dist/plugin/index.cjs";
 
+import forms from '@tailwindcss/forms';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
@@ -9,6 +11,7 @@ export default {
     extend: {},
   },
   plugins: [
+    forms,
     skeleton({
       themes: {
         preset: [
