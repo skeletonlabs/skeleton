@@ -18,7 +18,7 @@ const baseClasses = 'flex justify-center items-center p-4 rounded';
     <section class="space-y-4">
         <h2 class="h2">Filled</h2>
         <pre class="pre">{`.preset-filled-{color}-{pairing}`}</pre>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="docs-card-outlined grid grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Neutral -->
             <div class:list={baseClasses} class="preset-filled">(neutral)</div>
             <!-- Colors -->
@@ -38,7 +38,7 @@ const baseClasses = 'flex justify-center items-center p-4 rounded';
     <section class="space-y-4">
         <h2 class="h2">Tonal</h2>
         <pre class="pre">{`.preset-tonal-{color}`}</pre>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="docs-card-outlined grid grid-cols-2 lg:grid-cols-4 gap-4">
             <div class:list={baseClasses} class="preset-tonal">(neutral)</div>
             <div class:list={baseClasses} class="preset-tonal-primary">primary</div>
             <div class:list={baseClasses} class="preset-tonal-secondary">secondary</div>
@@ -52,7 +52,7 @@ const baseClasses = 'flex justify-center items-center p-4 rounded';
     <section class="space-y-4">
         <h2 class="h2">Outlined</h2>
         <pre class="pre">{`.preset-outlined-{color}-{pairing}`}</pre>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="docs-card-outlined grid grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Neutral -->
             <div class:list={baseClasses} class="preset-outlined">(neutral)</div>
             <!-- Colors -->
