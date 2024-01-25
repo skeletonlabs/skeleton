@@ -78,7 +78,7 @@
 
 	.checkbox,
 	.radio {
-		@apply bg-surface-300-700 w-5 h-5 rounded-sm cursor-pointer;
+		@apply bg-surface-300-700 w-4 rounded-sm cursor-pointer;
 		/* Ring */
 		@apply ring ring-surface-200-800 focus-within:ring-primary-500;
 		/* States */
