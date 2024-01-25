@@ -13,13 +13,13 @@
 /* Local Abstractions (molecules) */
 
 .docs-card-outlined {
-  @apply card border border-surface-200-800;
+  @apply card border-surface-200-800;
 }
 .docs-card-outlined-centered {
   @apply docs-card-outlined flex-centered;
 }
 .docs-card-filled-flush {
-  @apply card preset-filled-surface-100-900 border border-surface-200-800;
+  @apply card border-surface-200-800 preset-filled-surface-100-900;
 }
 .docs-card-filled {
   @apply docs-card-filled-flush p-4;
