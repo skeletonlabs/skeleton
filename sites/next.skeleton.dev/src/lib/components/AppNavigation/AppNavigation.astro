@@ -28,6 +28,9 @@ const navigation = {
     linksComponents: [
         {href: '/components/accordions', label: 'Accordions'},
     ],
+    linksResources: [
+        {href: '/resources/cookbook', label: 'Cookbook'},
+    ],
 };
 
 ---
@@ -47,6 +50,11 @@ const navigation = {
     <div class="flex flex-col gap-3">
         <span class="font-bold">Components</span>
         {navigation.linksComponents.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+    </div>
+    <!-- Resources -->
+    <div class="flex flex-col gap-3">
+        <span class="font-bold">Resources</span>
+        {navigation.linksResources.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
     </div>
     <!-- DEBUG: Use this to test with lots of links -->
     <!-- <div class="flex flex-col gap-3">

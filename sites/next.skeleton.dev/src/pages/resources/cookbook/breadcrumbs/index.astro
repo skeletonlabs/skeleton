@@ -1,0 +1,36 @@
+---
+import LayoutDocs from "@lib/layouts/LayoutDocs.astro";
+
+const layoutProps = {
+    categoryId: 3,
+    title: 'Breadcrumbs',
+    description: 'Displays the current navigation hierarchy.',
+};
+
+---
+
+<LayoutDocs {...layoutProps}>
+    <!-- Preview -->
+    <Fragment slot="preview">
+        <ol class="flex items-center gap-4">
+            <li><a class="anchor" href="#">Blog</a></li>
+            <li class="opacity-50" aria-hidden>&rsaquo;</li>
+            <li><a class="anchor" href="#">Category</a></li>
+            <li class="opacity-50" aria-hidden>&rsaquo;</li>
+            <li>Article</li>
+        </ol>
+    </Fragment>
+    <!-- Separators -->
+    <section class="space-y-4">
+        <h2 class="h2">Separators</h2>
+        <div class="docs-card-outlined-centered p-8">
+            <ol class="flex items-center gap-4">
+                <li><a class="anchor" href="#">Blog</a></li>
+                <li class="opacity-50" aria-hidden>/</li>
+                <li><a class="anchor" href="#">Category</a></li>
+                <li class="opacity-50" aria-hidden>/</li>
+                <li>Article</li>
+            </ol>
+        </div>
+    </section>
+</LayoutDocs>
