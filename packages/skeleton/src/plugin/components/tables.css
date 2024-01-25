@@ -1,0 +1,57 @@
+/* Components: Tables */
+
+@layer components {
+	.table {
+		@apply w-full overflow-auto;
+	}
+
+	/* Table --- */
+
+	.table table {
+		@apply relative w-full type-scale-2;
+	}
+
+	/* Table Head --- */
+
+	.table thead {
+		@apply text-surface-600-400;
+		@apply border-b border-surface-200-800;
+	}
+
+	.table th {
+		@apply text-left font-normal;
+	}
+
+	/* Table Body --- */
+
+	.table tbody {
+		@apply divide-y divide-surface-200-800;
+	}
+
+	/* Table Foot --- */
+
+	.table tfoot {
+		@apply border-t border-surface-200-800;
+		@apply bg-surface-100-900;
+	}
+
+	/* Table Cells */
+
+	.table th,
+	.table td {
+		@apply p-2;
+	}
+
+	/* Table Caption */
+
+	.table caption {
+		@apply text-surface-600-400;
+		@apply type-scale-1;
+	}
+
+	/* Optional Classes */
+
+	.table-hover tbody tr {
+		@apply hover:preset-tonal-primary;
+	}
+}

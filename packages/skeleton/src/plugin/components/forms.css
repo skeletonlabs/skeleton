@@ -1,4 +1,4 @@
-/* Stylesheet: forms.css */
+/* Components: Forms */
 
 @layer components {
 	/* Resets --- */
@@ -162,17 +162,6 @@
 
 	/* Input Groups --- */
 
-	/* .input,
-	.textarea,
-	.select,
-	.input-group {
-		@apply bg-transparent border-none w-full rounded;
-		@apply ring ring-surface-200-800 focus-within:ring-primary-500;
-		@apply hover:brightness-90 dark:hover:brightness-110;
-		@apply disabled:pointer-events-none disabled:opacity-50;
-		@apply transition-[all] duration-100;
-	} */
-
 	.input-group {
 		@apply grid items-stretch overflow-hidden;
 		@apply field-outter;
@@ -188,36 +177,6 @@
 	.input-group-cell {
 		@apply flex justify-center items-center px-2 min-w-10;
 	}
-
-	/* .input-group {
-		@apply grid overflow-hidden;
-	}
-	.input-group input,
-	.input-group select {
-		@apply border-0 !ring-0 bg-transparent;
-	}
-	.input-group select option {
-		@apply bg-surface-300-700;
-	}
-	.input-group div,
-	.input-group a,
-	.input-group button {
-		@apply px-4 flex justify-between items-center;
-	}
-	.input-group-divider input,
-	.input-group-divider select,
-	.input-group-divider div,
-	.input-group-divider a {
-		@apply border-l border-surface-400-600 focus:border-surface-400-600;
-		@apply !ring-0;
-		@apply !min-w-fit;
-	}
-	.input-group-divider *:first-child {
-		@apply !border-l-0;
-	}
-	.input-group-shim {
-		@apply bg-surface-400/10 text-surface-600-300;
-	} */
 
 	/* Field States --- */
 

@@ -2,7 +2,6 @@
 
 /* Common */
 @import 'typography.css';
-/* @import 'scrollbars.css'; */
 
 /* Components */
 /* @import 'alerts.css'; */
@@ -10,18 +9,17 @@
 /* @import 'breadcrumbs.css'; */
 @import 'buttons.css';
 @import 'cards.css';
-/* @import 'codeblocks.css'; */
 /* @import 'chips.css'; */
 @import 'forms.css';
 /* @import 'horizontal-rules.css'; */
 /* @import 'lists.css'; */
 /* @import 'logo-clouds.css'; */
 /* @import 'placeholders.css'; */
-/* @import 'tables.css'; */
+@import 'tables.css';
 
-/* Utilities */
+/* TODO: these should be removed */
+/* @import 'scrollbars.css'; */
 /* @import 'modals.css'; */
 /* @import 'popups.css'; */
-
-/* Variants */
+/* @import 'codeblocks.css'; */
 /* @import 'variants.css'; */
