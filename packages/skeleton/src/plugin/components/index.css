@@ -4,17 +4,19 @@
 @import 'typography.css';
 
 /* Components */
-/* @import 'alerts.css'; */
 @import 'badges.css';
-/* @import 'breadcrumbs.css'; */
 @import 'buttons.css';
 @import 'cards.css';
 @import 'chips.css';
 @import 'forms.css';
 @import 'dividers.css';
-/* @import 'logo-clouds.css'; */
 @import 'placeholders.css';
 @import 'tables.css';
+
+/* TODO: move to cookbook */
+/* @import 'alerts.css'; */
+/* @import 'breadcrumbs.css'; */
+/* @import 'logo-clouds.css'; */
 
 /* TODO: these should be removed */
 /* @import 'lists.css'; */
