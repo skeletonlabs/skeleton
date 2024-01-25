@@ -19,7 +19,7 @@ const tableData = [
 <LayoutDocs {...layoutProps}>
     <!-- Preview -->
     <Fragment slot="preview">
-        <div class="table table-hover">
+        <div class="table">
             <table class="caption-bottom">
                 <caption class="pt-4">A list of elements from the periodic table.</caption>
                 <thead>
@@ -30,7 +30,7 @@ const tableData = [
                         <th class="!text-right">Weight</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="hover:[&>tr]:preset-tonal-primary">
                     {tableData.map(row => (
                         <tr>
                             <td>{row.position}</td>

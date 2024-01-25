@@ -48,10 +48,4 @@
 		@apply text-surface-600-400;
 		@apply type-scale-1;
 	}
-
-	/* Optional Classes */
-
-	.table-hover tbody tr {
-		@apply hover:preset-tonal-primary;
-	}
 }

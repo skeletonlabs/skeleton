@@ -50,23 +50,31 @@ const spacing = [
 <LayoutDocs {...layoutProps}>
     <section class="space-y-4">
         <p>This overwrites the <a class="anchor" href="https://tailwindcss.com/docs/customizing-spacing" target="_blank">Tailwind spacing system</a> to enable dynamic scaling.</p>
-        <table class="text-left w-full">
-            <tbody>
-                {spacing.map(space => (
+        <div class="table">
+            <table>
+                <thead>
                     <tr>
-                        <td>
-                            <small class="opacity-60">{space.value}</small>
-                        </td>
-                        <td>
-                            <div class:list={[space.width, 'h-[10px] bg-primary-500']}></div>
-                        </td>
+                        <th>Size</th>
+                        <th>Preview</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="hover:[&>tr]:preset-tonal-primary">
+                    {spacing.map(space => (
+                        <tr>
+                            <td>
+                                <small>{space.value}</small>
+                            </td>
+                            <td>
+                                <div class:list={[space.width, 'h-[10px] bg-primary-500']}></div>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     </section>
     <section class="space-y-4">
-        <h2 class="h2">Supported Properties</h2>
+        <h2 class="h2">Supports</h2>
         <p>
             <code class="code">padding</code>, <code class="code">margin</code>, <code class="code">width</code>, <code class="code">minWidth</code>, <code class="code">maxWidth</code>, <code class="code">height</code>, <code class="code">minHeight</code>, <code class="code">maxHeight</code>, <code class="code">gap</code>, <code class="code">inset</code>, <code class="code">space</code>, <code class="code">translate</code>.
         </p>
