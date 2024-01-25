@@ -72,21 +72,21 @@ const categories: any = {
             <div class="grid grid-cols-3 gap-4">
                 {categories[category].map((item: any) => (
                     <a
-                        class="docs-card-filled card-hover space-y-4 p-4"
+                        class="docs-card-filled-flush card-hover"
                         href={`/resources/cookbook${item.link}`}
                         class:list={{
-                            'opacity-50': item.disabled,
+                            'opacity-30': item.disabled,
                             'pointer-events-none': item.disabled,
                         }}
                     >
-                        <header>
+                        <header class="p-4">
                             <h3 class="h5">{item.title}</h3>
                         </header>
-                        <article class="h-12 space-y-4">
+                        <article class="h-16 px-4 space-y-4">
                             <p class="opacity-60 type-scale-1">{item.desc}</p>
                         </article>
                         <hr class="hr">
-                        <footer>
+                        <footer class="p-4">
                             <small class="opacity-60">By {item.author}</small>
                         </footer>
                     </a>

@@ -130,11 +130,12 @@ const palette = [
 	<!-- Colors -->
     <section class="space-y-4">
 		<h2 class="h2">Palette</h2>
+		<pre class="pre">{`.bg-primary-{value}`}</pre>
 		<!-- Loop Colors -->
 		<div class="space-y-4 lg:space-y-0.5">
 			{palette.map(color => (
 				<div class="grid grid-cols-1 lg:grid-cols-[100px_auto] gap-0 lg:gap-4 items-center">
-					<strong>{color.name}</strong>
+					<small class="opacity-60">{color.name}</small>
 					<div class="grid grid-cols-11 gap-0.5">
 						{/* Loop Ramp */}
 						{color.ramp.map(shade => (
@@ -152,58 +153,59 @@ const palette = [
 	<!-- Color Pairings -->
 	<section class="space-y-4">
 		<h2 class="h2">Pairings</h2>
+		<pre class="pre">{`.bg-primary-{l}-{d}`}</pre>
 		<!-- Diagram -->
-		<div class="grid grid-cols-[112px_1fr] gap-2 md:gap-8 item-center">
+		<div class="grid grid-cols-[112px_1fr] gap-2 md:gap-4 item-center">
 			<div class="bg-primary-500 aspect-square flex justify-center items-center rounded-container">
 				<strong class="text-primary-contrast-500 text-sm">500</strong>
 			</div>
 			<div>
-				<div class="grid grid-cols-5 gap-2 md:gap-8">
+				<div class="grid grid-cols-5 gap-2 md:gap-4">
 					<div class="bg-primary-400 py-3 flex justify-center items-center rounded-container">
-						<strong class="text-primary-contrast-400 text-sm">Light: 400</strong>
+						<strong class="text-primary-contrast-400 text-sm">L: 400</strong>
 					</div>
 					<div class="bg-primary-300 py-3 flex justify-center items-center rounded-container">
-						<strong class="text-primary-contrast-300 text-sm">Light: 300</strong>
+						<strong class="text-primary-contrast-300 text-sm">L: 300</strong>
 					</div>
 					<div class="bg-primary-200 py-3 flex justify-center items-center rounded-container">
-						<strong class="text-primary-contrast-200 text-sm">Light: 200</strong>
+						<strong class="text-primary-contrast-200 text-sm">L: 200</strong>
 					</div>
 					<div class="bg-primary-100 py-3 flex justify-center items-center rounded-container">
-						<strong class="text-primary-contrast-100 text-sm">Light: 100</strong>
+						<strong class="text-primary-contrast-100 text-sm">L: 100</strong>
 					</div>
 					<div class="bg-primary-50 py-3 flex justify-center items-center rounded-container">
-						<strong class="text-primary-contrast-50 text-sm">Light: 50</strong>
+						<strong class="text-primary-contrast-50 text-sm">L: 50</strong>
 					</div>
 				</div>
-				<div class="grid grid-cols-5 gap-2 md:gap-8">
-					<span class="text-center">↕</span>
-					<span class="text-center">↕</span>
-					<span class="text-center">↕</span>
-					<span class="text-center">↕</span>
-					<span class="text-center">↕</span>
+				<div class="grid grid-cols-5 gap-2 md:gap-4">
+					<span class="text-center opacity-60">↕</span>
+					<span class="text-center opacity-60">↕</span>
+					<span class="text-center opacity-60">↕</span>
+					<span class="text-center opacity-60">↕</span>
+					<span class="text-center opacity-60">↕</span>
 				</div>
-				<div class="grid grid-cols-5 gap-2 md:gap-8">
+				<div class="grid grid-cols-5 gap-2 md:gap-4">
 					<div class="bg-primary-600 py-3 flex justify-center items-center rounded-container">
-						<strong class="text-primary-contrast-600 text-sm">Dark: 600</strong>
+						<strong class="text-primary-contrast-600 text-sm">D: 600</strong>
 					</div>
 					<div class="bg-primary-700 py-3 flex justify-center items-center rounded-container">
-						<strong class="text-primary-contrast-700 text-sm">Dark: 700</strong>
+						<strong class="text-primary-contrast-700 text-sm">D: 700</strong>
 					</div>
 					<div class="bg-primary-800 py-3 flex justify-center items-center rounded-container">
-						<strong class="text-primary-contrast-800 text-sm">Dark: 800</strong>
+						<strong class="text-primary-contrast-800 text-sm">D: 800</strong>
 					</div>
 					<div class="bg-primary-900 py-3 flex justify-center items-center rounded-container">
-						<strong class="text-primary-contrast-900 text-sm">Dark: 900</strong>
+						<strong class="text-primary-contrast-900 text-sm">D: 900</strong>
 					</div>
 					<div class="bg-primary-950 py-3 flex justify-center items-center rounded-container">
-						<strong class="text-primary-contrast-950 text-sm">Dark: 950</strong>
+						<strong class="text-primary-contrast-950 text-sm">D: 950</strong>
 					</div>
 				</div>
 			</div>
 		</div>
+		<hr class="hr">
 		<!-- Live Preview -->
-		<h3 class="h3">Live Preview</h3>
-		<div class="grid grid-cols-11 gap-2">
+		<div class="grid grid-cols-1 lg:grid-cols-11 gap-2">
 			<div class="bg-primary-50-950 py-3 flex justify-center items-center rounded-container">
 				<strong class="text-primary-contrast-50 dark:text-primary-contrast-950 text-xs flex flex-col items-center gap-0">
 					<span>50</span>

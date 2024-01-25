@@ -13,66 +13,34 @@ let colorValue = '#bada55';
 <LayoutDocs {...layoutProps}>
     <!-- Preview -->
     <Fragment slot="preview">
-        <div class="w-full grid grid-cols-2 gap-4">
-            <!-- Form Outlined -->
-            <form class="docs-card-outlined p-4 w-full space-y-4">
-                <fieldset class="space-y-4">
-                    <!-- Input -->
-                    <label class="label">
-                        <span class="label-text">Input</span>
-                        <input class="input" type="text" placeholder="Input" required />
-                    </label>
-                    <!-- Select -->
-                    <label class="label">
-                        <span class="label-text">Select</span>
-                        <select class="select">
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                            <option value="4">Option 4</option>
-                            <option value="5">Option 5</option>
-                        </select>
-                    </label>
-                    <!-- Textarea -->
-                    <label class="label">
-                        <span class="label-text">Textarea</span>
-                        <textarea class="textarea" rows="4" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
-                    </label>
-                </fieldset>
-                <fieldset class="flex justify-end">
-                    <button type="button" class="btn preset-outlined-surface-300-700">Submit</button>
-                </fieldset>
-            </form>
-            <!-- Form Filled -->
-            <form class="docs-card-filled w-full space-y-4">
-                <fieldset class="space-y-4">
-                    <!-- Input -->
-                    <label class="label">
-                        <span class="label-text">Input</span>
-                        <input class="input" type="text" placeholder="Input" />
-                    </label>
-                    <!-- Select -->
-                    <label class="label">
-                        <span class="label-text">Select</span>
-                        <select class="select">
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                            <option value="4">Option 4</option>
-                            <option value="5">Option 5</option>
-                        </select>
-                    </label>
-                    <!-- Textarea -->
-                    <label class="label">
-                        <span class="label-text">Textarea</span>
-                        <textarea class="textarea" rows="4" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
-                    </label>
-                </fieldset>
-                <fieldset class="flex justify-end">
-                    <button type="button" class="btn preset-outlined-surface-300-700">Submit</button>
-                </fieldset>
-            </form>
-        </div>
+        <form class="docs-card-filled w-full space-y-4">
+            <fieldset class="space-y-4">
+                <!-- Input -->
+                <label class="label">
+                    <span class="label-text">Input</span>
+                    <input class="input" type="text" placeholder="Input" />
+                </label>
+                <!-- Select -->
+                <label class="label">
+                    <span class="label-text">Select</span>
+                    <select class="select">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                        <option value="4">Option 4</option>
+                        <option value="5">Option 5</option>
+                    </select>
+                </label>
+                <!-- Textarea -->
+                <label class="label">
+                    <span class="label-text">Textarea</span>
+                    <textarea class="textarea" rows="4" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+                </label>
+            </fieldset>
+            <fieldset class="flex justify-end">
+                <button type="button" class="btn preset-outlined-surface-300-700">Submit</button>
+            </fieldset>
+        </form>
     </Fragment>
     <!-- Select -->
     <section class="space-y-4">
