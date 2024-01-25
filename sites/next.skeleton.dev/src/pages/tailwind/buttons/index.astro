@@ -11,31 +11,13 @@ const layoutProps = {
 <LayoutDocs {...layoutProps}>
     <!-- Preview -->
     <Fragment slot="preview">
-        <div class="space-y-4">
-            <div class="flex justify-center items-center gap-4">
-                <button type="button" class="btn-icon btn-icon-sm preset-filled">💀</button>
-                <button type="button" class="btn btn-sm preset-filled">Button</button>
-                <button type="button" class="btn btn-sm preset-filled">
-                    <span>💀</span>
-                    <span>Button</span>
-                </button>
-            </div>
-            <div class="flex justify-center items-center gap-4">
-                <button type="button" class="btn-icon preset-filled">💀</button>
-                <button type="button" class="btn preset-filled">Button</button>
-                <button type="button" class="btn preset-filled">
-                    <span>💀</span>
-                    <span>Button</span>
-                </button>
-            </div>
-            <div class="flex justify-center items-center gap-4">
-                <button type="button" class="btn-icon btn-icon-lg preset-filled">💀</button>
-                <button type="button" class="btn btn-lg preset-filled">Button</button>
-                <button type="button" class="btn btn-lg preset-filled">
-                    <span>💀</span>
-                    <span>Button</span>
-                </button>
-            </div>
+        <div class="flex justify-center items-center gap-4">
+            <button type="button" class="btn-icon preset-filled">💀</button>
+            <button type="button" class="btn preset-filled">Button</button>
+            <button type="button" class="btn preset-filled">
+                <span>💀</span>
+                <span>Button</span>
+            </button>
         </div>
     </Fragment>
     <!-- Presets -->
@@ -78,6 +60,17 @@ const layoutProps = {
                     <button type="button" class="btn preset-tonal-surface">Button</button>
                     <button type="button" class="btn preset-outlined-surface-500">Button</button>
                 </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sizes -->
+    <section class="space-y-4">
+        <h2 class="h2">Sizes</h2>
+        <div class="docs-card-outlined-centered p-8">
+            <div class="flex items-center gap-4">
+                <button type="button" class="btn btn-sm preset-filled">Small</button>
+                <button type="button" class="btn btn-md preset-filled">Medium</button>
+                <button type="button" class="btn btn-lg preset-filled">Large</button>
             </div>
         </div>
     </section>

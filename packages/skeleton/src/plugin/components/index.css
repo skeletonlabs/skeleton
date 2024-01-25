@@ -12,12 +12,12 @@
 @import 'chips.css';
 @import 'forms.css';
 @import 'dividers.css';
-/* @import 'lists.css'; */
 /* @import 'logo-clouds.css'; */
 @import 'placeholders.css';
 @import 'tables.css';
 
 /* TODO: these should be removed */
+/* @import 'lists.css'; */
 /* @import 'scrollbars.css'; */
 /* @import 'modals.css'; */
 /* @import 'popups.css'; */
