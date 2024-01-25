@@ -14,7 +14,7 @@
 @import 'dividers.css';
 /* @import 'lists.css'; */
 /* @import 'logo-clouds.css'; */
-/* @import 'placeholders.css'; */
+@import 'placeholders.css';
 @import 'tables.css';
 
 /* TODO: these should be removed */
