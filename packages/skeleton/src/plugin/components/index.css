@@ -5,11 +5,11 @@
 
 /* Components */
 /* @import 'alerts.css'; */
-/* @import 'badges.css'; */
+@import 'badges.css';
 /* @import 'breadcrumbs.css'; */
 @import 'buttons.css';
 @import 'cards.css';
-/* @import 'chips.css'; */
+@import 'chips.css';
 @import 'forms.css';
 /* @import 'horizontal-rules.css'; */
 /* @import 'lists.css'; */
