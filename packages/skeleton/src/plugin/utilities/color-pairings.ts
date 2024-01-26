@@ -12,6 +12,7 @@ ex: {property}-primary-50-950 | {property}-primary-950-50
 * divide - https://tailwindcss.com/docs/divide-color
 * outline - https://tailwindcss.com/docs/outline-color
 * caret - https://tailwindcss.com/docs/caret-color
+* stroke - https://tailwindcss.com/docs/stroke
 */
 
 import { settings, type CssClasses } from '../settings.js';
@@ -21,7 +22,19 @@ function directional(key: string) {
 }
 
 export const utilColorPairings = () => {
-	const properties = ['bg', 'text', ...directional('border'), 'ring', 'accent', 'shadow', 'decoration', 'divide', 'outline', 'caret'];
+	const properties = [
+		'bg',
+		'text',
+		...directional('border'),
+		'ring',
+		'accent',
+		'shadow',
+		'decoration',
+		'divide',
+		'outline',
+		'caret',
+		'stroke'
+	];
 	const classes: CssClasses = {};
 	// Loop each color name
 	settings.colorNames.forEach((n) => {
