@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: added `labelSelect` prop to provide aria-label on inputChip.
+bugfix: added `label` prop to provide aria-label on inputChip.
