@@ -88,7 +88,7 @@
 
 	// Props (A11y)
 	/** Provide the ARIA label for the select input. */
-	export let labelSelect = 'Chips select';
+	export let label = 'Chips select';
 
 	// Props (transition)
 	/**
@@ -245,7 +245,7 @@
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 	<div class="h-0 overflow-hidden">
-		<select bind:this={selectElement} bind:value {name} multiple {required} aria-label={labelSelect} tabindex="-1">
+		<select bind:this={selectElement} bind:value {name} multiple {required} aria-label={label} tabindex="-1">
 			<!-- NOTE: options are required! -->
 			{#each value as option}<option value={option}>{option}</option>{/each}
 		</select>
