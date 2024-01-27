@@ -86,6 +86,10 @@
 	/** Provide arbitrary classes to style the input field region. */
 	export let regionInput: CssClasses = '';
 
+	// Props (A11y)
+	/** Provide the ARIA label for the select input. */
+	export let label = 'Chips select';
+
 	// Props (transition)
 	/**
 	 * Enable/Disable transitions
@@ -241,7 +245,7 @@
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 	<div class="h-0 overflow-hidden">
-		<select bind:this={selectElement} bind:value {name} multiple {required} tabindex="-1">
+		<select bind:this={selectElement} bind:value {name} multiple {required} aria-label={label} tabindex="-1">
 			<!-- NOTE: options are required! -->
 			{#each value as option}<option value={option}>{option}</option>{/each}
 		</select>
