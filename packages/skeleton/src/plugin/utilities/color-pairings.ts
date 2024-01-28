@@ -15,7 +15,7 @@ ex: {property}-primary-50-950 | {property}-primary-950-50
 * stroke - https://tailwindcss.com/docs/stroke
 */
 
-import { settings, type CssClasses } from '../settings.js';
+import { settings, type TailwindClasses } from '../settings.js';
 
 function directional(key: string) {
 	return [key, `${key}-t`, `${key}-b`, `${key}-l`, `${key}-r`];
@@ -35,7 +35,7 @@ export const utilColorPairings = () => {
 		'caret',
 		'stroke'
 	];
-	const classes: CssClasses = {};
+	const classes: TailwindClasses = {};
 	// Loop each color name
 	settings.colorNames.forEach((n) => {
 		// Loop each property

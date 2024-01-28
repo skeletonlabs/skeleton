@@ -1,6 +1,6 @@
 // Skeleton Typography
 
-import { type CssClasses } from '../settings.js';
+import { type TailwindClasses } from '../settings.js';
 
 export const utilTypography = () => {
 	return {
@@ -49,7 +49,7 @@ export const utilTypography = () => {
 		'.anchor-text-decoration-active': { 'text-decoration': 'var(--anchor-text-decoration-active)' },
 		'.anchor-text-decoration-focus': { 'text-decoration': 'var(--anchor-text-decoration-focus)' },
 		'.anchor-text-decoration-hover': { 'text-decoration': 'var(--anchor-text-decoration-hover)' }
-	} satisfies CssClasses;
+	} satisfies TailwindClasses;
 };
 
 export default utilTypography;

@@ -1,10 +1,10 @@
 // Skeleton Presets
 
-import { settings, type CssClasses } from '../settings.js';
+import { settings, type TailwindClasses } from '../settings.js';
 
 // '.preset-foo': { '@apply xxx': {} },
 export const utilPresets = () => {
-	const classes: CssClasses = {
+	const classes: TailwindClasses = {
 		// Neutral Presets
 		'.preset-filled': { '@apply bg-neutral-950 dark:bg-neutral-50 text-neutral-50 dark:text-neutral-950': {} },
 		'.preset-tonal': { '@apply bg-neutral-950/5 dark:bg-neutral-50/5': {} },

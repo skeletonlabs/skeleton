@@ -18,8 +18,8 @@ export const settings = {
 	]
 } as const;
 
-export type CssClasses = {
-	[className: string]: string | CssClasses;
+export type TailwindClasses = {
+	[className: string]: string | TailwindClasses;
 };
 
 export default settings;
