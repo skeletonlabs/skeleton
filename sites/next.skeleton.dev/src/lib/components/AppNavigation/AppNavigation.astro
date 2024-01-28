@@ -10,6 +10,8 @@ const {
 const navigation = {
     linksDocs: [
         {href: '/docs/introduction', label: 'Introduction'},
+    ],
+    linksDesignSystem: [
         {href: '/docs/colors', label: 'Colors'},
         {href: '/docs/typography', label: 'Typography'},
         {href: '/docs/spacing', label: 'Spacing'},
@@ -40,6 +42,11 @@ const navigation = {
     <div class="flex flex-col gap-3">
         <span class="font-bold">Docs</span>
         {navigation.linksDocs.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+    </div>
+    <!-- Design System -->
+    <div class="flex flex-col gap-3">
+        <span class="font-bold">Design System</span>
+        {navigation.linksDesignSystem.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
     </div>
     <!-- Tailwind -->
     <div class="flex flex-col gap-3">
