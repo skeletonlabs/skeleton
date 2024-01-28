@@ -1,0 +1,76 @@
+---
+import LayoutDocs from "@lib/layouts/LayoutDocs.astro";
+
+const layoutProps = {
+    categoryId: 1,
+    title: 'Badges',
+    description: 'Provides a robust set of non-interactive badge styles.'
+};
+---
+
+<LayoutDocs {...layoutProps}>
+    <!-- Preview -->
+    <Fragment slot="preview">
+        <div class="flex items-center gap-4">
+            <span class="badge-icon preset-filled">♥</span>
+            <span class="badge preset-filled">Badge</span>
+            <span class="badge preset-filled">
+                <span>♥</span>
+                <span>Badge</span>
+            </span>
+        </div>
+    </Fragment>
+    <!-- Presets -->
+    <section class="space-y-4">
+        <h2 class="h2">Presets</h2>
+        <div class="docs-card-outlined-centered p-8">
+            <div class="space-y-4">
+                <div class="flex gap-4">
+                    <span class="badge preset-filled-primary-500">Badge</span>
+                    <span class="badge preset-tonal-primary">Badge</span>
+                    <span class="badge preset-outlined-primary-500">Badge</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="badge preset-filled-secondary-500">Badge</span>
+                    <span class="badge preset-tonal-secondary">Badge</span>
+                    <span class="badge preset-outlined-secondary-500">Badge</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="badge preset-filled-tertiary-500">Badge</span>
+                    <span class="badge preset-tonal-tertiary">Badge</span>
+                    <span class="badge preset-outlined-tertiary-500">Badge</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="badge preset-filled-success-500">Badge</span>
+                    <span class="badge preset-tonal-success">Badge</span>
+                    <span class="badge preset-outlined-success-500">Badge</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="badge preset-filled-warning-500">Badge</span>
+                    <span class="badge preset-tonal-warning">Badge</span>
+                    <span class="badge preset-outlined-warning-500">Badge</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="badge preset-filled-error-500">Badge</span>
+                    <span class="badge preset-tonal-error">Badge</span>
+                    <span class="badge preset-outlined-error-500">Badge</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="badge preset-filled-surface-500">Badge</span>
+                    <span class="badge preset-tonal-surface">Badge</span>
+                    <span class="badge preset-outlined-surface-500">Badge</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Overlap -->
+    <section class="space-y-4">
+        <h2 class="h2">Overlap</h2>
+        <div class="docs-card-outlined-centered p-8">
+            <div class="relative inline-block">
+                <span class="badge-icon preset-filled-primary-500 absolute -top-0 -right-0 z-10">2</span>
+                <img class="grayscale size-20 overflow-hidden rounded-full" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avatar">
+            </div>
+        </div>
+    </section>
+</LayoutDocs>

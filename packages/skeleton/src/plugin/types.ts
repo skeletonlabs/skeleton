@@ -1,4 +1,4 @@
-import type { PresetThemeName, ThemeProperties } from './tailwind/themes/index.js';
+import type { PresetThemeName, ThemeProperties } from './themes/index.js';
 
 export type ConfigOptions = {
 	/**

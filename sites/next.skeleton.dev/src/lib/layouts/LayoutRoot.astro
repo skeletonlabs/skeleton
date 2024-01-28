@@ -9,7 +9,7 @@ interface Props {
 const {
   title,
   classList
-} = Astro.props;
+} = Astro.props satisfies Props;
 ---
 
 <!doctype html>
@@ -22,7 +22,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title ? `${title} - ` : null}Skeleton</title>
   </head>
-  <body class:list={[classList]} data-theme="wintry">
+  <body class:list={[classList]} data-theme="next">
     <slot />
   </body>
 </html>

@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { writeFile } from 'fs/promises';
 import postcss from 'postcss';
 import postcssJs from 'postcss-js';
-import type { PresetTheme } from '../src/plugin/tailwind/themes/index.js';
+import type { PresetTheme } from '../src/plugin/themes/index.js';
 
 // Converts a theme's .css file into a .ts file.
 export async function convertTheme(name: string) {
@@ -25,7 +25,7 @@ export async function convertTheme(name: string) {
 
 	// Creates the generated CSS-in-JS file
 	await writeFile(
-		`./src/plugin/tailwind/themes/${name}.ts`,
+		`./src/plugin/themes/${name}.ts`,
 		`import type { Theme } from './index.js';
 
 const ${name} = ${JSON.stringify(theme, undefined, '\t')} satisfies Theme;

@@ -7,7 +7,7 @@ const base: Options = {
 	// treeshake: false,
 	// noExternal: [],
 	// skipNodeModulesBundle: true,
-	ignoreWatch: ['src/plugin/tailwind/generated']
+	ignoreWatch: ['src/plugin/generated']
 };
 
 export default defineConfig([

@@ -1,0 +1,51 @@
+---
+import LayoutDocs from "@lib/layouts/LayoutDocs.astro";
+
+const layoutProps = {
+    categoryId: 1,
+    title: 'Cards',
+    description: 'Provides container elements that wrap and separate content.'
+};
+
+// Source: https://unsplash.com/photos/a-bird-flying-over-a-mountain-range-at-sunset-HghkWDMuHx4
+const bannerId = 'photo-1705852592864-1a31a6c9260a';
+const banner = `https://images.unsplash.com/${bannerId}?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY2MjR8&ixlib=rb-4.0.3&w=400&h=175&auto=format&fit=crop`;
+---
+
+<LayoutDocs {...layoutProps}>
+    <!-- Preview -->
+    <Fragment slot="preview">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <!-- Minimal -->
+            <div class="docs-card-filled flex justify-center items-center">
+                <span>Minimal</span>
+            </div>
+            <!-- Detailed -->
+            <a class="docs-card-filled-flush card-hover overflow-hidden" href="#">
+                <!-- Header -->
+                <header>
+                    <img src={banner} class="grayscale hue-rotate-90 w-full aspect-[21/9]" alt="banner" />
+                </header>
+                <!-- Article -->
+                <article class="p-4 space-y-4">
+                    <div>
+                        <h2 class="h6">Announcements</h2>
+                        <h3 class="h3">Skeleton is Awesome</h3>    
+                    </div>
+                    <p class="opacity-60">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.</p>
+                </article>
+                <!-- Horz Rules -->
+                <hr class="opacity-5">
+                <!-- Footer -->
+                <footer class="p-4 flex justify-between items-center gap-4">
+                    <small class="opacity-40">By Alex</small>
+                    <small class="opacity-40">On {new Date().toLocaleDateString()}</small>
+                </footer>
+            </a>
+        </div>
+    </Fragment>
+    <!-- Usage -->
+    <!-- <section class="space-y-4">
+        <p>The {layoutProps.title} usage goes here.</p>
+    </section> -->
+</LayoutDocs>

@@ -1,10 +1,10 @@
 import postcss, { type PluginCreator } from 'postcss';
 import postcssJs from 'postcss-js';
-import { readFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
 import postcssImport from 'postcss-import';
 import tw from 'tailwindcss';
 import type { Config } from 'tailwindcss';
-import { corePlugin } from '../src/plugin/tailwind/core.js';
+import { corePlugin } from '../src/plugin/core.js';
 
 // tailwind needs to fix their exports :]
 const tailwindcss = tw as unknown as PluginCreator<string | Config | { config: string | Config }>;
