@@ -185,8 +185,10 @@ function onInvalidHandler(event: any): void {
 						<button type="button" class="btn variant-filled" on:click={() => manualInputChip.removeChip(manualList[-1])}
 							>Remove LastChip</button
 						>
-						<button type="button" class="btn variant-filled" on:click={() => manualInputChip.addChip(Math.random().toString())}
-							>Add Random Number</button
+						<button
+							type="button"
+							class="btn variant-filled"
+							on:click={() => manualInputChip.addChip((Math.floor(Math.random() * 10000) + 1).toString())}>Add Random Number</button
 						>
 					</div>
 				</svelte:fragment>
