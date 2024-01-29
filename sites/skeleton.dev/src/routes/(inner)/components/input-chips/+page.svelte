@@ -165,7 +165,7 @@ function onInvalidHandler(event: any): void {
 		</section>
 		<!-- Add/Remove Chips Programatically -->
 		<section class="space-y-4">
-			<h2 class="h2">Add / Remove Chips programatically</h2>
+			<h2 class="h2">Add / Remove Chips</h2>
 			<p>
 				To add or remove chips programatically, use the exported functions <code class="code">addChip</code> and
 				<code class="code">removeChip</code> after binding the ChipInput.
