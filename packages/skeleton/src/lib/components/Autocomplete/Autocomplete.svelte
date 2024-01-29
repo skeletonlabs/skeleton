@@ -174,6 +174,6 @@
 			</ul>
 		</nav>
 	{:else}
-		<div class="autocomplete-empty {classesEmpty}">{emptyState}</div>
+		<div class="autocomplete-empty {classesEmpty}">{@html emptyState}</div>
 	{/if}
 </div>
