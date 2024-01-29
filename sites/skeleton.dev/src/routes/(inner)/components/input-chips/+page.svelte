@@ -30,6 +30,8 @@
 	let emails = ['john@email.com', 'jane@email.com', 'sally@email.com'];
 	let musicalGenres = ['rock', 'r&b', 'pop'];
 	let musicalGenresWhitelist = ['rock', 'pop', 'hip-hop', 'metal', 'techno', 'r&b'];
+	let manualList: string[] = [];
+	let manualInputChip: InputChip;
 	const toastStore = getToastStore();
 
 	function isValidEmail(value: string): boolean {
@@ -158,6 +160,50 @@ function onInvalidHandler(event: any): void {
 						`}
 					/>
 					<CodeBlock language="html" code={`<InputChip ... on:invalid={onInvalidHandler} />`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<!-- Add/Remove Chips Programatically -->
+		<section class="space-y-4">
+			<h2 class="h2">Add / Remove Chips</h2>
+			<p>
+				To add or remove chips programatically, use the exported functions <code class="code">addChip</code> and
+				<code class="code">removeChip</code> after binding the ChipInput.
+			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<InputChip
+						bind:this={manualInputChip}
+						bind:value={manualList}
+						name="chips-example-programatic"
+						placeholder="Enter number..."
+						chips="variant-filled-tertiary"
+					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="text-center">
+						<button type="button" class="btn variant-filled" on:click={() => manualInputChip.removeChip(manualList[-1])}
+							>Remove LastChip</button
+						>
+						<button
+							type="button"
+							class="btn variant-filled"
+							on:click={() => manualInputChip.addChip((Math.floor(Math.random() * 10000) + 1).toString())}>Add Random Number</button
+						>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let inputChip: InputChip;
+// add chip manually
+inputChip.addChip('chipValue');
+// remove chip manually
+inputChip.removeChip('chipValue');
+						`}
+					/>
+					<CodeBlock language="html" code={`<InputChip ... bind:this={inputChip} />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
