@@ -94,7 +94,7 @@
 		<!-- Language -->
 		<span class="codeblock-language">{languageFormatter(language)}</span>
 		<!-- Copy Button -->
-		<button class="codeblock-btn {button}" on:click={onCopyClick} use:clipboard={code}>
+		<button type="button" class="codeblock-btn {button}" on:click={onCopyClick} use:clipboard={code}>
 			{!copyState ? buttonLabel : buttonCopied}
 		</button>
 	</header>

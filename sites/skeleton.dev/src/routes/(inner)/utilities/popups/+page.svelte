@@ -587,7 +587,7 @@ const popupState: PopupSettings = {
 						<span class="capitalize">{comboboxValue ?? 'Trigger'}</span>
 						<i class="fa-solid fa-caret-down opacity-50" />
 					</button>
-					<div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
+					<div class="card w-48 shadow-xl py-2 overflow-hidden" data-popup="popupCombobox">
 						<ListBox rounded="rounded-none">
 							<ListBoxItem bind:group={comboboxValue} name="medium" value="books">Books</ListBoxItem>
 							<ListBoxItem bind:group={comboboxValue} name="medium" value="movies">Movies</ListBoxItem>
