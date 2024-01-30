@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-chore:Applied HTML-markup interpretation to Autocomplete-empty-state
+chore: Applied `@html` interpretation to Autocomplete empty state

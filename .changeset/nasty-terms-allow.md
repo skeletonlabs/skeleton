@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: set CodeBlock copy button type to `button` instead of `submit`
+bugfix: CodeBlock copy button type is now `button` instead of default (`submit`)

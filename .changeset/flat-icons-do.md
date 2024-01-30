@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: InputChip - Implemented function to add/remove chips programatically.
+feat: InputChips now allow you to add/remove chips programatically.
