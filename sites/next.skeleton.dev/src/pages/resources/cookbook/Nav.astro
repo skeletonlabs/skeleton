@@ -1,72 +1,62 @@
 ---
-import LayoutDocs from "@lib/layouts/LayoutDocs.astro";
-
-const layoutProps = {
-    categoryId: 3,
-    title: 'Cookbook',
-    description: 'A collection of recipes for crafting complex UI that combines Skeleton and Tailwind primitives.',
-    preview: false
-};
-
-// Title, relative link, and description.
 const categories: any = {
-    'Basic': [
+    Basic: [
         {
             title: 'Alerts',
             link: '/alerts',
             desc: 'Customizable alerts to attract attention and provide critical actions.',
-            author: 'Skeleton Labs'
+            author: 'Skeleton Labs',
         },
         {
             title: 'Breadcrumbs',
             link: '/breadcrumbs',
             desc: 'Displays the current navigation hierarchy.',
-            author: 'Skeleton Labs'
+            author: 'Skeleton Labs',
         },
         {
             title: 'Logo Clouds',
             link: '/logo-clouds',
             desc: 'Provides a grid for presenting a set of logos, brands, or sponsors.',
-            author: 'Skeleton Labs'
+            author: 'Skeleton Labs',
         },
         {
             title: 'Gradient Text',
             link: '/gradient-text',
             desc: 'Create gradient-colored text styles.',
             author: 'Skeleton Labs',
-            disabled: true
+            disabled: true,
         },
         {
             title: 'Image Layouts',
             link: '/image-layouts',
             desc: 'Various layouts for displaying images.',
             author: 'Skeleton Labs',
-            disabled: true
+            disabled: true,
         },
     ],
-    'Intermediate': [
+    Intermediate: [
         {
             title: 'Scroll Containers',
             link: '/scroll-containers',
             desc: 'Create scrolling containers using the scroll snap features from Tailwind.',
             author: 'Skeleton Labs',
-            disabled: true
-        }
+            disabled: true,
+        },
     ],
-    'Advanced': [
+    Advanced: [
         {
             title: 'Chat',
             link: '/chat-ai',
             desc: 'Create a custom chat feed or AI prompt interface.',
             author: 'Skeleton Labs',
-            disabled: true
+            disabled: true,
         },
     ],
-};
+}
 ---
 
-<LayoutDocs {...layoutProps}>
-    {Object.keys(categories).map((category, i) => (
+{
+    Object.keys(categories).map((category, i) => (
         <section class="space-y-4">
             <h2 class="h2">{category}</h2>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -85,7 +75,7 @@ const categories: any = {
                         <article class="h-16 px-4 space-y-4">
                             <p class="opacity-60 type-scale-1">{item.desc}</p>
                         </article>
-                        <hr class="hr">
+                        <hr class="hr" />
                         <footer class="p-4">
                             <small class="opacity-60">By {item.author}</small>
                         </footer>
@@ -93,5 +83,5 @@ const categories: any = {
                 ))}
             </div>
         </section>
-    ))}
-</LayoutDocs>
+    ))
+}

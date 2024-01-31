@@ -1,68 +1,91 @@
 ---
 interface Props {
-  classList?: string;
+    classList?: string
 }
 
-const {
-  classList
-} = Astro.props;
+const { classList } = Astro.props
 
 const navigation = {
-    linksDocs: [
-        {href: '/docs/introduction', label: 'Introduction'},
-    ],
+    linksDocs: [{ href: '/docs/introduction', label: 'Introduction' }],
     linksDesignSystem: [
-        {href: '/design/colors', label: 'Colors'},
-        {href: '/design/typography', label: 'Typography'},
-        {href: '/design/spacing', label: 'Spacing'},
-        {href: '/design/presets', label: 'Presets'},
+        { href: '/design/colors', label: 'Colors' },
+        { href: '/design/typography', label: 'Typography' },
+        { href: '/design/spacing', label: 'Spacing' },
+        { href: '/design/presets', label: 'Presets' },
     ],
     linksTailwind: [
-        // {href: '/tailwind/badges', label: 'Badges'},
-        // {href: '/tailwind/buttons', label: 'Buttons'},
-        // {href: '/tailwind/cards', label: 'Cards'},
-        // {href: '/tailwind/chips', label: 'Chips'},
-        // {href: '/tailwind/dividers', label: 'Dividers'},
-        // {href: '/tailwind/forms', label: 'Forms & Inputs'},
-        // {href: '/tailwind/placeholders', label: 'Placeholders'},
-        // {href: '/tailwind/tables', label: 'Tables'},
+        { href: '/tailwind/badges', label: 'Badges' },
+        { href: '/tailwind/buttons', label: 'Buttons' },
+        { href: '/tailwind/cards', label: 'Cards' },
+        { href: '/tailwind/chips', label: 'Chips' },
+        { href: '/tailwind/dividers', label: 'Dividers' },
+        { href: '/tailwind/forms', label: 'Forms & Inputs' },
+        { href: '/tailwind/placeholders', label: 'Placeholders' },
+        { href: '/tailwind/tables', label: 'Tables' },
     ],
-    linksComponents: [
-        // {href: '/components/accordions', label: 'Accordions'},
-    ],
+    linksComponents: [{ href: '/components/accordions', label: 'Accordions' }],
     linksResources: [
-        // {href: '/resources/cookbook', label: 'Cookbook'},
-        {href: '/resources/mdx', label: 'MDX'},
+        { href: '/resources/cookbook', label: 'Cookbook' },
+        { href: '/resources/mdx', label: 'MDX' },
     ],
-};
-
+}
 ---
 
 <aside class="p-10 overflow-y-auto space-y-10 text-sm" class:list={[classList]}>
     <!-- Top -->
     <div class="flex flex-col gap-3">
         <span class="font-bold">Docs</span>
-        {navigation.linksDocs.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+        {
+            navigation.linksDocs.map((l) => (
+                <a class="anchor" href={l.href}>
+                    {l.label}
+                </a>
+            ))
+        }
     </div>
     <!-- Design -->
     <div class="flex flex-col gap-3">
         <span class="font-bold">Design</span>
-        {navigation.linksDesignSystem.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+        {
+            navigation.linksDesignSystem.map((l) => (
+                <a class="anchor" href={l.href}>
+                    {l.label}
+                </a>
+            ))
+        }
     </div>
     <!-- Tailwind -->
     <div class="flex flex-col gap-3">
         <span class="font-bold">Tailwind</span>
-        {navigation.linksTailwind.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+        {
+            navigation.linksTailwind.map((l) => (
+                <a class="anchor" href={l.href}>
+                    {l.label}
+                </a>
+            ))
+        }
     </div>
     <!-- Components -->
     <div class="flex flex-col gap-3">
         <span class="font-bold">Components</span>
-        {navigation.linksComponents.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+        {
+            navigation.linksComponents.map((l) => (
+                <a class="anchor" href={l.href}>
+                    {l.label}
+                </a>
+            ))
+        }
     </div>
     <!-- Resources -->
     <div class="flex flex-col gap-3">
         <span class="font-bold">Resources</span>
-        {navigation.linksResources.map(l => <a class="anchor" href={l.href}>{l.label}</a>)}
+        {
+            navigation.linksResources.map((l) => (
+                <a class="anchor" href={l.href}>
+                    {l.label}
+                </a>
+            ))
+        }
     </div>
     <!-- DEBUG: Use this to test with lots of links -->
     <!-- <div class="flex flex-col gap-3">
