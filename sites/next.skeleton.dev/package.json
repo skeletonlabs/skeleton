@@ -25,6 +25,7 @@
 		"@astrojs/tailwind": "^5.1.0",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"astro": "^4.1.0",
+		"astro-expressive-code": "^0.32.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"svelte": "5.0.0-next.28",

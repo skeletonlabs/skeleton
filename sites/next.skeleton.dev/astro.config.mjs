@@ -4,6 +4,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
 import react from "@astrojs/react";
+import expressiveCode from "astro-expressive-code";
 import mdx from '@astrojs/mdx';
 // Plugins
 import skeletonPluginWatcher from "./skeleton-plugin-watcher.js";
@@ -17,13 +18,17 @@ export default defineConfig({
 		svelte(),
 		react({
 			// https://docs.astro.build/en/guides/integrations-guide/react/
-			experimentalReactChildren: true,
+			experimentalReactChildren: true
 		}),
-		mdx()
+		expressiveCode({
+			themes: ['dracula'],
+		}),
+		// Keep this last
+		mdx(),
 	],
 	vite: {
-		plugins: [skeletonPluginWatcher()],
+		plugins: [skeletonPluginWatcher()]
 	},
 	output: "server",
-	adapter: cloudflare(),
+	adapter: cloudflare()
 });

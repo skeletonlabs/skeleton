@@ -6,13 +6,17 @@ description: The Skeleton color system.
 preview: false
 ---
 
-import { Code } from 'astro:components';
+import componentSet from "@lib/components/mdx/index";
+export const components = componentSet
+
 import Swatches from './Swatches.astro';
 import Pairings from './Pairings.astro';
 
 ## Palette
 
-<Code code={`.bg-primary-{value}`} lang="css"  />
+```
+.bg-{color}-{shade}
+```
 
 <Swatches />
 
@@ -20,6 +24,8 @@ import Pairings from './Pairings.astro';
 
 Supports: `accent`, `bg`, `border`, `caret`, `decoration`, `divide`, `outline`, `ring`, `shadow`, `stroke` `text`.
 
-<Code code={`.bg-primary-{l}-{d}`} lang="css" />
+```
+.bg-{color}-{l}-{d}
+```
 
 <Pairings />
