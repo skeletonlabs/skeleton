@@ -1,30 +1,28 @@
 ---
-import LayoutRoot from "@lib/layouts/LayoutRoot.astro";
-import AppHeader from "@lib/components/AppHeader/AppHeader.astro";
-import AppNavigation from "@lib/components/AppNavigation/AppNavigation.astro";
-
+import LayoutRoot from '@lib/layouts/LayoutRoot.astro'
+import AppHeader from '@lib/components/AppHeader/AppHeader.astro'
+import AppNavigation from '@lib/components/AppNavigation/AppNavigation.astro'
 
 const categoryList: Record<string, string> = {
     docs: 'Documentation',
     design: 'Design',
     tailwind: 'Tailwind',
     components: 'Components',
-    resources: 'Resources'
-};
+    resources: 'Resources',
+}
 
 interface Props {
     frontmatter: {
-        category: string;
-        title: string;
-        description: string;
-        preview?: boolean;
+        category: string
+        title: string
+        description: string
     }
 }
 
-const { frontmatter } = Astro.props;
+const { frontmatter } = Astro.props
 
 const layoutProps = {
-    title: frontmatter.title
+    title: frontmatter.title,
 }
 ---
 
@@ -33,12 +31,12 @@ const layoutProps = {
         <!-- Header -->
         <AppHeader />
         <!-- Content -->
-        <section class="
-            container mx-auto
+        <section
+            class="container mx-auto
             flex-1 items-start
             md:grid md:grid-cols-[220px_minmax(0,1fr)]
-            lg:grid-cols-[240px_minmax(0,1fr)]
-        ">
+            lg:grid-cols-[240px_minmax(0,1fr)]"
+        >
             <!-- Navigation -->
             <AppNavigation classList="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block" />
             <!-- Page -->
@@ -57,16 +55,7 @@ const layoutProps = {
                             <h1 class="h1">{frontmatter.title}</h1>
                             <p class="opacity-60">{frontmatter.description}</p>
                         </header>
-                        <!-- Preview -->
-                        {frontmatter.preview && (
-                            <section class="docs-card-outlined-centered p-8">
-                                <slot name="preview">
-                                    <p>({frontmatter.title} preview missing)</p>
-                                </slot>
-                            </section>
-                        )}
                         <!-- Content -->
-                        <!-- class="prose prose-skeleton max-w-none" -->
                         <article class="space-y-8">
                             <slot />
                         </article>
