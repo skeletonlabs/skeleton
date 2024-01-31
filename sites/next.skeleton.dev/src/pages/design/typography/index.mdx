@@ -1,0 +1,181 @@
+---
+layout: '@lib/layouts/LayoutDocs.astro'
+category: design
+title: Typography
+description: The Skeleton typography system.
+preview: false
+---
+
+import componentSet from "@lib/components/mdx/index";
+export const components = componentSet
+
+## Headings
+
+```html
+<h1 class="h1">...</h1>
+```
+
+<div class="docs-card-outlined-centered p-8">
+    <div class="space-y-4">
+        <h1 class="h1">Heading 1</h1>
+        <h2 class="h2">Heading 2</h2>
+        <h3 class="h3">Heading 3</h3>
+        <h4 class="h4">Heading 4</h4>
+        <h5 class="h5">Heading 5</h5>
+        <h6 class="h6">Heading 6</h6>
+    </div>
+</div>
+
+## Paragraphs
+
+```html
+<p>...</p>
+```
+
+<div class="docs-card-outlined-centered p-8">
+    <p>Paragraph - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta error, quas iste, hic quos saepe expedita odio ratione distinctio eligendi iure sint, obcaecati eaque. Soluta ex libero quae odio exercitationem.</p>
+</div>
+
+## Blockquotes
+
+```html
+<blockquote class="blockquote">...</blockquote>
+```
+
+<div class="docs-card-outlined-centered p-8">
+    <blockquote class="blockquote">Blockquote - "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta error, quas iste, hic quos saepe expedita odio ratione distinctio eligendi iure sint, obcaecati eaque. Soluta ex libero quae odio exercitationem."</blockquote>
+</div>
+
+
+## Anchor
+
+```html
+<a href="#" class="anchor">...</a>`
+```
+
+<div class="docs-card-outlined-centered p-8">
+    <a class="anchor" href="/">Anchor</a>
+</div>
+
+<h2 class="h2">Pre-Formatted</h2>
+
+```html
+<pre class="pre">...</pre>`
+```
+
+<div class="docs-card-outlined-centered p-8">
+    <pre class="pre">Pre - The quick brown fox jumps over the lazy dog.</pre>
+</div>
+
+<h2 class="h2">Code</h2>
+
+```html
+<code class="code"></code>`
+```
+
+<div class="docs-card-outlined-centered p-8">
+    <div>Insert the <code class="code">.example</code> class here.</div>
+</div>
+
+<h2 class="h2">Keyboard</h2>
+
+```html
+<kbd class="kbd">...</kbd>`
+```
+
+<div class="docs-card-outlined-centered p-8">
+    <div>Press <kbd class="kbd">⌘</kbd> + <kbd class="kbd">C</kbd> to copy.</div>
+</div>
+
+<h2 class="h2">Insert & Delete</h2>
+
+```html
+<del class="del"></del>`
+<ins class="ins" cite="..." datetime="...">...</ins>`
+```
+
+<div class="docs-card-outlined-centered p-8">
+    <div class="w-full">
+        <del class="del"><s>Always</s> Gonna Give You Up</del>
+        <ins class="ins" cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022">
+            Never Gonna Give You Up
+        </ins>
+    </div>
+</div>
+
+---
+
+## Lists
+
+### Unordered
+
+<div class="docs-card-outlined-centered p-8">
+    <ul class="list-disc list-inside space-y-2">
+        <li>Id maxime optio soluta placeat ea eaque similique consectetur dicta tempore.</li>
+        <li>Repellat veritatis et harum ad sint reprehenderit tenetur, possimus tempora.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit harum ad sint.</li>
+    </ul>
+</div>
+
+### Ordered
+
+<div class="docs-card-outlined-centered p-8">
+    <ol class="list-decimal list-inside space-y-2">
+        <li>Id maxime optio soluta placeat ea eaque similique consectetur dicta tempore.</li>
+        <li>Repellat veritatis et harum ad sint reprehenderit tenetur, possimus tempora.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit harum ad sint.</li>
+    </ol>
+</div>
+
+### Basic
+
+<div class="docs-card-outlined-centered p-8">
+    <ul class="list-none list-inside space-y-2">
+        <li>Id maxime optio soluta placeat ea eaque similique consectetur dicta tempore.</li>
+        <li>Repellat veritatis et harum ad sint reprehenderit tenetur, possimus tempora.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit harum ad sint.</li>
+    </ul>
+</div>
+
+### Description
+
+<div class="docs-card-outlined-centered p-8">
+    <dl class="space-y-2">
+        <div>
+            <dt class="font-bold">Item A</dt>
+            <dd class="opacity-60">
+                Id maxime optio soluta placeat ea eaque similique consectetur dicta tempore.
+            </dd>
+        </div>
+        <div>
+            <dt class="font-bold">Item B</dt>
+            <dd class="opacity-60">
+                Repellat veritatis et harum ad sint reprehenderit tenetur, possimus tempora.
+            </dd>
+        </div>
+        <div>
+            <dt class="font-bold">Item C</dt>
+            <dd class="opacity-60">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit harum ad sint.
+            </dd>
+        </div>
+    </dl>
+</div>
+
+### Navigation
+
+<div class="docs-card-outlined-centered p-8">
+    <nav>
+        <ul class="space-y-2">
+            <li>
+                <a class="anchor" href="#">Home</a>
+            </li>
+            <li>
+                <a class="anchor" href="#">About</a>
+            </li>
+            <li>
+                <a class="anchor" href="#">Blog</a>
+            </li>
+        </ul>
+    </nav>
+</div>

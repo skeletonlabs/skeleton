@@ -1,0 +1,77 @@
+---
+layout: '@lib/layouts/LayoutDocs.astro'
+category: design
+title: Presets
+description: Provides a robust preset combination of styles for use with buttons, cards, badges, and more.
+preview: false
+---
+
+import componentSet from "@lib/components/mdx/index";
+export const components = componentSet
+
+## Filled
+
+```css
+.preset-filled-{color}-{shade}-{shade}
+```
+
+<div class="docs-card-outlined p-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
+    {/* Neutral */}
+    <div class="card p-4 flex justify-center items-center preset-filled">(neutral)</div>
+    {/* Colors */}
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-950-50">950-50</div>
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-900-100">900-100</div>
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-800-200">800-200</div>
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-700-300">700-300</div>
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-600-400">600-400</div>
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-500">500</div>
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-400-600">400-600</div>
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-300-700">300-700</div>
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-200-800">200-800</div>
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-100-900">100-900</div>
+    <div class="card p-4 flex justify-center items-center preset-filled-primary-50-950">50-950</div>
+</div>
+
+## Tonal
+
+```css
+.preset-tonal-{color}
+```
+
+<div class="docs-card-outlined p-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="card p-4 flex justify-center items-center preset-tonal">(neutral)</div>
+    <div class="card p-4 flex justify-center items-center preset-tonal-primary">primary</div>
+    <div class="card p-4 flex justify-center items-center preset-tonal-secondary">secondary</div>
+    <div class="card p-4 flex justify-center items-center preset-tonal-tertiary">tertiary</div>
+    <div class="card p-4 flex justify-center items-center preset-tonal-success">success</div>
+    <div class="card p-4 flex justify-center items-center preset-tonal-warning">warning</div>
+    <div class="card p-4 flex justify-center items-center preset-tonal-error">error</div>
+    <div class="card p-4 flex justify-center items-center preset-tonal-surface">surface</div>
+</div>
+
+## Outlined
+
+```css
+.preset-outlined-{color}-{shade}-{shade}
+```
+
+<div class="docs-card-outlined p-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
+    {/* Neutral */}
+    <div class="card p-4 flex justify-center items-center preset-outlined">(neutral)</div>
+    {/* Colors */}
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-950-50">950-50</div>
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-900-100">900-100</div>
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-800-200">800-200</div>
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-700-300">700-300</div>
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-600-400">600-400</div>
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-500">500</div>
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-400-600">400-600</div>
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-300-700">300-700</div>
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-200-800">200-800</div>
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-100-900">100-900</div>
+    <div class="card p-4 flex justify-center items-center preset-outlined-primary-50-950">50-950</div>
+</div>
+
+## Gradients
+
+See the [Tailwind Gradient Stops](https://tailwindcss.com/docs/gradient-color-stops) documentation for more information.
