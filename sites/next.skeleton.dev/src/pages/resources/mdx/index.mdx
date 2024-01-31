@@ -8,21 +8,17 @@ description: An MDX kitchen sink to test parsing and styles.
 import componentSet from "@lib/components/mdx/index";
 export const components = componentSet
 
+import TestSvelte from "./Test.svelte";
+import { TestReact } from "./Test.tsx";
+
+## Components
+
 <button type="button" class="btn preset-filled">Button</button>
 
-```ts title="my-test-file.js"
-const toggleDarkMode = document.querySelector('.preset-filled');
+<TestSvelte name="Skeleton">This is a Svelte component!</TestSvelte>
+<TestReact name="Skeleton">This is a React component!</TestReact>
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    jtd.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
-});
-```
+## Text
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
@@ -53,6 +49,20 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 > When something is important enough, you do it even if the odds are not in your favor.
 
 ## Fenced Code Blocks
+
+```ts title="my-test-file.js"
+const toggleDarkMode = document.querySelector('.preset-filled');
+
+jtd.addEvent(toggleDarkMode, 'click', function(){
+  if (jtd.getTheme() === 'dark') {
+    jtd.setTheme('light');
+    toggleDarkMode.textContent = 'Preview dark color scheme';
+  } else {
+    jtd.setTheme('dark');
+    toggleDarkMode.textContent = 'Return to the light side';
+  }
+});
+```
 
 ```js
 // Javascript code with syntax highlighting.
