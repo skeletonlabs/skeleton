@@ -3,33 +3,28 @@ import LayoutRoot from "@lib/layouts/LayoutRoot.astro";
 import AppHeader from "@lib/components/AppHeader/AppHeader.astro";
 import AppNavigation from "@lib/components/AppNavigation/AppNavigation.astro";
 
+
+const categoryList: Record<string, string> = {
+    docs: 'Documentation',
+    design: 'Design',
+    tailwind: 'Tailwind',
+    components: 'Components',
+    resources: 'Resources'
+};
+
 interface Props {
-    /** 0: Tailwind, 1: Components */
-    categoryId: number;
-    /** The page title. */
-    title: string;
-    /** The page description. */
-    description: string;
-    /** Enable/Disable the Preview section. */
-    preview?: boolean;
+    frontmatter: {
+        category: string;
+        title: string;
+        description: string;
+        preview?: boolean;
+    }
 }
 
-const categories = [
-    'Docs',
-    'Tailwind',
-    'Components',
-    'Resources'
-];
-
-const {
-    categoryId = 0,
-    title = "(title missing)",
-    description = '(description missing)',
-    preview = true
-} = Astro.props;
+const { frontmatter } = Astro.props;
 
 const layoutProps = {
-    title
+    title: frontmatter.title
 }
 ---
 
@@ -53,25 +48,28 @@ const layoutProps = {
                     <div class="space-y-10">
                         <!-- Breadcrumbs -->
                         <div class="flex gap-2 text-xs">
-                            <span class="opacity-60">{categories[categoryId]}</span>
+                            <span class="opacity-60">{categoryList[frontmatter.category]}</span>
                             <span class="opacity-60">&rsaquo;</span>
-                            <span>{title}</span>
+                            <span>{frontmatter.title}</span>
                         </div>
                         <!-- Header -->
                         <header class="space-y-4">
-                            <h1 class="h1">{title}</h1>
-                            <p class="opacity-60">{description}</p>
+                            <h1 class="h1">{frontmatter.title}</h1>
+                            <p class="opacity-60">{frontmatter.description}</p>
                         </header>
                         <!-- Preview -->
-                        {preview && (
+                        {frontmatter.preview && (
                             <section class="docs-card-outlined-centered p-8">
                                 <slot name="preview">
-                                    <p>({title} preview missing)</p>
+                                    <p>({frontmatter.title} preview missing)</p>
                                 </slot>
                             </section>
                         )}
                         <!-- Content -->
-                        <slot />
+                        <!-- class="prose prose-skeleton max-w-none" -->
+                        <article class="space-y-8">
+                            <slot />
+                        </article>
                     </div>
                 </div>
                 <!-- Table of Contents -->

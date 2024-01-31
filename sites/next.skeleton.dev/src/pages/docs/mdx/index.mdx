@@ -1,0 +1,287 @@
+---
+layout: '@lib/layouts/LayoutDocs.astro'
+category: docs
+title: MDX
+description: An MDX kitchen sink to test parsing and styles.
+preview: false
+---
+
+import Blockquote from "@lib/components/mdx/Blockquote.astro";
+import Heading1 from "@lib/components/mdx/Heading1.astro";
+import Heading2 from "@lib/components/mdx/Heading2.astro";
+import Heading3 from "@lib/components/mdx/Heading3.astro";
+import Anchor from "@lib/components/mdx/Anchor.astro";
+import HorzRule from "@lib/components/mdx/HorzRule.astro";
+import Code from "@lib/components/mdx/Code.astro";
+import UnorderedList from "@lib/components/mdx/UnorderedList.astro";
+export const components = {
+  h1: Heading1,
+  h2: Heading2,
+  h3: Heading3,
+  blockquote: Blockquote,
+  a: Anchor,
+  hr: HorzRule,
+  code: Code,
+  ul: UnorderedList
+}
+
+<button type="button" class="btn preset-filled">Button</button>
+
+<div class="mt-4 not-prose">
+```ts
+const toggleDarkMode = document.querySelector('.preset-filled');
+
+jtd.addEvent(toggleDarkMode, 'click', function(){
+  if (jtd.getTheme() === 'dark') {
+    jtd.setTheme('light');
+    toggleDarkMode.textContent = 'Preview dark color scheme';
+  } else {
+    jtd.setTheme('dark');
+    toggleDarkMode.textContent = 'Return to the light side';
+  }
+});
+```
+</div>
+
+Text can be **bold**, _italic_, or ~~strikethrough~~.
+
+[Link to another page](https://github.com/)
+
+There should be whitespace between paragraphs.
+
+There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+
+## Blockquotes
+
+> This is a blockquote following a header.
+>
+> When something is important enough, you do it even if the odds are not in your favor.
+
+## Fenced Code Blocks
+
+```js
+// Javascript code with syntax highlighting.
+var fun = function lang(l) {
+  dateformat.i18n = require('./lang/' + l)
+  return true;
+}
+```
+
+```ruby
+# Ruby code with syntax highlighting
+GitHubPages::Dependencies.gems.each do |gem, version|
+  s.add_dependency(gem, "= #{version}")
+end
+```
+
+## Inline Code elements
+
+`inline code element`
+
+## Tables
+
+| head1        | head two          | three |
+|:-------------|:------------------|:------|
+| ok           | good swedish fish | nice  |
+| out of stock | good and plenty   | nice  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
+
+### There's are horizontal rules below this.
+
+* * *
+
+---
+
+## Unordered list
+
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
+
+## Ordered List
+
+1.  This is an ordered list following a header.
+2.  This is an ordered list following a header.
+3.  This is an ordered list following a header.
+
+### And an ordered list:
+
+1.  Item one
+1.  Item two
+1.  Item three
+1.  Item four
+
+### And an ordered list, continued:
+
+1.  Item one
+1.  Item two
+
+### And an ordered list starting from 42:
+
+{/* {:style="counter-reset:step-counter 41"} */}
+1.  Item 42
+1.  Item 43
+1.  Item 44
+
+### And a nested list:
+
+- level 1 item
+  - level 2 item
+  - level 2 item
+    - level 3 item
+    - level 3 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+
+### Nesting an ol in ul in an ol
+
+- level 1 item (ul)
+  1. level 2 item (ol)
+  1. level 2 item (ol)
+    - level 3 item (ul)
+    - level 3 item (ul)
+- level 1 item (ul)
+  1. level 2 item (ol)
+  1. level 2 item (ol)
+    - level 3 item (ul)
+    - level 3 item (ul)
+  1. level 4 item (ol)
+  1. level 4 item (ol)
+    - level 3 item (ul)
+    - level 3 item (ul)
+- level 1 item (ul)
+
+### And a task list
+
+- [ ] Hello, this is a TODO item
+- [ ] Hello, this is another TODO item
+- [x] Goodbye, this item is done
+
+### Nesting task lists
+
+- [ ] level 1 item (task)
+   - [ ] level 2 item (task)
+   - [ ] level 2 item (task)
+- [ ] level 1 item (task)
+- [ ] level 1 item (task)
+
+### Nesting a ul in a task list
+
+- [ ] level 1 item (task)
+   - level 2 item (ul)
+   - level 2 item (ul)
+- [ ] level 1 item (task)
+- [ ] level 1 item (task)
+
+### Nesting a task list in a ul
+
+- level 1 item (ul)
+   - [ ] level 2 item (task)
+   - [ ] level 2 item (task)
+- level 1 item (ul)
+- level 1 item (ul)
+
+### Image
+
+![](https://images.unsplash.com/photo-1578170222009-c7893aa20afd?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+
+### Text Styles
+
+**bold**
+
+*italic*
+
+***bold + italic***
+
+### Definition lists can be used with HTML syntax.
+
+<dl>
+  <div>
+    <dt>Name</dt>
+    <dd>Godzilla</dd>
+    <dt>Born</dt>
+    <dd>1952</dd>
+  </div>
+  <div>
+    <dt>Birthplace</dt>
+    <dd>Japan</dd>
+    <dt>Color</dt>
+    <dd>Green</dd>
+  </div>
+</dl>
+
+### More code
+
+```python{% raw %}
+def dump_args(func):
+    "This decorator dumps out the arguments passed to a function before calling it"
+    argnames = func.func_code.co_varnames[:func.func_code.co_argcount]
+    fname = func.func_name
+    def echo_func(*args,**kwargs):
+        print fname, ":", ', '.join(
+            '%s=%r' % entry
+            for entry in zip(argnames,args) + kwargs.items())
+        return func(*args, **kwargs)
+    return echo_func
+
+@dump_args
+def f1(a,b,c):
+    print a + b + c
+
+f1(1, 2, 3)
+
+def precondition(precondition, use_conditions=DEFAULT_ON):
+    return conditions(precondition, None, use_conditions)
+
+def postcondition(postcondition, use_conditions=DEFAULT_ON):
+    return conditions(None, postcondition, use_conditions)
+
+class conditions(object):
+    __slots__ = ('__precondition', '__postcondition')
+
+    def __init__(self, pre, post, use_conditions=DEFAULT_ON):
+        if not use_conditions:
+            pre, post = None, None
+
+        self.__precondition  = pre
+        self.__postcondition = post
+{% endraw %}```
+
+```
+Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+
+### Collapsed Section
+
+The following uses the [details](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections) tag to create a collapsed section.
+
+<details markdown="block">
+<summary>Shopping list (click me!)</summary>
+
+This is content inside a `<details>` dropdown.
+
+- [ ] Apples
+- [ ] Oranges
+- [ ] Milk
+
+</details>

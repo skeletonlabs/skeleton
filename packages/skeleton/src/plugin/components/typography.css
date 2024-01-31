@@ -9,6 +9,7 @@
 	.h4,
 	.h5,
 	.h6 {
+		@apply block;
 		@apply heading-font-color dark:heading-font-color-dark;
 		@apply heading-font-family;
 		@apply heading-font-size;
@@ -78,7 +79,7 @@
 		@apply text-white type-scale-1 whitespace-pre-wrap;
 	}
 
-	.code {
+	:not(pre) > .code {
 		@apply preset-tonal-primary;
 		@apply font-mono text-xs whitespace-nowrap;
 		@apply overflow-x-auto py-0.5 px-1.5 rounded;

@@ -1,0 +1,25 @@
+---
+layout: '@lib/layouts/LayoutDocs.astro'
+category: design
+title: Colors
+description: The Skeleton color system.
+preview: false
+---
+
+import { Code } from 'astro:components';
+import Swatches from './Swatches.astro';
+import Pairings from './Pairings.astro';
+
+## Palette
+
+<Code code={`.bg-primary-{value}`} lang="css"  />
+
+<Swatches />
+
+## Pairings
+
+Supports: `accent`, `bg`, `border`, `caret`, `decoration`, `divide`, `outline`, `ring`, `shadow`, `stroke` `text`.
+
+<Code code={`.bg-primary-{l}-{d}`} lang="css" />
+
+<Pairings />

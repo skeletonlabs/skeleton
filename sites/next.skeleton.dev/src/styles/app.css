@@ -1,16 +1,12 @@
 /* Global Styles */
 
-.anchor {
-  @apply no-underline;
-}
-
-/* Local Utiilties */
+/* Local Utiilties --- */
 
 .flex-centered {
   @apply flex justify-center items-center;
 }
 
-/* Local Abstractions (molecules) */
+/* Local Abstractions (molecules) --- */
 
 .docs-card-outlined {
   @apply card border border-surface-200-800;
@@ -24,3 +20,25 @@
 .docs-card-filled {
   @apply docs-card-filled-flush p-4;
 }
+
+/* Astro --- */
+
+.astro-code {
+  @apply p-4 rounded-container;
+}
+
+/* --- */
+
+/* .prose-skeleton {
+  @apply prose-h1:h1;
+  @apply prose-h2:h2;
+  @apply prose-h3:h3;
+  @apply prose-h4:h4;
+  @apply prose-h5:h5;
+  @apply prose-h6:h6;
+  @apply prose-a:anchor;
+  @apply prose-blockquote:blockquote;
+  @apply prose-code:code;
+  @apply prose-table:table;
+  @apply prose-hr:hr;
+} */
