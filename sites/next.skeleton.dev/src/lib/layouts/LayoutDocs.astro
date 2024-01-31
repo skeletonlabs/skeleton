@@ -2,13 +2,12 @@
 import LayoutRoot from '@lib/layouts/LayoutRoot.astro'
 import AppHeader from '@lib/components/AppHeader/AppHeader.astro'
 import AppNavigation from '@lib/components/AppNavigation/AppNavigation.astro'
+import AppTableContents from '@lib/components/AppTableContents/AppTableContents.astro'
 
-const categoryList: Record<string, string> = {
-    docs: 'Documentation',
-    design: 'Design',
-    tailwind: 'Tailwind',
-    components: 'Components',
-    resources: 'Resources',
+interface TocHeadings {
+    depth: number
+    slug: string
+    text: string
 }
 
 interface Props {
@@ -17,12 +16,21 @@ interface Props {
         title: string
         description: string
     }
+    headings: TocHeadings[]
 }
 
-const { frontmatter } = Astro.props
+const { frontmatter, headings } = Astro.props
 
 const layoutProps = {
     title: frontmatter.title,
+}
+
+const categoryList: Record<string, string> = {
+    docs: 'Documentation',
+    design: 'Design',
+    tailwind: 'Tailwind',
+    components: 'Components',
+    resources: 'Resources',
 }
 ---
 
@@ -40,7 +48,7 @@ const layoutProps = {
             <!-- Navigation -->
             <AppNavigation classList="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block" />
             <!-- Page -->
-            <main class="relative xl:grid xl:grid-cols-[1fr_300px]">
+            <main class="relative xl:grid xl:grid-cols-[1fr_300px]" id="_top">
                 <!-- Page Content -->
                 <div class="mx-auto w-full min-w-0 p-4 md:p-10">
                     <div class="space-y-10">
@@ -64,7 +72,7 @@ const layoutProps = {
                 <!-- Table of Contents -->
                 <div class="hidden text-sm xl:block">
                     <div class="sticky top-16 -mt-10 pt-10">
-                        <!-- <p class="opacity-60">(sidebar)</p> -->
+                        <AppTableContents {headings} />
                     </div>
                 </div>
             </main>

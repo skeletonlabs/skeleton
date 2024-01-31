@@ -1,0 +1,30 @@
+---
+interface TocHeadings {
+    depth: number
+    slug: string
+    text: string
+}
+
+interface Props {
+    headings: TocHeadings[]
+}
+
+const { headings } = Astro.props
+---
+
+<nav>
+    <ul class="space-y-4">
+        <li>
+            <a href={`#_top`} class="block anchor">Overview</a>
+        </li>
+        {
+            headings.map((heading: TocHeadings) => (
+                <li>
+                    <a href={`#${heading.slug}`} class="block anchor" class:list={{ 'ml-4': heading.depth === 3 }}>
+                        {heading.text}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
