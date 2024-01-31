@@ -26,19 +26,3 @@
 .astro-code {
   @apply p-4 rounded-container;
 }
-
-/* --- */
-
-/* .prose-skeleton {
-  @apply prose-h1:h1;
-  @apply prose-h2:h2;
-  @apply prose-h3:h3;
-  @apply prose-h4:h4;
-  @apply prose-h5:h5;
-  @apply prose-h6:h6;
-  @apply prose-a:anchor;
-  @apply prose-blockquote:blockquote;
-  @apply prose-code:code;
-  @apply prose-table:table;
-  @apply prose-hr:hr;
-} */
