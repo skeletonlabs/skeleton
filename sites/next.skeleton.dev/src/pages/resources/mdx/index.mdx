@@ -11,12 +11,29 @@ export const components = componentSet
 import TestSvelte from "./Test.svelte";
 import { TestReact } from "./Test.tsx";
 
+import AppFrameworkPicker from "@lib/components/AppFrameworkPicker/AppFrameworkPicker.astro";
+
 ## Components
 
 <button type="button" class="btn preset-filled">Button</button>
 
 <TestSvelte name="Skeleton">This is a Svelte component!</TestSvelte>
 <TestReact name="Skeleton">This is a React component!</TestReact>
+
+<AppFrameworkPicker>
+  <Fragment slot="panel-svelte">
+    This is the Svelte content!
+    ```svelte
+    <div>Foo</div>
+    ```
+  </Fragment>
+  <Fragment slot="panel-react">This is the React content!</Fragment>
+</AppFrameworkPicker>
+
+<AppFrameworkPicker>
+  <Fragment slot="panel-svelte">More Svelte content!</Fragment>
+  <Fragment slot="panel-react">More React content!</Fragment>
+</AppFrameworkPicker>
 
 ## Text
 
