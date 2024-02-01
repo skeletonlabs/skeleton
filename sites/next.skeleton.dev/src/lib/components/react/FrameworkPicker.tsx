@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const FrameworkPicker: React.FC<any> = (props) => {
-    const [activeTab, setActiveTab] = React.useState(props.selected)
+    const [activeTab, setActiveTab] = React.useState(props.selected || 'react')
     const baseClasses = 'font-bold py-2 px-4 border-b-[3px] border-transparent capitalize'
 
     // prettier-ignore
