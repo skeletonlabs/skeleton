@@ -18,7 +18,7 @@ export default defineConfig({
 		svelte(),
 		react({
 			// https://docs.astro.build/en/guides/integrations-guide/react/
-			experimentalReactChildren: true
+			experimentalReactChildren: true,
 		}),
 		expressiveCode({
 			themes: ['dracula'],
