@@ -27,7 +27,7 @@
 
 	// Classes
 	const cBase = 'unstyled';
-	const cWrapper = 'w-full flex flex-col justify-center items-stretch text-center space-y-1'; // CHRIS: keep `w-full` here please
+	const cWrapper = 'w-full flex flex-col justify-center items-stretch text-center space-y-1 border-b'; // CHRIS: keep `w-full` here please
 	const cLabel = 'font-bold text-xs';
 
 	// State
