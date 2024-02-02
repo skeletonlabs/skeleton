@@ -1,12 +1,12 @@
 ---
-interface TocHeadings {
+interface PageHeadings {
     depth: number
     slug: string
     text: string
 }
 
 interface Props {
-    headings: TocHeadings[]
+    headings: PageHeadings[]
 }
 
 const { headings } = Astro.props
@@ -27,7 +27,7 @@ function setDepthClass(depth: number) {
             <a href={`#_top`} class="block anchor">Overview</a>
         </li>
         {
-            headings.map((heading: TocHeadings) => (
+            headings.map((heading: PageHeadings) => (
                 <li>
                     <a href={`#${heading.slug}`} class="block anchor" class:list={`${setDepthClass(heading.depth)}`}>
                         {heading.text}

@@ -1,0 +1,84 @@
+---
+import LayoutRoot from '@lib/layouts/LayoutRoot.astro'
+
+import Header from '@lib/components/astro/Header.astro'
+import ChipsBar from '@lib/components/astro/ChipsBar.astro'
+import Navigation from '@lib/components/astro/Navigation.astro'
+import Breadcrumbs from '@lib/components/astro/Breadcrumbs.astro'
+import TableOfContents from '@lib/components/astro/TableOfContents.astro'
+
+interface PageHeadings {
+    depth: number
+    slug: string
+    text: string
+}
+
+interface Chip {
+    label: string
+    href: string
+    icon?: string
+    preset?: string
+}
+
+interface Props {
+    frontmatter: {
+        // Required ---
+        title: string
+        description: string
+        // Optional ---
+        srcCore?: string
+        srcSvelte?: string
+        srcReact?: string
+        srcAlly?: string
+        showDocsUrl?: boolean
+        chips?: Chip[]
+    }
+    headings: PageHeadings[]
+}
+
+// Props
+const { frontmatter, headings } = Astro.props
+// Layout Props
+const layoutProps = {
+    title: frontmatter.title,
+    classList: 'grid grid-rows-[auto_1fr] xl:grid-rows-[auto_1fr_auto]',
+}
+---
+
+<LayoutRoot {...layoutProps}>
+    <!-- Header -->
+    <Header />
+    <!-- Page -->
+    <div class="container mx-auto grid grid-cols-1 xl:grid-cols-[200px_1fr_280px]">
+        <!-- Navigation -->
+        <aside class="hidden xl:block self-start sticky top-0 max-h-screen overflow-y-auto p-4 xl:px-0 py-10">
+            <Navigation />
+        </aside>
+        <!-- Main -->
+        <main class="self-start p-4 xl:p-10 xl:pb-48 space-y-8" id="_top">
+            <!-- Breadcrumbs -->
+            <Breadcrumbs />
+            <!-- Header -->
+            <header class="space-y-2">
+                <h1 class="h1">{frontmatter.title ?? '(title)'}</h1>
+                <p class="opacity-60 type-scale-4">{frontmatter.description ?? '(description)'}</p>
+            </header>
+            <!-- Chips -->
+            <ChipsBar {frontmatter} frontmatterChips={frontmatter.chips} />
+            <!-- Content -->
+            <article class="space-y-8">
+                <slot />
+            </article>
+        </main>
+        <!-- Table of Contents -->
+        <aside class="hidden xl:block self-start sticky top-0 max-h-screen overflow-y-auto p-4 xl:p-10 xl:pl-0">
+            <TableOfContents {headings} />
+        </aside>
+    </div>
+    <!-- Footer -->
+    <footer class="border-t border-surface-200-800 p-4 xl:p-10">
+        <div class="container mx-auto">
+            <p class="opacity-60">Built by Skeleton Labs.</p>
+        </div>
+    </footer>
+</LayoutRoot>

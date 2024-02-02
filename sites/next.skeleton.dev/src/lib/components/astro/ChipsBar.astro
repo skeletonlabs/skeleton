@@ -1,0 +1,56 @@
+---
+// Props
+const { frontmatter, frontmatterChips } = Astro.props
+
+// GitHub URLs
+const branch: string = 'next' // FIXME
+const docSite = branch === 'master' ? 'skeleton.dev' : 'next.skeleton.dev'
+const githubDocsUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/sites/${docSite}/src/pages`
+const githubSkeletonUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton/src`
+const githubSvelteUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-svelte`
+const githubReactUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-svelte`
+---
+
+<div class="flex gap-2 overflow-x-auto pb-2">
+    {
+        frontmatter.srcCore && (
+            <a class="chip preset-tonal" href={githubSkeletonUrl + frontmatter.srcCore} target="_blank">
+                {/* <span>&bull;</span> */}
+                <span>CSS Source</span>
+            </a>
+        )
+    }
+    {
+        frontmatter.srcSvelte && (
+            <a class="chip preset-tonal" href={githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
+                {/* <span>&bull;</span> */}
+                <span>Svelte Source</span>
+            </a>
+        )
+    }
+    {
+        frontmatter.srcReact && (
+            <a class="chip preset-tonal" href={githubReactUrl + frontmatter.srcReact} target="_blank">
+                {/* <span>&bull;</span> */}
+                <span>React Source</span>
+            </a>
+        )
+    }
+    {
+        frontmatter.showDocsUrl && (
+            <a class="chip preset-tonal" href={githubDocsUrl + Astro.url.pathname} target="_blank">
+                {/* <span>&bull;</span> */}
+                <span>Doc Source</span>
+            </a>
+        )
+    }
+    {
+        frontmatter.srcAlly && (
+            <a class="chip preset-tonal" href={frontmatter.srcAlly} target="_blank">
+                {/* <span>&bull;</span> */}
+                <span>A11y</span>
+            </a>
+        )
+    }
+    <!-- <button class="chip preset-tonal">Foobar</button> -->
+</div>
