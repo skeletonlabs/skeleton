@@ -20,20 +20,24 @@ function setDepthClass(depth: number) {
 }
 ---
 
-<nav class="type-scale-2 space-y-2">
-    <span class="font-bold">On This Page</span>
-    <ul class="space-y-2">
-        <li>
-            <a href={`#_top`} class="block anchor">Overview</a>
-        </li>
-        {
-            headings.map((heading: PageHeadings) => (
+{
+    headings.length > 0 && (
+        <nav class="type-scale-2 space-y-2">
+            <span class="font-bold">On This Page</span>
+            <ul class="space-y-2">
                 <li>
-                    <a href={`#${heading.slug}`} class="block anchor" class:list={`${setDepthClass(heading.depth)}`}>
-                        {heading.text}
+                    <a href={`#_top`} class="block anchor">
+                        Overview
                     </a>
                 </li>
-            ))
-        }
-    </ul>
-</nav>
+                {headings.map((heading: PageHeadings) => (
+                    <li>
+                        <a href={`#${heading.slug}`} class="block anchor" class:list={`${setDepthClass(heading.depth)}`}>
+                            {heading.text}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+    )
+}
