@@ -9,6 +9,8 @@ showDocsUrl: true
 import componentSet from "@lib/components/mdx/index";
 export const components = componentSet
 
+import { Icon } from 'astro-icon/components'
+
 <div class="docs-card-outlined p-8 space-y-4">
     <form class="docs-card-filled w-full space-y-4">
         <fieldset class="space-y-4">
@@ -146,7 +148,9 @@ export const components = componentSet
     </div>
     {/* Amount */}
     <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-        <div class="input-group-cell preset-tonal-surface">$</div>
+        <div class="input-group-cell preset-tonal-surface">
+            <Icon name="heroicons-outline:currency-dollar" size={20} />
+        </div>
         <input type="text" placeholder="Amount" />
         <select>
             <option>USD</option>
@@ -157,11 +161,15 @@ export const components = componentSet
     {/* Username */}
     <div class="input-group grid-cols-[1fr_auto] divide-x divide-surface-200-800">
         <input type="text" placeholder="Enter Username..." />
-        <button class="btn preset-filled" title="Username already in use.">✓</button>
+        <button class="btn preset-filled" title="Username already in use.">
+            <Icon name="heroicons-outline:check" size={20} />
+        </button>
         </div>
     {/* Search */}
     <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-        <div class="input-group-cell">🔍</div>
+        <div class="input-group-cell">
+            <Icon name="heroicons-outline:search" size={20} />
+        </div>
         <input type="search" placeholder="Search..." />
         <button class="btn preset-filled">Submit</button>
     </div>

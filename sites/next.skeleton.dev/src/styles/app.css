@@ -1,5 +1,10 @@
 /* Global Styles */
 
+html,
+body {
+    @apply h-full;
+}
+
 /* Local Utiilties --- */
 
 .flex-centered {

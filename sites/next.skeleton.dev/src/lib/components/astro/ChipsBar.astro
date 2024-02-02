@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components'
+
 // Props
 const { frontmatter, frontmatterChips } = Astro.props
 
@@ -15,39 +17,39 @@ const githubReactUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/
     {
         frontmatter.srcCore && (
             <a class="chip preset-tonal" href={githubSkeletonUrl + frontmatter.srcCore} target="_blank">
-                {/* <span>&bull;</span> */}
-                <span>CSS Source</span>
+                <Icon name="heroicons-outline:code" />
+                <span>CSS</span>
             </a>
         )
     }
     {
         frontmatter.srcSvelte && (
             <a class="chip preset-tonal" href={githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
-                {/* <span>&bull;</span> */}
-                <span>Svelte Source</span>
+                <Icon name="heroicons-outline:code" />
+                <span>Svelte</span>
             </a>
         )
     }
     {
         frontmatter.srcReact && (
             <a class="chip preset-tonal" href={githubReactUrl + frontmatter.srcReact} target="_blank">
-                {/* <span>&bull;</span> */}
-                <span>React Source</span>
+                <Icon name="heroicons-outline:code" />
+                <span>React</span>
             </a>
         )
     }
     {
         frontmatter.showDocsUrl && (
             <a class="chip preset-tonal" href={githubDocsUrl + Astro.url.pathname} target="_blank">
-                {/* <span>&bull;</span> */}
-                <span>Doc Source</span>
+                <Icon name="heroicons-outline:book-open" />
+                <span>Doc</span>
             </a>
         )
     }
     {
         frontmatter.srcAlly && (
             <a class="chip preset-tonal" href={frontmatter.srcAlly} target="_blank">
-                {/* <span>&bull;</span> */}
+                <Icon name="heroicons-outline:user" />
                 <span>A11y</span>
             </a>
         )

@@ -9,12 +9,16 @@ showDocsUrl: true
 import componentSet from "@lib/components/mdx/index";
 export const components = componentSet
 
+import { Icon } from 'astro-icon/components'
+
 <div class="docs-card-outlined-centered p-8">
     <div class="flex items-center gap-4">
-        <span class="badge-icon preset-filled">♥</span>
+        <span class="badge-icon preset-filled">
+            <Icon name="heroicons-outline:heart" />
+        </span>
         <span class="badge preset-filled">Badge</span>
         <span class="badge preset-filled">
-            <span>♥</span>
+            <Icon name="heroicons-outline:heart" />
             <span>Badge</span>
         </span>
     </div>
