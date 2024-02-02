@@ -16,9 +16,9 @@
 <section class="space-y-4">
     <h3 class="h3">1. Loading Data</h3>
 
-    <p>Let's add some 
-    <a class="anchor" href="https://vincjo.fr/datatables/tutorial/html-table" target="_blank">fake data</a> 
-    to the <code class="code">data.ts</code> file.</p>
+    <p>Let's add some fake data to the <code class="code">data.ts</code> file. 
+    The full dataset can be found <a class="anchor" href="https://vincjo.fr/datatables/tutorial/html-table" target="_blank">here, under the data tab.</a> 
+    </p>
 
     <CodeBlock
     language="ts"
@@ -38,7 +38,7 @@ export default [
 <!-- Setup SSD -->
 <section class="space-y-4">
     <h3 class="h3">2. Setup SSD</h3>
-    <p>In the<code class="code">Datatable.svelte</code> file, add the imports for your data and DataHandler from SSD,
+    <p>In the <code class="code">Datatable.svelte</code> file, add the imports for your data and DataHandler from SSD,
     then initialize handler and rows.</p>
     <CodeBlock
     language="ts"
@@ -86,18 +86,12 @@ const rows = handler.getRows();
     <h3 class="h3">3. Add Accessory Components</h3>
 
     <p>
-        Below is a diagram showcasing how the accessory components can be used within 
-        <code class="code">&lt;Datatable /&gt;</code>. You can modify the configuration 
-        to your liking by adding or removing the accessory components from the 
+        You can modify the configuration 
+        of the accessory components to your liking by adding or removing them from the 
         <code class="code">&lt;header&gt;</code>,
         <code class="code">&lt;footer&gt;</code>, and
         <code class="code">&lt;thead&gt;</code>.
     </p>
-
-    <img
-        src="/src/routes/(inner)/docs/ssd/ssd.webp" 
-        alt="flow"
-    />
 
     <CodeBlock
     language="ts"

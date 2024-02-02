@@ -173,18 +173,12 @@ handler.invalidate();
     <h3 class="h3">3. Add Accessory Components</h3>
 
     <p>
-        Below is a diagram showcasing how the accessory components can be used within 
-        <code class="code">&lt;Datatable /&gt;</code>. You can modify the configuration 
-        to your liking by adding or removing the accessory components from the 
+        You can modify the configuration 
+        of the accessory components to your liking by adding or removing them from the 
         <code class="code">&lt;header&gt;</code>,
         <code class="code">&lt;footer&gt;</code>, and
         <code class="code">&lt;thead&gt;</code>.
     </p>
-
-    <img
-        src="/src/routes/(inner)/docs/ssd/ssd.webp" 
-        alt="flow"
-    />
 
     <CodeBlock
     language="ts"

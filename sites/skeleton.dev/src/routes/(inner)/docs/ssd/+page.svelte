@@ -64,76 +64,39 @@
 			<a class="anchor" href="https://www.skeleton.dev/elements/tables" target="_blank">native HTML table styles.</a> 
 		</p>
 
+		<img
+		class="rounded-lg"
+        src="/src/routes/(inner)/docs/ssd/img/ssd-skeleton.gif" 
+        alt="themed datatables"
+    />
+
 		<p>
 			We will then create accessory components to search, filter, sort, and paginate the  
-			<code class="code">&lt;Datatable /&gt;.</code> Below is an example of what we will be building.
+			<code class="code">&lt;Datatable /&gt;.</code> 
 		</p>
 
-		<DocsPreview background="neutral">
-			<svelte:fragment slot="preview">
-				<Datatable />
-			</svelte:fragment>
-			<svelte:fragment slot="source">
-				<CodeBlock
-				language="ts"
-				code={`
-import Search from './Search.svelte';
-import ThFilter from './ThFilter.svelte';
-import ThSort from './ThSort.svelte';
-import RowCount from './RowCount.svelte';
-import RowsPerPage from './RowsPerPage.svelte';
-import Pagination from './Pagination.svelte';
+		<img
+        src="/src/routes/(inner)/docs/ssd/img/components.png" 
+        alt="accessory components diagram"
+    />
 
-import data from './data';
+		<p>
+			You can start fresh with the starter template provided below or 
+			continue on and follow the guide to create your own components from scratch.
+		</p>
+	</section>
 
-import { DataHandler } from '@vincjo/datatables';
-
-const handler = new DataHandler(data, { rowsPerPage: 5 });
-const rows = handler.getRows();
-				`}
-			/>
-				<CodeBlock
-				language="html"
-				code={`
-<div class=" overflow-x-auto space-y-2">
-	<header class="flex justify-between">
-		<Search {handler} />
-		<RowsPerPage {handler} />
-	</header>
-
-	<table class="table table-hover table-compact w-full table-auto">
-		<thead>
-			<tr>
-				<ThSort {handler} orderBy="first_name">First name</ThSort>
-				<ThSort {handler} orderBy="last_name">Last name</ThSort>
-				<ThSort {handler} orderBy="email">Email</ThSort>
-			</tr>
-			<tr>
-				<ThFilter {handler} filterBy="first_name" />
-				<ThFilter {handler} filterBy="last_name" />
-				<ThFilter {handler} filterBy="email" />
-			</tr>
-		</thead>
-		<tbody>
-			{#each $rows as row}
-				<tr>
-					<td>{row.first_name}</td>
-					<td>{row.last_name}</td>
-					<td>{row.email}</td>
-				</tr>
-			{/each}
-		</tbody>
-	</table>
-
-	<footer class="flex justify-between">
-		<RowCount {handler} />
-		<Pagination {handler} />
-	</footer>
-</div>
-				`}
-			/>
-			</svelte:fragment>
-		</DocsPreview>
+	<!-- Starter Template -->
+	<section class="space-y-4">
+		<h2 class="h2">Starter Template</h2>
+		<p>If you're looking for a quick start or reference project, please refer to our opinionated template on GitHub.</p>
+		<div class="card variant-glass p-4 py-10 text-center">
+			<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton-datatables-integration" target="_blank">
+				<i class="fa-brands fa-github" />
+				<span>View Starter Template</span>
+				<i class="fa-solid fa-up-right-from-square" />
+			</a>
+		</div>
 	</section>
 
 	<!-- Getting Started -->
