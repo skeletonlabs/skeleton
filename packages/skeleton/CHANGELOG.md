@@ -1,5 +1,21 @@
 # @skeletonlabs/skeleton
 
+## 2.8.0
+
+### Minor Changes
+
+- feat: InputChips now allow you to add/remove chips programatically. ([#2347](https://github.com/skeletonlabs/skeleton/pull/2347))
+
+### Patch Changes
+
+- bugfix: Removed recursive-tree-view's unused props for `disabled` and `open` ([#2427](https://github.com/skeletonlabs/skeleton/pull/2427))
+
+- bugfix: CodeBlock copy button type is now `button` instead of default (`submit`) ([#2428](https://github.com/skeletonlabs/skeleton/pull/2428))
+
+- bugfix: added `label` prop to InputChips to provide aria-label for a11y ([#2445](https://github.com/skeletonlabs/skeleton/pull/2445))
+
+- chore: Applied `@html` interpretation to Autocomplete empty state ([#2448](https://github.com/skeletonlabs/skeleton/pull/2448))
+
 ## 2.7.1
 
 ### Patch Changes
