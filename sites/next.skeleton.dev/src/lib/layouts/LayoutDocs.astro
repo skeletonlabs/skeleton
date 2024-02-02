@@ -24,6 +24,7 @@ const { frontmatter, headings } = Astro.props
 
 const layoutProps = {
     title: frontmatter.title,
+    classList: 'grid grid-rows-[auto_1fr] xl:grid-rows-[auto_1fr_auto]',
 }
 
 const categoryList: Record<string, string> = {
@@ -36,53 +37,41 @@ const categoryList: Record<string, string> = {
 ---
 
 <LayoutRoot {...layoutProps}>
-    <div class="relative flex min-h-screen flex-col bg-background">
-        <!-- Header -->
-        <AppHeader />
-        <!-- Content -->
-        <section
-            class="container mx-auto
-            flex-1 items-start
-            md:grid md:grid-cols-[220px_minmax(0,1fr)]
-            lg:grid-cols-[240px_minmax(0,1fr)]"
-        >
-            <!-- Navigation -->
-            <AppNavigation classList="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block" />
-            <!-- Page -->
-            <main class="relative xl:grid xl:grid-cols-[1fr_300px]" id="_top">
-                <!-- Page Content -->
-                <div class="mx-auto w-full min-w-0 p-4 md:p-10">
-                    <div class="space-y-10">
-                        <!-- Breadcrumbs -->
-                        <div class="flex gap-2 text-xs">
-                            <span class="opacity-60">{categoryList[frontmatter.category]}</span>
-                            <span class="opacity-60">&rsaquo;</span>
-                            <span>{frontmatter.title}</span>
-                        </div>
-                        <!-- Header -->
-                        <header class="space-y-4">
-                            <h1 class="h1">{frontmatter.title}</h1>
-                            <p class="opacity-60">{frontmatter.description}</p>
-                        </header>
-                        <!-- Content -->
-                        <article class="space-y-8">
-                            <slot />
-                        </article>
-                    </div>
-                </div>
-                <!-- Table of Contents -->
-                <div class="hidden text-sm xl:block">
-                    <div class="sticky top-16 -mt-10 pt-10">
-                        <AppTableContents {headings} />
-                    </div>
-                </div>
-            </main>
-        </section>
-        <!-- Footer -->
-        <footer class="border-t border-surface-200-800 py-6 md:px-8 md:py-0">
-            <div class="container mx-auto flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-                <p class="opacity-60">Built by Skeleton Labs.</p>
-            </div>
-        </footer>
+    <!-- Header -->
+    <AppHeader />
+    <!-- Page -->
+    <div class="container mx-auto grid grid-cols-1 xl:grid-cols-[200px_1fr_280px]">
+        <!-- Navigation -->
+        <aside class="hidden xl:block self-start sticky top-0 max-h-screen overflow-y-auto p-4 xl:px-0 py-10">
+            <AppNavigation />
+        </aside>
+        <!-- Main -->
+        <main class="self-start p-4 xl:p-10 xl:pb-48 space-y-8" id="_top">
+            <!-- Breadcrumbs -->
+            <ol class="flex gap-2 type-scale-1">
+                <li class="opacity-60">{categoryList[frontmatter.category]}</li>
+                <li class="opacity-60">&rsaquo;</li>
+                <li>{frontmatter.title}</li>
+            </ol>
+            <!-- Header -->
+            <header class="space-y-2">
+                <h1 class="h1">{frontmatter.title}</h1>
+                <p class="opacity-60 type-scale-4">{frontmatter.description}</p>
+            </header>
+            <!-- Content -->
+            <article class="space-y-8">
+                <slot />
+            </article>
+        </main>
+        <!-- Table of Contents -->
+        <aside class="hidden xl:block self-start sticky top-0 max-h-screen overflow-y-auto p-4 xl:p-10 xl:pl-0">
+            <AppTableContents {headings} />
+        </aside>
     </div>
+    <!-- Footer -->
+    <footer class="border-t border-surface-200-800 p-4 xl:p-10">
+        <div class="container mx-auto">
+            <p class="opacity-60">Built by Skeleton Labs.</p>
+        </div>
+    </footer>
 </LayoutRoot>
