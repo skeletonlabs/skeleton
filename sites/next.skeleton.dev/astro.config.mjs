@@ -26,13 +26,15 @@ export default defineConfig({
     }),
     // https://expressive-code.com/
     expressiveCode({
-      themes: ['dracula']
+      themes: ['dark-plus']
     }),
     // https://www.astroicon.dev/
     icon({
       include: {
         iconDir: 'src/icons',
+        // https://icon-sets.iconify.design/heroicons/
         'heroicons-outline': '*',
+        // https://icon-sets.iconify.design/simple-icons/
         'simple-icons': '*'
       }
     }),
