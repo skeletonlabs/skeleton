@@ -4,7 +4,7 @@
 	.chip {
 		@apply inline-flex justify-center items-center space-x-2 whitespace-nowrap;
 		@apply font-medium type-scale-1;
-		@apply px-2 py-1;
+		@apply px-3 py-0.5;
 		@apply rounded;
 		@apply disabled:pointer-events-none disabled:opacity-50;
 		@apply transition-all hover:brightness-90 dark:hover:brightness-110;

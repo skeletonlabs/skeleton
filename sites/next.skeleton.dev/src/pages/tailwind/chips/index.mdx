@@ -1,8 +1,9 @@
 ---
 layout: '@lib/layouts/LayoutDocs.astro'
-category: tailwind
 title: Chips
 description: Provides a robust set of interactive chip styles.
+srcCore: '/plugin/components/chips.css'
+showDocsUrl: true
 ---
 
 import componentSet from "@lib/components/mdx/index";
@@ -16,7 +17,7 @@ import Preview from "./Preview.svelte";
             <span class="font-bold">✓</span>
         </button>
         <button type="button" class="chip preset-filled">Chip</button>
-        <button type="button" class="badge preset-filled">
+        <button type="button" class="chip preset-filled">
             <span class="font-bold">✓</span>
             <span>Chip</span>
         </button>
