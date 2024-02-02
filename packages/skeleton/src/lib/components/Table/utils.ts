@@ -23,7 +23,18 @@
 export function tableSourceMapper(source: any[], keys: string[]): any[] {
 	return source.map((row) => {
 		const mappedRow: any = {};
-		keys.forEach((key) => (mappedRow[key] = row[key]));
+		keys.forEach((key) => {
+			const nestedKeys = key.split('.');
+			let value = row;
+			nestedKeys.forEach(nestedKey => {
+				if (value && (nestedKey in value)) {
+					value = value[nestedKey];
+				} else {
+					value = undefined;
+				}
+			});
+			mappedRow[key] = value;
+		});
 		return mappedRow;
 	});
 }
