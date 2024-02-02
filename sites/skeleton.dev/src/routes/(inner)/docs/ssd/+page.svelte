@@ -1,6 +1,5 @@
 <script lang="ts">
 	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
-	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 
 	import { CodeBlock, RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
 
@@ -10,8 +9,6 @@
 	//Local Components
 	import Client from './ClientSSD.svelte';
 	import Server from './ServerSSD.svelte';
-	import Datatable from './client/Datatable.svelte';
-
 </script>
 
 <LayoutPage>
@@ -64,11 +61,11 @@
 			<a class="anchor" href="https://www.skeleton.dev/elements/tables" target="_blank">native HTML table styles.</a> 
 		</p>
 
-		<!-- <img
+		<img
 		class="rounded-lg"
-        src="/src/routes/(inner)/docs/ssd/img/ssd-skeleton.gif" 
+        src="https://raw.githubusercontent.com/skeletonlabs/skeleton-datatables-integration/main/static/ssd-skeleton.gif" 
         alt="themed datatables"
-    /> -->
+    />
 
 		<p>
 			We will then create accessory components to search, filter, sort, and paginate the  

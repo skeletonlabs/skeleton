@@ -43,9 +43,6 @@ devDependencies:
   '@vercel/analytics':
     specifier: ^1.0.1
     version: 1.0.1
-  '@vincjo/datatables':
-    specifier: ^1.14.4
-    version: 1.14.4(svelte@3.59.1)
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.24)
@@ -804,14 +801,6 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
-    dev: true
-
-  /@vincjo/datatables@1.14.4(svelte@3.59.1):
-    resolution: {integrity: sha512-qBlRB6InANpJ+uS6Ve18BqlZzd0932TNPzHa4Oh2uf4ghjZ0ye6p6W8HT5WNqlmNaVR+aiyQ43jYQdWh4KuRAQ==}
-    peerDependencies:
-      svelte: '>=3.54.0'
-    dependencies:
-      svelte: 3.59.1
     dev: true
 
   /@vitest/expect@0.32.0:
