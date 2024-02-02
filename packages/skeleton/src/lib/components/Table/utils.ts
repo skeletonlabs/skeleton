@@ -26,8 +26,8 @@ export function tableSourceMapper(source: any[], keys: string[]): any[] {
 		keys.forEach((key) => {
 			const nestedKeys = key.split('.');
 			let value = row;
-			nestedKeys.forEach(nestedKey => {
-				if (value && (nestedKey in value)) {
+			nestedKeys.forEach((nestedKey) => {
+				if (value && nestedKey in value) {
 					value = value[nestedKey];
 				} else {
 					value = undefined;
