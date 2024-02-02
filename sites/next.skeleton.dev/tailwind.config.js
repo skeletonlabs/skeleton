@@ -1,5 +1,5 @@
-// import { skeleton } from "@skeletonlabs/skeleton/plugin";
-import { skeleton } from "../../packages/skeleton/dist/plugin/index.cjs";
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
+// import { skeleton } from "../../packages/skeleton/dist/plugin/index.cjs";
 
 import forms from '@tailwindcss/forms';
 // import typography from '@tailwindcss/typography';
