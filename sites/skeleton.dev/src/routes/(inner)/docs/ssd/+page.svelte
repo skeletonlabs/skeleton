@@ -64,11 +64,11 @@
 			<a class="anchor" href="https://www.skeleton.dev/elements/tables" target="_blank">native HTML table styles.</a> 
 		</p>
 
-		<img
+		<!-- <img
 		class="rounded-lg"
         src="/src/routes/(inner)/docs/ssd/img/ssd-skeleton.gif" 
         alt="themed datatables"
-    />
+    /> -->
 
 		<p>
 			We will then create accessory components to search, filter, sort, and paginate the  
@@ -76,7 +76,7 @@
 		</p>
 
 		<img
-        src="/src/routes/(inner)/docs/ssd/img/components.png" 
+        src="https://raw.githubusercontent.com/skeletonlabs/skeleton-datatables-integration/main/static/components.png" 
         alt="accessory components diagram"
     />
 
