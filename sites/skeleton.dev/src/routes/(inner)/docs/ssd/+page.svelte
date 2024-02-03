@@ -63,7 +63,7 @@
 
 		<img
 		class="rounded-lg"
-        src="https://raw.githubusercontent.com/skeletonlabs/skeleton-datatables-integration/main/static/ssd-skeleton.gif" 
+        src="https://raw.githubusercontent.com/skeletonlabs/skeleton-datatables-integration/main/static/themes.gif" 
         alt="themed datatables"
     />
 
