@@ -45,7 +45,9 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	// Start observing for the target element
 	observer.observe(document.body, { childList: true, subtree: true });
 
-	// MutationObserverCall UI Popup
+	setDomElements(); // init
+
+	// Render Floating UI Popup
 	function render(): void {
 		// Error handling for required Floating UI modules
 		if (!elemPopup) throw new Error(`The data-popup="${args.target}" element was not found. ${documentationLink}`);
