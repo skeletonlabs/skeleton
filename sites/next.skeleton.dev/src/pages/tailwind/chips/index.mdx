@@ -9,7 +9,7 @@ showDocsUrl: true
 import componentSet from "@lib/components/mdx/index";
 export const components = componentSet
 
-import Preview from "./Preview.svelte";
+import Selection from "@lib/previews/tailwind/chips/Selection.svelte";
 
 <div class="docs-card-outlined-centered p-8">
     <div class="flex items-center gap-4">
@@ -75,5 +75,5 @@ import Preview from "./Preview.svelte";
 ## Selection
 
 <div class="docs-card-outlined-centered p-8">
-    <Preview client:load />
+    <Selection client:load />
 </div>

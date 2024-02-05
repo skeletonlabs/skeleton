@@ -1,0 +1,35 @@
+---
+interface Props {
+    data: Record<string, string>[]
+    tonalCol?: boolean
+}
+
+const { data, tonalCol } = Astro.props satisfies Props
+---
+
+<div class="table-wrap">
+    <table class="table">
+        <thead>
+            {
+                data.map((tRow) => (
+                    <tr>
+                        {Object.keys(tRow).map((header) => (
+                            <th class="capitalize">{header}</th>
+                        ))}
+                    </tr>
+                ))
+            }
+        </thead>
+        <tbody>
+            {
+                data.map((tRow) => (
+                    <tr>
+                        {Object.values(tRow).map((cell, i) => (
+                            <td>{i === 0 && tonalCol ? <code class="code">{cell}</code> : cell}</td>
+                        ))}
+                    </tr>
+                ))
+            }
+        </tbody>
+    </table>
+</div>

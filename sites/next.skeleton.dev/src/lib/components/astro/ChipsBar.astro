@@ -16,7 +16,7 @@ const githubReactUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/
 <div class="flex gap-2 overflow-x-auto pb-2">
     {
         frontmatter.srcCore && (
-            <a class="chip preset-tonal" href={githubSkeletonUrl + frontmatter.srcCore} target="_blank">
+            <a class="chip preset-filled-surface-200-800" href={githubSkeletonUrl + frontmatter.srcCore} target="_blank">
                 <Icon name="heroicons-outline:code" />
                 <span>CSS</span>
             </a>
@@ -24,7 +24,7 @@ const githubReactUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/
     }
     {
         frontmatter.srcSvelte && (
-            <a class="chip preset-tonal" href={githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
+            <a class="chip preset-filled-surface-200-800" href={githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
                 <Icon name="heroicons-outline:code" />
                 <span>Svelte</span>
             </a>
@@ -32,7 +32,7 @@ const githubReactUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/
     }
     {
         frontmatter.srcReact && (
-            <a class="chip preset-tonal" href={githubReactUrl + frontmatter.srcReact} target="_blank">
+            <a class="chip preset-filled-surface-200-800" href={githubReactUrl + frontmatter.srcReact} target="_blank">
                 <Icon name="heroicons-outline:code" />
                 <span>React</span>
             </a>
@@ -40,7 +40,7 @@ const githubReactUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/
     }
     {
         frontmatter.showDocsUrl && (
-            <a class="chip preset-tonal" href={githubDocsUrl + Astro.url.pathname} target="_blank">
+            <a class="chip preset-filled-surface-200-800" href={githubDocsUrl + Astro.url.pathname} target="_blank">
                 <Icon name="heroicons-outline:book-open" />
                 <span>Doc</span>
             </a>
@@ -48,11 +48,11 @@ const githubReactUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/
     }
     {
         frontmatter.srcAlly && (
-            <a class="chip preset-tonal" href={frontmatter.srcAlly} target="_blank">
+            <a class="chip preset-filled-surface-200-800" href={frontmatter.srcAlly} target="_blank">
                 <Icon name="heroicons-outline:user" />
                 <span>A11y</span>
             </a>
         )
     }
-    <!-- <button class="chip preset-tonal">Foobar</button> -->
+    <!-- <button class="chip preset-filled-surface-200-800">Foobar</button> -->
 </div>

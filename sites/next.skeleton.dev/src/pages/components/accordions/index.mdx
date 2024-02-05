@@ -9,10 +9,22 @@ showDocsUrl: true
 ---
 
 import componentSet from "@lib/components/mdx/index";
-export const components = componentSet
+export const components = componentSet;
+
+import Table from "@lib/components/astro/Table.astro";
+
+export const tableData = [
+    { name: 'autocollapse', type: 'boolean', value: 'false', description: 'Set the auto-collapse mode.' },
+]
+
+{/* --- */}
 
 <div class="docs-card-outlined-centered p-8">
     <p>{frontmatter.title} Preview.</p>
 </div>
 
 The {frontmatter.title} usage goes here.
+
+## Props
+
+<Table data={tableData} tonalCol />
