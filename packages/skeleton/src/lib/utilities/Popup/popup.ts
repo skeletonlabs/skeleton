@@ -23,6 +23,28 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		elemPopup = document.querySelector(`[data-popup="${args.target}"]`) ?? document.createElement('div');
 		elemArrow = elemPopup.querySelector(`.arrow`) ?? document.createElement('div');
 	}
+
+	// MutationObserverCallback
+	function handleMutation(mutationList: MutationRecord[], observer: MutationObserver): void {
+		mutationList.forEach((mutation) => {
+			const mutationTarget = mutation.target as HTMLElement;
+
+			// If the mutation target has the data-popup attribute and the correct value is set, update the elements and disconnect the observer
+
+			if (mutationTarget.hasAttribute('data-popup') && mutationTarget.getAttribute('data-popup') == args.target) {
+				setDomElements();
+				observer.disconnect();
+				return;
+			}
+		});
+	}
+
+	// Instantiate the MutationObserver with the callback
+	const observer: MutationObserver = new MutationObserver(handleMutation);
+
+	// Start observing for the target element
+	observer.observe(document.body, { childList: true, subtree: true });
+
 	setDomElements(); // init
 
 	// Render Floating UI Popup
