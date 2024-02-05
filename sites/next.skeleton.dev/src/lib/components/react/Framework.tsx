@@ -2,40 +2,29 @@ import React from 'react'
 
 /** Create a framework-specific tab component. */
 export const Framework: React.FC<any> = (props) => {
-    const [activeTab, setActiveTab] = React.useState(props.selected || 'react')
-    const baseClasses = 'font-bold mt-4 py-2 px-4 border-b-[3px] border-transparent capitalize'
+    const [selected, setSelected] = React.useState(props.selected || 'react')
+    const cTab = 'font-bold py-2 px-4 border-b-[3px] border-transparent capitalize'
+    const cTabActive = '!border-surface-950-50'
 
-    // prettier-ignore
-    const tabs = [
-        props.react,
-        props.svelte,
-        props.vue
-    ].filter((framework) => framework !== undefined)
-
-    function activeClass(framework: string) {
-        if (activeTab === framework) return '!border-surface-950-50'
+    function selectedClass(tab: string) {
+        if (tab === selected) return cTabActive
     }
 
     return (
-        <div className="space-y-4">
+        <div className="mt-4 space-y-4">
+            {/* Tabs */}
             <nav className="flex gap-4 border-b-[1px] border-surface-200-800">
-                {tabs.map((tab: any) => {
-                    return (
-                        <button
-                            key={tab.props.name}
-                            className={`${baseClasses} ${activeClass(tab.props.name)}`}
-                            onClick={() => setActiveTab(tab.props.name)}
-                        >
-                            {tab.props.name}
-                        </button>
-                    )
-                })}
+                <button className={`${cTab} ${selectedClass('react')}`} onClick={() => setSelected('react')}>
+                    React
+                </button>
+                <button className={`${cTab} ${selectedClass('svelte')}`} onClick={() => setSelected('svelte')}>
+                    Svelte
+                </button>
             </nav>
-            <div>
-                {tabs.map((tab: any) => {
-                    return activeTab === tab.props.name && <div key={tab.props.name}>{props[tab.props.name]}</div>
-                })}
-            </div>
+            {/* Panel: React */}
+            <div className={selected === 'react' ? 'block' : 'hidden'}>{props.react}</div>
+            {/* Panel: Svelte */}
+            <div className={selected === 'svelte' ? 'block' : 'hidden'}>{props.svelte}</div>
         </div>
     )
 }
