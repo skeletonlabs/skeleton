@@ -1,13 +1,16 @@
 ---
 interface Props {
     data: Record<string, string>[]
-    tonalCol?: boolean
+    label?: string
+    tonal?: boolean
+    kbd?: boolean
 }
 
-const { data, tonalCol } = Astro.props satisfies Props
+const { data, label, tonal, kbd } = Astro.props satisfies Props
 ---
 
-<div class="table-wrap">
+<div class="table-wrap space-y-4">
+    {label && <strong class="opacity-60">{label}</strong>}
     <table class="table">
         <thead>
             {
@@ -24,9 +27,16 @@ const { data, tonalCol } = Astro.props satisfies Props
             {
                 data.map((tRow) => (
                     <tr>
-                        {Object.values(tRow).map((cell, i) => (
-                            <td>{i === 0 && tonalCol ? <code class="code">{cell}</code> : cell}</td>
-                        ))}
+                        {Object.values(tRow).map((cell: any, i) => {
+                            // prettier-ignore
+                            if (i === 0 && tonal) return <td><code class="code">{cell}</code></td>
+                            // prettier-ignore
+                            if (i === 0 && kbd) return (
+                                <td><kbd class="kbd">{cell.join(' + ')}</kbd></td>
+                            )
+                            // prettier-ignore
+                            return <td>{cell}</td>
+                        })}
                     </tr>
                 ))
             }

@@ -5,4 +5,4 @@
     let {} = $props<Props>()
 </script>
 
-<p>Svelte Accordion Example.</p>
+<p>(Svelte Accordion Example)</p>
