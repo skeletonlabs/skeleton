@@ -14,13 +14,13 @@ const { data, label, tonal, kbd } = Astro.props satisfies Props
     <table class="table">
         <thead>
             {
-                data.map((tRow) => (
+                (
                     <tr>
-                        {Object.keys(tRow).map((header) => (
+                        {Object.keys(data[0]).map((header) => (
                             <th class="capitalize">{header}</th>
                         ))}
                     </tr>
-                ))
+                )
             }
         </thead>
         <tbody>
@@ -28,14 +28,16 @@ const { data, label, tonal, kbd } = Astro.props satisfies Props
                 data.map((tRow) => (
                     <tr>
                         {Object.values(tRow).map((cell: any, i) => {
+                            // Tonal Cell
                             // prettier-ignore
                             if (i === 0 && tonal) return <td><code class="code">{cell}</code></td>
+                            // KBD Cell
                             // prettier-ignore
                             if (i === 0 && kbd) return (
                                 <td><kbd class="kbd">{cell.join(' + ')}</kbd></td>
                             )
-                            // prettier-ignore
-                            return <td>{cell}</td>
+                            // Standard Cell
+                            return <td>{cell ? cell : '-'}</td>
                         })}
                     </tr>
                 ))
