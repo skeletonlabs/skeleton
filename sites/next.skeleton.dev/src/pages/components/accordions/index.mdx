@@ -11,7 +11,16 @@ showDocsUrl: true
 import componentSet from "@lib/components/mdx/index";
 export const components = componentSet;
 
+import { Code } from 'astro-expressive-code/components';
+
+import { Preview } from '@lib/components/react/Preview.tsx'
+import { Framework } from '@lib/components/react/Framework.tsx'
 import Table from "@lib/components/astro/Table.astro";
+
+import { Page as ExReact } from "@lib/previews/components/accordions/Example.tsx";
+import CodeReact from "@lib/previews/components/accordions/Example.tsx?raw";
+import ExSvelte from "@lib/previews/components/accordions/Example.svelte";
+import CodeSvelte from "@lib/previews/components/accordions/Example.svelte?raw";
 
 export const tableData = [
     { name: 'autocollapse', type: 'boolean', value: 'false', description: 'Set the auto-collapse mode.' },
@@ -19,11 +28,32 @@ export const tableData = [
 
 {/* --- */}
 
-<div class="docs-card-outlined-centered p-8">
-    <p>{frontmatter.title} Preview.</p>
-</div>
+## React
 
-The {frontmatter.title} usage goes here.
+<Preview client:load>
+    <Fragment slot="preview"><ExReact client:load /></Fragment>
+    <Fragment slot="code"><Code code={CodeReact} lang="ts" /></Fragment>
+</Preview>
+
+## Svelte
+
+<Preview client:load>
+    <Fragment slot="preview"><ExSvelte client:load /></Fragment>
+    <Fragment slot="code"><Code code={CodeSvelte} lang="ts" /></Fragment>
+</Preview>
+
+## Usage
+
+ The {frontmatter.title} usage goes here.
+
+<Framework client:load>
+    <Fragment framework="react" slot="react">
+        React specific details go here.
+    </Fragment>
+    <Fragment framework="svelte" slot="svelte">
+        Svelte specific details go here.
+    </Fragment>
+</Framework>
 
 ## Props
 

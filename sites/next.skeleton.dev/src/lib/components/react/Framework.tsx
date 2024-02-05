@@ -1,8 +1,9 @@
 import React from 'react'
 
-export const FrameworkTabs: React.FC<any> = (props) => {
+/** Create a framework-specific tab component. */
+export const Framework: React.FC<any> = (props) => {
     const [activeTab, setActiveTab] = React.useState(props.selected || 'react')
-    const baseClasses = 'font-bold py-2 px-4 border-b-[3px] border-transparent capitalize'
+    const baseClasses = 'font-bold mt-4 py-2 px-4 border-b-[3px] border-transparent capitalize'
 
     // prettier-ignore
     const tabs = [
@@ -30,7 +31,7 @@ export const FrameworkTabs: React.FC<any> = (props) => {
                     )
                 })}
             </nav>
-            <div className="docs-card-outlined-centered p-8">
+            <div>
                 {tabs.map((tab: any) => {
                     return activeTab === tab.props.name && <div key={tab.props.name}>{props[tab.props.name]}</div>
                 })}
