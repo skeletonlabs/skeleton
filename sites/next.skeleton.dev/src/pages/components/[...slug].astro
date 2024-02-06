@@ -1,0 +1,26 @@
+---
+import { getEntry } from 'astro:content'
+
+// Get the slug from the incoming server request
+const { slug } = Astro.params
+if (slug === undefined) throw new Error('Slug is required')
+
+// Query based on the slug
+const commmon: any = await getEntry('components', 'common/accordions')
+const entry = await getEntry('components', slug)
+
+// Handle 404 not found
+if (entry === undefined) return Astro.redirect('/404')
+
+// Render the entry to HTML in the template
+const { Content, remarkPluginFrontmatter } = await entry.render()
+
+// Append common frontmatter
+// https://github.com/withastro/astro/issues/7972
+// https://docs.astro.build/en/guides/content-collections/#modifying-frontmatter-with-remark
+for (const [key, value] of Object.entries(commmon.data)) {
+    remarkPluginFrontmatter[key] = value
+}
+---
+
+<Content />
