@@ -9,10 +9,15 @@ showDocsUrl: true
 export const components = componentSet
 
 import Example from "@examples/tailwind/tables/Example.astro";
+import ExampleRaw from "@examples/tailwind/tables/Example.astro?raw";
 
-<div class="docs-card-outlined-centered p-8">
-    <Example />
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><Example client:load /></Fragment>
+    <Fragment slot="code">
+        We've used Svelte here, but the concept should work for any framework.
+        <Code code={ExampleRaw} lang="ts" class="mt-4" />
+    </Fragment>
+</Preview>
 
 ## Layout
 

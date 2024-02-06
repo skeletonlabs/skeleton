@@ -8,173 +8,123 @@ showDocsUrl: true
 
 export const components = componentSet
 
+import Headings from "@examples/design/typography/Headings.astro";
+import HeadingsRaw from "@examples/design/typography/Headings.astro?raw";
+import Paragraphs from "@examples/design/typography/Paragraphs.astro";
+import ParagraphsRaw from "@examples/design/typography/Paragraphs.astro?raw";
+import Blockquotes from "@examples/design/typography/Blockquotes.astro";
+import BlockquotesRaw from "@examples/design/typography/Blockquotes.astro?raw";
+import Anchors from "@examples/design/typography/Anchors.astro";
+import AnchorsRaw from "@examples/design/typography/Anchors.astro?raw";
+import Pre from "@examples/design/typography/Pre.astro";
+import PreRaw from "@examples/design/typography/Pre.astro?raw";
+import CodeTag from "@examples/design/typography/CodeTag.astro";
+import CodeTagRaw from "@examples/design/typography/CodeTag.astro?raw";
+import Keyboard from "@examples/design/typography/Keyboard.astro";
+import KeyboardRaw from "@examples/design/typography/Keyboard.astro?raw";
+import InsDel from "@examples/design/typography/InsDel.astro";
+import InsDelRaw from "@examples/design/typography/InsDel.astro?raw";
+import ListUnordered from "@examples/design/typography/ListUnordered.astro";
+import ListUnorderedRaw from "@examples/design/typography/ListUnordered.astro?raw";
+import ListOrdered from "@examples/design/typography/ListOrdered.astro";
+import ListOrderedRaw from "@examples/design/typography/ListOrdered.astro?raw";
+import ListBasic from "@examples/design/typography/ListBasic.astro";
+import ListBasicRaw from "@examples/design/typography/ListBasic.astro?raw";
+import ListDesc from "@examples/design/typography/ListDesc.astro";
+import ListDescRaw from "@examples/design/typography/ListDesc.astro?raw";
+import ListNav from "@examples/design/typography/ListNav.astro";
+import ListNavRaw from "@examples/design/typography/ListNav.astro?raw";
+
 ## Headings
 
-```html
-<h1 class="h1">...</h1>
-```
-
-<div class="docs-card-outlined-centered p-8">
-    <div class="space-y-4">
-        <h1 class="h1">Heading 1</h1>
-        <h2 class="h2">Heading 2</h2>
-        <h3 class="h3">Heading 3</h3>
-        <h4 class="h4">Heading 4</h4>
-        <h5 class="h5">Heading 5</h5>
-        <h6 class="h6">Heading 6</h6>
-    </div>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><Headings client:load /></Fragment>
+    <Fragment slot="code"><Code code={HeadingsRaw} lang="html" /></Fragment>
+</Preview>
 
 ## Paragraphs
 
-```html
-<p>...</p>
-```
+<Preview client:load>
+    <Fragment slot="preview"><Paragraphs client:load /></Fragment>
+    <Fragment slot="code"><Code code={ParagraphsRaw} lang="html" /></Fragment>
+</Preview>
 
-<div class="docs-card-outlined-centered p-8">
-    <p>Paragraph - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta error, quas iste, hic quos saepe expedita odio ratione distinctio eligendi iure sint, obcaecati eaque. Soluta ex libero quae odio exercitationem.</p>
-</div>
 
 ## Blockquotes
 
-```html
-<blockquote class="blockquote">...</blockquote>
-```
-
-<div class="docs-card-outlined-centered p-8">
-    <blockquote class="blockquote">Blockquote - "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta error, quas iste, hic quos saepe expedita odio ratione distinctio eligendi iure sint, obcaecati eaque. Soluta ex libero quae odio exercitationem."</blockquote>
-</div>
-
+<Preview client:load>
+    <Fragment slot="preview"><Blockquotes client:load /></Fragment>
+    <Fragment slot="code"><Code code={BlockquotesRaw} lang="html" /></Fragment>
+</Preview>
 
 ## Anchor
 
-```html
-<a href="#" class="anchor">...</a>`
-```
+<Preview client:load>
+    <Fragment slot="preview"><Anchors client:load /></Fragment>
+    <Fragment slot="code"><Code code={AnchorsRaw} lang="html" /></Fragment>
+</Preview>
 
-<div class="docs-card-outlined-centered p-8">
-    <a class="anchor" href="/">Anchor</a>
-</div>
+## Pre-Formatted
 
-<h2 class="h2">Pre-Formatted</h2>
+<Preview client:load>
+    <Fragment slot="preview"><Pre client:load /></Fragment>
+    <Fragment slot="code"><Code code={PreRaw} lang="html" /></Fragment>
+</Preview>
 
-```html
-<pre class="pre">...</pre>`
-```
+## Code
 
-<div class="docs-card-outlined-centered p-8">
-    <pre class="pre">Pre - The quick brown fox jumps over the lazy dog.</pre>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><CodeTag client:load /></Fragment>
+    <Fragment slot="code"><Code code={CodeTagRaw} lang="html" /></Fragment>
+</Preview>
 
-<h2 class="h2">Code</h2>
+## Keyboard
 
-```html
-<code class="code"></code>`
-```
+<Preview client:load>
+    <Fragment slot="preview"><Keyboard client:load /></Fragment>
+    <Fragment slot="code"><Code code={KeyboardRaw} lang="html" /></Fragment>
+</Preview>
 
-<div class="docs-card-outlined-centered p-8">
-    <div>Insert the <code class="code">.example</code> class here.</div>
-</div>
+## Insert & Delete
 
-<h2 class="h2">Keyboard</h2>
-
-```html
-<kbd class="kbd">...</kbd>`
-```
-
-<div class="docs-card-outlined-centered p-8">
-    <div>Press <kbd class="kbd">⌘</kbd> + <kbd class="kbd">C</kbd> to copy.</div>
-</div>
-
-<h2 class="h2">Insert & Delete</h2>
-
-```html
-<del class="del"></del>`
-<ins class="ins" cite="..." datetime="...">...</ins>`
-```
-
-<div class="docs-card-outlined-centered p-8">
-    <div class="w-full">
-        <del class="del"><s>Always</s> Gonna Give You Up</del>
-        <ins class="ins" cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022">
-            Never Gonna Give You Up
-        </ins>
-    </div>
-</div>
-
----
+<Preview client:load>
+    <Fragment slot="preview"><InsDel client:load /></Fragment>
+    <Fragment slot="code"><Code code={InsDelRaw} lang="html" /></Fragment>
+</Preview>
 
 ## Lists
 
 ### Unordered
 
-<div class="docs-card-outlined-centered p-8">
-    <ul class="list-disc list-inside space-y-2">
-        <li>Id maxime optio soluta placeat ea eaque similique consectetur dicta tempore.</li>
-        <li>Repellat veritatis et harum ad sint reprehenderit tenetur, possimus tempora.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit harum ad sint.</li>
-    </ul>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ListUnordered client:load /></Fragment>
+    <Fragment slot="code"><Code code={ListUnorderedRaw} lang="html" /></Fragment>
+</Preview>
 
 ### Ordered
 
-<div class="docs-card-outlined-centered p-8">
-    <ol class="list-decimal list-inside space-y-2">
-        <li>Id maxime optio soluta placeat ea eaque similique consectetur dicta tempore.</li>
-        <li>Repellat veritatis et harum ad sint reprehenderit tenetur, possimus tempora.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit harum ad sint.</li>
-    </ol>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ListOrdered client:load /></Fragment>
+    <Fragment slot="code"><Code code={ListOrderedRaw} lang="html" /></Fragment>
+</Preview>
 
 ### Basic
 
-<div class="docs-card-outlined-centered p-8">
-    <ul class="list-none list-inside space-y-2">
-        <li>Id maxime optio soluta placeat ea eaque similique consectetur dicta tempore.</li>
-        <li>Repellat veritatis et harum ad sint reprehenderit tenetur, possimus tempora.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit harum ad sint.</li>
-    </ul>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ListBasic client:load /></Fragment>
+    <Fragment slot="code"><Code code={ListBasicRaw} lang="html" /></Fragment>
+</Preview>
 
 ### Description
 
-<div class="docs-card-outlined-centered p-8">
-    <dl class="space-y-2">
-        <div>
-            <dt class="font-bold">Item A</dt>
-            <dd class="opacity-60">
-                Id maxime optio soluta placeat ea eaque similique consectetur dicta tempore.
-            </dd>
-        </div>
-        <div>
-            <dt class="font-bold">Item B</dt>
-            <dd class="opacity-60">
-                Repellat veritatis et harum ad sint reprehenderit tenetur, possimus tempora.
-            </dd>
-        </div>
-        <div>
-            <dt class="font-bold">Item C</dt>
-            <dd class="opacity-60">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit harum ad sint.
-            </dd>
-        </div>
-    </dl>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ListDesc client:load /></Fragment>
+    <Fragment slot="code"><Code code={ListDescRaw} lang="html" /></Fragment>
+</Preview>
 
 ### Navigation
 
-<div class="docs-card-outlined-centered p-8">
-    <nav>
-        <ul class="space-y-2">
-            <li>
-                <a class="anchor" href="#">Home</a>
-            </li>
-            <li>
-                <a class="anchor" href="#">About</a>
-            </li>
-            <li>
-                <a class="anchor" href="#">Blog</a>
-            </li>
-        </ul>
-    </nav>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ListNav client:load /></Fragment>
+    <Fragment slot="code"><Code code={ListNavRaw} lang="html" /></Fragment>
+</Preview>
