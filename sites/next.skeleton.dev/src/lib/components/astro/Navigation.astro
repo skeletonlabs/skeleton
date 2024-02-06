@@ -1,10 +1,13 @@
 ---
+import { getCollection } from 'astro:content'
+
 interface Props {
     classList?: string
 }
 
 const { classList } = Astro.props
 
+// Static Navigation
 const navigation = {
     linksDocs: [{ href: '/docs/introduction', label: 'Introduction' }],
     linksDesignSystem: [
@@ -23,15 +26,16 @@ const navigation = {
         { href: '/tailwind/placeholders', label: 'Placeholders' },
         { href: '/tailwind/tables', label: 'Tables' },
     ],
-    linksComponents: [
-        { href: '/components/react/accordions', label: 'Accordions' },
-        { href: '/components/react/app-bars', label: 'App Bars' },
-    ],
     linksResources: [
         { href: '/resources/cookbook', label: 'Cookbook' },
         { href: '/resources/markdown', label: 'Markdown' },
     ],
 }
+
+// Query from Collections
+const navComponents = await getCollection('components', ({ id }) => {
+    return id.startsWith('common/')
+})
 ---
 
 <aside class="type-scale-2 overflow-y-auto space-y-10" class:list={[classList]}>
@@ -72,9 +76,9 @@ const navigation = {
     <div class="flex flex-col gap-2">
         <span class="font-bold">Components</span>
         {
-            navigation.linksComponents.map((l) => (
-                <a class="anchor" href={l.href}>
-                    {l.label}
+            navComponents.map((l) => (
+                <a class="anchor" href={l.slug.replace('common', 'react')} title={l.data.description}>
+                    {l.data.title}
                 </a>
             ))
         }
