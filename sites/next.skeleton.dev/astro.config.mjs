@@ -42,14 +42,14 @@ export default defineConfig({
     // https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import
     AutoImport({
       imports: [{
-        // import componentSet from "@lib/components/mdx/index";
-        '@lib/components/mdx/index': [['default', 'componentSet']],
+        // import componentSet from "@components/mdx/index";
+        '@components/mdx/index': [['default', 'componentSet']],
         // import { Code } from 'astro-expressive-code/components';
         'astro-expressive-code/components': ['Code'],
-        // import { Preview } from '@lib/components/react/Preview.tsx'
-        '@lib/components/react/Preview.tsx': ['Preview'],
-        // import { FrameworkTabs } from '@lib/components/react/FrameworkTabs''
-        '@lib/components/react/FrameworkTabs.tsx': ['FrameworkTabs'],
+        // import { Preview } from '@components/react/Preview.tsx'
+        '@components/react/Preview.tsx': ['Preview'],
+        // import { FrameworkTabs } from '@components/react/FrameworkTabs''
+        '@components/react/FrameworkTabs.tsx': ['FrameworkTabs'],
       }]
     }),
     // IMPORTANT: MUST BE LAST INTEGRATION

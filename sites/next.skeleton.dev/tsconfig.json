@@ -7,6 +7,9 @@
         "moduleResolution": "Bundler",
         "paths": {
             "@lib/*": ["src/lib/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@components/*": ["src/components/*"],
+            "@examples/*": ["src/examples/*"],
             "@content/*": ["src/content/*"],
             "@styles/*": ["src/styles/*"],
         },
