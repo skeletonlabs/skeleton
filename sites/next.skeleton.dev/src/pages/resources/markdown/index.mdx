@@ -6,15 +6,13 @@ description: An MDX kitchen sink to test parsing and styles.
 
 export const components = componentSet
 
-import { Framework } from '@lib/components/react/Framework.tsx'
-
 {/* --- This is a Comment --- */}
 
-<Framework client:load>
+<FrameworkTabs client:load>
   <Fragment slot="react">This is the `React` panel!</Fragment>
   <Fragment slot="svelte">This is the `Svelte` panel!</Fragment>
   {/* <Fragment slot="vue">This is the Vue panel!</Fragment> */}
-</Framework>
+</FrameworkTabs>
 
 ## Tailwind
 

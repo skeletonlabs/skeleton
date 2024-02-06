@@ -7,6 +7,7 @@ import Header from '@lib/components/astro/Header.astro'
 import ChipsBar from '@lib/components/astro/ChipsBar.astro'
 import Navigation from '@lib/components/astro/Navigation.astro'
 import Breadcrumbs from '@lib/components/astro/Breadcrumbs.astro'
+import FrameworkPicker from '@lib/components/astro/FrameworkPicker.astro'
 import TableOfContents from '@lib/components/astro/TableOfContents.astro'
 
 interface PageHeadings {
@@ -45,8 +46,6 @@ const layoutProps = {
     title: frontmatter.title,
     classList: 'grid grid-rows-[auto_1fr] xl:grid-rows-[auto_1fr_auto]',
 }
-
-// console.log('astroProps', Astro.props)
 ---
 
 <LayoutRoot {...layoutProps}>
@@ -69,6 +68,8 @@ const layoutProps = {
             </header>
             <!-- Chips -->
             <ChipsBar {frontmatter} frontmatterChips={frontmatter.chips} />
+            <!-- Framework Tabs -->
+            <FrameworkPicker />
             <!-- Content -->
             <article class="space-y-8">
                 <slot />

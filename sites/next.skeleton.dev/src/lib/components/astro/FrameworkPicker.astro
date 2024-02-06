@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon/components'
+
+// URL Path
+const topLevelPath = Astro.url.pathname.split('/').filter((v) => v !== '')[0]
+
+// URL Params
+const { slug } = Astro.params
+const [framework, feature] = slug ? slug.split('/') : []
+
+// Classes
+const cBtn = 'btn py-8'
+const cActive = 'preset-filled-surface-200-800'
+const cHover = 'hover:preset-tonal'
+
+// Frameworks
+const frameworkList = [
+    { name: 'react', icon: 'simple-icons:react' },
+    { name: 'svelte', icon: 'simple-icons:svelte' },
+]
+---
+
+{
+    framework && (
+        <nav class="btn-group preset-outlined-surface-200-800 grid grid-cols-2 gap-2 p-2">
+            {frameworkList.map((fw: any) => (
+                <a href={`/${topLevelPath}/${fw.name}/${feature}`} class:list={[cBtn, framework === fw.name ? cActive : cHover]}>
+                    <Icon name={fw.icon} size={24} />
+                    <span class="capitalize">{fw.name}</span>
+                </a>
+            ))}
+        </nav>
+    )
+}

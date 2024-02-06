@@ -48,6 +48,8 @@ export default defineConfig({
         'astro-expressive-code/components': ['Code'],
         // import { Preview } from '@lib/components/react/Preview.tsx'
         '@lib/components/react/Preview.tsx': ['Preview'],
+        // import { FrameworkTabs } from '@lib/components/react/FrameworkTabs''
+        '@lib/components/react/FrameworkTabs.tsx': ['FrameworkTabs'],
       }]
     }),
     // IMPORTANT: MUST BE LAST INTEGRATION
