@@ -1,0 +1,18 @@
+---
+import { getEntry } from 'astro:content'
+
+// Get the slug from the incoming server request
+const { slug } = Astro.params
+if (slug === undefined) throw new Error('Slug is required')
+
+// Query based on the slug
+const entry = await getEntry('docs', slug)
+
+// Handle 404 not found
+if (entry === undefined) return Astro.redirect('/404')
+
+// Render the entry to HTML in the template
+const { Content } = await entry.render()
+---
+
+<Content />

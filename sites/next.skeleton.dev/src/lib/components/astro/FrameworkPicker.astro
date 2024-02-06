@@ -18,10 +18,11 @@ const frameworkList = [
     { name: 'react', icon: 'simple-icons:react' },
     { name: 'svelte', icon: 'simple-icons:svelte' },
 ]
+const frameworkAllowList = frameworkList.map((fw) => fw.name)
 ---
 
 {
-    framework && (
+    frameworkAllowList.includes(framework) && (
         <nav class="btn-group preset-outlined-surface-200-800 grid grid-cols-2 gap-2 p-2">
             {frameworkList.map((fw: any) => (
                 <a href={`/${topLevelPath}/${fw.name}/${feature}`} class:list={[cBtn, framework === fw.name ? cActive : cHover]}>

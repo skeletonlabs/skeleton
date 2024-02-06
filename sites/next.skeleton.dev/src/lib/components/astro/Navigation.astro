@@ -7,34 +7,16 @@ interface Props {
 
 const { classList } = Astro.props
 
-// Static Navigation
-const navigation = {
-    linksDocs: [{ href: '/docs/introduction', label: 'Introduction' }],
-    linksDesignSystem: [
-        { href: '/design/colors', label: 'Colors' },
-        { href: '/design/typography', label: 'Typography' },
-        { href: '/design/spacing', label: 'Spacing' },
-        { href: '/design/presets', label: 'Presets' },
-    ],
-    linksTailwind: [
-        { href: '/tailwind/badges', label: 'Badges' },
-        { href: '/tailwind/buttons', label: 'Buttons' },
-        { href: '/tailwind/cards', label: 'Cards' },
-        { href: '/tailwind/chips', label: 'Chips' },
-        { href: '/tailwind/dividers', label: 'Dividers' },
-        { href: '/tailwind/forms', label: 'Forms & Inputs' },
-        { href: '/tailwind/placeholders', label: 'Placeholders' },
-        { href: '/tailwind/tables', label: 'Tables' },
-    ],
-    linksResources: [
-        { href: '/resources/cookbook', label: 'Cookbook' },
-        { href: '/resources/markdown', label: 'Markdown' },
-    ],
-}
-
 // Query from Collections
+const navDocs = await getCollection('docs')
 const navComponents = await getCollection('components', ({ id }) => {
     return id.startsWith('common/')
+})
+const navDesign = await getCollection('design')
+const navTailwind = await getCollection('tailwind')
+const navResources = await getCollection('resources', ({ id }) => {
+    // Ignore cookbook children pages
+    return !id.startsWith('cookbook/')
 })
 ---
 
@@ -43,9 +25,9 @@ const navComponents = await getCollection('components', ({ id }) => {
     <div class="flex flex-col gap-2">
         <span class="font-bold">Docs</span>
         {
-            navigation.linksDocs.map((l) => (
-                <a class="anchor" href={l.href}>
-                    {l.label}
+            navDocs.map((l) => (
+                <a class="anchor" href={`/docs/${l.slug}`} title={l.data.description}>
+                    {l.data.title}
                 </a>
             ))
         }
@@ -54,9 +36,9 @@ const navComponents = await getCollection('components', ({ id }) => {
     <div class="flex flex-col gap-2">
         <span class="font-bold">Design</span>
         {
-            navigation.linksDesignSystem.map((l) => (
-                <a class="anchor" href={l.href}>
-                    {l.label}
+            navDesign.map((l) => (
+                <a class="anchor" href={`/design/${l.slug}`} title={l.data.description}>
+                    {l.data.title}
                 </a>
             ))
         }
@@ -65,9 +47,9 @@ const navComponents = await getCollection('components', ({ id }) => {
     <div class="flex flex-col gap-2">
         <span class="font-bold">Tailwind</span>
         {
-            navigation.linksTailwind.map((l) => (
-                <a class="anchor" href={l.href}>
-                    {l.label}
+            navTailwind.map((l) => (
+                <a class="anchor" href={`/tailwind/${l.slug}`} title={l.data.description}>
+                    {l.data.title}
                 </a>
             ))
         }
@@ -77,7 +59,7 @@ const navComponents = await getCollection('components', ({ id }) => {
         <span class="font-bold">Components</span>
         {
             navComponents.map((l) => (
-                <a class="anchor" href={l.slug.replace('common', 'react')} title={l.data.description}>
+                <a class="anchor" href={`/components/${l.slug.replace('common', 'react')}`} title={l.data.description}>
                     {l.data.title}
                 </a>
             ))
@@ -87,9 +69,9 @@ const navComponents = await getCollection('components', ({ id }) => {
     <div class="flex flex-col gap-2">
         <span class="font-bold">Resources</span>
         {
-            navigation.linksResources.map((l) => (
-                <a class="anchor" href={l.href}>
-                    {l.label}
+            navResources.map((l) => (
+                <a class="anchor" href={`/resources/${l.slug.replace('common', 'react')}`} title={l.data.description}>
+                    {l.data.title}
                 </a>
             ))
         }
