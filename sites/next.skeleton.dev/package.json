@@ -27,6 +27,7 @@
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@types/react": "^18.2.43",
 		"astro": "^4.1.0",
+		"astro-auto-import": "^0.4.2",
 		"astro-expressive-code": "^0.32.3",
 		"astro-icon": "^1.1.0",
 		"nanostores": "^0.9.5",

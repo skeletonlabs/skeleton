@@ -6,6 +6,7 @@ import svelte from "@astrojs/svelte";
 import react from "@astrojs/react";
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
+import AutoImport from 'astro-auto-import';
 import mdx from '@astrojs/mdx';
 // Vite Plugins
 import skeletonPluginWatcher from "./skeleton-plugin-watcher.js";
@@ -37,6 +38,17 @@ export default defineConfig({
         // https://icon-sets.iconify.design/simple-icons/
         'simple-icons': '*'
       }
+    }),
+    // https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import
+    AutoImport({
+      imports: [{
+        // import componentSet from "@lib/components/mdx/index";
+        '@lib/components/mdx/index': [['default', 'componentSet']],
+        // import { Code } from 'astro-expressive-code/components';
+        'astro-expressive-code/components': ['Code'],
+        // import { Preview } from '@lib/components/react/Preview.tsx'
+        '@lib/components/react/Preview.tsx': ['Preview'],
+      }]
     }),
     // IMPORTANT: MUST BE LAST INTEGRATION
     // https://docs.astro.build/en/guides/integrations-guide/mdx/

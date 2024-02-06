@@ -35,6 +35,9 @@ dependencies:
   astro:
     specifier: ^4.1.0
     version: 4.1.0(@types/node@20.10.6)(typescript@5.3.3)
+  astro-auto-import:
+    specifier: ^0.4.2
+    version: 0.4.2(astro@4.1.0)
   astro-expressive-code:
     specifier: ^0.32.3
     version: 0.32.3(astro@4.1.0)
@@ -1504,6 +1507,12 @@ packages:
       '@types/unist': 2.0.10
     dev: false
 
+  /@types/node@18.19.14:
+    resolution: {integrity: sha512-EnQ4Us2rmOS64nHDWr0XqAD8DsO6f3XR6lf9UIIrZQpUzPVdN/oPuEzfDWNHSyXLvoGgjuEm/sPwFGSSs35Wtg==}
+    dependencies:
+      undici-types: 5.26.5
+    dev: false
+
   /@types/node@20.10.6:
     resolution: {integrity: sha512-Vac8H+NlRNNlAmDfGUP7b5h/KA+AtWIzuXy0E6OyP8f1tCLYAtPvKRRDJjAPqhpCb0t6U2j7/xqAuLEebW2kiw==}
     dependencies:
@@ -1752,6 +1761,17 @@ packages:
   /astring@1.8.6:
     resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
     hasBin: true
+    dev: false
+
+  /astro-auto-import@0.4.2(astro@4.1.0):
+    resolution: {integrity: sha512-ZgWZQ58+EhbEym1+aoUnNyECOy0wsG5uRUs+rVp/7BzHtj1V76J2qkhjaTWLplgNb+8WrzhvTQNxytmXRCW+Ow==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      astro: ^2.0.0 || ^3.0.0-beta || ^4.0.0-beta
+    dependencies:
+      '@types/node': 18.19.14
+      acorn: 8.11.3
+      astro: 4.1.0(@types/node@20.10.6)(typescript@5.3.3)
     dev: false
 
   /astro-expressive-code@0.32.3(astro@4.1.0):
