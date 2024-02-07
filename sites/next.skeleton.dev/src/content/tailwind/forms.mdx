@@ -8,168 +8,61 @@ showDocsUrl: true
 
 export const components = componentSet
 
-import { Icon } from 'astro-icon/components'
+import Example from "@examples/tailwind/forms/Example.astro";
+import ExampleInputRaw from "@examples/tailwind/forms/ExampleInput.astro?raw";
+import ExampleSelectRaw from "@examples/tailwind/forms/ExampleSelect.astro?raw";
+import ExampleTextareaRaw from "@examples/tailwind/forms/ExampleTextarea.astro?raw";
+import ExampleSelection from "@examples/tailwind/forms/ExampleSelection.astro";
+import ExampleSelectionRaw from "@examples/tailwind/forms/ExampleSelection.astro?raw";
+import ExampleCheckboxes from "@examples/tailwind/forms/ExampleCheckboxes.astro";
+import ExampleCheckboxesRaw from "@examples/tailwind/forms/ExampleCheckboxes.astro?raw";
+import ExampleRadio from "@examples/tailwind/forms/ExampleRadio.astro";
+import ExampleRadioRaw from "@examples/tailwind/forms/ExampleRadio.astro?raw";
+import ExampleSpecial from "@examples/tailwind/forms/ExampleSpecial.astro";
+import ExampleSpecialRaw from "@examples/tailwind/forms/ExampleSpecial.astro?raw";
+import ExampleGroups from "@examples/tailwind/forms/ExampleGroups.astro";
+import ExampleGroupsRaw from "@examples/tailwind/forms/ExampleGroups.astro?raw";
 
-<div class="docs-card-outlined p-8 space-y-4">
-    <form class="docs-card-filled w-full space-y-4">
-        <fieldset class="space-y-4">
-            {/* Input */}
-            <label class="label">
-                <span class="label-text">Input</span>
-                <input class="input" type="text" placeholder="Input" />
-            </label>
-            {/* Select */}
-            <label class="label">
-                <span class="label-text">Select</span>
-                <select class="select">
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                    <option value="4">Option 4</option>
-                    <option value="5">Option 5</option>
-                </select>
-            </label>
-            {/* Textarea */}
-            <label class="label">
-                <span class="label-text">Textarea</span>
-                <textarea class="textarea" rows="4" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
-            </label>
-        </fieldset>
-        <fieldset class="flex justify-end">
-            <button type="button" class="btn preset-outlined-surface-300-700">Submit</button>
-        </fieldset>
-    </form>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><Example /></Fragment>
+    <div class="space-y-4" slot="code">
+        <Code code={ExampleInputRaw} lang="html" />
+        <Code code={ExampleSelectRaw} lang="html" />
+        <Code code={ExampleTextareaRaw} lang="html" />
+    </div>
+</Preview>
 
 ## Select
 
-<form class="docs-card-outlined p-8 space-y-4">
-    {/* Default */}
-    <select class="select">
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-        <option value="4">Option 4</option>
-        <option value="5">Option 5</option>
-    </select>
-    {/* Size */}
-    <select class="select" size="4" value="1">
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-        <option value="4">Option 4</option>
-        <option value="5">Option 5</option>
-    </select>
-    {/* Mutiple */}
-    <select class="select" multiple value={['1', '2']}>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-        <option value="4">Option 4</option>
-        <option value="5">Option 5</option>
-    </select>
-</form>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleSelection /></Fragment>
+    <Fragment slot="code"><Code code={ExampleSelectionRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Checkboxes
 
-<form class="docs-card-outlined p-8 space-y-2">
-    <label class="flex items-center space-x-2">
-        <input class="checkbox" type="checkbox" checked />
-        <p>Option 1</p>
-    </label>
-    <label class="flex items-center space-x-2">
-        <input class="checkbox" type="checkbox" />
-        <p>Option 2</p>
-    </label>
-    <label class="flex items-center space-x-2">
-        <input class="checkbox" type="checkbox" />
-        <p>Option 3</p>
-    </label>
-</form>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleCheckboxes /></Fragment>
+    <Fragment slot="code"><Code code={ExampleCheckboxesRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Radio Groups
 
-<form class="docs-card-outlined p-8 space-y-2">
-    <label class="flex items-center space-x-2">
-        <input class="radio" type="radio" checked name="radio-direct" value="1" />
-        <p>Option 1</p>
-    </label>
-    <label class="flex items-center space-x-2">
-        <input class="radio" type="radio" name="radio-direct" value="2" />
-        <p>Option 2</p>
-    </label>
-    <label class="flex items-center space-x-2">
-        <input class="radio" type="radio" name="radio-direct" value="3" />
-        <p>Option 3</p>
-    </label>
-</form>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleRadio /></Fragment>
+    <Fragment slot="code"><Code code={ExampleRadioRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Specialized
 
-<form class="docs-card-outlined p-8 space-y-4">
-    {/* Search */}
-    <input class="input" type="search" placeholder="Search..." />
-    {/* File Input */}
-    <label class="label">
-        <span class="label-text">Date</span>
-        <input class="input" type="date" />
-    </label>
-    {/* File Input */}
-    <label class="label">
-        <span class="label-text">File Input</span>
-        <input class="input" type="file" />
-    </label>
-    {/* Range */}
-    <label class="label">
-        <span class="label-text">Rrange</span>
-        <input class="input" type="range" value="75" max="100" />
-    </label>
-    {/* Progress */}
-    <label class="label">
-        <span class="label-text">Progress</span>
-        <progress class="progress" value="50" max="100" />
-    </label>
-    {/* Color */}
-    {/* TODO: convert to mini-component for reactive value */}
-    <div class="grid grid-cols-[auto_1fr] gap-2">
-        <input class="input" type="color" value="#bada55" />
-        <input class="input" type="text" value="#bada55" readonly tabindex="-1" />
-    </div>
-</form>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleSpecial /></Fragment>
+    <Fragment slot="code"><Code code={ExampleSpecialRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Groups
 
-<form class="docs-card-outlined p-8 space-y-8">
-    {/* Website */}
-    <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-        <div class="input-group-cell preset-tonal-surface">https://</div>
-        <input type="text" placeholder="www.example.com" />
-    </div>
-    {/* Amount */}
-    <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-        <div class="input-group-cell preset-tonal-surface">
-            <Icon name="heroicons-outline:currency-dollar" size={20} />
-        </div>
-        <input type="text" placeholder="Amount" />
-        <select>
-            <option>USD</option>
-            <option>CAD</option>
-            <option>EURO</option>
-        </select>
-    </div>
-    {/* Username */}
-    <div class="input-group grid-cols-[1fr_auto] divide-x divide-surface-200-800">
-        <input type="text" placeholder="Enter Username..." />
-        <button class="btn preset-filled" title="Username already in use.">
-            <Icon name="heroicons-outline:check" size={20} />
-        </button>
-        </div>
-    {/* Search */}
-    <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-        <div class="input-group-cell">
-            <Icon name="heroicons-outline:search" size={20} />
-        </div>
-        <input type="search" placeholder="Search..." />
-        <button class="btn preset-filled">Submit</button>
-    </div>
-</form>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleGroups /></Fragment>
+    <Fragment slot="code"><Code code={ExampleGroupsRaw} lang="astro" /></Fragment>
+</Preview>

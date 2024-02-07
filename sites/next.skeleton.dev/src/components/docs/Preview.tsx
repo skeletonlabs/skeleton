@@ -24,7 +24,7 @@ export const Preview: React.FC<any> = (props) => {
             {/* Panel: Preview */}
             <div className={`docs-card-outlined-centered p-8 ${selected !== 'preview' && '!hidden'}`}>{props.preview}</div>
             {/* Panel: Codeblock */}
-            <div className={selected === 'code' ? 'block' : 'hidden'}>{props.code}</div>
+            <div className={`${selected === 'code' ? 'block' : 'hidden'}`}>{props.code}</div>
         </div>
     )
 }

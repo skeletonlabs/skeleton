@@ -8,76 +8,37 @@ showDocsUrl: true
 
 export const components = componentSet
 
-import Example from "@examples/tailwind/chips/Example.svelte";
-import ExampleRaw from "@examples/tailwind/chips/Example.svelte?raw";
+import Example from "@examples/tailwind/chips/Example.astro";
+import ExampleRaw from "@examples/tailwind/chips/Example.astro?raw";
+import ExamplePresets from "@examples/tailwind/chips/ExamplePresets.astro";
+import ExamplePresetsRaw from "@examples/tailwind/chips/ExamplePresets.astro?raw";
+import ExampleDisabled from "@examples/tailwind/chips/ExampleDisabled.astro";
+import ExampleDisabledRaw from "@examples/tailwind/chips/ExampleDisabled.astro?raw";
+import ExampleSelect from "@examples/tailwind/chips/ExampleSelect.svelte";
+import ExampleSelectRaw from "@examples/tailwind/chips/ExampleSelect.svelte?raw";
 
-<div class="docs-card-outlined-centered p-8">
-    <div class="flex items-center gap-4">
-        <button type="button" class="chip-icon preset-filled">
-            <span class="font-bold">&check;</span>
-        </button>
-        <button type="button" class="chip preset-filled">Chip</button>
-        <button type="button" class="chip preset-filled">
-            <span class="font-bold">&check;</span>
-            <span>Chip</span>
-        </button>
-    </div>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><Example /></Fragment>
+    <Fragment slot="code"><Code code={ExampleRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Presets
 
-<div class="docs-card-outlined-centered p-8">
-    <div class="space-y-4">
-        <div class="flex gap-4">
-            <button type="button" class="chip preset-filled-primary-500">Chip</button>
-            <button type="button" class="chip preset-tonal-primary">Chip</button>
-            <button type="button" class="chip preset-outlined-primary-500">Chip</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="chip preset-filled-secondary-500">Chip</button>
-            <button type="button" class="chip preset-tonal-secondary">Chip</button>
-            <button type="button" class="chip preset-outlined-secondary-500">Chip</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="chip preset-filled-tertiary-500">Chip</button>
-            <button type="button" class="chip preset-tonal-tertiary">Chip</button>
-            <button type="button" class="chip preset-outlined-tertiary-500">Chip</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="chip preset-filled-success-500">Chip</button>
-            <button type="button" class="chip preset-tonal-success">Chip</button>
-            <button type="button" class="chip preset-outlined-success-500">Chip</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="chip preset-filled-warning-500">Chip</button>
-            <button type="button" class="chip preset-tonal-warning">Chip</button>
-            <button type="button" class="chip preset-outlined-warning-500">Chip</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="chip preset-filled-error-500">Chip</button>
-            <button type="button" class="chip preset-tonal-error">Chip</button>
-            <button type="button" class="chip preset-outlined-error-500">Chip</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="chip preset-filled-surface-500">Chip</button>
-            <button type="button" class="chip preset-tonal-surface">Chip</button>
-            <button type="button" class="chip preset-outlined-surface-500">Chip</button>
-        </div>
-    </div>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ExamplePresets /></Fragment>
+    <Fragment slot="code"><Code code={ExamplePresetsRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Disabled
 
-<div class="docs-card-outlined-centered p-8">
-    <button type="button" class="chip preset-filled" disabled>Chip</button>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleDisabled /></Fragment>
+    <Fragment slot="code"><Code code={ExampleDisabledRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Selection
 
 <Preview client:load>
-    <Fragment slot="preview"><Example client:load /></Fragment>
-    <Fragment slot="code">
-        We've used Svelte here, but the concept should work for any framework.
-        <Code code={ExampleRaw} lang="ts" title="demo.svelte" class="mt-4" />
-    </Fragment>
+    <Fragment slot="preview"><ExampleSelect client:load /></Fragment>
+    <Fragment slot="code"><Code code={ExampleSelectRaw} lang="svelte" /></Fragment>
 </Preview>

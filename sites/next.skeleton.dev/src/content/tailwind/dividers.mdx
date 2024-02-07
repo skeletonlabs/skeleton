@@ -8,28 +8,19 @@ showDocsUrl: true
 
 export const components = componentSet
 
-<div class="docs-card-outlined-centered p-8">
-    <div class="w-full space-y-4">
-        <p class="type-scale-1 opacity-60">Default</p>
-        <hr class="hr" />
-        <p class="type-scale-1 opacity-60">border-t-2</p>
-        <hr class="hr border-t-2" />
-        <p class="type-scale-1 opacity-60">border-t-4</p>
-        <hr class="hr border-t-4" />
-        <p class="type-scale-1 opacity-60">border-t-8</p>
-        <hr class="hr border-t-8" />
-    </div>
-</div>
+import Example from "@examples/tailwind/dividers/Example.astro";
+import ExampleRaw from "@examples/tailwind/dividers/Example.astro?raw";
+import ExampleVert from "@examples/tailwind/dividers/ExampleVert.astro";
+import ExampleVertRaw from "@examples/tailwind/dividers/ExampleVert.astro?raw";
+
+<Preview client:load>
+    <Fragment slot="preview"><Example /></Fragment>
+    <Fragment slot="code"><Code code={ExampleRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Vertical
 
-<div class="docs-card-outlined-centered p-8">
-    <div class="h-20 grid grid-cols-[1fr_auto_auto_auto_auto_1fr] items-center gap-4">
-        <p class="type-scale-1 opacity-60">Default &rarr;</p>
-        <span class="vr" />
-        <span class="vr border-l-2" />
-        <span class="vr border-l-4" />
-        <span class="vr border-l-8" />
-        <p class="type-scale-1 opacity-60">&larr; border-l-8</p>
-    </div>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleVert /></Fragment>
+    <Fragment slot="code"><Code code={ExampleVertRaw} lang="astro" /></Fragment>
+</Preview>

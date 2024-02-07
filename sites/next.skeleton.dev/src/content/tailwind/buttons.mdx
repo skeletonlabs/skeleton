@@ -8,81 +8,47 @@ showDocsUrl: true
 
 export const components = componentSet
 
-<div class="docs-card-outlined-centered p-8">
-    <div class="flex items-center gap-4">
-        <button type="button" class="btn-icon preset-filled">&rarr;</button>
-        <button type="button" class="btn preset-filled">Button</button>
-        <button type="button" class="btn preset-filled">
-            <span>Button</span>
-            <span>&rarr;</span>
-        </button>
-    </div>
-</div>
+import Example from "@examples/tailwind/buttons/Example.astro";
+import ExampleRaw from "@examples/tailwind/buttons/Example.astro?raw";
+import ExamplePresets from "@examples/tailwind/buttons/ExamplePresets.astro";
+import ExamplePresetsRaw from "@examples/tailwind/buttons/ExamplePresets.astro?raw";
+import ExampleSizes from "@examples/tailwind/buttons/ExampleSizes.astro";
+import ExampleSizesRaw from "@examples/tailwind/buttons/ExampleSizes.astro?raw";
+import ExampleDisabled from "@examples/tailwind/buttons/ExampleDisabled.astro";
+import ExampleDisabledRaw from "@examples/tailwind/buttons/ExampleDisabled.astro?raw";
+import ExampleGroup from "@examples/tailwind/buttons/ExampleGroup.astro";
+import ExampleGroupRaw from "@examples/tailwind/buttons/ExampleGroup.astro?raw";
+
+<Preview client:load>
+    <Fragment slot="preview"><Example /></Fragment>
+    <Fragment slot="code"><Code code={ExampleRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Presets
 
-<div class="docs-card-outlined-centered p-8">
-    <div class="space-y-4">
-        <div class="flex gap-4">
-            <button type="button" class="btn preset-filled-primary-500">Button</button>
-            <button type="button" class="btn preset-tonal-primary">Button</button>
-            <button type="button" class="btn preset-outlined-primary-500">Button</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="btn preset-filled-secondary-500">Button</button>
-            <button type="button" class="btn preset-tonal-secondary">Button</button>
-            <button type="button" class="btn preset-outlined-secondary-500">Button</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="btn preset-filled-tertiary-500">Button</button>
-            <button type="button" class="btn preset-tonal-tertiary">Button</button>
-            <button type="button" class="btn preset-outlined-tertiary-500">Button</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="btn preset-filled-success-500">Button</button>
-            <button type="button" class="btn preset-tonal-success">Button</button>
-            <button type="button" class="btn preset-outlined-success-500">Button</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="btn preset-filled-warning-500">Button</button>
-            <button type="button" class="btn preset-tonal-warning">Button</button>
-            <button type="button" class="btn preset-outlined-warning-500">Button</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="btn preset-filled-error-500">Button</button>
-            <button type="button" class="btn preset-tonal-error">Button</button>
-            <button type="button" class="btn preset-outlined-error-500">Button</button>
-        </div>
-        <div class="flex gap-4">
-            <button type="button" class="btn preset-filled-surface-500">Button</button>
-            <button type="button" class="btn preset-tonal-surface">Button</button>
-            <button type="button" class="btn preset-outlined-surface-500">Button</button>
-        </div>
-    </div>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ExamplePresets /></Fragment>
+    <Fragment slot="code"><Code code={ExamplePresetsRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Sizes
 
-<div class="docs-card-outlined-centered p-8">
-    <div class="flex items-center gap-4">
-        <button type="button" class="btn btn-sm preset-filled">Small</button>
-        <button type="button" class="btn btn-md preset-filled">Medium</button>
-        <button type="button" class="btn btn-lg preset-filled">Large</button>
-    </div>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleSizes /></Fragment>
+    <Fragment slot="code"><Code code={ExampleSizesRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Disabled
 
-<div class="docs-card-outlined-centered p-8">
-    <button type="button" class="btn preset-filled-primary-500" disabled>Button</button>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleDisabled /></Fragment>
+    <Fragment slot="code"><Code code={ExampleDisabledRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Group
 
-<div class="docs-card-outlined-centered p-8">
-    <nav class="btn-group preset-outlined-surface-200-800 flex-col md:flex-row p-2">
-        <button type="button" class="btn preset-filled">January</button>
-        <button type="button" class="btn hover:preset-tonal">February</button>
-        <button type="button" class="btn hover:preset-tonal">March</button>
-    </nav>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleGroup /></Fragment>
+    <Fragment slot="code"><Code code={ExampleGroupRaw} lang="astro" /></Fragment>
+</Preview>
+

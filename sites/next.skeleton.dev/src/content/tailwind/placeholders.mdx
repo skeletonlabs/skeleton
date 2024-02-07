@@ -8,28 +8,13 @@ showDocsUrl: true
 
 export const components = componentSet
 
-<div class="docs-card-outlined-centered p-8">
-    <div class="space-y-4 w-full">
-        <div class="flex justify-between items-center">
-            <div class="flex justify-center items-center space-x-4">
-                <div class="placeholder-circle size-16 animate-pulse" />
-                <div class="placeholder-circle size-14 animate-pulse" />
-                <div class="placeholder-circle size-10 animate-pulse" />
-            </div>
-        </div>
-        <div class="space-y-4">
-            <div class="placeholder animate-pulse" />
-            <div class="grid grid-cols-4 gap-4">
-                <div class="placeholder animate-pulse" />
-                <div class="placeholder animate-pulse" />
-                <div class="placeholder animate-pulse" />
-                <div class="placeholder animate-pulse" />
-            </div>
-            <div class="placeholder animate-pulse" />
-            <div class="placeholder animate-pulse" />
-        </div>
-    </div>
-</div>
+import Example from "@examples/tailwind/placeholders/Example.astro";
+import ExampleRaw from "@examples/tailwind/placeholders/Example.astro?raw";
+
+<Preview client:load>
+    <Fragment slot="preview"><Example /></Fragment>
+    <Fragment slot="code"><Code code={ExampleRaw} lang="html" /></Fragment>
+</Preview>
 
 ## Animated
 

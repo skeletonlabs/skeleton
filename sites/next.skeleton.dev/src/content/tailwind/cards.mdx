@@ -8,33 +8,22 @@ showDocsUrl: true
 
 export const components = componentSet
 
-<div class="docs-card-outlined-centered p-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {/* Minimal */}
-        <div class="docs-card-filled flex justify-center items-center">
-            <span>Minimal</span>
-        </div>
-        {/* Detailed */}
-        <a class="docs-card-filled-flush card-hover overflow-hidden" href="#">
-            {/* Header */}
-            <header>
-                <img src="https://images.unsplash.com/photo-1705852592864-1a31a6c9260a?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY2MjR8&ixlib=rb-4.0.3&w=400&h=175&auto=format&fit=crop" class="grayscale hue-rotate-90 w-full aspect-[21/9]" alt="banner" />
-            </header>
-            {/* Article */}
-            <article class="p-4 space-y-4">
-                <div>
-                    <h2 class="h6">Announcements</h2>
-                    <h3 class="h3">Skeleton is Awesome</h3>    
-                </div>
-                <p class="opacity-60">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.</p>
-            </article>
-            {/* Horz Rules */}
-            <hr class="hr" />
-            {/* Footer */}
-            <footer class="p-4 flex justify-between items-center gap-4">
-                <small class="opacity-40">By Alex</small>
-                <small class="opacity-40">On {new Date().toLocaleDateString()}</small>
-            </footer>
-        </a>
-    </div>
-</div>
+import Example from "@examples/tailwind/cards/Example.astro";
+import ExampleDetailed from "@examples/tailwind/cards/ExampleDetailed.astro";
+import ExampleDetailedRaw from "@examples/tailwind/cards/ExampleDetailed.astro?raw";
+
+<Preview client:load>
+    <Fragment slot="preview"><Example /></Fragment>
+    <Fragment slot="code">
+```html
+<div class="card preset-filled-surface-100-900 p-4">...</div>
+```
+    </Fragment>
+</Preview>
+
+## Detailed
+
+<Preview client:load>
+    <Fragment slot="preview"><ExampleDetailed /></Fragment>
+    <Fragment slot="code"><Code code={ExampleDetailedRaw} lang="astro" /></Fragment>
+</Preview>
