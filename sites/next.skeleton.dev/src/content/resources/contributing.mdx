@@ -91,7 +91,7 @@ import ExampleRaw from "@examples/foo/Example.astro?raw";
 Use [Markdown tables](https://www.tablesgenerator.com/markdown_tables) or the available Table component (`/src/components/docs/Table.astro`). The Table component will auto-generate headings based on the key names in the first object row.
 
 ```ts
-const tableProps: [
+export const tableProps: [
     { name: 'autocollapse', type: 'boolean', value: 'false', description: 'Set the auto-collapse mode.' },
     // ...
 ];
@@ -107,15 +107,16 @@ const tableProps: [
 
 Icons are provided via [Astro-Icon](https://github.com/natemoo-re/astro-icon) and [Iconify](https://iconify.design/). This includes the following sets.
 
-[HeroIcons (outlined)](https://icon-sets.iconify.design/heroicons/)
+- [HeroIcons (outlined)](https://icon-sets.iconify.design/heroicons/)
+- [Simple Icons](https://icon-sets.iconify.design/simple-icons/)
+
+```ts
+// Skip for MDX, this is auto-imported
+import { Icon } from 'astro-icon/components'
+```
 
 ```astro
 <Icon name="heroicons-outline:user" />
-```
-
-[Simple Icons](https://icon-sets.iconify.design/simple-icons/)
-
-```astro
 <Icon name="simple-icons:svelte" />
 ```
 
