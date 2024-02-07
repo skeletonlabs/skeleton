@@ -18,6 +18,9 @@ const navResources = await getCollection('resources', ({ id }) => {
     // Ignore cookbook children pages
     return !id.startsWith('cookbook/')
 })
+
+// Sort Order
+const sortByOrder = (a: any, b: any) => a.orderBy - b.orderBy
 ---
 
 <aside class="type-scale-2 overflow-y-auto space-y-10" class:list={[classList]}>
@@ -25,22 +28,26 @@ const navResources = await getCollection('resources', ({ id }) => {
     <div class="flex flex-col gap-2">
         <span class="font-bold">Docs</span>
         {
-            navDocs.map((l) => (
-                <a class="anchor" href={`/docs/${l.slug}`} title={l.data.description}>
-                    {l.data.title}
-                </a>
-            ))
+            navDocs
+                .map((l) => (
+                    <a class="anchor" href={`/docs/${l.slug}`} title={l.data.description}>
+                        {l.data.title}
+                    </a>
+                ))
+                .sort(sortByOrder)
         }
     </div>
     <!-- Design -->
     <div class="flex flex-col gap-2">
         <span class="font-bold">Design</span>
         {
-            navDesign.map((l) => (
-                <a class="anchor" href={`/design/${l.slug}`} title={l.data.description}>
-                    {l.data.title}
-                </a>
-            ))
+            navDesign
+                .map((l) => (
+                    <a class="anchor" href={`/design/${l.slug}`} title={l.data.description}>
+                        {l.data.title}
+                    </a>
+                ))
+                .sort(sortByOrder)
         }
     </div>
     <!-- Tailwind -->
@@ -76,9 +83,4 @@ const navResources = await getCollection('resources', ({ id }) => {
             ))
         }
     </div>
-    <!-- DEBUG: Use this to test with lots of links -->
-    <!-- <div class="flex flex-col gap-3">
-        <span class="font-bold">Test</span>
-        {Array(100).fill('').map(l => <a class="anchor" href="#">Test Link</a>)}
-    </div> -->
 </aside>
