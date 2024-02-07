@@ -22,11 +22,11 @@ The Skeleton documentation uses [Astro](https://astro.build/). View the followin
 
 ## App Structure
 
-The entire app structure is houses within the `/src` directory, including the following subdirectories:
+Navigate the app structure within the `/src` directory. This includes the following directories:
 
 | Path          | Description                                |
 |---------------|--------------------------------------------|
-| `/components` | Contains the doc site component.           |
+| `/components` | Contains all doc site components.          |
 | `/content`    | Content collections for MDX page content.  |
 | `/examples`   | Documentation page code block examples.    |
 | `/icons`      | Contains doc site custom SVG icons.        |
@@ -40,13 +40,9 @@ The entire app structure is houses within the `/src` directory, including the fo
 2. Be sure to complete all required Frontmatter metadata within the `---` brackets.
 3. The page will be automatically added to the sidebar navigation.
 
-## General Usage
+## MDX Markdown
 
-### MDX Markdown
-
-View the [Astro MDX Documention](https://docs.astro.build/en/guides/markdown-content/) for full usage, or see `/content/resources/_markdown.md` for examples.
-
-> TIP: Skeleton styles are automatically applied via the `components` export. This must be included on every MDX page.
+View the [Astro MDX Documention](https://docs.astro.build/en/guides/markdown-content/) or see `/content/resources/_markdown.md` for "kitchen sink" examples. [Custom MDX components](https://mdxjs.com/table-of-components/) are provided in `/src/components/mdx`. To enable these, add the following export to every MDX file.
 
 ```astro
 ---
@@ -58,25 +54,17 @@ export const components = componentSet {/* <-- ADD THIS! */}
 {/* (content) */}
 ```
 
-### Icons
-
-Icons are provided via [Astro-Icon](https://github.com/natemoo-re/astro-icon) and [Iconify](https://iconify.design/). Both [HeroIcons Outlined](https://icon-sets.iconify.design/heroicons/) and [Simple Icons](https://icon-sets.iconify.design/simple-icons/) are available.
-
-### Linting
-
-See the [Astro Prettier](https://docs.astro.build/en/editor-setup/#prettier) documentation for usage details.
-
 ## Global Components
 
 A selection of globally accessible uitlity components provided to MDX contents via `astro-auto-importer`.
 
-> IMPORTANT: These are globally registered and do not need a local import per page.
+> IMPORTANT: These are globally registered and should not be imported within MDX pages.
 >
 > See `astro.config.mjs` > `AutoImport()` for details.
 
-### Essential Code Blocks
+### Essential Code
 
-Please refer to the [Expressive Code](https://expressive-code.com/) documentation for details. You can use [Markdown fences](https://expressive-code.com/key-features/syntax-highlighting/) or the full component.
+Code Blocks are provided via [Expressive Code](https://expressive-code.com/). Implement via [Markdown fences](https://expressive-code.com/key-features/syntax-highlighting/) or the full component.
 
 ```html
 <Code code={AddCodeHere} lang="html" />
@@ -84,30 +72,53 @@ Please refer to the [Expressive Code](https://expressive-code.com/) documentatio
 
 ### Previewer
 
-Allows you to quickly tab between a rendered component and the source code.
+Allows you to quickly toggle between a rendered component and the source code.
 
 ```ts
 import Example from "@examples/foo/Example.astro";
 import ExampleRaw from "@examples/foo/Example.astro?raw";
 ```
 
-```html
+```astro
 <Preview client:load>
     <Fragment slot="preview"><Example /></Fragment>
     <Fragment slot="code"><Code code={ExampleRaw} lang="html" /></Fragment>
 </Preview>
 ```
 
-## Tables
+### Tables
 
-Use [Markdown tables](https://www.tablesgenerator.com/markdown_tables), or see the custom doc Table component in `/src/components/docs/Table.astro`. The Table component will auto-generate headings based on the key names in each object row.
+Use [Markdown tables](https://www.tablesgenerator.com/markdown_tables) or the available Table component (`/src/components/docs/Table.astro`). The Table component will auto-generate headings based on the key names in the first object row.
 
 ```ts
-const tableProps: { name: 'autocollapse', type: 'boolean', value: 'false', description: 'Set the auto-collapse mode.' }
+const tableProps: [
+    { name: 'autocollapse', type: 'boolean', value: 'false', description: 'Set the auto-collapse mode.' },
+    // ...
+];
 ```
 
 ```html
 <Table label="Props" data={tableData} tonal />
 ```
 
-> TIP: You can optionally use either `tonal` or `kbd` props to highlight content in the first column.
+> TIP: Optionally add the `tonal` or `kbd` props to highlight content in the first column.
+
+### Icons
+
+Icons are provided via [Astro-Icon](https://github.com/natemoo-re/astro-icon) and [Iconify](https://iconify.design/). This includes the following sets.
+
+[HeroIcons (outlined)](https://icon-sets.iconify.design/heroicons/)
+
+```astro
+<Icon name="heroicons-outline:user" />
+```
+
+[Simple Icons](https://icon-sets.iconify.design/simple-icons/)
+
+```astro
+<Icon name="simple-icons:svelte" />
+```
+
+## Linting
+
+See the [Astro Prettier](https://docs.astro.build/en/editor-setup/#prettier) documentation for usage details.

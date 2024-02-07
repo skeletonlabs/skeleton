@@ -44,6 +44,8 @@ export default defineConfig({
       imports: [{
         // import componentSet from "@components/mdx/index";
         '@components/mdx/index': [['default', 'componentSet']],
+        // import { Icon } from 'astro-icon/components'
+        'astro-icon/components': ['Icon'],
         // import { Code } from 'astro-expressive-code/components';
         'astro-expressive-code/components': ['Code'],
         // import { Preview } from '@components/docs/Preview.tsx'
