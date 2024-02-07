@@ -6,8 +6,63 @@ description: A collection of recipes for crafting complex UI that combines Skele
 
 export const components = componentSet
 
-import NavGrid from "@examples/resources/cookbook/NavGrid.astro";
+import NavGrid from "@components/docs/NavGrid.astro";
+
+export const navigation = {
+    'Basic': [
+        {
+            title: 'Alerts',
+            link: '/alerts',
+            description: 'Customizable alerts to attract attention and provide critical actions.',
+            author: 'Skeleton Labs',
+        },
+        {
+            title: 'Breadcrumbs',
+            link: '/breadcrumbs',
+            description: 'Displays the current navigation hierarchy.',
+            author: 'Skeleton Labs',
+        },
+        {
+            title: 'Logo Clouds',
+            link: '/logo-clouds',
+            description: 'Provides a grid for presenting a set of logos, brands, or sponsors.',
+            author: 'Skeleton Labs',
+        },
+        {
+            title: 'Gradient Text',
+            link: '/gradient-text',
+            description: 'Create gradient-colored text styles.',
+            author: 'Skeleton Labs',
+            disabled: true,
+        },
+        {
+            title: 'Image Layouts',
+            link: '/image-layouts',
+            description: 'Various layouts for displaying images.',
+            author: 'Skeleton Labs',
+            disabled: true,
+        },
+    ],
+    'Intermediate': [
+        {
+            title: 'Scroll Containers',
+            link: '/scroll-containers',
+            description: 'Create scrolling containers using the scroll snap features from Tailwind.',
+            author: 'Skeleton Labs',
+            disabled: true,
+        },
+    ],
+    'Advanced': [
+        {
+            title: 'Chat',
+            link: '/chat-ai',
+            description: 'Create a custom chat feed or AI prompt interface.',
+            author: 'Skeleton Labs',
+            disabled: true,
+        },
+    ],
+}
 
 {/* --- */}
 
-<NavGrid />
+<NavGrid data={navigation} />
