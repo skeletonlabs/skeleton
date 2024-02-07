@@ -7,25 +7,19 @@ showDocsUrl: true
 
 export const components = componentSet
 
-<div class="docs-card-outlined-centered p-8">
-    <nav class="grid grid-cols-1 md:grid-cols-3 gap-1 overflow-hidden rounded-container w-full">
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">Twitch</a>
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">YouTube</a>
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">TicTok</a>
-    </nav>
-</div>
+import Example from "@examples/resources/cookbook/ExampleLogoClouds.astro";
+import ExampleRaw from "@examples/resources/cookbook/ExampleLogoClouds.astro?raw";
+import ExampleLogoCloudsRows from "@examples/resources/cookbook/ExampleLogoCloudsRows.astro";
+import ExampleLogoCloudsRowsRaw from "@examples/resources/cookbook/ExampleLogoCloudsRows.astro?raw";
+
+<Preview client:load>
+    <Fragment slot="preview"><Example /></Fragment>
+    <Fragment slot="code"><Code code={ExampleRaw} lang="astro" /></Fragment>
+</Preview>
 
 ## Rows
 
-<div class="docs-card-outlined-centered p-8">
-    <nav class="grid grid-cols-2 md:grid-cols-4 gap-1 overflow-hidden rounded-container w-full">
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">Optimize</a>
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">Brand</a>
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">Mesh</a>
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">Matrix</a>
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">Utilize</a>
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">Syndicate</a>
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">Incubate</a>
-        <a class="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">Orchestrate</a>
-    </nav>
-</div>
+<Preview client:load>
+    <Fragment slot="preview"><ExampleLogoCloudsRows /></Fragment>
+    <Fragment slot="code"><Code code={ExampleLogoCloudsRowsRaw} lang="astro" /></Fragment>
+</Preview>
