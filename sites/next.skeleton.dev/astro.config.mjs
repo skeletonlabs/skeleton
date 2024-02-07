@@ -46,10 +46,10 @@ export default defineConfig({
         '@components/mdx/index': [['default', 'componentSet']],
         // import { Code } from 'astro-expressive-code/components';
         'astro-expressive-code/components': ['Code'],
-        // import { Preview } from '@components/react/Preview.tsx'
-        '@components/react/Preview.tsx': ['Preview'],
-        // import { FrameworkTabs } from '@components/react/FrameworkTabs''
-        '@components/react/FrameworkTabs.tsx': ['FrameworkTabs'],
+        // import { Preview } from '@components/docs/Preview.tsx'
+        '@components/docs/Preview.tsx': ['Preview'],
+        // import { FrameworkTabs } from '@components/docs/FrameworkTabs''
+        '@components/docs/FrameworkTabs.tsx': ['FrameworkTabs'],
       }]
     }),
     // IMPORTANT: MUST BE LAST INTEGRATION
