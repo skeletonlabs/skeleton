@@ -44,16 +44,16 @@ export default defineConfig({
       imports: [{
         // import componentSet from "@components/mdx/index";
         '@components/mdx/index': [['default', 'componentSet']],
-        // import { Icon } from 'astro-icon/components'
+        // import { Icon } from 'astro-icon/components';
         'astro-icon/components': ['Icon'],
         // import { Code } from 'astro-expressive-code/components';
         'astro-expressive-code/components': ['Code'],
-        // import { Preview } from '@components/docs/Preview.tsx'
+        // import { Preview } from '@components/docs/Preview.tsx';
         '@components/docs/Preview.tsx': ['Preview'],
-        // import { FrameworkTabs } from '@components/docs/FrameworkTabs''
+        // import { FrameworkTabs } from '@components/docs/FrameworkTabs';
         '@components/docs/FrameworkTabs.tsx': ['FrameworkTabs'],
-        // import { Table } from '@components/docs/Table''
-        '@components/docs/Table.astro': ['Table'],
+        // import { Table } from '@components/docs/Table';
+        // '@components/docs/Table.astro': ['Table'],
       }]
     }),
     // IMPORTANT: MUST BE LAST INTEGRATION
