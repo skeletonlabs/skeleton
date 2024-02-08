@@ -19,12 +19,7 @@
 			['<code class="code">.card</code>', '-', 'Adds basic card styling to any block element.'],
 			['<code class="code">.card-header</code>', '-', 'The header region of the card.'],
 			['<code class="code">.card-footer</code>', '-', 'The footer region of the card.'],
-			['<code class="code">.card-hover</code>', '-', 'Provides an animated hover effect.'],
-			[
-				'<code class="code">.variant-glass-[color]</code>',
-				'primary | secondary | tertiary | success | warning | error | surface',
-				'A semi-transparent glass variation.'
-			]
+			['<code class="code">.card-hover</code>', '-', 'Provides an animated hover effect.']
 		]
 	};
 
