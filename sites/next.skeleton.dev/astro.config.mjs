@@ -11,7 +11,7 @@ import mdx from '@astrojs/mdx';
 // Vite Plugins
 import skeletonPluginWatcher from "./skeleton-plugin-watcher.js";
 // Adapters
-import cloudflare from "@astrojs/cloudflare";
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
@@ -64,5 +64,5 @@ export default defineConfig({
     plugins: [skeletonPluginWatcher()]
   },
   output: "server",
-  adapter: cloudflare()
+  adapter: vercel(),
 });
