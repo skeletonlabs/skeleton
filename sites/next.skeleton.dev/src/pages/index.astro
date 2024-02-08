@@ -1,15 +1,29 @@
 ---
-import LayoutRoot from "@lib/layouts/LayoutRoot.astro";
-import AppHeader from "@lib/components/AppHeader/AppHeader.astro";
+import { Icon } from 'astro-icon/components'
+
+import LayoutRoot from '@layouts/LayoutRoot.astro'
+import Header from '@components/docs/Header.astro'
+
+const layoutProps = {
+    classList: 'space-y-10',
+}
 ---
 
-<LayoutRoot>
-    <!-- Page Header -->
-    <AppHeader />
+<LayoutRoot {...layoutProps}>
+    <!-- Header -->
+    <Header />
     <!-- Page -->
-    <main class="container mx-auto p-10 space-y-4">
-        <h1 class="h1">Hello, Skeleton 👋</h1>
-        <p>Welcome to the future home of the Skeleton documentation website.</p>
-        <a href="/docs/introduction" class="btn variant-filled">Get Started &rarr;</a>
+    <main class="container mx-auto flex justify-center items-center">
+        <div class="space-y-4 p-10">
+            <h1 class="h1 flex justify-center items-center gap-4">
+                <Icon name="skeleton" />
+                <span class="font-mono">skeleton</span>
+            </h1>
+            <p>Welcome to the Skeleton documentation.</p>
+            <nav class="flex justify-center gap-2">
+                <a href="/docs/introduction" class="btn preset-filled">Get Started &rarr;</a>
+                <a href=" https://github.com/skeletonlabs/skeleton" target="_blank" class="btn preset-outlined-surface-200-800">GitHub</a>
+            </nav>
+        </div>
     </main>
 </LayoutRoot>

@@ -1,0 +1,15 @@
+/* Components: Dividers */
+
+@layer components {
+	/* Horizontal Rule --- */
+
+	.hr {
+		@apply block w-full border-t border-surface-200-800;
+	}
+
+	/* Vertical Rule --- */
+
+	.vr {
+		@apply inline-block h-full border-l border-surface-200-800;
+	}
+}

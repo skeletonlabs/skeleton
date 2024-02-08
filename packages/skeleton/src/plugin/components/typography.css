@@ -1,0 +1,115 @@
+/* Components: Typography */
+
+@layer components {
+	/* Headings --- */
+
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		@apply block;
+		@apply heading-font-color dark:heading-font-color-dark;
+		@apply heading-font-family;
+		@apply heading-font-size;
+		@apply heading-font-style;
+		@apply heading-font-weight;
+		@apply heading-line-height;
+		@apply heading-letter-spacing;
+	}
+	.h1 {
+		@apply type-scale-8 md:type-scale-9;
+	}
+	.h2 {
+		@apply type-scale-7 md:type-scale-8;
+	}
+	.h3 {
+		@apply type-scale-6 md:type-scale-7;
+	}
+	.h4 {
+		@apply type-scale-5 md:type-scale-6;
+	}
+	.h5 {
+		@apply type-scale-4 md:type-scale-5;
+	}
+	.h6 {
+		@apply type-scale-3 md:type-scale-4;
+	}
+
+	/* Paragraph --- */
+
+	/* NOTE: paragraph inherits the body styles default. */
+	/* p { ... } */
+
+	/* Anchors --- */
+
+	.anchor {
+		@apply anchor-font-color dark:anchor-font-color-dark;
+		@apply anchor-font-family;
+		@apply anchor-font-size;
+		@apply anchor-font-style;
+		@apply anchor-font-weight;
+		@apply anchor-line-height;
+		@apply anchor-letter-spacing;
+		@apply anchor-text-decoration;
+		@apply hover:anchor-text-decoration-hover;
+		@apply active:anchor-text-decoration-active;
+		@apply focus:anchor-text-decoration-focus;
+	}
+
+	/* Blockquote --- */
+
+	.blockquote {
+		@apply italic border-l border-l-surface-300 dark:border-l-surface-700 pl-4;
+	}
+
+	/* Keyboard --- */
+
+	.kbd {
+		/* FIXME: rounded */
+		@apply font-mono text-sm text-surface-contrast-500 whitespace-nowrap;
+		@apply bg-surface-500 overflow-x-auto py-0.5 px-1 rounded;
+	}
+
+	/* Preformated / Code --- */
+
+	.pre {
+		@apply bg-surface-950 dark:bg-surface-900 overflow-x-auto p-4 rounded-container;
+		@apply text-white type-scale-1 whitespace-pre-wrap;
+	}
+
+	:not(pre) > .code {
+		@apply preset-tonal-primary;
+		@apply font-mono text-xs whitespace-nowrap;
+		@apply overflow-x-auto py-0.5 px-1.5 rounded;
+	}
+
+	/* Insertions / Deletions --- */
+	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
+	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
+
+	.ins,
+	.del {
+		@apply block relative p-0.5 pl-5;
+		text-decoration: none;
+	}
+
+	.ins::before,
+	.del::before {
+		@apply absolute left-1 font-mono;
+	}
+	.ins::before {
+		content: '+';
+	}
+	.del::before {
+		content: '−';
+	}
+
+	.ins {
+		@apply font-mono bg-success-500 text-success-contrast-500;
+	}
+	.del {
+		@apply font-mono bg-error-500 text-error-contrast-500;
+	}
+}

@@ -9,6 +9,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"verbatimModuleSyntax": true,
+		"noEmit": true,
 		"lib": ["ES2022"],
 		"target": "ES2022",
 		"module": "ESNext", // error can be ignored

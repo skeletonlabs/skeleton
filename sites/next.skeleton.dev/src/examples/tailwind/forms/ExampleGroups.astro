@@ -1,0 +1,38 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<form class="w-full space-y-8">
+    {/* Website */}
+    <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+        <div class="input-group-cell preset-tonal-surface">https://</div>
+        <input type="text" placeholder="www.example.com" />
+    </div>
+    {/* Amount */}
+    <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+        <div class="input-group-cell preset-tonal-surface">
+            <Icon name="heroicons-outline:currency-dollar" size={20} />
+        </div>
+        <input type="text" placeholder="Amount" />
+        <select>
+            <option>USD</option>
+            <option>CAD</option>
+            <option>EURO</option>
+        </select>
+    </div>
+    {/* Username */}
+    <div class="input-group grid-cols-[1fr_auto] divide-x divide-surface-200-800">
+        <input type="text" placeholder="Enter Username..." />
+        <button class="btn preset-filled" title="Username already in use.">
+            <Icon name="heroicons-outline:check" size={20} />
+        </button>
+    </div>
+    {/* Search */}
+    <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+        <div class="input-group-cell">
+            <Icon name="heroicons-outline:search" size={20} />
+        </div>
+        <input type="search" placeholder="Search..." />
+        <button class="btn preset-filled">Submit</button>
+    </div>
+</form>
