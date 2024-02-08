@@ -12,7 +12,7 @@
 		"dev": "astro dev",
 		"start": "astro dev",
 		"check": "astro check",
-		"build": "astro build",
+		"build": "astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"lint": "prettier --write . --plugin=prettier-plugin-astro"
