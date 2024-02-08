@@ -1,4 +1,5 @@
 import { skeleton } from "@skeletonlabs/skeleton/plugin";
+import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config}*/
 const config = {
@@ -7,6 +8,7 @@ const config = {
 		extend: {}
 	},
 	plugins: [
+		forms,
 		skeleton({
 			themes: {
 				preset: [
