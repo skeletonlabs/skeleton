@@ -11,7 +11,7 @@ import mdx from '@astrojs/mdx';
 // Vite Plugins
 import skeletonPluginWatcher from "./skeleton-plugin-watcher.js";
 // Adapters
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
@@ -63,6 +63,6 @@ export default defineConfig({
   vite: {
     plugins: [skeletonPluginWatcher()]
   },
-  output: "server",
+  output: "static",
   adapter: vercel(),
 });
