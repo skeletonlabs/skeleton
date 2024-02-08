@@ -1,7 +1,8 @@
-// import { skeleton } from "@skeletonlabs/skeleton/plugin";
-import { skeleton } from "../../packages/skeleton/dist/plugin/index.cjs";
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
+// import { skeleton } from "../../packages/skeleton/dist/plugin/index.cjs";
 
 import forms from '@tailwindcss/forms';
+// import typography from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -12,6 +13,7 @@ export default {
   },
   plugins: [
     forms,
+    // typography,
     skeleton({
       themes: {
         preset: [

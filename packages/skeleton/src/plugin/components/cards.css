@@ -10,6 +10,6 @@
 	}
 
 	.card-hover {
-		@apply transition-all duration-100 hover:scale-105 hover:shadow-xl;
+		@apply transition-all duration-100 hover:scale-[1.025] hover:shadow-xl;
 	}
 }

@@ -11,18 +11,27 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
+		"check": "astro check",
 		"build": "astro check && astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"lint": "prettier --write . --plugin=prettier-plugin-astro"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.3.4",
-		"@astrojs/cloudflare": "^8.0.2",
+		"@astrojs/mdx": "^2.1.1",
 		"@astrojs/react": "^3.0.9",
 		"@astrojs/svelte": "^5.0.3",
 		"@astrojs/tailwind": "^5.1.0",
+		"@astrojs/vercel": "^7.3.0",
+		"@nanostores/persistent": "^0.9.1",
 		"@skeletonlabs/skeleton": "workspace:*",
+		"@types/react": "^18.2.43",
 		"astro": "^4.1.0",
+		"astro-auto-import": "^0.4.2",
+		"astro-expressive-code": "^0.32.3",
+		"astro-icon": "^1.1.0",
+		"nanostores": "^0.9.5",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"svelte": "5.0.0-next.28",
@@ -31,8 +40,13 @@
 		"typescript": "^5.3.3"
 	},
 	"devDependencies": {
+		"@iconify-json/heroicons-outline": "^1.1.10",
+		"@iconify-json/simple-icons": "^1.1.90",
 		"@tailwindcss/forms": "^0.5.3",
+		"@tailwindcss/typography": "^0.5.9",
 		"@types/node": "^20.0.0",
-		"minimatch": "^9.0.3"
+		"minimatch": "^9.0.3",
+		"prettier": "^3.2.4",
+		"prettier-plugin-astro": "^0.13.0"
 	}
 }

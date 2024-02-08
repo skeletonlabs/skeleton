@@ -37,7 +37,7 @@ html {
 
 /* https://css-tricks.com/almanac/properties/s/scrollbar-gutter/ */
 :root {
-	scrollbar-gutter: stable both-edges;
+	scrollbar-gutter: stable;
 }
 
 /* Chrome/Safari/Edge */

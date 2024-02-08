@@ -1,13 +1,13 @@
 /* Components: Tables */
 
 @layer components {
-	.table {
+	.table-wrap {
 		@apply w-full overflow-auto;
 	}
 
 	/* Table --- */
 
-	.table table {
+	.table {
 		@apply relative w-full type-scale-2;
 	}
 
