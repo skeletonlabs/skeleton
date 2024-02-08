@@ -7,6 +7,8 @@ interface Props {
 }
 
 const { title, classList } = Astro.props satisfies Props
+
+const pageTitle = `${title ? title + ' - ' : ''}Skeleton`
 ---
 
 <!doctype html>
@@ -17,7 +19,7 @@ const { title, classList } = Astro.props satisfies Props
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <meta name="generator" content={Astro.generator} />
-        <title>{title ? `${title} - ` : null}Skeleton</title>
+        <title>{pageTitle}</title>
     </head>
     <body class:list={[classList]} data-theme="next">
         <slot />
