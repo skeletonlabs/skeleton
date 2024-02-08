@@ -63,6 +63,6 @@ export default defineConfig({
   vite: {
     plugins: [skeletonPluginWatcher()]
   },
-  output: "static",
+  output: "hybrid",
   adapter: vercel(),
 });
