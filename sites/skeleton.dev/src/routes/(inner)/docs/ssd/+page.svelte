@@ -84,7 +84,7 @@
 		<CodeBlock
 			language="shell"
 			code={`
-npm i -D @vincjo/datatables
+npm i @vincjo/datatables
 		`}
 		/>
 
