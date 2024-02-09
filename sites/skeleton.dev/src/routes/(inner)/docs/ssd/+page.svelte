@@ -1,10 +1,9 @@
 <script lang="ts">
 	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
+	import { CodeBlock, TabGroup, Tab } from '@skeletonlabs/skeleton';
 
-	import { CodeBlock, RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
-
-	//For radio toggle
-	let value: number = 0;
+	// Tabs
+	let tabSelected: string = 'client';
 
 	//Local Components
 	import Client from './ClientSSD.svelte';
@@ -16,11 +15,11 @@
 	<header class="space-y-4">
 		<h1 class="h1">Svelte Simple Datatables</h1>
 		<p>
-			This guide will show you how to create a 
-			<code class="code">&lt;Datatable /&gt;</code>
-			component with
-			<a class="anchor" href="https://vincjo.fr/datatables/home" target="_blank">Svelte Simple Datatables</a> 
-			and style it with Skeleton's Tailwind classes.
+			The following guide will cover the basics of integrating Skeleton and <a
+				class="anchor"
+				href="https://vincjo.fr/datatables/home"
+				target="_blank">Svelte Simple Datatables</a
+			>.
 		</p>
 	</header>
 
@@ -28,59 +27,40 @@
 
 	<!-- SSD Explanation -->
 	<section class="space-y-4">
-		<p>
-			<a class="anchor" href="https://vincjo.fr/datatables/home" target="_blank">Svelte Simple Datatables (SSD)</a> 
-			is a headless library for creating datatable components with Svelte. It provides an API to dynamically 
-			interact with iterable data on the client-side to filter, paginate, sort, and select data. It can handle 
-			server-side data processing, supports Typescript, and has no dependencies.
+		<p class="text-xl">
+			<a class="anchor" href="https://vincjo.fr/datatables/home" target="_blank">Svelte Simple Datatables</a>
+			is a headless library for creating datatable components with Svelte. It provides a simple API to dynamically interact with iterable data
+			on the client-side, allowing you to filter, paginate, sort, and select data. It can handle server-side data processing, supports Typescript,
+			and has no other required dependencies.
 		</p>
 	</section>
 
 	<!-- Intro -->
 	<section class="space-y-4">
 		<h2 class="h2">Introduction</h2>
-
-		<aside class="alert variant-ghost-warning">
-			<i class="fa-solid fa-triangle-exclamation text-4xl" />
-			<div class="alert-message" data-toc-ignore>
-				<p>
-					Skeleton has a
-					<code class="code">&lt;Table /&gt;</code>
-					<a class="anchor" href="https://www.skeleton.dev/components/tables" target="_blank">component;</a> 
-					however,  this should be used only as a simple way to present data, and <strong>is not a data table.</strong>
-				</p>
-			</div>
-		</aside>
-
 		<p>
-			We will use SSD to create a 
-			<code class="code">&lt;Datatable /&gt;</code>
-			from a native HTML
-			<code class="code">&lt;table&gt;</code>
-			which we can then style with Skeleton's
-			<a class="anchor" href="https://www.skeleton.dev/elements/tables" target="_blank">native HTML table styles.</a> 
+			Skeleton provides a simple <a class="anchor" href="/components/tables">Table Component</a> for implementing tabular data for
+			presentational purposes. However, this lacks more powerful features, such as search, sort, and filter. This is where Svelte Simple
+			Datatables comes in. To integrate this, we'll opt for Skeleton's
+			<a class="anchor" href="/elements/tables">Table Elements</a>, which provided themed styles to native HTML tables. The end result will
+			be a new <code class="code">&lt;Datatable /&gt;</code> component, which you may use directly in your own application.
 		</p>
 
 		<img
-		class="rounded-lg"
-        src="https://raw.githubusercontent.com/skeletonlabs/skeleton-datatables-integration/main/static/themes.gif" 
-        alt="themed datatables"
-    />
+			class="rounded-lg"
+			src="https://raw.githubusercontent.com/skeletonlabs/skeleton-datatables-integration/main/static/themes.gif"
+			alt="themed datatables"
+		/>
 
 		<p>
-			We will then create accessory components to search, filter, sort, and paginate the  
-			<code class="code">&lt;Datatable /&gt;.</code> 
+			Additionally, we'll also create a number of accessory components to handle search, filter, sort, and pagination features. These
+			smaller components will help augment and extend the overall datatable component.
 		</p>
 
 		<img
-        src="https://raw.githubusercontent.com/skeletonlabs/skeleton-datatables-integration/main/static/components.png" 
-        alt="accessory components diagram"
-    />
-
-		<p>
-			You can start fresh with the starter template provided below or 
-			continue on and follow the guide to create your own components from scratch.
-		</p>
+			src="https://raw.githubusercontent.com/skeletonlabs/skeleton-datatables-integration/main/static/components.png"
+			alt="accessory components diagram"
+		/>
 	</section>
 
 	<!-- Starter Template -->
@@ -99,28 +79,20 @@
 	<!-- Getting Started -->
 	<section class="space-y-4">
 		<h2 class="h2">Getting Started</h2>
-		
-		<h3 class="h3">Install SSD</h3>
-
-		<p>
-			Add SSD to your Skeleton Sveltekit project by running the command below.
-		</p>
-
+		<h3 class="h3">Install Depedencies</h3>
+		<p>Add Svelte Simple Datables to your Skeleton project by running the following command.</p>
 		<CodeBlock
-		language="shell"
-		code={`
+			language="shell"
+			code={`
 npm i -D @vincjo/datatables
 		`}
-	/>
+		/>
 
 		<h3 class="h3">Project Structure</h3>
-
-		<p>
-			Create the following files in your project.
-		</p>
+		<p>Next, let's plan out our overall project structure.</p>
 		<CodeBlock
-		language="shell"
-		code={`
+			language="shell"
+			code={`
 src
 ├── lib
 |	├── data
@@ -136,28 +108,28 @@ src
 	├── Datatable.svelte
 	└── +page.svelte
 `}
-	/>
+		/>
 
 		<dl class="list-dl">
 			<div>
-				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code"/></span>
+				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code" /></span>
 				<span class="flex-auto">
 					<dt><code class="code">/lib/data</code></dt>
-					<dd>Create <code class="code">data.ts</code> if you are loading data from the client 
-						or <code class="code">api.ts</code> if your data is coming from the server. 
-						This will be explained further on, but for now just create the blank Typescript file.
+					<dd>
+						Create <code class="code">data.ts</code> if you are loading data from the client or <code class="code">api.ts</code> if your data
+						is coming from the server. This will be explained further on, but for now just create the blank Typescript file.
 					</dd>
 				</span>
 			</div>
 			<div>
-				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code"/></span>
+				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code" /></span>
 				<span class="flex-auto">
 					<dt><code class="code">/lib/components</code></dt>
 					<dd>All of the files in this directory will be used for accessory components.</dd>
 				</span>
 			</div>
 			<div>
-				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code"/></span>
+				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code" /></span>
 				<span class="flex-auto">
 					<dt><code class="code">/routes/Datatable.svelte</code></dt>
 					<dd>
@@ -168,13 +140,13 @@ src
 				</span>
 			</div>
 			<div>
-				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code"/></span>
+				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code" /></span>
 				<span class="flex-auto">
 					<dt><code class="code">/routes/+page.svelte</code></dt>
 					<dd>
 						This is where we'll render and access the
 						<code class="code">&lt;Datatable /&gt;</code>
-						component in this example. 
+						component in this example.
 					</dd>
 				</span>
 			</div>
@@ -184,75 +156,52 @@ src
 	<!-- Creating the Components -->
 	<section class="space-y-4">
 		<h2 class="h2">Creating the Components</h2>
-
-		<p>
-			Your components will need to be configured slightly differently 
-			depending on whether the data is coming from the server or the client.
-			You can toggle between the two guides below.
-		</p>
-
-		<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
-			<RadioItem bind:group={value} name="justify" value={0}>Client</RadioItem>
-			<RadioItem bind:group={value} name="justify" value={1}>Server</RadioItem>
-		</RadioGroup>
-
-		<hr />
-
-		{#if value === 0}
-			<Client />
-		{:else if value === 1}
-			<Server />
-		{/if}
+		<p>Each component will need to be configured based on the scope. Select your preference below.</p>
+		<TabGroup>
+			<Tab bind:group={tabSelected} name="tabClient" value="client">Client-Based</Tab>
+			<Tab bind:group={tabSelected} name="tabServer" value="server">Server-Based</Tab>
+			<!-- Tab Panels --->
+			<svelte:fragment slot="panel">
+				{#if tabSelected === 'client'}
+					<Client />
+				{:else if tabSelected === 'server'}
+					<Server />
+				{/if}
+			</svelte:fragment>
+		</TabGroup>
+		<!-- Import Datatable -->
+		<section class="space-y-4">
+			<h3 class="h3" data-toc-ignore>4. Import Datatable Component</h3>
+			<p>
+				With our Datatable component now complete, let's import and add it to our <code class="code">+page.svelte</code>.
+			</p>
+			<CodeBlock language="ts" code={`import Datatable from '$lib/components/Datatable.svelte';`} />
+			<CodeBlock language="html" code={`<Datatable />`} />
+		</section>
 	</section>
-
-	<hr />
 
 	<!-- Responsive Design -->
 	<section class="space-y-4">
 		<h2 class="h2">Responsive Design</h2>
-
 		<p>
-			We can use standard responsive web design techniques to make the components display properly on all devices. 
-			The <code class="code">&lt;Datatable /&gt;</code>
-			and accessory components in this example are wrapped up in a single 
-			<code class="code">&lt;div&gt;</code>. 
-			Tailwind classes are then applied as necessary to different elements. 
-		</p>
-
-		<p>
-			The <code class="code">&lt;Pagination /&gt;</code>
-			component provides an example of how we can apply different UI elements for different screen sizes. 
+			To ensure our datatables are visible on all screen sizes, make sure to utilize <a
+				class="anchor"
+				href="https://tailwindcss.com/docs/responsive-design"
+				target="_blank">Tailwind's responsive design</a
+			>
+			best practices. You can also utilize the Tailwind Element <a href="/elements/tables" class="anchor">.table-container</a> class, which should
+			be applied to a wrapping element.
 		</p>
 	</section>
 
-	<!-- Componentization -->
+	<hr />
+
+	<!-- Attribution -->
 	<section class="space-y-4">
-
-		<h2 class="h2">Componentization</h2>
-
-		<aside class="alert variant-ghost-warning">
-			<i class="fa-solid fa-triangle-exclamation text-4xl" />
-			<div class="alert-message" data-toc-ignore>
-				<p>
-					The Skeleton team does not plan to maintain or provide first party support for a SSD component. 
-				</p>
-			</div>
-		</aside>
-
+		<h2 class="h2">Attribution</h2>
 		<p>
-			To reuse the <code class="code">&lt;Datatable /&gt;</code> component
-			throughout your app, you can,
+			This guide has been provided courtesy of <a href="https://github.com/kmalloy24" class="anchor">Kyle Malloy</a>, username
+			<code class="code">@spacecup</code> on Skeleton's Discord server.
 		</p>
-		
-		<ol class="list space-y-2">
-			<li>
-				<span class="badge-icon p-4 variant-soft-primary">1</span>
-				<span class="flex-auto">Duplicate the file and update the DataHandler Methods from SSD, or,</span>
-			</li>
-			<li>
-				<span class="badge-icon p-4 variant-soft-primary">2</span>
-				<span class="flex-auto">Export the appropriate props and build your own reusable component.</span>
-			</li>
-		</ol>
 	</section>
 </LayoutPage>
