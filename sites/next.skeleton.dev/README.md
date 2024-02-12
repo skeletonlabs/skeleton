@@ -1,4 +1,4 @@
-# Astro Starter Kit: Minimal
+# Skeleton Documentation Website
 
 ```sh
 npm create astro@latest -- --template minimal
