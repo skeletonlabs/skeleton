@@ -33,29 +33,13 @@ html {
 /* http://www.outlinenone.com/ */
 
 /* === Scrollbars === */
-/* NOTE: does not support Tailwind dark mode styling. */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color */
+/* https://developer.chrome.com/docs/css-ui/scrollbar-styling */
 
-/* https://css-tricks.com/almanac/properties/s/scrollbar-gutter/ */
 :root {
-	scrollbar-gutter: stable;
-}
-
-/* Chrome/Safari/Edge */
-::-webkit-scrollbar {
-	@apply w-2 h-2;
-}
-::-webkit-scrollbar-track {
-	@apply bg-transparent py-1;
-}
-::-webkit-scrollbar-thumb {
-	@apply bg-surface-500/30 rounded;
-}
-::-webkit-scrollbar-corner {
-	@apply bg-surface-50-950;
-}
-
-/* Firefox */
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
-html {
-	scrollbar-color: rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.05);
+	/* thumb / track */
+	/* scrollbar-color: rgba(255, 255, 255, 0.5) rgba(0, 0, 0, 0.1); */
+	scrollbar-width: thin;
+	/* https://css-tricks.com/almanac/properties/s/scrollbar-gutter/ */
+	/* scrollbar-gutter: stable; */
 }
