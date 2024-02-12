@@ -3,7 +3,7 @@
 	import PanelPreview from '$lib/components/Panels/PanelPreview.svelte';
 </script>
 
-<div class="grid h-full grid-cols-[400px_1fr]">
+<div class="grid h-full grid-cols-[480px_1fr]">
 	<!-- Panel: Form -->
 	<div class="overflow-y-auto p-4 bg-surface-100-900 md:p-8">
 		<PanelForm />

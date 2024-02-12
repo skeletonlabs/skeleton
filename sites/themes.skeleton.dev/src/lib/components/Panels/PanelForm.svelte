@@ -1,4 +1,49 @@
+<script lang="ts">
+	const colors = [
+		{ label: 'primary', hex: '#0170f3' },
+		{ label: 'secondary', hex: '#7928ca' },
+		{ label: 'tertiary', hex: '#ff0080' },
+		{ label: 'success', hex: '#50e3c2' },
+		{ label: 'warning', hex: '#f7b955' },
+		{ label: 'error', hex: '#f33f33' },
+		{ label: 'surface', hex: '#666666' }
+	];
+</script>
+
 <form class="space-y-10">
+	<!-- Colors -->
+	<fieldset class="space-y-4 md:space-y-8">
+		<h2 class="font-bold type-scale-3">Colors</h2>
+		{#each colors as color}
+			<label class="label">
+				<div class="label-text capitalize">{color.label}</div>
+				<div class="grid grid-cols-[auto_1fr] gap-2">
+					<input class="input" type="color" value={color.hex} />
+					<input class="input" type="text" value={color.hex} readonly tabindex="-1" />
+				</div>
+			</label>
+		{/each}
+	</fieldset>
+	<hr class="hr" />
+	<!-- Backgrounds -->
+	<fieldset class="space-y-4 md:space-y-8">
+		<h2 class="font-bold type-scale-3">Backgrounds</h2>
+		<label class="label">
+			<div class="label-text">Base</div>
+			<div class="grid grid-cols-[auto_1fr] gap-2">
+				<input class="input" type="color" value="#FFFFFF" />
+				<input class="input" type="text" value="#FFFFFF" readonly tabindex="-1" />
+			</div>
+		</label>
+		<label class="label">
+			<div class="label-text">Dark Mode</div>
+			<div class="grid grid-cols-[auto_1fr] gap-2">
+				<input class="input" type="color" value="#000000" />
+				<input class="input" type="text" value="#000000" readonly tabindex="-1" />
+			</div>
+		</label>
+	</fieldset>
+	<hr class="hr" />
 	<!-- Spacing -->
 	<fieldset class="space-y-4 md:space-y-8">
 		<h2 class="font-bold type-scale-3">Scaling</h2>
@@ -20,25 +65,6 @@
 				<span>(value)</span>
 			</div>
 			<input class="input" type="range" name="space-scale-factor" value="3" min="1" max="9" step="1" />
-		</label>
-	</fieldset>
-	<hr class="hr" />
-	<!-- Backgrounds -->
-	<fieldset class="space-y-4 md:space-y-8">
-		<h2 class="font-bold type-scale-3">Backgrounds</h2>
-		<label class="label">
-			<div class="label-text">Base</div>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<input class="input" type="color" value="#FFFFFF" />
-				<input class="input" type="text" value="#FFFFFF" readonly tabindex="-1" />
-			</div>
-		</label>
-		<label class="label">
-			<div class="label-text">Dark Mode</div>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<input class="input" type="color" value="#000000" />
-				<input class="input" type="text" value="#000000" readonly tabindex="-1" />
-			</div>
 		</label>
 	</fieldset>
 	<hr class="hr" />
@@ -89,11 +115,5 @@
 				<input class="input" type="range" name="space-scale-factor" value="1" min="0" max="5" step="1" />
 			</label>
 		</div>
-	</fieldset>
-	<hr class="hr" />
-	<!-- Colors -->
-	<fieldset class="space-y-4 md:space-y-8">
-		<h2 class="font-bold type-scale-3">Colors</h2>
-		<p>...</p>
 	</fieldset>
 </form>
