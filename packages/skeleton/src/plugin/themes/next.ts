@@ -8,40 +8,6 @@ const next = {
 
 		'--space-scale-factor': '1',
 
-		'--space-0-5': 'calc(0.125rem * var(--space-scale-factor))', // 2px
-		'--space-1': 'calc(0.25rem * var(--space-scale-factor))', // 4px
-		'--space-1-5': 'calc(0.375rem * var(--space-scale-factor))', // 6px
-		'--space-2': 'calc(0.5rem * var(--space-scale-factor))', // 8px
-		'--space-2-5': 'calc(0.625rem * var(--space-scale-factor))', // 10px
-		'--space-3': 'calc(0.75rem * var(--space-scale-factor))', // 12px
-		'--space-3-5': 'calc(0.875rem * var(--space-scale-factor))', // 14px
-		'--space-4': 'calc(1rem * var(--space-scale-factor))', // 16px
-		'--space-5': 'calc(1.25rem * var(--space-scale-factor))', // 20px
-		'--space-6': 'calc(1.5rem * var(--space-scale-factor))', // 24px
-		'--space-7': 'calc(1.75rem * var(--space-scale-factor))', // 28px
-		'--space-8': 'calc(2rem * var(--space-scale-factor))', // 32px
-		'--space-9': 'calc(2.25rem * var(--space-scale-factor))', // 36px
-		'--space-10': 'calc(2.5rem * var(--space-scale-factor))', // 40px
-		'--space-11': 'calc(2.75rem * var(--space-scale-factor))', // 44px
-		'--space-12': 'calc(3rem * var(--space-scale-factor))', // 48px
-		'--space-14': 'calc(3.5rem * var(--space-scale-factor))', // 56px
-		'--space-16': 'calc(4rem * var(--space-scale-factor))', // 64px
-		'--space-20': 'calc(5rem * var(--space-scale-factor))', // 80px
-		'--space-24': 'calc(6rem * var(--space-scale-factor))', // 96px
-		'--space-28': 'calc(7rem * var(--space-scale-factor))', // 112px
-		'--space-32': 'calc(8rem * var(--space-scale-factor))', // 128px
-		'--space-36': 'calc(9rem * var(--space-scale-factor))', // 144px
-		'--space-40': 'calc(10rem * var(--space-scale-factor))', // 160px
-		'--space-44': 'calc(11rem * var(--space-scale-factor))', // 176px
-		'--space-48': 'calc(12rem * var(--space-scale-factor))', // 192px
-		'--space-52': 'calc(13rem * var(--space-scale-factor))', // 208px
-		'--space-56': 'calc(14rem * var(--space-scale-factor))', // 224px
-		'--space-60': 'calc(15rem * var(--space-scale-factor))', // 240px
-		'--space-64': 'calc(16rem * var(--space-scale-factor))', // 256px
-		'--space-72': 'calc(18rem * var(--space-scale-factor))', // 288px
-		'--space-80': 'calc(20rem * var(--space-scale-factor))', // 320px
-		'--space-96': 'calc(24rem * var(--space-scale-factor))', // 384px
-
 		// Typography ---
 		// https://designcode.io/typographic-scales
 
