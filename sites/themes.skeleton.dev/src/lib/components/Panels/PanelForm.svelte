@@ -14,34 +14,38 @@
 	<!-- Colors -->
 	<fieldset class="space-y-4 md:space-y-8">
 		<h2 class="font-bold type-scale-3">Colors</h2>
-		{#each colors as color}
-			<label class="label">
-				<div class="label-text capitalize">{color.label}</div>
-				<div class="grid grid-cols-[auto_1fr] gap-2">
-					<input class="input" type="color" value={color.hex} />
-					<input class="input" type="text" value={color.hex} readonly tabindex="-1" />
-				</div>
-			</label>
-		{/each}
+		<div class="grid grid-cols-2 gap-4">
+			{#each colors as color}
+				<label class="label">
+					<div class="label-text capitalize">{color.label}</div>
+					<div class="grid grid-cols-[auto_1fr] gap-2">
+						<input class="input" type="color" value={color.hex} />
+						<input class="input" type="text" value={color.hex} readonly tabindex="-1" />
+					</div>
+				</label>
+			{/each}
+		</div>
 	</fieldset>
 	<hr class="hr" />
 	<!-- Backgrounds -->
 	<fieldset class="space-y-4 md:space-y-8">
 		<h2 class="font-bold type-scale-3">Backgrounds</h2>
-		<label class="label">
-			<div class="label-text">Base</div>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<input class="input" type="color" value="#FFFFFF" />
-				<input class="input" type="text" value="#FFFFFF" readonly tabindex="-1" />
-			</div>
-		</label>
-		<label class="label">
-			<div class="label-text">Dark Mode</div>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<input class="input" type="color" value="#000000" />
-				<input class="input" type="text" value="#000000" readonly tabindex="-1" />
-			</div>
-		</label>
+		<div class="grid grid-cols-2 gap-4">
+			<label class="label">
+				<div class="label-text">Base Color</div>
+				<div class="grid grid-cols-[auto_1fr] gap-2">
+					<input class="input" type="color" value="#FFFFFF" />
+					<input class="input" type="text" value="#FFFFFF" readonly tabindex="-1" />
+				</div>
+			</label>
+			<label class="label">
+				<div class="label-text">Dark Mode</div>
+				<div class="grid grid-cols-[auto_1fr] gap-2">
+					<input class="input" type="color" value="#000000" />
+					<input class="input" type="text" value="#000000" readonly tabindex="-1" />
+				</div>
+			</label>
+		</div>
 	</fieldset>
 	<hr class="hr" />
 	<!-- Spacing -->
