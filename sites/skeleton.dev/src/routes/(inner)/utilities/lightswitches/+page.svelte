@@ -20,7 +20,6 @@
 	};
 
 	// Local
-	let tabSection = 0;
 	let tabInterface = 0;
 	let osTabs = 0;
 	// prettier-ignore

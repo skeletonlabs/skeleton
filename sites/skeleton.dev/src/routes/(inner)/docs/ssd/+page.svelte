@@ -3,7 +3,7 @@
 	import { CodeBlock, TabGroup, Tab } from '@skeletonlabs/skeleton';
 
 	// Tabs
-	let tabSelected: string = 'client';
+	let tabSelected = 'client';
 
 	//Local Components
 	import Client from './ClientSSD.svelte';
