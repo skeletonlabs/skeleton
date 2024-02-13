@@ -79,7 +79,7 @@
 	<!-- Getting Started -->
 	<section class="space-y-4">
 		<h2 class="h2">Getting Started</h2>
-		<h3 class="h3">Install Depedencies</h3>
+		<h3 class="h3">Install Dependencies</h3>
 		<p>Add Svelte Simple Datables to your Skeleton project by running the following command.</p>
 		<CodeBlock
 			language="shell"
