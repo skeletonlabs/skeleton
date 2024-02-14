@@ -1,30 +1,77 @@
 {
-  "name": "skeleton-react",
-  "version": "0.0.1",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@typescript-eslint/eslint-plugin": "^6.14.0",
-    "@typescript-eslint/parser": "^6.14.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.55.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "postcss": "^8.4.33",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8"
-  }
+	"name": "@skeletonlabs/skeleton-react",
+	"version": "0.0.6",
+	"author": {
+		"email": "nik@niktek.io",
+		"name": "niktek"
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "tsc && vite build",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview",
+		"ci:build": "echo 'skeleton-react build step'",
+		"ci:test:integration": "echo 'test:integration step'",
+		"ci:test:unit": "echo 'test:unit step'",
+		"ci:package": "echo 'package step'",
+		"ci:publish": "echo 'publish step'"
+	},
+	"publishConfig": {
+		"types": "./dist/index.d.ts",
+		"exports": {
+			".": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+		},
+		"typesVersions": {
+			">4.0": {
+				"index.d.ts": [
+					"./dist/index.d.ts"
+				]
+			}
+		},
+		"registry": "http://localhost:4873"
+	},
+	"types": "./src/lib/index.ts",
+	"exports": {
+		".": {
+			"types": "./src/lib/index.ts",
+			"default": "./src/lib/index.ts"
+		},
+		"./*": "./src/lib/*"
+	},
+	"files": [
+		"./dist/**/*.js",
+		"./dist/**/*.map",
+		"./dist/**/*.tsx",
+		"./dist/**/*.d.ts",
+		"./dist/**/*.cjs",
+		"./dist/**/*.d.cts",
+		"!./dist/**/*.test.*"
+	],
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@skeletonlabs/skeleton": "workspace:^",
+		"@types/node": "^20.11.5",
+		"@types/react": "^18.2.43",
+		"@types/react-dom": "^18.2.17",
+		"@typescript-eslint/eslint-plugin": "^6.14.0",
+		"@typescript-eslint/parser": "^6.14.0",
+		"@vitejs/plugin-react": "^4.2.1",
+		"autoprefixer": "^10.4.16",
+		"eslint": "^8.55.0",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.5",
+		"postcss": "^8.4.33",
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5.2.2",
+		"vite": "^5.0.8",
+		"vite-plugin-dts": "^3.7.1",
+		"vite-tsconfig-paths": "^4.3.1"
+	}
 }

@@ -1,0 +1,1 @@
+export { default as TestReact } from './components/TestReact/TestReact.tsx';
