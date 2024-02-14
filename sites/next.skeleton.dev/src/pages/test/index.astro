@@ -1,7 +1,7 @@
 ---
 import { TestSvelte } from '@skeletonlabs/skeleton-svelte';
 import { TestReact } from '@skeletonlabs/skeleton-react';
-// import { TestVue } from '@skeletonlabs/skeleton-vue';
+import { TestVue } from '@skeletonlabs/skeleton-vue';
 import LayoutRoot from '@layouts/LayoutRoot.astro'
 import Header from '@components/docs/Header.astro'
 ---
@@ -15,7 +15,7 @@ import Header from '@components/docs/Header.astro'
 		<div class="flex flex-col gap-2">
 			<TestSvelte label="This is a component from @skeletonlabs/skeleton-svelte" class="bg-primary-500" />
 			<TestReact label="This is a component from @skeletonlabs/skeleton-react" />
-			<!-- <TestVue label="This is a component from @skeletonlabs/skeleton-vue" /> -->
+			<TestVue label="This is a component from @skeletonlabs/skeleton-vue" class="bg-tertiary-500" />
 		</div>
 	</main>
 </LayoutRoot>

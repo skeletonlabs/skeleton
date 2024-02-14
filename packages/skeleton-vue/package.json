@@ -1,23 +1,65 @@
 {
-  "name": "skeleton-vue",
-  "private": true,
-  "version": "0.0.1",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "vue": "^3.3.11"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^4.5.2",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.33",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8",
-    "vue-tsc": "^1.8.25"
-  }
+	"name": "@skeletonlabs/skeleton-vue",
+	"version": "0.0.6",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vue-tsc && vite build",
+		"preview": "vite preview",
+		"ci:build": "echo 'skeleton-vue build step'",
+		"ci:test:integration": "echo 'test:integration step'",
+		"ci:test:unit": "echo 'test:unit step'",
+		"ci:package": "echo 'package step'",
+		"ci:publish": "echo 'publish step'"
+	},
+	"publishConfig": {
+		"types": "./dist/index.d.ts",
+		"exports": {
+			".": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+		},
+		"typesVersions": {
+			">4.0": {
+				"index.d.ts": [
+					"./dist/index.d.ts"
+				]
+			}
+		},
+		"registry": "http://localhost:4873"
+	},
+	"types": "./src/components/index.ts",
+	"exports": {
+		".": {
+			"types": "./src/components/index.ts",
+			"default": "./src/components/index.ts"
+		},
+		"./*": "./src/components/*"
+	},
+	"files": [
+		"./dist/**/*.js",
+		"./dist/**/*.map",
+		"./dist/**/*.tsx",
+		"./dist/**/*.d.ts",
+		"./dist/**/*.cjs",
+		"./dist/**/*.d.cts",
+		"!./dist/**/*.test.*"
+	],
+	"dependencies": {
+		"vue": "^3.3.11"
+	},
+	"devDependencies": {
+		"@skeletonlabs/skeleton": "workspace:^",
+		"@types/node": "^20.11.5",
+		"@vitejs/plugin-vue": "^4.5.2",
+		"autoprefixer": "^10.4.16",
+		"postcss": "^8.4.33",
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5.2.2",
+		"vite": "^5.0.8",
+		"vite-plugin-dts": "^3.7.1",
+		"vite-tsconfig-paths": "^4.3.1",
+		"vue-tsc": "^1.8.25"
+	}
 }
