@@ -13,6 +13,9 @@ dependencies:
     version: 18.2.0(react@18.2.0)
 
 devDependencies:
+  '@skeletonlabs/skeleton':
+    specifier: workspace:*
+    version: link:../skeleton
   '@types/react':
     specifier: ^18.2.55
     version: 18.2.55

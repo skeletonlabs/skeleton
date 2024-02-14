@@ -2,10 +2,10 @@ import Test from "./components/Test/Test";
 
 function App() {
   return (
-    <>
-      <h1>Skeleton-React</h1>
+    <div className="p-10">
+      <h1 className="h1">Skeleton-React</h1>
       <Test />
-    </>
+    </div>
   );
 }
 
