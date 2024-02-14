@@ -27,6 +27,7 @@
 		"@nanostores/persistent": "^0.9.1",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:^",
+		"@skeletonlabs/skeleton-svelte": "workspace:^",
 		"@types/react": "^18.2.55",
 		"astro": "^4.3.5",
 		"astro-auto-import": "^0.4.2",

@@ -1,6 +1,6 @@
 ---
+import { TestSvelte } from '@skeletonlabs/skeleton-svelte';
 import { TestReact } from '@skeletonlabs/skeleton-react';
-// import { TestSvelte } from '@skeletonlabs/skeleton-svelte';
 // import { TestVue } from '@skeletonlabs/skeleton-vue';
 import LayoutRoot from '@layouts/LayoutRoot.astro'
 import Header from '@components/docs/Header.astro'
@@ -10,10 +10,12 @@ import Header from '@components/docs/Header.astro'
 	<!-- Page Header -->
 	<Header />
 	<!-- Page -->
-	<main class="container mx-auto p-10 space-y-4">
+	<main class="flex-col mx-auto p-10">
 		<h1 class="h1">Hello, Skeleton 👋</h1>
-		<!-- <TestSvelte class="bg-secondary-500" /> -->
-		<TestReact label="This is a component from @skeletonlabs/skeleton-react" />
-		<!-- <TestVue label="This is a component from @skeletonlabs/skeleton-vue" /> -->
+		<div class="flex flex-col gap-2">
+			<TestSvelte label="This is a component from @skeletonlabs/skeleton-svelte" class="bg-primary-500" />
+			<TestReact label="This is a component from @skeletonlabs/skeleton-react" />
+			<!-- <TestVue label="This is a component from @skeletonlabs/skeleton-vue" /> -->
+		</div>
 	</main>
 </LayoutRoot>

@@ -1,3 +1,9 @@
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import TestSvelte from '$lib/components/TestSvelte/TestSvelte.svelte';
+</script>
+
+<h1>Skeleton - React</h1>
+<div class="card">
+	<p class="bg-primary-500">This is the static HTML in the +page.svelte</p>
+</div>
+<TestSvelte class="bg-secondary-500" label="Hello World from @skeletonlabs/svelte" />
