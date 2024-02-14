@@ -27,9 +27,9 @@ export default defineConfig({
 		sourcemap: true,
 		target: 'esnext',
 		// still seems to HMR without this being needed
-		watch: {
-			include: ['src/**']
-		},
+		// watch: {
+		// 	include: ['src/**']
+		// },
 		rollupOptions: {
 			external: [...Object.keys(packageJson.dependencies)],
 		},
@@ -38,29 +38,3 @@ export default defineConfig({
 		port: 3001,
 	}
 })
-
-// https://vitejs.dev/config/
-// export default defineConfig((configEnv) => ({
-//   plugins: [
-//     react(),
-//     tsConfigPaths(),
-//     linterPlugin({
-//       include: ['./src}/**/*.{ts,tsx}'],
-//       linters: [new EsLinter({ configEnv })],
-//     }),
-//     dts({
-//       include: ['src/component/'],
-//     }),
-//   ],
-//   build: {
-//     lib: {
-//       entry: resolve('src', 'component/index.ts'),
-//       name: 'ReactViteLibrary',
-//       formats: ['es', 'umd'],
-//       fileName: (format) => `react-vite-library.${format}.js`,
-//     },
-//     rollupOptions: {
-//       external: [...Object.keys(packageJson.peerDependencies)],
-//     },
-//   },
-// }))
