@@ -1,6 +1,8 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
 	"version": "0.0.2",
+	"description": "The Svelte package for Skeleton.",
+	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -30,10 +32,9 @@
 					"./dist/index.d.ts"
 				]
 			}
-		},
-		"registry": "http://localhost:4873"
+		}
 	},
-	"types": "./src/lib/index.ts",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"types": "./src/lib/index.ts",
@@ -43,12 +44,14 @@
 		"./*": "./src/lib/*"
 	},
 	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*",
 		"./dist/**/*.svelte",
 		"./dist/**/*.js",
 		"./dist/**/*.d.ts",
 		"./dist/**/*.cjs",
-		"./dist/**/*.d.cts",
-		"!./dist/**/*.test.*"
+		"./dist/**/*.d.cts"
 	],
 	"peerDependencies": {
 		"svelte": "^4.0.0"
@@ -81,6 +84,5 @@
 		"vite": "^5.1.2",
 		"vitest": "^1.2.2"
 	},
-	"svelte": "./dist/index.js",
 	"type": "module"
 }
