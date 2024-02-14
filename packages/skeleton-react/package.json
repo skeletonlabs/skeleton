@@ -1,6 +1,6 @@
 {
-  "name": "skeleton-react",
-  "version": "0.0.1",
+  "name": "@skeletonlabs/skeleton-react",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -8,6 +8,40 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "publishConfig": {
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "typesVersions": {
+      ">4.0": {
+        "index.d.ts": [
+          "./dist/index.d.ts"
+        ]
+      }
+    },
+    "registry": "http://localhost:4873"
+  },
+  "types": "./src/lib/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/lib/index.ts",
+      "default": "./src/lib/index.ts"
+    },
+    "./*": "./src/lib/*"
+  },
+  "files": [
+    "./dist/**/*.js",
+    "./dist/**/*.map",
+    "./dist/**/*.tsx",
+    "./dist/**/*.d.ts",
+    "./dist/**/*.cjs",
+    "./dist/**/*.d.cts",
+    "!./dist/**/*.test.*"
+  ],
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
