@@ -99,7 +99,7 @@
 
 	// Reactive
 	$: selected = multiple ? group.some((groupVal: unknown) => areDeeplyEqual(value, groupVal)) : areDeeplyEqual(group, value);
-	$: enabled = (!disabledItems && !disabled) ? 'cursor-pointer' : 'cursor-default';
+	$: enabled = !disabledItems && !disabled ? 'cursor-pointer' : 'cursor-default';
 	$: classesActive = !disabledItems && !disabled ? (selected ? active : hover) : (selected ? activeDisabled : '');
 	$: classesBase = `${cBase} ${enabled} ${rounded} ${padding} ${classesActive} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
