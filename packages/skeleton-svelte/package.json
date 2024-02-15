@@ -15,7 +15,8 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"sk-sync": "svelte-kit sync"
 	},
 	"publishConfig": {
 		"types": "./dist/index.d.ts",

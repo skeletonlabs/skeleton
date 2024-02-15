@@ -12,7 +12,7 @@
 		"dev": "astro dev",
 		"start": "astro dev",
 		"check": "astro check",
-		"build": "astro check && astro build",
+		"build": "pnpm -F '*svelte' sk-sync && astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"lint": "prettier --write . --plugin=prettier-plugin-astro"
@@ -27,6 +27,7 @@
 		"@nanostores/persistent": "^0.9.1",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:^",
+		"@skeletonlabs/skeleton-svelte": "workspace:^",
 		"@types/react": "^18.2.55",
 		"astro": "^4.3.5",
 		"astro-auto-import": "^0.4.2",
