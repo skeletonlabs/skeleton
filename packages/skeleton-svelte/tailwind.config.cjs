@@ -1,14 +1,11 @@
 import { skeleton } from "@skeletonlabs/skeleton/plugin";
 
-/** @type {import('tailwindcss').Config} */
-export default {
+/** @type {import('tailwindcss').Config}*/
+const config = {
 	darkMode: 'class',
-	content: [
-		"./index.html",
-		"./src/**/*.{js,ts,jsx,tsx}",
-	],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {},
+		extend: {}
 	},
 	plugins: [
 		skeleton({
@@ -17,7 +14,8 @@ export default {
 					{ name: "next" },
 				],
 			},
-		}),
-	],
-}
+		})
+	]
+};
 
+module.exports = config;

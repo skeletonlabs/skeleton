@@ -29,6 +29,12 @@ dependencies:
   '@skeletonlabs/skeleton':
     specifier: workspace:*
     version: link:../../packages/skeleton
+  '@skeletonlabs/skeleton-react':
+    specifier: workspace:^
+    version: link:../../packages/skeleton-react
+  '@skeletonlabs/skeleton-svelte':
+    specifier: workspace:^
+    version: link:../../packages/skeleton-svelte
   '@types/react':
     specifier: ^18.2.55
     version: 18.2.55
