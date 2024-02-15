@@ -30,6 +30,7 @@
 	// Local
 	let valueSingle = 'books';
 	let valueMultiple = ['books', 'movies'];
+	let valueDisabled = ['books', 'movies'];
 </script>
 
 <DocsShell {settings}>
@@ -113,6 +114,46 @@
 	<ListBoxItem bind:group={valueMultiple} name="medium" value="books">Books</ListBoxItem>
 	<ListBoxItem bind:group={valueMultiple} name="medium" value="movies">Movies</ListBoxItem>
 	<ListBoxItem bind:group={valueMultiple} name="medium" value="tv">TV</ListBoxItem>
+</ListBox>
+			`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h3 class="h3">Disabled</h3>
+			<p>
+				By adding the <code class="code">disabled</code> property, 
+				it disables selection of child listboxitems. To disable each one individually, <code class="code">disabled</code> also can be set in a listboxitem component.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<ListBox disabled active="variant-filled-primary" activeDisabled="variant-ghost-primary" hover="hover:variant-soft-primary" multiple class="w-full max-w-[480px]">
+						<ListBoxItem bind:group={valueDisabled} name="medium" value="books">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
+							Books
+						</ListBoxItem>
+						<ListBoxItem bind:group={valueDisabled} name="medium" value="movies">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
+							Movies
+						</ListBoxItem>
+						<ListBoxItem bind:group={valueDisabled} name="medium" value="television">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
+							Television
+						</ListBoxItem>
+					</ListBox>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="text-center"><code class="code">Selected: {valueDisabled.length ? valueDisabled : 'None'}</code></div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="ts" code={`let valueMultiple: string[] = ['books', 'movies'];`} />
+					<CodeBlock
+						language="html"
+						code={`
+<ListBox disabled activeDisabled="variant-ghost-primary">
+	<ListBoxItem bind:group={valueDisabled} name="medium" value="books">Books</ListBoxItem>
+	<ListBoxItem bind:group={valueDisabled} name="medium" value="movies">Movies</ListBoxItem>
+	<ListBoxItem bind:group={valueDisabled} name="medium" value="tv">TV</ListBoxItem>
 </ListBox>
 			`}
 					/>

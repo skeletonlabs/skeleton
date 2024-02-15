@@ -7,6 +7,8 @@
 	// Props
 	/** Enable selection of multiple items. */
 	export let multiple = false;
+	/** Disables selection of items. */
+	export let disabled = false;
 
 	// Props (styles)
 	/** Provide class to set the vertical spacing style. */
@@ -17,8 +19,10 @@
 	// Props (styles) - Item Only
 	/** Provide classes to set the listbox item active background styles. */
 	export let active: CssClasses = 'variant-filled';
+	/** Provide classes to set the listbox item active disabled background styles */
+	export let activeDisabled: CssClasses = 'variant-soft';
 	/** Provide classes to set the listbox item hover background styles. */
-	export let hover: CssClasses = 'hover:variant-soft';
+	export let hover: CssClasses = 'hover:variant-ghost';
 	/** Provide classes to set the listbox item padding styles. */
 	export let padding: CssClasses = 'px-4 py-2';
 
@@ -35,9 +39,11 @@
 	export let labelledby = '';
 
 	// Context
+	setContext('disabledItems', disabled);
 	setContext('multiple', multiple);
 	setContext('rounded', rounded);
 	setContext('active', active);
+	setContext('activeDisabled', activeDisabled);
 	setContext('hover', hover);
 	setContext('padding', padding);
 	setContext('regionLead', regionLead);

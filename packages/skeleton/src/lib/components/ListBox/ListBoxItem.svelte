@@ -17,11 +17,15 @@
 	export let name: string;
 	/** Set the input's value. */
 	export let value: any;
+	/** Disables selection of the item. */
+	export let disabled: boolean = false;
 
 	// Context
+	export let disabledItems: boolean = getContext('disabledItems');
 	export let multiple: string = getContext('multiple');
 	export let rounded: CssClasses = getContext('rounded');
 	export let active: CssClasses = getContext('active');
+	export let activeDisabled: CssClasses = getContext('activeDisabled');
 	export let hover: CssClasses = getContext('hover');
 	export let padding: CssClasses = getContext('padding');
 	export let regionLead: CssClasses = getContext('regionLead');
@@ -29,7 +33,7 @@
 	export let regionTrail: CssClasses = getContext('regionTrail');
 
 	// Classes
-	const cBase = 'cursor-pointer -outline-offset-[3px]';
+	const cBase = '-outline-offset-[3px]';
 	const cLabel = 'flex items-center space-x-4';
 
 	// Local
@@ -95,8 +99,9 @@
 
 	// Reactive
 	$: selected = multiple ? group.some((groupVal: unknown) => areDeeplyEqual(value, groupVal)) : areDeeplyEqual(group, value);
-	$: classesActive = selected ? active : hover;
-	$: classesBase = `${cBase} ${rounded} ${padding} ${classesActive} ${$$props.class ?? ''}`;
+	$: enabled = (!disabledItems && !disabled) ? 'cursor-pointer' : 'cursor-default';
+	$: classesActive = !disabledItems && !disabled ? (selected ? active : hover) : (selected ? activeDisabled : '');
+	$: classesBase = `${cBase} ${enabled} ${rounded} ${padding} ${classesActive} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
 	$: classesRegionLead = `${cRegionLead} ${regionLead}`;
 	$: classesRegionDefault = `${cRegionDefault} ${regionDefault}`;
@@ -119,9 +124,9 @@
 		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 		<div class="h-0 w-0 overflow-hidden">
 			{#if multiple}
-				<input bind:this={elemInput} type="checkbox" {name} {value} bind:checked tabindex="-1" on:click on:change />
+				<input disabled={disabledItems || disabled} bind:this={elemInput} type="checkbox" {name} {value} bind:checked tabindex="-1" on:click on:change />
 			{:else}
-				<input bind:this={elemInput} type="radio" bind:group {name} {value} tabindex="-1" on:click on:change />
+				<input disabled={disabledItems || disabled} bind:this={elemInput} type="radio" bind:group {name} {value} tabindex="-1" on:click on:change />
 			{/if}
 		</div>
 		<!-- <slot /> -->
