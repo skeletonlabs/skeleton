@@ -18,7 +18,8 @@
 		"ci:test:integration": "echo 'test:integration step'",
 		"ci:test:unit": "echo 'test:unit step'",
 		"ci:package": "echo 'package step'",
-		"ci:publish": "echo 'publish step'"
+		"ci:publish": "echo 'publish step'",
+		"sk-sync": "svelte-kit sync"
 	},
 	"peerDependencies": {
 		"svelte": "^4.0.0"
