@@ -20,9 +20,9 @@
 	/** Provide classes to set the listbox item active background styles. */
 	export let active: CssClasses = 'variant-filled';
 	/** Provide classes to set the listbox item active disabled background styles */
-	export let activeDisabled: CssClasses = 'variant-soft';
+	export let activeDisabled: CssClasses = 'variant-ghost';
 	/** Provide classes to set the listbox item hover background styles. */
-	export let hover: CssClasses = 'hover:variant-ghost';
+	export let hover: CssClasses = 'hover:variant-soft';
 	/** Provide classes to set the listbox item padding styles. */
 	export let padding: CssClasses = 'px-4 py-2';
 
