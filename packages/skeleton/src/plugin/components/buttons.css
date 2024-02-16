@@ -5,7 +5,6 @@
 	.btn-icon {
 		@apply font-medium no-underline rounded;
 		@apply inline-flex items-center justify-center gap-4 whitespace-nowrap;
-		@apply disabled:pointer-events-none disabled:opacity-50;
 		@apply transition-all hover:brightness-90 dark:hover:brightness-110;
 	}
 

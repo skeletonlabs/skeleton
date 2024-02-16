@@ -43,3 +43,10 @@ html {
 	as this would be harmful to accessibility!
 	Source: http://www.outlinenone.com/
 */
+
+/* Disabled States --- */
+
+.disabled,
+button:disabled {
+	@apply pointer-events-none opacity-50;
+}
