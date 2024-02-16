@@ -24,7 +24,7 @@
 		spaceY?: string;
 		/** Set border radius styles. */
 		rounded?: string;
-		/** Set border radius styles. */
+		/** Set the width styles. */
 		width?: string;
 		/** Provide arbitrary CSS classes. */
 		classes?: string;

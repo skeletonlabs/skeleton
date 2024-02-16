@@ -20,41 +20,66 @@ export function reactCompose<
 }
 
 interface AccordionProps extends React.PropsWithChildren {
+  /** Enables opening multiple items at once. */
   multiple?: boolean;
+  /** The slide animation duration in milliseconds. */
+  // animDuration?: number;
   // ---
+  /** Sets base styles. */
   base?: string;
+  /** Set padding styles. */
   padding?: string;
+  /** Set vertical spacing styles. */
   spaceY?: string;
+  /** Set border radius styles. */
   rounded?: string;
+  /** Set the width styles. */
   width?: string;
+  /** Provide arbitrary CSS classes. */
   classes?: string;
 }
 
 interface AccordionItemProps extends React.PropsWithChildren {
+  /** Sets base styles. */
   base?: string;
+  /** Set vertical spacing styles. */
   spaceY?: string;
+  /** Provide arbitrary CSS classes. */
   classes?: string;
 }
 
 interface AccordionControlProps extends React.PropsWithChildren {
+  /** Identifies the panel ID this controls. */
   controls: string;
+  /** Set the open state of the item. */
   open?: boolean;
+  /** Set a disabled state for the item. */
   disabled?: boolean;
   // Root
+  /** Sets control's base styles. */
   base?: string;
+  /** Sets control's the hover styles. */
   hover?: string;
+  /** Sets control's the padding styles. */
   padding?: string;
+  /** Sets control's the border radius styles. */
   rounded?: string;
+  /** Provide arbitrary CSS classes to the control. */
   classes?: string;
   // Slots
   lead?: ReactNode;
 }
 
 interface AccordionPanelProps extends React.PropsWithChildren {
+  /** The unique panel ID. */
   id: string;
+  /** Set the panel's base styles. */
   base?: string;
+  /** Set the panel's padding styles. */
   padding?: string;
+  /** Set the panel's border-radius styles. */
   rounded?: string;
+  /** Provide arbitrary CSS classes to the panel. */
   classes?: string;
 }
 
@@ -82,7 +107,6 @@ const AccordionRoot: React.FC<AccordionProps> = ({
   padding = "",
   spaceY = "space-y-2",
   rounded = "rounded",
-  width = "w-full",
   classes = "",
   // Children
   children,
@@ -92,7 +116,7 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 
   return (
     <div
-      className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`}
+      className={`${base} ${padding} ${spaceY} ${rounded} ${classes}`}
       data-testid="accordion"
     >
       <AccordionContext.Provider

@@ -14,31 +14,56 @@
 	type ToggleEvent = CustomEvent<{ id: string; open: boolean }>;
 
 	interface AccordionItemProps {
-		id?: string;
+		/** Set a unique ID for the item. */
+		id: string;
+		/** Set the open state of the item. */
 		open?: boolean;
+		/** Set a disabled state for the item. */
 		disabled?: boolean;
+
 		// Root ---
+		/** Sets base styles. */
 		base?: string;
+		/** Set vertical spacing styles. */
 		spaceY?: string;
+		/** Provide arbitrary CSS classes. */
 		classes?: string;
+
 		// Control ---
+		/** Sets control's base styles. */
 		controlBase?: string;
+		/** Sets control's the hover styles. */
 		controlHover?: string;
+		/** Sets control's the padding styles. */
 		controlPadding?: string;
+		/** Sets control's the border radius styles. */
 		controlRounded?: string;
-		controlRest?: string;
+		/** Provide arbitrary CSS classes to the control. */
+		controlClasses?: string;
+
 		// Icons ---
+		/** Set the base styles for the state icons. */
 		iconsBase?: string;
+
 		// Panel ---
+		/** Set the panel's base styles. */
 		panelBase?: string;
+		/** Set the panel's padding styles. */
 		panelPadding?: string;
+		/** Set the panel's border-radius styles. */
 		panelRounded?: string;
-		panelRest?: string;
+		/** Provide arbitrary CSS classes to the panel. */
+		panelClasses?: string;
+
 		// Events ---
+		/** Handle the toggle event. */
 		ontoggle?: (toggleEvent: ToggleEvent) => void;
 		// Snippets ---
+		/** The control's default slot. */
 		control: Snippet;
+		/** The control's lead icon slot. */
 		controlLead?: Snippet;
+		/** The panels's default slot. */
 		panel?: Snippet;
 	}
 
@@ -55,14 +80,14 @@
 		controlHover = 'hover:preset-tonal-primary',
 		controlPadding = 'py-2 px-4',
 		controlRounded = 'rounded',
-		controlRest = '',
+		controlClasses = '',
 		// Icons
 		iconsBase = '',
 		// Panel
 		panelBase = '',
 		panelPadding = 'py-2 px-4',
 		panelRounded = '',
-		panelRest = '',
+		panelClasses = '',
 		// Events
 		ontoggle = () => {},
 		// Snippets
@@ -113,7 +138,7 @@
 	<!-- Control -->
 	<button
 		type="button"
-		class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlRest}"
+		class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
 		aria-expanded={isOpen}
 		aria-controls="accordion-panel-{id}"
 		{onclick}
@@ -133,7 +158,7 @@
 	<!-- Panel -->
 	{#if panel && isOpen}
 		<div
-			class="{panelBase} {panelPadding} {panelRounded} {panelRest}"
+			class="{panelBase} {panelPadding} {panelRounded} {panelClasses}"
 			transition:slide={{ duration: animDuration }}
 			id="accordion-panel-{id}"
 			role="region"
