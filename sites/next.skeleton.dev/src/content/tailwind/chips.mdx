@@ -14,8 +14,8 @@ import ExamplePresets from "@examples/tailwind/chips/ExamplePresets.astro";
 import ExamplePresetsRaw from "@examples/tailwind/chips/ExamplePresets.astro?raw";
 import ExampleDisabled from "@examples/tailwind/chips/ExampleDisabled.astro";
 import ExampleDisabledRaw from "@examples/tailwind/chips/ExampleDisabled.astro?raw";
-import ExampleSelect from "@examples/tailwind/chips/ExampleSelect.svelte";
-import ExampleSelectRaw from "@examples/tailwind/chips/ExampleSelect.svelte?raw";
+import { Page as ExampleSelect } from "@examples/tailwind/chips/ExampleSelect.tsx";
+import ExampleSelectRaw from "@examples/tailwind/chips/ExampleSelect.tsx?raw";
 
 <Preview client:load>
     <Fragment slot="preview"><Example /></Fragment>
@@ -40,5 +40,5 @@ import ExampleSelectRaw from "@examples/tailwind/chips/ExampleSelect.svelte?raw"
 
 <Preview client:load>
     <Fragment slot="preview"><ExampleSelect client:load /></Fragment>
-    <Fragment slot="code"><Code code={ExampleSelectRaw} lang="svelte" /></Fragment>
+    <Fragment slot="code"><Code code={ExampleSelectRaw} lang="tsx" /></Fragment>
 </Preview>

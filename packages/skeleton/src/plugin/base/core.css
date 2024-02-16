@@ -1,6 +1,5 @@
-/* Stylesheet: core.css */
-
-/* === Body Styles === */
+/* Base: Core Styles */
+/* Global styles that are enabled by default. */
 
 body {
 	/* Background */
@@ -15,47 +14,39 @@ body {
 	@apply base-letter-spacing;
 }
 
-/* === Focus & Selection === */
+/* Selection --- */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
 
 ::selection {
 	@apply bg-primary-500/30;
 }
 
-/* WebKit Mobile Tap Highlight Color */
-/* IMPORTANT: keep this, it's useful for mobile accessability. */
+/* Mobile Tap Highlight Color (WebKit only) --- */
+/* IMPORTANT: this is useful for mobile accessibility. */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
 html {
 	-webkit-tap-highlight-color: rgba(128, 128, 128, 0.5);
 }
 
-/* Focus Outlines */
-/* IMPORTANT: keep this, it's useful for mobile accessability. */
-/* http://www.outlinenone.com/ */
+/* Scrollbars --- */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color */
+/* https://developer.chrome.com/docs/css-ui/scrollbar-styling */
 
-/* === Scrollbars === */
-/* NOTE: does not support Tailwind dark mode styling. */
-
-/* https://css-tricks.com/almanac/properties/s/scrollbar-gutter/ */
 :root {
-	scrollbar-gutter: stable;
+	scrollbar-color: rgba(128, 128, 128, 0.5) rgba(0, 0, 0, 0.1); /* thumb / track */
+	scrollbar-width: thin;
 }
 
-/* Chrome/Safari/Edge */
-::-webkit-scrollbar {
-	@apply w-2 h-2;
-}
-::-webkit-scrollbar-track {
-	@apply bg-transparent py-1;
-}
-::-webkit-scrollbar-thumb {
-	@apply bg-surface-500/30 rounded;
-}
-::-webkit-scrollbar-corner {
-	@apply bg-surface-50-950;
-}
+/* Focus & Outlines --- */
+/*
+	REMINDER: never disabled focus or outlines
+	as this would be harmful to accessibility!
+	Source: http://www.outlinenone.com/
+*/
 
-/* Firefox */
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
-html {
-	scrollbar-color: rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.05);
+/* Disabled States --- */
+
+.disabled,
+button:disabled {
+	@apply pointer-events-none opacity-50;
 }
