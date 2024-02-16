@@ -50,7 +50,7 @@ export default function skeletonPluginWatcher() {
 		name: "skeleton-plugin-watcher",
 		configureServer(vite) {
 			vite.watcher.add(pluginSrcPath);
-			vite.watcher.on("all", async (event, path) => {
+			vite.watcher.on("all", async (_, path) => {
 				if (mm.match(path) && !path.includes("generated")) {
 					log.info(`File Updated: ${basename(path)}`, "cyan");
 					if (!locked) {
@@ -58,7 +58,7 @@ export default function skeletonPluginWatcher() {
 						const now = Date.now();
 						exec(
 							"pnpm -F @skeletonlabs/skeleton build",
-							(err, stdout, stderr) => {
+							(err, _, stderr) => {
 								if (err) log.error(stderr);
 								else log.info(`Completed in ${Date.now() - now}ms`, "green");
 								locked = false;
@@ -70,7 +70,7 @@ export default function skeletonPluginWatcher() {
 		},
 		async buildStart() {
 			const now = Date.now();
-			exec("pnpm -F @skeletonlabs/skeleton build", (err, stdout, stderr) => {
+			exec("pnpm -F @skeletonlabs/skeleton build", (err, _, stderr) => {
 				if (err) log.error(stderr);
 				else log.info(`Completed in ${Date.now() - now}ms`, "green");
 			});

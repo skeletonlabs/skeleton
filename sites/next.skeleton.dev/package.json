@@ -12,13 +12,13 @@
 		"dev": "astro dev",
 		"start": "astro dev",
 		"check": "astro check",
-		"build": "astro check && astro build",
+		"build": "pnpm -F '*svelte' sk-sync && astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"lint": "prettier --write . --plugin=prettier-plugin-astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.3.4",
+		"@astrojs/check": "^0.5.2",
 		"@astrojs/mdx": "^2.1.1",
 		"@astrojs/react": "^3.0.10",
 		"@astrojs/svelte": "^5.0.3",
@@ -26,6 +26,8 @@
 		"@astrojs/vercel": "^7.3.0",
 		"@nanostores/persistent": "^0.9.1",
 		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-react": "workspace:^",
+		"@skeletonlabs/skeleton-svelte": "workspace:^",
 		"@types/react": "^18.2.55",
 		"astro": "^4.3.5",
 		"astro-auto-import": "^0.4.2",
@@ -44,7 +46,7 @@
 		"@iconify-json/simple-icons": "^1.1.90",
 		"@tailwindcss/forms": "^0.5.7",
 		"@tailwindcss/typography": "^0.5.10",
-		"@types/node": "^20.11.16",
+		"@types/node": "^20.11.17",
 		"minimatch": "^9.0.3",
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "^0.13.0"

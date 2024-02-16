@@ -18,7 +18,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Types */
+    "types": ["vite-plugin-remix-router/client"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

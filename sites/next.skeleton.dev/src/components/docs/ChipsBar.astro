@@ -8,7 +8,7 @@ const { frontmatter } = Astro.props
 // GitHub URLs
 const branch: string = 'next' // FIXME
 const docSite = branch === 'master' ? 'skeleton.dev' : 'next.skeleton.dev'
-const githubDocsUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/sites/${docSite}/src/pages`
+const githubDocsUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/sites/${docSite}/src/content`
 const githubSkeletonUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton/src`
 const githubSvelteUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-svelte`
 const githubReactUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-svelte`
@@ -41,7 +41,7 @@ const githubReactUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/
     }
     {
         frontmatter.showDocsUrl && (
-            <a class="chip preset-filled-surface-200-800" href={githubDocsUrl + Astro.url.pathname} target="_blank">
+            <a class="chip preset-filled-surface-200-800" href={githubDocsUrl + Astro.url.pathname + '.mdx'} target="_blank">
                 <Icon name="heroicons-outline:book-open" />
                 <span>Doc</span>
             </a>
