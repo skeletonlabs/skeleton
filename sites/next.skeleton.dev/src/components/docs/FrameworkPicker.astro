@@ -9,9 +9,10 @@ const { slug } = Astro.params
 const [framework, feature] = slug ? slug.split('/') : []
 
 // Classes
-const cBtn = 'btn py-8'
-const cActive = 'preset-filled-surface-200-800'
-const cHover = 'hover:preset-tonal'
+const cBtn = 'flex justify-center items-center space-x-4 py-8 rounded-tl-container rounded-tr-container'
+const cActive =
+    'bg-gradient-to-b from-surface-100 dark:from-surface-900/30 to-transparent border-t border-l border-r border-surface-200-800'
+const cHover = 'hover:bg-gradient-to-t from-surface-100 dark:from-surface-900/30 to-transparent border-b border-surface-200-800'
 
 // Frameworks
 const frameworkList = [
@@ -23,7 +24,7 @@ const frameworkAllowList = frameworkList.map((fw) => fw.name)
 
 {
     frameworkAllowList.includes(framework) && (
-        <nav class="btn-group preset-outlined-surface-200-800 grid grid-cols-2 gap-2 p-2">
+        <nav class="grid grid-cols-2">
             {frameworkList.map((fw: any) => (
                 <a href={`/${topLevelPath}/${fw.name}/${feature}`} class:list={[cBtn, framework === fw.name ? cActive : cHover]}>
                     <Icon name={fw.icon} size={24} />
