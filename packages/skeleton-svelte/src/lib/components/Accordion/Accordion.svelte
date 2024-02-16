@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { setContext, type Snippet } from 'svelte';
+	import { setContext } from 'svelte';
+	import type { AccordionProps } from './types.js';
 
 	// FIXME:
 	// import { State } from '$lib/utils.svelte.js';
@@ -8,33 +9,6 @@
 		constructor(initial: T) {
 			this.value = initial;
 		}
-	}
-
-	interface AccordionProps {
-		/** Enables opening multiple items at once. */
-		multiple?: boolean;
-		/** The slide animation duration in milliseconds. */
-		animDuration?: number;
-		// Root ---
-		/** Sets base styles. */
-		base?: string;
-		/** Set padding styles. */
-		padding?: string;
-		/** Set vertical spacing styles. */
-		spaceY?: string;
-		/** Set border radius styles. */
-		rounded?: string;
-		/** Set the width styles. */
-		width?: string;
-		/** Provide arbitrary CSS classes. */
-		classes?: string;
-		// Snippets ---
-		/** The default child slot. */
-		children: Snippet;
-		/** Set the open state icon. */
-		iconOpen?: Snippet;
-		/** Set the closed state icon. */
-		iconClosed?: Snippet;
 	}
 
 	let {
