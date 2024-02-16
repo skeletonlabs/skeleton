@@ -15,15 +15,15 @@ function App() {
         <div className="space-y-8">
           <span className="font-bold">Components</span>
           <nav className="flex flex-col gap-2 type-scale-2">
-            <a className="anchor" href="/components/test">
+            {/* <a className="anchor" href="/components/test">
               Test
-            </a>
+            </a> */}
             <a className="anchor" href="/components/accordions">
               Accordions
             </a>
-            <a className="anchor" href="/components/app-bars">
+            {/* <a className="anchor" href="/components/app-bars">
               App Bars
-            </a>
+            </a> */}
           </nav>
         </div>
       </div>
