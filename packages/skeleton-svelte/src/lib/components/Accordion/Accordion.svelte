@@ -2,14 +2,7 @@
 	import { setContext } from 'svelte';
 	import type { AccordionProps } from './types.js';
 
-	// FIXME:
-	// import { State } from '$lib/utils.svelte.js';
-	export class State<T> {
-		value = $state() as T;
-		constructor(initial: T) {
-			this.value = initial;
-		}
-	}
+	import { State } from '$lib/utils.svelte.js';
 
 	let {
 		multiple = false,
