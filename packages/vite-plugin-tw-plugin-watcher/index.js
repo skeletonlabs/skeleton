@@ -73,8 +73,11 @@ export default function skeletonPluginWatcher(twPluginPath) {
 						locked = true;
 						const now = Date.now();
 						exec("pnpm -F @skeletonlabs/skeleton build", (err, _, stderr) => {
-							if (err) log.error(stderr);
-							else log.info(`Completed in ${Date.now() - now}ms`, "green");
+							if (err) {
+								log.error(stderr);
+							} else {
+								log.info(`Completed in ${Date.now() - now}ms`, "green");
+							}
 							locked = false;
 						});
 					}
