@@ -1,4 +1,6 @@
+// @ts-check
 import { defineConfig } from "astro/config";
+import path from "node:path";
 
 // Integrations
 import tailwind from "@astrojs/tailwind";
@@ -9,7 +11,7 @@ import icon from "astro-icon";
 import AutoImport from 'astro-auto-import';
 import mdx from '@astrojs/mdx';
 // Vite Plugins
-import skeletonPluginWatcher from "./skeleton-plugin-watcher.js";
+import skeletonPluginWatcher from "vite-plugin-tw-plugin-watcher";
 // Adapters
 import vercel from '@astrojs/vercel/serverless';
 
@@ -32,11 +34,11 @@ export default defineConfig({
     // https://www.astroicon.dev/
     icon({
       include: {
-        iconDir: 'src/icons',
+        iconDir: ['src/icons'],
         // https://icon-sets.iconify.design/heroicons/
-        'heroicons-outline': '*',
+        'heroicons-outline': ['*'],
         // https://icon-sets.iconify.design/simple-icons/
-        'simple-icons': '*'
+        'simple-icons': ['*']
       }
     }),
     // https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import
@@ -61,7 +63,7 @@ export default defineConfig({
     mdx()
   ],
   vite: {
-    plugins: [skeletonPluginWatcher()]
+    plugins: [skeletonPluginWatcher(path.resolve(path.join("..", "..", "packages", "skeleton", "src", "plugin")))]
   },
   output: "server",
   adapter: vercel(),
