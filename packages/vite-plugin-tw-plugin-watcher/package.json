@@ -1,0 +1,16 @@
+{
+	"name": "vite-plugin-tw-plugin-watcher",
+	"version": "0.0.0",
+	"description": "",
+	"private": true,
+	"main": "index.js",
+	"type": "module",
+	"types": "index.d.ts",
+	"dependencies": {
+		"minimatch": "^9.0.3"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.17",
+		"vite": "^5.1.3"
+	}
+}
