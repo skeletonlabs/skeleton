@@ -10,7 +10,6 @@
 		"minimatch": "^9.0.3"
 	},
 	"devDependencies": {
-		"@types/node": "^20.11.17",
 		"vite": "^5.1.3"
 	}
 }
