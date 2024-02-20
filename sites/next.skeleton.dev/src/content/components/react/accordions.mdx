@@ -16,6 +16,20 @@ import * as Common from '@content/components/common/accordions.mdx';
     <Fragment slot="code"><Code code={ExampleRaw} lang="tsx" /></Fragment>
 </Preview>
 
-## Usage
-
 <Common.Content />
+
+## Open State
+
+Set the visible panels using the `open` prop.
+
+```html
+<Accordion.Item open>...</Accordion.Item>
+```
+
+## State Icons
+
+Set the state icons using the following Accordion control component props. Both accept React components as the value.
+
+```tsx
+<Accordion.Control iconOpen={componentRef} iconClosed={componentRef}>...</Accordion.Control>
+```
