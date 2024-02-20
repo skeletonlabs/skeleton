@@ -7,7 +7,7 @@
 	import { State } from '$lib/utils.svelte.js';
 
 	let {
-		id = String(Math.random()), // <-- FIXME: prototype only
+		id = '',
 		open,
 		disabled = false,
 		// Root
@@ -77,6 +77,7 @@
 	<!-- Control -->
 	<button
 		type="button"
+		{id}
 		class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
 		aria-expanded={isOpen}
 		aria-controls="accordion-panel-{id}"
