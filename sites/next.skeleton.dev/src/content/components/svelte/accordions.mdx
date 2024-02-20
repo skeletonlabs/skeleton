@@ -16,6 +16,16 @@ import * as Common from '@content/components/common/accordions.mdx';
     <Fragment slot="code"><Code code={ExampleRaw} lang="svelte" /></Fragment>
 </Preview>
 
-## Usage
-
 <Common.Content />
+
+## State Icons
+
+Set the state icons using the following snippets within the root of the Accordion component.
+
+```svelte
+<Accordion>
+    {#snippet iconOpen()}&uarr;{/snippet}
+    {#snippet iconClosed()}&darr;{/snippet}
+    <!-- ... -->
+</Accordion>
+```

@@ -92,6 +92,8 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
   rounded = "rounded",
   classes = "",
   // Children
+  iconOpen = "-",
+  iconClosed = "+",
   lead,
   children,
 }): React.ReactElement => {
@@ -128,7 +130,7 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
       {/* Content */}
       <div className="flex-1">{children}</div>
       {/* State Indicator */}
-      <div>{ctx.selected.includes(controls) ? "-" : "+"}</div>
+      <div>{ctx.selected.includes(controls) ? iconClosed : iconOpen}</div>
     </button>
   );
 };

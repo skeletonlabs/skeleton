@@ -24,18 +24,18 @@ const githubReactUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/
         )
     }
     {
-        frontmatter.srcSvelte && (
-            <a class="chip preset-filled-surface-200-800" href={githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
-                <Icon name="heroicons-outline:code" />
-                <span>Svelte</span>
-            </a>
-        )
-    }
-    {
         frontmatter.srcReact && (
             <a class="chip preset-filled-surface-200-800" href={githubReactUrl + frontmatter.srcReact} target="_blank">
                 <Icon name="heroicons-outline:code" />
                 <span>React</span>
+            </a>
+        )
+    }
+    {
+        frontmatter.srcSvelte && (
+            <a class="chip preset-filled-surface-200-800" href={githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
+                <Icon name="heroicons-outline:code" />
+                <span>Svelte</span>
             </a>
         )
     }

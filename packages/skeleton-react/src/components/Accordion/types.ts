@@ -20,7 +20,7 @@ export interface AccordionProps extends React.PropsWithChildren {
   multiple?: boolean;
   /** The slide animation duration in milliseconds. */
   // animDuration?: number;
-  // ---
+  // Root ---
   /** Sets base styles. */
   base?: string;
   /** Set padding styles. */
@@ -51,7 +51,7 @@ export interface AccordionControlProps extends React.PropsWithChildren {
   open?: boolean;
   /** Set a disabled state for the item. */
   disabled?: boolean;
-  // Root
+  // Root ---
   /** Sets control's base styles. */
   base?: string;
   /** Sets control's the hover styles. */
@@ -62,7 +62,12 @@ export interface AccordionControlProps extends React.PropsWithChildren {
   rounded?: string;
   /** Provide arbitrary CSS classes to the control. */
   classes?: string;
-  // Slots
+  // Slots ---
+  // https://www.totaltypescript.com/pass-component-as-prop-react
+  /** Set the open state icon. */
+  iconOpen?: ReactNode;
+  /** Set the closed state icon. */
+  iconClosed?: ReactNode;
   /** The lead child slot for the control. */
   lead?: ReactNode;
 }

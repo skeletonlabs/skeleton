@@ -11,20 +11,18 @@ export const components = componentSet;
 
 {/* --- */}
 
-The {frontmatter.title} usage goes here.
+## Open State
 
-### Multiple Items
-
-Enable the `multiple` setting to enable displaying more than one accordion panel at a time.
-
-```html
-<Accordion multiple>...</Accordion>
-```
-
-### Open State
-
-Set the visible items on load with `open`. When using `multiple` mode, this enables multiple items.
+Set the visible panels using the `open` prop.
 
 ```html
 <AccordionItem open>...</AccordionItem>
+```
+
+## Multiple Items
+
+Apply the `multiple` prop to to enable opening more than one panel at a time.
+
+```html
+<Accordion multiple>...</Accordion>
 ```
