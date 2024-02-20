@@ -146,6 +146,23 @@ In some scenarios, you may need to conditionally update or swap between one or m
 
 ---
 
+## JSDocs
+
+Features can be documented inline within the code via [JSDoc](https://jsdoc.app/about-getting-started). This provides additional context through Intellisense features of text editors and IDEs. These comments are required for all Typescript type definitions. Keep the description short and semantic.
+
+```ts
+export interface ExampleProps {
+  /** Sets base styles. */
+  base?: string;
+  /** Set vertical spacing styles. */
+  spaceY?: string;
+  /** Provide arbitrary CSS classes. */
+  classes?: string;
+}
+```
+
+---
+
 ## Composed Pattern
 
 To keep Skeleton's component syntax familiar cross-framework, we will make use of a composed pattern. The specific implementation will differ per each supported framework.
