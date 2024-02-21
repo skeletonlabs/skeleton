@@ -9,10 +9,11 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "astro dev",
+		"dev": "concurrently \"pnpm:start\" \"pnpm:dev:svelte\"",
+		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
 		"start": "astro dev",
 		"check": "astro check",
-		"build": "pnpm -F '*svelte' sk-sync && astro check && astro build",
+		"build": "pnpm -F '*svelte' build && astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"lint": "prettier --write . --plugin=prettier-plugin-astro"

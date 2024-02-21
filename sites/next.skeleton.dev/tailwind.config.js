@@ -1,13 +1,15 @@
+import { join } from 'path';
 import { skeleton } from "@skeletonlabs/skeleton/plugin";
-// import { skeleton } from "../../packages/skeleton/dist/plugin/index.cjs";
-
 import forms from '@tailwindcss/forms';
-// import typography from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: [
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    join(require.resolve('@skeletonlabs/skeleton-react'), '../**/*.{html,js,ts,jsx,tsx}'),
+    join(require.resolve('@skeletonlabs/skeleton-svelte'), '../**/*.{html,js,ts,svelte}'),
+  ],
   theme: {
     extend: {},
   },

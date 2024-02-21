@@ -16,7 +16,7 @@ const navDesign = await getCollection('design')
 const navTailwind = await getCollection('tailwind')
 const navResources = await getCollection('resources', ({ id }) => {
     // Ignore cookbook children pages
-    return !id.startsWith('cookbook/')
+    return !id.startsWith('contribute/') && !id.startsWith('cookbook/')
 })
 
 // Sort Order
