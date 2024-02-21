@@ -97,6 +97,9 @@ devDependencies:
   prettier-plugin-astro:
     specifier: ^0.13.0
     version: 0.13.0
+  vite-plugin-tw-plugin-watcher:
+    specifier: workspace:*
+    version: link:../../packages/vite-plugin-tw-plugin-watcher
 
 packages:
 
