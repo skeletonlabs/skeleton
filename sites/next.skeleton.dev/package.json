@@ -9,10 +9,11 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "astro dev",
+		"dev": "concurrently \"pnpm:start\" \"pnpm:dev:svelte\"",
+		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
 		"start": "astro dev",
 		"check": "astro check",
-		"build": "pnpm -F '*svelte' sk-sync && astro check && astro build",
+		"build": "pnpm -F '*svelte' build && astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"lint": "prettier --write . --plugin=prettier-plugin-astro"
@@ -31,7 +32,7 @@
 		"@types/react": "^18.2.55",
 		"astro": "^4.3.5",
 		"astro-auto-import": "^0.4.2",
-		"astro-expressive-code": "^0.32.4",
+		"astro-expressive-code": "^0.33.2",
 		"astro-icon": "^1.1.0",
 		"nanostores": "^0.9.5",
 		"react": "^18.2.0",
@@ -49,6 +50,7 @@
 		"@types/node": "^20.11.17",
 		"minimatch": "^9.0.3",
 		"prettier": "^3.2.5",
-		"prettier-plugin-astro": "^0.13.0"
+		"prettier-plugin-astro": "^0.13.0",
+		"vite-plugin-tw-plugin-watcher": "workspace:*"
 	}
 }

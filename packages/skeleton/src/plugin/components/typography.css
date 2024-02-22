@@ -79,7 +79,7 @@
 		@apply text-white type-scale-1 whitespace-pre-wrap;
 	}
 
-	:not(pre) > .code {
+	:not(pre, .ec-line) > .code {
 		@apply preset-tonal-primary;
 		@apply font-mono text-xs whitespace-nowrap;
 		@apply overflow-x-auto py-0.5 px-1.5 rounded;

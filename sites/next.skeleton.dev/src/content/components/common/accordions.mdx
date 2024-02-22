@@ -1,8 +1,8 @@
 ---
 title: Accordions
 description: Divide content into collapsible sections.
-srcSvelte: '/components/accordion'
-srcReact: '/components/accordion'
+srcSvelte: '/src/lib/components/Accordion'
+srcReact: '/src/components/Accordion'
 srcAlly: 'https://www.w3.org/WAI/ARIA/apg/patterns/accordion/'
 showDocsUrl: true
 ---
@@ -11,20 +11,10 @@ export const components = componentSet;
 
 {/* --- */}
 
-The {frontmatter.title} usage goes here.
+## Multiple Items
 
-### Auto-Collapse
-
-Enable the `autocollapse` setting to limit display to one accordion panel at a time.
+Apply the `multiple` prop to to enable opening more than one panel at a time.
 
 ```html
-<Accordion autocollapse>...</Accordion>
-```
-
-### Open State
-
-Set the visible items on load with `open`. When using `autocollapse` mode, this is limited to a single item.
-
-```html
-<AccordionItem open>...</AccordionItem>
+<Accordion multiple>...</Accordion>
 ```

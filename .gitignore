@@ -18,6 +18,7 @@ repos.json
 !/packages/create-skeleton-app
 !/packages/skeleton*
 !/packages/plugin
+!/packages/vite-plugin-tw-plugin-watcher
 /sites/*
 !/sites/skeleton.dev
 !/sites/next.skeleton.dev
