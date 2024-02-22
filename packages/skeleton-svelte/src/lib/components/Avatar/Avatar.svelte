@@ -3,8 +3,6 @@
 
 	let {
 		href = '',
-		action = () => {},
-		actionParams = '',
 		// Root
 		base = 'overflow-hidden isolate',
 		background = 'bg-surface-400-600',
@@ -17,6 +15,7 @@
 		// Image
 		imageSrc = '',
 		imageAlt = '',
+		imageFilter = '',
 		imageBase = 'w-full object-cover',
 		imageClasses = '',
 
@@ -26,9 +25,9 @@
 </script>
 
 {#snippet figure()}
-	<figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" use:action={actionParams}>
+	<figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}">
 		{#if imageSrc}
-			<img class="{imageBase} {imageClasses}" src={imageSrc} alt={imageAlt} />
+			<img class="{imageBase} {imageClasses}" src={imageSrc} alt={imageAlt} style="filter:url({imageFilter})"/>
 		{:else if children}
 			{@render children()}
 		{/if}

@@ -4,10 +4,6 @@ import type { Action } from 'svelte/action';
 export interface AvatarProps {
 	/** Provide URL to link the avatar to. */
 	href?: string;
-	/** Provide a Svelte action reference, such as `filter`. */
-	action?: Action<HTMLElement, string>;
-	/** Provide Svelte action params, such as Apollo. */
-	actionParams?: string;
 
 	// Root (figure)
 	/** Set base styles. */
@@ -32,6 +28,8 @@ export interface AvatarProps {
 	imageSrc?: string;
 	/** Set avatar image Alt text. */
 	imageAlt?: string;
+	/** Set avatar image filter name. such as "#Apollo". */
+	imageFilter?: string;
 	/** Set avatar image base styles. */
 	imageBase?: string;
 	/** Provide avatar image arbitrary CSS classes. */

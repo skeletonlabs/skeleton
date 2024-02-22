@@ -4,6 +4,27 @@
 
 <h1 class="h1">Avatars</h1>
 
+<!-- Filter example -->
+<!-- NoirLight: `filter: url(#NoirLight)` -->
+<svg id="svg-filter-noirlight" class="filter absolute -left-full w-0 h-0">
+	<filter
+		id="NoirLight"
+		x="-20%"
+		y="-20%"
+		width="140%"
+		height="140%"
+		filterUnits="objectBoundingBox"
+		primitiveUnits="userSpaceOnUse"
+		color-interpolation-filters="linearRGB"
+	>
+		<feColorMatrix type="saturate" values="0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="colormatrix2" />
+		<feBlend mode="saturation" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="colormatrix2" result="blend2" />
+		<feBlend mode="screen" x="0%" y="0%" width="100%" height="100%" in="colormatrix2" in2="blend2" result="blend3" />
+		<feColorMatrix type="luminanceToAlpha" x="0%" y="0%" width="100%" height="100%" in="blend3" result="colormatrix3" />
+		<feBlend mode="exclusion" x="0%" y="0%" width="100%" height="100%" in="blend3" in2="colormatrix3" result="blend5" />
+	</filter>
+</svg>
+
 <!-- imageSrc -->
 <h3 class="h3">imageSrc</h3>
 <Avatar
@@ -18,6 +39,14 @@
 <!-- Icon + href -->
 <h3 class="h3">Icon + href</h3>
 <Avatar href="#" classes="flex justify-center items-center h-16" border="border-4">💀</Avatar>
+
+<!-- filter -->
+<h3 class="h3">Filter</h3>
+<Avatar
+	imageSrc="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop"
+	imageAlt="skeleton"
+	imageFilter="#NoirLight"
+/>
 
 <!-- non-square aspect-ratio -->
 <h3 class="h3">non-square aspect-ratio</h3>
