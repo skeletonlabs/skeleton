@@ -35,7 +35,7 @@
 {/snippet}
 
 {#if href}
-	<a {href} class={rounded}>
+	<a {href}>
 		{@render figure()}
 	</a>
 {:else}
