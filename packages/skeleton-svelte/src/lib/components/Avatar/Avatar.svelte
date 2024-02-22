@@ -27,7 +27,7 @@
 {#snippet figure()}
 	<figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}">
 		{#if imageSrc}
-			<img class="{imageBase} {imageClasses}" src={imageSrc} alt={imageAlt} style="filter:url({imageFilter})"/>
+			<img class="{imageBase} {imageClasses}" src={imageSrc} alt={imageAlt} style="filter:url({imageFilter})" />
 		{:else if children}
 			{@render children()}
 		{/if}
