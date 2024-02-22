@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+
 ---
 
 <form class="w-full max-w-md mx-auto space-y-8">
@@ -11,7 +11,7 @@ import { Icon } from 'astro-icon/components'
     {/* Amount */}
     <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
         <div class="input-group-cell preset-tonal-surface">
-            <Icon name="heroicons-outline:currency-dollar" size={20} />
+            <i data-lucide="circle-dollar-sign" class="size-4"></i>
         </div>
         <input type="text" placeholder="Amount" />
         <select>
@@ -24,13 +24,13 @@ import { Icon } from 'astro-icon/components'
     <div class="input-group grid-cols-[1fr_auto] divide-x divide-surface-200-800">
         <input type="text" placeholder="Enter Username..." />
         <button class="btn preset-filled" title="Username already in use.">
-            <Icon name="heroicons-outline:check" size={20} />
+            <i data-lucide="check" class="size-4"></i>
         </button>
     </div>
     {/* Search */}
     <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
         <div class="input-group-cell">
-            <Icon name="heroicons-outline:search" size={20} />
+            <i data-lucide="search" class="size-4"></i>
         </div>
         <input type="search" placeholder="Search..." />
         <button class="btn preset-filled">Submit</button>

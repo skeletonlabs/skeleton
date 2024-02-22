@@ -20,6 +20,35 @@ const pageTitle = `${title ? title + ' - ' : ''}Skeleton`
         <link rel="icon" type="image/png" href="/favicon.png" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
+        <!-- Lucide -->
+        <!-- https://lucide.dev/guide/packages/lucide#with-esmodules -->
+        <!-- NOTE: maintain alphabetic order -->
+        <script>
+            import {
+                createIcons,
+                // Icons
+                BookOpen,
+                Check,
+                CircleDollarSign,
+                Code,
+                Heart,
+                PersonStanding,
+                Search,
+                SunMoon,
+            } from 'lucide'
+            createIcons({
+                icons: {
+                    BookOpen,
+                    Check,
+                    CircleDollarSign,
+                    Code,
+                    Heart,
+                    PersonStanding,
+                    Search,
+                    SunMoon,
+                },
+            })
+        </script>
     </head>
     <body class:list={[classList]} data-theme="next">
         <slot />

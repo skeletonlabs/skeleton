@@ -34,6 +34,7 @@
 		"astro-auto-import": "^0.4.2",
 		"astro-expressive-code": "^0.33.2",
 		"astro-icon": "^1.1.0",
+		"lucide": "^0.336.0",
 		"nanostores": "^0.9.5",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -43,8 +44,6 @@
 		"typescript": "^5.3.3"
 	},
 	"devDependencies": {
-		"@iconify-json/heroicons-outline": "^1.1.10",
-		"@iconify-json/simple-icons": "^1.1.90",
 		"@tailwindcss/forms": "^0.5.7",
 		"@tailwindcss/typography": "^0.5.10",
 		"@types/node": "^20.11.17",
