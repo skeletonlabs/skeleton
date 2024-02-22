@@ -29,6 +29,7 @@ export default defineConfig({
     }),
     // https://expressive-code.com/
     expressiveCode({
+      defaultProps: { wrap: true },
       themes: ['dark-plus']
     }),
     // https://www.astroicon.dev/
