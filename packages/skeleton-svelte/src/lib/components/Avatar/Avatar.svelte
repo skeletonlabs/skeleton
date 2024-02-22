@@ -8,7 +8,7 @@
 		// Root
 		base = 'overflow-hidden isolate',
 		background = 'bg-surface-400-600',
-		width = 'w-16',
+		size = 'size-16',
 		font = '',
 		border = '',
 		rounded = 'rounded-full',
@@ -26,7 +26,7 @@
 </script>
 
 {#snippet figure()}
-	<figure class="{base} {background} {width} {font} {border} {rounded} {shadow} {classes}" use:action={actionParams}>
+	<figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" use:action={actionParams}>
 		{#if imageSrc}
 			<img class="{imageBase} {imageClasses}" src={imageSrc} alt={imageAlt} />
 		{:else if children}

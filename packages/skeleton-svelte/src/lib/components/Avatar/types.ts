@@ -16,8 +16,8 @@ export interface AvatarProps {
 	background?: string;
 	/** Set font styles. */
 	font?: string;
-	/** Set width styles. */
-	width?: string;
+	/** Set size styles. */
+	size?: string;
 	/** Set border styles. */
 	border?: string;
 	/** Set border radius styles. */
