@@ -66,6 +66,7 @@
 		"tslib": "^2.6.2",
 		"typescript": "^5.3.3",
 		"vite": "^5.1.2",
+		"vite-plugin-tw-plugin-watcher": "workspace:*",
 		"vitest": "^1.2.2"
 	},
 	"type": "module"
