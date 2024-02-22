@@ -18,13 +18,13 @@ const socialLinks = [
             {
                 socialLinks.map((l) => (
                     <a href={l.href} target="_blank" title={l.label}>
-                        <Icon name={l.icon} size={20} />
+                        <Icon name={l.icon} size={24} class="size-5" />
                     </a>
                 ))
             }
             <!-- Lightswitch -->
             <button id="lightswitch" title="Toggle dark mode.">
-                <i data-lucide="sun-moon"></i>
+                <i data-lucide="sun-moon" class="size-5"></i>
             </button>
         </nav>
     </div>
