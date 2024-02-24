@@ -27,7 +27,7 @@
 </script>
 
 {#snippet figure()}
-	<figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}">
+	<figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testId="avatar">
 		{#if imageSrc}
 			<img class="{imageBase} {imageClasses}" src={imageSrc} alt={imageAlt} style="filter:url({imageFilter})" />
 		{:else if children}
@@ -37,7 +37,7 @@
 {/snippet}
 
 {#if anchorHref}
-	<a href={anchorHref} class="{anchorBase} {anchorClasses}">
+	<a href={anchorHref} class="{anchorBase} {anchorClasses}" data-testId="avatar-anchor">
 		{@render figure()}
 	</a>
 {:else}

@@ -24,7 +24,7 @@ const Figure: React.FC<FigureProps> = ({
     children
 }): React.ReactElement => {
     return(
-        <figure className={`${base} ${background} ${size} ${font} ${border} ${rounded} ${shadow} ${classes}`}>
+        <figure className={`${base} ${background} ${size} ${font} ${border} ${rounded} ${shadow} ${classes}`} data-testId="avatar">
             {imageSrc ? (
                 <img className={`${imageBase} ${imageClasses}`} src={imageSrc} alt={imageAlt} style={{ filter: `url(${imageFilter})` }} />
             ) : (
@@ -74,7 +74,7 @@ const Avatar: React.FC<AvatarProps> = ({
         children
     }
     return anchorHref ? (
-        <a href={anchorHref} className={`${anchorBase} ${anchorClasses}`}>
+        <a href={anchorHref} className={`${anchorBase} ${anchorClasses}`} data-testId="avatar-anchor">
             <Figure {...figureProps} />
         </a>
     ) : (
