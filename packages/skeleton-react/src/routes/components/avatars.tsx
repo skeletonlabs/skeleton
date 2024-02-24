@@ -25,7 +25,7 @@ function iconAndHrefAvatar() {
     return(
         <>
             <h3 className="h3">Icon + href</h3>
-            <Avatar href="#" classes="flex justify-center items-center h-16" border="border-4">💀</Avatar>
+            <Avatar anchorHref="#" classes="flex justify-center items-center h-16" border="border-4">💀</Avatar>
         </>
     );
 }

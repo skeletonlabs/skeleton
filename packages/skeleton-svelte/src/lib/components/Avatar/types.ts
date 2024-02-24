@@ -2,9 +2,6 @@ import type { Snippet } from 'svelte';
 import type { Action } from 'svelte/action';
 
 export interface AvatarProps {
-	/** Provide URL to link the avatar to. */
-	href?: string;
-
 	// Root (figure)
 	/** Set base styles. */
 	base?: string;
@@ -34,6 +31,14 @@ export interface AvatarProps {
 	imageBase?: string;
 	/** Provide avatar image arbitrary CSS classes. */
 	imageClasses?: string;
+
+	// Anchor
+	/** Provide URL to link the avatar to. */
+	anchorHref?: string;
+	/** Provide Anchor base styles. */
+	anchorBase?: string;
+	/** Provide Anchor arbitrary CSS classes. */
+	anchorClasses?: string;
 
 	// Snippets
 	/** The default child slot. */

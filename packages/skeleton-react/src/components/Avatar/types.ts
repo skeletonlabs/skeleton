@@ -31,6 +31,11 @@ export interface FigureProps extends React.PropsWithChildren {
 }
 
 export interface AvatarProps extends FigureProps {
-    /** Provide URL to link the avatar to. */
-	href?: string;
+	// Anchor
+	/** Provide URL to link the avatar to. */
+	anchorHref?: string;
+	/** Provide Anchor base styles. */
+	anchorBase?: string;
+	/** Provide Anchor arbitrary CSS classes. */
+	anchorClasses?: string;
 }

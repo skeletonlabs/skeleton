@@ -35,7 +35,6 @@ const Figure: React.FC<FigureProps> = ({
 };
 
 const Avatar: React.FC<AvatarProps> = ({
-    href = '',
     // Root
     base = 'overflow-hidden isolate',
     background = 'bg-surface-400-600',
@@ -51,6 +50,10 @@ const Avatar: React.FC<AvatarProps> = ({
     imageFilter = '',
     imageBase = 'w-full object-cover',
     imageClasses = '',
+    // Anchor
+    anchorHref = '',
+    anchorBase = 'inline-block',
+    anchorClasses = '',
     // Children
     children
 }): React.ReactElement => {
@@ -70,8 +73,8 @@ const Avatar: React.FC<AvatarProps> = ({
         imageClasses,
         children
     }
-    return href ? (
-        <a href={href}>
+    return anchorHref ? (
+        <a href={anchorHref} className={`${anchorBase} ${anchorClasses}`}>
             <Figure {...figureProps} />
         </a>
     ) : (

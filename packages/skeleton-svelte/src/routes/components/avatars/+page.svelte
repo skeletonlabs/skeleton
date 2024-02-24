@@ -38,7 +38,7 @@
 
 <!-- Icon + href -->
 <h3 class="h3">Icon + href</h3>
-<Avatar href="#" classes="flex justify-center items-center h-16" border="border-4">💀</Avatar>
+<Avatar anchorHref="#" classes="flex justify-center items-center h-16" border="border-4">💀</Avatar>
 
 <!-- filter -->
 <h3 class="h3">Filter</h3>

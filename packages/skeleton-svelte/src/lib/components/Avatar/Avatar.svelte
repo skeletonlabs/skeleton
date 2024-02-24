@@ -2,7 +2,6 @@
 	import type { AvatarProps } from './types.js';
 
 	let {
-		href = '',
 		// Root
 		base = 'overflow-hidden isolate',
 		background = 'bg-surface-400-600',
@@ -18,7 +17,10 @@
 		imageFilter = '',
 		imageBase = 'w-full object-cover',
 		imageClasses = '',
-
+		// Anchor
+		anchorHref = '',
+		anchorBase = 'inline-block',
+		anchorClasses = '',
 		// Snippets
 		children
 	} = $props<AvatarProps>();
@@ -34,8 +36,8 @@
 	</figure>
 {/snippet}
 
-{#if href}
-	<a {href}>
+{#if anchorHref}
+	<a href={anchorHref} class="{anchorBase} {anchorClasses}">
 		{@render figure()}
 	</a>
 {:else}
