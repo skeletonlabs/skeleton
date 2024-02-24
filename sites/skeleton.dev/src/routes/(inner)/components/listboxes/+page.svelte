@@ -122,9 +122,7 @@
 		</section>
 		<section class="space-y-4">
 			<h3 class="h3">Disabled</h3>
-			<p>
-				By adding the <code class="code">disabled</code> property, 
-				it disables selection of child listboxitems. To disable each one individually, <code class="code">disabled</code> also can be set in a listboxitem component.</p>
+			<p>To disable all items or singular items, use the <code class="code">disabled</code> prop.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<ListBox disabled active="variant-filled-primary" activeDisabled="variant-ghost-primary" hover="hover:variant-soft-primary" multiple class="w-full max-w-[480px]">

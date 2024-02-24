@@ -19,8 +19,8 @@
 	// Props (styles) - Item Only
 	/** Provide classes to set the listbox item active background styles. */
 	export let active: CssClasses = 'variant-filled';
-	/** Provide classes to set the listbox item active disabled background styles */
-	export let activeDisabled: CssClasses = 'variant-ghost';
+	/** Provide classes to set the listbox item inactive background styles */
+	export let inactive: CssClasses = 'variant-ghost';
 	/** Provide classes to set the listbox item hover background styles. */
 	export let hover: CssClasses = 'hover:variant-soft';
 	/** Provide classes to set the listbox item padding styles. */
@@ -39,11 +39,11 @@
 	export let labelledby = '';
 
 	// Context
-	setContext('disabledItems', disabled);
+	setContext('disabled', disabled);
 	setContext('multiple', multiple);
 	setContext('rounded', rounded);
 	setContext('active', active);
-	setContext('activeDisabled', activeDisabled);
+	setContext('inactive', inactive);
 	setContext('hover', hover);
 	setContext('padding', padding);
 	setContext('regionLead', regionLead);
