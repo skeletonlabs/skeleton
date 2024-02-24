@@ -1,4 +1,4 @@
-import Avatar from "../../components/Avatar/Avatar";
+import { Avatar } from "../../components/Avatar/Avatar";
 
 function imageSrcAvatar() {
     return(
@@ -21,11 +21,20 @@ function initialsAvatar() {
     );
 }
 
-function iconAndHrefAvatar() {
+function iconAvatar() {
     return(
         <>
-            <h3 className="h3">Icon + href</h3>
-            <Avatar anchorHref="#" classes="flex justify-center items-center h-16" border="border-4">💀</Avatar>
+            <h3 className="h3">Icon</h3>
+            <Avatar classes="flex justify-center items-center h-16">💀</Avatar>
+        </>
+    );
+}
+
+function anchorInteractiveBorderAvatar() {
+    return(
+        <>
+            <h3 className="h3">anchor + interractive border</h3>
+            <Avatar anchorHref="#" classes="flex justify-center items-center h-16" border="border-4 border-surface-400-600 hover:!border-primary-500">💀</Avatar>
         </>
     );
 }
@@ -90,7 +99,8 @@ export function Component() {
             <h1 className="h1">Avatars</h1>
             {imageSrcAvatar()}
             {initialsAvatar()}
-            {iconAndHrefAvatar()}
+            {iconAvatar()}
+            {anchorInteractiveBorderAvatar()}
             {filterAvatar()}
             {nonSquareAspectRatioAvatar()}
         </>

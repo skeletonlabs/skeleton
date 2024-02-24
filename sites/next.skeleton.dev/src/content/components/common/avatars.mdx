@@ -5,3 +5,31 @@ srcSvelte: '/src/lib/components/avatar'
 srcReact: '/src/components/avatar'
 showDocsUrl: true
 ---
+
+export const components = componentSet;
+
+## Fallback
+
+The fallback slot can be used for Initials, Icons and fallback image.
+
+The fallback content is only displayed when the prop `imageSrc` is empty!
+
+```tsx
+<Avatar>SK</Avatar>
+<Avatar>💀</Avatar>
+```
+
+## Anchor
+
+When the prop `anchorHref` is provided, the avatar will act as an anchor element.
+
+```tsx
+<Avatar anchorHref="#" />
+```
+
+Apply the following styles to create an __Interactive border__.
+
+```tsx
+<Avatar anchorHref='#'
+        border="border-4 border-surface-400-600 hover:!border-primary-500">
+```

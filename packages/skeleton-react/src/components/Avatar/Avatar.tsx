@@ -34,7 +34,7 @@ const Figure: React.FC<FigureProps> = ({
     );
 };
 
-const Avatar: React.FC<AvatarProps> = ({
+export const Avatar: React.FC<AvatarProps> = ({
     // Root
     base = 'overflow-hidden isolate',
     background = 'bg-surface-400-600',
@@ -81,5 +81,3 @@ const Avatar: React.FC<AvatarProps> = ({
         <Figure {...figureProps} />
     )
 };
-
-export default Avatar;

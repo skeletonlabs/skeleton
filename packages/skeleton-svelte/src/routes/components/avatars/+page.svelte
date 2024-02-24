@@ -36,9 +36,13 @@
 <h3 class="h3">Initials</h3>
 <Avatar font="text-4xl" classes="flex justify-center items-center h-16">SK</Avatar>
 
-<!-- Icon + href -->
-<h3 class="h3">Icon + href</h3>
-<Avatar anchorHref="#" classes="flex justify-center items-center h-16" border="border-4">💀</Avatar>
+<!-- Icon -->
+<h3 class="h3">Icon</h3>
+<Avatar classes="flex justify-center items-center h-16">💀</Avatar>
+
+<!-- Href + Interractive border -->
+<h3 class="h3">href + Interractive border</h3>
+<Avatar anchorHref="#" classes="flex justify-center items-center h-16" border="border-4 border-surface-400-600 hover:!border-primary-500">💀</Avatar>
 
 <!-- filter -->
 <h3 class="h3">Filter</h3>
