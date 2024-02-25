@@ -23,7 +23,6 @@
 	export let multiple: string = getContext('multiple');
 	export let rounded: CssClasses = getContext('rounded');
 	export let active: CssClasses = getContext('active');
-	export let inactive: CssClasses = getContext('inactive');
 	export let hover: CssClasses = getContext('hover');
 	export let padding: CssClasses = getContext('padding');
 	export let regionLead: CssClasses = getContext('regionLead');
@@ -32,6 +31,7 @@
 
 	// Classes
 	const cBase = 'cursor-pointer -outline-offset-[3px]';
+	const cDisabled = 'opacity-50 !cursor-default';
 	const cLabel = 'flex items-center space-x-4';
 
 	// Local
@@ -97,8 +97,9 @@
 
 	// Reactive
 	$: selected = multiple ? group.some((groupVal: unknown) => areDeeplyEqual(value, groupVal)) : areDeeplyEqual(group, value);
-	$: classesActive = !disabled ? (selected ? active : hover) : (selected ? inactive : '');
-	$: classesBase = `${cBase} ${rounded} ${padding} ${classesActive} ${$$props.class ?? ''}`;
+	$: classesActive = selected ? active : !disabled ? hover : '';
+	$: classesDisabled = disabled ? cDisabled : '';
+	$: classesBase = `${cBase} ${classesDisabled} ${rounded} ${padding} ${classesActive} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
 	$: classesRegionLead = `${cRegionLead} ${regionLead}`;
 	$: classesRegionDefault = `${cRegionDefault} ${regionDefault}`;
