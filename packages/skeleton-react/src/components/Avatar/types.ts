@@ -1,4 +1,11 @@
 export interface AvatarProps extends React.PropsWithChildren {
+	/** Set avatar image source URL. */
+	src?: string;
+	/** Set avatar image Alt text. */
+	alt?: string;
+	/** Set avatar image filter name. such as "#Apollo". */
+	filter?: string;
+
 	// Root ---
 	/** Set base styles. */
 	base?: string;
@@ -20,12 +27,6 @@ export interface AvatarProps extends React.PropsWithChildren {
 	// Image ---
 	/** Set avatar image base styles. */
 	imageBase?: string;
-	/** Set avatar image source URL. */
-	imageSrc?: string;
-	/** Set avatar image Alt text. */
-	imageAlt?: string;
-	/** Set avatar image filter name. such as "#Apollo". */
-	imageFilter?: string;
 	/** Provide avatar image arbitrary CSS classes. */
 	imageClasses?: string;
 }

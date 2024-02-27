@@ -4,6 +4,9 @@ import React from "react";
 import { AvatarProps } from "./types";
 
 export const Avatar: React.FC<AvatarProps> = ({
+    src = '',
+    alt = '',
+    filter = '',
     // Root
     base = 'overflow-hidden isolate',
     background = 'bg-surface-400-600',
@@ -14,9 +17,6 @@ export const Avatar: React.FC<AvatarProps> = ({
     shadow = '',
     classes = '',
     // Image
-    imageSrc = '',
-    imageAlt = '',
-    imageFilter = '',
     imageBase = 'w-full object-cover',
     imageClasses = '',
     // Children
@@ -24,8 +24,8 @@ export const Avatar: React.FC<AvatarProps> = ({
 }): React.ReactElement => {
     return (
         <figure className={`${base} ${background} ${size} ${font} ${border} ${rounded} ${shadow} ${classes}`} data-testId="avatar">
-            {imageSrc ? (
-                <img className={`${imageBase} ${imageClasses}`} src={imageSrc} alt={imageAlt} style={{ filter: imageFilter ? `url(${imageFilter})` : undefined }} />
+            {src ? (
+                <img className={`${imageBase} ${imageClasses}`} src={src} alt={alt} style={{ filter: filter ? `url(${filter})` : undefined }} />
             ) : (
                 children
             )}

@@ -1,12 +1,16 @@
 import { Avatar } from "../../components/Avatar/Avatar";
 
+const imgSrc = "https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop";
+const verticalImgSrc = "https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=64&h=128&auto=format&fit=crop";
+const horizontalImgSrc = "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
 function imageSrcAvatar() {
     return(
         <>
             <h3 className="h3">imageSrc</h3>
             <Avatar
-                imageSrc="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop"
-                imageAlt="skeleton"
+                src={imgSrc}
+                alt="skeleton"
             />
         </>
     );
@@ -55,9 +59,9 @@ function filterAvatar() {
             </svg>
             <h3 className="h3">Filter</h3>
             <Avatar
-                imageSrc="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop"
-                imageAlt="skeleton"
-                imageFilter="#NoirLight"
+                src={imgSrc}
+                alt="skeleton"
+                filter="#NoirLight"
             />
         </>
     );
@@ -70,14 +74,14 @@ function nonSquareAspectRatioAvatar() {
             <div className="flex space-x-4">
                 <Avatar
                     size="w-16 h-32"
-                    imageSrc="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=64&h=128&auto=format&fit=crop"
-                    imageAlt="skeleton"
+                    src={verticalImgSrc}
+                    alt="skeleton"
                 />
                 <Avatar
                     size="w-64 h-32"
                     rounded="rounded-md"
-                    imageSrc="https://images.unsplash.com/photo-1509557965875-b88c97052f0e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    imageAlt="skeleton"
+                    src={horizontalImgSrc}
+                    alt="skeleton"
                 />
             </div>
         </>

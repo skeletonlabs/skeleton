@@ -2,6 +2,9 @@
 	import type { AvatarProps } from './types.js';
 
 	let {
+		src = '',
+		alt = '',
+		filter = '',
 		// Root
 		base = 'overflow-hidden isolate',
 		background = 'bg-surface-400-600',
@@ -12,9 +15,6 @@
 		shadow = '',
 		classes = '',
 		// Image
-		imageSrc = '',
-		imageAlt = '',
-		imageFilter = '',
 		imageBase = 'w-full object-cover',
 		imageClasses = '',
 		// Snippets
@@ -25,8 +25,8 @@
 <!-- @component An Avatar component. -->
 
 <figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testId="avatar">
-	{#if imageSrc}
-		<img class="{imageBase} {imageClasses}" src={imageSrc} alt={imageAlt} style={imageFilter && `filter:url(${imageFilter})`} />
+	{#if src}
+		<img class="{imageBase} {imageClasses}" {src} {alt} style:filter={filter && `url(${filter})`} />
 	{:else if children}
 		{@render children()}
 	{/if}
