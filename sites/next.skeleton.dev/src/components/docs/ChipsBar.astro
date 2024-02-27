@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Code as IconCode, BookOpen, PersonStanding } from 'lucide-react'
 
 // Props
 const { frontmatter, urls } = Astro.props
@@ -9,7 +9,7 @@ const { frontmatter, urls } = Astro.props
     {
         frontmatter.srcCore && (
             <a class="chip preset-filled-surface-200-800" href={urls.githubSkeletonUrl + frontmatter.srcCore} target="_blank">
-                <Icon name="heroicons-outline:code" />
+                <IconCode size={16} />
                 <span>CSS</span>
             </a>
         )
@@ -17,7 +17,7 @@ const { frontmatter, urls } = Astro.props
     {
         frontmatter.srcReact && (
             <a class="chip preset-filled-surface-200-800" href={urls.githubReactUrl + frontmatter.srcReact} target="_blank">
-                <Icon name="heroicons-outline:code" />
+                <IconCode size={16} />
                 <span>React</span>
             </a>
         )
@@ -25,7 +25,7 @@ const { frontmatter, urls } = Astro.props
     {
         frontmatter.srcSvelte && (
             <a class="chip preset-filled-surface-200-800" href={urls.githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
-                <Icon name="heroicons-outline:code" />
+                <IconCode size={16} />
                 <span>Svelte</span>
             </a>
         )
@@ -33,7 +33,7 @@ const { frontmatter, urls } = Astro.props
     {
         frontmatter.showDocsUrl && (
             <a class="chip preset-filled-surface-200-800" href={urls.githubDocsUrl + Astro.url.pathname + '.mdx'} target="_blank">
-                <Icon name="heroicons-outline:book-open" />
+                <BookOpen size={16} />
                 <span>Doc</span>
             </a>
         )
@@ -41,7 +41,7 @@ const { frontmatter, urls } = Astro.props
     {
         frontmatter.srcAlly && (
             <a class="chip preset-filled-surface-200-800" href={frontmatter.srcAlly} target="_blank">
-                <Icon name="heroicons-outline:user" />
+                <PersonStanding size={16} />
                 <span>A11y</span>
             </a>
         )

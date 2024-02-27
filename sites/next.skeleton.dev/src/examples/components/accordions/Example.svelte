@@ -1,5 +1,8 @@
 <script lang="ts">
     import { Accordion, AccordionItem } from '@skeletonlabs/skeleton-svelte';
+    // import IconChevronUp from 'lucide-svelte/icons/chevron-up';
+    // import IconChevronDown from 'lucide-svelte/icons/chevron-down';
+    import Skull from 'lucide-svelte/icons/skull';
 
     const lorem =
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
@@ -11,12 +14,12 @@
 
 <Accordion>
     <!-- Icons -->
-    <!-- {#snippet iconOpen()}&uarr;{/snippet} -->
-    <!-- {#snippet iconClosed()}&darr;{/snippet} -->
+    <!-- {#snippet iconOpen()}<IconChevronUp size={20} />{/snippet} -->
+    <!-- {#snippet iconClosed()}<IconChevronDown size={20} />{/snippet} -->
     <!-- Children -->
     <AccordionItem id="svelteItem1" {ontoggle} open>
         <!-- Control -->
-        {#snippet controlLead()}💀{/snippet}
+        {#snippet controlLead()}<Skull size={24} />{/snippet}
         {#snippet control()}Svelte Control 1{/snippet}
         <!-- Panel -->
         {#snippet panel()}Svelte Panel 1 - {lorem}{/snippet}

@@ -36,10 +36,6 @@ export default defineConfig({
     icon({
       include: {
         iconDir: ['src/icons'],
-        // https://icon-sets.iconify.design/heroicons/
-        'heroicons-outline': ['*'],
-        // https://icon-sets.iconify.design/simple-icons/
-        'simple-icons': ['*']
       }
     }),
     // https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import
