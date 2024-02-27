@@ -22,7 +22,7 @@
 	} = $props<AvatarProps>();
 </script>
 
-<!-- @component An Avatar component. -->
+<!-- @component An image with a fallback for representing the user. -->
 
 <figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testId="avatar">
 	{#if src}
