@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { SunMoon } from 'lucide-react'
 
 const socialLinks = [
     { href: 'https://github.com/skeletonlabs/skeleton', label: 'GitHub', icon: 'github' },
@@ -24,7 +25,7 @@ const socialLinks = [
             }
             <!-- Lightswitch -->
             <button id="lightswitch" title="Toggle dark mode.">
-                <i data-lucide="sun-moon" class="size-5"></i>
+                <SunMoon size={24} />
             </button>
         </nav>
     </div>

@@ -1,3 +1,7 @@
+---
+import { CircleDollarSign, Check, Search } from 'lucide-react'
+---
+
 <form class="w-full max-w-md mx-auto space-y-8">
     {/* Website */}
     <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
@@ -7,7 +11,7 @@
     {/* Amount */}
     <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
         <div class="input-group-cell preset-tonal-surface">
-            <i data-lucide="circle-dollar-sign" class="size-4"></i>
+            <CircleDollarSign size={16} />
         </div>
         <input type="text" placeholder="Amount" />
         <select>
@@ -20,13 +24,13 @@
     <div class="input-group grid-cols-[1fr_auto] divide-x divide-surface-200-800">
         <input type="text" placeholder="Enter Username..." />
         <button class="btn preset-filled" title="Username already in use.">
-            <i data-lucide="check" class="size-4"></i>
+            <Check size={16} />
         </button>
     </div>
     {/* Search */}
     <div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
         <div class="input-group-cell">
-            <i data-lucide="search" class="size-4"></i>
+            <Search size={16} />
         </div>
         <input type="search" placeholder="Search..." />
         <button class="btn preset-filled">Submit</button>

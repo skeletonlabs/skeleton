@@ -50,9 +50,12 @@ dependencies:
   astro-icon:
     specifier: ^1.1.0
     version: 1.1.0
-  lucide:
-    specifier: ^0.336.0
-    version: 0.336.0
+  lucide-react:
+    specifier: ^0.341.0
+    version: 0.341.0(react@18.2.0)
+  lucide-svelte:
+    specifier: ^0.341.0
+    version: 0.341.0(svelte@5.0.0-next.51)
   nanostores:
     specifier: ^0.9.5
     version: 0.9.5
@@ -3436,8 +3439,20 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /lucide@0.336.0:
-    resolution: {integrity: sha512-GXIXZZ/8MX3qa1UUl02XXec+UWOtwxqexAsLIKi5tLpjc+zas12ATuv56+Od9wBt6nGbmrffYflAJJy+VLK6hw==}
+  /lucide-react@0.341.0(react@18.2.0):
+    resolution: {integrity: sha512-fqI0TLU/VbzC3p90MHP3kdCRRUMTRT5qBfxwaXlllkZieYfRrMVd/RORXytqJUC2GBrvZdWYs6yvJIrqdsOmDQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /lucide-svelte@0.341.0(svelte@5.0.0-next.51):
+    resolution: {integrity: sha512-RdLUlxgm97pKGS5dKchdhLuxmYBpwpcLvZ5XQH3HPO5rZZU8JvfzFs8vnbZH/tsDeA0UeSzdzZyOYbWkOAbarA==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
+    dependencies:
+      svelte: 5.0.0-next.51
     dev: false
 
   /magic-string@0.30.7:
