@@ -1,5 +1,16 @@
 ---
+import type { GetStaticPaths } from 'astro'
+import { getCollection } from 'astro:content'
 import { getEntry } from 'astro:content'
+
+export const getStaticPaths = (async () => {
+    const pages = await getCollection('tailwind')
+    return pages.map(({ slug }) => {
+        return {
+            params: { slug },
+        }
+    })
+}) satisfies GetStaticPaths
 
 // Get the slug from the incoming server request
 const { slug } = Astro.params

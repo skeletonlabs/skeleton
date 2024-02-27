@@ -9,11 +9,11 @@ const config = {
             },
         },
     ],
-    trailingComma: "es5",
+    trailingComma: 'es5',
     tabWidth: 4,
     semi: false,
     singleQuote: true,
-    "printWidth": 140
-};
+    printWidth: 140,
+}
 
-export default config;
+export default config
