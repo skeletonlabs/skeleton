@@ -7,6 +7,8 @@
 	// Props
 	/** Enable selection of multiple items. */
 	export let multiple = false;
+	/** Disables selection of items. */
+	export let disabled = false;
 
 	// Props (styles)
 	/** Provide class to set the vertical spacing style. */
@@ -35,6 +37,7 @@
 	export let labelledby = '';
 
 	// Context
+	setContext('disabled', disabled);
 	setContext('multiple', multiple);
 	setContext('rounded', rounded);
 	setContext('active', active);

@@ -29,7 +29,7 @@ export default [
 	<section class="space-y-4">
 		<h3 class="h3" data-toc-ignore>2. The Datatable Component</h3>
 		<p>
-			Create the new Datatable component in <code class="code">/src/lib/comonents/Datatable.svelte</code>, import your custom dataset, as
+			Create the new Datatable component in <code class="code">/src/lib/components/Datatable.svelte</code>, import your custom dataset, as
 			well as the
 			<code class="code">DataHandler</code> from Svelte Simple Datatables. Then, intialize the <code class="code">handler</code> and
 			<code class="code">rows</code>.

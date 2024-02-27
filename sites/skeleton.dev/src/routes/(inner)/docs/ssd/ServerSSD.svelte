@@ -100,7 +100,7 @@ const getParams = (state: State) => {
 		<h3 class="h3" data-toc-ignore>2. The Datatable Component</h3>
 
 		<p>
-			Create the new Datatable component in <code class="code">/src/lib/comonents/Datatable.svelte</code>. Import
+			Create the new Datatable component in <code class="code">/src/lib/components/Datatable.svelte</code>. Import
 			<code class="code">reload</code>
 			from <code class="code">api.ts</code>. Then import <code class="code">DataHandler</code> and the
 			<code class="code">State</code>
