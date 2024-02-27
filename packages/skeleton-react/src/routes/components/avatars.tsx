@@ -30,15 +30,6 @@ function iconAvatar() {
     );
 }
 
-function anchorInteractiveBorderAvatar() {
-    return(
-        <>
-            <h3 className="h3">anchor + interractive border</h3>
-            <Avatar anchorHref="#" classes="flex justify-center items-center h-16" border="border-4 border-surface-400-600 hover:!border-primary-500">💀</Avatar>
-        </>
-    );
-}
-
 function filterAvatar() {
     return(
         <>
@@ -100,7 +91,6 @@ export function Component() {
             {imageSrcAvatar()}
             {initialsAvatar()}
             {iconAvatar()}
-            {anchorInteractiveBorderAvatar()}
             {filterAvatar()}
             {nonSquareAspectRatioAvatar()}
         </>

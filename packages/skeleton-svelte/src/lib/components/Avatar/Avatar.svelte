@@ -17,29 +17,17 @@
 		imageFilter = '',
 		imageBase = 'w-full object-cover',
 		imageClasses = '',
-		// Anchor
-		anchorHref = '',
-		anchorBase = 'inline-block',
-		anchorClasses = '',
 		// Snippets
 		children
 	} = $props<AvatarProps>();
 </script>
 
-{#snippet figure()}
-	<figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testId="avatar">
-		{#if imageSrc}
-			<img class="{imageBase} {imageClasses}" src={imageSrc} alt={imageAlt} style="filter:url({imageFilter})" />
-		{:else if children}
-			{@render children()}
-		{/if}
-	</figure>
-{/snippet}
+<!-- @component An Avatar component. -->
 
-{#if anchorHref}
-	<a href={anchorHref} class="{anchorBase} {anchorClasses}" data-testId="avatar-anchor">
-		{@render figure()}
-	</a>
-{:else}
-	{@render figure()}
-{/if}
+<figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testId="avatar">
+	{#if imageSrc}
+		<img class="{imageBase} {imageClasses}" src={imageSrc} alt={imageAlt} style={imageFilter && `filter:url(${imageFilter})`} />
+	{:else if children}
+		{@render children()}
+	{/if}
+</figure>

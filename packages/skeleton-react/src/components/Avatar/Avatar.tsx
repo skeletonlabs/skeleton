@@ -1,38 +1,7 @@
 "use client";
 
 import React from "react";
-import { AvatarProps, FigureProps } from "./types";
-
-// Components
-const Figure: React.FC<FigureProps> = ({
-    // Root
-    base = '',
-    background = '',
-    size = '',
-    font = '',
-    border = '',
-    rounded = '',
-    shadow = '',
-    classes = '',
-    // Image
-    imageSrc = '',
-    imageAlt = '',
-    imageFilter = '',
-    imageBase = '',
-    imageClasses = '',
-    // Children
-    children
-}): React.ReactElement => {
-    return(
-        <figure className={`${base} ${background} ${size} ${font} ${border} ${rounded} ${shadow} ${classes}`} data-testId="avatar">
-            {imageSrc ? (
-                <img className={`${imageBase} ${imageClasses}`} src={imageSrc} alt={imageAlt} style={{ filter: `url(${imageFilter})` }} />
-            ) : (
-                children
-            )}
-	    </figure>  
-    );
-};
+import { AvatarProps } from "./types";
 
 export const Avatar: React.FC<AvatarProps> = ({
     // Root
@@ -50,34 +19,16 @@ export const Avatar: React.FC<AvatarProps> = ({
     imageFilter = '',
     imageBase = 'w-full object-cover',
     imageClasses = '',
-    // Anchor
-    anchorHref = '',
-    anchorBase = 'inline-block',
-    anchorClasses = '',
     // Children
     children
 }): React.ReactElement => {
-    const figureProps = {
-        base,
-        background,
-        size,
-        font,
-        border,
-        rounded,
-        shadow,
-        classes,
-        imageSrc,
-        imageAlt,
-        imageFilter,
-        imageBase,
-        imageClasses,
-        children
-    }
-    return anchorHref ? (
-        <a href={anchorHref} className={`${anchorBase} ${anchorClasses}`} data-testId="avatar-anchor">
-            <Figure {...figureProps} />
-        </a>
-    ) : (
-        <Figure {...figureProps} />
-    )
+    return (
+        <figure className={`${base} ${background} ${size} ${font} ${border} ${rounded} ${shadow} ${classes}`} data-testId="avatar">
+            {imageSrc ? (
+                <img className={`${imageBase} ${imageClasses}`} src={imageSrc} alt={imageAlt} style={{ filter: imageFilter ? `url(${imageFilter})` : undefined }} />
+            ) : (
+                children
+            )}
+	    </figure>  
+    );
 };

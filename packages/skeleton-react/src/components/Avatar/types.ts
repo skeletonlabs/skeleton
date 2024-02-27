@@ -1,13 +1,13 @@
-export interface FigureProps extends React.PropsWithChildren {
-	// Root (figure)
+export interface AvatarProps extends React.PropsWithChildren {
+	// Root ---
 	/** Set base styles. */
 	base?: string;
 	/** Set background styles. */
 	background?: string;
-	/** Set font styles. */
-	font?: string;
 	/** Set size styles. */
 	size?: string;
+	/** Set font styles. */
+	font?: string;
 	/** Set border styles. */
 	border?: string;
 	/** Set border radius styles. */
@@ -17,25 +17,15 @@ export interface FigureProps extends React.PropsWithChildren {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Image
+	// Image ---
+	/** Set avatar image base styles. */
+	imageBase?: string;
 	/** Set avatar image source URL. */
 	imageSrc?: string;
 	/** Set avatar image Alt text. */
 	imageAlt?: string;
 	/** Set avatar image filter name. such as "#Apollo". */
 	imageFilter?: string;
-	/** Set avatar image base styles. */
-	imageBase?: string;
 	/** Provide avatar image arbitrary CSS classes. */
 	imageClasses?: string;
-}
-
-export interface AvatarProps extends FigureProps {
-	// Anchor
-	/** Provide URL to link the avatar to. */
-	anchorHref?: string;
-	/** Provide Anchor base styles. */
-	anchorBase?: string;
-	/** Provide Anchor arbitrary CSS classes. */
-	anchorClasses?: string;
 }

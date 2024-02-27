@@ -10,26 +10,9 @@ export const components = componentSet;
 
 ## Fallback
 
-The fallback slot can be used for Initials, Icons and fallback image.
-
-The fallback content is only displayed when the prop `imageSrc` is empty!
+The fallback __children__, suitable for Initials, Icons, and fallback images, are exclusively shown when the `imageSrc` prop is empty.
 
 ```tsx
 <Avatar>SK</Avatar>
 <Avatar>💀</Avatar>
-```
-
-## Anchor
-
-When the prop `anchorHref` is provided, the avatar will act as an anchor element.
-
-```tsx
-<Avatar anchorHref="#" />
-```
-
-Apply the following styles to create an __Interactive border__.
-
-```tsx
-<Avatar anchorHref='#'
-        border="border-4 border-surface-400-600 hover:!border-primary-500">
 ```
