@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 2.9.0
+
+### Minor Changes
+
+- feat: Added `disabled` prop to ListBox and ListBoxItem components. ([#2485](https://github.com/skeletonlabs/skeleton/pull/2485))
+
 ## 2.8.0
 
 ### Minor Changes
