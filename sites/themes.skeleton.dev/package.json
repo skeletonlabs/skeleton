@@ -38,5 +38,8 @@
 		"vite": "^5.1.0",
 		"vitest": "^1.2.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"lucide-svelte": "^0.341.0"
+	}
 }

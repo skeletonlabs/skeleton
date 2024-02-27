@@ -1,4 +1,10 @@
 <script lang="ts">
+	import IconColors from 'lucide-svelte/icons/palette';
+	import IconBackgrounds from 'lucide-svelte/icons/swatch-book';
+	import IconScaling from 'lucide-svelte/icons/scaling';
+	import IconTypography from 'lucide-svelte/icons/whole-word';
+	import IconEdges from 'lucide-svelte/icons/box-select';
+
 	const colors = [
 		{ label: 'primary', hex: '#0170f3' },
 		{ label: 'secondary', hex: '#7928ca' },
@@ -13,7 +19,10 @@
 <form class="space-y-10">
 	<!-- Colors -->
 	<fieldset class="space-y-4 md:space-y-8">
-		<h2 class="font-bold type-scale-3">Colors</h2>
+		<div class="flex items-center gap-4">
+			<IconColors size={24} />
+			<h2 class="font-bold type-scale-3">Colors</h2>
+		</div>
 		<div class="grid grid-cols-2 gap-4">
 			{#each colors as color}
 				<label class="label">
@@ -29,7 +38,10 @@
 	<hr class="hr" />
 	<!-- Backgrounds -->
 	<fieldset class="space-y-4 md:space-y-8">
-		<h2 class="font-bold type-scale-3">Backgrounds</h2>
+		<div class="flex items-center gap-4">
+			<IconBackgrounds size={24} />
+			<h2 class="font-bold type-scale-3">Backgrounds</h2>
+		</div>
 		<div class="grid grid-cols-2 gap-4">
 			<label class="label">
 				<div class="label-text">Base Color</div>
@@ -50,7 +62,10 @@
 	<hr class="hr" />
 	<!-- Spacing -->
 	<fieldset class="space-y-4 md:space-y-8">
-		<h2 class="font-bold type-scale-3">Scaling</h2>
+		<div class="flex items-center gap-4">
+			<IconScaling size={24} />
+			<h2 class="font-bold type-scale-3">Scaling</h2>
+		</div>
 		<label class="label">
 			<div class="label-text flex justify-between">
 				<strong>Factor</strong>
@@ -62,7 +77,10 @@
 	<hr class="hr" />
 	<!-- Type Scale -->
 	<fieldset class="space-y-4 md:space-y-8">
-		<h2 class="font-bold type-scale-3">Typography</h2>
+		<div class="flex items-center gap-4">
+			<IconTypography size={24} />
+			<h2 class="font-bold type-scale-3">Typography</h2>
+		</div>
 		<label class="label">
 			<div class="label-text flex justify-between">
 				<strong>Factor</strong>
@@ -74,7 +92,10 @@
 	<hr class="hr" />
 	<!-- Edges -->
 	<fieldset class="space-y-4 md:space-y-8">
-		<h2 class="font-bold type-scale-3">Edges</h2>
+		<div class="flex items-center gap-4">
+			<IconEdges size={24} />
+			<h2 class="font-bold type-scale-3">Edges</h2>
+		</div>
 		<label class="label">
 			<div class="label-text flex justify-between">
 				<strong>Rounded Base</strong>
