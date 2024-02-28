@@ -35,8 +35,8 @@ export let storeFormColors: any = $state({
 	},
 	error: {
 		seed: '#f33f33',
-		contrastDark: 'var(--color-warning-50)',
-		contrastLight: 'var(--color-warning-950)',
+		contrastDark: 'var(--color-error-50)',
+		contrastLight: 'var(--color-error-950)',
 		breakpoint: 5
 	},
 	surface: {
