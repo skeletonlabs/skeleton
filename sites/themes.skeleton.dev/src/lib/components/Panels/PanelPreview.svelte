@@ -8,6 +8,8 @@
 	import Typography from '$lib/components/previews/Typography.svelte';
 	import Elements from '$lib/components/previews/Elements.svelte';
 	import Components from '$lib/components/previews/Components.svelte';
+	// Utilities
+	import Lightswitch from '$lib/components/utilities/Lightswitch.svelte';
 
 	// Reactive State
 	let tab = $state('preview');
@@ -32,7 +34,7 @@
 
 <div class="mx-auto max-w-[1200px] space-y-4 md:space-y-8">
 	<header
-		class="sticky top-0 z-10 flex items-center justify-between gap-4 rounded-bl-container rounded-br-container border border-t-0 p-4 border-surface-200-800 preset-filled-surface-100-900"
+		class="sticky top-0 z-10 grid grid-cols-[auto_1fr_auto_auto] items-center gap-4 rounded-bl-container rounded-br-container border border-t-0 p-4 border-surface-200-800 preset-filled-surface-100-900"
 	>
 		<!-- Branding -->
 		<div class="flex items-center gap-3">
@@ -41,15 +43,17 @@
 		</div>
 		<!-- Selection -->
 		{#if tab === 'preview'}
-			<nav class="btn-group grid grid-cols-4 p-1.5 preset-outlined-surface-300-700 md:flex-row">
+			<nav class="btn-group grid grid-cols-4 p-1.5 preset-outlined-surface-200-800 md:flex-row">
 				<button type="button" class="btn {activeContent('palette')}" onclick={() => setContent('palette')}>Palette</button>
 				<button type="button" class="btn {activeContent('typography')}" onclick={() => setContent('typography')}>Typography</button>
 				<button type="button" class="btn {activeContent('elements')}" onclick={() => setContent('elements')}>Elements</button>
 				<button type="button" class="btn {activeContent('components')}" onclick={() => setContent('components')}>Components</button>
 			</nav>
 		{/if}
+		<!-- Lighswitch -->
+		<Lightswitch />
 		<!-- Tabs -->
-		<nav class="btn-group flex-col p-1.5 preset-outlined-surface-300-700 md:flex-row">
+		<nav class="btn-group flex-col p-1.5 preset-outlined-surface-200-800 md:flex-row">
 			<button type="button" class="btn {activeTab('preview')}" onclick={() => setTab('preview')}>
 				<IconDesign size={20} />
 			</button>
