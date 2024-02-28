@@ -10,7 +10,7 @@
             "@components/*": ["src/components/*"],
             "@examples/*": ["src/examples/*"],
             "@content/*": ["src/content/*"],
-            "@styles/*": ["src/styles/*"],
-        },
-    },
+            "@styles/*": ["src/styles/*"]
+        }
+    }
 }
