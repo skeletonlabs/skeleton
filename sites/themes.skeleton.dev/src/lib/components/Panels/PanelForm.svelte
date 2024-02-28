@@ -16,9 +16,11 @@
 	let category = $state('colors');
 </script>
 
-<form class="space-y-10">
-	<!-- Selection -->
-	<div class="flex items-center gap-4">
+<form>
+	<!-- Header -->
+	<header
+		class="sticky top-0 z-10 flex items-center gap-4 border-b bg-surface-500/5 p-4 !py-4 backdrop-blur-2xl border-surface-200-800 md:p-8"
+	>
 		{#if category === 'colors'}<IconColors size={24} />{/if}
 		{#if category === 'backgrounds'}<IconBackgrounds size={24} />{/if}
 		{#if category === 'spacing'}<IconSpacing size={24} />{/if}
@@ -31,12 +33,13 @@
 			<option value="typography">Typography</option>
 			<option value="edges">Edges</option>
 		</select>
-	</div>
-	<hr class="hr" />
+	</header>
 	<!-- Fieldsets -->
-	{#if category === 'colors'}<Colors />{/if}
-	{#if category === 'backgrounds'}<Backgrounds />{/if}
-	{#if category === 'spacing'}<Spacing />{/if}
-	{#if category === 'typography'}<Typography />{/if}
-	{#if category === 'edges'}<Edges />{/if}
+	<div class="p-4 md:p-8">
+		{#if category === 'colors'}<Colors />{/if}
+		{#if category === 'backgrounds'}<Backgrounds />{/if}
+		{#if category === 'spacing'}<Spacing />{/if}
+		{#if category === 'typography'}<Typography />{/if}
+		{#if category === 'edges'}<Edges />{/if}
+	</div>
 </form>

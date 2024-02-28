@@ -115,20 +115,74 @@
 	];
 </script>
 
-<section class="grid grid-cols-1 gap-0.5 rounded-container border p-8 border-surface-200-800 xl:grid-cols-7">
-	{#each palette as color, i}
-		<div class="space-y-4">
-			<small class="block text-center opacity-60">{color.name}</small>
-			<div class="grid grid-rows-11 gap-0.5">
-				<!-- Color Ramp -->
-				{#each color.ramp as shade, i}
-					<div class={`${shade.base} `}>
-						<span class="flex items-center justify-center py-3 font-bold {shade.contrast}" class:underline={shade.value === 500}>
-							{shade.value}
-						</span>
-					</div>
-				{/each}
+<div class="space-y-4">
+	<!-- Palette -->
+	<section class="grid grid-cols-1 gap-0.5 rounded-container border p-8 border-surface-200-800 xl:grid-cols-7">
+		{#each palette as color, i}
+			<div class="space-y-4">
+				<small class="block text-center opacity-60">{color.name}</small>
+				<div class="grid grid-rows-11 gap-0.5">
+					<!-- Color Ramp -->
+					{#each color.ramp as shade, i}
+						<div class={`${shade.base} `}>
+							<span class="flex items-center justify-center py-3 font-bold {shade.contrast}" class:underline={shade.value === 500}>
+								{shade.value}
+							</span>
+						</div>
+					{/each}
+				</div>
 			</div>
+		{/each}
+	</section>
+	<!-- Presets: Filled -->
+	<section class="rounded-container border p-8 border-surface-200-800">
+		<div class="grid w-full grid-cols-2 gap-1 lg:grid-cols-4">
+			<!-- Neutral -->
+			<div class="flex items-center justify-center p-4 preset-filled">(neutral)</div>
+			<!-- Colors -->
+			<div class="flex items-center justify-center p-4 preset-filled-primary-950-50">950-50</div>
+			<div class="flex items-center justify-center p-4 preset-filled-primary-900-100">900-100</div>
+			<div class="flex items-center justify-center p-4 preset-filled-primary-800-200">800-200</div>
+			<div class="flex items-center justify-center p-4 preset-filled-primary-700-300">700-300</div>
+			<div class="flex items-center justify-center p-4 preset-filled-primary-600-400">600-400</div>
+			<div class="flex items-center justify-center p-4 preset-filled-primary-500">500</div>
+			<div class="flex items-center justify-center p-4 preset-filled-primary-400-600">400-600</div>
+			<div class="flex items-center justify-center p-4 preset-filled-primary-300-700">300-700</div>
+			<div class="flex items-center justify-center p-4 preset-filled-primary-200-800">200-800</div>
+			<div class="flex items-center justify-center p-4 preset-filled-primary-100-900">100-900</div>
+			<div class="flex items-center justify-center p-4 preset-filled-primary-50-950">50-950</div>
 		</div>
-	{/each}
-</section>
+	</section>
+	<!-- Presets: Tonal -->
+	<section class="rounded-container border p-8 border-surface-200-800">
+		<div class="grid w-full grid-cols-2 gap-1 lg:grid-cols-4">
+			<div class="flex items-center justify-center p-4 preset-tonal">(neutral)</div>
+			<div class="flex items-center justify-center p-4 preset-tonal-primary">primary</div>
+			<div class="flex items-center justify-center p-4 preset-tonal-secondary">secondary</div>
+			<div class="flex items-center justify-center p-4 preset-tonal-tertiary">tertiary</div>
+			<div class="flex items-center justify-center p-4 preset-tonal-success">success</div>
+			<div class="flex items-center justify-center p-4 preset-tonal-warning">warning</div>
+			<div class="flex items-center justify-center p-4 preset-tonal-error">error</div>
+			<div class="flex items-center justify-center p-4 preset-tonal-surface">surface</div>
+		</div>
+	</section>
+	<!-- Presets: Outlined -->
+	<section class="rounded-container border p-8 border-surface-200-800">
+		<div class="grid w-full grid-cols-2 gap-2 lg:grid-cols-4">
+			<!-- Neutral -->
+			<div class="flex items-center justify-center p-4 preset-outlined">(neutral)</div>
+			<!-- Colors -->
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-950-50">950-50</div>
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-900-100">900-100</div>
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-800-200">800-200</div>
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-700-300">700-300</div>
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-600-400">600-400</div>
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-500">500</div>
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-400-600">400-600</div>
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-300-700">300-700</div>
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-200-800">200-800</div>
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-100-900">100-900</div>
+			<div class="flex items-center justify-center p-4 preset-outlined-primary-50-950">50-950</div>
+		</div>
+	</section>
+</div>
