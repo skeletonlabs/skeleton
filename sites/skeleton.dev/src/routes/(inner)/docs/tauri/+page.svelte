@@ -24,6 +24,19 @@
 		</p>
 	</section>
 
+	<!-- Starter Template -->
+	<section class="space-y-4">
+		<h2 class="h2">Starter Template</h2>
+		<p>If you're looking for a quick start or reference project, please refer to our opinionated template on GitHub.</p>
+		<div class="card variant-glass p-4 py-10 text-center">
+			<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton-starter-tauri" target="_blank">
+				<i class="fa-brands fa-github" />
+				<span>View Starter Template</span>
+				<i class="fa-solid fa-up-right-from-square" />
+			</a>
+		</div>
+	</section>
+
 	<!-- Prerequisites -->
 	<section class="space-y-4">
 		<h2 class="h2">Prerequisites</h2>
@@ -196,23 +209,6 @@ export const prerender = true;
 		</div>
 	</section>
 
-	<hr />
-
-	<!-- Starter Template -->
-	<section class="space-y-4">
-		<h2 class="h2">Starter Template</h2>
-		<p>If you're looking for a quick start or reference project, please refer to our opinionated template on GitHub.</p>
-		<div class="card variant-glass p-4 py-10 text-center">
-			<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton-starter-tauri" target="_blank">
-				<i class="fa-brands fa-github" />
-				<span>View Starter Template</span>
-				<i class="fa-solid fa-up-right-from-square" />
-			</a>
-		</div>
-	</section>
-
-	<hr />
-
 	<!-- Learn More -->
 	<section class="space-y-4">
 		<h2 class="h2">Learn More</h2>
@@ -236,5 +232,16 @@ export const prerender = true;
 				</span>
 			</div>
 		</dl>
+	</section>
+
+	<hr />
+
+	<!-- Attribution -->
+	<section class="space-y-4">
+		<h2 class="h2">Attribution</h2>
+		<p>
+			This guide has been provided courtesy of <a href="https://github.com/SebasF1349" class="anchor">Sebastian Fell</a>, username
+			<code class="code">@sebascoding</code> on Skeleton's Discord server.
+		</p>
 	</section>
 </LayoutPage>

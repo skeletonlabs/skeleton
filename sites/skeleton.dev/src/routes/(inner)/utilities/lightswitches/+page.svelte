@@ -20,7 +20,6 @@
 	};
 
 	// Local
-	let tabSection = 0;
 	let tabInterface = 0;
 	let osTabs = 0;
 	// prettier-ignore
@@ -95,7 +94,7 @@ module.exports = {
 						<!-- No SSR -->
 						<p>Open <code class="code">/src/routes/+layout.ts</code> and set the <code class="code">ssr</code> value as shown.</p>
 						<CodeBlock language="ts" code={`export const ssr = false;`} />
-						<p>In the same file, add the following.</p>
+						<p>In the <code class="code">+layout.svelte</code> file, add the following inside a <code class="code">script</code> tag.</p>
 						<CodeBlock
 							language="ts"
 							code={`
