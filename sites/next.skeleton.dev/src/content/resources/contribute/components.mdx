@@ -4,7 +4,7 @@ title: Components
 description: Guidelines for contributing to Skeleton component packages.
 ---
 
-export const components = componentSet
+export const components = componentSet;
 
 ## Packages
 
@@ -150,12 +150,12 @@ Features can be documented inline within the code via [JSDoc](https://jsdoc.app/
 
 ```ts
 export interface ExampleProps {
-    /** Sets base styles. */
-    base?: string
-    /** Set vertical spacing styles. */
-    spaceY?: string
-    /** Provide arbitrary CSS classes. */
-    classes?: string
+	/** Sets base styles. */
+	base?: string;
+	/** Set vertical spacing styles. */
+	spaceY?: string;
+	/** Provide arbitrary CSS classes. */
+	classes?: string;
 }
 ```
 
@@ -171,30 +171,30 @@ For React, this is handled via a dot notation syntax.
 
 ```tsx
 <Accordion>
-    <Accordion.Item>
-        <Accordion.Control>(control)</Accordion.Control>
-        <Accordion.Panel>(panel)</Accordion.Panel>
-    </Accordion.Item>
+	<Accordion.Item>
+		<Accordion.Control>(control)</Accordion.Control>
+		<Accordion.Panel>(panel)</Accordion.Panel>
+	</Accordion.Item>
 </Accordion>
 ```
 
 To implement this, first import the `reactCompose` utility into the component file:
 
 ```ts
-import { reactCompose } from '../../utils/react-compose'
+import { reactCompose } from '../../utils/react-compose';
 ```
 
 Then scaffold your component exports at the bottom of the file:
 
 ```ts
 export const Accordion = reactCompose(
-    AccordionRoot, // -> <Accordion>
-    {
-        Item: AccordionItem, // -> <Accordion.Item>
-        Control: AccordionControl, // -> <Accordion.Control>
-        Panel: AccordionPanel, // -> <Accordion.Panel>
-    }
-)
+	AccordionRoot, // -> <Accordion>
+	{
+		Item: AccordionItem, // -> <Accordion.Item>
+		Control: AccordionControl, // -> <Accordion.Control>
+		Panel: AccordionPanel, // -> <Accordion.Panel>
+	},
+);
 ```
 
 ### Svelte 5

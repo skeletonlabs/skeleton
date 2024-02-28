@@ -1,106 +1,120 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components';
 
-import LayoutRoot from '@layouts/LayoutRoot.astro'
+import LayoutRoot from '@layouts/LayoutRoot.astro';
 
-import Header from '@components/docs/Header.astro'
-import ChipsBar from '@components/docs/ChipsBar.astro'
-import Navigation from '@components/docs/Navigation.astro'
-import Breadcrumbs from '@components/docs/Breadcrumbs.astro'
-import FrameworkPicker from '@components/docs/FrameworkPicker.astro'
-import TableOfContents from '@components/docs/TableOfContents.astro'
+import Header from '@components/docs/Header.astro';
+import ChipsBar from '@components/docs/ChipsBar.astro';
+import Navigation from '@components/docs/Navigation.astro';
+import Breadcrumbs from '@components/docs/Breadcrumbs.astro';
+import FrameworkPicker from '@components/docs/FrameworkPicker.astro';
+import TableOfContents from '@components/docs/TableOfContents.astro';
 
 interface PageHeadings {
-    depth: number
-    slug: string
-    text: string
+	depth: number;
+	slug: string;
+	text: string;
 }
 
 interface Chip {
-    label: string
-    href: string
-    icon?: string
-    preset?: string
+	label: string;
+	href: string;
+	icon?: string;
+	preset?: string;
 }
 
 interface Props {
-    frontmatter: {
-        // Required ---
-        title: string
-        description: string
-        // Optional ---
-        srcCore?: string
-        srcSvelte?: string
-        srcReact?: string
-        srcAlly?: string
-        showDocsUrl?: boolean
-        chips?: Chip[]
-    }
-    headings: PageHeadings[]
+	frontmatter: {
+		// Required ---
+		title: string;
+		description: string;
+		// Optional ---
+		srcCore?: string;
+		srcSvelte?: string;
+		srcReact?: string;
+		srcAlly?: string;
+		showDocsUrl?: boolean;
+		chips?: Chip[];
+	};
+	headings: PageHeadings[];
 }
 
 // Props
-const { frontmatter, headings } = Astro.props satisfies Props
+const { frontmatter, headings } = Astro.props satisfies Props;
 // Layout Props
 const layoutProps = {
-    title: frontmatter.title,
-    classList: 'grid grid-rows-[auto_1fr] xl:grid-rows-[auto_1fr_auto]',
-}
+	title: frontmatter.title,
+	classList: 'grid grid-rows-[auto_1fr] xl:grid-rows-[auto_1fr_auto]',
+};
 // GitHub Settings
-const branch: string = 'next' // FIXME: update before launch
-const docSite = branch === 'master' ? 'skeleton.dev' : 'next.skeleton.dev'
+const branch: string = 'next'; // FIXME: update before launch
+const docSite = branch === 'master' ? 'skeleton.dev' : 'next.skeleton.dev';
 // URLs
 const urls = {
-    githubDocsUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/sites/${docSite}/src/content`,
-    githubSkeletonUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton/src`,
-    githubSvelteUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-svelte`,
-    githubReactUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-react`,
-}
+	githubDocsUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/sites/${docSite}/src/content`,
+	githubSkeletonUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton/src`,
+	githubSvelteUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-svelte`,
+	githubReactUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-react`,
+};
 ---
 
 <LayoutRoot {...layoutProps}>
-    <!-- Header -->
-    <Header />
-    <!-- Page -->
-    <div class="container mx-auto grid grid-cols-1 xl:grid-cols-[200px_minmax(0px,_1fr)_290px]">
-        <!-- Navigation -->
-        <aside class="hidden xl:block self-start sticky top-0 max-h-screen overflow-y-auto p-4 xl:px-0 py-10">
-            <Navigation />
-        </aside>
-        <!-- Main -->
-        <main class="self-start p-4 xl:p-10 xl:pb-48 space-y-8" id="_top">
-            <!-- Breadcrumbs -->
-            <Breadcrumbs />
-            <!-- Header -->
-            <header class="space-y-2">
-                <h1 class="h1">{frontmatter.title ?? '(title)'}</h1>
-                <p class="opacity-60 type-scale-4">{frontmatter.description ?? '(description)'}</p>
-            </header>
-            <!-- Chips -->
-            <ChipsBar {frontmatter} {urls} />
-            <!-- Framework Tabs -->
-            <FrameworkPicker />
-            <!-- Content -->
-            <article class="space-y-8">
-                <slot />
-            </article>
-            <!-- API Reference -->
-            <!-- TODO: add API tables here -->
-        </main>
-        <!-- Sidebar -->
-        <aside class="hidden xl:block self-start sticky top-0 max-h-screen overflow-y-auto p-4 xl:p-10 xl:pl-0">
-            <!-- TODO: add Carbon Ads here -->
-            <!-- Table of Components -->
-            <TableOfContents {headings} />
-        </aside>
-    </div>
-    <!-- Footer -->
-    <footer class="border-t border-surface-200-800 preset-filled-surface-100-900 p-4 xl:p-10">
-        <div class="container mx-auto flex justify-center gap-4">
-            <Icon name="skeleton" size={20} />
-            <p class="type-scale-1 opacity-60">
-                Built by <a class="anchor" href="https://www.skeletonlabs.co/" target="_blank">Skeleton Labs</a> and our amazing community.
-            </p>
-        </div>
-    </footer>
+	<!-- Header -->
+	<Header />
+	<!-- Page -->
+	<div
+		class="container mx-auto grid grid-cols-1 xl:grid-cols-[200px_minmax(0px,_1fr)_290px]"
+	>
+		<!-- Navigation -->
+		<aside
+			class="hidden xl:block self-start sticky top-0 max-h-screen overflow-y-auto p-4 xl:px-0 py-10"
+		>
+			<Navigation />
+		</aside>
+		<!-- Main -->
+		<main class="self-start p-4 xl:p-10 xl:pb-48 space-y-8" id="_top">
+			<!-- Breadcrumbs -->
+			<Breadcrumbs />
+			<!-- Header -->
+			<header class="space-y-2">
+				<h1 class="h1">{frontmatter.title ?? '(title)'}</h1>
+				<p class="opacity-60 type-scale-4">
+					{frontmatter.description ?? '(description)'}
+				</p>
+			</header>
+			<!-- Chips -->
+			<ChipsBar {frontmatter} {urls} />
+			<!-- Framework Tabs -->
+			<FrameworkPicker />
+			<!-- Content -->
+			<article class="space-y-8">
+				<slot />
+			</article>
+			<!-- API Reference -->
+			<!-- TODO: add API tables here -->
+		</main>
+		<!-- Sidebar -->
+		<aside
+			class="hidden xl:block self-start sticky top-0 max-h-screen overflow-y-auto p-4 xl:p-10 xl:pl-0"
+		>
+			<!-- TODO: add Carbon Ads here -->
+			<!-- Table of Components -->
+			<TableOfContents {headings} />
+		</aside>
+	</div>
+	<!-- Footer -->
+	<footer
+		class="border-t border-surface-200-800 preset-filled-surface-100-900 p-4 xl:p-10"
+	>
+		<div class="container mx-auto flex justify-center gap-4">
+			<Icon name="skeleton" size={20} />
+			<p class="type-scale-1 opacity-60">
+				Built by <a
+					class="anchor"
+					href="https://www.skeletonlabs.co/"
+					target="_blank">Skeleton Labs</a
+				> and our amazing community.
+			</p>
+		</div>
+	</footer>
 </LayoutRoot>

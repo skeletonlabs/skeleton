@@ -4,7 +4,7 @@ title: Documentation
 description: Guidelines for contributing to Skeleton documentation website.
 ---
 
-export const components = componentSet
+export const components = componentSet;
 
 ## Astro
 
@@ -71,14 +71,14 @@ Code Blocks are provided via [Expressive Code](https://expressive-code.com/). Im
 Allows you to quickly toggle between a rendered component and the source code.
 
 ```ts
-import Example from '@examples/foo/Example.astro'
-import ExampleRaw from '@examples/foo/Example.astro?raw'
+import Example from '@examples/foo/Example.astro';
+import ExampleRaw from '@examples/foo/Example.astro?raw';
 ```
 
 ```astro
 <Preview client:load>
-    <Fragment slot="preview"><Example /></Fragment>
-    <Fragment slot="code"><Code code={ExampleRaw} lang="html" /></Fragment>
+	<Fragment slot="preview"><Example /></Fragment>
+	<Fragment slot="code"><Code code={ExampleRaw} lang="html" /></Fragment>
 </Preview>
 ```
 
@@ -88,9 +88,14 @@ Use [Markdown tables](https://www.tablesgenerator.com/markdown_tables) or the av
 
 ```ts
 export const tableProps: [
-    { name: 'autocollapse'; type: 'boolean'; value: 'false'; description: 'Set the auto-collapse mode.' },
-    // ...
-]
+	{
+		name: 'autocollapse';
+		type: 'boolean';
+		value: 'false';
+		description: 'Set the auto-collapse mode.';
+	},
+	// ...
+];
 ```
 
 ```html
@@ -108,7 +113,7 @@ Icons are provided via [Astro-Icon](https://github.com/natemoo-re/astro-icon) an
 
 ```ts
 // Skip for MDX, this is auto-imported
-import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components';
 ```
 
 ```astro

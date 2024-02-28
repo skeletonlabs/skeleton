@@ -1,24 +1,24 @@
 // @ts-check
-import { defineConfig } from 'astro/config'
-import path from 'node:path'
+import { defineConfig } from 'astro/config';
+import path from 'node:path';
 
 // Integrations
-import tailwind from '@astrojs/tailwind'
-import svelte from '@astrojs/svelte'
-import react from '@astrojs/react'
-import expressiveCode from 'astro-expressive-code'
-import icon from 'astro-icon'
-import AutoImport from 'astro-auto-import'
-import mdx from '@astrojs/mdx'
+import tailwind from '@astrojs/tailwind';
+import svelte from '@astrojs/svelte';
+import react from '@astrojs/react';
+import expressiveCode from 'astro-expressive-code';
+import icon from 'astro-icon';
+import AutoImport from 'astro-auto-import';
+import mdx from '@astrojs/mdx';
 // Vite Plugins
-import skeletonPluginWatcher from 'vite-plugin-tw-plugin-watcher'
+import skeletonPluginWatcher from 'vite-plugin-tw-plugin-watcher';
 // Adapters
-import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
-    // prettier-ignore
-    integrations: [
+	// prettier-ignore
+	integrations: [
     // https://docs.astro.build/en/guides/integrations-guide/tailwind/
     tailwind(),
     // https://docs.astro.build/en/guides/integrations-guide/svelte/
@@ -59,9 +59,22 @@ export default defineConfig({
     // https://docs.astro.build/en/guides/integrations-guide/mdx/
     mdx()
   ],
-    vite: {
-        plugins: [skeletonPluginWatcher(path.resolve(path.join('..', '..', 'packages', 'skeleton', 'src', 'plugin')))],
-    },
-    output: 'server',
-    adapter: vercel(),
-})
+	vite: {
+		plugins: [
+			skeletonPluginWatcher(
+				path.resolve(
+					path.join(
+						'..',
+						'..',
+						'packages',
+						'skeleton',
+						'src',
+						'plugin',
+					),
+				),
+			),
+		],
+	},
+	output: 'server',
+	adapter: vercel(),
+});

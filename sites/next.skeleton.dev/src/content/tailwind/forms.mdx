@@ -6,85 +6,85 @@ srcCore: '/plugin/components/forms.css'
 showDocsUrl: true
 ---
 
-export const components = componentSet
+export const components = componentSet;
 
-import Example from '@examples/tailwind/forms/Example.astro'
-import ExampleInputRaw from '@examples/tailwind/forms/ExampleInput.astro?raw'
-import ExampleSelectRaw from '@examples/tailwind/forms/ExampleSelect.astro?raw'
-import ExampleTextareaRaw from '@examples/tailwind/forms/ExampleTextarea.astro?raw'
-import ExampleSelection from '@examples/tailwind/forms/ExampleSelection.astro'
-import ExampleSelectionRaw from '@examples/tailwind/forms/ExampleSelection.astro?raw'
-import ExampleCheckboxes from '@examples/tailwind/forms/ExampleCheckboxes.astro'
-import ExampleCheckboxesRaw from '@examples/tailwind/forms/ExampleCheckboxes.astro?raw'
-import ExampleRadio from '@examples/tailwind/forms/ExampleRadio.astro'
-import ExampleRadioRaw from '@examples/tailwind/forms/ExampleRadio.astro?raw'
-import ExampleSpecial from '@examples/tailwind/forms/ExampleSpecial.astro'
-import ExampleSpecialRaw from '@examples/tailwind/forms/ExampleSpecial.astro?raw'
-import ExampleGroups from '@examples/tailwind/forms/ExampleGroups.astro'
-import ExampleGroupsRaw from '@examples/tailwind/forms/ExampleGroups.astro?raw'
+import Example from '@examples/tailwind/forms/Example.astro';
+import ExampleInputRaw from '@examples/tailwind/forms/ExampleInput.astro?raw';
+import ExampleSelectRaw from '@examples/tailwind/forms/ExampleSelect.astro?raw';
+import ExampleTextareaRaw from '@examples/tailwind/forms/ExampleTextarea.astro?raw';
+import ExampleSelection from '@examples/tailwind/forms/ExampleSelection.astro';
+import ExampleSelectionRaw from '@examples/tailwind/forms/ExampleSelection.astro?raw';
+import ExampleCheckboxes from '@examples/tailwind/forms/ExampleCheckboxes.astro';
+import ExampleCheckboxesRaw from '@examples/tailwind/forms/ExampleCheckboxes.astro?raw';
+import ExampleRadio from '@examples/tailwind/forms/ExampleRadio.astro';
+import ExampleRadioRaw from '@examples/tailwind/forms/ExampleRadio.astro?raw';
+import ExampleSpecial from '@examples/tailwind/forms/ExampleSpecial.astro';
+import ExampleSpecialRaw from '@examples/tailwind/forms/ExampleSpecial.astro?raw';
+import ExampleGroups from '@examples/tailwind/forms/ExampleGroups.astro';
+import ExampleGroupsRaw from '@examples/tailwind/forms/ExampleGroups.astro?raw';
 
 <Preview client:load>
-    <Fragment slot="preview">
-        <Example />
-    </Fragment>
-    <div class="space-y-4" slot="code">
-        <Code code={ExampleInputRaw} lang="html" />
-        <Code code={ExampleSelectRaw} lang="html" />
-        <Code code={ExampleTextareaRaw} lang="html" />
-    </div>
+	<Fragment slot="preview">
+		<Example />
+	</Fragment>
+	<div class="space-y-4" slot="code">
+		<Code code={ExampleInputRaw} lang="html" />
+		<Code code={ExampleSelectRaw} lang="html" />
+		<Code code={ExampleTextareaRaw} lang="html" />
+	</div>
 </Preview>
 
 ## Select
 
 <Preview client:load>
-    <Fragment slot="preview">
-        <ExampleSelection />
-    </Fragment>
-    <Fragment slot="code">
-        <Code code={ExampleSelectionRaw} lang="astro" />
-    </Fragment>
+	<Fragment slot="preview">
+		<ExampleSelection />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleSelectionRaw} lang="astro" />
+	</Fragment>
 </Preview>
 
 ## Checkboxes
 
 <Preview client:load>
-    <Fragment slot="preview">
-        <ExampleCheckboxes />
-    </Fragment>
-    <Fragment slot="code">
-        <Code code={ExampleCheckboxesRaw} lang="astro" />
-    </Fragment>
+	<Fragment slot="preview">
+		<ExampleCheckboxes />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleCheckboxesRaw} lang="astro" />
+	</Fragment>
 </Preview>
 
 ## Radio Groups
 
 <Preview client:load>
-    <Fragment slot="preview">
-        <ExampleRadio />
-    </Fragment>
-    <Fragment slot="code">
-        <Code code={ExampleRadioRaw} lang="astro" />
-    </Fragment>
+	<Fragment slot="preview">
+		<ExampleRadio />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRadioRaw} lang="astro" />
+	</Fragment>
 </Preview>
 
 ## Specialized
 
 <Preview client:load>
-    <Fragment slot="preview">
-        <ExampleSpecial />
-    </Fragment>
-    <Fragment slot="code">
-        <Code code={ExampleSpecialRaw} lang="astro" />
-    </Fragment>
+	<Fragment slot="preview">
+		<ExampleSpecial />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleSpecialRaw} lang="astro" />
+	</Fragment>
 </Preview>
 
 ## Groups
 
 <Preview client:load>
-    <Fragment slot="preview">
-        <ExampleGroups />
-    </Fragment>
-    <Fragment slot="code">
-        <Code code={ExampleGroupsRaw} lang="astro" />
-    </Fragment>
+	<Fragment slot="preview">
+		<ExampleGroups />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleGroupsRaw} lang="astro" />
+	</Fragment>
 </Preview>
