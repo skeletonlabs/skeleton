@@ -1,45 +1,49 @@
 <script lang="ts">
 	// Icons
 	import IconColors from 'lucide-svelte/icons/palette';
-	import IconBackgrounds from 'lucide-svelte/icons/swatch-book';
+	import IconTypography from 'lucide-svelte/icons/a-large-small';
 	import IconSpacing from 'lucide-svelte/icons/scaling';
-	import IconTypography from 'lucide-svelte/icons/whole-word';
 	import IconEdges from 'lucide-svelte/icons/box-select';
 	// Fieldsets
 	import Colors from '$lib/components/fieldsets/Colors.svelte';
-	import Backgrounds from '$lib/components/fieldsets/Backgrounds.svelte';
-	import Spacing from '$lib/components/fieldsets/Spacing.svelte';
 	import Typography from '$lib/components/fieldsets/Typography.svelte';
+	import Spacing from '$lib/components/fieldsets/Spacing.svelte';
 	import Edges from '$lib/components/fieldsets/Edges.svelte';
 
 	// Reactive State
 	let category = $state('colors');
+	function setCategory(value: string) {
+		category = value;
+	}
+
+	function activeCategory(value: string) {
+		return category === value ? 'preset-filled-primary-500' : 'hover:preset-tonal';
+	}
 </script>
 
 <form>
 	<!-- Header -->
-	<header
-		class="sticky top-0 z-10 flex items-center gap-4 border-b bg-surface-500/5 p-4 !py-4 backdrop-blur-2xl border-surface-200-800 md:p-8"
-	>
-		{#if category === 'colors'}<IconColors size={24} />{/if}
-		{#if category === 'backgrounds'}<IconBackgrounds size={24} />{/if}
-		{#if category === 'spacing'}<IconSpacing size={24} />{/if}
-		{#if category === 'typography'}<IconTypography size={24} />{/if}
-		{#if category === 'edges'}<IconEdges size={24} />{/if}
-		<select class="select" name="category" id="category" bind:value={category}>
-			<option value="colors">Colors</option>
-			<option value="backgrounds">Backgrounds</option>
-			<option value="spacing">Spacing</option>
-			<option value="typography">Typography</option>
-			<option value="edges">Edges</option>
-		</select>
+	<header class="sticky top-0 z-10 flex items-center gap-4 border-b p-4 !py-4 bg-surface-100-900 border-surface-200-800 md:p-8">
+		<nav class="btn-group grid w-full grid-cols-4 p-1.5 preset-outlined-surface-300-700 md:flex-row">
+			<button type="button" class="btn {activeCategory('colors')}" onclick={() => setCategory('colors')} title="Colors">
+				<IconColors size={20} />
+			</button>
+			<button type="button" class="btn {activeCategory('typography')}" onclick={() => setCategory('typography')} title="Typography">
+				<IconTypography size={24} />
+			</button>
+			<button type="button" class="btn {activeCategory('spacing')}" onclick={() => setCategory('spacing')} title="Spacing">
+				<IconSpacing size={20} />
+			</button>
+			<button type="button" class="btn {activeCategory('edges')}" onclick={() => setCategory('edges')} title="Edges">
+				<IconEdges size={20} />
+			</button>
+		</nav>
 	</header>
 	<!-- Fieldsets -->
 	<div class="p-4 md:p-8">
 		{#if category === 'colors'}<Colors />{/if}
-		{#if category === 'backgrounds'}<Backgrounds />{/if}
-		{#if category === 'spacing'}<Spacing />{/if}
 		{#if category === 'typography'}<Typography />{/if}
+		{#if category === 'spacing'}<Spacing />{/if}
 		{#if category === 'edges'}<Edges />{/if}
 	</div>
 </form>

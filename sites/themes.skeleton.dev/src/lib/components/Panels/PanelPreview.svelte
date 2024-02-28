@@ -41,7 +41,7 @@
 		</div>
 		<!-- Selection -->
 		{#if tab === 'preview'}
-			<nav class="btn-group grid grid-cols-4 p-2 preset-outlined-surface-300-700 md:flex-row">
+			<nav class="btn-group grid grid-cols-4 p-1.5 preset-outlined-surface-300-700 md:flex-row">
 				<button type="button" class="btn {activeContent('palette')}" onclick={() => setContent('palette')}>Palette</button>
 				<button type="button" class="btn {activeContent('typography')}" onclick={() => setContent('typography')}>Typography</button>
 				<button type="button" class="btn {activeContent('elements')}" onclick={() => setContent('elements')}>Elements</button>
@@ -49,12 +49,12 @@
 			</nav>
 		{/if}
 		<!-- Tabs -->
-		<nav class="btn-group flex-col p-2 preset-outlined-surface-300-700 md:flex-row">
+		<nav class="btn-group flex-col p-1.5 preset-outlined-surface-300-700 md:flex-row">
 			<button type="button" class="btn {activeTab('preview')}" onclick={() => setTab('preview')}>
-				<IconDesign size={16} />
+				<IconDesign size={20} />
 			</button>
 			<button type="button" class="btn {activeTab('code')}" onclick={() => setTab('code')}>
-				<IconCode size={16} />
+				<IconCode size={20} />
 			</button>
 		</nav>
 	</header>

@@ -19,7 +19,7 @@
 	<!-- Factor -->
 	<label class="label space-y-2">
 		<div class="label-text flex justify-between">
-			<strong>Scale Factor</strong>
+			<strong>Typographic Scale</strong>
 			<span>{factoValue} </span>
 		</div>
 		<input class="input" type="range" name="typography-scale-factor" bind:value={factor} min="0" max="8" step="1" />

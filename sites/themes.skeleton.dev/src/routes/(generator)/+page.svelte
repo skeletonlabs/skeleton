@@ -3,7 +3,7 @@
 	import PanelPreview from '$lib/components/panels/PanelPreview.svelte';
 </script>
 
-<div class="grid h-full grid-cols-[1fr_400px]">
+<div class="grid h-full grid-cols-[1fr_450px]">
 	<!-- Panel: Preview -->
 	<div class="scrollbar-gutter-stable overflow-y-auto pb-[200px]">
 		<PanelPreview />
