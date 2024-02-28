@@ -8,6 +8,8 @@
 	import Typography from '$lib/components/previews/Typography.svelte';
 	import Elements from '$lib/components/previews/Elements.svelte';
 	import Components from '$lib/components/previews/Components.svelte';
+	// Stores
+	import { storeFormColors, storeFormBackgrounds } from '$lib/stores.svelte';
 	// Utilities
 	import Lightswitch from '$lib/components/utilities/Lightswitch.svelte';
 
@@ -18,7 +20,6 @@
 	function setTab(value: string) {
 		tab = value;
 	}
-
 	function activeTab(value: string) {
 		return tab === value ? 'preset-filled-primary-500' : 'hover:preset-tonal';
 	}
@@ -26,7 +27,6 @@
 	function setContent(value: string) {
 		content = value;
 	}
-
 	function activeContent(value: string) {
 		return content === value ? 'preset-filled-primary-500' : 'hover:preset-tonal';
 	}
@@ -42,14 +42,20 @@
 			<h1 class="h5 font-mono">themer</h1>
 		</div>
 		<!-- Selection -->
-		{#if tab === 'preview'}
-			<nav class="btn-group grid grid-cols-4 p-1.5 preset-outlined-surface-200-800 md:flex-row">
-				<button type="button" class="btn {activeContent('palette')}" onclick={() => setContent('palette')}>Palette</button>
-				<button type="button" class="btn {activeContent('typography')}" onclick={() => setContent('typography')}>Typography</button>
-				<button type="button" class="btn {activeContent('elements')}" onclick={() => setContent('elements')}>Elements</button>
-				<button type="button" class="btn {activeContent('components')}" onclick={() => setContent('components')}>Components</button>
-			</nav>
-		{/if}
+		<nav class="btn-group grid grid-cols-4 p-1.5 preset-outlined-surface-200-800 md:flex-row">
+			<button type="button" class="btn {activeContent('palette')}" onclick={() => setContent('palette')}>
+				Palette
+			</button>
+			<button type="button" class="btn {activeContent('typography')}" onclick={() => setContent('typography')}>
+				Typography
+			</button>
+			<button type="button" class="btn {activeContent('elements')}" onclick={() => setContent('elements')}>
+				Elements
+			</button>
+			<button type="button" class="btn {activeContent('components')}" onclick={() => setContent('components')}>
+				Components
+			</button>
+		</nav>
 		<!-- Lighswitch -->
 		<Lightswitch />
 		<!-- Tabs -->
@@ -68,6 +74,13 @@
 		{#if content === 'elements'}<Elements />{/if}
 		{#if content === 'components'}<Components />{/if}
 	{:else}
-		<pre class="pre">This is the code view.</pre>
+		<div class="space-y-4">
+			<h2 class="h4">Colors</h2>
+			<pre class="pre">{JSON.stringify(storeFormColors, null, 2)}</pre>
+		</div>
+		<div class="space-y-4">
+			<h2 class="h4">Backgrounds</h2>
+			<pre class="pre">{JSON.stringify(storeFormBackgrounds, null, 2)}</pre>
+		</div>
 	{/if}
 </div>

@@ -1,68 +1,105 @@
 <script lang="ts">
-	import IconSun from 'lucide-svelte/icons/sun';
-	import IconMoon from 'lucide-svelte/icons/moon';
-	// Local
-	const seedColors = [
-		{ label: 'primary', hex: '#0170f3' },
-		{ label: 'secondary', hex: '#7928ca' },
-		{ label: 'tertiary', hex: '#ff0080' },
-		{ label: 'success', hex: '#50e3c2' },
-		{ label: 'warning', hex: '#f7b955' },
-		{ label: 'error', hex: '#f33f33' },
-		{ label: 'surface', hex: '#666666' }
-	];
+	import { storeFormColors, storeFormBackgrounds } from '$lib/stores.svelte';
+	import { colorNames, colorShades } from '$lib/constants';
 </script>
 
 <div class="space-y-4 md:space-y-8">
-	<!-- Backgrounds -->
-	<fieldset class="space-y-4 md:space-y-8">
-		<h2 class="h4">Backgrounds</h2>
-		<label class="label">
-			<div class="label-text">Base Color</div>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<input class="input" type="color" value="#FFFFFF" />
-				<input class="input" type="text" value="#FFFFFF" tabindex="-1" />
-			</div>
-		</label>
-		<label class="label">
-			<div class="label-text">Dark Mode</div>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<input class="input" type="color" value="#000000" />
-				<input class="input" type="text" value="#000000" tabindex="-1" />
-			</div>
-		</label>
-	</fieldset>
-	<!-- --- -->
-	<hr class="hr" />
 	<!-- Palette -->
 	<fieldset class="space-y-4 md:space-y-8">
 		<h2 class="h4">Palette</h2>
-		{#each seedColors as color}
-			<div class="grid grid-cols-[1fr_auto_auto] gap-4">
+		{#each colorNames as color}
+			<div class="grid grid-cols-[1fr_90px_90px] gap-4">
+				<!-- Core Color -->
 				<label class="label">
-					<div class="label-text capitalize">{color.label}</div>
+					<div class="label-text capitalize">{color}</div>
 					<div class="grid grid-cols-[auto_1fr] gap-2">
-						<input class="input" type="color" value={color.hex} />
-						<input class="input" type="text" value={color.hex} tabindex="-1" />
+						<input class="input" type="color" bind:value={storeFormColors[color].seed} />
+						<input class="input" type="text" bind:value={storeFormColors[color].seed} tabindex="-1" />
 					</div>
 				</label>
+				<!-- Contrast Dark -->
 				<label class="label">
-					<div class="label-text flex justify-center">&nbsp;<IconSun size={12} />&nbsp;</div>
-					<input class="input" type="color" value="#000000" />
+					<span class="label-text">Dark</span>
+					<select class="select" bind:value={storeFormColors[color].contrastDark}>
+						{#each colorNames as colorName}
+							<optgroup label={colorName}>
+								{#each colorShades as shade}
+									<option value="var(--color-{colorName}-{shade})">{shade}</option>
+								{/each}
+							</optgroup>
+						{/each}
+					</select>
 				</label>
+				<!-- Contrast Light -->
 				<label class="label">
-					<div class="label-text flex justify-center">&nbsp;<IconMoon size={12} />&nbsp;</div>
-					<input class="input" type="color" value="#FFFFFF" />
+					<span class="label-text">Light</span>
+					<select class="select" bind:value={storeFormColors[color].contrastLight}>
+						{#each colorNames as colorName}
+							<optgroup label={colorName}>
+								{#each colorShades as shade}
+									<option value="var(--color-{colorName}-{shade})">{shade}</option>
+								{/each}
+							</optgroup>
+						{/each}
+					</select>
 				</label>
+				<!-- Contrast Breakpoint -->
 				<label class="label col-span-3">
 					<div class="label-text flex justify-between">
 						<strong>Contrast</strong>
-						<span>(value)</span>
+						<span>{colorShades[storeFormColors[color].breakpoint]}</span>
 					</div>
-					<input class="input" type="range" name="contrast" value="6" min="1" max="11" step="1" />
+					<input
+						class="input"
+						type="range"
+						name="contrast"
+						bind:value={storeFormColors[color].breakpoint}
+						min="0"
+						max="10"
+						step="1"
+					/>
 				</label>
 			</div>
-			<hr class="hr" />
 		{/each}
+	</fieldset>
+
+	<!-- --- -->
+	<hr class="hr" />
+
+	<!-- Backgrounds -->
+	<fieldset class="space-y-4 md:space-y-8">
+		<h2 class="h4">Backgrounds</h2>
+		<!-- Base Color -->
+		<label class="label">
+			<div class="label-text">Base Color</div>
+			<div class="grid grid-cols-[auto_1fr] gap-2">
+				<div class="size-10 rounded" style:background="rgb({storeFormBackgrounds.bodyBackgroundColor})"></div>
+				<select class="select" bind:value={storeFormBackgrounds.bodyBackgroundColor}>
+					{#each colorNames as colorName}
+						<optgroup label={colorName}>
+							{#each colorShades as shade}
+								<option value="var(--color-{colorName}-{shade})">{colorName}-{shade}</option>
+							{/each}
+						</optgroup>
+					{/each}
+				</select>
+			</div>
+		</label>
+		<!-- Dark Mode -->
+		<label class="label">
+			<div class="label-text">Dark Mode</div>
+			<div class="grid grid-cols-[auto_1fr] gap-2">
+				<div class="size-10 rounded" style:background="rgb({storeFormBackgrounds.bodyBackgroundColorDark})"></div>
+				<select class="select" bind:value={storeFormBackgrounds.bodyBackgroundColorDark}>
+					{#each colorNames as colorName}
+						<optgroup label={colorName}>
+							{#each colorShades as shade}
+								<option value="var(--color-{colorName}-{shade})">{colorName}-{shade}</option>
+							{/each}
+						</optgroup>
+					{/each}
+				</select>
+			</div>
+		</label>
 	</fieldset>
 </div>
