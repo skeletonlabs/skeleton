@@ -9,7 +9,7 @@
 	import Elements from '$lib/components/previews/Elements.svelte';
 	import Components from '$lib/components/previews/Components.svelte';
 	// Stores
-	import { storeFormColors, storeFormBackgrounds, storeTypography, storeSpacing } from '$lib/stores.svelte';
+	import { storeFormColors, storeFormBackgrounds, storeTypography, storeSpacing, storeEdges } from '$lib/stores.svelte';
 	// Utilities
 	import Lightswitch from '$lib/components/utilities/Lightswitch.svelte';
 
@@ -89,6 +89,10 @@
 		<div class="space-y-4">
 			<h2 class="h4">Spacing</h2>
 			<pre class="pre">{JSON.stringify(storeSpacing, null, 2)}</pre>
+		</div>
+		<div class="space-y-4">
+			<h2 class="h4">Edges</h2>
+			<pre class="pre">{JSON.stringify(storeEdges, null, 2)}</pre>
 		</div>
 	{/if}
 </div>
