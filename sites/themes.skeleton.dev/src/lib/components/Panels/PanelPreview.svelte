@@ -80,23 +80,21 @@
 	{:else}
 		<div class="space-y-4">
 			<h2 class="h4">Generated</h2>
-			{#if colorPalette}
-				<!-- --- -->
-				<div class="grid grid-cols-7 gap-0.5">
-					{#each Object.values(colorPalette) as colors}
-						<div class="grid grid-rows-11 gap-0.5">
-							{#each Object.values(colors) as shade}
-								<div class="p-2 pt-6 text-center" style:background="rgb({shade})">
-									<div class="bg-black/30">{shade}</div>
-								</div>
-							{/each}
-						</div>
-					{/each}
-				</div>
-				<!-- --- -->
-				<pre class="pre">{JSON.stringify(colorPalette, null, 2)}</pre>
-				<!-- --- -->
-			{/if}
+			<!-- --- -->
+			<div class="grid grid-cols-7 gap-0.5">
+				{#each Object.values(colorPalette) as colors}
+					<div class="grid grid-rows-11 gap-0.5">
+						{#each Object.values(colors) as shade}
+							<div class="p-2 pt-6 text-center" style:background="rgb({shade})">
+								<div class="bg-black/30">{shade}</div>
+							</div>
+						{/each}
+					</div>
+				{/each}
+			</div>
+			<!-- --- -->
+			<pre class="pre">{JSON.stringify(colorPalette, null, 2)}</pre>
+			<!-- --- -->
 		</div>
 		<hr class="hr" />
 		<div class="space-y-4">
