@@ -1,4 +1,8 @@
 <script lang="ts">
+	// Icons
+	import IconSun from 'lucide-svelte/icons/sun';
+	import IconMoon from 'lucide-svelte/icons/moon';
+	// Stores & Utils
 	import { storeFormColors, storeFormBackgrounds } from '$lib/stores.svelte';
 	import { colorNames, colorShades } from '$lib/constants';
 </script>
@@ -8,18 +12,17 @@
 	<fieldset class="space-y-4 md:space-y-8">
 		<h2 class="h4">Palette</h2>
 		{#each colorNames as color}
-			<div class="grid grid-cols-[1fr_90px_90px] gap-4">
+			<div class="grid grid-cols-1 gap-4">
 				<!-- Core Color -->
 				<label class="label">
 					<div class="label-text capitalize">{color}</div>
-					<div class="grid grid-cols-[auto_1fr] gap-2">
+					<div class="grid grid-cols-[auto_1fr] items-center gap-2">
 						<input class="input" type="color" bind:value={storeFormColors[color].seed} />
 						<input class="input" type="text" bind:value={storeFormColors[color].seed} tabindex="-1" />
 					</div>
 				</label>
-				<!-- Contrast Dark -->
-				<label class="label">
-					<span class="label-text">Dark</span>
+				<!-- Contrast Breakpoint -->
+				<div class="grid grid-cols-[80px_auto_1fr_auto_80px] items-center gap-2">
 					<select class="select" bind:value={storeFormColors[color].contrastDark}>
 						{#each colorNames as colorName}
 							<optgroup label={colorName}>
@@ -29,26 +32,7 @@
 							</optgroup>
 						{/each}
 					</select>
-				</label>
-				<!-- Contrast Light -->
-				<label class="label">
-					<span class="label-text">Light</span>
-					<select class="select" bind:value={storeFormColors[color].contrastLight}>
-						{#each colorNames as colorName}
-							<optgroup label={colorName}>
-								{#each colorShades as shade}
-									<option value="var(--color-{colorName}-{shade})">{shade}</option>
-								{/each}
-							</optgroup>
-						{/each}
-					</select>
-				</label>
-				<!-- Contrast Breakpoint -->
-				<label class="label col-span-3">
-					<div class="label-text flex justify-between">
-						<strong>Contrast</strong>
-						<span>{colorShades[storeFormColors[color].breakpoint]}</span>
-					</div>
+					<IconSun size={16} />
 					<input
 						class="input"
 						type="range"
@@ -58,7 +42,17 @@
 						max="10"
 						step="1"
 					/>
-				</label>
+					<IconMoon size={16} />
+					<select class="select" bind:value={storeFormColors[color].contrastLight}>
+						{#each colorNames as colorName}
+							<optgroup label={colorName}>
+								{#each colorShades as shade}
+									<option value="var(--color-{colorName}-{shade})">{shade}</option>
+								{/each}
+							</optgroup>
+						{/each}
+					</select>
+				</div>
 			</div>
 		{/each}
 	</fieldset>
