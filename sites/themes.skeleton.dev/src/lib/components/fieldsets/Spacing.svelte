@@ -1,15 +1,23 @@
 <script lang="ts">
-	let factor = $state(1.0);
+	import { storeSpacing } from '$lib/stores.svelte';
 </script>
 
 <fieldset class="space-y-4 md:space-y-8">
 	<label class="label">
 		<div class="label-text flex justify-between">
 			<strong>Scale Factor</strong>
-			<span>x {factor}</span>
+			<span>x {storeSpacing.factor}</span>
 		</div>
-		<input class="input" type="range" name="space-scale-factor" bind:value={factor} min={0.5} max={1.5} step={0.1} />
+		<input
+			class="input"
+			type="range"
+			name="space-scale-factor"
+			bind:value={storeSpacing.factor}
+			min={0.5}
+			max={1.5}
+			step={0.1}
+		/>
 	</label>
-	<hr class="hr" />
-	<div class="text-center opacity-60">(preview diagram)</div>
+	<!-- <hr class="hr" /> -->
+	<!-- <div class="text-center opacity-60">(preview diagram)</div> -->
 </fieldset>

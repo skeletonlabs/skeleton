@@ -53,3 +53,17 @@ export const fontWeights = [
 export const fontStyles = ['inherit', 'normal', 'italic'];
 export const letterSpacings = ['inherit', '-0.05em', '-0.025em', '0em', '0.025em', '0.05em', '0.01em'];
 export const textDecorations = ['none', 'underline', 'overline', 'line-through'];
+
+// Edges
+export let radii = [
+	'0px',
+	'0.125rem', // 2px
+	'0.25rem', // 4px
+	'0.375rem', // 6px
+	'0.5rem', // 8px
+	'0.75rem', // 12px
+	'1rem', // 16px
+	'1.5rem', // 24px
+	'9999px'
+];
+export let edges = ['0px', '1px', '2px', '4px', '8px'];

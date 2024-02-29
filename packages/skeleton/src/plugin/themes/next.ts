@@ -65,8 +65,8 @@ const next = {
 		// Borders ---
 		// Covers: rounded, borders, divides, outlines, rings
 
-		'--radii-default': '6px',
-		'--radii-container': '12px',
+		'--radii-default': '0.375rem',
+		'--radii-container': '0.75rem',
 
 		'--border-width-default': '1px',
 		'--divide-width-default': 'var(--border-width-default)',

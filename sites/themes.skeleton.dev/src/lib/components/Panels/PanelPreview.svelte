@@ -9,13 +9,13 @@
 	import Elements from '$lib/components/previews/Elements.svelte';
 	import Components from '$lib/components/previews/Components.svelte';
 	// Stores
-	import { storeFormColors, storeFormBackgrounds, storeTypography } from '$lib/stores.svelte';
+	import { storeFormColors, storeFormBackgrounds, storeTypography, storeSpacing } from '$lib/stores.svelte';
 	// Utilities
 	import Lightswitch from '$lib/components/utilities/Lightswitch.svelte';
 
 	// Reactive State
 	let tab = $state('code');
-	let content = $state('typography');
+	let content = $state('palette');
 
 	function setTab(value: string) {
 		tab = value;
@@ -85,6 +85,10 @@
 		<div class="space-y-4">
 			<h2 class="h4">Typography</h2>
 			<pre class="pre">{JSON.stringify(storeTypography, null, 2)}</pre>
+		</div>
+		<div class="space-y-4">
+			<h2 class="h4">Spacing</h2>
+			<pre class="pre">{JSON.stringify(storeSpacing, null, 2)}</pre>
 		</div>
 	{/if}
 </div>
