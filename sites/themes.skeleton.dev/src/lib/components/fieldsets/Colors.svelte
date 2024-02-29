@@ -23,7 +23,7 @@
 				</label>
 				<!-- Contrast Breakpoint -->
 				<div class="grid grid-cols-[80px_auto_1fr_auto_80px] items-center gap-2">
-					<select class="select" bind:value={storeFormColors[color].contrastDark}>
+					<select class="select" bind:value={storeFormColors[color].contrastLight}>
 						{#each colorNames as colorName}
 							<optgroup label={colorName}>
 								{#each colorShades as shade}
@@ -43,7 +43,7 @@
 						step="1"
 					/>
 					<IconMoon size={16} />
-					<select class="select" bind:value={storeFormColors[color].contrastLight}>
+					<select class="select" bind:value={storeFormColors[color].contrastDark}>
 						{#each colorNames as colorName}
 							<optgroup label={colorName}>
 								{#each colorShades as shade}
