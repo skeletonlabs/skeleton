@@ -54,7 +54,38 @@ export let storeFormBackgrounds: Record<string, string> = $state({
 
 // Form: Typography ---
 
-// ...
+export let storeTypography: Record<string, number | string> = $state({
+	typeScaleFactor: 0,
+	// Base
+	baseFontColor: 'var(--color-surface-950)',
+	baseFontColorDark: 'var(--color-surface-50)',
+	baseFontFamily: 'system-ui',
+	baseFontsize: 'inherit',
+	baseLineHeight: 'inherit',
+	baseFontWeight: 'normal',
+	baseFontStyle: 'normal',
+	baseLetterSpacing: '0em',
+	// heading
+	headingFontColor: 'inherit',
+	headingFontColorDark: 'inherit',
+	headingFontFamily: 'inherit',
+	headingFontWeight: 'bold',
+	headingFontStyle: 'normal',
+	headingLetterSpacing: 'inherit',
+	// anchor
+	anchorFontColor: 'var(--color-primary-500)',
+	anchorFontColorDark: 'var(--color-primary-500)',
+	anchorFontFamily: 'system-ui',
+	anchorFontsize: 'inherit',
+	anchorLineHeight: 'inherit',
+	anchorFontWeight: 'normal',
+	anchorFontStyle: 'normal',
+	anchorLetterSpacing: 'inherit',
+	anchorTextDecoration: 'none',
+	anchorTextDecorationHover: 'underline',
+	anchorTextDecorationActive: 'none',
+	anchorTextDecorationFocus: 'none'
+});
 
 // Form: Spacing ---
 

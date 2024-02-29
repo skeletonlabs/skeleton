@@ -11,7 +11,8 @@
 	import Edges from '$lib/components/fieldsets/Edges.svelte';
 
 	// Reactive State
-	let category = $state('colors');
+	let category = $state('typography');
+
 	function setCategory(value: string) {
 		category = value;
 	}
@@ -23,15 +24,27 @@
 
 <form>
 	<!-- Header -->
-	<header class="sticky top-0 z-10 flex items-center gap-4 border-b p-4 !py-4 bg-surface-100-900 border-surface-200-800 md:p-8">
+	<header
+		class="sticky top-0 z-10 flex items-center gap-4 border-b p-4 !py-4 bg-surface-100-900 border-surface-200-800 md:p-8"
+	>
 		<nav class="btn-group grid w-full grid-cols-4 p-1.5 preset-outlined-surface-200-800 md:flex-row">
 			<button type="button" class="btn {activeCategory('colors')}" onclick={() => setCategory('colors')} title="Colors">
 				<IconColors size={20} />
 			</button>
-			<button type="button" class="btn {activeCategory('typography')}" onclick={() => setCategory('typography')} title="Typography">
+			<button
+				type="button"
+				class="btn {activeCategory('typography')}"
+				onclick={() => setCategory('typography')}
+				title="Typography"
+			>
 				<IconTypography size={24} />
 			</button>
-			<button type="button" class="btn {activeCategory('spacing')}" onclick={() => setCategory('spacing')} title="Spacing">
+			<button
+				type="button"
+				class="btn {activeCategory('spacing')}"
+				onclick={() => setCategory('spacing')}
+				title="Spacing"
+			>
 				<IconSpacing size={20} />
 			</button>
 			<button type="button" class="btn {activeCategory('edges')}" onclick={() => setCategory('edges')} title="Edges">
