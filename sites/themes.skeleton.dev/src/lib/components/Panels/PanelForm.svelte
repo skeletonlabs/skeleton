@@ -11,7 +11,7 @@
 	import Edges from '$lib/components/fieldsets/Edges.svelte';
 
 	// Reactive State
-	let category = $state('edges');
+	let category = $state('colors');
 
 	function setCategory(value: string) {
 		category = value;

@@ -9,13 +9,17 @@
 	import Elements from '$lib/components/previews/Elements.svelte';
 	import Components from '$lib/components/previews/Components.svelte';
 	// Stores
+	import { genColorPalette } from '$lib/utils';
 	import { storeFormColors, storeFormBackgrounds, storeTypography, storeSpacing, storeEdges } from '$lib/stores.svelte';
-	// Utilities
+	// Components
 	import Lightswitch from '$lib/components/utilities/Lightswitch.svelte';
 
 	// Reactive State
 	let tab = $state('code');
 	let content = $state('palette');
+
+	// Effect
+	let colorPalette = $derived(genColorPalette(storeFormColors));
 
 	function setTab(value: string) {
 		tab = value;
@@ -32,7 +36,7 @@
 	}
 </script>
 
-<div class="mx-auto max-w-[1200px] space-y-4 md:space-y-8">
+<div class="mx-auto max-w-[1200px] space-y-4 px-4 md:space-y-8 md:px-8">
 	<header
 		class="sticky top-0 z-10 grid grid-cols-[auto_1fr_auto_auto] items-center gap-4 rounded-bl-container rounded-br-container border border-t-0 p-4 border-surface-200-800 preset-filled-surface-100-900"
 	>
@@ -74,6 +78,27 @@
 		{#if content === 'elements'}<Elements />{/if}
 		{#if content === 'components'}<Components />{/if}
 	{:else}
+		<div class="space-y-4">
+			<h2 class="h4">Generated</h2>
+			{#if colorPalette}
+				<!-- --- -->
+				<div class="grid grid-cols-7 gap-0.5">
+					{#each Object.values(colorPalette) as colors}
+						<div class="grid grid-rows-11 gap-0.5">
+							{#each Object.values(colors) as shade}
+								<div class="p-2 pt-6 text-center" style:background="rgb({shade})">
+									<div class="bg-black/30">{shade}</div>
+								</div>
+							{/each}
+						</div>
+					{/each}
+				</div>
+				<!-- --- -->
+				<pre class="pre">{JSON.stringify(colorPalette, null, 2)}</pre>
+				<!-- --- -->
+			{/if}
+		</div>
+		<hr class="hr" />
 		<div class="space-y-4">
 			<h2 class="h4">Colors</h2>
 			<pre class="pre">{JSON.stringify(storeFormColors, null, 2)}</pre>
