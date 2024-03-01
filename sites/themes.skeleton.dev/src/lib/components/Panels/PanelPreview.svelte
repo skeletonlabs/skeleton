@@ -10,7 +10,13 @@
 	import Components from '$lib/components/previews/Components.svelte';
 	// Stores
 	import { genColorPalette } from '$lib/utils';
-	import { storeFormColors, storeFormBackgrounds, storeTypography, storeSpacing, storeEdges } from '$lib/stores.svelte';
+	import {
+		stateFormColors,
+		stateFormBackgrounds,
+		stateFormTypography,
+		stateFormSpacing,
+		stateFormEdges
+	} from '$lib/state.svelte';
 	// Components
 	import Lightswitch from '$lib/components/utilities/Lightswitch.svelte';
 
@@ -19,7 +25,7 @@
 	let content = $state('palette');
 
 	// Effect
-	let colorPalette = $derived(genColorPalette(storeFormColors));
+	let colorPalette = $derived<any>(genColorPalette(stateFormColors));
 
 	function setTab(value: string) {
 		tab = value;
@@ -99,23 +105,23 @@
 		<hr class="hr" />
 		<div class="space-y-4">
 			<h2 class="h4">Colors</h2>
-			<pre class="pre">{JSON.stringify(storeFormColors, null, 2)}</pre>
+			<pre class="pre">{JSON.stringify(stateFormColors, null, 2)}</pre>
 		</div>
 		<div class="space-y-4">
 			<h2 class="h4">Backgrounds</h2>
-			<pre class="pre">{JSON.stringify(storeFormBackgrounds, null, 2)}</pre>
+			<pre class="pre">{JSON.stringify(stateFormBackgrounds, null, 2)}</pre>
 		</div>
 		<div class="space-y-4">
 			<h2 class="h4">Typography</h2>
-			<pre class="pre">{JSON.stringify(storeTypography, null, 2)}</pre>
+			<pre class="pre">{JSON.stringify(stateFormTypography, null, 2)}</pre>
 		</div>
 		<div class="space-y-4">
 			<h2 class="h4">Spacing</h2>
-			<pre class="pre">{JSON.stringify(storeSpacing, null, 2)}</pre>
+			<pre class="pre">{JSON.stringify(stateFormSpacing, null, 2)}</pre>
 		</div>
 		<div class="space-y-4">
 			<h2 class="h4">Edges</h2>
-			<pre class="pre">{JSON.stringify(storeEdges, null, 2)}</pre>
+			<pre class="pre">{JSON.stringify(stateFormEdges, null, 2)}</pre>
 		</div>
 	{/if}
 </div>

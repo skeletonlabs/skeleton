@@ -18,9 +18,9 @@ function generateColorRamp(colorSettings: Record<string, string>) {
 }
 
 // Loops the object of colors to generate a ramp per color
-export function genColorPalette(storeFormColors: any) {
+export function genColorPalette(stateFormColors: any) {
 	let palette: any = {};
-	Object.entries(storeFormColors).map(([colorName, colorSettings]: any) => {
+	Object.entries(stateFormColors).map(([colorName, colorSettings]: any) => {
 		palette[colorName] = generateColorRamp(colorSettings);
 	});
 	return palette;

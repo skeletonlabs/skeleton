@@ -1,8 +1,8 @@
-// Global Stores ---
+// Global State ---
 
 // Form: Colors ---
 
-export let storeFormColors: any = $state({
+export let stateFormColors: any = $state({
 	primary: {
 		seed: '#0170f3',
 		contrastDark: 'var(--color-primary-50)',
@@ -47,14 +47,14 @@ export let storeFormColors: any = $state({
 	}
 });
 
-export let storeFormBackgrounds: Record<string, string> = $state({
+export let stateFormBackgrounds: Record<string, string> = $state({
 	bodyBackgroundColor: 'var(--color-surface-50)',
 	bodyBackgroundColorDark: 'var(--color-surface-950)'
 });
 
 // Form: Typography ---
 
-export let storeTypography: Record<string, number | string> = $state({
+export let stateFormTypography: Record<string, number | string> = $state({
 	typeScaleFactor: 0, // index
 	// Base
 	baseFontColor: 'var(--color-surface-950)',
@@ -89,13 +89,13 @@ export let storeTypography: Record<string, number | string> = $state({
 
 // Form: Spacing ---
 
-export let storeSpacing: Record<string, number> = $state({
+export let stateFormSpacing: Record<string, number> = $state({
 	factor: 1.0
 });
 
 // Form: Edges ---
 
-export let storeEdges: Record<string, string> = $state({
+export let stateFormEdges: Record<string, string> = $state({
 	radiiDefault: '0.375rem', // 6px
 	radiiContainer: '0.75rem', // 12px
 	borderWidthDefault: '1px',

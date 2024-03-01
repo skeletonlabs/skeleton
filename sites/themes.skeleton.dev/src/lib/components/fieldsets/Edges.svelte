@@ -1,13 +1,13 @@
 <script>
 	import { edges, radii } from '$lib/constants';
-	import { storeEdges } from '$lib/stores.svelte';
+	import { stateFormEdges } from '$lib/state.svelte';
 </script>
 
 <fieldset class="space-y-4 md:space-y-8">
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label">
 			<span class="label-text">Rounded Base</span>
-			<select class="select" bind:value={storeEdges.radiiDefault}>
+			<select class="select" bind:value={stateFormEdges.radiiDefault}>
 				{#each radii as radius}
 					<option value={radius}>{radius}</option>
 				{/each}
@@ -15,7 +15,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Rounded Containers</span>
-			<select class="select" bind:value={storeEdges.radiiContainer}>
+			<select class="select" bind:value={stateFormEdges.radiiContainer}>
 				{#each radii as radius}
 					<option value={radius}>{radius}</option>
 				{/each}
@@ -26,7 +26,7 @@
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label">
 			<span class="label-text">Borders</span>
-			<select class="select" bind:value={storeEdges.borderWidthDefault}>
+			<select class="select" bind:value={stateFormEdges.borderWidthDefault}>
 				{#each edges as edges}
 					<option value={edges}>{edges}</option>
 				{/each}
@@ -34,7 +34,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Rings</span>
-			<select class="select" bind:value={storeEdges.ringWidthDefault}>
+			<select class="select" bind:value={stateFormEdges.ringWidthDefault}>
 				{#each edges as edges}
 					<option value={edges}>{edges}</option>
 				{/each}
@@ -42,7 +42,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Outlines</span>
-			<select class="select" bind:value={storeEdges.outlineWidthDefault}>
+			<select class="select" bind:value={stateFormEdges.outlineWidthDefault}>
 				{#each edges as edges}
 					<option value={edges}>{edges}</option>
 				{/each}
@@ -50,7 +50,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Dividers</span>
-			<select class="select" bind:value={storeEdges.divideWidthDefault}>
+			<select class="select" bind:value={stateFormEdges.divideWidthDefault}>
 				{#each edges as edges}
 					<option value={edges}>{edges}</option>
 				{/each}

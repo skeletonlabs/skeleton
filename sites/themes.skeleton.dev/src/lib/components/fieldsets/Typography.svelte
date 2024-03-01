@@ -10,10 +10,10 @@
 		textDecorations,
 		typographicScales
 	} from '$lib/constants';
-	import { storeTypography } from '$lib/stores.svelte';
+	import { stateFormTypography } from '$lib/state.svelte';
 
-	let factorLabel = $derived(typographicScales[storeTypography.typeScaleFactor as number].label);
-	let factorValue = $derived(typographicScales[storeTypography.typeScaleFactor as number].value);
+	let factorLabel = $derived(typographicScales[stateFormTypography.typeScaleFactor as number].label);
+	let factorValue = $derived(typographicScales[stateFormTypography.typeScaleFactor as number].value);
 </script>
 
 <fieldset class="space-y-4 md:space-y-8">
@@ -27,7 +27,7 @@
 			class="input"
 			type="range"
 			name="typography-scale-factor"
-			bind:value={storeTypography.typeScaleFactor}
+			bind:value={stateFormTypography.typeScaleFactor}
 			min="0"
 			max="8"
 			step="1"
@@ -42,8 +42,8 @@
 		<label class="label">
 			<span class="label-text">Base Color</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<div class="size-10 rounded" style:background="rgb({storeTypography.baseFontColor})"></div>
-				<select class="select" bind:value={storeTypography.baseFontColor}>
+				<div class="size-10 rounded" style:background="rgb({stateFormTypography.baseFontColor})"></div>
+				<select class="select" bind:value={stateFormTypography.baseFontColor}>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
@@ -57,8 +57,8 @@
 		<label class="label">
 			<span class="label-text">Dark Mode</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<div class="size-10 rounded" style:background="rgb({storeTypography.baseFontColorDark})"></div>
-				<select class="select" bind:value={storeTypography.baseFontColorDark}>
+				<div class="size-10 rounded" style:background="rgb({stateFormTypography.baseFontColorDark})"></div>
+				<select class="select" bind:value={stateFormTypography.baseFontColorDark}>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
@@ -71,11 +71,11 @@
 		</label>
 		<label class="label col-span-2">
 			<span class="label-text">Font Family</span>
-			<input type="text" class="input" bind:value={storeTypography.baseFontFamily} />
+			<input type="text" class="input" bind:value={stateFormTypography.baseFontFamily} />
 		</label>
 		<label class="label">
 			<span class="label-text">Font Size</span>
-			<select class="select" bind:value={storeTypography.baseFontsize}>
+			<select class="select" bind:value={stateFormTypography.baseFontsize}>
 				{#each fontSizes as fontSize}
 					<option value={fontSize}>{fontSize}</option>
 				{/each}
@@ -83,7 +83,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Line Height</span>
-			<select class="select" bind:value={storeTypography.baseLineHeight}>
+			<select class="select" bind:value={stateFormTypography.baseLineHeight}>
 				{#each lineHeights as lineHeights}
 					<option value={lineHeights}>{lineHeights}</option>
 				{/each}
@@ -91,7 +91,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Font Weight</span>
-			<select class="select" bind:value={storeTypography.baseFontWeight}>
+			<select class="select" bind:value={stateFormTypography.baseFontWeight}>
 				{#each fontWeights as fontWeight}
 					<option value={fontWeight}>{fontWeight}</option>
 				{/each}
@@ -99,7 +99,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Font Style</span>
-			<select class="select" bind:value={storeTypography.baseFontStyle}>
+			<select class="select" bind:value={stateFormTypography.baseFontStyle}>
 				{#each fontStyles as fontStyle}
 					<option value={fontStyle}>{fontStyle}</option>
 				{/each}
@@ -107,7 +107,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Letter Spacing</span>
-			<select class="select" bind:value={storeTypography.baseLetterSpacing}>
+			<select class="select" bind:value={stateFormTypography.baseLetterSpacing}>
 				{#each letterSpacings as letterSpacing}
 					<option value={letterSpacing}>{letterSpacing}</option>
 				{/each}
@@ -122,10 +122,10 @@
 		<label class="label">
 			<span class="label-text">Base Color</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
-				{#if storeTypography.headingFontColor !== 'inherit'}
-					<div class="size-10 rounded" style:background="rgb({storeTypography.headingFontColor})"></div>
+				{#if stateFormTypography.headingFontColor !== 'inherit'}
+					<div class="size-10 rounded" style:background="rgb({stateFormTypography.headingFontColor})"></div>
 				{/if}
-				<select class="select" bind:value={storeTypography.headingFontColor}>
+				<select class="select" bind:value={stateFormTypography.headingFontColor}>
 					{#each colorNames as colorName}
 						<option value="inherit">Inherit</option>
 						<optgroup label={colorName}>
@@ -140,10 +140,10 @@
 		<label class="label">
 			<span class="label-text">Dark Mode</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
-				{#if storeTypography.headingFontColorDark !== 'inherit'}
-					<div class="size-10 rounded" style:background="rgb({storeTypography.headingFontColorDark})"></div>
+				{#if stateFormTypography.headingFontColorDark !== 'inherit'}
+					<div class="size-10 rounded" style:background="rgb({stateFormTypography.headingFontColorDark})"></div>
 				{/if}
-				<select class="select" bind:value={storeTypography.headingFontColorDark}>
+				<select class="select" bind:value={stateFormTypography.headingFontColorDark}>
 					<option value="inherit">Inherit</option>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
@@ -157,11 +157,11 @@
 		</label>
 		<label class="label col-span-2">
 			<span class="label-text">Font Family</span>
-			<input type="text" class="input" bind:value={storeTypography.headingFontFamily} />
+			<input type="text" class="input" bind:value={stateFormTypography.headingFontFamily} />
 		</label>
 		<label class="label">
 			<span class="label-text">Font Weight</span>
-			<select class="select" bind:value={storeTypography.headingFontWeight}>
+			<select class="select" bind:value={stateFormTypography.headingFontWeight}>
 				{#each fontWeights as fontWeight}
 					<option value={fontWeight}>{fontWeight}</option>
 				{/each}
@@ -169,7 +169,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Font Style</span>
-			<select class="select" bind:value={storeTypography.headingFontStyle}>
+			<select class="select" bind:value={stateFormTypography.headingFontStyle}>
 				{#each fontStyles as fontStyle}
 					<option value={fontStyle}>{fontStyle}</option>
 				{/each}
@@ -177,7 +177,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Letter Spacing</span>
-			<select class="select" bind:value={storeTypography.headingLetterSpacing}>
+			<select class="select" bind:value={stateFormTypography.headingLetterSpacing}>
 				{#each letterSpacings as letterSpacing}
 					<option value={letterSpacing}>{letterSpacing}</option>
 				{/each}
@@ -192,10 +192,10 @@
 		<label class="label">
 			<span class="label-text">Base Color</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
-				{#if storeTypography.anchorFontColor !== 'inherit'}
-					<div class="size-10 rounded" style:background="rgb({storeTypography.anchorFontColor})"></div>
+				{#if stateFormTypography.anchorFontColor !== 'inherit'}
+					<div class="size-10 rounded" style:background="rgb({stateFormTypography.anchorFontColor})"></div>
 				{/if}
-				<select class="select" bind:value={storeTypography.anchorFontColor}>
+				<select class="select" bind:value={stateFormTypography.anchorFontColor}>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
@@ -209,10 +209,10 @@
 		<label class="label">
 			<span class="label-text">Dark Mode</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
-				{#if storeTypography.anchorFontColorDark !== 'inherit'}
-					<div class="size-10 rounded" style:background="rgb({storeTypography.anchorFontColorDark})"></div>
+				{#if stateFormTypography.anchorFontColorDark !== 'inherit'}
+					<div class="size-10 rounded" style:background="rgb({stateFormTypography.anchorFontColorDark})"></div>
 				{/if}
-				<select class="select" bind:value={storeTypography.anchorFontColorDark}>
+				<select class="select" bind:value={stateFormTypography.anchorFontColorDark}>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
@@ -225,11 +225,11 @@
 		</label>
 		<label class="label col-span-2">
 			<span class="label-text">Font Family</span>
-			<input type="text" class="input" bind:value={storeTypography.anchorFontFamily} />
+			<input type="text" class="input" bind:value={stateFormTypography.anchorFontFamily} />
 		</label>
 		<label class="label">
 			<span class="label-text">Font Size</span>
-			<select class="select" bind:value={storeTypography.anchorFontsize}>
+			<select class="select" bind:value={stateFormTypography.anchorFontsize}>
 				{#each fontSizes as fontSize}
 					<option value={fontSize}>{fontSize}</option>
 				{/each}
@@ -237,7 +237,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Line Height</span>
-			<select class="select" bind:value={storeTypography.anchorLineHeight}>
+			<select class="select" bind:value={stateFormTypography.anchorLineHeight}>
 				{#each lineHeights as lineHeights}
 					<option value={lineHeights}>{lineHeights}</option>
 				{/each}
@@ -245,7 +245,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Font Weight</span>
-			<select class="select" bind:value={storeTypography.anchorFontWeight}>
+			<select class="select" bind:value={stateFormTypography.anchorFontWeight}>
 				{#each fontWeights as fontWeight}
 					<option value={fontWeight}>{fontWeight}</option>
 				{/each}
@@ -253,7 +253,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Font Style</span>
-			<select class="select" bind:value={storeTypography.anchorFontStyle}>
+			<select class="select" bind:value={stateFormTypography.anchorFontStyle}>
 				{#each fontStyles as fontStyle}
 					<option value={fontStyle}>{fontStyle}</option>
 				{/each}
@@ -261,7 +261,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Letter Spacing</span>
-			<select class="select" bind:value={storeTypography.anchorLetterSpacing}>
+			<select class="select" bind:value={stateFormTypography.anchorLetterSpacing}>
 				{#each letterSpacings as letterSpacing}
 					<option value={letterSpacing}>{letterSpacing}</option>
 				{/each}
@@ -270,7 +270,7 @@
 		<!-- --- -->
 		<label class="label">
 			<span class="label-text">Decoration</span>
-			<select class="select" bind:value={storeTypography.anchorTextDecoration}>
+			<select class="select" bind:value={stateFormTypography.anchorTextDecoration}>
 				{#each textDecorations as textDecoration}
 					<option value={textDecoration}>{textDecoration}</option>
 				{/each}
@@ -278,7 +278,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Hover</span>
-			<select class="select" bind:value={storeTypography.anchorTextDecorationHover}>
+			<select class="select" bind:value={stateFormTypography.anchorTextDecorationHover}>
 				{#each textDecorations as textDecoration}
 					<option value={textDecoration}>{textDecoration}</option>
 				{/each}
@@ -286,7 +286,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Active</span>
-			<select class="select" bind:value={storeTypography.anchorTextDecorationActive}>
+			<select class="select" bind:value={stateFormTypography.anchorTextDecorationActive}>
 				{#each textDecorations as textDecoration}
 					<option value={textDecoration}>{textDecoration}</option>
 				{/each}
@@ -294,7 +294,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Focus</span>
-			<select class="select" bind:value={storeTypography.anchorTextDecorationFocus}>
+			<select class="select" bind:value={stateFormTypography.anchorTextDecorationFocus}>
 				{#each textDecorations as textDecoration}
 					<option value={textDecoration}>{textDecoration}</option>
 				{/each}
