@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { codeToHtml } from 'shiki';
 	// State
 	import {
 		stateFormColors,
@@ -10,23 +9,96 @@
 	} from '$lib/state.svelte';
 	// Utils
 	import { genColorPalette } from '$lib/generator';
+	import { typographicScales, themeStatic, colorShades } from '$lib/constants';
 	// Components
-	import CodeBlock from '../utilities/CodeBlock.svelte';
-
-	// Local
-	const theme = {
-		properties: {
-			foo: 'bar'
-		}
-	};
+	// import CodeBlock from '../utilities/CodeBlock.svelte';
 
 	// Reactive State
 	let colorPalette = $derived(genColorPalette(stateFormColors));
+	let theme = $derived({
+		properties: {
+			// Scaling
+			'--space-scale-factor': `${stateFormSpacing.factor}`,
+			// Typography
+			'--type-scale-factor': `${typographicScales[stateFormTypography.factor as number].value}`,
+			...themeStatic.typoScale,
+			// Typography - Base
+			'--base-font-color': stateFormTypography.baseFontColor,
+			'--base-font-color-dark': stateFormTypography.baseFontColorDark,
+			'--base-font-family': stateFormTypography.baseFontFamily,
+			'--base-font-size': stateFormTypography.baseFontsize,
+			'--base-line-height': stateFormTypography.baseLineHeight,
+			'--base-font-weight': stateFormTypography.baseFontWeight,
+			'--base-font-style': stateFormTypography.baseFontStyle,
+			'--base-letter-spacing': stateFormTypography.baseLetterSpacing,
+			// Typography - Heading
+			'--heading-font-color': stateFormTypography.headingFontColor,
+			'--heading-font-color-dark': stateFormTypography.headingFontColorDark,
+			'--heading-font-family': stateFormTypography.headingFontFamily,
+			'--heading-font-size': stateFormTypography.headingFontsize,
+			'--heading-line-height': stateFormTypography.headingLineHeight,
+			'--heading-font-weight': stateFormTypography.headingFontWeight,
+			'--heading-font-style': stateFormTypography.headingFontStyle,
+			'--heading-letter-spacing': stateFormTypography.headingLetterSpacing,
+			// Typography - Anchor
+			'--anchor-font-color': stateFormTypography.anchorFontColor,
+			'--anchor-font-color-dark': stateFormTypography.anchorFontColorDark,
+			'--anchor-font-family': stateFormTypography.anchorFontFamily,
+			'--anchor-font-size': stateFormTypography.anchorFontsize,
+			'--anchor-line-height': stateFormTypography.anchorLineHeight,
+			'--anchor-font-weight': stateFormTypography.anchorFontWeight,
+			'--anchor-font-style': stateFormTypography.anchorFontStyle,
+			'--anchor-letter-spacing': stateFormTypography.anchorLetterSpacing,
+			// Backgrounds
+			'--body-background-color': stateFormBackgrounds.bodyBackgroundColor,
+			'--body-background-color-dark': stateFormBackgrounds.bodyBackgroundColorDark,
+			// Edges ---
+			'--radii-default': stateFormEdges.radiiDefault,
+			'--radii-container': stateFormEdges.radiiContainer,
+			'--border-width-default': stateFormEdges.borderWidthDefault,
+			'--divide-width-default': stateFormEdges.ringWidthDefault,
+			'--outline-width-default': stateFormEdges.outlineWidthDefault,
+			'--ring-width-default': stateFormEdges.divideWidthDefault,
+			// Colors
+			...generateColorProperties()
+		}
+	});
+
+	// '--color-primary-contrast-50': 'var(--color-primary-contrast-dark)',
+	// '--color-primary-contrast-100': 'var(--color-primary-contrast-dark)',
+	// '--color-primary-contrast-200': 'var(--color-primary-contrast-dark)',
+	// '--color-primary-contrast-300': 'var(--color-primary-contrast-dark)',
+	// '--color-primary-contrast-400': 'var(--color-primary-contrast-dark)',
+	// '--color-primary-contrast-500': 'var(--color-primary-contrast-light)',
+	// '--color-primary-contrast-600': 'var(--color-primary-contrast-light)',
+	// '--color-primary-contrast-700': 'var(--color-primary-contrast-light)',
+	// '--color-primary-contrast-800': 'var(--color-primary-contrast-light)',
+	// '--color-primary-contrast-900': 'var(--color-primary-contrast-light)',
+	// '--color-primary-contrast-950': 'var(--color-primary-contrast-light)',
+	function generateColorProperties() {
+		let code: any = {};
+		let colorsArr: any = Object.entries(colorPalette);
+		for (const [colorName, colorRamp] of colorsArr) {
+			// Base Colors
+			colorShades.forEach((cs) => (code[`--color-${colorName}-${cs}`] = colorRamp[cs].join(' ')));
+			// Contrast Colors
+			code[`--color-${colorName}-contrast-dark`] = stateFormColors[colorName].contrastDark;
+			code[`--color-${colorName}-contrast-light`] = stateFormColors[colorName].contrastLight;
+			// Base Colors
+			colorShades.forEach((cs, i) => {
+				const breakpointIndex = stateFormColors[colorName].breakpoint;
+				const breakpointValue = i < breakpointIndex ? `dark` : `light`;
+				code[`--color-${colorName}-contrast-${cs}`] = `var(--color-${colorName}-contrast-${breakpointValue})`;
+			});
+		}
+		return code;
+	}
 </script>
 
-<div class="px-4 md:px-8 space-y-4 md:space-y-8">
+<div class="space-y-4 md:space-y-8">
 	<!-- Template Code Block -->
-	<CodeBlock code={theme.properties} lang="ts" />
+	<!-- <CodeBlock code={} lang="ts" /> -->
+	<pre class="pre"><code>{JSON.stringify(theme.properties, null, 2)}</code></pre>
 
 	<hr class="hr" />
 
@@ -43,35 +115,29 @@
 		{/each}
 	</div>
 
-	<section class="space-y-4">
-		<h2 class="h4">Color Palette</h2>
-		<CodeBlock code={colorPalette} lang="ts" />
-	</section>
+	<!-- <pre class="pre"><code>{JSON.stringify(colorPalette, null, 2)}</code></pre> -->
 
+	<!--
 	<hr class="hr" />
-
 	<section class="space-y-4">
 		<h2 class="h4">Colors</h2>
-		<CodeBlock code={stateFormColors} lang="ts" />
+		<pre class="pre"><code>{JSON.stringify(stateFormColors, null, 2)}</code></pre>
 	</section>
-
 	<section class="space-y-4">
 		<h2 class="h4">Backgrounds</h2>
-		<CodeBlock code={stateFormBackgrounds} lang="ts" />
+		<pre class="pre"><code>{JSON.stringify(stateFormBackgrounds, null, 2)}</code></pre>
 	</section>
-
 	<section class="space-y-4">
 		<h2 class="h4">Typography</h2>
-		<CodeBlock code={stateFormTypography} lang="ts" />
+		<pre class="pre"><code>{JSON.stringify(stateFormTypography, null, 2)}</code></pre>
 	</section>
-
 	<section class="space-y-4">
 		<h2 class="h4">Spacing</h2>
-		<CodeBlock code={stateFormSpacing} lang="ts" />
+		<pre class="pre"><code>{JSON.stringify(stateFormSpacing, null, 2)}</code></pre>
 	</section>
-
 	<section class="space-y-4">
 		<h2 class="h4">Edges</h2>
-		<CodeBlock code={stateFormEdges} lang="ts" />
+		<pre class="pre"><code>{JSON.stringify(stateFormEdges, null, 2)}</code></pre>
 	</section>
+	-->
 </div>

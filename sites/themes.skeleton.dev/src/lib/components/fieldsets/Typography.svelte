@@ -12,8 +12,8 @@
 	} from '$lib/constants';
 	import { stateFormTypography } from '$lib/state.svelte';
 
-	let factorLabel = $derived(typographicScales[stateFormTypography.typeScaleFactor as number].label);
-	let factorValue = $derived(typographicScales[stateFormTypography.typeScaleFactor as number].value);
+	let factorLabel = $derived(typographicScales[stateFormTypography.factor as number].label);
+	let factorValue = $derived(typographicScales[stateFormTypography.factor as number].value);
 </script>
 
 <fieldset class="space-y-4 md:space-y-8">
@@ -27,7 +27,7 @@
 			class="input"
 			type="range"
 			name="typography-scale-factor"
-			bind:value={stateFormTypography.typeScaleFactor}
+			bind:value={stateFormTypography.factor}
 			min="0"
 			max="8"
 			step="1"
@@ -126,8 +126,8 @@
 					<div class="size-10 rounded" style:background="rgb({stateFormTypography.headingFontColor})"></div>
 				{/if}
 				<select class="select" bind:value={stateFormTypography.headingFontColor}>
+					<option value="inherit">Inherit</option>
 					{#each colorNames as colorName}
-						<option value="inherit">Inherit</option>
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
 								<option value="var(--color-{colorName}-{shade})">{colorName}-{shade}</option>

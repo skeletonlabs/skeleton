@@ -55,7 +55,7 @@ export let stateFormBackgrounds: Record<string, string> = $state({
 // Form: Typography ---
 
 export let stateFormTypography: Record<string, number | string> = $state({
-	typeScaleFactor: 0, // index
+	factor: 0, // index
 	// Base
 	baseFontColor: 'var(--color-surface-950)',
 	baseFontColorDark: 'var(--color-surface-50)',

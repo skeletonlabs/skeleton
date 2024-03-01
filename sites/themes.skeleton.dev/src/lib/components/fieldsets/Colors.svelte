@@ -39,7 +39,7 @@
 						name="contrast"
 						bind:value={stateFormColors[color].breakpoint}
 						min="0"
-						max="10"
+						max="11"
 						step="1"
 					/>
 					<IconMoon size={16} />

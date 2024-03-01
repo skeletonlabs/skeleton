@@ -15,11 +15,11 @@
     } = $props<PropsCodeBlock>();
 
 	// Generate Code Block HTML
-	const genCodeBlock = codeToHtml(JSON.stringify(code, null, 2), { lang, theme });
+	const genCodeBlock = $derived(codeToHtml(JSON.stringify(code, null, 2), { lang, theme }));
 </script>
 
-{#await genCodeBlock then code}
-	<div class="[&>.shiki]:type-scale-1 [&>.shiki]:p-4 [&>.shiki]:rounded-2xl">
+<div class="[&>.shiki]:type-scale-1 [&>.shiki]:p-4 [&>.shiki]:rounded-2xl">
+	{#await genCodeBlock then code}
 		{@html code}
-	</div>
-{/await}
+	{/await}
+</div>
