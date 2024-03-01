@@ -84,10 +84,7 @@
 
 <div class="space-y-4 md:space-y-8">
 	<!-- Template Code Block -->
-	<!-- <CodeBlock code={} lang="ts" /> -->
 	<pre class="pre"><code>{JSON.stringify(theme.properties, null, 2)}</code></pre>
-
-	<hr class="hr" />
 
 	<!-- Palette Preview -->
 	<div class="grid grid-cols-7 gap-0.5">
