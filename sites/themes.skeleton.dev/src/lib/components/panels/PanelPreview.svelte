@@ -8,24 +8,14 @@
 	import Typography from '$lib/components/previews/Typography.svelte';
 	import Elements from '$lib/components/previews/Elements.svelte';
 	import Components from '$lib/components/previews/Components.svelte';
-	// Stores
-	import { genColorPalette } from '$lib/generator';
-	import {
-		stateFormColors,
-		stateFormBackgrounds,
-		stateFormTypography,
-		stateFormSpacing,
-		stateFormEdges
-	} from '$lib/state.svelte';
+	import CodeGen from '../previews/CodeGen.svelte';
+
 	// Components
 	import Lightswitch from '$lib/components/utilities/Lightswitch.svelte';
 
 	// Reactive State
 	let tab = $state('code');
 	let content = $state('palette');
-
-	// Effect
-	let colorPalette = $derived(genColorPalette(stateFormColors));
 
 	function setTab(value: string) {
 		tab = value;
@@ -84,44 +74,6 @@
 		{#if content === 'elements'}<Elements />{/if}
 		{#if content === 'components'}<Components />{/if}
 	{:else}
-		<div class="space-y-4">
-			<h2 class="h4">Generated</h2>
-			<!-- --- -->
-			<div class="grid grid-cols-7 gap-0.5">
-				{#each Object.values(colorPalette) as color}
-					<div class="grid grid-rows-11 gap-0.5">
-						{#each Object.values(color || {}) as shade}
-							<div class="p-2 pt-6 text-center" style:background="rgb({shade})">
-								<div class="bg-black/30">{shade}</div>
-							</div>
-						{/each}
-					</div>
-				{/each}
-			</div>
-			<!-- --- -->
-			<pre class="pre">{JSON.stringify(colorPalette, null, 2)}</pre>
-			<!-- --- -->
-		</div>
-		<hr class="hr" />
-		<div class="space-y-4">
-			<h2 class="h4">Colors</h2>
-			<pre class="pre">{JSON.stringify(stateFormColors, null, 2)}</pre>
-		</div>
-		<div class="space-y-4">
-			<h2 class="h4">Backgrounds</h2>
-			<pre class="pre">{JSON.stringify(stateFormBackgrounds, null, 2)}</pre>
-		</div>
-		<div class="space-y-4">
-			<h2 class="h4">Typography</h2>
-			<pre class="pre">{JSON.stringify(stateFormTypography, null, 2)}</pre>
-		</div>
-		<div class="space-y-4">
-			<h2 class="h4">Spacing</h2>
-			<pre class="pre">{JSON.stringify(stateFormSpacing, null, 2)}</pre>
-		</div>
-		<div class="space-y-4">
-			<h2 class="h4">Edges</h2>
-			<pre class="pre">{JSON.stringify(stateFormEdges, null, 2)}</pre>
-		</div>
+		<CodeGen />
 	{/if}
 </div>

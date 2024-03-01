@@ -1,7 +1,7 @@
 import chroma from 'chroma-js';
 
-// Uses Chroma.js to generate a color ramp
-function generateColorRamp(colorSettings: Record<string, string>) {
+// Generates a color ramp with default settings
+function genColorRamp(colorSettings: Record<string, string>) {
 	return {
 		50: chroma(colorSettings.seed).brighten(2.25).rgb(),
 		100: chroma(colorSettings.seed).brighten(1.9).rgb(),
@@ -21,7 +21,7 @@ function generateColorRamp(colorSettings: Record<string, string>) {
 export function genColorPalette(stateFormColors: any) {
 	let palette: any = {};
 	Object.entries(stateFormColors).map(([colorName, colorSettings]: any) => {
-		palette[colorName] = generateColorRamp(colorSettings);
+		palette[colorName] = genColorRamp(colorSettings);
 	});
 	return palette;
 }
