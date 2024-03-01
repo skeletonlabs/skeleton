@@ -1,0 +1,55 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Iconography
+description: Learn more about iconography in Skeleton.
+showDocsUrl: true
+orderBy: 4
+---
+
+export const components = componentSet
+
+<p class="type-scale-5">Please be aware that Skeleton is <u>icon library agnostic</u>. This supports any combination of SVGs, emoji, unicode, or dedicated icon libraries.</p>
+
+---
+
+## Lucide
+
+Skeleton recommends and favors [Lucide](https://lucide.dev/), a popular solution for most modern UI frameworks. You'll find Lucide used within all code examples within this documentation website. If you do not wish to use Lucide, simply replace this with the solution of your choice.
+
+### Lucide React
+
+[Install Lucide for React](https://lucide.dev/guide/packages/lucide-react)
+
+```tsx
+import { Camera } from 'lucide-react';
+
+const App = () => {
+    return <Camera color="red" size={48} />;
+};
+
+export default App;
+```
+
+### Lucide Svelte
+
+[Install Lucide for Svelte](https://lucide.dev/guide/packages/lucide-svelte)
+
+> TIP: For optimal performance, we recommend importing each icon using the full path.
+
+```svelte
+<script>
+    import AlertCircle from 'lucide-svelte/icons/alert-circle';
+</script>
+
+<AlertCircle color="#ff3e98" />
+```
+
+---
+
+## Alternatives
+
+* [Iconify](https://iconify.design/) - provides a vast array of icon sets pruned from popular icon libraries.
+* [Font Awesome](https://fontawesome.com/) - provides a huge variety of icons in their free tier.
+* [HeroIcons](https://heroicons.com/) - from the makers of Tailwind CSS, supports React and Vue.
+* [SimpleIcons](https://simpleicons.org/) - provides an excellent selection of brand icons.
+* [Astro Icon](https://www.astroicon.dev/) - provides Astro icon support for local SVGs and Iconify sets.
