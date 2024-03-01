@@ -15,7 +15,7 @@
 			<div class="grid grid-cols-1 gap-4">
 				<!-- Core Color -->
 				<label class="label">
-					<pre class="pre !bg-black">{stateFormColors[color].seed}</pre>
+					<!-- <pre class="pre !bg-black">{stateFormColors[color].seed}</pre> -->
 					<div class="label-text capitalize">{color}</div>
 					<div class="grid grid-cols-[auto_1fr] items-center gap-2">
 						<!-- Color Picker -->
