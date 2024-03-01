@@ -5,44 +5,44 @@
 export let stateFormColors: any = $state({
 	primary: {
 		seed: '#0170f3',
-		contrastDark: 'var(--color-primary-50)',
-		contrastLight: 'var(--color-primary-950)',
+		contrastDark: 'var(--color-primary-950)',
+		contrastLight: 'var(--color-primary-50)',
 		breakpoint: 5 // index
 	},
 	secondary: {
 		seed: '#7928ca',
-		contrastDark: 'var(--color-secondary-50)',
-		contrastLight: 'var(--color-secondary-950)',
+		contrastDark: 'var(--color-secondary-950)',
+		contrastLight: 'var(--color-secondary-50)',
 		breakpoint: 3 // index
 	},
 	tertiary: {
 		seed: '#ff0080',
-		contrastDark: 'var(--color-tertiary-50)',
-		contrastLight: 'var(--color-tertiary-950)',
+		contrastDark: 'var(--color-tertiary-950)',
+		contrastLight: 'var(--color-tertiary-50)',
 		breakpoint: 5 // index
 	},
 	success: {
 		seed: '#50e3c2',
-		contrastDark: 'var(--color-success-50)',
-		contrastLight: 'var(--color-success-950)',
+		contrastDark: 'var(--color-success-950)',
+		contrastLight: 'var(--color-success-50)',
 		breakpoint: 6 // index
 	},
 	warning: {
 		seed: '#f7b955',
-		contrastDark: 'var(--color-warning-50)',
-		contrastLight: 'var(--color-warning-950)',
+		contrastDark: 'var(--color-warning-950)',
+		contrastLight: 'var(--color-warning-50)',
 		breakpoint: 7 // index
 	},
 	error: {
 		seed: '#f33f33',
-		contrastDark: 'var(--color-error-50)',
-		contrastLight: 'var(--color-error-950)',
+		contrastDark: 'var(--color-error-950)',
+		contrastLight: 'var(--color-error-50)',
 		breakpoint: 5 // index
 	},
 	surface: {
 		seed: '#666666',
-		contrastDark: 'var(--color-surface-50)',
-		contrastLight: 'var(--color-surface-950)',
+		contrastDark: 'var(--color-surface-950)',
+		contrastLight: 'var(--color-surface-50)',
 		breakpoint: 4 // index
 	}
 });
@@ -75,7 +75,7 @@ export let stateFormTypography: Record<string, number | string> = $state({
 	// anchor
 	anchorFontColor: 'var(--color-primary-500)',
 	anchorFontColorDark: 'var(--color-primary-500)',
-	anchorFontFamily: 'system-ui',
+	anchorFontFamily: 'inherit',
 	anchorFontsize: 'inherit',
 	anchorLineHeight: 'inherit',
 	anchorFontWeight: 'normal',

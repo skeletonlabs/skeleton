@@ -10,8 +10,6 @@
 	// Utils
 	import { genColorPalette } from '$lib/generator';
 	import { typographicScales, themeStatic, colorShades } from '$lib/constants';
-	// Components
-	// import CodeBlock from '../utilities/CodeBlock.svelte';
 
 	// Reactive State
 	let colorPalette = $derived(genColorPalette(stateFormColors));
@@ -64,17 +62,6 @@
 		}
 	});
 
-	// '--color-primary-contrast-50': 'var(--color-primary-contrast-dark)',
-	// '--color-primary-contrast-100': 'var(--color-primary-contrast-dark)',
-	// '--color-primary-contrast-200': 'var(--color-primary-contrast-dark)',
-	// '--color-primary-contrast-300': 'var(--color-primary-contrast-dark)',
-	// '--color-primary-contrast-400': 'var(--color-primary-contrast-dark)',
-	// '--color-primary-contrast-500': 'var(--color-primary-contrast-light)',
-	// '--color-primary-contrast-600': 'var(--color-primary-contrast-light)',
-	// '--color-primary-contrast-700': 'var(--color-primary-contrast-light)',
-	// '--color-primary-contrast-800': 'var(--color-primary-contrast-light)',
-	// '--color-primary-contrast-900': 'var(--color-primary-contrast-light)',
-	// '--color-primary-contrast-950': 'var(--color-primary-contrast-light)',
 	function generateColorProperties() {
 		let code: any = {};
 		let colorsArr: any = Object.entries(colorPalette);
@@ -87,7 +74,7 @@
 			// Base Colors
 			colorShades.forEach((cs, i) => {
 				const breakpointIndex = stateFormColors[colorName].breakpoint;
-				const breakpointValue = i < breakpointIndex ? `dark` : `light`;
+				const breakpointValue = i < breakpointIndex ? 'dark' : 'light';
 				code[`--color-${colorName}-contrast-${cs}`] = `var(--color-${colorName}-contrast-${breakpointValue})`;
 			});
 		}
