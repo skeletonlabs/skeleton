@@ -42,7 +42,7 @@
 		<label class="label">
 			<span class="label-text">Base Color</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<div class="size-10 rounded" style:background="rgb({stateFormTypography.baseFontColor})"></div>
+				<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.baseFontColor})"></div>
 				<select class="select" bind:value={stateFormTypography.baseFontColor}>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
@@ -57,7 +57,7 @@
 		<label class="label">
 			<span class="label-text">Dark Mode</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<div class="size-10 rounded" style:background="rgb({stateFormTypography.baseFontColorDark})"></div>
+				<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.baseFontColorDark})"></div>
 				<select class="select" bind:value={stateFormTypography.baseFontColorDark}>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
@@ -123,7 +123,7 @@
 			<span class="label-text">Base Color</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
 				{#if stateFormTypography.headingFontColor !== 'inherit'}
-					<div class="size-10 rounded" style:background="rgb({stateFormTypography.headingFontColor})"></div>
+					<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.headingFontColor})"></div>
 				{/if}
 				<select class="select" bind:value={stateFormTypography.headingFontColor}>
 					<option value="inherit">Inherit</option>
@@ -141,7 +141,7 @@
 			<span class="label-text">Dark Mode</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
 				{#if stateFormTypography.headingFontColorDark !== 'inherit'}
-					<div class="size-10 rounded" style:background="rgb({stateFormTypography.headingFontColorDark})"></div>
+					<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.headingFontColorDark})"></div>
 				{/if}
 				<select class="select" bind:value={stateFormTypography.headingFontColorDark}>
 					<option value="inherit">Inherit</option>
@@ -193,7 +193,7 @@
 			<span class="label-text">Base Color</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
 				{#if stateFormTypography.anchorFontColor !== 'inherit'}
-					<div class="size-10 rounded" style:background="rgb({stateFormTypography.anchorFontColor})"></div>
+					<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.anchorFontColor})"></div>
 				{/if}
 				<select class="select" bind:value={stateFormTypography.anchorFontColor}>
 					{#each colorNames as colorName}
@@ -210,7 +210,7 @@
 			<span class="label-text">Dark Mode</span>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
 				{#if stateFormTypography.anchorFontColorDark !== 'inherit'}
-					<div class="size-10 rounded" style:background="rgb({stateFormTypography.anchorFontColorDark})"></div>
+					<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.anchorFontColorDark})"></div>
 				{/if}
 				<select class="select" bind:value={stateFormTypography.anchorFontColorDark}>
 					{#each colorNames as colorName}

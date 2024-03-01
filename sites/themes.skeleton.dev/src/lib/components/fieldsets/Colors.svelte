@@ -15,14 +15,17 @@
 			<div class="grid grid-cols-1 gap-4">
 				<!-- Core Color -->
 				<label class="label">
+					<pre class="pre !bg-black">{stateFormColors[color].seed}</pre>
 					<div class="label-text capitalize">{color}</div>
 					<div class="grid grid-cols-[auto_1fr] items-center gap-2">
+						<!-- Color Picker -->
 						<input class="input" type="color" bind:value={stateFormColors[color].seed} />
-						<input class="input" type="text" bind:value={stateFormColors[color].seed} tabindex="-1" />
+						<!-- Text Field -->
+						<input class="input" type="text" bind:value={stateFormColors[color].seed} />
 					</div>
 				</label>
-				<!-- Contrast Breakpoint -->
 				<div class="grid grid-cols-[80px_auto_1fr_auto_80px] items-center gap-2">
+					<!-- Contrast Dark -->
 					<select class="select" bind:value={stateFormColors[color].contrastDark}>
 						{#each colorNames as colorName}
 							<optgroup label={colorName}>
@@ -32,7 +35,9 @@
 							</optgroup>
 						{/each}
 					</select>
+					<!-- Icon -->
 					<IconSun size={16} />
+					<!-- Breakpoint -->
 					<input
 						class="input"
 						type="range"
@@ -42,7 +47,9 @@
 						max="11"
 						step="1"
 					/>
+					<!-- Icon -->
 					<IconMoon size={16} />
+					<!-- Contrast Light -->
 					<select class="select" bind:value={stateFormColors[color].contrastLight}>
 						{#each colorNames as colorName}
 							<optgroup label={colorName}>
@@ -67,7 +74,7 @@
 		<label class="label">
 			<div class="label-text">Base Color</div>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<div class="size-10 rounded" style:background="rgb({stateFormBackgrounds.bodyBackgroundColor})"></div>
+				<div class="h-10 w-3 rounded" style:background="rgb({stateFormBackgrounds.bodyBackgroundColor})"></div>
 				<select class="select" bind:value={stateFormBackgrounds.bodyBackgroundColor}>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
@@ -83,7 +90,7 @@
 		<label class="label">
 			<div class="label-text">Dark Mode</div>
 			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<div class="size-10 rounded" style:background="rgb({stateFormBackgrounds.bodyBackgroundColorDark})"></div>
+				<div class="h-10 w-3 rounded" style:background="rgb({stateFormBackgrounds.bodyBackgroundColorDark})"></div>
 				<select class="select" bind:value={stateFormBackgrounds.bodyBackgroundColorDark}>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
