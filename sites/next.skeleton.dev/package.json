@@ -16,7 +16,7 @@
 		"build": "pnpm -F '*svelte' build && astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"lint": "prettier --write . --plugin=prettier-plugin-astro"
+		"format": "prettier --write ."
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.5.2",

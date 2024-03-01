@@ -1,23 +1,23 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection } from 'astro:content';
 
 interface Props {
-    classList?: string
+	classList?: string;
 }
 
-const { classList } = Astro.props
+const { classList } = Astro.props;
 
 // Query from Collections
-const navDocs = await getCollection('docs')
+const navDocs = await getCollection('docs');
 const navComponents = await getCollection('components', ({ id }) => {
-    return id.startsWith('common/')
-})
-const navDesign = await getCollection('design')
-const navTailwind = await getCollection('tailwind')
+	return id.startsWith('common/');
+});
+const navDesign = await getCollection('design');
+const navTailwind = await getCollection('tailwind');
 const navResources = await getCollection('resources', ({ id }) => {
-    // Ignore cookbook children pages
-    return !id.startsWith('contribute/') && !id.startsWith('cookbook/')
-})
+	// Ignore cookbook children pages
+	return !id.startsWith('contribute/') && !id.startsWith('cookbook/');
+});
 
 // Sort Order
 const sortByOrder = (a: any, b: any) => {
