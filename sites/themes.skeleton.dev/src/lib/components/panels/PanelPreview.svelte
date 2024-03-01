@@ -9,7 +9,7 @@
 	import Elements from '$lib/components/previews/Elements.svelte';
 	import Components from '$lib/components/previews/Components.svelte';
 	// Stores
-	import { genColorPalette } from '$lib/utils';
+	import { genColorPalette } from '$lib/generator';
 	import {
 		stateFormColors,
 		stateFormBackgrounds,
@@ -25,7 +25,7 @@
 	let content = $state('palette');
 
 	// Effect
-	let colorPalette = $derived<any>(genColorPalette(stateFormColors));
+	let colorPalette = $derived(genColorPalette(stateFormColors));
 
 	function setTab(value: string) {
 		tab = value;
@@ -88,9 +88,9 @@
 			<h2 class="h4">Generated</h2>
 			<!-- --- -->
 			<div class="grid grid-cols-7 gap-0.5">
-				{#each Object.values(colorPalette) as colors}
+				{#each Object.values(colorPalette) as color}
 					<div class="grid grid-rows-11 gap-0.5">
-						{#each Object.values(colors) as shade}
+						{#each Object.values(color || {}) as shade}
 							<div class="p-2 pt-6 text-center" style:background="rgb({shade})">
 								<div class="bg-black/30">{shade}</div>
 							</div>
