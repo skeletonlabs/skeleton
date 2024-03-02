@@ -18,7 +18,7 @@
 		toolbarClasses = '',
 		// Lead
 		leadBase = 'flex',
-		leadSpaceX = 'space-x-4',
+		leadSpaceX = 'space-x-4 rtl:space-x-reverse',
 		leadPadding = '',
 		leadClasses = '',
 		// Center
@@ -28,7 +28,7 @@
 		centerClasses = '',
 		// Trail
 		trailBase = 'flex',
-		trailSpaceX = 'space-x-4',
+		trailSpaceX = 'space-x-4 rtl:space-x-reverse',
 		trailPadding = '',
 		trailClasses = '',
 		// Headline
@@ -45,27 +45,25 @@
 	const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 	let appBarElement:HTMLDivElement|undefined = $state(undefined);
 	function handleKeyDown(event:KeyboardEvent) {
-		if(appBarElement === undefined) return;
+		if(!appBarElement) return;
 
 		const focusable = Array.from(appBarElement.querySelectorAll(focusableElements)) as HTMLElement[];
         const focusedElementIndex = focusable.indexOf(document.activeElement as HTMLElement) || 0;
+		const rtl = getComputedStyle(appBarElement).direction === 'rtl';
 
+		let nextIndex: number;
 		switch (event.code) {
 			case 'ArrowRight':
 				event.preventDefault();
-				if(focusedElementIndex < focusable.length - 1) {
-					focusable[focusedElementIndex + 1].focus();
-				} else {
-					focusable[0].focus();
-				}
+				nextIndex = rtl ? focusedElementIndex - 1 : focusedElementIndex + 1;
+				nextIndex = (nextIndex + focusable.length) % focusable.length; // Wrap around if outbound
+				focusable[nextIndex].focus();
 				break;
 			case 'ArrowLeft':
 				event.preventDefault();
-				if(focusedElementIndex > 0) {
-					focusable[focusedElementIndex - 1].focus();
-				} else {
-					focusable[focusable.length - 1]?.focus();
-				}
+				nextIndex = rtl ? focusedElementIndex + 1 : focusedElementIndex - 1;
+				nextIndex = (nextIndex + focusable.length) % focusable.length; // Wrap around if outbound
+				focusable[nextIndex].focus();
 				break;
 			case 'Home':
 				event.preventDefault();

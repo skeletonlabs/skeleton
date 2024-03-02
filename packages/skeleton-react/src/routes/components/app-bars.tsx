@@ -110,6 +110,34 @@ function appbarA11YKeyboard() {
     );
 }
 
+function appbarRTL() {
+    return(
+        <>
+        <h3 className="h3">RTL</h3>
+        <div dir="rtl">
+            <AppBar>
+                <AppBar.Toolbar>
+                    <ToolBar.Lead>
+                        <button type="button" className="btn-icon preset-filled-primary-500">💀</button>
+                        <button type="button" className="btn preset-filled">lead</button>
+                    </ToolBar.Lead>
+                    <ToolBar.Center>
+                        Skeleton
+                    </ToolBar.Center>
+                    <ToolBar.Trail>
+                        <button type="button" className="btn preset-filled">trail</button>
+                        <button type="button" className="btn-icon preset-filled-primary-500">💀</button>
+                    </ToolBar.Trail>
+                </AppBar.Toolbar>
+                <AppBar.Headline>
+                    <h1 className="h1">مرحبا بك</h1>
+                </AppBar.Headline>
+            </AppBar>  
+        </div>
+        </>
+    );
+}
+
 export function Component() {
     return(
         <>
@@ -118,6 +146,7 @@ export function Component() {
             {appbarHeadline()}
             {appbarSticky()}
             {appbarA11YKeyboard()}
+            {appbarRTL()}
         </>
     );
 }

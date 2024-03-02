@@ -31,32 +31,30 @@ const AppBarRoot: React.FC<AppBarProps> = ({
 
         const focusable = Array.from(appBarElement.current.querySelectorAll(focusableElements)) as HTMLElement[];
         const focusedElementIndex = focusable.indexOf(document.activeElement as HTMLElement) || 0;
+        const rtl = getComputedStyle(appBarElement.current).direction === 'rtl';
 
+		let nextIndex: number;
         switch (event.code) {
-        case 'ArrowRight':
-            event.preventDefault();
-            if (focusedElementIndex < focusable.length - 1) {
-                focusable[focusedElementIndex + 1].focus();
-            } else {
+            case 'ArrowRight':
+                event.preventDefault();
+                nextIndex = rtl ? focusedElementIndex - 1 : focusedElementIndex + 1;
+                nextIndex = (nextIndex + focusable.length) % focusable.length; // Wrap around if outbound
+                focusable[nextIndex].focus();
+                break;
+            case 'ArrowLeft':
+                event.preventDefault();
+				nextIndex = rtl ? focusedElementIndex + 1 : focusedElementIndex - 1;
+				nextIndex = (nextIndex + focusable.length) % focusable.length; // Wrap around if outbound
+				focusable[nextIndex].focus();
+                break;
+            case 'Home':
+                event.preventDefault();
                 focusable[0].focus();
-            }
-            break;
-        case 'ArrowLeft':
-            event.preventDefault();
-            if (focusedElementIndex > 0) {
-                focusable[focusedElementIndex - 1].focus();
-            } else {
+                break;
+            case 'End':
+                event.preventDefault();
                 focusable[focusable.length - 1]?.focus();
-            }
-            break;
-        case 'Home':
-            event.preventDefault();
-            focusable[0].focus();
-            break;
-        case 'End':
-            event.preventDefault();
-            focusable[focusable.length - 1]?.focus();
-            break;
+                break;
         }
     };
 
@@ -94,7 +92,7 @@ const AppBarToolBarRoot: React.FC<AppBarToolBarProps> = ({
 const AppBarLead: React.FC<AppBarLeadProps> = ({
     // Lead
     base = 'flex',
-    spaceX = 'space-x-4',
+    spaceX = 'space-x-4 rtl:space-x-reverse',
     padding = '',
     classes = '',
     // Children
@@ -126,7 +124,7 @@ const AppBarCenter: React.FC<AppBarCenterProps> = ({
 const AppBarTrail: React.FC<AppBarTrailProps> = ({
     // Trail
     base = 'flex',
-    spaceX = 'space-x-4',
+    spaceX = 'space-x-4 rtl:space-x-reverse',
     padding = '',
     classes = '',
     // Children

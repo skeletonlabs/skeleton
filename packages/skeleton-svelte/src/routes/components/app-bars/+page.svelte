@@ -78,3 +78,21 @@
 	{/snippet}
 </AppBar>
 <button type="button" class="btn preset-filled">Button after the AppBar</button>
+
+<h3 class="h3">RTL</h3>
+<div dir="rtl">
+	<AppBar>
+		{#snippet lead()}
+		<button type="button" class="btn-icon preset-filled-primary-500">💀</button>
+		<button type="button" class="btn preset-filled">lead</button>
+		{/snippet}
+		skeleton
+		{#snippet trail()}
+		<button type="button" class="btn preset-filled">trail</button>
+		<button type="button" class="btn-icon preset-filled-primary-500">💀</button>
+		{/snippet}
+		{#snippet headline()}
+		<h1 class="h1">مرحبا بك</h1>
+		{/snippet}
+	</AppBar>
+</div>
