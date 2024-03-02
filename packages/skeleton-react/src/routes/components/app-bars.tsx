@@ -85,6 +85,31 @@ function appbarSticky() {
     );
 }
 
+function appbarA11YKeyboard() {
+    return(
+        <>
+        <h3 className="h3">A11Y Keyboard</h3>
+        <button type="button" className="btn preset-filled">Button before the AppBar</button>
+        <AppBar>
+            <AppBar.Toolbar>
+                <ToolBar.Lead>
+                    <button type="button" className="btn-icon preset-filled-primary-500">💀</button>
+                    <button type="button" className="btn preset-filled">Skeleton</button>
+                </ToolBar.Lead>
+                <ToolBar.Center>
+                    Skeleton
+                </ToolBar.Center>
+                <ToolBar.Trail>
+                    <button type="button" className="btn preset-filled">Skeleton</button>
+                    <button type="button" className="btn-icon preset-filled-primary-500">💀</button>
+                </ToolBar.Trail>
+            </AppBar.Toolbar>
+        </AppBar>  
+        <button type="button" className="btn preset-filled">Button after the AppBar</button>
+        </> 
+    );
+}
+
 export function Component() {
     return(
         <>
@@ -92,6 +117,7 @@ export function Component() {
             {appbar()}
             {appbarHeadline()}
             {appbarSticky()}
+            {appbarA11YKeyboard()}
         </>
     );
 }

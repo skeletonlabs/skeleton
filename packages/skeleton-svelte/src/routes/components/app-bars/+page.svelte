@@ -63,3 +63,18 @@
 	<div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!</div>
 	<div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!</div>
 </div>
+
+<h3 class="h3">A11Y Keyboard</h3>
+<button type="button" class="btn preset-filled">Button before the AppBar</button>
+<AppBar>
+	{#snippet lead()}
+		<button type="button" class="btn-icon preset-filled-primary-500">💀</button>
+		<button type="button" class="btn preset-filled">Skeleton</button>
+	{/snippet}
+	Skeleton
+	{#snippet trail()}
+		<button type="button" class="btn preset-filled">Skeleton</button>
+		<button type="button" class="btn-icon preset-filled-primary-500">💀</button>
+	{/snippet}
+</AppBar>
+<button type="button" class="btn preset-filled">Button after the AppBar</button>

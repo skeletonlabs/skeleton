@@ -40,14 +40,54 @@
 		trail,
 		headline
 	} = $props<AppBarProps>();
+
+	//A11y
+	const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+	let appBarElement:HTMLDivElement|undefined = $state(undefined);
+	function handleKeyDown(event:KeyboardEvent) {
+		if(appBarElement === undefined) return;
+
+		const focusable = Array.from(appBarElement.querySelectorAll(focusableElements)) as HTMLElement[];
+        const focusedElementIndex = focusable.indexOf(document.activeElement as HTMLElement) || 0;
+
+		switch (event.code) {
+			case 'ArrowRight':
+				event.preventDefault();
+				if(focusedElementIndex < focusable.length - 1) {
+					focusable[focusedElementIndex + 1].focus();
+				} else {
+					focusable[0].focus();
+				}
+				break;
+			case 'ArrowLeft':
+				event.preventDefault();
+				if(focusedElementIndex > 0) {
+					focusable[focusedElementIndex - 1].focus();
+				} else {
+					focusable[focusable.length - 1]?.focus();
+				}
+				break;
+			case 'Home':
+				event.preventDefault();
+				focusable[0].focus();
+				break;
+			case 'End':
+				event.preventDefault();
+				focusable[focusable.length - 1]?.focus();
+				break;
+		}
+	}
 </script>
 
 <div
+	bind:this={appBarElement}
 	class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}"
 	role="toolbar"
 	data-testid="app-bar"
 	aria-label={label}
 	aria-labelledby={labelledby}
+	tabindex="-1"
+	onkeydown={handleKeyDown}
 >
 	<div class="{toolbarBase} {toolbarClasses}">
 		{#if lead}

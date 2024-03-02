@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { AppBarCenterProps, AppBarHeadlineProps, AppBarLeadProps, AppBarProps, AppBarToolBarProps, AppBarTrailProps } from "./types";
 
 // React Compose ---
@@ -23,13 +23,54 @@ const AppBarRoot: React.FC<AppBarProps> = ({
     // Children
     children
 }): React.ReactElement => {
+    const appBarElement = useRef<HTMLDivElement>(null);
+    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    const handleKeyDown = (event: React.KeyboardEvent) => {
+        if (!appBarElement.current) return;
+
+        const focusable = Array.from(appBarElement.current.querySelectorAll(focusableElements)) as HTMLElement[];
+        const focusedElementIndex = focusable.indexOf(document.activeElement as HTMLElement) || 0;
+
+        switch (event.code) {
+        case 'ArrowRight':
+            event.preventDefault();
+            if (focusedElementIndex < focusable.length - 1) {
+                focusable[focusedElementIndex + 1].focus();
+            } else {
+                focusable[0].focus();
+            }
+            break;
+        case 'ArrowLeft':
+            event.preventDefault();
+            if (focusedElementIndex > 0) {
+                focusable[focusedElementIndex - 1].focus();
+            } else {
+                focusable[focusable.length - 1]?.focus();
+            }
+            break;
+        case 'Home':
+            event.preventDefault();
+            focusable[0].focus();
+            break;
+        case 'End':
+            event.preventDefault();
+            focusable[focusable.length - 1]?.focus();
+            break;
+        }
+    };
+
+
     return (
         <div
+            ref={appBarElement}
             className={`${base} ${background} ${spaceY} ${border} ${padding} ${shadow} ${classes}`}
             role="toolbar"
             data-testid="app-bar"
             aria-label={label}
             aria-labelledby={labelledby}
+            tabIndex={-1}
+            onKeyDown={handleKeyDown}
         >
             {children}
         </div>
