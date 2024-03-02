@@ -12,5 +12,6 @@
 			"@content/*": ["src/content/*"],
 			"@styles/*": ["src/styles/*"]
 		}
-	}
+	},
+	"exclude": ["node_modules", "dist"]
 }

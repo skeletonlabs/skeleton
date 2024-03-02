@@ -9,8 +9,7 @@ const { slug } = Astro.params;
 const [framework, feature] = slug ? slug.split('/') : [];
 
 // Classes
-const cBtn =
-	'flex justify-center items-center space-x-4 py-8 rounded-tl-container rounded-tr-container';
+const cBtn = 'flex justify-center items-center space-x-4 py-8 rounded-tl-container rounded-tr-container';
 const cActive =
 	'bg-gradient-to-b from-surface-100 dark:from-surface-900/30 to-transparent border-t border-l border-r border-surface-200-800';
 const cHover =
@@ -30,10 +29,7 @@ const frameworkAllowList = frameworkList.map((fw) => fw.name);
 			{frameworkList.map((fw: any) => (
 				<a
 					href={`/${topLevelPath}/${fw.name}/${feature}`}
-					class:list={[
-						cBtn,
-						framework === fw.name ? cActive : cHover,
-					]}
+					class:list={[cBtn, framework === fw.name ? cActive : cHover]}
 				>
 					<Icon name={fw.icon} size={24} />
 					<span class="capitalize">{fw.name}</span>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Page: React.FC<any> = (props) => {
+export const Page: React.FC = () => {
 	// The default color state
 	let [color, setColor] = useState('red');
 	// The available set of colors

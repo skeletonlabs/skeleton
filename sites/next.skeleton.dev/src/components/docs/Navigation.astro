@@ -21,64 +21,64 @@ const navResources = await getCollection('resources', ({ id }) => {
 
 // Sort Order
 const sortByOrder = (a: any, b: any) => {
-    return a.data.orderBy - b.data.orderBy
-}
+	return a.data.orderBy - b.data.orderBy;
+};
 ---
 
 <aside class="type-scale-2 overflow-y-auto space-y-10" class:list={[classList]}>
-    <!-- Top -->
-    <div class="flex flex-col gap-2">
-        <span class="font-bold">Docs</span>
-        {
-            navDocs.sort(sortByOrder).map((l) => (
-                <a class="anchor" href={`/docs/${l.slug}`} title={l.data.description}>
-                    {l.data.title}
-                </a>
-            ))
-        }
-    </div>
-    <!-- Design -->
-    <div class="flex flex-col gap-2">
-        <span class="font-bold">Design</span>
-        {
-            navDesign.sort(sortByOrder).map((l) => (
-                <a class="anchor" href={`/design/${l.slug}`} title={l.data.description}>
-                    {l.data.title}
-                </a>
-            ))
-        }
-    </div>
-    <!-- Tailwind -->
-    <div class="flex flex-col gap-2">
-        <span class="font-bold">Tailwind</span>
-        {
-            navTailwind.map((l) => (
-                <a class="anchor" href={`/tailwind/${l.slug}`} title={l.data.description}>
-                    {l.data.title}
-                </a>
-            ))
-        }
-    </div>
-    <!-- Components -->
-    <div class="flex flex-col gap-2">
-        <span class="font-bold">Components</span>
-        {
-            navComponents.map((l) => (
-                <a class="anchor" href={`/components/${l.slug.replace('common', 'react')}`} title={l.data.description}>
-                    {l.data.title}
-                </a>
-            ))
-        }
-    </div>
-    <!-- Resources -->
-    <div class="flex flex-col gap-2">
-        <span class="font-bold">Resources</span>
-        {
-            navResources.map((l) => (
-                <a class="anchor" href={`/resources/${l.slug.replace('common', 'react')}`} title={l.data.description}>
-                    {l.data.title}
-                </a>
-            ))
-        }
-    </div>
+	<!-- Top -->
+	<div class="flex flex-col gap-2">
+		<span class="font-bold">Docs</span>
+		{
+			navDocs.sort(sortByOrder).map((l) => (
+				<a class="anchor" href={`/docs/${l.slug}`} title={l.data.description}>
+					{l.data.title}
+				</a>
+			))
+		}
+	</div>
+	<!-- Design -->
+	<div class="flex flex-col gap-2">
+		<span class="font-bold">Design</span>
+		{
+			navDesign.sort(sortByOrder).map((l) => (
+				<a class="anchor" href={`/design/${l.slug}`} title={l.data.description}>
+					{l.data.title}
+				</a>
+			))
+		}
+	</div>
+	<!-- Tailwind -->
+	<div class="flex flex-col gap-2">
+		<span class="font-bold">Tailwind</span>
+		{
+			navTailwind.map((l) => (
+				<a class="anchor" href={`/tailwind/${l.slug}`} title={l.data.description}>
+					{l.data.title}
+				</a>
+			))
+		}
+	</div>
+	<!-- Components -->
+	<div class="flex flex-col gap-2">
+		<span class="font-bold">Components</span>
+		{
+			navComponents.map((l) => (
+				<a class="anchor" href={`/components/${l.slug.replace('common', 'react')}`} title={l.data.description}>
+					{l.data.title}
+				</a>
+			))
+		}
+	</div>
+	<!-- Resources -->
+	<div class="flex flex-col gap-2">
+		<span class="font-bold">Resources</span>
+		{
+			navResources.map((l) => (
+				<a class="anchor" href={`/resources/${l.slug.replace('common', 'react')}`} title={l.data.description}>
+					{l.data.title}
+				</a>
+			))
+		}
+	</div>
 </aside>

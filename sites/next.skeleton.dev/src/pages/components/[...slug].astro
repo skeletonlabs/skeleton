@@ -1,19 +1,18 @@
 ---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
 import { getEntry } from 'astro:content';
 
-// Get the slug from the incoming server request
-const { slug } = Astro.params;
-if (slug === undefined) throw new Error('Slug is required');
+export const getStaticPaths = (async () => {
+	const entries = await getCollection('components');
+	return entries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
 
 // Get the feature name from the slug
-const featureName = slug.split('/')[1];
-
-// Query based on the slug
-const commmon: any = await getEntry('components', `common/${featureName}`);
-const entry = await getEntry('components', slug);
-
-// Handle 404 not found
-if (entry === undefined) return Astro.redirect('/404');
+const featureName = entry.slug.split('/')[1];
+const commmon = (await getEntry('components', `common/${featureName}`))!; // "!" is safe because we know the entry exists
 
 // Render the entry to HTML in the template
 const { Content, remarkPluginFrontmatter } = await entry.render();
