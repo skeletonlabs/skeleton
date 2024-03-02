@@ -6,7 +6,7 @@
 		label = '',
 		labelledby = '',
 		// Root
-		base = 'flex flex-col',
+		base = 'w-full flex flex-col',
 		background = 'bg-surface-100-900',
 		spaceY = 'space-y-4',
 		border = '',
@@ -17,7 +17,7 @@
 		toolbarBase = 'flex justify-between',
 		toolbarClasses = '',
 		// Lead
-		leadBase = '',
+		leadBase = 'flex',
 		leadSpaceX = 'space-x-4',
 		leadPadding = '',
 		leadClasses = '',
@@ -27,7 +27,7 @@
 		centerPadding = '',
 		centerClasses = '',
 		// Trail
-		trailBase = '',
+		trailBase = 'flex',
 		trailSpaceX = 'space-x-4',
 		trailPadding = '',
 		trailClasses = '',

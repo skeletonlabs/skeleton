@@ -1,20 +1,20 @@
-import { AppBar, Toolbar } from "../../components/AppBar/AppBar";
+import { AppBar, ToolBar } from "../../components/AppBar/AppBar";
 
 function appbar() {
     return(
         <AppBar>
             <AppBar.Toolbar>
-                <Toolbar.Lead>
+                <ToolBar.Lead>
                     <span>💀</span>
                     <span>Skeleton</span>
-                </Toolbar.Lead>
-                <Toolbar.Center>
+                </ToolBar.Lead>
+                <ToolBar.Center>
                     Skeleton
-                </Toolbar.Center>
-                <Toolbar.Trail>
+                </ToolBar.Center>
+                <ToolBar.Trail>
                     <span>Skeleton</span>
                     <span>💀</span>
-                </Toolbar.Trail>
+                </ToolBar.Trail>
             </AppBar.Toolbar>
         </AppBar>   
     );
@@ -26,14 +26,14 @@ function appbarHeadline() {
         <h3 className="h3">Headline</h3>
         <AppBar>
             <AppBar.Toolbar>
-                <Toolbar.Lead>
+                <ToolBar.Lead>
                     <span>💀</span>
                     <span>Skeleton</span>
-                </Toolbar.Lead>
-                <Toolbar.Trail>
+                </ToolBar.Lead>
+                <ToolBar.Trail>
                     <span>Skeleton</span>
                     <span>💀</span>
-                </Toolbar.Trail>
+                </ToolBar.Trail>
             </AppBar.Toolbar>
             <AppBar.Headline base="text-center">
                 <h1 className="h1">Headline</h1>
@@ -50,17 +50,17 @@ function appbarSticky() {
         <div className="flex flex-col space-y-4 max-h-64 overflow-y-auto">
             <AppBar classes="sticky top-0">
                 <AppBar.Toolbar>
-                    <Toolbar.Lead>
+                    <ToolBar.Lead>
                         <span>💀</span>
                         <span>Skeleton</span>
-                    </Toolbar.Lead>
-                    <Toolbar.Center>
+                    </ToolBar.Lead>
+                    <ToolBar.Center>
                         Skeleton
-                    </Toolbar.Center>
-                    <Toolbar.Trail>
+                    </ToolBar.Center>
+                    <ToolBar.Trail>
                         <span>Skeleton</span>
                         <span>💀</span>
-                    </Toolbar.Trail>
+                    </ToolBar.Trail>
                 </AppBar.Toolbar>
             </AppBar>   
             <div>First line of the sticky AppBar</div>

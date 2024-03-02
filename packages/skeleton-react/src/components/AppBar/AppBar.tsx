@@ -13,7 +13,7 @@ const AppBarRoot: React.FC<AppBarProps> = ({
     label = '',
     labelledby = '',
     // Root
-    base = 'flex flex-col',
+    base = 'w-full flex flex-col',
     background = 'bg-surface-100-900',
     spaceY = 'space-y-4',
     border = '',
@@ -52,7 +52,7 @@ const AppBarToolBarRoot: React.FC<AppBarToolBarProps> = ({
 
 const AppBarLead: React.FC<AppBarLeadProps> = ({
     // Lead
-    base = '',
+    base = 'flex',
     spaceX = 'space-x-4',
     padding = '',
     classes = '',
@@ -84,7 +84,7 @@ const AppBarCenter: React.FC<AppBarCenterProps> = ({
 
 const AppBarTrail: React.FC<AppBarTrailProps> = ({
     // Trail
-    base = '',
+    base = 'flex',
     spaceX = 'space-x-4',
     padding = '',
     classes = '',
@@ -112,13 +112,13 @@ const AppBarHeadline: React.FC<AppBarHeadlineProps> = ({
     );
 };
 
-export const Toolbar = reactCompose(AppBarToolBarRoot, {
+export const ToolBar = reactCompose(AppBarToolBarRoot, {
     Lead: AppBarLead,
     Center: AppBarCenter,
     Trail: AppBarTrail
 });
 
 export const AppBar = reactCompose(AppBarRoot, {
-    Toolbar: Toolbar,
+    Toolbar: ToolBar,
     Headline: AppBarHeadline
 })
