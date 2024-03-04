@@ -2,9 +2,6 @@
 	import type { AppBarProps } from './types.js';
 
 	let {
-		// A11y
-		label = '',
-		labelledby = '',
 		// Root
 		base = 'w-full flex flex-col',
 		background = 'bg-surface-100-900',
@@ -15,6 +12,8 @@
 		classes = '',
 		// Toolbar
 		toolbarBase = 'flex justify-between',
+		toolbarColumns = 'grid-cols-[auto_1fr_auto]',
+		toolbarGap = 'gap-4',
 		toolbarClasses = '',
 		// Lead
 		leadBase = 'flex',
@@ -40,54 +39,12 @@
 		trail,
 		headline
 	} = $props<AppBarProps>();
-
-	//A11y
-	const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-	let appBarElement: HTMLDivElement | undefined = $state(undefined);
-	function handleKeyDown(event: KeyboardEvent) {
-		if (!appBarElement) return;
-
-		const focusable = Array.from(appBarElement.querySelectorAll(focusableElements)) as HTMLElement[];
-		const focusedElementIndex = focusable.indexOf(document.activeElement as HTMLElement) || 0;
-		const rtl = getComputedStyle(appBarElement).direction === 'rtl';
-
-		let nextIndex: number;
-		switch (event.code) {
-			case 'ArrowRight':
-				event.preventDefault();
-				nextIndex = rtl ? focusedElementIndex - 1 : focusedElementIndex + 1;
-				nextIndex = (nextIndex + focusable.length) % focusable.length; // Wrap around if outbound
-				focusable[nextIndex].focus();
-				break;
-			case 'ArrowLeft':
-				event.preventDefault();
-				nextIndex = rtl ? focusedElementIndex + 1 : focusedElementIndex - 1;
-				nextIndex = (nextIndex + focusable.length) % focusable.length; // Wrap around if outbound
-				focusable[nextIndex].focus();
-				break;
-			case 'Home':
-				event.preventDefault();
-				focusable[0].focus();
-				break;
-			case 'End':
-				event.preventDefault();
-				focusable[focusable.length - 1]?.focus();
-				break;
-		}
-	}
 </script>
 
-<div
-	bind:this={appBarElement}
-	class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}"
-	role="toolbar"
-	data-testid="app-bar"
-	aria-label={label}
-	aria-labelledby={labelledby}
-	tabindex="-1"
-	onkeydown={handleKeyDown}
->
-	<div class="{toolbarBase} {toolbarClasses}">
+<!-- @component A header element for the top of a page layout. -->
+
+<header class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}" role="toolbar" data-testid="app-bar">
+	<section class="{toolbarBase} {toolbarColumns} {toolbarGap} {toolbarClasses}">
 		{#if lead}
 			<div class="{leadBase} {leadSpaceX} {leadPadding} {leadClasses}">
 				{@render lead()}
@@ -105,11 +62,11 @@
 				{@render trail()}
 			</div>
 		{/if}
-	</div>
+	</section>
 
 	{#if headline}
-		<div class="{headlineBase} {headlineClasses}">
+		<section class="{headlineBase} {headlineClasses}">
 			{@render headline()}
-		</div>
+		</section>
 	{/if}
-</div>
+</header>

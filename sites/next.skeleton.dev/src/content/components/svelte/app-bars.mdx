@@ -6,6 +6,10 @@ export const components = componentSet;
 
 import Example from '@examples/components/app-bars/Example.svelte';
 import ExampleRaw from '@examples/components/app-bars/Example.svelte?raw';
+import ToolBarTitleExample from '@examples/components/app-bars/ToolBarTitleExample.svelte';
+import ToolBarTitleExampleRaw from '@examples/components/app-bars/ToolBarTitleExample.svelte?raw';
+import HeadlineExample from '@examples/components/app-bars/HeadlineExample.svelte';
+import HeadlineExampleRaw from '@examples/components/app-bars/HeadlineExample.svelte?raw';
 import * as Common from '@content/components/common/app-bars.mdx';
 
 <Preview client:load>
@@ -17,30 +21,26 @@ import * as Common from '@content/components/common/app-bars.mdx';
 	</Fragment>
 </Preview>
 
-## Toolbar and title
+## Toolbar and Title
 
-```svelte
-<AppBar>
-	{#snippet lead()}
-        <ArrowLeft size={24} />
-	{/snippet}
-    Title
-	{#snippet trail()}
-        <Paperclip size={24} />
-        <Calendar size={24} />
-        <CircleUser size={24} />
-	{/snippet}
-</AppBar>
-```
+<Preview client:load>
+	<Fragment slot="preview">
+		<ToolBarTitleExample client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ToolBarTitleExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
 
 ## Headline
 
-```svelte
-<AppBar>
-	{#snippet headline()}
-		<h2 class="h2">Headline</h2>
-	{/snippet}
-</AppBar>
-```
+<Preview client:load>
+	<Fragment slot="preview">
+		<HeadlineExample client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={HeadlineExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
 
 <Common.Content />

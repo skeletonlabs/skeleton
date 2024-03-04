@@ -1,12 +1,6 @@
 import type { Snippet } from 'svelte';
 
 export interface AppBarProps {
-	// A11y ---
-	/** Provide a semantic ID for the ARIA label. */
-	label?: string;
-	/** Provide the ID of the element that labels the AppBar. */
-	labelledby?: string;
-
 	// Root ---
 	/** Set base styles. */
 	base?: string;
@@ -26,43 +20,47 @@ export interface AppBarProps {
 	// Toolbar ---
 	/** Sets toolbar's base styles. */
 	toolbarBase?: string;
+	/** Sets toolbar's grid columns styles. */
+	toolbarColumns?: string;
+	/** Sets toolbar's gap styles. */
+	toolbarGap?: string;
 	/** Provide arbitrary CSS classes to the toolbar. */
 	toolbarClasses?: string;
 
 	// Lead ---
-	/** Sets lead's base styles. */
+	/** Sets the lead snippet element's base styles. */
 	leadBase?: string;
-	/** Sets lead's horizontal spacing styles. */
+	/** Sets the lead snippet element's horizontal spacing styles. */
 	leadSpaceX?: string;
-	/** Set lead's padding styles. */
+	/** Sets the lead snippet element's padding styles. */
 	leadPadding?: string;
-	/** Provide arbitrary CSS classes to the lead. */
+	/** Provide arbitrary CSS classes to the lead snippet. */
 	leadClasses?: string;
 
 	// Center ---
-	/** Sets center's base styles. */
+	/** Sets the center snippet element's base styles. */
 	centerBase?: string;
-	/** Sets center alignment styles. */
+	/** Sets the center snippet element's alignment styles. */
 	centerAlign?: string;
-	/** Set center's padding styles. */
+	/** Sets the center snippet element's padding styles. */
 	centerPadding?: string;
-	/** Provide arbitrary CSS classes to the center. */
+	/** Provide arbitrary CSS classes to the center snippet. */
 	centerClasses?: string;
 
 	// Trail ---
-	/** Sets trail's base styles. */
+	/** Sets the trail snippet element's base styles. */
 	trailBase?: string;
-	/** Sets trail's horizontal spacing styles. */
+	/** Sets the trail snippet element's horizontal spacing styles. */
 	trailSpaceX?: string;
-	/** Set trail's padding styles. */
+	/** Sets the trail snippet element's padding styles. */
 	trailPadding?: string;
-	/** Provide arbitrary CSS classes to the trail. */
+	/** Provide arbitrary CSS classes to the trail snippet. */
 	trailClasses?: string;
 
 	// HeadLine ---
-	/** Sets headline's base styles. */
+	/** Sets the headline snippet element's base styles. */
 	headlineBase?: string;
-	/** Provide arbitrary CSS classes to the headline. */
+	/** Provide arbitrary CSS classes to the headline snippet. */
 	headlineClasses?: string;
 
 	// Snippets ---

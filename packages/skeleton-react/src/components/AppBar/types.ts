@@ -3,12 +3,6 @@ import React from "react";
 // Components ---
 
 export interface AppBarProps extends React.PropsWithChildren {
-    // A11y ---
-	/** Provide a semantic ID for the ARIA label. */
-	label?: string;
-	/** Provide the ID of the element that labels the AppBar. */
-	labelledby?: string;
-
 	// Root ---
 	/** Set base styles. */
 	base?: string;
@@ -27,49 +21,53 @@ export interface AppBarProps extends React.PropsWithChildren {
 }
 
 export interface AppBarToolBarProps extends React.PropsWithChildren {
-    /** Sets toolbar's base styles. */
+    /** Sets the toolbar component's base styles. */
 	base?: string;
-	/** Provide arbitrary CSS classes to the toolbar. */
+	/** Sets the toolbar component's grid columns styles. */
+	columns?: string;
+	/** Sets the toolbar component's gap styles. */
+	gap?: string;
+	/** Provide arbitrary CSS classes to the toolbar component. */
 	classes?: string;
 }
 
 export interface AppBarLeadProps extends React.PropsWithChildren {
-    /** Sets lead's base styles. */
+    /** Sets the lead component's base styles. */
 	base?: string;
-	/** Sets lead's horizontal spacing styles. */
+	/** Sets the lead component's horizontal spacing styles. */
 	spaceX?: string;
-	/** Set lead's padding styles. */
+	/** Sets the lead component's padding styles. */
 	padding?: string;
-	/** Provide arbitrary CSS classes to the lead. */
+	/** Provide arbitrary CSS classes to the lead component. */
 	classes?: string;
 }
 
 export interface AppBarCenterProps extends React.PropsWithChildren {
-    /** Sets center's base styles. */
+    /** Sets the center component's base styles. */
 	base?: string;
-	/** Sets center alignment styles. */
+	/** Sets the center component's alignment styles. */
 	align?: string;
-	/** Set center's padding styles. */
+	/** Sets the center component's padding styles. */
 	padding?: string;
-	/** Provide arbitrary CSS classes to the center. */
+	/** Provide arbitrary CSS classes to the center component. */
 	classes?: string;
 }
 
 export interface AppBarTrailProps extends React.PropsWithChildren {
-    /** Sets trail's base styles. */
+    /** Sets the trail component's base styles. */
 	base?: string;
-	/** Sets trail's horizontal spacing styles. */
+	/** Sets the trail component's horizontal spacing styles. */
 	spaceX?: string;
-	/** Set trail's padding styles. */
+	/** Sets the trail component's padding styles. */
 	padding?: string;
-	/** Provide arbitrary CSS classes to the trail. */
+	/** Provide arbitrary CSS classes to the trail component. */
 	classes?: string;
 }
 
 export interface AppBarHeadlineProps extends React.PropsWithChildren {
-    /** Sets headline's base styles. */
+    /** Sets the headline component's base styles. */
 	base?: string;
-	/** Provide arbitrary CSS classes to the headline. */
+	/** Provide arbitrary CSS classes to the headline component. */
 	classes?: string;
 
 }

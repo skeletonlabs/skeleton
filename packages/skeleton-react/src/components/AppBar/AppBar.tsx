@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { AppBarCenterProps, AppBarHeadlineProps, AppBarLeadProps, AppBarProps, AppBarToolBarProps, AppBarTrailProps } from "./types";
 
 // React Compose ---
@@ -9,9 +9,6 @@ import { reactCompose } from "../../utils/react-compose";
 
 // Components ---
 const AppBarRoot: React.FC<AppBarProps> = ({
-    // A11y
-    label = '',
-    labelledby = '',
     // Root
     base = 'w-full flex flex-col',
     background = 'bg-surface-100-900',
@@ -22,53 +19,12 @@ const AppBarRoot: React.FC<AppBarProps> = ({
     classes = '',
     // Children
     children
-}): React.ReactElement => {
-    const appBarElement = useRef<HTMLDivElement>(null);
-    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-
-    const handleKeyDown = (event: React.KeyboardEvent) => {
-        if (!appBarElement.current) return;
-
-        const focusable = Array.from(appBarElement.current.querySelectorAll(focusableElements)) as HTMLElement[];
-        const focusedElementIndex = focusable.indexOf(document.activeElement as HTMLElement) || 0;
-        const rtl = getComputedStyle(appBarElement.current).direction === 'rtl';
-
-		let nextIndex: number;
-        switch (event.code) {
-            case 'ArrowRight':
-                event.preventDefault();
-                nextIndex = rtl ? focusedElementIndex - 1 : focusedElementIndex + 1;
-                nextIndex = (nextIndex + focusable.length) % focusable.length; // Wrap around if outbound
-                focusable[nextIndex].focus();
-                break;
-            case 'ArrowLeft':
-                event.preventDefault();
-				nextIndex = rtl ? focusedElementIndex + 1 : focusedElementIndex - 1;
-				nextIndex = (nextIndex + focusable.length) % focusable.length; // Wrap around if outbound
-				focusable[nextIndex].focus();
-                break;
-            case 'Home':
-                event.preventDefault();
-                focusable[0].focus();
-                break;
-            case 'End':
-                event.preventDefault();
-                focusable[focusable.length - 1]?.focus();
-                break;
-        }
-    };
-
-
+}) => {
     return (
         <div
-            ref={appBarElement}
             className={`${base} ${background} ${spaceY} ${border} ${padding} ${shadow} ${classes}`}
             role="toolbar"
             data-testid="app-bar"
-            aria-label={label}
-            aria-labelledby={labelledby}
-            tabIndex={-1}
-            onKeyDown={handleKeyDown}
         >
             {children}
         </div>
@@ -78,12 +34,14 @@ const AppBarRoot: React.FC<AppBarProps> = ({
 const AppBarToolBarRoot: React.FC<AppBarToolBarProps> = ({
     // Toolbar
     base = 'flex justify-between',
+    columns = 'grid-cols-[auto_1fr_auto]',
+    gap = 'gap-4',
     classes = '',
     // Children
     children
-}): React.ReactElement => {
+}) => {
     return(
-        <div className={`${base} ${classes}`}>
+        <div className={`${base} ${columns} ${gap} ${classes}`}>
             {children}
         </div>
     );
@@ -97,7 +55,7 @@ const AppBarLead: React.FC<AppBarLeadProps> = ({
     classes = '',
     // Children
     children
-}): React.ReactElement => {
+}) => {
     return(
         <div className={`${base} ${spaceX} ${padding} ${classes}`}>
             {children}
@@ -113,7 +71,7 @@ const AppBarCenter: React.FC<AppBarCenterProps> = ({
     classes = '',
     // Children
     children
-}): React.ReactElement => {
+}) => {
     return(
         <div className={`${base} ${align} ${padding} ${classes}`}>
             {children}
@@ -129,7 +87,7 @@ const AppBarTrail: React.FC<AppBarTrailProps> = ({
     classes = '',
     // Children
     children
-}): React.ReactElement => {
+}) => {
     return(
         <div className={`${base} ${spaceX} ${padding} ${classes}`}>
             {children}
@@ -143,7 +101,7 @@ const AppBarHeadline: React.FC<AppBarHeadlineProps> = ({
     classes = '',
     // Children
     children
-}): React.ReactElement => {
+}) => {
     return(
         <div className={`${base} ${classes}`}>
             {children}
