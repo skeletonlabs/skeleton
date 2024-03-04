@@ -4,8 +4,8 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Example from "@examples/components/app-bars/Example.svelte";
-import ExampleRaw from "@examples/components/app-bars/Example.svelte?raw";
+import Example from '@examples/components/app-bars/Example.svelte';
+import ExampleRaw from '@examples/components/app-bars/Example.svelte?raw';
 import * as Common from '@content/components/common/app-bars.mdx';
 
 <Preview client:load>
@@ -18,6 +18,7 @@ import * as Common from '@content/components/common/app-bars.mdx';
 </Preview>
 
 ## Toolbar and title
+
 ```svelte
 <AppBar>
 	{#snippet lead()}
@@ -33,6 +34,7 @@ import * as Common from '@content/components/common/app-bars.mdx';
 ```
 
 ## Headline
+
 ```svelte
 <AppBar>
 	{#snippet headline()}

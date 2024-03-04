@@ -43,12 +43,12 @@
 
 	//A11y
 	const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-	let appBarElement:HTMLDivElement|undefined = $state(undefined);
-	function handleKeyDown(event:KeyboardEvent) {
-		if(!appBarElement) return;
+	let appBarElement: HTMLDivElement | undefined = $state(undefined);
+	function handleKeyDown(event: KeyboardEvent) {
+		if (!appBarElement) return;
 
 		const focusable = Array.from(appBarElement.querySelectorAll(focusableElements)) as HTMLElement[];
-        const focusedElementIndex = focusable.indexOf(document.activeElement as HTMLElement) || 0;
+		const focusedElementIndex = focusable.indexOf(document.activeElement as HTMLElement) || 0;
 		const rtl = getComputedStyle(appBarElement).direction === 'rtl';
 
 		let nextIndex: number;
