@@ -1,6 +1,3 @@
-// Mocha Theme
-// Inspired by: https://github.com/catppuccin/catppuccin
-
 // import type { PresetTheme } from './index.js';
 
 const next = {
@@ -24,7 +21,7 @@ const next = {
 		'--type-scale-13': 'calc(8rem * var(--type-scale-factor))',
 		'--base-font-color': 'var(--color-surface-950)',
 		'--base-font-color-dark': 'var(--color-surface-50)',
-		'--base-font-family': '"Trebuchet MS", Helvetica, sans-serif',
+		'--base-font-family': 'Verdana, Geneva, sans-serif',
 		'--base-font-size': '18px',
 		'--base-line-height': 'inherit',
 		'--base-font-weight': 'normal',
@@ -46,8 +43,8 @@ const next = {
 		'--anchor-letter-spacing': 'inherit',
 		'--body-background-color': 'var(--color-surface-50)',
 		'--body-background-color-dark': 'var(--color-surface-950)',
-		'--radii-default': '9999px',
-		'--radii-container': '22px',
+		'--radii-default': '8px',
+		'--radii-container': '12px',
 		'--border-width-default': '1px',
 		'--divide-width-default': '1px',
 		'--outline-width-default': '1px',
