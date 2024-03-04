@@ -18,6 +18,7 @@ const config = {
 				preset: [
 					{ name: "next" },
 					{ name: "mocha" },
+					{ name: "vista" },
 				],
 			},
 		}),

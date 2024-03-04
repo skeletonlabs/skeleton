@@ -8,12 +8,12 @@ function genColorRamp(colorSettings: Record<string, string>) {
 	// prettier-ignore
 	const colorScale = chroma.scale([
 		// 'white',
-		chroma(validatedSeed).brighten(1),
+		chroma(validatedSeed).brighten(1.5),
 		validatedSeed,
 		// 'black'
-		chroma(validatedSeed).darken(4)
+		chroma(validatedSeed).darken(3)
 	]).colors(13);
-	// const colorScale = chroma.scale(['#FFFFFF', '#6c7086', '#11111b']).colors(13);
+	// const colorScale = chroma.scale(['#cfdfdd', '#092830']).colors(13);
 	// Return the values as RGB
 	return {
 		50: chroma(colorScale[0]).rgb(),

@@ -24,6 +24,7 @@ export default {
         preset: [
           { name: "next" },
           { name: "mocha" },
+          { name: "vista" },
         ],
       },
     }),
