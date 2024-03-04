@@ -1,17 +1,13 @@
 ---
-import { getEntry } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
 
-// Get the slug from the incoming server request
-const { slug } = Astro.params;
-if (slug === undefined) throw new Error('Slug is required');
+export const getStaticPaths = (async () => {
+	const entries = await getCollection('resources');
+	return entries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}) satisfies GetStaticPaths;
 
-// Query based on the slug
-const entry = await getEntry('resources', slug);
-
-// Handle 404 not found
-if (entry === undefined) return Astro.redirect('/404');
-
-// Render the entry to HTML in the template
+const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 

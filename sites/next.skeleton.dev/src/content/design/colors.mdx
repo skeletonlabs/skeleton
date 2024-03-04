@@ -451,16 +451,8 @@ Available to all supported properties and colors via `.{property}-{color}-{shade
 			<div class="grid grid-rows-11 gap-0.5">
 				{/* Loop Ramp */}
 				{color.ramp.map((shade) => (
-					<div
-						class={`${shade.base} py-2 flex justify-center items-center`}
-					>
-						<strong
-							class:list={[
-								shade.contrast,
-								{ underline: shade.value === 500 },
-								'text-sm',
-							]}
-						>
+					<div class={`${shade.base} py-2 flex justify-center items-center`}>
+						<strong class:list={[shade.contrast, { underline: shade.value === 500 }, 'text-sm']}>
 							{shade.value}
 						</strong>
 					</div>
@@ -566,9 +558,7 @@ Available to all supported properties and colors via `.{property}-{color}-{base}
 		</div>
 		{/* --- */}
 		<div class="bg-primary-500 py-2 flex justify-center items-center">
-			<strong class="text-primary-contrast-500 text-xs flex flex-col items-center gap-0 underline">
-				500
-			</strong>
+			<strong class="text-primary-contrast-500 text-xs flex flex-col items-center gap-0 underline">500</strong>
 		</div>
 		{/* --- */}
 		<div class="bg-primary-600-400 py-2 flex justify-center items-center">
