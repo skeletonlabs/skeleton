@@ -1,19 +1,19 @@
 ---
 const breacrumbs = Astro.url.pathname
-    .split('/')
-    .filter((v) => v !== '')
-    .map((v) => v.replace('-', ' '))
+	.split('/')
+	.filter((v) => v !== '')
+	.map((v) => v.replace('-', ' '));
 ---
 
 <ol class="flex gap-2 type-scale-1">
-    {
-        breacrumbs.map((crumb: string, i: number) => (
-            <>
-                <li class="capitalize" class:list={{ 'opacity-60 ': i !== breacrumbs.length - 1 }}>
-                    {crumb}
-                </li>
-                {i !== breacrumbs.length - 1 && <li class="opacity-60">&rsaquo;</li>}
-            </>
-        ))
-    }
+	{
+		breacrumbs.map((crumb: string, i: number) => (
+			<>
+				<li class="capitalize" class:list={{ 'opacity-60 ': i !== breacrumbs.length - 1 }}>
+					{crumb}
+				</li>
+				{i !== breacrumbs.length - 1 && <li class="opacity-60">&rsaquo;</li>}
+			</>
+		))
+	}
 </ol>

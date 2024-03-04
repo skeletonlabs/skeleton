@@ -4,17 +4,16 @@ title: Components
 description: Guidelines for contributing to Skeleton component packages.
 ---
 
-export const components = componentSet
+export const components = componentSet;
 
 ## Packages
 
 Framework packages are are found within the Skeleton monorepo as shown below. Each framework packages exports a set of components and related feature, while also being wrapped in an a dedicated app framework. Each app framework acts as sandbox for testing features within that framework's "native" environment alongside the Astro enviroment for the documentation website.
 
-| Package                     | Framework                        | App Framework                        |
-|-----------------------------|----------------------------------|--------------------------------------|
-| `/packages/skeleton-svelte` | [Svelte 5](https://svelte.dev/)  | [SvelteKit](https://kit.svelte.dev/) |
-| `/packages/skeleton-react`  | [React](https://react.dev/)      | [Vite/React](https://vitejs.dev/)    |
-
+| Package                     | Framework                       | App Framework                        |
+| --------------------------- | ------------------------------- | ------------------------------------ |
+| `/packages/skeleton-svelte` | [Svelte 5](https://svelte.dev/) | [SvelteKit](https://kit.svelte.dev/) |
+| `/packages/skeleton-react`  | [React](https://react.dev/)     | [Vite/React](https://vitejs.dev/)    |
 
 ### Dev Server
 
@@ -26,11 +25,11 @@ pnpm run dev
 
 ### Server Ports
 
-Note that you may run both the documentation site and each framework package apps in parallel. The following represents the *default* localhost address and port for each project. This will be displayed in the terminal when starting each dev server.
+Note that you may run both the documentation site and each framework package apps in parallel. The following represents the _default_ localhost address and port for each project. This will be displayed in the terminal when starting each dev server.
 
-* Documentation Site: `http://localhost:4321/`
-* Svelte Package App: `http://localhost:5173/`
-* React Package App: `http://localhost:5173/`
+-   Documentation Site: `http://localhost:4321/`
+-   Svelte Package App: `http://localhost:5173/`
+-   React Package App: `http://localhost:5173/`
 
 > TIP: Each framework package you run will increment the next port address by 1 (ex: `5174`, `5175`, etc).
 
@@ -39,7 +38,7 @@ Note that you may run both the documentation site and each framework package app
 Components are housed in the following location per framework:
 
 | Framework | Directory             |
-|-----------|-----------------------|
+| --------- | --------------------- |
 | Svelte    | `/src/lib/components` |
 | React     | `/src/components`     |
 
@@ -82,19 +81,18 @@ let {
 
 This includes three categories of props per element. These should be implemented in the following order top-to-bottom.
 
-- `base` - houses the base utility classes, which enables faux-headless styling.
-    - Replaces: `cBase` class definitions from Skeleton v2.
-    - Parent base props are not prefixed, which helps with parity cross-framework
-    - Child base props are prefixed: `titleBase`, `panelBase`, `controlBase`.
-- `{property}` - individual style props that houses one or more “swappable” utility classes.
-    - Naming should follow Tailwind convention, except for single letter descriptors (`padding` instead of `p`).
-    - Parent props are not prefixed: `background`, `margin`, `border`.
-    - Child props are prefixed: `titleBg`, `controlMargin`, `panelBorder`.
-- `classes` - allows you to extend or override with an arbitrary set of classes..
-    - Replaces the inconsistent use of `slotX` and `regionX` classes in Skeleton v2.
-    - Parent instances are not prefixed: `classes`
-    - Child instances are prefixed: `titleClasses`, `controlClasses`, `panelClasses`
-
+-   `base` - houses the base utility classes, which enables faux-headless styling.
+    -   Replaces: `cBase` class definitions from Skeleton v2.
+    -   Parent base props are not prefixed, which helps with parity cross-framework
+    -   Child base props are prefixed: `titleBase`, `panelBase`, `controlBase`.
+-   `{property}` - individual style props that houses one or more “swappable” utility classes.
+    -   Naming should follow Tailwind convention, except for single letter descriptors (`padding` instead of `p`).
+    -   Parent props are not prefixed: `background`, `margin`, `border`.
+    -   Child props are prefixed: `titleBg`, `controlMargin`, `panelBorder`.
+-   `classes` - allows you to extend or override with an arbitrary set of classes..
+    -   Replaces the inconsistent use of `slotX` and `regionX` classes in Skeleton v2.
+    -   Parent instances are not prefixed: `classes`
+    -   Child instances are prefixed: `titleClasses`, `controlClasses`, `panelClasses`
 
 ### Visual Reference
 
@@ -152,12 +150,12 @@ Features can be documented inline within the code via [JSDoc](https://jsdoc.app/
 
 ```ts
 export interface ExampleProps {
-  /** Sets base styles. */
-  base?: string;
-  /** Set vertical spacing styles. */
-  spaceY?: string;
-  /** Provide arbitrary CSS classes. */
-  classes?: string;
+	/** Sets base styles. */
+	base?: string;
+	/** Set vertical spacing styles. */
+	spaceY?: string;
+	/** Provide arbitrary CSS classes. */
+	classes?: string;
 }
 ```
 
@@ -173,29 +171,29 @@ For React, this is handled via a dot notation syntax.
 
 ```tsx
 <Accordion>
-    <Accordion.Item>
-        <Accordion.Control>(control)</Accordion.Control>
-        <Accordion.Panel>(panel)</Accordion.Panel>
-    </Accordion.Item>
+	<Accordion.Item>
+		<Accordion.Control>(control)</Accordion.Control>
+		<Accordion.Panel>(panel)</Accordion.Panel>
+	</Accordion.Item>
 </Accordion>
 ```
 
 To implement this, first import the `reactCompose` utility into the component file:
 
 ```ts
-import { reactCompose } from "../../utils/react-compose";
+import { reactCompose } from '../../utils/react-compose';
 ```
 
 Then scaffold your component exports at the bottom of the file:
 
 ```ts
 export const Accordion = reactCompose(
-    AccordionRoot,                 // -> <Accordion>
-    {
-        Item: AccordionItem,       // -> <Accordion.Item>
-        Control: AccordionControl, // -> <Accordion.Control>
-        Panel: AccordionPanel      // -> <Accordion.Panel>
-    }
+	AccordionRoot, // -> <Accordion>
+	{
+		Item: AccordionItem, // -> <Accordion.Item>
+		Control: AccordionControl, // -> <Accordion.Control>
+		Panel: AccordionPanel, // -> <Accordion.Panel>
+	},
 );
 ```
 
@@ -215,6 +213,6 @@ This is handled by pairing child components with [Svelte Snippets](https://svelt
 
 ## Additional Resources
 
-* [Component Party](https://component-party.dev/) - easily compare features between each framework
-* [Svelte 5 Docs](https://svelte-5-preview.vercel.app/docs/introduction) - the temporary home of Svelte 5 documentation
-* [Svelte 5 REPL](https://svelte-5-preview.vercel.app/) - quickly test and share Svelte 5 code snippets
+-   [Component Party](https://component-party.dev/) - easily compare features between each framework
+-   [Svelte 5 Docs](https://svelte-5-preview.vercel.app/docs/introduction) - the temporary home of Svelte 5 documentation
+-   [Svelte 5 REPL](https://svelte-5-preview.vercel.app/) - quickly test and share Svelte 5 code snippets

@@ -2,15 +2,19 @@
 layout: '@layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet
+export const components = componentSet;
 
 import { Page as Example } from "@examples/components/app-bars/Example.tsx";
 import ExampleRaw from "@examples/components/app-bars/Example.tsx?raw";
 import * as Common from '@content/components/common/app-bars.mdx';
 
 <Preview client:load>
-    <Fragment slot="preview"><Example /></Fragment>
-    <Fragment slot="code"><Code code={ExampleRaw} lang="tsx" /></Fragment>
+	<Fragment slot="preview">
+		<Example />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="tsx" />
+	</Fragment>
 </Preview>
 
 ## Toolbar and title
