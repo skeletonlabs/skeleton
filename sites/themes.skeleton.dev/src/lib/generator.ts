@@ -1,19 +1,14 @@
 import chroma from 'chroma-js';
 
 // Generates a color ramp with default settings
-function genColorRamp(colorSettings: Record<string, string>) {
-	// Validate the color
-	const validatedSeed = chroma.valid(colorSettings.seed) ? colorSettings.seed : '#CCCCCC';
-	// Create the color scale
+function genColorRamp(colorSettings: Record<string, string[]>) {
+	// Validate and create color scale
 	// prettier-ignore
 	const colorScale = chroma.scale([
-		// 'white',
-		chroma(validatedSeed).brighten(1.5),
-		validatedSeed,
-		// 'black'
-		chroma(validatedSeed).darken(3)
-	]).colors(13);
-	// const colorScale = chroma.scale(['#cfdfdd', '#092830']).colors(13);
+		chroma.valid(colorSettings.seeds[0]) ? chroma(colorSettings.seeds[0]) : '#CCCCCC',
+		chroma.valid(colorSettings.seeds[1]) ? chroma(colorSettings.seeds[1]) : '#CCCCCC',
+		chroma.valid(colorSettings.seeds[2]) ? chroma(colorSettings.seeds[2]) : '#CCCCCC',
+	]).colors(11);
 	// Return the values as RGB
 	return {
 		50: chroma(colorScale[0]).rgb(),

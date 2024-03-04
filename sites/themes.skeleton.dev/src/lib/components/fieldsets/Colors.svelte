@@ -5,6 +5,9 @@
 	// State & Utils
 	import { stateFormColors, stateFormBackgrounds } from '$lib/state.svelte';
 	import { colorNames, colorShades } from '$lib/constants';
+
+	// Local
+	const shadeLabels = ['High', 'Mids', 'Lows'];
 </script>
 
 <div class="space-y-4 md:space-y-8">
@@ -15,16 +18,21 @@
 			<div class="grid grid-cols-1 gap-4">
 				<!-- Core Color -->
 				<label class="label">
-					<!-- <pre class="pre !bg-black">{stateFormColors[color].seed}</pre> -->
 					<div class="label-text capitalize">{color}</div>
-					<div class="grid grid-cols-[auto_1fr] items-center gap-2">
-						<!-- Color Picker -->
-						<input class="input" type="color" bind:value={stateFormColors[color].seed} />
-						<!-- Text Field -->
-						<input class="input" type="text" bind:value={stateFormColors[color].seed} />
+					<!-- Shades -->
+					<div class="space-y-2">
+						{#each stateFormColors[color].seeds as shade, i}
+							<div class="grid grid-cols-[auto_auto_1fr] items-center gap-2">
+								<small>{@html shadeLabels[i]}</small>
+								<!-- Color Picker -->
+								<input class="input" type="color" bind:value={shade} />
+								<!-- Text Field -->
+								<input class="input" type="text" bind:value={shade} />
+							</div>
+						{/each}
 					</div>
 				</label>
-				<div class="grid grid-cols-[80px_auto_1fr_auto_80px] items-center gap-2">
+				<div class="grid grid-cols-[90px_auto_1fr_auto_90px] items-center gap-2">
 					<!-- Contrast Dark -->
 					<select class="select" bind:value={stateFormColors[color].contrastDark}>
 						{#each colorNames as colorName}

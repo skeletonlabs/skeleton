@@ -4,43 +4,43 @@
 
 export let stateFormColors: any = $state({
 	primary: {
-		seed: '#0170f3',
+		seeds: ['#d3e5ff', '#0170f3', '#092750'],
 		contrastDark: 'var(--color-primary-950)',
 		contrastLight: 'var(--color-primary-50)',
 		breakpoint: 5 // index
 	},
 	secondary: {
-		seed: '#7928ca',
+		seeds: ['#d8ccf1', '#7928ca', '#321968'],
 		contrastDark: 'var(--color-secondary-950)',
 		contrastLight: 'var(--color-secondary-50)',
-		breakpoint: 3 // index
+		breakpoint: 4 // index
 	},
 	tertiary: {
-		seed: '#ff0080',
+		seeds: ['#ffcefb', '#ff0080', '#760043'],
 		contrastDark: 'var(--color-tertiary-950)',
 		contrastLight: 'var(--color-tertiary-50)',
-		breakpoint: 5 // index
+		breakpoint: 3 // index
 	},
 	success: {
-		seed: '#50e3c2',
+		seeds: ['#aaffec', '#50e3c2', '#052e2a'],
 		contrastDark: 'var(--color-success-950)',
 		contrastLight: 'var(--color-success-50)',
 		breakpoint: 6 // index
 	},
 	warning: {
-		seed: '#f7b955',
+		seeds: ['#ffefcf', '#f7b955', '#a14d05'],
 		contrastDark: 'var(--color-warning-950)',
 		contrastLight: 'var(--color-warning-50)',
-		breakpoint: 7 // index
+		breakpoint: 6 // index
 	},
 	error: {
-		seed: '#f33f33',
+		seeds: ['#f7d4d6', '#f33f33', '#940000'],
 		contrastDark: 'var(--color-error-950)',
 		contrastLight: 'var(--color-error-50)',
 		breakpoint: 5 // index
 	},
 	surface: {
-		seed: '#666666',
+		seeds: ['#ffffff', '#666666', '#111111'],
 		contrastDark: 'var(--color-surface-950)',
 		contrastLight: 'var(--color-surface-50)',
 		breakpoint: 4 // index
