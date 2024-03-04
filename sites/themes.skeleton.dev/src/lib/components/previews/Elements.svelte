@@ -65,8 +65,9 @@
 					<h3 class="h3">Skeleton is Awesome</h3>
 				</div>
 				<p class="opacity-60">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore
-					sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque
+					consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque
+					quae rem.
 				</p>
 			</article>
 			<footer class="flex items-center justify-between gap-4 p-4">
@@ -95,7 +96,11 @@
 				</label>
 				<label class="label">
 					<span class="label-text">Textarea</span>
-					<textarea class="textarea" rows="4" placeholder="Lorem ipsum dolor sit amet adipisicing elit."></textarea>
+					<textarea
+						class="textarea rounded-container"
+						rows="4"
+						placeholder="Lorem ipsum dolor sit amet adipisicing elit."
+					></textarea>
 				</label>
 			</fieldset>
 			<fieldset class="flex justify-end">

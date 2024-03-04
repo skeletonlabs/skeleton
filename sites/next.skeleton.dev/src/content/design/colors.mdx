@@ -137,11 +137,11 @@ Available to all supported properties and colors via `.{property}-{color}-{shade
 <div class="bg-primary-500">...</div>
 ```
 
-<div class="grid grid-cols-2 gap-0.5 lg:grid-cols-7">
+<div class="grid grid-cols-2 lg:grid-cols-7">
     {palette.map(color => (
         <div class="text-center space-y-4">
             <small class="opacity-60">{color.name}</small>
-            <div class="grid grid-rows-11 gap-0.5">
+            <div class="grid grid-rows-11">
                 {/* Loop Ramp */}
                 {color.ramp.map(shade => (
                     <div class={`${shade.base} py-2 flex justify-center items-center`}>
@@ -168,7 +168,7 @@ Available to all supported properties and colors via `.{property}-{color}-{base}
         <strong class="text-primary-contrast-500 text-sm">500 (default)</strong>
     </div>
     <div class="grid grid-cols-[1fr_auto_1fr] gap-2">
-        <div class="grid grid-rows-5 gap-0.5">
+        <div class="grid grid-rows-5 gap-4">
             <div class="bg-primary-400 py-2 flex justify-center items-center">
                 <strong class="text-primary-contrast-400 text-sm">400</strong>
             </div>
@@ -185,14 +185,14 @@ Available to all supported properties and colors via `.{property}-{color}-{base}
                 <strong class="text-primary-contrast-50 text-sm">50</strong>
             </div>
         </div>
-        <div class="grid grid-rows-5 gap-0.5 items-center">
+        <div class="grid grid-rows-5 gap-4 items-center">
             <span class="text-center opacity-60">&LeftRightArrow;</span>
             <span class="text-center opacity-60">&LeftRightArrow;</span>
             <span class="text-center opacity-60">&LeftRightArrow;</span>
             <span class="text-center opacity-60">&LeftRightArrow;</span>
             <span class="text-center opacity-60">&LeftRightArrow;</span>
         </div>
-        <div class="grid grid-rows-5 gap-0.5">
+        <div class="grid grid-rows-5 gap-4">
             <div class="bg-primary-600 py-2 flex justify-center items-center">
                 <strong class="text-primary-contrast-600 text-sm">600</strong>
             </div>
@@ -213,7 +213,7 @@ Available to all supported properties and colors via `.{property}-{color}-{base}
     {/* Live Preview */}
     ---
     {/* Live Preview */}
-    <div class=" grid grid-cols-11 gap-0.5">
+    <div class=" grid grid-cols-11 gap-4">
         <div class="bg-primary-50-950 py-2 flex justify-center items-center">
             <strong class="text-primary-contrast-50 dark:text-primary-contrast-950 text-xs flex flex-col items-center gap-0">
                 <span>50</span>

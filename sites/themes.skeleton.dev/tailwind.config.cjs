@@ -17,6 +17,7 @@ const config = {
 			themes: {
 				preset: [
 					{ name: "next" },
+					{ name: "mocha" },
 				],
 			},
 		}),

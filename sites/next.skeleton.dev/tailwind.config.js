@@ -23,6 +23,7 @@ export default {
       themes: {
         preset: [
           { name: "next" },
+          { name: "mocha" },
         ],
       },
     }),
