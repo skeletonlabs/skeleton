@@ -4,6 +4,7 @@ import { AppBar } from '@skeletonlabs/skeleton-react';
 export const Page: React.FC<any> = () => {
 	return (
 		<AppBar>
+			{/* <AppBar.Toolbar>...</AppBar.Toolbar> */}
 			<AppBar.Headline base="text-center">
 				<h2 className="h2">Headline</h2>
 			</AppBar.Headline>
