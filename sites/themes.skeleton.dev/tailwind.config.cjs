@@ -13,15 +13,18 @@ const config = {
 	},
 	plugins: [
 		forms,
-		skeleton({
-			themes: {
-				preset: [
-					{ name: "next" },
-					{ name: "mocha" },
-					{ name: "vista" },
-				],
-			},
-		}),
+		// NOTE: do not load a theme if you wish to have live previews
+		skeleton(),
+		// To set a hardcoded theme, use the following:
+		// skeleton({
+		// 	themes: {
+		// 		preset: [
+		// 			{ name: "next" },
+		// 			{ name: "mocha" },
+		// 			{ name: "vista" },
+		// 		],
+		// 	},
+		// }),
 	]
 };
 

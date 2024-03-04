@@ -14,7 +14,7 @@
 	import Lightswitch from '$lib/components/utilities/Lightswitch.svelte';
 
 	// Reactive State
-	let tab = $state('code');
+	let tab = $state('preview');
 	let content = $state('palette');
 
 	function setTab(value: string) {

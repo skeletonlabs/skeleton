@@ -14,7 +14,7 @@ export const typographicScales = [
 	{ value: '1.333', label: 'Perfect Fourth' },
 	{ value: '1.414', label: 'Augmented Fourth' },
 	{ value: '1.5', label: 'Perfect Fifth' },
-	{ value: '1.18', label: 'Golden Ratio' }
+	{ value: '1.618', label: 'Golden Ratio' }
 ];
 export const fontSizes = [
 	'inherit',
