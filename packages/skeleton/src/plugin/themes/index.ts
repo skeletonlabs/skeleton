@@ -10,7 +10,7 @@
 // import wintry from './legacy/wintry.js';
 import next from './next.js';
 import catppuccin from './catppuccin.js';
-import vista from './vista.js';
+import cedar from './cedar.js';
 
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
 
@@ -27,7 +27,7 @@ export const themes = {
 	// wintry,
 	next,
 	catppuccin,
-	vista
+	cedar
 };
 
 export type PresetThemeName = ObjectKeys<typeof themes>;

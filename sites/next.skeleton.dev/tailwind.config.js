@@ -21,11 +21,7 @@ export default {
     // typography,
     skeleton({
       themes: {
-        preset: [
-          { name: "next" },
-          { name: "catppuccin" },
-          { name: "vista" },
-        ],
+        preset: ['next', 'catppuccin', 'cedar'],
       },
     }),
   ],
