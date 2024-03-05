@@ -11,6 +11,7 @@
 import next from './next.js';
 import catppuccin from './catppuccin.js';
 import cedar from './cedar.js';
+import rose from './rose.js';
 
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
 
@@ -27,7 +28,8 @@ export const themes = {
 	// wintry,
 	next,
 	catppuccin,
-	cedar
+	cedar,
+	rose
 };
 
 export type PresetThemeName = ObjectKeys<typeof themes>;
