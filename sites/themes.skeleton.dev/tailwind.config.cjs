@@ -20,7 +20,7 @@ const config = {
 		// 	themes: {
 		// 		preset: [
 		// 			{ name: "next" },
-		// 			{ name: "mocha" },
+		// 			{ name: "catppuccin" },
 		// 			{ name: "vista" },
 		// 		],
 		// 	},

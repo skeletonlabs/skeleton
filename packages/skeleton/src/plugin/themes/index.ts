@@ -9,7 +9,7 @@
 // import vintage from './legacy/vintage.js';
 // import wintry from './legacy/wintry.js';
 import next from './next.js';
-import mocha from './mocha.js';
+import catppuccin from './catppuccin.js';
 import vista from './vista.js';
 
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
@@ -26,7 +26,7 @@ export const themes = {
 	// vintage,
 	// wintry,
 	next,
-	mocha,
+	catppuccin,
 	vista
 };
 
