@@ -34,15 +34,15 @@
 
 <div class="mx-auto max-w-[1200px] space-y-4 px-4 md:space-y-8 md:px-8">
 	<header
-		class="sticky top-0 z-10 grid grid-cols-[auto_1fr_auto_auto] items-center gap-4 rounded-bl-container rounded-br-container border border-t-0 p-4 border-surface-200-800 preset-filled-surface-100-900"
+		class="sticky top-0 z-10 grid grid-cols-[1fr_auto_auto_1fr] justify-between items-center gap-4 rounded-bl-container rounded-br-container border border-t-0 p-4 border-surface-200-800 preset-filled-surface-100-900"
 	>
 		<!-- Branding -->
 		<div class="flex items-center gap-3">
 			<IconSkull size={28} />
-			<h1 class="h5 font-mono">themer</h1>
+			<h1 class="text-xl font-bold font-mono">themer</h1>
 		</div>
 		<!-- Selection -->
-		<nav class="btn-group grid grid-cols-4 p-1.5 preset-outlined-surface-200-800 md:flex-row">
+		<nav class="btn-group flex p-1.5 preset-outlined-surface-200-800 md:flex-row">
 			<button type="button" class="btn {activeContent('palette')}" onclick={() => setContent('palette')}>
 				Palette
 			</button>
@@ -56,8 +56,6 @@
 				Components
 			</button>
 		</nav>
-		<!-- Lighswitch -->
-		<Lightswitch />
 		<!-- Tabs -->
 		<nav class="btn-group flex-col p-1.5 preset-outlined-surface-200-800 md:flex-row">
 			<button type="button" class="btn {activeTab('preview')}" onclick={() => setTab('preview')}>
@@ -67,6 +65,10 @@
 				<IconCode size={20} />
 			</button>
 		</nav>
+		<div class="flex justify-end">
+			<!-- Lighswitch -->
+			<Lightswitch />
+		</div>
 	</header>
 	{#if tab === 'preview'}
 		{#if content === 'palette'}<Palette />{/if}

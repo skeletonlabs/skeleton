@@ -1,5 +1,11 @@
 // Global State ---
 
+// Form: Core ---
+
+export let stateFormCore = $state({
+	name: 'theme'
+});
+
 // Form: Colors ---
 
 export let stateFormColors: any = $state({

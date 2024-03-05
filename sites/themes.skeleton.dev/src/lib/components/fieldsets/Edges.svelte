@@ -4,6 +4,10 @@
 </script>
 
 <fieldset class="space-y-4 md:space-y-8">
+	<header>
+		<h2 class="h2">Edges</h2>
+		<p class="opacity-60">Define radius shape and edge widths.</p>
+	</header>
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label">
 			<span class="label-text">Rounded Base</span>

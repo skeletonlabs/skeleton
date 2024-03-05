@@ -24,9 +24,7 @@
 
 <form>
 	<!-- Header -->
-	<header
-		class="sticky top-0 z-10 flex items-center gap-4 border-b p-4 !py-4 bg-surface-100-900 border-surface-200-800 md:p-8"
-	>
+	<header class="sticky top-0 z-10 border-b p-4 !py-4 bg-surface-100-900 border-surface-200-800 md:p-8 space-y-4">
 		<nav class="btn-group grid w-full grid-cols-4 p-1.5 preset-outlined-surface-200-800 md:flex-row">
 			<button type="button" class="btn {activeCategory('colors')}" onclick={() => setCategory('colors')} title="Colors">
 				<IconColors size={20} />

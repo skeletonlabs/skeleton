@@ -3,6 +3,12 @@
 </script>
 
 <fieldset class="space-y-4 md:space-y-8">
+	<header>
+		<h2 class="h2">Spacing</h2>
+		<p class="opacity-60">
+			Define the scale factor for properties like padding, margin, width, height, gap, space, and more.
+		</p>
+	</header>
 	<label class="label">
 		<div class="label-text flex justify-between">
 			<strong>Scale Factor</strong>

@@ -11,9 +11,12 @@
 </script>
 
 <div class="space-y-4 md:space-y-8">
+	<header>
+		<h2 class="h2">Colors</h2>
+		<p class="opacity-60">Define the palette and contrast tones.</p>
+	</header>
 	<!-- Palette -->
 	<fieldset class="space-y-4 md:space-y-8">
-		<h2 class="h4">Palette</h2>
 		{#each colorNames as color}
 			<div class="grid grid-cols-1 gap-4">
 				<!-- Core Color -->
@@ -76,17 +79,19 @@
 		{/each}
 	</fieldset>
 
-	<!-- --- -->
-	<hr class="hr" />
-
 	<!-- Backgrounds -->
 	<fieldset class="space-y-4 md:space-y-8">
-		<h2 class="h4">Backgrounds</h2>
+		<header>
+			<h3 class="h3">Backgrounds</h3>
+			<p class="opacity-60">Define background styles for light and dark mode.</p>
+		</header>
 		<!-- Base Color -->
 		<label class="label">
-			<div class="label-text">Base Color</div>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<div class="h-10 w-3 rounded" style:background="rgb({stateFormBackgrounds.bodyBackgroundColor})"></div>
+			<span class="label-text">Base Color</span>
+			<div class="input-group grid-cols-[auto_1fr]">
+				<div class="input-group-cell">
+					<div class="size-5 rounded-full" style:background="rgb({stateFormBackgrounds.bodyBackgroundColor})"></div>
+				</div>
 				<select class="select" bind:value={stateFormBackgrounds.bodyBackgroundColor}>
 					<option value="0 0 0">Black</option>
 					<option value="255 255 255">White</option>
@@ -102,9 +107,11 @@
 		</label>
 		<!-- Dark Mode -->
 		<label class="label">
-			<div class="label-text">Dark Mode</div>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<div class="h-10 w-3 rounded" style:background="rgb({stateFormBackgrounds.bodyBackgroundColorDark})"></div>
+			<span class="label-text">Dark Mode</span>
+			<div class="input-group grid-cols-[auto_1fr]">
+				<div class="input-group-cell">
+					<div class="size-5 rounded-full" style:background="rgb({stateFormBackgrounds.bodyBackgroundColorDark})"></div>
+				</div>
 				<select class="select" bind:value={stateFormBackgrounds.bodyBackgroundColorDark}>
 					<option value="0 0 0">Black</option>
 					<option value="255 255 255">White</option>

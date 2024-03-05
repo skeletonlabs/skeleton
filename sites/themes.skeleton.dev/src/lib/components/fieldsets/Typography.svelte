@@ -2,6 +2,7 @@
 	import {
 		colorNames,
 		colorShades,
+		fontFamilies,
 		fontSizes,
 		fontStyles,
 		fontWeights,
@@ -17,6 +18,10 @@
 </script>
 
 <fieldset class="space-y-4 md:space-y-8">
+	<header>
+		<h2 class="h2">Typography</h2>
+		<p class="opacity-60">Define all typographic settings for your theme.</p>
+	</header>
 	<!-- Factor -->
 	<label class="label space-y-2">
 		<div class="label-text flex justify-between">
@@ -34,15 +39,24 @@
 		/>
 		<div class="rounded p-4 text-center preset-filled-surface-200-800">{factorLabel}</div>
 	</label>
+
 	<!-- --- -->
 	<hr class="hr" />
+
 	<!-- Base -->
-	<h2 class="h4">Base</h2>
+	<header>
+		<h3 class="h3">Base</h3>
+		<p class="opacity-60">Define default page typography styles.</p>
+	</header>
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label">
 			<span class="label-text">Base Color</span>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.baseFontColor})"></div>
+			<div class="input-group grid-cols-[auto_1fr]">
+				<div class="input-group-cell">
+					{#if stateFormTypography.headingFontColor !== 'inherit'}
+						<div class="size-5 rounded-full" style:background="rgb({stateFormTypography.baseFontColor})"></div>
+					{/if}
+				</div>
 				<select class="select" bind:value={stateFormTypography.baseFontColor}>
 					<option value="0 0 0">Black</option>
 					<option value="255 255 255">White</option>
@@ -58,8 +72,12 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Dark Mode</span>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.baseFontColorDark})"></div>
+			<div class="input-group grid-cols-[auto_1fr]">
+				<div class="input-group-cell">
+					{#if stateFormTypography.headingFontColor !== 'inherit'}
+						<div class="size-5 rounded-full" style:background="rgb({stateFormTypography.baseFontColorDark})"></div>
+					{/if}
+				</div>
 				<select class="select" bind:value={stateFormTypography.baseFontColorDark}>
 					<option value="0 0 0">Black</option>
 					<option value="255 255 255">White</option>
@@ -75,7 +93,13 @@
 		</label>
 		<label class="label col-span-2">
 			<span class="label-text">Font Family</span>
-			<input type="text" class="input" bind:value={stateFormTypography.baseFontFamily} />
+			<!-- <input type="text" class="input" bind:value={stateFormTypography.baseFontFamily} /> -->
+			<select class="select" bind:value={stateFormTypography.baseFontFamily}>
+				<option value="inherit">Inherit</option>
+				{#each fontFamilies as fontFamily}
+					<option value={fontFamily}>{fontFamily}</option>
+				{/each}
+			</select>
 		</label>
 		<label class="label">
 			<span class="label-text">Font Size</span>
@@ -118,17 +142,24 @@
 			</select>
 		</label>
 	</div>
+
 	<!-- --- -->
 	<hr class="hr" />
+
 	<!-- Headings -->
-	<h2 class="h4">Headings</h2>
+	<header>
+		<h3 class="h3">Headings</h3>
+		<p class="opacity-60">Define styles specific to page headings.</p>
+	</header>
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label">
 			<span class="label-text">Base Color</span>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				{#if stateFormTypography.headingFontColor !== 'inherit'}
-					<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.headingFontColor})"></div>
-				{/if}
+			<div class="input-group grid-cols-[auto_1fr]">
+				<div class="input-group-cell">
+					{#if stateFormTypography.headingFontColor !== 'inherit'}
+						<div class="size-5 rounded-full" style:background="rgb({stateFormTypography.headingFontColor})"></div>
+					{/if}
+				</div>
 				<select class="select" bind:value={stateFormTypography.headingFontColor}>
 					<option value="inherit">Inherit</option>
 					<option value="0 0 0">Black</option>
@@ -145,10 +176,12 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Dark Mode</span>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				{#if stateFormTypography.headingFontColorDark !== 'inherit'}
-					<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.headingFontColorDark})"></div>
-				{/if}
+			<div class="input-group grid-cols-[auto_1fr]">
+				<div class="input-group-cell">
+					{#if stateFormTypography.headingFontColor !== 'inherit'}
+						<div class="size-5 rounded-full" style:background="rgb({stateFormTypography.headingFontColorDark})"></div>
+					{/if}
+				</div>
 				<select class="select" bind:value={stateFormTypography.headingFontColorDark}>
 					<option value="inherit">Inherit</option>
 					<option value="0 0 0">Black</option>
@@ -165,7 +198,13 @@
 		</label>
 		<label class="label col-span-2">
 			<span class="label-text">Font Family</span>
-			<input type="text" class="input" bind:value={stateFormTypography.headingFontFamily} />
+			<!-- <input type="text" class="input" bind:value={stateFormTypography.headingFontFamily} /> -->
+			<select class="select" bind:value={stateFormTypography.headingFontFamily}>
+				<option value="inherit">Inherit</option>
+				{#each fontFamilies as fontFamily}
+					<option value={fontFamily}>{fontFamily}</option>
+				{/each}
+			</select>
 		</label>
 		<label class="label">
 			<span class="label-text">Font Weight</span>
@@ -192,17 +231,24 @@
 			</select>
 		</label>
 	</div>
+
 	<!-- --- -->
 	<hr class="hr" />
+
 	<!-- Anchors -->
-	<h2 class="h4">Anchors</h2>
+	<header>
+		<h3 class="h3">Anchors</h3>
+		<p class="opacity-60">Define styles specific to anchor links.</p>
+	</header>
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label">
 			<span class="label-text">Base Color</span>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				{#if stateFormTypography.anchorFontColor !== 'inherit'}
-					<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.anchorFontColor})"></div>
-				{/if}
+			<div class="input-group grid-cols-[auto_1fr]">
+				<div class="input-group-cell">
+					{#if stateFormTypography.anchorFontColor !== 'inherit'}
+						<div class="size-5 rounded-full" style:background="rgb({stateFormTypography.anchorFontColor})"></div>
+					{/if}
+				</div>
 				<select class="select" bind:value={stateFormTypography.anchorFontColor}>
 					<option value="0 0 0">Black</option>
 					<option value="255 255 255">White</option>
@@ -218,10 +264,12 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Dark Mode</span>
-			<div class="grid grid-cols-[auto_1fr] gap-2">
-				{#if stateFormTypography.anchorFontColorDark !== 'inherit'}
-					<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.anchorFontColorDark})"></div>
-				{/if}
+			<div class="input-group grid-cols-[auto_1fr]">
+				<div class="input-group-cell">
+					{#if stateFormTypography.anchorFontColorDark !== 'inherit'}
+						<div class="size-5 rounded-full" style:background="rgb({stateFormTypography.anchorFontColorDark})"></div>
+					{/if}
+				</div>
 				<select class="select" bind:value={stateFormTypography.anchorFontColorDark}>
 					<option value="0 0 0">Black</option>
 					<option value="255 255 255">White</option>
@@ -237,7 +285,13 @@
 		</label>
 		<label class="label col-span-2">
 			<span class="label-text">Font Family</span>
-			<input type="text" class="input" bind:value={stateFormTypography.anchorFontFamily} />
+			<!-- <input type="text" class="input" bind:value={stateFormTypography.anchorFontFamily} /> -->
+			<select class="select" bind:value={stateFormTypography.anchorFontFamily}>
+				<option value="inherit">Inherit</option>
+				{#each fontFamilies as fontFamily}
+					<option value={fontFamily}>{fontFamily}</option>
+				{/each}
+			</select>
 		</label>
 		<label class="label">
 			<span class="label-text">Font Size</span>

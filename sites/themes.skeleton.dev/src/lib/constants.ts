@@ -16,6 +16,17 @@ export const typographicScales = [
 	{ value: '1.5', label: 'Perfect Fifth' },
 	{ value: '1.618', label: 'Golden Ratio' }
 ];
+export const fontFamilies = [
+	'system-ui',
+	'serif',
+	'sans-serif',
+	'monospace',
+	'cursive',
+	'Times, "Times New Roman", serif',
+	'Helvetica, Arial, sans-serif',
+	'"Trebuchet MS", Helvetica, sans-serif',
+	'Verdana, Geneva, sans-serif'
+];
 export const fontSizes = [
 	'inherit',
 	'12px', // '0.75rem',
