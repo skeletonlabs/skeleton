@@ -100,6 +100,10 @@ export function genThemeCode() {
 			'--anchor-font-weight': stateFormTypography.anchorFontWeight,
 			'--anchor-font-style': stateFormTypography.anchorFontStyle,
 			'--anchor-letter-spacing': stateFormTypography.anchorLetterSpacing,
+			'--anchor-text-decoration': stateFormTypography.anchorTextDecoration,
+			'--anchor-text-decoration-hover': stateFormTypography.anchorTextDecorationHover,
+			'--anchor-text-decoration-active': stateFormTypography.anchorTextDecorationActive,
+			'--anchor-text-decoration-focus': stateFormTypography.anchorTextDecorationFocus,
 			// Backgrounds
 			'--body-background-color': stateFormBackgrounds.bodyBackgroundColor,
 			'--body-background-color-dark': stateFormBackgrounds.bodyBackgroundColorDark,
@@ -107,9 +111,9 @@ export function genThemeCode() {
 			'--radii-default': stateFormEdges.radiiDefault,
 			'--radii-container': stateFormEdges.radiiContainer,
 			'--border-width-default': stateFormEdges.borderWidthDefault,
-			'--divide-width-default': stateFormEdges.ringWidthDefault,
+			'--ring-width-default': stateFormEdges.ringWidthDefault,
 			'--outline-width-default': stateFormEdges.outlineWidthDefault,
-			'--ring-width-default': stateFormEdges.divideWidthDefault,
+			'--divide-width-default': stateFormEdges.divideWidthDefault,
 			// Colors
 			...genColorProperties()
 		}
@@ -117,7 +121,8 @@ export function genThemeCode() {
 }
 
 // Generates the Live Preview css code
-export function genCssCode(theme: any) {
+export function genCssCode() {
+	let theme = genThemeCode();
 	let rawCssCode = '';
 	for (const [key, value] of Object.entries(theme.properties)) {
 		rawCssCode += `\t${key}: ${value};\n`;

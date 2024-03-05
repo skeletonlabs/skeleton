@@ -18,21 +18,21 @@ export const typographicScales = [
 ];
 export const fontSizes = [
 	'inherit',
-	'0.75rem', // 12px
-	'0.875rem', // 14px
-	'1rem', // 16px
-	'1.125rem', // 18px
-	'1.25rem', // 20px
-	'1.5rem' // 24px
+	'12px', // '0.75rem',
+	'14px', // '0.875rem',
+	'16px', // '1rem',
+	'18px', // '1.125rem',
+	'20px', // '1.25rem',
+	'24px' // '1.5rem'
 ];
 export const lineHeights = [
 	'inherit',
-	'1rem', // 16px
-	'1.25rem', // 20px
-	'1.5rem', // 24px
-	'1.75rem', // 28px
-	'2rem', // 32px
-	'2.25rem' // 36px
+	'16px', // '1rem',
+	'20px', // '1.25rem',
+	'24px', // '1.5rem',
+	'28px', // '1.75rem',
+	'32px', // '2rem',
+	'36px' // '2.25rem,
 ];
 export const fontWeights = [
 	'inherit',
@@ -57,13 +57,13 @@ export const textDecorations = ['none', 'underline', 'overline', 'line-through']
 // Edges
 export let radii = [
 	'0px',
-	'0.125rem', // 2px
-	'0.25rem', // 4px
-	'0.375rem', // 6px
-	'0.5rem', // 8px
-	'0.75rem', // 12px
-	'1rem', // 16px
-	'1.5rem', // 24px
+	'2px', // '0.125rem',
+	'4px', // '0.25rem',
+	'6px', // '0.375rem',
+	'8px', // '0.5rem',
+	'12px', // '0.75rem',
+	'16px', // '1rem',
+	'24px', // '1.5rem',
 	'9999px'
 ];
 export let edges = ['0px', '1px', '2px', '4px', '8px'];

@@ -1,12 +1,11 @@
 <script lang="ts">
 	import '../app.pcss';
-	import { genThemeCode, genCssCode } from '$lib/generator.svelte';
+	import { genCssCode } from '$lib/generator.svelte';
 
-	let theme = $derived(genThemeCode());
-	let cssCode = $derived(genCssCode(theme));
+	let cssCode = $derived(genCssCode());
 </script>
 
-<!-- Live Preview of Generated Theme -->
+<!-- Live Preview CSS -->
 <svelte:head>
 	{@html `\<style\>${cssCode}\</style\>`}
 </svelte:head>

@@ -81,6 +81,7 @@ export let stateFormTypography: Record<string, number | string> = $state({
 	anchorFontWeight: 'normal',
 	anchorFontStyle: 'normal',
 	anchorLetterSpacing: 'inherit',
+	// anchor (extras)
 	anchorTextDecoration: 'none',
 	anchorTextDecorationHover: 'underline',
 	anchorTextDecorationActive: 'none',
@@ -96,8 +97,8 @@ export let stateFormSpacing: Record<string, number> = $state({
 // Form: Edges ---
 
 export let stateFormEdges: Record<string, string> = $state({
-	radiiDefault: '0.375rem', // 6px
-	radiiContainer: '0.75rem', // 12px
+	radiiDefault: '6px', // 0.375rem
+	radiiContainer: '12px', // 0.75rem
 	borderWidthDefault: '1px',
 	ringWidthDefault: '1px',
 	outlineWidthDefault: '1px',
