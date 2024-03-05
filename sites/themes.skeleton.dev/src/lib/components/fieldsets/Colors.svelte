@@ -35,6 +35,8 @@
 				<div class="grid grid-cols-[90px_auto_1fr_auto_90px] items-center gap-2">
 					<!-- Contrast Dark -->
 					<select class="select" bind:value={stateFormColors[color].contrastDark}>
+						<option value="0 0 0">Black</option>
+						<option value="255 255 255">White</option>
 						{#each colorNames as colorName}
 							<optgroup label={colorName}>
 								{#each colorShades as shade}
@@ -59,6 +61,8 @@
 					<IconMoon size={16} />
 					<!-- Contrast Light -->
 					<select class="select" bind:value={stateFormColors[color].contrastLight}>
+						<option value="0 0 0">Black</option>
+						<option value="255 255 255">White</option>
 						{#each colorNames as colorName}
 							<optgroup label={colorName}>
 								{#each colorShades as shade}
@@ -84,6 +88,8 @@
 			<div class="grid grid-cols-[auto_1fr] gap-2">
 				<div class="h-10 w-3 rounded" style:background="rgb({stateFormBackgrounds.bodyBackgroundColor})"></div>
 				<select class="select" bind:value={stateFormBackgrounds.bodyBackgroundColor}>
+					<option value="0 0 0">Black</option>
+					<option value="255 255 255">White</option>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
@@ -100,6 +106,8 @@
 			<div class="grid grid-cols-[auto_1fr] gap-2">
 				<div class="h-10 w-3 rounded" style:background="rgb({stateFormBackgrounds.bodyBackgroundColorDark})"></div>
 				<select class="select" bind:value={stateFormBackgrounds.bodyBackgroundColorDark}>
+					<option value="0 0 0">Black</option>
+					<option value="255 255 255">White</option>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}

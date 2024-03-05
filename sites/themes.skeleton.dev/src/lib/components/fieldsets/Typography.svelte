@@ -44,6 +44,8 @@
 			<div class="grid grid-cols-[auto_1fr] gap-2">
 				<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.baseFontColor})"></div>
 				<select class="select" bind:value={stateFormTypography.baseFontColor}>
+					<option value="0 0 0">Black</option>
+					<option value="255 255 255">White</option>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
@@ -59,6 +61,8 @@
 			<div class="grid grid-cols-[auto_1fr] gap-2">
 				<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.baseFontColorDark})"></div>
 				<select class="select" bind:value={stateFormTypography.baseFontColorDark}>
+					<option value="0 0 0">Black</option>
+					<option value="255 255 255">White</option>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
@@ -127,6 +131,8 @@
 				{/if}
 				<select class="select" bind:value={stateFormTypography.headingFontColor}>
 					<option value="inherit">Inherit</option>
+					<option value="0 0 0">Black</option>
+					<option value="255 255 255">White</option>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
@@ -145,6 +151,8 @@
 				{/if}
 				<select class="select" bind:value={stateFormTypography.headingFontColorDark}>
 					<option value="inherit">Inherit</option>
+					<option value="0 0 0">Black</option>
+					<option value="255 255 255">White</option>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
@@ -196,6 +204,8 @@
 					<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.anchorFontColor})"></div>
 				{/if}
 				<select class="select" bind:value={stateFormTypography.anchorFontColor}>
+					<option value="0 0 0">Black</option>
+					<option value="255 255 255">White</option>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}
@@ -213,6 +223,8 @@
 					<div class="h-10 w-3 rounded" style:background="rgb({stateFormTypography.anchorFontColorDark})"></div>
 				{/if}
 				<select class="select" bind:value={stateFormTypography.anchorFontColorDark}>
+					<option value="0 0 0">Black</option>
+					<option value="255 255 255">White</option>
 					{#each colorNames as colorName}
 						<optgroup label={colorName}>
 							{#each colorShades as shade}

@@ -66,8 +66,8 @@ export let stateFormTypography: Record<string, number | string> = $state({
 	baseFontStyle: 'normal',
 	baseLetterSpacing: '0em',
 	// heading
-	headingFontColor: 'inherit',
-	headingFontColorDark: 'inherit',
+	headingFontColor: 'var(--color-surface-950)',
+	headingFontColorDark: 'var(--color-surface-50)',
 	headingFontFamily: 'inherit',
 	headingFontWeight: 'bold',
 	headingFontStyle: 'normal',
