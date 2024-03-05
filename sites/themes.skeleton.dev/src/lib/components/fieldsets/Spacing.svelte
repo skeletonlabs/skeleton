@@ -19,9 +19,9 @@
 			type="range"
 			name="space-scale-factor"
 			bind:value={stateFormSpacing.factor}
-			min={0.5}
-			max={1.5}
-			step={0.1}
+			min={0.75}
+			max={1.25}
+			step={0.05}
 		/>
 	</label>
 	<!-- <hr class="hr" /> -->

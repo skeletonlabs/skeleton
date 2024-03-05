@@ -9,6 +9,8 @@
 	import Typography from '$lib/components/fieldsets/Typography.svelte';
 	import Spacing from '$lib/components/fieldsets/Spacing.svelte';
 	import Edges from '$lib/components/fieldsets/Edges.svelte';
+	// Components
+	import Lightswitch from '$lib/components/utilities/Lightswitch.svelte';
 
 	// Reactive State
 	let category = $state('colors');
@@ -24,8 +26,10 @@
 
 <form>
 	<!-- Header -->
-	<header class="sticky top-0 z-10 border-b p-4 !py-4 bg-surface-100-900 border-surface-200-800 md:p-8 space-y-4">
-		<nav class="btn-group grid w-full grid-cols-4 p-1.5 preset-outlined-surface-200-800 md:flex-row">
+	<header
+		class="sticky top-0 z-10 flex gap-4 items-center bg-surface-100-900 border-b border-surface-200-800 p-4 !py-4 md:p-8"
+	>
+		<nav class="btn-group grid w-full grid-cols-4 p-2 preset-outlined-surface-200-800 md:flex-row">
 			<button type="button" class="btn {activeCategory('colors')}" onclick={() => setCategory('colors')} title="Colors">
 				<IconColors size={20} />
 			</button>
@@ -49,6 +53,8 @@
 				<IconEdges size={20} />
 			</button>
 		</nav>
+		<!-- Lighswitch -->
+		<Lightswitch />
 	</header>
 	<!-- Fieldsets -->
 	<div class="p-4 md:p-8">

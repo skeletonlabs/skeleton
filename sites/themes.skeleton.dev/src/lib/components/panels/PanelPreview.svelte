@@ -10,9 +10,6 @@
 	import Components from '$lib/components/previews/Components.svelte';
 	import CodeGen from '../previews/CodeGen.svelte';
 
-	// Components
-	import Lightswitch from '$lib/components/utilities/Lightswitch.svelte';
-
 	// Reactive State
 	let tab = $state('preview');
 	let content = $state('palette');
@@ -34,40 +31,61 @@
 
 <div class="mx-auto max-w-[1200px] space-y-4 px-4 md:space-y-8 md:px-8">
 	<header
-		class="sticky top-0 z-10 grid grid-cols-[1fr_auto_auto_1fr] justify-between items-center gap-4 rounded-bl-container rounded-br-container border border-t-0 p-4 border-surface-200-800 preset-filled-surface-100-900"
+		class="sticky top-0 z-10 grid grid-cols-[1fr_auto_1fr] justify-between items-center gap-4 rounded-bl-container rounded-br-container border border-t-0 p-4 border-surface-200-800 preset-filled-surface-100-900"
 	>
 		<!-- Branding -->
-		<div class="flex items-center gap-3">
+		<div class="flex items-center gap-4">
 			<IconSkull size={28} />
-			<h1 class="text-xl font-bold font-mono">themer</h1>
+			<h1 class="grid grid-cols-1">
+				<span class="font-bold font-mono">skeleton</span>
+				<small class="opacity-50">theme generator</small>
+			</h1>
 		</div>
 		<!-- Selection -->
-		<nav class="btn-group flex p-1.5 preset-outlined-surface-200-800 md:flex-row">
-			<button type="button" class="btn {activeContent('palette')}" onclick={() => setContent('palette')}>
+		<nav class="btn-group flex p-2 preset-outlined-surface-200-800 md:flex-row">
+			<button
+				type="button"
+				class="btn {activeContent('palette')}"
+				onclick={() => setContent('palette')}
+				disabled={tab === 'code'}
+			>
 				Palette
 			</button>
-			<button type="button" class="btn {activeContent('typography')}" onclick={() => setContent('typography')}>
+			<button
+				type="button"
+				class="btn {activeContent('typography')}"
+				onclick={() => setContent('typography')}
+				disabled={tab === 'code'}
+			>
 				Typography
 			</button>
-			<button type="button" class="btn {activeContent('elements')}" onclick={() => setContent('elements')}>
+			<button
+				type="button"
+				class="btn {activeContent('elements')}"
+				onclick={() => setContent('elements')}
+				disabled={tab === 'code'}
+			>
 				Elements
 			</button>
-			<button type="button" class="btn {activeContent('components')}" onclick={() => setContent('components')}>
+			<!-- <button
+				type="button"
+				class="btn {activeContent('components')}"
+				onclick={() => setContent('components')}
+				disabled={tab === 'code'}
+			>
 				Components
-			</button>
+			</button> -->
 		</nav>
 		<!-- Tabs -->
-		<nav class="btn-group flex-col p-1.5 preset-outlined-surface-200-800 md:flex-row">
-			<button type="button" class="btn {activeTab('preview')}" onclick={() => setTab('preview')}>
-				<IconDesign size={20} />
-			</button>
-			<button type="button" class="btn {activeTab('code')}" onclick={() => setTab('code')}>
-				<IconCode size={20} />
-			</button>
-		</nav>
 		<div class="flex justify-end">
-			<!-- Lighswitch -->
-			<Lightswitch />
+			<nav class="btn-group flex-col p-2 preset-outlined-surface-200-800 md:flex-row">
+				<button type="button" class="btn {activeTab('preview')}" onclick={() => setTab('preview')}>
+					<IconDesign size={20} />
+				</button>
+				<button type="button" class="btn {activeTab('code')}" onclick={() => setTab('code')}>
+					<IconCode size={20} />
+				</button>
+			</nav>
 		</div>
 	</header>
 	{#if tab === 'preview'}

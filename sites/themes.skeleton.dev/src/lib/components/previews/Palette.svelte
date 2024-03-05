@@ -120,7 +120,7 @@
 	<section class="grid grid-cols-1 rounded-container border p-8 border-surface-200-800 xl:grid-cols-7">
 		{#each palette as color, i}
 			<div class="space-y-4">
-				<small class="block text-center opacity-60">{color.name}</small>
+				<strong class="block text-center opacity-60">{color.name}</strong>
 				<div class="grid grid-rows-11">
 					<!-- Color Ramp -->
 					{#each color.ramp as shade, i}
