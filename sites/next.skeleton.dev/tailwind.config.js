@@ -2,7 +2,7 @@
 // NOTE: do not delete the above comment. It's required for local HMR on plugin changes.
 
 import { join } from 'path';
-import { skeleton } from "@skeletonlabs/skeleton/plugin";
+import { skeleton } from '@skeletonlabs/skeleton/plugin';
 import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */

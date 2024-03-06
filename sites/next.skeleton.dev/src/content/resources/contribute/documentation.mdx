@@ -4,35 +4,35 @@ title: Documentation
 description: Guidelines for contributing to Skeleton documentation website.
 ---
 
-export const components = componentSet
+export const components = componentSet;
 
 ## Astro
 
 The Skeleton documentation uses [Astro](https://astro.build/). View the following integrations in `astro.config.mjs`:
 
-- [Tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
-- [React](https://docs.astro.build/en/guides/integrations-guide/react/)
-- [Svelte](https://docs.astro.build/en/guides/integrations-guide/svelte/)
-- [MDX Markdown](https://docs.astro.build/en/guides/markdown-content/)
-- [Prettier](https://docs.astro.build/en/editor-setup/#prettier)
-- [Expressive Code](https://expressive-code.com/)
-- [Astro-Icon](https://github.com/natemoo-re/astro-icon)
-- [Astro-Auto-Import](https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import)
-- [Nanostores](https://docs.astro.build/en/recipes/sharing-state-islands/#why-nano-stores) | [Persistent](https://github.com/nanostores/persistent)
+-   [Tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
+-   [React](https://docs.astro.build/en/guides/integrations-guide/react/)
+-   [Svelte](https://docs.astro.build/en/guides/integrations-guide/svelte/)
+-   [MDX Markdown](https://docs.astro.build/en/guides/markdown-content/)
+-   [Prettier](https://docs.astro.build/en/editor-setup/#prettier)
+-   [Expressive Code](https://expressive-code.com/)
+-   [Astro-Icon](https://github.com/natemoo-re/astro-icon)
+-   [Astro-Auto-Import](https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import)
+-   [Nanostores](https://docs.astro.build/en/recipes/sharing-state-islands/#why-nano-stores) | [Persistent](https://github.com/nanostores/persistent)
 
 ## App Structure
 
 Navigate the app structure within the `/src` directory. This includes the following directories:
 
-| Path          | Description                                |
-|---------------|--------------------------------------------|
-| `/components` | Contains all doc site components.          |
-| `/content`    | Content collections for MDX page content.  |
-| `/examples`   | Documentation page code block examples.    |
-| `/icons`      | Contains doc site custom SVG icons.        |
-| `/layouts`    | The Astro page layouts.                    |
-| `/pages`      | The Astro page route templates.            |
-| `/styles`     | All doc site stylesheets.                  |
+| Path          | Description                               |
+| ------------- | ----------------------------------------- |
+| `/components` | Contains all doc site components.         |
+| `/content`    | Content collections for MDX page content. |
+| `/examples`   | Documentation page code block examples.   |
+| `/icons`      | Contains doc site custom SVG icons.       |
+| `/layouts`    | The Astro page layouts.                   |
+| `/pages`      | The Astro page route templates.           |
+| `/styles`     | All doc site stylesheets.                 |
 
 ## Adding MDX Pages
 
@@ -45,10 +45,6 @@ Navigate the app structure within the `/src` directory. This includes the follow
 View the [Astro MDX Documention](https://docs.astro.build/en/guides/markdown-content/) or see `/content/resources/_markdown.md` for "kitchen sink" examples. [Custom MDX components](https://mdxjs.com/table-of-components/) are provided in `/src/components/mdx`. To enable these, add the following export to every MDX file.
 
 ```astro
----
-# (frontmatter)
----
-
 export const components = componentSet {/* <-- ADD THIS! */}
 
 {/* (content) */}
@@ -67,7 +63,7 @@ A selection of globally accessible uitlity components provided to MDX contents v
 Code Blocks are provided via [Expressive Code](https://expressive-code.com/). Implement via [Markdown fences](https://expressive-code.com/key-features/syntax-highlighting/) or the full component.
 
 ```html
-<Code code={AddCodeHere} lang="html" />
+<code code="{AddCodeHere}" lang="html" />
 ```
 
 ### Previewer
@@ -75,14 +71,14 @@ Code Blocks are provided via [Expressive Code](https://expressive-code.com/). Im
 Allows you to quickly toggle between a rendered component and the source code.
 
 ```ts
-import Example from "@examples/foo/Example.astro";
-import ExampleRaw from "@examples/foo/Example.astro?raw";
+import Example from '@examples/foo/Example.astro';
+import ExampleRaw from '@examples/foo/Example.astro?raw';
 ```
 
 ```astro
 <Preview client:load>
-    <Fragment slot="preview"><Example /></Fragment>
-    <Fragment slot="code"><Code code={ExampleRaw} lang="html" /></Fragment>
+	<Fragment slot="preview"><Example /></Fragment>
+	<Fragment slot="code"><Code code={ExampleRaw} lang="html" /></Fragment>
 </Preview>
 ```
 
@@ -92,13 +88,18 @@ Use [Markdown tables](https://www.tablesgenerator.com/markdown_tables) or the av
 
 ```ts
 export const tableProps: [
-    { name: 'autocollapse', type: 'boolean', value: 'false', description: 'Set the auto-collapse mode.' },
-    // ...
+	{
+		name: 'autocollapse';
+		type: 'boolean';
+		value: 'false';
+		description: 'Set the auto-collapse mode.';
+	},
+	// ...
 ];
 ```
 
 ```html
-<Table label="Props" data={tableData} tonal />
+<table label="Props" data="{tableData}" tonal />
 ```
 
 > TIP: Optionally add the `tonal` or `kbd` props to highlight content in the first column.
@@ -107,12 +108,12 @@ export const tableProps: [
 
 Icons are provided via [Astro-Icon](https://github.com/natemoo-re/astro-icon) and [Iconify](https://iconify.design/). This includes the following sets.
 
-- [HeroIcons (outlined)](https://icon-sets.iconify.design/heroicons/)
-- [Simple Icons](https://icon-sets.iconify.design/simple-icons/)
+-   [HeroIcons (outlined)](https://icon-sets.iconify.design/heroicons/)
+-   [Simple Icons](https://icon-sets.iconify.design/simple-icons/)
 
 ```ts
 // Skip for MDX, this is auto-imported
-import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components';
 ```
 
 ```astro

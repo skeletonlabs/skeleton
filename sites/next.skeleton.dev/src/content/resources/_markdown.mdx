@@ -4,19 +4,21 @@ title: Markdown
 description: An MDX kitchen sink to test parsing and styles.
 ---
 
-export const components = componentSet
+export const components = componentSet;
 
 {/* --- This is a Comment --- */}
 
 <FrameworkTabs client:load>
-  <Fragment slot="react">This is the `React` panel!</Fragment>
-  <Fragment slot="svelte">This is the `Svelte` panel!</Fragment>
-  {/* <Fragment slot="vue">This is the Vue panel!</Fragment> */}
+	<Fragment slot="react">This is the `React` panel!</Fragment>
+	<Fragment slot="svelte">This is the `Svelte` panel!</Fragment>
+	{/* <Fragment slot="vue">This is the Vue panel!</Fragment> */}
 </FrameworkTabs>
 
 ## Tailwind
 
-<button type="button" class="btn preset-filled">Button</button>
+<button type="button" class="btn preset-filled">
+	Button
+</button>
 
 ## Text
 
@@ -53,23 +55,23 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 ```ts title="my-test-file.js"
 const toggleDarkMode = document.querySelector('.preset-filled');
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    jtd.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
+jtd.addEvent(toggleDarkMode, 'click', function () {
+	if (jtd.getTheme() === 'dark') {
+		jtd.setTheme('light');
+		toggleDarkMode.textContent = 'Preview dark color scheme';
+	} else {
+		jtd.setTheme('dark');
+		toggleDarkMode.textContent = 'Return to the light side';
+	}
 });
 ```
 
 ```js
 // Javascript code with syntax highlighting.
 var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
+	dateformat.i18n = require('./lang/' + l);
+	return true;
+};
 ```
 
 ```ruby
@@ -86,7 +88,7 @@ end
 ## Tables
 
 | head1        | head two          | three |
-|:-------------|:------------------|:------|
+| :----------- | :---------------- | :---- |
 | ok           | good swedish fish | nice  |
 | out of stock | good and plenty   | nice  |
 | ok           | good `oreos`      | hmm   |
@@ -94,15 +96,15 @@ end
 
 ### There's are horizontal rules below this.
 
-* * *
+---
 
 ---
 
 ## Unordered list
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+-   This is an unordered list following a header.
+-   This is an unordered list following a header.
+-   This is an unordered list following a header.
 
 ## Ordered List
 
@@ -124,67 +126,67 @@ end
 
 ### And a nested list:
 
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
+-   level 1 item
+    -   level 2 item
+    -   level 2 item
+        -   level 3 item
+        -   level 3 item
+-   level 1 item
+    -   level 2 item
+    -   level 2 item
+    -   level 2 item
+-   level 1 item
+    -   level 2 item
+    -   level 2 item
+-   level 1 item
 
 ### Nesting an ol in ul in an ol
 
-- level 1 item (ul)
-  1. level 2 item (ol)
-  1. level 2 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-- level 1 item (ul)
-  1. level 2 item (ol)
-  1. level 2 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-  1. level 4 item (ol)
-  1. level 4 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-- level 1 item (ul)
+-   level 1 item (ul)
+    1. level 2 item (ol)
+    1. level 2 item (ol)
+    -   level 3 item (ul)
+    -   level 3 item (ul)
+-   level 1 item (ul)
+    1. level 2 item (ol)
+    1. level 2 item (ol)
+    -   level 3 item (ul)
+    -   level 3 item (ul)
+    1. level 4 item (ol)
+    1. level 4 item (ol)
+    -   level 3 item (ul)
+    -   level 3 item (ul)
+-   level 1 item (ul)
 
-{/* ### And a task list
+{/\* ### And a task list
 
-- [ ] Hello, this is a TODO item
-- [ ] Hello, this is another TODO item
-- [x] Goodbye, this item is done
+-   [ ] Hello, this is a TODO item
+-   [ ] Hello, this is another TODO item
+-   [x] Goodbye, this item is done
 
 ### Nesting task lists
 
-- [ ] level 1 item (task)
-   - [ ] level 2 item (task)
-   - [ ] level 2 item (task)
-- [ ] level 1 item (task)
-- [ ] level 1 item (task)
+-   [ ] level 1 item (task)
+    -   [ ] level 2 item (task)
+    -   [ ] level 2 item (task)
+-   [ ] level 1 item (task)
+-   [ ] level 1 item (task)
 
 ### Nesting a ul in a task list
 
-- [ ] level 1 item (task)
-   - level 2 item (ul)
-   - level 2 item (ul)
-- [ ] level 1 item (task)
-- [ ] level 1 item (task)
+-   [ ] level 1 item (task)
+    -   level 2 item (ul)
+    -   level 2 item (ul)
+-   [ ] level 1 item (task)
+-   [ ] level 1 item (task)
 
 ### Nesting a task list in a ul
 
-- level 1 item (ul)
-   - [ ] level 2 item (task)
-   - [ ] level 2 item (task)
-- level 1 item (ul)
-- level 1 item (ul) */}
+-   level 1 item (ul)
+    -   [ ] level 2 item (task)
+    -   [ ] level 2 item (task)
+-   level 1 item (ul)
+-   level 1 item (ul) \*/}
 
 ### Image
 
@@ -194,11 +196,11 @@ end
 
 **bold**
 
-*italic*
+_italic_
 
-***bold + italic***
+**_bold + italic_**
 
-{/* ### Collapsed Section
+{/\* ### Collapsed Section
 
 The following uses the [details](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections) tag to create a collapsed section.
 
@@ -207,8 +209,8 @@ The following uses the [details](https://docs.github.com/en/get-started/writing-
 
 This is content inside a `<details>` dropdown.
 
-- [ ] Apples
-- [ ] Oranges
-- [ ] Milk
+-   [ ] Apples
+-   [ ] Oranges
+-   [ ] Milk
 
 </details> */}

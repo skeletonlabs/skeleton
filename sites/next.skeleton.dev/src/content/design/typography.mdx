@@ -7,90 +7,121 @@ showDocsUrl: true
 orderBy: 2
 ---
 
-export const components = componentSet
+export const components = componentSet;
 
-import Headings from "@examples/design/typography/Headings.astro";
-import HeadingsRaw from "@examples/design/typography/Headings.astro?raw";
-import Paragraphs from "@examples/design/typography/Paragraphs.astro";
-import ParagraphsRaw from "@examples/design/typography/Paragraphs.astro?raw";
-import Blockquotes from "@examples/design/typography/Blockquotes.astro";
-import BlockquotesRaw from "@examples/design/typography/Blockquotes.astro?raw";
-import Anchors from "@examples/design/typography/Anchors.astro";
-import AnchorsRaw from "@examples/design/typography/Anchors.astro?raw";
-import Pre from "@examples/design/typography/Pre.astro";
-import PreRaw from "@examples/design/typography/Pre.astro?raw";
-import CodeTag from "@examples/design/typography/CodeTag.astro";
-import CodeTagRaw from "@examples/design/typography/CodeTag.astro?raw";
-import Keyboard from "@examples/design/typography/Keyboard.astro";
-import KeyboardRaw from "@examples/design/typography/Keyboard.astro?raw";
-import InsDel from "@examples/design/typography/InsDel.astro";
-import InsDelRaw from "@examples/design/typography/InsDel.astro?raw";
-import ListUnordered from "@examples/design/typography/ListUnordered.astro";
-import ListUnorderedRaw from "@examples/design/typography/ListUnordered.astro?raw";
-import ListOrdered from "@examples/design/typography/ListOrdered.astro";
-import ListOrderedRaw from "@examples/design/typography/ListOrdered.astro?raw";
-import ListBasic from "@examples/design/typography/ListBasic.astro";
-import ListBasicRaw from "@examples/design/typography/ListBasic.astro?raw";
-import ListDesc from "@examples/design/typography/ListDesc.astro";
-import ListDescRaw from "@examples/design/typography/ListDesc.astro?raw";
-import ListNav from "@examples/design/typography/ListNav.astro";
-import ListNavRaw from "@examples/design/typography/ListNav.astro?raw";
+import Headings from '@examples/design/typography/Headings.astro';
+import HeadingsRaw from '@examples/design/typography/Headings.astro?raw';
+import Paragraphs from '@examples/design/typography/Paragraphs.astro';
+import ParagraphsRaw from '@examples/design/typography/Paragraphs.astro?raw';
+import Blockquotes from '@examples/design/typography/Blockquotes.astro';
+import BlockquotesRaw from '@examples/design/typography/Blockquotes.astro?raw';
+import Anchors from '@examples/design/typography/Anchors.astro';
+import AnchorsRaw from '@examples/design/typography/Anchors.astro?raw';
+import Pre from '@examples/design/typography/Pre.astro';
+import PreRaw from '@examples/design/typography/Pre.astro?raw';
+import CodeTag from '@examples/design/typography/CodeTag.astro';
+import CodeTagRaw from '@examples/design/typography/CodeTag.astro?raw';
+import Keyboard from '@examples/design/typography/Keyboard.astro';
+import KeyboardRaw from '@examples/design/typography/Keyboard.astro?raw';
+import InsDel from '@examples/design/typography/InsDel.astro';
+import InsDelRaw from '@examples/design/typography/InsDel.astro?raw';
+import ListUnordered from '@examples/design/typography/ListUnordered.astro';
+import ListUnorderedRaw from '@examples/design/typography/ListUnordered.astro?raw';
+import ListOrdered from '@examples/design/typography/ListOrdered.astro';
+import ListOrderedRaw from '@examples/design/typography/ListOrdered.astro?raw';
+import ListBasic from '@examples/design/typography/ListBasic.astro';
+import ListBasicRaw from '@examples/design/typography/ListBasic.astro?raw';
+import ListDesc from '@examples/design/typography/ListDesc.astro';
+import ListDescRaw from '@examples/design/typography/ListDesc.astro?raw';
+import ListNav from '@examples/design/typography/ListNav.astro';
+import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 
 ## Headings
 
 <Preview client:load>
-    <Fragment slot="preview"><Headings /></Fragment>
-    <Fragment slot="code"><Code code={HeadingsRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<Headings />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={HeadingsRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ## Paragraphs
 
 <Preview client:load>
-    <Fragment slot="preview"><Paragraphs /></Fragment>
-    <Fragment slot="code"><Code code={ParagraphsRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<Paragraphs />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ParagraphsRaw} lang="html" />
+	</Fragment>
 </Preview>
-
 
 ## Blockquotes
 
 <Preview client:load>
-    <Fragment slot="preview"><Blockquotes /></Fragment>
-    <Fragment slot="code"><Code code={BlockquotesRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<Blockquotes />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={BlockquotesRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ## Anchor
 
 <Preview client:load>
-    <Fragment slot="preview"><Anchors /></Fragment>
-    <Fragment slot="code"><Code code={AnchorsRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<Anchors />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={AnchorsRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ## Pre-Formatted
 
 <Preview client:load>
-    <Fragment slot="preview"><Pre /></Fragment>
-    <Fragment slot="code"><Code code={PreRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<Pre />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={PreRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ## Code
 
 <Preview client:load>
-    <Fragment slot="preview"><CodeTag /></Fragment>
-    <Fragment slot="code"><Code code={CodeTagRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<CodeTag />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CodeTagRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ## Keyboard
 
 <Preview client:load>
-    <Fragment slot="preview"><Keyboard /></Fragment>
-    <Fragment slot="code"><Code code={KeyboardRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<Keyboard />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={KeyboardRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ## Insert & Delete
 
 <Preview client:load>
-    <Fragment slot="preview"><InsDel /></Fragment>
-    <Fragment slot="code"><Code code={InsDelRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<InsDel />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={InsDelRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ## Lists
@@ -98,34 +129,54 @@ import ListNavRaw from "@examples/design/typography/ListNav.astro?raw";
 ### Unordered
 
 <Preview client:load>
-    <Fragment slot="preview"><ListUnordered /></Fragment>
-    <Fragment slot="code"><Code code={ListUnorderedRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<ListUnordered />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListUnorderedRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ### Ordered
 
 <Preview client:load>
-    <Fragment slot="preview"><ListOrdered /></Fragment>
-    <Fragment slot="code"><Code code={ListOrderedRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<ListOrdered />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListOrderedRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ### Basic
 
 <Preview client:load>
-    <Fragment slot="preview"><ListBasic /></Fragment>
-    <Fragment slot="code"><Code code={ListBasicRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<ListBasic />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListBasicRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ### Description
 
 <Preview client:load>
-    <Fragment slot="preview"><ListDesc /></Fragment>
-    <Fragment slot="code"><Code code={ListDescRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<ListDesc />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListDescRaw} lang="html" />
+	</Fragment>
 </Preview>
 
 ### Navigation
 
 <Preview client:load>
-    <Fragment slot="preview"><ListNav /></Fragment>
-    <Fragment slot="code"><Code code={ListNavRaw} lang="html" /></Fragment>
+	<Fragment slot="preview">
+		<ListNav />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListNavRaw} lang="html" />
+	</Fragment>
 </Preview>
