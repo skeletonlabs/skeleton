@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { designModes } from '$lib/constants';
+	import { stateDisplay } from '$lib/state.svelte';
+
 	const imgSrc =
 		'https://images.unsplash.com/photo-1463171515643-952cee54d42a?q=80&w=450&h=190&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 	const tableData = [
@@ -53,9 +56,7 @@
 	</section>
 	<!-- Card -->
 	<section class="flex items-center justify-center rounded-container border p-8 border-surface-200-800">
-		<div
-			class="card mx-auto max-w-md divide-y overflow-hidden border border-surface-200-800 divide-surface-200-800 preset-filled-surface-100-900"
-		>
+		<div class="card {designModes[stateDisplay.mode]} mx-auto max-w-md divide-y overflow-hidden divide-surface-200-800">
 			<header>
 				<img src={imgSrc} class="aspect-[21/9] w-full grayscale hue-rotate-90" alt="banner" />
 			</header>
@@ -78,7 +79,7 @@
 	</section>
 	<!-- Forms -->
 	<section class="flex items-center justify-center rounded-container border p-8 border-surface-200-800">
-		<form class="card mx-auto w-full max-w-md space-y-4 border p-4 border-surface-200-800">
+		<form class="card {designModes[stateDisplay.mode]} p-4 mx-auto w-full max-w-md space-y-4">
 			<fieldset class="space-y-4">
 				<label class="label">
 					<span class="label-text">Input</span>

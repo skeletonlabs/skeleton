@@ -16,7 +16,7 @@ export function seedHighLowColors(colorName: string, colorSeed: string) {
 	// prettier-ignore
 	stateFormColors[colorName].seeds = [
 		chroma(colorSeed).brighten(2.5), // high
-		colorSeed, 						  // med
+		colorSeed, 						 // med
 		chroma(colorSeed).darken(2.5)    // low
 	];
 }

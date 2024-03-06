@@ -1,5 +1,11 @@
 // Global State ---
 
+// Design
+
+export let stateDisplay = $state<Record<string, string>>({
+	mode: 'filled'
+});
+
 // Form: Core ---
 
 export let stateFormCore = $state({

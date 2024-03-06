@@ -1,5 +1,13 @@
 // Constants ---
 
+// Design Mode
+
+export const designModes: Record<string, string> = {
+	filled: 'border border-surface-200-800 preset-filled-surface-100-900',
+	outlined: 'border border-surface-200-800',
+	inverted: 'preset-filled-surface-50-950'
+};
+
 // Colors
 export const colorNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'];
 export const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
