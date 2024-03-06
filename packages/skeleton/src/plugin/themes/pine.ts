@@ -1,7 +1,7 @@
 // import type { PresetTheme } from './index.js';
 
-const cedar = {
-	name: 'cedar',
+const pine = {
+	name: 'pine',
 	properties: {
 		'--space-scale-factor': '1',
 		'--type-scale-factor': '1.0',
@@ -225,4 +225,4 @@ const cedar = {
 	enhancements: {} // TODO: REMOVE
 }; // satisfies PresetTheme;
 
-export default cedar;
+export default pine;

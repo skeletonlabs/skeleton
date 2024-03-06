@@ -10,7 +10,7 @@
 // import wintry from './legacy/wintry.js';
 import next from './next.js';
 import catppuccin from './catppuccin.js';
-import cedar from './cedar.js';
+import pine from './pine.js';
 import rose from './rose.js';
 
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
@@ -28,7 +28,7 @@ export const themes = {
 	// wintry,
 	next,
 	catppuccin,
-	cedar,
+	pine,
 	rose
 };
 
