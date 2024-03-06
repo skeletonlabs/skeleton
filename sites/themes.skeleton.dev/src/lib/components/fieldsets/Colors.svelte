@@ -2,12 +2,24 @@
 	// Icons
 	import IconSun from 'lucide-svelte/icons/sun';
 	import IconMoon from 'lucide-svelte/icons/moon';
+	import Sprout from 'lucide-svelte/icons/sprout';
+	import Dices from 'lucide-svelte/icons/dices';
 	// State & Utils
 	import { stateFormColors, stateFormBackgrounds } from '$lib/state.svelte';
 	import { colorNames, colorShades } from '$lib/constants';
+	// Generator
+	import { seedHighLowColors, genRandomSeed } from '$lib/generator.svelte';
 
 	// Local
 	const shadeLabels = ['High', 'Mids', 'Lows'];
+
+	function onSeedButton(colorName: string) {
+		let colorSeed = prompt(
+			'Provide a hex color value. This will be used to populate the high, medium, and low values auto-magically.'
+		);
+		if (!colorSeed) return;
+		seedHighLowColors(colorName, colorSeed || '');
+	}
 </script>
 
 <div class="space-y-4 md:space-y-8">
@@ -20,13 +32,30 @@
 		{#each colorNames as color}
 			<div class="grid grid-cols-1 gap-4">
 				<!-- Core Color -->
-				<label class="label">
-					<div class="label-text capitalize">{color}</div>
+				<div class="label">
+					<header class="grid grid-cols-[1fr_auto_auto] gap-2 items-center mb-2">
+						<p class="font-bold capitalize">{color}</p>
+						<button
+							class="btn preset-outlined-surface-200-800"
+							onclick={() => onSeedButton(color)}
+							title="Seed a Color"
+						>
+							<Sprout size={16} />
+						</button>
+						<button
+							class="btn preset-outlined-surface-200-800"
+							onclick={() => genRandomSeed(color)}
+							title="Use Random Color"
+						>
+							<Dices size={16} />
+						</button>
+					</header>
 					<!-- Shades -->
 					<div class="space-y-2">
 						{#each stateFormColors[color].seeds as shade, i}
 							<div class="grid grid-cols-[auto_auto_1fr] items-center gap-2">
-								<small>{@html shadeLabels[i]}</small>
+								<!-- Label -->
+								<label class="label-text !m-0" for="">{@html shadeLabels[i]}</label>
 								<!-- Color Picker -->
 								<input class="input" type="color" bind:value={shade} />
 								<!-- Text Field -->
@@ -34,22 +63,25 @@
 							</div>
 						{/each}
 					</div>
-				</label>
-				<div class="grid grid-cols-[90px_auto_1fr_auto_90px] items-center gap-2">
+				</div>
+				<div class="grid grid-cols-3 items-center gap-4">
 					<!-- Contrast Dark -->
-					<select class="select" bind:value={stateFormColors[color].contrastDark}>
-						<option value="0 0 0">Black</option>
-						<option value="255 255 255">White</option>
-						{#each colorNames as colorName}
-							<optgroup label={colorName}>
-								{#each colorShades as shade}
-									<option value="var(--color-{colorName}-{shade})">{shade}</option>
-								{/each}
-							</optgroup>
-						{/each}
-					</select>
-					<!-- Icon -->
-					<IconSun size={16} />
+					<div class="input-group grid-cols-[auto_1fr]">
+						<div class="input-group-cell !pr-0">
+							<IconMoon size={16} />
+						</div>
+						<select class="select" bind:value={stateFormColors[color].contrastDark}>
+							<option value="0 0 0">Black</option>
+							<option value="255 255 255">White</option>
+							{#each colorNames as colorName}
+								<optgroup label={colorName}>
+									{#each colorShades as shade}
+										<option value="var(--color-{colorName}-{shade})">{shade}</option>
+									{/each}
+								</optgroup>
+							{/each}
+						</select>
+					</div>
 					<!-- Breakpoint -->
 					<input
 						class="input"
@@ -60,20 +92,23 @@
 						max="11"
 						step="1"
 					/>
-					<!-- Icon -->
-					<IconMoon size={16} />
 					<!-- Contrast Light -->
-					<select class="select" bind:value={stateFormColors[color].contrastLight}>
-						<option value="0 0 0">Black</option>
-						<option value="255 255 255">White</option>
-						{#each colorNames as colorName}
-							<optgroup label={colorName}>
-								{#each colorShades as shade}
-									<option value="var(--color-{colorName}-{shade})">{shade}</option>
-								{/each}
-							</optgroup>
-						{/each}
-					</select>
+					<div class="input-group grid-cols-[auto_1fr]">
+						<div class="input-group-cell !pr-0">
+							<IconSun size={16} />
+						</div>
+						<select class="select" bind:value={stateFormColors[color].contrastLight}>
+							<option value="0 0 0">Black</option>
+							<option value="255 255 255">White</option>
+							{#each colorNames as colorName}
+								<optgroup label={colorName}>
+									{#each colorShades as shade}
+										<option value="var(--color-{colorName}-{shade})">{shade}</option>
+									{/each}
+								</optgroup>
+							{/each}
+						</select>
+					</div>
 				</div>
 			</div>
 		{/each}

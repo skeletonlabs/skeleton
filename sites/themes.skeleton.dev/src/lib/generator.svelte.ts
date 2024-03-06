@@ -10,6 +10,21 @@ import {
 } from '$lib/state.svelte';
 import { typographicScales, themeStatic, colorShades } from '$lib/constants';
 
+// Provide a single seed color, generates high/low contrast values
+export function seedHighLowColors(colorName: string, colorSeed: string) {
+	if (!chroma.valid(colorSeed)) return;
+	// prettier-ignore
+	stateFormColors[colorName].seeds = [
+		chroma(colorSeed).brighten(2.5), // high
+		colorSeed, 						  // med
+		chroma(colorSeed).darken(2.5)    // low
+	];
+}
+
+export function genRandomSeed(colorName: string) {
+	seedHighLowColors(colorName, String(chroma.random()));
+}
+
 // Generates a color ramp with default settings
 function genColorRamp(colorSettings: Record<string, string[]>) {
 	// Validate and create color scale
