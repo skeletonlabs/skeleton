@@ -1,0 +1,18 @@
+---
+title: Avatars
+description: An image with a fallback for representing the user.
+srcSvelte: '/src/lib/components/Avatar'
+srcReact: '/src/components/Avatar'
+showDocsUrl: true
+---
+
+export const components = componentSet;
+
+## Fallback
+
+When the `src` prop is _undefined_, default children will show. This can be used for initials, icons, or fallback images.
+
+```tsx
+<Avatar>SK</Avatar>
+<Avatar>💀</Avatar>
+```
