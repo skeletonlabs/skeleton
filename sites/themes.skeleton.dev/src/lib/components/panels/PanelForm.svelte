@@ -26,14 +26,6 @@
 	function activeCategory(value: string) {
 		return category === value ? 'preset-filled-primary-500' : 'hover:preset-tonal';
 	}
-
-	function setDisplayMode(value: string) {
-		stateDisplay.mode = value;
-	}
-
-	function activeDisplay(value: string) {
-		return stateDisplay.mode === value ? 'preset-filled-primary-500' : 'hover:preset-tonal';
-	}
 </script>
 
 <form>
