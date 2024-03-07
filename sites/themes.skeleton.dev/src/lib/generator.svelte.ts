@@ -8,62 +8,71 @@ import {
 	stateFormSpacing,
 	stateFormEdges
 } from '$lib/state.svelte';
-import { typographicScales, themeStatic, colorShades } from '$lib/constants';
+import {
+	typographicScales,
+	themeStatic,
+	colorShades,
+	type ColorNames,
+	type ColorSettings,
+	type ColorShades,
+	type ColorPalette
+} from '$lib/constants';
 
-// Provide a single seed color, generates high/low contrast values
-export function seedHighLowColors(colorName: string, colorSeed: string) {
+/** Provide a single seed color, generates high/low contrast values */
+export function seedHighLowColors(colorName: ColorNames, colorSeed: string) {
 	if (!chroma.valid(colorSeed)) return;
-	// prettier-ignore
 	stateFormColors[colorName].seeds = [
-		chroma(colorSeed).brighten(2.5), // high
-		colorSeed, 						 // med
-		chroma(colorSeed).darken(2.5)    // low
+		chroma(colorSeed).brighten(2.5).hex(), // high
+		colorSeed, // med
+		chroma(colorSeed).darken(2.5).hex() // low
 	];
 }
 
-export function genRandomSeed(colorName: string) {
-	seedHighLowColors(colorName, String(chroma.random()));
+export function genRandomSeed(colorName: ColorNames) {
+	/** lightness is randomly generated between 0.2 and 0.8 */
+	const lightness = Math.random() * 0.6 + 0.2;
+	const chromaColor = chroma.random().set('hsl.l', lightness);
+	seedHighLowColors(colorName, chromaColor.hex());
 }
 
-// Generates a color ramp with default settings
-function genColorRamp(colorSettings: Record<string, string[]>) {
+/** Generates a color ramp with default settings */
+function genColorRamp(colorSettings: ColorSettings) {
 	// Validate and create color scale
-	// prettier-ignore
-	const colorScale = chroma.scale([
-		chroma.valid(colorSettings.seeds[0]) ? chroma(colorSettings.seeds[0]) : '#CCCCCC',
-		chroma.valid(colorSettings.seeds[1]) ? chroma(colorSettings.seeds[1]) : '#CCCCCC',
-		chroma.valid(colorSettings.seeds[2]) ? chroma(colorSettings.seeds[2]) : '#CCCCCC',
-	]).colors(11);
-	// Return the values as RGB
-	return {
-		50: chroma(colorScale[0]).rgb(),
-		100: chroma(colorScale[1]).rgb(),
-		200: chroma(colorScale[2]).rgb(),
-		300: chroma(colorScale[3]).rgb(),
-		400: chroma(colorScale[4]).rgb(),
-		500: chroma(colorScale[5]).rgb(),
-		600: chroma(colorScale[6]).rgb(),
-		700: chroma(colorScale[7]).rgb(),
-		800: chroma(colorScale[8]).rgb(),
-		900: chroma(colorScale[9]).rgb(),
-		950: chroma(colorScale[10]).rgb()
-	};
+	const colorScale = chroma
+		.scale([
+			chroma.valid(colorSettings.seeds[0]) ? chroma(colorSettings.seeds[0]) : '#CCCCCC',
+			chroma.valid(colorSettings.seeds[1]) ? chroma(colorSettings.seeds[1]) : '#CCCCCC',
+			chroma.valid(colorSettings.seeds[2]) ? chroma(colorSettings.seeds[2]) : '#CCCCCC'
+		])
+		.colors(11);
+	// Return the values as an object with RGB tuple
+	const colorRamp = colorShades.reduce(
+		(acc, cs, i) => {
+			acc[cs] = chroma(colorScale[i]).rgb();
+			return acc;
+		},
+		{} as Record<ColorShades, [number, number, number]>
+	);
+	return colorRamp satisfies Record<ColorShades, [number, number, number]>;
 }
 
-// Loops the object of colors to generate a ramp per color
-export function genColorPalette(stateFormColors: any) {
-	let palette: any = {};
-	Object.entries(stateFormColors).map(([colorName, colorSettings]: any) => {
+/** Loops the object of colors to generate a ramp per color */
+export function genColorPalette(stateFormColors: Record<ColorNames, ColorSettings>): ColorPalette {
+	let palette = {} as ColorPalette;
+	Object.entries(stateFormColors).map(([_colorName, colorSettings]) => {
+		const colorName = _colorName as ColorNames;
 		palette[colorName] = genColorRamp(colorSettings);
 	});
 	return palette;
 }
 
-// Generates the Theme's color properties
+/** Generates the Theme's color properties */
 export function genColorProperties() {
-	let code: any = {};
-	let colorsArr: any = Object.entries(genColorPalette(stateFormColors));
-	for (const [colorName, colorRamp] of colorsArr) {
+	let code: Record<string, string> = {};
+	let colorsArr = Object.entries(genColorPalette(stateFormColors));
+	findColorBreakpoint();
+	for (const [_colorName, colorRamp] of colorsArr) {
+		const colorName = _colorName as ColorNames;
 		// Base Colors
 		colorShades.forEach((cs) => (code[`--color-${colorName}-${cs}`] = colorRamp[cs].join(' ')));
 		// Contrast Colors
@@ -79,20 +88,54 @@ export function genColorProperties() {
 	return code;
 }
 
-// Generates the full theme file code
+export function findColorBreakpoint() {
+	const palette = genColorPalette(stateFormColors);
+	let colorsArr = Object.entries(palette);
+	for (const [_colorName, _colorRamp] of colorsArr) {
+		const colorName = _colorName as ColorNames;
+		const colorRamp = Object.keys(_colorRamp).map((k) => Number(k)) as ColorShades[];
+		const color = stateFormColors[colorName];
+
+		const contrastDarkColor = getColorOfContrast(color.contrastDark);
+		const contrastLightColor = getColorOfContrast(color.contrastLight);
+		let breakpoint = -1;
+		for (let i = 0; i < colorRamp.length; i++) {
+			const contrastDark = chroma.contrast(chroma(_colorRamp[colorShades[i]]), contrastDarkColor);
+			const contrastLight = chroma.contrast(chroma(_colorRamp[colorShades[i]]), contrastLightColor);
+			if (contrastLight > contrastDark && breakpoint === -1) {
+				breakpoint = i;
+			}
+		}
+		stateFormColors[colorName].breakpoint = breakpoint;
+	}
+}
+
+function getColorOfContrast(color: string) {
+	if (color === '0 0 0') return chroma('black');
+	if (color === '255 255 255') return chroma('white');
+	const [colorName, shade] = getNameAndShadeFromVar(color);
+	return chroma(genColorPalette(stateFormColors)[colorName][shade]);
+}
+
+/** normalize the CSS variable, turn 'var(--color-success-950)' into ["success", 950] */
+function getNameAndShadeFromVar(string: string) {
+	return string.replace('var(--color-', '').replace(')', '').split('-') as [ColorNames, ColorShades];
+}
+
+/** Generates the full theme file code */
 export function genThemeCode() {
 	return {
 		properties: {
 			// Scaling
 			'--space-scale-factor': `${stateFormSpacing.factor}`,
 			// Typography
-			'--type-scale-factor': `${typographicScales[stateFormTypography.factor as number].value}`,
-			...themeStatic.typoScale,
+			'--type-scale-factor': `${typographicScales[Number(stateFormTypography.factor)].value}`,
+			...themeStatic.typeScale,
 			// Typography - Base
 			'--base-font-color': stateFormTypography.baseFontColor,
 			'--base-font-color-dark': stateFormTypography.baseFontColorDark,
 			'--base-font-family': stateFormTypography.baseFontFamily,
-			'--base-font-size': stateFormTypography.baseFontsize,
+			'--base-font-size': stateFormTypography.baseFontSize,
 			'--base-line-height': stateFormTypography.baseLineHeight,
 			'--base-font-weight': stateFormTypography.baseFontWeight,
 			'--base-font-style': stateFormTypography.baseFontStyle,
@@ -101,7 +144,7 @@ export function genThemeCode() {
 			'--heading-font-color': stateFormTypography.headingFontColor,
 			'--heading-font-color-dark': stateFormTypography.headingFontColorDark,
 			'--heading-font-family': stateFormTypography.headingFontFamily,
-			'--heading-font-size': stateFormTypography.headingFontsize,
+			'--heading-font-size': stateFormTypography.headingFontSize,
 			'--heading-line-height': stateFormTypography.headingLineHeight,
 			'--heading-font-weight': stateFormTypography.headingFontWeight,
 			'--heading-font-style': stateFormTypography.headingFontStyle,
@@ -110,7 +153,7 @@ export function genThemeCode() {
 			'--anchor-font-color': stateFormTypography.anchorFontColor,
 			'--anchor-font-color-dark': stateFormTypography.anchorFontColorDark,
 			'--anchor-font-family': stateFormTypography.anchorFontFamily,
-			'--anchor-font-size': stateFormTypography.anchorFontsize,
+			'--anchor-font-size': stateFormTypography.anchorFontSize,
 			'--anchor-line-height': stateFormTypography.anchorLineHeight,
 			'--anchor-font-weight': stateFormTypography.anchorFontWeight,
 			'--anchor-font-style': stateFormTypography.anchorFontStyle,
@@ -135,7 +178,7 @@ export function genThemeCode() {
 	};
 }
 
-// Generates the Live Preview css code
+/** Generates the Live Preview css code */
 export function genCssCode() {
 	let theme = genThemeCode();
 	let rawCssCode = '';

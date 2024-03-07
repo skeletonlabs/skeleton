@@ -6,28 +6,30 @@
 	import Dices from 'lucide-svelte/icons/dices';
 	// State & Utils
 	import { stateFormColors, stateFormBackgrounds } from '$lib/state.svelte';
-	import { colorNames, colorShades } from '$lib/constants';
+	import { colorNames, colorShades, type ColorNames, type DesignMode } from '$lib/constants';
 	// Generator
 	import { seedHighLowColors, genRandomSeed } from '$lib/generator.svelte';
 	// State
 	import { stateDisplay } from '$lib/state.svelte';
+	import chroma from 'chroma-js';
 
 	// Local
 	const shadeLabels = ['High', 'Mids', 'Lows'];
 
-	function onSeedButton(colorName: string) {
+	function onSeedButton(colorName: ColorNames) {
 		let colorSeed = prompt(
 			'Provide a hex color value. This will be used to populate the high, medium, and low values auto-magically.'
 		);
 		if (!colorSeed) return;
-		seedHighLowColors(colorName, colorSeed || '');
+		if (!chroma.valid(colorSeed)) return;
+		seedHighLowColors(colorName, chroma(colorSeed).hex() || '');
 	}
 
-	function setDisplayMode(value: string) {
+	function setDisplayMode(value: DesignMode) {
 		stateDisplay.mode = value;
 	}
 
-	function activeDisplay(value: string) {
+	function activeDisplay(value: DesignMode) {
 		return stateDisplay.mode === value ? 'preset-filled-primary-500' : 'hover:preset-tonal';
 	}
 </script>
@@ -74,7 +76,7 @@
 						{/each}
 					</div>
 				</div>
-				<div class="grid grid-cols-3 items-center gap-4">
+				<div class="grid grid-cols-2 items-center gap-4">
 					<!-- Contrast Dark -->
 					<div class="input-group grid-cols-[auto_1fr]">
 						<div class="input-group-cell !pr-0">
@@ -92,16 +94,6 @@
 							{/each}
 						</select>
 					</div>
-					<!-- Breakpoint -->
-					<input
-						class="input"
-						type="range"
-						name="contrast"
-						bind:value={stateFormColors[color].breakpoint}
-						min="0"
-						max="11"
-						step="1"
-					/>
 					<!-- Contrast Light -->
 					<div class="input-group grid-cols-[auto_1fr]">
 						<div class="input-group-cell !pr-0">

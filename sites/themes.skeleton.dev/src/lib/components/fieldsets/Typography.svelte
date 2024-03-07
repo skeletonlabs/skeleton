@@ -13,8 +13,8 @@
 	} from '$lib/constants';
 	import { stateFormTypography } from '$lib/state.svelte';
 
-	let factorLabel = $derived(typographicScales[stateFormTypography.factor as number].label);
-	let factorValue = $derived(typographicScales[stateFormTypography.factor as number].value);
+	let factorLabel = $derived(typographicScales[Number(stateFormTypography.factor)].label);
+	let factorValue = $derived(typographicScales[Number(stateFormTypography.factor)].value);
 </script>
 
 <fieldset class="space-y-4 md:space-y-8">
@@ -103,7 +103,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Font Size</span>
-			<select class="select" bind:value={stateFormTypography.baseFontsize}>
+			<select class="select" bind:value={stateFormTypography.baseFontSize}>
 				{#each fontSizes as fontSize}
 					<option value={fontSize}>{fontSize}</option>
 				{/each}
@@ -295,7 +295,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Font Size</span>
-			<select class="select" bind:value={stateFormTypography.anchorFontsize}>
+			<select class="select" bind:value={stateFormTypography.anchorFontSize}>
 				{#each fontSizes as fontSize}
 					<option value={fontSize}>{fontSize}</option>
 				{/each}

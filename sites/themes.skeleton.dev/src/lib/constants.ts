@@ -1,17 +1,28 @@
 // Constants ---
 
 // Design Mode
-
-export const designModes: Record<string, string> = {
+export type DesignMode = 'filled' | 'outlined' | 'inverted';
+export const designModes: Record<DesignMode, string> = {
 	filled: 'border border-surface-200-800 preset-filled-surface-100-900',
 	outlined: 'border border-surface-200-800',
 	inverted: 'preset-filled-surface-50-950'
 };
 
 // Colors
-export const colorNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'];
-export const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+export const colorNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'] as const;
+export const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 
+export type ColorNames = (typeof colorNames)[number];
+export type ColorShades = (typeof colorShades)[number];
+export type ColorPalette = Record<ColorNames, Record<ColorShades, [number, number, number]>>;
+export type ColorSettings = {
+	/** high, middle, low */
+	seeds: [string, string, string];
+	contrastDark: string;
+	contrastLight: string;
+	/** the index in the array of shades */
+	breakpoint: number;
+};
 // Typographic Scales
 export const typographicScales = [
 	{ value: '1.0', label: 'Base' },
@@ -23,7 +34,7 @@ export const typographicScales = [
 	{ value: '1.414', label: 'Augmented Fourth' },
 	{ value: '1.5', label: 'Perfect Fifth' },
 	{ value: '1.618', label: 'Golden Ratio' }
-];
+] as const;
 export const fontFamilies = [
 	'system-ui',
 	'serif',
@@ -34,7 +45,7 @@ export const fontFamilies = [
 	'Helvetica, Arial, sans-serif',
 	'"Trebuchet MS", Helvetica, sans-serif',
 	'Verdana, Geneva, sans-serif'
-];
+] as const;
 export const fontSizes = [
 	'inherit',
 	'12px', // '0.75rem',
@@ -43,7 +54,7 @@ export const fontSizes = [
 	'18px', // '1.125rem',
 	'20px', // '1.25rem',
 	'24px' // '1.5rem'
-];
+] as const;
 export const lineHeights = [
 	'inherit',
 	'16px', // '1rem',
@@ -52,7 +63,7 @@ export const lineHeights = [
 	'28px', // '1.75rem',
 	'32px', // '2rem',
 	'36px' // '2.25rem,
-];
+] as const;
 export const fontWeights = [
 	'inherit',
 	'normal',
@@ -68,7 +79,7 @@ export const fontWeights = [
 	'700',
 	'800',
 	'900'
-];
+] as const;
 export const fontStyles = ['inherit', 'normal', 'italic'];
 export const letterSpacings = ['inherit', '-0.05em', '-0.025em', '0em', '0.025em', '0.05em', '0.01em'];
 export const textDecorations = ['none', 'underline', 'overline', 'line-through'];
@@ -84,12 +95,12 @@ export let radii = [
 	'16px', // '1rem',
 	'24px', // '1.5rem',
 	'9999px'
-];
-export let edges = ['0px', '1px', '2px', '4px', '8px'];
+] as const;
+export let edges = ['0px', '1px', '2px', '4px', '8px'] as const;
 
 // Theme Generation
 export const themeStatic = {
-	typoScale: {
+	typeScale: {
 		'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))', // 12px
 		'--type-scale-2': 'calc(0.875rem * var(--type-scale-factor))', // 14px
 		'--type-scale-3': 'calc(1rem * var(--type-scale-factor))', // 16px

@@ -1,8 +1,9 @@
 // Global State ---
+import type { ColorNames, ColorSettings, DesignMode } from './constants';
 
 // Design
 
-export let stateDisplay = $state<Record<string, string>>({
+export let stateDisplay: { mode: DesignMode } = $state({
 	mode: 'filled'
 });
 
@@ -13,8 +14,7 @@ export let stateFormCore = $state({
 });
 
 // Form: Colors ---
-
-export let stateFormColors: any = $state({
+export let stateFormColors: Record<ColorNames, ColorSettings> = $state({
 	primary: {
 		seeds: ['#d3e5ff', '#0170f3', '#092750'],
 		contrastDark: 'var(--color-primary-950)',
@@ -72,7 +72,7 @@ export let stateFormTypography: Record<string, number | string> = $state({
 	baseFontColor: 'var(--color-surface-950)',
 	baseFontColorDark: 'var(--color-surface-50)',
 	baseFontFamily: 'system-ui',
-	baseFontsize: 'inherit',
+	baseFontSize: 'inherit',
 	baseLineHeight: 'inherit',
 	baseFontWeight: 'normal',
 	baseFontStyle: 'normal',
@@ -88,7 +88,7 @@ export let stateFormTypography: Record<string, number | string> = $state({
 	anchorFontColor: 'var(--color-primary-500)',
 	anchorFontColorDark: 'var(--color-primary-500)',
 	anchorFontFamily: 'inherit',
-	anchorFontsize: 'inherit',
+	anchorFontSize: 'inherit',
 	anchorLineHeight: 'inherit',
 	anchorFontWeight: 'normal',
 	anchorFontStyle: 'normal',
