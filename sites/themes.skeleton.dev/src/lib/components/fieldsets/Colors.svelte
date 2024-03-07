@@ -11,6 +11,7 @@
 	import { seedHighLowColors, genRandomSeed } from '$lib/generator.svelte';
 	// State
 	import { stateDisplay } from '$lib/state.svelte';
+	import chroma from 'chroma-js';
 
 	// Local
 	const shadeLabels = ['High', 'Mids', 'Lows'];
@@ -20,7 +21,8 @@
 			'Provide a hex color value. This will be used to populate the high, medium, and low values auto-magically.'
 		);
 		if (!colorSeed) return;
-		seedHighLowColors(colorName, colorSeed || '');
+		if (!chroma.valid(colorSeed)) return;
+		seedHighLowColors(colorName, chroma(colorSeed).hex() || '');
 	}
 
 	function setDisplayMode(value: DesignMode) {
