@@ -1,8 +1,9 @@
 // Global State ---
+import type { ColorNames, ColorSettings, DesignMode } from './constants';
 
 // Design
 
-export let stateDisplay = $state<Record<string, string>>({
+export let stateDisplay: { mode: DesignMode } = $state({
 	mode: 'filled'
 });
 
@@ -13,8 +14,7 @@ export let stateFormCore = $state({
 });
 
 // Form: Colors ---
-
-export let stateFormColors: any = $state({
+export let stateFormColors: Record<ColorNames, ColorSettings> = $state({
 	primary: {
 		seeds: ['#d3e5ff', '#0170f3', '#092750'],
 		contrastDark: 'var(--color-primary-950)',

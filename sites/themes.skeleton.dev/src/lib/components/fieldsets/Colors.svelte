@@ -6,7 +6,7 @@
 	import Dices from 'lucide-svelte/icons/dices';
 	// State & Utils
 	import { stateFormColors, stateFormBackgrounds } from '$lib/state.svelte';
-	import { colorNames, colorShades } from '$lib/constants';
+	import { colorNames, colorShades, type ColorNames, type DesignMode } from '$lib/constants';
 	// Generator
 	import { seedHighLowColors, genRandomSeed } from '$lib/generator.svelte';
 	// State
@@ -15,7 +15,7 @@
 	// Local
 	const shadeLabels = ['High', 'Mids', 'Lows'];
 
-	function onSeedButton(colorName: string) {
+	function onSeedButton(colorName: ColorNames) {
 		let colorSeed = prompt(
 			'Provide a hex color value. This will be used to populate the high, medium, and low values auto-magically.'
 		);
@@ -23,11 +23,11 @@
 		seedHighLowColors(colorName, colorSeed || '');
 	}
 
-	function setDisplayMode(value: string) {
+	function setDisplayMode(value: DesignMode) {
 		stateDisplay.mode = value;
 	}
 
-	function activeDisplay(value: string) {
+	function activeDisplay(value: DesignMode) {
 		return stateDisplay.mode === value ? 'preset-filled-primary-500' : 'hover:preset-tonal';
 	}
 </script>
