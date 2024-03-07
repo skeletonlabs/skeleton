@@ -96,10 +96,8 @@ export function findColorBreakpoint() {
 		const colorRamp = Object.keys(_colorRamp).map((k) => Number(k)) as ColorShades[];
 		const color = stateFormColors[colorName];
 
-		const [contrastDarkName, contrastDarkShade] = getNameAndShadeFromVar(color.contrastDark);
-		const [contrastLightName, contrastLightShade] = getNameAndShadeFromVar(color.contrastLight);
-		const contrastDarkColor = chroma(palette[contrastDarkName][contrastDarkShade]);
-		const contrastLightColor = chroma(palette[contrastLightName][contrastLightShade]);
+		const contrastDarkColor = getColorOfContrast(color.contrastDark);
+		const contrastLightColor = getColorOfContrast(color.contrastLight);
 		let breakpoint = -1;
 		for (let i = 0; i < colorRamp.length; i++) {
 			const contrastDark = chroma.contrast(chroma(_colorRamp[colorShades[i]]), contrastDarkColor);
@@ -110,6 +108,13 @@ export function findColorBreakpoint() {
 		}
 		stateFormColors[colorName].breakpoint = breakpoint;
 	}
+}
+
+function getColorOfContrast(color: string) {
+	if (color === '0 0 0') return chroma('black');
+	if (color === '255 255 255') return chroma('white');
+	const [colorName, shade] = getNameAndShadeFromVar(color);
+	return chroma(genColorPalette(stateFormColors)[colorName][shade]);
 }
 
 /** normalize the CSS variable, turn 'var(--color-success-950)' into ["success", 950] */
