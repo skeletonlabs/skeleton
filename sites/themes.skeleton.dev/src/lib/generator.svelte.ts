@@ -15,7 +15,8 @@ import {
 	type ColorNames,
 	type ColorSettings,
 	type ColorShades,
-	type ColorPalette
+	type ColorPalette,
+	fontFamilies
 } from '$lib/constants';
 
 /** Provide a single seed color, generates high/low contrast values */
@@ -23,7 +24,7 @@ export function seedHighLowColors(colorName: ColorNames, colorSeed: string) {
 	if (!chroma.valid(colorSeed)) return;
 	stateFormColors[colorName].seeds = [
 		chroma(colorSeed).brighten(2.5).hex(), // high
-		colorSeed, // med
+		chroma(colorSeed).hex(), // med
 		chroma(colorSeed).darken(2.5).hex() // low
 	];
 }
@@ -134,7 +135,7 @@ export function genThemeCode() {
 			// Typography - Base
 			'--base-font-color': stateFormTypography.baseFontColor,
 			'--base-font-color-dark': stateFormTypography.baseFontColorDark,
-			'--base-font-family': stateFormTypography.baseFontFamily,
+			'--base-font-family': `${fontFamilies[stateFormTypography.baseFontFamily].join(', ')}`,
 			'--base-font-size': stateFormTypography.baseFontSize,
 			'--base-line-height': stateFormTypography.baseLineHeight,
 			'--base-font-weight': stateFormTypography.baseFontWeight,
@@ -143,7 +144,7 @@ export function genThemeCode() {
 			// Typography - Heading
 			'--heading-font-color': stateFormTypography.headingFontColor,
 			'--heading-font-color-dark': stateFormTypography.headingFontColorDark,
-			'--heading-font-family': stateFormTypography.headingFontFamily,
+			'--heading-font-family': `${fontFamilies[stateFormTypography.headingFontFamily].join(', ')}`,
 			'--heading-font-size': stateFormTypography.headingFontSize,
 			'--heading-line-height': stateFormTypography.headingLineHeight,
 			'--heading-font-weight': stateFormTypography.headingFontWeight,
@@ -152,7 +153,7 @@ export function genThemeCode() {
 			// Typography - Anchor
 			'--anchor-font-color': stateFormTypography.anchorFontColor,
 			'--anchor-font-color-dark': stateFormTypography.anchorFontColorDark,
-			'--anchor-font-family': stateFormTypography.anchorFontFamily,
+			'--anchor-font-family': `${fontFamilies[stateFormTypography.anchorFontFamily].join(', ')}`,
 			'--anchor-font-size': stateFormTypography.anchorFontSize,
 			'--anchor-line-height': stateFormTypography.anchorLineHeight,
 			'--anchor-font-weight': stateFormTypography.anchorFontWeight,

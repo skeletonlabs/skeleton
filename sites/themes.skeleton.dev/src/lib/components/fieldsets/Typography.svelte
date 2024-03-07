@@ -95,9 +95,8 @@
 			<span class="label-text">Font Family</span>
 			<!-- <input type="text" class="input" bind:value={stateFormTypography.baseFontFamily} /> -->
 			<select class="select" bind:value={stateFormTypography.baseFontFamily}>
-				<option value="inherit">Inherit</option>
-				{#each fontFamilies as fontFamily}
-					<option value={fontFamily}>{fontFamily}</option>
+				{#each Object.keys(fontFamilies) as name}
+					<option value={name}>{name}</option>
 				{/each}
 			</select>
 		</label>
@@ -200,9 +199,8 @@
 			<span class="label-text">Font Family</span>
 			<!-- <input type="text" class="input" bind:value={stateFormTypography.headingFontFamily} /> -->
 			<select class="select" bind:value={stateFormTypography.headingFontFamily}>
-				<option value="inherit">Inherit</option>
-				{#each fontFamilies as fontFamily}
-					<option value={fontFamily}>{fontFamily}</option>
+				{#each Object.keys(fontFamilies) as name}
+					<option value={name}>{name}</option>
 				{/each}
 			</select>
 		</label>
@@ -287,9 +285,8 @@
 			<span class="label-text">Font Family</span>
 			<!-- <input type="text" class="input" bind:value={stateFormTypography.anchorFontFamily} /> -->
 			<select class="select" bind:value={stateFormTypography.anchorFontFamily}>
-				<option value="inherit">Inherit</option>
-				{#each fontFamilies as fontFamily}
-					<option value={fontFamily}>{fontFamily}</option>
+				{#each Object.keys(fontFamilies) as name}
+					<option value={name}>{name}</option>
 				{/each}
 			</select>
 		</label>
