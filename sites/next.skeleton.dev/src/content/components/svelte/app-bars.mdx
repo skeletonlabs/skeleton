@@ -6,10 +6,10 @@ export const components = componentSet;
 
 import Example from '@examples/components/app-bars/Example.svelte';
 import ExampleRaw from '@examples/components/app-bars/Example.svelte?raw';
-import ToolBarTitleExample from '@examples/components/app-bars/ToolBarTitleExample.svelte';
-import ToolBarTitleExampleRaw from '@examples/components/app-bars/ToolBarTitleExample.svelte?raw';
-import ResponsiveExample from '@examples/components/app-bars/ResponsiveExample.svelte';
-import ResponsiveExampleRaw from '@examples/components/app-bars/ResponsiveExample.svelte?raw';
+import ExampleToolbar from '@examples/components/app-bars/ExampleToolbar.svelte';
+import ExampleToolbarRaw from '@examples/components/app-bars/ExampleToolbar.svelte?raw';
+import ExampleResponsive from '@examples/components/app-bars/ExampleResponsive.svelte';
+import ExampleResponsiveRaw from '@examples/components/app-bars/ExampleResponsive.svelte?raw';
 import * as Common from '@content/components/common/app-bars.mdx';
 
 <Preview client:load>
@@ -21,28 +21,27 @@ import * as Common from '@content/components/common/app-bars.mdx';
 	</Fragment>
 </Preview>
 
-## Toolbar and Title
+## Toolbar
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ToolBarTitleExample client:load />
+		<ExampleToolbar client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ToolBarTitleExampleRaw} lang="svelte" />
+		<Code code={ExampleToolbarRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
-## Responsive App Bar
+## Responsive
 
-Using Tailwind CSS **breakpoints**, you can hide and display different parts of the AppBar to achieve a fully responsive AppBar.
-Resize the page to see the Responsive AppBar in action.
+Use Tailwind's [responsive design](https://tailwindcss.com/docs/responsive-design) breakpoints to adjust for various screen sizes.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ResponsiveExample client:load />
+		<ExampleResponsive client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ResponsiveExampleRaw} lang="svelte" />
+		<Code code={ExampleResponsiveRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

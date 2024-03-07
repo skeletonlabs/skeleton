@@ -9,8 +9,8 @@ export const Page: React.FC<any> = () => {
 				<ToolBar.Lead>
 					<ArrowLeft size={24} />
 				</ToolBar.Lead>
-				<ToolBar.Center>
-					<span className="hidden sm:block">Title</span>
+				<ToolBar.Center classes="hidden sm:block">
+					<span>Title</span>
 				</ToolBar.Center>
 				<ToolBar.Trail>
 					<div className="hidden sm:flex space-x-4">

@@ -10,11 +10,11 @@
     let {} = $props<any>()
 </script>
 
-<AppBar headlineClasses="sm:hidden">
+<AppBar headlineClasses="sm:hidden" centerClasses="hidden sm:block">
 	{#snippet lead()}
         <ArrowLeft size={24} />
 	{/snippet}
-    <span class="hidden sm:block">Title</span>
+    <span>Title</span>
     {#snippet trail()}
         <div class="hidden sm:flex space-x-4">
             <Paperclip size={20} />
