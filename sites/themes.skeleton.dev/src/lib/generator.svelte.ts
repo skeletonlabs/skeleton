@@ -30,7 +30,10 @@ export function seedHighLowColors(colorName: ColorNames, colorSeed: string) {
 }
 
 export function genRandomSeed(colorName: ColorNames) {
-	seedHighLowColors(colorName, String(chroma.random()));
+	/** lightness is randomly generated between 0.2 and 0.8 */
+	const lightness = Math.random() * 0.6 + 0.2;
+	const chromaColor = chroma.random().set('hsl.l', lightness);
+	seedHighLowColors(colorName, chromaColor.hex());
 }
 
 // Generates a color ramp with default settings
