@@ -13,8 +13,8 @@
 	} from '$lib/constants';
 	import { stateFormTypography } from '$lib/state.svelte';
 
-	let factorLabel = $derived(typographicScales[stateFormTypography.factor as number].label);
-	let factorValue = $derived(typographicScales[stateFormTypography.factor as number].value);
+	let factorLabel = $derived(typographicScales[Number(stateFormTypography.factor)].label);
+	let factorValue = $derived(typographicScales[Number(stateFormTypography.factor)].value);
 </script>
 
 <fieldset class="space-y-4 md:space-y-8">

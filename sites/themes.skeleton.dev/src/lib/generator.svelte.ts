@@ -94,7 +94,7 @@ export function genThemeCode() {
 			// Scaling
 			'--space-scale-factor': `${stateFormSpacing.factor}`,
 			// Typography
-			'--type-scale-factor': `${typographicScales[stateFormTypography.factor as number].value}`,
+			'--type-scale-factor': `${typographicScales[Number(stateFormTypography.factor)].value}`,
 			...themeStatic.typoScale,
 			// Typography - Base
 			'--base-font-color': stateFormTypography.baseFontColor,
