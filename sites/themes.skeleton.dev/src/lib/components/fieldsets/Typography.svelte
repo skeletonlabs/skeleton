@@ -103,7 +103,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Font Size</span>
-			<select class="select" bind:value={stateFormTypography.baseFontsize}>
+			<select class="select" bind:value={stateFormTypography.baseFontSize}>
 				{#each fontSizes as fontSize}
 					<option value={fontSize}>{fontSize}</option>
 				{/each}
@@ -295,7 +295,7 @@
 		</label>
 		<label class="label">
 			<span class="label-text">Font Size</span>
-			<select class="select" bind:value={stateFormTypography.anchorFontsize}>
+			<select class="select" bind:value={stateFormTypography.anchorFontSize}>
 				{#each fontSizes as fontSize}
 					<option value={fontSize}>{fontSize}</option>
 				{/each}
