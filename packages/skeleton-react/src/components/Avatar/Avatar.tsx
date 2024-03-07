@@ -21,7 +21,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     imageClasses = '',
     // Children
     children
-}): React.ReactElement => {
+}) => {
     return (
         <figure className={`${base} ${background} ${size} ${font} ${border} ${rounded} ${shadow} ${classes}`} data-testId="avatar">
             {src ? (

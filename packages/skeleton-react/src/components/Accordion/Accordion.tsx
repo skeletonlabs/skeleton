@@ -41,7 +41,7 @@ const AccordionRoot: React.FC<AccordionProps> = ({
   classes = "",
   // Children
   children,
-}): React.ReactElement => {
+}) => {
   const [selected, setSelected] = useState<string[]>([]);
   const [allowMultiple, setAllowMultiple] = useState<boolean>(multiple);
 
@@ -70,7 +70,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
   classes = "",
   // Children
   children,
-}): React.ReactElement => {
+}) => {
   return (
     <div
       className={`${base} ${spaceY} ${classes}`}
@@ -96,7 +96,7 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
   iconClosed = "+",
   lead,
   children,
-}): React.ReactElement => {
+}) => {
   let ctx = useContext<AccordionContextState>(AccordionContext);
 
   useEffect(() => {
@@ -144,7 +144,7 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
   classes = "",
   // Children
   children,
-}): React.ReactElement => {
+}) => {
   let ctx = useContext<AccordionContextState>(AccordionContext);
 
   return (

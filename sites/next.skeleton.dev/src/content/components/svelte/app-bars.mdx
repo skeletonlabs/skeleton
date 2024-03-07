@@ -6,6 +6,11 @@ export const components = componentSet;
 
 import Example from '@examples/components/app-bars/Example.svelte';
 import ExampleRaw from '@examples/components/app-bars/Example.svelte?raw';
+import ExampleToolbar from '@examples/components/app-bars/ExampleToolbar.svelte';
+import ExampleToolbarRaw from '@examples/components/app-bars/ExampleToolbar.svelte?raw';
+import ExampleResponsive from '@examples/components/app-bars/ExampleResponsive.svelte';
+import ExampleResponsiveRaw from '@examples/components/app-bars/ExampleResponsive.svelte?raw';
+import * as Common from '@content/components/common/app-bars.mdx';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -16,4 +21,28 @@ import ExampleRaw from '@examples/components/app-bars/Example.svelte?raw';
 	</Fragment>
 </Preview>
 
-The {frontmatter.title} usage goes here.
+## Toolbar
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleToolbar client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleToolbarRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Responsive
+
+Use Tailwind's [responsive design](https://tailwindcss.com/docs/responsive-design) breakpoints to adjust for various screen sizes.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleResponsive client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleResponsiveRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+<Common.Content />

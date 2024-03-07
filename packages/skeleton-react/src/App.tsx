@@ -24,9 +24,9 @@ function App() {
             <a className="anchor" href="/components/avatars">
               Avatars
             </a>
-            {/* <a className="anchor" href="/components/app-bars">
+            <a className="anchor" href="/components/app-bars">
               App Bars
-            </a> */}
+            </a>
           </nav>
         </div>
       </div>

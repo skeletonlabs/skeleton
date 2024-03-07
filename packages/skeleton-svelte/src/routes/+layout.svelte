@@ -13,8 +13,8 @@
 			<nav class="flex flex-col gap-2 type-scale-2">
 				<!-- <a class="anchor" href="/components/test">Test</a> -->
 				<a class="anchor" href="/components/accordions">Accordions</a>
-				<!-- <a class="anchor" href="/components/app-bars">App Bars</a> -->
 				<a class="anchor" href="/components/avatars">Avatars</a>
+				<a class="anchor" href="/components/app-bars">App Bars</a>
 			</nav>
 		</div>
 	</div>

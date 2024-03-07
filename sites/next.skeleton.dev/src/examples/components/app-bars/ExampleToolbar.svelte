@@ -10,15 +10,13 @@
 </script>
 
 <AppBar>
-    {#snippet lead()}
+	{#snippet lead()}
         <ArrowLeft size={24} />
 	{/snippet}
+    Title
 	{#snippet trail()}
         <Paperclip size={20} />
         <Calendar size={20} />
         <CircleUser size={20} />
-	{/snippet}
-	{#snippet headline()}
-		<h2 class="h2">Headline</h2>
 	{/snippet}
 </AppBar>
