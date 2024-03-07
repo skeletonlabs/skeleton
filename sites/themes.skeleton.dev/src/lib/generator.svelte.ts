@@ -21,11 +21,10 @@ import {
 // Provide a single seed color, generates high/low contrast values
 export function seedHighLowColors(colorName: ColorNames, colorSeed: string) {
 	if (!chroma.valid(colorSeed)) return;
-	// prettier-ignore
 	stateFormColors[colorName].seeds = [
 		chroma(colorSeed).brighten(2.5).hex(), // high
-		colorSeed, 						    	// med
-		chroma(colorSeed).darken(2.5).hex()    // low
+		colorSeed, // med
+		chroma(colorSeed).darken(2.5).hex() // low
 	];
 }
 
@@ -37,28 +36,24 @@ export function genRandomSeed(colorName: ColorNames) {
 }
 
 // Generates a color ramp with default settings
-function genColorRamp(colorSettings: ColorSettings): Record<ColorShades, [number, number, number]> {
+function genColorRamp(colorSettings: ColorSettings) {
 	// Validate and create color scale
-	// prettier-ignore
-	const colorScale = chroma.scale([
-		chroma.valid(colorSettings.seeds[0]) ? chroma(colorSettings.seeds[0]) : '#CCCCCC',
-		chroma.valid(colorSettings.seeds[1]) ? chroma(colorSettings.seeds[1]) : '#CCCCCC',
-		chroma.valid(colorSettings.seeds[2]) ? chroma(colorSettings.seeds[2]) : '#CCCCCC',
-	]).colors(11);
-	// Return the values as RGB
-	return {
-		50: chroma(colorScale[0]).rgb(),
-		100: chroma(colorScale[1]).rgb(),
-		200: chroma(colorScale[2]).rgb(),
-		300: chroma(colorScale[3]).rgb(),
-		400: chroma(colorScale[4]).rgb(),
-		500: chroma(colorScale[5]).rgb(),
-		600: chroma(colorScale[6]).rgb(),
-		700: chroma(colorScale[7]).rgb(),
-		800: chroma(colorScale[8]).rgb(),
-		900: chroma(colorScale[9]).rgb(),
-		950: chroma(colorScale[10]).rgb()
-	};
+	const colorScale = chroma
+		.scale([
+			chroma.valid(colorSettings.seeds[0]) ? chroma(colorSettings.seeds[0]) : '#CCCCCC',
+			chroma.valid(colorSettings.seeds[1]) ? chroma(colorSettings.seeds[1]) : '#CCCCCC',
+			chroma.valid(colorSettings.seeds[2]) ? chroma(colorSettings.seeds[2]) : '#CCCCCC'
+		])
+		.colors(11);
+	// Return the values as an object with RGB tuple
+	const colorRamp = colorShades.reduce(
+		(acc, cs, i) => {
+			acc[cs] = chroma(colorScale[i]).rgb();
+			return acc;
+		},
+		{} as Record<ColorShades, [number, number, number]>
+	);
+	return colorRamp satisfies Record<ColorShades, [number, number, number]>;
 }
 
 // Loops the object of colors to generate a ramp per color

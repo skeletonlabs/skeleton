@@ -16,9 +16,11 @@ export type ColorNames = (typeof colorNames)[number];
 export type ColorShades = (typeof colorShades)[number];
 export type ColorPalette = Record<ColorNames, Record<ColorShades, [number, number, number]>>;
 export type ColorSettings = {
-	seeds: string[];
+	/** high, middle, low */
+	seeds: [string, string, string];
 	contrastDark: string;
 	contrastLight: string;
+	/** the index in the array of shades */
 	breakpoint: number;
 };
 // Typographic Scales
