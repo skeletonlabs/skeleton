@@ -1,11 +1,17 @@
 // Constants ---
 
-// Design Mode
-export type DesignMode = 'filled' | 'outlined' | 'inverted';
-export const designModes: Record<DesignMode, string> = {
-	filled: 'border border-surface-200-800 preset-filled-surface-100-900',
-	outlined: 'border border-surface-200-800',
-	inverted: 'preset-filled-surface-50-950'
+// FIXME:
+// export type DisplayBorders = 'none' | 'surface'; // Record<DisplayBorders, string>
+// export type DisplayBackgrounds = 'none' | 'surface' | 'surface-inverted'; // Record<DisplayBackgrounds, string>
+
+export const displayBorders: any = {
+	none: '',
+	surface: 'border border-surface-200-800'
+};
+export const displayBackgrounds: any = {
+	none: '',
+	surface: 'preset-filled-surface-100-900',
+	'surface-inverted': 'preset-filled-surface-50-950'
 };
 
 // Colors

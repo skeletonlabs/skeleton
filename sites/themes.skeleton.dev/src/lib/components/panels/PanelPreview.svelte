@@ -9,10 +9,6 @@
 	import Elements from '$lib/components/previews/Elements.svelte';
 	import Components from '$lib/components/previews/Components.svelte';
 	import CodeGen from '../previews/CodeGen.svelte';
-	// Constants
-	import { designModes } from '$lib/constants';
-	// State
-	import { stateDisplay } from '$lib/state.svelte';
 
 	// Reactive State
 	let tab = $state('preview');
@@ -34,9 +30,8 @@
 </script>
 
 <div class="mx-auto max-w-[1200px] space-y-4 px-4 md:space-y-8 md:px-8">
-	<!-- prettier-ignore -->
 	<header
-		class="{designModes[stateDisplay.mode]} sticky top-0 z-10 grid grid-cols-[1fr_auto_1fr] justify-between items-center gap-4 border-t-0 rounded-bl-container rounded-br-container p-4"
+		class="sticky top-0 z-10 border border-t-0 border-surface-200-800 bg-white/75 dark:bg-black/75 backdrop-blur-2xl grid grid-cols-[1fr_auto_1fr] justify-between items-center gap-4 rounded-bl-container rounded-br-container p-4"
 	>
 		<!-- Branding -->
 		<div class="flex items-center gap-4">

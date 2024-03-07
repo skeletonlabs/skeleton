@@ -12,7 +12,7 @@
 		<input type="text" class="input" placeholder="ex: my-custom-theme" bind:value={stateFormCore.name} />
 	</label>
 	<!-- prettier-ignore -->
-	<pre class="pre"><code>{`
+	<pre class="pre !bg-neutral-950"><code>{`
 const ${stateFormCore.name} = ${JSON.stringify(theme.properties, null, 2)}\n
 export default ${stateFormCore.name};
 	`.trim()}</code></pre>

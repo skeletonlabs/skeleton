@@ -1,15 +1,17 @@
 // Global State ---
-import type { ColorNames, ColorSettings, DesignMode } from './constants';
+// DesignMode
+import type { ColorNames, ColorSettings } from './constants';
 
 // Design
 
-export let stateDisplay: { mode: DesignMode } = $state({
-	mode: 'filled'
+export let stateDisplay: any = $state({
+	border: 'surface',
+	background: 'surface'
 });
 
 // Form: Core ---
 
-export let stateFormCore = $state({
+export let stateFormCore: Record<string, string> = $state({
 	name: 'theme'
 });
 

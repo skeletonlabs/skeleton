@@ -6,12 +6,11 @@
 	import Dices from 'lucide-svelte/icons/dices';
 	// State & Utils
 	import { stateFormColors, stateFormBackgrounds } from '$lib/state.svelte';
-	import { colorNames, colorShades, type ColorNames, type DesignMode } from '$lib/constants';
+	import { colorNames, colorShades, type ColorNames } from '$lib/constants';
 	// Generator
 	import { seedHighLowColors, genRandomSeed } from '$lib/generator.svelte';
 	// State
-	import { stateDisplay } from '$lib/state.svelte';
-	import chroma from 'chroma-js';
+	import {} from '$lib/state.svelte';
 
 	// Local
 	const shadeLabels = ['High', 'Mids', 'Lows'];
@@ -21,16 +20,7 @@
 			'Provide a hex color value. This will be used to populate the high, medium, and low values auto-magically.'
 		);
 		if (!colorSeed) return;
-		if (!chroma.valid(colorSeed)) return;
-		seedHighLowColors(colorName, chroma(colorSeed).hex() || '');
-	}
-
-	function setDisplayMode(value: DesignMode) {
-		stateDisplay.mode = value;
-	}
-
-	function activeDisplay(value: DesignMode) {
-		return stateDisplay.mode === value ? 'preset-filled-primary-500' : 'hover:preset-tonal';
+		seedHighLowColors(colorName, colorSeed);
 	}
 </script>
 
@@ -162,27 +152,5 @@
 				</select>
 			</div>
 		</label>
-	</fieldset>
-
-	<!-- Display -->
-	<fieldset class="space-y-4 md:space-y-8">
-		<header>
-			<h3 class="h3">Display</h3>
-			<p class="opacity-60">
-				Define preview display mode for elements. Replaces the classes used for several preview elements.
-			</p>
-		</header>
-		<!-- Design Mode -->
-		<nav class="btn-group w-full grid grid-cols-3 gap-2 p-2 preset-outlined-surface-200-800">
-			<button type="button" class="btn {activeDisplay('filled')}" onclick={() => setDisplayMode('filled')}>
-				Filled
-			</button>
-			<button type="button" class="btn {activeDisplay('outlined')}" onclick={() => setDisplayMode('outlined')}>
-				Outlined
-			</button>
-			<button type="button" class="btn {activeDisplay('inverted')}" onclick={() => setDisplayMode('inverted')}>
-				Inverted
-			</button>
-		</nav>
 	</fieldset>
 </div>
