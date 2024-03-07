@@ -76,7 +76,7 @@
 						{/each}
 					</div>
 				</div>
-				<div class="grid grid-cols-3 items-center gap-4">
+				<div class="grid grid-cols-2 items-center gap-4">
 					<!-- Contrast Dark -->
 					<div class="input-group grid-cols-[auto_1fr]">
 						<div class="input-group-cell !pr-0">
@@ -94,16 +94,6 @@
 							{/each}
 						</select>
 					</div>
-					<!-- Breakpoint -->
-					<input
-						class="input"
-						type="range"
-						name="contrast"
-						bind:value={stateFormColors[color].breakpoint}
-						min="0"
-						max="11"
-						step="1"
-					/>
 					<!-- Contrast Light -->
 					<div class="input-group grid-cols-[auto_1fr]">
 						<div class="input-group-cell !pr-0">
