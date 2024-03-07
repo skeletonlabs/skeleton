@@ -100,7 +100,7 @@ export let edges = ['0px', '1px', '2px', '4px', '8px'] as const;
 
 // Theme Generation
 export const themeStatic = {
-	typoScale: {
+	typeScale: {
 		'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))', // 12px
 		'--type-scale-2': 'calc(0.875rem * var(--type-scale-factor))', // 14px
 		'--type-scale-3': 'calc(1rem * var(--type-scale-factor))', // 16px
