@@ -1,28 +1,35 @@
-import crimson from './crimson.js';
-import goldNouveau from './gold-nouveau.js';
-import hamlindigo from './hamlindigo.js';
-import modern from './modern.js';
-import rocket from './rocket.js';
-import sahara from './sahara.js';
-import seafoam from './seafoam.js';
-import skeleton from './skeleton.js';
-import vintage from './vintage.js';
-import wintry from './wintry.js';
+// import crimson from './legacy/crimson.js';
+// import goldNouveau from './legacy/gold-nouveau.js';
+// import hamlindigo from './legacy/hamlindigo.js';
+// import modern from './legacy/modern.js';
+// import rocket from './legacy/rocket.js';
+// import sahara from './legacy/sahara.js';
+// import seafoam from './legacy/seafoam.js';
+// import skeleton from './legacy/skeleton.js';
+// import vintage from './legacy/vintage.js';
+// import wintry from './legacy/wintry.js';
 import next from './next.js';
+import catppuccin from './catppuccin.js';
+import pine from './pine.js';
+import rose from './rose.js';
+
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
 
 export const themes = {
-	crimson,
-	'gold-nouveau': goldNouveau,
-	hamlindigo,
-	modern,
-	rocket,
-	sahara,
-	seafoam,
-	skeleton,
-	vintage,
-	wintry,
-	next
+	// crimson,
+	// 'gold-nouveau': goldNouveau,
+	// hamlindigo,
+	// modern,
+	// rocket,
+	// sahara,
+	// seafoam,
+	// skeleton,
+	// vintage,
+	// wintry,
+	next,
+	catppuccin,
+	pine,
+	rose
 };
 
 export type PresetThemeName = ObjectKeys<typeof themes>;

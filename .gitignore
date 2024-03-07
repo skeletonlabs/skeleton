@@ -22,4 +22,5 @@ repos.json
 /sites/*
 !/sites/skeleton.dev
 !/sites/next.skeleton.dev
+!/sites/themes.skeleton.dev
 /templates/*

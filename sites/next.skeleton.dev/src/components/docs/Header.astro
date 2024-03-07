@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { SunMoon } from 'lucide-react';
+import Lightswitch from '@components/docs/Lightswitch.astro';
+import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
 
 const socialLinks = [
 	{
@@ -16,7 +17,7 @@ const socialLinks = [
 ];
 ---
 
-<header class="w-full border-b border-surface-200-800 bg-surface-50-950 p-4 md:px-10">
+<header class="w-full border-b border-surface-500/20 bg-surface-50-950 p-4 py-3 md:px-10">
 	<div class="container mx-auto flex max-w-screen-2xl justify-between items-center">
 		<a class="type-scale-3 flex gap-3" href="/" title="Skeleton">
 			<span><Icon name="skeleton" size={24} /></span>
@@ -32,19 +33,9 @@ const socialLinks = [
 				))
 			}
 			<!-- Lightswitch -->
-			<button id="lightswitch" title="Toggle dark mode.">
-				<SunMoon size={24} />
-			</button>
+			<Lightswitch />
+			<!-- Theme Switcher -->
+			<ThemeSwitch />
 		</nav>
 	</div>
 </header>
-
-<!-- Lighswitch Script -->
-<!-- TODO: move to dedidcated component -->
-<script>
-	const elemHtmlTag = document.querySelector('html');
-	const elemLightswitch = document.querySelector('#lightswitch');
-	elemLightswitch?.addEventListener('click', () => {
-		elemHtmlTag?.classList.toggle('dark');
-	});
-</script>

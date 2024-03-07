@@ -12,10 +12,8 @@
 		@apply block;
 		@apply heading-font-color dark:heading-font-color-dark;
 		@apply heading-font-family;
-		@apply heading-font-size;
-		@apply heading-font-style;
 		@apply heading-font-weight;
-		@apply heading-line-height;
+		@apply heading-font-style;
 		@apply heading-letter-spacing;
 	}
 	.h1 {

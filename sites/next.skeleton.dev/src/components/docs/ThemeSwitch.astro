@@ -1,0 +1,37 @@
+---
+// Theme Switcher
+// Ref: https://docs.astro.build/en/tutorial/6-islands/2/
+---
+
+<select id="themesList" class="select">
+	<option value="next" selected>Next</option>
+	<hr />
+	<option value="catppuccin">Catppuccin</option>
+	<option value="pine">Pine</option>
+	<option value="rose">Rose</option>
+</select>
+
+<script is:inline>
+	const elemBody = document.querySelector('body');
+	const elemSelect = document.getElementById('themesList');
+	const lsTheme = localStorage.getItem('theme') || 'next';
+
+	// Init
+	elemSelect.value = lsTheme;
+	setBodyAttr(lsTheme);
+
+	// Change Handler
+	function onChangeHandler(event) {
+		const selectedTheme = event.target.value;
+		elemBody.dataset.theme = selectedTheme;
+		setBodyAttr(selectedTheme);
+		localStorage.setItem('theme', selectedTheme);
+	}
+
+	function setBodyAttr(theme) {
+		elemBody.dataset.theme = theme;
+	}
+
+	// Listners
+	elemSelect.addEventListener('change', onChangeHandler);
+</script>
