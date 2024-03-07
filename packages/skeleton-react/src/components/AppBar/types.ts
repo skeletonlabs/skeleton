@@ -24,7 +24,7 @@ export interface AppBarToolBarProps extends React.PropsWithChildren {
     /** Sets the toolbar component's base styles. */
 	base?: string;
 	/** Sets the toolbar component's grid columns styles. */
-	columns?: string;
+	gridCols?: string;
 	/** Sets the toolbar component's gap styles. */
 	gap?: string;
 	/** Provide arbitrary CSS classes to the toolbar component. */
@@ -69,5 +69,4 @@ export interface AppBarHeadlineProps extends React.PropsWithChildren {
 	base?: string;
 	/** Provide arbitrary CSS classes to the headline component. */
 	classes?: string;
-
 }

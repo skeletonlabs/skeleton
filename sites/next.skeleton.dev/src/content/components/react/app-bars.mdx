@@ -8,8 +8,8 @@ import { Page as Example } from '@examples/components/app-bars/Example.tsx';
 import ExampleRaw from '@examples/components/app-bars/Example.tsx?raw';
 import { Page as ToolBarTitleExample } from '@examples/components/app-bars/ToolBarTitleExample.tsx';
 import ToolBarTitleExampleRaw from '@examples/components/app-bars/ToolBarTitleExample.tsx?raw';
-import { Page as HeadlineExample } from '@examples/components/app-bars/HeadlineExample.tsx';
-import HeadlineExampleRaw from '@examples/components/app-bars/HeadlineExample.tsx?raw';
+import { Page as ResponsiveExample } from '@examples/components/app-bars/ResponsiveExample.tsx';
+import ResponsiveExampleRaw from '@examples/components/app-bars/ResponsiveExample.tsx?raw';
 import * as Common from '@content/components/common/app-bars.mdx';
 
 <Preview client:load>
@@ -32,14 +32,17 @@ import * as Common from '@content/components/common/app-bars.mdx';
 	</Fragment>
 </Preview>
 
-## Headline
+## Responsive App Bar
+
+Using Tailwind CSS **breakpoints**, you can hide and display different parts of the AppBar to achieve a fully responsive AppBar.
+Resize the page to see the Responsive AppBar in action.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<HeadlineExample />
+		<ResponsiveExample client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={HeadlineExampleRaw} lang="tsx" />
+		<Code code={ResponsiveExampleRaw} lang="react" />
 	</Fragment>
 </Preview>
 

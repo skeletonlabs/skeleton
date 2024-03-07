@@ -34,14 +34,14 @@ const AppBarRoot: React.FC<AppBarProps> = ({
 const AppBarToolBarRoot: React.FC<AppBarToolBarProps> = ({
     // Toolbar
     base = 'flex justify-between',
-    columns = 'grid-cols-[auto_1fr_auto]',
+    gridCols = 'grid-cols-[auto_1fr_auto]',
     gap = 'gap-4',
     classes = '',
     // Children
     children
 }) => {
     return(
-        <div className={`${base} ${columns} ${gap} ${classes}`}>
+        <div className={`${base} ${gridCols} ${gap} ${classes}`}>
             {children}
         </div>
     );

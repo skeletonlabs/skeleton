@@ -12,7 +12,7 @@
 		classes = '',
 		// Toolbar
 		toolbarBase = 'flex justify-between',
-		toolbarColumns = 'grid-cols-[auto_1fr_auto]',
+		toolbarGridCols = 'grid-cols-[auto_1fr_auto]',
 		toolbarGap = 'gap-4',
 		toolbarClasses = '',
 		// Lead
@@ -44,7 +44,7 @@
 <!-- @component A header element for the top of a page layout. -->
 
 <header class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}" role="toolbar" data-testid="app-bar">
-	<section class="{toolbarBase} {toolbarColumns} {toolbarGap} {toolbarClasses}">
+	<section class="{toolbarBase} {toolbarGridCols} {toolbarGap} {toolbarClasses}">
 		{#if lead}
 			<div class="{leadBase} {leadSpaceX} {leadPadding} {leadClasses}">
 				{@render lead()}

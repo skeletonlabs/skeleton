@@ -8,8 +8,8 @@ import Example from '@examples/components/app-bars/Example.svelte';
 import ExampleRaw from '@examples/components/app-bars/Example.svelte?raw';
 import ToolBarTitleExample from '@examples/components/app-bars/ToolBarTitleExample.svelte';
 import ToolBarTitleExampleRaw from '@examples/components/app-bars/ToolBarTitleExample.svelte?raw';
-import HeadlineExample from '@examples/components/app-bars/HeadlineExample.svelte';
-import HeadlineExampleRaw from '@examples/components/app-bars/HeadlineExample.svelte?raw';
+import ResponsiveExample from '@examples/components/app-bars/ResponsiveExample.svelte';
+import ResponsiveExampleRaw from '@examples/components/app-bars/ResponsiveExample.svelte?raw';
 import * as Common from '@content/components/common/app-bars.mdx';
 
 <Preview client:load>
@@ -32,14 +32,17 @@ import * as Common from '@content/components/common/app-bars.mdx';
 	</Fragment>
 </Preview>
 
-## Headline
+## Responsive App Bar
+
+Using Tailwind CSS **breakpoints**, you can hide and display different parts of the AppBar to achieve a fully responsive AppBar.
+Resize the page to see the Responsive AppBar in action.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<HeadlineExample client:load />
+		<ResponsiveExample client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={HeadlineExampleRaw} lang="svelte" />
+		<Code code={ResponsiveExampleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

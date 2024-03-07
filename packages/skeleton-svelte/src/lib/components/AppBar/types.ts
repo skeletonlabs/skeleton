@@ -21,7 +21,7 @@ export interface AppBarProps {
 	/** Sets toolbar's base styles. */
 	toolbarBase?: string;
 	/** Sets toolbar's grid columns styles. */
-	toolbarColumns?: string;
+	toolbarGridCols?: string;
 	/** Sets toolbar's gap styles. */
 	toolbarGap?: string;
 	/** Provide arbitrary CSS classes to the toolbar. */
