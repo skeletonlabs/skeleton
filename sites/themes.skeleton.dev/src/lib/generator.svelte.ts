@@ -8,25 +8,33 @@ import {
 	stateFormSpacing,
 	stateFormEdges
 } from '$lib/state.svelte';
-import { typographicScales, themeStatic, colorShades } from '$lib/constants';
+import {
+	typographicScales,
+	themeStatic,
+	colorShades,
+	type ColorNames,
+	type ColorSettings,
+	type ColorShades,
+	type ColorPalette
+} from '$lib/constants';
 
 // Provide a single seed color, generates high/low contrast values
-export function seedHighLowColors(colorName: string, colorSeed: string) {
+export function seedHighLowColors(colorName: ColorNames, colorSeed: string) {
 	if (!chroma.valid(colorSeed)) return;
 	// prettier-ignore
 	stateFormColors[colorName].seeds = [
-		chroma(colorSeed).brighten(2.5), // high
-		colorSeed, 						 // med
-		chroma(colorSeed).darken(2.5)    // low
+		chroma(colorSeed).brighten(2.5).hex(), // high
+		colorSeed, 						    	// med
+		chroma(colorSeed).darken(2.5).hex()    // low
 	];
 }
 
-export function genRandomSeed(colorName: string) {
+export function genRandomSeed(colorName: ColorNames) {
 	seedHighLowColors(colorName, String(chroma.random()));
 }
 
 // Generates a color ramp with default settings
-function genColorRamp(colorSettings: Record<string, string[]>) {
+function genColorRamp(colorSettings: ColorSettings): Record<ColorShades, [number, number, number]> {
 	// Validate and create color scale
 	// prettier-ignore
 	const colorScale = chroma.scale([
@@ -51,9 +59,10 @@ function genColorRamp(colorSettings: Record<string, string[]>) {
 }
 
 // Loops the object of colors to generate a ramp per color
-export function genColorPalette(stateFormColors: any) {
-	let palette: any = {};
-	Object.entries(stateFormColors).map(([colorName, colorSettings]: any) => {
+export function genColorPalette(stateFormColors: Record<ColorNames, ColorSettings>): ColorPalette {
+	let palette = {} as ColorPalette;
+	Object.entries(stateFormColors).map(([_colorName, colorSettings]) => {
+		const colorName = _colorName as ColorNames;
 		palette[colorName] = genColorRamp(colorSettings);
 	});
 	return palette;
@@ -61,9 +70,10 @@ export function genColorPalette(stateFormColors: any) {
 
 // Generates the Theme's color properties
 export function genColorProperties() {
-	let code: any = {};
-	let colorsArr: any = Object.entries(genColorPalette(stateFormColors));
-	for (const [colorName, colorRamp] of colorsArr) {
+	let code: Record<string, string> = {};
+	let colorsArr = Object.entries(genColorPalette(stateFormColors));
+	for (const [_colorName, colorRamp] of colorsArr) {
+		const colorName = _colorName as ColorNames;
 		// Base Colors
 		colorShades.forEach((cs) => (code[`--color-${colorName}-${cs}`] = colorRamp[cs].join(' ')));
 		// Contrast Colors
