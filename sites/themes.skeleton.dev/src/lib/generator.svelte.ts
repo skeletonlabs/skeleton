@@ -18,7 +18,7 @@ import {
 	type ColorPalette
 } from '$lib/constants';
 
-// Provide a single seed color, generates high/low contrast values
+/** Provide a single seed color, generates high/low contrast values */
 export function seedHighLowColors(colorName: ColorNames, colorSeed: string) {
 	if (!chroma.valid(colorSeed)) return;
 	stateFormColors[colorName].seeds = [
@@ -35,7 +35,7 @@ export function genRandomSeed(colorName: ColorNames) {
 	seedHighLowColors(colorName, chromaColor.hex());
 }
 
-// Generates a color ramp with default settings
+/** Generates a color ramp with default settings */
 function genColorRamp(colorSettings: ColorSettings) {
 	// Validate and create color scale
 	const colorScale = chroma
@@ -56,7 +56,7 @@ function genColorRamp(colorSettings: ColorSettings) {
 	return colorRamp satisfies Record<ColorShades, [number, number, number]>;
 }
 
-// Loops the object of colors to generate a ramp per color
+/** Loops the object of colors to generate a ramp per color */
 export function genColorPalette(stateFormColors: Record<ColorNames, ColorSettings>): ColorPalette {
 	let palette = {} as ColorPalette;
 	Object.entries(stateFormColors).map(([_colorName, colorSettings]) => {
@@ -66,10 +66,11 @@ export function genColorPalette(stateFormColors: Record<ColorNames, ColorSetting
 	return palette;
 }
 
-// Generates the Theme's color properties
+/** Generates the Theme's color properties */
 export function genColorProperties() {
 	let code: Record<string, string> = {};
 	let colorsArr = Object.entries(genColorPalette(stateFormColors));
+	findColorBreakpoint();
 	for (const [_colorName, colorRamp] of colorsArr) {
 		const colorName = _colorName as ColorNames;
 		// Base Colors
@@ -87,7 +88,36 @@ export function genColorProperties() {
 	return code;
 }
 
-// Generates the full theme file code
+export function findColorBreakpoint() {
+	const palette = genColorPalette(stateFormColors);
+	let colorsArr = Object.entries(palette);
+	for (const [_colorName, _colorRamp] of colorsArr) {
+		const colorName = _colorName as ColorNames;
+		const colorRamp = Object.keys(_colorRamp).map((k) => Number(k)) as ColorShades[];
+		const color = stateFormColors[colorName];
+
+		const [contrastDarkName, contrastDarkShade] = getNameAndShadeFromVar(color.contrastDark);
+		const [contrastLightName, contrastLightShade] = getNameAndShadeFromVar(color.contrastLight);
+		const contrastDarkColor = chroma(palette[contrastDarkName][contrastDarkShade]);
+		const contrastLightColor = chroma(palette[contrastLightName][contrastLightShade]);
+		let breakpoint = -1;
+		for (let i = 0; i < colorRamp.length; i++) {
+			const contrastDark = chroma.contrast(chroma(_colorRamp[colorShades[i]]), contrastDarkColor);
+			const contrastLight = chroma.contrast(chroma(_colorRamp[colorShades[i]]), contrastLightColor);
+			if (contrastLight > contrastDark && breakpoint === -1) {
+				breakpoint = i;
+			}
+		}
+		stateFormColors[colorName].breakpoint = breakpoint;
+	}
+}
+
+/** normalize the CSS variable, turn 'var(--color-success-950)' into ["success", 950] */
+function getNameAndShadeFromVar(string: string) {
+	return string.replace('var(--color-', '').replace(')', '').split('-') as [ColorNames, ColorShades];
+}
+
+/** Generates the full theme file code */
 export function genThemeCode() {
 	return {
 		properties: {
@@ -143,7 +173,7 @@ export function genThemeCode() {
 	};
 }
 
-// Generates the Live Preview css code
+/** Generates the Live Preview css code */
 export function genCssCode() {
 	let theme = genThemeCode();
 	let rawCssCode = '';
