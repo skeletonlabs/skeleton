@@ -46,7 +46,7 @@ const { frontmatter, urls } = Astro.props;
 		frontmatter.showDocsUrl && (
 			<a
 				class="chip preset-filled-surface-200-800"
-				href={urls.githubDocsUrl + Astro.url.pathname + '.mdx'}
+				href={urls.githubDocsUrl + Astro.url.pathname.replace(/\/$/, '') + '.mdx'}
 				target="_blank"
 			>
 				<BookOpen size={16} />
