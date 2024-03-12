@@ -21,7 +21,7 @@ export default {
     // typography,
     skeleton({
       themes: {
-        preset: ['next', 'catppuccin', 'pine', 'rose'],
+        preset: ['cerberus', 'catppuccin', 'pine', 'rose'],
       },
     }),
   ],

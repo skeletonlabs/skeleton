@@ -17,7 +17,7 @@ export default {
 		skeleton({
 			themes: {
 				preset: [
-					{ name: "next" },
+					{ name: "cerberus" },
 				],
 			},
 		}),

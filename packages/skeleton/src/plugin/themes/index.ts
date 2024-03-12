@@ -8,7 +8,7 @@
 // import skeleton from './legacy/skeleton.js';
 // import vintage from './legacy/vintage.js';
 // import wintry from './legacy/wintry.js';
-import next from './next.js';
+import cerberus from './cerberus.js';
 import catppuccin from './catppuccin.js';
 import pine from './pine.js';
 import rose from './rose.js';
@@ -26,7 +26,7 @@ export const themes = {
 	// skeleton,
 	// vintage,
 	// wintry,
-	next,
+	cerberus,
 	catppuccin,
 	pine,
 	rose
