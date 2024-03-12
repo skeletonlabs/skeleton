@@ -66,7 +66,10 @@
 	.select optgroup option:last-child {
 		@apply !mb-2;
 	}
-	.select option {
+	.select option,
+	.input-group select option {
+		@apply bg-surface-50 dark:bg-surface-950;
+		@apply text-surface-950 dark:text-surface-50;
 		@apply p-2 rounded cursor-pointer;
 	}
 	.select option:checked {
@@ -193,5 +196,15 @@
 	.textarea[readonly],
 	.select[readonly] {
 		@apply !border-transparent !cursor-not-allowed hover:!brightness-100;
+	}
+
+	/* Placeholder Text */
+
+	.input::placeholder,
+	.textarea::placeholder,
+	.input-group input::placeholder,
+	.input-group textarea::placeholder {
+		@apply base-font-color dark:base-font-color-dark;
+		@apply text-base opacity-60 dark:opacity-50;
 	}
 }

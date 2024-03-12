@@ -14,7 +14,7 @@ export const utilPresets = () => {
 	settings.colorNames.forEach((n) => {
 		// Tonal
 		classes[`.preset-tonal-${n}`] = {
-			[`@apply bg-${n}-50 dark:bg-${n}-950 text-${n}-900 dark:text-${n}-100`]: {}
+			[`@apply bg-${n}-50 dark:bg-${n}-950 text-${n}-contrast-50 dark:text-${n}-contrast-950`]: {}
 		};
 		// Loop each color pairing set
 		settings.colorPairings.forEach((p) => {

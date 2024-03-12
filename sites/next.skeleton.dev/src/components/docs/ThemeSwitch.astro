@@ -1,15 +1,21 @@
 ---
 // Theme Switcher
 // Ref: https://docs.astro.build/en/tutorial/6-islands/2/
+
+import { Palette } from 'lucide-react';
 ---
 
-<select id="themesList" class="select">
-	<option value="next" selected>Next</option>
-	<hr />
-	<option value="catppuccin">Catppuccin</option>
-	<option value="pine">Pine</option>
-	<option value="rose">Rose</option>
-</select>
+<div class="input-group grid-cols-[auto_1fr] divide-x divide-surface-200-800">
+	<div class="input-group-cell">
+		<Palette size={18} />
+	</div>
+	<select id="themesList">
+		<option value="cerberus" selected>Cerberus</option>
+		<option value="catppuccin">Catppuccin</option>
+		<option value="pine">Pine</option>
+		<option value="rose">Rose</option>
+	</select>
+</div>
 
 <script is:inline>
 	const elemBody = document.querySelector('body');
