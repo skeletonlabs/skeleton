@@ -197,4 +197,14 @@
 	.select[readonly] {
 		@apply !border-transparent !cursor-not-allowed hover:!brightness-100;
 	}
+
+	/* Placeholder Text */
+
+	.input::placeholder,
+	.textarea::placeholder,
+	.input-group input::placeholder,
+	.input-group textarea::placeholder {
+		@apply base-font-color dark:base-font-color-dark;
+		@apply text-base opacity-60 dark:opacity-50;
+	}
 }
