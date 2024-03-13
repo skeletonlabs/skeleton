@@ -1,4 +1,4 @@
-import type { PresetTheme } from '../index.js';
+// import type { Theme } from '../index.js';
 
 const seafoam = {
 	name: 'seafoam',
@@ -108,6 +108,6 @@ const seafoam = {
 			backgroundSize: 'cover'
 		}
 	}
-} satisfies PresetTheme;
+}; // satisfies Theme;
 
 export default seafoam;

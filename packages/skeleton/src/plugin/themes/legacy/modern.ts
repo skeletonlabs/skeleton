@@ -1,4 +1,4 @@
-import type { PresetTheme } from '../index.js';
+// import type { Theme } from '../index.js';
 
 const modern = {
 	name: 'modern',
@@ -109,6 +109,6 @@ const modern = {
 			backgroundSize: 'cover'
 		}
 	}
-} satisfies PresetTheme;
+}; // satisfies Theme;
 
 export default modern;

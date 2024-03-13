@@ -1,4 +1,4 @@
-// import type { PresetTheme } from './index.js';
+import type { Theme } from './index.js';
 
 const rose = {
 	name: 'rose',
@@ -221,6 +221,6 @@ const rose = {
 		'--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
 	}
-}; // satisfies PresetTheme;
+} satisfies Theme;
 
 export default rose;

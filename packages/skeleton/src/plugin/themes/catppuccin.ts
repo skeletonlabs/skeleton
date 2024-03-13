@@ -1,6 +1,6 @@
 // Inspired by: https://github.com/catppuccin/catppuccin
 
-// import type { PresetTheme } from './index.js';
+import type { Theme } from './index.js';
 
 const catppuccin = {
 	name: 'catppuccin',
@@ -223,6 +223,6 @@ const catppuccin = {
 		'--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
 	}
-}; // satisfies PresetTheme;
+} satisfies Theme;
 
 export default catppuccin;
