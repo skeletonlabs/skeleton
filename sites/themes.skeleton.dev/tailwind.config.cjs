@@ -18,7 +18,7 @@ const config = {
 		// To set a hardcoded theme, use the following:
 		// skeleton({
 		// 	themes: {
-		// 		preset: ['next', 'catppuccin', 'cedar', 'rose'],
+		// 		preset: ['cerberus', 'catppuccin', 'cedar', 'rose'],
 		// 	},
 		// }),
 	]

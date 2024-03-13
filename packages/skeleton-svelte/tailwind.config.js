@@ -13,7 +13,7 @@ export default {
 	plugins: [
 		skeleton({
 			themes: {
-				preset: [{ name: 'next' }]
+				preset: [{ name: 'cerberus' }]
 			}
 		})
 	]
