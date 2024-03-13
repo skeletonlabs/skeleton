@@ -1,16 +1,14 @@
 /* Components: Chips */
 
-@layer components {
-	.chip {
-		@apply inline-flex justify-center items-center space-x-2 whitespace-nowrap;
-		@apply font-medium type-scale-1;
-		@apply px-3 py-0.5;
-		@apply rounded;
-		@apply transition-all hover:brightness-90 dark:hover:brightness-110;
-	}
+.chip {
+	@apply inline-flex justify-center items-center space-x-2 whitespace-nowrap;
+	@apply font-medium type-scale-1;
+	@apply px-3 py-0.5;
+	@apply rounded;
+	@apply transition-all hover:brightness-90 dark:hover:brightness-110;
+}
 
-	.chip-icon {
-		@apply size-6 flex justify-center items-center rounded-full;
-		@apply font-medium type-scale-1;
-	}
+.chip-icon {
+	@apply size-6 flex justify-center items-center rounded-full;
+	@apply font-medium type-scale-1;
 }
