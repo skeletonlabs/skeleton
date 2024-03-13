@@ -20,6 +20,14 @@ export default defineConfig([
 		tsconfig: 'src/plugin/tsconfig.json'
 	},
 	{
+		// themes
+		...base,
+		entry: ['src/plugin/themes/index.ts'],
+		outDir: 'dist/themes',
+		format: ['esm'],
+		tsconfig: 'src/plugin/tsconfig.json'
+	},
+	{
 		// core
 		...base,
 		entry: ['src/core/index.ts'],

@@ -1,4 +1,4 @@
-import type { PresetTheme } from '../../index.js';
+import type { PresetTheme } from '../index.js';
 
 const modern = {
 	name: 'modern',

@@ -222,9 +222,7 @@ const catppuccin = {
 		'--color-surface-contrast-800': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
-	},
-	properties_dark: {}, // TODO: REMOVE
-	enhancements: {} // TODO: REMOVE
+	}
 }; // satisfies PresetTheme;
 
 export default catppuccin;

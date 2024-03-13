@@ -69,6 +69,10 @@
 		"./plugin": {
 			"types": "./dist/plugin/index.d.ts",
 			"require": "./dist/plugin/index.cjs"
+		},
+		"./themes": {
+			"types": "./dist/themes/index.d.ts",
+			"default": "./dist/themes/index.js"
 		}
 	},
 	"files": [

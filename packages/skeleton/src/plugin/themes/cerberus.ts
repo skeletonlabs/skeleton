@@ -1,7 +1,7 @@
 // import type { PresetTheme } from './index.js';
 
-const next = {
-	name: 'next',
+const cerberus = {
+	name: 'cerberus',
 	properties: {
 		// Spacing ---
 		// https://tailwindcss.com/docs/customizing-spacing
@@ -256,9 +256,7 @@ const next = {
 		'--color-surface-contrast-800': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
-	},
-	properties_dark: {}, // TODO: REMOVE
-	enhancements: {} // TODO: REMOVE
+	}
 }; // satisfies PresetTheme;
 
-export default next;
+export default cerberus;
