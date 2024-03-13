@@ -1,7 +1,7 @@
 // import type { PresetTheme } from './index.js';
 
-const next = {
-	name: 'next',
+const cerberus = {
+	name: 'cerberus',
 	properties: {
 		// Spacing ---
 		// https://tailwindcss.com/docs/customizing-spacing
@@ -261,4 +261,4 @@ const next = {
 	enhancements: {} // TODO: REMOVE
 }; // satisfies PresetTheme;
 
-export default next;
+export default cerberus;
