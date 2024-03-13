@@ -5,9 +5,6 @@ import rose from './rose.js';
 
 export { cerberus, catppuccin, pine, rose };
 
-export type ObjectValues<T> = T[keyof T];
-export type ObjectKeys<T> = keyof T;
-
 export type Theme = {
 	name: string;
 	properties: ThemeProperties;
