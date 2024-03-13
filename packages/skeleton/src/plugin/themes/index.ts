@@ -13,30 +13,28 @@ import catppuccin from './catppuccin.js';
 import pine from './pine.js';
 import rose from './rose.js';
 
+export { cerberus, catppuccin, pine, rose };
+
 import type { CSSRuleObject } from 'tailwindcss/types/config.js';
 
-export const themes = {
-	// crimson,
-	// 'gold-nouveau': goldNouveau,
-	// hamlindigo,
-	// modern,
-	// rocket,
-	// sahara,
-	// seafoam,
-	// skeleton,
-	// vintage,
-	// wintry,
-	cerberus,
-	catppuccin,
-	pine,
-	rose
-};
+// export const themes = {
+// 	// crimson,
+// 	// 'gold-nouveau': goldNouveau,
+// 	// hamlindigo,
+// 	// modern,
+// 	// rocket,
+// 	// sahara,
+// 	// seafoam,
+// 	// skeleton,
+// 	// vintage,
+// 	// wintry,
+// 	cerberus,
+// 	catppuccin,
+// 	pine,
+// 	rose
+// };
 
-export type PresetThemeName = ObjectKeys<typeof themes>;
-
-export function getThemeProperties(themeName: PresetThemeName) {
-	return themes[themeName].properties;
-}
+export type Theme = any; // TODO;
 
 export type ObjectValues<T> = T[keyof T];
 export type ObjectKeys<T> = keyof T;
