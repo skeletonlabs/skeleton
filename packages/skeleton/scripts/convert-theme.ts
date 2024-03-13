@@ -18,7 +18,7 @@ export async function convertTheme(name: string) {
 
 	const theme = {
 		name,
-		properties: properties
+		properties
 		// enhancements: { ...cssInJs },
 		// properties_dark: {}
 	} satisfies Theme;
