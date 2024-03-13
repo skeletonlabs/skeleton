@@ -1,10 +1,9 @@
-import type { CssInJs } from 'postcss-js';
+import path from 'node:path';
 import { transpileCssToJs } from './compile-css-to-js.js';
 import { mkdir, writeFile } from 'fs/promises';
-import plugin from 'tailwindcss/plugin.js';
 
 const INTELLISENSE_FILE_NAME = 'generated-classes.cjs';
-const GENERATED_DIR_PATH = `./src/plugin/generated`;
+const GENERATED_DIR_PATH = path.resolve('src', 'plugin', 'generated');
 
 async function exec() {
 	// Makes directory that stores our generated CSS-in-JS
@@ -12,37 +11,17 @@ async function exec() {
 		// directory already exists
 	});
 
-	const generatedComponentJSS = await transpileCssToJs('./src/plugin/components/index.css');
-	const componentClasses = patchMediaQueries(generatedComponentJSS);
+	const componentPath = path.resolve('src', 'plugin', 'components', 'index.css');
+	const componentClasses = await transpileCssToJs(componentPath);
 
-	const componentPlugin = plugin(({ addComponents }) => {
-		addComponents(componentClasses);
-	});
-	const baseStyles = await transpileCssToJs('./src/plugin/base/index.css', [componentPlugin]);
+	const basePath = path.resolve('src', 'plugin', 'base', 'index.css');
+	const baseStyles = await transpileCssToJs(basePath);
 
 	// Creates the generated CSS-in-JS file
 	await writeFile(
-		`${GENERATED_DIR_PATH}/${INTELLISENSE_FILE_NAME}`,
+		path.join(GENERATED_DIR_PATH, INTELLISENSE_FILE_NAME),
 		`module.exports = { components: ${JSON.stringify(componentClasses)}, base: ${JSON.stringify(baseStyles)} };`
 	).catch((e) => console.error(e));
-}
-
-// Moves all of the media queries towards the end of the cssInJs object.
-function patchMediaQueries(cssInJs: CssInJs) {
-	const mediaQueries: CssInJs = {};
-
-	for (const key of Object.keys(cssInJs)) {
-		if (key.startsWith('@media')) {
-			mediaQueries[key] = cssInJs[key];
-			delete cssInJs[key];
-		}
-	}
-
-	for (const key of Object.keys(mediaQueries)) {
-		cssInJs[key] = mediaQueries[key];
-	}
-
-	return cssInJs;
 }
 
 exec();
