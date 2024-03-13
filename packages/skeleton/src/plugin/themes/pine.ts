@@ -1,4 +1,4 @@
-// import type { PresetTheme } from './index.js';
+import type { Theme } from './index.js';
 
 const pine = {
 	name: 'pine',
@@ -29,8 +29,6 @@ const pine = {
 		'--heading-font-color': 'var(--color-primary-800)',
 		'--heading-font-color-dark': 'var(--color-primary-300)',
 		'--heading-font-family': 'Avenir, Montserrat, Corbel, URW Gothic, source-sans-pro, sans-serif',
-		'--heading-font-size': '18px',
-		'--heading-line-height': '28px',
 		'--heading-font-weight': 'bold',
 		'--heading-font-style': 'normal',
 		'--heading-letter-spacing': 'inherit',
@@ -223,6 +221,6 @@ const pine = {
 		'--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
 	}
-}; // satisfies PresetTheme;
+} satisfies Theme;
 
 export default pine;

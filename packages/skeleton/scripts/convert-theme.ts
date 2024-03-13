@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { writeFile } from 'fs/promises';
 import postcss from 'postcss';
 import postcssJs from 'postcss-js';
-import type { PresetTheme } from '../src/plugin/themes/index.js';
+import type { Theme } from '../src/plugin/themes/index.js';
 
 // Converts a theme's .css file into a .ts file.
 export async function convertTheme(name: string) {
@@ -18,10 +18,10 @@ export async function convertTheme(name: string) {
 
 	const theme = {
 		name,
-		properties: properties,
-		enhancements: { ...cssInJs },
-		properties_dark: {}
-	} satisfies PresetTheme;
+		properties: properties
+		// enhancements: { ...cssInJs },
+		// properties_dark: {}
+	} satisfies Theme;
 
 	// Creates the generated CSS-in-JS file
 	await writeFile(

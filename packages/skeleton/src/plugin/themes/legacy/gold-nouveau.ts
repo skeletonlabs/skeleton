@@ -1,4 +1,4 @@
-import type { PresetTheme } from '../index.js';
+// import type { Theme } from '../index.js';
 
 const goldNouveau = {
 	name: 'gold-nouveau',
@@ -113,6 +113,6 @@ const goldNouveau = {
 			backgroundSize: 'cover'
 		}
 	}
-} satisfies PresetTheme;
+}; // satisfies Theme;
 
 export default goldNouveau;
