@@ -36,11 +36,21 @@ Navigate the app structure within the `/src` directory. This includes the follow
 | `/pages`      | The Astro page route templates.           |
 | `/styles`     | All doc site stylesheets.                 |
 
-## Adding MDX Pages
+## Pages
+
+### Standard Pages
 
 1. Browse to `/content` and create a new `.mdx` file within the appropriate [content collection](https://docs.astro.build/en/guides/content-collections/).
 2. Complete all required Frontmatter metadata within the `---` brackets.
 3. New pages will be automatically added to the sidebar navigation.
+
+### Component Pages
+
+Similar to standard pages, but split into multiple parts. This represents the header and tabbed sections.
+
+* `/content/common/{feature}.mdx` - contains the frontmatter metadata for the page header information.
+* `/content/react/{feature}.mdx` - provide usage instruction for the React component only.
+* `/content/svelte/{feature}.mdx` - provide usage instruction for the Svelte component only.
 
 ## MDX Markdown
 
