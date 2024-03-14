@@ -1,22 +1,117 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: Get Started
-description: Read this before you begin contributing.
+description: Read this before you submit your first contribution.
 orderBy: 0
 ---
 
 export const components = componentSet;
 
+import { Check, X } from 'lucide-react';
+
+## How to Contribute
+
+Take care to read all contributions guidelines before you begin!
+
+1. Learn how to [contribute to open source](https://opensource.guide/how-to-contribute/).
+2. Follow a [step-by-step guide](https://github.com/firstcontributions/first-contributions) to practice your first contribution.
+3. Locate an [open issue on GitHub](https://github.com/skeletonlabs/skeleton/issues). Let us know you would like to volunteer.
+4. Optionally, you may coordinate efforts on the `#contributors` channel within [Discord](https://discord.gg/EXqV7W8MtY).
+5. If the Skeleton team approves your request, you'll be assigned to the issue.
+6. Complete the work and submit a pull request and we'll review the changes.
+
+> NOTE: non-trivial PRs submitted with our prior consent will be denied. Repeat offenders will be banned.
+
 ## Using PNPM
 
-https://pnpm.io/
+Skeleton makes use of [PNPM](https://pnpm.io/) and [PNPM workspaces](https://pnpm.io/workspaces) to maintain all projects within the Skeleton monorepo.
 
-Skeleton makes use of [PNPM workspaces](https://pnpm.io/workspaces) to create and maintain the Skeleton monorepo. As such you will be required to install and use PNPM to contribute to Skeleton. Don't worry though, it's free and easy to pickup and learn if you're familiar with Node or Yarn.
+1. [Install PNPM](https://pnpm.io/installation) on your local computer.
+2. [Fork the Skeleton monorepo](https://github.com/skeletonlabs/skeleton) via the option on GitHub.
+3. Use Git to clone the forked project to your local machine.
+4. Point your terminal at once of the sites or package projects listed below.
+5. Run `pnpm i` to install the requirement depedencies.
+6. Run `pnpm dev` to start a local dev server for each project.
 
-## Contributions Basics
+## Monorepo Structure
 
-...
+### Sites
 
-## Finding Issues
+Public facing websites that are deployed to Vercel.
 
-...
+| Path                          | Description                                         |
+| ----------------------------- | --------------------------------------------------- |
+| `/sites/skeleton.dev`         | The production skeleton.dev documentation website.  |
+| `/sites/next.skeleton.dev`    | The temporary Next/v3 documentation website.        |
+| `/sites/themes.skeleton.dev`  | The Skeleton themes generator website               |
+
+### Packages
+
+Modular Skeleton packages distributed via NPM.
+
+| Path                             | Description                                                          |
+| -------------------------------- | -------------------------------------------------------------------- |
+| `/packages/skeleton`             | The Skeleton core package, containing the Tailwind plugin.           |
+| `/packages/skeleton-react`       | The Skeleton React package, containing Skeleton React components.    |
+| `/packages/skeleton-svelte`      | The Skeleton Svelte package, containing Skeleton Svelte components.  |
+| `/packages/create-skeleton-app`  | The Skeleton onboarding CLI application.                             |
+
+## Branch
+
+Skeleton uses two primary branches. All pull requests should created from and to the `dev` branch.
+
+| Branch   | Description                                            | Pull Requests                                   |
+| -------- | ------------------------------------------------------ | ----------------------------------------------- |
+| `dev`    | Represents the bleeding edge developement branch.      | <Check size={16} className='inline' /> Allowed  |
+| `master` | Represents the production branch of the all projects.  | <X size={16} className='inline' /> Never        |
+
+### PR Branch Conventions
+
+Please use the following name convention when creating your pull request.
+
+| Branch     | Role                                   |
+| ---------- | -------------------------------------- |
+| `docs/*`   | When updating the documentation site.  |
+| `feat/*`   | When implementing a new feature.       |
+| `chore/*`  | When implementing small changes.       |
+| `bugfix/*` | When implementing feature bugfixes.    |
+
+Keep branch names short and semantic, using dashes to seperate words.
+
+```
+docs/get-started-typo-fix
+bugfix/accordion-render-issue
+```
+
+## Tooling
+
+Skeleton makes use of the following technology for improving the developer experience.
+
+### Prettier
+
+We use [Prettier](https://prettier.io/) for code formatting and linting.
+
+```console
+pnpm lint
+pnpm format
+```
+
+### Test Suite
+
+Unit tests are handled via [Vitest](https://vitest.dev/).
+
+```console
+pnpm test
+```
+
+## VS Code Extensions
+
+We recommend the following official extensions for VS Code:
+
+- [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
+- [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
+- [Tailwind](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [PostCSS](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Vitest](https://marketplace.visualstudio.com/items?itemName=vitest.explorer)
