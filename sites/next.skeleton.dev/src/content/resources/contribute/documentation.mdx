@@ -50,6 +50,19 @@ export const components = componentSet {/* <-- ADD THIS! */}
 {/* (content) */}
 ```
 
+### Common MDX Content
+
+> NOTE: This technique is NOT recommended.
+
+Please be aware it is technically possible to pull shared MDX content from `/content/component/*.mdx` files and display these within each framework-specific tab page. However, Astro does not currently support generating Table of Content headings for imported MDX content. We highly recommend against using this technique, and instead recommend copy/pasting common instructions.
+
+```ts
+import * as Common from '@content/components/common/avatars.mdx';
+```
+```html
+<Common.Content />
+```
+
 ## Global Components
 
 A selection of globally accessible uitlity components provided to MDX contents via `astro-auto-importer`.
