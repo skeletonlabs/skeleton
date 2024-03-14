@@ -83,6 +83,34 @@ docs/get-started-typo-fix
 bugfix/accordion-render-issue
 ```
 
+## Changesets
+
+[Changesets](https://github.com/changesets/changesets) are used to automatically generate the Skeleton changelog per each release. Any contributions made to projects that live within the `/packages` directory must contain a Changeset. Use the following instruction to generate a changeset.
+
+1. Make sure you're within local pull request feature branch.
+2. Navigate to the root of the Skeleton monorepo.
+3. Run `pnpm changeset` to trigger the Changeset CLI.
+4. Follow the instructions when prompted.
+5. Changeset are added to the `/.changeset` directory.
+
+Changesets use semantic version. We recommend the following convention. 
+
+| Version     | Role                                      |
+| ----------- | ----------------------------------------- |
+| `major`     | Do not use. Reserved for maintainers.     |
+| `minor`     | For notable changes, such a new features. |
+| `patch`     | For small changes, such as a typo.        |
+
+Changeset descriptions will appear verbatim on the [Changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md). Keep it short, semantic, and prefix this like branch names.
+
+```mdx
+---
+"@skeletonlabs/skeleton-svelte": minor
+---
+
+feat: Added a new `background` component prop.
+```
+
 ## Tooling
 
 Skeleton makes use of the following technology for improving the developer experience.
