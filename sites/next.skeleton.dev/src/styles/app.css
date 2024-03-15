@@ -20,9 +20,17 @@ body {
 /* Theme Enhancements --- */
 
 /* Background Image */
+[data-theme='cerberus'] {
+	background-image: radial-gradient(at 20% 100%, rgba(var(--color-secondary-500) / 0.05) 0px, transparent 40%),
+		radial-gradient(at 75% 75%, rgba(var(--color-primary-500) / 0.05) 0px, transparent 50%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 [data-theme='catppuccin'] {
-	background-image: radial-gradient(at 0% 100%, rgba(var(--color-primary-500) / 0.05) 0px, transparent 40%),
-		radial-gradient(at 80% 80%, rgba(var(--color-secondary-500) / 0.05) 0px, transparent 75%);
+	background-image: radial-gradient(at 100% -20%, rgba(var(--color-tertiary-500) / 0.1) 0px, transparent 50%),
+		radial-gradient(at 80% 120%, rgba(var(--color-secondary-500) / 0.05) 0px, transparent 75%);
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -40,7 +48,7 @@ body {
 	@apply card bg-body-color dark:bg-body-color-dark;
 }
 [data-theme='pine'] .card-enhanced-outlined {
-	@apply border-0 border-t-4 border-b-4 bg-white/10 dark:bg-black/5;
+	@apply border-0 border-t border-b bg-white/10 dark:bg-black/5;
 }
 [data-theme='rose'] .card-enhanced-outlined {
 	@apply bg-surface-500/5 border-0 backdrop-blur-2xl;
