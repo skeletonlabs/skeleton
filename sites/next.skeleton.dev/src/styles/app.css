@@ -11,7 +11,13 @@ body {
 	@apply flex justify-center items-center;
 }
 
-/* Local Abstractions (molecules) --- */
+/* Astro Components --- */
+
+.astro-code {
+	@apply p-4 rounded-container;
+}
+
+/* Theme Enhancements --- */
 
 .docs-card-outlined {
 	@apply card border border-surface-200-800;
@@ -26,8 +32,14 @@ body {
 	@apply docs-card-filled-flush p-4;
 }
 
-/* Astro --- */
+/* Doc Example Only */
 
-.astro-code {
-	@apply p-4 rounded-container;
+.card-enhanced-example {
+	@apply card preset-filled-surface-100-900;
+}
+[data-theme='cerberus'] .card-enhanced-example {
+	@apply ring-4 ring-primary-500;
+}
+[data-theme='catppuccin'] .card-enhanced-example {
+	@apply preset-filled-primary-100-900 border border-primary-500 p-8;
 }
