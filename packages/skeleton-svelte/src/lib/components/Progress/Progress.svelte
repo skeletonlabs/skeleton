@@ -8,31 +8,30 @@
 		// Root
 		base = 'bg-surface-100-900',
 		height = 'h-2',
-		rounded = 'rounded-token',
+		rounded = 'rounded-md',
 		classes = '',
 		// Meter
 		meterBase = 'bg-surface-950-50',
 		meterClasses = ''
 	}: ProgressProps = $props();
 
-	function calculatePercentage() {
+	// Warn when the min value is greater than the max value
+	$effect(() => {
+		if (min > max) {
+			console.warn(`Progress: The min value of ${min} is greater than the max value of ${max}. This can lead to unexpected behavior.`);
+		}
+	});
+
+	const fillPercentage = $derived.by(() => {
 		if (value === undefined) {
 			return 0;
 		} else {
 			const percentage = ((value - min) / (max - min)) * 100;
 
-			// Return a percentage between 0 and 100 when the value is outside the range
-			if (percentage > 100) {
-				return 100;
-			} else if (percentage < 0) {
-				return 0;
-			} else {
-				return percentage;
-			}
+			// Ensure the percentage is within the bounds of 0 and 100
+			return Math.max(Math.min(percentage, 100), 0);
 		}
-	}
-
-	const fillPercentage = $derived.by(calculatePercentage);
+	});
 </script>
 
 <!-- @component Represents the progress track -->

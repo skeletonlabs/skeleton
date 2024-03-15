@@ -1,8 +1,23 @@
 <script lang="ts">
 	import Progress from '$lib/components/Progress/Progress.svelte';
-	let value = $state(0);
+	let value = $state(50);
+	let min = $state(0);
+	let max = $state(100);
 </script>
 
-<input class="input" type="number" bind:value />
+<label>
+	Value
+	<input class="input" type="number" bind:value />
+</label>
 
-<Progress {value} />
+<label>
+	Min
+	<input class="input" type="number" bind:value={min} />
+</label>
+
+<label>
+	Max
+	<input class="input" type="number" bind:value={max} />
+</label>
+
+<Progress {value} {min} {max} />
