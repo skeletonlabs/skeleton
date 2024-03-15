@@ -5,7 +5,7 @@
 	// Components
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 	// Field Settings
-	import { fieldSettings } from './settings';
+	import { fieldSettings, type InputSettings } from './settings';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -31,12 +31,12 @@
 	};
 
 	// Local
-	let currentInput: any = fieldSettings.inputs[0];
+	let currentInput = fieldSettings.inputs[0];
 	let colorValue = '#bada55';
 
-	function mapInputAttributes(obj: any): any {
-		return Object.keys(obj)
-			.map((key: any) => `${key}="${obj[key]}"`)
+	function mapInputAttributes(obj: InputSettings): string {
+		return Object.entries(obj)
+			.map(([key, value]) => `${key}="${value}"`)
 			.join(' ');
 	}
 </script>
@@ -461,7 +461,7 @@ export default {
 			</ul>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+					<div class="w-full grid grid-cols-1 gap-4">
 						<label class="label">
 							<span>Website</span>
 							<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">

@@ -10,6 +10,14 @@
 	const cBase = 'bg-surface-50 dark:bg-surface-900 border-t border-surface-500/10 text-xs md:text-base';
 	const cRowOne = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-5 md:space-y-0';
 	const cRowTwo = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-4 md:space-y-0';
+
+	// Social Icons
+	const socialLinks = [
+		{ title: 'GitHub', href: 'https://github.com/skeletonlabs/skeleton', icon: 'fa-github' },
+		{ title: 'Discord', href: 'https://discord.gg/EXqV7W8MtY', icon: 'fa-discord' },
+		{ title: 'X (Twitter)', href: 'https://x.com/SkeletonUI', icon: 'fa-x-twitter' },
+		{ title: 'YouTube', href: 'https://www.youtube.com/@skeletonlabs', icon: 'fa-youtube' }
+	];
 </script>
 
 <div class="page-footer {cBase}">
@@ -67,23 +75,12 @@
 				<span class="opacity-10 mx-2">|</span>
 				<a class="anchor" href="https://skeletonlabs.co/" target="_blank" rel="noreferrer">Skeleton Labs </a>
 			</p>
-			<div class="flex space-x-4">
-				<a class="btn variant-soft" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
-					<i class="fa-brands fa-github" />
-					<span class="hidden md:inline-block ml-2">Github</span>
-				</a>
-				<a class="btn variant-soft" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
-					<i class="fa-brands fa-discord" />
-					<span class="hidden md:inline-block ml-2">Discord</span>
-				</a>
-				<a class="btn variant-soft" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">
-					<i class="fa-brands fa-twitter" />
-					<span class="hidden md:inline-block ml-2">Twitter</span>
-				</a>
-				<a class="btn variant-soft" href="https://www.youtube.com/@skeletonlabs" target="_blank" rel="noreferrer">
-					<i class="fa-brands fa-youtube" />
-					<span class="hidden md:inline-block ml-2">YouTube</span>
-				</a>
+			<div class="flex gap-6">
+				{#each socialLinks as sl}
+					<a class="opacity-75 hover:opacity-100" href={sl.href} target="_blank" rel="noreferrer" title={sl.title}>
+						<i class="fa-brands text-xl {sl.icon}" />
+					</a>
+				{/each}
 			</div>
 		</section>
 	</div>

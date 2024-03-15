@@ -24,8 +24,12 @@ export const text = (): CssClasses => {
 		// Color Pairings
 		// Example: .text-primary-50-900-token | .text-primary-900-50-token
 		settings.colorPairings.forEach((p) => {
+			// Text
 			classes[`.text-${n}-${p.light}-${p.dark}-token`] = { color: `rgb(var(--color-${n}-${p.light}))` };
 			classes[`.dark .text-${n}-${p.light}-${p.dark}-token`] = { color: `rgb(var(--color-${n}-${p.dark}))` };
+			// Text Decoration
+			classes[`.decoration-${n}-${p.light}-${p.dark}-token`] = { 'text-decoration-color': `rgb(var(--color-${n}-${p.light}))` };
+			classes[`.dark .decoration-${n}-${p.light}-${p.dark}-token`] = { 'text-decoration-color': `rgb(var(--color-${n}-${p.dark}))` };
 		});
 	});
 	return classes;

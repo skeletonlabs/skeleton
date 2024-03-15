@@ -1,10 +1,13 @@
 <script lang="ts">
-	// Props
-	/** Exposes parent props to this component. */
-	export let parent: any;
+	import type { SvelteComponent } from 'svelte';
 
 	// Stores
 	import { getModalStore } from '@skeletonlabs/skeleton';
+
+	// Props
+	/** Exposes parent props to this component. */
+	export let parent: SvelteComponent;
+
 	const modalStore = getModalStore();
 
 	// Form Data
@@ -49,8 +52,8 @@
 		</form>
 		<!-- prettier-ignore -->
 		<footer class="modal-footer {parent.regionFooter}">
-        <button class="btn {parent.buttonNeutral}" on:click={parent.onClose}>{parent.buttonTextCancel}</button>
-        <button class="btn {parent.buttonPositive}" on:click={onFormSubmit}>Submit Form</button>
-    </footer>
+			<button class="btn {parent.buttonNeutral}" on:click={parent.onClose}>{parent.buttonTextCancel}</button>
+			<button class="btn {parent.buttonPositive}" on:click={onFormSubmit}>Submit Form</button>
+		</footer>
 	</div>
 {/if}

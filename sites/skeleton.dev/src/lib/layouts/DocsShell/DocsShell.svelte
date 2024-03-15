@@ -17,6 +17,9 @@
 	import PanelSlots from './partials/PanelSlots.svelte';
 	// Utilities
 	import { docShellDefaults } from '$lib/layouts/DocsShell/defaults';
+	// SvelteKit
+	import { goto } from '$app/navigation';
+	import { browser } from '$app/environment';
 
 	// Props
 	export let settings: DocsShellSettings;
@@ -28,7 +31,8 @@
 	const cPanels = 'space-y-10';
 
 	// Local
-	let tabPanel = 'usage';
+	const defaultTab = 'usage';
+	let tabPanel = $page.url.searchParams.get('tab') || defaultTab;
 
 	// Page Data
 	const pageData: DocsShellSettings = {
@@ -55,6 +59,13 @@
 	$: classesBase = `${cBase}`;
 	$: classesTabs = `${cTabs}`;
 	$: classesPanels = `${cPanels}`;
+	// Handle tab URL param for deep linking
+	$: if (browser) {
+		const url = new URL($page.url);
+		url.searchParams.delete('tab');
+		if (tabPanel !== defaultTab) url.searchParams.set('tab', tabPanel);
+		goto(url, { replaceState: true });
+	}
 </script>
 
 <LayoutPage class="doc-shell {classesBase}" tocKey={tabPanel}>

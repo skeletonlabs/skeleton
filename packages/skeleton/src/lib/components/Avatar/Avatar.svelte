@@ -8,6 +8,8 @@
 	export let initials = 'AB';
 	/** Initials only - Provide classes to set the SVG text fill color. */
 	export let fill: CssClasses = 'fill-token';
+	/** Initials only - Set the base font size for the scalable SVG text. */
+	export let fontSize = 150;
 
 	// Props (actions)
 	/** Provide the avatar image element source. */
@@ -37,7 +39,7 @@
 
 	// Base Classes
 	let cBase = 'flex aspect-square text-surface-50 font-semibold justify-center items-center overflow-hidden isolate';
-	let cImage = 'w-full h-full object-cover';
+	let cImage = 'w-full object-cover';
 
 	// Reactive Classes
 	$: classesBase = `${cBase} ${background} ${width} ${border} ${rounded} ${shadow} ${cursor} ${$$props.class ?? ''}`;
@@ -64,7 +66,15 @@
 		/>
 	{:else}
 		<svg class="avatar-initials w-full h-full" viewBox="0 0 512 512">
-			<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-weight="bold" font-size={150} class="avatar-text {fill}">
+			<text
+				x="50%"
+				y="50%"
+				dominant-baseline="central"
+				text-anchor="middle"
+				font-weight="bold"
+				font-size={fontSize}
+				class="avatar-text {fill}"
+			>
 				{String(initials).substring(0, 2).toUpperCase()}
 			</text>
 		</svg>

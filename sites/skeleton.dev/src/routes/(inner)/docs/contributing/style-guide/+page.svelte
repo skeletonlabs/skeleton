@@ -118,7 +118,7 @@ export let parameters: Record<string, string> = { foo: 'bar' };
 		<h3 class="h3">Tailwind Class Props</h3>
 		<p>
 			For props that pass one or more CSS utility classes, make sure to import and append the <code class="code">CSSClasses</code> type.
-			This resolve to a type of <code class="code">string</code> and allows our build process to identify props that support Tailwind Intellisense.
+			This resolves to a type of <code class="code">string</code> and allows our build process to identify props that support Tailwind Intellisense.
 		</p>
 		<CodeBlock language="typescript" code={`import type { CssClasses } from '../..';`} />
 		<CodeBlock
@@ -216,7 +216,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 	<section class="space-y-4">
 		<h2 class="h2">Dynamic Transitions</h2>
 		<p>
-			Skeleton has a convention for implement dynamic transitions within components. Please follow the guidelines below to ensure you are
+			Skeleton has a convention for implementing dynamic transitions within components. Please follow the guidelines below to ensure you are
 			following our standard for this process.
 		</p>
 		<blockquote class="blockquote">

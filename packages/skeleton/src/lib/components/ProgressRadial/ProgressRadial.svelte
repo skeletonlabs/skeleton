@@ -15,6 +15,10 @@
 	export let stroke = 40; // px
 	/** Sets the base font size. Scales responsively. */
 	export let font = 56; // px
+	/** Sets the stoke-linecap value */
+	export let strokeLinecap: 'butt' | 'round' | 'square' = 'butt';
+	/** Provide classes to set the meter transition styles. */
+	export let transition: CssClasses = 'transition-[stroke-dashoffset]';
 
 	// Props (styles)
 	/** Provide classes to set the width. */
@@ -33,16 +37,16 @@
 	// Base Classes
 	const cBase = 'progress-radial relative overflow-hidden';
 	const cBaseTrack = 'fill-transparent';
-	const cBaseMeter = 'fill-transparent transition-[stroke-dashoffset] duration-200 -rotate-90 origin-[50%_50%]';
+	const cBaseMeter = 'fill-transparent -rotate-90 origin-[50%_50%]';
 
 	// Calculated Values
 	const baseSize = 512; // px
-	const radius: number = baseSize / 2;
+	const radius: number = baseSize / 2 - stroke / 2;
 	let circumference: number = radius;
 	let dashoffset: number;
 
 	// Set Progress Amount
-	function setProgress(percent: any) {
+	function setProgress(percent: number) {
 		circumference = radius * 2 * Math.PI;
 		dashoffset = circumference - (percent / 100) * circumference;
 	}
@@ -73,18 +77,19 @@
 	<!-- Draw SVG -->
 	<svg viewBox="0 0 {baseSize} {baseSize}" class="rounded-full" class:animate-spin={value === undefined}>
 		<!-- Track -->
-		<circle class="progress-radial-track {cBaseTrack} {track}" stroke-width={stroke} r={baseSize / 2} cx="50%" cy="50%" />
+		<circle class="progress-radial-track {cBaseTrack} {track}" stroke-width={stroke} r={radius} cx="50%" cy="50%" />
 
 		<!-- Meter -->
 		<circle
-			class="progress-radial-meter {cBaseMeter} {meter}"
+			class="progress-radial-meter {cBaseMeter} {meter} {transition}"
 			stroke-width={stroke}
-			r={baseSize / 2}
+			r={radius}
 			cx="50%"
 			cy="50%"
 			style:stroke-dasharray="{circumference}
 			{circumference}"
 			style:stroke-dashoffset={dashoffset}
+			stroke-linecap={strokeLinecap}
 		/>
 
 		<!-- Center Text -->

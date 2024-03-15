@@ -49,11 +49,16 @@
 	import ModalExampleList from '$lib/modals/examples/ModalExampleList.svelte';
 	import ModalExampleEmbed from '$lib/modals/examples/ModalExampleEmbed.svelte';
 	import ModalExampleImage from '$lib/modals/examples/ModalExampleImage.svelte';
+	import ModalExampleFullscreen from '$lib/modals/examples/ModalExampleFullscreen.svelte';
 
 	// The Skeleton blog stylesheet
 	import '$lib/styles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
+	// Font Awesome
+	import '@fortawesome/fontawesome-free/css/fontawesome.css';
+	import '@fortawesome/fontawesome-free/css/brands.css';
+	import '@fortawesome/fontawesome-free/css/solid.css';
 
 	// Handle Vercel Production Mode
 	import type { LayoutServerData } from './$types';
@@ -91,7 +96,8 @@
 		modalSearch: { ref: DocsSearch },
 		exampleList: { ref: ModalExampleList },
 		exampleEmbed: { ref: ModalExampleEmbed },
-		exampleImage: { ref: ModalExampleImage }
+		exampleImage: { ref: ModalExampleImage },
+		fullScreen: { ref: ModalExampleFullscreen }
 	};
 
 	function matchPathWhitelist(pageUrlPath: string): boolean {
@@ -118,9 +124,9 @@
 	}
 
 	// Lifecycle
-	afterNavigate((params: any) => {
+	afterNavigate((params) => {
 		// Scroll to top
-		const isNewPage: boolean = params.from && params.to && params.from.route.id !== params.to.route.id;
+		const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
 		const elemPage = document.querySelector('#page');
 		if (isNewPage && elemPage !== null) {
 			elemPage.scrollTop = 0;

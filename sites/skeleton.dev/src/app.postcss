@@ -49,3 +49,20 @@ body {
 .page-section {
 	@apply space-y-4;
 }
+
+/* Progress Bar - Custom Animation Example */
+.anim-progress-bar-example {
+	transform-origin: 0% 50%;
+	animation: anim-progress-bar-example 2s infinite linear;
+}
+@keyframes anim-progress-bar-example {
+	0% {
+		transform: translateX(50%) scaleX(0.5);
+	}
+	50% {
+		transform: translateX(0) scaleX(0.5);
+	}
+	100% {
+		transform: translateX(50%) scaleX(0.5);
+	}
+}

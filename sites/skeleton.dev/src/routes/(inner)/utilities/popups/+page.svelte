@@ -530,12 +530,56 @@ const popupState: PopupSettings = {
 
 		<hr />
 
+		<!-- Handling Loops -->
+		<section class="space-y-4">
+			<h2 class="h2">Handling Loops</h2>
+			<p>
+				Popups maintain a 1-1 relationship between the trigger and the popup element. This means when using <code class="code">#each</code> block
+				to iterate and create a set of popups, you must provide a unique popup element and popup settings.
+			</p>
+			<DocsPreview background="neutral" regionPreview="text-token">
+				<svelte:fragment slot="preview">
+					<div class="grid grid-cols-1 gap-2">
+						{#each ['A', 'B', 'C'] as label, i}
+							<!-- Trigger -->
+							<button class="btn variant-filled" use:popup={{ event: 'click', target: 'loopExample-' + i, placement: 'top' }}>
+								Show {label}
+							</button>
+							<!-- Popup -->
+							<div class="card p-4 shadow-xl" data-popup="loopExample-{i}">Popup {label}</div>
+						{/each}
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>
+						Inline popup settings for each <code class="code">use:popup</code> directive, and take note of how the index
+						<code class="code">i</code>
+						is appended to both <code class="code">target</code> and
+						<code class="code">data-popup</code>.
+					</p>
+					<CodeBlock
+						language="html"
+						code={`
+{#each ['A', 'B', 'C'] as label, i}
+	<!-- Trigger -->
+	<button use:popup={{ event: 'click', target: 'loopExample-' + i, placement: 'top' }}>
+		Show {label}
+	</button>
+	<!-- Popup -->
+	<div data-popup="loopExample-{i}">Popup {label}</div>
+{/each}
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+
 		<!-- Combobox -->
 		<section class="space-y-4">
 			<h2 class="h2">Combobox</h2>
 			<p>
-				The goal of Skeleton is to combine primitive elements and components to build more complex UI. For example, by combining a Button,
-				Popup, and ListBox you can create a highly customizable combobox.
+				The goal of Skeleton is to combine primitive elements and components in order to generate more complex interfaces. For example, by
+				combining a Button, Popup, and ListBox you can create a highly customizable combobox.
 			</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
@@ -543,7 +587,7 @@ const popupState: PopupSettings = {
 						<span class="capitalize">{comboboxValue ?? 'Trigger'}</span>
 						<i class="fa-solid fa-caret-down opacity-50" />
 					</button>
-					<div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
+					<div class="card w-48 shadow-xl py-2 overflow-hidden" data-popup="popupCombobox">
 						<ListBox rounded="rounded-none">
 							<ListBoxItem bind:group={comboboxValue} name="medium" value="books">Books</ListBoxItem>
 							<ListBoxItem bind:group={comboboxValue} name="medium" value="movies">Movies</ListBoxItem>
@@ -558,7 +602,7 @@ const popupState: PopupSettings = {
 						code={`
 let comboboxValue: string;\n
 const popupCombobox: PopupSettings = {
-	event: 'focus-click',
+	event: 'click',
 	target: 'popupCombobox',
 	placement: 'bottom',
 	closeQuery: '.listbox-item'
@@ -593,12 +637,56 @@ const popupCombobox: PopupSettings = {
 
 		<hr />
 
+		<section class="space-y-4">
+			<h2 class="h2">Avoiding Style Conflicts</h2>
+			<p>
+				Please use caution when adjusting the default styling for the <code class="code">[data-popup]</code> element. Specifically in regards
+				to the inherent display, position, and transition properties. These are critical for ensuring the popup loads and displays as expected.
+			</p>
+			<CodeBlock
+				language="css"
+				code={`
+[data-popup] {
+	/* Display */
+	display: none;
+	/* Position */
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* Transitions */
+	transition-property: opacity;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-duration: .15s
+}
+		`}
+			/>
+			<p>Use a child element to introduce new classes and avoid overwriting default values.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<!-- Works ✅ -->
+<div data-popup="popupStyled">
+	<div class="flex">...</div>
+</div>
+			`}
+			/>
+			<CodeBlock
+				language="html"
+				code={`
+<!-- Breaks ❌ -->
+<div class="flex" data-popup="popupStyled">
+	...
+</div>
+			`}
+			/>
+		</section>
+
 		<!-- Z-index -->
 		<section class="space-y-4">
 			<h2 class="h2">Z-Index Stacking</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Please note that neither Skelton nor Floating-UI <a class="anchor" href="https://floating-ui.com/docs/misc#z-index-stacking">define a default z-index</a> for popups.
+				Please note that neither Skeleton nor Floating-UI <a class="anchor" href="https://floating-ui.com/docs/misc#z-index-stacking">define a default z-index</a> for popups.
 			</p>
 		</section>
 

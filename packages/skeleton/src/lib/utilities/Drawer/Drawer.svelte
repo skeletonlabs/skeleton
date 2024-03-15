@@ -20,20 +20,13 @@
 	import { getDrawerStore } from './stores.js';
 	import { fade, fly } from 'svelte/transition';
 	import { dynamicTransition } from '../../internal/transitions.js';
+	import { cubicIn } from 'svelte/easing';
 
 	// Props
 	/** Set the anchor position.
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
 	export let position: 'left' | 'top' | 'right' | 'bottom' = 'left';
-
-	// Props (backdrop)
-	/** Backdrop - Provide classes to set the backdrop background color */
-	export let bgBackdrop: CssClasses = 'bg-surface-backdrop-token';
-	/** Backdrop - Provide classes to set the blur style. */
-	export let blur: CssClasses = '';
-	/** Backdrop - Provide classes to set padding. */
-	export let padding: CssClasses = '';
 
 	// Props (drawer)
 	/** Drawer - Provide classes to set the drawer background color. */
@@ -48,7 +41,15 @@
 	export let width: CssClasses = '';
 	/** Drawer - Provide classes to override the height. */
 	export let height: CssClasses = '';
-	/** Provide a class to override the z-index */
+
+	// Props (backdrop)
+	/** Backdrop - Provide classes to set the backdrop background color */
+	export let bgBackdrop: CssClasses = 'bg-surface-backdrop-token';
+	/** Backdrop - Provide classes to set the blur style. */
+	export let blur: CssClasses = '';
+	/** Backdrop - Provide classes to set padding. */
+	export let padding: CssClasses = '';
+	/** Backdrop - Provide a class to override the z-index */
 	export let zIndex: CssClasses = 'z-40';
 
 	// Props (regions)
@@ -64,12 +65,14 @@
 	export let describedby = '';
 
 	// Props (transition)
+	/** Set the transition duration in milliseconds. */
+	export let duration = 200;
 	/**
 	 * Enable/Disable transitions
 	 * @type {boolean}
 	 */
 	export let transitions = !$prefersReducedMotionStore;
-	/** Drawer - Enable/Disable opacity transition */
+	/** Enable/Disable opacity transition of Drawer */
 	export let opacityTransition = true;
 
 	// Presets
@@ -99,14 +102,16 @@
 		bgBackdrop, blur, padding,
 		bgDrawer, border, rounded, shadow,
 		width, height, opacityTransition,
+		regionBackdrop, regionDrawer,
 		labelledby, describedby,
-		regionBackdrop, regionDrawer
+		duration
 	};
 
 	// Override provided props, else restore prop defaults
 	// NOTE: these must stay in sync with the props implemented above.
 	function applyPropSettings(settings: DrawerSettings): void {
 		position = settings.position || propDefaults.position;
+
 		// Backdrop
 		bgBackdrop = settings.bgBackdrop || propDefaults.bgBackdrop;
 		blur = settings.blur || propDefaults.blur;
@@ -118,13 +123,15 @@
 		shadow = settings.shadow || propDefaults.shadow;
 		width = settings.width || propDefaults.width;
 		height = settings.height || propDefaults.height;
-		opacityTransition = settings.opacityTransition || propDefaults.opacityTransition;
 		// Regions
 		regionBackdrop = settings.regionBackdrop || propDefaults.regionBackdrop;
 		regionDrawer = settings.regionDrawer || propDefaults.regionDrawer;
 		// A11y
 		labelledby = settings.labelledby || propDefaults.labelledby;
 		describedby = settings.describedby || propDefaults.describedby;
+		// Transitions
+		opacityTransition = settings.opacityTransition || propDefaults.opacityTransition;
+		duration = settings.duration || propDefaults.duration;
 	}
 
 	function applyAnimationSettings(): void {
@@ -185,17 +192,17 @@
 		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
 		on:mousedown={onDrawerInteraction}
-		on:touchstart
-		on:touchend
+		on:touchstart|passive
+		on:touchend|passive
 		on:keypress
 		in:dynamicTransition|local={{
 			transition: fade,
-			params: { duration: 150 },
+			params: { duration },
 			enabled: transitions && opacityTransition
 		}}
 		out:dynamicTransition|local={{
 			transition: fade,
-			params: { duration: 150 },
+			params: { duration },
 			enabled: transitions && opacityTransition
 		}}
 		use:focusTrap={true}
@@ -212,12 +219,12 @@
 			aria-describedby={describedby}
 			in:dynamicTransition|local={{
 				transition: fly,
-				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
+				params: { x: anim.x, y: anim.y, duration, opacity: opacityTransition ? undefined : 1 },
 				enabled: transitions
 			}}
 			out:dynamicTransition|local={{
 				transition: fly,
-				params: { x: anim.x, y: anim.y, duration: 150, opacity: opacityTransition ? undefined : 1 },
+				params: { x: anim.x, y: anim.y, duration, opacity: opacityTransition ? undefined : 1, easing: cubicIn },
 				enabled: transitions
 			}}
 		>

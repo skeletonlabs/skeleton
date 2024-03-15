@@ -1,3 +1,5 @@
+import type { SveldJson } from 'sveld-types';
+
 export enum DocsFeature {
 	Element = 'Tailwind',
 	Component = 'Svelte Component',
@@ -22,21 +24,7 @@ export interface Component {
 	/** Provide a list of props that children can override. */
 	overrideProps?: string[];
 	/** Provide the raw component Sveld doc source. */
-	sveld: any; // SveldJson; // FIXME: we need to resolve this type
-}
-
-export interface SveldJson {
-	name?: string;
-	type?: string;
-	description?: string;
-	value?: string;
-	detail?: string;
-	element?: string;
-	tags?: {
-		tag: string;
-		value?: string;
-	}[];
-	[key: string]: unknown;
+	sveld: SveldJson;
 }
 
 export interface DocsShellSettings {

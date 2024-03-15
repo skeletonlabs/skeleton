@@ -26,6 +26,13 @@ module.exports = {
 	},
 	rules: {
 		'no-useless-escape': 'off',
-		'svelte/no-at-html-tags': 'off'
+		'svelte/no-at-html-tags': 'off',
+		'@typescript-eslint/no-unused-vars': [
+			'warn',
+			{
+				argsIgnorePattern: '^_',
+				varsIgnorePattern: '^\\$\\$(Props|Events|Slots|Generic)$'
+			}
+		]
 	}
 };

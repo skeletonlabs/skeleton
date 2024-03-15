@@ -16,13 +16,6 @@
 		source: 'packages/plugin/src/styles/components/chips.css',
 		classes: [
 			['<code class="code">chip</code>', '', 'Provides the standard chip style.'],
-			['<code class="code">chip-[color]</code>', '<a class="anchor" href="/docs/colors">Any theme color.</a>', 'Applies a variant style.'],
-			['<code class="code">chip-active</code>', '', 'Sets the default active state.'],
-			[
-				'<code class="code">chip-[color]-active</code>',
-				'<a class="anchor" href="/docs/colors">Any theme color.</a>',
-				'Set a colored active state.'
-			],
 			['<code class="code">chip-disabled</code>', '', 'Applies disabled styling.']
 		]
 	};
@@ -46,7 +39,7 @@
 		color = c;
 	}
 
-	function filter(flavor: string): void {
+	function toggle(flavor: string): void {
 		flavors[flavor] = !flavors[flavor];
 	}
 </script>
@@ -87,24 +80,24 @@
 				<svelte:fragment slot="preview">
 					<!-- prettier-ignore -->
 					<div class="flex justify-center space-x-2">
-						<span class="chip variant-soft hover:variant-filled" on:click={()=>{triggerToast('like')}} on:keypress>
+						<button class="chip variant-soft hover:variant-filled" on:click={()=>{triggerToast('like')}} on:keypress>
 							<i class="fa-solid fa-heart" />
 							<span>Like</span>
-						</span>
-						<span class="chip variant-soft hover:variant-filled" on:click={()=>{triggerToast('share')}} on:keypress>
+						</button>
+						<button class="chip variant-soft hover:variant-filled" on:click={()=>{triggerToast('share')}} on:keypress>
 							<i class="fa-solid fa-share" />
 							<span>Share</span>
-						</span>
+						</button>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
 						code={`
-<span class="chip variant-soft hover:variant-filled" on:click={doSomething}>
+<button class="chip variant-soft hover:variant-filled" on:click={doSomething}>
 	<span>(icon)</span>
 	<span>Action</span>
-</span>
+</button>
 `}
 					/>
 				</svelte:fragment>
@@ -122,14 +115,14 @@
 					<div class="flex justify-center space-x-2">
 						{#each ['red', 'blue', 'green'] as c}
 							<!-- prettier-ignore -->
-							<span
+							<button
 								class="chip {color === c ? 'variant-filled' : 'variant-soft'}"
 								on:click={() => { section(c); }}
 								on:keypress
 							>
 								{#if color === c}<span><i class="fa-solid fa-check" /></span>{/if}
 								<span>{c}</span>
-							</span>
+							</button>
 						{/each}
 					</div>
 				</svelte:fragment>
@@ -139,14 +132,14 @@
 						language="html"
 						code={`
 {#each ['red', 'blue', 'green'] as c}
-	<span
+	<button
 		class="chip {color === c ? 'variant-filled' : 'variant-soft'}"
 		on:click={() => { section(c); }}
 		on:keypress
 	>
 		{#if color === c}(<span>(icon)</span>){/if}
 		<span>{c}</span>
-	</span>
+	</button>
 {/each}
 `}
 					/>
@@ -159,14 +152,14 @@
 					<div class="flex justify-center space-x-2">
 						{#each Object.keys(flavors) as f}
 							<!-- prettier-ignore -->
-							<span
+							<button
 								class="chip {flavors[f] ? 'variant-filled' : 'variant-soft'}"
-								on:click={() => { filter(f); }}
+								on:click={() => { toggle(f); }}
 								on:keypress
 							>
 								{#if flavors[f]}<span><i class="fa-solid fa-check" /></span>{/if}
 								<span class="capitalize">{f}</span>
-							</span>
+							</button>
 						{/each}
 					</div>
 				</svelte:fragment>
@@ -182,17 +175,25 @@ let flavors: Record<string, boolean> = {
 `}
 					/>
 					<CodeBlock
+						language="ts"
+						code={`
+function toggle(flavor: string): void {
+	flavors[flavor] = !flavors[flavor];
+}
+`}
+					/>
+					<CodeBlock
 						language="html"
 						code={`
 {#each Object.keys(flavors) as f}
-	<span
+	<button
 		class="chip {flavors[f] ? 'variant-filled' : 'variant-soft'}"
-		on:click={() => { filter(f); }}
+		on:click={() => { toggle(f); }}
 		on:keypress
 	>
 		{#if flavors[f]}<span>(icon)</span>{/if}
 		<span class="capitalize">{f}</span>
-	</span>
+	</button>
 {/each}
 `}
 					/>

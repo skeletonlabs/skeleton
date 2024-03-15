@@ -25,13 +25,13 @@
 	import { getModalStore } from './stores.js';
 	import type { ModalComponent, ModalSettings } from './types.js';
 
-	// Props
-	/** Set the modal position within the backdrop container */
-	export let position: CssClasses = 'items-center';
-
 	// Props (components)
 	/** Register a list of reusable component modals. */
 	export let components: Record<string, ModalComponent> = {};
+
+	// Props (backdrop)
+	/** Set the modal position within the backdrop container */
+	export let position: CssClasses = 'items-center';
 
 	// Props (modal)
 	/** Provide classes to style the modal background. */
@@ -64,8 +64,8 @@
 	export let buttonTextSubmit: CssClasses = 'Submit';
 
 	// Props (regions)
-	/** Provide classes to style the backdrop. */
-	export let regionBackdrop: CssClasses = 'bg-surface-backdrop-token';
+	/** Provide arbitrary classes to the backdrop region. */
+	export let regionBackdrop: CssClasses = '';
 	/** Provide arbitrary classes to modal header region. */
 	export let regionHeader: CssClasses = 'text-2xl font-bold';
 	/** Provide arbitrary classes to modal body region. */
@@ -101,8 +101,8 @@
 	export let transitionOutParams: TransitionParams<TransitionOut> = { duration: 150, opacity: 0, x: 0, y: 100 };
 
 	// Base Styles
-	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 overflow-y-auto';
-	const cTransitionLayer = 'w-full h-fit min-h-full p-4 overflow-y-auto flex justify-center';
+	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 bg-surface-backdrop-token p-4';
+	const cTransitionLayer = 'w-full h-fit min-h-full overflow-y-auto flex justify-center';
 	const cModal = 'block overflow-y-auto'; // max-h-full overflow-y-auto overflow-x-hidden
 	const cModalImage = 'w-full h-auto';
 
@@ -115,12 +115,16 @@
 	};
 	let currentComponent: ModalComponent | undefined;
 	let registeredInteractionWithBackdrop = false;
+	let modalElement: HTMLDivElement;
+	let windowHeight: number;
+	let backdropOverflow = 'overflow-y-hidden';
 
 	const modalStore = getModalStore();
 
 	// Modal Store Subscription
-	modalStore.subscribe((modals: ModalSettings[]) => {
-		if (!modals.length) return;
+	$: if ($modalStore.length) handleModals($modalStore);
+
+	function handleModals(modals: ModalSettings[]) {
 		// Set Prompt input value and type
 		if (modals[0].type === 'prompt') promptValue = modals[0].value;
 		// Override button text per instance, if available
@@ -129,7 +133,23 @@
 		buttonTextSubmit = modals[0].buttonTextSubmit || buttonTextDefaults.buttonTextSubmit;
 		// Set Active Component
 		currentComponent = typeof modals[0].component === 'string' ? components[modals[0].component] : modals[0].component;
-	});
+	}
+
+	function onModalHeightChange(modal: HTMLDivElement) {
+		let modalHeight = modal?.clientHeight;
+		if (!modalHeight) modalHeight = (modal?.firstChild as HTMLElement)?.clientHeight;
+
+		// modal is closed
+		if (!modalHeight) return;
+
+		if (modalHeight > windowHeight) {
+			backdropOverflow = 'overflow-y-auto';
+		} else {
+			backdropOverflow = 'overflow-y-hidden';
+		}
+	}
+	// first child of the modal is the content.
+	$: onModalHeightChange(modalElement);
 
 	// Event Handlers ---
 	function onBackdropInteractionBegin(event: SvelteEvent<MouseEvent, HTMLDivElement>): void {
@@ -164,7 +184,11 @@
 
 	function onPromptSubmit(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
 		event.preventDefault();
-		if ($modalStore[0].response) $modalStore[0].response(promptValue);
+		if ($modalStore[0].response) {
+			if ($modalStore[0].valueAttr !== undefined && 'type' in $modalStore[0].valueAttr && $modalStore[0].valueAttr.type === 'number')
+				$modalStore[0].response(parseInt(promptValue));
+			else $modalStore[0].response(promptValue);
+		}
 		modalStore.close();
 	}
 
@@ -213,7 +237,7 @@
 	};
 </script>
 
-<svelte:window on:keydown={onKeyDown} />
+<svelte:window bind:innerHeight={windowHeight} on:keydown={onKeyDown} />
 
 {#if $modalStore.length > 0}
 	{#key $modalStore}
@@ -221,7 +245,7 @@
 		<!-- FIXME: resolve a11y warnings -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
-			class="modal-backdrop {classesBackdrop}"
+			class="modal-backdrop {classesBackdrop} {backdropOverflow}"
 			data-testid="modal-backdrop"
 			on:mousedown={onBackdropInteractionBegin}
 			on:mouseup={onBackdropInteractionEnd}
@@ -238,7 +262,14 @@
 			>
 				{#if $modalStore[0].type !== 'component'}
 					<!-- Modal: Presets -->
-					<div class="modal {classesModal}" data-testid="modal" role="dialog" aria-modal="true" aria-label={$modalStore[0].title ?? ''}>
+					<div
+						class="modal {classesModal}"
+						bind:this={modalElement}
+						data-testid="modal"
+						role="dialog"
+						aria-modal="true"
+						aria-label={$modalStore[0].title ?? ''}
+					>
 						<!-- Header -->
 						{#if $modalStore[0]?.title}
 							<header class="modal-header {regionHeader}">{@html $modalStore[0].title}</header>
@@ -278,6 +309,7 @@
 					<!-- Modal: Components -->
 					<!-- Note: keep `contents` class to allow widths from children -->
 					<div
+						bind:this={modalElement}
 						class="modal contents {$modalStore[0]?.modalClasses ?? ''}"
 						data-testid="modal-component"
 						role="dialog"

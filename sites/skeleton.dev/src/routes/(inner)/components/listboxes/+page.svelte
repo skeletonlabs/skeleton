@@ -30,6 +30,7 @@
 	// Local
 	let valueSingle = 'books';
 	let valueMultiple = ['books', 'movies'];
+	let valueDisabled = ['books', 'movies'];
 </script>
 
 <DocsShell {settings}>
@@ -118,6 +119,12 @@
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Disabled</h2>
+			<p>Use the <code class="code">disabled</code> property to disable the entire listbox or each item.</p>
+			<CodeBlock language="html" code={`<ListBox ... disabled>...</ListBox>`} />
+			<CodeBlock language="html" code={`<ListBoxItem ... disabled>...</ListBoxItem>`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Lead and Trail Slots</h2>

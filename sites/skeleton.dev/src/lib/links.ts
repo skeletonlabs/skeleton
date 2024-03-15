@@ -30,14 +30,21 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			title: 'Resources',
 			list: [
 				{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
+				{ href: '/docs/figma', label: 'Figma', keywords: 'figma, design, mock, wireframe, ui, kit' }, // , badge: 'New'
 				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, vite, tree, shaking, bundle, optimize' },
 				{ href: '/docs/contributing', label: 'Contributing', keywords: 'branch, pr' },
 				{
 					href: '/docs/sponsorship',
 					label: 'Sponsorship',
-					keywords: 'sponsor, funding, contribute, support, github, ko-fi, patreon',
-					badge: 'New'
+					keywords: 'sponsor, funding, contribute, support, github, ko-fi, patreon'
 				}
+			]
+		},
+		{
+			title: 'Integrations',
+			list: [
+				{ href: '/docs/tauri', label: 'Tauri', keywords: 'Tauri, desktop, setup, install' },
+				{ href: '/docs/ssd', label: 'Datatables', keywords: 'datatables, tables, datagrid, simple', badge: 'New' }
 			]
 		}
 	],
@@ -135,7 +142,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				},
 				{ href: '/utilities/popups', label: 'Popups', keywords: 'menu, tooltip, overlay, dropdown, combobox, drop, down, select' },
 				{ href: '/utilities/toasts', label: 'Toasts', keywords: 'overlay, snack, snackbar, bar, action, alert, notification' },
-				{ href: '/utilities/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation', badge: 'Beta' }
+				{ href: '/utilities/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' }
 				// DELISTED UNTIL FURTHER NOTICE
 				// { href: '/utilities/data-tables', label: 'Data Tables', keywords: 'search, sort, page, pagination, async', badge: 'Experimental' }
 			]
