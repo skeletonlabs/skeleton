@@ -2,6 +2,7 @@
 // NOTE: do not delete the above comment. It's required for local HMR on plugin changes.
 
 import { skeleton } from '@skeletonlabs/skeleton/plugin';
+import { cerberus } from '@skeletonlabs/skeleton/themes';
 
 /** @type {import('tailwindcss').Config}*/
 export default {
@@ -12,9 +13,7 @@ export default {
 	},
 	plugins: [
 		skeleton({
-			themes: {
-				preset: [{ name: 'cerberus' }]
-			}
+			themes: [cerberus]
 		})
 	]
 };

@@ -1,4 +1,4 @@
-import type { PresetTheme } from '../../index.js';
+// import type { Theme } from '../index.js';
 
 const wintry = {
 	name: 'wintry',
@@ -105,6 +105,6 @@ const wintry = {
 				'radial-gradient(at 50% 0%, rgba(var(--color-secondary-500) / 0.18) 0px, transparent 75%), radial-gradient(at 100% 0%, rgba(var(--color-tertiary-500) / 0.18) 0px, transparent 50%)'
 		}
 	}
-} satisfies PresetTheme;
+}; // satisfies Theme;
 
 export default wintry;

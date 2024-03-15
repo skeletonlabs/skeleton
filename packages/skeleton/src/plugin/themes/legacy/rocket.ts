@@ -1,4 +1,4 @@
-import type { PresetTheme } from '../../index.js';
+// import type { Theme } from '../index.js';
 
 const rocket = {
 	name: 'rocket',
@@ -101,6 +101,6 @@ const rocket = {
 			backgroundSize: 'cover'
 		}
 	}
-} satisfies PresetTheme;
+}; // satisfies Theme;
 
 export default rocket;
