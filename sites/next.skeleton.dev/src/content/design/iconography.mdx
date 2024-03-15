@@ -6,16 +6,27 @@ showDocsUrl: true
 orderBy: 4
 ---
 
+import { Triangle, Heart, UserRound } from 'lucide-react';
+
 export const components = componentSet;
 
-<p class="type-scale-5">Please be aware that Skeleton is <u>icon library agnostic</u>. This supports any combination of SVGs, emoji,
-	unicode, or dedicated icon libraries.</p>
+<p class="type-scale-5">Skeleton is <u>icon library agnostic</u>. This means Skeleton supports any combination of SVGs, emoji,
+	unicode, or dedicated icon libraries. The choice is yours.</p>
 
 ---
 
 ## Lucide
 
-Skeleton recommends and favors [Lucide](https://lucide.dev/), a popular solution for most modern UI frameworks. You'll find Lucide used within all code examples within this documentation website. If you do not wish to use Lucide, simply replace this with the solution of your choice.
+<div class="docs-card-outlined-centered p-8">
+	<div class="flex gap-4">
+		<Heart size={48} />
+		<UserRound size={48} />
+		<Triangle size={48} />
+	</div>
+</div>
+
+
+For Skeleton's apps and sites, we opt for [Lucide](https://lucide.dev/). This provides a huge selection of icons, is avilable to all frameworks, and features a clean and modern style. Our code examples feature Lucide, but if you do not prefer this, simply replace with any alternative.
 
 ### Lucide React
 
@@ -49,8 +60,9 @@ export default App;
 
 ## Alternatives
 
--   [Iconify](https://iconify.design/) - provides a vast array of icon sets pruned from popular icon libraries.
--   [Font Awesome](https://fontawesome.com/) - provides a huge variety of icons in their free tier.
--   [HeroIcons](https://heroicons.com/) - from the makers of Tailwind CSS, supports React and Vue.
--   [SimpleIcons](https://simpleicons.org/) - provides an excellent selection of brand icons.
--   [Astro Icon](https://www.astroicon.dev/) - provides Astro icon support for local SVGs and Iconify sets.
+- [Radix Icons](https://www.radix-ui.com/icons) - provides a modern styles and large selection, but limited to React.
+- [Iconify](https://iconify.design/) - provides a vast array of icon sets pruned from popular icon libraries.
+- [Font Awesome](https://fontawesome.com/) - provides a huge variety of icons in their free tier.
+- [HeroIcons](https://heroicons.com/) - from the makers of Tailwind CSS, supports React and Vue.
+- [SimpleIcons](https://simpleicons.org/) - provides an excellent selection of brand icons.
+- [Astro Icon](https://www.astroicon.dev/) - provides Astro icon support for local SVGs and Iconify sets.
