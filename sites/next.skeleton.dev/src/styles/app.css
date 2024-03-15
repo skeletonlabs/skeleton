@@ -19,21 +19,50 @@ body {
 
 /* Theme Enhancements --- */
 
-.docs-card-outlined {
-	@apply card border border-surface-200-800;
-}
-.docs-card-outlined-centered {
-	@apply docs-card-outlined flex-centered;
-}
-.docs-card-filled-flush {
-	@apply card border border-surface-200-800 preset-filled-surface-100-900;
-}
-.docs-card-filled {
-	@apply docs-card-filled-flush p-4;
+/* Background Image */
+[data-theme='catppuccin'] {
+	background-image: radial-gradient(at 0% 100%, rgba(var(--color-primary-500) / 0.05) 0px, transparent 40%),
+		radial-gradient(at 80% 80%, rgba(var(--color-secondary-500) / 0.05) 0px, transparent 75%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-/* Doc Example Only */
+/* Card Outline */
+.card-enhanced-outlined {
+	@apply card border border-surface-500/30;
+}
+[data-theme='catppuccin'] .card-enhanced-outlined {
+	@apply bg-gradient-to-br from-primary-500 to-secondary-500 border-0 p-0.5;
+}
+[data-theme='catppuccin'] .card-enhanced-outlined-inner {
+	@apply card bg-body-color dark:bg-body-color-dark;
+}
+[data-theme='pine'] .card-enhanced-outlined {
+	@apply border-0 border-t-4 border-b-4 bg-white/10 dark:bg-black/5;
+}
+[data-theme='rose'] .card-enhanced-outlined {
+	@apply bg-surface-500/5 border-0 backdrop-blur-2xl;
+}
 
+/* Card Gradient */
+.card-enhanced-gradient {
+	@apply card bg-gradient-to-br from-primary-500 to-secondary-500 text-primary-contrast-500;
+}
+[data-theme='pine'] .card-enhanced-gradient {
+	@apply to-tertiary-500;
+}
+
+/* Button CTA (call to action) */
+.btn-enhanced-cta {
+	@apply btn preset-filled;
+}
+[data-theme='catppuccin'] .btn-enhanced-cta {
+	@apply btn bg-gradient-to-br from-primary-500 to-secondary-500 text-white ring-[2px] ring-white/50 ring-inset shadow-xl;
+}
+
+/* Theme Doc Examples */
 .card-enhanced-example {
 	@apply card preset-filled-surface-100-900;
 }
