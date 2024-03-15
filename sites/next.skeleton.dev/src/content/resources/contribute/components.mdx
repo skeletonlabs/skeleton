@@ -9,7 +9,7 @@ export const components = componentSet;
 
 ## Packages
 
-Framework packages are are found within the Skeleton monorepo in the following locations.
+Framework packages are found within the Skeleton monorepo in the following locations.
 
 | Package                     | Framework                       | App Framework                        |
 | --------------------------- | ------------------------------- | ------------------------------------ |
@@ -20,9 +20,10 @@ The purpose of our component packages is two-fold. First, they house and export 
 
 ### Dev Server
 
-Run run each app framework, point your terminal at the respective package and run the following command in your terminal.
+To run each app framework, change your directory to the respective package and run the following command.
 
-```
+```shell
+cd packages/skeleton-svelte
 pnpm run dev
 ```
 
@@ -81,9 +82,9 @@ let {
 - **Event** - provide callback functions for external event handlers.
 - **Children** - contain reference to React children, Svelte Snippets, or similar.
 
-### Style Prop Convensions
+### Style Prop Conventions
 
-Style props implement sementic naming conventions to enable specificity and avoid naming conflicts. These are are organized into three specific categories. Each should be maintained in the following order.
+Style props implement sementic naming conventions to enable specificity and avoid naming conflicts. These are organized into three specific categories. Each should be maintained in the following order.
 
 - `base` - houses the base utility classes, which enables faux-headless styling.
     - Replaces: `cBase` class definitions from Skeleton v2.
@@ -93,7 +94,7 @@ Style props implement sementic naming conventions to enable specificity and avoi
     - Naming should follow Tailwind convention, except for single letter descriptors (ex: use `padding` instead of `p`).
     - Parent props are not prefixed: `background`, `margin`, `border`.
     - Child props are prefixed: `titleBg`, `controlMargin`, `panelBorder`.
-- `classes` - allows you to extend or override the class list with a arbitrary set of utility classes.
+- `classes` - allows you to extend or override the class list with an arbitrary set of utility classes.
     - Replaces the inconsistent use of `slotX` and `regionX` classes in Skeleton v2.
 	- Uses `classes` (plural) to avoid conflict with the standard `class` attribute.
     - Parent instances are not prefixed: `classes`
@@ -131,7 +132,7 @@ let {
 
 ### Dynamic Style Props
 
-In some scenarios you may need to conditionally update or swap between one or more sets of utilty classes. For this, we will use an “interceptor” pattern as demonstrated below. Use the `rx` naming convention denotes when the value is “reactive”.
+In some scenarios you may need to conditionally update or swap between one or more sets of utilty classes. For this, we will use an “interceptor” pattern as demonstrated below. The `rx` naming convention denotes when the value is “reactive”.
 
 ```svelte
 <script lang="ts">
@@ -156,7 +157,7 @@ In some scenarios you may need to conditionally update or swap between one or mo
 
 ## Type Definitions
 
-All components props should be strongly typed using Typescript in a colocated `types.ts` file. Each prop should be described using [JSDoc](https://jsdoc.app/about-getting-started). This provides additional context through Intellisense features of text editors and IDEs and helps generate automatic documentation for these features. Remember to keep the description short and semantic.
+All component props should be strongly typed using Typescript in a colocated `types.ts` file. Each prop should be described using [JSDoc](https://jsdoc.app/about-getting-started). This provides additional context through Intellisense features of text editors and IDEs and helps generate automatic documentation for these features. Remember to keep the description short and semantic.
 
 ```ts
 export interface AccordionItemProps {
@@ -245,7 +246,7 @@ export const Accordion = reactCompose(
 
 ### Svelte
 
-Create a new `index.ts` file colocated within the `/component/ComponentName` directory:
+Create a new `index.ts` file colocated within the `/component/<ComponentName>` directory:
 
 ```ts
 import Tabs from './Tabs.svelte';
