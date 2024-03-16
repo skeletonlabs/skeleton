@@ -61,16 +61,25 @@
 		const tabList = elemInput.closest('[role="tablist"]');
 		if (!tabList) return;
 
+		const isRTL = getComputedStyle(tabList).direction === 'rtl';
 		const tabs = Array.from(tabList.querySelectorAll('[role="tab"]'));
 		const currIndex = tabs.indexOf(currTab);
 
 		let nextIndex = -1;
 		switch (event.code) {
 			case 'ArrowRight':
-				nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
+				if (isRTL) {
+					nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
+				} else {
+					nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
+				}
 				break;
 			case 'ArrowLeft':
-				nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
+				if (isRTL) {
+					nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
+				} else {
+					nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
+				}
 				break;
 			case 'Home':
 				nextIndex = 0;

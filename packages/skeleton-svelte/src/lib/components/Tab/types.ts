@@ -71,7 +71,6 @@ export interface TabsProps {
 	/** Triggers on Tab Control group change. */
 	onchange?: (group: string) => void;
 
-
 	// Snippets ---
 	/** The tab list slot. */
 	list?: Snippet;
