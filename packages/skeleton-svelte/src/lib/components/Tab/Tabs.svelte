@@ -74,9 +74,9 @@
 
 <div class="{base} {spaceY} {classes}" data-testid="tab-group">
 	{#if list}
-		<div class="{listBase} {listSpaceX} {listJustify} {listBorder} {listClasses}" role="tablist" aria-labelledby={listLabelledBy}>
+		<ul class="{listBase} {listSpaceX} {listJustify} {listBorder} {listClasses}" role="tablist" aria-labelledby={listLabelledBy}>
 			{@render list()}
-		</div>
+		</ul>
 	{/if}
 	{#if panel}
 		<div

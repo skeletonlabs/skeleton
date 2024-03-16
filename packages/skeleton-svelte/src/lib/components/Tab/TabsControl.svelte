@@ -94,7 +94,7 @@
 <!-- @component A Tab Control component. -->
 
 <label class="{base} {text} {justify} {rxActive} {background} {padding} {rounded} {spacingY} {cursor} {classes}" {title}>
-	<div
+	<li
 		aria-controls={controls}
 		tabindex={rxSelected ? 0 : -1}
 		aria-selected={rxSelected}
@@ -113,5 +113,5 @@
 				{@render children()}
 			</div>
 		{/if}
-	</div>
+	</li>
 </label>

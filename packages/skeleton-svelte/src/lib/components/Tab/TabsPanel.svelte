@@ -15,7 +15,7 @@
 <!-- @component A Tab Panel component. -->
 
 {#if value === group && children}
-	<div class="{base} {classes}">
+	<section class="{base} {classes}">
 		{@render children()}
-	</div>
+	</section>
 {/if}
