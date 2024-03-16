@@ -59,12 +59,6 @@ export interface TabsProps {
 	/** Provide arbitrary CSS classes to the children controls. */
 	controlsClasses?: string;
 
-	// Tab Panels
-	/** Set the children panels base styles. */
-	panelsBase?: string;
-	/** Provide arbitrary CSS classes to the children panels. */
-	panelsClasses?: string;
-
 	// Snippets ---
 	/** The tab list slot. */
 	list?: Snippet;

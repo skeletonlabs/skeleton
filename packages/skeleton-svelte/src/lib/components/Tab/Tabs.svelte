@@ -31,9 +31,6 @@
 		controlsSpacingY = 'space-y-1',
 		controlsCursor = 'cursor-pointer',
 		controlsClasses = '',
-		// Tab Panels
-		panelsBase = '',
-		panelsClasses = '',
 		// Snippets
 		list,
 		panel
@@ -50,8 +47,16 @@
 	setContext('spacingY', controlsSpacingY);
 	setContext('cursor', controlsCursor);
 	setContext('classes', controlsClasses);
-	setContext('panelBase', panelsBase);
-	setContext('panelClasses', panelsClasses);
+
+	let panelElem: HTMLDivElement | undefined = $state(undefined);
+	let panelTabIndex = $state(0);
+	// if the tabpanel doesn't contain focusable element, it will be focusable following the ARIA guidelines.
+	$effect(() => {
+		if (!panelElem) return;
+		const hasFocusableElements =
+			panelElem.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])').length > 0;
+		panelTabIndex = hasFocusableElements ? -1 : 0;
+	});
 </script>
 
 <!-- @component A Tab parent component. -->
@@ -63,7 +68,13 @@
 		</div>
 	{/if}
 	{#if panel}
-		<div class="{panelBase} {panelClasses}" role="tabpanel" aria-labelledby={panelLabelledBy}>
+		<div
+			bind:this={panelElem}
+			class="{panelBase} {panelClasses}"
+			role="tabpanel"
+			aria-labelledby={panelLabelledBy}
+			tabindex={panelTabIndex}
+		>
 			{@render panel()}
 		</div>
 	{/if}

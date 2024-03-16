@@ -163,3 +163,23 @@
 		<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
 	{/snippet}
 </Tabs>
+
+<h3 class="h3">With focusable content</h3>
+<Tabs>
+	{#snippet list()}
+		<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
+		<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>
+		<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
+	{/snippet}
+	{#snippet panel()}
+		<Tabs.Panel bind:group value="flight">
+			<button type="button" class="btn preset-filled-primary-500">Book a Flight</button>
+		</Tabs.Panel>
+		<Tabs.Panel bind:group value="hotel">
+			<button type="button" class="btn preset-filled-primary-500">See Hotels near you</button>
+		</Tabs.Panel>
+		<Tabs.Panel bind:group value="explore">
+			<button type="button" class="btn preset-filled-primary-500">Explore</button>
+		</Tabs.Panel>
+	{/snippet}
+</Tabs>
