@@ -1,4 +1,4 @@
-export interface ProgressProps {
+export interface ProgressTrackProps {
 	/** Set the value */
 	value?: number;
 	/** Set the minimum value. */
@@ -6,23 +6,25 @@ export interface ProgressProps {
 	/** Set the maximum value. */
 	max?: number;
 
-	// Root ---
-	/** Set base styles. */
+	// Track ---
+	/** Provide base classes. */
 	base?: string;
-	/** Provide classes to set track height. */
+	/** Provide height classes. */
 	height?: string;
-	/** Provide classes to set rounded styles. */
+	/** Provide rounded classes. */
 	rounded?: string;
-	/** Provide classes to set the meter transition styles. */
-	transition?: string;
-	/** Provide classes to replace the default animation styles. */
-	animIndeterminate?: string;
-	/** Provide arbitrary CSS classes. */
+	/** Provide arbitrary classes. */
 	classes?: string;
+}
 
-	// Meter ---
-	/** Sets the base classes of the meter element. */
-	meterBase?: string;
-	/** Provide arbitrary CSS classes to the meter. */
-	meterClasses?: string;
+export interface ProgressIndicatorProps {
+	// Root ---
+	/** Provide base classes. */
+	base?: string;
+	/** Provide height classes. */
+	height?: string;
+	/** Provide rounded classes. */
+	rounded?: string;
+	/** Provide arbitrary classes. */
+	classes?: string;
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Progress from '$lib/components/Progress/Progress.svelte';
+	import Progress from '$lib/components/Progress';
 	let value = $state(50);
 	let min = $state(0);
 	let max = $state(100);
@@ -20,4 +20,6 @@
 	<input class="input" type="number" bind:value={max} />
 </label>
 
-<Progress {value} {min} {max} />
+<Progress.Track {value} {min} {max}>
+	<Progress.Indicator />
+</Progress.Track>
