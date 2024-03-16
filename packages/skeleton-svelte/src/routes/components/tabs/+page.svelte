@@ -5,9 +5,15 @@
 </script>
 
 <h1 class="h1">Tabs</h1>
-<Tabs>
+<Tabs onclick={() => console.log('onclick for all tabs.')}
+	  onkeypress={() => console.log('onkeypress for all tabs.')}
+	  onchange={(group) => console.log('onchange for all tabs, group:', group)}>
 	{#snippet list()}
-		<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
+		<Tabs.Control bind:group name="flight" 
+				      onclick={() => console.log('onclick only flight tab.')}
+					  onkeypress={() => console.log('onkeypress only flight tab.')}
+					  onchange={(group) => console.log('onchange only flight tab, group:', group)}
+		>Flight</Tabs.Control>
 		<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>
 		<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
 	{/snippet}

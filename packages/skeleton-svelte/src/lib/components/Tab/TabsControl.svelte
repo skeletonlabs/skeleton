@@ -29,6 +29,12 @@
 		contentBase = 'flex',
 		contentSpaceX = 'space-x-1',
 		contentClasses = '',
+		// Events
+		onclick = getContext<(event: MouseEvent) => {}>('onclick'),
+		onkeypress = getContext<(event: KeyboardEvent) => {}>('onkeypress'),
+		onkeydown = getContext<(event: KeyboardEvent) => {}>('onkeydown'),
+		onkeyup = getContext<(event: KeyboardEvent) => {}>('onkeyup'),
+		onchange = getContext<(group: string) => {}>('onchange'),
 		// Snippets
 		children
 	}: TabsControlProps = $props();
@@ -39,6 +45,7 @@
 	let elemInput: HTMLInputElement;
 
 	function onTabKeyDown(event: KeyboardEvent) {
+		onkeydown(event);
 		if (!['Enter', 'Space', 'ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.code)) return;
 
 		event.preventDefault();
@@ -95,9 +102,11 @@
 		role="tab"
 		class="{tabBase} {tabRounded} {tabOutline} {tabClasses}"
 		onkeydown={onTabKeyDown}
+		{onkeypress}
+		{onkeyup}
 	>
 		<div class="h-0 w-0 flex-none overflow-hidden">
-			<input bind:this={elemInput} type="radio" bind:group {name} value={name} tabindex="-1" />
+			<input bind:this={elemInput} type="radio" bind:group {name} value={name} onchange={() => onchange(group)} {onclick} tabindex="-1" />
 		</div>
 		{#if children}
 			<div class="{contentBase} {contentSpaceX} {contentClasses}">

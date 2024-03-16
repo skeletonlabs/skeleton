@@ -31,6 +31,12 @@
 		controlsSpacingY = 'space-y-1',
 		controlsCursor = 'cursor-pointer',
 		controlsClasses = '',
+		// Events
+		onclick = () => {},
+		onkeypress = () => {},
+		onkeydown = () => {},
+		onkeyup = () => {},
+		onchange = () => {},
 		// Snippets
 		list,
 		panel
@@ -47,6 +53,11 @@
 	setContext('spacingY', controlsSpacingY);
 	setContext('cursor', controlsCursor);
 	setContext('classes', controlsClasses);
+	setContext('onclick', onclick);
+	setContext('onkeypress', onkeypress);
+	setContext('onkeydown', onkeydown);
+	setContext('onkeyup', onkeyup);
+	setContext('onchange', onchange);
 
 	let panelElem: HTMLDivElement | undefined = $state(undefined);
 	let panelTabIndex = $state(0);

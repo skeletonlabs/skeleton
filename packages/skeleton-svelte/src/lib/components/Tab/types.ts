@@ -35,7 +35,7 @@ export interface TabsProps {
 	/** Provide arbitrary CSS classes to the tab panel snippet. */
 	panelClasses?: string;
 
-	// Tab Controls
+	// Tab Controls ---
 	/** Sets the children controls base styles. */
 	controlsBase?: string;
 	/** Sets the children controls text styles. */
@@ -58,6 +58,19 @@ export interface TabsProps {
 	controlsCursor?: string;
 	/** Provide arbitrary CSS classes to the children controls. */
 	controlsClasses?: string;
+
+	// Events ---
+	/** Triggers on Tab Control click. */
+	onclick?: (event: MouseEvent) => void;
+	/** Triggers on Tab Control key press. */
+	onkeypress?: (event: KeyboardEvent) => void;
+	/** Triggers on Tab Control key down. */
+	onkeydown?: (event: KeyboardEvent) => void;
+	/** Triggers on Tab Control key up. */
+	onkeyup?: (event: KeyboardEvent) => void;
+	/** Triggers on Tab Control group change. */
+	onchange?: (group: string) => void;
+
 
 	// Snippets ---
 	/** The tab list slot. */
@@ -114,13 +127,25 @@ export interface TabsControlProps {
 	/** Provide arbitrary CSS classes for the tab. */
 	tabClasses?: string;
 
-	// Tab Content
+	// Tab Content ---
 	/** Sets the tab content base styles */
 	contentBase?: string;
 	/** Sets the tab content horizontal spacing styles. */
 	contentSpaceX?: string;
 	/** Provide arbitrary CSS classes to the tab content. */
 	contentClasses?: string;
+
+	// Events ---
+	/** Triggers on Tab Control click. */
+	onclick?: (event: MouseEvent) => void;
+	/** Triggers on Tab Control key press. */
+	onkeypress?: (event: KeyboardEvent) => void;
+	/** Triggers on Tab Control key down. */
+	onkeydown?: (event: KeyboardEvent) => void;
+	/** Triggers on Tab Control key up. */
+	onkeyup?: (event: KeyboardEvent) => void;
+	/** Triggers on Tab Control group change. */
+	onchange?: (group: string) => void;
 
 	// Snippets ---
 	/** The default child slot. */
