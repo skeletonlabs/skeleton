@@ -1,3 +1,23 @@
+<script context="module">
+	import { getContext, setContext } from 'svelte';
+
+	const key = 'progress-state';
+
+	type ProgressState = {
+		value: number | undefined;
+		min: number;
+		max: number;
+	};
+
+	export function setProgressState(state: ProgressState) {
+		setContext(key, state);
+	}
+
+	export function getProgressState() {
+		return getContext<ProgressState>(key);
+	}
+</script>
+
 <script lang="ts">
 	import type { ProgressTrackProps } from './types.js';
 
@@ -6,11 +26,23 @@
 		min = 0,
 		max = 100,
 		// Root
-		base = 'bg-black',
+		base = 'bg-black overflow-hidden',
 		height = 'h-2',
 		rounded = 'rounded',
 		classes = ''
 	}: ProgressTrackProps = $props();
+
+	setProgressState({
+		get value() {
+			return value;
+		},
+		get min() {
+			return min;
+		},
+		get max() {
+			return max;
+		}
+	});
 
 	// Warn when the min value is greater than the max value
 	$effect(() => {

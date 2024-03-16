@@ -18,6 +18,9 @@ export interface ProgressTrackProps {
 }
 
 export interface ProgressIndicatorProps {
+	/** Set the indicator to intermediate */
+	indeterminate?: boolean | string;
+
 	// Root ---
 	/** Provide base classes. */
 	base?: string;
