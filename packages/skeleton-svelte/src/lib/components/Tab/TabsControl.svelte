@@ -10,6 +10,7 @@
 		controls = '',
 		// Root
 		base = getContext<string>('base'),
+		text = getContext<string>('text'),
 		justify = getContext<string>('justify'),
 		active = getContext<string>('active'),
 		inactive = getContext<string>('inactive'),
@@ -20,9 +21,14 @@
 		cursor = getContext<string>('cursor'),
 		classes = getContext<string>('classes'),
 		// Tab
-		tabBase = 'flex',
-		tabSpaceX = 'space-x-1',
+		tabBase = '',
+		tabRounded = 'rounded-container',
+		tabOutline = 'focus:outline focus:outline-primary-600-400 focus:outline-offset-4',
 		tabClasses = '',
+		// Tab Content
+		contentBase = 'flex',
+		contentSpaceX = 'space-x-1',
+		contentClasses = '',
 		// Snippets
 		children
 	}: TabsControlProps = $props();
@@ -33,13 +39,14 @@
 
 <!-- @component A Tab Control component. -->
 
-<label class="{base} {justify} {rxActive} {background} {padding} {rounded} {spacingY} {cursor} {classes}" {title}>
-	<div aria-controls={controls} tabindex="0" data-testid="tabs-control" role="tab">
+<label class="{base} {text} {justify} {rxActive} {background} {padding} {rounded} {spacingY} {cursor} {classes}" {title}>
+	<div aria-controls={controls} tabindex="0" data-testid="tabs-control" role="tab" 
+		 class="{tabBase} {tabRounded} {tabOutline} {tabClasses}">
 		<div class="h-0 w-0 flex-none overflow-hidden">
 			<input type="radio" bind:group {name} value={name} tabindex="-1" />
 		</div>
 		{#if children}
-			<div class="{tabBase} {tabSpaceX} {tabClasses}">
+			<div class="{contentBase} {contentSpaceX} {contentClasses}">
 				{@render children()}
 			</div>
 		{/if}

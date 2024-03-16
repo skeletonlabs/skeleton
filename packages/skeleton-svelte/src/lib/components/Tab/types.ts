@@ -38,6 +38,8 @@ export interface TabsProps {
 	// Tab Controls
 	/** Sets the children controls base styles. */
 	controlsBase?: string;
+	/** Sets the children controls text styles. */
+	controlsText?: string;
 	/** Sets the children controls Justification styles. */
 	controlsJustify?: string;
 	/** Sets the children controls active styles. */
@@ -56,6 +58,12 @@ export interface TabsProps {
 	controlsCursor?: string;
 	/** Provide arbitrary CSS classes to the children controls. */
 	controlsClasses?: string;
+
+	// Tab Panels
+	/** Set the children panels base styles. */
+	panelsBase?: string;
+	/** Provide arbitrary CSS classes to the children panels. */
+	panelsClasses?: string;
 
 	// Snippets ---
 	/** The tab list slot. */
@@ -81,6 +89,8 @@ export interface TabsControlProps {
 	// Root ---
 	/** Sets base styles. */
 	base?: string;
+	/** Sets text styles. */
+	text?: string;
 	/** Sets background styles. */
 	background?: string;
 	/** Sets justification styles. */
@@ -100,13 +110,42 @@ export interface TabsControlProps {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Tab
-	/** Sets the tab content base styles */
+	// Tab ---
+	/** Sets the tab base styles. */
 	tabBase?: string;
-	/** Sets the tab content horizontal spacing styles. */
-	tabSpaceX?: string;
-	/** Provide arbitrary CSS classes to the tab content. */
+	/** Sets the tab rounded styles. */
+	tabRounded?: string;
+	/** Sets the tab outline styles. */
+	tabOutline?: string;
+	/** Provide arbitrary CSS classes for the tab. */
 	tabClasses?: string;
+
+	// Tab Content
+	/** Sets the tab content base styles */
+	contentBase?: string;
+	/** Sets the tab content horizontal spacing styles. */
+	contentSpaceX?: string;
+	/** Provide arbitrary CSS classes to the tab content. */
+	contentClasses?: string;
+
+	// Snippets ---
+	/** The default child slot. */
+	children?: Snippet;
+}
+
+// TabPanel ---
+
+export interface TabsPanelProps {
+	/** Provide the tab panel value. */
+	value: string;
+	/** Provide the tab control radio group. */
+	group: string;
+
+	// Root ---
+	/** Sets base styles. */
+	base?: string;
+	/** Provide arbitrary CSS classes. */
+	classes?: string;
 
 	// Snippets ---
 	/** The default child slot. */

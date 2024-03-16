@@ -12,7 +12,9 @@
 		<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
 	{/snippet}
 	{#snippet panel()}
-		<div>PlaceHolder</div>
+		<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
 	{/snippet}
 </Tabs>
 
@@ -94,7 +96,7 @@
 				/><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" /></svg
 			>
 		</Tabs.Control>
-		<Tabs.Control bind:group name="skull" title="Skeleton">
+		<Tabs.Control bind:group name="skeleton" title="Skeleton">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
@@ -113,7 +115,10 @@
 		</Tabs.Control>
 	{/snippet}
 	{#snippet panel()}
-		<div>PlaceHolder</div>
+		<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="skeleton">Skeleton Panel</Tabs.Panel>
 	{/snippet}
 </Tabs>
 
@@ -125,7 +130,9 @@
 		<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
 	{/snippet}
 	{#snippet panel()}
-		<div>PlaceHolder</div>
+		<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
 	{/snippet}
 </Tabs>
 
@@ -137,7 +144,9 @@
 		<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
 	{/snippet}
 	{#snippet panel()}
-		<div>PlaceHolder</div>
+		<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
 	{/snippet}
 </Tabs>
 
@@ -149,6 +158,8 @@
 		<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
 	{/snippet}
 	{#snippet panel()}
-		<div>PlaceHolder</div>
+		<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
+		<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
 	{/snippet}
 </Tabs>

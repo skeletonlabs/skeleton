@@ -21,21 +21,26 @@
 		panelClasses = '',
 		// Tab Controls
 		controlsBase = 'flex',
+		controlsText = 'hover:text-primary-600-400',
 		controlsJustify = 'justify-center',
 		controlsActive = 'border-b-2 border-surface-950-50 text-surface-950-50',
 		controlsInactive = 'text-surface-600-400 fill-surface-600-400',
-		controlsBackground = 'hover:bg-surface-400-600',
+		controlsBackground = '',
 		controlsPadding = 'px-4 py-2',
-		controlsRounded = 'rounded-tl-container rounded-tr-container',
+		controlsRounded = '',
 		controlsSpacingY = 'space-y-1',
 		controlsCursor = 'cursor-pointer',
 		controlsClasses = '',
+		// Tab Panels
+		panelsBase = '',
+		panelsClasses = '',
 		// Snippets
 		list,
 		panel
 	}: TabsProps = $props();
 
 	setContext('base', controlsBase);
+	setContext('text', controlsText);
 	setContext('justify', controlsJustify);
 	setContext('active', controlsActive);
 	setContext('inactive', controlsInactive);
@@ -45,6 +50,8 @@
 	setContext('spacingY', controlsSpacingY);
 	setContext('cursor', controlsCursor);
 	setContext('classes', controlsClasses);
+	setContext('panelBase', panelsBase);
+	setContext('panelClasses', panelsClasses);
 </script>
 
 <!-- @component A Tab parent component. -->
