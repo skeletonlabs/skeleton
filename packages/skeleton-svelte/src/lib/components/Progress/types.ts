@@ -23,6 +23,8 @@ export interface ProgressProps {
 	indicatorRounded?: string;
 	/** Provide transition classes. */
 	indicatorTransition?: string;
+	/** Provide indeterminate animation classes. */
+	indicatorIndeterminateAnimation?: string;
 	/** Provide arbitrary classes. */
 	indicatorClasses?: string;
 }

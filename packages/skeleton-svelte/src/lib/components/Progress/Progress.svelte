@@ -14,6 +14,7 @@
 		indicatorBase = 'bg-primary-500 h-full',
 		indicatorRounded = 'rounded',
 		indicatorTransition = 'transition-[width]',
+		indicatorIndeterminateAnimation = 'indeterminate',
 		indicatorClasses = ''
 	}: ProgressProps = $props();
 
@@ -25,14 +26,16 @@
 <!-- @component Track -->
 <div class="{base} {height} {rounded} {classes}">
 	<!-- @component Indicator -->
-	<div class="{indicatorBase} {indicatorRounded} {indicatorTransition} {indicatorClasses}" class:indeterminate style:width></div>
+	<div
+		class="{indicatorBase} {indicatorRounded} {indicatorTransition} {indeterminate && indicatorIndeterminateAnimation} {indicatorClasses}"
+		style:width
+	></div>
 </div>
 
 <style>
 	.indeterminate {
 		animation: indeterminate 2s linear infinite;
 	}
-
 	@keyframes indeterminate {
 		from {
 			transform: translateX(-100%);
