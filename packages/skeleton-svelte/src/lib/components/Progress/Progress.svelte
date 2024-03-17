@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { ProgressProps } from './types.js';
-	
 
 	let {
 		value,
@@ -28,7 +27,9 @@
 <div class="{base} {height} {rounded} {classes}">
 	<!-- @component Indicator -->
 	<div
-		class="{indicatorBase} {indicatorRounded} {indicatorTransition} {indeterminate && indicatorIndeterminateAnimation} {indicatorClasses}"
+		class="{indicatorBase} {indicatorRounded} {indicatorTransition} {indeterminate
+			? indicatorIndeterminateAnimation
+			: ''} {indicatorClasses}"
 		style:width
 	></div>
 </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { ProgressProps } from './types';
 
 export default function Progress({
@@ -19,13 +19,12 @@ export default function Progress({
 	}: ProgressProps) {
 
     const [indeterminate] = useState(value === undefined);
-    const fillPercentage = (indeterminate ? 50 : ((value! - min) / (max - min)) * 100);
-    const width = `width: ${fillPercentage}%`;
+    const fillPercentage = useMemo(() => (indeterminate ? 50 : ((value! - min) / (max - min)) * 100), [value, min, max, indeterminate]);
+    const width = `${fillPercentage}%`;
 
     return (
         <div className={`${base} ${height} ${rounded} ${classes}`}>
-
-            <div className={`${indicatorBase} ${indicatorRounded} ${indicatorTransition} ${indeterminate && indicatorIndeterminateAnimation} ${indicatorClasses}`} style={{ width }} ></div>
+            <div className={`${indicatorBase} ${indicatorRounded} ${indicatorTransition} ${indeterminate ? indicatorIndeterminateAnimation : ''} ${indicatorClasses}`} style={{ width }} ></div>
         </div>
     )
 } 
