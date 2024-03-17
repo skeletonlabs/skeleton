@@ -1,25 +1,10 @@
-export interface ProgressTrackProps {
+export interface ProgressProps {
 	/** Set the value */
 	value?: number;
 	/** Set the minimum value. */
 	min?: number;
 	/** Set the maximum value. */
 	max?: number;
-
-	// Track ---
-	/** Provide base classes. */
-	base?: string;
-	/** Provide height classes. */
-	height?: string;
-	/** Provide rounded classes. */
-	rounded?: string;
-	/** Provide arbitrary classes. */
-	classes?: string;
-}
-
-export interface ProgressIndicatorProps {
-	/** Set the indicator to intermediate */
-	indeterminate?: boolean | string;
 
 	// Root ---
 	/** Provide base classes. */
@@ -30,4 +15,14 @@ export interface ProgressIndicatorProps {
 	rounded?: string;
 	/** Provide arbitrary classes. */
 	classes?: string;
+
+	// Indicator ---
+	/** Provide base classes. */
+	indicatorBase?: string;
+	/** Provide rounded classes. */
+	indicatorRounded?: string;
+	/** Provide transition classes. */
+	indicatorTransition?: string;
+	/** Provide arbitrary classes. */
+	indicatorClasses?: string;
 }
