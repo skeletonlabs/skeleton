@@ -23,21 +23,24 @@ export default function Progress({
     const width = `${fillPercentage}%`;
 
     return (
-        <div className={`${base} ${height} ${rounded} ${classes}`}>
-            <div className={`${indicatorBase} ${indicatorRounded} ${indicatorTransition} ${indeterminate ? indicatorIndeterminateAnimation : ''} ${indicatorClasses}`} style={{ width }} ></div>
-        </div>
+        <>
+            <div className={`${base} ${height} ${rounded} ${classes}`}>
+                <div className={`${indicatorBase} ${indicatorRounded} ${indicatorTransition} ${indeterminate ? indicatorIndeterminateAnimation : ''} ${indicatorClasses}`} style={{ width }} ></div>
+            </div>
+
+            <style>{`
+                .indeterminate {
+                    animation: indeterminate 2s linear infinite;
+                }
+                @keyframes indeterminate {
+                    from {
+                        transform: translateX(-100%);
+                    }
+                    to {
+                        transform: translateX(200%);
+                    }
+                }
+            `}</style>
+        </>
     )
 } 
-
-// TODO: Add indeterminate animation
-// .indeterminate {
-// 	animation: indeterminate 2s linear infinite;
-// }
-// @keyframes indeterminate {
-// 	from {
-// 		transform: translateX(-100%);
-// 	}
-// 	to {
-// 		transform: translateX(200%);
-// 	}
-// }
