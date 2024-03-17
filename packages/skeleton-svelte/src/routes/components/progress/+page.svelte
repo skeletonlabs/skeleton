@@ -5,6 +5,10 @@
 	let max = $state(100);
 </script>
 
+<h1>Progress</h1>
+
+<h2>Controls</h2>
+
 <label>
 	Value
 	<input class="input" type="number" bind:value />

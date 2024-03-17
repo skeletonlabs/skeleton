@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { ProgressProps } from './types.js';
+	
 
 	let {
 		value,
