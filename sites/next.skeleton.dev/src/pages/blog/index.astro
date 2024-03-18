@@ -1,0 +1,21 @@
+---
+import LayoutRoot from '@layouts/LayoutRoot.astro';
+import Header from '@components/docs/Header.astro';
+
+const layoutProps = {
+	classList: 'space-y-10',
+};
+---
+
+<LayoutRoot {...layoutProps}>
+	<!-- Header -->
+	<Header />
+
+	<!-- Main -->
+	<main class="container mx-auto space-y-10 px-4">
+		<header class="space-y-4">
+			<h2 class="h2">Blog</h2>
+			<p>This section is a work in progress. Please check back soon.</p>
+		</header>
+	</main>
+</LayoutRoot>
