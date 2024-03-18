@@ -37,24 +37,24 @@ const socialLinks = [
 		</div>
 		<!-- Middle -->
 		<div class="flex items-center gap-2">
-			<!-- Theme Switcher -->
-			<ThemeSwitch />
-			<!-- Lightswitch -->
-			<Lightswitch />
-		</div>
-		<!-- Right -->
-		<div class="flex justify-end items-center gap-4">
 			<!-- Search -->
 			<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal" onclick="onSearch()">
 				<Search size={18} className="opacity-60" />
 				<span class="opacity-60">Search...</span>
 			</button>
+		</div>
+		<!-- Right -->
+		<div class="flex justify-end items-center gap-2">
+			<!-- Lightswitch -->
+			<Lightswitch />
+			<!-- Theme Switcher -->
+			<ThemeSwitch />
 			<!-- Social -->
 			<nav class="type-scale-1 flex items-center">
 				{
 					socialLinks.map((l) => (
 						<a class="btn hover:preset-tonal" href={l.href} target="_blank" title={l.label}>
-							<Icon name={l.icon} size={24} class="size-5" />
+							<Icon name={l.icon} size={20} />
 						</a>
 					))
 				}
