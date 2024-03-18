@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { ProgressProps } from './types';
 
 export default function Progress({
@@ -20,6 +20,12 @@ export default function Progress({
 		meterIndeterminateAnim = 'indeterminate',
 		meterClasses = ''
 	}: ProgressProps) {
+
+    useEffect(() => {
+        if (min > max) {
+            console.error(`The minimum value: "${min}" is greater than the maximum value: "${max}"`);
+        }
+    }, [min, max]);
 
     const indeterminate = useMemo(() => value === undefined, [value]);
     const fillPercentage = useMemo(() => (indeterminate ? 50 : ((value! - min) / (max - min)) * 100), [value, min, max, indeterminate]);

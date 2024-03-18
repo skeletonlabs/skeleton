@@ -21,6 +21,12 @@
 		meterClasses = ''
 	}: ProgressProps = $props();
 
+	$effect(() => {
+		if (min > max) {
+			console.error(`The minimum value: "${min}" is greater than the maximum value: "${max}"`);
+		}
+	});
+
 	const indeterminate = $derived(value === undefined);
 	const fillPercentage = $derived(indeterminate ? 50 : ((value! - min) / (max - min)) * 100);
 	const width = $derived(`${fillPercentage}%`);
