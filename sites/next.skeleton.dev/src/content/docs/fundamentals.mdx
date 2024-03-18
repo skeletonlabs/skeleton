@@ -1,20 +1,110 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: Fundamentals
-description: Learn how to use Skeleton in your projects.
+description: An introduction to the core concepts of Skeleton.
 orderBy: 2
 ---
 
 export const components = componentSet;
+import NavGrid from '@components/docs/NavGrid.astro';
+
+<p class="type-scale-5">Skeleton is comprised of three modular pillars. Together, these form a complete top-to-bottom solution to aid in designing and implementing frontend interfaces for your web-based applications.</p>
+
+---
 
 ## Design System
 
-...
+### Figma UI Kit
+
+Skeleton provides a powerful Figma UI Kit to assist your designers to create a visual concept of your project.
+
+### Core Concepts
+
+Select a section below to learn more about Skeleton's core design systems. These features integrate directly with the Skeleton Tailwind plugin.
+
+<NavGrid collection="design" path="" classes="md:grid-cols-2" />
+
+---
 
 ## Tailwind
 
-...
+Skeleton provides a number of Tailwind componments that act as primitives for building more complex interfaces. These are made available by the Skeleton Tailwind plugin.
+
+<NavGrid collection="tailwind" path="" classes="md:grid-cols-2" />
+
+---
 
 ## Components
 
-...
+An extensive library of components are avilable that provide turnkey support for Skeleton's design system. Including built in support for Skeleton's Tailwind utility classes, and the full theme system.
+
+### Supported Frameworks
+
+Skeleton provides turnkey components for the follow UI frameworks.
+
+| Framework | Skeleton NPM Package            | Description                                     |
+|-----------|---------------------------------|-------------------------------------------------|
+| React     | `@skeletonlabs/skeleton-react`  | Contains all features purpose-built for React.  |
+| Svelte    | `@skeletonlabs/skeleton-svelte` | Contains all features purpose-built for Svelte. |
+
+### Adding a Component
+
+Import the component you wish to use fom your framework package of choice.
+
+```ts
+import { Avatar } from '@skeletonlabs/skeleton-{framework}';
+```
+
+Implement the component into to your page.
+
+```ts
+<Avatar />
+```
+
+### Component Props
+
+Skeleton designates several common categories of props for each component.
+
+- **Functional Props** - directly affect the functionality of the component, such as an `open` or `active` boolean state.
+- **Style Props** - contain and accept Tailwind utility classes to affect the style, such as `background` for setting a background color.
+- **Event Props** - accept callback functions, such as `onclick`, `onkeypress`, and more.
+
+For our Avatar component we can set both `src` and `alt` components.
+
+```ts
+<Avatar src={someUrl} alt="janedoe" />
+```
+
+### Style Props
+
+Skeleton components are styled by default when using the Skeleton Tailwind Plugin in your project. However, if you wish to customize a component, we provide a number of style-focused properties that accept Tailwind utility classes to customize the look and feel. Style props fall into one of three categories:
+
+- `base` - provides the general structure and styling for the template element within the component.
+- `{property}` - take individual utility classes to customize the look, such as `background`, `padding`, or `margin`.
+- `classes` - allows you to pass an arbitrary set of utility classes to go beyond the defaults.
+
+Property styles are the most common. We use can a `background` style prop to affect the Avatar's background color:
+
+```ts
+<Avatar background="bg-red-500">Sk</Avatar>
+```
+
+We can use `classes` to extend and add new additional styles that don't exist by default.
+
+```ts
+<Avatar classes="border-4 border-green-500">Sk</Avatar>
+```
+
+Finally, we can use `base` to clear out the base styles for the component and implement our own. This will completely replace the default base styles for this component.
+
+```ts
+<Avatar base="overflow-visible">Sk</Avatar>
+```
+
+### Going Further
+
+If you need to reach deeper into the component template, consult the component documentation and API. Prefixed style classes are available to handle these scenarios, such as `imageBase` and `imageClasses`. This would affect only the Avatar's `<img>` tag and use Tailwind's `grayscale` class to force the image to image black and white.
+
+```ts
+<Avatar src={someUrl} imageClasses="grayscale" />
+```
