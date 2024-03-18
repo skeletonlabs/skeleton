@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Search } from 'lucide-react';
 import Lightswitch from '@components/docs/Lightswitch.astro';
 import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
 
@@ -18,24 +19,52 @@ const socialLinks = [
 ---
 
 <header class="w-full border-b border-surface-500/20 bg-surface-50-950 p-4 py-3 md:px-10">
-	<div class="container mx-auto flex max-w-screen-2xl justify-between items-center">
-		<a class="type-scale-3 flex gap-3" href="/" title="Skeleton">
-			<span><Icon name="skeleton" size={24} /></span>
-			<span class="font-bold font-mono">skeleton</span>
-		</a>
-		<nav class="type-scale-1 flex items-center gap-4">
-			<!-- Social -->
-			{
-				socialLinks.map((l) => (
-					<a href={l.href} target="_blank" title={l.label}>
-						<Icon name={l.icon} size={24} class="size-5" />
-					</a>
-				))
-			}
-			<!-- Lightswitch -->
-			<Lightswitch />
+	<div class="container max-w-screen-2xl mx-auto grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
+		<!-- Left -->
+		<div class="flex justify-start items-center gap-8">
+			<!-- Logo -->
+			<a
+				class="type-scale-3 flex gap-3 heading-font-color dark:heading-font-color-dark"
+				href="/"
+				title="Skeleton"
+			>
+				<Icon name="skeleton" size={24} />
+			</a>
+			<!-- Navigation -->
+			<a class="opacity-60 hover:underline" href="/docs/installation">Docs</a>
+			<!-- <a class="opacity-60 hover:underline" href="/blog">Blog</a> -->
+			<a class="opacity-60 hover:underline" href="https://themes.skeleton.dev/" target="_blank">Themes</a>
+		</div>
+		<!-- Middle -->
+		<div class="flex items-center gap-2">
 			<!-- Theme Switcher -->
 			<ThemeSwitch />
-		</nav>
+			<!-- Lightswitch -->
+			<Lightswitch />
+		</div>
+		<!-- Right -->
+		<div class="flex justify-end items-center gap-4">
+			<!-- Search -->
+			<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal" onclick="onSearch()">
+				<Search size={18} className="opacity-60" />
+				<span class="opacity-60">Search...</span>
+			</button>
+			<!-- Social -->
+			<nav class="type-scale-1 flex items-center">
+				{
+					socialLinks.map((l) => (
+						<a class="btn hover:preset-tonal" href={l.href} target="_blank" title={l.label}>
+							<Icon name={l.icon} size={24} class="size-5" />
+						</a>
+					))
+				}
+			</nav>
+		</div>
 	</div>
 </header>
+
+<script is:inline>
+	function onSearch() {
+		window.alert('Search coming soon.');
+	}
+</script>

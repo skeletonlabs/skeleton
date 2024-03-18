@@ -3,7 +3,7 @@ import type { Theme } from './index.js';
 const pine = {
 	name: 'pine',
 	properties: {
-		'--space-scale-factor': '1.25',
+		'--space-scale-factor': '1.0',
 		'--type-scale-factor': '1.0',
 		'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))',
 		'--type-scale-2': 'calc(0.875rem * var(--type-scale-factor))',
