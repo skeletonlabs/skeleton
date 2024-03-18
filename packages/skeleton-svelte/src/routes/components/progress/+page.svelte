@@ -48,11 +48,11 @@
 
 <h4 class="h4">rounded-sm</h4>
 
-<Progress {value} {min} {max} rounded="rounded-sm" indicatorRounded="rounded-sm" />
+<Progress {value} {min} {max} rounded="rounded-sm" meterRounded="rounded-sm" />
 
 <h4 class="h4">rounded-none</h4>
 
-<Progress {value} {min} {max} rounded="rounded-none" indicatorRounded="rounded-none" />
+<Progress {value} {min} {max} rounded="rounded-none" meterRounded="rounded-none" />
 
 <h3 class="h3">Colors</h3>
 
@@ -62,11 +62,11 @@
 
 <h4 class="h4">bg-secondary-500</h4>
 
-<Progress {value} {min} {max} indicatorClasses="bg-secondary-500" />
+<Progress {value} {min} {max} meterClasses="bg-secondary-500" />
 
 <h4 class="h4">bg-tertiary-500</h4>
 
-<Progress {value} {min} {max} indicatorClasses="bg-tertiary-500" />
+<Progress {value} {min} {max} meterClasses="bg-tertiary-500" />
 
 <h3 class="h3">Indeterminate</h3>
 
@@ -76,7 +76,7 @@
 
 <h4 class="h4">custom-indeterminate</h4>
 
-<Progress {min} {max} indicatorIndeterminateAnimation="custom-indeterminate" />
+<Progress {min} {max} meterIndeterminateAnim="custom-indeterminate" />
 
 <style lang="postcss">
 	:global(.custom-indeterminate) {

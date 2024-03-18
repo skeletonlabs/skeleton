@@ -1,30 +1,36 @@
 export interface ProgressProps {
 	/** Set the value */
 	value?: number;
-	/** Set the minimum value. */
+	/** Set the minimum value */
 	min?: number;
-	/** Set the maximum value. */
+	/** Set the maximum value */
 	max?: number;
+	/** Set the aria-labelledby */
+	ariaLabelledby?: string;
 
 	// Root ---
-	/** Provide base classes. */
+	/** Set root base classes */
 	base?: string;
-	/** Provide height classes. */
+	/** Set root background classes  */
+	bg?: string;
+	/** Set root height classes */
 	height?: string;
-	/** Provide rounded classes. */
+	/** Set root rounded classes */
 	rounded?: string;
-	/** Provide arbitrary classes. */
+	/** Set root arbitrary classes */
 	classes?: string;
 
-	// Indicator ---
-	/** Provide base classes. */
-	indicatorBase?: string;
-	/** Provide rounded classes. */
-	indicatorRounded?: string;
-	/** Provide transition classes. */
-	indicatorTransition?: string;
-	/** Provide indeterminate animation classes. */
-	indicatorIndeterminateAnimation?: string;
-	/** Provide arbitrary classes. */
-	indicatorClasses?: string;
+	// Meter ---
+	/** Set meter base classes. */
+	meterBase?: string;
+	/** Set meter bg classes */
+	meterBg?: string;
+	/** Set meter rounded classes. */
+	meterRounded?: string;
+	/** Set meter transition classes. */
+	meterTransition?: string;
+	/** Set meter indeterminate animation classes */
+	meterIndeterminateAnim?: string;
+	/** Set meter arbitrary classes. */
+	meterClasses?: string;
 }
