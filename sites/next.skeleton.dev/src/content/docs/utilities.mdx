@@ -2,13 +2,13 @@
 layout: '@layouts/LayoutDoc.astro'
 title: Utilities
 description: Skeleton operates as a superset of Tailwind, extending and adding powerful utility classes and styles.
-showDocsUrl: true
+showDocsUrl: false
 orderBy: 4
 ---
 
 export const components = componentSet;
 
-<p class="type-scale-5">The following features are provided by Skeleton's feature-rich [Tailwind Plugin](https://tailwindcss.com/docs/plugins). This dramatically extend the feature set of Tailwind, including: base styles, colors, typography, and more. Learn how to use each custom utility class or access theme CSS custom properties directly.</p>
+<p class="type-scale-5">The following features are provided by Skeleton's feature-rich [Tailwind Plugin](https://tailwindcss.com/docs/plugins). This dramatically extend the feature set of Tailwind to handle base styles, the color system, typography, and more. This lists all available Skeleton utility classes and the theme-specific CSS custom properties these maps to.</p>
 
 ---
 
@@ -16,9 +16,11 @@ export const components = componentSet;
 
 Provides a set of opinionated base styles to your document.
 
-<a href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/plugin/base/core.css" class="btn preset-outlined-surface-200-800">View Base Styles</a>
+<figure class="card-enhanced-gradient p-8 flex justify-center">
+	<a class="btn preset-filled" href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/plugin/base/core.css" target="_blank">View Base Styles &rarr;</a>
+</figure>
 
-These can be disabled in the Skeleton plugin settings.
+These can be disabled via Skeleton's plugin settings.
 
 ```ts title="tailwind.config"
 plugins: [
@@ -32,17 +34,21 @@ plugins: [
 
 ## Components
 
-Skeleton introduces a suite of powerful Tailwind component. See the [Tailwind](/tailwind/badges) section for more information.
+Skeleton introduces a suite of powerful Tailwind components.
+
+<figure class="card-enhanced-gradient p-8 flex justify-center">
+	<a href="/tailwind/badges" class="btn preset-filled">Browse Components &rarr;</a>
+</figure>
 
 ---
 
 ## Extends
 
-The following are considered extensions to the existing Tailwind capabilities.
+The following are considered extensions to Tailwind default capabilities.
 
 ### Colors
 
-Please refer to [Colors](/design/colors) for details.
+Extends the Skeleton palette to accept Skeleton's theme colors. Please refer to <a class="anchor" href="/design/colors">Colors</a> for more information.
 
 | Class                              | Theme Property                   |
 | ---------------------------------- | -------------------------------- |
@@ -66,7 +72,11 @@ Please refer to [Colors](/design/colors) for details.
 
 ### Spacing
 
-Please refer to [Spacing](/design/spacing) for details.
+Introduces a scalable spacing system to Tailwind.
+
+<figure class="card-enhanced-gradient p-8 flex justify-center">
+	<a href="/design/spacing" class="btn preset-filled">Browse Spacing &rarr;</a>
+</figure>
 
 ---
 
@@ -76,17 +86,29 @@ New and powerful utility classes provided by Skeleton.
 
 ### Color Pairings
 
-Please refer to [Color Pairings](/design/colors#pairings) for details.
+Introducing a pairing system to balance colors between light and dark mode.
+
+<figure class="card-enhanced-gradient p-8 flex justify-center">
+	<a href="/design/colors#pairings" class="btn preset-filled">Browse Color Pairings &rarr;</a>
+</figure>
 
 ### Presets
 
-Please refer to [Presets](/design/presets) for details.
+Provides a canned set of background and foreground styles for use with buttons, badges, cards, and more.
+
+<figure class="card-enhanced-gradient p-8 flex justify-center">
+	<a href="/design/presets" class="btn preset-filled">Browse Presets &rarr;</a>
+</figure>
 
 ### Typography
 
-Please refer to [Typography](/design/typography) for details. A typography scale is generated using the following formula.
+Please refer to [Typography](/design/typography) for more information.
 
-```css
+#### Type Scale
+
+Implements a typographic scale into Tailwind using the following formula.
+
+```plaintext
 calc({remSize} * var(--type-scale-factor))
 ```
 
@@ -106,6 +128,10 @@ calc({remSize} * var(--type-scale-factor))
 | `type-scale-12` | --type-scale-12 | 6rem | 96px |
 | `type-scale-13` | --type-scale-13 | 8rem | 128px |
 
+#### Base
+
+Controls the style of the default page text.
+
 | Class  | Theme Property  |
 | --- | --- |
 | `base-font-color` | --base-font-color |
@@ -117,6 +143,10 @@ calc({remSize} * var(--type-scale-factor))
 | `base-font-style` | --base-font-style |
 | `base-letter-spacing` | --base-letter-spacing |
 
+#### Heading
+
+Controls the style of the heading text.
+
 | Class  | Theme Property  |
 | --- | --- |
 | `heading-font-color` | --heading-font-color |
@@ -127,6 +157,10 @@ calc({remSize} * var(--type-scale-factor))
 | `heading-font-weight` | --heading-font-weight |
 | `heading-font-style` | --heading-font-style |
 | `heading-letter-spacing` | --heading-letter-spacing |
+
+#### Anchor
+
+Controls the style of of anchor links.
 
 | Class  | Theme Property  |
 | --- | --- |
