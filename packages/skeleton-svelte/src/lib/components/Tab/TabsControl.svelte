@@ -39,8 +39,8 @@
 		children
 	}: TabsControlProps = $props();
 
-	const rxSelected = $derived(group === name);
-	const rxActive = $derived(rxSelected ? active : inactive);
+	const selected = $derived(group === name);
+	const rxActive = $derived(selected ? active : inactive);
 
 	let elemInput: HTMLInputElement;
 
@@ -105,8 +105,8 @@
 <label class="{base} {text} {justify} {rxActive} {background} {padding} {rounded} {spacingY} {cursor} {classes}" {title}>
 	<li
 		aria-controls={controls}
-		tabindex={rxSelected ? 0 : -1}
-		aria-selected={rxSelected}
+		tabindex={selected ? 0 : -1}
+		aria-selected={selected}
 		data-testid="tabs-control"
 		role="tab"
 		class="{tabBase} {tabRounded} {tabOutline} {tabClasses}"
