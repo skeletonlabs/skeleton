@@ -3,7 +3,7 @@ layout: '@layouts/LayoutDoc.astro'
 title: Themes
 description: The Skeleton theme system.
 showDocsUrl: true
-orderBy: 6
+orderBy: 0
 ---
 
 export const components = componentSet;
@@ -11,22 +11,20 @@ export const components = componentSet;
 import ThemeEnhanced from '@examples/design/themes/ThemeEnhanced.astro';
 import ThemeEnhancedRaw from '@examples/design/themes/ThemeEnhanced.astro?raw';
 
-<p class="type-scale-5">Themes are the heart of the Skeleton design system. They are created using [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*), but authored as CSS-in-JS to enable simple integration into the Skeleton Tailwind plugin. Allowing you to quickly pre-register and swap between themes on demand.</p>
+<p class="type-scale-5">Themes are the heart of the Skeleton's design system, empowered by [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*), authored as CSS-in-JS to enable simple integration into Skeleton's Tailwind plugin. Which allows for simple pre-registration and switching on demand.</p>
 
 ---
 
 ## Preset Themes
 
-Skeleton comes with a selection of high quality themes out of the box.
+Skeleton comes with a selection of high quality preset themes out of the box.
 
 - `cerberus`
 - `catppuccin`
 - `pine`
 - `rose`
 
-> TIP: Use the theme switcher on this documentation website to preview each theme.
-
-To use preset themes, add the following import to the top of your `tailwind.config`, then refer to Register and Active below.
+Add the following import to the top of your `tailwind.config`, then continue to the register instructions below.
 
 ```ts title="tailwind.config"
 import * as themes from "@skeletonlabs/skeleton/themes";
@@ -34,7 +32,7 @@ import * as themes from "@skeletonlabs/skeleton/themes";
 
 ## Custom Themes
 
-Optionally you can choose to generate a custom theme to match the unique branding and design required for your application. Skeleton provides a robust theme generator to simplify this process.
+Optionally you can choose to generate a custom theme to adapt to your app's unique design aesthetic. Skeleton provides a powerful but easy to use theme generator to make to enable this.
 
 <figure class="card-enhanced-gradient p-8 flex justify-center">
 	<a href="https://themes.skeleton.dev/" target="_blank" class="btn preset-filled">Theme Generator &rarr;</a>
@@ -44,19 +42,17 @@ Optionally you can choose to generate a custom theme to match the unique brandin
 3. Tap the "code" view from the menu options at the top of the site.
 4. Provide a unique name for your theme.
 5. Copy the contents of the generated theme in full.
-6. Create a new file in the root of your project called `theme-custom.ts` (this is up to you).
+6. Create a new file in the root of your project called `theme-custom.ts` (any name is fine).
 
-You may import your custom theme(s) at the top of your project's `tailwind.config`, then refer to Register and Active below.
+You may import one or more themes at the top of your project's `tailwind.config`, then review the register instructions below.
 
 ```ts title="tailwind.config"
 import { yourThemeNameHere } from './theme-custom.ts'
 ```
 
-## Register and Activate
+## Register Themes
 
-Make sure you followed the import instructions above, then register all themes within the Skeleton Tailwind Plugin found within your project's `tailwind.config`.
-
-> TIP: There's no limited to how many themes you can enable, but each increases the size of your final CSS bundle.
+Once all themes are imported, you can register your theme in the Skeleton plugin settings in `tailwind.config`.
 
 ```ts title="tailwind.config" {6-8, 10}
 plugins: [
@@ -74,19 +70,21 @@ plugins: [
 ]
 ```
 
-Finally, you can set the current active theme using the `data-theme` attribute on `<body>` tag. If this doesn't exist, add it.
+> TIP: There's no limited to how many themes you can register, but each increases the size of your Tailwind-generated CSS bundle.
+
+## Activate a Theme
+
+Finally, set the active theme to display using the `data-theme` attribute on your `<body>` element.
 
 ```html
 <body data-theme="cerberus">...</body>
 ```
 
-To switch themes, use the tools provided by your framework to modify the data attribute and apply a registered theme's name.
-
 ---
 
 ## Customizing Presets
 
-You may update the CSS Custom Properties provided by Skeleton's preset themes. Use the following syntax and apply these styles changes to your global stylesheet. This will target the root scope, a specific theme, and each theme property you wish to adjust.
+You may update the CSS Custom Properties provided by Skeleton's preset themes. Use the following syntax and apply these styles changes to your project's global stylesheet. This will target the root scope, a specific theme, then set the property value.
 
 ```ts title="app.pcss"
 :root [data-theme='cerberus'] {
@@ -97,7 +95,7 @@ You may update the CSS Custom Properties provided by Skeleton's preset themes. U
 
 ## Enhancing Themes
 
-While themes act as the foundation of your application's style, they should not be seen as the only option for customizing your application. By combining Skeleton and Tailwind elements into grouped new utility classes, you can create complex styles.
+While themes act as the foundation of your application's style, they should not be seen as the only option for customizing your application. By combining Skeleton and Tailwind elements into grouped utility classes, you can produce theme-specific styles.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -112,10 +110,10 @@ Please note that [Tailwind discourages early abstraction](https://tailwindcss.co
 
 ## Custom Fonts
 
-> COMING SOON: we'll provide a Cookbook article on this subject as instruction may vary per meta-framework.
+> COMING SOON
 
 ---
 
 ## API Reference
 
-> COMING SOON: please refer to the preset [Cerberus theme](https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/plugin/themes/cerberus.ts), which contains inline documentation.
+For more information, please refer to the full [Tailwind Plugin documentation](/docs/plugin).

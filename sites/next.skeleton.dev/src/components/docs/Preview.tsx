@@ -11,7 +11,8 @@ export const Preview: React.FC<any> = (props) => {
 	}
 
 	return (
-		<div className="space-y-4">
+		// TODO: fix this top margin due to generate script tags
+		<div className="space-y-4 mt-4">
 			{/* Tabs */}
 			<nav className="flex gap-4 border-b-[1px] border-surface-200-800">
 				<button className={`${cTab} ${selectedClass('preview')}`} onClick={() => setSelected('preview')}>

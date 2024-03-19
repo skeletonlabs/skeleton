@@ -3,15 +3,15 @@ layout: '@layouts/LayoutDoc.astro'
 title: Iconography
 description: Learn more about iconography in Skeleton.
 showDocsUrl: true
-orderBy: 4
+orderBy: 5
 ---
 
 import { Triangle, Heart, UserRound } from 'lucide-react';
 
 export const components = componentSet;
 
-<p class="type-scale-5">Skeleton is <u>icon library agnostic</u>. This means Skeleton supports any combination of SVGs, emoji,
-	unicode, or dedicated icon libraries. The choice is yours.</p>
+<p class="type-scale-5">Skeleton is icon agnostic, meaning you can implement any combination of SVGs, emoji,
+	unicode, or any dedicated icon library. You can also mix and match to fulfill your project's unique requirements.</p>
 
 ---
 
@@ -26,7 +26,7 @@ export const components = componentSet;
 </figure>
 
 
-For Skeleton's apps and sites, we opt for [Lucide](https://lucide.dev/). This provides a huge selection of icons, is avilable to all frameworks, and features a clean and modern style. Our code examples feature Lucide, but if you do not prefer this, simply replace with any alternative.
+If you're looking for an opnionated option, we recommend [Lucide](https://lucide.dev/). This provides a huge selection of icons that are available to all frameworks and feature a clean and modern design style. All code examples on this site implement Lucide, but feel free to replace these icons with any alternative.
 
 ### Lucide React
 
@@ -46,8 +46,6 @@ export default App;
 
 [Install Lucide for Svelte](https://lucide.dev/guide/packages/lucide-svelte)
 
-> TIP: For optimal performance, we recommend importing each icon using the full path.
-
 ```svelte
 <script>
     import AlertCircle from 'lucide-svelte/icons/alert-circle';
@@ -55,6 +53,9 @@ export default App;
 
 <AlertCircle color="#ff3e98" />
 ```
+
+> TIP: For optimal performance, we recommend importing each icon using the full path.
+
 
 ---
 
