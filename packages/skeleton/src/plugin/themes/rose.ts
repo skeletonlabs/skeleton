@@ -20,7 +20,7 @@ const rose = {
 		'--type-scale-13': 'calc(8rem * var(--type-scale-factor))',
 		'--base-font-color': 'var(--color-surface-950)',
 		'--base-font-color-dark': 'var(--color-surface-50)',
-		'--base-font-family': 'system-ui, sans-serif',
+		'--base-font-family': 'Seravek, Gill Sans Nova, Ubuntu, Calibri, DejaVu Sans, source-sans-pro, sans-serif',
 		'--base-font-size': 'inherit',
 		'--base-line-height': 'inherit',
 		'--base-font-weight': 'normal',

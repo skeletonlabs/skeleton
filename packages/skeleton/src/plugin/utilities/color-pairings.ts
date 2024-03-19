@@ -13,6 +13,7 @@ ex: {property}-primary-50-950 | {property}-primary-950-50
 * outline - https://tailwindcss.com/docs/outline-color
 * caret - https://tailwindcss.com/docs/caret-color
 * stroke - https://tailwindcss.com/docs/stroke
+* fill - https://tailwindcss.com/docs/fill
 */
 
 import { settings, type TailwindClasses } from '../settings.js';
@@ -33,7 +34,8 @@ export const utilColorPairings = () => {
 		'divide',
 		'outline',
 		'caret',
-		'stroke'
+		'stroke',
+		'fill'
 	];
 	const classes: TailwindClasses = {};
 	// Loop each color name

@@ -66,10 +66,13 @@
 	@apply !mb-2;
 }
 .select option,
-.input-group select option {
+.input-group option {
+	@apply p-2 rounded cursor-pointer;
+}
+.select:not([size]):not([multiple]) option,
+.input-group option {
 	@apply bg-surface-50 dark:bg-surface-950;
 	@apply text-surface-950 dark:text-surface-50;
-	@apply p-2 rounded cursor-pointer;
 }
 .select option:checked {
 	/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
