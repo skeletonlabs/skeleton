@@ -1,0 +1,27 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Dark Mode
+description: Learn how to use Tailwind's dark mode feature.
+order: 40
+---
+
+export const components = componentSet;
+
+## Fundamentals
+
+Skeleton supports [Tailwind's dark mode](https://tailwindcss.com/docs/dark-mode) feature. This is available using either strategy below.
+
+-   `selector` - add or remove a `.dark` class to your document's `<html>` element to determine light or dark mode.
+-   `media` - uses the [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS media feature to determine light or dark mode.
+
+## Styling Elements
+
+Elements are styled using a combination of a base style (for light mode) as well as a `dark:` variant (for dark mode).
+
+```html
+<div class="bg-white dark:bg-black">...</div>
+```
+
+## Frameworks
+
+> TODO: Specific instruction will vary per framework. Check back soon for this information.
