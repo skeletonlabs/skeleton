@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, type FC } from "react";
+
 import { ProgressProps } from "./types";
 
-export default function Progress({
+export const Progress: FC<ProgressProps> = ({
 	value,
-	min = 0,
 	max = 100,
 	ariaLabelledby = "",
 	// Root
@@ -19,17 +19,19 @@ export default function Progress({
 	meterTransition = "transition-[width]",
 	meterIndeterminateAnim = "indeterminate",
 	meterClasses = "",
-}: ProgressProps) {
+}) => {
 	useEffect(() => {
-		if (min > max) {
-			console.error(
-				`The minimum value: "${min}" is greater than the maximum value: "${max}"`,
+		if (max < 0) {
+			console.warn(
+				"The max prop should be greater than or equal to 0",
 			);
 		}
-	}, [min, max]);
+	});
 
 	const indeterminate = value === undefined;
-	const fillPercentage = indeterminate ? 50 : ((value! - min) / (max - min)) * 100;
+	const fillPercentage = indeterminate
+		? 50
+		: ((value! - 0) / (max - 0)) * 100;
 	const width = `${fillPercentage}%`;
 
 	const rxIndeterminate = indeterminate ? meterIndeterminateAnim : "";
@@ -40,7 +42,7 @@ export default function Progress({
 				role="progressbar"
 				aria-labelledby={ariaLabelledby}
 				aria-valuenow={value}
-				aria-valuemin={min}
+				aria-valuemin={0}
 				aria-valuemax={max}
 				className={`${base} ${bg} ${height} ${rounded} ${classes}`}
 			>
@@ -65,4 +67,4 @@ export default function Progress({
             `}</style>
 		</>
 	);
-}
+};

@@ -3,7 +3,6 @@
 
 	let {
 		value,
-		min = 0,
 		max = 100,
 		ariaLabelledby = '',
 		// Root
@@ -22,13 +21,13 @@
 	}: ProgressProps = $props();
 
 	$effect(() => {
-		if (min > max) {
-			console.error(`The minimum value: "${min}" is greater than the maximum value: "${max}"`);
+		if (max < 0) {
+			console.warn('The max prop should be greater than or equal to 0');
 		}
 	});
 
 	const indeterminate = $derived(value === undefined);
-	const fillPercentage = $derived(indeterminate ? 50 : ((value! - min) / (max - min)) * 100);
+	const fillPercentage = $derived(indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100);
 	const width = $derived(`${fillPercentage}%`);
 
 	const rxIndeterminate = $derived(indeterminate ? meterIndeterminateAnim : '');
@@ -38,7 +37,7 @@
 	role="progressbar"
 	aria-labelledby={ariaLabelledby}
 	aria-valuenow={value}
-	aria-valuemin={min}
+	aria-valuemin={0}
 	aria-valuemax={max}
 	class="{base} {bg} {height} {rounded} {classes}"
 >

@@ -1,8 +1,6 @@
 export interface ProgressProps {
 	/** Set the value */
 	value?: number;
-	/** Set the minimum value */
-	min?: number;
 	/** Set the maximum value */
 	max?: number;
 	/** Set the aria-labelledby */
