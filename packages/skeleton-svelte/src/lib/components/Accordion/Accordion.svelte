@@ -18,7 +18,7 @@
 		children,
 		iconOpen,
 		iconClosed
-	} = $props<AccordionProps>();
+	}: AccordionProps = $props();
 
 	// Context
 	setContext('selected', new State<string[]>([]));
