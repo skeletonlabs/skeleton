@@ -21,5 +21,17 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: "./tests/setup.js",
+    exclude: [
+      "**/node_modules/**",
+      "**/tests/**",
+      "**/build/**",
+      "**/coverage/**",
+      "**/src/lib/icons/**",
+      "**/.eslintrc.cjs",
+      "**/vite.config.ts",
+      "**/tailwind.config.ts",
+      "**/postcss.config.cjs",
+      "**/playwright.config.ts",
+    ],
   },
 });
