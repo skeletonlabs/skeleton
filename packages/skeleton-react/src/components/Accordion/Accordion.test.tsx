@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import { render, waitFor } from "@testing-library/react";
 
 import { Accordion, AccordionContext } from "./Accordion";
-import { beforeEach } from "node:test";
 
 // Accordion ---
 
@@ -132,8 +131,6 @@ describe("<Accordion.Panel>", () => {
     allowMultiple: false,
     setAllowMultiple: () => {},
   };
-
-  beforeEach(() => {});
 
   it("should render the component", () => {
     const component = render(<Accordion.Panel id="testPanel" />);
