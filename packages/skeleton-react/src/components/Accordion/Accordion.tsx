@@ -22,7 +22,7 @@ export function reactCompose<
 
 // Context ---
 
-const AccordionContext = createContext<AccordionContextState>({
+export const AccordionContext = createContext<AccordionContextState>({
   selected: [],
   setSelected: () => {},
   allowMultiple: false,

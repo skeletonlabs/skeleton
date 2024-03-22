@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { render } from "@testing-library/react";
-import { Accordion } from "./Accordion";
+import { render, waitFor } from "@testing-library/react";
+
+import { Accordion, AccordionContext } from "./Accordion";
+import { beforeEach } from "node:test";
 
 // Accordion ---
 
@@ -79,6 +81,27 @@ describe("<Accordion.Control>", () => {
     expect(getByTestId("accordion-control").innerHTML).toContain(value);
   });
 
+  // FIXME: fails because Context state is not refleted in DOM
+  // it("aria-expaned should be `true` when `open` prop `true`", async () => {
+  //   const { getByTestId } = render(
+  //     <Accordion.Control controls="testControl" open />
+  //   );
+  //   await waitFor(() => {
+  //     const element = getByTestId("accordion-control");
+  //     expect(element.getAttribute("aria-expanded")).toBe("true");
+  //   });
+  // });
+
+  it("should be set disabled by `disabled` prop", async () => {
+    const { getByTestId } = render(
+      <Accordion.Control controls="testControl" disabled />
+    );
+    await waitFor(() => {
+      const element = getByTestId("accordion-control");
+      expect(element.getAttribute("disabled")).toBe("");
+    });
+  });
+
   it("should allow you to set the `base` style prop", () => {
     const tailwindClasses = "bg-red-500";
     const { getByTestId } = render(
@@ -103,34 +126,57 @@ describe("<Accordion.Control>", () => {
 // Accordion.Panel ---
 
 describe("<Accordion.Panel>", () => {
+  const mockProvidervalues = {
+    selected: ["testPanel"],
+    setSelected: () => {},
+    allowMultiple: false,
+    setAllowMultiple: () => {},
+  };
+
+  beforeEach(() => {});
+
   it("should render the component", () => {
     const component = render(<Accordion.Panel id="testPanel" />);
     expect(component).toBeTruthy();
   });
 
-  // TODO: the following tests depend on useContext()
+  it("should set `aria-labeledby` to `id` value", async () => {
+    const id = "testPanelId";
+    const { getByTestId } = render(<Accordion.Panel id={id} />);
+    const element = getByTestId("accordion-panel");
+    expect(element.getAttribute("aria-labelledby")).toBe(id);
+  });
 
-  // it("should allow for children", () => {
-  //   const value = "foobar";
-  //   const { getByTestId } = render(
-  //     <Accordion.Panel id="testPanel">{value}</Accordion.Panel>
-  //   );
-  //   expect(getByTestId("accordion-panel").innerHTML).toContain(value);
-  // });
+  it("should allow for children", () => {
+    const value = "foobar";
+    const { getByTestId } = render(
+      <AccordionContext.Provider value={mockProvidervalues}>
+        <Accordion.Panel id="testPanel">{value}</Accordion.Panel>
+      </AccordionContext.Provider>
+    );
+    const query = getByTestId("accordion-panel").children[0].innerHTML;
+    expect(query).toContain(value);
+  });
 
-  //   it("should allow you to set the `base` style prop", () => {
-  //     const tailwindClasses = "bg-red-500";
-  //     const { getByTestId } = render(
-  //       <Accordion.Panel id="testPanel" base={tailwindClasses} />
-  //     );
-  //     expect(getByTestId("accordion-panel").classList).toContain(tailwindClasses);
-  //   });
+  it("should allow you to set the `base` style prop", () => {
+    const tailwindClasses = "bg-red-500";
+    const { getByTestId } = render(
+      <AccordionContext.Provider value={mockProvidervalues}>
+        <Accordion.Panel id="testPanel" base={tailwindClasses} />
+      </AccordionContext.Provider>
+    );
+    const query = getByTestId("accordion-panel").children[0].classList;
+    expect(query).toContain(tailwindClasses);
+  });
 
-  //   it("should allow you to set the `classes` style prop", () => {
-  //     const tailwindClasses = "bg-green-500";
-  //     const { getByTestId } = render(
-  //       <Accordion.Panel id="testPanel" classes={tailwindClasses} />
-  //     );
-  //     expect(getByTestId("accordion-panel").classList).toContain(tailwindClasses);
-  //   });
+  it("should allow you to set the `classes` style prop", () => {
+    const tailwindClasses = "bg-green-500";
+    const { getByTestId } = render(
+      <AccordionContext.Provider value={mockProvidervalues}>
+        <Accordion.Panel id="testPanel" classes={tailwindClasses} />
+      </AccordionContext.Provider>
+    );
+    const query = getByTestId("accordion-panel").children[0].classList;
+    expect(query).toContain(tailwindClasses);
+  });
 });
