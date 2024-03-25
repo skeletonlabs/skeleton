@@ -5,9 +5,6 @@
     import Calendar from 'lucide-svelte/icons/calendar';
     import CircleUser from 'lucide-svelte/icons/circle-user';
     import Menu from 'lucide-svelte/icons/menu';
-
-    // FIXME: required for Astro bug
-    let {} = $props<any>()
 </script>
 
 <AppBar headlineClasses="sm:hidden" centerClasses="hidden sm:block">
