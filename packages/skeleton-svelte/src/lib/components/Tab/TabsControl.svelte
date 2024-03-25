@@ -9,17 +9,17 @@
 		// A11y
 		controls = '',
 		// Root
-		base = getContext<string>('base'),
-		text = getContext<string>('text'),
-		justify = getContext<string>('justify'),
-		active = getContext<string>('active'),
-		inactive = getContext<string>('inactive'),
-		background = getContext<string>('background'),
-		padding = getContext<string>('padding'),
-		rounded = getContext<string>('rounded'),
-		spacingY = getContext<string>('spacingY'),
-		cursor = getContext<string>('cursor'),
-		classes = getContext<string>('classes'),
+		base = 'flex',
+		text = 'hover:text-primary-600-400',
+		justify = 'justify-center',
+		active = 'border-b-2 border-surface-950-50 text-surface-950-50',
+		inactive = 'text-surface-600-400 fill-surface-600-400',
+		background = '',
+		padding = 'px-4 py-2',
+		rounded = '',
+		spacingY = 'space-y-1',
+		cursor = 'cursor-pointer',
+		classes = '',
 		// Tab
 		tabBase = '',
 		tabRounded = 'rounded-container',
@@ -30,11 +30,11 @@
 		contentSpaceX = 'space-x-1',
 		contentClasses = '',
 		// Events
-		onclick = getContext<(event: MouseEvent) => {}>('onclick'),
-		onkeypress = getContext<(event: KeyboardEvent) => {}>('onkeypress'),
-		onkeydown = getContext<(event: KeyboardEvent) => {}>('onkeydown'),
-		onkeyup = getContext<(event: KeyboardEvent) => {}>('onkeyup'),
-		onchange = getContext<(group: string) => {}>('onchange'),
+		onclick = () => {},
+		onkeypress = () => {},
+		onkeydown = () => {},
+		onkeyup = () => {},
+		onchange = () => {},
 		// Snippets
 		children
 	}: TabsControlProps = $props();

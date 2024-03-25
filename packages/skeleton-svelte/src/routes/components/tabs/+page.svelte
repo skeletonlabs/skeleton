@@ -5,18 +5,14 @@
 </script>
 
 <h1 class="h1">Tabs</h1>
-<Tabs
-	onclick={() => console.log('onclick for all tabs.')}
-	onkeypress={() => console.log('onkeypress for all tabs.')}
-	onchange={(group) => console.log('onchange for all tabs, group:', group)}
->
+<Tabs>
 	{#snippet list()}
 		<Tabs.Control
 			bind:group
 			name="flight"
-			onclick={() => console.log('onclick only flight tab.')}
-			onkeypress={() => console.log('onkeypress only flight tab.')}
-			onchange={(group) => console.log('onchange only flight tab, group:', group)}>Flight</Tabs.Control
+			onclick={() => console.log('onclick')}
+			onkeypress={() => console.log('onkeypress')}
+			onchange={(group) => console.log('onchange, group:', group)}>Flight</Tabs.Control
 		>
 		<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>
 		<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
@@ -133,11 +129,11 @@
 </Tabs>
 
 <h3 class="h3">Stretched</h3>
-<Tabs controlsClasses="w-full">
+<Tabs base="w-full">
 	{#snippet list()}
-		<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
-		<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>
-		<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
+		<Tabs.Control bind:group name="flight" classes="w-full">Flight</Tabs.Control>
+		<Tabs.Control bind:group name="hotel" classes="w-full">Hotel</Tabs.Control>
+		<Tabs.Control bind:group name="explore" classes="w-full">Explore</Tabs.Control>
 	{/snippet}
 	{#snippet panel()}
 		<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
@@ -147,7 +143,7 @@
 </Tabs>
 
 <h3 class="h3">Justify center</h3>
-<Tabs listJustify="justify-center">
+<Tabs base="w-full" listJustify="justify-center">
 	{#snippet list()}
 		<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
 		<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>
@@ -161,7 +157,7 @@
 </Tabs>
 
 <h3 class="h3">Justify End</h3>
-<Tabs listJustify="justify-end">
+<Tabs base="w-full" listJustify="justify-end">
 	{#snippet list()}
 		<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
 		<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>

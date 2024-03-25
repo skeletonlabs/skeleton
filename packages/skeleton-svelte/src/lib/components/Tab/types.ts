@@ -35,42 +35,6 @@ export interface TabsProps {
 	/** Provide arbitrary CSS classes to the tab panel snippet. */
 	panelClasses?: string;
 
-	// Tab Controls ---
-	/** Sets the children controls base styles. */
-	controlsBase?: string;
-	/** Sets the children controls text styles. */
-	controlsText?: string;
-	/** Sets the children controls Justification styles. */
-	controlsJustify?: string;
-	/** Sets the children controls active styles. */
-	controlsActive?: string;
-	/** Sets the children controls inactive styles. */
-	controlsInactive?: string;
-	/** Sets the children controls background styles. */
-	controlsBackground?: string;
-	/** Sets the children controls padding styles. */
-	controlsPadding?: string;
-	/** Sets the children controls rounded styles. */
-	controlsRounded?: string;
-	/** Sets the children controls vertical spacing styles. */
-	controlsSpacingY?: string;
-	/** Sets the children controls cursor styles. */
-	controlsCursor?: string;
-	/** Provide arbitrary CSS classes to the children controls. */
-	controlsClasses?: string;
-
-	// Events ---
-	/** Triggers on Tab Control click. */
-	onclick?: (event: MouseEvent) => void;
-	/** Triggers on Tab Control key press. */
-	onkeypress?: (event: KeyboardEvent) => void;
-	/** Triggers on Tab Control key down. */
-	onkeydown?: (event: KeyboardEvent) => void;
-	/** Triggers on Tab Control key up. */
-	onkeyup?: (event: KeyboardEvent) => void;
-	/** Triggers on Tab Control group change. */
-	onchange?: (group: string) => void;
-
 	// Snippets ---
 	/** The tab list slot. */
 	list?: Snippet;

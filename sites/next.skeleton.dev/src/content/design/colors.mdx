@@ -445,21 +445,21 @@ Available to all supported properties and colors via `.{property}-{color}-{shade
 ```
 
 <div class="grid grid-cols-2 lg:grid-cols-7">
-    {palette.map(color => (
-        <div class="text-center space-y-4">
-            <small class="opacity-60">{color.name}</small>
-            <div class="grid grid-rows-11">
-                {/* Loop Ramp */}
-                {color.ramp.map(shade => (
-                    <div class={`${shade.base} py-2 flex justify-center items-center`}>
-                        <strong class:list={[ shade.contrast, { underline: shade.value === 500 }, 'text-sm' ]} >
-                            {shade.value}
-                        </strong>
-                    </div>
-                ))}
-            </div>
-        </div>
-    ))}
+	{palette.map((color) => (
+		<div class="text-center space-y-4">
+			<small class="opacity-60">{color.name}</small>
+			<div class="grid grid-rows-11">
+				{/* Loop Ramp */}
+				{color.ramp.map((shade) => (
+					<div class={`${shade.base} py-2 flex justify-center items-center`}>
+						<strong class:list={[shade.contrast, { underline: shade.value === 500 }, 'text-sm']}>
+							{shade.value}
+						</strong>
+					</div>
+				))}
+			</div>
+		</div>
+	))}
 </div>
 
 ## Pairings
@@ -473,9 +473,13 @@ Available to all supported properties and colors via `.{property}-{color}-{base}
 ```
 
 <div class="grid grid-cols-6 grid-rows-2 space-x-2">
-    <div class="row-span-3 bg-primary-500 py-2 flex justify-center items-center">
-        <strong class="text-primary-contrast-500 text-sm text-center">500<br />Default</strong>
-    </div>
+	<div class="row-span-3 bg-primary-500 py-2 flex justify-center items-center">
+		<strong class="text-primary-contrast-500 text-sm text-center">
+			500
+			<br />
+			Default
+		</strong>
+	</div>
 	<div class="col-span-5 grid grid-cols-5 gap-2">
 		<div class="bg-primary-400 py-2 flex justify-center items-center">
 			<strong class="text-primary-contrast-400 text-sm">400</strong>
@@ -512,8 +516,8 @@ Available to all supported properties and colors via `.{property}-{color}-{base}
 	</div>
 </div>
 
-
 {/* Live Preview */}
+
 <div class="grid grid-cols-11 grid-rows-2 gap-2">
 	{/* --- */}
 	<div class="bg-surface-500/5 col-span-5 flex justify-center items-center">Forward</div>

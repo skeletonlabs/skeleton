@@ -7,57 +7,22 @@
 		listLabelledBy = '',
 		panelLabelledBy = '',
 		// Root
-		base = '',
+		base = 'w-fit',
 		spaceY = 'space-y-4',
 		classes = '',
 		// Tab list
 		listBase = 'flex overflow-x-auto hide-scrollbar',
 		listSpaceX = 'space-x-4',
 		listJustify = 'justify-start',
-		listBorder = 'border-b border-surface-50-950',
+		listBorder = 'border-b border-surface-100-900',
 		listClasses = '',
 		// Tab panel
 		panelBase = '',
 		panelClasses = '',
-		// Tab Controls
-		controlsBase = 'flex',
-		controlsText = 'hover:text-primary-600-400',
-		controlsJustify = 'justify-center',
-		controlsActive = 'border-b-2 border-surface-950-50 text-surface-950-50',
-		controlsInactive = 'text-surface-600-400 fill-surface-600-400',
-		controlsBackground = '',
-		controlsPadding = 'px-4 py-2',
-		controlsRounded = '',
-		controlsSpacingY = 'space-y-1',
-		controlsCursor = 'cursor-pointer',
-		controlsClasses = '',
-		// Events
-		onclick = () => {},
-		onkeypress = () => {},
-		onkeydown = () => {},
-		onkeyup = () => {},
-		onchange = () => {},
 		// Snippets
 		list,
 		panel
 	}: TabsProps = $props();
-
-	setContext('base', controlsBase);
-	setContext('text', controlsText);
-	setContext('justify', controlsJustify);
-	setContext('active', controlsActive);
-	setContext('inactive', controlsInactive);
-	setContext('background', controlsBackground);
-	setContext('padding', controlsPadding);
-	setContext('rounded', controlsRounded);
-	setContext('spacingY', controlsSpacingY);
-	setContext('cursor', controlsCursor);
-	setContext('classes', controlsClasses);
-	setContext('onclick', onclick);
-	setContext('onkeypress', onkeypress);
-	setContext('onkeydown', onkeydown);
-	setContext('onkeyup', onkeyup);
-	setContext('onchange', onchange);
 
 	let panelElem: HTMLDivElement | undefined = $state(undefined);
 	let panelTabIndex = $state(0);
