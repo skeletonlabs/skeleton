@@ -304,7 +304,11 @@ function myCustomFilter(): AutocompleteOption<string>[] {
 
 		<section class="space-y-4">
 			<h2 class="h2">Popup</h2>
-			<p>We've provide a demo of using Autocomplete alongside a Skeleton popup utility below.</p>
+			<p>
+				We've provide a demo of using Autocomplete alongside a Skeleton popup utility below. See <a href="/utilities/popups" class="anchor"
+					>Popups</a
+				> for more details.
+			</p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-full max-w-sm space-y-2">
