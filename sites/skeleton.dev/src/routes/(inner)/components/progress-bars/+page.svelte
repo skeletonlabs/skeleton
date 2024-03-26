@@ -41,13 +41,13 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<ProgressBar label="Progress Bar" bind:value={props.value} max={props.max} />
+				<ProgressBar bind:value={props.value} max={props.max} />
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
 				<div class="w-48 mx-auto"><input type="range" min="0" bind:value={props.value} max={props.max} step={props.step} /></div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={${props.value}} max={${props.max}} />`} />
+				<CodeBlock language="html" code={`<ProgressBar value={${props.value}} max={${props.max}} />`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
