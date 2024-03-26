@@ -10,7 +10,7 @@ const collectionItems = await getCollection(collection, (item: any) => {
 
 // Sort Order
 const sortByOrder = (a: any, b: any) => {
-	return a.data.orderBy - b.data.orderBy;
+	return a.data.order - b.data.order;
 };
 ---
 

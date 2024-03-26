@@ -1,0 +1,284 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Components
+description: Guidelines for contributing Skeleton components.
+order: 10
+---
+
+export const components = componentSet;
+
+## Packages
+
+Framework packages are found within the Skeleton monorepo in the following locations.
+
+| Package                     | Framework                       | App Framework                        |
+| --------------------------- | ------------------------------- | ------------------------------------ |
+| `/packages/skeleton-svelte` | [Svelte 5](https://svelte.dev/) | [SvelteKit](https://kit.svelte.dev/) |
+| `/packages/skeleton-react`  | [React](https://react.dev/)     | [Vite/React](https://vitejs.dev/)    |
+
+The purpose of our component packages is two-fold. First, they house and export the full set of components available to that framework. Additionally, each project contains a dedicated app framework. This is used to test the components in their native environment. Use these projects as a sandbox to test and iterate before adding the components to the public facing Astro-base documentation website.
+
+### Dev Server
+
+To run each app framework, change your directory to the respective package and run the following command.
+
+```shell
+cd packages/skeleton-svelte
+pnpm run dev
+```
+
+### Server Ports
+
+The following represents the _default_ localhost address and port for each project. This will be displayed in the terminal when starting each dev server.
+
+-   Documentation Site: `http://localhost:4321/`
+-   Svelte Package App: `http://localhost:5173/`
+-   React Package App: `http://localhost:5173/`
+
+You may run the documentation site and framework packages in parallel at the same time. If the server shares a port, this will increment by one for the next server (ex: `5174`, `5175`, etc). Keep your eye on the terminal to retrieve the specific local address.
+
+## Add Components
+
+Components are housed in the following location per framework:
+
+| Framework | Directory             |
+| --------- | --------------------- |
+| Svelte    | `/src/lib/components` |
+| React     | `/src/components`     |
+
+Use the following file path conventions when creating a new component:
+
+```
+/components
+    /ComponentName
+        ComponentName.{svelte|tsx|...}
+        types.ts
+```
+
+---
+
+## Props
+
+Skeleton designates the following categories of component properties. These should be maintained in the following order.
+
+```ts
+let {
+	// Functional
+	open: false,
+	// Style
+	base: '...',
+	bg: '...',
+	classes: '...',
+	// Event
+	onclick: () => {},
+	// Children
+	snippetExample
+	children
+} = $props<ExampleProps>();
+```
+
+-   **Functional** - these should be single instance props that directly affect the functionality of the component.
+-   **Style** - contain and accept Tailwind utility classes to affect the style of the component.
+-   **Event** - provide callback functions for external event handlers.
+-   **Children** - contain reference to React children, Svelte Snippets, or similar.
+
+### Style Prop Conventions
+
+Style props implement sementic naming conventions to enable specificity and avoid naming conflicts. These are organized into three specific categories. Each should be maintained in the following order.
+
+-   `base` - houses the base utility classes, which enables faux-headless styling.
+    -   Replaces: `cBase` class definitions from Skeleton v2.
+    -   Parent base props are not prefixed, which helps maintain parity cross-framework
+    -   Child base props are prefixed: `titleBase`, `panelBase`, `controlBase`.
+-   `{property}` - individual style props that houses one or more “swappable” utility classes.
+    -   Naming should follow Tailwind convention, except for single letter descriptors (ex: use `padding` instead of `p`).
+    -   Parent props are not prefixed: `background`, `margin`, `border`.
+    -   Child props are prefixed: `titleBg`, `controlMargin`, `panelBorder`.
+-   `classes` - allows you to extend or override the class list with an arbitrary set of utility classes.
+    -   Replaces the inconsistent use of `slotX` and `regionX` classes in Skeleton v2.
+    -   Uses `classes` (plural) to avoid conflict with the standard `class` attribute.
+        -   Parent instances are not prefixed: `classes`
+        -   Child instances are prefixed: `titleClasses`, `controlClasses`, `panelClasses`
+
+Here's what this might look like in practice.
+
+```ts
+let {
+	// Parent
+	base: '...',
+	bg: '...',
+	classes: '...',
+	// Child
+	controlBase: '...',
+	controlBg: '...',
+	controlClasses: '...',
+	// Child (or Grandchild)
+	panelBase: '...',
+	panelBg: '...',
+	panelPadding: '...',
+	panelClasses: '...',
+} = $props<ExampleProps>();
+```
+
+```html
+<!-- Parent -->
+<div class="{base} {bg} {classes}">
+	<!-- Child: Control -->
+	<div class="{controlBase} {controlBg} {controlClasses}">...</div>
+	<!-- Child: Panel -->
+	<div class="{panelBase} {panelBg} {panelPadding} {panelClasses}">...</div>
+</div>
+```
+
+### Dynamic Style Props
+
+You may need to conditionally update or swap between one or more sets of style prop classes. For this, we will use an “interceptor” pattern as demonstrated below. The `rx` naming convention denotes that the value will be derived in a reactive manner. This is simpler to distinguish in the template from standard style prop classes.
+
+```svelte
+<script lang="ts">
+    let {
+        active = true,
+        // ...
+        fooActive = '...',
+        fooInactive = '...'
+        // ...
+    } = $props<ExampleProps>();
+
+    // Interceptor
+    const rxActive = $derived(active ? fooActive : fooInactive);
+</script>
+
+<div class="{base} {rxActive} {classes}">...</div>
+```
+
+> TIP: use this convention in React as well, but make use of a ternary, `useState`, or `useMemo` hooks as appropriate.
+
+---
+
+## Type Definitions
+
+All component props should be strongly typed using Typescript in a colocated `types.ts` file. Each prop should be described using [JSDoc](https://jsdoc.app/about-getting-started). This provides additional context through Intellisense features of text editors and IDEs and helps generate automatic documentation for these features. Remember to keep the description short and semantic.
+
+```ts
+export interface AccordionItemProps {
+	/** Sets the open state of the item. */
+	open?: boolean;
+
+	// Parent ---
+	/** Set the parent base styles. */
+	base?: string;
+	/** Set the parent background styles. */
+	background?: string;
+	/** Provide the parent a set of arbitrary classes. */
+	classes?: string;
+
+	// Lead ---
+	/** Sets the lead snippet element's base styles. */
+	leadBase?: string;
+	/** Sets the lead snippet element's padding styles. */
+	leadPadding?: string;
+	/** Provide arbitrary CSS classes to the lead snippet. */
+	leadClasses?: string;
+
+	// Children ---
+	/** The default slot contents within the component. */
+	children?: Snippet;
+}
+```
+
+---
+
+## Composed Pattern
+
+To keep component syntax consistent cross-framework, we implement a composed pattern. Components are composed using a set of smaller components, named slots, or snippets - depending on the framework. This implementation differs per framework.
+
+### React
+
+For React, this is handled via small components that implement the dot notation syntax.
+
+```tsx
+<Accordion>
+	<Accordion.Item>
+		<Accordion.Control>(control)</Accordion.Control>
+		<Accordion.Panel>(panel)</Accordion.Panel>
+	</Accordion.Item>
+</Accordion>
+```
+
+### Svelte
+
+This is handled by pairing child components with [Svelte Snippets](https://svelte-5-preview.vercel.app/docs/snippets).
+
+```svelte
+<Accordion>
+	<Accordion.Item>
+		{#snippet controlLead()}(lead){/snippet}
+		{#snippet control()}(control){/snippet}
+		{#snippet panel()}(panel){/snippet}
+	</Accordion.Item>
+</Accordion>
+```
+
+## Dot Notation Syntax
+
+The implementation of this will differ per framework.
+
+### React
+
+To implement this, first import the `reactCompose` utility into the component file:
+
+```ts
+import { reactCompose } from '../../utils/react-compose';
+```
+
+Then scaffold your component exports at the bottom of the file:
+
+```ts
+export const Accordion = reactCompose(
+	AccordionRoot, // -> <Accordion>
+	{
+		Item: AccordionItem, // -> <Accordion.Item>
+		Control: AccordionControl, // -> <Accordion.Control>
+		Panel: AccordionPanel, // -> <Accordion.Panel>
+	},
+);
+```
+
+### Svelte
+
+Create a new `index.ts` file colocated within the `/component/<ComponentName>` directory:
+
+```ts
+import Tabs from './Tabs.svelte';
+import TabsControl as Control from './TabsControl.svelte';
+
+export default Object.assign(Tabs, {Control});
+```
+
+## Component Exports
+
+Finally, make sure components are included in the package export list.
+
+### React
+
+Found in `/src/lib/index.ts`.
+
+```ts
+export { Foo } from '../components/Foo/Foo.jsx';
+export { Bar } from '../components/Bar/Bar.jsx';
+```
+
+### Svelte
+
+Found in `/src/components/index.ts`.
+
+```ts
+export { default as Foo } from './components/Foo';
+export { default as Bar } from './components/Bar';
+```
+
+## Additional Resources
+
+-   [Component Party](https://component-party.dev/) - easily compare features between each framework
+-   [Svelte 5 Docs](https://svelte-5-preview.vercel.app/docs/introduction) - the temporary home of Svelte 5 documentation
+-   [Svelte 5 REPL](https://svelte-5-preview.vercel.app/) - quickly test and share Svelte 5 code snippets
