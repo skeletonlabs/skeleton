@@ -1,4 +1,5 @@
-import { defineConfig } from "vitest/config";
+import { defineConfig } from "vite";
+import { configDefaults } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import RemixRouter from "vite-plugin-remix-router";
 import skeletonPluginWatcher from "vite-plugin-tw-plugin-watcher";
@@ -22,6 +23,7 @@ export default defineConfig({
     globals: true,
     setupFiles: "./tests/setup.js",
     exclude: [
+      ...configDefaults.exclude,
       "**/node_modules/**",
       "**/tests/**",
       "**/build/**",

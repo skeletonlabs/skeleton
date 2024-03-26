@@ -1,19 +1,86 @@
 import { describe, expect, it } from "vitest";
-import { render, waitFor } from "@testing-library/react";
+import { act, render, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { Accordion, AccordionContext } from "./Accordion";
+
+const mockProvidervalues = {
+  selected: ["testPanel"],
+  setSelected: () => {},
+  allowMultiple: false,
+  setAllowMultiple: () => {},
+};
+
+// *************************
+// Integration Tests
+// *************************
+
+describe("Accordion usage", () => {
+  it("should show the panel when the control is clicked", async () => {
+    const { queryByText, getByText } = render(
+      <Accordion>
+        <Accordion.Item>
+          <Accordion.Control controls="testControl">
+            Test Control 1
+          </Accordion.Control>
+          <Accordion.Panel id="testControl">Test Panel 1</Accordion.Panel>
+        </Accordion.Item>
+        <Accordion.Item>
+          <Accordion.Control controls="testControl2">
+            Test Control 2
+          </Accordion.Control>
+          <Accordion.Panel id="testControl2">Test Panel 2</Accordion.Panel>
+        </Accordion.Item>
+      </Accordion>
+    );
+    const control1 = getByText("Test Control 1");
+    const control2 = getByText("Test Control 2");
+
+    // expect controls to be visible
+    expect(control1).toBeInTheDocument();
+    expect(control2).toBeInTheDocument();
+
+    // expect panels to be hidden
+    expect(queryByText("Test Panel 1")).not.toBeInTheDocument();
+    expect(queryByText("Test Panel 2")).not.toBeInTheDocument();
+
+    // click the first control
+    await act(async () => {
+      await userEvent.click(control1);
+    });
+
+    // expect first panel to be visible
+    expect(queryByText("Test Panel 1")).toBeInTheDocument();
+    // the second panel should still be hidden
+    expect(queryByText("Test Panel 2")).not.toBeInTheDocument();
+
+    // click the second control
+    await act(async () => {
+      await userEvent.click(control2);
+    });
+
+    // expect second panel to be visible
+    expect(queryByText("Test Panel 2")).toBeInTheDocument();
+    // the first panel should be hidden
+    expect(queryByText("Test Panel 1")).not.toBeInTheDocument();
+  });
+});
+
+// *************************
+// Unit Tests
+// *************************
 
 // Accordion ---
 
 describe("<Accordion>", () => {
   it("should render the component", () => {
-    const component = render(<Accordion />);
-    expect(component).toBeTruthy();
+    const { getByTestId } = render(<Accordion />);
+    expect(getByTestId("accordion")).toBeInTheDocument();
   });
 
   it("should render with `multiple` prop enabled", () => {
-    const component = render(<Accordion multiple />);
-    expect(component).toBeTruthy();
+    const { getByTestId } = render(<Accordion multiple />);
+    expect(getByTestId("accordion")).toBeInTheDocument();
   });
 
   it("should allow for children", () => {
@@ -25,13 +92,13 @@ describe("<Accordion>", () => {
   it("should allow you to set the `base` style prop", () => {
     const tailwindClasses = "bg-red-500";
     const { getByTestId } = render(<Accordion base={tailwindClasses} />);
-    expect(getByTestId("accordion").classList).toContain(tailwindClasses);
+    expect(getByTestId("accordion")).toHaveClass(tailwindClasses);
   });
 
   it("should allow you to set the `classes` style prop", () => {
     const tailwindClasses = "bg-green-500";
     const { getByTestId } = render(<Accordion classes={tailwindClasses} />);
-    expect(getByTestId("accordion").classList).toContain(tailwindClasses);
+    expect(getByTestId("accordion")).toHaveClass(tailwindClasses);
   });
 });
 
@@ -39,8 +106,8 @@ describe("<Accordion>", () => {
 
 describe("<Accordion.Item>", () => {
   it("should render the component", () => {
-    const component = render(<Accordion.Item />);
-    expect(component).toBeTruthy();
+    const { getByTestId } = render(<Accordion.Item />);
+    expect(getByTestId("accordion-item")).toBeInTheDocument();
   });
 
   it("should allow for children", () => {
@@ -52,7 +119,7 @@ describe("<Accordion.Item>", () => {
   it("should allow you to set the `base` style prop", () => {
     const tailwindClasses = "bg-red-500";
     const { getByTestId } = render(<Accordion.Item base={tailwindClasses} />);
-    expect(getByTestId("accordion-item").classList).toContain(tailwindClasses);
+    expect(getByTestId("accordion-item")).toHaveClass(tailwindClasses);
   });
 
   it("should allow you to set the `classes` style prop", () => {
@@ -60,7 +127,7 @@ describe("<Accordion.Item>", () => {
     const { getByTestId } = render(
       <Accordion.Item classes={tailwindClasses} />
     );
-    expect(getByTestId("accordion-item").classList).toContain(tailwindClasses);
+    expect(getByTestId("accordion-item")).toHaveClass(tailwindClasses);
   });
 });
 
@@ -68,8 +135,10 @@ describe("<Accordion.Item>", () => {
 
 describe("<Accordion.Control>", () => {
   it("should render the component", () => {
-    const component = render(<Accordion.Control controls="testControl" />);
-    expect(component).toBeTruthy();
+    const { getByTestId } = render(
+      <Accordion.Control controls="testControl" />
+    );
+    expect(getByTestId("accordion-control")).toBeInTheDocument();
   });
 
   it("should allow for children", () => {
@@ -79,17 +148,6 @@ describe("<Accordion.Control>", () => {
     );
     expect(getByTestId("accordion-control").innerHTML).toContain(value);
   });
-
-  // FIXME: fails because Context state is not refleted in DOM
-  // it("aria-expaned should be `true` when `open` prop `true`", async () => {
-  //   const { getByTestId } = render(
-  //     <Accordion.Control controls="testControl" open />
-  //   );
-  //   await waitFor(() => {
-  //     const element = getByTestId("accordion-control");
-  //     expect(element.getAttribute("aria-expanded")).toBe("true");
-  //   });
-  // });
 
   it("should be set disabled by `disabled` prop", async () => {
     const { getByTestId } = render(
@@ -106,9 +164,7 @@ describe("<Accordion.Control>", () => {
     const { getByTestId } = render(
       <Accordion.Control controls="testControl" base={tailwindClasses} />
     );
-    expect(getByTestId("accordion-control").classList).toContain(
-      tailwindClasses
-    );
+    expect(getByTestId("accordion-control")).toHaveClass(tailwindClasses);
   });
 
   it("should allow you to set the `classes` style prop", () => {
@@ -116,25 +172,16 @@ describe("<Accordion.Control>", () => {
     const { getByTestId } = render(
       <Accordion.Control controls="testControl" classes={tailwindClasses} />
     );
-    expect(getByTestId("accordion-control").classList).toContain(
-      tailwindClasses
-    );
+    expect(getByTestId("accordion-control")).toHaveClass(tailwindClasses);
   });
 });
 
 // Accordion.Panel ---
 
 describe("<Accordion.Panel>", () => {
-  const mockProvidervalues = {
-    selected: ["testPanel"],
-    setSelected: () => {},
-    allowMultiple: false,
-    setAllowMultiple: () => {},
-  };
-
   it("should render the component", () => {
-    const component = render(<Accordion.Panel id="testPanel" />);
-    expect(component).toBeTruthy();
+    const { getByTestId } = render(<Accordion.Panel id="testPanel" />);
+    expect(getByTestId("accordion-panel")).toBeInTheDocument();
   });
 
   it("should set `aria-labeledby` to `id` value", async () => {
