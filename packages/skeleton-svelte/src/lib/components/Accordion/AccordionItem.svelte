@@ -33,7 +33,7 @@
 		control,
 		controlLead,
 		panel
-	} = $props<AccordionItemProps>();
+	}: AccordionItemProps = $props();
 
 	// Context
 	const selected = getContext<State<string[]>>('selected');

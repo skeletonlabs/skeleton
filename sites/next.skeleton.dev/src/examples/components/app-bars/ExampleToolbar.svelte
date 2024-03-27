@@ -4,9 +4,6 @@
     import Paperclip from 'lucide-svelte/icons/paperclip';
     import Calendar from 'lucide-svelte/icons/calendar';
     import CircleUser from 'lucide-svelte/icons/circle-user';
-
-    // FIXME: required for Astro bug
-    let {} = $props<any>()
 </script>
 
 <AppBar>
