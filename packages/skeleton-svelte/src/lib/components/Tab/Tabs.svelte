@@ -33,7 +33,7 @@
 
 <!-- @component A Tab parent component. -->
 
-<div class="{base} {spaceY} {classes}" data-testid="tab-group">
+<div class="{base} {spaceY} {classes}" data-testid="tabs">
 	{#if list}
 		<ul class="{listBase} {listSpaceX} {listJustify} {listBorder} {listClasses}" role="tablist">
 			{@render list()}
