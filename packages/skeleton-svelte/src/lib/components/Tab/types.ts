@@ -6,7 +6,7 @@ export interface TabsProps {
 	// Root ---
 	/** Sets base styles. */
 	base?: string;
-	/** Set vertical spacing styles. */
+	/** Set vertical spacing between list and panels. */
 	spaceY?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
@@ -16,8 +16,8 @@ export interface TabsProps {
 	listBase?: string;
 	/** Sets the list snippet element's justification styles. */
 	listJustify?: string;
-	/** Sets the list snippet element's horizontal spacing styles. */
-	listSpaceX?: string;
+	/** Sets the list snippet element's gap spacing. */
+	listGap?: string;
 	/** Sets the list snippet element's border styles. */
 	listBorder?: string;
 	/** Provide arbitrary CSS classes to the list snippet. */
@@ -31,7 +31,7 @@ export interface TabsProps {
 	/** The tab list slot. */
 	list?: Snippet;
 	/** The tab panel slot. */
-	panel?: Snippet;
+	panels?: Snippet;
 }
 
 // TabControl ---
@@ -41,7 +41,7 @@ export interface TabsControlProps {
 	name: string;
 	/** Provide the tab control radio group. */
 	group: string;
-	
+
 	// A11y ---
 	/** Provide a hoverable title attribute. */
 	title?: string;
@@ -53,7 +53,7 @@ export interface TabsControlProps {
 	// Root ---
 	/** Sets base styles. */
 	base?: string;
-	/** Sets text styles. */
+	/** Sets text size styles. */
 	text?: string;
 	/** Sets background styles. */
 	background?: string;
@@ -67,31 +67,25 @@ export interface TabsControlProps {
 	padding?: string;
 	/** Sets rounded styles. */
 	rounded?: string;
-	/** Sets vertical spacing styles. */
-	spacingY?: string;
+	/** Sets vertical gap styles. */
+	gap?: string;
 	/** Sets cursor styles. */
 	cursor?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
 	// Tab ---
-	/** Sets the tab background styles. */
-	tabBackground?: string;
-	/** Sets the tab padding styles. */
-	tabPadding?: string;
-	/** Sets the tab rounded styles. */
-	tabRounded?: string;
-	/** Sets the tab outline styles. */
-	tabOutline?: string;
-	/** Provide arbitrary CSS classes for the tab. */
-	tabClasses?: string;
-
-	// Tab Content ---
-	/** Sets the tab content base styles */
+	/** Sets tab content base styles. */
 	contentBase?: string;
-	/** Sets the tab content horizontal spacing styles. */
-	contentSpaceX?: string;
-	/** Provide arbitrary CSS classes to the tab content. */
+	/** Sets the tab content background styles. */
+	contentBg?: string;
+	/** Sets the tab content padding styles. */
+	contentPadding?: string;
+	/** Sets the tab content gap styles. */
+	contentGap?: string;
+	/** Sets the tab content rounded styles. */
+	contentRounded?: string;
+	/** Provide arbitrary CSS classes for the tab content. */
 	contentClasses?: string;
 
 	// Events ---
@@ -114,6 +108,8 @@ export interface TabsControlProps {
 // TabPanel ---
 
 export interface TabsPanelProps {
+	/** Provide a unique ID. */
+	id?: string;
 	/** Provide the tab panel value. */
 	value: string;
 	/** Provide the tab control radio group. */

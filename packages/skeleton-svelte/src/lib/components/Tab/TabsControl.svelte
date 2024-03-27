@@ -9,26 +9,23 @@
 		label = '',
 		controls = '',
 		// Root
-		base = 'flex',
-		text = 'hover:text-primary-600-400',
+		base = 'group flex items-center border-b-2',
+		active = 'text-surface-950-50 border-surface-950-50',
+		inactive = 'text-surface-600-400 fill-surface-600-400 border-transparent',
+		text = 'type-scale-3',
 		justify = 'justify-center',
-		active = 'border-b-2 border-surface-950-50 text-surface-950-50',
-		inactive = 'text-surface-600-400 fill-surface-600-400',
 		background = '',
-		padding = 'px-4 py-2',
+		padding = 'pb-2',
 		rounded = '',
-		spacingY = 'space-y-1',
+		gap = 'gap-1',
 		cursor = 'cursor-pointer',
 		classes = '',
-		// Tab
-		tabBackground = 'focus:preset-filled-primary-50-950',
-		tabPadding = 'p-2',
-		tabRounded = 'rounded-container',
-		tabOutline = 'focus:outline focus:outline-primary-600-400 !outline-2',
-		tabClasses = '',
-		// Tab Content
-		contentBase = 'flex',
-		contentSpaceX = 'space-x-1',
+		// Content
+		contentBase = 'w-full flex justify-center items-center gap-4 focus:-outline-offset-2',
+		contentBg = 'group-hover:preset-tonal-primary',
+		contentPadding = 'p-2 px-4',
+		contentGap = 'gap-2',
+		contentRounded = 'rounded-container',
 		contentClasses = '',
 		// Events
 		onclick = () => {},
@@ -45,27 +42,30 @@
 
 	let elemInput: HTMLInputElement;
 
-	function onTabKeyDown(event: KeyboardEvent) {
+	function onKeyDown(event: KeyboardEvent) {
+		// Fire Event Handler
 		onkeydown(event);
-		
-		if (['Enter', 'Space'].includes(event.code)) {
-			elemInput.click();
-			return;
-		}
 
+		// If select key events
 		if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.code)) return;
+
+		// Prevent default behavior
 		event.preventDefault();
 
+		// Find the closest tab/tablelist
 		const currTab = elemInput.closest('[role="tab"]');
 		if (!currTab) return;
-
 		const tabList = elemInput.closest('[role="tablist"]');
 		if (!tabList) return;
 
+		// Get RTL mode
 		const isRTL = getComputedStyle(tabList).direction === 'rtl';
+		// Get list of tab elements
 		const tabs = Array.from(tabList.querySelectorAll('[role="tab"]'));
+		// Get a reference to the current tab
 		const currIndex = tabs.indexOf(currTab);
 
+		// Determine the index of the next tab
 		let nextIndex = -1;
 		switch (event.code) {
 			case 'ArrowRight':
@@ -89,9 +89,9 @@
 				nextIndex = tabs.length - 1;
 				break;
 		}
-
 		if (nextIndex < 0) return;
 
+		// Set Active Tab
 		const nextTab = tabs![nextIndex!];
 		const nextTabInput = nextTab?.querySelector('input');
 		if (nextTabInput) {
@@ -103,24 +103,26 @@
 
 <!-- @component A Tab Control component. -->
 
-<label class="{base} {text} {justify} {rxActive} {background} {padding} {rounded} {spacingY} {cursor} {classes}" aria-label={label} {title}>
+<label class="{base} {rxActive} {text} {justify} {background} {padding} {rounded} {gap} {cursor} {classes}" aria-label={label} {title}>
+	<!-- NOTE: do not add additional classes to this <div> -->
 	<div
-		aria-controls={controls}
+		class="size-full"
 		tabindex={selected ? 0 : -1}
+		aria-controls={controls}
 		aria-selected={selected}
 		data-testid="tabs-control"
 		role="tab"
-		class="{tabBackground} {tabPadding} {tabRounded} {tabOutline} {tabClasses}"
-		onkeydown={onTabKeyDown}
+		onkeydown={onKeyDown}
 		{onkeypress}
 		{onkeyup}
 	>
-		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+		<!-- Keep these classes on wrapping element -->
 		<div class="h-0 w-0 flex-none overflow-hidden">
-			<input bind:this={elemInput} type="radio" bind:group {name} value={name} onchange={() => onchange(group)} {onclick} tabindex="-1" />
+			<input bind:group bind:this={elemInput} type="radio" {name} value={name} onchange={() => onchange(group)} {onclick} tabindex="-1" />
 		</div>
+		<!-- Content -->
 		{#if children}
-			<div class="{contentBase} {contentSpaceX} {contentClasses}">
+			<div class="{contentBase} {contentBg} {contentPadding} {contentGap} {contentRounded} {contentClasses}">
 				{@render children()}
 			</div>
 		{/if}

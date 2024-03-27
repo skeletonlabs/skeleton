@@ -2,9 +2,10 @@
 	import type { TabsPanelProps } from './types.js';
 
 	let {
+		id,
 		value,
 		group,
-		//A11y
+		// A11y
 		labelledBy,
 		// Root
 		classes = '',
@@ -16,7 +17,7 @@
 <!-- @component A Tab Panel component. -->
 
 {#if value === group && children}
-	<div class="{classes}" aria-labelledby={labelledBy}>
+	<div {id} role="tabpanel" tabindex="0" aria-labelledby={labelledBy} class={classes}>
 		{@render children()}
 	</div>
 {/if}
