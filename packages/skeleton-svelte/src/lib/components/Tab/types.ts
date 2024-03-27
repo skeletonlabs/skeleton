@@ -83,6 +83,10 @@ export interface TabsControlProps {
 	// Tab ---
 	/** Sets the tab base styles. */
 	tabBase?: string;
+	/** Sets the tab background styles. */
+	tabBackground?: string;
+	/** Sets the tab padding styles. */
+	tabPadding?: string;
 	/** Sets the tab rounded styles. */
 	tabRounded?: string;
 	/** Sets the tab outline styles. */

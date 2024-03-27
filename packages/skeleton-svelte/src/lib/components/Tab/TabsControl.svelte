@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
 	import type { TabsControlProps } from './types.js';
 
 	let {
@@ -22,8 +21,10 @@
 		classes = '',
 		// Tab
 		tabBase = '',
+		tabBackground = 'focus:preset-filled-primary-50-950',
+		tabPadding = 'p-2',
 		tabRounded = 'rounded-container',
-		tabOutline = 'focus:outline focus:outline-primary-600-400 focus:outline-offset-4',
+		tabOutline = 'focus:outline focus:outline-primary-600-400 !outline-2',
 		tabClasses = '',
 		// Tab Content
 		contentBase = 'flex',
@@ -48,12 +49,12 @@
 		onkeydown(event);
 		if (!['Enter', 'Space', 'ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.code)) return;
 
-		event.preventDefault();
-
 		if (['Enter', 'Space'].includes(event.code)) {
 			elemInput.click();
 			return;
 		}
+
+		event.preventDefault();
 
 		const currTab = elemInput.closest('[role="tab"]');
 		if (!currTab) return;
@@ -109,7 +110,7 @@
 		aria-selected={selected}
 		data-testid="tabs-control"
 		role="tab"
-		class="{tabBase} {tabRounded} {tabOutline} {tabClasses}"
+		class="{tabBase} {tabBackground} {tabPadding} {tabRounded} {tabOutline} {tabClasses}"
 		onkeydown={onTabKeyDown}
 		{onkeypress}
 		{onkeyup}
