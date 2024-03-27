@@ -77,28 +77,28 @@ let {
 } = $props<ExampleProps>();
 ```
 
-- **Functional** - these should be single instance props that directly affect the functionality of the component.
-- **Style** - contain and accept Tailwind utility classes to affect the style of the component.
-- **Event** - provide callback functions for external event handlers.
-- **Children** - contain reference to React children, Svelte Snippets, or similar.
+-   **Functional** - these should be single instance props that directly affect the functionality of the component.
+-   **Style** - contain and accept Tailwind utility classes to affect the style of the component.
+-   **Event** - provide callback functions for external event handlers.
+-   **Children** - contain reference to React children, Svelte Snippets, or similar.
 
 ### Style Prop Conventions
 
 Style props implement sementic naming conventions to enable specificity and avoid naming conflicts. These are organized into three specific categories. Each should be maintained in the following order.
 
-- `base` - houses the base utility classes, which enables faux-headless styling.
-    - Replaces: `cBase` class definitions from Skeleton v2.
-    - Parent base props are not prefixed, which helps maintain parity cross-framework
-    - Child base props are prefixed: `titleBase`, `panelBase`, `controlBase`.
-- `{property}` - individual style props that houses one or more “swappable” utility classes.
-    - Naming should follow Tailwind convention, except for single letter descriptors (ex: use `padding` instead of `p`).
-    - Parent props are not prefixed: `background`, `margin`, `border`.
-    - Child props are prefixed: `titleBg`, `controlMargin`, `panelBorder`.
-- `classes` - allows you to extend or override the class list with an arbitrary set of utility classes.
-    - Replaces the inconsistent use of `slotX` and `regionX` classes in Skeleton v2.
-	- Uses `classes` (plural) to avoid conflict with the standard `class` attribute.
-    - Parent instances are not prefixed: `classes`
-    - Child instances are prefixed: `titleClasses`, `controlClasses`, `panelClasses`
+-   `base` - houses the base utility classes, which enables faux-headless styling.
+    -   Replaces: `cBase` class definitions from Skeleton v2.
+    -   Parent base props are not prefixed, which helps maintain parity cross-framework
+    -   Child base props are prefixed: `titleBase`, `panelBase`, `controlBase`.
+-   `{property}` - individual style props that houses one or more “swappable” utility classes.
+    -   Naming should follow Tailwind convention, except for single letter descriptors (ex: use `padding` instead of `p`).
+    -   Parent props are not prefixed: `background`, `margin`, `border`.
+    -   Child props are prefixed: `titleBg`, `controlMargin`, `panelBorder`.
+-   `classes` - allows you to extend or override the class list with an arbitrary set of utility classes.
+    -   Replaces the inconsistent use of `slotX` and `regionX` classes in Skeleton v2.
+    -   Uses `classes` (plural) to avoid conflict with the standard `class` attribute.
+        -   Parent instances are not prefixed: `classes`
+        -   Child instances are prefixed: `titleClasses`, `controlClasses`, `panelClasses`
 
 Here's what this might look like in practice.
 
@@ -264,8 +264,8 @@ Finally, make sure components are included in the package export list.
 Found in `/src/lib/index.ts`.
 
 ```ts
-export { Foo } from "../components/Foo/Foo.jsx";
-export { Bar } from "../components/Bar/Bar.jsx";
+export { Foo } from '../components/Foo/Foo.jsx';
+export { Bar } from '../components/Bar/Bar.jsx';
 ```
 
 ### Svelte

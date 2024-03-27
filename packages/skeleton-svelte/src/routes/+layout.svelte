@@ -15,6 +15,7 @@
 				<a class="anchor" href="/components/accordions">Accordions</a>
 				<a class="anchor" href="/components/avatars">Avatars</a>
 				<a class="anchor" href="/components/app-bars">App Bars</a>
+				<a class="anchor" href="/components/tabs">Tabs</a>
 			</nav>
 		</div>
 	</div>

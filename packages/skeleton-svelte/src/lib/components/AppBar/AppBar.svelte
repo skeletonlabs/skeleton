@@ -38,7 +38,7 @@
 		lead,
 		trail,
 		headline
-	} = $props<AppBarProps>();
+	}: AppBarProps = $props();
 </script>
 
 <!-- @component A header element for the top of a page layout. -->
