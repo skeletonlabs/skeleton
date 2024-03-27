@@ -1,8 +1,5 @@
 ---
-const breacrumbs = Astro.url.pathname
-	.split('/')
-	.filter((v) => v !== '')
-	.map((v) => v.replace('-', ' '));
+const breacrumbs = Astro.url.pathname.split('/').filter((v) => v !== '');
 ---
 
 <ol class="flex gap-2 type-scale-1">
@@ -10,7 +7,13 @@ const breacrumbs = Astro.url.pathname
 		breacrumbs.map((crumb: string, i: number) => (
 			<>
 				<li class="capitalize" class:list={{ 'opacity-60 ': i !== breacrumbs.length - 1 }}>
-					{crumb}
+					{i > 0 && i !== breacrumbs.length - 1 && breacrumbs[0] !== 'components' ? (
+						<a href={`/${breacrumbs[0]}/${crumb}`} class="hover:underline">
+							{crumb.replace('-', ' ')}
+						</a>
+					) : (
+						crumb.replace('-', ' ')
+					)}
 				</li>
 				{i !== breacrumbs.length - 1 && <li class="opacity-60">&rsaquo;</li>}
 			</>

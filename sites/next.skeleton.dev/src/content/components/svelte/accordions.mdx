@@ -7,8 +7,6 @@ export const components = componentSet;
 import Example from '@examples/components/accordions/Example.svelte';
 import ExampleRaw from '@examples/components/accordions/Example.svelte?raw';
 
-import * as Common from '@content/components/common/accordions.mdx';
-
 {/* --- */}
 
 <Preview client:load>
@@ -20,7 +18,13 @@ import * as Common from '@content/components/common/accordions.mdx';
 	</Fragment>
 </Preview>
 
-<Common.Content />
+## Multiple Items
+
+Apply the `multiple` prop to to enable opening more than one panel at a time.
+
+```html
+<Accordion multiple>...</Accordion>
+```
 
 ## Open State
 

@@ -7,11 +7,16 @@ const { collection, path, classes } = Astro.props;
 const collectionItems = await getCollection(collection, (item: any) => {
 	if (item.slug.includes(path)) return item;
 });
+
+// Sort Order
+const sortByOrder = (a: any, b: any) => {
+	return a.data.orderBy - b.data.orderBy;
+};
 ---
 
 <nav class="grid grid-cols-1 gap-4" class:list={classes}>
 	{
-		collectionItems.map((item: any) => (
+		collectionItems.sort(sortByOrder).map((item: any) => (
 			<>
 				<a
 					href={`/${collection}/${item.slug}`}

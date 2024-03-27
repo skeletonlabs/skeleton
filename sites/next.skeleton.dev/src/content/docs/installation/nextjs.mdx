@@ -1,0 +1,72 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Next.js
+description: Install and conifigure Next.js.
+orderBy: 0
+---
+
+export const components = componentSet;
+
+import Process from '@components/docs/Process.astro';
+import ProcessStep from '@components/docs/ProcessStep.astro';
+
+{/* --- */}
+
+<div class="card p-8 py-6 preset-tonal-warning grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-4 text-center">
+    <p>WARNING: this page is a preview. Skeleton v3 is not yet available. The following instructions will fail.</p>
+</div>
+
+<Process>
+    <ProcessStep step="1">
+        ## Create a Project
+        Start by creating a new project using `create-next-app`:
+        ```console
+        npx create-next-app@latest my-app --typescript --tailwind --eslint
+        ```
+    </ProcessStep>
+    <ProcessStep step="2">
+        ## Install Skeleton
+        Install the Skeleton core and Skeleton React packages.
+        ```console
+        npm i -D @skeletonlabs/skeleton@next @skeletonlabs/skeleton-react@next
+        ```
+    </ProcessStep>
+    <ProcessStep step="4">
+        ## Configure Tailwind
+        Open and configure `tailwind.config.js` as shown.
+```js {2, 3, 11, 17-19}
+import { join } from 'path';
+import { skeleton } from '@skeletonlabs/skeleton';
+import * as themes from "@skeletonlabs/skeleton/themes";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: [
+        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+        join(require.resolve('@skeletonlabs/skeleton-react'), '../**/*.{html,js,tsx,ts}')
+    ],
+    theme: {
+        extend: {},
+    },
+    plugins: [
+        skeleton({
+            themes: [ themes.cerberus, themes.rose ]
+        })
+    ]
+}
+```
+    </ProcessStep>
+    <ProcessStep step="5">
+        ## Set Active Theme
+        Open `/src/app/layout.tsx`, then set the `data-theme` attribute to define the active theme.
+```html
+<body data-theme="cerberus">...</body>
+```
+    </ProcessStep>
+    <ProcessStep step="check">
+        ## Ready
+        You're now ready to begin using Skeleton.
+    </ProcessStep>
+</Process>
