@@ -47,8 +47,8 @@ export interface TabsControlProps {
 	title?: string;
 
 	// A11y ---
-	/** Sets the A11y labelledby. */
-	labelledBy?: string;
+	/** Sets the A11y label. */
+	label?: string;
 	/** Sets ARIA controls value to define which panel this tab controls. */
 	controls?: string;
 

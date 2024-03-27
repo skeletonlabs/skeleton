@@ -6,7 +6,7 @@
 		group,
 		title = '',
 		// A11y
-		labelledBy = '',
+		label = '',
 		controls = '',
 		// Root
 		base = 'flex',
@@ -104,7 +104,7 @@
 
 <!-- @component A Tab Control component. -->
 
-<label class="{base} {text} {justify} {rxActive} {background} {padding} {rounded} {spacingY} {cursor} {classes}" aria-labelledby={labelledBy} {title}>
+<label class="{base} {text} {justify} {rxActive} {background} {padding} {rounded} {spacingY} {cursor} {classes}" aria-label={label} {title}>
 	<li
 		aria-controls={controls}
 		tabindex={selected ? 0 : -1}
