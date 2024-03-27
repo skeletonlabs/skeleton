@@ -24,8 +24,6 @@ export interface TabsProps {
 	listClasses?: string;
 
 	// Tab panel ---
-	/** Sets the tab panel snippet element's base styles. */
-	panelBase?: string;
 	/** Provide arbitrary CSS classes to the tab panel snippet. */
 	panelClasses?: string;
 
@@ -43,10 +41,10 @@ export interface TabsControlProps {
 	name: string;
 	/** Provide the tab control radio group. */
 	group: string;
+	
+	// A11y ---
 	/** Provide a hoverable title attribute. */
 	title?: string;
-
-	// A11y ---
 	/** Sets the A11y label. */
 	label?: string;
 	/** Sets ARIA controls value to define which panel this tab controls. */
@@ -77,8 +75,6 @@ export interface TabsControlProps {
 	classes?: string;
 
 	// Tab ---
-	/** Sets the tab base styles. */
-	tabBase?: string;
 	/** Sets the tab background styles. */
 	tabBackground?: string;
 	/** Sets the tab padding styles. */
@@ -128,8 +124,6 @@ export interface TabsPanelProps {
 	labelledBy?: string;
 
 	// Root ---
-	/** Sets base styles. */
-	base?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 

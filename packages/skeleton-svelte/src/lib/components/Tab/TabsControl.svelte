@@ -4,8 +4,8 @@
 	let {
 		name,
 		group,
-		title = '',
 		// A11y
+		title = '',
 		label = '',
 		controls = '',
 		// Root
@@ -21,7 +21,6 @@
 		cursor = 'cursor-pointer',
 		classes = '',
 		// Tab
-		tabBase = '',
 		tabBackground = 'focus:preset-filled-primary-50-950',
 		tabPadding = 'p-2',
 		tabRounded = 'rounded-container',
@@ -48,13 +47,13 @@
 
 	function onTabKeyDown(event: KeyboardEvent) {
 		onkeydown(event);
-		if (!['Enter', 'Space', 'ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.code)) return;
-
+		
 		if (['Enter', 'Space'].includes(event.code)) {
 			elemInput.click();
 			return;
 		}
 
+		if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.code)) return;
 		event.preventDefault();
 
 		const currTab = elemInput.closest('[role="tab"]');
@@ -105,17 +104,18 @@
 <!-- @component A Tab Control component. -->
 
 <label class="{base} {text} {justify} {rxActive} {background} {padding} {rounded} {spacingY} {cursor} {classes}" aria-label={label} {title}>
-	<li
+	<div
 		aria-controls={controls}
 		tabindex={selected ? 0 : -1}
 		aria-selected={selected}
 		data-testid="tabs-control"
 		role="tab"
-		class="{tabBase} {tabBackground} {tabPadding} {tabRounded} {tabOutline} {tabClasses}"
+		class="{tabBackground} {tabPadding} {tabRounded} {tabOutline} {tabClasses}"
 		onkeydown={onTabKeyDown}
 		{onkeypress}
 		{onkeyup}
 	>
+		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 		<div class="h-0 w-0 flex-none overflow-hidden">
 			<input bind:this={elemInput} type="radio" bind:group {name} value={name} onchange={() => onchange(group)} {onclick} tabindex="-1" />
 		</div>
@@ -124,5 +124,5 @@
 				{@render children()}
 			</div>
 		{/if}
-	</li>
+	</div>
 </label>

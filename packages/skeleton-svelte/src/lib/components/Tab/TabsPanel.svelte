@@ -7,7 +7,6 @@
 		//A11y
 		labelledBy,
 		// Root
-		base = '',
 		classes = '',
 		// Snippets
 		children
@@ -17,7 +16,7 @@
 <!-- @component A Tab Panel component. -->
 
 {#if value === group && children}
-	<section class="{base} {classes}" aria-labelledby={labelledBy}>
+	<div class="{classes}" aria-labelledby={labelledBy}>
 		{@render children()}
-	</section>
+	</div>
 {/if}

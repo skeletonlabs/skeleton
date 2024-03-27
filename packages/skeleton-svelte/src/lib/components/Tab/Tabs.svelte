@@ -13,7 +13,6 @@
 		listBorder = 'border-b border-surface-100-900',
 		listClasses = '',
 		// Tab panel
-		panelBase = '',
 		panelClasses = '',
 		// Snippets
 		list,
@@ -35,14 +34,14 @@
 
 <div class="{base} {spaceY} {classes}" data-testid="tabs">
 	{#if list}
-		<ul class="{listBase} {listSpaceX} {listJustify} {listBorder} {listClasses}" role="tablist">
+		<div class="{listBase} {listSpaceX} {listJustify} {listBorder} {listClasses}" role="tablist">
 			{@render list()}
-		</ul>
+		</div>
 	{/if}
 	{#if panel}
 		<div
 			bind:this={panelElem}
-			class="{panelBase} {panelClasses}"
+			class="{panelClasses}"
 			role="tabpanel"
 			tabindex={panelTabIndex}
 		>
