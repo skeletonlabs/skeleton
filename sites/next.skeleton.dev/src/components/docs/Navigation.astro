@@ -8,7 +8,10 @@ interface Props {
 const { classList } = Astro.props;
 
 // Query from Collections
-const navDocs = await getCollection('docs');
+const navDocs = await getCollection('docs', ({ id }) => {
+	// Ignore cookbook children pages
+	return !id.startsWith('installation/');
+});
 const navComponents = await getCollection('components', ({ id }) => {
 	return id.startsWith('common/');
 });

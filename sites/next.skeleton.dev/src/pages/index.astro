@@ -12,22 +12,50 @@ const layoutProps = {
 <LayoutRoot {...layoutProps}>
 	<!-- Header -->
 	<Header />
-	<!-- Page -->
-	<main class="container mx-auto flex justify-center items-center">
-		<div class="space-y-4 p-10">
-			<h1 class="h1 flex justify-center items-center gap-4">
-				<Icon name="skeleton" />
-				<span class="font-mono">skeleton</span>
-			</h1>
-			<p>Welcome to the Skeleton documentation.</p>
-			<nav class="flex justify-center gap-2">
-				<a href="/docs/introduction" class="btn preset-filled">Get Started &rarr;</a>
+
+	<!-- Main -->
+	<main class="container mx-auto space-y-10 px-4">
+		<!-- Page Header -->
+		<section class="mx-auto flex flex-col justify-center gap-4 text-center">
+			<Icon name="skeleton-full" size={128} class="mx-auto" />
+			<h1 class="h1">Welcome to Skeleton.</h1>
+			<p class="max-w-[600px] mx-auto opacity-60 type-scale-4 text-balance">
+				Skeleton is an open source UI toolkit that allows you to create adaptive and accessible interfaces for
+				web apps at scale.
+			</p>
+			<nav class="flex justify-center gap-4">
+				<a href="/docs/introduction" class="btn-enhanced-cta">Get Started</a>
 				<a
 					href=" https://github.com/skeletonlabs/skeleton"
 					target="_blank"
-					class="btn preset-outlined-surface-200-800">GitHub</a
+					class="btn preset-outlined-surface-200-800 hover:preset-tonal"
 				>
+					<Icon name="github" size={18} />
+					<span>GitHub</span>
+				</a>
 			</nav>
+		</section>
+
+		<!-- Warning -->
+		<div
+			class="card max-w-[800px] mx-auto p-8 py-6 preset-tonal-primary grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-4"
+		>
+			<div class="space-y-2">
+				<p class="type-scale-5 font-bold">Early Preview</p>
+				<p>
+					This website provides an early preview of Skeleton v3. Please be aware that some features may be
+					missing, incomplete, or non-functional at this time.
+				</p>
+			</div>
+			<div class="flex flex-col gap-2">
+				<a
+					class="btn-enhanced-cta"
+					href="https://github.com/skeletonlabs/skeleton/discussions/2375"
+					target="_blank"
+				>
+					Learn More
+				</a>
+			</div>
 		</div>
 	</main>
 </LayoutRoot>

@@ -132,12 +132,12 @@ let {
 
 ### Dynamic Style Props
 
-In some scenarios you may need to conditionally update or swap between one or more sets of utilty classes. For this, we will use an “interceptor” pattern as demonstrated below. The `rx` naming convention denotes when the value is “reactive”.
+You may need to conditionally update or swap between one or more sets of style prop classes. For this, we will use an “interceptor” pattern as demonstrated below. The `rx` naming convention denotes that the value will be derived in a reactive manner. This is simpler to distinguish in the template from standard style prop classes.
 
 ```svelte
 <script lang="ts">
     let {
-        active: true,
+        active = true,
         // ...
         fooActive = '...',
         fooInactive = '...'
@@ -145,13 +145,13 @@ In some scenarios you may need to conditionally update or swap between one or mo
     } = $props<ExampleProps>();
 
     // Interceptor
-    const rxActive = $state(active ? fooActive : fooInactive);
+    const rxActive = $derived(active ? fooActive : fooInactive);
 </script>
 
-<div class="... {rxActive} ...">...</div>
+<div class="{base} {rxActive} {classes}">...</div>
 ```
 
-> TIP: for React, make use of the `useState` hook, ex: `const [rxActive, setRxActive] = useState(...)`
+> TIP: use this convention in React as well, but make use of a ternary, `useState`, or `useMemo` hooks as appropriate.
 
 ---
 

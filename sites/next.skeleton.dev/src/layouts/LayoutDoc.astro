@@ -1,9 +1,8 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 import LayoutRoot from '@layouts/LayoutRoot.astro';
 
 import Header from '@components/docs/Header.astro';
+import Footer from '@components/docs/Footer.astro';
 import ChipsBar from '@components/docs/ChipsBar.astro';
 import Navigation from '@components/docs/Navigation.astro';
 import Breadcrumbs from '@components/docs/Breadcrumbs.astro';
@@ -95,13 +94,5 @@ const urls = {
 		</aside>
 	</div>
 	<!-- Footer -->
-	<footer class="preset-filled-surface-100-900 p-4 xl:p-10">
-		<div class="container mx-auto flex justify-center gap-4">
-			<Icon name="skeleton" size={20} />
-			<p class="type-scale-1 opacity-60">
-				Built by <a class="underline" href="https://www.skeletonlabs.co/" target="_blank">Skeleton Labs</a> and our
-				amazing community.
-			</p>
-		</div>
-	</footer>
+	<Footer />
 </LayoutRoot>
