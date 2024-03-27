@@ -1,11 +1,7 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
 	import type { TabsProps } from './types.js';
 
 	let {
-		// A11Y
-		listLabelledBy = '',
-		panelLabelledBy = '',
 		// Root
 		base = 'w-fit',
 		spaceY = 'space-y-4',
@@ -39,7 +35,7 @@
 
 <div class="{base} {spaceY} {classes}" data-testid="tab-group">
 	{#if list}
-		<ul class="{listBase} {listSpaceX} {listJustify} {listBorder} {listClasses}" role="tablist" aria-labelledby={listLabelledBy}>
+		<ul class="{listBase} {listSpaceX} {listJustify} {listBorder} {listClasses}" role="tablist">
 			{@render list()}
 		</ul>
 	{/if}
@@ -48,7 +44,6 @@
 			bind:this={panelElem}
 			class="{panelBase} {panelClasses}"
 			role="tabpanel"
-			aria-labelledby={panelLabelledBy}
 			tabindex={panelTabIndex}
 		>
 			{@render panel()}

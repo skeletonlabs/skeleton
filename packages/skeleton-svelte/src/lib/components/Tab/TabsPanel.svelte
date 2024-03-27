@@ -4,6 +4,8 @@
 	let {
 		value,
 		group,
+		//A11y
+		labelledBy,
 		// Root
 		base = '',
 		classes = '',
@@ -15,7 +17,7 @@
 <!-- @component A Tab Panel component. -->
 
 {#if value === group && children}
-	<section class="{base} {classes}">
+	<section class="{base} {classes}" aria-labelledby={labelledBy}>
 		{@render children()}
 	</section>
 {/if}

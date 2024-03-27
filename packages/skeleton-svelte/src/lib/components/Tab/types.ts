@@ -3,12 +3,6 @@ import type { Snippet } from 'svelte';
 // Tabs ---
 
 export interface TabsProps {
-	// A11Y ---
-	/** Sets the tab list snippet element's A11y labelledby. */
-	listLabelledBy?: string;
-	/** Sets the tab panel snippet element's A11y labelledby. */
-	panelLabelledBy?: string;
-
 	// Root ---
 	/** Sets base styles. */
 	base?: string;
@@ -53,6 +47,8 @@ export interface TabsControlProps {
 	title?: string;
 
 	// A11y ---
+	/** Sets the A11y labelledby. */
+	labelledBy?: string;
 	/** Sets ARIA controls value to define which panel this tab controls. */
 	controls?: string;
 
@@ -126,6 +122,10 @@ export interface TabsPanelProps {
 	value: string;
 	/** Provide the tab control radio group. */
 	group: string;
+
+	// A11y ---
+	/** Sets the A11y labelledby. */
+	labelledBy?: string;
 
 	// Root ---
 	/** Sets base styles. */
