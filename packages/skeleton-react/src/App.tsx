@@ -27,6 +27,9 @@ function App() {
             <a className="anchor" href="/components/app-bars">
               App Bars
             </a>
+            <a className="anchor" href="/components/progress">
+              Progress
+            </a>
           </nav>
         </div>
       </div>
