@@ -22,7 +22,7 @@ export function reactCompose<
 
 // Context ---
 
-const AccordionContext = createContext<AccordionContextState>({
+export const AccordionContext = createContext<AccordionContextState>({
   selected: [],
   setSelected: () => {},
   allowMultiple: false,
@@ -124,6 +124,7 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
       aria-controls={`accordion-panel-${controls}`}
       onClick={onclick}
       disabled={disabled}
+      data-testid="accordion-control"
     >
       {/* Lead */}
       {lead && <div>{lead}</div>}
@@ -152,6 +153,7 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
       role="region"
       aria-hidden={ctx.selected.includes(id)}
       aria-labelledby={id}
+      data-testid="accordion-panel"
     >
       {ctx.selected.includes(id) && (
         <div className={`${base} ${padding} ${rounded} ${classes}`}>
