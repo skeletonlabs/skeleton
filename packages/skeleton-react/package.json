@@ -50,6 +50,7 @@
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
+		"@tailwindcss/forms": "^0.5.7",
 		"@testing-library/jest-dom": "^6.4.2",
 		"@testing-library/react": "^14.2.2",
 		"@testing-library/user-event": "^14.5.2",
