@@ -3,6 +3,9 @@ import type { Snippet } from 'svelte';
 // Tabs ---
 
 export interface TabsProps {
+	/** Provide a unique ID. */
+	id?: string;
+
 	// Root ---
 	/** Sets base styles. */
 	base?: string;
@@ -37,14 +40,16 @@ export interface TabsProps {
 // TabControl ---
 
 export interface TabsControlProps {
+	/** Provide a unique ID. */
+	id?: string;
 	/** Provide the tab control name. */
 	name: string;
 	/** Provide the tab control radio group. */
 	group: string;
-
-	// A11y ---
 	/** Provide a hoverable title attribute. */
 	title?: string;
+
+	// A11y ---
 	/** Sets the A11y label. */
 	label?: string;
 	/** Sets ARIA controls value to define which panel this tab controls. */
@@ -53,16 +58,18 @@ export interface TabsControlProps {
 	// Root ---
 	/** Sets base styles. */
 	base?: string;
-	/** Sets text size styles. */
-	text?: string;
-	/** Sets background styles. */
-	background?: string;
-	/** Sets justification styles. */
-	justify?: string;
 	/** Sets the active control styles. */
 	active?: string;
 	/** Sets the inactive control styles. */
 	inactive?: string;
+	/** Sets flex styles. */
+	flex?: string;
+	/** Sets background styles. */
+	background?: string;
+	/** Sets border styles. */
+	border?: string;
+	/** Sets text size styles. */
+	text?: string;
 	/** Sets padding styles. */
 	padding?: string;
 	/** Sets rounded styles. */
@@ -77,12 +84,14 @@ export interface TabsControlProps {
 	// Tab ---
 	/** Sets tab content base styles. */
 	contentBase?: string;
+	/** Sets tab content flex styles. */
+	contentFlex?: string;
+	/** Sets the tab content gap styles. */
+	contentGap?: string;
 	/** Sets the tab content background styles. */
 	contentBg?: string;
 	/** Sets the tab content padding styles. */
 	contentPadding?: string;
-	/** Sets the tab content gap styles. */
-	contentGap?: string;
 	/** Sets the tab content rounded styles. */
 	contentRounded?: string;
 	/** Provide arbitrary CSS classes for the tab content. */

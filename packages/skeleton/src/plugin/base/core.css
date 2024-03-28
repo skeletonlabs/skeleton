@@ -44,10 +44,6 @@ html {
 	Source: http://www.outlinenone.com/
 */
 
-*:focus {
-	@apply outline-primary-500;
-}
-
 /* Disabled States --- */
 
 .disabled,

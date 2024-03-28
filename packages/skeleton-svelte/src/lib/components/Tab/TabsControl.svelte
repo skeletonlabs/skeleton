@@ -2,30 +2,33 @@
 	import type { TabsControlProps } from './types.js';
 
 	let {
+		id,
 		name,
 		group,
+		title,
 		// A11y
-		title = '',
 		label = '',
 		controls = '',
 		// Root
-		base = 'group flex items-center border-b-2',
+		base = 'group',
 		active = 'text-surface-950-50 border-surface-950-50',
-		inactive = 'text-surface-600-400 fill-surface-600-400 border-transparent',
-		text = 'type-scale-3',
-		justify = 'justify-center',
+		inactive = 'text-surface-600-400 border-transparent',
+		flex = 'flex justify-center items-center',
 		background = '',
+		border = 'border-b-[1px]',
+		text = 'type-scale-3',
 		padding = 'pb-2',
 		rounded = '',
 		gap = 'gap-1',
 		cursor = 'cursor-pointer',
 		classes = '',
 		// Content
-		contentBase = 'w-full flex justify-center items-center gap-4 focus:-outline-offset-2',
+		contentBase = 'w-full',
+		contentFlex = 'flex justify-center items-center',
+		contentGap = 'gap-2',
 		contentBg = 'group-hover:preset-tonal-primary',
 		contentPadding = 'p-2 px-4',
-		contentGap = 'gap-2',
-		contentRounded = 'rounded-container',
+		contentRounded = 'rounded',
 		contentClasses = '',
 		// Events
 		onclick = () => {},
@@ -42,7 +45,7 @@
 
 	let elemInput: HTMLInputElement;
 
-	function onKeyDown(event: KeyboardEvent) {
+	function onKeyDownHandler(event: KeyboardEvent) {
 		// Fire Event Handler
 		onkeydown(event);
 
@@ -71,16 +74,16 @@
 			case 'ArrowRight':
 				if (isRTL) {
 					nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
-				} else {
-					nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
+					break;
 				}
+				nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
 				break;
 			case 'ArrowLeft':
 				if (isRTL) {
 					nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
-				} else {
-					nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
+					break;
 				}
+				nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
 				break;
 			case 'Home':
 				nextIndex = 0;
@@ -103,16 +106,21 @@
 
 <!-- @component A Tab Control component. -->
 
-<label class="{base} {rxActive} {text} {justify} {background} {padding} {rounded} {gap} {cursor} {classes}" aria-label={label} {title}>
+<label
+	{id}
+	class="{base} {rxActive} {flex} {background} {border} {text} {padding} {rounded} {gap} {cursor} {classes}"
+	aria-label={label}
+	{title}
+>
 	<!-- NOTE: do not add additional classes to this <div> -->
 	<div
 		class="size-full"
-		tabindex={selected ? 0 : -1}
+		role="tab"
 		aria-controls={controls}
 		aria-selected={selected}
 		data-testid="tabs-control"
-		role="tab"
-		onkeydown={onKeyDown}
+		tabindex={selected ? 0 : -1}
+		onkeydown={onKeyDownHandler}
 		{onkeypress}
 		{onkeyup}
 	>
@@ -122,7 +130,7 @@
 		</div>
 		<!-- Content -->
 		{#if children}
-			<div class="{contentBase} {contentBg} {contentPadding} {contentGap} {contentRounded} {contentClasses}">
+			<div class="{contentBase} {contentFlex} {contentGap} {contentBg} {contentPadding} {contentRounded} {contentClasses}">
 				{@render children()}
 			</div>
 		{/if}
