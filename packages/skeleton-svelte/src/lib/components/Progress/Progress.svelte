@@ -16,7 +16,7 @@
 		meterBg = 'bg-primary-500',
 		meterRounded = 'rounded',
 		meterTransition = 'transition-[width]',
-		meterIndeterminateAnim = 'indeterminate',
+		meterAnimate = 'animate-indeterminate',
 		meterClasses = ''
 	}: ProgressProps = $props();
 
@@ -30,8 +30,10 @@
 	const fillPercentage = $derived(indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100);
 	const width = $derived(`${fillPercentage}%`);
 
-	const rxIndeterminate = $derived(indeterminate ? meterIndeterminateAnim : '');
+	const rxIndeterminate = $derived(indeterminate ? meterAnimate : '');
 </script>
+
+<!-- @component An indicator showing the progress or completion of a task -->
 
 <div
 	role="progressbar"
@@ -43,17 +45,3 @@
 >
 	<div class="{meterBase} {meterBg} {meterRounded} {meterTransition} {rxIndeterminate} {meterClasses}" style:width></div>
 </div>
-
-<style>
-	.indeterminate {
-		animation: anim-progress-indeterminate 2s linear infinite;
-	}
-	@keyframes anim-progress-indeterminate {
-		from {
-			transform: translateX(-200%);
-		}
-		to {
-			transform: translateX(200%);
-		}
-	}
-</style>

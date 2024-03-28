@@ -7,7 +7,10 @@ function App() {
     <div className="h-screen grid grid-cols-[320px_minmax(0,_1fr)]">
       {/* Nav */}
       <div className="bg-surface-100-900 p-8 overflow-y-auto space-y-8">
-        <a className="type-scale-3 font-bold font-mono" href="/">
+        <a
+          className="bg-blue-500 text-white p-2 type-scale-3 font-bold font-mono"
+          href="/"
+        >
           skeleton-react
         </a>
         <hr className="hr" />

@@ -27,8 +27,8 @@ export interface ProgressProps {
 	meterRounded?: string;
 	/** Set meter transition classes. */
 	meterTransition?: string;
-	/** Set meter animation classes when progress is indeterminate (value === undefined) */
-	meterIndeterminateAnim?: string;
+	/** Set meter animation classes for indeterminate (value === undefined) */
+	meterAnimate?: string;
 	/** Set meter arbitrary classes. */
 	meterClasses?: string;
 }

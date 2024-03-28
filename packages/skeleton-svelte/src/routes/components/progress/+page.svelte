@@ -1,82 +1,70 @@
 <script lang="ts">
 	import Progress from '$lib/components/Progress/Progress.svelte';
-	let value = $state(50);
-	let min = $state(0);
+	let value = $state(60);
 	let max = $state(100);
 </script>
 
-<h1 class="h1">Progress</h1>
-
-<h2 class="h2">Controls</h2>
-
-<label class="label">
-	<span class="label-text">Value</span>
-	<input class="input" type="number" bind:value />
-</label>
-
-<label>
-	<span class="label-text">Min</span>
-	<input class="input" type="number" bind:value={min} />
-</label>
-
-<label>
-	<span class="label-text">Max</span>
-	<input class="input" type="number" bind:value={max} />
-</label>
-
-<h2 class="h2">Examples</h2>
-
-<h3 class="h3">Height</h3>
-
-<h4 class="h4">Default (h-2)</h4>
-
-<Progress {value} {max} />
-
-<h4 class="h4">h-4</h4>
-
-<Progress {value} {max} height="h-4" />
-
-<h4 class="h4">h-8</h4>
-
-<Progress {value} {max} height="h-8" />
-
-<h3 class="h3">Rounded</h3>
-
-<h4 class="h4">Default (rounded)</h4>
-
-<Progress {value} {max} />
-
-<h4 class="h4">rounded-sm</h4>
-
-<Progress {value} {max} rounded="rounded-sm" meterRounded="rounded-sm" />
-
-<h4 class="h4">rounded-none</h4>
-
-<Progress {value} {max} rounded="rounded-none" meterRounded="rounded-none" />
-
-<h3 class="h3">Colors</h3>
-
-<h4 class="h4">Default (bg-primary-500)</h4>
-
-<Progress {value} {max} />
-
-<h4 class="h4">bg-secondary-500</h4>
-
-<Progress {value} {max} meterClasses="bg-secondary-500" />
-
-<h4 class="h4">bg-tertiary-500</h4>
-
-<Progress {value} {max} meterClasses="bg-tertiary-500" />
-
-<h3 class="h3">Indeterminate</h3>
-
-<h4 class="h4">Default (indeterminate)</h4>
-
-<Progress {max} />
-
-<h4 class="h4">custom-indeterminate</h4>
-
-<Progress {max} meterIndeterminateAnim="custom-indeterminate" />
+<div class="space-y-10">
+	<header>
+		<h1 class="h1">Progress</h1>
+	</header>
+	<section class="grid grid-cols-2 gap-4">
+		<label class="label">
+			<span class="label-text">Value</span>
+			<input class="input" type="number" bind:value />
+		</label>
+		<label class="label">
+			<span class="label-text">Max</span>
+			<input class="input" type="number" bind:value={max} />
+		</label>
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">Preview</h2>
+		<Progress {value} {max} />
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">Height</h2>
+		<p>h-2 (default)</p>
+		<Progress {value} {max} />
+		<p>h-4</p>
+		<Progress {value} {max} height="h-4" />
+		<p>h-8</p>
+		<Progress {value} {max} height="h-8" />
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">Rounded</h2>
+		<p>rounded (default)</p>
+		<Progress {value} {max} />
+		<p>rounded-sm</p>
+		<Progress {value} {max} rounded="rounded-sm" meterRounded="rounded-sm" />
+		<p>rounded-none</p>
+		<Progress {value} {max} rounded="rounded-none" meterRounded="rounded-none" />
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">Colors</h2>
+		<p>bg-primary-500 (default)</p>
+		<Progress {value} {max} />
+		<p>bg-secondary-500</p>
+		<Progress {value} {max} meterClasses="bg-secondary-500" />
+		<p>bg-tertiary-500</p>
+		<Progress {value} {max} meterClasses="bg-tertiary-500" />
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">Indeterminate</h2>
+		<p>indeterminate (default)</p>
+		<Progress {max} />
+		<p>custom-indeterminate</p>
+		<Progress {max} meterAnimate="custom-indeterminate" />
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">RTL</h2>
+		<div dir="rtl" class="space-y-4">
+			<Progress {value} {max} />
+			<Progress {value} {max} meterClasses="bg-secondary-500" />
+			<Progress {value} {max} meterClasses="bg-tertiary-500" />
+		</div>
+	</section>
+</div>
 
 <style lang="postcss">
 	:global(.custom-indeterminate) {
