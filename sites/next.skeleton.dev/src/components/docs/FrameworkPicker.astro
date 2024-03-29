@@ -7,11 +7,6 @@ function getPathAndFramework(pathname: string) {
 	const path = parts.slice(0, -1).join('/');
 	const frameworkSlug = parts.at(-1);
 	const framework = frameworks.find(({ slug }) => slug === frameworkSlug);
-
-	if (!framework) {
-		throw new Error(`Invalid framework: ${frameworkSlug}`);
-	}
-
 	return [path, framework] as const;
 }
 
@@ -26,7 +21,7 @@ const cHover =
 ---
 
 {
-	(
+	(framework && (
 		<nav class="grid grid-cols-2">
 			{frameworks.map(({ name, slug, iconName }) => (
 				<a href={`${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
@@ -35,5 +30,5 @@ const cHover =
 				</a>
 			))}
 		</nav>
-	)
+	))
 }
