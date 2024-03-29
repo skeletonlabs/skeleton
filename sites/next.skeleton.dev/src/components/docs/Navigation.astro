@@ -1,41 +1,76 @@
 ---
-import { getCategories } from 'src/content/docs';
+import { getCollection } from 'astro:content';
 
 interface Props {
 	classList?: string;
 }
+const { classList } = Astro.props;
 
-const { classList } = Astro.props satisfies Props;
+// Sort Order
+const sortByOrder = (a: any, b: any) => {
+	return a.data.order - b.data.order;
+};
+
+// Query a collection via the start of the ID string
+async function queryCollection(startsWith: string): Promise<any> {
+	return await getCollection('docs', (page: any) => {
+		if (!page.id.startsWith(startsWith)) return;
+		if (page.id.split('/').length > 2) return;
+		if (page.id.endsWith('meta.mdx')) return;
+		return page;
+	});
+}
+
+// Query each collection we wish to display
+const cGetStarted = await queryCollection('get-started/');
+const cDesign = await queryCollection('design/');
+const cTailwind = await queryCollection('tailwind/');
+const cResources = await queryCollection('resources/');
+
+// Query the Components section
+const cComponents = await getCollection('docs', (page: any) => {
+	if (!page.id.startsWith('components/')) return;
+	if (!page.id.endsWith('meta.mdx')) return;
+	if (page.id === 'components/meta.mdx') return;
+	return page;
+});
+
+// Set the Label and Link List for each navigation section
+const navigation = {
+	'get-started': cGetStarted.sort(sortByOrder),
+	'design': cDesign.sort(sortByOrder),
+	tailwind: cTailwind.sort(sortByOrder),
+	components: cComponents,
+	'resources': cResources.sort(sortByOrder),
+};
+
+// Format Component links to default to React
+// TODO: make this adhere to the user's preferred framework in localstorage
+function slugFormatter(slug: string) {
+	if (slug.endsWith('/meta')) slug = slug.replace('meta', 'react');
+	return slug;
+}
+
 ---
 
 <aside class="type-scale-2 overflow-y-auto space-y-10" class:list={[classList]}>
 	{
-		(await getCategories())
-			.map((category) => {
-				return {
-					...category,
-					entries: category.entries.reduce(
-						(acc, entry) => {
-							const [_, page, ...rest] = entry.slug.split('/');
-							const pages = acc.map((entry) => entry.slug.split('/').at(1));
-							if (!pages.includes(page) && !rest.length) {
-								acc.push(entry);
-							}
-							return acc;
-						},
-						[] as (typeof category.entries)[number][],
-					),
-				};
-			})
-			.map((category) => (
-				<nav class="flex flex-col gap-2">
-					<span class="font-bold">{category.data.title}</span>
-					{category.entries.map((page) => (
-						<a class="anchor" href={`/docs/${page.slug}`} title={page.data.title}>
-							{page.data.title}
-						</a>
-					))}
-				</nav>
-			))
+		Object.entries(navigation).map(([key, pages]) => (
+			<nav class="flex flex-col gap-2">
+				<span class="font-bold capitalize">{key.replace('-', ' ')}</span>
+				{pages.map((page: any) => (
+					<a class="anchor" href={`/docs/${slugFormatter(page.slug)}`} title={page.data.title}>
+						{page.data.title}
+					</a>
+				))}
+			</nav>
+		))
 	}
 </aside>
+
+<!-- Enable for debugging -->
+<!-- <script>
+	import { getCollection } from 'astro:content';
+	const collectionDocs = await getCollection('docs');
+	console.log(collectionDocs);
+</script> -->
