@@ -1,21 +1,21 @@
 ---
-const breacrumbs = Astro.url.pathname.split('/').filter((v) => v !== '');
+const breadcrumbs = Astro.url.pathname.split('/').filter((v) => Boolean(v) && v !== 'docs');
 ---
 
 <ol class="flex gap-2 type-scale-1">
 	{
-		breacrumbs.map((crumb: string, i: number) => (
+		breadcrumbs.map((crumb, i) => (
 			<>
-				<li class="capitalize" class:list={{ 'opacity-60 ': i !== breacrumbs.length - 1 }}>
-					{i > 0 && i !== breacrumbs.length - 1 && breacrumbs[0] !== 'components' ? (
-						<a href={`/${breacrumbs[0]}/${crumb}`} class="hover:underline">
+				<li class="capitalize" class:list={{ 'opacity-60 ': i !== breadcrumbs.length - 1 }}>
+					{i > 0 && i !== breadcrumbs.length - 1 && breadcrumbs[0] !== 'components' ? (
+						<a href={`/${breadcrumbs[0]}/${crumb}`} class="hover:underline">
 							{crumb.replace('-', ' ')}
 						</a>
 					) : (
 						crumb.replace('-', ' ')
 					)}
 				</li>
-				{i !== breacrumbs.length - 1 && <li class="opacity-60">&rsaquo;</li>}
+				{i !== breadcrumbs.length - 1 && <li class="opacity-60">&rsaquo;</li>}
 			</>
 		))
 	}
