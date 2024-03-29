@@ -1,12 +1,37 @@
 ---
+import { frameworks, getFrameWorkFromSlug } from '../../config/frameworks';
 import { Icon } from 'astro-icon/components';
 
-// URL Path
-const topLevelPath = Astro.url.pathname.split('/').filter((v) => v !== '')[0];
+function getPathAndFramework(pathname: string) {
+	try {
+		const parts = pathname.split('/');
+		const path = parts.slice(0, -1).join('/');
+		const frameworkSlug = parts.at(-1);
+		const framework = getFrameWorkFromSlug(frameworkSlug);
 
-// URL Params
-const { slug } = Astro.params;
-const [framework, feature] = slug ? slug.split('/') : [];
+		if (!framework) {
+			throw new Error(`Framework not found for slug: ${frameworkSlug}`);
+		}
+
+		return {
+			success: true,
+			path,
+			framework,
+		} as const;
+	} catch {
+		return {
+			success: false,
+			path: null,
+			framework: null,
+		} as const;
+	}
+}
+
+const { success, path, framework } = getPathAndFramework(Astro.url.pathname);
+
+if (!success) {
+	throw new Error(`Invalid URL: ${Astro.url.pathname}`);
+}
 
 // Classes
 const cBtn = 'flex justify-center items-center space-x-4 py-8 rounded-tl-container rounded-tr-container';
@@ -14,25 +39,15 @@ const cActive =
 	'bg-gradient-to-b from-surface-100 dark:from-surface-900/30 to-transparent border-t border-l border-r border-surface-200-800';
 const cHover =
 	'hover:bg-gradient-to-t from-surface-100 dark:from-surface-900/30 to-transparent border-b border-surface-200-800';
-
-// Frameworks
-const frameworkList = [
-	{ name: 'react', icon: 'react' },
-	{ name: 'svelte', icon: 'svelte' },
-];
-const frameworkAllowList = frameworkList.map((fw) => fw.name);
 ---
 
 {
-	frameworkAllowList.includes(framework) && (
+	(
 		<nav class="grid grid-cols-2">
-			{frameworkList.map((fw: any) => (
-				<a
-					href={`/${topLevelPath}/${fw.name}/${feature}`}
-					class:list={[cBtn, framework === fw.name ? cActive : cHover]}
-				>
-					<Icon name={fw.icon} size={24} />
-					<span class="capitalize">{fw.name}</span>
+			{frameworks.map(({ name, slug, iconName }) => (
+				<a href={`${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
+					<Icon name={iconName} size={24} />
+					<span>{name}</span>
 				</a>
 			))}
 		</nav>

@@ -38,10 +38,10 @@ const cComponents = await getCollection('docs', (page: any) => {
 // Set the Label and Link List for each navigation section
 const navigation = {
 	'get-started': cGetStarted.sort(sortByOrder),
-	'design': cDesign.sort(sortByOrder),
+	design: cDesign.sort(sortByOrder),
 	tailwind: cTailwind.sort(sortByOrder),
 	components: cComponents,
-	'resources': cResources.sort(sortByOrder),
+	resources: cResources.sort(sortByOrder),
 };
 
 // Format Component links to default to React
