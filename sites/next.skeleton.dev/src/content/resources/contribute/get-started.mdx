@@ -39,42 +39,42 @@ Skeleton makes use of [PNPM](https://pnpm.io/) and [PNPM workspaces](https://pnp
 
 Public facing websites that are deployed to Vercel.
 
-| Path                          | Description                                         |
-| ----------------------------- | --------------------------------------------------- |
-| `/sites/skeleton.dev`         | The production skeleton.dev documentation website.  |
-| `/sites/next.skeleton.dev`    | The temporary Next/v3 documentation website.        |
-| `/sites/themes.skeleton.dev`  | The Skeleton themes generator website               |
+| Path                         | Description                                        |
+| ---------------------------- | -------------------------------------------------- |
+| `/sites/skeleton.dev`        | The production skeleton.dev documentation website. |
+| `/sites/next.skeleton.dev`   | The temporary Next/v3 documentation website.       |
+| `/sites/themes.skeleton.dev` | The Skeleton themes generator website              |
 
 ### Packages
 
 Modular Skeleton packages distributed via NPM.
 
-| Path                             | Description                                                          |
-| -------------------------------- | -------------------------------------------------------------------- |
-| `/packages/skeleton`             | The Skeleton core package, containing the Tailwind plugin.           |
-| `/packages/skeleton-react`       | The Skeleton React package, containing Skeleton React components.    |
-| `/packages/skeleton-svelte`      | The Skeleton Svelte package, containing Skeleton Svelte components.  |
-| `/packages/create-skeleton-app`  | The Skeleton onboarding CLI application.                             |
+| Path                            | Description                                                         |
+| ------------------------------- | ------------------------------------------------------------------- |
+| `/packages/skeleton`            | The Skeleton core package, containing the Tailwind plugin.          |
+| `/packages/skeleton-react`      | The Skeleton React package, containing Skeleton React components.   |
+| `/packages/skeleton-svelte`     | The Skeleton Svelte package, containing Skeleton Svelte components. |
+| `/packages/create-skeleton-app` | The Skeleton onboarding CLI application.                            |
 
 ## Branch
 
 Skeleton uses two primary branches. All pull requests should be created from and to the `dev` branch.
 
-| Branch   | Description                                            | Pull Requests                                   |
-| -------- | ------------------------------------------------------ | ----------------------------------------------- |
-| `dev`    | Represents the bleeding edge developement branch.      | <Check size={16} className='inline' /> Allowed  |
-| `master` | Represents the release branch of the all projects.     | <X size={16} className='inline' /> Never        |
+| Branch   | Description                                        | Pull Requests                                  |
+| -------- | -------------------------------------------------- | ---------------------------------------------- |
+| `dev`    | Represents the bleeding edge developement branch.  | <Check size={16} className='inline' /> Allowed |
+| `master` | Represents the release branch of the all projects. | <X size={16} className='inline' /> Never       |
 
 ### PR Branch Conventions
 
 Please use the following naming convention when creating your pull request.
 
-| Branch     | Role                                   |
-| ---------- | -------------------------------------- |
-| `docs/*`   | When updating the documentation site.  |
-| `feat/*`   | When implementing a new feature.       |
-| `chore/*`  | When implementing small changes.       |
-| `bugfix/*` | When implementing feature bugfixes.    |
+| Branch     | Role                                  |
+| ---------- | ------------------------------------- |
+| `docs/*`   | When updating the documentation site. |
+| `feat/*`   | When implementing a new feature.      |
+| `chore/*`  | When implementing small changes.      |
+| `bugfix/*` | When implementing feature bugfixes.   |
 
 Keep branch names short and semantic, using dashes to seperate words.
 
@@ -93,19 +93,19 @@ bugfix/accordion-render-issue
 4. Follow the instructions when prompted.
 5. Changeset are added to the `/.changeset` directory.
 
-Changesets use semantic version. We recommend the following convention. 
+Changesets use semantic version. We recommend the following convention.
 
-| Version     | Role                                         |
-| ----------- | ---------------------------------------------|
-| `major`     | Do not use. Reserved for maintainers.        |
-| `minor`     | For notable changes, such as a new features. |
-| `patch`     | For small changes, such as a typo.           |
+| Version | Role                                         |
+| ------- | -------------------------------------------- |
+| `major` | Do not use. Reserved for maintainers.        |
+| `minor` | For notable changes, such as a new features. |
+| `patch` | For small changes, such as a typo.           |
 
 Changeset descriptions will appear verbatim on the [Changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md). Keep it short, semantic, and prefix this like branch names.
 
 ```mdx
 ---
-"@skeletonlabs/skeleton-svelte": minor
+'@skeletonlabs/skeleton-svelte': minor
 ---
 
 feat: Added a new `background` component prop.
@@ -136,10 +136,10 @@ pnpm test
 
 We recommend the following extensions for VS Code:
 
-- [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
-- [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
-- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
-- [Tailwind](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-- [PostCSS](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Vitest](https://marketplace.visualstudio.com/items?itemName=vitest.explorer)
+-   [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
+-   [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+-   [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
+-   [Tailwind](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+-   [PostCSS](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)
+-   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+-   [Vitest](https://marketplace.visualstudio.com/items?itemName=vitest.explorer)
