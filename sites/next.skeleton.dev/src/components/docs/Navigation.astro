@@ -4,84 +4,72 @@ import { getCollection } from 'astro:content';
 interface Props {
 	classList?: string;
 }
-
 const { classList } = Astro.props;
-
-// Query from Collections
-const navDocs = await getCollection('docs', ({ id }) => {
-	// Ignore cookbook children pages
-	return !id.startsWith('installation/');
-});
-const navComponents = await getCollection('components', ({ id }) => {
-	return id.startsWith('common/');
-});
-const navDesign = await getCollection('design');
-const navTailwind = await getCollection('tailwind');
-const navResources = await getCollection('resources', ({ id }) => {
-	// Ignore cookbook children pages
-	return !id.startsWith('contribute/') && !id.startsWith('cookbook/');
-});
 
 // Sort Order
 const sortByOrder = (a: any, b: any) => {
-	return a.data.orderBy - b.data.orderBy;
+	return a.data.order - b.data.order;
 };
+
+// Query a collection via the start of the ID string
+async function queryCollection(startsWith: string): Promise<any> {
+	return await getCollection('docs', (page: any) => {
+		if (!page.id.startsWith(startsWith)) return;
+		if (page.id.split('/').length > 2) return;
+		if (page.id.endsWith('meta.mdx')) return;
+		return page;
+	});
+}
+
+// Query each collection we wish to display
+const cGetStarted = await queryCollection('get-started/');
+const cDesign = await queryCollection('design/');
+const cTailwind = await queryCollection('tailwind/');
+const cResources = await queryCollection('resources/');
+
+// Query the Components section
+const cComponents = await getCollection('docs', (page: any) => {
+	if (!page.id.startsWith('components/')) return;
+	if (!page.id.endsWith('meta.mdx')) return;
+	if (page.id === 'components/meta.mdx') return;
+	return page;
+});
+
+// Set the Label and Link List for each navigation section
+const navigation = {
+	'get-started': cGetStarted.sort(sortByOrder),
+	design: cDesign.sort(sortByOrder),
+	tailwind: cTailwind.sort(sortByOrder),
+	components: cComponents,
+	resources: cResources.sort(sortByOrder),
+};
+
+// Format Component links to default to React
+// TODO: make this adhere to the user's preferred framework in localstorage
+function slugFormatter(slug: string) {
+	if (slug.endsWith('/meta')) slug = slug.replace('meta', 'react');
+	return slug;
+}
 ---
 
 <aside class="type-scale-2 overflow-y-auto space-y-10" class:list={[classList]}>
-	<!-- Top -->
-	<div class="flex flex-col gap-2">
-		<span class="font-bold">Docs</span>
-		{
-			navDocs.sort(sortByOrder).map((l) => (
-				<a class="anchor" href={`/docs/${l.slug}`} title={l.data.description}>
-					{l.data.title}
-				</a>
-			))
-		}
-	</div>
-	<!-- Design -->
-	<div class="flex flex-col gap-2">
-		<span class="font-bold">Design</span>
-		{
-			navDesign.sort(sortByOrder).map((l) => (
-				<a class="anchor" href={`/design/${l.slug}`} title={l.data.description}>
-					{l.data.title}
-				</a>
-			))
-		}
-	</div>
-	<!-- Tailwind -->
-	<div class="flex flex-col gap-2">
-		<span class="font-bold">Tailwind</span>
-		{
-			navTailwind.map((l) => (
-				<a class="anchor" href={`/tailwind/${l.slug}`} title={l.data.description}>
-					{l.data.title}
-				</a>
-			))
-		}
-	</div>
-	<!-- Components -->
-	<div class="flex flex-col gap-2">
-		<span class="font-bold">Components</span>
-		{
-			navComponents.map((l) => (
-				<a class="anchor" href={`/components/${l.slug.replace('common', 'react')}`} title={l.data.description}>
-					{l.data.title}
-				</a>
-			))
-		}
-	</div>
-	<!-- Resources -->
-	<div class="flex flex-col gap-2">
-		<span class="font-bold">Resources</span>
-		{
-			navResources.map((l) => (
-				<a class="anchor" href={`/resources/${l.slug.replace('common', 'react')}`} title={l.data.description}>
-					{l.data.title}
-				</a>
-			))
-		}
-	</div>
+	{
+		Object.entries(navigation).map(([key, pages]) => (
+			<nav class="flex flex-col gap-2">
+				<span class="font-bold capitalize">{key.replace('-', ' ')}</span>
+				{pages.map((page: any) => (
+					<a class="anchor" href={`/docs/${slugFormatter(page.slug)}`} title={page.data.title}>
+						{page.data.title}
+					</a>
+				))}
+			</nav>
+		))
+	}
 </aside>
+
+<!-- Enable for debugging -->
+<!-- <script>
+	import { getCollection } from 'astro:content';
+	const collectionDocs = await getCollection('docs');
+	console.log(collectionDocs);
+</script> -->

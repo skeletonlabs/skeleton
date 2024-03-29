@@ -1,0 +1,23 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Cookbook
+description: A collection of recipes for crafting complex UI that combines Skeleton and Tailwind primitives.
+---
+
+export const components = componentSet;
+
+import NavGrid from '@components/docs/NavGrid.astro';
+
+{/* --- */}
+
+## Basic
+
+<NavGrid collection="docs" path="resources/cookbook/basic/" classes="md:grid-cols-2" />
+
+## Intermediate
+
+<NavGrid collection="docs" path="resources/cookbook/intermediate/" classes="md:grid-cols-2" />
+
+## Advanced
+
+<NavGrid collection="docs" path="resources/cookbook/advanced/" classes="md:grid-cols-2" />
