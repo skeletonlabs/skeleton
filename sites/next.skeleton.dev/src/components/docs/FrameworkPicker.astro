@@ -1,6 +1,18 @@
 ---
-import { frameworks } from '../../config/frameworks';
 import { Icon } from 'astro-icon/components';
+
+export const frameworks = [
+	{
+		name: 'React',
+		slug: 'react',
+		iconName: 'react',
+	},
+	{
+		name: 'Svelte',
+		slug: 'svelte',
+		iconName: 'svelte',
+	},
+];
 
 function getPathAndFramework(pathname: string) {
 	const parts = pathname.split('/');
