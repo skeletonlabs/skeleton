@@ -15,7 +15,7 @@ export const frameworks = [
 ];
 
 function getPathAndFramework(pathname: string) {
-	const parts = pathname.split('/');
+	const parts = pathname.split('/').filter(Boolean);
 	const path = parts.slice(0, -1).join('/');
 	const frameworkSlug = parts.at(-1);
 	const framework = frameworks.find(({ slug }) => slug === frameworkSlug);
@@ -36,7 +36,7 @@ const cHover =
 	(framework && (
 		<nav class="grid grid-cols-2">
 			{frameworks.map(({ name, slug, iconName }) => (
-				<a href={`${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
+				<a href={`/${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
 					<Icon name={iconName} size={24} />
 					<span>{name}</span>
 				</a>
