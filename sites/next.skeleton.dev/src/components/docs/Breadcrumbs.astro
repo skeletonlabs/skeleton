@@ -1,5 +1,5 @@
 ---
-const breadcrumbs = Astro.url.pathname.split('/').filter((v) => Boolean(v) && v !== 'docs');
+const breadcrumbs = Astro.url.pathname.split('/').filter((crumb) => Boolean(crumb) && crumb !== 'docs');
 ---
 
 <ol class="flex gap-2 type-scale-1">
