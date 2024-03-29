@@ -5,7 +5,7 @@ const { collection, path, classes } = Astro.props;
 
 // Get collection, filter by path
 const collectionItems = await getCollection(collection, (item: any) => {
-	if (item.slug.includes(path)) return item;
+	if (item.slug.includes(path) && !item.id.endsWith('meta.mdx')) return item;
 });
 
 // Sort Order
