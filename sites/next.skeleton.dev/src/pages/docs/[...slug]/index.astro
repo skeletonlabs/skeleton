@@ -16,13 +16,14 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { entry } = Astro.props;
+const { Content, remarkPluginFrontmatter} = await entry.render();
+
+// Split the route into segments
 const routeArr = entry.slug.split('/');
 
 // Create allowlist for sections that use split meta/framework format
 const metaCollections = [ 'components' ];
-const meta = metaCollections.includes(routeArr[0]) ? (await getEntry('docs', entry.slug)) : null;
-
-const { Content, remarkPluginFrontmatter} = await entry.render();
+const meta = metaCollections.includes(routeArr[0]) ? (await getEntry('docs', `${routeArr[0]}/${routeArr[1]}/meta`)) : null;
 
 // Append common frontmatter
 // https://github.com/withastro/astro/issues/7972
