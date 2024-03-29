@@ -8,7 +8,7 @@ const breadcrumbs = Astro.url.pathname.split('/').filter((crumb) => Boolean(crum
 			<>
 				<li class="capitalize" class:list={{ 'opacity-60 ': i !== breadcrumbs.length - 1 }}>
 					{i > 0 && i !== breadcrumbs.length - 1 && breadcrumbs[0] !== 'components' ? (
-						<a href={`/${breadcrumbs[0]}/${crumb}`} class="hover:underline">
+						<a href={`/docs/${breadcrumbs[0]}/${crumb}`} class="hover:underline">
 							{crumb.replace('-', ' ')}
 						</a>
 					) : (
