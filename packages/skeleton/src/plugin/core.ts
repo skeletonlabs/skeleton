@@ -9,12 +9,11 @@ import plugin from 'tailwindcss/plugin.js';
 import utilColorPairings from './utilities/color-pairings.js';
 import utilTypography from './utilities/typography.js';
 import utilPresets from './utilities/presets.js';
-// Replaces
-// ...
 // Extends
 import extendColors from './extends/colors.js';
 import extendSpacing from './extends/spacing.js';
 import extendBorders from './extends/borders.js';
+import extendAnimAndKeyframes from './extends/animations.js';
 
 export const coreUtilities = {
 	...utilColorPairings(),
@@ -24,18 +23,14 @@ export const coreUtilities = {
 
 export const coreConfig = {
 	theme: {
-		// Replace
-		// ...
-		// Extend
 		extend: {
 			...extendColors(),
 			...extendSpacing(),
-			...extendBorders()
+			...extendBorders(),
+			...extendAnimAndKeyframes()
 		}
 	}
 };
-
-// export const coreClasses = getSkeletonClasses();
 
 export function getSkeletonClasses() {
 	// try/catch because it will throw when generated-classes.js isn't generated yet

@@ -19,7 +19,7 @@
 		imageClasses = '',
 		// Snippets
 		children
-	} = $props<AvatarProps>();
+	}: AvatarProps = $props();
 </script>
 
 <!-- @component An image with a fallback for representing the user. -->
