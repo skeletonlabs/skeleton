@@ -27,6 +27,7 @@ const { data, label, tonal, kbd } = Astro.props satisfies Props;
 			{
 				data.map((tRow) => (
 					<tr>
+						<!-- TODO: Find out why cell is being joined on on line 38. -->
 						{Object.values(tRow).map((cell: any, i) => {
 							// Tonal Cell
 							// prettier-ignore
