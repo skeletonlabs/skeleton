@@ -14,27 +14,17 @@ export const getStaticPaths = (async () => {
 	}));
 }) satisfies GetStaticPaths;
 
-async function getComponentMeta(component: string) {
-	const meta = await getEntryBySlug('docs', `components/${component}/meta`);
-	if (meta === null || meta === undefined) {
-		return null;
-	}
-	return meta;
-}
-
 const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await entry.render();
 
-// Grab component from slug
-const component = entry.slug.split('/').filter(Boolean).at(-2) ?? '';
-
-// Get component meta
-const meta = await getComponentMeta(component);
+// Get meta for the current page
+// This Regex replaces that last part of the url with meta, so "components/accordion/svelte" becomes "components/accordion/meta"
+const meta = await getEntryBySlug('docs', entry.slug.replace(/\/[^\/]*$/, "/meta"));
 
 // Append common frontmatter
 // https://github.com/withastro/astro/issues/7972
 // https://docs.astro.build/en/guides/content-collections/#modifying-frontmatter-with-remark
-if (meta !== null) {
+if (meta !== undefined) {
 	Object.assign(remarkPluginFrontmatter, meta.data);
 }
 ---

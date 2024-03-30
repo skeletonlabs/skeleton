@@ -22,26 +22,16 @@ export function isFramework(framework: string): framework is Framework {
 const FRAMEWORK_KEY = 'framework';
 
 export function setPreferredFramework(framework: Framework) {
-	if (typeof window === 'undefined') {
-		return false;
-	}
-	if (!isFramework(framework)) {
-		return false;
-	}
+	if (typeof window === 'undefined') return false;
+	if (!isFramework(framework)) return false;
 	localStorage.setItem(FRAMEWORK_KEY, framework);
 	return true;
 }
 
 export function getPreferredFramework() {
-	if (typeof window === 'undefined') {
-		return DEFAULT_FRAMEWORK;
-	}
+	if (typeof window === 'undefined') return DEFAULT_FRAMEWORK;
 	const framework = localStorage.getItem(FRAMEWORK_KEY);
-	if (framework === null) {
-		return DEFAULT_FRAMEWORK;
-	}
-	if (!isFramework(framework)) {
-		return DEFAULT_FRAMEWORK;
-	}
+	if (framework === null) return DEFAULT_FRAMEWORK;
+	if (!isFramework(framework)) return DEFAULT_FRAMEWORK;
 	return framework;
 }

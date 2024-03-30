@@ -62,15 +62,13 @@ const navigation = {
 </aside>
 
 <script>
-	import { getPreferredFramework } from 'src/lib/frameworks';
+	import { getPreferredFramework } from 'src/lib/utils';
 
 	const framework = getPreferredFramework();
 
 	// Update all links ending with meta to use the selected framework
 	for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a')) {
-		if (!anchor.href.endsWith('meta')) {
-			continue;
-		}
+		if (!anchor.href.endsWith('meta')) continue;
 		anchor.setAttribute('href', anchor.href.replace('meta', framework));
 	}
 </script>
