@@ -38,7 +38,6 @@ const cHover =
 			{frameworks.map(({ name, slug, iconName }) => (
 				<a
 					data-framework={slug}
-					data-framework-tab
 					href={`/${path}/${slug}`}
 					class:list={[cBtn, framework.slug === slug ? cActive : cHover]}
 				>
@@ -51,14 +50,16 @@ const cHover =
 }
 
 <script>
-	for (const frameworkTab of document.querySelectorAll('[data-framework-tab]')) {
+	import { isFramework, setPreferredFramework } from 'src/lib/frameworks';
+
+	for (const frameworkTab of document.querySelectorAll('[data-framework]')) {
 		const framework = frameworkTab.getAttribute('data-framework');
 		if (!framework) {
 			continue;
 		}
-		frameworkTab.addEventListener('click', () => {
-			localStorage.setItem('framework', framework);
-			console.log('framework', framework);
-		});
+		if (!isFramework(framework)) {
+			continue;
+		}
+		frameworkTab.addEventListener('click', () => setPreferredFramework(framework));
 	}
 </script>

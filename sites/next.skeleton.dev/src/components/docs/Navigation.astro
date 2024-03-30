@@ -62,8 +62,9 @@ const navigation = {
 </aside>
 
 <script>
-	// Grab framework from local storage, default to React
-	const framework = localStorage.getItem('framework') || 'react';
+	import { getPreferredFramework } from 'src/lib/frameworks';
+
+	const framework = getPreferredFramework();
 
 	// Update all links ending with meta to use the selected framework
 	for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a')) {
