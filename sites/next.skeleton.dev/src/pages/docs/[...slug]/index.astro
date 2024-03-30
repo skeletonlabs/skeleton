@@ -1,7 +1,6 @@
 ---
-import { getComponentMeta } from '@content/docs';
 import type { GetStaticPaths } from 'astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntryBySlug } from 'astro:content';
 
 export const getStaticPaths = (async () => {
 	const entries = await getCollection('docs');
@@ -14,6 +13,14 @@ export const getStaticPaths = (async () => {
 		},
 	}));
 }) satisfies GetStaticPaths;
+
+async function getComponentMeta(component: string) {
+	const meta = await getEntryBySlug('docs', `components/${component}/meta`);
+	if (meta === null || meta === undefined) {
+		return null;
+	}
+	return meta;
+}
 
 const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await entry.render();
