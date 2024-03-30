@@ -46,7 +46,8 @@ const layoutProps = {
 	classList: 'grid grid-rows-[auto_1fr] xl:grid-rows-[auto_1fr_auto]',
 };
 // GitHub Settings
-const branch: string = 'next'; // FIXME: update before launch
+const branch = 'next';
+// @ts-expect-error - FIXME: update before launch
 const docSite = branch === 'master' ? 'skeleton.dev' : 'next.skeleton.dev';
 // URLs
 const urls = {
