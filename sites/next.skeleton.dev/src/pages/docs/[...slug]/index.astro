@@ -31,12 +31,10 @@ const component = entry.slug.split('/').filter(Boolean).at(-2) ?? '';
 // Get component meta
 const meta = await getComponentMeta(component);
 
-// TODO: Experiment removing this, data appears to be present already
 // Append common frontmatter
 // https://github.com/withastro/astro/issues/7972
 // https://docs.astro.build/en/guides/content-collections/#modifying-frontmatter-with-remark
 if (meta !== null) {
-	console.log(meta.data);
 	Object.assign(remarkPluginFrontmatter, meta.data);
 }
 ---
