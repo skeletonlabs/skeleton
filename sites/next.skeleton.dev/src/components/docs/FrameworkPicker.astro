@@ -33,14 +33,32 @@ const cHover =
 ---
 
 {
-	(framework && (
+	framework && (
 		<nav class="grid grid-cols-2">
 			{frameworks.map(({ name, slug, iconName }) => (
-				<a href={`/${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
+				<a
+					data-framework={slug}
+					data-framework-tab
+					href={`/${path}/${slug}`}
+					class:list={[cBtn, framework.slug === slug ? cActive : cHover]}
+				>
 					<Icon name={iconName} size={24} />
 					<span>{name}</span>
 				</a>
 			))}
 		</nav>
-	))
+	)
 }
+
+<script>
+	for (const frameworkTab of document.querySelectorAll('[data-framework-tab]')) {
+		const framework = frameworkTab.getAttribute('data-framework');
+		if (!framework) {
+			continue;
+		}
+		frameworkTab.addEventListener('click', () => {
+			localStorage.setItem('framework', framework);
+			console.log('framework', framework);
+		});
+	}
+</script>

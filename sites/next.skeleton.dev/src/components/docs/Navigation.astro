@@ -1,4 +1,5 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
 interface Props {
@@ -7,17 +8,17 @@ interface Props {
 const { classList } = Astro.props;
 
 // Sort Order
-const sortByOrder = (a: any, b: any) => {
+const sortByOrder = (a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => {
 	return a.data.order - b.data.order;
 };
 
 // Query a collection via the start of the ID string
-async function queryCollection(startsWith: string): Promise<any> {
-	return await getCollection('docs', (page: any) => {
-		if (!page.id.startsWith(startsWith)) return;
-		if (page.id.split('/').length > 2) return;
-		if (page.id.endsWith('meta.mdx')) return;
-		return page;
+async function queryCollection(startsWith: string) {
+	return await getCollection('docs', (entry) => {
+		if (!entry.id.startsWith(startsWith)) return;
+		if (entry.id.split('/').length > 2) return;
+		if (entry.id.endsWith('meta.mdx')) return;
+		return entry;
 	});
 }
 
@@ -28,11 +29,11 @@ const cTailwind = await queryCollection('tailwind/');
 const cResources = await queryCollection('resources/');
 
 // Query the Components section
-const cComponents = await getCollection('docs', (page: any) => {
-	if (!page.id.startsWith('components/')) return;
-	if (!page.id.endsWith('meta.mdx')) return;
-	if (page.id === 'components/meta.mdx') return;
-	return page;
+const cComponents = await getCollection('docs', (entry) => {
+	if (!entry.id.startsWith('components/')) return;
+	if (!entry.id.endsWith('meta.mdx')) return;
+	if (entry.id === 'components/meta.mdx') return;
+	return entry;
 });
 
 // Set the Label and Link List for each navigation section
@@ -43,13 +44,6 @@ const navigation = {
 	components: cComponents,
 	resources: cResources.sort(sortByOrder),
 };
-
-// Format Component links to default to React
-// TODO: make this adhere to the user's preferred framework in localstorage
-function slugFormatter(slug: string) {
-	if (slug.endsWith('/meta')) slug = slug.replace('meta', 'react');
-	return slug;
-}
 ---
 
 <aside class="type-scale-2 overflow-y-auto space-y-10" class:list={[classList]}>
@@ -57,8 +51,8 @@ function slugFormatter(slug: string) {
 		Object.entries(navigation).map(([key, pages]) => (
 			<nav class="flex flex-col gap-2">
 				<span class="font-bold capitalize">{key.replace('-', ' ')}</span>
-				{pages.map((page: any) => (
-					<a class="anchor" href={`/docs/${slugFormatter(page.slug)}`} title={page.data.title}>
+				{pages.map((page) => (
+					<a class="anchor" href={`/docs/${page.slug}`} title={page.data.title}>
 						{page.data.title}
 					</a>
 				))}
@@ -66,6 +60,19 @@ function slugFormatter(slug: string) {
 		))
 	}
 </aside>
+
+<script>
+	// Grab framework from local storage, default to React
+	const framework = localStorage.getItem('framework') || 'react';
+
+	// Update all links ending with meta to use the selected framework
+	for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a')) {
+		if (!anchor.href.endsWith('meta')) {
+			continue;
+		}
+		anchor.setAttribute('href', anchor.href.replace('meta', framework));
+	}
+</script>
 
 <!-- Enable for debugging -->
 <!-- <script>
