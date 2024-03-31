@@ -1,9 +1,8 @@
-import type { Snippet } from 'svelte';
+import React from "react";
+// Components ---
 
-// Tabs ---
-
-export interface TabsProps {
-	/** Provide a unique ID. */
+export interface TabProps extends React.PropsWithChildren {
+    /** Provide a unique ID. */
 	id?: string;
 
 	// Root ---
@@ -13,29 +12,22 @@ export interface TabsProps {
 	spaceY?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
-
-	// Tab list ---
-	/** Sets the list snippet element's base styles. */
-	listBase?: string;
-	/** Sets the list snippet element's justification styles. */
-	listJustify?: string;
-	/** Sets the list snippet element's gap spacing. */
-	listGap?: string;
-	/** Sets the list snippet element's border styles. */
-	listBorder?: string;
-	/** Provide arbitrary CSS classes to the list snippet. */
-	listClasses?: string;
-
-	// Snippets ---
-	/** The tab list slot. */
-	list?: Snippet;
-	/** The tab panel slot. */
-	panels?: Snippet;
 }
 
-// TabControl ---
+export interface TabListProps extends React.PropsWithChildren {
+	/** Sets the base styles. */
+	base?: string;
+	/** Sets the justification styles. */
+	justify?: string;
+	/** Sets the gap spacing. */
+	gap?: string;
+	/** Sets the border styles. */
+	border?: string;
+	/** Provide arbitrary CSS classes. */
+	classes?: string;
+}
 
-export interface TabsControlProps {
+export interface TabControlProps extends React.PropsWithChildren {
 	/** Provide a unique ID. */
 	id?: string;
 	/** Provide the tab control name. */
@@ -77,42 +69,35 @@ export interface TabsControlProps {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Tab ---
-	/** Sets tab content base styles. */
-	contentBase?: string;
-	/** Sets tab content flex styles. */
-	contentFlex?: string;
-	/** Sets the tab content gap styles. */
-	contentGap?: string;
-	/** Sets the tab content background styles. */
-	contentBg?: string;
-	/** Sets the tab content padding styles. */
-	contentPadding?: string;
-	/** Sets the tab content rounded styles. */
-	contentRounded?: string;
-	/** Provide arbitrary CSS classes for the tab content. */
-	contentClasses?: string;
-
 	// Events ---
 	/** Triggers on Tab Control click. */
-	onclick?: (event: MouseEvent) => void;
-	/** Triggers on Tab Control key press. */
-	onkeypress?: (event: KeyboardEvent) => void;
+	onclick?: (event: React.MouseEvent<HTMLInputElement>) => void;
 	/** Triggers on Tab Control key down. */
-	onkeydown?: (event: KeyboardEvent) => void;
+	onkeydown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 	/** Triggers on Tab Control key up. */
-	onkeyup?: (event: KeyboardEvent) => void;
+	onkeyup?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 	/** Triggers on Tab Control group change. */
 	onchange?: (group: string) => void;
-
-	// Snippets ---
-	/** The default child slot. */
-	children?: Snippet;
 }
 
-// TabPanel ---
+export interface TabControlItemProps extends React.PropsWithChildren {
+	/** Sets base styles. */
+	base?: string;
+	/** Sets flex styles. */
+	flex?: string;
+	/** Sets gap styles. */
+	gap?: string;
+	/** Sets background styles. */
+	background?: string;
+	/** Sets padding styles. */
+	padding?: string;
+	/** Sets rounded styles. */
+	rounded?: string;
+	/** Provide arbitrary CSS classes. */
+	classes?: string;
+}
 
-export interface TabsPanelProps {
+export interface TabPanelItemProps extends React.PropsWithChildren {
 	/** Provide a unique ID. */
 	id?: string;
 	/** Provide the tab panel value. */
@@ -127,8 +112,4 @@ export interface TabsPanelProps {
 	// Root ---
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
-
-	// Snippets ---
-	/** The default child slot. */
-	children?: Snippet;
 }

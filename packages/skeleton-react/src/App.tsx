@@ -36,6 +36,9 @@ function App() {
             <a className="anchor" href="/components/progress">
               Progress
             </a>
+            <a className="anchor" href="/components/tabs">
+              Tabs
+            </a>
           </nav>
         </div>
       </div>
