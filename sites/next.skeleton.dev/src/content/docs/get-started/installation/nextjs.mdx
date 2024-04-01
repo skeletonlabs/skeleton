@@ -34,6 +34,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     <ProcessStep step="4">
         ## Configure Tailwind
         Open and configure `tailwind.config.js` as shown.
+{/* prettier-ignore */}
 ```js {2, 3, 11, 17-19}
 import { join } from 'path';
 import { skeleton } from '@skeletonlabs/skeleton';
@@ -41,20 +42,20 @@ import * as themes from "@skeletonlabs/skeleton/themes";
 
 /** @type {import('tailwindcss').Config} \*/
 export default {
-content: [
-"./src/pages/**/_.{js,ts,jsx,tsx,mdx}",
-"./src/components/\*\*/_.{js,ts,jsx,tsx,mdx}",
-"./src/app/**/\*.{js,ts,jsx,tsx,mdx}",
-join(require.resolve('@skeletonlabs/skeleton-react'), '../**/\*.{html,js,tsx,ts}')
-],
-theme: {
-extend: {},
-},
-plugins: [
-skeleton({
-themes: [ themes.cerberus, themes.rose ]
-})
-]
+    content: [
+        "./src/pages/**/_.{js,ts,jsx,tsx,mdx}",
+        "./src/components/\*\*/_.{js,ts,jsx,tsx,mdx}",
+        "./src/app/**/\*.{js,ts,jsx,tsx,mdx}",
+        join(require.resolve('@skeletonlabs/skeleton-react'), '../**/\*.{html,js,tsx,ts}')
+    ],
+        theme: {
+        extend: {},
+    },
+    plugins: [
+        skeleton({
+            themes: [ themes.cerberus, themes.rose ]
+        })
+    ]
 }
 
 ````
