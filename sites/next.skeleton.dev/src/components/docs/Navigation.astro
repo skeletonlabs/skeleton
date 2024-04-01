@@ -32,7 +32,6 @@ const cResources = await queryCollection('resources/');
 const cComponents = await getCollection('docs', (entry) => {
 	if (!entry.id.startsWith('components/')) return;
 	if (!entry.id.endsWith('meta.mdx')) return;
-	if (entry.id === 'components/meta.mdx') return;
 	return entry;
 });
 
