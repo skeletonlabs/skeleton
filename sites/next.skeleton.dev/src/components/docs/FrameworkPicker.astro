@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { frameworks } from 'src/lib/utils';
+import { frameworks } from 'src/utils';
 
 function getPathAndFramework(pathname: string) {
 	const parts = pathname.split('/').filter(Boolean);
@@ -38,7 +38,7 @@ const cHover =
 }
 
 <script>
-	import { isFramework, setPreferredFramework } from 'src/lib/utils';
+	import { isFramework, setPreferredFramework } from 'src/utils';
 
 	for (const frameworkTab of document.querySelectorAll('[data-framework]')) {
 		const framework = frameworkTab.getAttribute('data-framework');
