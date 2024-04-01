@@ -22,7 +22,7 @@ export default {
 		forms,
 		// typography,
 		skeleton({
-			themes: [themes.catppuccin, themes.cerberus, themes.pine, themes.rose],
+			themes: Object.values(themes),
 		}),
 	],
 };
