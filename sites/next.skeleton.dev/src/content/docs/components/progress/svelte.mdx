@@ -7,6 +7,12 @@ export const components = componentSet;
 import Example from '@examples/components/progress/Example.svelte';
 import ExampleRaw from '@examples/components/progress/Example.svelte?raw';
 
+import ExampleColors from '@examples/components/progress/ExampleColors.svelte';
+import ExampleColorsRaw from '@examples/components/progress/ExampleColors.svelte?raw';
+
+import ExampleHeight from '@examples/components/progress/ExampleHeight.svelte';
+import ExampleHeightRaw from '@examples/components/progress/ExampleHeight.svelte?raw';
+
 import ExampleIndeterminate from '@examples/components/progress/ExampleIndeterminate.svelte';
 import ExampleIndeterminateRaw from '@examples/components/progress/ExampleIndeterminate.svelte?raw';
 
@@ -24,13 +30,36 @@ import ExampleNativeRaw from '@examples/components/progress/ExampleNative.astro?
 	</Fragment>
 </Preview>
 
-## Max
+## Colors
 
-The `max` prop is used to set the maximum value of the progress bar, the default value is `100`.
+The color of the progress bar can be adjusted by setting the `meterBg` prop; the default color is `bg-primary-500`.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleColors client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleColorsRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Height
+
+The height of the progress bar can be adjusted by setting the `height` prop; the default height is `h-2`.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleHeight client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleHeightRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
 
 ## Indeterminate
 
-When the `value` prop is left out or is passed `undefined` the progress will be marked as underminate and show a loading animation.
+If there is no value or the value is `undefined` the progress bar is indeterminate; this indicates that an activity is ongoing with no indication of how long it is expected to take.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -43,7 +72,7 @@ When the `value` prop is left out or is passed `undefined` the progress will be 
 
 ## Native Alternative
 
-The native `progress` element is a good alternative if you cannot use Javascript, be aware that it does not support the `indeterminate` state that Skeleton provides.
+The native `progress` element works cross browser, but does not currently support Indeterminate when styled.
 
 <Preview client:load>
 	<Fragment slot="preview">

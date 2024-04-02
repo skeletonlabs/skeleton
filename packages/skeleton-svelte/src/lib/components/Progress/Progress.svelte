@@ -4,7 +4,7 @@
 	let {
 		value,
 		max = 100,
-		ariaLabelledby = '',
+		labelledBy = '',
 		// Root
 		base = 'overflow-x-hidden',
 		bg = 'bg-surface-200-800',
@@ -37,7 +37,7 @@
 
 <div
 	role="progressbar"
-	aria-labelledby={ariaLabelledby}
+	aria-labelledby={labelledBy}
 	aria-valuenow={value}
 	aria-valuemin={0}
 	aria-valuemax={max}

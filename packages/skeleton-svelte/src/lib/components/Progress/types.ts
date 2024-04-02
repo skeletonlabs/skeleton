@@ -4,7 +4,7 @@ export interface ProgressProps {
 	/** Set the maximum value */
 	max?: number;
 	/** Set the aria-labelledby */
-	ariaLabelledby?: string;
+	labelledBy?: string;
 
 	// Root ---
 	/** Set root base classes */
