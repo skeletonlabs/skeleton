@@ -10,6 +10,9 @@ import ExampleRaw from '@examples/components/progress/Example.tsx?raw';
 import ExampleIndeterminate from '@examples/components/progress/ExampleIndeterminate.tsx';
 import ExampleIndeterminateRaw from '@examples/components/progress/ExampleIndeterminate.tsx?raw';
 
+import ExampleNative from '@examples/components/progress/ExampleNative.astro';
+import ExampleNativeRaw from '@examples/components/progress/ExampleNative.astro?raw';
+
 {/* --- */}
 
 <Preview client:load>
@@ -33,3 +36,17 @@ When the `value` prop is left out or is passed `undefined` the progress will be 
 		<Code code={ExampleIndeterminateRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+## Native Alternative
+
+The native `progress` element is an alternative, be aware that it does not support the `indeterminate` state that Skeleton provides.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleNative client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleNativeRaw} lang="html" />
+	</Fragment>
+</Preview>
+
