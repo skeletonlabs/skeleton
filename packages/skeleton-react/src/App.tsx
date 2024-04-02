@@ -6,7 +6,7 @@ function App() {
   return (
     <div
       className="h-screen grid grid-cols-[320px_minmax(0,_1fr)]"
-      data-testId="app"
+      data-testid="app"
     >
       {/* Nav */}
       <div className="bg-surface-100-900 p-8 overflow-y-auto space-y-8">

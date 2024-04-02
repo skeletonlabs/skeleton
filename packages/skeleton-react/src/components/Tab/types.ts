@@ -1,7 +1,8 @@
 import React from "react";
+
 // Components ---
 
-export interface TabProps extends React.PropsWithChildren {
+export interface TabsProps extends React.PropsWithChildren {
     /** Provide a unique ID. */
 	id?: string;
 
@@ -14,7 +15,7 @@ export interface TabProps extends React.PropsWithChildren {
 	classes?: string;
 }
 
-export interface TabListProps extends React.PropsWithChildren {
+export interface TabsListProps extends React.PropsWithChildren {
 	/** Sets the base styles. */
 	base?: string;
 	/** Sets the justification styles. */
@@ -27,7 +28,7 @@ export interface TabListProps extends React.PropsWithChildren {
 	classes?: string;
 }
 
-export interface TabControlProps extends React.PropsWithChildren {
+export interface TabsControlProps extends React.PropsWithChildren {
 	/** Provide a unique ID. */
 	id?: string;
 	/** Provide the tab control name. */
@@ -80,7 +81,7 @@ export interface TabControlProps extends React.PropsWithChildren {
 	onchange?: (group: string) => void;
 }
 
-export interface TabControlItemProps extends React.PropsWithChildren {
+export interface TabsControlItemProps extends React.PropsWithChildren {
 	/** Sets base styles. */
 	base?: string;
 	/** Sets flex styles. */
@@ -97,7 +98,7 @@ export interface TabControlItemProps extends React.PropsWithChildren {
 	classes?: string;
 }
 
-export interface TabPanelItemProps extends React.PropsWithChildren {
+export interface TabsPanelItemProps extends React.PropsWithChildren {
 	/** Provide a unique ID. */
 	id?: string;
 	/** Provide the tab panel value. */

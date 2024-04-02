@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { TabProps, TabListProps, TabControlProps, TabControlItemProps, TabPanelItemProps } from "./types";
+import { TabsProps, TabsListProps, TabsControlProps, TabsControlItemProps, TabsPanelItemProps } from "./types";
 
 // React Compose ---
 import { reactCompose } from "../../utils/react-compose";
 
 // Components ---
-const TabRoot: React.FC<TabProps> = ({
-    id,
+const TabsRoot: React.FC<TabsProps> = ({
+    id = '',
     // Root
     base = 'w-full',
     spaceY = 'space-y-4',
@@ -21,7 +21,7 @@ const TabRoot: React.FC<TabProps> = ({
     );
 };
 
-const TabListRoot: React.FC<TabListProps> = ({
+const TabsListRoot: React.FC<TabsListProps> = ({
     // Root
     base = 'flex',
     justify = 'justify-start',
@@ -38,11 +38,11 @@ const TabListRoot: React.FC<TabListProps> = ({
     );
 };
 
-const TabControlRoot: React.FC<TabControlProps> = ({
-    id,
+const TabsControlRoot: React.FC<TabsControlProps> = ({
+    id = '',
     name,
     group,
-    title,
+    title = '',
     // A11y
     label = '',
     controls = '',
@@ -142,6 +142,7 @@ const TabControlRoot: React.FC<TabControlProps> = ({
 			(nextTab as HTMLDivElement).focus();
 		}
 	}
+
     return (
         <label
             id={id}
@@ -171,7 +172,7 @@ const TabControlRoot: React.FC<TabControlProps> = ({
     );
 };
 
-const TabControlItem: React.FC<TabControlItemProps> = ({
+const TabsControlItem: React.FC<TabsControlItemProps> = ({
     // Root
     base = 'w-full',
     flex = 'flex justify-center items-center',
@@ -190,8 +191,8 @@ const TabControlItem: React.FC<TabControlItemProps> = ({
     );
 };
 
-const TabPanelItem: React.FC<TabPanelItemProps> = ({
-    id,
+const TabsPanelItem: React.FC<TabsPanelItemProps> = ({
+    id = '',
     value,
     group,
     // A11y
@@ -208,15 +209,15 @@ const TabPanelItem: React.FC<TabPanelItemProps> = ({
     );
 };
 
-export const TabControl = reactCompose(TabControlRoot, {
-    Item: TabControlItem
+export const TabsControl = reactCompose(TabsControlRoot, {
+    Item: TabsControlItem
 })
 
-export const TabList = reactCompose(TabListRoot, {
-    Control: TabControl
+export const TabsList = reactCompose(TabsListRoot, {
+    Control: TabsControl
 });
 
-export const Tab = reactCompose(TabRoot, {
-    List: TabList,
-    Panel: TabPanelItem
+export const Tabs = reactCompose(TabsRoot, {
+    List: TabsList,
+    Panel: TabsPanelItem
 });
