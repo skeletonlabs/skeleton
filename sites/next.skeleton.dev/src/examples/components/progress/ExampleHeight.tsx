@@ -1,6 +1,6 @@
 import { Progress } from '@skeletonlabs/skeleton-react';
 
-export default () => {
+export const Page = () => {
 	return (
 		<div className="flex flex-col gap-8 w-full">
 			<Progress value={50} />

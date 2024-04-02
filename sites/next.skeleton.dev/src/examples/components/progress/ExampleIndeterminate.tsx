@@ -1,5 +1,5 @@
 import { Progress } from '@skeletonlabs/skeleton-react';
 
-export default () => {
+export const Page = () => {
 	return <Progress value={undefined} classes="w-full" />;
 };
