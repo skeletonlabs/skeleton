@@ -24,6 +24,10 @@ import ExampleNativeRaw from '@examples/components/progress/ExampleNative.astro?
 	</Fragment>
 </Preview>
 
+## Max
+
+The `max` prop is used to set the maximum value of the progress bar, the default value is `100`.
+
 ## Indeterminate
 
 When the `value` prop is left out or is passed `undefined` the progress will be marked as underminate and show a loading animation.
@@ -43,7 +47,7 @@ The native `progress` element is a good alternative if you cannot use Javascript
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleNative client:load />
+		<ExampleNative  />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleNativeRaw} lang="html" />
