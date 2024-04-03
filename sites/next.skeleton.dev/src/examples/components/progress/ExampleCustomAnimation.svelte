@@ -2,23 +2,28 @@
 	import { Progress } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Progress value={undefined} meterAnimate="custom-animation" classes="w-full" />
+<Progress value={undefined} meterAnimate="my-custom-animation" classes="w-full" />
 
 <style>
-	:global(.custom-animation) {
-		animation: custom-animation 2s ease-in-out infinite;
+	:global(.my-custom-animation) {
+		animation: my-custom-animation 2s ease-in-out infinite;
 	}
-	@keyframes custom-animation {
-        from {
-            translate: -100%;
-        }
+	@keyframes my-custom-animation {
+		from {
+			translate: -100%;
+		}
+		25% {
+			scale: 1;
+		}
 		50% {
-			width: 100%;
-			translate: 0;
+			scale: 0.25 1;
+			translate: 50%;
+		}
+		75% {
+			scale: 1;
 		}
 		to {
-			width: 100%;
-			translate: 100%;
+			translate: 200%;
 		}
 	}
 </style>
