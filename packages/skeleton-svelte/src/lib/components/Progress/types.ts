@@ -11,6 +11,8 @@ export interface ProgressProps {
 	base?: string;
 	/** Set root background classes  */
 	bg?: string;
+	/** Set root width classes */
+	width?: string;
 	/** Set root height classes */
 	height?: string;
 	/** Set root rounded classes */

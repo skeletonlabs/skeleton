@@ -2,4 +2,4 @@
 	import { Progress } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Progress value={undefined} classes="w-full"  />
+<Progress value={undefined} />

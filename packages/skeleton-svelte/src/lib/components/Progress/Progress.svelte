@@ -8,12 +8,13 @@
 		// Root
 		base = 'overflow-x-hidden',
 		bg = 'bg-surface-200-800',
+		width = 'w-full',
 		height = 'h-2',
 		rounded = 'rounded',
 		classes = '',
 		// Meter
 		meterBase = 'h-full',
-		meterBg = 'bg-primary-500',
+		meterBg = 'bg-surface-950-50',
 		meterRounded = 'rounded',
 		meterTransition = 'transition-[width]',
 		meterAnimate = 'animate-indeterminate',
@@ -27,8 +28,7 @@
 	});
 
 	const indeterminate = $derived(value === undefined);
-	const fillPercentage = $derived(indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100);
-	const width = $derived(`${fillPercentage}%`);
+	const fillPercentage = $derived(`${indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100}%`);
 
 	const rxIndeterminate = $derived(indeterminate ? meterAnimate : '');
 </script>
@@ -41,7 +41,7 @@
 	aria-valuenow={value}
 	aria-valuemin={0}
 	aria-valuemax={max}
-	class="{base} {bg} {height} {rounded} {classes}"
+	class="{base} {bg} {width} {height} {rounded} {classes}"
 >
-	<div class="{meterBase} {meterBg} {meterRounded} {meterTransition} {rxIndeterminate} {meterClasses}" style:width></div>
+	<div class="{meterBase} {meterBg} {meterRounded} {meterTransition} {rxIndeterminate} {meterClasses}" style:width={fillPercentage}></div>
 </div>

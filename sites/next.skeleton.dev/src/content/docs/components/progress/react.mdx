@@ -35,7 +35,7 @@ import ExampleNativeRaw from '@examples/components/progress/ExampleNative.astro?
 
 ## Colors
 
-The color of the progress bar can be adjusted by setting the `meterBg` prop; the default color is `bg-primary-500`.
+Set the color using the `meterBg` prop.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -48,7 +48,7 @@ The color of the progress bar can be adjusted by setting the `meterBg` prop; the
 
 ## Height
 
-The height of the progress bar can be adjusted by setting the `height` prop; the default height is `h-2`.
+Set the height using the `height` prop.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -61,7 +61,7 @@ The height of the progress bar can be adjusted by setting the `height` prop; the
 
 ## Indeterminate
 
-If there is no value or the value is `undefined` the progress bar is indeterminate; this indicates that an activity is ongoing with no indication of how long it is expected to take.
+When no value is present, or the value is `undefined`, an indeterminate animation will be shown.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -72,9 +72,9 @@ If there is no value or the value is `undefined` the progress bar is indetermina
 	</Fragment>
 </Preview>
 
-### Customize The Indeterminate Animation
+### Custom Animations
 
-The indeterminate animation can be customized by setting the `meterAnimate` prop; the default animation is `anim-progress-indeterminate` which comes from the Skeleton Tailwind plugin.
+A custom indeterminate animation can be set by providing an animation class to the `meterAnimate` prop.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -85,11 +85,11 @@ The indeterminate animation can be customized by setting the `meterAnimate` prop
 	</Fragment>
 </Preview>
 
-> Note: Defining inline styles like this is only possible in [React's canary and experimental channels](https://react.dev/reference/react-dom/components/style).
+---
 
 ## Native Alternative
 
-The native `progress` element works cross browser, but does not currently support Indeterminate when styled.
+A native [progress](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) element is available cross browser, but does not support indeterminate animations.
 
 <Preview client:load>
 	<Fragment slot="preview">

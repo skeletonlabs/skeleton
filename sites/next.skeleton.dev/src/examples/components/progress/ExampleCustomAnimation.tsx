@@ -3,13 +3,15 @@ import { Progress } from '@skeletonlabs/skeleton-react';
 export const Page = () => {
 	return (
 		<>
-			<Progress value={undefined} meterAnimate="my-custom-animation" classes="w-full" />
+			<Progress value={undefined} meterAnimate="my-custom-animation" />
+
+			{/* RECOMMENDED: add these styles to your global stylesheet. */}
 			<style>{`
                     .my-custom-animation {
                         animation: my-custom-animation 2s ease-in-out infinite;
                     }
                     @keyframes my-custom-animation {
-                        from {
+                        0% {
                             translate: -100%;
                         }
                         25% {
@@ -22,7 +24,7 @@ export const Page = () => {
                         75% {
                             scale: 1;
                         }
-                        to {
+                        100% {
                             translate: 200%;
                         }
                     }
