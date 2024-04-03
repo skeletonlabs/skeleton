@@ -5,16 +5,17 @@ import { ProgressProps } from "./types";
 export const Progress: FC<ProgressProps> = ({
   value,
   max = 100,
-  ariaLabelledby = "",
+  labelledBy = "",
   // Root
   base = "overflow-x-hidden",
   bg = "bg-surface-200-800",
+  width = "w-full",
   height = "h-2",
   rounded = "rounded",
   classes = "",
   // Meter
   meterBase = "h-full",
-  meterBg = "bg-primary-500",
+  meterBg = "bg-surface-950-50",
   meterRounded = "rounded",
   meterTransition = "transition-[width]",
   meterAnimate = "animate-indeterminate",
@@ -27,24 +28,24 @@ export const Progress: FC<ProgressProps> = ({
   });
 
   const indeterminate = value === undefined;
-  const fillPercentage = indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100;
-  const width = `${fillPercentage}%`;
-
+  const fillPercentage = `${
+    indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100
+  }%`;
   const rxIndeterminate = indeterminate ? meterAnimate : "";
 
   return (
     <>
       <div
         role="progressbar"
-        aria-labelledby={ariaLabelledby}
+        aria-labelledby={labelledBy}
         aria-valuenow={value}
         aria-valuemin={0}
         aria-valuemax={max}
-        className={`${base} ${bg} ${height} ${rounded} ${classes}`}
+        className={`${base} ${bg} ${width} ${height} ${rounded} ${classes}`}
       >
         <div
           className={`${meterBase} ${meterBg} ${meterRounded} ${meterTransition} ${rxIndeterminate} ${meterClasses}`}
-          style={{ width }}
+          style={{ width: fillPercentage }}
         ></div>
       </div>
     </>
