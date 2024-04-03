@@ -16,6 +16,9 @@ import ExampleHeightRaw from '@examples/components/progress/ExampleHeight.tsx?ra
 import { Page as ExampleIndeterminate } from '@examples/components/progress/ExampleIndeterminate.tsx';
 import ExampleIndeterminateRaw from '@examples/components/progress/ExampleIndeterminate.tsx?raw';
 
+import { Page as ExampleCustomAnimation } from '@examples/components/progress/ExampleCustomAnimation.tsx';
+import ExampleCustomAnimationRaw from '@examples/components/progress/ExampleCustomAnimation.tsx?raw';
+
 import ExampleNative from '@examples/components/progress/ExampleNative.astro';
 import ExampleNativeRaw from '@examples/components/progress/ExampleNative.astro?raw';
 
@@ -66,6 +69,19 @@ If there is no value or the value is `undefined` the progress bar is indetermina
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleIndeterminateRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+### Customize The Indeterminate Animation
+
+The indeterminate animation can be customized by setting the `meterAnimate` prop; the default animation is `anim-progress-indeterminate` which comes from the Skeleton Tailwind plugin.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCustomAnimation client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleCustomAnimationRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
