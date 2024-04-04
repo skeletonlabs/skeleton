@@ -151,17 +151,16 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
   children,
 }) => {
   let ctx = useContext<AccordionContextState>(AccordionContext);
-  let openState = ctx.selected.includes(id);
 
   return (
     <div
       role="region"
-      aria-hidden={openState}
+      aria-hidden={ctx.selected.includes(id)}
       aria-labelledby={id}
       data-testid="accordion-panel"
     >
       <AnimatePresence>
-        {openState && (
+        {ctx.selected.includes(id) && (
           <motion.div
             className="overflow-hidden"
             initial="collapsed"
@@ -171,7 +170,7 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
               open: { opacity: 1, height: "auto" },
               collapsed: { opacity: 0, height: 0 },
             }}
-            transition={{ duration: ctx.animDuration }}
+            transition={{ duration: ctx.animDuration && 0.2 }}
           >
             <div className={`${base} ${padding} ${rounded} ${classes}`}>
               {children}
