@@ -8,6 +8,7 @@ import {
   AccordionPanelProps,
   AccordionProps,
 } from "./types";
+import { motion, AnimatePresence } from "framer-motion";
 
 // React Compose ---
 
@@ -23,6 +24,7 @@ export function reactCompose<
 // Context ---
 
 export const AccordionContext = createContext<AccordionContextState>({
+  animDuration: 0.2,
   selected: [],
   setSelected: () => {},
   allowMultiple: false,
@@ -33,6 +35,7 @@ export const AccordionContext = createContext<AccordionContextState>({
 
 const AccordionRoot: React.FC<AccordionProps> = ({
   multiple = false,
+  animDuration = 0.2,
   // Root
   base = "",
   padding = "",
@@ -52,6 +55,7 @@ const AccordionRoot: React.FC<AccordionProps> = ({
     >
       <AccordionContext.Provider
         value={{
+          animDuration,
           selected,
           setSelected,
           allowMultiple,
@@ -147,19 +151,34 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
   children,
 }) => {
   let ctx = useContext<AccordionContextState>(AccordionContext);
+  let openState = ctx.selected.includes(id);
 
   return (
     <div
       role="region"
-      aria-hidden={ctx.selected.includes(id)}
+      aria-hidden={openState}
       aria-labelledby={id}
       data-testid="accordion-panel"
     >
-      {ctx.selected.includes(id) && (
-        <div className={`${base} ${padding} ${rounded} ${classes}`}>
-          {children}
-        </div>
-      )}
+      <AnimatePresence>
+        {openState && (
+          <motion.div
+            className="overflow-hidden"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { opacity: 1, height: "auto" },
+              collapsed: { opacity: 0, height: 0 },
+            }}
+            transition={{ duration: ctx.animDuration }}
+          >
+            <div className={`${base} ${padding} ${rounded} ${classes}`}>
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
