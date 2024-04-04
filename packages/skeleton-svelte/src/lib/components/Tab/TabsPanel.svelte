@@ -4,7 +4,7 @@
 	let {
 		id,
 		value,
-		group,
+		group = $bindable(),
 		// A11y
 		labelledBy,
 		// Root
