@@ -34,12 +34,15 @@
 		panel
 	}: AccordionItemProps = $props();
 
+	// Context
 	const ctx = getAccordionCtx();
 
+	// Toggle open on click
 	function onclick() {
 		open = !open;
 	}
 
+	// Whenever open changes, update context
 	$effect(() => {
 		open ? untrack(() => ctx.setOpen(id)) : untrack(() => ctx.setClosed(id));
 		ontoggle(new CustomEvent('toggle', { detail: { id, open } }));
