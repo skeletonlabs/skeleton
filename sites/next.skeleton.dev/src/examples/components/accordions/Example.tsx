@@ -1,5 +1,6 @@
 import React from 'react';
 import { Accordion } from '@skeletonlabs/skeleton-react';
+import { Club, Diamond, Heart, Spade } from 'lucide-react';
 
 export const Page: React.FC<any> = () => {
 	const lorem =
@@ -8,27 +9,31 @@ export const Page: React.FC<any> = () => {
 	return (
 		<Accordion>
 			<Accordion.Item>
-				<Accordion.Control controls="reactItem1" lead="💀" open>
-					React Control 1
+				<Accordion.Control controls="reactItem1" lead={<Club size={24} />} open>
+					Club
 				</Accordion.Control>
-				<Accordion.Panel id="reactItem1">React Panel 1 - {lorem}</Accordion.Panel>
+				<Accordion.Panel id="reactItem1">{lorem}</Accordion.Panel>
 			</Accordion.Item>
 			<hr className="hr" />
 			<Accordion.Item>
-				<Accordion.Control controls="reactItem2">React Control 2</Accordion.Control>
-				<Accordion.Panel id="reactItem2">React Panel 2 - {lorem}</Accordion.Panel>
-			</Accordion.Item>
-			<hr className="hr" />
-			<Accordion.Item>
-				<Accordion.Control controls="reactItem3" disabled>
-					React Control 3 (Disabled)
+				<Accordion.Control controls="reactItem2" lead={<Diamond size={24} />}>
+					Diamond
 				</Accordion.Control>
-				<Accordion.Panel id="reactItem3">React Panel 3 - {lorem}</Accordion.Panel>
+				<Accordion.Panel id="reactItem2">{lorem}</Accordion.Panel>
 			</Accordion.Item>
 			<hr className="hr" />
 			<Accordion.Item>
-				<Accordion.Control controls="reactItem4">React Control 4</Accordion.Control>
-				<Accordion.Panel id="reactItem4">React Panel 4 - {lorem}</Accordion.Panel>
+				<Accordion.Control controls="reactItem3" lead={<Heart size={24} />} disabled>
+					Heart (Disabled)
+				</Accordion.Control>
+				<Accordion.Panel id="reactItem3">{lorem}</Accordion.Panel>
+			</Accordion.Item>
+			<hr className="hr" />
+			<Accordion.Item>
+				<Accordion.Control controls="reactItem4" lead={<Spade size={24} />}>
+					Spade
+				</Accordion.Control>
+				<Accordion.Panel id="reactItem4">{lorem}</Accordion.Panel>
 			</Accordion.Item>
 		</Accordion>
 	);
