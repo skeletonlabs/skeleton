@@ -37,15 +37,21 @@
 	// Context
 	const ctx = getAccordionCtx();
 
-	// Toggle open on click
+	// Functions
 	function onclick() {
-		open = !open;
+		ctx.toggle(id);
 	}
 
-	// Whenever open changes, update context
+	// Effects
 	$effect(() => {
-		open ? untrack(() => ctx.setOpen(id)) : untrack(() => ctx.setClosed(id));
-		ontoggle(new CustomEvent('toggle', { detail: { id, open } }));
+		if (open === ctx.isOpen(id)) {
+			return;
+		}
+		ontoggle(new CustomEvent('toggle', { detail: { id: untrack(() => id), open: ctx.isOpen(id) } }));
+	});
+
+	$effect(() => {
+		open ? untrack(() => ctx.open(id)) : untrack(() => ctx.close(id));
 	});
 
 	$effect(() => {

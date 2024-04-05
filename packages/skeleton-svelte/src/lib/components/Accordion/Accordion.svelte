@@ -1,7 +1,8 @@
 <script lang="ts" context="module">
 	type AccordionContext = {
-		setOpen: (id: string) => void;
-		setClosed: (id: string) => void;
+		open: (id: string) => void;
+		close: (id: string) => void;
+		toggle: (id: string) => void;
 		isOpen: (id: string) => boolean;
 		animDuration: number;
 		iconOpen?: Snippet;
@@ -36,13 +37,35 @@
 
 	let selected: string[] = $state([]);
 
-	const setOpen = (id: string) => (multiple ? (selected = [...selected, id]) : (selected = [id]));
-	const setClosed = (id: string) => (selected = selected.filter((_id: string) => _id !== id));
-	const isOpen = (id: string) => selected.includes(id);
+	// Functions
+	function open(id: string) {
+		if (multiple) {
+			selected = [...selected, id];
+		} else {
+			selected = [id];
+		}
+	}
+
+	function close(id: string) {
+		selected = selected.filter((_id: string) => _id !== id);
+	}
+
+	function toggle(id: string) {
+		if (isOpen(id)) {
+			close(id);
+		} else {
+			open(id);
+		}
+	}
+
+	function isOpen(id: string) {
+		return selected.includes(id);
+	}
 
 	setAccordionCtx({
-		setOpen,
-		setClosed,
+		open,
+		close,
+		toggle,
 		isOpen,
 		get animDuration() {
 			return animDuration;
