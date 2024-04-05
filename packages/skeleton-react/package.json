@@ -72,5 +72,8 @@
 		"vite-plugin-remix-router": "^2.0.0",
 		"vite-plugin-tw-plugin-watcher": "workspace:*",
 		"vitest": "^1.4.0"
+	},
+	"peerDependencies": {
+		"framer-motion": "^11.0.24"
 	}
 }

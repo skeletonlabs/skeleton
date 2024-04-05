@@ -189,6 +189,17 @@ export interface AccordionItemProps {
 
 ---
 
+## Animations
+
+Skeleton opts for what we feel is the most optimal solution for animations per framework. This means implementation and capabilities may differ slightly for each. Please refer to the [Accordion](/docs/components/accordion/react) component source code for a reference example.
+
+| Package                     | Solution                                                       |
+| --------------------------- | -------------------------------------------------------------- |
+| `/packages/skeleton-svelte` | [Svelte Transition](https://svelte.dev/docs/svelte-transition) |
+| `/packages/skeleton-react`  | [Framer Motion](https://www.framer.com/motion/)                |
+
+---
+
 ## Composed Pattern
 
 To keep component syntax consistent cross-framework, we implement a composed pattern. Components are composed using a set of smaller components, named slots, or snippets - depending on the framework. This implementation differs per framework.
