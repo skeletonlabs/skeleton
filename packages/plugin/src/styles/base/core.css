@@ -26,19 +26,12 @@ html {
 }
 
 /* === Scrollbars === */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color */
+/* https://developer.chrome.com/docs/css-ui/scrollbar-styling */
 
-::-webkit-scrollbar {
-	@apply w-2;
-	@apply h-2;
-}
-::-webkit-scrollbar-track {
-	@apply !bg-surface-50-900-token px-[1px];
-}
-::-webkit-scrollbar-thumb {
-	@apply rounded-token bg-surface-400-500-token;
-}
-::-webkit-scrollbar-corner {
-	@apply !bg-surface-50-900-token;
+:root {
+	scrollbar-color: rgba(128, 128, 128, 0.5) rgba(0, 0, 0, 0.1); /* thumb / track */
+	scrollbar-width: thin;
 }
 
 /* Firefox */
