@@ -41,6 +41,7 @@ const AccordionRoot: React.FC<AccordionProps> = ({
   padding = "",
   spaceY = "space-y-2",
   rounded = "rounded",
+  width = "w-full",
   classes = "",
   // Children
   children,
@@ -50,7 +51,7 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 
   return (
     <div
-      className={`${base} ${padding} ${spaceY} ${rounded} ${classes}`}
+      className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`}
       data-testid="accordion"
     >
       <AccordionContext.Provider
