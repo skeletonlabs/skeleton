@@ -9,7 +9,7 @@ export const Page: React.FC<any> = () => {
 	return (
 		<Accordion>
 			<Accordion.Item>
-				<Accordion.Control controls="reactItem1" lead={<Club size={24} />} open>
+				<Accordion.Control controls="reactItem1" lead={<Club size={24} />}>
 					Club
 				</Accordion.Control>
 				<Accordion.Panel id="reactItem1">{lorem}</Accordion.Panel>
@@ -24,7 +24,7 @@ export const Page: React.FC<any> = () => {
 			<hr className="hr" />
 			<Accordion.Item>
 				<Accordion.Control controls="reactItem3" lead={<Heart size={24} />} disabled>
-					Heart (Disabled)
+					Heart (disabled)
 				</Accordion.Control>
 				<Accordion.Panel id="reactItem3">{lorem}</Accordion.Panel>
 			</Accordion.Item>

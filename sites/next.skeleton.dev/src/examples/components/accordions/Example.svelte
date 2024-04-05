@@ -11,7 +11,7 @@
 </script>
 
 <Accordion>
-    <AccordionItem id="svelteItem1" {ontoggle} open>
+    <AccordionItem id="svelteItem1" {ontoggle}>
         <!-- Control -->
         {#snippet controlLead()}<Club size={24} />{/snippet}
         {#snippet control()}Club{/snippet}

@@ -136,7 +136,7 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
       {/* Content */}
       <div className="flex-1">{children}</div>
       {/* State Indicator */}
-      <div>{ctx.selected.includes(controls) ? iconClosed : iconOpen}</div>
+      <div>{ctx.selected.includes(controls) ? iconOpen : iconClosed}</div>
     </button>
   );
 };
