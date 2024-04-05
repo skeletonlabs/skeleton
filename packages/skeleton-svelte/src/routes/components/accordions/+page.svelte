@@ -5,7 +5,14 @@
 	const lorem =
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
 	const ontoggle = (e: Event) => console.log(e);
+
+	let checked = $state(false);
 </script>
+
+<label>
+	<input type="checkbox" bind:checked />
+	<span>Toggle</span>
+</label>
 
 <!-- <div class="card p-4 preset-filled-surface-100-900"> -->
 <Accordion>
@@ -13,7 +20,7 @@
 	<!-- {#snippet iconOpen()}&uarr;{/snippet} -->
 	<!-- {#snippet iconClosed()}&darr;{/snippet} -->
 	<!-- Children -->
-	<AccordionItem id="svelteItem1" {ontoggle} open>
+	<AccordionItem id="svelteItem1" {ontoggle} bind:open={checked}>
 		<!-- Control -->
 		{#snippet controlLead()}💀{/snippet}
 		{#snippet control()}Svelte Control 1{/snippet}

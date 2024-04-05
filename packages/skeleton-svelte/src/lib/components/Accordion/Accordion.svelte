@@ -1,8 +1,22 @@
-<script lang="ts">
-	import { setContext } from 'svelte';
-	import type { AccordionProps } from './types.js';
+<script lang="ts" context="module">
+	type AccordionContext = {
+		setOpen: (id: string) => void;
+		setClosed: (id: string) => void;
+		isOpen: (id: string) => boolean;
+		animDuration: number;
+		iconOpen?: Snippet;
+		iconClosed?: Snippet;
+	};
 
-	import { State } from '$lib/utils.svelte.js';
+	const accordionCtxKey = Symbol();
+
+	export const getAccordionCtx = () => getContext<AccordionContext>(accordionCtxKey);
+	export const setAccordionCtx = (ctx: AccordionContext) => setContext(accordionCtxKey, ctx);
+</script>
+
+<script lang="ts">
+	import type { AccordionProps } from './types.js';
+	import { getContext, setContext, type Snippet } from 'svelte';
 
 	let {
 		multiple = false,
@@ -20,12 +34,26 @@
 		iconClosed
 	}: AccordionProps = $props();
 
-	// Context
-	setContext('selected', new State<string[]>([]));
-	setContext('animDuration', animDuration);
-	setContext('multiple', multiple);
-	setContext('iconOpen', iconOpen);
-	setContext('iconClosed', iconClosed);
+	let selected: string[] = $state([]);
+
+	const setOpen = (id: string) => (multiple ? (selected = [...selected, id]) : (selected = [id]));
+	const setClosed = (id: string) => (selected = selected.filter((_id: string) => _id !== id));
+	const isOpen = (id: string) => selected.includes(id);
+
+	setAccordionCtx({
+		setOpen,
+		setClosed,
+		isOpen,
+		get animDuration() {
+			return animDuration;
+		},
+		get iconOpen() {
+			return iconOpen;
+		},
+		get iconClosed() {
+			return iconClosed;
+		}
+	});
 </script>
 
 <!-- @component An Accordion parent component. -->
