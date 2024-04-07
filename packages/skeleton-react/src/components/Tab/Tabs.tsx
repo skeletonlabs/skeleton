@@ -1,9 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { TabsProps, TabsListProps, TabsControlProps, TabsControlItemProps, TabsPanelItemProps } from "./types";
 
-// React Compose ---
-import { reactCompose } from "../../utils/react-compose";
-
 // Components ---
 const TabsRoot: React.FC<TabsProps> = ({
     id = '',
@@ -209,15 +206,11 @@ const TabsPanelItem: React.FC<TabsPanelItemProps> = ({
     );
 };
 
-export const TabsControl = reactCompose(TabsControlRoot, {
-    Item: TabsControlItem
-})
+export const TabsControl = Object.assign(TabsControlRoot, { Item: TabsControlItem });
 
-export const TabsList = reactCompose(TabsListRoot, {
-    Control: TabsControl
-});
+export const TabsList = Object.assign(TabsListRoot, { Control: TabsControl });
 
-export const Tabs = reactCompose(TabsRoot, {
+export const Tabs = Object.assign(TabsRoot, {
     List: TabsList,
     Panel: TabsPanelItem
 });
