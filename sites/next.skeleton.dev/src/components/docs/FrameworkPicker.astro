@@ -33,7 +33,7 @@ const cHover =
 ---
 
 {
-	(framework && (
+	framework && (
 		<nav class="grid grid-cols-2">
 			{frameworks.map(({ name, slug, iconName }) => (
 				<a href={`/${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
@@ -42,5 +42,5 @@ const cHover =
 				</a>
 			))}
 		</nav>
-	))
+	)
 }
