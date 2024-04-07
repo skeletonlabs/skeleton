@@ -1,7 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import { getCollection } from 'astro:content';
-import { getEntry } from 'astro:content';
+import { getCollection, getEntryBySlug } from 'astro:content';
 
 export const getStaticPaths = (async () => {
 	const entries = await getCollection('docs');
@@ -18,22 +17,15 @@ export const getStaticPaths = (async () => {
 const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await entry.render();
 
-// Split the route into segments
-const routeArr = entry.slug.split('/');
-
-// Create allowlist for sections that use split meta/framework format
-const metaCollections = ['components'];
-const meta = metaCollections.includes(routeArr[0])
-	? await getEntry('docs', `${routeArr[0]}/${routeArr[1]}/meta`)
-	: null;
+// Get meta for the current page
+// This Regex replaces that last part of the url with meta, so "components/accordion/svelte" becomes "components/accordion/meta"
+const meta = await getEntryBySlug('docs', entry.slug.replace(/\/[^\/]*$/, '/meta'));
 
 // Append common frontmatter
 // https://github.com/withastro/astro/issues/7972
 // https://docs.astro.build/en/guides/content-collections/#modifying-frontmatter-with-remark
-if (meta) {
-	for (const [key, value] of Object.entries(meta.data)) {
-		remarkPluginFrontmatter[key] = value;
-	}
+if (meta !== undefined) {
+	Object.assign(remarkPluginFrontmatter, meta.data);
 }
 ---
 

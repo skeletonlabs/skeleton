@@ -150,10 +150,10 @@
 	-moz-appearance: none;
 	appearance: none;
 	@apply w-full h-2 overflow-hidden rounded;
-	@apply bg-surface-500;
+	@apply bg-surface-200-800;
 }
 .progress::-webkit-progress-bar {
-	@apply bg-surface-500;
+	@apply bg-surface-200-800;
 }
 .progress::-webkit-progress-value {
 	@apply bg-surface-950-50;

@@ -4,7 +4,7 @@
 	let {
 		id,
 		name,
-		group,
+		group = $bindable(),
 		title,
 		// A11y
 		label = '',

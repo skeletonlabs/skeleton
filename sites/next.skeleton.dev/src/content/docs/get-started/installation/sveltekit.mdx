@@ -45,6 +45,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     <ProcessStep step="4">
         ## Configure Tailwind
         Open `tailwind.config.js`, then implement the highlighted snippets below.
+{/* prettier-ignore */}
 ```js {2, 3, 9, 15-17}
 import { join } from 'path';
 import { skeleton } from '@skeletonlabs/skeleton';
@@ -52,18 +53,18 @@ import * as themes from "@skeletonlabs/skeleton/themes";
 
 /** @type {import('tailwindcss').Config} \*/
 export default {
-content: [
-'./src/**/_.{html,js,svelte,ts}',
-join(require.resolve('@skeletonlabs/skeleton-svelte'), '../\*\*/_.{html,js,svelte,ts}')
-],
-theme: {
-extend: {},
-},
-plugins: [
-skeleton({
-themes: [ themes.cerberus, themes.rose ]
-})
-]
+    content: [
+        './src/**/_.{html,js,svelte,ts}',
+        join(require.resolve('@skeletonlabs/skeleton-svelte'), '../\*\*/_.{html,js,svelte,ts}')
+    ],
+        theme: {
+        extend: {},
+    },
+    plugins: [
+        skeleton({
+            themes: [ themes.cerberus, themes.rose ]
+        })
+    ]
 }
 
 ````
