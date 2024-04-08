@@ -17,6 +17,7 @@
 				<a class="anchor" href="/components/app-bars">App Bars</a>
 				<a class="anchor" href="/components/tabs">Tabs</a>
 				<a class="anchor" href="/components/progress">Progress</a>
+				<a class="anchor" href="/components/ratings">Ratings</a>
 			</nav>
 		</div>
 	</div>
