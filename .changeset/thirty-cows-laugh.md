@@ -2,4 +2,4 @@
 "@skeletonlabs/tw-plugin": minor
 ---
 
-Bugfix: Update scrollbar styles to the latest standard.
+Feat: Update scrollbar styles to the [latest standard](https://developer.chrome.com/docs/css-ui/scrollbar-styling).
