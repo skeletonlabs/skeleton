@@ -14,6 +14,8 @@ import StretchExample from '@examples/components/tabs/StretchExample.svelte';
 import StretchExampleRaw from '@examples/components/tabs/StretchExample.svelte?raw';
 import JustifyExample from '@examples/components/tabs/JustifyExample.svelte';
 import JustifyExampleRaw from '@examples/components/tabs/JustifyExample.svelte?raw';
+import FocusableContentExample from '@examples/components/tabs/FocusableContentExample.svelte';
+import FocusableContentExampleRaw from '@examples/components/tabs/FocusableContentExample.svelte?raw';
 
 {/* --- */}
 
@@ -35,7 +37,7 @@ Easily customize tabs content with icons and arrange them in any combination you
 		<IconsExample client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={IconsExampleRaw} lang="tsx" />
+		<Code code={IconsExampleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -44,7 +46,7 @@ Easily customize tabs content with icons and arrange them in any combination you
 		<VerticalIconsExample client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={VerticalIconsExampleRaw} lang="tsx" />
+		<Code code={VerticalIconsExampleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -57,7 +59,7 @@ Tabs can be stretched to fill the available space.
 		<StretchExample client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={StretchExampleRaw} lang="tsx" />
+		<Code code={StretchExampleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -68,6 +70,19 @@ Tabs can be stretched to fill the available space.
 		<JustifyExample client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={JustifyExampleRaw} lang="tsx" />
+		<Code code={JustifyExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## A11y
+
+The tabs component complies with accessibility guidelines, ensuring an optimal user experience for everyone.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<FocusableContentExample client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={FocusableContentExampleRaw} lang="svelte" />
 	</Fragment>
 </Preview>

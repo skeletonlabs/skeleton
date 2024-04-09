@@ -12,13 +12,13 @@
     {/snippet}
     {#snippet panels()}
         <Tabs.Panel bind:group value="books">
-            Books are like magical portals that take you on adventures, teach you new things, and make your imagination soar!
+            Books tab content
         </Tabs.Panel>
         <Tabs.Panel bind:group value="movies">
-            Movies are like colorful, moving storybooks that come to life on a screen, showing exciting adventures and characters!
+            Movies tab content
         </Tabs.Panel>
         <Tabs.Panel bind:group value="Television">
-            Television is like a window to a world of entertaining shows and educational programs that can spark curiosity and creativity in young minds.
+            Television tab content
         </Tabs.Panel>
     {/snippet}
 </Tabs>

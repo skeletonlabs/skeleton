@@ -12,13 +12,13 @@
     {/snippet}
     {#snippet panels()}
         <Tabs.Panel bind:group value="books">
-            Books tab content
+            <button type="button" class="btn preset-filled">Book tab Content</button>
         </Tabs.Panel>
         <Tabs.Panel bind:group value="movies">
-            Movies tab content
+            <button type="button" class="btn preset-filled">Movies tab content</button>
         </Tabs.Panel>
         <Tabs.Panel bind:group value="Television">
-            Television tab content
+            <button type="button" class="btn preset-filled">Television tab content</button>
         </Tabs.Panel>
     {/snippet}
 </Tabs>

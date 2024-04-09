@@ -297,7 +297,7 @@ function RTL(group: string, setGroup: React.Dispatch<React.SetStateAction<string
     return (
         <>
             <section className="space-y-4">
-                <h2 className="h2">Focusable Content</h2>
+                <h2 className="h2">RTL</h2>
                 <div dir="rtl">
                     <Tabs>
                         <Tabs.List>

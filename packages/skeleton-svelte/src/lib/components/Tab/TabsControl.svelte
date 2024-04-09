@@ -4,7 +4,7 @@
 	let {
 		id,
 		name,
-		group,
+		group = $bindable(),
 		title,
 		// A11y
 		label = '',
@@ -28,7 +28,7 @@
 		contentGap = 'gap-2',
 		contentBg = 'group-hover:preset-tonal-primary',
 		contentPadding = 'p-2 px-4',
-		contentRounded = 'rounded',
+		contentRounded = 'rounded-container',
 		contentClasses = '',
 		// Events
 		onclick = () => {},

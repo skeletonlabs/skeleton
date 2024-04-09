@@ -14,6 +14,8 @@ import { Page as StretchExample } from '@examples/components/tabs/StretchExample
 import StretchExampleRaw from '@examples/components/tabs/StretchExample.tsx?raw';
 import { Page as JustifyExample } from '@examples/components/tabs/JustifyExample.tsx';
 import JustifyExampleRaw from '@examples/components/tabs/JustifyExample.tsx?raw';
+import { Page as FocusableContentExample } from '@examples/components/tabs/FocusableContentExample.tsx';
+import FocusableContentExampleRaw from '@examples/components/tabs/FocusableContentExample.tsx?raw';
 
 {/* --- */}
 
@@ -69,5 +71,18 @@ Tabs can be stretched to fill the available space.
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={JustifyExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## A11y
+
+The tabs component complies with accessibility guidelines, ensuring an optimal user experience for everyone.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<FocusableContentExample client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={FocusableContentExampleRaw} lang="tsx" />
 	</Fragment>
 </Preview>
