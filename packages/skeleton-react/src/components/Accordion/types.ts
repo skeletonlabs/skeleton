@@ -7,6 +7,7 @@ import React, {
 // Context ---
 
 export interface AccordionContextState {
+  animDuration?: number;
   selected: string[];
   setSelected: Dispatch<SetStateAction<string[]>>;
   allowMultiple: boolean;
@@ -19,7 +20,7 @@ export interface AccordionProps extends React.PropsWithChildren {
   /** Enables opening multiple items at once. */
   multiple?: boolean;
   /** The slide animation duration in milliseconds. */
-  // animDuration?: number;
+  animDuration?: number;
   // Root ---
   /** Sets base styles. */
   base?: string;

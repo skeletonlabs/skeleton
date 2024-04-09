@@ -33,6 +33,7 @@
 		"astro-auto-import": "^0.4.2",
 		"astro-expressive-code": "^0.33.5",
 		"astro-icon": "^1.1.0",
+		"framer-motion": "^11.0.24",
 		"lucide-react": "^0.341.0",
 		"lucide-svelte": "^0.341.0",
 		"nanostores": "^0.9.5",
