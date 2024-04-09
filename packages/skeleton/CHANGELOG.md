@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton
 
+## 2.9.1
+
+### Patch Changes
+
+- Bugfix: Removed duplicate `class` attribute on AccordionItem SVG caret icon ([#2597](https://github.com/skeletonlabs/skeleton/pull/2597))
+
+- Chore: Fix JSDoc comment for AppRail border property [#2592](https://github.com/skeletonlabs/skeleton/pull/2592) ([#2601](https://github.com/skeletonlabs/skeleton/pull/2601))
+
 ## 2.9.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @skeletonlabs/tw-plugin
 
+## 0.4.0
+
+### Minor Changes
+
+- Feat: Update scrollbar styles to the [latest standard](https://developer.chrome.com/docs/css-ui/scrollbar-styling). ([#2596](https://github.com/skeletonlabs/skeleton/pull/2596))
+
 ## 0.3.1
 
 ### Patch Changes
