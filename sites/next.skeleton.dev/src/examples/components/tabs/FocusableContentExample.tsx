@@ -17,13 +17,19 @@ export const Page: React.FC<any> = () => {
 				</TabsList.Control>
 			</Tabs.List>
 			<Tabs.Panel group={group} value="books">
-            	<button type="button" className="btn preset-filled">Book tab Content</button>
+				<button type="button" className="btn preset-filled">
+					Book tab Content
+				</button>
 			</Tabs.Panel>
 			<Tabs.Panel group={group} value="movies">
-            	<button type="button" className="btn preset-filled">Movies tab content</button>
+				<button type="button" className="btn preset-filled">
+					Movies tab content
+				</button>
 			</Tabs.Panel>
 			<Tabs.Panel group={group} value="television">
-            	<button type="button" className="btn preset-filled">Television tab content</button>
+				<button type="button" className="btn preset-filled">
+					Television tab content
+				</button>
 			</Tabs.Panel>
 		</Tabs>
 	);
