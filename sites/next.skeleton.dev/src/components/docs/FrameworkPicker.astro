@@ -1,18 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-
-export const frameworks = [
-	{
-		name: 'React',
-		slug: 'react',
-		iconName: 'react',
-	},
-	{
-		name: 'Svelte',
-		slug: 'svelte',
-		iconName: 'svelte',
-	},
-];
+import { frameworks } from 'src/utils';
 
 function getPathAndFramework(pathname: string) {
 	const parts = pathname.split('/').filter(Boolean);
@@ -36,7 +24,11 @@ const cHover =
 	framework && (
 		<nav class="grid grid-cols-2">
 			{frameworks.map(({ name, slug, iconName }) => (
-				<a href={`/${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
+				<a
+					data-framework={slug}
+					href={`/${path}/${slug}`}
+					class:list={[cBtn, framework.slug === slug ? cActive : cHover]}
+				>
 					<Icon name={iconName} size={24} />
 					<span>{name}</span>
 				</a>
@@ -44,3 +36,14 @@ const cHover =
 		</nav>
 	)
 }
+
+<script>
+	import { isFramework, setPreferredFramework } from 'src/utils';
+
+	for (const frameworkTab of document.querySelectorAll('[data-framework]')) {
+		const framework = frameworkTab.getAttribute('data-framework');
+		if (!framework) continue;
+		if (!isFramework(framework)) continue;
+		frameworkTab.addEventListener('click', () => setPreferredFramework(framework));
+	}
+</script>

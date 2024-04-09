@@ -8,7 +8,7 @@ export function Component() {
   return (
     <Accordion>
       <Accordion.Item>
-        <Accordion.Control controls="reactItem1" lead="💀" open>
+        <Accordion.Control controls="reactItem1" lead="💀">
           React Control 1
         </Accordion.Control>
         <Accordion.Panel id="reactItem1">

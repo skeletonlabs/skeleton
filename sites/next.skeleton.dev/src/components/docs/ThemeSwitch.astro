@@ -18,7 +18,6 @@ import { Palette } from 'lucide-react';
 </div>
 
 <script is:inline>
-	const elemBody = document.querySelector('body');
 	const elemSelect = document.getElementById('themesList');
 	const lsTheme = localStorage.getItem('theme') || 'cerberus';
 
@@ -29,15 +28,15 @@ import { Palette } from 'lucide-react';
 	// Change Handler
 	function onChangeHandler(event) {
 		const selectedTheme = event.target.value;
-		elemBody.dataset.theme = selectedTheme;
+		document.body.dataset.theme = selectedTheme;
 		setBodyAttr(selectedTheme);
 		localStorage.setItem('theme', selectedTheme);
 	}
 
 	function setBodyAttr(theme) {
-		elemBody.dataset.theme = theme;
+		document.body.dataset.theme = theme;
 	}
 
-	// Listners
+	// Listeners
 	elemSelect.addEventListener('change', onChangeHandler);
 </script>

@@ -4,13 +4,15 @@ export interface ProgressProps {
   /** Set the maximum value */
   max?: number;
   /** Set the aria-labelledby */
-  ariaLabelledby?: string;
+  labelledBy?: string;
 
   // Root ---
   /** Set root base classes */
   base?: string;
   /** Set root background classes  */
   bg?: string;
+  /** Set root width classes */
+  width?: string;
   /** Set root height classes */
   height?: string;
   /** Set root rounded classes */

@@ -8,6 +8,7 @@ import {
   AccordionPanelProps,
   AccordionProps,
 } from "./types";
+import { motion, AnimatePresence } from "framer-motion";
 
 // React Compose ---
 
@@ -23,6 +24,7 @@ export function reactCompose<
 // Context ---
 
 export const AccordionContext = createContext<AccordionContextState>({
+  animDuration: 0.2,
   selected: [],
   setSelected: () => {},
   allowMultiple: false,
@@ -33,11 +35,13 @@ export const AccordionContext = createContext<AccordionContextState>({
 
 const AccordionRoot: React.FC<AccordionProps> = ({
   multiple = false,
+  animDuration = 0.2,
   // Root
   base = "",
   padding = "",
   spaceY = "space-y-2",
   rounded = "rounded",
+  width = "w-full",
   classes = "",
   // Children
   children,
@@ -47,11 +51,12 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 
   return (
     <div
-      className={`${base} ${padding} ${spaceY} ${rounded} ${classes}`}
+      className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`}
       data-testid="accordion"
     >
       <AccordionContext.Provider
         value={{
+          animDuration,
           selected,
           setSelected,
           allowMultiple,
@@ -131,7 +136,7 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
       {/* Content */}
       <div className="flex-1">{children}</div>
       {/* State Indicator */}
-      <div>{ctx.selected.includes(controls) ? iconClosed : iconOpen}</div>
+      <div>{ctx.selected.includes(controls) ? iconOpen : iconClosed}</div>
     </button>
   );
 };
@@ -155,11 +160,25 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
       aria-labelledby={id}
       data-testid="accordion-panel"
     >
-      {ctx.selected.includes(id) && (
-        <div className={`${base} ${padding} ${rounded} ${classes}`}>
-          {children}
-        </div>
-      )}
+      <AnimatePresence>
+        {ctx.selected.includes(id) && (
+          <motion.div
+            className="overflow-hidden"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { opacity: 1, height: "auto" },
+              collapsed: { opacity: 0, height: 0 },
+            }}
+            transition={{ duration: ctx.animDuration && 0.2 }}
+          >
+            <div className={`${base} ${padding} ${rounded} ${classes}`}>
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

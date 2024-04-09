@@ -61,6 +61,7 @@ Use the following file path conventions when creating a new component:
 
 Skeleton designates the following categories of component properties. These should be maintained in the following order.
 
+{/* prettier-ignore */}
 ```ts
 let {
 	// Functional
@@ -185,6 +186,17 @@ export interface AccordionItemProps {
 	children?: Snippet;
 }
 ```
+
+---
+
+## Animations
+
+Skeleton opts for what we feel is the most optimal solution for animations per framework. This means implementation and capabilities may differ slightly for each. Please refer to the [Accordion](/docs/components/accordion/react) component source code for a reference example.
+
+| Package                     | Solution                                                       |
+| --------------------------- | -------------------------------------------------------------- |
+| `/packages/skeleton-svelte` | [Svelte Transition](https://svelte.dev/docs/svelte-transition) |
+| `/packages/skeleton-react`  | [Framer Motion](https://www.framer.com/motion/)                |
 
 ---
 
