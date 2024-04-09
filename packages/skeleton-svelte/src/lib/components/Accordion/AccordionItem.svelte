@@ -1,13 +1,10 @@
 <script lang="ts">
 	import { getAccordionCtx } from './Accordion.svelte';
 	import { slide } from 'svelte/transition';
-
 	import type { AccordionItemProps } from './types.js';
-	import { untrack } from 'svelte';
 
 	let {
 		id = '',
-		open = $bindable(false),
 		disabled = false,
 		// Root
 		base = '',
@@ -37,26 +34,10 @@
 	// Context
 	const ctx = getAccordionCtx();
 
-	// Functions
-	function onclick() {
+	const onclick = () => {
 		ctx.toggle(id);
-	}
-
-	// Effects
-	$effect(() => {
-		if (open === ctx.isOpen(id)) {
-			return;
-		}
-		ontoggle(new CustomEvent('toggle', { detail: { id: untrack(() => id), open: ctx.isOpen(id) } }));
-	});
-
-	$effect(() => {
-		open ? untrack(() => ctx.open(id)) : untrack(() => ctx.close(id));
-	});
-
-	$effect(() => {
-		open = ctx.isOpen(id);
-	});
+		ontoggle(new CustomEvent('toggle', { detail: { id, open: ctx.isOpen(id) } }));
+	};
 </script>
 
 <!-- @component An Accordion child item. -->

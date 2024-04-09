@@ -5,6 +5,8 @@ import { type Snippet } from 'svelte';
 export interface AccordionProps {
 	/** Enables opening multiple items at once. */
 	multiple?: boolean;
+	/** Array of opened items */
+	opened?: string[];
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
 
@@ -38,8 +40,6 @@ type ToggleEvent = CustomEvent<{ id: string; open: boolean }>;
 export interface AccordionItemProps {
 	/** Set a unique ID for the item. */
 	id: string;
-	/** Set the open state of the item. */
-	open?: boolean;
 	/** Set a disabled state for the item. */
 	disabled?: boolean;
 

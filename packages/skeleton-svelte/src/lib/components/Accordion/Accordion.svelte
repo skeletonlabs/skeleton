@@ -21,6 +21,7 @@
 
 	let {
 		multiple = false,
+		opened = $bindable([]),
 		animDuration = 200,
 		// Root
 		base = '',
@@ -35,33 +36,13 @@
 		iconClosed
 	}: AccordionProps = $props();
 
-	let selected: string[] = $state([]);
-
 	// Functions
-	function open(id: string) {
-		if (multiple) {
-			selected = [...selected, id];
-		} else {
-			selected = [id];
-		}
-	}
+	const open = (id: string) => (multiple ? (opened = [...opened, id]) : (opened = [id]));
+	const close = (id: string) => (opened = opened.filter((_id: string) => _id !== id));
+	const toggle = (id: string) => (isOpen(id) ? close(id) : open(id));
+	const isOpen = (id: string) => opened.includes(id);
 
-	function close(id: string) {
-		selected = selected.filter((_id: string) => _id !== id);
-	}
-
-	function toggle(id: string) {
-		if (isOpen(id)) {
-			close(id);
-		} else {
-			open(id);
-		}
-	}
-
-	function isOpen(id: string) {
-		return selected.includes(id);
-	}
-
+	// Context
 	setAccordionCtx({
 		open,
 		close,
@@ -75,6 +56,14 @@
 		},
 		get iconClosed() {
 			return iconClosed;
+		}
+	});
+
+	// Side effects
+	$effect(() => {
+		// If multiple prop is updated to false and there are more than one opened item, keep only the first one open.
+		if (!multiple && opened.length > 1) {
+			opened = [opened[0]];
 		}
 	});
 </script>
