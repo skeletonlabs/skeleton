@@ -12,7 +12,7 @@
 			<div class="!flex flex-col md:flex-row justify-between items-start space-y-4 md:space-y-0 md:space-x-4">
                 <!-- prettier-ignore -->
 				<p>
-                    This guide covers <code class="code">vite-plugin-tailwind-purgecss</code>, a simple Vite plugin that thoroughly purges excess CSS via <a class="anchor" href="https://purgecss.com/" target="_blank">PurgeCSS</a>. While optional, this is highly recommended if you wish to minimize your production CSS bundle size.
+                    This guide covers <code class="code">vite-plugin-tailwind-purgecss</code>, a simple Vite plugin that purges excess TailwindCSS styles via <a class="anchor" href="https://purgecss.com/" target="_blank">PurgeCSS</a>. While optional, this is highly recommended if you wish to minimize your production CSS bundle size.
                 </p>
 				<a class="btn variant-filled-secondary" href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank">
 					<i class="fa-brands fa-github" />
@@ -67,15 +67,14 @@ const config: UserConfig = {
 };
         `}
 		/>
+	</section>
+	<hr />
 
-		<hr />
-
-		<section class="space-y-4">
-			<h2 class="h2">Attribution</h2>
-			<!-- prettier-ignore -->
-			<p>
+	<section class="space-y-4">
+		<h2 class="h2">Attribution</h2>
+		<!-- prettier-ignore -->
+		<p>
 			This <a class="anchor" href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank" rel="noreferrer">plugin</a>  is provided courtesy of Skeleton co-maintainer <a class="anchor" href="https://github.com/AdrianGonz97" target="_blank" rel="noreferrer">Adrian (aka CokaKoala)</a>.
 		</p>
-		</section>
 	</section></LayoutPage
 >
