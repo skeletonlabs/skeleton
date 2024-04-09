@@ -24,6 +24,10 @@ export interface AccordionProps {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
+	// Events ---
+	/** Triggers on item open or close. */
+	ontoggle?: (toggleEvent: CustomEvent<{ id: string; open: boolean }>) => void;
+
 	// Snippets ---
 	/** The default child slot. */
 	children: Snippet;
@@ -34,8 +38,6 @@ export interface AccordionProps {
 }
 
 // Accordion Item ---
-
-type ToggleEvent = CustomEvent<{ id: string; open: boolean }>;
 
 export interface AccordionItemProps {
 	/** Set a unique ID for the item. */
@@ -77,10 +79,6 @@ export interface AccordionItemProps {
 	/** Provide arbitrary CSS classes to the panel. */
 	panelClasses?: string;
 
-	// Events ---
-	/** Triggers on item open or close. */
-	ontoggle?: (toggleEvent: ToggleEvent) => void;
-
 	// Snippets ---
 	/** The control's default slot. */
 	control: Snippet;
@@ -88,4 +86,16 @@ export interface AccordionItemProps {
 	controlLead?: Snippet;
 	/** The panels's default slot. */
 	panel?: Snippet;
+}
+
+// Accordion Context ---
+
+export interface AccordionContext {
+	open: (id: string) => void;
+	close: (id: string) => void;
+	toggle: (id: string) => void;
+	isOpen: (id: string) => boolean;
+	animDuration: number;
+	iconOpen?: Snippet;
+	iconClosed?: Snippet;
 }

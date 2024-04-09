@@ -23,8 +23,6 @@
 		panelPadding = 'py-2 px-4',
 		panelRounded = '',
 		panelClasses = '',
-		// Events
-		ontoggle = () => {},
 		// Snippets
 		control,
 		controlLead,
@@ -33,11 +31,6 @@
 
 	// Context
 	const ctx = getAccordionCtx();
-
-	const onclick = () => {
-		ctx.toggle(id);
-		ontoggle(new CustomEvent('toggle', { detail: { id, open: ctx.isOpen(id) } }));
-	};
 </script>
 
 <!-- @component An Accordion child item. -->
@@ -50,7 +43,7 @@
 		class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
 		aria-expanded={ctx.isOpen(id)}
 		aria-controls="accordion-panel-{id}"
-		{onclick}
+		onclick={() => ctx.toggle(id)}
 		{disabled}
 	>
 		<!-- Lead -->

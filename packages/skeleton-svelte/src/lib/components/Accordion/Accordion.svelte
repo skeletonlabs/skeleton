@@ -1,14 +1,4 @@
 <script lang="ts" context="module">
-	type AccordionContext = {
-		open: (id: string) => void;
-		close: (id: string) => void;
-		toggle: (id: string) => void;
-		isOpen: (id: string) => boolean;
-		animDuration: number;
-		iconOpen?: Snippet;
-		iconClosed?: Snippet;
-	};
-
 	const accordionCtxKey = Symbol();
 
 	export const getAccordionCtx = () => getContext<AccordionContext>(accordionCtxKey);
@@ -16,8 +6,8 @@
 </script>
 
 <script lang="ts">
-	import type { AccordionProps } from './types.js';
-	import { getContext, setContext, type Snippet } from 'svelte';
+	import type { AccordionContext, AccordionProps } from './types.js';
+	import { getContext, setContext } from 'svelte';
 
 	let {
 		multiple = false,
@@ -30,6 +20,8 @@
 		rounded = 'rounded',
 		width = 'w-full',
 		classes = '',
+		// Events
+		ontoggle = () => {},
 		// Snippets
 		children,
 		iconOpen,
@@ -39,7 +31,10 @@
 	// Functions
 	const open = (id: string) => (multiple ? (opened = [...opened, id]) : (opened = [id]));
 	const close = (id: string) => (opened = opened.filter((_id: string) => _id !== id));
-	const toggle = (id: string) => (isOpen(id) ? close(id) : open(id));
+	const toggle = (id: string) => {
+		isOpen(id) ? close(id) : open(id);
+		ontoggle(new CustomEvent('toggle', { detail: { id, open: isOpen(id) } }));
+	};
 	const isOpen = (id: string) => opened.includes(id);
 
 	// Context
