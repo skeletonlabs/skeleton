@@ -13,7 +13,7 @@
 	// Props (rail)
 	/** Rail: Provide classes to set the background color. */
 	export let background: CssClasses = 'bg-surface-100-800-token';
-	/** Rail: Provide classes to set the background color. */
+	/** Rail: Provide classes to set the border color. */
 	export let border: CssClasses = '';
 	/** Rail: Provide classes to set the width. */
 	export let width: CssClasses = 'w-20';
