@@ -38,17 +38,33 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 	// Children
 	children,
 }) => {
+	// State
 	const [openedState, setOpenedState] = useState<string[]>(multiple ? opened : [opened[0]]);
 
 	// Functions
-	const open = (id: string) =>
-		multiple ? setOpenedState([...openedState, id]) : setOpenedState([id]);
-	const close = (id: string) => setOpenedState(openedState.filter((_id: string) => _id !== id));
-	const toggle = (id: string) => {
+	function open(id: string) {
+		if (multiple) {
+			setOpenedState((openedState) => [...openedState, id]);
+		} else {
+			setOpenedState([id]);
+		}
+	}
+	function close(id: string) {
+		setOpenedState((openedState) => openedState.filter((_id) => _id !== id));
+	}
+	function toggle(id: string) {
 		isOpen(id) ? close(id) : open(id);
 		ontoggle(new CustomEvent("toggle", { detail: { id, open: isOpen(id) } }));
-	};
-	const isOpen = (id: string) => openedState.includes(id);
+	}
+	function isOpen(id: string) {
+		return openedState.includes(id);
+	}
+
+	// Side effects
+	// If multiple prop is updated to false and there are more than one opened item, keep only the first one open.
+	if (!multiple && opened.length > 1) {
+		setOpenedState([opened[0]]);
+	}
 
 	return (
 		<div

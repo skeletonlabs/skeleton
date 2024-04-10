@@ -29,13 +29,23 @@
 	}: AccordionProps = $props();
 
 	// Functions
-	const open = (id: string) => (multiple ? (opened = [...opened, id]) : (opened = [id]));
-	const close = (id: string) => (opened = opened.filter((_id: string) => _id !== id));
-	const toggle = (id: string) => {
+	function open(id: string) {
+		if (multiple) {
+			opened = [...opened, id];
+		} else {
+			opened = [id];
+		}
+	}
+	function close(id: string) {
+		opened = opened.filter((_id) => _id !== id);
+	}
+	function toggle(id: string) {
 		isOpen(id) ? close(id) : open(id);
 		ontoggle(new CustomEvent('toggle', { detail: { id, open: isOpen(id) } }));
-	};
-	const isOpen = (id: string) => opened.includes(id);
+	}
+	function isOpen(id: string) {
+		return opened.includes(id);
+	}
 
 	// Context
 	setAccordionCtx({
