@@ -1,11 +1,23 @@
 import { type Snippet } from 'svelte';
 
+// Accordion Context ---
+
+export interface AccordionContext {
+	open: (id: string) => void;
+	close: (id: string) => void;
+	toggle: (id: string) => void;
+	isOpen: (id: string) => boolean;
+	animDuration: number;
+	iconOpen?: Snippet;
+	iconClosed?: Snippet;
+}
+
 // Accordion ---
 
 export interface AccordionProps {
 	/** Enables opening multiple items at once. */
 	multiple?: boolean;
-	/** Array of opened items */
+	/** Takes an array list of open items. */
 	opened?: string[];
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
@@ -86,16 +98,4 @@ export interface AccordionItemProps {
 	controlLead?: Snippet;
 	/** The panels's default slot. */
 	panel?: Snippet;
-}
-
-// Accordion Context ---
-
-export interface AccordionContext {
-	open: (id: string) => void;
-	close: (id: string) => void;
-	toggle: (id: string) => void;
-	isOpen: (id: string) => boolean;
-	animDuration: number;
-	iconOpen?: Snippet;
-	iconClosed?: Snippet;
 }

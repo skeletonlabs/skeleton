@@ -30,11 +30,7 @@
 
 	// Functions
 	function open(id: string) {
-		if (multiple) {
-			opened = [...opened, id];
-		} else {
-			opened = [id];
-		}
+		opened = multiple ? [...opened, id] : [id];
 	}
 	function close(id: string) {
 		opened = opened.filter((_id) => _id !== id);
@@ -67,9 +63,7 @@
 	// Side effects
 	$effect(() => {
 		// If multiple prop is updated to false and there are more than one opened item, keep only the first one open.
-		if (!multiple && opened.length > 1) {
-			opened = [opened[0]];
-		}
+		if (!multiple && opened.length > 1) opened = [opened[0]];
 	});
 </script>
 
