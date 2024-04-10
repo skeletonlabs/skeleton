@@ -7,7 +7,7 @@ export const Page: React.FC<any> = () => {
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
 
 	return (
-		<Accordion>
+		<Accordion opened={["reactItem1"]}>
 			<Accordion.Item>
 				<Accordion.Control controls="reactItem1" lead={<Club size={24} />}>
 					Club
