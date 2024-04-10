@@ -58,12 +58,6 @@ const AccordionRoot: React.FC<AccordionProps> = ({
     return openedState.includes(id);
   }
 
-  // Side effects
-  // If multiple prop is updated to false and there are more than one opened item, keep only the first one open.
-  if (!multiple && opened.length > 1) {
-    setOpenedState([opened[0]]);
-  }
-
   return (
     <div
       className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`}
