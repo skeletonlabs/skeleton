@@ -36,7 +36,6 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			list: [
 				{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
 				{ href: '/docs/figma', label: 'Figma', keywords: 'figma, design, mock, wireframe, ui, kit' },
-				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, vite, tree, shaking, bundle, optimize' },
 				{ href: '/docs/contributing', label: 'Contributing', keywords: 'branch, pr' },
 				{
 					href: '/docs/sponsorship',
@@ -48,8 +47,9 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 		{
 			title: 'Integrations',
 			list: [
+				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, vite, tree, shaking, bundle, optimize' },
 				{ href: '/docs/tauri', label: 'Tauri', keywords: 'Tauri, desktop, setup, install' },
-				{ href: '/docs/ssd', label: 'Datatables', keywords: 'datatables, tables, datagrid, simple', badge: 'New' }
+				{ href: '/docs/ssd', label: 'Datatables', keywords: 'datatables, tables, datagrid, simple' } // badge: 'New'
 			]
 		}
 	],

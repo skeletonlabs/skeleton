@@ -77,7 +77,7 @@
 				<h3 class="h3" data-toc-ignore>Deprecated</h3>
 				<!-- prettier-ignore -->
 				<p>
-					This feature is being phased out as transition to <a class="underline" href="https://github.com/skeletonlabs/skeleton/discussions/2375" target="_blank">Skeleton v3</a>. This will remain functional for all 2.x releases, but recommend you migrate to <a class="underline" href="/elements/tables" target="_blank">table elements</a> as soon as possible.
+					This feature is being phased out as transition to <a class="underline" href="https://github.com/skeletonlabs/skeleton/discussions/2375" target="_blank">Skeleton v3</a>. This will remain functional for all 2.x releases, but recommend you migrate to <a class="underline" href="/elements/tables">table elements</a> as soon as possible.
 				</p>
 			</div>
 			<div class="alert-actions">
