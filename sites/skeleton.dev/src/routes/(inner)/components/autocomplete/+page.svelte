@@ -141,8 +141,8 @@ function onFlavorSelection(event: CustomEvent<AutocompleteOption<string>>): void
 				/>
 				<p>Implement the autocomplete component.</p>
 				<p>
-					To style the autocomplete component you can either apply a <code class="code">class</code> tag directly the component and set your
-					styles, or you can wrap the component in a <code class="code">div</code> and apply your styles to the
+					To style the autocomplete component you can either apply a <code class="code">class</code> tag directly to the component and set
+					your styles, or you can wrap the component in a <code class="code">div</code> and apply your styles to the
 					<code class="code">div</code>
 				</p>
 				<CodeBlock
@@ -161,7 +161,7 @@ function onFlavorSelection(event: CustomEvent<AutocompleteOption<string>>): void
 	<svelte:fragment slot="usage">
 		<!-- prettier-ignore -->
 		<p>
-			The Autocomplete component does not contain it's own input by default. Instead, by using input binding paired with an <code class="code">on:selection</code> event, you may utilize this component alongside any type of input that takes in suggested values.
+			The Autocomplete component does not contain its own input by default. Instead, by using input binding paired with an <code class="code">on:selection</code> event, you may utilize this component alongside any type of input that takes in suggested values.
 		</p>
 		<section class="space-y-4">
 			<h2 class="h2">Data Structure</h2>
@@ -363,7 +363,7 @@ let popupSettings: PopupSettings = {
 		<section class="space-y-4">
 			<h2 class="h2">Browser Support</h2>
 			<p>
-				For Firefox, when wrapping the Autocomplete component in an parent element that uses <code class="code">overflow</code>
+				For Firefox, when wrapping the Autocomplete component in a parent element that uses <code class="code">overflow</code>
 				styling, make sure you add <code class="code">tabindex="-1"</code>. By doing this, it will ensure that tab navigation selects the
 				children within, instead of the wrapping element itself.
 			</p>
