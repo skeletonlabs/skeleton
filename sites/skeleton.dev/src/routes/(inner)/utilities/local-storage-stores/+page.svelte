@@ -7,9 +7,8 @@
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
-		name: 'Local Storage Store',
-		description:
-			'An extended version of the <a class="anchor" href="https://svelte.dev/tutorial/writable-stores" target="_blank" rel="noreferrer">Svelte writable store</a> that includes pub/sub to local storage.',
+		name: 'Persisted Store',
+		description: 'An extended version of the Svelte writable store that automatically persists to local storage',
 		imports: ['localStorageStore'],
 		source: 'packages/skeleton/src/lib/utilities/LocalStorageStore'
 	};
@@ -18,6 +17,20 @@
 <DocsShell {settings}>
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<!-- Alert -->
+		<aside class="alert variant-ghost-error">
+			<i class="fa-solid fa-triangle-exclamation text-4xl" />
+			<div class="alert-message" data-toc-ignore>
+				<h3 class="h3" data-toc-ignore>Deprecated</h3>
+				<!-- prettier-ignore -->
+				<p>
+					This feature is being phased out as we transition to <a class="underline" href="https://github.com/skeletonlabs/skeleton/discussions/2375" target="_blank">Skeleton v3</a>. This will remain functional for all 2.x releases, but recommend migrating to <a class="underline" href="https://github.com/joshnuss/svelte-persisted-store" target="_blank">svelte-persisted-store</a> as soon as possible.
+				</p>
+			</div>
+			<div class="alert-actions">
+				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/issues/2383" target="_blank"> Learn More </a>
+			</div>
+		</aside>
 		<section class="space-y-4">
 			<p>
 				The first parameter <code class="code">storeExample</code> is the local storage key name. The second parameter is the initial value of
