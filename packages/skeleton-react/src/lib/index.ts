@@ -3,4 +3,4 @@ export { Accordion } from "../components/Accordion/Accordion.jsx";
 export { Avatar } from "../components/Avatar/Avatar.jsx";
 export { AppBar, ToolBar } from "../components/AppBar/AppBar.jsx";
 export { Progress } from "../components/Progress/Progress.jsx";
-export { Tabs, TabsList, TabsControl } from "../components/Tab/Tabs.jsx";
+export { Tabs } from "../components/Tab/Tabs.jsx";

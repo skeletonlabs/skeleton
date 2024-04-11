@@ -18,7 +18,7 @@ const TabsRoot: React.FC<TabsProps> = ({
     );
 };
 
-const TabsListRoot: React.FC<TabsListProps> = ({
+const TabsList: React.FC<TabsListProps> = ({
     // Root
     base = 'flex',
     justify = 'justify-start',
@@ -35,7 +35,7 @@ const TabsListRoot: React.FC<TabsListProps> = ({
     );
 };
 
-const TabsControlRoot: React.FC<TabsControlProps> = ({
+const TabsControl: React.FC<TabsControlProps> = ({
     id = '',
     name,
     group,
@@ -57,10 +57,10 @@ const TabsControlRoot: React.FC<TabsControlProps> = ({
     cursor = 'cursor-pointer',
     classes = '',
     // Events
-    onclick = () => {},
-    onkeydown = () => {},
-    onkeyup = () => {},
-    onchange = () => {},
+    onClick = () => {},
+    onKeydown = () => {},
+    onKeyup = () => {},
+    onChange = () => {},
     // Children
     children
 }) => {
@@ -75,13 +75,13 @@ const TabsControlRoot: React.FC<TabsControlProps> = ({
     }, [selected, active, inactive]);
 
     function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
-        onchange(event.target.value);
+        onChange(event.target.value);
     }    
 
     const elemInputRef = useRef<HTMLInputElement>(null);
 	function onKeyDownHandler(event: React.KeyboardEvent<HTMLDivElement>) {
 		// Fire Event Handler
-		onkeydown(event);
+		onKeydown(event);
 
 		// If select key events
 		if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.code)) return;
@@ -156,11 +156,11 @@ const TabsControlRoot: React.FC<TabsControlProps> = ({
                 data-testid="tabs-control"
                 tabIndex={selected ? 0 : -1}
                 onKeyDown={onKeyDownHandler}
-                onKeyUp={onkeyup}
+                onKeyUp={onKeyup}
             >
                 { /* Keep these classes on wrapping element */ }
                 <div className="h-0 w-0 flex-none overflow-hidden">
-                    <input ref={elemInputRef} type="radio" name={name} value={name} checked={selected} onChange={handleOnChange} onClick={onclick} tabIndex={-1} />
+                    <input ref={elemInputRef} type="radio" name={name} value={name} checked={selected} onChange={handleOnChange} onClick={onClick} tabIndex={-1} />
                 </div>
 
                 {children}
@@ -176,7 +176,7 @@ const TabsControlItem: React.FC<TabsControlItemProps> = ({
     gap = 'gap-2',
     background = 'group-hover:preset-tonal-primary',
     padding = 'p-2 px-4',
-    rounded = 'rounded',
+    rounded = 'rounded-container',
     classes = '',
     // Children
     children
@@ -206,11 +206,9 @@ const TabsPanelItem: React.FC<TabsPanelItemProps> = ({
     );
 };
 
-export const TabsControl = Object.assign(TabsControlRoot, { Item: TabsControlItem });
-
-export const TabsList = Object.assign(TabsListRoot, { Control: TabsControl });
-
 export const Tabs = Object.assign(TabsRoot, {
     List: TabsList,
-    Panel: TabsPanelItem
+    Control: TabsControl,
+    Panel: TabsPanelItem,
+    Item: TabsControlItem
 });

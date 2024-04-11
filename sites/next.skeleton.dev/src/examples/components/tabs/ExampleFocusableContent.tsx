@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { Tabs, TabsList, TabsControl } from '@skeletonlabs/skeleton-react';
+import { Tabs } from '@skeletonlabs/skeleton-react';
 
 export const Page: React.FC<any> = () => {
 	const [group, setGroup] = useState('books');
 	return (
 		<Tabs>
 			<Tabs.List>
-				<TabsList.Control name="books" group={group} onchange={setGroup}>
-					<TabsControl.Item>Books</TabsControl.Item>
-				</TabsList.Control>
-				<TabsList.Control name="movies" group={group} onchange={setGroup}>
-					<TabsControl.Item>Movies</TabsControl.Item>
-				</TabsList.Control>
-				<TabsList.Control name="television" group={group} onchange={setGroup}>
-					<TabsControl.Item>Television</TabsControl.Item>
-				</TabsList.Control>
+				<Tabs.Control name="books" group={group} onChange={setGroup}>
+					<Tabs.Item>Books</Tabs.Item>
+				</Tabs.Control>
+				<Tabs.Control name="movies" group={group} onChange={setGroup}>
+					<Tabs.Item>Movies</Tabs.Item>
+				</Tabs.Control>
+				<Tabs.Control name="television" group={group} onChange={setGroup}>
+					<Tabs.Item>Television</Tabs.Item>
+				</Tabs.Control>
 			</Tabs.List>
 			<Tabs.Panel group={group} value="books">
 				<button type="button" className="btn preset-filled">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tabs, TabsList, TabsControl } from '@skeletonlabs/skeleton-react';
+import { Tabs } from '@skeletonlabs/skeleton-react';
 import { LibraryBig, Film, Tv } from 'lucide-react';
 
 export const Page: React.FC<any> = () => {
@@ -7,24 +7,24 @@ export const Page: React.FC<any> = () => {
 	return (
 		<Tabs>
 			<Tabs.List>
-				<TabsList.Control name="books" group={group} onchange={setGroup} title="Books">
-					<TabsControl.Item classes="flex-col">
+				<Tabs.Control name="books" group={group} onChange={setGroup} title="Books">
+					<Tabs.Item>
 						<LibraryBig size={20} />
 						Books
-					</TabsControl.Item>
-				</TabsList.Control>
-				<TabsList.Control name="movies" group={group} onchange={setGroup} title="Movies">
-					<TabsControl.Item classes="flex-col">
+					</Tabs.Item>
+				</Tabs.Control>
+				<Tabs.Control name="movies" group={group} onChange={setGroup} title="Movies">
+					<Tabs.Item>
 						<Film size={20} />
 						Movies
-					</TabsControl.Item>
-				</TabsList.Control>
-				<TabsList.Control name="television" group={group} onchange={setGroup} title="Tv">
-					<TabsControl.Item classes="flex-col">
+					</Tabs.Item>
+				</Tabs.Control>
+				<Tabs.Control name="television" group={group} onChange={setGroup} title="Tv">
+					<Tabs.Item>
 						<Tv size={20} />
 						Television
-					</TabsControl.Item>
-				</TabsList.Control>
+					</Tabs.Item>
+				</Tabs.Control>
 			</Tabs.List>
 			<Tabs.Panel group={group} value="books">
 				Books tab content

@@ -72,13 +72,13 @@ export interface TabsControlProps extends React.PropsWithChildren {
 
 	// Events ---
 	/** Triggers on Tab Control click. */
-	onclick?: (event: React.MouseEvent<HTMLInputElement>) => void;
+	onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
 	/** Triggers on Tab Control key down. */
-	onkeydown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
+	onKeydown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 	/** Triggers on Tab Control key up. */
-	onkeyup?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
+	onKeyup?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 	/** Triggers on Tab Control group change. */
-	onchange?: (group: string) => void;
+	onChange?: (group: string) => void;
 }
 
 export interface TabsControlItemProps extends React.PropsWithChildren {
