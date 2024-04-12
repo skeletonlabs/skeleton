@@ -70,6 +70,20 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<!-- Alert -->
+		<aside class="alert variant-ghost-error">
+			<i class="fa-solid fa-triangle-exclamation text-4xl" />
+			<div class="alert-message" data-toc-ignore>
+				<h3 class="h3" data-toc-ignore>Deprecated</h3>
+				<!-- prettier-ignore -->
+				<p>
+					This feature is being phased out as transition to <a class="underline" href="https://github.com/skeletonlabs/skeleton/discussions/2375" target="_blank">Skeleton v3</a>. This will remain functional for all 2.x releases, but recommend you migrate to <a class="underline" href="/elements/tables">table elements</a> as soon as possible.
+				</p>
+			</div>
+			<div class="alert-actions">
+				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/issues/2388" target="_blank"> Learn More </a>
+			</div>
+		</aside>
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<Table source={tableSimple} interactive={true} on:selected={onSelected} text="text-token" />

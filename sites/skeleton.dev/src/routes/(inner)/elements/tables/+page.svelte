@@ -169,13 +169,13 @@
 				</svelte:fragment>
 			</TabGroup>
 		</section>
-		<!-- See Also -->
+		<!-- Datatables -->
 		<section class="space-y-4">
-			<h2 class="h2">See Also</h2>
+			<h2 class="h2">Datatables</h2>
 			<div class="card p-4 space-y-4">
 				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>A simple data-driven table component.</p>
-					<a class="btn variant-ghost-surface" href="/components/tables">Tables Component &rarr;</a>
+					<p>View our guide for integrating datatable features into your tables.</p>
+					<a class="btn variant-ghost-surface" href="/docs/ssd">Datatable Integration &rarr;</a>
 				</div>
 			</div>
 		</section>

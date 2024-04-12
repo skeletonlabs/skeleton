@@ -23,6 +23,11 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 					href: '/docs/transitions',
 					label: 'Transitions',
 					keywords: 'transition, transitions, blur, fade, fly, slide, scale, draw, crossfade, prefers, reduced, motion'
+				},
+				{
+					href: '/docs/dark-mode',
+					label: 'Dark Mode',
+					keywords: 'light, dark, toggle, prefer, color, scheme, lightswitch'
 				}
 			]
 		},
@@ -30,8 +35,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			title: 'Resources',
 			list: [
 				{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
-				{ href: '/docs/figma', label: 'Figma', keywords: 'figma, design, mock, wireframe, ui, kit' }, // , badge: 'New'
-				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, vite, tree, shaking, bundle, optimize' },
+				{ href: '/docs/figma', label: 'Figma', keywords: 'figma, design, mock, wireframe, ui, kit' },
 				{ href: '/docs/contributing', label: 'Contributing', keywords: 'branch, pr' },
 				{
 					href: '/docs/sponsorship',
@@ -43,8 +47,9 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 		{
 			title: 'Integrations',
 			list: [
+				{ href: '/docs/purgecss', label: 'PurgeCSS', keywords: 'purgecss, vite, tree, shaking, bundle, optimize' },
 				{ href: '/docs/tauri', label: 'Tauri', keywords: 'Tauri, desktop, setup, install' },
-				{ href: '/docs/ssd', label: 'Datatables', keywords: 'datatables, tables, datagrid, simple', badge: 'New' }
+				{ href: '/docs/ssd', label: 'Datatables', keywords: 'datatables, tables, datagrid, simple' } // badge: 'New'
 			]
 		}
 	],
@@ -105,7 +110,6 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ href: '/components/accordions', label: 'Accordions', keywords: 'collapse' },
 				{ href: '/components/app-bar', label: 'App Bar', keywords: 'header, top, bar, title' },
 				{ href: '/components/app-rail', label: 'App Rail', keywords: 'nav, navigation, tile, sidebar' },
-				{ href: '/components/app-shell', label: 'App Shell', keywords: 'layout, header, footer, sidebar, page, content' },
 				{ href: '/components/autocomplete', label: 'Autocomplete', keywords: 'input, filter, fuzzy, auto, complete, suggest' },
 				{ href: '/components/avatars', label: 'Avatars', keywords: 'image, initial, filter' },
 				{ href: '/components/conic-gradients', label: 'Conic Gradients', keywords: 'chart, graph, circle, pie, spinner, legend' },
@@ -120,10 +124,22 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ href: '/components/radio-groups', label: 'Radio Groups', keywords: 'input, form, select, selection' },
 				{ href: '/components/range-sliders', label: 'Range Sliders', keywords: 'value, min, max, step,, tick, input, form' },
 				{ href: '/components/slide-toggles', label: 'Slide Toggles', keywords: 'check, checkbox, toggle, input, form' },
-				{ href: '/components/steppers', label: 'Steppers', keywords: 'intro, onboard, onboarding, form, progress' },
 				{ href: '/components/tabs', label: 'Tabs', keywords: 'select, selection, panel' },
-				{ href: '/components/tables', label: 'Tables', keywords: 'data, entry' },
-				{ href: '/components/tree-views', label: 'Tree Views', keywords: 'tree, view, node', badge: 'Beta' }
+				{ href: '/components/tree-views', label: 'Tree Views', keywords: 'tree, view, node' }
+			]
+		},
+		// Deprecated
+		{
+			title: '',
+			list: [
+				{
+					href: '/components/app-shell',
+					label: 'App Shell',
+					keywords: 'layout, header, footer, sidebar, page, content',
+					badge: 'Deprecated'
+				},
+				{ href: '/components/tables', label: 'Tables', keywords: 'data, entry', badge: 'Deprecated' },
+				{ href: '/components/steppers', label: 'Steppers', keywords: 'intro, onboard, onboarding, form, progress', badge: 'Deprecated' }
 			]
 		}
 	],
@@ -133,8 +149,6 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			list: [
 				{ href: '/utilities/codeblocks', label: 'Code Blocks', keywords: 'highlight, syntax, code' },
 				{ href: '/utilities/drawers', label: 'Drawers', keywords: 'overlay, slide, panel, sidebar' },
-				{ href: '/utilities/lightswitches', label: 'Lightswitch', keywords: 'light, dark, toggle, prefer, color, scheme' },
-				{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores', keywords: 'svelte, writable, get, cache, persist' },
 				{
 					href: '/utilities/modals',
 					label: 'Modals',
@@ -143,8 +157,18 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ href: '/utilities/popups', label: 'Popups', keywords: 'menu, tooltip, overlay, dropdown, combobox, drop, down, select' },
 				{ href: '/utilities/toasts', label: 'Toasts', keywords: 'overlay, snack, snackbar, bar, action, alert, notification' },
 				{ href: '/utilities/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' }
-				// DELISTED UNTIL FURTHER NOTICE
-				// { href: '/utilities/data-tables', label: 'Data Tables', keywords: 'search, sort, page, pagination, async', badge: 'Experimental' }
+			]
+		},
+		// Deprecated
+		{
+			title: '',
+			list: [
+				{
+					href: '/utilities/local-storage-stores',
+					label: 'Persisted Store',
+					keywords: 'svelte, writable, get, cache, persist',
+					badge: 'Deprecated'
+				}
 			]
 		}
 	]
