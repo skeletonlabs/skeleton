@@ -143,13 +143,6 @@ export function getHelpText() {
 			Description: 'Install codeblock optional dependencies',
 		},
 		{ Option: '--popups', Short: '', 'Quiet Default': 'false', Value: 'true|false', Description: 'Install popups dependencies' },
-		{
-			Option: '--mdsvex',
-			Short: '',
-			'Quiet Default': 'false',
-			Value: 'true|false',
-			Description: 'Install mdsvex for markdown processing',
-		},
 		{ Option: '--forms', Short: '', 'Quiet Default': 'false', Value: 'true|false', Description: 'Install Tailwinds Forms plugin' },
 		{
 			Option: '--typography',
@@ -172,6 +165,7 @@ export function getHelpText() {
 			Value: 'skeleton',
 			Description: 'Choose one for the Skeleton theme',
 		},
+		{ Option: '', Short: '', 'Quiet Default': 'wintry', Value: 'wintry', Description: '' },
 		{ Option: '', Short: '', 'Quiet Default': 'modern', Value: 'modern', Description: '' },
 		{ Option: '', Short: '', 'Quiet Default': 'hamlindigo', Value: 'hamlindigo', Description: '' },
 		{ Option: '', Short: '', 'Quiet Default': 'rocket', Value: 'rocket', Description: '' },
