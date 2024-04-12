@@ -38,6 +38,10 @@ export default defineConfig({
 		// https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import
 		AutoImport({
 			imports: [
+				// import ApiBlock from '@components/docs/ApiBlock.astro'
+				'@components/docs/ApiBlock.astro',
+				// import Table from '@components/docs/Table.astro';
+				// '@components/docs/Table.astro',
 				{
 					// import componentSet from "@components/mdx/index";
 					'@components/mdx/index': [['default', 'componentSet']],
@@ -49,8 +53,6 @@ export default defineConfig({
 					'@components/docs/Preview.tsx': ['Preview'],
 					// import { FrameworkTabs } from '@components/docs/FrameworkTabs';
 					'@components/docs/FrameworkTabs.tsx': ['FrameworkTabs'],
-					// import { Table } from '@components/docs/Table';
-					// '@components/docs/Table.astro': ['Table'],
 				},
 			],
 		}),

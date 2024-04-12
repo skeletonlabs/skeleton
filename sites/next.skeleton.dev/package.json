@@ -51,6 +51,7 @@
 		"minimatch": "^9.0.4",
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "^0.13.0",
+		"typescript-json-schema": "^0.63.0",
 		"vite-plugin-tw-plugin-watcher": "workspace:*"
 	}
 }

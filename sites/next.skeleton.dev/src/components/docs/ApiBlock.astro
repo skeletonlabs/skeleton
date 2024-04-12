@@ -1,0 +1,80 @@
+---
+import { join, resolve } from "path";
+import * as TJS from "typescript-json-schema";
+
+// Props
+const { interfaceName, path } = Astro.props;
+
+// Config
+const settings: TJS.PartialArgs = {
+  required: true,
+};
+const compilerOptions: TJS.CompilerOptions = {
+  strictNullChecks: true,
+};
+const program = TJS.getProgramFromFiles(
+  [resolve(path)],
+  compilerOptions
+);
+const generator = TJS.buildGenerator(program, settings);
+
+// Generate
+const { properties, required }: any = TJS.generateSchema(
+  program,
+  interfaceName,
+  settings,
+  [],
+  generator!
+);
+
+// Format
+if (required) {
+    Object.keys(properties).forEach((key: any) => {
+        properties[key]["required"] = required.includes(key);
+    });
+}
+---
+
+<div class="space-y-4">
+    <!-- Label -->
+    <h3 class="h3">{interfaceName}</h3>
+    <!-- Table -->
+    <div class="table-wrap">
+        <table class="table caption-bottom">
+            <caption class="pt-4">This is an example caption.</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            {
+                Object.keys(properties).map((key) => {
+                const values = properties[key];
+                return (
+                    <tr>
+                    <td>
+                        <code class="code">{key}</code>
+                        {values.required && <span class="text-error-500">*</span>}
+                    </td>
+                    <td>
+                        <em class="opacity-60">{values.type}</em>
+                    </td>
+                    <td>
+                        <div>{values.description}</div>
+                    </td>
+                    </tr>
+                );
+                })
+            }
+            </tbody>
+        </table>
+    </div>
+
+    <hr class="hr">
+    <pre class="pre">{interfaceName}</pre>
+    <pre class="pre">{path}</pre>
+    <pre class="pre">{JSON.stringify(properties, null, 2)}</pre>
+</div>
