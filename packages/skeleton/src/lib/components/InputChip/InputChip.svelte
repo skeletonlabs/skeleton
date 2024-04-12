@@ -197,7 +197,7 @@
 		return allowDuplicates || !value.includes(chip);
 	}
 
-	function validate(chip: string = ''): boolean {
+	function validate(chip = ''): boolean {
 		if (!chip && !input) return false;
 		// Format: trim value
 		chip = chip !== '' ? chip.trim() : input.trim();

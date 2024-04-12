@@ -7,7 +7,7 @@ export const load: PageLoad = async ({ fetch }) => {
 		const res = await fetch('https://api.github.com/repos/skeletonlabs/skeleton/contributors?per_page=102');
 		if (!res.ok) return []; // return an empty list
 		const body = (await res.json()) as Contributor[];
-		return body.filter((c) => c.login !== 'github-actions[bot]' && c.login !== 'LukeHagar');
+		return body.filter((c) => c.login !== 'github-actions[bot]');
 	};
 	return { contributors: getContributors() };
 };
