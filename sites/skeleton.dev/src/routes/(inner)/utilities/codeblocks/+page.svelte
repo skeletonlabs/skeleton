@@ -87,27 +87,6 @@ hljs.registerLanguage('shell', shell);
 			<CodeBlock language="ts" code={`import 'highlight.js/styles/github-dark.css';`} />
 			<p>Finally, import the CodeBlock's writable store and pass a referenced to Highlight.js.</p>
 			<CodeBlock language="ts" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);`} />
-			<p>
-				If you are using <a class="anchor" href="/docs/purgecss" target="_blank">PurgeCSS</a>, safelist the imported classes in
-				<code class="code">vite.config.ts</code> so that they will not be removed during the build.
-			</p>
-			<CodeBlock
-				language="ts"
-				code={`
-import { purgeCss } from 'vite-plugin-tailwind-purgecss';\n
-const config: UserConfig = {
-	plugins: [
-		sveltekit(),
-		purgeCss({
-			safelist: {
-				// any selectors that begin with "hljs-" will not be purged
-				greedy: [/^hljs-/],
-			},
-		}),
-	],
-};
-			`}
-			/>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Line Numbers</h2>

@@ -182,27 +182,21 @@ function createSvelteConfig(opts) {
 	// For some reason create-svelte will turn off preprocessing for jsdoc and no type checking
 	// this will break the using of all CSS preprocessing as well, which is undesirable.
 	// Here we will just return the typescript default setup
-	const mdsvexConfig = `import { mdsvex } from 'mdsvex'
-		
-/** @type {import('mdsvex').MdsvexOptions} */
-const mdsvexOptions = {
-	extensions: ['.md'],
-}`;
+
 	const inspectorConfig = `
 	vitePlugin: {
 		inspector: true,
 	},`;
 
 	let str = `import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/kit/vite';
-${iit(opts.mdsvex, mdsvexConfig)}
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte'${iit(opts.mdsvex, `, '.md'`)}],
+	extensions: ['.svelte'],
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: [${iit(opts.mdsvex, 'mdsvex(mdsvexOptions),')} vitePreprocess()],
+	preprocess: [vitePreprocess()],
 	${iit(opts.inspector, inspectorConfig)}
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
@@ -222,21 +216,9 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit(), purgeCss(`;
+	plugins: [sveltekit(), purgeCss()]
+});`;
 
-	if (opts.codeblocks) {
-		contents += `{
-			safelist: {
-				// any selectors that begin with "hljs-" will not be purged
-				greedy: [/^hljs-/],
-			},
-		}),
-	],
-});`;
-	} else {
-		contents += `)]
-});`;
-	}
 	writeFileSync(filename, contents);
 }
 
