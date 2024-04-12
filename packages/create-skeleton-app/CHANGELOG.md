@@ -1,5 +1,11 @@
 # create-skeleton-app
 
+## 0.0.55
+
+### Patch Changes
+
+- chore: Updated purgecss plugin template ([#2604](https://github.com/skeletonlabs/skeleton/pull/2604))
+
 ## 0.0.53
 
 ### Patch Changes
