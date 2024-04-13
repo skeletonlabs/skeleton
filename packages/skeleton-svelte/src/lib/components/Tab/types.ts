@@ -54,6 +54,8 @@ export interface TabsControlProps {
 	// Root ---
 	/** Sets base styles. */
 	base?: string;
+	/** Sets width styles. */
+	width?: string;
 	/** Sets the active control styles. */
 	active?: string;
 	/** Sets the inactive control styles. */

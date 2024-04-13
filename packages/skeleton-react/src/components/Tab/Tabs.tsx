@@ -45,6 +45,7 @@ const TabsControl: React.FC<TabsControlProps> = ({
     controls = '',
     // Root
     base = 'group',
+    width = '',
     active = 'text-surface-950-50 border-surface-950-50',
     inactive = 'text-surface-600-400 border-transparent',
     flex = 'flex justify-center items-center',
@@ -143,7 +144,7 @@ const TabsControl: React.FC<TabsControlProps> = ({
     return (
         <label
             id={id}
-            className={`${base} ${rxActive} ${flex} ${background} ${border} ${text} ${padding} ${rounded} ${gap} ${cursor} ${classes}`}
+            className={`${base} ${width} ${rxActive} ${flex} ${background} ${border} ${text} ${padding} ${rounded} ${gap} ${cursor} ${classes}`}
             aria-label={label}
             title={title}
         >

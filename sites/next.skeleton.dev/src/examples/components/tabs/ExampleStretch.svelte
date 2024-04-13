@@ -6,9 +6,9 @@
 
 <Tabs>
     {#snippet list()}
-        <Tabs.Control bind:group name="books" classes="w-full">Books</Tabs.Control>
-        <Tabs.Control bind:group name="movies" classes="w-full">Movies</Tabs.Control>
-        <Tabs.Control bind:group name="Television" classes="w-full">television</Tabs.Control>
+        <Tabs.Control bind:group name="books" width="w-full">Books</Tabs.Control>
+        <Tabs.Control bind:group name="movies" width="w-full">Movies</Tabs.Control>
+        <Tabs.Control bind:group name="Television" width="w-full">television</Tabs.Control>
     {/snippet}
     {#snippet panels()}
         <Tabs.Panel bind:group value="books">

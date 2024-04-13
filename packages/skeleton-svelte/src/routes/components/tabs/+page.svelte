@@ -87,9 +87,9 @@
 		<h2 class="h2">Stretched</h2>
 		<Tabs base="w-full">
 			{#snippet list()}
-				<Tabs.Control bind:group name="flight" classes="w-full">Flight</Tabs.Control>
-				<Tabs.Control bind:group name="hotel" classes="w-full">Hotel</Tabs.Control>
-				<Tabs.Control bind:group name="explore" classes="w-full">Explore</Tabs.Control>
+				<Tabs.Control bind:group name="flight" width="w-full">Flight</Tabs.Control>
+				<Tabs.Control bind:group name="hotel" width="w-full">Hotel</Tabs.Control>
+				<Tabs.Control bind:group name="explore" width="w-full">Explore</Tabs.Control>
 			{/snippet}
 			{#snippet panels()}
 				<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>

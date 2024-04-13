@@ -15,23 +15,23 @@ function Preview(group: string, setGroup: React.Dispatch<React.SetStateAction<st
                 <Tabs>
                     <Tabs.List>
                         <Tabs.Control 
-                            name="flight" group={group} onchange={setGroup}
-                            onclick={() => console.log('onClick')}
-                            onkeydown={() => console.log('onKeyDown')}>
+                            name="flight" group={group} onChange={setGroup}
+                            onClick={() => console.log('onClick')}
+                            onKeydown={() => console.log('onKeyDown')}>
                                 <Tabs.Item>
                                     Flight
                                 </Tabs.Item>
                         </Tabs.Control>
                         <Tabs.Control 
                             name="hotel"
-                            group={group} onchange={setGroup}>
+                            group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 Hotel
                             </Tabs.Item>
                         </Tabs.Control>
                         <Tabs.Control 
                             name="explore"
-                            group={group} onchange={setGroup}>
+                            group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 Explore
                             </Tabs.Item>
@@ -60,7 +60,7 @@ function WithIcon(group: string, setGroup: React.Dispatch<React.SetStateAction<s
                 <Tabs>
                     <Tabs.List>
                         <Tabs.Control 
-                            name="flight" group={group} title="flight" onchange={setGroup}>
+                            name="flight" group={group} title="flight" onChange={setGroup}>
                                 <Tabs.Item>
                                     <div dangerouslySetInnerHTML={{ __html: icons.flight }} />
                                     <span>Flight</span>
@@ -68,7 +68,7 @@ function WithIcon(group: string, setGroup: React.Dispatch<React.SetStateAction<s
                         </Tabs.Control>
                         <Tabs.Control 
                             name="hotel" title="hotel"
-                            group={group} onchange={setGroup}>
+                            group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 <div dangerouslySetInnerHTML={{ __html: icons.hotel }} />
                                 <span>Hotel</span>
@@ -76,7 +76,7 @@ function WithIcon(group: string, setGroup: React.Dispatch<React.SetStateAction<s
                         </Tabs.Control>
                         <Tabs.Control 
                             name="explore" title="explore"
-                            group={group} onchange={setGroup}>
+                            group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 <div dangerouslySetInnerHTML={{ __html: icons.cube }} />
                                 <span>Explore</span>
@@ -106,21 +106,21 @@ function IconOnly(group: string, setGroup: React.Dispatch<React.SetStateAction<s
                 <Tabs>
                     <Tabs.List>
                         <Tabs.Control 
-                            name="flight" group={group} title="flight" onchange={setGroup}>
+                            name="flight" group={group} title="flight" onChange={setGroup}>
                                 <Tabs.Item>
                                     <div dangerouslySetInnerHTML={{ __html: icons.flight }} />
                                 </Tabs.Item>
                         </Tabs.Control>
                         <Tabs.Control 
                             name="hotel" title="hotel"
-                            group={group} onchange={setGroup}>
+                            group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 <div dangerouslySetInnerHTML={{ __html: icons.hotel }} />
                             </Tabs.Item>
                         </Tabs.Control>
                         <Tabs.Control 
                             name="explore" title="explore"
-                            group={group} onchange={setGroup}>
+                            group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 <div dangerouslySetInnerHTML={{ __html: icons.cube }} />
                             </Tabs.Item>
@@ -148,17 +148,17 @@ function Stretched(group: string, setGroup: React.Dispatch<React.SetStateAction<
                 <h2 className="h2">Stretched</h2>
                 <Tabs>
                     <Tabs.List>
-                        <Tabs.Control name="flight" group={group} onchange={setGroup} classes="w-full">
+                        <Tabs.Control name="flight" group={group} onChange={setGroup} width="w-full">
                                 <Tabs.Item>
                                     Flight
                                 </Tabs.Item>
                         </Tabs.Control>
-                        <Tabs.Control name="hotel" group={group} onchange={setGroup} classes="w-full">
+                        <Tabs.Control name="hotel" group={group} onChange={setGroup} width="w-full">
                             <Tabs.Item>
                                 Hotel
                             </Tabs.Item>
                         </Tabs.Control>
-                        <Tabs.Control name="explore" group={group} onchange={setGroup} classes="w-full">
+                        <Tabs.Control name="explore" group={group} onChange={setGroup} width="w-full">
                             <Tabs.Item>
                                 Explore
                             </Tabs.Item>
@@ -186,17 +186,17 @@ function JustifyCenter(group: string, setGroup: React.Dispatch<React.SetStateAct
                 <h2 className="h2">Justify Center</h2>
                 <Tabs>
                     <Tabs.List justify="justify-center">
-                        <Tabs.Control name="flight" group={group} onchange={setGroup}>
+                        <Tabs.Control name="flight" group={group} onChange={setGroup}>
                                 <Tabs.Item>
                                     Flight
                                 </Tabs.Item>
                         </Tabs.Control>
-                        <Tabs.Control name="hotel" group={group} onchange={setGroup}>
+                        <Tabs.Control name="hotel" group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 Hotel
                             </Tabs.Item>
                         </Tabs.Control>
-                        <Tabs.Control name="explore" group={group} onchange={setGroup}>
+                        <Tabs.Control name="explore" group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 Explore
                             </Tabs.Item>
@@ -224,17 +224,17 @@ function JustifyEnd(group: string, setGroup: React.Dispatch<React.SetStateAction
                 <h2 className="h2">Justify End</h2>
                 <Tabs>
                     <Tabs.List justify="justify-end">
-                        <Tabs.Control name="flight" group={group} onchange={setGroup}>
+                        <Tabs.Control name="flight" group={group} onChange={setGroup}>
                                 <Tabs.Item>
                                     Flight
                                 </Tabs.Item>
                         </Tabs.Control>
-                        <Tabs.Control name="hotel" group={group} onchange={setGroup}>
+                        <Tabs.Control name="hotel" group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 Hotel
                             </Tabs.Item>
                         </Tabs.Control>
-                        <Tabs.Control name="explore" group={group} onchange={setGroup}>
+                        <Tabs.Control name="explore" group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 Explore
                             </Tabs.Item>
@@ -262,17 +262,17 @@ function FocusableContent(group: string, setGroup: React.Dispatch<React.SetState
                 <h2 className="h2">Focusable Content</h2>
                 <Tabs>
                     <Tabs.List>
-                        <Tabs.Control name="flight" group={group} onchange={setGroup}>
+                        <Tabs.Control name="flight" group={group} onChange={setGroup}>
                                 <Tabs.Item>
                                     Flight
                                 </Tabs.Item>
                         </Tabs.Control>
-                        <Tabs.Control name="hotel" group={group} onchange={setGroup}>
+                        <Tabs.Control name="hotel" group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 Hotel
                             </Tabs.Item>
                         </Tabs.Control>
-                        <Tabs.Control name="explore" group={group} onchange={setGroup}>
+                        <Tabs.Control name="explore" group={group} onChange={setGroup}>
                             <Tabs.Item>
                                 Explore
                             </Tabs.Item>
@@ -301,17 +301,17 @@ function RTL(group: string, setGroup: React.Dispatch<React.SetStateAction<string
                 <div dir="rtl">
                     <Tabs>
                         <Tabs.List>
-                            <Tabs.Control name="flight" group={group} onchange={setGroup}>
+                            <Tabs.Control name="flight" group={group} onChange={setGroup}>
                                     <Tabs.Item>
                                         Flight
                                     </Tabs.Item>
                             </Tabs.Control>
-                            <Tabs.Control name="hotel" group={group} onchange={setGroup}>
+                            <Tabs.Control name="hotel" group={group} onChange={setGroup}>
                                 <Tabs.Item>
                                     Hotel
                                 </Tabs.Item>
                             </Tabs.Control>
-                            <Tabs.Control name="explore" group={group} onchange={setGroup}>
+                            <Tabs.Control name="explore" group={group} onChange={setGroup}>
                                 <Tabs.Item>
                                     Explore
                                 </Tabs.Item>
