@@ -11,7 +11,7 @@
 
 	let {
 		multiple = false,
-		opened = $bindable([]),
+		value = $bindable([]),
 		animDuration = 200,
 		// Root
 		base = '',
@@ -30,17 +30,17 @@
 
 	// Functions
 	function open(id: string) {
-		opened = multiple ? [...opened, id] : [id];
+		value = multiple ? [...value, id] : [id];
 	}
 	function close(id: string) {
-		opened = opened.filter((_id) => _id !== id);
+		value = value.filter((_id) => _id !== id);
 	}
 	function toggle(id: string) {
 		isOpen(id) ? close(id) : open(id);
 		ontoggle(new CustomEvent('toggle', { detail: { id, open: isOpen(id) } }));
 	}
 	function isOpen(id: string) {
-		return opened.includes(id);
+		return value.includes(id);
 	}
 
 	// Context
@@ -63,7 +63,7 @@
 	// Side effects
 	$effect(() => {
 		// If multiple prop is updated to false and there are more than one opened item, keep only the first one open.
-		if (!multiple && opened.length > 1) opened = [opened[0]];
+		if (!multiple && value.length > 1) value = [value[0]];
 	});
 </script>
 

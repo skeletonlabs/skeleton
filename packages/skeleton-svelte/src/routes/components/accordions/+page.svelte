@@ -7,7 +7,7 @@
 	const ontoggle = (e: Event) => console.log(e);
 
 	let multiple = $state(false);
-	let opened = $state(['svelteItem1']);
+	let value = $state(['svelteItem1']);
 </script>
 
 <label class="flex items-center gap-2">
@@ -15,10 +15,10 @@
 	<span class="label-text">Allow multiple</span>
 </label>
 
-<pre class="pre">Open: {opened.join(', ')}</pre>
+<pre class="pre">Open: {value.join(', ')}</pre>
 
 <!-- <div class="card p-4 preset-filled-surface-100-900"> -->
-<Accordion {multiple} bind:opened {ontoggle}>
+<Accordion {multiple} bind:value {ontoggle}>
 	<!-- Icons -->
 	<!-- {#snippet iconOpen()}&uarr;{/snippet} -->
 	<!-- {#snippet iconClosed()}&darr;{/snippet} -->

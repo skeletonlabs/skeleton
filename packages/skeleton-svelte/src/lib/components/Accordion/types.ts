@@ -18,7 +18,7 @@ export interface AccordionProps {
 	/** Enables opening multiple items at once. */
 	multiple?: boolean;
 	/** Takes an array list of open items. */
-	opened?: string[];
+	value?: string[];
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
 
