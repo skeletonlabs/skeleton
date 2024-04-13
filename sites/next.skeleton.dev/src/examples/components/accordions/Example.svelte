@@ -10,30 +10,30 @@
 	const ontoggle = (e: Event) => console.log(e);
 </script>
 
-<Accordion opened={['svelteItem1']} {ontoggle}>
-    <AccordionItem id="svelteItem1">
+<Accordion value={['club']} {ontoggle}>
+    <AccordionItem id="club">
         <!-- Control -->
         {#snippet controlLead()}<Club size={24} />{/snippet}
         {#snippet control()}Club{/snippet}
         <!-- Panel -->
-        {#snippet panel()}Svelte Panel 1 - {lorem}{/snippet}
+        {#snippet panel()}{lorem}{/snippet}
     </AccordionItem>
     <hr class="hr" />
-    <AccordionItem id="svelteItem2">
+    <AccordionItem id="diamond">
         {#snippet controlLead()}<Diamond size={24} />{/snippet}
         {#snippet control()}Diamond{/snippet}
-        {#snippet panel()}Svelte Panel 2 - {lorem}{/snippet}
+        {#snippet panel()}{lorem}{/snippet}
     </AccordionItem>
     <hr class="hr" />
-    <AccordionItem id="svelteItem3" disabled>
+    <AccordionItem id="heart" disabled>
         {#snippet controlLead()}<Heart size={24} />{/snippet}
         {#snippet control()}Heart (disabled){/snippet}
-        {#snippet panel()}Svelte Panel 3 - {lorem}{/snippet}
+        {#snippet panel()}{lorem}{/snippet}
     </AccordionItem>
     <hr class="hr" />
-    <AccordionItem id="svelteItem4">
+    <AccordionItem id="spade">
         {#snippet controlLead()}<Spade size={24} />{/snippet}
         {#snippet control()}Spade{/snippet}
-        {#snippet panel()}Svelte Panel 4 - {lorem}{/snippet}
+        {#snippet panel()}{lorem}{/snippet}
     </AccordionItem>
 </Accordion>
