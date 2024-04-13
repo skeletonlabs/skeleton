@@ -10,19 +10,24 @@ export interface AccordionContextState {
 	animDuration?: number;
 }
 
+export interface AccordionItemContextState {
+	id: string;
+	onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
 // Accordion ---
 
 export interface AccordionProps extends React.PropsWithChildren {
 	/** Enables opening multiple items at once. */
 	multiple?: boolean;
 	/** Takes an array list of open items. */
-	opened?: string[];
+	value?: string[];
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
 	// Events ---
 	/** Triggers on item open or close. */
 	onToggle?: (toggleEvent: CustomEvent<{ id: string; open: boolean }>) => void;
-  /** Set the opened state. */
+	/** Set the opened state. */
 	onOpenedChange?: (opened: string[]) => void;
 	// Root ---
 	/** Sets base styles. */
@@ -42,19 +47,23 @@ export interface AccordionProps extends React.PropsWithChildren {
 // Accordion Item ---
 
 export interface AccordionItemProps extends React.PropsWithChildren {
+	/** The unique ID. */
+	id: string;
+	// Root ---
 	/** Sets base styles. */
 	base?: string;
 	/** Set vertical spacing styles. */
 	spaceY?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
+	// Events ---
+	/** Triggers on item click. */
+	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 // Accordion Control ---
 
 export interface AccordionControlProps extends React.PropsWithChildren {
-	/** Identifies the panel ID this controls. */
-	controls: string;
 	/** Set a disabled state for the item. */
 	disabled?: boolean;
 	// Root ---
@@ -81,8 +90,6 @@ export interface AccordionControlProps extends React.PropsWithChildren {
 // Accordion Panel ---
 
 export interface AccordionPanelProps extends React.PropsWithChildren {
-	/** The unique panel ID. */
-	id: string;
 	/** Set the panel's base styles. */
 	base?: string;
 	/** Set the panel's padding styles. */

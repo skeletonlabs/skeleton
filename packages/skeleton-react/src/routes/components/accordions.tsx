@@ -13,29 +13,25 @@ export function Component() {
 		<>
 			<pre className="pre mb-10">Open: {opened.join(", ")}</pre>
 
-			<Accordion multiple opened={opened} onOpenedChange={setOpened} onToggle={console.log}>
-				<Accordion.Item>
-					<Accordion.Control controls="reactItem1" lead="💀">
-						React Control 1
-					</Accordion.Control>
-					<Accordion.Panel id="reactItem1">React Panel 1 - {lorem}</Accordion.Panel>
+			<Accordion  value={opened} onOpenedChange={setOpened} onToggle={console.log}>
+				<Accordion.Item id="reactItem1">
+					<Accordion.Control lead="💀">React Control 1</Accordion.Control>
+					<Accordion.Panel>React Panel 1 - {lorem}</Accordion.Panel>
 				</Accordion.Item>
 				<hr className="hr" />
-				<Accordion.Item>
-					<Accordion.Control controls="reactItem2">React Control 2</Accordion.Control>
-					<Accordion.Panel id="reactItem2">React Panel 2 - {lorem}</Accordion.Panel>
+				<Accordion.Item id="reactItem2">
+					<Accordion.Control>React Control 2</Accordion.Control>
+					<Accordion.Panel>React Panel 2 - {lorem}</Accordion.Panel>
 				</Accordion.Item>
 				<hr className="hr" />
-				<Accordion.Item>
-					<Accordion.Control controls="reactItem3" disabled>
-						React Control 3 (Disabled)
-					</Accordion.Control>
-					<Accordion.Panel id="reactItem3">React Panel 3 - {lorem}</Accordion.Panel>
+				<Accordion.Item id="reactItem3">
+					<Accordion.Control disabled>React Control 3 (Disabled)</Accordion.Control>
+					<Accordion.Panel>React Panel 3 - {lorem}</Accordion.Panel>
 				</Accordion.Item>
 				<hr className="hr" />
-				<Accordion.Item>
-					<Accordion.Control controls="reactItem4">React Control 4</Accordion.Control>
-					<Accordion.Panel id="reactItem4">React Panel 4 - {lorem}</Accordion.Panel>
+				<Accordion.Item id="reactItem4">
+					<Accordion.Control>React Control 4</Accordion.Control>
+					<Accordion.Panel>React Panel 4 - {lorem}</Accordion.Panel>
 				</Accordion.Item>
 			</Accordion>
 		</>

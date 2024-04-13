@@ -7,33 +7,27 @@ export const Page: React.FC<any> = () => {
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
 
 	return (
-		<Accordion opened={["reactItem1"]}>
-			<Accordion.Item>
-				<Accordion.Control controls="reactItem1" lead={<Club size={24} />}>
-					Club
-				</Accordion.Control>
-				<Accordion.Panel id="reactItem1">{lorem}</Accordion.Panel>
+		<Accordion value={['club']}>
+			<Accordion.Item id="club">
+				<Accordion.Control lead={<Club size={24} />}>Club</Accordion.Control>
+				<Accordion.Panel>{lorem}</Accordion.Panel>
 			</Accordion.Item>
 			<hr className="hr" />
-			<Accordion.Item>
-				<Accordion.Control controls="reactItem2" lead={<Diamond size={24} />}>
-					Diamond
-				</Accordion.Control>
-				<Accordion.Panel id="reactItem2">{lorem}</Accordion.Panel>
+			<Accordion.Item id="diamond">
+				<Accordion.Control lead={<Diamond size={24} />}>Diamond</Accordion.Control>
+				<Accordion.Panel>{lorem}</Accordion.Panel>
 			</Accordion.Item>
 			<hr className="hr" />
-			<Accordion.Item>
-				<Accordion.Control controls="reactItem3" lead={<Heart size={24} />} disabled>
+			<Accordion.Item id="heart">
+				<Accordion.Control lead={<Heart size={24} />} disabled>
 					Heart (disabled)
 				</Accordion.Control>
-				<Accordion.Panel id="reactItem3">{lorem}</Accordion.Panel>
+				<Accordion.Panel>{lorem}</Accordion.Panel>
 			</Accordion.Item>
 			<hr className="hr" />
-			<Accordion.Item>
-				<Accordion.Control controls="reactItem4" lead={<Spade size={24} />}>
-					Spade
-				</Accordion.Control>
-				<Accordion.Panel id="reactItem4">{lorem}</Accordion.Panel>
+			<Accordion.Item id="spade">
+				<Accordion.Control lead={<Spade size={24} />}>Spade</Accordion.Control>
+				<Accordion.Panel>{lorem}</Accordion.Panel>
 			</Accordion.Item>
 		</Accordion>
 	);

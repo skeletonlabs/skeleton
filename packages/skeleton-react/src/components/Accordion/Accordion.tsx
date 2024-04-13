@@ -4,6 +4,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import {
 	AccordionContextState,
 	AccordionControlProps,
+	AccordionItemContextState,
 	AccordionItemProps,
 	AccordionPanelProps,
 	AccordionProps,
@@ -24,7 +25,7 @@ export const AccordionContext = createContext<AccordionContextState>({
 
 const AccordionRoot: React.FC<AccordionProps> = ({
 	multiple = false,
-	opened: openedInit = [],
+	value: valueInit = [],
 	animDuration = 0.2,
 	// Root
 	base = "",
@@ -40,27 +41,27 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 	children,
 }) => {
 	// State
-	const [opened, setOpened] = useState<string[]>(multiple ? openedInit : [openedInit[0]]);
+	const [value, setValue] = useState<string[]>(multiple ? valueInit : [valueInit[0]]);
 
 	// Functions
 	function open(id: string) {
-		setOpened((opened) => (multiple ? [...opened, id] : [id]));
+		setValue((opened) => (multiple ? [...opened, id] : [id]));
 	}
 	function close(id: string) {
-		setOpened((opened) => opened.filter((_id) => _id !== id));
+		setValue((opened) => opened.filter((_id) => _id !== id));
 	}
 	function toggle(id: string) {
 		isOpen(id) ? close(id) : open(id);
 		onToggle(new CustomEvent("toggle", { detail: { id, open: isOpen(id) } }));
 	}
 	function isOpen(id: string) {
-		return opened.includes(id);
+		return value.includes(id);
 	}
 
 	// Effect
 	useEffect(() => {
-		onOpenedChange(opened);
-	}, [onOpenedChange, opened]);
+		onOpenedChange(value);
+	}, [onOpenedChange, value]);
 
 	// Context
 	const ctx = {
@@ -70,6 +71,7 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 		toggle,
 		isOpen,
 	};
+	
 
 	return (
 		<div
@@ -81,22 +83,31 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 	);
 };
 
+const AccordionItemContext = createContext<AccordionItemContextState>({
+	id: "",
+	onClick: () => {},
+});
+
 const AccordionItem: React.FC<AccordionItemProps> = ({
+	id,
 	base = "",
 	spaceY = "",
 	classes = "",
+	// Events
+	onClick = () => {},
 	// Children
 	children,
 }) => {
 	return (
-		<div className={`${base} ${spaceY} ${classes}`} data-testid="accordion-item">
-			{children}
-		</div>
+		<AccordionItemContext.Provider value={{ id, onClick }}>
+			<div className={`${base} ${spaceY} ${classes}`} data-testid="accordion-item">
+				{children}
+			</div>
+		</AccordionItemContext.Provider>
 	);
 };
 
 const AccordionControl: React.FC<AccordionControlProps> = ({
-	controls,
 	disabled = false,
 	// Control
 	base = "flex text-start items-center space-x-4 w-full",
@@ -110,14 +121,20 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
 	lead,
 	children,
 }) => {
-	const ctx = useContext<AccordionContextState>(AccordionContext);
+	const rootCtx = useContext<AccordionContextState>(AccordionContext);
+	const itemCtx = useContext<AccordionItemContextState>(AccordionItemContext);
+
+	function onClick(event: React.MouseEvent<HTMLButtonElement>) {
+		rootCtx.toggle(itemCtx.id);
+		itemCtx.onClick(event);
+	}
 	return (
 		<button
 			type="button"
 			className={`${base} ${hover} ${padding} ${rounded} ${classes}`}
-			aria-expanded={ctx.isOpen(controls)}
-			aria-controls={`accordion-panel-${controls}`}
-			onClick={() => ctx.toggle(controls)}
+			aria-expanded={rootCtx.isOpen(itemCtx.id)}
+			aria-controls={`accordion-panel-${itemCtx.id}`}
+			onClick={onClick}
 			disabled={disabled}
 			data-testid="accordion-control"
 		>
@@ -126,13 +143,12 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
 			{/* Content */}
 			<div className="flex-1">{children}</div>
 			{/* State Indicator */}
-			<div>{ctx.isOpen(controls) ? iconOpen : iconClosed}</div>
+			<div>{rootCtx.isOpen(itemCtx.id) ? iconOpen : iconClosed}</div>
 		</button>
 	);
 };
 
 const AccordionPanel: React.FC<AccordionPanelProps> = ({
-	id,
 	// Panel
 	base = "",
 	padding = "py-2 px-4",
@@ -141,16 +157,17 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
 	// Children
 	children,
 }) => {
-	const ctx = useContext<AccordionContextState>(AccordionContext);
+	const rootCtx = useContext<AccordionContextState>(AccordionContext);
+	const itemCtx = useContext<AccordionItemContextState>(AccordionItemContext);
 	return (
 		<div
 			role="region"
-			aria-hidden={ctx.isOpen(id)}
-			aria-labelledby={id}
+			aria-hidden={rootCtx.isOpen(itemCtx.id)}
+			aria-labelledby={itemCtx.id}
 			data-testid="accordion-panel"
 		>
 			<AnimatePresence initial={false}>
-				{ctx.isOpen(id) && (
+				{rootCtx.isOpen(itemCtx.id) && (
 					<motion.div
 						className="overflow-hidden"
 						initial="collapsed"
@@ -160,7 +177,7 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
 							open: { opacity: 1, height: "auto" },
 							collapsed: { opacity: 0, height: 0 },
 						}}
-						transition={{ duration: ctx.animDuration && 0.2 }}
+						transition={{ duration: rootCtx.animDuration && 0.2 }}
 					>
 						<div className={`${base} ${padding} ${rounded} ${classes}`}>{children}</div>
 					</motion.div>
