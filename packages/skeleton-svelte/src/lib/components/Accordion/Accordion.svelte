@@ -20,8 +20,6 @@
 		rounded = 'rounded',
 		width = 'w-full',
 		classes = '',
-		// Events
-		ontoggle = () => {},
 		// Snippets
 		children,
 		iconOpen,
@@ -37,7 +35,6 @@
 	}
 	function toggle(id: string) {
 		isOpen(id) ? close(id) : open(id);
-		ontoggle(new CustomEvent('toggle', { detail: { id, open: isOpen(id) } }));
 	}
 	function isOpen(id: string) {
 		return value.includes(id);

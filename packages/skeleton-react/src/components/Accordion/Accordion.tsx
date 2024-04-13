@@ -35,7 +35,6 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 	width = "w-full",
 	classes = "",
 	// Events
-	onToggle = () => {},
 	onOpenedChange = () => {},
 	// Children
 	children,
@@ -52,7 +51,6 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 	}
 	function toggle(id: string) {
 		isOpen(id) ? close(id) : open(id);
-		onToggle(new CustomEvent("toggle", { detail: { id, open: isOpen(id) } }));
 	}
 	function isOpen(id: string) {
 		return value.includes(id);
@@ -71,7 +69,6 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 		toggle,
 		isOpen,
 	};
-	
 
 	return (
 		<div
@@ -124,7 +121,7 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
 	const rootCtx = useContext<AccordionContextState>(AccordionContext);
 	const itemCtx = useContext<AccordionItemContextState>(AccordionItemContext);
 
-	function onClick(event: React.MouseEvent<HTMLButtonElement>) {
+	function clickHandler(event: React.MouseEvent<HTMLButtonElement>) {
 		rootCtx.toggle(itemCtx.id);
 		itemCtx.onClick(event);
 	}
@@ -134,7 +131,7 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
 			className={`${base} ${hover} ${padding} ${rounded} ${classes}`}
 			aria-expanded={rootCtx.isOpen(itemCtx.id)}
 			aria-controls={`accordion-panel-${itemCtx.id}`}
-			onClick={onClick}
+			onClick={clickHandler}
 			disabled={disabled}
 			data-testid="accordion-control"
 		>

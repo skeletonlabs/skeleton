@@ -13,13 +13,13 @@ export function Component() {
 		<>
 			<pre className="pre mb-10">Open: {opened.join(", ")}</pre>
 
-			<Accordion  value={opened} onOpenedChange={setOpened} onToggle={console.log}>
+			<Accordion  value={opened} onOpenedChange={setOpened}>
 				<Accordion.Item id="reactItem1">
 					<Accordion.Control lead="💀">React Control 1</Accordion.Control>
 					<Accordion.Panel>React Panel 1 - {lorem}</Accordion.Panel>
 				</Accordion.Item>
 				<hr className="hr" />
-				<Accordion.Item id="reactItem2">
+				<Accordion.Item id="reactItem2" onClick={console.log}>
 					<Accordion.Control>React Control 2</Accordion.Control>
 					<Accordion.Panel>React Panel 2 - {lorem}</Accordion.Panel>
 				</Accordion.Item>

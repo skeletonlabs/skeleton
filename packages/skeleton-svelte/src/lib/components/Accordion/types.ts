@@ -36,10 +36,6 @@ export interface AccordionProps {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Events ---
-	/** Triggers on item open or close. */
-	ontoggle?: (toggleEvent: CustomEvent<{ id: string; open: boolean }>) => void;
-
 	// Snippets ---
 	/** The default child slot. */
 	children: Snippet;
@@ -64,6 +60,10 @@ export interface AccordionItemProps {
 	spaceY?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
+
+	// Events ---
+	/** Triggers on item open or close. */
+	onclick?: (event: MouseEvent) => void;
 
 	// Control ---
 	/** Sets control's base styles. */

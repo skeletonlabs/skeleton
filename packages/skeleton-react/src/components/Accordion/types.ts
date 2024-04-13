@@ -25,8 +25,6 @@ export interface AccordionProps extends React.PropsWithChildren {
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
 	// Events ---
-	/** Triggers on item open or close. */
-	onToggle?: (toggleEvent: CustomEvent<{ id: string; open: boolean }>) => void;
 	/** Set the opened state. */
 	onOpenedChange?: (opened: string[]) => void;
 	// Root ---

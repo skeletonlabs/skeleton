@@ -2,6 +2,7 @@
 	import { getAccordionCtx } from './Accordion.svelte';
 	import { slide } from 'svelte/transition';
 	import type { AccordionItemProps } from './types.js';
+	import type { Mouse } from '@playwright/test';
 
 	let {
 		id = '',
@@ -10,6 +11,8 @@
 		base = '',
 		spaceY = '',
 		classes = '',
+		// Events
+		onclick = () => {},
 		// Control
 		controlBase = 'flex text-start items-center space-x-4 w-full',
 		controlHover = 'hover:preset-tonal-primary',
@@ -29,6 +32,11 @@
 		panel
 	}: AccordionItemProps = $props();
 
+	function clickHandler(event: MouseEvent) {
+		ctx.toggle(id);
+		onclick(event);
+	}
+
 	// Context
 	const ctx = getAccordionCtx();
 </script>
@@ -43,7 +51,7 @@
 		class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
 		aria-expanded={ctx.isOpen(id)}
 		aria-controls="accordion-panel-{id}"
-		onclick={() => ctx.toggle(id)}
+		onclick={clickHandler}
 		{disabled}
 	>
 		<!-- Lead -->
