@@ -11,8 +11,6 @@
 		base = '',
 		spaceY = '',
 		classes = '',
-		// Events
-		onclick = () => {},
 		// Control
 		controlBase = 'flex text-start items-center space-x-4 w-full',
 		controlHover = 'hover:preset-tonal-primary',
@@ -26,6 +24,8 @@
 		panelPadding = 'py-2 px-4',
 		panelRounded = '',
 		panelClasses = '',
+		// Events
+		onclick = () => {},
 		// Snippets
 		control,
 		controlLead,

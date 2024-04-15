@@ -18,7 +18,7 @@
 <pre class="pre">Open: {value.join(', ')}</pre>
 
 <!-- <div class="card p-4 preset-filled-surface-100-900"> -->
-<Accordion {multiple} bind:value {ontoggle}>
+<Accordion {multiple} bind:value>
 	<!-- Icons -->
 	<!-- {#snippet iconOpen()}&uarr;{/snippet} -->
 	<!-- {#snippet iconClosed()}&darr;{/snippet} -->
