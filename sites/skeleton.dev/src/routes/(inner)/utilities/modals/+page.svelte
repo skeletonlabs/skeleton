@@ -182,7 +182,7 @@
 			<p>
 				Implement the following in the root layout of your application. This is required only once when implementing Skeleton's Drawer, Modal, and Toast stores and will prevent known issues with <a class="anchor" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank">SvelteKit SSR</a>.
 			</p>
-			<CodeBlock language="ts" code={`import { initializeStores } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
+			<CodeBlock language="ts" code={`import { initializeStores, Modal } from '@skeletonlabs/skeleton';\n\ninitializeStores();`} />
 			<h3 class="h3">Modal Component</h3>
 			<p>Implement a single instance of the modal component in your app's root layout, above the App Shell (if present).</p>
 			<CodeBlock language="html" code={`<Modal />\n\n<!-- <AppShell>...</AppShell> -->`} />
