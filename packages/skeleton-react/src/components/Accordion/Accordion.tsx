@@ -84,7 +84,7 @@ const AccordionRoot: React.FC<AccordionProps> = ({
   );
 };
 
-const AccordionItemContext = createContext<AccordionItemContextState>({
+export const AccordionItemContext = createContext<AccordionItemContextState>({
   id: "",
   onClick: () => {},
 });
@@ -183,7 +183,10 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
             }}
             transition={{ duration: rootCtx.animDuration && 0.2 }}
           >
-            <div className={`${base} ${padding} ${rounded} ${classes}`}>
+            <div
+              className={`${base} ${padding} ${rounded} ${classes}`}
+              data-testid="accordion-panel-children"
+            >
               {children}
             </div>
           </motion.div>
