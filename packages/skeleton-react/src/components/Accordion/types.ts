@@ -3,11 +3,13 @@ import React, { type ReactNode } from "react";
 // Accordion Context ---
 
 export interface AccordionContextState {
+  animDuration?: number;
+  iconOpen?: ReactNode;
+  iconClosed?: ReactNode;
   open: (id: string) => void;
   close: (id: string) => void;
   toggle: (id: string) => void;
   isOpen: (id: string) => boolean;
-  animDuration?: number;
 }
 
 export interface AccordionItemContextState {
@@ -24,9 +26,18 @@ export interface AccordionProps extends React.PropsWithChildren {
   value?: string[];
   /** The slide animation duration in milliseconds. */
   animDuration?: number;
+
+  // Slots ---
+  // https://www.totaltypescript.com/pass-component-as-prop-react
+  /** Set the open state icon. */
+  iconOpen?: ReactNode;
+  /** Set the closed state icon. */
+  iconClosed?: ReactNode;
+
   // Events ---
   /** Set the opened state. */
   onValueChange?: (opened: string[]) => void;
+
   // Root ---
   /** Sets base styles. */
   base?: string;
@@ -47,6 +58,7 @@ export interface AccordionProps extends React.PropsWithChildren {
 export interface AccordionItemProps extends React.PropsWithChildren {
   /** The unique ID. */
   id: string;
+
   // Root ---
   /** Sets base styles. */
   base?: string;
@@ -54,6 +66,7 @@ export interface AccordionItemProps extends React.PropsWithChildren {
   spaceY?: string;
   /** Provide arbitrary CSS classes. */
   classes?: string;
+
   // Events ---
   /** Triggers on item click. */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -64,6 +77,7 @@ export interface AccordionItemProps extends React.PropsWithChildren {
 export interface AccordionControlProps extends React.PropsWithChildren {
   /** Set a disabled state for the item. */
   disabled?: boolean;
+
   // Root ---
   /** Sets control's base styles. */
   base?: string;
@@ -75,12 +89,12 @@ export interface AccordionControlProps extends React.PropsWithChildren {
   rounded?: string;
   /** Provide arbitrary CSS classes to the control. */
   classes?: string;
+
+  // Icons ---
+  /** Set the base styles for the state icons. */
+  iconsBase?: string;
+
   // Slots ---
-  // https://www.totaltypescript.com/pass-component-as-prop-react
-  /** Set the open state icon. */
-  iconOpen?: ReactNode;
-  /** Set the closed state icon. */
-  iconClosed?: ReactNode;
   /** The lead child slot for the control. */
   lead?: ReactNode;
 }

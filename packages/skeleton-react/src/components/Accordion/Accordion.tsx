@@ -11,14 +11,21 @@ import {
 } from "./types";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Context ---
+// Contexts ---
 
 export const AccordionContext = createContext<AccordionContextState>({
   animDuration: 0.2,
+  iconOpen: "-",
+  iconClosed: "+",
   open: () => {},
   close: () => {},
   toggle: () => {},
   isOpen: () => false,
+});
+
+export const AccordionItemContext = createContext<AccordionItemContextState>({
+  id: "",
+  onClick: () => {},
 });
 
 // Components ---
@@ -34,6 +41,9 @@ const AccordionRoot: React.FC<AccordionProps> = ({
   rounded = "rounded",
   width = "w-full",
   classes = "",
+  // Icons
+  iconOpen = "-",
+  iconClosed = "+",
   // Events
   onValueChange = () => {},
   // Children
@@ -66,6 +76,8 @@ const AccordionRoot: React.FC<AccordionProps> = ({
   // Context
   const ctx = {
     animDuration,
+    iconOpen,
+    iconClosed,
     open,
     close,
     toggle,
@@ -83,11 +95,6 @@ const AccordionRoot: React.FC<AccordionProps> = ({
     </div>
   );
 };
-
-export const AccordionItemContext = createContext<AccordionItemContextState>({
-  id: "",
-  onClick: () => {},
-});
 
 const AccordionItem: React.FC<AccordionItemProps> = ({
   id,
@@ -119,10 +126,10 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
   padding = "py-2 px-4",
   rounded = "rounded",
   classes = "",
-  // Children
-  iconOpen = "-",
-  iconClosed = "+",
+  iconsBase = "",
+  // Icons
   lead,
+  // Children
   children,
 }) => {
   const rootCtx = useContext<AccordionContextState>(AccordionContext);
@@ -147,7 +154,9 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
       {/* Content */}
       <div className="flex-1">{children}</div>
       {/* State Indicator */}
-      <div>{rootCtx.isOpen(itemCtx.id) ? iconOpen : iconClosed}</div>
+      <div className={`${iconsBase}`}>
+        {rootCtx.isOpen(itemCtx.id) ? rootCtx.iconOpen : rootCtx.iconClosed}
+      </div>
     </button>
   );
 };

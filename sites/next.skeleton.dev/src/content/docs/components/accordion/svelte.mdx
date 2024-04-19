@@ -18,30 +18,49 @@ import ExampleRaw from '@examples/components/accordions/Example.svelte?raw';
 	</Fragment>
 </Preview>
 
+## Open State
+
+Each Item `id` added to the Accordion `value` array will be open by default.
+
+### State Rune
+
+```ts
+const value = $state(['club']);
+```
+```tsx
+<Accordion value={value}>...</Accordion>
+```
+
+### Harcoded
+
+```tsx
+<Accordion value={['club']}>...</Accordion>
+```
+
 ## Multiple Items
 
-Apply the `multiple` prop to to enable opening more than one panel at a time.
+Use `multiple` to enable multiple items to be opened at once.
 
 ```html
 <Accordion multiple>...</Accordion>
 ```
 
-## Open State
-
-Set the visible panels using the `open` prop.
-
-```html
-<AccordionItem open>...</AccordionItem>
-```
-
-## State Icons
-
-Set the state icons using the following snippets within the root of the Accordion component.
+## Custom Icons
 
 ```svelte
+<script lang="ts">
+	import Plus from 'lucide-svelte/icons/plus';
+	import Minus from 'lucide-svelte/icons/minus';
+	import Club from 'lucide-svelte/icons/club';
+</script>
+
 <Accordion>
-    {#snippet iconOpen()}&uarr;{/snippet}
-    {#snippet iconClosed()}&darr;{/snippet}
+    {#snippet iconOpen()}<Plus size={16} />{/snippet}
+    {#snippet iconClosed()}<Minus size={16} />{/snippet}
     <!-- ... -->
+	<AccordionItem id="club">
+    	{#snippet controlLead()}<Club size={24} />{/snippet}
+    	<!-- ... -->
+	<AccordionItem>
 </Accordion>
 ```
