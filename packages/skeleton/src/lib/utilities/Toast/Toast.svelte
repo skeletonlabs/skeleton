@@ -122,15 +122,21 @@
 		}
 	}
 
+	let wrapperVisible = false;
+
 	// Reactive
 	$: classesWrapper = `${cWrapper} ${cPosition} ${zIndex} ${$$props.class || ''}`;
 	$: classesSnackbar = `${cSnackbar} ${cAlign} ${padding}`;
 	$: classesToast = `${cToast} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// Filtered Toast Store
 	$: filteredToasts = Array.from($toastStore).slice(0, max);
+
+	$: if (filteredToasts.length) {
+		wrapperVisible = true;
+	}
 </script>
 
-{#if $toastStore.length}
+{#if filteredToasts.length > 0 || wrapperVisible}
 	<!-- Wrapper -->
 	<div class="snackbar-wrapper {classesWrapper}" data-testid="snackbar-wrapper">
 		<!-- List -->
@@ -147,6 +153,10 @@
 						transition: transitionOut,
 						params: { x: animAxis.x, y: animAxis.y, ...transitionOutParams },
 						enabled: transitions
+					}}
+					on:outroend={() => {
+						const outroFinishedForLastToastOnQueue = filteredToasts.length === 0;
+						if (outroFinishedForLastToastOnQueue) wrapperVisible = false;
 					}}
 					on:mouseenter={() => onMouseEnter(i)}
 					on:mouseleave={() => onMouseLeave(i)}
