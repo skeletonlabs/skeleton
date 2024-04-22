@@ -23,7 +23,7 @@
 
 	// Local
 	const imgPlaceholder = getImageLink({ id: 'YOErFW8AfkI', w: 128, h: 128 });
-	const borderStyles = 'border-4 border-surface-400-600-token hover:!border-primary-500';
+	const borderStyles = 'border-4 border-surface-300-600-token hover:!border-primary-500';
 
 	const roundedMapping = {
 		0: 'rounded-none',
