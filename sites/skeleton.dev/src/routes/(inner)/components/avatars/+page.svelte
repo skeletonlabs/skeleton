@@ -37,7 +37,7 @@
 		8: 'rounded-full'
 	};
 	let rangeSliderValue: keyof typeof roundedMapping = 8;
-	let fallback = '';
+	let fallback = imgPlaceholder;
 
 	// Reactive
 	$: actionParams = '#Apollo';
@@ -85,30 +85,11 @@
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
-		<section class="space-y-4">
-			<h2 class="h2">Interactive Border</h2>
-			<p>Apply the following styles using the <code class="code">border</code> and <code class="code">cursor</code> properties.</p>
-			<DocsPreview background="neutral">
-				<svelte:fragment slot="preview">
-					<Avatar border={borderStyles} cursor="cursor-pointer" />
-				</svelte:fragment>
-				<svelte:fragment slot="source">
-					<CodeBlock
-						language="html"
-						code={`
-<Avatar
-	border="${borderStyles}"
-	cursor="cursor-pointer"
-/>
-`}
-					/>
-				</svelte:fragment>
-			</DocsPreview>
-		</section>
-		<section class="space-y-4">
-			<h2 class="h2">Handling Fallbacks</h2>
+		<!-- DEPRECATED: use fallback slot instead -->
+		<!-- <section class="space-y-4">
+			<h2 class="h2">Fallback Image</h2>
 			<p>
-				Use the <code class="code">fallback</code> property to specify a fallback when images fail to load, or supply the user's initials.
+				Use the <code class="code">fallback</code> property to specify a fallback when images fail to load.
 			</p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
@@ -127,6 +108,42 @@
 						<option value={`${imgPlaceholder}`}>Fallback Image</option>
 						<option value="">Fallback Initials</option>
 					</select>
+				</svelte:fragment>
+			</DocsPreview>
+		</section> -->
+		<section class="space-y-4">
+			<h2 class="h2">Fallback</h2>
+			<p>Use the default slot to provide fallback images, icons, or text.</p>
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					{#key fallback}
+						<Avatar background="bg-secondary-500">
+							<i class="fa-solid fa-skull text-xl"></i>
+						</Avatar>
+					{/key}
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="html" code={`<Avatar background="bg-secondary-500">(fallback)</Avatar>`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Interactive Border</h2>
+			<p>Apply the following styles using the <code class="code">border</code> and <code class="code">cursor</code> properties.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<Avatar initials="SK" border={borderStyles} cursor="cursor-pointer"></Avatar>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<Avatar
+	border="${borderStyles}"
+	cursor="cursor-pointer"
+/>
+`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

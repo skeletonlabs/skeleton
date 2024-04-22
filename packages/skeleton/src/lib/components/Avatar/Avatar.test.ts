@@ -36,7 +36,8 @@ describe('Avatar.svelte', () => {
 	});
 
 	it('Initials shown when no image source provided', async () => {
-		const { getByTestId } = render(Avatar);
-		expect(getByTestId('avatar').querySelector('.avatar-initials')?.textContent).eq('AB');
+		const testInitials = 'SK';
+		const { getByTestId } = render(Avatar, { props: { initials: testInitials } });
+		expect(getByTestId('avatar').querySelector('.avatar-initials')?.textContent).eq(testInitials);
 	});
 });

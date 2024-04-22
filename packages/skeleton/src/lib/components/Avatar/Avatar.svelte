@@ -5,7 +5,7 @@
 
 	// Props (initials)
 	/** Initials only - Provide up to two text characters. */
-	export let initials = 'AB';
+	export let initials = '';
 	/** Initials only - Provide classes to set the SVG text fill color. */
 	export let fill: CssClasses = 'fill-token';
 	/** Initials only - Set the base font size for the scalable SVG text. */
@@ -53,8 +53,8 @@
 
 <!-- FIXME: resolve a11y warnings -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<figure class="avatar {classesBase}" data-testid="avatar" on:click on:keydown on:keyup on:keypress>
-	{#if src}
+<figure class="avatar {classesBase}" data-testid="avatar" {...prunedRestProps()} on:click on:keydown on:keyup on:keypress>
+	{#if src || fallback}
 		<img
 			class="avatar-image {cImage}"
 			style={$$props.style ?? ''}
@@ -62,9 +62,8 @@
 			alt={$$props.alt || ''}
 			use:action={actionParams}
 			on:error={() => (src = fallback)}
-			{...prunedRestProps()}
 		/>
-	{:else}
+	{:else if initials}
 		<svg class="avatar-initials w-full h-full" viewBox="0 0 512 512">
 			<text
 				x="50%"
@@ -78,5 +77,7 @@
 				{String(initials).substring(0, 2).toUpperCase()}
 			</text>
 		</svg>
+	{:else}
+		<slot />
 	{/if}
 </figure>
