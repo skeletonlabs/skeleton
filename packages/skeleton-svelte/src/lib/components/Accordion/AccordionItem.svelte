@@ -1,14 +1,11 @@
 <script lang="ts">
-	import { getContext, untrack, type Snippet } from 'svelte';
+	import { getAccordionCtx } from './Accordion.svelte';
 	import { slide } from 'svelte/transition';
-
 	import type { AccordionItemProps } from './types.js';
-
-	import { State } from '$lib/utils.svelte.js';
+	import type { Mouse } from '@playwright/test';
 
 	let {
 		id = '',
-		open,
 		disabled = false,
 		// Root
 		base = '',
@@ -28,47 +25,20 @@
 		panelRounded = '',
 		panelClasses = '',
 		// Events
-		ontoggle = () => {},
+		onclick = () => {},
 		// Snippets
 		control,
 		controlLead,
 		panel
 	}: AccordionItemProps = $props();
 
+	function clickHandler(event: MouseEvent) {
+		ctx.toggle(id);
+		onclick(event);
+	}
+
 	// Context
-	const selected = getContext<State<string[]>>('selected');
-	const animDuration = getContext<number>('animDuration');
-	const multiple = getContext<boolean>('multiple');
-	const iconOpen = getContext<Snippet>('iconOpen');
-	const iconClosed = getContext<Snippet>('iconClosed');
-
-	// Derived State
-	const isOpen = $derived(selected.value.includes(id));
-
-	// Controlled State
-	$effect(() => {
-		open ? untrack(setOpen) : untrack(setClosed);
-	});
-
-	// Syncing Controlled State
-	$effect(() => {
-		open = isOpen;
-	});
-
-	function onclick() {
-		isOpen ? setClosed() : setOpen();
-		// Trigger the toggle event
-		ontoggle(new CustomEvent('toggle', { detail: { id, open: isOpen } }));
-	}
-
-	function setOpen() {
-		if (!multiple) selected.value = [];
-		selected.value.push(id);
-	}
-
-	function setClosed() {
-		selected.value = selected.value.filter((itemId: string) => itemId !== id);
-	}
+	const ctx = getAccordionCtx();
 </script>
 
 <!-- @component An Accordion child item. -->
@@ -79,9 +49,9 @@
 		type="button"
 		{id}
 		class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
-		aria-expanded={isOpen}
+		aria-expanded={ctx.isOpen(id)}
 		aria-controls="accordion-panel-{id}"
-		{onclick}
+		onclick={clickHandler}
 		{disabled}
 	>
 		<!-- Lead -->
@@ -90,19 +60,19 @@
 		<div class="flex-1">{@render control()}</div>
 		<!-- Icons -->
 		<div class={iconsBase}>
-			{#if isOpen}
-				{#if iconOpen}{@render iconOpen()}{:else}&minus;{/if}
-			{:else if iconClosed}{@render iconClosed()}{:else}&plus;{/if}
+			{#if ctx.isOpen(id)}
+				{#if ctx.iconOpen}{@render ctx.iconOpen()}{:else}&minus;{/if}
+			{:else if ctx.iconClosed}{@render ctx.iconClosed()}{:else}&plus;{/if}
 		</div>
 	</button>
 	<!-- Panel -->
-	{#if panel && isOpen}
+	{#if panel && ctx.isOpen(id)}
 		<div
 			class="{panelBase} {panelPadding} {panelRounded} {panelClasses}"
-			transition:slide={{ duration: animDuration }}
+			transition:slide={{ duration: ctx.animDuration }}
 			id="accordion-panel-{id}"
 			role="region"
-			aria-hidden={isOpen}
+			aria-hidden={ctx.isOpen(id)}
 			aria-labelledby={id}
 		>
 			{@render panel()}

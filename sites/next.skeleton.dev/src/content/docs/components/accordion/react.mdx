@@ -18,28 +18,41 @@ import ExampleRaw from '@examples/components/accordions/Example.tsx?raw';
 	</Fragment>
 </Preview>
 
+## Open State
+
+Each Item `id` added to the Accordion `value` array will be open by default.
+
+### useState Hook
+
+```ts
+const [value, setValue] = useState(['club']);
+```
+```tsx
+<Accordion value={value} onValueChange={setValue}>...</Accordion>
+```
+
+### Harcoded
+
+```tsx
+<Accordion value={['club']}>...</Accordion>
+```
+
 ## Multiple Items
 
-Apply the `multiple` prop to to enable opening more than one panel at a time.
+Use `multiple` to enable multiple items to be opened at once.
 
 ```html
 <Accordion multiple>...</Accordion>
 ```
 
-## Open State
+## Custom Icons
 
-Set the visible panels using the `open` prop.
-
-```html
-<Accordion.Item open>...</Accordion.Item>
+```ts
+import { Plus, Minus, Heart } from 'lucide-react';
 ```
-
-## State Icons
-
-Set the state icons using the following Accordion control component props. Both accept React components as the value.
-
 ```tsx
-<Accordion.Control iconOpen={componentRef} iconClosed={componentRef}>
-	...
-</Accordion.Control>
+<Accordion iconOpen={<Plus size={24} />} iconClosed={<Minus size={24} />}>...</Accordion>
+```
+```tsx
+<Accordion.Control lead={<Heart size={24} />}>Heart</Accordion.Control>
 ```

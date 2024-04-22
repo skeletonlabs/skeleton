@@ -1,40 +1,38 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import {
   AccordionContextState,
   AccordionControlProps,
+  AccordionItemContextState,
   AccordionItemProps,
   AccordionPanelProps,
   AccordionProps,
 } from "./types";
 import { motion, AnimatePresence } from "framer-motion";
 
-// React Compose ---
-
-// FIXME:
-// import { reactCompose } from "../../utils/react-compose";
-export function reactCompose<
-  T extends React.FC,
-  U extends Record<string, unknown>
->(root: T, components: { [k in keyof U]: React.FC<U[k]> }) {
-  return Object.assign(root, components);
-}
-
-// Context ---
+// Contexts ---
 
 export const AccordionContext = createContext<AccordionContextState>({
   animDuration: 0.2,
-  selected: [],
-  setSelected: () => {},
-  allowMultiple: false,
-  setAllowMultiple: () => {},
+  iconOpen: "-",
+  iconClosed: "+",
+  open: () => {},
+  close: () => {},
+  toggle: () => {},
+  isOpen: () => false,
+});
+
+export const AccordionItemContext = createContext<AccordionItemContextState>({
+  id: "",
+  onClick: () => {},
 });
 
 // Components ---
 
 const AccordionRoot: React.FC<AccordionProps> = ({
   multiple = false,
+  value: valueInit = [],
   animDuration = 0.2,
   // Root
   base = "",
@@ -43,26 +41,55 @@ const AccordionRoot: React.FC<AccordionProps> = ({
   rounded = "rounded",
   width = "w-full",
   classes = "",
+  // Icons
+  iconOpen = "-",
+  iconClosed = "+",
+  // Events
+  onValueChange = () => {},
   // Children
   children,
 }) => {
-  const [selected, setSelected] = useState<string[]>([]);
-  const [allowMultiple, setAllowMultiple] = useState<boolean>(multiple);
+  // State
+  const [value, setValue] = useState<string[]>(
+    multiple ? valueInit : [valueInit[0]]
+  );
+
+  // Functions
+  function open(id: string) {
+    setValue((opened) => (multiple ? [...opened, id] : [id]));
+  }
+  function close(id: string) {
+    setValue((opened) => opened.filter((_id) => _id !== id));
+  }
+  function toggle(id: string) {
+    isOpen(id) ? close(id) : open(id);
+  }
+  function isOpen(id: string) {
+    return value.includes(id);
+  }
+
+  // Effect
+  useEffect(() => {
+    onValueChange(value);
+  }, [onValueChange, value]);
+
+  // Context
+  const ctx = {
+    animDuration,
+    iconOpen,
+    iconClosed,
+    open,
+    close,
+    toggle,
+    isOpen,
+  };
 
   return (
     <div
       className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`}
       data-testid="accordion"
     >
-      <AccordionContext.Provider
-        value={{
-          animDuration,
-          selected,
-          setSelected,
-          allowMultiple,
-          setAllowMultiple,
-        }}
-      >
+      <AccordionContext.Provider value={ctx}>
         {children}
       </AccordionContext.Provider>
     </div>
@@ -70,25 +97,28 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 };
 
 const AccordionItem: React.FC<AccordionItemProps> = ({
+  id,
   base = "",
   spaceY = "",
   classes = "",
+  // Events
+  onClick = () => {},
   // Children
   children,
 }) => {
   return (
-    <div
-      className={`${base} ${spaceY} ${classes}`}
-      data-testid="accordion-item"
-    >
-      {children}
-    </div>
+    <AccordionItemContext.Provider value={{ id, onClick }}>
+      <div
+        className={`${base} ${spaceY} ${classes}`}
+        data-testid="accordion-item"
+      >
+        {children}
+      </div>
+    </AccordionItemContext.Provider>
   );
 };
 
 const AccordionControl: React.FC<AccordionControlProps> = ({
-  controls,
-  open = false,
   disabled = false,
   // Control
   base = "flex text-start items-center space-x-4 w-full",
@@ -96,38 +126,26 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
   padding = "py-2 px-4",
   rounded = "rounded",
   classes = "",
-  // Children
-  iconOpen = "-",
-  iconClosed = "+",
+  iconsBase = "",
+  // Icons
   lead,
+  // Children
   children,
 }) => {
-  let ctx = useContext<AccordionContextState>(AccordionContext);
+  const rootCtx = useContext<AccordionContextState>(AccordionContext);
+  const itemCtx = useContext<AccordionItemContextState>(AccordionItemContext);
 
-  useEffect(() => {
-    if (open) setOpen();
-  }, [open]);
-
-  const onclick = () => {
-    ctx.selected.includes(controls) ? setClosed() : setOpen();
-  };
-
-  const setOpen = () => {
-    if (ctx.allowMultiple === false) ctx.setSelected([]);
-    ctx.setSelected((currentValue) => [...currentValue, controls]);
-  };
-
-  const setClosed = () => {
-    ctx.setSelected(ctx.selected.filter((itemId) => itemId !== controls));
-  };
-
+  function clickHandler(event: React.MouseEvent<HTMLButtonElement>) {
+    rootCtx.toggle(itemCtx.id);
+    itemCtx.onClick(event);
+  }
   return (
     <button
       type="button"
       className={`${base} ${hover} ${padding} ${rounded} ${classes}`}
-      aria-expanded={ctx.selected.includes(controls)}
-      aria-controls={`accordion-panel-${controls}`}
-      onClick={onclick}
+      aria-expanded={rootCtx.isOpen(itemCtx.id)}
+      aria-controls={`accordion-panel-${itemCtx.id}`}
+      onClick={clickHandler}
       disabled={disabled}
       data-testid="accordion-control"
     >
@@ -136,13 +154,14 @@ const AccordionControl: React.FC<AccordionControlProps> = ({
       {/* Content */}
       <div className="flex-1">{children}</div>
       {/* State Indicator */}
-      <div>{ctx.selected.includes(controls) ? iconOpen : iconClosed}</div>
+      <div className={`${iconsBase}`}>
+        {rootCtx.isOpen(itemCtx.id) ? rootCtx.iconOpen : rootCtx.iconClosed}
+      </div>
     </button>
   );
 };
 
 const AccordionPanel: React.FC<AccordionPanelProps> = ({
-  id,
   // Panel
   base = "",
   padding = "py-2 px-4",
@@ -151,17 +170,17 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
   // Children
   children,
 }) => {
-  let ctx = useContext<AccordionContextState>(AccordionContext);
-
+  const rootCtx = useContext<AccordionContextState>(AccordionContext);
+  const itemCtx = useContext<AccordionItemContextState>(AccordionItemContext);
   return (
     <div
       role="region"
-      aria-hidden={ctx.selected.includes(id)}
-      aria-labelledby={id}
+      aria-hidden={rootCtx.isOpen(itemCtx.id)}
+      aria-labelledby={itemCtx.id}
       data-testid="accordion-panel"
     >
-      <AnimatePresence>
-        {ctx.selected.includes(id) && (
+      <AnimatePresence initial={false}>
+        {rootCtx.isOpen(itemCtx.id) && (
           <motion.div
             className="overflow-hidden"
             initial="collapsed"
@@ -171,9 +190,12 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
               open: { opacity: 1, height: "auto" },
               collapsed: { opacity: 0, height: 0 },
             }}
-            transition={{ duration: ctx.animDuration && 0.2 }}
+            transition={{ duration: rootCtx.animDuration && 0.2 }}
           >
-            <div className={`${base} ${padding} ${rounded} ${classes}`}>
+            <div
+              className={`${base} ${padding} ${rounded} ${classes}`}
+              data-testid="accordion-panel-children"
+            >
               {children}
             </div>
           </motion.div>
@@ -183,7 +205,7 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
   );
 };
 
-export const Accordion = reactCompose(AccordionRoot, {
+export const Accordion = Object.assign(AccordionRoot, {
   Item: AccordionItem,
   Control: AccordionControl,
   Panel: AccordionPanel,
