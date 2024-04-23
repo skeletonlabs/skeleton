@@ -3,14 +3,22 @@
 	import type { ToastSettings } from './types.js';
 	import Toast from './Toast.svelte';
 
-	export let toastSettings: Array<ToastSettings> = [];
+	interface TestToastSettings extends ToastSettings {
+		triggerDelay?: number;
+	}
+
+	export let toastSettings: Array<TestToastSettings> = [];
 	export let max: number | undefined = undefined;
 
 	initializeToastStore();
 	const toastStore = getToastStore();
 
-	toastSettings.forEach((element) => {
-		toastStore.trigger(element);
+	toastSettings.forEach(({ triggerDelay, ...settings }) => {
+		if (triggerDelay) {
+			setTimeout(() => toastStore.trigger(settings), triggerDelay);
+		} else {
+			toastStore.trigger(settings);
+		}
 	});
 </script>
 

@@ -10,12 +10,12 @@
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
-		name: 'Lightswitch',
-		description: `Components and utilities for toggling <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">Tailwind's dark mode</a>.`,
-		imports: ['LightSwitch'],
-		source: 'packages/skeleton/src/lib/utilities/LightSwitch',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/switch/',
-		components: [{ sveld: sveldLightSwitch }],
+		name: 'Dark Mode',
+		description: `Learn how to use <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">Tailwind's dark mode</a> within your Skeleton application. Skeleton provides two methods for handling dark mode. Choose a method that meets your application's requirements.`,
+		// imports: ['LightSwitch'],
+		// source: 'packages/skeleton/src/lib/utilities/LightSwitch',
+		// aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/switch/',
+		components: [{ label: 'Lightswitch', sveld: sveldLightSwitch }],
 		keyboard: [['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Toggle the switch state.']]
 	};
 
@@ -34,47 +34,47 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p class="!text-xl">Skeleton provides two strategies for toggling light and dark mode. Choose your preference.</p>
 		<section class="space-y-4">
-			<h2 class="h2">Strategy: Class</h2>
-			<p>
-				We recommend this approach for most users. Please note the Lightswitch component must be present on page load in order to operate.
-				For best results, insert this in a fixed element that appears on every page.
-			</p>
+			<h2 class="h2">Via Selector</h2>
+			<p>Allows users to toggle between light and dark mode with an interactive Lightswitch component.</p>
 			<CodeBlock
 				language="ts"
 				code={`
 // tailwind.config.[ts|js|cjs]\n
 module.exports = {
-  darkMode: 'class', // <-- ADD THIS
+  darkMode: 'selector', // <--
   // ...
 }
 			`}
 			/>
+			<p>Then implement the Skeleton Lightswitch component.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<LightSwitch />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`<LightSwitch />`} />
+					<blockquote class="blockquote">
+						TIP: Note this must be present in the DOM on page load in order to operate. For best results insert this in a fixed element that
+						appears on every page, such as your header.
+					</blockquote>
+					<CodeBlock
+						language="ts"
+						code={`import { LightSwitch } from '@skeletonlabs/skeleton';
+						`}
+					/>
+					<CodeBlock language="html" code={`<LightSwitch />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2 class="h2">Strategy: OS Preference</h2>
-			<p>
-				Skeleton provides a utility method to adjust the mode based on operating system preference. This replaces both the class strategy
-				and Lightswitch component.
-			</p>
-			<div class="alert variant-ghost-surface">
-				<p>When adjusting your operating system setting, macOS is the only OS that does not require a browser refresh.</p>
-			</div>
+			<h2 class="h2">Via Media</h2>
+			<p>Skeleton provides a utility method to adjust the mode based on the user's operating system preference.</p>
 			<CodeBlock
 				language="ts"
 				code={`
 // tailwind.config.[ts|js|cjs]\n
 module.exports = {
-	// darkMode // <-- REMOVE THIS
+	darkMode: 'media', // <--
 	// ...
 }
 		`}
@@ -118,10 +118,10 @@ onMount(() => {
 			</TabGroup>
 		</section>
 		<hr />
+		<!-- Custom Component -->
 		<section class="space-y-4">
-			<h2 class="h2">Build Your Own Component</h2>
-			<!-- Build Your Own -->
-			<p>Skeleton exposes all utility methods used within the Lightswitch component. Use these to construct your own!</p>
+			<h2 class="h2">Custom Component</h2>
+			<p>If you wish to build a custom Lightswitch component, Skeleton exposes all required utility methods.</p>
 			<aside class="alert alert-message variant-ghost">
 				<p>
 					Please consult the Skeleton <a
@@ -133,15 +133,15 @@ onMount(() => {
 				</p>
 				<!-- prettier-ignore -->
 			</aside>
-			<h3 class="h3">Set Initial Classes</h3>
+			<h3 class="h3">Initilize</h3>
 			<p>
-				Import and add the following to your component. This will set the <code class="code">.dark</code> class on the root HTML element in
-				a highly performant manner. Please note that the CLI installer inserts <code class="code">class="dark"</code>
+				Import and add the following within your component. This will set the <code class="code">.dark</code> class on the root HTML element
+				in a highly performant manner. Please note that the CLI installer inserts <code class="code">class="dark"</code>
 				statically in the <code class="code">html</code> element of app.html and you should remove it when going this route.
 			</p>
 			<CodeBlock language="ts" code={`import { setInitialClassState } from '@skeletonlabs/skeleton';`} />
 			<CodeBlock language="html" code={snippetSetInitClass} />
-			<h3 class="h3">Interface Methods</h3>
+			<h3 class="h3">Utilities</h3>
 			<p>
 				Light mode is represented by <code class="code">true</code>, while dark mode is represented by
 				<code class="code">false</code>.
@@ -243,13 +243,6 @@ onMount(() => {
 					{/if}
 				</svelte:fragment>
 			</TabGroup>
-		</section>
-		<section>
-			<h2 class="h2">Reference</h2>
-			<aside class="alert alert-message variant-ghost">
-				<!-- prettier-ignore -->
-				<p>View the Skeleton <a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>
-			</aside>
 		</section>
 	</svelte:fragment>
 </DocsShell>
