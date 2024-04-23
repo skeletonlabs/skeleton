@@ -1,5 +1,11 @@
 # skeleton.dev
 
+## 1.1.0
+
+### Minor Changes
+
+- Feat: Avatar component updated to support restProps and fallback slot. ([#2626](https://github.com/skeletonlabs/skeleton/pull/2626))
+
 ## 1.0.2
 
 ### Patch Changes
