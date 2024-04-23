@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 2.9.2
+
+### Patch Changes
+
+- bugfix: Resolved a timing issue that could cause Toasts to animate incorrectly on close. ([#2622](https://github.com/skeletonlabs/skeleton/pull/2622))
+
 ## 2.9.1
 
 ### Patch Changes
