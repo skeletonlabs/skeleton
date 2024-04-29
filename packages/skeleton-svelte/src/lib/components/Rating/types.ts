@@ -5,10 +5,10 @@ export interface RatingProps {
 	value?: number;
 	/** Sets the maximum rating value. */
 	max?: number;
-	/** Sets the rating fractions. */
-	fraction?: number;
 	/** Sets interactive mode. */
 	interactive?: boolean;
+	/** Sets the rating fractions. */
+	fraction?: number;
 	/** Sets single select mode. */
 	single?: boolean;
 

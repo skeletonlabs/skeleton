@@ -2,10 +2,10 @@
 	import type { RatingProps } from './types.js';
 
 	let {
-		value = 0,
+		value = $bindable(0),
 		max = 5,
-		fraction = 1,
 		interactive = false,
+		fraction = 1,
 		single = false,
 		// Root
 		base = 'flex w-full',
@@ -22,29 +22,59 @@
 		emptyIcon,
 		fullIcon
 	}: RatingProps = $props();
+
+	let hoverValue = $state(0);
+	let hovering = $state(false);
+
+	function onRatingClick(order: number) {
+		value = order + 1;
+	}
+
+	function onRatingHover(order: number) {
+		hovering = true;
+		hoverValue = order + 1;
+	}
+
+	function onRatingLeave() {
+		hovering = false;
+	}
 </script>
 
-{#snippet rating(percentage)}
-	<div class="relative">
-		{#if percentage < 1}
+{#snippet rating(order, percentage)}
+	{#if interactive}
+		<button type="button" class="relative w-full h-full" 
+			onclick={() => onRatingClick(order)} 
+			onmouseover={() => onRatingHover(order)}  
+			onfocus={() => onRatingHover(order)}>
+				{#if emptyIcon}
+					{@render emptyIcon()}
+				{/if}
+				<div class="absolute left-0 top-0 w-full clip" style="--clip_value: {100 - percentage * 100}%">
+					{#if fullIcon}
+						{@render fullIcon()}
+					{/if}
+				</div>
+		</button>
+	{:else}
+		<div class="relative">
 			{#if emptyIcon}
 				{@render emptyIcon()}
 			{/if}
-		{/if}
-		{#if percentage > 0}
 			<div class="clip absolute left-0 top-0 w-full" style="--clip_value: {100 - percentage * 100}%">
 				{#if fullIcon}
 					{@render fullIcon()}
 				{/if}
 			</div>
-		{/if}
-	</div>
+		</div>
+	{/if}
 {/snippet}
 
-<div class="{base} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating">
+<div role="group" class="{base} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating" 
+	onmouseleave={onRatingLeave} 
+	onblur={onRatingLeave}>
 	{#each { length: max } as _, i}
 		<div class="{itemBase} {itemAspect} {itemClasses}">
-			{@render rating(value - i)}
+			{@render rating(i, hovering ? hoverValue - i : value - i)}
 		</div>
 	{/each}
 </div>

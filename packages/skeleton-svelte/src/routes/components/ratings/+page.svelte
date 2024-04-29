@@ -27,6 +27,8 @@
 			class="lucide lucide-star"
 			><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
 		</svg>`
+
+	let interractiveValue = $state(0);
 </script>
 
 <div class="space-y-10">
@@ -100,6 +102,23 @@
 				</Rating>
 			</div>
 			<h3 class="h3">1.25</h3>
+		</div>
+	</section>
+
+	<section class="space-y-4">
+		<h2 class="h2">Interractive</h2>
+		<div class="flex items-center gap-8">
+			<div class="w-48">
+				<Rating bind:value={interractiveValue} interactive>
+					{#snippet fullIcon()}
+						{@html fullStar}
+					{/snippet}
+					{#snippet emptyIcon()}
+						{@html emptyStar}
+					{/snippet}
+				</Rating>
+			</div>
+			<h3 class="h3">{interractiveValue}</h3>
 		</div>
 	</section>
 </div>
