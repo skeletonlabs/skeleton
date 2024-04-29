@@ -1,10 +1,24 @@
 import { type Snippet } from 'svelte';
 
+// Accordion Context ---
+
+export interface AccordionContext {
+	open: (id: string) => void;
+	close: (id: string) => void;
+	toggle: (id: string) => void;
+	isOpen: (id: string) => boolean;
+	animDuration: number;
+	iconOpen?: Snippet;
+	iconClosed?: Snippet;
+}
+
 // Accordion ---
 
 export interface AccordionProps {
 	/** Enables opening multiple items at once. */
 	multiple?: boolean;
+	/** Takes an array list of open items. */
+	value?: string[];
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
 
@@ -33,13 +47,9 @@ export interface AccordionProps {
 
 // Accordion Item ---
 
-type ToggleEvent = CustomEvent<{ id: string; open: boolean }>;
-
 export interface AccordionItemProps {
 	/** Set a unique ID for the item. */
 	id: string;
-	/** Set the open state of the item. */
-	open?: boolean;
 	/** Set a disabled state for the item. */
 	disabled?: boolean;
 
@@ -50,6 +60,10 @@ export interface AccordionItemProps {
 	spaceY?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
+
+	// Events ---
+	/** Triggers on item open or close. */
+	onclick?: (event: MouseEvent) => void;
 
 	// Control ---
 	/** Sets control's base styles. */
@@ -76,10 +90,6 @@ export interface AccordionItemProps {
 	panelRounded?: string;
 	/** Provide arbitrary CSS classes to the panel. */
 	panelClasses?: string;
-
-	// Events ---
-	/** Triggers on item open or close. */
-	ontoggle?: (toggleEvent: ToggleEvent) => void;
 
 	// Snippets ---
 	/** The control's default slot. */

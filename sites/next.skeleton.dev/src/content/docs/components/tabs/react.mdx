@@ -1,0 +1,103 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import { Page as Example } from '@examples/components/tabs/Example.tsx';
+import ExampleRaw from '@examples/components/tabs/Example.tsx?raw';
+import { Page as ExampleIcons } from '@examples/components/tabs/ExampleIcons.tsx';
+import ExampleIconsRaw from '@examples/components/tabs/ExampleIcons.tsx?raw';
+import { Page as ExampleVerticalIcons } from '@examples/components/tabs/ExampleVerticalIcons.tsx';
+import ExampleVerticalIconsRaw from '@examples/components/tabs/ExampleVerticalIcons.tsx?raw';
+import { Page as ExampleStretch } from '@examples/components/tabs/ExampleStretch.tsx';
+import ExampleStretchRaw from '@examples/components/tabs/ExampleStretch.tsx?raw';
+import { Page as ExampleJustify } from '@examples/components/tabs/ExampleJustify.tsx';
+import ExampleJustifyRaw from '@examples/components/tabs/ExampleJustify.tsx?raw';
+import { Page as ExampleFocusableContent } from '@examples/components/tabs/ExampleFocusableContent.tsx';
+import ExampleFocusableContentRaw from '@examples/components/tabs/ExampleFocusableContent.tsx?raw';
+import { Page as ExampleRTL } from '@examples/components/tabs/ExampleRTL.tsx';
+import ExampleRTLRaw from '@examples/components/tabs/ExampleRTL.tsx?raw';
+
+{/* --- */}
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Example client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Icons
+
+Easily customize tabs content with icons and arrange them in any combination you prefer.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleIcons client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleIconsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleVerticalIcons client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleVerticalIconsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Stretch
+
+Tabs can be stretched to fill the available space using the `width` prop.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleStretch client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleStretchRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Justify
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleJustify client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleJustifyRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Accessibility
+
+This component adheres to the ARIA APG. Use the preview below to test tabbing and keyboard navigation.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleFocusableContent client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleFocusableContentRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Right-to-Left
+
+This component fully supports RTL layouts for seamless navigation and accessibility.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleRTL client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRTLRaw} lang="tsx" />
+	</Fragment>
+</Preview>

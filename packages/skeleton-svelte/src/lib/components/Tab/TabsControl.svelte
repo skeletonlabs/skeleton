@@ -11,6 +11,7 @@
 		controls = '',
 		// Root
 		base = 'group',
+		width = '',
 		active = 'text-surface-950-50 border-surface-950-50',
 		inactive = 'text-surface-600-400 border-transparent',
 		flex = 'flex justify-center items-center',
@@ -28,7 +29,7 @@
 		contentGap = 'gap-2',
 		contentBg = 'group-hover:preset-tonal-primary',
 		contentPadding = 'p-2 px-4',
-		contentRounded = 'rounded',
+		contentRounded = 'rounded-container',
 		contentClasses = '',
 		// Events
 		onclick = () => {},
@@ -108,7 +109,7 @@
 
 <label
 	{id}
-	class="{base} {rxActive} {flex} {background} {border} {text} {padding} {rounded} {gap} {cursor} {classes}"
+	class="{base} {width} {rxActive} {flex} {background} {border} {text} {padding} {rounded} {gap} {cursor} {classes}"
 	aria-label={label}
 	{title}
 >
