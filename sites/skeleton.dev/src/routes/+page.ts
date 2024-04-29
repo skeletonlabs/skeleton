@@ -9,7 +9,7 @@ export const load: PageLoad = async ({ fetch }) => {
 		const body = (await res.json()) as Contributor[];
 		return body.filter((c) => c.login !== 'github-actions[bot]');
 	};
-	return { contributors: getContributors() };
+	return { contributors: await getContributors() };
 };
 
 export type Contributor = {
