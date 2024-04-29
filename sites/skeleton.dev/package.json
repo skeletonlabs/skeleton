@@ -27,8 +27,9 @@
 		"@floating-ui/dom": "^1.6.4",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/tw-plugin": "workspace:*",
-		"@sveltejs/adapter-vercel": "^3.1.0",
-		"@sveltejs/kit": "^1.30.4",
+		"@sveltejs/adapter-vercel": "^4.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@tailwindcss/forms": "^0.5.7",
 		"@tailwindcss/typography": "^0.5.13",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
@@ -51,9 +52,9 @@
 		"tailwindcss": "^3.4.3",
 		"tslib": "^2.6.2",
 		"typescript": "^5.4.5",
-		"vite": "^4.5.3",
+		"vite": "^5.0.0",
 		"vite-plugin-tailwind-purgecss": "^0.3.3",
-		"vitest": "^0.32.4"
+		"vitest": "^1.0.0"
 	},
 	"type": "module"
 }
