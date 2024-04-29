@@ -11,10 +11,10 @@ dependencies:
 
 devDependencies:
   '@faker-js/faker':
-    specifier: ^8.0.2
+    specifier: ^8.4.1
     version: 8.4.1
   '@floating-ui/dom':
-    specifier: ^1.2.9
+    specifier: ^1.6.4
     version: 1.6.4
   '@skeletonlabs/skeleton':
     specifier: workspace:*
@@ -26,43 +26,43 @@ devDependencies:
     specifier: ^3.1.0
     version: 3.1.0(@sveltejs/kit@1.30.4)
   '@sveltejs/kit':
-    specifier: ^1.20.4
+    specifier: ^1.30.4
     version: 1.30.4(svelte@4.2.15)(vite@4.5.3)
   '@tailwindcss/forms':
-    specifier: ^0.5.3
+    specifier: ^0.5.7
     version: 0.5.7(tailwindcss@3.4.3)
   '@tailwindcss/typography':
-    specifier: ^0.5.9
+    specifier: ^0.5.13
     version: 0.5.13(tailwindcss@3.4.3)
   '@typescript-eslint/eslint-plugin':
-    specifier: ^5.59.9
+    specifier: ^5.62.0
     version: 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.57.0)(typescript@5.4.5)
   '@typescript-eslint/parser':
-    specifier: ^5.59.9
+    specifier: ^5.62.0
     version: 5.62.0(eslint@8.57.0)(typescript@5.4.5)
   '@vercel/analytics':
-    specifier: ^1.0.1
+    specifier: ^1.2.2
     version: 1.2.2
   autoprefixer:
-    specifier: ^10.4.14
+    specifier: ^10.4.19
     version: 10.4.19(postcss@8.4.38)
   eslint:
-    specifier: ^8.42.0
+    specifier: ^8.57.0
     version: 8.57.0
   eslint-config-prettier:
-    specifier: ^8.8.0
+    specifier: ^8.10.0
     version: 8.10.0(eslint@8.57.0)
   eslint-plugin-svelte:
-    specifier: ^2.30.0
+    specifier: ^2.38.0
     version: 2.38.0(eslint@8.57.0)(svelte@4.2.15)
   highlight.js:
-    specifier: ^11.8.0
+    specifier: ^11.9.0
     version: 11.9.0
   minimatch:
-    specifier: ^9.0.3
+    specifier: ^9.0.4
     version: 9.0.4
   postcss:
-    specifier: ^8.4.24
+    specifier: ^8.4.38
     version: 8.4.38
   prettier:
     specifier: ^2.8.8
@@ -71,37 +71,37 @@ devDependencies:
     specifier: ^2.10.1
     version: 2.10.1(prettier@2.8.8)(svelte@4.2.15)
   query-string:
-    specifier: ^8.1.0
+    specifier: ^8.2.0
     version: 8.2.0
   sveld:
     specifier: ^0.18.1
     version: 0.18.1(postcss@8.4.38)
   svelte:
-    specifier: ^4.0.0
+    specifier: ^4.2.15
     version: 4.2.15
   svelte-check:
-    specifier: ^3.4.3
+    specifier: ^3.7.0
     version: 3.7.0(postcss@8.4.38)(svelte@4.2.15)
   svelte-preprocess:
-    specifier: ^5.0.4
+    specifier: ^5.1.4
     version: 5.1.4(postcss@8.4.38)(svelte@4.2.15)(typescript@5.4.5)
   tailwindcss:
-    specifier: ^3.3.2
+    specifier: ^3.4.3
     version: 3.4.3
   tslib:
-    specifier: ^2.5.3
+    specifier: ^2.6.2
     version: 2.6.2
   typescript:
-    specifier: ^5.0.3
+    specifier: ^5.4.5
     version: 5.4.5
   vite:
-    specifier: ^4.3.9
+    specifier: ^4.5.3
     version: 4.5.3(@types/node@20.12.7)
   vite-plugin-tailwind-purgecss:
-    specifier: ^0.3.0
+    specifier: ^0.3.3
     version: 0.3.3(tailwindcss@3.4.3)(vite@4.5.3)
   vitest:
-    specifier: ^0.32.0
+    specifier: ^0.32.4
     version: 0.32.4
 
 packages:
