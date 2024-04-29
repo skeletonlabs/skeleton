@@ -6,7 +6,7 @@ settings:
 
 dependencies:
   '@fortawesome/fontawesome-free':
-    specifier: ^6.4.2
+    specifier: ^6.5.2
     version: 6.5.2
 
 devDependencies:
