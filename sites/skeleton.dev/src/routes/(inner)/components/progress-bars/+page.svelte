@@ -116,7 +116,7 @@
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<progress value={props.value} max={props.max} />
+					<progress value={props.value} max={props.max}></progress>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<progress value={props.value} max={props.max} />`} />

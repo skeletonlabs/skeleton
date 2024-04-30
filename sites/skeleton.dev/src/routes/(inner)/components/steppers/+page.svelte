@@ -60,7 +60,7 @@
 	<svelte:fragment slot="sandbox">
 		<!-- Alert -->
 		<aside class="alert variant-ghost-error">
-			<i class="fa-solid fa-triangle-exclamation text-4xl" />
+			<i class="fa-solid fa-triangle-exclamation text-4xl"></i>
 			<div class="alert-message" data-toc-ignore>
 				<h3 class="h3" data-toc-ignore>Deprecated</h3>
 				<!-- prettier-ignore -->

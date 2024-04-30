@@ -179,15 +179,15 @@
 						class="bg-surface-100-800-token w-full"
 					>
 						<TabAnchor selected={tabsBottomNav === '/books'} on:click={() => (tabsBottomNav = '/books')}>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-book"></i></svelte:fragment>
 							Books
 						</TabAnchor>
 						<TabAnchor selected={tabsBottomNav === '/movies'} on:click={() => (tabsBottomNav = '/movies')}>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-film" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-film"></i></svelte:fragment>
 							Movies
 						</TabAnchor>
 						<TabAnchor selected={tabsBottomNav === '/television'} on:click={() => (tabsBottomNav = '/television')}>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-tv" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-tv"></i></svelte:fragment>
 							Television
 						</TabAnchor>
 					</TabGroup>

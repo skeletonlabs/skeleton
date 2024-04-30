@@ -57,7 +57,7 @@
 			<p>Replace <code class="code">.badge</code> with <code class="code">.badge-icon</code> for a badge based on an icon.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<span class="badge-icon variant-filled"><i class="fa-solid fa-skull" /></span>
+					<span class="badge-icon variant-filled"><i class="fa-solid fa-skull"></i></span>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<span class="badge-icon variant-filled"> (icon) </span>`} />

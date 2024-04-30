@@ -37,17 +37,17 @@
 		<!-- Mobile Only -->
 		<!-- prettier-ignore -->
 		<AppRailAnchor href="/" class="lg:hidden" on:click={() => { onClickAnchor() }}>
-			<svelte:fragment slot="lead"><i class="fa-solid fa-home text-2xl" /></svelte:fragment>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-home text-2xl"></i></svelte:fragment>
 			<span>Home</span>
 		</AppRailAnchor>
 		<!-- prettier-ignore -->
 		<AppRailAnchor href="/blog" class="lg:hidden" on:click={() => { onClickAnchor() }}>
-			<svelte:fragment slot="lead"><i class="fa-solid fa-bullhorn text-2xl" /></svelte:fragment>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-bullhorn text-2xl"></i></svelte:fragment>
 			<span>Blog</span>
 		</AppRailAnchor>
 		<!-- --- / --- -->
 		<AppRailTile bind:group={currentRailCategory} name="docs" value={'/docs'}>
-			<svelte:fragment slot="lead"><i class="fa-solid fa-book text-2xl" /></svelte:fragment>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-book text-2xl"></i></svelte:fragment>
 			<span>Docs</span>
 		</AppRailTile>
 		<hr class="opacity-30" />
@@ -60,7 +60,7 @@
 			<span>Svelte</span>
 		</AppRailTile>
 		<AppRailTile bind:group={currentRailCategory} name="utilities" value={'/utilities'}>
-			<svelte:fragment slot="lead"><i class="fa-solid fa-screwdriver-wrench text-2xl" /></svelte:fragment>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-screwdriver-wrench text-2xl"></i></svelte:fragment>
 			<span>Utilities</span>
 		</AppRailTile>
 	</AppRail>
@@ -73,8 +73,8 @@
 			<nav class="list-nav">
 				<ul>
 					{#each segment.list as { href, label, badge }}
-						<li on:keypress on:click={drawerStore.close}>
-							<a {href} class={listboxItemActive(href)} data-sveltekit-preload-data="hover">
+						<li>
+							<a {href} class={listboxItemActive(href)} data-sveltekit-preload-data="hover" on:keypress on:click={drawerStore.close}>
 								<span class="flex-auto">{@html label}</span>
 								{#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if}
 							</a>

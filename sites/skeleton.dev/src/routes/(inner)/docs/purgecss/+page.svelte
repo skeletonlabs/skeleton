@@ -15,7 +15,7 @@
                     This guide covers <code class="code">vite-plugin-tailwind-purgecss</code>, a simple Vite plugin that purges excess TailwindCSS styles via <a class="anchor" href="https://purgecss.com/" target="_blank">PurgeCSS</a>. While optional, this is highly recommended if you wish to minimize your production CSS bundle size.
                 </p>
 				<a class="btn variant-filled-secondary" href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank">
-					<i class="fa-brands fa-github" />
+					<i class="fa-brands fa-github"></i>
 					<span>View on GitHub</span>
 				</a>
 			</div>

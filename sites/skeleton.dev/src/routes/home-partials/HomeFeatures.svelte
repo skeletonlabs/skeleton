@@ -46,7 +46,7 @@
 			<!-- Card -->
 			<div class="card variant-glass p-4 shadow-lg md:p-10 space-y-4 text-center">
 				<span class="btn-icon btn-icon-xl variant-soft-primary">
-					<i class="fa-solid {feature.icon}" />
+					<i class="fa-solid {feature.icon}"></i>
 				</span>
 				<h3 class="h3">{feature.title}</h3>
 				<p>{@html feature.body}</p>

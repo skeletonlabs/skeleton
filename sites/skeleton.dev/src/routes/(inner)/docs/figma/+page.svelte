@@ -10,7 +10,7 @@
 			<p>A community-maintained Figma design kit for Skeleton.</p>
 		</div>
 		<a class="btn variant-filled-secondary" href="https://www.figma.com/community/file/1266774078142216791" target="_blank">
-			<i class="fa-brands fa-figma" />
+			<i class="fa-brands fa-figma"></i>
 			<span>View on Figma Community</span>
 		</a>
 	</header>

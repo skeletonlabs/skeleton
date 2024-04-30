@@ -46,7 +46,7 @@
 			<svelte:fragment slot="preview">
 				<Accordion class="card p-4 text-token">
 					<AccordionItem open>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center" /></svelte:fragment>
+						<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center"></i></svelte:fragment>
 						<svelte:fragment slot="summary"><p class="font-bold">What is Día de los Muertos?</p></svelte:fragment>
 						<svelte:fragment slot="content">
 							<!-- prettier-ignore -->
@@ -56,7 +56,7 @@
 						</svelte:fragment>
 					</AccordionItem>
 					<AccordionItem>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-clock text-xl w-6 text-center" /></svelte:fragment>
+						<svelte:fragment slot="lead"><i class="fa-solid fa-clock text-xl w-6 text-center"></i></svelte:fragment>
 						<svelte:fragment slot="summary"><p class="font-bold">When did it begin?</p></svelte:fragment>
 						<svelte:fragment slot="content">
 							<!-- prettier-ignore -->
@@ -66,7 +66,7 @@
 						</svelte:fragment>
 					</AccordionItem>
 					<AccordionItem>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-calendar text-xl w-6 text-center" /></svelte:fragment>
+						<svelte:fragment slot="lead"><i class="fa-solid fa-calendar text-xl w-6 text-center"></i></svelte:fragment>
 						<svelte:fragment slot="summary"><p class="font-bold">When is it celebrated?</p></svelte:fragment>
 						<svelte:fragment slot="content">
 							<!-- prettier-ignore -->
@@ -76,7 +76,7 @@
 						</svelte:fragment>
 					</AccordionItem>
 					<AccordionItem>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-gift text-xl w-6 text-center" /></svelte:fragment>
+						<svelte:fragment slot="lead"><i class="fa-solid fa-gift text-xl w-6 text-center"></i></svelte:fragment>
 						<svelte:fragment slot="summary"><p class="font-bold">What are ofrendas?</p></svelte:fragment>
 						<svelte:fragment slot="content">
 							<!-- prettier-ignore -->
@@ -122,7 +122,7 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<section class="space-y-4" />
+		<section class="space-y-4"></section>
 		<section class="space-y-4">
 			<h2 class="h2">Auto-Collapse Mode</h2>
 			<p>Enable the <code class="code">autocollapse</code> setting to limit display to one accordion panel at a time.</p>
@@ -132,7 +132,7 @@
 				<svelte:fragment slot="preview">
 					<Accordion autocollapse class="card p-4 text-token">
 						<AccordionItem open>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center"></i></svelte:fragment>
 							<svelte:fragment slot="summary"><p class="font-bold">What is Día de los Muertos?</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
@@ -142,7 +142,7 @@
 							</svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-clock text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-clock text-xl w-6 text-center"></i></svelte:fragment>
 							<svelte:fragment slot="summary"><p class="font-bold">When did it begin?</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
@@ -188,14 +188,14 @@
 						<AccordionItem>
 							<svelte:fragment slot="summary"><strong>Custom: Plus and Minus</strong></svelte:fragment>
 							<svelte:fragment slot="content">{loremIpsum}</svelte:fragment>
-							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-minus" /></svelte:fragment>
-							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-plus" /></svelte:fragment>
+							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-minus"></i></svelte:fragment>
+							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-plus"></i></svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
 							<svelte:fragment slot="summary"><strong>Custom: Smiley and Surprise</strong></svelte:fragment>
 							<svelte:fragment slot="content">{loremIpsum}</svelte:fragment>
-							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-face-surprise" /></svelte:fragment>
-							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-face-smile" /></svelte:fragment>
+							<svelte:fragment slot="iconClosed"><i class="fa-solid fa-face-surprise"></i></svelte:fragment>
+							<svelte:fragment slot="iconOpen"><i class="fa-solid fa-face-smile"></i></svelte:fragment>
 						</AccordionItem>
 					</Accordion>
 				</svelte:fragment>

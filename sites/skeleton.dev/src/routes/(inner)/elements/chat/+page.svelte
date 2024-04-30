@@ -206,9 +206,9 @@
 								placeholder="Write a message..."
 								rows="1"
 								on:keydown={onPromptKeydown}
-							/>
+							></textarea>
 							<button class={currentMessage ? 'variant-filled-primary' : 'input-group-shim'} on:click={addMessage}>
-								<i class="fa-solid fa-paper-plane" />
+								<i class="fa-solid fa-paper-plane"></i>
 							</button>
 						</div>
 					</section>
@@ -495,7 +495,7 @@ let messageFeed = [
 							id="prompt"
 							placeholder="Write a message..."
 							rows="1"
-						/>
+						></textarea>
 						<button class="variant-filled-primary">Send</button>
 					</div>
 				</svelte:fragment>

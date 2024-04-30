@@ -40,14 +40,14 @@
 			<svelte:fragment slot="preview">
 				<!-- Primary -->
 				<aside class="alert {currentVariant}">
-					<i class="fa-solid fa-triangle-exclamation text-4xl" />
+					<i class="fa-solid fa-triangle-exclamation text-4xl"></i>
 					<div class="alert-message" data-toc-ignore>
 						<h3 class="h3" data-toc-ignore>Warning</h3>
 						<p>{message}</p>
 					</div>
 					<div class="alert-actions">
 						<button class="btn variant-filled" on:click={triggerAction}>Action</button>
-						<button class="btn-icon variant-filled"><i class="fa-solid fa-xmark" /></button>
+						<button class="btn-icon variant-filled"><i class="fa-solid fa-xmark"></i></button>
 					</div>
 				</aside>
 			</svelte:fragment>

@@ -18,34 +18,30 @@
 	<section class="space-y-4">
 		<h2 class="h2">Getting Started</h2>
 		<!-- Article: How to Contribute -->
-		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributing/requirements">
+		<a
+			class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4"
+			href="https://opensource.guide/how-to-contribute/"
+			target="_blank"
+			rel="noreferrer"
+		>
 			<div class="space-y-4">
 				<h3 class="h3" data-toc-ignore>Concepts and Best Practices</h3>
 				<p>New to open source? Read this detailed guide covering the basics.</p>
 			</div>
-			<a
-				class="btn variant-filled-secondary place-self-center"
-				href="https://opensource.guide/how-to-contribute/"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Read Guide
-			</a>
+			<span class="btn variant-filled-secondary place-self-center"> Read Guide </span>
 		</a>
 		<!-- GitHub: First Contributions -->
-		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributing/requirements">
+		<a
+			class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4"
+			href="https://github.com/firstcontributions/first-contributions"
+			target="_blank"
+			rel="noreferrer"
+		>
 			<div class="space-y-4">
 				<h3 class="h3" data-toc-ignore>Step-by-Step Guide</h3>
 				<p>Follow a guided tour showing you how to make your first contribution.</p>
 			</div>
-			<a
-				class="btn variant-filled-secondary place-self-center"
-				href="https://github.com/firstcontributions/first-contributions"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Read Guide
-			</a>
+			<span class="btn variant-filled-secondary place-self-center"> Read Guide </span>
 		</a>
 	</section>
 

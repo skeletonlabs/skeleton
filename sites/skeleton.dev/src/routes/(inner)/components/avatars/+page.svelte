@@ -118,7 +118,7 @@
 				<svelte:fragment slot="preview">
 					{#key fallback}
 						<Avatar background="bg-secondary-500">
-							<i class="fa-solid fa-skull text-xl" />
+							<i class="fa-solid fa-skull text-xl"></i>
 						</Avatar>
 					{/key}
 				</svelte:fragment>

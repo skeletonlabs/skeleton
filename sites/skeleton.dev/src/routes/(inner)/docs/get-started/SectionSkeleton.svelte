@@ -14,7 +14,7 @@
 		<svelte:fragment slot="panel">
 			{#if $storeOnboardMethod === 'cli'}
 				<aside class="alert variant-ghost p-4">
-					<i class="fa-solid fa-circle-check" />
+					<i class="fa-solid fa-circle-check"></i>
 					<div class="alert-message">
 						<p>The CLI will automatically install Skeleton and the Skeleton Tailwind plugin.</p>
 					</div>

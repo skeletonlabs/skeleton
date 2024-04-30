@@ -10,12 +10,12 @@
 			target="_blank"
 			rel="noreferrer"
 		>
-			<i class="fa-solid fa-bolt" />
+			<i class="fa-solid fa-bolt"></i>
 			<span>Via StackBlitz</span>
 		</a>
 		<a href="/docs/get-started" class="btn variant-filled">
 			<span>Install Skeleton</span>
-			<i class="fa-solid fa-arrow-right-long" />
+			<i class="fa-solid fa-arrow-right-long"></i>
 		</a>
 	</div>
 </div>
