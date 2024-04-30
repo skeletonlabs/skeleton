@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { faker } from '@faker-js/faker';
-	import { onMount } from 'svelte/internal';
+	import { onMount } from 'svelte';
 	// DocShell
 	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
