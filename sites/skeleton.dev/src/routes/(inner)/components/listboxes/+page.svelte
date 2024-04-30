@@ -30,7 +30,7 @@
 	// Local
 	let valueSingle = 'books';
 	let valueMultiple = ['books', 'movies'];
-	let valueDisabled = ['books', 'movies'];
+	// let valueDisabled = ['books', 'movies'];
 </script>
 
 <DocsShell {settings}>

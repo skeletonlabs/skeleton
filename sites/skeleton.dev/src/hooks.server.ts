@@ -8,7 +8,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	if (cookieTheme) {
 		theme = cookieTheme;
 	} else {
-		event.cookies.set('theme', 'skeleton');
+		/* @migration task: add path argument */ event.cookies.set('theme', 'skeleton');
 		theme = 'skeleton';
 	}
 
