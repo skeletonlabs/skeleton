@@ -43,7 +43,7 @@
 		"minimatch": "^9.0.4",
 		"postcss": "^8.4.38",
 		"prettier": "^2.8.8",
-		"prettier-plugin-svelte": "^3.2.3",
+		"prettier-plugin-svelte": "^2.10.1",
 		"query-string": "^8.2.0",
 		"sveld": "^0.18.1",
 		"svelte": "4.2.15",
