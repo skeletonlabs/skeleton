@@ -7,7 +7,7 @@
 	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
 	 * @slot {{}} children - Provide TreeView item children.
 	 */
-	import { getContext, createEventDispatcher, onMount } from 'svelte';
+	import { getContext, createEventDispatcher } from 'svelte';
 
 	// Types
 	import type { CssClasses, SvelteEvent, TreeViewItem } from '../../index.js';

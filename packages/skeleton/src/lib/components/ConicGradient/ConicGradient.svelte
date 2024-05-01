@@ -89,16 +89,14 @@
 	{/if}
 	<!-- Conic Gradient -->
 	{#if cone}
-		<div class="conic-cone {classesCone}" class:animate-spin={spin} style:background={cone} />
+		<div class="conic-cone {classesCone}" class:animate-spin={spin} style:background={cone}></div>
 	{/if}
 	<!-- Legend -->
 	{#if legend && generatedLegendList}
 		<ul class="conic-list list {classesLegend}">
 			{#each generatedLegendList as { color, label, value }}
-				<!-- FIXME: resolve a11y warnings -->
-				<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-				<li class="conic-item {hover}" on:click on:keydown on:keyup on:keypress>
-					<span class="conic-swatch {cSwatch}" style:background={color} />
+				<li class="conic-item {hover}">
+					<span class="conic-swatch {cSwatch}" style:background={color}></span>
 					<span class="conic-label flex-auto">{label}</span>
 					<strong class="conic-value">{value}%</strong>
 				</li>

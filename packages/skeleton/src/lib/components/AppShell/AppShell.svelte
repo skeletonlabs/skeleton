@@ -11,9 +11,9 @@
 	// Types
 	import type { CssClasses, SvelteEvent } from '../../index.js';
 
-	interface $$Events {
-		scroll: SvelteEvent<UIEvent, HTMLDivElement>;
-	}
+	// interface $$Events {
+	// 	scroll: SvelteEvent<UIEvent, HTMLDivElement>;
+	// }
 
 	// Props
 	/** Set `scrollbar-gutter` style. */

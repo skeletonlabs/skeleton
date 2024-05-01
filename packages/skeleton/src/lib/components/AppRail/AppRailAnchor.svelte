@@ -49,6 +49,7 @@
 	class="app-rail-anchor {classesBase}"
 	href={$$props.href}
 	{...prunedRestProps()}
+	role="button"
 	on:click
 	on:keydown
 	on:keyup

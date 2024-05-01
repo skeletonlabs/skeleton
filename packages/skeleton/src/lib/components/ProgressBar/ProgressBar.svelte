@@ -57,7 +57,7 @@
 	aria-valuemax={max - min}
 >
 	<!-- Meter -->
-	<div class="progress-bar-meter {classesMeter}" style:width="{indeterminate ? 100 : fillPercent}%" />
+	<div class="progress-bar-meter {classesMeter}" style:width="{indeterminate ? 100 : fillPercent}%"></div>
 </div>
 
 <style lang="postcss">
