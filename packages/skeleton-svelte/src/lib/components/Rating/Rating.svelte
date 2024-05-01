@@ -26,13 +26,35 @@
 	let hoverValue = $state(0);
 	let hovering = $state(false);
 
-	function onRatingClick(order: number) {
-		value = order + 1;
+	function onRatingClick(event: Event, order: number) {
+		let selectedFraction = 1;
+		// handling mouse
+		if (event instanceof MouseEvent) {
+			const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+			const fractionWidth = ratingRect.width / fraction;
+			const left = event.clientX - ratingRect.left;
+			selectedFraction = Math.floor(left / fractionWidth) + 1;
+		}
+		// handling keyboard
+		else {
+		}
+		value = order + selectedFraction / fraction;
 	}
 
-	function onRatingHover(order: number) {
+	function onRatingHover(event: Event, order: number) {
+		let selectedFraction = 1;
+		// handling mouse
+		if (event instanceof MouseEvent) {
+			const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+			const fractionWidth = ratingRect.width / fraction;
+			const left = event.clientX - ratingRect.left;
+			selectedFraction = Math.floor(left / fractionWidth) + 1;
+		}
+		// handling keyboard
+		else {
+		}
 		hovering = true;
-		hoverValue = order + 1;
+		hoverValue = order + selectedFraction / fraction;
 	}
 
 	function onRatingLeave() {
@@ -42,18 +64,21 @@
 
 {#snippet rating(order, percentage)}
 	{#if interactive}
-		<button type="button" class="relative w-full h-full" 
-			onclick={() => onRatingClick(order)} 
-			onmouseover={() => onRatingHover(order)}  
-			onfocus={() => onRatingHover(order)}>
-				{#if emptyIcon}
-					{@render emptyIcon()}
+		<button
+			type="button"
+			class="relative h-full w-full"
+			onclick={(event) => onRatingClick(event, order)}
+			onmousemove={(event) => onRatingHover(event, order)}
+			onfocus={(event) => onRatingHover(event, order)}
+		>
+			{#if emptyIcon}
+				{@render emptyIcon()}
+			{/if}
+			<div class="clip absolute left-0 top-0 w-full" style="--clip_value: {100 - percentage * 100}%">
+				{#if fullIcon}
+					{@render fullIcon()}
 				{/if}
-				<div class="absolute left-0 top-0 w-full clip" style="--clip_value: {100 - percentage * 100}%">
-					{#if fullIcon}
-						{@render fullIcon()}
-					{/if}
-				</div>
+			</div>
 		</button>
 	{:else}
 		<div class="relative">
@@ -69,9 +94,13 @@
 	{/if}
 {/snippet}
 
-<div role="group" class="{base} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating" 
-	onmouseleave={onRatingLeave} 
-	onblur={onRatingLeave}>
+<div
+	role="group"
+	class="{base} {text} {fill} {justify} {spaceX} {classes}"
+	data-testid="rating"
+	onmouseleave={onRatingLeave}
+	onblur={onRatingLeave}
+>
 	{#each { length: max } as _, i}
 		<div class="{itemBase} {itemAspect} {itemClasses}">
 			{@render rating(i, hovering ? hoverValue - i : value - i)}
