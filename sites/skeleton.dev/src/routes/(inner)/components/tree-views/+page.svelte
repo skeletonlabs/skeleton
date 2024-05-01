@@ -158,19 +158,19 @@
 					<TreeView>
 						<TreeViewItem open>
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-folder" />
+								<i class="fa-solid fa-folder"></i>
 							</svelte:fragment>
 							<p>Folder</p>
 							<svelte:fragment slot="children">
 								<TreeViewItem>
 									<svelte:fragment slot="lead">
-										<i class="fa-solid fa-file" />
+										<i class="fa-solid fa-file"></i>
 									</svelte:fragment>
 									<p>File 1</p>
 								</TreeViewItem>
 								<TreeViewItem>
 									<svelte:fragment slot="lead">
-										<i class="fa-solid fa-file" />
+										<i class="fa-solid fa-file"></i>
 									</svelte:fragment>
 									<p>File 2</p>
 								</TreeViewItem>
@@ -201,7 +201,7 @@
 					<TreeView disabled>
 						<TreeViewItem open>
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-book-skull" />
+								<i class="fa-solid fa-book-skull"></i>
 							</svelte:fragment>
 							<p>Books</p>
 							<svelte:fragment slot="children">
@@ -218,7 +218,7 @@
 						</TreeViewItem>
 						<TreeViewItem>
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-film" />
+								<i class="fa-solid fa-film"></i>
 							</svelte:fragment>
 							<p>Movies</p>
 							<svelte:fragment slot="children">
@@ -235,7 +235,7 @@
 						</TreeViewItem>
 						<TreeViewItem>
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-tv" />
+								<i class="fa-solid fa-tv"></i>
 							</svelte:fragment>
 							<p>TV</p>
 						</TreeViewItem>
@@ -266,7 +266,7 @@
 					<TreeView bind:this={expandTree}>
 						<TreeViewItem>
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-book-skull" />
+								<i class="fa-solid fa-book-skull"></i>
 							</svelte:fragment>
 							<p>Books</p>
 							<svelte:fragment slot="children">
@@ -283,7 +283,7 @@
 						</TreeViewItem>
 						<TreeViewItem>
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-film" />
+								<i class="fa-solid fa-film"></i>
 							</svelte:fragment>
 							<p>Movies</p>
 							<svelte:fragment slot="children">
@@ -300,7 +300,7 @@
 						</TreeViewItem>
 						<TreeViewItem>
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-tv" />
+								<i class="fa-solid fa-tv"></i>
 							</svelte:fragment>
 							<p>TV</p>
 							<svelte:fragment slot="children">
@@ -354,7 +354,7 @@ myTreeView.collapseAll();
 					<TreeView selection>
 						<TreeViewItem bind:group={mediumSingle} name="medium" value="books">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-book-skull" />
+								<i class="fa-solid fa-book-skull"></i>
 							</svelte:fragment>
 							<p>Books</p>
 							<svelte:fragment slot="children">
@@ -371,13 +371,13 @@ myTreeView.collapseAll();
 						</TreeViewItem>
 						<TreeViewItem bind:group={mediumSingle} name="medium" value="movies">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-film" />
+								<i class="fa-solid fa-film"></i>
 							</svelte:fragment>
 							<p>Movies</p>
 						</TreeViewItem>
 						<TreeViewItem bind:group={mediumSingle} name="medium" value="tv">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-tv" />
+								<i class="fa-solid fa-tv"></i>
 							</svelte:fragment>
 							<p>TV</p>
 						</TreeViewItem>
@@ -430,7 +430,7 @@ let books = 'Clean Code';
 					<TreeView selection multiple>
 						<TreeViewItem bind:group={mediumMultiple} name="medium" value="books">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-book-skull" />
+								<i class="fa-solid fa-book-skull"></i>
 							</svelte:fragment>
 							<p>Books</p>
 							<svelte:fragment slot="children">
@@ -447,13 +447,13 @@ let books = 'Clean Code';
 						</TreeViewItem>
 						<TreeViewItem bind:group={mediumMultiple} name="medium" value="movies">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-film" />
+								<i class="fa-solid fa-film"></i>
 							</svelte:fragment>
 							<p>Movies</p>
 						</TreeViewItem>
 						<TreeViewItem bind:group={mediumMultiple} name="medium" value="tv">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-tv" />
+								<i class="fa-solid fa-tv"></i>
 							</svelte:fragment>
 							<p>TV</p>
 						</TreeViewItem>
@@ -506,7 +506,7 @@ let books = ['Clean Code', 'The Art of Unix Programming']
 					<TreeView selection>
 						<TreeViewItem bind:group={relationalMediumSingle} name="r_medium" value="books" open children={childrenSingle}>
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-book-skull" />
+								<i class="fa-solid fa-book-skull"></i>
 							</svelte:fragment>
 							<p>Books</p>
 							<svelte:fragment slot="children">
@@ -528,13 +528,13 @@ let books = ['Clean Code', 'The Art of Unix Programming']
 						</TreeViewItem>
 						<TreeViewItem bind:group={relationalMediumSingle} name="r_medium" value="movies">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-film" />
+								<i class="fa-solid fa-film"></i>
 							</svelte:fragment>
 							<p>Movies</p>
 						</TreeViewItem>
 						<TreeViewItem bind:group={relationalMediumSingle} name="r_medium" value="tv">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-tv" />
+								<i class="fa-solid fa-tv"></i>
 							</svelte:fragment>
 							<p>TV</p>
 						</TreeViewItem>
@@ -579,7 +579,7 @@ let bookChildren: TreeViewItem[] = [];
 					<TreeView selection multiple>
 						<TreeViewItem bind:group={relationalMediumMultiple} name="r_medium" value="books" open children={childrenMultiple}>
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-book-skull" />
+								<i class="fa-solid fa-book-skull"></i>
 							</svelte:fragment>
 							<p>Books</p>
 							<svelte:fragment slot="children">
@@ -601,13 +601,13 @@ let bookChildren: TreeViewItem[] = [];
 						</TreeViewItem>
 						<TreeViewItem bind:group={relationalMediumMultiple} name="r_medium" value="movies">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-film" />
+								<i class="fa-solid fa-film"></i>
 							</svelte:fragment>
 							<p>Movies</p>
 						</TreeViewItem>
 						<TreeViewItem bind:group={relationalMediumMultiple} name="r_medium" value="tv">
 							<svelte:fragment slot="lead">
-								<i class="fa-solid fa-tv" />
+								<i class="fa-solid fa-tv"></i>
 							</svelte:fragment>
 							<p>TV</p>
 						</TreeViewItem>
