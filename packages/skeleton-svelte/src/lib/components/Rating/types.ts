@@ -9,8 +9,6 @@ export interface RatingProps {
 	interactive?: boolean;
 	/** Sets the rating fractions. */
 	fraction?: number;
-	/** Sets single select mode. */
-	single?: boolean;
 
 	// Root ---
 	/** Sets base styles. */

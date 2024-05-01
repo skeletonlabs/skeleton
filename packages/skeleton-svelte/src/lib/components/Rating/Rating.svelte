@@ -6,7 +6,6 @@
 		max = 5,
 		interactive = false,
 		fraction = 1,
-		single = false,
 		// Root
 		base = 'flex w-full',
 		text = 'text-token',
@@ -71,10 +70,12 @@
 			onmousemove={(event) => onRatingHover(event, order)}
 			onfocus={(event) => onRatingHover(event, order)}
 		>
-			{#if emptyIcon}
-				{@render emptyIcon()}
-			{/if}
-			<div class="clip absolute left-0 top-0 w-full" style="--clip_value: {100 - percentage * 100}%">
+			<div class="clip-left absolute left-0 top-0 w-full" style="--clip_value: {percentage * 100}%">
+				{#if emptyIcon}
+					{@render emptyIcon()}
+				{/if}
+			</div>
+			<div class="clip-right absolute left-0 top-0 w-full" style="--clip_value: {100 - percentage * 100}%">
 				{#if fullIcon}
 					{@render fullIcon()}
 				{/if}
@@ -82,10 +83,12 @@
 		</button>
 	{:else}
 		<div class="relative">
-			{#if emptyIcon}
-				{@render emptyIcon()}
-			{/if}
-			<div class="clip absolute left-0 top-0 w-full" style="--clip_value: {100 - percentage * 100}%">
+			<div class="clip-left absolute left-0 top-0 w-full" style="--clip_value: {percentage * 100}%">
+				{#if emptyIcon}
+					{@render emptyIcon()}
+				{/if}
+			</div>
+			<div class="clip-right absolute left-0 top-0 w-full" style="--clip_value: {100 - percentage * 100}%">
 				{#if fullIcon}
 					{@render fullIcon()}
 				{/if}
@@ -109,7 +112,10 @@
 </div>
 
 <style>
-	.clip {
+	.clip-left {
+		clip-path: inset(0 0 0 var(--clip_value));
+	}
+	.clip-right {
 		clip-path: inset(0 var(--clip_value) 0 0);
 	}
 </style>
