@@ -5,7 +5,7 @@
 export type { AutocompleteOption } from './components/Autocomplete/types.js';
 export type { ConicStop } from './components/ConicGradient/types.js';
 export type { DrawerSettings, DrawerStore } from './utilities/Drawer/types.js';
-export type { ModalSettings, ModalComponent, ModalStore } from './utilities/Modal/types.js';
+export type { ModalSettings, ModalComponent, ModalParentProp, ModalStore } from './utilities/Modal/types.js';
 export type { ToastSettings, ToastStore } from './utilities/Toast/types.js';
 export type { TableSource } from './components/Table/types.js';
 export type { PaginationSettings } from './components/Paginator/types.js';

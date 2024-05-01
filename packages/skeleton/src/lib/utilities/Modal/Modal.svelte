@@ -23,7 +23,7 @@
 
 	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
 	import { getModalStore } from './stores.js';
-	import type { ModalComponent, ModalSettings } from './types.js';
+	import type { ModalComponent, ModalParentProp, ModalSettings } from './types.js';
 
 	// Props (components)
 	/** Register a list of reusable component modals. */
@@ -211,6 +211,7 @@
 	// There is a way to self-reference component values, but it involves svelte-internal and is not yet stable.
 	// REPL: https://svelte.dev/repl/badd0f11aa99450ca69dca6690d4d5a4?version=3.52.0
 	// Source: https://discord.com/channels/457912077277855764/1037768846855118909
+  let parent: ModalParentProp;
 	$: parent = {
 		position,
 		// ---
