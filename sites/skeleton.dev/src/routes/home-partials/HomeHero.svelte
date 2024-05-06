@@ -14,7 +14,7 @@
 		<div class="flex gap-4">
 			<a href="/docs/get-started" class="btn variant-filled-primary">
 				<span>Get Started</span>
-				<i class="fa-solid fa-arrow-right-long" />
+				<i class="fa-solid fa-arrow-right-long"></i>
 			</a>
 			<a href="/docs/introduction" class="btn variant-soft-primary">Learn More</a>
 		</div>

@@ -81,11 +81,11 @@
 					<!-- prettier-ignore -->
 					<div class="flex justify-center space-x-2">
 						<button class="chip variant-soft hover:variant-filled" on:click={()=>{triggerToast('like')}} on:keypress>
-							<i class="fa-solid fa-heart" />
+							<i class="fa-solid fa-heart"></i>
 							<span>Like</span>
 						</button>
 						<button class="chip variant-soft hover:variant-filled" on:click={()=>{triggerToast('share')}} on:keypress>
-							<i class="fa-solid fa-share" />
+							<i class="fa-solid fa-share"></i>
 							<span>Share</span>
 						</button>
 					</div>
@@ -120,7 +120,7 @@
 								on:click={() => { section(c); }}
 								on:keypress
 							>
-								{#if color === c}<span><i class="fa-solid fa-check" /></span>{/if}
+								{#if color === c}<span><i class="fa-solid fa-check"></i></span>{/if}
 								<span>{c}</span>
 							</button>
 						{/each}
@@ -157,7 +157,7 @@
 								on:click={() => { toggle(f); }}
 								on:keypress
 							>
-								{#if flavors[f]}<span><i class="fa-solid fa-check" /></span>{/if}
+								{#if flavors[f]}<span><i class="fa-solid fa-check"></i></span>{/if}
 								<span class="capitalize">{f}</span>
 							</button>
 						{/each}

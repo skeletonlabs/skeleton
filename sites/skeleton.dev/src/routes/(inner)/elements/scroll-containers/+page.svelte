@@ -157,7 +157,7 @@
 					<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
 						<!-- Button: Left -->
 						<button type="button" class="btn-icon variant-filled" on:click={carouselLeft}>
-							<i class="fa-solid fa-arrow-left" />
+							<i class="fa-solid fa-arrow-left"></i>
 						</button>
 						<!-- Full Images -->
 						<div bind:this={elemCarousel} class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
@@ -172,7 +172,7 @@
 						</div>
 						<!-- Button: Right -->
 						<button type="button" class="btn-icon variant-filled" on:click={carouselRight}>
-							<i class="fa-solid fa-arrow-right" />
+							<i class="fa-solid fa-arrow-right"></i>
 						</button>
 					</div>
 					<!-- Thumbnails -->
@@ -287,7 +287,7 @@ function carouselThumbnail(index: number) {
 					<div class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
 						<!-- Button: Left -->
 						<button type="button" class="btn-icon variant-filled" on:click={multiColumnLeft}>
-							<i class="fa-solid fa-arrow-left" />
+							<i class="fa-solid fa-arrow-left"></i>
 						</button>
 						<!-- Carousel -->
 						<div bind:this={elemMovies} class="snap-x snap-mandatory scroll-smooth flex gap-2 pb-2 overflow-x-auto">
@@ -305,7 +305,7 @@ function carouselThumbnail(index: number) {
 						</div>
 						<!-- Button-Right -->
 						<button type="button" class="btn-icon variant-filled" on:click={multiColumnRight}>
-							<i class="fa-solid fa-arrow-right" />
+							<i class="fa-solid fa-arrow-right"></i>
 						</button>
 					</div>
 				</svelte:fragment>

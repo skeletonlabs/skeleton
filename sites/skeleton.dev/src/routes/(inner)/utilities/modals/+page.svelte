@@ -306,7 +306,7 @@ modalStore.trigger(modal);
 						rel="noreferrer"
 					>
 						<span>Available Settings</span>
-						<i class="fa-solid fa-arrow-up-right-from-square" />
+						<i class="fa-solid fa-arrow-up-right-from-square"></i>
 					</a>
 				</div>
 			</div>
@@ -380,9 +380,9 @@ new Promise<boolean>((resolve) => {
 							target="_blank"
 							rel="noreferrer"
 						>
-							<i class="fa-brands fa-github" />
+							<i class="fa-brands fa-github"></i>
 							<span>View Source on GitHub</span>
-							<i class="fa-solid fa-arrow-up-right-from-square" />
+							<i class="fa-solid fa-arrow-up-right-from-square"></i>
 						</a>
 					</div>
 				</svelte:fragment>

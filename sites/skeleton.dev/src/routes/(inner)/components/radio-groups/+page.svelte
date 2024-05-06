@@ -48,13 +48,13 @@
 				<!-- <RadioGroup class="text-token w-full" display="flex"> -->
 				<RadioGroup class="text-token">
 					<RadioItem bind:group={justify} name="justify" value={0}>
-						<i class="fa-solid fa-align-left" />
+						<i class="fa-solid fa-align-left"></i>
 					</RadioItem>
 					<RadioItem bind:group={justify} name="justify" value={1}>
-						<i class="fa-solid fa-align-center" />
+						<i class="fa-solid fa-align-center"></i>
 					</RadioItem>
 					<RadioItem bind:group={justify} name="justify" value={2}>
-						<i class="fa-solid fa-align-right" />
+						<i class="fa-solid fa-align-right"></i>
 					</RadioItem>
 				</RadioGroup>
 			</svelte:fragment>

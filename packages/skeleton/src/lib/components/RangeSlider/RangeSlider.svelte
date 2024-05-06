@@ -97,7 +97,7 @@
 		{#if ticked && tickmarks && tickmarks.length}
 			<datalist id="tickmarks-{id}" class="range-slider-ticks">
 				{#each tickmarks as tm}
-					<option value={tm} label={tm} />
+					<option value={tm} label={tm}></option>
 				{/each}
 			</datalist>
 		{/if}

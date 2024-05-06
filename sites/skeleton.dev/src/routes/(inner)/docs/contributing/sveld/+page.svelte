@@ -7,7 +7,7 @@
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
 		<li class="crumb"><a class="anchor" href="/docs/contributing">Contributing</a></li>
-		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+		<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 		<li>Sveld for Components</li>
 	</ol>
 
@@ -98,7 +98,7 @@ export let hover = getContext('hover');
  */`}
 		/>
 		<aside class="alert variant-ghost-warning">
-			<i class="fa-solid fa-lightbulb text-2xl" />
+			<i class="fa-solid fa-lightbulb text-2xl"></i>
 			<div class="alert-message">
 				The leading <code class="code">// ...</code> comment is required for Sveld to parse the slot descriptions. This is not optional.
 			</div>

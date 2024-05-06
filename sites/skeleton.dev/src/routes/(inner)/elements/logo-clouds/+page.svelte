@@ -34,15 +34,15 @@
 				<section class="w-full">
 					<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-0.5">
 						<a class="logo-item {currentVariant}" href="https://twitch.com/" target="_blank" rel="noreferrer">
-							<i class="fa-brands fa-twitch text-2xl" />
+							<i class="fa-brands fa-twitch text-2xl"></i>
 							<span>Twitch</span>
 						</a>
 						<a class="logo-item {currentVariant}" href="https://youtube.com/" target="_blank" rel="noreferrer">
-							<i class="fa-brands fa-youtube text-2xl" />
+							<i class="fa-brands fa-youtube text-2xl"></i>
 							<span>YouTube</span>
 						</a>
 						<a class="logo-item {currentVariant}" href="https://vimeo.com/" target="_blank" rel="noreferrer">
-							<i class="fa-brands fa-vimeo text-2xl" />
+							<i class="fa-brands fa-vimeo text-2xl"></i>
 							<span>Vimeo</span>
 						</a>
 					</div>
@@ -135,15 +135,15 @@
 					<section class="w-full">
 						<div class="logo-cloud [&>.logo-item]:variant-filled-secondary grid-cols-1 lg:!grid-cols-3 gap-0.5">
 							<a class="logo-item" href="https://twitch.com/" target="_blank" rel="noreferrer">
-								<i class="fa-brands fa-twitch text-2xl" />
+								<i class="fa-brands fa-twitch text-2xl"></i>
 								<span>Twitch</span>
 							</a>
 							<a class="logo-item" href="https://youtube.com/" target="_blank" rel="noreferrer">
-								<i class="fa-brands fa-youtube text-2xl" />
+								<i class="fa-brands fa-youtube text-2xl"></i>
 								<span>YouTube</span>
 							</a>
 							<a class="logo-item" href="https://vimeo.com/" target="_blank" rel="noreferrer">
-								<i class="fa-brands fa-vimeo text-2xl" />
+								<i class="fa-brands fa-vimeo text-2xl"></i>
 								<span>Vimeo</span>
 							</a>
 						</div>

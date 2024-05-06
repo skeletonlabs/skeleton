@@ -28,12 +28,12 @@
 			<svelte:fragment slot="preview">
 				<AppBar class="w-full">
 					<svelte:fragment slot="lead">
-						<i class="fa-solid fa-arrow-left text-2xl" />
+						<i class="fa-solid fa-arrow-left text-2xl"></i>
 					</svelte:fragment>
 					<svelte:fragment slot="trail">
-						<i class="fa-solid fa-paperclip text-xl" />
-						<i class="fa-regular fa-calendar text-xl" />
-						<i class="fa-solid fa-circle-user text-xl" />
+						<i class="fa-solid fa-paperclip text-xl"></i>
+						<i class="fa-regular fa-calendar text-xl"></i>
+						<i class="fa-solid fa-circle-user text-xl"></i>
 					</svelte:fragment>
 					<svelte:fragment slot="headline">
 						<h1 class="h1">Headline</h1>
@@ -65,13 +65,13 @@
 				<svelte:fragment slot="preview">
 					<AppBar class="w-full">
 						<svelte:fragment slot="lead">
-							<i class="fa-solid fa-arrow-left text-2xl" />
+							<i class="fa-solid fa-arrow-left text-2xl"></i>
 						</svelte:fragment>
 						<h2 class="h2" data-toc-ignore>Title</h2>
 						<svelte:fragment slot="trail">
-							<i class="fa-solid fa-paperclip text-xl" />
-							<i class="fa-regular fa-calendar text-xl" />
-							<i class="fa-solid fa-circle-user text-xl" />
+							<i class="fa-solid fa-paperclip text-xl"></i>
+							<i class="fa-regular fa-calendar text-xl"></i>
+							<i class="fa-solid fa-circle-user text-xl"></i>
 						</svelte:fragment>
 					</AppBar>
 				</svelte:fragment>
@@ -112,11 +112,11 @@
 				<svelte:fragment slot="preview">
 					<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" class="w-full">
 						<svelte:fragment slot="lead">
-							<i class="fa-solid fa-bars text-2xl" />
+							<i class="fa-solid fa-bars text-2xl"></i>
 						</svelte:fragment>
 						<h2 class="h2" data-toc-ignore>Title</h2>
 						<svelte:fragment slot="trail">
-							<i class="fa-solid fa-circle-user text-3xl" />
+							<i class="fa-solid fa-circle-user text-3xl"></i>
 						</svelte:fragment>
 					</AppBar>
 				</svelte:fragment>

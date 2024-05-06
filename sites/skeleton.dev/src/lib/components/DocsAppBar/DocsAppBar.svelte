@@ -87,7 +87,7 @@
 		<div class="flex items-center space-x-4">
 			<!-- Hamburger Menu -->
 			<button on:click={drawerOpen} class="btn-icon btn-icon-sm lg:!hidden">
-				<i class="fa-solid fa-bars text-xl" />
+				<i class="fa-solid fa-bars text-xl"></i>
 			</button>
 			<!-- Logo -->
 			<a class="lg:!ml-0 w-[32px] lg:w-auto overflow-hidden" href="/" title="Go to Homepage">
@@ -101,7 +101,7 @@
 			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'features' }}>
 				<span>Explore</span>
-				<i class="fa-solid fa-caret-down opacity-50" />
+				<i class="fa-solid fa-caret-down opacity-50"></i>
 			</button>
 			<!-- popup -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="features">
@@ -109,19 +109,19 @@
 					<ul>
 						<li>
 							<a href="/">
-								<span class="w-6 text-center"><i class="fa-solid fa-home" /></span>
+								<span class="w-6 text-center"><i class="fa-solid fa-home"></i></span>
 								<span>Homepage</span>
 							</a>
 						</li>
 						<li>
 							<a href="/docs/get-started">
-								<span class="w-6 text-center"><i class="fa-solid fa-book" /></span>
+								<span class="w-6 text-center"><i class="fa-solid fa-book"></i></span>
 								<span>Documentation</span>
 							</a>
 						</li>
 						<li>
 							<a href="/blog">
-								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
+								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn"></i></span>
 								<span>Blog</span>
 							</a>
 						</li>
@@ -146,7 +146,7 @@
 						</li>
 						<li>
 							<a href="/utilities/codeblocks">
-								<span class="w-6 text-center"><i class="fa-solid fa-screwdriver-wrench" /></span>
+								<span class="w-6 text-center"><i class="fa-solid fa-screwdriver-wrench"></i></span>
 								<span>Utilities</span>
 							</a>
 						</li>
@@ -160,9 +160,9 @@
 		<div>
 			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme', closeQuery: 'a[href]' }}>
-				<i class="fa-solid fa-palette text-lg md:!hidden" />
+				<i class="fa-solid fa-palette text-lg md:!hidden"></i>
 				<span class="hidden md:inline-block">Theme</span>
-				<i class="fa-solid fa-caret-down opacity-50" />
+				<i class="fa-solid fa-caret-down opacity-50"></i>
 			</button>
 			<!-- popup -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="theme">
@@ -197,7 +197,7 @@
 					<hr />
 					<div>
 						<a class="btn variant-filled w-full" href="/docs/generator">
-							<i class="fa-solid fa-palette" />
+							<i class="fa-solid fa-palette"></i>
 							<span>Create a Theme</span>
 						</a>
 					</div>
@@ -210,9 +210,9 @@
 		<div>
 			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'sponsor' }}>
-				<i class="fa-solid fa-heart text-lg md:!hidden" />
+				<i class="fa-solid fa-heart text-lg md:!hidden"></i>
 				<span class="hidden md:inline-block">Sponsor</span>
-				<i class="fa-solid fa-caret-down opacity-50" />
+				<i class="fa-solid fa-caret-down opacity-50"></i>
 			</button>
 			<!-- popup -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="sponsor">
@@ -221,19 +221,19 @@
 						<ul>
 							<li>
 								<a href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer">
-									<span class="w-6 text-center"><i class="fa-brands fa-github" /></span>
+									<span class="w-6 text-center"><i class="fa-brands fa-github"></i></span>
 									<span>GitHub</span>
 								</a>
 							</li>
 							<li>
 								<a href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer">
-									<span class="w-6 text-center"><i class="fa-solid fa-mug-saucer" /></span>
+									<span class="w-6 text-center"><i class="fa-solid fa-mug-saucer"></i></span>
 									<span>Ko-Fi</span>
 								</a>
 							</li>
 							<li>
 								<a href="https://patreon.com/user?u=83786276" target="_blank" rel="noreferrer">
-									<span class="w-6 text-center"><i class="fa-brands fa-patreon" /></span>
+									<span class="w-6 text-center"><i class="fa-brands fa-patreon"></i></span>
 									<span>Patreon</span>
 								</a>
 							</li>
@@ -242,7 +242,7 @@
 					<hr />
 					<div>
 						<a class="btn variant-filled w-full" href="/docs/sponsorship">
-							<i class="fa-solid fa-gift" />
+							<i class="fa-solid fa-gift"></i>
 							<span>Incentives</span>
 							<span class="badge variant-filled-secondary">New</span>
 						</a>
@@ -257,7 +257,7 @@
 			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'version' }}>
 				<span>Version</span>
-				<i class="fa-solid fa-caret-down opacity-50" />
+				<i class="fa-solid fa-caret-down opacity-50"></i>
 			</button>
 			<!-- popup -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="version">
@@ -266,19 +266,19 @@
 						<li>
 							<a href="https://v1.skeleton.dev/" target="_blank">
 								<span>Skeleton v1 Docs</span>
-								<span class="w-6 text-center"><i class="fa-solid fa-arrow-up-right-from-square opacity-50" /></span>
+								<span class="w-6 text-center"><i class="fa-solid fa-arrow-up-right-from-square opacity-50"></i></span>
 							</a>
 						</li>
 					</ul>
 				</nav>
-				<!-- <div class="arrow bg-surface-100-800-token" /> -->
+				<!-- <div class="arrow bg-surface-100-800-token"></div> -->
 			</div>
 		</div>
 
 		<!-- Search -->
 		<div class="md:inline md:ml-4">
 			<button class="btn space-x-4 variant-soft hover:variant-soft-primary" on:click={triggerSearch}>
-				<i class="fa-solid fa-magnifying-glass text-sm" />
+				<i class="fa-solid fa-magnifying-glass text-sm"></i>
 				<small class="hidden md:inline-block">{isOsMac ? '⌘' : 'Ctrl'}+K</small>
 			</button>
 		</div>
@@ -286,10 +286,10 @@
 		<!-- Social -->
 		<section class="hidden sm:inline-flex space-x-1">
 			<a class="btn-icon hover:variant-soft-primary" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
-				<i class="fa-brands fa-github text-lg" />
+				<i class="fa-brands fa-github text-lg"></i>
 			</a>
 			<a class="btn-icon hover:variant-soft-primary" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
-				<i class="fa-brands fa-discord text-lg" />
+				<i class="fa-brands fa-discord text-lg"></i>
 			</a>
 		</section>
 	</svelte:fragment>

@@ -159,7 +159,7 @@
 					<svelte:fragment slot="preview">
 						<div class="w-full grid grid-cols-3 gap-4 place-items-center">
 							<p>Left</p>
-							<span class="divider-vertical h-20" />
+							<span class="divider-vertical h-20"></span>
 							<p>Right</p>
 						</div>
 					</svelte:fragment>

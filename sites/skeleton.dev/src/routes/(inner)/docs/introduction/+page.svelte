@@ -35,7 +35,7 @@
 			frameborder="0"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowfullscreen
-		/>
+		></iframe>
 		<!-- Thumbnails -->
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 			<a href="https://youtu.be/P_A0qQ7AuK8" target="_blank" rel="noreferrer">

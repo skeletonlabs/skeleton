@@ -64,7 +64,7 @@
 					<label class="label">
 						<span>Textarea</span>
 						<!-- cspell:disable-next-line -->
-						<textarea class="textarea" rows="4" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+						<textarea class="textarea" rows="4" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit."></textarea>
 					</label>
 				</div>
 			</svelte:fragment>
@@ -228,7 +228,7 @@ export default {
 					<div class="w-full space-y-4">
 						<label class="label">
 							<span>Textarea</span>
-							<textarea class="textarea" rows="4" placeholder="Enter some long form content." />
+							<textarea class="textarea" rows="4" placeholder="Enter some long form content."></textarea>
 						</label>
 					</div>
 				</svelte:fragment>
@@ -473,7 +473,7 @@ export default {
 						<label class="label">
 							<span>Amount</span>
 							<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-								<div class="input-group-shim"><i class="fa-solid fa-dollar-sign" /></div>
+								<div class="input-group-shim"><i class="fa-solid fa-dollar-sign"></i></div>
 								<input type="text" placeholder="Amount" />
 								<select>
 									<option>USD</option>
@@ -488,7 +488,7 @@ export default {
 							<div class="input-group input-group-divider grid-cols-[1fr_auto]">
 								<input type="text" placeholder="Enter Username..." />
 								<a href="/elements/forms" title="Username already in use.">
-									<i class="fa-solid fa-circle-exclamation text-warning-500 animate-pulse" />
+									<i class="fa-solid fa-circle-exclamation text-warning-500 animate-pulse"></i>
 								</a>
 							</div>
 						</label>
@@ -496,7 +496,7 @@ export default {
 						<label class="label">
 							<span>Search</span>
 							<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-								<div class="input-group-shim"><i class="fa-solid fa-search" /></div>
+								<div class="input-group-shim"><i class="fa-solid fa-search"></i></div>
 								<input type="search" placeholder="Search..." />
 								<button class="variant-filled-secondary">Submit</button>
 							</div>

@@ -59,7 +59,7 @@
 	<div class="anim-float-button absolute z-[1] top-[78%] left-[15%]">
 		<button class="btn variant-glass-secondary">
 			<span>Design</span>
-			<i class="fa-solid fa-spa" />
+			<i class="fa-solid fa-spa"></i>
 		</button>
 	</div>
 	<!-- Slide Toggle -->
@@ -69,13 +69,13 @@
 	<!-- Icon Badge -->
 	<div class="anim-float-badge absolute z-[1] top-[45%] left-[25%]">
 		<span class="badge-icon variant-filled">
-			<i class="fa-solid fa-skull" />
+			<i class="fa-solid fa-skull"></i>
 		</span>
 	</div>
 	<!-- BG Circles -->
 	<div class="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] z-0">
 		<div class="w-96 aspect-square border-2 border-black/5 dark:border-white/5 rounded-full flex justify-center items-center">
-			<div class="w-[240px] aspect-square border-2 border-black/5 dark:border-white/5 rounded-full flex justify-center items-center" />
+			<div class="w-[240px] aspect-square border-2 border-black/5 dark:border-white/5 rounded-full flex justify-center items-center"></div>
 		</div>
 	</div>
 </div>

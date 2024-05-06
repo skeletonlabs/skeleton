@@ -52,6 +52,7 @@
 	href={$$props.href}
 	{...prunedRestProps()}
 	aria-controls={controls}
+	role="button"
 	on:click
 	on:keydown
 	on:keyup

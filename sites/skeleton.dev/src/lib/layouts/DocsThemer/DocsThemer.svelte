@@ -264,7 +264,7 @@ export const myCustomTheme: CustomThemeConfig = {
 								>
 									{conReports[i].contrastReport.report.note}
 									<!-- Arrow -->
-									<div class="arrow variant-filled" />
+									<div class="arrow variant-filled"></div>
 								</div>
 							</div>
 						</label>
