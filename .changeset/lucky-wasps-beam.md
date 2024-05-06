@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-fix: Changed Autocomplete's `input` prop type to `unknown`
+bugfix: Changed Autocomplete's `input` prop type to `unknown`
