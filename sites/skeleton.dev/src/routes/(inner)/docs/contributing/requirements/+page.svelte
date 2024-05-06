@@ -35,7 +35,7 @@
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
 		<li class="crumb"><a class="anchor" href="/docs/contributing">Contributing</a></li>
-		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+		<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 		<li>Requirements</li>
 	</ol>
 
@@ -51,7 +51,7 @@
 	<hr />
 
 	<aside class="alert variant-ghost-primary">
-		<i class="fa-solid fa-thumbs-up text-2xl" />
+		<i class="fa-solid fa-thumbs-up text-2xl"></i>
 		<div class="alert-message">Remember to be a team player, don't be a hero! Open source is best when we all work together!</div>
 	</aside>
 

@@ -44,26 +44,26 @@
 						<!-- Lead -->
 						<svelte:fragment slot="lead">
 							<AppRailAnchor href="#" on:click={logger}>
-								<i class="fa-solid fa-bars text-2xl" />
+								<i class="fa-solid fa-bars text-2xl"></i>
 							</AppRailAnchor>
 						</svelte:fragment>
 						<!-- Default -->
 						<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="tile-1">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl"></i></svelte:fragment>
 							<span>Tile 1</span>
 						</AppRailTile>
 						<AppRailTile bind:group={currentTile} name="tile-2" value={1} title="tile-2">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl"></i></svelte:fragment>
 							<span>Tile 2</span>
 						</AppRailTile>
 						<AppRailTile bind:group={currentTile} name="tile-3" value={2} title="tile-3">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl"></i></svelte:fragment>
 							<span>Tile 3</span>
 						</AppRailTile>
 						<!-- Trail -->
 						<svelte:fragment slot="trail">
 							<AppRailAnchor href="https://github.com/" target="_blank" title="GitHub">
-								<i class="fa-brands fa-github text-2xl" />
+								<i class="fa-brands fa-github text-2xl"></i>
 							</AppRailAnchor>
 						</svelte:fragment>
 					</AppRail>
@@ -119,10 +119,14 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="bg-surface-100-800-token overflow-hidden w-24">
-						<AppRailTile bind:group={currentTile} name="tile-4" value={4} hover="hover:bg-primary-hover-token" title="tile-1">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
-							<span>Tile</span>
-						</AppRailTile>
+						<AppRail width="w-auto">
+							<svelte:fragment slot="lead">
+								<AppRailTile bind:group={currentTile} name="tile-4" value={4} hover="hover:bg-primary-hover-token" title="tile-1">
+									<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl"></i></svelte:fragment>
+									<span>Tile</span>
+								</AppRailTile>
+							</svelte:fragment>
+						</AppRail>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -147,10 +151,12 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="bg-surface-100-800-token overflow-hidden w-24">
-						<AppRailAnchor href="/" target="_blank" title="Account" hover="hover:bg-primary-hover-token">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
-							<span>Anchor</span>
-						</AppRailAnchor>
+						<AppRail width="w-auto">
+							<AppRailAnchor href="/" target="_blank" title="Account" hover="hover:bg-primary-hover-token">
+								<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl"></i></svelte:fragment>
+								<span>Anchor</span>
+							</AppRailAnchor>
+						</AppRail>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

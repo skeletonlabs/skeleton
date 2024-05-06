@@ -1,6 +1,6 @@
 import type { LayoutServerLoad } from './$types';
-import { VERCEL_ENV } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 export const load: LayoutServerLoad = async () => {
-	return { vercelEnv: VERCEL_ENV };
+	return { vercelEnv: env.VERCEL_ENV };
 };

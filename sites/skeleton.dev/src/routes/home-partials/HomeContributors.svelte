@@ -19,10 +19,10 @@
 			<header class="variant-filled-secondary grid grid-cols-[1fr_auto_auto] gap-4 items-center p-4 md:p-8 md:py-8">
 				<a href="https://skeletonlabs.co/" target="_blank" rel="noreferrer"><DocsLogoLabs /></a>
 				<a class="btn-icon variant-filled" href="mailto:admin@skeleton.dev">
-					<i class="fa-solid fa-envelope" />
+					<i class="fa-solid fa-envelope"></i>
 				</a>
 				<a class="btn-icon variant-filled" href="https://skeletonlabs.co/" target="_blank" rel="noreferrer">
-					<i class="fa-solid fa-arrow-up-right-from-square" />
+					<i class="fa-solid fa-arrow-up-right-from-square"></i>
 				</a>
 			</header>
 			<section class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 md:p-10">

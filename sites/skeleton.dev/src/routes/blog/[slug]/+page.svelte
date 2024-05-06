@@ -44,7 +44,7 @@
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
 		<li class="crumb"><a class="anchor" href="/blog">Blog</a></li>
-		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+		<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 		<li>Article</li>
 	</ol>
 	<!-- Header -->

@@ -7,7 +7,7 @@
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
 		<li class="crumb"><a class="anchor" href="/docs/contributing">Contributing</a></li>
-		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+		<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 		<li>Documenting Pages</li>
 	</ol>
 

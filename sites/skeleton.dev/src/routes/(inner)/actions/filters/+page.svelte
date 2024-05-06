@@ -158,7 +158,7 @@ only utilize theme on this doc page.
 			</div>
 			<a class="btn variant-filled-secondary" href="https://fecolormatrix.com/" target="_blank" rel="noreferrer">
 				<span>Create a Filter</span>
-				<span><i class="fa-solid fa-up-right-from-square" /></span>
+				<span><i class="fa-solid fa-up-right-from-square"></i></span>
 			</a>
 		</section>
 		<hr />

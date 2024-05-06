@@ -26,8 +26,10 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 		return focusableElems
 			.filter((elem) => elem.tabIndex >= 0)
 			.sort((a, b) => {
-				if (a.tabIndex === 0 && b.tabIndex > 0) return 1; // Move 0 to end of array
-				else if (a.tabIndex > 0 && b.tabIndex === 0) return -1; // Move 0 to end of array
+				if (a.tabIndex === 0 && b.tabIndex > 0)
+					return 1; // Move 0 to end of array
+				else if (a.tabIndex > 0 && b.tabIndex === 0)
+					return -1; // Move 0 to end of array
 				else return a.tabIndex - b.tabIndex; // Sort non-zero values in ascending order
 			});
 	};

@@ -11,7 +11,7 @@
 	import { dynamicTransition } from '../../internal/transitions.js';
 
 	// Types
-	import type { StepperEventDispatcher, StepperState } from './types.js';
+	import type { StepperState } from './types.js';
 	import type { CssClasses, Transition, TransitionParams } from '../../index.js';
 	type TransitionIn = $$Generic<Transition>;
 	type TransitionOut = $$Generic<Transition>;

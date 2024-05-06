@@ -107,7 +107,7 @@
 				frameborder="0"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 				allowfullscreen
-			/>
+			></iframe>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Theme Flow</h2>

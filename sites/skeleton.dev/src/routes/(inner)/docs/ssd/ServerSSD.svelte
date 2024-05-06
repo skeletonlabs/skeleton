@@ -6,7 +6,7 @@
 	<!-- SSR -->
 	<section class="space-y-4">
 		<aside class="alert variant-ghost-warning">
-			<i class="fa-solid fa-triangle-exclamation text-4xl" />
+			<i class="fa-solid fa-triangle-exclamation text-4xl"></i>
 			<div class="alert-message" data-toc-ignore>
 				<p>
 					When using SvelteKit SSR, make sure to utilize <code class="code">@vincjo/datatables/remote</code>.
@@ -217,7 +217,7 @@ import Pagination from '$lib/components/Pagination.svelte';
 				href="https://github.com/skeletonlabs/skeleton-datatables-integration/tree/main/src/lib/components/server/Datatable.svelte"
 				target="_blank"
 			>
-				<i class="fa-brands fa-github" />
+				<i class="fa-brands fa-github"></i>
 				<span>Datatable</span>
 			</a>
 			<a
@@ -225,7 +225,7 @@ import Pagination from '$lib/components/Pagination.svelte';
 				href="https://github.com/skeletonlabs/skeleton-datatables-integration/tree/main/src/lib/components/server"
 				target="_blank"
 			>
-				<i class="fa-brands fa-github" />
+				<i class="fa-brands fa-github"></i>
 				<span>Accessories</span>
 			</a>
 		</div>

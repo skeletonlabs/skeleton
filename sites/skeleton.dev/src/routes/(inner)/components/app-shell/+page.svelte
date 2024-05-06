@@ -38,7 +38,7 @@
 	<svelte:fragment slot="sandbox">
 		<!-- Alert -->
 		<aside class="alert variant-ghost-error">
-			<i class="fa-solid fa-triangle-exclamation text-4xl" />
+			<i class="fa-solid fa-triangle-exclamation text-4xl"></i>
 			<div class="alert-message" data-toc-ignore>
 				<h3 class="h3" data-toc-ignore>Deprecated</h3>
 				<!-- prettier-ignore -->
@@ -221,7 +221,7 @@
 </AppShell>`}
 			/>
 			<aside class="alert variant-ghost-warning">
-				<i class="fa-solid fa-lightbulb text-2xl" />
+				<i class="fa-solid fa-lightbulb text-2xl"></i>
 				<div class="alert-message">Consider hiding your sidebar for smaller screens and replace it with a Drawer.</div>
 				<div class="alert-actions">
 					<a href="/blog/how-to-implement-a-responsive-sidebar-drawer" target="_blank" rel="noreferrer" class="btn variant-filled">

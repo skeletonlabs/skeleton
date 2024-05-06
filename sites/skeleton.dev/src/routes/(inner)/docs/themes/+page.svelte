@@ -215,7 +215,7 @@ body { background: red; }
 			<div>
 				<a class="btn variant-filled font-bold" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">
 					<span>Create a Mesh</span>
-					<i class="fa-solid fa-arrow-up-right-from-square" />
+					<i class="fa-solid fa-arrow-up-right-from-square"></i>
 				</a>
 			</div>
 		</div>
@@ -256,7 +256,7 @@ body {
 					<div class="card variant-glass p-4 flex justify-center items-center gap-2">
 						{#each activeFonts as f}
 							<a class="btn variant-filled-primary" href={f.url} target="_blank" rel="noreferrer">
-								<i class="fa-solid fa-download" />
+								<i class="fa-solid fa-download"></i>
 								<span>{f.name}</span>
 							</a>
 						{/each}
@@ -342,7 +342,7 @@ body {
 						{#each activeFonts as f}
 							<a class="btn variant-filled-primary" href={f.url} target="_blank" rel="noreferrer">
 								<span>{f.name}</span>
-								<i class="fa-solid fa-arrow-up-right-from-square" />
+								<i class="fa-solid fa-arrow-up-right-from-square"></i>
 							</a>
 						{/each}
 					</div>

@@ -30,9 +30,9 @@
 		<p>If you're looking for a quick start or reference project, please refer to our opinionated template on GitHub.</p>
 		<div class="card variant-glass p-4 py-10 text-center">
 			<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton-starter-tauri" target="_blank">
-				<i class="fa-brands fa-github" />
+				<i class="fa-brands fa-github"></i>
 				<span>View Starter Template</span>
-				<i class="fa-solid fa-up-right-from-square" />
+				<i class="fa-solid fa-up-right-from-square"></i>
 			</a>
 		</div>
 	</section>
@@ -44,7 +44,7 @@
 		<div class="card variant-glass p-4 py-10 text-center">
 			<a class="btn variant-filled" href="https://tauri.app/v1/guides/getting-started/prerequisites" target="_blank">
 				<span>Tauri Prerequisites Guide</span>
-				<i class="fa-solid fa-up-right-from-square" />
+				<i class="fa-solid fa-up-right-from-square"></i>
 			</a>
 		</div>
 	</section>
@@ -66,7 +66,7 @@
 			frameborder="0"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowfullscreen
-		/>
+		></iframe>
 	</section>
 
 	<section class="space-y-4">
@@ -215,7 +215,7 @@ export const prerender = true;
 		<dl class="list-dl">
 			<div>
 				<span class="badge-icon variant-soft-secondary p-4">
-					<i class="fa-solid fa-book" />
+					<i class="fa-solid fa-book"></i>
 				</span>
 				<span class="flex-auto">
 					<a class="anchor" href="https://tauri.app/v1/guides/development/development-cycle" target="_blank">
@@ -225,7 +225,7 @@ export const prerender = true;
 			</div>
 			<div>
 				<span class="badge-icon variant-soft-secondary p-4">
-					<i class="fa-solid fa-book" />
+					<i class="fa-solid fa-book"></i>
 				</span>
 				<span class="flex-auto">
 					<a class="anchor" href="https://doc.rust-lang.org/book/" target="_blank">The Rust Book &rarr;</a>

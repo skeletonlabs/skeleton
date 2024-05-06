@@ -17,7 +17,7 @@
 	<section class="space-y-4">
 		<div class="card variant-glass p-4 text-center space-y-4">
 			<span class="chip variant-soft">
-				<i class="fa-solid fa-right-left text-[16px]" />
+				<i class="fa-solid fa-right-left text-[16px]"></i>
 				<span>Transitions</span>
 			</span>
 			<p class="text-sm">Look for this indicator on each component page. If present, custom transitions are supported.</p>

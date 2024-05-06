@@ -31,21 +31,21 @@
 				<section class="card w-full">
 					<div class="card-header flex justify-between items-center">
 						<div class="flex justify-center items-center space-x-4" class:animate-pulse={animate}>
-							<div class="placeholder-circle w-16" />
-							<div class="placeholder-circle w-14" />
-							<div class="placeholder-circle w-10" />
+							<div class="placeholder-circle w-16"></div>
+							<div class="placeholder-circle w-14"></div>
+							<div class="placeholder-circle w-10"></div>
 						</div>
 					</div>
 					<div class="p-4 space-y-4" class:animate-pulse={animate}>
-						<div class="placeholder" />
+						<div class="placeholder"></div>
 						<div class="grid grid-cols-4 gap-4">
-							<div class="placeholder" />
-							<div class="placeholder" />
-							<div class="placeholder" />
-							<div class="placeholder" />
+							<div class="placeholder"></div>
+							<div class="placeholder"></div>
+							<div class="placeholder"></div>
+							<div class="placeholder"></div>
 						</div>
-						<div class="placeholder" />
-						<div class="placeholder" />
+						<div class="placeholder"></div>
+						<div class="placeholder"></div>
 					</div>
 				</section>
 			</svelte:fragment>
@@ -76,17 +76,17 @@
 				<svelte:fragment slot="preview">
 					<section class="card w-full">
 						<div class="p-4 space-y-4" class:animate-pulse={animate}>
-							<div class="placeholder" />
+							<div class="placeholder"></div>
 							<div class="grid grid-cols-3 gap-8">
-								<div class="placeholder" />
-								<div class="placeholder" />
-								<div class="placeholder" />
+								<div class="placeholder"></div>
+								<div class="placeholder"></div>
+								<div class="placeholder"></div>
 							</div>
 							<div class="grid grid-cols-4 gap-4">
-								<div class="placeholder" />
-								<div class="placeholder" />
-								<div class="placeholder" />
-								<div class="placeholder" />
+								<div class="placeholder"></div>
+								<div class="placeholder"></div>
+								<div class="placeholder"></div>
+								<div class="placeholder"></div>
 							</div>
 						</div>
 					</section>
@@ -122,7 +122,7 @@
 			<p>Apply the <code class="code">.placeholder-circle</code> class and set a width to define the diameter.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="placeholder-circle w-16" class:animate-pulse={animate} />
+					<div class="placeholder-circle w-16" class:animate-pulse={animate}></div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<div class="placeholder-circle w-16" />`} />

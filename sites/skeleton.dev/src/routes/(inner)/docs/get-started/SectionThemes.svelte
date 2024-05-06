@@ -27,7 +27,7 @@ plugins: [
 	<div class="space-y-4">
 		<nav class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			{#each themes.slice(1, themes.length) as preset}
-				<div
+				<button
 					class="card card-hover p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4"
 					style:background={preset.surface}
 					on:click={() => {
@@ -41,11 +41,11 @@ plugins: [
 						<span class="text-center font-bold">{preset.name}</span>
 						<ul class="flex justify-center items-center -space-x-1">
 							{#each preset.colors as color}
-								<li class="aspect-square w-3 xl:w-4 rounded-full" style:background={color} />
+								<li class="aspect-square w-3 xl:w-4 rounded-full" style:background={color}></li>
 							{/each}
 						</ul>
 					</div>
-				</div>
+				</button>
 			{/each}
 		</nav>
 		<p>

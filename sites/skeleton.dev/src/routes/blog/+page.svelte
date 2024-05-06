@@ -32,7 +32,7 @@
 		</div>
 		<!-- RSS Icon -->
 		<button class="btn-icon btn-icon-sm !bg-orange-500" on:click={copyRSSToClipboard} on:keypress>
-			<i class="fa-solid fa-square-rss text-xl" />
+			<i class="fa-solid fa-square-rss text-xl"></i>
 		</button>
 	</header>
 	<hr />
