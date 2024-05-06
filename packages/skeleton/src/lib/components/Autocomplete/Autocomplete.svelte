@@ -33,9 +33,9 @@
 	// Props
 	/**
 	 * Bind the input value.
-	 * @type {Value | undefined}
+	 * @type {string | undefined}
 	 */
-	export let input: Value | undefined = undefined;
+	export let input: string | undefined = undefined;
 	/**
 	 * Define values for the list.
 	 * @type {AutocompleteOption[]}
