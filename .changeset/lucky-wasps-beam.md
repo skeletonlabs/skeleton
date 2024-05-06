@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-Autocomplete.input now binds to a string instead of Value.
+fix: Changed Autocomplete's `input` prop type to `unknown`
