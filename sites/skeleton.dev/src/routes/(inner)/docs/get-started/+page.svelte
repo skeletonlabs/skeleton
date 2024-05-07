@@ -15,7 +15,7 @@
 			We recommend at least moderate experience with <a class="anchor" href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">Svelte</a>, <a class="anchor" href="https://learn.svelte.dev/tutorial/welcome-to-svelte" target="_blank" rel="noreferrer">SvelteKit</a>, and <a class="anchor" href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">Tailwind CSS</a> before you proceed.
 		</p>
 		<aside class="alert variant-ghost">
-			<i class="fa-solid fa-triangle-exclamation" />
+			<i class="fa-solid fa-triangle-exclamation"></i>
 			<p>Please be aware that Skeleton only supports <u>SvelteKit applications</u> at this time.</p>
 		</aside>
 	</header>

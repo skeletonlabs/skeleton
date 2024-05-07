@@ -55,28 +55,28 @@
 		<!-- Source -->
 		{#if pageData.source}
 			<a class={cChip} href={`${githubFeatureSourcePath}/${pageData.source}`} target="_blank" rel="noreferrer">
-				<i class="fa-brands fa-github text-[16px]" />
+				<i class="fa-brands fa-github text-[16px]"></i>
 				<span>Source</span>
 			</a>
 		{/if}
 		<!-- Doc Source -->
 		{#if pageData.docsPath}
 			<a class={cChip} href={`${githubPageSourcePath}/routes/(inner)${pageData.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">
-				<i class="fa-solid fa-code" />
+				<i class="fa-solid fa-code"></i>
 				<span>Page Source</span>
 			</a>
 		{/if}
 		<!-- WAI-ARIA -->
 		{#if pageData.aria}
 			<a class={cChip} href={pageData.aria} target="_blank" rel="noreferrer">
-				<i class="fa-solid fa-universal-access text-[16px]" />
+				<i class="fa-solid fa-universal-access text-[16px]"></i>
 				<span>WAI-ARIA</span>
 			</a>
 		{/if}
 		<!-- Transitions -->
 		{#if pageData.transitionIn || pageData.transitionOut}
 			<a class={cChip} href="/docs/transitions" title={`In: ${pageData.transitionIn}, Out: ${pageData.transitionOut}`}>
-				<i class="fa-solid fa-right-left text-[16px]" />
+				<i class="fa-solid fa-right-left text-[16px]"></i>
 				<span>Transitions</span>
 			</a>
 		{/if}
@@ -84,7 +84,7 @@
 		{#if pageData.dependencies?.length}
 			{#each pageData.dependencies as d}
 				<a class={cChip} href={d.url} target="_blank" rel="noreferrer" title="Required Dependency">
-					<i class="fa-solid fa-down-left-and-up-right-to-center text-[16px]" />
+					<i class="fa-solid fa-down-left-and-up-right-to-center text-[16px]"></i>
 					<span>{d.label}</span>
 				</a>
 			{/each}

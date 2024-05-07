@@ -132,7 +132,7 @@
 			<p>Apply the following styles using the <code class="code">border</code> and <code class="code">cursor</code> properties.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Avatar initials="SK" border={borderStyles} cursor="cursor-pointer"></Avatar>
+					<Avatar initials="SK" border={borderStyles} cursor="cursor-pointer" />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock

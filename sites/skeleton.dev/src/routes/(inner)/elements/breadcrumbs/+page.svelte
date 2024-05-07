@@ -31,9 +31,9 @@
 				<div class="card p-4 text-token flex justify-center">
 					<ol class="breadcrumb">
 						<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Skeleton</a></li>
-						<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+						<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 						<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Elements</a></li>
-						<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+						<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 						<li>Breadcrumbs</li>
 					</ol>
 				</div>
@@ -44,9 +44,9 @@
 					code={`
 <ol class="breadcrumb">
 	<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Skeleton</a></li>
-	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+	<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 	<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Elements</a></li>
-	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+	<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 	<li>Breadcrumbs</li>
 </ol>
 				`}
@@ -60,15 +60,15 @@
 		<section class="space-y-4">
 			<h2 class="h2">Separators</h2>
 			<!-- prettier-ignore -->
-			<p>Replace the contents of the <code class="code">.crumb-separator</code> element with an icon or any valid <a class="anchor" href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessibility, use <code class="code">aria-hidden</code> to hide this element from screen readers.</p>
+			<p>Replace the contents of the <code class="code">.crumb-separator</code> element with an icon or any valid <a class="anchor" href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessibility, use <code class="code">aria-hidden="true"</code> to hide this element from screen readers.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
 						<ol class="breadcrumb">
 							<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Home</a></li>
-							<li class="crumb-separator" aria-hidden>/</li>
+							<li class="crumb-separator" aria-hidden="true">/</li>
 							<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Blog</a></li>
-							<li class="crumb-separator" aria-hidden>/</li>
+							<li class="crumb-separator" aria-hidden="true">/</li>
 							<li>Article</li>
 						</ol>
 					</div>
@@ -96,10 +96,10 @@
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
 						<ol class="breadcrumb mt-1">
-							<li class="crumb"><a class="anchor" href="/elements/breadcrumbs"><i class="fa-solid fa-house text-xl" /></a></li>
-							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-							<li class="crumb"><a class="anchor" href="/elements/breadcrumbs"><i class="fa-solid fa-gear text-xl" /></a></li>
-							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+							<li class="crumb"><a class="anchor" href="/elements/breadcrumbs"><i class="fa-solid fa-house text-xl"></i></a></li>
+							<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
+							<li class="crumb"><a class="anchor" href="/elements/breadcrumbs"><i class="fa-solid fa-gear text-xl"></i></a></li>
+							<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 							<li>Current</li>
 						</ol>
 					</div>
@@ -110,9 +110,9 @@
 						code={`
 <ol class="breadcrumb mt-1">
 	<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">(icon)</a></li>
-	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+	<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 	<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">(icon)</a></li>
-	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+	<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 	<li>Current</li>
 </ol>
 					`}
@@ -128,11 +128,11 @@
 					<div class="flex justify-center">
 						<ol class="breadcrumb">
 							<li class="crumb"><a href="/elements/breadcrumbs" class="btn btn-sm variant-soft-primary">Users</a></li>
-							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+							<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 							<li class="crumb">
 								<a href="/elements/breadcrumbs"><Avatar src={getImageLink({ id: 'YOErFW8AfkI', w: 32, h: 32 })} width="w-8" /></a>
 							</li>
-							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+							<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 							<li>Profile</li>
 						</ol>
 					</div>
@@ -145,13 +145,13 @@
 	<li class="crumb">
 		<a href="/elements/breadcrumbs" class="btn btn-sm variant-soft-primary">Users</a>
 	</li>
-	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+	<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 	<li class="crumb">
 		<a href="/elements/breadcrumbs">
 			<Avatar src="${getImageLink({ id: 'YOErFW8AfkI', w: 32, h: 32 })}" width="w-8" />
 		</a>
 	</li>
-	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+	<li class="crumb-separator" aria-hidden="true">&rsaquo;</li>
 	<li>Profile</li>
 </ol>
 					`}

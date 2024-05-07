@@ -78,7 +78,7 @@
 			<div class="flex gap-6">
 				{#each socialLinks as sl}
 					<a class="opacity-75 hover:opacity-100" href={sl.href} target="_blank" rel="noreferrer" title={sl.title}>
-						<i class="fa-brands text-xl {sl.icon}" />
+						<i class="fa-brands text-xl {sl.icon}"></i>
 					</a>
 				{/each}
 			</div>

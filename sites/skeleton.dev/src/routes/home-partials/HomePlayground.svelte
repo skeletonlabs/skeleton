@@ -8,7 +8,7 @@
 		target="_blank"
 		rel="noreferrer"
 	>
-		<i class="fa-solid fa-bolt" />
+		<i class="fa-solid fa-bolt"></i>
 		<span>Open in StackBlitz</span>
 	</a>
 </div>

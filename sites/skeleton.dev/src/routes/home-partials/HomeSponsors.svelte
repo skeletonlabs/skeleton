@@ -21,7 +21,7 @@
 			<p class="font-bold">Premium Sponsor</p>
 			<p>Brain & Bones</p>
 			<!-- Arrow -->
-			<div class="arrow variant-filled-primary" />
+			<div class="arrow variant-filled-primary"></div>
 		</div>
 		<!-- Luke -->
 		<a href="https://lukehagar.com/" target="_blank" rel="noreferrer" use:popup={popupLukeHagar} class="max-h-[180px]">
@@ -31,7 +31,7 @@
 			<p class="font-bold">Premium Sponsor</p>
 			<p>Luke Hagar</p>
 			<!-- Arrow -->
-			<div class="arrow variant-filled-primary" />
+			<div class="arrow variant-filled-primary"></div>
 		</div>
 	</div>
 	<!-- Info -->

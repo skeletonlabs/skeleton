@@ -124,7 +124,7 @@
 						</div>
 						<a class="btn variant-soft w-full" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer"> View on Twitter </a>
 					</div>
-					<div class="arrow bg-surface-100-800-token" />
+					<div class="arrow bg-surface-100-800-token"></div>
 				</div>
 				<!-- --- -->
 			</svelte:fragment>
@@ -220,7 +220,7 @@ storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 					<button class="btn variant-filled" use:popup={popupClick}>Click</button>
 					<div class="card p-4 variant-filled-primary" data-popup="popupClick">
 						<p>Click Content</p>
-						<div class="arrow variant-filled-primary" />
+						<div class="arrow variant-filled-primary"></div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -256,12 +256,12 @@ const popupClick: PopupSettings = {
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupHover}>
-						<i class="fa-solid fa-skull" />
+						<i class="fa-solid fa-skull"></i>
 						<span>Hover</span>
 					</button>
 					<div class="card p-4 variant-filled-secondary" data-popup="popupHover">
 						<p>Hover Content</p>
-						<div class="arrow variant-filled-secondary" />
+						<div class="arrow variant-filled-secondary"></div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -304,7 +304,7 @@ const popupHover: PopupSettings = {
 						<input type="text" class="input" placeholder="Focus-Blur" use:popup={popupFocusBlur} />
 						<div class="card p-4 variant-filled" data-popup="popupFocusBlur">
 							<p>Shows on focus, hides on blur.</p>
-							<div class="arrow variant-filled" />
+							<div class="arrow variant-filled"></div>
 						</div>
 					</div>
 				</svelte:fragment>
@@ -344,7 +344,7 @@ const popupFocusBlur: PopupSettings = {
 						<input type="text" class="input" placeholder="Focus-Click" use:popup={popupFocusClick} />
 						<div class="card p-4 variant-filled" data-popup="popupFocusClick">
 							<p>Shows on focus, hides on an outside click.</p>
-							<div class="arrow variant-filled" />
+							<div class="arrow variant-filled"></div>
 						</div>
 					</div>
 				</svelte:fragment>
@@ -388,7 +388,7 @@ const popupFocusClick: PopupSettings = {
 					<button class="btn variant-filled" use:popup={popupPlacement}>Show Popup</button>
 					<div class="card p-4 variant-filled" data-popup="popupPlacement">
 						<p>Shown on the {currentPosition}</p>
-						<div class="arrow variant-filled" />
+						<div class="arrow variant-filled"></div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
@@ -427,7 +427,7 @@ const popupPlacement: PopupSettings = {
 							<button id="wont-close" class="btn variant-filled-error">#wont-close</button>
 							<button id="will-close" class="btn variant-filled-success">#will-close</button>
 						</div>
-						<div class="arrow bg-surface-100-800-token" />
+						<div class="arrow bg-surface-100-800-token"></div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -461,7 +461,7 @@ const popupCloseQuery: PopupSettings = {
 					<button class="btn variant-filled" use:popup={popupState}>Show Popup</button>
 					<div class="card p-4" data-popup="popupState">
 						<p>Check your console log to view the value.</p>
-						<div class="arrow bg-surface-100-800-token" />
+						<div class="arrow bg-surface-100-800-token"></div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -486,7 +486,7 @@ const popupState: PopupSettings = {
 					<button class="btn variant-filled" use:popup={popupMiddleware}>Show Popup</button>
 					<div class="card p-4" data-popup="popupMiddleware">
 						<p>This popup has an offset of 24 px.</p>
-						<div class="arrow bg-surface-100-800-token" />
+						<div class="arrow bg-surface-100-800-token"></div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -585,7 +585,7 @@ const popupState: PopupSettings = {
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled w-48 justify-between" use:popup={popupCombobox}>
 						<span class="capitalize">{comboboxValue ?? 'Trigger'}</span>
-						<i class="fa-solid fa-caret-down opacity-50" />
+						<i class="fa-solid fa-caret-down opacity-50"></i>
 					</button>
 					<div class="card w-48 shadow-xl py-2 overflow-hidden" data-popup="popupCombobox">
 						<ListBox rounded="rounded-none">
@@ -593,7 +593,7 @@ const popupState: PopupSettings = {
 							<ListBoxItem bind:group={comboboxValue} name="medium" value="movies">Movies</ListBoxItem>
 							<ListBoxItem bind:group={comboboxValue} name="medium" value="television">TV</ListBoxItem>
 						</ListBox>
-						<div class="arrow bg-surface-100-800-token" />
+						<div class="arrow bg-surface-100-800-token"></div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

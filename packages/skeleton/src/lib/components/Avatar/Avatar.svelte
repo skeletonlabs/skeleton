@@ -51,9 +51,7 @@
 	}
 </script>
 
-<!-- FIXME: resolve a11y warnings -->
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<figure class="avatar {classesBase}" data-testid="avatar" {...prunedRestProps()} on:click on:keydown on:keyup on:keypress>
+<figure class="avatar {classesBase}" data-testid="avatar" {...prunedRestProps()}>
 	{#if src || fallback}
 		<img
 			class="avatar-image {cImage}"

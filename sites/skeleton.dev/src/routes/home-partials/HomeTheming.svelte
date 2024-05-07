@@ -96,19 +96,19 @@
 			class="max-w-[640px] mx-auto"
 		>
 			<Tab bind:group={theme} name="theme" value="simple" class="space-y-4 w-24">
-				<svelte:fragment slot="lead"><i class="fa-solid fa-square text-2xl" /></svelte:fragment>
+				<svelte:fragment slot="lead"><i class="fa-solid fa-square text-2xl"></i></svelte:fragment>
 				Simple
 			</Tab>
 			<Tab bind:group={theme} name="theme" value="elegant" class="space-y-4 w-24">
-				<svelte:fragment slot="lead"><i class="fa-solid fa-certificate text-2xl" /></svelte:fragment>
+				<svelte:fragment slot="lead"><i class="fa-solid fa-certificate text-2xl"></i></svelte:fragment>
 				Elegant
 			</Tab>
 			<Tab bind:group={theme} name="theme" value="playful" class="space-y-4 w-24">
-				<svelte:fragment slot="lead"><i class="fa-solid fa-shapes text-2xl" /></svelte:fragment>
+				<svelte:fragment slot="lead"><i class="fa-solid fa-shapes text-2xl"></i></svelte:fragment>
 				Playful
 			</Tab>
 			<Tab bind:group={theme} name="theme" value="brutalist" class="space-y-4 w-24">
-				<svelte:fragment slot="lead"><i class="fa-solid fa-diamond text-2xl" /></svelte:fragment>
+				<svelte:fragment slot="lead"><i class="fa-solid fa-diamond text-2xl"></i></svelte:fragment>
 				Brutalist
 			</Tab>
 		</TabGroup>
@@ -132,11 +132,11 @@
 				rounded="rounded-none"
 			/>
 			<footer class={themeStyles[theme].footer}>
-				<button class={themeStyles[theme].button}><i class="fa-solid fa-shuffle text-2xl" /></button>
-				<button class={themeStyles[theme].button}><i class="fa-solid fa-backward-fast text-2xl" /></button>
-				<button class={themeStyles[theme].button}><i class="fa-solid fa-pause text-2xl" /></button>
-				<button class={themeStyles[theme].button}><i class="fa-solid fa-forward-fast text-2xl" /></button>
-				<button class={themeStyles[theme].button}><i class="fa-solid fa-heart text-2xl" /></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-shuffle text-2xl"></i></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-backward-fast text-2xl"></i></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-pause text-2xl"></i></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-forward-fast text-2xl"></i></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-heart text-2xl"></i></button>
 			</footer>
 		</div>
 	</div>

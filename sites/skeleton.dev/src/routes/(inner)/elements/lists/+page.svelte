@@ -117,7 +117,7 @@
 						<dl class="list-dl">
 							{#each listData as v}
 								<div>
-									<span class="badge-icon p-4 variant-soft-secondary"><i class="fa-solid fa-book" /></span>
+									<span class="badge-icon p-4 variant-soft-secondary"><i class="fa-solid fa-book"></i></span>
 									<span class="flex-auto">
 										<dt class="font-bold">Item {v.label}</dt>
 										<dd class="text-sm opacity-50">Description for {v.label}</dd>
@@ -162,7 +162,7 @@
 								{#each listData as v}
 									<li>
 										<a href="/elements/lists">
-											<span class="badge-icon p-4 variant-soft-tertiary"><i class="fa-solid fa-arrow-right" /></span>
+											<span class="badge-icon p-4 variant-soft-tertiary"><i class="fa-solid fa-arrow-right"></i></span>
 											<span class="flex-auto">
 												Nav Item {v.label}
 											</span>
@@ -195,7 +195,10 @@
 				</svelte:fragment>
 			</DocsPreview>
 			<p>To highlight active state, we recommend conditionally applying a background color to the anchor tag.</p>
-			<CodeBlock language="ts" code={`$: classesActive = (href: string) => (href === $page.url.pathname ? '!variant-filled-primary' : '');`} />
+			<CodeBlock
+				language="ts"
+				code={`$: classesActive = (href: string) => (href === $page.url.pathname ? '!variant-filled-primary' : '');`}
+			/>
 			<CodeBlock language="html" code={`<a href={href} class="{classesActive(href)}">Page</a>`} />
 		</section>
 	</svelte:fragment>

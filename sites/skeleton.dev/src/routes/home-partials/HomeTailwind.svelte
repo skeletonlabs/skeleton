@@ -32,15 +32,15 @@
 							<!-- prettier-ignore -->
 							<div class="flex justify-center space-x-2">
 								<span class="chip variant-soft hover:variant-filled">
-									<i class="fa-solid fa-heart" />
+									<i class="fa-solid fa-heart"></i>
 									<span>Like</span>
 								</span>
 								<span class="chip variant-soft hover:variant-filled">
-									<i class="fa-solid fa-paperclip" />
+									<i class="fa-solid fa-paperclip"></i>
 									<span>Save</span>
 								</span>
 								<span class="chip variant-soft hover:variant-filled">
-									<i class="fa-solid fa-share" />
+									<i class="fa-solid fa-share"></i>
 									<span>Share</span>
 								</span>
 							</div>

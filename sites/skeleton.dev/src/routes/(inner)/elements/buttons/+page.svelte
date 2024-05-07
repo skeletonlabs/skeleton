@@ -34,11 +34,11 @@
 			<svelte:fragment slot="preview">
 				<div class="flex gap-4">
 					<button type="button" class="btn-icon {currentVariant}">
-						<i class="fa-solid fa-skull" />
+						<i class="fa-solid fa-skull"></i>
 					</button>
 					<button type="button" class="btn {currentVariant}">Button</button>
 					<button type="button" class="btn {currentVariant}">
-						<i class="fa-solid fa-skull" />
+						<i class="fa-solid fa-skull"></i>
 						<span>Button</span>
 					</button>
 				</div>
@@ -109,16 +109,16 @@
 						<hr />
 						<div class="flex justify-center items-center gap-4">
 							<button type="button" class="btn-icon btn-icon-sm variant-filled">
-								<i class="fa-solid fa-skull" />
+								<i class="fa-solid fa-skull"></i>
 							</button>
 							<button type="button" class="btn-icon variant-filled">
-								<i class="fa-solid fa-skull" />
+								<i class="fa-solid fa-skull"></i>
 							</button>
 							<button type="button" class="btn-icon btn-icon-lg variant-filled">
-								<i class="fa-solid fa-skull" />
+								<i class="fa-solid fa-skull"></i>
 							</button>
 							<button type="button" class="btn-icon btn-icon-xl variant-filled">
-								<i class="fa-solid fa-skull" />
+								<i class="fa-solid fa-skull"></i>
 							</button>
 						</div>
 					</div>

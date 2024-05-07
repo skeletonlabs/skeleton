@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { Writable } from 'svelte/store';
-
 	// Preview Components
 	import { ProgressBar, SlideToggle } from '@skeletonlabs/skeleton';
 	// Components
@@ -197,11 +196,11 @@ export const myCustomTheme: CustomThemeConfig = {
 }`;
 	}
 
-	$: livePreviewStylesheet = $storePreview ? `\<style\>${cssOutput}\</style\>` : '';
+	$: livePreviewStylesheet = $storePreview ? cssOutput : '';
 </script>
 
 <!-- Live Preview of Generated Theme -->
-<svelte:head>{@html livePreviewStylesheet}</svelte:head>
+<svelte:head>{@html `\<style\>${livePreviewStylesheet}\</style\>`}</svelte:head>
 
 <div class="docs-themer space-y-4">
 	<div class="card variant-glass p-4 flex justify-between items-center">
@@ -265,7 +264,7 @@ export const myCustomTheme: CustomThemeConfig = {
 								>
 									{conReports[i].contrastReport.report.note}
 									<!-- Arrow -->
-									<div class="arrow variant-filled" />
+									<div class="arrow variant-filled"></div>
 								</div>
 							</div>
 						</label>

@@ -40,14 +40,14 @@
 			<svelte:fragment slot="preview">
 				<!-- Primary -->
 				<aside class="alert {currentVariant}">
-					<i class="fa-solid fa-triangle-exclamation text-4xl" />
+					<i class="fa-solid fa-triangle-exclamation text-4xl"></i>
 					<div class="alert-message" data-toc-ignore>
 						<h3 class="h3" data-toc-ignore>Warning</h3>
 						<p>{message}</p>
 					</div>
 					<div class="alert-actions">
 						<button class="btn variant-filled" on:click={triggerAction}>Action</button>
-						<button class="btn-icon variant-filled"><i class="fa-solid fa-xmark" /></button>
+						<button class="btn-icon variant-filled"><i class="fa-solid fa-xmark"></i></button>
 					</div>
 				</aside>
 			</svelte:fragment>
@@ -110,7 +110,7 @@
 			<h2 class="h2">Animation</h2>
 			<!-- prettier-ignore -->
 			<p><a class="anchor" href="https://svelte.dev/tutorial/transition" target="_blank" rel="noreferrer">Svelte Transitions</a> can provide smooth transition animations when the alert state changes.</p>
-			<CodeBlock language="html" code={`<aside class="alert" transition:fade|local={{ duration: 200 }}>(content)</aside>`} />
+			<CodeBlock language="html" code={`<aside class="alert" transition:fade={{ duration: 200 }}>(content)</aside>`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

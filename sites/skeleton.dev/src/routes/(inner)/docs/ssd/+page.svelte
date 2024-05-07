@@ -69,9 +69,9 @@
 		<p>If you're looking for a quick start or reference project, please refer to our opinionated template on GitHub.</p>
 		<div class="card variant-glass p-4 py-10 text-center">
 			<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton-datatables-integration" target="_blank">
-				<i class="fa-brands fa-github" />
+				<i class="fa-brands fa-github"></i>
 				<span>View Starter Template</span>
-				<i class="fa-solid fa-up-right-from-square" />
+				<i class="fa-solid fa-up-right-from-square"></i>
 			</a>
 		</div>
 	</section>
@@ -112,7 +112,7 @@ src
 
 		<dl class="list-dl">
 			<div>
-				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code" /></span>
+				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code"></i></span>
 				<span class="flex-auto">
 					<dt><code class="code">/lib/data</code></dt>
 					<dd>
@@ -122,14 +122,14 @@ src
 				</span>
 			</div>
 			<div>
-				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code" /></span>
+				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code"></i></span>
 				<span class="flex-auto">
 					<dt><code class="code">/lib/components</code></dt>
 					<dd>All of the files in this directory will be used for accessory components.</dd>
 				</span>
 			</div>
 			<div>
-				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code" /></span>
+				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code"></i></span>
 				<span class="flex-auto">
 					<dt><code class="code">/routes/Datatable.svelte</code></dt>
 					<dd>
@@ -140,7 +140,7 @@ src
 				</span>
 			</div>
 			<div>
-				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code" /></span>
+				<span class="badge-icon p-4 variant-soft-primary"><i class="fa-solid fa-code"></i></span>
 				<span class="flex-auto">
 					<dt><code class="code">/routes/+page.svelte</code></dt>
 					<dd>

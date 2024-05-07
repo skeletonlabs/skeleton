@@ -134,7 +134,7 @@ import Pagination from '$lib/components/Pagination.svelte';
 				href="https://github.com/skeletonlabs/skeleton-datatables-integration/tree/main/src/lib/components/client/Datatable.svelte"
 				target="_blank"
 			>
-				<i class="fa-brands fa-github" />
+				<i class="fa-brands fa-github"></i>
 				<span>Datatable</span>
 			</a>
 			<a
@@ -142,7 +142,7 @@ import Pagination from '$lib/components/Pagination.svelte';
 				href="https://github.com/skeletonlabs/skeleton-datatables-integration/tree/main/src/lib/components/client"
 				target="_blank"
 			>
-				<i class="fa-brands fa-github" />
+				<i class="fa-brands fa-github"></i>
 				<span>Accessories</span>
 			</a>
 		</div>

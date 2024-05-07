@@ -113,7 +113,7 @@
 		/>
 		<!-- Slider Track/Thumb -->
 		<div class="slide-toggle-track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
-			<div class="slide-toggle-thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled} />
+			<div class="slide-toggle-thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled}></div>
 		</div>
 		<!-- Label -->
 		{#if $$slots.default}<div class="slide-toggle-text ml-3"><slot /></div>{/if}
