@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-Chore: resolved various accessibility warnings.
+Chore: resolved various accessibility issues and warnings.
