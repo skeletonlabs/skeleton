@@ -3,7 +3,7 @@
 
 	// Event Dispatcher
 	type CodeBlockEvent = {
-		copy: never;
+		copy: unknown;
 	};
 	const dispatch = createEventDispatcher<CodeBlockEvent>();
 
