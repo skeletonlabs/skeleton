@@ -1,5 +1,15 @@
 # @skeletonlabs/skeleton
 
+## 2.10.0
+
+### Minor Changes
+
+- Chore: resolved various accessibility issues and warnings. ([#2643](https://github.com/skeletonlabs/skeleton/pull/2643))
+
+### Patch Changes
+
+- bugfix: Changed Autocomplete's `input` prop type to `unknown` ([#2648](https://github.com/skeletonlabs/skeleton/pull/2648))
+
 ## 2.9.2
 
 ### Patch Changes
