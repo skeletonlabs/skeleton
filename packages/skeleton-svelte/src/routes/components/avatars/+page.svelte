@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import Skull from 'lucide-svelte/icons/skull';
 
 	const imgSrc =
 		'https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop';
@@ -42,7 +43,7 @@
 
 <!-- Icon -->
 <h3 class="h3">Icon</h3>
-<Avatar classes="flex justify-center items-center h-16">💀</Avatar>
+<Avatar classes="flex justify-center items-center h-16"><Skull size={48} /></Avatar>
 
 <!-- filter -->
 <h3 class="h3">Filter</h3>

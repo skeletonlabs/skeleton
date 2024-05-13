@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { Tabs } from '$lib/index.js';
+	import Plane from 'lucide-svelte/icons/plane';
+	import Hotel from 'lucide-svelte/icons/hotel';
+	import Box from 'lucide-svelte/icons/box';
 
 	let group = $state('flight');
 
@@ -42,15 +45,15 @@
 		<Tabs>
 			{#snippet list()}
 				<Tabs.Control bind:group name="flight" title="flight">
-					{@html icons.flight}
+					<Plane size={20} />
 					<span>Flight</span>
 				</Tabs.Control>
 				<Tabs.Control bind:group name="hotel" title="hotel">
-					{@html icons.hotel}
+					<Hotel size={20} />
 					<span>Hotel</span>
 				</Tabs.Control>
 				<Tabs.Control bind:group name="explore" title="explore">
-					{@html icons.cube}
+					<Box size={20} />
 					<span>Explore</span>
 				</Tabs.Control>
 			{/snippet}
@@ -67,13 +70,13 @@
 		<Tabs>
 			{#snippet list()}
 				<Tabs.Control bind:group name="flight" title="flight">
-					{@html icons.flight}
+					<Plane size={20} />
 				</Tabs.Control>
 				<Tabs.Control bind:group name="hotel" title="hotel">
-					{@html icons.hotel}
+					<Hotel size={20} />
 				</Tabs.Control>
 				<Tabs.Control bind:group name="explore" title="explore">
-					{@html icons.cube}
+					<Box size={20} />
 				</Tabs.Control>
 			{/snippet}
 			{#snippet panels()}

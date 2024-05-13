@@ -24,36 +24,36 @@
 
 	let hoverValue = $state(0);
 	let hovering = $state(false);
+	let lastSelectedFraction = $state(1);
 
 	function onRatingClick(event: Event, order: number) {
-		let selectedFraction = 1;
 		// handling mouse
-		if (event instanceof MouseEvent) {
+		if (event instanceof PointerEvent) {
 			const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+			console.log(event);
 			const fractionWidth = ratingRect.width / fraction;
 			const left = event.clientX - ratingRect.left;
-			selectedFraction = Math.floor(left / fractionWidth) + 1;
+			lastSelectedFraction = Math.floor(left / fractionWidth) + 1;
 		}
 		// handling keyboard
 		else {
 		}
-		value = order + selectedFraction / fraction;
+		value = order + lastSelectedFraction / fraction;
 	}
 
 	function onRatingHover(event: Event, order: number) {
-		let selectedFraction = 1;
 		// handling mouse
 		if (event instanceof MouseEvent) {
 			const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
 			const fractionWidth = ratingRect.width / fraction;
 			const left = event.clientX - ratingRect.left;
-			selectedFraction = Math.floor(left / fractionWidth) + 1;
+			lastSelectedFraction = Math.floor(left / fractionWidth) + 1;
 		}
 		// handling keyboard
 		else {
 		}
 		hovering = true;
-		hoverValue = order + selectedFraction / fraction;
+		hoverValue = order + lastSelectedFraction / fraction;
 	}
 
 	function onRatingLeave() {
@@ -68,14 +68,18 @@
 			class="relative h-full w-full"
 			onclick={(event) => onRatingClick(event, order)}
 			onmousemove={(event) => onRatingHover(event, order)}
+			onmousedown={(event) => onRatingHover(event, order)}
 			onfocus={(event) => onRatingHover(event, order)}
 		>
-			<div class="clip-left absolute left-0 top-0 w-full" style="--clip_value: {percentage * 100}%">
+			<div class="clip-left absolute left-0 top-0 flex h-full w-full items-center justify-center" style="--clip_value: {percentage * 100}%">
 				{#if emptyIcon}
 					{@render emptyIcon()}
 				{/if}
 			</div>
-			<div class="clip-right absolute left-0 top-0 w-full" style="--clip_value: {100 - percentage * 100}%">
+			<div
+				class="clip-right absolute left-0 top-0 flex h-full w-full items-center justify-center"
+				style="--clip_value: {100 - percentage * 100}%"
+			>
 				{#if fullIcon}
 					{@render fullIcon()}
 				{/if}
@@ -83,12 +87,12 @@
 		</button>
 	{:else}
 		<div class="relative">
-			<div class="clip-left absolute left-0 top-0 w-full" style="--clip_value: {percentage * 100}%">
+			<div class="clip-left absolute left-0 top-0 w-fit" style="--clip_value: {percentage * 100}%">
 				{#if emptyIcon}
 					{@render emptyIcon()}
 				{/if}
 			</div>
-			<div class="clip-right absolute left-0 top-0 w-full" style="--clip_value: {100 - percentage * 100}%">
+			<div class="clip-right absolute left-0 top-0 w-fit" style="--clip_value: {100 - percentage * 100}%">
 				{#if fullIcon}
 					{@render fullIcon()}
 				{/if}

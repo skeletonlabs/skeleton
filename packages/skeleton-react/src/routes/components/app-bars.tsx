@@ -1,11 +1,12 @@
 import { AppBar, ToolBar } from "../../components/AppBar/AppBar";
+import { Skull } from 'lucide-react';
 
 function appbar() {
     return(
         <AppBar>
             <AppBar.Toolbar>
                 <ToolBar.Lead>
-                    <span>💀</span>
+                    <span><Skull size={22}/></span>
                     <span>Skeleton</span>
                 </ToolBar.Lead>
                 <ToolBar.Center>
@@ -13,7 +14,7 @@ function appbar() {
                 </ToolBar.Center>
                 <ToolBar.Trail>
                     <span>Skeleton</span>
-                    <span>💀</span>
+                    <span><Skull size={22}/></span>
                 </ToolBar.Trail>
             </AppBar.Toolbar>
         </AppBar>   
@@ -27,12 +28,12 @@ function appbarHeadline() {
         <AppBar>
             <AppBar.Toolbar>
                 <ToolBar.Lead>
-                    <span>💀</span>
+                    <span><Skull size={22}/></span>
                     <span>Skeleton</span>
                 </ToolBar.Lead>
                 <ToolBar.Trail>
                     <span>Skeleton</span>
-                    <span>💀</span>
+                    <span><Skull size={22}/></span>
                 </ToolBar.Trail>
             </AppBar.Toolbar>
             <AppBar.Headline base="text-center">
@@ -51,7 +52,7 @@ function appbarSticky() {
             <AppBar classes="sticky top-0">
                 <AppBar.Toolbar>
                     <ToolBar.Lead>
-                        <span>💀</span>
+                        <span><Skull size={22}/></span>
                         <span>Skeleton</span>
                     </ToolBar.Lead>
                     <ToolBar.Center>
@@ -59,7 +60,7 @@ function appbarSticky() {
                     </ToolBar.Center>
                     <ToolBar.Trail>
                         <span>Skeleton</span>
-                        <span>💀</span>
+                        <span><Skull size={22}/></span>
                     </ToolBar.Trail>
                 </AppBar.Toolbar>
             </AppBar>   
@@ -93,7 +94,7 @@ function appbarA11YKeyboard() {
         <AppBar>
             <AppBar.Toolbar>
                 <ToolBar.Lead>
-                    <button type="button" className="btn-icon preset-filled-primary-500">💀</button>
+                    <button type="button" className="btn-icon preset-filled-primary-500"><Skull size={22}/></button>
                     <button type="button" className="btn preset-filled">Skeleton</button>
                 </ToolBar.Lead>
                 <ToolBar.Center>
@@ -101,7 +102,7 @@ function appbarA11YKeyboard() {
                 </ToolBar.Center>
                 <ToolBar.Trail>
                     <button type="button" className="btn preset-filled">Skeleton</button>
-                    <button type="button" className="btn-icon preset-filled-primary-500">💀</button>
+                    <button type="button" className="btn-icon preset-filled-primary-500"><Skull size={22}/></button>
                 </ToolBar.Trail>
             </AppBar.Toolbar>
         </AppBar>  
@@ -118,7 +119,7 @@ function appbarRTL() {
             <AppBar>
                 <AppBar.Toolbar>
                     <ToolBar.Lead>
-                        <button type="button" className="btn-icon preset-filled-primary-500">💀</button>
+                        <button type="button" className="btn-icon preset-filled-primary-500"><Skull size={22}/></button>
                         <button type="button" className="btn preset-filled">lead</button>
                     </ToolBar.Lead>
                     <ToolBar.Center>
@@ -126,7 +127,7 @@ function appbarRTL() {
                     </ToolBar.Center>
                     <ToolBar.Trail>
                         <button type="button" className="btn preset-filled">trail</button>
-                        <button type="button" className="btn-icon preset-filled-primary-500">💀</button>
+                        <button type="button" className="btn-icon preset-filled-primary-500"><Skull size={22}/></button>
                     </ToolBar.Trail>
                 </AppBar.Toolbar>
                 <AppBar.Headline>
