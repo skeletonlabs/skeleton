@@ -15,15 +15,28 @@ function prefersReducedMotion() {
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
  */
 export const prefersReducedMotionStore = readable(prefersReducedMotion(), (set) => {
-	if (BROWSER) {
-		const setReducedMotion = (event: MediaQueryListEvent) => {
-			set(event.matches);
-		};
-		const mediaQueryList = window.matchMedia(reducedMotionQuery);
-		mediaQueryList.addEventListener('change', setReducedMotion);
-
-		return () => {
-			mediaQueryList.removeEventListener('change', setReducedMotion);
-		};
+	if (!BROWSER) {
+		return;
 	}
+
+	const setReducedMotion = (event: MediaQueryListEvent) => {
+		set(event.matches);
+	};
+	const mediaQueryList = window.matchMedia(reducedMotionQuery);
+
+	if (mediaQueryList?.addEventListener) {
+		mediaQueryList.addEventListener('change', setReducedMotion);
+	} else if (mediaQueryList?.addListener) {
+		// https://github.com/skeletonlabs/skeleton/issues/2656
+		mediaQueryList.addListener(setReducedMotion);
+	}
+
+	return () => {
+		if (mediaQueryList?.removeEventListener) {
+			mediaQueryList.removeEventListener('change', setReducedMotion);
+		} else if (mediaQueryList?.removeListener) {
+			// https://github.com/skeletonlabs/skeleton/issues/2656
+			mediaQueryList.removeListener(setReducedMotion);
+		}
+	};
 });
