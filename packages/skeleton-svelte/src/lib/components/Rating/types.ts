@@ -27,6 +27,8 @@ export interface RatingProps {
 	// Item ---
 	/** Sets the item base styles. */
 	itemBase?: string;
+	/** Sets the item position styles. */
+	itemPosition?: string;
 	/** Sets the item aspect ratio styles. */
 	itemAspect?: string;
 	/** Provide arbitrary CSS classes to the rating item. */
@@ -34,7 +36,7 @@ export interface RatingProps {
 
 	// Snippets ---
 	/** The empty icon slot. */
-	emptyIcon?: Snippet;
+	iconEmpty?: Snippet;
 	/** The full icon slot. */
-	fullIcon?: Snippet;
+	iconFull?: Snippet;
 }

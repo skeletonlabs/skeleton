@@ -4,7 +4,7 @@
 	import Skull from 'lucide-svelte/icons/skull';
 	import Bone from 'lucide-svelte/icons/bone';
 
-	let interractiveValue = $state(3);
+	let interactiveValue = $state(3);
 </script>
 
 <div class="space-y-10">
@@ -17,10 +17,10 @@
 		<div class="flex items-center gap-8">
 			<div class="w-48">
 				<Rating value={5}>
-					{#snippet fullIcon()}
+					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
-					{#snippet emptyIcon()}
+					{#snippet iconEmpty()}
 						<Star size={24} />
 					{/snippet}
 				</Rating>
@@ -30,10 +30,10 @@
 		<div class="flex items-center gap-8">
 			<div class="w-48">
 				<Rating value={0}>
-					{#snippet fullIcon()}
+					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
-					{#snippet emptyIcon()}
+					{#snippet iconEmpty()}
 						<Star size={24} />
 					{/snippet}
 				</Rating>
@@ -43,10 +43,10 @@
 		<div class="flex items-center gap-8">
 			<div class="w-48">
 				<Rating value={2.5}>
-					{#snippet fullIcon()}
+					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
-					{#snippet emptyIcon()}
+					{#snippet iconEmpty()}
 						<Star size={24} />
 					{/snippet}
 				</Rating>
@@ -56,10 +56,10 @@
 		<div class="flex items-center gap-8">
 			<div class="w-48">
 				<Rating value={3.75}>
-					{#snippet fullIcon()}
+					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
-					{#snippet emptyIcon()}
+					{#snippet iconEmpty()}
 						<Star size={24} />
 					{/snippet}
 				</Rating>
@@ -69,10 +69,10 @@
 		<div class="flex items-center gap-8">
 			<div class="w-48">
 				<Rating value={1.25}>
-					{#snippet fullIcon()}
+					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
-					{#snippet emptyIcon()}
+					{#snippet iconEmpty()}
 						<Star size={24} />
 					{/snippet}
 				</Rating>
@@ -85,33 +85,33 @@
 		<h2 class="h2">Different Icons</h2>
 		<div class="flex items-center gap-8">
 			<div class="w-48">
-				<Rating bind:value={interractiveValue} interactive>
-					{#snippet fullIcon()}
+				<Rating bind:value={interactiveValue} interactive>
+					{#snippet iconFull()}
 						<Skull size={24} />
 					{/snippet}
-					{#snippet emptyIcon()}
+					{#snippet iconEmpty()}
 						<Bone size={24} />
 					{/snippet}
 				</Rating>
 			</div>
-			<h3 class="h3">{interractiveValue.toFixed(2)}</h3>
+			<h3 class="h3">{interactiveValue.toFixed(2)}</h3>
 		</div>
 	</section>
 
 	<section class="space-y-4">
-		<h2 class="h2">Interractive</h2>
+		<h2 class="h2">interactive</h2>
 		<div class="flex items-center gap-8">
 			<div class="w-48">
-				<Rating bind:value={interractiveValue} interactive>
-					{#snippet fullIcon()}
+				<Rating bind:value={interactiveValue} interactive>
+					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
-					{#snippet emptyIcon()}
+					{#snippet iconEmpty()}
 						<Star size={24} />
 					{/snippet}
 				</Rating>
 			</div>
-			<h3 class="h3">{interractiveValue.toFixed(2)}</h3>
+			<h3 class="h3">{interactiveValue.toFixed(2)}</h3>
 		</div>
 	</section>
 
@@ -119,29 +119,29 @@
 		<h2 class="h2">Fractions</h2>
 		<div class="flex items-center gap-8">
 			<div class="w-48">
-				<Rating bind:value={interractiveValue} interactive fraction={2}>
-					{#snippet fullIcon()}
+				<Rating bind:value={interactiveValue} interactive fraction={2}>
+					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
-					{#snippet emptyIcon()}
+					{#snippet iconEmpty()}
 						<Star size={24} />
 					{/snippet}
 				</Rating>
 			</div>
-			<h3 class="h3">{interractiveValue.toFixed(2)}</h3>
+			<h3 class="h3">{interactiveValue.toFixed(2)}</h3>
 		</div>
 		<div class="flex items-center gap-8">
 			<div class="w-48">
-				<Rating bind:value={interractiveValue} interactive fraction={3}>
-					{#snippet fullIcon()}
+				<Rating bind:value={interactiveValue} interactive fraction={3}>
+					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
-					{#snippet emptyIcon()}
+					{#snippet iconEmpty()}
 						<Star size={24} />
 					{/snippet}
 				</Rating>
 			</div>
-			<h3 class="h3">{interractiveValue.toFixed(2)}</h3>
+			<h3 class="h3">{interactiveValue.toFixed(2)}</h3>
 		</div>
 	</section>
 </div>
