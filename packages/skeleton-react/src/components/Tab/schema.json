@@ -1,0 +1,305 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Iterable<React.ReactNode>": {
+            "type": "object"
+        },
+        "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+            "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "description": "The type of the component or tag",
+                    "type": [
+                        "string",
+                        "object"
+                    ]
+                }
+            },
+            "required": [
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        },
+        "React.ReactNode": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+                },
+                {
+                    "$ref": "#/definitions/Iterable<React.ReactNode>"
+                },
+                {
+                    "$ref": "#/definitions/React.ReactPortal"
+                },
+                {
+                    "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                    ]
+                }
+            ],
+            "description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+        },
+        "React.ReactPortal": {
+            "properties": {
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "description": "The type of the component or tag",
+                    "type": [
+                        "string",
+                        "object"
+                    ]
+                }
+            },
+            "required": [
+                "children",
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        },
+        "TabsControlItemProps": {
+            "properties": {
+                "background": {
+                    "description": "Sets background styles.",
+                    "type": "string"
+                },
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "flex": {
+                    "description": "Sets flex styles.",
+                    "type": "string"
+                },
+                "gap": {
+                    "description": "Sets gap styles.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Sets padding styles.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Sets rounded styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TabsControlProps": {
+            "properties": {
+                "active": {
+                    "description": "Sets the active control styles.",
+                    "type": "string"
+                },
+                "background": {
+                    "description": "Sets background styles.",
+                    "type": "string"
+                },
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "border": {
+                    "description": "Sets border styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "controls": {
+                    "description": "Sets ARIA controls value to define which panel this tab controls.",
+                    "type": "string"
+                },
+                "cursor": {
+                    "description": "Sets cursor styles.",
+                    "type": "string"
+                },
+                "flex": {
+                    "description": "Sets flex styles.",
+                    "type": "string"
+                },
+                "gap": {
+                    "description": "Sets vertical gap styles.",
+                    "type": "string"
+                },
+                "group": {
+                    "description": "Provide the tab control radio group.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Provide a unique ID.",
+                    "type": "string"
+                },
+                "inactive": {
+                    "description": "Sets the inactive control styles.",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Sets the A11y label.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Provide the tab control name.",
+                    "type": "string"
+                },
+                "onChange": {
+                    "description": "Triggers on Tab Control group change.",
+                    "type": "object"
+                },
+                "onClick": {
+                    "description": "Triggers on Tab Control click.",
+                    "type": "object"
+                },
+                "onKeydown": {
+                    "description": "Triggers on Tab Control key down.",
+                    "type": "object"
+                },
+                "onKeyup": {
+                    "description": "Triggers on Tab Control key up.",
+                    "type": "object"
+                },
+                "padding": {
+                    "description": "Sets padding styles.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Sets rounded styles.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "Sets text size styles.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Provide a hoverable title attribute.",
+                    "type": "string"
+                },
+                "width": {
+                    "description": "Sets width styles.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "group",
+                "name"
+            ],
+            "type": "object"
+        },
+        "TabsListProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets the base styles.",
+                    "type": "string"
+                },
+                "border": {
+                    "description": "Sets the border styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "gap": {
+                    "description": "Sets the gap spacing.",
+                    "type": "string"
+                },
+                "justify": {
+                    "description": "Sets the justification styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TabsPanelItemProps": {
+            "properties": {
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "group": {
+                    "description": "Provide the tab control radio group.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Provide a unique ID.",
+                    "type": "string"
+                },
+                "labelledBy": {
+                    "description": "Sets the A11y labelledby.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Provide the tab panel value.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "group",
+                "value"
+            ],
+            "type": "object"
+        },
+        "TabsProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Provide a unique ID.",
+                    "type": "string"
+                },
+                "spaceY": {
+                    "description": "Set vertical spacing between list and panels.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
+

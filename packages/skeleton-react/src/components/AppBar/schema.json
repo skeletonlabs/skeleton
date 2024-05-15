@@ -1,0 +1,229 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "AppBarCenterProps": {
+            "properties": {
+                "align": {
+                    "description": "Sets the center component's alignment styles.",
+                    "type": "string"
+                },
+                "base": {
+                    "description": "Sets the center component's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the center component.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Sets the center component's padding styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarHeadlineProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets the headline component's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the headline component.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarLeadProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets the lead component's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the lead component.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Sets the lead component's padding styles.",
+                    "type": "string"
+                },
+                "spaceX": {
+                    "description": "Sets the lead component's horizontal spacing styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarProps": {
+            "properties": {
+                "background": {
+                    "description": "Set background styles.",
+                    "type": "string"
+                },
+                "base": {
+                    "description": "Set base styles.",
+                    "type": "string"
+                },
+                "border": {
+                    "description": "Set border styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Set padding styles.",
+                    "type": "string"
+                },
+                "shadow": {
+                    "description": "Set shadow styles.",
+                    "type": "string"
+                },
+                "spaceY": {
+                    "description": "Set vertical spacing styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarToolBarProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets the toolbar component's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the toolbar component.",
+                    "type": "string"
+                },
+                "gap": {
+                    "description": "Sets the toolbar component's gap styles.",
+                    "type": "string"
+                },
+                "gridCols": {
+                    "description": "Sets the toolbar component's grid columns styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarTrailProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets the trail component's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the trail component.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Sets the trail component's padding styles.",
+                    "type": "string"
+                },
+                "spaceX": {
+                    "description": "Sets the trail component's horizontal spacing styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Iterable<React.ReactNode>": {
+            "type": "object"
+        },
+        "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+            "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "description": "The type of the component or tag",
+                    "type": [
+                        "string",
+                        "object"
+                    ]
+                }
+            },
+            "required": [
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        },
+        "React.ReactNode": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+                },
+                {
+                    "$ref": "#/definitions/Iterable<React.ReactNode>"
+                },
+                {
+                    "$ref": "#/definitions/React.ReactPortal"
+                },
+                {
+                    "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                    ]
+                }
+            ],
+            "description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+        },
+        "React.ReactPortal": {
+            "properties": {
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "description": "The type of the component or tag",
+                    "type": [
+                        "string",
+                        "object"
+                    ]
+                }
+            },
+            "required": [
+                "children",
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        }
+    }
+}
+

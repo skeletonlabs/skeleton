@@ -19,16 +19,16 @@ async function init() {
         // The path containing the types file
         const locationPath = filePath.replace(config.inputFileName, "");
 
-        // Limit to Accordion ------------------
-        if (!file.includes("Accordion")) return;
-        // -------------------------------------
+        // DEBUG: Limit to Accordion Only ---------
+        // if (!file.includes("Accordion")) return;
+        // ----------------------------------------
 
         // Execute Generator
         // https://github.com/YousefED/typescript-json-schema?tab=readme-ov-file
-        await execSync(`typescript-json-schema --esModuleInterop --required '${filePath}' '*' --out '${locationPath}/${config.outputFileName}'`);
+        execSync(`typescript-json-schema --esModuleInterop --required '${filePath}' '*' --out '${locationPath}/${config.outputFileName}'`);
 
         // Log
-        console.log('Schema Generation Complete');
+        console.log('Schema generated for', filePath);
     });
 }
 
