@@ -9,7 +9,7 @@
 		"preview": "vite preview",
 		"test": "vitest run",
 		"test:watch": "vitest",
-		"schema": "typescript-json-schema test/types.ts '*' --esModuleInterop --out test/schema.json"
+		"schema": "node ./scripts/generator.js"
 	},
 	"publishConfig": {
 		"types": "./dist/index.d.ts",

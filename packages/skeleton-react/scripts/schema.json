@@ -1,0 +1,779 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "AccordionContextState": {
+            "properties": {
+                "animDuration": {
+                    "type": "number"
+                },
+                "close": {
+                    "type": "object"
+                },
+                "iconClosed": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "iconOpen": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "isOpen": {
+                    "type": "object"
+                },
+                "open": {
+                    "type": "object"
+                },
+                "toggle": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "close",
+                "isOpen",
+                "open",
+                "toggle"
+            ],
+            "type": "object"
+        },
+        "AccordionControlProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets control's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the control.",
+                    "type": "string"
+                },
+                "disabled": {
+                    "description": "Set a disabled state for the item.",
+                    "type": "boolean"
+                },
+                "hover": {
+                    "description": "Sets control's the hover styles.",
+                    "type": "string"
+                },
+                "iconsBase": {
+                    "description": "Set the base styles for the state icons.",
+                    "type": "string"
+                },
+                "lead": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "The lead child slot for the control."
+                },
+                "padding": {
+                    "description": "Sets control's the padding styles.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Sets control's the border radius styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AccordionItemContextState": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "onClick": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "id",
+                "onClick"
+            ],
+            "type": "object"
+        },
+        "AccordionItemProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The unique ID.",
+                    "type": "string"
+                },
+                "onClick": {
+                    "description": "Triggers on item click.",
+                    "type": "object"
+                },
+                "spaceY": {
+                    "description": "Set vertical spacing styles.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "type": "object"
+        },
+        "AccordionPanelProps": {
+            "properties": {
+                "base": {
+                    "description": "Set the panel's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the panel.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Set the panel's padding styles.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Set the panel's border-radius styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AccordionProps": {
+            "properties": {
+                "animDuration": {
+                    "description": "The slide animation duration in milliseconds.",
+                    "type": "number"
+                },
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "iconClosed": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "Set the closed state icon."
+                },
+                "iconOpen": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "Set the open state icon."
+                },
+                "multiple": {
+                    "description": "Enables opening multiple items at once.",
+                    "type": "boolean"
+                },
+                "onValueChange": {
+                    "description": "Set the opened state.",
+                    "type": "object"
+                },
+                "padding": {
+                    "description": "Set padding styles.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Set border radius styles.",
+                    "type": "string"
+                },
+                "spaceY": {
+                    "description": "Set vertical spacing styles.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Takes an array list of open items.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "width": {
+                    "description": "Set the width styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarCenterProps": {
+            "properties": {
+                "align": {
+                    "description": "Sets the center component's alignment styles.",
+                    "type": "string"
+                },
+                "base": {
+                    "description": "Sets the center component's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the center component.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Sets the center component's padding styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarHeadlineProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets the headline component's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the headline component.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarLeadProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets the lead component's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the lead component.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Sets the lead component's padding styles.",
+                    "type": "string"
+                },
+                "spaceX": {
+                    "description": "Sets the lead component's horizontal spacing styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarProps": {
+            "properties": {
+                "background": {
+                    "description": "Set background styles.",
+                    "type": "string"
+                },
+                "base": {
+                    "description": "Set base styles.",
+                    "type": "string"
+                },
+                "border": {
+                    "description": "Set border styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Set padding styles.",
+                    "type": "string"
+                },
+                "shadow": {
+                    "description": "Set shadow styles.",
+                    "type": "string"
+                },
+                "spaceY": {
+                    "description": "Set vertical spacing styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarToolBarProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets the toolbar component's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the toolbar component.",
+                    "type": "string"
+                },
+                "gap": {
+                    "description": "Sets the toolbar component's gap styles.",
+                    "type": "string"
+                },
+                "gridCols": {
+                    "description": "Sets the toolbar component's grid columns styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppBarTrailProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets the trail component's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the trail component.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Sets the trail component's padding styles.",
+                    "type": "string"
+                },
+                "spaceX": {
+                    "description": "Sets the trail component's horizontal spacing styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AvatarProps": {
+            "properties": {
+                "alt": {
+                    "description": "Set avatar image Alt text.",
+                    "type": "string"
+                },
+                "background": {
+                    "description": "Set background styles.",
+                    "type": "string"
+                },
+                "base": {
+                    "description": "Set base styles.",
+                    "type": "string"
+                },
+                "border": {
+                    "description": "Set border styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "filter": {
+                    "description": "Set avatar image filter name. such as \"#Apollo\".",
+                    "type": "string"
+                },
+                "font": {
+                    "description": "Set font styles.",
+                    "type": "string"
+                },
+                "imageBase": {
+                    "description": "Set avatar image base styles.",
+                    "type": "string"
+                },
+                "imageClasses": {
+                    "description": "Provide avatar image arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Set border radius styles.",
+                    "type": "string"
+                },
+                "shadow": {
+                    "description": "Set shadow styles.",
+                    "type": "string"
+                },
+                "size": {
+                    "description": "Set size styles.",
+                    "type": "string"
+                },
+                "src": {
+                    "description": "Set avatar image source URL.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Iterable<React.ReactNode>": {
+            "type": "object"
+        },
+        "ProgressProps": {
+            "properties": {
+                "base": {
+                    "description": "Set root base classes",
+                    "type": "string"
+                },
+                "bg": {
+                    "description": "Set root background classes",
+                    "type": "string"
+                },
+                "classes": {
+                    "description": "Set root arbitrary classes",
+                    "type": "string"
+                },
+                "height": {
+                    "description": "Set root height classes",
+                    "type": "string"
+                },
+                "labelledBy": {
+                    "description": "Set the aria-labelledby",
+                    "type": "string"
+                },
+                "max": {
+                    "description": "Set the maximum value",
+                    "type": "number"
+                },
+                "meterAnimate": {
+                    "description": "Set meter animation classes for indeterminate (value === undefined)",
+                    "type": "string"
+                },
+                "meterBase": {
+                    "description": "Set meter base classes.",
+                    "type": "string"
+                },
+                "meterBg": {
+                    "description": "Set meter bg classes",
+                    "type": "string"
+                },
+                "meterClasses": {
+                    "description": "Set meter arbitrary classes.",
+                    "type": "string"
+                },
+                "meterRounded": {
+                    "description": "Set meter rounded classes.",
+                    "type": "string"
+                },
+                "meterTransition": {
+                    "description": "Set meter transition classes.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Set root rounded classes",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Set the value",
+                    "type": "number"
+                },
+                "width": {
+                    "description": "Set root width classes",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+            "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "description": "The type of the component or tag",
+                    "type": [
+                        "string",
+                        "object"
+                    ]
+                }
+            },
+            "required": [
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        },
+        "React.ReactNode": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+                },
+                {
+                    "$ref": "#/definitions/Iterable<React.ReactNode>"
+                },
+                {
+                    "$ref": "#/definitions/React.ReactPortal"
+                },
+                {
+                    "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                    ]
+                }
+            ],
+            "description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+        },
+        "React.ReactPortal": {
+            "properties": {
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "description": "The type of the component or tag",
+                    "type": [
+                        "string",
+                        "object"
+                    ]
+                }
+            },
+            "required": [
+                "children",
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        },
+        "TabsControlItemProps": {
+            "properties": {
+                "background": {
+                    "description": "Sets background styles.",
+                    "type": "string"
+                },
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "flex": {
+                    "description": "Sets flex styles.",
+                    "type": "string"
+                },
+                "gap": {
+                    "description": "Sets gap styles.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Sets padding styles.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Sets rounded styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TabsControlProps": {
+            "properties": {
+                "active": {
+                    "description": "Sets the active control styles.",
+                    "type": "string"
+                },
+                "background": {
+                    "description": "Sets background styles.",
+                    "type": "string"
+                },
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "border": {
+                    "description": "Sets border styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "controls": {
+                    "description": "Sets ARIA controls value to define which panel this tab controls.",
+                    "type": "string"
+                },
+                "cursor": {
+                    "description": "Sets cursor styles.",
+                    "type": "string"
+                },
+                "flex": {
+                    "description": "Sets flex styles.",
+                    "type": "string"
+                },
+                "gap": {
+                    "description": "Sets vertical gap styles.",
+                    "type": "string"
+                },
+                "group": {
+                    "description": "Provide the tab control radio group.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Provide a unique ID.",
+                    "type": "string"
+                },
+                "inactive": {
+                    "description": "Sets the inactive control styles.",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Sets the A11y label.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Provide the tab control name.",
+                    "type": "string"
+                },
+                "onChange": {
+                    "description": "Triggers on Tab Control group change.",
+                    "type": "object"
+                },
+                "onClick": {
+                    "description": "Triggers on Tab Control click.",
+                    "type": "object"
+                },
+                "onKeydown": {
+                    "description": "Triggers on Tab Control key down.",
+                    "type": "object"
+                },
+                "onKeyup": {
+                    "description": "Triggers on Tab Control key up.",
+                    "type": "object"
+                },
+                "padding": {
+                    "description": "Sets padding styles.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Sets rounded styles.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "Sets text size styles.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Provide a hoverable title attribute.",
+                    "type": "string"
+                },
+                "width": {
+                    "description": "Sets width styles.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "group",
+                "name"
+            ],
+            "type": "object"
+        },
+        "TabsListProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets the base styles.",
+                    "type": "string"
+                },
+                "border": {
+                    "description": "Sets the border styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "gap": {
+                    "description": "Sets the gap spacing.",
+                    "type": "string"
+                },
+                "justify": {
+                    "description": "Sets the justification styles.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TabsPanelItemProps": {
+            "properties": {
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "group": {
+                    "description": "Provide the tab control radio group.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Provide a unique ID.",
+                    "type": "string"
+                },
+                "labelledBy": {
+                    "description": "Sets the A11y labelledby.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Provide the tab panel value.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "group",
+                "value"
+            ],
+            "type": "object"
+        },
+        "TabsProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Provide a unique ID.",
+                    "type": "string"
+                },
+                "spaceY": {
+                    "description": "Set vertical spacing between list and panels.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
+
