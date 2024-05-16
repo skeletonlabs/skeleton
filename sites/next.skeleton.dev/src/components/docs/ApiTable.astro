@@ -42,22 +42,25 @@ function formatSchemaData(typeKey: string) {
 					<table class="table caption-bottom">
 						<thead>
 							<tr>
-								<th>Prop</th>
+								<th>Property</th>
 								<th>Type</th>
 								<th>Description</th>
 							</tr>
 						</thead>
-						<tbody class="hover:[&>tr]:preset-tonal-primary">
+						<tbody class="hover:[&>tr]:bg-surface-500/5">
 							{
 								formatSchemaData(typeKey).map((cell: any) => (
 									<tr class="align-top">
+										{/* Property */}
 										<td>
 											<div class="flex items-center gap-1">
 												<code class="code">{cell.prop}</code>
 												{cell.required ? <span>*</span> : null}
 											</div>
 										</td>
+										{/* Type */}
 										<td class="opacity-60 italic">{cell.type}</td>
+										{/* Description */}
 										<td>
 											<div class="grid grid-cols-1 gap-2">
 												<article>{cell.description}</article>
