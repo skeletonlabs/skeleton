@@ -7,7 +7,8 @@ export const components = componentSet;
 import { Page as Example } from '@examples/components/avatars/Example.tsx';
 import ExampleRaw from '@examples/components/avatars/Example.tsx?raw';
 
-import { ApiTable } from '@components/docs/ApiTable.tsx';
+{/* TODO: move ApiTable to global import */}
+import ApiTable from '@components/docs/ApiTable.astro';
 import { AvatarSchama } from '@skeletonlabs/skeleton-react';
 
 <Preview client:load>
@@ -30,4 +31,6 @@ When the `src` prop is _undefined_, default children will show. This can be used
 <Avatar>💀</Avatar>
 ```
 
-<ApiTable schema={AvatarSchama} />
+## API Reference
+
+<ApiTable types={['AvatarProps']} schema={AvatarSchama} />

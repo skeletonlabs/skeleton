@@ -64,6 +64,23 @@
                     "type": "string"
                 }
             },
+            "propertyOrder": [
+                "value",
+                "max",
+                "labelledBy",
+                "base",
+                "bg",
+                "width",
+                "height",
+                "rounded",
+                "classes",
+                "meterBase",
+                "meterBg",
+                "meterRounded",
+                "meterTransition",
+                "meterAnimate",
+                "meterClasses"
+            ],
             "type": "object"
         }
     }

@@ -2,6 +2,9 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
         "Iterable<React.ReactNode>": {
+            "propertyOrder": [
+                "__@iterator@83"
+            ],
             "type": "object"
         },
         "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
@@ -14,13 +17,27 @@
                     "description": "The type of the props object"
                 },
                 "type": {
-                    "description": "The type of the component or tag",
-                    "type": [
-                        "string",
-                        "object"
-                    ]
+                    "anyOf": [
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The type of the component or tag"
                 }
             },
+            "propertyOrder": [
+                "type",
+                "props",
+                "key"
+            ],
             "required": [
                 "key",
                 "props",
@@ -61,13 +78,28 @@
                     "description": "The type of the props object"
                 },
                 "type": {
-                    "description": "The type of the component or tag",
-                    "type": [
-                        "string",
-                        "object"
-                    ]
+                    "anyOf": [
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The type of the component or tag"
                 }
             },
+            "propertyOrder": [
+                "children",
+                "type",
+                "props",
+                "key"
+            ],
             "required": [
                 "children",
                 "key",
@@ -110,6 +142,16 @@
                     "type": "string"
                 }
             },
+            "propertyOrder": [
+                "base",
+                "flex",
+                "gap",
+                "background",
+                "padding",
+                "rounded",
+                "classes",
+                "children"
+            ],
             "type": "object"
         },
         "TabsControlProps": {
@@ -175,18 +217,22 @@
                 },
                 "onChange": {
                     "description": "Triggers on Tab Control group change.",
+                    "propertyOrder": [],
                     "type": "object"
                 },
                 "onClick": {
                     "description": "Triggers on Tab Control click.",
+                    "propertyOrder": [],
                     "type": "object"
                 },
                 "onKeydown": {
                     "description": "Triggers on Tab Control key down.",
+                    "propertyOrder": [],
                     "type": "object"
                 },
                 "onKeyup": {
                     "description": "Triggers on Tab Control key up.",
+                    "propertyOrder": [],
                     "type": "object"
                 },
                 "padding": {
@@ -210,6 +256,32 @@
                     "type": "string"
                 }
             },
+            "propertyOrder": [
+                "id",
+                "name",
+                "group",
+                "title",
+                "label",
+                "controls",
+                "base",
+                "width",
+                "active",
+                "inactive",
+                "flex",
+                "background",
+                "border",
+                "text",
+                "padding",
+                "rounded",
+                "gap",
+                "cursor",
+                "classes",
+                "onClick",
+                "onKeydown",
+                "onKeyup",
+                "onChange",
+                "children"
+            ],
             "required": [
                 "group",
                 "name"
@@ -242,6 +314,14 @@
                     "type": "string"
                 }
             },
+            "propertyOrder": [
+                "base",
+                "justify",
+                "gap",
+                "border",
+                "classes",
+                "children"
+            ],
             "type": "object"
         },
         "TabsPanelItemProps": {
@@ -270,6 +350,14 @@
                     "type": "string"
                 }
             },
+            "propertyOrder": [
+                "id",
+                "value",
+                "group",
+                "labelledBy",
+                "classes",
+                "children"
+            ],
             "required": [
                 "group",
                 "value"
@@ -298,6 +386,13 @@
                     "type": "string"
                 }
             },
+            "propertyOrder": [
+                "id",
+                "base",
+                "spaceY",
+                "classes",
+                "children"
+            ],
             "type": "object"
         }
     }

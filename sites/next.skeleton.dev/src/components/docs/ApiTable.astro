@@ -1,0 +1,75 @@
+---
+const { types, schema } = Astro.props;
+// if (schema) console.log(schema.definitions);
+
+function formatData(schemaObj: any) {
+	const { properties, propertyOrder } = schemaObj;
+	let schemaArr: any[] = [];
+	// Sort Properties
+	let propertiesSorted: any = {};
+	if (propertyOrder) propertyOrder.forEach((p: string) => propertiesSorted[p] = properties[p]);
+	// Generate Array of Props
+	Object.entries(propertiesSorted).map((schemaRow: any) => {
+		const [prop, values] = schemaRow;
+		// Exclude Children Prop
+		if (prop === 'children') return;
+		// Format and insert
+		schemaArr.push({
+			prop,
+			type: values.type,
+			description: values.description,
+		});
+	});
+	// Insert children at end (if present)
+	if (propertiesSorted.hasOwnProperty('children')) {
+		schemaArr.push({
+			prop: 'children',
+			type: 'React.ReactNode',
+			description: 'Utilizes the default slot.'
+		});
+	}
+	// Return the schema array
+	return schemaArr;
+}
+---
+
+<div class="space-y-8">
+	{types.map((typeKey: string) => {
+		return (
+			<section class="space-y-4">
+				{/* Label */}
+				<h3 class="h3">{typeKey}</h3>
+				{/* Table */}
+				<div class="table-wrap">
+					<table class="table caption-bottom">
+						<thead>
+							<tr>
+								<th>Prop</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody class="hover:[&>tr]:preset-tonal-primary">
+							{/* <tr>
+								<td>
+									<pre class="pre">{JSON.stringify(formatData(schema.definitions[typeKey].properties), null, 2)}</pre>
+								</td>
+							</tr> */}
+							{
+								formatData(schema.definitions[typeKey]).map((cell: any) => (
+									<tr>
+										<td>
+											<code class="code">{cell.prop}</code>
+										</td>
+										<td class="opacity-60 italic">{cell.type}</td>
+										<td>{cell.description}</td>
+									</tr>
+								))
+							}
+						</tbody>
+					</table>
+				</div>
+			</section>
+		);
+	})}
+</div>
