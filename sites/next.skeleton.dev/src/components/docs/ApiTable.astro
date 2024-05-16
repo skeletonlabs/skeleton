@@ -14,16 +14,16 @@ function formatSchemaData(typeKey: string) {
 	let schemaArr: SchemaRow[] = [];
 	// Sort Properties
 	let propertiesSorted: any = {};
-	if (propertyOrder) propertyOrder.forEach((p: string) => propertiesSorted[p] = properties[p]);
+	if (propertyOrder) propertyOrder.forEach((p: string) => (propertiesSorted[p] = properties[p]));
 	// Generate Array of Props
 	Object.entries(propertiesSorted).map((schemaRow: any) => {
 		const [prop, values] = schemaRow;
 		schemaArr.push({
 			prop,
-			type: values['$ref'] ? values['$ref'].replace('#/definitions/','') : values.type,
+			type: values['$ref'] ? values['$ref'].replace('#/definitions/', '') : values.type,
 			description: values.description ?? '-',
 			default: values.hasOwnProperty('default') ? String(values.default) : '',
-			required: required && required.includes(prop) || false
+			required: (required && required.includes(prop)) || false,
 		});
 	});
 	// Return the schema array
@@ -32,24 +32,24 @@ function formatSchemaData(typeKey: string) {
 ---
 
 <div class="space-y-8">
-	{types.map((typeKey: string) => {
-		return (
-			<section class="space-y-4">
-				{/* Label */}
-				<h3 class="h3">{typeKey.replace('Props','')}</h3>
-				{/* Table */}
-				<div class="table-wrap">
-					<table class="table caption-bottom">
-						<thead>
-							<tr>
-								<th>Property</th>
-								<th>Type</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody class="hover:[&>tr]:bg-surface-500/5">
-							{
-								formatSchemaData(typeKey).map((cell: any) => (
+	{
+		types.map((typeKey: string) => {
+			return (
+				<section class="space-y-4">
+					{/* Label */}
+					<h3 class="h3">{typeKey.replace('Props', '')}</h3>
+					{/* Table */}
+					<div class="table-wrap">
+						<table class="table caption-bottom">
+							<thead>
+								<tr>
+									<th>Property</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody class="hover:[&>tr]:bg-surface-500/5">
+								{formatSchemaData(typeKey).map((cell: any) => (
 									<tr class="align-top">
 										{/* Property */}
 										<td>
@@ -64,16 +64,18 @@ function formatSchemaData(typeKey: string) {
 										<td>
 											<div class="grid grid-cols-1 gap-2">
 												<article>{cell.description}</article>
-												{cell.default ? <small class="opacity-60 italic">Default: {cell.default}</small> : null}
+												{cell.default ? (
+													<small class="opacity-60 italic">Default: {cell.default}</small>
+												) : null}
 											</div>
 										</td>
 									</tr>
-								))
-							}
-						</tbody>
-					</table>
-				</div>
-			</section>
-		);
-	})}
+								))}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			);
+		})
+	}
 </div>
