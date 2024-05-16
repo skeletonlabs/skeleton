@@ -38,6 +38,8 @@ export default defineConfig({
 		// https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import
 		AutoImport({
 			imports: [
+				// import ApiTable from '@components/docs/ApiTable.astro';
+				'@components/docs/ApiTable.astro',
 				{
 					// import componentSet from "@components/mdx/index";
 					'@components/mdx/index': [['default', 'componentSet']],

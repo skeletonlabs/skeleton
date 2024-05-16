@@ -22,6 +22,8 @@ import ExampleCustomAnimationRaw from '@examples/components/progress/ExampleCust
 import ExampleNative from '@examples/components/progress/ExampleNative.astro';
 import ExampleNativeRaw from '@examples/components/progress/ExampleNative.astro?raw';
 
+import { ProgressSchema } from '@skeletonlabs/skeleton-react';
+
 {/* --- */}
 
 <Preview client:load>
@@ -99,3 +101,7 @@ A native [progress](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pr
 		<Code code={ExampleNativeRaw} lang="html" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable types={['ProgressProps']} schema={ProgressSchema} />

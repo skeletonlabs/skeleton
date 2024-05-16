@@ -28,7 +28,7 @@
                     "type": "number"
                 },
                 "meterAnimate": {
-                    "description": "Set meter animation classes for indeterminate (value === undefined)",
+                    "description": "Set meter animation classes for indeterminate mode.",
                     "type": "string"
                 },
                 "meterBase": {

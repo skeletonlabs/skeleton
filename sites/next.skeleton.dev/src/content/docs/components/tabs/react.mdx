@@ -19,6 +19,8 @@ import ExampleFocusableContentRaw from '@examples/components/tabs/ExampleFocusab
 import { Page as ExampleRTL } from '@examples/components/tabs/ExampleRTL.tsx';
 import ExampleRTLRaw from '@examples/components/tabs/ExampleRTL.tsx?raw';
 
+import { TabsSchema } from '@skeletonlabs/skeleton-react';
+
 {/* --- */}
 
 <Preview client:load>
@@ -101,3 +103,16 @@ This component fully supports RTL layouts for seamless navigation and accessibil
 		<Code code={ExampleRTLRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable
+	types={[
+		'TabsProps',
+		'TabsListProps',
+		'TabsControlProps',
+		'TabsControlItemProps',
+		'TabsPanelItemProps',
+	]}
+	schema={TabsSchema}
+/>

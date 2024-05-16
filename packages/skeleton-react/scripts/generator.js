@@ -25,7 +25,7 @@ async function init() {
 
         // Execute Generator
         // https://github.com/YousefED/typescript-json-schema?tab=readme-ov-file
-        execSync(`typescript-json-schema --propOrder=true --esModuleInterop --required '${filePath}' '*' --out '${locationPath}/${config.outputFileName}'`);
+        execSync(`typescript-json-schema --propOrder=true --esModuleInterop --required=true '${filePath}' '*' --out '${locationPath}/${config.outputFileName}'`);
 
         // Log
         console.log('Schema generated for', filePath);
