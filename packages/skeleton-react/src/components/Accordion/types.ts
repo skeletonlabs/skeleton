@@ -20,7 +20,10 @@ export interface AccordionItemContextState {
 // Accordion ---
 
 export interface AccordionProps extends React.PropsWithChildren {
-  /** Enables opening multiple items at once. */
+  /**
+   * Enables opening multiple items at once.
+   * @default false
+   */
   multiple?: boolean;
   /** Takes an array list of open items. */
   value?: string[];

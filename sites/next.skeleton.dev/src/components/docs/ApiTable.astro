@@ -5,6 +5,7 @@ interface SchemaRow {
 	prop: string;
 	type: string;
 	description?: string;
+	default?: string;
 	required?: boolean;
 }
 
@@ -21,6 +22,7 @@ function formatSchemaData(typeKey: string) {
 			prop,
 			type: values['$ref'] ? values['$ref'].replace('#/definitions/','') : values.type,
 			description: values.description ?? '-',
+			default: values.hasOwnProperty('default') ? String(values.default) : '',
 			required: required && required.includes(prop) || false
 		});
 	});
@@ -48,15 +50,20 @@ function formatSchemaData(typeKey: string) {
 						<tbody class="hover:[&>tr]:preset-tonal-primary">
 							{
 								formatSchemaData(typeKey).map((cell: any) => (
-									<tr>
+									<tr class="align-top">
 										<td>
 											<div class="flex items-center gap-1">
 												<code class="code">{cell.prop}</code>
-												{cell.required === true ? <span>*</span> : null}
+												{cell.required ? <span>*</span> : null}
 											</div>
 										</td>
 										<td class="opacity-60 italic">{cell.type}</td>
-										<td>{cell.description}</td>
+										<td>
+											<div class="grid grid-cols-1 gap-2">
+												<article>{cell.description}</article>
+												{cell.default ? <small class="opacity-60 italic">Default: {cell.default}</small> : null}
+											</div>
+										</td>
 									</tr>
 								))
 							}
