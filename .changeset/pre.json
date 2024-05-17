@@ -1,15 +1,15 @@
 {
-	"mode": "pre",
-	"tag": "next",
-	"initialVersions": {
-		"create-skeleton-app": "0.0.53",
-		"@skeletonlabs/skeleton": "3.0.0",
-		"@skeletonlabs/skeleton-react": "1.0.0",
-		"@skeletonlabs/skeleton-svelte": "1.0.0",
-		"vite-plugin-tw-plugin-watcher": "0.0.0",
-		"next.skeleton.dev": "0.0.1",
-		"skeleton.dev": "1.0.1",
-		"themes.skeleton.dev": "0.0.1"
-	},
-	"changesets": []
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "create-skeleton-app": "0.0.53",
+    "@skeletonlabs/skeleton": "2.12.0",
+    "@skeletonlabs/skeleton-react": "0.0.0",
+    "@skeletonlabs/skeleton-svelte": "0.0.0",
+    "vite-plugin-tw-plugin-watcher": "0.0.0",
+    "next.skeleton.dev": "0.0.1",
+    "skeleton.dev": "1.0.1",
+    "themes.skeleton.dev": "0.0.1"
+  },
+  "changesets": []
 }
