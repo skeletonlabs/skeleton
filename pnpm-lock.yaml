@@ -343,10 +343,10 @@ importers:
         specifier: workspace:*
         version: link:../../packages/skeleton
       '@skeletonlabs/skeleton-react':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/skeleton-react
       '@skeletonlabs/skeleton-svelte':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/skeleton-svelte
       '@types/react':
         specifier: ^18.2.74
