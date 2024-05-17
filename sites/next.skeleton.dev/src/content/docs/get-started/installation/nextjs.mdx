@@ -21,7 +21,8 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         ## Create a Project
         Start by creating a new project using `create-next-app`:
         ```console
-        npx create-next-app@latest my-app --typescript --tailwind --eslint
+        npm create next-app@latest my-skeleton-app --typescript --tailwind --eslint
+        cd my-skeleton-app
         ```
     </ProcessStep>
     <ProcessStep step="2">
@@ -43,12 +44,12 @@ import * as themes from "@skeletonlabs/skeleton/themes";
 /** @type {import('tailwindcss').Config} \*/
 export default {
     content: [
-        "./src/pages/**/_.{js,ts,jsx,tsx,mdx}",
-        "./src/components/\*\*/_.{js,ts,jsx,tsx,mdx}",
-        "./src/app/**/\*.{js,ts,jsx,tsx,mdx}",
-        join(require.resolve('@skeletonlabs/skeleton-react'), '../**/\*.{html,js,tsx,ts}')
+        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+        join(require.resolve('@skeletonlabs/skeleton-react'), '../**/*.{html,js,jsx,tsx,ts}')
     ],
-        theme: {
+    theme: {
         extend: {},
     },
     plugins: [
