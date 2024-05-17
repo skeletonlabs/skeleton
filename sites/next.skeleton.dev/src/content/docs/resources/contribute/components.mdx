@@ -187,6 +187,29 @@ export interface AccordionItemProps {
 }
 ```
 
+### API Reference Schema
+
+> NOTE: currently limited to the `skeleton-react` package only!
+
+When adding or editing a `types.ts` file, you'll be required to generate or update component type schema. This is useful for populating the API Reference per each component page. Make sure to follow these steps:
+
+1. When a `types.ts` files has been added or edited, run `pnpm schema` to generate `schema.json` files.
+2. Then, make sure each `schema.json` file is exported within the package `index.js` list.
+3. Finally, within each component page, import the schema data, then pass this to a `ApiTable` component.
+
+```ts
+import { AccordionSchema } from '@skeletonlabs/skeleton-react';
+```
+
+```tsx
+<ApiTable
+	schema={AccordionSchema}
+	types={['AccordionProps', 'AccordionItemProps', '...']}
+/>
+```
+
+This will generate a styled table detailing type data for each type supplied.
+
 ---
 
 ## Animations

@@ -1,0 +1,376 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "AccordionContextState": {
+            "properties": {
+                "animDuration": {
+                    "type": "number"
+                },
+                "close": {
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "iconClosed": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "iconOpen": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "isOpen": {
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "open": {
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "toggle": {
+                    "propertyOrder": [],
+                    "type": "object"
+                }
+            },
+            "propertyOrder": [
+                "animDuration",
+                "iconOpen",
+                "iconClosed",
+                "open",
+                "close",
+                "toggle",
+                "isOpen"
+            ],
+            "required": [
+                "close",
+                "isOpen",
+                "open",
+                "toggle"
+            ],
+            "type": "object"
+        },
+        "AccordionControlProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets control's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the control.",
+                    "type": "string"
+                },
+                "disabled": {
+                    "description": "Set a disabled state for the item.",
+                    "type": "boolean"
+                },
+                "hover": {
+                    "description": "Sets control's the hover styles.",
+                    "type": "string"
+                },
+                "iconsBase": {
+                    "description": "Set the base styles for the state icons.",
+                    "type": "string"
+                },
+                "lead": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "The lead child slot for the control."
+                },
+                "padding": {
+                    "description": "Sets control's the padding styles.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Sets control's the border radius styles.",
+                    "type": "string"
+                }
+            },
+            "propertyOrder": [
+                "disabled",
+                "base",
+                "hover",
+                "padding",
+                "rounded",
+                "classes",
+                "iconsBase",
+                "lead",
+                "children"
+            ],
+            "type": "object"
+        },
+        "AccordionItemContextState": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "onClick": {
+                    "propertyOrder": [],
+                    "type": "object"
+                }
+            },
+            "propertyOrder": [
+                "id",
+                "onClick"
+            ],
+            "required": [
+                "id",
+                "onClick"
+            ],
+            "type": "object"
+        },
+        "AccordionItemProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The unique ID.",
+                    "type": "string"
+                },
+                "onClick": {
+                    "description": "Triggers on item click.",
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "spaceY": {
+                    "description": "Set vertical spacing styles.",
+                    "type": "string"
+                }
+            },
+            "propertyOrder": [
+                "id",
+                "base",
+                "spaceY",
+                "classes",
+                "onClick",
+                "children"
+            ],
+            "required": [
+                "id"
+            ],
+            "type": "object"
+        },
+        "AccordionPanelProps": {
+            "properties": {
+                "base": {
+                    "description": "Set the panel's base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes to the panel.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Set the panel's padding styles.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Set the panel's border-radius styles.",
+                    "type": "string"
+                }
+            },
+            "propertyOrder": [
+                "base",
+                "padding",
+                "rounded",
+                "classes",
+                "children"
+            ],
+            "type": "object"
+        },
+        "AccordionProps": {
+            "properties": {
+                "animDuration": {
+                    "description": "The slide animation duration in milliseconds.",
+                    "type": "number"
+                },
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "iconClosed": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "Set the closed state icon."
+                },
+                "iconOpen": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "Set the open state icon."
+                },
+                "multiple": {
+                    "default": false,
+                    "description": "Enables opening multiple items at once.",
+                    "type": "boolean"
+                },
+                "onValueChange": {
+                    "description": "Set the opened state.",
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "padding": {
+                    "description": "Set padding styles.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Set border radius styles.",
+                    "type": "string"
+                },
+                "spaceY": {
+                    "description": "Set vertical spacing styles.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Takes an array list of open items.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "width": {
+                    "description": "Set the width styles.",
+                    "type": "string"
+                }
+            },
+            "propertyOrder": [
+                "multiple",
+                "value",
+                "animDuration",
+                "iconOpen",
+                "iconClosed",
+                "onValueChange",
+                "base",
+                "padding",
+                "spaceY",
+                "rounded",
+                "width",
+                "classes",
+                "children"
+            ],
+            "type": "object"
+        },
+        "Iterable<React.ReactNode>": {
+            "propertyOrder": [
+                "__@iterator@83"
+            ],
+            "type": "object"
+        },
+        "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+            "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The type of the component or tag"
+                }
+            },
+            "propertyOrder": [
+                "type",
+                "props",
+                "key"
+            ],
+            "required": [
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        },
+        "React.ReactNode": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+                },
+                {
+                    "$ref": "#/definitions/Iterable<React.ReactNode>"
+                },
+                {
+                    "$ref": "#/definitions/React.ReactPortal"
+                },
+                {
+                    "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                    ]
+                }
+            ],
+            "description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+        },
+        "React.ReactPortal": {
+            "properties": {
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The type of the component or tag"
+                }
+            },
+            "propertyOrder": [
+                "children",
+                "type",
+                "props",
+                "key"
+            ],
+            "required": [
+                "children",
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        }
+    }
+}
+

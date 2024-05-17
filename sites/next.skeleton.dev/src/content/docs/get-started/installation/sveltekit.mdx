@@ -12,19 +12,18 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 
 {/* --- */}
 
-<div class="card p-8 py-6 preset-tonal-warning grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-4 text-center">
-	<p>WARNING: this page is a preview. Skeleton v3 is not yet available. The following instructions will fail.</p>
+<div class="card p-8 py-6 preset-tonal-error grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-4">
+	<p>WARNING: This will install an early preview build of Skeleton v3. Please be aware that some features may be missing, incomplete, or non-functional at this time. Please report all bugs and issues on GitHub.</p>
 </div>
 
 <Process>
     <ProcessStep step="1">
         ## Create a Project
-        Start by creating a new project using `create-svelte-app`:
+        Start by creating a new project using `create-svelte`:
         ```console
         npm create svelte@latest my-skeleton-app
         cd my-skeleton-app
         npm install
-        npm run dev -- --open
         ```
     </ProcessStep>
     <ProcessStep step="2">
@@ -36,9 +35,9 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="3">
         ## Install Tailwind
-        Install Tailwind using [Svelte-Add](https://github.com/svelte-add/tailwindcss) to automate the process.
+        Install Tailwind using [Svelte-Add](https://svelte-add.com/) to automate the process.
         ```console
-        npx svelte-add@latest tailwindcss
+        npx @svelte-add/tailwindcss@latest --typography false
         npm install
         ```
     </ProcessStep>
@@ -54,8 +53,8 @@ import * as themes from "@skeletonlabs/skeleton/themes";
 /** @type {import('tailwindcss').Config} \*/
 export default {
     content: [
-        './src/**/_.{html,js,svelte,ts}',
-        join(require.resolve('@skeletonlabs/skeleton-svelte'), '../\*\*/_.{html,js,svelte,ts}')
+        './src/**/*.{html,js,svelte,ts}',
+        join(require.resolve('@skeletonlabs/skeleton-svelte'), '../**/*.{html,js,svelte,ts}')
     ],
         theme: {
         extend: {},

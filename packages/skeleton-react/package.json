@@ -8,7 +8,8 @@
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"test": "vitest run",
-		"test:watch": "vitest"
+		"test:watch": "vitest",
+		"schema": "node ./scripts/generator.js"
 	},
 	"publishConfig": {
 		"types": "./dist/index.d.ts",
@@ -68,6 +69,7 @@
 		"react-router-dom": "^6.22.3",
 		"tailwindcss": "^3.4.3",
 		"typescript": "^5.4.4",
+		"typescript-json-schema": "^0.63.0",
 		"vite": "^5.2.8",
 		"vite-plugin-remix-router": "^2.0.0",
 		"vite-plugin-tw-plugin-watcher": "workspace:*",
