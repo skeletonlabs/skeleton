@@ -14,7 +14,6 @@
 		"schema": "node ./scripts/generator.js"
 	},
 	"publishConfig": {
-		"types": "./dist/index.d.ts",
 		"exports": {
 			".": {
 				"types": "./dist/index.d.ts",
@@ -29,7 +28,7 @@
 			}
 		}
 	},
-	"types": "./src/lib/index.ts",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
