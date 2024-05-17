@@ -30,6 +30,5 @@
 			"@testing-library/user-event"
 		]
 	},
-	"include": ["src/lib"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+	"include": ["src/lib"]
 }
