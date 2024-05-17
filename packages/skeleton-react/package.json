@@ -4,7 +4,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc && vite build",
+		"build": "vite build",
+		"package": "tsc --project tsconfig.package.json",
+		"package:watch": "tsc --project tsconfig.package.json --watch",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"test": "vitest run",
@@ -15,8 +17,8 @@
 		"types": "./dist/index.d.ts",
 		"exports": {
 			".": {
-				"types": "./dist/index.d.ts",
-				"default": "./dist/index.js"
+				"types": "./dist/lib/index.d.ts",
+				"default": "./dist/lib/index.js"
 			}
 		},
 		"typesVersions": {
@@ -25,25 +27,24 @@
 					"./dist/index.d.ts"
 				]
 			}
-		},
-		"registry": "http://localhost:4873"
+		}
 	},
 	"types": "./src/lib/index.ts",
 	"exports": {
 		".": {
-			"types": "./src/lib/index.ts",
-			"default": "./src/lib/index.ts"
+			"types": "./dist/lib/index.d.ts",
+			"default": "./dist/lib/index.js"
 		},
 		"./*": "./src/lib/*"
 	},
 	"files": [
 		"./dist/**/*.js",
 		"./dist/**/*.map",
-		"./dist/**/*.tsx",
 		"./dist/**/*.d.ts",
 		"./dist/**/*.cjs",
 		"./dist/**/*.d.cts",
-		"!./dist/**/*.test.*"
+		"!./dist/**/*.test.*",
+		"!./dist/**/schema.json"
 	],
 	"dependencies": {
 		"react": "^18.2.0",
