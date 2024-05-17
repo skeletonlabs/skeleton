@@ -10,5 +10,5 @@
 	"access": "public",
 	"baseBranch": "dev",
 	"updateInternalDependencies": "patch",
-	"ignore": ["!(@skeletonlabs/*)"]
+	"ignore": ["!(@skeletonlabs/*|vite-plugin-tw-plugin-watcher)"]
 }
