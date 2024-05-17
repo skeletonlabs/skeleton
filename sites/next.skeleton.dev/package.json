@@ -1,5 +1,6 @@
 {
 	"name": "next.skeleton.dev",
+	"private": true,
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/skeletonlabs/skeleton.git"
@@ -26,8 +27,8 @@
 		"@astrojs/tailwind": "^5.1.0",
 		"@nanostores/persistent": "^0.9.1",
 		"@skeletonlabs/skeleton": "workspace:*",
-		"@skeletonlabs/skeleton-react": "workspace:^",
-		"@skeletonlabs/skeleton-svelte": "workspace:^",
+		"@skeletonlabs/skeleton-react": "workspace:*",
+		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@types/react": "^18.2.74",
 		"astro": "^4.5.16",
 		"astro-auto-import": "^0.4.2",
