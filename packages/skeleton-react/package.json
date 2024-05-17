@@ -35,7 +35,7 @@
 			"types": "./dist/lib/index.d.ts",
 			"default": "./dist/lib/index.js"
 		},
-		"./*": "./src/lib/*"
+		"./schemas": "./src/lib/schemas.ts"
 	},
 	"files": [
 		"./dist/**/*.js",
@@ -44,7 +44,9 @@
 		"./dist/**/*.cjs",
 		"./dist/**/*.d.cts",
 		"!./dist/**/*.test.*",
-		"!./dist/**/schema.json"
+		"!./dist/**/schema.json",
+		"!./dist/schemas.js",
+		"!./dist/schemas.d.ts"
 	],
 	"dependencies": {
 		"react": "^18.2.0",
