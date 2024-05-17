@@ -11,7 +11,7 @@ import {
 } from "./types.js";
 
 // React Compose ---
-import { reactCompose } from "../../../utils/react-compose.js";
+import { reactCompose } from "../../utils/react-compose.js";
 
 // Components ---
 const AppBarRoot: React.FC<AppBarProps> = ({
