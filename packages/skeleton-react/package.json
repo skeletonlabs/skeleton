@@ -17,8 +17,8 @@
 		"types": "./dist/index.d.ts",
 		"exports": {
 			".": {
-				"types": "./dist/lib/index.d.ts",
-				"default": "./dist/lib/index.js"
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
 			}
 		},
 		"typesVersions": {
@@ -32,8 +32,8 @@
 	"types": "./src/lib/index.ts",
 	"exports": {
 		".": {
-			"types": "./dist/lib/index.d.ts",
-			"default": "./dist/lib/index.js"
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
 		},
 		"./schemas": "./src/lib/schemas.ts"
 	},
