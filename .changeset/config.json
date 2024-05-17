@@ -10,5 +10,5 @@
 	"access": "public",
 	"baseBranch": "dev",
 	"updateInternalDependencies": "patch",
-	"ignore": []
+	"ignore": ["!(@skeletonlabs/*)"]
 }
