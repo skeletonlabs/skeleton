@@ -12,6 +12,7 @@ import AutoImport from 'astro-auto-import';
 import mdx from '@astrojs/mdx';
 // Vite Plugins
 import skeletonPluginWatcher from 'vite-plugin-tw-plugin-watcher';
+import { pagefind } from 'vite-plugin-pagefind';
 
 // https://astro.build/config
 export default defineConfig({
@@ -61,6 +62,13 @@ export default defineConfig({
 		mdx(),
 	],
 	vite: {
-		plugins: [skeletonPluginWatcher(path.resolve(path.join('..', '..', 'packages', 'skeleton', 'src', 'plugin')))],
+		plugins: [
+			skeletonPluginWatcher(path.resolve(path.join('..', '..', 'packages', 'skeleton', 'src', 'plugin'))),
+			pagefind({
+				buildDir: 'dist',
+				publicDir: 'public',
+				buildScript: 'build',
+			}),
+		],
 	},
 });
