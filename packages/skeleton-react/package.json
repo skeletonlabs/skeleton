@@ -6,7 +6,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"package": "tsc --project tsconfig.package.json",
-		"package:watch": "tsc --project tsconfig.package.json --watch",
+		"package:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"test": "vitest run",
