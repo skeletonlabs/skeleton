@@ -10,7 +10,7 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "pnpm run --stream --color \"/dev:/\"",
+		"dev": "pnpm run --reporter append-only --color \"/dev:/\"",
 		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
 		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
 		"dev:astro": "astro dev",
