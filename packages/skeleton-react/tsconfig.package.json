@@ -9,8 +9,12 @@
 		"moduleResolution": "Bundler",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"noEmit": true,
+		"esModuleInterop": true,
 		"jsx": "react-jsx",
+
+		/* Packaging */
+		"outDir": "dist",
+		"declaration": true,
 
 		/* Linting */
 		"strict": true,
@@ -25,6 +29,5 @@
 			"@testing-library/user-event"
 		]
 	},
-	"include": ["src"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+	"include": ["src/lib"]
 }
