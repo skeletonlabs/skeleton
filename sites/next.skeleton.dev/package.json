@@ -10,10 +10,10 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "concurrently \"pnpm:start\" \"pnpm:dev:svelte\" \"pnpm:dev:react\"",
+		"dev": "pnpm run --stream \"/dev:/\"",
 		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
 		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
-		"start": "astro dev",
+		"dev:astro": "astro dev",
 		"check": "astro check",
 		"build": "pnpm -F '@skeletonlabs/*' package && astro check && astro build",
 		"preview": "astro preview",
