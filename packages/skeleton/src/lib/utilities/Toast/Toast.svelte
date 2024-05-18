@@ -23,8 +23,8 @@
 	export let position: 't' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br' = 'b';
 	/** Maximum toasts that can show at once. */
 	export let max = 3;
-	/** Enable/Disable closing oldest toasts when new toasts exceed maximum. */
-	export let replace = false;
+	/** Enable/Disable prioritizing newest toasts when total number exceeds maximum. */
+	export let prioritizeNew = false;
 
 	// Props (styles)
 	/** Provide classes to set the background color. */
@@ -131,7 +131,7 @@
 	$: classesSnackbar = `${cSnackbar} ${cAlign} ${padding}`;
 	$: classesToast = `${cToast} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// Filtered Toast Store
-	$: filteredToasts = replace ? Array.from($toastStore).slice(-max) : Array.from($toastStore).slice(0, max);
+	$: filteredToasts = prioritizeNew ? Array.from($toastStore).slice(-max) : Array.from($toastStore).slice(0, max);
 
 	$: if (filteredToasts.length) {
 		wrapperVisible = true;
