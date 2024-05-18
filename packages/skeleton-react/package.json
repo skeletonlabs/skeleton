@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "0.0.0",
+	"version": "1.0.0-next.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
