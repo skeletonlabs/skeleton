@@ -196,6 +196,7 @@ export type PagefindSearchAnchor = {
 
 export type Pagefind = {
 	init: () => Promise<void>;
+	destroy: () => Promise<void>;
 	search: (query: string, options?: PagefindSearchOptions) => Promise<PagefindSearchResults>;
 	debouncedSearch: (
 		query: string,

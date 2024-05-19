@@ -38,6 +38,13 @@
 			pagefind = module;
 			pagefind.init();
 		});
+
+		return () => {
+			if (!pagefind) {
+				return;
+			}
+			pagefind.destroy();
+		};
 	});
 
 	$effect(() => {
