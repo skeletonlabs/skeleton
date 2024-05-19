@@ -88,7 +88,7 @@
 </button>
 
 <dialog
-	class="bg-surface-100 dark:bg-surface-900 text-black dark:text-white rounded-md p-4 m-0 left-1/2 -translate-x-1/2 top-[15%] backdrop:blur-3xl backdrop:bg-black backdrop:opacity-75 max-w-[500px] w-full border border-surface-50 dark:border-surface-950 shadow-lg"
+	class="bg-surface-100 dark:bg-surface-900 text-black dark:text-white rounded-md p-4 m-0 left-1/2 -translate-x-1/2 top-[15%] backdrop:bg-black backdrop:opacity-75 max-w-[500px] w-full border border-surface-50 dark:border-surface-950 shadow-lg"
 	bind:this={dialog}
 	use:click_outside
 >
