@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Search from 'lucide-svelte/icons/search';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
-	import type { Pagefind } from 'src/types';
 	import { getPreferredFramework, isFramework } from 'src/utils';
+	import type { Pagefind } from 'src/pagefind-types';
 
 	let dialog: HTMLDialogElement | null = $state(null);
 	let pagefind: Pagefind | null = $state(null);

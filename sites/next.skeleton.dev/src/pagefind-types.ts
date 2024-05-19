@@ -1,6 +1,10 @@
-/* eslint-disable @typescript-eslint/ban-types */
+/**
+ * https://github.com/CloudCannon/pagefind/blob/production-docs/pagefind_web_js/types/index.d.ts
+ * Original Author: bglw, CloudCannon
+ */
+
 /** Global index options that can be passed to pagefind.options() */
-export type PagefindIndexOptions = {
+type PagefindIndexOptions = {
 	/** Overrides the URL path that Pagefind uses to load its search bundle */
 	basePath?: string;
 	/** Appends the given baseURL to all search results. May be a path, or a full domain */
@@ -19,6 +23,10 @@ export type PagefindIndexOptions = {
 	 * Only applies in multisite setups.
 	 */
 	mergeFilter?: Object;
+	/**
+	 * If set, will ass the search term as a query parameter under this key, for use with Pagefind's highlighting script.
+	 */
+	highlightParam?: string;
 	language?: string;
 	/**
 	 * Whether an instance of Pagefind is the primary index or not (for multisite).
@@ -26,10 +34,45 @@ export type PagefindIndexOptions = {
 	 * This is set for you automatically, so it is unlikely you should set this directly.
 	 */
 	primary?: boolean;
+	/**
+	 * Provides the ability to fine tune Pagefind's ranking algorithm to better suit your dataset.
+	 */
+	ranking?: PagefindRankingWeights;
+};
+
+type PagefindRankingWeights = {
+	/**
+            Controls page ranking based on similarity of terms to the search query (in length).
+            Increasing this number means pages rank higher when they contain words very close to the query,
+            e.g. if searching for `part` then `party` will boost a page higher than one containing `partition`.
+            Minimum value is 0.0, where `party` and `partition` would be viewed equally.
+        */
+	termSimilarity?: Number;
+	/**
+            Controls how much effect the average page length has on ranking.
+            Maximum value is 1.0, where ranking will strongly favour pages that are shorter than the average page on the site.
+            Minimum value is 0.0, where ranking will exclusively look at term frequency, regardless of how long a document is.
+        */
+	pageLength?: Number;
+	/**
+            Controls how quickly a term saturates on the page and reduces impact on the ranking.
+            Maximum value is 2.0, where pages will take a long time to saturate, and pages with very high term frequencies will take over.
+            As this number trends to 0, it does not take many terms to saturate and allow other paramaters to influence the ranking.
+            Minimum value is 0.0, where terms will saturate immediately and results will not distinguish between one term and many.
+        */
+	termSaturation?: Number;
+	/**
+            Controls how much ranking uses term frequency versus raw term count.
+            Maximum value is 1.0, where term frequency fully applies and is the main ranking factor.
+            Minimum value is 0.0, where term frequency does not apply, and pages are ranked based on the raw sum of words and weights.
+            Values between 0.0 and 1.0 will interpolate between the two ranking methods.
+            Reducing this number is a good way to boost longer documents in your search results, as they no longer get penalized for having a low term frequency.
+         */
+	termFrequency?: Number;
 };
 
 /** Options that can be passed to pagefind.search() */
-export type PagefindSearchOptions = {
+type PagefindSearchOptions = {
 	/** If set, this call will load all assets but return before searching. Prefer using pagefind.preload() instead */
 	preload?: boolean;
 	/** Add more verbose console logging for this search query */
@@ -44,7 +87,7 @@ export type PagefindSearchOptions = {
 type PagefindFilterCounts = Record<string, Record<string, number>>;
 
 /** The main results object returned from a call to pagefind.search() */
-export type PagefindSearchResults = {
+type PagefindSearchResults = {
 	/** All pages that match the search query and filters provided */
 	results: PagefindSearchResult[];
 	/** How many results would there have been if you had omitted the filters */
@@ -62,7 +105,7 @@ export type PagefindSearchResults = {
 };
 
 /** A single result from a search query, before actual data has been loaded */
-export type PagefindSearchResult = {
+type PagefindSearchResult = {
 	/** Pagefind's internal ID for this page, unique across the site */
 	id: string;
 	/** Pagefind's internal score for your query matching this page, that is used when ranking these results */
@@ -79,7 +122,7 @@ export type PagefindSearchResult = {
 };
 
 /** The useful data Pagefind provides for a search result */
-export type PagefindSearchFragment = {
+type PagefindSearchFragment = {
 	/** Pagefind's processed URL for this page. Will include the baseUrl if configured */
 	url: string;
 	/** Pagefind's unprocessed URL for this page */
@@ -119,7 +162,7 @@ export type PagefindSearchFragment = {
 };
 
 /** Data for a matched section within a page */
-export type PagefindSubResult = {
+type PagefindSubResult = {
 	/**
 	 * Title of this sub result — derived from the heading content.
 	 *
@@ -153,7 +196,7 @@ export type PagefindSubResult = {
 };
 
 /** Information about a matching word on a page */
-export type PagefindWordLocation = {
+type PagefindWordLocation = {
 	/** The weight that this word was originally tagged as */
 	weight: number;
 	/**
@@ -173,7 +216,7 @@ export type PagefindWordLocation = {
 };
 
 /** Raw data about elements with IDs that Pagefind encountered when indexing the page */
-export type PagefindSearchAnchor = {
+type PagefindSearchAnchor = {
 	/** What element type was this anchor? e.g. `h1`, `div` */
 	element: string;
 	/** The raw id="..." attribute contents of the element */
