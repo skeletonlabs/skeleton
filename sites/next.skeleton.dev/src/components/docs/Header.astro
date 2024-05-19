@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 import { Search } from 'lucide-react';
 import Lightswitch from '@components/docs/Lightswitch.astro';
 import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
+import DocSearch from './DocSearch.svelte';
 
 const socialLinks = [
 	{
@@ -34,10 +35,7 @@ const socialLinks = [
 		<!-- Middle -->
 		<div class="flex items-center gap-2">
 			<!-- Search -->
-			<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal" onclick="onSearch()">
-				<Search size={18} className="opacity-60" />
-				<span class="opacity-60">Search...</span>
-			</button>
+			<DocSearch client:load />
 		</div>
 		<!-- Right -->
 		<div class="flex justify-end items-center gap-2">
