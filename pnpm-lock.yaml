@@ -413,8 +413,8 @@ importers:
         specifier: ^0.13.0
         version: 0.13.0
       vite-plugin-pagefind:
-        specifier: ^0.0.30
-        version: 0.0.30
+        specifier: ^0.1.1
+        version: 0.1.1
       vite-plugin-tw-plugin-watcher:
         specifier: workspace:*
         version: link:../../packages/vite-plugin-tw-plugin-watcher
@@ -11829,8 +11829,8 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-pagefind@0.0.30:
-    resolution: {integrity: sha512-gqdHbEU+v3YduhD8Igp/oOGIbk0+mSVuVJXK38DSXfZoIMFEMX3A5ZzTjRsCoOmwF25K4f65lFfv6R5p520YPQ==}
+  /vite-plugin-pagefind@0.1.1:
+    resolution: {integrity: sha512-1+lgs/sPkFYiykUlJc4j+oUoCzfvlyJg6MChjxgnntdduiWMCn/iynvZBPKpMUpX8PPlvDJjlWeVGD4Jc0NM0w==}
     dependencies:
       '@antfu/ni': 0.21.12
       colorette: 2.0.20

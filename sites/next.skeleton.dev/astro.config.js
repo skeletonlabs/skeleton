@@ -64,11 +64,7 @@ export default defineConfig({
 	vite: {
 		plugins: [
 			skeletonPluginWatcher(path.resolve(path.join('..', '..', 'packages', 'skeleton', 'src', 'plugin'))),
-			pagefind({
-				buildDir: 'dist',
-				publicDir: 'public',
-				buildScript: 'build',
-			}),
+			pagefind(),
 		],
 	},
 });

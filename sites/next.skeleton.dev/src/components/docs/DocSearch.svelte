@@ -2,7 +2,7 @@
 	import Search from 'lucide-svelte/icons/search';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 	import { getPreferredFramework, isFramework } from 'src/utils';
-	import type { Pagefind } from 'src/pagefind-types';
+	import type { Pagefind } from 'vite-plugin-pagefind';
 
 	let dialog: HTMLDialogElement | null = $state(null);
 	let pagefind: Pagefind | null = $state(null);
