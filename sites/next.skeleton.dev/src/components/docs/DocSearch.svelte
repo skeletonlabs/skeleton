@@ -115,7 +115,7 @@
 								<ol class="flex flex-col gap-1">
 									{#each subResults as subResult}
 										<li>
-											<a class="flex" href={subResult.url}>
+											<a class="flex gap-2" href={subResult.url}>
 												<div class="mt-1.5">
 													<ChevronRight size={16} class="opacity-50" />
 												</div>
