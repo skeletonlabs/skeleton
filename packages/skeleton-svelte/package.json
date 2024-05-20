@@ -38,7 +38,7 @@
 		"./dist/**/*.d.cts"
 	],
 	"peerDependencies": {
-		"svelte": "^4.0.0"
+		"svelte": "^5.0.0-next.136"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.42.1",
