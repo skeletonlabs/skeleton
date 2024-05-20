@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Search from 'lucide-svelte/icons/search';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
+	import TextSearch from 'lucide-svelte/icons/text-search';
+
 	import { getPreferredFramework, isFramework } from 'src/utils';
 	import type { Pagefind } from 'vite-plugin-pagefind';
 
@@ -95,7 +97,7 @@
 </button>
 
 <dialog
-	class="bg-surface-100 dark:bg-surface-900 text-black dark:text-white rounded-md p-4 m-0 left-1/2 -translate-x-1/2 top-[15%] backdrop:bg-black backdrop:opacity-75 max-w-[500px] w-full border border-surface-50 dark:border-surface-950 shadow-lg"
+	class="bg-surface-100 dark:bg-surface-900 text-black dark:text-white rounded-md p-8 m-0 left-1/2 -translate-x-1/2 top-[15%] backdrop:bg-black backdrop:opacity-75 max-w-[700px] max-h-[75vh] w-full border border-surface-50 dark:border-surface-950 shadow-lg"
 	bind:this={dialog}
 	use:click_outside
 >
@@ -109,26 +111,39 @@
 					<p class="text-center text-sm opacity-50">Start typing to search</p>
 				{:else}
 					<p class="text-sm opacity-50">{results.length} results for {query}</p>
-					<ol class="flex flex-col gap-4 max-h-[500px] overflow-y-auto">
+					<ol class="flex flex-col gap-4">
 						{#each results as result}
 							{@const subResults = result.sub_results.filter((r) => r.title !== result.meta.title)}
-							<li
-								class="flex bg-surface-50 dark:bg-surface-950 border border-surface-500 rounded-md p-2 flex-col gap-2"
-							>
-								<a href={result.url}>
-									<p class="text-xl font-bold">{result.meta.title}</p>
-									<p class="text-sm line-clamp-2">{@html result.excerpt}</p>
+							<li class="flex bg-surface-50 dark:bg-surface-950 rounded-md p-4 flex-col gap-4">
+								<a class="grid grid-cols-[auto_1fr] grid-rows-2 items-center gap-2" href={result.url}>
+									<TextSearch />
+									<p class="text-xl font-bold">
+										{result.meta.title}
+									</p>
+									<p></p>
+									<p class="text-sm opacity-50">{result.url}</p>
 								</a>
-								<ol class="flex flex-col gap-1">
+								<ol class="flex flex-col gap-4">
 									{#each subResults as subResult}
 										<li>
-											<a class="flex gap-2" href={subResult.url}>
-												<div class="mt-1.5">
-													<ChevronRight size={16} class="opacity-50" />
-												</div>
+											<a
+												class="grid grid-cols-[auto_1fr] grid-rows-1 items-center gap-2"
+												href={subResult.url}
+											>
+												<ChevronRight />
 												<div>
-													<p class="text-lg font-semibold">{subResult.title}</p>
-													<p class="text-sm line-clamp-2">{@html subResult.excerpt}</p>
+													<p class="text-lg font-semibold">
+														{subResult.title}
+													</p>
+													<p class="text-sm opacity-50 flex items-center">
+														{subResult.url}
+													</p>
+
+													<p
+														class="text-sm line-clamp-2 [&>mark]:bg-primary-200 [&>mark]:px-1 [&>mark]:rounded-md"
+													>
+														{@html subResult.excerpt}
+													</p>
 												</div>
 											</a>
 										</li>
@@ -142,9 +157,3 @@
 		</nav>
 	</div>
 </dialog>
-
-<style lang="postcss">
-	mark {
-		@apply !bg-red-600;
-	}
-</style>
