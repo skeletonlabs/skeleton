@@ -2,6 +2,7 @@
 	import Search from 'lucide-svelte/icons/search';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 	import TextSearch from 'lucide-svelte/icons/text-search';
+	import Link from 'lucide-svelte/icons/link';
 
 	import { getPreferredFramework, isFramework } from 'src/utils';
 	import type { Pagefind } from 'vite-plugin-pagefind';
@@ -97,45 +98,39 @@
 </button>
 
 <dialog
-	class="bg-surface-100 dark:bg-surface-900 text-black dark:text-white rounded-md p-8 m-0 left-1/2 -translate-x-1/2 top-[15%] backdrop:bg-black backdrop:opacity-75 max-w-[700px] max-h-[75vh] w-full border border-surface-50 dark:border-surface-950 shadow-lg"
+	class="bg-surface-50-950 text-black dark:text-white rounded-md p-4 m-0 left-1/2 -translate-x-1/2 top-[15%] backdrop:bg-black backdrop:opacity-75 max-w-[700px] max-h-[75vh] w-full border border-surface-100-900 shadow-lg"
 	bind:this={dialog}
 	use:click_outside
 >
 	<div class="flex flex-col gap-4">
 		<input class="input" placeholder="Search..." bind:value={query} />
-		<nav class="flex flex-col gap-4">
+		<nav
+			class="flex flex-col gap-4 [&_mark]:bg-primary-800-200 [&_mark]:text-white [&_mark]:dark:text-black [&_mark]:px-1 [&_mark]:rounded-md [&_a:focus]:bg-primary-200-800"
+		>
 			{#await searchPromise then results}
 				{#if results.length === 0 && query !== ''}
-					<p class="text-center text-sm opacity-50">No results found for "{query}"</p>
+					<p class="text-center text-sm opacity-50 py-8">No results found for "{query}"</p>
 				{:else if results.length === 0}
-					<p class="text-center text-sm opacity-50">Start typing to search</p>
+					<p class="text-center text-sm opacity-50 py-8">Start typing to search...</p>
 				{:else}
-					<p class="text-sm opacity-50">{results.length} results for {query}</p>
 					<ol class="flex flex-col gap-4">
 						{#each results as result}
-							{@const subResults = result.sub_results.filter((r) => r.title !== result.meta.title)}
-							<li class="flex bg-surface-50 dark:bg-surface-950 rounded-md p-4 flex-col gap-4">
-								<a class="grid grid-cols-[2rem_1fr] grid-rows-2 items-center gap-x-2" href={result.url}>
-									<div class="flex items-center justify-center">
-										<TextSearch />
-									</div>
-
-									<p class="text-xl font-bold">
+							<li class="border-2 border-surface-100-900 rounded-md divide-y-2 divide-surface-100-900">
+								<a class="block p-2" href={result.url}>
+									<p class="flex items-center gap-2 text-xl font-bold">
+										<TextSearch class="size-6" />
 										{result.meta.title}
 									</p>
-									<p></p>
-									<p class="text-sm opacity-50">{result.url}</p>
+									<p class="opacity-50 pl-8">{result.url}</p>
 								</a>
-								<ol class="flex flex-col gap-4">
-									{#each subResults as subResult}
+								<ol class="divide-y-2 divide-surface-100-900">
+									{#each result.sub_results.filter((r) => r.title !== result.meta.title) as subResult}
 										<li>
-											<a class="block pl-10" href={subResult.url}>
-												<p class="text-lg font-semibold">
+											<a class="block pl-10 p-2" href={subResult.url}>
+												<p class="flex items-center gap-2 text-lg font-bold">
 													{subResult.title}
 												</p>
-												<p
-													class="text-sm line-clamp-2 [&>mark]:bg-primary-200 [&>mark]:px-1 [&>mark]:rounded-md"
-												>
+												<p class="opacity-75 italic line-clamp-2">
 													{@html subResult.excerpt}
 												</p>
 											</a>
