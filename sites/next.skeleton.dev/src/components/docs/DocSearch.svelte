@@ -115,8 +115,11 @@
 						{#each results as result}
 							{@const subResults = result.sub_results.filter((r) => r.title !== result.meta.title)}
 							<li class="flex bg-surface-50 dark:bg-surface-950 rounded-md p-4 flex-col gap-4">
-								<a class="grid grid-cols-[auto_1fr] grid-rows-2 items-center gap-2" href={result.url}>
-									<TextSearch />
+								<a class="grid grid-cols-[2rem_1fr] grid-rows-2 items-center gap-x-2" href={result.url}>
+									<div class="flex items-center justify-center">
+										<TextSearch />
+									</div>
+
 									<p class="text-xl font-bold">
 										{result.meta.title}
 									</p>
@@ -126,25 +129,15 @@
 								<ol class="flex flex-col gap-4">
 									{#each subResults as subResult}
 										<li>
-											<a
-												class="grid grid-cols-[auto_1fr] grid-rows-1 items-center gap-2"
-												href={subResult.url}
-											>
-												<ChevronRight />
-												<div>
-													<p class="text-lg font-semibold">
-														{subResult.title}
-													</p>
-													<p class="text-sm opacity-50 flex items-center">
-														{subResult.url}
-													</p>
-
-													<p
-														class="text-sm line-clamp-2 [&>mark]:bg-primary-200 [&>mark]:px-1 [&>mark]:rounded-md"
-													>
-														{@html subResult.excerpt}
-													</p>
-												</div>
+											<a class="block pl-10" href={subResult.url}>
+												<p class="text-lg font-semibold">
+													{subResult.title}
+												</p>
+												<p
+													class="text-sm line-clamp-2 [&>mark]:bg-primary-200 [&>mark]:px-1 [&>mark]:rounded-md"
+												>
+													{@html subResult.excerpt}
+												</p>
 											</a>
 										</li>
 									{/each}
