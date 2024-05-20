@@ -13,15 +13,18 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 {/* --- */}
 
 <div class="card p-8 py-6 preset-tonal-error grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-4">
-	<p>WARNING: This will install an early preview build of Skeleton v3. Please be aware that some features may be missing, incomplete, or non-functional at this time. Please report all bugs and issues on GitHub.</p>
+	<p>WARNING: This will install an early preview build of Skeleton v3 using Svelte 5. Please be aware that some features may be missing, incomplete, or non-functional at this time. Report bugs and issues to GitHub or Discord.</p>
 </div>
 
 <Process>
     <ProcessStep step="1">
         ## Create a Project
-        Start by creating a new project using `create-svelte`:
+        Start by creating a new Svelte 5 project using `create-svelte`:
         ```console
         npm create svelte@latest my-skeleton-app
+            - Choose barebones "skeleton" app
+            - Use Typescript
+            - Additiona Options > Svelte 5 Preview (required!)
         cd my-skeleton-app
         npm install
         ```
@@ -40,41 +43,48 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         npx @svelte-add/tailwindcss@latest --typography false
         npm install
         ```
+        > NOTE: if you see "something went wrong", everything will work as expected. Please proceed to the next step.
     </ProcessStep>
     <ProcessStep step="4">
-        ## Configure Tailwind
-        Open `tailwind.config.js`, then implement the highlighted snippets below.
-{/* prettier-ignore */}
-```js {2, 3, 9, 15-17}
-import { join } from 'path';
-import { skeleton } from '@skeletonlabs/skeleton';
-import * as themes from "@skeletonlabs/skeleton/themes";
-
-/** @type {import('tailwindcss').Config} \*/
-export default {
-    content: [
-        './src/**/*.{html,js,svelte,ts}',
-        join(require.resolve('@skeletonlabs/skeleton-svelte'), '../**/*.{html,js,svelte,ts}')
-    ],
-        theme: {
-        extend: {},
-    },
-    plugins: [
-        skeleton({
-            themes: [ themes.cerberus, themes.rose ]
-        })
-    ]
-}
-
-````
+        ## Install Node Types
+        You may optionally install the `@types/node` package to prevent LSP errors in your Tailwind config.
+        ```console
+        npm i --save-dev @types/node
+        ```
     </ProcessStep>
     <ProcessStep step="5">
-    ## Set Active Theme
-    Open `app.html`, then set the `data-theme` attribute on the body to define the active theme.
-```html
-<body data-theme="cerberus">...</body>
-````
+        ## Configure Tailwind
+        Open `tailwind.config.js`, then implement the highlighted snippets below.
+        ```js {3-5, 11, 17-19}
+        import type { Config } from 'tailwindcss';
 
+        import { join } from 'path';
+        import { skeleton } from '@skeletonlabs/skeleton/plugin';
+        import * as themes from '@skeletonlabs/skeleton/themes';
+
+        /** @type {import('tailwindcss').Config} \*/
+        export default {
+            content: [
+                './src/**/*.{html,js,svelte,ts}',
+                join(require.resolve('@skeletonlabs/skeleton-svelte'), '../**/*.{html,js,svelte,ts}')
+            ],
+                theme: {
+                extend: {},
+            },
+            plugins: [
+                skeleton({
+                    themes: [ themes.cerberus, themes.rose ]
+                })
+            ]
+        }
+        ```
+    </ProcessStep>
+    <ProcessStep step="6">
+        ## Set Active Theme
+        Open `app.html`, then set the `data-theme` attribute on the body to define the active theme.
+        ```html
+        <body data-theme="cerberus">...</body>
+        ```
     </ProcessStep>
     <ProcessStep step="check">
         ## Ready
