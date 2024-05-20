@@ -12,6 +12,7 @@
     "themes.skeleton.dev": "0.0.1"
   },
   "changesets": [
+    "lovely-dingos-join",
     "quick-mayflies-clap"
   ]
 }
