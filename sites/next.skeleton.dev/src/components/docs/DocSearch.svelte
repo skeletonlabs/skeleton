@@ -24,11 +24,11 @@
 
 	$effect(() => docSearchSettingsStore.set(docSearchSettings));
 
-	const searchPromise = $derived.by(async () => {
+	const searchPromise = $derived.by(() => {
 		// Define deps since async context is not reactive
 		[pagefind, query, docSearchSettings.framework];
 
-		return await untrack(async () => {
+		return untrack(async () => {
 			if (pagefind === null || query === '') {
 				return [];
 			}
@@ -61,8 +61,38 @@
 		});
 	});
 
-	const openDialog = () => {
-		dialog && dialog.showModal();
+	const openDialog = () => dialog && dialog.showModal();
+
+	const click_outside = (node: HTMLDialogElement) => {
+		const onclick = (event: MouseEvent) => {
+			if (event.target === null || !(event.target instanceof Element)) {
+				return;
+			}
+			if (event.target.tagName !== 'DIALOG') {
+				//This prevents issues with forms
+				return;
+			}
+
+			const rect = event.target.getBoundingClientRect();
+
+			const clickedInDialog =
+				rect.top <= event.clientY &&
+				event.clientY <= rect.top + rect.height &&
+				rect.left <= event.clientX &&
+				event.clientX <= rect.left + rect.width;
+
+			if (clickedInDialog === false) {
+				node.close();
+			}
+		};
+
+		document.addEventListener('click', onclick);
+
+		return {
+			destroy: () => {
+				document.removeEventListener('click', onclick);
+			},
+		};
 	};
 
 	const toggleFilters = () => (showFilters = !showFilters);
@@ -105,6 +135,7 @@
 <dialog
 	class="bg-surface-50-950 text-black dark:text-white rounded-md p-4 m-0 left-1/2 -translate-x-1/2 top-[15%] backdrop:bg-black backdrop:opacity-75 max-w-[700px] max-h-[75vh] w-full border border-surface-100-900 shadow-lg"
 	bind:this={dialog}
+	use:click_outside
 >
 	<div class="flex flex-col gap-4">
 		<div class="flex gap-2 items-center">
