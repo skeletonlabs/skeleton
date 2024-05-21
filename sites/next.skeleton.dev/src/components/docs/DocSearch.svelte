@@ -1,39 +1,63 @@
 <script lang="ts">
 	import Search from 'lucide-svelte/icons/search';
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 	import TextSearch from 'lucide-svelte/icons/text-search';
-	import Link from 'lucide-svelte/icons/link';
-
-	import { getPreferredFramework, isFramework } from 'src/utils';
+	import FilterIcon from 'lucide-svelte/icons/filter';
+	import { docSearchSettingsStore } from 'src/stores/doc-search-settings';
+	import { frameworks, isFramework } from 'src/stores/preferred-framework';
+	import { untrack } from 'svelte';
 	import type { Pagefind } from 'vite-plugin-pagefind';
+	import { slide } from 'svelte/transition';
 
 	let dialog: HTMLDialogElement | null = $state(null);
 	let pagefind: Pagefind | null = $state(null);
 	let query = $state('');
+	let docSearchSettings = $state(docSearchSettingsStore.get());
+	let showFilters = $state(false);
+
+	$effect(() => {
+		const unsubscribe = docSearchSettingsStore.listen((value) => {
+			docSearchSettings = value;
+		});
+
+		return unsubscribe;
+	});
+
+	$effect(() => docSearchSettingsStore.set(docSearchSettings));
 
 	const searchPromise = $derived.by(async () => {
-		if (pagefind === null || query === '') {
-			return [];
-		}
-		const result = await pagefind.search(query);
-		if (result === null) {
-			return [];
-		}
-		const results = await Promise.all(result.results.map((result) => result.data()));
+		// Define deps since async context is not reactive
+		[pagefind, query, docSearchSettings.framework];
 
-		return results.filter((result) => {
-			const end = result.url.split('/').at(-2);
-
-			if (end && isFramework(end) && end !== getPreferredFramework()) {
-				return false;
+		return await untrack(async () => {
+			if (pagefind === null || query === '') {
+				return [];
 			}
 
-			return true;
+			const result = await pagefind.search(query);
+
+			if (result === null) {
+				return [];
+			}
+
+			const results = await Promise.all(result.results.map((result) => result.data()));
+
+			return results.filter((result) => {
+				const possibleFramework = result.url.split('/').at(-2);
+
+				if (isFramework(possibleFramework) && docSearchSettings.framework !== 'all') {
+					return possibleFramework === docSearchSettings.framework;
+				}
+
+				return true;
+			});
 		});
 	});
 
-	const openDialog = () => dialog && dialog.showModal();
-	const closeDialog = () => dialog && dialog.close();
+	const openDialog = () => {
+		dialog && dialog.showModal();
+	};
+
+	const toggleFilters = () => (showFilters = !showFilters);
 
 	$effect(() => {
 		// @ts-expect-error - Pagefind will be present at runtime
@@ -47,6 +71,7 @@
 				return;
 			}
 			pagefind.destroy();
+			pagefind = null;
 		};
 	});
 
@@ -62,34 +87,6 @@
 			document.removeEventListener('keydown', onKeydown);
 		};
 	});
-
-	const click_outside = (node: HTMLDialogElement) => {
-		function handleClick(event: MouseEvent) {
-			if (!event.target || !(event.target instanceof Element)) {
-				return;
-			}
-
-			const rect = event.target.getBoundingClientRect();
-
-			const clickedInDialog =
-				rect.top <= event.clientY &&
-				event.clientY <= rect.top + rect.height &&
-				rect.left <= event.clientX &&
-				event.clientX <= rect.left + rect.width;
-
-			if (!clickedInDialog) {
-				closeDialog();
-			}
-		}
-
-		node.addEventListener('click', handleClick);
-
-		return {
-			destroy: () => {
-				node.removeEventListener('click', handleClick);
-			},
-		};
-	};
 </script>
 
 <button onclick={() => openDialog()} type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
@@ -100,10 +97,27 @@
 <dialog
 	class="bg-surface-50-950 text-black dark:text-white rounded-md p-4 m-0 left-1/2 -translate-x-1/2 top-[15%] backdrop:bg-black backdrop:opacity-75 max-w-[700px] max-h-[75vh] w-full border border-surface-100-900 shadow-lg"
 	bind:this={dialog}
-	use:click_outside
 >
 	<div class="flex flex-col gap-4">
-		<input class="input" placeholder="Search..." bind:value={query} />
+		<div class="flex gap-4 items-center">
+			<input class="input" placeholder="Search..." bind:value={query} />
+			<button class="btn-icon preset-outlined-surface-950-50 flex-1" onclick={toggleFilters}
+				><FilterIcon /></button
+			>
+		</div>
+		{#if showFilters}
+			<div class="flex flex-col gap-2 p-0.5" transition:slide>
+				<label class="label">
+					<span>Framework</span>
+					<select bind:value={docSearchSettings.framework} class="select">
+						{#each frameworks as framework}
+							<option value={framework.slug}>{framework.name}</option>
+						{/each}
+						<option value="all">All</option>
+					</select>
+				</label>
+			</div>
+		{/if}
 		<nav
 			class="flex flex-col gap-4 [&_mark]:bg-primary-800-200 [&_mark]:text-white [&_mark]:dark:text-black [&_mark]:px-1 [&_mark]:rounded-md [&_a:focus]:bg-primary-200-800"
 		>
