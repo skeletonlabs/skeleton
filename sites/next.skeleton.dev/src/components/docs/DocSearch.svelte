@@ -3,7 +3,7 @@
 	import TextSearch from 'lucide-svelte/icons/text-search';
 	import FilterIcon from 'lucide-svelte/icons/filter';
 	import { docSearchSettingsStore } from 'src/stores/doc-search-settings';
-	import { frameworks, isFramework } from 'src/stores/preferred-framework';
+	import { frameworks, isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
 	import { untrack } from 'svelte';
 	import type { Pagefind } from 'vite-plugin-pagefind';
 	import { slide } from 'svelte/transition';
@@ -42,13 +42,21 @@
 			const results = await Promise.all(result.results.map((result) => result.data()));
 
 			return results.filter((result) => {
-				const possibleFramework = result.url.split('/').at(-2);
-
-				if (isFramework(possibleFramework) && docSearchSettings.framework !== 'all') {
-					return possibleFramework === docSearchSettings.framework;
+				if (docSearchSettings.framework === 'all') {
+					return true;
 				}
 
-				return true;
+				const urlFramework = result.url.split('/').at(-2);
+
+				if (!isFramework(urlFramework)) {
+					return true;
+				}
+
+				if (docSearchSettings.framework === 'preferred') {
+					return preferredFrameworkStore.get() === urlFramework;
+				}
+
+				return urlFramework === docSearchSettings.framework;
 			});
 		});
 	});
@@ -110,6 +118,7 @@
 				<label class="label">
 					<span>Framework</span>
 					<select bind:value={docSearchSettings.framework} class="select">
+						<option value="preferred">Preferred</option>
 						{#each frameworks as framework}
 							<option value={framework.slug}>{framework.name}</option>
 						{/each}
@@ -129,7 +138,7 @@
 				{:else}
 					<ol class="flex flex-col gap-4">
 						{#each results as result}
-							<li class="border-2 border-surface-100-900 rounded-md divide-y-2 divide-surface-100-900">
+							<li class="border-2 border-surface-100-900 rounded-md divide-y-4 divide-surface-100-900">
 								<a class="block p-2" href={result.url}>
 									<p class="flex items-center gap-2 text-xl font-bold">
 										<TextSearch class="size-6" />
