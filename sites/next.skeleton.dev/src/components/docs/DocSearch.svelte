@@ -99,14 +99,14 @@
 	bind:this={dialog}
 >
 	<div class="flex flex-col gap-4">
-		<div class="flex gap-4 items-center">
+		<div class="flex gap-2 items-center">
 			<input class="input" placeholder="Search..." bind:value={query} />
-			<button class="btn-icon preset-outlined-surface-950-50 flex-1" onclick={toggleFilters}
+			<button class="btn-icon preset-outlined-surface-950-50 h-full aspect-square w-fit" onclick={toggleFilters}
 				><FilterIcon /></button
 			>
 		</div>
 		{#if showFilters}
-			<div class="flex flex-col gap-2 p-0.5" transition:slide>
+			<div class="flex flex-col gap-2" transition:slide>
 				<label class="label">
 					<span>Framework</span>
 					<select bind:value={docSearchSettings.framework} class="select">
