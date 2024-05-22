@@ -21,6 +21,14 @@ export interface RatingProps {
 	justify?: string;
 	/** Sets horizontal spacing styles. */
 	spaceX?: string;
+	/** Provide arbitrary CSS classes for empty icons in interractive mode. (important for functionality!) */
+	iconEmptyBtnClasses?: string;
+	/** Provide arbitrary CSS classes for full icons in interractive mode. (important for functionality!) */
+	iconFullBtnClasses?: string;
+	/** Provide arbitrary CSS classes for empty icons. (important for functionality!) */
+	iconEmptyClasses?: string;
+	/** Provide arbitrary CSS classes for full icons. (important for functionality!) */
+	iconFullClasses?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
@@ -33,6 +41,10 @@ export interface RatingProps {
 	itemAspect?: string;
 	/** Provide arbitrary CSS classes to the rating item. */
 	itemClasses?: string;
+
+	// Events ---
+	/** Triggers on rating click. */
+	onclick?: (event: MouseEvent, value: number) => void;
 
 	// Snippets ---
 	/** The empty icon slot. */

@@ -12,12 +12,18 @@
 		fill = 'fill-token',
 		justify = 'justify-center',
 		spaceX = 'space-x-2',
+		iconEmptyBtnClasses = 'clip-left absolute left-0 top-0 flex w-full h-full items-center justify-center',
+		iconFullBtnClasses = 'clip-right absolute left-0 top-0 flex h-full w-full items-center justify-center',
+		iconEmptyClasses = 'clip-left absolute left-0 top-0 w-fit',
+		iconFullClasses = 'clip-right absolute left-0 top-0 w-fit',
 		classes = '',
 		// Item ---
 		itemBase = 'w-full h-full',
 		itemPosition = 'relative',
 		itemAspect = 'aspect-square',
 		itemClasses = '',
+		// Events
+		onclick = () => {},
 		// Snippets ---
 		iconEmpty: emptyIcon,
 		iconFull: fullIcon
@@ -31,45 +37,33 @@
 			const fractionWidth = ratingRect.width / fraction;
 			const left = event.clientX - ratingRect.left;
 			selectedFraction = Math.floor(left / fractionWidth) + 1;
+			value = order + selectedFraction / fraction;
+			onclick(event, value);
 		}
 		// handling keyboard
 		else {
 		}
-		value = order + selectedFraction / fraction;
 	}
 </script>
 
 {#snippet rating(order, percentage)}
-	{#if interactive}
-		<button type="button" class="{itemBase} {itemPosition} {itemAspect} {itemClasses}" onclick={(event) => onRatingClick(event, order)}>
-			<div class="clip-left absolute left-0 top-0 flex h-full w-full items-center justify-center" style="--clip_value: {percentage * 100}%">
-				{#if emptyIcon}
-					{@render emptyIcon()}
-				{/if}
-			</div>
-			<div
-				class="clip-right absolute left-0 top-0 flex h-full w-full items-center justify-center"
-				style="--clip_value: {100 - percentage * 100}%"
-			>
-				{#if fullIcon}
-					{@render fullIcon()}
-				{/if}
-			</div>
-		</button>
-	{:else}
-		<div class="{itemBase} {itemPosition} {itemAspect} {itemClasses}">
-			<div class="clip-left absolute left-0 top-0 w-fit" style="--clip_value: {percentage * 100}%">
-				{#if emptyIcon}
-					{@render emptyIcon()}
-				{/if}
-			</div>
-			<div class="clip-right absolute left-0 top-0 w-fit" style="--clip_value: {100 - percentage * 100}%">
-				{#if fullIcon}
-					{@render fullIcon()}
-				{/if}
-			</div>
+	<svelte:element
+		this={interactive ? 'button' : 'div'}
+		role={interactive ? 'button' : 'none'}
+		class="{itemBase} {itemPosition} {itemAspect} {itemClasses}"
+		onclick={(event: MouseEvent | PointerEvent) => interactive ? onRatingClick(event, order) : undefined}
+	>
+		<div class={interactive ? iconEmptyBtnClasses : iconEmptyClasses} style="--clip_value: {percentage * 100}%">
+			{#if emptyIcon}
+				{@render emptyIcon()}
+			{/if}
 		</div>
-	{/if}
+		<div class={interactive ? iconFullBtnClasses : iconFullClasses} style="--clip_value: {100 - percentage * 100}%">
+			{#if fullIcon}
+				{@render fullIcon()}
+			{/if}
+		</div>
+	</svelte:element>
 {/snippet}
 
 <figure class="{base} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating">

@@ -102,7 +102,7 @@
 		<h2 class="h2">interactive</h2>
 		<div class="flex items-center gap-8">
 			<div class="w-48">
-				<Rating bind:value={interactiveValue} interactive>
+				<Rating bind:value={interactiveValue} interactive onclick={(_, value) => console.log(`rating value: ${value}`)}>
 					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
