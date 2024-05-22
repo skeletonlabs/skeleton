@@ -1,8 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { act, render, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
+import {
+	act,
+	render,
+	waitFor,
+	waitForElementToBeRemoved,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { Accordion } from "./Accordion";
+import { Accordion } from "./Accordion.js";
 
 // *************************
 // Integration Tests
@@ -20,7 +25,7 @@ describe("Accordion usage", () => {
 					<Accordion.Control>Test Control 2</Accordion.Control>
 					<Accordion.Panel>Test Panel 2</Accordion.Panel>
 				</Accordion.Item>
-			</Accordion>,
+			</Accordion>
 		);
 
 		const control1 = getByText("Test Control 1");
@@ -106,19 +111,25 @@ describe("<Accordion.Item>", () => {
 
 	it("should allow for children", () => {
 		const value = "foobar";
-		const { getByTestId } = render(<Accordion.Item id="testItem1">{value}</Accordion.Item>);
+		const { getByTestId } = render(
+			<Accordion.Item id="testItem1">{value}</Accordion.Item>
+		);
 		expect(getByTestId("accordion-item").innerHTML).toContain(value);
 	});
 
 	it("should allow you to set the `base` style prop", () => {
 		const tailwindClasses = "bg-red-500";
-		const { getByTestId } = render(<Accordion.Item id="testItem1" base={tailwindClasses} />);
+		const { getByTestId } = render(
+			<Accordion.Item id="testItem1" base={tailwindClasses} />
+		);
 		expect(getByTestId("accordion-item")).toHaveClass(tailwindClasses);
 	});
 
 	it("should allow you to set the `classes` style prop", () => {
 		const tailwindClasses = "bg-green-500";
-		const { getByTestId } = render(<Accordion.Item id="testItem1" classes={tailwindClasses} />);
+		const { getByTestId } = render(
+			<Accordion.Item id="testItem1" classes={tailwindClasses} />
+		);
 		expect(getByTestId("accordion-item")).toHaveClass(tailwindClasses);
 	});
 });
@@ -133,7 +144,9 @@ describe("<Accordion.Control>", () => {
 
 	it("should allow for children", () => {
 		const value = "foobar";
-		const { getByTestId } = render(<Accordion.Control>{value}</Accordion.Control>);
+		const { getByTestId } = render(
+			<Accordion.Control>{value}</Accordion.Control>
+		);
 		expect(getByTestId("accordion-control").innerHTML).toContain(value);
 	});
 
@@ -147,13 +160,17 @@ describe("<Accordion.Control>", () => {
 
 	it("should allow you to set the `base` style prop", () => {
 		const tailwindClasses = "bg-red-500";
-		const { getByTestId } = render(<Accordion.Control base={tailwindClasses} />);
+		const { getByTestId } = render(
+			<Accordion.Control base={tailwindClasses} />
+		);
 		expect(getByTestId("accordion-control")).toHaveClass(tailwindClasses);
 	});
 
 	it("should allow you to set the `classes` style prop", () => {
 		const tailwindClasses = "bg-green-500";
-		const { getByTestId } = render(<Accordion.Control classes={tailwindClasses} />);
+		const { getByTestId } = render(
+			<Accordion.Control classes={tailwindClasses} />
+		);
 		expect(getByTestId("accordion-control")).toHaveClass(tailwindClasses);
 	});
 });
@@ -171,7 +188,7 @@ describe("<Accordion.Panel>", () => {
 		const { getByTestId } = render(
 			<Accordion.Item id={id}>
 				<Accordion.Panel>Test Panel 1</Accordion.Panel>
-			</Accordion.Item>,
+			</Accordion.Item>
 		);
 		const element = getByTestId("accordion-panel");
 		expect(element.getAttribute("aria-labelledby")).toBe(id);
@@ -184,7 +201,7 @@ describe("<Accordion.Panel>", () => {
 				<Accordion.Item id="testItem1">
 					<Accordion.Panel>{value}</Accordion.Panel>
 				</Accordion.Item>
-			</Accordion>,
+			</Accordion>
 		);
 		const element = getByTestId("accordion-panel").children[0].innerHTML;
 		expect(element).toContain(value);
@@ -197,7 +214,7 @@ describe("<Accordion.Panel>", () => {
 				<Accordion.Item id="testItem1">
 					<Accordion.Panel base={tailwindClasses}>Test</Accordion.Panel>
 				</Accordion.Item>
-			</Accordion>,
+			</Accordion>
 		);
 		const element = getByTestId("accordion-panel-children");
 		expect(element).toHaveClass(tailwindClasses);
@@ -210,7 +227,7 @@ describe("<Accordion.Panel>", () => {
 				<Accordion.Item id="testItem1">
 					<Accordion.Panel classes={tailwindClasses}>Test</Accordion.Panel>
 				</Accordion.Item>
-			</Accordion>,
+			</Accordion>
 		);
 		const element = getByTestId("accordion-panel-children");
 		expect(element).toHaveClass(tailwindClasses);

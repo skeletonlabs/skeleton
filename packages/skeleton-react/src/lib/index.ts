@@ -1,6 +1,8 @@
-export { default as TestReact } from "../components/Test/Test.jsx";
-export { Accordion } from "../components/Accordion/Accordion.jsx";
-export { Avatar } from "../components/Avatar/Avatar.jsx";
-export { AppBar, ToolBar } from "../components/AppBar/AppBar.jsx";
-export { Progress } from "../components/Progress/Progress.jsx";
-export { Tabs } from "../components/Tab/Tabs.jsx";
+export { default as TestReact } from "./components/Test/Test.js";
+
+// Components
+export { Accordion } from "./components/Accordion/Accordion.js";
+export { Avatar } from "./components/Avatar/Avatar.js";
+export { AppBar, ToolBar } from "./components/AppBar/AppBar.js";
+export { Progress } from "./components/Progress/Progress.js";
+export { Tabs } from "./components/Tabs/Tabs.js";

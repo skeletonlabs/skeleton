@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "0.0.2",
+	"version": "1.0.0-next.1",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
@@ -38,7 +38,7 @@
 		"./dist/**/*.d.cts"
 	],
 	"peerDependencies": {
-		"svelte": "^4.0.0"
+		"svelte": "^5.0.0-next.136"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.42.1",

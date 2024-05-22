@@ -1,5 +1,6 @@
 {
 	"name": "next.skeleton.dev",
+	"private": true,
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/skeletonlabs/skeleton.git"
@@ -9,11 +10,12 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "concurrently \"pnpm:start\" \"pnpm:dev:svelte\"",
+		"dev": "pnpm run --reporter append-only --color \"/dev:/\"",
 		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
-		"start": "astro dev",
+		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
+		"dev:astro": "astro dev",
 		"check": "astro check",
-		"build": "pnpm -F '*svelte' build && astro check && astro build",
+		"build": "pnpm -F '@skeletonlabs/*' package && astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"format": "prettier --write ."
@@ -26,8 +28,8 @@
 		"@astrojs/tailwind": "^5.1.0",
 		"@nanostores/persistent": "^0.9.1",
 		"@skeletonlabs/skeleton": "workspace:*",
-		"@skeletonlabs/skeleton-react": "workspace:^",
-		"@skeletonlabs/skeleton-svelte": "workspace:^",
+		"@skeletonlabs/skeleton-react": "workspace:*",
+		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@types/react": "^18.2.74",
 		"astro": "^4.5.16",
 		"astro-auto-import": "^0.4.2",

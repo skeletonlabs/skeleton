@@ -12,8 +12,8 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 
 {/* --- */}
 
-<div class="card p-8 py-6 preset-tonal-warning grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-4 text-center">
-	<p>WARNING: this page is a preview. Skeleton v3 is not yet available. The following instructions will fail.</p>
+<div class="card p-8 py-6 preset-tonal-error grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-4">
+	<p>WARNING: This will install an early preview build of Skeleton v3. Please be aware that some features may be missing, incomplete, or non-functional at this time. Report bugs and issues to GitHub or Discord.</p>
 </div>
 
 <Process>
@@ -21,7 +21,8 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         ## Create a Project
         Start by creating a new project using `create-next-app`:
         ```console
-        npx create-next-app@latest my-app --typescript --tailwind --eslint
+        npm create next-app@latest my-skeleton-app --typescript --tailwind --eslint
+        cd my-skeleton-app
         ```
     </ProcessStep>
     <ProcessStep step="2">
@@ -33,40 +34,39 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="4">
         ## Configure Tailwind
-        Open and configure `tailwind.config.js` as shown.
-{/* prettier-ignore */}
-```js {2, 3, 11, 17-19}
-import { join } from 'path';
-import { skeleton } from '@skeletonlabs/skeleton';
-import * as themes from "@skeletonlabs/skeleton/themes";
+        Open `tailwind.config` in the root of your project and make these changes:
+        ```js {3-5, 13, 19-21}
+        import type { Config } from 'tailwindcss';
 
-/** @type {import('tailwindcss').Config} \*/
-export default {
-    content: [
-        "./src/pages/**/_.{js,ts,jsx,tsx,mdx}",
-        "./src/components/\*\*/_.{js,ts,jsx,tsx,mdx}",
-        "./src/app/**/\*.{js,ts,jsx,tsx,mdx}",
-        join(require.resolve('@skeletonlabs/skeleton-react'), '../**/\*.{html,js,tsx,ts}')
-    ],
-        theme: {
-        extend: {},
-    },
-    plugins: [
-        skeleton({
-            themes: [ themes.cerberus, themes.rose ]
-        })
-    ]
-}
+        import { join } from "path";
+        import { skeleton } from "@skeletonlabs/skeleton/plugin";
+        import * as themes from "@skeletonlabs/skeleton/themes";
 
-````
+        /** @type {import('tailwindcss').Config} \*/
+        export default {
+            content: [
+                "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+                "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+                "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+                join(require.resolve('@skeletonlabs/skeleton-react'), '../**/*.{html,js,jsx,tsx,ts}')
+            ],
+            theme: {
+                extend: {},
+            },
+            plugins: [
+                skeleton({
+                    themes: [ themes.cerberus, themes.rose ]
+                })
+            ]
+        }
+        ```
     </ProcessStep>
     <ProcessStep step="5">
         ## Set Active Theme
         Open `/src/app/layout.tsx`, then set the `data-theme` attribute to define the active theme.
-```html
-<body data-theme="cerberus">...</body>
-````
-
+        ```html
+        <body data-theme="cerberus">...</body>
+        ```
     </ProcessStep>
     <ProcessStep step="check">
         ## Ready

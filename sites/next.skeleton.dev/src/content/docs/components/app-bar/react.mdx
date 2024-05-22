@@ -11,6 +11,8 @@ import ExampleToolbarRaw from '@examples/components/app-bars/ExampleToolbar.tsx?
 import { Page as ExampleResponsive } from '@examples/components/app-bars/ExampleResponsive';
 import ExampleResponsiveRaw from '@examples/components/app-bars/ExampleResponsive.tsx?raw';
 
+import { AppBarSchema } from '@skeletonlabs/skeleton-react/schemas';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Example />
@@ -43,3 +45,17 @@ Use Tailwind's [responsive design](https://tailwindcss.com/docs/responsive-desig
 		<Code code={ExampleResponsiveRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable
+	types={[
+		'AppBarProps',
+		'AppBarToolBarProps',
+		'AppBarLeadProps',
+		'AppBarCenterProps',
+		'AppBarTrailProps',
+		'AppBarHeadlineProps',
+	]}
+	schema={AppBarSchema}
+/>
