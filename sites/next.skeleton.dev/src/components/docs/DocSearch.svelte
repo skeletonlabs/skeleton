@@ -1,12 +1,15 @@
 <script lang="ts">
-	import Search from 'lucide-svelte/icons/search';
-	import TextSearch from 'lucide-svelte/icons/text-search';
-	import FilterIcon from 'lucide-svelte/icons/filter';
-	import { docSearchSettingsStore } from 'src/stores/doc-search-settings';
-	import { frameworks, isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
 	import { untrack } from 'svelte';
 	import type { Pagefind } from 'vite-plugin-pagefind';
-	import { slide } from 'svelte/transition';
+	// Utils
+	import { docSearchSettingsStore } from 'src/stores/doc-search-settings';
+	import { frameworks, isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
+	// Icons
+	import IconSearch from 'lucide-svelte/icons/search';
+	import IconFilter from 'lucide-svelte/icons/filter';
+	import IconBook from 'lucide-svelte/icons/book';
+	import IconHash from 'lucide-svelte/icons/hash';
+	import IconChevronRight from 'lucide-svelte/icons/chevron-right';
 
 	let dialog: HTMLDialogElement | null = $state(null);
 	let pagefind: Pagefind | null = $state(null);
@@ -29,18 +32,12 @@
 		[pagefind, query, docSearchSettings.framework];
 
 		return untrack(async () => {
-			if (pagefind === null || query === '') {
-				return [];
-			}
+			if (pagefind === null || query === '') return [];
 
 			const result = await pagefind.search(query);
-
-			if (result === null) {
-				return [];
-			}
+			if (result === null) return [];
 
 			const results = await Promise.all(result.results.map((result) => result.data()));
-
 			return results.filter((result) => {
 				if (docSearchSettings.framework === 'all') {
 					return true;
@@ -63,15 +60,10 @@
 
 	const openDialog = () => dialog && dialog.showModal();
 
-	const click_outside = (node: HTMLDialogElement) => {
+	const onClickOutside = (node: HTMLDialogElement) => {
 		const onclick = (event: MouseEvent) => {
-			if (event.target === null || !(event.target instanceof Element)) {
-				return;
-			}
-			if (event.target.tagName !== 'DIALOG') {
-				//This prevents issues with forms
-				return;
-			}
+			if (event.target === null || !(event.target instanceof Element)) return;
+			if (event.target.tagName !== 'DIALOG') return; // prevents issues with forms
 
 			const rect = event.target.getBoundingClientRect();
 
@@ -83,6 +75,7 @@
 
 			if (clickedInDialog === false) {
 				node.close();
+				query = '';
 			}
 		};
 
@@ -105,9 +98,7 @@
 		});
 
 		return () => {
-			if (!pagefind) {
-				return;
-			}
+			if (!pagefind) return;
 			pagefind.destroy();
 			pagefind = null;
 		};
@@ -127,75 +118,103 @@
 	});
 </script>
 
+<!-- Trigger Button -->
 <button onclick={() => openDialog()} type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
-	<Search size={18} className="opacity-60" />
+	<IconSearch class="opacity-60 size-4" />
 	<span class="opacity-60">Search...</span>
 </button>
 
+<!-- Dialog -->
 <dialog
-	class="bg-surface-50-950 text-black dark:text-white rounded-md p-4 m-0 left-1/2 -translate-x-1/2 top-[15%] backdrop:bg-black backdrop:opacity-75 max-w-[700px] max-h-[75vh] w-full border border-surface-100-900 shadow-lg"
+	class="bg-surface-50-950 text-inherit rounded-container m-0 mx-auto top-[10%] p-4 w-full max-w-[90%] md:max-w-2xl lg:max-w-4xl max-h-[75vh] shadow-xl space-y-4"
 	bind:this={dialog}
-	use:click_outside
+	use:onClickOutside
 >
-	<div class="flex flex-col gap-4">
-		<div class="flex gap-2 items-center">
-			<input class="input" placeholder="Search..." bind:value={query} />
-			<button class="btn-icon preset-outlined-surface-950-50 h-full aspect-square w-fit" onclick={toggleFilters}
-				><FilterIcon /></button
-			>
+	<!-- Search Field -->
+	<div class="input-group grid-cols-[auto_1fr_auto]">
+		<div class="input-group-cell">
+			<IconSearch class="opacity-60 size-4" />
 		</div>
-		{#if showFilters}
-			<div class="flex flex-col gap-2" transition:slide>
-				<label class="label">
-					<span>Framework</span>
-					<select bind:value={docSearchSettings.framework} class="select">
-						<option value="preferred">Preferred</option>
-						{#each frameworks as framework}
-							<option value={framework.slug}>{framework.name}</option>
-						{/each}
-						<option value="all">All</option>
-					</select>
-				</label>
-			</div>
-		{/if}
-		<nav
-			class="flex flex-col gap-4 [&_mark]:bg-primary-800-200 [&_mark]:text-white [&_mark]:dark:text-black [&_mark]:px-1 [&_mark]:rounded-md [&_a:focus]:bg-primary-200-800"
+		<input placeholder="Search..." bind:value={query} />
+		<button
+			type="button"
+			class="btn-icon preset-tonal scale-75 translate-y-0.5"
+			onclick={toggleFilters}
+			title="Show Filters"
+			tabindex="-1"
 		>
-			{#await searchPromise then results}
-				{#if results.length === 0 && query !== ''}
-					<p class="text-center text-sm opacity-50 py-8">No results found for "{query}"</p>
-				{:else if results.length === 0}
-					<p class="text-center text-sm opacity-50 py-8">Start typing to search...</p>
-				{:else}
+			<IconFilter class="size-6" />
+		</button>
+	</div>
+	<!-- Filters -->
+	{#if showFilters}
+		<label class="label">
+			<select class="select" bind:value={docSearchSettings.framework}>
+				<option value="preferred">Preferred Framework</option>
+				{#each frameworks as framework}
+					<option value={framework.slug}>Only {framework.name}</option>
+				{/each}
+				<option value="all">All Frameworks</option>
+			</select>
+		</label>
+	{/if}
+	<!-- Results -->
+	<article class="[&_mark]:code [&_mark]:text-inherit">
+		{#await searchPromise then results}
+			{#if results.length === 0 && query !== ''}
+				<p class="text-center py-10">No results found for <code class="code">{query}</code></p>
+			{:else if results.length === 0}
+				<p class="text-center py-10">What can we help you find?</p>
+			{:else}
+				<nav class="space-y-4">
+					<strong class="type-scale-4">Results</strong>
 					<ol class="flex flex-col gap-4">
 						{#each results as result}
-							<li class="border-2 border-surface-100-900 rounded-md divide-y-4 divide-surface-100-900">
-								<a class="block p-2" href={result.url}>
-									<p class="flex items-center gap-2 text-xl font-bold">
-										<TextSearch class="size-6" />
-										{result.meta.title}
-									</p>
-									<p class="opacity-50 pl-8">{result.url}</p>
+							<li class="space-y-4">
+								<!-- Page Result -->
+								<a
+									class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] gap-4 items-center p-4"
+									href={result.url}
+								>
+									<span><IconBook class="size-6" /></span>
+									<div class="space-y-1">
+										<p class="type-scale-5 font-bold">{result.meta.title}</p>
+										<p class="type-scale-1">{result.url}</p>
+									</div>
+									<span><IconChevronRight class="size-4 opacity-60" /></span>
 								</a>
-								<ol class="divide-y-2 divide-surface-100-900">
+								<!-- Inner Result -->
+								<div
+									class="border-l border-surface-200-800 pl-4 divide-y-[1px] divide-surface-100-900 space-y-4"
+								>
 									{#each result.sub_results.filter((r) => r.title !== result.meta.title) as subResult}
-										<li>
-											<a class="block pl-10 p-2" href={subResult.url}>
-												<p class="flex items-center gap-2 text-lg font-bold">
-													{subResult.title}
-												</p>
-												<p class="opacity-75 italic line-clamp-2">
+										<a
+											class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] gap-4 items-center p-4 space-y-1"
+											href={subResult.url}
+										>
+											<span><IconHash class="size-5" /></span>
+											<div class="space-y-1">
+												<p class="type-scale-3 font-bold">{subResult.title}</p>
+												<p class="type-scale-1 text-surface-700-300">
 													{@html subResult.excerpt}
 												</p>
-											</a>
-										</li>
+											</div>
+											<span><IconChevronRight class="size-4 opacity-60" /></span>
+										</a>
 									{/each}
-								</ol>
+								</div>
 							</li>
 						{/each}
 					</ol>
-				{/if}
-			{/await}
-		</nav>
-	</div>
+				</nav>
+			{/if}
+		{/await}
+	</article>
 </dialog>
+
+<style lang="postcss">
+	dialog::backdrop {
+		background: rgba(var(--color-surface-900) / 0.5);
+		backdrop-filter: blur(5px);
+	}
+</style>
