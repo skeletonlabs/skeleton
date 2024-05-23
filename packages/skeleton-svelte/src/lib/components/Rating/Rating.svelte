@@ -12,26 +12,32 @@
 		fill = 'fill-token',
 		justify = 'justify-center',
 		spaceX = 'space-x-2',
-		iconEmptyBtnClasses = 'clip-left absolute left-0 top-0 flex w-full h-full items-center justify-center',
-		iconFullBtnClasses = 'clip-right absolute left-0 top-0 flex h-full w-full items-center justify-center',
-		iconEmptyClasses = 'clip-left absolute left-0 top-0 w-fit',
-		iconFullClasses = 'clip-right absolute left-0 top-0 w-fit',
 		classes = '',
 		// Item ---
-		itemBase = 'w-full h-full',
-		itemPosition = 'relative',
-		itemAspect = 'aspect-square',
-		itemClasses = '',
+		buttonBase = 'w-full h-full',
+		buttonPosition = 'relative',
+		buttonAspect = 'aspect-square',
+		buttonClasses = '',
+		// Icon Empty ---
+		emptyBase = 'clip-left absolute left-0 top-0 flex items-center justify-center',
+		emptyInteractive = 'size-full',
+		emptyStatic = 'w-fit',
+		emptyClasses = '',
+		// Icon Full ---
+		fullBase = 'clip-right absolute left-0 top-0 flex items-center justify-center',
+		fullInteractive = 'size-full',
+		fullStatic = 'w-fit',
+		fullClasses = '',
 		// Events
 		onclick = () => {},
 		// Snippets ---
-		iconEmpty: emptyIcon,
-		iconFull: fullIcon
+		iconEmpty,
+		iconFull
 	}: RatingProps = $props();
 
 	function onRatingClick(event: Event, order: number) {
 		let selectedFraction = 1;
-		// handling mouse
+		// Handle Mouse Events
 		if (event instanceof PointerEvent) {
 			const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
 			const fractionWidth = ratingRect.width / fraction;
@@ -40,35 +46,35 @@
 			value = order + selectedFraction / fraction;
 			onclick(event, value);
 		}
-		// handling keyboard
+		// Handle Keyboard Events
 		else {
+			/* ... */
 		}
 	}
-</script>
 
-{#snippet rating(order, percentage)}
-	<svelte:element
-		this={interactive ? 'button' : 'div'}
-		role={interactive ? 'button' : 'none'}
-		class="{itemBase} {itemPosition} {itemAspect} {itemClasses}"
-		onclick={(event: MouseEvent | PointerEvent) => interactive ? onRatingClick(event, order) : undefined}
-	>
-		<div class={interactive ? iconEmptyBtnClasses : iconEmptyClasses} style="--clip_value: {percentage * 100}%">
-			{#if emptyIcon}
-				{@render emptyIcon()}
-			{/if}
-		</div>
-		<div class={interactive ? iconFullBtnClasses : iconFullClasses} style="--clip_value: {100 - percentage * 100}%">
-			{#if fullIcon}
-				{@render fullIcon()}
-			{/if}
-		</div>
-	</svelte:element>
-{/snippet}
+	// Dynamic Classes
+	const rxEmptyInteractive = $derived(interactive ? emptyInteractive : emptyStatic);
+	const rxFullInteractive = $derived(interactive ? fullInteractive : fullStatic);
+</script>
 
 <figure class="{base} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating">
 	{#each { length: max } as _, i}
-		{@render rating(i, value - i)}
+		<button
+			class="{buttonBase} {buttonPosition} {buttonAspect} {buttonClasses}"
+			class:pointer-events-none={!interactive}
+			onclick={(event: MouseEvent | PointerEvent) => interactive ? onRatingClick(event, i) : undefined}
+		>
+			<span class="{emptyBase} {rxEmptyInteractive} {emptyClasses}" style="--clip_value: {(value - i) * 100}%">
+				{#if iconEmpty}
+					{@render iconEmpty()}
+				{/if}
+			</span>
+			<span class="{fullBase} {rxFullInteractive} {fullClasses}" style="--clip_value: {100 - (value - i) * 100}%">
+				{#if iconFull}
+					{@render iconFull()}
+				{/if}
+			</span>
+		</button>
 	{/each}
 </figure>
 

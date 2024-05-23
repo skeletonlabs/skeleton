@@ -21,26 +21,38 @@ export interface RatingProps {
 	justify?: string;
 	/** Sets horizontal spacing styles. */
 	spaceX?: string;
-	/** Provide arbitrary CSS classes for empty icons in interractive mode. (important for functionality!) */
-	iconEmptyBtnClasses?: string;
-	/** Provide arbitrary CSS classes for full icons in interractive mode. (important for functionality!) */
-	iconFullBtnClasses?: string;
-	/** Provide arbitrary CSS classes for empty icons. (important for functionality!) */
-	iconEmptyClasses?: string;
-	/** Provide arbitrary CSS classes for full icons. (important for functionality!) */
-	iconFullClasses?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Item ---
-	/** Sets the item base styles. */
-	itemBase?: string;
-	/** Sets the item position styles. */
-	itemPosition?: string;
-	/** Sets the item aspect ratio styles. */
-	itemAspect?: string;
-	/** Provide arbitrary CSS classes to the rating item. */
-	itemClasses?: string;
+	// Button ---
+	/** Sets the button base styles. */
+	buttonBase?: string;
+	/** Sets the button position styles. */
+	buttonPosition?: string;
+	/** Sets the button aspect ratio styles. */
+	buttonAspect?: string;
+	/** Provide arbitrary CSS classes to the rating button. */
+	buttonClasses?: string;
+
+	// Icon Empty
+	/** Set base styles for the empty icon. */
+	emptyBase?: string;
+	/** Set interactive state styles for the empty icon. */
+	emptyInteractive?: string;
+	/** Set non-interactive state styles for the empty icon. */
+	emptyStatic?: string;
+	/** Provide arbitrary for the empty icon. */
+	emptyClasses?: string;
+
+	// Icon Full
+	/** Set base styles for the full icon. */
+	fullBase?: string;
+	/** Set interactive state styles for the full icon. */
+	fullInteractive?: string;
+	/** Set non-interactive state styles for the full icon. */
+	fullStatic?: string;
+	/** Provide arbitrary for the full icon. */
+	fullClasses?: string;
 
 	// Events ---
 	/** Triggers on rating click. */

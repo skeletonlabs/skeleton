@@ -13,7 +13,6 @@
 	</header>
 
 	<section class="space-y-4">
-		<h2 class="h2">Value</h2>
 		<div class="flex items-center gap-8">
 			<div class="w-48">
 				<Rating value={5}>
@@ -82,7 +81,7 @@
 	</section>
 
 	<section class="space-y-4">
-		<h2 class="h2">Different Icons</h2>
+		<h2 class="h2">Custom Icons</h2>
 		<div class="flex items-center gap-8">
 			<div class="w-48">
 				<Rating bind:value={interactiveValue} interactive>
