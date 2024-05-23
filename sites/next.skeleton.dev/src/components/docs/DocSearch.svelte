@@ -126,7 +126,7 @@
 
 <!-- Dialog -->
 <dialog
-	class="bg-surface-50-950 text-inherit rounded-container m-0 mx-auto top-[10%] p-4 w-full max-w-[90%] md:max-w-2xl lg:max-w-4xl max-h-[75vh] shadow-xl space-y-4"
+	class="bg-surface-50-950 text-inherit rounded-container m-0 mx-auto top-[10%] p-8 w-full max-w-[90%] md:max-w-2xl lg:max-w-4xl max-h-[75%] shadow-xl space-y-8"
 	bind:this={dialog}
 	use:onClickOutside
 >
@@ -166,47 +166,48 @@
 			{:else if results.length === 0}
 				<p class="text-center py-10">What can we help you find?</p>
 			{:else}
-				<nav class="space-y-4">
-					<strong class="type-scale-4">Results</strong>
-					<ol class="flex flex-col gap-4">
-						{#each results as result}
-							<li class="space-y-4">
-								<!-- Page Result -->
-								<a
-									class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] gap-4 items-center p-4"
-									href={result.url}
-								>
-									<span><IconBook class="size-6" /></span>
-									<div class="space-y-1">
-										<p class="type-scale-5 font-bold">{result.meta.title}</p>
-										<p class="type-scale-1">{result.url}</p>
-									</div>
-									<span><IconChevronRight class="size-4 opacity-60" /></span>
-								</a>
-								<!-- Inner Result -->
-								<div
-									class="border-l border-surface-200-800 pl-4 divide-y-[1px] divide-surface-100-900 space-y-4"
-								>
-									{#each result.sub_results.filter((r) => r.title !== result.meta.title) as subResult}
-										<a
-											class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] gap-4 items-center p-4 space-y-1"
-											href={subResult.url}
-										>
-											<span><IconHash class="size-5" /></span>
-											<div class="space-y-1">
-												<p class="type-scale-3 font-bold">{subResult.title}</p>
-												<p class="type-scale-1 text-surface-700-300">
-													{@html subResult.excerpt}
-												</p>
-											</div>
-											<span><IconChevronRight class="size-4 opacity-60" /></span>
-										</a>
-									{/each}
+				<ol class="flex flex-col gap-4 space-y-4">
+					{#each results as result}
+						<li class="space-y-2">
+							<!-- Page Result -->
+							<a
+								class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] gap-4 items-center p-4"
+								href={result.url}
+							>
+								<span><IconBook class="size-6 opacity-60" /></span>
+								<div class="space-y-1">
+									<p class="type-scale-4 font-bold">{result.meta.title}</p>
+									<p class="type-scale-1">{result.url}</p>
 								</div>
-							</li>
-						{/each}
-					</ol>
-				</nav>
+								<span><IconChevronRight class="size-4 opacity-60" /></span>
+							</a>
+							<!-- Inner Result -->
+							<div
+								class="border-l border-surface-200-800 pl-4 divide-y-[1px] divide-surface-100-900 space-y-2"
+							>
+								{#each result.sub_results.filter((r) => r.title !== result.meta.title) as subResult}
+									<a
+										class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] gap-4 items-center p-4 space-y-1"
+										href={subResult.url}
+									>
+										<span class="hidden md:block">
+											<IconHash class="size-4 opacity-60" />
+										</span>
+										<div class="space-y-1 overflow-hidden">
+											<p class="type-scale-3 font-bold">{subResult.title}</p>
+											<p class="type-scale-1 text-surface-600-400 break-all">
+												{@html subResult.excerpt}
+											</p>
+										</div>
+										<span class="hidden md:block">
+											<IconChevronRight class="size-4 opacity-60" />
+										</span>
+									</a>
+								{/each}
+							</div>
+						</li>
+					{/each}
+				</ol>
 			{/if}
 		{/await}
 	</article>
