@@ -64,11 +64,13 @@
 			class:pointer-events-none={!interactive}
 			onclick={(event: MouseEvent | PointerEvent) => interactive ? onRatingClick(event, i) : undefined}
 		>
+			<!-- Icon: Empty -->
 			<span class="{emptyBase} {rxEmptyInteractive} {emptyClasses}" style="--clip_value: {(value - i) * 100}%">
 				{#if iconEmpty}
 					{@render iconEmpty()}
 				{/if}
 			</span>
+			<!-- Icon: Full -->
 			<span class="{fullBase} {rxFullInteractive} {fullClasses}" style="--clip_value: {100 - (value - i) * 100}%">
 				{#if iconFull}
 					{@render iconFull()}
