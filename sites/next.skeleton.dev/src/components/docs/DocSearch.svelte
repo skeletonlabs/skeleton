@@ -9,6 +9,7 @@
 	import IconFilter from 'lucide-svelte/icons/filter';
 	import IconBook from 'lucide-svelte/icons/book';
 	import IconHash from 'lucide-svelte/icons/hash';
+	import IconLoader from 'lucide-svelte/icons/loader';
 	import IconChevronRight from 'lucide-svelte/icons/chevron-right';
 
 	let dialog: HTMLDialogElement | null = $state(null);
@@ -34,7 +35,7 @@
 		return untrack(async () => {
 			if (pagefind === null || query === '') return [];
 
-			const result = await pagefind.search(query);
+			const result = await pagefind.debouncedSearch(query, {}, 250);
 			if (result === null) return [];
 
 			const results = await Promise.all(result.results.map((result) => result.data()));
@@ -160,7 +161,9 @@
 	{/if}
 	<!-- Results -->
 	<article class="[&_mark]:code [&_mark]:text-inherit">
-		{#await searchPromise then results}
+		{#await searchPromise}
+			<p class="text-center py-10"><IconLoader class="size-4 inline ml-2 animate-spin" /></p>
+		{:then results}
 			{#if results.length === 0 && query !== ''}
 				<p class="text-center py-10">No results found for <code class="code">{query}</code></p>
 			{:else if results.length === 0}
