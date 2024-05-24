@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import Lightswitch from '@components/docs/Lightswitch.astro';
 import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
-import DocSearch from './DocSearch.svelte';
+import Search from './Search.svelte';
 
 const socialLinks = [
 	{
@@ -34,7 +34,7 @@ const socialLinks = [
 		<!-- Middle -->
 		<div class="flex items-center gap-2">
 			<!-- Search -->
-			<DocSearch client:load />
+			<Search client:load />
 		</div>
 		<!-- Right -->
 		<div class="flex justify-end items-center gap-2">
