@@ -127,7 +127,7 @@
 
 <!-- Dialog -->
 <dialog
-	class="bg-surface-50-950 text-inherit rounded-container m-0 mx-auto top-[10%] p-8 w-full max-w-[90%] md:max-w-2xl lg:max-w-4xl max-h-[75%] shadow-xl space-y-8"
+	class="bg-surface-50-950 text-inherit rounded-container m-0 mx-auto top-[10%] p-8 w-full max-w-[90%] md:max-w-2xl lg:max-w-4xl max-h-[75%] shadow-xl space-y-8 backdrop:bg-[rgba(var(--color-surface-900)/0.5)] backdrop:backdrop-blur-sm"
 	bind:this={dialog}
 	use:onClickOutside
 >
@@ -215,10 +215,3 @@
 		{/await}
 	</article>
 </dialog>
-
-<style lang="postcss">
-	dialog::backdrop {
-		background: rgba(var(--color-surface-900) / 0.5);
-		backdrop-filter: blur(5px);
-	}
-</style>
