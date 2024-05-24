@@ -16,7 +16,7 @@
 		inactive = 'text-surface-600-400 border-transparent',
 		flex = 'flex justify-center items-center',
 		background = '',
-		border = 'border-b-[1px]',
+		border = 'border-b',
 		text = 'type-scale-3',
 		padding = 'pb-2',
 		rounded = '',
