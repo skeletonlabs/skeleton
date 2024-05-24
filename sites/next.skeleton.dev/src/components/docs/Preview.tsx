@@ -3,7 +3,8 @@ import React from 'react';
 /** Create preview/code tabs for showcasing features. */
 export const Preview: React.FC<any> = (props) => {
 	const [selected, setSelected] = React.useState(props.selected || 'preview');
-	const cTab = 'font-bold py-2 px-4 border-b-[3px] border-transparent capitalize';
+	const cTab = 'border-b border-transparent pb-2 hover:[&>span]:preset-tonal-primary';
+	const cTabControl = 'block p-2 px-4 capitalize rounded-container';
 	const cTabActive = '!border-surface-950-50';
 
 	function selectedClass(tab: string) {
@@ -14,12 +15,12 @@ export const Preview: React.FC<any> = (props) => {
 		// TODO: fix this top margin due to generate script tags
 		<div className="space-y-4 mt-4">
 			{/* Tabs */}
-			<nav className="flex gap-4 border-b-[1px] border-surface-200-800">
+			<nav className="flex gap-4 border-b border-surface-200-800">
 				<button className={`${cTab} ${selectedClass('preview')}`} onClick={() => setSelected('preview')}>
-					Preview
+					<span className={`${cTabControl}`}>Preview</span>
 				</button>
 				<button className={`${cTab} ${selectedClass('code')}`} onClick={() => setSelected('code')}>
-					Code
+					<span className={`${cTabControl}`}>Code</span>
 				</button>
 			</nav>
 			{/* Panel: Preview */}

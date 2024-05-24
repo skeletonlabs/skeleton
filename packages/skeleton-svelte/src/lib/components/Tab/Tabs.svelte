@@ -11,7 +11,7 @@
 		listBase = 'flex',
 		listJustify = 'justify-start',
 		listGap = 'gap-2',
-		listBorder = 'border-b-[1px] border-surface-200-800',
+		listBorder = 'border-b border-surface-200-800',
 		listClasses = '',
 		// Snippets
 		list,
