@@ -15,7 +15,7 @@
 		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
 		"dev:astro": "astro dev",
 		"check": "astro check",
-		"build": "pnpm -F '@skeletonlabs/*' package && astro check && astro build && pagefind --site dist",
+		"build": "pnpm -F '@skeletonlabs/*' package && astro check && astro build && pagefind --site \"dist\" --exclude-selectors \".expressive-code\"",
 		"preview": "astro preview",
 		"astro": "astro",
 		"format": "prettier --write ."

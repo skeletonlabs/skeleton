@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { Search } from 'lucide-react';
 import Lightswitch from '@components/docs/Lightswitch.astro';
 import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
 import DocSearch from './DocSearch.svelte';
@@ -56,9 +55,3 @@ const socialLinks = [
 		</div>
 	</div>
 </header>
-
-<script is:inline>
-	function onSearch() {
-		window.alert('Search is not currently available. Please check back soon.');
-	}
-</script>
