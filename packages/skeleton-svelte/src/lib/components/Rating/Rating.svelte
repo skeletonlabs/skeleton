@@ -29,40 +29,62 @@
 		fullStatic = 'w-fit',
 		fullClasses = '',
 		// Events
-		onclick = () => {},
+		onmousedown = () => {},
+		onkeydown = () => {},
 		// Snippets ---
 		iconEmpty,
 		iconFull
 	}: RatingProps = $props();
 
-	function onRatingClick(event: Event, order: number) {
+	function onRatingMousedown(event: MouseEvent, order: number) {
 		let selectedFraction = 1;
-		// Handle Mouse Events
-		if (event instanceof PointerEvent) {
-			const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-			const fractionWidth = ratingRect.width / fraction;
-			const left = event.clientX - ratingRect.left;
-			selectedFraction = Math.floor(left / fractionWidth) + 1;
-			value = order + selectedFraction / fraction;
-			onclick(event, value);
-		}
-		// Handle Keyboard Events
-		else {
-			/* ... */
-		}
+		const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+		const fractionWidth = ratingRect.width / fraction;
+		const left = event.clientX - ratingRect.left;
+		selectedFraction = Math.floor(left / fractionWidth) + 1;
+		value = order + selectedFraction / fraction;
+		onmousedown(event, value);
 	}
+
+	function onRatingKeydown(event: KeyboardEvent) {
+		switch (event.key) {
+			case 'ArrowLeft':
+				value = Math.max(0, value - 1 / fraction);
+				refreshFocus();
+				break;
+			case 'ArrowRight':
+				value = Math.min(max, value + 1 / fraction);
+				refreshFocus();
+				break;
+		}
+		onkeydown(event);
+	}
+
+	function refreshFocus() {
+		const buttons = figureElement.querySelectorAll('button');
+		// focus on the correct button depending on the new value.
+		buttons[Math.max(0, Math.ceil(value - 1))].focus();
+	}
+
+	let figureElement: HTMLElement;
 
 	// Dynamic Classes
 	const rxEmptyInteractive = $derived(interactive ? emptyInteractive : emptyStatic);
 	const rxFullInteractive = $derived(interactive ? fullInteractive : fullStatic);
+
+	// Use the latest rating or 0 if not available, ignoring fractions
+	let focusedButtonIndex = $derived(Math.max(0, Math.ceil(value - 1)));
 </script>
 
-<figure class="{base} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating">
+<figure class="{base} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating" bind:this={figureElement}>
 	{#each { length: max } as _, i}
 		<button
 			class="{buttonBase} {buttonPosition} {buttonAspect} {buttonClasses}"
 			class:pointer-events-none={!interactive}
-			onclick={(event: MouseEvent | PointerEvent) => interactive ? onRatingClick(event, i) : undefined}
+			tabindex={interactive && i === focusedButtonIndex ? 0 : -1}
+			onmousedown={(event: MouseEvent) => interactive ? onRatingMousedown(event, i) : undefined}
+			onkeydown={(event: KeyboardEvent) => interactive ? onRatingKeydown(event) : undefined}
+			type="button"
 		>
 			<!-- Icon: Empty -->
 			<span class="{emptyBase} {rxEmptyInteractive} {emptyClasses}" style="--clip_value: {(value - i) * 100}%">

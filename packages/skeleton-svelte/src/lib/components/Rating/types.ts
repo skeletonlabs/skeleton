@@ -55,8 +55,10 @@ export interface RatingProps {
 	fullClasses?: string;
 
 	// Events ---
-	/** Triggers on rating click. */
-	onclick?: (event: MouseEvent, value: number) => void;
+	/** Triggers on rating mouse down. */
+	onmousedown?: (event: MouseEvent, value: number) => void;
+	/** Triggers on rating key down. */
+	onkeydown?: (event: KeyboardEvent) => void;
 
 	// Snippets ---
 	/** The empty icon slot. */
