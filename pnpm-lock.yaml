@@ -413,8 +413,8 @@ importers:
         specifier: ^0.13.0
         version: 0.13.0
       vite-plugin-pagefind:
-        specifier: ^0.2.2
-        version: 0.2.2
+        specifier: ^0.2.3
+        version: 0.2.3
       vite-plugin-tw-plugin-watcher:
         specifier: workspace:*
         version: link:../../packages/vite-plugin-tw-plugin-watcher
@@ -6225,8 +6225,8 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
-  vite-plugin-pagefind@0.2.2:
-    resolution: {integrity: sha512-wlcu2IiiE3e0I3bWYayFzEqwR1gy8KdBJpnSm7eYSxsiAxlj8Z6prLz69w7FXV6m4z5dquotRP9/0o6IQyx8Kg==}
+  vite-plugin-pagefind@0.2.3:
+    resolution: {integrity: sha512-CfNVhR3BTNUE46PFZgyAATJ6CMVRTjH/rUk6RcK1R9GXfHOssYR7x91x9uzIgsM45NtkPpXOer59eGxQmvXHQw==}
 
   vite-plugin-remix-router@2.0.0:
     resolution: {integrity: sha512-db4aWk9MAVqcfpOwZsMaOR0xFRSeSmSj4B043f22Z+CeK5WHS7HZYBCqjkC1sdJqUfsf2kCK2cb5a7CMZE+Mlg==}
@@ -13772,7 +13772,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-pagefind@0.2.2:
+  vite-plugin-pagefind@0.2.3:
     dependencies:
       colorette: 2.0.20
       valibot: 0.31.0-rc.4
