@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # vercel
 .vercel
+
+# pagefind
+**/pagefind

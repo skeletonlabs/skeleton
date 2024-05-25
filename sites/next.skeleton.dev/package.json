@@ -15,7 +15,7 @@
 		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
 		"dev:astro": "astro dev",
 		"check": "astro check",
-		"build": "pnpm -F '@skeletonlabs/*' package && astro check && astro build",
+		"build": "pnpm -F '@skeletonlabs/*' package && astro check && astro build && pagefind",
 		"preview": "astro preview",
 		"astro": "astro",
 		"format": "prettier --write ."
@@ -51,8 +51,10 @@
 		"@tailwindcss/typography": "^0.5.12",
 		"@types/node": "^20.12.4",
 		"minimatch": "^9.0.4",
+		"pagefind": "^1.1.0",
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "^0.13.0",
+		"vite-plugin-pagefind": "^0.2.6",
 		"vite-plugin-tw-plugin-watcher": "workspace:*"
 	}
 }

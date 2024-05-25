@@ -1,8 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { Search } from 'lucide-react';
 import Lightswitch from '@components/docs/Lightswitch.astro';
 import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
+import Search from './Search.svelte';
 
 const socialLinks = [
 	{
@@ -34,10 +34,7 @@ const socialLinks = [
 		<!-- Middle -->
 		<div class="flex items-center gap-2">
 			<!-- Search -->
-			<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal" onclick="onSearch()">
-				<Search size={18} className="opacity-60" />
-				<span class="opacity-60">Search...</span>
-			</button>
+			<Search client:load />
 		</div>
 		<!-- Right -->
 		<div class="flex justify-end items-center gap-2">
@@ -58,9 +55,3 @@ const socialLinks = [
 		</div>
 	</div>
 </header>
-
-<script is:inline>
-	function onSearch() {
-		window.alert('Search is not currently available. Please check back soon.');
-	}
-</script>
