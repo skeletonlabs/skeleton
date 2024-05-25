@@ -60,6 +60,7 @@
 	});
 
 	const openDialog = () => dialog && dialog.showModal();
+	const closeDialog = () => dialog && dialog.close();
 
 	const onClickOutside = (node: HTMLDialogElement) => {
 		const onclick = (event: MouseEvent) => {
@@ -176,6 +177,7 @@
 							<a
 								class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] gap-4 items-center p-4"
 								href={result.url}
+								onclick={closeDialog}
 							>
 								<span><IconBook class="size-6 opacity-60" /></span>
 								<div class="space-y-1">
@@ -192,6 +194,7 @@
 									<a
 										class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] gap-4 items-center p-4 space-y-1"
 										href={subResult.url}
+										onclick={closeDialog}
 									>
 										<span class="hidden md:block">
 											<IconHash class="size-4 opacity-60" />
