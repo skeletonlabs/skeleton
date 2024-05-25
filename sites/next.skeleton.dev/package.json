@@ -15,7 +15,7 @@
 		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
 		"dev:astro": "astro dev",
 		"check": "astro check",
-		"build": "pnpm -F '@skeletonlabs/*' package && astro check && astro build && pagefind --site \"dist\" --exclude-selectors \".expressive-code\"",
+		"build": "pnpm -F '@skeletonlabs/*' package && astro check && astro build && pagefind",
 		"preview": "astro preview",
 		"astro": "astro",
 		"format": "prettier --write ."
@@ -54,7 +54,7 @@
 		"pagefind": "^1.1.0",
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "^0.13.0",
-		"vite-plugin-pagefind": "^0.1.1",
+		"vite-plugin-pagefind": "^0.2.2",
 		"vite-plugin-tw-plugin-watcher": "workspace:*"
 	}
 }

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
-	import type { Pagefind } from 'vite-plugin-pagefind';
+	import type { Pagefind } from 'vite-plugin-pagefind/types';
 	// Utils
 	import { docSearchSettingsStore } from 'src/stores/doc-search-settings';
 	import { frameworks, isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';

@@ -12,7 +12,7 @@ import AutoImport from 'astro-auto-import';
 import mdx from '@astrojs/mdx';
 // Vite Plugins
 import skeletonPluginWatcher from 'vite-plugin-tw-plugin-watcher';
-import { pagefind } from 'vite-plugin-pagefind';
+import pagefind from 'vite-plugin-pagefind';
 
 // https://astro.build/config
 export default defineConfig({
