@@ -54,7 +54,7 @@
 		"pagefind": "^1.1.0",
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "^0.13.0",
-		"vite-plugin-pagefind": "^0.2.6",
+		"vite-plugin-pagefind": "^0.2.7",
 		"vite-plugin-tw-plugin-watcher": "workspace:*"
 	}
 }
