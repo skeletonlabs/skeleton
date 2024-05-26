@@ -7,7 +7,8 @@
 		interactive = false,
 		fraction = 1,
 		// Root
-		base = 'flex w-full',
+		base = 'flex',
+		width = 'w-full',
 		text = 'text-token',
 		fill = 'fill-token',
 		justify = 'justify-center',
@@ -97,7 +98,7 @@
 	});
 </script>
 
-<figure class="{base} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating" bind:this={figureElement}>
+<figure class="{base} {width} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating" bind:this={figureElement}>
 	{#each { length: max } as _, i}
 		<button
 			class="{buttonBase} {buttonPosition} {buttonAspect} {buttonClasses}"

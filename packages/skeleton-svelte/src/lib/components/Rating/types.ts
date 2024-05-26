@@ -13,6 +13,8 @@ export interface RatingProps {
 	// Root ---
 	/** Sets base styles. */
 	base?: string;
+	/** Sets width styles. */
+	width?: string;
 	/** Sets text color styles. */
 	text?: string;
 	/** sets fill color styles. */
