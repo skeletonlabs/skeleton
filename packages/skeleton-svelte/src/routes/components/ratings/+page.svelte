@@ -101,7 +101,7 @@
 		<h2 class="h2">interactive</h2>
 		<div class="flex items-center gap-8">
 			<div class="w-48">
-				<Rating bind:value={interactiveValue} interactive onclick={(_, value) => console.log(`rating value: ${value}`)}>
+				<Rating bind:value={interactiveValue} interactive onmousedown={(_, value) => console.log(`rating value: ${value}`)}>
 					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
@@ -132,6 +132,23 @@
 		<div class="flex items-center gap-8">
 			<div class="w-48">
 				<Rating bind:value={interactiveValue} interactive fraction={3}>
+					{#snippet iconFull()}
+						<Star size={24} fill="white" />
+					{/snippet}
+					{#snippet iconEmpty()}
+						<Star size={24} />
+					{/snippet}
+				</Rating>
+			</div>
+			<h3 class="h3">{interactiveValue.toFixed(2)}</h3>
+		</div>
+	</section>
+
+	<section class="space-y-4">
+		<h2 class="h2">RTL</h2>
+		<div class="flex items-center gap-8">
+			<div dir="rtl" class="w-48">
+				<Rating bind:value={interactiveValue} interactive fraction={2}>
 					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}

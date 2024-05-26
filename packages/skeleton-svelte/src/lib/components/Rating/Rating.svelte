@@ -37,24 +37,25 @@
 	}: RatingProps = $props();
 
 	function onRatingMousedown(event: MouseEvent, order: number) {
-		let selectedFraction = 1;
 		const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
 		const fractionWidth = ratingRect.width / fraction;
 		const left = event.clientX - ratingRect.left;
-		selectedFraction = Math.floor(left / fractionWidth) + 1;
+		let selectedFraction = Math.floor(left / fractionWidth) + 1;
+
+		if (getComputedStyle(figureElement).direction === 'rtl') selectedFraction = fraction - selectedFraction + 1;
+
 		value = order + selectedFraction / fraction;
 		onmousedown(event, value);
 	}
 
 	function onRatingKeydown(event: KeyboardEvent) {
+		const rtl = getComputedStyle(figureElement).direction === 'rtl';
 		switch (event.key) {
 			case 'ArrowLeft':
-				value = Math.max(0, value - 1 / fraction);
-				refreshFocus();
+				rtl ? increaseValue() : decreaseValue();
 				break;
 			case 'ArrowRight':
-				value = Math.min(max, value + 1 / fraction);
-				refreshFocus();
+				rtl ? decreaseValue() : increaseValue();
 				break;
 		}
 		onkeydown(event);
@@ -66,6 +67,16 @@
 		buttons[Math.max(0, Math.ceil(value - 1))].focus();
 	}
 
+	function increaseValue() {
+		value = Math.min(max, value + 1 / fraction);
+		refreshFocus();
+	}
+
+	function decreaseValue() {
+		value = Math.max(0, value - 1 / fraction);
+		refreshFocus();
+	}
+
 	let figureElement: HTMLElement;
 
 	// Dynamic Classes
@@ -74,6 +85,16 @@
 
 	// Use the latest rating or 0 if not available, ignoring fractions
 	let focusedButtonIndex = $derived(Math.max(0, Math.ceil(value - 1)));
+
+	$effect(() => {
+		if (getComputedStyle(figureElement).direction === 'rtl') {
+			emptyBase = emptyBase.replace('clip-left', 'clip-right');
+			fullBase = fullBase.replace('clip-right', 'clip-left');
+		} else {
+			emptyBase = emptyBase.replace('clip-right', 'clip-left');
+			fullBase = fullBase.replace('clip-left', 'clip-right');
+		}
+	});
 </script>
 
 <figure class="{base} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating" bind:this={figureElement}>
