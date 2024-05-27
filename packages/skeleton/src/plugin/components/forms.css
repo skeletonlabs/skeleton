@@ -45,7 +45,7 @@
 .select {
 	@apply field-outter field-inner;
 	@apply border-none;
-	@apply transition-[all] duration-100;
+	@apply transition-[all] duration-300;
 }
 
 /* Select --- */
