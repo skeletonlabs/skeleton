@@ -1,5 +1,8 @@
 <script lang="ts">
 	import Switch from '$lib/components/Switch/Switch.svelte';
+	// Icons
+	import IconX from 'lucide-svelte/icons/x';
+	import IconCheck from 'lucide-svelte/icons/check';
 </script>
 
 <div class="space-y-10">
@@ -24,7 +27,10 @@
 		<hr class="hr" />
 		<label class="label flex justify-between gap-4" for="disabled">
 			<p>Custom Icons</p>
-			<Switch id="disabled" name="disabled" stateActive="bg-secondary-500" checked />
+			<Switch id="disabled" name="disabled" stateActive="bg-secondary-500" checked>
+				{#snippet inactiveChild()}<IconX size="14" />{/snippet}
+				{#snippet activeChild()}<IconCheck size="14" />{/snippet}
+			</Switch>
 		</label>
 	</section>
 </div>

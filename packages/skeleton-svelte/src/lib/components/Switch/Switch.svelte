@@ -18,7 +18,7 @@
 		hover = 'hover:brightness-90 dark:hover:brightness-110',
 		classes = '',
 		// Thumb
-		thumbBase = 'aspect-square h-full',
+		thumbBase = 'aspect-square h-full flex justify-center items-center',
 		thumbStateInactive = 'preset-filled-surface-50-950',
 		thumbStateActive = 'bg-surface-50 text-surface-contrast-50',
 		thumbRounded = 'rounded-full',
@@ -53,7 +53,7 @@
 	<input type="checkbox" {id} {name} bind:checked class="hidden" {disabled} />
 	<!-- Thumb -->
 	<div class="thumb {thumbBase} {rxThumbState} {thumbRounded} {thumbTransition} {thumbDuration} {thumbClasses}">
-		{#if inactiveChild}<span>{@render inactiveChild()}</span>{/if}
-		{#if activeChild}<span>{@render activeChild()}</span>{/if}
+		{#if !checked && inactiveChild}<span>{@render inactiveChild()}</span>{/if}
+		{#if checked && activeChild}<span>{@render activeChild()}</span>{/if}
 	</div>
 </button>
