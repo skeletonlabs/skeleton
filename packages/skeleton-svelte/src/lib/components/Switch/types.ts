@@ -54,9 +54,15 @@ export interface SwitchProps {
 	/** Provide arbitrary classes to the thumb element. */
 	thumbClasses?: string;
 
+	// Icons ---
+	/** Set base classes for the inactive icon child. */
+	iconInactiveBase?: string;
+	/** Set base classes for the active icon child. */
+	iconActiveBase?: string;
+
 	// Events ---
-	/** Triggers when clicked. */
-	onclick?: (event: MouseEvent | TouchEvent) => void;
+	/** Triggers when the switch is toggled. */
+	ontoggle?: (event: MouseEvent | TouchEvent) => void;
 
 	// Snippets ---
 	/** The inactive state children. */

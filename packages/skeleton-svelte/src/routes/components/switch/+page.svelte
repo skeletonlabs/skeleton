@@ -37,7 +37,7 @@
 		<hr class="hr" />
 		<label class="label flex justify-between items-center gap-4" for="mode">
 			<p>Lightswitch</p>
-			<Switch id="mode" name="mode" stateActive="bg-surface-100">
+			<Switch id="mode" name="mode" stateActive="bg-surface-200">
 				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 				{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			</Switch>

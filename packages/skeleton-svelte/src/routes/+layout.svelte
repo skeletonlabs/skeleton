@@ -7,6 +7,10 @@
 	import IconSun from 'lucide-svelte/icons/sun';
 
 	let modeState = $state(false); // false = dark mode
+
+	function onToggleHandler() {
+		document.documentElement.classList.toggle('dark');
+	}
 </script>
 
 <div class="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
@@ -16,12 +20,11 @@
 		<hr class="hr" />
 		<label class="label flex justify-between items-center gap-4" for="mode">
 			<p>Set Mode</p>
-			<Switch id="mode" name="mode" stateActive="bg-surface-100" checked={modeState}>
+			<Switch id="mode" name="mode" stateActive="bg-surface-200" bind:checked={modeState} ontoggle={onToggleHandler}>
 				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 				{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			</Switch>
 		</label>
-		<pre class="bg-black p-4">{modeState}</pre>
 		<hr class="hr" />
 		<!-- Components -->
 		<div class="space-y-8">
