@@ -43,7 +43,7 @@ export interface ModalComponent<Component extends CustomComponent = CustomCompon
 	slot?: string;
 }
 
-export interface ModalSettings<C extends CustomComponent = CustomComponent, R = any, M = any> {
+export interface ModalSettings<V = any, C extends CustomComponent = CustomComponent, R = any, M = any> {
 	/** Designate what type of component will display. */
 	type: 'alert' | 'confirm' | 'prompt' | 'component';
 	/** Set the modal position within the backdrop container. */
@@ -55,7 +55,7 @@ export interface ModalSettings<C extends CustomComponent = CustomComponent, R = 
 	/** Provide a URL to display an image within the modal. */
 	image?: string;
 	/** By default, used to provide a prompt value. */
-	value?: string;
+	value?: V;
 	/** Provide input attributes as key/value pairs. */
 	valueAttr?: object;
 	/** Provide your component reference key or object. */
