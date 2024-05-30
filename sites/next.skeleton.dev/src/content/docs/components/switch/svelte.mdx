@@ -2,4 +2,74 @@
 layout: '@layouts/LayoutDoc.astro'
 ---
 
-(Svelte Switch coming soon)
+export const components = componentSet;
+
+import Example from '@examples/components/switch/Example.svelte';
+import ExampleRaw from '@examples/components/switch/Example.svelte?raw';
+import ExampleList from '@examples/components/switch/ExampleList.svelte';
+import ExampleListRaw from '@examples/components/switch/ExampleList.svelte?raw';
+import ExampleIcons from '@examples/components/switch/ExampleIcons.svelte';
+import ExampleIconsRaw from '@examples/components/switch/ExampleIcons.svelte?raw';
+import ExampleLightswitch from '@examples/components/switch/ExampleLightswitch.svelte';
+import ExampleLightswitchRaw from '@examples/components/switch/ExampleLightswitch.svelte?raw';
+import ExampleCompact from '@examples/components/switch/ExampleCompact.svelte';
+import ExampleCompactRaw from '@examples/components/switch/ExampleCompact.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Example client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## List
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleList client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleListRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Icons
+
+Pass icons through the `inactiveChild` and `activeChild` snippets respectively.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleIcons client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleIconsRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Compact
+
+Provides a simple display mode. Customize the size with the `width` property.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCompact client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleCompactRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Lightswitch
+
+By mixing several features, we can create complex switch features.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleLightswitch client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleLightswitchRaw} lang="svelte" />
+	</Fragment>
+</Preview>

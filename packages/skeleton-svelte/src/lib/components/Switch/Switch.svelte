@@ -19,7 +19,7 @@
 		hover = 'hover:brightness-90 dark:hover:brightness-110',
 		classes = '',
 		// Thumb
-		thumbBase = 'aspect-square h-full flex justify-center items-center pointer-events-none',
+		thumbBase = 'aspect-square h-full flex justify-center items-center',
 		thumbStateInactive = 'preset-filled-surface-50-950',
 		thumbStateActive = 'bg-surface-50 text-surface-contrast-50',
 		thumbRounded = 'rounded-full',
@@ -29,8 +29,8 @@
 		thumbDuration = 'duration-200',
 		thumbClasses = '',
 		// Icons
-		iconInactiveBase = '',
-		iconActiveBase = '',
+		iconInactiveBase = 'pointer-events-none',
+		iconActiveBase = 'pointer-events-none',
 		// Events
 		ontoggle = () => {},
 		// Snippets
