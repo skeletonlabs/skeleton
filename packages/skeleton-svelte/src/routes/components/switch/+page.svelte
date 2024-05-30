@@ -12,40 +12,40 @@
 		<h1 class="h1">Switch</h1>
 	</header>
 	<section class="card p-4 space-y-4">
-		<label class="label flex justify-between gap-4" for="disturb">
+		<label class="label flex justify-between items-center gap-4" for="disturb">
 			<p>Defaults to inactive state.</p>
 			<Switch id="disturb" name="disturb" />
 		</label>
 		<hr class="hr" />
-		<label class="label flex justify-between gap-4" for="notifications">
+		<label class="label flex justify-between items-center gap-4" for="notifications">
 			<p>Defaults to active state.</p>
 			<Switch id="notifications" name="notifications" checked />
 		</label>
 		<hr class="hr" />
-		<label class="label flex justify-between gap-4" for="disabled">
+		<label class="label flex justify-between items-center gap-4" for="disabled">
 			<p>Uses the disabled state.</p>
 			<Switch id="disabled" name="disabled" disabled />
 		</label>
 		<hr class="hr" />
-		<label class="label flex justify-between gap-4" for="disabled">
+		<label class="label flex justify-between items-center gap-4" for="icons">
 			<p>Custom Icons</p>
-			<Switch id="disabled" name="disabled" stateActive="bg-secondary-500" checked>
+			<Switch id="icons" name="icons" stateActive="bg-secondary-500" checked>
 				{#snippet inactiveChild()}<IconX size="14" />{/snippet}
 				{#snippet activeChild()}<IconCheck size="14" />{/snippet}
 			</Switch>
 		</label>
 		<hr class="hr" />
-		<label class="label flex justify-between gap-4" for="disabled">
+		<label class="label flex justify-between items-center gap-4" for="mode">
 			<p>Lightswitch</p>
-			<Switch id="disabled" name="disabled" stateActive="bg-surface-100">
+			<Switch id="mode" name="mode" stateActive="bg-surface-100">
 				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 				{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			</Switch>
 		</label>
 		<hr class="hr" />
-		<label class="label flex justify-between gap-4" for="disabled">
+		<label class="label flex justify-between items-center gap-4" for="compact">
 			<p>Compact</p>
-			<Switch id="disabled" name="disabled" compact>
+			<Switch id="compact" name="compact" compact>
 				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 				{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			</Switch>

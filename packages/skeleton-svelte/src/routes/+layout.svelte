@@ -1,11 +1,27 @@
 <script>
 	import '../app.pcss';
+
+	import Switch from '$lib/components/Switch/Switch.svelte';
+	// Icons
+	import IconMoon from 'lucide-svelte/icons/moon';
+	import IconSun from 'lucide-svelte/icons/sun';
+
+	let modeState = $state(false); // false = dark mode
 </script>
 
 <div class="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
 	<!-- Nav -->
 	<div class="space-y-8 overflow-y-auto p-8 bg-surface-100-900">
 		<a class="bg-orange-500 p-2 font-mono font-bold text-white type-scale-3" href="/">skeleton-svelte</a>
+		<hr class="hr" />
+		<label class="label flex justify-between items-center gap-4" for="mode">
+			<p>Set Mode</p>
+			<Switch id="mode" name="mode" stateActive="bg-surface-100" checked={modeState}>
+				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
+				{#snippet activeChild()}<IconSun size="14" />{/snippet}
+			</Switch>
+		</label>
+		<pre class="bg-black p-4">{modeState}</pre>
 		<hr class="hr" />
 		<!-- Components -->
 		<div class="space-y-8">
