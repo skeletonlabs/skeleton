@@ -3,6 +3,8 @@
 	// Icons
 	import IconX from 'lucide-svelte/icons/x';
 	import IconCheck from 'lucide-svelte/icons/check';
+	import IconMoon from 'lucide-svelte/icons/moon';
+	import IconSun from 'lucide-svelte/icons/sun';
 </script>
 
 <div class="space-y-10">
@@ -30,6 +32,22 @@
 			<Switch id="disabled" name="disabled" stateActive="bg-secondary-500" checked>
 				{#snippet inactiveChild()}<IconX size="14" />{/snippet}
 				{#snippet activeChild()}<IconCheck size="14" />{/snippet}
+			</Switch>
+		</label>
+		<hr class="hr" />
+		<label class="label flex justify-between gap-4" for="disabled">
+			<p>Lightswitch</p>
+			<Switch id="disabled" name="disabled" stateActive="bg-surface-100">
+				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
+				{#snippet activeChild()}<IconSun size="14" />{/snippet}
+			</Switch>
+		</label>
+		<hr class="hr" />
+		<label class="label flex justify-between gap-4" for="disabled">
+			<p>Compact</p>
+			<Switch id="disabled" name="disabled" compact>
+				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
+				{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			</Switch>
 		</label>
 	</section>

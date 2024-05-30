@@ -9,6 +9,8 @@ export interface SwitchProps {
 	checked?: boolean;
 	/** Set the disabled state. */
 	disabled?: boolean;
+	/** Set the compact display mode. */
+	compact?: boolean;
 
 	// Root ---
 	/** Set base classes for the root element. */

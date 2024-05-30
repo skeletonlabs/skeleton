@@ -4,8 +4,9 @@
 	let {
 		id = '',
 		name = '',
-		checked = false,
+		checked = $bindable(false),
 		disabled = false,
+		compact = false,
 		// Root
 		base = 'flex cursor-pointer transition duration-200',
 		stateInactive = 'bg-surface-200-800',
@@ -33,6 +34,15 @@
 		inactiveChild,
 		activeChild
 	}: SwitchProps = $props();
+
+	// Set Compact Mode
+	if (compact) {
+		width = height;
+		thumbStateInactive = '';
+		thumbStateActive = '';
+		thumbTranslateX = '';
+		padding = '';
+	}
 
 	function toggle(event: MouseEvent | TouchEvent) {
 		if (disabled) return;
