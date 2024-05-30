@@ -211,10 +211,6 @@ importers:
         version: 1.4.0(@types/node@16.18.97)(jsdom@24.0.0)
 
   packages/skeleton-svelte:
-    dependencies:
-      lucide-svelte:
-        specifier: ^0.341.0
-        version: 0.341.0(svelte@5.0.0-next.94)
     devDependencies:
       '@playwright/test':
         specifier: ^1.42.1
@@ -267,6 +263,9 @@ importers:
       jsdom:
         specifier: ^24.0.0
         version: 24.0.0
+      lucide-svelte:
+        specifier: ^0.341.0
+        version: 0.341.0(svelte@5.0.0-next.94)
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
@@ -3156,7 +3155,7 @@ packages:
       dom-accessibility-api: 0.6.3
       lodash: 4.17.21
       redent: 3.0.0
-      vitest: 1.4.0(@types/node@20.12.4)(jsdom@24.0.0)
+      vitest: 1.4.0(@types/node@16.18.97)(jsdom@24.0.0)
     dev: true
 
   /@testing-library/react@14.2.2(react-dom@18.2.0)(react@18.2.0):
@@ -7725,7 +7724,6 @@ packages:
       svelte: ^3 || ^4 || ^5.0.0-next.42
     dependencies:
       svelte: 5.0.0-next.94
-    dev: false
 
   /lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}

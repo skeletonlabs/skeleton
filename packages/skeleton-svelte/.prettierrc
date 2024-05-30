@@ -3,9 +3,7 @@
 	"singleQuote": true,
 	"trailingComma": "none",
 	"printWidth": 140,
-	"plugins": [
-		"prettier-plugin-svelte"
-	],
+	"plugins": ["prettier-plugin-svelte"],
 	"overrides": [
 		{
 			"files": "*.svelte",
