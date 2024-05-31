@@ -12,6 +12,7 @@ export const Page: React.FC<any> = () => {
 			checked={compact}
 			onCheckedChange={setCompact}
 			width="w-9"
+			stateActive="preset-filled-tertiary-500"
 			compact
 			inactiveChild={<IconFrown size="18" />}
 			activeChild={<IconSmile size="18" />}
