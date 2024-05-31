@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Switch } from "../../lib/components/Switch/Switch.js";
-// Icons
 import {
   Check as IconCheck,
   X as IconX,

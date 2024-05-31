@@ -8,7 +8,7 @@
 
 	let modeState = $state(false); // false = dark mode
 
-	function onToggleHandler() {
+	function onModeChange() {
 		document.documentElement.classList.toggle('dark');
 	}
 </script>
@@ -20,7 +20,7 @@
 		<hr class="hr" />
 		<label class="label flex justify-between items-center gap-4" for="mode">
 			<p>Set Mode</p>
-			<Switch id="mode" name="mode" stateActive="bg-surface-200" bind:checked={modeState} onCheckedChange={onToggleHandler}>
+			<Switch id="mode" name="mode" stateActive="bg-surface-200" bind:checked={modeState} onCheckedChange={onModeChange}>
 				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 				{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			</Switch>
