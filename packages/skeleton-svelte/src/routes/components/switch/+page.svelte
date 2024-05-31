@@ -45,7 +45,7 @@
 		<hr class="hr" />
 		<label class="label flex justify-between items-center gap-4" for="compact">
 			<p>Compact</p>
-			<Switch id="compact" name="compact" compact>
+			<Switch id="compact" name="compact" compact width="w-9">
 				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 				{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			</Switch>

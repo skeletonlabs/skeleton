@@ -7,10 +7,13 @@
 		checked = $bindable(false),
 		disabled = false,
 		compact = false,
+		// Aria
+		labelledby = undefined,
+		describedby = undefined,
 		// Root
 		base = 'flex cursor-pointer transition duration-200',
 		stateInactive = 'preset-filled-surface-200-800',
-		stateActive = 'bg-primary-500',
+		stateActive = 'preset-filled-primary-500',
 		stateDisabled = 'opacity-50 cursor-not-allowed',
 		width = 'w-10',
 		height = 'h-6',
@@ -20,8 +23,8 @@
 		classes = '',
 		// Thumb
 		thumbBase = 'aspect-square h-full flex justify-center items-center',
-		thumbStateInactive = 'preset-filled-surface-50-950',
-		thumbStateActive = 'bg-surface-50 text-surface-contrast-50',
+		thumbInactive = 'preset-filled-surface-50-950',
+		thumbActive = 'bg-surface-50 text-surface-contrast-50',
 		thumbRounded = 'rounded-full',
 		thumbTranslateX = 'translate-x-4',
 		thumbTransition = 'transition',
@@ -42,8 +45,8 @@
 	if (compact) {
 		base = `${thumbBase} aspect-square `;
 		height = width;
-		thumbStateInactive = '';
-		thumbStateActive = '';
+		thumbInactive = stateInactive;
+		thumbActive = stateActive;
 		thumbTranslateX = '';
 		padding = '';
 	}
@@ -55,7 +58,7 @@
 	}
 
 	const rxTrackState = $derived(checked ? stateActive : stateInactive);
-	const rxThumbState = $derived(checked ? `${thumbStateActive} ${thumbTranslateX}` : thumbStateInactive);
+	const rxThumbState = $derived(checked ? `${thumbActive} ${thumbTranslateX}` : thumbInactive);
 	const rxDisabled = $derived(disabled ? stateDisabled : '');
 </script>
 
@@ -64,6 +67,8 @@
 	class="{base} {rxTrackState} {width} {height} {padding} {rounded} {hover} {rxDisabled} {classes}"
 	role="switch"
 	aria-checked={checked}
+	aria-labelledby={labelledby}
+	aria-describedby={describedby}
 	tabindex="0"
 	onclick={toggle}
 >

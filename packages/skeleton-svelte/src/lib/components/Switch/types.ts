@@ -12,6 +12,12 @@ export interface SwitchProps {
 	/** Set the compact display mode. */
 	compact?: boolean;
 
+	// ARIA ---
+	/** Identifies the element that labels the switch. */
+	labelledby?: string | undefined;
+	/** Identifies the element that describes the switch. */
+	describedby?: string | undefined;
+
 	// Root ---
 	/** Set base classes for the root element. */
 	base?: string;
@@ -38,9 +44,9 @@ export interface SwitchProps {
 	/** Set base classes for the thumb element. */
 	thumbBase?: string;
 	/** Set inactive classes for the thumb element. */
-	thumbStateInactive?: string;
+	thumbInactive?: string;
 	/** Set active classes for the thumb element. */
-	thumbStateActive?: string;
+	thumbActive?: string;
 	/** Set rounded classes for the thumb element. */
 	thumbRounded?: string;
 	/** Set animation X-axis translate classes for the thumb element. */
