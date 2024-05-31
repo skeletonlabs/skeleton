@@ -77,7 +77,7 @@ export const Switch: React.FC<SwitchProps> = ({
       aria-describedby={describedby}
       onClick={toggle}
     >
-      {/* Input (note: this is never visible) */}
+      {/* Input (hidden) */}
       <input
         type="checkbox"
         id={id}
@@ -92,11 +92,11 @@ export const Switch: React.FC<SwitchProps> = ({
         className={`${thumbBase} ${rxThumbState} ${thumbRounded} ${thumbTransition} ${thumbEase} ${thumbDuration} ${thumbClasses}`}
       >
         {/* Icon Inactive */}
-        {inactiveChild ? (
+        {!checked && inactiveChild ? (
           <span className={iconInactiveBase}>{inactiveChild}</span>
         ) : null}
         {/* Icon Active */}
-        {activeChild ? (
+        {checked && activeChild ? (
           <span className={iconActiveBase}>{activeChild}</span>
         ) : null}
       </div>

@@ -5,6 +5,8 @@
 	import IconCheck from 'lucide-svelte/icons/check';
 	import IconMoon from 'lucide-svelte/icons/moon';
 	import IconSun from 'lucide-svelte/icons/sun';
+	import IconSmile from 'lucide-svelte/icons/frown';
+	import IconFrown from 'lucide-svelte/icons/smile';
 </script>
 
 <div class="space-y-10">
@@ -46,8 +48,8 @@
 		<label class="label flex justify-between items-center gap-4" for="compact">
 			<p>Compact</p>
 			<Switch id="compact" name="compact" compact width="w-9">
-				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
-				{#snippet activeChild()}<IconSun size="14" />{/snippet}
+				{#snippet inactiveChild()}<IconSmile size="18" />{/snippet}
+				{#snippet activeChild()}<IconFrown size="18" />{/snippet}
 			</Switch>
 		</label>
 	</section>

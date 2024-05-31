@@ -76,7 +76,7 @@
 	tabindex="0"
 	onclick={toggle}
 >
-	<!-- Input (note: this is never visible) -->
+	<!-- Input (hidden) -->
 	<input type="checkbox" {id} {name} bind:checked class="hidden" {disabled} />
 	<!-- Thumb -->
 	<div class="{thumbBase} {rxThumbState} {thumbRounded} {thumbTransition} {thumbEase} {thumbDuration} {thumbClasses}">
