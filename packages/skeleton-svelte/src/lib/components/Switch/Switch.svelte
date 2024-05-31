@@ -43,9 +43,9 @@
 
 	// Set Compact Mode
 	if (compact) {
-		base = `${thumbBase} aspect-square `;
-		// Height matches width
-		height = width;
+		base = `${thumbBase} aspect-square`;
+		// Removes the height class
+		height = '';
 		// Thumb inherits track styles
 		thumbInactive = stateInactive;
 		thumbActive = stateActive;
@@ -75,6 +75,7 @@
 	aria-describedby={describedby}
 	tabindex="0"
 	onclick={toggle}
+	data-testid="switch"
 >
 	<!-- Input (hidden) -->
 	<input type="checkbox" {id} {name} bind:checked class="hidden" {disabled} />

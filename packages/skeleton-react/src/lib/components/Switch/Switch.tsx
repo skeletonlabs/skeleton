@@ -44,9 +44,9 @@ export const Switch: React.FC<SwitchProps> = ({
 }) => {
   // Set Compact Mode
   if (compact) {
-    base = `${thumbBase} aspect-square `;
-    // Height matches width
-    height = width;
+    base = `${thumbBase} aspect-square`;
+    // Removes the height class
+    height = "";
     // Thumb inherits track styles
     thumbInactive = stateInactive;
     thumbActive = stateActive;
@@ -76,6 +76,7 @@ export const Switch: React.FC<SwitchProps> = ({
       aria-labelledby={labelledby}
       aria-describedby={describedby}
       onClick={toggle}
+      data-testid="switch"
     >
       {/* Input (hidden) */}
       <input
