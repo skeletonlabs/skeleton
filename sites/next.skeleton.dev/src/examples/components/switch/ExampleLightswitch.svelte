@@ -9,9 +9,9 @@
 
 	// Handle the change in state when toggled.
 	function handleModeChange() {
-		console.log({mode});
 		// NOTE: implementation may differ per Tailwind config and framework:
 		// https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
+		console.log({mode});
 	}
 </script>
 

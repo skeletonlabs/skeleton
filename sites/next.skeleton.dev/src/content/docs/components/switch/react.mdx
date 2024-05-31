@@ -4,4 +4,72 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-(React Switch coming soon)
+import { Page as Example } from '@examples/components/switch/Example.tsx';
+import ExampleRaw from '@examples/components/switch/Example.tsx?raw';
+import { Page as ExampleList } from '@examples/components/switch/ExampleList.tsx';
+import ExampleListRaw from '@examples/components/switch/ExampleList.tsx?raw';
+import { Page as ExampleIcons } from '@examples/components/switch/ExampleIcons.tsx';
+import ExampleIconsRaw from '@examples/components/switch/ExampleIcons.tsx?raw';
+import { Page as ExampleCompact } from '@examples/components/switch/ExampleCompact.tsx';
+import ExampleCompactRaw from '@examples/components/switch/ExampleCompact.tsx?raw';
+import { Page as ExampleLightswitch } from '@examples/components/switch/ExampleLightswitch.tsx';
+import ExampleLightswitchRaw from '@examples/components/switch/ExampleLightswitch.tsx?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Example client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## List
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleList client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleListRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Icons
+
+Pass icons as `ReactNode` to the `inactiveChild` and `activeChild` props respectively.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleIcons client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleIconsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Icons
+
+Apply the `compact` prop define a `width` for a minimal display.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCompact client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleCompactRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Lightswitch
+
+Combine multiple features for more robust switches.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleLightswitch client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleLightswitchRaw} lang="tsx" />
+	</Fragment>
+</Preview>

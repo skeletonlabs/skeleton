@@ -29,7 +29,7 @@ export function Component() {
           2
         )}
       </pre>
-      <section className="card p-4 space-y-4">
+      <section className="space-y-4">
         <label className="label flex justify-between items-center gap-4">
           <p>Defaults to inactive state.</p>
           <Switch
