@@ -11,7 +11,7 @@
 		labelledby = undefined,
 		describedby = undefined,
 		// Root (Track)
-		base = 'flex cursor-pointer transition duration-200',
+		base = 'inline cursor-pointer transition duration-200',
 		stateInactive = 'preset-filled-surface-200-800',
 		stateActive = 'preset-filled-primary-500',
 		stateDisabled = 'opacity-50 cursor-not-allowed',
@@ -55,10 +55,10 @@
 		padding = '';
 	}
 
-	function toggle(event: MouseEvent | TouchEvent) {
+	function toggle() {
 		if (disabled) return;
 		checked = !checked;
-		onCheckedChange(event);
+		onCheckedChange(checked);
 	}
 
 	const rxTrackState = $derived(checked ? stateActive : stateInactive);
@@ -79,7 +79,7 @@
 	<!-- Input (note: this is never visible) -->
 	<input type="checkbox" {id} {name} bind:checked class="hidden" {disabled} />
 	<!-- Thumb -->
-	<div class="thumb {thumbBase} {rxThumbState} {thumbRounded} {thumbTransition} {thumbEase} {thumbDuration} {thumbClasses}">
+	<div class="{thumbBase} {rxThumbState} {thumbRounded} {thumbTransition} {thumbEase} {thumbDuration} {thumbClasses}">
 		{#if !checked && inactiveChild}
 			<span class={iconInactiveBase}>{@render inactiveChild()}</span>
 		{/if}
