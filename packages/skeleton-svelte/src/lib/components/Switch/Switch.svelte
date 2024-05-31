@@ -10,7 +10,7 @@
 		// Aria
 		labelledby = undefined,
 		describedby = undefined,
-		// Root
+		// Root (Track)
 		base = 'flex cursor-pointer transition duration-200',
 		stateInactive = 'preset-filled-surface-200-800',
 		stateActive = 'preset-filled-primary-500',
@@ -22,7 +22,7 @@
 		hover = 'hover:brightness-90 dark:hover:brightness-110',
 		classes = '',
 		// Thumb
-		thumbBase = 'aspect-square h-full flex justify-center items-center',
+		thumbBase = 'right-0 aspect-square h-full flex justify-center items-center text-right',
 		thumbInactive = 'preset-filled-surface-50-950',
 		thumbActive = 'bg-surface-50 text-surface-contrast-50',
 		thumbRounded = 'rounded-full',
@@ -35,7 +35,7 @@
 		iconInactiveBase = 'pointer-events-none',
 		iconActiveBase = 'pointer-events-none',
 		// Events
-		ontoggle = () => {},
+		onCheckedChange = () => {},
 		// Snippets
 		inactiveChild,
 		activeChild
@@ -44,17 +44,21 @@
 	// Set Compact Mode
 	if (compact) {
 		base = `${thumbBase} aspect-square `;
+		// Height matches width
 		height = width;
+		// Thumb inherits track styles
 		thumbInactive = stateInactive;
 		thumbActive = stateActive;
+		// Remove X-axis translate
 		thumbTranslateX = '';
+		// Remove padding
 		padding = '';
 	}
 
 	function toggle(event: MouseEvent | TouchEvent) {
 		if (disabled) return;
 		checked = !checked;
-		ontoggle(event);
+		onCheckedChange(event);
 	}
 
 	const rxTrackState = $derived(checked ? stateActive : stateInactive);

@@ -18,7 +18,7 @@ export interface SwitchProps {
 	/** Identifies the element that describes the switch. */
 	describedby?: string | undefined;
 
-	// Root ---
+	// Root (Track) ---
 	/** Set base classes for the root element. */
 	base?: string;
 	/** Set inactive state classes for the root element. */
@@ -68,7 +68,7 @@ export interface SwitchProps {
 
 	// Events ---
 	/** Triggers when the switch is toggled. */
-	ontoggle?: (event: MouseEvent | TouchEvent) => void;
+	onCheckedChange?: (event: MouseEvent | TouchEvent) => void;
 
 	// Snippets ---
 	/** The inactive state children. */
