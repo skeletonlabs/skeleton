@@ -68,6 +68,7 @@
 
 <!-- Track -->
 <button
+	type="button"
 	class="{base} {rxTrackState} {width} {height} {padding} {rounded} {hover} {rxDisabled} {classes}"
 	role="switch"
 	aria-checked={checked}

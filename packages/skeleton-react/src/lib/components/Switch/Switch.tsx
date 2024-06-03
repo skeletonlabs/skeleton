@@ -70,6 +70,7 @@ export const Switch: React.FC<SwitchProps> = ({
 
   return (
     <button
+      type="button"
       className={`${base} ${rxTrackState} ${width} ${height} ${padding} ${rounded} ${hover} ${rxDisabled} ${classes}`}
       role="switch"
       aria-checked={checked}
