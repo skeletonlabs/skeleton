@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Increased the default animation duration of inputs and changed the transition to avoid a white flash
+bugfix: Resolve an issue causing a white flash when selecting inputs.
