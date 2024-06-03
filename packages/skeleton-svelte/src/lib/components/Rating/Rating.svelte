@@ -88,12 +88,12 @@
 	let focusedButtonIndex = $derived(Math.max(0, Math.ceil(value - 1)));
 
 	$effect(() => {
-		if (getComputedStyle(figureElement).direction === 'rtl') {
-			emptyBase = emptyBase.replace('clip-left', 'clip-right');
-			fullBase = fullBase.replace('clip-right', 'clip-left');
-		} else {
+		if (getComputedStyle(figureElement).direction === 'ltr') {
 			emptyBase = emptyBase.replace('clip-right', 'clip-left');
 			fullBase = fullBase.replace('clip-left', 'clip-right');
+		} else {
+			emptyBase = emptyBase.replace('clip-left', 'clip-right');
+			fullBase = fullBase.replace('clip-right', 'clip-left');
 		}
 	});
 </script>
