@@ -43,7 +43,7 @@
 
 	// Set Compact Mode
 	if (compact) {
-		base = `${thumbBase} aspect-square`;
+		base = thumbBase;
 		// Removes the height class
 		height = '';
 		// Thumb inherits track styles
