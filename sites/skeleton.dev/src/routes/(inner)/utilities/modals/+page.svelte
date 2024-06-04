@@ -396,7 +396,7 @@ new Promise<boolean>((resolve) => {
 					{#if tabCustom === 'register'}
 						<p>
 							This will create a set of reusable custom modals that are globally available to your application. Add the following to your
-							your root layout in <code class="code">/src/routes/+layout.svelte</code>.
+							root layout in <code class="code">/src/routes/+layout.svelte</code>.
 						</p>
 						<CodeBlock
 							language="ts"
