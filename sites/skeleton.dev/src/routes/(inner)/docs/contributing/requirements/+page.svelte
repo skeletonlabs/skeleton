@@ -225,7 +225,7 @@
 	<section class="space-y-4">
 		<h2 class="h2">Dependencies</h2>
 		<p>
-			Introducing new dependencies to projects is strictly prohibited. Please sync with a core core maintainer if this is required. Pull
+			Introducing new dependencies to projects is strictly prohibited. Please sync with a core maintainer if this is required. Pull
 			requests that introduce new dependencies without approval will be rejected.
 		</p>
 	</section>

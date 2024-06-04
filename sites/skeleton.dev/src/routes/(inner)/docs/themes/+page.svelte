@@ -172,7 +172,7 @@ plugins: [
 		</p>
 		<CodeBlock language="html" code={`<html class="dark">`} />
 		<p>
-			Note that Skeleton also provides a <a class="anchor" href="/utilities/lightswitches" target="_blank">Lightswitch</a> utility if you wish
+			Note that Skeleton also provides a <a class="anchor" href="/docs/dark-mode#via-selector" target="_blank">Lightswitch</a> utility if you wish
 			toggle between light and dark modes.
 		</p>
 	</section>
