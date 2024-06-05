@@ -1,5 +1,13 @@
 import React from "react";
 
+// Context
+
+export interface RatingContextState {
+	interactive?: boolean;
+	value: number;
+	order: number;
+}
+
 // Components ---
 
 export interface RatingProps extends React.PropsWithChildren {
@@ -38,29 +46,20 @@ export interface RatingProps extends React.PropsWithChildren {
 	/** Provide arbitrary CSS classes to the rating button. */
 	buttonClasses?: string;
 
-	// Icon Empty
-	/** Set base styles for the empty icon. */
-	emptyBase?: string;
-	/** Set interactive state styles for the empty icon. */
-	emptyInteractive?: string;
-	/** Set non-interactive state styles for the empty icon. */
-	emptyStatic?: string;
-	/** Provide arbitrary for the empty icon. */
-	emptyClasses?: string;
-
-	// Icon Full
-	/** Set base styles for the full icon. */
-	fullBase?: string;
-	/** Set interactive state styles for the full icon. */
-	fullInteractive?: string;
-	/** Set non-interactive state styles for the full icon. */
-	fullStatic?: string;
-	/** Provide arbitrary for the full icon. */
-	fullClasses?: string;
-
 	// Events ---
 	/** Triggers on rating mouse down. */
-	onmousedown?: (event: MouseEvent, value: number) => void;
+	onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>, value: number) => void;
 	/** Triggers on rating key down. */
-	onkeydown?: (event: KeyboardEvent) => void;
+	onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+}
+
+export interface IconProps extends React.PropsWithChildren {
+	/** Set base styles. */
+	base?: string;
+	/** Set interactive state styles. */
+	interactive?: string;
+	/** Set non-interactive state styles. */
+	nonInteractive?: string;
+	/** Provide arbitrary CSS classes for the empty icon. */
+	classes?: string;
 }

@@ -1,4 +1,14 @@
-import { RatingProps } from "./types";
+import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { IconProps, RatingContextState, RatingProps } from "./types";
+import './Rating.css';
+
+// Context
+
+export const RatingContext = createContext<RatingContextState>({
+    interactive: false,
+    value: 0,
+    order: 0
+});
 
 // Components ---
 const RatingRoot: React.FC<RatingProps> = ({
@@ -19,25 +29,135 @@ const RatingRoot: React.FC<RatingProps> = ({
     buttonPosition = 'relative',
     buttonAspect = 'aspect-square',
     buttonClasses = '',
-    // Icon Empty ---
-    emptyBase = 'clip-left absolute left-0 top-0 flex items-center justify-center',
-    emptyInteractive = 'size-full',
-    emptyStatic = 'w-fit',
-    emptyClasses = '',
-    // Icon Full ---
-    fullBase = 'clip-right absolute left-0 top-0 flex items-center justify-center',
-    fullInteractive = 'size-full',
-    fullStatic = 'w-fit',
-    fullClasses = '',
     // Events
-    onmousedown = () => {},
-    onkeydown = () => {},
+    onMouseDown = () => {},
+    onKeyDown = () => {},
 	// Children
 	children,
 }) => {
+    const figureRef = useRef<HTMLElement>(null);
+
+    const [focusedButtonIndex, setFocusedButtonIndex] = useState(0);
+    useEffect(() => {
+        const index = Math.max(0, Math.ceil(value - 1));
+        setFocusedButtonIndex(index);
+    }, [value]);
+
+    const onRatingMouseDown = useCallback((event: React.MouseEvent<HTMLButtonElement>, order: number) => {
+        if(!figureRef.current) return;
+
+        const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+        const fractionWidth = ratingRect.width / fraction;
+        const left = event.clientX - ratingRect.left;
+        let selectedFraction = Math.floor(left / fractionWidth) + 1;
+
+        if(figureRef.current.style.direction === 'rtl') {
+            selectedFraction = fraction - selectedFraction + 1;
+        }
+
+        value = order + selectedFraction / fraction;
+        onMouseDown(event, value);
+    }, [fraction]);
+
+    const onRatingKeyDown = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
+        const ltr = figureRef.current?.style.direction === 'ltr';
+        switch(event.key) {
+            case 'ArrowLeft':
+                ltr ? decreaseValue() : increaseValue();
+                break;
+            case 'ArrowRight':
+                ltr ? increaseValue() : decreaseValue();
+                break;
+        }
+        onKeyDown(event);
+    }, []);
+
+    function refreshFocus() {
+        if(!figureRef.current) return;
+
+        const buttons = figureRef.current.querySelectorAll('button');
+        buttons[Math.max(0, Math.ceil(value - 1))].focus();
+    }
+
+    function increaseValue() {
+        value = Math.min(max, value + 1 / fraction);
+        refreshFocus();
+    }
+
+    function decreaseValue() {
+        value = Math.max(0, value - 1 / fraction);
+        refreshFocus();
+    }
+
     return(
-        <figure className={`${base} ${width} ${text} ${fill} ${justify} ${spaceX} ${classes}`} data-testid="rating">
-            
+        <figure ref={figureRef} className={`${base} ${width} ${text} ${fill} ${justify} ${spaceX} ${classes}`} data-testid="rating">
+            {[...Array(max)].map((_, order) => (
+                <button
+                    className={`${buttonBase} ${buttonPosition} ${buttonAspect} ${buttonClasses} ${interactive ? undefined : 'pointer-events-none'}`}
+                    tabIndex={interactive && order === focusedButtonIndex ? 0 : -1}
+                    onMouseDown={(event: React.MouseEvent<HTMLButtonElement>) => interactive ? onRatingMouseDown(event, order) : undefined}
+                    onKeyDown={(event: React.KeyboardEvent<HTMLButtonElement>) => interactive ? onRatingKeyDown(event) : undefined}
+                    type='button'>
+                        <RatingContext.Provider value={{interactive, value, order}}>
+                            {children}
+                        </RatingContext.Provider>
+                </button>
+            ))}
         </figure>
     );
 };
+
+const IconEmpty: React.FC<IconProps> = ({
+    base = 'clip-left absolute left-0 top-0 flex items-center justify-center',
+    interactive = 'size-full',
+    nonInteractive = 'w-fit',
+    classes = '',
+	// Children
+	children,
+}) => {
+    const ctx = useContext<RatingContextState>(RatingContext);
+    const [rxInteractive, setRxInteractive] = useState('');
+
+    useEffect(() => {
+        setRxInteractive(ctx.interactive ? interactive : nonInteractive);
+    }, [ctx.interactive]);
+
+    return(
+        <>
+            <style>{`--clip-value: ${(ctx.value - ctx.order) * 100}%`}</style>
+            <span className={`${base} ${rxInteractive} ${classes}`}>
+                {children}
+            </span>
+        </>
+    );
+};
+
+const IconFull: React.FC<IconProps> = ({
+    base = 'clip-right absolute left-0 top-0 flex items-center justify-center',
+    interactive = 'size-full',
+    nonInteractive = 'w-fit',
+    classes = '',
+	// Children
+	children,
+}) => {
+    const ctx = useContext<RatingContextState>(RatingContext);
+    const [rxInteractive, setRxInteractive] = useState('');
+
+    useEffect(() => {
+        setRxInteractive(ctx.interactive ? interactive : nonInteractive);
+    }, [ctx.interactive]);
+
+    return(
+        <>
+            <style>{`--clip-value: ${100 - (ctx.value - ctx.order) * 100}%`}</style>
+            <span className={`${base} ${rxInteractive} ${classes}`}>
+                {children}
+            </span>
+        </>
+    );
+};
+
+export const Rating = Object.assign(RatingRoot, {
+    IconEmpty: IconEmpty,
+    IconFull: IconFull
+})

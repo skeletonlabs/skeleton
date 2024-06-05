@@ -50,13 +50,13 @@
 	}
 
 	function onRatingKeydown(event: KeyboardEvent) {
-		const rtl = getComputedStyle(figureElement).direction === 'rtl';
+		const ltr = getComputedStyle(figureElement).direction === 'ltr';
 		switch (event.key) {
 			case 'ArrowLeft':
-				rtl ? increaseValue() : decreaseValue();
+				ltr ? decreaseValue() : increaseValue();
 				break;
 			case 'ArrowRight':
-				rtl ? decreaseValue() : increaseValue();
+				ltr ? increaseValue() : decreaseValue();
 				break;
 		}
 		onkeydown(event);

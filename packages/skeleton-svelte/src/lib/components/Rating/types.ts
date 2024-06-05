@@ -43,7 +43,7 @@ export interface RatingProps {
 	emptyInteractive?: string;
 	/** Set non-interactive state styles for the empty icon. */
 	emptyStatic?: string;
-	/** Provide arbitrary for the empty icon. */
+	/** Provide arbitrary CSS classes for the empty icon. */
 	emptyClasses?: string;
 
 	// Icon Full
@@ -53,7 +53,7 @@ export interface RatingProps {
 	fullInteractive?: string;
 	/** Set non-interactive state styles for the full icon. */
 	fullStatic?: string;
-	/** Provide arbitrary for the full icon. */
+	/** Provide arbitrary CSS classes for the full icon. */
 	fullClasses?: string;
 
 	// Events ---
