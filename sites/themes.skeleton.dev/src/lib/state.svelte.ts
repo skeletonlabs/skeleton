@@ -12,7 +12,7 @@ export let stateDisplay: any = $state({
 // Form: Core ---
 
 export let stateFormCore: Record<string, string> = $state({
-	name: 'theme'
+	name: 'myCustomTheme'
 });
 
 // Form: Colors ---

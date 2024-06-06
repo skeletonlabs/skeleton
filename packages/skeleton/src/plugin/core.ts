@@ -10,10 +10,11 @@ import utilColorPairings from './utilities/color-pairings.js';
 import utilTypography from './utilities/typography.js';
 import utilPresets from './utilities/presets.js';
 // Extends
+import extendAnimations from './extends/animations.js';
+import extendBackgrounds from './extends/backgrounds.js';
+import extendBorders from './extends/borders.js';
 import extendColors from './extends/colors.js';
 import extendSpacing from './extends/spacing.js';
-import extendBorders from './extends/borders.js';
-import extendAnimAndKeyframes from './extends/animations.js';
 
 export const coreUtilities = {
 	...utilColorPairings(),
@@ -24,10 +25,11 @@ export const coreUtilities = {
 export const coreConfig = {
 	theme: {
 		extend: {
-			...extendColors(),
-			...extendSpacing(),
+			...extendAnimations(),
+			...extendBackgrounds(),
 			...extendBorders(),
-			...extendAnimAndKeyframes()
+			...extendColors(),
+			...extendSpacing()
 		}
 	}
 };

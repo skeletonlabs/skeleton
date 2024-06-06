@@ -47,33 +47,33 @@ Optionally you can choose to generate a custom theme to adapt to your app's uniq
 4. Copy the contents of the generated theme in full.
 5. Create a new file in the root of your project called `theme-custom.ts` (any name is fine).
 
-You may import one or more themes at the top of your project's `tailwind.config`, then review the register instructions below.
+You may import each custom theme at the top of your project's `tailwind.config`. Then proceed to the register instructions below.
 
 ```ts title="tailwind.config"
-import { yourThemeNameHere } from './theme-custom.ts';
+import myCustomTheme from './theme-custom.ts';
 ```
 
 ## Register Themes
 
-Once all themes are imported, you can register your theme in the Skeleton plugin settings in `tailwind.config`.
+Register each imported theme within the Skeleton plugin settings in `tailwind.config`. Then proceed to activation below.
 
 ```ts title="tailwind.config" {6-8, 10}
 plugins: [
 	// The Skeleton Tailwind Plugin
 	skeleton({
 		themes: [
-			// Preset Themes
+			// Preset Theme(s)
 			themes.cerberus,
 			themes.pine,
 			themes.rose,
-			// Custom Themes
-			yourThemeNameHere,
+			// Custom Theme(s)
+			myCustomTheme,
 		],
 	}),
 ];
 ```
 
-> TIP: There's no limited to how many themes you can register, but each increases the size of your Tailwind-generated CSS bundle.
+> TIP: There's no limited to how many themes you can register, but each increases the size of your generated CSS bundle.
 
 ## Activate a Theme
 

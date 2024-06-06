@@ -183,8 +183,8 @@ importers:
         specifier: ^24.0.0
         version: 24.0.0
       lucide-react:
-        specifier: ^0.378.0
-        version: 0.378.0(react@18.2.0)
+        specifier: ^0.341.0
+        version: 0.341.0(react@18.2.0)
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
@@ -267,8 +267,8 @@ importers:
         specifier: ^24.0.0
         version: 24.0.0
       lucide-svelte:
-        specifier: ^0.378.0
-        version: 0.378.0(svelte@5.0.0-next.131)
+        specifier: ^0.341.0
+        version: 0.341.0(svelte@5.0.0-next.94)
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
@@ -409,12 +409,18 @@ importers:
       minimatch:
         specifier: ^9.0.4
         version: 9.0.4
+      pagefind:
+        specifier: ^1.1.0
+        version: 1.1.0
       prettier:
         specifier: ^3.2.5
         version: 3.2.5
       prettier-plugin-astro:
         specifier: ^0.13.0
         version: 0.13.0
+      vite-plugin-pagefind:
+        specifier: ^0.2.8
+        version: 0.2.8
       vite-plugin-tw-plugin-watcher:
         specifier: workspace:*
         version: link:../../packages/vite-plugin-tw-plugin-watcher
@@ -2629,6 +2635,46 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
+  /@pagefind/darwin-arm64@1.1.0:
+    resolution: {integrity: sha512-SLsXNLtSilGZjvqis8sX42fBWsWAVkcDh1oerxwqbac84HbiwxpxOC2jm8hRwcR0Z55HPZPWO77XeRix/8GwTg==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@pagefind/darwin-x64@1.1.0:
+    resolution: {integrity: sha512-QjQSE/L5oS1C8N8GdljGaWtjCBMgMtfrPAoiCmINTu9Y9dp0ggAyXvF8K7Qg3VyIMYJ6v8vg2PN7Z3b+AaAqUA==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@pagefind/linux-arm64@1.1.0:
+    resolution: {integrity: sha512-8zjYCa2BtNEL7KnXtysPtBELCyv5DSQ4yHeK/nsEq6w4ToAMTBl0K06khqxdSGgjMSwwrxvLzq3so0LC5Q14dA==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@pagefind/linux-x64@1.1.0:
+    resolution: {integrity: sha512-4lsg6VB7A6PWTwaP8oSmXV4O9H0IHX7AlwTDcfyT+YJo/sPXOVjqycD5cdBgqNLfUk8B9bkWcTDCRmJbHrKeCw==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@pagefind/windows-x64@1.1.0:
+    resolution: {integrity: sha512-OboCM76BcMKT9IoSfZuFhiqMRgTde8x4qDDvKulFmycgiJrlL5WnIqBHJLQxZq+o2KyZpoHF97iwsGAm8c32sQ==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
@@ -4840,6 +4886,10 @@ packages:
       color-string: 1.9.1
     dev: false
     optional: true
+
+  /colorette@2.0.20:
+    resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
+    dev: true
 
   /columnify@1.6.0:
     resolution: {integrity: sha512-lomjuFZKfM6MSAnV9aCZC9sc0qGbmZdfygNv+nCpqVkSKdCxCklLtd16O0EILGkImHw9ZpHkAnHaB+8Zxq5W6Q==}
@@ -7708,14 +7758,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /lucide-react@0.378.0(react@18.2.0):
-    resolution: {integrity: sha512-u6EPU8juLUk9ytRcyapkWI18epAv3RU+6+TC23ivjR0e+glWKBobFeSgRwOIJihzktILQuy6E0E80P2jVTDR5g==}
-    peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: true
-
   /lucide-svelte@0.341.0(svelte@5.0.0-next.69):
     resolution: {integrity: sha512-RdLUlxgm97pKGS5dKchdhLuxmYBpwpcLvZ5XQH3HPO5rZZU8JvfzFs8vnbZH/tsDeA0UeSzdzZyOYbWkOAbarA==}
     peerDependencies:
@@ -7731,14 +7773,6 @@ packages:
     dependencies:
       svelte: 5.0.0-next.94
     dev: false
-
-  /lucide-svelte@0.378.0(svelte@5.0.0-next.131):
-    resolution: {integrity: sha512-T7hV1sfOc94AWE5GOJ6r9wGEsR4h4TJr8d4Z0sM8O0e3IBcmeIvEGRAA6jCp7NGy4PeGrn5Tju6Y2JwJQntNrQ==}
-    peerDependencies:
-      svelte: ^3 || ^4 || ^5.0.0-next.42
-    dependencies:
-      svelte: 5.0.0-next.131
-    dev: true
 
   /lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -8842,6 +8876,17 @@ packages:
   /p-try@2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
     engines: {node: '>=6'}
+
+  /pagefind@1.1.0:
+    resolution: {integrity: sha512-1nmj0/vfYcMxNEQj0YDRp6bTVv9hI7HLdPhK/vBBYlrnwjATndQvHyicj5Y7pUHrpCFZpFnLVQXIF829tpFmaw==}
+    hasBin: true
+    optionalDependencies:
+      '@pagefind/darwin-arm64': 1.1.0
+      '@pagefind/darwin-x64': 1.1.0
+      '@pagefind/linux-arm64': 1.1.0
+      '@pagefind/linux-x64': 1.1.0
+      '@pagefind/windows-x64': 1.1.0
+    dev: true
 
   /parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
@@ -11744,6 +11789,10 @@ packages:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
     dev: true
 
+  /valibot@0.31.0-rc.4:
+    resolution: {integrity: sha512-2wKEnWVey4+JBVCrSF8nlITg2gMDqAuBoIplMpc5bIpQaeDR9wnrI/fudBooKlIW1EZpIMlWy8Ku2gtF/1uK9g==}
+    dev: true
+
   /validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
     dependencies:
@@ -11858,6 +11907,13 @@ packages:
       - sugarss
       - supports-color
       - terser
+    dev: true
+
+  /vite-plugin-pagefind@0.2.8:
+    resolution: {integrity: sha512-lTfbfeYWd5mjeji4bQPxjyt/BWI2CnkpcCtlyJu3GHTr7uWkauvcyS/98Ys/CHV95CLCis2po8J9i1+H4VIqZg==}
+    dependencies:
+      colorette: 2.0.20
+      valibot: 0.31.0-rc.4
     dev: true
 
   /vite-plugin-remix-router@2.0.0(react-router-dom@6.22.3)(vite@5.2.8):
