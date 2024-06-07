@@ -173,13 +173,6 @@
 		};
 	});
 
-	function handleEnterKey(event: KeyboardEvent): void {
-		if (event.key === 'Enter') {
-			inputValid = true;
-			addChipInternally(event);
-		}
-	}
-
 	function validateCustom(chip: string) {
 		return validation === undefined || validation(chip);
 	}
@@ -226,21 +219,24 @@
 		chipValues = chipValues;
 	}
 
-	function addChipInternally(event: KeyboardEvent): void {
-		event.preventDefault();
-		// Validate
-		inputValid = validate();
-		// When the onInvalid hook is present
-		if (inputValid === false) {
-			/** @event {{ event: Event, input: any  }} invalid - Fires when the input value is invalid. */
-			dispatch('invalid', { event, input });
-			return;
+	function onKeyUpHandler(event: KeyboardEvent): void {
+		if (event.key === 'Enter') {
+			event.preventDefault();
+			event.stopPropagation();
+			// Validate
+			inputValid = validate();
+			// When the onInvalid hook is present
+			if (inputValid === false) {
+				/** @event {{ event: Event, input: any  }} invalid - Fires when the input value is invalid. */
+				dispatch('invalid', { event, input });
+				return;
+			}
+			addChipCommon(input);
+			/** @event {{ event: Event, chipIndex: number, chipValue: string }} add - Fires when a chip is added. */
+			dispatch('add', { event, chipIndex: value.length - 1, chipValue: input });
+			// Clear input value
+			input = '';
 		}
-		addChipCommon(input);
-		/** @event {{ event: Event, chipIndex: number, chipValue: string }} add - Fires when a chip is added. */
-		dispatch('add', { event, chipIndex: value.length - 1, chipValue: input });
-		// Clear input value
-		input = '';
 	}
 
 	function removeChipInternally(event: SvelteEvent<MouseEvent, HTMLButtonElement>, chipIndex: number, chipValue: string): void {
@@ -302,7 +298,7 @@
 			bind:value={input}
 			placeholder={$$restProps.placeholder ?? 'Enter values...'}
 			class="input-chip-field {classesInput}"
-			on:keyup={handleEnterKey}
+			on:keyup={onKeyUpHandler}
 			on:input
 			on:focus
 			on:blur
