@@ -6,6 +6,7 @@ export interface RatingContextState {
 	interactive?: boolean;
 	value: number;
 	order: number;
+	figureRef: React.RefObject<HTMLElement> | undefined;
 }
 
 // Components ---
@@ -51,6 +52,8 @@ export interface RatingProps extends React.PropsWithChildren {
 	onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>, value: number) => void;
 	/** Triggers on rating key down. */
 	onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+	/** Triggers on rating value change. */
+	onValueChange?: (value: number) => void;
 }
 
 export interface IconProps extends React.PropsWithChildren {

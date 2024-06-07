@@ -72,8 +72,7 @@
 		"typescript": "^5.4.4",
 		"vite": "^5.2.8",
 		"vite-plugin-tw-plugin-watcher": "workspace:*",
-		"vitest": "^1.4.0",
-		"lucide-svelte": "^0.378.0"
+		"vitest": "^1.4.0"
 	},
 	"type": "module"
 }

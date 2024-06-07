@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Tabs } from "../../lib/components/Tab/Tabs";
+import { Tabs } from "../../lib/components/Tabs/Tabs.js";
 import { Plane, Hotel, Box } from 'lucide-react';
 
 function Preview(

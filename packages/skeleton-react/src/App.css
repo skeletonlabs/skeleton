@@ -13,3 +13,11 @@
     transform: translateX(-100%);
   }
 }
+
+.clip-left {
+  clip-path: inset(0 0 0 var(--clip_value));
+}
+
+.clip-right {
+  clip-path: inset(0 var(--clip_value) 0 0);
+}

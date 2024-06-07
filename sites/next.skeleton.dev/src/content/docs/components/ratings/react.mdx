@@ -2,4 +2,70 @@
 layout: '@layouts/LayoutDoc.astro'
 ---
 
-(coming soon)
+export const components = componentSet;
+
+import { Page as Example } from '@examples/components/ratings/Example.tsx';
+import ExampleRaw from '@examples/components/ratings/Example.tsx?raw';
+import { Page as CustomIconsExample } from '@examples/components/ratings/CustomIconsExample.tsx';
+import CustomIconsExampleRaw from '@examples/components/ratings/CustomIconsExample.tsx?raw';
+import { Page as UserInteractiveExample } from '@examples/components/ratings/UserInteractiveExample.tsx';
+import UserInteractiveExampleRaw from '@examples/components/ratings/UserInteractiveExample.tsx?raw';
+import { Page as FractionExample } from '@examples/components/ratings/FractionExample.tsx';
+import FractionExampleRaw from '@examples/components/ratings/FractionExample.tsx?raw';
+import { Page as RTLExample } from '@examples/components/ratings/RTLExample.tsx';
+import RTLExampleRaw from '@examples/components/ratings/RTLExample.tsx?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Example client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Using Icons
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CustomIconsExample client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CustomIconsExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Interactive
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<UserInteractiveExample client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={UserInteractiveExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Fractions
+
+Use the Prop `fraction` to set how many fractions a rating has.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<FractionExample client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={FractionExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## RTL
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<RTLExample client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={RTLExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>

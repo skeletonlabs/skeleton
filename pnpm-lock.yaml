@@ -268,7 +268,7 @@ importers:
         version: 24.0.0
       lucide-svelte:
         specifier: ^0.341.0
-        version: 0.341.0(svelte@5.0.0-next.94)
+        version: 0.341.0(svelte@5.0.0-next.131)
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
@@ -7756,7 +7756,14 @@ packages:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
-    dev: false
+
+  /lucide-svelte@0.341.0(svelte@5.0.0-next.131):
+    resolution: {integrity: sha512-RdLUlxgm97pKGS5dKchdhLuxmYBpwpcLvZ5XQH3HPO5rZZU8JvfzFs8vnbZH/tsDeA0UeSzdzZyOYbWkOAbarA==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
+    dependencies:
+      svelte: 5.0.0-next.131
+    dev: true
 
   /lucide-svelte@0.341.0(svelte@5.0.0-next.69):
     resolution: {integrity: sha512-RdLUlxgm97pKGS5dKchdhLuxmYBpwpcLvZ5XQH3HPO5rZZU8JvfzFs8vnbZH/tsDeA0UeSzdzZyOYbWkOAbarA==}

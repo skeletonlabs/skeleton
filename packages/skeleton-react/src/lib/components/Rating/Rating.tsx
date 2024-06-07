@@ -1,13 +1,13 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { IconProps, RatingContextState, RatingProps } from "./types";
-import './Rating.css';
 
 // Context
 
 export const RatingContext = createContext<RatingContextState>({
     interactive: false,
     value: 0,
-    order: 0
+    order: 0,
+    figureRef: undefined
 });
 
 // Components ---
@@ -32,6 +32,7 @@ const RatingRoot: React.FC<RatingProps> = ({
     // Events
     onMouseDown = () => {},
     onKeyDown = () => {},
+    onValueChange = () => {},
 	// Children
 	children,
 }) => {
@@ -51,16 +52,19 @@ const RatingRoot: React.FC<RatingProps> = ({
         const left = event.clientX - ratingRect.left;
         let selectedFraction = Math.floor(left / fractionWidth) + 1;
 
-        if(figureRef.current.style.direction === 'rtl') {
+        if(getComputedStyle(figureRef.current).direction === 'rtl') {
             selectedFraction = fraction - selectedFraction + 1;
         }
 
         value = order + selectedFraction / fraction;
+        onValueChange(value);
         onMouseDown(event, value);
     }, [fraction]);
 
     const onRatingKeyDown = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
-        const ltr = figureRef.current?.style.direction === 'ltr';
+        if(!figureRef.current) return;
+
+        const ltr = getComputedStyle(figureRef.current).direction === 'ltr';
         switch(event.key) {
             case 'ArrowLeft':
                 ltr ? decreaseValue() : increaseValue();
@@ -81,11 +85,13 @@ const RatingRoot: React.FC<RatingProps> = ({
 
     function increaseValue() {
         value = Math.min(max, value + 1 / fraction);
+        onValueChange(value);
         refreshFocus();
     }
 
     function decreaseValue() {
         value = Math.max(0, value - 1 / fraction);
+        onValueChange(value);
         refreshFocus();
     }
 
@@ -97,8 +103,9 @@ const RatingRoot: React.FC<RatingProps> = ({
                     tabIndex={interactive && order === focusedButtonIndex ? 0 : -1}
                     onMouseDown={(event: React.MouseEvent<HTMLButtonElement>) => interactive ? onRatingMouseDown(event, order) : undefined}
                     onKeyDown={(event: React.KeyboardEvent<HTMLButtonElement>) => interactive ? onRatingKeyDown(event) : undefined}
-                    type='button'>
-                        <RatingContext.Provider value={{interactive, value, order}}>
+                    type='button'
+                    key={order}>
+                        <RatingContext.Provider value={{interactive, value, order, figureRef}}>
                             {children}
                         </RatingContext.Provider>
                 </button>
@@ -117,15 +124,25 @@ const IconEmpty: React.FC<IconProps> = ({
 }) => {
     const ctx = useContext<RatingContextState>(RatingContext);
     const [rxInteractive, setRxInteractive] = useState('');
+    const [rxBase, setRxBase] = useState(base);
 
     useEffect(() => {
         setRxInteractive(ctx.interactive ? interactive : nonInteractive);
     }, [ctx.interactive]);
 
+    useEffect(() => {
+        if(!ctx.figureRef?.current) return;
+        
+        if(getComputedStyle(ctx.figureRef.current).direction  === 'ltr') {
+            setRxBase(rxBase.replace('clip-right', 'clip-left'));
+        } else {
+            setRxBase(rxBase.replace('clip-left', 'clip-right'));
+        }
+    }, [ctx.figureRef]);
+
     return(
         <>
-            <style>{`--clip-value: ${(ctx.value - ctx.order) * 100}%`}</style>
-            <span className={`${base} ${rxInteractive} ${classes}`}>
+            <span className={`${rxBase} ${rxInteractive} ${classes}`} style={{'--clip_value': `${(ctx.value - ctx.order) * 100}%`} as React.CSSProperties}>
                 {children}
             </span>
         </>
@@ -142,15 +159,25 @@ const IconFull: React.FC<IconProps> = ({
 }) => {
     const ctx = useContext<RatingContextState>(RatingContext);
     const [rxInteractive, setRxInteractive] = useState('');
+    const [rxBase, setRxBase] = useState(base);
 
     useEffect(() => {
         setRxInteractive(ctx.interactive ? interactive : nonInteractive);
     }, [ctx.interactive]);
 
+    useEffect(() => {
+        if(!ctx.figureRef?.current) return;
+
+        if(getComputedStyle(ctx.figureRef.current).direction === 'ltr') {
+            setRxBase(rxBase.replace('clip-left', 'clip-right'));
+        } else {
+            setRxBase(rxBase.replace('clip-right', 'clip-left'));
+        }
+    }, [ctx.figureRef]);
+
     return(
         <>
-            <style>{`--clip-value: ${100 - (ctx.value - ctx.order) * 100}%`}</style>
-            <span className={`${base} ${rxInteractive} ${classes}`}>
+            <span className={`${rxBase} ${rxInteractive} ${classes}`} style={{'--clip_value': `${100 - (ctx.value - ctx.order) * 100}%`} as React.CSSProperties}>
                 {children}
             </span>
         </>
