@@ -1,13 +1,11 @@
-"use client";
-
 import React from "react";
 import {
-	AppBarCenterProps,
+	ToolbarCenterProps,
 	AppBarHeadlineProps,
-	AppBarLeadProps,
+	ToolbarLeadProps,
 	AppBarProps,
-	AppBarToolBarProps,
-	AppBarTrailProps,
+	ToolBarProps,
+	ToolbarTrailProps,
 } from "./types.js";
 
 // React Compose ---
@@ -37,7 +35,7 @@ const AppBarRoot: React.FC<AppBarProps> = ({
 	);
 };
 
-const AppBarToolBarRoot: React.FC<AppBarToolBarProps> = ({
+const Toolbar: React.FC<ToolBarProps> = ({
 	// Toolbar
 	base = "flex justify-between",
 	gridCols = "grid-cols-[auto_1fr_auto]",
@@ -51,7 +49,7 @@ const AppBarToolBarRoot: React.FC<AppBarToolBarProps> = ({
 	);
 };
 
-const AppBarLead: React.FC<AppBarLeadProps> = ({
+const ToolbarLead: React.FC<ToolbarLeadProps> = ({
 	// Lead
 	base = "flex",
 	spaceX = "space-x-4 rtl:space-x-reverse",
@@ -65,7 +63,7 @@ const AppBarLead: React.FC<AppBarLeadProps> = ({
 	);
 };
 
-const AppBarCenter: React.FC<AppBarCenterProps> = ({
+const ToolbarCenter: React.FC<ToolbarCenterProps> = ({
 	// Center
 	base = "grow",
 	align = "text-center",
@@ -79,7 +77,7 @@ const AppBarCenter: React.FC<AppBarCenterProps> = ({
 	);
 };
 
-const AppBarTrail: React.FC<AppBarTrailProps> = ({
+const ToolbarTrail: React.FC<ToolbarTrailProps> = ({
 	// Trail
 	base = "flex",
 	spaceX = "space-x-4 rtl:space-x-reverse",
@@ -103,13 +101,10 @@ const AppBarHeadline: React.FC<AppBarHeadlineProps> = ({
 	return <div className={`${base} ${classes}`}>{children}</div>;
 };
 
-export const ToolBar = reactCompose(AppBarToolBarRoot, {
-	Lead: AppBarLead,
-	Center: AppBarCenter,
-	Trail: AppBarTrail,
-});
-
 export const AppBar = reactCompose(AppBarRoot, {
-	Toolbar: ToolBar,
+	Toolbar: Toolbar,
+	ToolbarLead: ToolbarLead,
+	ToolbarCenter: ToolbarCenter,
+	ToolbarTrail: ToolbarTrail,
 	Headline: AppBarHeadline,
 });

@@ -1,18 +1,18 @@
 import React from 'react';
-import { AppBar, ToolBar } from '@skeletonlabs/skeleton-react';
+import { AppBar } from '@skeletonlabs/skeleton-react';
 import { ArrowLeft, Paperclip, Calendar, CircleUser, Menu } from 'lucide-react';
 
 export const Page: React.FC<any> = () => {
 	return (
 		<AppBar>
 			<AppBar.Toolbar>
-				<ToolBar.Lead>
+				<AppBar.ToolbarLead>
 					<ArrowLeft size={24} />
-				</ToolBar.Lead>
-				<ToolBar.Center classes="hidden sm:block">
+				</AppBar.ToolbarLead>
+				<AppBar.ToolbarCenter classes="hidden sm:block">
 					<span>Title</span>
-				</ToolBar.Center>
-				<ToolBar.Trail>
+				</AppBar.ToolbarCenter>
+				<AppBar.ToolbarTrail>
 					<div className="hidden sm:flex space-x-4">
 						<Paperclip size={20} />
 						<Calendar size={20} />
@@ -21,7 +21,7 @@ export const Page: React.FC<any> = () => {
 					<div className="block sm:hidden">
 						<Menu size={20} />
 					</div>
-				</ToolBar.Trail>
+				</AppBar.ToolbarTrail>
 			</AppBar.Toolbar>
 			<AppBar.Headline classes="sm:hidden">
 				<h2 className="h2">Title</h2>
