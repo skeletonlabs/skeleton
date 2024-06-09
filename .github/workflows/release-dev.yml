@@ -22,13 +22,13 @@ jobs:
       - name: Use PNPM v8
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 9
 
       - name: Use Node v18
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      
+
       # PNPM Store cache setup
       - name: Get pnpm store directory
         id: pnpm-cache
