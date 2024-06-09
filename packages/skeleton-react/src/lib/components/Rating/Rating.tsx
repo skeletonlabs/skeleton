@@ -151,11 +151,9 @@ const IconEmpty: React.FC<IconProps> = ({
     }, [ctx.figureRef]);
 
     return(
-        <>
-            <span className={`${rxBase} ${rxInteractive} ${classes}`} style={{'--clip_value': `${(ctx.value - ctx.order) * 100}%`} as React.CSSProperties}>
-                {children}
-            </span>
-        </>
+        <span className={`${rxBase} ${rxInteractive} ${classes}`} style={{'--clip_value': `${(ctx.value - ctx.order) * 100}%`} as React.CSSProperties} data-testid="rating-iconempty">
+            {children}
+        </span>
     );
 };
 
@@ -186,11 +184,9 @@ const IconFull: React.FC<IconProps> = ({
     }, [ctx.figureRef]);
 
     return(
-        <>
-            <span className={`${rxBase} ${rxInteractive} ${classes}`} style={{'--clip_value': `${100 - (ctx.value - ctx.order) * 100}%`} as React.CSSProperties}>
-                {children}
-            </span>
-        </>
+        <span className={`${rxBase} ${rxInteractive} ${classes}`} style={{'--clip_value': `${100 - (ctx.value - ctx.order) * 100}%`} as React.CSSProperties} data-testid="rating-iconfull">
+            {children}
+        </span>
     );
 };
 
