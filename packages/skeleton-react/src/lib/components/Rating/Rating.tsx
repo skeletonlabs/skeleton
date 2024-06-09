@@ -96,21 +96,31 @@ const RatingRoot: React.FC<RatingProps> = ({
     }
 
     return(
-        <figure ref={figureRef} className={`${base} ${width} ${text} ${fill} ${justify} ${spaceX} ${classes}`} data-testid="rating">
-            {[...Array(max)].map((_, order) => (
-                <button
+        <>
+            <style>{`
+                .clip-left {
+                    clip-path: inset(0 0 0 var(--clip_value));
+                }
+                .clip-right {
+                    clip-path: inset(0 var(--clip_value) 0 0);
+                }
+            `}</style>
+            <figure ref={figureRef} className={`${base} ${width} ${text} ${fill} ${justify} ${spaceX} ${classes}`} data-testid="rating">
+                {[...Array(max)].map((_, order) => (
+                    <button
                     className={`${buttonBase} ${buttonPosition} ${buttonAspect} ${buttonClasses} ${interactive ? undefined : 'pointer-events-none'}`}
                     tabIndex={interactive && order === focusedButtonIndex ? 0 : -1}
                     onMouseDown={(event: React.MouseEvent<HTMLButtonElement>) => interactive ? onRatingMouseDown(event, order) : undefined}
                     onKeyDown={(event: React.KeyboardEvent<HTMLButtonElement>) => interactive ? onRatingKeyDown(event) : undefined}
                     type='button'
                     key={order}>
-                        <RatingContext.Provider value={{interactive, value, order, figureRef}}>
-                            {children}
-                        </RatingContext.Provider>
-                </button>
-            ))}
-        </figure>
+                            <RatingContext.Provider value={{interactive, value, order, figureRef}}>
+                                {children}
+                            </RatingContext.Provider>
+                    </button>
+                ))}
+            </figure>
+        </>
     );
 };
 
