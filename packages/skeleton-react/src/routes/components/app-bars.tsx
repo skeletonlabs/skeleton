@@ -1,19 +1,19 @@
-import { AppBar, ToolBar } from "../../lib/components/AppBar/AppBar.js";
+import { AppBar } from "../../lib/components/AppBar/AppBar.js";
 import { Skull } from 'lucide-react';
 
 function appbar() {
 	return (
 		<AppBar>
 			<AppBar.Toolbar>
-				<ToolBar.Lead>
+				<AppBar.ToolbarLead>
 					<span><Skull size={22}/></span>
 					<span>Skeleton</span>
-				</ToolBar.Lead>
-				<ToolBar.Center>Skeleton</ToolBar.Center>
-				<ToolBar.Trail>
+				</AppBar.ToolbarLead>
+				<AppBar.ToolbarCenter>Skeleton</AppBar.ToolbarCenter>
+				<AppBar.ToolbarTrail>
 					<span>Skeleton</span>
 					<span><Skull size={22}/></span>
-				</ToolBar.Trail>
+				</AppBar.ToolbarTrail>
 			</AppBar.Toolbar>
 		</AppBar>
 	);
@@ -25,14 +25,14 @@ function appbarHeadline() {
 			<h3 className="h3">Headline</h3>
 			<AppBar>
 				<AppBar.Toolbar>
-					<ToolBar.Lead>
+					<AppBar.ToolbarLead>
 						<span><Skull size={22}/></span>
 						<span>Skeleton</span>
-					</ToolBar.Lead>
-					<ToolBar.Trail>
+					</AppBar.ToolbarLead>
+					<AppBar.ToolbarTrail>
 						<span>Skeleton</span>
 						<span><Skull size={22}/></span>
-					</ToolBar.Trail>
+					</AppBar.ToolbarTrail>
 				</AppBar.Toolbar>
 				<AppBar.Headline base="text-center">
 					<h1 className="h1">Headline</h1>
@@ -49,15 +49,15 @@ function appbarSticky() {
 			<div className="flex flex-col space-y-4 max-h-64 overflow-y-auto">
 				<AppBar classes="sticky top-0">
 					<AppBar.Toolbar>
-						<ToolBar.Lead>
+						<AppBar.ToolbarLead>
 							<span><Skull size={22}/></span>
 							<span>Skeleton</span>
-						</ToolBar.Lead>
-						<ToolBar.Center>Skeleton</ToolBar.Center>
-						<ToolBar.Trail>
+						</AppBar.ToolbarLead>
+						<AppBar.ToolbarCenter>Skeleton</AppBar.ToolbarCenter>
+						<AppBar.ToolbarTrail>
 							<span>Skeleton</span>
 							<span><Skull size={22}/></span>
-						</ToolBar.Trail>
+						</AppBar.ToolbarTrail>
 					</AppBar.Toolbar>
 				</AppBar>
 				<div>First line of the sticky AppBar</div>
@@ -171,7 +171,7 @@ function appbarA11YKeyboard() {
 			</button>
 			<AppBar>
 				<AppBar.Toolbar>
-					<ToolBar.Lead>
+					<AppBar.ToolbarLead>
 						<button
 							type="button"
 							className="btn-icon preset-filled-primary-500"
@@ -181,9 +181,9 @@ function appbarA11YKeyboard() {
 						<button type="button" className="btn preset-filled">
 							Skeleton
 						</button>
-					</ToolBar.Lead>
-					<ToolBar.Center>Skeleton</ToolBar.Center>
-					<ToolBar.Trail>
+					</AppBar.ToolbarLead>
+					<AppBar.ToolbarCenter>Skeleton</AppBar.ToolbarCenter>
+					<AppBar.ToolbarTrail>
 						<button type="button" className="btn preset-filled">
 							Skeleton
 						</button>
@@ -193,7 +193,7 @@ function appbarA11YKeyboard() {
 						>
 							<Skull size={22}/>
 						</button>
-					</ToolBar.Trail>
+					</AppBar.ToolbarTrail>
 				</AppBar.Toolbar>
 			</AppBar>
 			<button type="button" className="btn preset-filled">
@@ -210,7 +210,7 @@ function appbarRTL() {
 			<div dir="rtl">
 				<AppBar>
 					<AppBar.Toolbar>
-						<ToolBar.Lead>
+						<AppBar.ToolbarLead>
 							<button
 								type="button"
 								className="btn-icon preset-filled-primary-500"
@@ -220,9 +220,9 @@ function appbarRTL() {
 							<button type="button" className="btn preset-filled">
 								lead
 							</button>
-						</ToolBar.Lead>
-						<ToolBar.Center>Skeleton</ToolBar.Center>
-						<ToolBar.Trail>
+						</AppBar.ToolbarLead>
+						<AppBar.ToolbarCenter>Skeleton</AppBar.ToolbarCenter>
+						<AppBar.ToolbarTrail>
 							<button type="button" className="btn preset-filled">
 								trail
 							</button>
@@ -232,7 +232,7 @@ function appbarRTL() {
 							>
 								<Skull size={22}/>
 							</button>
-						</ToolBar.Trail>
+						</AppBar.ToolbarTrail>
 					</AppBar.Toolbar>
 					<AppBar.Headline>
 						<h1 className="h1">مرحبا بك</h1>

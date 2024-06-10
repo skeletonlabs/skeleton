@@ -20,7 +20,7 @@ export interface AppBarProps extends React.PropsWithChildren {
 	classes?: string;
 }
 
-export interface AppBarToolBarProps extends React.PropsWithChildren {
+export interface ToolBarProps extends React.PropsWithChildren {
     /** Sets the toolbar component's base styles. */
 	base?: string;
 	/** Sets the toolbar component's grid columns styles. */
@@ -31,7 +31,7 @@ export interface AppBarToolBarProps extends React.PropsWithChildren {
 	classes?: string;
 }
 
-export interface AppBarLeadProps extends React.PropsWithChildren {
+export interface ToolbarLeadProps extends React.PropsWithChildren {
     /** Sets the lead component's base styles. */
 	base?: string;
 	/** Sets the lead component's horizontal spacing styles. */
@@ -42,7 +42,7 @@ export interface AppBarLeadProps extends React.PropsWithChildren {
 	classes?: string;
 }
 
-export interface AppBarCenterProps extends React.PropsWithChildren {
+export interface ToolbarCenterProps extends React.PropsWithChildren {
     /** Sets the center component's base styles. */
 	base?: string;
 	/** Sets the center component's alignment styles. */
@@ -53,7 +53,7 @@ export interface AppBarCenterProps extends React.PropsWithChildren {
 	classes?: string;
 }
 
-export interface AppBarTrailProps extends React.PropsWithChildren {
+export interface ToolbarTrailProps extends React.PropsWithChildren {
     /** Sets the trail component's base styles. */
 	base?: string;
 	/** Sets the trail component's horizontal spacing styles. */
