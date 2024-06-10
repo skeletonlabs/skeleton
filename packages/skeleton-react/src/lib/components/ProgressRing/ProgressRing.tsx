@@ -42,11 +42,11 @@ export const ProgressRing: FC<ProgressRingProps> = ({
   const baseSize = 512; // px
   const radius: number = baseSize / 2 - strokeWidth / 2;
   let [circumference, setCircumference] = useState<number>(radius);
-  let [dashoffset, setDashoffset] = useState<number>();
+  let [dashoffset, setDashoffset] = useState<number>(0);
 
   useEffect(() => {
     setDashoffset(calcDashOffset());
-  }, [value, max, radius, circumference]);
+  }, [value, max, circumference, dashoffset]);
 
   function calcDashOffset() {
     const _value = value !== undefined ? value : 25;
@@ -106,7 +106,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
             fontSize={labelFontSize}
             fontWeight={labelFontWeight}
             textAnchor="middle"
-            dominantBaseline="central"
+            dominant-baseline="central"
           >
             {label ?? `${value}%`}
           </text>
