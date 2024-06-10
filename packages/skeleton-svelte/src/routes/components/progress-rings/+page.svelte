@@ -24,7 +24,7 @@
 		<ProgressRing {value} {max} />
 	</section>
 	<section class="space-y-4">
-		<h2 class="h2">Children</h2>
+		<h2 class="h2">Icons</h2>
 		<ProgressRing {value} {max} meterStroke="stroke-error-500">
 			<IconThermometer size={48} />
 		</ProgressRing>
