@@ -106,7 +106,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
             fontSize={labelFontSize}
             fontWeight={labelFontWeight}
             textAnchor="middle"
-            dominant-baseline="central"
+            dominantBaseline="central"
           >
             {label ?? `${value}%`}
           </text>

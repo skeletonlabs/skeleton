@@ -15,6 +15,7 @@ import { ProgressRingSchema } from '@skeletonlabs/skeleton-react/schemas';
 
 <Preview client:load>
 	<Fragment slot="preview">
+        {/* NOTE: set client:only to prevent page load bug */}
 		<Example client:only="react" />
 	</Fragment>
 	<Fragment slot="code">
