@@ -15,6 +15,8 @@ import FractionExampleRaw from '@examples/components/ratings/FractionExample.tsx
 import { Page as RTLExample } from '@examples/components/ratings/RTLExample.tsx';
 import RTLExampleRaw from '@examples/components/ratings/RTLExample.tsx?raw';
 
+import { RatingSchema } from '@skeletonlabs/skeleton-react/schemas';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Example client:load />
@@ -59,7 +61,7 @@ Use the Prop `fraction` to set how many fractions a rating has.
 	</Fragment>
 </Preview>
 
-## RTL
+## Right-to-Left
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -69,3 +71,13 @@ Use the Prop `fraction` to set how many fractions a rating has.
 		<Code code={RTLExampleRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable
+	types={[
+		'RatingProps',
+		'IconProps'
+	]}
+	schema={RatingSchema}
+/>

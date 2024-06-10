@@ -50,13 +50,13 @@
 	}
 
 	function onRatingKeydown(event: KeyboardEvent) {
-		const ltr = getComputedStyle(figureElement).direction === 'ltr';
+		const rtl = getComputedStyle(figureElement).direction === 'rtl';
 		switch (event.key) {
 			case 'ArrowLeft':
-				ltr ? decreaseValue() : increaseValue();
+				rtl ? increaseValue() : decreaseValue();
 				break;
 			case 'ArrowRight':
-				ltr ? increaseValue() : decreaseValue();
+				rtl ? decreaseValue() : increaseValue();
 				break;
 		}
 		onkeydown(event);
@@ -88,12 +88,12 @@
 	let focusedButtonIndex = $derived(Math.max(0, Math.ceil(value - 1)));
 
 	$effect(() => {
-		if (getComputedStyle(figureElement).direction === 'ltr') {
-			emptyBase = emptyBase.replace('clip-right', 'clip-left');
-			fullBase = fullBase.replace('clip-left', 'clip-right');
-		} else {
+		if (getComputedStyle(figureElement).direction === 'rtl') {
 			emptyBase = emptyBase.replace('clip-left', 'clip-right');
 			fullBase = fullBase.replace('clip-right', 'clip-left');
+		} else {
+			emptyBase = emptyBase.replace('clip-right', 'clip-left');
+			fullBase = fullBase.replace('clip-left', 'clip-right');
 		}
 	});
 </script>

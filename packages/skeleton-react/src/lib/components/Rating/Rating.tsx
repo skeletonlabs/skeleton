@@ -64,13 +64,13 @@ const RatingRoot: React.FC<RatingProps> = ({
     const onRatingKeyDown = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
         if(!figureRef.current) return;
 
-        const ltr = getComputedStyle(figureRef.current).direction === 'ltr';
+        const rtl = getComputedStyle(figureRef.current).direction === 'rtl';
         switch(event.key) {
             case 'ArrowLeft':
-                ltr ? decreaseValue() : increaseValue();
+                rtl ? increaseValue() : decreaseValue();
                 break;
             case 'ArrowRight':
-                ltr ? increaseValue() : decreaseValue();
+                rtl ? decreaseValue() : increaseValue();
                 break;
         }
         onKeyDown(event);
@@ -143,10 +143,10 @@ const IconEmpty: React.FC<IconProps> = ({
     useEffect(() => {
         if(!ctx.figureRef?.current) return;
         
-        if(getComputedStyle(ctx.figureRef.current).direction  === 'ltr') {
-            setRxBase(rxBase.replace('clip-right', 'clip-left'));
-        } else {
+        if(getComputedStyle(ctx.figureRef.current).direction  === 'rtl') {
             setRxBase(rxBase.replace('clip-left', 'clip-right'));
+        } else {
+            setRxBase(rxBase.replace('clip-right', 'clip-left'));
         }
     }, [ctx.figureRef]);
 
@@ -176,10 +176,10 @@ const IconFull: React.FC<IconProps> = ({
     useEffect(() => {
         if(!ctx.figureRef?.current) return;
 
-        if(getComputedStyle(ctx.figureRef.current).direction === 'ltr') {
-            setRxBase(rxBase.replace('clip-left', 'clip-right'));
-        } else {
+        if(getComputedStyle(ctx.figureRef.current).direction === 'rtl') {
             setRxBase(rxBase.replace('clip-right', 'clip-left'));
+        } else {
+            setRxBase(rxBase.replace('clip-left', 'clip-right'));
         }
     }, [ctx.figureRef]);
 

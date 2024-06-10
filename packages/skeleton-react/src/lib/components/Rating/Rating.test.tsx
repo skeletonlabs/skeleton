@@ -1,4 +1,4 @@
-import { act, render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { Rating } from "./Rating";
 import { Star } from "lucide-react";
@@ -106,6 +106,81 @@ describe("Interactive Rating", () => {
         // click the first star
         await userEvent.click(buttons[0]);
         expect(onValueChange).toHaveBeenCalledWith(1);
+    });
+
+    it("should click the fractions and change the value successfully", async () => {
+        const { getByTestId } = render(ratingComponent(2.5, 2));
+
+        const component = getByTestId("rating");
+        const buttons = component.querySelectorAll("button");
+
+        // click the first half of the second star
+        await userEvent.click(buttons[1]);
+        expect(onValueChange).toHaveBeenCalledWith(1.5);
+
+        // click the second half of the second star
+        fireEvent.mouseDown(buttons[1], { clientX: 50});
+        fireEvent.mouseUp(buttons[1], { clientX: 50 });
+        expect(onValueChange).toHaveBeenCalledWith(2);
+    });
+
+    it("should focus on active rating element on focus", async () => {
+        const { getByTestId } = render(ratingComponent(2, 1));
+
+        const component = getByTestId("rating");
+
+        // focus on rating
+        component.focus();
+        await userEvent.keyboard('{Tab}');
+
+        const buttons = component.querySelectorAll("button");
+        expect(buttons[1]).toHaveFocus();
+    });
+
+    it("should increase and decrease rating using keyboard arrows", async () => {
+        const { getByTestId } = render(ratingComponent(2, 1));
+
+        const component = getByTestId("rating");
+
+        // focus on rating
+        component.focus();
+        await userEvent.keyboard('{Tab}');
+
+        const buttons = component.querySelectorAll("button");
+        expect(buttons[1]).toHaveFocus();
+
+        // increase rating
+        await userEvent.keyboard('{ArrowRight}');
+        expect(buttons[2]).toHaveFocus();
+        expect(onValueChange).toHaveBeenCalledWith(3);
+
+        // decrease rating
+        await userEvent.keyboard('{ArrowLeft}');
+        expect(buttons[1]).toHaveFocus();
+        expect(onValueChange).toHaveBeenCalledWith(2);
+    });
+
+    it("should not increase or decrease value over the limit", async () => {
+        const { getByTestId } = render(ratingComponent(2, 1));
+
+        const component = getByTestId("rating");
+
+        // focus on rating
+        component.focus();
+        await userEvent.keyboard('{Tab}');
+
+        const buttons = component.querySelectorAll("button");
+        expect(buttons[1]).toHaveFocus();
+
+        // increase rating
+        await userEvent.keyboard('{ArrowRight}{ArrowRight}{ArrowRight}{ArrowRight}{ArrowRight}{ArrowRight}');
+        expect(buttons[4]).toHaveFocus();
+        expect(onValueChange).toHaveBeenCalledWith(5);
+
+        // decrease rating
+        await userEvent.keyboard('{ArrowLeft}{ArrowLeft}{ArrowLeft}{ArrowLeft}{ArrowLeft}{ArrowLeft}');
+        expect(buttons[0]).toHaveFocus();
+        expect(onValueChange).toHaveBeenCalledWith(0);
     });
 });
 
