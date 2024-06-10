@@ -49,7 +49,7 @@
 	});
 
 	function calcDashOffset() {
-		const _value = value ? value : 25;
+		const _value = value !== undefined ? value : 25;
 		const percent = (100 * _value) / max;
 		circumference = radius * 2 * Math.PI;
 		return circumference - (percent / 100) * circumference;
