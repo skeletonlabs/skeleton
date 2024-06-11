@@ -12,8 +12,8 @@
 		size = 'size-32',
 		classes = '',
 		// Slot
-		slotBase = 'absolute top-0 left-0 z-[1] flex justify-center items-center',
-		slotClasses = '',
+		childrenBase = 'absolute top-0 left-0 z-[1] flex justify-center items-center',
+		childrenClasses = '',
 		// SVG
 		svgBase = 'absolute top-0 left-0 w-full h-full rounded-full',
 		svgClasses = '',
@@ -49,8 +49,8 @@
 	});
 
 	function calcDashOffset() {
-		const _value = value !== undefined ? value : 25;
-		const percent = (100 * _value) / max;
+		const v = value !== undefined ? value : 25;
+		const percent = (100 * v) / max;
 		circumference = radius * 2 * Math.PI;
 		return circumference - (percent / 100) * circumference;
 	}
@@ -68,7 +68,7 @@
 >
 	<!-- Slot -->
 	{#if children}
-		<div class="{slotBase} {size} {slotClasses}">
+		<div class="{childrenBase} {size} {childrenClasses}">
 			{@render children()}
 		</div>
 	{/if}

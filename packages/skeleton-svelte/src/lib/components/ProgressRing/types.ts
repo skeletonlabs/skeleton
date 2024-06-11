@@ -20,11 +20,11 @@ export interface ProgressRingProps {
 	/** Provide arbitrary classes to the root element */
 	classes?: string;
 
-	// Slot ---
-	/** Set the slot base classes */
-	slotBase?: string;
-	/** Provide arbitrary classes to the slot region */
-	slotClasses?: string;
+	// Children ---
+	/** Set the default snippet region base classes */
+	childrenBase?: string;
+	/** Provide arbitrary classes to the default snippet region. */
+	childrenClasses?: string;
 
 	// SVG ---
 	/** Set the SVG element base classes */

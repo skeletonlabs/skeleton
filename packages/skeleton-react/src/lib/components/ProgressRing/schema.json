@@ -16,12 +16,20 @@
                 "children": {
                     "$ref": "#/definitions/React.ReactNode"
                 },
+                "childrenBase": {
+                    "description": "Set the nested children base classes",
+                    "type": "string"
+                },
+                "childrenClasses": {
+                    "description": "Provide arbitrary classes to the nested children.",
+                    "type": "string"
+                },
                 "classes": {
                     "description": "Provide arbitrary classes to the root element",
                     "type": "string"
                 },
                 "label": {
-                    "description": "Set the text for the scable label",
+                    "description": "Set the text for the scalable label",
                     "type": "string"
                 },
                 "labelBase": {
@@ -76,14 +84,6 @@
                     "description": "Set the root size classes",
                     "type": "string"
                 },
-                "slotBase": {
-                    "description": "Set the slot base classes",
-                    "type": "string"
-                },
-                "slotClasses": {
-                    "description": "Provide arbitrary classes to the slot region",
-                    "type": "string"
-                },
                 "strokeLinecap": {
                     "description": "Defines the shape of the meter",
                     "enum": [
@@ -132,8 +132,8 @@
                 "base",
                 "size",
                 "classes",
-                "slotBase",
-                "slotClasses",
+                "childrenBase",
+                "childrenClasses",
                 "svgBase",
                 "svgClasses",
                 "trackBase",

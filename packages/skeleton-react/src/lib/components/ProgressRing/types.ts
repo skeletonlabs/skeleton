@@ -18,11 +18,11 @@ export interface ProgressRingProps extends React.PropsWithChildren {
   /** Provide arbitrary classes to the root element */
   classes?: string;
 
-  // Slot ---
-  /** Set the slot base classes */
-  slotBase?: string;
-  /** Provide arbitrary classes to the slot region */
-  slotClasses?: string;
+  // Children ---
+  /** Set the nested children base classes */
+  childrenBase?: string;
+  /** Provide arbitrary classes to the nested children. */
+  childrenClasses?: string;
 
   // SVG ---
   /** Set the SVG element base classes */
