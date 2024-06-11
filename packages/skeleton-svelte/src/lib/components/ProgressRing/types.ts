@@ -53,7 +53,7 @@ export interface ProgressRingProps {
 	meterClasses?: string;
 
 	// Label ---
-	/** Set the text for the scable label */
+	/** Set the text for the scalable label */
 	label?: string;
 	/** Set the label classes */
 	labelBase?: string;
