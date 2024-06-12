@@ -10,8 +10,8 @@ import CustomIconsExample from '@examples/components/ratings/CustomIconsExample.
 import CustomIconsExampleRaw from '@examples/components/ratings/CustomIconsExample.svelte?raw';
 import UserInteractiveExample from '@examples/components/ratings/UserInteractiveExample.svelte';
 import UserInteractiveExampleRaw from '@examples/components/ratings/UserInteractiveExample.svelte?raw';
-import FractionExample from '@examples/components/ratings/FractionExample.svelte';
-import FractionExampleRaw from '@examples/components/ratings/FractionExample.svelte?raw';
+import StepExample from '@examples/components/ratings/StepExample.svelte';
+import StepExampleRaw from '@examples/components/ratings/StepExample.svelte?raw';
 import RTLExample from '@examples/components/ratings/RTLExample.svelte';
 import RTLExampleRaw from '@examples/components/ratings/RTLExample.svelte?raw';
 
@@ -46,16 +46,16 @@ import RTLExampleRaw from '@examples/components/ratings/RTLExample.svelte?raw';
 	</Fragment>
 </Preview>
 
-## Fractions
+## Steps
 
-Use the Prop `fraction` to set how many fractions a rating has.
+Use the `step` property to define a fractional granularity.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<FractionExample client:load />
+		<StepExample client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={FractionExampleRaw} lang="svelte" />
+		<Code code={StepExampleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

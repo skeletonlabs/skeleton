@@ -115,10 +115,10 @@
 	</section>
 
 	<section class="space-y-4">
-		<h2 class="h2">Fractions</h2>
+		<h2 class="h2">Steps</h2>
 		<div class="flex items-center gap-8">
 			<div class="w-48">
-				<Rating bind:value={interactiveValue} interactive fraction={2}>
+				<Rating bind:value={interactiveValue} interactive step={2}>
 					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
@@ -131,7 +131,7 @@
 		</div>
 		<div class="flex items-center gap-8">
 			<div class="w-48">
-				<Rating bind:value={interactiveValue} interactive fraction={3}>
+				<Rating bind:value={interactiveValue} interactive step={3}>
 					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}
@@ -148,7 +148,7 @@
 		<h2 class="h2">RTL</h2>
 		<div class="flex items-center gap-8">
 			<div dir="rtl" class="w-48">
-				<Rating bind:value={interactiveValue} interactive fraction={2}>
+				<Rating bind:value={interactiveValue} interactive step={2}>
 					{#snippet iconFull()}
 						<Star size={24} fill="white" />
 					{/snippet}

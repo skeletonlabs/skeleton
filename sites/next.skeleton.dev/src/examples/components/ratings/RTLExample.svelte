@@ -6,7 +6,7 @@
 </script>
 
 <div dir="rtl">
-    <Rating bind:value={value} fraction={2} width="w-44" interactive>
+    <Rating bind:value={value} step={2} width="w-44" interactive>
         {#snippet iconFull()}
             <Star size={24} fill="white" />
         {/snippet}

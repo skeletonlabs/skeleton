@@ -82,8 +82,8 @@ describe("Interactive Rating", () => {
       });
 
     const onValueChange = vi.fn();
-    const ratingComponent = (value: number, fraction: number) => (
-        <Rating value={value} onValueChange={(val) => onValueChange(val)} fraction={fraction} max={5} interactive>
+    const ratingComponent = (value: number, step: number) => (
+        <Rating value={value} onValueChange={(val) => onValueChange(val)} step={step} max={5} interactive>
             <Rating.IconEmpty>
                 <Star size={24} />
             </Rating.IconEmpty>
@@ -108,7 +108,7 @@ describe("Interactive Rating", () => {
         expect(onValueChange).toHaveBeenCalledWith(1);
     });
 
-    it("should click the fractions and change the value successfully", async () => {
+    it("should click the Steps and change the value successfully", async () => {
         const { getByTestId } = render(ratingComponent(2.5, 2));
 
         const component = getByTestId("rating");

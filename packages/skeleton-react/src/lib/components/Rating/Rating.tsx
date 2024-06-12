@@ -15,7 +15,7 @@ const RatingRoot: React.FC<RatingProps> = ({
     value = 0,
     max = 5,
     interactive = false,
-    fraction = 1,
+    step = 1,
     // Root
     base = 'flex',
     width = 'w-full',
@@ -48,18 +48,18 @@ const RatingRoot: React.FC<RatingProps> = ({
         if(!figureRef.current) return;
 
         const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-        const fractionWidth = ratingRect.width / fraction;
+        const fractionWidth = ratingRect.width / step;
         const left = event.clientX - ratingRect.left;
         let selectedFraction = Math.floor(left / fractionWidth) + 1;
 
         if(getComputedStyle(figureRef.current).direction === 'rtl') {
-            selectedFraction = fraction - selectedFraction + 1;
+            selectedFraction = step - selectedFraction + 1;
         }
 
-        value = order + selectedFraction / fraction;
+        value = order + selectedFraction / step;
         onValueChange(value);
         onMouseDown(event, value);
-    }, [fraction]);
+    }, [step]);
 
     const onRatingKeyDown = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
         if(!figureRef.current) return;
@@ -84,27 +84,19 @@ const RatingRoot: React.FC<RatingProps> = ({
     }
 
     function increaseValue() {
-        value = Math.min(max, value + 1 / fraction);
+        value = Math.min(max, value + 1 / step);
         onValueChange(value);
         refreshFocus();
     }
 
     function decreaseValue() {
-        value = Math.max(0, value - 1 / fraction);
+        value = Math.max(0, value - 1 / step);
         onValueChange(value);
         refreshFocus();
     }
 
     return(
         <>
-            <style>{`
-                .clip-left {
-                    clip-path: inset(0 0 0 var(--clip_value));
-                }
-                .clip-right {
-                    clip-path: inset(0 var(--clip_value) 0 0);
-                }
-            `}</style>
             <figure ref={figureRef} className={`${base} ${width} ${text} ${fill} ${justify} ${spaceX} ${classes}`} data-testid="rating">
                 {[...Array(max)].map((_, order) => (
                     <button
@@ -125,7 +117,8 @@ const RatingRoot: React.FC<RatingProps> = ({
 };
 
 const IconEmpty: React.FC<IconProps> = ({
-    base = 'clip-left absolute left-0 top-0 flex items-center justify-center',
+    base = 'absolute left-0 top-0 flex items-center justify-center',
+    clip = '[clip-path:inset(0_0_0_var(--clipValue))] rtl:[clip-path:inset(0_var(--clipValue)_0_0)]',
     interactive = 'size-full',
     nonInteractive = 'w-fit',
     classes = '',
@@ -134,31 +127,21 @@ const IconEmpty: React.FC<IconProps> = ({
 }) => {
     const ctx = useContext<RatingContextState>(RatingContext);
     const [rxInteractive, setRxInteractive] = useState('');
-    const [rxBase, setRxBase] = useState(base);
 
     useEffect(() => {
         setRxInteractive(ctx.interactive ? interactive : nonInteractive);
     }, [ctx.interactive]);
 
-    useEffect(() => {
-        if(!ctx.figureRef?.current) return;
-        
-        if(getComputedStyle(ctx.figureRef.current).direction  === 'rtl') {
-            setRxBase(rxBase.replace('clip-left', 'clip-right'));
-        } else {
-            setRxBase(rxBase.replace('clip-right', 'clip-left'));
-        }
-    }, [ctx.figureRef]);
-
     return(
-        <span className={`${rxBase} ${rxInteractive} ${classes}`} style={{'--clip_value': `${(ctx.value - ctx.order) * 100}%`} as React.CSSProperties} data-testid="rating-iconempty">
+        <span className={`${base} ${clip} ${rxInteractive} ${classes}`} style={{'--clipValue': `${(ctx.value - ctx.order) * 100}%`} as React.CSSProperties} data-testid="rating-iconempty">
             {children}
         </span>
     );
 };
 
 const IconFull: React.FC<IconProps> = ({
-    base = 'clip-right absolute left-0 top-0 flex items-center justify-center',
+    base = 'absolute left-0 top-0 flex items-center justify-center',
+    clip = '[clip-path:inset(0_var(--clipValue)_0_0)] rtl:[clip-path:inset(0_0_0_var(--clipValue))]',
     interactive = 'size-full',
     nonInteractive = 'w-fit',
     classes = '',
@@ -167,24 +150,13 @@ const IconFull: React.FC<IconProps> = ({
 }) => {
     const ctx = useContext<RatingContextState>(RatingContext);
     const [rxInteractive, setRxInteractive] = useState('');
-    const [rxBase, setRxBase] = useState(base);
 
     useEffect(() => {
         setRxInteractive(ctx.interactive ? interactive : nonInteractive);
     }, [ctx.interactive]);
 
-    useEffect(() => {
-        if(!ctx.figureRef?.current) return;
-
-        if(getComputedStyle(ctx.figureRef.current).direction === 'rtl') {
-            setRxBase(rxBase.replace('clip-right', 'clip-left'));
-        } else {
-            setRxBase(rxBase.replace('clip-left', 'clip-right'));
-        }
-    }, [ctx.figureRef]);
-
     return(
-        <span className={`${rxBase} ${rxInteractive} ${classes}`} style={{'--clip_value': `${100 - (ctx.value - ctx.order) * 100}%`} as React.CSSProperties} data-testid="rating-iconfull">
+        <span className={`${base} ${clip} ${rxInteractive} ${classes}`} style={{'--clipValue': `${100 - (ctx.value - ctx.order) * 100}%`} as React.CSSProperties} data-testid="rating-iconfull">
             {children}
         </span>
     );

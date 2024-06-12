@@ -3,7 +3,7 @@
 	import Star from 'lucide-svelte/icons/star';
 </script>
 
-<Rating value={2.5} fraction={2} width="w-44" interactive>
+<Rating value={2.5} step={2} width="w-44" interactive>
     {#snippet iconFull()}
         <Star size={24} fill="white" />
     {/snippet}

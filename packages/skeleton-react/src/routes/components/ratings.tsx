@@ -67,12 +67,12 @@ function InteractiveRating(value: number, setValue: React.Dispatch<React.SetStat
     )
 }
 
-function Fractions(fraction:number, value: number, setValue: React.Dispatch<React.SetStateAction<number>>) {
+function Steps(step:number, value: number, setValue: React.Dispatch<React.SetStateAction<number>>) {
     return(
         <>
             <div className="flex items-center gap-8">
                 <div className="w-48">
-                    <Rating value={value} fraction={fraction} interactive onValueChange={(val) => setValue(val)}>
+                    <Rating value={value} step={step} interactive onValueChange={(val) => setValue(val)}>
                         <Rating.IconEmpty>
                             <Star size={24} />
                         </Rating.IconEmpty>
@@ -94,7 +94,7 @@ function RTL(value: number, setValue: React.Dispatch<React.SetStateAction<number
                 <h2 className="h2">RTL</h2>
                 <div className="flex items-center gap-8">
                     <div className="w-48" dir="rtl">
-                        <Rating value={value} fraction={2} interactive onValueChange={(val) => setValue(val)}>
+                        <Rating value={value} step={2} interactive onValueChange={(val) => setValue(val)}>
                             <Rating.IconEmpty>
                                 <Star size={24} />
                             </Rating.IconEmpty>
@@ -131,9 +131,9 @@ export function Component() {
                 {InteractiveRating(interactiveValue, setInteractiveValue)}
 
                 <section className="space-y-4">
-                    <h2 className="h2">Fractions</h2>
-                    {Fractions(2, interactiveValue, setInteractiveValue)}
-                    {Fractions(3, interactiveValue, setInteractiveValue)}
+                    <h2 className="h2">Steps</h2>
+                    {Steps(2, interactiveValue, setInteractiveValue)}
+                    {Steps(3, interactiveValue, setInteractiveValue)}
                 </section>
 
                 {RTL(interactiveValue, setInteractiveValue)}

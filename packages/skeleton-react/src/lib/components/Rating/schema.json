@@ -38418,6 +38418,10 @@
                     "description": "Provide arbitrary CSS classes for the empty icon.",
                     "type": "string"
                 },
+                "clip": {
+                    "description": "Set the clip styles.",
+                    "type": "string"
+                },
                 "interactive": {
                     "description": "Set interactive state styles.",
                     "type": "string"
@@ -38429,6 +38433,7 @@
             },
             "propertyOrder": [
                 "base",
+                "clip",
                 "interactive",
                 "nonInteractive",
                 "classes",
@@ -39783,10 +39788,6 @@
                     "description": "sets fill color styles.",
                     "type": "string"
                 },
-                "fraction": {
-                    "description": "Sets the rating fractions.",
-                    "type": "number"
-                },
                 "interactive": {
                     "description": "Sets interactive mode.",
                     "type": "boolean"
@@ -39818,6 +39819,10 @@
                     "description": "Sets horizontal spacing styles.",
                     "type": "string"
                 },
+                "step": {
+                    "description": "Sets the rating fractional granularity.",
+                    "type": "number"
+                },
                 "text": {
                     "description": "Sets text color styles.",
                     "type": "string"
@@ -39835,7 +39840,7 @@
                 "value",
                 "max",
                 "interactive",
-                "fraction",
+                "step",
                 "base",
                 "width",
                 "text",

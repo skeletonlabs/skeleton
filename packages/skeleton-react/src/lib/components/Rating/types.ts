@@ -18,8 +18,8 @@ export interface RatingProps extends React.PropsWithChildren {
 	max?: number;
 	/** Sets interactive mode. */
 	interactive?: boolean;
-	/** Sets the rating fractions. */
-	fraction?: number;
+	/** Sets the rating fractional granularity. */
+	step?: number;
 
     // Root ---
 	/** Sets base styles. */
@@ -59,6 +59,8 @@ export interface RatingProps extends React.PropsWithChildren {
 export interface IconProps extends React.PropsWithChildren {
 	/** Set base styles. */
 	base?: string;
+	/** Set the clip styles. */
+	clip?: string;
 	/** Set interactive state styles. */
 	interactive?: string;
 	/** Set non-interactive state styles. */

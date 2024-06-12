@@ -7,8 +7,8 @@ export interface RatingProps {
 	max?: number;
 	/** Sets interactive mode. */
 	interactive?: boolean;
-	/** Sets the rating fractions. */
-	fraction?: number;
+	/** Sets the rating fractional granularity. */
+	step?: number;
 
 	// Root ---
 	/** Sets base styles. */
@@ -39,6 +39,8 @@ export interface RatingProps {
 	// Icon Empty
 	/** Set base styles for the empty icon. */
 	emptyBase?: string;
+	/** Set the clip styles for the empty icon. */
+	emptyClip?: string;
 	/** Set interactive state styles for the empty icon. */
 	emptyInteractive?: string;
 	/** Set non-interactive state styles for the empty icon. */
@@ -49,6 +51,8 @@ export interface RatingProps {
 	// Icon Full
 	/** Set base styles for the full icon. */
 	fullBase?: string;
+	/** Set the clip styles for the full icon. */
+	fullClip?: string;
 	/** Set interactive state styles for the full icon. */
 	fullInteractive?: string;
 	/** Set non-interactive state styles for the full icon. */

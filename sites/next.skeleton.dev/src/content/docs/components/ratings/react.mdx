@@ -10,8 +10,8 @@ import { Page as CustomIconsExample } from '@examples/components/ratings/CustomI
 import CustomIconsExampleRaw from '@examples/components/ratings/CustomIconsExample.tsx?raw';
 import { Page as UserInteractiveExample } from '@examples/components/ratings/UserInteractiveExample.tsx';
 import UserInteractiveExampleRaw from '@examples/components/ratings/UserInteractiveExample.tsx?raw';
-import { Page as FractionExample } from '@examples/components/ratings/FractionExample.tsx';
-import FractionExampleRaw from '@examples/components/ratings/FractionExample.tsx?raw';
+import { Page as StepExample } from '@examples/components/ratings/StepExample.tsx';
+import StepExampleRaw from '@examples/components/ratings/StepExample.tsx?raw';
 import { Page as RTLExample } from '@examples/components/ratings/RTLExample.tsx';
 import RTLExampleRaw from '@examples/components/ratings/RTLExample.tsx?raw';
 
@@ -48,16 +48,16 @@ import { RatingSchema } from '@skeletonlabs/skeleton-react/schemas';
 	</Fragment>
 </Preview>
 
-## Fractions
+## Steps
 
-Use the Prop `fraction` to set how many fractions a rating has.
+Use the `step` property to define a fractional granularity.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<FractionExample client:load />
+		<StepExample client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={FractionExampleRaw} lang="tsx" />
+		<Code code={StepExampleRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

@@ -5,7 +5,7 @@
 		value = $bindable(0),
 		max = 5,
 		interactive = false,
-		fraction = 1,
+		step = 1,
 		// Root
 		base = 'flex',
 		width = 'w-full',
@@ -20,12 +20,14 @@
 		buttonAspect = 'aspect-square',
 		buttonClasses = '',
 		// Icon Empty ---
-		emptyBase = 'clip-left absolute left-0 top-0 flex items-center justify-center',
+		emptyBase = 'absolute left-0 top-0 flex items-center justify-center',
+		emptyClip = '[clip-path:inset(0_0_0_var(--clipValue))] rtl:[clip-path:inset(0_var(--clipValue)_0_0)]',
 		emptyInteractive = 'size-full',
 		emptyStatic = 'w-fit',
 		emptyClasses = '',
 		// Icon Full ---
-		fullBase = 'clip-right absolute left-0 top-0 flex items-center justify-center',
+		fullBase = 'absolute left-0 top-0 flex items-center justify-center',
+		fullClip = '[clip-path:inset(0_var(--clipValue)_0_0)] rtl:[clip-path:inset(0_0_0_var(--clipValue))]',
 		fullInteractive = 'size-full',
 		fullStatic = 'w-fit',
 		fullClasses = '',
@@ -39,13 +41,13 @@
 
 	function onRatingMousedown(event: MouseEvent, order: number) {
 		const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-		const fractionWidth = ratingRect.width / fraction;
+		const fractionWidth = ratingRect.width / step;
 		const left = event.clientX - ratingRect.left;
 		let selectedFraction = Math.floor(left / fractionWidth) + 1;
 
-		if (getComputedStyle(figureElement).direction === 'rtl') selectedFraction = fraction - selectedFraction + 1;
+		if (getComputedStyle(figureElement).direction === 'rtl') selectedFraction = step - selectedFraction + 1;
 
-		value = order + selectedFraction / fraction;
+		value = order + selectedFraction / step;
 		onmousedown(event, value);
 	}
 
@@ -69,33 +71,23 @@
 	}
 
 	function increaseValue() {
-		value = Math.min(max, value + 1 / fraction);
+		value = Math.min(max, value + 1 / step);
 		refreshFocus();
 	}
 
 	function decreaseValue() {
-		value = Math.max(0, value - 1 / fraction);
+		value = Math.max(0, value - 1 / step);
 		refreshFocus();
 	}
 
 	let figureElement: HTMLElement;
 
-	// Dynamic Classes
+	// Dynamic Classesclip-path: inset(0 var(--clip_value) 0 0)
 	const rxEmptyInteractive = $derived(interactive ? emptyInteractive : emptyStatic);
 	const rxFullInteractive = $derived(interactive ? fullInteractive : fullStatic);
 
 	// Use the latest rating or 0 if not available, ignoring fractions
 	let focusedButtonIndex = $derived(Math.max(0, Math.ceil(value - 1)));
-
-	$effect(() => {
-		if (getComputedStyle(figureElement).direction === 'rtl') {
-			emptyBase = emptyBase.replace('clip-left', 'clip-right');
-			fullBase = fullBase.replace('clip-right', 'clip-left');
-		} else {
-			emptyBase = emptyBase.replace('clip-right', 'clip-left');
-			fullBase = fullBase.replace('clip-left', 'clip-right');
-		}
-	});
 </script>
 
 <figure class="{base} {width} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating" bind:this={figureElement}>
@@ -109,13 +101,13 @@
 			type="button"
 		>
 			<!-- Icon: Empty -->
-			<span class="{emptyBase} {rxEmptyInteractive} {emptyClasses}" style="--clip_value: {(value - i) * 100}%">
+			<span class="{emptyBase} {emptyClip} {rxEmptyInteractive} {emptyClasses}" style="--clipValue: {(value - i) * 100}%">
 				{#if iconEmpty}
 					{@render iconEmpty()}
 				{/if}
 			</span>
 			<!-- Icon: Full -->
-			<span class="{fullBase} {rxFullInteractive} {fullClasses}" style="--clip_value: {100 - (value - i) * 100}%">
+			<span class="{fullBase} {fullClip} {rxFullInteractive} {fullClasses}" style="--clipValue: {100 - (value - i) * 100}%">
 				{#if iconFull}
 					{@render iconFull()}
 				{/if}
@@ -123,12 +115,3 @@
 		</button>
 	{/each}
 </figure>
-
-<style>
-	.clip-left {
-		clip-path: inset(0 0 0 var(--clip_value));
-	}
-	.clip-right {
-		clip-path: inset(0 var(--clip_value) 0 0);
-	}
-</style>
