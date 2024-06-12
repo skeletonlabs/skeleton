@@ -2,7 +2,6 @@
 	import { getAccordionCtx } from './Accordion.svelte';
 	import { slide } from 'svelte/transition';
 	import type { AccordionItemProps } from './types.js';
-	import type { Mouse } from '@playwright/test';
 
 	let {
 		id = '',

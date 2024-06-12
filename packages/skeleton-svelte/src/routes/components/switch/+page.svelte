@@ -13,7 +13,7 @@
 	<header>
 		<h1 class="h1">Switch</h1>
 	</header>
-	<section class="card p-4 space-y-4">
+	<section class="p-4 space-y-4">
 		<label class="label flex justify-between items-center gap-4" for="disturb">
 			<p>Defaults to inactive state.</p>
 			<Switch id="disturb" name="disturb" />
