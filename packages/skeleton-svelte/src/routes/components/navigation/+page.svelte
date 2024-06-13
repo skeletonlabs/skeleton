@@ -1,7 +1,7 @@
 <script lang="ts">
-	import NavRail from '$lib/components/Nav/NavRail.svelte';
-	import NavBar from '$lib/components/Nav/NavBar.svelte';
-	import NavTile from '$lib/components/Nav/NavTile.svelte';
+	import NavRail from '$lib/components/Navigation/NavRail.svelte';
+	import NavBar from '$lib/components/Navigation/NavBar.svelte';
+	import NavTile from '$lib/components/Navigation/NavTile.svelte';
 	// Icons
 	import IconLogo from 'lucide-svelte/icons/skull';
 	import IconMenu from 'lucide-svelte/icons/menu';
@@ -37,9 +37,6 @@
 					<IconBox />
 				</NavTile>
 				<NavTile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" onclick={onClickHandler} selected={isActive('3')}>
-					<IconBox />
-				</NavTile>
-				<NavTile id="4" label="Tile 5" labelExpanded="Expanded Tile 5" onclick={onClickHandler} selected={isActive('4')}>
 					<IconBox />
 				</NavTile>
 			</NavBar>

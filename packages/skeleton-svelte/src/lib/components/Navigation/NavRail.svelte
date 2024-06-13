@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import type { NavigationProps } from './types.js';
+	import type { NavRailProps } from './types.js';
 
 	let {
 		expanded = false,
@@ -37,7 +37,7 @@
 		header,
 		tiles,
 		footer
-	}: NavigationProps = $props();
+	}: NavRailProps = $props();
 
 	// Context
 	setContext('parent', 'rail');

@@ -16,7 +16,7 @@
 		background = '',
 		hover = 'hover:preset-filled-surface-50-950',
 		active = 'preset-filled-primary-500',
-		padding = 'p-1',
+		padding = 'p-2',
 		gap = 'gap-1',
 		rounded = 'rounded-container',
 		classes = 'flex-col justify-center',

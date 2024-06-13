@@ -1,9 +1,7 @@
 import type { Snippet } from 'svelte';
 
-export interface NavigationProps {
-	/** Enabled expanded mode. */
-	expanded?: boolean;
-
+//  Props common between NavRail and NavBar
+export interface NavCommonProps {
 	// Root ---
 	/** Set base styles. */
 	base?: string;
@@ -20,20 +18,6 @@ export interface NavigationProps {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Header ---
-	/** Set base classes. */
-	headerBase?: string;
-	/** Set flex direction classes. */
-	headerFlexDirection?: string;
-	/** Set flex justify classes. */
-	headerJustify?: string;
-	/** Set flex align classes. */
-	headerItems?: string;
-	/** Set gap classes. */
-	headerGap?: string;
-	/** Provide arbitrary CSS classes. */
-	headerClasses?: string;
-
 	// Tiles ---
 	/** Set base classes. */
 	tilesBase?: string;
@@ -47,6 +31,31 @@ export interface NavigationProps {
 	tilesGap?: string;
 	/** Provide arbitrary CSS classes. */
 	tilesClasses?: string;
+}
+
+export interface NavBarProps extends NavCommonProps {
+	// Snippets ---
+	/** The default children snippet. */
+	children?: Snippet;
+}
+
+export interface NavRailProps extends NavCommonProps {
+	/** Enabled expanded mode. */
+	expanded?: boolean;
+
+	// Header ---
+	/** Set base classes. */
+	headerBase?: string;
+	/** Set flex direction classes. */
+	headerFlexDirection?: string;
+	/** Set flex justify classes. */
+	headerJustify?: string;
+	/** Set flex align classes. */
+	headerItems?: string;
+	/** Set gap classes. */
+	headerGap?: string;
+	/** Provide arbitrary CSS classes. */
+	headerClasses?: string;
 
 	// Footer ---
 	/** Set base classes. */
@@ -62,17 +71,13 @@ export interface NavigationProps {
 	/** Provide arbitrary CSS classes. */
 	footerClasses?: string;
 
-	// Snippets (rail) ---
+	// Snippets ---
 	/** The header snippet. */
 	header?: Snippet;
 	/** The tiles snippet. */
 	tiles?: Snippet;
 	/** The footer snippet. */
 	footer?: Snippet;
-
-	// Snippets (bar) ---
-	/** The default children snippet. */
-	children?: Snippet;
 }
 
 export interface NavTileProps {
