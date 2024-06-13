@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import type { NavRailProps } from './types.js';
+	import type { NavigationProps } from './types.js';
 
 	let {
 		expanded = false,
@@ -10,6 +10,7 @@
 		padding = 'p-1',
 		width = 'w-24',
 		widthExpanded = 'w-64',
+		height = 'h-full',
 		classes = '',
 		// Header
 		headerBase = 'flex',
@@ -36,7 +37,7 @@
 		header,
 		tiles,
 		footer
-	}: NavRailProps = $props();
+	}: NavigationProps = $props();
 
 	// Context
 	setContext('parent', 'rail');
@@ -46,7 +47,7 @@
 	let rxWidth = $derived(expanded ? widthExpanded : width);
 </script>
 
-<aside class="{base} {background} {padding} {rxWidth} {classes}">
+<aside class="{base} {background} {height} {padding} {rxWidth} {classes}">
 	<!-- Header -->
 	{#if header}
 		<header class="{headerBase} {headerFlexDirection} {headerJustify} {headerItems} {headerGap} {headerClasses}">
@@ -55,9 +56,9 @@
 	{/if}
 	<!-- Tiles -->
 	{#if tiles}
-		<div class="{tilesBase} {tilesFlexDirection} {tilesJustify} {tilesItems} {tilesGap} {tilesClasses}">
+		<nav class="{tilesBase} {tilesFlexDirection} {tilesJustify} {tilesItems} {tilesGap} {tilesClasses}">
 			{@render tiles()}
-		</div>
+		</nav>
 	{/if}
 	<!-- Footer -->
 	{#if footer}

@@ -17,7 +17,7 @@
 		hover = 'hover:preset-filled-surface-50-950',
 		active = 'preset-filled-primary-500',
 		padding = 'p-1',
-		gap = 'gap-2',
+		gap = 'gap-1',
 		rounded = 'rounded-container',
 		classes = 'flex-col justify-center',
 		// Expanded
@@ -37,7 +37,7 @@
 	}: NavTileProps = $props();
 
 	// Context
-	// let parent = getContext('parent'); // rail | bar
+	let parent = getContext('parent'); // rail | bar
 	let expanded = getContext('expanded') ?? false;
 
 	// Local
@@ -46,7 +46,8 @@
 	const role = href ? undefined : 'button';
 
 	// Reactive
-	const classesCollapsed = `${aspect} ${padding} ${gap} ${classes}`;
+	let rxSize = parent === 'bar' ? `h-full` : `${aspect}`;
+	const classesCollapsed = `${rxSize} ${padding} ${gap} ${classes}`;
 	const classesExtended = `${expandedPadding} ${expandedGap} ${expandedClasses}`;
 	let rxMode = $derived(expanded ? classesExtended : classesCollapsed);
 	let rxBackground = $derived(selected ? active : `${background} ${hover}`);

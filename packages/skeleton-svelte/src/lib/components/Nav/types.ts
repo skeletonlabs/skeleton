@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 
-export interface NavRailProps {
+export interface NavigationProps {
 	/** Enabled expanded mode. */
 	expanded?: boolean;
 
@@ -15,6 +15,8 @@ export interface NavRailProps {
 	width?: string;
 	/** Set width classes for expanded mode. */
 	widthExpanded?: string;
+	/** Set width classes. */
+	height?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
@@ -60,13 +62,17 @@ export interface NavRailProps {
 	/** Provide arbitrary CSS classes. */
 	footerClasses?: string;
 
-	// Snippets ---
+	// Snippets (rail) ---
 	/** The header snippet. */
 	header?: Snippet;
 	/** The tiles snippet. */
 	tiles?: Snippet;
 	/** The footer snippet. */
 	footer?: Snippet;
+
+	// Snippets (bar) ---
+	/** The default children snippet. */
+	children?: Snippet;
 }
 
 export interface NavTileProps {
