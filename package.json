@@ -53,7 +53,7 @@
 		"shelljs": "^0.8.5"
 	},
 	"engines": {
-		"pnpm": ">=9.0.0"
+		"pnpm": ">=9.2.0"
 	},
 	"type": "module"
 }
