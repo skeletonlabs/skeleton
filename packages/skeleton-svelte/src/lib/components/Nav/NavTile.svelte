@@ -2,7 +2,6 @@
 	import { getContext } from 'svelte';
 	import type { NavTileProps } from './types.js';
 
-	// Props
 	let {
 		id,
 		href,
