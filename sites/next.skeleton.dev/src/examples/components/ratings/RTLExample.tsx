@@ -6,14 +6,15 @@ export const Page: React.FC<any> = () => {
 	const [value, setValue] = useState(2.5);
 	return (
 		<div dir="rtl">
-			<Rating value={value} onValueChange={setValue} step={2} width="w-44" interactive>
-				<Rating.IconEmpty>
-					<Star size={24} />
-				</Rating.IconEmpty>
-				<Rating.IconFull>
-					<Star size={24} fill="white" />
-				</Rating.IconFull>
-			</Rating>
+			<Rating
+				value={value}
+				onValueChange={setValue}
+				step={2}
+				width="w-44"
+				interactive
+				iconEmpty={<Star size={24} />}
+				iconFull={<Star size={24} className="fill-surface-950-50" />}
+			/>
 		</div>
 	);
 };

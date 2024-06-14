@@ -10,14 +10,7 @@ import userEvent from "@testing-library/user-event";
 
 describe("static Rating", () => {
     const ratingComponent = (value: number, max: number) => (
-        <Rating value={value} max={max}>
-            <Rating.IconEmpty>
-                <Star size={24} />
-            </Rating.IconEmpty>
-            <Rating.IconFull>
-                <Star size={24} fill="white" />
-            </Rating.IconFull>
-        </Rating>
+        <Rating value={value} max={max} iconEmpty={<Star size={24} />} iconFull={<Star size={24} className="fill-surface-950-50" />} />
     )
 
     it("should render with the value initial value set", () => {
@@ -32,7 +25,7 @@ describe("static Rating", () => {
         expect(getClipValue(emptyIcons[0])).toBe(250);
 
         function getClipValue(span: HTMLElement) {
-            return parseFloat(getComputedStyle(span).getPropertyValue("--clip_value").trim());
+            return parseFloat(getComputedStyle(span).getPropertyValue("--clipValue").trim());
         }
     });
 
@@ -83,14 +76,8 @@ describe("Interactive Rating", () => {
 
     const onValueChange = vi.fn();
     const ratingComponent = (value: number, step: number) => (
-        <Rating value={value} onValueChange={(val) => onValueChange(val)} step={step} max={5} interactive>
-            <Rating.IconEmpty>
-                <Star size={24} />
-            </Rating.IconEmpty>
-            <Rating.IconFull>
-                <Star size={24} fill="white" />
-            </Rating.IconFull>
-        </Rating>
+        <Rating value={value} onValueChange={(val) => onValueChange(val)} step={step} max={5} interactive
+                iconEmpty={<Star size={24} />} iconFull={<Star size={24} className="fill-surface-950-50" />} />
     );
 
     it("should click a rating and change the value successfully", async () => {
@@ -196,12 +183,6 @@ describe("<Rating>", () => {
         expect(getByTestId("rating")).toBeInTheDocument();
     });
 
-    it("should allow for children", () => {
-        const value = "children value";
-        const { getByTestId } = render(<Rating>{value}</Rating>);
-        expect(getByTestId("rating").innerHTML).toContain(value);
-    });
-
     it("should allow to set the `base` style prop", () => {
         const tailwindClasses = "bg-red-600";
         const { getByTestId } = render(<Rating base={tailwindClasses} />);
@@ -212,59 +193,5 @@ describe("<Rating>", () => {
         const tailwindClasses = "bg-green-600";
         const { getByTestId } = render(<Rating classes={tailwindClasses} />);
         expect(getByTestId("rating")).toHaveClass(tailwindClasses);
-    });
-});
-
-// IconEmpty ---
-
-describe("<Rating.IconEmpty>", () => {
-    it("should render the component", () => {
-        const { getByTestId } = render(<Rating.IconEmpty />);
-        expect(getByTestId("rating-iconempty")).toBeInTheDocument();
-    });
-
-    it("should allow for children", () => {
-        const value = "children value";
-        const { getByTestId } = render(<Rating.IconEmpty>{value}</Rating.IconEmpty>);
-        expect(getByTestId("rating-iconempty").innerHTML).toContain(value);
-    });
-
-    it("should allow to set the `base` style prop", () => {
-        const tailwindClasses = "bg-red-600";
-        const { getByTestId } = render(<Rating.IconEmpty base={tailwindClasses} />);
-        expect(getByTestId("rating-iconempty")).toHaveClass(tailwindClasses);
-    });
-
-    it("should allow you to set the `classes` style prop", () => {
-        const tailwindClasses = "bg-green-600";
-        const { getByTestId } = render(<Rating.IconEmpty classes={tailwindClasses} />);
-        expect(getByTestId("rating-iconempty")).toHaveClass(tailwindClasses);
-    });
-});
-
-// IconFull ---
-
-describe("<Rating.IconFull>", () => {
-    it("should render the component", () => {
-        const { getByTestId } = render(<Rating.IconFull />);
-        expect(getByTestId("rating-iconfull")).toBeInTheDocument();
-    });
-
-    it("should allow for children", () => {
-        const value = "children value";
-        const { getByTestId } = render(<Rating.IconFull>{value}</Rating.IconFull>);
-        expect(getByTestId("rating-iconfull").innerHTML).toContain(value);
-    });
-
-    it("should allow to set the `base` style prop", () => {
-        const tailwindClasses = "bg-red-600";
-        const { getByTestId } = render(<Rating.IconFull base={tailwindClasses} />);
-        expect(getByTestId("rating-iconfull")).toHaveClass(tailwindClasses);
-    });
-
-    it("should allow you to set the `classes` style prop", () => {
-        const tailwindClasses = "bg-green-600";
-        const { getByTestId } = render(<Rating.IconFull classes={tailwindClasses} />);
-        expect(getByTestId("rating-iconfull")).toHaveClass(tailwindClasses);
     });
 });

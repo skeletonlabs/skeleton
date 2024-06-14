@@ -4,13 +4,11 @@ import { Star } from 'lucide-react';
 
 export const Page: React.FC<any> = () => {
 	return (
-		<Rating value={3} width="w-44">
-			<Rating.IconEmpty>
-				<Star size={24} />
-			</Rating.IconEmpty>
-			<Rating.IconFull>
-				<Star size={24} fill="white" />
-			</Rating.IconFull>
-		</Rating>
+		<Rating
+			value={3}
+			width="w-44"
+			iconEmpty={<Star size={24} />}
+			iconFull={<Star size={24} className="fill-surface-950-50" />}
+		/>
 	);
 };

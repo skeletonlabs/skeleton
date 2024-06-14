@@ -1,17 +1,8 @@
-import React from "react";
-
-// Context
-
-export interface RatingContextState {
-	interactive?: boolean;
-	value: number;
-	order: number;
-	figureRef: React.RefObject<HTMLElement> | undefined;
-}
+import React, { ReactNode } from "react";
 
 // Components ---
 
-export interface RatingProps extends React.PropsWithChildren {
+export interface RatingProps {
     /** Sets the rating value. */
 	value?: number;
 	/** Sets the maximum rating value. */
@@ -26,10 +17,6 @@ export interface RatingProps extends React.PropsWithChildren {
 	base?: string;
 	/** Sets width styles. */
 	width?: string;
-	/** Sets text color styles. */
-	text?: string;
-	/** sets fill color styles. */
-	fill?: string;
 	/** Sets justification styles. */
 	justify?: string;
 	/** Sets horizontal spacing styles. */
@@ -47,6 +34,30 @@ export interface RatingProps extends React.PropsWithChildren {
 	/** Provide arbitrary CSS classes to the rating button. */
 	buttonClasses?: string;
 
+	// Icon Empty
+	/** Set base styles for the empty icon. */
+	emptyBase?: string;
+	/** Set the clip styles for the empty icon. */
+	emptyClip?: string;
+	/** Set interactive state styles for the empty icon. */
+	emptyInteractive?: string;
+	/** Set non-interactive state styles for the empty icon. */
+	emptyStatic?: string;
+	/** Provide arbitrary CSS classes for the empty icon. */
+	emptyClasses?: string;
+
+	// Icon Full
+	/** Set base styles for the full icon. */
+	fullBase?: string;
+	/** Set the clip styles for the full icon. */
+	fullClip?: string;
+	/** Set interactive state styles for the full icon. */
+	fullInteractive?: string;
+	/** Set non-interactive state styles for the full icon. */
+	fullStatic?: string;
+	/** Provide arbitrary CSS classes for the full icon. */
+	fullClasses?: string;
+
 	// Events ---
 	/** Triggers on rating mouse down. */
 	onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>, value: number) => void;
@@ -54,17 +65,10 @@ export interface RatingProps extends React.PropsWithChildren {
 	onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
 	/** Triggers on rating value change. */
 	onValueChange?: (value: number) => void;
-}
 
-export interface IconProps extends React.PropsWithChildren {
-	/** Set base styles. */
-	base?: string;
-	/** Set the clip styles. */
-	clip?: string;
-	/** Set interactive state styles. */
-	interactive?: string;
-	/** Set non-interactive state styles. */
-	nonInteractive?: string;
-	/** Provide arbitrary CSS classes for the empty icon. */
-	classes?: string;
+	// Children ---
+	/** The empty icon children. */
+	iconEmpty?: ReactNode;
+	/** The full icon children. */
+	iconFull?: ReactNode;
 }

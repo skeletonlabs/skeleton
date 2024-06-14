@@ -9,8 +9,6 @@
 		// Root
 		base = 'flex',
 		width = 'w-full',
-		text = 'text-token',
-		fill = 'fill-token',
 		justify = 'justify-center',
 		spaceX = 'space-x-2',
 		classes = '',
@@ -90,7 +88,7 @@
 	let focusedButtonIndex = $derived(Math.max(0, Math.ceil(value - 1)));
 </script>
 
-<figure class="{base} {width} {text} {fill} {justify} {spaceX} {classes}" data-testid="rating" bind:this={figureElement}>
+<figure class="{base} {width} {justify} {spaceX} {classes}" data-testid="rating" bind:this={figureElement}>
 	{#each { length: max } as _, i}
 		<button
 			class="{buttonBase} {buttonPosition} {buttonAspect} {buttonClasses}"

@@ -6,14 +6,7 @@ function StaticRatings(value: number) {
     return(
         <div className="flex items-center gap-8">
             <div className="w-48">
-                <Rating value={value}>
-                    <Rating.IconEmpty>
-                        <Star size={24} />
-                    </Rating.IconEmpty>
-                    <Rating.IconFull>
-                        <Star size={24} fill="white" />
-                    </Rating.IconFull>
-                </Rating>
+                <Rating value={value} iconEmpty={<Star size={24} />} iconFull={<Star size={24} className="fill-surface-950-50" />} />
             </div>
             <h3 className="h3">{value}</h3>
         </div>
@@ -27,14 +20,8 @@ function CustomIcons(value: number, setValue: React.Dispatch<React.SetStateActio
                 <h2 className="h2">Custom Icons</h2>
                 <div className="flex items-center gap-8">
                     <div className="w-48">
-                        <Rating value={value} interactive onValueChange={(val) => setValue(val)}>
-                            <Rating.IconEmpty>
-                                <Bone size={24} />
-                            </Rating.IconEmpty>
-                            <Rating.IconFull>
-                                <Skull size={24} />
-                            </Rating.IconFull>
-                        </Rating>
+                        <Rating value={value} interactive onValueChange={(val) => setValue(val)}
+                                iconEmpty={<Bone size={24} />} iconFull={<Skull size={24} />} />
                     </div>
                     <h3 className="h3">{value.toFixed(2)}</h3>
                 </div>
@@ -51,14 +38,8 @@ function InteractiveRating(value: number, setValue: React.Dispatch<React.SetStat
                 <h2 className="h2">Interactive</h2>
                 <div className="flex items-center gap-8">
                     <div className="w-48">
-                        <Rating value={value} interactive onValueChange={(val) => setValue(val)}>
-                            <Rating.IconEmpty>
-                                <Star size={24} />
-                            </Rating.IconEmpty>
-                            <Rating.IconFull>
-                                <Star size={24} fill="white" />
-                            </Rating.IconFull>
-                        </Rating>
+                        <Rating value={value} interactive onValueChange={(val) => setValue(val)}
+                                iconEmpty={<Star size={24} />} iconFull={<Star size={24} className="fill-surface-950-50" />} />
                     </div>
                     <h3 className="h3">{value.toFixed(2)}</h3>
                 </div>
@@ -72,14 +53,8 @@ function Steps(step:number, value: number, setValue: React.Dispatch<React.SetSta
         <>
             <div className="flex items-center gap-8">
                 <div className="w-48">
-                    <Rating value={value} step={step} interactive onValueChange={(val) => setValue(val)}>
-                        <Rating.IconEmpty>
-                            <Star size={24} />
-                        </Rating.IconEmpty>
-                        <Rating.IconFull>
-                            <Star size={24} fill="white" />
-                        </Rating.IconFull>
-                    </Rating>
+                    <Rating value={value} step={step} interactive onValueChange={(val) => setValue(val)}
+                                iconEmpty={<Star size={24} />} iconFull={<Star size={24} className="fill-surface-950-50" />} />
                 </div>
                 <h3 className="h3">{value.toFixed(2)}</h3>
             </div>
@@ -94,14 +69,8 @@ function RTL(value: number, setValue: React.Dispatch<React.SetStateAction<number
                 <h2 className="h2">RTL</h2>
                 <div className="flex items-center gap-8">
                     <div className="w-48" dir="rtl">
-                        <Rating value={value} step={2} interactive onValueChange={(val) => setValue(val)}>
-                            <Rating.IconEmpty>
-                                <Star size={24} />
-                            </Rating.IconEmpty>
-                            <Rating.IconFull>
-                                <Star size={24} fill="white" />
-                            </Rating.IconFull>
-                        </Rating>
+                        <Rating value={value} step={2} interactive onValueChange={(val) => setValue(val)}
+                                iconEmpty={<Star size={24} />} iconFull={<Star size={24} className="fill-surface-950-50" />} />
                     </div>
                     <h3 className="h3">{value.toFixed(2)}</h3>
                 </div>

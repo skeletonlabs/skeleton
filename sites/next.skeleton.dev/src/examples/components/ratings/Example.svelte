@@ -5,7 +5,7 @@
 
 <Rating value={3} width="w-44">
     {#snippet iconFull()}
-        <Star size={24} fill="white" />
+        <Star size={24} class="fill-surface-950-50" />
     {/snippet}
     {#snippet iconEmpty()}
         <Star size={24} />

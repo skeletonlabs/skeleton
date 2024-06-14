@@ -17,7 +17,7 @@
 			<div class="w-48">
 				<Rating value={5}>
 					{#snippet iconFull()}
-						<Star size={24} fill="white" />
+						<Star size={24} class="fill-surface-950-50" />
 					{/snippet}
 					{#snippet iconEmpty()}
 						<Star size={24} />
@@ -30,7 +30,7 @@
 			<div class="w-48">
 				<Rating value={0}>
 					{#snippet iconFull()}
-						<Star size={24} fill="white" />
+						<Star size={24} class="fill-surface-950-50" />
 					{/snippet}
 					{#snippet iconEmpty()}
 						<Star size={24} />
@@ -43,7 +43,7 @@
 			<div class="w-48">
 				<Rating value={2.5}>
 					{#snippet iconFull()}
-						<Star size={24} fill="white" />
+						<Star size={24} class="fill-surface-950-50" />
 					{/snippet}
 					{#snippet iconEmpty()}
 						<Star size={24} />
@@ -56,7 +56,7 @@
 			<div class="w-48">
 				<Rating value={3.75}>
 					{#snippet iconFull()}
-						<Star size={24} fill="white" />
+						<Star size={24} class="fill-surface-950-50" />
 					{/snippet}
 					{#snippet iconEmpty()}
 						<Star size={24} />
@@ -69,7 +69,7 @@
 			<div class="w-48">
 				<Rating value={1.25}>
 					{#snippet iconFull()}
-						<Star size={24} fill="white" />
+						<Star size={24} class="fill-surface-950-50" />
 					{/snippet}
 					{#snippet iconEmpty()}
 						<Star size={24} />
@@ -103,7 +103,7 @@
 			<div class="w-48">
 				<Rating bind:value={interactiveValue} interactive onmousedown={(_, value) => console.log(`rating value: ${value}`)}>
 					{#snippet iconFull()}
-						<Star size={24} fill="white" />
+						<Star size={24} class="fill-surface-950-50" />
 					{/snippet}
 					{#snippet iconEmpty()}
 						<Star size={24} />
@@ -120,7 +120,7 @@
 			<div class="w-48">
 				<Rating bind:value={interactiveValue} interactive step={2}>
 					{#snippet iconFull()}
-						<Star size={24} fill="white" />
+						<Star size={24} class="fill-surface-950-50" />
 					{/snippet}
 					{#snippet iconEmpty()}
 						<Star size={24} />
@@ -133,7 +133,7 @@
 			<div class="w-48">
 				<Rating bind:value={interactiveValue} interactive step={3}>
 					{#snippet iconFull()}
-						<Star size={24} fill="white" />
+						<Star size={24} class="fill-surface-950-50" />
 					{/snippet}
 					{#snippet iconEmpty()}
 						<Star size={24} />
@@ -150,7 +150,7 @@
 			<div dir="rtl" class="w-48">
 				<Rating bind:value={interactiveValue} interactive step={2}>
 					{#snippet iconFull()}
-						<Star size={24} fill="white" />
+						<Star size={24} class="fill-surface-950-50" />
 					{/snippet}
 					{#snippet iconEmpty()}
 						<Star size={24} />
