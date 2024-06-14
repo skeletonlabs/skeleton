@@ -16,6 +16,7 @@ import ExampleTilesRaw from '@examples/components/navigation/ExampleTiles.svelte
 ## Rail
 
 * Recommended for medium to large screens.
+* Ideal for horizontal screen layouts.
 * Should be fixed to the left or right of the viewport.
 * Supports 3-7 tiles.
 
@@ -30,7 +31,7 @@ import ExampleTilesRaw from '@examples/components/navigation/ExampleTiles.svelte
 
 ### Expanded Mode
 
-Append the `expanded` property to enable expanded mode. Each tile will resize automatically.
+Apply the `expanded` property to enable expanded mode. Each tile will resize and used the expanded label.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -41,15 +42,16 @@ Append the `expanded` property to enable expanded mode. Each tile will resize au
 	</Fragment>
 </Preview>
 
-### Toggle Mode
-
-> Not yet available.
+{/* ### Toggle Mode */}
+{/* > Not yet available. */}
 
 ## Bar
 
-* Recommended for small screens only.
+* Recommended for small screens.
+* Ideal for vertical screen layouts.
 * Should be fixed to the bottom of the viewport.
 * Supports 3-5 tiles.
+* Consider progressive enhancement with the [Virtual Keyboard API](https://developer.mozilla.org/en-US/docs/Web/API/VirtualKeyboard_API).
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -62,7 +64,7 @@ Append the `expanded` property to enable expanded mode. Each tile will resize au
 
 ## Tiles
 
-Represent either anchor or button elements within your navigation components.
+Tiles are universal between Rails and Bars. They default to buttons, but will convert to anchors when an `href` is provided. You may set the active state with the `selected` property.
 
 <Preview client:load>
 	<Fragment slot="preview">

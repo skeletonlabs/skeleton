@@ -5,6 +5,7 @@
 	let {
 		id,
 		href,
+		target,
 		label,
 		labelExpanded,
 		title,
@@ -62,6 +63,7 @@
 	this={element}
 	class="{base} {width} {rounded} {rxBackground} {rxMode}"
 	{href}
+	{target}
 	{type}
 	{title}
 	{role}

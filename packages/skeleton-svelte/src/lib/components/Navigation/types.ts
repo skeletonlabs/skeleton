@@ -83,8 +83,10 @@ export interface NavRailProps extends NavCommonProps {
 export interface NavTileProps {
 	/** Provide a unique ID. */
 	id?: string;
-	/** Optionally provide an anchor href link. */
+	/** Provide an href link; turns Tiles into an anchor */
 	href?: string;
+	/** Set the href target attribute. */
+	target?: string;
 	/** Provide the label text. */
 	label?: string;
 	/** Provide a longer label in expanded mode. */

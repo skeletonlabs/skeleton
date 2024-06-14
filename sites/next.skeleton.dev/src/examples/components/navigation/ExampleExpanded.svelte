@@ -2,7 +2,11 @@
 	import { NavRail, NavTile } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconLogo from 'lucide-svelte/icons/skull';
-	import IconBox from 'lucide-svelte/icons/box';
+    import IconFolder from 'lucide-svelte/icons/folder';
+	import IconImage from 'lucide-svelte/icons/image';
+	import IconMusic from 'lucide-svelte/icons/music';
+	import IconVideo from 'lucide-svelte/icons/video';
+	import IconGames from 'lucide-svelte/icons/gamepad';
 	import IconSettings from 'lucide-svelte/icons/settings';
 
 	let hrefExample = '#';
@@ -18,20 +22,20 @@
             </a>
         {/snippet}
         {#snippet tiles()}
-            <NavTile id="0" labelExpanded="Expanded Tile 1" href={hrefExample}>
-                <IconBox />
+            <NavTile id="0" labelExpanded="Browse Files" href={hrefExample}>
+                <IconFolder />
             </NavTile>
-            <NavTile id="1" labelExpanded="Expanded Tile 2" href={hrefExample}>
-                <IconBox />
+            <NavTile id="1" labelExpanded="Browse Images" href={hrefExample}>
+                <IconImage />
             </NavTile>
-            <NavTile id="2" labelExpanded="Expanded Tile 3" href={hrefExample}>
-                <IconBox />
+            <NavTile id="2" labelExpanded="Browse Music" href={hrefExample}>
+                <IconMusic />
             </NavTile>
-            <NavTile id="2" labelExpanded="Expanded Tile 4" href={hrefExample}>
-                <IconBox />
+            <NavTile id="2" labelExpanded="Browse Videos" href={hrefExample}>
+                <IconVideo />
             </NavTile>
-            <NavTile id="2" labelExpanded="Expanded Tile 5" href={hrefExample}>
-                <IconBox />
+            <NavTile id="2" labelExpanded="Browse Games" href={hrefExample}>
+                <IconGames />
             </NavTile>
         {/snippet}
         {#snippet footer()}
