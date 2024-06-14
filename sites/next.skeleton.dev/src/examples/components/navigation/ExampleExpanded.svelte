@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { NavRail, NavTile } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconLogo from 'lucide-svelte/icons/skull';
+	import IconMenu from 'lucide-svelte/icons/menu';
     import IconFolder from 'lucide-svelte/icons/folder';
 	import IconImage from 'lucide-svelte/icons/image';
 	import IconMusic from 'lucide-svelte/icons/music';
@@ -16,10 +16,7 @@
     <!-- Component -->
     <NavRail expanded>
         {#snippet header()}
-            <a href="/" class="w-full aspect-square flex flex-col justify-center items-center gap-2">
-                <IconLogo size={48} />
-                <span class="type-scale-5 font-bold">Skeleton</span>
-            </a>
+            <NavTile href="/" labelExpanded="Menu"><IconMenu /></NavTile>
         {/snippet}
         {#snippet tiles()}
             <NavTile id="0" labelExpanded="Browse Files" href={hrefExample}>
