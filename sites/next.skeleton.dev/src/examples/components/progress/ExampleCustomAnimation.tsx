@@ -1,12 +1,12 @@
 import { Progress } from '@skeletonlabs/skeleton-react';
 
 export const Page = () => {
-	return (
-		<>
-			<Progress value={undefined} meterAnimate="my-custom-animation" />
+  return (
+    <>
+      <Progress value={undefined} meterAnimate="my-custom-animation" />
 
-			{/* RECOMMENDED: add these styles to your global stylesheet. */}
-			<style>{`
+      {/* RECOMMENDED: add these styles to your global stylesheet. */}
+      <style>{`
                     .my-custom-animation {
                         animation: my-custom-animation 2s ease-in-out infinite;
                     }
@@ -29,6 +29,6 @@ export const Page = () => {
                         }
                     }
             `}</style>
-		</>
-	);
+    </>
+  );
 };

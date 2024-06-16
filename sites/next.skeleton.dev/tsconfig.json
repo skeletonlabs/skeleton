@@ -1,17 +1,17 @@
 {
-	"extends": "astro/tsconfigs/strict",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"jsx": "react-jsx",
-		"jsxImportSource": "react",
-		"moduleResolution": "Bundler",
-		"paths": {
-			"@layouts/*": ["src/layouts/*"],
-			"@components/*": ["src/components/*"],
-			"@examples/*": ["src/examples/*"],
-			"@content/*": ["src/content/*"],
-			"@styles/*": ["src/styles/*"]
-		}
-	},
-	"exclude": ["node_modules", "dist"]
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@layouts/*": ["src/layouts/*"],
+      "@components/*": ["src/components/*"],
+      "@examples/*": ["src/examples/*"],
+      "@content/*": ["src/content/*"],
+      "@styles/*": ["src/styles/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
 }

@@ -6,22 +6,22 @@ import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config}*/
 const config = {
-	darkMode: 'class',
-	content: ['./src/**/*.{html,js,svelte,ts}'],
-	theme: {
-		extend: {}
-	},
-	plugins: [
-		forms,
-		// NOTE: do not load a theme if you wish to have live previews
-		skeleton()
-		// To set a hardcoded theme, use the following:
-		// skeleton({
-		// 	themes: {
-		// 		preset: ['cerberus', 'catppuccin', 'cedar', 'rose'],
-		// 	},
-		// }),
-	]
+  darkMode: 'class',
+  content: ['./src/**/*.{html,js,svelte,ts}'],
+  theme: {
+    extend: {}
+  },
+  plugins: [
+    forms,
+    // NOTE: do not load a theme if you wish to have live previews
+    skeleton()
+    // To set a hardcoded theme, use the following:
+    // skeleton({
+    // 	themes: {
+    // 		preset: ['cerberus', 'catppuccin', 'cedar', 'rose'],
+    // 	},
+    // }),
+  ]
 };
 
 module.exports = config;

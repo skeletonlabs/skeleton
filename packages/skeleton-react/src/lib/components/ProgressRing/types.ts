@@ -6,7 +6,7 @@ export interface ProgressRingProps extends React.PropsWithChildren {
   /** Set the stroke size (px) */
   strokeWidth?: number;
   /** Defines the shape of the meter */
-  strokeLinecap?: "inherit" | "butt" | "round" | "square";
+  strokeLinecap?: 'inherit' | 'butt' | 'round' | 'square';
   /** Set the aria-labelledby value */
   labelledby?: string;
 

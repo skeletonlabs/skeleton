@@ -7,21 +7,21 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: [
-		vitePreprocess({
-			style: {
-				css: {
-					postcss: join(__dirname, 'postcss.config.cjs')
-				}
-			}
-		})
-	],
-	kit: {
-		adapter: adapter()
-		// https://kit.svelte.dev/docs/configuration#alias
-	}
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  preprocess: [
+    vitePreprocess({
+      style: {
+        css: {
+          postcss: join(__dirname, 'postcss.config.cjs')
+        }
+      }
+    })
+  ],
+  kit: {
+    adapter: adapter()
+    // https://kit.svelte.dev/docs/configuration#alias
+  }
 };
 
 export default config;

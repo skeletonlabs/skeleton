@@ -1,33 +1,29 @@
 {
-	"compilerOptions": {
-		"target": "ES2022",
-		"lib": ["ES2022", "DOM", "DOM.Iterable"],
-		"module": "ESNext",
-		"skipLibCheck": true,
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
 
-		/* Bundler mode */
-		"moduleResolution": "Bundler",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"esModuleInterop": true,
-		"jsx": "react-jsx",
+    /* Bundler mode */
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
 
-		/* Packaging */
-		"outDir": "dist",
-		"declaration": true,
+    /* Packaging */
+    "outDir": "dist",
+    "declaration": true,
 
-		/* Linting */
-		"strict": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
 
-		/* Types */
-		"types": [
-			"vite-plugin-remix-router/client",
-			"@testing-library/jest-dom",
-			"@testing-library/user-event"
-		]
-	},
-	"include": ["src/lib"]
+    /* Types */
+    "types": ["vite-plugin-remix-router/client", "@testing-library/jest-dom", "@testing-library/user-event"]
+  },
+  "include": ["src/lib"]
 }

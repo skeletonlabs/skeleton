@@ -3,23 +3,23 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
 interface Props {
-	classList?: string;
+  classList?: string;
 }
 const { classList } = Astro.props;
 
 // Sort Order
 const sortByOrder = (a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => {
-	return a.data.order - b.data.order;
+  return a.data.order - b.data.order;
 };
 
 // Query a collection via the start of the ID string
 async function queryCollection(startsWith: string) {
-	return await getCollection('docs', (entry) => {
-		if (!entry.id.startsWith(startsWith)) return;
-		if (entry.id.split('/').length > 2) return;
-		if (entry.id.endsWith('meta.mdx')) return;
-		return entry;
-	});
+  return await getCollection('docs', (entry) => {
+    if (!entry.id.startsWith(startsWith)) return;
+    if (entry.id.split('/').length > 2) return;
+    if (entry.id.endsWith('meta.mdx')) return;
+    return entry;
+  });
 }
 
 // Query each collection we wish to display
@@ -30,43 +30,43 @@ const cResources = await queryCollection('resources/');
 
 // Query the Components section
 const cComponents = await getCollection('docs', (entry) => {
-	if (!entry.id.startsWith('components/')) return;
-	if (!entry.id.endsWith('meta.mdx')) return;
-	return entry;
+  if (!entry.id.startsWith('components/')) return;
+  if (!entry.id.endsWith('meta.mdx')) return;
+  return entry;
 });
 
 // Set the Label and Link List for each navigation section
 const navigation = {
-	'get-started': cGetStarted.sort(sortByOrder),
-	design: cDesign.sort(sortByOrder),
-	tailwind: cTailwind.sort(sortByOrder),
-	components: cComponents,
-	resources: cResources.sort(sortByOrder),
+  'get-started': cGetStarted.sort(sortByOrder),
+  design: cDesign.sort(sortByOrder),
+  tailwind: cTailwind.sort(sortByOrder),
+  components: cComponents,
+  resources: cResources.sort(sortByOrder)
 };
 ---
 
-<aside class="type-scale-2 overflow-y-auto space-y-10" class:list={[classList]}>
-	{
-		Object.entries(navigation).map(([key, pages]) => (
-			<nav class="flex flex-col gap-2">
-				<span class="font-bold capitalize">{key.replace('-', ' ')}</span>
-				{pages.map((page) => (
-					<a class="anchor" href={`/docs/${page.slug}`} title={page.data.title}>
-						{page.data.title}
-					</a>
-				))}
-			</nav>
-		))
-	}
+<aside class="type-scale-2 space-y-10 overflow-y-auto" class:list={[classList]}>
+  {
+    Object.entries(navigation).map(([key, pages]) => (
+      <nav class="flex flex-col gap-2">
+        <span class="font-bold capitalize">{key.replace('-', ' ')}</span>
+        {pages.map((page) => (
+          <a class="anchor" href={`/docs/${page.slug}`} title={page.data.title}>
+            {page.data.title}
+          </a>
+        ))}
+      </nav>
+    ))
+  }
 </aside>
 
 <script>
-	import { preferredFrameworkStore } from 'src/stores/preferred-framework';
-	const preferredFramework = preferredFrameworkStore.get();
+  import { preferredFrameworkStore } from 'src/stores/preferred-framework';
+  const preferredFramework = preferredFrameworkStore.get();
 
-	// Update all links ending with meta to use the selected framework
-	for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a')) {
-		if (!anchor.href.endsWith('meta')) continue;
-		anchor.setAttribute('href', anchor.href.replace('meta', preferredFramework));
-	}
+  // Update all links ending with meta to use the selected framework
+  for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a')) {
+    if (!anchor.href.endsWith('meta')) continue;
+    anchor.setAttribute('href', anchor.href.replace('meta', preferredFramework));
+  }
 </script>

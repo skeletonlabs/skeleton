@@ -4,10 +4,10 @@ const { step } = Astro.props;
 ---
 
 <div class="grid grid-cols-[auto_1fr] items-start gap-4">
-	<div class="type-scale-2 preset-filled-surface-200-800 size-7 rounded-full flex justify-center items-center -ml-4">
-		{step !== 'check' ? step : <Check size={16} />}
-	</div>
-	<article class="space-y-4 [&>.h2]:!type-scale-4">
-		<slot />
-	</article>
+  <div class="type-scale-2 preset-filled-surface-200-800 -ml-4 flex size-7 items-center justify-center rounded-full">
+    {step !== 'check' ? step : <Check size={16} />}
+  </div>
+  <article class="[&>.h2]:!type-scale-4 space-y-4">
+    <slot />
+  </article>
 </div>

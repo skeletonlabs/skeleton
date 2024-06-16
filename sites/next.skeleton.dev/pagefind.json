@@ -1,9 +1,9 @@
 {
-	"site": "dist",
-	"exclude_selectors": [".expressive-code"],
-	"vite_plugin_pagefind": {
-		"assets_dir": "public",
-		"build_command": "pnpm build",
-		"dev_strategy": "lazy"
-	}
+  "site": "dist",
+  "exclude_selectors": [".expressive-code"],
+  "vite_plugin_pagefind": {
+    "assets_dir": "public",
+    "build_command": "pnpm build",
+    "dev_strategy": "lazy"
+  }
 }

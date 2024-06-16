@@ -8,8 +8,8 @@
 .hljs-template-variable,
 .hljs-type,
 .hljs-variable.language_ {
-	/* color: #ff7b72; */
-	@apply text-red-400;
+  /* color: #ff7b72; */
+  @apply text-red-400;
 }
 
 /* Purple */
@@ -17,8 +17,8 @@
 .hljs-title.class_,
 .hljs-title.class_.inherited__,
 .hljs-title.function_ {
-	/* color: #d2a8ff; */
-	@apply text-purple-400;
+  /* color: #d2a8ff; */
+  @apply text-purple-400;
 }
 
 /* Sky */
@@ -32,31 +32,31 @@
 .hljs-selector-class,
 .hljs-selector-id,
 .hljs-variable {
-	/* color: #79c0ff; */
-	@apply text-sky-300;
+  /* color: #79c0ff; */
+  @apply text-sky-300;
 }
 
 /* Blue */
 .hljs-meta .hljs-string,
 .hljs-regexp,
 .hljs-string {
-	/* color: #a5d6ff; */
-	@apply text-blue-400;
+  /* color: #a5d6ff; */
+  @apply text-blue-400;
 }
 
 /* Amber (types) */
 .hljs-built_in,
 .hljs-symbol {
-	/* color: #ffa657; */
-	@apply text-amber-400;
+  /* color: #ffa657; */
+  @apply text-amber-400;
 }
 
 /* Gray (Medium) */
 .hljs-code,
 .hljs-comment,
 .hljs-formula {
-	/* color: #8b949e; */
-	@apply text-neutral-500;
+  /* color: #8b949e; */
+  @apply text-neutral-500;
 }
 
 /* Green (Tags) */
@@ -64,53 +64,53 @@
 .hljs-quote,
 .hljs-selector-pseudo,
 .hljs-selector-tag {
-	/* color: #7ee787; */
-	@apply text-green-400;
+  /* color: #7ee787; */
+  @apply text-green-400;
 }
 
 /* Pink (Light) */
 .hljs-subst {
-	/* color: #c9d1d9; */
-	@apply text-pink-300;
+  /* color: #c9d1d9; */
+  @apply text-pink-300;
 }
 
 /* Sky */
 .hljs-section {
-	/* color: #1f6feb; */
-	/* font-weight: 700; */
-	@apply font-bold text-sky-400;
+  /* color: #1f6feb; */
+  /* font-weight: 700; */
+  @apply font-bold text-sky-400;
 }
 
 /* Yellow */
 .hljs-bullet {
-	/* color: #f2cc60; */
-	@apply text-yellow-400;
+  /* color: #f2cc60; */
+  @apply text-yellow-400;
 }
 
 /* Gray (Light) */
 .hljs-emphasis {
-	/* color: #c9d1d9; */
-	/* font-style: italic; */
-	@apply italic text-neutral-200;
+  /* color: #c9d1d9; */
+  /* font-style: italic; */
+  @apply italic text-neutral-200;
 }
 
 /* Gray (Light) */
 .hljs-strong {
-	/* color: #c9d1d9; */
-	/* font-weight: 700; */
-	@apply font-bold text-neutral-200;
+  /* color: #c9d1d9; */
+  /* font-weight: 700; */
+  @apply font-bold text-neutral-200;
 }
 
 /* Lime / Green */
 .hljs-addition {
-	/* color: #aff5b4; */
-	/* background-color: #033a16; */
-	@apply text-lime-300 bg-green-700;
+  /* color: #aff5b4; */
+  /* background-color: #033a16; */
+  @apply bg-green-700 text-lime-300;
 }
 
 /* Pink / Red */
 .hljs-deletion {
-	/* color: #ffdcd7; */
-	/* background-color: #67060c; */
-	@apply text-rose-300 bg-rose-700;
+  /* color: #ffdcd7; */
+  /* background-color: #67060c; */
+  @apply bg-rose-700 text-rose-300;
 }

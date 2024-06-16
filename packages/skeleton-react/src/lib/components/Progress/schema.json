@@ -1,88 +1,87 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "ProgressProps": {
-            "properties": {
-                "base": {
-                    "description": "Set root base classes",
-                    "type": "string"
-                },
-                "bg": {
-                    "description": "Set root background classes",
-                    "type": "string"
-                },
-                "classes": {
-                    "description": "Set root arbitrary classes",
-                    "type": "string"
-                },
-                "height": {
-                    "description": "Set root height classes",
-                    "type": "string"
-                },
-                "labelledBy": {
-                    "description": "Set the aria-labelledby",
-                    "type": "string"
-                },
-                "max": {
-                    "description": "Set the maximum value",
-                    "type": "number"
-                },
-                "meterAnimate": {
-                    "description": "Set meter animation classes for indeterminate mode.",
-                    "type": "string"
-                },
-                "meterBase": {
-                    "description": "Set meter base classes.",
-                    "type": "string"
-                },
-                "meterBg": {
-                    "description": "Set meter bg classes",
-                    "type": "string"
-                },
-                "meterClasses": {
-                    "description": "Set meter arbitrary classes.",
-                    "type": "string"
-                },
-                "meterRounded": {
-                    "description": "Set meter rounded classes.",
-                    "type": "string"
-                },
-                "meterTransition": {
-                    "description": "Set meter transition classes.",
-                    "type": "string"
-                },
-                "rounded": {
-                    "description": "Set root rounded classes",
-                    "type": "string"
-                },
-                "value": {
-                    "description": "Set the value",
-                    "type": "number"
-                },
-                "width": {
-                    "description": "Set root width classes",
-                    "type": "string"
-                }
-            },
-            "propertyOrder": [
-                "value",
-                "max",
-                "labelledBy",
-                "base",
-                "bg",
-                "width",
-                "height",
-                "rounded",
-                "classes",
-                "meterBase",
-                "meterBg",
-                "meterRounded",
-                "meterTransition",
-                "meterAnimate",
-                "meterClasses"
-            ],
-            "type": "object"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ProgressProps": {
+      "properties": {
+        "base": {
+          "description": "Set root base classes",
+          "type": "string"
+        },
+        "bg": {
+          "description": "Set root background classes",
+          "type": "string"
+        },
+        "classes": {
+          "description": "Set root arbitrary classes",
+          "type": "string"
+        },
+        "height": {
+          "description": "Set root height classes",
+          "type": "string"
+        },
+        "labelledBy": {
+          "description": "Set the aria-labelledby",
+          "type": "string"
+        },
+        "max": {
+          "description": "Set the maximum value",
+          "type": "number"
+        },
+        "meterAnimate": {
+          "description": "Set meter animation classes for indeterminate mode.",
+          "type": "string"
+        },
+        "meterBase": {
+          "description": "Set meter base classes.",
+          "type": "string"
+        },
+        "meterBg": {
+          "description": "Set meter bg classes",
+          "type": "string"
+        },
+        "meterClasses": {
+          "description": "Set meter arbitrary classes.",
+          "type": "string"
+        },
+        "meterRounded": {
+          "description": "Set meter rounded classes.",
+          "type": "string"
+        },
+        "meterTransition": {
+          "description": "Set meter transition classes.",
+          "type": "string"
+        },
+        "rounded": {
+          "description": "Set root rounded classes",
+          "type": "string"
+        },
+        "value": {
+          "description": "Set the value",
+          "type": "number"
+        },
+        "width": {
+          "description": "Set root width classes",
+          "type": "string"
         }
+      },
+      "propertyOrder": [
+        "value",
+        "max",
+        "labelledBy",
+        "base",
+        "bg",
+        "width",
+        "height",
+        "rounded",
+        "classes",
+        "meterBase",
+        "meterBg",
+        "meterRounded",
+        "meterTransition",
+        "meterAnimate",
+        "meterClasses"
+      ],
+      "type": "object"
     }
+  }
 }
-

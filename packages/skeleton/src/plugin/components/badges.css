@@ -1,13 +1,13 @@
 /* Components: Badges */
 
 .badge {
-	@apply inline-flex justify-center items-center space-x-2 whitespace-nowrap;
-	@apply font-medium type-scale-1;
-	@apply px-3 py-0.5;
-	@apply rounded;
+  @apply inline-flex items-center justify-center space-x-2 whitespace-nowrap;
+  @apply type-scale-1 font-medium;
+  @apply px-3 py-0.5;
+  @apply rounded;
 }
 
 .badge-icon {
-	@apply size-6 inline-flex justify-center items-center rounded-full;
-	@apply font-medium type-scale-1;
+  @apply inline-flex size-6 items-center justify-center rounded-full;
+  @apply type-scale-1 font-medium;
 }

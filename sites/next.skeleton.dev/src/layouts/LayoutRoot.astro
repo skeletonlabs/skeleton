@@ -2,8 +2,8 @@
 import '@styles/app.css';
 
 interface Props {
-	title?: string;
-	classList?: string;
+  title?: string;
+  classList?: string;
 }
 
 const { title, classList } = Astro.props satisfies Props;
@@ -13,15 +13,15 @@ const pageTitle = `${title ? title + ' - ' : ''}Skeleton`;
 
 <!doctype html>
 <html lang="en" class="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body class:list={[classList]} data-theme="cerberus">
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body class:list={[classList]} data-theme="cerberus">
+    <slot />
+  </body>
 </html>

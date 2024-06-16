@@ -3,11 +3,11 @@ import { Icon } from 'astro-icon/components';
 import { frameworks } from 'src/stores/preferred-framework';
 
 function getPathAndFramework(pathname: string) {
-	const parts = pathname.split('/').filter(Boolean);
-	const path = parts.slice(0, -1).join('/');
-	const frameworkSlug = parts.at(-1);
-	const framework = frameworks.find(({ slug }) => slug === frameworkSlug);
-	return [path, framework] as const;
+  const parts = pathname.split('/').filter(Boolean);
+  const path = parts.slice(0, -1).join('/');
+  const frameworkSlug = parts.at(-1);
+  const framework = frameworks.find(({ slug }) => slug === frameworkSlug);
+  return [path, framework] as const;
 }
 
 const [path, framework] = getPathAndFramework(Astro.url.pathname);
@@ -15,35 +15,30 @@ const [path, framework] = getPathAndFramework(Astro.url.pathname);
 // Classes
 const cBtn = 'flex justify-center items-center space-x-4 py-8 rounded-tl-container rounded-tr-container';
 const cActive =
-	'bg-gradient-to-b from-surface-100 dark:from-surface-900/30 to-transparent border-t border-l border-r border-surface-200-800';
-const cHover =
-	'hover:bg-gradient-to-t from-surface-100 dark:from-surface-900/30 to-transparent border-b border-surface-200-800';
+  'bg-gradient-to-b from-surface-100 dark:from-surface-900/30 to-transparent border-t border-l border-r border-surface-200-800';
+const cHover = 'hover:bg-gradient-to-t from-surface-100 dark:from-surface-900/30 to-transparent border-b border-surface-200-800';
 ---
 
 {
-	framework && (
-		<nav class="grid grid-cols-2">
-			{frameworks.map(({ name, slug, iconName }) => (
-				<a
-					data-framework={slug}
-					href={`/${path}/${slug}`}
-					class:list={[cBtn, framework.slug === slug ? cActive : cHover]}
-				>
-					<Icon name={iconName} size={24} />
-					<span>{name}</span>
-				</a>
-			))}
-		</nav>
-	)
+  framework && (
+    <nav class="grid grid-cols-2">
+      {frameworks.map(({ name, slug, iconName }) => (
+        <a data-framework={slug} href={`/${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
+          <Icon name={iconName} size={24} />
+          <span>{name}</span>
+        </a>
+      ))}
+    </nav>
+  )
 }
 
 <script>
-	import { isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
+  import { isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
 
-	for (const frameworkTab of document.querySelectorAll('[data-framework]')) {
-		const framework = frameworkTab.getAttribute('data-framework');
-		if (!framework) continue;
-		if (!isFramework(framework)) continue;
-		frameworkTab.addEventListener('click', () => preferredFrameworkStore.set(framework));
-	}
+  for (const frameworkTab of document.querySelectorAll('[data-framework]')) {
+    const framework = frameworkTab.getAttribute('data-framework');
+    if (!framework) continue;
+    if (!isFramework(framework)) continue;
+    frameworkTab.addEventListener('click', () => preferredFrameworkStore.set(framework));
+  }
 </script>

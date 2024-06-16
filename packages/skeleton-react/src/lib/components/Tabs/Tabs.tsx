@@ -1,21 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  TabsProps,
-  TabsListProps,
-  TabsControlProps,
-  TabsControlItemProps,
-  TabsPanelItemProps,
-} from "./types.js";
+import React, { useEffect, useRef, useState } from 'react';
+import { TabsProps, TabsListProps, TabsControlProps, TabsControlItemProps, TabsPanelItemProps } from './types.js';
 
 // Components ---
 const TabsRoot: React.FC<TabsProps> = ({
-  id = "",
+  id = '',
   // Root
-  base = "w-full",
-  spaceY = "space-y-4",
-  classes = "",
+  base = 'w-full',
+  spaceY = 'space-y-4',
+  classes = '',
   // Children
-  children,
+  children
 }) => {
   return (
     <div id={id} className={`${base} ${spaceY} ${classes}`} data-testid="tabs">
@@ -26,53 +20,50 @@ const TabsRoot: React.FC<TabsProps> = ({
 
 const TabsList: React.FC<TabsListProps> = ({
   // Root
-  base = "flex",
-  justify = "justify-start",
-  gap = "gap-2",
-  border = "border-b border-surface-200-800",
-  classes = "",
+  base = 'flex',
+  justify = 'justify-start',
+  gap = 'gap-2',
+  border = 'border-b border-surface-200-800',
+  classes = '',
   // Children
-  children,
+  children
 }) => {
   return (
-    <div
-      className={`${base} ${gap} ${justify} ${border} ${classes}`}
-      role="tablist"
-    >
+    <div className={`${base} ${gap} ${justify} ${border} ${classes}`} role="tablist">
       {children}
     </div>
   );
 };
 
 const TabsControl: React.FC<TabsControlProps> = ({
-  id = "",
+  id = '',
   name,
   group,
-  title = "",
+  title = '',
   // A11y
-  label = "",
-  controls = "",
+  label = '',
+  controls = '',
   // Root
-  base = "group",
-  width = "",
-  active = "text-surface-950-50 border-surface-950-50",
-  inactive = "text-surface-600-400 border-transparent",
-  flex = "flex justify-center items-center",
-  background = "",
-  border = "border-b",
-  text = "type-scale-3",
-  padding = "pb-2",
-  rounded = "",
-  gap = "gap-1",
-  cursor = "cursor-pointer",
-  classes = "",
+  base = 'group',
+  width = '',
+  active = 'text-surface-950-50 border-surface-950-50',
+  inactive = 'text-surface-600-400 border-transparent',
+  flex = 'flex justify-center items-center',
+  background = '',
+  border = 'border-b',
+  text = 'type-scale-3',
+  padding = 'pb-2',
+  rounded = '',
+  gap = 'gap-1',
+  cursor = 'cursor-pointer',
+  classes = '',
   // Events
   onClick = () => {},
   onKeydown = () => {},
   onKeyup = () => {},
   onChange = () => {},
   // Children
-  children,
+  children
 }) => {
   const [selected, setSelected] = useState(group === name);
   useEffect(() => {
@@ -94,8 +85,7 @@ const TabsControl: React.FC<TabsControlProps> = ({
     onKeydown(event);
 
     // If select key events
-    if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.code))
-      return;
+    if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.code)) return;
 
     const elemInput = elemInputRef.current;
     if (!elemInput) return;
@@ -110,7 +100,7 @@ const TabsControl: React.FC<TabsControlProps> = ({
     if (!tabList) return;
 
     // Get RTL mode
-    const isRTL = getComputedStyle(tabList).direction === "rtl";
+    const isRTL = getComputedStyle(tabList).direction === 'rtl';
     // Get list of tab elements
     const tabs = Array.from(tabList.querySelectorAll('[role="tab"]'));
     // Get a reference to the current tab
@@ -119,24 +109,24 @@ const TabsControl: React.FC<TabsControlProps> = ({
     // Determine the index of the next tab
     let nextIndex = -1;
     switch (event.code) {
-      case "ArrowRight":
+      case 'ArrowRight':
         if (isRTL) {
           nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
           break;
         }
         nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
         break;
-      case "ArrowLeft":
+      case 'ArrowLeft':
         if (isRTL) {
           nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
           break;
         }
         nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
         break;
-      case "Home":
+      case 'Home':
         nextIndex = 0;
         break;
-      case "End":
+      case 'End':
         nextIndex = tabs.length - 1;
         break;
     }
@@ -144,7 +134,7 @@ const TabsControl: React.FC<TabsControlProps> = ({
 
     // Set Active Tab
     const nextTab = tabs![nextIndex!];
-    const nextTabInput = nextTab?.querySelector("input");
+    const nextTabInput = nextTab?.querySelector('input');
     if (nextTabInput) {
       nextTabInput.click();
       (nextTab as HTMLDivElement).focus();
@@ -191,46 +181,34 @@ const TabsControl: React.FC<TabsControlProps> = ({
 
 const TabsControlItem: React.FC<TabsControlItemProps> = ({
   // Root
-  base = "w-full",
-  flex = "flex justify-center items-center",
-  gap = "gap-2",
-  background = "group-hover:preset-tonal-primary",
-  padding = "p-2 px-4",
-  rounded = "rounded-container",
-  classes = "",
+  base = 'w-full',
+  flex = 'flex justify-center items-center',
+  gap = 'gap-2',
+  background = 'group-hover:preset-tonal-primary',
+  padding = 'p-2 px-4',
+  rounded = 'rounded-container',
+  classes = '',
   // Children
-  children,
+  children
 }) => {
-  return (
-    <div
-      className={`${base} ${flex} ${gap} ${background} ${padding} ${rounded} ${classes}`}
-    >
-      {children}
-    </div>
-  );
+  return <div className={`${base} ${flex} ${gap} ${background} ${padding} ${rounded} ${classes}`}>{children}</div>;
 };
 
 const TabsPanelItem: React.FC<TabsPanelItemProps> = ({
-  id = "",
+  id = '',
   value,
   group,
   // A11y
   labelledBy,
   // Root
-  classes = "",
+  classes = '',
   // Children
-  children,
+  children
 }) => {
   return (
     value === group &&
     children && (
-      <div
-        id={id}
-        role="tabpanel"
-        tabIndex={0}
-        aria-labelledby={labelledBy}
-        className={classes}
-      >
+      <div id={id} role="tabpanel" tabIndex={0} aria-labelledby={labelledBy} className={classes}>
         {children}
       </div>
     )
@@ -241,5 +219,5 @@ export const Tabs = Object.assign(TabsRoot, {
   List: TabsList,
   Control: TabsControl,
   Panel: TabsPanelItem,
-  Item: TabsControlItem,
+  Item: TabsControlItem
 });

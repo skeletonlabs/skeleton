@@ -10,27 +10,27 @@ const json = readFileSync('../../packages/skeleton/package.json', 'utf8');
 const pkg = JSON.parse(json);
 
 const config: UserConfig = {
-	plugins: [
-		sveltekit(),
-		sveld(),
-		skeletonPluginWatcher(),
-		purgeCss({
-			safelist: {
-				// Allow selectors with a regex match:
-				greedy: [
-					// Used for Highlight.js (code blocks)
-					/^hljs-/,
-					// Used for Highlight.js (code blocks)
-					/^kg-/,
-					// Used for Carbon ad styles
-					/carbonads/
-				]
-			}
-		})
-	],
-	define: {
-		__PACKAGE__: pkg
-	}
+  plugins: [
+    sveltekit(),
+    sveld(),
+    skeletonPluginWatcher(),
+    purgeCss({
+      safelist: {
+        // Allow selectors with a regex match:
+        greedy: [
+          // Used for Highlight.js (code blocks)
+          /^hljs-/,
+          // Used for Highlight.js (code blocks)
+          /^kg-/,
+          // Used for Carbon ad styles
+          /carbonads/
+        ]
+      }
+    })
+  ],
+  define: {
+    __PACKAGE__: pkg
+  }
 };
 
 export default config;

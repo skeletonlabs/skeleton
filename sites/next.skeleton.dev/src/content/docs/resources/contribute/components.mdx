@@ -31,9 +31,9 @@ pnpm run dev
 
 The following represents the _default_ localhost address and port for each project. This will be displayed in the terminal when starting each dev server.
 
--   Documentation Site: `http://localhost:4321/`
--   Svelte Package App: `http://localhost:5173/`
--   React Package App: `http://localhost:5173/`
+- Documentation Site: `http://localhost:4321/`
+- Svelte Package App: `http://localhost:5173/`
+- React Package App: `http://localhost:5173/`
 
 You may run the documentation site and framework packages in parallel at the same time. If the server shares a port, this will increment by one for the next server (ex: `5174`, `5175`, etc). Keep your eye on the terminal to retrieve the specific local address.
 
@@ -78,28 +78,28 @@ let {
 } = $props<ExampleProps>();
 ```
 
--   **Functional** - these should be single instance props that directly affect the functionality of the component.
--   **Style** - contain and accept Tailwind utility classes to affect the style of the component.
--   **Event** - provide callback functions for external event handlers.
--   **Children** - contain reference to React children, Svelte Snippets, or similar.
+- **Functional** - these should be single instance props that directly affect the functionality of the component.
+- **Style** - contain and accept Tailwind utility classes to affect the style of the component.
+- **Event** - provide callback functions for external event handlers.
+- **Children** - contain reference to React children, Svelte Snippets, or similar.
 
 ### Style Prop Conventions
 
 Style props implement sementic naming conventions to enable specificity and avoid naming conflicts. These are organized into three specific categories. Each should be maintained in the following order.
 
--   `base` - houses the base utility classes, which enables faux-headless styling.
-    -   Replaces: `cBase` class definitions from Skeleton v2.
-    -   Parent base props are not prefixed, which helps maintain parity cross-framework
-    -   Child base props are prefixed: `titleBase`, `panelBase`, `controlBase`.
--   `{property}` - individual style props that houses one or more “swappable” utility classes.
-    -   Naming should follow Tailwind convention, except for single letter descriptors (ex: use `padding` instead of `p`).
-    -   Parent props are not prefixed: `background`, `margin`, `border`.
-    -   Child props are prefixed: `titleBg`, `controlMargin`, `panelBorder`.
--   `classes` - allows you to extend or override the class list with an arbitrary set of utility classes.
-    -   Replaces the inconsistent use of `slotX` and `regionX` classes in Skeleton v2.
-    -   Uses `classes` (plural) to avoid conflict with the standard `class` attribute.
-        -   Parent instances are not prefixed: `classes`
-        -   Child instances are prefixed: `titleClasses`, `controlClasses`, `panelClasses`
+- `base` - houses the base utility classes, which enables faux-headless styling.
+  - Replaces: `cBase` class definitions from Skeleton v2.
+  - Parent base props are not prefixed, which helps maintain parity cross-framework
+  - Child base props are prefixed: `titleBase`, `panelBase`, `controlBase`.
+- `{property}` - individual style props that houses one or more “swappable” utility classes.
+  - Naming should follow Tailwind convention, except for single letter descriptors (ex: use `padding` instead of `p`).
+  - Parent props are not prefixed: `background`, `margin`, `border`.
+  - Child props are prefixed: `titleBg`, `controlMargin`, `panelBorder`.
+- `classes` - allows you to extend or override the class list with an arbitrary set of utility classes.
+  - Replaces the inconsistent use of `slotX` and `regionX` classes in Skeleton v2.
+  - Uses `classes` (plural) to avoid conflict with the standard `class` attribute.
+    - Parent instances are not prefixed: `classes`
+    - Child instances are prefixed: `titleClasses`, `controlClasses`, `panelClasses`
 
 Here's what this might look like in practice.
 
@@ -124,10 +124,10 @@ let {
 ```html
 <!-- Parent -->
 <div class="{base} {bg} {classes}">
-	<!-- Child: Control -->
-	<div class="{controlBase} {controlBg} {controlClasses}">...</div>
-	<!-- Child: Panel -->
-	<div class="{panelBase} {panelBg} {panelPadding} {panelClasses}">...</div>
+  <!-- Child: Control -->
+  <div class="{controlBase} {controlBg} {controlClasses}">...</div>
+  <!-- Child: Panel -->
+  <div class="{panelBase} {panelBg} {panelPadding} {panelClasses}">...</div>
 </div>
 ```
 
@@ -137,16 +137,16 @@ You may need to conditionally update or swap between one or more sets of style p
 
 ```svelte
 <script lang="ts">
-    let {
-        active = true,
-        // ...
-        fooActive = '...',
-        fooInactive = '...'
-        // ...
-    } = $props<ExampleProps>();
+  let {
+    active = true,
+    // ...
+    fooActive = '...',
+    fooInactive = '...'
+    // ...
+  } = $props<ExampleProps>();
 
-    // Interceptor
-    const rxActive = $derived(active ? fooActive : fooInactive);
+  // Interceptor
+  const rxActive = $derived(active ? fooActive : fooInactive);
 </script>
 
 <div class="{base} {rxActive} {classes}">...</div>
@@ -162,28 +162,28 @@ All component props should be strongly typed using Typescript in a colocated `ty
 
 ```ts
 export interface AccordionItemProps {
-	/** Sets the open state of the item. */
-	open?: boolean;
+  /** Sets the open state of the item. */
+  open?: boolean;
 
-	// Parent ---
-	/** Set the parent base styles. */
-	base?: string;
-	/** Set the parent background styles. */
-	background?: string;
-	/** Provide the parent a set of arbitrary classes. */
-	classes?: string;
+  // Parent ---
+  /** Set the parent base styles. */
+  base?: string;
+  /** Set the parent background styles. */
+  background?: string;
+  /** Provide the parent a set of arbitrary classes. */
+  classes?: string;
 
-	// Lead ---
-	/** Sets the lead snippet element's base styles. */
-	leadBase?: string;
-	/** Sets the lead snippet element's padding styles. */
-	leadPadding?: string;
-	/** Provide arbitrary CSS classes to the lead snippet. */
-	leadClasses?: string;
+  // Lead ---
+  /** Sets the lead snippet element's base styles. */
+  leadBase?: string;
+  /** Sets the lead snippet element's padding styles. */
+  leadPadding?: string;
+  /** Provide arbitrary CSS classes to the lead snippet. */
+  leadClasses?: string;
 
-	// Children ---
-	/** The default slot contents within the component. */
-	children?: Snippet;
+  // Children ---
+  /** The default slot contents within the component. */
+  children?: Snippet;
 }
 ```
 
@@ -202,10 +202,7 @@ import { AccordionSchema } from '@skeletonlabs/skeleton-react/schemas';
 ```
 
 ```tsx
-<ApiTable
-	schema={AccordionSchema}
-	types={['AccordionProps', 'AccordionItemProps', '...']}
-/>
+<ApiTable schema={AccordionSchema} types={['AccordionProps', 'AccordionItemProps', '...']} />
 ```
 
 This will generate a styled table detailing type data for each type supplied.
@@ -233,10 +230,10 @@ For React, this is handled via small components that implement the dot notation 
 
 ```tsx
 <Accordion>
-	<Accordion.Item>
-		<Accordion.Control>(control)</Accordion.Control>
-		<Accordion.Panel>(panel)</Accordion.Panel>
-	</Accordion.Item>
+  <Accordion.Item>
+    <Accordion.Control>(control)</Accordion.Control>
+    <Accordion.Panel>(panel)</Accordion.Panel>
+  </Accordion.Item>
 </Accordion>
 ```
 
@@ -246,11 +243,11 @@ This is handled by pairing child components with [Svelte Snippets](https://svelt
 
 ```svelte
 <Accordion>
-	<Accordion.Item>
-		{#snippet controlLead()}(lead){/snippet}
-		{#snippet control()}(control){/snippet}
-		{#snippet panel()}(panel){/snippet}
-	</Accordion.Item>
+  <Accordion.Item>
+    {#snippet controlLead()}(lead){/snippet}
+    {#snippet control()}(control){/snippet}
+    {#snippet panel()}(panel){/snippet}
+  </Accordion.Item>
 </Accordion>
 ```
 
@@ -270,12 +267,12 @@ Then scaffold your component exports at the bottom of the file:
 
 ```ts
 export const Accordion = reactCompose(
-	AccordionRoot, // -> <Accordion>
-	{
-		Item: AccordionItem, // -> <Accordion.Item>
-		Control: AccordionControl, // -> <Accordion.Control>
-		Panel: AccordionPanel, // -> <Accordion.Panel>
-	},
+  AccordionRoot, // -> <Accordion>
+  {
+    Item: AccordionItem, // -> <Accordion.Item>
+    Control: AccordionControl, // -> <Accordion.Control>
+    Panel: AccordionPanel // -> <Accordion.Panel>
+  }
 );
 ```
 
@@ -314,6 +311,6 @@ export { default as Bar } from './components/Bar';
 
 ## Additional Resources
 
--   [Component Party](https://component-party.dev/) - easily compare features between each framework
--   [Svelte 5 Docs](https://svelte-5-preview.vercel.app/docs/introduction) - the temporary home of Svelte 5 documentation
--   [Svelte 5 REPL](https://svelte-5-preview.vercel.app/) - quickly test and share Svelte 5 code snippets
+- [Component Party](https://component-party.dev/) - easily compare features between each framework
+- [Svelte 5 Docs](https://svelte-5-preview.vercel.app/docs/introduction) - the temporary home of Svelte 5 documentation
+- [Svelte 5 REPL](https://svelte-5-preview.vercel.app/) - quickly test and share Svelte 5 code snippets

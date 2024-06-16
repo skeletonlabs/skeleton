@@ -7,43 +7,43 @@ import type { Theme } from './themes/index.js';
 import type { ConfigOptions } from './types.js';
 
 const skeleton = plugin.withOptions<ConfigOptions>(
-	// Plugin Creator
-	(options) => {
-		return ({ addBase, addComponents, addUtilities }) => {
-			const { components, base } = getSkeletonClasses();
-			const baseStyles: CSSRuleObject = {};
-			let componentStyles = components;
+  // Plugin Creator
+  (options) => {
+    return ({ addBase, addComponents, addUtilities }) => {
+      const { components, base } = getSkeletonClasses();
+      const baseStyles: CSSRuleObject = {};
+      let componentStyles = components;
 
-			// Base styles configuration
-			if (options?.base !== false) {
-				addBase(base);
-			}
+      // Base styles configuration
+      if (options?.base !== false) {
+        addBase(base);
+      }
 
-			// Theme configuration
-			options?.themes?.forEach((theme) => {
-				baseStyles[`:root [data-theme='${theme.name}']`] = theme.properties;
-			});
+      // Theme configuration
+      options?.themes?.forEach((theme) => {
+        baseStyles[`:root [data-theme='${theme.name}']`] = theme.properties;
+      });
 
-			// Prefix component classes
-			if (options?.prefix) {
-				const prefix = options?.prefix;
-				const root = postcssJs.parse(components);
-				root.walkRules((rule) => {
-					rule.selector = prefixSelector(prefix, rule.selector);
-				});
+      // Prefix component classes
+      if (options?.prefix) {
+        const prefix = options?.prefix;
+        const root = postcssJs.parse(components);
+        root.walkRules((rule) => {
+          rule.selector = prefixSelector(prefix, rule.selector);
+        });
 
-				componentStyles = postcssJs.objectify(root);
-			}
+        componentStyles = postcssJs.objectify(root);
+      }
 
-			addBase(baseStyles);
-			addUtilities(coreUtilities);
-			addComponents(componentStyles, { respectPrefix: false });
-		};
-	},
-	// Config
-	() => {
-		return { ...coreConfig };
-	}
+      addBase(baseStyles);
+      addUtilities(coreUtilities);
+      addComponents(componentStyles, { respectPrefix: false });
+    };
+  },
+  // Config
+  () => {
+    return { ...coreConfig };
+  }
 );
 
 export { skeleton };

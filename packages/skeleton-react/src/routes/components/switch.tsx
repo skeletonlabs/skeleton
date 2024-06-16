@@ -1,13 +1,6 @@
-import { useState } from "react";
-import { Switch } from "../../lib/components/Switch/Switch.js";
-import {
-  Check as IconCheck,
-  X as IconX,
-  Moon as IconMoon,
-  Sun as IconSun,
-  Frown as IconFrown,
-  Smile as IconSmile,
-} from "lucide-react";
+import { useState } from 'react';
+import { Switch } from '../../lib/components/Switch/Switch.js';
+import { Check as IconCheck, X as IconX, Moon as IconMoon, Sun as IconSun, Frown as IconFrown, Smile as IconSmile } from 'lucide-react';
 
 export function Component() {
   const [disturb, setDisturb] = useState(false);
@@ -22,46 +15,24 @@ export function Component() {
       <header>
         <h1 className="h1">Switch</h1>
       </header>
-      <pre className="pre">
-        {JSON.stringify(
-          { disturb, notifications, disabled, icons, lightswitch, compact },
-          null,
-          2
-        )}
-      </pre>
+      <pre className="pre">{JSON.stringify({ disturb, notifications, disabled, icons, lightswitch, compact }, null, 2)}</pre>
       <section className="space-y-4">
-        <label className="label flex justify-between items-center gap-4">
+        <label className="label flex items-center justify-between gap-4">
           <p>Defaults to inactive state.</p>
-          <Switch
-            id="disturb"
-            name="disturb"
-            checked={disturb}
-            onCheckedChange={setDisturb}
-          />
+          <Switch id="disturb" name="disturb" checked={disturb} onCheckedChange={setDisturb} />
         </label>
         <hr className="hr" />
-        <label className="label flex justify-between items-center gap-4">
+        <label className="label flex items-center justify-between gap-4">
           <p>Defaults to active state.</p>
-          <Switch
-            id="notifications"
-            name="notifications"
-            checked={notifications}
-            onCheckedChange={setNotifications}
-          />
+          <Switch id="notifications" name="notifications" checked={notifications} onCheckedChange={setNotifications} />
         </label>
         <hr className="hr" />
-        <label className="label flex justify-between items-center gap-4">
+        <label className="label flex items-center justify-between gap-4">
           <p>Uses the disabled state.</p>
-          <Switch
-            id="disabled"
-            name="disabled"
-            checked={disabled}
-            onCheckedChange={setDisabled}
-            disabled
-          />
+          <Switch id="disabled" name="disabled" checked={disabled} onCheckedChange={setDisabled} disabled />
         </label>
         <hr className="hr" />
-        <label className="label flex justify-between items-center gap-4">
+        <label className="label flex items-center justify-between gap-4">
           <p>Custom Icons</p>
           <Switch
             id="icons"
@@ -74,7 +45,7 @@ export function Component() {
           />
         </label>
         <hr className="hr" />
-        <label className="label flex justify-between items-center gap-4">
+        <label className="label flex items-center justify-between gap-4">
           <p>Lightswitch</p>
           <Switch
             id="mode"
@@ -87,7 +58,7 @@ export function Component() {
           />
         </label>
         <hr className="hr" />
-        <label className="label flex justify-between items-center gap-4">
+        <label className="label flex items-center justify-between gap-4">
           <p>Compact</p>
           <Switch
             id="compact"

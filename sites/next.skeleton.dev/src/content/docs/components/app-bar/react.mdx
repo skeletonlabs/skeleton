@@ -14,23 +14,23 @@ import ExampleResponsiveRaw from '@examples/components/app-bars/ExampleResponsiv
 import { AppBarSchema } from '@skeletonlabs/skeleton-react/schemas';
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<Example />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="tsx" />
-	</Fragment>
+  <Fragment slot="preview">
+    <Example />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleRaw} lang="tsx" />
+  </Fragment>
 </Preview>
 
 ## Toolbar
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleToolbar />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleToolbarRaw} lang="tsx" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleToolbar />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleToolbarRaw} lang="tsx" />
+  </Fragment>
 </Preview>
 
 ## Responsive
@@ -38,24 +38,17 @@ import { AppBarSchema } from '@skeletonlabs/skeleton-react/schemas';
 Use Tailwind's [responsive design](https://tailwindcss.com/docs/responsive-design) breakpoints to adjust for various screen sizes.
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleResponsive client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleResponsiveRaw} lang="tsx" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleResponsive client:load />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleResponsiveRaw} lang="tsx" />
+  </Fragment>
 </Preview>
 
 ## API Reference
 
 <ApiTable
-	types={[
-		'AppBarProps',
-		'ToolBarProps',
-		'ToolbarLeadProps',
-		'ToolbarCenterProps',
-		'ToolbarTrailProps',
-		'AppBarHeadlineProps',
-	]}
-	schema={AppBarSchema}
+  types={['AppBarProps', 'ToolBarProps', 'ToolbarLeadProps', 'ToolbarCenterProps', 'ToolbarTrailProps', 'AppBarHeadlineProps']}
+  schema={AppBarSchema}
 />

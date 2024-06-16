@@ -17,41 +17,41 @@ import extendColors from './extends/colors.js';
 import extendSpacing from './extends/spacing.js';
 
 export const coreUtilities = {
-	...utilColorPairings(),
-	...utilTypography(),
-	...utilPresets()
+  ...utilColorPairings(),
+  ...utilTypography(),
+  ...utilPresets()
 };
 
 export const coreConfig = {
-	theme: {
-		extend: {
-			...extendAnimations(),
-			...extendBackgrounds(),
-			...extendBorders(),
-			...extendColors(),
-			...extendSpacing()
-		}
-	}
+  theme: {
+    extend: {
+      ...extendAnimations(),
+      ...extendBackgrounds(),
+      ...extendBorders(),
+      ...extendColors(),
+      ...extendSpacing()
+    }
+  }
 };
 
 export function getSkeletonClasses() {
-	// try/catch because it will throw when generated-classes.js isn't generated yet
-	try {
-		const { components, base } = require('./generated/generated-classes.cjs');
+  // try/catch because it will throw when generated-classes.js isn't generated yet
+  try {
+    const { components, base } = require('./generated/generated-classes.cjs');
 
-		if (typeof components !== 'object' || typeof base !== 'object') {
-			console.error('Failed to load Skeleton classes');
-			process.exitCode = 1;
-		}
+    if (typeof components !== 'object' || typeof base !== 'object') {
+      console.error('Failed to load Skeleton classes');
+      process.exitCode = 1;
+    }
 
-		return { components, base };
-	} catch {
-		console.error("generated-classes.cjs hasn't generated yet");
-	}
+    return { components, base };
+  } catch {
+    console.error("generated-classes.cjs hasn't generated yet");
+  }
 
-	return { components: undefined, base: undefined };
+  return { components: undefined, base: undefined };
 }
 
 export const corePlugin = plugin(({ addUtilities }) => {
-	addUtilities(coreUtilities);
+  addUtilities(coreUtilities);
 }, coreConfig);

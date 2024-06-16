@@ -1,49 +1,49 @@
 /* Components: Tables */
 
 .table-wrap {
-	@apply w-full overflow-auto;
+  @apply w-full overflow-auto;
 }
 
 /* Table --- */
 
 .table {
-	@apply relative w-full type-scale-2;
+  @apply type-scale-2 relative w-full;
 }
 
 /* Table Head --- */
 
 .table thead {
-	@apply text-surface-600-400;
-	@apply border-b border-surface-200-800;
+  @apply text-surface-600-400;
+  @apply border-surface-200-800 border-b;
 }
 
 .table th {
-	@apply text-left font-normal;
+  @apply text-left font-normal;
 }
 
 /* Table Body --- */
 
 .table tbody {
-	@apply divide-y divide-surface-200-800;
+  @apply divide-surface-200-800 divide-y;
 }
 
 /* Table Foot --- */
 
 .table tfoot {
-	@apply border-t border-surface-200-800;
-	@apply bg-surface-100-900;
+  @apply border-surface-200-800 border-t;
+  @apply bg-surface-100-900;
 }
 
 /* Table Cells */
 
 .table th,
 .table td {
-	@apply p-2;
+  @apply p-2;
 }
 
 /* Table Caption */
 
 .table caption {
-	@apply text-surface-600-400;
-	@apply type-scale-1;
+  @apply text-surface-600-400;
+  @apply type-scale-1;
 }

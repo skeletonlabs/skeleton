@@ -45,8 +45,8 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: "chore(release): version package"
-          title: "chore(release): version package"
+          commit: 'chore(release): version package'
+          title: 'chore(release): version package'
           publish: pnpm ci:release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

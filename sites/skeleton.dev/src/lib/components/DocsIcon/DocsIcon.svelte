@@ -1,35 +1,35 @@
 <script context="module">
-	import { icons } from './icons';
+  import { icons } from './icons';
 </script>
 
 <script lang="ts">
-	// Props
-	/** Pass canned svg name. Slot value overrides this.*/
-	export let name = 'placeholder';
-	/** Native X attribute for the svg element.*/
-	export let x = '0px';
-	/** Native Y attribute for the svg element.*/
-	export let y = '0px';
-	/** Native viewBox attribute for the svg element.*/
-	export let viewBox: string = icons[name].viewBox || '0 0 512 512';
+  // Props
+  /** Pass canned svg name. Slot value overrides this.*/
+  export let name = 'placeholder';
+  /** Native X attribute for the svg element.*/
+  export let x = '0px';
+  /** Native Y attribute for the svg element.*/
+  export let y = '0px';
+  /** Native viewBox attribute for the svg element.*/
+  export let viewBox: string = icons[name].viewBox || '0 0 512 512';
 
-	// Props (Styles)
-	/** Provide classes to set the SVG fill color.*/
-	export let fill = 'fill-current';
-	/** Provide classes to set the width color.*/
-	export let width = 'w-5';
-	/** Provide classes to set the height color.*/
-	export let height = 'h-5';
+  // Props (Styles)
+  /** Provide classes to set the SVG fill color.*/
+  export let fill = 'fill-current';
+  /** Provide classes to set the width color.*/
+  export let width = 'w-5';
+  /** Provide classes to set the height color.*/
+  export let height = 'h-5';
 
-	// A11y
-	/** Set the title element value embedded within the SVG.*/
-	export let title = '';
+  // A11y
+  /** Set the title element value embedded within the SVG.*/
+  export let title = '';
 
-	// Base Classes
-	const cBase = 'inline-block outline-none';
+  // Base Classes
+  const cBase = 'inline-block outline-none';
 
-	// Reactive Classes
-	$: classesBase = `${cBase} ${fill} ${width} ${height}`;
+  // Reactive Classes
+  $: classesBase = `${cBase} ${fill} ${width} ${height}`;
 </script>
 
 <!-- prettier-ignore -->

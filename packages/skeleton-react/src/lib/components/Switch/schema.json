@@ -1,280 +1,252 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "Iterable<React.ReactNode>": {
-            "propertyOrder": [
-                "__@iterator@83"
-            ],
-            "type": "object"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Iterable<React.ReactNode>": {
+      "propertyOrder": ["__@iterator@83"],
+      "type": "object"
+    },
+    "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+      "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+      "properties": {
+        "key": {
+          "type": "string"
         },
-        "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
-            "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "props": {
-                    "description": "The type of the props object"
-                },
-                "type": {
-                    "anyOf": [
-                        {
-                            "propertyOrder": [],
-                            "type": "object"
-                        },
-                        {
-                            "propertyOrder": [],
-                            "type": "object"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "description": "The type of the component or tag"
-                }
+        "props": {
+          "description": "The type of the props object"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "propertyOrder": [],
+              "type": "object"
             },
-            "propertyOrder": [
-                "type",
-                "props",
-                "key"
-            ],
-            "required": [
-                "key",
-                "props",
-                "type"
-            ],
-            "type": "object"
-        },
-        "React.ReactNode": {
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
-                },
-                {
-                    "$ref": "#/definitions/Iterable<React.ReactNode>"
-                },
-                {
-                    "$ref": "#/definitions/React.ReactPortal"
-                },
-                {
-                    "type": [
-                        "string",
-                        "number",
-                        "boolean"
-                    ]
-                }
-            ],
-            "description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
-        },
-        "React.ReactPortal": {
-            "properties": {
-                "children": {
-                    "$ref": "#/definitions/React.ReactNode"
-                },
-                "key": {
-                    "type": "string"
-                },
-                "props": {
-                    "description": "The type of the props object"
-                },
-                "type": {
-                    "anyOf": [
-                        {
-                            "propertyOrder": [],
-                            "type": "object"
-                        },
-                        {
-                            "propertyOrder": [],
-                            "type": "object"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "description": "The type of the component or tag"
-                }
+            {
+              "propertyOrder": [],
+              "type": "object"
             },
-            "propertyOrder": [
-                "children",
-                "type",
-                "props",
-                "key"
-            ],
-            "required": [
-                "children",
-                "key",
-                "props",
-                "type"
-            ],
-            "type": "object"
-        },
-        "SwitchProps": {
-            "properties": {
-                "activeChild": {
-                    "$ref": "#/definitions/React.ReactNode",
-                    "description": "The active state children."
-                },
-                "base": {
-                    "description": "Set base classes for the root element.",
-                    "type": "string"
-                },
-                "checked": {
-                    "description": "Set the checked state.",
-                    "type": "boolean"
-                },
-                "classes": {
-                    "description": "Provide arbitrary classes to the root element.",
-                    "type": "string"
-                },
-                "compact": {
-                    "description": "Set the compact display mode.",
-                    "type": "boolean"
-                },
-                "describedby": {
-                    "description": "Identifies the element that describes the switch.",
-                    "type": "string"
-                },
-                "disabled": {
-                    "description": "Set the disabled state.",
-                    "type": "boolean"
-                },
-                "height": {
-                    "description": "Set height classes for the root element.",
-                    "type": "string"
-                },
-                "hover": {
-                    "description": "Set hover classes for the root element.",
-                    "type": "string"
-                },
-                "iconActiveBase": {
-                    "description": "Set base classes for the active icon child.",
-                    "type": "string"
-                },
-                "iconInactiveBase": {
-                    "description": "Set base classes for the inactive icon child.",
-                    "type": "string"
-                },
-                "id": {
-                    "description": "Set a unique ID for the switch input.",
-                    "type": "string"
-                },
-                "inactiveChild": {
-                    "$ref": "#/definitions/React.ReactNode",
-                    "description": "The inactive state children."
-                },
-                "labelledby": {
-                    "description": "Identifies the element that labels the switch.",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "Set a unique name for the switch input.",
-                    "type": "string"
-                },
-                "onCheckedChange": {
-                    "description": "Triggers when the switch is toggled.",
-                    "propertyOrder": [],
-                    "type": "object"
-                },
-                "padding": {
-                    "description": "Set padding classes for the root element.",
-                    "type": "string"
-                },
-                "rounded": {
-                    "description": "Set rounded classes for the root element.",
-                    "type": "string"
-                },
-                "stateActive": {
-                    "description": "Set active state classes for the root element.",
-                    "type": "string"
-                },
-                "stateDisabled": {
-                    "description": "Set disabled state classes for the root element.",
-                    "type": "string"
-                },
-                "stateInactive": {
-                    "description": "Set inactive state classes for the root element.",
-                    "type": "string"
-                },
-                "thumbActive": {
-                    "description": "Set active classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbBase": {
-                    "description": "Set base classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbClasses": {
-                    "description": "Provide arbitrary classes to the thumb element.",
-                    "type": "string"
-                },
-                "thumbDuration": {
-                    "description": "Set animation duration classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbEase": {
-                    "description": "Set animation easing classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbInactive": {
-                    "description": "Set inactive classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbRounded": {
-                    "description": "Set rounded classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbTransition": {
-                    "description": "Set animation transition classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbTranslateX": {
-                    "description": "Set animation X-axis translate classes for the thumb element.",
-                    "type": "string"
-                },
-                "width": {
-                    "description": "Set width classes for the root element.",
-                    "type": "string"
-                }
-            },
-            "propertyOrder": [
-                "id",
-                "name",
-                "checked",
-                "disabled",
-                "compact",
-                "labelledby",
-                "describedby",
-                "base",
-                "stateInactive",
-                "stateActive",
-                "stateDisabled",
-                "width",
-                "height",
-                "padding",
-                "rounded",
-                "hover",
-                "classes",
-                "thumbBase",
-                "thumbInactive",
-                "thumbActive",
-                "thumbRounded",
-                "thumbTranslateX",
-                "thumbTransition",
-                "thumbEase",
-                "thumbDuration",
-                "thumbClasses",
-                "iconInactiveBase",
-                "iconActiveBase",
-                "onCheckedChange",
-                "inactiveChild",
-                "activeChild"
-            ],
-            "required": [
-                "id",
-                "name"
-            ],
-            "type": "object"
+            {
+              "type": "string"
+            }
+          ],
+          "description": "The type of the component or tag"
         }
+      },
+      "propertyOrder": ["type", "props", "key"],
+      "required": ["key", "props", "type"],
+      "type": "object"
+    },
+    "React.ReactNode": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+        },
+        {
+          "$ref": "#/definitions/Iterable<React.ReactNode>"
+        },
+        {
+          "$ref": "#/definitions/React.ReactPortal"
+        },
+        {
+          "type": ["string", "number", "boolean"]
+        }
+      ],
+      "description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+    },
+    "React.ReactPortal": {
+      "properties": {
+        "children": {
+          "$ref": "#/definitions/React.ReactNode"
+        },
+        "key": {
+          "type": "string"
+        },
+        "props": {
+          "description": "The type of the props object"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "propertyOrder": [],
+              "type": "object"
+            },
+            {
+              "propertyOrder": [],
+              "type": "object"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "The type of the component or tag"
+        }
+      },
+      "propertyOrder": ["children", "type", "props", "key"],
+      "required": ["children", "key", "props", "type"],
+      "type": "object"
+    },
+    "SwitchProps": {
+      "properties": {
+        "activeChild": {
+          "$ref": "#/definitions/React.ReactNode",
+          "description": "The active state children."
+        },
+        "base": {
+          "description": "Set base classes for the root element.",
+          "type": "string"
+        },
+        "checked": {
+          "description": "Set the checked state.",
+          "type": "boolean"
+        },
+        "classes": {
+          "description": "Provide arbitrary classes to the root element.",
+          "type": "string"
+        },
+        "compact": {
+          "description": "Set the compact display mode.",
+          "type": "boolean"
+        },
+        "describedby": {
+          "description": "Identifies the element that describes the switch.",
+          "type": "string"
+        },
+        "disabled": {
+          "description": "Set the disabled state.",
+          "type": "boolean"
+        },
+        "height": {
+          "description": "Set height classes for the root element.",
+          "type": "string"
+        },
+        "hover": {
+          "description": "Set hover classes for the root element.",
+          "type": "string"
+        },
+        "iconActiveBase": {
+          "description": "Set base classes for the active icon child.",
+          "type": "string"
+        },
+        "iconInactiveBase": {
+          "description": "Set base classes for the inactive icon child.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Set a unique ID for the switch input.",
+          "type": "string"
+        },
+        "inactiveChild": {
+          "$ref": "#/definitions/React.ReactNode",
+          "description": "The inactive state children."
+        },
+        "labelledby": {
+          "description": "Identifies the element that labels the switch.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Set a unique name for the switch input.",
+          "type": "string"
+        },
+        "onCheckedChange": {
+          "description": "Triggers when the switch is toggled.",
+          "propertyOrder": [],
+          "type": "object"
+        },
+        "padding": {
+          "description": "Set padding classes for the root element.",
+          "type": "string"
+        },
+        "rounded": {
+          "description": "Set rounded classes for the root element.",
+          "type": "string"
+        },
+        "stateActive": {
+          "description": "Set active state classes for the root element.",
+          "type": "string"
+        },
+        "stateDisabled": {
+          "description": "Set disabled state classes for the root element.",
+          "type": "string"
+        },
+        "stateInactive": {
+          "description": "Set inactive state classes for the root element.",
+          "type": "string"
+        },
+        "thumbActive": {
+          "description": "Set active classes for the thumb element.",
+          "type": "string"
+        },
+        "thumbBase": {
+          "description": "Set base classes for the thumb element.",
+          "type": "string"
+        },
+        "thumbClasses": {
+          "description": "Provide arbitrary classes to the thumb element.",
+          "type": "string"
+        },
+        "thumbDuration": {
+          "description": "Set animation duration classes for the thumb element.",
+          "type": "string"
+        },
+        "thumbEase": {
+          "description": "Set animation easing classes for the thumb element.",
+          "type": "string"
+        },
+        "thumbInactive": {
+          "description": "Set inactive classes for the thumb element.",
+          "type": "string"
+        },
+        "thumbRounded": {
+          "description": "Set rounded classes for the thumb element.",
+          "type": "string"
+        },
+        "thumbTransition": {
+          "description": "Set animation transition classes for the thumb element.",
+          "type": "string"
+        },
+        "thumbTranslateX": {
+          "description": "Set animation X-axis translate classes for the thumb element.",
+          "type": "string"
+        },
+        "width": {
+          "description": "Set width classes for the root element.",
+          "type": "string"
+        }
+      },
+      "propertyOrder": [
+        "id",
+        "name",
+        "checked",
+        "disabled",
+        "compact",
+        "labelledby",
+        "describedby",
+        "base",
+        "stateInactive",
+        "stateActive",
+        "stateDisabled",
+        "width",
+        "height",
+        "padding",
+        "rounded",
+        "hover",
+        "classes",
+        "thumbBase",
+        "thumbInactive",
+        "thumbActive",
+        "thumbRounded",
+        "thumbTranslateX",
+        "thumbTransition",
+        "thumbEase",
+        "thumbDuration",
+        "thumbClasses",
+        "iconInactiveBase",
+        "iconActiveBase",
+        "onCheckedChange",
+        "inactiveChild",
+        "activeChild"
+      ],
+      "required": ["id", "name"],
+      "type": "object"
     }
+  }
 }
-

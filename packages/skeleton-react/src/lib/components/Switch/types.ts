@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export interface SwitchProps {
   /** Set a unique ID for the switch input. */

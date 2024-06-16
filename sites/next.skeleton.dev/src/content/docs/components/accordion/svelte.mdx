@@ -10,12 +10,12 @@ import ExampleRaw from '@examples/components/accordions/Example.svelte?raw';
 {/* --- */}
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<Example client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="svelte" />
-	</Fragment>
+  <Fragment slot="preview">
+    <Example client:load />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleRaw} lang="svelte" />
+  </Fragment>
 </Preview>
 
 ## Open State
@@ -27,6 +27,7 @@ Each Item `id` added to the Accordion `value` array will be open by default.
 ```ts
 const value = $state(['club']);
 ```
+
 ```tsx
 <Accordion value={value}>...</Accordion>
 ```

@@ -2,42 +2,42 @@
 
 .btn,
 .btn-icon {
-	@apply font-medium no-underline rounded;
-	@apply inline-flex items-center justify-center gap-4 whitespace-nowrap;
-	@apply transition-all hover:brightness-90 dark:hover:brightness-110;
+  @apply rounded font-medium no-underline;
+  @apply inline-flex items-center justify-center gap-4 whitespace-nowrap;
+  @apply transition-all hover:brightness-90 dark:hover:brightness-110;
 }
 
 /* Button Sizes --- */
 
 .btn {
-	@apply btn-md;
+  @apply btn-md;
 }
 .btn-icon {
-	@apply btn-icon-md;
+  @apply btn-icon-md;
 }
 
 .btn-sm {
-	@apply text-xs h-6 px-4 py-2;
+  @apply h-6 px-4 py-2 text-xs;
 }
 .btn-md {
-	@apply text-inherit h-9 px-4 py-2;
+  @apply h-9 px-4 py-2 text-inherit;
 }
 .btn-lg {
-	@apply text-xl h-12 px-4 py-2;
+  @apply h-12 px-4 py-2 text-xl;
 }
 
 .btn-icon-sm {
-	@apply text-xs size-6 p-2;
+  @apply size-6 p-2 text-xs;
 }
 .btn-icon-md {
-	@apply text-inherit size-9 p-2;
+  @apply size-9 p-2 text-inherit;
 }
 .btn-icon-lg {
-	@apply text-xl size-12 p-2;
+  @apply size-12 p-2 text-xl;
 }
 
 /* Button Groups --- */
 
 .btn-group {
-	@apply flex gap-2 rounded-container overflow-hidden p-2;
+  @apply rounded-container flex gap-2 overflow-hidden p-2;
 }

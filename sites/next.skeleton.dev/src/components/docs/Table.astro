@@ -1,48 +1,48 @@
 ---
 interface Props {
-	data: Record<string, string>[];
-	label?: string;
-	tonal?: boolean;
-	kbd?: boolean;
+  data: Record<string, string>[];
+  label?: string;
+  tonal?: boolean;
+  kbd?: boolean;
 }
 
 const { data, label, tonal, kbd } = Astro.props satisfies Props;
 ---
 
 <div class="table-wrap space-y-4">
-	{label && <strong class="opacity-60">{label}</strong>}
-	<table class="table">
-		<thead>
-			{
-				(
-					<tr>
-						{Object.keys(data[0]).map((header) => (
-							<th class="capitalize">{header}</th>
-						))}
-					</tr>
-				)
-			}
-		</thead>
-		<tbody>
-			{
-				data.map((tRow) => (
-					<tr>
-						{/* TODO: Find out why cell is being joined on on line 38. */}
-						{Object.values(tRow).map((cell: any, i) => {
-							// Tonal Cell
-							// prettier-ignore
-							if (i === 0 && tonal) return <td><code class="code">{cell}</code></td>
-							// KBD Cell
-							// prettier-ignore
-							if (i === 0 && kbd) return (
+  {label && <strong class="opacity-60">{label}</strong>}
+  <table class="table">
+    <thead>
+      {
+        (
+          <tr>
+            {Object.keys(data[0]).map((header) => (
+              <th class="capitalize">{header}</th>
+            ))}
+          </tr>
+        )
+      }
+    </thead>
+    <tbody>
+      {
+        data.map((tRow) => (
+          <tr>
+            {/* TODO: Find out why cell is being joined on on line 38. */}
+            {Object.values(tRow).map((cell: any, i) => {
+              // Tonal Cell
+              // prettier-ignore
+              if (i === 0 && tonal) return <td><code class="code">{cell}</code></td>
+              // KBD Cell
+              // prettier-ignore
+              if (i === 0 && kbd) return (
                                 <td><kbd class="kbd">{cell.join(' + ')}</kbd></td>
                             )
-							// Standard Cell
-							return <td>{cell ? cell : '-'}</td>;
-						})}
-					</tr>
-				))
-			}
-		</tbody>
-	</table>
+              // Standard Cell
+              return <td>{cell ? cell : '-'}</td>;
+            })}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
 </div>

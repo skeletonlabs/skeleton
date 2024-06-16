@@ -5,38 +5,38 @@
 import { Palette } from 'lucide-react';
 ---
 
-<div class="input-group grid-cols-[auto_1fr] divide-x divide-surface-200-800">
-	<div class="input-group-cell">
-		<Palette size={18} />
-	</div>
-	<select id="themesList">
-		<option value="cerberus" selected>Cerberus</option>
-		<option value="catppuccin">Catppuccin</option>
-		<option value="pine">Pine</option>
-		<option value="rose">Rose</option>
-	</select>
+<div class="input-group divide-surface-200-800 grid-cols-[auto_1fr] divide-x">
+  <div class="input-group-cell">
+    <Palette size={18} />
+  </div>
+  <select id="themesList">
+    <option value="cerberus" selected>Cerberus</option>
+    <option value="catppuccin">Catppuccin</option>
+    <option value="pine">Pine</option>
+    <option value="rose">Rose</option>
+  </select>
 </div>
 
 <script is:inline>
-	const elemSelect = document.getElementById('themesList');
-	const lsTheme = localStorage.getItem('theme') || 'cerberus';
+  const elemSelect = document.getElementById('themesList');
+  const lsTheme = localStorage.getItem('theme') || 'cerberus';
 
-	// Init
-	elemSelect.value = lsTheme;
-	setBodyAttr(lsTheme);
+  // Init
+  elemSelect.value = lsTheme;
+  setBodyAttr(lsTheme);
 
-	// Change Handler
-	function onChangeHandler(event) {
-		const selectedTheme = event.target.value;
-		document.body.dataset.theme = selectedTheme;
-		setBodyAttr(selectedTheme);
-		localStorage.setItem('theme', selectedTheme);
-	}
+  // Change Handler
+  function onChangeHandler(event) {
+    const selectedTheme = event.target.value;
+    document.body.dataset.theme = selectedTheme;
+    setBodyAttr(selectedTheme);
+    localStorage.setItem('theme', selectedTheme);
+  }
 
-	function setBodyAttr(theme) {
-		document.body.dataset.theme = theme;
-	}
+  function setBodyAttr(theme) {
+    document.body.dataset.theme = theme;
+  }
 
-	// Listeners
-	elemSelect.addEventListener('change', onChangeHandler);
+  // Listeners
+  elemSelect.addEventListener('change', onChangeHandler);
 </script>

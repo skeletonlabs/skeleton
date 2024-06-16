@@ -3,15 +3,15 @@ import type { GetStaticPaths } from 'astro';
 import { getCollection, getEntryBySlug } from 'astro:content';
 
 export const getStaticPaths = (async () => {
-	const entries = await getCollection('docs');
-	return entries.map((entry) => ({
-		params: {
-			slug: entry.slug,
-		},
-		props: {
-			entry,
-		},
-	}));
+  const entries = await getCollection('docs');
+  return entries.map((entry) => ({
+    params: {
+      slug: entry.slug
+    },
+    props: {
+      entry
+    }
+  }));
 }) satisfies GetStaticPaths;
 
 const { entry } = Astro.props;
@@ -25,7 +25,7 @@ const meta = await getEntryBySlug('docs', entry.slug.replace(/\/[^\/]*$/, '/meta
 // https://github.com/withastro/astro/issues/7972
 // https://docs.astro.build/en/guides/content-collections/#modifying-frontmatter-with-remark
 if (meta !== undefined) {
-	Object.assign(remarkPluginFrontmatter, meta.data);
+  Object.assign(remarkPluginFrontmatter, meta.data);
 }
 ---
 

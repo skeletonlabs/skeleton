@@ -11,10 +11,5 @@
     "skeleton.dev": "1.0.1",
     "themes.skeleton.dev": "0.0.1"
   },
-  "changesets": [
-    "chilled-comics-hear",
-    "lovely-dingos-join",
-    "mean-schools-double",
-    "six-tables-warn"
-  ]
+  "changesets": ["chilled-comics-hear", "lovely-dingos-join", "mean-schools-double", "six-tables-warn"]
 }

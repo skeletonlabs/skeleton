@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React from "react";
-import { SwitchProps } from "./types.js";
+import React from 'react';
+import { SwitchProps } from './types.js';
 
 export const Switch: React.FC<SwitchProps> = ({
-  id = "",
-  name = "",
+  id = '',
+  name = '',
   checked = false,
   disabled = false,
   compact = false,
@@ -13,47 +13,47 @@ export const Switch: React.FC<SwitchProps> = ({
   labelledby = undefined,
   describedby = undefined,
   // Root (Track)
-  base = "flex cursor-pointer transition duration-200",
-  stateInactive = "preset-filled-surface-200-800",
-  stateActive = "preset-filled-primary-500",
-  stateDisabled = "opacity-50 cursor-not-allowed",
-  width = "w-10",
-  height = "h-6",
-  padding = "p-0.5",
-  rounded = "rounded-full",
-  hover = "hover:brightness-90 dark:hover:brightness-110",
-  classes = "",
+  base = 'flex cursor-pointer transition duration-200',
+  stateInactive = 'preset-filled-surface-200-800',
+  stateActive = 'preset-filled-primary-500',
+  stateDisabled = 'opacity-50 cursor-not-allowed',
+  width = 'w-10',
+  height = 'h-6',
+  padding = 'p-0.5',
+  rounded = 'rounded-full',
+  hover = 'hover:brightness-90 dark:hover:brightness-110',
+  classes = '',
   // Thumb
-  thumbBase = "right-0 aspect-square h-full flex justify-center items-center text-right",
-  thumbInactive = "preset-filled-surface-50-950",
-  thumbActive = "bg-surface-50 text-surface-contrast-50",
-  thumbRounded = "rounded-full",
-  thumbTranslateX = "translate-x-4",
-  thumbTransition = "transition",
-  thumbEase = "ease-in-out",
-  thumbDuration = "duration-200",
-  thumbClasses = "",
+  thumbBase = 'right-0 aspect-square h-full flex justify-center items-center text-right',
+  thumbInactive = 'preset-filled-surface-50-950',
+  thumbActive = 'bg-surface-50 text-surface-contrast-50',
+  thumbRounded = 'rounded-full',
+  thumbTranslateX = 'translate-x-4',
+  thumbTransition = 'transition',
+  thumbEase = 'ease-in-out',
+  thumbDuration = 'duration-200',
+  thumbClasses = '',
   // Icons
-  iconInactiveBase = "pointer-events-none",
-  iconActiveBase = "pointer-events-none",
+  iconInactiveBase = 'pointer-events-none',
+  iconActiveBase = 'pointer-events-none',
   // Events
   onCheckedChange = () => {},
   // Children
   inactiveChild,
-  activeChild,
+  activeChild
 }) => {
   // Set Compact Mode
   if (compact) {
     base = thumbBase;
     // Removes the height class
-    height = "";
+    height = '';
     // Thumb inherits track styles
     thumbInactive = stateInactive;
     thumbActive = stateActive;
     // Remove X-axis translate
-    thumbTranslateX = "";
+    thumbTranslateX = '';
     // Remove padding
-    padding = "";
+    padding = '';
   }
 
   function toggle() {
@@ -63,10 +63,8 @@ export const Switch: React.FC<SwitchProps> = ({
   }
 
   const rxTrackState = checked ? stateActive : stateInactive;
-  const rxThumbState = checked
-    ? `${thumbActive} ${thumbTranslateX}`
-    : thumbInactive;
-  const rxDisabled = disabled ? stateDisabled : "";
+  const rxThumbState = checked ? `${thumbActive} ${thumbTranslateX}` : thumbInactive;
+  const rxDisabled = disabled ? stateDisabled : '';
 
   return (
     <button
@@ -80,27 +78,13 @@ export const Switch: React.FC<SwitchProps> = ({
       data-testid="switch"
     >
       {/* Input (hidden) */}
-      <input
-        type="checkbox"
-        id={id}
-        name={name}
-        checked={checked}
-        onChange={() => {}}
-        className="hidden"
-        disabled={disabled}
-      />
+      <input type="checkbox" id={id} name={name} checked={checked} onChange={() => {}} className="hidden" disabled={disabled} />
       {/* Thumb */}
-      <div
-        className={`${thumbBase} ${rxThumbState} ${thumbRounded} ${thumbTransition} ${thumbEase} ${thumbDuration} ${thumbClasses}`}
-      >
+      <div className={`${thumbBase} ${rxThumbState} ${thumbRounded} ${thumbTransition} ${thumbEase} ${thumbDuration} ${thumbClasses}`}>
         {/* Icon Inactive */}
-        {!checked && inactiveChild ? (
-          <span className={iconInactiveBase}>{inactiveChild}</span>
-        ) : null}
+        {!checked && inactiveChild ? <span className={iconInactiveBase}>{inactiveChild}</span> : null}
         {/* Icon Active */}
-        {checked && activeChild ? (
-          <span className={iconActiveBase}>{activeChild}</span>
-        ) : null}
+        {checked && activeChild ? <span className={iconActiveBase}>{activeChild}</span> : null}
       </div>
     </button>
   );

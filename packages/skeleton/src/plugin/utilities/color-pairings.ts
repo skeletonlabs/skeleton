@@ -19,40 +19,40 @@ ex: {property}-primary-50-950 | {property}-primary-950-50
 import { settings, type TailwindClasses } from '../settings.js';
 
 function directional(key: string) {
-	return [key, `${key}-t`, `${key}-b`, `${key}-l`, `${key}-r`];
+  return [key, `${key}-t`, `${key}-b`, `${key}-l`, `${key}-r`];
 }
 
 export const utilColorPairings = () => {
-	const properties = [
-		'bg',
-		'text',
-		...directional('border'),
-		'ring',
-		'accent',
-		'shadow',
-		'decoration',
-		'divide',
-		'outline',
-		'caret',
-		'stroke',
-		'fill'
-	];
-	const classes: TailwindClasses = {};
-	// Loop each color name
-	settings.colorNames.forEach((n) => {
-		// Loop each property
-		properties.forEach((property) => {
-			// Loop each color pairing set
-			settings.colorPairings.forEach((p) => {
-				// Generate the class name
-				classes[`.${property}-${n}-${p.light}-${p.dark}`] = {
-					// Generate the @apply styles
-					[`@apply ${property}-${n}-${p.light} dark:${property}-${n}-${p.dark}`]: {}
-				};
-			});
-		});
-	});
-	return classes;
+  const properties = [
+    'bg',
+    'text',
+    ...directional('border'),
+    'ring',
+    'accent',
+    'shadow',
+    'decoration',
+    'divide',
+    'outline',
+    'caret',
+    'stroke',
+    'fill'
+  ];
+  const classes: TailwindClasses = {};
+  // Loop each color name
+  settings.colorNames.forEach((n) => {
+    // Loop each property
+    properties.forEach((property) => {
+      // Loop each color pairing set
+      settings.colorPairings.forEach((p) => {
+        // Generate the class name
+        classes[`.${property}-${n}-${p.light}-${p.dark}`] = {
+          // Generate the @apply styles
+          [`@apply ${property}-${n}-${p.light} dark:${property}-${n}-${p.dark}`]: {}
+        };
+      });
+    });
+  });
+  return classes;
 };
 
 export default utilColorPairings;
