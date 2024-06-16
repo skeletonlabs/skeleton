@@ -41,19 +41,20 @@ export const ProgressRing: FC<ProgressRingProps> = ({
   // Local
   const baseSize = 512; // px
   const radius: number = baseSize / 2 - strokeWidth / 2;
-  let [circumference, setCircumference] = useState<number>(radius);
-  let [dashoffset, setDashoffset] = useState<number>(0);
+  const [circumference, setCircumference] = useState<number>(radius);
+  const [dashoffset, setDashoffset] = useState<number>(0);
 
   useEffect(() => {
-    setDashoffset(calcDashOffset());
-  }, [value, max, circumference, dashoffset]);
+    // Since calcDashOffset is only used in this effect, it's implementation should be inside the effect to avoid a rerender loop
+    const calcDashOffset = () => {
+      const v = value !== undefined ? value : 25;
+      const percent = (100 * v) / max;
+      setCircumference(radius * 2 * Math.PI);
+      return circumference - (percent / 100) * circumference;
+    };
 
-  function calcDashOffset() {
-    const v = value !== undefined ? value : 25;
-    const percent = (100 * v) / max;
-    setCircumference(radius * 2 * Math.PI);
-    return circumference - (percent / 100) * circumference;
-  }
+    setDashoffset(calcDashOffset());
+  }, [circumference, max, radius, setCircumference, value]);
 
   return (
     <figure

@@ -41,7 +41,7 @@ function filterAvatar() {
     <>
       {/* Filter example */}
       {/* NoirLight: `filter: url(#NoirLight)` */}
-      <svg id="svg-filter-noirlight" className="absolute -left-full h-0 w-0 filter">
+      <svg id="svg-filter-noirlight" className="absolute w-0 h-0 -left-full filter">
         <filter
           id="NoirLight"
           x="-20%"
@@ -50,7 +50,7 @@ function filterAvatar() {
           height="140%"
           filterUnits="objectBoundingBox"
           primitiveUnits="userSpaceOnUse"
-          color-interpolation-filters="linearRGB"
+          colorInterpolationFilters="linearRGB"
         >
           <feColorMatrix type="saturate" values="0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="colormatrix2" />
           <feBlend mode="saturation" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="colormatrix2" result="blend2" />

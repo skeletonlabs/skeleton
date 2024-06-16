@@ -15,12 +15,12 @@ function App() {
   return (
     <div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]" data-testid="app">
       {/* Nav */}
-      <div className="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
-        <a className="type-scale-3 bg-blue-500 p-2 font-mono font-bold text-white" href="/">
+      <div className="p-8 space-y-8 overflow-y-auto bg-surface-100-900">
+        <a className="p-2 font-mono font-bold text-white bg-blue-500 type-scale-3" href="/">
           skeleton-react
         </a>
         <hr className="hr" />
-        <label className="label flex items-center justify-between gap-4">
+        <label htmlFor="mode" className="flex items-center justify-between gap-4 label">
           <p>Set Mode</p>
           <Switch
             id="mode"
@@ -36,7 +36,7 @@ function App() {
         {/* Components */}
         <div className="space-y-8">
           <span className="font-bold">Components</span>
-          <nav className="type-scale-2 flex flex-col gap-2">
+          <nav className="flex flex-col gap-2 type-scale-2">
             <a className="anchor" href="/components/accordions">
               Accordions
             </a>
@@ -62,7 +62,7 @@ function App() {
         </div>
       </div>
       {/* Page */}
-      <main className="overflow-y-auto p-8">
+      <main className="p-8 overflow-y-auto">
         {/* --- Route Slot --- */}
         <Suspense fallback={<div>Loading...</div>}>
           <RouterProvider router={router} />

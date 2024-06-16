@@ -17,22 +17,22 @@ export function Component() {
       </header>
       <pre className="pre">{JSON.stringify({ disturb, notifications, disabled, icons, lightswitch, compact }, null, 2)}</pre>
       <section className="space-y-4">
-        <label className="label flex items-center justify-between gap-4">
+        <label htmlFor="disturb" className="flex items-center justify-between gap-4 label">
           <p>Defaults to inactive state.</p>
           <Switch id="disturb" name="disturb" checked={disturb} onCheckedChange={setDisturb} />
         </label>
         <hr className="hr" />
-        <label className="label flex items-center justify-between gap-4">
+        <label htmlFor="notifications" className="flex items-center justify-between gap-4 label">
           <p>Defaults to active state.</p>
           <Switch id="notifications" name="notifications" checked={notifications} onCheckedChange={setNotifications} />
         </label>
         <hr className="hr" />
-        <label className="label flex items-center justify-between gap-4">
+        <label htmlFor="disabled" className="flex items-center justify-between gap-4 label">
           <p>Uses the disabled state.</p>
           <Switch id="disabled" name="disabled" checked={disabled} onCheckedChange={setDisabled} disabled />
         </label>
         <hr className="hr" />
-        <label className="label flex items-center justify-between gap-4">
+        <label htmlFor="icons" className="flex items-center justify-between gap-4 label">
           <p>Custom Icons</p>
           <Switch
             id="icons"
@@ -45,7 +45,7 @@ export function Component() {
           />
         </label>
         <hr className="hr" />
-        <label className="label flex items-center justify-between gap-4">
+        <label htmlFor="mode" className="flex items-center justify-between gap-4 label">
           <p>Lightswitch</p>
           <Switch
             id="mode"
@@ -58,7 +58,7 @@ export function Component() {
           />
         </label>
         <hr className="hr" />
-        <label className="label flex items-center justify-between gap-4">
+        <label htmlFor="compact" className="flex items-center justify-between gap-4 label">
           <p>Compact</p>
           <Switch
             id="compact"
