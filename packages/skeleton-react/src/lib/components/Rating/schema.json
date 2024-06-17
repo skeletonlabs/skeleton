@@ -1,0 +1,263 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Iterable<React.ReactNode>": {
+            "propertyOrder": [
+                "__@iterator@83"
+            ],
+            "type": "object"
+        },
+        "RatingProps": {
+            "properties": {
+                "base": {
+                    "description": "Sets base styles.",
+                    "type": "string"
+                },
+                "buttonAspect": {
+                    "description": "Sets the button aspect ratio styles.",
+                    "type": "string"
+                },
+                "buttonBase": {
+                    "description": "Sets the button base styles.",
+                    "type": "string"
+                },
+                "buttonClasses": {
+                    "description": "Provide arbitrary CSS classes to the rating button.",
+                    "type": "string"
+                },
+                "buttonPosition": {
+                    "description": "Sets the button position styles.",
+                    "type": "string"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "emptyBase": {
+                    "description": "Set base styles for the empty icon.",
+                    "type": "string"
+                },
+                "emptyClasses": {
+                    "description": "Provide arbitrary CSS classes for the empty icon.",
+                    "type": "string"
+                },
+                "emptyClip": {
+                    "description": "Set the clip styles for the empty icon.",
+                    "type": "string"
+                },
+                "emptyInteractive": {
+                    "description": "Set interactive state styles for the empty icon.",
+                    "type": "string"
+                },
+                "emptyStatic": {
+                    "description": "Set non-interactive state styles for the empty icon.",
+                    "type": "string"
+                },
+                "fullBase": {
+                    "description": "Set base styles for the full icon.",
+                    "type": "string"
+                },
+                "fullClasses": {
+                    "description": "Provide arbitrary CSS classes for the full icon.",
+                    "type": "string"
+                },
+                "fullClip": {
+                    "description": "Set the clip styles for the full icon.",
+                    "type": "string"
+                },
+                "fullInteractive": {
+                    "description": "Set interactive state styles for the full icon.",
+                    "type": "string"
+                },
+                "fullStatic": {
+                    "description": "Set non-interactive state styles for the full icon.",
+                    "type": "string"
+                },
+                "iconEmpty": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "The empty icon children."
+                },
+                "iconFull": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "The full icon children."
+                },
+                "interactive": {
+                    "description": "Sets interactive mode.",
+                    "type": "boolean"
+                },
+                "justify": {
+                    "description": "Sets justification styles.",
+                    "type": "string"
+                },
+                "max": {
+                    "description": "Sets the maximum rating value.",
+                    "type": "number"
+                },
+                "onKeyDown": {
+                    "description": "Triggers on rating key down.",
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "onMouseDown": {
+                    "description": "Triggers on rating mouse down.",
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "onValueChange": {
+                    "description": "Triggers on rating value change.",
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "spaceX": {
+                    "description": "Sets horizontal spacing styles.",
+                    "type": "string"
+                },
+                "step": {
+                    "description": "Sets the rating fractional granularity.",
+                    "type": "number"
+                },
+                "value": {
+                    "description": "Sets the rating value.",
+                    "type": "number"
+                },
+                "width": {
+                    "description": "Sets width styles.",
+                    "type": "string"
+                }
+            },
+            "propertyOrder": [
+                "value",
+                "max",
+                "interactive",
+                "step",
+                "base",
+                "width",
+                "justify",
+                "spaceX",
+                "classes",
+                "buttonBase",
+                "buttonPosition",
+                "buttonAspect",
+                "buttonClasses",
+                "emptyBase",
+                "emptyClip",
+                "emptyInteractive",
+                "emptyStatic",
+                "emptyClasses",
+                "fullBase",
+                "fullClip",
+                "fullInteractive",
+                "fullStatic",
+                "fullClasses",
+                "onMouseDown",
+                "onKeyDown",
+                "onValueChange",
+                "iconEmpty",
+                "iconFull"
+            ],
+            "type": "object"
+        },
+        "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+            "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The type of the component or tag"
+                }
+            },
+            "propertyOrder": [
+                "type",
+                "props",
+                "key"
+            ],
+            "required": [
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        },
+        "React.ReactNode": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+                },
+                {
+                    "$ref": "#/definitions/Iterable<React.ReactNode>"
+                },
+                {
+                    "$ref": "#/definitions/React.ReactPortal"
+                },
+                {
+                    "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                    ]
+                }
+            ],
+            "description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+        },
+        "React.ReactPortal": {
+            "properties": {
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The type of the component or tag"
+                }
+            },
+            "propertyOrder": [
+                "children",
+                "type",
+                "props",
+                "key"
+            ],
+            "required": [
+                "children",
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        }
+    }
+}
+

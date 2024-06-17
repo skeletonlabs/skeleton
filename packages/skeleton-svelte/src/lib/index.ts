@@ -11,3 +11,4 @@ export { default as NavBar } from './components/Navigation/NavBar.svelte';
 export { default as NavTile } from './components/Navigation/NavTile.svelte';
 export { default as Switch } from './components/Switch/Switch.svelte';
 export { default as Tabs } from './components/Tab/index.js';
+export { default as Rating } from './components/Rating/Rating.svelte';

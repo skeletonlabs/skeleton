@@ -1,4 +1,5 @@
 import { Avatar } from "../../lib/components/Avatar/Avatar.js";
+import { Skull } from 'lucide-react';
 
 const imgSrc =
 	"https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop";
@@ -31,7 +32,7 @@ function iconAvatar() {
 	return (
 		<>
 			<h3 className="h3">Icon</h3>
-			<Avatar classes="flex justify-center items-center h-16">💀</Avatar>
+			<Avatar classes="flex justify-center items-center h-16"><Skull size={48}/></Avatar>
 		</>
 	);
 }

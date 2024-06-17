@@ -67,6 +67,9 @@ function App() {
             <a className="anchor" href="/components/tabs">
               Tabs
             </a>
+            <a className="anchor" href="/components/ratings">
+              Ratings
+            </a>
           </nav>
         </div>
       </div>
