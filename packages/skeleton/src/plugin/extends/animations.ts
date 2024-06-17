@@ -12,7 +12,7 @@ export const extendAnimAndKeyframes = () => {
 				to: { transform: 'translateX(200%)' }
 			}
 		}
-	} satisfies Record<string, Record<string, any>>;
+	} satisfies Record<string, Record<string, unknown>>;
 };
 
 export default extendAnimAndKeyframes;

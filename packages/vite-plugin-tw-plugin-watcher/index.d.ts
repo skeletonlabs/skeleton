@@ -23,6 +23,7 @@
  */
 export default function skeletonPluginWatcher(twPluginPath: string): {
 	name: string;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	configureServer(vite: any): void;
 	buildStart(): Promise<void>;
 };
