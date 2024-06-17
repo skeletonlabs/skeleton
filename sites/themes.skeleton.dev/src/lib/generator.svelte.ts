@@ -53,7 +53,7 @@ function genColorRamp(colorSettings: ColorSettings) {
 
 /** Loops the object of colors to generate a ramp per color */
 export function genColorPalette(stateFormColors: Record<ColorNames, ColorSettings>): ColorPalette {
-	let palette = {} as ColorPalette;
+	const palette = {} as ColorPalette;
 	Object.entries(stateFormColors).map(([_colorName, colorSettings]) => {
 		const colorName = _colorName as ColorNames;
 		palette[colorName] = genColorRamp(colorSettings);
@@ -63,8 +63,8 @@ export function genColorPalette(stateFormColors: Record<ColorNames, ColorSetting
 
 /** Generates the Theme's color properties */
 export function genColorProperties() {
-	let code: Record<string, string> = {};
-	let colorsArr = Object.entries(genColorPalette(stateFormColors));
+	const code: Record<string, string> = {};
+	const colorsArr = Object.entries(genColorPalette(stateFormColors));
 	findColorBreakpoint();
 	for (const [_colorName, colorRamp] of colorsArr) {
 		const colorName = _colorName as ColorNames;
@@ -85,7 +85,7 @@ export function genColorProperties() {
 
 export function findColorBreakpoint() {
 	const palette = genColorPalette(stateFormColors);
-	let colorsArr = Object.entries(palette);
+	const colorsArr = Object.entries(palette);
 	for (const [_colorName, _colorRamp] of colorsArr) {
 		const colorName = _colorName as ColorNames;
 		const colorRamp = Object.keys(_colorRamp).map((k) => Number(k)) as ColorShades[];
@@ -175,7 +175,7 @@ export function genThemeCode() {
 
 /** Generates the Live Preview css code */
 export function genCssCode() {
-	let theme = genThemeCode();
+	const theme = genThemeCode();
 	let rawCssCode = '';
 	for (const [key, value] of Object.entries(theme.properties)) {
 		rawCssCode += `\t${key}: ${value};\n`;

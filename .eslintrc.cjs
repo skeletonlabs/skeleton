@@ -58,6 +58,12 @@ module.exports = {
 	rules: {
 		'no-empty-function': 'off',
 		'no-useless-escape': 'off',
-		'@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }]
+		'@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }],
+		'@typescript-eslint/no-unused-vars': [
+			'error',
+			{
+				argsIgnorePattern: '^_'
+			}
+		]
 	}
 };

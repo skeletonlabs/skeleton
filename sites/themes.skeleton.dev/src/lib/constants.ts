@@ -110,7 +110,7 @@ export const letterSpacings = ['inherit', '-0.05em', '-0.025em', '0em', '0.025em
 export const textDecorations = ['none', 'underline', 'overline', 'line-through'];
 
 // Edges
-export let radii = [
+export const radii = [
 	'0px',
 	'2px', // '0.125rem',
 	'4px', // '0.25rem',
@@ -121,7 +121,7 @@ export let radii = [
 	'24px', // '1.5rem',
 	'9999px'
 ] as const;
-export let edges = ['0px', '1px', '2px', '4px', '8px'] as const;
+export const edges = ['0px', '1px', '2px', '4px', '8px'] as const;
 
 // Theme Generation
 export const themeStatic = {
