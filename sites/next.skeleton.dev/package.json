@@ -14,6 +14,7 @@
 		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
 		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
 		"dev:astro": "astro dev",
+		"sync": "astro sync",
 		"check": "astro check",
 		"build": "pnpm -F '@skeletonlabs/*' package && astro check && astro build && pagefind",
 		"preview": "astro preview",
