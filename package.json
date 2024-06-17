@@ -29,24 +29,17 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"ci:check": "pnpm -r check",
-		"ci:lint": "prettier -c . && eslint .",
 		"ci:package": "pnpm -r package",
 		"ci:publish": "changeset publish",
 		"ci:release": "pnpm ci:package && pnpm ci:publish",
 		"clean": "node ./scripts/rimraf.js",
-		"cs": "changeset",
-		"csa": "node ./packages/create-skeleton-app/src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=welcome -p=sites --monorepo --inspector",
-		"csl": "node ./packages/create-skeleton-app/src/index.js --types=typescript --library --prettier --eslint --playwright --vitest --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=bare -p=packages --monorepo --inspector",
-		"dev": "pnpm --no-sort --filter=next.skeleton.dev dev",
+		"dev": "pnpm -F next.skeleton.dev dev",
 		"format": "prettier -w .",
 		"format:check": "prettier . --check",
-		"preinstall": "npx only-allow pnpm",
-		"postinstall": "pnpm -r sync",
 		"lint": "eslint . --ignore-path .gitignore",
 		"lint:fix": "eslint . --fix --ignore-path .gitignore",
-		"templategen": "node ./scripts/template-gen.js",
-		"test": "pnpm -F @skeletonlabs/skeleton test"
+		"postinstall": "pnpm -r sync",
+		"test": "pnpm -F '@skeletonlabs/*' test"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.26.1",
