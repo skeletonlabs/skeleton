@@ -17,7 +17,10 @@ module.exports = {
 			parserOptions: {
 				parser: '@typescript-eslint/parser'
 			},
-			plugins: ['svelte']
+			plugins: ['svelte'],
+			rules: {
+				'svelte/no-at-html-tags': 'off'
+			}
 		},
 		{
 			files: ['*.tsx'],
@@ -54,7 +57,6 @@ module.exports = {
 	rules: {
 		'no-empty-function': 'off',
 		'no-useless-escape': 'off',
-		'@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }],
-		'svelte/no-at-html-tags': 'off'
+		'@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }]
 	}
 };
