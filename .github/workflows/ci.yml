@@ -74,5 +74,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Install playwright
+        run: pnpm -F @skeletonlabs/skeleton-svelte exec playwright install
+
       - name: Run tests
         run: pnpm test
