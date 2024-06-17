@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"check": "tsc --noEmit",
+		"check": "pnpm package",
 		"package": "tsc --project tsconfig.package.json",
 		"package:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
 		"preview": "vite preview",
