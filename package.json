@@ -32,6 +32,7 @@
 		"ci:package": "pnpm -r package",
 		"ci:publish": "changeset publish",
 		"ci:release": "pnpm ci:package && pnpm ci:publish",
+		"check": "pnpm -r check",
 		"clean": "node ./scripts/rimraf.js",
 		"dev": "pnpm -F next.skeleton.dev dev",
 		"format": "prettier -w .",
