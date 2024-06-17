@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   check:
-    name: Run svelte-check
+    name: Run checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
