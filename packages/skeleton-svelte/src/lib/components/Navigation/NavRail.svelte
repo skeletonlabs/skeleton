@@ -47,7 +47,7 @@
 	let rxWidth = $derived(expanded ? widthExpanded : width);
 </script>
 
-<aside class="{base} {background} {height} {padding} {rxWidth} {classes}">
+<aside class="{base} {background} {height} {padding} {rxWidth} {classes}" data-testid="nav-rail">
 	<!-- Header -->
 	{#if header}
 		<header class="{headerBase} {headerFlexDirection} {headerJustify} {headerItems} {headerGap} {headerClasses}">

@@ -25,7 +25,7 @@
 	setContext('parent', 'bar');
 </script>
 
-<aside class="{base} {background} {width} {height} {padding} {classes}">
+<aside class="{base} {background} {width} {height} {padding} {classes}" data-testid="nav-bar">
 	{#if children}
 		<nav class="{tilesBase} {tilesFlexDirection} {tilesJustify} {tilesItems} {tilesGap} {tilesClasses}">
 			{@render children()}

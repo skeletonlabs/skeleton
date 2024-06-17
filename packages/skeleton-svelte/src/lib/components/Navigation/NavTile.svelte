@@ -69,6 +69,7 @@
 	{role}
 	onclick={onClickHandler}
 	tabindex="0"
+	data-testid="nav-tile"
 >
 	<!-- Icon -->
 	{#if children}<div>{@render children()}</div>{/if}

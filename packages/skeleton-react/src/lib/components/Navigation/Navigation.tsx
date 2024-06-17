@@ -65,6 +65,7 @@ export const NavRail: React.FC<NavRailProps> = ({
   return (
     <aside
       className={`${base} ${background} ${height} ${padding} ${rxWidth} ${classes}`}
+      data-testid="nav-rail"
     >
       <NavContext.Provider value={ctx}>
         {/* Header */}
@@ -122,6 +123,7 @@ export const NavBar: React.FC<NavBarProps> = ({
   return (
     <aside
       className={`${base} ${background} ${width} ${height} ${padding} ${classes}`}
+      data-testid="nav-bar"
     >
       <NavContext.Provider value={ctx}>
         {children ? (
@@ -199,6 +201,9 @@ export const NavTile: React.FC<NavTileProps> = ({
       title={title}
       role={role}
       onClick={onClickHandler}
+      data-parent={ctx.parent}
+      data-expanded={ctx.expanded}
+      data-testid="nav-tile"
     >
       {/* Icon */}
       {children ? <div>{children}</div> : null}
