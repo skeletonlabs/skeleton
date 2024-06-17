@@ -42,7 +42,7 @@
 		"format": "prettier -w .",
 		"preinstall": "npx only-allow pnpm",
 		"postinstall": "pnpm -r sync",
-		"lint": "eslint .",
+		"lint": "eslint . --ignore-path .gitignore",
 		"templategen": "node ./scripts/template-gen.js",
 		"test": "pnpm -F @skeletonlabs/skeleton test"
 	},
