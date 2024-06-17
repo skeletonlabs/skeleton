@@ -34,6 +34,7 @@
 				<a class="anchor" href="/components/accordions">Accordions</a>
 				<a class="anchor" href="/components/avatars">Avatars</a>
 				<a class="anchor" href="/components/app-bars">App Bars</a>
+				<a class="anchor" href="/components/navigation">Navigation</a>
 				<a class="anchor" href="/components/progress">Progress</a>
 				<a class="anchor" href="/components/progress-rings">Progress Rings</a>
 				<a class="anchor" href="/components/switch">Switch</a>
