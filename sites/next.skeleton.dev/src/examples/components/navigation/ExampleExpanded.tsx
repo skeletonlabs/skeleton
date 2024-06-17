@@ -18,7 +18,7 @@ export const Page: React.FC<any> = () => {
 			<Nav.Rail
                 expanded
 				header={<Nav.Tile href="/" labelExpanded="Menu"><IconMenu /></Nav.Tile>}
-				footer={<Nav.Tile href="/settings" labelExpanded="settings"><IconSettings /></Nav.Tile>}
+				footer={<Nav.Tile href="/settings" labelExpanded="Settings"><IconSettings /></Nav.Tile>}
 			>
 				<Nav.Tile id="0" labelExpanded="Browse Files" href="#"><IconFolder /></Nav.Tile>
 				<Nav.Tile id="1" labelExpanded="Browse Images" href="#"><IconImage /></Nav.Tile>
