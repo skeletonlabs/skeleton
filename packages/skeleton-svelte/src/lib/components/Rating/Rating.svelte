@@ -49,15 +49,16 @@
 		onmousedown(event, value);
 	}
 
+	// https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/#kbd_label
 	function onRatingKeydown(event: KeyboardEvent) {
 		const rtl = getComputedStyle(figureElement).direction === 'rtl';
-		switch (event.key) {
-			case 'ArrowLeft':
-				rtl ? increaseValue() : decreaseValue();
-				break;
-			case 'ArrowRight':
-				rtl ? decreaseValue() : increaseValue();
-				break;
+		if (['ArrowLeft', 'ArrowUp'].includes(event.key)) {
+			event.preventDefault();
+			rtl ? increaseValue() : decreaseValue();
+		}
+		if (['ArrowRight', 'ArrowDown'].includes(event.key)) {
+			event.preventDefault();
+			rtl ? decreaseValue() : increaseValue();
 		}
 		onkeydown(event);
 	}
