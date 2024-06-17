@@ -36,9 +36,9 @@ import * as themes from '@skeletonlabs/skeleton/themes';
 Optionally you can choose to generate a custom theme to adapt to your app's unique design aesthetic. Skeleton provides a powerful but easy to use theme generator to make to enable this.
 
 <figure class="card-enhanced-gradient flex justify-center p-8">
-  <a href="https://themes.skeleton.dev/" target="_blank" class="btn preset-filled">
-    Theme Generator &rarr;
-  </a>
+	<a href="https://themes.skeleton.dev/" target="_blank" class="btn preset-filled">
+		Theme Generator &rarr;
+	</a>
 </figure>
 
 1. Open the Theme Generator and design your theme.
@@ -59,17 +59,17 @@ Register each imported theme within the Skeleton plugin settings in `tailwind.co
 
 ```ts title="tailwind.config" {6-8, 10}
 plugins: [
-  // The Skeleton Tailwind Plugin
-  skeleton({
-    themes: [
-      // Preset Theme(s)
-      themes.cerberus,
-      themes.pine,
-      themes.rose,
-      // Custom Theme(s)
-      myCustomTheme
-    ]
-  })
+	// The Skeleton Tailwind Plugin
+	skeleton({
+		themes: [
+			// Preset Theme(s)
+			themes.cerberus,
+			themes.pine,
+			themes.rose,
+			// Custom Theme(s)
+			myCustomTheme
+		]
+	})
 ];
 ```
 
@@ -81,7 +81,7 @@ Finally, set the active theme to display using the `data-theme` attribute on you
 
 ```html
 <body data-theme="cerberus">
-  ...
+	...
 </body>
 ```
 
@@ -104,12 +104,12 @@ You may update the CSS Custom Properties provided by Skeleton's preset themes. U
 While themes act as the foundation of your application's style, they should not be seen as the only option for customizing your application. By combining Skeleton and Tailwind elements into grouped utility classes, you can produce theme-specific styles.
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <ThemeEnhanced />
-  </Fragment>
-  <Fragment slot="code">
-    <Code code={ThemeEnhancedRaw} lang="astro" />
-  </Fragment>
+	<Fragment slot="preview">
+		<ThemeEnhanced />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ThemeEnhancedRaw} lang="astro" />
+	</Fragment>
 </Preview>
 
 Please note that [Tailwind discourages early abstraction](https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction). The `@apply` feature should not be used as a replacement for utility classes. However, grouping a small subset of utility classes for resusability is allowed. Use this technique with caution.

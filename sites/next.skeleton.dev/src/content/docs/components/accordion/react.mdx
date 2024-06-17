@@ -12,12 +12,12 @@ import { AccordionSchema } from '@skeletonlabs/skeleton-react/schemas';
 {/* --- */}
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <Example client:load />
-  </Fragment>
-  <Fragment slot="code">
-    <Code code={ExampleRaw} lang="tsx" />
-  </Fragment>
+	<Fragment slot="preview">
+		<Example client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="tsx" />
+	</Fragment>
 </Preview>
 
 ## Open State
@@ -32,7 +32,7 @@ const [value, setValue] = useState(['club']);
 
 ```tsx
 <Accordion value={value} onValueChange={setValue}>
-  ...
+	...
 </Accordion>
 ```
 
@@ -58,7 +58,7 @@ import { Plus, Minus, Heart } from 'lucide-react';
 
 ```tsx
 <Accordion iconOpen={<Plus size={24} />} iconClosed={<Minus size={24} />}>
-  ...
+	...
 </Accordion>
 ```
 

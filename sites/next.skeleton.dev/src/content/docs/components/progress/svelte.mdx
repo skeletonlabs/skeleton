@@ -25,12 +25,12 @@ import ExampleNativeRaw from '@examples/components/progress/ExampleNative.astro?
 {/* --- */}
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <Example client:load />
-  </Fragment>
-  <Fragment slot="code">
-    <Code code={ExampleRaw} lang="svelte" />
-  </Fragment>
+	<Fragment slot="preview">
+		<Example client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="svelte" />
+	</Fragment>
 </Preview>
 
 ## Colors
@@ -38,12 +38,12 @@ import ExampleNativeRaw from '@examples/components/progress/ExampleNative.astro?
 Set the color using the `meterBg` prop.
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <ExampleColors client:load />
-  </Fragment>
-  <Fragment slot="code">
-    <Code code={ExampleColorsRaw} lang="svelte" />
-  </Fragment>
+	<Fragment slot="preview">
+		<ExampleColors client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleColorsRaw} lang="svelte" />
+	</Fragment>
 </Preview>
 
 ## Height
@@ -51,12 +51,12 @@ Set the color using the `meterBg` prop.
 Set the height using the `height` prop.
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <ExampleHeight client:load />
-  </Fragment>
-  <Fragment slot="code">
-    <Code code={ExampleHeightRaw} lang="svelte" />
-  </Fragment>
+	<Fragment slot="preview">
+		<ExampleHeight client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleHeightRaw} lang="svelte" />
+	</Fragment>
 </Preview>
 
 ## Indeterminate
@@ -64,12 +64,12 @@ Set the height using the `height` prop.
 When no value is present, or the value is `undefined`, an indeterminate animation will be shown.
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <ExampleIndeterminate client:load />
-  </Fragment>
-  <Fragment slot="code">
-    <Code code={ExampleIndeterminateRaw} lang="svelte" />
-  </Fragment>
+	<Fragment slot="preview">
+		<ExampleIndeterminate client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleIndeterminateRaw} lang="svelte" />
+	</Fragment>
 </Preview>
 
 ### Custom Animations
@@ -77,12 +77,12 @@ When no value is present, or the value is `undefined`, an indeterminate animatio
 A custom indeterminate animation can be set by providing an animation class to the `meterAnimate` prop.
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <ExampleCustomAnimation client:load />
-  </Fragment>
-  <Fragment slot="code">
-    <Code code={ExampleCustomAnimationRaw} lang="svelte" />
-  </Fragment>
+	<Fragment slot="preview">
+		<ExampleCustomAnimation client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleCustomAnimationRaw} lang="svelte" />
+	</Fragment>
 </Preview>
 
 ---
@@ -92,10 +92,10 @@ A custom indeterminate animation can be set by providing an animation class to t
 A native [progress](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) element is available cross browser, but does not support indeterminate animations.
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <ExampleNative />
-  </Fragment>
-  <Fragment slot="code">
-    <Code code={ExampleNativeRaw} lang="html" />
-  </Fragment>
+	<Fragment slot="preview">
+		<ExampleNative />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleNativeRaw} lang="html" />
+	</Fragment>
 </Preview>

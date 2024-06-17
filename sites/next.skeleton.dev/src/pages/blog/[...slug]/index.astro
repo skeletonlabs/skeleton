@@ -3,15 +3,15 @@ import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 
 export const getStaticPaths = (async () => {
-  const entries = await getCollection('blog');
-  return entries.map((entry) => ({
-    params: {
-      slug: entry.slug
-    },
-    props: {
-      entry
-    }
-  }));
+	const entries = await getCollection('blog');
+	return entries.map((entry) => ({
+		params: {
+			slug: entry.slug
+		},
+		props: {
+			entry
+		}
+	}));
 }) satisfies GetStaticPaths;
 
 const { entry } = Astro.props;

@@ -124,10 +124,10 @@ let {
 ```html
 <!-- Parent -->
 <div class="{base} {bg} {classes}">
-  <!-- Child: Control -->
-  <div class="{controlBase} {controlBg} {controlClasses}">...</div>
-  <!-- Child: Panel -->
-  <div class="{panelBase} {panelBg} {panelPadding} {panelClasses}">...</div>
+	<!-- Child: Control -->
+	<div class="{controlBase} {controlBg} {controlClasses}">...</div>
+	<!-- Child: Panel -->
+	<div class="{panelBase} {panelBg} {panelPadding} {panelClasses}">...</div>
 </div>
 ```
 
@@ -137,16 +137,16 @@ You may need to conditionally update or swap between one or more sets of style p
 
 ```svelte
 <script lang="ts">
-  let {
-    active = true,
-    // ...
-    fooActive = '...',
-    fooInactive = '...'
-    // ...
-  } = $props<ExampleProps>();
+	let {
+		active = true,
+		// ...
+		fooActive = '...',
+		fooInactive = '...'
+		// ...
+	} = $props<ExampleProps>();
 
-  // Interceptor
-  const rxActive = $derived(active ? fooActive : fooInactive);
+	// Interceptor
+	const rxActive = $derived(active ? fooActive : fooInactive);
 </script>
 
 <div class="{base} {rxActive} {classes}">...</div>
@@ -162,28 +162,28 @@ All component props should be strongly typed using Typescript in a colocated `ty
 
 ```ts
 export interface AccordionItemProps {
-  /** Sets the open state of the item. */
-  open?: boolean;
+	/** Sets the open state of the item. */
+	open?: boolean;
 
-  // Parent ---
-  /** Set the parent base styles. */
-  base?: string;
-  /** Set the parent background styles. */
-  background?: string;
-  /** Provide the parent a set of arbitrary classes. */
-  classes?: string;
+	// Parent ---
+	/** Set the parent base styles. */
+	base?: string;
+	/** Set the parent background styles. */
+	background?: string;
+	/** Provide the parent a set of arbitrary classes. */
+	classes?: string;
 
-  // Lead ---
-  /** Sets the lead snippet element's base styles. */
-  leadBase?: string;
-  /** Sets the lead snippet element's padding styles. */
-  leadPadding?: string;
-  /** Provide arbitrary CSS classes to the lead snippet. */
-  leadClasses?: string;
+	// Lead ---
+	/** Sets the lead snippet element's base styles. */
+	leadBase?: string;
+	/** Sets the lead snippet element's padding styles. */
+	leadPadding?: string;
+	/** Provide arbitrary CSS classes to the lead snippet. */
+	leadClasses?: string;
 
-  // Children ---
-  /** The default slot contents within the component. */
-  children?: Snippet;
+	// Children ---
+	/** The default slot contents within the component. */
+	children?: Snippet;
 }
 ```
 
@@ -230,10 +230,10 @@ For React, this is handled via small components that implement the dot notation 
 
 ```tsx
 <Accordion>
-  <Accordion.Item>
-    <Accordion.Control>(control)</Accordion.Control>
-    <Accordion.Panel>(panel)</Accordion.Panel>
-  </Accordion.Item>
+	<Accordion.Item>
+		<Accordion.Control>(control)</Accordion.Control>
+		<Accordion.Panel>(panel)</Accordion.Panel>
+	</Accordion.Item>
 </Accordion>
 ```
 
@@ -243,11 +243,11 @@ This is handled by pairing child components with [Svelte Snippets](https://svelt
 
 ```svelte
 <Accordion>
-  <Accordion.Item>
-    {#snippet controlLead()}(lead){/snippet}
-    {#snippet control()}(control){/snippet}
-    {#snippet panel()}(panel){/snippet}
-  </Accordion.Item>
+	<Accordion.Item>
+		{#snippet controlLead()}(lead){/snippet}
+		{#snippet control()}(control){/snippet}
+		{#snippet panel()}(panel){/snippet}
+	</Accordion.Item>
 </Accordion>
 ```
 
@@ -267,12 +267,12 @@ Then scaffold your component exports at the bottom of the file:
 
 ```ts
 export const Accordion = reactCompose(
-  AccordionRoot, // -> <Accordion>
-  {
-    Item: AccordionItem, // -> <Accordion.Item>
-    Control: AccordionControl, // -> <Accordion.Control>
-    Panel: AccordionPanel // -> <Accordion.Panel>
-  }
+	AccordionRoot, // -> <Accordion>
+	{
+		Item: AccordionItem, // -> <Accordion.Item>
+		Control: AccordionControl, // -> <Accordion.Control>
+		Panel: AccordionPanel // -> <Accordion.Panel>
+	}
 );
 ```
 

@@ -2,84 +2,84 @@
 
 html,
 body {
-  @apply h-full;
+	@apply h-full;
 }
 
 /* Local Utiilties --- */
 
 .flex-centered {
-  @apply flex items-center justify-center;
+	@apply flex items-center justify-center;
 }
 
 /* Astro Components --- */
 
 .astro-code {
-  @apply rounded-container p-4;
+	@apply rounded-container p-4;
 }
 
 /* Theme Enhancements --- */
 
 /* Background Image */
 [data-theme='cerberus'] {
-  background-image: radial-gradient(at 20% 100%, rgba(var(--color-secondary-500) / 0.1) 0px, transparent 40%),
-    radial-gradient(at 75% 75%, rgba(var(--color-primary-500) / 0.1) 0px, transparent 50%);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: radial-gradient(at 20% 100%, rgba(var(--color-secondary-500) / 0.1) 0px, transparent 40%),
+		radial-gradient(at 75% 75%, rgba(var(--color-primary-500) / 0.1) 0px, transparent 50%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 [data-theme='catppuccin'] {
-  background-image: radial-gradient(at 100% -20%, rgba(var(--color-tertiary-500) / 0.1) 0px, transparent 50%),
-    radial-gradient(at 80% 120%, rgba(var(--color-secondary-500) / 0.05) 0px, transparent 75%);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: radial-gradient(at 100% -20%, rgba(var(--color-tertiary-500) / 0.1) 0px, transparent 50%),
+		radial-gradient(at 80% 120%, rgba(var(--color-secondary-500) / 0.05) 0px, transparent 75%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 /* Card Outline */
 .card-enhanced-outlined {
-  @apply card border-surface-200-800 border;
+	@apply card border-surface-200-800 border;
 }
 [data-theme='cerberus'] .card-enhanced-outlined {
-  @apply bg-body-color dark:bg-body-color-dark;
+	@apply bg-body-color dark:bg-body-color-dark;
 }
 [data-theme='catppuccin'] .card-enhanced-outlined {
-  @apply from-primary-500 to-secondary-500 border-0 bg-gradient-to-br p-0.5;
+	@apply from-primary-500 to-secondary-500 border-0 bg-gradient-to-br p-0.5;
 }
 [data-theme='catppuccin'] .card-enhanced-outlined-inner {
-  @apply card bg-body-color dark:bg-body-color-dark;
+	@apply card bg-body-color dark:bg-body-color-dark;
 }
 [data-theme='pine'] .card-enhanced-outlined {
-  @apply border-0 border-b border-t bg-white/10 dark:bg-black/5;
+	@apply border-0 border-b border-t bg-white/10 dark:bg-black/5;
 }
 [data-theme='rose'] .card-enhanced-outlined {
-  @apply bg-surface-500/5 border-0 backdrop-blur-2xl;
+	@apply bg-surface-500/5 border-0 backdrop-blur-2xl;
 }
 
 /* Card Gradient */
 .card-enhanced-gradient {
-  @apply card from-primary-500 to-secondary-500 text-primary-contrast-500 bg-gradient-to-br;
+	@apply card from-primary-500 to-secondary-500 text-primary-contrast-500 bg-gradient-to-br;
 }
 [data-theme='pine'] .card-enhanced-gradient {
-  @apply to-tertiary-500;
+	@apply to-tertiary-500;
 }
 
 /* Button CTA (call to action) */
 .btn-enhanced-cta {
-  @apply btn preset-filled;
+	@apply btn preset-filled;
 }
 [data-theme='catppuccin'] .btn-enhanced-cta {
-  @apply btn from-primary-500 to-secondary-500 bg-gradient-to-br text-white shadow-xl ring-[2px] ring-inset ring-white/50;
+	@apply btn from-primary-500 to-secondary-500 bg-gradient-to-br text-white shadow-xl ring-[2px] ring-inset ring-white/50;
 }
 
 /* Theme Doc Examples */
 .card-enhanced-example {
-  @apply card preset-filled-surface-100-900;
+	@apply card preset-filled-surface-100-900;
 }
 [data-theme='cerberus'] .card-enhanced-example {
-  @apply ring-primary-500 ring-4;
+	@apply ring-primary-500 ring-4;
 }
 [data-theme='catppuccin'] .card-enhanced-example {
-  @apply preset-filled-primary-100-900 border-primary-500 border p-8;
+	@apply preset-filled-primary-100-900 border-primary-500 border p-8;
 }

@@ -1,74 +1,74 @@
 {
-  "name": "@skeletonlabs/skeleton",
-  "version": "3.0.0-next.1",
-  "description": "Core plugin for Skeleton.",
-  "scripts": {
-    "build": "pnpm build:jss && tsup",
-    "build:jss": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/generate-jss.ts",
-    "convert": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/convert-theme.ts && pnpm format",
-    "sync": "pnpm build:jss && tsup",
-    "package": "pnpm build:jss && tsup"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/skeletonlabs/skeleton.git"
-  },
-  "bugs": {
-    "url": "https://github.com/skeletonlabs/skeleton/issues"
-  },
-  "keywords": [
-    "cli",
-    "components",
-    "ui",
-    "component",
-    "svelte",
-    "component-library",
-    "ui-components",
-    "ui-framework",
-    "tailwind",
-    "tailwindcss",
-    "components-library",
-    "sveltekit"
-  ],
-  "license": "MIT",
-  "homepage": "https://skeleton.dev/",
-  "devDependencies": {
-    "@types/node": "18.16.16",
-    "@types/postcss-import": "^14.0.0",
-    "postcss": "8.4.24",
-    "postcss-import": "15.1.0",
-    "postcss-load-config": "4.0.1",
-    "tailwindcss": "3.4.1",
-    "tslib": "2.5.3",
-    "tsup": "^6.7.0",
-    "tsx": "^4.7.0",
-    "typescript": "5.0.3"
-  },
-  "dependencies": {
-    "postcss-js": "4.0.1",
-    "postcss-selector-parser": "^6.0.13"
-  },
-  "peerDependencies": {
-    "tailwindcss": ">=3.0.0"
-  },
-  "type": "module",
-  "main": "./dist/core/index.js",
-  "types": "./dist/core/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/core/index.d.ts",
-      "default": "./dist/core/index.js"
-    },
-    "./plugin": {
-      "types": "./dist/plugin/index.d.ts",
-      "require": "./dist/plugin/index.cjs"
-    },
-    "./themes": {
-      "types": "./dist/themes/index.d.ts",
-      "default": "./dist/themes/index.js"
-    }
-  },
-  "files": [
-    "dist"
-  ]
+	"name": "@skeletonlabs/skeleton",
+	"version": "3.0.0-next.1",
+	"description": "Core plugin for Skeleton.",
+	"scripts": {
+		"build": "pnpm build:jss && tsup",
+		"build:jss": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/generate-jss.ts",
+		"convert": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/convert-theme.ts && pnpm format",
+		"sync": "pnpm build:jss && tsup",
+		"package": "pnpm build:jss && tsup"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/skeletonlabs/skeleton.git"
+	},
+	"bugs": {
+		"url": "https://github.com/skeletonlabs/skeleton/issues"
+	},
+	"keywords": [
+		"cli",
+		"components",
+		"ui",
+		"component",
+		"svelte",
+		"component-library",
+		"ui-components",
+		"ui-framework",
+		"tailwind",
+		"tailwindcss",
+		"components-library",
+		"sveltekit"
+	],
+	"license": "MIT",
+	"homepage": "https://skeleton.dev/",
+	"devDependencies": {
+		"@types/node": "18.16.16",
+		"@types/postcss-import": "^14.0.0",
+		"postcss": "8.4.24",
+		"postcss-import": "15.1.0",
+		"postcss-load-config": "4.0.1",
+		"tailwindcss": "3.4.1",
+		"tslib": "2.5.3",
+		"tsup": "^6.7.0",
+		"tsx": "^4.7.0",
+		"typescript": "5.0.3"
+	},
+	"dependencies": {
+		"postcss-js": "4.0.1",
+		"postcss-selector-parser": "^6.0.13"
+	},
+	"peerDependencies": {
+		"tailwindcss": ">=3.0.0"
+	},
+	"type": "module",
+	"main": "./dist/core/index.js",
+	"types": "./dist/core/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/core/index.d.ts",
+			"default": "./dist/core/index.js"
+		},
+		"./plugin": {
+			"types": "./dist/plugin/index.d.ts",
+			"require": "./dist/plugin/index.cjs"
+		},
+		"./themes": {
+			"types": "./dist/themes/index.d.ts",
+			"default": "./dist/themes/index.js"
+		}
+	},
+	"files": [
+		"dist"
+	]
 }

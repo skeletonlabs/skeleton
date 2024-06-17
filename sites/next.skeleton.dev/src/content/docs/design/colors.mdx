@@ -23,17 +23,17 @@ import ExamplePairingsRaw from '@examples/design/colors/ExamplePairings.astro?ra
 Available to all supported properties via `.{property}-{color}-{shade}`
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <ExampleColors />
-  </Fragment>
-  <Fragment slot="code">
-    {/* <Code code={ExampleColorsRaw} lang="astro" /> */}
-    ```html
-    <div class="bg-primary-500">Background Primary 500</div>
-    <div class="border-primary-600 border">Border Secondary 600</div>
-    <svg class="fill-surface-950">Fill Surface 950</svg>
-    ```
-  </Fragment>
+	<Fragment slot="preview">
+		<ExampleColors />
+	</Fragment>
+	<Fragment slot="code">
+		{/* <Code code={ExampleColorsRaw} lang="astro" /> */}
+		```html
+		<div class="bg-primary-500">Background Primary 500</div>
+		<div class="border-primary-600 border">Border Secondary 600</div>
+		<svg class="fill-surface-950">Fill Surface 950</svg>
+		```
+	</Fragment>
 </Preview>
 
 ## Pairings
@@ -41,15 +41,15 @@ Available to all supported properties via `.{property}-{color}-{shade}`
 Available to all supported properties via `.{property}-{color}-{baseShade}-{darkShade}`
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <ExamplePairings />
-  </Fragment>
-  <Fragment slot="code">
-    {/* <Code code={ExamplePairingsRaw} lang="astro" /> */}
-    ```html
-    <div class="bg-primary-100-900">Forward</div>
-    <div class="bg-primary-500">Default</div>
-    <div class="bg-primary-900-100">Backward</div>
-    ```
-  </Fragment>
+	<Fragment slot="preview">
+		<ExamplePairings />
+	</Fragment>
+	<Fragment slot="code">
+		{/* <Code code={ExamplePairingsRaw} lang="astro" /> */}
+		```html
+		<div class="bg-primary-100-900">Forward</div>
+		<div class="bg-primary-500">Default</div>
+		<div class="bg-primary-900-100">Backward</div>
+		```
+	</Fragment>
 </Preview>

@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .custom-indeterminate {
-  animation: custom-indeterminate 2s linear infinite;
+	animation: custom-indeterminate 2s linear infinite;
 }
 @keyframes custom-indeterminate {
-  from {
-    transform: translateX(200%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+	from {
+		transform: translateX(200%);
+	}
+	to {
+		transform: translateX(-100%);
+	}
 }

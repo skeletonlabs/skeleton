@@ -1,67 +1,67 @@
 {
-  "name": "@skeletonlabs/skeleton-svelte",
-  "version": "1.0.0-next.2",
-  "description": "The Svelte package for Skeleton.",
-  "author": "endigo9740 <chris@skeletonlabs.dev>",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build && npm run package",
-    "preview": "vite preview",
-    "package": "svelte-kit sync && svelte-package && publint",
-    "package:watch": "svelte-package --watch",
-    "prepublishOnly": "npm run package",
-    "test": "npm run test:integration && npm run test:unit",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "test:integration": "playwright test",
-    "test:unit": "vitest",
-    "sk-sync": "svelte-kit sync"
-  },
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "svelte": "./dist/index.js",
-      "default": "./dist/index.js"
-    }
-  },
-  "files": [
-    "dist",
-    "!dist/**/*.test.*",
-    "!dist/**/*.spec.*",
-    "./dist/**/*.svelte",
-    "./dist/**/*.js",
-    "./dist/**/*.d.ts",
-    "./dist/**/*.cjs",
-    "./dist/**/*.d.cts"
-  ],
-  "peerDependencies": {
-    "svelte": "^5.0.0-next.136"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.42.1",
-    "@skeletonlabs/skeleton": "workspace:*",
-    "@sveltejs/adapter-auto": "^3.2.0",
-    "@sveltejs/kit": "^2.5.5",
-    "@sveltejs/package": "^2.3.1",
-    "@sveltejs/vite-plugin-svelte": "^3.0.2",
-    "@tailwindcss/forms": "^0.5.7",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/svelte": "^4.1.0",
-    "autoprefixer": "^10.4.19",
-    "jsdom": "^24.0.0",
-    "lucide-svelte": "^0.341.0",
-    "postcss": "^8.4.38",
-    "postcss-load-config": "^5.0.3",
-    "publint": "^0.1.16",
-    "svelte": "5.0.0-next.94",
-    "svelte-check": "^3.6.9",
-    "tailwindcss": "^3.4.3",
-    "tslib": "^2.6.2",
-    "typescript": "^5.4.4",
-    "vite": "^5.2.8",
-    "vite-plugin-tw-plugin-watcher": "workspace:*",
-    "vitest": "^1.4.0"
-  },
-  "type": "module"
+	"name": "@skeletonlabs/skeleton-svelte",
+	"version": "1.0.0-next.2",
+	"description": "The Svelte package for Skeleton.",
+	"author": "endigo9740 <chris@skeletonlabs.dev>",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build && npm run package",
+		"preview": "vite preview",
+		"package": "svelte-kit sync && svelte-package && publint",
+		"package:watch": "svelte-package --watch",
+		"prepublishOnly": "npm run package",
+		"test": "npm run test:integration && npm run test:unit",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"test:integration": "playwright test",
+		"test:unit": "vitest",
+		"sk-sync": "svelte-kit sync"
+	},
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*",
+		"./dist/**/*.svelte",
+		"./dist/**/*.js",
+		"./dist/**/*.d.ts",
+		"./dist/**/*.cjs",
+		"./dist/**/*.d.cts"
+	],
+	"peerDependencies": {
+		"svelte": "^5.0.0-next.136"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.42.1",
+		"@skeletonlabs/skeleton": "workspace:*",
+		"@sveltejs/adapter-auto": "^3.2.0",
+		"@sveltejs/kit": "^2.5.5",
+		"@sveltejs/package": "^2.3.1",
+		"@sveltejs/vite-plugin-svelte": "^3.0.2",
+		"@tailwindcss/forms": "^0.5.7",
+		"@testing-library/jest-dom": "^6.4.2",
+		"@testing-library/svelte": "^4.1.0",
+		"autoprefixer": "^10.4.19",
+		"jsdom": "^24.0.0",
+		"lucide-svelte": "^0.341.0",
+		"postcss": "^8.4.38",
+		"postcss-load-config": "^5.0.3",
+		"publint": "^0.1.16",
+		"svelte": "5.0.0-next.94",
+		"svelte-check": "^3.6.9",
+		"tailwindcss": "^3.4.3",
+		"tslib": "^2.6.2",
+		"typescript": "^5.4.4",
+		"vite": "^5.2.8",
+		"vite-plugin-tw-plugin-watcher": "workspace:*",
+		"vitest": "^1.4.0"
+	},
+	"type": "module"
 }

@@ -1,5 +1,5 @@
 {
-  "emmet.includeLanguages": {
-    "mdx": "html"
-  }
+	"emmet.includeLanguages": {
+		"mdx": "html"
+	}
 }

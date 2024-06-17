@@ -1,143 +1,143 @@
 <script lang="ts">
-  import { getImageLink } from '$lib/images';
-  import { TabGroup, Tab, ProgressBar } from '@skeletonlabs/skeleton';
+	import { getImageLink } from '$lib/images';
+	import { TabGroup, Tab, ProgressBar } from '@skeletonlabs/skeleton';
 
-  type Theme = {
-    base: string;
-    header: string;
-    src: string;
-    img: string;
-    text1: string;
-    text2: string;
-    text3: string;
-    progressTrack: string;
-    progressMeter: string;
-    footer: string;
-    button: string;
-  };
+	type Theme = {
+		base: string;
+		header: string;
+		src: string;
+		img: string;
+		text1: string;
+		text2: string;
+		text3: string;
+		progressTrack: string;
+		progressMeter: string;
+		footer: string;
+		button: string;
+	};
 
-  // Local
-  let theme = 'simple';
-  const themeStyles: Record<string, Theme> = {
-    simple: {
-      base: 'variant-soft-primary font-sans rounded-container-token',
-      header: 'bg-primary-500 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-container-token rounded-tr-container-token',
-      src: getImageLink({ id: '3vj6GJ_lTa8', w: 200, h: 200 }),
-      img: 'bg-black w-full aspect-square rounded-full',
-      text1: 'text-on-primary-token text-lg opacity-75',
-      text2: 'text-on-primary-token font-bold text-xl sm:text-3xl',
-      text3: 'text-on-primary-token text-lg sm:text-2xl',
-      progressTrack: 'bg-primary-400',
-      progressMeter: 'bg-white',
-      footer: 'p-10 grid grid-cols-5 gap-10 place-items-center rounded-tl-3xl rounded-tr-3xl',
-      button: 'btn-icon'
-    },
-    elegant: {
-      base: 'bg-white text-black font-serif shadow',
-      header: 'bg-neutral-100 p-4 grid grid-cols-3 gap-8 items-center',
-      src: getImageLink({ id: 'C5NOq1BKlAk', w: 200, h: 200 }),
-      img: 'bg-black bg-black/50 w-full aspect-square scale-110 transition-transform',
-      text1: 'text-lg opacity-50',
-      text2: 'text-xl sm:text-3xl',
-      text3: 'text-lg sm:text-2xl',
-      progressTrack: 'bg-black/5',
-      progressMeter: 'bg-black',
-      footer: 'p-10 grid grid-cols-5 gap-10 place-items-center',
-      button: 'btn-icon rounded-none text-black ring-[1px] ring-black/5'
-    },
-    playful: {
-      base: 'bg-blue-700 text-white font-sans rounded-3xl shadow-xl',
-      header: 'bg-blue-800 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-3xl rounded-tr-3xl',
-      src: getImageLink({ id: 'wzj86-5JVcM', w: 200, h: 200 }),
-      img: 'bg-black w-full aspect-square rounded-3xl scale-110 -translate-x-4 -translate-y-4 transition-transform',
-      text1: 'text-lg text-amber-300',
-      text2: 'font-bold text-xl sm:text-3xl',
-      text3: 'text-lg sm:text-2xl',
-      progressTrack: 'bg-black/5',
-      progressMeter: 'bg-white',
-      footer: 'p-10 grid grid-cols-5 gap-10 place-items-center rounded-tl-3xl rounded-tr-3xl',
-      button: 'btn-icon bg-amber-300 text-blue-900'
-    },
-    brutalist: {
-      base: 'bg-black text-white font-mono overflow-hidden',
-      header: 'bg-white text-black p-4 grid grid-cols-3 gap-8 items-center',
-      src: getImageLink({ id: 'hTv8aaPziOQ', w: 200, h: 200 }),
-      img: 'bg-black w-full aspect-square transition-transform border-r-4 border-b-4 border-teal-300',
-      text1: 'text-lg text-teal-300',
-      text2: 'font-bold text-xl sm:text-3xl',
-      text3: 'italic text-lg sm:text-2xl',
-      progressTrack: 'bg-teal-300/75',
-      progressMeter: 'bg-teal-300',
-      footer: 'p-10 grid grid-cols-5 gap-10 place-items-center',
-      button: 'btn-icon rounded-none bg-teal-300 text-black ring ring-white'
-    }
-  };
+	// Local
+	let theme = 'simple';
+	const themeStyles: Record<string, Theme> = {
+		simple: {
+			base: 'variant-soft-primary font-sans rounded-container-token',
+			header: 'bg-primary-500 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-container-token rounded-tr-container-token',
+			src: getImageLink({ id: '3vj6GJ_lTa8', w: 200, h: 200 }),
+			img: 'bg-black w-full aspect-square rounded-full',
+			text1: 'text-on-primary-token text-lg opacity-75',
+			text2: 'text-on-primary-token font-bold text-xl sm:text-3xl',
+			text3: 'text-on-primary-token text-lg sm:text-2xl',
+			progressTrack: 'bg-primary-400',
+			progressMeter: 'bg-white',
+			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center rounded-tl-3xl rounded-tr-3xl',
+			button: 'btn-icon'
+		},
+		elegant: {
+			base: 'bg-white text-black font-serif shadow',
+			header: 'bg-neutral-100 p-4 grid grid-cols-3 gap-8 items-center',
+			src: getImageLink({ id: 'C5NOq1BKlAk', w: 200, h: 200 }),
+			img: 'bg-black bg-black/50 w-full aspect-square scale-110 transition-transform',
+			text1: 'text-lg opacity-50',
+			text2: 'text-xl sm:text-3xl',
+			text3: 'text-lg sm:text-2xl',
+			progressTrack: 'bg-black/5',
+			progressMeter: 'bg-black',
+			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center',
+			button: 'btn-icon rounded-none text-black ring-[1px] ring-black/5'
+		},
+		playful: {
+			base: 'bg-blue-700 text-white font-sans rounded-3xl shadow-xl',
+			header: 'bg-blue-800 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-3xl rounded-tr-3xl',
+			src: getImageLink({ id: 'wzj86-5JVcM', w: 200, h: 200 }),
+			img: 'bg-black w-full aspect-square rounded-3xl scale-110 -translate-x-4 -translate-y-4 transition-transform',
+			text1: 'text-lg text-amber-300',
+			text2: 'font-bold text-xl sm:text-3xl',
+			text3: 'text-lg sm:text-2xl',
+			progressTrack: 'bg-black/5',
+			progressMeter: 'bg-white',
+			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center rounded-tl-3xl rounded-tr-3xl',
+			button: 'btn-icon bg-amber-300 text-blue-900'
+		},
+		brutalist: {
+			base: 'bg-black text-white font-mono overflow-hidden',
+			header: 'bg-white text-black p-4 grid grid-cols-3 gap-8 items-center',
+			src: getImageLink({ id: 'hTv8aaPziOQ', w: 200, h: 200 }),
+			img: 'bg-black w-full aspect-square transition-transform border-r-4 border-b-4 border-teal-300',
+			text1: 'text-lg text-teal-300',
+			text2: 'font-bold text-xl sm:text-3xl',
+			text3: 'italic text-lg sm:text-2xl',
+			progressTrack: 'bg-teal-300/75',
+			progressMeter: 'bg-teal-300',
+			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center',
+			button: 'btn-icon rounded-none bg-teal-300 text-black ring ring-white'
+		}
+	};
 </script>
 
 <div class="grid grid-cols-1 items-center gap-4 md:gap-10 lg:grid-cols-2">
-  <!-- Info -->
-  <div class="space-y-4 md:space-y-10">
-    <div class="mx-auto max-w-[640px] space-y-4">
-      <h2 class="h2">Adaptive Theming.</h2>
-      <!-- prettier-ignore -->
-      <p>
+	<!-- Info -->
+	<div class="space-y-4 md:space-y-10">
+		<div class="mx-auto max-w-[640px] space-y-4">
+			<h2 class="h2">Adaptive Theming.</h2>
+			<!-- prettier-ignore -->
+			<p>
 				Use Skeleton's <a class="anchor" href="/docs/tokens">design token system</a>, <a class="anchor" href="/docs/variants">variant styles</a>, and Tailwind utility classes to create custom components that match your overall theme and aesthetic.
 			</p>
-    </div>
-    <!-- Tabs -->
-    <TabGroup
-      active="variant-filled"
-      hover="hover:variant-soft"
-      flex="flex-1 lg:flex-none"
-      rounded="rounded-container-token"
-      border=""
-      regionList="space-x-1"
-      padding="p-2 sm:p-4"
-      class="mx-auto max-w-[640px]"
-    >
-      <Tab bind:group={theme} name="theme" value="simple" class="w-24 space-y-4">
-        <svelte:fragment slot="lead"><i class="fa-solid fa-square text-2xl" /></svelte:fragment>
-        Simple
-      </Tab>
-      <Tab bind:group={theme} name="theme" value="elegant" class="w-24 space-y-4">
-        <svelte:fragment slot="lead"><i class="fa-solid fa-certificate text-2xl" /></svelte:fragment>
-        Elegant
-      </Tab>
-      <Tab bind:group={theme} name="theme" value="playful" class="w-24 space-y-4">
-        <svelte:fragment slot="lead"><i class="fa-solid fa-shapes text-2xl" /></svelte:fragment>
-        Playful
-      </Tab>
-      <Tab bind:group={theme} name="theme" value="brutalist" class="w-24 space-y-4">
-        <svelte:fragment slot="lead"><i class="fa-solid fa-diamond text-2xl" /></svelte:fragment>
-        Brutalist
-      </Tab>
-    </TabGroup>
-  </div>
-  <!-- Card -->
-  <div>
-    <div class="mx-auto max-w-[640px] transition duration-200 ease-in-out {themeStyles[theme].base}">
-      <header class={themeStyles[theme].header}>
-        <img src={themeStyles[theme].src} class={themeStyles[theme].img} alt="Cover" />
-        <div class="col-span-2 space-y-2">
-          <div class={themeStyles[theme].text1}>Mood Booster</div>
-          <div class={themeStyles[theme].text2}>Have It Your Way</div>
-          <div class={themeStyles[theme].text3}>The Skeleton Crew</div>
-        </div>
-      </header>
-      <ProgressBar
-        value={75}
-        max={100}
-        track={themeStyles[theme].progressTrack}
-        meter={themeStyles[theme].progressMeter}
-        rounded="rounded-none"
-      />
-      <footer class={themeStyles[theme].footer}>
-        <button class={themeStyles[theme].button}><i class="fa-solid fa-shuffle text-2xl" /></button>
-        <button class={themeStyles[theme].button}><i class="fa-solid fa-backward-fast text-2xl" /></button>
-        <button class={themeStyles[theme].button}><i class="fa-solid fa-pause text-2xl" /></button>
-        <button class={themeStyles[theme].button}><i class="fa-solid fa-forward-fast text-2xl" /></button>
-        <button class={themeStyles[theme].button}><i class="fa-solid fa-heart text-2xl" /></button>
-      </footer>
-    </div>
-  </div>
+		</div>
+		<!-- Tabs -->
+		<TabGroup
+			active="variant-filled"
+			hover="hover:variant-soft"
+			flex="flex-1 lg:flex-none"
+			rounded="rounded-container-token"
+			border=""
+			regionList="space-x-1"
+			padding="p-2 sm:p-4"
+			class="mx-auto max-w-[640px]"
+		>
+			<Tab bind:group={theme} name="theme" value="simple" class="w-24 space-y-4">
+				<svelte:fragment slot="lead"><i class="fa-solid fa-square text-2xl" /></svelte:fragment>
+				Simple
+			</Tab>
+			<Tab bind:group={theme} name="theme" value="elegant" class="w-24 space-y-4">
+				<svelte:fragment slot="lead"><i class="fa-solid fa-certificate text-2xl" /></svelte:fragment>
+				Elegant
+			</Tab>
+			<Tab bind:group={theme} name="theme" value="playful" class="w-24 space-y-4">
+				<svelte:fragment slot="lead"><i class="fa-solid fa-shapes text-2xl" /></svelte:fragment>
+				Playful
+			</Tab>
+			<Tab bind:group={theme} name="theme" value="brutalist" class="w-24 space-y-4">
+				<svelte:fragment slot="lead"><i class="fa-solid fa-diamond text-2xl" /></svelte:fragment>
+				Brutalist
+			</Tab>
+		</TabGroup>
+	</div>
+	<!-- Card -->
+	<div>
+		<div class="mx-auto max-w-[640px] transition duration-200 ease-in-out {themeStyles[theme].base}">
+			<header class={themeStyles[theme].header}>
+				<img src={themeStyles[theme].src} class={themeStyles[theme].img} alt="Cover" />
+				<div class="col-span-2 space-y-2">
+					<div class={themeStyles[theme].text1}>Mood Booster</div>
+					<div class={themeStyles[theme].text2}>Have It Your Way</div>
+					<div class={themeStyles[theme].text3}>The Skeleton Crew</div>
+				</div>
+			</header>
+			<ProgressBar
+				value={75}
+				max={100}
+				track={themeStyles[theme].progressTrack}
+				meter={themeStyles[theme].progressMeter}
+				rounded="rounded-none"
+			/>
+			<footer class={themeStyles[theme].footer}>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-shuffle text-2xl" /></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-backward-fast text-2xl" /></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-pause text-2xl" /></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-forward-fast text-2xl" /></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-heart text-2xl" /></button>
+			</footer>
+		</div>
+	</div>
 </div>

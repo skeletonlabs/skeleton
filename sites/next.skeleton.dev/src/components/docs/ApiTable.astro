@@ -2,78 +2,78 @@
 const { types, schema } = Astro.props;
 
 interface SchemaRow {
-  prop: string;
-  type: string;
-  description?: string;
-  default?: string;
-  required?: boolean;
+	prop: string;
+	type: string;
+	description?: string;
+	default?: string;
+	required?: boolean;
 }
 
 function formatSchemaData(typeKey: string) {
-  const { properties, propertyOrder, required } = schema.definitions[typeKey];
-  let schemaArr: SchemaRow[] = [];
-  // Sort Properties
-  let propertiesSorted: any = {};
-  if (propertyOrder) propertyOrder.forEach((p: string) => (propertiesSorted[p] = properties[p]));
-  // Generate Array of Props
-  Object.entries(propertiesSorted).map((schemaRow: any) => {
-    const [prop, values] = schemaRow;
-    schemaArr.push({
-      prop,
-      type: values['$ref'] ? values['$ref'].replace('#/definitions/', '') : values.type,
-      description: values.description ?? '-',
-      default: values.hasOwnProperty('default') ? String(values.default) : '',
-      required: (required && required.includes(prop)) || false
-    });
-  });
-  // Return the schema array
-  return schemaArr;
+	const { properties, propertyOrder, required } = schema.definitions[typeKey];
+	let schemaArr: SchemaRow[] = [];
+	// Sort Properties
+	let propertiesSorted: any = {};
+	if (propertyOrder) propertyOrder.forEach((p: string) => (propertiesSorted[p] = properties[p]));
+	// Generate Array of Props
+	Object.entries(propertiesSorted).map((schemaRow: any) => {
+		const [prop, values] = schemaRow;
+		schemaArr.push({
+			prop,
+			type: values['$ref'] ? values['$ref'].replace('#/definitions/', '') : values.type,
+			description: values.description ?? '-',
+			default: values.hasOwnProperty('default') ? String(values.default) : '',
+			required: (required && required.includes(prop)) || false
+		});
+	});
+	// Return the schema array
+	return schemaArr;
 }
 ---
 
 <div class="space-y-8">
-  {
-    types.map((typeKey: string) => {
-      return (
-        <section class="space-y-4">
-          {/* Label */}
-          <h3 class="h3">{typeKey.replace('Props', '')}</h3>
-          {/* Table */}
-          <div class="table-wrap">
-            <table class="table caption-bottom">
-              <thead>
-                <tr>
-                  <th>Property</th>
-                  <th>Type</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody class="hover:[&>tr]:bg-surface-500/5">
-                {formatSchemaData(typeKey).map((cell: any) => (
-                  <tr class="align-top">
-                    {/* Property */}
-                    <td>
-                      <div class="flex items-center gap-1">
-                        <code class="code">{cell.prop}</code>
-                        {cell.required ? <span>*</span> : null}
-                      </div>
-                    </td>
-                    {/* Type */}
-                    <td class="italic opacity-60">{cell.type}</td>
-                    {/* Description */}
-                    <td>
-                      <div class="grid grid-cols-1 gap-2">
-                        <article>{cell.description}</article>
-                        {cell.default ? <small class="italic opacity-60">Default: {cell.default}</small> : null}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      );
-    })
-  }
+	{
+		types.map((typeKey: string) => {
+			return (
+				<section class="space-y-4">
+					{/* Label */}
+					<h3 class="h3">{typeKey.replace('Props', '')}</h3>
+					{/* Table */}
+					<div class="table-wrap">
+						<table class="table caption-bottom">
+							<thead>
+								<tr>
+									<th>Property</th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody class="hover:[&>tr]:bg-surface-500/5">
+								{formatSchemaData(typeKey).map((cell: any) => (
+									<tr class="align-top">
+										{/* Property */}
+										<td>
+											<div class="flex items-center gap-1">
+												<code class="code">{cell.prop}</code>
+												{cell.required ? <span>*</span> : null}
+											</div>
+										</td>
+										{/* Type */}
+										<td class="italic opacity-60">{cell.type}</td>
+										{/* Description */}
+										<td>
+											<div class="grid grid-cols-1 gap-2">
+												<article>{cell.description}</article>
+												{cell.default ? <small class="italic opacity-60">Default: {cell.default}</small> : null}
+											</div>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			);
+		})
+	}
 </div>

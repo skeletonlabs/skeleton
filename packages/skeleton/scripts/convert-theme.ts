@@ -6,32 +6,32 @@ import type { Theme } from '../src/plugin/themes/index.js';
 
 // Converts a theme's .css file into a .ts file.
 export async function convertTheme(name: string) {
-  const cssEntryPath = `./src/plugin/themes/theme-${name}.css`;
-  const css = readFileSync(cssEntryPath, 'utf8');
-  const result = postcss().process(css, { from: cssEntryPath });
+	const cssEntryPath = `./src/plugin/themes/theme-${name}.css`;
+	const css = readFileSync(cssEntryPath, 'utf8');
+	const result = postcss().process(css, { from: cssEntryPath });
 
-  const cssInJs = postcssJs.objectify(result.root);
+	const cssInJs = postcssJs.objectify(result.root);
 
-  const properties = { ...cssInJs[':root'] };
+	const properties = { ...cssInJs[':root'] };
 
-  delete cssInJs[':root'];
+	delete cssInJs[':root'];
 
-  const theme = {
-    name,
-    properties
-    // enhancements: { ...cssInJs },
-    // properties_dark: {}
-  } satisfies Theme;
+	const theme = {
+		name,
+		properties
+		// enhancements: { ...cssInJs },
+		// properties_dark: {}
+	} satisfies Theme;
 
-  // Creates the generated CSS-in-JS file
-  await writeFile(
-    `./src/plugin/themes/${name}.ts`,
-    `import type { Theme } from './index.js';
+	// Creates the generated CSS-in-JS file
+	await writeFile(
+		`./src/plugin/themes/${name}.ts`,
+		`import type { Theme } from './index.js';
 
 const ${name} = ${JSON.stringify(theme, undefined, '\t')} satisfies Theme;
 	
 export default ${name};`
-  ).catch((e) => console.error(e));
+	).catch((e) => console.error(e));
 }
 
 convertTheme('vintage');

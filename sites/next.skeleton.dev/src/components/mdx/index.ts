@@ -17,19 +17,19 @@ import HorzRule from '@components/mdx/HorzRule.astro';
 import Table from '@components/mdx/Table.astro';
 
 const componentSet = {
-  h1: Heading1,
-  h2: Heading2,
-  h3: Heading3,
-  h4: Heading4,
-  h5: Heading5,
-  h6: Heading6,
-  a: Anchor,
-  blockquote: Blockquote,
-  ul: ListUnordered,
-  ol: ListOrdered,
-  code: Code,
-  hr: HorzRule,
-  table: Table
+	h1: Heading1,
+	h2: Heading2,
+	h3: Heading3,
+	h4: Heading4,
+	h5: Heading5,
+	h6: Heading6,
+	a: Anchor,
+	blockquote: Blockquote,
+	ul: ListUnordered,
+	ol: ListOrdered,
+	code: Code,
+	hr: HorzRule,
+	table: Table
 };
 
 export default componentSet;

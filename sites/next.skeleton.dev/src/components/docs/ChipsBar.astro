@@ -6,49 +6,49 @@ const { frontmatter, urls } = Astro.props;
 ---
 
 <div class="flex gap-2 overflow-x-auto pb-2">
-  {
-    frontmatter.srcCore && (
-      <a class="chip preset-filled-surface-200-800" href={urls.githubSkeletonUrl + frontmatter.srcCore} target="_blank">
-        <IconCode size={16} />
-        <span>Source</span>
-      </a>
-    )
-  }
-  {
-    frontmatter.srcReact && (
-      <a class="chip preset-filled-surface-200-800" href={urls.githubReactUrl + frontmatter.srcReact} target="_blank">
-        <IconCode size={16} />
-        <span>React</span>
-      </a>
-    )
-  }
-  {
-    frontmatter.srcSvelte && (
-      <a class="chip preset-filled-surface-200-800" href={urls.githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
-        <IconCode size={16} />
-        <span>Svelte</span>
-      </a>
-    )
-  }
-  {
-    frontmatter.showDocsUrl && (
-      <a
-        class="chip preset-filled-surface-200-800"
-        href={urls.githubDocsUrl + Astro.url.pathname.replace(/\/$/, '') + '.mdx'}
-        target="_blank"
-      >
-        <BookOpen size={16} />
-        <span>Doc</span>
-      </a>
-    )
-  }
-  {
-    frontmatter.srcAlly && (
-      <a class="chip preset-filled-surface-200-800" href={frontmatter.srcAlly} target="_blank">
-        <PersonStanding size={16} />
-        <span>A11y</span>
-      </a>
-    )
-  }
-  <!-- <button class="chip preset-filled-surface-200-800">Foobar</button> -->
+	{
+		frontmatter.srcCore && (
+			<a class="chip preset-filled-surface-200-800" href={urls.githubSkeletonUrl + frontmatter.srcCore} target="_blank">
+				<IconCode size={16} />
+				<span>Source</span>
+			</a>
+		)
+	}
+	{
+		frontmatter.srcReact && (
+			<a class="chip preset-filled-surface-200-800" href={urls.githubReactUrl + frontmatter.srcReact} target="_blank">
+				<IconCode size={16} />
+				<span>React</span>
+			</a>
+		)
+	}
+	{
+		frontmatter.srcSvelte && (
+			<a class="chip preset-filled-surface-200-800" href={urls.githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
+				<IconCode size={16} />
+				<span>Svelte</span>
+			</a>
+		)
+	}
+	{
+		frontmatter.showDocsUrl && (
+			<a
+				class="chip preset-filled-surface-200-800"
+				href={urls.githubDocsUrl + Astro.url.pathname.replace(/\/$/, '') + '.mdx'}
+				target="_blank"
+			>
+				<BookOpen size={16} />
+				<span>Doc</span>
+			</a>
+		)
+	}
+	{
+		frontmatter.srcAlly && (
+			<a class="chip preset-filled-surface-200-800" href={frontmatter.srcAlly} target="_blank">
+				<PersonStanding size={16} />
+				<span>A11y</span>
+			</a>
+		)
+	}
+	<!-- <button class="chip preset-filled-surface-200-800">Foobar</button> -->
 </div>

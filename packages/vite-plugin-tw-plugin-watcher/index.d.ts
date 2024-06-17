@@ -22,7 +22,7 @@
  * @returns {import('vite').Plugin}
  */
 export default function skeletonPluginWatcher(twPluginPath: string): {
-  name: string;
-  configureServer(vite: any): void;
-  buildStart(): Promise<void>;
+	name: string;
+	configureServer(vite: any): void;
+	buildStart(): Promise<void>;
 };

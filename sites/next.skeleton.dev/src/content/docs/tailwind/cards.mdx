@@ -13,23 +13,23 @@ import ExampleDetailed from '@examples/tailwind/cards/ExampleDetailed.astro';
 import ExampleDetailedRaw from '@examples/tailwind/cards/ExampleDetailed.astro?raw';
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <Example />
-  </Fragment>
-  <Fragment slot="code">
-    ```html
-    <div class="card preset-filled-surface-100-900 p-4">...</div>
-    ```
-  </Fragment>
+	<Fragment slot="preview">
+		<Example />
+	</Fragment>
+	<Fragment slot="code">
+		```html
+		<div class="card preset-filled-surface-100-900 p-4">...</div>
+		```
+	</Fragment>
 </Preview>
 
 ## Fancy
 
 <Preview client:load>
-  <Fragment slot="preview">
-    <ExampleDetailed />
-  </Fragment>
-  <Fragment slot="code">
-    <Code code={ExampleDetailedRaw} lang="astro" />
-  </Fragment>
+	<Fragment slot="preview">
+		<ExampleDetailed />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleDetailedRaw} lang="astro" />
+	</Fragment>
 </Preview>
