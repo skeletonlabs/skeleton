@@ -8,9 +8,9 @@
 	let hrefExample = '#';
 </script>
 
-<div class="card border-[1px] border-surface-100-900 w-[320px] h-[512px] grid grid-rows-[1fr_auto]">
+<div class="card border-surface-100-900 grid h-[512px] w-[320px] grid-rows-[1fr_auto] border-[1px]">
 	<!-- Content -->
-	<div class="flex justify-center items-center">
+	<div class="flex items-center justify-center">
 		<p class="opacity-20">(Content)</p>
 	</div>
 	<!-- Component -->

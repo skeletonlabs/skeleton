@@ -5,7 +5,7 @@
 	let hrefExample = '#';
 </script>
 
-<div class="card preset-filled-surface-100-900 p-5 grid grid-cols-3 gap-5">
+<div class="card preset-filled-surface-100-900 grid grid-cols-3 gap-5 p-5">
 	<!-- By default tiles are <button> elements -->
 	<NavTile id="0" label="Button">
 		<IconBox />
