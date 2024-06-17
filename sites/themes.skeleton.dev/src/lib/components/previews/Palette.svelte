@@ -118,12 +118,12 @@
 <div class="space-y-4">
 	<!-- Palette -->
 	<section class="rounded-container border-surface-200-800 grid grid-cols-1 border p-8 xl:grid-cols-7">
-		{#each palette as color, i}
+		{#each palette as color}
 			<div class="space-y-4">
 				<strong class="block text-center opacity-60">{color.name}</strong>
 				<div class="grid grid-rows-11">
 					<!-- Color Ramp -->
-					{#each color.ramp as shade, i}
+					{#each color.ramp as shade}
 						<div class={`${shade.base} `}>
 							<span class="flex items-center justify-center py-3 font-bold {shade.contrast}" class:underline={shade.value === 500}>
 								{shade.value}

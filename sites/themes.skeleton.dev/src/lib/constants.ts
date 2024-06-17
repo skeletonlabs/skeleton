@@ -4,11 +4,11 @@
 // export type DisplayBorders = 'none' | 'surface'; // Record<DisplayBorders, string>
 // export type DisplayBackgrounds = 'none' | 'surface' | 'surface-inverted'; // Record<DisplayBackgrounds, string>
 
-export const displayBorders: any = {
+export const displayBorders: Record<string, string> = {
 	none: '',
 	surface: 'border border-surface-200-800'
 };
-export const displayBackgrounds: any = {
+export const displayBackgrounds: Record<string, string> = {
 	none: '',
 	surface: 'preset-filled-surface-100-900',
 	'surface-inverted': 'preset-filled-surface-50-950'

@@ -4,7 +4,7 @@ import type { ColorNames, ColorSettings } from './constants';
 
 // Design
 
-export const stateDisplay: any = $state({
+export const stateDisplay: Record<string, string> = $state({
 	border: 'surface',
 	background: 'surface'
 });

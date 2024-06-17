@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { genThemeCode } from '$lib/generator.svelte';
 	import { stateFormCore } from '$lib/state.svelte';
+	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	let theme = $derived(genThemeCode());
 
-	function formatThemeName(e: any) {
-		if (!e.target.value) return;
-		stateFormCore.name = e.target.value.replace(/[^\w]/g, ''); // [A-Za-z0-9_]
-	}
+	const formatThemeName: HTMLInputAttributes['oninput'] = (e) => {
+		if (!e.currentTarget.value) return;
+		stateFormCore.name = e.currentTarget.value.replace(/[^\w]/g, ''); // [A-Za-z0-9_]
+	};
 </script>
 
 <div class="space-y-4 md:space-y-8">
