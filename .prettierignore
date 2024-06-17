@@ -1,5 +1,9 @@
 # Ignore files that are automatically generated during the build process
 packages/plugin
+.vercel
+dist
+.svelte-kit
+**/public/pagefind/*
 
 # Ignore package manager lockfiles
 pnpm-lock.yaml
