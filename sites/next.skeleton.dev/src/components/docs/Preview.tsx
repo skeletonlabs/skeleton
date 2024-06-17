@@ -1,7 +1,9 @@
 import React from 'react';
 
+type PreviewProps = { selected: 'preview' | 'code'; preview: React.ReactNode; code: React.ReactNode };
+
 /** Create preview/code tabs for showcasing features. */
-export const Preview: React.FC<any> = (props) => {
+export const Preview: React.FC<PreviewProps> = (props) => {
 	const [selected, setSelected] = React.useState(props.selected || 'preview');
 	const cTab = 'border-b border-transparent pb-2 hover:[&>span]:preset-tonal-primary';
 	const cTabControl = 'block p-2 px-4 capitalize rounded-container';

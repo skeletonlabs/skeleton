@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Tabs } from '@skeletonlabs/skeleton-react';
 import { LibraryBig, Film, Tv } from 'lucide-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	const [group, setGroup] = useState('books');
 	return (
 		<Tabs>

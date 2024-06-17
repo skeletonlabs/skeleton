@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar } from '@skeletonlabs/skeleton-react';
 import { ArrowLeft, Paperclip, Calendar, CircleUser, Menu } from 'lucide-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	return (
 		<AppBar>
 			<AppBar.Toolbar>

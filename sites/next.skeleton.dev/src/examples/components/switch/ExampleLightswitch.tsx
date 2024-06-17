@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch } from '@skeletonlabs/skeleton-react';
 import { Moon as IconMoon, Sun as IconSun } from 'lucide-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	// Bind to the checked state
 	const [mode, setMode] = React.useState(false);
 

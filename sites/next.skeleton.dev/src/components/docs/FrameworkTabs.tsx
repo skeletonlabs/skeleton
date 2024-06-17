@@ -1,7 +1,9 @@
 import React from 'react';
 
+type FrameworkTabsProps = { selected: 'svelte' | 'react'; svelte: React.ReactNode; react: React.ReactNode };
+
 /** Create a framework-specific tab component. */
-export const FrameworkTabs: React.FC<any> = (props) => {
+export const FrameworkTabs: React.FC<FrameworkTabsProps> = (props) => {
 	const [selected, setSelected] = React.useState(props.selected || 'react');
 	const cTab = 'font-bold py-2 px-4 border-b-[3px] border-transparent capitalize';
 	const cTabActive = '!border-surface-950-50';

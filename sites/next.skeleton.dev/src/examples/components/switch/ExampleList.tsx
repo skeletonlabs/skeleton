@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch } from '@skeletonlabs/skeleton-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	const [disturb, setDisturb] = React.useState(false);
 	const [notifications, setNotifications] = React.useState(true);
 	const [disabled, setDisabled] = React.useState(false);

@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch } from '@skeletonlabs/skeleton-react';
 import { Frown as IconFrown, Smile as IconSmile } from 'lucide-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	const [compact, setCompact] = React.useState(false);
 
 	return (
