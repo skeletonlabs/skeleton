@@ -1,30 +1,31 @@
 <script lang="ts">
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
+	import Skull from 'lucide-svelte/icons/skull';
 </script>
 
 <h1 class="h1">App Bar</h1>
 
 <AppBar>
 	{#snippet lead()}
-		<span>💀</span>
+		<span><Skull size={22} /></span>
 		<span>Skeleton</span>
 	{/snippet}
 	Skeleton
 	{#snippet trail()}
 		<span>Skeleton</span>
-		<span>💀</span>
+		<span><Skull size={22} /></span>
 	{/snippet}
 </AppBar>
 
 <h3 class="h3">Headline</h3>
 <AppBar headlineBase="text-center">
 	{#snippet lead()}
-		<span>💀</span>
+		<span><Skull size={22} /></span>
 		<span>Skeleton</span>
 	{/snippet}
 	{#snippet trail()}
 		<span>Skeleton</span>
-		<span>💀</span>
+		<span><Skull size={22} /></span>
 	{/snippet}
 	{#snippet headline()}
 		<h1 class="h1">Headline</h1>
@@ -35,13 +36,13 @@
 <div class="flex max-h-64 flex-col space-y-4 overflow-y-auto">
 	<AppBar classes="sticky top-0">
 		{#snippet lead()}
-			<span>💀</span>
+			<span><Skull size={22} /></span>
 			<span>Skeleton</span>
 		{/snippet}
 		Skeleton
 		{#snippet trail()}
 			<span>Skeleton</span>
-			<span>💀</span>
+			<span><Skull size={22} /></span>
 		{/snippet}
 	</AppBar>
 	<div>First line of the sticky AppBar</div>
@@ -119,13 +120,13 @@
 <button type="button" class="btn preset-filled">Button before the AppBar</button>
 <AppBar>
 	{#snippet lead()}
-		<button type="button" class="btn-icon preset-filled-primary-500">💀</button>
+		<button type="button" class="btn-icon preset-filled-primary-500"><Skull size={22} /></button>
 		<button type="button" class="btn preset-filled">Skeleton</button>
 	{/snippet}
 	Skeleton
 	{#snippet trail()}
 		<button type="button" class="btn preset-filled">Skeleton</button>
-		<button type="button" class="btn-icon preset-filled-primary-500">💀</button>
+		<button type="button" class="btn-icon preset-filled-primary-500"><Skull size={22} /></button>
 	{/snippet}
 </AppBar>
 <button type="button" class="btn preset-filled">Button after the AppBar</button>
@@ -134,13 +135,13 @@
 <div dir="rtl">
 	<AppBar>
 		{#snippet lead()}
-			<button type="button" class="btn-icon preset-filled-primary-500">💀</button>
+			<button type="button" class="btn-icon preset-filled-primary-500"><Skull size={22} /></button>
 			<button type="button" class="btn preset-filled">lead</button>
 		{/snippet}
 		skeleton
 		{#snippet trail()}
 			<button type="button" class="btn preset-filled">trail</button>
-			<button type="button" class="btn-icon preset-filled-primary-500">💀</button>
+			<button type="button" class="btn-icon preset-filled-primary-500"><Skull size={22} /></button>
 		{/snippet}
 		{#snippet headline()}
 			<h1 class="h1">مرحبا بك</h1>

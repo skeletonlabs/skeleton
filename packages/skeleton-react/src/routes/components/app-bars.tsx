@@ -1,17 +1,18 @@
 import { AppBar } from "../../lib/components/AppBar/AppBar.js";
+import { Skull } from 'lucide-react';
 
 function appbar() {
 	return (
 		<AppBar>
 			<AppBar.Toolbar>
 				<AppBar.ToolbarLead>
-					<span>💀</span>
+					<span><Skull size={22}/></span>
 					<span>Skeleton</span>
 				</AppBar.ToolbarLead>
 				<AppBar.ToolbarCenter>Skeleton</AppBar.ToolbarCenter>
 				<AppBar.ToolbarTrail>
 					<span>Skeleton</span>
-					<span>💀</span>
+					<span><Skull size={22}/></span>
 				</AppBar.ToolbarTrail>
 			</AppBar.Toolbar>
 		</AppBar>
@@ -25,12 +26,12 @@ function appbarHeadline() {
 			<AppBar>
 				<AppBar.Toolbar>
 					<AppBar.ToolbarLead>
-						<span>💀</span>
+						<span><Skull size={22}/></span>
 						<span>Skeleton</span>
 					</AppBar.ToolbarLead>
 					<AppBar.ToolbarTrail>
 						<span>Skeleton</span>
-						<span>💀</span>
+						<span><Skull size={22}/></span>
 					</AppBar.ToolbarTrail>
 				</AppBar.Toolbar>
 				<AppBar.Headline base="text-center">
@@ -49,13 +50,13 @@ function appbarSticky() {
 				<AppBar classes="sticky top-0">
 					<AppBar.Toolbar>
 						<AppBar.ToolbarLead>
-							<span>💀</span>
+							<span><Skull size={22}/></span>
 							<span>Skeleton</span>
 						</AppBar.ToolbarLead>
 						<AppBar.ToolbarCenter>Skeleton</AppBar.ToolbarCenter>
 						<AppBar.ToolbarTrail>
 							<span>Skeleton</span>
-							<span>💀</span>
+							<span><Skull size={22}/></span>
 						</AppBar.ToolbarTrail>
 					</AppBar.Toolbar>
 				</AppBar>
@@ -175,7 +176,7 @@ function appbarA11YKeyboard() {
 							type="button"
 							className="btn-icon preset-filled-primary-500"
 						>
-							💀
+							<Skull size={22}/>
 						</button>
 						<button type="button" className="btn preset-filled">
 							Skeleton
@@ -190,7 +191,7 @@ function appbarA11YKeyboard() {
 							type="button"
 							className="btn-icon preset-filled-primary-500"
 						>
-							💀
+							<Skull size={22}/>
 						</button>
 					</AppBar.ToolbarTrail>
 				</AppBar.Toolbar>
@@ -214,7 +215,7 @@ function appbarRTL() {
 								type="button"
 								className="btn-icon preset-filled-primary-500"
 							>
-								💀
+								<Skull size={22}/>
 							</button>
 							<button type="button" className="btn preset-filled">
 								lead
@@ -229,7 +230,7 @@ function appbarRTL() {
 								type="button"
 								className="btn-icon preset-filled-primary-500"
 							>
-								💀
+								<Skull size={22}/>
 							</button>
 						</AppBar.ToolbarTrail>
 					</AppBar.Toolbar>
