@@ -20,7 +20,7 @@ function App() {
 					skeleton-react
 				</a>
 				<hr className="hr" />
-				<label htmlFor="mode" className="label flex items-center justify-between gap-4">
+				<label className="label flex items-center justify-between gap-4">
 					<p>Set Mode</p>
 					<Switch
 						id="mode"
@@ -46,6 +46,9 @@ function App() {
 						<a className="anchor" href="/components/app-bars">
 							App Bars
 						</a>
+						<a className="anchor" href="/components/navigation">
+							Navigation
+						</a>
 						<a className="anchor" href="/components/progress">
 							Progress
 						</a>
@@ -57,6 +60,9 @@ function App() {
 						</a>
 						<a className="anchor" href="/components/tabs">
 							Tabs
+						</a>
+						<a className="anchor" href="/components/ratings">
+							Ratings
 						</a>
 					</nav>
 				</div>

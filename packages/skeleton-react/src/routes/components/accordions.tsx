@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Accordion } from '../../lib/components/Accordion/Accordion.js';
+import { Skull } from 'lucide-react';
 
 export function Component() {
 	const lorem =
@@ -26,7 +27,7 @@ export function Component() {
 			{/* Component */}
 			<Accordion multiple={multiple} value={value} onValueChange={setValue}>
 				<Accordion.Item id="reactItem1" onClick={console.log}>
-					<Accordion.Control lead="💀">React Control 1</Accordion.Control>
+					<Accordion.Control lead={<Skull size={22} />}>React Control 1</Accordion.Control>
 					<Accordion.Panel>React Panel 1 - {lorem}</Accordion.Panel>
 				</Accordion.Item>
 				<hr className="hr" />

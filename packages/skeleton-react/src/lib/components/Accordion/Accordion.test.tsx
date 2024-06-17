@@ -9,7 +9,7 @@ import { Accordion } from './Accordion.js';
 // *************************
 
 describe('Accordion usage', () => {
-	it('should show the panel when the control is clicked', async () => {
+	it('should render the component', async () => {
 		const { queryByText, getByText } = render(
 			<Accordion value={['testItem1']}>
 				<Accordion.Item id="testItem1">

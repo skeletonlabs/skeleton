@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Accordion from '$lib/components/Accordion/Accordion.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
+	import Skull from 'lucide-svelte/icons/skull';
 
 	const lorem =
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
@@ -24,7 +25,7 @@
 	<!-- Children -->
 	<AccordionItem id="svelteItem1">
 		<!-- Control -->
-		{#snippet controlLead()}💀{/snippet}
+		{#snippet controlLead()}<Skull size={22} />{/snippet}
 		{#snippet control()}Svelte Control 1{/snippet}
 		<!-- Panel -->
 		{#snippet panel()}Svelte Panel 1 - {lorem}{/snippet}
