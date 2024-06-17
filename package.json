@@ -43,6 +43,7 @@
 		"preinstall": "npx only-allow pnpm",
 		"postinstall": "pnpm -r sync",
 		"lint": "eslint . --ignore-path .gitignore",
+		"lint:fix": "eslint . --fix --ignore-path .gitignore",
 		"templategen": "node ./scripts/template-gen.js",
 		"test": "pnpm -F @skeletonlabs/skeleton test"
 	},

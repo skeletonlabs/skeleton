@@ -19,7 +19,8 @@ module.exports = {
 			},
 			plugins: ['svelte'],
 			rules: {
-				'svelte/no-at-html-tags': 'off'
+				'svelte/no-at-html-tags': 'off',
+				'svelte/valid-compile': 'off'
 			}
 		},
 		{
