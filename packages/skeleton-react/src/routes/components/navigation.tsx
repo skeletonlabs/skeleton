@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 export function Component() {
-  let [activeItem, setActiveItem] = useState("0");
+  const [activeItem, setActiveItem] = useState("0");
 
   function onClickHandler(id: string) {
     setActiveItem(id);

@@ -20,6 +20,7 @@ function App() {
 					skeleton-react
 				</a>
 				<hr className="hr" />
+				{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
 				<label className="label flex items-center justify-between gap-4">
 					<p>Set Mode</p>
 					<Switch

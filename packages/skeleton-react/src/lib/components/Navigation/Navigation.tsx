@@ -60,7 +60,7 @@ export const NavRail: React.FC<NavRailProps> = ({
   };
 
   // Reactive
-  let rxWidth = expanded ? widthExpanded : width;
+  const rxWidth = expanded ? widthExpanded : width;
 
   return (
     <aside
@@ -181,11 +181,11 @@ export const NavTile: React.FC<NavTileProps> = ({
   const role = href ? undefined : "button";
 
   // Reactive
-  let rxSize = ctx.parent === "bar" ? `h-full` : `${aspect}`;
+  const rxSize = ctx.parent === "bar" ? `h-full` : `${aspect}`;
   const classesCollapsed = `${rxSize} ${padding} ${gap} ${classes}`;
   const classesExtended = `${expandedPadding} ${expandedGap} ${expandedClasses}`;
-  let rxMode = ctx.expanded ? classesExtended : classesCollapsed;
-  let rxBackground = selected ? active : `${background} ${hover}`;
+  const rxMode = ctx.expanded ? classesExtended : classesCollapsed;
+  const rxBackground = selected ? active : `${background} ${hover}`;
 
   function onClickHandler() {
     if (onClick && !id) throw new Error("No ID was provided");
