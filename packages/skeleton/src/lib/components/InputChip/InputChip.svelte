@@ -26,11 +26,11 @@
 
 	// Event Dispatcher
 	type InputChipEvent = {
-		add: { event: SubmitEvent; chipIndex: number; chipValue: string };
+		add: { event: KeyboardEvent; chipIndex: number; chipValue: string };
 		remove: { event: MouseEvent; chipIndex: number; chipValue: string };
 		addManually: { chipIndex: number; chipValue: string };
 		removeManually: { chipValue: string };
-		invalid: { event: SubmitEvent; input: string };
+		invalid: { event: KeyboardEvent; input: string };
 		invalidManually: { input: string };
 	};
 	const dispatch = createEventDispatcher<InputChipEvent>();
@@ -173,10 +173,6 @@
 		};
 	});
 
-	function onInputHandler(): void {
-		inputValid = true;
-	}
-
 	function validateCustom(chip: string) {
 		return validation === undefined || validation(chip);
 	}
@@ -223,7 +219,10 @@
 		chipValues = chipValues;
 	}
 
-	function addChipInternally(event: SvelteEvent<SubmitEvent, HTMLFormElement>): void {
+	function onKeyHandler(event: KeyboardEvent): void {
+		// Monitor for Enter Key
+		if (event.key !== 'Enter') return;
+		// Prevent default behavior
 		event.preventDefault();
 		// Validate
 		inputValid = validate();
@@ -294,19 +293,17 @@
 	<!-- Chip Wrapper -->
 	<div class="input-chip-wrapper {classesChipWrapper}">
 		<!-- Input Field -->
-		<form on:submit={addChipInternally}>
-			<input
-				type="text"
-				bind:value={input}
-				placeholder={$$restProps.placeholder ?? 'Enter values...'}
-				class="input-chip-field {classesInput}"
-				on:input={onInputHandler}
-				on:input
-				on:focus
-				on:blur
-				disabled={$$restProps.disabled}
-			/>
-		</form>
+		<input
+			type="text"
+			bind:value={input}
+			placeholder={$$restProps.placeholder ?? 'Enter values...'}
+			class="input-chip-field {classesInput}"
+			on:keydown={onKeyHandler}
+			on:input
+			on:focus
+			on:blur
+			disabled={$$restProps.disabled}
+		/>
 		<!-- Chip List -->
 		{#if chipValues.length}
 			<div

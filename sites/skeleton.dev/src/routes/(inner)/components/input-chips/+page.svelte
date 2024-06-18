@@ -76,8 +76,8 @@
 		<section class="space-y-4">
 			<h2 class="h2">Whitelist Values</h2>
 			<p>
-				You can provide an array of strings to use as a whitelist. Only whitelisted items can be entered. Invalid or duplicate values will
-				show an error state.
+				You can provide an array of strings to use as a whitelist. Only items within this list can be entered. Invalid or duplicate values
+				will show an error state.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
