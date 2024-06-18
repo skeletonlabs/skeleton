@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton
 
+## 2.10.1
+
+### Patch Changes
+
+- bugfix: InputChip issue resolved to support Svelte 5 ([#2715](https://github.com/skeletonlabs/skeleton/pull/2715))
+
+- bugfix: Removed invalid role and forward events on AppRailAnchor component ([#2716](https://github.com/skeletonlabs/skeleton/pull/2716))
+
 ## 2.10.0
 
 ### Minor Changes
