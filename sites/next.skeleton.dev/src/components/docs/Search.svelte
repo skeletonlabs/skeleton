@@ -194,6 +194,7 @@
 										<div class="space-y-1 overflow-hidden">
 											<p class="type-scale-3 font-bold">{subResult.title}</p>
 											<p class="type-scale-1 text-surface-600-400 break-words">
+												<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 												{@html subResult.excerpt}
 											</p>
 										</div>

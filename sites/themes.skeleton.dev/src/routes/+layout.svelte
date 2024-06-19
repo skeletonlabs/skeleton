@@ -7,6 +7,7 @@
 
 <!-- Live Preview CSS -->
 <svelte:head>
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html `\<style\>${cssCode}\</style\>`}
 </svelte:head>
 

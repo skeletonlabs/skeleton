@@ -47,6 +47,7 @@
 						{#each stateFormColors[color].seeds as shade, i}
 							<div class="grid grid-cols-[auto_auto_1fr] items-center gap-2">
 								<!-- Label -->
+								<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 								<label class="label-text !m-0" for="">{@html shadeLabels[i]}</label>
 								<!-- Color Picker -->
 								<input class="input" type="color" bind:value={shade} />
