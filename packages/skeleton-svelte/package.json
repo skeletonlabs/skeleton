@@ -15,7 +15,7 @@
 		"test": "pnpm run \"/test:/\"",
 		"test:e2e": "playwright test",
 		"test:unit": "vitest",
-		"sk-sync": "svelte-kit sync"
+		"sync": "svelte-kit sync"
 	},
 	"types": "./dist/index.d.ts",
 	"exports": {
