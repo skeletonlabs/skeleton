@@ -9,8 +9,8 @@
 		"package": "tsc --project tsconfig.package.json",
 		"package:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
 		"preview": "vite preview",
-		"test": "vitest run",
-		"test:watch": "vitest",
+		"test": "pnpm run \"/test:/\"",
+		"test:unit": "vitest",
 		"schema": "node ./scripts/generator.js"
 	},
 	"types": "./dist/index.d.ts",
