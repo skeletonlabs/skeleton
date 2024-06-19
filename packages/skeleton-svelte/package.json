@@ -13,7 +13,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "pnpm run \"/test:/\"",
-		"test:integration": "playwright test",
+		"test:e2e": "playwright test",
 		"test:unit": "vitest",
 		"sk-sync": "svelte-kit sync"
 	},
