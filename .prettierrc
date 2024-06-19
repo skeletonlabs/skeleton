@@ -13,7 +13,10 @@
 			}
 		}
 	],
-	"plugins": ["prettier-plugin-astro", "prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+	"plugins": [
+		"prettier-plugin-astro",
+		"prettier-plugin-svelte"
+	],
 	"printWidth": 140,
 	"singleQuote": true,
 	"useTabs": true,
