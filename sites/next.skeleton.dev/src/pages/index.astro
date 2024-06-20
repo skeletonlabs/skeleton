@@ -5,7 +5,7 @@ import LayoutRoot from '@layouts/LayoutRoot.astro';
 import Header from '@components/docs/Header.astro';
 
 const layoutProps = {
-	classList: 'space-y-10',
+	classList: 'space-y-10'
 };
 ---
 
@@ -19,17 +19,12 @@ const layoutProps = {
 		<section class="mx-auto flex flex-col justify-center gap-4 text-center">
 			<Icon name="skeleton-full" size={128} class="mx-auto" />
 			<h1 class="h1">Welcome to Skeleton.</h1>
-			<p class="max-w-[600px] mx-auto opacity-60 type-scale-4 text-balance">
-				Skeleton is an open source UI toolkit that allows you to create adaptive and accessible interfaces for
-				web apps of any size.
+			<p class="type-scale-4 mx-auto max-w-[600px] text-balance opacity-60">
+				Skeleton is an open source UI toolkit that allows you to create adaptive and accessible interfaces for web apps of any size.
 			</p>
 			<nav class="flex justify-center gap-4">
 				<a href="/docs/get-started/introduction" class="btn-enhanced-cta">Get Started</a>
-				<a
-					href=" https://github.com/skeletonlabs/skeleton"
-					target="_blank"
-					class="btn preset-outlined-surface-200-800 hover:preset-tonal"
-				>
+				<a href=" https://github.com/skeletonlabs/skeleton" target="_blank" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
 					<Icon name="github" size={18} />
 					<span>GitHub</span>
 				</a>
@@ -37,24 +32,16 @@ const layoutProps = {
 		</section>
 
 		<!-- Warning -->
-		<div
-			class="card max-w-[800px] mx-auto p-8 py-6 preset-tonal-primary grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-4"
-		>
+		<div class="card preset-tonal-primary mx-auto grid max-w-[800px] grid-cols-1 items-center gap-4 p-8 py-6 lg:grid-cols-[1fr_auto]">
 			<div class="space-y-2">
 				<p class="type-scale-5 font-bold">Early Preview</p>
 				<p>
-					This website provides an early preview of Skeleton v3. Please be aware that some features may be
-					missing, incomplete, or non-functional at this time.
+					This website provides an early preview of Skeleton v3. Please be aware that some features may be missing, incomplete, or
+					non-functional at this time.
 				</p>
 			</div>
 			<div class="flex flex-col gap-2">
-				<a
-					class="btn-enhanced-cta"
-					href="https://github.com/skeletonlabs/skeleton/discussions/2375"
-					target="_blank"
-				>
-					Learn More
-				</a>
+				<a class="btn-enhanced-cta" href="https://github.com/skeletonlabs/skeleton/discussions/2375" target="_blank"> Learn More </a>
 			</div>
 		</div>
 	</main>

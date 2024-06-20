@@ -8,11 +8,7 @@ const { frontmatter, urls } = Astro.props;
 <div class="flex gap-2 overflow-x-auto pb-2">
 	{
 		frontmatter.srcCore && (
-			<a
-				class="chip preset-filled-surface-200-800"
-				href={urls.githubSkeletonUrl + frontmatter.srcCore}
-				target="_blank"
-			>
+			<a class="chip preset-filled-surface-200-800" href={urls.githubSkeletonUrl + frontmatter.srcCore} target="_blank">
 				<IconCode size={16} />
 				<span>Source</span>
 			</a>
@@ -20,11 +16,7 @@ const { frontmatter, urls } = Astro.props;
 	}
 	{
 		frontmatter.srcReact && (
-			<a
-				class="chip preset-filled-surface-200-800"
-				href={urls.githubReactUrl + frontmatter.srcReact}
-				target="_blank"
-			>
+			<a class="chip preset-filled-surface-200-800" href={urls.githubReactUrl + frontmatter.srcReact} target="_blank">
 				<IconCode size={16} />
 				<span>React</span>
 			</a>
@@ -32,11 +24,7 @@ const { frontmatter, urls } = Astro.props;
 	}
 	{
 		frontmatter.srcSvelte && (
-			<a
-				class="chip preset-filled-surface-200-800"
-				href={urls.githubSvelteUrl + frontmatter.srcSvelte}
-				target="_blank"
-			>
+			<a class="chip preset-filled-surface-200-800" href={urls.githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
 				<IconCode size={16} />
 				<span>Svelte</span>
 			</a>

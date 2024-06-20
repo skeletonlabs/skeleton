@@ -19,7 +19,7 @@ export const presetThemes = [
 	'gold-nouveau',
 	'vintage',
 	'seafoam',
-	'crimson',
+	'crimson'
 ];
 // NOTE: Any changes here must also be reflected in the --help output in utils.js and shortcut expansions in index.js.
 // Probably a good idea to do a search on the values you are changing to catch any other areas they are used in
@@ -56,7 +56,7 @@ export class SkeletonOptions {
 			['tailwindcss', 'latest'],
 			['@skeletonlabs/skeleton', 'latest'],
 			['@skeletonlabs/tw-plugin', 'latest'],
-			['vite-plugin-tailwind-purgecss', 'latest'],
+			['vite-plugin-tailwind-purgecss', 'latest']
 		]);
 
 		// props below are private to the Skeleton team
@@ -244,13 +244,11 @@ async function createVSCodeSettings() {
 	try {
 		mkdirp(join(cwd(), '.vscode'));
 		const data = await got(
-			'https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json',
+			'https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json'
 		).text();
 		writeFileSync(join(cwd(), '.vscode', 'settings.json'), data);
 	} catch (error) {
-		console.error(
-			'Unable to download settings file for VSCode, please read manual instructions at https://skeleton.dev/guides/install',
-		);
+		console.error('Unable to download settings file for VSCode, please read manual instructions at https://skeleton.dev/guides/install');
 	}
 }
 
@@ -500,7 +498,7 @@ function copyTemplate(opts) {
 	hljs.registerLanguage('javascript', javascript);
 	hljs.registerLanguage('typescript', typescript);
 	storeHighlightJs.set(hljs);
-</script>`,
+</script>`
 		);
 	}
 
@@ -512,7 +510,7 @@ function copyTemplate(opts) {
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-</script>`,
+</script>`
 		);
 	}
 

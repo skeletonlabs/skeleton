@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar } from '@skeletonlabs/skeleton-react';
 import { ArrowLeft, Paperclip, Calendar, CircleUser, Menu } from 'lucide-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	return (
 		<AppBar>
 			<AppBar.Toolbar>
@@ -13,7 +13,7 @@ export const Page: React.FC<any> = () => {
 					<span>Title</span>
 				</AppBar.ToolbarCenter>
 				<AppBar.ToolbarTrail>
-					<div className="hidden sm:flex space-x-4">
+					<div className="hidden space-x-4 sm:flex">
 						<Paperclip size={20} />
 						<Calendar size={20} />
 						<CircleUser size={20} />

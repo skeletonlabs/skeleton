@@ -2,9 +2,9 @@ import React from 'react';
 import { Nav } from '@skeletonlabs/skeleton-react';
 import { Box as IconBox } from 'lucide-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	return (
-		<div className="card preset-filled-surface-100-900 p-5 grid grid-cols-3 gap-5">
+		<div className="card preset-filled-surface-100-900 grid grid-cols-3 gap-5 p-5">
 			{/* By default tiles are <button> elements */}
 			<Nav.Tile id="0" label="Button">
 				<IconBox />

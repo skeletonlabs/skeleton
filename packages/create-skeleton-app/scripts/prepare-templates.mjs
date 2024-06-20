@@ -18,7 +18,7 @@ async function copyTemplates() {
 			//copy the folders that are specified in the csa-meta.json
 			csaMeta?.foldersToCopy?.forEach((folder) => {
 				fs.cpSync(join(basePath, metaFile, '..', folder), join('templates', metaFile.split('/')[0], folder), {
-					recursive: true,
+					recursive: true
 				});
 			});
 			//copy the csa-meta.json file

@@ -14,7 +14,7 @@ export function whichPMRuns() {
 	const name = pmSpec?.substring(0, separatorPos);
 	return {
 		name: name === 'npminstall' ? 'npm' : name,
-		version: pmSpec?.substring(separatorPos + 1),
+		version: pmSpec?.substring(separatorPos + 1)
 	};
 }
 // Set a JSON value when the parent keys may not exist
@@ -85,14 +85,14 @@ export function checkIfDirSafeToInstall(path) {
 	}
 	let conflicts = fs.readdirSync(path);
 	conflicts = conflicts.filter((file) =>
-		/^(package.json|svelte.config.js|tailwind.config.cjs|postcss.config.cjs|vite.config.ts)$/.test(file),
+		/^(package.json|svelte.config.js|tailwind.config.cjs|postcss.config.cjs|vite.config.ts)$/.test(file)
 	);
 
 	if (conflicts.length > 0) {
 		const err = new Error(
 			`The directory ${path} contains files that could conflict:\n${conflicts.join(
-				'\n',
-			)}\n\nPlease provide a clean directory to install into.`,
+				'\n'
+			)}\n\nPlease provide a clean directory to install into.`
 		);
 		throw err;
 	}
@@ -115,21 +115,21 @@ export function getHelpText() {
 			Short: '-n',
 			'Quiet Default': 'skeleton-app',
 			Value: 'skeleton-app',
-			Description: 'Name of the directory for the project',
+			Description: 'Name of the directory for the project'
 		},
 		{
 			Option: '--path',
 			Short: '-p',
 			'Quiet Default': "''",
 			Value: 'relative or absolute path',
-			Description: 'Location to install, name is appended',
+			Description: 'Location to install, name is appended'
 		},
 		{
 			Option: '--types',
 			Short: '',
 			'Quiet Default': 'typescript',
 			Value: 'typescript|checkjs',
-			Description: 'TypeScript or JavaScript with JSDoc',
+			Description: 'TypeScript or JavaScript with JSDoc'
 		},
 		{ Option: '--prettier', Short: '', 'Quiet Default': 'true', Value: 'true|false', Description: 'Whether Prettier is added' },
 		{ Option: '--eslint', Short: '', 'Quiet Default': 'true', Value: 'true|false', Description: 'Whether ESLint is added' },
@@ -140,7 +140,7 @@ export function getHelpText() {
 			Short: '',
 			'Quiet Default': 'false',
 			Value: 'true|false',
-			Description: 'Install codeblock optional dependencies',
+			Description: 'Install codeblock optional dependencies'
 		},
 		{ Option: '--popups', Short: '', 'Quiet Default': 'false', Value: 'true|false', Description: 'Install popups dependencies' },
 		{
@@ -148,7 +148,7 @@ export function getHelpText() {
 			Short: '',
 			'Quiet Default': 'false',
 			Value: 'true|false',
-			Description: 'Install mdsvex for markdown processing',
+			Description: 'Install mdsvex for markdown processing'
 		},
 		{ Option: '--forms', Short: '', 'Quiet Default': 'false', Value: 'true|false', Description: 'Install Tailwinds Forms plugin' },
 		{
@@ -156,21 +156,21 @@ export function getHelpText() {
 			Short: '',
 			'Quiet Default': 'false',
 			Value: 'true|false',
-			Description: 'Install Tailwinds Typography plugin',
+			Description: 'Install Tailwinds Typography plugin'
 		},
 		{
 			Option: '--skeletontemplatedir',
 			Short: '',
 			'Quiet Default': '',
 			Value: '',
-			Description: 'Path to directory containing templates',
+			Description: 'Path to directory containing templates'
 		},
 		{
 			Option: '--skeletontheme',
 			Short: '-t',
 			'Quiet Default': 'skeleton',
 			Value: 'skeleton',
-			Description: 'Choose one for the Skeleton theme',
+			Description: 'Choose one for the Skeleton theme'
 		},
 		{ Option: '', Short: '', 'Quiet Default': 'modern', Value: 'modern', Description: '' },
 		{ Option: '', Short: '', 'Quiet Default': 'hamlindigo', Value: 'hamlindigo', Description: '' },
@@ -185,9 +185,9 @@ export function getHelpText() {
 			Short: '',
 			'Quiet Default': 'bare',
 			Value: 'bare',
-			Description: 'Name of built in template to use',
+			Description: 'Name of built in template to use'
 		},
-		{ Option: '', Short: '', 'Quiet Default': 'welcome', Value: 'welcome', Description: '' },
+		{ Option: '', Short: '', 'Quiet Default': 'welcome', Value: 'welcome', Description: '' }
 	];
 	return (
 		columnify(data, { columns: ['Option', 'Short', 'Default', 'Value', 'Description'] }) +

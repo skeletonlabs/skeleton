@@ -20,10 +20,10 @@ import ThemeEnhancedRaw from '@examples/design/themes/ThemeEnhanced.astro?raw';
 
 Skeleton comes with a selection of high quality preset themes out of the box.
 
--   `cerberus`
--   `catppuccin`
--   `pine`
--   `rose`
+- `cerberus`
+- `catppuccin`
+- `pine`
+- `rose`
 
 Add the following import to the top of your `tailwind.config`, then continue to the register instructions below.
 
@@ -35,7 +35,7 @@ import * as themes from '@skeletonlabs/skeleton/themes';
 
 Optionally you can choose to generate a custom theme to adapt to your app's unique design aesthetic. Skeleton provides a powerful but easy to use theme generator to make to enable this.
 
-<figure class="card-enhanced-gradient p-8 flex justify-center">
+<figure class="card-enhanced-gradient flex justify-center p-8">
 	<a href="https://themes.skeleton.dev/" target="_blank" class="btn preset-filled">
 		Theme Generator &rarr;
 	</a>
@@ -67,9 +67,9 @@ plugins: [
 			themes.pine,
 			themes.rose,
 			// Custom Theme(s)
-			myCustomTheme,
-		],
-	}),
+			myCustomTheme
+		]
+	})
 ];
 ```
 

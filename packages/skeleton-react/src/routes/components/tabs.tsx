@@ -1,11 +1,8 @@
-import { useState } from "react";
-import { Tabs } from "../../lib/components/Tabs/Tabs.js";
+import { useState } from 'react';
+import { Tabs } from '../../lib/components/Tabs/Tabs.js';
 import { Plane, Hotel, Box } from 'lucide-react';
 
-function Preview(
-	group: string,
-	setGroup: React.Dispatch<React.SetStateAction<string>>
-) {
+function Preview(group: string, setGroup: React.Dispatch<React.SetStateAction<string>>) {
 	return (
 		<>
 			<section className="space-y-4">
@@ -16,8 +13,8 @@ function Preview(
 							name="flight"
 							group={group}
 							onChange={setGroup}
-							onClick={() => console.log("onClick")}
-							onKeydown={() => console.log("onKeyDown")}
+							onClick={() => console.log('onClick')}
+							onKeydown={() => console.log('onKeyDown')}
 						>
 							<Tabs.Item>Flight</Tabs.Item>
 						</Tabs.Control>
@@ -43,46 +40,28 @@ function Preview(
 	);
 }
 
-function WithIcon(
-	group: string,
-	setGroup: React.Dispatch<React.SetStateAction<string>>
-) {
+function WithIcon(group: string, setGroup: React.Dispatch<React.SetStateAction<string>>) {
 	return (
 		<>
 			<section className="space-y-4">
 				<h2 className="h2">With Icon</h2>
 				<Tabs>
 					<Tabs.List>
-						<Tabs.Control
-							name="flight"
-							group={group}
-							title="flight"
-							onChange={setGroup}
-						>
+						<Tabs.Control name="flight" group={group} title="flight" onChange={setGroup}>
 							<Tabs.Item>
-								<Plane size={20}/>
+								<Plane size={20} />
 								<span>Flight</span>
 							</Tabs.Item>
 						</Tabs.Control>
-						<Tabs.Control
-							name="hotel"
-							title="hotel"
-							group={group}
-							onChange={setGroup}
-						>
+						<Tabs.Control name="hotel" title="hotel" group={group} onChange={setGroup}>
 							<Tabs.Item>
-								<Hotel size={20}/>
+								<Hotel size={20} />
 								<span>Hotel</span>
 							</Tabs.Item>
 						</Tabs.Control>
-						<Tabs.Control
-							name="explore"
-							title="explore"
-							group={group}
-							onChange={setGroup}
-						>
+						<Tabs.Control name="explore" title="explore" group={group} onChange={setGroup}>
 							<Tabs.Item>
-								<Box size={20}/>
+								<Box size={20} />
 								<span>Explore</span>
 							</Tabs.Item>
 						</Tabs.Control>
@@ -102,44 +81,26 @@ function WithIcon(
 	);
 }
 
-function IconOnly(
-	group: string,
-	setGroup: React.Dispatch<React.SetStateAction<string>>
-) {
+function IconOnly(group: string, setGroup: React.Dispatch<React.SetStateAction<string>>) {
 	return (
 		<>
 			<section className="space-y-4">
 				<h2 className="h2">Icon Only</h2>
 				<Tabs>
 					<Tabs.List>
-						<Tabs.Control
-							name="flight"
-							group={group}
-							title="flight"
-							onChange={setGroup}
-						>
+						<Tabs.Control name="flight" group={group} title="flight" onChange={setGroup}>
 							<Tabs.Item>
-								<Plane size={20}/>
+								<Plane size={20} />
 							</Tabs.Item>
 						</Tabs.Control>
-						<Tabs.Control
-							name="hotel"
-							title="hotel"
-							group={group}
-							onChange={setGroup}
-						>
+						<Tabs.Control name="hotel" title="hotel" group={group} onChange={setGroup}>
 							<Tabs.Item>
-								<Hotel size={20}/>
+								<Hotel size={20} />
 							</Tabs.Item>
 						</Tabs.Control>
-						<Tabs.Control
-							name="explore"
-							title="explore"
-							group={group}
-							onChange={setGroup}
-						>
+						<Tabs.Control name="explore" title="explore" group={group} onChange={setGroup}>
 							<Tabs.Item>
-								<Box size={20}/>
+								<Box size={20} />
 							</Tabs.Item>
 						</Tabs.Control>
 					</Tabs.List>
@@ -158,38 +119,20 @@ function IconOnly(
 	);
 }
 
-function Stretched(
-	group: string,
-	setGroup: React.Dispatch<React.SetStateAction<string>>
-) {
+function Stretched(group: string, setGroup: React.Dispatch<React.SetStateAction<string>>) {
 	return (
 		<>
 			<section className="space-y-4">
 				<h2 className="h2">Stretched</h2>
 				<Tabs>
 					<Tabs.List>
-						<Tabs.Control
-							name="flight"
-							group={group}
-							onChange={setGroup}
-							width="w-full"
-						>
+						<Tabs.Control name="flight" group={group} onChange={setGroup} width="w-full">
 							<Tabs.Item>Flight</Tabs.Item>
 						</Tabs.Control>
-						<Tabs.Control
-							name="hotel"
-							group={group}
-							onChange={setGroup}
-							width="w-full"
-						>
+						<Tabs.Control name="hotel" group={group} onChange={setGroup} width="w-full">
 							<Tabs.Item>Hotel</Tabs.Item>
 						</Tabs.Control>
-						<Tabs.Control
-							name="explore"
-							group={group}
-							onChange={setGroup}
-							width="w-full"
-						>
+						<Tabs.Control name="explore" group={group} onChange={setGroup} width="w-full">
 							<Tabs.Item>Explore</Tabs.Item>
 						</Tabs.Control>
 					</Tabs.List>
@@ -208,10 +151,7 @@ function Stretched(
 	);
 }
 
-function JustifyCenter(
-	group: string,
-	setGroup: React.Dispatch<React.SetStateAction<string>>
-) {
+function JustifyCenter(group: string, setGroup: React.Dispatch<React.SetStateAction<string>>) {
 	return (
 		<>
 			<section className="space-y-4">
@@ -243,10 +183,7 @@ function JustifyCenter(
 	);
 }
 
-function JustifyEnd(
-	group: string,
-	setGroup: React.Dispatch<React.SetStateAction<string>>
-) {
+function JustifyEnd(group: string, setGroup: React.Dispatch<React.SetStateAction<string>>) {
 	return (
 		<>
 			<section className="space-y-4">
@@ -278,10 +215,7 @@ function JustifyEnd(
 	);
 }
 
-function FocusableContent(
-	group: string,
-	setGroup: React.Dispatch<React.SetStateAction<string>>
-) {
+function FocusableContent(group: string, setGroup: React.Dispatch<React.SetStateAction<string>>) {
 	return (
 		<>
 			<section className="space-y-4">
@@ -319,10 +253,7 @@ function FocusableContent(
 	);
 }
 
-function RTL(
-	group: string,
-	setGroup: React.Dispatch<React.SetStateAction<string>>
-) {
+function RTL(group: string, setGroup: React.Dispatch<React.SetStateAction<string>>) {
 	return (
 		<>
 			<section className="space-y-4">
@@ -341,10 +272,10 @@ function RTL(
 							</Tabs.Control>
 						</Tabs.List>
 						<Tabs.Panel group={group} value="flight">
-							Flight Panel{" "}
+							Flight Panel{' '}
 						</Tabs.Panel>
 						<Tabs.Panel group={group} value="hotel">
-							Hotel Panel{" "}
+							Hotel Panel{' '}
 						</Tabs.Panel>
 						<Tabs.Panel group={group} value="explore">
 							Explore Panel
@@ -357,7 +288,7 @@ function RTL(
 }
 
 export function Component() {
-	const [group, setGroup] = useState("flight");
+	const [group, setGroup] = useState('flight');
 	return (
 		<>
 			<div className="space-y-10">

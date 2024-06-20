@@ -4,7 +4,7 @@ import { rimraf } from 'rimraf';
 function cleanRepo() {
 	let curDir = process.cwd();
 	console.log(curDir);
-	rimraf.sync(["**/node_modules/", "**/dist/", "**/.svelte-kit/"], {glob:true})
+	rimraf.sync(['**/node_modules/', '**/dist/', '**/.svelte-kit/'], { glob: true });
 }
 
 cleanRepo();

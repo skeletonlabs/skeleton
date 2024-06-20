@@ -1,9 +1,9 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 
 // Components ---
 
 export interface RatingProps {
-    /** Sets the rating value. */
+	/** Sets the rating value. */
 	value?: number;
 	/** Sets the maximum rating value. */
 	max?: number;
@@ -12,7 +12,7 @@ export interface RatingProps {
 	/** Sets the rating fractional granularity. */
 	step?: number;
 
-    // Root ---
+	// Root ---
 	/** Sets base styles. */
 	base?: string;
 	/** Sets width styles. */

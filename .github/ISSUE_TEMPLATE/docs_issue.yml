@@ -2,11 +2,11 @@ name: 📗 Report Docs Issue
 description: Use this to report a typo or incorrect information.
 labels: [documentation]
 body:
-- type: input
-  id: link
-  attributes:
-    label: Link to the Page
-- type: textarea
-  id: quote
-  attributes:
-    label: Describe the Issue (screenshots encouraged!)
+  - type: input
+    id: link
+    attributes:
+      label: Link to the Page
+  - type: textarea
+    id: quote
+    attributes:
+      label: Describe the Issue (screenshots encouraged!)

@@ -4,11 +4,11 @@
 // export type DisplayBorders = 'none' | 'surface'; // Record<DisplayBorders, string>
 // export type DisplayBackgrounds = 'none' | 'surface' | 'surface-inverted'; // Record<DisplayBackgrounds, string>
 
-export const displayBorders: any = {
+export const displayBorders: Record<string, string> = {
 	none: '',
 	surface: 'border border-surface-200-800'
 };
-export const displayBackgrounds: any = {
+export const displayBackgrounds: Record<string, string> = {
 	none: '',
 	surface: 'preset-filled-surface-100-900',
 	'surface-inverted': 'preset-filled-surface-50-950'
@@ -53,14 +53,7 @@ export const fontFamilies: Record<string, string[]> = {
 	neogrote: ['Inter', 'Roboto', 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', 'Arial', 'sans-serif'],
 	monoslab: ['Nimbus Mono PS', 'Courier New', 'monospace'],
 	monocode: ['ui-monospace', 'Cascadia Code', 'Source Code Pro', 'Menlo', 'Consolas', 'DejaVu Sans Mono', 'monospace'],
-	industrial: [
-		'Bahnschrift',
-		'DIN Alternate',
-		'Franklin Gothic Medium',
-		'Nimbus Sans Narrow',
-		'sans-serif-condensed',
-		'sans-serif'
-	],
+	industrial: ['Bahnschrift', 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', 'sans-serif-condensed', 'sans-serif'],
 	'round-sans': [
 		'ui-rounded',
 		'Hiragino Maru Gothic ProN',
@@ -117,7 +110,7 @@ export const letterSpacings = ['inherit', '-0.05em', '-0.025em', '0em', '0.025em
 export const textDecorations = ['none', 'underline', 'overline', 'line-through'];
 
 // Edges
-export let radii = [
+export const radii = [
 	'0px',
 	'2px', // '0.125rem',
 	'4px', // '0.25rem',
@@ -128,7 +121,7 @@ export let radii = [
 	'24px', // '1.5rem',
 	'9999px'
 ] as const;
-export let edges = ['0px', '1px', '2px', '4px', '8px'] as const;
+export const edges = ['0px', '1px', '2px', '4px', '8px'] as const;
 
 // Theme Generation
 export const themeStatic = {

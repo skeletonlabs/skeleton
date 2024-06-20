@@ -23,18 +23,18 @@ export default defineConfig({
 		svelte(),
 		// https://docs.astro.build/en/guides/integrations-guide/react/
 		react({
-			experimentalReactChildren: true,
+			experimentalReactChildren: true
 		}),
 		// https://expressive-code.com/
 		expressiveCode({
 			defaultProps: { wrap: true },
-			themes: ['dark-plus'],
+			themes: ['dark-plus']
 		}),
 		// https://www.astroicon.dev/
 		icon({
 			include: {
-				iconDir: ['src/icons'],
-			},
+				iconDir: ['src/icons']
+			}
 		}),
 		// https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import
 		AutoImport({
@@ -51,20 +51,17 @@ export default defineConfig({
 					// import { Preview } from '@components/docs/Preview.tsx';
 					'@components/docs/Preview.tsx': ['Preview'],
 					// import { FrameworkTabs } from '@components/docs/FrameworkTabs';
-					'@components/docs/FrameworkTabs.tsx': ['FrameworkTabs'],
+					'@components/docs/FrameworkTabs.tsx': ['FrameworkTabs']
 					// import { Table } from '@components/docs/Table';
 					// '@components/docs/Table.astro': ['Table'],
-				},
-			],
+				}
+			]
 		}),
 		// IMPORTANT: MUST BE LAST INTEGRATION
 		// https://docs.astro.build/en/guides/integrations-guide/mdx/
-		mdx(),
+		mdx()
 	],
 	vite: {
-		plugins: [
-			skeletonPluginWatcher(path.resolve(path.join('..', '..', 'packages', 'skeleton', 'src', 'plugin'))),
-			pagefind(),
-		],
-	},
+		plugins: [skeletonPluginWatcher(path.resolve(path.join('..', '..', 'packages', 'skeleton', 'src', 'plugin'))), pagefind()]
+	}
 });

@@ -1,10 +1,10 @@
-import { promises as fs } from "fs";
-import { execSync } from "node:child_process";
+import { promises as fs } from 'fs';
+import { execSync } from 'node:child_process';
 
 const config = {
-	dirPath: "src/lib/components",
-	inputFileName: "types.ts",
-	outputFileName: "schema.json",
+	dirPath: 'src/lib/components',
+	inputFileName: 'types.ts',
+	outputFileName: 'schema.json'
 };
 
 async function init() {
@@ -17,7 +17,7 @@ async function init() {
 		const filePath = `${config.dirPath}/${file}`;
 
 		// The path containing the types file
-		const locationPath = filePath.replace(config.inputFileName, "");
+		const locationPath = filePath.replace(config.inputFileName, '');
 
 		// DEBUG: Limit to Accordion Only ---------
 		// if (!file.includes("Accordion")) return;
@@ -30,7 +30,7 @@ async function init() {
 		);
 
 		// Log
-		console.log("Schema generated for", filePath);
+		console.log('Schema generated for', filePath);
 	});
 }
 

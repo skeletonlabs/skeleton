@@ -35,8 +35,9 @@
 		"pub:beta": "pnpm prep && npm publish --tag beta",
 		"pub:rc": "pnpm prep && npm publish --tag rc",
 		"pub:release": "pnpm prep && npm publish",
-		"lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"csa": "node src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=welcome -p=sites --monorepo --inspector",
+		"csl": "node src/index.js --types=typescript --library --prettier --eslint --playwright --vitest --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=bare -p=packages --monorepo --inspector",
+		"templategen": "node ../../scripts/template-gen.js"
 	},
 	"dependencies": {
 		"@clack/prompts": "^0.7.0",

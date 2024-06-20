@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Tabs } from '@skeletonlabs/skeleton-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	const [group, setGroup] = useState('books');
 	return (
 		<Tabs>

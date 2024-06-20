@@ -86,7 +86,7 @@
 		return {
 			destroy: () => {
 				document.removeEventListener('click', onclick);
-			},
+			}
 		};
 	};
 
@@ -122,29 +122,23 @@
 
 <!-- Trigger Button -->
 <button onclick={() => openDialog()} type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
-	<IconSearch class="opacity-60 size-4" />
+	<IconSearch class="size-4 opacity-60" />
 	<span class="opacity-60">Search...</span>
 </button>
 
 <!-- Dialog -->
 <dialog
-	class="bg-surface-50-950 text-inherit rounded-container m-0 mx-auto top-[10%] p-8 w-full max-w-[90%] md:max-w-2xl lg:max-w-4xl max-h-[75%] shadow-xl space-y-8 backdrop:bg-[rgba(var(--color-surface-900)/0.5)] backdrop:backdrop-blur-sm"
+	class="bg-surface-50-950 rounded-container top-[10%] m-0 mx-auto max-h-[75%] w-full max-w-[90%] space-y-8 p-8 text-inherit shadow-xl backdrop:bg-[rgba(var(--color-surface-900)/0.5)] backdrop:backdrop-blur-sm md:max-w-2xl lg:max-w-4xl"
 	bind:this={dialog}
 	use:onClickOutside
 >
 	<!-- Search Field -->
 	<div class="input-group grid-cols-[auto_1fr_auto]">
 		<div class="input-group-cell">
-			<IconSearch class="opacity-60 size-4" />
+			<IconSearch class="size-4 opacity-60" />
 		</div>
 		<input placeholder="Search..." bind:value={query} />
-		<button
-			type="button"
-			class="btn-icon preset-tonal scale-75 translate-y-0.5"
-			onclick={toggleFilters}
-			title="Show Filters"
-			tabindex="-1"
-		>
+		<button type="button" class="btn-icon preset-tonal translate-y-0.5 scale-75" onclick={toggleFilters} title="Show Filters" tabindex="-1">
 			<IconFilter class="size-6" />
 		</button>
 	</div>
@@ -163,19 +157,19 @@
 	<!-- Results -->
 	<article class="[&_mark]:code [&_mark]:text-inherit">
 		{#await searchPromise}
-			<p class="text-center py-10"><IconLoader class="size-4 inline ml-2 animate-spin" /></p>
+			<p class="py-10 text-center"><IconLoader class="ml-2 inline size-4 animate-spin" /></p>
 		{:then results}
 			{#if results.length === 0 && query !== ''}
-				<p class="text-center py-10">No results found for <code class="code">{query}</code></p>
+				<p class="py-10 text-center">No results found for <code class="code">{query}</code></p>
 			{:else if results.length === 0}
-				<p class="text-center py-10">What can we help you find?</p>
+				<p class="py-10 text-center">What can we help you find?</p>
 			{:else}
 				<ol class="flex flex-col gap-4 space-y-4">
 					{#each results as result}
 						<li class="space-y-2">
 							<!-- Page Result -->
 							<a
-								class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] gap-4 items-center p-4"
+								class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4"
 								href={result.url}
 								onclick={closeDialog}
 							>
@@ -187,12 +181,10 @@
 								<span><IconChevronRight class="size-4 opacity-60" /></span>
 							</a>
 							<!-- Inner Result -->
-							<div
-								class="border-l border-surface-200-800 pl-4 divide-y-[1px] divide-surface-100-900 space-y-2"
-							>
+							<div class="border-surface-200-800 divide-surface-100-900 space-y-2 divide-y-[1px] border-l pl-4">
 								{#each result.sub_results.filter((r) => r.title !== result.meta.title) as subResult}
 									<a
-										class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] gap-4 items-center p-4 space-y-1"
+										class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] items-center gap-4 space-y-1 p-4"
 										href={subResult.url}
 										onclick={closeDialog}
 									>
@@ -202,6 +194,7 @@
 										<div class="space-y-1 overflow-hidden">
 											<p class="type-scale-3 font-bold">{subResult.title}</p>
 											<p class="type-scale-1 text-surface-600-400 break-words">
+												<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 												{@html subResult.excerpt}
 											</p>
 										</div>

@@ -28,45 +28,23 @@
 
 <form>
 	<!-- Header -->
-	<header
-		class="border-b border-surface-200-800 bg-black/0 backdrop-blur-2xl sticky top-0 z-10 p-4 !py-4 md:p-8 space-y-4"
-	>
-		<section class="flex gap-4 items-center">
+	<header class="border-surface-200-800 sticky top-0 z-10 space-y-4 border-b bg-black/0 p-4 !py-4 backdrop-blur-2xl md:p-8">
+		<section class="flex items-center gap-4">
 			<!-- Form Select -->
-			<nav class="btn-group grid w-full grid-cols-5 p-2 preset-outlined-surface-200-800 md:flex-row">
-				<button
-					type="button"
-					class="btn {activeCategory('colors')}"
-					onclick={() => setCategory('colors')}
-					title="Colors"
-				>
+			<nav class="btn-group preset-outlined-surface-200-800 grid w-full grid-cols-5 p-2 md:flex-row">
+				<button type="button" class="btn {activeCategory('colors')}" onclick={() => setCategory('colors')} title="Colors">
 					<IconColors size={20} />
 				</button>
-				<button
-					type="button"
-					class="btn {activeCategory('typography')}"
-					onclick={() => setCategory('typography')}
-					title="Typography"
-				>
+				<button type="button" class="btn {activeCategory('typography')}" onclick={() => setCategory('typography')} title="Typography">
 					<IconTypography size={24} />
 				</button>
-				<button
-					type="button"
-					class="btn {activeCategory('spacing')}"
-					onclick={() => setCategory('spacing')}
-					title="Spacing"
-				>
+				<button type="button" class="btn {activeCategory('spacing')}" onclick={() => setCategory('spacing')} title="Spacing">
 					<IconSpacing size={20} />
 				</button>
 				<button type="button" class="btn {activeCategory('edges')}" onclick={() => setCategory('edges')} title="Edges">
 					<IconEdges size={20} />
 				</button>
-				<button
-					type="button"
-					class="btn {activeCategory('display')}"
-					onclick={() => setCategory('display')}
-					title="display"
-				>
+				<button type="button" class="btn {activeCategory('display')}" onclick={() => setCategory('display')} title="display">
 					<IconDisplay size={20} />
 				</button>
 			</nav>

@@ -92,7 +92,7 @@ async function parseArgs() {
 			t: 'skeletontheme',
 			m: 'monorepo',
 			q: 'quiet',
-			v: 'verbose',
+			v: 'verbose'
 		},
 		boolean: [
 			'help',
@@ -108,8 +108,8 @@ async function parseArgs() {
 			'popups',
 			'forms',
 			'typography',
-			'mdsvex',
-		],
+			'mdsvex'
+		]
 	});
 
 	// If a user invokes 'create-app blah foo', it falls into the _ catch all list, the best we can do is take the first one and use that as the path
@@ -150,7 +150,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 				} catch (e) {
 					return e.message;
 				}
-			},
+			}
 		});
 		goodbye(opts.path);
 	}
@@ -193,7 +193,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		parsedChoices.sort((a, b) => a.position - b.position);
 		opts.skeletontemplate = await select({
 			message: 'Which Skeleton app template?',
-			options: parsedChoices,
+			options: parsedChoices
 		});
 		goodbye(opts.skeletontemplate);
 	}
@@ -220,7 +220,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			{ label: 'Vintage', value: 'vintage' },
 			{ label: 'Seafoam', value: 'seafoam' },
 			{ label: 'Crimson', value: 'crimson' },
-			{ label: cyan('Custom'), value: 'custom', hint: 'Will ask for a name next' },
+			{ label: cyan('Custom'), value: 'custom', hint: 'Will ask for a name next' }
 		];
 		if (opts.meta.type === 'premium') {
 			themeChoices.unshift({ label: 'Use templates built in theme', value: 'builtin' });
@@ -228,7 +228,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		opts.skeletontheme = await multiselect({
 			message: 'Select a theme (top most selection will be default):',
 			options: themeChoices,
-			required: true,
+			required: true
 		});
 		goodbye(opts.skeletontheme);
 	}
@@ -245,7 +245,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 				if (!/^[a-zA-Z_$][a-zA-Z_$0-9]*$/.test(value)) {
 					return 'Name for theme must be a valid syntax for a Javascript variable name';
 				}
-			},
+			}
 		});
 		opts.skeletontheme.pop('custom');
 		opts.skeletontheme.push({ custom: customName });
@@ -257,7 +257,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		{ value: 'forms', label: 'Add Tailwind forms?', package: '@tailwindcss/forms', force: false },
 		{ value: 'typography', label: 'Add Tailwind typography?', package: '@tailwindcss/typography', force: false },
 		{ value: 'codeblocks', label: 'Add CodeBlock (installs highlight.js)?', package: 'highlight.js', force: false },
-		{ value: 'popups', label: 'Add Popups (installs floating-ui)?', package: '@floating-ui/dom', force: false },
+		{ value: 'popups', label: 'Add Popups (installs floating-ui)?', package: '@floating-ui/dom', force: false }
 		// { value: 'mdsvex', label: 'Add Markdown support (installs mdsvex)?', package: 'mdsvex', force: false },
 	];
 	// Force the packages that are required by the template
@@ -282,7 +282,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 		const packageChoices = await multiselect({
 			message: msg,
 			options: optionalPackages,
-			required: false,
+			required: false
 		});
 		goodbye(packageChoices);
 		if (Array.isArray(packageChoices)) {
@@ -296,9 +296,9 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 			options: [
 				{ value: 'typescript', label: 'Yes, using TypeScript syntax' },
 				{ value: 'checkjs', label: 'Yes, using JavaScript with JSDoc comments' },
-				{ value: null, label: 'No' },
+				{ value: null, label: 'No' }
 			],
-			required: true,
+			required: true
 		});
 		goodbye(opts.types);
 	}
@@ -320,9 +320,9 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 				{ value: 'prettier', label: 'Add Prettier for code formatting?' },
 				{ value: 'playwright', label: 'Add Playwright for browser testing?' },
 				{ value: 'vitest', label: 'Add Vitest for unit testing?' },
-				{ value: 'inspector', label: 'Add Svelte Inspector for quick access to your source files from the browser?' },
+				{ value: 'inspector', label: 'Add Svelte Inspector for quick access to your source files from the browser?' }
 			],
-			required: false,
+			required: false
 		});
 		goodbye(optionalInstalls);
 		optionalInstalls.forEach((value) => (opts[value] = true));

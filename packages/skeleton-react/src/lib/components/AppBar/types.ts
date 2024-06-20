@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // Components ---
 
@@ -21,7 +21,7 @@ export interface AppBarProps extends React.PropsWithChildren {
 }
 
 export interface ToolBarProps extends React.PropsWithChildren {
-    /** Sets the toolbar component's base styles. */
+	/** Sets the toolbar component's base styles. */
 	base?: string;
 	/** Sets the toolbar component's grid columns styles. */
 	gridCols?: string;
@@ -32,7 +32,7 @@ export interface ToolBarProps extends React.PropsWithChildren {
 }
 
 export interface ToolbarLeadProps extends React.PropsWithChildren {
-    /** Sets the lead component's base styles. */
+	/** Sets the lead component's base styles. */
 	base?: string;
 	/** Sets the lead component's horizontal spacing styles. */
 	spaceX?: string;
@@ -43,7 +43,7 @@ export interface ToolbarLeadProps extends React.PropsWithChildren {
 }
 
 export interface ToolbarCenterProps extends React.PropsWithChildren {
-    /** Sets the center component's base styles. */
+	/** Sets the center component's base styles. */
 	base?: string;
 	/** Sets the center component's alignment styles. */
 	align?: string;
@@ -54,7 +54,7 @@ export interface ToolbarCenterProps extends React.PropsWithChildren {
 }
 
 export interface ToolbarTrailProps extends React.PropsWithChildren {
-    /** Sets the trail component's base styles. */
+	/** Sets the trail component's base styles. */
 	base?: string;
 	/** Sets the trail component's horizontal spacing styles. */
 	spaceX?: string;
@@ -65,7 +65,7 @@ export interface ToolbarTrailProps extends React.PropsWithChildren {
 }
 
 export interface AppBarHeadlineProps extends React.PropsWithChildren {
-    /** Sets the headline component's base styles. */
+	/** Sets the headline component's base styles. */
 	base?: string;
 	/** Provide arbitrary CSS classes to the headline component. */
 	classes?: string;

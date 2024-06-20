@@ -25,9 +25,9 @@ The Tailwind plugins are purely optional, see their [docs](https://tailwindcss.c
 
 ## 👋 Community
 
--   [Join the Discord](https://discord.gg/EXqV7W8MtY)
--   [Follow on Twitter](https://twitter.com/SkeletonUI)
+- [Join the Discord](https://discord.gg/EXqV7W8MtY)
+- [Follow on Twitter](https://twitter.com/SkeletonUI)
 
 ## 🐞 Report an Issue
 
--   [Submit Issue](https://github.com/skeleton/create-skeleton-app/issues/new/choose)
+- [Submit Issue](https://github.com/skeleton/create-skeleton-app/issues/new/choose)

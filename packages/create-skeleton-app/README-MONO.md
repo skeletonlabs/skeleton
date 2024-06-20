@@ -4,9 +4,9 @@ This is a special multi-repo version of the app created by CSA.
 
 Differences from a normal CSA app:
 
--   @skeletonlabs/skeleton is a workspace link in package.json
--   Added install script for the site that will swap dependencies from workspace links to what is defined in deployConfig of package.json
--   Added Vercel deploy command to package.json
+- @skeletonlabs/skeleton is a workspace link in package.json
+- Added install script for the site that will swap dependencies from workspace links to what is defined in deployConfig of package.json
+- Added Vercel deploy command to package.json
 
 At this point it only supports deploying to Vercel.
 

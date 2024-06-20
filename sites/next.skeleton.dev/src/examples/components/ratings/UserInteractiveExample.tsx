@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Rating } from '@skeletonlabs/skeleton-react';
 import { Star } from 'lucide-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	const [value, setValue] = useState(3);
 	return (
 		<Rating

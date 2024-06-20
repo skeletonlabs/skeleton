@@ -5,5 +5,5 @@
 }
 
 .placeholder-circle {
-	@apply bg-surface-500/20 size-5 aspect-square rounded-full;
+	@apply bg-surface-500/20 aspect-square size-5 rounded-full;
 }

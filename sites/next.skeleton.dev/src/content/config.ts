@@ -9,13 +9,13 @@ const docs = defineCollection({
 		srcReact: z.string().optional(),
 		srcAlly: z.string().optional(),
 		showDocsUrl: z.boolean().optional().default(false),
-		order: z.number().optional().default(0),
-	}),
+		order: z.number().optional().default(0)
+	})
 });
 
 const blog = defineCollection({
 	type: 'content',
-	schema: z.object({}),
+	schema: z.object({})
 });
 
 export const collections = { docs, blog };

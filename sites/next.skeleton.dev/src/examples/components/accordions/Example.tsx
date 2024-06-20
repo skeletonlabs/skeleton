@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Accordion } from '@skeletonlabs/skeleton-react';
 import { Club, Diamond, Heart, Spade } from 'lucide-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	const lorem =
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
 

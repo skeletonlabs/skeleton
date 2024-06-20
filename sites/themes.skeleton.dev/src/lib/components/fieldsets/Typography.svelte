@@ -28,16 +28,8 @@
 			<strong>Typographic Scale</strong>
 			<span>{factorValue} </span>
 		</div>
-		<input
-			class="input"
-			type="range"
-			name="typography-scale-factor"
-			bind:value={stateFormTypography.factor}
-			min="0"
-			max="8"
-			step="1"
-		/>
-		<div class="rounded p-4 text-center preset-filled-surface-200-800">{factorLabel}</div>
+		<input class="input" type="range" name="typography-scale-factor" bind:value={stateFormTypography.factor} min="0" max="8" step="1" />
+		<div class="preset-filled-surface-200-800 rounded p-4 text-center">{factorLabel}</div>
 	</label>
 
 	<!-- --- -->

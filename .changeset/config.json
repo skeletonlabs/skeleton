@@ -1,9 +1,6 @@
 {
 	"$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-	"changelog": [
-		"@svitejs/changesets-changelog-github-compact",
-		{ "repo": "skeletonlabs/skeleton" }
-	],
+	"changelog": ["@svitejs/changesets-changelog-github-compact", { "repo": "skeletonlabs/skeleton" }],
 	"commit": false,
 	"fixed": [],
 	"linked": [],

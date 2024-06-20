@@ -10,13 +10,7 @@ export const Page = () => {
 			{/* Progress */}
 			<ProgressRing value={value} max={max} />
 			{/* Range Input */}
-			<input
-				type="range"
-				className="input"
-				value={value}
-				onInput={(e) => setValue(e.currentTarget.valueAsNumber)}
-				max={max}
-			/>
+			<input type="range" className="input" value={value} onInput={(e) => setValue(e.currentTarget.valueAsNumber)} max={max} />
 		</div>
 	);
 };

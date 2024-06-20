@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ProgressRing } from '@skeletonlabs/skeleton-react';
 import { ThermometerSun as IconThermometer } from 'lucide-react';
 

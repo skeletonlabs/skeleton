@@ -19,7 +19,7 @@
 
 <div class="grid grid-cols-2 gap-4">
 	<!-- Buttons -->
-	<section class="flex items-center justify-center rounded-container border p-8 border-surface-200-800">
+	<section class="rounded-container border-surface-200-800 flex items-center justify-center border p-8">
 		<div class="flex justify-center gap-4">
 			<div class="grid grid-cols-1 gap-4">
 				<button class="btn preset-filled">Button</button>
@@ -59,8 +59,8 @@
 		</div>
 	</section>
 	<!-- Card -->
-	<section class="flex items-center justify-center rounded-container border p-8 border-surface-200-800">
-		<div class="card mx-auto max-w-md divide-y overflow-hidden divide-surface-200-800 {cBorder} {cBackground}">
+	<section class="rounded-container border-surface-200-800 flex items-center justify-center border p-8">
+		<div class="card divide-surface-200-800 mx-auto max-w-md divide-y overflow-hidden {cBorder} {cBackground}">
 			<header>
 				<img src={imgSrc} class="aspect-[21/9] w-full grayscale hue-rotate-90" alt="banner" />
 			</header>
@@ -70,9 +70,8 @@
 					<h3 class="h3">Skeleton is Awesome</h3>
 				</div>
 				<p class="opacity-60">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque
-					consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque
-					quae rem.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore
+					sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
 				</p>
 			</article>
 			<footer class="flex items-center justify-between gap-4 p-4">
@@ -82,8 +81,8 @@
 		</div>
 	</section>
 	<!-- Forms -->
-	<section class="flex items-center justify-center rounded-container border p-8 border-surface-200-800">
-		<form class="card p-4 mx-auto w-full max-w-md space-y-4 {cBorder} {cBackground}">
+	<section class="rounded-container border-surface-200-800 flex items-center justify-center border p-8">
+		<form class="card mx-auto w-full max-w-md space-y-4 p-4 {cBorder} {cBackground}">
 			<fieldset class="space-y-4">
 				<label class="label">
 					<span class="label-text">Input</span>
@@ -101,11 +100,7 @@
 				</label>
 				<label class="label">
 					<span class="label-text">Textarea</span>
-					<textarea
-						class="textarea rounded-container"
-						rows="4"
-						placeholder="Lorem ipsum dolor sit amet adipisicing elit."
-					></textarea>
+					<textarea class="textarea rounded-container" rows="4" placeholder="Lorem ipsum dolor sit amet adipisicing elit."></textarea>
 				</label>
 			</fieldset>
 			<fieldset class="flex justify-end">
@@ -114,7 +109,7 @@
 		</form>
 	</section>
 	<!-- Table -->
-	<section class="flex items-center justify-center rounded-container border p-8 border-surface-200-800">
+	<section class="rounded-container border-surface-200-800 flex items-center justify-center border p-8">
 		<div class="table-wrap">
 			<table class="table caption-bottom">
 				<caption class="pt-4">A list of elements from the periodic table.</caption>
@@ -146,7 +141,7 @@
 		</div>
 	</section>
 	<!-- Placeholders -->
-	<section class="flex items-center justify-center rounded-container border p-8 border-surface-200-800">
+	<section class="rounded-container border-surface-200-800 flex items-center justify-center border p-8">
 		<div class="w-full space-y-4">
 			<div class="flex items-center justify-between">
 				<div class="flex items-center justify-center space-x-4">
@@ -169,15 +164,15 @@
 		</div>
 	</section>
 	<!-- HRs -->
-	<section class="flex items-center justify-center rounded-container border p-8 border-surface-200-800">
+	<section class="rounded-container border-surface-200-800 flex items-center justify-center border p-8">
 		<div class="w-full space-y-4">
-			<p class="opacity-60 type-scale-1">Default</p>
+			<p class="type-scale-1 opacity-60">Default</p>
 			<hr class="hr" />
-			<p class="opacity-60 type-scale-1">border-t-2</p>
+			<p class="type-scale-1 opacity-60">border-t-2</p>
 			<hr class="hr border-t-2" />
-			<p class="opacity-60 type-scale-1">border-t-4</p>
+			<p class="type-scale-1 opacity-60">border-t-4</p>
 			<hr class="hr border-t-4" />
-			<p class="opacity-60 type-scale-1">border-t-8</p>
+			<p class="type-scale-1 opacity-60">border-t-8</p>
 			<hr class="hr border-t-8" />
 		</div>
 	</section>

@@ -13,16 +13,16 @@ export default {
 	content: [
 		'./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
 		join(require.resolve('@skeletonlabs/skeleton-react'), '../**/*.{html,js,ts,jsx,tsx}'),
-		join(require.resolve('@skeletonlabs/skeleton-svelte'), '../**/*.{html,js,ts,svelte}'),
+		join(require.resolve('@skeletonlabs/skeleton-svelte'), '../**/*.{html,js,ts,svelte}')
 	],
 	theme: {
-		extend: {},
+		extend: {}
 	},
 	plugins: [
 		forms,
 		// typography,
 		skeleton({
-			themes: Object.values(themes),
-		}),
-	],
+			themes: Object.values(themes)
+		})
+	]
 };

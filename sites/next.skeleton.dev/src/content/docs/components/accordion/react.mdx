@@ -29,8 +29,11 @@ Each Item `id` added to the Accordion `value` array will be open by default.
 ```ts
 const [value, setValue] = useState(['club']);
 ```
+
 ```tsx
-<Accordion value={value} onValueChange={setValue}>...</Accordion>
+<Accordion value={value} onValueChange={setValue}>
+	...
+</Accordion>
 ```
 
 ### Harcoded
@@ -52,16 +55,17 @@ Use `multiple` to enable multiple items to be opened at once.
 ```ts
 import { Plus, Minus, Heart } from 'lucide-react';
 ```
+
 ```tsx
-<Accordion iconOpen={<Plus size={24} />} iconClosed={<Minus size={24} />}>...</Accordion>
+<Accordion iconOpen={<Plus size={24} />} iconClosed={<Minus size={24} />}>
+	...
+</Accordion>
 ```
+
 ```tsx
 <Accordion.Control lead={<Heart size={24} />}>Heart</Accordion.Control>
 ```
 
 ## API Reference
 
-<ApiTable
-	types={['AccordionProps', 'AccordionItemProps', 'AccordionControlProps', 'AccordionPanelProps']}
-	schema={AccordionSchema}
-/>
+<ApiTable types={['AccordionProps', 'AccordionItemProps', 'AccordionControlProps', 'AccordionPanelProps']} schema={AccordionSchema} />

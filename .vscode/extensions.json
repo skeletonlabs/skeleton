@@ -4,10 +4,14 @@
 
 	// List of extensions which should be recommended for users of this workspace.
 	"recommendations": [
-		"streetsidesoftware.code-spell-checker"
+		"astro-build.astro-vscode",
+		"svelte.svelte-vscode",
+		"unifiedjs.vscode-mdx",
+		"bradlc.vscode-tailwindcss",
+		"csstools.postcss",
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
-	"unwantedRecommendations": [
-		
-	]
+	"unwantedRecommendations": []
 }

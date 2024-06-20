@@ -16,9 +16,7 @@
 	const shadeLabels = ['High', 'Mids', 'Lows'];
 
 	function onSeedButton(colorName: ColorNames) {
-		let colorSeed = prompt(
-			'Provide a hex color value. This will be used to populate the high, medium, and low values auto-magically.'
-		);
+		let colorSeed = prompt('Provide a hex color value. This will be used to populate the high, medium, and low values auto-magically.');
 		if (!colorSeed) return;
 		seedHighLowColors(colorName, colorSeed);
 	}
@@ -35,20 +33,12 @@
 			<div class="grid grid-cols-1 gap-4">
 				<!-- Core Color -->
 				<div class="label">
-					<header class="grid grid-cols-[1fr_auto_auto] gap-2 items-center mb-2">
+					<header class="mb-2 grid grid-cols-[1fr_auto_auto] items-center gap-2">
 						<p class="font-bold capitalize">{color}</p>
-						<button
-							class="btn preset-outlined-surface-200-800"
-							onclick={() => onSeedButton(color)}
-							title="Seed a Color"
-						>
+						<button class="btn preset-outlined-surface-200-800" onclick={() => onSeedButton(color)} title="Seed a Color">
 							<Sprout size={16} />
 						</button>
-						<button
-							class="btn preset-outlined-surface-200-800"
-							onclick={() => genRandomSeed(color)}
-							title="Use Random Color"
-						>
+						<button class="btn preset-outlined-surface-200-800" onclick={() => genRandomSeed(color)} title="Use Random Color">
 							<Dices size={16} />
 						</button>
 					</header>
@@ -57,6 +47,7 @@
 						{#each stateFormColors[color].seeds as shade, i}
 							<div class="grid grid-cols-[auto_auto_1fr] items-center gap-2">
 								<!-- Label -->
+								<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 								<label class="label-text !m-0" for="">{@html shadeLabels[i]}</label>
 								<!-- Color Picker -->
 								<input class="input" type="color" bind:value={shade} />

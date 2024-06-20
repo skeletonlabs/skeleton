@@ -61,7 +61,7 @@
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Rail</h2>
-		<div class="flex justify-center gap-10 h-[960px]">
+		<div class="flex h-[960px] justify-center gap-10">
 			<NavRail>
 				{#snippet header()}
 					<NavTile href="/" title="Menu"><IconMenu /></NavTile>
@@ -90,7 +90,7 @@
 			<!-- Expanded -->
 			<NavRail expanded>
 				{#snippet header()}
-					<a href="/" class="w-full aspect-square flex flex-col justify-center items-center gap-2">
+					<a href="/" class="flex aspect-square w-full flex-col items-center justify-center gap-2">
 						<IconLogo size={48} />
 						<span class="type-scale-5 font-bold">Skeleton</span>
 					</a>

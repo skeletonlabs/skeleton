@@ -7,12 +7,12 @@ import {
 	Music as IconMusic,
 	Video as IconVideo,
 	Gamepad as IconGames,
-	Settings as IconSettings,
+	Settings as IconSettings
 } from 'lucide-react';
 
-export const Page: React.FC<any> = () => {
+export const Page: React.FC = () => {
 	return (
-		<div className="card border-[1px] border-surface-100-900 w-full h-[640px] grid grid-cols-[auto_1fr]">
+		<div className="card border-surface-100-900 grid h-[640px] w-full grid-cols-[auto_1fr] border-[1px]">
 			{/* Component */}
 			{/* prettier-ignore */}
 			<Nav.Rail
@@ -27,7 +27,7 @@ export const Page: React.FC<any> = () => {
 				<Nav.Tile id="4" labelExpanded="Browse Games" href="#"><IconGames /></Nav.Tile>
 			</Nav.Rail>
 			{/* Content */}
-			<div className="flex justify-center items-center">
+			<div className="flex items-center justify-center">
 				<p className="opacity-20">(Content)</p>
 			</div>
 		</div>

@@ -41,11 +41,11 @@ const navigation = {
 	design: cDesign.sort(sortByOrder),
 	tailwind: cTailwind.sort(sortByOrder),
 	components: cComponents,
-	resources: cResources.sort(sortByOrder),
+	resources: cResources.sort(sortByOrder)
 };
 ---
 
-<aside class="type-scale-2 overflow-y-auto space-y-10" class:list={[classList]}>
+<aside class="type-scale-2 space-y-10 overflow-y-auto" class:list={[classList]}>
 	{
 		Object.entries(navigation).map(([key, pages]) => (
 			<nav class="flex flex-col gap-2">

@@ -5,17 +5,17 @@ layout: '@layouts/LayoutDoc.astro'
 export const components = componentSet;
 
 import { Page as Example } from '@examples/components/progress-rings/Example.tsx';
-import  ExampleRaw  from '@examples/components/progress-rings/Example.tsx?raw';
+import ExampleRaw from '@examples/components/progress-rings/Example.tsx?raw';
 import { Page as ExampleIcons } from '@examples/components/progress-rings/ExampleIcons.tsx';
-import  ExampleIconsRaw  from '@examples/components/progress-rings/ExampleIcons.tsx?raw';
+import ExampleIconsRaw from '@examples/components/progress-rings/ExampleIcons.tsx?raw';
 import { Page as ExampleIndeterminate } from '@examples/components/progress-rings/ExampleIndeterminate.tsx';
-import  ExampleIndeterminateRaw  from '@examples/components/progress-rings/ExampleIndeterminate.tsx?raw';
+import ExampleIndeterminateRaw from '@examples/components/progress-rings/ExampleIndeterminate.tsx?raw';
 
 import { ProgressRingSchema } from '@skeletonlabs/skeleton-react/schemas';
 
 <Preview client:load>
 	<Fragment slot="preview">
-        {/* NOTE: set client:only to prevent page load bug */}
+		{/* NOTE: set client:only to prevent page load bug */}
 		<Example client:only="react" />
 	</Fragment>
 	<Fragment slot="code">

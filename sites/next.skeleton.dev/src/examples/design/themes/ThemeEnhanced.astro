@@ -1,12 +1,12 @@
 <div class="w-full space-y-4">
 	<!-- All primitive styles inlined -->
-	<div class="card preset-filled-surface-100-900 p-4 space-y-2">
+	<div class="card preset-filled-surface-100-900 space-y-2 p-4">
 		<p class="font-bold">Simple Card</p>
 		<p>This card will utilize a generic theme style.</p>
 	</div>
 
 	<!-- Uses a custom `.card-enhanced-example` class to enhance styles for select themes -->
-	<div class="card-enhanced-example p-4 space-y-2">
+	<div class="card-enhanced-example space-y-2 p-4">
 		<p class="font-bold">Enhanced Card</p>
 		<p>This card has unique styles for the Cerberus and Catppuccin themes.</p>
 	</div>
@@ -18,10 +18,10 @@
 	}
 	/* Enhanced for the Cerberus theme only. */
 	[data-theme='cerberus'] .card-enhanced-example {
-		@apply ring-4 ring-primary-500;
+		@apply ring-primary-500 ring-4;
 	}
 	/* Enhanced for the Catppuccin theme only. */
 	[data-theme='catppuccin'] .card-enhanced-example {
-		@apply preset-filled-primary-100-900 border border-primary-500 p-8;
+		@apply preset-filled-primary-100-900 border-primary-500 border p-8;
 	}
 </style>

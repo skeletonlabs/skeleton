@@ -4,19 +4,19 @@ import type { ColorNames, ColorSettings } from './constants';
 
 // Design
 
-export let stateDisplay: any = $state({
+export const stateDisplay: Record<string, string> = $state({
 	border: 'surface',
 	background: 'surface'
 });
 
 // Form: Core ---
 
-export let stateFormCore: Record<string, string> = $state({
+export const stateFormCore: Record<string, string> = $state({
 	name: 'myCustomTheme'
 });
 
 // Form: Colors ---
-export let stateFormColors: Record<ColorNames, ColorSettings> = $state({
+export const stateFormColors: Record<ColorNames, ColorSettings> = $state({
 	primary: {
 		seeds: ['#d3e5ff', '#0170f3', '#092750'],
 		contrastDark: 'var(--color-primary-950)',
@@ -61,14 +61,14 @@ export let stateFormColors: Record<ColorNames, ColorSettings> = $state({
 	}
 });
 
-export let stateFormBackgrounds: Record<string, string> = $state({
+export const stateFormBackgrounds: Record<string, string> = $state({
 	bodyBackgroundColor: 'var(--color-surface-50)',
 	bodyBackgroundColorDark: 'var(--color-surface-950)'
 });
 
 // Form: Typography ---
 
-export let stateFormTypography: Record<string, number | string> = $state({
+export const stateFormTypography: Record<string, number | string> = $state({
 	factor: 0, // index
 	// Base
 	baseFontColor: 'var(--color-surface-950)',
@@ -104,13 +104,13 @@ export let stateFormTypography: Record<string, number | string> = $state({
 
 // Form: Spacing ---
 
-export let stateFormSpacing: Record<string, number> = $state({
+export const stateFormSpacing: Record<string, number> = $state({
 	factor: 1.0
 });
 
 // Form: Edges ---
 
-export let stateFormEdges: Record<string, string> = $state({
+export const stateFormEdges: Record<string, string> = $state({
 	radiiDefault: '6px', // 0.375rem
 	radiiContainer: '12px', // 0.75rem
 	borderWidthDefault: '1px',

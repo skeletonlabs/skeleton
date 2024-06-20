@@ -31,40 +31,25 @@
 
 <div class="mx-auto max-w-[1200px] space-y-4 px-4 md:space-y-8 md:px-8">
 	<header
-		class="sticky top-0 z-10 border border-t-0 border-surface-200-800 bg-surface-100-900 grid grid-cols-[1fr_auto_1fr] justify-between items-center gap-4 rounded-bl-container rounded-br-container p-4"
+		class="border-surface-200-800 bg-surface-100-900 rounded-bl-container rounded-br-container sticky top-0 z-10 grid grid-cols-[1fr_auto_1fr] items-center justify-between gap-4 border border-t-0 p-4"
 	>
 		<!-- Branding -->
 		<div class="flex items-center gap-4">
 			<IconSkull size={28} />
 			<h1 class="grid grid-cols-1">
-				<span class="font-bold font-mono">skeleton</span>
+				<span class="font-mono font-bold">skeleton</span>
 				<small class="opacity-50">theme generator</small>
 			</h1>
 		</div>
 		<!-- Selection -->
-		<nav class="btn-group flex p-2 preset-outlined-surface-200-800 md:flex-row">
-			<button
-				type="button"
-				class="btn {activeContent('palette')}"
-				onclick={() => setContent('palette')}
-				disabled={tab === 'code'}
-			>
+		<nav class="btn-group preset-outlined-surface-200-800 flex p-2 md:flex-row">
+			<button type="button" class="btn {activeContent('palette')}" onclick={() => setContent('palette')} disabled={tab === 'code'}>
 				Palette
 			</button>
-			<button
-				type="button"
-				class="btn {activeContent('typography')}"
-				onclick={() => setContent('typography')}
-				disabled={tab === 'code'}
-			>
+			<button type="button" class="btn {activeContent('typography')}" onclick={() => setContent('typography')} disabled={tab === 'code'}>
 				Typography
 			</button>
-			<button
-				type="button"
-				class="btn {activeContent('elements')}"
-				onclick={() => setContent('elements')}
-				disabled={tab === 'code'}
-			>
+			<button type="button" class="btn {activeContent('elements')}" onclick={() => setContent('elements')} disabled={tab === 'code'}>
 				Elements
 			</button>
 			<!-- <button
@@ -78,7 +63,7 @@
 		</nav>
 		<!-- Tabs -->
 		<div class="flex justify-end">
-			<nav class="btn-group flex-col p-2 preset-outlined-surface-200-800 md:flex-row">
+			<nav class="btn-group preset-outlined-surface-200-800 flex-col p-2 md:flex-row">
 				<button type="button" class="btn {activeTab('preview')}" onclick={() => setTab('preview')}>
 					<IconDesign size={20} />
 				</button>

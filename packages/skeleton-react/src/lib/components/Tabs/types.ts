@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 // Components ---
 
 export interface TabsProps extends React.PropsWithChildren {
-    /** Provide a unique ID. */
+	/** Provide a unique ID. */
 	id?: string;
 
 	// Root ---

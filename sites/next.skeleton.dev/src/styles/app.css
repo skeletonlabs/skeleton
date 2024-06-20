@@ -8,13 +8,13 @@ body {
 /* Local Utiilties --- */
 
 .flex-centered {
-	@apply flex justify-center items-center;
+	@apply flex items-center justify-center;
 }
 
 /* Astro Components --- */
 
 .astro-code {
-	@apply p-4 rounded-container;
+	@apply rounded-container p-4;
 }
 
 /* Theme Enhancements --- */
@@ -39,19 +39,19 @@ body {
 
 /* Card Outline */
 .card-enhanced-outlined {
-	@apply card border border-surface-200-800;
+	@apply card border-surface-200-800 border;
 }
 [data-theme='cerberus'] .card-enhanced-outlined {
 	@apply bg-body-color dark:bg-body-color-dark;
 }
 [data-theme='catppuccin'] .card-enhanced-outlined {
-	@apply bg-gradient-to-br from-primary-500 to-secondary-500 border-0 p-0.5;
+	@apply from-primary-500 to-secondary-500 border-0 bg-gradient-to-br p-0.5;
 }
 [data-theme='catppuccin'] .card-enhanced-outlined-inner {
 	@apply card bg-body-color dark:bg-body-color-dark;
 }
 [data-theme='pine'] .card-enhanced-outlined {
-	@apply border-0 border-t border-b bg-white/10 dark:bg-black/5;
+	@apply border-0 border-b border-t bg-white/10 dark:bg-black/5;
 }
 [data-theme='rose'] .card-enhanced-outlined {
 	@apply bg-surface-500/5 border-0 backdrop-blur-2xl;
@@ -59,7 +59,7 @@ body {
 
 /* Card Gradient */
 .card-enhanced-gradient {
-	@apply card bg-gradient-to-br from-primary-500 to-secondary-500 text-primary-contrast-500;
+	@apply card from-primary-500 to-secondary-500 text-primary-contrast-500 bg-gradient-to-br;
 }
 [data-theme='pine'] .card-enhanced-gradient {
 	@apply to-tertiary-500;
@@ -70,7 +70,7 @@ body {
 	@apply btn preset-filled;
 }
 [data-theme='catppuccin'] .btn-enhanced-cta {
-	@apply btn bg-gradient-to-br from-primary-500 to-secondary-500 text-white ring-[2px] ring-white/50 ring-inset shadow-xl;
+	@apply btn from-primary-500 to-secondary-500 bg-gradient-to-br text-white shadow-xl ring-[2px] ring-inset ring-white/50;
 }
 
 /* Theme Doc Examples */
@@ -78,8 +78,8 @@ body {
 	@apply card preset-filled-surface-100-900;
 }
 [data-theme='cerberus'] .card-enhanced-example {
-	@apply ring-4 ring-primary-500;
+	@apply ring-primary-500 ring-4;
 }
 [data-theme='catppuccin'] .card-enhanced-example {
-	@apply preset-filled-primary-100-900 border border-primary-500 p-8;
+	@apply preset-filled-primary-100-900 border-primary-500 border p-8;
 }

@@ -23,7 +23,7 @@ function formatSchemaData(typeKey: string) {
 			type: values['$ref'] ? values['$ref'].replace('#/definitions/', '') : values.type,
 			description: values.description ?? '-',
 			default: values.hasOwnProperty('default') ? String(values.default) : '',
-			required: (required && required.includes(prop)) || false,
+			required: (required && required.includes(prop)) || false
 		});
 	});
 	// Return the schema array
@@ -59,14 +59,12 @@ function formatSchemaData(typeKey: string) {
 											</div>
 										</td>
 										{/* Type */}
-										<td class="opacity-60 italic">{cell.type}</td>
+										<td class="italic opacity-60">{cell.type}</td>
 										{/* Description */}
 										<td>
 											<div class="grid grid-cols-1 gap-2">
 												<article>{cell.description}</article>
-												{cell.default ? (
-													<small class="opacity-60 italic">Default: {cell.default}</small>
-												) : null}
+												{cell.default ? <small class="italic opacity-60">Default: {cell.default}</small> : null}
 											</div>
 										</td>
 									</tr>

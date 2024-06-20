@@ -6,11 +6,11 @@ export const getStaticPaths = (async () => {
 	const entries = await getCollection('docs');
 	return entries.map((entry) => ({
 		params: {
-			slug: entry.slug,
+			slug: entry.slug
 		},
 		props: {
-			entry,
-		},
+			entry
+		}
 	}));
 }) satisfies GetStaticPaths;
 

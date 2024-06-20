@@ -9,7 +9,7 @@
 		<PanelPreview />
 	</div>
 	<!-- Panel: Form -->
-	<div class="scrollbar-gutter-stable overflow-y-auto bg-surface-100-900">
+	<div class="scrollbar-gutter-stable bg-surface-100-900 overflow-y-auto">
 		<PanelForm />
 	</div>
 </div>

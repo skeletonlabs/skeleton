@@ -1,35 +1,24 @@
-import React from "react";
-import {
-	ToolbarCenterProps,
-	AppBarHeadlineProps,
-	ToolbarLeadProps,
-	AppBarProps,
-	ToolBarProps,
-	ToolbarTrailProps,
-} from "./types.js";
+import React from 'react';
+import { ToolbarCenterProps, AppBarHeadlineProps, ToolbarLeadProps, AppBarProps, ToolBarProps, ToolbarTrailProps } from './types.js';
 
 // React Compose ---
-import { reactCompose } from "../../utils/react-compose.js";
+import { reactCompose } from '../../utils/react-compose.js';
 
 // Components ---
 const AppBarRoot: React.FC<AppBarProps> = ({
 	// Root
-	base = "w-full flex flex-col",
-	background = "bg-surface-100-900",
-	spaceY = "space-y-4",
-	border = "",
-	padding = "p-4",
-	shadow = "",
-	classes = "",
+	base = 'w-full flex flex-col',
+	background = 'bg-surface-100-900',
+	spaceY = 'space-y-4',
+	border = '',
+	padding = 'p-4',
+	shadow = '',
+	classes = '',
 	// Children
-	children,
+	children
 }) => {
 	return (
-		<div
-			className={`${base} ${background} ${spaceY} ${border} ${padding} ${shadow} ${classes}`}
-			role="toolbar"
-			data-testid="app-bar"
-		>
+		<div className={`${base} ${background} ${spaceY} ${border} ${padding} ${shadow} ${classes}`} role="toolbar" data-testid="app-bar">
 			{children}
 		</div>
 	);
@@ -37,66 +26,58 @@ const AppBarRoot: React.FC<AppBarProps> = ({
 
 const Toolbar: React.FC<ToolBarProps> = ({
 	// Toolbar
-	base = "flex justify-between",
-	gridCols = "grid-cols-[auto_1fr_auto]",
-	gap = "gap-4",
-	classes = "",
+	base = 'flex justify-between',
+	gridCols = 'grid-cols-[auto_1fr_auto]',
+	gap = 'gap-4',
+	classes = '',
 	// Children
-	children,
+	children
 }) => {
-	return (
-		<div className={`${base} ${gridCols} ${gap} ${classes}`}>{children}</div>
-	);
+	return <div className={`${base} ${gridCols} ${gap} ${classes}`}>{children}</div>;
 };
 
 const ToolbarLead: React.FC<ToolbarLeadProps> = ({
 	// Lead
-	base = "flex",
-	spaceX = "space-x-4 rtl:space-x-reverse",
-	padding = "",
-	classes = "",
+	base = 'flex',
+	spaceX = 'space-x-4 rtl:space-x-reverse',
+	padding = '',
+	classes = '',
 	// Children
-	children,
+	children
 }) => {
-	return (
-		<div className={`${base} ${spaceX} ${padding} ${classes}`}>{children}</div>
-	);
+	return <div className={`${base} ${spaceX} ${padding} ${classes}`}>{children}</div>;
 };
 
 const ToolbarCenter: React.FC<ToolbarCenterProps> = ({
 	// Center
-	base = "grow",
-	align = "text-center",
-	padding = "",
-	classes = "",
+	base = 'grow',
+	align = 'text-center',
+	padding = '',
+	classes = '',
 	// Children
-	children,
+	children
 }) => {
-	return (
-		<div className={`${base} ${align} ${padding} ${classes}`}>{children}</div>
-	);
+	return <div className={`${base} ${align} ${padding} ${classes}`}>{children}</div>;
 };
 
 const ToolbarTrail: React.FC<ToolbarTrailProps> = ({
 	// Trail
-	base = "flex",
-	spaceX = "space-x-4 rtl:space-x-reverse",
-	padding = "",
-	classes = "",
+	base = 'flex',
+	spaceX = 'space-x-4 rtl:space-x-reverse',
+	padding = '',
+	classes = '',
 	// Children
-	children,
+	children
 }) => {
-	return (
-		<div className={`${base} ${spaceX} ${padding} ${classes}`}>{children}</div>
-	);
+	return <div className={`${base} ${spaceX} ${padding} ${classes}`}>{children}</div>;
 };
 
 const AppBarHeadline: React.FC<AppBarHeadlineProps> = ({
 	// Headline
-	base = "w-full",
-	classes = "",
+	base = 'w-full',
+	classes = '',
 	// Children
-	children,
+	children
 }) => {
 	return <div className={`${base} ${classes}`}>{children}</div>;
 };
@@ -106,5 +87,5 @@ export const AppBar = reactCompose(AppBarRoot, {
 	ToolbarLead: ToolbarLead,
 	ToolbarCenter: ToolbarCenter,
 	ToolbarTrail: ToolbarTrail,
-	Headline: AppBarHeadline,
+	Headline: AppBarHeadline
 });

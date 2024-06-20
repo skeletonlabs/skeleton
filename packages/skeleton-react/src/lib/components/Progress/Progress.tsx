@@ -1,37 +1,35 @@
-import { useEffect, type FC } from "react";
+import { useEffect, type FC } from 'react';
 
-import { ProgressProps } from "./types.js";
+import { ProgressProps } from './types.js';
 
 export const Progress: FC<ProgressProps> = ({
 	value,
 	max = 100,
-	labelledBy = "",
+	labelledBy = '',
 	// Root
-	base = "overflow-x-hidden",
-	bg = "bg-surface-200-800",
-	width = "w-full",
-	height = "h-2",
-	rounded = "rounded",
-	classes = "",
+	base = 'overflow-x-hidden',
+	bg = 'bg-surface-200-800',
+	width = 'w-full',
+	height = 'h-2',
+	rounded = 'rounded',
+	classes = '',
 	// Meter
-	meterBase = "h-full",
-	meterBg = "bg-surface-950-50",
-	meterRounded = "rounded",
-	meterTransition = "transition-[width]",
-	meterAnimate = "animate-indeterminate",
-	meterClasses = "",
+	meterBase = 'h-full',
+	meterBg = 'bg-surface-950-50',
+	meterRounded = 'rounded',
+	meterTransition = 'transition-[width]',
+	meterAnimate = 'animate-indeterminate',
+	meterClasses = ''
 }) => {
 	useEffect(() => {
 		if (max < 0) {
-			console.warn("The max prop should be greater than or equal to 0");
+			console.warn('The max prop should be greater than or equal to 0');
 		}
 	});
 
 	const indeterminate = value === undefined;
-	const fillPercentage = `${
-		indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100
-	}%`;
-	const rxIndeterminate = indeterminate ? meterAnimate : "";
+	const fillPercentage = `${indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100}%`;
+	const rxIndeterminate = indeterminate ? meterAnimate : '';
 
 	return (
 		<>

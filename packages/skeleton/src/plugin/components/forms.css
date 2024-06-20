@@ -29,13 +29,13 @@
 
 .field-outter {
 	@apply overflow-hidden rounded;
-	@apply ring ring-surface-200-800 focus-within:ring-primary-500;
+	@apply ring-surface-200-800 focus-within:ring-primary-500 ring;
 	@apply hover:brightness-90 dark:hover:brightness-110;
 	@apply disabled:pointer-events-none disabled:opacity-50;
 }
 
 .field-inner {
-	@apply bg-transparent w-full;
+	@apply w-full bg-transparent;
 }
 
 /* Standard Fields --- */
@@ -67,7 +67,7 @@
 }
 .select option,
 .input-group option {
-	@apply p-2 rounded cursor-pointer;
+	@apply cursor-pointer rounded p-2;
 }
 .select:not([size]):not([multiple]) option,
 .input-group option {
@@ -83,11 +83,11 @@
 
 .checkbox,
 .radio {
-	@apply bg-surface-300-700 w-4 rounded-sm cursor-pointer;
+	@apply bg-surface-300-700 w-4 cursor-pointer rounded-sm;
 	/* Ring */
-	@apply ring ring-surface-200-800 focus-within:ring-primary-500;
+	@apply ring-surface-200-800 focus-within:ring-primary-500 ring;
 	/* States */
-	@apply focus:brightness-105 hover:brightness-105;
+	@apply hover:brightness-105 focus:brightness-105;
 }
 .checkbox:checked,
 .checkbox:indeterminate,
@@ -104,19 +104,19 @@
 	@apply p-2;
 }
 .input[type='file']::file-selector-button {
-	@apply btn border-none preset-filled mr-2;
+	@apply btn preset-filled mr-2 border-none;
 }
 
 /* Range Input */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 .input[type='range'] {
-	@apply w-full accent-surface-900 dark:accent-surface-50 !ring-0;
+	@apply accent-surface-900 dark:accent-surface-50 w-full !ring-0;
 }
 
 /* Color Picker */
 /* https://stackoverflow.com/questions/11167281/webkit-css-to-control-the-box-around-the-color-in-an-inputtype-color */
 .input[type='color'] {
-	@apply border-none size-10 overflow-hidden rounded cursor-pointer;
+	@apply size-10 cursor-pointer overflow-hidden rounded border-none;
 	-webkit-appearance: none; /* WebKit Only */
 }
 .input[type='color']::-webkit-color-swatch-wrapper {
@@ -135,10 +135,10 @@
 	-webkit-appearance: none;
 	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z'/%3E%3C/svg%3E")
 		no-repeat 50% 50%;
-	@apply h-4 w-4 rounded-full bg-contain opacity-0 pointer-events-none;
+	@apply pointer-events-none h-4 w-4 rounded-full bg-contain opacity-0;
 }
 .input[type='search']:focus::-webkit-search-cancel-button {
-	@apply opacity-100 pointer-events-auto;
+	@apply pointer-events-auto opacity-100;
 }
 .input[type='search']::-webkit-search-cancel-button {
 	@apply dark:invert;
@@ -149,7 +149,7 @@
 	webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	@apply w-full h-2 overflow-hidden rounded;
+	@apply h-2 w-full overflow-hidden rounded;
 	@apply bg-surface-200-800;
 }
 .progress::-webkit-progress-bar {
@@ -175,12 +175,12 @@
 .input-group input,
 .input-group select,
 .input-group button {
-	@apply border-0 !ring-0 !outline-0 !bg-transparent text-current;
+	@apply border-0 !bg-transparent text-current !outline-0 !ring-0;
 	@apply field-inner;
 }
 
 .input-group-cell {
-	@apply flex justify-center items-center px-2 min-w-10;
+	@apply flex min-w-10 items-center justify-center px-2;
 }
 
 /* Field States --- */
@@ -191,13 +191,13 @@
 .input-group > input:disabled,
 .input-group > textarea:disabled,
 .input-group > select:disabled {
-	@apply !opacity-50 !cursor-not-allowed hover:!brightness-100;
+	@apply !cursor-not-allowed !opacity-50 hover:!brightness-100;
 }
 
 .input[readonly],
 .textarea[readonly],
 .select[readonly] {
-	@apply !border-transparent !cursor-not-allowed hover:!brightness-100;
+	@apply !cursor-not-allowed !border-transparent hover:!brightness-100;
 }
 
 /* Placeholder Text */
