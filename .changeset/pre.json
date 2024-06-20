@@ -11,5 +11,13 @@
 		"skeleton.dev": "1.0.1",
 		"themes.skeleton.dev": "0.0.1"
 	},
-	"changesets": ["chilled-comics-hear", "lovely-dingos-join", "mean-schools-double", "six-tables-warn"]
+	"changesets": [
+		"chilled-comics-hear",
+		"clever-carpets-own",
+		"lovely-dingos-join",
+		"mean-schools-double",
+		"nasty-chefs-build",
+		"shy-papayas-behave",
+		"six-tables-warn"
+	]
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { RatingProps } from './types';
 
@@ -39,6 +41,8 @@ export const Rating: React.FC<RatingProps> = ({
 	iconFull
 }) => {
 	const figureRef = useRef<HTMLElement>(null);
+	const valueRef = useRef(value);
+
 	const [focusedButtonIndex, setFocusedButtonIndex] = useState(0);
 	const [rxEmptyInteractive, setRxEmptyInteractive] = useState('');
 	const [rxFullInteractive, setRxFullInteractive] = useState('');
@@ -47,10 +51,11 @@ export const Rating: React.FC<RatingProps> = ({
 		const index = Math.max(0, Math.ceil(value - 1));
 		setFocusedButtonIndex(index);
 	}, [value]);
+
 	useEffect(() => {
 		setRxEmptyInteractive(interactive ? emptyInteractive : emptyStatic);
 		setRxFullInteractive(interactive ? fullInteractive : fullStatic);
-	}, [interactive]);
+	}, [interactive, emptyInteractive, emptyStatic, fullInteractive, fullStatic]);
 
 	const onRatingMouseDown = useCallback(
 		(event: React.MouseEvent<HTMLButtonElement>, order: number) => {
@@ -65,46 +70,50 @@ export const Rating: React.FC<RatingProps> = ({
 				selectedFraction = step - selectedFraction + 1;
 			}
 
-			value = order + selectedFraction / step;
-			onValueChange(value);
-			onMouseDown(event, value);
+			valueRef.current = order + selectedFraction / step;
+			onValueChange(valueRef.current);
+			onMouseDown(event, valueRef.current);
 		},
-		[step]
+		[step, onMouseDown, onValueChange]
 	);
 
 	// https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/#kbd_label
-	const onRatingKeyDown = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
-		if (!figureRef.current) return;
-		const rtl = getComputedStyle(figureRef.current).direction === 'rtl';
-		if (['ArrowLeft', 'ArrowUp'].includes(event.key)) {
-			event.preventDefault();
-			rtl ? increaseValue() : decreaseValue();
-		}
-		if (['ArrowRight', 'ArrowDown'].includes(event.key)) {
-			event.preventDefault();
-			rtl ? decreaseValue() : increaseValue();
-		}
-		onKeyDown(event);
-	}, []);
+	const onRatingKeyDown = useCallback(
+		(event: React.KeyboardEvent<HTMLButtonElement>) => {
+			// If functions are not used outside of an effect/callback, they need to be defined in the effect/callback
+			function increaseValue() {
+				valueRef.current = Math.min(max, valueRef.current + 1 / step);
+				onValueChange(valueRef.current);
+				refreshFocus();
+			}
 
-	function refreshFocus() {
-		if (!figureRef.current) return;
+			function decreaseValue() {
+				valueRef.current = Math.max(0, valueRef.current - 1 / step);
+				onValueChange(valueRef.current);
+				refreshFocus();
+			}
 
-		const buttons = figureRef.current.querySelectorAll('button');
-		buttons[Math.max(0, Math.ceil(value - 1))].focus();
-	}
+			function refreshFocus() {
+				if (!figureRef.current) return;
 
-	function increaseValue() {
-		value = Math.min(max, value + 1 / step);
-		onValueChange(value);
-		refreshFocus();
-	}
+				const buttons = figureRef.current.querySelectorAll('button');
+				buttons[Math.max(0, Math.ceil(valueRef.current - 1))].focus();
+			}
 
-	function decreaseValue() {
-		value = Math.max(0, value - 1 / step);
-		onValueChange(value);
-		refreshFocus();
-	}
+			if (!figureRef.current) return;
+			const rtl = getComputedStyle(figureRef.current).direction === 'rtl';
+			if (['ArrowLeft', 'ArrowUp'].includes(event.key)) {
+				event.preventDefault();
+				rtl ? increaseValue() : decreaseValue();
+			}
+			if (['ArrowRight', 'ArrowDown'].includes(event.key)) {
+				event.preventDefault();
+				rtl ? decreaseValue() : increaseValue();
+			}
+			onKeyDown(event);
+		},
+		[onKeyDown, max, onValueChange, step]
+	);
 
 	return (
 		<figure ref={figureRef} className={`${base} ${width} ${justify} ${spaceX} ${classes}`} data-testid="rating">
