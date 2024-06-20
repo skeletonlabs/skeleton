@@ -69,12 +69,12 @@ Skeleton uses two primary branches. All pull requests should be created from and
 
 Please use the following naming convention when creating your pull request.
 
-| Branch     | Role                                  |
-| ---------- | ------------------------------------- |
-| `docs/*`   | When updating the documentation site. |
-| `feat/*`   | When implementing a new feature.      |
-| `chore/*`  | When implementing small changes.      |
-| `bugfix/*` | When implementing feature bugfixes.   |
+| Branch      | Role                                  |
+| ----------- | ------------------------------------- |
+| `docs/*`    | When updating the documentation site. |
+| `feature/*` | When implementing a new feature.      |
+| `chore/*`   | When implementing small changes.      |
+| `bugfix/*`  | When implementing feature bugfixes.   |
 
 Keep branch names short and semantic, using dashes to seperate words.
 
@@ -85,13 +85,16 @@ bugfix/accordion-render-issue
 
 ## Changesets
 
-[Changesets](https://github.com/changesets/changesets) are used to automatically generate the Skeleton changelog for each release. Any contributions made to projects that live within the `/packages` directory must contain a Changeset. Use the following instructions to generate a changeset.
+[Changesets](https://github.com/changesets/changesets) are used to automatically generate the changelog for each release. Any contributions made within `/packages` must contain a Changeset, contributions within `/sites` should not include a Changeset.
 
-1. Make sure you're within local pull request feature branch.
+Use the following instructions to generate a changeset.
+
+1. Make sure you're within your local pull request feature branch.
 2. Navigate to the root of the Skeleton monorepo.
 3. Run `pnpm changeset` to trigger the Changeset CLI.
 4. Follow the instructions when prompted.
-5. Changeset are added to the `/.changeset` directory.
+5. Changeset are added as `.md` files within the `/.changeset` directory.
+6. You may edit or revise a Changeset right up until release.
 
 Changesets use semantic version. We recommend the following convention.
 
@@ -99,7 +102,7 @@ Changesets use semantic version. We recommend the following convention.
 | ------- | -------------------------------------------- |
 | `major` | Do not use. Reserved for maintainers.        |
 | `minor` | For notable changes, such as a new features. |
-| `patch` | For small changes, such as a typo.           |
+| `patch` | For small changes, such as a fixing a typo.  |
 
 Changeset descriptions will appear verbatim on the [Changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md). Keep it short, semantic, and prefix this like branch names.
 
@@ -108,33 +111,34 @@ Changeset descriptions will appear verbatim on the [Changelog](https://github.co
 '@skeletonlabs/skeleton-svelte': minor
 ---
 
-feat: Added a new `background` component prop.
+feature: Added a new `background` component prop.
 ```
 
 ## Tooling
 
-Skeleton makes use of the following technology for improving the developer experience.
+Skeleton makes use of the following technology to improve the developer experience. It's recommended you run these tools regularly while working on new contributions, ideally before each commit.
 
-### Prettier
+### Root Commands
 
-We use [Prettier](https://prettier.io/) for code formatting and linting.
+Run the following commands in the monorepo root to recursively check each PNPM workspace project:
+
+- `pnpm check` - triggers each project's respective diagnostic tooling, such a [Svelte Check](https://github.com/sveltejs/language-tools).
+- `pnpm format` - triggers [Prettier](https://prettier.io/) to automatically format code to the defined rulesets.
+- `pnpm lint` - triggers [ES Lint](https://eslint.org/) to check for any pending linting issues.
+- `pnpm test` - triggers all available test cases using tools such as [Vitest](https://vitest.dev/).
+
+### Local Commands
+
+Additionally, you may also run the local instance of each command. Consult the local `package.json` for available options. For `format` and `lint` commands, use the following syntax to draw from the global configuration, but isolate to the current PNPM workspace:
 
 ```console
-pnpm lint
-pnpm format
+pnpm -w format
+pnpm -w lint
 ```
 
-### Test Suite
+### VS Code Extensions
 
-Unit tests are handled via [Vitest](https://vitest.dev/).
-
-```console
-pnpm test
-```
-
-## VS Code Extensions
-
-We recommend the following extensions for VS Code:
+We recommend the following extensions for VS Code.
 
 - [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
 - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
@@ -142,4 +146,4 @@ We recommend the following extensions for VS Code:
 - [Tailwind](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 - [PostCSS](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Vitest](https://marketplace.visualstudio.com/items?itemName=vitest.explorer)
+- [ES Lint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)

@@ -6,18 +6,23 @@ Closes #{issueNumber}
 
 {description}
 
-## Changsets
-
-Instructions: Changesets automate our changelog. If you modify files in `/packages`, run `pnpm changeset` in the root of the monorepo, follow the prompts, then commit the markdown file. Changes that add features should be `minor` while chores and bugfixes should be `patch`. Please prefix the changeset message with `feat:`, `bugfix:` or `chore:`.
-
 ## Checklist
 
-Please read and apply all [contribution requirements](https://www.skeleton.dev/docs/contributing).
+Please read and apply all [contribution requirements](https://next.skeleton.dev/docs/resources/contribute).
 
-- [ ] This PR targets the `dev` branch (NEVER `master`)
-- [ ] Documentation reflects all relevant changes
-- [ ] Branch is prefixed with: `docs/`, `feat/`, `chore/`, `bugfix/`
-- [ ] Ensure linting is current - run `pnpm ci:check`
-- [ ] Ensure Prettier linting is current - run `pnpm format`
-- [ ] All test cases are passing - run `pnpm test`
-- [ ] Includes a changeset (if relevant; see above)
+- [ ] Your branch should be prefixed with: `docs/`, `feature/`, `chore/`, `bugfix/`
+- [ ] Skeleton v3 contributions must target the `next` branch (NEVER `dev` or `master`)
+- [ ] Documentation should be updated to describe all relevant changes
+- [ ] Run `pnpm check` in the root of the monorepo
+- [ ] Run `pnpm format` in the root of the monorepo
+- [ ] Run `pnpm lint` in the root of the monorepo
+- [ ] Run `pnpm test` in the root of the monorepo
+- [ ] If you modify `/package` projects, please supply a Changeset
+
+## Changsets
+
+[View our documentation](http://localhost:4321/docs/resources/contribute/get-started#changesets) to learn more about [Changesets](https://github.com/changesets/changesets). To create a Changeset:
+
+1. Navigate to the root of the monorepo in your terminal
+2. Run `pnpm changeset` and follow the prompts
+3. Commit and push the changeset before flagging your PR review for review.
