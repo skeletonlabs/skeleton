@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.3
+
+### Patch Changes
+
+- Chore: Moved Prettier and ESLint to repo root, updated formatting, and rectified linting issues ([#2723](https://github.com/skeletonlabs/skeleton/pull/2723))
+
 ## 1.0.0-next.2
 
 ### Minor Changes
