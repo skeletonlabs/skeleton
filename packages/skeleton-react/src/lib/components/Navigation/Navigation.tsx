@@ -1,6 +1,9 @@
 'use client';
 
 import React, { createContext, useContext } from 'react';
+
+import { reactCompose } from '@/lib/utils/react-compose.js';
+
 import { NavContextState, NavRailProps, NavBarProps, NavTileProps } from './types.js';
 
 // Contexts ---
@@ -194,7 +197,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 
 // Exports ---
 
-export const Nav = Object.assign(() => null, {
+export const Nav = reactCompose(() => null, {
 	Rail: NavRail,
 	Bar: NavBar,
 	Tile: NavTile

@@ -1,6 +1,10 @@
 'use client';
 
+import { motion, AnimatePresence } from 'framer-motion';
 import React, { createContext, useContext, useEffect, useState } from 'react';
+
+import { reactCompose } from '@/lib/utils/react-compose.js';
+
 import {
 	AccordionContextState,
 	AccordionControlProps,
@@ -9,7 +13,6 @@ import {
 	AccordionPanelProps,
 	AccordionProps
 } from './types.js';
-import { motion, AnimatePresence } from 'framer-motion';
 
 // Contexts ---
 
@@ -185,7 +188,7 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
 	);
 };
 
-export const Accordion = Object.assign(AccordionRoot, {
+export const Accordion = reactCompose(AccordionRoot, {
 	Item: AccordionItem,
 	Control: AccordionControl,
 	Panel: AccordionPanel

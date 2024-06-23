@@ -1,8 +1,8 @@
 import React from 'react';
-import { ToolbarCenterProps, AppBarHeadlineProps, ToolbarLeadProps, AppBarProps, ToolBarProps, ToolbarTrailProps } from './types.js';
 
-// React Compose ---
-import { reactCompose } from '../../utils/react-compose.js';
+import { reactCompose } from '@/lib/utils/react-compose.js';
+
+import { ToolbarCenterProps, AppBarHeadlineProps, ToolbarLeadProps, AppBarProps, ToolBarProps, ToolbarTrailProps } from './types.js';
 
 // Components ---
 const AppBarRoot: React.FC<AppBarProps> = ({

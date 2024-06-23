@@ -1,4 +1,9 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
+
+import { reactCompose } from '@/lib/utils/react-compose.js';
+
 import { TabsProps, TabsListProps, TabsControlProps, TabsControlItemProps, TabsPanelItemProps } from './types.js';
 
 // Components ---
@@ -160,7 +165,7 @@ const TabsControl: React.FC<TabsControlProps> = ({
 				onKeyUp={onKeyup}
 			>
 				{/* Keep these classes on wrapping element */}
-				<div className="h-0 w-0 flex-none overflow-hidden">
+				<div className="flex-none w-0 h-0 overflow-hidden">
 					<input
 						ref={elemInputRef}
 						type="radio"
@@ -215,7 +220,7 @@ const TabsPanelItem: React.FC<TabsPanelItemProps> = ({
 	);
 };
 
-export const Tabs = Object.assign(TabsRoot, {
+export const Tabs = reactCompose(TabsRoot, {
 	List: TabsList,
 	Control: TabsControl,
 	Panel: TabsPanelItem,
