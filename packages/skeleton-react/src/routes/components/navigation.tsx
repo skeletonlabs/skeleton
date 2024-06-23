@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { Nav } from '../../lib/components/Navigation/Navigation.js';
 import { Skull as IconLogo, Menu as IconMenu, Box as IconBox, Settings as IconSettings } from 'lucide-react';
+import { useState } from 'react';
+
+import { Nav } from '@/lib/components/Navigation/Navigation.js';
 
 export function Component() {
 	const [activeItem, setActiveItem] = useState('0');
@@ -71,9 +72,9 @@ export function Component() {
 					<Nav.Rail
 						expanded
 						header={
-							<a href="/" className="flex aspect-square w-full flex-col items-center justify-center gap-2">
+							<a href="/" className="flex flex-col items-center justify-center w-full gap-2 aspect-square">
 								<IconLogo size={48} />
-								<span className="type-scale-5 font-bold">Skeleton</span>
+								<span className="font-bold type-scale-5">Skeleton</span>
 							</a>
 						}
 						footer={

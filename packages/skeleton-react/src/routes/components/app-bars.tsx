@@ -1,5 +1,6 @@
-import { AppBar } from '../../lib/components/AppBar/AppBar.js';
 import { Skull } from 'lucide-react';
+
+import { AppBar } from '@/lib/components/AppBar/AppBar.js';
 
 function appbar() {
 	return (
@@ -54,7 +55,7 @@ function appbarSticky() {
 	return (
 		<>
 			<h3 className="h3">Sticky</h3>
-			<div className="flex max-h-64 flex-col space-y-4 overflow-y-auto">
+			<div className="flex flex-col space-y-4 overflow-y-auto max-h-64">
 				<AppBar classes="sticky top-0">
 					<AppBar.Toolbar>
 						<AppBar.ToolbarLead>
