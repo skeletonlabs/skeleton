@@ -2,8 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 
-import { reactCompose } from '@/lib/utils/react-compose.js';
-
 import { TabsProps, TabsListProps, TabsControlProps, TabsControlItemProps, TabsPanelItemProps } from './types.js';
 
 // Components ---
@@ -220,7 +218,7 @@ const TabsPanelItem: React.FC<TabsPanelItemProps> = ({
 	);
 };
 
-export const Tabs = reactCompose(TabsRoot, {
+export const Tabs = Object.assign(TabsRoot, {
 	List: TabsList,
 	Control: TabsControl,
 	Panel: TabsPanelItem,

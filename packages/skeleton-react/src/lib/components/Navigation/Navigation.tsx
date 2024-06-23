@@ -2,8 +2,6 @@
 
 import React, { createContext, useContext } from 'react';
 
-import { reactCompose } from '@/lib/utils/react-compose.js';
-
 import { NavContextState, NavRailProps, NavBarProps, NavTileProps } from './types.js';
 
 // Contexts ---
@@ -197,7 +195,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 
 // Exports ---
 
-export const Nav = reactCompose(() => null, {
+export const Nav = Object.assign(() => null, {
 	Rail: NavRail,
 	Bar: NavBar,
 	Tile: NavTile

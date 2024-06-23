@@ -3,8 +3,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-import { reactCompose } from '@/lib/utils/react-compose.js';
-
 import {
 	AccordionContextState,
 	AccordionControlProps,
@@ -188,7 +186,7 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
 	);
 };
 
-export const Accordion = reactCompose(AccordionRoot, {
+export const Accordion = Object.assign(AccordionRoot, {
 	Item: AccordionItem,
 	Control: AccordionControl,
 	Panel: AccordionPanel

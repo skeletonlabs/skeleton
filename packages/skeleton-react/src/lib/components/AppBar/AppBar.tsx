@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { reactCompose } from '@/lib/utils/react-compose.js';
-
 import { ToolbarCenterProps, AppBarHeadlineProps, ToolbarLeadProps, AppBarProps, ToolBarProps, ToolbarTrailProps } from './types.js';
 
 // Components ---
@@ -82,7 +80,7 @@ const AppBarHeadline: React.FC<AppBarHeadlineProps> = ({
 	return <div className={`${base} ${classes}`}>{children}</div>;
 };
 
-export const AppBar = reactCompose(AppBarRoot, {
+export const AppBar = Object.assign(AppBarRoot, {
 	Toolbar: Toolbar,
 	ToolbarLead: ToolbarLead,
 	ToolbarCenter: ToolbarCenter,
