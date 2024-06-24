@@ -257,16 +257,16 @@ The implementation of this will differ per framework.
 
 ### React
 
-To implement this, first import the `reactCompose` utility into the component file:
+To implement this, we use `Object.assign()`
 
 ```ts
-import { reactCompose } from '../../utils/react-compose';
+Object.assign(RootComponent, { children });
 ```
 
-Then scaffold your component exports at the bottom of the file:
+For example, for the accordion component
 
 ```ts
-export const Accordion = reactCompose(
+export const Accordion = Object.assign(
 	AccordionRoot, // -> <Accordion>
 	{
 		Item: AccordionItem, // -> <Accordion.Item>

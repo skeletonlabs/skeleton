@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { Rating } from '../../lib/components/Rating/Rating';
 import { Bone, Skull, Star } from 'lucide-react';
+import { useState } from 'react';
+
+import { Rating } from '$lib/components/Rating/Rating';
 
 function StaticRatings(value: number) {
 	return (

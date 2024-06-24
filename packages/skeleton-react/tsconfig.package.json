@@ -23,7 +23,12 @@
 		"noFallthroughCasesInSwitch": true,
 
 		/* Types */
-		"types": ["vite-plugin-remix-router/client", "@testing-library/jest-dom", "@testing-library/user-event"]
+		"types": ["vite-plugin-remix-router/client", "@testing-library/jest-dom", "@testing-library/user-event"],
+
+		/* Paths */
+		"paths": {
+			"$lib/*": ["./src/lib/*"]
+		}
 	},
 	"include": ["src/lib"]
 }

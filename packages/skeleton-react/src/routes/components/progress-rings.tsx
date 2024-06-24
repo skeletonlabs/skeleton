@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { ProgressRing } from '../../lib/components/ProgressRing/ProgressRing.js';
 import { ThermometerSun as IconThermometer } from 'lucide-react';
+import { useState } from 'react';
+
+import { ProgressRing } from '$lib/components/ProgressRing/ProgressRing.js';
 
 export function Component() {
 	const [value, setValue] = useState(50);

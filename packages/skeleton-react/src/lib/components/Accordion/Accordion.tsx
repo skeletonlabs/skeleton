@@ -1,6 +1,8 @@
 'use client';
 
+import { motion, AnimatePresence } from 'framer-motion';
 import React, { createContext, useContext, useEffect, useState } from 'react';
+
 import {
 	AccordionContextState,
 	AccordionControlProps,
@@ -9,7 +11,6 @@ import {
 	AccordionPanelProps,
 	AccordionProps
 } from './types.js';
-import { motion, AnimatePresence } from 'framer-motion';
 
 // Contexts ---
 
