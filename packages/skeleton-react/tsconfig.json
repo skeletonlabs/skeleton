@@ -23,7 +23,7 @@
 
 		/* Paths */
 		"paths": {
-			"@/*": ["./src/*"]
+			"$lib/*": ["./src/lib/*"]
 		}
 	},
 	"include": ["src"],
