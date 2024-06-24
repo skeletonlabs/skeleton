@@ -1,7 +1,7 @@
 import { Skull } from 'lucide-react';
 import { useState } from 'react';
 
-import { Accordion } from '@/lib/components/Accordion/Accordion.js';
+import { Accordion } from '$lib/components/Accordion/Accordion.js';
 
 export function Component() {
 	const lorem =

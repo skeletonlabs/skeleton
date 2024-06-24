@@ -1,6 +1,6 @@
 import { Skull } from 'lucide-react';
 
-import { AppBar } from '@/lib/components/AppBar/AppBar.js';
+import { AppBar } from '$lib/components/AppBar/AppBar.js';
 
 function appbar() {
 	return (

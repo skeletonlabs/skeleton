@@ -1,7 +1,7 @@
 import { Plane, Hotel, Box } from 'lucide-react';
 import { useState } from 'react';
 
-import { Tabs } from '@/lib/components/Tabs/Tabs.js';
+import { Tabs } from '$lib/components/Tabs/Tabs.js';
 
 function Preview(group: string, setGroup: React.Dispatch<React.SetStateAction<string>>) {
 	return (

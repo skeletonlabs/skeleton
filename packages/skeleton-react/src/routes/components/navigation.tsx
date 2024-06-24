@@ -1,7 +1,7 @@
 import { Skull as IconLogo, Menu as IconMenu, Box as IconBox, Settings as IconSettings } from 'lucide-react';
 import { useState } from 'react';
 
-import { Nav } from '@/lib/components/Navigation/Navigation.js';
+import { Nav } from '$lib/components/Navigation/Navigation.js';
 
 export function Component() {
 	const [activeItem, setActiveItem] = useState('0');

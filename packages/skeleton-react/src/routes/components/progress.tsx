@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Progress } from '@/lib/components/Progress/Progress.js';
+import { Progress } from '$lib/components/Progress/Progress.js';
 
 export function Component() {
 	const [value, setValue] = useState(50);
