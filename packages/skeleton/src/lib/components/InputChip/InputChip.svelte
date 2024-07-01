@@ -268,6 +268,12 @@
 		dispatch('removeManually', { chipValue: chip });
 	}
 
+	// Pruned RestProps
+	function prunedRestProps() {
+		delete $$restProps.class;
+		return $$restProps;
+	}
+
 	// State
 	$: classesInvalid = inputValid === false ? invalid : '';
 	// Reactive
@@ -303,6 +309,7 @@
 			on:focus
 			on:blur
 			disabled={$$restProps.disabled}
+			{...prunedRestProps()}
 		/>
 		<!-- Chip List -->
 		{#if chipValues.length}
