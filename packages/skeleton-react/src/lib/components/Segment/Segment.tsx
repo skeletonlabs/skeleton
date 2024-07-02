@@ -34,7 +34,7 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 	classes = '',
 	// Input
 	// FIXME: non-functional when the input is visibly hidden:
-	checkboxBase = '', // 'hidden absolute pointer-events-none',
+	radioBase = '', // 'hidden absolute pointer-events-none',
 	// Label
 	labelBase = 'pointer-events-none',
 	labelClasses = '',
@@ -61,9 +61,9 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 
 	return (
 		<button onClick={onClickHandler} type="button" className={`${base} ${rxActive} ${classes}`} title={title} disabled={disabled}>
-			{/* Checkbox (hidden) */}
+			{/* Radio Input (hidden) */}
 			<input
-				className={checkboxBase}
+				className={radioBase}
 				type="radio"
 				ref={elemCheckbox}
 				name={name}
