@@ -1,7 +1,6 @@
-import type { Snippet } from 'svelte';
-import type { ChangeEventHandler } from 'svelte/elements';
+// Segment Control Types
 
-export interface SegmentControl {
+export interface SegmentProps extends React.PropsWithChildren {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
@@ -21,13 +20,9 @@ export interface SegmentControl {
 	width?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
-
-	// Snippets ---
-	/** The default child slot. */
-	children?: Snippet;
 }
 
-export interface SegmentItemProps {
+export interface SegmentItemsProps extends React.PropsWithChildren {
 	/** Provide the shared group binding. */
 	group: string;
 	/** Provide the shared group name. */
@@ -63,9 +58,5 @@ export interface SegmentItemProps {
 
 	// Events ---
 	/** Triggers on change events. */
-	onchange?: ChangeEventHandler<HTMLInputElement>;
-
-	// Snippets ---
-	/** The default child slot. */
-	children?: Snippet;
+	onChange?: React.Dispatch<React.SetStateAction<string>>;
 }

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import SegmentControl from '$lib/components/Segment/SegmentControl.svelte';
-	import Segment from '$lib/components/Segment/Segment.svelte';
+	import { Segment } from '$lib/index.js';
 	// Icons
 	import IconLeft from 'lucide-svelte/icons/align-left';
 	import IconCenter from 'lucide-svelte/icons/align-center';
@@ -18,38 +17,38 @@
 	</header>
 	<section class="space-y-4">
 		<pre class="pre">{align}</pre>
-		<SegmentControl>
-			<Segment bind:group={align} name="align" id="left" value="left">
+		<Segment>
+			<Segment.Item bind:group={align} name="align" id="left" value="left">
 				<IconLeft />
-			</Segment>
-			<Segment bind:group={align} name="align" id="center" value="center">
+			</Segment.Item>
+			<Segment.Item bind:group={align} name="align" id="center" value="center">
 				<IconCenter />
-			</Segment>
-			<Segment bind:group={align} name="align" id="right" value="right">
+			</Segment.Item>
+			<Segment.Item bind:group={align} name="align" id="right" value="right">
 				<IconRight />
-			</Segment>
-			<Segment bind:group={align} name="align" id="justify" value="justify">
+			</Segment.Item>
+			<Segment.Item bind:group={align} name="align" id="justify" value="justify">
 				<IconJustify />
-			</Segment>
-		</SegmentControl>
+			</Segment.Item>
+		</Segment>
 	</section>
 	<section class="space-y-4">
 		<pre class="pre">{size}</pre>
-		<SegmentControl>
-			<Segment bind:group={size} name="size" id="sm" value="sm">sm</Segment>
-			<Segment bind:group={size} name="size" id="md" value="md">md</Segment>
-			<Segment bind:group={size} name="size" id="lg" value="lg">lg</Segment>
-			<Segment bind:group={size} name="size" id="disabled" value="disabled" disabled>xl (disabled)</Segment>
-		</SegmentControl>
+		<Segment>
+			<Segment.Item bind:group={size} name="size" id="sm" value="sm">sm</Segment.Item>
+			<Segment.Item bind:group={size} name="size" id="md" value="md">md</Segment.Item>
+			<Segment.Item bind:group={size} name="size" id="lg" value="lg">lg</Segment.Item>
+			<Segment.Item bind:group={size} name="size" id="disabled" value="disabled" disabled>xl (disabled)</Segment.Item>
+		</Segment>
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Vertical</h2>
 		<pre class="pre">{size}</pre>
-		<SegmentControl flexDirection="flex-col">
-			<Segment bind:group={size} name="size" id="sm" value="sm">sm</Segment>
-			<Segment bind:group={size} name="size" id="md" value="md">md</Segment>
-			<Segment bind:group={size} name="size" id="lg" value="lg">lg</Segment>
-			<Segment bind:group={size} name="size" id="disabled" value="disabled" disabled>xl (disabled)</Segment>
-		</SegmentControl>
+		<Segment flexDirection="flex-col">
+			<Segment.Item bind:group={size} name="size" id="sm" value="sm">sm</Segment.Item>
+			<Segment.Item bind:group={size} name="size" id="md" value="md">md</Segment.Item>
+			<Segment.Item bind:group={size} name="size" id="lg" value="lg">lg</Segment.Item>
+			<Segment.Item bind:group={size} name="size" id="disabled" value="disabled" disabled>xl (disabled)</Segment.Item>
+		</Segment>
 	</section>
 </div>

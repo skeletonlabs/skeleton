@@ -1,45 +1,21 @@
 <script lang="ts">
-	import type { SegmentProps } from './types.js';
+	import type { SegmentControl } from './types.js';
 
 	let {
-		group = $bindable(),
-		name,
-		value,
-		title,
-		disabled = false,
-		// Root
-		base = '',
-		active = 'preset-filled',
-		hover = 'hover:preset-tonal',
+		base = 'inline-flex items-stretch overflow-hidden',
+		background = 'preset-outlined-surface-200-800',
+		border = 'p-2',
+		flexDirection = 'flex-row', // vertical: flex-col
+		gap = 'gap-2',
+		padding = '',
+		rounded = 'rounded-container',
+		width = '',
 		classes = '',
-		// Children
-		childrenBase = 'btn w-full',
-		childrenClasses = '',
-		// Events
-		onclick = () => {},
-		onchange = () => {},
 		// Snippets
 		children
-	}: SegmentProps = $props();
-
-	function onClickHandler() {
-		group = value;
-		onclick(value);
-		onchange(value);
-	}
-
-	// Reactive
-	const checked = $derived(group === value);
-	const rxActive = $derived(checked ? active : hover);
+	}: SegmentControl = $props();
 </script>
 
-<div aria-checked={checked} class="{base} {classes}" {title}>
-	<!-- Hidden Input -->
-	<div class="h-0 w-0 overflow-hidden">
-		<input type="radio" bind:group {name} {value} {checked} tabindex="-1" />
-	</div>
-	<!-- Children -->
-	<button onclick={onClickHandler} class="{childrenBase} {rxActive} {childrenClasses}" {disabled}>
-		{#if children}{@render children()}{/if}
-	</button>
+<div role="radiogroup" class="{base} {flexDirection} {background} {border} {padding} {gap} {rounded} {width} {classes}">
+	{#if children}{@render children()}{/if}
 </div>
