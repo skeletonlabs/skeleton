@@ -39,7 +39,17 @@
 			<Segment bind:group={size} name="size" id="sm" value="sm">sm</Segment>
 			<Segment bind:group={size} name="size" id="md" value="md">md</Segment>
 			<Segment bind:group={size} name="size" id="lg" value="lg">lg</Segment>
-			<Segment bind:group={size} name="size" id="disabled" value="disabled" disabled>xl</Segment>
+			<Segment bind:group={size} name="size" id="disabled" value="disabled" disabled>xl (disabled)</Segment>
+		</SegmentControl>
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">Vertical</h2>
+		<pre class="pre">{size}</pre>
+		<SegmentControl flexDirection="flex-col">
+			<Segment bind:group={size} name="size" id="sm" value="sm">sm</Segment>
+			<Segment bind:group={size} name="size" id="md" value="md">md</Segment>
+			<Segment bind:group={size} name="size" id="lg" value="lg">lg</Segment>
+			<Segment bind:group={size} name="size" id="disabled" value="disabled" disabled>xl (disabled)</Segment>
 		</SegmentControl>
 	</section>
 </div>

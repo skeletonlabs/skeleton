@@ -6,16 +6,15 @@
 		name,
 		value,
 		title,
-		disabled,
+		disabled = false,
 		// Root
-		base,
+		base = '',
 		active = 'preset-filled',
 		hover = 'hover:preset-tonal',
-		// disabled = 'opacity-50 cursor-not-allowed',
-		classes,
+		classes = '',
 		// Children
-		childrenBase = 'btn cursor-pointer',
-		childrenClasses,
+		childrenBase = 'btn w-full',
+		childrenClasses = '',
 		// Events
 		onclick = () => {},
 		onchange = () => {},
@@ -40,9 +39,7 @@
 		<input type="radio" bind:group {name} {value} {checked} tabindex="-1" />
 	</div>
 	<!-- Children -->
-	{#if children}
-		<button onclick={onClickHandler} class="{childrenBase} {rxActive} {childrenClasses}" {disabled}>
-			{@render children()}
-		</button>
-	{/if}
+	<button onclick={onClickHandler} class="{childrenBase} {rxActive} {childrenClasses}" {disabled}>
+		{#if children}{@render children()}{/if}
+	</button>
 </div>
