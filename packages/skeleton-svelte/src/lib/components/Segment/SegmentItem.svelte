@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { ChangeEventHandler } from 'svelte/elements';
 	import type { SegmentItemProps } from './types.js';
 
 	let {
@@ -14,7 +13,7 @@
 		hover = 'hover:preset-tonal',
 		classes = '',
 		// Input
-		checkboxBase = 'hidden absolute pointer-events-none',
+		radioBase = 'hidden absolute pointer-events-none',
 		// Label
 		labelBase = 'pointer-events-none',
 		labelClasses = '',
@@ -42,9 +41,9 @@
 </script>
 
 <button onclick={onClickHandler} type="button" class="{base} {rxActive} {classes}" {title} {disabled}>
-	<!-- Checkbox (hidden) -->
+	<!-- Radio Input (hidden) -->
 	<input
-		class={checkboxBase}
+		class={radioBase}
 		type="radio"
 		bind:this={elemCheckbox}
 		bind:group

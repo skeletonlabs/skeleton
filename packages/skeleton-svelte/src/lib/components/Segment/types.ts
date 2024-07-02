@@ -52,8 +52,8 @@ export interface SegmentItemProps {
 	classes?: string;
 
 	// Input ---
-	/* Set base classes for the hidden checkbox */
-	checkboxBase?: string;
+	/* Set base classes for the hidden radio input */
+	radioBase?: string;
 
 	// Label ---
 	/** Sets base classes for the label element. */
