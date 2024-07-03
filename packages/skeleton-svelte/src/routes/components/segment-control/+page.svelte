@@ -37,8 +37,7 @@
 		<Segment>
 			<Segment.Item bind:group={size} name="size" id="sm" value="sm">sm</Segment.Item>
 			<Segment.Item bind:group={size} name="size" id="md" value="md">md</Segment.Item>
-			<Segment.Item bind:group={size} name="size" id="lg" value="lg">lg</Segment.Item>
-			<Segment.Item bind:group={size} name="size" id="disabled" value="disabled" disabled>xl (disabled)</Segment.Item>
+			<Segment.Item bind:group={size} name="size" id="lg" value="lg" disabled>lg</Segment.Item>
 		</Segment>
 	</section>
 	<section class="space-y-4">
@@ -47,8 +46,7 @@
 		<Segment flexDirection="flex-col">
 			<Segment.Item bind:group={size} name="size" id="sm" value="sm">sm</Segment.Item>
 			<Segment.Item bind:group={size} name="size" id="md" value="md">md</Segment.Item>
-			<Segment.Item bind:group={size} name="size" id="lg" value="lg">lg</Segment.Item>
-			<Segment.Item bind:group={size} name="size" id="disabled" value="disabled" disabled>xl (disabled)</Segment.Item>
+			<Segment.Item bind:group={size} name="size" id="lg" value="lg" disabled>lg</Segment.Item>
 		</Segment>
 	</section>
 </div>

@@ -37,11 +37,8 @@ export function Component() {
 					<Segment.Item group={size} name="size" id="md" value="md" onChange={setSize}>
 						md
 					</Segment.Item>
-					<Segment.Item group={size} name="size" id="lg" value="lg" onChange={setSize}>
+					<Segment.Item group={size} name="size" id="lg" value="lg" onChange={setSize} disabled>
 						lg
-					</Segment.Item>
-					<Segment.Item group={size} name="size" id="disabled" value="disabled" disabled>
-						xl (disabled)
 					</Segment.Item>
 				</Segment>
 			</section>
@@ -55,11 +52,8 @@ export function Component() {
 					<Segment.Item group={size} name="size" id="md" value="md" onChange={setSize}>
 						md
 					</Segment.Item>
-					<Segment.Item group={size} name="size" id="lg" value="lg" onChange={setSize}>
+					<Segment.Item group={size} name="size" id="lg" value="lg" onChange={setSize} disabled>
 						lg
-					</Segment.Item>
-					<Segment.Item group={size} name="size" id="disabled" value="disabled" disabled>
-						xl (disabled)
 					</Segment.Item>
 				</Segment>
 			</section>
