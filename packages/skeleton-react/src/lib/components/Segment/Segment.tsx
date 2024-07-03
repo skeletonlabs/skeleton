@@ -15,7 +15,11 @@ const SegmentRoot: React.FC<SegmentProps> = ({
 	children
 }) => {
 	return (
-		<div role="radiogroup" className={`${base} ${flexDirection} ${background} ${border} ${padding} ${gap} ${rounded} ${width} ${classes}`}>
+		<div
+			role="radiogroup"
+			className={`${base} ${flexDirection} ${background} ${border} ${padding} ${gap} ${rounded} ${width} ${classes}`}
+			data-testid="segment"
+		>
 			{children}
 		</div>
 	);
@@ -33,7 +37,6 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 	hover = 'hover:preset-tonal',
 	classes = '',
 	// Input
-	// FIXME: non-functional when the input is visibly hidden:
 	radioBase = 'hidden absolute pointer-events-none',
 	// Label
 	labelBase = 'pointer-events-none',
@@ -69,7 +72,16 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 	}
 
 	return (
-		<button onClick={onClickHandler} type="button" className={`${base} ${rxActive} ${classes}`} title={title} disabled={disabled}>
+		<button
+			role="radio"
+			aria-checked={checked}
+			onClick={onClickHandler}
+			type="button"
+			className={`${base} ${rxActive} ${classes}`}
+			title={title}
+			disabled={disabled}
+			data-testid="segment-item"
+		>
 			{/* Radio Input (hidden) */}
 			<input
 				className={radioBase}

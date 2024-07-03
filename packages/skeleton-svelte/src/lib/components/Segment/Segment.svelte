@@ -16,6 +16,10 @@
 	}: SegmentControl = $props();
 </script>
 
-<div role="radiogroup" class="{base} {flexDirection} {background} {border} {padding} {gap} {rounded} {width} {classes}">
+<div
+	role="radiogroup"
+	class="{base} {flexDirection} {background} {border} {padding} {gap} {rounded} {width} {classes}"
+	data-testid="segment"
+>
 	{#if children}{@render children()}{/if}
 </div>

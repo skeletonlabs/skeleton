@@ -40,7 +40,16 @@
 	}
 </script>
 
-<button onclick={onClickHandler} type="button" class="{base} {rxActive} {classes}" {title} {disabled}>
+<button
+	role="radio"
+	aria-checked={checked}
+	onclick={onClickHandler}
+	type="button"
+	class="{base} {rxActive} {classes}"
+	{title}
+	{disabled}
+	data-testid="segment-item"
+>
 	<!-- Radio Input (hidden) -->
 	<input
 		class={radioBase}
