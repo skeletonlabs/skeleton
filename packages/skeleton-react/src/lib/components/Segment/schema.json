@@ -108,170 +108,146 @@
             ],
             "type": "object"
         },
-        "SwitchProps": {
+        "SegmentItemsProps": {
             "properties": {
-                "activeChild": {
-                    "$ref": "#/definitions/React.ReactNode",
-                    "description": "The active state children."
+                "active": {
+                    "description": "Sets active state classes.",
+                    "type": "string"
                 },
                 "base": {
-                    "description": "Set base classes for the root element.",
+                    "description": "Sets base classes.",
                     "type": "string"
                 },
-                "checked": {
-                    "description": "Set the checked state.",
-                    "type": "boolean"
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
                 },
                 "classes": {
-                    "description": "Provide arbitrary classes to the root element.",
-                    "type": "string"
-                },
-                "compact": {
-                    "description": "Set the compact display mode.",
-                    "type": "boolean"
-                },
-                "describedby": {
-                    "description": "Identifies the element that describes the switch.",
+                    "description": "Provide arbitrary CSS classes.",
                     "type": "string"
                 },
                 "disabled": {
                     "description": "Set the disabled state.",
                     "type": "boolean"
                 },
-                "height": {
-                    "description": "Set height classes for the root element.",
+                "group": {
+                    "description": "Provide the shared group binding.",
                     "type": "string"
                 },
                 "hover": {
-                    "description": "Set hover classes for the root element.",
-                    "type": "string"
-                },
-                "iconActiveBase": {
-                    "description": "Set base classes for the active icon child.",
-                    "type": "string"
-                },
-                "iconInactiveBase": {
-                    "description": "Set base classes for the inactive icon child.",
+                    "description": "Sets hover state classes.",
                     "type": "string"
                 },
                 "id": {
-                    "description": "Set a unique ID for the switch input.",
+                    "description": "Provide a unique ID.",
                     "type": "string"
                 },
-                "inactiveChild": {
-                    "$ref": "#/definitions/React.ReactNode",
-                    "description": "The inactive state children."
+                "labelBase": {
+                    "description": "Sets base classes for the label element.",
+                    "type": "string"
                 },
-                "labelledby": {
-                    "description": "Identifies the element that labels the switch.",
+                "labelClasses": {
+                    "description": "Provide arbitrary CSS classes for the label element.",
                     "type": "string"
                 },
                 "name": {
-                    "description": "Set a unique name for the switch input.",
+                    "description": "Provide the shared group name.",
                     "type": "string"
                 },
-                "onCheckedChange": {
-                    "description": "Triggers when the switch is toggled.",
+                "onChange": {
+                    "description": "Triggers on change events.",
                     "propertyOrder": [],
                     "type": "object"
                 },
-                "padding": {
-                    "description": "Set padding classes for the root element.",
+                "radioBase": {
                     "type": "string"
                 },
-                "rounded": {
-                    "description": "Set rounded classes for the root element.",
+                "title": {
+                    "description": "Provide a hover title attribute.",
                     "type": "string"
                 },
-                "stateActive": {
-                    "description": "Set active state classes for the root element.",
-                    "type": "string"
-                },
-                "stateDisabled": {
-                    "description": "Set disabled state classes for the root element.",
-                    "type": "string"
-                },
-                "stateInactive": {
-                    "description": "Set inactive state classes for the root element.",
-                    "type": "string"
-                },
-                "thumbActive": {
-                    "description": "Set active classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbBase": {
-                    "description": "Set base classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbClasses": {
-                    "description": "Provide arbitrary classes to the thumb element.",
-                    "type": "string"
-                },
-                "thumbDuration": {
-                    "description": "Set animation duration classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbEase": {
-                    "description": "Set animation easing classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbInactive": {
-                    "description": "Set inactive classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbRounded": {
-                    "description": "Set rounded classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbTransition": {
-                    "description": "Set animation transition classes for the thumb element.",
-                    "type": "string"
-                },
-                "thumbTranslateX": {
-                    "description": "Set animation X-axis translate classes for the thumb element.",
-                    "type": "string"
-                },
-                "width": {
-                    "description": "Set width classes for the root element.",
+                "value": {
+                    "description": "Provide the unique segment value.",
                     "type": "string"
                 }
             },
             "propertyOrder": [
-                "id",
+                "group",
                 "name",
-                "checked",
+                "id",
+                "value",
+                "title",
                 "disabled",
-                "compact",
-                "labelledby",
-                "describedby",
                 "base",
-                "stateInactive",
-                "stateActive",
-                "stateDisabled",
-                "width",
-                "height",
-                "padding",
-                "rounded",
+                "active",
                 "hover",
                 "classes",
-                "thumbBase",
-                "thumbInactive",
-                "thumbActive",
-                "thumbRounded",
-                "thumbTranslateX",
-                "thumbTransition",
-                "thumbEase",
-                "thumbDuration",
-                "thumbClasses",
-                "iconInactiveBase",
-                "iconActiveBase",
-                "onCheckedChange",
-                "inactiveChild",
-                "activeChild"
+                "radioBase",
+                "labelBase",
+                "labelClasses",
+                "onChange",
+                "children"
             ],
             "required": [
+                "group",
                 "id",
-                "name"
+                "name",
+                "value"
+            ],
+            "type": "object"
+        },
+        "SegmentProps": {
+            "properties": {
+                "background": {
+                    "description": "Set background classes.",
+                    "type": "string"
+                },
+                "base": {
+                    "description": "Sets base classes.",
+                    "type": "string"
+                },
+                "border": {
+                    "description": "Set border classes.",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "classes": {
+                    "description": "Provide arbitrary CSS classes.",
+                    "type": "string"
+                },
+                "flexDirection": {
+                    "description": "Set flex direction classes.",
+                    "type": "string"
+                },
+                "gap": {
+                    "description": "Set gap classes.",
+                    "type": "string"
+                },
+                "padding": {
+                    "description": "Set padding classes.",
+                    "type": "string"
+                },
+                "rounded": {
+                    "description": "Set rounded classes.",
+                    "type": "string"
+                },
+                "width": {
+                    "description": "Set width classes.",
+                    "type": "string"
+                }
+            },
+            "propertyOrder": [
+                "base",
+                "background",
+                "border",
+                "flexDirection",
+                "gap",
+                "padding",
+                "rounded",
+                "width",
+                "classes",
+                "children"
             ],
             "type": "object"
         }

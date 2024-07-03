@@ -11,6 +11,8 @@ import ExampleDisabledRaw from '@examples/components/segment-control/ExampleDisa
 import { Page as ExampleVertical } from '@examples/components/segment-control/ExampleVertical.tsx';
 import ExampleVerticalRaw from '@examples/components/segment-control/ExampleVertical.tsx?raw';
 
+import { SegmentSchema } from '@skeletonlabs/skeleton-react/schemas';
+
 {/* --- */}
 
 <Preview client:load>
@@ -21,6 +23,8 @@ import ExampleVerticalRaw from '@examples/components/segment-control/ExampleVert
 		<Code code={ExampleRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+This component wraps native radio inputs, which enables it to operate as as a form control.
 
 ## Disabled
 
@@ -48,10 +52,10 @@ Set `flexDirection` to enable a vertical layout. This can be controlled with res
 	</Fragment>
 </Preview>
 
-## Form Control
-
-This component wraps native radio inputs, which enables it to operate as as a form control.
-
 ## Alternative
 
 Consider using a [Button Group](/docs/tailwind/buttons#group) if you need direct control over the markup and styling.
+
+## API Reference
+
+<ApiTable types={['SegmentProps', 'SegmentItemsProps']} schema={SegmentSchema} />
