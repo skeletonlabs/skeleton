@@ -58,5 +58,6 @@ export interface SegmentItemsProps extends React.PropsWithChildren {
 
 	// Events ---
 	/** Triggers on change events. */
-	onChange?: React.Dispatch<React.SetStateAction<string>>;
+	// onChange?: React.Dispatch<React.SetStateAction<string>>;
+	onChange?: (group: string) => void;
 }

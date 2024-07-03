@@ -67,8 +67,8 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 		console.log(group);
 	}
 
-	function onChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
-		if (onChange) onChange(event.target.value);
+	function onChangeHandler() {
+		if (onChange) onChange(group);
 	}
 
 	return (

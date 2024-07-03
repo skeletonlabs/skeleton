@@ -34,10 +34,6 @@
 		elemCheckbox.checked = true;
 		group = value;
 	}
-
-	function onChangeHandler(event: any) {
-		if (onchange) onchange(event.target.value);
-	}
 </script>
 
 <button
@@ -59,7 +55,7 @@
 		{name}
 		{value}
 		{checked}
-		onchange={onChangeHandler}
+		onchange={() => onchange(group)}
 		tabindex="-1"
 	/>
 	<!-- Label -->

@@ -1,5 +1,4 @@
 import type { Snippet } from 'svelte';
-import type { ChangeEventHandler } from 'svelte/elements';
 
 export interface SegmentControl {
 	// Root ---
@@ -63,7 +62,7 @@ export interface SegmentItemProps {
 
 	// Events ---
 	/** Triggers on change events. */
-	onchange?: ChangeEventHandler<HTMLInputElement>;
+	onchange?: (group: string) => void;
 
 	// Snippets ---
 	/** The default child slot. */
