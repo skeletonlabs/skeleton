@@ -4,6 +4,7 @@ import { AlignLeft as IconLeft, AlignCenter as IconCenter, AlignRight as IconRig
 
 export function Component() {
 	const [align, setAlign] = useState('left');
+	const [size, setSize] = useState('sm');
 
 	return (
 		<div className="space-y-10">
@@ -24,6 +25,41 @@ export function Component() {
 					</Segment.Item>
 					<Segment.Item group={align} name="align" id="justify" value="justify" onChange={setAlign}>
 						<IconJustify />
+					</Segment.Item>
+				</Segment>
+			</section>
+			<section className="space-y-4">
+				<pre className="pre">{size}</pre>
+				<Segment>
+					<Segment.Item group={size} name="size" id="sm" value="sm" onChange={setSize}>
+						sm
+					</Segment.Item>
+					<Segment.Item group={size} name="size" id="md" value="md" onChange={setSize}>
+						md
+					</Segment.Item>
+					<Segment.Item group={size} name="size" id="lg" value="lg" onChange={setSize}>
+						lg
+					</Segment.Item>
+					<Segment.Item group={size} name="size" id="disabled" value="disabled" disabled>
+						xl (disabled)
+					</Segment.Item>
+				</Segment>
+			</section>
+			<section className="space-y-4">
+				<h2 className="h2">Vertical</h2>
+				<pre className="pre">{size}</pre>
+				<Segment flexDirection="flex-col">
+					<Segment.Item group={size} name="size" id="sm" value="sm" onChange={setSize}>
+						sm
+					</Segment.Item>
+					<Segment.Item group={size} name="size" id="md" value="md" onChange={setSize}>
+						md
+					</Segment.Item>
+					<Segment.Item group={size} name="size" id="lg" value="lg" onChange={setSize}>
+						lg
+					</Segment.Item>
+					<Segment.Item group={size} name="size" id="disabled" value="disabled" disabled>
+						xl (disabled)
 					</Segment.Item>
 				</Segment>
 			</section>

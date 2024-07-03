@@ -31,7 +31,7 @@
 	const rxActive = $derived(checked ? active : hover);
 
 	function onClickHandler() {
-		elemCheckbox.checked = !elemCheckbox.checked;
+		elemCheckbox.checked = true;
 		group = value;
 	}
 

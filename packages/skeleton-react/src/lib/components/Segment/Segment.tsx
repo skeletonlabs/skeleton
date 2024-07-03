@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type { SegmentProps, SegmentItemsProps } from './types.js';
 
 const SegmentRoot: React.FC<SegmentProps> = ({
@@ -34,7 +34,7 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 	classes = '',
 	// Input
 	// FIXME: non-functional when the input is visibly hidden:
-	radioBase = '', // 'hidden absolute pointer-events-none',
+	radioBase = 'hidden absolute pointer-events-none',
 	// Label
 	labelBase = 'pointer-events-none',
 	labelClasses = '',
@@ -47,12 +47,21 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 	const elemCheckbox = useRef<HTMLInputElement>(null);
 
 	// Reactive
-	const [checked] = useState(group === value);
-	const [rxActive] = useState(checked ? active : hover);
+	const [checked, setChecked] = useState(group === value);
+	const [rxActive, setRxActive] = useState(checked ? active : hover);
+
+	useEffect(() => {
+		setChecked(group === value);
+	}, [group, value]);
+
+	useEffect(() => {
+		setRxActive(checked ? active : hover);
+	}, [checked, active, hover]);
 
 	function onClickHandler() {
+		elemCheckbox.current!.click();
 		group = value;
-		if (elemCheckbox.current) elemCheckbox.current.checked = true;
+		console.log(group);
 	}
 
 	function onChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
