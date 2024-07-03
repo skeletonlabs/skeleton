@@ -29,7 +29,7 @@ describe('<Segment>', () => {
 
 // Segment Item ---
 
-describe('<Segment>', () => {
+describe('<Segment.Item>', () => {
 	it('should render the component', () => {
 		const { getByTestId } = render(
 			<Segment.Item group="group" name="foo" id="foo" value="foo">
