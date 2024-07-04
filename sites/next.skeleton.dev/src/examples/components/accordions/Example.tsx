@@ -6,7 +6,7 @@ export const Page: React.FC = () => {
 	const lorem =
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
 
-	// Value may optionally implement a useState hook for programmatic use cases.
+	// State
 	const [value, setValue] = useState(['club']);
 
 	return (

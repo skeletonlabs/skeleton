@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { NavRail, NavTile } from '@skeletonlabs/skeleton-svelte';
+	import { Nav } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconMenu from 'lucide-svelte/icons/menu';
 	import IconFolder from 'lucide-svelte/icons/folder';
@@ -13,28 +13,28 @@
 
 <div class="card border-surface-100-900 grid h-[640px] w-full grid-cols-[auto_1fr] border-[1px]">
 	<!-- Component -->
-	<NavRail>
+	<Nav.Rail>
 		{#snippet header()}
-			<NavTile href="/" title="Menu"><IconMenu /></NavTile>
+			<Nav.Tile href="/" title="Menu"><IconMenu /></Nav.Tile>
 		{/snippet}
 		{#snippet tiles()}
-			<NavTile id="0" label="Files" href={hrefExample}>
+			<Nav.Tile id="0" label="Files" href={hrefExample}>
 				<IconFolder />
-			</NavTile>
-			<NavTile id="1" label="Images" href={hrefExample}>
+			</Nav.Tile>
+			<Nav.Tile id="1" label="Images" href={hrefExample}>
 				<IconImage />
-			</NavTile>
-			<NavTile id="2" label="Music" href={hrefExample}>
+			</Nav.Tile>
+			<Nav.Tile id="2" label="Music" href={hrefExample}>
 				<IconMusic />
-			</NavTile>
-			<NavTile id="3" label="Videos" href={hrefExample}>
+			</Nav.Tile>
+			<Nav.Tile id="3" label="Videos" href={hrefExample}>
 				<IconVideo />
-			</NavTile>
+			</Nav.Tile>
 		{/snippet}
 		{#snippet footer()}
-			<NavTile labelExpanded="Settings" href="/settings" title="settings"><IconSettings /></NavTile>
+			<Nav.Tile labelExpanded="Settings" href="/settings" title="settings"><IconSettings /></Nav.Tile>
 		{/snippet}
-	</NavRail>
+	</Nav.Rail>
 	<!-- Content -->
 	<div class="flex items-center justify-center">
 		<p class="opacity-20">(Content)</p>
