@@ -7,12 +7,15 @@
 		base = 'w-full',
 		spaceY = 'space-y-4',
 		classes = '',
-		// Tab List
+		// List
 		listBase = 'flex',
 		listJustify = 'justify-start',
 		listGap = 'gap-2',
 		listBorder = 'border-b border-surface-200-800',
 		listClasses = '',
+		// Panels
+		panelsBase = '',
+		panelsClasses = '',
 		// Snippets
 		list,
 		panels
@@ -28,6 +31,8 @@
 		</div>
 	{/if}
 	{#if panels}
-		{@render panels()}
+		<div class="{panelsBase} {panelsClasses}" role="tabpanel">
+			{@render panels()}
+		</div>
 	{/if}
 </div>

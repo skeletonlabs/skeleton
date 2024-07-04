@@ -15,10 +15,10 @@ describe('Tabs usage', () => {
 			<Tabs>
 				<Tabs.List>
 					<Tabs.Control name="test1" group={group} onChange={setGroup}>
-						<Tabs.Item>test control 1</Tabs.Item>
+						test control 1
 					</Tabs.Control>
 					<Tabs.Control name="test2" group={group} onChange={setGroup}>
-						<Tabs.Item>test control 2</Tabs.Item>
+						test control 2
 					</Tabs.Control>
 				</Tabs.List>
 				<Tabs.Panel group={group} value="test1">
@@ -168,33 +168,6 @@ describe('<Tabs.Control>', () => {
 		const tailwindClasses = 'bg-blue-600';
 		const { getByTestId } = render(<Tabs.Control name="test" group="test" classes={tailwindClasses} />);
 		expect(getByTestId('tabs-control').parentElement).toHaveClass(tailwindClasses);
-	});
-});
-
-// Item ---
-
-describe('<Tabs.Item>', () => {
-	it('should render the component', () => {
-		const { container } = render(<Tabs.Item />);
-		expect(container.querySelector('div')).toBeInTheDocument();
-	});
-
-	it('should allow for children', () => {
-		const value = 'children value';
-		const { container } = render(<Tabs.Item>{value}</Tabs.Item>);
-		expect(container.querySelector('div')?.innerHTML).toContain(value);
-	});
-
-	it('should allow you to set the `base` style prop', () => {
-		const tailwindClasses = 'bg-purple-600';
-		const { container } = render(<Tabs.Item base={tailwindClasses} />);
-		expect(container.querySelector('div')).toHaveClass(tailwindClasses);
-	});
-
-	it('should allow you to set the `classes` style prop', () => {
-		const tailwindClasses = 'bg-purple-600';
-		const { container } = render(<Tabs.Item classes={tailwindClasses} />);
-		expect(container.querySelector('div')).toHaveClass(tailwindClasses);
 	});
 });
 

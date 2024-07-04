@@ -72,6 +72,22 @@ export interface TabsControlProps extends React.PropsWithChildren {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
+	// Content
+	/** Sets tab content base styles. */
+	contentBase?: string;
+	/** Sets tab content flex styles. */
+	contentFlex?: string;
+	/** Sets the tab content gap styles. */
+	contentGap?: string;
+	/** Sets the tab content background styles. */
+	contentBg?: string;
+	/** Sets the tab content padding styles. */
+	contentPadding?: string;
+	/** Sets the tab content rounded styles. */
+	contentRounded?: string;
+	/** Provide arbitrary CSS classes for the tab content. */
+	contentClasses?: string;
+
 	// Events ---
 	/** Triggers on Tab Control click. */
 	onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
@@ -83,24 +99,14 @@ export interface TabsControlProps extends React.PropsWithChildren {
 	onChange?: (group: string) => void;
 }
 
-export interface TabsControlItemProps extends React.PropsWithChildren {
-	/** Sets base styles. */
+export interface TabPanelsProps extends React.PropsWithChildren {
+	/** Sets wrapping panel base styles. */
 	base?: string;
-	/** Sets flex styles. */
-	flex?: string;
-	/** Sets gap styles. */
-	gap?: string;
-	/** Sets background styles. */
-	background?: string;
-	/** Sets padding styles. */
-	padding?: string;
-	/** Sets rounded styles. */
-	rounded?: string;
-	/** Provide arbitrary CSS classes. */
+	/** Provide arbitrary CSS classes to the wrapping panel element. */
 	classes?: string;
 }
 
-export interface TabsPanelItemProps extends React.PropsWithChildren {
+export interface TabsPanelProps extends React.PropsWithChildren {
 	/** Provide a unique ID. */
 	id?: string;
 	/** Provide the tab panel value. */
