@@ -31,7 +31,7 @@
 		</div>
 	{/if}
 	{#if panels}
-		<div class="{panelsBase} {panelsClasses}" role="tabpanel">
+		<div class="{panelsBase} {panelsClasses}">
 			{@render panels()}
 		</div>
 	{/if}

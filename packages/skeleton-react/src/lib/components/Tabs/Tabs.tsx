@@ -201,11 +201,7 @@ const TabPanels: React.FC<TabPanelsProps> = ({
 	// Children
 	children
 }) => {
-	return (
-		<div className={`${base} ${classes}`} role="tabpanel">
-			{children}
-		</div>
-	);
+	return <div className={`${base} ${classes}`}>{children}</div>;
 };
 
 /** The individual Panel component. */

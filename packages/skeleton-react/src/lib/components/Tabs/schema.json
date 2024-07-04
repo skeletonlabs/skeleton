@@ -84,41 +84,21 @@
 			"required": ["children", "key", "props", "type"],
 			"type": "object"
 		},
-		"TabsControlItemProps": {
+		"TabPanelsProps": {
 			"properties": {
-				"background": {
-					"description": "Sets background styles.",
-					"type": "string"
-				},
 				"base": {
-					"description": "Sets base styles.",
+					"description": "Sets wrapping panel base styles.",
 					"type": "string"
 				},
 				"children": {
 					"$ref": "#/definitions/React.ReactNode"
 				},
 				"classes": {
-					"description": "Provide arbitrary CSS classes.",
-					"type": "string"
-				},
-				"flex": {
-					"description": "Sets flex styles.",
-					"type": "string"
-				},
-				"gap": {
-					"description": "Sets gap styles.",
-					"type": "string"
-				},
-				"padding": {
-					"description": "Sets padding styles.",
-					"type": "string"
-				},
-				"rounded": {
-					"description": "Sets rounded styles.",
+					"description": "Provide arbitrary CSS classes to the wrapping panel element.",
 					"type": "string"
 				}
 			},
-			"propertyOrder": ["base", "flex", "gap", "background", "padding", "rounded", "classes", "children"],
+			"propertyOrder": ["base", "classes", "children"],
 			"type": "object"
 		},
 		"TabsControlProps": {
@@ -144,6 +124,34 @@
 				},
 				"classes": {
 					"description": "Provide arbitrary CSS classes.",
+					"type": "string"
+				},
+				"contentBase": {
+					"description": "Sets tab content base styles.",
+					"type": "string"
+				},
+				"contentBg": {
+					"description": "Sets the tab content background styles.",
+					"type": "string"
+				},
+				"contentClasses": {
+					"description": "Provide arbitrary CSS classes for the tab content.",
+					"type": "string"
+				},
+				"contentFlex": {
+					"description": "Sets tab content flex styles.",
+					"type": "string"
+				},
+				"contentGap": {
+					"description": "Sets the tab content gap styles.",
+					"type": "string"
+				},
+				"contentPadding": {
+					"description": "Sets the tab content padding styles.",
+					"type": "string"
+				},
+				"contentRounded": {
+					"description": "Sets the tab content rounded styles.",
 					"type": "string"
 				},
 				"controls": {
@@ -243,6 +251,13 @@
 				"gap",
 				"cursor",
 				"classes",
+				"contentBase",
+				"contentFlex",
+				"contentGap",
+				"contentBg",
+				"contentPadding",
+				"contentRounded",
+				"contentClasses",
 				"onClick",
 				"onKeydown",
 				"onKeyup",
@@ -281,7 +296,7 @@
 			"propertyOrder": ["base", "justify", "gap", "border", "classes", "children"],
 			"type": "object"
 		},
-		"TabsPanelItemProps": {
+		"TabsPanelProps": {
 			"properties": {
 				"children": {
 					"$ref": "#/definitions/React.ReactNode"
