@@ -55,7 +55,7 @@ function appbarSticky() {
 	return (
 		<>
 			<h3 className="h3">Sticky</h3>
-			<div className="flex flex-col space-y-4 overflow-y-auto max-h-64">
+			<div className="flex max-h-64 flex-col space-y-4 overflow-y-auto">
 				<AppBar classes="sticky top-0">
 					<AppBar.Toolbar>
 						<AppBar.ToolbarLead>

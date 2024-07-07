@@ -45,7 +45,7 @@ function filterAvatar() {
 		<>
 			{/* Filter example */}
 			{/* NoirLight: `filter: url(#NoirLight)` */}
-			<svg id="svg-filter-noirlight" className="absolute w-0 h-0 -left-full filter">
+			<svg id="svg-filter-noirlight" className="absolute -left-full h-0 w-0 filter">
 				<filter
 					id="NoirLight"
 					x="-20%"

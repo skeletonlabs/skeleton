@@ -72,9 +72,9 @@ export function Component() {
 					<Nav.Rail
 						expanded
 						header={
-							<a href="/" className="flex flex-col items-center justify-center w-full gap-2 aspect-square">
+							<a href="/" className="flex aspect-square w-full flex-col items-center justify-center gap-2">
 								<IconLogo size={48} />
-								<span className="font-bold type-scale-5">Skeleton</span>
+								<span className="type-scale-5 font-bold">Skeleton</span>
 							</a>
 						}
 						footer={

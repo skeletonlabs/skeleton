@@ -163,7 +163,7 @@ const TabsControl: React.FC<TabsControlProps> = ({
 				onKeyUp={onKeyup}
 			>
 				{/* Keep these classes on wrapping element */}
-				<div className="flex-none w-0 h-0 overflow-hidden">
+				<div className="h-0 w-0 flex-none overflow-hidden">
 					<input
 						ref={elemInputRef}
 						type="radio"
