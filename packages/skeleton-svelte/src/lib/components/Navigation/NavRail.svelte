@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
+	import { setNavigationContext } from './context.js';
 	import type { NavRailProps } from './types.js';
 
 	let {
@@ -40,8 +40,12 @@
 	}: NavRailProps = $props();
 
 	// Context
-	setContext('parent', 'rail');
-	setContext('expanded', expanded);
+	setNavigationContext({
+		parent: 'rail',
+		get expanded() {
+			return expanded;
+		}
+	});
 
 	// Reactive
 	let rxWidth = $derived(expanded ? widthExpanded : width);

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
+	import { getNavigationContext } from './context.js';
 	import type { NavTileProps } from './types.js';
 
 	let {
@@ -38,8 +38,7 @@
 	}: NavTileProps = $props();
 
 	// Context
-	let parent = getContext('parent'); // rail | bar
-	let expanded = getContext('expanded') ?? false;
+	const ctx = getNavigationContext();
 
 	// Local
 	const element = href ? 'a' : 'button';
@@ -47,10 +46,10 @@
 	const role = href ? undefined : 'button';
 
 	// Reactive
-	let rxSize = parent === 'bar' ? `h-full` : `${aspect}`;
-	const classesCollapsed = `${rxSize} ${padding} ${gap} ${classes}`;
-	const classesExtended = `${expandedPadding} ${expandedGap} ${expandedClasses}`;
-	let rxMode = $derived(expanded ? classesExtended : classesCollapsed);
+	const rxSize = $derived(ctx.parent === 'bar' ? `h-full` : `${aspect}`);
+	const classesCollapsed = $derived(`${rxSize} ${padding} ${gap} ${classes}`);
+	const classesExtended = $derived(`${expandedPadding} ${expandedGap} ${expandedClasses}`);
+	let rxMode = $derived(ctx.expanded ? classesExtended : classesCollapsed);
 	let rxBackground = $derived(selected ? active : `${background} ${hover}`);
 
 	function onClickHandler() {
@@ -74,11 +73,11 @@
 	<!-- Icon -->
 	{#if children}<div>{@render children()}</div>{/if}
 	<!-- Label (base) -->
-	{#if label && !expanded}
+	{#if label && !ctx.expanded}
 		<div class="{labelBase} {labelClasses}">{label}</div>
 	{/if}
 	<!-- Label (expanded) -->
-	{#if labelExpanded && expanded}
+	{#if labelExpanded && ctx.expanded}
 		<div class="{labelExpandedBase} {labelExpandedClasses}">{labelExpanded}</div>
 	{/if}
 </svelte:element>
