@@ -1,8 +1,8 @@
 import { getContext, setContext } from 'svelte';
 
 interface NavigationContext {
-	expanded: boolean;
 	parent: 'bar' | 'rail';
+	expanded: boolean;
 }
 
 const key = Symbol('navigation-context');
