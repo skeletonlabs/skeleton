@@ -40,17 +40,15 @@
 	// Context
 	const ctx = getNavigationContext();
 
-	// Local
-	const element = href ? 'a' : 'button';
-	const type = href ? undefined : 'button';
-	const role = href ? undefined : 'button';
-
 	// Reactive
+	const element = $derived(href ? 'a' : 'button');
+	const type = $derived(href ? undefined : 'button');
+	const role = $derived(href ? undefined : 'button');
 	const rxSize = $derived(ctx.parent === 'bar' ? `h-full` : `${aspect}`);
 	const classesCollapsed = $derived(`${rxSize} ${padding} ${gap} ${classes}`);
 	const classesExtended = $derived(`${expandedPadding} ${expandedGap} ${expandedClasses}`);
-	let rxMode = $derived(ctx.expanded ? classesExtended : classesCollapsed);
-	let rxBackground = $derived(selected ? active : `${background} ${hover}`);
+	const rxMode = $derived(ctx.expanded ? classesExtended : classesCollapsed);
+	const rxBackground = $derived(selected ? active : `${background} ${hover}`);
 
 	function onClickHandler() {
 		if (onclick && !id) throw new Error('No ID was provided');
