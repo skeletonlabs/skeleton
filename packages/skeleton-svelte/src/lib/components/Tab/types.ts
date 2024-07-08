@@ -14,7 +14,7 @@ export interface TabsProps {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Tab list ---
+	// List ---
 	/** Sets the list snippet element's base styles. */
 	listBase?: string;
 	/** Sets the list snippet element's justification styles. */
@@ -25,6 +25,12 @@ export interface TabsProps {
 	listBorder?: string;
 	/** Provide arbitrary CSS classes to the list snippet. */
 	listClasses?: string;
+
+	// Panel ---
+	/** Sets wrapping panel base styles. */
+	panelsBase?: string;
+	/** Provide arbitrary CSS classes to the wrapping panel element. */
+	panelsClasses?: string;
 
 	// Snippets ---
 	/** The tab list slot. */
@@ -42,7 +48,7 @@ export interface TabsControlProps {
 	name: string;
 	/** Provide the tab control radio group. */
 	group: string;
-	/** Provide a hoverable title attribute. */
+	/** Provide a native title attribute value. */
 	title?: string;
 
 	// A11y ---

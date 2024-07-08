@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Accordion from '$lib/components/Accordion/Accordion.svelte';
-	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
+	import { Accordion } from '$lib/index.js';
 	import Skull from 'lucide-svelte/icons/skull';
 
 	const lorem =
@@ -23,27 +22,27 @@
 	<!-- {#snippet iconOpen()}&uarr;{/snippet} -->
 	<!-- {#snippet iconClosed()}&darr;{/snippet} -->
 	<!-- Children -->
-	<AccordionItem id="svelteItem1">
+	<Accordion.Item id="svelteItem1">
 		<!-- Control -->
 		{#snippet controlLead()}<Skull size={22} />{/snippet}
 		{#snippet control()}Svelte Control 1{/snippet}
 		<!-- Panel -->
 		{#snippet panel()}Svelte Panel 1 - {lorem}{/snippet}
-	</AccordionItem>
+	</Accordion.Item>
 	<hr class="hr" />
-	<AccordionItem id="svelteItem2">
+	<Accordion.Item id="svelteItem2">
 		{#snippet control()}Svelte Control 2{/snippet}
 		{#snippet panel()}Svelte Panel 2 - {lorem}{/snippet}
-	</AccordionItem>
+	</Accordion.Item>
 	<hr class="hr" />
-	<AccordionItem id="svelteItem3" disabled>
+	<Accordion.Item id="svelteItem3" disabled>
 		{#snippet control()}Svelte Control 3 (disabled){/snippet}
 		{#snippet panel()}Svelte Panel 3 - {lorem}{/snippet}
-	</AccordionItem>
+	</Accordion.Item>
 	<hr class="hr" />
-	<AccordionItem id="svelteItem4">
+	<Accordion.Item id="svelteItem4">
 		{#snippet control()}Svelte Control 4{/snippet}
 		{#snippet panel()}Svelte Panel 4 - {lorem}{/snippet}
-	</AccordionItem>
+	</Accordion.Item>
 </Accordion>
 <!-- </div> -->

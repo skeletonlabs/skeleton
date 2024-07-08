@@ -12,7 +12,6 @@
 		<h1 class="h1">Tabs</h1>
 	</header>
 	<section class="space-y-4">
-		<h2 class="h2">Preview</h2>
 		<Tabs>
 			{#snippet list()}
 				<Tabs.Control
@@ -33,7 +32,7 @@
 		</Tabs>
 	</section>
 	<section class="space-y-4">
-		<h2 class="h2">With Icon</h2>
+		<h2 class="h2">Icon + Label</h2>
 		<Tabs>
 			{#snippet list()}
 				<Tabs.Control bind:group name="flight" title="flight">
@@ -79,7 +78,7 @@
 		</Tabs>
 	</section>
 	<section class="space-y-4">
-		<h2 class="h2">Stretched</h2>
+		<h2 class="h2">Fluid</h2>
 		<Tabs base="w-full">
 			{#snippet list()}
 				<Tabs.Control bind:group name="flight" width="w-full">Flight</Tabs.Control>
@@ -94,7 +93,7 @@
 		</Tabs>
 	</section>
 	<section class="space-y-4">
-		<h2 class="h2">Justify Center</h2>
+		<h2 class="h2">Justify</h2>
 		<Tabs base="w-full" listJustify="justify-center">
 			{#snippet list()}
 				<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
@@ -107,9 +106,6 @@
 				<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
 			{/snippet}
 		</Tabs>
-	</section>
-	<section class="space-y-4">
-		<h2 class="h2">Justify End</h2>
 		<Tabs base="w-full" listJustify="justify-end">
 			{#snippet list()}
 				<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
@@ -124,7 +120,7 @@
 		</Tabs>
 	</section>
 	<section class="space-y-4">
-		<h2 class="h2">Focusable Content</h2>
+		<h2 class="h2">Focus</h2>
 		<Tabs>
 			{#snippet list()}
 				<Tabs.Control bind:group name="flight">Flight</Tabs.Control>

@@ -8,30 +8,26 @@ export const Page: React.FC = () => {
 		<Tabs>
 			<Tabs.List justify="justify-center">
 				<Tabs.Control name="books" group={group} onChange={setGroup}>
-					<Tabs.Item>
-						<LibraryBig size={20} />
-					</Tabs.Item>
+					<LibraryBig size={20} />
 				</Tabs.Control>
 				<Tabs.Control name="movies" group={group} onChange={setGroup}>
-					<Tabs.Item>
-						<Film size={20} />
-					</Tabs.Item>
+					<Film size={20} />
 				</Tabs.Control>
 				<Tabs.Control name="television" group={group} onChange={setGroup}>
-					<Tabs.Item>
-						<Tv size={20} />
-					</Tabs.Item>
+					<Tv size={20} />
 				</Tabs.Control>
 			</Tabs.List>
-			<Tabs.Panel group={group} value="books">
-				Books tab content
-			</Tabs.Panel>
-			<Tabs.Panel group={group} value="movies">
-				Movies tab content
-			</Tabs.Panel>
-			<Tabs.Panel group={group} value="television">
-				Television tab content
-			</Tabs.Panel>
+			<Tabs.Panels>
+				<Tabs.Panel group={group} value="books">
+					Books tab content
+				</Tabs.Panel>
+				<Tabs.Panel group={group} value="movies">
+					Movies tab content
+				</Tabs.Panel>
+				<Tabs.Panel group={group} value="television">
+					Television tab content
+				</Tabs.Panel>
+			</Tabs.Panels>
 		</Tabs>
 	);
 };

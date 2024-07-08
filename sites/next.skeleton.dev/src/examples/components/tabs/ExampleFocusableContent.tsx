@@ -7,30 +7,32 @@ export const Page: React.FC = () => {
 		<Tabs>
 			<Tabs.List>
 				<Tabs.Control name="books" group={group} onChange={setGroup}>
-					<Tabs.Item>Books</Tabs.Item>
+					Books
 				</Tabs.Control>
 				<Tabs.Control name="movies" group={group} onChange={setGroup}>
-					<Tabs.Item>Movies</Tabs.Item>
+					Movies
 				</Tabs.Control>
 				<Tabs.Control name="television" group={group} onChange={setGroup}>
-					<Tabs.Item>Television</Tabs.Item>
+					Television
 				</Tabs.Control>
 			</Tabs.List>
-			<Tabs.Panel group={group} value="books">
-				<button type="button" className="btn preset-filled">
-					Book tab Content
-				</button>
-			</Tabs.Panel>
-			<Tabs.Panel group={group} value="movies">
-				<button type="button" className="btn preset-filled">
-					Movies tab content
-				</button>
-			</Tabs.Panel>
-			<Tabs.Panel group={group} value="television">
-				<button type="button" className="btn preset-filled">
-					Television tab content
-				</button>
-			</Tabs.Panel>
+			<Tabs.Panels>
+				<Tabs.Panel group={group} value="books">
+					<button type="button" className="btn preset-filled">
+						Book tab Content
+					</button>
+				</Tabs.Panel>
+				<Tabs.Panel group={group} value="movies">
+					<button type="button" className="btn preset-filled">
+						Movies tab content
+					</button>
+				</Tabs.Panel>
+				<Tabs.Panel group={group} value="television">
+					<button type="button" className="btn preset-filled">
+						Television tab content
+					</button>
+				</Tabs.Panel>
+			</Tabs.Panels>
 		</Tabs>
 	);
 };

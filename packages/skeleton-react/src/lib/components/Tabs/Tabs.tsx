@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { TabsProps, TabsListProps, TabsControlProps, TabsControlItemProps, TabsPanelItemProps } from './types.js';
+'use client';
 
-// Components ---
+import React, { useEffect, useRef, useState } from 'react';
+import { TabsProps, TabsListProps, TabsControlProps, TabPanelsProps, TabsPanelProps } from './types.js';
+
+/** The root Tab component. */
 const TabsRoot: React.FC<TabsProps> = ({
 	id = '',
 	// Root
@@ -18,6 +20,7 @@ const TabsRoot: React.FC<TabsProps> = ({
 	);
 };
 
+/** The list of `<Tab.Control>` components. */
 const TabsList: React.FC<TabsListProps> = ({
 	// Root
 	base = 'flex',
@@ -35,6 +38,7 @@ const TabsList: React.FC<TabsListProps> = ({
 	);
 };
 
+/** The individual Tab control component. */
 const TabsControl: React.FC<TabsControlProps> = ({
 	id = '',
 	name,
@@ -57,6 +61,14 @@ const TabsControl: React.FC<TabsControlProps> = ({
 	gap = 'gap-1',
 	cursor = 'cursor-pointer',
 	classes = '',
+	// Content
+	contentBase = 'w-full',
+	contentFlex = 'flex justify-center items-center',
+	contentGap = 'gap-2',
+	contentBg = 'group-hover:preset-tonal-primary',
+	contentPadding = 'p-2 px-4',
+	contentRounded = 'rounded-container',
+	contentClasses = '',
 	// Events
 	onClick = () => {},
 	onKeydown = () => {},
@@ -172,29 +184,30 @@ const TabsControl: React.FC<TabsControlProps> = ({
 						tabIndex={-1}
 					/>
 				</div>
-
-				{children}
+				{/* Children */}
+				{children && (
+					<div className={`${contentBase} ${contentFlex} ${contentGap} ${contentBg} ${contentPadding} ${contentRounded} ${contentClasses}`}>
+						{children}
+					</div>
+				)}
 			</div>
 		</label>
 	);
 };
 
-const TabsControlItem: React.FC<TabsControlItemProps> = ({
+/** The list of `<Tab.Panel>` components. */
+const TabPanels: React.FC<TabPanelsProps> = ({
 	// Root
-	base = 'w-full',
-	flex = 'flex justify-center items-center',
-	gap = 'gap-2',
-	background = 'group-hover:preset-tonal-primary',
-	padding = 'p-2 px-4',
-	rounded = 'rounded-container',
+	base = '',
 	classes = '',
 	// Children
 	children
 }) => {
-	return <div className={`${base} ${flex} ${gap} ${background} ${padding} ${rounded} ${classes}`}>{children}</div>;
+	return <div className={`${base} ${classes}`}>{children}</div>;
 };
 
-const TabsPanelItem: React.FC<TabsPanelItemProps> = ({
+/** The individual Panel component. */
+const TabsPanel: React.FC<TabsPanelProps> = ({
 	id = '',
 	value,
 	group,
@@ -218,6 +231,6 @@ const TabsPanelItem: React.FC<TabsPanelItemProps> = ({
 export const Tabs = Object.assign(TabsRoot, {
 	List: TabsList,
 	Control: TabsControl,
-	Panel: TabsPanelItem,
-	Item: TabsControlItem
+	Panels: TabPanels,
+	Panel: TabsPanel
 });
