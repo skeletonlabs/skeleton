@@ -11,6 +11,7 @@ export { default as Avatar } from './components/Avatar/Avatar.svelte';
 export { default as Progress } from './components/Progress/Progress.svelte';
 export { default as ProgressRing } from './components/ProgressRing/ProgressRing.svelte';
 export { default as Nav } from './components/Nav/index.js';
+export { default as Segment } from './components/Segment/index.js';
 export { default as Switch } from './components/Switch/Switch.svelte';
 export { default as Tabs } from './components/Tab/index.js';
 export { default as Rating } from './components/Rating/Rating.svelte';
