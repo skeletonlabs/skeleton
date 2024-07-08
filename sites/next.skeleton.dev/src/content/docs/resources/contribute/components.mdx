@@ -187,26 +187,26 @@ export interface AccordionItemProps {
 }
 ```
 
-## Context Management
+## Context API
 
-Because [Svelte's Context API](https://svelte.dev/docs/svelte#setcontext) is quite primitive we've created a [`createContext`](https://github.com/skeletonlabs/skeleton/tree/next/packages/skeleton-svelte/src/lib/internal/create-context.ts) function to make it easier to use and develop with.
+### Svelte
 
-The `createContext` does the following:
+Skeleton expands the [Svelte Context API](https://svelte.dev/docs/svelte#setcontext) via a utility called `createContext`, which handles the following:
 
-- Generate a unique key using the [`Symbol` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
-- Ensure type safety for getting and setting context
-- Allows a fallback when there is not context provided`
+- Generates a unique key using the [`Symbol` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol).
+- Ensure type safety for getting and setting context.
+- Allows for a fallback when there is not context provided.
 
-To use it simply import and use it like so:
+Here's an example of how this can be used:
 
 ```ts
 import { createContext } from '$lib/internal/create-context.js';
 
 interface Session {
-	user: 'skeleton-svelte' | 'skeleton-react';
+	user: 'foo' | 'bar';
 }
 
-export const [setSession, getSession] = createContext<Session>({ user: 'skeleton-svelte' });
+export const [setSession, getSession] = createContext<Session>({ user: 'foo' });
 ```
 
 Which can then be used like so:
@@ -214,14 +214,14 @@ Which can then be used like so:
 ```ts
 import { setSession, getSession } from './context.js';
 
-setSession({ user: 'skeleton-react' });
-//         ^ Must be of type Session
+// Must be set as type of Session:
+setSession({ user: 'bar' });
 
+// Returns as type of Session:
 const session = getSession();
-//    ^ Session
 ```
 
-### API Reference Schema
+## Generating Schema
 
 > NOTE: currently limited to the `skeleton-react` package only!
 
