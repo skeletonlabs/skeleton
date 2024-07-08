@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { TabsProps, TabsListProps, TabsControlProps, TabPanelsProps, TabsPanelProps } from './types.js';
 
