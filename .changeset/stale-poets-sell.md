@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton-react": patch
 ---
 
-chore: remove reactCompose utility
+chore: Remove `reactCompose` utility, added `$lib` alias path.
