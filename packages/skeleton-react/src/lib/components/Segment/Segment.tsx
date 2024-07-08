@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 import type { SegmentProps, SegmentItemsProps } from './types.js';
 
