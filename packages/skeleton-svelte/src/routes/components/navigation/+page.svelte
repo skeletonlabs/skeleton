@@ -1,7 +1,5 @@
 <script lang="ts">
-	import NavRail from '$lib/components/Navigation/NavRail.svelte';
-	import NavBar from '$lib/components/Navigation/NavBar.svelte';
-	import NavTile from '$lib/components/Navigation/NavTile.svelte';
+	import { Nav } from '$lib/index.js';
 	// Icons
 	import IconLogo from 'lucide-svelte/icons/skull';
 	import IconMenu from 'lucide-svelte/icons/menu';
@@ -26,69 +24,69 @@
 	<section class="space-y-4">
 		<h2 class="h2">Bar</h2>
 		<div class="w-[320px]">
-			<NavBar>
-				<NavTile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" onclick={onClickHandler} selected={isActive('0')}>
+			<Nav.Bar>
+				<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" onclick={onClickHandler} selected={isActive('0')}>
 					<IconBox />
-				</NavTile>
-				<NavTile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" onclick={onClickHandler} selected={isActive('1')}>
+				</Nav.Tile>
+				<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" onclick={onClickHandler} selected={isActive('1')}>
 					<IconBox />
-				</NavTile>
-				<NavTile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" onclick={onClickHandler} selected={isActive('2')}>
+				</Nav.Tile>
+				<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" onclick={onClickHandler} selected={isActive('2')}>
 					<IconBox />
-				</NavTile>
-				<NavTile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" onclick={onClickHandler} selected={isActive('3')}>
+				</Nav.Tile>
+				<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" onclick={onClickHandler} selected={isActive('3')}>
 					<IconBox />
-				</NavTile>
-			</NavBar>
+				</Nav.Tile>
+			</Nav.Bar>
 		</div>
-		<NavBar>
-			<NavTile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" onclick={onClickHandler} selected={isActive('0')}>
+		<Nav.Bar>
+			<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" onclick={onClickHandler} selected={isActive('0')}>
 				<IconBox />
-			</NavTile>
-			<NavTile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" onclick={onClickHandler} selected={isActive('1')}>
+			</Nav.Tile>
+			<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" onclick={onClickHandler} selected={isActive('1')}>
 				<IconBox />
-			</NavTile>
-			<NavTile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" onclick={onClickHandler} selected={isActive('2')}>
+			</Nav.Tile>
+			<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" onclick={onClickHandler} selected={isActive('2')}>
 				<IconBox />
-			</NavTile>
-			<NavTile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" onclick={onClickHandler} selected={isActive('3')}>
+			</Nav.Tile>
+			<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" onclick={onClickHandler} selected={isActive('3')}>
 				<IconBox />
-			</NavTile>
-			<NavTile id="4" label="Tile 5" labelExpanded="Expanded Tile 5" onclick={onClickHandler} selected={isActive('4')}>
+			</Nav.Tile>
+			<Nav.Tile id="4" label="Tile 5" labelExpanded="Expanded Tile 5" onclick={onClickHandler} selected={isActive('4')}>
 				<IconBox />
-			</NavTile>
-		</NavBar>
+			</Nav.Tile>
+		</Nav.Bar>
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Rail</h2>
 		<div class="flex h-[960px] justify-center gap-10">
-			<NavRail>
+			<Nav.Rail>
 				{#snippet header()}
-					<NavTile href="/" title="Menu"><IconMenu /></NavTile>
+					<Nav.Tile href="/" title="Menu"><IconMenu /></Nav.Tile>
 				{/snippet}
 				{#snippet tiles()}
-					<NavTile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" onclick={onClickHandler} selected={isActive('0')}>
+					<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" onclick={onClickHandler} selected={isActive('0')}>
 						<IconBox />
-					</NavTile>
-					<NavTile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" onclick={onClickHandler} selected={isActive('1')}>
+					</Nav.Tile>
+					<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" onclick={onClickHandler} selected={isActive('1')}>
 						<IconBox />
-					</NavTile>
-					<NavTile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" onclick={onClickHandler} selected={isActive('2')}>
+					</Nav.Tile>
+					<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" onclick={onClickHandler} selected={isActive('2')}>
 						<IconBox />
-					</NavTile>
-					<NavTile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" onclick={onClickHandler} selected={isActive('3')}>
+					</Nav.Tile>
+					<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" onclick={onClickHandler} selected={isActive('3')}>
 						<IconBox />
-					</NavTile>
-					<NavTile id="4" label="Tile 5" labelExpanded="Expanded Tile 5" onclick={onClickHandler} selected={isActive('4')}>
+					</Nav.Tile>
+					<Nav.Tile id="4" label="Tile 5" labelExpanded="Expanded Tile 5" onclick={onClickHandler} selected={isActive('4')}>
 						<IconBox />
-					</NavTile>
+					</Nav.Tile>
 				{/snippet}
 				{#snippet footer()}
-					<NavTile labelExpanded="Settings" href="/settings" title="settings"><IconSettings /></NavTile>
+					<Nav.Tile labelExpanded="Settings" href="/settings" title="settings"><IconSettings /></Nav.Tile>
 				{/snippet}
-			</NavRail>
+			</Nav.Rail>
 			<!-- Expanded -->
-			<NavRail expanded>
+			<Nav.Rail expanded>
 				{#snippet header()}
 					<a href="/" class="flex aspect-square w-full flex-col items-center justify-center gap-2">
 						<IconLogo size={48} />
@@ -96,26 +94,26 @@
 					</a>
 				{/snippet}
 				{#snippet tiles()}
-					<NavTile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" href="/page/1">
+					<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" href="/page/1">
 						<IconBox />
-					</NavTile>
-					<NavTile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" href="/page/2">
+					</Nav.Tile>
+					<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" href="/page/2">
 						<IconBox />
-					</NavTile>
-					<NavTile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" href="/page/3">
+					</Nav.Tile>
+					<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" href="/page/3">
 						<IconBox />
-					</NavTile>
-					<NavTile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" href="/page/4">
+					</Nav.Tile>
+					<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" href="/page/4">
 						<IconBox />
-					</NavTile>
-					<NavTile id="4" label="Tile 5" labelExpanded="Expanded Tile 5" href="/page/5">
+					</Nav.Tile>
+					<Nav.Tile id="4" label="Tile 5" labelExpanded="Expanded Tile 5" href="/page/5">
 						<IconBox />
-					</NavTile>
+					</Nav.Tile>
 				{/snippet}
 				{#snippet footer()}
-					<NavTile labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></NavTile>
+					<Nav.Tile labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></Nav.Tile>
 				{/snippet}
-			</NavRail>
+			</Nav.Rail>
 		</div>
 	</section>
 </div>

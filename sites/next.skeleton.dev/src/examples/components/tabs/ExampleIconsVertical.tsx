@@ -7,23 +7,17 @@ export const Page: React.FC = () => {
 	return (
 		<Tabs>
 			<Tabs.List>
-				<Tabs.Control name="books" group={group} onChange={setGroup} title="Books">
-					<Tabs.Item classes="flex-col">
-						<LibraryBig size={20} />
-						Books
-					</Tabs.Item>
+				<Tabs.Control name="books" group={group} onChange={setGroup} title="Books" contentClasses="flex-col">
+					<LibraryBig size={20} />
+					<span>Books</span>
 				</Tabs.Control>
-				<Tabs.Control name="movies" group={group} onChange={setGroup} title="Movies">
-					<Tabs.Item classes="flex-col">
-						<Film size={20} />
-						Movies
-					</Tabs.Item>
+				<Tabs.Control name="movies" group={group} onChange={setGroup} title="Movies" contentClasses="flex-col">
+					<Film size={20} />
+					<span>Movies</span>
 				</Tabs.Control>
-				<Tabs.Control name="television" group={group} onChange={setGroup} title="Tv">
-					<Tabs.Item classes="flex-col">
-						<Tv size={20} />
-						Television
-					</Tabs.Item>
+				<Tabs.Control name="television" group={group} onChange={setGroup} title="Tv" contentClasses="flex-col">
+					<Tv size={20} />
+					<span>Television</span>
 				</Tabs.Control>
 			</Tabs.List>
 			<Tabs.Panel group={group} value="books">
