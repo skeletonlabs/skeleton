@@ -1,18 +1,4 @@
-import { getContext, setContext } from 'svelte';
+import { createContext } from '$lib/internal/create-context.js';
+import type { NavContext } from './types.js';
 
-interface NavigationContext {
-	parent: 'bar' | 'rail';
-	expanded: boolean;
-}
-
-const key = Symbol('navigation-context');
-
-function setNavigationContext(context: NavigationContext) {
-	return setContext(key, context);
-}
-
-function getNavigationContext() {
-	return getContext<NavigationContext>(key);
-}
-
-export { setNavigationContext, getNavigationContext };
+export const [setNavigationContext, getNavigationContext, key] = createContext<NavContext>({ parent: 'none', expanded: false });

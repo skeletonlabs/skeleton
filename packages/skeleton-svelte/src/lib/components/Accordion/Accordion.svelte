@@ -1,13 +1,6 @@
-<script lang="ts" context="module">
-	const accordionCtxKey = Symbol();
-
-	export const getAccordionCtx = () => getContext<AccordionContext>(accordionCtxKey);
-	export const setAccordionCtx = (ctx: AccordionContext) => setContext(accordionCtxKey, ctx);
-</script>
-
 <script lang="ts">
-	import type { AccordionContext, AccordionProps } from './types.js';
-	import { getContext, setContext } from 'svelte';
+	import { setAccordionContext } from './context.js';
+	import type { AccordionProps } from './types.js';
 
 	let {
 		multiple = false,
@@ -41,7 +34,7 @@
 	}
 
 	// Context
-	setAccordionCtx({
+	setAccordionContext({
 		open,
 		close,
 		toggle,

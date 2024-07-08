@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { getAccordionCtx } from './Accordion.svelte';
 	import { slide } from 'svelte/transition';
 	import type { AccordionItemProps } from './types.js';
+	import { getAccordionContext } from './context.js';
 
 	let {
 		id = '',
@@ -37,7 +37,7 @@
 	}
 
 	// Context
-	const ctx = getAccordionCtx();
+	const ctx = getAccordionContext();
 </script>
 
 <!-- @component An Accordion child item. -->
