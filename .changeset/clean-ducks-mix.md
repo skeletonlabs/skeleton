@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-chore: Revert AppRailTile onclick event
+chore: Resolve missing onclick events for AppRailTile and AppRailAnchor.
