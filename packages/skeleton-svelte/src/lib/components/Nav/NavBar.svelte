@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
 	import type { NavBarProps } from './types.js';
+	import { setNavigationContext } from './context.js';
 
 	let {
 		// Root
@@ -22,7 +22,10 @@
 	}: NavBarProps = $props();
 
 	// Context
-	setContext('parent', 'bar');
+	setNavigationContext({
+		parent: 'bar',
+		expanded: false
+	});
 </script>
 
 <aside class="{base} {background} {width} {height} {padding} {classes}" data-testid="nav-bar">

@@ -187,7 +187,41 @@ export interface AccordionItemProps {
 }
 ```
 
-### API Reference Schema
+## Context API
+
+### Svelte
+
+Skeleton expands the [Svelte Context API](https://svelte.dev/docs/svelte#setcontext) via a utility called `createContext`, which handles the following:
+
+- Generates a unique key using the [`Symbol` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol).
+- Ensure type safety when getting and setting context.
+- Allows for a fallback when there is no context provided.
+
+Here's an example of how this can be used:
+
+```ts
+import { createContext } from '$lib/internal/create-context.js';
+
+interface Session {
+	user: 'foo' | 'bar';
+}
+
+export const [setSession, getSession] = createContext<Session>({ user: 'foo' });
+```
+
+Which can then be used like so:
+
+```ts
+import { setSession, getSession } from './context.js';
+
+// Must be set as type of Session:
+setSession({ user: 'bar' });
+
+// Returns as type of Session:
+const session = getSession();
+```
+
+## Generating Schema
 
 > NOTE: currently limited to the `skeleton-react` package only!
 

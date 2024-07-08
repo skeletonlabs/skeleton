@@ -33,12 +33,20 @@ export interface NavCommonProps {
 	tilesClasses?: string;
 }
 
+// Nav Context ---
+export interface NavContext {
+	parent: 'bar' | 'rail' | 'none';
+	expanded: boolean;
+}
+
+// Nav Bar ---
 export interface NavBarProps extends NavCommonProps {
 	// Snippets ---
 	/** The default children snippet. */
 	children?: Snippet;
 }
 
+// Nav Rail ---
 export interface NavRailProps extends NavCommonProps {
 	/** Enabled expanded mode. */
 	expanded?: boolean;
@@ -80,6 +88,7 @@ export interface NavRailProps extends NavCommonProps {
 	footer?: Snippet;
 }
 
+// Nav Tile ---
 export interface NavTileProps {
 	/** Provide a unique ID. */
 	id?: string;
