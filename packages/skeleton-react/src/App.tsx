@@ -56,6 +56,9 @@ function App() {
 						<a className="anchor" href="/components/progress-rings">
 							Progress Rings
 						</a>
+						<a className="anchor" href="/components/segment-control">
+							Segment Control
+						</a>
 						<a className="anchor" href="/components/switch">
 							Switch
 						</a>

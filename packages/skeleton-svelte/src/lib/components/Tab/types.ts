@@ -42,7 +42,7 @@ export interface TabsControlProps {
 	name: string;
 	/** Provide the tab control radio group. */
 	group: string;
-	/** Provide a hoverable title attribute. */
+	/** Provide a native title attribute value. */
 	title?: string;
 
 	// A11y ---
