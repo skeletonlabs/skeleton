@@ -32,23 +32,23 @@ When creating custom layouts, it's recommended to use semantic HTML to denote ea
 | `<aside>` | Represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes. | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)   |
 | `<article>` | Represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content. | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article) |
 
-## Using Body Scroll
+## Use Body Scroll
 
-Prioritize the `<body>` element as the scrollable page element, never a child element. Otherwise you risk the following pitfalls:
+Prioritize the `<body>` element as the scrollable page element over child elements. Otherwise you risk the following pitfalls:
 
 1. Mobile browser's "pull to refresh" feature will not work as expected.
-2. The Mobile Safari bottom bar will not auto-hide on scrolling as expected.
+2. The Mobile Safari bottom bar will not auto-hide when scrolling vertically.
 3. CSS print styles may not work as expected.
-4. This can interfer directly with accessbility, especialy on touch screen devices.
+4. This can directly interfer with accessbility, especialy on touch screen devices.
 5. May introduce inconsistent behavior between each web framework's solution for layouts.
 
 ## Tailwind Utilities
 
-Tailwind provides a number of invaluable utlity classes that can aid you in creating responsive layouts.
+Tailwind provides the following utility classes, which can be helpful when generating custom layouts.
 
 ### Grid
 
-Tailwind provides a number of utility classes for implementing [CSS grid](https://css-tricks.com/snippets/css/complete-guide-grid/).
+Learn more about [CSS grid](https://css-tricks.com/snippets/css/complete-guide-grid/).
 
 | Utility | Description |
 | --- | --- |
@@ -62,6 +62,8 @@ Tailwind provides a number of utility classes for implementing [CSS grid](https:
 | [Gap](https://tailwindcss.com/docs/gap) | Utilities for controlling gutters between grid and flexbox items. |
 
 ### Alignment
+
+The following options are available for both Flexbox and Grid styles.
 
 | Utility | Description |
 | --- | --- |
@@ -77,21 +79,30 @@ Tailwind provides a number of utility classes for implementing [CSS grid](https:
 
 ### Responsive Design
 
-Tailwind provides a powerful [responsive breakpoint system](https://tailwindcss.com/docs/responsive-design) for handling responsive layouts.
+We recommend you opt for Tailwind's built-in [responsive breakpoints](https://tailwindcss.com/docs/responsive-design) for handling responsive design.
 
 ```html
-<!-- Collapse to one column at the medium breakpoint or lower -->
+<!-- Use a single column on small screens; show multiple columns at the medium breakpoit or wider -->
 <div class="grid grid-cols-1 md:grid-cols-[auto_1fr]">
-	<!-- Hide the sidebar at the medium breakpoint or lower -->
+	<!-- Hide the sidebar on small screens; show at the medium breakpoint or wider -->
 	<aside class="hidden md:block">(sidebar)</aside>
 	<!-- Remains visible at all breakpoints -->
 	<main>(main)</main>
 </div>
 ```
 
+By default, your `<html>` and `<body>` may collapse vertically and not extend to full height of the viewport. Consider a custom reset:
+
+```css
+html,
+body {
+	@apply h-full;
+}
+```
+
 ## The Basics
 
-Let's start by creating several traditional layouts using a combination of semantic HTML and Tailwind utility classes.
+Let's start by creating a few traditional layouts using a combination of semantic HTML and Tailwind utility classes.
 
 ### One Column
 
@@ -128,17 +139,17 @@ Let's start by creating several traditional layouts using a combination of seman
 
 ## Sticky Positioning
 
-If you wish for your header or sidebar to remain fixed on the screen while scrolling, use the following techniques.
+If you wish for your header or sidebar to remain fixed while scrolling, use the following techniques.
 
-### Header
+### Sticky Header
 
-For `<header>`, we make use of three primary utlity classes:
+For `<header>`, we'll implement on three utlity classes:
 
 - [sticky](https://tailwindcss.com/docs/position#sticky-positioning-elements) - Sets the CSS display to a value of sticky.
 - [top-0](https://tailwindcss.com/docs/top-right-bottom-left) - Sets the top offset to a value of 0px.
 - [z-10](https://tailwindcss.com/docs/z-index) - Sets the z-index stacking to a value of 10.
 
-> TIP: Use [backdrop-blur](https://tailwindcss.com/docs/backdrop-blur) to produce a hazy glass-like effect for overlapped semi-transparent elements.
+> TIP: Use [backdrop-blur](https://tailwindcss.com/docs/backdrop-blur) to produce the hazy glass-like effect for overlapped semi-transparent elements.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -149,14 +160,14 @@ For `<header>`, we make use of three primary utlity classes:
 	</Fragment>
 </Preview>
 
-### Sidebar
+### Sticky Sidebar
 
-For `<aside>` we'll introduce the same utilities, plus a couple additions:
+For `<aside>`, we'll use these same three utlity classes, with two extra additions:
 
-- [self-start](https://tailwindcss.com/docs/align-self#start) - when the sidebar is part of a grid, this handles vertical alignment;
+- [self-start](https://tailwindcss.com/docs/align-self#start) - when the sidebar is part of a grid this handles vertical alignment.
 - [h-screen](https://tailwindcss.com/docs/height#viewport-height) - ensures our sidebar matches the height of the viewport.
 
-> NOTE: due to limitations of our preview blocks, `h-screen` is not applied to the aside in the example below.
+> NOTE: due to limitations of our preview blocks, `h-screen` is not applied in the the following preview.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -171,7 +182,7 @@ For `<aside>` we'll introduce the same utilities, plus a couple additions:
 
 ### Calculate Offsets
 
-You can use [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) to calculate offsets, such as using multiple sticky elements.
+You may use [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) to calculate offsets, which can be handy when you have multiple sticky elements.
 
 ```html
 <aside class="... sticky top-[calc(100vh-100px)] h-[calc(100vh-100px)]">(sidebar)</aside>
