@@ -18,7 +18,7 @@ import ExampleStickyHeaderRaw from '@examples/resources/cookbook/layouts/Example
 import ExampleStickySidebar from '@examples/resources/cookbook/layouts/ExampleStickySidebar.astro';
 import ExampleStickySidebarRaw from '@examples/resources/cookbook/layouts/ExampleStickySidebar.astro?raw';
 
-<p class="type-scale-5">Skeleton supports a variety of web-based frameworks and meta-frameworks, so we've created the following guide to serve as a universal reference when implementing page layouts. These techniques utilizes native HTML and Tailwind, meaning Skeleton is supported but not required.</p>
+<p class="type-scale-5">Skeleton supports a variety of web-based frameworks and meta-frameworks, so we've created the following guide to serve as a universal reference when implementing page layouts. These techniques utilize native HTML and Tailwind, meaning Skeleton is supported but not required.</p>
 
 ## Semantic Markup
 
@@ -40,7 +40,7 @@ Prioritize the `<body>` element as the scrollable page element, never a child el
 2. The Mobile Safari bottom bar will not auto-hide on scrolling as expected.
 3. CSS print styles may not work as expected.
 4. This can interfer directly with accessbility, especialy on touch screen devices.
-5. May introduce inconsisent behavior between web framework layout systems.
+5. May introduce inconsistent behavior between each web framework's solution for layouts.
 
 ## Tailwind Utilities
 
@@ -61,7 +61,7 @@ Tailwind provides a number of utility classes for implementing [CSS grid](https:
 | [Auto Rows](https://tailwindcss.com/docs/grid-auto-rows) | Utilities for controlling the size of implicitly-created grid rows. |
 | [Gap](https://tailwindcss.com/docs/gap) | Utilities for controlling gutters between grid and flexbox items. |
 
-### Alignement
+### Alignment
 
 | Utility | Description |
 | --- | --- |
@@ -91,7 +91,7 @@ Tailwind provides a powerful [responsive breakpoint system](https://tailwindcss.
 
 ## The Basics
 
-Let's start by creating the several traditional layouts using a combination of semantic HTML and Tailwind utility classes.
+Let's start by creating several traditional layouts using a combination of semantic HTML and Tailwind utility classes.
 
 ### One Column
 
@@ -138,7 +138,7 @@ For `<header>`, we make use of three primary utlity classes:
 - [top-0](https://tailwindcss.com/docs/top-right-bottom-left) - Sets the top offset to a value of 0px.
 - [z-10](https://tailwindcss.com/docs/z-index) - Sets the z-index stacking to a value of 10.
 
-> TIP: Use [backdrop-blur](https://tailwindcss.com/docs/backdrop-blur) produce a hazy glass-like effect for overlapped semi-transparent elements.
+> TIP: Use [backdrop-blur](https://tailwindcss.com/docs/backdrop-blur) to produce a hazy glass-like effect for overlapped semi-transparent elements.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -192,3 +192,7 @@ Combine the grid arbitrary syntax with [minmax](https://developer.mozilla.org/en
 	<aside>(sidebar)</aside>
 </div>
 ```
+
+### Grid Template
+
+If you wish to go beyond Tailwind, native CSS also offers [grid-template](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template). This provides a declarative shorthand for defining grid columns, grid rows, and grid areas. Just make sure to match your [Tailwind configuration](https://tailwindcss.com/docs/responsive-design) when it comes to [media query breakpoints](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
