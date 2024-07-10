@@ -18,6 +18,20 @@ import ExampleStickyHeaderRaw from '@examples/resources/cookbook/layouts/Example
 
 <p class="type-scale-5">Skeleton supports a variety of web-based frameworks and meta-frameworks, so we've created the following guide to serve as a universal reference when implementing page layouts. These techniques utilize native HTML and Tailwind, meaning Skeleton is supported but not required.</p>
 
+## Real World Example
+
+See our real world three column example, which implements many of the concepts introduced below.
+
+<figure class="card-enhanced-gradient flex justify-center p-8">
+	<a
+		class="btn preset-filled"
+		href="https://play.tailwindcss.com/zP9RcoacIS"
+		target="_blank"
+	>
+		View Real World Example &rarr;
+	</a>
+</figure>
+
 ## Semantic Markup
 
 When creating custom layouts, it's recommended to use semantic HTML to denote each region of the page.
@@ -186,7 +200,7 @@ For `<header>`, we'll implement on three utlity classes:
 		<figure class="card-enhanced-gradient flex justify-center p-8">
 			<a
 				class="btn preset-filled"
-				href="https://play.tailwindcss.com/F3hNZqs15v"
+				href="https://play.tailwindcss.com/g7ory5pA4K"
 				target="_blank"
 			>
 				View on Tailwind Play &rarr;
@@ -195,15 +209,14 @@ For `<header>`, we'll implement on three utlity classes:
 	</Fragment>
 </Preview>
 
-
 ### Sticky Sidebar
 
-For `<aside>`, we'll use these same three utlity classes, with two extra additions:
+For `<aside>`, we introduce two addition utility classes:
 
-- [self-start](https://tailwindcss.com/docs/align-self#start) - when the sidebar is part of a grid this handles vertical alignment.
+- [col-span-1](https://tailwindcss.com/docs/grid-column) - by defining our columns in an explicitly, we ensure all styles display as expected.
 - [h-screen](https://tailwindcss.com/docs/height#viewport-height) - ensures our sidebar matches the height of the viewport.
 
-> NOTE: due to the use of `h-screen` we've skipped the embedded preview in favor of the live example.
+> NOTE: due to the use of `h-screen` we've skipped the embedded preview to provide more accurate results.
 
 <figure class="card-enhanced-gradient flex justify-center p-8">
 	<a
@@ -222,12 +235,12 @@ For `<aside>`, we'll use these same three utlity classes, with two extra additio
 You may use [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) to calculate offsets, which can be handy when you have multiple sticky elements.
 
 ```html
-<aside class="... sticky top-[calc(100vh-100px)] h-[calc(100vh-100px)]">(sidebar)</aside>
+<aside class="... sticky top-0 h-[calc(100vh-100px)]">(sidebar)</aside>
 ```
 
-1. Sets the `top` and `height` values using an abitrary syntax
+1. Sets the `height` value using an abitrary syntax
 2. The initial value is set to 100vh (100% of the viewport height)
-3. Finally, we subtrack the offset for our header (ex: 100px)
+3. Finally we subtrack the offset for our header (ex: 100px)
 
 ### Smart Grid Rows
 
