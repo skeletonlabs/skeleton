@@ -15,8 +15,6 @@ import ExampleColTwo from '@examples/resources/cookbook/layouts/ExampleColTwo.as
 import ExampleColTwoRaw from '@examples/resources/cookbook/layouts/ExampleColTwo.astro?raw';
 import ExampleStickyHeader from '@examples/resources/cookbook/layouts/ExampleStickyHeader.astro';
 import ExampleStickyHeaderRaw from '@examples/resources/cookbook/layouts/ExampleStickyHeader.astro?raw';
-import ExampleStickySidebar from '@examples/resources/cookbook/layouts/ExampleStickySidebar.astro';
-import ExampleStickySidebarRaw from '@examples/resources/cookbook/layouts/ExampleStickySidebar.astro?raw';
 
 <p class="type-scale-5">Skeleton supports a variety of web-based frameworks and meta-frameworks, so we've created the following guide to serve as a universal reference when implementing page layouts. These techniques utilize native HTML and Tailwind, meaning Skeleton is supported but not required.</p>
 
@@ -111,7 +109,16 @@ Let's start by creating a few traditional layouts using a combination of semanti
 		<ExampleColOne />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleColOneRaw} lang="astro" />
+		{/* <Code code={ExampleColOneRaw} lang="astro" /> */}
+		<figure class="card-enhanced-gradient flex justify-center p-8">
+			<a
+				class="btn preset-filled"
+				href="https://play.tailwindcss.com/3ayrvPnIC4"
+				target="_blank"
+			>
+				View on Tailwind Play &rarr;
+			</a>
+		</figure>
 	</Fragment>
 </Preview>
 
@@ -122,7 +129,16 @@ Let's start by creating a few traditional layouts using a combination of semanti
 		<ExampleColTwo />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleColTwoRaw} lang="astro" />
+		{/* <Code code={ExampleColTwoRaw} lang="astro" /> */}
+		<figure class="card-enhanced-gradient flex justify-center p-8">
+			<a
+				class="btn preset-filled"
+				href="https://play.tailwindcss.com/yCv0ZOICSx"
+				target="_blank"
+			>
+				View on Tailwind Play &rarr;
+			</a>
+		</figure>
 	</Fragment>
 </Preview>
 
@@ -133,9 +149,19 @@ Let's start by creating a few traditional layouts using a combination of semanti
 		<ExampleColThree />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleColThreeRaw} lang="astro" />
+		{/* <Code code={ExampleColThreeRaw} lang="astro" /> */}
+		<figure class="card-enhanced-gradient flex justify-center p-8">
+			<a
+				class="btn preset-filled"
+				href="https://play.tailwindcss.com/BH0iosKxix"
+				target="_blank"
+			>
+				View on Tailwind Play &rarr;
+			</a>
+		</figure>
 	</Fragment>
 </Preview>
+
 
 ## Sticky Positioning
 
@@ -156,9 +182,19 @@ For `<header>`, we'll implement on three utlity classes:
 		<ExampleStickyHeader />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleStickyHeaderRaw} lang="astro" />
+		{/* <Code code={ExampleStickyHeaderRaw} lang="astro" /> */}
+		<figure class="card-enhanced-gradient flex justify-center p-8">
+			<a
+				class="btn preset-filled"
+				href="https://play.tailwindcss.com/F3hNZqs15v"
+				target="_blank"
+			>
+				View on Tailwind Play &rarr;
+			</a>
+		</figure>
 	</Fragment>
 </Preview>
+
 
 ### Sticky Sidebar
 
@@ -167,16 +203,17 @@ For `<aside>`, we'll use these same three utlity classes, with two extra additio
 - [self-start](https://tailwindcss.com/docs/align-self#start) - when the sidebar is part of a grid this handles vertical alignment.
 - [h-screen](https://tailwindcss.com/docs/height#viewport-height) - ensures our sidebar matches the height of the viewport.
 
-> NOTE: due to limitations of our preview blocks, `h-screen` is not applied in the the following preview.
+> NOTE: due to the use of `h-screen` we've skipped the embedded preview in favor of the live example.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleStickySidebar />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleStickySidebarRaw} lang="astro" />
-	</Fragment>
-</Preview>
+<figure class="card-enhanced-gradient flex justify-center p-8">
+	<a
+		class="btn preset-filled"
+		href="https://play.tailwindcss.com/aSzgim96nc"
+		target="_blank"
+	>
+		View on Tailwind Play &rarr;
+	</a>
+</figure>
 
 ## Advanced Techniques
 
