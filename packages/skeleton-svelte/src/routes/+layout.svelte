@@ -33,6 +33,7 @@
 				<!-- <a class="anchor" href="/components/test">Test</a> -->
 				<a class="anchor" href="/components/accordions">Accordions</a>
 				<a class="anchor" href="/components/avatars">Avatars</a>
+				<a class="anchor" href="/components/listbox">Listbox</a>
 				<a class="anchor" href="/components/app-bars">App Bars</a>
 				<a class="anchor" href="/components/navigation">Navigation</a>
 				<a class="anchor" href="/components/progress">Progress</a>
