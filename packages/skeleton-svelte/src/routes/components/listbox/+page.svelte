@@ -1,9 +1,28 @@
 <script lang="ts">
 	import Listbox from '$lib/components/Listbox/index.js';
+	import BoxIcon from 'lucide-svelte/icons/box';
+
+	const onsubmit = (e: SubmitEvent) => {
+		e.preventDefault();
+		console.log(new FormData(e.target as HTMLFormElement).getAll('test'));
+	};
+
+	const items = ['apple', 'banana', 'orange', 'carrot', 'broccoli', 'spinach'];
 </script>
 
-<Listbox value={[]}>
-	<Listbox.Item value="1">Value 1</Listbox.Item>
-	<Listbox.Item value="2">Value 2</Listbox.Item>
-	<Listbox.Item value="3">Value 3</Listbox.Item>
-</Listbox>
+<h1 class="h1">Listbox</h1>
+
+<form {onsubmit}>
+	<Listbox multiple>
+		{#each items as item}
+			<Listbox.Item name="test" value={item}>
+				{#snippet lead()}
+					<BoxIcon />
+				{/snippet}
+
+				{item}
+			</Listbox.Item>
+		{/each}
+	</Listbox>
+	<button class="btn filled-500">Submit</button>
+</form>

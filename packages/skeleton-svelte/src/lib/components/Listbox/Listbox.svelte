@@ -1,30 +1,48 @@
 <script lang="ts">
+	import { createId } from '$lib/internal/create-id.js';
 	import { setListboxContext } from './context.js';
 	import type { ListboxProps } from './types.js';
 
-	let { value = $bindable(), base = '', classes = '', children }: ListboxProps = $props();
+	let { multiple = false, base = 'flex flex-col', classes = '', children }: ListboxProps = $props();
+
+	const id = createId();
+	let value: string | string[] = $state(multiple ? [] : '');
 
 	setListboxContext({
+		id: id,
 		get value() {
 			return value;
 		},
-		toggle: (v: string) => {
-			if (Array.isArray(value)) {
-				if (value.includes(v)) {
-					value = value.filter((_v) => _v !== v);
-				} else {
-					value = [...value, v];
-				}
-			} else if (value !== v) {
+		set value(v) {
+			value = v;
+		},
+		get multiple() {
+			return multiple;
+		},
+		toggle: (v) => {
+			if (multiple && Array.isArray(value)) {
+				value = value.includes(v) ? value.filter((_v) => _v !== v) : [...value, v];
+			} else {
 				value = v;
 			}
 		},
-		has: (v: string) => {
-			return Array.isArray(value) ? value.includes(v) : value === v;
+		isSelected: (v) => {
+			if (multiple) {
+				return value.includes(v);
+			} else {
+				return value === v;
+			}
 		}
 	});
 </script>
 
-<div role="listbox" class="{base} {classes}">
+<div
+	class="{base} {classes}"
+	role="listbox"
+	aria-orientation="vertical"
+	aria-multiselectable={multiple}
+	data-skeleton-part="listbox"
+	data-skeleton-id={id}
+>
 	{@render children?.()}
 </div>
