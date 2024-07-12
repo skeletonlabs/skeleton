@@ -6,6 +6,8 @@
 	import IconMoon from 'lucide-svelte/icons/moon';
 	import IconSun from 'lucide-svelte/icons/sun';
 
+	let { children } = $props();
+
 	let modeState = $state(false); // false = dark mode
 
 	function onModeChange() {
@@ -47,6 +49,6 @@
 	</div>
 	<!-- Page -->
 	<main class="space-y-8 overflow-y-auto p-8">
-		<slot />
+		{@render children?.()}
 	</main>
 </div>

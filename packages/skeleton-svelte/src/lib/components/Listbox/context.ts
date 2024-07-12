@@ -3,8 +3,6 @@ import type { ListboxContext } from './types.js';
 
 export const [setListboxContext, getListboxContext] = createContext<ListboxContext>({
 	id: '',
-	value: '',
-	multiple: false,
 	toggle: () => {},
 	isSelected: () => false
 });

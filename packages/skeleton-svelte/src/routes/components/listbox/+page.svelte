@@ -13,7 +13,7 @@
 <h1 class="h1">Listbox</h1>
 
 <form {onsubmit}>
-	<Listbox multiple>
+	<Listbox multiple base="test">
 		{#each items as item}
 			<Listbox.Item name="test" value={item}>
 				{#snippet lead()}
