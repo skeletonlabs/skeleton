@@ -3,34 +3,33 @@
 	import { setListboxContext } from './context.js';
 	import type { ListboxProps } from './types.js';
 
-	let { multiple = false, base = 'flex flex-col', classes = '', children }: ListboxProps = $props();
+	let { selected = $bindable([]), multiple = false, base = 'flex flex-col', classes = '', children }: ListboxProps = $props();
 
 	const id = createId();
-	let value: string | string[] = $state(multiple ? [] : '');
 
 	setListboxContext({
 		id: id,
-		get value() {
-			return value;
+		get selected() {
+			return selected;
 		},
-		set value(v) {
-			value = v;
+		set selected(v) {
+			selected = v;
 		},
 		get multiple() {
 			return multiple;
 		},
 		toggle: (v) => {
-			if (multiple && Array.isArray(value)) {
-				value = value.includes(v) ? value.filter((_v) => _v !== v) : [...value, v];
+			if (multiple && Array.isArray(selected)) {
+				selected = selected.includes(v) ? selected.filter((_v) => _v !== v) : [...selected, v];
 			} else {
-				value = v;
+				selected = v;
 			}
 		},
 		isSelected: (v) => {
 			if (multiple) {
-				return value.includes(v);
+				return selected.includes(v);
 			} else {
-				return value === v;
+				return selected === v;
 			}
 		}
 	});

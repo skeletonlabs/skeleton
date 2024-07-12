@@ -3,13 +3,15 @@ import type { HTMLButtonAttributes } from 'svelte/elements';
 
 export interface ListboxContext {
 	readonly id: string;
-	value: string | string[];
+	selected: string | string[];
 	readonly multiple: boolean;
 	readonly toggle: (value: string) => void;
 	readonly isSelected: (value: string) => boolean;
 }
 
 export interface ListboxProps {
+	/** The value of the selected item(s). */
+	selected?: string | string[];
 	/** Whether multiple items can be selected. */
 	multiple?: boolean;
 	/** Set the parent base styles. */
