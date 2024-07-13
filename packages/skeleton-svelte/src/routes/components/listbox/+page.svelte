@@ -13,7 +13,7 @@
 <form {onsubmit}>
 	<Listbox multiple>
 		{#each [1, 2, 3, 4, 5] as item}
-			<Listbox.Item name="name" value="Value {item}">
+			<Listbox.Item name="test" value="Value {item}">
 				{#snippet lead()}
 					<BoxIcon />
 				{/snippet}
