@@ -19,6 +19,6 @@
 	});
 </script>
 
-<div {...attributes} class="{base} {classes}" role="listbox" aria-orientation="vertical" aria-multiselectable={multiple}>
+<div {...attributes} role="listbox" aria-orientation="vertical" class="{base} {classes}" aria-multiselectable={multiple}>
 	{@render children?.()}
 </div>

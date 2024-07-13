@@ -21,20 +21,12 @@
 	const ctx = getListboxContext();
 
 	const onclick: (typeof attributes)['onclick'] = (event) => {
-		attributes.onclick?.(event);
 		ctx.isSelected(value) ? ctx.deselect(value) : ctx.select(value);
+		attributes.onclick?.(event);
 	};
 </script>
 
-<button
-	{...attributes}
-	class="{base} {classes}"
-	type="button"
-	role="option"
-	aria-selected={ctx.isSelected(value)}
-	disabled={attributes.disabled}
-	{onclick}
->
+<button {...attributes} type="button" role="option" class="{base} {classes}" aria-selected={ctx.isSelected(value)} {onclick}>
 	{#if lead}
 		<div class="{leadBase} {leadClasses}">{@render lead()}</div>
 	{/if}
