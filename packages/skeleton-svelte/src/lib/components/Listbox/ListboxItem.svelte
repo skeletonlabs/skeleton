@@ -2,6 +2,7 @@
 	import { getListboxContext } from './context.js';
 	import type { ListboxItemProps } from './types.js';
 
+	// Props
 	let {
 		name,
 		value,
@@ -18,15 +19,18 @@
 		...attributes
 	}: ListboxItemProps = $props();
 
-	const ctx = getListboxContext();
+	// Context
+	const context = getListboxContext();
+	const selected = $derived(context.isSelected(value));
 
+	// Events
 	const onclick: (typeof attributes)['onclick'] = (event) => {
-		ctx.isSelected(value) ? ctx.deselect(value) : ctx.select(value);
+		selected ? context.deselect(value) : context.select(value);
 		attributes.onclick?.(event);
 	};
 </script>
 
-<button {...attributes} type="button" role="option" class="{base} {classes}" aria-selected={ctx.isSelected(value)} {onclick}>
+<button {...attributes} type="button" role="option" class="{base} {classes}" aria-selected={selected} {onclick}>
 	{#if lead}
 		<div class="{leadBase} {leadClasses}">{@render lead()}</div>
 	{/if}
@@ -36,4 +40,4 @@
 	{/if}
 </button>
 
-<input type="hidden" {...ctx.isSelected(value) && { name, value }} />
+<input type="hidden" {...selected && { name, value }} />

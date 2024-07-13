@@ -2,6 +2,7 @@
 	import { setListboxContext } from './context.js';
 	import type { ListboxProps } from './types.js';
 
+	// Props
 	let {
 		multiple = false,
 		value = $bindable(multiple ? [] : ''),
@@ -12,6 +13,7 @@
 		...attributes
 	}: ListboxProps = $props();
 
+	// Context
 	setListboxContext({
 		select: (v) => (multiple && Array.isArray(value) ? (value = [...value, v]) : (value = v)),
 		deselect: (v) => (multiple && Array.isArray(value) ? (value = value.filter((_v) => _v !== v)) : (value = '')),
