@@ -6,23 +6,20 @@
 		e.preventDefault();
 		console.log(new FormData(e.target as HTMLFormElement).getAll('test'));
 	};
-
-	const items = ['apple', 'banana', 'orange', 'carrot', 'broccoli', 'spinach'];
 </script>
 
 <h1 class="h1">Listbox</h1>
 
 <form {onsubmit}>
-	<Listbox multiple base="test">
-		{#each items as item}
-			<Listbox.Item name="test" value={item}>
+	<Listbox multiple>
+		{#each [1, 2, 3, 4, 5] as item}
+			<Listbox.Item name="name" value="Value {item}">
 				{#snippet lead()}
 					<BoxIcon />
 				{/snippet}
-
-				{item}
+				Option {item}
 			</Listbox.Item>
 		{/each}
 	</Listbox>
-	<button class="btn filled-500">Submit</button>
+	<button class="btn btn-md preset-filled">Submit</button>
 </form>

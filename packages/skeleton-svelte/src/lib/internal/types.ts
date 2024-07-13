@@ -1,6 +1,6 @@
-import type { Snippet } from 'svelte';
+import type { Snippet as SvelteSnippet } from 'svelte';
 
-export type Base<Prefix extends string = ''> = {
+export type Classes<Prefix extends string = ''> = {
 	/** Set the base styles. */
 	[key in `${Prefix}${Prefix extends '' ? 'base' : 'Base'}`]?: string;
 } & {
@@ -8,7 +8,7 @@ export type Base<Prefix extends string = ''> = {
 	[key in `${Prefix}${Prefix extends '' ? 'classes' : 'Classes'}`]?: string;
 };
 
-export interface Children<T extends unknown[] = []> {
+export type Snippet<Key extends string = 'children', T extends unknown[] = []> = {
 	/** The default snippet. */
-	children?: Snippet<T>;
-}
+	[key in Key]?: SvelteSnippet<T>;
+};

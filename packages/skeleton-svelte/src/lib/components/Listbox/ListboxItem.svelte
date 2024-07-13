@@ -1,18 +1,17 @@
 <script lang="ts">
-	import { getSibling } from '$lib/internal/get-sibling.js';
-	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { getListboxContext } from './context.js';
 	import type { ListboxItemProps } from './types.js';
 
 	let {
 		name,
 		value,
-		base = 'text-left px-4 py-2 rounded flex items-center gap-2',
-		classes = '',
-		leadBase = '',
-		leadClasses = '',
-		trailBase = '',
-		trailClasses = '',
+		// TODO: Split up into multiple props
+		base = 'text-left px-4 py-2 rounded flex items-center gap-2 [&[aria-selected=true]]:bg-primary-500 [&[aria-selected=true]]:text-on-primary-950',
+		classes,
+		leadBase,
+		leadClasses,
+		trailBase,
+		trailClasses,
 		children,
 		lead,
 		trail,
@@ -20,41 +19,21 @@
 	}: ListboxItemProps = $props();
 
 	const ctx = getListboxContext();
-	const selected = $derived(ctx.isSelected(value));
 
-	const onclick: HTMLButtonAttributes['onclick'] = (event) => {
+	const onclick: (typeof attributes)['onclick'] = (event) => {
 		attributes.onclick?.(event);
-		ctx.toggle(value);
-	};
-
-	const onkeydown: HTMLButtonAttributes['onkeydown'] = (event) => {
-		attributes.onkeydown?.(event);
-		if (!(event.currentTarget instanceof HTMLElement) || !['ArrowUp', 'ArrowDown'].includes(event.key)) {
-			return;
-		}
-		const sibling = getSibling(
-			event.currentTarget as HTMLElement,
-			`[data-skeleton-part="listbox"][data-skeleton-id="${ctx.id}"] > [data-skeleton-part="listbox-item"]`,
-			event.key === 'ArrowUp' ? 'previous' : 'next'
-		);
-		if (sibling === undefined) {
-			return;
-		}
-		event.preventDefault();
-		sibling.focus();
+		ctx.isSelected(value) ? ctx.deselect(value) : ctx.select(value);
 	};
 </script>
 
 <button
 	{...attributes}
-	data-skeleton-part="listbox-item"
-	class="{base} {classes} {selected && 'bg-primary-500'}"
+	class="{base} {classes}"
 	type="button"
 	role="option"
-	aria-selected={selected}
+	aria-selected={ctx.isSelected(value)}
 	disabled={attributes.disabled}
 	{onclick}
-	{onkeydown}
 >
 	{#if lead}
 		<div class="{leadBase} {leadClasses}">{@render lead()}</div>
@@ -65,6 +44,4 @@
 	{/if}
 </button>
 
-{#if selected}
-	<input {name} {value} type="hidden" />
-{/if}
+<input type="hidden" {...ctx.isSelected(value) && { name, value }} />

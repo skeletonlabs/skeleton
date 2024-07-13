@@ -1,11 +1,14 @@
-import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vitest/config';
+import { sveltekit } from '@sveltejs/kit/vite';
+import { svelteTesting } from '@testing-library/svelte/vite';
 import skeletonPluginWatcher from 'vite-plugin-tw-plugin-watcher';
-import path from 'node:path';
+import { resolve, join } from 'node:path';
 
 export default defineConfig({
-	plugins: [sveltekit(), skeletonPluginWatcher(path.resolve(path.join('..', '..', 'packages', 'skeleton', 'src', 'plugin')))],
+	plugins: [sveltekit(), svelteTesting(), skeletonPluginWatcher(resolve(join('..', '..', 'packages', 'skeleton', 'src', 'plugin')))],
 	test: {
+		environment: 'jsdom',
+		setupFiles: ['./vitest.setup.ts'],
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
 });
