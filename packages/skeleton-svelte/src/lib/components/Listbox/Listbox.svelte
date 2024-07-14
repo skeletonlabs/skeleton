@@ -1,13 +1,15 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import { setListboxContext } from './context.js';
 	import type { ListboxProps } from './types.js';
 
 	// Props
 	let {
+		name = '',
+		value = $bindable(),
 		multiple = false,
-		value = $bindable(multiple ? [] : ''),
 		// TODO: Split up into multiple props
-		base = 'flex flex-col gap-2 p-4 rounded border border-surface-200-800',
+		base = 'flex flex-col gap-2 p-4 rounded-container border border-surface-200-800 overflow-y-auto',
 		classes,
 		children,
 		...attributes
@@ -15,11 +17,25 @@
 
 	// Context
 	setListboxContext({
+		get name() {
+			return name;
+		},
 		select: (v) => (multiple && Array.isArray(value) ? (value = [...value, v]) : (value = v)),
 		deselect: (v) => (multiple && Array.isArray(value) ? (value = value.filter((_v) => _v !== v)) : (value = '')),
 		isSelected: (v) => (multiple && Array.isArray(value) ? value.includes(v) : value === v)
 	});
+
+	// Effects
+	$effect(() => {
+		if (multiple) {
+			untrack(() => (value = []));
+		} else {
+			untrack(() => (value = ''));
+		}
+	});
 </script>
+
+<!-- @component The Listbox parent component. -->
 
 <div {...attributes} role="listbox" aria-orientation="vertical" class="{base} {classes}" aria-multiselectable={multiple}>
 	{@render children?.()}

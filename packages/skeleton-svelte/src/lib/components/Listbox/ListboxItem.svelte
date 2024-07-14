@@ -4,7 +4,6 @@
 
 	// Props
 	let {
-		name,
 		value,
 		// TODO: Split up into multiple props
 		base = 'text-left px-4 py-2 rounded flex items-center gap-2 [&[aria-selected=true]]:bg-primary-500 [&[aria-selected=true]]:text-on-primary-950',
@@ -30,6 +29,8 @@
 	};
 </script>
 
+<!-- @component The Listbox item component. -->
+
 <button {...attributes} type="button" role="option" class="{base} {classes}" aria-selected={selected} {onclick}>
 	{#if lead}
 		<div class="{leadBase} {leadClasses}">{@render lead()}</div>
@@ -40,4 +41,4 @@
 	{/if}
 </button>
 
-<input type="hidden" {...selected && { name, value }} />
+<input type="hidden" {...selected && { name: context.name, value }} />

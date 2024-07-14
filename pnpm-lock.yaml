@@ -258,8 +258,8 @@ importers:
         specifier: ^6.4.2
         version: 6.4.2(vitest@1.4.0(@types/node@20.12.4)(jsdom@24.0.0)(sass@1.74.1))
       '@testing-library/svelte':
-        specifier: 5.2.0-next.3
-        version: 5.2.0-next.3(svelte@5.0.0-next.131)(vite@5.2.8(@types/node@20.12.4)(sass@1.74.1))(vitest@1.4.0(@types/node@20.12.4)(jsdom@24.0.0)(sass@1.74.1))
+        specifier: 5.2.0
+        version: 5.2.0(svelte@5.0.0-next.131)(vite@5.2.8(@types/node@20.12.4)(sass@1.74.1))(vitest@1.4.0(@types/node@20.12.4)(jsdom@24.0.0)(sass@1.74.1))
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.38)
@@ -1784,8 +1784,8 @@ packages:
       react: ^18.0.0
       react-dom: ^18.0.0
 
-  '@testing-library/svelte@5.2.0-next.3':
-    resolution: {integrity: sha512-aLp9Q84eaI1i25SBQ++PWLijZ7jNoUwjnSnL2cyLyJYBQQSPcEiCgSjDYIygbknOqVkmUE/dsgQHVjGeIatZvg==}
+  '@testing-library/svelte@5.2.0':
+    resolution: {integrity: sha512-oMIFfxMcaPOXp+BQTRVgkeKzfAx7ee9fMrWaiKbMN36tN61kLl4Uj5ZZ/y1w9aL3a0BuBEoErV5iorYwCHqVUA==}
     engines: {node: '>= 10'}
     peerDependencies:
       svelte: ^3 || ^4 || ^5 || ^5.0.0-next.0
@@ -7777,7 +7777,7 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@testing-library/svelte@5.2.0-next.3(svelte@5.0.0-next.131)(vite@5.2.8(@types/node@20.12.4)(sass@1.74.1))(vitest@1.4.0(@types/node@20.12.4)(jsdom@24.0.0)(sass@1.74.1))':
+  '@testing-library/svelte@5.2.0(svelte@5.0.0-next.131)(vite@5.2.8(@types/node@20.12.4)(sass@1.74.1))(vitest@1.4.0(@types/node@20.12.4)(jsdom@24.0.0)(sass@1.74.1))':
     dependencies:
       '@testing-library/dom': 10.3.1
       svelte: 5.0.0-next.131

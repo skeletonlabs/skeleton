@@ -2,16 +2,19 @@ import type { Classes, Snippet } from '$lib/internal/types.js';
 import type { HTMLAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
 export interface ListboxContext {
+	readonly name: string;
 	readonly select: (value: string) => void;
 	readonly deselect: (value: string) => void;
 	readonly isSelected: (value: string) => boolean;
 }
 
 export interface ListboxProps extends Classes, Snippet, HTMLAttributes<HTMLDivElement> {
-	/** Whether multiple items can be selected. */
-	multiple?: boolean;
+	/** Set the item name. */
+	name?: string;
 	/** The value of the selected item(s). */
 	value?: string | string[];
+	/** Whether multiple items can be selected. */
+	multiple?: boolean;
 }
 
 export interface ListboxItemProps
@@ -22,8 +25,6 @@ export interface ListboxItemProps
 		Snippet<'lead'>,
 		Snippet<'trail'>,
 		HTMLButtonAttributes {
-	/** Set the item name. */
-	name?: string;
 	/** Set the item value. */
 	value: string;
 }
