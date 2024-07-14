@@ -10,7 +10,7 @@
 		value = createId(),
 		// TODO: Split up into multiple props
 		base = 'text-left px-4 py-2 rounded flex items-center gap-2',
-		activeClasses = 'preset-filled',
+		selectedClasses = 'preset-filled',
 		classes,
 		leadBase,
 		leadClasses,
@@ -72,7 +72,7 @@
 	{...attributes}
 	type="button"
 	role="option"
-	class="{base} {selected ? activeClasses : ''} {classes}"
+	class="{base} {selected ? selectedClasses : ''} {classes}"
 	aria-selected={selected}
 	data-skeleton-part="listbox-item"
 	data-skeleton-id={id}

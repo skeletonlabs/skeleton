@@ -28,5 +28,6 @@ export interface ListboxItemProps
 		HTMLButtonAttributes {
 	/** Set the item value. */
 	value?: string;
-	activeClasses?: string;
+	/** Set selected classes. */
+	selectedClasses?: string;
 }

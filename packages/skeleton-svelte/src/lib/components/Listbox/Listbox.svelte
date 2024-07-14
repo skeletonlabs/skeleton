@@ -10,7 +10,7 @@
 		value = $bindable(),
 		multiple = false,
 		// TODO: Split up into multiple props
-		base = 'flex flex-col gap-2 p-4 rounded-container border border-surface-200-800 overflow-y-auto',
+		base = 'grid gap-2 p-4 rounded-container border border-surface-200-800 overflow-y-auto',
 		classes,
 		children,
 		...attributes
