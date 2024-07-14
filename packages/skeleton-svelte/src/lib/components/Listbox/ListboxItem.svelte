@@ -36,7 +36,6 @@
 		attributes.onclick?.(event);
 	};
 	const onkeydown: HTMLButtonAttributes['onkeydown'] = (event) => {
-		if (!(event.currentTarget instanceof HTMLElement)) return;
 		switch (event.key) {
 			case 'ArrowUp': {
 				event.preventDefault();
