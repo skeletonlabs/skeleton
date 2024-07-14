@@ -66,7 +66,7 @@
 	function refreshFocus() {
 		const buttons = figureElement.querySelectorAll('button');
 		// focus on the correct button depending on the new value.
-		buttons[Math.max(0, Math.ceil(value - 1))].focus();
+		buttons[Math.max(0, Math.ceil(value - 1))]?.focus();
 	}
 
 	function increaseValue() {
