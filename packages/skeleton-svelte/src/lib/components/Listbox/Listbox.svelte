@@ -16,13 +16,12 @@
 		...attributes
 	}: ListboxProps = $props();
 
+	// Local
 	const id = createId();
 
 	// Context
 	setListboxContext({
-		get id() {
-			return id;
-		},
+		id: id,
 		get name() {
 			return name;
 		},

@@ -27,5 +27,6 @@ export interface ListboxItemProps
 		Snippet<'trail'>,
 		HTMLButtonAttributes {
 	/** Set the item value. */
-	value: string;
+	value?: string;
+	activeClasses?: string;
 }

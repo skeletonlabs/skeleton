@@ -7,9 +7,10 @@
 
 	// Props
 	let {
-		value,
+		value = createId(),
 		// TODO: Split up into multiple props
-		base = 'text-left px-4 py-2 rounded flex items-center gap-2 [&[aria-selected=true]]:preset-filled',
+		base = 'text-left px-4 py-2 rounded flex items-center gap-2',
+		activeClasses = 'preset-filled',
 		classes,
 		leadBase,
 		leadClasses,
@@ -72,7 +73,7 @@
 	{...attributes}
 	type="button"
 	role="option"
-	class="{base} {classes}"
+	class="{base} {selected ? activeClasses : ''} {classes}"
 	aria-selected={selected}
 	data-skeleton-part="listbox-item"
 	data-skeleton-id={id}
