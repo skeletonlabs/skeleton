@@ -89,4 +89,6 @@
 	{/if}
 </button>
 
-<input type="hidden" {...selected && { name: context.name, value }} />
+{#if selected}
+	<input type="hidden" name={context.name} {value} />
+{/if}
