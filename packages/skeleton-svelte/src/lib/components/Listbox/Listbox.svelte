@@ -2,6 +2,7 @@
 	import { untrack } from 'svelte';
 	import { setListboxContext } from './context.js';
 	import type { ListboxProps } from './types.js';
+	import { createId } from '$lib/internal/create-id.js';
 
 	// Props
 	let {
@@ -15,8 +16,13 @@
 		...attributes
 	}: ListboxProps = $props();
 
+	const id = createId();
+
 	// Context
 	setListboxContext({
+		get id() {
+			return id;
+		},
 		get name() {
 			return name;
 		},
@@ -37,6 +43,14 @@
 
 <!-- @component The Listbox parent component. -->
 
-<div {...attributes} role="listbox" aria-orientation="vertical" class="{base} {classes}" aria-multiselectable={multiple}>
+<div
+	{...attributes}
+	role="listbox"
+	aria-orientation="vertical"
+	class="{base} {classes}"
+	aria-multiselectable={multiple}
+	data-skeleton-part="listbox"
+	data-skeleton-id={id}
+>
 	{@render children?.()}
 </div>

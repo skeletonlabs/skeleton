@@ -43,7 +43,7 @@
 <pre>{JSON.stringify(data, null, 2)}</pre>
 
 <form class="flex flex-col gap-2 max-w-md" {onsubmit}>
-	<Listbox name="test" classes="!max-h-32" {multiple} bind:value>
+	<Listbox name="test" {multiple} bind:value>
 		{#each [1, 2, 3, 4, 5] as item}
 			<Listbox.Item value="Value {item}">
 				{#snippet lead()}
