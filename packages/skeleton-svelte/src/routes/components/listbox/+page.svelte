@@ -27,21 +27,6 @@
 
 <h1 class="h1">Listbox</h1>
 
-<h2 class="h2">Input</h2>
-
-<label>
-	<span class="label-text">Multiple</span>
-	<input type="checkbox" class="checkbox" bind:checked={multiple} />
-</label>
-
-<h2 class="h2">Output</h2>
-
-<h3 class="h3">Binding:</h3>
-<pre>{JSON.stringify(value, null, 2)}</pre>
-
-<h3 class="h3">Form:</h3>
-<pre>{JSON.stringify(data, null, 2)}</pre>
-
 <form class="flex flex-col gap-2 max-w-md" {onsubmit}>
 	<Listbox name="test" {multiple} bind:value>
 		{#each [1, 2, 3, 4, 5] as item}
@@ -55,3 +40,18 @@
 	</Listbox>
 	<button class="btn btn-md preset-filled">Submit</button>
 </form>
+
+<h2 class="h2">Config</h2>
+
+<label>
+	<span class="label-text">Multiple</span>
+	<input type="checkbox" class="checkbox" bind:checked={multiple} />
+</label>
+
+<h2 class="h2">Output</h2>
+
+<h3 class="h3">Binding:</h3>
+<pre>{JSON.stringify(value, null, 2)}</pre>
+
+<h3 class="h3">Form:</h3>
+<pre>{JSON.stringify(data, null, 2)}</pre>

@@ -9,7 +9,7 @@
 	let {
 		value,
 		// TODO: Split up into multiple props
-		base = 'text-left px-4 py-2 rounded flex items-center gap-2 [&[aria-selected=true]]:bg-primary-500 [&[aria-selected=true]]:text-on-primary-950',
+		base = 'text-left px-4 py-2 rounded flex items-center gap-2 [&[aria-selected=true]]:preset-filled',
 		classes,
 		leadBase,
 		leadClasses,
