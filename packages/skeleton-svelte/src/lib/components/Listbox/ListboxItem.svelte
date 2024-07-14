@@ -67,7 +67,7 @@
 	};
 </script>
 
-<!-- @component The Listbox item component. -->
+<!-- @component The ListboxItem component. -->
 
 <button
 	{...attributes}
