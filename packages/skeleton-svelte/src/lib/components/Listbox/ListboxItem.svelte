@@ -6,9 +6,10 @@
 
 	// Props
 	let {
-		value = createId(),
-		// TODO: Split up into multiple props
-		base = 'text-left px-4 py-2 rounded flex items-center gap-2',
+		value,
+		base = 'flex items-center gap-2 text-left',
+		paddingClasses = 'py-2 px-4',
+		radiiClasses = 'rounded',
 		selectedClasses = 'preset-filled',
 		classes,
 		leadBase,
@@ -71,7 +72,7 @@
 	{...attributes}
 	type="button"
 	role="option"
-	class="{base} {selected ? selectedClasses : ''} {classes}"
+	class="{base} {paddingClasses} {radiiClasses} {selected ? selectedClasses : null} {classes}"
 	aria-selected={selected}
 	data-skeleton-part="listbox-item"
 	data-skeleton-id={id}

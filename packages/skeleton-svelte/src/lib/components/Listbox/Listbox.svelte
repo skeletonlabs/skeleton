@@ -9,8 +9,10 @@
 		name = '',
 		value = $bindable(),
 		multiple = false,
-		// TODO: Split up into multiple props
-		base = 'grid gap-2 p-4 rounded-container border border-surface-200-800 overflow-y-auto',
+		base = 'grid gap-2 overflow-y-auto',
+		paddingClasses = 'p-4',
+		borderClasses = 'border border-surface-200-800',
+		radiiClasses = 'rounded-container',
 		classes,
 		children,
 		...attributes
@@ -46,7 +48,7 @@
 	{...attributes}
 	role="listbox"
 	aria-orientation="vertical"
-	class="{base} {classes}"
+	class="{base} {paddingClasses} {borderClasses} {radiiClasses} {classes}"
 	aria-multiselectable={multiple}
 	data-skeleton-part="listbox"
 	data-skeleton-id={id}
