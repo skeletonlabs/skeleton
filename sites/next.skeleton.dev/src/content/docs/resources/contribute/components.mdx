@@ -221,6 +221,43 @@ setSession({ user: 'bar' });
 const session = getSession();
 ```
 
+## Form Components
+
+When implementing form components (ex: Segment Control), please adhere to the following conventions:
+
+1. For components with a parent/child structure, pass all shared values through the parent.
+2. Data in should use a `value` prop, while data out should use an `onChange` event handler.
+3. When supported, use two-way binding on the `value`; `onChange` is then optional.
+4. Pass state that's unique to the child components directly to each child item.
+5. When embedding form inputs within components for state management, always use `type="hidden"`.
+
+See the examples per each framework below.
+
+### Svelte
+
+```ts
+const value = $state('foo');
+```
+```svelte
+<!-- onChange is option and not required -->
+<Control bind:value={value} name="flavors">
+	<Control.Item id="chocolate" value="chocolate">Chocolate</Control.Item>
+	<Control.Item id="strawberry" value="strawberry">Strawberry</Control.Item>
+</Control>
+```
+
+### React
+
+```tsx
+const [value, setValue] = useState('foo');
+```
+```tsx
+<Control value={value} name="flavors" onChange={setValue}>
+	<Control.Item id="chocolate" value="chocolate">Chocolate</Control.Item>
+	<Control.Item id="strawberry" value="strawberry">Strawberry</Control.Item>
+</Control>
+```
+
 ## Generating Schema
 
 > NOTE: currently limited to the `skeleton-react` package only!

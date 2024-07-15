@@ -1,230 +1,260 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"definitions": {
-		"Iterable<React.ReactNode>": {
-			"propertyOrder": ["__@iterator@83"],
-			"type": "object"
-		},
-		"ProgressRingProps": {
-			"properties": {
-				"base": {
-					"description": "Set the root base classes",
-					"type": "string"
-				},
-				"children": {
-					"$ref": "#/definitions/React.ReactNode"
-				},
-				"childrenBase": {
-					"description": "Set the nested children base classes",
-					"type": "string"
-				},
-				"childrenClasses": {
-					"description": "Provide arbitrary classes to the nested children.",
-					"type": "string"
-				},
-				"classes": {
-					"description": "Provide arbitrary classes to the root element",
-					"type": "string"
-				},
-				"label": {
-					"description": "Set the text for the scalable label",
-					"type": "string"
-				},
-				"labelBase": {
-					"description": "Set the label classes",
-					"type": "string"
-				},
-				"labelClasses": {
-					"description": "Provide arbitrary classes to the label element",
-					"type": "string"
-				},
-				"labelFill": {
-					"description": "Set the label fill color classes",
-					"type": "string"
-				},
-				"labelFontSize": {
-					"description": "Set the label font size",
-					"type": "number"
-				},
-				"labelFontWeight": {
-					"description": "Set the label font weight",
-					"type": "string"
-				},
-				"labelledby": {
-					"description": "Set the aria-labelledby value",
-					"type": "string"
-				},
-				"max": {
-					"description": "Set the maximum value",
-					"type": "number"
-				},
-				"meterBase": {
-					"description": "Set the meter base classes",
-					"type": "string"
-				},
-				"meterClasses": {
-					"description": "Provide arbitrary classes to the meter element",
-					"type": "string"
-				},
-				"meterDuration": {
-					"description": "Set the meter transition duration classes",
-					"type": "string"
-				},
-				"meterStroke": {
-					"description": "Set the meter stroke color classes",
-					"type": "string"
-				},
-				"meterTransition": {
-					"description": "Set the meter transition classes",
-					"type": "string"
-				},
-				"size": {
-					"description": "Set the root size classes",
-					"type": "string"
-				},
-				"strokeLinecap": {
-					"description": "Defines the shape of the meter",
-					"enum": ["butt", "inherit", "round", "square"],
-					"type": "string"
-				},
-				"strokeWidth": {
-					"description": "Set the stroke size (px)",
-					"type": "number"
-				},
-				"svgBase": {
-					"description": "Set the SVG element base classes",
-					"type": "string"
-				},
-				"svgClasses": {
-					"description": "Provide arbitrary classes to the SVG element",
-					"type": "string"
-				},
-				"trackBase": {
-					"description": "Set the track base classes",
-					"type": "string"
-				},
-				"trackClasses": {
-					"description": "Provide arbitrary classes to the track element",
-					"type": "string"
-				},
-				"trackStroke": {
-					"description": "Set the track stroke color classes",
-					"type": "string"
-				},
-				"value": {
-					"description": "Set the value",
-					"type": "number"
-				}
-			},
-			"propertyOrder": [
-				"value",
-				"max",
-				"strokeWidth",
-				"strokeLinecap",
-				"labelledby",
-				"base",
-				"size",
-				"classes",
-				"childrenBase",
-				"childrenClasses",
-				"svgBase",
-				"svgClasses",
-				"trackBase",
-				"trackStroke",
-				"trackClasses",
-				"meterBase",
-				"meterStroke",
-				"meterTransition",
-				"meterDuration",
-				"meterClasses",
-				"label",
-				"labelBase",
-				"labelFill",
-				"labelFontSize",
-				"labelFontWeight",
-				"labelClasses",
-				"children"
-			],
-			"type": "object"
-		},
-		"React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
-			"description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
-			"properties": {
-				"key": {
-					"type": "string"
-				},
-				"props": {
-					"description": "The type of the props object"
-				},
-				"type": {
-					"anyOf": [
-						{
-							"propertyOrder": [],
-							"type": "object"
-						},
-						{
-							"propertyOrder": [],
-							"type": "object"
-						},
-						{
-							"type": "string"
-						}
-					],
-					"description": "The type of the component or tag"
-				}
-			},
-			"propertyOrder": ["type", "props", "key"],
-			"required": ["key", "props", "type"],
-			"type": "object"
-		},
-		"React.ReactNode": {
-			"anyOf": [
-				{
-					"$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
-				},
-				{
-					"$ref": "#/definitions/Iterable<React.ReactNode>"
-				},
-				{
-					"$ref": "#/definitions/React.ReactPortal"
-				},
-				{
-					"type": ["string", "number", "boolean"]
-				}
-			],
-			"description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
-		},
-		"React.ReactPortal": {
-			"properties": {
-				"children": {
-					"$ref": "#/definitions/React.ReactNode"
-				},
-				"key": {
-					"type": "string"
-				},
-				"props": {
-					"description": "The type of the props object"
-				},
-				"type": {
-					"anyOf": [
-						{
-							"propertyOrder": [],
-							"type": "object"
-						},
-						{
-							"propertyOrder": [],
-							"type": "object"
-						},
-						{
-							"type": "string"
-						}
-					],
-					"description": "The type of the component or tag"
-				}
-			},
-			"propertyOrder": ["children", "type", "props", "key"],
-			"required": ["children", "key", "props", "type"],
-			"type": "object"
-		}
-	}
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Iterable<React.ReactNode>": {
+            "propertyOrder": [
+                "__@iterator@83"
+            ],
+            "type": "object"
+        },
+        "ProgressRingProps": {
+            "properties": {
+                "base": {
+                    "description": "Set the root base classes",
+                    "type": "string"
+                },
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "childrenBase": {
+                    "description": "Set the nested children base classes",
+                    "type": "string"
+                },
+                "childrenClasses": {
+                    "description": "Provide arbitrary classes to the nested children.",
+                    "type": "string"
+                },
+                "classes": {
+                    "description": "Provide arbitrary classes to the root element",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Set the text for the scalable label",
+                    "type": "string"
+                },
+                "labelBase": {
+                    "description": "Set the label classes",
+                    "type": "string"
+                },
+                "labelClasses": {
+                    "description": "Provide arbitrary classes to the label element",
+                    "type": "string"
+                },
+                "labelFill": {
+                    "description": "Set the label fill color classes",
+                    "type": "string"
+                },
+                "labelFontSize": {
+                    "description": "Set the label font size",
+                    "type": "number"
+                },
+                "labelFontWeight": {
+                    "description": "Set the label font weight",
+                    "type": "string"
+                },
+                "labelledby": {
+                    "description": "Set the aria-labelledby value",
+                    "type": "string"
+                },
+                "max": {
+                    "description": "Set the maximum value",
+                    "type": "number"
+                },
+                "meterBase": {
+                    "description": "Set the meter base classes",
+                    "type": "string"
+                },
+                "meterClasses": {
+                    "description": "Provide arbitrary classes to the meter element",
+                    "type": "string"
+                },
+                "meterDuration": {
+                    "description": "Set the meter transition duration classes",
+                    "type": "string"
+                },
+                "meterStroke": {
+                    "description": "Set the meter stroke color classes",
+                    "type": "string"
+                },
+                "meterTransition": {
+                    "description": "Set the meter transition classes",
+                    "type": "string"
+                },
+                "size": {
+                    "description": "Set the root size classes",
+                    "type": "string"
+                },
+                "strokeLinecap": {
+                    "description": "Defines the shape of the meter",
+                    "enum": [
+                        "butt",
+                        "inherit",
+                        "round",
+                        "square"
+                    ],
+                    "type": "string"
+                },
+                "strokeWidth": {
+                    "description": "Set the stroke size (px)",
+                    "type": "number"
+                },
+                "svgBase": {
+                    "description": "Set the SVG element base classes",
+                    "type": "string"
+                },
+                "svgClasses": {
+                    "description": "Provide arbitrary classes to the SVG element",
+                    "type": "string"
+                },
+                "trackBase": {
+                    "description": "Set the track base classes",
+                    "type": "string"
+                },
+                "trackClasses": {
+                    "description": "Provide arbitrary classes to the track element",
+                    "type": "string"
+                },
+                "trackStroke": {
+                    "description": "Set the track stroke color classes",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Set the value",
+                    "type": "number"
+                }
+            },
+            "propertyOrder": [
+                "value",
+                "max",
+                "strokeWidth",
+                "strokeLinecap",
+                "labelledby",
+                "base",
+                "size",
+                "classes",
+                "childrenBase",
+                "childrenClasses",
+                "svgBase",
+                "svgClasses",
+                "trackBase",
+                "trackStroke",
+                "trackClasses",
+                "meterBase",
+                "meterStroke",
+                "meterTransition",
+                "meterDuration",
+                "meterClasses",
+                "label",
+                "labelBase",
+                "labelFill",
+                "labelFontSize",
+                "labelFontWeight",
+                "labelClasses",
+                "children"
+            ],
+            "type": "object"
+        },
+        "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+            "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The type of the component or tag"
+                }
+            },
+            "propertyOrder": [
+                "type",
+                "props",
+                "key"
+            ],
+            "required": [
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        },
+        "React.ReactNode": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+                },
+                {
+                    "$ref": "#/definitions/Iterable<React.ReactNode>"
+                },
+                {
+                    "$ref": "#/definitions/React.ReactPortal"
+                },
+                {
+                    "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                    ]
+                }
+            ],
+            "description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+        },
+        "React.ReactPortal": {
+            "properties": {
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The type of the component or tag"
+                }
+            },
+            "propertyOrder": [
+                "children",
+                "type",
+                "props",
+                "key"
+            ],
+            "required": [
+                "children",
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        }
+    }
 }
+
