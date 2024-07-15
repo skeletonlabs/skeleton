@@ -8,9 +8,9 @@
 	let {
 		value,
 		base = 'flex items-center gap-2 text-left',
-		paddingClasses = 'py-2 px-4',
-		radiiClasses = 'rounded',
-		selectedClasses = 'preset-filled',
+		padding = 'py-2 px-4',
+		radii = 'rounded',
+		selected = 'preset-filled',
 		classes,
 		leadBase,
 		leadClasses,
@@ -24,7 +24,6 @@
 
 	// Context
 	const context = getListboxContext();
-	const selected = $derived(context.isSelected(value));
 
 	// Local
 	const id = createId();
@@ -32,7 +31,7 @@
 
 	// Events
 	const onclick: (typeof attributes)['onclick'] = (event) => {
-		selected ? context.deselect(value) : context.select(value);
+		context.isSelected(value) ? context.deselect(value) : context.select(value);
 		attributes.onclick?.(event);
 	};
 	const onkeydown: (typeof attributes)['onkeydown'] = (event) => {
@@ -72,8 +71,8 @@
 	{...attributes}
 	type="button"
 	role="option"
-	class="{base} {paddingClasses} {radiiClasses} {selected ? selectedClasses : null} {classes}"
-	aria-selected={selected}
+	class="{base} {padding} {radii} {context.isSelected(value) ? selected : null} {classes}"
+	aria-selected={context.isSelected(value)}
 	data-skeleton-part="listbox-item"
 	data-skeleton-id={id}
 	{onclick}

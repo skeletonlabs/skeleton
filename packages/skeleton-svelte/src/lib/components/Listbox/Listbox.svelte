@@ -10,9 +10,9 @@
 		value = $bindable(),
 		multiple = false,
 		base = 'grid gap-2 overflow-y-auto',
-		paddingClasses = 'p-4',
-		borderClasses = 'border border-surface-200-800',
-		radiiClasses = 'rounded-container',
+		padding = 'p-4',
+		border = 'border border-surface-200-800',
+		radii = 'rounded-container',
 		classes,
 		children,
 		...attributes
@@ -48,7 +48,7 @@
 	{...attributes}
 	role="listbox"
 	aria-orientation="vertical"
-	class="{base} {paddingClasses} {borderClasses} {radiiClasses} {classes}"
+	class="{base} {padding} {border} {radii} {classes}"
 	aria-multiselectable={multiple}
 	data-skeleton-part="listbox"
 	data-skeleton-id={id}

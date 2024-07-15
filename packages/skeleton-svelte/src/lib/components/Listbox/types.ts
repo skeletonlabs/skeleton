@@ -19,11 +19,11 @@ export interface ListboxProps extends HTMLAttributes<HTMLDivElement> {
 	/** Set the base classes. */
 	base?: string;
 	/** Set padding classes. */
-	paddingClasses?: string;
+	padding?: string;
 	/** Set border classes. */
-	borderClasses?: string;
+	border?: string;
 	/** Set radii classes. */
-	radiiClasses?: string;
+	radii?: string;
 	/** Set arbitrary classes. */
 	classes?: string;
 	/** Set the default Snippet */
@@ -36,11 +36,11 @@ export interface ListboxItemProps extends HTMLButtonAttributes {
 	/** Set the base classes. */
 	base?: string;
 	/** Set padding classes. */
-	paddingClasses?: string;
+	padding?: string;
 	/** Set radii classes. */
-	radiiClasses?: string;
+	radii?: string;
 	/** Set selected classes. */
-	selectedClasses?: string;
+	selected?: string;
 	/** Set arbitrary classes. */
 	classes?: string;
 	/** Set the lead base classes */
