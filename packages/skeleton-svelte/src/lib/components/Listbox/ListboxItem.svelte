@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { createId } from '$lib/internal/create-id.js';
-	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { getListboxContext } from './context.js';
-	import type { ListboxItemProps } from './types.js';
 	import { getFirstElement, getLastElement, getNextElement, getPreviousElement } from '$lib/internal/elements.js';
+	import type { ListboxItemProps } from './types.js';
 
 	// Props
 	let {
@@ -35,7 +34,7 @@
 		selected ? context.deselect(value) : context.select(value);
 		attributes.onclick?.(event);
 	};
-	const onkeydown: HTMLButtonAttributes['onkeydown'] = (event) => {
+	const onkeydown: (typeof attributes)['onkeydown'] = (event) => {
 		switch (event.key) {
 			case 'ArrowUp': {
 				event.preventDefault();
