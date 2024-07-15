@@ -3,6 +3,7 @@ layout: '@layouts/LayoutDoc.astro'
 title: Layouts
 description: Learn best practices for creating responsive layouts using semantic HTML and Tailwind.
 showDocsUrl: true
+order: 60
 ---
 
 export const components = componentSet;
@@ -16,7 +17,7 @@ import ExampleColTwoRaw from '@examples/resources/cookbook/layouts/ExampleColTwo
 import ExampleStickyHeader from '@examples/resources/cookbook/layouts/ExampleStickyHeader.astro';
 import ExampleStickyHeaderRaw from '@examples/resources/cookbook/layouts/ExampleStickyHeader.astro?raw';
 
-<p class="type-scale-5">Skeleton supports a variety of web-based frameworks and meta-frameworks, so we've created the following guide to serve as a universal reference when implementing page layouts. These techniques utilize native HTML and Tailwind, meaning Skeleton is supported but not required.</p>
+<p class="type-scale-5">Skeleton supports a variety of web-based frameworks and meta-frameworks, and this guide serves as a universal reference when implementing page layouts. These techniques utilize native HTML and Tailwind, meaning Skeleton is supported but not required. The only prerequisite is Tailwind itself.</p>
 
 ## Real World Example
 
@@ -44,19 +45,19 @@ When creating custom layouts, it's recommended to use semantic HTML to denote ea
 | `<aside>` | Represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes. | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)   |
 | `<article>` | Represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content. | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article) |
 
-## Use Body Scroll
+## Using Body Scroll
 
 Prioritize the `<body>` element as the scrollable page element over child elements. Otherwise you risk the following pitfalls:
 
 1. Mobile browser's "pull to refresh" feature will not work as expected.
-2. The Mobile Safari bottom bar will not auto-hide when scrolling vertically.
+2. The Mobile Safari's browser interface will not auto-hide when scrolling vertically.
 3. CSS print styles may not work as expected.
-4. This can directly interfer with accessbility, especialy on touch screen devices.
-5. May introduce inconsistent behavior between each web framework's solution for layouts.
+4. Accessbility may be adversely affected, especially on touch screen devices.
+5. May introduce inconsistent behavior between your app framework's layout solution.
 
 ## Tailwind Utilities
 
-Tailwind provides the following utility classes, which can be helpful when generating custom layouts.
+Tailwind provides several utility classes that may be helpful when generating custom layouts.
 
 ### Grid
 
@@ -75,7 +76,7 @@ Learn more about [CSS grid](https://css-tricks.com/snippets/css/complete-guide-g
 
 ### Alignment
 
-The following options are available for both Flexbox and Grid styles.
+The following options are available for both [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) styles.
 
 | Utility | Description |
 | --- | --- |
@@ -91,7 +92,7 @@ The following options are available for both Flexbox and Grid styles.
 
 ### Responsive Design
 
-We recommend you opt for Tailwind's built-in [responsive breakpoints](https://tailwindcss.com/docs/responsive-design) for handling responsive design.
+We recommend you utilize Tailwind's built-in [responsive breakpoints](https://tailwindcss.com/docs/responsive-design) for handling responsive design.
 
 ```html
 <!-- Use a single column on small screens; show multiple columns at the medium breakpoit or wider -->
@@ -103,7 +104,7 @@ We recommend you opt for Tailwind's built-in [responsive breakpoints](https://ta
 </div>
 ```
 
-By default, your `<html>` and `<body>` may collapse vertically and not extend to full height of the viewport. Consider a custom reset:
+By default, your `<html>` and `<body>` may collapse vertically and not extend to full height of the viewport. Consider a reset:
 
 ```css
 html,
@@ -114,76 +115,57 @@ body {
 
 ## The Basics
 
-Let's start by creating a few traditional layouts using a combination of semantic HTML and Tailwind utility classes.
+Let's start by creating traditional layouts using a combination of semantic HTML and Tailwind utility classes.
 
 ### One Column
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleColOne />
-	</Fragment>
-	<Fragment slot="code">
-		{/* <Code code={ExampleColOneRaw} lang="astro" /> */}
-		<figure class="card-enhanced-gradient flex justify-center p-8">
-			<a
-				class="btn preset-filled"
-				href="https://play.tailwindcss.com/3ayrvPnIC4"
-				target="_blank"
-			>
-				View on Tailwind Play &rarr;
-			</a>
-		</figure>
-	</Fragment>
-</Preview>
+<ExampleColOne />
+
+<figure class="card-enhanced-gradient flex justify-center p-8">
+	<a
+		class="btn preset-filled"
+		href="https://play.tailwindcss.com/3ayrvPnIC4"
+		target="_blank"
+	>
+		Preview and Source &rarr;
+	</a>
+</figure>
 
 ### Two Column
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleColTwo />
-	</Fragment>
-	<Fragment slot="code">
-		{/* <Code code={ExampleColTwoRaw} lang="astro" /> */}
-		<figure class="card-enhanced-gradient flex justify-center p-8">
-			<a
-				class="btn preset-filled"
-				href="https://play.tailwindcss.com/yCv0ZOICSx"
-				target="_blank"
-			>
-				View on Tailwind Play &rarr;
-			</a>
-		</figure>
-	</Fragment>
-</Preview>
+<ExampleColTwo />
+
+<figure class="card-enhanced-gradient flex justify-center p-8">
+	<a
+		class="btn preset-filled"
+		href="https://play.tailwindcss.com/yCv0ZOICSx"
+		target="_blank"
+	>
+		Preview and Source &rarr;
+	</a>
+</figure>
 
 ### Three Column
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleColThree />
-	</Fragment>
-	<Fragment slot="code">
-		{/* <Code code={ExampleColThreeRaw} lang="astro" /> */}
-		<figure class="card-enhanced-gradient flex justify-center p-8">
-			<a
-				class="btn preset-filled"
-				href="https://play.tailwindcss.com/BH0iosKxix"
-				target="_blank"
-			>
-				View on Tailwind Play &rarr;
-			</a>
-		</figure>
-	</Fragment>
-</Preview>
+<ExampleColThree />
 
+<figure class="card-enhanced-gradient flex justify-center p-8">
+	<a
+		class="btn preset-filled"
+		href="https://play.tailwindcss.com/BH0iosKxix"
+		target="_blank"
+	>
+		Preview and Source &rarr;
+	</a>
+</figure>
 
 ## Sticky Positioning
 
-If you wish for your header or sidebar to remain fixed while scrolling, use the following techniques.
+If you wish for your header or sidebar to remain fixed while scrolling, try the following techniques.
 
 ### Sticky Header
 
-For `<header>`, we'll implement on three utlity classes:
+For `<header>`, we'll implement a few specific utlity classes:
 
 - [sticky](https://tailwindcss.com/docs/position#sticky-positioning-elements) - Sets the CSS display to a value of sticky.
 - [top-0](https://tailwindcss.com/docs/top-right-bottom-left) - Sets the top offset to a value of 0px.
@@ -191,32 +173,24 @@ For `<header>`, we'll implement on three utlity classes:
 
 > TIP: Use [backdrop-blur](https://tailwindcss.com/docs/backdrop-blur) to produce the hazy glass-like effect for overlapped semi-transparent elements.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleStickyHeader />
-	</Fragment>
-	<Fragment slot="code">
-		{/* <Code code={ExampleStickyHeaderRaw} lang="astro" /> */}
-		<figure class="card-enhanced-gradient flex justify-center p-8">
-			<a
-				class="btn preset-filled"
-				href="https://play.tailwindcss.com/g7ory5pA4K"
-				target="_blank"
-			>
-				View on Tailwind Play &rarr;
-			</a>
-		</figure>
-	</Fragment>
-</Preview>
+<ExampleStickyHeader />
+
+<figure class="card-enhanced-gradient flex justify-center p-8">
+	<a
+		class="btn preset-filled"
+		href="https://play.tailwindcss.com/g7ory5pA4K"
+		target="_blank"
+	>
+		Preview and Source &rarr;
+	</a>
+</figure>
 
 ### Sticky Sidebar
 
 For `<aside>`, we introduce two addition utility classes:
 
-- [col-span-1](https://tailwindcss.com/docs/grid-column) - by defining our columns in an explicitly, we ensure all styles display as expected.
-- [h-screen](https://tailwindcss.com/docs/height#viewport-height) - ensures our sidebar matches the height of the viewport.
-
-> NOTE: due to the use of `h-screen` we've skipped the embedded preview to provide more accurate results.
+- [col-span-1](https://tailwindcss.com/docs/grid-column) - we must define our columns explicitly to ensure all styles are display as expected.
+- [h-screen](https://tailwindcss.com/docs/height#viewport-height) - ensures our sidebar matches the viewport height. See Calculate Offsets below for more complex layouts.
 
 <figure class="card-enhanced-gradient flex justify-center p-8">
 	<a
@@ -224,7 +198,7 @@ For `<aside>`, we introduce two addition utility classes:
 		href="https://play.tailwindcss.com/aSzgim96nc"
 		target="_blank"
 	>
-		View on Tailwind Play &rarr;
+		Preview and Source &rarr;
 	</a>
 </figure>
 
@@ -232,7 +206,7 @@ For `<aside>`, we introduce two addition utility classes:
 
 ### Calculate Offsets
 
-You may use [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) to calculate offsets, which can be handy when you have multiple sticky elements.
+You may use the [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) property to calculate numeric amounts, which can be handy when you have multiple sticky elements.
 
 ```html
 <aside class="... sticky top-0 h-[calc(100vh-100px)]">(sidebar)</aside>
@@ -256,4 +230,4 @@ Combine the grid arbitrary syntax with [minmax](https://developer.mozilla.org/en
 
 ### Grid Template
 
-If you wish to go beyond Tailwind, native CSS also offers [grid-template](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template). This provides a declarative shorthand for defining grid columns, grid rows, and grid areas. Just make sure to match your [Tailwind configuration](https://tailwindcss.com/docs/responsive-design) when it comes to [media query breakpoints](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
+If you wish to go beyond Tailwind, native CSS also offers [grid-template](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template). This provides a declarative shorthand for defining grid columns, rows, and areas. Take care to match your [media query breakpoints](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) configured by Tailwind by default, or extended within your application's [Tailwind configuration](https://tailwindcss.com/docs/responsive-design).
