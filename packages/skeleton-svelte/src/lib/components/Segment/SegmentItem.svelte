@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { SegmentItemProps } from './types.js';
+	import { getSegmentContext } from './context.js';
 
 	let {
-		group = $bindable(),
-		name,
+		id,
 		value,
 		title,
 		disabled = false,
@@ -12,54 +12,33 @@
 		active = 'preset-filled',
 		hover = 'hover:preset-tonal',
 		classes = '',
-		// Input
-		radioBase = 'hidden absolute pointer-events-none',
 		// Label
 		labelBase = 'pointer-events-none',
 		labelClasses = '',
 		// Events
-		onchange = () => {},
+		onclick = () => {},
 		// Snippets
 		children
 	}: SegmentItemProps = $props();
 
-	// Ref
-	let elemCheckbox: HTMLInputElement;
-
-	// Reactive
-	const checked = $derived(group === value);
-	const rxActive = $derived(checked ? active : hover);
+	// Context
+	const ctx = getSegmentContext();
 
 	function onClickHandler() {
-		elemCheckbox.checked = true;
-		group = value;
+		ctx.onSelectionHandler(value);
+		if (onclick) onclick(value);
 	}
+
+	// Reactive
+	const selected = $derived(value === ctx.value);
+	const rxActive = $derived(selected ? active : hover);
 </script>
 
-<button
-	role="radio"
-	aria-checked={checked}
-	onclick={onClickHandler}
-	type="button"
-	class="{base} {rxActive} {classes}"
-	{title}
-	{disabled}
-	data-testid="segment-item"
->
-	<!-- Radio Input (hidden) -->
-	<input
-		class={radioBase}
-		type="radio"
-		bind:this={elemCheckbox}
-		bind:group
-		{name}
-		{value}
-		{checked}
-		onchange={() => onchange(group)}
-		tabindex="-1"
-	/>
+<button onclick={onClickHandler} type="button" class="{base} {rxActive} {classes}" {title} {disabled} data-testid="segment-item">
+	<!-- Input -->
+	{#if selected}<input type="hidden" name={ctx.name} {id} {value} />{/if}
 	<!-- Label -->
-	<label for={name} class="{labelBase} {labelClasses}">
+	<label for={ctx.name} class="{labelBase} {labelClasses}">
 		{#if children}{@render children()}{/if}
 	</label>
 </button>
