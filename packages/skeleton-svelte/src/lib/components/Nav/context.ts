@@ -3,7 +3,7 @@ import type { NavContext } from './types.js';
 
 export const [setNavigationContext, getNavigationContext, key] = createContext<NavContext>({
 	parent: 'none',
-	selected: '',
+	value: '',
 	expanded: false,
 	onSelectionHandler: () => {}
 });

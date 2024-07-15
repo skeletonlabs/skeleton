@@ -119,7 +119,7 @@ describe('<Nav.Tile>', () => {
 
 	it('should render in Nav.Rail expanded state', () => {
 		const { getByTestId } = render(
-			<NavContext.Provider value={{ parent: 'rail', selected: '', expanded: true, onSelectionHandler: () => {} }}>
+			<NavContext.Provider value={{ parent: 'rail', value: '', expanded: true, onSelectionHandler: () => {} }}>
 				<Nav.Tile />
 			</NavContext.Provider>
 		);
@@ -129,7 +129,7 @@ describe('<Nav.Tile>', () => {
 
 	it('should render in Nav.Bar state', () => {
 		const { getByTestId } = render(
-			<NavContext.Provider value={{ parent: 'bar', selected: '', expanded: true, onSelectionHandler: () => {} }}>
+			<NavContext.Provider value={{ parent: 'bar', value: '', expanded: true, onSelectionHandler: () => {} }}>
 				<Nav.Tile />
 			</NavContext.Provider>
 		);

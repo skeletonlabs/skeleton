@@ -6,8 +6,8 @@
 	import IconVideo from 'lucide-svelte/icons/video';
 
 	// You may optionally bind a selected state value
-	// Pass the ID value for the default selected item.
-	let selected = $state('0');
+	// Pass the ID item you wish to be selected by default.
+	let value = $state('0');
 </script>
 
 <div class="card border-surface-100-900 grid h-[512px] w-[320px] grid-rows-[1fr_auto] border-[1px]">
@@ -16,7 +16,7 @@
 		<p class="opacity-20">(Content)</p>
 	</div>
 	<!-- Component -->
-	<Nav.Bar bind:selected onchange={console.log}>
+	<Nav.Bar bind:value onchange={console.log}>
 		<Nav.Tile id="0" label="Files">
 			<IconFolder />
 		</Nav.Tile>

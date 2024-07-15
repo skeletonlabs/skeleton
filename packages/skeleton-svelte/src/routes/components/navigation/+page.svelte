@@ -5,7 +5,7 @@
 	import IconBox from 'lucide-svelte/icons/box';
 	import IconSettings from 'lucide-svelte/icons/settings';
 
-	let selected = $state('0');
+	let value = $state('0');
 	let expanded = $state(false);
 
 	function onChangeHandler(id: string) {
@@ -23,9 +23,9 @@
 	</header>
 	<section class="space-y-4">
 		<h2 class="h2">Bar</h2>
-		<pre class="pre">selected: {selected}</pre>
+		<pre class="pre">value: {value}</pre>
 		<div class="w-[320px]">
-			<Nav.Bar bind:selected onchange={onChangeHandler}>
+			<Nav.Bar bind:value onchange={onChangeHandler}>
 				<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1">
 					<IconBox />
 				</Nav.Tile>
@@ -40,7 +40,7 @@
 				</Nav.Tile>
 			</Nav.Bar>
 		</div>
-		<Nav.Bar bind:selected onchange={onChangeHandler}>
+		<Nav.Bar bind:value onchange={onChangeHandler}>
 			<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1">
 				<IconBox />
 			</Nav.Tile>

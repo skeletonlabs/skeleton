@@ -3,7 +3,7 @@
 	import { setNavigationContext } from './context.js';
 
 	let {
-		selected = $bindable(''),
+		value = $bindable(''),
 		// Root
 		base = 'h-full flex flex-col',
 		background = 'preset-filled-surface-100-900',
@@ -25,15 +25,15 @@
 	}: NavBarProps = $props();
 
 	function onSelectionHandler(id: string) {
-		selected = id;
+		value = id;
 		if (onchange) onchange(id);
 	}
 
 	// Context
 	setNavigationContext({
 		parent: 'bar',
-		get selected() {
-			return selected;
+		get value() {
+			return value;
 		},
 		expanded: false,
 		onSelectionHandler

@@ -4,7 +4,7 @@ import type { Snippet } from 'svelte';
 
 export interface NavContext {
 	parent: 'bar' | 'rail' | 'none';
-	selected: string;
+	value: string;
 	expanded: boolean;
 	onSelectionHandler: (id: string) => void;
 }
@@ -13,7 +13,7 @@ export interface NavContext {
 
 /* Props common between NavRail and NavBar */
 export interface NavCommonProps {
-	selected?: string;
+	value?: string;
 
 	// Root ---
 	/** Set base styles. */

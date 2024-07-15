@@ -48,7 +48,7 @@
 	const classesCollapsed = $derived(`${rxSize} ${padding} ${gap} ${classes}`);
 	const classesExtended = $derived(`${expandedPadding} ${expandedGap} ${expandedClasses}`);
 	const rxMode = $derived(ctx.expanded ? classesExtended : classesCollapsed);
-	const rxBackground = $derived(selected || ctx.selected === id ? active : `${background} ${hover}`);
+	const rxBackground = $derived(selected || ctx.value === id ? active : `${background} ${hover}`);
 
 	function onClickHandler() {
 		if (onclick && !id) throw new Error('No ID was provided');

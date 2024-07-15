@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Nav } from '$lib/components/Navigation/Navigation.js';
 
 export function Component() {
-	const [selected, setSelected] = useState('0');
+	const [value, setValue] = useState('0');
 
 	return (
 		<div className="space-y-10">
@@ -13,8 +13,8 @@ export function Component() {
 			</header>
 			<section className="space-y-4">
 				<h2 className="h2">Bar</h2>
-				<pre className="pre">selected: {selected}</pre>
-				<Nav.Bar selected={selected} onChange={setSelected}>
+				<pre className="pre">value: {value}</pre>
+				<Nav.Bar value={value} onChange={setValue}>
 					<Nav.Tile id="0" label="Tile 1">
 						<IconBox />
 					</Nav.Tile>

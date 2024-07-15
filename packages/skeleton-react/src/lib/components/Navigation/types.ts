@@ -2,7 +2,7 @@
 
 export interface NavContextState {
 	parent: string;
-	selected: string;
+	value: string;
 	expanded?: boolean;
 	onSelectionHandler: (id: string) => void;
 }
@@ -11,7 +11,7 @@ export interface NavContextState {
 
 /** Props common between NavRail and NavBar */
 export interface NavCommonProps {
-	selected?: string;
+	value?: string;
 
 	// Root ---
 	/** Set base styles. */

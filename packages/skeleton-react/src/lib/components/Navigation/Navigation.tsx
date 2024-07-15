@@ -7,7 +7,7 @@ import { NavContextState, NavRailProps, NavBarProps, NavTileProps } from './type
 
 export const NavContext = createContext<NavContextState>({
 	parent: 'none',
-	selected: '',
+	value: '',
 	expanded: false,
 	onSelectionHandler: () => {}
 });
@@ -15,7 +15,7 @@ export const NavContext = createContext<NavContextState>({
 // Components ---
 
 export const NavRail: React.FC<NavRailProps> = ({
-	selected = '',
+	value = '',
 	expanded = false,
 	// Root
 	base = 'h-full flex flex-col',
@@ -54,14 +54,14 @@ export const NavRail: React.FC<NavRailProps> = ({
 	footer
 }) => {
 	function onSelectionHandler(id: string) {
-		selected = id;
+		value = id;
 		if (onChange) onChange(id);
 	}
 
 	// Set Context
 	const ctx = {
 		parent: 'rail',
-		selected,
+		value,
 		expanded,
 		onSelectionHandler
 	};
@@ -94,7 +94,7 @@ export const NavRail: React.FC<NavRailProps> = ({
 };
 
 export const NavBar: React.FC<NavBarProps> = ({
-	selected = '',
+	value = '',
 	// Root
 	base = 'h-full flex flex-col',
 	background = 'preset-filled-surface-100-900',
@@ -115,14 +115,14 @@ export const NavBar: React.FC<NavBarProps> = ({
 	children
 }) => {
 	function onSelectionHandler(id: string) {
-		selected = id;
+		value = id;
 		if (onChange) onChange(id);
 	}
 
 	// Set Context
 	const ctx = {
 		parent: 'bar',
-		selected,
+		value,
 		expanded: false,
 		onSelectionHandler
 	};
@@ -185,7 +185,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 	const classesCollapsed = `${rxSize} ${padding} ${gap} ${classes}`;
 	const classesExtended = `${expandedPadding} ${expandedGap} ${expandedClasses}`;
 	const rxMode = ctx.expanded ? classesExtended : classesCollapsed;
-	const rxBackground = selected || ctx.selected === id ? active : `${background} ${hover}`;
+	const rxBackground = selected || ctx.value === id ? active : `${background} ${hover}`;
 
 	function onClickHandler() {
 		if (onClick && !id) throw new Error('No ID was provided');
