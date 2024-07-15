@@ -61,10 +61,6 @@ export interface SegmentItemsProps extends React.PropsWithChildren {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Input ---
-	/* Set base classes for the hidden radio input */
-	radioBase?: string;
-
 	// Label ---
 	/** Sets base classes for the label element. */
 	labelBase?: string;

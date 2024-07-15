@@ -10,7 +10,7 @@ export const Page: React.FC = () => {
 			id="compact"
 			name="compact"
 			checked={compact}
-			onCheckedChange={setCompact}
+			onChange={setCompact}
 			width="w-9"
 			stateActive="preset-filled-tertiary-500"
 			compact
