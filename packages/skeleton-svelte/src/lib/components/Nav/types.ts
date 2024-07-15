@@ -1,7 +1,20 @@
 import type { Snippet } from 'svelte';
 
-//  Props common between NavRail and NavBar
+// Context ---
+
+export interface NavContext {
+	parent: 'bar' | 'rail' | 'none';
+	selected: string;
+	expanded: boolean;
+	onSelectionHandler: (id: string) => void;
+}
+
+// Components ---
+
+/* Props common between NavRail and NavBar */
 export interface NavCommonProps {
+	selected?: string;
+
 	// Root ---
 	/** Set base styles. */
 	base?: string;
@@ -31,22 +44,18 @@ export interface NavCommonProps {
 	tilesGap?: string;
 	/** Provide arbitrary CSS classes. */
 	tilesClasses?: string;
+
+	// Events ---
+	/** Triggers when selection occurs. */
+	onchange?: (id: string) => void;
 }
 
-// Nav Context ---
-export interface NavContext {
-	parent: 'bar' | 'rail' | 'none';
-	expanded: boolean;
-}
-
-// Nav Bar ---
 export interface NavBarProps extends NavCommonProps {
 	// Snippets ---
 	/** The default children snippet. */
 	children?: Snippet;
 }
 
-// Nav Rail ---
 export interface NavRailProps extends NavCommonProps {
 	/** Enabled expanded mode. */
 	expanded?: boolean;
@@ -88,7 +97,6 @@ export interface NavRailProps extends NavCommonProps {
 	footer?: Snippet;
 }
 
-// Nav Tile ---
 export interface NavTileProps {
 	/** Provide a unique ID. */
 	id?: string;

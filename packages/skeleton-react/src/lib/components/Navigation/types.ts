@@ -2,13 +2,17 @@
 
 export interface NavContextState {
 	parent: string;
+	selected: string;
 	expanded?: boolean;
+	onSelectionHandler: (id: string) => void;
 }
 
 // Components ---
 
-//  Props common between NavRail and NavBar
+/** Props common between NavRail and NavBar */
 export interface NavCommonProps {
+	selected?: string;
+
 	// Root ---
 	/** Set base styles. */
 	base?: string;
@@ -38,6 +42,10 @@ export interface NavCommonProps {
 	tilesGap?: string;
 	/** Provide arbitrary CSS classes. */
 	tilesClasses?: string;
+
+	// Events ---
+	/** Triggers when selection occurs. */
+	onChange?: (id: string) => void;
 }
 
 export interface NavBarProps extends NavCommonProps {

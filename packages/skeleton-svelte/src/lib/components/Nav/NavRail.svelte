@@ -3,6 +3,7 @@
 	import type { NavRailProps } from './types.js';
 
 	let {
+		selected = $bindable(''),
 		expanded = false,
 		// Root
 		base = 'h-full flex flex-col',
@@ -33,18 +34,29 @@
 		footerItems = 'items-center',
 		footerGap = 'gap-1',
 		footerClasses = '',
+		// Events
+		onchange,
 		// Snippets
 		header,
 		tiles,
 		footer
 	}: NavRailProps = $props();
 
+	function onSelectionHandler(id: string) {
+		selected = id;
+		if (onchange) onchange(id);
+	}
+
 	// Context
 	setNavigationContext({
 		parent: 'rail',
+		get selected() {
+			return selected;
+		},
 		get expanded() {
 			return expanded;
-		}
+		},
+		onSelectionHandler
 	});
 
 	// Reactive

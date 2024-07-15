@@ -5,15 +5,11 @@
 	import IconBox from 'lucide-svelte/icons/box';
 	import IconSettings from 'lucide-svelte/icons/settings';
 
-	let activeItem = $state('0');
+	let selected = $state('0');
 	let expanded = $state(false);
 
-	function onClickHandler(id: string) {
-		activeItem = id;
-	}
-
-	function isActive(id: string) {
-		return activeItem === id;
+	function onChangeHandler(id: string) {
+		console.log('parent:onChangeHandler', id);
 	}
 
 	function toggleExpanded() {
@@ -27,36 +23,37 @@
 	</header>
 	<section class="space-y-4">
 		<h2 class="h2">Bar</h2>
+		<pre class="pre">selected: {selected}</pre>
 		<div class="w-[320px]">
-			<Nav.Bar>
-				<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" onclick={onClickHandler} selected={isActive('0')}>
+			<Nav.Bar bind:selected onchange={onChangeHandler}>
+				<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1">
 					<IconBox />
 				</Nav.Tile>
-				<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" onclick={onClickHandler} selected={isActive('1')}>
+				<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2">
 					<IconBox />
 				</Nav.Tile>
-				<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" onclick={onClickHandler} selected={isActive('2')}>
+				<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3">
 					<IconBox />
 				</Nav.Tile>
-				<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" onclick={onClickHandler} selected={isActive('3')}>
+				<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4">
 					<IconBox />
 				</Nav.Tile>
 			</Nav.Bar>
 		</div>
-		<Nav.Bar>
-			<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" onclick={onClickHandler} selected={isActive('0')}>
+		<Nav.Bar bind:selected onchange={onChangeHandler}>
+			<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1">
 				<IconBox />
 			</Nav.Tile>
-			<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" onclick={onClickHandler} selected={isActive('1')}>
+			<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2">
 				<IconBox />
 			</Nav.Tile>
-			<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" onclick={onClickHandler} selected={isActive('2')}>
+			<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3">
 				<IconBox />
 			</Nav.Tile>
-			<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" onclick={onClickHandler} selected={isActive('3')}>
+			<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4">
 				<IconBox />
 			</Nav.Tile>
-			<Nav.Tile id="4" label="Tile 5" labelExpanded="Expanded Tile 5" onclick={onClickHandler} selected={isActive('4')}>
+			<Nav.Tile id="4" label="Tile 5" labelExpanded="Expanded Tile 5">
 				<IconBox />
 			</Nav.Tile>
 		</Nav.Bar>
@@ -76,7 +73,7 @@
 					</a>
 				{/snippet}
 				{#snippet tiles()}
-					<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" href="/page/1">
+					<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" href="/page/1" selected>
 						<IconBox />
 					</Nav.Tile>
 					<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" href="/page/2">
