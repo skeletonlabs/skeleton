@@ -5,14 +5,14 @@ export const Page: React.FC = () => {
 	const [size, setSize] = useState('sm');
 
 	return (
-		<Segment flexDirection="flex-col">
-			<Segment.Item group={size} name="size" id="sm" value="sm" onChange={setSize}>
+		<Segment value={size} name="size" flexDirection="flex-col" onChange={setSize}>
+			<Segment.Item id="sm" value="sm">
 				Small
 			</Segment.Item>
-			<Segment.Item group={size} name="size" id="md" value="md" onChange={setSize}>
+			<Segment.Item id="md" value="md">
 				Medium
 			</Segment.Item>
-			<Segment.Item group={size} name="size" id="lg" value="lg" onChange={setSize} disabled>
+			<Segment.Item id="lg" value="lg" disabled>
 				Large
 			</Segment.Item>
 		</Segment>

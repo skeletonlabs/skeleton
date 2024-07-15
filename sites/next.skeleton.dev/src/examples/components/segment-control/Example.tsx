@@ -6,17 +6,17 @@ export const Page: React.FC = () => {
 	const [align, setAlign] = useState('left');
 
 	return (
-		<Segment>
-			<Segment.Item group={align} name="align" id="left" value="left" onChange={setAlign}>
+		<Segment value={align} name="align" onChange={setAlign}>
+			<Segment.Item id="left" value="left">
 				<IconLeft />
 			</Segment.Item>
-			<Segment.Item group={align} name="align" id="center" value="center" onChange={setAlign}>
+			<Segment.Item id="center" value="center">
 				<IconCenter />
 			</Segment.Item>
-			<Segment.Item group={align} name="align" id="right" value="right" onChange={setAlign}>
+			<Segment.Item id="right" value="right">
 				<IconRight />
 			</Segment.Item>
-			<Segment.Item group={align} name="align" id="justify" value="justify" onChange={setAlign}>
+			<Segment.Item id="justify" value="justify">
 				<IconJustify />
 			</Segment.Item>
 		</Segment>
