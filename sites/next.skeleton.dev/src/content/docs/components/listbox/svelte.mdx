@@ -1,3 +1,35 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 ---
+
+export const components = componentSet;
+
+import ExampleSingle from '@examples/components/listbox/ExampleSingle.svelte';
+import ExampleSingleRaw from '@examples/components/listbox/ExampleSingle.svelte?raw';
+
+import ExampleMultiple from '@examples/components/listbox/ExampleMultiple.svelte';
+import ExampleMultipleRaw from '@examples/components/listbox/ExampleMultiple.svelte?raw';
+
+{/* --- */}
+
+## Single
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleSingle client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleSingleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Multiple
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleMultiple client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleMultipleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
