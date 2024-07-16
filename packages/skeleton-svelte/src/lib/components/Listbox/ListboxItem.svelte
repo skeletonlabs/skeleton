@@ -9,7 +9,7 @@
 		value,
 		base = 'flex items-center gap-2 text-left',
 		padding = 'py-2 px-4',
-		radii = 'rounded',
+		rounded = 'rounded',
 		selected = 'preset-filled',
 		classes,
 		leadBase,
@@ -23,15 +23,15 @@
 	}: ListboxItemProps = $props();
 
 	// Context
-	const context = getListboxContext();
+	const ctx = getListboxContext();
 
 	// Local
 	const id = createId();
-	const listboxItemSelector = `[data-skeleton-id="${context.id}"] > [data-skeleton-part="listbox-item"]`;
+	const listboxItemSelector = `[data-skeleton-id="${ctx.id}"] > [data-skeleton-part="listbox-item"]`;
 
 	// Events
 	const onclick: (typeof attributes)['onclick'] = (event) => {
-		context.isSelected(value) ? context.deselect(value) : context.select(value);
+		ctx.isSelected(value) ? ctx.deselect(value) : ctx.select(value);
 		attributes.onclick?.(event);
 	};
 	const onkeydown: (typeof attributes)['onkeydown'] = (event) => {
@@ -71,8 +71,8 @@
 	{...attributes}
 	type="button"
 	role="option"
-	class="{base} {padding} {radii} {context.isSelected(value) ? selected : null} {classes}"
-	aria-selected={context.isSelected(value)}
+	class="{base} {padding} {rounded} {ctx.isSelected(value) ? selected : null} {classes}"
+	aria-selected={ctx.isSelected(value)}
 	data-skeleton-part="listbox-item"
 	data-skeleton-id={id}
 	{onclick}
@@ -88,5 +88,5 @@
 </button>
 
 {#if selected}
-	<input type="hidden" name={context.name} {value} />
+	<input type="hidden" name={ctx.name} {value} />
 {/if}
