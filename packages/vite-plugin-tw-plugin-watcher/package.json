@@ -1,6 +1,6 @@
 {
 	"name": "vite-plugin-tw-plugin-watcher",
-	"version": "0.0.0",
+	"version": "0.0.1-next.0",
 	"description": "",
 	"private": true,
 	"main": "index.js",

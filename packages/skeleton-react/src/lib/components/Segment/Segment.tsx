@@ -1,9 +1,22 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import type { SegmentProps, SegmentItemsProps } from './types.js';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import type { SegmentContextState, SegmentProps, SegmentItemsProps } from './types.js';
+
+// Contexts ---
+
+export const SegmentContext = createContext<SegmentContextState>({
+	value: '',
+	name: '',
+	onSelectionHandler: () => {}
+});
+
+// Components ---
 
 const SegmentRoot: React.FC<SegmentProps> = ({
+	value = '',
+	name = '',
+	// Root
 	base = 'inline-flex items-stretch overflow-hidden',
 	background = 'preset-outlined-surface-200-800',
 	border = 'p-2',
@@ -13,23 +26,36 @@ const SegmentRoot: React.FC<SegmentProps> = ({
 	rounded = 'rounded-container',
 	width = '',
 	classes = '',
+	// Events
+	onChange,
 	// Children
 	children
 }) => {
+	function onSelectionHandler(newValue: string) {
+		value = newValue;
+		if (onChange) onChange(newValue);
+	}
+
+	// Set Context
+	const ctx = {
+		value,
+		name,
+		onSelectionHandler
+	};
+
 	return (
 		<div
 			role="radiogroup"
 			className={`${base} ${flexDirection} ${background} ${border} ${padding} ${gap} ${rounded} ${width} ${classes}`}
 			data-testid="segment"
 		>
-			{children}
+			<SegmentContext.Provider value={ctx}>{children}</SegmentContext.Provider>
 		</div>
 	);
 };
 
 const SegmentItem: React.FC<SegmentItemsProps> = ({
-	group,
-	name,
+	id,
 	value,
 	title,
 	disabled = false,
@@ -38,45 +64,38 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 	active = 'preset-filled',
 	hover = 'hover:preset-tonal',
 	classes = '',
-	// Input
-	radioBase = 'hidden absolute pointer-events-none',
 	// Label
 	labelBase = 'pointer-events-none',
 	labelClasses = '',
 	// Events
-	onChange,
+	onClick,
 	// Children
 	children
 }) => {
-	// Ref
-	const elemCheckbox = useRef<HTMLInputElement>(null);
+	// Get Context
+	const ctx = useContext<SegmentContextState>(SegmentContext);
 
 	// Reactive
-	const [checked, setChecked] = useState(group === value);
-	const [rxActive, setRxActive] = useState(checked ? active : hover);
+	const [selected, setSelected] = useState(value === ctx.value);
+	const [rxActive, setRxActive] = useState(selected ? active : hover);
 
 	useEffect(() => {
-		setChecked(group === value);
-	}, [group, value]);
+		setSelected(value === ctx.value);
+	}, [value, ctx.value]);
 
 	useEffect(() => {
-		setRxActive(checked ? active : hover);
-	}, [checked, active, hover]);
+		setRxActive(selected ? active : hover);
+	}, [selected, active, hover]);
 
 	function onClickHandler() {
-		elemCheckbox.current!.click();
-		group = value;
-		console.log(group);
-	}
-
-	function onChangeHandler() {
-		if (onChange) onChange(group);
+		ctx.onSelectionHandler(value);
+		onClick?.(value);
 	}
 
 	return (
 		<button
 			role="radio"
-			aria-checked={checked}
+			aria-checked={selected}
 			onClick={onClickHandler}
 			type="button"
 			className={`${base} ${rxActive} ${classes}`}
@@ -84,17 +103,8 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 			disabled={disabled}
 			data-testid="segment-item"
 		>
-			{/* Radio Input (hidden) */}
-			<input
-				className={radioBase}
-				type="radio"
-				ref={elemCheckbox}
-				name={name}
-				value={value}
-				checked={checked}
-				onChange={onChangeHandler}
-				tabIndex={-1}
-			/>
+			{/* Input */}
+			{selected ? <input type="hidden" name={ctx.name} id={id} value={value} /> : null}
 			{/* Label */}
 			<label className={`${labelBase} ${labelClasses}`}>{children}</label>
 		</button>

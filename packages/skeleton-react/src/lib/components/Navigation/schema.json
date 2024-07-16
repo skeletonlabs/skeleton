@@ -27,6 +27,11 @@
 					"description": "Set width classes.",
 					"type": "string"
 				},
+				"onChange": {
+					"description": "Triggers when selection occurs.",
+					"propertyOrder": [],
+					"type": "object"
+				},
 				"padding": {
 					"description": "Set padding classes.",
 					"type": "string"
@@ -55,6 +60,9 @@
 					"description": "Set flex justify classes.",
 					"type": "string"
 				},
+				"value": {
+					"type": "string"
+				},
 				"width": {
 					"description": "Set width classes.",
 					"type": "string"
@@ -66,6 +74,7 @@
 			},
 			"propertyOrder": [
 				"children",
+				"value",
 				"base",
 				"background",
 				"padding",
@@ -78,11 +87,13 @@
 				"tilesJustify",
 				"tilesItems",
 				"tilesGap",
-				"tilesClasses"
+				"tilesClasses",
+				"onChange"
 			],
 			"type": "object"
 		},
 		"NavCommonProps": {
+			"description": "Props common between NavRail and NavBar",
 			"properties": {
 				"background": {
 					"description": "Set background classes.",
@@ -100,6 +111,11 @@
 					"description": "Set width classes.",
 					"type": "string"
 				},
+				"onChange": {
+					"description": "Triggers when selection occurs.",
+					"propertyOrder": [],
+					"type": "object"
+				},
 				"padding": {
 					"description": "Set padding classes.",
 					"type": "string"
@@ -128,6 +144,9 @@
 					"description": "Set flex justify classes.",
 					"type": "string"
 				},
+				"value": {
+					"type": "string"
+				},
 				"width": {
 					"description": "Set width classes.",
 					"type": "string"
@@ -138,6 +157,7 @@
 				}
 			},
 			"propertyOrder": [
+				"value",
 				"base",
 				"background",
 				"padding",
@@ -150,7 +170,8 @@
 				"tilesJustify",
 				"tilesItems",
 				"tilesGap",
-				"tilesClasses"
+				"tilesClasses",
+				"onChange"
 			],
 			"type": "object"
 		},
@@ -159,12 +180,19 @@
 				"expanded": {
 					"type": "boolean"
 				},
+				"onSelectionHandler": {
+					"propertyOrder": [],
+					"type": "object"
+				},
 				"parent": {
+					"type": "string"
+				},
+				"value": {
 					"type": "string"
 				}
 			},
-			"propertyOrder": ["parent", "expanded"],
-			"required": ["parent"],
+			"propertyOrder": ["parent", "value", "expanded", "onSelectionHandler"],
+			"required": ["onSelectionHandler", "parent", "value"],
 			"type": "object"
 		},
 		"NavRailProps": {
@@ -249,6 +277,11 @@
 					"description": "Set width classes.",
 					"type": "string"
 				},
+				"onChange": {
+					"description": "Triggers when selection occurs.",
+					"propertyOrder": [],
+					"type": "object"
+				},
 				"padding": {
 					"description": "Set padding classes.",
 					"type": "string"
@@ -277,6 +310,9 @@
 					"description": "Set flex justify classes.",
 					"type": "string"
 				},
+				"value": {
+					"type": "string"
+				},
 				"width": {
 					"description": "Set width classes.",
 					"type": "string"
@@ -303,6 +339,7 @@
 				"header",
 				"children",
 				"footer",
+				"value",
 				"base",
 				"background",
 				"padding",
@@ -315,7 +352,8 @@
 				"tilesJustify",
 				"tilesItems",
 				"tilesGap",
-				"tilesClasses"
+				"tilesClasses",
+				"onChange"
 			],
 			"type": "object"
 		},

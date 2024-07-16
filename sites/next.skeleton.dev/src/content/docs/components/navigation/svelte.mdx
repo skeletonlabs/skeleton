@@ -61,7 +61,7 @@ Apply the `expanded` property to enable expanded mode. Each tile will resize and
 
 ## Tiles
 
-Tiles are universal between Rails and Bars. They default to buttons, but will convert to anchors when an `href` is provided. You may set the active state with the `selected` property.
+Tiles are universal between Rails and Bars. They default to buttons, but will convert to anchors when an `href` is provided. When implementing `value` for selection, each item will reflect the active state automatically. If you wish to set this state manually, use the `selected` property.
 
 <Preview client:load>
 	<Fragment slot="preview">

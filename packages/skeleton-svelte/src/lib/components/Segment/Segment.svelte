@@ -1,7 +1,11 @@
 <script lang="ts">
 	import type { SegmentControl } from './types.js';
+	import { setSegmentContext } from './context.js';
 
 	let {
+		value = $bindable(''),
+		name = '',
+		// Root
 		base = 'inline-flex items-stretch overflow-hidden',
 		background = 'preset-outlined-surface-200-800',
 		border = 'p-2',
@@ -11,9 +15,27 @@
 		rounded = 'rounded-container',
 		width = '',
 		classes = '',
+		// Events
+		onchange,
 		// Snippets
 		children
 	}: SegmentControl = $props();
+
+	function onSelectionHandler(newValue: string) {
+		value = newValue;
+		onchange?.(newValue);
+	}
+
+	// Set Context
+	setSegmentContext({
+		get value() {
+			return value;
+		},
+		get name() {
+			return name;
+		},
+		onSelectionHandler
+	});
 </script>
 
 <div

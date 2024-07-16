@@ -17,36 +17,36 @@
 	</header>
 	<section class="space-y-4">
 		<pre class="pre">{align}</pre>
-		<Segment>
-			<Segment.Item bind:group={align} name="align" id="left" value="left">
+		<Segment bind:value={align} name="align">
+			<Segment.Item id="left" value="left">
 				<IconLeft />
 			</Segment.Item>
-			<Segment.Item bind:group={align} name="align" id="center" value="center">
+			<Segment.Item id="center" value="center">
 				<IconCenter />
 			</Segment.Item>
-			<Segment.Item bind:group={align} name="align" id="right" value="right">
+			<Segment.Item id="right" value="right">
 				<IconRight />
 			</Segment.Item>
-			<Segment.Item bind:group={align} name="align" id="justify" value="justify">
+			<Segment.Item id="justify" value="justify">
 				<IconJustify />
 			</Segment.Item>
 		</Segment>
 	</section>
 	<section class="space-y-4">
 		<pre class="pre">{size}</pre>
-		<Segment>
-			<Segment.Item bind:group={size} name="size" id="sm" value="sm">sm</Segment.Item>
-			<Segment.Item bind:group={size} name="size" id="md" value="md">md</Segment.Item>
-			<Segment.Item bind:group={size} name="size" id="lg" value="lg" disabled>lg</Segment.Item>
+		<Segment bind:value={size} name="size">
+			<Segment.Item id="sm" value="sm">sm</Segment.Item>
+			<Segment.Item id="md" value="md">md</Segment.Item>
+			<Segment.Item id="lg" value="lg" disabled>lg</Segment.Item>
 		</Segment>
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Vertical</h2>
 		<pre class="pre">{size}</pre>
-		<Segment flexDirection="flex-col">
-			<Segment.Item bind:group={size} name="size" id="sm" value="sm">sm</Segment.Item>
-			<Segment.Item bind:group={size} name="size" id="md" value="md">md</Segment.Item>
-			<Segment.Item bind:group={size} name="size" id="lg" value="lg" disabled>lg</Segment.Item>
+		<Segment bind:value={size} name="size" flexDirection="flex-col">
+			<Segment.Item id="sm" value="sm">sm</Segment.Item>
+			<Segment.Item id="md" value="md">md</Segment.Item>
+			<Segment.Item id="lg" value="lg" disabled>lg</Segment.Item>
 		</Segment>
 	</section>
 </div>

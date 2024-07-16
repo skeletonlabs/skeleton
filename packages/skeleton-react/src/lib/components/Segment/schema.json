@@ -84,6 +84,23 @@
 			"required": ["children", "key", "props", "type"],
 			"type": "object"
 		},
+		"SegmentContextState": {
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"onSelectionHandler": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"value": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["value", "name", "onSelectionHandler"],
+			"required": ["name", "onSelectionHandler", "value"],
+			"type": "object"
+		},
 		"SegmentItemsProps": {
 			"properties": {
 				"active": {
@@ -105,10 +122,6 @@
 					"description": "Set the disabled state.",
 					"type": "boolean"
 				},
-				"group": {
-					"description": "Provide the shared group binding.",
-					"type": "string"
-				},
 				"hover": {
 					"description": "Sets hover state classes.",
 					"type": "string"
@@ -125,17 +138,10 @@
 					"description": "Provide arbitrary CSS classes for the label element.",
 					"type": "string"
 				},
-				"name": {
-					"description": "Provide the shared group name.",
-					"type": "string"
-				},
-				"onChange": {
-					"description": "Triggers on change events.",
+				"onclick": {
+					"description": "Triggers on items click event.",
 					"propertyOrder": [],
 					"type": "object"
-				},
-				"radioBase": {
-					"type": "string"
 				},
 				"title": {
 					"description": "Provide a hover title attribute.",
@@ -147,8 +153,6 @@
 				}
 			},
 			"propertyOrder": [
-				"group",
-				"name",
 				"id",
 				"value",
 				"title",
@@ -157,13 +161,12 @@
 				"active",
 				"hover",
 				"classes",
-				"radioBase",
 				"labelBase",
 				"labelClasses",
-				"onChange",
+				"onclick",
 				"children"
 			],
-			"required": ["group", "id", "name", "value"],
+			"required": ["id", "value"],
 			"type": "object"
 		},
 		"SegmentProps": {
@@ -195,6 +198,15 @@
 					"description": "Set gap classes.",
 					"type": "string"
 				},
+				"name": {
+					"description": "Provide the shared input name.",
+					"type": "string"
+				},
+				"onChange": {
+					"description": "Triggers when the value state is changed.",
+					"propertyOrder": [],
+					"type": "object"
+				},
 				"padding": {
 					"description": "Set padding classes.",
 					"type": "string"
@@ -203,12 +215,31 @@
 					"description": "Set rounded classes.",
 					"type": "string"
 				},
+				"value": {
+					"description": "Set the group value, which determines selection state.",
+					"type": "string"
+				},
 				"width": {
 					"description": "Set width classes.",
 					"type": "string"
 				}
 			},
-			"propertyOrder": ["base", "background", "border", "flexDirection", "gap", "padding", "rounded", "width", "classes", "children"],
+			"propertyOrder": [
+				"value",
+				"name",
+				"base",
+				"background",
+				"border",
+				"flexDirection",
+				"gap",
+				"padding",
+				"rounded",
+				"width",
+				"classes",
+				"onChange",
+				"children"
+			],
+			"required": ["name"],
 			"type": "object"
 		}
 	}

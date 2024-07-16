@@ -1,13 +1,12 @@
-<script>
+<script lang="ts">
 	import '../app.pcss';
-
+	// Components
 	import Switch from '$lib/components/Switch/Switch.svelte';
 	// Icons
 	import IconMoon from 'lucide-svelte/icons/moon';
 	import IconSun from 'lucide-svelte/icons/sun';
 
 	let { children } = $props();
-
 	let modeState = $state(false); // false = dark mode
 
 	function onModeChange() {
@@ -22,7 +21,7 @@
 		<hr class="hr" />
 		<label class="label flex items-center justify-between gap-4" for="mode">
 			<p>Set Mode</p>
-			<Switch id="mode" name="mode" stateActive="bg-surface-200" bind:checked={modeState} onCheckedChange={onModeChange}>
+			<Switch id="mode" name="mode" stateActive="bg-surface-200" bind:checked={modeState} onchange={onModeChange}>
 				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 				{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			</Switch>

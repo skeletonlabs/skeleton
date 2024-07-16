@@ -1,19 +1,21 @@
 'use client';
 
 import React, { createContext, useContext } from 'react';
-
 import { NavContextState, NavRailProps, NavBarProps, NavTileProps } from './types.js';
 
 // Contexts ---
 
 export const NavContext = createContext<NavContextState>({
-	parent: '',
-	expanded: false
+	parent: 'none',
+	value: '',
+	expanded: false,
+	onSelectionHandler: () => {}
 });
 
 // Components ---
 
 export const NavRail: React.FC<NavRailProps> = ({
+	value = '',
 	expanded = false,
 	// Root
 	base = 'h-full flex flex-col',
@@ -44,15 +46,24 @@ export const NavRail: React.FC<NavRailProps> = ({
 	footerItems = 'items-center',
 	footerGap = 'gap-1',
 	footerClasses = '',
+	// Events
+	onChange,
 	// Snippets
 	header,
 	children,
 	footer
 }) => {
+	function onSelectionHandler(id: string) {
+		value = id;
+		if (onChange) onChange(id);
+	}
+
 	// Set Context
 	const ctx = {
 		parent: 'rail',
-		expanded
+		value,
+		expanded,
+		onSelectionHandler
 	};
 
 	// Reactive
@@ -83,6 +94,7 @@ export const NavRail: React.FC<NavRailProps> = ({
 };
 
 export const NavBar: React.FC<NavBarProps> = ({
+	value = '',
 	// Root
 	base = 'h-full flex flex-col',
 	background = 'preset-filled-surface-100-900',
@@ -97,12 +109,22 @@ export const NavBar: React.FC<NavBarProps> = ({
 	tilesItems = 'items-center',
 	tilesGap = 'gap-1',
 	tilesClasses = '',
+	// Events
+	onChange,
 	// Snippets
 	children
 }) => {
+	function onSelectionHandler(id: string) {
+		value = id;
+		if (onChange) onChange(id);
+	}
+
 	// Set Context
 	const ctx = {
-		parent: 'bar'
+		parent: 'bar',
+		value,
+		expanded: false,
+		onSelectionHandler
 	};
 
 	return (
@@ -163,11 +185,12 @@ export const NavTile: React.FC<NavTileProps> = ({
 	const classesCollapsed = `${rxSize} ${padding} ${gap} ${classes}`;
 	const classesExtended = `${expandedPadding} ${expandedGap} ${expandedClasses}`;
 	const rxMode = ctx.expanded ? classesExtended : classesCollapsed;
-	const rxBackground = selected ? active : `${background} ${hover}`;
+	const rxBackground = selected || ctx.value === id ? active : `${background} ${hover}`;
 
 	function onClickHandler() {
 		if (onClick && !id) throw new Error('No ID was provided');
 		if (onClick && id) onClick(id);
+		if (ctx.onSelectionHandler && id) ctx.onSelectionHandler(id);
 	}
 
 	return (

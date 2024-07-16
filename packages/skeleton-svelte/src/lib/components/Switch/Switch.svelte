@@ -35,7 +35,7 @@
 		iconInactiveBase = 'pointer-events-none',
 		iconActiveBase = 'pointer-events-none',
 		// Events
-		onCheckedChange = () => {},
+		onchange = () => {},
 		// Snippets
 		inactiveChild,
 		activeChild
@@ -58,7 +58,7 @@
 	function toggle() {
 		if (disabled) return;
 		checked = !checked;
-		onCheckedChange(checked);
+		onchange(checked);
 	}
 
 	const rxTrackState = $derived(checked ? stateActive : stateInactive);
@@ -78,8 +78,8 @@
 	onclick={toggle}
 	data-testid="switch"
 >
-	<!-- Input (hidden) -->
-	<input type="checkbox" {id} {name} bind:checked class="hidden" {disabled} />
+	<!-- Hidden Input - true: 'on', false: null -->
+	{#if checked}<input type="hidden" {id} {name} value="on" {disabled} />{/if}
 	<!-- Thumb -->
 	<div class="{thumbBase} {rxThumbState} {thumbRounded} {thumbTransition} {thumbEase} {thumbDuration} {thumbClasses}">
 		{#if !checked && inactiveChild}

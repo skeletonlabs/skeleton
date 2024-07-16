@@ -1,5 +1,24 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.4
+
+### Minor Changes
+
+- - chore: Svelte Accordion and Nav components now use dot notation syntax ([#2748](https://github.com/skeletonlabs/skeleton/pull/2748))
+  - Tab components overhauled to bring consistency between Svelte and React implementations
+  - Tabs.Item component removed
+  - Tabs.Panels (plural) component added
+
+- chore: Migrated Nav, Segment Control, and Switch component APIs to match new conventions ([#2758](https://github.com/skeletonlabs/skeleton/pull/2758))
+
+- feature: Added Segment Control component ([#2744](https://github.com/skeletonlabs/skeleton/pull/2744))
+
+### Patch Changes
+
+- Fixed reactivity issues within the Navigation related components ([#2750](https://github.com/skeletonlabs/skeleton/pull/2750))
+
+- Chore: Moved Prettier and ESLint to repo root, updated formatting, and rectified linting issues ([#2723](https://github.com/skeletonlabs/skeleton/pull/2723))
+
 ## 1.0.0-next.3
 
 ### Minor Changes

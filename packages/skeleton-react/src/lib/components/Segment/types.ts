@@ -1,6 +1,21 @@
 // Segment Control Types
 
+// Context ---
+
+export interface SegmentContextState {
+	value: string;
+	name: string;
+	onSelectionHandler: (value: string) => void;
+}
+
+// Components ---
+
 export interface SegmentProps extends React.PropsWithChildren {
+	/** Set the group value, which determines selection state. */
+	value?: string;
+	/** Provide the shared input name. */
+	name: string;
+
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
@@ -20,13 +35,13 @@ export interface SegmentProps extends React.PropsWithChildren {
 	width?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
+
+	// Events ---
+	/** Triggers when the value state is changed. */
+	onChange?: (value: string) => void;
 }
 
 export interface SegmentItemsProps extends React.PropsWithChildren {
-	/** Provide the shared group binding. */
-	group: string;
-	/** Provide the shared group name. */
-	name: string;
 	/** Provide a unique ID. */
 	id: string;
 	/** Provide the unique segment value. */
@@ -46,10 +61,6 @@ export interface SegmentItemsProps extends React.PropsWithChildren {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Input ---
-	/* Set base classes for the hidden radio input */
-	radioBase?: string;
-
 	// Label ---
 	/** Sets base classes for the label element. */
 	labelBase?: string;
@@ -57,7 +68,6 @@ export interface SegmentItemsProps extends React.PropsWithChildren {
 	labelClasses?: string;
 
 	// Events ---
-	/** Triggers on change events. */
-	// onChange?: React.Dispatch<React.SetStateAction<string>>;
-	onChange?: (group: string) => void;
+	/** Triggers on items click event. */
+	onClick?: (group: string) => void;
 }

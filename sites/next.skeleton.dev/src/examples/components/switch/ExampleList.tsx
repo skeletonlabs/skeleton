@@ -11,17 +11,17 @@ export const Page: React.FC = () => {
 		<section className="w-full space-y-4">
 			<label className="label flex items-center justify-between gap-4">
 				<p>Default to the inactive state.</p>
-				<Switch id="disturb" name="disturb" checked={disturb} onCheckedChange={setDisturb} />
+				<Switch id="disturb" name="disturb" checked={disturb} onChange={setDisturb} />
 			</label>
 			<hr className="hr" />
 			<label className="label flex items-center justify-between gap-4">
 				<p>Default to the active state.</p>
-				<Switch id="notifications" name="notifications" checked={notifications} onCheckedChange={setNotifications} />
+				<Switch id="notifications" name="notifications" checked={notifications} onChange={setNotifications} />
 			</label>
 			<hr className="hr" />
 			<label className="label flex items-center justify-between gap-4">
 				<p>Shown in disabled mode.</p>
-				<Switch id="disabled" name="disabled" checked={disabled} onCheckedChange={setDisabled} disabled />
+				<Switch id="disabled" name="disabled" checked={disabled} onChange={setDisabled} disabled />
 			</label>
 		</section>
 	);
