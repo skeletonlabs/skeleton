@@ -68,7 +68,7 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 	labelBase = 'pointer-events-none',
 	labelClasses = '',
 	// Events
-	onclick,
+	onClick,
 	// Children
 	children
 }) => {
@@ -89,11 +89,13 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 
 	function onClickHandler() {
 		ctx.onSelectionHandler(value);
-		if (onclick) onclick(value);
+		onClick?.(value);
 	}
 
 	return (
 		<button
+			role="radio"
+			aria-checked={selected}
 			onClick={onClickHandler}
 			type="button"
 			className={`${base} ${rxActive} ${classes}`}

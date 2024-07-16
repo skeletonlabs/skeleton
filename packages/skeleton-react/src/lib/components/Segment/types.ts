@@ -69,5 +69,5 @@ export interface SegmentItemsProps extends React.PropsWithChildren {
 
 	// Events ---
 	/** Triggers on items click event. */
-	onclick?: (group: string) => void;
+	onClick?: (group: string) => void;
 }

@@ -47,6 +47,6 @@
 	</div>
 	<!-- Page -->
 	<main class="space-y-8 overflow-y-auto p-8">
-		{#if children}{@render children()}{/if}
+		{@render children?.()}
 	</main>
 </div>

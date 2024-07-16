@@ -23,7 +23,7 @@
 
 	function onSelectionHandler(newValue: string) {
 		value = newValue;
-		if (onchange) onchange(newValue);
+		onchange?.(newValue);
 	}
 
 	// Set Context

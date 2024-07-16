@@ -34,11 +34,20 @@
 	const rxActive = $derived(selected ? active : hover);
 </script>
 
-<button onclick={onClickHandler} type="button" class="{base} {rxActive} {classes}" {title} {disabled} data-testid="segment-item">
+<button
+	role="radio"
+	aria-checked={selected}
+	onclick={onClickHandler}
+	type="button"
+	class="{base} {rxActive} {classes}"
+	{title}
+	{disabled}
+	data-testid="segment-item"
+>
 	<!-- Input -->
 	{#if selected}<input type="hidden" name={ctx.name} {id} {value} />{/if}
 	<!-- Label -->
 	<label for={ctx.name} class="{labelBase} {labelClasses}">
-		{#if children}{@render children()}{/if}
+		{@render children?.()}
 	</label>
 </button>
