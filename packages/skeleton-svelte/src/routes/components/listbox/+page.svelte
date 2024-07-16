@@ -1,57 +1,76 @@
 <script lang="ts">
-	import Listbox from '$lib/components/Listbox/index.js';
-	import BoxIcon from 'lucide-svelte/icons/box';
+	import { Listbox } from '$lib/index.js';
 
-	let value: string | string[] = $state('');
-	let multiple = $state(false);
+	let single = $state('');
+	let multiple = $state([]);
+	let form: ReturnType<FormData['getAll']> = $state([]);
+	let selected = $state('');
+	let scrollable = $state('');
 
-	function formDataToObject(formData: FormData) {
-		const result: Record<string, string[]> = {};
-		for (const [key, value] of formData.entries()) {
-			if (!(key in result)) {
-				result[key] = [value as string];
-			} else {
-				result[key]!.push(value as string);
-			}
-		}
-		return result;
-	}
-
-	let data = $state({});
-
-	const onsubmit = (e: SubmitEvent) => {
-		e.preventDefault();
-		data = formDataToObject(new FormData(e.target as HTMLFormElement));
-	};
+	const fruits = $state(['Apple', 'Banana', 'Orange', 'Pineapple']);
 </script>
 
-<h1 class="h1">Listbox</h1>
+<div class="space-y-10">
+	<header>
+		<h1 class="h1">Listbox</h1>
+	</header>
 
-<form class="flex flex-col gap-2 max-w-md" {onsubmit}>
-	<Listbox name="test" {multiple} bind:value>
-		{#each [1, 2, 3, 4, 5] as item}
-			<Listbox.Item value="Value {item}">
-				{#snippet lead()}
-					<BoxIcon />
-				{/snippet}
-				Option {item}
-			</Listbox.Item>
-		{/each}
-	</Listbox>
-	<button class="btn btn-md preset-filled">Submit</button>
-</form>
+	<section class="space-y-4">
+		<h2 class="h2">Single</h2>
+		<Listbox bind:value={single} name="value">
+			{#each fruits as fruit}
+				<Listbox.Item value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+			{/each}
+		</Listbox>
+		<pre class="pre">Value: {JSON.stringify(single)}</pre>
+	</section>
 
-<h2 class="h2">Config</h2>
+	<section class="space-y-4">
+		<h2 class="h2">Multiple</h2>
+		<Listbox multiple bind:value={multiple} name="value">
+			{#each fruits as fruit}
+				<Listbox.Item value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+			{/each}
+		</Listbox>
+		<pre class="pre">Value: {JSON.stringify(multiple)}</pre>
+	</section>
 
-<label>
-	<span class="label-text">Multiple</span>
-	<input type="checkbox" class="checkbox" bind:checked={multiple} />
-</label>
+	<section class="space-y-4">
+		<h2 class="h2">Form</h2>
+		<form
+			class="grid gap-2"
+			onsubmit={(e) => {
+				e.preventDefault();
+				form = new FormData(e.currentTarget).getAll('value');
+			}}
+		>
+			<Listbox multiple name="value">
+				{#each fruits as fruit}
+					<Listbox.Item value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+				{/each}
+			</Listbox>
+			<button class="btn preset-filled">Submit</button>
+		</form>
+		<pre class="pre">Value: {JSON.stringify(form)}</pre>
+	</section>
 
-<h2 class="h2">Output</h2>
+	<section class="space-y-4">
+		<h2 class="h2">Selected</h2>
+		<Listbox bind:value={selected} name="value">
+			{#each fruits as fruit}
+				<Listbox.Item selected="preset-tonal-tertiary" value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+			{/each}
+		</Listbox>
+		<pre class="pre">Value: {JSON.stringify(selected)}</pre>
+	</section>
 
-<h3 class="h3">Binding:</h3>
-<pre>{JSON.stringify(value, null, 2)}</pre>
-
-<h3 class="h3">Form:</h3>
-<pre>{JSON.stringify(data, null, 2)}</pre>
+	<section class="space-y-4">
+		<h2 class="h2">Scrollable</h2>
+		<Listbox classes="h-32" bind:value={scrollable} name="value">
+			{#each fruits as fruit}
+				<Listbox.Item value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+			{/each}
+		</Listbox>
+		<pre class="pre">Value: {JSON.stringify(scrollable)}</pre>
+	</section>
+</div>
