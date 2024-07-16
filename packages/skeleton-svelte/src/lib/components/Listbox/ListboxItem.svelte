@@ -87,6 +87,6 @@
 	{/if}
 </button>
 
-{#if selected}
+{#if ctx.isSelected(value)}
 	<input type="hidden" name={ctx.name} {value} />
 {/if}
