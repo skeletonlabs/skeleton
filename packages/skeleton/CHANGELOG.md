@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton
 
+## 2.10.2
+
+### Patch Changes
+
+- bugfix: Added restProps to InputChip ([#2739](https://github.com/skeletonlabs/skeleton/pull/2739))
+
+- chore: Resolve missing onclick events for AppRailTile and AppRailAnchor. ([#2751](https://github.com/skeletonlabs/skeleton/pull/2751))
+
 ## 2.10.1
 
 ### Patch Changes
