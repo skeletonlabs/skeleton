@@ -3,6 +3,7 @@
 	import { setNavigationContext } from './context.js';
 
 	let {
+		value = $bindable(''),
 		// Root
 		base = 'h-full flex flex-col',
 		background = 'preset-filled-surface-100-900',
@@ -17,14 +18,25 @@
 		tilesItems = 'items-center',
 		tilesGap = 'gap-1',
 		tilesClasses = '',
+		// Events
+		onchange,
 		// Snippets
 		children
 	}: NavBarProps = $props();
 
+	function onSelectionHandler(id: string) {
+		value = id;
+		if (onchange) onchange(id);
+	}
+
 	// Context
 	setNavigationContext({
 		parent: 'bar',
-		expanded: false
+		get value() {
+			return value;
+		},
+		expanded: false,
+		onSelectionHandler
 	});
 </script>
 

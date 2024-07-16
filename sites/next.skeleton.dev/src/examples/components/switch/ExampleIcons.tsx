@@ -11,7 +11,7 @@ export const Page: React.FC = () => {
 			name="icons"
 			stateActive="bg-secondary-500"
 			checked={icons}
-			onCheckedChange={setIcons}
+			onChange={setIcons}
 			inactiveChild={<IconX size="14" />}
 			activeChild={<IconCheck size="14" />}
 		/>

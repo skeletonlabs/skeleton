@@ -4,15 +4,7 @@ import { useState } from 'react';
 import { Nav } from '$lib/components/Navigation/Navigation.js';
 
 export function Component() {
-	const [activeItem, setActiveItem] = useState('0');
-
-	function onClickHandler(id: string) {
-		setActiveItem(id);
-	}
-
-	function isActive(id: string) {
-		return activeItem === id;
-	}
+	const [value, setValue] = useState('0');
 
 	return (
 		<div className="space-y-10">
@@ -21,21 +13,21 @@ export function Component() {
 			</header>
 			<section className="space-y-4">
 				<h2 className="h2">Bar</h2>
-				{/* prettier-ignore */}
-				<Nav.Bar>
-            <Nav.Tile id="0" label="Tile 1" onClick={onClickHandler} selected={isActive('0')}>
-                <IconBox />
-            </Nav.Tile>
-            <Nav.Tile id="1" label="Tile 2" onClick={onClickHandler} selected={isActive('1')}>
-                <IconBox />
-            </Nav.Tile>
-            <Nav.Tile id="2" label="Tile 3" onClick={onClickHandler} selected={isActive('2')}>
-                <IconBox />
-            </Nav.Tile>
-            <Nav.Tile id="3" label="Tile 4" onClick={onClickHandler} selected={isActive('3')}>
-                <IconBox />
-            </Nav.Tile>
-        </Nav.Bar>
+				<pre className="pre">value: {value}</pre>
+				<Nav.Bar value={value} onChange={setValue}>
+					<Nav.Tile id="0" label="Tile 1">
+						<IconBox />
+					</Nav.Tile>
+					<Nav.Tile id="1" label="Tile 2">
+						<IconBox />
+					</Nav.Tile>
+					<Nav.Tile id="2" label="Tile 3">
+						<IconBox />
+					</Nav.Tile>
+					<Nav.Tile id="3" label="Tile 4">
+						<IconBox />
+					</Nav.Tile>
+				</Nav.Bar>
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">Rail</h2>
@@ -52,7 +44,7 @@ export function Component() {
 							</Nav.Tile>
 						}
 					>
-						<Nav.Tile id="0" label="Tile 1" href="#">
+						<Nav.Tile id="0" label="Tile 1" href="#" selected>
 							<IconBox />
 						</Nav.Tile>
 						<Nav.Tile id="1" label="Tile 2" href="#">

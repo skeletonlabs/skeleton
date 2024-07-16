@@ -20,17 +20,17 @@ export function Component() {
 			<section className="space-y-4">
 				<label htmlFor="disturb" className="label flex items-center justify-between gap-4">
 					<p>Defaults to inactive state.</p>
-					<Switch id="disturb" name="disturb" checked={disturb} onCheckedChange={setDisturb} />
+					<Switch id="disturb" name="disturb" checked={disturb} onChange={setDisturb} />
 				</label>
 				<hr className="hr" />
 				<label htmlFor="notifications" className="label flex items-center justify-between gap-4">
 					<p>Defaults to active state.</p>
-					<Switch id="notifications" name="notifications" checked={notifications} onCheckedChange={setNotifications} />
+					<Switch id="notifications" name="notifications" checked={notifications} onChange={setNotifications} />
 				</label>
 				<hr className="hr" />
 				<label htmlFor="disabled" className="label flex items-center justify-between gap-4">
 					<p>Uses the disabled state.</p>
-					<Switch id="disabled" name="disabled" checked={disabled} onCheckedChange={setDisabled} disabled />
+					<Switch id="disabled" name="disabled" checked={disabled} onChange={setDisabled} disabled />
 				</label>
 				<hr className="hr" />
 				<label htmlFor="icons" className="label flex items-center justify-between gap-4">
@@ -40,7 +40,7 @@ export function Component() {
 						name="icons"
 						stateActive="bg-secondary-500"
 						checked={icons}
-						onCheckedChange={setIcons}
+						onChange={setIcons}
 						inactiveChild={<IconX size="14" />}
 						activeChild={<IconCheck size="14" />}
 					/>
@@ -53,7 +53,7 @@ export function Component() {
 						name="mode"
 						stateActive="bg-surface-200"
 						checked={lightswitch}
-						onCheckedChange={setLightswitch}
+						onChange={setLightswitch}
 						inactiveChild={<IconMoon size="14" />}
 						activeChild={<IconSun size="14" />}
 					/>
@@ -65,7 +65,7 @@ export function Component() {
 						id="compact"
 						name="compact"
 						checked={compact}
-						onCheckedChange={setCompact}
+						onChange={setCompact}
 						width="w-9"
 						compact
 						inactiveChild={<IconFrown size="18" />}

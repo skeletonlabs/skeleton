@@ -37,7 +37,7 @@ export const Switch: React.FC<SwitchProps> = ({
 	iconInactiveBase = 'pointer-events-none',
 	iconActiveBase = 'pointer-events-none',
 	// Events
-	onCheckedChange = () => {},
+	onChange = () => {},
 	// Children
 	inactiveChild,
 	activeChild
@@ -59,7 +59,7 @@ export const Switch: React.FC<SwitchProps> = ({
 	function toggle() {
 		if (disabled) return;
 		checked = !checked;
-		onCheckedChange(checked);
+		onChange(checked);
 	}
 
 	const rxTrackState = checked ? stateActive : stateInactive;
@@ -77,8 +77,8 @@ export const Switch: React.FC<SwitchProps> = ({
 			onClick={toggle}
 			data-testid="switch"
 		>
-			{/* Input (hidden) */}
-			<input type="checkbox" id={id} name={name} checked={checked} onChange={() => {}} className="hidden" disabled={disabled} />
+			{/* Hidden Input - true: 'on', false: null */}
+			{checked ?? <input type="hidden" id={id} name={name} value="on" disabled={disabled} />}
 			{/* Thumb */}
 			<div className={`${thumbBase} ${rxThumbState} ${thumbRounded} ${thumbTransition} ${thumbEase} ${thumbDuration} ${thumbClasses}`}>
 				{/* Icon Inactive */}

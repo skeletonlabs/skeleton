@@ -13,31 +13,31 @@ export function Component() {
 			</header>
 			<section className="space-y-4">
 				<pre className="pre">{align}</pre>
-				<Segment>
-					<Segment.Item group={align} name="align" id="left" value="left" onChange={setAlign}>
+				<Segment value={align} name="align" onChange={setAlign}>
+					<Segment.Item id="left" value="left">
 						<IconLeft />
 					</Segment.Item>
-					<Segment.Item group={align} name="align" id="center" value="center" onChange={setAlign}>
+					<Segment.Item id="center" value="center">
 						<IconCenter />
 					</Segment.Item>
-					<Segment.Item group={align} name="align" id="right" value="right" onChange={setAlign}>
+					<Segment.Item id="right" value="right">
 						<IconRight />
 					</Segment.Item>
-					<Segment.Item group={align} name="align" id="justify" value="justify" onChange={setAlign}>
+					<Segment.Item id="justify" value="justify">
 						<IconJustify />
 					</Segment.Item>
 				</Segment>
 			</section>
 			<section className="space-y-4">
 				<pre className="pre">{size}</pre>
-				<Segment>
-					<Segment.Item group={size} name="size" id="sm" value="sm" onChange={setSize}>
+				<Segment value={size} name="size" onChange={setSize}>
+					<Segment.Item id="sm" value="sm">
 						sm
 					</Segment.Item>
-					<Segment.Item group={size} name="size" id="md" value="md" onChange={setSize}>
+					<Segment.Item id="md" value="md">
 						md
 					</Segment.Item>
-					<Segment.Item group={size} name="size" id="lg" value="lg" onChange={setSize} disabled>
+					<Segment.Item id="lg" value="lg" disabled>
 						lg
 					</Segment.Item>
 				</Segment>
@@ -45,14 +45,14 @@ export function Component() {
 			<section className="space-y-4">
 				<h2 className="h2">Vertical</h2>
 				<pre className="pre">{size}</pre>
-				<Segment flexDirection="flex-col">
-					<Segment.Item group={size} name="size" id="sm" value="sm" onChange={setSize}>
+				<Segment value={size} name="size" flexDirection="flex-col" onChange={setSize}>
+					<Segment.Item id="sm" value="sm">
 						sm
 					</Segment.Item>
-					<Segment.Item group={size} name="size" id="md" value="md" onChange={setSize}>
+					<Segment.Item id="md" value="md">
 						md
 					</Segment.Item>
-					<Segment.Item group={size} name="size" id="lg" value="lg" onChange={setSize} disabled>
+					<Segment.Item id="lg" value="lg" disabled>
 						lg
 					</Segment.Item>
 				</Segment>

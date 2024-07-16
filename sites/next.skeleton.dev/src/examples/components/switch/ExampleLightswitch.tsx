@@ -22,7 +22,7 @@ export const Page: React.FC = () => {
 			name="mode"
 			stateActive="bg-surface-200"
 			checked={mode}
-			onCheckedChange={handleModeChange}
+			onChange={handleModeChange}
 			inactiveChild={<IconMoon size="14" />}
 			activeChild={<IconSun size="14" />}
 		/>
