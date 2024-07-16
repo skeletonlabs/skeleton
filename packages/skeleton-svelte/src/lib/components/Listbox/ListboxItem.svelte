@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createId } from '$lib/internal/create-id.js';
-	import { getListboxContext } from './context.js';
 	import { getFirstElement, getLastElement, getNextElement, getPreviousElement } from '$lib/internal/elements.js';
+	import { getListboxContext } from './context.js';
 	import type { ListboxItemProps } from './types.js';
 
 	// Props

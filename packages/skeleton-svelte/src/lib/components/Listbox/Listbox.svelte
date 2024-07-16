@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { untrack } from 'svelte';
+	import { createId } from '$lib/internal/create-id.js';
 	import { setListboxContext } from './context.js';
 	import type { ListboxProps } from './types.js';
-	import { createId } from '$lib/internal/create-id.js';
 
 	// Props
 	let {
