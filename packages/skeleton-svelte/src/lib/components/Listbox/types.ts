@@ -11,7 +11,7 @@ export interface ListboxContext {
 
 export interface ListboxProps extends HTMLAttributes<HTMLDivElement> {
 	/** Set the item name. */
-	name?: string;
+	name: string;
 	/** The value of the selected item(s). */
 	value?: string | string[];
 	/** Whether multiple items can be selected. */
