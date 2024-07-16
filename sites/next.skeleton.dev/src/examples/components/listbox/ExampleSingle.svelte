@@ -3,11 +3,11 @@
 
 	const fruits = $state(['Apple', 'Banana', 'Orange', 'Pineapple']);
 
-	let selectedFruit = $state('');
+	let selectedFruit = $state('Apple');
 </script>
 
 <Listbox name="fruit" bind:value={selectedFruit}>
 	{#each fruits as fruit}
-		<Listbox.Item value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+		<Listbox.Item value={fruit}>{fruit}</Listbox.Item>
 	{/each}
 </Listbox>

@@ -19,7 +19,7 @@
 		<h2 class="h2">Single</h2>
 		<Listbox bind:value={single} name="value">
 			{#each fruits as fruit}
-				<Listbox.Item value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+				<Listbox.Item value={fruit}>{fruit}</Listbox.Item>
 			{/each}
 		</Listbox>
 		<pre class="pre">Value: {JSON.stringify(single)}</pre>
@@ -29,7 +29,7 @@
 		<h2 class="h2">Multiple</h2>
 		<Listbox multiple bind:value={multiple} name="value">
 			{#each fruits as fruit}
-				<Listbox.Item value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+				<Listbox.Item value={fruit}>{fruit}</Listbox.Item>
 			{/each}
 		</Listbox>
 		<pre class="pre">Value: {JSON.stringify(multiple)}</pre>
@@ -46,7 +46,7 @@
 		>
 			<Listbox multiple name="value">
 				{#each fruits as fruit}
-					<Listbox.Item value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+					<Listbox.Item value={fruit}>{fruit}</Listbox.Item>
 				{/each}
 			</Listbox>
 			<button class="btn preset-filled">Submit</button>
@@ -58,7 +58,7 @@
 		<h2 class="h2">Selected</h2>
 		<Listbox bind:value={selected} name="value">
 			{#each fruits as fruit}
-				<Listbox.Item selected="preset-tonal-tertiary" value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+				<Listbox.Item selected="preset-tonal-tertiary" value={fruit}>{fruit}</Listbox.Item>
 			{/each}
 		</Listbox>
 		<pre class="pre">Value: {JSON.stringify(selected)}</pre>
@@ -68,7 +68,7 @@
 		<h2 class="h2">Scrollable</h2>
 		<Listbox classes="h-32" bind:value={scrollable} name="value">
 			{#each fruits as fruit}
-				<Listbox.Item value={fruit.toLowerCase()}>{fruit}</Listbox.Item>
+				<Listbox.Item value={fruit}>{fruit}</Listbox.Item>
 			{/each}
 		</Listbox>
 		<pre class="pre">Value: {JSON.stringify(scrollable)}</pre>

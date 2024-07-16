@@ -33,15 +33,6 @@
 		deselect: (v) => (multiple && Array.isArray(value) ? (value = value.filter((_v) => _v !== v)) : (value = '')),
 		isSelected: (v) => (multiple && Array.isArray(value) ? value.includes(v) : value === v)
 	});
-
-	// Effects
-	$effect(() => {
-		if (multiple) {
-			untrack(() => (value = []));
-		} else {
-			untrack(() => (value = ''));
-		}
-	});
 </script>
 
 <!-- @component The Listbox parent component. -->
