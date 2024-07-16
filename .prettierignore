@@ -16,5 +16,6 @@ pnpm-lock.yaml
 **/static/font-awesome
 **/static/fonts
 
-# Ignore .mdx files as codeblocks are broken
+# Ignore .mdx files because codeblocks indside .mdx files are broken with prettier
+# See: https://github.com/prettier/prettier/issues/12209
 sites/next.skeleton.dev/**/*.mdx
