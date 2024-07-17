@@ -6,7 +6,7 @@ import type { ListboxProps, ListboxContext as ListboxContextType, ListboxItemPro
 
 const ListboxRoot = <Value extends string | string[]>({
 	name,
-	value = '' as Value,
+	value,
 	base = 'grid gap-2 overflow-y-auto',
 	gap = 'gap-2',
 	overflow = 'overflow-y-auto',
@@ -55,7 +55,7 @@ const ListboxRoot = <Value extends string | string[]>({
 
 const ListboxItem = ({
 	value,
-	base = 'btn',
+	base = 'btn justify-normal flex-1',
 	rounded = 'rounded',
 	hover = 'hover:preset-tonal',
 	focus = 'focus:preset-tonal',

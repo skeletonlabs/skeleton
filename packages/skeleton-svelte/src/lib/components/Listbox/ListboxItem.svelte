@@ -7,7 +7,7 @@
 	// Props
 	let {
 		value,
-		base = 'btn',
+		base = 'btn justify-normal',
 		rounded = 'rounded',
 		hover = 'hover:preset-tonal',
 		focus = 'focus:preset-tonal',
