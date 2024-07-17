@@ -6,8 +6,7 @@
 	// Props
 	let {
 		name = '',
-		value = $bindable(),
-		multiple = false,
+		value = $bindable(''),
 		base = 'grid gap-2 overflow-y-auto',
 		gap = 'gap-2',
 		overflow = 'overflow-y-auto',
@@ -28,9 +27,9 @@
 		get name() {
 			return name;
 		},
-		select: (v) => (multiple && Array.isArray(value) ? (value = [...value, v]) : (value = v)),
-		deselect: (v) => (multiple && Array.isArray(value) ? (value = value.filter((_v) => _v !== v)) : (value = '')),
-		isSelected: (v) => (multiple && Array.isArray(value) ? value.includes(v) : value === v)
+		select: (v) => (Array.isArray(value) ? (value = [...value, v]) : (value = v)),
+		deselect: (v) => (Array.isArray(value) ? (value = value.filter((_v) => _v !== v)) : (value = '')),
+		isSelected: (v) => (Array.isArray(value) ? value.includes(v) : value === v)
 	});
 </script>
 
@@ -41,7 +40,7 @@
 	class="{base} {gap} {overflow} {padding} {border} {rounded} {classes}"
 	role="listbox"
 	aria-orientation="vertical"
-	aria-multiselectable={multiple}
+	aria-multiselectable={Array.isArray(value)}
 	data-skeleton-id={id}
 	data-skeleton-part="listbox"
 >

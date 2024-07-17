@@ -27,7 +27,7 @@
 
 	<section class="space-y-4">
 		<h2 class="h2">Multiple</h2>
-		<Listbox multiple bind:value={multiple} name="value">
+		<Listbox bind:value={multiple} name="value">
 			{#each fruits as fruit}
 				<Listbox.Item value={fruit}>{fruit}</Listbox.Item>
 			{/each}
@@ -44,7 +44,7 @@
 				form = new FormData(e.currentTarget).getAll('value');
 			}}
 		>
-			<Listbox multiple name="value">
+			<Listbox value={[]} name="value">
 				{#each fruits as fruit}
 					<Listbox.Item value={fruit}>{fruit}</Listbox.Item>
 				{/each}

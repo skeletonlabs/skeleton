@@ -12,14 +12,12 @@ export interface ListboxContext {
 export interface ListboxProps
 	extends Omit<
 		HTMLAttributes<HTMLDivElement>,
-		'class' | 'role' | 'aria-orientation' | 'aria-multiselectable' | 'data-skeleton-id' | 'data-skeleton-part'
+		'name' | 'value' | 'class' | 'role' | 'aria-orientation' | 'aria-multiselectable' | 'data-skeleton-id' | 'data-skeleton-part'
 	> {
 	/** Set the item name. */
 	name: string;
 	/** The value of the selected item(s). */
 	value?: string | string[];
-	/** Whether multiple items can be selected. */
-	multiple?: boolean;
 
 	// Root ---
 	/** Set the base classes. */
