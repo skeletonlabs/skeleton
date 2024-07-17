@@ -74,7 +74,6 @@
 	aria-checked={checked}
 	aria-labelledby={labelledby}
 	aria-describedby={describedby}
-	tabindex="0"
 	onclick={toggle}
 	data-testid="switch"
 >
