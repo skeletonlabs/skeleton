@@ -45,9 +45,9 @@
 		<p>bg-primary-500 (default)</p>
 		<Progress {value} {max} />
 		<p>bg-secondary-500</p>
-		<Progress {value} {max} meterClasses="bg-secondary-500" />
+		<Progress {value} {max} meterBg="bg-secondary-500" />
 		<p>bg-tertiary-500</p>
-		<Progress {value} {max} meterClasses="bg-tertiary-500" />
+		<Progress {value} {max} meterBg="bg-tertiary-500" />
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Indeterminate</h2>
@@ -60,8 +60,8 @@
 		<h2 class="h2">RTL</h2>
 		<div dir="rtl" class="space-y-4">
 			<Progress {value} {max} />
-			<Progress {value} {max} meterClasses="bg-secondary-500" />
-			<Progress {value} {max} meterClasses="bg-tertiary-500" />
+			<Progress {value} {max} meterBg="bg-secondary-500" />
+			<Progress {value} {max} meterBg="bg-tertiary-500" />
 		</div>
 	</section>
 </div>

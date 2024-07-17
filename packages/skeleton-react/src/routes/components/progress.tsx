@@ -48,9 +48,9 @@ export function Component() {
 				<p>bg-primary-500 (default)</p>
 				<Progress value={value} max={max} />
 				<p>bg-secondary-500</p>
-				<Progress value={value} max={max} meterClasses="bg-secondary-500" />
+				<Progress value={value} max={max} meterBg="bg-secondary-500" />
 				<p>bg-tertiary-500</p>
-				<Progress value={value} max={max} meterClasses="bg-tertiary-500" />
+				<Progress value={value} max={max} meterBg="bg-tertiary-500" />
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">Indeterminate</h2>
@@ -64,8 +64,8 @@ export function Component() {
 				<h2 className="h2">RTL</h2>
 				<div dir="rtl" className="space-y-4">
 					<Progress value={value} max={max} />
-					<Progress value={value} max={max} meterClasses="bg-secondary-500" />
-					<Progress value={value} max={max} meterClasses="bg-tertiary-500" />
+					<Progress value={value} max={max} meterBg="bg-secondary-500" />
+					<Progress value={value} max={max} meterBg="bg-tertiary-500" />
 				</div>
 			</section>
 		</div>

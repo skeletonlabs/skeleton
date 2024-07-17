@@ -5,7 +5,7 @@ import { ProgressProps } from './types.js';
 export const Progress: FC<ProgressProps> = ({
 	value,
 	max = 100,
-	labelledBy = '',
+	labelledby = '',
 	// Root
 	base = 'overflow-x-hidden',
 	bg = 'bg-surface-200-800',
@@ -35,7 +35,7 @@ export const Progress: FC<ProgressProps> = ({
 		<>
 			<div
 				role="progressbar"
-				aria-labelledby={labelledBy}
+				aria-labelledby={labelledby}
 				aria-valuenow={value}
 				aria-valuemin={0}
 				aria-valuemax={max}
