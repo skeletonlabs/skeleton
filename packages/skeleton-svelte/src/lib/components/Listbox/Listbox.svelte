@@ -5,8 +5,8 @@
 
 	// Props
 	let {
-		name = '',
-		value = $bindable(''),
+		name,
+		value = $bindable(),
 		base = 'grid gap-2 overflow-y-auto',
 		gap = 'gap-2',
 		overflow = 'overflow-y-auto',
