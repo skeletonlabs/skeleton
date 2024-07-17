@@ -6,7 +6,7 @@
 	let selectedFruits = $state(['Apple', 'Banana']);
 </script>
 
-<Listbox name="fruits" multiple bind:value={selectedFruits}>
+<Listbox name="fruits" bind:value={selectedFruits}>
 	{#each fruits as fruit}
 		<Listbox.Item value={fruit}>{fruit}</Listbox.Item>
 	{/each}
