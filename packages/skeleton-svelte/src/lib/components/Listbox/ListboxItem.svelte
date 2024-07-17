@@ -11,7 +11,7 @@
 		rounded = 'rounded',
 		hover = 'hover:preset-tonal',
 		focus = 'focus:preset-tonal',
-		active = 'preset-filled',
+		active = 'aria-selected:preset-filled',
 		classes,
 		leadBase,
 		leadClasses,
@@ -70,7 +70,7 @@
 
 <button
 	{...attributes}
-	class="{base} {rounded} {ctx.isSelected(value) ? active : `${hover} ${focus}`} {classes}"
+	class="{base} {rounded} {hover} {focus} {active} {classes}"
 	type="button"
 	role="option"
 	aria-selected={ctx.isSelected(value)}
