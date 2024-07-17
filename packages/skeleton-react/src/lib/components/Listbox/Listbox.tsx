@@ -1,6 +1,7 @@
 import { useId, useContext } from 'react';
 import { ListboxContext } from './context';
-import { getPreviousElement, getNextElement, getFirstElement, getLastElement } from '$lib/internal/elements';
+import { getPreviousElement, getNextElement, getFirstElement, getLastElement } from '../../internal/elements.js';
+
 import type { ListboxProps, ListboxContext as ListboxContextType, ListboxItemProps } from './types';
 
 const ListboxRoot = <Value extends string | string[]>({
