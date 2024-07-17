@@ -1,5 +1,5 @@
-import { Listbox } from '@skeletonlabs/skeleton-svelte';
 import { useState } from 'react';
+import { Listbox } from '@skeletonlabs/skeleton-react';
 
 const Example = () => {
 	const fruits = ['Apple', 'Banana', 'Orange', 'Watermelon'];
