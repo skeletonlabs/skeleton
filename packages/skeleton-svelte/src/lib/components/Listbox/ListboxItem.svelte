@@ -7,10 +7,11 @@
 	// Props
 	let {
 		value,
-		base = 'flex items-center gap-2 text-left',
-		padding = 'py-2 px-4',
+		base = 'btn',
 		rounded = 'rounded',
-		selected = 'preset-filled',
+		hover = 'hover:preset-tonal',
+		focus = 'focus:preset-tonal',
+		active = 'preset-filled',
 		classes,
 		leadBase,
 		leadClasses,
@@ -69,12 +70,12 @@
 
 <button
 	{...attributes}
+	class="{base} {rounded} {ctx.isSelected(value) ? active : `${hover} ${focus}`} {classes}"
 	type="button"
 	role="option"
-	class="{base} {padding} {rounded} {ctx.isSelected(value) ? selected : null} {classes}"
 	aria-selected={ctx.isSelected(value)}
-	data-skeleton-part="listbox-item"
 	data-skeleton-id={id}
+	data-skeleton-part="listbox-item"
 	{onclick}
 	{onkeydown}
 >

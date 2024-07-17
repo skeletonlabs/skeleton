@@ -38,12 +38,12 @@
 
 <div
 	{...attributes}
+	class="{base} {gap} {overflow} {padding} {border} {rounded} {classes}"
 	role="listbox"
 	aria-orientation="vertical"
-	class="{base} {gap} {overflow} {padding} {border} {rounded} {classes}"
 	aria-multiselectable={multiple}
-	data-skeleton-part="listbox"
 	data-skeleton-id={id}
+	data-skeleton-part="listbox"
 >
 	{@render children?.()}
 </div>

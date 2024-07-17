@@ -58,7 +58,7 @@
 		<h2 class="h2">Selected</h2>
 		<Listbox bind:value={selected} name="value">
 			{#each fruits as fruit}
-				<Listbox.Item selected="preset-tonal-tertiary" value={fruit}>{fruit}</Listbox.Item>
+				<Listbox.Item active="preset-tonal-tertiary" value={fruit}>{fruit}</Listbox.Item>
 			{/each}
 		</Listbox>
 		<pre class="pre">Value: {JSON.stringify(selected)}</pre>

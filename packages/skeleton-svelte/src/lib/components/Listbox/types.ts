@@ -9,7 +9,11 @@ export interface ListboxContext {
 	readonly isSelected: (value: string) => boolean;
 }
 
-export interface ListboxProps extends HTMLAttributes<HTMLDivElement> {
+export interface ListboxProps
+	extends Omit<
+		HTMLAttributes<HTMLDivElement>,
+		'class' | 'role' | 'aria-orientation' | 'aria-multiselectable' | 'data-skeleton-id' | 'data-skeleton-part'
+	> {
 	/** Set the item name. */
 	name: string;
 	/** The value of the selected item(s). */
@@ -38,19 +42,22 @@ export interface ListboxProps extends HTMLAttributes<HTMLDivElement> {
 	children?: Snippet;
 }
 
-export interface ListboxItemProps extends HTMLButtonAttributes {
+export interface ListboxItemProps
+	extends Omit<HTMLButtonAttributes, 'class' | 'type' | 'role' | 'aria-selected' | 'data-skeleton-part' | 'data-skeleton-id'> {
 	/** Set the item value. */
 	value: string;
 
 	// Root ---
 	/** Set the base classes. */
 	base?: string;
-	/** Set padding classes. */
-	padding?: string;
 	/** Set radii classes. */
 	rounded?: string;
+	/** Set hover classes. */
+	hover?: string;
+	/** Set focus classes. */
+	focus?: string;
 	/** Set selected classes. */
-	selected?: string;
+	active?: string;
 	/** Set arbitrary classes. */
 	classes?: string;
 
