@@ -11,7 +11,7 @@
 		labelledby = undefined,
 		describedby = undefined,
 		// Root (Track)
-		base = 'inline cursor-pointer transition duration-200',
+		base = 'cursor-pointer transition duration-200',
 		stateInactive = 'preset-filled-surface-200-800',
 		stateActive = 'preset-filled-primary-500',
 		stateDisabled = 'opacity-50 cursor-not-allowed',
