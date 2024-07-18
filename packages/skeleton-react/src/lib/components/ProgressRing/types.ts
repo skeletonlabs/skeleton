@@ -8,7 +8,7 @@ export interface ProgressRingProps extends React.PropsWithChildren {
 	/** Defines the shape of the meter */
 	strokeLinecap?: 'inherit' | 'butt' | 'round' | 'square';
 	/** Set the aria-labelledby value */
-	labelledby?: string;
+	labelledBy?: string;
 
 	// Root (Figure) ---
 	/** Set the root base classes */

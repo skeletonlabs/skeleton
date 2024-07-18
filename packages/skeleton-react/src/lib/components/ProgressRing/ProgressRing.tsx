@@ -7,7 +7,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	max = 100,
 	strokeWidth = 50, // px
 	strokeLinecap = 'round',
-	labelledby = '',
+	labelledBy = '',
 	// Base (figure)
 	base = 'relative',
 	size = 'size-32',
@@ -60,7 +60,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 		<figure
 			className={`${base} ${size} ${classes}`}
 			role="meter"
-			aria-labelledby={labelledby}
+			aria-labelledby={labelledBy}
 			aria-valuenow={value || 0}
 			aria-valuemin={0}
 			aria-valuemax={max}

@@ -14,9 +14,9 @@ export interface SwitchProps {
 
 	// ARIA ---
 	/** Identifies the element that labels the switch. */
-	labelledby?: string | undefined;
+	labelledBy?: string | undefined;
 	/** Identifies the element that describes the switch. */
-	describedby?: string | undefined;
+	describedBy?: string | undefined;
 
 	// Root (Track) ---
 	/** Set base classes for the root element. */
