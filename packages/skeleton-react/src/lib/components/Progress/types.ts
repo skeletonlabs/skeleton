@@ -3,7 +3,7 @@ export interface ProgressProps {
 	value?: number;
 	/** Set the maximum value */
 	max?: number;
-	/** Set the aria-labelledby */
+	/** Set the aria-labelledby value */
 	labelledBy?: string;
 
 	// Root ---
@@ -29,7 +29,7 @@ export interface ProgressProps {
 	meterRounded?: string;
 	/** Set meter transition classes. */
 	meterTransition?: string;
-	/** Set meter animation classes for indeterminate mode. */
+	/** Set meter animation classes for indeterminate mode. (value === undefined) */
 	meterAnimate?: string;
 	/** Set meter arbitrary classes. */
 	meterClasses?: string;

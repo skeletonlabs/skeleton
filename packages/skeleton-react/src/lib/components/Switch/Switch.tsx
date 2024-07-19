@@ -10,8 +10,8 @@ export const Switch: React.FC<SwitchProps> = ({
 	disabled = false,
 	compact = false,
 	// Aria
-	labelledby = undefined,
-	describedby = undefined,
+	labelledBy = undefined,
+	describedBy = undefined,
 	// Root (Track)
 	base = 'cursor-pointer transition duration-200',
 	stateInactive = 'preset-filled-surface-200-800',
@@ -72,8 +72,8 @@ export const Switch: React.FC<SwitchProps> = ({
 			className={`${base} ${rxTrackState} ${width} ${height} ${padding} ${rounded} ${hover} ${rxDisabled} ${classes}`}
 			role="switch"
 			aria-checked={checked}
-			aria-labelledby={labelledby}
-			aria-describedby={describedby}
+			aria-labelledby={labelledBy}
+			aria-describedby={describedBy}
 			onClick={toggle}
 			data-testid="switch"
 		>
