@@ -34,6 +34,27 @@ import ExampleGroupsRaw from '@examples/tailwind/forms/ExampleGroups.astro?raw';
 	</div>
 </Preview>
 
+## Install the Forms Plugin
+The Tailwind Forms plugin normalizes form field styles, making them easier to customize and providing some rudimentary styles. It is required for the components on this page to work correctly. See [Tailwind's video tutorial](https://www.youtube.com/watch?v=pONeWAzDsQg) for more information.
+
+Firstly, install the `@tailwindcss/forms` package using your package manager:
+```sh
+npm install -D @tailwindcss/forms
+```
+
+Prepend the [Tailwind Forms plugin](https://github.com/tailwindlabs/tailwindcss-forms) to your `tailwind.config.[ts|js]`:
+```js
+import forms from '@tailwindcss/forms';
+
+export default {
+	//...
+	plugins: [
+		forms,
+		//...
+	]
+};
+```
+
 ## Select
 
 <Preview client:load>
