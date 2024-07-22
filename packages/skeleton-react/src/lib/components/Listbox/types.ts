@@ -1,0 +1,88 @@
+import { ButtonHTMLAttributes, HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
+
+export interface ListboxContext {
+	readonly id: string;
+	readonly name: string;
+	readonly select: (value: string) => void;
+	readonly deselect: (value: string) => void;
+	readonly isSelected: (value: string) => boolean;
+}
+
+export interface ListboxProps<Value extends string | string[] = string>
+	extends PropsWithChildren,
+		Omit<
+			HTMLAttributes<HTMLDivElement>,
+			| 'name'
+			| 'value'
+			| 'onChange'
+			| 'class'
+			| 'role'
+			| 'aria-orientation'
+			| 'aria-multiselectable'
+			| 'data-skeleton-id'
+			| 'data-skeleton-part'
+		> {
+	/** Set the item name. */
+	name: string;
+	/** The value of the selected item(s). */
+	value?: Value;
+
+	// Root ---
+	/** Set the base classes. */
+	base?: string;
+	/** Set the gap classes. */
+	gap?: string;
+	/** Set the overflow classes. */
+	overflow?: string;
+	/** Set padding classes. */
+	padding?: string;
+	/** Set border classes. */
+	border?: string;
+	/** Set radii classes. */
+	rounded?: string;
+	/** Set arbitrary classes. */
+	classes?: string;
+
+	// Events ---
+	/** Triggers when the value state is changed. */
+	onChange?: (value: Value) => void;
+}
+
+export interface ListboxItemProps
+	extends PropsWithChildren,
+		Omit<ButtonHTMLAttributes<HTMLElement>, 'class' | 'type' | 'role' | 'aria-selected' | 'data-skeleton-part' | 'data-skeleton-id'> {
+	/** Set the item value. */
+	value: string;
+
+	// Root ---
+	/** Set the base classes. */
+	base?: string;
+	/** Set radii classes. */
+	rounded?: string;
+	/** Set hover classes. */
+	hover?: string;
+	/** Set focus classes. */
+	focus?: string;
+	/** Set selected classes. */
+	active?: string;
+	/** Set arbitrary classes. */
+	classes?: string;
+
+	// Lead ---
+	/** Set the lead base classes */
+	leadBase?: string;
+	/** Set the lead arbitrary classes */
+	leadClasses?: string;
+
+	// Lead ---
+	/** Set the trail base classes */
+	trailBase?: string;
+	/** Set the trail arbitrary classes */
+	trailClasses?: string;
+
+	// Slots ---
+	/** Set the lead slot */
+	lead?: ReactNode;
+	/** Set the trail slot */
+	trail?: ReactNode;
+}

@@ -47,6 +47,9 @@ function App() {
 						<a className="anchor" href="/components/app-bars">
 							App Bars
 						</a>
+						<a className="anchor" href="/components/listbox">
+							Listbox
+						</a>
 						<a className="anchor" href="/components/navigation">
 							Navigation
 						</a>

@@ -4,6 +4,7 @@ export { default as TestReact } from './components/Test/Test.js';
 export { Accordion } from './components/Accordion/Accordion.js';
 export { Avatar } from './components/Avatar/Avatar.js';
 export { AppBar } from './components/AppBar/AppBar.js';
+export { Listbox } from './components/Listbox/Listbox.js';
 export { Nav } from './components/Navigation/Navigation.js';
 export { Progress } from './components/Progress/Progress.js';
 export { ProgressRing } from './components/ProgressRing/ProgressRing.js';

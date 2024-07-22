@@ -1,0 +1,93 @@
+<script lang="ts">
+	import { createId } from '$lib/internal/create-id.js';
+	import { getFirstElement, getLastElement, getNextElement, getPreviousElement } from '$lib/internal/elements.js';
+	import { getListboxContext } from './context.js';
+	import type { ListboxItemProps } from './types.js';
+
+	// Props
+	let {
+		value,
+		base = 'btn justify-normal',
+		rounded = 'rounded',
+		hover = 'hover:preset-tonal',
+		focus = 'focus:preset-tonal',
+		active = 'aria-selected:preset-filled',
+		classes,
+		leadBase,
+		leadClasses,
+		trailBase,
+		trailClasses,
+		children,
+		lead,
+		trail,
+		...attributes
+	}: ListboxItemProps = $props();
+
+	// Context
+	const ctx = getListboxContext();
+
+	// Local
+	const id = createId();
+	const listboxItemSelector = `[data-skeleton-id="${ctx.id}"] > [data-skeleton-part="listbox-item"]`;
+
+	// Events
+	const onclick: (typeof attributes)['onclick'] = (event) => {
+		ctx.isSelected(value) ? ctx.deselect(value) : ctx.select(value);
+		attributes.onclick?.(event);
+	};
+	const onkeydown: (typeof attributes)['onkeydown'] = (event) => {
+		switch (event.key) {
+			case 'ArrowUp': {
+				event.preventDefault();
+				const previous = getPreviousElement(listboxItemSelector, event.currentTarget);
+				previous?.focus();
+				break;
+			}
+			case 'ArrowDown': {
+				event.preventDefault();
+				const next = getNextElement(listboxItemSelector, event.currentTarget);
+				next?.focus();
+				break;
+			}
+			case 'Home': {
+				event.preventDefault();
+				const first = getFirstElement(listboxItemSelector);
+				first?.focus();
+				break;
+			}
+			case 'End': {
+				event.preventDefault();
+				const last = getLastElement(listboxItemSelector);
+				last?.focus();
+				break;
+			}
+		}
+		attributes.onkeydown?.(event);
+	};
+</script>
+
+<!-- @component The ListboxItem component. -->
+
+<button
+	{...attributes}
+	class="{base} {rounded} {hover} {focus} {active} {classes}"
+	type="button"
+	role="option"
+	aria-selected={ctx.isSelected(value)}
+	data-skeleton-id={id}
+	data-skeleton-part="listbox-item"
+	{onclick}
+	{onkeydown}
+>
+	{#if lead}
+		<div class="{leadBase} {leadClasses}">{@render lead()}</div>
+	{/if}
+	{@render children?.()}
+	{#if trail}
+		<div class="{trailBase} {trailClasses}">{@render trail()}</div>
+	{/if}
+</button>
+
+{#if ctx.isSelected(value)}
+	<input type="hidden" name={ctx.name} {value} />
+{/if}

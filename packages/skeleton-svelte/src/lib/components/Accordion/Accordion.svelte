@@ -53,7 +53,7 @@
 	// Side effects
 	$effect(() => {
 		// If multiple prop is updated to false and there are more than one opened item, keep only the first one open.
-		if (!multiple && value.length > 1) value = [value[0]];
+		if (!multiple && value.length > 1) value = [value[0]!];
 	});
 </script>
 
