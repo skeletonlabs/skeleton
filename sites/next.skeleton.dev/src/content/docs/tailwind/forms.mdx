@@ -1,6 +1,6 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
-title: Forms & Inputs
+title: Forms and Inputs
 description: Various form and input styles.
 srcCore: '/plugin/components/forms.css'
 showDocsUrl: true
@@ -33,6 +33,46 @@ import ExampleGroupsRaw from '@examples/tailwind/forms/ExampleGroups.astro?raw';
 		<Code code={ExampleTextareaRaw} lang="html" />
 	</div>
 </Preview>
+
+## Prerequisites
+
+Skeleton relies on the official [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms) plugin to normalize form styling. This implements rudamentary base styles, while also making it easier to customize each element. If you plan to implement forms in your project, make sure this plugin is installed.
+
+<figure class="card-enhanced-gradient flex justify-center gap-4 p-8">
+	<a
+		class="btn preset-filled"
+		href="https://github.com/tailwindlabs/tailwindcss-forms"
+		target="_blank"
+	>
+		Plugin Doc
+	</a>
+	<a
+		class="btn preset-outlined"
+		href="https://www.youtube.com/watch?v=pONeWAzDsQg"
+		target="_blank"
+	>
+		Video Guide
+	</a>
+</figure>
+
+Install the `@tailwindcss/forms` package.
+
+```sh
+npm install -D @tailwindcss/forms
+```
+
+Implement the plugin in your `tailwind.config`, ideally before the Skeleton plugin.
+
+```js {1,5}
+import forms from '@tailwindcss/forms';
+
+export default {
+	plugins: [
+		forms,
+		// skeleton()
+	]
+};
+```
 
 ## Select
 
