@@ -1,9 +1,12 @@
 <script lang="ts">
+	import * as accordion from '@zag-js/accordion';
+	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import { setAccordionContext } from './context.js';
 	import type { AccordionProps } from './types.js';
 
 	let {
 		multiple = false,
+		collapsible = false,
 		value = $bindable([]),
 		animDuration = 200,
 		// Root
@@ -19,46 +22,36 @@
 		iconClosed
 	}: AccordionProps = $props();
 
-	// Functions
-	function open(id: string) {
-		value = multiple ? [...value, id] : [id];
-	}
-	function close(id: string) {
-		value = value.filter((_id) => _id !== id);
-	}
-	function toggle(id: string) {
-		isOpen(id) ? close(id) : open(id);
-	}
-	function isOpen(id: string) {
-		return value.includes(id);
-	}
+	const [snapshot, send] = useMachine(
+		accordion.machine({
+			id: Math.random().toString(16).slice(2),
+			multiple,
+			collapsible,
+			onValueChange: (detail) => {
+				value = detail.value;
+			}
+		})
+	);
+	const api = $derived(accordion.connect(snapshot, send, normalizeProps));
 
-	// Context
 	setAccordionContext({
-		open,
-		close,
-		toggle,
-		isOpen,
+		get api() {
+			return api;
+		},
 		get animDuration() {
 			return animDuration;
 		},
-		get iconOpen() {
-			return iconOpen;
-		},
 		get iconClosed() {
 			return iconClosed;
+		},
+		get iconOpen() {
+			return iconOpen;
 		}
-	});
-
-	// Side effects
-	$effect(() => {
-		// If multiple prop is updated to false and there are more than one opened item, keep only the first one open.
-		if (!multiple && value.length > 1) value = [value[0]];
 	});
 </script>
 
-<!-- @component An Accordion parent component. -->
+<!-- @component Accordion -->
 
-<div class="{base} {padding} {spaceY} {rounded} {width} {classes}" data-testid="accordion">
+<div class="{base} {padding} {spaceY} {rounded} {width} {classes}" {...api.getRootProps()}>
 	{@render children()}
 </div>

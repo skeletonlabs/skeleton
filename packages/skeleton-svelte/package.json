@@ -48,6 +48,8 @@
 		"@tailwindcss/forms": "^0.5.7",
 		"@testing-library/jest-dom": "^6.4.2",
 		"@testing-library/svelte": "^4.1.0",
+		"@zag-js/accordion": "^0.62.0",
+		"@zag-js/svelte": "^0.62.0",
 		"autoprefixer": "^10.4.19",
 		"jsdom": "^24.0.0",
 		"lucide-svelte": "^0.341.0",

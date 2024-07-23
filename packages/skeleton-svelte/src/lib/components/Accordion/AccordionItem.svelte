@@ -4,7 +4,7 @@
 	import { getAccordionContext } from './context.js';
 
 	let {
-		id = '',
+		id,
 		disabled = false,
 		// Root
 		base = '',
@@ -23,58 +23,52 @@
 		panelPadding = 'py-2 px-4',
 		panelRounded = '',
 		panelClasses = '',
-		// Events
-		onclick = () => {},
 		// Snippets
 		control,
 		controlLead,
 		panel
 	}: AccordionItemProps = $props();
 
-	function clickHandler(event: MouseEvent) {
-		ctx.toggle(id);
-		onclick(event);
-	}
-
 	// Context
 	const ctx = getAccordionContext();
 </script>
 
-<!-- @component An Accordion child item. -->
+<!-- @component AccordionItem -->
 
-<div class="{base} {spaceY} {classes}" data-testid="accordion-item">
-	<!-- Control -->
-	<button
-		type="button"
-		{id}
-		class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
-		aria-expanded={ctx.isOpen(id)}
-		aria-controls="accordion-panel-{id}"
-		onclick={clickHandler}
-		{disabled}
-	>
-		<!-- Lead -->
-		{#if controlLead}<div>{@render controlLead()}</div>{/if}
-		<!-- Content -->
-		<div class="flex-1">{@render control()}</div>
-		<!-- Icons -->
-		<div class={iconsBase}>
-			{#if ctx.isOpen(id)}
-				{#if ctx.iconOpen}{@render ctx.iconOpen()}{:else}&minus;{/if}
-			{:else if ctx.iconClosed}{@render ctx.iconClosed()}{:else}&plus;{/if}
-		</div>
-	</button>
-	<!-- Panel -->
-	{#if panel && ctx.isOpen(id)}
-		<div
-			class="{panelBase} {panelPadding} {panelRounded} {panelClasses}"
-			transition:slide={{ duration: ctx.animDuration }}
-			id="accordion-panel-{id}"
-			role="region"
-			aria-hidden={ctx.isOpen(id)}
-			aria-labelledby={id}
+<div class="{base} {spaceY} {classes}" {...ctx.api.getItemProps({ value: id, disabled })}>
+	<h3>
+		<button
+			class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
+			{...ctx.api.getItemTriggerProps({ value: id, disabled })}
 		>
-			{@render panel()}
-		</div>
-	{/if}
+			{#if controlLead}
+				<div>{@render controlLead()}</div>
+			{/if}
+			<div class="flex-1">
+				{@render control()}
+			</div>
+			<!-- Icons -->
+			<div class={iconsBase}>
+				{#if ctx.api.value.includes(id)}
+					{#if ctx.iconOpen}
+						{@render ctx.iconOpen()}
+					{:else}
+						&minus;
+					{/if}
+				{:else if ctx.iconClosed}
+					{@render ctx.iconClosed()}
+				{:else}
+					&plus;
+				{/if}
+			</div>
+		</button>
+	</h3>
+
+	<div
+		class="{panelBase} {panelPadding} {panelRounded} {panelClasses}"
+		{...ctx.api.getItemContentProps({ value: id, disabled })}
+		transition:slide={{ duration: ctx.animDuration }}
+	>
+		{@render panel?.()}
+	</div>
 </div>
