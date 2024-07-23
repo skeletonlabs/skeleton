@@ -1,8 +1,8 @@
 /**
  * Create a normalizer function that normalizes a set of attributes based on a given dictionary.
  *
- * @param {Record<string, string>} dictionary - The dictionary to use for normalization.
- * @return {(attributes: Record<string, unknown>): Record<string, unknown>} The normalized attributes.
+ * @param {Record<string, string>} dictionary - The dictionary to use for the normalization.
+ * @return {(attributes: Record<string, unknown>): Record<string, unknown>} The normalizer, which takes in an object of attributes and returns an object of normalized attributes.
  */
 const createNormalizer = (dictionary: Record<string, string>) => {
 	return (attributes: Record<string, unknown>): Record<string, unknown> => {
