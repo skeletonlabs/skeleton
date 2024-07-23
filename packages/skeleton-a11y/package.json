@@ -1,0 +1,28 @@
+{
+	"name": "@skeletonlabs/skeleton-a11y",
+	"description": "A framework agnostic package providing accessability utilities for common web UI patterns.",
+	"version": "0.0.0",
+	"private": true,
+	"files": [
+		"dist"
+	],
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"dev": "tsc -w",
+		"build": "tsc",
+		"test": "vitest run"
+	},
+	"devDependencies": {
+		"typescript": "^5.5.4",
+		"vitest": "^2.0.4"
+	},
+	"license": "MIT",
+	"type": "module"
+}

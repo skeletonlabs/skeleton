@@ -1,0 +1,16 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"outDir": "dist",
+		"lib": ["es2023", "DOM"],
+		"module": "node16",
+		"target": "es2022",
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"declaration": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"moduleResolution": "node16"
+	},
+	"include": ["src"]
+}
