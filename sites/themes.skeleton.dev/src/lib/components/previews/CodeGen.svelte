@@ -3,6 +3,7 @@
 	import { stateFormCore } from '$lib/state.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
+	// FIXME: this will need a major refactor
 	let theme = $derived(genThemeCode());
 
 	const formatThemeName: HTMLInputAttributes['oninput'] = (e) => {

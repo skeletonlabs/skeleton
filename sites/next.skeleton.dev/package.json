@@ -52,7 +52,7 @@
 		"@types/node": "^20.14.11",
 		"minimatch": "^9.0.5",
 		"pagefind": "^1.1.0",
-		"vite-plugin-pagefind": "^0.2.8",
+		"vite-plugin-pagefind": "^0.2.10",
 		"vite-plugin-tw-plugin-watcher": "workspace:*"
 	}
 }
