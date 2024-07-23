@@ -1,16 +1,17 @@
 {
-	"$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
 		"outDir": "dist",
-		"lib": ["es2023", "DOM"],
 		"module": "node16",
-		"target": "es2022",
+		"target": "es2023",
 		"strict": true,
 		"noUncheckedIndexedAccess": true,
 		"declaration": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"moduleResolution": "node16"
+		"moduleResolution": "node16",
+		"verbatimModuleSyntax": true,
+		"isolatedModules": true
 	},
-	"include": ["src"]
+	"include": ["src"],
+	"exclude": ["./**/*.test.ts"]
 }
