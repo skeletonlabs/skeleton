@@ -24,7 +24,7 @@
 		"@astrojs/check": "^0.5.10",
 		"@astrojs/mdx": "^2.2.4",
 		"@astrojs/react": "^3.1.1",
-		"@astrojs/svelte": "^5.3.0",
+		"@astrojs/svelte": "^5.7.0",
 		"@astrojs/tailwind": "^5.1.0",
 		"@nanostores/persistent": "^0.9.1",
 		"@skeletonlabs/skeleton": "workspace:*",
