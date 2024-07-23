@@ -4,7 +4,8 @@
 	"version": "0.0.0",
 	"private": true,
 	"files": [
-		"dist"
+		"dist",
+		"!dist/**/*.test.*"
 	],
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
