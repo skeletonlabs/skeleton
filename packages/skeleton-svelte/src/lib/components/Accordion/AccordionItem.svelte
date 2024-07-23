@@ -64,11 +64,13 @@
 		</button>
 	</h3>
 
-	<div
-		class="{panelBase} {panelPadding} {panelRounded} {panelClasses}"
-		{...ctx.api.getItemContentProps({ value: id, disabled })}
-		transition:slide={{ duration: ctx.animDuration }}
-	>
-		{@render panel?.()}
-	</div>
+	{#if ctx.api.value.includes(id)}
+		<div
+			class="{panelBase} {panelPadding} {panelRounded} {panelClasses}"
+			{...ctx.api.getItemContentProps({ value: id, disabled })}
+			transition:slide={{ duration: ctx.animDuration }}
+		>
+			{@render panel?.()}
+		</div>
+	{/if}
 </div>
