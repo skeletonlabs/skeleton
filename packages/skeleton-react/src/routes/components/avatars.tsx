@@ -14,9 +14,7 @@ export function Component() {
 			<section className="space-y-4">
 				<Avatar src={imgSrc} name="basic" />
 				<h2 className="h2">Fallback</h2>
-				<Avatar name="children">
-					<span className="text-sm">SK</span>
-				</Avatar>
+				<Avatar name="children">SK</Avatar>
 				<h2 className="h2">Icon</h2>
 				<Avatar name="icon" background="preset-filled-primary-500">
 					<Skull size={24} />

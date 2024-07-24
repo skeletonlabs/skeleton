@@ -1,9 +1,11 @@
 export interface AvatarProps extends React.PropsWithChildren {
-	/** Set avatar image source URL. */
+	/** The source of the avatar image. */
 	src?: string;
-	/** Set the first ane last name of the user. */
+	/** The source set of the avatar image. */
+	srcSet?: string;
+	/** Provide a name or username for the avatar. */
 	name: string;
-	/** Set avatar image filter name. such as "#Apollo". */
+	/** Set avatar image filter name, such as: "#Apollo". */
 	filter?: string;
 
 	// Root ---

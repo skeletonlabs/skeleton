@@ -7,6 +7,7 @@ import { AvatarProps } from './types.js';
 
 export const Avatar: React.FC<AvatarProps> = ({
 	src = '',
+	srcSet = '',
 	name = '',
 	filter = '',
 	// Root
@@ -47,7 +48,8 @@ export const Avatar: React.FC<AvatarProps> = ({
 			<img
 				{...api.getImageProps()}
 				src={src}
-				alt={getInitials(name)}
+				srcSet={srcSet}
+				alt={name}
 				className={`${imageBase} ${imageClasses}`}
 				style={{ filter: filter ? `url(${filter})` : undefined }}
 			/>
