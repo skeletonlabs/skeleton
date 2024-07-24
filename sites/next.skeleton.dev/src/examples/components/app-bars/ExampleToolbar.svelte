@@ -10,10 +10,10 @@
 	{#snippet lead()}
 		<ArrowLeft size={24} />
 	{/snippet}
-	Title
 	{#snippet trail()}
 		<Paperclip size={20} />
 		<Calendar size={20} />
 		<CircleUser size={20} />
 	{/snippet}
+	<span>Title</span>
 </AppBar>
