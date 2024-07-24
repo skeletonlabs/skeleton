@@ -6,10 +6,10 @@ import { useMachine, normalizeProps } from '@zag-js/react';
 import { AvatarProps } from './types.js';
 
 export const Avatar: React.FC<AvatarProps> = ({
-	src = '',
-	srcSet = '',
-	name = '',
-	filter = '',
+	src,
+	srcSet,
+	name,
+	filter,
 	// Root
 	base = 'overflow-hidden isolate',
 	background = 'bg-surface-400-600',
@@ -22,7 +22,7 @@ export const Avatar: React.FC<AvatarProps> = ({
 	// Image
 	imageBase = 'w-full object-cover',
 	imageClasses = '',
-	// Children
+	// Fallback
 	fallbackBase = 'w-full h-full flex justify-center items-center',
 	fallbackClasses = '',
 	// Children
