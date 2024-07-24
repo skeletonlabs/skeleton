@@ -3,6 +3,7 @@
 	import { stateFormCore } from '$lib/state.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
+	// FIXME: this will need a major refactor
 	let theme = $derived(genThemeCode());
 
 	const formatThemeName: HTMLInputAttributes['oninput'] = (e) => {
@@ -19,7 +20,7 @@
 	</label>
 	<!-- prettier-ignore -->
 	<pre class="pre !bg-neutral-950"><code>{`
-import type { Theme } from '@skeletonlabs/skeleton';\n
+import type { Theme } from '@skeletonlabs/skeleton/themes';\n
 const ${stateFormCore.name} = ${JSON.stringify({name: stateFormCore.name, properties: theme.properties}, null, 2)} satisfies Theme;\n
 export default ${stateFormCore.name};
 	`.trim()}</code></pre>

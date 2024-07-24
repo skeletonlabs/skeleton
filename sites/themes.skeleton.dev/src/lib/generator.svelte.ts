@@ -1,4 +1,5 @@
 import chroma from 'chroma-js';
+import { untrack } from 'svelte';
 
 // State
 import { stateFormColors, stateFormBackgrounds, stateFormTypography, stateFormSpacing, stateFormEdges } from '$lib/state.svelte';
@@ -101,7 +102,7 @@ export function findColorBreakpoint() {
 				breakpoint = i;
 			}
 		}
-		stateFormColors[colorName].breakpoint = breakpoint;
+		untrack(() => (stateFormColors[colorName].breakpoint = breakpoint));
 	}
 }
 

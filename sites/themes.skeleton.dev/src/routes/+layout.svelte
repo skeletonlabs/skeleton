@@ -1,7 +1,15 @@
 <script lang="ts">
 	import '../app.pcss';
 	import { genCssCode } from '$lib/generator.svelte';
+	import type { Snippet } from 'svelte';
 
+	let {
+		children
+	}: {
+		children: Snippet;
+	} = $props();
+
+	// FIXME: this will need a major refactor
 	let cssCode = $derived(genCssCode());
 </script>
 
@@ -11,4 +19,4 @@
 	{@html `\<style\>${cssCode}\</style\>`}
 </svelte:head>
 
-<slot />
+{@render children?.()}

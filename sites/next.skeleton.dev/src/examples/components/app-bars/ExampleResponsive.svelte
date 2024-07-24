@@ -11,7 +11,6 @@
 	{#snippet lead()}
 		<ArrowLeft size={24} />
 	{/snippet}
-	<span>Title</span>
 	{#snippet trail()}
 		<div class="hidden space-x-4 sm:flex">
 			<Paperclip size={20} />
@@ -25,4 +24,5 @@
 	{#snippet headline()}
 		<h2 class="h2">Title</h2>
 	{/snippet}
+	<span>Title</span>
 </AppBar>
