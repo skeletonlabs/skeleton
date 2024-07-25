@@ -33,8 +33,6 @@
 		})
 	);
 
-	$inspect(snapshot);
-
 	const api = $derived(accordion.connect(snapshot, send, normalizeProps));
 
 	setAccordionContext({
