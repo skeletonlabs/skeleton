@@ -65,5 +65,8 @@
 		"vite-plugin-tw-plugin-watcher": "workspace:*",
 		"vitest": "^1.6.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@zag-js/avatar": "^0.62.0"
+	}
 }

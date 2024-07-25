@@ -1,10 +1,13 @@
 <script lang="ts">
+	import * as avatar from '@zag-js/avatar';
+	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { AvatarProps } from './types.js';
 
 	let {
-		src = '',
-		alt = '',
-		filter = '',
+		src,
+		srcset,
+		name,
+		filter,
 		// Root
 		base = 'overflow-hidden isolate',
 		background = 'bg-surface-400-600',
@@ -17,17 +20,39 @@
 		// Image
 		imageBase = 'w-full object-cover',
 		imageClasses = '',
+		// Fallback
+		fallbackBase = 'w-full h-full flex justify-center items-center',
+		fallbackClasses = '',
 		// Snippets
 		children
 	}: AvatarProps = $props();
+
+	// Zag
+	const [snapshot, send] = useMachine(avatar.machine({ id: '1' }));
+	const api = $derived(avatar.connect(snapshot, send, normalizeProps));
+
+	// Generate Initials
+	function getInitials(name: string) {
+		return name
+			.split(' ')
+			.map((word) => word[0])
+			.join('');
+	}
 </script>
 
 <!-- @component An image with a fallback for representing the user. -->
 
-<figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testId="avatar">
-	{#if src}
-		<img class="{imageBase} {imageClasses}" {src} {alt} style:filter={filter && `url(${filter})`} />
-	{:else if children}
-		{@render children()}
+<figure {...api.getRootProps()} class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testid="avatar">
+	<!-- Image -->
+	{#if src || srcset}
+		<img {...api.getImageProps()} {src} {srcset} alt={name} class="{imageBase} {imageClasses}" style:filter={filter && `url(${filter})`} />
 	{/if}
+	<!-- Fallback -->
+	<span {...api.getFallbackProps()} class="{fallbackBase} {fallbackClasses}">
+		{#if children}
+			{@render children()}
+		{:else}
+			{getInitials(name)}
+		{/if}
+	</span>
 </figure>
