@@ -20,7 +20,7 @@
 					"type": "string"
 				},
 				"labelledBy": {
-					"description": "Set the aria-labelledby",
+					"description": "Set the aria-labelledby value",
 					"type": "string"
 				},
 				"max": {
@@ -28,7 +28,7 @@
 					"type": "number"
 				},
 				"meterAnimate": {
-					"description": "Set meter animation classes for indeterminate mode.",
+					"description": "Set meter animation classes for indeterminate mode. (value === undefined)",
 					"type": "string"
 				},
 				"meterBase": {

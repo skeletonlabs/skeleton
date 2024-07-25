@@ -50,7 +50,7 @@
 					"description": "Set the label font weight",
 					"type": "string"
 				},
-				"labelledby": {
+				"labelledBy": {
 					"description": "Set the aria-labelledby value",
 					"type": "string"
 				},
@@ -121,7 +121,7 @@
 				"max",
 				"strokeWidth",
 				"strokeLinecap",
-				"labelledby",
+				"labelledBy",
 				"base",
 				"size",
 				"classes",

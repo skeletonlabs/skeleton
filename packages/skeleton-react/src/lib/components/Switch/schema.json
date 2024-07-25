@@ -106,7 +106,7 @@
 					"description": "Set the compact display mode.",
 					"type": "boolean"
 				},
-				"describedby": {
+				"describedBy": {
 					"description": "Identifies the element that describes the switch.",
 					"type": "string"
 				},
@@ -138,7 +138,7 @@
 					"$ref": "#/definitions/React.ReactNode",
 					"description": "The inactive state children."
 				},
-				"labelledby": {
+				"labelledBy": {
 					"description": "Identifies the element that labels the switch.",
 					"type": "string"
 				},
@@ -218,8 +218,8 @@
 				"checked",
 				"disabled",
 				"compact",
-				"labelledby",
-				"describedby",
+				"labelledBy",
+				"describedBy",
 				"base",
 				"stateInactive",
 				"stateActive",
