@@ -36,7 +36,7 @@
 			</Nav.Tile>
 		{/snippet}
 		{#snippet footer()}
-			<Nav.Tile labelExpanded="Settings" href="/settings"><IconSettings /></Nav.Tile>
+			<Nav.Tile labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></Nav.Tile>
 		{/snippet}
 	</Nav.Rail>
 	<!-- Content -->
