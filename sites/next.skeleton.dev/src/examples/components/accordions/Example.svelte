@@ -14,7 +14,7 @@
 </script>
 
 <Accordion {value}>
-	<Accordion.Item id="club">
+	<Accordion.Item value="club">
 		<!-- Control -->
 		{#snippet controlLead()}<Club size={24} />{/snippet}
 		{#snippet control()}Club{/snippet}
@@ -22,19 +22,19 @@
 		{#snippet panel()}{lorem}{/snippet}
 	</Accordion.Item>
 	<hr class="hr" />
-	<Accordion.Item id="diamond">
+	<Accordion.Item value="diamond">
 		{#snippet controlLead()}<Diamond size={24} />{/snippet}
 		{#snippet control()}Diamond{/snippet}
 		{#snippet panel()}{lorem}{/snippet}
 	</Accordion.Item>
 	<hr class="hr" />
-	<Accordion.Item id="heart" disabled>
+	<Accordion.Item value="heart" disabled>
 		{#snippet controlLead()}<Heart size={24} />{/snippet}
 		{#snippet control()}Heart (disabled){/snippet}
 		{#snippet panel()}{lorem}{/snippet}
 	</Accordion.Item>
 	<hr class="hr" />
-	<Accordion.Item id="spade">
+	<Accordion.Item value="spade">
 		{#snippet controlLead()}<Spade size={24} />{/snippet}
 		{#snippet control()}Spade{/snippet}
 		{#snippet panel()}{lorem}{/snippet}

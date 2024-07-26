@@ -4,7 +4,7 @@
 	import { getAccordionContext } from './context.js';
 
 	let {
-		id,
+		value,
 		disabled = false,
 		// Root
 		base = '',
@@ -35,39 +35,40 @@
 
 <!-- @component AccordionItem -->
 
-<div class="{base} {spaceY} {classes}" {...ctx.api.getItemProps({ value: id, disabled })}>
-	<h3>
-		<button
-			class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
-			{...ctx.api.getItemTriggerProps({ value: id, disabled })}
-		>
-			{#if controlLead}
-				<div>{@render controlLead()}</div>
-			{/if}
-			<div class="flex-1">
-				{@render control()}
-			</div>
-			<!-- Icons -->
-			<div class={iconsBase}>
-				{#if ctx.api.value.includes(id)}
-					{#if ctx.iconOpen}
-						{@render ctx.iconOpen()}
-					{:else}
-						&minus;
-					{/if}
-				{:else if ctx.iconClosed}
-					{@render ctx.iconClosed()}
+<div class="{base} {spaceY} {classes}" {...ctx.api.getItemProps({ value, disabled })}>
+	<!-- Control -->
+	<button
+		class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
+		{...ctx.api.getItemTriggerProps({ value, disabled })}
+	>
+		<!-- Lead -->
+		{#if controlLead}
+			<div>{@render controlLead()}</div>
+		{/if}
+		<!-- Content -->
+		<div class="flex-1">
+			{@render control()}
+		</div>
+		<!-- Toggle Icons -->
+		<div class={iconsBase}>
+			{#if ctx.api.value.includes(value)}
+				{#if ctx.iconOpen}
+					{@render ctx.iconOpen()}
 				{:else}
-					&plus;
+					&minus;
 				{/if}
-			</div>
-		</button>
-	</h3>
-
-	{#if ctx.api.value.includes(id)}
+			{:else if ctx.iconClosed}
+				{@render ctx.iconClosed()}
+			{:else}
+				&plus;
+			{/if}
+		</div>
+	</button>
+	<!-- Panel -->
+	{#if ctx.api.value.includes(value)}
 		<div
 			class="{panelBase} {panelPadding} {panelRounded} {panelClasses}"
-			{...ctx.api.getItemContentProps({ value: id, disabled })}
+			{...ctx.api.getItemContentProps({ value, disabled })}
 			transition:slide={{ duration: ctx.animDuration }}
 		>
 			{@render panel?.()}

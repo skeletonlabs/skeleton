@@ -48,9 +48,9 @@ export interface AccordionProps {
 // Accordion Item ---
 
 export interface AccordionItemProps {
-	/** Set a unique ID for the item. */
-	id: string;
-	/** Set a disabled state for the item. */
+	/** Set a unique value for each item. */
+	value: string;
+	/** Set a disabled state for this item. */
 	disabled?: boolean;
 
 	// Root ---

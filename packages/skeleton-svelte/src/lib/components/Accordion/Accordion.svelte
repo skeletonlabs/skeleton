@@ -28,6 +28,9 @@
 			id: useId(),
 			multiple,
 			collapsible,
+			// FIXME: this needs to take in the default value
+			// https://zagjs.com/components/react/accordion#opening-specific-accordions
+			// value,
 			onValueChange: (detail) => {
 				value = detail.value;
 			}
