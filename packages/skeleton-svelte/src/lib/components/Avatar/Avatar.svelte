@@ -28,7 +28,7 @@
 	}: AvatarProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(avatar.machine({ id: '1' }));
+	const [snapshot, send] = useMachine(avatar.machine({ id: Math.random().toString(16).slice(2) }));
 	const api = $derived(avatar.connect(snapshot, send, normalizeProps));
 
 	// Generate Initials

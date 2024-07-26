@@ -49,6 +49,7 @@
 		"@testing-library/jest-dom": "^6.4.7",
 		"@testing-library/svelte": "^4.2.3",
 		"@zag-js/accordion": "^0.62.0",
+		"@zag-js/avatar": "^0.62.0",
 		"@zag-js/svelte": "^0.62.0",
 		"autoprefixer": "^10.4.19",
 		"jsdom": "^24.1.1",
@@ -65,8 +66,5 @@
 		"vite-plugin-tw-plugin-watcher": "workspace:*",
 		"vitest": "^1.6.0"
 	},
-	"type": "module",
-	"dependencies": {
-		"@zag-js/avatar": "^0.62.0"
-	}
+	"type": "module"
 }
