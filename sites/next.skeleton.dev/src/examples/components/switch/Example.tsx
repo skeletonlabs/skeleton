@@ -4,5 +4,5 @@ import { Switch } from '@skeletonlabs/skeleton-react';
 export const Page: React.FC = () => {
 	const [example, setExample] = React.useState(false);
 
-	return <Switch id="example" name="example" checked={example} onChange={setExample} />;
+	return <Switch name="example" checked={example} onChange={setExample} />;
 };

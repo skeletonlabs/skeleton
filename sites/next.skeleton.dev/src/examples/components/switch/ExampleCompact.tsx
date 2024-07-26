@@ -7,12 +7,11 @@ export const Page: React.FC = () => {
 
 	return (
 		<Switch
-			id="compact"
 			name="compact"
 			checked={compact}
 			onChange={setCompact}
-			width="w-9"
-			stateActive="preset-filled-tertiary-500"
+			controlWidth="w-9"
+			controlActive="preset-filled-tertiary-500"
 			compact
 			inactiveChild={<IconFrown size="18" />}
 			activeChild={<IconSmile size="18" />}

@@ -3,18 +3,15 @@
 </script>
 
 <section class="w-full space-y-4">
-	<label class="label flex items-center justify-between gap-4" for="inactive">
+	<Switch name="inactive">
 		<p>Default to the inactive state.</p>
-		<Switch id="inactive" name="inactive" />
-	</label>
+	</Switch>
 	<hr class="hr" />
-	<label class="label flex items-center justify-between gap-4" for="active">
+	<Switch name="active" checked>
 		<p>Default to the active state.</p>
-		<Switch id="active" name="active" checked />
-	</label>
+	</Switch>
 	<hr class="hr" />
-	<label class="label flex items-center justify-between gap-4" for="disabled">
+	<Switch name="disabled" disabled>
 		<p>Shown in disabled mode.</p>
-		<Switch id="disabled" name="disabled" disabled />
-	</label>
+	</Switch>
 </section>
