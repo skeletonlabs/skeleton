@@ -36,34 +36,37 @@
 <!-- @component AccordionItem -->
 
 <div class="{base} {spaceY} {classes}" {...ctx.api.getItemProps({ value, disabled })}>
-	<!-- Control -->
-	<button
-		class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
-		{...ctx.api.getItemTriggerProps({ value, disabled })}
-	>
-		<!-- Lead -->
-		{#if controlLead}
-			<div>{@render controlLead()}</div>
-		{/if}
-		<!-- Content -->
-		<div class="flex-1">
-			{@render control()}
-		</div>
-		<!-- Toggle Icons -->
-		<div class={iconsBase}>
-			{#if ctx.api.value.includes(value)}
-				{#if ctx.iconOpen}
-					{@render ctx.iconOpen()}
-				{:else}
-					&minus;
-				{/if}
-			{:else if ctx.iconClosed}
-				{@render ctx.iconClosed()}
-			{:else}
-				&plus;
+	<h3>
+		<button
+			class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
+			{...ctx.api.getItemTriggerProps({ value, disabled })}
+		>
+			<!-- Lead -->
+			{#if controlLead}
+				<div>{@render controlLead()}</div>
 			{/if}
-		</div>
-	</button>
+			<!-- Content -->
+			<div class="flex-1">
+				{@render control()}
+			</div>
+			<!-- Toggle Icons -->
+			<div class={iconsBase}>
+				{#if ctx.api.value.includes(value)}
+					{#if ctx.iconOpen}
+						{@render ctx.iconOpen()}
+					{:else}
+						&minus;
+					{/if}
+				{:else if ctx.iconClosed}
+					{@render ctx.iconClosed()}
+				{:else}
+					&plus;
+				{/if}
+			</div>
+		</button>
+	</h3>
+	<!-- Control -->
+
 	<!-- Panel -->
 	{#if ctx.api.value.includes(value)}
 		<div
