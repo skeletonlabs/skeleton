@@ -3,6 +3,7 @@
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import { setAccordionContext } from './context.js';
 	import type { AccordionProps } from './types.js';
+	import { useId } from '$lib/internal/uuid.js';
 
 	let {
 		multiple = false,
@@ -24,7 +25,7 @@
 
 	const [snapshot, send] = useMachine(
 		accordion.machine({
-			id: Math.random().toString(16).slice(2),
+			id: useId(),
 			multiple,
 			collapsible,
 			onValueChange: (detail) => {

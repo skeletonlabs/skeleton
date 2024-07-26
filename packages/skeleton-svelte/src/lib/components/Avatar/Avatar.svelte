@@ -2,6 +2,7 @@
 	import * as avatar from '@zag-js/avatar';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { AvatarProps } from './types.js';
+	import { useId } from '$lib/internal/uuid.js';
 
 	let {
 		src,
@@ -28,7 +29,7 @@
 	}: AvatarProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(avatar.machine({ id: Math.random().toString(16).slice(2) }));
+	const [snapshot, send] = useMachine(avatar.machine({ id: useId() }));
 	const api = $derived(avatar.connect(snapshot, send, normalizeProps));
 
 	// Generate Initials

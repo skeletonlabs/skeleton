@@ -2,6 +2,7 @@
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
 	import * as zagSwitch from '@zag-js/switch';
 	import type { SwitchProps } from './types.js';
+	import { useId } from '$lib/internal/uuid.js';
 
 	let {
 		name = '',
@@ -50,7 +51,7 @@
 	const [snapshot, send] = useMachine(
 		// @ts-expect-error - Report this to Zag
 		zagSwitch.machine({
-			id: Math.random().toString(16).slice(2),
+			id: useId(),
 			name,
 			disabled,
 			checked,
