@@ -82,7 +82,7 @@ export const Switch: React.FC<SwitchProps> = ({
 	const rxDisabled = api.disabled ? controlDisabled : '';
 
 	return (
-		<label {...api.getRootProps()} className={`${base} ${classes}`}>
+		<label {...api.getRootProps()} className={`${base} ${classes}`} data-testid="switch">
 			{/* Input */}
 			<input {...api.getHiddenInputProps()} />
 			{/* Control */}

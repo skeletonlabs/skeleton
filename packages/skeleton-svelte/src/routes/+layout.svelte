@@ -19,13 +19,11 @@
 	<div class="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
 		<a class="type-scale-3 bg-orange-500 p-2 font-mono font-bold text-white" href="/">skeleton-svelte</a>
 		<hr class="hr" />
-		<label class="label flex items-center justify-between gap-4" for="mode">
+		<Switch name="mode" controlActive="bg-surface-200" bind:checked={modeState} onchange={onModeChange}>
+			{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
+			{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			<p>Set Mode</p>
-			<Switch id="mode" name="mode" stateActive="bg-surface-200" bind:checked={modeState} onchange={onModeChange}>
-				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
-				{#snippet activeChild()}<IconSun size="14" />{/snippet}
-			</Switch>
-		</label>
+		</Switch>
 		<hr class="hr" />
 		<!-- Components -->
 		<div class="space-y-8">

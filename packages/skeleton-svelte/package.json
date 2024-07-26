@@ -51,6 +51,7 @@
 		"@zag-js/accordion": "^0.62.0",
 		"@zag-js/avatar": "^0.62.0",
 		"@zag-js/svelte": "^0.62.0",
+		"@zag-js/switch": "^0.62.1",
 		"autoprefixer": "^10.4.19",
 		"jsdom": "^24.1.1",
 		"lucide-svelte": "^0.341.0",

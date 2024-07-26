@@ -1,91 +1,112 @@
 <script lang="ts">
+	import { normalizeProps, useMachine } from '@zag-js/svelte';
+	import * as zagSwitch from '@zag-js/switch';
 	import type { SwitchProps } from './types.js';
 
 	let {
-		id = '',
 		name = '',
 		checked = $bindable(false),
-		disabled = false,
-		compact = false,
-		// Aria
-		labelledBy = undefined,
-		describedBy = undefined,
+		disabled = $bindable(false),
+		compact = $bindable(false),
 		// Root (Track)
-		base = 'cursor-pointer transition duration-200',
-		stateInactive = 'preset-filled-surface-200-800',
-		stateActive = 'preset-filled-primary-500',
-		stateDisabled = 'opacity-50 cursor-not-allowed',
-		width = 'w-10',
-		height = 'h-6',
-		padding = 'p-0.5',
-		rounded = 'rounded-full',
-		hover = 'hover:brightness-90 dark:hover:brightness-110',
+		base = 'inline-flex items-center gap-4',
 		classes = '',
+		// Control
+		controlBase = 'cursor-pointer transition duration-200',
+		controlInactive = 'preset-filled-surface-200-800',
+		controlActive = 'preset-filled-primary-500',
+		controlDisabled = 'opacity-50 cursor-not-allowed',
+		controlWidth = 'w-10',
+		controlHeight = 'h-6',
+		controlPadding = 'p-0.5',
+		controlRounded = 'rounded-full',
+		controlHover = 'hover:brightness-90 dark:hover:brightness-110',
+		controlClasses = '',
 		// Thumb
-		thumbBase = 'right-0 aspect-square h-full flex justify-center items-center text-right',
+		thumbBase = 'right-0 aspect-square h-full flex justify-center items-center text-right cursor-pointer',
 		thumbInactive = 'preset-filled-surface-50-950',
 		thumbActive = 'bg-surface-50 text-surface-contrast-50',
 		thumbRounded = 'rounded-full',
-		thumbTranslateX = 'translate-x-4',
+		thumbTranslateX = 'translate-x-4 rtl:-translate-x-4',
 		thumbTransition = 'transition',
 		thumbEase = 'ease-in-out',
 		thumbDuration = 'duration-200',
 		thumbClasses = '',
+		// Label
+		labelBase = '',
+		labelClasses = '',
 		// Icons
 		iconInactiveBase = 'pointer-events-none',
 		iconActiveBase = 'pointer-events-none',
 		// Events
 		onchange = () => {},
 		// Snippets
+		children,
 		inactiveChild,
 		activeChild
 	}: SwitchProps = $props();
 
+	// Zag
+	const [snapshot, send] = useMachine(
+		// @ts-expect-error - Report this to Zag
+		zagSwitch.machine({
+			id: Math.random().toString(16).slice(2),
+			name,
+			disabled,
+			checked,
+			onCheckedChange(details) {
+				checked = details.checked;
+				onchange(details.checked);
+			}
+		})
+	);
+	// @ts-expect-error - Report this to Zag
+	const api = $derived(zagSwitch.connect(snapshot, send, normalizeProps));
+
 	// Set Compact Mode
 	if (compact) {
-		base = thumbBase;
+		controlBase = thumbBase;
 		// Removes the height class
-		height = '';
+		controlHeight = '';
 		// Thumb inherits track styles
-		thumbInactive = stateInactive;
-		thumbActive = stateActive;
+		thumbInactive = controlInactive;
+		thumbActive = controlActive;
 		// Remove X-axis translate
 		thumbTranslateX = '';
 		// Remove padding
-		padding = '';
+		controlPadding = '';
 	}
 
-	function toggle() {
-		if (disabled) return;
-		checked = !checked;
-		onchange(checked);
-	}
-
-	const rxTrackState = $derived(checked ? stateActive : stateInactive);
-	const rxThumbState = $derived(checked ? `${thumbActive} ${thumbTranslateX}` : thumbInactive);
-	const rxDisabled = $derived(disabled ? stateDisabled : '');
+	const rxTrackState = $derived(api.checked ? controlActive : controlInactive);
+	const rxThumbState = $derived(api.checked ? `${thumbActive} ${thumbTranslateX}` : thumbInactive);
+	const rxDisabled = $derived(api.disabled ? controlDisabled : '');
 </script>
 
-<!-- Track -->
-<button
-	type="button"
-	class="{base} {rxTrackState} {width} {height} {padding} {rounded} {hover} {rxDisabled} {classes}"
-	role="switch"
-	aria-checked={checked}
-	aria-labelledby={labelledBy}
-	aria-describedby={describedBy}
-	onclick={toggle}
-	data-testid="switch"
->
-	<!-- Hidden Input - true: 'on', false: null -->
-	{#if checked}<input type="hidden" {id} {name} value="on" {disabled} />{/if}
-	<!-- Thumb -->
-	<div class="{thumbBase} {rxThumbState} {thumbRounded} {thumbTransition} {thumbEase} {thumbDuration} {thumbClasses}">
-		{#if !checked && inactiveChild}
-			<span class={iconInactiveBase}>{@render inactiveChild()}</span>
-		{/if}
-		{#if checked && activeChild}
-			<span class={iconActiveBase}>{@render activeChild()}</span>
-		{/if}
-	</div>
-</button>
+<label {...api.getRootProps()} class="{base} {classes}" data-testid="switch">
+	<!-- Input -->
+	<input {...api.getHiddenInputProps()} />
+	<!-- Control -->
+	<span
+		{...api.getControlProps()}
+		class="{controlBase} {rxTrackState} {controlWidth} {controlHeight} {controlPadding} {controlRounded} {controlHover} {rxDisabled}  {controlClasses}"
+	>
+		<!-- Thumb -->
+		<span
+			{...api.getThumbProps()}
+			class="{thumbBase} {rxThumbState} {thumbRounded} {thumbTransition} {thumbEase} {thumbDuration} {thumbClasses}"
+		>
+			<!-- Icon: Inactive -->
+			{#if !checked && inactiveChild}
+				<span class={iconInactiveBase}>{@render inactiveChild()}</span>
+			{/if}
+			<!-- Icon: Active -->
+			{#if checked && activeChild}
+				<span class={iconActiveBase}>{@render activeChild()}</span>
+			{/if}
+		</span>
+	</span>
+	<!-- Label -->
+	<span {...api.getLabelProps()} class="{labelBase} {labelClasses}">
+		{@render children?.()}
+	</span>
+</label>
