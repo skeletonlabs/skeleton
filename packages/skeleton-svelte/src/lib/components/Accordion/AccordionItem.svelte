@@ -1,33 +1,36 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
-	import type { AccordionItemProps } from './types.js';
 	import { getAccordionContext } from './context.js';
+	import type { AccordionItemProps } from './types.js';
+	import * as accordion from '@zag-js/accordion';
 
-	let {
-		value,
-		disabled = false,
+	// Props
+	const props: AccordionItemProps = $props();
+	const [zagProps, skeletonProps] = $derived(accordion.splitItemProps(props));
+	const {
+		headingElement = 'h3',
 		// Root
-		base = '',
-		spaceY = '',
-		classes = '',
+		base,
+		spaceY,
+		classes,
 		// Control
 		controlBase = 'flex text-start items-center space-x-4 w-full',
 		controlHover = 'hover:preset-tonal-primary',
 		controlPadding = 'py-2 px-4',
 		controlRounded = 'rounded',
-		controlClasses = '',
+		controlClasses,
 		// Icons
-		iconsBase = '',
+		iconsBase,
 		// Panel
-		panelBase = '',
+		panelBase,
 		panelPadding = 'py-2 px-4',
-		panelRounded = '',
-		panelClasses = '',
+		panelRounded,
+		panelClasses,
 		// Snippets
 		control,
 		controlLead,
 		panel
-	}: AccordionItemProps = $props();
+	} = $derived(skeletonProps);
 
 	// Context
 	const ctx = getAccordionContext();
@@ -35,11 +38,12 @@
 
 <!-- @component AccordionItem -->
 
-<div class="{base} {spaceY} {classes}" {...ctx.api.getItemProps({ value, disabled })}>
-	<h3>
+<div class="{base} {spaceY} {classes}" {...ctx.api.getItemProps(zagProps)}>
+	<!-- Control -->
+	<svelte:element this={headingElement}>
 		<button
 			class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
-			{...ctx.api.getItemTriggerProps({ value, disabled })}
+			{...ctx.api.getItemTriggerProps(zagProps)}
 		>
 			<!-- Lead -->
 			{#if controlLead}
@@ -51,7 +55,7 @@
 			</div>
 			<!-- Toggle Icons -->
 			<div class={iconsBase}>
-				{#if ctx.api.value.includes(value)}
+				{#if ctx.api.value.includes(zagProps.value)}
 					{#if ctx.iconOpen}
 						{@render ctx.iconOpen()}
 					{:else}
@@ -64,14 +68,13 @@
 				{/if}
 			</div>
 		</button>
-	</h3>
-	<!-- Control -->
+	</svelte:element>
 
 	<!-- Panel -->
-	{#if ctx.api.value.includes(value)}
+	{#if ctx.api.value.includes(zagProps.value)}
 		<div
 			class="{panelBase} {panelPadding} {panelRounded} {panelClasses}"
-			{...ctx.api.getItemContentProps({ value, disabled })}
+			{...ctx.api.getItemContentProps(zagProps)}
 			transition:slide={{ duration: ctx.animDuration }}
 		>
 			{@render panel?.()}

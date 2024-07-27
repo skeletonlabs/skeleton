@@ -12,13 +12,7 @@ export interface AccordionContext {
 
 // Accordion ---
 
-export interface AccordionProps {
-	/** Enables opening multiple items at once. */
-	multiple?: boolean;
-	/** Wether items can be collapsed. */
-	collapsible?: boolean;
-	/** Takes an array list of open items. */
-	value?: string[];
+export interface AccordionProps extends Omit<accordion.Context, 'id'> {
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
 
@@ -47,11 +41,11 @@ export interface AccordionProps {
 
 // Accordion Item ---
 
-export interface AccordionItemProps {
-	/** Set a unique value for each item. */
-	value: string;
-	/** Set a disabled state for this item. */
-	disabled?: boolean;
+export interface AccordionItemProps extends accordion.ItemProps {
+	/**
+	 * The element used as the header.
+	 */
+	headingElement?: string;
 
 	// Root ---
 	/** Sets base styles. */
@@ -60,10 +54,6 @@ export interface AccordionItemProps {
 	spaceY?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
-
-	// Events ---
-	/** Triggers on item open or close. */
-	onclick?: (event: MouseEvent) => void;
 
 	// Control ---
 	/** Sets control's base styles. */

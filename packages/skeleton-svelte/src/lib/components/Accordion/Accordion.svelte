@@ -1,14 +1,14 @@
 <script lang="ts">
 	import * as accordion from '@zag-js/accordion';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
+	import { useId } from '$lib/internal/uuid.js';
 	import { setAccordionContext } from './context.js';
 	import type { AccordionProps } from './types.js';
-	import { useId } from '$lib/internal/uuid.js';
 
-	let {
-		multiple = false,
-		collapsible = false,
-		value = $bindable([]),
+	// Props
+	const props: AccordionProps = $props();
+	const [zagProps, skeletonProps] = $derived(accordion.splitProps(props));
+	const {
 		animDuration = 200,
 		// Root
 		base = '',
@@ -21,22 +21,13 @@
 		children,
 		iconOpen,
 		iconClosed
-	}: AccordionProps = $props();
+	} = $derived(skeletonProps);
 
-	const [snapshot, send] = useMachine(
-		accordion.machine({
-			id: useId(),
-			multiple,
-			collapsible,
-			// FIXME: this needs to take in the default value
-			// https://zagjs.com/components/react/accordion#opening-specific-accordions
-			// value,
-			onValueChange: (detail) => {
-				value = detail.value;
-			}
-		})
-	);
-
+	const [snapshot, send] = useMachine(accordion.machine({ id: useId() }), {
+		get context() {
+			return zagProps;
+		}
+	});
 	const api = $derived(accordion.connect(snapshot, send, normalizeProps));
 
 	setAccordionContext({
