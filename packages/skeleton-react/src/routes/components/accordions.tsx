@@ -21,7 +21,7 @@ export function Component() {
 	return (
 		<div className="space-y-10">
 			<header>
-				<h1 className="h1">Segment Control</h1>
+				<h1 className="h1">Accordion</h1>
 			</header>
 			<section className="space-y-4">
 				<pre className="pre">{JSON.stringify(valueDefault)}</pre>
