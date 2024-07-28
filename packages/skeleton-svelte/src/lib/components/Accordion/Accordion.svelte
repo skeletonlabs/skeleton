@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as accordion from '@zag-js/accordion';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import { useId } from '$lib/internal/uuid.js';
+	import { useId } from '$lib/internal/use-id.js';
 	import { setAccordionContext } from './context.js';
 	import type { AccordionProps } from './types.js';
 
@@ -27,7 +27,9 @@
 	const [snapshot, send] = useMachine(
 		accordion.machine({
 			id: useId(),
-			value: $state.snapshot(value),
+			get value() {
+				return $state.snapshot(value);
+			},
 			onValueChange(details) {
 				value = details.value;
 			}

@@ -2,7 +2,7 @@
 	import * as avatar from '@zag-js/avatar';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { AvatarProps } from './types.js';
-	import { useId } from '$lib/internal/uuid.js';
+	import { useId } from '$lib/internal/use-id.js';
 
 	let {
 		src,

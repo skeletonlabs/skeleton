@@ -42,9 +42,7 @@ export interface AccordionProps extends Omit<accordion.Context, 'id'> {
 // Accordion Item ---
 
 export interface AccordionItemProps extends accordion.ItemProps {
-	/**
-	 * The element used as the header.
-	 */
+	/** The element used as the header. */
 	headingElement?: string;
 
 	// Root ---

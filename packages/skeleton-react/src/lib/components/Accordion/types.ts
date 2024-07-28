@@ -1,15 +1,13 @@
 import React, { type ReactNode } from 'react';
+import * as accordion from '@zag-js/accordion';
 
 // Accordion Context ---
 
 export interface AccordionContextState {
-	animDuration?: number;
-	iconOpen?: ReactNode;
-	iconClosed?: ReactNode;
-	open: (id: string) => void;
-	close: (id: string) => void;
-	toggle: (id: string) => void;
-	isOpen: (id: string) => boolean;
+	animDuration: number;
+	iconOpen: ReactNode;
+	iconClosed: ReactNode;
+	api: ReturnType<typeof accordion.connect>;
 }
 
 export interface AccordionItemContextState {
@@ -19,14 +17,7 @@ export interface AccordionItemContextState {
 
 // Accordion ---
 
-export interface AccordionProps extends React.PropsWithChildren {
-	/**
-	 * Enables opening multiple items at once.
-	 * @default false
-	 */
-	multiple?: boolean;
-	/** Takes an array list of open items. */
-	value?: string[];
+export interface AccordionProps extends React.PropsWithChildren, Omit<accordion.Context, 'id' | 'onValueChange'> {
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
 
@@ -39,7 +30,7 @@ export interface AccordionProps extends React.PropsWithChildren {
 
 	// Events ---
 	/** Set the opened state. */
-	onValueChange?: (opened: string[]) => void;
+	onValueChange?: (value: string[]) => void;
 
 	// Root ---
 	/** Sets base styles. */
@@ -58,10 +49,7 @@ export interface AccordionProps extends React.PropsWithChildren {
 
 // Accordion Item ---
 
-export interface AccordionItemProps extends React.PropsWithChildren {
-	/** The unique ID. */
-	id: string;
-
+export interface AccordionItemProps extends React.PropsWithChildren, accordion.ItemProps {
 	// Root ---
 	/** Sets base styles. */
 	base?: string;
@@ -69,15 +57,13 @@ export interface AccordionItemProps extends React.PropsWithChildren {
 	spaceY?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
-
-	// Events ---
-	/** Triggers on item click. */
-	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 // Accordion Control ---
 
 export interface AccordionControlProps extends React.PropsWithChildren {
+	/** The heading element. */
+	headingElement?: keyof JSX.IntrinsicElements;
 	/** Set a disabled state for the item. */
 	disabled?: boolean;
 

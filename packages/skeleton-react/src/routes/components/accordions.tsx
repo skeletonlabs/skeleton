@@ -27,22 +27,22 @@ export function Component() {
 
 			{/* Component */}
 			<Accordion multiple={multiple} value={value} onValueChange={setValue}>
-				<Accordion.Item id="reactItem1" onClick={console.log}>
+				<Accordion.Item value="reactItem1">
 					<Accordion.Control lead={<Skull size={22} />}>React Control 1</Accordion.Control>
 					<Accordion.Panel>React Panel 1 - {lorem}</Accordion.Panel>
 				</Accordion.Item>
 				<hr className="hr" />
-				<Accordion.Item id="reactItem2" onClick={console.log}>
+				<Accordion.Item value="reactItem2">
 					<Accordion.Control>React Control 2</Accordion.Control>
 					<Accordion.Panel>React Panel 2 - {lorem}</Accordion.Panel>
 				</Accordion.Item>
 				<hr className="hr" />
-				<Accordion.Item id="reactItem3" onClick={console.log}>
-					<Accordion.Control disabled>React Control 3 (Disabled)</Accordion.Control>
+				<Accordion.Item value="reactItem3">
+					<Accordion.Control>React Control 3 (Disabled)</Accordion.Control>
 					<Accordion.Panel>React Panel 3 - {lorem}</Accordion.Panel>
 				</Accordion.Item>
 				<hr className="hr" />
-				<Accordion.Item id="reactItem4" onClick={console.log}>
+				<Accordion.Item value="reactItem4">
 					<Accordion.Control>React Control 4</Accordion.Control>
 					<Accordion.Panel>React Panel 4 - {lorem}</Accordion.Panel>
 				</Accordion.Item>

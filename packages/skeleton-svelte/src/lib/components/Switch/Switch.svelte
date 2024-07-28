@@ -2,7 +2,7 @@
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
 	import * as zagSwitch from '@zag-js/switch';
 	import type { SwitchProps } from './types.js';
-	import { useId } from '$lib/internal/uuid.js';
+	import { useId } from '$lib/internal/use-id.js';
 
 	let {
 		name = '',
