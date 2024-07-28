@@ -2,8 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-
-import {
+import type {
 	AccordionContextState,
 	AccordionControlProps,
 	AccordionItemContextState,
