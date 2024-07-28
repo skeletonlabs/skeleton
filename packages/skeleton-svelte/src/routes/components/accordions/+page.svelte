@@ -87,9 +87,9 @@
 	<section class="space-y-4">
 		<h2 class="h2">Orientation</h2>
 		<pre class="pre">{JSON.stringify(valueOrientation)}</pre>
-		<Accordion bind:value={valueOrientation} orientation="horizontal" classes="flex flex-row">
+		<Accordion bind:value={valueOrientation} orientation="horizontal">
 			{#each exampleItems as item}
-				<Accordion.Item value={item.value} classes="flex flex-row">
+				<Accordion.Item value={item.value}>
 					{#snippet controlLead()}
 						<item.Icon></item.Icon>
 					{/snippet}
