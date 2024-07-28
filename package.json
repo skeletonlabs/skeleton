@@ -35,6 +35,8 @@
 		"check": "pnpm -r check",
 		"clean": "node ./scripts/rimraf.js",
 		"dev": "pnpm -F next.skeleton.dev dev",
+		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte dev",
+		"dev:react": "pnpm -F @skeletonlabs/skeleton-react dev",
 		"format": "prettier -w .",
 		"format:check": "prettier . --check",
 		"lint": "eslint . --ignore-path .gitignore",

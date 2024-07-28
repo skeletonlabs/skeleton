@@ -6,9 +6,8 @@
 	import type { AccordionProps } from './types.js';
 
 	// Props
-	const props: AccordionProps = $props();
-	const [zagProps, skeletonProps] = $derived(accordion.splitProps(props));
-	const {
+	let {
+		value = $bindable([]),
 		animDuration = 200,
 		// Root
 		base = '',
@@ -20,16 +19,30 @@
 		// Snippets
 		children,
 		iconOpen,
-		iconClosed
-	} = $derived(skeletonProps);
+		iconClosed,
+		...zagProps
+	}: AccordionProps = $props();
 
-	const [snapshot, send] = useMachine(accordion.machine({ id: useId() }), {
-		get context() {
-			return zagProps;
+	// Machine
+	const [snapshot, send] = useMachine(
+		accordion.machine({
+			id: useId(),
+			value: $state.snapshot(value),
+			onValueChange(details) {
+				value = details.value;
+			}
+		}),
+		{
+			get context() {
+				return zagProps;
+			}
 		}
-	});
+	);
+
+	// API
 	const api = $derived(accordion.connect(snapshot, send, normalizeProps));
 
+	// Context
 	setAccordionContext({
 		get api() {
 			return api;

@@ -2,11 +2,8 @@
 	import { slide } from 'svelte/transition';
 	import { getAccordionContext } from './context.js';
 	import type { AccordionItemProps } from './types.js';
-	import * as accordion from '@zag-js/accordion';
 
 	// Props
-	const props: AccordionItemProps = $props();
-	const [zagProps, skeletonProps] = $derived(accordion.splitItemProps(props));
 	const {
 		headingElement = 'h3',
 		// Root
@@ -29,8 +26,9 @@
 		// Snippets
 		control,
 		controlLead,
-		panel
-	} = $derived(skeletonProps);
+		panel,
+		...zagProps
+	}: AccordionItemProps = $props();
 
 	// Context
 	const ctx = getAccordionContext();
