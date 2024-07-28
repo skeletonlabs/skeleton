@@ -7,7 +7,6 @@ export function Component() {
 	const [valueDefault, setValueDefault] = useState(['club']);
 	const [valueMultiple, setValueMultiple] = useState(['club']);
 	const [valueCollapsible, setValueCollapsible] = useState(['club']);
-	const [valueOrientation, setValueOrientation] = useState(['club']);
 
 	const lorem =
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
@@ -56,21 +55,6 @@ export function Component() {
 				<h2 className="h2">Multiple</h2>
 				<pre className="pre">{JSON.stringify(valueMultiple)}</pre>
 				<Accordion value={valueMultiple} onValueChange={setValueMultiple} multiple>
-					{exampleItems.map((item, i) => (
-						<>
-							<Accordion.Item value={item.value}>
-								<Accordion.Control lead={<item.icon />}>{item.title}</Accordion.Control>
-								<Accordion.Panel>{item.content}</Accordion.Panel>
-							</Accordion.Item>
-							{i < exampleItems.length - 1 && <hr className="hr" />}
-						</>
-					))}
-				</Accordion>
-			</section>
-			<section className="space-y-4">
-				<h2 className="h2">Orientation</h2>
-				<pre className="pre">{JSON.stringify(valueOrientation)}</pre>
-				<Accordion value={valueOrientation} onValueChange={setValueOrientation} orientation="horizontal">
 					{exampleItems.map((item, i) => (
 						<>
 							<Accordion.Item value={item.value}>

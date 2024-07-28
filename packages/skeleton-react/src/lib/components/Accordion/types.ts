@@ -17,7 +17,7 @@ export interface AccordionItemContextState {
 
 // Accordion ---
 
-export interface AccordionProps extends React.PropsWithChildren, Omit<accordion.Context, 'id' | 'onValueChange'> {
+export interface AccordionProps extends React.PropsWithChildren, Omit<accordion.Context, 'id' | 'orientation' | 'onValueChange'> {
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
 

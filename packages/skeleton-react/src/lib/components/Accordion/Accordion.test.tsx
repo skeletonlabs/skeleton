@@ -12,11 +12,11 @@ describe('Accordion usage', () => {
 	it('should render the component', async () => {
 		const { queryByText, getByText } = render(
 			<Accordion value={['testItem1']}>
-				<Accordion.Item id="testItem1">
+				<Accordion.Item value="testItem1">
 					<Accordion.Control>Test Control 1</Accordion.Control>
 					<Accordion.Panel>Test Panel 1</Accordion.Panel>
 				</Accordion.Item>
-				<Accordion.Item id="testItem2">
+				<Accordion.Item value="testItem2">
 					<Accordion.Control>Test Control 2</Accordion.Control>
 					<Accordion.Panel>Test Panel 2</Accordion.Panel>
 				</Accordion.Item>
@@ -100,25 +100,25 @@ describe('<Accordion>', () => {
 
 describe('<Accordion.Item>', () => {
 	it('should render the component', () => {
-		const { getByTestId } = render(<Accordion.Item id="testItem1" />);
+		const { getByTestId } = render(<Accordion.Item value="testItem1" />);
 		expect(getByTestId('accordion-item')).toBeInTheDocument();
 	});
 
 	it('should allow for children', () => {
 		const value = 'foobar';
-		const { getByTestId } = render(<Accordion.Item id="testItem1">{value}</Accordion.Item>);
+		const { getByTestId } = render(<Accordion.Item value="testItem1">{value}</Accordion.Item>);
 		expect(getByTestId('accordion-item').innerHTML).toContain(value);
 	});
 
 	it('should allow you to set the `base` style prop', () => {
 		const tailwindClasses = 'bg-red-500';
-		const { getByTestId } = render(<Accordion.Item id="testItem1" base={tailwindClasses} />);
+		const { getByTestId } = render(<Accordion.Item value="testItem1" base={tailwindClasses} />);
 		expect(getByTestId('accordion-item')).toHaveClass(tailwindClasses);
 	});
 
 	it('should allow you to set the `classes` style prop', () => {
 		const tailwindClasses = 'bg-green-500';
-		const { getByTestId } = render(<Accordion.Item id="testItem1" classes={tailwindClasses} />);
+		const { getByTestId } = render(<Accordion.Item value="testItem1" classes={tailwindClasses} />);
 		expect(getByTestId('accordion-item')).toHaveClass(tailwindClasses);
 	});
 });
@@ -169,7 +169,7 @@ describe('<Accordion.Panel>', () => {
 	it('should set `aria-labeledby` to `id` value', async () => {
 		const id = 'testPanelId';
 		const { getByTestId } = render(
-			<Accordion.Item id={id}>
+			<Accordion.Item value={id}>
 				<Accordion.Panel>Test Panel 1</Accordion.Panel>
 			</Accordion.Item>
 		);
@@ -181,7 +181,7 @@ describe('<Accordion.Panel>', () => {
 		const value = 'foobar';
 		const { getByTestId } = render(
 			<Accordion value={['testItem1']}>
-				<Accordion.Item id="testItem1">
+				<Accordion.Item value="testItem1">
 					<Accordion.Panel>{value}</Accordion.Panel>
 				</Accordion.Item>
 			</Accordion>
@@ -194,7 +194,7 @@ describe('<Accordion.Panel>', () => {
 		const tailwindClasses = 'bg-red-500';
 		const { getByTestId } = render(
 			<Accordion value={['testItem1']}>
-				<Accordion.Item id="testItem1">
+				<Accordion.Item value="testItem1">
 					<Accordion.Panel base={tailwindClasses}>Test</Accordion.Panel>
 				</Accordion.Item>
 			</Accordion>
@@ -207,7 +207,7 @@ describe('<Accordion.Panel>', () => {
 		const tailwindClasses = 'bg-green-500';
 		const { getByTestId } = render(
 			<Accordion value={['testItem1']}>
-				<Accordion.Item id="testItem1">
+				<Accordion.Item value="testItem1">
 					<Accordion.Panel classes={tailwindClasses}>Test</Accordion.Panel>
 				</Accordion.Item>
 			</Accordion>

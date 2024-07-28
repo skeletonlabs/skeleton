@@ -9,7 +9,6 @@
 	let valueDefault = $state(['club']);
 	let valueMultiple = $state(['club']);
 	let valueCollapsible = $state(['club']);
-	let valueOrientation = $state(['club']);
 
 	const lorem =
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
@@ -81,25 +80,6 @@
 					{/snippet}
 				</Accordion.Item>
 				{#if i < exampleItems.length - 1}<hr class="hr" />{/if}
-			{/each}
-		</Accordion>
-	</section>
-	<section class="space-y-4">
-		<h2 class="h2">Orientation</h2>
-		<pre class="pre">{JSON.stringify(valueOrientation)}</pre>
-		<Accordion bind:value={valueOrientation} orientation="horizontal">
-			{#each exampleItems as item}
-				<Accordion.Item value={item.value}>
-					{#snippet controlLead()}
-						<item.Icon></item.Icon>
-					{/snippet}
-					{#snippet control()}
-						{item.title}
-					{/snippet}
-					{#snippet panel()}
-						{item.content}
-					{/snippet}
-				</Accordion.Item>
 			{/each}
 		</Accordion>
 	</section>

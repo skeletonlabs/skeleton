@@ -12,7 +12,7 @@ export interface AccordionContext {
 
 // Accordion ---
 
-export interface AccordionProps extends Omit<accordion.Context, 'id'> {
+export interface AccordionProps extends Omit<accordion.Context, 'id' | 'orientation'> {
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
 
