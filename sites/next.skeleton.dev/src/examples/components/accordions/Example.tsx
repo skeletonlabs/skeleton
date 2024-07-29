@@ -11,24 +11,24 @@ export const Page: React.FC = () => {
 
 	return (
 		<Accordion value={value} onValueChange={setValue}>
-			<Accordion.Item id="club">
+			<Accordion.Item value="club">
 				<Accordion.Control lead={<Club size={24} />}>Club</Accordion.Control>
 				<Accordion.Panel>{lorem}</Accordion.Panel>
 			</Accordion.Item>
 			<hr className="hr" />
-			<Accordion.Item id="diamond">
+			<Accordion.Item value="diamond">
 				<Accordion.Control lead={<Diamond size={24} />}>Diamond</Accordion.Control>
 				<Accordion.Panel>{lorem}</Accordion.Panel>
 			</Accordion.Item>
 			<hr className="hr" />
-			<Accordion.Item id="heart">
+			<Accordion.Item value="heart">
 				<Accordion.Control lead={<Heart size={24} />} disabled>
 					Heart (disabled)
 				</Accordion.Control>
 				<Accordion.Panel>{lorem}</Accordion.Panel>
 			</Accordion.Item>
 			<hr className="hr" />
-			<Accordion.Item id="spade">
+			<Accordion.Item value="spade">
 				<Accordion.Control lead={<Spade size={24} />}>Spade</Accordion.Control>
 				<Accordion.Panel>{lorem}</Accordion.Panel>
 			</Accordion.Item>
