@@ -7,7 +7,7 @@ import * as accordion from '@zag-js/accordion';
 import { useMachine, normalizeProps } from '@zag-js/react';
 
 import type { AccordionContextState, AccordionControlProps, AccordionItemProps, AccordionPanelProps, AccordionProps } from './types.js';
-import { noop } from '$lib/internal/noop.js';
+import { noop } from '../../internal/noop.js';
 
 // Contexts ---
 export const AccordionContext = createContext<AccordionContextState>({
