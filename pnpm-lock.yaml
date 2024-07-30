@@ -160,9 +160,6 @@ importers:
 
   packages/skeleton-react:
     dependencies:
-      '@zag-js/switch':
-        specifier: ^0.62.1
-        version: 0.62.1
       framer-motion:
         specifier: ^11.0.24
         version: 11.3.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -206,6 +203,9 @@ importers:
       '@zag-js/react':
         specifier: ^0.62.0
         version: 0.62.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@zag-js/switch':
+        specifier: ^0.62.1
+        version: 0.62.1
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.39)

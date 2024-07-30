@@ -40,7 +40,6 @@
 		"!./dist/schemas.d.ts"
 	],
 	"dependencies": {
-		"@zag-js/switch": "^0.62.1",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"
 	},
@@ -55,6 +54,7 @@
 		"@vitejs/plugin-react": "^4.3.1",
 		"@zag-js/accordion": "^0.62.0",
 		"@zag-js/avatar": "^0.62.0",
+		"@zag-js/switch": "^0.62.1",
 		"@zag-js/react": "^0.62.0",
 		"autoprefixer": "^10.4.19",
 		"jsdom": "^24.1.1",

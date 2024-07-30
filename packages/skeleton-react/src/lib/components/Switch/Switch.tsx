@@ -48,7 +48,6 @@ export const Switch: React.FC<SwitchProps> = ({
 	activeChild
 }) => {
 	const [state, send] = useMachine(
-		// @ts-expect-error - Report this to Zag
 		zagSwitch.machine({
 			id: useId(),
 			name,
@@ -60,7 +59,6 @@ export const Switch: React.FC<SwitchProps> = ({
 			}
 		})
 	);
-	// @ts-expect-error - Report this to Zag
 	const api = zagSwitch.connect(state, send, normalizeProps);
 
 	// Set Compact Mode
