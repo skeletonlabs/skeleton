@@ -6,10 +6,14 @@ export const components = componentSet;
 
 import { Page as Example } from '@examples/components/accordions/Example.tsx';
 import ExampleRaw from '@examples/components/accordions/Example.tsx?raw';
-
-import { AccordionSchema } from '@skeletonlabs/skeleton-react/schemas';
+import { Page as ExampleCollapsible } from '@examples/components/accordions/ExampleCollapsible.tsx';
+import ExampleCollapsibleRaw from '@examples/components/accordions/ExampleCollapsible.tsx?raw';
+import { Page as ExampleMultiple } from '@examples/components/accordions/ExampleMultiple.tsx';
+import ExampleMultipleRaw from '@examples/components/accordions/ExampleMultiple.tsx?raw';
 
 {/* --- */}
+
+## Default 
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -17,6 +21,28 @@ import { AccordionSchema } from '@skeletonlabs/skeleton-react/schemas';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Collapsible
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCollapsible client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleCollapsibleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Multiple
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleMultiple client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleMultipleRaw} lang="tx" />
 	</Fragment>
 </Preview>
 

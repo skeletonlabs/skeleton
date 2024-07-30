@@ -49,7 +49,6 @@
 
 	// Zag
 	const [snapshot, send] = useMachine(
-		// @ts-expect-error - Report this to Zag
 		zagSwitch.machine({
 			id: useId(),
 			name,
@@ -61,7 +60,6 @@
 			}
 		})
 	);
-	// @ts-expect-error - Report this to Zag
 	const api = $derived(zagSwitch.connect(snapshot, send, normalizeProps));
 
 	// Set Compact Mode

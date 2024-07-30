@@ -11,7 +11,7 @@ export const Page: FC = () => {
 	const [value, setValue] = useState(['club']);
 
 	return (
-		<Accordion value={value} onValueChange={setValue}>
+		<Accordion value={value} onValueChange={setValue} multiple>
 			<Accordion.Item value="club">
 				<Accordion.Control lead={<Club size={24} />}>Club</Accordion.Control>
 				<Accordion.Panel>{lorem}</Accordion.Panel>
