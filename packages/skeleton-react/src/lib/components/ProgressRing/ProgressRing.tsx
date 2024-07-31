@@ -38,17 +38,13 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	// Zag
 	...zagProps
 }) => {
-	console.log(zagProps);
-
 	// Zag
 	const [state, send] = useMachine(
-		// @ts-expect-error Report to Zag
 		progress.machine({
 			id: useId()
 		}),
 		{ context: zagProps }
 	);
-	// @ts-expect-error Report to Zag
 	const api = progress.connect(state, send, normalizeProps);
 
 	// Element Styles
@@ -78,7 +74,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 					strokeLinecap={strokeLinecap}
 				/>
 				{/* Label */}
-				{api.value !== null && !children ? (
+				{api.value !== null && !children && (
 					<text
 						className={`${labelBase} ${labelFill} ${labelClasses}`}
 						x="50%"
@@ -90,7 +86,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 					>
 						{label ?? `${api.value}%`}
 					</text>
-				) : null}
+				)}
 			</svg>
 		</figure>
 	);
