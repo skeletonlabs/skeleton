@@ -1,14 +1,13 @@
-import { useEffect, useState, type FC } from 'react';
-
+import { useId, type FC } from 'react';
+import { normalizeProps, useMachine } from '@zag-js/react';
+import * as progress from '@zag-js/progress';
 import { ProgressRingProps } from './types.js';
 
 export const ProgressRing: FC<ProgressRingProps> = ({
-	value,
-	max = 100,
-	strokeWidth = 50, // px
+	label,
+	strokeWidth = '15px',
 	strokeLinecap = 'round',
-	labelledBy = '',
-	// Base (figure)
+	// Root
 	base = 'relative',
 	size = 'size-32',
 	classes = '',
@@ -16,7 +15,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	childrenBase = 'absolute top-0 left-0 z-[1] flex justify-center items-center',
 	childrenClasses = '',
 	// SVG
-	svgBase = 'absolute top-0 left-0 w-full h-full rounded-full',
+	svgBase = 'absolute top-0 left-0 size-full rounded-full',
 	svgClasses = '',
 	// Track
 	trackBase = 'fill-none',
@@ -29,64 +28,57 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	meterDuration = 'duration-100',
 	meterClasses = '',
 	// Label
-	label,
 	labelBase = '',
 	labelFill = 'fill-surface-950-50',
-	labelFontSize = 96, // px
+	labelFontSize = 24, // px
 	labelFontWeight = 'bold',
 	labelClasses = '',
 	// Children
-	children
+	children,
+	// Zag
+	...zagProps
 }) => {
-	// Local
-	const baseSize = 512; // px
-	const radius: number = baseSize / 2 - strokeWidth / 2;
-	const [circumference, setCircumference] = useState<number>(radius);
-	const [dashoffset, setDashoffset] = useState<number>(0);
+	console.log(zagProps);
 
-	useEffect(() => {
-		// Since calcDashOffset is only used in this effect, it's implementation should be inside the effect to avoid a rerender loop
-		const calcDashOffset = () => {
-			const v = value !== undefined ? value : 25;
-			const percent = (100 * v) / max;
-			setCircumference(radius * 2 * Math.PI);
-			return circumference - (percent / 100) * circumference;
-		};
+	// Zag
+	const [state, send] = useMachine(
+		// @ts-expect-error Report to Zag
+		progress.machine({
+			id: useId()
+		}),
+		{ context: zagProps }
+	);
+	// @ts-expect-error Report to Zag
+	const api = progress.connect(state, send, normalizeProps);
 
-		setDashoffset(calcDashOffset());
-	}, [circumference, max, radius, setCircumference, value]);
+	// Element Styles
+	// https://zagjs.com/components/react/circular-progress#setting-the-size-of-the-progress-bar
+	// https://zagjs.com/components/react/circular-progress#setting-the-thickness-of-the-progress-bar
+	const styleSvg = {
+		'--size': '100%',
+		'--thickness': strokeWidth
+	} as React.CSSProperties;
 
 	return (
-		<figure
-			className={`${base} ${size} ${classes}`}
-			role="meter"
-			aria-labelledby={labelledBy}
-			aria-valuenow={value || 0}
-			aria-valuemin={0}
-			aria-valuemax={max}
-			aria-valuetext={`${value} / ${max}`}
-			data-testid="progress-ring"
-		>
-			{/* Slot */}
-			{children ? <div className={`${childrenBase} ${size} ${childrenClasses}`}>{children}</div> : null}
+		<figure {...api.getRootProps()} className={`${base} ${size} ${classes}`}>
+			{/* Children */}
+			{children ? (
+				<div {...api.getLabelProps()} className={`${childrenBase} ${size} ${childrenClasses}`}>
+					{children}
+				</div>
+			) : null}
 			{/* SVG */}
-			<svg viewBox={`0 0 ${baseSize} ${baseSize}`} className={`${svgBase} ${svgClasses} ${value === undefined ? 'animate-spin' : ''}`}>
+			<svg {...api.getCircleProps()} className={`${svgBase} ${svgClasses} ${api.indeterminate ? 'animate-spin' : ''}`} style={styleSvg}>
 				{/* Track */}
-				<circle className={`${trackBase} ${trackStroke} ${trackClasses}`} strokeWidth={strokeWidth} r={radius} cx="50%" cy="50%" />
+				<circle {...api.getCircleTrackProps()} className={`${trackBase} ${trackStroke} ${trackClasses}`} />
 				{/* Meter */}
 				<circle
+					{...api.getCircleRangeProps()}
 					className={`${meterBase} ${meterStroke} ${meterTransition} ${meterDuration} ${meterClasses}`}
-					r={radius}
-					cx="50%"
-					cy="50%"
-					strokeWidth={strokeWidth}
 					strokeLinecap={strokeLinecap}
-					strokeDasharray={`${circumference} ${circumference}`}
-					strokeDashoffset={dashoffset}
-					transform={`rotate(-90 ${baseSize / 2} ${baseSize / 2})`}
 				/>
-				{/* Text */}
-				{value !== undefined && !children ? (
+				{/* Label */}
+				{api.value !== null && !children ? (
 					<text
 						className={`${labelBase} ${labelFill} ${labelClasses}`}
 						x="50%"
@@ -96,7 +88,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 						textAnchor="middle"
 						dominantBaseline="central"
 					>
-						{label ?? `${value}%`}
+						{label ?? `${api.value}%`}
 					</text>
 				) : null}
 			</svg>

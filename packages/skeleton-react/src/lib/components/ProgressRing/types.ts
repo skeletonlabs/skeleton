@@ -1,14 +1,12 @@
-export interface ProgressRingProps extends React.PropsWithChildren {
-	/** Set the value */
-	value?: number;
-	/** Set the maximum value */
-	max?: number;
-	/** Set the stroke size (px) */
-	strokeWidth?: number;
+import * as progress from '@zag-js/progress';
+
+export interface ProgressRingProps extends React.PropsWithChildren, Omit<progress.Context, 'id'> {
+	/** Set the text for the scalable label */
+	label?: string;
+	/** Set the stroke size (ex: 15px) */
+	strokeWidth?: string;
 	/** Defines the shape of the meter */
 	strokeLinecap?: 'inherit' | 'butt' | 'round' | 'square';
-	/** Set the aria-labelledby value */
-	labelledBy?: string;
 
 	// Root (Figure) ---
 	/** Set the root base classes */
@@ -51,8 +49,6 @@ export interface ProgressRingProps extends React.PropsWithChildren {
 	meterClasses?: string;
 
 	// Label ---
-	/** Set the text for the scalable label */
-	label?: string;
 	/** Set the label classes */
 	labelBase?: string;
 	/** Set the label fill color classes */

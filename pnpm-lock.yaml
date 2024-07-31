@@ -200,8 +200,11 @@ importers:
       '@zag-js/avatar':
         specifier: ^0.62.0
         version: 0.62.1
+      '@zag-js/progress':
+        specifier: ^0.63.0
+        version: 0.63.0
       '@zag-js/react':
-        specifier: ^0.62.0
+        specifier: ^0.62.1
         version: 0.62.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@zag-js/switch':
         specifier: ^0.62.1
