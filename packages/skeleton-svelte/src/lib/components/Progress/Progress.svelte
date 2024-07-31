@@ -1,10 +1,11 @@
 <script lang="ts">
+	import * as progress from '@zag-js/progress';
+	import { normalizeProps, useMachine } from '@zag-js/svelte';
 	import type { ProgressProps } from './types.js';
+	import { useId } from '$lib/internal/use-id.js';
 
+	// Props
 	let {
-		value,
-		max = 100,
-		labelledBy = '',
 		// Root
 		base = 'overflow-x-hidden',
 		bg = 'bg-surface-200-800',
@@ -18,30 +19,34 @@
 		meterRounded = 'rounded',
 		meterTransition = 'transition-[width]',
 		meterAnimate = 'animate-indeterminate',
-		meterClasses = ''
+		meterClasses = '',
+		// Snippets
+		children,
+		...zagProps
 	}: ProgressProps = $props();
 
-	$effect(() => {
-		if (max < 0) {
-			console.warn('The max prop should be greater than or equal to 0');
-		}
-	});
+	// Machine
+	const [snapshot, send] = useMachine(
+		progress.machine({
+			id: useId()
+		}),
+		{ context: zagProps }
+	);
 
-	const indeterminate = $derived(value === undefined);
-	const fillPercentage = $derived(`${indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100}%`);
-
-	const rxIndeterminate = $derived(indeterminate ? meterAnimate : '');
+	// API
+	const api = $derived(progress.connect(snapshot, send, normalizeProps));
 </script>
 
 <!-- @component An indicator showing the progress or completion of a task -->
 
-<div
-	role="progressbar"
-	aria-labelledby={labelledBy}
-	aria-valuenow={value}
-	aria-valuemin={0}
-	aria-valuemax={max}
-	class="{base} {bg} {width} {height} {rounded} {classes}"
->
-	<div class="{meterBase} {meterBg} {meterRounded} {meterTransition} {rxIndeterminate} {meterClasses}" style:width={fillPercentage}></div>
+<div {...api.getRootProps()}>
+	{#if children}
+		<div {...api.getLabelProps()}>{@render children(api.value)}</div>
+	{/if}
+	<div class="{base} {bg} {width} {height} {rounded} {classes}" {...api.getTrackProps()}>
+		<div
+			class="{meterBase} {meterBg} {meterRounded} {meterTransition} {api.indeterminate ? meterAnimate : ''} {meterClasses}"
+			{...api.getRangeProps()}
+		></div>
+	</div>
 </div>

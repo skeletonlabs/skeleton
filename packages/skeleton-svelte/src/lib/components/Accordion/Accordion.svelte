@@ -34,11 +34,7 @@
 				value = details.value;
 			}
 		}),
-		{
-			get context() {
-				return zagProps;
-			}
-		}
+		{ context: zagProps }
 	);
 
 	// API
