@@ -16,7 +16,7 @@
 		"dev:astro": "astro dev",
 		"sync": "astro sync",
 		"check": "astro check",
-		"build": "pnpm -F '@skeletonlabs/*' package && astro check && astro build && pagefind",
+		"build": "pnpm -F \"@skeletonlabs/*\" package && astro build && pagefind",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
