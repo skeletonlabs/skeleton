@@ -75,7 +75,7 @@
 				text-anchor="middle"
 				dominant-baseline="central"
 			>
-				{label ?? api.value}%"
+				{label ?? api.value}%
 			</text>
 		{/if}
 	</svg>
