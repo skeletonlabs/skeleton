@@ -48,24 +48,18 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	);
 	const api = progress.connect(state, send, normalizeProps);
 
-	// Element Styles
-	// https://zagjs.com/components/react/circular-progress#setting-the-size-of-the-progress-bar
-	// https://zagjs.com/components/react/circular-progress#setting-the-thickness-of-the-progress-bar
-	const styleSvg = {
-		'--size': '100%',
-		'--thickness': strokeWidth
-	} as React.CSSProperties;
-
 	return (
 		<figure {...api.getRootProps()} className={`${base} ${size} ${classes}`}>
 			{/* Children */}
-			{children ? (
-				<div {...api.getLabelProps()} className={`${childrenBase} ${size} ${childrenClasses}`}>
-					{children}
-				</div>
-			) : null}
+			<div {...api.getLabelProps()} className={`${childrenBase} ${size} ${childrenClasses}`}>
+				{children}
+			</div>
 			{/* SVG */}
-			<svg {...api.getCircleProps()} className={`${svgBase} ${svgClasses} ${api.indeterminate ? 'animate-spin' : ''}`} style={styleSvg}>
+			<svg
+				{...api.getCircleProps()}
+				className={`${svgBase} ${svgClasses} ${api.indeterminate ? 'animate-spin' : ''}`}
+				style={{ '--size': '100%', '--thickness': strokeWidth } as React.CSSProperties}
+			>
 				{/* Track */}
 				<circle {...api.getCircleTrackProps()} className={`${trackBase} ${trackStroke} ${trackClasses}`} />
 				{/* Meter */}
