@@ -40,12 +40,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		progress.machine({
-			id: useId()
-		}),
-		{ context: zagProps }
-	);
+	const [state, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
 	const api = progress.connect(state, send, normalizeProps);
 
 	return (

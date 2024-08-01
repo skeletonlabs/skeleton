@@ -1,13 +1,14 @@
 <script lang="ts">
+	import * as progress from '@zag-js/progress';
+	import { normalizeProps, useMachine } from '@zag-js/svelte';
+	import { useId } from '$lib/internal/use-id.js';
 	import type { ProgressRingProps } from './types.js';
 
 	let {
-		value,
-		max = 100,
-		strokeWidth = 50, // px
+		label,
+		strokeWidth = '15px',
 		strokeLinecap = 'round',
-		labelledBy = '',
-		// Base (figure)
+		// Root
 		base = 'relative',
 		size = 'size-32',
 		classes = '',
@@ -15,7 +16,7 @@
 		childrenBase = 'absolute top-0 left-0 z-[1] flex justify-center items-center',
 		childrenClasses = '',
 		// SVG
-		svgBase = 'absolute top-0 left-0 w-full h-full rounded-full',
+		svgBase = 'absolute top-0 left-0 size-full rounded-full',
 		svgClasses = '',
 		// Track
 		trackBase = 'fill-none',
@@ -28,68 +29,43 @@
 		meterDuration = 'duration-100',
 		meterClasses = '',
 		// Label
-		label,
 		labelBase = '',
 		labelFill = 'fill-surface-950-50',
-		labelFontSize = 96, // px
+		labelFontSize = 24, // px
 		labelFontWeight = 'bold',
 		labelClasses = '',
 		// Snippets
-		children
+		children,
+		// Zag
+		...zagProps
 	}: ProgressRingProps = $props();
 
-	// Local
-	const baseSize = 512; // px
-	const radius: number = baseSize / 2 - strokeWidth / 2;
-	let circumference: number = $state(radius);
-	let dashoffset: number = $state(calcDashOffset());
-
-	$effect(() => {
-		dashoffset = calcDashOffset();
-	});
-
-	function calcDashOffset() {
-		const v = value !== undefined ? value : 25;
-		const percent = (100 * v) / max;
-		circumference = radius * 2 * Math.PI;
-		return circumference - (percent / 100) * circumference;
-	}
+	// Zag
+	const [snapshot, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
+	const api = $derived(progress.connect(snapshot, send, normalizeProps));
 </script>
 
-<figure
-	class="{base} {size} {classes}"
-	role="meter"
-	aria-labelledby={labelledBy}
-	aria-valuenow={value || 0}
-	aria-valuemin={0}
-	aria-valuemax={max}
-	aria-valuetext={`${value} / ${max}`}
-	data-testid="progress-ring"
->
-	<!-- Slot -->
-	{#if children}
-		<div class="{childrenBase} {size} {childrenClasses}">
-			{@render children()}
-		</div>
-	{/if}
+<figure {...api.getRootProps()} class="{base} {size} {classes}">
+	<!-- Children -->
+	<div {...api.getLabelProps()} class="{childrenBase} {size} {childrenClasses}">
+		{@render children?.()}
+	</div>
 	<!-- SVG -->
-	<svg viewBox="0 0 {baseSize} {baseSize}" class="{svgBase} {svgClasses}" class:animate-spin={value === undefined}>
+	<svg
+		{...api.getCircleProps()}
+		class="{svgBase} {svgClasses} {api.indeterminate ? 'animate-spin' : ''}"
+		style="--size:100%;--thickness:{strokeWidth};"
+	>
 		<!-- Track -->
-		<circle class="{trackBase} {trackStroke} {trackClasses}" stroke-width={strokeWidth} r={radius} cx="50%" cy="50%" />
+		<circle {...api.getCircleTrackProps()} class="{trackBase} {trackStroke} {trackClasses}" />
 		<!-- Meter -->
 		<circle
+			{...api.getCircleRangeProps()}
 			class="{meterBase} {meterStroke} {meterTransition} {meterDuration} {meterClasses}"
-			r={radius}
-			cx="50%"
-			cy="50%"
-			stroke-width={strokeWidth}
 			stroke-linecap={strokeLinecap}
-			stroke-dasharray="{circumference} {circumference}"
-			stroke-dashoffset={dashoffset}
-			transform="rotate(-90 {baseSize / 2} {baseSize / 2})"
 		/>
-		<!-- Text -->
-		{#if value !== undefined && !children}
+		<!-- Label -->
+		{#if api.value !== null && !children}
 			<text
 				class="{labelBase} {labelFill} {labelClasses}"
 				x="50%"
@@ -99,7 +75,7 @@
 				text-anchor="middle"
 				dominant-baseline="central"
 			>
-				{label ?? `${value}%`}
+				{label ?? api.value}%"
 			</text>
 		{/if}
 	</svg>

@@ -1,16 +1,13 @@
 import type { Snippet } from 'svelte';
+import * as progress from '@zag-js/progress';
 
-export interface ProgressRingProps {
-	/** Set the value */
-	value?: number;
-	/** Set the maximum value */
-	max?: number;
-	/** Set the stroke size (px) */
-	strokeWidth?: number;
+export interface ProgressRingProps extends Omit<progress.Context, 'id'> {
+	/** Set the text for the scalable label */
+	label?: string;
+	/** Set the stroke size (ex: 15px) */
+	strokeWidth?: string;
 	/** Defines the shape of the meter */
 	strokeLinecap?: 'inherit' | 'butt' | 'round' | 'square';
-	/** Set the aria-labelledby value */
-	labelledBy?: string;
 
 	// Root (Figure) ---
 	/** Set the root base classes */
@@ -21,9 +18,9 @@ export interface ProgressRingProps {
 	classes?: string;
 
 	// Children ---
-	/** Set the default snippet region base classes */
+	/** Set the nested children base classes */
 	childrenBase?: string;
-	/** Provide arbitrary classes to the default snippet region. */
+	/** Provide arbitrary classes to the nested children. */
 	childrenClasses?: string;
 
 	// SVG ---
@@ -53,8 +50,6 @@ export interface ProgressRingProps {
 	meterClasses?: string;
 
 	// Label ---
-	/** Set the text for the scalable label */
-	label?: string;
 	/** Set the label classes */
 	labelBase?: string;
 	/** Set the label fill color classes */
