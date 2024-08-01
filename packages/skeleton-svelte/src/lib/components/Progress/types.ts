@@ -30,7 +30,13 @@ export interface ProgressProps extends Omit<progress.Context, 'id'> {
 	/** Set meter arbitrary classes. */
 	meterClasses?: string;
 
+	// Label ---
+	/** Set label base classes. */
+	labelBase?: string;
+	/** Set label classes. */
+	labelClasses?: string;
+
 	// Snippets ---
 	/** Set the children, receives the value */
-	children?: Snippet<[number | null]>;
+	label?: Snippet<[number | null]>;
 }

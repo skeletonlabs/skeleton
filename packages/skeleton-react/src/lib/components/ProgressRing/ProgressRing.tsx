@@ -1,7 +1,8 @@
-import { useId, type FC } from 'react';
+import { useId } from 'react';
+import type { FC } from 'react';
 import { normalizeProps, useMachine } from '@zag-js/react';
 import * as progress from '@zag-js/progress';
-import { ProgressRingProps } from './types.js';
+import type { ProgressRingProps } from './types.js';
 
 export const ProgressRing: FC<ProgressRingProps> = ({
 	label,

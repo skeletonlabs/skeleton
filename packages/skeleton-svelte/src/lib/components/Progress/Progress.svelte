@@ -20,8 +20,12 @@
 		meterTransition = 'transition-[width]',
 		meterAnimate = 'animate-indeterminate',
 		meterClasses = '',
+		// Label
+		labelBase = 'text-sm',
+		labelClasses = '',
 		// Snippets
-		children,
+		label,
+		// Zag
 		...zagProps
 	}: ProgressProps = $props();
 
@@ -40,10 +44,13 @@
 <!-- @component An indicator showing the progress or completion of a task -->
 
 <div {...api.getRootProps()}>
-	{#if children}
-		<div {...api.getLabelProps()}>{@render children(api.value)}</div>
+	<!-- Label -->
+	{#if label}
+		<div class="{labelBase} {labelClasses}" {...api.getLabelProps()}>{@render label(api.value)}</div>
 	{/if}
+	<!-- Track -->
 	<div class="{base} {bg} {width} {height} {rounded} {classes}" {...api.getTrackProps()}>
+		<!-- Meter -->
 		<div
 			class="{meterBase} {meterBg} {meterRounded} {meterTransition} {api.indeterminate ? meterAnimate : ''} {meterClasses}"
 			{...api.getRangeProps()}

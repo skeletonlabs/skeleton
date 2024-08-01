@@ -52,12 +52,12 @@
 	<section class="space-y-4">
 		<h2 class="h2">Indeterminate</h2>
 		<Progress value={null} {max}>
-			{#snippet children()}
+			{#snippet label()}
 				indeterminate (default)
 			{/snippet}
 		</Progress>
 		<Progress value={null} {max} meterAnimate="custom-indeterminate">
-			{#snippet children()}
+			{#snippet label()}
 				custom indeterminate
 			{/snippet}
 		</Progress>
