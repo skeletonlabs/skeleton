@@ -22,7 +22,7 @@
 		<Switch name="mode" controlActive="bg-surface-200" bind:checked={modeState} onchange={onModeChange}>
 			{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 			{#snippet activeChild()}<IconSun size="14" />{/snippet}
-			<p>Set Mode</p>
+			<p>Toggle Mode</p>
 		</Switch>
 		<hr class="hr" />
 		<!-- Components -->
