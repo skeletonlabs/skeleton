@@ -36,15 +36,15 @@
 	</div>
 	<!-- Card -->
 	<div class="anim-float-card absolute z-[1] top-[60%] left-[65%]">
-		<a class="block card card-hover p-4 space-y-2" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">
+		<a class="block card card-hover p-4 space-y-2" href="https://bsky.app/profile/skeletonlabs.bsky.social" target="_blank" rel="noreferrer">
 			<div class="flex items-center gap-4">
-				<Avatar src="https://pbs.twimg.com/profile_images/1587479781544759297/TINbbJLC_400x400.png" width="w-16" />
+				<Avatar src="https://cdn.bsky.app/img/avatar/plain/did:plc:whtgi5zx7ylmdw2i76vq7vq4/bafkreicyyaq6y2iqhow3vknjyvenqqpxoxls63miv5traflivi44kkp4gq@jpeg" width="w-16" />
 				<div>
-					<p class="font-bold">Skeleton</p>
-					<small class="opacity-50">@SkeletonUI</small>
+					<p class="font-bold">Skeleton Labs</p>
+					<small class="opacity-50">@skeletonlabs</small>
 				</div>
 			</div>
-			<p class="whitespace-nowrap">UI toolkit for Svelte and Tailwind.</p>
+			<p class="w-[320px]">Your friendly neighborhood open source maintainers. Creators of Skeleton.</p>
 			<div class="flex just gap-4">
 				<small><strong>50</strong> <span class="opacity-50">Following</span></small>
 				<small><strong>500</strong> <span class="opacity-50">Followers</span></small>
