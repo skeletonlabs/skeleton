@@ -6,7 +6,7 @@
 
 	let {
 		label,
-		strokeWidth = '15px',
+		strokeWidth = '10px',
 		strokeLinecap = 'round',
 		// Root
 		base = 'relative',

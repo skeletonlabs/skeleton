@@ -6,7 +6,7 @@ import type { ProgressRingProps } from './types.js';
 
 export const ProgressRing: FC<ProgressRingProps> = ({
 	label,
-	strokeWidth = '15px',
+	strokeWidth = '10px',
 	strokeLinecap = 'round',
 	// Root
 	base = 'relative',
