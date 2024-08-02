@@ -25,8 +25,9 @@
 		// Meter
 		meterBase = 'fill-none',
 		meterStroke = 'stroke-primary-500',
-		meterTransition = 'transition-[stroke-dashoffset]',
-		meterDuration = 'duration-100',
+		meterTransition = 'transition-[stroke-dashoffset] transition-[stroke-dashoffset]',
+		meterAnimate = 'animate-ring-indeterminate',
+		meterDuration = 'duration-200',
 		meterClasses = '',
 		// Label
 		labelBase = '',
@@ -43,6 +44,10 @@
 	// Zag
 	const [snapshot, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
 	const api = $derived(progress.connect(snapshot, send, normalizeProps));
+
+	// Reactive Classes
+	const rxAnimCircle = $derived(api.indeterminate && 'animate-spin');
+	const rxAnimMeter = $derived(api.indeterminate && meterAnimate);
 </script>
 
 <figure {...api.getRootProps()} class="{base} {size} {classes}">
@@ -51,17 +56,13 @@
 		{@render children?.()}
 	</div>
 	<!-- SVG -->
-	<svg
-		{...api.getCircleProps()}
-		class="{svgBase} {svgClasses} {api.indeterminate ? 'animate-spin' : ''}"
-		style="--size:100%;--thickness:{strokeWidth};"
-	>
+	<svg {...api.getCircleProps()} class="{svgBase} {svgClasses} {rxAnimCircle}" style="--size:100%;--thickness:{strokeWidth};">
 		<!-- Track -->
 		<circle {...api.getCircleTrackProps()} class="{trackBase} {trackStroke} {trackClasses}" />
 		<!-- Meter -->
 		<circle
 			{...api.getCircleRangeProps()}
-			class="{meterBase} {meterStroke} {meterTransition} {meterDuration} {meterClasses}"
+			class="{meterBase} {meterStroke} {meterTransition} {meterDuration} {meterClasses} {rxAnimMeter}"
 			stroke-linecap={strokeLinecap}
 		/>
 		<!-- Label -->

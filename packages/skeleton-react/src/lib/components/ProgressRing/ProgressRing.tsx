@@ -44,8 +44,9 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	const [state, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
 	const api = progress.connect(state, send, normalizeProps);
 
-	// Reactive
-	const rxAnimIndeterminate = api.indeterminate ? meterAnimate : '';
+	// Reactive Classes
+	const rxAnimCircle = api.indeterminate && 'animate-spin';
+	const rxAnimMeter = api.indeterminate && meterAnimate;
 
 	return (
 		<figure {...api.getRootProps()} className={`${base} ${size} ${classes}`}>
@@ -56,7 +57,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 			{/* SVG */}
 			<svg
 				{...api.getCircleProps()}
-				className={`${svgBase} ${svgClasses} ${api.indeterminate ? 'animate-spin' : ''}`}
+				className={`${svgBase} ${svgClasses} ${rxAnimCircle}`}
 				style={{ '--size': '100%', '--thickness': strokeWidth } as React.CSSProperties}
 			>
 				{/* Track */}
@@ -64,7 +65,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 				{/* Meter */}
 				<circle
 					{...api.getCircleRangeProps()}
-					className={`${meterBase} ${meterStroke} ${meterTransition} ${rxAnimIndeterminate} ${meterDuration} ${meterClasses}`}
+					className={`${meterBase} ${meterStroke} ${meterTransition} ${meterDuration} ${meterClasses} ${rxAnimMeter}`}
 					strokeLinecap={strokeLinecap}
 				/>
 				{/* Label */}
