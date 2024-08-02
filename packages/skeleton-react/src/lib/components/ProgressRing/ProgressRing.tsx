@@ -25,8 +25,9 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	// Meter
 	meterBase = 'fill-none',
 	meterStroke = 'stroke-primary-500',
-	meterTransition = 'transition-[stroke-dashoffset]',
-	meterDuration = 'duration-100',
+	meterTransition = 'transition-[stroke-dashoffset] transition-[stroke-dashoffset]',
+	meterAnimate = 'animate-ring-indeterminate',
+	meterDuration = 'duration-200',
 	meterClasses = '',
 	// Label
 	labelBase = '',
@@ -42,6 +43,9 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	// Zag
 	const [state, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
 	const api = progress.connect(state, send, normalizeProps);
+
+	// Reactive
+	const rxAnimIndeterminate = api.indeterminate ? meterAnimate : '';
 
 	return (
 		<figure {...api.getRootProps()} className={`${base} ${size} ${classes}`}>
@@ -60,7 +64,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 				{/* Meter */}
 				<circle
 					{...api.getCircleRangeProps()}
-					className={`${meterBase} ${meterStroke} ${meterTransition} ${meterDuration} ${meterClasses}`}
+					className={`${meterBase} ${meterStroke} ${meterTransition} ${rxAnimIndeterminate} ${meterDuration} ${meterClasses}`}
 					strokeLinecap={strokeLinecap}
 				/>
 				{/* Label */}

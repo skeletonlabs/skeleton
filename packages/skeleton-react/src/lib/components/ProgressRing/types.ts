@@ -43,6 +43,8 @@ export interface ProgressRingProps extends React.PropsWithChildren, Omit<progres
 	meterStroke?: string;
 	/** Set the meter transition classes */
 	meterTransition?: string;
+	/** Set the meter animation classes */
+	meterAnimate?: string;
 	/** Set the meter transition duration classes */
 	meterDuration?: string;
 	/** Provide arbitrary classes to the meter element */
