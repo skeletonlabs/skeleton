@@ -37,6 +37,6 @@ export interface ProgressProps extends Omit<progress.Context, 'id'> {
 	labelClasses?: string;
 
 	// Snippets ---
-	/** Set the children, receives the value */
+	/** Set the label */
 	label?: Snippet;
 }

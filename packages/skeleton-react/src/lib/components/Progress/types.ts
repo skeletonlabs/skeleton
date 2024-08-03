@@ -36,7 +36,7 @@ export interface ProgressProps extends Omit<progress.Context, 'id'> {
 	/** Set label classes. */
 	labelClasses?: string;
 
-	// Snippets ---
-	/** Set the children, receives the value */
+	// Nodes ---
+	/** Set the label */
 	label?: ReactNode;
 }
