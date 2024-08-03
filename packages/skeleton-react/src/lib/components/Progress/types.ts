@@ -1,5 +1,5 @@
 import * as progress from '@zag-js/progress';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export interface ProgressProps extends Omit<progress.Context, 'id'> {
 	// Root ---
