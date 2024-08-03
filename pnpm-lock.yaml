@@ -284,6 +284,9 @@ importers:
       '@zag-js/progress':
         specifier: ^0.63.0
         version: 0.63.0
+      '@zag-js/rating-group':
+        specifier: 0.63.0
+        version: 0.63.0
       '@zag-js/svelte':
         specifier: ^0.63.0
         version: 0.63.0(svelte@5.0.0-next.201)
@@ -2384,6 +2387,9 @@ packages:
 
   '@zag-js/progress@0.63.0':
     resolution: {integrity: sha512-NYYwe5F03kUuy0pABmhV56jYH0bcFKDVk99nPvR8bVBtCNDzIO/IixYCViLRdepnIKldIKqmnxk9Im7zvQGNYw==}
+
+  '@zag-js/rating-group@0.63.0':
+    resolution: {integrity: sha512-CxB7TavnG2Pa30rFZOrwM69SJuCNoBDMkTnCFVaXWddEtdS1zx968G/xAY4qxrNnXCH/C14T4INYGY15qVlR4Q==}
 
   '@zag-js/react@0.63.0':
     resolution: {integrity: sha512-8DbgK8XSONBFQ92CFlp4aWCrG+aFMgo0m9HR8YPTLuex9RUe19AOyeXBtr5JfrDnvX3dOJyecZd1mJpdaDVOwA==}
@@ -8972,6 +8978,16 @@ snapshots:
       '@zag-js/anatomy': 0.63.0
       '@zag-js/core': 0.63.0
       '@zag-js/dom-query': 0.63.0
+      '@zag-js/types': 0.63.0
+      '@zag-js/utils': 0.63.0
+
+  '@zag-js/rating-group@0.63.0':
+    dependencies:
+      '@zag-js/anatomy': 0.63.0
+      '@zag-js/core': 0.63.0
+      '@zag-js/dom-event': 0.63.0
+      '@zag-js/dom-query': 0.63.0
+      '@zag-js/form-utils': 0.63.0
       '@zag-js/types': 0.63.0
       '@zag-js/utils': 0.63.0
 

@@ -1,70 +1,22 @@
+import * as rating from '@zag-js/rating-group';
 import type { Snippet } from 'svelte';
+export interface RatingContext {
+	api: ReturnType<typeof rating.connect>;
+}
 
-export interface RatingProps {
-	/** Sets the rating value. */
-	value?: number;
-	/** Sets the maximum rating value. */
-	max?: number;
-	/** Sets interactive mode. */
-	interactive?: boolean;
-	/** Sets the rating fractional granularity. */
-	step?: number;
-
-	// Root ---
-	/** Sets base styles. */
+export interface RatingProps extends Omit<rating.Context, 'id'> {
 	base?: string;
-	/** Sets width styles. */
-	width?: string;
-	/** Sets justification styles. */
-	justify?: string;
-	/** Sets horizontal spacing styles. */
-	spaceX?: string;
-	/** Provide arbitrary CSS classes. */
 	classes?: string;
+	labelBase?: string;
+	labelClasses?: string;
+	children?: Snippet;
+	label?: Snippet;
+}
 
-	// Button ---
-	/** Sets the button base styles. */
-	buttonBase?: string;
-	/** Sets the button position styles. */
-	buttonPosition?: string;
-	/** Sets the button aspect ratio styles. */
-	buttonAspect?: string;
-	/** Provide arbitrary CSS classes to the rating button. */
-	buttonClasses?: string;
-
-	// Icon Empty
-	/** Set base styles for the empty icon. */
-	emptyBase?: string;
-	/** Set the clip styles for the empty icon. */
-	emptyClip?: string;
-	/** Set interactive state styles for the empty icon. */
-	emptyInteractive?: string;
-	/** Set non-interactive state styles for the empty icon. */
-	emptyStatic?: string;
-	/** Provide arbitrary CSS classes for the empty icon. */
-	emptyClasses?: string;
-
-	// Icon Full
-	/** Set base styles for the full icon. */
-	fullBase?: string;
-	/** Set the clip styles for the full icon. */
-	fullClip?: string;
-	/** Set interactive state styles for the full icon. */
-	fullInteractive?: string;
-	/** Set non-interactive state styles for the full icon. */
-	fullStatic?: string;
-	/** Provide arbitrary CSS classes for the full icon. */
-	fullClasses?: string;
-
-	// Events ---
-	/** Triggers on rating mouse down. */
-	onmousedown?: (event: MouseEvent, value: number) => void;
-	/** Triggers on rating key down. */
-	onkeydown?: (event: KeyboardEvent) => void;
-
-	// Snippets ---
-	/** The empty icon slot. */
+export interface RatingItemProps extends rating.ItemProps {
+	base?: string;
+	classes?: string;
 	iconEmpty?: Snippet;
-	/** The full icon slot. */
+	iconHalf?: Snippet;
 	iconFull?: Snippet;
 }
