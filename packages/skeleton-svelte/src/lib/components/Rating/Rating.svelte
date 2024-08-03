@@ -6,18 +6,24 @@
 	import type { RatingProps } from './types.js';
 
 	// Props
-	let { value = $bindable(), base = 'flex gap-2', classes, labelBase, labelClasses, children, label, ...zagProps }: RatingProps = $props();
+	let { value = $bindable(), base = 'flex gap-1', classes, labelBase, labelClasses, children, label, ...zagProps }: RatingProps = $props();
 
 	// Machine
 	const [state, send] = useMachine(
 		rating.machine({
 			id: useId(),
-			value,
 			onValueChange: (details) => {
 				value = details.value;
 			}
 		}),
-		{ context: zagProps }
+		{
+			context: {
+				...zagProps,
+				get value() {
+					return value;
+				}
+			}
+		}
 	);
 
 	// API
@@ -29,8 +35,6 @@
 			return api;
 		}
 	});
-
-	$inspect(api.getItemState({ index: 0 }));
 </script>
 
 <div {...api.getRootProps()}>
