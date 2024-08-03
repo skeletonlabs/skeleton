@@ -1,11 +1,10 @@
-import { useEffect, type FC } from 'react';
-
-import { ProgressProps } from './types.js';
+import * as progress from '@zag-js/progress';
+import { normalizeProps, useMachine } from '@zag-js/react';
+import { useId } from 'react';
+import type { FC } from 'react';
+import type { ProgressProps } from './types.js';
 
 export const Progress: FC<ProgressProps> = ({
-	value,
-	max = 100,
-	labelledBy = '',
 	// Root
 	base = 'overflow-x-hidden',
 	bg = 'bg-surface-200-800',
@@ -18,34 +17,34 @@ export const Progress: FC<ProgressProps> = ({
 	meterBg = 'bg-surface-950-50',
 	meterRounded = 'rounded',
 	meterTransition = 'transition-[width]',
-	meterAnimate = 'animate-progress-indeterminate',
-	meterClasses = ''
+	meterAnimate = 'animate-indeterminate',
+	meterClasses = '',
+	// Label
+	labelBase = 'text-sm',
+	labelClasses = '',
+	// Snippets
+	label,
+	// Zag
+	...zagProps
 }) => {
-	useEffect(() => {
-		if (max < 0) {
-			console.warn('The max prop should be greater than or equal to 0');
-		}
-	});
+	// Machine
+	const [state, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
 
-	const indeterminate = value === undefined;
-	const fillPercentage = `${indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100}%`;
-	const rxIndeterminate = indeterminate ? meterAnimate : '';
-
+	// API
+	const api = progress.connect(state, send, normalizeProps);
 	return (
-		<>
-			<div
-				role="progressbar"
-				aria-labelledby={labelledBy}
-				aria-valuenow={value}
-				aria-valuemin={0}
-				aria-valuemax={max}
-				className={`${base} ${bg} ${width} ${height} ${rounded} ${classes}`}
-			>
+		<div {...api.getRootProps()}>
+			{!!label && (
+				<div className={`${labelBase} ${labelClasses}`} {...api.getLabelProps()}>
+					label
+				</div>
+			)}
+			<div className={`${base} ${bg} ${width} ${height} ${rounded} ${classes}`} {...api.getTrackProps()}>
 				<div
-					className={`${meterBase} ${meterBg} ${meterRounded} ${meterTransition} ${rxIndeterminate} ${meterClasses}`}
-					style={{ width: fillPercentage }}
+					className={`${meterBase} ${meterBg} ${meterRounded} ${meterTransition} ${api.indeterminate ? meterAnimate : ''} ${meterClasses}`}
+					{...api.getRangeProps()}
 				></div>
 			</div>
-		</>
+		</div>
 	);
 };

@@ -1,11 +1,7 @@
-export interface ProgressProps {
-	/** Set the value */
-	value?: number;
-	/** Set the maximum value */
-	max?: number;
-	/** Set the aria-labelledby value */
-	labelledBy?: string;
+import * as progress from '@zag-js/progress';
+import { ReactNode } from 'react';
 
+export interface ProgressProps extends Omit<progress.Context, 'id'> {
 	// Root ---
 	/** Set root base classes */
 	base?: string;
@@ -33,4 +29,14 @@ export interface ProgressProps {
 	meterAnimate?: string;
 	/** Set meter arbitrary classes. */
 	meterClasses?: string;
+
+	// Label ---
+	/** Set label base classes. */
+	labelBase?: string;
+	/** Set label classes. */
+	labelClasses?: string;
+
+	// Snippets ---
+	/** Set the children, receives the value */
+	label?: ReactNode;
 }

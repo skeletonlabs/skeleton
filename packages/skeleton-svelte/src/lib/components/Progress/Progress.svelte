@@ -46,7 +46,7 @@
 <div {...api.getRootProps()}>
 	<!-- Label -->
 	{#if label}
-		<div class="{labelBase} {labelClasses}" {...api.getLabelProps()}>{@render label(api.value)}</div>
+		<div class="{labelBase} {labelClasses}" {...api.getLabelProps()}>{@render label()}</div>
 	{/if}
 	<!-- Track -->
 	<div class="{base} {bg} {width} {height} {rounded} {classes}" {...api.getTrackProps()}>
