@@ -13,48 +13,38 @@ export function Component() {
 			</header>
 			<section className="space-y-4">
 				<pre className="pre">{align}</pre>
-				<Segment value={align} name="align" onChange={setAlign}>
-					<Segment.Item id="left" value="left">
+				<Segment name="align" value={align} onValueChange={setAlign}>
+					<Segment.Item value="left">
 						<IconLeft />
 					</Segment.Item>
-					<Segment.Item id="center" value="center">
+					<Segment.Item value="center">
 						<IconCenter />
 					</Segment.Item>
-					<Segment.Item id="right" value="right">
+					<Segment.Item value="right">
 						<IconRight />
 					</Segment.Item>
-					<Segment.Item id="justify" value="justify">
+					<Segment.Item value="justify">
 						<IconJustify />
 					</Segment.Item>
 				</Segment>
 			</section>
 			<section className="space-y-4">
 				<pre className="pre">{size}</pre>
-				<Segment value={size} name="size" onChange={setSize}>
-					<Segment.Item id="sm" value="sm">
-						sm
-					</Segment.Item>
-					<Segment.Item id="md" value="md">
-						md
-					</Segment.Item>
-					<Segment.Item id="lg" value="lg" disabled>
-						lg
-					</Segment.Item>
+				<Segment name="size" value={size} onValueChange={setSize}>
+					<Segment.Item value="sm">sm</Segment.Item>
+					<Segment.Item value="md">md</Segment.Item>
+					{/* disabled */}
+					<Segment.Item value="lg">lg</Segment.Item>
 				</Segment>
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">Vertical</h2>
 				<pre className="pre">{size}</pre>
-				<Segment value={size} name="size" flexDirection="flex-col" onChange={setSize}>
-					<Segment.Item id="sm" value="sm">
-						sm
-					</Segment.Item>
-					<Segment.Item id="md" value="md">
-						md
-					</Segment.Item>
-					<Segment.Item id="lg" value="lg" disabled>
-						lg
-					</Segment.Item>
+				<Segment name="size-vertical" value={size} onValueChange={setSize} orientation="vertical">
+					<Segment.Item value="sm">sm</Segment.Item>
+					<Segment.Item value="md">md</Segment.Item>
+					{/* disabled */}
+					<Segment.Item value="lg">lg</Segment.Item>
 				</Segment>
 			</section>
 		</div>

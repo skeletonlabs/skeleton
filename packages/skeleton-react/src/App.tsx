@@ -47,6 +47,9 @@ function App() {
 						<a className="anchor" href="/components/navigation">
 							Navigation
 						</a>
+						<a className="anchor" href="/components/ratings">
+							Ratings
+						</a>
 						<a className="anchor" href="/components/progress">
 							Progress
 						</a>
@@ -61,9 +64,6 @@ function App() {
 						</a>
 						<a className="anchor" href="/components/tabs">
 							Tabs
-						</a>
-						<a className="anchor" href="/components/ratings">
-							Ratings
 						</a>
 					</nav>
 				</div>

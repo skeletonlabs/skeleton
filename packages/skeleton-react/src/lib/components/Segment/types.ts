@@ -1,21 +1,16 @@
 // Segment Control Types
 
+import * as radio from '@zag-js/radio-group';
+
 // Context ---
 
 export interface SegmentContextState {
-	value: string;
-	name: string;
-	onSelectionHandler: (value: string) => void;
+	api: ReturnType<typeof radio.connect>;
 }
 
 // Components ---
 
-export interface SegmentProps extends React.PropsWithChildren {
-	/** Set the group value, which determines selection state. */
-	value?: string;
-	/** Provide the shared input name. */
-	name: string;
-
+export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Context, 'id' | 'onValueChange'> {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
@@ -36,28 +31,30 @@ export interface SegmentProps extends React.PropsWithChildren {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
+	// Indicator
+	/** TODO. */
+	indicatorBase?: string;
+	/** TODO. */
+	indicatorBg?: string;
+	/** TODO. */
+	indicatorRounded?: string;
+	/** TODO. */
+	indicatorClasses?: string;
+
 	// Events ---
 	/** Triggers when the value state is changed. */
-	onChange?: (value: string) => void;
+	onValueChange?: (value: string) => void;
 }
 
 export interface SegmentItemsProps extends React.PropsWithChildren {
-	/** Provide a unique ID. */
-	id: string;
-	/** Provide the unique segment value. */
+	/** Provide the unique option value. */
 	value: string;
-	/** Provide a hover title attribute. */
-	title?: string;
-	/** Set the disabled state. */
-	disabled?: boolean;
 
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
-	/** Sets active state classes. */
-	active?: string;
-	/** Sets hover state classes. */
-	hover?: string;
+	/** TODO. */
+	labelActiveText?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
@@ -66,8 +63,4 @@ export interface SegmentItemsProps extends React.PropsWithChildren {
 	labelBase?: string;
 	/** Provide arbitrary CSS classes for the label element. */
 	labelClasses?: string;
-
-	// Events ---
-	/** Triggers on items click event. */
-	onClick?: (group: string) => void;
 }

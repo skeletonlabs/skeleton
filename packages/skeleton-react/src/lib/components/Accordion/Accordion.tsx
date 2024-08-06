@@ -38,6 +38,7 @@ const AccordionRoot: FC<AccordionProps> = ({
 	onValueChange = noop,
 	// Children
 	children,
+	// Zag
 	...zagProps
 }) => {
 	const [state, send] = useMachine(
