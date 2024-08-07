@@ -13,7 +13,7 @@ export interface SegmentContextState {
 
 export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Context, 'id' | 'orientation' | 'onValueChange'> {
 	/** Set the orientation. */
-	orientation?: 'horizontal' | 'vertical' | undefined;
+	orientation?: radio.Context['orientation'];
 
 	// Root ---
 	/** Sets base classes. */
@@ -52,10 +52,7 @@ export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Contex
 	onValueChange?: (value: string) => void;
 }
 
-export interface SegmentItemsProps extends React.PropsWithChildren, Omit<radio.Context, 'id' | 'orientation' | 'onValueChange'> {
-	/** Provide the unique item value. */
-	value: string;
-
+export interface SegmentItemsProps extends React.PropsWithChildren, Omit<radio.ItemProps, 'invalid'> {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;

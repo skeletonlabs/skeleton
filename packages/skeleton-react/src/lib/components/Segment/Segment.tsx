@@ -70,7 +70,6 @@ const SegmentRoot: FC<SegmentProps> = ({
 };
 
 const SegmentItem: FC<SegmentItemsProps> = ({
-	value,
 	// Root
 	base = 'btn cursor-pointer z-[1]',
 	classes = '',
@@ -78,22 +77,25 @@ const SegmentItem: FC<SegmentItemsProps> = ({
 	labelBase = 'pointer-events-none transition-colors duration-100',
 	labelClasses = '',
 	// Children
-	children
+	children,
+	// Zag
+	...zagProps
 }) => {
 	// Get Context
 	const ctx = useContext(SegmentContext);
 
 	// Reactive
-	const rxActiveText = ctx.api.value === value ? ctx.indicatorText : '';
+	const state = ctx.api.getItemState(zagProps);
+	const rxActiveText = state.checked ? ctx.indicatorText : '';
 
 	return (
-		<label {...ctx.api.getItemProps({ value: value })} className={`${base} ${classes}`} data-testid="segment-item">
+		<label {...ctx.api.getItemProps(zagProps)} className={`${base} ${classes}`} data-testid="segment-item">
 			{/* Label */}
-			<span {...ctx.api.getItemTextProps({ value: value })} className={`${labelBase} ${rxActiveText} ${labelClasses}`}>
+			<span {...ctx.api.getItemTextProps(zagProps)} className={`${labelBase} ${rxActiveText} ${labelClasses}`}>
 				{children}
 			</span>
 			{/* Hidden Input */}
-			<input {...ctx.api.getItemHiddenInputProps({ value: value })} />
+			<input {...ctx.api.getItemHiddenInputProps(zagProps)} />
 		</label>
 	);
 };
