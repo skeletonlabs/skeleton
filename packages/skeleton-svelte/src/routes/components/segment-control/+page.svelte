@@ -43,7 +43,7 @@
 	<section class="space-y-4">
 		<h2 class="h2">Vertical</h2>
 		<pre class="pre">{size}</pre>
-		<Segment bind:value={size} name="size" flexDirection="flex-col">
+		<Segment bind:value={size} name="size" orientation="vertical">
 			<Segment.Item name="sm" value="sm">sm</Segment.Item>
 			<Segment.Item name="md" value="md">md</Segment.Item>
 			<Segment.Item name="lg" value="lg" disabled>lg</Segment.Item>
