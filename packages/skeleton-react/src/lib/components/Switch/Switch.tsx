@@ -87,6 +87,7 @@ export const Switch: React.FC<SwitchProps> = ({
 			<span
 				{...api.getControlProps()}
 				className={`${controlBase} ${rxTrackState} ${controlWidth} ${controlHeight} ${controlPadding} ${controlRounded} ${controlHover} ${rxDisabled}  ${controlClasses}`}
+				data-testid="switch-control"
 			>
 				{/* Thumb */}
 				<span

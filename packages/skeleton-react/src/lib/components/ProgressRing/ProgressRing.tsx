@@ -49,7 +49,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	const rxAnimMeter = api.indeterminate && meterAnimate;
 
 	return (
-		<figure {...api.getRootProps()} className={`${base} ${size} ${classes}`}>
+		<figure {...api.getRootProps()} className={`${base} ${size} ${classes}`} data-testid="progress-ring">
 			{/* Children */}
 			<div {...api.getLabelProps()} className={`${childrenBase} ${size} ${childrenClasses}`}>
 				{children}

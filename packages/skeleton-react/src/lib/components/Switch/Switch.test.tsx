@@ -42,14 +42,14 @@ describe('<Switch>', () => {
 
 	it('should render the component in the disabled state', () => {
 		const { getByTestId } = render(<Switch name="test" disabled />);
-		const component = getByTestId('switch');
+		const component = getByTestId('switch-control');
 		expect(component).toHaveClass('opacity-50');
 		expect(component).toHaveClass('cursor-not-allowed');
 	});
 
 	it('should render the component in the compact mode', () => {
 		const { getByTestId } = render(<Switch name="test" compact />);
-		const component = getByTestId('switch');
+		const component = getByTestId('switch-control');
 		expect(component).toHaveClass('aspect-square');
 	});
 });

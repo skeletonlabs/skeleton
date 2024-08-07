@@ -59,6 +59,6 @@
 
 <!-- @component Accordion -->
 
-<div class="{base} {padding} {spaceY} {rounded} {width} {classes}" {...api.getRootProps()}>
+<div class="{base} {padding} {spaceY} {rounded} {width} {classes}" {...api.getRootProps()} data-testid="accordion">
 	{@render children()}
 </div>

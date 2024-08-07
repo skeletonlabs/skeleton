@@ -36,12 +36,13 @@
 
 <!-- @component AccordionItem -->
 
-<div class="{base} {spaceY} {classes}" {...ctx.api.getItemProps(zagProps)}>
+<div class="{base} {spaceY} {classes}" {...ctx.api.getItemProps(zagProps)} data-testid="accordion-item">
 	<!-- Control -->
 	<svelte:element this={headingElement}>
 		<button
 			class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
 			{...ctx.api.getItemTriggerProps(zagProps)}
+			data-testid="accordion-control"
 		>
 			<!-- Lead -->
 			{#if controlLead}
@@ -74,6 +75,7 @@
 			class="{panelBase} {panelPadding} {panelRounded} {panelClasses}"
 			{...ctx.api.getItemContentProps(zagProps)}
 			transition:slide={{ duration: ctx.animDuration }}
+			data-testid="accordion-panel"
 		>
 			{@render panel?.()}
 		</div>

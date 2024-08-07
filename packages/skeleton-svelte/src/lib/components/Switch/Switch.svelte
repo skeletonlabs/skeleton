@@ -88,6 +88,7 @@
 	<span
 		{...api.getControlProps()}
 		class="{controlBase} {rxTrackState} {controlWidth} {controlHeight} {controlPadding} {controlRounded} {controlHover} {rxDisabled}  {controlClasses}"
+		data-testid="switch-control"
 	>
 		<!-- Thumb -->
 		<span

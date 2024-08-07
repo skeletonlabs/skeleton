@@ -50,7 +50,7 @@
 	const rxAnimMeter = $derived(api.indeterminate && meterAnimate);
 </script>
 
-<figure {...api.getRootProps()} class="{base} {size} {classes}">
+<figure {...api.getRootProps()} class="{base} {size} {classes}" data-testid="progress-ring">
 	<!-- Children -->
 	<div {...api.getLabelProps()} class="{childrenBase} {size} {childrenClasses}">
 		{@render children?.()}

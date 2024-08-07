@@ -54,7 +54,7 @@ const AccordionRoot: FC<AccordionProps> = ({
 	const api = accordion.connect(state, send, normalizeProps);
 
 	return (
-		<div className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`} {...api.getRootProps()}>
+		<div className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`} {...api.getRootProps()} data-testid="accordion">
 			<AccordionContext.Provider value={{ animDuration, iconOpen, iconClosed, api }}>{children}</AccordionContext.Provider>
 		</div>
 	);
@@ -72,7 +72,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
 
 	return (
 		<AccordionItemContext.Provider value={zagProps}>
-			<div className={`${base} ${spaceY} ${classes}`} {...ctx?.api.getItemProps(zagProps)}>
+			<div className={`${base} ${spaceY} ${classes}`} {...ctx?.api.getItemProps(zagProps)} data-testid="accordion-item">
 				{children}
 			</div>
 		</AccordionItemContext.Provider>
@@ -100,7 +100,11 @@ const AccordionControl: FC<AccordionControlProps> = ({
 
 	return (
 		<HeadingElement>
-			<button className={`${base} ${hover} ${padding} ${rounded} ${classes}`} {...ctx.api.getItemTriggerProps(itemCtx)}>
+			<button
+				className={`${base} ${hover} ${padding} ${rounded} ${classes}`}
+				{...ctx.api.getItemTriggerProps(itemCtx)}
+				data-testid="accordion-control"
+			>
 				{/* Lead */}
 				{lead && <div>{lead}</div>}
 				{/* Content */}
@@ -124,7 +128,7 @@ const AccordionPanel: FC<AccordionPanelProps> = ({
 	const ctx = useContext(AccordionContext);
 	const itemCtx = useContext(AccordionItemContext);
 	return (
-		<div {...ctx.api.getItemContentProps(itemCtx)}>
+		<div {...ctx.api.getItemContentProps(itemCtx)} data-testid="accordion-panel">
 			<AnimatePresence initial={false}>
 				{ctx.api.value.includes(itemCtx.value) && (
 					<motion.div
@@ -138,7 +142,9 @@ const AccordionPanel: FC<AccordionPanelProps> = ({
 						}}
 						transition={{ duration: ctx.animDuration }}
 					>
-						<div className={`${base} ${padding} ${rounded} ${classes}`}>{children}</div>
+						<div className={`${base} ${padding} ${rounded} ${classes}`} data-testid="accordion-panel-children">
+							{children}
+						</div>
 					</motion.div>
 				)}
 			</AnimatePresence>
