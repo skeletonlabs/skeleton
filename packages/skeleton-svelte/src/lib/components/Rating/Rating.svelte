@@ -2,11 +2,24 @@
 	import * as rating from '@zag-js/rating-group';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import { useId } from '$lib/internal/use-id.js';
-	import { setRatingContext } from './context.js';
+	import { starEmpty, starHalf, starFull } from '$lib/internal/snippets.js';
 	import type { RatingProps } from './types.js';
 
 	// Props
-	let { value = $bindable(), base = 'flex gap-1', classes, labelBase, labelClasses, children, label, ...zagProps }: RatingProps = $props();
+	let {
+		value = $bindable(),
+		base = 'flex gap-1',
+		classes,
+		labelBase,
+		labelClasses,
+		itemBase = 'cursor-pointer data-[disabled]:cursor-not-allowed data-[readonly]:cursor-default',
+		itemClasses,
+		label,
+		iconEmpty = starEmpty,
+		iconHalf = starHalf,
+		iconFull = starFull,
+		...zagProps
+	}: RatingProps = $props();
 
 	// Machine
 	const [state, send] = useMachine(
@@ -28,13 +41,6 @@
 
 	// API
 	const api = $derived(rating.connect(state, send, normalizeProps));
-
-	// Context
-	setRatingContext({
-		get api() {
-			return api;
-		}
-	});
 </script>
 
 <div {...api.getRootProps()}>
@@ -44,7 +50,18 @@
 		</label>
 	{/if}
 	<div class="{base} {classes}" {...api.getControlProps()}>
-		{@render children?.()}
+		{#each api.items as index}
+			{@const itemState = api.getItemState({ index })}
+			<span class="{itemBase} {itemClasses}" {...api.getItemProps({ index })}>
+				{#if !itemState.highlighted}
+					{@render iconEmpty()}
+				{:else if itemState.half}
+					{@render iconHalf()}
+				{:else}
+					{@render iconFull()}
+				{/if}
+			</span>
+		{/each}
 	</div>
 	<input {...api.getHiddenInputProps()} />
 </div>

@@ -9,13 +9,9 @@ export interface RatingProps extends Omit<rating.Context, 'id'> {
 	classes?: string;
 	labelBase?: string;
 	labelClasses?: string;
-	children?: Snippet;
+	itemBase?: string;
+	itemClasses?: string;
 	label?: Snippet;
-}
-
-export interface RatingItemProps extends rating.ItemProps {
-	base?: string;
-	classes?: string;
 	iconEmpty?: Snippet;
 	iconHalf?: Snippet;
 	iconFull?: Snippet;
