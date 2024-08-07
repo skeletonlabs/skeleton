@@ -53,7 +53,7 @@ export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Contex
 }
 
 export interface SegmentItemsProps extends React.PropsWithChildren, Omit<radio.Context, 'id' | 'orientation' | 'onValueChange'> {
-	/** Provide the unique option value. */
+	/** Provide the unique item value. */
 	value: string;
 
 	// Root ---

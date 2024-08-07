@@ -1,47 +1,71 @@
 <script lang="ts">
+	import * as radio from '@zag-js/radio-group';
+	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { SegmentControl } from './types.js';
 	import { setSegmentContext } from './context.js';
+	import { useId } from '$lib/internal/use-id.js';
 
 	let {
 		value = $bindable(''),
-		name = '',
+		orientation = 'horizontal',
 		// Root
 		base = 'inline-flex items-stretch overflow-hidden',
 		background = 'preset-outlined-surface-200-800',
 		border = 'p-2',
-		flexDirection = 'flex-row', // vertical: flex-col
 		gap = 'gap-2',
 		padding = '',
 		rounded = 'rounded-container',
 		width = '',
 		classes = '',
-		// Events
-		onchange,
+		// Indicator
+		indicatorBase = 'top-[var(--top)] left-[var(--left)] w-[var(--width)] h-[var(--height)]',
+		indicatorBg = 'preset-filled',
+		indicatorText = 'text-surface-contrast-950 dark:text-surface-contrast-50',
+		indicatorRounded = 'rounded',
+		indicatorClasses = '',
 		// Snippets
-		children
+		children,
+		// Zag
+		...zagProps
 	}: SegmentControl = $props();
 
-	function onSelectionHandler(newValue: string) {
-		value = newValue;
-		onchange?.(newValue);
-	}
+	// Zag
+	const [snapshot, send] = useMachine(
+		radio.machine({
+			id: useId(),
+			get value() {
+				return $state.snapshot(value);
+			},
+			orientation,
+			onValueChange(details) {
+				value = details.value;
+			}
+		}),
+		{ context: zagProps }
+	);
+	const api = $derived(radio.connect(snapshot, send, normalizeProps));
 
 	// Set Context
 	setSegmentContext({
-		get value() {
-			return value;
+		get api() {
+			return api;
 		},
-		get name() {
-			return name;
-		},
-		onSelectionHandler
+		get indicatorText() {
+			return indicatorText;
+		}
 	});
+
+	// Reactive
+	const rxOrientation = $derived(snapshot.context.orientation === 'vertical' ? 'flex-col' : 'flex-row');
 </script>
 
 <div
-	role="radiogroup"
-	class="{base} {flexDirection} {background} {border} {padding} {gap} {rounded} {width} {classes}"
+	{...api.getRootProps()}
+	class="{base} {rxOrientation} {background} {border} {padding} {gap} {rounded} {width} {classes}"
 	data-testid="segment"
 >
-	{#if children}{@render children()}{/if}
+	<!-- Indicator -->
+	<div {...api.getIndicatorProps()} class="{indicatorBase} {indicatorBg} {indicatorRounded} {indicatorClasses}"></div>
+	<!-- Items -->
+	{@render children?.()}
 </div>
