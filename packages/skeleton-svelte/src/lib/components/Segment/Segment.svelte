@@ -36,10 +36,10 @@
 			get value() {
 				return $state.snapshot(value);
 			},
-			orientation,
 			onValueChange(details) {
 				value = details.value;
-			}
+			},
+			orientation
 		}),
 		{ context: zagProps }
 	);

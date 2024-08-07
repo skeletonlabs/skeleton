@@ -42,8 +42,8 @@ const SegmentRoot: FC<SegmentProps> = ({
 	const [state, send] = useMachine(
 		radio.machine({
 			id: useId(),
-			orientation,
-			onValueChange: (details) => onValueChange(details.value)
+			onValueChange: (details) => onValueChange(details.value),
+			orientation
 		}),
 		{ context: zagProps }
 	);
