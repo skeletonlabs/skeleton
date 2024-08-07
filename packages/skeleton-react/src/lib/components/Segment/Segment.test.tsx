@@ -35,22 +35,14 @@ describe('<Segment>', () => {
 
 describe('<Segment.Item>', () => {
 	it('should render the component', () => {
-		const { getByTestId } = render(
-			<Segment.Item id="foo" value="foo">
-				Foo
-			</Segment.Item>
-		);
+		const { getByTestId } = render(<Segment.Item value="foo">Foo</Segment.Item>);
 		const component = getByTestId('segment-item');
 		expect(component).toBeInTheDocument();
 	});
 
 	it('should render children', () => {
 		const testTextContent = 'testTextContent';
-		const { getByTestId } = render(
-			<Segment.Item id="foo" value="foo">
-				{testTextContent}
-			</Segment.Item>
-		);
+		const { getByTestId } = render(<Segment.Item value="foo">{testTextContent}</Segment.Item>);
 		const component = getByTestId('segment-item');
 		expect(component).toHaveTextContent(testTextContent);
 	});
@@ -79,7 +71,7 @@ describe('<Segment.Item>', () => {
 
 	it('should render the component in the disabled state', () => {
 		const { getByTestId } = render(
-			<Segment.Item id="foo" value="foo" disabled>
+			<Segment.Item value="foo" disabled>
 				Foo
 			</Segment.Item>
 		);

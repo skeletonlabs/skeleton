@@ -9,17 +9,17 @@
 	let align = $state('left');
 </script>
 
-<Segment bind:value={align} name="align">
-	<Segment.Item id="left" value="left">
+<Segment name="align" bind:value={align}>
+	<Segment.Item value="left">
 		<IconLeft />
 	</Segment.Item>
-	<Segment.Item id="center" value="center">
+	<Segment.Item value="center">
 		<IconCenter />
 	</Segment.Item>
-	<Segment.Item id="right" value="right">
+	<Segment.Item value="right">
 		<IconRight />
 	</Segment.Item>
-	<Segment.Item id="justify" value="justify">
+	<Segment.Item value="justify">
 		<IconJustify />
 	</Segment.Item>
 </Segment>
