@@ -6,11 +6,15 @@ import * as radio from '@zag-js/radio-group';
 
 export interface SegmentContextState {
 	api: ReturnType<typeof radio.connect>;
+	indicatorText: string;
 }
 
 // Components ---
 
-export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Context, 'id' | 'onValueChange'> {
+export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Context, 'id' | 'orientation' | 'onValueChange'> {
+	/** Set the orientation. */
+	orientation?: 'horizontal' | 'vertical' | undefined;
+
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
@@ -32,13 +36,15 @@ export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Contex
 	classes?: string;
 
 	// Indicator
-	/** TODO. */
+	/** Sets base classes to the indicator. */
 	indicatorBase?: string;
-	/** TODO. */
+	/** Sets background classes to the indicator. */
 	indicatorBg?: string;
-	/** TODO. */
+	/** Sets text classes to the indicator. */
+	indicatorText?: string;
+	/** Sets border radius classes to the indicator. */
 	indicatorRounded?: string;
-	/** TODO. */
+	/** Provide arbitrary CSS classes to the indicator. */
 	indicatorClasses?: string;
 
 	// Events ---
@@ -46,14 +52,14 @@ export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Contex
 	onValueChange?: (value: string) => void;
 }
 
-export interface SegmentItemsProps extends React.PropsWithChildren {
+export interface SegmentItemsProps extends React.PropsWithChildren, Omit<radio.Context, 'id' | 'orientation' | 'onValueChange'> {
 	/** Provide the unique option value. */
 	value: string;
 
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
-	/** TODO. */
+	/** Set active text layer styles. Should contrast the indicator. */
 	labelActiveText?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;

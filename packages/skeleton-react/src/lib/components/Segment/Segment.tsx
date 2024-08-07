@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useId } from 'react';
+import { FC, createContext, useContext, useId } from 'react';
 import * as radio from '@zag-js/radio-group';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import type { SegmentContextState, SegmentProps, SegmentItemsProps } from './types.js';
@@ -9,12 +9,14 @@ import { noop } from '$lib/internal/noop.js';
 // Contexts ---
 
 export const SegmentContext = createContext<SegmentContextState>({
-	api: {} as ReturnType<typeof radio.connect>
+	api: {} as ReturnType<typeof radio.connect>,
+	indicatorText: ''
 });
 
 // Components ---
 
-const SegmentRoot: React.FC<SegmentProps> = ({
+const SegmentRoot: FC<SegmentProps> = ({
+	orientation = 'horizontal',
 	// Root
 	base = 'inline-flex items-stretch overflow-hidden',
 	background = 'preset-outlined-surface-200-800',
@@ -27,6 +29,7 @@ const SegmentRoot: React.FC<SegmentProps> = ({
 	// Indicator
 	indicatorBase = 'top-[var(--top)] left-[var(--left)] w-[var(--width)] h-[var(--height)]',
 	indicatorBg = 'preset-filled',
+	indicatorText = 'text-surface-contrast-950 dark:text-surface-contrast-50',
 	indicatorRounded = 'rounded',
 	indicatorClasses = '',
 	// Events
@@ -39,21 +42,18 @@ const SegmentRoot: React.FC<SegmentProps> = ({
 	const [state, send] = useMachine(
 		radio.machine({
 			id: useId(),
-			onValueChange: (details) => {
-				onValueChange(details.value);
-			}
+			orientation,
+			onValueChange: (details) => onValueChange(details.value)
 		}),
 		{ context: zagProps }
 	);
 	const api = radio.connect(state, send, normalizeProps);
 
 	// Set Context
-	const ctx = { api };
+	const ctx = { api, indicatorText };
 
 	// Reactive
-	// FIXME: always returns vertical
-	// const rxOrientation = state.context.orientation === 'vertical' ? 'flex-col' : 'flex-row';
-	const rxOrientation = 'flex-row';
+	const rxOrientation = state.context.orientation === 'vertical' ? 'flex-col' : 'flex-row';
 
 	return (
 		<div
@@ -69,14 +69,13 @@ const SegmentRoot: React.FC<SegmentProps> = ({
 	);
 };
 
-const SegmentItem: React.FC<SegmentItemsProps> = ({
+const SegmentItem: FC<SegmentItemsProps> = ({
 	value,
 	// Root
 	base = 'btn cursor-pointer z-[1]',
 	classes = '',
 	// Label
-	labelBase = 'pointer-events-none',
-	labelActiveText = 'preset-filled',
+	labelBase = 'pointer-events-none transition-colors duration-100',
 	labelClasses = '',
 	// Children
 	children
@@ -85,11 +84,10 @@ const SegmentItem: React.FC<SegmentItemsProps> = ({
 	const ctx = useContext(SegmentContext);
 
 	// Reactive
-	const rxActive = ctx.api.value === value;
-	const rxActiveText = rxActive ? labelActiveText : '';
+	const rxActiveText = ctx.api.value === value ? ctx.indicatorText : '';
 
 	return (
-		<label key={value} {...ctx.api.getItemProps({ value: value })} className={`${base} ${classes}`} data-testid="segment-item">
+		<label {...ctx.api.getItemProps({ value: value })} className={`${base} ${classes}`} data-testid="segment-item">
 			{/* Label */}
 			<span {...ctx.api.getItemTextProps({ value: value })} className={`${labelBase} ${rxActiveText} ${labelClasses}`}>
 				{children}
