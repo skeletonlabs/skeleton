@@ -6,17 +6,24 @@ import { starEmpty, starHalf, starFull } from '../../internal/nodes';
 import { noop } from '../../internal/noop';
 
 export const Rating: FC<RatingProps> = ({
+	// Root
 	base = 'flex gap-1',
 	classes,
+	// Label
 	labelBase,
 	labelClasses,
+	// Item
 	itemBase = 'cursor-pointer data-[disabled]:cursor-not-allowed data-[readonly]:cursor-default',
 	itemClasses,
-	onValueChange = noop,
-	label,
+	// Icons
 	iconEmpty = starEmpty,
 	iconHalf = starHalf,
 	iconFull = starFull,
+	// Children
+	label,
+	// Events
+	onValueChange = noop,
+	// Zag
 	...zagProps
 }) => {
 	const [state, send] = useMachine(

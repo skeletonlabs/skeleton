@@ -38,15 +38,19 @@
 	const [snapshot, send] = useMachine(
 		radio.machine({
 			id: useId(),
-			get value() {
-				return $state.snapshot(value);
-			},
 			onValueChange(details) {
 				value = details.value;
 			},
 			orientation
 		}),
-		{ context: zagProps }
+		{
+			context: {
+				...zagProps,
+				get value() {
+					return value;
+				}
+			}
+		}
 	);
 	const api = $derived(radio.connect(snapshot, send, normalizeProps));
 

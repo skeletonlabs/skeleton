@@ -8,9 +8,9 @@ export interface RatingProps extends Omit<rating.Context, 'id' | 'onValueChange'
 	labelClasses?: string;
 	itemBase?: string;
 	itemClasses?: string;
-	onValueChange?: (value: number) => void;
-	label?: ReactNode;
 	iconEmpty?: ReactNode;
 	iconHalf?: ReactNode;
 	iconFull?: ReactNode;
+	label?: ReactNode;
+	onValueChange?: (value: number) => void;
 }

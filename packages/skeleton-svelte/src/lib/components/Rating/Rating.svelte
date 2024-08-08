@@ -8,16 +8,22 @@
 	// Props
 	let {
 		value = $bindable(),
+		// Root
 		base = 'flex gap-1',
 		classes,
+		// Label
 		labelBase,
 		labelClasses,
+		// Item
 		itemBase = 'cursor-pointer data-[disabled]:cursor-not-allowed data-[readonly]:cursor-default',
 		itemClasses,
-		label,
+		// Icons
 		iconEmpty = starEmpty,
 		iconHalf = starHalf,
 		iconFull = starFull,
+		// Snippets
+		label,
+		// Zag
 		...zagProps
 	}: RatingProps = $props();
 
