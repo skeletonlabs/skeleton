@@ -35,7 +35,17 @@ export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Contex
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Indicator
+	// States ---
+	/** Set classes to provide a vertical layout. */
+	orientVertical?: string;
+	/** Set classes to provide a horizintal layout. */
+	orientHorizontal?: string;
+	/** Set claseses for the disabled state. */
+	stateDisabled?: string;
+	/** Set claseses for the read-only state. */
+	stateReadOnly?: string;
+
+	// Indicator ---
 	/** Sets base classes to the indicator. */
 	indicatorBase?: string;
 	/** Sets background classes to the indicator. */
@@ -60,6 +70,9 @@ export interface SegmentItemsProps extends React.PropsWithChildren, Omit<radio.I
 	labelActiveText?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
+
+	/** Set claseses for the disabled state. */
+	stateDisabled?: string;
 
 	// Label ---
 	/** Sets base classes for the label element. */

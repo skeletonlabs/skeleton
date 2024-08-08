@@ -17,6 +17,11 @@
 		rounded = 'rounded-container',
 		width = '',
 		classes = '',
+		// States
+		orientVertical = 'flex-col',
+		orientHorizontal = 'flex-row',
+		stateDisabled = 'disabled',
+		stateReadOnly = 'pointer-events-none',
 		// Indicator
 		indicatorBase = 'top-[var(--top)] left-[var(--left)] w-[var(--width)] h-[var(--height)]',
 		indicatorBg = 'preset-filled',
@@ -56,12 +61,14 @@
 	});
 
 	// Reactive
-	const rxOrientation = $derived(snapshot.context.orientation === 'vertical' ? 'flex-col' : 'flex-row');
+	const rxOrientation = $derived(snapshot.context.orientation === 'vertical' ? orientVertical : orientHorizontal);
+	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
+	const rxReadOnly = $derived(snapshot.context.readOnly ? stateReadOnly : '');
 </script>
 
 <div
 	{...api.getRootProps()}
-	class="{base} {rxOrientation} {background} {border} {padding} {gap} {rounded} {width} {classes}"
+	class="{base} {rxOrientation} {background} {border} {padding} {gap} {rounded} {width} {rxDisabled} {rxReadOnly} {classes}"
 	data-testid="segment"
 >
 	<!-- Indicator -->

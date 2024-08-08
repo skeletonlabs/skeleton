@@ -26,6 +26,11 @@ const SegmentRoot: FC<SegmentProps> = ({
 	rounded = 'rounded-container',
 	width = '',
 	classes = '',
+	// States
+	orientVertical = 'flex-col',
+	orientHorizontal = 'flex-row',
+	stateDisabled = 'disabled',
+	stateReadOnly = 'pointer-events-none',
 	// Indicator
 	indicatorBase = 'top-[var(--top)] left-[var(--left)] w-[var(--width)] h-[var(--height)]',
 	indicatorBg = 'preset-filled',
@@ -53,12 +58,14 @@ const SegmentRoot: FC<SegmentProps> = ({
 	const ctx = { api, indicatorText };
 
 	// Reactive
-	const rxOrientation = state.context.orientation === 'vertical' ? 'flex-col' : 'flex-row';
+	const rxOrientation = state.context.orientation === 'vertical' ? orientVertical : orientHorizontal;
+	const rxDisabled = state.context.disabled ? stateDisabled : '';
+	const rxReadOnly = state.context.readOnly ? stateReadOnly : '';
 
 	return (
 		<div
 			{...api.getRootProps()}
-			className={`${base} ${rxOrientation} ${background} ${border} ${padding} ${gap} ${rounded} ${width} ${classes}`}
+			className={`${base} ${rxOrientation} ${background} ${border} ${padding} ${gap} ${rounded} ${width} ${rxDisabled} ${rxReadOnly} ${classes}`}
 			data-testid="segment"
 		>
 			{/* Indicator */}
@@ -76,6 +83,8 @@ const SegmentItem: FC<SegmentItemsProps> = ({
 	// Label
 	labelBase = 'pointer-events-none transition-colors duration-100',
 	labelClasses = '',
+	// State
+	stateDisabled = 'disabled',
 	// Children
 	children,
 	// Zag
@@ -83,13 +92,14 @@ const SegmentItem: FC<SegmentItemsProps> = ({
 }) => {
 	// Get Context
 	const ctx = useContext(SegmentContext);
+	const state = ctx.api.getItemState(zagProps);
 
 	// Reactive
-	const state = ctx.api.getItemState(zagProps);
+	const rxDisabled = state.disabled ? stateDisabled : '';
 	const rxActiveText = state.checked ? ctx.indicatorText : '';
 
 	return (
-		<label {...ctx.api.getItemProps(zagProps)} className={`${base} ${classes}`} data-testid="segment-item">
+		<label {...ctx.api.getItemProps(zagProps)} className={`${base} ${rxDisabled} ${classes}`} data-testid="segment-item">
 			{/* Label */}
 			<span {...ctx.api.getItemTextProps(zagProps)} className={`${labelBase} ${rxActiveText} ${labelClasses}`}>
 				{children}

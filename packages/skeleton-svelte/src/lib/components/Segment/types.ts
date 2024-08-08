@@ -36,6 +36,16 @@ export interface SegmentControl extends Omit<radio.Context, 'id' | 'orientation'
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
+	// States ---
+	/** Set classes to provide a vertical layout. */
+	orientVertical?: string;
+	/** Set classes to provide a horizintal layout. */
+	orientHorizontal?: string;
+	/** Set claseses for the disabled state. */
+	stateDisabled?: string;
+	/** Set claseses for the read-only state. */
+	stateReadOnly?: string;
+
 	// Indicator
 	/** Sets base classes to the indicator. */
 	indicatorBase?: string;
@@ -53,7 +63,7 @@ export interface SegmentControl extends Omit<radio.Context, 'id' | 'orientation'
 	children?: Snippet;
 }
 
-export interface SegmentItemProps extends Omit<radio.Context, 'id' | 'orientation' | 'onValueChange'> {
+export interface SegmentItemProps extends Omit<radio.ItemProps, 'invalid'> {
 	/** Provide the unique item value. */
 	value: string;
 
@@ -64,6 +74,9 @@ export interface SegmentItemProps extends Omit<radio.Context, 'id' | 'orientatio
 	labelActiveText?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
+
+	/** Set claseses for the disabled state. */
+	stateDisabled?: string;
 
 	// Label ---
 	/** Sets base classes for the label element. */
