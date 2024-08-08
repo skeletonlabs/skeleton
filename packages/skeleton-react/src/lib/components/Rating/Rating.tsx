@@ -12,19 +12,22 @@ export const Rating: FC<RatingProps> = ({
 	labelClasses,
 	itemBase = 'cursor-pointer data-[disabled]:cursor-not-allowed data-[readonly]:cursor-default',
 	itemClasses,
-	onChange = noop,
+	onValueChange = noop,
 	label,
 	iconEmpty = starEmpty,
 	iconHalf = starHalf,
 	iconFull = starFull,
 	...zagProps
 }) => {
-	const [state, send] = useMachine(rating.machine({ 
-		id: useId(), 
-		onValueChange: (details) => onChange(details.value) 
-	}), {
-		context: zagProps
-	});
+	const [state, send] = useMachine(
+		rating.machine({
+			id: useId(),
+			onValueChange: (details) => onValueChange(details.value)
+		}),
+		{
+			context: zagProps
+		}
+	);
 
 	const api = rating.connect(state, send, normalizeProps);
 
