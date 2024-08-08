@@ -56,6 +56,7 @@
 		"@zag-js/avatar": "^0.64.0",
 		"@zag-js/progress": "^0.64.0",
 		"@zag-js/radio-group": "^0.64.0",
+		"@zag-js/rating-group": "^0.64.0",
 		"@zag-js/react": "^0.64.0",
 		"@zag-js/switch": "^0.64.0",
 		"autoprefixer": "^10.4.19",

@@ -1,8 +1,5 @@
 import * as rating from '@zag-js/rating-group';
 import type { Snippet } from 'svelte';
-export interface RatingContext {
-	api: ReturnType<typeof rating.connect>;
-}
 
 export interface RatingProps extends Omit<rating.Context, 'id'> {
 	base?: string;
