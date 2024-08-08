@@ -7,6 +7,5 @@
 <Segment name="size" bind:value={size} orientation="vertical">
 	<Segment.Item value="sm">Small</Segment.Item>
 	<Segment.Item value="md">Medium</Segment.Item>
-	<!-- disabled -->
-	<Segment.Item value="lg">Large</Segment.Item>
+	<Segment.Item value="lg" disabled>Large</Segment.Item>
 </Segment>

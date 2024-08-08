@@ -2,8 +2,8 @@ import * as rating from '@zag-js/rating-group';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import { useId, type FC } from 'react';
 import type { RatingProps } from './types';
-import { starEmpty, starHalf, starFull } from '$lib/internal/nodes';
-import { noop } from '$lib/internal/noop';
+import { starEmpty, starHalf, starFull } from '../../internal/nodes';
+import { noop } from '../../internal/noop';
 
 export const Rating: FC<RatingProps> = ({
 	base = 'flex gap-1',

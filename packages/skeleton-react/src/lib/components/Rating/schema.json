@@ -2,48 +2,55 @@
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"definitions": {
 		"IntlTranslations": {
-			"propertyOrder": ["value"],
+			"propertyOrder": ["ratingValueText"],
 			"type": "object"
 		},
 		"Iterable<React.ReactNode>": {
 			"propertyOrder": ["__@iterator@83"],
 			"type": "object"
 		},
-		"Orientation": {
-			"enum": ["horizontal", "vertical"],
-			"type": "string"
-		},
-		"Partial<{root:string;track:string;label:string;circle:string;}>": {
+		"Partial<{root:string;label:string;hiddenInput:string;control:string;item(id:string):string;}>": {
 			"properties": {
-				"circle": {
+				"control": {
 					"type": "string"
+				},
+				"hiddenInput": {
+					"type": "string"
+				},
+				"item": {
+					"propertyOrder": [],
+					"type": "object"
 				},
 				"label": {
 					"type": "string"
 				},
 				"root": {
 					"type": "string"
-				},
-				"track": {
-					"type": "string"
 				}
 			},
-			"propertyOrder": ["root", "track", "label", "circle"],
+			"propertyOrder": ["root", "label", "hiddenInput", "control", "item"],
 			"type": "object"
 		},
-		"ProgressProps": {
+		"RatingProps": {
 			"properties": {
-				"base": {
-					"description": "Set root base classes",
-					"type": "string"
+				"allowHalf": {
+					"description": "Whether to allow half stars.",
+					"type": "boolean"
 				},
-				"bg": {
-					"description": "Set root background classes",
+				"autoFocus": {
+					"description": "Whether to autofocus the rating.",
+					"type": "boolean"
+				},
+				"base": {
 					"type": "string"
 				},
 				"classes": {
-					"description": "Set root arbitrary classes",
 					"type": "string"
+				},
+				"count": {
+					"default": 5,
+					"description": "The total number of ratings.",
+					"type": "number"
 				},
 				"dir": {
 					"default": "ltr",
@@ -51,112 +58,103 @@
 					"enum": ["ltr", "rtl"],
 					"type": "string"
 				},
+				"disabled": {
+					"description": "Whether the rating is disabled.",
+					"type": "boolean"
+				},
+				"form": {
+					"description": "The associate form of the underlying input element.",
+					"type": "string"
+				},
 				"getRootNode": {
 					"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
 					"propertyOrder": [],
 					"type": "object"
 				},
-				"height": {
-					"description": "Set root height classes",
-					"type": "string"
+				"iconEmpty": {
+					"$ref": "#/definitions/React.ReactNode"
+				},
+				"iconFull": {
+					"$ref": "#/definitions/React.ReactNode"
+				},
+				"iconHalf": {
+					"$ref": "#/definitions/React.ReactNode"
 				},
 				"ids": {
-					"$ref": "#/definitions/Partial<{root:string;track:string;label:string;circle:string;}>",
-					"description": "The ids of the elements in the progress bar. Useful for composition."
+					"$ref": "#/definitions/Partial<{root:string;label:string;hiddenInput:string;control:string;item(id:string):string;}>",
+					"description": "The ids of the elements in the rating. Useful for composition."
+				},
+				"itemBase": {
+					"type": "string"
+				},
+				"itemClasses": {
+					"type": "string"
 				},
 				"label": {
-					"$ref": "#/definitions/React.ReactNode",
-					"description": "Set the label"
+					"$ref": "#/definitions/React.ReactNode"
 				},
 				"labelBase": {
-					"description": "Set label base classes.",
 					"type": "string"
 				},
 				"labelClasses": {
-					"description": "Set label classes.",
 					"type": "string"
 				},
-				"max": {
-					"default": 100,
-					"description": "The maximum allowed value of the progress bar.",
-					"type": "number"
-				},
-				"meterAnimate": {
-					"description": "Set meter animation classes for indeterminate mode. (value === undefined)",
+				"name": {
+					"description": "The name attribute of the rating element (used in forms).",
 					"type": "string"
 				},
-				"meterBase": {
-					"description": "Set meter base classes.",
-					"type": "string"
+				"onHoverChange": {
+					"description": "Function to be called when the rating value is hovered.",
+					"propertyOrder": [],
+					"type": "object"
 				},
-				"meterBg": {
-					"description": "Set meter bg classes",
-					"type": "string"
+				"onValueChange": {
+					"propertyOrder": [],
+					"type": "object"
 				},
-				"meterClasses": {
-					"description": "Set meter arbitrary classes.",
-					"type": "string"
+				"readOnly": {
+					"description": "Whether the rating is readonly.",
+					"type": "boolean"
 				},
-				"meterRounded": {
-					"description": "Set meter rounded classes.",
-					"type": "string"
-				},
-				"meterTransition": {
-					"description": "Set meter transition classes.",
-					"type": "string"
-				},
-				"min": {
-					"default": 0,
-					"description": "The minimum allowed value of the progress bar.",
-					"type": "number"
-				},
-				"orientation": {
-					"$ref": "#/definitions/Orientation",
-					"default": "horizontal",
-					"description": "The orientation of the element."
-				},
-				"rounded": {
-					"description": "Set root rounded classes",
-					"type": "string"
+				"required": {
+					"description": "Whether the rating is required.",
+					"type": "boolean"
 				},
 				"translations": {
 					"$ref": "#/definitions/IntlTranslations",
-					"description": "The localized messages to use."
+					"description": "Specifies the localized strings that identifies the accessibility elements and their states"
 				},
 				"value": {
-					"default": 50,
-					"description": "The current value of the progress bar.",
+					"description": "The current rating value.",
 					"type": "number"
-				},
-				"width": {
-					"description": "Set root width classes",
-					"type": "string"
 				}
 			},
 			"propertyOrder": [
 				"base",
-				"bg",
-				"width",
-				"height",
-				"rounded",
 				"classes",
-				"meterBase",
-				"meterBg",
-				"meterRounded",
-				"meterTransition",
-				"meterAnimate",
-				"meterClasses",
 				"labelBase",
 				"labelClasses",
+				"itemBase",
+				"itemClasses",
+				"onValueChange",
 				"label",
-				"max",
-				"min",
+				"iconEmpty",
+				"iconHalf",
+				"iconFull",
+				"required",
+				"name",
 				"value",
+				"form",
 				"dir",
 				"getRootNode",
-				"orientation",
+				"disabled",
+				"autoFocus",
 				"ids",
-				"translations"
+				"translations",
+				"count",
+				"readOnly",
+				"allowHalf",
+				"onHoverChange"
 			],
 			"type": "object"
 		},
