@@ -12,7 +12,7 @@
 		// Root
 		base = 'flex gap-1',
 		disabledClasses = 'cursor-not-allowed opacity-50',
-		readOnlyClasses = 'opacity-50',
+		readOnlyClasses = 'cursor-not-allowed',
 		classes,
 		// Label
 		labelBase,
@@ -63,7 +63,6 @@
 
 <!-- Root -->
 <div {...api.getRootProps()}>
-	
 	<!-- Label -->
 	{#if !!label}
 		<label class="{labelBase} {labelClasses}" {...api.getLabelProps()}>

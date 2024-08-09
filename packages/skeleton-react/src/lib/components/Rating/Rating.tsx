@@ -9,7 +9,7 @@ export const Rating: FC<RatingProps> = ({
 	// Root
 	base = 'flex gap-1',
 	disabledClasses = 'cursor-not-allowed opacity-50',
-	readOnlyClasses = 'opacity-50',
+	readOnlyClasses = 'cursor-not-allowed',
 	classes,
 	// Label
 	labelBase,
@@ -50,7 +50,6 @@ export const Rating: FC<RatingProps> = ({
 		<>
 			{/* Root */}
 			<div {...api.getRootProps()}>
-				
 				{/* Label */}
 				{!!label && (
 					<label className={`${labelBase} ${labelClasses}`} {...api.getLabelProps()}>

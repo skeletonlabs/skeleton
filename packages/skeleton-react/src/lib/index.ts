@@ -10,4 +10,4 @@ export { ProgressRing } from './components/ProgressRing/ProgressRing.js';
 export { Switch } from './components/Switch/Switch.js';
 export { Segment } from './components/Segment/Segment.js';
 export { Tabs } from './components/Tabs/Tabs.js';
-export { Rating } from './components/Rating/Rating.js';
+export { Rating } from './components/Rating/index.js';

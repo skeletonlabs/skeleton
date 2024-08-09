@@ -1,3 +1,1 @@
-import Rating from './Rating.tsx';
-
-export default Rating;
+export { Rating } from './Rating.jsx';

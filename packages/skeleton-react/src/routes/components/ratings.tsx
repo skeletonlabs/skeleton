@@ -1,7 +1,7 @@
 import { Bone, Skull } from 'lucide-react';
 import { useState } from 'react';
 
-import { Rating } from '$lib/components/Rating/Rating';
+import { Rating } from '$lib/components/Rating/index.js';
 
 export function Component() {
 	const [value, setValue] = useState(3);
@@ -13,7 +13,7 @@ export function Component() {
 			</header>
 			<pre className="pre">value: {value}</pre>
 			<section className="space-y-4">
-				<Rating value={value} onValueChange={setValue}></Rating>
+				<Rating value={value} onValueChange={setValue} ids={{ root: 'root' }}></Rating>
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">Icons</h2>
