@@ -121,7 +121,7 @@ export function Component() {
 			<section className="space-y-4">
 				<h2 className="h2">RTL</h2>
 				<div dir="rtl">
-					<Tabs value={group} onValueChange={setGroup}>
+					<Tabs value={group} onValueChange={setGroup} dir="rtl">
 						<Tabs.List>
 							<Tabs.Control value="item-1">Control-1</Tabs.Control>
 							<Tabs.Control value="item-2">Control-2</Tabs.Control>
