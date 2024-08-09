@@ -8,6 +8,8 @@ import { noop } from '../../internal/noop';
 export const Rating: FC<RatingProps> = ({
 	// Root
 	base = 'flex gap-1',
+	disabledClasses = 'cursor:not-allowed opacity-50',
+	readOnlyClasses = 'cursor:not-allowed opacity-50',
 	classes,
 	// Label
 	labelBase,
@@ -38,6 +40,9 @@ export const Rating: FC<RatingProps> = ({
 
 	const api = rating.connect(state, send, normalizeProps);
 
+	const rxDisabledClasses = state.context.disabled ? disabledClasses : '';
+	const rxReadOnlyClasses = state.context.readOnly ? readOnlyClasses : '';
+
 	return (
 		<div {...api.getRootProps()}>
 			{!!label && (
@@ -45,10 +50,9 @@ export const Rating: FC<RatingProps> = ({
 					{label}
 				</label>
 			)}
-			<div className={`${base} ${classes}`} {...api.getControlProps()}>
+			<div className={`${base} ${rxDisabledClasses} ${rxReadOnlyClasses} ${classes}`} {...api.getControlProps()}>
 				{api.items.map((index) => {
 					const itemState = api.getItemState({ index });
-
 					const icon = (() => {
 						if (!itemState.highlighted) {
 							return iconEmpty;
