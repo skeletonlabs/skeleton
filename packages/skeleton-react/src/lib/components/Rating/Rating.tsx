@@ -50,6 +50,7 @@ export const Rating: FC<RatingProps> = ({
 		<>
 			{/* Root */}
 			<div {...api.getRootProps()}>
+				
 				{/* Label */}
 				{!!label && (
 					<label className={`${labelBase} ${labelClasses}`} {...api.getLabelProps()}>
@@ -73,7 +74,7 @@ export const Rating: FC<RatingProps> = ({
 
 						return (
 							<>
-								{/* Control */}
+								{/* Item */}
 								<span key={index} className={`${itemBase} ${itemClasses}`} {...api.getItemProps({ index })}>
 									{icon}
 								</span>
