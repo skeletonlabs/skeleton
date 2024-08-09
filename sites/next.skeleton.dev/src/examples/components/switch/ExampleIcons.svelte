@@ -5,7 +5,7 @@
 	import IconCheck from 'lucide-svelte/icons/check';
 </script>
 
-<Switch id="icons" name="icons" stateActive="bg-secondary-500">
+<Switch name="icons" controlActive="bg-secondary-500">
 	{#snippet inactiveChild()}<IconX size="14" />{/snippet}
 	{#snippet activeChild()}<IconCheck size="14" />{/snippet}
 </Switch>

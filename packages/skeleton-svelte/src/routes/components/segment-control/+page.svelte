@@ -18,16 +18,16 @@
 	<section class="space-y-4">
 		<pre class="pre">{align}</pre>
 		<Segment bind:value={align} name="align">
-			<Segment.Item id="left" value="left">
+			<Segment.Item value="left">
 				<IconLeft />
 			</Segment.Item>
-			<Segment.Item id="center" value="center">
+			<Segment.Item value="center">
 				<IconCenter />
 			</Segment.Item>
-			<Segment.Item id="right" value="right">
+			<Segment.Item value="right">
 				<IconRight />
 			</Segment.Item>
-			<Segment.Item id="justify" value="justify">
+			<Segment.Item value="justify">
 				<IconJustify />
 			</Segment.Item>
 		</Segment>
@@ -35,18 +35,55 @@
 	<section class="space-y-4">
 		<pre class="pre">{size}</pre>
 		<Segment bind:value={size} name="size">
-			<Segment.Item id="sm" value="sm">sm</Segment.Item>
-			<Segment.Item id="md" value="md">md</Segment.Item>
-			<Segment.Item id="lg" value="lg" disabled>lg</Segment.Item>
+			<Segment.Item value="sm">sm</Segment.Item>
+			<Segment.Item value="md">md</Segment.Item>
+			<Segment.Item value="lg" disabled>lg</Segment.Item>
 		</Segment>
 	</section>
+	<!-- Vertical -->
 	<section class="space-y-4">
 		<h2 class="h2">Vertical</h2>
 		<pre class="pre">{size}</pre>
-		<Segment bind:value={size} name="size" flexDirection="flex-col">
-			<Segment.Item id="sm" value="sm">sm</Segment.Item>
-			<Segment.Item id="md" value="md">md</Segment.Item>
-			<Segment.Item id="lg" value="lg" disabled>lg</Segment.Item>
+		<Segment bind:value={size} name="size" orientation="vertical">
+			<Segment.Item value="sm">sm</Segment.Item>
+			<Segment.Item value="md">md</Segment.Item>
+			<Segment.Item value="lg" disabled>lg</Segment.Item>
+		</Segment>
+	</section>
+	<!-- Disabled -->
+	<section class="space-y-4">
+		<h2 class="h2">Disabled</h2>
+		<Segment bind:value={align} name="align" disabled>
+			<Segment.Item value="left">
+				<IconLeft />
+			</Segment.Item>
+			<Segment.Item value="center">
+				<IconCenter />
+			</Segment.Item>
+			<Segment.Item value="right">
+				<IconRight />
+			</Segment.Item>
+			<Segment.Item value="justify">
+				<IconJustify />
+			</Segment.Item>
+		</Segment>
+	</section>
+	<!-- Read-Only -->
+	<section class="space-y-4">
+		<h2 class="h2">Read-Only</h2>
+		<Segment bind:value={align} name="align" readOnly>
+			<Segment.Item value="left">
+				<IconLeft />
+			</Segment.Item>
+			<Segment.Item value="center">
+				<IconCenter />
+			</Segment.Item>
+			<Segment.Item value="right">
+				<IconRight />
+			</Segment.Item>
+			<Segment.Item value="justify">
+				<IconJustify />
+			</Segment.Item>
 		</Segment>
 	</section>
 </div>

@@ -6,6 +6,8 @@ export const components = componentSet;
 
 import Example from '@examples/components/avatars/Example.svelte';
 import ExampleRaw from '@examples/components/avatars/Example.svelte?raw';
+import ExampleFallback from '@examples/components/avatars/ExampleFallback.svelte';
+import ExampleFallbackRaw from '@examples/components/avatars/ExampleFallback.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -18,12 +20,13 @@ import ExampleRaw from '@examples/components/avatars/Example.svelte?raw';
 
 ## Fallback
 
-When the `src` prop is _undefined_, default children will show. This can be used for initials, icons, or fallback images.
+When `src` or `srcSet` are missing or fail to load, a fallback will be displayed. By default this will show the user initials, based on the `name`. Optionally you can suppy your own content using the default `children`. This can be used to display icons or implement a custom image using [@sveltejs/enhanced-img](https://kit.svelte.dev/docs/images#sveltejs-enhanced-img).
 
-```html
-<Avatar>SK</Avatar>
-```
-
-```html
-<Avatar>💀</Avatar>
-```
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleFallback client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleFallbackRaw} lang="svelte" />
+	</Fragment>
+</Preview>

@@ -7,9 +7,8 @@ export const Page: React.FC = () => {
 
 	return (
 		<Switch
-			id="icons"
 			name="icons"
-			stateActive="bg-secondary-500"
+			controlActive="bg-secondary-500"
 			checked={icons}
 			onChange={setIcons}
 			inactiveChild={<IconX size="14" />}

@@ -51,10 +51,16 @@
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Indeterminate</h2>
-		<p>indeterminate (default)</p>
-		<Progress {max} />
-		<p>custom-indeterminate</p>
-		<Progress {max} meterAnimate="custom-indeterminate" />
+		<Progress value={null} {max}>
+			{#snippet label()}
+				indeterminate (default)
+			{/snippet}
+		</Progress>
+		<Progress value={null} {max} meterAnimate="custom-indeterminate">
+			{#snippet label()}
+				custom indeterminate
+			{/snippet}
+		</Progress>
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">RTL</h2>

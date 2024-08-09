@@ -5,4 +5,4 @@
 	let state = $state(false);
 </script>
 
-<Switch id="example" name="example" bind:checked={state} onchange={console.log} />
+<Switch name="example" bind:checked={state} onchange={console.log} />

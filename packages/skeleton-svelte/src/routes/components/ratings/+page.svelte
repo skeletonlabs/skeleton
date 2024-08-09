@@ -1,163 +1,45 @@
 <script lang="ts">
-	import Rating from '$lib/components/Rating/Rating.svelte';
-	import Star from 'lucide-svelte/icons/star';
-	import Skull from 'lucide-svelte/icons/skull';
-	import Bone from 'lucide-svelte/icons/bone';
+	import { Rating } from '$lib/index.js';
+	import IconBone from 'lucide-svelte/icons/bone';
+	import IconSkull from 'lucide-svelte/icons/skull';
 
-	let interactiveValue = $state(3);
+	let value = $state(3);
 </script>
 
 <div class="space-y-10">
 	<header>
-		<h1 class="h1">Ratings</h1>
+		<h1 class="h1">Rating</h1>
 	</header>
-
+	<pre class="pre">value: {value}</pre>
 	<section class="space-y-4">
-		<div class="flex items-center gap-8">
-			<div class="w-48">
-				<Rating value={5}>
-					{#snippet iconFull()}
-						<Star size={24} class="fill-surface-950-50" />
-					{/snippet}
-					{#snippet iconEmpty()}
-						<Star size={24} />
-					{/snippet}
-				</Rating>
-			</div>
-			<h3 class="h3">5.0</h3>
-		</div>
-		<div class="flex items-center gap-8">
-			<div class="w-48">
-				<Rating value={0}>
-					{#snippet iconFull()}
-						<Star size={24} class="fill-surface-950-50" />
-					{/snippet}
-					{#snippet iconEmpty()}
-						<Star size={24} />
-					{/snippet}
-				</Rating>
-			</div>
-			<h3 class="h3">0.0</h3>
-		</div>
-		<div class="flex items-center gap-8">
-			<div class="w-48">
-				<Rating value={2.5}>
-					{#snippet iconFull()}
-						<Star size={24} class="fill-surface-950-50" />
-					{/snippet}
-					{#snippet iconEmpty()}
-						<Star size={24} />
-					{/snippet}
-				</Rating>
-			</div>
-			<h3 class="h3">2.5</h3>
-		</div>
-		<div class="flex items-center gap-8">
-			<div class="w-48">
-				<Rating value={3.75}>
-					{#snippet iconFull()}
-						<Star size={24} class="fill-surface-950-50" />
-					{/snippet}
-					{#snippet iconEmpty()}
-						<Star size={24} />
-					{/snippet}
-				</Rating>
-			</div>
-			<h3 class="h3">3.75</h3>
-		</div>
-		<div class="flex items-center gap-8">
-			<div class="w-48">
-				<Rating value={1.25}>
-					{#snippet iconFull()}
-						<Star size={24} class="fill-surface-950-50" />
-					{/snippet}
-					{#snippet iconEmpty()}
-						<Star size={24} />
-					{/snippet}
-				</Rating>
-			</div>
-			<h3 class="h3">1.25</h3>
-		</div>
+		<Rating bind:value></Rating>
 	</section>
-
 	<section class="space-y-4">
-		<h2 class="h2">Custom Icons</h2>
-		<div class="flex items-center gap-8">
-			<div class="w-48">
-				<Rating bind:value={interactiveValue} interactive>
-					{#snippet iconFull()}
-						<Skull size={24} />
-					{/snippet}
-					{#snippet iconEmpty()}
-						<Bone size={24} />
-					{/snippet}
-				</Rating>
-			</div>
-			<h3 class="h3">{interactiveValue.toFixed(2)}</h3>
-		</div>
+		<h2 class="h2">Icons</h2>
+		<Rating bind:value>
+			{#snippet iconEmpty()}<IconBone size={24} />{/snippet}
+			{#snippet iconFull()}<IconSkull size={24} />{/snippet}
+		</Rating>
 	</section>
-
 	<section class="space-y-4">
-		<h2 class="h2">interactive</h2>
-		<div class="flex items-center gap-8">
-			<div class="w-48">
-				<Rating bind:value={interactiveValue} interactive onmousedown={(_, value) => console.log(`rating value: ${value}`)}>
-					{#snippet iconFull()}
-						<Star size={24} class="fill-surface-950-50" />
-					{/snippet}
-					{#snippet iconEmpty()}
-						<Star size={24} />
-					{/snippet}
-				</Rating>
-			</div>
-			<h3 class="h3">{interactiveValue.toFixed(2)}</h3>
-		</div>
+		<h2 class="h2">With Halfs</h2>
+		<Rating bind:value allowHalf></Rating>
 	</section>
-
 	<section class="space-y-4">
-		<h2 class="h2">Steps</h2>
-		<div class="flex items-center gap-8">
-			<div class="w-48">
-				<Rating bind:value={interactiveValue} interactive step={2}>
-					{#snippet iconFull()}
-						<Star size={24} class="fill-surface-950-50" />
-					{/snippet}
-					{#snippet iconEmpty()}
-						<Star size={24} />
-					{/snippet}
-				</Rating>
-			</div>
-			<h3 class="h3">{interactiveValue.toFixed(2)}</h3>
-		</div>
-		<div class="flex items-center gap-8">
-			<div class="w-48">
-				<Rating bind:value={interactiveValue} interactive step={3}>
-					{#snippet iconFull()}
-						<Star size={24} class="fill-surface-950-50" />
-					{/snippet}
-					{#snippet iconEmpty()}
-						<Star size={24} />
-					{/snippet}
-				</Rating>
-			</div>
-			<h3 class="h3">{interactiveValue.toFixed(2)}</h3>
-		</div>
+		<h2 class="h2">10 stars</h2>
+		<Rating bind:value count={10}></Rating>
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">Read-Only</h2>
+		<Rating bind:value readOnly></Rating>
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">Disabled</h2>
+		<Rating bind:value disabled></Rating>
 	</section>
 
 	<section class="space-y-4">
 		<h2 class="h2">RTL</h2>
-		<div class="flex items-center gap-8">
-			<div dir="rtl" class="w-48">
-				<Rating bind:value={interactiveValue} interactive step={2}>
-					{#snippet iconFull()}
-						<Star size={24} class="fill-surface-950-50" />
-					{/snippet}
-					{#snippet iconEmpty()}
-						<Star size={24} />
-					{/snippet}
-				</Rating>
-			</div>
-			<h3 class="h3">{interactiveValue.toFixed(2)}</h3>
-		</div>
+		<Rating bind:value dir="rtl"></Rating>
 	</section>
 </div>

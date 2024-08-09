@@ -2,7 +2,7 @@
 	import ProgressRing from '$lib/components/ProgressRing/ProgressRing.svelte';
 	import IconThermometer from 'lucide-svelte/icons/thermometer-sun';
 
-	let value = $state(60);
+	let value = $state(40);
 	let max = $state(100);
 </script>
 
@@ -31,6 +31,6 @@
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Indeterminate</h2>
-		<ProgressRing meterStroke="stroke-tertiary-600-400" trackStroke="stroke-tertiary-50-950" />
+		<ProgressRing value={null} meterStroke="stroke-tertiary-600-400" trackStroke="stroke-tertiary-50-950" />
 	</section>
 </div>

@@ -3,51 +3,37 @@
 	import { getSegmentContext } from './context.js';
 
 	let {
-		id,
 		value,
-		title,
-		disabled = false,
 		// Root
-		base = 'btn',
-		active = 'preset-filled',
-		hover = 'hover:preset-tonal',
+		base = 'btn cursor-pointer z-[1]',
 		classes = '',
+		// State
+		stateDisabled = 'disabled',
 		// Label
-		labelBase = 'pointer-events-none',
+		labelBase = 'pointer-events-none transition-colors duration-100',
 		labelClasses = '',
-		// Events
-		onclick = () => {},
 		// Snippets
-		children
+		children,
+		// Zag
+		...zagProps
 	}: SegmentItemProps = $props();
 
 	// Context
 	const ctx = getSegmentContext();
-
-	function onClickHandler() {
-		ctx.onSelectionHandler(value);
-		if (onclick) onclick(value);
-	}
+	/* @ts-expect-error FIXME: doesn't match React implentation; provides type error */
+	const state = ctx.api.getItemState(zagProps);
 
 	// Reactive
-	const selected = $derived(value === ctx.value);
-	const rxActive = $derived(selected ? active : hover);
+	const rxDisabled = $derived(state.disabled ? stateDisabled : '');
+	// FIXME: doesn't match React implentation; should use: state.checked
+	const rxActiveText = $derived(ctx.api.value === value ? ctx.indicatorText : '');
 </script>
 
-<button
-	role="radio"
-	aria-checked={selected}
-	onclick={onClickHandler}
-	type="button"
-	class="{base} {rxActive} {classes}"
-	{title}
-	{disabled}
-	data-testid="segment-item"
->
-	<!-- Input -->
-	{#if selected}<input type="hidden" name={ctx.name} {id} {value} />{/if}
+<label {...ctx.api.getItemProps({ value: value })} class="{base} {rxDisabled} {classes}" data-testid="segment-item">
 	<!-- Label -->
-	<label for={ctx.name} class="{labelBase} {labelClasses}">
+	<span {...ctx.api.getItemTextProps({ value: value })} class="{labelBase} {rxActiveText} {labelClasses}">
 		{@render children?.()}
-	</label>
-</button>
+	</span>
+	<!-- Hidden Input -->
+	<input {...ctx.api.getItemHiddenInputProps({ value: value })} />
+</label>

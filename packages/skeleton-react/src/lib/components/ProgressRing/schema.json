@@ -1,8 +1,34 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"definitions": {
+		"IntlTranslations": {
+			"propertyOrder": ["value"],
+			"type": "object"
+		},
 		"Iterable<React.ReactNode>": {
 			"propertyOrder": ["__@iterator@83"],
+			"type": "object"
+		},
+		"Orientation": {
+			"enum": ["horizontal", "vertical"],
+			"type": "string"
+		},
+		"Partial<{root:string;track:string;label:string;circle:string;}>": {
+			"properties": {
+				"circle": {
+					"type": "string"
+				},
+				"label": {
+					"type": "string"
+				},
+				"root": {
+					"type": "string"
+				},
+				"track": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["root", "track", "label", "circle"],
 			"type": "object"
 		},
 		"ProgressRingProps": {
@@ -25,6 +51,21 @@
 				"classes": {
 					"description": "Provide arbitrary classes to the root element",
 					"type": "string"
+				},
+				"dir": {
+					"default": "ltr",
+					"description": "The document's text/writing direction.",
+					"enum": ["ltr", "rtl"],
+					"type": "string"
+				},
+				"getRootNode": {
+					"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"ids": {
+					"$ref": "#/definitions/Partial<{root:string;track:string;label:string;circle:string;}>",
+					"description": "The ids of the elements in the progress bar. Useful for composition."
 				},
 				"label": {
 					"description": "Set the text for the scalable label",
@@ -50,13 +91,14 @@
 					"description": "Set the label font weight",
 					"type": "string"
 				},
-				"labelledby": {
-					"description": "Set the aria-labelledby value",
-					"type": "string"
-				},
 				"max": {
-					"description": "Set the maximum value",
+					"default": 100,
+					"description": "The maximum allowed value of the progress bar.",
 					"type": "number"
+				},
+				"meterAnimate": {
+					"description": "Set the meter animation classes",
+					"type": "string"
 				},
 				"meterBase": {
 					"description": "Set the meter base classes",
@@ -78,6 +120,16 @@
 					"description": "Set the meter transition classes",
 					"type": "string"
 				},
+				"min": {
+					"default": 0,
+					"description": "The minimum allowed value of the progress bar.",
+					"type": "number"
+				},
+				"orientation": {
+					"$ref": "#/definitions/Orientation",
+					"default": "horizontal",
+					"description": "The orientation of the element."
+				},
 				"size": {
 					"description": "Set the root size classes",
 					"type": "string"
@@ -88,8 +140,8 @@
 					"type": "string"
 				},
 				"strokeWidth": {
-					"description": "Set the stroke size (px)",
-					"type": "number"
+					"description": "Set the stroke size (ex: 15px)",
+					"type": "string"
 				},
 				"svgBase": {
 					"description": "Set the SVG element base classes",
@@ -111,17 +163,20 @@
 					"description": "Set the track stroke color classes",
 					"type": "string"
 				},
+				"translations": {
+					"$ref": "#/definitions/IntlTranslations",
+					"description": "The localized messages to use."
+				},
 				"value": {
-					"description": "Set the value",
+					"default": 50,
+					"description": "The current value of the progress bar.",
 					"type": "number"
 				}
 			},
 			"propertyOrder": [
-				"value",
-				"max",
+				"label",
 				"strokeWidth",
 				"strokeLinecap",
-				"labelledby",
 				"base",
 				"size",
 				"classes",
@@ -135,15 +190,23 @@
 				"meterBase",
 				"meterStroke",
 				"meterTransition",
+				"meterAnimate",
 				"meterDuration",
 				"meterClasses",
-				"label",
 				"labelBase",
 				"labelFill",
 				"labelFontSize",
 				"labelFontWeight",
 				"labelClasses",
-				"children"
+				"children",
+				"max",
+				"min",
+				"value",
+				"dir",
+				"getRootNode",
+				"orientation",
+				"ids",
+				"translations"
 			],
 			"type": "object"
 		},

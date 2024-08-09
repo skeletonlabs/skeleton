@@ -1,12 +1,10 @@
-import { type Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
+import * as accordion from '@zag-js/accordion';
 
 // Accordion Context ---
 
 export interface AccordionContext {
-	open: (id: string) => void;
-	close: (id: string) => void;
-	toggle: (id: string) => void;
-	isOpen: (id: string) => boolean;
+	api: ReturnType<typeof accordion.connect>;
 	animDuration: number;
 	iconOpen?: Snippet;
 	iconClosed?: Snippet;
@@ -14,11 +12,7 @@ export interface AccordionContext {
 
 // Accordion ---
 
-export interface AccordionProps {
-	/** Enables opening multiple items at once. */
-	multiple?: boolean;
-	/** Takes an array list of open items. */
-	value?: string[];
+export interface AccordionProps extends Omit<accordion.Context, 'id' | 'orientation'> {
 	/** The slide animation duration in milliseconds. */
 	animDuration?: number;
 
@@ -47,11 +41,9 @@ export interface AccordionProps {
 
 // Accordion Item ---
 
-export interface AccordionItemProps {
-	/** Set a unique ID for the item. */
-	id: string;
-	/** Set a disabled state for the item. */
-	disabled?: boolean;
+export interface AccordionItemProps extends accordion.ItemProps {
+	/** The element used as the header. */
+	headingElement?: string;
 
 	// Root ---
 	/** Sets base styles. */
@@ -60,10 +52,6 @@ export interface AccordionItemProps {
 	spaceY?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
-
-	// Events ---
-	/** Triggers on item open or close. */
-	onclick?: (event: MouseEvent) => void;
 
 	// Control ---
 	/** Sets control's base styles. */

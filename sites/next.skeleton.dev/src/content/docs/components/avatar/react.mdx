@@ -6,6 +6,8 @@ export const components = componentSet;
 
 import { Page as Example } from '@examples/components/avatars/Example.tsx';
 import ExampleRaw from '@examples/components/avatars/Example.tsx?raw';
+import { Page as ExampleFallback } from '@examples/components/avatars/ExampleFallback.tsx';
+import ExampleFallbackRaw from '@examples/components/avatars/ExampleFallback.tsx?raw';
 
 import { AvatarSchema } from '@skeletonlabs/skeleton-react/schemas';
 
@@ -20,15 +22,17 @@ import { AvatarSchema } from '@skeletonlabs/skeleton-react/schemas';
 
 ## Fallback
 
-When the `src` prop is _undefined_, default children will show. This can be used for initials, icons, or fallback images.
+When `src` or `srcSet` are missing or fail to load, a fallback will be displayed. By default this will show the user initials, based on the `name`. Optionally you can suppy your own content using the default `children`. This can be used to display icons or even pass a [Next.js image component](https://nextjs.org/docs/pages/api-reference/components/image).
 
-```html
-<Avatar>SK</Avatar>
-```
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleFallback client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleFallbackRaw} lang="tsx" />
+	</Fragment>
+</Preview>
 
-```html
-<Avatar>💀</Avatar>
-```
 
 ## API Reference
 
