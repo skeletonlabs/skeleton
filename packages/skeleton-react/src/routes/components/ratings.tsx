@@ -1,7 +1,6 @@
 import { Bone, Skull } from 'lucide-react';
 import { useState } from 'react';
-
-import { Rating } from '$lib/components/Rating/index.js';
+import { Rating } from '$lib/index.js';
 
 export function Component() {
 	const [value, setValue] = useState(3);
