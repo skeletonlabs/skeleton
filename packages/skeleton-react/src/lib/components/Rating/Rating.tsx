@@ -7,16 +7,21 @@ import { noop } from '../../internal/noop';
 
 export const Rating: FC<RatingProps> = ({
 	// Root
-	base = 'flex gap-1',
-	disabledClasses = 'cursor-not-allowed opacity-50',
-	readOnlyClasses = 'cursor-not-allowed',
-	classes,
+	base = '',
+	classes = '',
+	// Control
+	controlBase = 'flex',
+	controlGap = 'gap-2',
+	controlClasses,
 	// Label
-	labelBase,
-	labelClasses,
+	labelBase = '',
+	labelClasses = '',
 	// Item
-	itemBase,
-	itemClasses,
+	itemBase = '',
+	itemClasses = '',
+	// State
+	stateReadOnly = 'opacity-50',
+	stateDisabled = 'cursor-not-allowed opacity-50',
 	// Icons
 	iconEmpty = starEmpty,
 	iconHalf = starHalf,
@@ -43,48 +48,42 @@ export const Rating: FC<RatingProps> = ({
 	const api = rating.connect(state, send, normalizeProps);
 
 	// Reactive
-	const rxDisabledClasses = state.context.disabled ? disabledClasses : '';
-	const rxReadOnlyClasses = state.context.readOnly ? readOnlyClasses : '';
+	const rxReadOnly = state.context.readOnly ? stateReadOnly : '';
+	const rxDisabled = state.context.disabled ? stateDisabled : '';
 
 	return (
-		<>
-			{/* Root */}
-			<div {...api.getRootProps()}>
-				{/* Label */}
-				{!!label && (
-					<label className={`${labelBase} ${labelClasses}`} {...api.getLabelProps()}>
-						{label}
-					</label>
-				)}
-
-				{/* Control */}
-				<div className={`${base} ${rxDisabledClasses} ${rxReadOnlyClasses} ${classes}`} {...api.getControlProps()}>
-					{api.items.map((index) => {
-						const itemState = api.getItemState({ index });
-						const icon = (() => {
-							if (!itemState.highlighted) {
-								return iconEmpty;
-							} else if (itemState.half) {
-								return iconHalf;
-							} else {
-								return iconFull;
-							}
-						})();
-
-						return (
-							<>
-								{/* Item */}
-								<span key={index} className={`${itemBase} ${itemClasses}`} {...api.getItemProps({ index })}>
-									{icon}
-								</span>
-							</>
-						);
-					})}
-				</div>
-
-				{/* Hidden Input */}
-				<input {...api.getHiddenInputProps()} />
+		<div {...api.getRootProps()} className={`${base} ${classes}`}>
+			{/* Label */}
+			{!!label && (
+				<label className={`${labelBase} ${labelClasses}`} {...api.getLabelProps()}>
+					{label}
+				</label>
+			)}
+			{/* Control */}
+			<div className={`${controlBase} ${controlGap} ${rxReadOnly} ${rxDisabled} ${controlClasses}`} {...api.getControlProps()}>
+				{api.items.map((index) => {
+					const itemState = api.getItemState({ index });
+					const icon = (() => {
+						if (!itemState.highlighted) {
+							return iconEmpty;
+						} else if (itemState.half) {
+							return iconHalf;
+						} else {
+							return iconFull;
+						}
+					})();
+					return (
+						<>
+							{/* Item */}
+							<span key={index} className={`${itemBase} ${itemClasses}`} {...api.getItemProps({ index })}>
+								{icon}
+							</span>
+						</>
+					);
+				})}
 			</div>
-		</>
+			{/* Hidden Input */}
+			<input {...api.getHiddenInputProps()} />
+		</div>
 	);
 };
