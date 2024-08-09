@@ -20,7 +20,7 @@ export const Rating: FC<RatingProps> = ({
 	itemBase = '',
 	itemClasses = '',
 	// State
-	stateReadOnly = 'opacity-50',
+	stateReadOnly = 'cursor-not-allowed',
 	stateDisabled = 'cursor-not-allowed opacity-50',
 	// Icons
 	iconEmpty = starEmpty,

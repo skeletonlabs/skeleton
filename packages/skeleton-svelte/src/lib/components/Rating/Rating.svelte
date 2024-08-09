@@ -23,7 +23,7 @@
 		itemBase = '',
 		itemClasses = '',
 		// State
-		stateReadOnly = 'opacity-50',
+		stateReadOnly = 'cursor-not-allowed',
 		stateDisabled = 'cursor-not-allowed opacity-50',
 		// Icons
 		iconEmpty = starEmpty,
@@ -67,7 +67,7 @@
 <!-- @component A rating component. -->
 
 <!-- Root -->
-<div {...api.getRootProps()} class="{base} {classes}">
+<div class="{base} {classes}" {...api.getRootProps()}>
 	<!-- Label -->
 	{#if !!label}
 		<label class="{labelBase} {labelClasses}" {...api.getLabelProps()}>
