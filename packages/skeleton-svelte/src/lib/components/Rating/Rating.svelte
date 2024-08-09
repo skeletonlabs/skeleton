@@ -10,16 +10,21 @@
 	let {
 		value = $bindable(),
 		// Root
-		base = 'flex gap-1',
-		disabledClasses = 'cursor-not-allowed opacity-50',
-		readOnlyClasses = 'opacity-50',
-		classes,
+		base = '',
+		classes = '',
+		// Control
+		controlBase = 'flex',
+		controlGap = 'gap-2',
+		controlClasses,
 		// Label
-		labelBase,
-		labelClasses,
+		labelBase = '',
+		labelClasses = '',
 		// Item
-		itemBase,
-		itemClasses,
+		itemBase = '',
+		itemClasses = '',
+		// State
+		stateReadOnly = 'opacity-50',
+		stateDisabled = 'cursor-not-allowed opacity-50',
 		// Icons
 		iconEmpty = starEmpty,
 		iconHalf = starHalf,
@@ -55,27 +60,24 @@
 	const api = $derived(rating.connect(state, send, normalizeProps));
 
 	// Reactive
-	const rxReadonlyClasses = $derived(state.context.readOnly ? readOnlyClasses : '');
-	const rxDisabledClasses = $derived(state.context.disabled ? disabledClasses : '');
+	const rxReadOnly = $derived(state.context.readOnly ? stateReadOnly : '');
+	const rxDisabled = $derived(state.context.disabled ? stateDisabled : '');
 </script>
 
 <!-- @component A rating component. -->
 
 <!-- Root -->
-<div {...api.getRootProps()}>
-	
+<div {...api.getRootProps()} class="{base} {classes}">
 	<!-- Label -->
 	{#if !!label}
 		<label class="{labelBase} {labelClasses}" {...api.getLabelProps()}>
 			{@render label()}
 		</label>
 	{/if}
-
 	<!-- Control -->
-	<div class="{base} {rxReadonlyClasses} {rxDisabledClasses} {classes}" {...api.getControlProps()}>
+	<div class="{controlBase} {controlGap} {rxReadOnly} {rxDisabled} {controlClasses}" {...api.getControlProps()}>
 		{#each api.items as index}
 			{@const itemState = api.getItemState({ index })}
-
 			<!-- Item -->
 			<span class="{itemBase} {itemClasses}" {...api.getItemProps({ index })}>
 				{#if !itemState.highlighted}
@@ -88,7 +90,6 @@
 			</span>
 		{/each}
 	</div>
-
 	<!-- Hidden Input -->
 	<input {...api.getHiddenInputProps()} />
 </div>
