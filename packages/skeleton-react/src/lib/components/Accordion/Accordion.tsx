@@ -10,6 +10,7 @@ import type { AccordionContextState, AccordionControlProps, AccordionItemProps, 
 import { noop } from '../../internal/noop.js';
 
 // Contexts ---
+
 export const AccordionContext = createContext<AccordionContextState>({
 	animDuration: 0.2,
 	iconOpen: '-',
@@ -22,6 +23,7 @@ export const AccordionItemContext = createContext<accordion.ItemProps>({
 });
 
 // Components ---
+
 const AccordionRoot: FC<AccordionProps> = ({
 	animDuration = 0.2,
 	// Root
@@ -50,7 +52,6 @@ const AccordionRoot: FC<AccordionProps> = ({
 		}),
 		{ context: zagProps }
 	);
-
 	const api = accordion.connect(state, send, normalizeProps);
 
 	return (

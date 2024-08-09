@@ -1,202 +1,115 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { TabsProps, TabsListProps, TabsControlProps, TabPanelsProps, TabsPanelProps } from './types.js';
+import { createContext, FC, useContext, useId } from 'react';
+import * as tabs from '@zag-js/tabs';
+import { useMachine, normalizeProps } from '@zag-js/react';
+import { TabsContextState, TabsRootProps, TabsListProps, TabsControlProps, TabsContentProps, TabsPanelProps } from './types.js';
+import { noop } from '../../internal/noop.js';
 
-/** The root Tab component. */
-const TabsRoot: React.FC<TabsProps> = ({
-	id = '',
+// Context ---
+
+export const TabsContext = createContext<TabsContextState>({
+	fluid: false,
+	api: {} as ReturnType<typeof tabs.connect>
+});
+
+// Components ---
+
+const TabsRoot: FC<TabsRootProps> = ({
+	fluid = false,
 	// Root
-	base = 'w-full',
-	spaceY = 'space-y-4',
+	base = '',
 	classes = '',
+	// Events
+	onValueChange = noop,
 	// Children
-	children
+	children,
+	// Zag
+	...zagProps
 }) => {
+	const [state, send] = useMachine(
+		tabs.machine({
+			id: useId(),
+			onValueChange: (details) => onValueChange(details.value)
+		}),
+		{ context: zagProps }
+	);
+	const api = tabs.connect(state, send, normalizeProps);
+
 	return (
-		<div id={id} className={`${base} ${spaceY} ${classes}`} data-testid="tabs">
-			{children}
+		<div {...api.getRootProps()} className={`${base} ${classes}`}>
+			<TabsContext.Provider value={{ fluid, api }}>{children}</TabsContext.Provider>
 		</div>
 	);
 };
 
-/** The list of `<Tab.Control>` components. */
-const TabsList: React.FC<TabsListProps> = ({
+const TabsList: FC<TabsListProps> = ({
 	// Root
 	base = 'flex',
 	justify = 'justify-start',
-	gap = 'gap-2',
 	border = 'border-b border-surface-200-800',
+	margin = 'mb-4',
+	gap = 'gap-2',
 	classes = '',
 	// Children
 	children
 }) => {
+	const ctx = useContext(TabsContext);
+
 	return (
-		<div className={`${base} ${gap} ${justify} ${border} ${classes}`} role="tablist">
+		<div {...ctx.api.getListProps()} className={`${base} ${justify} ${border} ${margin} ${gap} ${classes}`}>
 			{children}
 		</div>
 	);
 };
 
-/** The individual Tab control component. */
-const TabsControl: React.FC<TabsControlProps> = ({
-	id = '',
-	name,
-	group,
-	title = '',
-	// A11y
-	label = '',
-	controls = '',
+const TabsControl: FC<TabsControlProps> = ({
 	// Root
-	base = 'group',
-	width = '',
-	active = 'text-surface-950-50 border-surface-950-50',
-	inactive = 'text-surface-600-400 border-transparent',
-	flex = 'flex justify-center items-center',
-	background = '',
-	border = 'border-b',
-	text = 'type-scale-3',
+	base = 'border-b border-transparent',
 	padding = 'pb-2',
-	rounded = '',
-	gap = 'gap-1',
-	cursor = 'cursor-pointer',
+	translateX = 'translate-y-[1px]',
 	classes = '',
-	// Content
-	contentBase = 'w-full',
-	contentFlex = 'flex justify-center items-center',
-	contentGap = 'gap-2',
-	contentBg = 'group-hover:preset-tonal-primary',
-	contentPadding = 'p-2 px-4',
-	contentRounded = 'rounded-container',
-	contentClasses = '',
-	// Events
-	onClick = () => {},
-	onKeydown = () => {},
-	onKeyup = () => {},
-	onChange = () => {},
+	// Label
+	labelBase = 'btn hover:preset-tonal-primary',
+	labelClasses = '',
+	// State
+	stateInactive = '[&:not(:hover)]:opacity-50',
+	stateActive = 'border-surface-950-50 opacity-100',
+	stateLabelInactive = '',
+	stateLabelActive = '',
+	// Nodes
+	lead,
 	// Children
-	children
+	children,
+	// Zag
+	...zagProps
 }) => {
-	const [selected, setSelected] = useState(group === name);
-	useEffect(() => {
-		setSelected(group === name);
-	}, [group, name]);
+	const ctx = useContext(TabsContext);
+	const state = ctx.api.getTriggerState(zagProps);
 
-	const [rxActive, setRxActive] = useState(selected ? active : inactive);
-	useEffect(() => {
-		setRxActive(selected ? active : inactive);
-	}, [selected, active, inactive]);
+	// Reactive
+	const rxActive = state.selected ? stateActive : stateInactive;
+	const rxLabelActive = state.selected ? stateLabelActive : stateLabelInactive;
 
-	function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
-		onChange(event.target.value);
-	}
-
-	const elemInputRef = useRef<HTMLInputElement>(null);
-	function onKeyDownHandler(event: React.KeyboardEvent<HTMLDivElement>) {
-		// Fire Event Handler
-		onKeydown(event);
-
-		// If select key events
-		if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.code)) return;
-
-		const elemInput = elemInputRef.current;
-		if (!elemInput) return;
-
-		// Prevent default behavior
-		event.preventDefault();
-
-		// Find the closest tab/tablelist
-		const currTab = elemInput.closest('[role="tab"]');
-		if (!currTab) return;
-		const tabList = elemInput.closest('[role="tablist"]');
-		if (!tabList) return;
-
-		// Get RTL mode
-		const isRTL = getComputedStyle(tabList).direction === 'rtl';
-		// Get list of tab elements
-		const tabs = Array.from(tabList.querySelectorAll('[role="tab"]'));
-		// Get a reference to the current tab
-		const currIndex = tabs.indexOf(currTab);
-
-		// Determine the index of the next tab
-		let nextIndex = -1;
-		switch (event.code) {
-			case 'ArrowRight':
-				if (isRTL) {
-					nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
-					break;
-				}
-				nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
-				break;
-			case 'ArrowLeft':
-				if (isRTL) {
-					nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
-					break;
-				}
-				nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
-				break;
-			case 'Home':
-				nextIndex = 0;
-				break;
-			case 'End':
-				nextIndex = tabs.length - 1;
-				break;
-		}
-		if (nextIndex < 0) return;
-
-		// Set Active Tab
-		const nextTab = tabs![nextIndex!];
-		const nextTabInput = nextTab?.querySelector('input');
-		if (nextTabInput) {
-			nextTabInput.click();
-			(nextTab as HTMLDivElement).focus();
-		}
-	}
+	// Styles
+	const commonStyles = { width: ctx.fluid ? '100%' : '' };
 
 	return (
-		<label
-			id={id}
-			className={`${base} ${width} ${rxActive} ${flex} ${background} ${border} ${text} ${padding} ${rounded} ${gap} ${cursor} ${classes}`}
-			aria-label={label}
-			title={title}
+		<button
+			{...ctx.api.getTriggerProps(zagProps)}
+			className={`${base} ${padding} ${translateX} ${rxActive} ${classes}`}
+			style={commonStyles}
 		>
-			{/* NOTE: do not add additional classes to this <div> */}
-			<div
-				className="size-full"
-				role="tab"
-				aria-controls={controls}
-				aria-selected={selected}
-				data-testid="tabs-control"
-				tabIndex={selected ? 0 : -1}
-				onKeyDown={onKeyDownHandler}
-				onKeyUp={onKeyup}
-			>
-				{/* Keep these classes on wrapping element */}
-				<div className="h-0 w-0 flex-none overflow-hidden">
-					<input
-						ref={elemInputRef}
-						type="radio"
-						name={name}
-						value={name}
-						checked={selected}
-						onChange={handleOnChange}
-						onClick={onClick}
-						tabIndex={-1}
-					/>
-				</div>
-				{/* Children */}
-				{children && (
-					<div className={`${contentBase} ${contentFlex} ${contentGap} ${contentBg} ${contentPadding} ${contentRounded} ${contentClasses}`}>
-						{children}
-					</div>
-				)}
+			{/* Label */}
+			<div className={`${labelBase} ${rxLabelActive} ${labelClasses}`} style={commonStyles}>
+				{lead && <span>{lead}</span>}
+				<span>{children}</span>
 			</div>
-		</label>
+		</button>
 	);
 };
 
-/** The list of `<Tab.Panel>` components. */
-const TabPanels: React.FC<TabPanelsProps> = ({
+const TabsContent: FC<TabsContentProps> = ({
 	// Root
 	base = '',
 	classes = '',
@@ -206,31 +119,33 @@ const TabPanels: React.FC<TabPanelsProps> = ({
 	return <div className={`${base} ${classes}`}>{children}</div>;
 };
 
-/** The individual Panel component. */
-const TabsPanel: React.FC<TabsPanelProps> = ({
-	id = '',
-	value,
-	group,
-	// A11y
-	labelledBy,
+const TabsPanel: FC<TabsPanelProps> = ({
 	// Root
+	base = '',
 	classes = '',
 	// Children
-	children
+	children,
+	// Zag
+	...zagProps
 }) => {
+	const ctx = useContext(TabsContext);
+
 	return (
-		value === group &&
-		children && (
-			<div id={id} role="tabpanel" tabIndex={0} aria-labelledby={labelledBy} className={classes}>
-				{children}
-			</div>
-		)
+		<div {...ctx.api.getContentProps(zagProps)} className={`${base} ${classes}`}>
+			{children}
+		</div>
 	);
 };
 
+// Export ---
+
 export const Tabs = Object.assign(TabsRoot, {
+	/** A group of tab controls. */
 	List: TabsList,
+	/** An individual tab control. */
 	Control: TabsControl,
-	Panels: TabPanels,
+	/** A group of tab panels. */
+	Content: TabsContent,
+	/** An individual tab panel. */
 	Panel: TabsPanel
 });

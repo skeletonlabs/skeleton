@@ -83,7 +83,7 @@ export interface AccordionControlProps extends React.PropsWithChildren {
 	/** Set the base styles for the state icons. */
 	iconsBase?: string;
 
-	// Slots ---
+	// Nodes ---
 	/** The lead child slot for the control. */
 	lead?: ReactNode;
 }
