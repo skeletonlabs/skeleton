@@ -28,7 +28,9 @@ import { ProgressSchema } from '@skeletonlabs/skeleton-react/schemas';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:load />
+		<div className="size-full">
+			<Example client:load />
+		</div>
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleRaw} lang="tsx" />

@@ -30,7 +30,7 @@
 	}: ProgressProps = $props();
 
 	// Machine
-	const [snapshot, send] = useMachine(
+	const [state, send] = useMachine(
 		progress.machine({
 			id: useId()
 		}),
@@ -38,10 +38,13 @@
 	);
 
 	// API
-	const api = $derived(progress.connect(snapshot, send, normalizeProps));
+	const api = $derived(progress.connect(state, send, normalizeProps));
+
+	// Reactive
+	const rxIndeterminate = $derived(state.context.isIndeterminate ? meterAnimate : '');
 </script>
 
-<!-- @component An indicator showing the progress or completion of a task -->
+<!-- @component A linear progress bar. -->
 
 <div {...api.getRootProps()}>
 	<!-- Label -->
@@ -51,9 +54,6 @@
 	<!-- Track -->
 	<div class="{base} {bg} {width} {height} {rounded} {classes}" {...api.getTrackProps()}>
 		<!-- Meter -->
-		<div
-			class="{meterBase} {meterBg} {meterRounded} {meterTransition} {api.indeterminate ? meterAnimate : ''} {meterClasses}"
-			{...api.getRangeProps()}
-		></div>
+		<div class="{meterBase} {meterBg} {meterRounded} {meterTransition} {rxIndeterminate} {meterClasses}" {...api.getRangeProps()}></div>
 	</div>
 </div>
