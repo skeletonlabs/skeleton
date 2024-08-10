@@ -3,7 +3,6 @@
 	import { getSegmentContext } from './context.js';
 
 	let {
-		value,
 		// Root
 		base = 'btn cursor-pointer z-[1]',
 		classes = '',
@@ -20,20 +19,18 @@
 
 	// Context
 	const ctx = getSegmentContext();
-	/* @ts-expect-error FIXME: doesn't match React implentation; provides type error */
-	const state = ctx.api.getItemState(zagProps);
 
 	// Reactive
+	const state = $derived(ctx.api.getItemState(zagProps));
 	const rxDisabled = $derived(state.disabled ? stateDisabled : '');
-	// FIXME: doesn't match React implentation; should use: state.checked
-	const rxActiveText = $derived(ctx.api.value === value ? ctx.indicatorText : '');
+	const rxActiveText = $derived(state.checked ? ctx.indicatorText : '');
 </script>
 
-<label {...ctx.api.getItemProps({ value: value })} class="{base} {rxDisabled} {classes}" data-testid="segment-item">
+<label {...ctx.api.getItemProps(zagProps)} class="{base} {rxDisabled} {classes}" data-testid="segment-item">
 	<!-- Label -->
-	<span {...ctx.api.getItemTextProps({ value: value })} class="{labelBase} {rxActiveText} {labelClasses}">
+	<span {...ctx.api.getItemTextProps(zagProps)} class="{labelBase} {rxActiveText} {labelClasses}">
 		{@render children?.()}
 	</span>
 	<!-- Hidden Input -->
-	<input {...ctx.api.getItemHiddenInputProps({ value: value })} />
+	<input {...ctx.api.getItemHiddenInputProps(zagProps)} />
 </label>

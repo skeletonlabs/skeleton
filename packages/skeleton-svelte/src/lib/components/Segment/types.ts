@@ -64,14 +64,9 @@ export interface SegmentControl extends Omit<radio.Context, 'id' | 'orientation'
 }
 
 export interface SegmentItemProps extends Omit<radio.ItemProps, 'invalid'> {
-	/** Provide the unique item value. */
-	value: string;
-
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
-	/** Set active text layer styles. Should contrast the indicator. */
-	labelActiveText?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 

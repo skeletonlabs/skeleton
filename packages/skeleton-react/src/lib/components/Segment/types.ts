@@ -66,8 +66,6 @@ export interface SegmentItemsProps extends React.PropsWithChildren, Omit<radio.I
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
-	/** Set active text layer styles. Should contrast the indicator. */
-	labelActiveText?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
