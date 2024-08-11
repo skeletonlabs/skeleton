@@ -1,26 +1,16 @@
 <script lang="ts">
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
-	// Icons
-	import IconPlane from 'lucide-svelte/icons/plane';
-	import IconBoat from 'lucide-svelte/icons/sailboat';
-	import IconCar from 'lucide-svelte/icons/car';
 
 	let group = $state('item-1');
 	const lorem =
 		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';
 </script>
 
-<Tabs bind:value={group}>
+<Tabs bind:value={group} fluid>
 	{#snippet list()}
-		<Tabs.Control value="item-1">
-			<IconPlane size={20} />
-		</Tabs.Control>
-		<Tabs.Control value="item-2">
-			<IconBoat size={20} />
-		</Tabs.Control>
-		<Tabs.Control value="item-3">
-			<IconCar size={20} />
-		</Tabs.Control>
+		<Tabs.Control value="item-1">Control-1</Tabs.Control>
+		<Tabs.Control value="item-2">Control-2</Tabs.Control>
+		<Tabs.Control value="item-3">Control-3</Tabs.Control>
 	{/snippet}
 	{#snippet content()}
 		<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>

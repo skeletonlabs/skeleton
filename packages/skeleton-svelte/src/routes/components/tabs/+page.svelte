@@ -1,158 +1,140 @@
 <script lang="ts">
 	import { Tabs } from '$lib/index.js';
-	import Plane from 'lucide-svelte/icons/plane';
-	import Hotel from 'lucide-svelte/icons/hotel';
-	import Box from 'lucide-svelte/icons/box';
+	// Icons
+	import IconPlane from 'lucide-svelte/icons/plane';
+	import IconBoat from 'lucide-svelte/icons/sailboat';
+	import IconCar from 'lucide-svelte/icons/car';
 
-	let group = $state('flight');
+	let group = $state('item-1');
+	const lorem =
+		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';
 </script>
 
 <div class="space-y-10">
 	<header>
 		<h1 class="h1">Tabs</h1>
 	</header>
+	<!-- Default -->
 	<section class="space-y-4">
-		<Tabs>
+		<pre class="pre">group: {JSON.stringify(group, null, 2)}</pre>
+		<Tabs bind:value={group}>
 			{#snippet list()}
-				<Tabs.Control
-					bind:group
-					name="flight"
-					onclick={() => console.log('onclick')}
-					onkeypress={() => console.log('onkeypress')}
-					onchange={(group) => console.log('onchange, group:', group)}>Flight</Tabs.Control
-				>
-				<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>
-				<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
+				<Tabs.Control value="item-1">Control-1</Tabs.Control>
+				<Tabs.Control value="item-2">Control-2</Tabs.Control>
+				<Tabs.Control value="item-3">Control-3</Tabs.Control>
 			{/snippet}
-			{#snippet panels()}
-				<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
+			{#snippet content()}
+				<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
 			{/snippet}
 		</Tabs>
 	</section>
+	<!-- Icon + Label -->
 	<section class="space-y-4">
 		<h2 class="h2">Icon + Label</h2>
-		<Tabs>
+		<Tabs bind:value={group}>
 			{#snippet list()}
-				<Tabs.Control bind:group name="flight" title="flight">
-					<Plane size={20} />
-					<span>Flight</span>
+				<Tabs.Control value="item-1">
+					{#snippet lead()}<IconPlane size={20} />{/snippet}
+					Control-1
 				</Tabs.Control>
-				<Tabs.Control bind:group name="hotel" title="hotel">
-					<Hotel size={20} />
-					<span>Hotel</span>
+				<Tabs.Control value="item-2">
+					{#snippet lead()}<IconBoat size={20} />{/snippet}
+					Control-2
 				</Tabs.Control>
-				<Tabs.Control bind:group name="explore" title="explore">
-					<Box size={20} />
-					<span>Explore</span>
+				<Tabs.Control value="item-3">
+					{#snippet lead()}<IconCar size={20} />{/snippet}
+					Control-3
 				</Tabs.Control>
 			{/snippet}
-			{#snippet panels()}
-				<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="skeleton">Skeleton Panel</Tabs.Panel>
+			{#snippet content()}
+				<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
 			{/snippet}
 		</Tabs>
 	</section>
+	<!-- Icon Only -->
 	<section class="space-y-4">
 		<h2 class="h2">Icon Only</h2>
-		<Tabs>
+		<Tabs bind:value={group}>
 			{#snippet list()}
-				<Tabs.Control bind:group name="flight" title="flight">
-					<Plane size={20} />
+				<Tabs.Control value="item-1">
+					<IconPlane size={20} />
 				</Tabs.Control>
-				<Tabs.Control bind:group name="hotel" title="hotel">
-					<Hotel size={20} />
+				<Tabs.Control value="item-2">
+					<IconBoat size={20} />
 				</Tabs.Control>
-				<Tabs.Control bind:group name="explore" title="explore">
-					<Box size={20} />
+				<Tabs.Control value="item-3">
+					<IconCar size={20} />
 				</Tabs.Control>
 			{/snippet}
-			{#snippet panels()}
-				<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
+			{#snippet content()}
+				<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
 			{/snippet}
 		</Tabs>
 	</section>
+	<!-- Fluid -->
 	<section class="space-y-4">
 		<h2 class="h2">Fluid</h2>
-		<Tabs base="w-full">
+		<Tabs bind:value={group} fluid>
 			{#snippet list()}
-				<Tabs.Control bind:group name="flight" width="w-full">Flight</Tabs.Control>
-				<Tabs.Control bind:group name="hotel" width="w-full">Hotel</Tabs.Control>
-				<Tabs.Control bind:group name="explore" width="w-full">Explore</Tabs.Control>
+				<Tabs.Control value="item-1">Control-1</Tabs.Control>
+				<Tabs.Control value="item-2">Control-2</Tabs.Control>
+				<Tabs.Control value="item-3">Control-3</Tabs.Control>
 			{/snippet}
-			{#snippet panels()}
-				<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
+			{#snippet content()}
+				<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
 			{/snippet}
 		</Tabs>
 	</section>
+	<!-- Justify -->
 	<section class="space-y-4">
 		<h2 class="h2">Justify</h2>
-		<Tabs base="w-full" listJustify="justify-center">
+		<Tabs bind:value={group} listJustify="justify-center">
 			{#snippet list()}
-				<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
-				<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>
-				<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
+				<Tabs.Control value="item-1">Control-1</Tabs.Control>
+				<Tabs.Control value="item-2">Control-2</Tabs.Control>
+				<Tabs.Control value="item-3">Control-3</Tabs.Control>
 			{/snippet}
-			{#snippet panels()}
-				<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
+			{#snippet content()}
+				<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
 			{/snippet}
 		</Tabs>
-		<Tabs base="w-full" listJustify="justify-end">
+		<Tabs bind:value={group} listJustify="justify-end">
 			{#snippet list()}
-				<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
-				<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>
-				<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
+				<Tabs.Control value="item-1">Control-1</Tabs.Control>
+				<Tabs.Control value="item-2">Control-2</Tabs.Control>
+				<Tabs.Control value="item-3">Control-3</Tabs.Control>
 			{/snippet}
-			{#snippet panels()}
-				<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
-				<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
-			{/snippet}
-		</Tabs>
-	</section>
-	<section class="space-y-4">
-		<h2 class="h2">Focus</h2>
-		<Tabs>
-			{#snippet list()}
-				<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
-				<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>
-				<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
-			{/snippet}
-			{#snippet panels()}
-				<Tabs.Panel bind:group value="flight">
-					<button type="button" class="btn preset-filled">Book a Flight</button>
-				</Tabs.Panel>
-				<Tabs.Panel bind:group value="hotel">
-					<button type="button" class="btn preset-filled">See Hotels near you</button>
-				</Tabs.Panel>
-				<Tabs.Panel bind:group value="explore">
-					<button type="button" class="btn preset-filled">Explore</button>
-				</Tabs.Panel>
+			{#snippet content()}
+				<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
 			{/snippet}
 		</Tabs>
 	</section>
+	<!-- RTL -->
 	<section class="space-y-4">
 		<h2 class="h2">RTL</h2>
 		<div dir="rtl">
-			<Tabs>
+			<Tabs bind:value={group} dir="rtl">
 				{#snippet list()}
-					<Tabs.Control bind:group name="flight">Flight</Tabs.Control>
-					<Tabs.Control bind:group name="hotel">Hotel</Tabs.Control>
-					<Tabs.Control bind:group name="explore">Explore</Tabs.Control>
+					<Tabs.Control value="item-1">Control-1</Tabs.Control>
+					<Tabs.Control value="item-2">Control-2</Tabs.Control>
+					<Tabs.Control value="item-3">Control-3</Tabs.Control>
 				{/snippet}
-				{#snippet panels()}
-					<Tabs.Panel bind:group value="flight">Flight Panel</Tabs.Panel>
-					<Tabs.Panel bind:group value="hotel">Hotel Panel</Tabs.Panel>
-					<Tabs.Panel bind:group value="explore">Explore Panel</Tabs.Panel>
+				{#snippet content()}
+					<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+					<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+					<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
 				{/snippet}
 			</Tabs>
 		</div>

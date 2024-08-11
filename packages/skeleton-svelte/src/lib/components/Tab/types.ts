@@ -1,139 +1,93 @@
 import type { Snippet } from 'svelte';
+import * as tabs from '@zag-js/tabs';
 
-// Tabs ---
+// Context ---
 
-export interface TabsProps {
-	/** Provide a unique ID. */
-	id?: string;
+export interface TabsContextState {
+	fluid: boolean;
+	api: ReturnType<typeof tabs.connect>;
+}
+
+// Components ---
+
+export interface TabsProps extends Omit<tabs.Context, 'id' | 'orientation' | 'onValueChange'> {
+	/** Set the active value. */
+	value?: string;
+	/** Set tabs to stretch to fill the available width. */
+	fluid?: boolean;
 
 	// Root ---
-	/** Sets base styles. */
+	/** Set base classes for the root element. */
 	base?: string;
-	/** Set vertical spacing between list and panels. */
-	spaceY?: string;
-	/** Provide arbitrary CSS classes. */
+	/** Provide arbitrary classes for the root element. */
 	classes?: string;
 
 	// List ---
-	/** Sets the list snippet element's base styles. */
+	/** Set base classes for the list element. */
 	listBase?: string;
-	/** Sets the list snippet element's justification styles. */
+	/** Set justify classes for the list element. */
 	listJustify?: string;
-	/** Sets the list snippet element's gap spacing. */
-	listGap?: string;
-	/** Sets the list snippet element's border styles. */
+	/** Set border classes for the list element. */
 	listBorder?: string;
-	/** Provide arbitrary CSS classes to the list snippet. */
+	/** Set margin classes for the list element. */
+	listMargin?: string;
+	/** Set gap classes for the list element. */
+	listGap?: string;
+	/** Provide arbitrary classes for the list element. */
 	listClasses?: string;
 
-	// Panel ---
-	/** Sets wrapping panel base styles. */
-	panelsBase?: string;
-	/** Provide arbitrary CSS classes to the wrapping panel element. */
-	panelsClasses?: string;
-
-	// Snippets ---
-	/** The tab list slot. */
-	list?: Snippet;
-	/** The tab panel slot. */
-	panels?: Snippet;
-}
-
-// TabControl ---
-
-export interface TabsControlProps {
-	/** Provide a unique ID. */
-	id?: string;
-	/** Provide the tab control name. */
-	name: string;
-	/** Provide the tab control radio group. */
-	group: string;
-	/** Provide a native title attribute value. */
-	title?: string;
-
-	// A11y ---
-	/** Sets the A11y label. */
-	label?: string;
-	/** Sets ARIA controls value to define which panel this tab controls. */
-	controls?: string;
-
-	// Root ---
-	/** Sets base styles. */
-	base?: string;
-	/** Sets width styles. */
-	width?: string;
-	/** Sets the active control styles. */
-	active?: string;
-	/** Sets the inactive control styles. */
-	inactive?: string;
-	/** Sets flex styles. */
-	flex?: string;
-	/** Sets background styles. */
-	background?: string;
-	/** Sets border styles. */
-	border?: string;
-	/** Sets text size styles. */
-	text?: string;
-	/** Sets padding styles. */
-	padding?: string;
-	/** Sets rounded styles. */
-	rounded?: string;
-	/** Sets vertical gap styles. */
-	gap?: string;
-	/** Sets cursor styles. */
-	cursor?: string;
-	/** Provide arbitrary CSS classes. */
-	classes?: string;
-
-	// Tab ---
-	/** Sets tab content base styles. */
+	// Content ---
+	/** Set base classes for the panel group element. */
 	contentBase?: string;
-	/** Sets tab content flex styles. */
-	contentFlex?: string;
-	/** Sets the tab content gap styles. */
-	contentGap?: string;
-	/** Sets the tab content background styles. */
-	contentBg?: string;
-	/** Sets the tab content padding styles. */
-	contentPadding?: string;
-	/** Sets the tab content rounded styles. */
-	contentRounded?: string;
-	/** Provide arbitrary CSS classes for the tab content. */
+	/** Provide arbitrary classes for the panel group element. */
 	contentClasses?: string;
 
-	// Events ---
-	/** Triggers on Tab Control click. */
-	onclick?: (event: MouseEvent) => void;
-	/** Triggers on Tab Control key press. */
-	onkeypress?: (event: KeyboardEvent) => void;
-	/** Triggers on Tab Control key down. */
-	onkeydown?: (event: KeyboardEvent) => void;
-	/** Triggers on Tab Control key up. */
-	onkeyup?: (event: KeyboardEvent) => void;
-	/** Triggers on Tab Control group change. */
-	onchange?: (group: string) => void;
+	// Snippets ---
+	/** Slot containing the list of tab controls. */
+	list?: Snippet;
+	/** Slot containing the list of panels. */
+	content?: Snippet;
+}
+
+export interface TabsControlProps extends tabs.TriggerProps {
+	// Root ---
+	/** Set base classes for the control element. */
+	base?: string;
+	/** Set padding classes for the control element. */
+	padding?: string;
+	/** Set x-axis translate classes for the control element. */
+	translateX?: string;
+	/** Provide arbitrary classes for the control element. */
+	classes?: string;
+
+	// Label ---
+	/** Set base classes for the label element. */
+	labelBase?: string;
+	/** Provide arbitrary classes for the label element. */
+	labelClasses?: string;
+
+	// State ---
+	/** Set inactive classes for the control element. */
+	stateInactive?: string;
+	/** Set active classes for the control element. */
+	stateActive?: string;
+	/** Set inactive classes for the label element. */
+	stateLabelInactive?: string;
+	/** Set active classes for the label element. */
+	stateLabelActive?: string;
 
 	// Snippets ---
+	/** The lead slot. */
+	lead?: Snippet;
 	/** The default child slot. */
 	children?: Snippet;
 }
 
-// TabPanel ---
-
-export interface TabsPanelProps {
-	/** Provide a unique ID. */
-	id?: string;
-	/** Provide the tab panel value. */
-	value: string;
-	/** Provide the tab control radio group. */
-	group: string;
-
-	// A11y ---
-	/** Sets the A11y labelledby. */
-	labelledBy?: string;
-
+export interface TabsPanelProps extends tabs.ContentProps {
 	// Root ---
-	/** Provide arbitrary CSS classes. */
+	/** Set base classes for the panel element. */
+	base?: string;
+	/** Provide arbitrary classes for the panel element. */
 	classes?: string;
 
 	// Snippets ---

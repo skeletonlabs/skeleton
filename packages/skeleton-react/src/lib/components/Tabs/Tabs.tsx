@@ -18,7 +18,7 @@ export const TabsContext = createContext<TabsContextState>({
 const TabsRoot: FC<TabsRootProps> = ({
 	fluid = false,
 	// Root
-	base = '',
+	base = 'w-full',
 	classes = '',
 	// Events
 	onValueChange = noop,
