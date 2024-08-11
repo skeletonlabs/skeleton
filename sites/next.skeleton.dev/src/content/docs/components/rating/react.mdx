@@ -1,0 +1,83 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import { Page as AllowHalf } from '@examples/components/rating/AllowHalf.tsx';
+import { Page as Count } from '@examples/components/rating/Count.tsx';
+import { Page as Default } from '@examples/components/rating/Default.tsx';
+import { Page as Disabled } from '@examples/components/rating/Disabled.tsx';
+import { Page as ReadOnly } from '@examples/components/rating/ReadOnly.tsx';
+import { Page as RTL } from '@examples/components/rating/RTL.tsx';
+
+import AllowHalfRaw from '@examples/components/rating/AllowHalf.tsx?raw';
+import CountRaw from '@examples/components/rating/Count.tsx?raw';
+import DefaultRaw from '@examples/components/rating/Default.tsx?raw';
+import DisabledRaw from '@examples/components/rating/Disabled.tsx?raw';
+import ReadonlyRaw from '@examples/components/rating/ReadOnly.tsx?raw';
+import RTLRaw from '@examples/components/rating/RTL.tsx?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:only="react" />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Count
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Count client:only="react" />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CountRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Allow Half
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<AllowHalf client:only="react" />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={AllowHalfRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:only="react" />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Read-Only
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ReadOnly client:only="react" />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ReadonlyRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## RTL
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<RTL client:only="react" />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={RTLRaw} lang="tsx" />
+	</Fragment>
+</Preview>

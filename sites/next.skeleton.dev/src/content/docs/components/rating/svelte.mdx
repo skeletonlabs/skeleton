@@ -1,0 +1,83 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import AllowHalf from '@examples/components/rating/AllowHalf.svelte';
+import Count from '@examples/components/rating/Count.svelte';
+import Default from '@examples/components/rating/Default.svelte';
+import Disabled from '@examples/components/rating/Disabled.svelte';
+import ReadOnly from '@examples/components/rating/ReadOnly.svelte';
+import RTL from '@examples/components/rating/RTL.svelte';
+
+import AllowHalfRaw from '@examples/components/rating/AllowHalf.svelte?raw';
+import CountRaw from '@examples/components/rating/Count.svelte?raw';
+import DefaultRaw from '@examples/components/rating/Default.svelte?raw';
+import DisabledRaw from '@examples/components/rating/Disabled.svelte?raw';
+import ReadonlyRaw from '@examples/components/rating/ReadOnly.svelte?raw';
+import RTLRaw from '@examples/components/rating/RTL.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Count
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Count client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CountRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Allow Half
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<AllowHalf client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={AllowHalfRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Read-Only
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ReadOnly client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ReadonlyRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## RTL
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<RTL client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={RTLRaw} lang="svelte" />
+	</Fragment>
+</Preview>
