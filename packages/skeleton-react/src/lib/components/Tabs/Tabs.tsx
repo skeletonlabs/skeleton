@@ -37,7 +37,7 @@ const TabsRoot: FC<TabsRootProps> = ({
 	const api = tabs.connect(state, send, normalizeProps);
 
 	return (
-		<div {...api.getRootProps()} className={`${base} ${classes}`}>
+		<div {...api.getRootProps()} className={`${base} ${classes}`} data-testid="tabs">
 			<TabsContext.Provider value={{ fluid, api }}>{children}</TabsContext.Provider>
 		</div>
 	);

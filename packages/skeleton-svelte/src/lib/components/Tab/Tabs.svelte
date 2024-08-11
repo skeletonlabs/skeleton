@@ -60,7 +60,7 @@
 
 <!-- @component A Tab parent component. -->
 
-<div {...api.getRootProps()} class="{base} {classes}">
+<div {...api.getRootProps()} class="{base} {classes}" data-testid="tabs">
 	<!-- List -->
 	<div {...api.getListProps()} class="{listBase} {listJustify} {listBorder} {listMargin} {listGap} {listClasses}">
 		{@render list?.()}
