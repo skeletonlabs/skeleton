@@ -52,14 +52,11 @@
 	<section class="space-y-4">
 		<h2 class="h2">Indeterminate</h2>
 		<Progress value={null} {max}>
-			{#snippet label()}
-				indeterminate (default)
-			{/snippet}
+			<span>Deafult Animation</span>
 		</Progress>
+		<!-- NOTE: `custom-indeterminate` defined in app.pcss -->
 		<Progress value={null} {max} meterAnimate="custom-indeterminate">
-			{#snippet label()}
-				custom indeterminate
-			{/snippet}
+			<span>Custom Animation</span>
 		</Progress>
 	</section>
 	<section class="space-y-4">

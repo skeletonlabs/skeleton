@@ -6,43 +6,52 @@ import type { ProgressProps } from './types.js';
 
 export const Progress: FC<ProgressProps> = ({
 	// Root
-	base = 'overflow-x-hidden',
-	bg = 'bg-surface-200-800',
-	width = 'w-full',
+	base = 'flex items-center gap-4',
 	height = 'h-2',
-	rounded = 'rounded',
+	width = 'w-full',
 	classes = '',
+	// Label
+	labelBase = 'whitespace-nowrap',
+	labelText = 'text-xs',
+	labelClasses = '',
+	// Track
+	trackBase = 'h-full w-full overflow-x-hidden',
+	trackBg = 'bg-surface-200-800',
+	trackRounded = 'rounded',
+	trackClasses = '',
 	// Meter
-	meterBase = 'h-full',
+	meterBase = 'h-full w-full',
 	meterBg = 'bg-surface-950-50',
 	meterRounded = 'rounded',
 	meterTransition = 'transition-[width]',
 	meterAnimate = 'animate-indeterminate',
 	meterClasses = '',
-	// Label
-	labelBase = 'text-sm',
-	labelClasses = '',
-	// Snippets
-	label,
+	// Children
+	children,
 	// Zag
 	...zagProps
 }) => {
-	// Machine
+	// Zag
 	const [state, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
-
-	// API
 	const api = progress.connect(state, send, normalizeProps);
+
+	// Reactive
+	const rxIndeterminate = api.indeterminate ? meterAnimate : '';
+
 	return (
-		<div {...api.getRootProps()}>
-			{!!label && (
-				<div className={`${labelBase} ${labelClasses}`} {...api.getLabelProps()}>
-					label
+		<div {...api.getRootProps()} className={`${base} ${height} ${width} ${classes}`} data-testid="progress">
+			{/* Label */}
+			{!!children && (
+				<div {...api.getLabelProps()} className={`${labelBase} ${labelText} ${labelClasses}`}>
+					{children}
 				</div>
 			)}
-			<div className={`${base} ${bg} ${width} ${height} ${rounded} ${classes}`} {...api.getTrackProps()}>
+			{/* Track */}
+			<div {...api.getTrackProps()} className={`${trackBase} ${trackBg} ${trackRounded} ${trackClasses}`}>
+				{/* Meter */}
 				<div
-					className={`${meterBase} ${meterBg} ${meterRounded} ${meterTransition} ${api.indeterminate ? meterAnimate : ''} ${meterClasses}`}
 					{...api.getRangeProps()}
+					className={`${meterBase} ${meterBg} ${meterRounded} ${meterTransition} ${rxIndeterminate} ${meterClasses}`}
 				></div>
 			</div>
 		</div>

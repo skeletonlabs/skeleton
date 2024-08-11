@@ -1,241 +1,318 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"definitions": {
-		"IntlTranslations": {
-			"propertyOrder": ["ratingValueText"],
-			"type": "object"
-		},
-		"Iterable<React.ReactNode>": {
-			"propertyOrder": ["__@iterator@83"],
-			"type": "object"
-		},
-		"Partial<{root:string;label:string;hiddenInput:string;control:string;item(id:string):string;}>": {
-			"properties": {
-				"control": {
-					"type": "string"
-				},
-				"hiddenInput": {
-					"type": "string"
-				},
-				"item": {
-					"propertyOrder": [],
-					"type": "object"
-				},
-				"label": {
-					"type": "string"
-				},
-				"root": {
-					"type": "string"
-				}
-			},
-			"propertyOrder": ["root", "label", "hiddenInput", "control", "item"],
-			"type": "object"
-		},
-		"RatingProps": {
-			"properties": {
-				"allowHalf": {
-					"description": "Whether to allow half stars.",
-					"type": "boolean"
-				},
-				"autoFocus": {
-					"description": "Whether to autofocus the rating.",
-					"type": "boolean"
-				},
-				"base": {
-					"type": "string"
-				},
-				"classes": {
-					"type": "string"
-				},
-				"count": {
-					"default": 5,
-					"description": "The total number of ratings.",
-					"type": "number"
-				},
-				"dir": {
-					"default": "ltr",
-					"description": "The document's text/writing direction.",
-					"enum": ["ltr", "rtl"],
-					"type": "string"
-				},
-				"disabled": {
-					"description": "Whether the rating is disabled.",
-					"type": "boolean"
-				},
-				"form": {
-					"description": "The associate form of the underlying input element.",
-					"type": "string"
-				},
-				"getRootNode": {
-					"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
-					"propertyOrder": [],
-					"type": "object"
-				},
-				"iconEmpty": {
-					"$ref": "#/definitions/React.ReactNode"
-				},
-				"iconFull": {
-					"$ref": "#/definitions/React.ReactNode"
-				},
-				"iconHalf": {
-					"$ref": "#/definitions/React.ReactNode"
-				},
-				"ids": {
-					"$ref": "#/definitions/Partial<{root:string;label:string;hiddenInput:string;control:string;item(id:string):string;}>",
-					"description": "The ids of the elements in the rating. Useful for composition."
-				},
-				"itemBase": {
-					"type": "string"
-				},
-				"itemClasses": {
-					"type": "string"
-				},
-				"label": {
-					"$ref": "#/definitions/React.ReactNode"
-				},
-				"labelBase": {
-					"type": "string"
-				},
-				"labelClasses": {
-					"type": "string"
-				},
-				"name": {
-					"description": "The name attribute of the rating element (used in forms).",
-					"type": "string"
-				},
-				"onHoverChange": {
-					"description": "Function to be called when the rating value is hovered.",
-					"propertyOrder": [],
-					"type": "object"
-				},
-				"onValueChange": {
-					"propertyOrder": [],
-					"type": "object"
-				},
-				"readOnly": {
-					"description": "Whether the rating is readonly.",
-					"type": "boolean"
-				},
-				"required": {
-					"description": "Whether the rating is required.",
-					"type": "boolean"
-				},
-				"translations": {
-					"$ref": "#/definitions/IntlTranslations",
-					"description": "Specifies the localized strings that identifies the accessibility elements and their states"
-				},
-				"value": {
-					"description": "The current rating value.",
-					"type": "number"
-				}
-			},
-			"propertyOrder": [
-				"base",
-				"classes",
-				"labelBase",
-				"labelClasses",
-				"itemBase",
-				"itemClasses",
-				"onValueChange",
-				"label",
-				"iconEmpty",
-				"iconHalf",
-				"iconFull",
-				"required",
-				"name",
-				"value",
-				"form",
-				"dir",
-				"getRootNode",
-				"disabled",
-				"autoFocus",
-				"ids",
-				"translations",
-				"count",
-				"readOnly",
-				"allowHalf",
-				"onHoverChange"
-			],
-			"type": "object"
-		},
-		"React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
-			"description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
-			"properties": {
-				"key": {
-					"type": "string"
-				},
-				"props": {
-					"description": "The type of the props object"
-				},
-				"type": {
-					"anyOf": [
-						{
-							"propertyOrder": [],
-							"type": "object"
-						},
-						{
-							"propertyOrder": [],
-							"type": "object"
-						},
-						{
-							"type": "string"
-						}
-					],
-					"description": "The type of the component or tag"
-				}
-			},
-			"propertyOrder": ["type", "props", "key"],
-			"required": ["key", "props", "type"],
-			"type": "object"
-		},
-		"React.ReactNode": {
-			"anyOf": [
-				{
-					"$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
-				},
-				{
-					"$ref": "#/definitions/Iterable<React.ReactNode>"
-				},
-				{
-					"$ref": "#/definitions/React.ReactPortal"
-				},
-				{
-					"type": ["string", "number", "boolean"]
-				}
-			],
-			"description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
-		},
-		"React.ReactPortal": {
-			"properties": {
-				"children": {
-					"$ref": "#/definitions/React.ReactNode"
-				},
-				"key": {
-					"type": "string"
-				},
-				"props": {
-					"description": "The type of the props object"
-				},
-				"type": {
-					"anyOf": [
-						{
-							"propertyOrder": [],
-							"type": "object"
-						},
-						{
-							"propertyOrder": [],
-							"type": "object"
-						},
-						{
-							"type": "string"
-						}
-					],
-					"description": "The type of the component or tag"
-				}
-			},
-			"propertyOrder": ["children", "type", "props", "key"],
-			"required": ["children", "key", "props", "type"],
-			"type": "object"
-		}
-	}
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "IntlTranslations": {
+            "propertyOrder": [
+                "ratingValueText"
+            ],
+            "type": "object"
+        },
+        "Iterable<React.ReactNode>": {
+            "propertyOrder": [
+                "__@iterator@83"
+            ],
+            "type": "object"
+        },
+        "Partial<{root:string;label:string;hiddenInput:string;control:string;item(id:string):string;}>": {
+            "properties": {
+                "control": {
+                    "type": "string"
+                },
+                "hiddenInput": {
+                    "type": "string"
+                },
+                "item": {
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "root": {
+                    "type": "string"
+                }
+            },
+            "propertyOrder": [
+                "root",
+                "label",
+                "hiddenInput",
+                "control",
+                "item"
+            ],
+            "type": "object"
+        },
+        "RatingProps": {
+            "properties": {
+                "allowHalf": {
+                    "description": "Whether to allow half stars.",
+                    "type": "boolean"
+                },
+                "autoFocus": {
+                    "description": "Whether to autofocus the rating.",
+                    "type": "boolean"
+                },
+                "base": {
+                    "description": "Set root base classes",
+                    "type": "string"
+                },
+                "classes": {
+                    "description": "Set root arbitrary classes",
+                    "type": "string"
+                },
+                "controlBase": {
+                    "description": "Set control base classes",
+                    "type": "string"
+                },
+                "controlClasses": {
+                    "description": "Set control arbitrary classes",
+                    "type": "string"
+                },
+                "controlGap": {
+                    "description": "Set control gap classes",
+                    "type": "string"
+                },
+                "count": {
+                    "default": 5,
+                    "description": "The total number of ratings.",
+                    "type": "number"
+                },
+                "dir": {
+                    "default": "ltr",
+                    "description": "The document's text/writing direction.",
+                    "enum": [
+                        "ltr",
+                        "rtl"
+                    ],
+                    "type": "string"
+                },
+                "disabled": {
+                    "description": "Whether the rating is disabled.",
+                    "type": "boolean"
+                },
+                "form": {
+                    "description": "The associate form of the underlying input element.",
+                    "type": "string"
+                },
+                "gap": {
+                    "description": "Set root gap classes",
+                    "type": "string"
+                },
+                "getRootNode": {
+                    "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "iconEmpty": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "Set the empty icon node"
+                },
+                "iconFull": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "Set the full icon node"
+                },
+                "iconHalf": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "Set the half icon node"
+                },
+                "ids": {
+                    "$ref": "#/definitions/Partial<{root:string;label:string;hiddenInput:string;control:string;item(id:string):string;}>",
+                    "description": "The ids of the elements in the rating. Useful for composition."
+                },
+                "itemBase": {
+                    "description": "Set item base classes",
+                    "type": "string"
+                },
+                "itemClasses": {
+                    "description": "Set item arbitrary classes",
+                    "type": "string"
+                },
+                "label": {
+                    "$ref": "#/definitions/React.ReactNode",
+                    "description": "Set the label node"
+                },
+                "labelBase": {
+                    "description": "Set label base classes",
+                    "type": "string"
+                },
+                "labelClasses": {
+                    "description": "Set label arbitrary classes",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name attribute of the rating element (used in forms).",
+                    "type": "string"
+                },
+                "onHoverChange": {
+                    "description": "Function to be called when the rating value is hovered.",
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "onValueChange": {
+                    "description": "Set the onValueChange callback",
+                    "propertyOrder": [],
+                    "type": "object"
+                },
+                "readOnly": {
+                    "description": "Whether the rating is readonly.",
+                    "type": "boolean"
+                },
+                "required": {
+                    "description": "Whether the rating is required.",
+                    "type": "boolean"
+                },
+                "stateDisabled": {
+                    "description": "Set root disabled classes",
+                    "type": "string"
+                },
+                "stateReadOnly": {
+                    "description": "Set root readonly classes",
+                    "type": "string"
+                },
+                "translations": {
+                    "$ref": "#/definitions/IntlTranslations",
+                    "description": "Specifies the localized strings that identifies the accessibility elements and their states"
+                },
+                "value": {
+                    "description": "The current rating value.",
+                    "type": "number"
+                }
+            },
+            "propertyOrder": [
+                "base",
+                "gap",
+                "classes",
+                "controlBase",
+                "controlGap",
+                "controlClasses",
+                "labelBase",
+                "labelClasses",
+                "itemBase",
+                "itemClasses",
+                "stateReadOnly",
+                "stateDisabled",
+                "iconEmpty",
+                "iconHalf",
+                "iconFull",
+                "label",
+                "onValueChange",
+                "required",
+                "name",
+                "value",
+                "form",
+                "dir",
+                "getRootNode",
+                "disabled",
+                "autoFocus",
+                "ids",
+                "translations",
+                "count",
+                "readOnly",
+                "allowHalf",
+                "onHoverChange"
+            ],
+            "type": "object"
+        },
+        "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+            "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The type of the component or tag"
+                }
+            },
+            "propertyOrder": [
+                "type",
+                "props",
+                "key"
+            ],
+            "required": [
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        },
+        "React.ReactNode": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+                },
+                {
+                    "$ref": "#/definitions/Iterable<React.ReactNode>"
+                },
+                {
+                    "$ref": "#/definitions/React.ReactPortal"
+                },
+                {
+                    "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                    ]
+                }
+            ],
+            "description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+        },
+        "React.ReactPortal": {
+            "properties": {
+                "children": {
+                    "$ref": "#/definitions/React.ReactNode"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "props": {
+                    "description": "The type of the props object"
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "propertyOrder": [],
+                            "type": "object"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The type of the component or tag"
+                }
+            },
+            "propertyOrder": [
+                "children",
+                "type",
+                "props",
+                "key"
+            ],
+            "required": [
+                "children",
+                "key",
+                "props",
+                "type"
+            ],
+            "type": "object"
+        }
+    }
 }
+

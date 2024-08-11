@@ -7,37 +7,39 @@
 	// Props
 	let {
 		// Root
-		base = 'overflow-x-hidden',
-		bg = 'bg-surface-200-800',
-		width = 'w-full',
+		base = 'flex items-center gap-4',
 		height = 'h-2',
-		rounded = 'rounded',
+		width = 'w-full',
 		classes = '',
+		// Label
+		labelBase = 'whitespace-nowrap',
+		labelText = 'text-xs',
+		labelClasses = '',
+		// Track
+		trackBase = 'h-full w-full overflow-x-hidden',
+		trackBg = 'bg-surface-200-800',
+		trackRounded = 'rounded',
+		trackClasses = '',
 		// Meter
-		meterBase = 'h-full',
+		meterBase = 'h-full w-full',
 		meterBg = 'bg-surface-950-50',
 		meterRounded = 'rounded',
 		meterTransition = 'transition-[width]',
 		meterAnimate = 'animate-indeterminate',
 		meterClasses = '',
-		// Label
-		labelBase = 'text-sm',
-		labelClasses = '',
 		// Snippets
-		label,
+		children,
 		// Zag
 		...zagProps
 	}: ProgressProps = $props();
 
-	// Machine
+	// Zag
 	const [state, send] = useMachine(
 		progress.machine({
 			id: useId()
 		}),
 		{ context: zagProps }
 	);
-
-	// API
 	const api = $derived(progress.connect(state, send, normalizeProps));
 
 	// Reactive
@@ -46,14 +48,14 @@
 
 <!-- @component A linear progress bar. -->
 
-<div {...api.getRootProps()}>
+<figure {...api.getRootProps()} class="{base} {height} {width} {classes}" data-testid="progress">
 	<!-- Label -->
-	{#if label}
-		<div class="{labelBase} {labelClasses}" {...api.getLabelProps()}>{@render label()}</div>
+	{#if children}
+		<div {...api.getLabelProps()} class="{labelBase} {labelText} {labelClasses}">{@render children()}</div>
 	{/if}
 	<!-- Track -->
-	<div class="{base} {bg} {width} {height} {rounded} {classes}" {...api.getTrackProps()}>
+	<div {...api.getTrackProps()} class="{trackBase} {trackBg} {trackRounded} {trackClasses}">
 		<!-- Meter -->
-		<div class="{meterBase} {meterBg} {meterRounded} {meterTransition} {rxIndeterminate} {meterClasses}" {...api.getRangeProps()}></div>
+		<div {...api.getRangeProps()} class="{meterBase} {meterBg} {meterRounded} {meterTransition} {rxIndeterminate} {meterClasses}"></div>
 	</div>
-</div>
+</figure>

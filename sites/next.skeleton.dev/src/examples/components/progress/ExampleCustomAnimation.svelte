@@ -2,7 +2,7 @@
 	import { Progress } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Progress value={undefined} meterAnimate="my-custom-animation" />
+<Progress value={null} meterAnimate="my-custom-animation" />
 
 <style>
 	/*
