@@ -24,7 +24,7 @@ export const Progress: FC<ProgressProps> = ({
 	meterBg = 'bg-surface-950-50',
 	meterRounded = 'rounded',
 	meterTransition = 'transition-[width]',
-	meterAnimate = 'animate-indeterminate',
+	meterAnimate = 'animate-progress-indeterminate',
 	meterClasses = '',
 	// Children
 	children,

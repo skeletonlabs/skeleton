@@ -1,406 +1,348 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "Api<PropTypes>": {
-            "properties": {
-                "value": {
-                    "description": "The current value of the radio group",
-                    "type": "string"
-                }
-            },
-            "propertyOrder": [
-                "value",
-                "setValue",
-                "clearValue",
-                "focus",
-                "getItemState",
-                "getRootProps",
-                "getLabelProps",
-                "getItemProps",
-                "getItemTextProps",
-                "getItemControlProps",
-                "getItemHiddenInputProps",
-                "getIndicatorProps"
-            ],
-            "required": [
-                "value"
-            ],
-            "type": "object"
-        },
-        "Iterable<React.ReactNode>": {
-            "propertyOrder": [
-                "__@iterator@83"
-            ],
-            "type": "object"
-        },
-        "Partial<{root:string;label:string;indicator:string;item(value:string):string;itemLabel(value:string):string;itemControl(value:string):string;itemHiddenInput(value:string):string;}>": {
-            "properties": {
-                "indicator": {
-                    "type": "string"
-                },
-                "item": {
-                    "propertyOrder": [],
-                    "type": "object"
-                },
-                "itemControl": {
-                    "propertyOrder": [],
-                    "type": "object"
-                },
-                "itemHiddenInput": {
-                    "propertyOrder": [],
-                    "type": "object"
-                },
-                "itemLabel": {
-                    "propertyOrder": [],
-                    "type": "object"
-                },
-                "label": {
-                    "type": "string"
-                },
-                "root": {
-                    "type": "string"
-                }
-            },
-            "propertyOrder": [
-                "root",
-                "label",
-                "indicator",
-                "item",
-                "itemLabel",
-                "itemControl",
-                "itemHiddenInput"
-            ],
-            "type": "object"
-        },
-        "React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
-            "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "props": {
-                    "description": "The type of the props object"
-                },
-                "type": {
-                    "anyOf": [
-                        {
-                            "propertyOrder": [],
-                            "type": "object"
-                        },
-                        {
-                            "propertyOrder": [],
-                            "type": "object"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "description": "The type of the component or tag"
-                }
-            },
-            "propertyOrder": [
-                "type",
-                "props",
-                "key"
-            ],
-            "required": [
-                "key",
-                "props",
-                "type"
-            ],
-            "type": "object"
-        },
-        "React.ReactNode": {
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
-                },
-                {
-                    "$ref": "#/definitions/Iterable<React.ReactNode>"
-                },
-                {
-                    "$ref": "#/definitions/React.ReactPortal"
-                },
-                {
-                    "type": [
-                        "string",
-                        "number",
-                        "boolean"
-                    ]
-                }
-            ],
-            "description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
-        },
-        "React.ReactPortal": {
-            "properties": {
-                "children": {
-                    "$ref": "#/definitions/React.ReactNode"
-                },
-                "key": {
-                    "type": "string"
-                },
-                "props": {
-                    "description": "The type of the props object"
-                },
-                "type": {
-                    "anyOf": [
-                        {
-                            "propertyOrder": [],
-                            "type": "object"
-                        },
-                        {
-                            "propertyOrder": [],
-                            "type": "object"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "description": "The type of the component or tag"
-                }
-            },
-            "propertyOrder": [
-                "children",
-                "type",
-                "props",
-                "key"
-            ],
-            "required": [
-                "children",
-                "key",
-                "props",
-                "type"
-            ],
-            "type": "object"
-        },
-        "SegmentContextState": {
-            "properties": {
-                "api": {
-                    "$ref": "#/definitions/Api<PropTypes>"
-                },
-                "indicatorText": {
-                    "type": "string"
-                }
-            },
-            "propertyOrder": [
-                "api",
-                "indicatorText"
-            ],
-            "required": [
-                "api",
-                "indicatorText"
-            ],
-            "type": "object"
-        },
-        "SegmentItemsProps": {
-            "properties": {
-                "base": {
-                    "description": "Sets base classes.",
-                    "type": "string"
-                },
-                "children": {
-                    "$ref": "#/definitions/React.ReactNode"
-                },
-                "classes": {
-                    "description": "Provide arbitrary CSS classes.",
-                    "type": "string"
-                },
-                "disabled": {
-                    "type": "boolean"
-                },
-                "labelBase": {
-                    "description": "Sets base classes for the label element.",
-                    "type": "string"
-                },
-                "labelClasses": {
-                    "description": "Provide arbitrary CSS classes for the label element.",
-                    "type": "string"
-                },
-                "stateDisabled": {
-                    "description": "Set claseses for the disabled state.",
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            },
-            "propertyOrder": [
-                "base",
-                "classes",
-                "stateDisabled",
-                "labelBase",
-                "labelClasses",
-                "children",
-                "value",
-                "disabled"
-            ],
-            "required": [
-                "value"
-            ],
-            "type": "object"
-        },
-        "SegmentProps": {
-            "properties": {
-                "background": {
-                    "description": "Set background classes.",
-                    "type": "string"
-                },
-                "base": {
-                    "description": "Sets base classes.",
-                    "type": "string"
-                },
-                "border": {
-                    "description": "Set border classes.",
-                    "type": "string"
-                },
-                "children": {
-                    "$ref": "#/definitions/React.ReactNode"
-                },
-                "classes": {
-                    "description": "Provide arbitrary CSS classes.",
-                    "type": "string"
-                },
-                "dir": {
-                    "default": "ltr",
-                    "description": "The document's text/writing direction.",
-                    "enum": [
-                        "ltr",
-                        "rtl"
-                    ],
-                    "type": "string"
-                },
-                "disabled": {
-                    "description": "If `true`, the radio group will be disabled",
-                    "type": "boolean"
-                },
-                "flexDirection": {
-                    "description": "Set flex direction classes.",
-                    "type": "string"
-                },
-                "form": {
-                    "description": "The associate form of the underlying input.",
-                    "type": "string"
-                },
-                "gap": {
-                    "description": "Set gap classes.",
-                    "type": "string"
-                },
-                "getRootNode": {
-                    "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
-                    "propertyOrder": [],
-                    "type": "object"
-                },
-                "ids": {
-                    "$ref": "#/definitions/Partial<{root:string;label:string;indicator:string;item(value:string):string;itemLabel(value:string):string;itemControl(value:string):string;itemHiddenInput(value:string):string;}>",
-                    "description": "The ids of the elements in the radio. Useful for composition."
-                },
-                "indicatorBase": {
-                    "description": "Sets base classes to the indicator.",
-                    "type": "string"
-                },
-                "indicatorBg": {
-                    "description": "Sets background classes to the indicator.",
-                    "type": "string"
-                },
-                "indicatorClasses": {
-                    "description": "Provide arbitrary CSS classes to the indicator.",
-                    "type": "string"
-                },
-                "indicatorRounded": {
-                    "description": "Sets border radius classes to the indicator.",
-                    "type": "string"
-                },
-                "indicatorText": {
-                    "description": "Sets text classes to the indicator.",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "The name of the input fields in the radio\n(Useful for form submission).",
-                    "type": "string"
-                },
-                "onValueChange": {
-                    "description": "Triggers when the value state is changed.",
-                    "propertyOrder": [],
-                    "type": "object"
-                },
-                "orientHorizontal": {
-                    "description": "Set classes to provide a horizintal layout.",
-                    "type": "string"
-                },
-                "orientVertical": {
-                    "description": "Set classes to provide a vertical layout.",
-                    "type": "string"
-                },
-                "orientation": {
-                    "description": "Set the orientation.",
-                    "enum": [
-                        "horizontal",
-                        "vertical"
-                    ],
-                    "type": "string"
-                },
-                "padding": {
-                    "description": "Set padding classes.",
-                    "type": "string"
-                },
-                "readOnly": {
-                    "description": "Whether the checkbox is read-only",
-                    "type": "boolean"
-                },
-                "rounded": {
-                    "description": "Set rounded classes.",
-                    "type": "string"
-                },
-                "stateDisabled": {
-                    "description": "Set claseses for the disabled state.",
-                    "type": "string"
-                },
-                "stateReadOnly": {
-                    "description": "Set claseses for the read-only state.",
-                    "type": "string"
-                },
-                "value": {
-                    "description": "The value of the checked radio",
-                    "type": "string"
-                },
-                "width": {
-                    "description": "Set width classes.",
-                    "type": "string"
-                }
-            },
-            "propertyOrder": [
-                "orientation",
-                "base",
-                "background",
-                "border",
-                "flexDirection",
-                "gap",
-                "padding",
-                "rounded",
-                "width",
-                "classes",
-                "orientVertical",
-                "orientHorizontal",
-                "stateDisabled",
-                "stateReadOnly",
-                "indicatorBase",
-                "indicatorBg",
-                "indicatorText",
-                "indicatorRounded",
-                "indicatorClasses",
-                "onValueChange",
-                "children",
-                "name",
-                "value",
-                "form",
-                "dir",
-                "getRootNode",
-                "disabled",
-                "ids",
-                "readOnly"
-            ],
-            "type": "object"
-        }
-    }
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"definitions": {
+		"Api<PropTypes>": {
+			"properties": {
+				"value": {
+					"description": "The current value of the radio group",
+					"type": "string"
+				}
+			},
+			"propertyOrder": [
+				"value",
+				"setValue",
+				"clearValue",
+				"focus",
+				"getItemState",
+				"getRootProps",
+				"getLabelProps",
+				"getItemProps",
+				"getItemTextProps",
+				"getItemControlProps",
+				"getItemHiddenInputProps",
+				"getIndicatorProps"
+			],
+			"required": ["value"],
+			"type": "object"
+		},
+		"Iterable<React.ReactNode>": {
+			"propertyOrder": ["__@iterator@83"],
+			"type": "object"
+		},
+		"Partial<{root:string;label:string;indicator:string;item(value:string):string;itemLabel(value:string):string;itemControl(value:string):string;itemHiddenInput(value:string):string;}>": {
+			"properties": {
+				"indicator": {
+					"type": "string"
+				},
+				"item": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"itemControl": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"itemHiddenInput": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"itemLabel": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"label": {
+					"type": "string"
+				},
+				"root": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["root", "label", "indicator", "item", "itemLabel", "itemControl", "itemHiddenInput"],
+			"type": "object"
+		},
+		"React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+			"description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+			"properties": {
+				"key": {
+					"type": "string"
+				},
+				"props": {
+					"description": "The type of the props object"
+				},
+				"type": {
+					"anyOf": [
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"type": "string"
+						}
+					],
+					"description": "The type of the component or tag"
+				}
+			},
+			"propertyOrder": ["type", "props", "key"],
+			"required": ["key", "props", "type"],
+			"type": "object"
+		},
+		"React.ReactNode": {
+			"anyOf": [
+				{
+					"$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+				},
+				{
+					"$ref": "#/definitions/Iterable<React.ReactNode>"
+				},
+				{
+					"$ref": "#/definitions/React.ReactPortal"
+				},
+				{
+					"type": ["string", "number", "boolean"]
+				}
+			],
+			"description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+		},
+		"React.ReactPortal": {
+			"properties": {
+				"children": {
+					"$ref": "#/definitions/React.ReactNode"
+				},
+				"key": {
+					"type": "string"
+				},
+				"props": {
+					"description": "The type of the props object"
+				},
+				"type": {
+					"anyOf": [
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"type": "string"
+						}
+					],
+					"description": "The type of the component or tag"
+				}
+			},
+			"propertyOrder": ["children", "type", "props", "key"],
+			"required": ["children", "key", "props", "type"],
+			"type": "object"
+		},
+		"SegmentContextState": {
+			"properties": {
+				"api": {
+					"$ref": "#/definitions/Api<PropTypes>"
+				},
+				"indicatorText": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["api", "indicatorText"],
+			"required": ["api", "indicatorText"],
+			"type": "object"
+		},
+		"SegmentItemsProps": {
+			"properties": {
+				"base": {
+					"description": "Sets base classes.",
+					"type": "string"
+				},
+				"children": {
+					"$ref": "#/definitions/React.ReactNode"
+				},
+				"classes": {
+					"description": "Provide arbitrary CSS classes.",
+					"type": "string"
+				},
+				"disabled": {
+					"type": "boolean"
+				},
+				"labelBase": {
+					"description": "Sets base classes for the label element.",
+					"type": "string"
+				},
+				"labelClasses": {
+					"description": "Provide arbitrary CSS classes for the label element.",
+					"type": "string"
+				},
+				"stateDisabled": {
+					"description": "Set claseses for the disabled state.",
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["base", "classes", "stateDisabled", "labelBase", "labelClasses", "children", "value", "disabled"],
+			"required": ["value"],
+			"type": "object"
+		},
+		"SegmentProps": {
+			"properties": {
+				"background": {
+					"description": "Set background classes.",
+					"type": "string"
+				},
+				"base": {
+					"description": "Sets base classes.",
+					"type": "string"
+				},
+				"border": {
+					"description": "Set border classes.",
+					"type": "string"
+				},
+				"children": {
+					"$ref": "#/definitions/React.ReactNode"
+				},
+				"classes": {
+					"description": "Provide arbitrary CSS classes.",
+					"type": "string"
+				},
+				"dir": {
+					"default": "ltr",
+					"description": "The document's text/writing direction.",
+					"enum": ["ltr", "rtl"],
+					"type": "string"
+				},
+				"disabled": {
+					"description": "If `true`, the radio group will be disabled",
+					"type": "boolean"
+				},
+				"flexDirection": {
+					"description": "Set flex direction classes.",
+					"type": "string"
+				},
+				"form": {
+					"description": "The associate form of the underlying input.",
+					"type": "string"
+				},
+				"gap": {
+					"description": "Set gap classes.",
+					"type": "string"
+				},
+				"getRootNode": {
+					"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"ids": {
+					"$ref": "#/definitions/Partial<{root:string;label:string;indicator:string;item(value:string):string;itemLabel(value:string):string;itemControl(value:string):string;itemHiddenInput(value:string):string;}>",
+					"description": "The ids of the elements in the radio. Useful for composition."
+				},
+				"indicatorBase": {
+					"description": "Sets base classes to the indicator.",
+					"type": "string"
+				},
+				"indicatorBg": {
+					"description": "Sets background classes to the indicator.",
+					"type": "string"
+				},
+				"indicatorClasses": {
+					"description": "Provide arbitrary CSS classes to the indicator.",
+					"type": "string"
+				},
+				"indicatorRounded": {
+					"description": "Sets border radius classes to the indicator.",
+					"type": "string"
+				},
+				"indicatorText": {
+					"description": "Sets text classes to the indicator.",
+					"type": "string"
+				},
+				"name": {
+					"description": "The name of the input fields in the radio\n(Useful for form submission).",
+					"type": "string"
+				},
+				"onValueChange": {
+					"description": "Triggers when the value state is changed.",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"orientHorizontal": {
+					"description": "Set classes to provide a horizintal layout.",
+					"type": "string"
+				},
+				"orientVertical": {
+					"description": "Set classes to provide a vertical layout.",
+					"type": "string"
+				},
+				"orientation": {
+					"description": "Set the orientation.",
+					"enum": ["horizontal", "vertical"],
+					"type": "string"
+				},
+				"padding": {
+					"description": "Set padding classes.",
+					"type": "string"
+				},
+				"readOnly": {
+					"description": "Whether the checkbox is read-only",
+					"type": "boolean"
+				},
+				"rounded": {
+					"description": "Set rounded classes.",
+					"type": "string"
+				},
+				"stateDisabled": {
+					"description": "Set claseses for the disabled state.",
+					"type": "string"
+				},
+				"stateReadOnly": {
+					"description": "Set claseses for the read-only state.",
+					"type": "string"
+				},
+				"value": {
+					"description": "The value of the checked radio",
+					"type": "string"
+				},
+				"width": {
+					"description": "Set width classes.",
+					"type": "string"
+				}
+			},
+			"propertyOrder": [
+				"orientation",
+				"base",
+				"background",
+				"border",
+				"flexDirection",
+				"gap",
+				"padding",
+				"rounded",
+				"width",
+				"classes",
+				"orientVertical",
+				"orientHorizontal",
+				"stateDisabled",
+				"stateReadOnly",
+				"indicatorBase",
+				"indicatorBg",
+				"indicatorText",
+				"indicatorRounded",
+				"indicatorClasses",
+				"onValueChange",
+				"children",
+				"name",
+				"value",
+				"form",
+				"dir",
+				"getRootNode",
+				"disabled",
+				"ids",
+				"readOnly"
+			],
+			"type": "object"
+		}
+	}
 }
-
