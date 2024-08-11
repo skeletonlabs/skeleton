@@ -4,15 +4,17 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import { Page as ExampleAllowHalf } from '@examples/components/rating/ExampleAllowHalf';
-import { Page as ExampleCount } from '@examples/components/rating/ExampleCount';
-import { Page as ExampleDefault } from '@examples/components/rating/ExampleDefault';
+import { Page as ExampleAllowHalf } from '@examples/components/rating/ExampleAllowHalf.tsx';
+import { Page as ExampleCount } from '@examples/components/rating/ExampleCount.tsx';
+import { Page as ExampleCustomIcon } from '@examples/components/rating/ExampleCustomIcon.tsx';
+import { Page as ExampleDefault } from '@examples/components/rating/ExampleDefault.tsx';
 import { Page as ExampleDisabled } from '@examples/components/rating/ExampleDisabled.tsx';
-import { Page as ExampleReadOnly } from '@examples/components/rating/ExampleReadOnly';
-import { Page as ExampleRTL } from '@examples/components/rating/ExampleRTL';
+import { Page as ExampleReadOnly } from '@examples/components/rating/ExampleReadOnly.tsx';
+import { Page as ExampleRTL } from '@examples/components/rating/ExampleRT.tsxL';
 
 import ExampleAllowHalfRaw from '@examples/components/rating/ExampleAllowHalf.tsx?raw';
 import ExampleCountRaw from '@examples/components/rating/ExampleCount.tsx?raw';
+import ExampleCustomIconRaw from '@examples/components/rating/ExampleCustomIcon.tsx?raw';
 import ExampleDefaultRaw from '@examples/components/rating/ExampleDefault.tsx?raw';
 import ExampleDisabledRaw from '@examples/components/rating/ExampleDisabled.tsx?raw';
 import ExampleReadonlyRaw from '@examples/components/rating/ExampleReadOnly.tsx?raw';
@@ -37,6 +39,18 @@ import ExampleRTLRaw from '@examples/components/rating/ExampleRTL.tsx?raw';
 		<Code code={ExampleCountRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+## Custom Icon
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCustomIcon client:only="react" />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleCustomIconRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
 
 ## Allow Half
 
