@@ -1,5 +1,9 @@
 import { Rating } from '@skeletonlabs/skeleton-react';
+import { useState } from 'react';
 
 export const Page = () => {
-	return <Rating></Rating>;
+	// You may optionally implement useState
+	const [starValue, setStarValue] = useState(2);
+
+	return <Rating value={starValue} onValueChange={setStarValue} />;
 };

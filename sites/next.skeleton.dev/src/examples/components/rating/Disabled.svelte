@@ -2,4 +2,4 @@
 	import { Rating } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Rating disabled></Rating>
+<Rating value={2} disabled></Rating>

@@ -2,4 +2,4 @@
 	import { Rating } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Rating count={3}></Rating>
+<Rating count={3} value={2}></Rating>
