@@ -3,6 +3,10 @@
 // import { Tabs } from './Tabs.js';
 // import userEvent from '@testing-library/user-event';
 
+import { describe, expect, it } from 'vitest';
+import { render } from '@testing-library/react';
+import { Tabs } from './Tabs.js';
+
 // // *************************
 // // Integration Tests
 // // *************************
@@ -67,30 +71,30 @@
 
 // // Tabs ---
 
-// describe('<Tabs>', () => {
-// 	it('should render the component', () => {
-// 		const { getByTestId } = render(<Tabs />);
-// 		expect(getByTestId('tabs')).toBeInTheDocument();
-// 	});
+describe('<Tabs>', () => {
+	it('should render the component', () => {
+		const { getByTestId } = render(<Tabs />);
+		expect(getByTestId('tabs')).toBeInTheDocument();
+	});
 
-// 	it('should allow for children', () => {
-// 		const value = 'children value';
-// 		const { getByTestId } = render(<Tabs>{value}</Tabs>);
-// 		expect(getByTestId('tabs').innerHTML).toContain(value);
-// 	});
+	// it('should allow for children', () => {
+	// 	const value = 'children value';
+	// 	const { getByTestId } = render(<Tabs>{value}</Tabs>);
+	// 	expect(getByTestId('tabs').innerHTML).toContain(value);
+	// });
 
-// 	it('should allow you to set the `base` style prop', () => {
-// 		const tailwindClasses = 'bg-red-600';
-// 		const { getByTestId } = render(<Tabs base={tailwindClasses} />);
-// 		expect(getByTestId('tabs')).toHaveClass(tailwindClasses);
-// 	});
+	// it('should allow you to set the `base` style prop', () => {
+	// 	const tailwindClasses = 'bg-red-600';
+	// 	const { getByTestId } = render(<Tabs base={tailwindClasses} />);
+	// 	expect(getByTestId('tabs')).toHaveClass(tailwindClasses);
+	// });
 
-// 	it('should allow you to set the `classes` style prop', () => {
-// 		const tailwindClasses = 'bg-green-600';
-// 		const { getByTestId } = render(<Tabs classes={tailwindClasses} />);
-// 		expect(getByTestId('tabs')).toHaveClass(tailwindClasses);
-// 	});
-// });
+	// it('should allow you to set the `classes` style prop', () => {
+	// 	const tailwindClasses = 'bg-green-600';
+	// 	const { getByTestId } = render(<Tabs classes={tailwindClasses} />);
+	// 	expect(getByTestId('tabs')).toHaveClass(tailwindClasses);
+	// });
+});
 
 // // List ---
 

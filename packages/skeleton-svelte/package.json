@@ -54,6 +54,7 @@
 		"@zag-js/rating-group": "0.65.0",
 		"@zag-js/svelte": "^0.65.0",
 		"@zag-js/switch": "^0.65.0",
+		"@zag-js/tabs": "^0.65.0",
 		"autoprefixer": "^10.4.19",
 		"jsdom": "^24.1.1",
 		"lucide-svelte": "^0.341.0",

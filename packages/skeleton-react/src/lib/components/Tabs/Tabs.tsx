@@ -18,7 +18,7 @@ export const TabsContext = createContext<TabsContextState>({
 const TabsRoot: FC<TabsRootProps> = ({
 	fluid = false,
 	// Root
-	base = '',
+	base = 'w-full',
 	classes = '',
 	// Events
 	onValueChange = noop,
@@ -37,7 +37,7 @@ const TabsRoot: FC<TabsRootProps> = ({
 	const api = tabs.connect(state, send, normalizeProps);
 
 	return (
-		<div {...api.getRootProps()} className={`${base} ${classes}`}>
+		<div {...api.getRootProps()} className={`${base} ${classes}`} data-testid="tabs">
 			<TabsContext.Provider value={{ fluid, api }}>{children}</TabsContext.Provider>
 		</div>
 	);

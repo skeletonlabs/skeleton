@@ -5,9 +5,8 @@ export const Page: React.FC = () => {
 	const [group, setGroup] = useState('item-1');
 	const lorem =
 		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';
-
 	return (
-		<Tabs value={group} onValueChange={setGroup} dir="rtl">
+		<Tabs value={group} onValueChange={setGroup} fluid>
 			<Tabs.List>
 				<Tabs.Control value="item-1">Control-1</Tabs.Control>
 				<Tabs.Control value="item-2">Control-2</Tabs.Control>

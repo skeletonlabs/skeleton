@@ -13,13 +13,16 @@
 <Tabs bind:value={group}>
 	{#snippet list()}
 		<Tabs.Control value="item-1">
-			<IconPlane size={20} />
+			{#snippet lead()}<IconPlane size={20} />{/snippet}
+			Control-1
 		</Tabs.Control>
 		<Tabs.Control value="item-2">
-			<IconBoat size={20} />
+			{#snippet lead()}<IconBoat size={20} />{/snippet}
+			Control-2
 		</Tabs.Control>
 		<Tabs.Control value="item-3">
-			<IconCar size={20} />
+			{#snippet lead()}<IconCar size={20} />{/snippet}
+			Control-3
 		</Tabs.Control>
 	{/snippet}
 	{#snippet content()}

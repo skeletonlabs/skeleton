@@ -11,6 +11,7 @@ export interface TabsContextState {
 // Components ---
 
 export interface TabsRootProps extends React.PropsWithChildren, Omit<tabs.Context, 'id' | 'orientation' | 'onValueChange'> {
+	/** Set tabs to stretch to fill the available width. */
 	fluid?: boolean;
 
 	// Root ---

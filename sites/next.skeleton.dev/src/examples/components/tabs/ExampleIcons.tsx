@@ -1,36 +1,30 @@
 import React, { useState } from 'react';
 import { Tabs } from '@skeletonlabs/skeleton-react';
-import { LibraryBig, Film, Tv } from 'lucide-react';
+import { Plane as IconPlane, Sailboat as IconBoat, Car as IconCar } from 'lucide-react';
 
 export const Page: React.FC = () => {
-	const [group, setGroup] = useState('books');
+	const [group, setGroup] = useState('item-1');
+	const lorem =
+		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';
+
 	return (
-		<Tabs>
+		<Tabs value={group} onValueChange={setGroup}>
 			<Tabs.List>
-				<Tabs.Control name="books" group={group} onChange={setGroup} title="Books">
-					<LibraryBig size={20} />
-					Books
+				<Tabs.Control value="item-1">
+					<IconPlane size={20} />
 				</Tabs.Control>
-				<Tabs.Control name="movies" group={group} onChange={setGroup} title="Movies">
-					<Film size={20} />
-					Movies
+				<Tabs.Control value="item-2">
+					<IconBoat size={20} />
 				</Tabs.Control>
-				<Tabs.Control name="television" group={group} onChange={setGroup} title="Tv">
-					<Tv size={20} />
-					Television
+				<Tabs.Control value="item-3">
+					<IconCar size={20} />
 				</Tabs.Control>
 			</Tabs.List>
-			<Tabs.Panels>
-				<Tabs.Panel group={group} value="books">
-					Books tab content
-				</Tabs.Panel>
-				<Tabs.Panel group={group} value="movies">
-					Movies tab content
-				</Tabs.Panel>
-				<Tabs.Panel group={group} value="television">
-					Television tab content
-				</Tabs.Panel>
-			</Tabs.Panels>
+			<Tabs.Content>
+				<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
+			</Tabs.Content>
 		</Tabs>
 	);
 };

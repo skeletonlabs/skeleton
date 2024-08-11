@@ -1,38 +1,72 @@
 <script lang="ts">
+	import * as tabs from '@zag-js/tabs';
+	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { TabsProps } from './types.js';
+	import { setTabsContextState } from './context.js';
+	import { useId } from '$lib/internal/use-id.js';
 
 	let {
-		id,
+		value = $bindable(''),
+		fluid = false,
 		// Root
 		base = 'w-full',
-		spaceY = 'space-y-4',
 		classes = '',
 		// List
 		listBase = 'flex',
 		listJustify = 'justify-start',
-		listGap = 'gap-2',
 		listBorder = 'border-b border-surface-200-800',
+		listMargin = 'mb-4',
+		listGap = 'gap-2',
 		listClasses = '',
-		// Panels
-		panelsBase = '',
-		panelsClasses = '',
+		// Content
+		contentBase = '',
+		contentClasses = '',
 		// Snippets
 		list,
-		panels
+		content,
+		// Zag
+		...zagProps
 	}: TabsProps = $props();
+
+	// Zag
+	const [snapshot, send] = useMachine(
+		tabs.machine({
+			id: useId(),
+			onValueChange(details) {
+				value = details.value;
+			}
+		}),
+		{
+			context: {
+				...zagProps,
+				get value() {
+					return value;
+				}
+			}
+		}
+	);
+	const api = $derived(tabs.connect(snapshot, send, normalizeProps));
+
+	// Set Context
+	setTabsContextState({
+		get api() {
+			return api;
+		},
+		get fluid() {
+			return fluid;
+		}
+	});
 </script>
 
 <!-- @component A Tab parent component. -->
 
-<div {id} class="{base} {spaceY} {classes}" data-testid="tabs">
-	{#if list}
-		<div class="{listBase} {listGap} {listJustify} {listBorder} {listClasses}" role="tablist">
-			{@render list()}
-		</div>
-	{/if}
-	{#if panels}
-		<div class="{panelsBase} {panelsClasses}">
-			{@render panels()}
-		</div>
-	{/if}
+<div {...api.getRootProps()} class="{base} {classes}" data-testid="tabs">
+	<!-- List -->
+	<div {...api.getListProps()} class="{listBase} {listJustify} {listBorder} {listMargin} {listGap} {listClasses}">
+		{@render list?.()}
+	</div>
+	<!-- Content -->
+	<div class="{contentBase} {contentClasses}">
+		{@render content?.()}
+	</div>
 </div>
