@@ -26,13 +26,13 @@ export function Component() {
 				<pre className="pre">{JSON.stringify(valueDefault)}</pre>
 				<Accordion value={valueDefault} onValueChange={setValueDefault}>
 					{exampleItems.map((item, i) => (
-						<>
+						<div className="flex flex-col gap-2" key={item.value}>
 							<Accordion.Item value={item.value}>
 								<Accordion.Control lead={<item.icon />}>{item.title}</Accordion.Control>
 								<Accordion.Panel>{item.content}</Accordion.Panel>
 							</Accordion.Item>
 							{i < exampleItems.length - 1 && <hr className="hr" />}
-						</>
+						</div>
 					))}
 				</Accordion>
 			</section>
@@ -41,13 +41,13 @@ export function Component() {
 				<pre className="pre">{JSON.stringify(valueCollapsible)}</pre>
 				<Accordion value={valueCollapsible} onValueChange={setValueCollapsible} collapsible>
 					{exampleItems.map((item, i) => (
-						<>
+						<div className="flex flex-col gap-2" key={item.value}>
 							<Accordion.Item value={item.value}>
 								<Accordion.Control lead={<item.icon />}>{item.title}</Accordion.Control>
 								<Accordion.Panel>{item.content}</Accordion.Panel>
 							</Accordion.Item>
 							{i < exampleItems.length - 1 && <hr className="hr" />}
-						</>
+						</div>
 					))}
 				</Accordion>
 			</section>
@@ -56,13 +56,13 @@ export function Component() {
 				<pre className="pre">{JSON.stringify(valueMultiple)}</pre>
 				<Accordion value={valueMultiple} onValueChange={setValueMultiple} multiple>
 					{exampleItems.map((item, i) => (
-						<>
+						<div className="flex flex-col gap-2" key={item.value}>
 							<Accordion.Item value={item.value}>
 								<Accordion.Control lead={<item.icon />}>{item.title}</Accordion.Control>
 								<Accordion.Panel>{item.content}</Accordion.Panel>
 							</Accordion.Item>
 							{i < exampleItems.length - 1 && <hr className="hr" />}
-						</>
+						</div>
 					))}
 				</Accordion>
 			</section>
