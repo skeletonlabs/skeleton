@@ -14,6 +14,8 @@ import ExampleReadOnly from '@examples/components/segment-control/ExampleReadOnl
 import ExampleReadOnlyRaw from '@examples/components/segment-control/ExampleReadOnly.svelte?raw';
 import ExampleVertical from '@examples/components/segment-control/ExampleVertical.svelte';
 import ExampleVerticalRaw from '@examples/components/segment-control/ExampleVertical.svelte?raw';
+import ExampleGroup from '@examples/tailwind/buttons/ExampleGroup.astro';
+import ExampleGroupRaw from '@examples/tailwind/buttons/ExampleGroup.astro?raw';
 
 {/* --- */}
 
@@ -76,4 +78,13 @@ Set `orientation="vertical"` to enable a vertical layout.
 
 ## Alternative
 
-Consider using a [Button Group](/docs/tailwind/buttons#group) if you need direct control over the markup and styling.
+Consider using a Skeleton [Button Group](/docs/tailwind/buttons#group) if you need finer grain control over the markup and styling.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleGroup client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleGroupRaw} lang="svelte" />
+	</Fragment>
+</Preview>

@@ -7,10 +7,10 @@ export const Page: React.FC = () => {
 	return (
 		<Segment name="size" value={size} onValueChange={setSize}>
 			<Segment.Item value="sm">sm</Segment.Item>
-			<Segment.Item value="md">md</Segment.Item>
-			<Segment.Item value="lg" disabled>
-				lg
+			<Segment.Item value="md" disabled>
+				md
 			</Segment.Item>
+			<Segment.Item value="lg">lg</Segment.Item>
 		</Segment>
 	);
 };

@@ -6,6 +6,6 @@
 
 <Segment name="size" bind:value={size}>
 	<Segment.Item value="sm">sm</Segment.Item>
-	<Segment.Item value="md">md</Segment.Item>
-	<Segment.Item value="lg" disabled>lg</Segment.Item>
+	<Segment.Item value="md" disabled>md</Segment.Item>
+	<Segment.Item value="lg">lg</Segment.Item>
 </Segment>
