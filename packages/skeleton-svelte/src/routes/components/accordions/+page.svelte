@@ -29,7 +29,7 @@
 		<Accordion bind:value={valueDefault}>
 			{#each exampleItems as item, i}
 				<Accordion.Item value={item.value}>
-					{#snippet controlLead()}
+					{#snippet lead()}
 						<svelte:component this={item.icon} />
 					{/snippet}
 					{#snippet control()}
@@ -49,7 +49,7 @@
 		<Accordion bind:value={valueCollapsible} collapsible>
 			{#each exampleItems as item, i}
 				<Accordion.Item value={item.value}>
-					{#snippet controlLead()}
+					{#snippet lead()}
 						<svelte:component this={item.icon} />
 					{/snippet}
 					{#snippet control()}
@@ -69,7 +69,7 @@
 		<Accordion bind:value={valueMultiple} multiple>
 			{#each exampleItems as item, i}
 				<Accordion.Item value={item.value}>
-					{#snippet controlLead()}
+					{#snippet lead()}
 						<svelte:component this={item.icon} />
 					{/snippet}
 					{#snippet control()}
