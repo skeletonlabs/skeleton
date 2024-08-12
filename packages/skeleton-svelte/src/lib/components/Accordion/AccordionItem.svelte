@@ -34,7 +34,7 @@
 	const ctx = getAccordionContext();
 </script>
 
-<!-- @component AccordionItem -->
+<!-- @component A accordion item component. -->
 
 <div class="{base} {spaceY} {classes}" {...ctx.api.getItemProps(zagProps)} data-testid="accordion-item">
 	<!-- Control -->

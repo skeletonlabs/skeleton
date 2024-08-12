@@ -41,7 +41,7 @@
 	}
 </script>
 
-<!-- @component An image with a fallback for representing the user. -->
+<!-- @component An image with a fallback for representing a single user. -->
 
 <figure {...api.getRootProps()} class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testid="avatar">
 	<!-- Image -->

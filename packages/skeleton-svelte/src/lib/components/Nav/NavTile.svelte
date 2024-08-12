@@ -57,6 +57,8 @@
 	}
 </script>
 
+<!-- @component An individual Navgiation component tile. -->
+
 <svelte:element
 	this={element}
 	class="{base} {width} {rounded} {rxBackground} {rxMode}"

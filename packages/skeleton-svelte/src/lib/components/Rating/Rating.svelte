@@ -66,7 +66,7 @@
 	const rxDisabled = $derived(state.context.disabled ? stateDisabled : '');
 </script>
 
-<!-- @component A rating component. -->
+<!-- @component A visual representation of a numeric range. -->
 
 <!-- Root -->
 <div class="{base} {classes}" {...api.getRootProps()} data-testid="rating">

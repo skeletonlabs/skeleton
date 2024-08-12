@@ -40,6 +40,8 @@
 	});
 </script>
 
+<!-- @component Provides a horizontal navigation interface. -->
+
 <aside class="{base} {background} {width} {height} {padding} {classes}" data-testid="nav-bar">
 	{#if children}
 		<nav class="{tilesBase} {tilesFlexDirection} {tilesJustify} {tilesItems} {tilesGap} {tilesClasses}">

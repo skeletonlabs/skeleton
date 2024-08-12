@@ -35,7 +35,7 @@
 	const commonWidth = $derived(ctx.fluid ? '100%' : '');
 </script>
 
-<!-- @component A Tab Control component. -->
+<!-- @component A individual tab trigger element. -->
 
 <button
 	{...ctx.api.getTriggerProps(zagProps)}

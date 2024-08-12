@@ -70,6 +70,8 @@
 	const rxReadOnly = $derived(snapshot.context.readOnly ? stateReadOnly : '');
 </script>
 
+<!-- @component Capture input for a limited set of options. -->
+
 <div
 	{...api.getRootProps()}
 	class="{base} {rxOrientation} {background} {border} {padding} {gap} {rounded} {width} {rxDisabled} {rxReadOnly} {classes}"

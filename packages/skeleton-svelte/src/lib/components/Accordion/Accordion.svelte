@@ -57,7 +57,7 @@
 	});
 </script>
 
-<!-- @component Accordion -->
+<!-- @component Divide content into collapsible sections. -->
 
 <div class="{base} {padding} {spaceY} {rounded} {width} {classes}" {...api.getRootProps()} data-testid="accordion">
 	{@render children()}

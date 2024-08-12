@@ -16,7 +16,7 @@
 	const ctx = getTabContext();
 </script>
 
-<!-- @component A Tab Panel component. -->
+<!-- @component A individual tab panel of content. -->
 
 <div {...ctx.api.getContentProps(zagProps)} class="{base} {classes}" data-testid="tabs-panel">
 	{@render children?.()}

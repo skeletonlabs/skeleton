@@ -58,7 +58,7 @@
 	});
 </script>
 
-<!-- @component A Tab parent component. -->
+<!-- @component Use tabs to quickly switch between different views and pages. -->
 
 <div {...api.getRootProps()} class="{base} {classes}" data-testid="tabs">
 	<!-- List -->

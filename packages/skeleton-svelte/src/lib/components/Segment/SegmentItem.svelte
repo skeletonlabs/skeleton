@@ -26,6 +26,8 @@
 	const rxActiveText = $derived(state.checked ? ctx.indicatorText : '');
 </script>
 
+<!-- @component An individual Segment option. -->
+
 <label {...ctx.api.getItemProps(zagProps)} class="{base} {rxDisabled} {classes}" data-testid="segment-item">
 	<!-- Label -->
 	<span {...ctx.api.getItemTextProps(zagProps)} class="{labelBase} {rxActiveText} {labelClasses}" data-testid="segment-item-label">

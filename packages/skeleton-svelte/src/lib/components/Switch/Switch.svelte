@@ -91,6 +91,8 @@
 	const rxDisabled = $derived(api.disabled ? controlDisabled : '');
 </script>
 
+<!-- @component A control for toggling between checked states. -->
+
 <label {...api.getRootProps()} class="{base} {classes}" data-testid="switch">
 	<!-- Input -->
 	<input {...api.getHiddenInputProps()} data-testid="switch-input" />
