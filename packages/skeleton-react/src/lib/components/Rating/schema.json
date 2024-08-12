@@ -148,11 +148,15 @@
 					"type": "boolean"
 				},
 				"stateDisabled": {
-					"description": "Set root disabled classes",
+					"description": "Set item disabled state classes",
+					"type": "string"
+				},
+				"stateInteractive": {
+					"description": "Set item interactive state classes",
 					"type": "string"
 				},
 				"stateReadOnly": {
-					"description": "Set root readonly classes",
+					"description": "Set item read-only state classes",
 					"type": "string"
 				},
 				"translations": {
@@ -175,6 +179,7 @@
 				"labelClasses",
 				"itemBase",
 				"itemClasses",
+				"stateInteractive",
 				"stateReadOnly",
 				"stateDisabled",
 				"iconEmpty",

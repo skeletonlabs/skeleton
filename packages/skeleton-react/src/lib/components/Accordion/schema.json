@@ -33,6 +33,14 @@
 					"description": "Provide arbitrary CSS classes to the control.",
 					"type": "string"
 				},
+				"contentBase": {
+					"description": "Sets the lead's base styles",
+					"type": "string"
+				},
+				"contentClasses": {
+					"description": "Provide arbitrary CSS classes to the content.",
+					"type": "string"
+				},
 				"disabled": {
 					"description": "Set a disabled state for the item.",
 					"type": "boolean"
@@ -225,13 +233,25 @@
 					"description": "Sets control's the hover styles.",
 					"type": "string"
 				},
-				"iconsBase": {
-					"description": "Set the base styles for the state icons.",
+				"indicatorBase": {
+					"description": "Sets the lead's base styles",
+					"type": "string"
+				},
+				"indicatorClasses": {
+					"description": "Provide arbitrary CSS classes to the indicator.",
 					"type": "string"
 				},
 				"lead": {
 					"$ref": "#/definitions/React.ReactNode",
 					"description": "The lead child slot for the control."
+				},
+				"leadBase": {
+					"description": "Sets the lead's base styles",
+					"type": "string"
+				},
+				"leadClasses": {
+					"description": "Provide arbitrary CSS classes to the lead.",
+					"type": "string"
 				},
 				"padding": {
 					"description": "Sets control's the padding styles.",
@@ -242,7 +262,23 @@
 					"type": "string"
 				}
 			},
-			"propertyOrder": ["headingElement", "disabled", "base", "hover", "padding", "rounded", "classes", "iconsBase", "lead", "children"],
+			"propertyOrder": [
+				"headingElement",
+				"disabled",
+				"base",
+				"hover",
+				"padding",
+				"rounded",
+				"classes",
+				"leadBase",
+				"leadClasses",
+				"contentBase",
+				"contentClasses",
+				"indicatorBase",
+				"indicatorClasses",
+				"lead",
+				"children"
+			],
 			"type": "object"
 		},
 		"AccordionItemContextState": {

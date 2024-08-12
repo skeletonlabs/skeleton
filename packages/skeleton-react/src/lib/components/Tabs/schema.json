@@ -337,6 +337,7 @@
 					"type": "string"
 				},
 				"fluid": {
+					"description": "Set tabs to stretch to fill the available width.",
 					"type": "boolean"
 				},
 				"getRootNode": {
