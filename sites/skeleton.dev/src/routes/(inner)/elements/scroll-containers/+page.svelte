@@ -24,7 +24,7 @@
 	// Carousel ---
 
 	let elemCarousel: HTMLDivElement;
-	const unsplashIds = ['vjUokUWbFOs', '1aJuPtQJX_I', 'Jp6O3FFRdEI', 'I3C_eojFVQY', 's0fXOuyTH1M', 'z_X0PxmBuIQ'];
+	const unsplashIds = ['1620562303747-ba21ca6f1530', '1572826246393-e42b63b4ac82', '1620074506951-33a51f7f454a', '1601325979086-d54da2c7419c', '1597077962467-be16edcc6a43', '1510111652602-195fc654aa83'];
 
 	function carouselLeft(): void {
 		const x =
@@ -164,7 +164,7 @@
 							{#each unsplashIds as unsplashId}
 								<img
 									class="snap-center w-[1024px] rounded-container-token"
-									src="https://source.unsplash.com/{unsplashId}/1024x768"
+									src="https://images.unsplash.com/photo-{unsplashId}?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=768&w=1024"
 									alt={unsplashId}
 									loading="lazy"
 								/>
@@ -181,7 +181,7 @@
 							<button type="button" on:click={() => carouselThumbnail(i)}>
 								<img
 									class="rounded-container-token"
-									src="https://source.unsplash.com/{unsplashId}/256x256"
+									src="https://images.unsplash.com/photo-{unsplashId}?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=256&w=256"
 									alt={unsplashId}
 									loading="lazy"
 								/>
