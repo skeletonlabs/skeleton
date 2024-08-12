@@ -47,6 +47,7 @@ export const Switch: React.FC<SwitchProps> = ({
 	inactiveChild,
 	activeChild
 }) => {
+	// Zag
 	const [state, send] = useMachine(
 		zagSwitch.machine({
 			id: useId(),

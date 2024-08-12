@@ -27,6 +27,7 @@ const TabsRoot: FC<TabsRootProps> = ({
 	// Zag
 	...zagProps
 }) => {
+	// Zag
 	const [state, send] = useMachine(
 		tabs.machine({
 			id: useId(),

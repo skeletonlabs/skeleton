@@ -38,7 +38,7 @@
 		...zagProps
 	}: RatingProps = $props();
 
-	// Machine
+	// Zag
 	const [state, send] = useMachine(
 		rating.machine({
 			id: useId(),
@@ -56,8 +56,6 @@
 			}
 		}
 	);
-
-	// API
 	const api = $derived(rating.connect(state, send, normalizeProps));
 
 	// Reactive

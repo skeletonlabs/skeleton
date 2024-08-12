@@ -23,7 +23,7 @@
 		...zagProps
 	}: AccordionProps = $props();
 
-	// Machine
+	// Zag
 	const [snapshot, send] = useMachine(
 		accordion.machine({
 			id: useId(),
@@ -36,8 +36,6 @@
 		}),
 		{ context: zagProps }
 	);
-
-	// API
 	const api = $derived(accordion.connect(snapshot, send, normalizeProps));
 
 	// Context

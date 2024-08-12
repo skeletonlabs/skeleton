@@ -44,6 +44,7 @@ const SegmentRoot: FC<SegmentProps> = ({
 	// Zag
 	...zagProps
 }) => {
+	// Zag
 	const [state, send] = useMachine(
 		radio.machine({
 			id: useId(),

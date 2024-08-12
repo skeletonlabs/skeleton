@@ -34,7 +34,7 @@ export const Rating: FC<RatingProps> = ({
 	// Zag
 	...zagProps
 }) => {
-	// Machine
+	// Zag
 	const [state, send] = useMachine(
 		rating.machine({
 			id: useId(),
@@ -44,8 +44,6 @@ export const Rating: FC<RatingProps> = ({
 			context: zagProps
 		}
 	);
-
-	// API
 	const api = rating.connect(state, send, normalizeProps);
 
 	// Reactive

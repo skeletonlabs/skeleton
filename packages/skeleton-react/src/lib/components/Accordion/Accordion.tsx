@@ -43,6 +43,7 @@ const AccordionRoot: FC<AccordionProps> = ({
 	// Zag
 	...zagProps
 }) => {
+	// Zag
 	const [state, send] = useMachine(
 		accordion.machine({
 			id: useId(),

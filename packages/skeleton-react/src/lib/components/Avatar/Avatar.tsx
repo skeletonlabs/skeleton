@@ -28,6 +28,7 @@ export const Avatar: React.FC<AvatarProps> = ({
 	// Children
 	children
 }) => {
+	// Zag
 	const [state, send] = useMachine(avatar.machine({ id: useId() }));
 	const api = avatar.connect(state, send, normalizeProps);
 
