@@ -54,17 +54,18 @@ export const Rating: FC<RatingProps> = ({
 	const rxDisabled = state.context.disabled ? stateDisabled : '';
 
 	return (
-		<div {...api.getRootProps()} className={`${base} ${classes}`}>
+		<div {...api.getRootProps()} className={`${base} ${classes}`} data-testid="rating">
 			{/* Label */}
 			{!!label && (
-				<label className={`${labelBase} ${labelClasses}`} {...api.getLabelProps()}>
+				<label {...api.getLabelProps()} className={`${labelBase} ${labelClasses}`} data-testid="rating-label">
 					{label}
 				</label>
 			)}
 			{/* Control */}
 			<div
-				className={`${controlBase} ${controlGap} ${rxInteractive} ${rxReadOnly} ${rxDisabled} ${controlClasses}`}
 				{...api.getControlProps()}
+				className={`${controlBase} ${controlGap} ${rxInteractive} ${rxReadOnly} ${rxDisabled} ${controlClasses}`}
+				data-testid="rating-control"
 			>
 				{api.items.map((index) => {
 					const itemState = api.getItemState({ index });
@@ -80,7 +81,7 @@ export const Rating: FC<RatingProps> = ({
 					return (
 						<>
 							{/* Item */}
-							<span key={index} className={`${itemBase} ${itemClasses}`} {...api.getItemProps({ index })}>
+							<span key={index} {...api.getItemProps({ index })} className={`${itemBase} ${itemClasses}`} data-testid="rating-item">
 								{icon}
 							</span>
 						</>
@@ -88,7 +89,7 @@ export const Rating: FC<RatingProps> = ({
 				})}
 			</div>
 			{/* Hidden Input */}
-			<input {...api.getHiddenInputProps()} />
+			<input {...api.getHiddenInputProps()} data-testid="rating-input" />
 		</div>
 	);
 };

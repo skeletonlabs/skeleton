@@ -93,7 +93,7 @@
 
 <label {...api.getRootProps()} class="{base} {classes}" data-testid="switch">
 	<!-- Input -->
-	<input {...api.getHiddenInputProps()} />
+	<input {...api.getHiddenInputProps()} data-testid="switch-input" />
 	<!-- Control -->
 	<span
 		{...api.getControlProps()}
@@ -104,19 +104,20 @@
 		<span
 			{...api.getThumbProps()}
 			class="{thumbBase} {rxThumbState} {thumbRounded} {thumbTransition} {thumbEase} {thumbDuration} {thumbClasses}"
+			data-testid="switch-thumb"
 		>
 			<!-- Icon: Inactive -->
 			{#if !checked && inactiveChild}
-				<span class={iconInactiveBase}>{@render inactiveChild()}</span>
+				<span class={iconInactiveBase} data-testid="switch-icon-inactive">{@render inactiveChild()}</span>
 			{/if}
 			<!-- Icon: Active -->
 			{#if checked && activeChild}
-				<span class={iconActiveBase}>{@render activeChild()}</span>
+				<span class={iconActiveBase} data-testid="switch-icon-active">{@render activeChild()}</span>
 			{/if}
 		</span>
 	</span>
 	<!-- Label -->
-	<span {...api.getLabelProps()} class="{labelBase} {labelClasses}">
+	<span {...api.getLabelProps()} class="{labelBase} {labelClasses}" data-testid="switch-label">
 		{@render children?.()}
 	</span>
 </label>

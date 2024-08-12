@@ -54,18 +54,24 @@
 
 <figure {...api.getRootProps()} class="{base} {size} {classes}" data-testid="progress-ring">
 	<!-- Children -->
-	<div {...api.getLabelProps()} class="{childrenBase} {size} {childrenClasses}">
+	<div {...api.getLabelProps()} class="{childrenBase} {size} {childrenClasses}" data-testid="progress-ring-children">
 		{@render children?.()}
 	</div>
 	<!-- SVG -->
-	<svg {...api.getCircleProps()} class="{svgBase} {svgClasses} {rxAnimCircle}" style="--size:100%;--thickness:{strokeWidth};">
+	<svg
+		{...api.getCircleProps()}
+		class="{svgBase} {svgClasses} {rxAnimCircle}"
+		style="--size:100%;--thickness:{strokeWidth};"
+		data-testid="progress-ring-svg"
+	>
 		<!-- Track -->
-		<circle {...api.getCircleTrackProps()} class="{trackBase} {trackStroke} {trackClasses}" />
+		<circle {...api.getCircleTrackProps()} class="{trackBase} {trackStroke} {trackClasses}" data-testid="progress-ring-track" />
 		<!-- Meter -->
 		<circle
 			{...api.getCircleRangeProps()}
 			class="{meterBase} {meterStroke} {meterTransition} {meterDuration} {meterClasses} {rxAnimMeter}"
 			stroke-linecap={strokeLinecap}
+			data-testid="progress-ring-meter"
 		/>
 		<!-- Label -->
 		{#if api.value !== null && !children}
@@ -77,6 +83,7 @@
 				font-weight={labelFontWeight}
 				text-anchor="middle"
 				dominant-baseline="central"
+				data-testid="progress-label"
 			>
 				{label ?? api.value}%
 			</text>

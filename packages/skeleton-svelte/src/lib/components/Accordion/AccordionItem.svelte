@@ -46,14 +46,14 @@
 		>
 			<!-- Lead -->
 			{#if controlLead}
-				<div>{@render controlLead()}</div>
+				<div data-testid="accordion-lead">{@render controlLead()}</div>
 			{/if}
 			<!-- Content -->
-			<div class="flex-1">
+			<div class="flex-1" data-testid="accordion-control">
 				{@render control()}
 			</div>
-			<!-- Toggle Icons -->
-			<div class={iconsBase}>
+			<!-- Indicator -->
+			<div class={iconsBase} data-testid="accordion-indicator">
 				{#if ctx.api.value.includes(zagProps.value)}
 					{#if ctx.iconOpen}
 						{@render ctx.iconOpen()}

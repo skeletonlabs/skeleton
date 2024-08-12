@@ -51,7 +51,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	return (
 		<figure {...api.getRootProps()} className={`${base} ${size} ${classes}`} data-testid="progress-ring">
 			{/* Children */}
-			<div {...api.getLabelProps()} className={`${childrenBase} ${size} ${childrenClasses}`}>
+			<div {...api.getLabelProps()} className={`${childrenBase} ${size} ${childrenClasses}`} data-testid="progress-ring-children">
 				{children}
 			</div>
 			{/* SVG */}
@@ -59,14 +59,20 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 				{...api.getCircleProps()}
 				className={`${svgBase} ${svgClasses} ${rxAnimCircle}`}
 				style={{ '--size': '100%', '--thickness': strokeWidth } as React.CSSProperties}
+				data-testid="progress-ring-svg"
 			>
 				{/* Track */}
-				<circle {...api.getCircleTrackProps()} className={`${trackBase} ${trackStroke} ${trackClasses}`} />
+				<circle
+					{...api.getCircleTrackProps()}
+					className={`${trackBase} ${trackStroke} ${trackClasses}`}
+					data-testid="progress-ring-track"
+				/>
 				{/* Meter */}
 				<circle
 					{...api.getCircleRangeProps()}
 					className={`${meterBase} ${meterStroke} ${meterTransition} ${meterDuration} ${meterClasses} ${rxAnimMeter}`}
 					strokeLinecap={strokeLinecap}
+					data-testid="progress-ring-meter"
 				/>
 				{/* Label */}
 				{api.value !== null && !children && (
@@ -78,6 +84,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 						fontWeight={labelFontWeight}
 						textAnchor="middle"
 						dominantBaseline="central"
+						data-testid="progress-ring-label"
 					>
 						{label ?? `${api.value}%`}
 					</text>

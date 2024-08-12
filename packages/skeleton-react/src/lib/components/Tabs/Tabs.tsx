@@ -57,7 +57,7 @@ const TabsList: FC<TabsListProps> = ({
 	const ctx = useContext(TabsContext);
 
 	return (
-		<div {...ctx.api.getListProps()} className={`${base} ${justify} ${border} ${margin} ${gap} ${classes}`}>
+		<div {...ctx.api.getListProps()} className={`${base} ${justify} ${border} ${margin} ${gap} ${classes}`} data-testid="tabs-list">
 			{children}
 		</div>
 	);
@@ -99,11 +99,12 @@ const TabsControl: FC<TabsControlProps> = ({
 			{...ctx.api.getTriggerProps(zagProps)}
 			className={`${base} ${padding} ${translateX} ${rxActive} ${classes}`}
 			style={commonStyles}
+			data-testid="tabs-control"
 		>
 			{/* Label */}
-			<div className={`${labelBase} ${rxLabelActive} ${labelClasses}`} style={commonStyles}>
-				{lead && <span>{lead}</span>}
-				<span>{children}</span>
+			<div className={`${labelBase} ${rxLabelActive} ${labelClasses}`} style={commonStyles} data-testid="tabs-control-label">
+				{lead && <span data-testid="tabs-control-lead">{lead}</span>}
+				<span data-testid="tabs-control-children">{children}</span>
 			</div>
 		</button>
 	);
@@ -116,7 +117,11 @@ const TabsContent: FC<TabsContentProps> = ({
 	// Children
 	children
 }) => {
-	return <div className={`${base} ${classes}`}>{children}</div>;
+	return (
+		<div className={`${base} ${classes}`} data-testid="tabs-content">
+			{children}
+		</div>
+	);
 };
 
 const TabsPanel: FC<TabsPanelProps> = ({
@@ -131,7 +136,7 @@ const TabsPanel: FC<TabsPanelProps> = ({
 	const ctx = useContext(TabsContext);
 
 	return (
-		<div {...ctx.api.getContentProps(zagProps)} className={`${base} ${classes}`}>
+		<div {...ctx.api.getContentProps(zagProps)} className={`${base} ${classes}`} data-testid="tabs-panel">
 			{children}
 		</div>
 	);

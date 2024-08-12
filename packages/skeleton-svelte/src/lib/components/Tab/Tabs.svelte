@@ -62,11 +62,11 @@
 
 <div {...api.getRootProps()} class="{base} {classes}" data-testid="tabs">
 	<!-- List -->
-	<div {...api.getListProps()} class="{listBase} {listJustify} {listBorder} {listMargin} {listGap} {listClasses}">
+	<div {...api.getListProps()} class="{listBase} {listJustify} {listBorder} {listMargin} {listGap} {listClasses}" data-testid="tabs-list">
 		{@render list?.()}
 	</div>
 	<!-- Content -->
-	<div class="{contentBase} {contentClasses}">
+	<div class="{contentBase} {contentClasses}" data-testid="tabs-content">
 		{@render content?.()}
 	</div>
 </div>

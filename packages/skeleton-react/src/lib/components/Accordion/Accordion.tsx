@@ -107,11 +107,15 @@ const AccordionControl: FC<AccordionControlProps> = ({
 				data-testid="accordion-control"
 			>
 				{/* Lead */}
-				{lead && <div>{lead}</div>}
+				{lead && <div data-testid="accordion-lead">{lead}</div>}
 				{/* Content */}
-				<div className="flex-1">{children}</div>
-				{/* State Indicator */}
-				<div className={`${iconsBase}`}>{ctx.api.value.includes(itemCtx.value) ? ctx.iconOpen : ctx.iconClosed}</div>
+				<div className="flex-1" data-testid="accordion-content">
+					{children}
+				</div>
+				{/* Indicator */}
+				<div className={`${iconsBase}`} data-testid="accordion-indicator">
+					{ctx.api.value.includes(itemCtx.value) ? ctx.iconOpen : ctx.iconClosed}
+				</div>
 			</button>
 		</HeadingElement>
 	);

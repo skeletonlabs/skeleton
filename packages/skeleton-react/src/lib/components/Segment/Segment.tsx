@@ -69,7 +69,11 @@ const SegmentRoot: FC<SegmentProps> = ({
 			data-testid="segment"
 		>
 			{/* Indicator */}
-			<div {...api.getIndicatorProps()} className={`${indicatorBase} ${indicatorBg} ${indicatorRounded} ${indicatorClasses}`}></div>
+			<div
+				{...api.getIndicatorProps()}
+				className={`${indicatorBase} ${indicatorBg} ${indicatorRounded} ${indicatorClasses}`}
+				data-testid="segment-indicator"
+			></div>
 			{/* Items */}
 			<SegmentContext.Provider value={ctx}>{children}</SegmentContext.Provider>
 		</div>
@@ -101,11 +105,15 @@ const SegmentItem: FC<SegmentItemsProps> = ({
 	return (
 		<label {...ctx.api.getItemProps(zagProps)} className={`${base} ${rxDisabled} ${classes}`} data-testid="segment-item">
 			{/* Label */}
-			<span {...ctx.api.getItemTextProps(zagProps)} className={`${labelBase} ${rxActiveText} ${labelClasses}`}>
+			<span
+				{...ctx.api.getItemTextProps(zagProps)}
+				className={`${labelBase} ${rxActiveText} ${labelClasses}`}
+				data-testid="segment-item-label"
+			>
 				{children}
 			</span>
 			{/* Hidden Input */}
-			<input {...ctx.api.getItemHiddenInputProps(zagProps)} />
+			<input {...ctx.api.getItemHiddenInputProps(zagProps)} data-testid="segment-item-input" />
 		</label>
 	);
 };

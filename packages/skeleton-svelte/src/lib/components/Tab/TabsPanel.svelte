@@ -18,6 +18,6 @@
 
 <!-- @component A Tab Panel component. -->
 
-<div {...ctx.api.getContentProps(zagProps)} class="{base} {classes}">
+<div {...ctx.api.getContentProps(zagProps)} class="{base} {classes}" data-testid="tabs-panel">
 	{@render children?.()}
 </div>

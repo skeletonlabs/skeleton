@@ -51,11 +51,15 @@
 <figure {...api.getRootProps()} class="{base} {height} {width} {classes}" data-testid="progress">
 	<!-- Label -->
 	{#if children}
-		<div {...api.getLabelProps()} class="{labelBase} {labelText} {labelClasses}">{@render children()}</div>
+		<div {...api.getLabelProps()} class="{labelBase} {labelText} {labelClasses}" data-testid="progress-label">{@render children()}</div>
 	{/if}
 	<!-- Track -->
-	<div {...api.getTrackProps()} class="{trackBase} {trackBg} {trackRounded} {trackClasses}">
+	<div {...api.getTrackProps()} class="{trackBase} {trackBg} {trackRounded} {trackClasses}" data-testid="progress-track">
 		<!-- Meter -->
-		<div {...api.getRangeProps()} class="{meterBase} {meterBg} {meterRounded} {meterTransition} {rxIndeterminate} {meterClasses}"></div>
+		<div
+			{...api.getRangeProps()}
+			class="{meterBase} {meterBg} {meterRounded} {meterTransition} {rxIndeterminate} {meterClasses}"
+			data-testid="progress-meter"
+		></div>
 	</div>
 </figure>

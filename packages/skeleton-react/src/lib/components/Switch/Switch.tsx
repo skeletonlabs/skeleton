@@ -82,7 +82,7 @@ export const Switch: React.FC<SwitchProps> = ({
 	return (
 		<label {...api.getRootProps()} className={`${base} ${classes}`} data-testid="switch">
 			{/* Input */}
-			<input {...api.getHiddenInputProps()} />
+			<input {...api.getHiddenInputProps()} data-testid="switch-input" />
 			{/* Control */}
 			<span
 				{...api.getControlProps()}
@@ -93,15 +93,24 @@ export const Switch: React.FC<SwitchProps> = ({
 				<span
 					{...api.getThumbProps()}
 					className={`${thumbBase} ${rxThumbState} ${thumbRounded} ${thumbTransition} ${thumbEase} ${thumbDuration} ${thumbClasses}`}
+					data-testid="switch-thumb"
 				>
 					{/* Icon: Inactive */}
-					{!checked && inactiveChild ? <span className={iconInactiveBase}>{inactiveChild}</span> : null}
+					{!checked && inactiveChild ? (
+						<span className={iconInactiveBase} data-testid="switch-icon-inactive">
+							{inactiveChild}
+						</span>
+					) : null}
 					{/* Icon: Active */}
-					{checked && activeChild ? <span className={iconActiveBase}>{activeChild}</span> : null}
+					{checked && activeChild ? (
+						<span className={iconActiveBase} data-testid="switch-icon-active">
+							{activeChild}
+						</span>
+					) : null}
 				</span>
 			</span>
 			{/* Label */}
-			<span {...api.getLabelProps()} className={`${labelBase} ${labelClasses}`}>
+			<span {...api.getLabelProps()} className={`${labelBase} ${labelClasses}`} data-testid="switch-label">
 				{children}
 			</span>
 		</label>

@@ -53,10 +53,11 @@ export const Avatar: React.FC<AvatarProps> = ({
 					alt={name}
 					className={`${imageBase} ${imageClasses}`}
 					style={{ filter: filter ? `url(${filter})` : undefined }}
+					data-testid="avatar-image"
 				/>
 			)}
 			{/* Fallback */}
-			<span {...api.getFallbackProps()} className={`${fallbackBase} ${fallbackClasses}`}>
+			<span {...api.getFallbackProps()} className={`${fallbackBase} ${fallbackClasses}`} data-testid="avatar-fallback">
 				{children ? children : getInitials(name)}
 			</span>
 		</figure>

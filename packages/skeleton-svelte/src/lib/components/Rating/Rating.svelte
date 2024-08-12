@@ -69,19 +69,23 @@
 <!-- @component A rating component. -->
 
 <!-- Root -->
-<div class="{base} {classes}" {...api.getRootProps()}>
+<div class="{base} {classes}" {...api.getRootProps()} data-testid="rating">
 	<!-- Label -->
 	{#if !!label}
-		<label class="{labelBase} {labelClasses}" {...api.getLabelProps()}>
+		<label class="{labelBase} {labelClasses}" {...api.getLabelProps()} data-testid="rating-label">
 			{@render label()}
 		</label>
 	{/if}
 	<!-- Control -->
-	<div class="{controlBase} {controlGap} {rxInteractive} {rxReadOnly} {rxDisabled} {controlClasses}" {...api.getControlProps()}>
+	<div
+		class="{controlBase} {controlGap} {rxInteractive} {rxReadOnly} {rxDisabled} {controlClasses}"
+		{...api.getControlProps()}
+		data-testid="rating-control"
+	>
 		{#each api.items as index}
 			{@const itemState = api.getItemState({ index })}
 			<!-- Item -->
-			<span class="{itemBase} {itemClasses}" {...api.getItemProps({ index })}>
+			<span class="{itemBase} {itemClasses}" {...api.getItemProps({ index })} data-testid="rating-item">
 				{#if !itemState.highlighted}
 					{@render iconEmpty()}
 				{:else if itemState.half}
@@ -93,5 +97,5 @@
 		{/each}
 	</div>
 	<!-- Hidden Input -->
-	<input {...api.getHiddenInputProps()} />
+	<input {...api.getHiddenInputProps()} data-testid="rating-input" />
 </div>

@@ -42,16 +42,17 @@ export const Progress: FC<ProgressProps> = ({
 		<figure {...api.getRootProps()} className={`${base} ${height} ${width} ${classes}`} data-testid="progress">
 			{/* Label */}
 			{!!children && (
-				<div {...api.getLabelProps()} className={`${labelBase} ${labelText} ${labelClasses}`}>
+				<div {...api.getLabelProps()} className={`${labelBase} ${labelText} ${labelClasses}`} data-testid="progress-label">
 					{children}
 				</div>
 			)}
 			{/* Track */}
-			<div {...api.getTrackProps()} className={`${trackBase} ${trackBg} ${trackRounded} ${trackClasses}`}>
+			<div {...api.getTrackProps()} className={`${trackBase} ${trackBg} ${trackRounded} ${trackClasses}`} data-testid="progress-track">
 				{/* Meter */}
 				<div
 					{...api.getRangeProps()}
 					className={`${meterBase} ${meterBg} ${meterRounded} ${meterTransition} ${rxIndeterminate} ${meterClasses}`}
+					data-testid="progress-meter"
 				></div>
 			</div>
 		</figure>

@@ -46,10 +46,18 @@
 <figure {...api.getRootProps()} class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testid="avatar">
 	<!-- Image -->
 	{#if src || srcset}
-		<img {...api.getImageProps()} {src} {srcset} alt={name} class="{imageBase} {imageClasses}" style:filter={filter && `url(${filter})`} />
+		<img
+			{...api.getImageProps()}
+			{src}
+			{srcset}
+			alt={name}
+			class="{imageBase} {imageClasses}"
+			style:filter={filter && `url(${filter})`}
+			data-testid="avatar-image"
+		/>
 	{/if}
 	<!-- Fallback -->
-	<span {...api.getFallbackProps()} class="{fallbackBase} {fallbackClasses}">
+	<span {...api.getFallbackProps()} class="{fallbackBase} {fallbackClasses}" data-testid="avatar-fallback">
 		{#if children}
 			{@render children()}
 		{:else}

@@ -76,7 +76,11 @@
 	data-testid="segment"
 >
 	<!-- Indicator -->
-	<div {...api.getIndicatorProps()} class="{indicatorBase} {indicatorBg} {indicatorRounded} {indicatorClasses}"></div>
+	<div
+		{...api.getIndicatorProps()}
+		class="{indicatorBase} {indicatorBg} {indicatorRounded} {indicatorClasses}"
+		data-testid="segment-indicator"
+	></div>
 	<!-- Items -->
 	{@render children?.()}
 </div>

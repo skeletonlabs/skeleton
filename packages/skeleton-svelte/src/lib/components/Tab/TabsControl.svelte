@@ -37,9 +37,14 @@
 
 <!-- @component A Tab Control component. -->
 
-<button {...ctx.api.getTriggerProps(zagProps)} class="{base} {padding} {translateX} {rxActive} {classes}" style:width={commonWidth}>
+<button
+	{...ctx.api.getTriggerProps(zagProps)}
+	class="{base} {padding} {translateX} {rxActive} {classes}"
+	style:width={commonWidth}
+	data-testid="tabs-control"
+>
 	<!-- Label -->
-	<div class="{labelBase} {rxLabelActive} {labelClasses}" style:width={commonWidth}>
+	<div class="{labelBase} {rxLabelActive} {labelClasses}" style:width={commonWidth} data-testid="tabs-control-label">
 		{#if lead}<span>{@render lead()}</span>{/if}
 		<span>{@render children?.()}</span>
 	</div>
