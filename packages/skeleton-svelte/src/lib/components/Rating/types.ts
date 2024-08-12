@@ -31,9 +31,11 @@ export interface RatingProps extends Omit<rating.Context, 'id' | 'onValueChange'
 	itemClasses?: string;
 
 	// State ---
-	/** Set root readonly classes */
+	/** Set item interactive state classes */
+	stateInteractive?: string;
+	/** Set item read-only state classes */
 	stateReadOnly?: string;
-	/** Set root disabled classes */
+	/** Set item disabled state classes */
 	stateDisabled?: string;
 
 	// Snippets ---

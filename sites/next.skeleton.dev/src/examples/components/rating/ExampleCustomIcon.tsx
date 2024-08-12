@@ -1,6 +1,9 @@
+import { useState } from 'react';
+
 import { Rating } from '@skeletonlabs/skeleton-react';
 import { Bone, Skull } from 'lucide-react';
 
 export const Page = () => {
-	return <Rating value={2} iconEmpty={<Bone size={24} />} iconFull={<Skull size={24} />}></Rating>;
+	const [starValue, setStarValue] = useState(2);
+	return <Rating value={starValue} onValueChange={setStarValue} iconEmpty={<Bone size={24} />} iconFull={<Skull size={24} />}></Rating>;
 };

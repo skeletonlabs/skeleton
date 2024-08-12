@@ -23,7 +23,8 @@
 		itemBase = '',
 		itemClasses = '',
 		// State
-		stateReadOnly = 'cursor-not-allowed',
+		stateInteractive = 'cursor-pointer',
+		stateReadOnly = '',
 		stateDisabled = 'cursor-not-allowed opacity-50',
 		// Icons
 		iconEmpty = starEmpty,
@@ -60,6 +61,7 @@
 	const api = $derived(rating.connect(state, send, normalizeProps));
 
 	// Reactive
+	const rxInteractive = $derived(state.context.isInteractive ? stateInteractive : '');
 	const rxReadOnly = $derived(state.context.readOnly ? stateReadOnly : '');
 	const rxDisabled = $derived(state.context.disabled ? stateDisabled : '');
 </script>
@@ -75,7 +77,7 @@
 		</label>
 	{/if}
 	<!-- Control -->
-	<div class="{controlBase} {controlGap} {rxReadOnly} {rxDisabled} {controlClasses}" {...api.getControlProps()}>
+	<div class="{controlBase} {controlGap} {rxInteractive} {rxReadOnly} {rxDisabled} {controlClasses}" {...api.getControlProps()}>
 		{#each api.items as index}
 			{@const itemState = api.getItemState({ index })}
 			<!-- Item -->

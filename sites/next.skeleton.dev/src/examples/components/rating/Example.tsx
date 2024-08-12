@@ -1,5 +1,5 @@
-import { Rating } from '@skeletonlabs/skeleton-react';
 import { useState } from 'react';
+import { Rating } from '@skeletonlabs/skeleton-react';
 
 export const Page = () => {
 	// You may optionally implement useState

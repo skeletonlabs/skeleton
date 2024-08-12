@@ -20,7 +20,8 @@ export const Rating: FC<RatingProps> = ({
 	itemBase = '',
 	itemClasses = '',
 	// State
-	stateReadOnly = 'cursor-not-allowed',
+	stateInteractive = 'cursor-pointer',
+	stateReadOnly = '',
 	stateDisabled = 'cursor-not-allowed opacity-50',
 	// Icons
 	iconEmpty = starEmpty,
@@ -48,6 +49,7 @@ export const Rating: FC<RatingProps> = ({
 	const api = rating.connect(state, send, normalizeProps);
 
 	// Reactive
+	const rxInteractive = state.context.isInteractive ? stateInteractive : '';
 	const rxReadOnly = state.context.readOnly ? stateReadOnly : '';
 	const rxDisabled = state.context.disabled ? stateDisabled : '';
 
@@ -60,7 +62,10 @@ export const Rating: FC<RatingProps> = ({
 				</label>
 			)}
 			{/* Control */}
-			<div className={`${controlBase} ${controlGap} ${rxReadOnly} ${rxDisabled} ${controlClasses}`} {...api.getControlProps()}>
+			<div
+				className={`${controlBase} ${controlGap} ${rxInteractive} ${rxReadOnly} ${rxDisabled} ${controlClasses}`}
+				{...api.getControlProps()}
+			>
 				{api.items.map((index) => {
 					const itemState = api.getItemState({ index });
 					const icon = (() => {
