@@ -2,7 +2,7 @@
 	import * as tabs from '@zag-js/tabs';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { TabsProps } from './types.js';
-	import { setTabsContextState } from './context.js';
+	import { setTabContext } from './context.js';
 	import { useId } from '$lib/internal/use-id.js';
 
 	let {
@@ -48,7 +48,7 @@
 	const api = $derived(tabs.connect(snapshot, send, normalizeProps));
 
 	// Set Context
-	setTabsContextState({
+	setTabContext({
 		get api() {
 			return api;
 		},

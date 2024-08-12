@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getTabsContextState } from './context.js';
+	import { getTabContext } from './context.js';
 	import type { TabsControlProps } from './types.js';
 
 	let {
@@ -24,7 +24,7 @@
 	}: TabsControlProps = $props();
 
 	// Get Context
-	const ctx = getTabsContextState();
+	const ctx = getTabContext();
 	const state = $derived(ctx.api.getTriggerState(zagProps));
 
 	// Reactive

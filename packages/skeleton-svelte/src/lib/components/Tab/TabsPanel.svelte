@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getTabsContextState } from './context.js';
+	import { getTabContext } from './context.js';
 	import type { TabsPanelProps } from './types.js';
 
 	let {
@@ -13,7 +13,7 @@
 	}: TabsPanelProps = $props();
 
 	// Get Context
-	const ctx = getTabsContextState();
+	const ctx = getTabContext();
 </script>
 
 <!-- @component A Tab Panel component. -->
