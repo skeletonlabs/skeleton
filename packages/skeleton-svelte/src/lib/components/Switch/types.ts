@@ -1,6 +1,7 @@
+import * as zagSwitch from '@zag-js/switch';
 import type { Snippet } from 'svelte';
 
-export interface SwitchProps {
+export interface SwitchProps extends zagSwitch.Context {
 	/** Set a unique name for the switch input. */
 	name: string;
 	/** Set the checked state. */
@@ -69,10 +70,6 @@ export interface SwitchProps {
 	iconInactiveBase?: string;
 	/** Set base classes for the active icon child. */
 	iconActiveBase?: string;
-
-	// Events ---
-	/** Triggers when the switch is toggled. */
-	onchange?: (event: boolean) => void;
 
 	// Snippets ---
 	/** The default children snippet. */

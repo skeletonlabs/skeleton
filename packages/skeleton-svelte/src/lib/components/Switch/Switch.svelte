@@ -39,26 +39,36 @@
 		// Icons
 		iconInactiveBase = 'pointer-events-none',
 		iconActiveBase = 'pointer-events-none',
-		// Events
-		onchange = () => {},
 		// Snippets
 		children,
 		inactiveChild,
-		activeChild
+		activeChild,
+		// ZagProps
+		...zagProps
 	}: SwitchProps = $props();
 
 	// Zag
 	const [snapshot, send] = useMachine(
 		zagSwitch.machine({
 			id: useId(),
-			name,
-			disabled,
-			checked,
 			onCheckedChange(details) {
 				checked = details.checked;
-				onchange(details.checked);
 			}
-		})
+		}),
+		{
+			context: {
+				...zagProps,
+				get checked() {
+					return checked;
+				},
+				get disabled() {
+					return disabled;
+				},
+				get compact() {
+					return compact;
+				}
+			}
+		}
 	);
 	const api = $derived(zagSwitch.connect(snapshot, send, normalizeProps));
 
