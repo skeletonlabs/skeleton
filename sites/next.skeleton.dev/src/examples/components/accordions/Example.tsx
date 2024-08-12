@@ -22,10 +22,8 @@ export const Page: FC = () => {
 				<Accordion.Panel>{lorem}</Accordion.Panel>
 			</Accordion.Item>
 			<hr className="hr" />
-			<Accordion.Item value="heart">
-				<Accordion.Control lead={<Heart size={24} />} disabled>
-					Heart (disabled)
-				</Accordion.Control>
+			<Accordion.Item value="heart" disabled>
+				<Accordion.Control lead={<Heart size={24} />}>Heart (disabled)</Accordion.Control>
 				<Accordion.Panel>{lorem}</Accordion.Panel>
 			</Accordion.Item>
 			<hr className="hr" />

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
 import { createContext, useContext, useId } from 'react';
 import type { FC } from 'react';
 import * as accordion from '@zag-js/accordion';
@@ -146,27 +145,11 @@ const AccordionPanel: FC<AccordionPanelProps> = ({
 	const ctx = useContext(AccordionContext);
 	const itemCtx = useContext(AccordionItemContext);
 	return (
-		<div {...ctx.api.getItemContentProps(itemCtx)} data-testid="accordion-panel">
-			<AnimatePresence initial={false}>
-				{ctx.api.value.includes(itemCtx.value) && (
-					<motion.div
-						className="overflow-hidden"
-						initial="collapsed"
-						animate="open"
-						exit="collapsed"
-						variants={{
-							open: { opacity: 1, height: 'auto' },
-							collapsed: { opacity: 0, height: 0 }
-						}}
-						transition={{ duration: ctx.animDuration }}
-					>
-						<div className={`${base} ${padding} ${rounded} ${classes}`} data-testid="accordion-panel-children">
-							{children}
-						</div>
-					</motion.div>
-				)}
-			</AnimatePresence>
-		</div>
+		ctx.api.value.includes(itemCtx.value) && (
+			<div {...ctx.api.getItemContentProps(itemCtx)} className={`${base} ${padding} ${rounded} ${classes}`} data-testid="accordion-panel">
+				{children}
+			</div>
+		)
 	);
 };
 

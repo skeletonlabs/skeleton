@@ -27,14 +27,18 @@
 	const [snapshot, send] = useMachine(
 		accordion.machine({
 			id: useId(),
-			get value() {
-				return $state.snapshot(value);
-			},
 			onValueChange(details) {
 				value = details.value;
 			}
 		}),
-		{ context: zagProps }
+		{
+			context: {
+				...zagProps,
+				get value() {
+					return $state.snapshot(value);
+				}
+			}
+		}
 	);
 	const api = $derived(accordion.connect(snapshot, send, normalizeProps));
 
