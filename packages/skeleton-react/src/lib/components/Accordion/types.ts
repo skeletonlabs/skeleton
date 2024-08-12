@@ -79,9 +79,23 @@ export interface AccordionControlProps extends React.PropsWithChildren {
 	/** Provide arbitrary CSS classes to the control. */
 	classes?: string;
 
-	// Icons ---
-	/** Set the base styles for the state icons. */
-	iconsBase?: string;
+	// Lead ---
+	/** Sets the lead's base styles */
+	leadBase?: string;
+	/** Provide arbitrary CSS classes to the lead. */
+	leadClasses?: string;
+
+	// Content ---
+	/** Sets the lead's base styles */
+	contentBase?: string;
+	/** Provide arbitrary CSS classes to the content. */
+	contentClasses?: string;
+
+	// Indicator ---
+	/** Sets the lead's base styles */
+	indicatorBase?: string;
+	/** Provide arbitrary CSS classes to the indicator. */
+	indicatorClasses?: string;
 
 	// Nodes ---
 	/** The lead child slot for the control. */

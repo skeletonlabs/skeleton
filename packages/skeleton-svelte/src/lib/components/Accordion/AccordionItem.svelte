@@ -16,8 +16,15 @@
 		controlPadding = 'py-2 px-4',
 		controlRounded = 'rounded',
 		controlClasses,
-		// Icons
-		iconsBase,
+		// Lead
+		leadBase = '',
+		leadClasses = '',
+		// Content
+		contentBase = 'flex-1',
+		contentClasses = '',
+		// Indicator
+		indicatorBase = '',
+		indicatorClasses = '',
 		// Panel
 		panelBase,
 		panelPadding = 'py-2 px-4',
@@ -25,7 +32,7 @@
 		panelClasses,
 		// Snippets
 		control,
-		controlLead,
+		lead,
 		panel,
 		...zagProps
 	}: AccordionItemProps = $props();
@@ -45,15 +52,15 @@
 			data-testid="accordion-control"
 		>
 			<!-- Lead -->
-			{#if controlLead}
-				<div data-testid="accordion-lead">{@render controlLead()}</div>
+			{#if lead}
+				<div class="{leadBase} {leadClasses}" data-testid="accordion-lead">{@render lead()}</div>
 			{/if}
 			<!-- Content -->
-			<div class="flex-1" data-testid="accordion-control">
+			<div class="{contentBase} {contentClasses}" data-testid="accordion-control">
 				{@render control()}
 			</div>
 			<!-- Indicator -->
-			<div class={iconsBase} data-testid="accordion-indicator">
+			<div class="{indicatorBase} {indicatorClasses}" data-testid="accordion-indicator">
 				{#if ctx.api.value.includes(zagProps.value)}
 					{#if ctx.iconOpen}
 						{@render ctx.iconOpen()}

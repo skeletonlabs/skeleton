@@ -65,9 +65,23 @@ export interface AccordionItemProps extends accordion.ItemProps {
 	/** Provide arbitrary CSS classes to the control. */
 	controlClasses?: string;
 
-	// Icons ---
-	/** Set the base styles for the state icons. */
-	iconsBase?: string;
+	// Lead ---
+	/** Sets the lead's base styles */
+	leadBase?: string;
+	/** Provide arbitrary CSS classes to the lead. */
+	leadClasses?: string;
+
+	// Content ---
+	/** Sets the lead's base styles */
+	contentBase?: string;
+	/** Provide arbitrary CSS classes to the content. */
+	contentClasses?: string;
+
+	// Indicator ---
+	/** Sets the lead's base styles */
+	indicatorBase?: string;
+	/** Provide arbitrary CSS classes to the indicator. */
+	indicatorClasses?: string;
 
 	// Panel ---
 	/** Set the panel's base styles. */
@@ -83,7 +97,7 @@ export interface AccordionItemProps extends accordion.ItemProps {
 	/** The control's default slot. */
 	control: Snippet;
 	/** The control's lead icon slot. */
-	controlLead?: Snippet;
+	lead?: Snippet;
 	/** The panels's default slot. */
 	panel?: Snippet;
 }

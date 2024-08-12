@@ -89,7 +89,15 @@ const AccordionControl: FC<AccordionControlProps> = ({
 	padding = 'py-2 px-4',
 	rounded = 'rounded',
 	classes = '',
-	iconsBase = '',
+	// Lead
+	leadBase = '',
+	leadClasses = '',
+	// Content
+	contentBase = 'flex-1',
+	contentClasses = '',
+	// Indicator
+	indicatorBase = '',
+	indicatorClasses = '',
 	// Icons
 	lead,
 	// Children
@@ -108,13 +116,17 @@ const AccordionControl: FC<AccordionControlProps> = ({
 				data-testid="accordion-control"
 			>
 				{/* Lead */}
-				{lead && <div data-testid="accordion-lead">{lead}</div>}
+				{lead && (
+					<div className={`${leadBase} ${leadClasses}`} data-testid="accordion-lead">
+						{lead}
+					</div>
+				)}
 				{/* Content */}
-				<div className="flex-1" data-testid="accordion-content">
+				<div className={`${contentBase} ${contentClasses}`} data-testid="accordion-content">
 					{children}
 				</div>
 				{/* Indicator */}
-				<div className={`${iconsBase}`} data-testid="accordion-indicator">
+				<div className={`${indicatorBase} ${indicatorClasses}`} data-testid="accordion-indicator">
 					{ctx.api.value.includes(itemCtx.value) ? ctx.iconOpen : ctx.iconClosed}
 				</div>
 			</button>
