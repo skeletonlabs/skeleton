@@ -51,6 +51,7 @@
 	const [snapshot, send] = useMachine(
 		zagSwitch.machine({
 			id: useId(),
+			name,
 			onCheckedChange(details) {
 				checked = details.checked;
 			}
