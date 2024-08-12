@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
+import * as zagSwitch from '@zag-js/switch';
 
-export interface SwitchProps extends React.PropsWithChildren {
+export interface SwitchProps extends React.PropsWithChildren, Omit<zagSwitch.Context, 'id' | 'onCheckedChange'> {
 	/** Set a unique name for the switch input. */
 	name: string;
 	/** Set the checked state. */
@@ -72,7 +73,7 @@ export interface SwitchProps extends React.PropsWithChildren {
 
 	// Events ---
 	/** Triggers when the switch is toggled. */
-	onChange?: (event: boolean) => void;
+	onCheckedChange?: (value: boolean) => void;
 
 	// Children ---
 	/** The inactive state children. */

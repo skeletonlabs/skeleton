@@ -18,15 +18,15 @@ export function Component() {
 			</header>
 			<pre className="pre">{JSON.stringify({ disturb, notifications, disabled, icons, lightswitch, compact }, null, 2)}</pre>
 			<section className="space-y-4">
-				<Switch name="disturb" checked={disturb} onChange={setDisturb}>
+				<Switch name="disturb" checked={disturb} onCheckedChange={setDisturb}>
 					<p>Defaults to inactive state.</p>
 				</Switch>
 				<hr className="hr" />
-				<Switch name="notifications" checked={notifications} onChange={setNotifications}>
+				<Switch name="notifications" checked={notifications} onCheckedChange={setNotifications}>
 					<p>Defaults to active state.</p>
 				</Switch>
 				<hr className="hr" />
-				<Switch name="disabled" checked={disabled} onChange={setDisabled} disabled>
+				<Switch name="disabled" checked={disabled} onCheckedChange={setDisabled} disabled>
 					<p>Uses the disabled state.</p>
 				</Switch>
 				<hr className="hr" />
@@ -34,7 +34,7 @@ export function Component() {
 					name="icons"
 					controlActive="bg-secondary-500"
 					checked={icons}
-					onChange={setIcons}
+					onCheckedChange={setIcons}
 					inactiveChild={<IconX size="14" />}
 					activeChild={<IconCheck size="14" />}
 				>
@@ -45,7 +45,7 @@ export function Component() {
 					name="mode"
 					controlActive="bg-surface-200"
 					checked={lightswitch}
-					onChange={setLightswitch}
+					onCheckedChange={setLightswitch}
 					inactiveChild={<IconMoon size="14" />}
 					activeChild={<IconSun size="14" />}
 				>
@@ -55,7 +55,7 @@ export function Component() {
 				<Switch
 					name="compact"
 					checked={compact}
-					onChange={setCompact}
+					onCheckedChange={setCompact}
 					controlWidth="w-9"
 					compact
 					inactiveChild={<IconFrown size="18" />}

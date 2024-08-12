@@ -4,6 +4,7 @@ import React, { useId } from 'react';
 import * as zagSwitch from '@zag-js/switch';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import { SwitchProps } from './types.js';
+import { noop } from '../../internal/noop.js';
 
 export const Switch: React.FC<SwitchProps> = ({
 	name = '',
@@ -41,7 +42,7 @@ export const Switch: React.FC<SwitchProps> = ({
 	iconInactiveBase = 'pointer-events-none',
 	iconActiveBase = 'pointer-events-none',
 	// Events
-	onChange = () => {},
+	onCheckedChange = noop,
 	// Children
 	children,
 	inactiveChild,
@@ -54,10 +55,7 @@ export const Switch: React.FC<SwitchProps> = ({
 			name,
 			disabled,
 			checked,
-			onCheckedChange(details) {
-				checked = details.checked;
-				onChange(details.checked);
-			}
+			onCheckedChange: (details) => onCheckedChange(details.checked)
 		})
 	);
 	const api = zagSwitch.connect(state, send, normalizeProps);

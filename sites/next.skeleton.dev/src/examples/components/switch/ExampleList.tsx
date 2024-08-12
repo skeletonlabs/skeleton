@@ -10,17 +10,17 @@ export const Page: React.FC = () => {
 		<section className="w-full space-y-4">
 			<div className="flex justify-between items-center gap-4">
 				<p>Default to the inactive state.</p>
-				<Switch name="disturb" checked={disturb} onChange={setDisturb}></Switch>
+				<Switch name="disturb" checked={disturb} onCheckedChange={setDisturb}></Switch>
 			</div>
 			<hr className="hr" />
 			<div className="flex justify-between items-center gap-4">
 				<p>Default to the active state.</p>
-				<Switch name="notifications" checked={notifications} onChange={setNotifications}></Switch>
+				<Switch name="notifications" checked={notifications} onCheckedChange={setNotifications}></Switch>
 			</div>
 			<hr className="hr" />
 			<div className="flex justify-between items-center gap-4">
 				<p>Shown in disabled mode.</p>
-				<Switch name="disabled" checked={disabled} onChange={setDisabled} disabled></Switch>
+				<Switch name="disabled" checked={disabled} onCheckedChange={setDisabled} disabled></Switch>
 			</div>
 		</section>
 	);

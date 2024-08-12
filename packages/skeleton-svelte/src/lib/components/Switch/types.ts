@@ -1,7 +1,7 @@
 import * as zagSwitch from '@zag-js/switch';
 import type { Snippet } from 'svelte';
 
-export interface SwitchProps extends zagSwitch.Context {
+export interface SwitchProps extends Omit<zagSwitch.Context, 'id'> {
 	/** Set a unique name for the switch input. */
 	name: string;
 	/** Set the checked state. */

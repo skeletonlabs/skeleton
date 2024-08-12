@@ -24,7 +24,7 @@ function App() {
 					name="mode"
 					controlActive="bg-surface-200"
 					checked={lightswitch}
-					onChange={onModeChange}
+					onCheckedChange={onModeChange}
 					inactiveChild={<IconMoon size="14" />}
 					activeChild={<IconSun size="14" />}
 				>

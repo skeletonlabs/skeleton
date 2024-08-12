@@ -9,7 +9,7 @@ export const Page: React.FC = () => {
 		<Switch
 			name="compact"
 			checked={compact}
-			onChange={setCompact}
+			onCheckedChange={setCompact}
 			controlWidth="w-9"
 			controlActive="preset-filled-tertiary-500"
 			compact
