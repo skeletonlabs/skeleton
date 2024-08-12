@@ -39,7 +39,7 @@ export const Progress: FC<ProgressProps> = ({
 	const rxIndeterminate = api.indeterminate ? meterAnimate : '';
 
 	return (
-		<div {...api.getRootProps()} className={`${base} ${height} ${width} ${classes}`} data-testid="progress">
+		<figure {...api.getRootProps()} className={`${base} ${height} ${width} ${classes}`} data-testid="progress">
 			{/* Label */}
 			{!!children && (
 				<div {...api.getLabelProps()} className={`${labelBase} ${labelText} ${labelClasses}`}>
@@ -54,6 +54,6 @@ export const Progress: FC<ProgressProps> = ({
 					className={`${meterBase} ${meterBg} ${meterRounded} ${meterTransition} ${rxIndeterminate} ${meterClasses}`}
 				></div>
 			</div>
-		</div>
+		</figure>
 	);
 };
