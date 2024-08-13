@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.4
+
+### Minor Changes
+
+- All Skeleton components have been updated to integrate Zag.js. This contains a number of breaking component API changes. Updates all documentation. And includes new CSS animations in the Tailwind plugin. ([More Information](https://github.com/skeletonlabs/skeleton/discussions/2784)) ([#2778](https://github.com/skeletonlabs/skeleton/pull/2778))
+
 ## 1.0.0-next.3
 
 ### Minor Changes
