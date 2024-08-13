@@ -15,7 +15,7 @@
 	const socialLinks = [
 		{ title: 'GitHub', href: 'https://github.com/skeletonlabs/skeleton', icon: 'fa-github' },
 		{ title: 'Discord', href: 'https://discord.gg/EXqV7W8MtY', icon: 'fa-discord' },
-		{ title: 'X (Twitter)', href: 'https://x.com/SkeletonUI', icon: 'fa-x-twitter' },
+		{ title: 'Bluesky', href: 'https://bsky.app/profile/skeletonlabs.bsky.social', icon: 'fa-bluesky' },
 		{ title: 'YouTube', href: 'https://www.youtube.com/@skeletonlabs', icon: 'fa-youtube' }
 	];
 </script>
