@@ -1,16 +1,12 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useId } from 'react';
+import type { FC } from 'react';
+import * as accordion from '@zag-js/accordion';
+import { useMachine, normalizeProps } from '@zag-js/react';
 
-import {
-	AccordionContextState,
-	AccordionControlProps,
-	AccordionItemContextState,
-	AccordionItemProps,
-	AccordionPanelProps,
-	AccordionProps
-} from './types.js';
+import type { AccordionContextState, AccordionControlProps, AccordionItemProps, AccordionPanelProps, AccordionProps } from './types.js';
+import { noop } from '../../internal/noop.js';
 
 // Contexts ---
 
@@ -18,22 +14,16 @@ export const AccordionContext = createContext<AccordionContextState>({
 	animDuration: 0.2,
 	iconOpen: '-',
 	iconClosed: '+',
-	open: () => {},
-	close: () => {},
-	toggle: () => {},
-	isOpen: () => false
+	api: {} as ReturnType<typeof accordion.connect>
 });
-
-export const AccordionItemContext = createContext<AccordionItemContextState>({
-	id: '',
-	onClick: () => {}
+export const AccordionItemContext = createContext<accordion.ItemProps>({
+	value: '',
+	disabled: false
 });
 
 // Components ---
 
-const AccordionRoot: React.FC<AccordionProps> = ({
-	multiple = false,
-	value: valueInit = [],
+const AccordionRoot: FC<AccordionProps> = ({
 	animDuration = 0.2,
 	// Root
 	base = '',
@@ -46,111 +36,104 @@ const AccordionRoot: React.FC<AccordionProps> = ({
 	iconOpen = '-',
 	iconClosed = '+',
 	// Events
-	onValueChange = () => {},
+	onValueChange = noop,
 	// Children
-	children
+	children,
+	// Zag
+	...zagProps
 }) => {
-	// State
-	const [value, setValue] = useState<string[]>(multiple ? valueInit : [valueInit[0]]);
-
-	// Functions
-	function open(id: string) {
-		setValue((opened) => (multiple ? [...opened, id] : [id]));
-	}
-	function close(id: string) {
-		setValue((opened) => opened.filter((_id) => _id !== id));
-	}
-	function toggle(id: string) {
-		isOpen(id) ? close(id) : open(id);
-	}
-	function isOpen(id: string) {
-		return value.includes(id);
-	}
-
-	// Effect
-	useEffect(() => {
-		onValueChange(value);
-	}, [onValueChange, value]);
-
-	// Context
-	const ctx = {
-		animDuration,
-		iconOpen,
-		iconClosed,
-		open,
-		close,
-		toggle,
-		isOpen
-	};
+	// Zag
+	const [state, send] = useMachine(
+		accordion.machine({
+			id: useId(),
+			onValueChange: (details) => {
+				onValueChange(details.value);
+			}
+		}),
+		{ context: zagProps }
+	);
+	const api = accordion.connect(state, send, normalizeProps);
 
 	return (
-		<div className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`} data-testid="accordion">
-			<AccordionContext.Provider value={ctx}>{children}</AccordionContext.Provider>
+		<div className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`} {...api.getRootProps()} data-testid="accordion">
+			<AccordionContext.Provider value={{ animDuration, iconOpen, iconClosed, api }}>{children}</AccordionContext.Provider>
 		</div>
 	);
 };
 
-const AccordionItem: React.FC<AccordionItemProps> = ({
-	id,
+const AccordionItem: FC<AccordionItemProps> = ({
 	base = '',
 	spaceY = '',
 	classes = '',
-	// Events
-	onClick = () => {},
 	// Children
-	children
+	children,
+	...zagProps
 }) => {
+	const ctx = useContext(AccordionContext);
+
 	return (
-		<AccordionItemContext.Provider value={{ id, onClick }}>
-			<div className={`${base} ${spaceY} ${classes}`} data-testid="accordion-item">
+		<AccordionItemContext.Provider value={zagProps}>
+			<div className={`${base} ${spaceY} ${classes}`} {...ctx?.api.getItemProps(zagProps)} data-testid="accordion-item">
 				{children}
 			</div>
 		</AccordionItemContext.Provider>
 	);
 };
 
-const AccordionControl: React.FC<AccordionControlProps> = ({
-	disabled = false,
+const AccordionControl: FC<AccordionControlProps> = ({
+	headingElement = 'h3',
 	// Control
 	base = 'flex text-start items-center space-x-4 w-full',
 	hover = 'hover:preset-tonal-primary',
 	padding = 'py-2 px-4',
 	rounded = 'rounded',
 	classes = '',
-	iconsBase = '',
+	// Lead
+	leadBase = '',
+	leadClasses = '',
+	// Content
+	contentBase = 'flex-1',
+	contentClasses = '',
+	// Indicator
+	indicatorBase = '',
+	indicatorClasses = '',
 	// Icons
 	lead,
 	// Children
 	children
 }) => {
-	const rootCtx = useContext<AccordionContextState>(AccordionContext);
-	const itemCtx = useContext<AccordionItemContextState>(AccordionItemContext);
+	const ctx = useContext(AccordionContext);
+	const itemCtx = useContext(AccordionItemContext);
 
-	function clickHandler(event: React.MouseEvent<HTMLButtonElement>) {
-		rootCtx.toggle(itemCtx.id);
-		itemCtx.onClick(event);
-	}
+	const HeadingElement = headingElement;
+
 	return (
-		<button
-			type="button"
-			className={`${base} ${hover} ${padding} ${rounded} ${classes}`}
-			aria-expanded={rootCtx.isOpen(itemCtx.id)}
-			aria-controls={`accordion-panel-${itemCtx.id}`}
-			onClick={clickHandler}
-			disabled={disabled}
-			data-testid="accordion-control"
-		>
-			{/* Lead */}
-			{lead && <div>{lead}</div>}
-			{/* Content */}
-			<div className="flex-1">{children}</div>
-			{/* State Indicator */}
-			<div className={`${iconsBase}`}>{rootCtx.isOpen(itemCtx.id) ? rootCtx.iconOpen : rootCtx.iconClosed}</div>
-		</button>
+		<HeadingElement>
+			<button
+				className={`${base} ${hover} ${padding} ${rounded} ${classes}`}
+				{...ctx.api.getItemTriggerProps(itemCtx)}
+				data-testid="accordion-control"
+			>
+				{/* Lead */}
+				{lead && (
+					<div className={`${leadBase} ${leadClasses}`} data-testid="accordion-lead">
+						{lead}
+					</div>
+				)}
+				{/* Content */}
+				<div className={`${contentBase} ${contentClasses}`} data-testid="accordion-content">
+					{children}
+				</div>
+				{/* Indicator */}
+				<div className={`${indicatorBase} ${indicatorClasses}`} data-testid="accordion-indicator">
+					{ctx.api.value.includes(itemCtx.value) ? ctx.iconOpen : ctx.iconClosed}
+				</div>
+			</button>
+		</HeadingElement>
 	);
 };
 
-const AccordionPanel: React.FC<AccordionPanelProps> = ({
+const AccordionPanel: FC<AccordionPanelProps> = ({
 	// Panel
 	base = '',
 	padding = 'py-2 px-4',
@@ -159,30 +142,14 @@ const AccordionPanel: React.FC<AccordionPanelProps> = ({
 	// Children
 	children
 }) => {
-	const rootCtx = useContext<AccordionContextState>(AccordionContext);
-	const itemCtx = useContext<AccordionItemContextState>(AccordionItemContext);
+	const ctx = useContext(AccordionContext);
+	const itemCtx = useContext(AccordionItemContext);
 	return (
-		<div role="region" aria-hidden={rootCtx.isOpen(itemCtx.id)} aria-labelledby={itemCtx.id} data-testid="accordion-panel">
-			<AnimatePresence initial={false}>
-				{rootCtx.isOpen(itemCtx.id) && (
-					<motion.div
-						className="overflow-hidden"
-						initial="collapsed"
-						animate="open"
-						exit="collapsed"
-						variants={{
-							open: { opacity: 1, height: 'auto' },
-							collapsed: { opacity: 0, height: 0 }
-						}}
-						transition={{ duration: rootCtx.animDuration && 0.2 }}
-					>
-						<div className={`${base} ${padding} ${rounded} ${classes}`} data-testid="accordion-panel-children">
-							{children}
-						</div>
-					</motion.div>
-				)}
-			</AnimatePresence>
-		</div>
+		ctx.api.value.includes(itemCtx.value) && (
+			<div {...ctx.api.getItemContentProps(itemCtx)} className={`${base} ${padding} ${rounded} ${classes}`} data-testid="accordion-panel">
+				{children}
+			</div>
+		)
 	);
 };
 

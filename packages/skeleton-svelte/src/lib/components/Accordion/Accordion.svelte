@@ -1,9 +1,12 @@
 <script lang="ts">
+	import * as accordion from '@zag-js/accordion';
+	import { useMachine, normalizeProps } from '@zag-js/svelte';
+	import { useId } from '$lib/internal/use-id.js';
 	import { setAccordionContext } from './context.js';
 	import type { AccordionProps } from './types.js';
 
+	// Props
 	let {
-		multiple = false,
 		value = $bindable([]),
 		animDuration = 200,
 		// Root
@@ -16,49 +19,48 @@
 		// Snippets
 		children,
 		iconOpen,
-		iconClosed
+		iconClosed,
+		...zagProps
 	}: AccordionProps = $props();
 
-	// Functions
-	function open(id: string) {
-		value = multiple ? [...value, id] : [id];
-	}
-	function close(id: string) {
-		value = value.filter((_id) => _id !== id);
-	}
-	function toggle(id: string) {
-		isOpen(id) ? close(id) : open(id);
-	}
-	function isOpen(id: string) {
-		return value.includes(id);
-	}
+	// Zag
+	const [snapshot, send] = useMachine(
+		accordion.machine({
+			id: useId(),
+			onValueChange(details) {
+				value = details.value;
+			}
+		}),
+		{
+			context: {
+				...zagProps,
+				get value() {
+					return $state.snapshot(value);
+				}
+			}
+		}
+	);
+	const api = $derived(accordion.connect(snapshot, send, normalizeProps));
 
 	// Context
 	setAccordionContext({
-		open,
-		close,
-		toggle,
-		isOpen,
+		get api() {
+			return api;
+		},
 		get animDuration() {
 			return animDuration;
 		},
-		get iconOpen() {
-			return iconOpen;
-		},
 		get iconClosed() {
 			return iconClosed;
+		},
+		get iconOpen() {
+			return iconOpen;
 		}
-	});
-
-	// Side effects
-	$effect(() => {
-		// If multiple prop is updated to false and there are more than one opened item, keep only the first one open.
-		if (!multiple && value.length > 1) value = [value[0]];
 	});
 </script>
 
-<!-- @component An Accordion parent component. -->
+<!-- @component Divide content into collapsible sections. -->
 
-<div class="{base} {padding} {spaceY} {rounded} {width} {classes}" data-testid="accordion">
+<div class="{base} {padding} {spaceY} {rounded} {width} {classes}" {...api.getRootProps()} data-testid="accordion">
 	{@render children()}
 </div>

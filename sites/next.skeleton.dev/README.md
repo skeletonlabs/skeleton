@@ -1,5 +1,7 @@
 # Skeleton Documentation Website
 
+This project was generated using Astro: https://astro.build/
+
 ```sh
 npm create astro@latest -- --template minimal
 ```

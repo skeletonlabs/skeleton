@@ -8,14 +8,12 @@ import Example from '@examples/components/tabs/Example.svelte';
 import ExampleRaw from '@examples/components/tabs/Example.svelte?raw';
 import ExampleIcons from '@examples/components/tabs/ExampleIcons.svelte';
 import ExampleIconsRaw from '@examples/components/tabs/ExampleIcons.svelte?raw';
-import ExampleIconsVertical from '@examples/components/tabs/ExampleIconsVertical.svelte';
-import ExampleIconsVerticalRaw from '@examples/components/tabs/ExampleIconsVertical.svelte?raw';
-import ExampleStretch from '@examples/components/tabs/ExampleStretch.svelte';
-import ExampleStretchRaw from '@examples/components/tabs/ExampleStretch.svelte?raw';
+import ExampleIconsLabel from '@examples/components/tabs/ExampleIconsLabel.svelte';
+import ExampleIconsLabelRaw from '@examples/components/tabs/ExampleIconsLabel.svelte?raw';
+import ExampleFluid from '@examples/components/tabs/ExampleFluid.svelte';
+import ExampleFluidRaw from '@examples/components/tabs/ExampleFluid.svelte?raw';
 import ExampleJustify from '@examples/components/tabs/ExampleJustify.svelte';
 import ExampleJustifyRaw from '@examples/components/tabs/ExampleJustify.svelte?raw';
-import ExampleFocusableContent from '@examples/components/tabs/ExampleFocusableContent.svelte';
-import ExampleFocusableContentRaw from '@examples/components/tabs/ExampleFocusableContent.svelte?raw';
 import ExampleRTL from '@examples/components/tabs/ExampleRTL.svelte';
 import ExampleRTLRaw from '@examples/components/tabs/ExampleRTL.svelte?raw';
 
@@ -45,23 +43,23 @@ Easily customize tabs content with icons and arrange them in any combination you
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleIconsVertical client:load />
+		<ExampleIconsLabel client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleIconsVerticalRaw} lang="svelte" />
+		<Code code={ExampleIconsLabelRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
-## Stretch
+## Fluid
 
-Tabs can be stretched to fill the available space using the `width` prop.
+Set `fluid` to enable tabs to stretch to fill the avialable width.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleStretch client:load />
+		<ExampleFluid client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleStretchRaw} lang="svelte" />
+		<Code code={ExampleFluidRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -76,28 +74,13 @@ Tabs can be stretched to fill the available space using the `width` prop.
 	</Fragment>
 </Preview>
 
-## Accessibility
-
-This component adheres to the ARIA APG. Use the preview below to test tabbing and keyboard navigation.
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleFocusableContent client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleFocusableContentRaw} lang="svelte" />
-	</Fragment>
-</Preview>
-
-## Right-to-Left
-
-This component fully supports RTL layouts for seamless navigation and accessibility.
+## RTL
 
 <Preview client:load>
 	<Fragment slot="preview">
 		<ExampleRTL client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRTLRaw} lang="tsx" />
+		<Code code={ExampleRTLRaw} lang="svelte" />
 	</Fragment>
 </Preview>

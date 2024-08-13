@@ -1,18 +1,20 @@
 <script lang="ts">
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 
-	let group = $state('books');
+	let group = $state('plane');
+	const lorem =
+		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';
 </script>
 
-<Tabs>
+<Tabs bind:value={group}>
 	{#snippet list()}
-		<Tabs.Control bind:group name="books">Books</Tabs.Control>
-		<Tabs.Control bind:group name="movies">Movies</Tabs.Control>
-		<Tabs.Control bind:group name="Television">Television</Tabs.Control>
+		<Tabs.Control value="plane">Plane</Tabs.Control>
+		<Tabs.Control value="boat">Boat</Tabs.Control>
+		<Tabs.Control value="car">Car</Tabs.Control>
 	{/snippet}
-	{#snippet panels()}
-		<Tabs.Panel bind:group value="books">Books tab content</Tabs.Panel>
-		<Tabs.Panel bind:group value="movies">Movies tab content</Tabs.Panel>
-		<Tabs.Panel bind:group value="Television">Television tab content</Tabs.Panel>
+	{#snippet content()}
+		<Tabs.Panel value="plane">Plane Panel - {lorem}</Tabs.Panel>
+		<Tabs.Panel value="boat">Boat Panel - {lorem}</Tabs.Panel>
+		<Tabs.Panel value="car">Car Panel - {lorem}</Tabs.Panel>
 	{/snippet}
 </Tabs>

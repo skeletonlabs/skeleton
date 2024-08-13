@@ -51,10 +51,13 @@
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Indeterminate</h2>
-		<p>indeterminate (default)</p>
-		<Progress {max} />
-		<p>custom-indeterminate</p>
-		<Progress {max} meterAnimate="custom-indeterminate" />
+		<Progress value={null} {max}>
+			<span>Deafult Animation</span>
+		</Progress>
+		<!-- NOTE: `custom-indeterminate` defined in app.pcss -->
+		<Progress value={null} {max} meterAnimate="custom-indeterminate">
+			<span>Custom Animation</span>
+		</Progress>
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">RTL</h2>

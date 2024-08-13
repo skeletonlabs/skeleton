@@ -1,157 +1,206 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"definitions": {
+		"IntlTranslations": {
+			"propertyOrder": ["ratingValueText"],
+			"type": "object"
+		},
 		"Iterable<React.ReactNode>": {
 			"propertyOrder": ["__@iterator@83"],
 			"type": "object"
 		},
-		"RatingProps": {
+		"Partial<{root:string;label:string;hiddenInput:string;control:string;item(id:string):string;}>": {
 			"properties": {
-				"base": {
-					"description": "Sets base styles.",
+				"control": {
 					"type": "string"
 				},
-				"buttonAspect": {
-					"description": "Sets the button aspect ratio styles.",
+				"hiddenInput": {
 					"type": "string"
 				},
-				"buttonBase": {
-					"description": "Sets the button base styles.",
-					"type": "string"
-				},
-				"buttonClasses": {
-					"description": "Provide arbitrary CSS classes to the rating button.",
-					"type": "string"
-				},
-				"buttonPosition": {
-					"description": "Sets the button position styles.",
-					"type": "string"
-				},
-				"classes": {
-					"description": "Provide arbitrary CSS classes.",
-					"type": "string"
-				},
-				"emptyBase": {
-					"description": "Set base styles for the empty icon.",
-					"type": "string"
-				},
-				"emptyClasses": {
-					"description": "Provide arbitrary CSS classes for the empty icon.",
-					"type": "string"
-				},
-				"emptyClip": {
-					"description": "Set the clip styles for the empty icon.",
-					"type": "string"
-				},
-				"emptyInteractive": {
-					"description": "Set interactive state styles for the empty icon.",
-					"type": "string"
-				},
-				"emptyStatic": {
-					"description": "Set non-interactive state styles for the empty icon.",
-					"type": "string"
-				},
-				"fullBase": {
-					"description": "Set base styles for the full icon.",
-					"type": "string"
-				},
-				"fullClasses": {
-					"description": "Provide arbitrary CSS classes for the full icon.",
-					"type": "string"
-				},
-				"fullClip": {
-					"description": "Set the clip styles for the full icon.",
-					"type": "string"
-				},
-				"fullInteractive": {
-					"description": "Set interactive state styles for the full icon.",
-					"type": "string"
-				},
-				"fullStatic": {
-					"description": "Set non-interactive state styles for the full icon.",
-					"type": "string"
-				},
-				"iconEmpty": {
-					"$ref": "#/definitions/React.ReactNode",
-					"description": "The empty icon children."
-				},
-				"iconFull": {
-					"$ref": "#/definitions/React.ReactNode",
-					"description": "The full icon children."
-				},
-				"interactive": {
-					"description": "Sets interactive mode.",
-					"type": "boolean"
-				},
-				"justify": {
-					"description": "Sets justification styles.",
-					"type": "string"
-				},
-				"max": {
-					"description": "Sets the maximum rating value.",
-					"type": "number"
-				},
-				"onKeyDown": {
-					"description": "Triggers on rating key down.",
+				"item": {
 					"propertyOrder": [],
 					"type": "object"
 				},
-				"onMouseDown": {
-					"description": "Triggers on rating mouse down.",
+				"label": {
+					"type": "string"
+				},
+				"root": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["root", "label", "hiddenInput", "control", "item"],
+			"type": "object"
+		},
+		"RatingProps": {
+			"properties": {
+				"allowHalf": {
+					"description": "Whether to allow half stars.",
+					"type": "boolean"
+				},
+				"autoFocus": {
+					"description": "Whether to autofocus the rating.",
+					"type": "boolean"
+				},
+				"base": {
+					"description": "Set root base classes",
+					"type": "string"
+				},
+				"classes": {
+					"description": "Set root arbitrary classes",
+					"type": "string"
+				},
+				"controlBase": {
+					"description": "Set control base classes",
+					"type": "string"
+				},
+				"controlClasses": {
+					"description": "Set control arbitrary classes",
+					"type": "string"
+				},
+				"controlGap": {
+					"description": "Set control gap classes",
+					"type": "string"
+				},
+				"count": {
+					"default": 5,
+					"description": "The total number of ratings.",
+					"type": "number"
+				},
+				"dir": {
+					"default": "ltr",
+					"description": "The document's text/writing direction.",
+					"enum": ["ltr", "rtl"],
+					"type": "string"
+				},
+				"disabled": {
+					"description": "Whether the rating is disabled.",
+					"type": "boolean"
+				},
+				"form": {
+					"description": "The associate form of the underlying input element.",
+					"type": "string"
+				},
+				"gap": {
+					"description": "Set root gap classes",
+					"type": "string"
+				},
+				"getRootNode": {
+					"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"iconEmpty": {
+					"$ref": "#/definitions/React.ReactNode",
+					"description": "Set the empty icon node"
+				},
+				"iconFull": {
+					"$ref": "#/definitions/React.ReactNode",
+					"description": "Set the full icon node"
+				},
+				"iconHalf": {
+					"$ref": "#/definitions/React.ReactNode",
+					"description": "Set the half icon node"
+				},
+				"ids": {
+					"$ref": "#/definitions/Partial<{root:string;label:string;hiddenInput:string;control:string;item(id:string):string;}>",
+					"description": "The ids of the elements in the rating. Useful for composition."
+				},
+				"itemBase": {
+					"description": "Set item base classes",
+					"type": "string"
+				},
+				"itemClasses": {
+					"description": "Set item arbitrary classes",
+					"type": "string"
+				},
+				"label": {
+					"$ref": "#/definitions/React.ReactNode",
+					"description": "Set the label node"
+				},
+				"labelBase": {
+					"description": "Set label base classes",
+					"type": "string"
+				},
+				"labelClasses": {
+					"description": "Set label arbitrary classes",
+					"type": "string"
+				},
+				"name": {
+					"description": "The name attribute of the rating element (used in forms).",
+					"type": "string"
+				},
+				"onHoverChange": {
+					"description": "Function to be called when the rating value is hovered.",
 					"propertyOrder": [],
 					"type": "object"
 				},
 				"onValueChange": {
-					"description": "Triggers on rating value change.",
+					"description": "Set the onValueChange callback",
 					"propertyOrder": [],
 					"type": "object"
 				},
-				"spaceX": {
-					"description": "Sets horizontal spacing styles.",
+				"readOnly": {
+					"description": "Whether the rating is readonly.",
+					"type": "boolean"
+				},
+				"required": {
+					"description": "Whether the rating is required.",
+					"type": "boolean"
+				},
+				"stateDisabled": {
+					"description": "Set item disabled state classes",
 					"type": "string"
 				},
-				"step": {
-					"description": "Sets the rating fractional granularity.",
-					"type": "number"
+				"stateInteractive": {
+					"description": "Set item interactive state classes",
+					"type": "string"
+				},
+				"stateReadOnly": {
+					"description": "Set item read-only state classes",
+					"type": "string"
+				},
+				"translations": {
+					"$ref": "#/definitions/IntlTranslations",
+					"description": "Specifies the localized strings that identifies the accessibility elements and their states"
 				},
 				"value": {
-					"description": "Sets the rating value.",
+					"description": "The current rating value.",
 					"type": "number"
-				},
-				"width": {
-					"description": "Sets width styles.",
-					"type": "string"
 				}
 			},
 			"propertyOrder": [
-				"value",
-				"max",
-				"interactive",
-				"step",
 				"base",
-				"width",
-				"justify",
-				"spaceX",
+				"gap",
 				"classes",
-				"buttonBase",
-				"buttonPosition",
-				"buttonAspect",
-				"buttonClasses",
-				"emptyBase",
-				"emptyClip",
-				"emptyInteractive",
-				"emptyStatic",
-				"emptyClasses",
-				"fullBase",
-				"fullClip",
-				"fullInteractive",
-				"fullStatic",
-				"fullClasses",
-				"onMouseDown",
-				"onKeyDown",
-				"onValueChange",
+				"controlBase",
+				"controlGap",
+				"controlClasses",
+				"labelBase",
+				"labelClasses",
+				"itemBase",
+				"itemClasses",
+				"stateInteractive",
+				"stateReadOnly",
+				"stateDisabled",
 				"iconEmpty",
-				"iconFull"
+				"iconHalf",
+				"iconFull",
+				"label",
+				"onValueChange",
+				"required",
+				"name",
+				"value",
+				"form",
+				"dir",
+				"getRootNode",
+				"disabled",
+				"autoFocus",
+				"ids",
+				"translations",
+				"count",
+				"readOnly",
+				"allowHalf",
+				"onHoverChange"
 			],
 			"type": "object"
 		},

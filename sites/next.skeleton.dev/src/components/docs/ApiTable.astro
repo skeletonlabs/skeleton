@@ -9,6 +9,11 @@ interface SchemaRow {
 	required?: boolean;
 }
 
+function formatValuesType(valueType: string) {
+	if (valueType.includes('Partial')) return 'Partial<...>';
+	return valueType;
+}
+
 function formatSchemaData(typeKey: string) {
 	const { properties, propertyOrder, required } = schema.definitions[typeKey];
 	let schemaArr: SchemaRow[] = [];
@@ -20,7 +25,7 @@ function formatSchemaData(typeKey: string) {
 		const [prop, values] = schemaRow;
 		schemaArr.push({
 			prop,
-			type: values['$ref'] ? values['$ref'].replace('#/definitions/', '') : values.type,
+			type: formatValuesType(values['$ref'] ? values['$ref'].replace('#/definitions/', '') : values.type),
 			description: values.description ?? '-',
 			default: values.hasOwnProperty('default') ? String(values.default) : '',
 			required: (required && required.includes(prop)) || false

@@ -1,20 +1,20 @@
 import type { Snippet } from 'svelte';
+import * as radio from '@zag-js/radio-group';
 
 // Context ---
 
 export interface SegmentContext {
-	value: string;
-	name: string;
-	onSelectionHandler: (value: string) => void;
+	api: ReturnType<typeof radio.connect>;
+	indicatorText: string;
 }
 
 // Components ---
 
-export interface SegmentControl {
-	/** Set the group value, which determines selection state. */
+export interface SegmentControl extends Omit<radio.Context, 'id' | 'orientation' | 'onValueChange'> {
+	/** Set the active value. */
 	value?: string;
-	/** Provide the shared input name. */
-	name: string;
+	/** Set the orientation. */
+	orientation?: 'horizontal' | 'vertical' | undefined;
 
 	// Root ---
 	/** Sets base classes. */
@@ -36,44 +36,48 @@ export interface SegmentControl {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// Events ---
-	/** Triggers when the value state is changed. */
-	onchange?: (value: string) => void;
+	// States ---
+	/** Set classes to provide a vertical layout. */
+	orientVertical?: string;
+	/** Set classes to provide a horizintal layout. */
+	orientHorizontal?: string;
+	/** Set claseses for the disabled state. */
+	stateDisabled?: string;
+	/** Set claseses for the read-only state. */
+	stateReadOnly?: string;
+
+	// Indicator
+	/** Sets base classes to the indicator. */
+	indicatorBase?: string;
+	/** Sets background classes to the indicator. */
+	indicatorBg?: string;
+	/** Sets text classes to the indicator. */
+	indicatorText?: string;
+	/** Sets border radius classes to the indicator. */
+	indicatorRounded?: string;
+	/** Provide arbitrary CSS classes to the indicator. */
+	indicatorClasses?: string;
 
 	// Snippets ---
 	/** The default child slot. */
 	children?: Snippet;
 }
 
-export interface SegmentItemProps {
-	/** Provide a unique ID. */
-	id: string;
-	/** Provide the unique segment value. */
-	value: string;
-	/** Provide a hover title attribute. */
-	title?: string;
-	/** Set the disabled state. */
-	disabled?: boolean;
-
+export interface SegmentItemProps extends Omit<radio.ItemProps, 'invalid'> {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
-	/** Sets active state classes. */
-	active?: string;
-	/** Sets hover state classes. */
-	hover?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
+
+	/** Set claseses for the disabled state. */
+	stateDisabled?: string;
 
 	// Label ---
 	/** Sets base classes for the label element. */
 	labelBase?: string;
 	/** Provide arbitrary CSS classes for the label element. */
 	labelClasses?: string;
-
-	// Events ---
-	/** Triggers on items click event. */
-	onclick?: (value: string) => void;
 
 	// Snippets ---
 	/** The default child slot. */

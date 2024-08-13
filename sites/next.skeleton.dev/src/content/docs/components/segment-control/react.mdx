@@ -8,8 +8,14 @@ import { Page as Example } from '@examples/components/segment-control/Example.ts
 import ExampleRaw from '@examples/components/segment-control/Example.tsx?raw';
 import { Page as ExampleDisabled } from '@examples/components/segment-control/ExampleDisabled.tsx';
 import ExampleDisabledRaw from '@examples/components/segment-control/ExampleDisabled.tsx?raw';
+import { Page as ExampleDisableItem } from '@examples/components/segment-control/ExampleDisableItem.tsx';
+import ExampleDisableItemRaw from '@examples/components/segment-control/ExampleDisableItem.tsx?raw';
+import { Page as ExampleReadOnly } from '@examples/components/segment-control/ExampleReadOnly.tsx';
+import ExampleReadOnlyRaw from '@examples/components/segment-control/ExampleReadOnly.tsx?raw';
 import { Page as ExampleVertical } from '@examples/components/segment-control/ExampleVertical.tsx';
 import ExampleVerticalRaw from '@examples/components/segment-control/ExampleVertical.tsx?raw';
+import ExampleGroup from '@examples/tailwind/buttons/ExampleGroup.astro';
+import ExampleGroupRaw from '@examples/tailwind/buttons/ExampleGroup.astro?raw';
 
 import { SegmentSchema } from '@skeletonlabs/skeleton-react/schemas';
 
@@ -24,11 +30,9 @@ import { SegmentSchema } from '@skeletonlabs/skeleton-react/schemas';
 	</Fragment>
 </Preview>
 
-This component wraps native radio inputs, which enables it to operate as as a form control.
+## States
 
-## Disabled
-
-Set `disabled` to any item to disable focus and interaction.
+### Disable Group
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -39,9 +43,31 @@ Set `disabled` to any item to disable focus and interaction.
 	</Fragment>
 </Preview>
 
-## Vertical
+### Disable Item
 
-Set `flexDirection` to enable a vertical layout. This can be controlled with responsive breakpoints.
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleDisableItem client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleDisableItemRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+### Read-Only Group
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleReadOnly client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleReadOnlyRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Orientation
+
+Set `orientation="vertical"` to enable a vertical layout.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -54,7 +80,16 @@ Set `flexDirection` to enable a vertical layout. This can be controlled with res
 
 ## Alternative
 
-Consider using a [Button Group](/docs/tailwind/buttons#group) if you need direct control over the markup and styling.
+Consider using a Skeleton [Button Group](/docs/tailwind/buttons#group) if you need finer grain control over the markup and styling.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleGroup client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleGroupRaw} lang="tsx" />
+	</Fragment>
+</Preview>
 
 ## API Reference
 

@@ -20,19 +20,16 @@ function App() {
 					skeleton-react
 				</a>
 				<hr className="hr" />
-				{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-				<label className="label flex items-center justify-between gap-4">
-					<p>Set Mode</p>
-					<Switch
-						id="mode"
-						name="mode"
-						stateActive="bg-surface-200"
-						checked={lightswitch}
-						onChange={onModeChange}
-						inactiveChild={<IconMoon size="14" />}
-						activeChild={<IconSun size="14" />}
-					/>
-				</label>
+				<Switch
+					name="mode"
+					controlActive="bg-surface-200"
+					checked={lightswitch}
+					onCheckedChange={onModeChange}
+					inactiveChild={<IconMoon size="14" />}
+					activeChild={<IconSun size="14" />}
+				>
+					<p>Toggle Mode</p>
+				</Switch>
 				<hr className="hr" />
 				{/* Components */}
 				<div className="space-y-8">
@@ -50,6 +47,9 @@ function App() {
 						<a className="anchor" href="/components/navigation">
 							Navigation
 						</a>
+						<a className="anchor" href="/components/ratings">
+							Ratings
+						</a>
 						<a className="anchor" href="/components/progress">
 							Progress
 						</a>
@@ -64,9 +64,6 @@ function App() {
 						</a>
 						<a className="anchor" href="/components/tabs">
 							Tabs
-						</a>
-						<a className="anchor" href="/components/ratings">
-							Ratings
 						</a>
 					</nav>
 				</div>

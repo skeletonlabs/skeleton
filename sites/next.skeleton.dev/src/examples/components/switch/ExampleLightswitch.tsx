@@ -18,11 +18,10 @@ export const Page: React.FC = () => {
 
 	return (
 		<Switch
-			id="mode"
 			name="mode"
-			stateActive="bg-surface-200"
+			controlActive="bg-surface-200"
 			checked={mode}
-			onChange={handleModeChange}
+			onCheckedChange={handleModeChange}
 			inactiveChild={<IconMoon size="14" />}
 			activeChild={<IconSun size="14" />}
 		/>

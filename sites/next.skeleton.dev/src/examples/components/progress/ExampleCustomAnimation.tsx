@@ -3,7 +3,7 @@ import { Progress } from '@skeletonlabs/skeleton-react';
 export const Page = () => {
 	return (
 		<>
-			<Progress value={undefined} meterAnimate="my-custom-animation" />
+			<Progress value={null} meterAnimate="my-custom-animation" />
 
 			{/* RECOMMENDED: add these styles to your global stylesheet. */}
 			<style>{`

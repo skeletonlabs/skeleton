@@ -27,7 +27,7 @@ export const Preview: React.FC<PreviewProps> = (props) => {
 			</nav>
 			{/* Panel: Preview */}
 			<div className={`card-enhanced-outlined ${selected !== 'preview' && '!hidden'}`}>
-				<div className="card-enhanced-outlined-inner flex justify-center p-8">{props.preview}</div>
+				<div className="card-enhanced-outlined-inner flex justify-center items-center p-8">{props.preview}</div>
 			</div>
 			{/* Panel: Codeblock */}
 			<div className={`w-full max-w-full ${selected === 'code' ? 'block' : 'hidden'}`}>{props.code}</div>

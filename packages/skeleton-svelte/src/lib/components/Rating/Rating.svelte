@@ -1,116 +1,99 @@
 <script lang="ts">
+	import * as rating from '@zag-js/rating-group';
+	import { useMachine, normalizeProps } from '@zag-js/svelte';
+	import { useId } from '$lib/internal/use-id.js';
+	import { starEmpty, starHalf, starFull } from '$lib/internal/snippets.js';
 	import type { RatingProps } from './types.js';
+	import { noop } from '$lib/internal/noop.js';
 
+	// Props
 	let {
-		value = $bindable(0),
-		max = 5,
-		interactive = false,
-		step = 1,
+		value = $bindable(),
 		// Root
-		base = 'flex',
-		width = 'w-full',
-		justify = 'justify-center',
-		spaceX = 'space-x-2',
+		base = '',
 		classes = '',
-		// Item ---
-		buttonBase = 'w-full h-full',
-		buttonPosition = 'relative',
-		buttonAspect = 'aspect-square',
-		buttonClasses = '',
-		// Icon Empty ---
-		emptyBase = 'absolute left-0 top-0 flex items-center justify-center',
-		emptyClip = '[clip-path:inset(0_0_0_var(--clipValue))] rtl:[clip-path:inset(0_var(--clipValue)_0_0)]',
-		emptyInteractive = 'size-full',
-		emptyStatic = 'w-fit',
-		emptyClasses = '',
-		// Icon Full ---
-		fullBase = 'absolute left-0 top-0 flex items-center justify-center',
-		fullClip = '[clip-path:inset(0_var(--clipValue)_0_0)] rtl:[clip-path:inset(0_0_0_var(--clipValue))]',
-		fullInteractive = 'size-full',
-		fullStatic = 'w-fit',
-		fullClasses = '',
+		// Control
+		controlBase = 'flex',
+		controlGap = 'gap-2',
+		controlClasses,
+		// Label
+		labelBase = '',
+		labelClasses = '',
+		// Item
+		itemBase = '',
+		itemClasses = '',
+		// State
+		stateInteractive = 'cursor-pointer',
+		stateReadOnly = '',
+		stateDisabled = 'cursor-not-allowed opacity-50',
+		// Icons
+		iconEmpty = starEmpty,
+		iconHalf = starHalf,
+		iconFull = starFull,
+		// Children
+		label,
 		// Events
-		onmousedown = () => {},
-		onkeydown = () => {},
-		// Snippets ---
-		iconEmpty,
-		iconFull
+		onValueChange = noop,
+		// Zag
+		...zagProps
 	}: RatingProps = $props();
 
-	function onRatingMousedown(event: MouseEvent, order: number) {
-		const ratingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-		const fractionWidth = ratingRect.width / step;
-		const left = event.clientX - ratingRect.left;
-		let selectedFraction = Math.floor(left / fractionWidth) + 1;
-
-		if (getComputedStyle(figureElement).direction === 'rtl') selectedFraction = step - selectedFraction + 1;
-
-		value = order + selectedFraction / step;
-		onmousedown(event, value);
-	}
-
-	// https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/#kbd_label
-	function onRatingKeydown(event: KeyboardEvent) {
-		const rtl = getComputedStyle(figureElement).direction === 'rtl';
-		if (['ArrowLeft', 'ArrowUp'].includes(event.key)) {
-			event.preventDefault();
-			rtl ? increaseValue() : decreaseValue();
+	// Zag
+	const [state, send] = useMachine(
+		rating.machine({
+			id: useId(),
+			onValueChange: (details) => {
+				value = details.value;
+				onValueChange(details.value);
+			}
+		}),
+		{
+			context: {
+				...zagProps,
+				get value() {
+					return value;
+				}
+			}
 		}
-		if (['ArrowRight', 'ArrowDown'].includes(event.key)) {
-			event.preventDefault();
-			rtl ? decreaseValue() : increaseValue();
-		}
-		onkeydown(event);
-	}
+	);
+	const api = $derived(rating.connect(state, send, normalizeProps));
 
-	function refreshFocus() {
-		const buttons = figureElement.querySelectorAll('button');
-		// focus on the correct button depending on the new value.
-		buttons[Math.max(0, Math.ceil(value - 1))].focus();
-	}
-
-	function increaseValue() {
-		value = Math.min(max, value + 1 / step);
-		refreshFocus();
-	}
-
-	function decreaseValue() {
-		value = Math.max(0, value - 1 / step);
-		refreshFocus();
-	}
-
-	let figureElement: HTMLElement;
-
-	// Dynamic Classesclip-path: inset(0 var(--clip_value) 0 0)
-	const rxEmptyInteractive = $derived(interactive ? emptyInteractive : emptyStatic);
-	const rxFullInteractive = $derived(interactive ? fullInteractive : fullStatic);
-
-	// Use the latest rating or 0 if not available, ignoring fractions
-	let focusedButtonIndex = $derived(Math.max(0, Math.ceil(value - 1)));
+	// Reactive
+	const rxInteractive = $derived(state.context.isInteractive ? stateInteractive : '');
+	const rxReadOnly = $derived(state.context.readOnly ? stateReadOnly : '');
+	const rxDisabled = $derived(state.context.disabled ? stateDisabled : '');
 </script>
 
-<figure class="{base} {width} {justify} {spaceX} {classes}" data-testid="rating" bind:this={figureElement}>
-	{#each { length: max } as _, i}
-		<button
-			class="{buttonBase} {buttonPosition} {buttonAspect} {buttonClasses}"
-			class:pointer-events-none={!interactive}
-			tabindex={interactive && i === focusedButtonIndex ? 0 : -1}
-			onmousedown={(event: MouseEvent) => interactive ? onRatingMousedown(event, i) : undefined}
-			onkeydown={(event: KeyboardEvent) => interactive ? onRatingKeydown(event) : undefined}
-			type="button"
-		>
-			<!-- Icon: Empty -->
-			<span class="{emptyBase} {emptyClip} {rxEmptyInteractive} {emptyClasses}" style="--clipValue: {(value - i) * 100}%">
-				{#if iconEmpty}
+<!-- @component A visual representation of a numeric range. -->
+
+<!-- Root -->
+<div class="{base} {classes}" {...api.getRootProps()} data-testid="rating">
+	<!-- Label -->
+	{#if !!label}
+		<label class="{labelBase} {labelClasses}" {...api.getLabelProps()} data-testid="rating-label">
+			{@render label()}
+		</label>
+	{/if}
+	<!-- Control -->
+	<div
+		class="{controlBase} {controlGap} {rxInteractive} {rxReadOnly} {rxDisabled} {controlClasses}"
+		{...api.getControlProps()}
+		data-testid="rating-control"
+	>
+		{#each api.items as index}
+			{@const itemState = api.getItemState({ index })}
+			<!-- Item -->
+			<span class="{itemBase} {itemClasses}" {...api.getItemProps({ index })} data-testid="rating-item">
+				{#if !itemState.highlighted}
 					{@render iconEmpty()}
-				{/if}
-			</span>
-			<!-- Icon: Full -->
-			<span class="{fullBase} {fullClip} {rxFullInteractive} {fullClasses}" style="--clipValue: {100 - (value - i) * 100}%">
-				{#if iconFull}
+				{:else if itemState.half}
+					{@render iconHalf()}
+				{:else}
 					{@render iconFull()}
 				{/if}
 			</span>
-		</button>
-	{/each}
-</figure>
+		{/each}
+	</div>
+	<!-- Hidden Input -->
+	<input {...api.getHiddenInputProps()} data-testid="rating-input" />
+</div>

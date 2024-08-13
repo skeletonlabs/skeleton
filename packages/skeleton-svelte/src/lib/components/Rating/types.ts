@@ -1,70 +1,54 @@
+import * as rating from '@zag-js/rating-group';
 import type { Snippet } from 'svelte';
 
-export interface RatingProps {
-	/** Sets the rating value. */
-	value?: number;
-	/** Sets the maximum rating value. */
-	max?: number;
-	/** Sets interactive mode. */
-	interactive?: boolean;
-	/** Sets the rating fractional granularity. */
-	step?: number;
-
+export interface RatingProps extends Omit<rating.Context, 'id' | 'onValueChange'> {
 	// Root ---
-	/** Sets base styles. */
+	/** Set root base classes */
 	base?: string;
-	/** Sets width styles. */
-	width?: string;
-	/** Sets justification styles. */
-	justify?: string;
-	/** Sets horizontal spacing styles. */
-	spaceX?: string;
-	/** Provide arbitrary CSS classes. */
+	/** Set root gap classes */
+	gap?: string;
+	/** Set root arbitrary classes */
 	classes?: string;
 
-	// Button ---
-	/** Sets the button base styles. */
-	buttonBase?: string;
-	/** Sets the button position styles. */
-	buttonPosition?: string;
-	/** Sets the button aspect ratio styles. */
-	buttonAspect?: string;
-	/** Provide arbitrary CSS classes to the rating button. */
-	buttonClasses?: string;
+	// Control ---
+	/** Set control base classes */
+	controlBase?: string;
+	/** Set control gap classes */
+	controlGap?: string;
+	/** Set control arbitrary classes */
+	controlClasses?: string;
 
-	// Icon Empty
-	/** Set base styles for the empty icon. */
-	emptyBase?: string;
-	/** Set the clip styles for the empty icon. */
-	emptyClip?: string;
-	/** Set interactive state styles for the empty icon. */
-	emptyInteractive?: string;
-	/** Set non-interactive state styles for the empty icon. */
-	emptyStatic?: string;
-	/** Provide arbitrary CSS classes for the empty icon. */
-	emptyClasses?: string;
+	// Label ---
+	/** Set label base classes */
+	labelBase?: string;
+	/** Set label arbitrary classes */
+	labelClasses?: string;
 
-	// Icon Full
-	/** Set base styles for the full icon. */
-	fullBase?: string;
-	/** Set the clip styles for the full icon. */
-	fullClip?: string;
-	/** Set interactive state styles for the full icon. */
-	fullInteractive?: string;
-	/** Set non-interactive state styles for the full icon. */
-	fullStatic?: string;
-	/** Provide arbitrary CSS classes for the full icon. */
-	fullClasses?: string;
+	// Item ---
+	/** Set item base classes */
+	itemBase?: string;
+	/** Set item arbitrary classes */
+	itemClasses?: string;
 
-	// Events ---
-	/** Triggers on rating mouse down. */
-	onmousedown?: (event: MouseEvent, value: number) => void;
-	/** Triggers on rating key down. */
-	onkeydown?: (event: KeyboardEvent) => void;
+	// State ---
+	/** Set item interactive state classes */
+	stateInteractive?: string;
+	/** Set item read-only state classes */
+	stateReadOnly?: string;
+	/** Set item disabled state classes */
+	stateDisabled?: string;
 
 	// Snippets ---
-	/** The empty icon slot. */
+	/** Set the empty icon snippet */
 	iconEmpty?: Snippet;
-	/** The full icon slot. */
+	/** Set the half icon snippet */
+	iconHalf?: Snippet;
+	/** Set the full icon snippet */
 	iconFull?: Snippet;
+	/** Set the label snippet */
+	label?: Snippet;
+
+	// Events ---
+	/** Set the onValueChange callback */
+	onValueChange?: (value: number) => void;
 }

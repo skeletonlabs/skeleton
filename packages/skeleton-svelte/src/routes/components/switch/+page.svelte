@@ -7,50 +7,49 @@
 	import IconSun from 'lucide-svelte/icons/sun';
 	import IconSmile from 'lucide-svelte/icons/frown';
 	import IconFrown from 'lucide-svelte/icons/smile';
+
+	let disturb = $state(false);
+	let notifications = $state(true);
+	let disabled = $state(false);
+	let icons = $state(true);
+	let lightswitch = $state(false);
+	let compact = $state(false);
 </script>
 
 <div class="space-y-10">
 	<header>
 		<h1 class="h1">Switch</h1>
 	</header>
+	<pre class="pre">{JSON.stringify({ disturb, notifications, disabled, icons, lightswitch, compact }, null, 2)}</pre>
 	<section class="space-y-4 p-4">
-		<label class="label flex items-center justify-between gap-4" for="disturb">
+		<Switch name="disturb" bind:checked={disturb}>
 			<p>Defaults to inactive state.</p>
-			<Switch id="disturb" name="disturb" />
-		</label>
+		</Switch>
 		<hr class="hr" />
-		<label class="label flex items-center justify-between gap-4" for="notifications">
+		<Switch name="notifications" bind:checked={notifications}>
 			<p>Defaults to active state.</p>
-			<Switch id="notifications" name="notifications" checked />
-		</label>
+		</Switch>
 		<hr class="hr" />
-		<label class="label flex items-center justify-between gap-4" for="disabled">
+		<Switch name="disabled" bind:checked={disabled} disabled>
 			<p>Uses the disabled state.</p>
-			<Switch id="disabled" name="disabled" disabled />
-		</label>
+		</Switch>
 		<hr class="hr" />
-		<label class="label flex items-center justify-between gap-4" for="icons">
+		<Switch name="icons" controlActive="bg-secondary-500" bind:checked={icons}>
+			{#snippet inactiveChild()}<IconX size="14" />{/snippet}
+			{#snippet activeChild()}<IconCheck size="14" />{/snippet}
 			<p>Custom Icons</p>
-			<Switch id="icons" name="icons" stateActive="bg-secondary-500" checked>
-				{#snippet inactiveChild()}<IconX size="14" />{/snippet}
-				{#snippet activeChild()}<IconCheck size="14" />{/snippet}
-			</Switch>
-		</label>
+		</Switch>
 		<hr class="hr" />
-		<label class="label flex items-center justify-between gap-4" for="mode">
+		<Switch name="mode" controlActive="bg-surface-200" bind:checked={lightswitch}>
+			{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
+			{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			<p>Lightswitch</p>
-			<Switch id="mode" name="mode" stateActive="bg-surface-200">
-				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
-				{#snippet activeChild()}<IconSun size="14" />{/snippet}
-			</Switch>
-		</label>
+		</Switch>
 		<hr class="hr" />
-		<label class="label flex items-center justify-between gap-4" for="compact">
+		<Switch name="compact" compact controlWidth="w-9" bind:checked={compact}>
+			{#snippet inactiveChild()}<IconSmile size="18" />{/snippet}
+			{#snippet activeChild()}<IconFrown size="18" />{/snippet}
 			<p>Compact</p>
-			<Switch id="compact" name="compact" compact width="w-9">
-				{#snippet inactiveChild()}<IconSmile size="18" />{/snippet}
-				{#snippet activeChild()}<IconFrown size="18" />{/snippet}
-			</Switch>
-		</label>
+		</Switch>
 	</section>
 </div>

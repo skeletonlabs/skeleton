@@ -1,38 +1,23 @@
 import React, { useState } from 'react';
 import { Tabs } from '@skeletonlabs/skeleton-react';
-import { LibraryBig, Film, Tv } from 'lucide-react';
 
 export const Page: React.FC = () => {
-	const [group, setGroup] = useState('books');
+	const [group, setGroup] = useState('plane');
+	const lorem =
+		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';
+
 	return (
-		<div dir="rtl" className="w-full">
-			<Tabs>
-				<Tabs.List>
-					<Tabs.Control name="books" group={group} onChange={setGroup} title="Books">
-						<LibraryBig size={20} />
-						Books
-					</Tabs.Control>
-					<Tabs.Control name="movies" group={group} onChange={setGroup} title="Movies">
-						<Film size={20} />
-						Movies
-					</Tabs.Control>
-					<Tabs.Control name="television" group={group} onChange={setGroup} title="Tv">
-						<Tv size={20} />
-						Television
-					</Tabs.Control>
-				</Tabs.List>
-				<Tabs.Panels>
-					<Tabs.Panel group={group} value="books">
-						Books tab content
-					</Tabs.Panel>
-					<Tabs.Panel group={group} value="movies">
-						Movies tab content
-					</Tabs.Panel>
-					<Tabs.Panel group={group} value="television">
-						Television tab content
-					</Tabs.Panel>
-				</Tabs.Panels>
-			</Tabs>
-		</div>
+		<Tabs value={group} onValueChange={setGroup} dir="rtl">
+			<Tabs.List>
+				<Tabs.Control value="plane">Plane</Tabs.Control>
+				<Tabs.Control value="boat">Boat</Tabs.Control>
+				<Tabs.Control value="car">Car</Tabs.Control>
+			</Tabs.List>
+			<Tabs.Content>
+				<Tabs.Panel value="plane">Plane Panel - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="boat">Boat Panel - {lorem}</Tabs.Panel>
+				<Tabs.Panel value="car">Car Panel - {lorem}</Tabs.Panel>
+			</Tabs.Content>
+		</Tabs>
 	);
 };

@@ -54,11 +54,13 @@ export function Component() {
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">Indeterminate</h2>
-				<p>indeterminate (default)</p>
-				<Progress max={max} />
-				<p>custom-indeterminate</p>
+				<Progress value={null}>
+					<span>Deafult Animation</span>
+				</Progress>
 				{/* NOTE: `custom-indeterminate` defined in app.pcss */}
-				<Progress max={max} meterAnimate="custom-indeterminate" />
+				<Progress value={null} meterAnimate="custom-indeterminate">
+					<span>Custom Animation</span>
+				</Progress>
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">RTL</h2>

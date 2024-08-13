@@ -1,51 +1,60 @@
-import { useEffect, type FC } from 'react';
-
-import { ProgressProps } from './types.js';
+import * as progress from '@zag-js/progress';
+import { normalizeProps, useMachine } from '@zag-js/react';
+import { useId } from 'react';
+import type { FC } from 'react';
+import type { ProgressProps } from './types.js';
 
 export const Progress: FC<ProgressProps> = ({
-	value,
-	max = 100,
-	labelledBy = '',
 	// Root
-	base = 'overflow-x-hidden',
-	bg = 'bg-surface-200-800',
-	width = 'w-full',
+	base = 'flex items-center gap-4',
 	height = 'h-2',
-	rounded = 'rounded',
+	width = 'w-full',
 	classes = '',
+	// Label
+	labelBase = 'whitespace-nowrap',
+	labelText = 'text-xs',
+	labelClasses = '',
+	// Track
+	trackBase = 'h-full w-full overflow-x-hidden',
+	trackBg = 'bg-surface-200-800',
+	trackRounded = 'rounded',
+	trackClasses = '',
 	// Meter
-	meterBase = 'h-full',
+	meterBase = 'h-full w-full',
 	meterBg = 'bg-surface-950-50',
 	meterRounded = 'rounded',
 	meterTransition = 'transition-[width]',
-	meterAnimate = 'animate-indeterminate',
-	meterClasses = ''
+	meterAnimate = 'animate-progress-indeterminate',
+	meterClasses = '',
+	// Children
+	children,
+	// Zag
+	...zagProps
 }) => {
-	useEffect(() => {
-		if (max < 0) {
-			console.warn('The max prop should be greater than or equal to 0');
-		}
-	});
+	// Zag
+	const [state, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
+	const api = progress.connect(state, send, normalizeProps);
 
-	const indeterminate = value === undefined;
-	const fillPercentage = `${indeterminate ? 50 : ((value! - 0) / (max - 0)) * 100}%`;
-	const rxIndeterminate = indeterminate ? meterAnimate : '';
+	// Reactive
+	const rxIndeterminate = api.indeterminate ? meterAnimate : '';
 
 	return (
-		<>
-			<div
-				role="progressbar"
-				aria-labelledby={labelledBy}
-				aria-valuenow={value}
-				aria-valuemin={0}
-				aria-valuemax={max}
-				className={`${base} ${bg} ${width} ${height} ${rounded} ${classes}`}
-			>
+		<figure {...api.getRootProps()} className={`${base} ${height} ${width} ${classes}`} data-testid="progress">
+			{/* Label */}
+			{!!children && (
+				<div {...api.getLabelProps()} className={`${labelBase} ${labelText} ${labelClasses}`} data-testid="progress-label">
+					{children}
+				</div>
+			)}
+			{/* Track */}
+			<div {...api.getTrackProps()} className={`${trackBase} ${trackBg} ${trackRounded} ${trackClasses}`} data-testid="progress-track">
+				{/* Meter */}
 				<div
+					{...api.getRangeProps()}
 					className={`${meterBase} ${meterBg} ${meterRounded} ${meterTransition} ${rxIndeterminate} ${meterClasses}`}
-					style={{ width: fillPercentage }}
+					data-testid="progress-meter"
 				></div>
 			</div>
-		</>
+		</figure>
 	);
 };

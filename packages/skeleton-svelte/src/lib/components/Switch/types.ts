@@ -1,8 +1,7 @@
+import * as zagSwitch from '@zag-js/switch';
 import type { Snippet } from 'svelte';
 
-export interface SwitchProps {
-	/** Set a unique ID for the switch input. */
-	id: string;
+export interface SwitchProps extends Omit<zagSwitch.Context, 'id'> {
 	/** Set a unique name for the switch input. */
 	name: string;
 	/** Set the checked state. */
@@ -12,33 +11,33 @@ export interface SwitchProps {
 	/** Set the compact display mode. */
 	compact?: boolean;
 
-	// ARIA ---
-	/** Identifies the element that labels the switch. */
-	labelledBy?: string | undefined;
-	/** Identifies the element that describes the switch. */
-	describedBy?: string | undefined;
-
-	// Root (Track) ---
+	// Root ---
 	/** Set base classes for the root element. */
 	base?: string;
-	/** Set inactive state classes for the root element. */
-	stateInactive?: string;
-	/** Set active state classes for the root element. */
-	stateActive?: string;
-	/** Set disabled state classes for the root element. */
-	stateDisabled?: string;
-	/** Set width classes for the root element. */
-	width?: string;
-	/** Set height classes for the root element. */
-	height?: string;
-	/** Set padding classes for the root element. */
-	padding?: string;
-	/** Set rounded classes for the root element. */
-	rounded?: string;
-	/** Set hover classes for the root element. */
-	hover?: string;
 	/** Provide arbitrary classes to the root element. */
 	classes?: string;
+
+	// Control ---
+	/** Set base classes for the control element. */
+	controlBase?: string;
+	/** Set inactive state classes for the control element. */
+	controlInactive?: string;
+	/** Set active state classes for the control element. */
+	controlActive?: string;
+	/** Set disabled state classes for the control element. */
+	controlDisabled?: string;
+	/** Set width classes for the control element. */
+	controlWidth?: string;
+	/** Set height classes for the control element. */
+	controlHeight?: string;
+	/** Set padding classes for the control element. */
+	controlPadding?: string;
+	/** Set rounded classes for the control element. */
+	controlRounded?: string;
+	/** Set hover classes for the control element. */
+	controlHover?: string;
+	/** Provide arbitrary classes to the control element. */
+	controlClasses?: string;
 
 	// Thumb ---
 	/** Set base classes for the thumb element. */
@@ -60,19 +59,23 @@ export interface SwitchProps {
 	/** Provide arbitrary classes to the thumb element. */
 	thumbClasses?: string;
 
+	// Label ---
+	/** Set base classes for the label element. */
+	labelBase?: string;
+	/** Provide arbitrary classes to the label element. */
+	labelClasses?: string;
+
 	// Icons ---
 	/** Set base classes for the inactive icon child. */
 	iconInactiveBase?: string;
 	/** Set base classes for the active icon child. */
 	iconActiveBase?: string;
 
-	// Events ---
-	/** Triggers when the switch is toggled. */
-	onchange?: (event: boolean) => void;
-
 	// Snippets ---
-	/** The inactive state children. */
+	/** The default children snippet. */
+	children?: Snippet;
+	/** The inactive state snippet. */
 	inactiveChild?: Snippet;
-	/** The active state children. */
+	/** The active state snippet. */
 	activeChild?: Snippet;
 }

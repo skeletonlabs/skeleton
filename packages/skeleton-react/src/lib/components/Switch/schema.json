@@ -5,6 +5,27 @@
 			"propertyOrder": ["__@iterator@83"],
 			"type": "object"
 		},
+		"Partial<{root:string;hiddenInput:string;control:string;label:string;thumb:string;}>": {
+			"properties": {
+				"control": {
+					"type": "string"
+				},
+				"hiddenInput": {
+					"type": "string"
+				},
+				"label": {
+					"type": "string"
+				},
+				"root": {
+					"type": "string"
+				},
+				"thumb": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["root", "hiddenInput", "control", "label", "thumb"],
+			"type": "object"
+		},
 		"React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
 			"description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
 			"properties": {
@@ -98,6 +119,9 @@
 					"description": "Set the checked state.",
 					"type": "boolean"
 				},
+				"children": {
+					"$ref": "#/definitions/React.ReactNode"
+				},
 				"classes": {
 					"description": "Provide arbitrary classes to the root element.",
 					"type": "string"
@@ -106,21 +130,64 @@
 					"description": "Set the compact display mode.",
 					"type": "boolean"
 				},
-				"describedby": {
-					"description": "Identifies the element that describes the switch.",
+				"controlActive": {
+					"description": "Set active state classes for the control element.",
+					"type": "string"
+				},
+				"controlBase": {
+					"description": "Set base classes for the control element.",
+					"type": "string"
+				},
+				"controlClasses": {
+					"description": "Provide arbitrary classes to the control element.",
+					"type": "string"
+				},
+				"controlDisabled": {
+					"description": "Set disabled state classes for the control element.",
+					"type": "string"
+				},
+				"controlHeight": {
+					"description": "Set height classes for the control element.",
+					"type": "string"
+				},
+				"controlHover": {
+					"description": "Set hover classes for the control element.",
+					"type": "string"
+				},
+				"controlInactive": {
+					"description": "Set inactive state classes for the control element.",
+					"type": "string"
+				},
+				"controlPadding": {
+					"description": "Set padding classes for the control element.",
+					"type": "string"
+				},
+				"controlRounded": {
+					"description": "Set rounded classes for the control element.",
+					"type": "string"
+				},
+				"controlWidth": {
+					"description": "Set width classes for the control element.",
+					"type": "string"
+				},
+				"dir": {
+					"default": "ltr",
+					"description": "The document's text/writing direction.",
+					"enum": ["ltr", "rtl"],
 					"type": "string"
 				},
 				"disabled": {
 					"description": "Set the disabled state.",
 					"type": "boolean"
 				},
-				"height": {
-					"description": "Set height classes for the root element.",
+				"form": {
+					"description": "The id of the form that the switch belongs to",
 					"type": "string"
 				},
-				"hover": {
-					"description": "Set hover classes for the root element.",
-					"type": "string"
+				"getRootNode": {
+					"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+					"propertyOrder": [],
+					"type": "object"
 				},
 				"iconActiveBase": {
 					"description": "Set base classes for the active icon child.",
@@ -130,46 +197,46 @@
 					"description": "Set base classes for the inactive icon child.",
 					"type": "string"
 				},
-				"id": {
-					"description": "Set a unique ID for the switch input.",
-					"type": "string"
+				"ids": {
+					"$ref": "#/definitions/Partial<{root:string;hiddenInput:string;control:string;label:string;thumb:string;}>",
+					"description": "The ids of the elements in the switch. Useful for composition."
 				},
 				"inactiveChild": {
 					"$ref": "#/definitions/React.ReactNode",
 					"description": "The inactive state children."
 				},
-				"labelledby": {
-					"description": "Identifies the element that labels the switch.",
+				"invalid": {
+					"description": "If `true`, the switch is marked as invalid.",
+					"type": "boolean"
+				},
+				"label": {
+					"description": "Specifies the localized strings that identifies the accessibility elements and their states",
+					"type": "string"
+				},
+				"labelBase": {
+					"description": "Set base classes for the label element.",
+					"type": "string"
+				},
+				"labelClasses": {
+					"description": "Provide arbitrary classes to the label element.",
 					"type": "string"
 				},
 				"name": {
 					"description": "Set a unique name for the switch input.",
 					"type": "string"
 				},
-				"onChange": {
+				"onCheckedChange": {
 					"description": "Triggers when the switch is toggled.",
 					"propertyOrder": [],
 					"type": "object"
 				},
-				"padding": {
-					"description": "Set padding classes for the root element.",
-					"type": "string"
+				"readOnly": {
+					"description": "Whether the switch is read-only",
+					"type": "boolean"
 				},
-				"rounded": {
-					"description": "Set rounded classes for the root element.",
-					"type": "string"
-				},
-				"stateActive": {
-					"description": "Set active state classes for the root element.",
-					"type": "string"
-				},
-				"stateDisabled": {
-					"description": "Set disabled state classes for the root element.",
-					"type": "string"
-				},
-				"stateInactive": {
-					"description": "Set inactive state classes for the root element.",
-					"type": "string"
+				"required": {
+					"description": "If `true`, the switch input is marked as required,",
+					"type": "boolean"
 				},
 				"thumbActive": {
 					"description": "Set active classes for the thumb element.",
@@ -207,29 +274,29 @@
 					"description": "Set animation X-axis translate classes for the thumb element.",
 					"type": "string"
 				},
-				"width": {
-					"description": "Set width classes for the root element.",
-					"type": "string"
+				"value": {
+					"default": "on",
+					"description": "The value of switch input. Useful for form submission.",
+					"type": ["string", "number"]
 				}
 			},
 			"propertyOrder": [
-				"id",
 				"name",
 				"checked",
 				"disabled",
 				"compact",
-				"labelledby",
-				"describedby",
 				"base",
-				"stateInactive",
-				"stateActive",
-				"stateDisabled",
-				"width",
-				"height",
-				"padding",
-				"rounded",
-				"hover",
 				"classes",
+				"controlBase",
+				"controlInactive",
+				"controlActive",
+				"controlDisabled",
+				"controlWidth",
+				"controlHeight",
+				"controlPadding",
+				"controlRounded",
+				"controlHover",
+				"controlClasses",
 				"thumbBase",
 				"thumbInactive",
 				"thumbActive",
@@ -239,13 +306,25 @@
 				"thumbEase",
 				"thumbDuration",
 				"thumbClasses",
+				"labelBase",
+				"labelClasses",
 				"iconInactiveBase",
 				"iconActiveBase",
-				"onChange",
+				"onCheckedChange",
 				"inactiveChild",
-				"activeChild"
+				"activeChild",
+				"children",
+				"required",
+				"value",
+				"form",
+				"label",
+				"dir",
+				"invalid",
+				"getRootNode",
+				"readOnly",
+				"ids"
 			],
-			"required": ["id", "name"],
+			"required": ["name"],
 			"type": "object"
 		}
 	}

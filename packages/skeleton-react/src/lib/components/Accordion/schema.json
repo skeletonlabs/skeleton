@@ -6,31 +6,18 @@
 				"animDuration": {
 					"type": "number"
 				},
-				"close": {
-					"propertyOrder": [],
-					"type": "object"
+				"api": {
+					"$ref": "#/definitions/Api<PropTypes>"
 				},
 				"iconClosed": {
 					"$ref": "#/definitions/React.ReactNode"
 				},
 				"iconOpen": {
 					"$ref": "#/definitions/React.ReactNode"
-				},
-				"isOpen": {
-					"propertyOrder": [],
-					"type": "object"
-				},
-				"open": {
-					"propertyOrder": [],
-					"type": "object"
-				},
-				"toggle": {
-					"propertyOrder": [],
-					"type": "object"
 				}
 			},
-			"propertyOrder": ["animDuration", "iconOpen", "iconClosed", "open", "close", "toggle", "isOpen"],
-			"required": ["close", "isOpen", "open", "toggle"],
+			"propertyOrder": ["animDuration", "iconOpen", "iconClosed", "api"],
+			"required": ["animDuration", "api", "iconClosed", "iconOpen"],
 			"type": "object"
 		},
 		"AccordionControlProps": {
@@ -46,21 +33,225 @@
 					"description": "Provide arbitrary CSS classes to the control.",
 					"type": "string"
 				},
+				"contentBase": {
+					"description": "Sets the lead's base styles",
+					"type": "string"
+				},
+				"contentClasses": {
+					"description": "Provide arbitrary CSS classes to the content.",
+					"type": "string"
+				},
 				"disabled": {
 					"description": "Set a disabled state for the item.",
 					"type": "boolean"
+				},
+				"headingElement": {
+					"description": "The heading element.",
+					"enum": [
+						"a",
+						"abbr",
+						"address",
+						"animate",
+						"animateMotion",
+						"animateTransform",
+						"area",
+						"article",
+						"aside",
+						"audio",
+						"b",
+						"base",
+						"bdi",
+						"bdo",
+						"big",
+						"blockquote",
+						"body",
+						"br",
+						"button",
+						"canvas",
+						"caption",
+						"center",
+						"circle",
+						"cite",
+						"clipPath",
+						"code",
+						"col",
+						"colgroup",
+						"data",
+						"datalist",
+						"dd",
+						"defs",
+						"del",
+						"desc",
+						"details",
+						"dfn",
+						"dialog",
+						"div",
+						"dl",
+						"dt",
+						"ellipse",
+						"em",
+						"embed",
+						"feBlend",
+						"feColorMatrix",
+						"feComponentTransfer",
+						"feComposite",
+						"feConvolveMatrix",
+						"feDiffuseLighting",
+						"feDisplacementMap",
+						"feDistantLight",
+						"feDropShadow",
+						"feFlood",
+						"feFuncA",
+						"feFuncB",
+						"feFuncG",
+						"feFuncR",
+						"feGaussianBlur",
+						"feImage",
+						"feMerge",
+						"feMergeNode",
+						"feMorphology",
+						"feOffset",
+						"fePointLight",
+						"feSpecularLighting",
+						"feSpotLight",
+						"feTile",
+						"feTurbulence",
+						"fieldset",
+						"figcaption",
+						"figure",
+						"filter",
+						"footer",
+						"foreignObject",
+						"form",
+						"g",
+						"h1",
+						"h2",
+						"h3",
+						"h4",
+						"h5",
+						"h6",
+						"head",
+						"header",
+						"hgroup",
+						"hr",
+						"html",
+						"i",
+						"iframe",
+						"image",
+						"img",
+						"input",
+						"ins",
+						"kbd",
+						"keygen",
+						"label",
+						"legend",
+						"li",
+						"line",
+						"linearGradient",
+						"link",
+						"main",
+						"map",
+						"mark",
+						"marker",
+						"mask",
+						"menu",
+						"menuitem",
+						"meta",
+						"metadata",
+						"meter",
+						"mpath",
+						"nav",
+						"noindex",
+						"noscript",
+						"object",
+						"ol",
+						"optgroup",
+						"option",
+						"output",
+						"p",
+						"param",
+						"path",
+						"pattern",
+						"picture",
+						"polygon",
+						"polyline",
+						"pre",
+						"progress",
+						"q",
+						"radialGradient",
+						"rect",
+						"rp",
+						"rt",
+						"ruby",
+						"s",
+						"samp",
+						"script",
+						"search",
+						"section",
+						"select",
+						"set",
+						"slot",
+						"small",
+						"source",
+						"span",
+						"stop",
+						"strong",
+						"style",
+						"sub",
+						"summary",
+						"sup",
+						"svg",
+						"switch",
+						"symbol",
+						"table",
+						"tbody",
+						"td",
+						"template",
+						"text",
+						"textPath",
+						"textarea",
+						"tfoot",
+						"th",
+						"thead",
+						"time",
+						"title",
+						"tr",
+						"track",
+						"tspan",
+						"u",
+						"ul",
+						"use",
+						"var",
+						"video",
+						"view",
+						"wbr",
+						"webview"
+					],
+					"type": "string"
 				},
 				"hover": {
 					"description": "Sets control's the hover styles.",
 					"type": "string"
 				},
-				"iconsBase": {
-					"description": "Set the base styles for the state icons.",
+				"indicatorBase": {
+					"description": "Sets the lead's base styles",
+					"type": "string"
+				},
+				"indicatorClasses": {
+					"description": "Provide arbitrary CSS classes to the indicator.",
 					"type": "string"
 				},
 				"lead": {
 					"$ref": "#/definitions/React.ReactNode",
 					"description": "The lead child slot for the control."
+				},
+				"leadBase": {
+					"description": "Sets the lead's base styles",
+					"type": "string"
+				},
+				"leadClasses": {
+					"description": "Provide arbitrary CSS classes to the lead.",
+					"type": "string"
 				},
 				"padding": {
 					"description": "Sets control's the padding styles.",
@@ -71,7 +262,23 @@
 					"type": "string"
 				}
 			},
-			"propertyOrder": ["disabled", "base", "hover", "padding", "rounded", "classes", "iconsBase", "lead", "children"],
+			"propertyOrder": [
+				"headingElement",
+				"disabled",
+				"base",
+				"hover",
+				"padding",
+				"rounded",
+				"classes",
+				"leadBase",
+				"leadClasses",
+				"contentBase",
+				"contentClasses",
+				"indicatorBase",
+				"indicatorClasses",
+				"lead",
+				"children"
+			],
 			"type": "object"
 		},
 		"AccordionItemContextState": {
@@ -101,22 +308,21 @@
 					"description": "Provide arbitrary CSS classes.",
 					"type": "string"
 				},
-				"id": {
-					"description": "The unique ID.",
-					"type": "string"
-				},
-				"onClick": {
-					"description": "Triggers on item click.",
-					"propertyOrder": [],
-					"type": "object"
+				"disabled": {
+					"description": "Whether the accordion item is disabled.",
+					"type": "boolean"
 				},
 				"spaceY": {
 					"description": "Set vertical spacing styles.",
 					"type": "string"
+				},
+				"value": {
+					"description": "The value of the accordion item.",
+					"type": "string"
 				}
 			},
-			"propertyOrder": ["id", "base", "spaceY", "classes", "onClick", "children"],
-			"required": ["id"],
+			"propertyOrder": ["base", "spaceY", "classes", "children", "value", "disabled"],
+			"required": ["value"],
 			"type": "object"
 		},
 		"AccordionPanelProps": {
@@ -161,6 +367,26 @@
 					"description": "Provide arbitrary CSS classes.",
 					"type": "string"
 				},
+				"collapsible": {
+					"default": false,
+					"description": "Whether an accordion item can be closed after it has been expanded.",
+					"type": "boolean"
+				},
+				"dir": {
+					"default": "ltr",
+					"description": "The document's text/writing direction.",
+					"enum": ["ltr", "rtl"],
+					"type": "string"
+				},
+				"disabled": {
+					"description": "Whether the accordion items are disabled",
+					"type": "boolean"
+				},
+				"getRootNode": {
+					"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+					"propertyOrder": [],
+					"type": "object"
+				},
 				"iconClosed": {
 					"$ref": "#/definitions/React.ReactNode",
 					"description": "Set the closed state icon."
@@ -169,10 +395,19 @@
 					"$ref": "#/definitions/React.ReactNode",
 					"description": "Set the open state icon."
 				},
+				"ids": {
+					"$ref": "#/definitions/Partial<{root:string;item(value:string):string;itemContent(value:string):string;itemTrigger(value:string):string;}>",
+					"description": "The ids of the elements in the accordion. Useful for composition."
+				},
 				"multiple": {
 					"default": false,
-					"description": "Enables opening multiple items at once.",
+					"description": "Whether multple accordion items can be expanded at the same time.",
 					"type": "boolean"
+				},
+				"onFocusChange": {
+					"description": "The callback fired when the focused accordion item changes.",
+					"propertyOrder": [],
+					"type": "object"
 				},
 				"onValueChange": {
 					"description": "Set the opened state.",
@@ -192,7 +427,7 @@
 					"type": "string"
 				},
 				"value": {
-					"description": "Takes an array list of open items.",
+					"description": "The `value` of the accordion items that are currently being expanded.",
 					"items": {
 						"type": "string"
 					},
@@ -204,8 +439,6 @@
 				}
 			},
 			"propertyOrder": [
-				"multiple",
-				"value",
 				"animDuration",
 				"iconOpen",
 				"iconClosed",
@@ -216,12 +449,74 @@
 				"rounded",
 				"width",
 				"classes",
-				"children"
+				"children",
+				"value",
+				"dir",
+				"getRootNode",
+				"disabled",
+				"multiple",
+				"ids",
+				"collapsible",
+				"onFocusChange"
 			],
+			"type": "object"
+		},
+		"Api<PropTypes>": {
+			"properties": {
+				"focusedValue": {
+					"description": "The value of the focused accordion item.",
+					"type": "string"
+				},
+				"setValue": {
+					"description": "Sets the value of the accordion.",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"value": {
+					"description": "The value of the accordion",
+					"items": {
+						"type": "string"
+					},
+					"type": "array"
+				}
+			},
+			"propertyOrder": [
+				"focusedValue",
+				"value",
+				"setValue",
+				"getItemState",
+				"getRootProps",
+				"getItemProps",
+				"getItemContentProps",
+				"getItemTriggerProps",
+				"getItemIndicatorProps"
+			],
+			"required": ["focusedValue", "setValue", "value"],
 			"type": "object"
 		},
 		"Iterable<React.ReactNode>": {
 			"propertyOrder": ["__@iterator@83"],
+			"type": "object"
+		},
+		"Partial<{root:string;item(value:string):string;itemContent(value:string):string;itemTrigger(value:string):string;}>": {
+			"properties": {
+				"item": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"itemContent": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"itemTrigger": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"root": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["root", "item", "itemContent", "itemTrigger"],
 			"type": "object"
 		},
 		"React.ReactElement<any,string|React.JSXElementConstructor<any>>": {

@@ -1,20 +1,19 @@
 // Segment Control Types
 
+import * as radio from '@zag-js/radio-group';
+
 // Context ---
 
 export interface SegmentContextState {
-	value: string;
-	name: string;
-	onSelectionHandler: (value: string) => void;
+	api: ReturnType<typeof radio.connect>;
+	indicatorText: string;
 }
 
 // Components ---
 
-export interface SegmentProps extends React.PropsWithChildren {
-	/** Set the group value, which determines selection state. */
-	value?: string;
-	/** Provide the shared input name. */
-	name: string;
+export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Context, 'id' | 'orientation' | 'onValueChange'> {
+	/** Set the orientation. */
+	orientation?: radio.Context['orientation'];
 
 	// Root ---
 	/** Sets base classes. */
@@ -36,38 +35,46 @@ export interface SegmentProps extends React.PropsWithChildren {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
+	// States ---
+	/** Set classes to provide a vertical layout. */
+	orientVertical?: string;
+	/** Set classes to provide a horizintal layout. */
+	orientHorizontal?: string;
+	/** Set claseses for the disabled state. */
+	stateDisabled?: string;
+	/** Set claseses for the read-only state. */
+	stateReadOnly?: string;
+
+	// Indicator ---
+	/** Sets base classes to the indicator. */
+	indicatorBase?: string;
+	/** Sets background classes to the indicator. */
+	indicatorBg?: string;
+	/** Sets text classes to the indicator. */
+	indicatorText?: string;
+	/** Sets border radius classes to the indicator. */
+	indicatorRounded?: string;
+	/** Provide arbitrary CSS classes to the indicator. */
+	indicatorClasses?: string;
+
 	// Events ---
 	/** Triggers when the value state is changed. */
-	onChange?: (value: string) => void;
+	onValueChange?: (value: string) => void;
 }
 
-export interface SegmentItemsProps extends React.PropsWithChildren {
-	/** Provide a unique ID. */
-	id: string;
-	/** Provide the unique segment value. */
-	value: string;
-	/** Provide a hover title attribute. */
-	title?: string;
-	/** Set the disabled state. */
-	disabled?: boolean;
-
+export interface SegmentItemsProps extends React.PropsWithChildren, Omit<radio.ItemProps, 'invalid'> {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
-	/** Sets active state classes. */
-	active?: string;
-	/** Sets hover state classes. */
-	hover?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
+
+	/** Set claseses for the disabled state. */
+	stateDisabled?: string;
 
 	// Label ---
 	/** Sets base classes for the label element. */
 	labelBase?: string;
 	/** Provide arbitrary CSS classes for the label element. */
 	labelClasses?: string;
-
-	// Events ---
-	/** Triggers on items click event. */
-	onClick?: (group: string) => void;
 }

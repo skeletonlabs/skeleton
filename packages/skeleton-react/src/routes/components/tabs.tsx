@@ -1,10 +1,12 @@
-import { Plane, Hotel, Box } from 'lucide-react';
+import { Plane as IconPlane, Sailboat as IconBoat, Car as IconCar } from 'lucide-react';
 import { useState } from 'react';
 
 import { Tabs } from '$lib/components/Tabs/Tabs.js';
 
 export function Component() {
-	const [group, setGroup] = useState('flight');
+	const [group, setGroup] = useState('item-1');
+	const lorem =
+		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';
 
 	return (
 		<div className="space-y-10">
@@ -13,237 +15,123 @@ export function Component() {
 			</header>
 			{/* Default */}
 			<section className="space-y-4">
-				<Tabs>
+				<pre className="pre">group: {JSON.stringify(group, null, 2)}</pre>
+				<Tabs value={group} onValueChange={setGroup}>
 					<Tabs.List>
-						<Tabs.Control
-							name="flight"
-							group={group}
-							onChange={setGroup}
-							onClick={() => console.log('onClick')}
-							onKeydown={() => console.log('onKeyDown')}
-						>
-							Flight
-						</Tabs.Control>
-						<Tabs.Control name="hotel" group={group} onChange={setGroup}>
-							Hotel
-						</Tabs.Control>
-						<Tabs.Control name="explore" group={group} onChange={setGroup}>
-							Explore
-						</Tabs.Control>
+						<Tabs.Control value="item-1">Control-1</Tabs.Control>
+						<Tabs.Control value="item-2">Control-2</Tabs.Control>
+						<Tabs.Control value="item-3">Control-3</Tabs.Control>
 					</Tabs.List>
-					<Tabs.Panels>
-						<Tabs.Panel group={group} value="flight">
-							Flight Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="hotel">
-							Hotel Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="explore">
-							Explore Panel
-						</Tabs.Panel>
-					</Tabs.Panels>
+					<Tabs.Content>
+						<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
+					</Tabs.Content>
 				</Tabs>
 			</section>
 			{/* Icon + Label */}
 			<section className="space-y-4">
 				<h2 className="h2">Icon + Label</h2>
-				<Tabs>
+				<Tabs value={group} onValueChange={setGroup}>
 					<Tabs.List>
-						<Tabs.Control name="flight" group={group} title="flight" onChange={setGroup}>
-							<Plane size={20} />
-							<span>Flight</span>
+						<Tabs.Control value="item-1" lead={<IconPlane size={20} />}>
+							Control-1
 						</Tabs.Control>
-						<Tabs.Control name="hotel" title="hotel" group={group} onChange={setGroup}>
-							<Hotel size={20} />
-							<span>Hotel</span>
+						<Tabs.Control value="item-2" lead={<IconBoat size={20} />}>
+							Control-2
 						</Tabs.Control>
-						<Tabs.Control name="explore" title="explore" group={group} onChange={setGroup}>
-							<Box size={20} />
-							<span>Explore</span>
+						<Tabs.Control value="item-3" lead={<IconCar size={20} />}>
+							Control-3
 						</Tabs.Control>
 					</Tabs.List>
-					<Tabs.Panels>
-						<Tabs.Panel group={group} value="flight">
-							Flight Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="hotel">
-							Hotel Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="explore">
-							Explore Panel
-						</Tabs.Panel>
-					</Tabs.Panels>
+					<Tabs.Content>
+						<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
+					</Tabs.Content>
 				</Tabs>
 			</section>
 			{/* Icon Only */}
 			<section className="space-y-4">
 				<h2 className="h2">Icon Only</h2>
-				<Tabs>
+				<Tabs value={group} onValueChange={setGroup}>
 					<Tabs.List>
-						<Tabs.Control name="flight" group={group} title="flight" onChange={setGroup}>
-							<Plane size={20} />
+						<Tabs.Control value="item-1">
+							<IconPlane size={20} />
 						</Tabs.Control>
-						<Tabs.Control name="hotel" title="hotel" group={group} onChange={setGroup}>
-							<Hotel size={20} />
+						<Tabs.Control value="item-2">
+							<IconBoat size={20} />
 						</Tabs.Control>
-						<Tabs.Control name="explore" title="explore" group={group} onChange={setGroup}>
-							<Box size={20} />
+						<Tabs.Control value="item-3">
+							<IconCar size={20} />
 						</Tabs.Control>
 					</Tabs.List>
-					<Tabs.Panels>
-						<Tabs.Panel group={group} value="flight">
-							Flight Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="hotel">
-							Hotel Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="explore">
-							Explore Panel
-						</Tabs.Panel>
-					</Tabs.Panels>
+					<Tabs.Content>
+						<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
+					</Tabs.Content>
 				</Tabs>
 			</section>
 			{/* Fluid */}
 			<section className="space-y-4">
 				<h2 className="h2">Fluid</h2>
-				<Tabs>
+				<Tabs value={group} onValueChange={setGroup} fluid>
 					<Tabs.List>
-						<Tabs.Control name="flight" group={group} onChange={setGroup} width="w-full">
-							Flight
-						</Tabs.Control>
-						<Tabs.Control name="hotel" group={group} onChange={setGroup} width="w-full">
-							Hotel
-						</Tabs.Control>
-						<Tabs.Control name="explore" group={group} onChange={setGroup} width="w-full">
-							Explore
-						</Tabs.Control>
+						<Tabs.Control value="item-1">Control-1</Tabs.Control>
+						<Tabs.Control value="item-2">Control-2</Tabs.Control>
+						<Tabs.Control value="item-3">Control-3</Tabs.Control>
 					</Tabs.List>
-					<Tabs.Panels>
-						<Tabs.Panel group={group} value="flight">
-							Flight Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="hotel">
-							Hotel Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="explore">
-							Explore Panel
-						</Tabs.Panel>
-					</Tabs.Panels>
+					<Tabs.Content>
+						<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
+					</Tabs.Content>
 				</Tabs>
 			</section>
-			{/* Justified */}
+			{/* Justify */}
 			<section className="space-y-4">
 				<h2 className="h2">Justify</h2>
-				<Tabs>
+				<Tabs value={group} onValueChange={setGroup}>
 					<Tabs.List justify="justify-center">
-						<Tabs.Control name="flight" group={group} onChange={setGroup}>
-							Flight
-						</Tabs.Control>
-						<Tabs.Control name="hotel" group={group} onChange={setGroup}>
-							Hotel
-						</Tabs.Control>
-						<Tabs.Control name="explore" group={group} onChange={setGroup}>
-							Explore
-						</Tabs.Control>
+						<Tabs.Control value="item-1">Control-1</Tabs.Control>
+						<Tabs.Control value="item-2">Control-2</Tabs.Control>
+						<Tabs.Control value="item-3">Control-3</Tabs.Control>
 					</Tabs.List>
-					<Tabs.Panels>
-						<Tabs.Panel group={group} value="flight">
-							Flight Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="hotel">
-							Hotel Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="explore">
-							Explore Panel
-						</Tabs.Panel>
-					</Tabs.Panels>
+					<Tabs.Content>
+						<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
+					</Tabs.Content>
 				</Tabs>
-				<Tabs>
+				<Tabs value={group} onValueChange={setGroup}>
 					<Tabs.List justify="justify-end">
-						<Tabs.Control name="flight" group={group} onChange={setGroup}>
-							Flight
-						</Tabs.Control>
-						<Tabs.Control name="hotel" group={group} onChange={setGroup}>
-							Hotel
-						</Tabs.Control>
-						<Tabs.Control name="explore" group={group} onChange={setGroup}>
-							Explore
-						</Tabs.Control>
+						<Tabs.Control value="item-1">Control-1</Tabs.Control>
+						<Tabs.Control value="item-2">Control-2</Tabs.Control>
+						<Tabs.Control value="item-3">Control-3</Tabs.Control>
 					</Tabs.List>
-					<Tabs.Panels>
-						<Tabs.Panel group={group} value="flight">
-							Flight Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="hotel">
-							Hotel Panel
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="explore">
-							Explore Panel
-						</Tabs.Panel>
-					</Tabs.Panels>
-				</Tabs>
-			</section>
-			{/* Focus */}
-			<section className="space-y-4">
-				<h2 className="h2">Focus</h2>
-				<Tabs>
-					<Tabs.List>
-						<Tabs.Control name="flight" group={group} onChange={setGroup}>
-							Flight
-						</Tabs.Control>
-						<Tabs.Control name="hotel" group={group} onChange={setGroup}>
-							Hotel
-						</Tabs.Control>
-						<Tabs.Control name="explore" group={group} onChange={setGroup}>
-							Explore
-						</Tabs.Control>
-					</Tabs.List>
-					<Tabs.Panels>
-						<Tabs.Panel group={group} value="flight">
-							<button type="button" className="btn preset-filled">
-								Book a Flight
-							</button>
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="hotel">
-							<button type="button" className="btn preset-filled">
-								See Hotels near you
-							</button>
-						</Tabs.Panel>
-						<Tabs.Panel group={group} value="explore">
-							<button type="button" className="btn preset-filled">
-								Explore
-							</button>
-						</Tabs.Panel>
-					</Tabs.Panels>
+					<Tabs.Content>
+						<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+						<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
+					</Tabs.Content>
 				</Tabs>
 			</section>
 			{/* RTL */}
 			<section className="space-y-4">
 				<h2 className="h2">RTL</h2>
 				<div dir="rtl">
-					<Tabs>
+					<Tabs value={group} onValueChange={setGroup} dir="rtl">
 						<Tabs.List>
-							<Tabs.Control name="flight" group={group} onChange={setGroup}>
-								Flight
-							</Tabs.Control>
-							<Tabs.Control name="hotel" group={group} onChange={setGroup}>
-								Hotel
-							</Tabs.Control>
-							<Tabs.Control name="explore" group={group} onChange={setGroup}>
-								Explore
-							</Tabs.Control>
+							<Tabs.Control value="item-1">Control-1</Tabs.Control>
+							<Tabs.Control value="item-2">Control-2</Tabs.Control>
+							<Tabs.Control value="item-3">Control-3</Tabs.Control>
 						</Tabs.List>
-						<Tabs.Panels>
-							<Tabs.Panel group={group} value="flight">
-								Flight Panel{' '}
-							</Tabs.Panel>
-							<Tabs.Panel group={group} value="hotel">
-								Hotel Panel{' '}
-							</Tabs.Panel>
-							<Tabs.Panel group={group} value="explore">
-								Explore Panel
-							</Tabs.Panel>
-						</Tabs.Panels>
+						<Tabs.Content>
+							<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
+							<Tabs.Panel value="item-2">Panel-2 - {lorem}</Tabs.Panel>
+							<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
+						</Tabs.Content>
 					</Tabs>
 				</div>
 			</section>

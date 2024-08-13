@@ -1,23 +1,23 @@
 <script lang="ts">
+	import { getTabContext } from './context.js';
 	import type { TabsPanelProps } from './types.js';
 
 	let {
-		id,
-		value,
-		group = $bindable(),
-		// A11y
-		labelledBy,
 		// Root
+		base = '',
 		classes = '',
-		// Snippets
-		children
+		// Children
+		children,
+		// Zag
+		...zagProps
 	}: TabsPanelProps = $props();
+
+	// Get Context
+	const ctx = getTabContext();
 </script>
 
-<!-- @component A Tab Panel component. -->
+<!-- @component A individual tab panel of content. -->
 
-{#if value === group && children}
-	<div {id} role="tabpanel" tabindex="0" aria-labelledby={labelledBy} class={classes}>
-		{@render children()}
-	</div>
-{/if}
+<div {...ctx.api.getContentProps(zagProps)} class="{base} {classes}" data-testid="tabs-panel">
+	{@render children?.()}
+</div>

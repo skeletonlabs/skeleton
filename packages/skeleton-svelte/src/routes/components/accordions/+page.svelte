@@ -1,48 +1,86 @@
 <script lang="ts">
 	import { Accordion } from '$lib/index.js';
-	import Skull from 'lucide-svelte/icons/skull';
+	// Icons
+	import Club from 'lucide-svelte/icons/club';
+	import Diamond from 'lucide-svelte/icons/diamond';
+	import Heart from 'lucide-svelte/icons/heart';
+	import Spade from 'lucide-svelte/icons/spade';
+
+	let valueDefault = $state(['club']);
+	let valueMultiple = $state(['club']);
+	let valueCollapsible = $state(['club']);
 
 	const lorem =
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
-
-	let multiple = $state(false);
-	let value = $state(['svelteItem1']);
+	const exampleItems = [
+		{ icon: Club, value: 'club', title: 'Club', content: lorem },
+		{ icon: Diamond, value: 'diamond', title: 'Diamond', content: lorem },
+		{ icon: Heart, value: 'heart', title: 'Heart', content: lorem },
+		{ icon: Spade, value: 'space', title: 'Spade', content: lorem }
+	];
 </script>
 
-<label class="flex items-center gap-2">
-	<input type="checkbox" bind:checked={multiple} />
-	<span class="label-text">Allow multiple</span>
-</label>
-
-<pre class="pre">Open: {value.join(', ')}</pre>
-
-<!-- <div class="card p-4 preset-filled-surface-100-900"> -->
-<Accordion {multiple} bind:value>
-	<!-- Icons -->
-	<!-- {#snippet iconOpen()}&uarr;{/snippet} -->
-	<!-- {#snippet iconClosed()}&darr;{/snippet} -->
-	<!-- Children -->
-	<Accordion.Item id="svelteItem1">
-		<!-- Control -->
-		{#snippet controlLead()}<Skull size={22} />{/snippet}
-		{#snippet control()}Svelte Control 1{/snippet}
-		<!-- Panel -->
-		{#snippet panel()}Svelte Panel 1 - {lorem}{/snippet}
-	</Accordion.Item>
-	<hr class="hr" />
-	<Accordion.Item id="svelteItem2">
-		{#snippet control()}Svelte Control 2{/snippet}
-		{#snippet panel()}Svelte Panel 2 - {lorem}{/snippet}
-	</Accordion.Item>
-	<hr class="hr" />
-	<Accordion.Item id="svelteItem3" disabled>
-		{#snippet control()}Svelte Control 3 (disabled){/snippet}
-		{#snippet panel()}Svelte Panel 3 - {lorem}{/snippet}
-	</Accordion.Item>
-	<hr class="hr" />
-	<Accordion.Item id="svelteItem4">
-		{#snippet control()}Svelte Control 4{/snippet}
-		{#snippet panel()}Svelte Panel 4 - {lorem}{/snippet}
-	</Accordion.Item>
-</Accordion>
-<!-- </div> -->
+<div class="space-y-10">
+	<header>
+		<h1 class="h1">Segment Control</h1>
+	</header>
+	<section class="space-y-4">
+		<pre class="pre">{JSON.stringify(valueDefault)}</pre>
+		<Accordion bind:value={valueDefault}>
+			{#each exampleItems as item, i}
+				<Accordion.Item value={item.value}>
+					{#snippet lead()}
+						<svelte:component this={item.icon} />
+					{/snippet}
+					{#snippet control()}
+						{item.title}
+					{/snippet}
+					{#snippet panel()}
+						{item.content}
+					{/snippet}
+				</Accordion.Item>
+				{#if i < exampleItems.length - 1}<hr class="hr" />{/if}
+			{/each}
+		</Accordion>
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">Collapsible</h2>
+		<pre class="pre">{JSON.stringify(valueCollapsible)}</pre>
+		<Accordion bind:value={valueCollapsible} collapsible>
+			{#each exampleItems as item, i}
+				<Accordion.Item value={item.value}>
+					{#snippet lead()}
+						<svelte:component this={item.icon} />
+					{/snippet}
+					{#snippet control()}
+						{item.title}
+					{/snippet}
+					{#snippet panel()}
+						{item.content}
+					{/snippet}
+				</Accordion.Item>
+				{#if i < exampleItems.length - 1}<hr class="hr" />{/if}
+			{/each}
+		</Accordion>
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">Multiple</h2>
+		<pre class="pre">{JSON.stringify(valueMultiple)}</pre>
+		<Accordion bind:value={valueMultiple} multiple>
+			{#each exampleItems as item, i}
+				<Accordion.Item value={item.value}>
+					{#snippet lead()}
+						<svelte:component this={item.icon} />
+					{/snippet}
+					{#snippet control()}
+						{item.title}
+					{/snippet}
+					{#snippet panel()}
+						{item.content}
+					{/snippet}
+				</Accordion.Item>
+				{#if i < exampleItems.length - 1}<hr class="hr" />{/if}
+			{/each}
+		</Accordion>
+	</section>
+</div>

@@ -3,10 +3,6 @@
 	"definitions": {
 		"AvatarProps": {
 			"properties": {
-				"alt": {
-					"description": "Set avatar image Alt text.",
-					"type": "string"
-				},
 				"background": {
 					"description": "Set background styles.",
 					"type": "string"
@@ -26,8 +22,16 @@
 					"description": "Provide arbitrary CSS classes.",
 					"type": "string"
 				},
+				"fallbackBase": {
+					"description": "Set base classes for the fallback element.",
+					"type": "string"
+				},
+				"fallbackClasses": {
+					"description": "Provide arbitrary CSS classes to fallback element.",
+					"type": "string"
+				},
 				"filter": {
-					"description": "Set avatar image filter name. such as \"#Apollo\".",
+					"description": "Set avatar image filter name, such as: \"#Apollo\".",
 					"type": "string"
 				},
 				"font": {
@@ -40,6 +44,10 @@
 				},
 				"imageClasses": {
 					"description": "Provide avatar image arbitrary CSS classes.",
+					"type": "string"
+				},
+				"name": {
+					"description": "Provide a name or username for the avatar.",
 					"type": "string"
 				},
 				"rounded": {
@@ -55,13 +63,18 @@
 					"type": "string"
 				},
 				"src": {
-					"description": "Set avatar image source URL.",
+					"description": "The source of the avatar image.",
+					"type": "string"
+				},
+				"srcSet": {
+					"description": "The source set of the avatar image.",
 					"type": "string"
 				}
 			},
 			"propertyOrder": [
 				"src",
-				"alt",
+				"srcSet",
+				"name",
 				"filter",
 				"base",
 				"background",
@@ -73,8 +86,11 @@
 				"classes",
 				"imageBase",
 				"imageClasses",
+				"fallbackBase",
+				"fallbackClasses",
 				"children"
 			],
+			"required": ["name"],
 			"type": "object"
 		},
 		"Iterable<React.ReactNode>": {

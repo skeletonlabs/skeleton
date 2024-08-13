@@ -63,6 +63,8 @@
 	let rxWidth = $derived(expanded ? widthExpanded : width);
 </script>
 
+<!-- @component Provides a vertical navigation interface. -->
+
 <aside class="{base} {background} {height} {padding} {rxWidth} {classes}" data-testid="nav-rail">
 	<!-- Header -->
 	{#if header}

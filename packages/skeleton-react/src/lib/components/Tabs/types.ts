@@ -1,124 +1,90 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+import * as tabs from '@zag-js/tabs';
+
+// Context ---
+
+export interface TabsContextState {
+	fluid: boolean;
+	api: ReturnType<typeof tabs.connect>;
+}
 
 // Components ---
 
-export interface TabsProps extends React.PropsWithChildren {
-	/** Provide a unique ID. */
-	id?: string;
+export interface TabsRootProps extends React.PropsWithChildren, Omit<tabs.Context, 'id' | 'orientation' | 'onValueChange'> {
+	/** Set tabs to stretch to fill the available width. */
+	fluid?: boolean;
 
 	// Root ---
-	/** Sets base styles. */
+	/** Set base classes for the root element. */
 	base?: string;
-	/** Set vertical spacing between list and panels. */
-	spaceY?: string;
-	/** Provide arbitrary CSS classes. */
+	/** Provide arbitrary classes for the root element. */
 	classes?: string;
+
+	// Events ---
+	/** Triggers when the value state is changed. */
+	onValueChange?: (value: string) => void;
 }
 
 export interface TabsListProps extends React.PropsWithChildren {
-	/** Sets the base styles. */
+	// Root ---
+	/** Set base classes for the list element. */
 	base?: string;
-	/** Sets the justification styles. */
+	/** Set justify classes for the list element. */
 	justify?: string;
-	/** Sets the gap spacing. */
-	gap?: string;
-	/** Sets the border styles. */
+	/** Set border classes for the list element. */
 	border?: string;
-	/** Provide arbitrary CSS classes. */
+	/** Set margin classes for the list element. */
+	margin?: string;
+	/** Set gap classes for the list element. */
+	gap?: string;
+	/** Provide arbitrary classes for the list element. */
 	classes?: string;
 }
 
-export interface TabsControlProps extends React.PropsWithChildren {
-	/** Provide a unique ID. */
-	id?: string;
-	/** Provide the tab control name. */
-	name: string;
-	/** Provide the tab control radio group. */
-	group: string;
-	/** Provide a hoverable title attribute. */
-	title?: string;
-
-	// A11y ---
-	/** Sets the A11y label. */
-	label?: string;
-	/** Sets ARIA controls value to define which panel this tab controls. */
-	controls?: string;
-
+export interface TabsControlProps extends React.PropsWithChildren, tabs.TriggerProps {
 	// Root ---
-	/** Sets base styles. */
+	/** Set base classes for the control element. */
 	base?: string;
-	/** Sets width styles. */
-	width?: string;
-	/** Sets the active control styles. */
-	active?: string;
-	/** Sets the inactive control styles. */
-	inactive?: string;
-	/** Sets flex styles. */
-	flex?: string;
-	/** Sets background styles. */
-	background?: string;
-	/** Sets border styles. */
-	border?: string;
-	/** Sets text size styles. */
-	text?: string;
-	/** Sets padding styles. */
+	/** Set padding classes for the control element. */
 	padding?: string;
-	/** Sets rounded styles. */
-	rounded?: string;
-	/** Sets vertical gap styles. */
-	gap?: string;
-	/** Sets cursor styles. */
-	cursor?: string;
-	/** Provide arbitrary CSS classes. */
+	/** Set x-axis translate classes for the control element. */
+	translateX?: string;
+	/** Provide arbitrary classes for the control element. */
 	classes?: string;
 
-	// Content
-	/** Sets tab content base styles. */
-	contentBase?: string;
-	/** Sets tab content flex styles. */
-	contentFlex?: string;
-	/** Sets the tab content gap styles. */
-	contentGap?: string;
-	/** Sets the tab content background styles. */
-	contentBg?: string;
-	/** Sets the tab content padding styles. */
-	contentPadding?: string;
-	/** Sets the tab content rounded styles. */
-	contentRounded?: string;
-	/** Provide arbitrary CSS classes for the tab content. */
-	contentClasses?: string;
+	// Label ---
+	/** Set base classes for the label element. */
+	labelBase?: string;
+	/** Provide arbitrary classes for the label element. */
+	labelClasses?: string;
 
-	// Events ---
-	/** Triggers on Tab Control click. */
-	onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
-	/** Triggers on Tab Control key down. */
-	onKeydown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
-	/** Triggers on Tab Control key up. */
-	onKeyup?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
-	/** Triggers on Tab Control group change. */
-	onChange?: (group: string) => void;
+	// State ---
+	/** Set inactive classes for the control element. */
+	stateInactive?: string;
+	/** Set active classes for the control element. */
+	stateActive?: string;
+	/** Set inactive classes for the label element. */
+	stateLabelInactive?: string;
+	/** Set active classes for the label element. */
+	stateLabelActive?: string;
+
+	// Nodes ---
+	/** The lead node for the control element. */
+	lead?: ReactNode;
 }
 
-export interface TabPanelsProps extends React.PropsWithChildren {
-	/** Sets wrapping panel base styles. */
-	base?: string;
-	/** Provide arbitrary CSS classes to the wrapping panel element. */
-	classes?: string;
-}
-
-export interface TabsPanelProps extends React.PropsWithChildren {
-	/** Provide a unique ID. */
-	id?: string;
-	/** Provide the tab panel value. */
-	value: string;
-	/** Provide the tab control radio group. */
-	group: string;
-
-	// A11y ---
-	/** Sets the A11y labelledby. */
-	labelledBy?: string;
-
+export interface TabsContentProps extends React.PropsWithChildren {
 	// Root ---
-	/** Provide arbitrary CSS classes. */
+	/** Set base classes for the panel group element. */
+	base?: string;
+	/** Provide arbitrary classes for the panel group element. */
+	classes?: string;
+}
+
+export interface TabsPanelProps extends React.PropsWithChildren, tabs.ContentProps {
+	// Root ---
+	/** Set base classes for the panel element. */
+	base?: string;
+	/** Provide arbitrary classes for the panel element. */
 	classes?: string;
 }
