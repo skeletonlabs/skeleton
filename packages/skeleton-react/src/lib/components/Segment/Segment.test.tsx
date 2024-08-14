@@ -46,6 +46,28 @@ describe('<Segment>', () => {
 		const component = getByTestId('segment');
 		expect(component).toHaveClass('pointer-events-none');
 	});
+
+	it('should render base classes on root', () => {
+		const testClass = 'bg-green-500';
+		const { getByTestId } = render(
+			<Segment name="align" value="0" base={testClass}>
+				<Segment.Item value="0">TestItem1</Segment.Item>
+			</Segment>
+		);
+		const component = getByTestId('segment');
+		expect(component).toHaveClass(testClass);
+	});
+
+	it('should render arbitrary classes on root', () => {
+		const testClass = 'bg-green-500';
+		const { getByTestId } = render(
+			<Segment name="align" value="0" classes={testClass}>
+				<Segment.Item value="0">TestItem1</Segment.Item>
+			</Segment>
+		);
+		const component = getByTestId('segment');
+		expect(component).toHaveClass(testClass);
+	});
 });
 
 // Segment Item ---
@@ -104,5 +126,31 @@ describe('<Segment.Item>', () => {
 		);
 		const component = getByTestId('segment-item-input');
 		expect(component).toHaveAttribute('disabled');
+	});
+
+	it('should render base classes on root', () => {
+		const testClass = 'bg-green-500';
+		const { getByTestId } = render(
+			<Segment name="align" value="0">
+				<Segment.Item value="0" base={testClass}>
+					TestItem1
+				</Segment.Item>
+			</Segment>
+		);
+		const component = getByTestId('segment-item');
+		expect(component).toHaveClass(testClass);
+	});
+
+	it('should render arbitrary classes on root', () => {
+		const testClass = 'bg-green-500';
+		const { getByTestId } = render(
+			<Segment name="align" value="0">
+				<Segment.Item value="0" classes={testClass}>
+					TestItem1
+				</Segment.Item>
+			</Segment>
+		);
+		const component = getByTestId('segment-item');
+		expect(component).toHaveClass(testClass);
 	});
 });

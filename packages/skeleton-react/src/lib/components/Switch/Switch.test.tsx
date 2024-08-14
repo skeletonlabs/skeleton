@@ -49,4 +49,18 @@ describe('<Switch>', () => {
 		const component = getByTestId('switch-control');
 		expect(component).toHaveClass('aspect-square');
 	});
+
+	it('should render base classes on root', () => {
+		const testClass = 'bg-green-500';
+		const { getByTestId } = render(<Switch name="test" base={testClass} />);
+		const component = getByTestId('switch');
+		expect(component).toHaveClass(testClass);
+	});
+
+	it('should render arbitrary classes on root', () => {
+		const testClass = 'bg-green-500';
+		const { getByTestId } = render(<Switch name="test" classes={testClass} />);
+		const component = getByTestId('switch');
+		expect(component).toHaveClass(testClass);
+	});
 });

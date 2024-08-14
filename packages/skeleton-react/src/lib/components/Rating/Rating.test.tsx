@@ -17,20 +17,6 @@ describe('<Rating>', () => {
 		expect(input.getAttribute('value')).eq(`${testValue}`);
 	});
 
-	it('should render base classes on root', () => {
-		const testClass = 'bg-green-500';
-		const { getByTestId } = render(<Rating base={testClass} />);
-		const component = getByTestId('rating');
-		expect(component).toHaveClass(testClass);
-	});
-
-	it('should render arbitrary classes on root', () => {
-		const testClass = 'bg-green-500';
-		const { getByTestId } = render(<Rating classes={testClass} />);
-		const component = getByTestId('rating');
-		expect(component).toHaveClass(testClass);
-	});
-
 	it('should render with custom iconEmpty', () => {
 		const testIconEmpty = 'testIconEmpty';
 		const { getAllByTestId } = render(<Rating value={0} iconEmpty={testIconEmpty} />);
@@ -50,5 +36,19 @@ describe('<Rating>', () => {
 		const { getAllByTestId } = render(<Rating value={1} iconFull={testIconFull} />);
 		const elementIcons = getAllByTestId('rating-item');
 		expect(elementIcons[0]).toHaveTextContent(testIconFull);
+	});
+
+	it('should render base classes on root', () => {
+		const testClass = 'bg-green-500';
+		const { getByTestId } = render(<Rating base={testClass} />);
+		const component = getByTestId('rating');
+		expect(component).toHaveClass(testClass);
+	});
+
+	it('should render arbitrary classes on root', () => {
+		const testClass = 'bg-green-500';
+		const { getByTestId } = render(<Rating classes={testClass} />);
+		const component = getByTestId('rating');
+		expect(component).toHaveClass(testClass);
 	});
 });

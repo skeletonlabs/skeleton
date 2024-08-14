@@ -46,4 +46,18 @@ describe('<ProgressRing>', () => {
 		expect(componentRoot.dataset.state).toBe('indeterminate');
 		expect(componentSvg).toHaveClass('animate-spin');
 	});
+
+	it('should render base classes on root', () => {
+		const testClass = 'bg-green-500';
+		const { getByTestId } = render(<ProgressRing base={testClass} />);
+		const component = getByTestId('progress-ring');
+		expect(component).toHaveClass(testClass);
+	});
+
+	it('should render arbitrary classes on root', () => {
+		const testClass = 'bg-green-500';
+		const { getByTestId } = render(<ProgressRing classes={testClass} />);
+		const component = getByTestId('progress-ring');
+		expect(component).toHaveClass(testClass);
+	});
 });
