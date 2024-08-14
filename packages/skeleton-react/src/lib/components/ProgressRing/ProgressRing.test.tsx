@@ -10,7 +10,7 @@ describe('<ProgressRing>', () => {
 		expect(component).toBeInTheDocument();
 	});
 
-	it('should render the component with a value and max', () => {
+	it('should render the component with a value and max props', () => {
 		const value = 50;
 		const max = 100;
 		const { getByTestId } = render(<ProgressRing value={value} max={max} />);
@@ -18,16 +18,32 @@ describe('<ProgressRing>', () => {
 		expect(component).toBeInTheDocument();
 	});
 
-	it('should render the component with a default child', () => {
+	it('should render the value percentage text', () => {
 		const value = 50;
 		const max = 100;
-		const defaultChildText = 'TestChild';
+		const { getByTestId } = render(<ProgressRing value={value} max={max} />);
+		const component = getByTestId('progress-ring-label');
+		expect(component).toHaveTextContent(`${value}%`);
+	});
+
+	it('should render the component with child content', () => {
+		const value = 50;
+		const max = 100;
+		const childContent = 'TestChild';
 		const { getByText } = render(
 			<ProgressRing value={value} max={max}>
-				{defaultChildText}
+				{childContent}
 			</ProgressRing>
 		);
-		const text = getByText(defaultChildText);
+		const text = getByText(childContent);
 		expect(text).toBeInTheDocument();
+	});
+
+	it('should render in indeterminate mode', () => {
+		const { getByTestId } = render(<ProgressRing value={null} />);
+		const componentRoot = getByTestId('progress-ring');
+		const componentSvg = getByTestId('progress-ring-svg');
+		expect(componentRoot.dataset.state).toBe('indeterminate');
+		expect(componentSvg).toHaveClass('animate-spin');
 	});
 });

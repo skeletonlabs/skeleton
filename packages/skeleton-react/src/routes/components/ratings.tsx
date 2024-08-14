@@ -34,7 +34,6 @@ export function Component() {
 				<h2 className="h2">Disabled</h2>
 				<Rating value={value} onValueChange={setValue} disabled></Rating>
 			</section>
-
 			<section className="space-y-4">
 				<h2 className="h2">RTL</h2>
 				<Rating value={value} onValueChange={setValue} dir="rtl"></Rating>
