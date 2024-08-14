@@ -31,7 +31,11 @@ const Toolbar: React.FC<ToolBarProps> = ({
 	// Children
 	children
 }) => {
-	return <div className={`${base} ${gridCols} ${gap} ${classes}`}>{children}</div>;
+	return (
+		<div className={`${base} ${gridCols} ${gap} ${classes}`} data-testid="app-bar-toolbar">
+			{children}
+		</div>
+	);
 };
 
 const ToolbarLead: React.FC<ToolbarLeadProps> = ({
@@ -43,7 +47,11 @@ const ToolbarLead: React.FC<ToolbarLeadProps> = ({
 	// Children
 	children
 }) => {
-	return <div className={`${base} ${spaceX} ${padding} ${classes}`}>{children}</div>;
+	return (
+		<div className={`${base} ${spaceX} ${padding} ${classes}`} data-testid="app-bar-toolbar-lead">
+			{children}
+		</div>
+	);
 };
 
 const ToolbarCenter: React.FC<ToolbarCenterProps> = ({
@@ -55,7 +63,11 @@ const ToolbarCenter: React.FC<ToolbarCenterProps> = ({
 	// Children
 	children
 }) => {
-	return <div className={`${base} ${align} ${padding} ${classes}`}>{children}</div>;
+	return (
+		<div className={`${base} ${align} ${padding} ${classes}`} data-testid="app-bar-toolbar-center">
+			{children}
+		</div>
+	);
 };
 
 const ToolbarTrail: React.FC<ToolbarTrailProps> = ({
@@ -67,7 +79,11 @@ const ToolbarTrail: React.FC<ToolbarTrailProps> = ({
 	// Children
 	children
 }) => {
-	return <div className={`${base} ${spaceX} ${padding} ${classes}`}>{children}</div>;
+	return (
+		<div className={`${base} ${spaceX} ${padding} ${classes}`} data-testid="app-bar-toolbar-trail">
+			{children}
+		</div>
+	);
 };
 
 const AppBarHeadline: React.FC<AppBarHeadlineProps> = ({
@@ -77,7 +93,11 @@ const AppBarHeadline: React.FC<AppBarHeadlineProps> = ({
 	// Children
 	children
 }) => {
-	return <div className={`${base} ${classes}`}>{children}</div>;
+	return (
+		<div className={`${base} ${classes}`} data-testid="app-bar-headline">
+			{children}
+		</div>
+	);
 };
 
 export const AppBar = Object.assign(AppBarRoot, {
