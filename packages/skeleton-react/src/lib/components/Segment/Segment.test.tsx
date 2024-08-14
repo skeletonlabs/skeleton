@@ -27,15 +27,24 @@ describe('<Segment>', () => {
 		expect(component.getAttribute('class')).toContain(testClasses);
 	});
 
-	it('should render children', () => {
-		const testTextContent = 'testTextContent';
+	it('should render in the disabled state', () => {
 		const { getByTestId } = render(
-			<Segment name="align" value="0">
-				<Segment.Item value="0">{testTextContent}</Segment.Item>
+			<Segment name="align" value="0" disabled>
+				<Segment.Item value="0">TestItem1</Segment.Item>
 			</Segment>
 		);
 		const component = getByTestId('segment');
-		expect(component).toHaveTextContent(testTextContent);
+		expect(component.dataset.disabled).toBeDefined();
+	});
+
+	it('should render in the read-only state', () => {
+		const { getByTestId } = render(
+			<Segment name="align" value="0" readOnly>
+				<Segment.Item value="0">TestItem1</Segment.Item>
+			</Segment>
+		);
+		const component = getByTestId('segment');
+		expect(component).toHaveClass('pointer-events-none');
 	});
 });
 
@@ -52,7 +61,7 @@ describe('<Segment.Item>', () => {
 		expect(component).toBeInTheDocument();
 	});
 
-	it('should render children', () => {
+	it('should render custom child content', () => {
 		const testTextContent = 'testTextContent';
 		const { getByTestId } = render(
 			<Segment name="align" value="0">
@@ -63,37 +72,37 @@ describe('<Segment.Item>', () => {
 		expect(component).toHaveTextContent(testTextContent);
 	});
 
-	// FIXME: resolve after Zag migration
+	it('should render in the unchecked state', () => {
+		const { getByTestId } = render(
+			<Segment name="align" value="1">
+				<Segment.Item value="0">TestItem1</Segment.Item>
+			</Segment>
+		);
+		const component = getByTestId('segment-item');
+		const ariaSelected = component.getAttribute('aria-selected');
+		expect(ariaSelected).toBeFalsy;
+	});
 
-	// it('should render the component in the unchecked state', () => {
-	// 	const { getByTestId } = render(
-	// 		<Segment.Item name="bar" value="bar">
-	// 			Foo
-	// 		</Segment.Item>
-	// 	);
-	// 	const component = getByTestId('segment-item');
-	// 	const ariaSelected = component.getAttribute('aria-selected');
-	// 	expect(ariaSelected).toBeFalsy;
-	// });
+	it('should render in the checked state', () => {
+		const { getByTestId } = render(
+			<Segment name="align" value="1">
+				<Segment.Item value="0">TestItem1</Segment.Item>
+			</Segment>
+		);
+		const component = getByTestId('segment-item');
+		const ariaSelected = component.getAttribute('aria-selected');
+		expect(ariaSelected).toBeTruthy;
+	});
 
-	// it('should render the component in the checked state', () => {
-	// 	const { getByTestId } = render(
-	// 		<Segment.Item name="foo" value="foo">
-	// 			Foo
-	// 		</Segment.Item>
-	// 	);
-	// 	const component = getByTestId('segment-item');
-	// 	const ariaSelected = component.getAttribute('aria-selected');
-	// 	expect(ariaSelected).toBeTruthy;
-	// });
-
-	// it('should render the component in the disabled state', () => {
-	// 	const { getByTestId } = render(
-	// 		<Segment.Item name="test" value="foo" disabled>
-	// 			Foo
-	// 		</Segment.Item>
-	// 	);
-	// 	const component = getByTestId('segment-item');
-	// 	expect(component).toHaveAttribute('disabled');
-	// });
+	it('should render in the disabled state', () => {
+		const { getByTestId } = render(
+			<Segment name="align" value="0">
+				<Segment.Item value="0" disabled>
+					TestItem1
+				</Segment.Item>
+			</Segment>
+		);
+		const component = getByTestId('segment-item-input');
+		expect(component).toHaveAttribute('disabled');
+	});
 });
