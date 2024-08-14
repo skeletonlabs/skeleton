@@ -1,270 +1,309 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
-// import { act, render, waitFor } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
+import { Accordion } from '$lib/index.js';
 
-import { Accordion } from './Accordion.js';
+describe('Accordion', () => {
+	describe('Integration', () => {
+		it('Renders the component', () => {
+			const values = ['1', '2', '3'];
 
-// *************************
-// Integration Tests
-// *************************
+			const component = render(
+				<Accordion>
+					{values.map((value) => (
+						<Accordion.Item value={value} key={value}>
+							<Accordion.Control>control-{value}</Accordion.Control>
+							<Accordion.Panel>panel-{value}</Accordion.Panel>
+						</Accordion.Item>
+					))}
+				</Accordion>
+			);
 
-// FIXME: broken during Zag migration
-// describe('Accordion (Integration)', () => {
-// 	it('should render the component', async () => {
-// 		const { queryByText, getByText } = render(
-// 			<Accordion value={['testItem1']}>
-// 				<Accordion.Item value="testItem1">
-// 					<Accordion.Control>Test Control 1</Accordion.Control>
-// 					<Accordion.Panel>Test Panel 1</Accordion.Panel>
-// 				</Accordion.Item>
-// 				<Accordion.Item value="testItem2">
-// 					<Accordion.Control>Test Control 2</Accordion.Control>
-// 					<Accordion.Panel>Test Panel 2</Accordion.Panel>
-// 				</Accordion.Item>
-// 			</Accordion>
-// 		);
+			for (const value of values) {
+				expect(component.getByText(`control-${value}`)).toBeInTheDocument();
+				expect(component.queryByText(`panel-${value}`)).not.toBeInTheDocument();
+			}
+		});
+	});
+	describe('Unit', () => {
+		describe('<Accordion>', () => {
+			const testId = 'accordion';
 
-// 		// FIXME: multiple portions of this test were broken during Zag migration
+			it('Renders the component', () => {
+				const component = render(<Accordion />);
+				expect(component.getByTestId(testId)).toBeInTheDocument();
+			});
+			for (const prop of ['base', 'padding', 'spaceY', 'rounded', 'width', 'classes']) {
+				it(`Correctly applies the \`${prop}\` prop`, () => {
+					const value = 'foo';
+					const component = render(<Accordion {...{ [prop]: value }} />);
+					expect(component.getByTestId(testId)).toHaveClass(value);
+				});
+			}
+		});
 
-// 		const control1 = getByText('Test Control 1');
-// 		const control2 = getByText('Test Control 2');
-// 		const panel1 = queryByText('Test Panel 1');
-// 		// const panel2 = queryByText('Test Panel 2');
+		describe('<Accordion.Item>', () => {
+			const testId = 'accordion-item';
 
-// 		// Expect both controls to be visible
-// 		expect(control1).toBeInTheDocument();
-// 		expect(control2).toBeInTheDocument();
+			it('Renders the component', () => {
+				const component = render(
+					<Accordion>
+						<Accordion.Item value="1"></Accordion.Item>
+					</Accordion>
+				);
+				expect(component.getByTestId(testId)).toBeInTheDocument();
+			});
+			for (const prop of ['base', 'spaceY', 'classes']) {
+				it(`Correctly applies the \`${prop}\` prop`, () => {
+					const value = 'foo';
+					const component = render(
+						<Accordion>
+							<Accordion.Item value="1" {...{ [prop]: value }}></Accordion.Item>
+						</Accordion>
+					);
+					expect(component.getByTestId(testId)).toHaveClass(value);
+				});
+			}
+		});
 
-// 		// Expect panels to be hidden
-// 		expect(panel1).toBeInTheDocument();
-// 		// expect(panel2).not.toBeInTheDocument();
+		describe('<Accordion.Control>', () => {
+			const testId = 'accordion-control';
 
-// 		// Click the first control
-// 		await act(async () => {
-// 			await userEvent.click(control1);
-// 		});
+			it('Renders the component', () => {
+				const component = render(
+					<Accordion>
+						<Accordion.Item value="1">
+							<Accordion.Control></Accordion.Control>
+						</Accordion.Item>
+					</Accordion>
+				);
+				expect(component.getByTestId(testId)).toBeInTheDocument();
+			});
 
-// 		// waitForElementToBeRemoved(panel1).then(() => {
-// 		// 	// Expect first panel to be hidden
-// 		// 	// Expect second panel to be hidden
-// 		// 	expect(panel1).not.toBeInTheDocument();
-// 		// 	expect(panel2).not.toBeInTheDocument();
-// 		// });
+			for (const prop of ['base', 'padding', 'rounded', 'classes']) {
+				it(`Correctly applies the \`${prop}\` prop`, () => {
+					const value = 'foo';
+					const component = render(
+						<Accordion>
+							<Accordion.Item value="1">
+								<Accordion.Control {...{ [prop]: value }}></Accordion.Control>
+							</Accordion.Item>
+						</Accordion>
+					);
+					expect(component.getByTestId(testId)).toHaveClass(value);
+				});
+			}
+		});
 
-// 		// Click the second control
-// 		await act(() => userEvent.click(control2));
+		describe('<Accordion.Panel>', () => {
+			it('Renders the component', () => {
+				const component = render(
+					<Accordion value={['1']}>
+						<Accordion.Item value="1">
+							<Accordion.Panel></Accordion.Panel>
+						</Accordion.Item>
+					</Accordion>
+				);
+				expect(component.getByTestId('accordion-panel')).toBeInTheDocument();
+			});
+		});
+	});
+});
 
-// 		await waitFor(() => {
-// 			// const panel1 = queryByText('Test Panel 1');
-// 			const panel2 = queryByText('Test Panel 2');
-// 			// expect(panel1).not.toBeInTheDocument();
-// 			expect(panel2).toBeInTheDocument();
-// 		});
+// describe('<Accordion>', () => {
+// 	it('should render the component', () => {
+// 		const { getByTestId } = render(<Accordion />);
+// 		expect(getByTestId('accordion')).toBeInTheDocument();
+// 	});
+
+// 	it('should render with `multiple` prop enabled', () => {
+// 		const { getByTestId } = render(<Accordion multiple />);
+// 		expect(getByTestId('accordion')).toBeInTheDocument();
+// 	});
+
+// 	// FIXME: broken during Zag migration
+// 	// it('should allow for children', () => {
+// 	// 	const value = 'foobar';
+// 	// 	const { getByTestId } = render(<Accordion>{value}</Accordion>);
+// 	// 	expect(getByTestId('accordion').innerHTML).toContain(value);
+// 	// });
+
+// 	it('should allow you to set the `base` style prop', () => {
+// 		const tailwindClasses = 'bg-red-500';
+// 		const { getByTestId } = render(<Accordion base={tailwindClasses} />);
+// 		expect(getByTestId('accordion')).toHaveClass(tailwindClasses);
+// 	});
+
+// 	it('should allow you to set the `classes` style prop', () => {
+// 		const tailwindClasses = 'bg-green-500';
+// 		const { getByTestId } = render(<Accordion classes={tailwindClasses} />);
+// 		expect(getByTestId('accordion')).toHaveClass(tailwindClasses);
 // 	});
 // });
 
-// *************************
-// Unit Tests
-// *************************
+// // Accordion.Item ---
 
-// Accordion ---
+// describe('<Accordion.Item>', () => {
+// 	it('should render the component', () => {
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1">TestItem1</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		expect(getByTestId('accordion-item')).toBeInTheDocument();
+// 	});
 
-describe('<Accordion>', () => {
-	it('should render the component', () => {
-		const { getByTestId } = render(<Accordion />);
-		expect(getByTestId('accordion')).toBeInTheDocument();
-	});
+// 	it('should allow for children', () => {
+// 		const value = 'foobar';
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1">{value}</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		expect(getByTestId('accordion-item').innerHTML).toContain(value);
+// 	});
 
-	it('should render with `multiple` prop enabled', () => {
-		const { getByTestId } = render(<Accordion multiple />);
-		expect(getByTestId('accordion')).toBeInTheDocument();
-	});
+// 	it('should allow you to set the `base` style prop', () => {
+// 		const tailwindClasses = 'bg-red-500';
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1" base={tailwindClasses}>
+// 					TestItem1
+// 				</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		expect(getByTestId('accordion-item')).toHaveClass(tailwindClasses);
+// 	});
 
-	// FIXME: broken during Zag migration
-	// it('should allow for children', () => {
-	// 	const value = 'foobar';
-	// 	const { getByTestId } = render(<Accordion>{value}</Accordion>);
-	// 	expect(getByTestId('accordion').innerHTML).toContain(value);
-	// });
+// 	it('should allow you to set the `classes` style prop', () => {
+// 		const tailwindClasses = 'bg-green-500';
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1" base={tailwindClasses}>
+// 					TestItem1
+// 				</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		expect(getByTestId('accordion-item')).toHaveClass(tailwindClasses);
+// 	});
+// });
 
-	it('should allow you to set the `base` style prop', () => {
-		const tailwindClasses = 'bg-red-500';
-		const { getByTestId } = render(<Accordion base={tailwindClasses} />);
-		expect(getByTestId('accordion')).toHaveClass(tailwindClasses);
-	});
+// // Accordion.Control ---
 
-	it('should allow you to set the `classes` style prop', () => {
-		const tailwindClasses = 'bg-green-500';
-		const { getByTestId } = render(<Accordion classes={tailwindClasses} />);
-		expect(getByTestId('accordion')).toHaveClass(tailwindClasses);
-	});
-});
+// describe('<Accordion.Control>', () => {
+// 	it('should render the component', () => {
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1">
+// 					<Accordion.Control>TestPanel1</Accordion.Control>
+// 				</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		expect(getByTestId('accordion-control')).toBeInTheDocument();
+// 	});
 
-// Accordion.Item ---
+// 	it('should allow for children', () => {
+// 		const value = 'foobar';
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1">
+// 					<Accordion.Control>{value}</Accordion.Control>
+// 				</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		expect(getByTestId('accordion-control').innerHTML).toContain(value);
+// 	});
 
-describe('<Accordion.Item>', () => {
-	it('should render the component', () => {
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1">TestItem1</Accordion.Item>
-			</Accordion>
-		);
-		expect(getByTestId('accordion-item')).toBeInTheDocument();
-	});
+// 	// FIXME: broken during Zag migration
+// 	// it('should be set disabled by `disabled` prop', async () => {
+// 	// 	const { getByTestId } = render(
+// 	// 		<Accordion value={['testItem1']}>
+// 	// 			<Accordion.Item value="testItem1">
+// 	// 				<Accordion.Control disabled>TestPanel1</Accordion.Control>
+// 	// 			</Accordion.Item>
+// 	// 		</Accordion>
+// 	// 	);
+// 	// 	await waitFor(() => {
+// 	// 		const element = getByTestId('accordion-control');
+// 	// 		expect(element.getAttribute('disabled')).toBe('');
+// 	// 	});
+// 	// });
 
-	it('should allow for children', () => {
-		const value = 'foobar';
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1">{value}</Accordion.Item>
-			</Accordion>
-		);
-		expect(getByTestId('accordion-item').innerHTML).toContain(value);
-	});
+// 	it('should allow you to set the `base` style prop', () => {
+// 		const tailwindClasses = 'bg-red-500';
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1">
+// 					<Accordion.Control base={tailwindClasses}>TestPanel1</Accordion.Control>
+// 				</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		expect(getByTestId('accordion-control')).toHaveClass(tailwindClasses);
+// 	});
 
-	it('should allow you to set the `base` style prop', () => {
-		const tailwindClasses = 'bg-red-500';
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1" base={tailwindClasses}>
-					TestItem1
-				</Accordion.Item>
-			</Accordion>
-		);
-		expect(getByTestId('accordion-item')).toHaveClass(tailwindClasses);
-	});
+// 	it('should allow you to set the `classes` style prop', () => {
+// 		const tailwindClasses = 'bg-green-500';
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1">
+// 					<Accordion.Control base={tailwindClasses}>TestPanel1</Accordion.Control>
+// 				</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		expect(getByTestId('accordion-control')).toHaveClass(tailwindClasses);
+// 	});
+// });
 
-	it('should allow you to set the `classes` style prop', () => {
-		const tailwindClasses = 'bg-green-500';
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1" base={tailwindClasses}>
-					TestItem1
-				</Accordion.Item>
-			</Accordion>
-		);
-		expect(getByTestId('accordion-item')).toHaveClass(tailwindClasses);
-	});
-});
+// // Accordion.Panel ---
 
-// Accordion.Control ---
+// describe('<Accordion.Panel>', () => {
+// 	it('should render the component', () => {
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1">
+// 					<Accordion.Panel>TestPanel1</Accordion.Panel>
+// 				</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		expect(getByTestId('accordion-panel')).toBeInTheDocument();
+// 	});
 
-describe('<Accordion.Control>', () => {
-	it('should render the component', () => {
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1">
-					<Accordion.Control>TestPanel1</Accordion.Control>
-				</Accordion.Item>
-			</Accordion>
-		);
-		expect(getByTestId('accordion-control')).toBeInTheDocument();
-	});
+// 	// FIXME: broken during Zag migration
+// 	// it('should allow for children', () => {
+// 	// 	const value = 'foobar';
+// 	// 	const { getByTestId } = render(
+// 	// 		<Accordion value={['testItem1']}>
+// 	// 			<Accordion.Item value="testItem1">
+// 	// 				<Accordion.Panel>{value}</Accordion.Panel>
+// 	// 			</Accordion.Item>
+// 	// 		</Accordion>
+// 	// 	);
+// 	// 	const element = getByTestId('accordion-panel').children[0].innerHTML;
+// 	// 	expect(element).toContain(value);
+// 	// });
 
-	it('should allow for children', () => {
-		const value = 'foobar';
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1">
-					<Accordion.Control>{value}</Accordion.Control>
-				</Accordion.Item>
-			</Accordion>
-		);
-		expect(getByTestId('accordion-control').innerHTML).toContain(value);
-	});
+// 	it('should allow you to set the `base` style prop', () => {
+// 		const tailwindClasses = 'bg-red-500';
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1">
+// 					<Accordion.Panel base={tailwindClasses}>Test</Accordion.Panel>
+// 				</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		const element = getByTestId('accordion-panel');
+// 		expect(element).toHaveClass(tailwindClasses);
+// 	});
 
-	// FIXME: broken during Zag migration
-	// it('should be set disabled by `disabled` prop', async () => {
-	// 	const { getByTestId } = render(
-	// 		<Accordion value={['testItem1']}>
-	// 			<Accordion.Item value="testItem1">
-	// 				<Accordion.Control disabled>TestPanel1</Accordion.Control>
-	// 			</Accordion.Item>
-	// 		</Accordion>
-	// 	);
-	// 	await waitFor(() => {
-	// 		const element = getByTestId('accordion-control');
-	// 		expect(element.getAttribute('disabled')).toBe('');
-	// 	});
-	// });
-
-	it('should allow you to set the `base` style prop', () => {
-		const tailwindClasses = 'bg-red-500';
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1">
-					<Accordion.Control base={tailwindClasses}>TestPanel1</Accordion.Control>
-				</Accordion.Item>
-			</Accordion>
-		);
-		expect(getByTestId('accordion-control')).toHaveClass(tailwindClasses);
-	});
-
-	it('should allow you to set the `classes` style prop', () => {
-		const tailwindClasses = 'bg-green-500';
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1">
-					<Accordion.Control base={tailwindClasses}>TestPanel1</Accordion.Control>
-				</Accordion.Item>
-			</Accordion>
-		);
-		expect(getByTestId('accordion-control')).toHaveClass(tailwindClasses);
-	});
-});
-
-// Accordion.Panel ---
-
-describe('<Accordion.Panel>', () => {
-	it('should render the component', () => {
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1">
-					<Accordion.Panel>TestPanel1</Accordion.Panel>
-				</Accordion.Item>
-			</Accordion>
-		);
-		expect(getByTestId('accordion-panel')).toBeInTheDocument();
-	});
-
-	// FIXME: broken during Zag migration
-	// it('should allow for children', () => {
-	// 	const value = 'foobar';
-	// 	const { getByTestId } = render(
-	// 		<Accordion value={['testItem1']}>
-	// 			<Accordion.Item value="testItem1">
-	// 				<Accordion.Panel>{value}</Accordion.Panel>
-	// 			</Accordion.Item>
-	// 		</Accordion>
-	// 	);
-	// 	const element = getByTestId('accordion-panel').children[0].innerHTML;
-	// 	expect(element).toContain(value);
-	// });
-
-	it('should allow you to set the `base` style prop', () => {
-		const tailwindClasses = 'bg-red-500';
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1">
-					<Accordion.Panel base={tailwindClasses}>Test</Accordion.Panel>
-				</Accordion.Item>
-			</Accordion>
-		);
-		const element = getByTestId('accordion-panel');
-		expect(element).toHaveClass(tailwindClasses);
-	});
-
-	it('should allow you to set the `classes` style prop', () => {
-		const tailwindClasses = 'bg-green-500';
-		const { getByTestId } = render(
-			<Accordion value={['testItem1']}>
-				<Accordion.Item value="testItem1">
-					<Accordion.Panel classes={tailwindClasses}>Test</Accordion.Panel>
-				</Accordion.Item>
-			</Accordion>
-		);
-		const element = getByTestId('accordion-panel');
-		expect(element).toHaveClass(tailwindClasses);
-	});
-});
+// 	it('should allow you to set the `classes` style prop', () => {
+// 		const tailwindClasses = 'bg-green-500';
+// 		const { getByTestId } = render(
+// 			<Accordion value={['testItem1']}>
+// 				<Accordion.Item value="testItem1">
+// 					<Accordion.Panel classes={tailwindClasses}>Test</Accordion.Panel>
+// 				</Accordion.Item>
+// 			</Accordion>
+// 		);
+// 		const element = getByTestId('accordion-panel');
+// 		expect(element).toHaveClass(tailwindClasses);
+// 	});
+// });
