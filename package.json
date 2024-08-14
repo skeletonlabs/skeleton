@@ -69,7 +69,7 @@
 		"shelljs": "^0.8.5"
 	},
 	"engines": {
-		"pnpm": ">=9.2.0"
+		"pnpm": ">=9.6.0"
 	},
-	"packageManager": "pnpm@9.2.0"
+	"packageManager": "pnpm@9.6.0"
 }
