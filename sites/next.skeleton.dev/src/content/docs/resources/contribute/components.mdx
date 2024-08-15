@@ -18,6 +18,23 @@ Framework packages are found within the Skeleton monorepo in the following locat
 
 The purpose of our component packages is two-fold. First, they house and export the full set of components available to that framework. Additionally, each project contains a dedicated app framework. This is used to test the components in their native environment. Use these projects as a sandbox to test and iterate before adding the components to the public facing Astro-base documentation website.
 
+## Adding Dependencies
+
+When adding dependencies that affect multiple frameworks you should use [`PNPM's Catalogs`](https://pnpm.io/catalogs) when defining the version.
+This will ensure that the dependency version is defined in a single place and consumed by multiple frameworks and thus ensuring that the dependency versions stay in sync.
+After defining the version in the root `pnpm-workspace.yaml` like so:
+
+```yaml
+catalog:
+ # ...
+ <package>: <version>
+```
+
+You can then install the dependency in the target project like so:
+```bash
+pnpm add <package>@catalog:
+```
+
 ### Dev Server
 
 To run each app framework, change your directory to the respective package and run the following command.
