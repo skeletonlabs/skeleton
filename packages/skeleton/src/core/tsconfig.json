@@ -12,7 +12,7 @@
 		"noEmit": true,
 		"lib": ["ES2022"],
 		"target": "ES2022",
-		"module": "ESNext", // error can be ignored
+		"module": "NodeNext",
 		"moduleResolution": "NodeNext",
 		"typeRoots": ["../../node_modules/@types"]
 	},
