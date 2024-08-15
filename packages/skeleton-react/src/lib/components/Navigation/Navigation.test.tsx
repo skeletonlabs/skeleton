@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
-import { Nav } from './Navigation.js';
+import { Nav } from '$lib/index.js';
 
 describe('Navigation', () => {
 	describe('<Nav.Rail>', () => {
