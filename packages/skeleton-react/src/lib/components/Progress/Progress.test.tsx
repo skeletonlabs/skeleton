@@ -70,11 +70,11 @@ describe('Progress', () => {
 
 			it('Correctly applies the `meterAnimate` prop based on the `value` prop', async () => {
 				const meterAnimate = 'meterAnimate';
-				const { getByTestId, rerender } = render(<Progress meterAnimate={meterAnimate} value={0}></Progress>);
-				expect(getByTestId(testId)).not.toHaveClass(meterAnimate);
-				rerender(<Progress meterAnimate={meterAnimate} value={null}></Progress>);
+				const component = render(<Progress meterAnimate={meterAnimate} value={0}></Progress>);
+				expect(component.getByTestId(testId)).not.toHaveClass(meterAnimate);
+				component.rerender(<Progress meterAnimate={meterAnimate} value={null}></Progress>);
 				await vi.waitFor(() => {
-					expect(getByTestId(testId)).toHaveClass(meterAnimate);
+					expect(component.getByTestId(testId)).toHaveClass(meterAnimate);
 				});
 			});
 		});
