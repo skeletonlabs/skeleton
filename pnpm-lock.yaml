@@ -463,7 +463,7 @@ importers:
         specifier: ^3.4.6
         version: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
       typescript:
-        specifier: ^5.5.4
+        specifier: 'catalog:'
         version: 5.5.4
     devDependencies:
       '@tailwindcss/forms':
