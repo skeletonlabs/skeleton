@@ -33,6 +33,9 @@ catalogs:
     '@zag-js/tabs':
       specifier: ^0.65.0
       version: 0.65.0
+    typescript:
+      specifier: ^5.5.4
+      version: 5.5.4
 
 importers:
 
@@ -171,22 +174,22 @@ importers:
         version: 15.1.0(postcss@8.4.24)
       postcss-load-config:
         specifier: 4.0.1
-        version: 4.0.1(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.0.3))
+        version: 4.0.1(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4))
       tailwindcss:
         specifier: 3.4.1
-        version: 3.4.1(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.0.3))
+        version: 3.4.1(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4))
       tslib:
         specifier: 2.5.3
         version: 2.5.3
       tsup:
         specifier: ^6.7.0
-        version: 6.7.0(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.0.3))(typescript@5.0.3)
+        version: 6.7.0(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4))(typescript@5.5.4)
       tsx:
         specifier: ^4.16.2
         version: 4.16.2
       typescript:
-        specifier: 5.0.3
-        version: 5.0.3
+        specifier: 'catalog:'
+        version: 5.5.4
 
   packages/skeleton-react:
     dependencies:
@@ -264,7 +267,7 @@ importers:
         specifier: ^3.4.6
         version: 3.4.6(ts-node@10.9.2(@types/node@16.18.103)(typescript@5.5.4))
       typescript:
-        specifier: ^5.5.3
+        specifier: 'catalog:'
         version: 5.5.4
       typescript-json-schema:
         specifier: ^0.63.0
@@ -366,7 +369,7 @@ importers:
         specifier: ^2.6.3
         version: 2.6.3
       typescript:
-        specifier: ^5.5.3
+        specifier: 'catalog:'
         version: 5.5.4
       vite:
         specifier: ^5.3.4
@@ -392,19 +395,19 @@ importers:
     dependencies:
       '@astrojs/check':
         specifier: ^0.8.3
-        version: 0.8.3(prettier-plugin-astro@0.13.0)(prettier@3.3.2)(typescript@5.5.3)
+        version: 0.8.3(prettier-plugin-astro@0.13.0)(prettier@3.3.2)(typescript@5.5.4)
       '@astrojs/mdx':
         specifier: ^3.1.3
-        version: 3.1.3(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3))
+        version: 3.1.3(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4))
       '@astrojs/react':
         specifier: ^3.6.2
         version: 3.6.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.0(@types/node@20.14.11)(sass@1.74.1))
       '@astrojs/svelte':
         specifier: ^5.7.0
-        version: 5.7.0(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3))(svelte@5.0.0-next.210)(typescript@5.5.3)(vite@5.4.0(@types/node@20.14.11)(sass@1.74.1))
+        version: 5.7.0(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4))(svelte@5.0.0-next.210)(typescript@5.5.4)(vite@5.4.0(@types/node@20.14.11)(sass@1.74.1))
       '@astrojs/tailwind':
         specifier: ^5.1.0
-        version: 5.1.0(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3))(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)))(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
+        version: 5.1.0(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4))(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)))(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
       '@nanostores/persistent':
         specifier: ^0.9.1
         version: 0.9.1(nanostores@0.9.5)
@@ -422,13 +425,13 @@ importers:
         version: 18.3.3
       astro:
         specifier: ^4.12.2
-        version: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3)
+        version: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4)
       astro-auto-import:
         specifier: ^0.4.2
-        version: 0.4.2(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3))
+        version: 0.4.2(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4))
       astro-expressive-code:
         specifier: ^0.33.5
-        version: 0.33.5(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3))
+        version: 0.33.5(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4))
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.0
@@ -458,17 +461,17 @@ importers:
         version: 3.8.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2))(postcss@8.4.41)(sass@1.74.1)(svelte@5.0.0-next.210)
       tailwindcss:
         specifier: ^3.4.6
-        version: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
+        version: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
       typescript:
-        specifier: ^5.5.3
-        version: 5.5.3
+        specifier: 'catalog:'
+        version: 5.5.4
     devDependencies:
       '@tailwindcss/forms':
         specifier: ^0.5.7
-        version: 0.5.7(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)))
+        version: 0.5.7(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)))
       '@tailwindcss/typography':
         specifier: ^0.5.13
-        version: 0.5.13(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)))
+        version: 0.5.13(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)))
       '@types/node':
         specifier: ^20.14.11
         version: 20.14.11
@@ -514,7 +517,7 @@ importers:
         version: 3.0.2(svelte@5.0.0-next.193)(vite@5.2.8(@types/node@20.14.11)(sass@1.74.1))
       '@tailwindcss/forms':
         specifier: ^0.5.7
-        version: 0.5.7(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.4.4)))
+        version: 0.5.7(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)))
       autoprefixer:
         specifier: ^10.4.18
         version: 10.4.19(postcss@8.4.38)
@@ -535,10 +538,10 @@ importers:
         version: 3.6.9(@babel/core@7.24.9)(postcss-load-config@5.0.3(jiti@1.21.6)(postcss@8.4.38))(postcss@8.4.38)(sass@1.74.1)(svelte@5.0.0-next.193)
       tailwindcss:
         specifier: ^3.4.1
-        version: 3.4.3(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.4.4))
+        version: 3.4.3(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
       typescript:
-        specifier: ^5.3.3
-        version: 5.4.4
+        specifier: 'catalog:'
+        version: 5.5.4
       vite:
         specifier: ^5.1.4
         version: 5.2.8(@types/node@20.14.11)(sass@1.74.1)
@@ -6317,23 +6320,8 @@ packages:
     resolution: {integrity: sha512-vBfMBq4U/rZ5FIRi7u4o/YAdeRHsSabdGHogUlCPi0cYU0CGvS4Bdu8bSzyUsF+Kf5PTQUGh2TictJuQTDK6eQ==}
     hasBin: true
 
-  typescript@5.0.3:
-    resolution: {integrity: sha512-xv8mOEDnigb/tN9PSMTwSEqAnUvkoXMQlicOb0IUVDBSQCgBSaAAROUZYy2IcUy5qU6XajK5jjjO7TMWqBTKZA==}
-    engines: {node: '>=12.20'}
-    hasBin: true
-
   typescript@5.1.6:
     resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-
-  typescript@5.4.4:
-    resolution: {integrity: sha512-dGE2Vv8cpVvw28v8HCPqyb08EzbBURxDpuhJvTrusShUfGnhHBafDsLdS1EhhxyL6BJQE+2cT3dDPAv+MQ6oLw==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-
-  typescript@5.5.3:
-    resolution: {integrity: sha512-/hreyEujaB0w76zKo6717l3L0o/qEUtRgdvUBvlkhoWeOVMjMuHNHk0BRBzikzuGDqNmPQbg5ifMEqsHLiIUcQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -6927,13 +6915,13 @@ snapshots:
 
   '@antfu/utils@0.7.10': {}
 
-  '@astrojs/check@0.8.3(prettier-plugin-astro@0.13.0)(prettier@3.3.2)(typescript@5.5.3)':
+  '@astrojs/check@0.8.3(prettier-plugin-astro@0.13.0)(prettier@3.3.2)(typescript@5.5.4)':
     dependencies:
-      '@astrojs/language-server': 2.12.8(prettier-plugin-astro@0.13.0)(prettier@3.3.2)(typescript@5.5.3)
+      '@astrojs/language-server': 2.12.8(prettier-plugin-astro@0.13.0)(prettier@3.3.2)(typescript@5.5.4)
       chokidar: 3.6.0
       fast-glob: 3.3.2
       kleur: 4.1.5
-      typescript: 5.5.3
+      typescript: 5.5.4
       yargs: 17.7.2
     transitivePeerDependencies:
       - prettier
@@ -6945,11 +6933,11 @@ snapshots:
 
   '@astrojs/internal-helpers@0.4.1': {}
 
-  '@astrojs/language-server@2.12.8(prettier-plugin-astro@0.13.0)(prettier@3.3.2)(typescript@5.5.3)':
+  '@astrojs/language-server@2.12.8(prettier-plugin-astro@0.13.0)(prettier@3.3.2)(typescript@5.5.4)':
     dependencies:
       '@astrojs/compiler': 2.9.2
       '@jridgewell/sourcemap-codec': 1.5.0
-      '@volar/kit': 2.4.0-alpha.16(typescript@5.5.3)
+      '@volar/kit': 2.4.0-alpha.16(typescript@5.5.4)
       '@volar/language-core': 2.4.0-alpha.16
       '@volar/language-server': 2.4.0-alpha.16
       '@volar/language-service': 2.4.0-alpha.16
@@ -6993,12 +6981,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.1.3(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3))':
+  '@astrojs/mdx@3.1.3(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4))':
     dependencies:
       '@astrojs/markdown-remark': 5.2.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.12.1
-      astro: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3)
+      astro: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4)
       es-module-lexer: 1.5.4
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -7030,24 +7018,24 @@ snapshots:
       - supports-color
       - vite
 
-  '@astrojs/svelte@5.7.0(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3))(svelte@5.0.0-next.210)(typescript@5.5.3)(vite@5.4.0(@types/node@20.14.11)(sass@1.74.1))':
+  '@astrojs/svelte@5.7.0(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4))(svelte@5.0.0-next.210)(typescript@5.5.4)(vite@5.4.0(@types/node@20.14.11)(sass@1.74.1))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@5.0.0-next.210)(vite@5.4.0(@types/node@20.14.11)(sass@1.74.1))
-      astro: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3)
+      astro: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4)
       svelte: 5.0.0-next.210
-      svelte2tsx: 0.7.13(svelte@5.0.0-next.210)(typescript@5.5.3)
-      typescript: 5.5.3
+      svelte2tsx: 0.7.13(svelte@5.0.0-next.210)(typescript@5.5.4)
+      typescript: 5.5.4
     transitivePeerDependencies:
       - supports-color
       - vite
 
-  '@astrojs/tailwind@5.1.0(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3))(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)))(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))':
+  '@astrojs/tailwind@5.1.0(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4))(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)))(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))':
     dependencies:
-      astro: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3)
+      astro: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4)
       autoprefixer: 10.4.19(postcss@8.4.39)
       postcss: 8.4.39
-      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
-      tailwindcss: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
+      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
+      tailwindcss: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
     transitivePeerDependencies:
       - ts-node
 
@@ -8540,33 +8528,28 @@ snapshots:
     dependencies:
       defer-to-connect: 2.0.1
 
-  '@tailwindcss/forms@0.5.7(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.4.4)))':
+  '@tailwindcss/forms@0.5.7(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)))':
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 3.4.3(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.4.4))
+      tailwindcss: 3.4.3(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
 
   '@tailwindcss/forms@0.5.7(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@16.18.103)(typescript@5.5.4)))':
     dependencies:
       mini-svg-data-uri: 1.4.4
       tailwindcss: 3.4.6(ts-node@10.9.2(@types/node@16.18.103)(typescript@5.5.4))
 
-  '@tailwindcss/forms@0.5.7(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)))':
-    dependencies:
-      mini-svg-data-uri: 1.4.4
-      tailwindcss: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
-
   '@tailwindcss/forms@0.5.7(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)))':
     dependencies:
       mini-svg-data-uri: 1.4.4
       tailwindcss: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
 
-  '@tailwindcss/typography@0.5.13(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)))':
+  '@tailwindcss/typography@0.5.13(tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)))':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
+      tailwindcss: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
 
   '@testing-library/dom@9.3.4':
     dependencies:
@@ -8931,12 +8914,12 @@ snapshots:
       loupe: 2.3.7
       pretty-format: 29.7.0
 
-  '@volar/kit@2.4.0-alpha.16(typescript@5.5.3)':
+  '@volar/kit@2.4.0-alpha.16(typescript@5.5.4)':
     dependencies:
       '@volar/language-service': 2.4.0-alpha.16
       '@volar/typescript': 2.4.0-alpha.16
       typesafe-path: 0.2.2
-      typescript: 5.5.3
+      typescript: 5.5.4
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
 
@@ -9277,15 +9260,15 @@ snapshots:
 
   astring@1.8.6: {}
 
-  astro-auto-import@0.4.2(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3)):
+  astro-auto-import@0.4.2(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4)):
     dependencies:
       '@types/node': 18.19.41
       acorn: 8.12.1
-      astro: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3)
+      astro: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4)
 
-  astro-expressive-code@0.33.5(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3)):
+  astro-expressive-code@0.33.5(astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4)):
     dependencies:
-      astro: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3)
+      astro: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4)
       hast-util-to-html: 8.0.4
       remark-expressive-code: 0.33.5
 
@@ -9297,7 +9280,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.3):
+  astro@4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4):
     dependencies:
       '@astrojs/compiler': 2.9.2
       '@astrojs/internal-helpers': 0.4.1
@@ -9352,7 +9335,7 @@ snapshots:
       shiki: 1.10.3
       string-width: 7.2.0
       strip-ansi: 7.1.0
-      tsconfck: 3.1.1(typescript@5.5.3)
+      tsconfck: 3.1.1(typescript@5.5.4)
       unist-util-visit: 5.0.0
       vfile: 6.0.2
       vite: 5.4.0(@types/node@20.14.11)(sass@1.74.1)
@@ -12558,13 +12541,13 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.4.39
 
-  postcss-load-config@3.1.4(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.0.3)):
+  postcss-load-config@3.1.4(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4)):
     dependencies:
       lilconfig: 2.1.0
       yaml: 1.10.2
     optionalDependencies:
       postcss: 8.4.24
-      ts-node: 10.9.2(@types/node@18.16.16)(typescript@5.0.3)
+      ts-node: 10.9.2(@types/node@18.16.16)(typescript@5.5.4)
 
   postcss-load-config@3.1.4(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.12.4)(typescript@5.5.4)):
     dependencies:
@@ -12574,21 +12557,21 @@ snapshots:
       postcss: 8.4.39
       ts-node: 10.9.2(@types/node@20.12.4)(typescript@5.5.4)
 
-  postcss-load-config@4.0.1(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.0.3)):
+  postcss-load-config@4.0.1(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4)):
     dependencies:
       lilconfig: 2.1.0
       yaml: 2.4.5
     optionalDependencies:
       postcss: 8.4.24
-      ts-node: 10.9.2(@types/node@18.16.16)(typescript@5.0.3)
+      ts-node: 10.9.2(@types/node@18.16.16)(typescript@5.5.4)
 
-  postcss-load-config@4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.4.4)):
+  postcss-load-config@4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.4.5
     optionalDependencies:
       postcss: 8.4.38
-      ts-node: 10.9.2(@types/node@20.14.11)(typescript@5.4.4)
+      ts-node: 10.9.2(@types/node@20.14.11)(typescript@5.5.4)
 
   postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@16.18.103)(typescript@5.5.4)):
     dependencies:
@@ -12597,14 +12580,6 @@ snapshots:
     optionalDependencies:
       postcss: 8.4.39
       ts-node: 10.9.2(@types/node@16.18.103)(typescript@5.5.4)
-
-  postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)):
-    dependencies:
-      lilconfig: 3.1.2
-      yaml: 2.4.5
-    optionalDependencies:
-      postcss: 8.4.39
-      ts-node: 10.9.2(@types/node@20.14.11)(typescript@5.5.3)
 
   postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)):
     dependencies:
@@ -13666,12 +13641,12 @@ snapshots:
       svelte: 5.0.0-next.201
       typescript: 5.5.4
 
-  svelte2tsx@0.7.13(svelte@5.0.0-next.210)(typescript@5.5.3):
+  svelte2tsx@0.7.13(svelte@5.0.0-next.210)(typescript@5.5.4):
     dependencies:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
       svelte: 5.0.0-next.210
-      typescript: 5.5.3
+      typescript: 5.5.4
 
   svelte@5.0.0-next.193:
     dependencies:
@@ -13737,7 +13712,7 @@ snapshots:
       '@pkgr/core': 0.1.1
       tslib: 2.6.3
 
-  tailwindcss@3.4.1(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.0.3)):
+  tailwindcss@3.4.1(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -13756,7 +13731,7 @@ snapshots:
       postcss: 8.4.24
       postcss-import: 15.1.0(postcss@8.4.24)
       postcss-js: 4.0.1(postcss@8.4.24)
-      postcss-load-config: 4.0.1(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.0.3))
+      postcss-load-config: 4.0.1(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4))
       postcss-nested: 6.2.0(postcss@8.4.24)
       postcss-selector-parser: 6.1.1
       resolve: 1.22.8
@@ -13764,7 +13739,7 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.4.4)):
+  tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -13783,7 +13758,7 @@ snapshots:
       postcss: 8.4.38
       postcss-import: 15.1.0(postcss@8.4.38)
       postcss-js: 4.0.1(postcss@8.4.38)
-      postcss-load-config: 4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.4.4))
+      postcss-load-config: 4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
       postcss-nested: 6.0.1(postcss@8.4.38)
       postcss-selector-parser: 6.1.1
       resolve: 1.22.8
@@ -13811,33 +13786,6 @@ snapshots:
       postcss-import: 15.1.0(postcss@8.4.39)
       postcss-js: 4.0.1(postcss@8.4.39)
       postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@16.18.103)(typescript@5.5.4))
-      postcss-nested: 6.0.1(postcss@8.4.39)
-      postcss-selector-parser: 6.1.1
-      resolve: 1.22.8
-      sucrase: 3.35.0
-    transitivePeerDependencies:
-      - ts-node
-
-  tailwindcss@3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)):
-    dependencies:
-      '@alloc/quick-lru': 5.2.0
-      arg: 5.0.2
-      chokidar: 3.6.0
-      didyoumean: 1.2.2
-      dlv: 1.1.3
-      fast-glob: 3.3.2
-      glob-parent: 6.0.2
-      is-glob: 4.0.3
-      jiti: 1.21.6
-      lilconfig: 2.1.0
-      micromatch: 4.0.7
-      normalize-path: 3.0.0
-      object-hash: 3.0.0
-      picocolors: 1.0.1
-      postcss: 8.4.39
-      postcss-import: 15.1.0(postcss@8.4.39)
-      postcss-js: 4.0.1(postcss@8.4.39)
-      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
       postcss-nested: 6.0.1(postcss@8.4.39)
       postcss-selector-parser: 6.1.1
       resolve: 1.22.8
@@ -13992,7 +13940,7 @@ snapshots:
       yn: 3.1.1
     optional: true
 
-  ts-node@10.9.2(@types/node@18.16.16)(typescript@5.0.3):
+  ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
@@ -14006,7 +13954,7 @@ snapshots:
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 5.0.3
+      typescript: 5.5.4
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     optional: true
@@ -14030,44 +13978,6 @@ snapshots:
       yn: 3.1.1
     optional: true
 
-  ts-node@10.9.2(@types/node@20.14.11)(typescript@5.4.4):
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.11
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
-      '@types/node': 20.14.11
-      acorn: 8.12.1
-      acorn-walk: 8.3.3
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 5.4.4
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-    optional: true
-
-  ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3):
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.11
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
-      '@types/node': 20.14.11
-      acorn: 8.12.1
-      acorn-walk: 8.3.3
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 5.5.3
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-    optional: true
-
   ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
@@ -14087,15 +13997,15 @@ snapshots:
       yn: 3.1.1
     optional: true
 
-  tsconfck@3.1.1(typescript@5.5.3):
+  tsconfck@3.1.1(typescript@5.5.4):
     optionalDependencies:
-      typescript: 5.5.3
+      typescript: 5.5.4
 
   tslib@2.5.3: {}
 
   tslib@2.6.3: {}
 
-  tsup@6.7.0(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.0.3))(typescript@5.0.3):
+  tsup@6.7.0(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4))(typescript@5.5.4):
     dependencies:
       bundle-require: 4.2.1(esbuild@0.17.19)
       cac: 6.7.14
@@ -14105,7 +14015,7 @@ snapshots:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss-load-config: 3.1.4(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.0.3))
+      postcss-load-config: 3.1.4(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4))
       resolve-from: 5.0.0
       rollup: 3.29.4
       source-map: 0.8.0-beta.0
@@ -14113,7 +14023,7 @@ snapshots:
       tree-kill: 1.2.2
     optionalDependencies:
       postcss: 8.4.24
-      typescript: 5.0.3
+      typescript: 5.5.4
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -14213,13 +14123,7 @@ snapshots:
       - '@swc/core'
       - '@swc/wasm'
 
-  typescript@5.0.3: {}
-
   typescript@5.1.6: {}
-
-  typescript@5.4.4: {}
-
-  typescript@5.5.3: {}
 
   typescript@5.5.4: {}
 

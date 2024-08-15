@@ -3,11 +3,8 @@ packages:
   - 'sites/*'
 
 catalog:
-  # Frameworks
   '@zag-js/svelte': ^0.65.0
   '@zag-js/react': ^0.65.0
-
-  # Machines
   '@zag-js/accordion': ^0.65.0
   '@zag-js/avatar': ^0.65.0
   '@zag-js/rating-group': ^0.65.0
@@ -15,3 +12,4 @@ catalog:
   '@zag-js/progress': ^0.65.0
   '@zag-js/radio-group': ^0.65.0
   '@zag-js/switch': ^0.65.0
+  typescript: ^5.5.4
