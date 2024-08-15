@@ -74,17 +74,28 @@ export const NavRail: React.FC<NavRailProps> = ({
 			<NavContext.Provider value={ctx}>
 				{/* Header */}
 				{header ? (
-					<header className={`${headerBase} ${headerFlexDirection} ${headerJustify} ${headerItems} ${headerGap} ${headerClasses}`}>
+					<header
+						className={`${headerBase} ${headerFlexDirection} ${headerJustify} ${headerItems} ${headerGap} ${headerClasses}`}
+						data-testid="nav-rail-header"
+					>
 						{header}
 					</header>
 				) : null}
 				{/* Tiles */}
 				{children ? (
-					<nav className={`${tilesBase} ${tilesFlexDirection} ${tilesJustify} ${tilesItems} ${tilesGap} ${tilesClasses}`}>{children}</nav>
+					<nav
+						className={`${tilesBase} ${tilesFlexDirection} ${tilesJustify} ${tilesItems} ${tilesGap} ${tilesClasses}`}
+						data-testid="nav-rail-tiles"
+					>
+						{children}
+					</nav>
 				) : null}
 				{/* Footer */}
 				{footer ? (
-					<footer className={`${footerBase} ${footerFlexDirection} ${footerJustify} ${footerItems} ${footerGap} ${footerClasses}`}>
+					<footer
+						className={`${footerBase} ${footerFlexDirection} ${footerJustify} ${footerItems} ${footerGap} ${footerClasses}`}
+						data-testid="nav-rail-footer"
+					>
 						{footer}
 					</footer>
 				) : null}
@@ -207,11 +218,19 @@ export const NavTile: React.FC<NavTileProps> = ({
 			data-testid="nav-tile"
 		>
 			{/* Icon */}
-			{children ? <div>{children}</div> : null}
+			{children && <div>{children}</div>}
 			{/* Label (base) */}
-			{label && !ctx.expanded ? <div className={`${labelBase} ${labelClasses}`}>{label}</div> : null}
+			{label && !ctx.expanded && (
+				<div className={`${labelBase} ${labelClasses}`} data-testid="nav-tile-label">
+					{label}
+				</div>
+			)}
 			{/* Label (expanded) */}
-			{labelExpanded && ctx.expanded ? <div className={`${labelExpandedBase} ${labelExpandedClasses}`}>{labelExpanded}</div> : null}
+			{labelExpanded && ctx.expanded && (
+				<div className={`${labelExpandedBase} ${labelExpandedClasses}`} data-testid="nav-tile-label-expanded">
+					{labelExpanded}
+				</div>
+			)}
 		</TileElement>
 	);
 };
