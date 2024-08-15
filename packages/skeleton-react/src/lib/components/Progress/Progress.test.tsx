@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { Progress } from '$lib/index.js';
+import { act } from 'react';
 
 describe('Progress', () => {
 	describe('<Progress>', () => {
@@ -72,7 +73,9 @@ describe('Progress', () => {
 				const meterAnimate = 'meterAnimate';
 				const component = render(<Progress meterAnimate={meterAnimate} value={0}></Progress>);
 				expect(component.getByTestId(testId)).not.toHaveClass(meterAnimate);
-				component.rerender(<Progress meterAnimate={meterAnimate} value={null}></Progress>);
+				await act(async () => {
+					component.rerender(<Progress meterAnimate={meterAnimate} value={null}></Progress>);
+				});
 				await vi.waitFor(() => {
 					expect(component.getByTestId(testId)).toHaveClass(meterAnimate);
 				});
