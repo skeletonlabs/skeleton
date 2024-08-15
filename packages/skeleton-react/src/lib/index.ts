@@ -1,5 +1,3 @@
-export { default as TestReact } from './components/Test/Test.js';
-
 // Components
 export { Accordion } from './components/Accordion/Accordion.js';
 export { Avatar } from './components/Avatar/Avatar.js';
