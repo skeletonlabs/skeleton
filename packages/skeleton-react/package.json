@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "1.0.0-next.4",
+	"version": "1.0.0-next.5",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -40,6 +40,14 @@
 		"!./dist/schemas.d.ts"
 	],
 	"dependencies": {
+		"@zag-js/accordion": "catalog:",
+		"@zag-js/avatar": "catalog:",
+		"@zag-js/progress": "catalog:",
+		"@zag-js/radio-group": "catalog:",
+		"@zag-js/rating-group": "catalog:",
+		"@zag-js/react": "catalog:",
+		"@zag-js/switch": "catalog:",
+		"@zag-js/tabs": "catalog:",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"
 	},
@@ -52,14 +60,6 @@
 		"@types/react": "^18.3.3",
 		"@types/react-dom": "^18.3.0",
 		"@vitejs/plugin-react": "^4.3.1",
-		"@zag-js/accordion": "catalog:",
-		"@zag-js/avatar": "catalog:",
-		"@zag-js/progress": "catalog:",
-		"@zag-js/radio-group": "catalog:",
-		"@zag-js/rating-group": "catalog:",
-		"@zag-js/react": "catalog:",
-		"@zag-js/switch": "catalog:",
-		"@zag-js/tabs": "catalog:",
 		"autoprefixer": "^10.4.19",
 		"jsdom": "^24.1.1",
 		"lucide-react": "^0.341.0",

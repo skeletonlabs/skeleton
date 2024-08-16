@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "1.0.0-next.5",
+	"version": "1.0.0-next.6",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
@@ -34,6 +34,16 @@
 		"./dist/**/*.cjs",
 		"./dist/**/*.d.cts"
 	],
+	"dependencies": {
+		"@zag-js/accordion": "catalog:",
+		"@zag-js/avatar": "catalog:",
+		"@zag-js/progress": "catalog:",
+		"@zag-js/radio-group": "catalog:",
+		"@zag-js/rating-group": "0.65.0",
+		"@zag-js/svelte": "catalog:",
+		"@zag-js/switch": "catalog:",
+		"@zag-js/tabs": "catalog:"
+	},
 	"peerDependencies": {
 		"svelte": "^5.0.0-next.193"
 	},
@@ -47,14 +57,6 @@
 		"@tailwindcss/forms": "^0.5.7",
 		"@testing-library/jest-dom": "^6.4.7",
 		"@testing-library/svelte": "^4.2.3",
-		"@zag-js/accordion": "catalog:",
-		"@zag-js/avatar": "catalog:",
-		"@zag-js/progress": "catalog:",
-		"@zag-js/radio-group": "catalog:",
-		"@zag-js/rating-group": "catalog:",
-		"@zag-js/svelte": "catalog:",
-		"@zag-js/switch": "catalog:",
-		"@zag-js/tabs": "catalog:",
 		"autoprefixer": "^10.4.19",
 		"jsdom": "^24.1.1",
 		"lucide-svelte": "^0.341.0",

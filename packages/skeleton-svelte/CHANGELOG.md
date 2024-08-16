@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.6
+
+### Patch Changes
+
+- bugfix: Resolve Zag dependency error ([`561a72b8`](https://github.com/skeletonlabs/skeleton/commit/561a72b8c38c28c1da37d51b562574686660e445))
+
 ## 1.0.0-next.5
 
 ### Minor Changes
