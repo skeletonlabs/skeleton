@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.5
+
+### Patch Changes
+
+- Resolved regressions in the following test cases: progress ring, ratings, segment control, switch, and tabs ([#2814](https://github.com/skeletonlabs/skeleton/pull/2814))
+
+- Resolved regressions in the following test cases: accordion, appbar, avatar, navigation, and progress components ([#2813](https://github.com/skeletonlabs/skeleton/pull/2813))
+
 ## 1.0.0-next.4
 
 ### Minor Changes
