@@ -8,6 +8,7 @@
 		classes = '',
 		// State
 		stateDisabled = 'disabled',
+		stateFocused = 'focused',
 		// Label
 		labelBase = 'pointer-events-none transition-colors duration-100',
 		labelClasses = '',
@@ -24,11 +25,12 @@
 	const state = $derived(ctx.api.getItemState(zagProps));
 	const rxDisabled = $derived(state.disabled ? stateDisabled : '');
 	const rxActiveText = $derived(state.checked ? ctx.indicatorText : '');
+	const rxFocused = $derived(state.focused ? stateFocused : '');
 </script>
 
 <!-- @component An individual Segment option. -->
 
-<label {...ctx.api.getItemProps(zagProps)} class="{base} {rxDisabled} {classes}" data-testid="segment-item">
+<label {...ctx.api.getItemProps(zagProps)} class="{base} {rxDisabled} {rxFocused} {classes}" data-testid="segment-item">
 	<!-- Label -->
 	<span {...ctx.api.getItemTextProps(zagProps)} class="{labelBase} {rxActiveText} {labelClasses}" data-testid="segment-item-label">
 		{@render children?.()}

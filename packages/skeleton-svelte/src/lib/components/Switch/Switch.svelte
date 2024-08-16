@@ -12,6 +12,8 @@
 		// Root (Track)
 		base = 'inline-flex items-center gap-4',
 		classes = '',
+		// State
+		stateFocused = '[&>span]:focused',
 		// Control
 		controlBase = 'cursor-pointer transition duration-200',
 		controlInactive = 'preset-filled-surface-200-800',
@@ -90,11 +92,12 @@
 	const rxTrackState = $derived(api.checked ? controlActive : controlInactive);
 	const rxThumbState = $derived(api.checked ? `${thumbActive} ${thumbTranslateX}` : thumbInactive);
 	const rxDisabled = $derived(api.disabled ? controlDisabled : '');
+	const rxFocused = $derived(api.focused ? stateFocused : '');
 </script>
 
 <!-- @component A control for toggling between checked states. -->
 
-<label {...api.getRootProps()} class="{base} {classes}" data-testid="switch">
+<label {...api.getRootProps()} class="{base} {rxFocused} {classes}" data-testid="switch">
 	<!-- Input -->
 	<input {...api.getHiddenInputProps()} data-testid="switch-input" />
 	<!-- Control -->

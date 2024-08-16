@@ -13,6 +13,8 @@ export const Switch: React.FC<SwitchProps> = ({
 	compact = false,
 	// Root (Track)
 	base = 'inline-flex items-center gap-4',
+	// State
+	stateFocused = '[&>span]:focused',
 	classes = '',
 	// Control
 	controlBase = 'cursor-pointer transition duration-200',
@@ -77,9 +79,10 @@ export const Switch: React.FC<SwitchProps> = ({
 	const rxTrackState = api.checked ? controlActive : controlInactive;
 	const rxThumbState = api.checked ? `${thumbActive} ${thumbTranslateX}` : thumbInactive;
 	const rxDisabled = api.disabled ? controlDisabled : '';
+	const rxFocused = api.focused ? stateFocused : '';
 
 	return (
-		<label {...api.getRootProps()} className={`${base} ${classes}`} data-testid="switch">
+		<label {...api.getRootProps()} className={`${base} ${rxFocused} ${classes}`} data-testid="switch">
 			{/* Input */}
 			<input {...api.getHiddenInputProps()} data-testid="switch-input" />
 			{/* Control */}

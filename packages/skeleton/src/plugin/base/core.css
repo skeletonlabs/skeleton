@@ -37,12 +37,21 @@ html {
 	scrollbar-width: thin;
 }
 
-/* Focus & Outlines --- */
+/* Outlines and Focus --- */
 /*
 	REMINDER: never disabled focus or outlines
 	as this would be harmful to accessibility!
 	Source: http://www.outlinenone.com/
 */
+
+/* Global Focus */
+:focus {
+	@apply focus:outline-surface-950 dark:focus:outline-surface-50;
+}
+/* Focus Class (for components) */
+.focused {
+	@apply ring-[2px] ring-surface-950 dark:ring-surface-50 ring-inset;
+}
 
 /* Disabled States --- */
 

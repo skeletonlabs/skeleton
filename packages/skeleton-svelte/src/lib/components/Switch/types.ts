@@ -17,6 +17,10 @@ export interface SwitchProps extends Omit<zagSwitch.Context, 'id'> {
 	/** Provide arbitrary classes to the root element. */
 	classes?: string;
 
+	// State ---
+	/** Set claseses for the focus state. */
+	stateFocused?: string;
+
 	// Control ---
 	/** Set base classes for the control element. */
 	controlBase?: string;
