@@ -194,28 +194,28 @@ importers:
   packages/skeleton-react:
     dependencies:
       '@zag-js/accordion':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/avatar':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/progress':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/radio-group':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/rating-group':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/react':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@zag-js/switch':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/tabs':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       react:
         specifier: ^18.3.1
@@ -247,7 +247,7 @@ importers:
         version: 18.3.0
       '@vitejs/plugin-react':
         specifier: ^4.3.1
-        version: 4.3.1(vite@5.3.4(@types/node@16.18.103)(sass@1.74.1))
+        version: 4.3.1(vite@5.4.0(@types/node@16.18.103)(sass@1.74.1))
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.39)
@@ -288,28 +288,28 @@ importers:
   packages/skeleton-svelte:
     dependencies:
       '@zag-js/accordion':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/avatar':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/progress':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/radio-group':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/rating-group':
         specifier: 0.65.0
         version: 0.65.0
       '@zag-js/svelte':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0(svelte@5.0.0-next.201)
       '@zag-js/switch':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/tabs':
-        specifier: ^0.65.0
+        specifier: 'catalog:'
         version: 0.65.0
     devDependencies:
       '@playwright/test':
@@ -459,7 +459,7 @@ importers:
         version: 5.0.0-next.210
       svelte-check:
         specifier: ^3.8.4
-        version: 3.8.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.2))(postcss@8.4.39)(sass@1.74.1)(svelte@5.0.0-next.210)
+        version: 3.8.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2))(postcss@8.4.41)(sass@1.74.1)(svelte@5.0.0-next.210)
       tailwindcss:
         specifier: ^3.4.6
         version: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
@@ -672,10 +672,6 @@ packages:
     resolution: {integrity: sha512-Xd6+v6SnjWVx/nus+y0l1sxMOTOMBkyL4+BIdbALyatQnAe/SRVjANeDPSCYaX+i1iJmuGSKf3Z+E+V/va1Hvw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/generator@7.24.7':
-    resolution: {integrity: sha512-oipXieGC3i45Y1A41t4tAqpnEZWgB/lC6Ehh6+rOviR5XWpTtMmLN+fGjz9vOiNRt0p6RtO6DtD0pdU3vpqdSA==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-annotate-as-pure@7.24.7':
     resolution: {integrity: sha512-BaDeOonYvhdKw+JoMVkAixAAJzG2jVPIwWoKBPdYuY9b452e2rPuI9QPYh3KpofZ3pW2akOmwZLOiOsHMiqRAg==}
     engines: {node: '>=6.9.0'}
@@ -784,10 +780,6 @@ packages:
     resolution: {integrity: sha512-2ofRCjnnA9y+wk8b9IAREroeUP02KHp431N2mhKniy2yKIDKpbrHv9eXwm8cBeWQYcJmzv5qKCu65P47eCF7CQ==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helper-string-parser@7.24.7':
-    resolution: {integrity: sha512-7MbVt6xrwFQbunH2DNQsAP5sTGxfqQtErvBIvIMi6EQnbgUOuVYanvREcmFrOPhoXBrTtjhhP+lW+o5UfK+tDg==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-string-parser@7.24.8':
     resolution: {integrity: sha512-pO9KhhRcuUyGnJWwyEgnRJTSIZHiT+vMD0kPeD+so0l7mxkMT19g3pjY9GTnHySck/hDzq+dtW/4VgnMkippsQ==}
     engines: {node: '>=6.9.0'}
@@ -826,11 +818,6 @@ packages:
 
   '@babel/parser@7.24.4':
     resolution: {integrity: sha512-zTvEBcghmeBma9QIGunWevvBAp4/Qu9Bdq+2k0Ot4fVMD6v3dsC9WOcRSKk7tRRyBM/53yKMJko9xOatGQAwSg==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
-  '@babel/parser@7.24.7':
-    resolution: {integrity: sha512-9uUYRm6OqQrCqQdG1iCBwBPZgN8ciDBro2nIOFaiRz1/BCxaI7CNvQbDHvsArAC7Tw9Hda/B3U+6ui9u4HWXPw==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -894,20 +881,12 @@ packages:
     resolution: {integrity: sha512-xuU6o9m68KeqZbQuDt2TcKSxUw/mrsvavlEqQ1leZ/B+C9tk6E4sRWy97WaXgvq5E+nU3cXMxv3WKOCanVMCmQ==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/traverse@7.24.7':
-    resolution: {integrity: sha512-yb65Ed5S/QAcewNPh0nZczy9JdYXkkAbIsEo+P7BE7yO3txAY30Y/oPa3QkQ5It3xVG2kpKMg9MsdxZaO31uKA==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/traverse@7.24.8':
     resolution: {integrity: sha512-t0P1xxAPzEDcEPmjprAQq19NWum4K0EQPjMwZQZbHt+GiZqvjCHjj755Weq1YRPVzBI+3zSfvScfpnuIecVFJQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.24.0':
     resolution: {integrity: sha512-+j7a5c253RfKh8iABBhywc8NSfP5LURe7Uh4qpsh6jc+aLJguvmIUBdjSdEMQv2bENrCR5MfRdjGo7vzS/ob7w==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/types@7.24.7':
-    resolution: {integrity: sha512-XEFXSlxiG5td2EJRe8vOmRbaXVgfcBlszKujvVmWIK/UpywWljQCfzAv3RQCGujWQ1RD4YYWEAqDXfuJiy8f5Q==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.24.9':
@@ -7115,21 +7094,14 @@ snapshots:
 
   '@babel/generator@7.24.4':
     dependencies:
-      '@babel/types': 7.24.0
-      '@jridgewell/gen-mapping': 0.3.5
-      '@jridgewell/trace-mapping': 0.3.25
-      jsesc: 2.5.2
-
-  '@babel/generator@7.24.7':
-    dependencies:
-      '@babel/types': 7.24.7
+      '@babel/types': 7.24.9
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
       jsesc: 2.5.2
 
   '@babel/helper-annotate-as-pure@7.24.7':
     dependencies:
-      '@babel/types': 7.24.7
+      '@babel/types': 7.24.9
 
   '@babel/helper-compilation-targets@7.23.6':
     dependencies:
@@ -7166,36 +7138,36 @@ snapshots:
 
   '@babel/helper-environment-visitor@7.24.7':
     dependencies:
-      '@babel/types': 7.24.7
+      '@babel/types': 7.24.9
 
   '@babel/helper-function-name@7.23.0':
     dependencies:
-      '@babel/template': 7.24.0
-      '@babel/types': 7.24.0
+      '@babel/template': 7.24.7
+      '@babel/types': 7.24.9
 
   '@babel/helper-function-name@7.24.7':
     dependencies:
       '@babel/template': 7.24.7
-      '@babel/types': 7.24.7
+      '@babel/types': 7.24.9
 
   '@babel/helper-hoist-variables@7.22.5':
     dependencies:
-      '@babel/types': 7.24.0
+      '@babel/types': 7.24.9
 
   '@babel/helper-hoist-variables@7.24.7':
     dependencies:
-      '@babel/types': 7.24.7
+      '@babel/types': 7.24.9
 
   '@babel/helper-member-expression-to-functions@7.24.7':
     dependencies:
-      '@babel/traverse': 7.24.7
-      '@babel/types': 7.24.7
+      '@babel/traverse': 7.24.8
+      '@babel/types': 7.24.9
     transitivePeerDependencies:
       - supports-color
 
   '@babel/helper-module-imports@7.24.3':
     dependencies:
-      '@babel/types': 7.24.0
+      '@babel/types': 7.24.9
 
   '@babel/helper-module-imports@7.24.7':
     dependencies:
@@ -7226,7 +7198,7 @@ snapshots:
 
   '@babel/helper-optimise-call-expression@7.24.7':
     dependencies:
-      '@babel/types': 7.24.7
+      '@babel/types': 7.24.9
 
   '@babel/helper-plugin-utils@7.24.0': {}
 
@@ -7243,7 +7215,7 @@ snapshots:
 
   '@babel/helper-simple-access@7.22.5':
     dependencies:
-      '@babel/types': 7.24.0
+      '@babel/types': 7.24.9
 
   '@babel/helper-simple-access@7.24.7':
     dependencies:
@@ -7254,22 +7226,20 @@ snapshots:
 
   '@babel/helper-skip-transparent-expression-wrappers@7.24.7':
     dependencies:
-      '@babel/traverse': 7.24.7
-      '@babel/types': 7.24.7
+      '@babel/traverse': 7.24.8
+      '@babel/types': 7.24.9
     transitivePeerDependencies:
       - supports-color
 
   '@babel/helper-split-export-declaration@7.22.6':
     dependencies:
-      '@babel/types': 7.24.0
+      '@babel/types': 7.24.9
 
   '@babel/helper-split-export-declaration@7.24.7':
     dependencies:
-      '@babel/types': 7.24.7
+      '@babel/types': 7.24.9
 
   '@babel/helper-string-parser@7.24.1': {}
-
-  '@babel/helper-string-parser@7.24.7': {}
 
   '@babel/helper-string-parser@7.24.8': {}
 
@@ -7283,9 +7253,9 @@ snapshots:
 
   '@babel/helpers@7.24.4':
     dependencies:
-      '@babel/template': 7.24.0
-      '@babel/traverse': 7.24.1
-      '@babel/types': 7.24.0
+      '@babel/template': 7.24.7
+      '@babel/traverse': 7.24.8
+      '@babel/types': 7.24.9
     transitivePeerDependencies:
       - supports-color
 
@@ -7296,7 +7266,7 @@ snapshots:
 
   '@babel/highlight@7.24.2':
     dependencies:
-      '@babel/helper-validator-identifier': 7.22.20
+      '@babel/helper-validator-identifier': 7.24.7
       chalk: 2.4.2
       js-tokens: 4.0.0
       picocolors: 1.0.1
@@ -7311,10 +7281,6 @@ snapshots:
   '@babel/parser@7.24.4':
     dependencies:
       '@babel/types': 7.24.0
-
-  '@babel/parser@7.24.7':
-    dependencies:
-      '@babel/types': 7.24.7
 
   '@babel/parser@7.24.8':
     dependencies:
@@ -7368,41 +7334,26 @@ snapshots:
 
   '@babel/template@7.24.0':
     dependencies:
-      '@babel/code-frame': 7.24.2
-      '@babel/parser': 7.24.4
-      '@babel/types': 7.24.0
+      '@babel/code-frame': 7.24.7
+      '@babel/parser': 7.24.8
+      '@babel/types': 7.24.9
 
   '@babel/template@7.24.7':
     dependencies:
       '@babel/code-frame': 7.24.7
-      '@babel/parser': 7.24.7
-      '@babel/types': 7.24.7
+      '@babel/parser': 7.24.8
+      '@babel/types': 7.24.9
 
   '@babel/traverse@7.24.1':
     dependencies:
-      '@babel/code-frame': 7.24.2
-      '@babel/generator': 7.24.4
+      '@babel/code-frame': 7.24.7
+      '@babel/generator': 7.24.10
       '@babel/helper-environment-visitor': 7.22.20
       '@babel/helper-function-name': 7.23.0
       '@babel/helper-hoist-variables': 7.22.5
       '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.24.4
-      '@babel/types': 7.24.0
-      debug: 4.3.5
-      globals: 11.12.0
-    transitivePeerDependencies:
-      - supports-color
-
-  '@babel/traverse@7.24.7':
-    dependencies:
-      '@babel/code-frame': 7.24.7
-      '@babel/generator': 7.24.7
-      '@babel/helper-environment-visitor': 7.24.7
-      '@babel/helper-function-name': 7.24.7
-      '@babel/helper-hoist-variables': 7.24.7
-      '@babel/helper-split-export-declaration': 7.24.7
-      '@babel/parser': 7.24.7
-      '@babel/types': 7.24.7
+      '@babel/parser': 7.24.8
+      '@babel/types': 7.24.9
       debug: 4.3.5
       globals: 11.12.0
     transitivePeerDependencies:
@@ -7427,12 +7378,6 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.24.1
       '@babel/helper-validator-identifier': 7.22.20
-      to-fast-properties: 2.0.0
-
-  '@babel/types@7.24.7':
-    dependencies:
-      '@babel/helper-string-parser': 7.24.7
-      '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
 
   '@babel/types@7.24.9':
@@ -12401,7 +12346,7 @@ snapshots:
 
   parse-json@5.2.0:
     dependencies:
-      '@babel/code-frame': 7.24.2
+      '@babel/code-frame': 7.24.7
       error-ex: 1.3.2
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
@@ -12607,12 +12552,14 @@ snapshots:
       postcss: 8.4.39
       tsx: 4.16.2
 
-  postcss-load-config@5.1.0(postcss@8.4.41):
+  postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.4.5
     optionalDependencies:
+      jiti: 1.21.6
       postcss: 8.4.41
+      tsx: 4.16.2
     optional: true
 
   postcss-nested@6.0.1(postcss@8.4.38):
@@ -13546,15 +13493,15 @@ snapshots:
       - stylus
       - sugarss
 
-  svelte-check@3.8.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.2))(postcss@8.4.39)(sass@1.74.1)(svelte@5.0.0-next.210):
+  svelte-check@3.8.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2))(postcss@8.4.41)(sass@1.74.1)(svelte@5.0.0-next.210):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 3.6.0
       picocolors: 1.0.1
       sade: 1.8.1
       svelte: 5.0.0-next.210
-      svelte-preprocess: 5.1.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.2))(postcss@8.4.39)(sass@1.74.1)(svelte@5.0.0-next.210)(typescript@5.5.3)
-      typescript: 5.5.3
+      svelte-preprocess: 5.1.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2))(postcss@8.4.41)(sass@1.74.1)(svelte@5.0.0-next.210)(typescript@5.5.4)
+      typescript: 5.5.4
     transitivePeerDependencies:
       - '@babel/core'
       - coffeescript
@@ -13618,7 +13565,7 @@ snapshots:
       sass: 1.74.1
       typescript: 5.5.4
 
-  svelte-preprocess@5.1.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.2))(postcss@8.4.39)(sass@1.74.1)(svelte@5.0.0-next.210)(typescript@5.5.3):
+  svelte-preprocess@5.1.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2))(postcss@8.4.41)(sass@1.74.1)(svelte@5.0.0-next.210)(typescript@5.5.4):
     dependencies:
       '@types/pug': 2.0.10
       detect-indent: 6.1.0
@@ -13629,7 +13576,7 @@ snapshots:
     optionalDependencies:
       '@babel/core': 7.24.9
       postcss: 8.4.41
-      postcss-load-config: 5.1.0(postcss@8.4.41)
+      postcss-load-config: 5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2)
       sass: 1.74.1
       typescript: 5.5.4
 
