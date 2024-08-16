@@ -1,4 +1,3 @@
-// @ts-check
 // import { skeleton } from '../../packages/skeleton/dist/plugin/index.cjs'
 // NOTE: do not delete the above comment. It's required for local HMR on plugin changes.
 

@@ -68,8 +68,5 @@
 		"rimraf": "^5.0.5",
 		"shelljs": "^0.8.5"
 	},
-	"engines": {
-		"pnpm": ">=9.2.0"
-	},
-	"packageManager": "pnpm@9.2.0"
+	"packageManager": "pnpm@9.5.0"
 }

@@ -33,6 +33,26 @@ Skeleton makes use of [PNPM](https://pnpm.io/) and [PNPM workspaces](https://pnp
 5. Run `pnpm i` to install the required depedencies.
 6. Run `pnpm dev` to start a local dev server for each project.
 
+> NOTE: Make sure you're running `pnpm 9.5.0` or higher. You can check with `pnpm --version`.
+
+### Adding Dependencies
+
+Dependencies may be installed using the standard `pnpm i` command. However, in some cases it may be beneficial to maintain a uniform version shared across multiple projects or within each `package.json`. For this we can make use of [PNPM Catalogs](https://pnpm.io/catalogs).
+
+The master version is maintained in the monorepo root in `pnpm-workspace.yaml`:
+
+```yaml
+catalog:
+ # ...
+ <package>: <version>
+```
+
+Use the following convention to link each project's dependency to the shared Catalog version:
+
+```bash
+pnpm add <package>@catalog:
+```
+
 ## Monorepo Structure
 
 ### Sites
