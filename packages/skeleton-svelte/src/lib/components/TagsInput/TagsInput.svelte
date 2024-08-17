@@ -43,7 +43,7 @@
 </script>
 
 <div class="{base} {classes}" {...api.getRootProps()}>
-	<input class="{inputBase} {inputClasses}" placeholder="Placeholder..." {...api.getInputProps()} />
+	<input class="{inputBase} {inputClasses}" {...api.getInputProps()} />
 	{#if api.value.length > 0}
 		<div class="{chipContainerBase} {chipContainerClasses}">
 			{#each api.value as value, index}
@@ -54,7 +54,7 @@
 						<button {...api.getItemDeleteTriggerProps({ index, value })}>&#x2715;</button>
 					</div>
 					<input
-						class="{editInputBase} {itemState.editing ? '' : 'hidden'} {editInputClasses}"
+						class="{editInputBase} leading-3 {itemState.editing ? '' : 'hidden'} {editInputClasses}"
 						{...api.getItemInputProps({ index, value })}
 					/>
 				</span>
