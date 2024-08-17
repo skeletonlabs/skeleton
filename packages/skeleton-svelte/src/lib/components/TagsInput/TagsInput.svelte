@@ -12,9 +12,9 @@
 		inputClasses = '',
 		chipContainerBase = 'px-3 py-2 flex gap-1',
 		chipContainerClasses = '',
-		chipBase = 'preset-filled-surface-950-50 px-1 py-0.5 rounded',
+		chipBase = 'preset-filled-surface-950-50 px-2 py-1 rounded',
 		chipClasses = '',
-		editInputBase = 'p-0 bg-transparent border-transparent focus:border-transparent focus:ring-0',
+		editInputBase = 'p-0 bg-transparent leading-3 border-transparent focus:border-transparent focus:ring-0',
 		editInputClasses,
 		classes = '',
 		...zagProps
@@ -49,12 +49,14 @@
 			{#each api.value as value, index}
 				{@const itemState = api.getItemState({ index, value })}
 				<span class="{chipBase} {chipClasses}" {...api.getItemProps({ value, index })}>
-					<div class="flex items-center gap-1 {itemState.editing ? 'hidden' : ''}" {...api.getItemPreviewProps({ index, value })}>
+					<div style:display={itemState.editing ? 'none' : 'block'} {...api.getItemPreviewProps({ index, value })}>
 						<span>{value}</span>
+
 						<button {...api.getItemDeleteTriggerProps({ index, value })}>&#x2715;</button>
 					</div>
 					<input
-						class="{editInputBase} leading-3 {itemState.editing ? '' : 'hidden'} {editInputClasses}"
+						class="{editInputBase} {editInputClasses}"
+						style:display={itemState.editing ? 'block' : 'none'}
 						{...api.getItemInputProps({ index, value })}
 					/>
 				</span>
