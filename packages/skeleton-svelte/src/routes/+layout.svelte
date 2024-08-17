@@ -40,6 +40,7 @@
 				<a class="anchor" href="/components/segment-control">Segment Control</a>
 				<a class="anchor" href="/components/switch">Switch</a>
 				<a class="anchor" href="/components/tabs">Tabs</a>
+				<a class="anchor" href="/components/tags-input">Tags Input</a>
 			</nav>
 		</div>
 	</div>

@@ -33,6 +33,9 @@ catalogs:
     '@zag-js/tabs':
       specifier: ^0.65.0
       version: 0.65.0
+    '@zag-js/tags-input':
+      specifier: ^0.65.0
+      version: 0.65.0
     typescript:
       specifier: ^5.5.4
       version: 5.5.4
@@ -309,6 +312,9 @@ importers:
         specifier: 'catalog:'
         version: 0.65.0
       '@zag-js/tabs':
+        specifier: 'catalog:'
+        version: 0.65.0
+      '@zag-js/tags-input':
         specifier: 'catalog:'
         version: 0.65.0
     devDependencies:
@@ -2395,6 +2401,9 @@ packages:
   '@zag-js/anatomy@0.65.0':
     resolution: {integrity: sha512-P9SVWgx5ngwYGKODNBMLH6chk9AKq4CrLRawH1KXK0gISsolQG+8yWyok5E9sdPc6UkV6eI+5k8T/teIrOfuOw==}
 
+  '@zag-js/auto-resize@0.65.0':
+    resolution: {integrity: sha512-d75btP6XU3VKQpLuOjv2OYGLcl0KPd9WZ2Enehh05+WcSic0admPDOqgWgaBY7TfSGaAaFVQJr75Z0hRFaisxQ==}
+
   '@zag-js/avatar@0.65.0':
     resolution: {integrity: sha512-ReCogohDzdKwKrCQDlvHA6zjKNgVvMqNQrAEAcTBRbiITbOG4usPtB/ZhwFrIcUDIOaR7jV/baBsKcyB6ujBQw==}
 
@@ -2412,6 +2421,12 @@ packages:
 
   '@zag-js/form-utils@0.65.0':
     resolution: {integrity: sha512-WxBTrIdM2Yux/bFhQUtJxlf/XFvWrs4VQMfDv7ZRFzCgQqyzmNZtczzmF17LySFEbdmzeJSSY1Q/eX13PPC7ng==}
+
+  '@zag-js/interact-outside@0.65.0':
+    resolution: {integrity: sha512-d4Y3LwDAfgCJ8AKP1S2sjUPyDeIl3BX3BUVDnZrqyyQHUO/pWG7Fev5oU5CPN7Zmcd2Qg4Ox9/LcQB5Wozh/mA==}
+
+  '@zag-js/live-region@0.65.0':
+    resolution: {integrity: sha512-1ucrnDE75NC3Drr0JlToxM3dL8UXSb0UucJvSjESZqOgh1mdybs5wqhVapdr3niNw2E+9nrXjagsXh+/UjW4zA==}
 
   '@zag-js/progress@0.65.0':
     resolution: {integrity: sha512-05aLmjnauVWqKNGvaLdxb/dRXc4jfgIXPwMMyuiGivdOPlji4d9l6uhRzG7AsWzwKvVSeYmAWuVqn29Nui27mQ==}
@@ -2441,6 +2456,9 @@ packages:
 
   '@zag-js/tabs@0.65.0':
     resolution: {integrity: sha512-b6zKWao8WNL8HdaOkCXniFE2TdE0zIHxijgmLj5OIcijf3NVN3Msg4peXSb97awXIsONBUd3k5FOVtuDwlvgGg==}
+
+  '@zag-js/tags-input@0.65.0':
+    resolution: {integrity: sha512-5jURboz1R5rfpC9Dt1KV+McMfiQiA50kiK34Q+/t0+AbJjydD4Uh+ncckuXmsE6HhuXhi586sUYtvRXfOK+E/g==}
 
   '@zag-js/text-selection@0.65.0':
     resolution: {integrity: sha512-aC2A4DSP0oVhAm6VYRMUF6uBrpxdlJGn+itKe/ggszidAkil/zyhkcPQkx3LI/5gSkoWdL3uMyypj+FkuoEz9w==}
@@ -8927,6 +8945,10 @@ snapshots:
 
   '@zag-js/anatomy@0.65.0': {}
 
+  '@zag-js/auto-resize@0.65.0':
+    dependencies:
+      '@zag-js/dom-query': 0.65.0
+
   '@zag-js/avatar@0.65.0':
     dependencies:
       '@zag-js/anatomy': 0.65.0
@@ -8951,6 +8973,14 @@ snapshots:
   '@zag-js/element-rect@0.65.0': {}
 
   '@zag-js/form-utils@0.65.0': {}
+
+  '@zag-js/interact-outside@0.65.0':
+    dependencies:
+      '@zag-js/dom-event': 0.65.0
+      '@zag-js/dom-query': 0.65.0
+      '@zag-js/utils': 0.65.0
+
+  '@zag-js/live-region@0.65.0': {}
 
   '@zag-js/progress@0.65.0':
     dependencies:
@@ -9016,6 +9046,19 @@ snapshots:
       '@zag-js/dom-event': 0.65.0
       '@zag-js/dom-query': 0.65.0
       '@zag-js/element-rect': 0.65.0
+      '@zag-js/types': 0.65.0
+      '@zag-js/utils': 0.65.0
+
+  '@zag-js/tags-input@0.65.0':
+    dependencies:
+      '@zag-js/anatomy': 0.65.0
+      '@zag-js/auto-resize': 0.65.0
+      '@zag-js/core': 0.65.0
+      '@zag-js/dom-event': 0.65.0
+      '@zag-js/dom-query': 0.65.0
+      '@zag-js/form-utils': 0.65.0
+      '@zag-js/interact-outside': 0.65.0
+      '@zag-js/live-region': 0.65.0
       '@zag-js/types': 0.65.0
       '@zag-js/utils': 0.65.0
 
