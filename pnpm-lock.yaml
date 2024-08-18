@@ -217,12 +217,6 @@ importers:
       '@zag-js/tabs':
         specifier: 'catalog:'
         version: 0.65.0
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
     devDependencies:
       '@skeletonlabs/skeleton':
         specifier: workspace:*
@@ -260,6 +254,12 @@ importers:
       postcss:
         specifier: ^8.4.39
         version: 8.4.39
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
       react-router-dom:
         specifier: ^6.25.1
         version: 6.25.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
