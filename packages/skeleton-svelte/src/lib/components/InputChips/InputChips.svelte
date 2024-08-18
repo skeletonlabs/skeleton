@@ -46,7 +46,7 @@
 	<input class="{inputBase} {inputClasses}" {...api.getInputProps()} />
 	{#if api.value.length > 0}
 		<div class="{chipContainerBase} {chipContainerClasses}">
-			{#each api.value as value, index}
+			{#each api.value as value, index (value)}
 				{@const itemState = api.getItemState({ index, value })}
 				<span class="{chipBase} {chipClasses}" {...api.getItemProps({ value, index })}>
 					<div style:display={itemState.editing ? 'none' : 'block'} {...api.getItemPreviewProps({ index, value })}>
