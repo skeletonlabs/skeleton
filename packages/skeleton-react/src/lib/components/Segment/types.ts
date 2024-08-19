@@ -71,6 +71,8 @@ export interface SegmentItemsProps extends React.PropsWithChildren, Omit<radio.I
 
 	/** Set claseses for the disabled state. */
 	stateDisabled?: string;
+	/** Set claseses for the focus state. */
+	stateFocused?: string;
 
 	// Label ---
 	/** Sets base classes for the label element. */

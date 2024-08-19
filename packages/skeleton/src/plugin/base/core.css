@@ -37,12 +37,22 @@ html {
 	scrollbar-width: thin;
 }
 
-/* Focus & Outlines --- */
+/* Outlines and Focus --- */
+
 /*
-	REMINDER: never disabled focus or outlines
+	REMINDER: Never disabled focus and outlines
 	as this would be harmful to accessibility!
 	Source: http://www.outlinenone.com/
+
+	EXAMPLE: Set a global focus style.
+	Apply this in your app's global stylesheet:
+	:focus { @apply focus:outline-primary-50; }
 */
+
+/* Component Focus Utility */
+.focused {
+	@apply ring-[2px] ring-surface-950 dark:ring-surface-50 ring-inset;
+}
 
 /* Disabled States --- */
 
