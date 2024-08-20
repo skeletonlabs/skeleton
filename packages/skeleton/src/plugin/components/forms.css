@@ -48,6 +48,11 @@
 	@apply transition duration-200;
 }
 
+/* Ghost Input */
+.input-ghost {
+	@apply p-0 bg-transparent border-transparent focus:border-transparent focus:ring-0;
+}
+
 /* Select --- */
 
 .select {
