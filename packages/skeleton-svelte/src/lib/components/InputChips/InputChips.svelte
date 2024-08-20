@@ -7,12 +7,15 @@
 	// Props
 	let {
 		value = $bindable(),
-		base = 'input',
-		inputBase = 'bg-transparent border-transparent focus:border-transparent focus:ring-0',
+		base = 'grid input',
+		padding = 'p-3',
+		gap = 'gap-2',
+		inputBase = 'bg-transparent border-transparent focus:border-transparent focus:ring-0 p-0',
 		inputClasses = '',
-		chipContainerBase = 'px-3 py-2 flex gap-1',
-		chipContainerClasses = '',
-		chipBase = 'preset-filled-surface-950-50 px-2 py-1 rounded',
+		chipListBase = 'flex gap-1',
+		chipListClasses = '',
+		chipBase = 'px-2 py-1 rounded',
+		chipBackground = 'preset-filled-surface-950-50',
 		chipClasses = '',
 		editInputBase = 'p-0 bg-transparent leading-3 border-transparent focus:border-transparent focus:ring-0',
 		editInputClasses,
@@ -42,13 +45,13 @@
 	const api = $derived(tagsInput.connect(snapshot, send, normalizeProps));
 </script>
 
-<div class="{base} {classes}" {...api.getRootProps()}>
+<div class="{base} {padding} {gap} {classes}" {...api.getRootProps()}>
 	<input class="{inputBase} {inputClasses}" {...api.getInputProps()} />
 	{#if api.value.length > 0}
-		<div class="{chipContainerBase} {chipContainerClasses}">
+		<div class="{chipListBase} {chipListClasses}">
 			{#each api.value as value, index (value)}
 				{@const itemState = api.getItemState({ index, value })}
-				<span class="{chipBase} {chipClasses}" {...api.getItemProps({ value, index })}>
+				<span class="{chipBase} {chipBackground} {chipClasses}" {...api.getItemProps({ value, index })}>
 					<div style:display={itemState.editing ? 'none' : 'block'} {...api.getItemPreviewProps({ index, value })}>
 						<span>{value}</span>
 
@@ -56,7 +59,7 @@
 					</div>
 					<input
 						class="{editInputBase} {editInputClasses}"
-						style:display={itemState.editing ? 'block' : 'none'}
+						style:display={itemState.editing ? 'inline-block' : 'none'}
 						{...api.getItemInputProps({ index, value })}
 					/>
 				</span>
