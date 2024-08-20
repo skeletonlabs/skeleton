@@ -17,7 +17,7 @@
 		chipBase = 'px-2 py-1 rounded',
 		chipBackground = 'preset-filled-surface-950-50',
 		chipClasses = '',
-		editInputBase = 'input-ghostleading-3 ',
+		editInputBase = 'input-ghost leading-3 ',
 		editInputClasses,
 		classes = '',
 		...zagProps
