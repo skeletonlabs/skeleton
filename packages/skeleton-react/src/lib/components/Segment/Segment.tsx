@@ -90,6 +90,7 @@ const SegmentItem: FC<SegmentItemsProps> = ({
 	labelClasses = '',
 	// State
 	stateDisabled = 'disabled',
+	stateFocused = 'focused',
 	// Children
 	children,
 	// Zag
@@ -102,9 +103,10 @@ const SegmentItem: FC<SegmentItemsProps> = ({
 	// Reactive
 	const rxDisabled = state.disabled ? stateDisabled : '';
 	const rxActiveText = state.checked ? ctx.indicatorText : '';
+	const rxFocused = state.focused ? stateFocused : '';
 
 	return (
-		<label {...ctx.api.getItemProps(zagProps)} className={`${base} ${rxDisabled} ${classes}`} data-testid="segment-item">
+		<label {...ctx.api.getItemProps(zagProps)} className={`${base} ${rxDisabled} ${rxFocused} ${classes}`} data-testid="segment-item">
 			{/* Label */}
 			<span
 				{...ctx.api.getItemTextProps(zagProps)}

@@ -36,11 +36,13 @@ export interface SegmentControl extends Omit<radio.Context, 'id' | 'orientation'
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	// States ---
+	// Orientation---
 	/** Set classes to provide a vertical layout. */
 	orientVertical?: string;
 	/** Set classes to provide a horizintal layout. */
 	orientHorizontal?: string;
+
+	// States ---
 	/** Set claseses for the disabled state. */
 	stateDisabled?: string;
 	/** Set claseses for the read-only state. */
@@ -72,6 +74,8 @@ export interface SegmentItemProps extends Omit<radio.ItemProps, 'invalid'> {
 
 	/** Set claseses for the disabled state. */
 	stateDisabled?: string;
+	/** Set claseses for the focus state. */
+	stateFocused?: string;
 
 	// Label ---
 	/** Sets base classes for the label element. */

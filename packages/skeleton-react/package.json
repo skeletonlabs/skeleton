@@ -47,9 +47,11 @@
 		"@zag-js/rating-group": "catalog:",
 		"@zag-js/react": "catalog:",
 		"@zag-js/switch": "catalog:",
-		"@zag-js/tabs": "catalog:",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1"
+		"@zag-js/tabs": "catalog:"
+	},
+	"peerDependencies": {
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0"
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
@@ -71,6 +73,8 @@
 		"vite": "^5.3.4",
 		"vite-plugin-remix-router": "^2.0.0",
 		"vite-plugin-tw-plugin-watcher": "workspace:*",
-		"vitest": "^1.6.0"
+		"vitest": "^1.6.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
 	}
 }
