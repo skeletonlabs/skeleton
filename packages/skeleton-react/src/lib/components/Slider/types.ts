@@ -2,54 +2,55 @@
 import * as slider from '@zag-js/slider';
 
 export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange' | 'thumbSize'> {
+	/** Set height classes for the overall slider. */
 	height?: string;
 
 	// Root ---
-	/** Sets base classes. */
+	/** Set base classes. */
 	base?: string;
-	/** Provide arbitrary classes to the root. */
+	/** Provide arbitrary classes for the root. */
 	classes?: string;
 
 	// Control ---
-	/** Sets base classes to the control. */
+	/** Set base classes for the control. */
 	controlBase?: string;
-	/** Provide arbitrary classes to the control. */
+	/** Provide arbitrary classes for the control. */
 	controlClasses?: string;
 
 	// Track ---
-	/** Sets base classes to the track. */
+	/** Set base classes for the track. */
 	trackBase?: string;
-	/** Sets background classes to the track. */
+	/** Set background classes for the track. */
 	trackBg?: string;
-	/** Sets border radius classes to the track. */
+	/** Set border radius classes for the track. */
 	trackRounded?: string;
-	/** Provide arbitrary classes to the track. */
+	/** Provide arbitrary classes for the track. */
 	trackClasses?: string;
 
 	// Meter ---
-	/** Sets base classes to the meter. */
+	/** Set base classes for the meter. */
 	meterBase?: string;
-	/** Sets background classes to the meter. */
+	/** Set background classes for the meter. */
 	meterBg?: string;
-	/** Provide arbitrary classes to the meter. */
+	/** Provide arbitrary classes for the meter. */
 	meterClasses?: string;
 
 	// Thumb ---
-	/** Sets base classes to the thumb. */
+	/** Set base classes for the thumb. */
 	thumbBase?: string;
-	/** Sets size classes to the thumb. */
+	/** Set size classes for the thumb. */
 	thumbSize?: string;
-	/** Sets background classes to the thumb. */
+	/** Set background classes for the thumb. */
 	thumbBg?: string;
-	/** Sets ring classes to the thumb. */
+	/** Set ring classes for the thumb. */
 	thumbRing?: string;
-	/** Sets ring color classes to the thumb. */
+	/** Set ring color classes for the thumb. */
 	thumbRingColor?: string;
-	/** Sets border-radius classes to the thumb. */
+	/** Set border-radius classes for the thumb. */
 	thumbRounded?: string;
-	/** Sets cursor classes to the thumb. */
+	/** Set cursor classes for the thumb. */
 	thumbCursor?: string;
-	/** Provide arbitrary classes to the thumb. */
+	/** Provide arbitrary classes for the thumb. */
 	thumbClasses?: string;
 
 	// Events ---
