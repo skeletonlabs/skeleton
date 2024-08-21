@@ -44,8 +44,8 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange'
 	thumbSize?: string;
 	/** Set background classes for the thumb. */
 	thumbBg?: string;
-	/** Set ring classes for the thumb. */
-	thumbRing?: string;
+	/** Set ring size classes for the thumb. */
+	thumbRingSize?: string;
 	/** Set ring color classes for the thumb. */
 	thumbRingColor?: string;
 	/** Set border-radius classes for the thumb. */

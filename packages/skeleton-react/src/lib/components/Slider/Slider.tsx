@@ -24,10 +24,10 @@ export const Slider: FC<SliderProps> = ({
 	materRounded = 'rounded-container',
 	meterClasses = '',
 	// Thumb ---
-	thumbBase = 'transition-scale duration-100 ease-in-out',
+	thumbBase = 'ring-inset transition-scale duration-100 ease-in-out',
 	thumbSize = 'size-5',
 	thumbBg = 'bg-surface-50-950',
-	thumbRing = 'ring-2 ring-inset',
+	thumbRingSize = 'ring-2',
 	thumbRingColor = 'ring-surface-950-50',
 	thumbRounded = 'rounded-full',
 	thumbScale = 'hover:scale-125',
@@ -84,7 +84,7 @@ export const Slider: FC<SliderProps> = ({
 						<div key={index} {...api.getThumbProps({ index })}>
 							{/* Thumb */}
 							<div
-								className={`${thumbBase} ${thumbSize} ${thumbBg} ${thumbRing} ${thumbRingColor} ${thumbRounded} ${rxReadOnly} ${thumbClasses}`}
+								className={`${thumbBase} ${thumbSize} ${thumbBg} ${thumbRingSize} ${thumbRingColor} ${thumbRounded} ${rxReadOnly} ${thumbClasses}`}
 								data-testid="slider-thumb"
 							></div>
 							{/* Hidden Input(s) */}
