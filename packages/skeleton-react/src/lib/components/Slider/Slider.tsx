@@ -24,14 +24,18 @@ export const Slider: FC<SliderProps> = ({
 	materRounded = 'rounded-container',
 	meterClasses = '',
 	// Thumb ---
-	thumbBase = '',
+	thumbBase = 'transition-scale duration-100 ease-in-out',
 	thumbSize = 'size-5',
 	thumbBg = 'bg-surface-50-950',
 	thumbRing = 'ring-2 ring-inset',
 	thumbRingColor = 'ring-surface-950-50',
 	thumbRounded = 'rounded-full',
+	thumbScale = 'hover:scale-125',
 	thumbCursor = 'hover:cursor-pointer',
 	thumbClasses = '',
+	// State
+	stateDisabled = 'disabled',
+	stateReadOnly = 'cursor-not-allowed',
 	// Events
 	onValueChange = noop,
 	onValueChangeEnd = noop,
@@ -49,8 +53,12 @@ export const Slider: FC<SliderProps> = ({
 	);
 	const api = slider.connect(state, send, normalizeProps);
 
+	// Reactive
+	const rxDisabled = state.context.disabled ? stateDisabled : '';
+	const rxReadOnly = state.context.readOnly ? stateReadOnly : `${thumbScale} ${thumbCursor}`;
+
 	return (
-		<div {...api.getRootProps()} className={`${base} ${classes}`} data-testid="slider">
+		<div {...api.getRootProps()} className={`${base} ${height} ${rxDisabled} ${classes}`} data-testid="slider">
 			{/* Control */}
 			<div {...api.getControlProps()} className={`${controlBase} ${controlClasses}`} data-testid="slider-control">
 				{/* Track */}
@@ -66,20 +74,19 @@ export const Slider: FC<SliderProps> = ({
 						data-testid="slider-meter"
 					/>
 				</div>
-				{/* Thumb Wrapper */}
-				{/* NOTE: centers the thumbnails over the track. */}
+				{/* NOTE: this div centers thumbs vertically */}
 				<div
 					className={`${height}`}
 					style={{ display: 'flex', alignItems: 'center', transform: 'translateY(-100%)' }}
 					data-testid="slider-thumb-wrapper"
 				>
 					{api.value.map((_, index) => (
-						<div
-							key={index}
-							{...api.getThumbProps({ index })}
-							className={`${thumbBase} ${thumbSize} ${thumbBg} ${thumbRing} ${thumbRingColor} ${thumbRounded} ${thumbCursor} ${thumbClasses}`}
-							data-testid="slider-thumb"
-						>
+						<div key={index} {...api.getThumbProps({ index })}>
+							{/* Thumb */}
+							<div
+								className={`${thumbBase} ${thumbSize} ${thumbBg} ${thumbRing} ${thumbRingColor} ${thumbRounded} ${rxReadOnly} ${thumbClasses}`}
+								data-testid="slider-thumb"
+							></div>
 							{/* Hidden Input(s) */}
 							<input {...api.getHiddenInputProps({ index })} data-testid="slider-input" />
 						</div>

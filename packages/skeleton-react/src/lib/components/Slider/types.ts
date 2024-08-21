@@ -50,10 +50,18 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange'
 	thumbRingColor?: string;
 	/** Set border-radius classes for the thumb. */
 	thumbRounded?: string;
+	/** Set scale classes for the thumb. */
+	thumbScale?: string;
 	/** Set cursor classes for the thumb. */
 	thumbCursor?: string;
 	/** Provide arbitrary classes for the thumb. */
 	thumbClasses?: string;
+
+	// State ---
+	/** Set disabled state classes for the root element. */
+	stateDisabled?: string;
+	/** Set read-only state classes for the root element. */
+	stateReadOnly?: string;
 
 	// Events ---
 	/** Triggers when the value state is being changed. */
