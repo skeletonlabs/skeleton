@@ -21,6 +21,7 @@ export const Slider: FC<SliderProps> = ({
 	// Meter ---
 	meterBase = '',
 	meterBg = 'bg-surface-950-50',
+	materRounded = 'rounded-container',
 	meterClasses = '',
 	// Thumb ---
 	thumbBase = '',
@@ -33,6 +34,7 @@ export const Slider: FC<SliderProps> = ({
 	thumbClasses = '',
 	// Events
 	onValueChange = noop,
+	onValueChangeEnd = noop,
 	// Zag
 	...zagProps
 }) => {
@@ -40,10 +42,8 @@ export const Slider: FC<SliderProps> = ({
 	const [state, send] = useMachine(
 		slider.machine({
 			id: useId(),
-			min: 0,
-			max: 100,
-			step: 1,
-			onValueChange: (details) => onValueChange(details.value)
+			onValueChange: (details) => onValueChange(details.value),
+			onValueChangeEnd: (details) => onValueChangeEnd(details.value)
 		}),
 		{ context: zagProps }
 	);
@@ -60,7 +60,11 @@ export const Slider: FC<SliderProps> = ({
 					data-testid="slider-track"
 				>
 					{/* Meter */}
-					<div {...api.getRangeProps()} className={`${meterBase} ${height} ${meterBg} ${meterClasses}`} data-testid="slider-meter" />
+					<div
+						{...api.getRangeProps()}
+						className={`${meterBase} ${height} ${meterBg} ${materRounded} ${meterClasses}`}
+						data-testid="slider-meter"
+					/>
 				</div>
 				{/* Thumb Wrapper */}
 				{/* NOTE: centers the thumbnails over the track. */}

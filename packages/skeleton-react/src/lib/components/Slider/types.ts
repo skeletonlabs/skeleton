@@ -1,7 +1,7 @@
 // import type { ReactNode } from 'react';
 import * as slider from '@zag-js/slider';
 
-export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange' | 'thumbSize'> {
+export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange' | `onValueChangeEnd` | 'thumbSize'> {
 	/** Set height classes for the overall slider. */
 	height?: string;
 
@@ -32,6 +32,8 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange'
 	meterBase?: string;
 	/** Set background classes for the meter. */
 	meterBg?: string;
+	/** Set border radius classes for the meter. */
+	materRounded?: string;
 	/** Provide arbitrary classes for the meter. */
 	meterClasses?: string;
 
@@ -54,6 +56,8 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange'
 	thumbClasses?: string;
 
 	// Events ---
-	/** Triggers when the value state is changed. */
+	/** Triggers when the value state is being changed. */
 	onValueChange?: (value: number[]) => void;
+	/** Triggers when the value change has ended. */
+	onValueChangeEnd?: (value: number[]) => void;
 }
