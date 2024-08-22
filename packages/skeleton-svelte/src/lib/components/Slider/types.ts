@@ -1,14 +1,19 @@
 import * as slider from '@zag-js/slider';
+import type { Snippet } from 'svelte';
 
 export interface SliderProps extends Omit<slider.Context, 'id' | 'thumbSize'> {
 	/** Provide the value as an array. */
 	value?: number[];
+	/** Provide an array of value markers */
+	markers?: number[];
 	/** Set height classes for the overall slider. */
 	height?: string;
 
 	// Root ---
 	/** Set base classes. */
 	base?: string;
+	/** Set vertical spacing between the control and markers. */
+	spaceY?: string;
 	/** Provide arbitrary classes for the root. */
 	classes?: string;
 
@@ -58,9 +63,29 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'thumbSize'> {
 	/** Provide arbitrary classes for the thumb. */
 	thumbClasses?: string;
 
+	// Markers ---
+	/** Set base classes for the markers. */
+	markersBase?: string;
+	/** Provide arbitrary classes for the markers. */
+	markerslasses?: string;
+
+	// Mark ---
+	/** Set base classes for each mark. */
+	markBase?: string;
+	/** Set text size classes for each mark. */
+	markText?: string;
+	/** Set opacity classes for each mark. */
+	markOpacity?: string;
+	/** Provide arbitrary classes for each mark. */
+	marklasses?: string;
+
 	// State ---
 	/** Set disabled state classes for the root element. */
 	stateDisabled?: string;
 	/** Set read-only state classes for the root element. */
 	stateReadOnly?: string;
+
+	// Children
+	/** Replace numeric markers with symbol, such as a icon. */
+	mark?: Snippet;
 }

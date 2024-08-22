@@ -7,6 +7,7 @@ import { noop } from '../../internal/noop.js';
 
 export const Slider: FC<SliderProps> = ({
 	height = 'h-1.5',
+	markers = [],
 	// Root ---
 	base = 'w-full',
 	classes = '',
@@ -33,13 +34,23 @@ export const Slider: FC<SliderProps> = ({
 	thumbScale = 'hover:scale-125',
 	thumbCursor = 'hover:cursor-pointer',
 	thumbClasses = '',
-	// State
+	// Markers ---
+	markersBase = '',
+	markerslasses = '',
+	// Mark ---
+	markBase = '',
+	markText = 'type-scale-1',
+	markOpacity = 'opacity-50',
+	marklasses = '',
+	// State ---
 	stateDisabled = 'disabled',
 	stateReadOnly = 'cursor-not-allowed',
-	// Events
+	// Events ---
 	onValueChange = noop,
 	onValueChangeEnd = noop,
-	// Zag
+	// Children ---
+	mark,
+	// Zag ---
 	...zagProps
 }) => {
 	// Zag
@@ -93,6 +104,22 @@ export const Slider: FC<SliderProps> = ({
 					))}
 				</div>
 			</div>
+			{/* Markers */}
+			{markers.length > 0 && (
+				<div {...api.getMarkerGroupProps()} className={`${markersBase} ${markerslasses}`} data-testid="slider-markers">
+					{markers.map((value: number) => (
+						// Mark
+						<span
+							key={value}
+							{...api.getMarkerProps({ value })}
+							className={`${markBase} ${markText} ${markOpacity} ${marklasses}`}
+							data-testid="slider-mark"
+						>
+							{mark ? mark : value}
+						</span>
+					))}
+				</div>
+			)}
 		</div>
 	);
 };

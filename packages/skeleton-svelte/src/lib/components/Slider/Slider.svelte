@@ -7,9 +7,11 @@
 
 	let {
 		value = $bindable([0]),
+		markers = [],
 		height = 'h-1.5',
 		// Root ---
-		base = 'w-full',
+		base = 'w-full bg-green',
+		spaceY = '',
 		classes = '',
 		// Control ---
 		controlBase = '',
@@ -34,10 +36,20 @@
 		thumbScale = 'hover:scale-125',
 		thumbCursor = 'hover:cursor-pointer',
 		thumbClasses = '',
-		// State
+		// Markers ---
+		markersBase = '',
+		markerslasses = '',
+		// Mark ---
+		markBase = '',
+		markText = 'type-scale-1',
+		markOpacity = 'opacity-50',
+		marklasses = '',
+		// State ---
 		stateDisabled = 'disabled',
 		stateReadOnly = 'cursor-not-allowed',
-		// Zag
+		// Children ---
+		mark,
+		// Zag ---
 		...zagProps
 	}: SliderProps = $props();
 
@@ -65,7 +77,7 @@
 	const rxReadOnly = $derived(snapshot.context.readOnly ? stateReadOnly : `${thumbScale} ${thumbCursor}`);
 </script>
 
-<div {...api.getRootProps()} class="{base} {height} {rxDisabled} {classes}" data-testid="slider">
+<div {...api.getRootProps()} class="{base} {height} {spaceY} {rxDisabled} {classes}" data-testid="slider">
 	<!-- Control -->
 	<div {...api.getControlProps()} class="{controlBase} {controlClasses}" data-testid="slider-control">
 		<!-- Track -->
@@ -88,4 +100,19 @@
 			{/each}
 		</div>
 	</div>
+	<!-- Markers -->
+	{#if markers.length > 0}
+		<div {...api.getMarkerGroupProps()} class="{markersBase} {markerslasses}" data-testid="slider-markers">
+			{#each markers as value}
+				<!-- Mark -->
+				<span {...api.getMarkerProps({ value })} class="{markBase} {markText} {markOpacity} {marklasses}" data-testid="slider-mark">
+					{#if mark}
+						{@render mark()}
+					{:else}
+						{value}
+					{/if}
+				</span>
+			{/each}
+		</div>
+	{/if}
 </div>

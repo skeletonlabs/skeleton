@@ -18,7 +18,11 @@
 		<pre class="pre">{valueMulti.join(' - ')}</pre>
 		<Slider bind:value={valueMulti} />
 	</section>
-	<section class="space-y-4">
+	<section class="space-y-8">
+		<h2 class="h2">Markers</h2>
+		<Slider name="example" bind:value markers={[25, 50, 75]} />
+	</section>
+	<section class="space-y-8">
 		<h2 class="h2">Height</h2>
 		<Slider name="value" bind:value height="h-1" />
 		<Slider name="value" bind:value height="h-6" thumbSize="size-8" />

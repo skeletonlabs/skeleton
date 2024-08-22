@@ -1,6 +1,9 @@
 import * as slider from '@zag-js/slider';
+import { ReactNode } from 'react';
 
 export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange' | `onValueChangeEnd` | 'thumbSize'> {
+	/** Provide an array of value markers */
+	markers?: number[];
 	/** Set height classes for the overall slider. */
 	height?: string;
 
@@ -56,6 +59,22 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange'
 	/** Provide arbitrary classes for the thumb. */
 	thumbClasses?: string;
 
+	// Markers ---
+	/** Set base classes for the markers. */
+	markersBase?: string;
+	/** Provide arbitrary classes for the markers. */
+	markerslasses?: string;
+
+	// Mark ---
+	/** Set base classes for each mark. */
+	markBase?: string;
+	/** Set text size classes for each mark. */
+	markText?: string;
+	/** Set opacity classes for each mark. */
+	markOpacity?: string;
+	/** Provide arbitrary classes for each mark. */
+	marklasses?: string;
+
 	// State ---
 	/** Set disabled state classes for the root element. */
 	stateDisabled?: string;
@@ -67,4 +86,8 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange'
 	onValueChange?: (value: number[]) => void;
 	/** Triggers when the value change has ended. */
 	onValueChangeEnd?: (value: number[]) => void;
+
+	// Children ---
+	/** Replace numeric markers with symbol, such as a icon. */
+	mark?: ReactNode;
 }

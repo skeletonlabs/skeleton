@@ -19,6 +19,10 @@ export function Component() {
 				<pre className="pre">{valueMulti.join(' - ')}</pre>
 				<Slider value={valueMulti} onValueChange={setValueMulti} />
 			</section>
+			<section className="space-y-8">
+				<h2 className="h2">Markers</h2>
+				<Slider name="example" value={value} onValueChange={setValue} markers={[25, 50, 75]} />
+			</section>
 			<section className="space-y-4">
 				<h2 className="h2">Height</h2>
 				<Slider name="value" value={value} onValueChange={setValue} height="h-1" />

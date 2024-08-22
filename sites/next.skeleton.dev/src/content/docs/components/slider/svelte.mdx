@@ -8,6 +8,8 @@ import Example from '@examples/components/slider/Example.svelte';
 import ExampleRaw from '@examples/components/slider/Example.svelte?raw';
 import ExampleMulti from '@examples/components/slider/ExampleMulti.svelte';
 import ExampleMultiRaw from '@examples/components/slider/ExampleMulti.svelte?raw';
+import ExampleMarkers from '@examples/components/slider/ExampleMarkers.svelte';
+import ExampleMarkersRaw from '@examples/components/slider/ExampleMarkers.svelte?raw';
 import ExampleHeight from '@examples/components/slider/ExampleHeight.svelte';
 import ExampleHeightRaw from '@examples/components/slider/ExampleHeight.svelte?raw';
 import ExampleColors from '@examples/components/slider/ExampleColors.svelte';
@@ -34,6 +36,17 @@ import ExampleRtlRaw from '@examples/components/slider/ExampleRtl.svelte?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleMultiRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Markers
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleMarkers client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleMarkersRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

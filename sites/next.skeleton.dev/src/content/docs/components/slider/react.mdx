@@ -8,6 +8,8 @@ import { Page as Example } from '@examples/components/slider/Example.tsx';
 import ExampleRaw from '@examples/components/slider/Example.tsx?raw';
 import { Page as ExampleMulti } from '@examples/components/slider/ExampleMulti.tsx';
 import ExampleMultiRaw from '@examples/components/slider/ExampleMulti.tsx?raw';
+import { Page as ExampleMarkers } from '@examples/components/slider/ExampleMarkers.tsx';
+import ExampleMarkersRaw from '@examples/components/slider/ExampleMarkers.tsx?raw';
 import { Page as ExampleHeight } from '@examples/components/slider/ExampleHeight.tsx';
 import ExampleHeightRaw from '@examples/components/slider/ExampleHeight.tsx?raw';
 import { Page as ExampleColors } from '@examples/components/slider/ExampleColors.tsx';
@@ -36,6 +38,17 @@ import { SliderSchema } from '@skeletonlabs/skeleton-react/schemas';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleMultiRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Markers
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleMarkers client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleMarkersRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
