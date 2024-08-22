@@ -8,7 +8,7 @@ import { noop } from '../../internal/noop.js';
 export const Slider: FC<SliderProps> = ({
 	height = 'h-1.5',
 	// Root ---
-	base = '',
+	base = 'w-full',
 	classes = '',
 	// Control ---
 	controlBase = '',

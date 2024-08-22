@@ -9,7 +9,7 @@
 		value = $bindable([0]),
 		height = 'h-1.5',
 		// Root ---
-		base = '',
+		base = 'w-full',
 		classes = '',
 		// Control ---
 		controlBase = '',
