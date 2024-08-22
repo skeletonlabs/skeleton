@@ -41,9 +41,9 @@
 		markerslasses = '',
 		// Mark ---
 		markBase = '',
-		markText = 'type-scale-1',
+		markText = 'text-[10px]',
 		markOpacity = 'opacity-50',
-		marklasses = '',
+		markClasses = '',
 		// State ---
 		stateDisabled = 'disabled',
 		stateReadOnly = 'cursor-not-allowed',
@@ -105,7 +105,7 @@
 		<div {...api.getMarkerGroupProps()} class="{markersBase} {markerslasses}" data-testid="slider-markers">
 			{#each markers as value}
 				<!-- Mark -->
-				<span {...api.getMarkerProps({ value })} class="{markBase} {markText} {markOpacity} {marklasses}" data-testid="slider-mark">
+				<span {...api.getMarkerProps({ value })} class="{markBase} {markText} {markOpacity} {markClasses}" data-testid="slider-mark">
 					{#if mark}
 						{@render mark()}
 					{:else}

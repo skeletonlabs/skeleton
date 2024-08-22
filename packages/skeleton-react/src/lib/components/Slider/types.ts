@@ -73,7 +73,7 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange'
 	/** Set opacity classes for each mark. */
 	markOpacity?: string;
 	/** Provide arbitrary classes for each mark. */
-	marklasses?: string;
+	markClasses?: string;
 
 	// State ---
 	/** Set disabled state classes for the root element. */

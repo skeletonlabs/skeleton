@@ -39,9 +39,9 @@ export const Slider: FC<SliderProps> = ({
 	markerslasses = '',
 	// Mark ---
 	markBase = '',
-	markText = 'type-scale-1',
+	markText = 'text-[10px]',
 	markOpacity = 'opacity-50',
-	marklasses = '',
+	markClasses = '',
 	// State ---
 	stateDisabled = 'disabled',
 	stateReadOnly = 'cursor-not-allowed',
@@ -112,7 +112,7 @@ export const Slider: FC<SliderProps> = ({
 						<span
 							key={value}
 							{...api.getMarkerProps({ value })}
-							className={`${markBase} ${markText} ${markOpacity} ${marklasses}`}
+							className={`${markBase} ${markText} ${markOpacity} ${markClasses}`}
 							data-testid="slider-mark"
 						>
 							{mark ? mark : value}
