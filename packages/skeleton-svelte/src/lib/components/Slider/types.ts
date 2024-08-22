@@ -1,6 +1,8 @@
 import * as slider from '@zag-js/slider';
 
-export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange' | `onValueChangeEnd` | 'thumbSize'> {
+export interface SliderProps extends Omit<slider.Context, 'id' | 'thumbSize'> {
+	/** Provide the value as an array. */
+	value?: number[];
 	/** Set height classes for the overall slider. */
 	height?: string;
 
@@ -61,10 +63,4 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange'
 	stateDisabled?: string;
 	/** Set read-only state classes for the root element. */
 	stateReadOnly?: string;
-
-	// Events ---
-	/** Triggers when the value state is being changed. */
-	onValueChange?: (value: number[]) => void;
-	/** Triggers when the value change has ended. */
-	onValueChangeEnd?: (value: number[]) => void;
 }

@@ -308,6 +308,9 @@ importers:
       '@zag-js/rating-group':
         specifier: 'catalog:'
         version: 0.65.1
+      '@zag-js/slider':
+        specifier: 'catalog:'
+        version: 0.65.1
       '@zag-js/svelte':
         specifier: 'catalog:'
         version: 0.65.1(svelte@5.0.0-next.201)

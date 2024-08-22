@@ -72,7 +72,7 @@ export const Slider: FC<SliderProps> = ({
 						{...api.getRangeProps()}
 						className={`${meterBase} ${height} ${meterBg} ${materRounded} ${meterClasses}`}
 						data-testid="slider-meter"
-					/>
+					></div>
 				</div>
 				{/* NOTE: this div centers thumbs vertically */}
 				<div
