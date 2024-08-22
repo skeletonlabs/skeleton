@@ -22,7 +22,7 @@ export function Component() {
 			<section className="space-y-4">
 				<h2 className="h2">Height</h2>
 				<Slider name="example" value={example} onValueChange={setExample} height="h-1" />
-				<Slider name="example" value={example} onValueChange={setExample} height="h-10" />
+				<Slider name="example" value={example} onValueChange={setExample} height="h-8" />
 			</section>
 			<section className="space-y-8">
 				<h2 className="h2">Colors</h2>

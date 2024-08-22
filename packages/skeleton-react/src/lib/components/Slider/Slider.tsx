@@ -25,7 +25,7 @@ export const Slider: FC<SliderProps> = ({
 	meterClasses = '',
 	// Thumb ---
 	thumbBase = 'ring-inset transition-scale duration-100 ease-in-out',
-	thumbSize = 'size-5',
+	thumbSize = 'size-8 md:size-5',
 	thumbBg = 'bg-surface-50-950',
 	thumbRingSize = 'ring-2',
 	thumbRingColor = 'ring-surface-950-50',
