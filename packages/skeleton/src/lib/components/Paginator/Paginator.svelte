@@ -220,7 +220,7 @@
 		{#if showNumerals === false}
 			<!-- Details -->
 			<button type="button" class="{buttonClasses} pointer-events-none !text-sm">
-				{settings.page * settings.limit + 1}-{Math.min(settings.page * settings.limit + settings.limit, settings.size)}&nbsp;<span
+				{settings.page * settings.limit + 1}-{Math.min(settings.page * settings.limit + settings.limit, typeof settings.size === 'number' ? settings.size : Infinity)}&nbsp;<span
 					class="opacity-50">{separatorText} {settings.size}</span
 				>
 			</button>
