@@ -172,8 +172,8 @@ plugins: [
 		</p>
 		<CodeBlock language="html" code={`<html class="dark">`} />
 		<p>
-			Note that Skeleton also provides a <a class="anchor" href="/docs/dark-mode#via-selector" target="_blank">Lightswitch</a> utility if you wish
-			toggle between light and dark modes.
+			Note that Skeleton also provides a <a class="anchor" href="/docs/dark-mode#via-selector" target="_blank">Lightswitch</a> utility if you
+			wish toggle between light and dark modes.
 		</p>
 	</section>
 
@@ -310,21 +310,27 @@ body {
 					<!-- 5 -->
 					<h3 class="h3" data-toc-ignore>5. Preloading Fonts.</h3>
 					<p>
-						To avoid your page flickering during hydration, consider preloading fonts within the <code class="code">head</code>
-						tag in <code class="code">app.html</code>
+						To avoid your page flickering during hydration, consider using the <code class="code">font-display</code> descriptor for the
+						<code class="code">@font-face</code>
+						at-rule that determines how a font face is displayed based on whether and when it is downloaded and ready to use.
+						<br />
+						<br />Replace your <code class="code">@font-face</code> at-rule with the following:
+						<!-- consider preloading fonts within the <code class="code">head</code> -->
+						<!-- tag in <code class="code">app.html</code> -->
 					</p>
 					{#each activeFonts as f}
 						<CodeBlock
-							language="html"
+							language="css"
 							code={`
-<link
-	rel="preload"
-	href="%sveltekit.assets%/fonts/${f.file}"
-	as="font"
-	type="font/ttf"
-	crossorigin
-/>
-                        	`}
+@font-face {
+	/* Reference name */
+	font-family: '${f.name}';
+	/* For multiple files use commas, ex: url(), url(), ... */
+	src: url('/fonts/${f.file}');
+	/* Gives the font face an extremely small block period and an infinite swap period. */
+	font-display: swap;
+}
+					`}
 						/>
 					{/each}
 				{:else if tabsFontImport === 1}
