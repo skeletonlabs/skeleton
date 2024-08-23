@@ -308,15 +308,13 @@ body {
 						/>
 					{/each}
 					<!-- 5 -->
-					<h3 class="h3" data-toc-ignore>5. Preloading Fonts.</h3>
+					<h3 class="h3" data-toc-ignore>5. Handle Font Flickering.</h3>
 					<p>
 						To avoid your page flickering during hydration, consider using the <code class="code">font-display</code> descriptor for the
 						<code class="code">@font-face</code>
 						at-rule that determines how a font face is displayed based on whether and when it is downloaded and ready to use.
 						<br />
 						<br />Replace your <code class="code">@font-face</code> at-rule with the following:
-						<!-- consider preloading fonts within the <code class="code">head</code> -->
-						<!-- tag in <code class="code">app.html</code> -->
 					</p>
 					{#each activeFonts as f}
 						<CodeBlock
