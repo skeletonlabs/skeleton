@@ -42,6 +42,7 @@
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
+		"@zag-js/file-upload": "catalog:",
 		"@zag-js/progress": "catalog:",
 		"@zag-js/radio-group": "catalog:",
 		"@zag-js/rating-group": "catalog:",
@@ -66,6 +67,8 @@
 		"jsdom": "^24.1.1",
 		"lucide-react": "^0.341.0",
 		"postcss": "^8.4.39",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.25.1",
 		"tailwindcss": "^3.4.6",
 		"typescript": "catalog:",
@@ -73,8 +76,6 @@
 		"vite": "^5.3.4",
 		"vite-plugin-remix-router": "^2.0.0",
 		"vite-plugin-tw-plugin-watcher": "workspace:*",
-		"vitest": "^1.6.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"vitest": "^1.6.0"
 	}
 }
