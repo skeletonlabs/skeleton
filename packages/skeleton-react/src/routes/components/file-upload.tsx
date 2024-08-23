@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 import { FileUpload } from '$lib/components/FileUpload/FileUpload.js';
 
-import { ImagePlus as IconDropzone, Paperclip as IconFile, Upload as IconUpload } from 'lucide-react';
+import { ImagePlus as IconDropzone, Paperclip as IconFile, Upload as IconUpload, XCircle as IconRemove } from 'lucide-react';
 
 export function Component() {
 	return (
@@ -16,6 +16,7 @@ export function Component() {
 					dropzoneSubtext="Attach up to 2 files."
 					iconDropzone={<IconDropzone className="size-8" />}
 					iconFile={<IconFile className="size-4" />}
+					iconFileRemove={<IconRemove className="size-4" />}
 					onFileChange={console.log}
 				/>
 			</section>

@@ -43,13 +43,23 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id'>, React.P
 
 	// File ---
 	/** Set file base classes */
-	filesBase?: string;
-	/** Set file name classes */
+	fileBase?: string;
+	/** Set file background classes */
+	fileBg?: string;
+	/** Set file gap classes */
+	fileGap?: string;
+	/** Set file padding classes */
+	filePadding?: string;
+	/** Set file border-radius classes */
+	fileRounded?: string;
+	/** Set file name text classes */
 	fileName?: string;
+	/** Set file size text classes */
+	fileSize?: string;
 	/** Set file button classes */
 	fileButton?: string;
 	/** Set file arbitrary classes */
-	filesClasses?: string;
+	fileClasses?: string;
 
 	// State ---
 	/** Set dragging state styles for the interface. */

@@ -28,10 +28,15 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	filesListBase = 'mt-2 space-y-2',
 	filesListClasses = '',
 	// Files
-	filesBase = 'preset-tonal flex justify-between gap-4 px-4 py-2 rounded type-scale-1',
-	fileName = 'flex items-center gap-2',
+	fileBase = 'grid grid-cols-[auto_auto_1fr_auto] items-center',
+	fileBg = 'preset-tonal',
+	fileGap = 'gap-4 px-4',
+	filePadding = 'py-2',
+	fileRounded = 'rounded',
+	fileName = 'type-scale-2 flex items-center gap-2',
+	fileSize = 'type-scale-1 opacity-60',
 	fileButton = '',
-	filesClasses = '',
+	fileClasses = '',
 	// State
 	stateDragging = 'preset-filled-primary-500',
 	// Children
@@ -80,11 +85,19 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 				<ul {...api.getItemGroupProps()} className={`${filesListBase} ${filesListClasses}`}>
 					{api.acceptedFiles.map((file) => (
 						// File
-						<li key={file.name} {...api.getItemProps({ file })} className={`${filesBase} ${filesClasses}`}>
+						<li
+							key={file.name}
+							{...api.getItemProps({ file })}
+							className={`${fileBase} ${fileBg} ${fileGap} ${filePadding} ${fileRounded} ${fileClasses}`}
+						>
+							{iconFile && <span>{iconFile}</span>}
 							{/* Name */}
 							<p {...api.getItemNameProps({ file })} className={fileName}>
-								{iconFile && <span>{iconFile}</span>}
-								<span>{file.name}</span>
+								{file.name}
+							</p>
+							{/* Size */}
+							<p {...api.getItemNameProps({ file })} className={fileSize}>
+								{(file.size / 100000).toFixed(1)} mb
 							</p>
 							{/* Button */}
 							<button {...api.getItemDeleteTriggerProps({ file })} className={fileButton}>
