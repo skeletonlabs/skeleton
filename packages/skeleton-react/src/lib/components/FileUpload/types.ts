@@ -56,7 +56,7 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id'>, React.P
 	stateDragging?: string;
 
 	// Children ---
-	dropzoneIcon?: ReactNode;
-	fileIcon?: ReactNode;
-	fileRemoveIcon?: ReactNode;
+	iconDropzone?: ReactNode;
+	iconFile?: ReactNode;
+	iconFileRemove?: ReactNode;
 }

@@ -13,9 +13,9 @@ export function Component() {
 				<h2 className="h2">Dropzone</h2>
 				<FileUpload
 					maxFiles={2}
-					dropzoneIcon={<IconDropzone className="size-8" />}
 					dropzoneSubtext="Attach up to 2 files."
-					fileIcon={<IconFile className="size-4" />}
+					iconDropzone={<IconDropzone className="size-8" />}
+					iconFile={<IconFile className="size-4" />}
 					onFileChange={console.log}
 				/>
 			</section>

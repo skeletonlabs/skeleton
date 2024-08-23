@@ -12,7 +12,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	// Root
 	base = '',
 	classes = '',
-	// Dropzone
+	// Interface
 	interfaceBase = 'flex flex-col items-center gap-2',
 	interfaceBg = 'hover:preset-tonal',
 	interfaceBorder = 'border-[1px] border-dashed',
@@ -36,9 +36,9 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	stateDragging = 'preset-filled-primary-500',
 	// Children
 	children,
-	dropzoneIcon,
-	fileIcon,
-	fileRemoveIcon,
+	iconDropzone,
+	iconFile,
+	iconFileRemove,
 	// Zag
 	...zagProps
 }) => {
@@ -58,16 +58,19 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 
 	return (
 		<div {...api.getRootProps()} className={`${base} ${classes}`} style={{ display: children ? 'inline-block' : 'block' }}>
-			{/* Interface */}
 			<div {...api.getDropzoneProps()}>
 				{/* Hidden Input */}
 				<input {...api.getHiddenInputProps()} />
+				{/* Interface */}
 				{children ?? (
 					<div
 						className={`${interfaceBase} ${interfaceBg} ${interfaceBorder} ${interfacePadding} ${interfaceRounded} ${rxDragging} ${rxError} ${interfaceClasses}`}
 					>
-						{dropzoneIcon && <span className={interfaceIcon}>{dropzoneIcon}</span>}
+						{/* Icon */}
+						{iconDropzone && <span className={interfaceIcon}>{iconDropzone}</span>}
+						{/* Text */}
 						{dropzoneText && <p className={interfaceText}>{dropzoneText}</p>}
+						{/* Subtext */}
 						{dropzoneSubtext && <small className={interfaceSubtext}>{dropzoneSubtext}</small>}
 					</div>
 				)}
@@ -80,12 +83,12 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 						<li key={file.name} {...api.getItemProps({ file })} className={`${filesBase} ${filesClasses}`}>
 							{/* Name */}
 							<p {...api.getItemNameProps({ file })} className={fileName}>
-								{fileIcon && <span>{fileIcon}</span>}
+								{iconFile && <span>{iconFile}</span>}
 								<span>{file.name}</span>
 							</p>
 							{/* Button */}
 							<button {...api.getItemDeleteTriggerProps({ file })} className={fileButton}>
-								{fileRemoveIcon ?? <span>&#x2715;</span>}
+								{iconFileRemove ?? <span>&#x2715;</span>}
 							</button>
 						</li>
 					))}
