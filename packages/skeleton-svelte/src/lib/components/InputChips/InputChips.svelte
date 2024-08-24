@@ -53,16 +53,18 @@
 <div class="{base} {padding} {gap} {classes}" {...api.getRootProps()}>
 	<!-- Input -->
 	<input class="{inputBase} {inputClasses}" {...api.getInputProps()} />
+
+	<!-- Item List -->
 	{#if api.value.length > 0}
-		<!-- Item List -->
 		<div class="{chipListBase} {chipListClasses}">
 			{#each api.value as value, index (value)}
 				{@const itemState = api.getItemState({ index, value })}
 
 				<!-- Item -->
 				<span class="{chipBase} {chipBackground} {chipClasses}" {...api.getItemProps({ value, index })}>
-					<!-- Edit Preview -->
+					<!-- Item (Non-Editing) -->
 					<div style:display={itemState.editing ? 'none' : 'block'} {...api.getItemPreviewProps({ index, value })}>
+						<!-- Value -->
 						<span>{value}</span>
 
 						<!-- Delete Item Button -->
@@ -71,7 +73,7 @@
 						>
 					</div>
 
-					<!-- Edit Input -->
+					<!-- Item (Editing) -->
 					<input
 						class="{editInputBase} {editInputClasses}"
 						style:display={itemState.editing ? 'inline-block' : 'none'}
