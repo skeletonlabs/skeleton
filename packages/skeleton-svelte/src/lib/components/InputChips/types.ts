@@ -1,4 +1,5 @@
 import * as tagsInput from '@zag-js/tags-input';
+import type { Snippet } from 'svelte';
 
 export interface TagsInputProps extends Omit<tagsInput.Context, 'id' | 'value'> {
 	value?: tagsInput.Context['value'];
@@ -15,4 +16,7 @@ export interface TagsInputProps extends Omit<tagsInput.Context, 'id' | 'value'> 
 	chipClasses?: string;
 	editInputBase?: string;
 	editInputClasses?: string;
+	deleteItemButtonBase?: string;
+	deleteItemButtonClasses?: string;
+	deleteItemButton?: Snippet;
 }
