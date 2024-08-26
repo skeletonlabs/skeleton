@@ -33,6 +33,7 @@
 				<a class="anchor" href="/components/accordions">Accordions</a>
 				<a class="anchor" href="/components/avatars">Avatars</a>
 				<a class="anchor" href="/components/app-bars">App Bars</a>
+				<a class="anchor" href="/components/file-upload">File Upload</a>
 				<a class="anchor" href="/components/navigation">Navigation</a>
 				<a class="anchor" href="/components/ratings">Ratings</a>
 				<a class="anchor" href="/components/progress">Progress</a>

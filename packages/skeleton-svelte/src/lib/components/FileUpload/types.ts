@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import type { Snippet } from 'svelte';
 import * as fileUpload from '@zag-js/file-upload';
 
-export interface FileUploadProps extends Omit<fileUpload.Context, 'id'>, React.PropsWithChildren {
+export interface FileUploadProps extends Omit<fileUpload.Context, 'id'> {
 	/** Set the interface text value. */
 	label?: string;
 	/** Set the interface subtext value. */
@@ -78,10 +78,12 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id'>, React.P
 	stateDragging?: string;
 
 	// Children ---
+	/** The default children content. */
+	children?: Snippet;
 	/** Provide an icon for the interface. */
-	iconInterface?: ReactNode;
+	iconInterface?: Snippet;
 	/** Provide an icon proceeding each file. */
-	iconFile?: ReactNode;
+	iconFile?: Snippet;
 	/** Provide an icon for the remove file action. */
-	iconFileRemove?: ReactNode;
+	iconFileRemove?: Snippet;
 }
