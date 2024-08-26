@@ -70,6 +70,67 @@ Use the `children` node to overwrite the default dropzone interface. Allow for a
 	</Fragment>
 </Preview>
 
+## Additional Features
+
+### Accepted File Formats
+
+```tsx
+<FileUpload accept="image/*">
+<FileUpload accept={"text/html": [".html", ".htm"]}>
+```
+
+### File Validation
+
+```tsx
+<FileUpload maxFiles={5}>
+<FileUpload minFileSize={1024 * 1024 * 5}> {/* 5 mb */}
+<FileUpload maxFileSize={1024 * 1024 * 10}> {/* 10 mb */}
+```
+
+### Custom Validation
+
+```ts
+function validateFileSize(file) {
+	if (file.size > 1024 * 1024 * 10) return ["FILE_TOO_LARGE"];
+	return null;
+}
+```
+```tsx
+<FileUpload validate={validateFileSize} onFileReject={console.error}>
+```
+
+### Events
+
+```tsx
+<FileUpload onFileChange={console.log}> {/* Triggers when files changed. */}
+<FileUpload onFileAccept={console.log}> {/* Triggers when files are accepted. */}
+<FileUpload onFileReject={console.error}> {/* Triggers when files are rejected. */}
+```
+
+### Image Previews
+
+```ts
+function generatePreview(event) {
+	const reader = new FileReader();
+	reader.onload = (event) => {
+		const image = event.target.result;
+		// set the image as the src of an image element
+	}
+	reader.readAsDataURL(details.acceptedFiles[0]);
+}
+```
+```tsx
+<FileUpload onFileChange={generatePreview}>
+```
+
+### Miscellaneous
+
+```tsx
+<FileUpload allowDrop> {/* Enable drag-and-drop */}
+<FileUpload directory> {/* Enable dirctories */}
+<FileUpload capture> {/* Enable media capture on mobile devices */}
+```
+
 ## API Reference
 
 <ApiTable types={['FileUploadProps']} schema={FileUploadSchema} />
