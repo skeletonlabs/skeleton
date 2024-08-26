@@ -7,8 +7,8 @@ import { normalizeProps, useMachine } from '@zag-js/react';
 import { FileUploadProps } from './types.js';
 
 export const FileUpload: React.FC<FileUploadProps> = ({
-	dropzoneText = `Select file or drag here`,
-	dropzoneSubtext = '',
+	label = `Select file or drag here`,
+	subtext = '',
 	// Root
 	base = '',
 	classes = '',
@@ -17,31 +17,35 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	interfaceBg = 'hover:preset-tonal',
 	interfaceBorder = 'border-[1px] border-dashed',
 	interfaceBorderColor = 'border-surface-200-800',
-	interfaceBorderColorInvalid = 'border-error-500',
 	interfacePadding = 'p-4 py-10',
 	interfaceRounded = 'rounded-container',
+	interfaceClasses = '',
+	// Interface (content)
 	interfaceIcon = '',
 	interfaceText = '',
 	interfaceSubtext = 'type-scale-1 opacity-60',
-	interfaceClasses = '',
 	// Files List
 	filesListBase = 'mt-2 space-y-2',
 	filesListClasses = '',
-	// Files
-	fileBase = 'grid grid-cols-[auto_auto_1fr_auto] items-center',
+	// File
+	fileBase = 'grid grid-cols-[auto_auto_1fr_auto] rtl:grid-cols-[auto_1fr_auto_auto] items-center',
 	fileBg = 'preset-tonal',
 	fileGap = 'gap-4 px-4',
 	filePadding = 'py-2',
 	fileRounded = 'rounded',
+	fileClasses = '',
+	// File (content)
+	fileIcon = '',
 	fileName = 'type-scale-2',
 	fileSize = 'type-scale-1 opacity-60',
 	fileButton = '',
-	fileClasses = '',
 	// State
+	stateInvalid = 'border-error-500',
+	stateDisabled = 'disabled',
 	stateDragging = 'preset-filled-primary-500',
 	// Children
 	children,
-	iconDropzone,
+	iconInterface,
 	iconFile,
 	iconFileRemove,
 	// Zag
@@ -57,26 +61,26 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	const api = fileUpload.connect(state, send, normalizeProps);
 
 	// Reactive
-	const rxDragging = api.dragging ? stateDragging : '';
-	// TODO: expand this to handle all error states
-	const rxError = api.rejectedFiles.length > 0 ? interfaceBorderColorInvalid : interfaceBorderColor;
+	const rxDisabled = state.context.disabled ? stateDisabled : '';
+	const rxInvalid = api.rejectedFiles.length > 0 ? stateInvalid : interfaceBorderColor;
+	const rxDragging = api.dragging && !children ? stateDragging : '';
 
 	return (
-		<div {...api.getRootProps()} className={`${base} ${classes}`} style={{ display: children ? 'inline-block' : 'block' }}>
+		<div {...api.getRootProps()} className={`${base} ${rxDisabled} ${classes}`} style={{ display: children ? 'inline-block' : 'block' }}>
 			<div {...api.getDropzoneProps()}>
 				{/* Hidden Input */}
 				<input {...api.getHiddenInputProps()} />
 				{/* Interface */}
 				{children ?? (
 					<div
-						className={`${interfaceBase} ${interfaceBg} ${interfaceBorder} ${interfacePadding} ${interfaceRounded} ${rxDragging} ${rxError} ${interfaceClasses}`}
+						className={`${interfaceBase} ${interfaceBg} ${interfaceBorder} ${interfacePadding} ${interfaceRounded} ${rxInvalid} ${rxDragging} ${interfaceClasses}`}
 					>
 						{/* Icon */}
-						{iconDropzone && <span className={interfaceIcon}>{iconDropzone}</span>}
+						{iconInterface && <span className={interfaceIcon}>{iconInterface}</span>}
 						{/* Text */}
-						{dropzoneText && <p className={interfaceText}>{dropzoneText}</p>}
+						{label && <p className={interfaceText}>{label}</p>}
 						{/* Subtext */}
-						{dropzoneSubtext && <small className={interfaceSubtext}>{dropzoneSubtext}</small>}
+						{subtext && <small className={interfaceSubtext}>{subtext}</small>}
 					</div>
 				)}
 			</div>
@@ -90,7 +94,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 							{...api.getItemProps({ file })}
 							className={`${fileBase} ${fileBg} ${fileGap} ${filePadding} ${fileRounded} ${fileClasses}`}
 						>
-							{iconFile && <span>{iconFile}</span>}
+							{iconFile && <span className={fileIcon}>{iconFile}</span>}
 							{/* Name */}
 							<p {...api.getItemNameProps({ file })} className={fileName}>
 								{file.name}

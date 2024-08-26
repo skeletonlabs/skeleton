@@ -2,8 +2,10 @@ import { ReactNode } from 'react';
 import * as fileUpload from '@zag-js/file-upload';
 
 export interface FileUploadProps extends Omit<fileUpload.Context, 'id'>, React.PropsWithChildren {
-	dropzoneText?: string;
-	dropzoneSubtext?: string;
+	/** Set the interface text value. */
+	label?: string;
+	/** Set the interface subtext value. */
+	subtext?: string;
 
 	// Root ---
 	/** Set root base classes */
@@ -20,20 +22,21 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id'>, React.P
 	interfaceBorder?: string;
 	/** Set interface border color classes */
 	interfaceBorderColor?: string;
-	/** Set interface invalid border color classes */
-	interfaceBorderColorInvalid?: string;
 	/** Set interface border classes */
 	interfacePadding?: string;
 	/** Set interface border radius classes */
 	interfaceRounded?: string;
+	/** Set interface arbitrary classes */
+	interfaceClasses?: string;
+
+	// Interface (content) ---
+	// NOTE: these are simplified due to the limited number of styles needed.
 	/** Set interface icon classes */
 	interfaceIcon?: string;
 	/** Set interface text classes */
 	interfaceText?: string;
 	/** Set interface subtext classes */
 	interfaceSubtext?: string;
-	/** Set interface arbitrary classes */
-	interfaceClasses?: string;
 
 	// File List ---
 	/** Set file list base classes */
@@ -52,21 +55,30 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id'>, React.P
 	filePadding?: string;
 	/** Set file border-radius classes */
 	fileRounded?: string;
-	/** Set file name text classes */
-	fileName?: string;
-	/** Set file size text classes */
-	fileSize?: string;
-	/** Set file button classes */
-	fileButton?: string;
 	/** Set file arbitrary classes */
 	fileClasses?: string;
 
+	// File (content) ---
+	// NOTE: these are simplified due to the limited number of styles needed.
+	/** Set file icon classes */
+	fileIcon?: string;
+	/** Set file name classes */
+	fileName?: string;
+	/** Set file size classes */
+	fileSize?: string;
+	/** Set file button classes */
+	fileButton?: string;
+
 	// State ---
-	/** Set dragging state styles for the interface. */
+	/** Set disabled state classes for the root. */
+	stateDisabled?: string;
+	/** Set invalid state classes for the interface. */
+	stateInvalid?: string;
+	/** Set dragging state classes for the interface. */
 	stateDragging?: string;
 
 	// Children ---
-	iconDropzone?: ReactNode;
+	iconInterface?: ReactNode;
 	iconFile?: ReactNode;
 	iconFileRemove?: ReactNode;
 }
