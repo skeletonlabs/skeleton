@@ -15,6 +15,8 @@ import ExampleDisabledRaw from '@examples/components/file-upload/ExampleDisabled
 import { Page as ExampleRtl } from '@examples/components/file-upload/ExampleRtl.tsx';
 import ExampleRtlRaw from '@examples/components/file-upload/ExampleRtl.tsx?raw';
 
+import { FileUploadSchema } from '@skeletonlabs/skeleton-react/schemas';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Example client:load />
@@ -67,3 +69,7 @@ Use the `children` node to overwrite the default dropzone interface. Allow for a
 		<Code code={ExampleRtlRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable types={['FileUploadProps']} schema={FileUploadSchema} />

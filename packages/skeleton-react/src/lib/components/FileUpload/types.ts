@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import * as fileUpload from '@zag-js/file-upload';
 
-export interface FileUploadProps extends Omit<fileUpload.Context, 'id'>, React.PropsWithChildren {
+export interface FileUploadProps extends React.PropsWithChildren, Omit<fileUpload.Context, 'id'> {
 	/** Set the interface text value. */
 	label?: string;
 	/** Set the interface subtext value. */
@@ -30,7 +30,6 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id'>, React.P
 	interfaceClasses?: string;
 
 	// Interface (content) ---
-	// NOTE: these are simplified due to the limited number of styles needed.
 	/** Set interface icon classes */
 	interfaceIcon?: string;
 	/** Set interface text classes */
@@ -59,7 +58,6 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id'>, React.P
 	fileClasses?: string;
 
 	// File (content) ---
-	// NOTE: these are simplified due to the limited number of styles needed.
 	/** Set file icon classes */
 	fileIcon?: string;
 	/** Set file name classes */

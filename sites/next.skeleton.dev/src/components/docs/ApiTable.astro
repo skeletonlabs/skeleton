@@ -10,6 +10,7 @@ interface SchemaRow {
 }
 
 function formatValuesType(valueType: string) {
+	if (valueType === undefined) return '(unknown)'; // ex: FileUpload > accept
 	if (valueType.includes('Partial')) return 'Partial<...>';
 	return valueType;
 }

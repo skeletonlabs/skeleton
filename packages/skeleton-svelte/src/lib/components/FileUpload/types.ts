@@ -30,7 +30,6 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id'> {
 	interfaceClasses?: string;
 
 	// Interface (content) ---
-	// NOTE: these are simplified due to the limited number of styles needed.
 	/** Set interface icon classes */
 	interfaceIcon?: string;
 	/** Set interface text classes */
@@ -59,7 +58,6 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id'> {
 	fileClasses?: string;
 
 	// File (content) ---
-	// NOTE: these are simplified due to the limited number of styles needed.
 	/** Set file icon classes */
 	fileIcon?: string;
 	/** Set file name classes */
