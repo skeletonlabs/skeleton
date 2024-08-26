@@ -66,45 +66,66 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	const rxDragging = api.dragging && !children ? stateDragging : '';
 
 	return (
-		<div {...api.getRootProps()} className={`${base} ${rxDisabled} ${classes}`} style={{ display: children ? 'inline-block' : 'block' }}>
+		<div
+			{...api.getRootProps()}
+			className={`${base} ${rxDisabled} ${classes}`}
+			style={{ display: children ? 'inline-block' : 'block' }}
+			data-testid="uploader"
+		>
 			<div {...api.getDropzoneProps()}>
 				{/* Hidden Input */}
-				<input {...api.getHiddenInputProps()} />
+				<input {...api.getHiddenInputProps()} data-testid="uploader-input" />
 				{/* Interface */}
 				{children ?? (
 					<div
 						className={`${interfaceBase} ${interfaceBg} ${interfaceBorder} ${interfacePadding} ${interfaceRounded} ${rxInvalid} ${rxDragging} ${interfaceClasses}`}
+						data-testid="uploader-interface"
 					>
 						{/* Icon */}
-						{iconInterface && <span className={interfaceIcon}>{iconInterface}</span>}
-						{/* Text */}
-						{label && <p className={interfaceText}>{label}</p>}
+						{iconInterface && (
+							<span className={interfaceIcon} data-testid="uploader-interface-icon">
+								{iconInterface}
+							</span>
+						)}
+						{/* Label */}
+						{label && (
+							<p className={interfaceText} data-testid="uploader-interface-text">
+								{label}
+							</p>
+						)}
 						{/* Subtext */}
-						{subtext && <small className={interfaceSubtext}>{subtext}</small>}
+						{subtext && (
+							<small className={interfaceSubtext} data-testid="uploader-interface-subtext">
+								{subtext}
+							</small>
+						)}
 					</div>
 				)}
 			</div>
 			{/* Files (list) */}
 			{!children && (
-				<ul {...api.getItemGroupProps()} className={`${filesListBase} ${filesListClasses}`}>
+				<ul {...api.getItemGroupProps()} className={`${filesListBase} ${filesListClasses}`} data-testid="uploader-files-list">
 					{api.acceptedFiles.map((file) => (
 						// File
 						<li
 							key={file.name}
 							{...api.getItemProps({ file })}
 							className={`${fileBase} ${fileBg} ${fileGap} ${filePadding} ${fileRounded} ${fileClasses}`}
+							data-testid="uploader-file"
 						>
-							<span className={fileIcon}>{iconFile ?? '•'}</span>
+							<span className={fileIcon} data-testid="uploader-file-icon">
+								{iconFile ?? '•'}
+							</span>
 							{/* Name */}
-							<p {...api.getItemNameProps({ file })} className={fileName}>
+							<p {...api.getItemNameProps({ file })} className={fileName} data-testid="uploader-file-name">
 								{file.name}
 							</p>
 							{/* Size */}
-							<p {...api.getItemNameProps({ file })} className={fileSize}>
+							<p {...api.getItemNameProps({ file })} className={fileSize} data-testid="uploader-file-size">
 								{(file.size / 100000).toFixed(1)} mb
 							</p>
 							{/* Button */}
-							<button {...api.getItemDeleteTriggerProps({ file })} className={fileButton}>
+							<button {...api.getItemDeleteTriggerProps({ file })} className={fileButton} data-testid="uploader-file-button">
 								{iconFileRemove ?? <span>&#x2715;</span>}
 							</button>
 						</li>

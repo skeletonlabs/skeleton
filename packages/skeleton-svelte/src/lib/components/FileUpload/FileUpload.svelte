@@ -63,34 +63,44 @@
 
 <!-- @component A form component for handling file uploads. -->
 
-<div {...api.getRootProps()} class="{base} {rxDisabled} {classes}" style:display={children ? 'inline-block' : 'block'}>
+<div
+	{...api.getRootProps()}
+	class="{base} {rxDisabled} {classes}"
+	style:display={children ? 'inline-block' : 'block'}
+	data-testid="uploader"
+>
 	<div {...api.getDropzoneProps()}>
 		<!-- Hidden Input -->
-		<input {...api.getHiddenInputProps()} />
+		<input {...api.getHiddenInputProps()} data-testid="uploader-input" />
 		<!-- Interface -->
 		{#if children}
 			{@render children()}
 		{:else}
 			<div
 				class="{interfaceBase} {interfaceBg} {interfaceBorder} {interfacePadding} {interfaceRounded} {rxInvalid} {rxDragging} {interfaceClasses}"
+				data-testid="uploader-interface"
 			>
 				<!-- Icon -->
-				{#if iconInterface}<span class={interfaceIcon}>{@render iconInterface()}</span>{/if}
-				<!-- Text -->
-				{#if label}<p class={interfaceText}>{label}</p>{/if}
+				{#if iconInterface}<span class={interfaceIcon} data-testid="uploader-interface-icon">{@render iconInterface()}</span>{/if}
+				<!-- Label -->
+				{#if label}<p class={interfaceText} data-testid="uploader-interface-label">{label}</p>{/if}
 				<!-- Subtext -->
-				{#if subtext}<small class={interfaceSubtext}>{subtext}</small>{/if}
+				{#if subtext}<small class={interfaceSubtext} data-testid="uploader-interface-subtext">{subtext}</small>{/if}
 			</div>
 		{/if}
 	</div>
 	<!-- Files (list) -->
 	{#if !children}
-		<ul {...api.getItemGroupProps()} class="{filesListBase} {filesListClasses}">
+		<ul {...api.getItemGroupProps()} class="{filesListBase} {filesListClasses}" data-testid="uploader-files-list">
 			<!-- Loop Files -->
 			{#each api.acceptedFiles as file, i}
 				<!-- File -->
-				<li {...api.getItemProps({ file })} class="{fileBase} {fileBg} {fileGap} {filePadding} {fileRounded} {fileClasses}">
-					<span class={fileIcon}>
+				<li
+					{...api.getItemProps({ file })}
+					class="{fileBase} {fileBg} {fileGap} {filePadding} {fileRounded} {fileClasses}"
+					data-testid="uploader-file"
+				>
+					<span class={fileIcon} data-testid="uploader-file-icon">
 						{#if iconFile}
 							{@render iconFile()}
 						{:else}
@@ -98,15 +108,15 @@
 						{/if}
 					</span>
 					<!-- Name -->
-					<p {...api.getItemNameProps({ file })} class={fileName}>
+					<p {...api.getItemNameProps({ file })} class={fileName} data-testid="uploader-file-name">
 						{file.name}
 					</p>
 					<!-- Size -->
-					<p {...api.getItemNameProps({ file })} class={fileSize}>
+					<p {...api.getItemNameProps({ file })} class={fileSize} data-testid="uploader-file-size">
 						{(file.size / 100000).toFixed(1)} mb
 					</p>
 					<!-- Button -->
-					<button {...api.getItemDeleteTriggerProps({ file })} class={fileButton}>
+					<button {...api.getItemDeleteTriggerProps({ file })} class={fileButton} data-testid="uploader-file-button">
 						{#if iconFileRemove}
 							{@render iconFileRemove()}
 						{:else}
