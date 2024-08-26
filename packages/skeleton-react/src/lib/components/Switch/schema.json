@@ -238,6 +238,10 @@
 					"description": "If `true`, the switch input is marked as required,",
 					"type": "boolean"
 				},
+				"stateFocused": {
+					"description": "Set claseses for the focus state.",
+					"type": "string"
+				},
 				"thumbActive": {
 					"description": "Set active classes for the thumb element.",
 					"type": "string"
@@ -287,6 +291,7 @@
 				"compact",
 				"base",
 				"classes",
+				"stateFocused",
 				"controlBase",
 				"controlInactive",
 				"controlActive",

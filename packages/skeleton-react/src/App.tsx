@@ -59,6 +59,9 @@ function App() {
 						<a className="anchor" href="/components/segment-control">
 							Segment Control
 						</a>
+						<a className="anchor" href="/components/slider">
+							Slider
+						</a>
 						<a className="anchor" href="/components/switch">
 							Switch
 						</a>

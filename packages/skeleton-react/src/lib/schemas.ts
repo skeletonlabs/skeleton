@@ -7,6 +7,7 @@ export { default as Navigation } from './components/Navigation/schema.json';
 export { default as ProgressSchema } from './components/Progress/schema.json';
 export { default as ProgressRingSchema } from './components/ProgressRing/schema.json';
 export { default as SegmentSchema } from './components/Segment/schema.json';
+export { default as SliderSchema } from './components/Slider/schema.json';
 export { default as SwitchSchema } from './components/Switch/schema.json';
 export { default as TabsSchema } from './components/Tabs/schema.json';
 export { default as RatingSchema } from './components/Rating/schema.json';
