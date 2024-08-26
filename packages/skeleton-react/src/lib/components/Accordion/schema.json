@@ -353,7 +353,7 @@
 		"AccordionProps": {
 			"properties": {
 				"animDuration": {
-					"description": "The slide animation duration in milliseconds.",
+					"description": "The slide animation duration as a float value (ex: 0.2).",
 					"type": "number"
 				},
 				"base": {

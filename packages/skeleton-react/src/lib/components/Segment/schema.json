@@ -180,11 +180,15 @@
 					"description": "Set claseses for the disabled state.",
 					"type": "string"
 				},
+				"stateFocused": {
+					"description": "Set claseses for the focus state.",
+					"type": "string"
+				},
 				"value": {
 					"type": "string"
 				}
 			},
-			"propertyOrder": ["base", "classes", "stateDisabled", "labelBase", "labelClasses", "children", "value", "disabled"],
+			"propertyOrder": ["base", "classes", "stateDisabled", "stateFocused", "labelBase", "labelClasses", "children", "value", "disabled"],
 			"required": ["value"],
 			"type": "object"
 		},

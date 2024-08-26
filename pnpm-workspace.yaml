@@ -15,5 +15,6 @@ catalog:
   '@zag-js/tags-input': *zag_version
   '@zag-js/progress': *zag_version
   '@zag-js/radio-group': *zag_version
+  '@zag-js/slider': *zag_version
   '@zag-js/switch': *zag_version
   typescript: '^5.5.4'

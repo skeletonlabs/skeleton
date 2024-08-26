@@ -27,6 +27,9 @@ catalogs:
     '@zag-js/react':
       specifier: ^0.65.1
       version: 0.65.1
+    '@zag-js/slider':
+      specifier: ^0.65.1
+      version: 0.65.1
     '@zag-js/svelte':
       specifier: ^0.65.1
       version: 0.65.1
@@ -217,6 +220,9 @@ importers:
       '@zag-js/react':
         specifier: 'catalog:'
         version: 0.65.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@zag-js/slider':
+        specifier: 'catalog:'
+        version: 0.65.1
       '@zag-js/switch':
         specifier: 'catalog:'
         version: 0.65.1
@@ -309,6 +315,9 @@ importers:
         specifier: 'catalog:'
         version: 0.65.1
       '@zag-js/rating-group':
+        specifier: 'catalog:'
+        version: 0.65.1
+      '@zag-js/slider':
         specifier: 'catalog:'
         version: 0.65.1
       '@zag-js/svelte':
@@ -2419,6 +2428,9 @@ packages:
   '@zag-js/element-rect@0.65.1':
     resolution: {integrity: sha512-t8MDX8WWuiNd7PXILbCfoGUQl1hp6DuvxFssHoudi5DqZPgfIPUYf1X0Jgog2m0NHf5oy8wIjZ25zzQzoIOQsQ==}
 
+  '@zag-js/element-size@0.65.1':
+    resolution: {integrity: sha512-P61DJGiPezfHjnXINRr+p7sNS2Q6r8JcTCVFNgJu9E4T/4/26kryM/ZZ9fTseL8dPRqepR85WXC6sTMpiKaUBw==}
+
   '@zag-js/file-upload@0.65.1':
     resolution: {integrity: sha512-3yODgobAQAhL1T0YrPbfHtMrxfm6VtLSME5gF6z6r+b6g7zh/Vqam8TcId9q1F1eGawTklx01yuo3TonRMmmkQ==}
 
@@ -2430,6 +2442,9 @@ packages:
 
   '@zag-js/i18n-utils@0.65.1':
     resolution: {integrity: sha512-YaSc6wFOXYz/prQHVtxyuOIAMu9et9QSstlsUy1u5kT5aHF8YoIrNM0yUqezz9CL2CLdoOLa5Vdbzep90FnBvA==}
+
+  '@zag-js/numeric-range@0.65.1':
+    resolution: {integrity: sha512-m/8ySlrs4WooFCrQCfYIGWPk/CG2VIRhuKpm3CNAbwHQwYjQIuTsFNDnOdKe8soYJTzoXDDlOdzgMdK6Hexizg==}
 
   '@zag-js/progress@0.65.1':
     resolution: {integrity: sha512-uz7ygE8LlmA2wAg+0e7TKXLGfxDDR4Tz9F8qfcHAL3d6G9ut0O5gPLqnSdBNAQgDxXJf9kefjNF1n9wWANIGmQ==}
@@ -2445,6 +2460,9 @@ packages:
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
+
+  '@zag-js/slider@0.65.1':
+    resolution: {integrity: sha512-IZuBeYeZV9FCcii34xZ9jasrhqLjM++hqvg9Sqhotm7NUUnUJQRAxN7g9tDZWlC/TObXD7pk4cVsLzOQFHfLtg==}
 
   '@zag-js/store@0.65.1':
     resolution: {integrity: sha512-7wtaAfHahkkr1K9hdAsA1YuPvCZabbDGHhWkdZeFhoSigno5wxKdxSzCGYluLisb0kyPIfoDIAopRSOgzFxlnw==}
@@ -8968,6 +8986,8 @@ snapshots:
 
   '@zag-js/element-rect@0.65.1': {}
 
+  '@zag-js/element-size@0.65.1': {}
+
   '@zag-js/file-upload@0.65.1':
     dependencies:
       '@zag-js/anatomy': 0.65.1
@@ -8987,6 +9007,8 @@ snapshots:
   '@zag-js/i18n-utils@0.65.1':
     dependencies:
       '@zag-js/dom-query': 0.65.1
+
+  '@zag-js/numeric-range@0.65.1': {}
 
   '@zag-js/progress@0.65.1':
     dependencies:
@@ -9024,6 +9046,18 @@ snapshots:
       proxy-compare: 3.0.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  '@zag-js/slider@0.65.1':
+    dependencies:
+      '@zag-js/anatomy': 0.65.1
+      '@zag-js/core': 0.65.1
+      '@zag-js/dom-event': 0.65.1
+      '@zag-js/dom-query': 0.65.1
+      '@zag-js/element-size': 0.65.1
+      '@zag-js/form-utils': 0.65.1
+      '@zag-js/numeric-range': 0.65.1
+      '@zag-js/types': 0.65.1
+      '@zag-js/utils': 0.65.1
 
   '@zag-js/store@0.65.1':
     dependencies:
