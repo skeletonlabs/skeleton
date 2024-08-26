@@ -87,10 +87,16 @@
 	{#if !children}
 		<ul {...api.getItemGroupProps()} class="{filesListBase} {filesListClasses}">
 			<!-- Loop Files -->
-			{#each api.acceptedFiles as file}
+			{#each api.acceptedFiles as file, i}
 				<!-- File -->
 				<li {...api.getItemProps({ file })} class="{fileBase} {fileBg} {fileGap} {filePadding} {fileRounded} {fileClasses}">
-					{#if iconFile}<span class={fileIcon}>{@render iconFile()}</span>{/if}
+					<span class={fileIcon}>
+						{#if iconFile}
+							{@render iconFile()}
+						{:else}
+							&bull;
+						{/if}
+					</span>
 					<!-- Name -->
 					<p {...api.getItemNameProps({ file })} class={fileName}>
 						{file.name}

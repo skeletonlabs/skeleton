@@ -94,7 +94,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 							{...api.getItemProps({ file })}
 							className={`${fileBase} ${fileBg} ${fileGap} ${filePadding} ${fileRounded} ${fileClasses}`}
 						>
-							{iconFile && <span className={fileIcon}>{iconFile}</span>}
+							<span className={fileIcon}>{iconFile ?? '•'}</span>
 							{/* Name */}
 							<p {...api.getItemNameProps({ file })} className={fileName}>
 								{file.name}
