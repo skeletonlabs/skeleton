@@ -93,7 +93,7 @@
 	{#if !children}
 		<ul {...api.getItemGroupProps()} class="{filesListBase} {filesListClasses}" data-testid="uploader-files-list">
 			<!-- Loop Files -->
-			{#each api.acceptedFiles as file, i}
+			{#each api.acceptedFiles as file}
 				<!-- File -->
 				<li
 					{...api.getItemProps({ file })}
