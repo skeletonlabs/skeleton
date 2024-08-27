@@ -13,7 +13,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	base = '',
 	classes = '',
 	// Interface
-	interfaceBase = 'flex flex-col items-center gap-2',
+	interfaceBase = 'flex flex-col items-center gap-2 hover:cursor-pointer',
 	interfaceBg = 'hover:preset-tonal',
 	interfaceBorder = 'border-[1px] border-dashed',
 	interfaceBorderColor = 'border-surface-200-800',
