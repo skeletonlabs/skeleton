@@ -4,6 +4,7 @@ export { Avatar } from './components/Avatar/Avatar.js';
 export { AppBar } from './components/AppBar/AppBar.js';
 export { FileUpload } from './components/FileUpload/FileUpload.js';
 export { Nav } from './components/Navigation/Navigation.js';
+export { Pagination } from './components/Pagination/Pagination.js';
 export { Progress } from './components/Progress/Progress.js';
 export { ProgressRing } from './components/ProgressRing/ProgressRing.js';
 export { Segment } from './components/Segment/Segment.js';

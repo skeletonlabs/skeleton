@@ -53,6 +53,9 @@ function App() {
 						<a className="anchor" href="/components/ratings">
 							Ratings
 						</a>
+						<a className="anchor" href="/components/pagination">
+							Pagination
+						</a>
 						<a className="anchor" href="/components/progress">
 							Progress
 						</a>
