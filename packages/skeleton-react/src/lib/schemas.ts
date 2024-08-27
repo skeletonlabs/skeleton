@@ -3,6 +3,7 @@
 export { default as AccordionSchema } from './components/Accordion/schema.json';
 export { default as AvatarSchema } from './components/Avatar/schema.json';
 export { default as AppBarSchema } from './components/AppBar/schema.json';
+export { default as FileUploadSchema } from './components/FileUpload/schema.json';
 export { default as Navigation } from './components/Navigation/schema.json';
 export { default as ProgressSchema } from './components/Progress/schema.json';
 export { default as ProgressRingSchema } from './components/ProgressRing/schema.json';

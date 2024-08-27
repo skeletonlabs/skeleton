@@ -1,0 +1,130 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Example from '@examples/components/file-upload/Example.svelte';
+import ExampleRaw from '@examples/components/file-upload/Example.svelte?raw';
+import ExampleFull from '@examples/components/file-upload/ExampleFull.svelte';
+import ExampleFullRaw from '@examples/components/file-upload/ExampleFull.svelte?raw';
+import ExampleButton from '@examples/components/file-upload/ExampleButton.svelte';
+import ExampleButtonRaw from '@examples/components/file-upload/ExampleButton.svelte?raw';
+import ExampleDisabled from '@examples/components/file-upload/ExampleDisabled.svelte';
+import ExampleDisabledRaw from '@examples/components/file-upload/ExampleDisabled.svelte?raw';
+import ExampleRtl from '@examples/components/file-upload/ExampleRtl.svelte';
+import ExampleRtlRaw from '@examples/components/file-upload/ExampleRtl.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Example client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleFull client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleFullRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Button
+
+Use the default `children` slot to overwrite the default dropzone interface. Allow for a custom interface.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleButton client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleButtonRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleDisabled client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleDisabledRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## RTL
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleRtl client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRtlRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Additional Features
+
+### Accepted File Formats
+
+```svelte
+<FileUpload accept="image/*">
+<FileUpload accept={"text/html": [".html", ".htm"]}>
+```
+
+### File Validation
+
+```svelte
+<FileUpload maxFiles={5}>
+<FileUpload minFileSize={1024 * 1024 * 5}> <!-- 5 mb -->
+<FileUpload maxFileSize={1024 * 1024 * 10}> <!-- 10 mb -->
+```
+
+### Custom Validation
+
+```ts
+function validateFileSize(file) {
+	if (file.size > 1024 * 1024 * 10) return ["FILE_TOO_LARGE"];
+	return null;
+}
+```
+```svelte
+<FileUpload validate={validateFileSize} onFileReject={console.error}>
+```
+
+### Events
+
+```svelte
+<FileUpload onFileChange={console.log}> <!-- Triggers when files changed. -->
+<FileUpload onFileAccept={console.log}> <!-- Triggers when files are accepted. -->
+<FileUpload onFileReject={console.error}> <!-- Triggers when files are rejected. -->
+```
+
+### Image Previews
+
+```ts
+function generatePreview(event) {
+	const reader = new FileReader();
+	reader.onload = (event) => {
+		const image = event.target.result;
+		// set the image as the src of an image element
+	}
+	reader.readAsDataURL(details.acceptedFiles[0]);
+}
+```
+```svelte
+<FileUpload onFileChange={generatePreview}>
+```
+
+### Miscellaneous
+
+```svelte
+<FileUpload allowDrop> <!-- Enable drag-and-drop -->
+<FileUpload directory> <!-- Enable dirctories -->
+<FileUpload capture> <!-- Enable media capture on mobile devices -->
+```

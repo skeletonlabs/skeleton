@@ -196,6 +196,10 @@
 					"description": "Set base classes for each mark.",
 					"type": "string"
 				},
+				"markClasses": {
+					"description": "Provide arbitrary classes for each mark.",
+					"type": "string"
+				},
 				"markOpacity": {
 					"description": "Set opacity classes for each mark.",
 					"type": "string"
@@ -217,10 +221,6 @@
 				},
 				"markerslasses": {
 					"description": "Provide arbitrary classes for the markers.",
-					"type": "string"
-				},
-				"marklasses": {
-					"description": "Provide arbitrary classes for each mark.",
 					"type": "string"
 				},
 				"materRounded": {
@@ -397,7 +397,7 @@
 				"markBase",
 				"markText",
 				"markOpacity",
-				"marklasses",
+				"markClasses",
 				"stateDisabled",
 				"stateReadOnly",
 				"onValueChange",

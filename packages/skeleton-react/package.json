@@ -42,6 +42,7 @@
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
+		"@zag-js/file-upload": "catalog:",
 		"@zag-js/progress": "catalog:",
 		"@zag-js/radio-group": "catalog:",
 		"@zag-js/rating-group": "catalog:",
