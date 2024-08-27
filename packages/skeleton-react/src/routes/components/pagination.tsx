@@ -1,5 +1,6 @@
 import { Pagination } from '$lib/components/Pagination/Pagination.js';
 import { useState } from 'react';
+import { ArrowLeft as IconArrowLeft, ArrowRight as IconArrowRight, Ellipsis as IconEllipsis } from 'lucide-react';
 
 export function Component() {
 	interface SourceData {
@@ -20,7 +21,7 @@ export function Component() {
 
 	const [state, setState] = useState({ page: 1, pageSize: 3 });
 
-	function slicedSource(source: SourceData[]): SourceData[] {
+	function slicedSource(source: SourceData[]) {
 		return source.slice((state.page - 1) * state.pageSize, state.page * state.pageSize);
 	}
 
@@ -53,7 +54,16 @@ export function Component() {
 					</table>
 				</div>
 				<div className="flex justify-center">
-					<Pagination data={sourceData} count={sourceData.length} page={state.page} pageSize={state.pageSize} onPageChange={setState} />
+					<Pagination
+						data={sourceData}
+						count={sourceData.length}
+						page={state.page}
+						pageSize={state.pageSize}
+						onPageChange={setState}
+						labelPrevious={<IconArrowLeft />}
+						labelEllipsis={<IconEllipsis />}
+						labelNext={<IconArrowRight />}
+					/>
 				</div>
 			</section>
 		</div>
