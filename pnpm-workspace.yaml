@@ -13,6 +13,7 @@ catalog:
   '@zag-js/rating-group': *zag_version
   '@zag-js/tabs': *zag_version
   '@zag-js/tags-input': *zag_version
+  '@zag-js/pagination': *zag_version
   '@zag-js/progress': *zag_version
   '@zag-js/radio-group': *zag_version
   '@zag-js/slider': *zag_version

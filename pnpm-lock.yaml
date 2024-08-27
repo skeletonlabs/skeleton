@@ -15,6 +15,9 @@ catalogs:
     '@zag-js/file-upload':
       specifier: ^0.65.1
       version: 0.65.1
+    '@zag-js/pagination':
+      specifier: ^0.65.1
+      version: 0.65.1
     '@zag-js/progress':
       specifier: ^0.65.1
       version: 0.65.1
@@ -208,6 +211,9 @@ importers:
       '@zag-js/file-upload':
         specifier: 'catalog:'
         version: 0.65.1
+      '@zag-js/pagination':
+        specifier: 'catalog:'
+        version: 0.65.1
       '@zag-js/progress':
         specifier: 'catalog:'
         version: 0.65.1
@@ -306,6 +312,9 @@ importers:
         specifier: 'catalog:'
         version: 0.65.1
       '@zag-js/file-upload':
+        specifier: 'catalog:'
+        version: 0.65.1
+      '@zag-js/pagination':
         specifier: 'catalog:'
         version: 0.65.1
       '@zag-js/progress':
@@ -2445,6 +2454,9 @@ packages:
 
   '@zag-js/numeric-range@0.65.1':
     resolution: {integrity: sha512-m/8ySlrs4WooFCrQCfYIGWPk/CG2VIRhuKpm3CNAbwHQwYjQIuTsFNDnOdKe8soYJTzoXDDlOdzgMdK6Hexizg==}
+
+  '@zag-js/pagination@0.65.1':
+    resolution: {integrity: sha512-nMyiWm4fgzHwrQYai69kLomqYfs5+lXAFlahrBS0FZsvno9sVeZ+odqvnAXnQUY6s/PMp4cT0c2h5YGfYiKdgA==}
 
   '@zag-js/progress@0.65.1':
     resolution: {integrity: sha512-uz7ygE8LlmA2wAg+0e7TKXLGfxDDR4Tz9F8qfcHAL3d6G9ut0O5gPLqnSdBNAQgDxXJf9kefjNF1n9wWANIGmQ==}
@@ -9009,6 +9021,14 @@ snapshots:
       '@zag-js/dom-query': 0.65.1
 
   '@zag-js/numeric-range@0.65.1': {}
+
+  '@zag-js/pagination@0.65.1':
+    dependencies:
+      '@zag-js/anatomy': 0.65.1
+      '@zag-js/core': 0.65.1
+      '@zag-js/dom-query': 0.65.1
+      '@zag-js/types': 0.65.1
+      '@zag-js/utils': 0.65.1
 
   '@zag-js/progress@0.65.1':
     dependencies:
