@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.0.0-next.4
+
+### Patch Changes
+
+- chore: Improved global and per component focus state styles ([#2825](https://github.com/skeletonlabs/skeleton/pull/2825))
+
 ## 3.0.0-next.3
 
 ### Patch Changes
