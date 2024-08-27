@@ -3,7 +3,6 @@ import { FC, useId } from 'react';
 import * as pagination from '@zag-js/pagination';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import type { PaginationProps } from './types';
-// import { noop } from '../../internal/noop.js';
 
 export const Pagination: FC<PaginationProps> = ({
 	data,

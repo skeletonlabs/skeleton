@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import * as pagination from '@zag-js/pagination';
 
 export interface PaginationProps extends Omit<pagination.Context, 'id'> {
-	// Provide the original source data
+	// Provide source data as an array.
 	data: unknown[];
 
 	/** Set a title for the previoius button. */
