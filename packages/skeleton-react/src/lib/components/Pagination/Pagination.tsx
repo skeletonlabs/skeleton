@@ -7,13 +7,13 @@ import type { PaginationProps } from './types';
 export const Pagination: FC<PaginationProps> = ({
 	data,
 	alternative = false,
-	// Title Text
+	textSeparator = 'of',
+	// Titles
 	titleFirst,
 	titlePrevious,
 	titleNumeral,
 	titleNext,
 	titleLast,
-	textSeparator = 'of',
 	// Root
 	base = 'inline-flex items-stretch overflow-hidden',
 	background = 'preset-outlined-surface-200-800',
@@ -38,7 +38,13 @@ export const Pagination: FC<PaginationProps> = ({
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(pagination.machine({ id: useId(), count: data.length }), { context: zagProps });
+	const [state, send] = useMachine(
+		pagination.machine({
+			id: useId(),
+			count: data.length
+		}),
+		{ context: zagProps }
+	);
 	const api = pagination.connect(state, send, normalizeProps);
 
 	// Reactive

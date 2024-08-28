@@ -1,7 +1,10 @@
-import { ReactNode } from 'react';
+import type { Snippet } from 'svelte';
 import * as pagination from '@zag-js/pagination';
 
-export interface PaginationProps extends Omit<pagination.Context, 'id'> {
+export interface PaginationProps extends Omit<pagination.Context, 'id' | 'page'> {
+	/** Bind the current page. */
+	page: number;
+
 	// Provide source data as an array.
 	data: unknown[];
 	// Enables altnerative display with stats and first/last buttons.
@@ -50,13 +53,13 @@ export interface PaginationProps extends Omit<pagination.Context, 'id'> {
 
 	// Children ---
 	/** Set button icon or label for first button. */
-	labelFirst?: ReactNode;
+	labelFirst?: Snippet;
 	/** Set button icon or label for previous button. */
-	labelPrevious?: ReactNode;
+	labelPrevious?: Snippet;
 	/** Set button icon or label for ellipsis. */
-	labelEllipsis?: ReactNode;
+	labelEllipsis?: Snippet;
 	/** Set button icon or label for next button. */
-	labelNext?: ReactNode;
+	labelNext?: Snippet;
 	/** Set button icon or label for last button. */
-	labelLast?: ReactNode;
+	labelLast?: Snippet;
 }

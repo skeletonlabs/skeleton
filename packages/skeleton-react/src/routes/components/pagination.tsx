@@ -29,12 +29,11 @@ export function Component() {
 		{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
 	];
 
+	// State
 	const [size, setSize] = useState<number>(3);
-	const [state, setState] = useState({ page: 1, pageSize: size });
-
-	function slicedSource(source: SourceData[]) {
-		return source.slice((state.page - 1) * size, state.page * size);
-	}
+	const [settings, setSettings] = useState({ page: 1, pageSize: size });
+	const slicedSource = (s: SourceData[]) => s.slice((settings.page - 1) * size, settings.page * size);
+	const sizeOptions = [1, 3, 4, 10, 100];
 
 	return (
 		<div className="space-y-10">
@@ -74,24 +73,23 @@ export function Component() {
 						value={size}
 						onChange={(e: ChangeEvent<HTMLSelectElement>) => setSize(parseInt(e.target.value))}
 					>
-						<option value={1}>Items 1</option>
-						<option value={3}>Items 3</option>
-						<option value={5}>Items 5</option>
-						<option value={10}>Items 10</option>
-						<option value={100}>Items 100</option>
+						{sizeOptions.map((v: number) => (
+							<option key={v} value={v}>
+								Items {v}
+							</option>
+						))}
 					</select>
 					<Pagination
-						alternative
 						data={sourceData}
 						count={sourceData.length}
-						page={state.page}
+						page={settings.page}
 						pageSize={size}
-						onPageChange={setState}
-						labelEllipsis={<IconEllipsis />}
-						labelNext={<IconArrowRight />}
-						labelPrevious={<IconArrowLeft />}
-						labelFirst={<IconFirst />}
-						labelLast={<IconLast />}
+						onPageChange={setSettings}
+						labelEllipsis={<IconEllipsis className="size-4" />}
+						labelNext={<IconArrowRight className="size-4" />}
+						labelPrevious={<IconArrowLeft className="size-4" />}
+						labelFirst={<IconFirst className="size-4" />}
+						labelLast={<IconLast className="size-4" />}
 					/>
 				</footer>
 			</section>

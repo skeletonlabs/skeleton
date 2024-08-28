@@ -373,8 +373,8 @@ importers:
         specifier: ^24.1.1
         version: 24.1.1
       lucide-svelte:
-        specifier: ^0.341.0
-        version: 0.341.0(svelte@5.0.0-next.201)
+        specifier: ^0.436.0
+        version: 0.436.0(svelte@5.0.0-next.201)
       postcss:
         specifier: ^8.4.39
         version: 8.4.39
@@ -4507,6 +4507,11 @@ packages:
 
   lucide-svelte@0.341.0:
     resolution: {integrity: sha512-RdLUlxgm97pKGS5dKchdhLuxmYBpwpcLvZ5XQH3HPO5rZZU8JvfzFs8vnbZH/tsDeA0UeSzdzZyOYbWkOAbarA==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
+
+  lucide-svelte@0.436.0:
+    resolution: {integrity: sha512-oRyTPzqudX01WWcSohl/Ob44GFqV/sw4moKQbsqtQ0EnKPjDPYh/v0wSaQ0wYljwSEaJ7zkBwY2lkgYFMX9PVg==}
     peerDependencies:
       svelte: ^3 || ^4 || ^5.0.0-next.42
 
@@ -11638,13 +11643,13 @@ snapshots:
     dependencies:
       svelte: 5.0.0-next.193
 
-  lucide-svelte@0.341.0(svelte@5.0.0-next.201):
-    dependencies:
-      svelte: 5.0.0-next.201
-
   lucide-svelte@0.341.0(svelte@5.0.0-next.210):
     dependencies:
       svelte: 5.0.0-next.210
+
+  lucide-svelte@0.436.0(svelte@5.0.0-next.201):
+    dependencies:
+      svelte: 5.0.0-next.201
 
   lz-string@1.5.0: {}
 

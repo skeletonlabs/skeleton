@@ -36,6 +36,7 @@
 				<a class="anchor" href="/components/file-upload">File Upload</a>
 				<a class="anchor" href="/components/navigation">Navigation</a>
 				<a class="anchor" href="/components/ratings">Ratings</a>
+				<a class="anchor" href="/components/pagination">Pagination</a>
 				<a class="anchor" href="/components/progress">Progress</a>
 				<a class="anchor" href="/components/progress-rings">Progress Rings</a>
 				<a class="anchor" href="/components/segment-control">Segment Control</a>

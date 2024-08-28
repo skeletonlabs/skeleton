@@ -62,7 +62,7 @@
 		"@testing-library/svelte": "^4.2.3",
 		"autoprefixer": "^10.4.19",
 		"jsdom": "^24.1.1",
-		"lucide-svelte": "^0.341.0",
+		"lucide-svelte": "^0.436.0",
 		"postcss": "^8.4.39",
 		"postcss-load-config": "^5.1.0",
 		"publint": "^0.1.16",
