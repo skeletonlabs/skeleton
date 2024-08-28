@@ -64,7 +64,7 @@ export function Component() {
 						</tbody>
 					</table>
 				</div>
-				{/* Pagination */}
+				{/* Footer */}
 				<footer className="flex justify-between">
 					<select
 						name="size"
@@ -79,6 +79,7 @@ export function Component() {
 							</option>
 						))}
 					</select>
+					{/* Pagination */}
 					<Pagination
 						data={sourceData}
 						count={sourceData.length}

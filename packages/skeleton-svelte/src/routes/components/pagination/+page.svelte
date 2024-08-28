@@ -61,14 +61,15 @@
 				</tbody>
 			</table>
 		</div>
-		<!-- Pagination -->
+		<!-- Footer -->
 		<footer class="flex justify-between">
 			<select name="size" id="size" class="select max-w-[150px]" bind:value={size}>
 				{#each [1, 3, 4, 10, 100] as v}
 					<option value={v}>Items {v}</option>
 				{/each}
 			</select>
-			<Pagination data={sourceData} count={sourceData.length} bind:page pageSize={size}>
+			<!-- Pagination -->
+			<Pagination data={sourceData} count={sourceData.length} bind:page pageSize={size} alternative>
 				{#snippet labelEllipsis()}<IconEllipsis class="size-4" />{/snippet}
 				{#snippet labelNext()}<IconArrowRight class="size-4" />{/snippet}
 				{#snippet labelPrevious()}<IconArrowLeft class="size-4" />{/snippet}

@@ -93,29 +93,31 @@
 			{#if labelPrevious}{@render labelPrevious()}{:else}&larr;{/if}
 		</button>
 		<!-- Numeral List -->
-		{#each api.pages as page, i}
-			{#if !alternative && page.type === 'page'}
-				<!-- Numeral -->
-				<button
-					type="button"
-					{...api.getItemProps(page)}
-					class="{buttonBase} {rxButtonActive(page)} {buttonClasses}"
-					title={titleNumeral && `${titleNumeral} ${page.value}`}
-					data-testid="pagination-button-numeral"
-				>
-					{page.value}
-				</button>
-			{:else}
-				<!-- Ellipsis -->
-				<span
-					{...api.getEllipsisProps({ index: i })}
-					class="{buttonBase} {buttonInactive} {buttonClasses}"
-					data-testid="pagination-ellipsis"
-				>
-					{#if labelEllipsis}{@render labelEllipsis()}{:else}&ctdot;{/if}
-				</span>
-			{/if}
-		{/each}
+		{#if !alternative}
+			{#each api.pages as page, i}
+				{#if page.type === 'page'}
+					<!-- Numeral -->
+					<button
+						type="button"
+						{...api.getItemProps(page)}
+						class="{buttonBase} {rxButtonActive(page)} {buttonClasses}"
+						title={titleNumeral && `${titleNumeral} ${page.value}`}
+						data-testid="pagination-button-numeral"
+					>
+						{page.value}
+					</button>
+				{:else}
+					<!-- Ellipsis -->
+					<span
+						{...api.getEllipsisProps({ index: i })}
+						class="{buttonBase} {buttonInactive} {buttonClasses}"
+						data-testid="pagination-ellipsis"
+					>
+						{#if labelEllipsis}{@render labelEllipsis()}{:else}&ctdot;{/if}
+					</span>
+				{/if}
+			{/each}
+		{/if}
 		<!-- Alternative Interface -->
 		{#if alternative}
 			<span class="{buttonBase} {buttonInactive} {buttonClasses}">
