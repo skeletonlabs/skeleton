@@ -120,7 +120,7 @@
 		{/if}
 		<!-- Alternative Interface -->
 		{#if alternative}
-			<span class="{buttonBase} {buttonInactive} {buttonClasses}">
+			<span class="{buttonBase} {buttonInactive} {buttonClasses}" data-testid="pagination-alt-ui">
 				<span>
 					{api.pageRange.start + 1} - {api.pageRange.end}
 				</span>

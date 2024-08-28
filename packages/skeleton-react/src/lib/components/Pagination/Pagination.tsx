@@ -116,7 +116,7 @@ export const Pagination: FC<PaginationProps> = ({
 						})}
 					{/* Alternative Interface */}
 					{alternative && (
-						<span className={`${buttonBase} ${buttonInactive} ${buttonClasses}`}>
+						<span className={`${buttonBase} ${buttonInactive} ${buttonClasses}`} data-testid="pagination-alt-ui">
 							<span>
 								{api.pageRange.start + 1} - {api.pageRange.end}
 							</span>
