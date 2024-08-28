@@ -4,13 +4,22 @@ import * as pagination from '@zag-js/pagination';
 export interface PaginationProps extends Omit<pagination.Context, 'id'> {
 	// Provide source data as an array.
 	data: unknown[];
+	// Enables altnerative display with stats and first/last buttons.
+	alternative?: boolean;
 
-	/** Set a title for the previoius button. */
+	/** Set an optional title for the first button. */
+	titleFirst?: string;
+	/** Set an optional title for the previous button. */
 	titlePrevious?: string;
-	/** Set a title for the numeral buttons (ex: Page 1). */
+	/** Set an optional title for the numeral buttons (ex: Page 1). */
 	titleNumeral?: string;
-	/** Set a title for the next button. */
+	/** Set an optional title for the next button. */
 	titleNext?: string;
+	/** Set an optional title for the last button. */
+	titleLast?: string;
+
+	/** Set the separator text or character, such as "of" in "X of Y". */
+	textSeparator?: string;
 
 	// Root ---
 	/** Sets base classes for the list. */
@@ -41,10 +50,14 @@ export interface PaginationProps extends Omit<pagination.Context, 'id'> {
 	buttonClasses?: string;
 
 	// Children ---
+	/** Set button icon or label for first button. */
+	labelFirst?: ReactNode;
 	/** Set button icon or label for previous button. */
 	labelPrevious?: ReactNode;
 	/** Set button icon or label for ellipsis. */
 	labelEllipsis?: ReactNode;
 	/** Set button icon or label for next button. */
 	labelNext?: ReactNode;
+	/** Set button icon or label for last button. */
+	labelLast?: ReactNode;
 }

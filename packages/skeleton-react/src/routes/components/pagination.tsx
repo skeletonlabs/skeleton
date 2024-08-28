@@ -1,6 +1,12 @@
 import { Pagination } from '$lib/components/Pagination/Pagination.js';
 import { ChangeEvent, useState } from 'react';
-import { ArrowLeft as IconArrowLeft, ArrowRight as IconArrowRight, Ellipsis as IconEllipsis } from 'lucide-react';
+import {
+	ArrowLeft as IconArrowLeft,
+	ArrowRight as IconArrowRight,
+	Ellipsis as IconEllipsis,
+	ChevronsLeft as IconFirst,
+	ChevronsRight as IconLast
+} from 'lucide-react';
 
 export function Component() {
 	interface SourceData {
@@ -75,14 +81,17 @@ export function Component() {
 						<option value={100}>Items 100</option>
 					</select>
 					<Pagination
+						alternative
 						data={sourceData}
 						count={sourceData.length}
 						page={state.page}
 						pageSize={size}
 						onPageChange={setState}
-						labelPrevious={<IconArrowLeft />}
 						labelEllipsis={<IconEllipsis />}
 						labelNext={<IconArrowRight />}
+						labelPrevious={<IconArrowLeft />}
+						labelFirst={<IconFirst />}
+						labelLast={<IconLast />}
 					/>
 				</footer>
 			</section>
