@@ -46,11 +46,3 @@ export const starFull = createRawSnippet(() => {
         `
 	};
 });
-
-export const x = createRawSnippet(() => {
-	return {
-		render: () => /*html*/ `
-            <span>&#x2715;</span>
-        `
-	};
-});

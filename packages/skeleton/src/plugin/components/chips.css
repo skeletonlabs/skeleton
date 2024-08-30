@@ -12,3 +12,8 @@
 	@apply flex size-6 items-center justify-center rounded-full;
 	@apply type-scale-1 font-medium;
 }
+
+.chip-input {
+	all: unset;
+	@apply chip;
+}

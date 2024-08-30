@@ -14,5 +14,5 @@ export { default as Nav } from './components/Nav/index.js';
 export { default as Segment } from './components/Segment/index.js';
 export { default as Switch } from './components/Switch/Switch.svelte';
 export { default as Tabs } from './components/Tab/index.js';
-export { default as InputChips } from './components/InputChips/InputChips.svelte';
+export { default as TagsInput } from './components/TagsInput/TagsInput.svelte';
 export { default as Rating } from './components/Rating/index.js';
