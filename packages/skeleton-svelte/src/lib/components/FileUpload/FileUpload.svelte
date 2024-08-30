@@ -27,7 +27,7 @@
 		filesListBase = 'mt-2 space-y-2',
 		filesListClasses = '',
 		// File
-		fileBase = 'grid grid-cols-[auto_auto_1fr_auto] rtl:grid-cols-[auto_1fr_auto_auto] items-center',
+		fileBase = 'grid grid-cols-[auto_1fr_auto] rtl:grid-cols-[1fr_auto_auto] items-center',
 		fileBg = 'preset-tonal',
 		fileGap = 'gap-4 px-4',
 		filePadding = 'py-2',
@@ -35,7 +35,7 @@
 		fileClasses = '',
 		// File (content)
 		fileIcon = '',
-		fileName = 'type-scale-2',
+		fileName = 'type-scale-2 flex items-center gap-4',
 		fileSize = 'type-scale-1 opacity-60',
 		fileButton = '',
 		// State
@@ -52,8 +52,25 @@
 	}: FileUploadProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(fileUpload.machine({ id: useId() }), { context: zagProps });
+	const [snapshot, send] = useMachine(
+		fileUpload.machine({
+			id: useId()
+		}),
+		{ context: zagProps }
+	);
 	const api = $derived(fileUpload.connect(snapshot, send, normalizeProps));
+
+	// Handles i18n for numeric format and unit size
+	// Source: https://gist.github.com/lanqy/5193417?permalink_comment_id=4379535
+	function bytesToSize(bytes: number): string {
+		const units = ['byte', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte'];
+		const navigatorLocal = navigator.languages && navigator.languages.length >= 0 ? navigator.languages[0] : 'en-US';
+		const unitIndex = Math.max(0, Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1));
+		return Intl.NumberFormat(navigatorLocal, {
+			style: 'unit',
+			unit: units[unitIndex]
+		}).format(bytes / 1024 ** unitIndex);
+	}
 
 	// Reactive
 	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
@@ -100,20 +117,14 @@
 					class="{fileBase} {fileBg} {fileGap} {filePadding} {fileRounded} {fileClasses}"
 					data-testid="uploader-file"
 				>
-					<span class={fileIcon} data-testid="uploader-file-icon">
-						{#if iconFile}
-							{@render iconFile()}
-						{:else}
-							&bull;
-						{/if}
-					</span>
 					<!-- Name -->
 					<p {...api.getItemNameProps({ file })} class={fileName} data-testid="uploader-file-name">
-						{file.name}
+						{#if iconFile}<span class={fileIcon} data-testid="uploader-file-icon">{@render iconFile()}</span>{/if}
+						<span>{file.name}</span>
 					</p>
 					<!-- Size -->
 					<p {...api.getItemNameProps({ file })} class={fileSize} data-testid="uploader-file-size">
-						{(file.size / 100000).toFixed(1)} mb
+						{bytesToSize(file.size)}
 					</p>
 					<!-- Button -->
 					<button {...api.getItemDeleteTriggerProps({ file })} class={fileButton} data-testid="uploader-file-button">

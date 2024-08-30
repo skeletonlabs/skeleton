@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import * as fileUpload from '@zag-js/file-upload';
 
-export interface FileUploadProps extends Omit<fileUpload.Context, 'id'> {
+export interface FileUploadProps extends Omit<fileUpload.Context, 'id' | 'value'> {
 	/** Set the interface text value. */
 	label?: string;
 	/** Set the interface subtext value. */

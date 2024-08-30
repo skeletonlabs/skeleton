@@ -17,7 +17,7 @@
 		<FileUpload name="example" accept="image/*" maxFiles={2} onFileChange={console.log} onFileReject={console.error} />
 		<!-- Customized -->
 		<FileUpload
-			name="example"
+			name="example-multi"
 			accept="image/*"
 			maxFiles={2}
 			subtext="Attach up to 2 files."
@@ -40,13 +40,13 @@
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Disabled</h2>
-		<FileUpload name="example" disabled />
-		<FileUpload name="example" disabled>
+		<FileUpload name="example-disabled" disabled />
+		<FileUpload name="example-button-disabled" disabled>
 			<button class="btn preset-filled">Disabled</button>
 		</FileUpload>
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">RTL</h2>
-		<FileUpload name="example" dir="rtl" />
+		<FileUpload name="example-rtl" dir="rtl" />
 	</section>
 </div>
