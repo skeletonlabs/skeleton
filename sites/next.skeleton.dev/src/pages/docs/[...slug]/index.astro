@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import { getCollection, getEntryBySlug } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 
 export const getStaticPaths = (async () => {
 	const entries = await getCollection('docs');
@@ -19,7 +19,7 @@ const { Content, remarkPluginFrontmatter } = await entry.render();
 
 // Get meta for the current page
 // This Regex replaces that last part of the url with meta, so "components/accordion/svelte" becomes "components/accordion/meta"
-const meta = await getEntryBySlug('docs', entry.slug.replace(/\/[^\/]*$/, '/meta'));
+const meta = await getEntry('docs', entry.slug.replace(/\/[^\/]*$/, '/meta'));
 
 // Append common frontmatter
 // https://github.com/withastro/astro/issues/7972
