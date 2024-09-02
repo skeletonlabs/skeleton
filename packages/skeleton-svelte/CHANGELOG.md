@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.7
+
+### Minor Changes
+
+- feature: Added the FileUpload component ([#2838](https://github.com/skeletonlabs/skeleton/pull/2838))
+
+- Added the Slider component ([#2834](https://github.com/skeletonlabs/skeleton/pull/2834))
+
+### Patch Changes
+
+- chore: Improved global and per component focus state styles ([#2825](https://github.com/skeletonlabs/skeleton/pull/2825))
+
 ## 1.0.0-next.6
 
 ### Patch Changes

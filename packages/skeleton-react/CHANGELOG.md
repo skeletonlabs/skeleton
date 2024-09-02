@@ -1,5 +1,19 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.6
+
+### Minor Changes
+
+- feature: Added the FileUpload component ([#2838](https://github.com/skeletonlabs/skeleton/pull/2838))
+
+- Added the Slider component ([#2834](https://github.com/skeletonlabs/skeleton/pull/2834))
+
+### Patch Changes
+
+- chore: Move `react` and `react-dom` to `peerDependencies` ([#2830](https://github.com/skeletonlabs/skeleton/pull/2830))
+
+- chore: Improved global and per component focus state styles ([#2825](https://github.com/skeletonlabs/skeleton/pull/2825))
+
 ## 1.0.0-next.5
 
 ### Patch Changes
