@@ -10,6 +10,8 @@ import ExampleIcons from '@examples/components/tags-input/ExampleIcons.svelte';
 import ExampleIconsRaw from '@examples/components/tags-input/ExampleIcons.svelte?raw';
 import ExampleColors from '@examples/components/tags-input/ExampleColors.svelte';
 import ExampleColorsRaw from '@examples/components/tags-input/ExampleColors.svelte?raw';
+import ExampleDisabled from '@examples/components/tags-input/ExampleDisabled.svelte';
+import ExampleDisabledRaw from '@examples/components/tags-input/ExampleDisabled.svelte?raw';
 import ExampleMisc from '@examples/components/tags-input/ExampleMisc.svelte';
 import ExampleMiscRaw from '@examples/components/tags-input/ExampleMisc.svelte?raw';
 
@@ -41,6 +43,17 @@ import ExampleMiscRaw from '@examples/components/tags-input/ExampleMisc.svelte?r
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleColorsRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleDisabled client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleDisabledRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

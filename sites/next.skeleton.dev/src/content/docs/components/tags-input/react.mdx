@@ -10,6 +10,8 @@ import { Page as ExampleIcons } from '@examples/components/tags-input/Example.ts
 import ExampleIconsRaw from '@examples/components/tags-input/ExampleIcons.tsx?raw';
 import { Page as ExampleColors } from '@examples/components/tags-input/ExampleColors.tsx';
 import ExampleColorsRaw from '@examples/components/tags-input/ExampleColors.tsx?raw';
+import { Page as ExampleDisabled } from '@examples/components/tags-input/ExampleDisabled.tsx';
+import ExampleDisabledRaw from '@examples/components/tags-input/ExampleDisabled.tsx?raw';
 import { Page as ExampleMisc } from '@examples/components/tags-input/ExampleMisc.tsx';
 import ExampleMiscRaw from '@examples/components/tags-input/ExampleMisc.tsx?raw';
 
@@ -43,6 +45,17 @@ import { TagsInputSchema } from '@skeletonlabs/skeleton-react/schemas';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleColorsRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleDisabled client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleDisabledRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
