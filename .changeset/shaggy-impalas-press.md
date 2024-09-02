@@ -2,4 +2,4 @@
 "@skeletonlabs/skeleton-svelte": patch
 ---
 
-Fixed reactivity issues within the Navigation related components
+bugfix: Fixed reactivity issues within the Navigation related components

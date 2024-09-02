@@ -44,6 +44,9 @@ function App() {
 						<a className="anchor" href="/components/app-bars">
 							App Bars
 						</a>
+						<a className="anchor" href="/components/file-upload">
+							File Upload
+						</a>
 						<a className="anchor" href="/components/navigation">
 							Navigation
 						</a>
@@ -58,6 +61,9 @@ function App() {
 						</a>
 						<a className="anchor" href="/components/segment-control">
 							Segment Control
+						</a>
+						<a className="anchor" href="/components/slider">
+							Slider
 						</a>
 						<a className="anchor" href="/components/switch">
 							Switch

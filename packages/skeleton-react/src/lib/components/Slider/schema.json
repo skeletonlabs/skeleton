@@ -1,0 +1,430 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"definitions": {
+		"Iterable<React.ReactNode>": {
+			"propertyOrder": ["__@iterator@83"],
+			"type": "object"
+		},
+		"Partial<{root:string;thumb(index:number):string;hiddenInput(index:number):string;control:string;track:string;range:string;label:string;valueText:string;marker(index:number):string;}>": {
+			"properties": {
+				"control": {
+					"type": "string"
+				},
+				"hiddenInput": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"label": {
+					"type": "string"
+				},
+				"marker": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"range": {
+					"type": "string"
+				},
+				"root": {
+					"type": "string"
+				},
+				"thumb": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"track": {
+					"type": "string"
+				},
+				"valueText": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["root", "thumb", "hiddenInput", "control", "track", "range", "label", "valueText", "marker"],
+			"type": "object"
+		},
+		"React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+			"description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+			"properties": {
+				"key": {
+					"type": "string"
+				},
+				"props": {
+					"description": "The type of the props object"
+				},
+				"type": {
+					"anyOf": [
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"type": "string"
+						}
+					],
+					"description": "The type of the component or tag"
+				}
+			},
+			"propertyOrder": ["type", "props", "key"],
+			"required": ["key", "props", "type"],
+			"type": "object"
+		},
+		"React.ReactNode": {
+			"anyOf": [
+				{
+					"$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+				},
+				{
+					"$ref": "#/definitions/Iterable<React.ReactNode>"
+				},
+				{
+					"$ref": "#/definitions/React.ReactPortal"
+				},
+				{
+					"type": ["string", "number", "boolean"]
+				}
+			],
+			"description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+		},
+		"React.ReactPortal": {
+			"properties": {
+				"children": {
+					"$ref": "#/definitions/React.ReactNode"
+				},
+				"key": {
+					"type": "string"
+				},
+				"props": {
+					"description": "The type of the props object"
+				},
+				"type": {
+					"anyOf": [
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"type": "string"
+						}
+					],
+					"description": "The type of the component or tag"
+				}
+			},
+			"propertyOrder": ["children", "type", "props", "key"],
+			"required": ["children", "key", "props", "type"],
+			"type": "object"
+		},
+		"SliderProps": {
+			"properties": {
+				"aria-label": {
+					"description": "The aria-label of each slider thumb. Useful for providing an accessible name to the slider",
+					"items": {
+						"type": "string"
+					},
+					"type": "array"
+				},
+				"aria-labelledby": {
+					"description": "The `id` of the elements that labels each slider thumb. Useful for providing an accessible name to the slider",
+					"items": {
+						"type": "string"
+					},
+					"type": "array"
+				},
+				"base": {
+					"description": "Set base classes.",
+					"type": "string"
+				},
+				"classes": {
+					"description": "Provide arbitrary classes for the root.",
+					"type": "string"
+				},
+				"controlBase": {
+					"description": "Set base classes for the control.",
+					"type": "string"
+				},
+				"controlClasses": {
+					"description": "Provide arbitrary classes for the control.",
+					"type": "string"
+				},
+				"dir": {
+					"default": "ltr",
+					"description": "The document's text/writing direction.",
+					"enum": ["ltr", "rtl"],
+					"type": "string"
+				},
+				"disabled": {
+					"description": "Whether the slider is disabled",
+					"type": "boolean"
+				},
+				"form": {
+					"description": "The associate form of the underlying input element.",
+					"type": "string"
+				},
+				"getAriaValueText": {
+					"description": "Function that returns a human readable value for the slider thumb",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"getRootNode": {
+					"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"height": {
+					"description": "Set height classes for the overall slider.",
+					"type": "string"
+				},
+				"ids": {
+					"$ref": "#/definitions/Partial<{root:string;thumb(index:number):string;hiddenInput(index:number):string;control:string;track:string;range:string;label:string;valueText:string;marker(index:number):string;}>",
+					"description": "The ids of the elements in the range slider. Useful for composition."
+				},
+				"invalid": {
+					"description": "Whether the slider is invalid",
+					"type": "boolean"
+				},
+				"mark": {
+					"$ref": "#/definitions/React.ReactNode",
+					"description": "Replace numeric markers with symbol, such as a icon."
+				},
+				"markBase": {
+					"description": "Set base classes for each mark.",
+					"type": "string"
+				},
+				"markClasses": {
+					"description": "Provide arbitrary classes for each mark.",
+					"type": "string"
+				},
+				"markOpacity": {
+					"description": "Set opacity classes for each mark.",
+					"type": "string"
+				},
+				"markText": {
+					"description": "Set text size classes for each mark.",
+					"type": "string"
+				},
+				"markers": {
+					"description": "Provide an array of value markers",
+					"items": {
+						"type": "number"
+					},
+					"type": "array"
+				},
+				"markersBase": {
+					"description": "Set base classes for the markers.",
+					"type": "string"
+				},
+				"markerslasses": {
+					"description": "Provide arbitrary classes for the markers.",
+					"type": "string"
+				},
+				"materRounded": {
+					"description": "Set border radius classes for the meter.",
+					"type": "string"
+				},
+				"max": {
+					"default": 100,
+					"description": "The maximum value of the slider",
+					"type": "number"
+				},
+				"meterBase": {
+					"description": "Set base classes for the meter.",
+					"type": "string"
+				},
+				"meterBg": {
+					"description": "Set background classes for the meter.",
+					"type": "string"
+				},
+				"meterClasses": {
+					"description": "Provide arbitrary classes for the meter.",
+					"type": "string"
+				},
+				"min": {
+					"default": 0,
+					"description": "The minimum value of the slider",
+					"type": "number"
+				},
+				"minStepsBetweenThumbs": {
+					"default": 0,
+					"description": "The minimum permitted steps between multiple thumbs.",
+					"type": "number"
+				},
+				"name": {
+					"description": "The name associated with each slider thumb (when used in a form)",
+					"type": "string"
+				},
+				"onFocusChange": {
+					"description": "Function invoked when the slider's focused index changes",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"onValueChange": {
+					"description": "Triggers when the value state is being changed.",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"onValueChangeEnd": {
+					"description": "Triggers when the value change has ended.",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"orientation": {
+					"default": "horizontal",
+					"description": "The orientation of the slider",
+					"enum": ["horizontal", "vertical"],
+					"type": "string"
+				},
+				"origin": {
+					"default": "start",
+					"description": "The origin of the slider range\n- \"start\": Useful when the value represents an absolute value\n- \"center\": Useful when the value represents an offset (relative)",
+					"enum": ["center", "start"],
+					"type": "string"
+				},
+				"readOnly": {
+					"description": "Whether the slider is read-only",
+					"type": "boolean"
+				},
+				"stateDisabled": {
+					"description": "Set disabled state classes for the root element.",
+					"type": "string"
+				},
+				"stateReadOnly": {
+					"description": "Set read-only state classes for the root element.",
+					"type": "string"
+				},
+				"step": {
+					"default": 1,
+					"description": "The step value of the slider",
+					"type": "number"
+				},
+				"thumbAlignment": {
+					"default": "contain",
+					"description": "The alignment of the slider thumb relative to the track\n- `center`: the thumb will extend beyond the bounds of the slider track.\n- `contain`: the thumb will be contained within the bounds of the track.",
+					"enum": ["center", "contain"],
+					"type": "string"
+				},
+				"thumbBase": {
+					"description": "Set base classes for the thumb.",
+					"type": "string"
+				},
+				"thumbBg": {
+					"description": "Set background classes for the thumb.",
+					"type": "string"
+				},
+				"thumbClasses": {
+					"description": "Provide arbitrary classes for the thumb.",
+					"type": "string"
+				},
+				"thumbCursor": {
+					"description": "Set cursor classes for the thumb.",
+					"type": "string"
+				},
+				"thumbRingColor": {
+					"description": "Set ring color classes for the thumb.",
+					"type": "string"
+				},
+				"thumbRingSize": {
+					"description": "Set ring size classes for the thumb.",
+					"type": "string"
+				},
+				"thumbRounded": {
+					"description": "Set border-radius classes for the thumb.",
+					"type": "string"
+				},
+				"thumbScale": {
+					"description": "Set scale classes for the thumb.",
+					"type": "string"
+				},
+				"thumbSize": {
+					"description": "Set size classes for the thumb.",
+					"type": "string"
+				},
+				"trackBase": {
+					"description": "Set base classes for the track.",
+					"type": "string"
+				},
+				"trackBg": {
+					"description": "Set background classes for the track.",
+					"type": "string"
+				},
+				"trackClasses": {
+					"description": "Provide arbitrary classes for the track.",
+					"type": "string"
+				},
+				"trackRounded": {
+					"description": "Set border radius classes for the track.",
+					"type": "string"
+				},
+				"value": {
+					"description": "The value of the range slider",
+					"items": {
+						"type": "number"
+					},
+					"type": "array"
+				}
+			},
+			"propertyOrder": [
+				"markers",
+				"height",
+				"base",
+				"classes",
+				"controlBase",
+				"controlClasses",
+				"trackBase",
+				"trackBg",
+				"trackRounded",
+				"trackClasses",
+				"meterBase",
+				"meterBg",
+				"materRounded",
+				"meterClasses",
+				"thumbBase",
+				"thumbSize",
+				"thumbBg",
+				"thumbRingSize",
+				"thumbRingColor",
+				"thumbRounded",
+				"thumbScale",
+				"thumbCursor",
+				"thumbClasses",
+				"markersBase",
+				"markerslasses",
+				"markBase",
+				"markText",
+				"markOpacity",
+				"markClasses",
+				"stateDisabled",
+				"stateReadOnly",
+				"onValueChange",
+				"onValueChangeEnd",
+				"mark",
+				"max",
+				"origin",
+				"name",
+				"min",
+				"value",
+				"form",
+				"dir",
+				"invalid",
+				"getRootNode",
+				"disabled",
+				"orientation",
+				"step",
+				"aria-label",
+				"aria-labelledby",
+				"ids",
+				"readOnly",
+				"onFocusChange",
+				"getAriaValueText",
+				"minStepsBetweenThumbs",
+				"thumbAlignment"
+			],
+			"type": "object"
+		}
+	}
+}

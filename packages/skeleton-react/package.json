@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "1.0.0-next.5",
+	"version": "1.0.0-next.6",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -42,6 +42,7 @@
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
+		"@zag-js/file-upload": "catalog:",
 		"@zag-js/progress": "catalog:",
 		"@zag-js/radio-group": "catalog:",
 		"@zag-js/rating-group": "catalog:",

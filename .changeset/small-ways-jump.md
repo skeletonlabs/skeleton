@@ -5,4 +5,4 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-Chore: Moved Prettier and ESLint to repo root, updated formatting, and rectified linting issues
+chore: Moved Prettier and ESLint to repo root, updated formatting, and rectified linting issues
