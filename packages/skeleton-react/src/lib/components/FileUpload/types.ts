@@ -1,5 +1,8 @@
 import { ReactNode } from 'react';
 import * as fileUpload from '@zag-js/file-upload';
+import type { PropTypes } from '@zag-js/react';
+
+export interface FileUploadApi extends fileUpload.Api<PropTypes> {}
 
 export interface FileUploadProps extends React.PropsWithChildren, Omit<fileUpload.Context, 'id'> {
 	/** Set the interface text value. */
@@ -82,4 +85,8 @@ export interface FileUploadProps extends React.PropsWithChildren, Omit<fileUploa
 	iconFile?: ReactNode;
 	/** Provide an icon for the remove file action. */
 	iconFileRemove?: ReactNode;
+
+	// Zag ---
+	/** Binds the Zag API for external use. */
+	internalApi?: (api: FileUploadApi) => void;
 }
