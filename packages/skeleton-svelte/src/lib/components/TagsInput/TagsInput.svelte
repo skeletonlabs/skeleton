@@ -24,7 +24,7 @@
 		tagBackground = 'preset-filled',
 		tagClasses = '',
 		// Input: Edit
-		inputEditBase = 'chip-input -translate-y-0.25', // FIXME: resolve translate
+		inputEditBase = 'chip-input -translate-y-0.25',
 		tagEditBackground = 'preset-outlined-surface-200-800',
 		inputEditClasses,
 		// Delete Button

@@ -226,6 +226,9 @@ importers:
       '@zag-js/tabs':
         specifier: 'catalog:'
         version: 0.65.1
+      '@zag-js/tags-input':
+        specifier: 'catalog:'
+        version: 0.65.1
     devDependencies:
       '@skeletonlabs/skeleton':
         specifier: workspace:*

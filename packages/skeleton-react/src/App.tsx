@@ -47,14 +47,14 @@ function App() {
 						<a className="anchor" href="/components/navigation">
 							Navigation
 						</a>
-						<a className="anchor" href="/components/ratings">
-							Ratings
-						</a>
 						<a className="anchor" href="/components/progress">
 							Progress
 						</a>
 						<a className="anchor" href="/components/progress-rings">
 							Progress Rings
+						</a>
+						<a className="anchor" href="/components/ratings">
+							Ratings
 						</a>
 						<a className="anchor" href="/components/segment-control">
 							Segment Control
@@ -64,6 +64,9 @@ function App() {
 						</a>
 						<a className="anchor" href="/components/tabs">
 							Tabs
+						</a>
+						<a className="anchor" href="/components/tags-input">
+							Tags Input
 						</a>
 					</nav>
 				</div>
