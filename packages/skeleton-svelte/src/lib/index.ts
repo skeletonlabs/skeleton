@@ -5,6 +5,7 @@
 // https://next.skeleton.dev/docs/resources/contribute/components#dot-notation-syntax
 // (See Accordion, Nav, and Tabs for examples)
 
+// Components
 export { default as Accordion } from './components/Accordion/index.js';
 export { default as AppBar } from './components/AppBar/AppBar.svelte';
 export { default as Avatar } from './components/Avatar/Avatar.svelte';
@@ -17,3 +18,6 @@ export { default as Slider } from './components/Slider/Slider.svelte';
 export { default as Switch } from './components/Switch/Switch.svelte';
 export { default as Tabs } from './components/Tab/index.js';
 export { default as Rating } from './components/Rating/index.js';
+
+// Types
+export type { FileUploadApi } from './components/FileUpload/types.js';

@@ -48,6 +48,7 @@
 		iconFile,
 		iconFileRemove,
 		// Zag
+		internalApi = $bindable(),
 		...zagProps
 	}: FileUploadProps = $props();
 
@@ -56,9 +57,14 @@
 		fileUpload.machine({
 			id: useId()
 		}),
-		{ context: zagProps }
+		{ context: { ...zagProps } }
 	);
 	const api = $derived(fileUpload.connect(snapshot, send, normalizeProps));
+
+	$effect(() => {
+		// Provide the full Zag component API
+		internalApi = api;
+	});
 
 	// Handles i18n for numeric format and unit size
 	// Source: https://gist.github.com/lanqy/5193417?permalink_comment_id=4379535

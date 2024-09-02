@@ -1,10 +1,13 @@
 <script lang="ts">
-	import { FileUpload } from '$lib/index.js';
+	import { FileUpload, type FileUploadApi } from '$lib/index.js';
 	// Icons
 	import IconDropzone from 'lucide-svelte/icons/image-plus';
 	import IconFile from 'lucide-svelte/icons/paperclip';
 	import IconUpload from 'lucide-svelte/icons/upload';
 	import IconRemove from 'lucide-svelte/icons/x-circle';
+
+	// Local
+	let apiRef: FileUploadApi;
 </script>
 
 <div class="space-y-10">
@@ -44,6 +47,11 @@
 		<FileUpload name="example-button-disabled" disabled>
 			<button class="btn preset-filled">Disabled</button>
 		</FileUpload>
+	</section>
+	<section class="space-y-4">
+		<h2 class="h2">API Binding</h2>
+		<FileUpload name="example" accept="image/*" maxFiles={2} bind:internalApi={apiRef} />
+		<button type="button" class="btn preset-filled" onclick={apiRef.clearFiles}>Clear Files</button>
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">RTL</h2>

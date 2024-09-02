@@ -1,5 +1,8 @@
 import type { Snippet } from 'svelte';
 import * as fileUpload from '@zag-js/file-upload';
+import type { PropTypes } from '@zag-js/svelte';
+
+export interface FileUploadApi extends fileUpload.Api<PropTypes> {}
 
 export interface FileUploadProps extends Omit<fileUpload.Context, 'id' | 'value'> {
 	/** Set the interface text value. */
@@ -84,4 +87,8 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id' | 'value'
 	iconFile?: Snippet;
 	/** Provide an icon for the remove file action. */
 	iconFileRemove?: Snippet;
+
+	// Zag ---
+	/** Binds the Zag API for external use. */
+	internalApi?: FileUploadApi;
 }
