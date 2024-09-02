@@ -32,6 +32,8 @@ export const TagsInput: React.FC<TagsInputProps> = ({
 	buttonDeleteClasses = '',
 	// Snippets
 	buttonDelete,
+	// State
+	stateDisabled = 'disabled',
 	// Events
 	onValueChange = noop,
 	// Zag
@@ -47,8 +49,11 @@ export const TagsInput: React.FC<TagsInputProps> = ({
 	);
 	const api = tagsInput.connect(state, send, normalizeProps);
 
+	// Reactive
+	const rxDisabled = state.context.disabled ? stateDisabled : '';
+
 	return (
-		<div {...api.getRootProps()} className={`${base} ${padding} ${gap} ${classes}`} data-testid="tags">
+		<div {...api.getRootProps()} className={`${base} ${padding} ${gap} ${rxDisabled} ${classes}`} data-testid="tags">
 			{/* Input */}
 			<input {...api.getInputProps()} placeholder={placeholder} className={`${inputBase} ${inputClasses}`} data-testid="tags-input-add" />
 			{/* Tag List */}

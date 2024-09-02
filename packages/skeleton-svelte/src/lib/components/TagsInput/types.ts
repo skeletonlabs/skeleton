@@ -51,6 +51,10 @@ export interface TagsInputProps extends Omit<tagsInput.Context, 'id' | 'value'> 
 	/** Provide arbitrary classes to the delete button. */
 	buttonDeleteClasses?: string;
 
+	// State ---
+	/** Set the component disabled state. */
+	stateDisabled?: string;
+
 	// Snippets ---
 	/** The delete button label snippet. */
 	buttonDelete?: Snippet;

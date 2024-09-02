@@ -53,6 +53,10 @@ export interface TagsInputProps extends Omit<tagsInput.Context, 'id' | 'onValueC
 	/** The delete button label snippet. */
 	buttonDelete?: ReactNode;
 
+	// State ---
+	/** Set the component disabled state. */
+	stateDisabled?: string;
+
 	// Events ---
 	/** Triggers when the switch is toggled. */
 	onValueChange?: (value: string[]) => void;

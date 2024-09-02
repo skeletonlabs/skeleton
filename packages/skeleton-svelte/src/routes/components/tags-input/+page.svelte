@@ -26,6 +26,10 @@
 		<TagsInput bind:value={flavors} placeholder="Add Tag..." tagBackground="preset-filled-tertiary-500" />
 	</section>
 	<section class="space-y-4">
+		<h2 class="h2">Disabled</h2>
+		<TagsInput bind:value={flavors} placeholder="Add Tag..." disabled />
+	</section>
+	<section class="space-y-4">
 		<h2 class="h2">Misc</h2>
 		<h3 class="h3">Not Editable</h3>
 		<TagsInput bind:value={flavors} placeholder="Add Tag..." editable={false} />

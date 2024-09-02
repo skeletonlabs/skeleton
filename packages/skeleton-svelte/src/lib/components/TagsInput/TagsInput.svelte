@@ -30,6 +30,8 @@
 		// Delete Button
 		buttonDeleteBase = '',
 		buttonDeleteClasses = '',
+		// State
+		stateDisabled = 'disabled',
 		// Snippets
 		buttonDelete,
 		// Zag
@@ -54,11 +56,14 @@
 		}
 	);
 	const api = $derived(tagsInput.connect(snapshot, send, normalizeProps));
+
+	// Reactive
+	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
 </script>
 
 <!-- @component Capture a set of values from users via input and suggestions. -->
 
-<div {...api.getRootProps()} class="{base} {padding} {gap} {classes}" data-testid="tags">
+<div {...api.getRootProps()} class="{base} {padding} {gap} {rxDisabled} {classes}" data-testid="tags">
 	<!-- Input -->
 	<input {...api.getInputProps()} {placeholder} class="{inputBase} {inputClasses}" data-testid="tags-input-add" />
 	<!-- Tag List -->

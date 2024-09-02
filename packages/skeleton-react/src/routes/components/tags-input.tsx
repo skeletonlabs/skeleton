@@ -25,6 +25,10 @@ export function Component() {
 				<TagsInput value={flavors} onValueChange={setFlavors} placeholder="Add Tag..." tagBackground="preset-filled-tertiary-500" />
 			</section>
 			<section className="space-y-4">
+				<h2 className="h2">Disabled</h2>
+				<TagsInput name="example" value={flavors} onValueChange={setFlavors} placeholder="Add Tag..." disabled />
+			</section>
+			<section className="space-y-4">
 				<h2 className="h2">Misc</h2>
 				<h3 className="h3">Not Editable</h3>
 				<TagsInput value={flavors} onValueChange={setFlavors} placeholder="Add Tag..." editable={false} />
