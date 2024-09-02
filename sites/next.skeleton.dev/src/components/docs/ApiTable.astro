@@ -10,7 +10,7 @@ interface SchemaRow {
 }
 
 function formatValuesType(valueType: string) {
-	if (valueType.includes('Partial')) return 'Partial<...>';
+	if (valueType && valueType.includes('Partial')) return 'Partial<...>';
 	return valueType;
 }
 

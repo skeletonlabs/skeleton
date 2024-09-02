@@ -18,9 +18,6 @@ catalogs:
     '@zag-js/radio-group':
       specifier: ^0.65.0
       version: 0.65.1
-    '@zag-js/rating-group':
-      specifier: ^0.65.0
-      version: 0.65.0
     '@zag-js/react':
       specifier: ^0.65.0
       version: 0.65.1
@@ -212,8 +209,8 @@ importers:
         specifier: 'catalog:'
         version: 0.65.1
       '@zag-js/rating-group':
-        specifier: 'catalog:'
-        version: 0.65.0
+        specifier: ^0.65.1
+        version: 0.65.1
       '@zag-js/react':
         specifier: 'catalog:'
         version: 0.65.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2202,6 +2199,9 @@ packages:
 
   '@zag-js/rating-group@0.65.0':
     resolution: {integrity: sha512-Seuw3gs9IC4vPMDgg195Mlv2HLrIRxmpU0/JVdmGimvn5VbPiuzh5eEqZUFCdQnCl16xypF4FbjvSdoOv0mnVw==}
+
+  '@zag-js/rating-group@0.65.1':
+    resolution: {integrity: sha512-hqOI899BNzLicC/7e1bpQ3oXsgFnLjA7xLsSNlVQ6O8xoXkU/dChbGFzBvNNSpLomttJmrgN10ZENjikJ6QLlw==}
 
   '@zag-js/react@0.65.1':
     resolution: {integrity: sha512-JTYVIfqHDII31oDF2GnkA5k5w01eMuanNL/SNtq8Couqz/FqkKzLiNT61IwLmrWAyI4lP42g4rpDYTLARrFA+w==}
@@ -8114,6 +8114,16 @@ snapshots:
       '@zag-js/form-utils': 0.65.0
       '@zag-js/types': 0.65.0
       '@zag-js/utils': 0.65.0
+
+  '@zag-js/rating-group@0.65.1':
+    dependencies:
+      '@zag-js/anatomy': 0.65.1
+      '@zag-js/core': 0.65.1
+      '@zag-js/dom-event': 0.65.1
+      '@zag-js/dom-query': 0.65.1
+      '@zag-js/form-utils': 0.65.1
+      '@zag-js/types': 0.65.1
+      '@zag-js/utils': 0.65.1
 
   '@zag-js/react@0.65.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
