@@ -69,7 +69,7 @@
 				{/each}
 			</select>
 			<!-- Pagination -->
-			<Pagination data={sourceData} count={sourceData.length} bind:page pageSize={size} alternative>
+			<Pagination data={sourceData} count={sourceData.length} bind:page bind:pageSize={size} alternative>
 				{#snippet labelEllipsis()}<IconEllipsis class="size-4" />{/snippet}
 				{#snippet labelNext()}<IconArrowRight class="size-4" />{/snippet}
 				{#snippet labelPrevious()}<IconArrowLeft class="size-4" />{/snippet}

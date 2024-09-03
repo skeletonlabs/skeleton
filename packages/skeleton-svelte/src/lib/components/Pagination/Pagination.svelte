@@ -7,6 +7,7 @@
 
 	let {
 		page = $bindable(1),
+		pageSize = $bindable(10),
 		data,
 		alternative = false,
 		textSeparator = 'of',
@@ -54,6 +55,9 @@
 				...zagProps,
 				get page() {
 					return page;
+				},
+				get pageSize() {
+					return pageSize;
 				}
 			}
 		}
