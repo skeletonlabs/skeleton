@@ -1,12 +1,38 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { ChevronRight as IconChevron } from 'lucide-react';
 
 import LayoutRoot from '@layouts/LayoutRoot.astro';
 import Header from '@components/docs/Header.astro';
+import Footer from '@components/docs/Footer.astro';
+import NavGrid from '@components/docs/NavGrid.astro';
 
 const layoutProps = {
-	classList: 'space-y-10'
+	classList: 'grid grid-rows-[auto_1fr_auto] gap-10'
 };
+
+const socialLinks = [
+	{
+		href: 'https://github.com/skeletonlabs/skeleton',
+		label: 'GitHub',
+		icon: 'github'
+	},
+	{
+		href: 'https://discord.gg/EXqV7W8MtY',
+		label: 'Discord',
+		icon: 'discord'
+	},
+	{
+		href: 'https://bsky.app/profile/skeletonlabs.bsky.social',
+		label: 'Bluesky',
+		icon: 'bluesky'
+	},
+	{
+		href: 'https://www.youtube.com/@skeletonlabs',
+		label: 'YouTube',
+		icon: 'youtube'
+	}
+];
 ---
 
 <LayoutRoot {...layoutProps}>
@@ -14,35 +40,91 @@ const layoutProps = {
 	<Header />
 
 	<!-- Main -->
-	<main class="container mx-auto space-y-10 px-4">
-		<!-- Page Header -->
-		<section class="mx-auto flex flex-col justify-center gap-4 text-center">
-			<Icon name="skeleton-full" size={128} class="mx-auto" />
-			<h1 class="h1">Welcome to Skeleton.</h1>
-			<p class="type-scale-4 mx-auto max-w-[600px] text-balance opacity-60">
-				Skeleton is an open source UI toolkit that allows you to create adaptive and accessible interfaces for web apps of any size.
-			</p>
-			<nav class="flex justify-center gap-4">
-				<a href="/docs/get-started/introduction" class="btn-enhanced-cta">Get Started</a>
-				<a href=" https://github.com/skeletonlabs/skeleton" target="_blank" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
-					<Icon name="github" size={18} />
-					<span>GitHub</span>
-				</a>
-			</nav>
+	<main class="container mx-auto space-y-20 px-4">
+		<!-- Hero -->
+		<section class="mx-auto space-y-10 text-center">
+			<!-- News -->
+			<a
+				class="btn preset-outlined-primary-500 hover:preset-tonal text-primary-500 rounded-full"
+				href="https://github.com/skeletonlabs/skeleton/discussions/2681"
+				target="_blank"
+			>
+				<span class="border-r border-surface-200-800 pr-4">🎉</span>
+				<span>Introducing the Skeleton v3 Pre-Release</span>
+				<IconChevron className="size-4" />
+			</a>
+			<!-- Mascot -->
+			<Icon name="skeleton-full" class="size-32 mx-auto mb-10" />
+			<div class="space-y-8">
+				<!-- Text -->
+				<h1 class="text-6xl font-semibold text-balance max-w-[800px] mx-auto">An adaptive interface design system for Tailwind.</h1>
+				<p class="mx-auto max-w-[800px] text-balance text-surface-800-200">
+					Skeleton integrates with <a class="anchor underline" href="https://tailwindcss.com/" target="_blank">Tailwind</a> to provide opinionated
+					solutions for themes, colors, typography and more. Including easy to use components for your favorite web frameworks.
+				</p>
+				<!-- Buttons -->
+				<nav class="flex justify-center gap-4">
+					<a href="/docs/get-started/introduction" class="btn preset-filled">
+						<span>Get Started</span>
+						<IconChevron className="size-4" />
+					</a>
+					<a
+						href=" https://github.com/skeletonlabs/skeleton"
+						target="_blank"
+						class="btn preset-outlined-surface-200-800 hover:preset-tonal"
+					>
+						<Icon name="github" size={18} />
+						<span>GitHub</span>
+					</a>
+				</nav>
+				<!-- Tech Icons -->
+				<nav class="flex justify-center gap-8">
+					<a href="https://tailwindcss.com/" target="_blank"><Icon name="tailwind" size={40} /></a>
+					<a href="https://svelte.dev/" target="_blank"><Icon name="svelte" size={40} /></a>
+					<a href="https://react.dev/" target="_blank"><Icon name="react" size={40} /></a>
+				</nav>
+			</div>
 		</section>
 
-		<!-- Warning -->
-		<div class="card preset-tonal-primary mx-auto grid max-w-[800px] grid-cols-1 items-center gap-4 p-8 py-6 lg:grid-cols-[1fr_auto]">
-			<div class="space-y-2">
-				<p class="type-scale-5 font-bold">Early Preview</p>
-				<p>
-					This website provides an early preview of Skeleton v3. Please be aware that some features may be missing, incomplete, or
-					non-functional at this time.
-				</p>
+		<!-- Design System -->
+		<section class="mx-auto space-y-8 text-center">
+			<div>
+				<h2 class="h2">The Design System</h2>
+				<p>Learn more about core features of Skeleton.</p>
 			</div>
-			<div class="flex flex-col gap-2">
-				<a class="btn-enhanced-cta" href="https://github.com/skeletonlabs/skeleton/discussions/2375" target="_blank"> Learn More </a>
+			<NavGrid collection="docs" path="design/" classes="grid-cols-1 md:grid-cols-2 xl:grid-cols-3" />
+		</section>
+
+		<!-- Components -->
+		<section class="mx-auto space-y-8 text-center">
+			<div>
+				<h2 class="h2">Adaptive Components</h2>
+				<p>Explore our rich library of components that directly integrate the design system.</p>
 			</div>
-		</div>
+			<a href="/docs/components/accordion/react" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
+				<span>Explore Components</span>
+				<IconChevron className="size-4" />
+			</a>
+		</section>
+
+		<!-- Social -->
+		<section class="mx-auto space-y-8 text-center">
+			<div>
+				<h2 class="h2">Stay In Touch</h2>
+				<p>Reach out and connect on these social network platforms.</p>
+			</div>
+			<nav class="flex justify-center gap-8">
+				{
+					socialLinks.map((l) => (
+						<a href={l.href} target="_blank" title={l.label}>
+							<Icon name={l.icon} size={32} />
+						</a>
+					))
+				}
+			</nav>
+		</section>
 	</main>
+
+	<!-- Footer -->
+	<Footer />
 </LayoutRoot>

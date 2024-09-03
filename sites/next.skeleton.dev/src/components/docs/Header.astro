@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Menu as IconMenu, ExternalLink as IconLink } from 'lucide-react';
 import Lightswitch from '@components/docs/Lightswitch.astro';
 import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
 import Search from './Search.svelte';
@@ -18,19 +19,22 @@ const socialLinks = [
 ];
 ---
 
-<header class="border-surface-500/20 bg-surface-50-950 w-full border-b p-4 py-3 md:px-10">
-	<div class="container mx-auto grid max-w-screen-2xl grid-cols-[1fr_auto_1fr] items-center gap-4">
+<header class="border-surface-500/20 bg-surface-50-950 w-full border-b p-4 py-3 xl:px-10">
+	<div class="container mx-auto grid max-w-screen-2xl grid-cols-[auto_1fr_auto] xl:grid-cols-[1fr_auto_1fr] items-center gap-4">
 		<!-- Left -->
-		<div class="flex items-center justify-start gap-8">
+		<div class="flex items-center justify-start gap-6">
+			<!-- Mobile: Hamburger Menu -->
+			<button class="xl:hidden btn-icon"><IconMenu /></button>
 			<!-- Logo -->
-			<a class="type-scale-3 flex gap-3" href="/" title="Skeleton">
-				<Icon name="skeleton" size={24} />
+			<a class="hidden xl:inline-block" href="/" title="Skeleton">
+				<Icon name="skeleton" size={28} />
 			</a>
 			<!-- Navigation -->
-			<a class="opacity-60 hover:underline" href="/docs/get-started/introduction">Docs</a>
-			<a class="opacity-60 hover:underline" href="https://themes.skeleton.dev/" target="_blank">Themes</a>
-			<!-- <a class="opacity-60 hover:underline" href="/blog">Blog</a> -->
-			<a class="opacity-60 hover:underline" href="https://bsky.app/profile/skeletonlabs.bsky.social" target="_blank">News</a>
+			<div class="hidden xl:flex items-center justify-start gap-6 opacity-60">
+				<a class="hover:underline" href="/docs/get-started/introduction">Docs</a>
+				<a class="hover:underline" href="https://themes.skeleton.dev/" target="_blank">Themes</a>
+				<a class="hover:underline" href="https://bsky.app/profile/skeletonlabs.bsky.social" target="_blank">News</a>
+			</div>
 		</div>
 		<!-- Middle -->
 		<div class="flex items-center gap-2">
@@ -39,10 +43,12 @@ const socialLinks = [
 		</div>
 		<!-- Right -->
 		<div class="flex items-center justify-end gap-2">
-			<!-- Lightswitch -->
-			<Lightswitch />
-			<!-- Theme Switcher -->
-			<ThemeSwitch />
+			<div class="hidden xl:flex items-center justify-end gap-2">
+				<!-- Lightswitch -->
+				<Lightswitch />
+				<!-- Theme Switcher -->
+				<ThemeSwitch />
+			</div>
 			<!-- Social -->
 			<nav class="flex items-center">
 				{
