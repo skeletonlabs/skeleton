@@ -9,6 +9,8 @@ order: 30
 
 export const components = componentSet;
 
+import TypeScale from '@examples/design/typography/TypeScale.astro';
+import TypeScaleRaw from '@examples/design/typography/TypeScale.astro?raw';
 import Headings from '@examples/design/typography/Headings.astro';
 import HeadingsRaw from '@examples/design/typography/Headings.astro?raw';
 import Paragraphs from '@examples/design/typography/Paragraphs.astro';
@@ -36,7 +38,24 @@ import ListDescRaw from '@examples/design/typography/ListDesc.astro?raw';
 import ListNav from '@examples/design/typography/ListNav.astro';
 import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 
-## Headings
+## Typographic Scale
+
+Font size based on your theme's typographic scale, via `--type-scale-factor`.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<TypeScale />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={TypeScaleRaw} lang="html" />
+	</Fragment>
+</Preview>
+
+## Typographic Utilities
+
+Reusable opt-in styles for common typographic elements.
+
+### Headings
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -47,7 +66,7 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-## Paragraphs
+### Paragraphs
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -58,7 +77,7 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-## Blockquotes
+### Blockquotes
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -69,7 +88,7 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-## Anchor
+### Anchor
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -80,7 +99,7 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-## Pre-Formatted
+### Pre-Formatted
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -91,7 +110,7 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-## Code
+### Code
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -102,7 +121,7 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-## Keyboard
+### Keyboard
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -125,6 +144,8 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 </Preview>
 
 ## Lists
+
+Skeleton does not provide list styles, and instead recommend using Tailwind primatives as shown below.
 
 ### Unordered
 

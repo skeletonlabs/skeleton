@@ -9,81 +9,49 @@ order: 20
 
 export const components = componentSet;
 
+import ExampleFilled from '@examples/design/presets/ExampleFilled.astro';
+import ExampleFilledRaw from '@examples/design/presets/ExampleFilled.astro?raw';
+import ExampleTonal from '@examples/design/presets/ExampleTonal.astro';
+import ExampleTonalRaw from '@examples/design/presets/ExampleTonal.astro?raw';
+import ExampleOutlined from '@examples/design/presets/ExampleOutlined.astro';
+import ExampleOutlinedRaw from '@examples/design/presets/ExampleOutlined.astro?raw';
+
 ## Filled
+
+Available via `.preset-filled-{color}-{shade}-{shade}`
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<div class="grid w-full grid-cols-2 lg:grid-cols-4">
-			{/* Neutral */}
-			<div class="preset-filled flex items-center justify-center p-4">(neutral)</div>
-			{/* Colors */}
-			<div class="preset-filled-primary-950-50 flex items-center justify-center p-4">950-50</div>
-			<div class="preset-filled-primary-900-100 flex items-center justify-center p-4">900-100</div>
-			<div class="preset-filled-primary-800-200 flex items-center justify-center p-4">800-200</div>
-			<div class="preset-filled-primary-700-300 flex items-center justify-center p-4">700-300</div>
-			<div class="preset-filled-primary-600-400 flex items-center justify-center p-4">600-400</div>
-			<div class="preset-filled-primary-500 flex items-center justify-center p-4">500</div>
-			<div class="preset-filled-primary-400-600 flex items-center justify-center p-4">400-600</div>
-			<div class="preset-filled-primary-300-700 flex items-center justify-center p-4">300-700</div>
-			<div class="preset-filled-primary-200-800 flex items-center justify-center p-4">200-800</div>
-			<div class="preset-filled-primary-100-900 flex items-center justify-center p-4">100-900</div>
-			<div class="preset-filled-primary-50-950 flex items-center justify-center p-4">50-950</div>
-		</div>
+		<ExampleFilled />
 	</Fragment>
 	<Fragment slot="code">
-		```css
-		.preset-filled-{color}-{shade}-{shade}
-		```
+		<Code code={ExampleFilledRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
 ## Tonal
 
+Available via `.preset-tonal-{color}`
+
 <Preview client:load>
 	<Fragment slot="preview">
-		<div class="grid w-full grid-cols-2 lg:grid-cols-4">
-			<div class="preset-tonal flex items-center justify-center p-4">(neutral)</div>
-			<div class="preset-tonal-primary flex items-center justify-center p-4">primary</div>
-			<div class="preset-tonal-secondary flex items-center justify-center p-4">secondary</div>
-			<div class="preset-tonal-tertiary flex items-center justify-center p-4">tertiary</div>
-			<div class="preset-tonal-success flex items-center justify-center p-4">success</div>
-			<div class="preset-tonal-warning flex items-center justify-center p-4">warning</div>
-			<div class="preset-tonal-error flex items-center justify-center p-4">error</div>
-			<div class="preset-tonal-surface flex items-center justify-center p-4">surface</div>
-		</div>
+		<ExampleTonal />
 	</Fragment>
 	<Fragment slot="code">
-		```css
-		.preset-tonal-{color}
-		```
+		<Code code={ExampleTonalRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
 ## Outlined
 
+Available via `.preset-outlined-{color}-{shade}-{shade}`
+
 <Preview client:load>
 	<Fragment slot="preview">
-		<div class="grid w-full grid-cols-2 gap-2 lg:grid-cols-4">
-			{/* Neutral */}
-			<div class="preset-outlined flex items-center justify-center p-4">(neutral)</div>
-			{/* Colors */}
-			<div class="preset-outlined-primary-950-50 flex items-center justify-center p-4">950-50</div>
-			<div class="preset-outlined-primary-900-100 flex items-center justify-center p-4">900-100</div>
-			<div class="preset-outlined-primary-800-200 flex items-center justify-center p-4">800-200</div>
-			<div class="preset-outlined-primary-700-300 flex items-center justify-center p-4">700-300</div>
-			<div class="preset-outlined-primary-600-400 flex items-center justify-center p-4">600-400</div>
-			<div class="preset-outlined-primary-500 flex items-center justify-center p-4">500</div>
-			<div class="preset-outlined-primary-400-600 flex items-center justify-center p-4">400-600</div>
-			<div class="preset-outlined-primary-300-700 flex items-center justify-center p-4">300-700</div>
-			<div class="preset-outlined-primary-200-800 flex items-center justify-center p-4">200-800</div>
-			<div class="preset-outlined-primary-100-900 flex items-center justify-center p-4">100-900</div>
-			<div class="preset-outlined-primary-50-950 flex items-center justify-center p-4">50-950</div>
-		</div>
+		<ExampleOutlined />
 	</Fragment>
 	<Fragment slot="code">
-		```css
-		.preset-outlined-{color}-{shade}-{shade}
-		```
+		<Code code={ExampleOutlinedRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
