@@ -1,39 +1,43 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { Menu as IconMenu, ExternalLink as IconLink } from 'lucide-react';
+// Stores
+import { socialLinks } from 'src/stores/social-links';
+// Components
+import Drawer from '@components/docs/Drawer.astro';
 import Lightswitch from '@components/docs/Lightswitch.astro';
 import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
 import Search from './Search.svelte';
+import Navigation from '@components/docs/Navigation.astro';
 
-const socialLinks = [
-	{
-		href: 'https://github.com/skeletonlabs/skeleton',
-		label: 'GitHub',
-		icon: 'github'
-	},
-	{
-		href: 'https://discord.gg/EXqV7W8MtY',
-		label: 'Discord',
-		icon: 'discord'
-	}
+const coreLinks = [
+	{ href: '/docs/get-started/introduction', label: 'Docs', target: '_self' },
+	{ href: 'https://themes.skeleton.dev/', label: 'Themes', target: '_blank' },
+	{ href: 'https://bsky.app/profile/skeletonlabs.bsky.social', label: 'News', target: '_blank' }
 ];
 ---
 
+<!-- Header -->
 <header class="border-surface-500/20 bg-surface-50-950 w-full border-b p-4 py-3 xl:px-10">
 	<div class="container mx-auto grid max-w-screen-2xl grid-cols-[auto_1fr_auto] xl:grid-cols-[1fr_auto_1fr] items-center gap-4">
 		<!-- Left -->
 		<div class="flex items-center justify-start gap-6">
-			<!-- Mobile: Hamburger Menu -->
-			<button class="xl:hidden btn-icon"><IconMenu /></button>
+			<!-- Mobile Nav Drawer -->
+			<Drawer navigation={coreLinks}>
+				<Navigation />
+			</Drawer>
 			<!-- Logo -->
 			<a class="hidden xl:inline-block" href="/" title="Skeleton">
 				<Icon name="skeleton" size={28} />
 			</a>
 			<!-- Navigation -->
 			<div class="hidden xl:flex items-center justify-start gap-6 opacity-60">
-				<a class="hover:underline" href="/docs/get-started/introduction">Docs</a>
-				<a class="hover:underline" href="https://themes.skeleton.dev/" target="_blank">Themes</a>
-				<a class="hover:underline" href="https://bsky.app/profile/skeletonlabs.bsky.social" target="_blank">News</a>
+				{
+					coreLinks.map((link) => (
+						<a class="hover:underline" href={link.href} target={link.target}>
+							{link.label}
+						</a>
+					))
+				}
 			</div>
 		</div>
 		<!-- Middle -->
@@ -44,19 +48,20 @@ const socialLinks = [
 		<!-- Right -->
 		<div class="flex items-center justify-end gap-2">
 			<div class="hidden xl:flex items-center justify-end gap-2">
-				<!-- Lightswitch -->
 				<Lightswitch />
-				<!-- Theme Switcher -->
 				<ThemeSwitch />
 			</div>
 			<!-- Social -->
 			<nav class="flex items-center">
 				{
-					socialLinks.map((l) => (
-						<a class="btn hover:preset-tonal" href={l.href} target="_blank" title={l.label}>
-							<Icon name={l.icon} size={20} />
-						</a>
-					))
+					socialLinks
+						.get()
+						.slice(0, 2)
+						.map((l) => (
+							<a class="btn hover:preset-tonal" href={l.href} target="_blank" title={l.label}>
+								<Icon name={l.icon} size={20} />
+							</a>
+						))
 				}
 			</nav>
 		</div>

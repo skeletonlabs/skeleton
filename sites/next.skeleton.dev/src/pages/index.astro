@@ -1,7 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { ChevronRight as IconChevron } from 'lucide-react';
-
+// Stores
+import { socialLinks } from 'src/stores/social-links';
+// Components
 import LayoutRoot from '@layouts/LayoutRoot.astro';
 import Header from '@components/docs/Header.astro';
 import Footer from '@components/docs/Footer.astro';
@@ -10,29 +12,6 @@ import NavGrid from '@components/docs/NavGrid.astro';
 const layoutProps = {
 	classList: 'grid grid-rows-[auto_1fr_auto] gap-10'
 };
-
-const socialLinks = [
-	{
-		href: 'https://github.com/skeletonlabs/skeleton',
-		label: 'GitHub',
-		icon: 'github'
-	},
-	{
-		href: 'https://discord.gg/EXqV7W8MtY',
-		label: 'Discord',
-		icon: 'discord'
-	},
-	{
-		href: 'https://bsky.app/profile/skeletonlabs.bsky.social',
-		label: 'Bluesky',
-		icon: 'bluesky'
-	},
-	{
-		href: 'https://www.youtube.com/@skeletonlabs',
-		label: 'YouTube',
-		icon: 'youtube'
-	}
-];
 ---
 
 <LayoutRoot {...layoutProps}>
@@ -50,17 +29,19 @@ const socialLinks = [
 				target="_blank"
 			>
 				<span class="border-r border-surface-200-800 pr-4">🎉</span>
-				<span>Introducing the Skeleton v3 Pre-Release</span>
+				<span>Introducing the v3 Pre-Release</span>
 				<IconChevron className="size-4" />
 			</a>
 			<!-- Mascot -->
 			<Icon name="skeleton-full" class="size-32 mx-auto mb-10" />
 			<div class="space-y-8">
 				<!-- Text -->
-				<h1 class="text-6xl font-semibold text-balance max-w-[800px] mx-auto">An adaptive interface design system for Tailwind.</h1>
+				<h1 class="text-4xl md:text-6xl font-semibold text-balance max-w-[800px] mx-auto">
+					An adaptive interface design system for Tailwind.
+				</h1>
 				<p class="mx-auto max-w-[800px] text-balance text-surface-800-200">
-					Skeleton integrates with <a class="anchor underline" href="https://tailwindcss.com/" target="_blank">Tailwind</a> to provide opinionated
-					solutions for themes, colors, typography and more. Including easy to use components for your favorite web frameworks.
+					Skeleton integrates with Tailwind to provide opinionated solutions for themes, colors, typography and more. Including easy to use
+					components for your favorite web frameworks.
 				</p>
 				<!-- Buttons -->
 				<nav class="flex justify-center gap-4">
@@ -115,7 +96,7 @@ const socialLinks = [
 			</div>
 			<nav class="flex justify-center gap-8">
 				{
-					socialLinks.map((l) => (
+					socialLinks.get().map((l) => (
 						<a href={l.href} target="_blank" title={l.label}>
 							<Icon name={l.icon} size={32} />
 						</a>

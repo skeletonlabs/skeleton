@@ -1,28 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-
-const socialLinks = [
-	{
-		href: 'https://github.com/skeletonlabs/skeleton',
-		label: 'GitHub',
-		icon: 'github'
-	},
-	{
-		href: 'https://discord.gg/EXqV7W8MtY',
-		label: 'Discord',
-		icon: 'discord'
-	},
-	{
-		href: 'https://bsky.app/profile/skeletonlabs.bsky.social',
-		label: 'Bluesky',
-		icon: 'bluesky'
-	},
-	{
-		href: 'https://www.youtube.com/@skeletonlabs',
-		label: 'YouTube',
-		icon: 'youtube'
-	}
-];
+import { socialLinks } from 'src/stores/social-links';
 ---
 
 <footer class="border-surface-500/20 bg-surface-50-950 border-t p-4 xl:p-10">
@@ -37,7 +15,7 @@ const socialLinks = [
 		<!-- Social -->
 		<nav class="flex items-center">
 			{
-				socialLinks.map((l) => (
+				socialLinks.get().map((l) => (
 					<a class="btn hover:preset-tonal" href={l.href} target="_blank" title={l.label}>
 						<Icon name={l.icon} size={20} />
 					</a>
