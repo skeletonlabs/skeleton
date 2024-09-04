@@ -8,6 +8,7 @@ const docs = defineCollection({
 		srcSvelte: z.string().optional(),
 		srcReact: z.string().optional(),
 		srcAlly: z.string().optional(),
+		srcZag: z.string().optional(),
 		showDocsUrl: z.boolean().optional().default(false),
 		order: z.number().optional().default(0)
 	})
