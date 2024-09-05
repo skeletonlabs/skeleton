@@ -121,9 +121,14 @@
 </script>
 
 <!-- Trigger Button -->
-<button onclick={() => openDialog()} type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
+<button
+	onclick={() => openDialog()}
+	type="button"
+	class="btn preset-tonal preset-outlined-surface-200-800 hover:preset-tonal w-full xl:w-auto justify-start"
+>
 	<IconSearch class="size-4 opacity-60" />
-	<span class="opacity-60">Search...</span>
+	<span class="opacity-60">Search</span>
+	<small class="hidden xl:inline-block text-[11px] preset-tonal p-1 rounded">⌘ K</small>
 </button>
 
 <!-- Dialog -->

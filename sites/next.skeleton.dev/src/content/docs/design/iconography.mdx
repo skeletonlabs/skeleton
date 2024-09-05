@@ -2,7 +2,6 @@
 layout: '@layouts/LayoutDoc.astro'
 title: Iconography
 description: Learn more about iconography in Skeleton.
-showDocsUrl: true
 order: 50
 ---
 
@@ -10,9 +9,8 @@ import { Triangle, Heart, UserRound } from 'lucide-react';
 
 export const components = componentSet;
 
-{/* prettier-ignore */}
-<p class="type-scale-5">Skeleton is icon agnostic, meaning you can implement any combination of SVGs, emoji, unicode, or any dedicated icon
-	library. You can also mix and match to fulfill your project's unique requirements.</p>
+<p class="type-scale-5">Skeleton takes an agnostic approach to icons, meaning you can use any combination of SVGs, emoji, unicode, or dedicated icon
+	libraries. Mix and match to fulfill your project's unique requirements.</p>
 
 ---
 
@@ -26,17 +24,17 @@ export const components = componentSet;
 	</div>
 </figure>
 
-If you're looking for an opnionated option, we recommend [Lucide](https://lucide.dev/). This provides a huge selection of icons that are available to all frameworks and feature a clean and modern design style. All code examples on this site implement Lucide, but feel free to replace these icons with any alternative.
+If you're looking for an opnionated solution, Skeleton recommend [Lucide](https://lucide.dev/). This provides a huge selection of icons that are available to all popular frameworks and feature a clean and modern style. All code examples in this documentation site implement Lucide, but feel free to replace with any alternative.
 
 ### Lucide React
 
 [Install Lucide for React](https://lucide.dev/guide/packages/lucide-react)
 
 ```tsx
-import { Camera } from 'lucide-react';
+import { Skull as IconSkull } from 'lucide-react';
 
 const App = () => {
-	return <Camera color="red" size={48} />;
+	return <IconSkull color="red" size={48} />;
 };
 
 export default App;
@@ -48,20 +46,20 @@ export default App;
 
 ```svelte
 <script>
-	import AlertCircle from 'lucide-svelte/icons/alert-circle';
+	import IconSkull from 'lucide-svelte/icons/skull';
 </script>
 
-<AlertCircle color="#ff3e98" />
+<IconSkull color="#ff3e98" />
 ```
 
-> TIP: For optimal performance, we recommend importing each icon using the full path.
+> TIP: For optimal performance we recommend importing each icon using the full path.
 
 ---
 
 ## Alternatives
 
-- [Radix Icons](https://www.radix-ui.com/icons) - provides a modern styles and large selection, but limited to React.
-- [Iconify](https://iconify.design/) - provides a vast array of icon sets pruned from popular icon libraries.
+- [Radix Icons](https://www.radix-ui.com/icons) - features modern styles and a large selection, supports React only.
+- [Iconify](https://iconify.design/) - provides a vast array of icon sets supported by popular icon libraries.
 - [Font Awesome](https://fontawesome.com/) - provides a huge variety of icons in their free tier.
 - [HeroIcons](https://heroicons.com/) - from the makers of Tailwind CSS, supports React and Vue.
 - [SimpleIcons](https://simpleicons.org/) - provides an excellent selection of brand icons.

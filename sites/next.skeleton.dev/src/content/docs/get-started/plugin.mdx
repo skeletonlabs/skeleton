@@ -9,8 +9,8 @@ order: 30
 export const components = componentSet;
 
 {/* prettier-ignore */}
-<p class="type-scale-5"> Skeleton is powered by a fully featured [Tailwind Plugin](https://tailwindcss.com/docs/plugins). This adapts and
-	extends Tailwind to handle Skeleton's base styles, color system, typography, and more. The following API details all available Skeleton utility classes and the theme-specific CSS custom properties.</p>
+<p class="type-scale-5"> The heart of Skeleton is our powerful [Tailwind Plugin](https://tailwindcss.com/docs/plugins). This adapts and
+	extends Tailwind to handle Skeleton's global styles, color system, typography, and more. The following API details all available Skeleton utility classes and the theme-specific CSS custom properties.</p>
 
 ---
 
@@ -71,6 +71,8 @@ Extends the Tailwind palette to accept Skeleton's theme colors. Please refer to 
 
 ### Edges
 
+Extends borders, rings, outlines, and divides.
+
 | Class               | Theme Property          |
 | ------------------- | ----------------------- |
 | `rounded`           | --radii-default         |
@@ -94,7 +96,7 @@ Introduces a scalable spacing system to Tailwind.
 
 ## Utilities
 
-New and powerful utility classes provided by Skeleton.
+New and powerful utility classes introduced by Skeleton.
 
 ### Color Pairings
 
@@ -118,11 +120,15 @@ Provides a canned set of background and foreground styles for use with buttons, 
 
 ### Typography
 
-Please refer to [Typography](/docs/design/typography) for more information.
+<figure class="card-enhanced-gradient flex justify-center p-8">
+	<a href="/docs/design/typography" class="btn preset-filled">
+		Browse Typography &rarr;
+	</a>
+</figure>
 
 #### Type Scale
 
-Implements a typographic scale into Tailwind using the following formula.
+Implements a typographic scale into using the following formula. `--type-scale-factor` is defined in your theme.
 
 ```plaintext
 calc({remSize} * var(--type-scale-factor))
