@@ -10,6 +10,7 @@ catalog:
   '@zag-js/accordion': *zag_version
   '@zag-js/avatar': *zag_version
   '@zag-js/file-upload': *zag_version
+  '@zag-js/pagination': *zag_version
   '@zag-js/progress': *zag_version
   '@zag-js/radio-group': *zag_version
   '@zag-js/rating-group': *zag_version
