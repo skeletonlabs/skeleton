@@ -80,43 +80,54 @@ Skeleton components are styled by default out of the box. However, if you wish t
 
 - `base` - the default styles for each component template element, implemented by default.
 - `{property}` - take individual utility classes to customize styling, such as `background`, `padding`, or `margin`.
-- `classes` - allows you to pass any arbitrary utility classes to extend the class list.
+- `classes` - allows you to pass any arbitrary utility classes and extend the class list. Note this is plural.
 
-Imagine the Avatar component template was created like this:
+Imagine the Avatar component was created like so:
 
-```html
+```ts title="Example Props"
+{
+	src = './some-placeholder.jpg',
+	alt = '',
+	// ...
+	base = 'flex justify-center items-center overflow-hidden',
+	background = 'bg-slate-500'
+	rounded = 'rounded-full',
+	// ...
+	classes = ''
+}
+```
+```html title="Example Template"
 <figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}">
 	<img {src} alt={name} class="{imageBase} {imageClasses}" />
 </figure>
 ```
 
-We can use the `background` style prop to replace the background color:
+We can use the `background` style prop to replace the default background color.
 
 ```ts
-<Avatar background="bg-red-500">Sk</Avatar>
+<Avatar background="bg-blue-500">Sk</Avatar>
 ```
 
-Since the component doesn't have dedicated `border` props, we can extend our class list with `classses`:
+Since the component doesn't have a dedicated `border` prop, we can extend our class list using `classses`.
 
 ```ts
 <Avatar classes="border-4 border-green-500">Sk</Avatar>
 ```
 
-And we can optionally replace the default `base` styles like so. Just remember the default `{property}` styles will remain.
+And we can optionally replace the default `base` styles like so. Just remember our other `{property}` styles will remain.
 
-```css
-.my-avatar { @apply bg-green-500 rounded-full overflow-hidden; }
-```
 ```ts
-<Avatar base="my-avatar">Sk</Avatar>
+<Avatar base="flex justify-center items-center overflow-visible">Sk</Avatar>
 ```
 
-Each child element within the template are prefixed, such as `imageBase` and `imageClasses`. Consult a component's [API reference](/docs/components/accordion/react#api-reference) for a complete list of available style props.
+Additionally, child elements within the template use these same conventions, but prefixed like `imageBase` and `imageClasses`.
 
 ```ts
 <Avatar ... imageClasses="grayscale" />
 ```
 
+Consult each component's [API reference](/docs/components/accordion/react#api-reference) for a complete list of available properties.
+
 ### Learn More
 
-For a comprehensive understanding of how Skeleton creates our components, please refer to our [contribution guidelines](/docs/resources/contribute/components).
+For a comprehensive understanding of how Skeleton implements our components, please refer to our [contribution guidelines](/docs/resources/contribute/components).
