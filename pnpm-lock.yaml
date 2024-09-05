@@ -15,6 +15,9 @@ catalogs:
     '@zag-js/file-upload':
       specifier: ^0.65.1
       version: 0.65.1
+    '@zag-js/pagination':
+      specifier: ^0.65.1
+      version: 0.65.1
     '@zag-js/progress':
       specifier: ^0.65.1
       version: 0.65.1
@@ -37,6 +40,9 @@ catalogs:
       specifier: ^0.65.1
       version: 0.65.1
     '@zag-js/tabs':
+      specifier: ^0.65.1
+      version: 0.65.1
+    '@zag-js/tags-input':
       specifier: ^0.65.1
       version: 0.65.1
     typescript:
@@ -208,6 +214,9 @@ importers:
       '@zag-js/file-upload':
         specifier: 'catalog:'
         version: 0.65.1
+      '@zag-js/pagination':
+        specifier: 'catalog:'
+        version: 0.65.1
       '@zag-js/progress':
         specifier: 'catalog:'
         version: 0.65.1
@@ -227,6 +236,9 @@ importers:
         specifier: 'catalog:'
         version: 0.65.1
       '@zag-js/tabs':
+        specifier: 'catalog:'
+        version: 0.65.1
+      '@zag-js/tags-input':
         specifier: 'catalog:'
         version: 0.65.1
     devDependencies:
@@ -261,8 +273,8 @@ importers:
         specifier: ^24.1.1
         version: 24.1.1
       lucide-react:
-        specifier: ^0.341.0
-        version: 0.341.0(react@18.3.1)
+        specifier: ^0.436.0
+        version: 0.436.0(react@18.3.1)
       postcss:
         specifier: ^8.4.39
         version: 8.4.39
@@ -308,6 +320,9 @@ importers:
       '@zag-js/file-upload':
         specifier: 'catalog:'
         version: 0.65.1
+      '@zag-js/pagination':
+        specifier: 'catalog:'
+        version: 0.65.1
       '@zag-js/progress':
         specifier: 'catalog:'
         version: 0.65.1
@@ -327,6 +342,9 @@ importers:
         specifier: 'catalog:'
         version: 0.65.1
       '@zag-js/tabs':
+        specifier: 'catalog:'
+        version: 0.65.1
+      '@zag-js/tags-input':
         specifier: 'catalog:'
         version: 0.65.1
     devDependencies:
@@ -364,8 +382,8 @@ importers:
         specifier: ^24.1.1
         version: 24.1.1
       lucide-svelte:
-        specifier: ^0.341.0
-        version: 0.341.0(svelte@5.0.0-next.201)
+        specifier: ^0.436.0
+        version: 0.436.0(svelte@5.0.0-next.201)
       postcss:
         specifier: ^8.4.39
         version: 8.4.39
@@ -458,11 +476,11 @@ importers:
         specifier: ^11.3.8
         version: 11.3.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       lucide-react:
-        specifier: ^0.341.0
-        version: 0.341.0(react@18.3.1)
+        specifier: ^0.436.0
+        version: 0.436.0(react@18.3.1)
       lucide-svelte:
-        specifier: ^0.341.0
-        version: 0.341.0(svelte@5.0.0-next.210)
+        specifier: ^0.436.0
+        version: 0.436.0(svelte@5.0.0-next.210)
       nanostores:
         specifier: ^0.9.5
         version: 0.9.5
@@ -2413,6 +2431,9 @@ packages:
   '@zag-js/anatomy@0.65.1':
     resolution: {integrity: sha512-HUBZ+P/SKoV/fWtgUaNGFpQV957DutLNp4sNzK6T2J7fo/KwxmJK5ydSHOujMeTaVMBxUMBRMCQJsC+JiaZdKQ==}
 
+  '@zag-js/auto-resize@0.65.1':
+    resolution: {integrity: sha512-l1kGDRKPyXKThhHFtmnChGzeUQEKbZ+DbMeep5D8e42ToobPao05k3JMjEsb26Cgd+hb6pBBX2BwizAZmtO+zA==}
+
   '@zag-js/avatar@0.65.1':
     resolution: {integrity: sha512-fYbzckwN4+1OkDqIJoV1b1AGz526/SDm7XYe/E/cms+UYpwEkbjUqz9pPZPXJaQfI9n6FN4nbRNcG++4wUte9g==}
 
@@ -2443,8 +2464,17 @@ packages:
   '@zag-js/i18n-utils@0.65.1':
     resolution: {integrity: sha512-YaSc6wFOXYz/prQHVtxyuOIAMu9et9QSstlsUy1u5kT5aHF8YoIrNM0yUqezz9CL2CLdoOLa5Vdbzep90FnBvA==}
 
+  '@zag-js/interact-outside@0.65.1':
+    resolution: {integrity: sha512-vc5VMV8cu0RstTpaiuI44TcIWTzrnQpF6Ia0li1mBPa8ASIvnp/LqnpErzKJ3AUbZ68PSzWYx3snpXY1Yw5tIg==}
+
+  '@zag-js/live-region@0.65.1':
+    resolution: {integrity: sha512-oJDpbzVCrmxioH9rVSugTLg48jpjlyL12Tw6NzFyYgkXJqz+l6N6fGdEC8lcStuwaH+od+Wjb1gNk/hkt6w94Q==}
+
   '@zag-js/numeric-range@0.65.1':
     resolution: {integrity: sha512-m/8ySlrs4WooFCrQCfYIGWPk/CG2VIRhuKpm3CNAbwHQwYjQIuTsFNDnOdKe8soYJTzoXDDlOdzgMdK6Hexizg==}
+
+  '@zag-js/pagination@0.65.1':
+    resolution: {integrity: sha512-nMyiWm4fgzHwrQYai69kLomqYfs5+lXAFlahrBS0FZsvno9sVeZ+odqvnAXnQUY6s/PMp4cT0c2h5YGfYiKdgA==}
 
   '@zag-js/progress@0.65.1':
     resolution: {integrity: sha512-uz7ygE8LlmA2wAg+0e7TKXLGfxDDR4Tz9F8qfcHAL3d6G9ut0O5gPLqnSdBNAQgDxXJf9kefjNF1n9wWANIGmQ==}
@@ -2477,6 +2507,9 @@ packages:
 
   '@zag-js/tabs@0.65.1':
     resolution: {integrity: sha512-9saG9gxBPRO7Y129+sOZNrtxCoHTuAYO3cHE+oIyl/XwDyxMS/oNhZDR4SFpSIvb8dF7ZcS4ZuTRmBInRKLyQQ==}
+
+  '@zag-js/tags-input@0.65.1':
+    resolution: {integrity: sha512-5vq5vwv4Ccqlh+OwQueZAJPR4cLjJ705xlSbSIDLTVeFVgh7hI1iO7wtkVW1opKBJI+qJ+813bKLLqW3QmmZRQ==}
 
   '@zag-js/text-selection@0.65.1':
     resolution: {integrity: sha512-XFYolGxy4shshX7vfDlXBaMOQGa4gX0dt8wlt6Apk08S9yoPe3vqm46xU8pUEoiBuLqCLwpqYJu2Pfga83GqlA==}
@@ -4483,13 +4516,18 @@ packages:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
-  lucide-react@0.341.0:
-    resolution: {integrity: sha512-fqI0TLU/VbzC3p90MHP3kdCRRUMTRT5qBfxwaXlllkZieYfRrMVd/RORXytqJUC2GBrvZdWYs6yvJIrqdsOmDQ==}
+  lucide-react@0.436.0:
+    resolution: {integrity: sha512-N292bIxoqm1aObAg0MzFtvhYwgQE6qnIOWx/GLj5ONgcTPH6N0fD9bVq/GfdeC9ZORBXozt/XeEKDpiB3x3vlQ==}
     peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
 
   lucide-svelte@0.341.0:
     resolution: {integrity: sha512-RdLUlxgm97pKGS5dKchdhLuxmYBpwpcLvZ5XQH3HPO5rZZU8JvfzFs8vnbZH/tsDeA0UeSzdzZyOYbWkOAbarA==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
+
+  lucide-svelte@0.436.0:
+    resolution: {integrity: sha512-oRyTPzqudX01WWcSohl/Ob44GFqV/sw4moKQbsqtQ0EnKPjDPYh/v0wSaQ0wYljwSEaJ7zkBwY2lkgYFMX9PVg==}
     peerDependencies:
       svelte: ^3 || ^4 || ^5.0.0-next.42
 
@@ -8963,6 +9001,10 @@ snapshots:
 
   '@zag-js/anatomy@0.65.1': {}
 
+  '@zag-js/auto-resize@0.65.1':
+    dependencies:
+      '@zag-js/dom-query': 0.65.1
+
   '@zag-js/avatar@0.65.1':
     dependencies:
       '@zag-js/anatomy': 0.65.1
@@ -9008,7 +9050,23 @@ snapshots:
     dependencies:
       '@zag-js/dom-query': 0.65.1
 
+  '@zag-js/interact-outside@0.65.1':
+    dependencies:
+      '@zag-js/dom-event': 0.65.1
+      '@zag-js/dom-query': 0.65.1
+      '@zag-js/utils': 0.65.1
+
+  '@zag-js/live-region@0.65.1': {}
+
   '@zag-js/numeric-range@0.65.1': {}
+
+  '@zag-js/pagination@0.65.1':
+    dependencies:
+      '@zag-js/anatomy': 0.65.1
+      '@zag-js/core': 0.65.1
+      '@zag-js/dom-query': 0.65.1
+      '@zag-js/types': 0.65.1
+      '@zag-js/utils': 0.65.1
 
   '@zag-js/progress@0.65.1':
     dependencies:
@@ -9086,6 +9144,19 @@ snapshots:
       '@zag-js/dom-event': 0.65.1
       '@zag-js/dom-query': 0.65.1
       '@zag-js/element-rect': 0.65.1
+      '@zag-js/types': 0.65.1
+      '@zag-js/utils': 0.65.1
+
+  '@zag-js/tags-input@0.65.1':
+    dependencies:
+      '@zag-js/anatomy': 0.65.1
+      '@zag-js/auto-resize': 0.65.1
+      '@zag-js/core': 0.65.1
+      '@zag-js/dom-event': 0.65.1
+      '@zag-js/dom-query': 0.65.1
+      '@zag-js/form-utils': 0.65.1
+      '@zag-js/interact-outside': 0.65.1
+      '@zag-js/live-region': 0.65.1
       '@zag-js/types': 0.65.1
       '@zag-js/utils': 0.65.1
 
@@ -11601,7 +11672,7 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
-  lucide-react@0.341.0(react@18.3.1):
+  lucide-react@0.436.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
@@ -11609,11 +11680,11 @@ snapshots:
     dependencies:
       svelte: 5.0.0-next.193
 
-  lucide-svelte@0.341.0(svelte@5.0.0-next.201):
+  lucide-svelte@0.436.0(svelte@5.0.0-next.201):
     dependencies:
       svelte: 5.0.0-next.201
 
-  lucide-svelte@0.341.0(svelte@5.0.0-next.210):
+  lucide-svelte@0.436.0(svelte@5.0.0-next.210):
     dependencies:
       svelte: 5.0.0-next.210
 
