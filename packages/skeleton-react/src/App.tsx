@@ -74,6 +74,9 @@ function App() {
 						<a className="anchor" href="/components/tabs">
 							Tabs
 						</a>
+						<a className="anchor" href="/components/tags-input">
+							Tags Input
+						</a>
 					</nav>
 				</div>
 			</div>

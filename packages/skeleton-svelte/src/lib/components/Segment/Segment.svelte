@@ -4,6 +4,7 @@
 	import type { SegmentControl } from './types.js';
 	import { setSegmentContext } from './context.js';
 	import { useId } from '$lib/internal/use-id.js';
+	import { on } from 'svelte/events';
 
 	let {
 		value = $bindable(''),
@@ -68,6 +69,12 @@
 	const rxOrientation = $derived(snapshot.context.orientation === 'vertical' ? orientVertical : orientHorizontal);
 	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
 	const rxReadOnly = $derived(snapshot.context.readOnly ? stateReadOnly : '');
+
+	$effect(() => {
+		return on(document, 'focusin', () => {
+			console.log(document.activeElement);
+		});
+	});
 </script>
 
 <!-- @component Capture input for a limited set of options. -->
