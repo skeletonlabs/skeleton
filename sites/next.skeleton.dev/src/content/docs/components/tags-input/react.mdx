@@ -1,0 +1,76 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import { Page as Example } from '@examples/components/tags-input/Example.tsx';
+import ExampleRaw from '@examples/components/tags-input/Example.tsx?raw';
+import { Page as ExampleIcons } from '@examples/components/tags-input/Example.tsx';
+import ExampleIconsRaw from '@examples/components/tags-input/ExampleIcons.tsx?raw';
+import { Page as ExampleColors } from '@examples/components/tags-input/ExampleColors.tsx';
+import ExampleColorsRaw from '@examples/components/tags-input/ExampleColors.tsx?raw';
+import { Page as ExampleDisabled } from '@examples/components/tags-input/ExampleDisabled.tsx';
+import ExampleDisabledRaw from '@examples/components/tags-input/ExampleDisabled.tsx?raw';
+import { Page as ExampleMisc } from '@examples/components/tags-input/ExampleMisc.tsx';
+import ExampleMiscRaw from '@examples/components/tags-input/ExampleMisc.tsx?raw';
+
+import { TagsInputSchema } from '@skeletonlabs/skeleton-react/schemas';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Example client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Icons
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleIcons client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleIconsRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Colors
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleColors client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleColorsRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleDisabled client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleDisabledRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Additional Features
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleMisc client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleMiscRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+
+## API Reference
+
+<ApiTable types={['TagsInputProps']} schema={TagsInputSchema} />

@@ -40,9 +40,7 @@ export const Rating: FC<RatingProps> = ({
 			id: useId(),
 			onValueChange: (details) => onValueChange(details.value)
 		}),
-		{
-			context: zagProps
-		}
+		{ context: zagProps }
 	);
 	const api = rating.connect(state, send, normalizeProps);
 

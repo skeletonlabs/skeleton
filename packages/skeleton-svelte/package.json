@@ -44,7 +44,8 @@
 		"@zag-js/slider": "catalog:",
 		"@zag-js/svelte": "catalog:",
 		"@zag-js/switch": "catalog:",
-		"@zag-js/tabs": "catalog:"
+		"@zag-js/tabs": "catalog:",
+		"@zag-js/tags-input": "catalog:"
 	},
 	"peerDependencies": {
 		"svelte": "^5.0.0-next.193"
