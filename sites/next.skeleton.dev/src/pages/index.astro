@@ -79,17 +79,39 @@ const layoutProps = {
 		<!-- Components -->
 		<section class="mx-auto space-y-8 text-center">
 			<div>
-				<h2 class="h2">Adaptive Components</h2>
-				<p>Explore our rich library of components that directly integrate the design system.</p>
+				<h2 class="h2">Components</h2>
+				<p>Skeleton provides two categories of components.</p>
 			</div>
-			<a href="/docs/components/accordion/react" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
-				<span>Explore Components</span>
-				<IconChevron className="size-4" />
-			</a>
+			<section class="card border border-surface-200-800 p-10 grid grid-cols-1 xl:grid-cols-[1fr_auto_1fr] gap-4">
+				<!-- Tailwind -->
+				<div class="mx-auto space-y-8 text-center">
+					<div>
+						<h3 class="h4">Tailwind</h3>
+						<p>Common visual interfaces, such as buttons, that use Tailwind utility classes.</p>
+					</div>
+					<a href="/docs/tailwind/badges" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
+						<span>Explore Components</span>
+						<IconChevron className="size-4" />
+					</a>
+				</div>
+				<!-- Divider -->
+				<div class="hidden xl:vr"></div>
+				<!-- Framework -->
+				<div class="mx-auto space-y-8 text-center">
+					<div>
+						<h3 class="h4">Framework-Specific</h3>
+						<p>Functional components that directly integrate the design system.</p>
+					</div>
+					<a href="/docs/components/accordion/react" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
+						<span>Explore Components</span>
+						<IconChevron className="size-4" />
+					</a>
+				</div>
+			</section>
 		</section>
 
 		<!-- Social -->
-		<section class="mx-auto space-y-8 text-center">
+		<!-- <section class="mx-auto space-y-8 text-center">
 			<div>
 				<h2 class="h2">Stay In Touch</h2>
 				<p>Reach out and connect on these social network platforms.</p>
@@ -103,7 +125,7 @@ const layoutProps = {
 					))
 				}
 			</nav>
-		</section>
+		</section> -->
 	</main>
 
 	<!-- Footer -->
