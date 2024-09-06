@@ -1,0 +1,124 @@
+---
+import { Icon } from 'astro-icon/components';
+// Components
+import LayoutRoot from '@layouts/LayoutRoot.astro';
+import Header from '@components/docs/Header.astro';
+import Footer from '@components/docs/Footer.astro';
+
+const layoutProps = {
+	classList: 'grid grid-rows-[auto_1fr_auto] gap-10'
+};
+
+// Bluesky News Feed
+// https://docs.bsky.app/docs/api/app-bsky-feed-get-author-feed
+
+interface BlueskyPost {
+	post: {
+		record: {
+			createdAt: string;
+			text: string;
+		};
+		embed: {
+			$type: string;
+			images: {
+				thumb: string;
+				alt: string;
+			}[];
+			external: {
+				uri: string;
+				title: string;
+				thumb: string;
+			};
+		};
+	};
+}
+
+const queryParms = new URLSearchParams({
+	actor: 'skeletonlabs.bsky.social',
+	limit: '10',
+	filter: 'posts_no_replies'
+});
+const response = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?${queryParms}`, {
+	method: 'GET',
+	headers: { Accept: 'application/json' }
+});
+const timeline = await response.json();
+
+// Post Text Formatter
+function postTextFormatter(text: string) {
+	// Link text is truncated, we need to prune them here.
+	text = text.replaceAll('github.com/skeletonlabs...', '');
+	return text;
+}
+
+// Date Formatter
+function dateFormatter(date: string) {
+	return new Date(date).toLocaleDateString();
+}
+---
+
+<LayoutRoot {...layoutProps}>
+	<!-- Header -->
+	<Header />
+	<!-- Main -->
+	<main class="max-w-3xl mx-auto space-y-10 px-4">
+		<h2 class="h2">Latest News</h2>
+		<div class="space-y-4">
+			{
+				timeline.feed.map((item: BlueskyPost) => {
+					return (
+						<article class="card preset-outlined-surface-200-800 p-10 space-y-4">
+							<header class="flex justify-between items-center">
+								{/* Avatar */}
+								<img
+									class="w-10 rounded-full overflow-hidden"
+									src="https://cdn.bsky.app/img/avatar_thumbnail/plain/did:plc:whtgi5zx7ylmdw2i76vq7vq4/bafkreicyyaq6y2iqhow3vknjyvenqqpxoxls63miv5traflivi44kkp4gq@jpeg"
+								/>
+								{/* Timestamp */}
+								<small class="opacity-60">{dateFormatter(item.post.record.createdAt)}</small>
+							</header>
+							{/* Post */}
+							<p class="type-scale-4">{postTextFormatter(item.post.record.text)}</p>
+							{/* Embeds */}
+							<footer>
+								{/* Embed: GitHub */}
+								{item.post.embed.$type.includes('external') && (
+									<a class="block" href={item.post.embed.external.uri} target="_blank">
+										{item.post.embed.external.thumb ? (
+											<img
+												class="bg-surface-500/10 hover:bg-surface-500 p-0.5 rounded-container overflow-hidden shadow"
+												src={item.post.embed.external.thumb}
+											/>
+										) : (
+											<div class="card preset-outlined-surface-200-800 hover:preset-tonal p-4">{item.post.embed.external.title}</div>
+										)}
+									</a>
+								)}
+								{/* Embed: Images */}
+								{item.post.embed.$type.includes('images') &&
+									item.post.embed.images.map((image) => {
+										return <img class="bg-surface-500/10 p-1 rounded-container overflow-hidden shadow" src={image.thumb} />;
+									})}
+							</footer>
+						</article>
+					);
+				})
+			}
+		</div>
+		<div class="flex justify-end">
+			<a
+				class="btn preset-outlined-surface-200-800 hover:preset-tonal"
+				href="https://bsky.app/profile/skeletonlabs.bsky.social"
+				target="_blank"
+			>
+				<Icon name="bluesky" size={16} />
+				<span>View more on Bluesky</span>
+				<span>&rarr;</span>
+			</a>
+		</div>
+		<!-- Debugging -->
+		<!-- <pre class="pre">{JSON.stringify(timeline.feed, null, 2)}</pre> -->
+	</main>
+	<!-- Footer -->
+	<Footer />
+</LayoutRoot>
