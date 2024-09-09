@@ -1,8 +1,11 @@
-import { FileUpload } from '$lib/components/FileUpload/FileUpload.js';
+import { FileUpload, type FileUploadApi } from '$lib/index';
 
 import { ImagePlus as IconDropzone, Paperclip as IconFile, Upload as IconUpload, XCircle as IconRemove } from 'lucide-react';
 
 export function Component() {
+	// Local
+	let apiRef: FileUploadApi;
+
 	return (
 		<div className="space-y-10">
 			<header>
@@ -41,6 +44,19 @@ export function Component() {
 				<FileUpload name="example" disabled>
 					<button className="btn preset-filled">Disabled</button>
 				</FileUpload>
+			</section>
+			<section className="space-y-4">
+				<h2 className="h2">API Binding</h2>
+				<FileUpload name="example" accept="image/*" maxFiles={2} internalApi={(api) => (apiRef = api)} />
+				<button
+					type="button"
+					className="btn preset-filled"
+					onClick={() => {
+						apiRef.clearFiles();
+					}}
+				>
+					Clear Files
+				</button>
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">RTL</h2>
