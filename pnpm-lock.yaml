@@ -6,45 +6,6 @@ settings:
 
 catalogs:
   default:
-    '@zag-js/accordion':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/avatar':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/file-upload':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/pagination':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/progress':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/radio-group':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/rating-group':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/react':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/slider':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/svelte':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/switch':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/tabs':
-      specifier: ^0.65.1
-      version: 0.65.1
-    '@zag-js/tags-input':
-      specifier: ^0.65.1
-      version: 0.65.1
     typescript:
       specifier: ^5.5.4
       version: 5.5.4
@@ -460,6 +421,9 @@ importers:
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
+      add:
+        specifier: ^2.0.6
+        version: 2.0.6
       astro:
         specifier: ^4.12.2
         version: 4.12.2(@types/node@20.14.11)(sass@1.74.1)(typescript@5.5.4)
@@ -495,7 +459,7 @@ importers:
         version: 5.0.0-next.210
       svelte-check:
         specifier: ^3.8.4
-        version: 3.8.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2))(postcss@8.4.41)(sass@1.74.1)(svelte@5.0.0-next.210)
+        version: 3.8.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.2))(postcss@8.4.39)(sass@1.74.1)(svelte@5.0.0-next.210)
       tailwindcss:
         specifier: ^3.4.6
         version: 3.4.6(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.4))
@@ -2542,6 +2506,9 @@ packages:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  add@2.0.6:
+    resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
 
   agent-base@7.1.1:
     resolution: {integrity: sha512-H0TSyFNDMomMNJQBn8wFV5YC/2eJ+VXECwOadZJT554xP6cODZHPX3H9QMQECxvrgiSOP1pHjy1sMWQVYJOUOA==}
@@ -5389,11 +5356,6 @@ packages:
   prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
-    hasBin: true
-
-  prettier@3.2.5:
-    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
-    engines: {node: '>=14'}
     hasBin: true
 
   prettier@3.3.2:
@@ -9186,6 +9148,8 @@ snapshots:
 
   acorn@8.12.1: {}
 
+  add@2.0.6: {}
+
   agent-base@7.1.1:
     dependencies:
       debug: 4.3.5
@@ -12693,16 +12657,6 @@ snapshots:
       postcss: 8.4.39
       tsx: 4.16.2
 
-  postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2):
-    dependencies:
-      lilconfig: 3.1.2
-      yaml: 2.4.5
-    optionalDependencies:
-      jiti: 1.21.6
-      postcss: 8.4.41
-      tsx: 4.16.2
-    optional: true
-
   postcss-nested@6.0.1(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
@@ -12789,7 +12743,7 @@ snapshots:
   prettier-plugin-astro@0.13.0:
     dependencies:
       '@astrojs/compiler': 1.8.2
-      prettier: 3.2.5
+      prettier: 3.3.2
       sass-formatter: 0.7.9
 
   prettier-plugin-svelte@3.2.4(prettier@3.3.2)(svelte@5.0.0-next.210):
@@ -12805,8 +12759,6 @@ snapshots:
       prettier-plugin-svelte: 3.2.4(prettier@3.3.2)(svelte@5.0.0-next.210)
 
   prettier@2.8.8: {}
-
-  prettier@3.2.5: {}
 
   prettier@3.3.2: {}
 
@@ -13634,14 +13586,14 @@ snapshots:
       - stylus
       - sugarss
 
-  svelte-check@3.8.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2))(postcss@8.4.41)(sass@1.74.1)(svelte@5.0.0-next.210):
+  svelte-check@3.8.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.2))(postcss@8.4.39)(sass@1.74.1)(svelte@5.0.0-next.210):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 3.6.0
       picocolors: 1.0.1
       sade: 1.8.1
       svelte: 5.0.0-next.210
-      svelte-preprocess: 5.1.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2))(postcss@8.4.41)(sass@1.74.1)(svelte@5.0.0-next.210)(typescript@5.5.4)
+      svelte-preprocess: 5.1.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.2))(postcss@8.4.39)(sass@1.74.1)(svelte@5.0.0-next.210)(typescript@5.5.4)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@babel/core'
@@ -13706,7 +13658,7 @@ snapshots:
       sass: 1.74.1
       typescript: 5.5.4
 
-  svelte-preprocess@5.1.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2))(postcss@8.4.41)(sass@1.74.1)(svelte@5.0.0-next.210)(typescript@5.5.4):
+  svelte-preprocess@5.1.4(@babel/core@7.24.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.2))(postcss@8.4.39)(sass@1.74.1)(svelte@5.0.0-next.210)(typescript@5.5.4):
     dependencies:
       '@types/pug': 2.0.10
       detect-indent: 6.1.0
@@ -13716,8 +13668,8 @@ snapshots:
       svelte: 5.0.0-next.210
     optionalDependencies:
       '@babel/core': 7.24.9
-      postcss: 8.4.41
-      postcss-load-config: 5.1.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.2)
+      postcss: 8.4.39
+      postcss-load-config: 5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.2)
       sass: 1.74.1
       typescript: 5.5.4
 

@@ -31,6 +31,7 @@
 		"@skeletonlabs/skeleton-react": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@types/react": "^18.3.3",
+		"add": "^2.0.6",
 		"astro": "^4.12.2",
 		"astro-auto-import": "^0.4.2",
 		"astro-expressive-code": "^0.33.5",
