@@ -14,6 +14,8 @@ import { Page as ExampleDisabled } from '@examples/components/file-upload/Exampl
 import ExampleDisabledRaw from '@examples/components/file-upload/ExampleDisabled.tsx?raw';
 import { Page as ExampleRtl } from '@examples/components/file-upload/ExampleRtl.tsx';
 import ExampleRtlRaw from '@examples/components/file-upload/ExampleRtl.tsx?raw';
+import { Page as ExampleApiBind } from '@examples/components/file-upload/ExampleApiBind.tsx';
+import ExampleApiBindRaw from '@examples/components/file-upload/ExampleApiBind.tsx?raw';
 
 import { FileUploadSchema } from '@skeletonlabs/skeleton-react/schemas';
 
@@ -56,6 +58,19 @@ Use the `children` node to overwrite the default dropzone interface. Allow for a
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleDisabledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Bind to API
+
+You can optionally bind to the internal [Zag component API](https://zagjs.com/components/react/file-upload#machine-api) to access additional methods such as `clearFiles()`.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleApiBind client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleApiBindRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
