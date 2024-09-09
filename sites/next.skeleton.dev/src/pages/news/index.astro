@@ -14,6 +14,7 @@ const layoutProps = {
 
 interface BlueskyPost {
 	post: {
+		uri: string;
 		record: {
 			createdAt: string;
 			text: string;
@@ -62,12 +63,22 @@ function dateFormatter(date: string) {
 	<Header />
 	<!-- Main -->
 	<main class="max-w-3xl mx-auto space-y-10 px-4">
-		<h2 class="h2">Latest News</h2>
+		<header class="flex justify-between items-center">
+			<h2 class="h2">Latest News</h2>
+			<a
+				class="btn preset-outlined-surface-200-800 hover:preset-tonal"
+				href="https://bsky.app/profile/skeletonlabs.bsky.social"
+				target="_blank"
+			>
+				<Icon name="bluesky" size={16} />
+				<span>Feed</span>
+			</a>
+		</header>
 		<div class="space-y-4">
 			{
 				timeline.feed.map((item: BlueskyPost) => {
 					return (
-						<article class="card preset-outlined-surface-200-800 p-10 space-y-4">
+						<article class="card preset-outlined-surface-200-800 p-4 xl:p-10 space-y-4">
 							<header class="flex justify-between items-center">
 								{/* Avatar */}
 								<img
@@ -78,9 +89,9 @@ function dateFormatter(date: string) {
 								<small class="opacity-60">{dateFormatter(item.post.record.createdAt)}</small>
 							</header>
 							{/* Post */}
-							<p class="type-scale-4">{postTextFormatter(item.post.record.text)}</p>
+							<p class="xl:type-scale-4">{postTextFormatter(item.post.record.text)}</p>
 							{/* Embeds */}
-							<footer>
+							<footer class="space-y-4">
 								{/* Embed: GitHub */}
 								{item.post.embed.$type.includes('external') && (
 									<a class="block" href={item.post.embed.external.uri} target="_blank">
@@ -90,7 +101,9 @@ function dateFormatter(date: string) {
 												src={item.post.embed.external.thumb}
 											/>
 										) : (
-											<div class="card preset-outlined-surface-200-800 hover:preset-tonal p-4">{item.post.embed.external.title}</div>
+											<div class="card preset-outlined-surface-200-800 hover:preset-tonal p-4 text-surface-800-200">
+												{item.post.embed.external.title}
+											</div>
 										)}
 									</a>
 								)}
@@ -105,14 +118,9 @@ function dateFormatter(date: string) {
 				})
 			}
 		</div>
-		<div class="flex justify-end">
-			<a
-				class="btn preset-outlined-surface-200-800 hover:preset-tonal"
-				href="https://bsky.app/profile/skeletonlabs.bsky.social"
-				target="_blank"
-			>
-				<Icon name="bluesky" size={16} />
-				<span>View more on Bluesky</span>
+		<div class="flex justify-center">
+			<a class="btn preset-filled" href="https://bsky.app/profile/skeletonlabs.bsky.social" target="_blank">
+				<span>View More</span>
 				<span>&rarr;</span>
 			</a>
 		</div>
