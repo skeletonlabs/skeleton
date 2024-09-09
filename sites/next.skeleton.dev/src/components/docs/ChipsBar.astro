@@ -1,5 +1,5 @@
 ---
-import { Code as IconCode, BookOpen, PersonStanding } from 'lucide-react';
+import { Code as IconCode, BookOpen as IconBook, PersonStanding as IconA11y, Blocks as IconZap } from 'lucide-react';
 
 // Props
 const { frontmatter, urls } = Astro.props;
@@ -37,7 +37,7 @@ const { frontmatter, urls } = Astro.props;
 				href={urls.githubDocsUrl + Astro.url.pathname.replace(/\/$/, '') + '.mdx'}
 				target="_blank"
 			>
-				<BookOpen size={16} />
+				<IconBook size={16} />
 				<span>Doc</span>
 			</a>
 		)
@@ -45,10 +45,17 @@ const { frontmatter, urls } = Astro.props;
 	{
 		frontmatter.srcAlly && (
 			<a class="chip preset-filled-surface-200-800" href={frontmatter.srcAlly} target="_blank">
-				<PersonStanding size={16} />
+				<IconA11y size={16} />
 				<span>A11y</span>
 			</a>
 		)
 	}
-	<!-- <button class="chip preset-filled-surface-200-800">Foobar</button> -->
+	{
+		frontmatter.srcZag && (
+			<a class="chip preset-filled-surface-200-800" href={frontmatter.srcZag} target="_blank">
+				<IconZap size={16} />
+				<span>API</span>
+			</a>
+		)
+	}
 </div>

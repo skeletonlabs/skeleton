@@ -3,7 +3,6 @@ layout: '@layouts/LayoutDoc.astro'
 title: Colors
 description: The Skeleton color system.
 srcCore: '/plugin/extends/colors.ts'
-showDocsUrl: true
 order: 10
 ---
 
@@ -30,7 +29,7 @@ Available to all supported properties via `.{property}-{color}-{shade}`
 		{/* <Code code={ExampleColorsRaw} lang="astro" /> */}
 		```html
 		<div class="bg-primary-500">Background Primary 500</div>
-		<div class="border-primary-600 border">Border Secondary 600</div>
+		<div class="border border-secondary-600">Border Secondary 600</div>
 		<svg class="fill-surface-950">Fill Surface 950</svg>
 		```
 	</Fragment>
@@ -38,7 +37,7 @@ Available to all supported properties via `.{property}-{color}-{shade}`
 
 ## Pairings
 
-Available to all supported properties via `.{property}-{color}-{baseShade}-{darkShade}`
+Available to all supported properties via `.{property}-{color}-{lightModeShade}-{darkModeShade}`
 
 <Preview client:load>
 	<Fragment slot="preview">

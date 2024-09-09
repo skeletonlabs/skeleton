@@ -29,19 +29,20 @@
 		<div class="space-y-8">
 			<span class="font-bold">Components</span>
 			<nav class="type-scale-2 flex flex-col gap-2">
-				<!-- <a class="anchor" href="/components/test">Test</a> -->
 				<a class="anchor" href="/components/accordions">Accordions</a>
-				<a class="anchor" href="/components/avatars">Avatars</a>
 				<a class="anchor" href="/components/app-bars">App Bars</a>
+				<a class="anchor" href="/components/avatars">Avatars</a>
 				<a class="anchor" href="/components/file-upload">File Upload</a>
 				<a class="anchor" href="/components/navigation">Navigation</a>
-				<a class="anchor" href="/components/ratings">Ratings</a>
+				<a class="anchor" href="/components/pagination">Pagination</a>
 				<a class="anchor" href="/components/progress">Progress</a>
 				<a class="anchor" href="/components/progress-rings">Progress Rings</a>
+				<a class="anchor" href="/components/ratings">Ratings</a>
 				<a class="anchor" href="/components/segment-control">Segment Control</a>
 				<a class="anchor" href="/components/slider">Slider</a>
 				<a class="anchor" href="/components/switch">Switch</a>
 				<a class="anchor" href="/components/tabs">Tabs</a>
+				<a class="anchor" href="/components/tags-input">Tags Input</a>
 			</nav>
 		</div>
 	</div>

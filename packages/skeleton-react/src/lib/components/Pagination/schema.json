@@ -1,0 +1,323 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"definitions": {
+		"IntlTranslations": {
+			"properties": {
+				"nextTriggerLabel": {
+					"type": "string"
+				},
+				"prevTriggerLabel": {
+					"type": "string"
+				},
+				"rootLabel": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["rootLabel", "prevTriggerLabel", "nextTriggerLabel", "itemLabel"],
+			"type": "object"
+		},
+		"Iterable<React.ReactNode>": {
+			"propertyOrder": ["__@iterator@83"],
+			"type": "object"
+		},
+		"PaginationProps": {
+			"properties": {
+				"alternative": {
+					"type": "boolean"
+				},
+				"background": {
+					"description": "Sets background classes for the list.",
+					"type": "string"
+				},
+				"base": {
+					"description": "Sets base classes for the list.",
+					"type": "string"
+				},
+				"border": {
+					"description": "Sets border classes for the list.",
+					"type": "string"
+				},
+				"buttonActive": {
+					"description": "Sets active state classes for buttons.",
+					"type": "string"
+				},
+				"buttonBase": {
+					"description": "Sets base classes for buttons.",
+					"type": "string"
+				},
+				"buttonClasses": {
+					"description": "Provide arbitrary CSS classes for buttons.",
+					"type": "string"
+				},
+				"buttonHover": {
+					"description": "Sets hover state classes for buttons.",
+					"type": "string"
+				},
+				"buttonInactive": {
+					"description": "Sets inactive state classes for buttons.",
+					"type": "string"
+				},
+				"classes": {
+					"description": "Provide arbitrary CSS classes for the root.",
+					"type": "string"
+				},
+				"count": {
+					"description": "Total number of data items",
+					"type": "number"
+				},
+				"data": {
+					"items": {},
+					"type": "array"
+				},
+				"dir": {
+					"default": "ltr",
+					"description": "The document's text/writing direction.",
+					"enum": ["ltr", "rtl"],
+					"type": "string"
+				},
+				"gap": {
+					"description": "Sets gap classes for the list.",
+					"type": "string"
+				},
+				"getRootNode": {
+					"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"ids": {
+					"$ref": "#/definitions/Partial<{root:string;ellipsis(index:number):string;prevTrigger:string;nextTrigger:string;item(page:number):string;}>",
+					"description": "The ids of the elements in the accordion. Useful for composition."
+				},
+				"labelEllipsis": {
+					"$ref": "#/definitions/React.ReactNode",
+					"description": "Set button icon or label for ellipsis."
+				},
+				"labelFirst": {
+					"$ref": "#/definitions/React.ReactNode",
+					"description": "Set button icon or label for first button."
+				},
+				"labelLast": {
+					"$ref": "#/definitions/React.ReactNode",
+					"description": "Set button icon or label for last button."
+				},
+				"labelNext": {
+					"$ref": "#/definitions/React.ReactNode",
+					"description": "Set button icon or label for next button."
+				},
+				"labelPrevious": {
+					"$ref": "#/definitions/React.ReactNode",
+					"description": "Set button icon or label for previous button."
+				},
+				"onPageChange": {
+					"description": "Called when the page number is changed",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"onPageSizeChange": {
+					"description": "Called when the page size is changed",
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"padding": {
+					"description": "Sets padding classes for the list.",
+					"type": "string"
+				},
+				"page": {
+					"default": 1,
+					"description": "The active page",
+					"type": "number"
+				},
+				"pageSize": {
+					"default": 10,
+					"description": "Number of data items per page",
+					"type": "number"
+				},
+				"rounded": {
+					"description": "Sets border radius classes for the list.",
+					"type": "string"
+				},
+				"siblingCount": {
+					"default": 1,
+					"description": "Number of pages to show beside active page",
+					"type": "number"
+				},
+				"textSeparator": {
+					"description": "Set the separator text or character, such as \"of\" in \"X of Y\".",
+					"type": "string"
+				},
+				"titleFirst": {
+					"description": "Set an optional title for the first button.",
+					"type": "string"
+				},
+				"titleLast": {
+					"description": "Set an optional title for the last button.",
+					"type": "string"
+				},
+				"titleNext": {
+					"description": "Set an optional title for the next button.",
+					"type": "string"
+				},
+				"titleNumeral": {
+					"description": "Set an optional title for the numeral buttons (ex: Page 1).",
+					"type": "string"
+				},
+				"titlePrevious": {
+					"description": "Set an optional title for the previous button.",
+					"type": "string"
+				},
+				"translations": {
+					"$ref": "#/definitions/IntlTranslations",
+					"description": "Specifies the localized strings that identifies the accessibility elements and their states"
+				},
+				"type": {
+					"default": "button",
+					"description": "The type of the trigger element",
+					"enum": ["button", "link"],
+					"type": "string"
+				}
+			},
+			"propertyOrder": [
+				"data",
+				"alternative",
+				"textSeparator",
+				"titleFirst",
+				"titlePrevious",
+				"titleNumeral",
+				"titleNext",
+				"titleLast",
+				"base",
+				"background",
+				"border",
+				"gap",
+				"padding",
+				"rounded",
+				"classes",
+				"buttonBase",
+				"buttonActive",
+				"buttonInactive",
+				"buttonHover",
+				"buttonClasses",
+				"labelFirst",
+				"labelPrevious",
+				"labelEllipsis",
+				"labelNext",
+				"labelLast",
+				"type",
+				"page",
+				"dir",
+				"getRootNode",
+				"ids",
+				"translations",
+				"count",
+				"pageSize",
+				"siblingCount",
+				"onPageChange",
+				"onPageSizeChange"
+			],
+			"required": ["count", "data"],
+			"type": "object"
+		},
+		"Partial<{root:string;ellipsis(index:number):string;prevTrigger:string;nextTrigger:string;item(page:number):string;}>": {
+			"properties": {
+				"ellipsis": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"item": {
+					"propertyOrder": [],
+					"type": "object"
+				},
+				"nextTrigger": {
+					"type": "string"
+				},
+				"prevTrigger": {
+					"type": "string"
+				},
+				"root": {
+					"type": "string"
+				}
+			},
+			"propertyOrder": ["root", "ellipsis", "prevTrigger", "nextTrigger", "item"],
+			"type": "object"
+		},
+		"React.ReactElement<any,string|React.JSXElementConstructor<any>>": {
+			"description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+			"properties": {
+				"key": {
+					"type": "string"
+				},
+				"props": {
+					"description": "The type of the props object"
+				},
+				"type": {
+					"anyOf": [
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"type": "string"
+						}
+					],
+					"description": "The type of the component or tag"
+				}
+			},
+			"propertyOrder": ["type", "props", "key"],
+			"required": ["key", "props", "type"],
+			"type": "object"
+		},
+		"React.ReactNode": {
+			"anyOf": [
+				{
+					"$ref": "#/definitions/React.ReactElement<any,string|React.JSXElementConstructor<any>>"
+				},
+				{
+					"$ref": "#/definitions/Iterable<React.ReactNode>"
+				},
+				{
+					"$ref": "#/definitions/React.ReactPortal"
+				},
+				{
+					"type": ["string", "number", "boolean"]
+				}
+			],
+			"description": "Represents all of the things React can render.\n\nWhere {@link ReactElement} only represents JSX, `ReactNode` represents everything that can be rendered."
+		},
+		"React.ReactPortal": {
+			"properties": {
+				"children": {
+					"$ref": "#/definitions/React.ReactNode"
+				},
+				"key": {
+					"type": "string"
+				},
+				"props": {
+					"description": "The type of the props object"
+				},
+				"type": {
+					"anyOf": [
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"propertyOrder": [],
+							"type": "object"
+						},
+						{
+							"type": "string"
+						}
+					],
+					"description": "The type of the component or tag"
+				}
+			},
+			"propertyOrder": ["children", "type", "props", "key"],
+			"required": ["children", "key", "props", "type"],
+			"type": "object"
+		}
+	}
+}

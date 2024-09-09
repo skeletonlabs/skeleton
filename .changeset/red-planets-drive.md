@@ -3,4 +3,4 @@
 "@skeletonlabs/skeleton-react": minor
 ---
 
-Added the Slider component
+feature: Added the Slider component
