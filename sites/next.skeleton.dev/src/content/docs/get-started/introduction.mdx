@@ -1,15 +1,11 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: Introduction
-description: Skeleton is an open source UI toolkit that provides a full design system, robust theme system, and customizable components for your favorite UI frameworks.
+description: Skeleton integrates with Tailwind to provide opinionated solutions for themes, colors, typography and more. Including easy to use components for your favorite web frameworks.
 order: 0
 ---
 
 export const components = componentSet;
-
-{/* prettier-ignore */}
-<p class="type-scale-5">Skeleton goes well beyond your typical component library - enabling you to design, theme, and implement complex web
-	interfaces at scale. Enabling both new or experience developers, while using familiar Tailwind concepts and modern component paradigms.</p>
 
 <iframe
 	class="rounded-container aspect-video w-full overflow-hidden"
@@ -22,27 +18,23 @@ export const components = componentSet;
 
 ## Why Skeleton?
 
-At the core, Skeleton provides a number of small building blocks that standarizes the look and feel of your products and user experiences. This offers a uniform design language and a structured framework that supports you and your team. A well produced design system can greatly reduce the amount of time spent recreating elements and redefining patterns while building products and user interfaces at scale.
+At the core, Skeleton provides a uniform design language and a structured framework for controlling the look and feel of your product and user experience. A well produced design system can greatly reduce the amount of time spent recreating elements and redefining patterns while building products and user interfaces at scale.
+
+### Theme System
+
+Skeleton fully embraces [Tailwind](https://tailwindcss.com/), while extending its capabilities in really meaningful ways. Providing best in class support for themes, colors, typography, spacing, and more. Including a fully curated set of themes out of the box, as well as a powerful [theme generator](https://themes.skeleton.dev/) for creating your own unique themes on demand.
+
+### Framework Agnostic
+
+Skeleton's core package is framework agnostic, requiring only a single dependency - Tailwind. This gives you full access to the design system, themes, and more for nearly any web-based application.
+
+### Components
+
+Skeleton's components utilize [Zag.js](https://zagjs.com/) as their foundation, which provides a collection of framework-agnostic UI component patterns component to manage logic and state. While the interface fully adapts to your to the Skeleton design system automatically. Currently supporting React and Svelte, with additional frameworks planned for the future.
 
 ### Figma UI Kit
 
 Skeleton provides access to a fully featured [Figma UI Kit](/docs/get-started/figma) to assist designers in drafting a visual concept of your upcoming projects.
-
-### Atomic Design
-
-Skeleton fully embraces the [Atomic Design Methodology](https://atomicdesign.bradfrost.com/chapter-2/) from the ground up. Making heaving use of [Tailwind](https://tailwindcss.com/), while extending its capabilities in really meaningful ways. This includes only themes but comprehensive systems for colors, typography, spacing, and more. Embracing
-
-### Theme System
-
-Skeleton provides best in class support for themes and styling, including a full set of fully curated themes out of the box, as well as a powerful [theme generator](https://themes.skeleton.dev/) for creating custom themes that adapt to your brand's unique aesthetic.
-
-### Framework Agnostic
-
-Skeleton's modular structure allows for some of the best features to remain framework agnostic, requiring only a single dependency - Tailwind. This gives you full access to the design system, themes, and more for nearly any web-based application.
-
-### Components
-
-Skeleton also provides powerful UI components that full adapt to your to the Skeleton design system, while bringing complex functionality and state management. We currently provide support for React and Svelte, with more frameworks coming in the future.
 
 ---
 

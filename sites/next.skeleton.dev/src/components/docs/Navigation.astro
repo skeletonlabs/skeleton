@@ -35,12 +35,20 @@ const cComponents = await getCollection('docs', (entry) => {
 	return entry;
 });
 
+// Query the Integrations section
+const cIntegrations = await getCollection('docs', (entry) => {
+	if (!entry.id.startsWith('integrations/')) return;
+	if (!entry.id.endsWith('meta.mdx')) return;
+	return entry;
+});
+
 // Set the Label and Link List for each navigation section
 const navigation = {
 	'get-started': cGetStarted.sort(sortByOrder),
 	design: cDesign.sort(sortByOrder),
 	tailwind: cTailwind.sort(sortByOrder),
 	components: cComponents,
+	integrations: cIntegrations,
 	resources: cResources.sort(sortByOrder)
 };
 ---

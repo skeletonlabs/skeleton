@@ -38,7 +38,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     <ProcessStep step="4">
         ## Configure Tailwind
         Open `tailwind.config` in the root of your project and make these changes:
-        ```js {3-5, 13, 19-21}
+        ```js title="tailwind.config" {3-5, 13, 19-21}
         import type { Config } from 'tailwindcss';
 
         import { join } from "path";
@@ -67,7 +67,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     <ProcessStep step="5">
         ## Set Active Theme
         Open `/src/app/layout.tsx`, then set the `data-theme` attribute to define the active theme.
-        ```html
+        ```html title="layout.tsx"
         <body data-theme="cerberus">...</body>
         ```
     </ProcessStep>

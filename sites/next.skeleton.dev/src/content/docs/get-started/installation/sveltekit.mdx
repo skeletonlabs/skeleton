@@ -52,7 +52,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         npm i --save-dev @types/node
         ```
         Open `tailwind.config` in the root of your project and make these changes:
-        ```js {3-5, 11, 17-19}
+        ```js title="tailwind.config" {3-5, 11, 17-19}
         import type { Config } from 'tailwindcss';
 
         import { join } from 'path';
@@ -78,8 +78,8 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="5">
         ## Set Active Theme
-        Open `app.html`, then set the `data-theme` attribute on the body to define the active theme.
-        ```html
+        Open `/src/app.html`, then set the `data-theme` attribute on the body to define the active theme.
+        ```html title="app.html"
         <body data-theme="cerberus">...</body>
         ```
     </ProcessStep>
