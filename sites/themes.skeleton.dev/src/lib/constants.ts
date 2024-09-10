@@ -14,7 +14,8 @@ export const displayBackgrounds: Record<string, string> = {
 	'surface-inverted': 'preset-filled-surface-50-950'
 };
 
-// Colors
+// Colors ---
+
 export const colorNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'] as const;
 export const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 
@@ -29,7 +30,9 @@ export type ColorSettings = {
 	/** the index in the array of shades */
 	breakpoint: number;
 };
-// Typographic Scales
+
+// Typographic Scales ---
+
 export const typographicScales = [
 	{ value: '1.0', label: 'Base' },
 	{ value: '1.067', label: 'Minor Second' },
@@ -41,6 +44,9 @@ export const typographicScales = [
 	{ value: '1.5', label: 'Perfect Fifth' },
 	{ value: '1.618', label: 'Golden Ratio' }
 ] as const;
+
+// Fonts ---
+
 export const fontFamilies: Record<string, string[]> = {
 	inherit: ['inherit'],
 	// Source: https://github.com/system-fonts/modern-font-stacks
@@ -71,6 +77,7 @@ export const fontFamilies: Record<string, string[]> = {
 	didone: ['Didot', 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', 'P052', 'Sylfaen', 'serif'],
 	handwritten: ['Segoe Print', 'Bradley Hand', 'Chilanka', 'TSCu_Comic', 'casual', 'cursive']
 } as const;
+
 export const fontSizes = [
 	'inherit',
 	'12px', // '0.75rem',
@@ -80,6 +87,7 @@ export const fontSizes = [
 	'20px', // '1.25rem',
 	'24px' // '1.5rem'
 ] as const;
+
 export const lineHeights = [
 	'inherit',
 	'16px', // '1rem',
@@ -89,6 +97,7 @@ export const lineHeights = [
 	'32px', // '2rem',
 	'36px' // '2.25rem,
 ] as const;
+
 export const fontWeights = [
 	'inherit',
 	'normal',
@@ -105,11 +114,13 @@ export const fontWeights = [
 	'800',
 	'900'
 ] as const;
+
 export const fontStyles = ['inherit', 'normal', 'italic'];
 export const letterSpacings = ['inherit', '-0.05em', '-0.025em', '0em', '0.025em', '0.05em', '0.01em'];
 export const textDecorations = ['none', 'underline', 'overline', 'line-through'];
 
-// Edges
+// Edges ---
+
 export const radii = [
 	'0px',
 	'2px', // '0.125rem',
@@ -123,7 +134,8 @@ export const radii = [
 ] as const;
 export const edges = ['0px', '1px', '2px', '4px', '8px'] as const;
 
-// Theme Generation
+// Theme Generation ---
+
 export const themeStatic = {
 	typeScale: {
 		'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))', // 12px

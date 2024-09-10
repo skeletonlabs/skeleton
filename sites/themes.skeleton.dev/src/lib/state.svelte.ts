@@ -1,8 +1,6 @@
-// Global State ---
-// DesignMode
 import type { ColorNames, ColorSettings } from './constants';
 
-// Design
+// Global State ---
 
 export const stateDisplay: Record<string, string> = $state({
 	border: 'surface',
@@ -16,6 +14,7 @@ export const stateFormCore: Record<string, string> = $state({
 });
 
 // Form: Colors ---
+
 export const stateFormColors: Record<ColorNames, ColorSettings> = $state({
 	primary: {
 		seeds: ['#d3e5ff', '#0170f3', '#092750'],
