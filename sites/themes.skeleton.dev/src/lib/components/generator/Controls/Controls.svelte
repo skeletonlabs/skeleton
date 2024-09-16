@@ -32,7 +32,7 @@
 					<span class="h4">Colors</span>
 				{/snippet}
 				{#snippet panel()}
-					<p>(pane-colors)</p>
+					<pre class="pre !bg-black">(pane-colors)</pre>
 				{/snippet}
 			</Accordion.Item>
 			<Accordion.Item value="typography" controlHover="hover:preset-tonal">
@@ -43,7 +43,7 @@
 					<span class="h4">Typography</span>
 				{/snippet}
 				{#snippet panel()}
-					<p>(pane-typography)</p>
+					<pre class="pre !bg-black">(pane-typography)</pre>
 				{/snippet}
 			</Accordion.Item>
 			<Accordion.Item value="spacing" controlHover="hover:preset-tonal">
@@ -71,7 +71,7 @@
 					<span class="h4">Edges</span>
 				{/snippet}
 				{#snippet panel()}
-					<p>(pane-edges)</p>
+					<pre class="pre !bg-black">(pane-edges)</pre>
 				{/snippet}
 			</Accordion.Item>
 		</Accordion>

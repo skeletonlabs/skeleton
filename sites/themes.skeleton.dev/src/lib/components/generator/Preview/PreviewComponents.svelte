@@ -7,40 +7,6 @@
 </script>
 
 <div class="space-y-10">
-	<!-- Header -->
-	<header class="grid grid-cols-[1fr_auto] items-center gap-4">
-		<div class="space-y-5">
-			<h1 class="h1 text-balance">Big Headline Here.</h1>
-			<p class="type-scale-5 opacity-60">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem recusandae neque est, aut nisi dolore quibusdam optio ex dicta
-				ipsam, tempore eum, pariatur non consequatur consectetur veritatis.
-			</p>
-			<nav class="flex gap-4">
-				<button type="button" class="btn btn-lg preset-filled-primary-500">Call to Action</button>
-				<button type="button" class="btn btn-lg preset-tonal">Secondary Action</button>
-			</nav>
-		</div>
-		<div>
-			<!-- https://picsum.photos/ -->
-			<img class="grayscale rounded-container overflow-hidden" src="https://picsum.photos/seed/picsum/320/320" alt="banner" />
-		</div>
-	</header>
-	<hr class="hr" />
-	<!-- App Bar -->
-	<AppBar toolbarClasses="items-center" classes="shadow">
-		{#snippet lead()}
-			<IconSkull size={32} />
-		{/snippet}
-		{#snippet trail()}
-			<nav class="flex items-center">
-				<button type="button" class="btn hover:preset-tonal">Services</button>
-				<button type="button" class="btn hover:preset-tonal">Prices</button>
-				<button type="button" class="btn hover:preset-tonal">Blog</button>
-				<button type="button" class="btn hover:preset-tonal">About</button>
-			</nav>
-			<button type="button" class="btn preset-filled-primary-500">Login</button>
-		{/snippet}
-	</AppBar>
 	<!-- Masonary -->
 	<div class="grid grid-cols-3 gap-10">
 		<!-- Column 1 -->
@@ -174,4 +140,37 @@
 			</div>
 		</div>
 	</div>
+	<!-- App Bar -->
+	<AppBar toolbarClasses="items-center" classes="shadow">
+		{#snippet lead()}
+			<IconSkull size={32} />
+		{/snippet}
+		{#snippet trail()}
+			<nav class="flex items-center">
+				<button type="button" class="btn hover:preset-tonal">Services</button>
+				<button type="button" class="btn hover:preset-tonal">Prices</button>
+				<button type="button" class="btn hover:preset-tonal">Blog</button>
+				<button type="button" class="btn hover:preset-tonal">About</button>
+			</nav>
+			<button type="button" class="btn preset-filled-primary-500">Login</button>
+		{/snippet}
+	</AppBar>
+	<!-- Header -->
+	<header class="grid grid-cols-[1fr_auto] items-center gap-4">
+		<div class="space-y-5">
+			<h1 class="h1 text-balance">Big Headline Here.</h1>
+			<p class="type-scale-5 opacity-60">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem recusandae neque est, aut nisi dolore quibusdam optio ex dicta
+				ipsam, tempore eum, pariatur non consequatur consectetur veritatis.
+			</p>
+			<nav class="flex gap-4">
+				<button type="button" class="btn btn-lg preset-filled-primary-500">Call to Action</button>
+				<button type="button" class="btn btn-lg preset-tonal">Secondary Action</button>
+			</nav>
+		</div>
+		<div>
+			<!-- https://picsum.photos/ -->
+			<img class="grayscale rounded-container overflow-hidden" src="https://picsum.photos/seed/picsum/320/320" alt="banner" />
+		</div>
+	</header>
 </div>
