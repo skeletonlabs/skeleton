@@ -15,6 +15,7 @@
 	"devDependencies": {
 		"@playwright/test": "^1.47.0",
 		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@sveltejs/adapter-auto": "^3.2.4",
 		"@sveltejs/kit": "^2.5.26",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",

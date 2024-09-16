@@ -1,26 +1,24 @@
 // import { skeleton } from '../../packages/skeleton/dist/plugin/index.cjs'
 // NOTE: do not delete the above comment. It's required for local HMR on plugin changes.
 
-import { skeleton } from '@skeletonlabs/skeleton/plugin';
 import forms from '@tailwindcss/forms';
+
+import { join } from 'path';
+import { skeleton } from '@skeletonlabs/skeleton/plugin';
+import * as themes from '@skeletonlabs/skeleton/themes';
 
 /** @type {import('tailwindcss').Config}*/
 const config = {
 	darkMode: 'class',
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton-svelte'), '../**/*.{html,js,svelte,ts}')],
 	theme: {
 		extend: {}
 	},
 	plugins: [
 		forms,
-		// NOTE: do not load a theme if you wish to have live previews
-		skeleton()
-		// To set a hardcoded theme, use the following:
-		// skeleton({
-		// 	themes: {
-		// 		preset: ['cerberus', 'catppuccin', 'cedar', 'rose'],
-		// 	},
-		// }),
+		skeleton({
+			themes: [themes.cerberus]
+		})
 	]
 };
 
