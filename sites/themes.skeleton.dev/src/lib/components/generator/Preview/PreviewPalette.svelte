@@ -1,4 +1,8 @@
 <script lang="ts">
+	// Icons
+	import IconCenter from 'lucide-svelte/icons/swatch-book';
+
+	// Data
 	export const palette = [
 		{
 			name: 'Primary',
@@ -125,7 +129,10 @@
 					<!-- Color Ramp -->
 					{#each color.ramp as shade}
 						<div class={`${shade.base} `}>
-							<span class="flex items-center justify-center py-3 font-bold {shade.contrast}" class:underline={shade.value === 500}>
+							<span
+								class="flex items-center justify-center py-2 font-bold type-scale-1 {shade.contrast}"
+								class:underline={shade.value === 500}
+							>
 								{shade.value}
 							</span>
 						</div>
@@ -137,55 +144,92 @@
 	<!-- Presets: Filled -->
 	<section class="space-y-5">
 		<h2 class="h4">Filled</h2>
-		<div class="grid w-full grid-cols-2 gap-4 lg:grid-cols-4">
-			<!-- Neutral -->
-			<div class="rounded-container preset-filled flex items-center justify-center p-4">(neutral)</div>
-			<!-- Colors -->
-			<div class="rounded-container preset-filled-primary-950-50 flex items-center justify-center p-4">950-50</div>
-			<div class="rounded-container preset-filled-primary-900-100 flex items-center justify-center p-4">900-100</div>
-			<div class="rounded-container preset-filled-primary-800-200 flex items-center justify-center p-4">800-200</div>
-			<div class="rounded-container preset-filled-primary-700-300 flex items-center justify-center p-4">700-300</div>
-			<div class="rounded-container preset-filled-primary-600-400 flex items-center justify-center p-4">600-400</div>
-			<div class="rounded-container preset-filled-primary-500 flex items-center justify-center p-4">500</div>
-			<div class="rounded-container preset-filled-primary-400-600 flex items-center justify-center p-4">400-600</div>
-			<div class="rounded-container preset-filled-primary-300-700 flex items-center justify-center p-4">300-700</div>
-			<div class="rounded-container preset-filled-primary-200-800 flex items-center justify-center p-4">200-800</div>
-			<div class="rounded-container preset-filled-primary-100-900 flex items-center justify-center p-4">100-900</div>
-			<div class="rounded-container preset-filled-primary-50-950 flex items-center justify-center p-4">50-950</div>
-		</div>
-	</section>
-	<!-- Presets: Tonal -->
-	<section class="space-y-5">
-		<h2 class="h4">Tonal</h2>
-		<div class="grid w-full grid-cols-2 gap-4 lg:grid-cols-4">
-			<div class="rounded-container preset-tonal flex items-center justify-center p-4">(neutral)</div>
-			<div class="rounded-container preset-tonal-primary flex items-center justify-center p-4">primary</div>
-			<div class="rounded-container preset-tonal-secondary flex items-center justify-center p-4">secondary</div>
-			<div class="rounded-container preset-tonal-tertiary flex items-center justify-center p-4">tertiary</div>
-			<div class="rounded-container preset-tonal-success flex items-center justify-center p-4">success</div>
-			<div class="rounded-container preset-tonal-warning flex items-center justify-center p-4">warning</div>
-			<div class="rounded-container preset-tonal-error flex items-center justify-center p-4">error</div>
-			<div class="rounded-container preset-tonal-surface flex items-center justify-center p-4">surface</div>
+		<div class="w-full grid grid-cols-11 gap-4">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-950-50">
+				<IconCenter size={32} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-900-100">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-800-200">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-700-300">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-600-400">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-400-600">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-300-700">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-200-800">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-100-900">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-50-950">
+				<IconCenter size={24} />
+			</div>
 		</div>
 	</section>
 	<!-- Presets: Outlined -->
 	<section class="space-y-5">
 		<h2 class="h4">Outlined</h2>
-		<div class="grid w-full grid-cols-2 gap-4 lg:grid-cols-4">
-			<!-- Neutral -->
-			<div class="rounded-container preset-outlined flex items-center justify-center p-4">(neutral)</div>
-			<!-- Colors -->
-			<div class="rounded-container preset-outlined-primary-950-50 flex items-center justify-center p-4">950-50</div>
-			<div class="rounded-container preset-outlined-primary-900-100 flex items-center justify-center p-4">900-100</div>
-			<div class="rounded-container preset-outlined-primary-800-200 flex items-center justify-center p-4">800-200</div>
-			<div class="rounded-container preset-outlined-primary-700-300 flex items-center justify-center p-4">700-300</div>
-			<div class="rounded-container preset-outlined-primary-600-400 flex items-center justify-center p-4">600-400</div>
-			<div class="rounded-container preset-outlined-primary-500 flex items-center justify-center p-4">500</div>
-			<div class="rounded-container preset-outlined-primary-400-600 flex items-center justify-center p-4">400-600</div>
-			<div class="rounded-container preset-outlined-primary-300-700 flex items-center justify-center p-4">300-700</div>
-			<div class="rounded-container preset-outlined-primary-200-800 flex items-center justify-center p-4">200-800</div>
-			<div class="rounded-container preset-outlined-primary-100-900 flex items-center justify-center p-4">100-900</div>
-			<div class="rounded-container preset-outlined-primary-50-950 flex items-center justify-center p-4">50-950</div>
+		<div class="w-full grid grid-cols-11 gap-4">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-950-50">
+				<IconCenter size={32} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-900-100">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-800-200">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-700-300">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-600-400">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-500">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-400-600">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-300-700">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-200-800">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-100-900">
+				<IconCenter size={24} />
+			</div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-50-950">
+				<IconCenter size={24} />
+			</div>
+		</div>
+	</section>
+	<!-- Presets: Tonal -->
+	<section class="space-y-5">
+		<h2 class="h4">Tonal</h2>
+		<div class="w-full grid grid-cols-11 gap-4">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal"><IconCenter size={40} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-primary"><IconCenter size={40} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-secondary"><IconCenter size={40} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-tertiary"><IconCenter size={40} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-success"><IconCenter size={40} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-warning"><IconCenter size={40} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-error"><IconCenter size={40} /></div>
 		</div>
 	</section>
 </div>

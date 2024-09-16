@@ -63,7 +63,7 @@
 				<Avatar name="Kevin" size="size-full" background="preset-tonal-primary"><IconSkull size={24} /></Avatar>
 			</div>
 			<!-- Checkboxes -->
-			<div class="card border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+			<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 				<form class="space-y-2">
 					<label class="flex items-center space-x-2">
 						<input class="checkbox" type="checkbox" />
@@ -94,7 +94,7 @@
 			</blockquote>
 		</div>
 		<!-- Column 2 -->
-		<form class="card preset-filled-surface-100-900 border border-surface-200-800 p-5 space-y-5">
+		<form class="card bg-surface-500/5 border border-surface-200-800 p-5 space-y-5">
 			<fieldset class="space-y-2">
 				<h2 class="h2">Signup</h2>
 				<p class="opacity-60">Get started for free.</p>
@@ -157,14 +157,14 @@
 			</div>
 			<!-- Cards -->
 			<div class="space-y-2">
-				<div class="card preset-filled-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+				<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 					<Avatar src="https://avatar.iran.liara.run/public/34" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Gregory Smith</p>
 						<a href="mailto:gregory.smith@example.com" class="anchor type-scale-1">gregory.smith@example.com</a>
 					</div>
 				</div>
-				<div class="card preset-filled-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+				<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 					<Avatar src="https://avatar.iran.liara.run/public/53" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Stephanie Collins</p>

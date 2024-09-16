@@ -17,7 +17,7 @@ const config = {
 	plugins: [
 		forms,
 		skeleton({
-			themes: [themes.cerberus]
+			themes: [themes.cerberus, themes.catppuccin, themes.rose]
 		})
 	]
 };

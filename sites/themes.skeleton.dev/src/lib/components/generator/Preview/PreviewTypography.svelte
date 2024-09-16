@@ -39,11 +39,7 @@
 	</div>
 	<!-- Column 2 -->
 	<div class="space-y-10">
-		<!-- Insert / Delete -->
-		<div>
-			<del class="del"><s>Always</s> Gonna Give You Up</del>
-			<ins class="ins" cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022"> Never Gonna Give You Up </ins>
-		</div>
+		<!-- Content -->
 		<div class="space-y-4">
 			<h2 class="h2">Lorem Ipsum</h2>
 			<p>
@@ -66,6 +62,11 @@
 				sed ullamcorper. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Quisque id diam vel quam elementum pulvinar
 				etiam.
 			</p>
+		</div>
+		<!-- Insert / Delete -->
+		<div>
+			<del class="del"><s>Always</s> Gonna Give You Up</del>
+			<ins class="ins" cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022"> Never Gonna Give You Up </ins>
 		</div>
 	</div>
 </div>
