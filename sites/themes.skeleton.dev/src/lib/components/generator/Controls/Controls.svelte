@@ -37,7 +37,7 @@
 	const rxSwatchArr = $derived(colorsShowAll ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] : [50, 500, 950]);
 
 	// Typography
-	let typographyType: 'base' | 'headings' | 'anchors' = $state('base');
+	let typographyType = $state('base');
 
 	// Forms
 	const formEdges = $state({
@@ -53,7 +53,7 @@
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">
 	<!-- Header -->
 	<header class="sticky top-0 z-10 grid grid-cols-[1fr_2fr] gap-4 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5">
-		<button type="button" class="btn preset-tonal w-full">Import</button>
+		<button type="button" class="btn preset-outlined-surface-200-800 w-full">Import</button>
 		<button type="button" class="btn preset-filled w-full">Generate</button>
 	</header>
 	<div class="p-5 pt-0">
@@ -64,6 +64,7 @@
 		<Accordion value={settings} collapsible spaceY="space-y-0">
 			{#snippet iconOpen()}<IconOpen size={16} />{/snippet}
 			{#snippet iconClosed()}<IconClosed size={16} />{/snippet}
+
 			<!-- Colors -->
 			<Accordion.Item
 				value="colors"
@@ -80,51 +81,36 @@
 				{/snippet}
 				{#snippet panel()}
 					<div class="space-y-4">
-						<p class="opacity-60">Define the palette and contrast tones.</p>
+						<p class="opacity-60">Define the palette and contrast tones for each color.</p>
 						<!-- Color Select -->
-						<label for="" class="label">
-							<div class="label-text flex justify-between items-center">
-								<span>Select a Color</span>
-								<span class="capitalize">{colorCurrent}</span>
-							</div>
-							<div class="grid grid-cols-7 gap-4">
-								{#each colorSelection as color}
-									<button
-										type="button"
-										class="aspect-square w-full rounded flex justify-center items-center {color.class}"
-										title={color.label}
-										onclick={() => (colorCurrent = color.value)}
-									>
-										{#if color.value === colorCurrent}<IconCheck />{/if}
-									</button>
-								{/each}
-							</div>
-						</label>
-						<hr class="hr" />
-						<!-- Actions -->
-						<div class="grid grid-cols-3 gap-4">
-							<Switch name="example" bind:checked={colorsShowAll}>
-								<span class="type-scale-1 opacity-60">Show All</span>
-							</Switch>
-							<button type="button" class="btn preset-tonal">
-								<IconSeed size={16} />
-								<span>Seed</span>
-							</button>
-							<button type="button" class="btn preset-tonal">
-								<IconRandom size={16} />
-								<span>Random</span>
-							</button>
+						<div class="grid grid-cols-7 gap-4">
+							{#each colorSelection as color}
+								<button
+									type="button"
+									class="aspect-square w-full rounded flex justify-center items-center {color.class}"
+									title={color.label}
+									onclick={() => (colorCurrent = color.value)}
+								>
+									{#if color.value === colorCurrent}<IconCheck />{/if}
+								</button>
+							{/each}
 						</div>
 						<hr class="hr" />
+						<!-- Actions -->
+						<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-4">
+							<p class="font-bold capitalize">{colorCurrent}</p>
+							<button type="button" class="btn btn-icon preset-outlined-surface-200-800">
+								<IconSeed size={16} />
+							</button>
+							<button type="button" class="btn btn-icon preset-outlined-surface-200-800">
+								<IconRandom size={16} />
+							</button>
+							<Switch name="example" bind:checked={colorsShowAll}>
+								<span class="type-scale-1 opacity-60">All</span>
+							</Switch>
+						</div>
 						<!-- Shades -->
 						<table class="table caption-bottom">
-							<thead>
-								<tr>
-									<th>Shade</th>
-									<th>Value</th>
-									<th>&nbsp;</th>
-								</tr>
-							</thead>
 							<tbody>
 								{#each rxSwatchArr as shade}
 									<tr>
@@ -138,7 +124,9 @@
 					</div>
 				{/snippet}
 			</Accordion.Item>
+
 			<hr class="hr" />
+
 			<!-- Typography -->
 			<Accordion.Item
 				value="typography"
@@ -217,7 +205,9 @@
 					</div>
 				{/snippet}
 			</Accordion.Item>
+
 			<hr class="hr" />
+
 			<!-- Spacing -->
 			<Accordion.Item
 				value="spacing"
@@ -245,7 +235,9 @@
 					</div>
 				{/snippet}
 			</Accordion.Item>
+
 			<hr class="hr" />
+
 			<!-- Edges -->
 			<Accordion.Item
 				value="edges"
