@@ -157,8 +157,9 @@
 	</AppBar>
 	<!-- Header -->
 	<header class="grid grid-cols-[1fr_auto] items-center gap-4">
+		<!-- Text -->
 		<div class="space-y-5">
-			<h1 class="h1 text-balance">Big Headline Here.</h1>
+			<h1 class="h1 text-balance">Lorem Ipsum.</h1>
 			<p class="type-scale-5 opacity-60">
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem recusandae neque est, aut nisi dolore quibusdam optio ex dicta
 				ipsam, tempore eum, pariatur non consequatur consectetur veritatis.
@@ -168,9 +169,12 @@
 				<button type="button" class="btn btn-lg preset-tonal">Secondary Action</button>
 			</nav>
 		</div>
+		<!-- https://picsum.photos/ -->
 		<div>
-			<!-- https://picsum.photos/ -->
-			<img class="grayscale rounded-container overflow-hidden" src="https://picsum.photos/seed/picsum/320/320" alt="banner" />
+			<div class="relative w-[320px] aspect-square bg-surface-100-900 rounded-container overflow-hidden">
+				<div class="absolute top-0 left-0 z-[1] w-full h-full bg-gradient-to-br from-primary-500/0 to-primary-500"></div>
+				<img class="" src="https://picsum.photos/320/320" alt="preview" />
+			</div>
 		</div>
 	</header>
 </div>

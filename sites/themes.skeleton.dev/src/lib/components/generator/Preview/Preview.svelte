@@ -10,7 +10,7 @@
 	<!-- Header -->
 	<header class="sticky top-0 z-10 bg-surface-50/90 dark:bg-surface-950/90 backdrop-blur-xl p-10 py-5">
 		<nav class="flex justify-between gap-4">
-			<span class="text-xl font-bold">Theme Preview</span>
+			<span class="text-xl font-bold">Preview</span>
 			<Lightswitch />
 		</nav>
 	</header>
