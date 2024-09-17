@@ -20,21 +20,22 @@
 	// Colors
 	interface ColorSelection {
 		label: string;
+		desc: string;
 		value: string;
 		class: string;
 	}
 	const colorSelection: ColorSelection[] = [
-		{ label: 'Primary', value: 'primary', class: 'preset-filled-primary-500' },
-		{ label: 'Secondary', value: 'secondary', class: 'preset-filled-secondary-500' },
-		{ label: 'Tertiary', value: 'tertiary', class: 'preset-filled-tertiary-500' },
-		{ label: 'Success', value: 'success', class: 'preset-filled-success-500' },
-		{ label: 'Warning', value: 'warning', class: 'preset-filled-warning-500' },
-		{ label: 'Error', value: 'error', class: 'preset-filled-error-500' },
-		{ label: 'Surface', value: 'surface', class: 'preset-filled-surface-500' }
+		{ label: 'Primary', desc: 'The primary brand color.', value: 'primary', class: 'preset-filled-primary-500' },
+		{ label: 'Secondary', desc: 'A secondary accent color.', value: 'secondary', class: 'preset-filled-secondary-500' },
+		{ label: 'Tertiary', desc: 'A tertiary accent color.', value: 'tertiary', class: 'preset-filled-tertiary-500' },
+		{ label: 'Success', desc: 'Used for successful states.', value: 'success', class: 'preset-filled-success-500' },
+		{ label: 'Warning', desc: 'Used for warning states.', value: 'warning', class: 'preset-filled-warning-500' },
+		{ label: 'Error', desc: 'Used for error states.', value: 'error', class: 'preset-filled-error-500' },
+		{ label: 'Surface', desc: 'The neutral surface tones.', value: 'surface', class: 'preset-filled-surface-500' }
 	];
 	let colorCurrent = $state('primary');
-	let colorsShowAll = $state(false);
-	const rxSwatchArr = $derived(colorsShowAll ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] : [50, 500, 950]);
+	let colorAllShades = $state(false);
+	const rxSwatchArr = $derived(colorAllShades ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] : [50, 500, 950]);
 
 	// Typography
 	let typographyType = $state('base');
@@ -98,14 +99,14 @@
 						<hr class="hr" />
 						<!-- Actions -->
 						<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-4">
-							<p class="font-bold capitalize">{colorCurrent}</p>
+							<h3 class="h5 capitalize">{colorCurrent}</h3>
 							<button type="button" class="btn btn-icon preset-outlined-surface-200-800">
 								<IconSeed size={16} />
 							</button>
 							<button type="button" class="btn btn-icon preset-outlined-surface-200-800">
 								<IconRandom size={16} />
 							</button>
-							<Switch name="example" bind:checked={colorsShowAll}>
+							<Switch name="example" bind:checked={colorAllShades}>
 								<span class="type-scale-1 opacity-60">All</span>
 							</Switch>
 						</div>
