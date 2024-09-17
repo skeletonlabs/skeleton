@@ -68,5 +68,10 @@
 		"rimraf": "^5.0.5",
 		"shelljs": "^0.8.5"
 	},
+	"pnpm": {
+		"overrides": {
+			"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6"
+		}
+	},
 	"packageManager": "pnpm@9.5.0"
 }
