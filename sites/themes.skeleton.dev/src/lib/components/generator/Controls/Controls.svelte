@@ -8,9 +8,20 @@
 	import IconEdges from 'lucide-svelte/icons/box-select';
 	import IconOpen from 'lucide-svelte/icons/chevron-up';
 	import IconClosed from 'lucide-svelte/icons/chevron-down';
+	import Edges from '$lib/components/Edges/Edges.svelte';
 
 	// State
-	const settings = $state(['spacing']);
+	const settings = $state(['edges']);
+
+	// Forms
+	const formEdges = $state({
+		'rounded-base': 6,
+		'rounded-container': 12,
+		borders: 1,
+		rings: 1,
+		outlines: 1,
+		dividers: 1
+	});
 </script>
 
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">
@@ -22,11 +33,12 @@
 	<div class="p-5 pt-0">
 		<p class="opacity-60">Use the controls below to adjust theme settings.</p>
 	</div>
-	<!-- Settings -->
-	<div class="space-y-10">
+	<!-- Form: Settings -->
+	<form class="space-y-10">
 		<Accordion value={settings} collapsible spaceY="space-y-0">
 			{#snippet iconOpen()}<IconOpen size={16} />{/snippet}
 			{#snippet iconClosed()}<IconClosed size={16} />{/snippet}
+			<!-- Colors -->
 			<Accordion.Item
 				value="colors"
 				controlPadding="px-5 py-3"
@@ -48,6 +60,7 @@
 				{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
+			<!-- Typography -->
 			<Accordion.Item
 				value="typography"
 				controlPadding="px-5 py-3"
@@ -69,6 +82,7 @@
 				{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
+			<!-- Spacing -->
 			<Accordion.Item
 				value="spacing"
 				controlPadding="px-5 py-3"
@@ -86,13 +100,17 @@
 					<div class="space-y-4">
 						<p class="opacity-60">Define the scale factor for properties like padding, margin, width, height, gap, space, and more.</p>
 						<label class="label">
-							<span class="label-text">Scale Factor</span>
+							<div class="label-text flex justify-between items-center">
+								<span>Scale Factor</span>
+								<span class="opacity-60">1x</span>
+							</div>
 							<input class="input" type="range" value="75" max="100" />
 						</label>
 					</div>
 				{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
+			<!-- Edges -->
 			<Accordion.Item
 				value="edges"
 				controlPadding="px-5 py-3"
@@ -109,12 +127,38 @@
 				{#snippet panel()}
 					<div class="space-y-4">
 						<p class="opacity-60">Define radius shape and edge widths.</p>
-						<pre class="pre !bg-black">(pane-edges)</pre>
+						<div class="label">
+							<span class="label-text">Rounded Base</span>
+							<Edges name="rounded-base" items={[0, 2, 4, 6, 12, 24, 9999]} bind:value={formEdges['rounded-base']} />
+						</div>
+						<div class="label">
+							<span class="label-text">Rounded Container</span>
+							<Edges name="rounded-container" items={[0, 2, 4, 6, 12, 24]} bind:value={formEdges['rounded-container']} />
+						</div>
+						<hr class="hr" />
+						<div class="label">
+							<span class="label-text">Borders</span>
+							<Edges name="borders" items={[0, 1, 2, 4, 6]} bind:value={formEdges['borders']} thickness />
+						</div>
+						<div class="label">
+							<span class="label-text">Rings</span>
+							<Edges name="rings" items={[0, 1, 2, 4, 6]} bind:value={formEdges['rings']} thickness />
+						</div>
+						<div class="label">
+							<span class="label-text">Outlines</span>
+							<Edges name="outlines" items={[0, 1, 2, 4, 6]} bind:value={formEdges['outlines']} thickness />
+						</div>
+						<div class="label">
+							<span class="label-text">Dividers</span>
+							<Edges name="dividers" items={[0, 1, 2, 4, 6]} bind:value={formEdges['dividers']} thickness />
+						</div>
 					</div>
 				{/snippet}
 			</Accordion.Item>
 		</Accordion>
-	</div>
+	</form>
 	<!-- Footer -->
-	<!-- <footer class="p-5"></footer> -->
+	<!-- <footer class="p-5">
+		<pre class="pre !bg-black">formEdges: {JSON.stringify(formEdges, null, 2)}</pre>
+	</footer> -->
 </section>
