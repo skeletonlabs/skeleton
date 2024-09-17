@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Components
-	import { Accordion } from '@skeletonlabs/skeleton-svelte';
+	import { Accordion, Segment } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconColors from 'lucide-svelte/icons/palette';
 	import IconTypography from 'lucide-svelte/icons/a-large-small';
@@ -11,7 +11,8 @@
 	import Edges from '$lib/components/Edges/Edges.svelte';
 
 	// State
-	const settings = $state(['edges']);
+	const settings = $state(['typography']);
+	let typographyType = $state('base'); // base | headings | anchors
 
 	// Forms
 	const formEdges = $state({
@@ -77,7 +78,64 @@
 				{#snippet panel()}
 					<div class="space-y-4">
 						<p class="opacity-60">Define all typographic settings for your theme.</p>
-						<pre class="pre !bg-black">(pane-typography)</pre>
+						<Segment name="align" bind:value={typographyType} width="w-full">
+							<Segment.Item value="base" classes="w-full">Base</Segment.Item>
+							<Segment.Item value="headings" classes="w-full">Headings</Segment.Item>
+							<Segment.Item value="anchors" classes="w-full">Anchors</Segment.Item>
+						</Segment>
+						<div class="grid grid-cols-2 gap-4">
+							<!-- Colors -->
+							<label class="label">
+								<span class="label-text">Base Color</span>
+								<select class="select" name="base-color">
+									<option value="xxx">...</option>
+								</select>
+							</label>
+							<label class="label">
+								<span class="label-text">Dark Mode</span>
+								<select class="select" name="dark-mode">
+									<option value="xxx">...</option>
+								</select>
+							</label>
+							<!-- Font -->
+							<label class="label col-span-2">
+								<span class="label-text">Font Family</span>
+								<select class="select" name="font-family">
+									<option value="xxx">...</option>
+								</select>
+							</label>
+							<!-- Misc -->
+							<label class="label">
+								<span class="label-text">Font Size</span>
+								<select class="select" name="font-size">
+									<option value="xxx">...</option>
+								</select>
+							</label>
+							<label class="label">
+								<span class="label-text">Line Height</span>
+								<select class="select" name="line-height">
+									<option value="xxx">...</option>
+								</select>
+							</label>
+							<label class="label">
+								<span class="label-text">Font Weight</span>
+								<select class="select" name="font-weight">
+									<option value="xxx">...</option>
+								</select>
+							</label>
+							<label class="label">
+								<span class="label-text">Font Style</span>
+								<select class="select" name="font-style">
+									<option value="xxx">...</option>
+								</select>
+							</label>
+							<label class="label">
+								<span class="label-text">Letter Spacing</span>
+								<select class="select" name="letter-spacing">
+									<option value="xxx">...</option>
+								</select>
+							</label>
+						</div>
 					</div>
 				{/snippet}
 			</Accordion.Item>
