@@ -560,28 +560,22 @@ importers:
         version: 4.0.0-next.7(svelte@5.0.0-next.244)(vite@5.4.5(@types/node@22.5.5)(sass@1.78.0))
       '@tailwindcss/forms':
         specifier: ^0.5.9
-        version: 0.5.9(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4)))
+        version: 0.5.9(tailwindcss@3.4.1(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4)))
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
-      postcss:
-        specifier: ^8.4.45
-        version: 8.4.47
-      postcss-load-config:
-        specifier: ^5.1.0
-        version: 5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)
       shiki:
         specifier: ^1.16.3
         version: 1.17.7
       svelte:
-        specifier: 5.0.0-next.244
+        specifier: ^5.0.0-next.244
         version: 5.0.0-next.244
       svelte-check:
         specifier: ^3.8.6
-        version: 3.8.6(@babel/core@7.25.2)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.244)
+        version: 3.8.6(@babel/core@7.25.2)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.244)
       tailwindcss:
-        specifier: ^3.4.10
-        version: 3.4.11(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4))
+        specifier: 3.4.1
+        version: 3.4.1(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4))
       typescript:
         specifier: 'catalog:'
         version: 5.5.4
@@ -7803,6 +7797,11 @@ snapshots:
     dependencies:
       defer-to-connect: 2.0.1
 
+  '@tailwindcss/forms@0.5.9(tailwindcss@3.4.1(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4)))':
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: 3.4.1(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4))
+
   '@tailwindcss/forms@0.5.9(tailwindcss@3.4.11(ts-node@10.9.2(@types/node@16.18.108)(typescript@5.5.4)))':
     dependencies:
       mini-svg-data-uri: 1.4.4
@@ -12498,14 +12497,14 @@ snapshots:
       - stylus
       - sugarss
 
-  svelte-check@3.8.6(@babel/core@7.25.2)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.244):
+  svelte-check@3.8.6(@babel/core@7.25.2)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.210):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 3.6.0
       picocolors: 1.1.0
       sade: 1.8.1
-      svelte: 5.0.0-next.244
-      svelte-preprocess: 5.1.4(@babel/core@7.25.2)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.244)(typescript@5.6.2)
+      svelte: 5.0.0-next.210
+      svelte-preprocess: 5.1.4(@babel/core@7.25.2)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.210)(typescript@5.6.2)
       typescript: 5.6.2
     transitivePeerDependencies:
       - '@babel/core'
@@ -12518,14 +12517,14 @@ snapshots:
       - stylus
       - sugarss
 
-  svelte-check@3.8.6(@babel/core@7.25.2)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.210):
+  svelte-check@3.8.6(@babel/core@7.25.2)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.244):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 3.6.0
       picocolors: 1.1.0
       sade: 1.8.1
-      svelte: 5.0.0-next.210
-      svelte-preprocess: 5.1.4(@babel/core@7.25.2)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.210)(typescript@5.6.2)
+      svelte: 5.0.0-next.244
+      svelte-preprocess: 5.1.4(@babel/core@7.25.2)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.244)(typescript@5.6.2)
       typescript: 5.6.2
     transitivePeerDependencies:
       - '@babel/core'
@@ -12563,21 +12562,6 @@ snapshots:
       sass: 1.78.0
       typescript: 5.6.2
 
-  svelte-preprocess@5.1.4(@babel/core@7.25.2)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.244)(typescript@5.6.2):
-    dependencies:
-      '@types/pug': 2.0.10
-      detect-indent: 6.1.0
-      magic-string: 0.30.11
-      sorcery: 0.11.1
-      strip-indent: 3.0.0
-      svelte: 5.0.0-next.244
-    optionalDependencies:
-      '@babel/core': 7.25.2
-      postcss: 8.4.47
-      postcss-load-config: 5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)
-      sass: 1.78.0
-      typescript: 5.6.2
-
   svelte-preprocess@5.1.4(@babel/core@7.25.2)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.210)(typescript@5.6.2):
     dependencies:
       '@types/pug': 2.0.10
@@ -12586,6 +12570,21 @@ snapshots:
       sorcery: 0.11.1
       strip-indent: 3.0.0
       svelte: 5.0.0-next.210
+    optionalDependencies:
+      '@babel/core': 7.25.2
+      postcss: 8.4.47
+      postcss-load-config: 5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)
+      sass: 1.78.0
+      typescript: 5.6.2
+
+  svelte-preprocess@5.1.4(@babel/core@7.25.2)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(sass@1.78.0)(svelte@5.0.0-next.244)(typescript@5.6.2):
+    dependencies:
+      '@types/pug': 2.0.10
+      detect-indent: 6.1.0
+      magic-string: 0.30.11
+      sorcery: 0.11.1
+      strip-indent: 3.0.0
+      svelte: 5.0.0-next.244
     optionalDependencies:
       '@babel/core': 7.25.2
       postcss: 8.4.47
@@ -12692,6 +12691,33 @@ snapshots:
       postcss-import: 15.1.0(postcss@8.4.47)
       postcss-js: 4.0.1(postcss@8.4.47)
       postcss-load-config: 4.0.1(postcss@8.4.47)(ts-node@10.9.2(@types/node@18.16.16)(typescript@5.5.4))
+      postcss-nested: 6.2.0(postcss@8.4.47)
+      postcss-selector-parser: 6.1.2
+      resolve: 1.22.8
+      sucrase: 3.35.0
+    transitivePeerDependencies:
+      - ts-node
+
+  tailwindcss@3.4.1(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4)):
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      arg: 5.0.2
+      chokidar: 3.6.0
+      didyoumean: 1.2.2
+      dlv: 1.1.3
+      fast-glob: 3.3.2
+      glob-parent: 6.0.2
+      is-glob: 4.0.3
+      jiti: 1.21.6
+      lilconfig: 2.1.0
+      micromatch: 4.0.8
+      normalize-path: 3.0.0
+      object-hash: 3.0.0
+      picocolors: 1.1.0
+      postcss: 8.4.47
+      postcss-import: 15.1.0(postcss@8.4.47)
+      postcss-js: 4.0.1(postcss@8.4.47)
+      postcss-load-config: 4.0.1(postcss@8.4.47)(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4))
       postcss-nested: 6.2.0(postcss@8.4.47)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.8
