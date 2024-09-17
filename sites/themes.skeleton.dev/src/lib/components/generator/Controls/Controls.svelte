@@ -15,16 +15,25 @@
 
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">
 	<!-- Header -->
-	<header class="sticky top-0 z-10 bg-surface-100/90 dark:bg-surface-900/90 backdrop-blur-xl p-5">
-		<button type="button" class="btn btn-lg preset-filled w-full">Generate Theme</button>
+	<header class="sticky top-0 z-10 grid grid-cols-[1fr_2fr] gap-4 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5">
+		<button type="button" class="btn preset-tonal w-full">Import</button>
+		<button type="button" class="btn preset-filled w-full">Generate</button>
 	</header>
-	<!-- Settings -->
-	<div class="p-5 space-y-10">
+	<div class="p-5 pt-0">
 		<p class="opacity-60">Use the controls below to adjust theme settings.</p>
-		<Accordion value={settings} collapsible>
+	</div>
+	<!-- Settings -->
+	<div class="space-y-10">
+		<Accordion value={settings} collapsible spaceY="space-y-0">
 			{#snippet iconOpen()}<IconOpen size={16} />{/snippet}
 			{#snippet iconClosed()}<IconClosed size={16} />{/snippet}
-			<Accordion.Item value="colors" controlHover="hover:preset-tonal">
+			<Accordion.Item
+				value="colors"
+				controlPadding="px-5 py-3"
+				controlRounded="rounded-none"
+				controlHover="hover:preset-tonal"
+				panelPadding="p-5"
+			>
 				{#snippet lead()}
 					<span class="btn btn-icon preset-tonal"><IconColors size={24} /></span>
 				{/snippet}
@@ -32,10 +41,20 @@
 					<span class="h4">Colors</span>
 				{/snippet}
 				{#snippet panel()}
-					<pre class="pre !bg-black">(pane-colors)</pre>
+					<div class="space-y-4">
+						<p class="opacity-60">Define the palette and contrast tones.</p>
+						<pre class="pre !bg-black">(pane-colors)</pre>
+					</div>
 				{/snippet}
 			</Accordion.Item>
-			<Accordion.Item value="typography" controlHover="hover:preset-tonal">
+			<hr class="hr" />
+			<Accordion.Item
+				value="typography"
+				controlPadding="px-5 py-3"
+				controlRounded="rounded-none"
+				controlHover="hover:preset-tonal"
+				panelPadding="p-5"
+			>
 				{#snippet lead()}
 					<span class="btn btn-icon preset-tonal"><IconTypography size={24} /></span>
 				{/snippet}
@@ -43,10 +62,20 @@
 					<span class="h4">Typography</span>
 				{/snippet}
 				{#snippet panel()}
-					<pre class="pre !bg-black">(pane-typography)</pre>
+					<div class="space-y-4">
+						<p class="opacity-60">Define all typographic settings for your theme.</p>
+						<pre class="pre !bg-black">(pane-typography)</pre>
+					</div>
 				{/snippet}
 			</Accordion.Item>
-			<Accordion.Item value="spacing" controlHover="hover:preset-tonal">
+			<hr class="hr" />
+			<Accordion.Item
+				value="spacing"
+				controlPadding="px-5 py-3"
+				controlRounded="rounded-none"
+				controlHover="hover:preset-tonal"
+				panelPadding="p-5"
+			>
 				{#snippet lead()}
 					<span class="btn btn-icon preset-tonal"><IconSpacing size={24} /></span>
 				{/snippet}
@@ -63,7 +92,14 @@
 					</div>
 				{/snippet}
 			</Accordion.Item>
-			<Accordion.Item value="edges" controlHover="hover:preset-tonal">
+			<hr class="hr" />
+			<Accordion.Item
+				value="edges"
+				controlPadding="px-5 py-3"
+				controlRounded="rounded-none"
+				controlHover="hover:preset-tonal"
+				panelPadding="p-5"
+			>
 				{#snippet lead()}
 					<span class="btn btn-icon preset-tonal"><IconEdges size={24} /></span>
 				{/snippet}
@@ -71,7 +107,10 @@
 					<span class="h4">Edges</span>
 				{/snippet}
 				{#snippet panel()}
-					<pre class="pre !bg-black">(pane-edges)</pre>
+					<div class="space-y-4">
+						<p class="opacity-60">Define radius shape and edge widths.</p>
+						<pre class="pre !bg-black">(pane-edges)</pre>
+					</div>
 				{/snippet}
 			</Accordion.Item>
 		</Accordion>
