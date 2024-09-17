@@ -1,6 +1,8 @@
 <script lang="ts">
-	// Components
-	import { Accordion, Segment } from '@skeletonlabs/skeleton-svelte';
+	// Components (Skeleton)
+	import { Accordion, Segment, Switch } from '@skeletonlabs/skeleton-svelte';
+	// Components (local)
+	import Edges from '$lib/components/Edges/Edges.svelte';
 	// Icons
 	import IconColors from 'lucide-svelte/icons/palette';
 	import IconTypography from 'lucide-svelte/icons/a-large-small';
@@ -8,11 +10,34 @@
 	import IconEdges from 'lucide-svelte/icons/box-select';
 	import IconOpen from 'lucide-svelte/icons/chevron-up';
 	import IconClosed from 'lucide-svelte/icons/chevron-down';
-	import Edges from '$lib/components/Edges/Edges.svelte';
+	import IconCheck from 'lucide-svelte/icons/check';
+	import IconSeed from 'lucide-svelte/icons/sprout';
+	import IconRandom from 'lucide-svelte/icons/dices';
 
 	// State
-	const settings = $state(['typography']);
-	let typographyType = $state('base'); // base | headings | anchors
+	const settings = $state(['colors']);
+
+	// Colors
+	interface ColorSelection {
+		label: string;
+		value: string;
+		class: string;
+	}
+	const colorSelection: ColorSelection[] = [
+		{ label: 'Primary', value: 'primary', class: 'preset-filled-primary-500' },
+		{ label: 'Secondary', value: 'secondary', class: 'preset-filled-secondary-500' },
+		{ label: 'Tertiary', value: 'tertiary', class: 'preset-filled-tertiary-500' },
+		{ label: 'Success', value: 'success', class: 'preset-filled-success-500' },
+		{ label: 'Warning', value: 'warning', class: 'preset-filled-warning-500' },
+		{ label: 'Error', value: 'error', class: 'preset-filled-error-500' },
+		{ label: 'Surface', value: 'surface', class: 'preset-filled-surface-500' }
+	];
+	let colorCurrent = $state('primary');
+	let colorsShowAll = $state(false);
+	const rxSwatchArr = $derived(colorsShowAll ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] : [50, 500, 950]);
+
+	// Typography
+	let typographyType: 'base' | 'headings' | 'anchors' = $state('base');
 
 	// Forms
 	const formEdges = $state({
@@ -56,7 +81,60 @@
 				{#snippet panel()}
 					<div class="space-y-4">
 						<p class="opacity-60">Define the palette and contrast tones.</p>
-						<pre class="pre !bg-black">(pane-colors)</pre>
+						<!-- Color Select -->
+						<label for="" class="label">
+							<div class="label-text flex justify-between items-center">
+								<span>Select a Color</span>
+								<span class="capitalize">{colorCurrent}</span>
+							</div>
+							<div class="grid grid-cols-7 gap-4">
+								{#each colorSelection as color}
+									<button
+										type="button"
+										class="aspect-square w-full rounded flex justify-center items-center {color.class}"
+										title={color.label}
+										onclick={() => (colorCurrent = color.value)}
+									>
+										{#if color.value === colorCurrent}<IconCheck />{/if}
+									</button>
+								{/each}
+							</div>
+						</label>
+						<hr class="hr" />
+						<!-- Actions -->
+						<div class="grid grid-cols-3 gap-4">
+							<Switch name="example" bind:checked={colorsShowAll}>
+								<span class="type-scale-1 opacity-60">Show All</span>
+							</Switch>
+							<button type="button" class="btn preset-tonal">
+								<IconSeed size={16} />
+								<span>Seed</span>
+							</button>
+							<button type="button" class="btn preset-tonal">
+								<IconRandom size={16} />
+								<span>Random</span>
+							</button>
+						</div>
+						<hr class="hr" />
+						<!-- Shades -->
+						<table class="table caption-bottom">
+							<thead>
+								<tr>
+									<th>Shade</th>
+									<th>Value</th>
+									<th>&nbsp;</th>
+								</tr>
+							</thead>
+							<tbody>
+								{#each rxSwatchArr as shade}
+									<tr>
+										<td class="type-scale-1 opacity-60">{shade}</td>
+										<td><input type="text" class="input" value="#000000" /></td>
+										<td><input class="input" type="color" value="#000000" /></td>
+									</tr>
+								{/each}
+							</tbody>
+						</table>
 					</div>
 				{/snippet}
 			</Accordion.Item>
