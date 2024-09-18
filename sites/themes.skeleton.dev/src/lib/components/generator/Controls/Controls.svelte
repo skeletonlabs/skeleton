@@ -3,6 +3,9 @@
 	import { Accordion, Segment, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Components (local)
 	import Edges from '$lib/components/Edges/Edges.svelte';
+	// Components (Settings)
+	import ControlsCore from './ControlsCore.svelte';
+	import ControlsSpacing from './ControlsSpacing.svelte';
 	// Icons
 	import IconColors from 'lucide-svelte/icons/palette';
 	import IconTypography from 'lucide-svelte/icons/a-large-small';
@@ -13,12 +16,19 @@
 	import IconCheck from 'lucide-svelte/icons/check';
 	import IconSeed from 'lucide-svelte/icons/sprout';
 	import IconRandom from 'lucide-svelte/icons/dices';
-	import ControlsCore from './ControlsCore.svelte';
+
+	// Local
+	const accordionItemProps = {
+		controlPadding: 'px-5 py-3',
+		controlRounded: 'rounded-none',
+		controlHover: 'hover:preset-tonal',
+		panelPadding: 'p-5'
+	};
 
 	// State
 	const settings = $state([]);
 
-	// Colors
+	// Control Colors
 	interface ColorSelection {
 		label: string;
 		description: string;
@@ -38,10 +48,10 @@
 	let colorAllShades = $state(false);
 	const rxSwatchArr = $derived(colorAllShades ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] : [50, 500, 950]);
 
-	// Typography
+	// Control Typography
 	let typographyType = $state('base');
 
-	// Forms
+	// Control: Edges
 	const formEdges = $state({
 		'rounded-base': 6,
 		'rounded-container': 12,
@@ -69,19 +79,9 @@
 			{#snippet iconClosed()}<IconClosed size={16} />{/snippet}
 			<hr class="hr" />
 			<!-- Controls: Colors -->
-			<Accordion.Item
-				value="colors"
-				controlPadding="px-5 py-3"
-				controlRounded="rounded-none"
-				controlHover="hover:preset-tonal"
-				panelPadding="p-5"
-			>
-				{#snippet lead()}
-					<span class="btn btn-icon preset-tonal"><IconColors size={24} /></span>
-				{/snippet}
-				{#snippet control()}
-					<span class="h4">Colors</span>
-				{/snippet}
+			<Accordion.Item value="colors" {...accordionItemProps}>
+				{#snippet lead()}<IconColors size={24} class="btn btn-icon preset-tonal" />{/snippet}
+				{#snippet control()}<span class="h4">Colors</span>{/snippet}
 				{#snippet panel()}
 					<div class="space-y-4">
 						<p class="opacity-60">Define the palette and contrast tones for each color.</p>
@@ -153,19 +153,9 @@
 			</Accordion.Item>
 			<hr class="hr" />
 			<!-- Controls: Typography -->
-			<Accordion.Item
-				value="typography"
-				controlPadding="px-5 py-3"
-				controlRounded="rounded-none"
-				controlHover="hover:preset-tonal"
-				panelPadding="p-5"
-			>
-				{#snippet lead()}
-					<span class="btn btn-icon preset-tonal"><IconTypography size={24} /></span>
-				{/snippet}
-				{#snippet control()}
-					<span class="h4">Typography</span>
-				{/snippet}
+			<Accordion.Item value="typography" {...accordionItemProps}>
+				{#snippet lead()}<IconTypography size={24} class="btn btn-icon preset-tonal" />{/snippet}
+				{#snippet control()}<span class="h4">Typography</span>{/snippet}
 				{#snippet panel()}
 					<div class="space-y-4">
 						<p class="opacity-60">Define all typographic settings for your theme.</p>
@@ -232,47 +222,16 @@
 			</Accordion.Item>
 			<hr class="hr" />
 			<!-- Controls: Spacing -->
-			<Accordion.Item
-				value="spacing"
-				controlPadding="px-5 py-3"
-				controlRounded="rounded-none"
-				controlHover="hover:preset-tonal"
-				panelPadding="p-5"
-			>
-				{#snippet lead()}
-					<span class="btn btn-icon preset-tonal"><IconSpacing size={24} /></span>
-				{/snippet}
-				{#snippet control()}
-					<span class="h4">Spacing</span>
-				{/snippet}
-				{#snippet panel()}
-					<div class="space-y-4">
-						<p class="opacity-60">Define the scale factor for properties like padding, margin, width, height, gap, space, and more.</p>
-						<label class="label">
-							<div class="label-text flex justify-between items-center">
-								<span>Scale Factor</span>
-								<span class="opacity-60">1x</span>
-							</div>
-							<input class="input" type="range" value="75" max="100" />
-						</label>
-					</div>
-				{/snippet}
+			<Accordion.Item value="spacing" {...accordionItemProps}>
+				{#snippet lead()}<IconSpacing size={24} class="btn btn-icon preset-tonal" />{/snippet}
+				{#snippet control()}<span class="h4">Spacing</span>{/snippet}
+				{#snippet panel()}<ControlsSpacing />{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
 			<!-- Controls: Edges -->
-			<Accordion.Item
-				value="edges"
-				controlPadding="px-5 py-3"
-				controlRounded="rounded-none"
-				controlHover="hover:preset-tonal"
-				panelPadding="p-5"
-			>
-				{#snippet lead()}
-					<span class="btn btn-icon preset-tonal"><IconEdges size={24} /></span>
-				{/snippet}
-				{#snippet control()}
-					<span class="h4">Edges</span>
-				{/snippet}
+			<Accordion.Item value="edges" {...accordionItemProps}>
+				{#snippet lead()}<IconEdges size={24} class="btn btn-icon preset-tonal" />{/snippet}
+				{#snippet control()}<span class="h4">Edges</span>{/snippet}
 				{#snippet panel()}
 					<div class="space-y-4">
 						<p class="opacity-60">Define radius shape and edge widths.</p>

@@ -7,7 +7,7 @@
 	import PreviewPalette from './PreviewPalette.svelte';
 	import PreviewTypography from './PreviewTypography.svelte';
 	// DEBUG ONLY: State
-	import { settingsCore, settingsColors, settingsTypography, settingsEdges } from '$lib/state/state.svelte';
+	import { settingsCore, settingsColors, settingsTypography, settingsSpacing, settingsEdges } from '$lib/state/state.svelte';
 
 	// State
 	let display: 'preview' | 'code' = $state('code');
@@ -49,6 +49,10 @@
 				<div class="space-y-4">
 					<code class="code">settingsTypography</code>
 					<pre class="pre">{JSON.stringify(settingsTypography, null, 2)}</pre>
+				</div>
+				<div class="space-y-4">
+					<code class="code">settingsSpacing</code>
+					<pre class="pre">{JSON.stringify(settingsSpacing, null, 2)}</pre>
 				</div>
 				<div class="space-y-4">
 					<code class="code">settingsEdges</code>

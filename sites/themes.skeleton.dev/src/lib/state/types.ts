@@ -12,6 +12,10 @@ export interface SettingsTypography {
 	foo: string;
 }
 
+export interface SettingsSpacing {
+	'--space-scale-factor': number;
+}
+
 export interface SettingsEdges {
 	foo: string;
 }

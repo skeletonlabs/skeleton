@@ -1,4 +1,4 @@
-import type { SettingsCore, SettingsColors, SettingsTypography, SettingsEdges } from './types';
+import type { SettingsCore, SettingsColors, SettingsTypography, SettingsSpacing, SettingsEdges } from './types';
 
 // State ---
 
@@ -13,6 +13,10 @@ export const settingsColors: SettingsColors = $state({
 
 export const settingsTypography: SettingsTypography = $state({
 	foo: 'bar'
+});
+
+export const settingsSpacing: SettingsSpacing = $state({
+	'--space-scale-factor': 1.0
 });
 
 export const settingsEdges: SettingsEdges = $state({
