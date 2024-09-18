@@ -14,8 +14,6 @@
 	import IconSeed from 'lucide-svelte/icons/sprout';
 	import IconRandom from 'lucide-svelte/icons/dices';
 	import ControlsCore from './ControlsCore.svelte';
-	// DEBUG ONLY: State
-	import { settingsCore, settingsColors, settingsTypography, settingsEdges } from '$lib/state/state.svelte';
 
 	// State
 	const settings = $state([]);
@@ -310,11 +308,5 @@
 		</Accordion>
 	</div>
 	<!-- Footer -->
-	<footer class="p-5 space-y-4">
-		<!-- DEBUG ONLY: State -->
-		<pre class="pre !bg-black">{JSON.stringify(settingsCore, null, 2)}</pre>
-		<pre class="pre !bg-black">{JSON.stringify(settingsColors, null, 2)}</pre>
-		<pre class="pre !bg-black">{JSON.stringify(settingsTypography, null, 2)}</pre>
-		<pre class="pre !bg-black">{JSON.stringify(settingsEdges, null, 2)}</pre>
-	</footer>
+	<!-- <footer class="p-5 space-y-4"></footer> -->
 </section>
