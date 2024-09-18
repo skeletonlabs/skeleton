@@ -13,9 +13,12 @@
 	import IconCheck from 'lucide-svelte/icons/check';
 	import IconSeed from 'lucide-svelte/icons/sprout';
 	import IconRandom from 'lucide-svelte/icons/dices';
+	import ControlsCore from './ControlsCore.svelte';
+	// DEBUG ONLY: State
+	import { settingsCore, settingsColors, settingsTypography, settingsEdges } from '$lib/state/state.svelte';
 
 	// State
-	const settings = $state(['colors']);
+	const settings = $state([]);
 
 	// Colors
 	interface ColorSelection {
@@ -59,18 +62,15 @@
 		<p class="font-bold">Settings</p>
 		<button type="button" class="btn preset-outlined-surface-200-800" disabled>Import</button>
 	</header>
-	<div class="p-5">
-		<input type="text" class="input" placeholder="Enter theme name..." />
-	</div>
-	<!-- Form: Settings -->
-	<form class="space-y-10">
+	<!-- Controls: ore -->
+	<ControlsCore />
+	<!-- Settings Accordion -->
+	<div class="space-y-10">
 		<Accordion value={settings} collapsible spaceY="space-y-0">
 			{#snippet iconOpen()}<IconOpen size={16} />{/snippet}
 			{#snippet iconClosed()}<IconClosed size={16} />{/snippet}
-
 			<hr class="hr" />
-
-			<!-- Colors -->
+			<!-- Controls: Colors -->
 			<Accordion.Item
 				value="colors"
 				controlPadding="px-5 py-3"
@@ -153,10 +153,8 @@
 					</div>
 				{/snippet}
 			</Accordion.Item>
-
 			<hr class="hr" />
-
-			<!-- Typography -->
+			<!-- Controls: Typography -->
 			<Accordion.Item
 				value="typography"
 				controlPadding="px-5 py-3"
@@ -234,10 +232,8 @@
 					</div>
 				{/snippet}
 			</Accordion.Item>
-
 			<hr class="hr" />
-
-			<!-- Spacing -->
+			<!-- Controls: Spacing -->
 			<Accordion.Item
 				value="spacing"
 				controlPadding="px-5 py-3"
@@ -264,10 +260,8 @@
 					</div>
 				{/snippet}
 			</Accordion.Item>
-
 			<hr class="hr" />
-
-			<!-- Edges -->
+			<!-- Controls: Edges -->
 			<Accordion.Item
 				value="edges"
 				controlPadding="px-5 py-3"
@@ -312,12 +306,15 @@
 					</div>
 				{/snippet}
 			</Accordion.Item>
-
 			<hr class="hr" />
 		</Accordion>
-	</form>
+	</div>
 	<!-- Footer -->
-	<!-- <footer class="p-5">
-		<pre class="pre !bg-black">formEdges: {JSON.stringify(formEdges, null, 2)}</pre>
-	</footer> -->
+	<footer class="p-5 space-y-4">
+		<!-- DEBUG ONLY: State -->
+		<pre class="pre !bg-black">{JSON.stringify(settingsCore, null, 2)}</pre>
+		<pre class="pre !bg-black">{JSON.stringify(settingsColors, null, 2)}</pre>
+		<pre class="pre !bg-black">{JSON.stringify(settingsTypography, null, 2)}</pre>
+		<pre class="pre !bg-black">{JSON.stringify(settingsEdges, null, 2)}</pre>
+	</footer>
 </section>
