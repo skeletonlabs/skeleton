@@ -8,7 +8,7 @@ import { skeleton } from '@skeletonlabs/skeleton/plugin';
 import * as themes from '@skeletonlabs/skeleton/themes';
 
 /** @type {import('tailwindcss').Config}*/
-const config = {
+export default {
 	darkMode: 'class',
 	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton-svelte'), '../**/*.{html,js,svelte,ts}')],
 	theme: {
@@ -21,5 +21,3 @@ const config = {
 		})
 	]
 };
-
-module.exports = config;
