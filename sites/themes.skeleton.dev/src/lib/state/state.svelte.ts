@@ -1,3 +1,4 @@
+import * as constants from '$lib/constants/constants';
 import type { SettingsCore, SettingsColors, SettingsTypography, SettingsSpacing, SettingsEdges } from './types';
 
 // State ---
@@ -13,7 +14,7 @@ export const settingsColors: SettingsColors = $state({
 export const settingsTypography: SettingsTypography = $state({
 	'--base-font-color': 'var(--color-surface-950)',
 	'--base-font-color-dark': 'var(--color-surface-50)',
-	'--base-font-family': 'system-ui',
+	'--base-font-family': constants.fontFamilies[1],
 	'--base-font-size': 'inherit',
 	'--base-line-height': 'inherit',
 	'--base-font-weight': 'normal',

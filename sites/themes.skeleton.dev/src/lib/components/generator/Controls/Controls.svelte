@@ -15,6 +15,7 @@
 	import IconCheck from 'lucide-svelte/icons/check';
 	import IconSeed from 'lucide-svelte/icons/sprout';
 	import IconRandom from 'lucide-svelte/icons/dices';
+	import ControlsTypography from './ControlsTypography.svelte';
 
 	// Local
 	const accordionItemProps = {
@@ -46,9 +47,6 @@
 	let colorCurrentTab = $state('primary');
 	let colorAllShades = $state(false);
 	const rxSwatchArr = $derived(colorAllShades ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] : [50, 500, 950]);
-
-	// Control Typography
-	let typographyType = $state('base');
 </script>
 
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">
@@ -145,69 +143,7 @@
 			<Accordion.Item value="typography" {...accordionItemProps}>
 				{#snippet lead()}<IconTypography size={24} class="btn btn-icon preset-tonal" />{/snippet}
 				{#snippet control()}<span class="h4">Typography</span>{/snippet}
-				{#snippet panel()}
-					<div class="space-y-4">
-						<p class="opacity-60">Define all typographic settings for your theme.</p>
-						<Segment name="align" bind:value={typographyType} width="w-full">
-							<Segment.Item value="base" classes="w-full">Base</Segment.Item>
-							<Segment.Item value="headings" classes="w-full">Headings</Segment.Item>
-							<Segment.Item value="anchors" classes="w-full">Anchors</Segment.Item>
-						</Segment>
-						<div class="grid grid-cols-2 gap-4">
-							<!-- Colors -->
-							<label class="label">
-								<span class="label-text">Base Color</span>
-								<select class="select" name="base-color">
-									<option value="xxx">...</option>
-								</select>
-							</label>
-							<label class="label">
-								<span class="label-text">Dark Mode</span>
-								<select class="select" name="dark-mode">
-									<option value="xxx">...</option>
-								</select>
-							</label>
-							<!-- Font -->
-							<label class="label col-span-2">
-								<span class="label-text">Font Family</span>
-								<select class="select" name="font-family">
-									<option value="xxx">...</option>
-								</select>
-							</label>
-							<!-- Misc -->
-							<label class="label">
-								<span class="label-text">Font Size</span>
-								<select class="select" name="font-size">
-									<option value="xxx">...</option>
-								</select>
-							</label>
-							<label class="label">
-								<span class="label-text">Line Height</span>
-								<select class="select" name="line-height">
-									<option value="xxx">...</option>
-								</select>
-							</label>
-							<label class="label">
-								<span class="label-text">Font Weight</span>
-								<select class="select" name="font-weight">
-									<option value="xxx">...</option>
-								</select>
-							</label>
-							<label class="label">
-								<span class="label-text">Font Style</span>
-								<select class="select" name="font-style">
-									<option value="xxx">...</option>
-								</select>
-							</label>
-							<label class="label">
-								<span class="label-text">Letter Spacing</span>
-								<select class="select" name="letter-spacing">
-									<option value="xxx">...</option>
-								</select>
-							</label>
-						</div>
-					</div>
-				{/snippet}
+				{#snippet panel()}<ControlsTypography />{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
 			<!-- Controls: Spacing -->
