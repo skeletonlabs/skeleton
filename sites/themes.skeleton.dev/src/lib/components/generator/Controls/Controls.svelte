@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Components (Skeleton)
-	import { Accordion, Segment, Switch } from '@skeletonlabs/skeleton-svelte';
+	import { Accordion, Segment, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Components (local)
 	import Edges from '$lib/components/Edges/Edges.svelte';
 	// Icons
@@ -15,25 +15,25 @@
 	import IconRandom from 'lucide-svelte/icons/dices';
 
 	// State
-	const settings = $state([]);
+	const settings = $state(['colors']);
 
 	// Colors
 	interface ColorSelection {
 		label: string;
-		desc: string;
+		description: string;
 		value: string;
 		class: string;
 	}
 	const colorSelection: ColorSelection[] = [
-		{ label: 'Primary', desc: 'The primary brand color.', value: 'primary', class: 'preset-filled-primary-500' },
-		{ label: 'Secondary', desc: 'A secondary accent color.', value: 'secondary', class: 'preset-filled-secondary-500' },
-		{ label: 'Tertiary', desc: 'A tertiary accent color.', value: 'tertiary', class: 'preset-filled-tertiary-500' },
-		{ label: 'Success', desc: 'Used for successful states.', value: 'success', class: 'preset-filled-success-500' },
-		{ label: 'Warning', desc: 'Used for warning states.', value: 'warning', class: 'preset-filled-warning-500' },
-		{ label: 'Error', desc: 'Used for error states.', value: 'error', class: 'preset-filled-error-500' },
-		{ label: 'Surface', desc: 'The neutral surface tones.', value: 'surface', class: 'preset-filled-surface-500' }
+		{ label: 'Primary', description: 'The primary brand color.', value: 'primary', class: 'preset-filled-primary-500' },
+		{ label: 'Secondary', description: 'A secondary accent color.', value: 'secondary', class: 'preset-filled-secondary-500' },
+		{ label: 'Tertiary', description: 'A tertiary accent color.', value: 'tertiary', class: 'preset-filled-tertiary-500' },
+		{ label: 'Success', description: 'Used for successful states.', value: 'success', class: 'preset-filled-success-500' },
+		{ label: 'Warning', description: 'Used for warning states.', value: 'warning', class: 'preset-filled-warning-500' },
+		{ label: 'Error', description: 'Used for error states.', value: 'error', class: 'preset-filled-error-500' },
+		{ label: 'Surface', description: 'The neutral surface tones.', value: 'surface', class: 'preset-filled-surface-500' }
 	];
-	let colorCurrent = $state('primary');
+	let colorCurrentTab = $state('primary');
 	let colorAllShades = $state(false);
 	const rxSwatchArr = $derived(colorAllShades ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] : [50, 500, 950]);
 
@@ -87,45 +87,69 @@
 				{#snippet panel()}
 					<div class="space-y-4">
 						<p class="opacity-60">Define the palette and contrast tones for each color.</p>
-						<!-- Color Select -->
-						<div class="grid grid-cols-7 gap-4">
-							{#each colorSelection as color}
-								<button
-									type="button"
-									class="aspect-square w-full rounded flex justify-center items-center {color.class}"
-									title={color.label}
-									onclick={() => (colorCurrent = color.value)}
-								>
-									{#if color.value === colorCurrent}<IconCheck />{/if}
-								</button>
-							{/each}
-						</div>
-						<hr class="hr" />
-						<!-- Actions -->
-						<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-4">
-							<h3 class="h5 capitalize">{colorCurrent}</h3>
-							<button type="button" class="btn btn-icon preset-outlined-surface-200-800">
-								<IconSeed size={16} />
-							</button>
-							<button type="button" class="btn btn-icon preset-outlined-surface-200-800">
-								<IconRandom size={16} />
-							</button>
-							<Switch name="example" bind:checked={colorAllShades}>
-								<span class="type-scale-1 opacity-60">All</span>
-							</Switch>
-						</div>
-						<!-- Shades -->
-						<table class="table caption-bottom">
-							<tbody>
-								{#each rxSwatchArr as shade}
-									<tr>
-										<td class="type-scale-1 opacity-60">{shade}</td>
-										<td><input type="text" class="input" value="#000000" /></td>
-										<td><input class="input" type="color" value="#000000" /></td>
-									</tr>
+						<!-- Color Tabs -->
+						<Tabs bind:value={colorCurrentTab} fluid>
+							{#snippet list()}
+								{#each colorSelection as color}
+									<Tabs.Control value={color.value} labelBase="flex justify-center" stateInactive="">
+										<div class="aspect-square w-[52px] rounded flex justify-center items-center {color.class}" title={color.description}>
+											{#if color.value === colorCurrentTab}<IconCheck />{/if}
+										</div>
+									</Tabs.Control>
 								{/each}
-							</tbody>
-						</table>
+							{/snippet}
+							{#snippet content()}
+								{#each colorSelection as color}
+									{#if color.value === colorCurrentTab}
+										<div class="space-y-4">
+											<!-- Actions -->
+											<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-4">
+												<p class="font-bold">Shades</p>
+												<button type="button" class="btn preset-outlined-surface-200-800">
+													<IconSeed size={16} />
+												</button>
+												<button type="button" class="btn preset-outlined-surface-200-800">
+													<IconRandom size={16} />
+												</button>
+												<Switch name="example" bind:checked={colorAllShades}>
+													<span class="type-scale-1 opacity-60">All</span>
+												</Switch>
+											</div>
+											<!-- Shades -->
+											<table class="table">
+												<tbody>
+													{#each rxSwatchArr as shade}
+														<tr>
+															<td class="type-scale-1 opacity-60">{shade}</td>
+															<td><input type="text" class="input" value="#000000" /></td>
+															<td><input class="input" type="color" value="#000000" /></td>
+														</tr>
+													{/each}
+												</tbody>
+											</table>
+											<!-- Contrast -->
+											<div class="space-y-4">
+												<p class="font-bold">Contrast</p>
+												<table class="table">
+													<tbody>
+														<tr>
+															<td class="type-scale-1 opacity-60">Light Mode</td>
+															<td><input type="text" class="input" value="#000000" /></td>
+															<td><input class="input" type="color" value="#000000" /></td>
+														</tr>
+														<tr>
+															<td class="type-scale-1 opacity-60">Dark Mode</td>
+															<td><input type="text" class="input" value="#FFFFFF" /></td>
+															<td><input class="input" type="color" value="#FFFFFF" /></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									{/if}
+								{/each}
+							{/snippet}
+						</Tabs>
 					</div>
 				{/snippet}
 			</Accordion.Item>
