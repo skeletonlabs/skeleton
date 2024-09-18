@@ -1,11 +1,10 @@
 <script lang="ts">
 	// Components (Skeleton)
 	import { Accordion, Segment, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
-	// Components (local)
-	import Edges from '$lib/components/Edges/Edges.svelte';
 	// Components (Settings)
 	import ControlsCore from './ControlsCore.svelte';
 	import ControlsSpacing from './ControlsSpacing.svelte';
+	import ControlsEdges from './ControlsEdges.svelte';
 	// Icons
 	import IconColors from 'lucide-svelte/icons/palette';
 	import IconTypography from 'lucide-svelte/icons/a-large-small';
@@ -50,16 +49,6 @@
 
 	// Control Typography
 	let typographyType = $state('base');
-
-	// Control: Edges
-	const formEdges = $state({
-		'rounded-base': 6,
-		'rounded-container': 12,
-		borders: 1,
-		rings: 1,
-		outlines: 1,
-		dividers: 1
-	});
 </script>
 
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">
@@ -232,36 +221,7 @@
 			<Accordion.Item value="edges" {...accordionItemProps}>
 				{#snippet lead()}<IconEdges size={24} class="btn btn-icon preset-tonal" />{/snippet}
 				{#snippet control()}<span class="h4">Edges</span>{/snippet}
-				{#snippet panel()}
-					<div class="space-y-4">
-						<p class="opacity-60">Define radius shape and edge widths.</p>
-						<div class="label">
-							<span class="label-text">Rounded Base</span>
-							<Edges name="rounded-base" items={[0, 2, 4, 6, 12, 24, 9999]} bind:value={formEdges['rounded-base']} />
-						</div>
-						<div class="label">
-							<span class="label-text">Rounded Container</span>
-							<Edges name="rounded-container" items={[0, 2, 4, 6, 12, 24]} bind:value={formEdges['rounded-container']} />
-						</div>
-						<hr class="hr" />
-						<div class="label">
-							<span class="label-text">Borders</span>
-							<Edges name="borders" items={[0, 1, 2, 4, 6]} bind:value={formEdges['borders']} thickness />
-						</div>
-						<div class="label">
-							<span class="label-text">Rings</span>
-							<Edges name="rings" items={[0, 1, 2, 4, 6]} bind:value={formEdges['rings']} thickness />
-						</div>
-						<div class="label">
-							<span class="label-text">Outlines</span>
-							<Edges name="outlines" items={[0, 1, 2, 4, 6]} bind:value={formEdges['outlines']} thickness />
-						</div>
-						<div class="label">
-							<span class="label-text">Dividers</span>
-							<Edges name="dividers" items={[0, 1, 2, 4, 6]} bind:value={formEdges['dividers']} thickness />
-						</div>
-					</div>
-				{/snippet}
+				{#snippet panel()}<ControlsEdges />{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
 		</Accordion>
