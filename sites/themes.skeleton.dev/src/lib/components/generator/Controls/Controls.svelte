@@ -15,7 +15,7 @@
 	import IconRandom from 'lucide-svelte/icons/dices';
 
 	// State
-	const settings = $state(['colors']);
+	const settings = $state([]);
 
 	// Colors
 	interface ColorSelection {
@@ -53,18 +53,22 @@
 
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">
 	<!-- Header -->
-	<header class="sticky top-0 z-10 grid grid-cols-[1fr_2fr] gap-4 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5">
-		<button type="button" class="btn preset-outlined-surface-200-800 w-full">Import</button>
-		<button type="button" class="btn preset-filled w-full">Generate</button>
+	<header
+		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow"
+	>
+		<p class="font-bold">Settings</p>
+		<button type="button" class="btn preset-outlined-surface-200-800" disabled>Import</button>
 	</header>
-	<div class="p-5 pt-0">
-		<p class="opacity-60">Use the controls below to adjust theme settings.</p>
+	<div class="p-5">
+		<input type="text" class="input" placeholder="Enter theme name..." />
 	</div>
 	<!-- Form: Settings -->
 	<form class="space-y-10">
 		<Accordion value={settings} collapsible spaceY="space-y-0">
 			{#snippet iconOpen()}<IconOpen size={16} />{/snippet}
 			{#snippet iconClosed()}<IconClosed size={16} />{/snippet}
+
+			<hr class="hr" />
 
 			<!-- Colors -->
 			<Accordion.Item
@@ -284,6 +288,8 @@
 					</div>
 				{/snippet}
 			</Accordion.Item>
+
+			<hr class="hr" />
 		</Accordion>
 	</form>
 	<!-- Footer -->
