@@ -10,7 +10,7 @@
 	import { settingsCore, settingsColors, settingsTypography, settingsSpacing, settingsEdges } from '$lib/state/state.svelte';
 
 	// State
-	let display: 'preview' | 'code' = $state('code');
+	let display: 'preview' | 'code' = $state('preview');
 </script>
 
 <section class="relative h-screen overflow-y-auto">
