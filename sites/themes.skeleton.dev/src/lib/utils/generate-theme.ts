@@ -1,7 +1,7 @@
 // Utility: Generate Theme
 // Generates the {theme}.ts file output for users to copy into their projects.
 
-import type { SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from '$lib/state/types';
+import { formageEdges, formatBackgrounds, formatColors, formatSpacing, formatTypography } from './format-output';
 import {
 	settingsCore,
 	settingsColors,
@@ -10,26 +10,6 @@ import {
 	settingsSpacing,
 	settingsEdges
 } from '$lib/state/state.svelte';
-
-function formatTypography(typography: SettingsTypography) {
-	return typography;
-}
-
-function formatSpacing(spacing: SettingsSpacing) {
-	return spacing;
-}
-
-function formageEdges(edges: SettingsEdges) {
-	return edges;
-}
-
-function formatBackgrounds(backgrounds: SettingsBackgrounds) {
-	return backgrounds;
-}
-
-function formatColors(colors: Record<string, string>) {
-	return colors;
-}
 
 export function generateTheme() {
 	const themeObject = {

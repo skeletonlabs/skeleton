@@ -1,1 +1,4 @@
-// TODO: implement CSS generation script
+// Utility: Generate CSS
+// Generates the theme CSS for live previews.
+
+// TODO ...
