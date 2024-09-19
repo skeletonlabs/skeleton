@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Segment, Tabs } from '@skeletonlabs/skeleton-svelte';
+	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Constants
 	import * as constants from '$lib/constants/constants';
 	// State
@@ -12,7 +12,7 @@
 <div class="space-y-4">
 	<p class="opacity-60">Define all typographic settings for your theme.</p>
 	<!-- Tabs -->
-	<Tabs bind:value={category} fluid>
+	<Tabs bind:value={category as string} fluid>
 		{#snippet list()}
 			<Tabs.Control value="base">Base</Tabs.Control>
 			<Tabs.Control value="headings">Headings</Tabs.Control>

@@ -4,9 +4,8 @@ export interface SettingsCore {
 	name: string;
 }
 
-export interface SettingsColors {
-	foo: string;
-}
+// NOTE: SettingsColors handled as `Record<string, string>`
+// export interface SettingsColors {}
 
 export interface SettingsTypography {
 	'--base-font-color': string;
