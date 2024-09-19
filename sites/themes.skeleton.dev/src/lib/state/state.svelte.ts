@@ -1,5 +1,5 @@
 import * as constants from '$lib/constants/constants';
-import type { SettingsCore, SettingsTypography, SettingsSpacing, SettingsEdges } from './types';
+import type { SettingsCore, SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from './types';
 
 // State ---
 
@@ -183,6 +183,11 @@ export const settingsColors: Record<string, string> = $state({
 	'--color-surface-contrast-800': 'var(--color-surface-contrast-light)',
 	'--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
 	'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
+});
+
+export const settingsBackgrounds: SettingsBackgrounds = $state({
+	'--body-background-color': 'var(--color-surface-50)',
+	'--body-background-color-dark': 'var(--color-surface-950)'
 });
 
 // Reference: https://designcode.io/typographic-scales

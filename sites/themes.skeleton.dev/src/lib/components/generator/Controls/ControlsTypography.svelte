@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tabs, Segment } from '@skeletonlabs/skeleton-svelte';
+	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Constants
 	import * as constants from '$lib/constants/constants';
 	// State

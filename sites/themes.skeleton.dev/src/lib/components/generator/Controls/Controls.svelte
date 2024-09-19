@@ -4,11 +4,13 @@
 	// Components (Settings)
 	import ControlsCore from './ControlsCore.svelte';
 	import ControlsColors from './ControlsColors.svelte';
+	import ControlsBackgrounds from './ControlsBackgrounds.svelte';
 	import ControlsTypography from './ControlsTypography.svelte';
 	import ControlsSpacing from './ControlsSpacing.svelte';
 	import ControlsEdges from './ControlsEdges.svelte';
 	// Icons
 	import IconColors from 'lucide-svelte/icons/palette';
+	import IconBackgrounds from 'lucide-svelte/icons/layers-2';
 	import IconTypography from 'lucide-svelte/icons/a-large-small';
 	import IconSpacing from 'lucide-svelte/icons/scaling';
 	import IconEdges from 'lucide-svelte/icons/box-select';
@@ -24,7 +26,7 @@
 	};
 
 	// State
-	const settings = $state(['typography']);
+	const settings = $state([]);
 </script>
 
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">
@@ -46,10 +48,15 @@
 			<!-- Controls: Colors -->
 			<Accordion.Item value="colors" {...accordionItemProps}>
 				{#snippet lead()}<IconColors size={24} class="btn btn-icon preset-tonal" />{/snippet}
-				{#snippet control()}<span class="h4">Colors</span>{/snippet}
-				{#snippet panel()}
-					<ControlsColors />
-				{/snippet}
+				{#snippet control()}<span class="h4">Color Palette</span>{/snippet}
+				{#snippet panel()}<ControlsColors />{/snippet}
+			</Accordion.Item>
+			<hr class="hr" />
+			<!-- Controls: Backgrounds -->
+			<Accordion.Item value="backgrounds" {...accordionItemProps}>
+				{#snippet lead()}<IconBackgrounds size={24} class="btn btn-icon preset-tonal" />{/snippet}
+				{#snippet control()}<span class="h4">Backgrounds</span>{/snippet}
+				{#snippet panel()}<ControlsBackgrounds />{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
 			<!-- Controls: Typography -->

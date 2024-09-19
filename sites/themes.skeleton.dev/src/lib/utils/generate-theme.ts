@@ -1,12 +1,15 @@
 // Utility: Generate Theme
 // Generates the {theme}.ts file output for users to copy into their projects.
 
-import { settingsCore, settingsColors, settingsTypography, settingsSpacing, settingsEdges } from '$lib/state/state.svelte';
-import type { SettingsCore, SettingsTypography, SettingsSpacing, SettingsEdges } from '$lib/state//types';
-
-function formatCore(core: SettingsCore) {
-	return core;
-}
+import type { SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from '$lib/state/types';
+import {
+	settingsCore,
+	settingsColors,
+	settingsBackgrounds,
+	settingsTypography,
+	settingsSpacing,
+	settingsEdges
+} from '$lib/state/state.svelte';
 
 function formatTypography(typography: SettingsTypography) {
 	return typography;
@@ -20,6 +23,10 @@ function formageEdges(edges: SettingsEdges) {
 	return edges;
 }
 
+function formatBackgrounds(backgrounds: SettingsBackgrounds) {
+	return backgrounds;
+}
+
 function formatColors(colors: Record<string, string>) {
 	return colors;
 }
@@ -28,10 +35,10 @@ export function generateTheme() {
 	const themeObject = {
 		name: settingsCore.name,
 		properties: {
-			...formatCore(settingsCore),
 			...formatTypography(settingsTypography),
 			...formatSpacing(settingsSpacing),
 			...formageEdges(settingsEdges),
+			...formatBackgrounds(settingsBackgrounds),
 			...formatColors(settingsColors)
 		}
 	};

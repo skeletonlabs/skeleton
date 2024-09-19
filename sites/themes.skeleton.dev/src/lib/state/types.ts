@@ -7,6 +7,11 @@ export interface SettingsCore {
 // NOTE: SettingsColors handled as `Record<string, string>`
 // export interface SettingsColors {}
 
+export interface SettingsBackgrounds {
+	'--body-background-color': string;
+	'--body-background-color-dark': string;
+}
+
 export interface SettingsTypography {
 	// Scale Factor
 	'--type-scale-factor': string;
