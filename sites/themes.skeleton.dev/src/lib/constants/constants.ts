@@ -5,7 +5,19 @@
 export const colorNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'] as const;
 export const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 
-// Fonts ---
+// Typography ---
+
+export const typographicScales = [
+	{ value: '1.0', label: 'Base' },
+	{ value: '1.067', label: 'Minor Second' },
+	{ value: '1.125', label: 'Major Second' },
+	{ value: '1.2', label: 'Minor Third' },
+	{ value: '1.25', label: 'Major Third' },
+	{ value: '1.333', label: 'Perfect Fourth' },
+	{ value: '1.414', label: 'Augmented Fourth' },
+	{ value: '1.5', label: 'Perfect Fifth' },
+	{ value: '1.618', label: 'Golden Ratio' }
+] as const;
 
 export const fontFamilies: string[] = [
 	'inherit',

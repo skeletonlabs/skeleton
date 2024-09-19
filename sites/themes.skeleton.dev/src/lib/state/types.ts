@@ -8,6 +8,23 @@ export interface SettingsCore {
 // export interface SettingsColors {}
 
 export interface SettingsTypography {
+	// Scale Factor
+	'--type-scale-factor': string;
+	// Scale Numeric
+	'--type-scale-1': string;
+	'--type-scale-2': string;
+	'--type-scale-3': string;
+	'--type-scale-4': string;
+	'--type-scale-5': string;
+	'--type-scale-6': string;
+	'--type-scale-7': string;
+	'--type-scale-8': string;
+	'--type-scale-9': string;
+	'--type-scale-10': string;
+	'--type-scale-11': string;
+	'--type-scale-12': string;
+	'--type-scale-13': string;
+	// Base
 	'--base-font-color': string;
 	'--base-font-color-dark': string;
 	'--base-font-family': string;

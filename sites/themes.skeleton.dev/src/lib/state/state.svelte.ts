@@ -185,7 +185,25 @@ export const settingsColors: Record<string, string> = $state({
 	'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
 });
 
+// Reference: https://designcode.io/typographic-scales
 export const settingsTypography: SettingsTypography = $state({
+	// Scale Factor
+	'--type-scale-factor': '1.067',
+	// Scale Numeric (NOTE: hardcoded)
+	'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))', // 12px
+	'--type-scale-2': 'calc(0.875rem * var(--type-scale-factor))', // 14px
+	'--type-scale-3': 'calc(1rem * var(--type-scale-factor))', // 16px
+	'--type-scale-4': 'calc(1.125rem * var(--type-scale-factor))', // 18px
+	'--type-scale-5': 'calc(1.25rem * var(--type-scale-factor))', // 20px
+	'--type-scale-6': 'calc(1.5rem * var(--type-scale-factor))', // 24px
+	'--type-scale-7': 'calc(1.875rem * var(--type-scale-factor))', // 30px
+	'--type-scale-8': 'calc(2.25rem * var(--type-scale-factor))', // 36px
+	'--type-scale-9': 'calc(3rem * var(--type-scale-factor))', // 48px
+	'--type-scale-10': 'calc(3.75rem * var(--type-scale-factor))', // 60px
+	'--type-scale-11': 'calc(4.5rem * var(--type-scale-factor))', // 72px
+	'--type-scale-12': 'calc(6rem * var(--type-scale-factor))', // 96px
+	'--type-scale-13': 'calc(8rem * var(--type-scale-factor))', // 128px
+	// Base
 	'--base-font-color': 'var(--color-surface-950)',
 	'--base-font-color-dark': 'var(--color-surface-50)',
 	'--base-font-family': constants.fontFamilies[1],
@@ -216,6 +234,7 @@ export const settingsTypography: SettingsTypography = $state({
 	'--anchor-text-decoration-focus': 'none'
 });
 
+// Reference: https://tailwindcss.com/docs/customizing-spacing
 export const settingsSpacing: SettingsSpacing = $state({
 	'--space-scale-factor': 1.0
 });

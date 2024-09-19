@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tabs } from '@skeletonlabs/skeleton-svelte';
+	import { Tabs, Segment } from '@skeletonlabs/skeleton-svelte';
 	// Constants
 	import * as constants from '$lib/constants/constants';
 	// State
@@ -11,7 +11,17 @@
 
 <div class="space-y-4">
 	<p class="opacity-60">Define all typographic settings for your theme.</p>
-	<!-- Tabs -->
+	<!-- Scale -->
+	<label class="label">
+		<span class="label-text">Typographic Scale Factor</span>
+		<!-- --type-scale-factor -->
+		<select class="select" name="--type-scale-factor" bind:value={settingsTypography['--type-scale-factor']}>
+			{#each constants.typographicScales as typographicScale}
+				<option value={typographicScale.value}>{typographicScale.value} - {typographicScale.label}</option>
+			{/each}
+		</select>
+	</label>
+	<!-- Palette and Contrast -->
 	<Tabs bind:value={category as string} fluid>
 		{#snippet list()}
 			<Tabs.Control value="base">Base</Tabs.Control>

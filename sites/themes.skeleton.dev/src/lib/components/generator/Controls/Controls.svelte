@@ -24,7 +24,7 @@
 	};
 
 	// State
-	const settings = $state([]);
+	const settings = $state(['typography']);
 </script>
 
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">
