@@ -28,60 +28,67 @@
 		{ label: 'Error', description: 'Used for error states.', value: 'error', class: 'preset-filled-error-500' },
 		{ label: 'Surface', description: 'The neutral surface tones.', value: 'surface', class: 'preset-filled-surface-500' }
 	];
+	const shadesAll = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+	const shades3x = [50, 500, 950];
 
 	// State
-	let colorCurrentTab = $state('primary');
-	let colorAllShades = $state(true);
-	const rxSwatchArr = $derived(colorAllShades ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] : [50, 500, 950]);
+	let currentColor = $state('primary');
+	let showAllShades = $state(false);
+	const rxShadeArray = $derived(showAllShades ? shadesAll : shades3x);
 </script>
 
 <div class="space-y-4">
-	<p class="opacity-60">Define the palette and contrast tones for each color.</p>
+	<p class="opacity-60">Define the palette and contrast tones per color.</p>
 	<!-- Color Tabs -->
-	<Tabs bind:value={colorCurrentTab} fluid>
+	<Tabs bind:value={currentColor} fluid>
 		{#snippet list()}
 			{#each colorSelection as color}
 				<Tabs.Control value={color.value} labelBase="flex justify-center" stateInactive="">
 					<div class="aspect-square w-[52px] rounded flex justify-center items-center {color.class}" title={color.description}>
-						{#if color.value === colorCurrentTab}<IconCheck />{/if}
+						{#if color.value === currentColor}<IconCheck />{/if}
 					</div>
 				</Tabs.Control>
 			{/each}
 		{/snippet}
 		{#snippet content()}
 			{#each colorSelection as color}
-				{#if color.value === colorCurrentTab}
+				{#if color.value === currentColor}
 					<div class="space-y-4">
 						<!-- Actions -->
-						<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-4">
-							<p class="font-bold">Shades</p>
-							<button type="button" class="btn preset-outlined-surface-200-800">
-								<IconSeed size={16} />
+						<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-2">
+							<h3 class="h5">{colorSelection.find((c) => c.value === currentColor)?.label}</h3>
+							<button type="button" class="chip preset-outlined-surface-300-700 hover:preset-tonal">
+								<IconSeed size={14} />
+								<span>Seed</span>
 							</button>
-							<button type="button" class="btn preset-outlined-surface-200-800">
-								<IconRandom size={16} />
+							<button type="button" class="chip preset-outlined-surface-300-700 hover:preset-tonal">
+								<IconRandom size={14} />
+								<span>Random</span>
 							</button>
-							<Switch name="example" bind:checked={colorAllShades}>
+							<Switch name="example" bind:checked={showAllShades} classes="!gap-2">
 								<span class="type-scale-1 opacity-60">All</span>
 							</Switch>
 						</div>
 						<!-- Shades -->
 						<table class="table">
 							<tbody>
-								{#each rxSwatchArr as shade}
+								{#each rxShadeArray as shade}
 									<tr>
 										<td class="type-scale-1 opacity-60">{shade}</td>
 										<!-- --color-(name)-(shade) -->
-										<td><input type="text" class="input" bind:value={settingsColors[`--color-${color.value}-${shade}`]} /></td>
-										<td><input class="input" type="color" bind:value={settingsColors[`--color-${color.value}-${shade}`]} /></td>
+										<td>
+											<input type="text" class="input" bind:value={settingsColors[`--color-${color.value}-${shade}`]} />
+										</td>
+										<td class="w-[1%] whitespace-nowrap">
+											<input class="input" type="color" bind:value={settingsColors[`--color-${color.value}-${shade}`]} />
+										</td>
 									</tr>
 								{/each}
 							</tbody>
 						</table>
 						<!-- Contrast -->
 						<div class="space-y-4">
-							<p class="font-bold">Contrast</p>
-
+							<h3 class="h5">Contrast</h3>
 							<div class="grid grid-cols-2 gap-4">
 								<!-- --color-(color)-contrast-dark -->
 								<label class="label">

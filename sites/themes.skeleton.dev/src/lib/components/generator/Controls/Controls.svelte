@@ -24,7 +24,7 @@
 	};
 
 	// State
-	const settings = $state(['colors']);
+	const settings = $state([]);
 </script>
 
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">
@@ -33,7 +33,7 @@
 		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow"
 	>
 		<p class="font-bold">Settings</p>
-		<button type="button" class="btn preset-outlined-surface-200-800" disabled>Import</button>
+		<button type="button" class="btn preset-outlined-surface-300-700 hover:preset-tonal" disabled>Import</button>
 	</header>
 	<!-- Controls: ore -->
 	<ControlsCore />
