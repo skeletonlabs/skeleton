@@ -9,10 +9,10 @@
 	import ThemeCodeBlock from '../ThemeCodeBlock/ThemeCodeBlock.svelte';
 
 	// State
-	let display: 'preview' | 'code' = $state('code');
+	let display: 'preview' | 'code' = $state('preview');
 </script>
 
-<section class="relative h-screen overflow-y-auto">
+<section class="relative h-screen overflow-y-auto bg-body-color dark:bg-body-color-dark">
 	<!-- Header -->
 	<header class="sticky top-0 z-10 bg-surface-50/50 dark:bg-surface-950/50 backdrop-blur-xl p-10 py-5 shadow">
 		<nav class="flex justify-between gap-4">
