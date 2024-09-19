@@ -6,11 +6,10 @@
 	import PreviewComponents from './PreviewComponents.svelte';
 	import PreviewPalette from './PreviewPalette.svelte';
 	import PreviewTypography from './PreviewTypography.svelte';
-	// DEBUG ONLY: State
-	import { settingsCore, settingsColors, settingsTypography, settingsSpacing, settingsEdges } from '$lib/state/state.svelte';
+	import ThemeCodeBlock from '../ThemeCodeBlock/ThemeCodeBlock.svelte';
 
 	// State
-	let display: 'preview' | 'code' = $state('preview');
+	let display: 'preview' | 'code' = $state('code');
 </script>
 
 <section class="relative h-screen overflow-y-auto">
@@ -35,31 +34,9 @@
 				<PreviewTypography />
 			</section>
 		{:else}
-			<!-- Code Block -->
+			<!-- Theme Output -->
 			<section class="p-10 space-y-10">
-				<!-- DEBUG ONLY: State -->
-				<div class="space-y-4">
-					<code class="code">settingsCore</code>
-					<pre class="pre">{JSON.stringify(settingsCore, null, 2)}</pre>
-				</div>
-				<div class="space-y-4">
-					<code class="code">settingsColors</code>
-					<pre class="pre">{JSON.stringify(settingsColors, null, 2)}</pre>
-				</div>
-				<div class="space-y-4">
-					<code class="code">settingsTypography</code>
-					<pre class="pre">{JSON.stringify(settingsTypography, null, 2)}</pre>
-				</div>
-				<div class="space-y-4">
-					<code class="code">settingsSpacing</code>
-					<pre class="pre">{JSON.stringify(settingsSpacing, null, 2)}</pre>
-				</div>
-				<div class="space-y-4">
-					<code class="code">settingsEdges</code>
-					<pre class="pre">{JSON.stringify(settingsEdges, null, 2)}</pre>
-				</div>
-				<!-- Generated Theme Output -->
-				<!-- <pre class="pre">(generated-theme-output-here)</pre> -->
+				<ThemeCodeBlock />
 			</section>
 		{/if}
 	</article>
