@@ -2,7 +2,13 @@
 // Deep clones each state object and formats as needed.
 
 import chroma from 'chroma-js';
-import type { SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from '$lib/state/types';
+import type { SettingsCore, SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from '$lib/state/types';
+
+export function formatCore(core: SettingsCore) {
+	const _core = JSON.parse(JSON.stringify(core));
+	_core.name = core.name.trim().replace(/[^a-zA-Z]/g, ''); // letters only
+	return _core;
+}
 
 export function formatTypography(typography: SettingsTypography) {
 	const _typography = JSON.parse(JSON.stringify(typography));
