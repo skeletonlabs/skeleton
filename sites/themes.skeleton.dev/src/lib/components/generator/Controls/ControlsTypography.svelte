@@ -75,11 +75,6 @@
 							</select>
 						</div>
 					</label>
-
-					<div class="col-span-2 p-4">
-						<p>This is a text.</p>
-					</div>
-
 					<!-- --base-font-family -->
 					<label class="label col-span-2">
 						<span class="label-text">Font Family</span>
