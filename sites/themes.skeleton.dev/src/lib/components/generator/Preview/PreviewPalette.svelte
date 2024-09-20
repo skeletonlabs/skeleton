@@ -149,34 +149,34 @@
 				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-900-100">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-800-200">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-700-300">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-600-400">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-400-600">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-300-700">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-200-800">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-100-900">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-50-950">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 		</div>
 	</section>
@@ -188,34 +188,34 @@
 				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-900-100">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-800-200">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-700-300">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-600-400">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-500">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-400-600">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-300-700">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-200-800">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-100-900">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-50-950">
-				<IconCenter size={24} />
+				<IconCenter size={32} />
 			</div>
 		</div>
 	</section>
@@ -223,13 +223,13 @@
 	<section class="space-y-5">
 		<h2 class="h4">Tonal</h2>
 		<div class="w-full grid grid-cols-11 gap-4">
-			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal"><IconCenter size={40} /></div>
-			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-primary"><IconCenter size={40} /></div>
-			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-secondary"><IconCenter size={40} /></div>
-			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-tertiary"><IconCenter size={40} /></div>
-			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-success"><IconCenter size={40} /></div>
-			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-warning"><IconCenter size={40} /></div>
-			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-error"><IconCenter size={40} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal"><IconCenter size={32} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-primary"><IconCenter size={32} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-secondary"><IconCenter size={32} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-tertiary"><IconCenter size={32} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-success"><IconCenter size={32} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-warning"><IconCenter size={32} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-error"><IconCenter size={32} /></div>
 		</div>
 	</section>
 </div>

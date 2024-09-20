@@ -26,6 +26,7 @@
 			<Lightswitch />
 		</nav>
 	</header>
+	<!-- Content -->
 	<article class="container mx-auto">
 		{#if display === 'preview'}
 			<!-- Components -->

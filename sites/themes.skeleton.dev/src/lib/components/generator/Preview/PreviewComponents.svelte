@@ -8,7 +8,7 @@
 
 <div class="space-y-10">
 	<!-- Masonary -->
-	<div class="grid grid-cols-3 gap-10">
+	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
 		<!-- Column 1 -->
 		<div class="space-y-10">
 			<!-- Tabs -->
@@ -21,12 +21,13 @@
 			</Tabs>
 			<!-- Avatars -->
 			<div class="grid grid-cols-6 gap-4">
-				<Avatar src="https://avatar.iran.liara.run/public/34" name="" size="size-full" imageClasses="grayscale" />
-				<Avatar src="https://avatar.iran.liara.run/public/53" name="" size="size-full" imageClasses="grayscale" />
+				<!-- Source: https://avatar.iran.liara.run/ -->
+				<Avatar src="/images/male.png" name="" size="size-full" imageClasses="grayscale" />
+				<Avatar src="/images/female.png" name="" size="size-full" imageClasses="grayscale" />
 				<Avatar name="Skeleton" size="size-full" background="preset-filled-primary-500" />
 				<Avatar name="Kevin" size="size-full" background="preset-tonal-primary" />
-				<Avatar name="Kevin" size="size-full" background="preset-filled-primary-500"><IconSkull size={24} /></Avatar>
-				<Avatar name="Kevin" size="size-full" background="preset-tonal-primary"><IconSkull size={24} /></Avatar>
+				<Avatar name="Kevin" size="size-full" background="preset-outlined-primary-500"><IconSkull size={24} /></Avatar>
+				<Avatar name="Kevin" size="size-full" background="preset-outlined-surface-200-800"><IconSkull size={24} /></Avatar>
 			</div>
 			<!-- Checkboxes -->
 			<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
@@ -37,11 +38,11 @@
 					</label>
 					<label class="flex items-center space-x-2">
 						<input class="checkbox" type="checkbox" />
-						<p>Invite a <a href="/themes/create" class="anchor">Michael</a> to the platform</p>
+						<p>Invite <a href="/themes/create" class="anchor">Michael</a> to the platform</p>
 					</label>
 					<label class="flex items-center space-x-2">
 						<input class="checkbox" type="checkbox" />
-						<p>Create and <a href="/themes/create" class="anchor">file</a> a TPS report.</p>
+						<p>Create and file a <a href="/themes/create" class="anchor">TPS report</a>.</p>
 					</label>
 					<label class="flex items-center space-x-2">
 						<input class="checkbox" type="checkbox" checked />
@@ -79,30 +80,32 @@
 					<input class="input" type="password" value="skeleton" />
 				</label>
 			</fieldset>
-			<fieldset class="space-y-5">
+			<fieldset>
 				<button type="button" class="btn preset-filled-primary-500 w-full">Create Account</button>
-				<hr class="hr" />
+			</fieldset>
+			<hr class="hr !my-7" />
+			<fieldset class="space-y-5">
 				<button type="button" class="btn preset-outlined-surface-200-800 w-full">Continue with Github</button>
 			</fieldset>
 		</form>
 		<!-- Column 3 -->
 		<div class="space-y-10">
 			<!-- Badges -->
-			<div class="flex justify-between items-center gap-3">
+			<div class="grid grid-cols-4 gap-4">
 				<span class="badge preset-filled">Badge</span>
 				<span class="badge preset-filled-primary-500">Badge</span>
 				<span class="badge preset-tonal-primary">Badge</span>
 				<span class="badge preset-outlined-primary-500">Badge</span>
-				<span class="badge">Badge</span>
 			</div>
 			<!-- Buttons -->
-			<div class="flex justify-between items-center gap-4">
+			<div class="grid grid-cols-[auto_1fr] item-center gap-4">
 				<Switch name="example" checked={true} />
-				<button type="button" class="btn-icon preset-filled"><IconSkull /></button>
-				<button type="button" class="btn-icon preset-filled-primary-500"><IconSkull /></button>
-				<button type="button" class="btn-icon preset-tonal"><IconSkull /></button>
-				<button type="button" class="btn-icon preset-tonal-primary"><IconSkull /></button>
-				<button type="button" class="btn-icon preset-outlined-surface-200-800"><IconSkull /></button>
+				<div class="grid grid-cols-4 gap-4">
+					<button type="button" class="btn preset-filled"><IconSkull /></button>
+					<button type="button" class="btn preset-filled-primary-500"><IconSkull /></button>
+					<button type="button" class="btn preset-tonal-primary"><IconSkull /></button>
+					<button type="button" class="btn preset-outlined-primary-500"><IconSkull /></button>
+				</div>
 			</div>
 			<!-- Search -->
 			<div class="input-group grid-cols-[auto_1fr]">
@@ -122,16 +125,16 @@
 				</div>
 			</div>
 			<!-- Cards -->
-			<div class="space-y-2">
+			<div class="space-y-4">
 				<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
-					<Avatar src="https://avatar.iran.liara.run/public/34" name="" size="size-14" imageClasses="grayscale" />
+					<Avatar src="/images/male.png" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Gregory Smith</p>
 						<a href="mailto:gregory.smith@example.com" class="anchor type-scale-1">gregory.smith@example.com</a>
 					</div>
 				</div>
 				<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
-					<Avatar src="https://avatar.iran.liara.run/public/53" name="" size="size-14" imageClasses="grayscale" />
+					<Avatar src="/images/female.png" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Stephanie Collins</p>
 						<a href="mailto:stephanie.collins@example.com" class="anchor type-scale-1">stephanie.collins@example.com</a>
@@ -156,7 +159,7 @@
 		{/snippet}
 	</AppBar>
 	<!-- Header -->
-	<header class="grid grid-cols-[1fr_auto] items-center gap-4">
+	<header class="grid grid-cols-1 xl:grid-cols-[1fr_auto] items-center gap-4">
 		<!-- Text -->
 		<div class="space-y-5">
 			<h1 class="h1 text-balance">Lorem Ipsum.</h1>
@@ -169,11 +172,11 @@
 				<button type="button" class="btn btn-lg preset-tonal">Secondary Action</button>
 			</nav>
 		</div>
-		<!-- https://picsum.photos/ -->
+		<!-- Source: https://picsum.photos/ -->
 		<div>
 			<div class="relative w-[320px] aspect-square bg-surface-100-900 rounded-container overflow-hidden">
 				<div class="absolute top-0 left-0 z-[1] w-full h-full bg-gradient-to-br from-primary-500/0 to-primary-500"></div>
-				<img class="" src="https://picsum.photos/320/320" alt="preview" />
+				<img class="grayscale" src="https://picsum.photos/320/320" alt="preview" />
 			</div>
 		</div>
 	</header>

@@ -10,7 +10,7 @@
 	}
 </script>
 
-<button class="btn btn-icon preset-outlined-surface-200-800" onclick={toggleDarkMode}>
+<button class="btn btn-icon preset-outlined-surface-200-800 hover:preset-tonal" onclick={toggleDarkMode}>
 	{#if darkMode}
 		<IconSun size={18} />
 	{:else}

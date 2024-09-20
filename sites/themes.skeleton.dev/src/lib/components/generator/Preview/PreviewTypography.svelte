@@ -1,4 +1,4 @@
-<div class="grid grid-cols-2 gap-10">
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
 	<!-- Column 1 -->
 	<div class="space-y-10">
 		<!-- Headings -->
