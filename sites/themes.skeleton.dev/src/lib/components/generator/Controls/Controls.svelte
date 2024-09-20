@@ -26,7 +26,7 @@
 	};
 
 	// State
-	const settings = $state(['colors']);
+	const settings = $state([]);
 </script>
 
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">

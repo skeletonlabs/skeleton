@@ -2,6 +2,7 @@
 	// Components (Skeleton)
 	import { Segment } from '@skeletonlabs/skeleton-svelte';
 	// Components (Local)
+	import Logo from '$lib/components/Logo/Logo.svelte';
 	import Lightswitch from '$lib/components/Lightswitch/Lightswitch.svelte';
 	import PreviewComponents from './PreviewComponents.svelte';
 	import PreviewPalette from './PreviewPalette.svelte';
@@ -16,6 +17,7 @@
 	<!-- Header -->
 	<header class="sticky top-0 z-10 bg-surface-50/50 dark:bg-surface-950/50 backdrop-blur-xl p-10 py-5 shadow">
 		<nav class="flex justify-between gap-4">
+			<Logo />
 			<Segment name="display" bind:value={display as string}>
 				<Segment.Item value="preview" classes="btn-sm font-bold">Preview</Segment.Item>
 				<Segment.Item value="code" classes="btn-sm font-bold">Code</Segment.Item>

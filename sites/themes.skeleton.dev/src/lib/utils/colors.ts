@@ -57,8 +57,7 @@ export function seedColor(colorName: string, seedColor: string) {
 }
 
 export function genRandomSeed(colorName: string) {
-	/** lightness is randomly generated between 0.2 and 0.8 */
-	const lightness = Math.random() * 0.6 + 0.2;
+	const lightness = Math.random() * 0.6 + 0.2; // Random between 0.2 to 0.8
 	const chromaColor = chroma.random().set('hsl.l', lightness);
 	seedColor(colorName, chromaColor.hex());
 }
