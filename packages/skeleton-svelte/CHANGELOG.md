@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.9
+
+### Patch Changes
+
+- chore: Remove `$effect` in `Segment.svelte` component that was emitting execessive logs ([#2858](https://github.com/skeletonlabs/skeleton/pull/2858))
+
 ## 1.0.0-next.8
 
 ### Minor Changes
