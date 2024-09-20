@@ -87,11 +87,11 @@
 	</div>
 	<!-- Footer -->
 	<footer class="p-5">
-		{#if globals.panelDisplay !== 'code'}
+		{#if globals.panel !== 'code'}
 			<button
 				type="button"
 				class="btn btn-lg w-full preset-outlined-surface-200-800 hover:preset-tonal"
-				onclick={() => (globals.panelDisplay = 'code')}
+				onclick={() => (globals.panel = 'code')}
 			>
 				<IconCode />
 				<strong>Generate Theme</strong>
