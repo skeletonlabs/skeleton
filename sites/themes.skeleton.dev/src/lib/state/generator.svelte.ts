@@ -5,7 +5,7 @@ import type { SettingsCore, SettingsBackgrounds, SettingsTypography, SettingsSpa
 
 export const globals = $state({
 	/** Set the preivew panel: preview | code */
-	panel: 'code'
+	panel: 'preview'
 });
 
 // State ---
