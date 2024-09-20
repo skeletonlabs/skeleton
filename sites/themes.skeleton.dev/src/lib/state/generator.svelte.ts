@@ -1,4 +1,4 @@
-import * as constants from '$lib/constants/constants';
+import * as constants from '$lib/constants/generator';
 import type { SettingsCore, SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from './types';
 
 // State ---

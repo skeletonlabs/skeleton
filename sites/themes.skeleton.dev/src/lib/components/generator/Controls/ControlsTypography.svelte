@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Constants
-	import * as constants from '$lib/constants/constants';
+	import * as constants from '$lib/constants/generator';
 	// State
-	import { settingsTypography } from '$lib/state/state.svelte';
+	import { settingsTypography } from '$lib/state/generator.svelte';
 
 	// Local
 	let category: 'base' | 'headings' | 'anchors' = $state('base');

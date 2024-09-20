@@ -1,9 +1,10 @@
 <script lang="ts">
 	// Components (Skeleton)
 	import { Segment } from '@skeletonlabs/skeleton-svelte';
-	// Components (Local)
-	import Logo from '$lib/components/Logo/Logo.svelte';
-	import Lightswitch from '$lib/components/Lightswitch/Lightswitch.svelte';
+	// Components (common)
+	import Logo from '$lib/components/common/Logo/Logo.svelte';
+	// Components (generator)
+	import Lightswitch from '$lib/components/common/Lightswitch/Lightswitch.svelte';
 	import PreviewComponents from './PreviewComponents.svelte';
 	import PreviewPalette from './PreviewPalette.svelte';
 	import PreviewTypography from './PreviewTypography.svelte';

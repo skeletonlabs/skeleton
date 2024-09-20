@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Components
-	import Edges from '$lib/components/Edges/Edges.svelte';
+	import Edges from '$lib/components/generator/Edges/Edges.svelte';
 	// State
-	import { settingsEdges } from '$lib/state/state.svelte';
+	import { settingsEdges } from '$lib/state/generator.svelte';
 </script>
 
 <div class="space-y-4">

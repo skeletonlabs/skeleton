@@ -1,10 +1,10 @@
 <script lang="ts">
 	// Constants
-	import * as constants from '$lib/constants/constants';
+	import * as constants from '$lib/constants/generator';
 	// State
-	import { settingsColors } from '$lib/state/state.svelte';
+	import { settingsColors } from '$lib/state/generator.svelte';
 	// Utils
-	import { genColorRamp, seedColor, genRandomSeed } from '$lib/utils/colors';
+	import { genColorRamp, seedColor, genRandomSeed } from '$lib/utils/generator/colors';
 	// Components (Skeleton)
 	import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Icons

@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Constants
-	import * as constants from '$lib/constants/constants';
+	import * as constants from '$lib/constants/generator';
 	// State
-	import { settingsBackgrounds } from '$lib/state/state.svelte';
+	import { settingsBackgrounds } from '$lib/state/generator.svelte';
 </script>
 
 <div class="space-y-4">

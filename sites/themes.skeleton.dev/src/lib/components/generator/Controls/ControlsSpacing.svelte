@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { settingsSpacing } from '$lib/state/state.svelte';
+	import { settingsSpacing } from '$lib/state/generator.svelte';
 </script>
 
 <div class="space-y-4">
