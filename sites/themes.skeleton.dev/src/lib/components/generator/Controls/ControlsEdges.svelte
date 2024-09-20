@@ -9,11 +9,11 @@
 	<p class="opacity-60">Define radius shape and edge widths.</p>
 	<div class="label">
 		<span class="label-text">Rounded Base</span>
-		<Edges name="rounded-base" items={[0, 2, 4, 6, 12, 24]} bind:value={settingsEdges['--radii-default']} />
+		<Edges name="rounded-base" items={[0, 2, 4, 6, 12, 9999]} bind:value={settingsEdges['--radii-default']} />
 	</div>
 	<div class="label">
 		<span class="label-text">Rounded Container</span>
-		<Edges name="rounded-container" items={[0, 2, 4, 6, 12, 24, 9999]} bind:value={settingsEdges['--radii-container']} />
+		<Edges name="rounded-container" items={[0, 2, 4, 6, 12, 24]} bind:value={settingsEdges['--radii-container']} />
 	</div>
 	<hr class="hr" />
 	<div class="label">

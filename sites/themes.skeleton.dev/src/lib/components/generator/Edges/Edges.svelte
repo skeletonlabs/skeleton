@@ -15,7 +15,7 @@
 		name,
 		value = $bindable(0),
 		items = [0, 2, 4, 6, 12, 16, 24, 9999],
-		gridCols = 'grid-cols-7'
+		gridCols = 'grid-cols-6'
 	}: EdgesProps = $props();
 
 	function setValue(v: number) {
@@ -27,7 +27,7 @@
 	<!-- Hidden Input -->
 	<input {name} type="hidden" />
 	<!-- Selection List -->
-	<div class="grid {gridCols} gap-2">
+	<div class="grid {gridCols} gap-4">
 		{#each items as itemValue}
 			<Edge value={itemValue} active={value} onselect={setValue} {thickness} />
 		{/each}

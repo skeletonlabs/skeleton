@@ -1,6 +1,12 @@
 import * as constants from '$lib/constants/generator';
 import type { SettingsCore, SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from './types';
 
+// Globals
+
+export const globals = $state({
+	panelDisplay: 'preview' // preview | code
+});
+
 // State ---
 
 export const settingsCore: SettingsCore = $state({

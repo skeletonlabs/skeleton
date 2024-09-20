@@ -1,4 +1,6 @@
 <script lang="ts">
+	// State
+	import { globals } from '$lib/state/generator.svelte';
 	// Components (Skeleton)
 	import { Segment } from '@skeletonlabs/skeleton-svelte';
 	// Components (common)
@@ -9,9 +11,6 @@
 	import PreviewPalette from './PreviewPalette.svelte';
 	import PreviewTypography from './PreviewTypography.svelte';
 	import ThemeCodeBlock from '../ThemeCodeBlock/ThemeCodeBlock.svelte';
-
-	// State
-	let display: 'preview' | 'code' = $state('preview');
 </script>
 
 <section class="relative h-screen overflow-y-auto bg-body-color dark:bg-body-color-dark">
@@ -19,7 +18,7 @@
 	<header class="sticky top-0 z-10 bg-surface-50/50 dark:bg-surface-950/50 backdrop-blur-xl p-10 py-5 shadow">
 		<nav class="flex justify-between gap-4">
 			<Logo />
-			<Segment name="display" bind:value={display as string}>
+			<Segment name="display" bind:value={globals.panelDisplay}>
 				<Segment.Item value="preview" classes="btn-sm font-bold">Preview</Segment.Item>
 				<Segment.Item value="code" classes="btn-sm font-bold">Code</Segment.Item>
 			</Segment>
@@ -28,7 +27,7 @@
 	</header>
 	<!-- Content -->
 	<article class="container mx-auto">
-		{#if display === 'preview'}
+		{#if globals.panelDisplay === 'preview'}
 			<!-- Components -->
 			<section class="p-10 space-y-10">
 				<PreviewComponents />

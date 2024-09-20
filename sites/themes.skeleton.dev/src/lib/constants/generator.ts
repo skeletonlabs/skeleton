@@ -22,21 +22,21 @@ export const typographicScales = [
 export const fontFamilies: string[] = [
 	'inherit',
 	// Source: https://github.com/system-fonts/modern-font-stacks
-	`'system-ui', 'sans-serif'`,
-	`'Charter', 'Bitstream Charter', 'Sitka Text', 'Cambria', 'serif'`,
-	`'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', 'P052', 'serif'`,
-	`'Seravek', 'Gill Sans Nova', 'Ubuntu', 'Calibri', 'DejaVu Sans', 'source-sans-pro', 'sans-serif'`,
-	`'Avenir', 'Montserrat', 'Corbel', 'URW Gothic', 'source-sans-pro', 'sans-serif'`,
-	`'Optima', 'Candara', 'Noto Sans', 'source-sans-pro', 'sans-serif'`,
-	`'Inter', 'Roboto', 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', 'Arial', 'sans-serif'`,
-	`'Nimbus Mono PS', 'Courier New', 'monospace'`,
-	`'ui-monospace', 'Cascadia Code', 'Source Code Pro', 'Menlo', 'Consolas', 'DejaVu Sans Mono', 'monospace'`,
-	`'Bahnschrift', 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', 'sans-serif-condensed', 'sans-serif'`,
-	`'ui-rounded', 'Hiragino Maru Gothic ProN', 'Quicksand', 'Comfortaa', 'Manjari', 'Arial Rounded MT', 'Arial Rounded MT Bold', 'Calibri', 'source-sans-pro', 'sans-serif'`,
-	`'Rockwell', 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', 'serif'`,
-	`'Superclarendon', 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', 'Georgia', 'serif'`,
-	`'Didot', 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', 'P052', 'Sylfaen', 'serif'`,
-	`'Segoe Print', 'Bradley Hand', 'Chilanka', 'TSCu_Comic', 'casual', 'cursive'`
+	`system-ui, sans-serif`,
+	`Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif`,
+	`'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif`,
+	`Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif`,
+	`Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif`,
+	`Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif`,
+	`Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif`,
+	`'Nimbus Mono PS', 'Courier New', monospace`,
+	`ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace`,
+	`Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif`,
+	`ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif`,
+	`Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif`,
+	`Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif`,
+	`Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif`,
+	`'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive`
 ] as const;
 
 export const fontSizes = [

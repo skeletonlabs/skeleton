@@ -1,4 +1,6 @@
 <script lang="ts">
+	// State
+	import { globals } from '$lib/state/generator.svelte';
 	// Components (Skeleton)
 	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 	// Components (Settings)
@@ -16,6 +18,7 @@
 	import IconEdges from 'lucide-svelte/icons/box-select';
 	import IconOpen from 'lucide-svelte/icons/chevron-up';
 	import IconClosed from 'lucide-svelte/icons/chevron-down';
+	import IconCode from 'lucide-svelte/icons/file-code';
 
 	// Local
 	const accordionItemProps = {
@@ -29,7 +32,7 @@
 	const settings = $state([]);
 </script>
 
-<section class="relative h-screen bg-surface-100-900 overflow-y-auto">
+<section class="relative h-screen bg-surface-100-900 pb-96 overflow-y-auto">
 	<!-- Header -->
 	<header
 		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow"
@@ -83,5 +86,16 @@
 		</Accordion>
 	</div>
 	<!-- Footer -->
-	<!-- <footer class="p-5 space-y-4"></footer> -->
+	<footer class="p-5">
+		{#if globals.panelDisplay !== 'code'}
+			<button
+				type="button"
+				class="btn btn-lg w-full preset-outlined-surface-200-800 hover:preset-tonal"
+				onclick={() => (globals.panelDisplay = 'code')}
+			>
+				<IconCode />
+				<strong>Generate Theme</strong>
+			</button>
+		{/if}
+	</footer>
 </section>

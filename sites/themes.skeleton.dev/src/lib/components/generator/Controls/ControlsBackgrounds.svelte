@@ -10,29 +10,35 @@
 	<!-- --body-background-color -->
 	<label class="label">
 		<span class="label-text">Light Mode Background Color</span>
-		<select class="select" name="--body-background-color" bind:value={settingsBackgrounds['--body-background-color']}>
-			<option value="#FFFFFF">White</option>
-			{#each constants.colorNames as colorName}
-				<optgroup label={colorName}>
-					{#each constants.colorShades as colorShade}
-						<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-					{/each}
-				</optgroup>
-			{/each}
-		</select>
+		<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+			<div class="input-group-cell" style:background={`rgba(${settingsBackgrounds['--body-background-color']})`}></div>
+			<select name="--body-background-color" bind:value={settingsBackgrounds['--body-background-color']}>
+				<option value="255 255 255">White</option>
+				{#each constants.colorNames as colorName}
+					<optgroup label={colorName}>
+						{#each constants.colorShades as colorShade}
+							<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+						{/each}
+					</optgroup>
+				{/each}
+			</select>
+		</div>
 	</label>
 	<!-- --body-background-color-dark -->
 	<label class="label">
 		<span class="label-text">Dark Mode Background Color</span>
-		<select class="select" name="--body-background-color-dark" bind:value={settingsBackgrounds['--body-background-color-dark']}>
-			<option value="#000000">Black</option>
-			{#each constants.colorNames as colorName}
-				<optgroup label={colorName}>
-					{#each constants.colorShades as colorShade}
-						<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-					{/each}
-				</optgroup>
-			{/each}
-		</select>
+		<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+			<div class="input-group-cell" style:background={`rgba(${settingsBackgrounds['--body-background-color-dark']})`}></div>
+			<select name="--body-background-color-dark" bind:value={settingsBackgrounds['--body-background-color-dark']}>
+				<option value="0 0 0">Black</option>
+				{#each constants.colorNames as colorName}
+					<optgroup label={colorName}>
+						{#each constants.colorShades as colorShade}
+							<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+						{/each}
+					</optgroup>
+				{/each}
+			</select>
+		</div>
 	</label>
 </div>

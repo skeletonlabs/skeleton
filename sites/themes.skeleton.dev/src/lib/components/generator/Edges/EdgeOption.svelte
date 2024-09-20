@@ -19,13 +19,18 @@
 	}
 
 	// Reactive
-	let rxActive = $derived(value === active ? `preset-tonal border-surface-950-50` : `border-surface-500/10 hover:border-primary-500`);
+	let rxActive = $derived(value === active ? `preset-tonal border-surface-950-50` : `border-surface-500/10 hover:border-surface-500`);
 	let rxStyles = thickness ? `border-top-width: ${value}px; border-left-width: ${value}px` : `border-top-left-radius: ${value}px`;
 </script>
 
 <div class="space-y-1">
-	<button class="border-2 {rxActive} aspect-square w-full flex justify-end items-end rounded-sm overflow-hidden" onclick={handleOnClick}>
-		<div class="aspect-square w-[60%] bg-primary-500/30 border-t-4 border-l-4 border-primary-500" style={rxStyles}></div>
+	<button
+		aria-label="edge-option-{value}px"
+		type="button"
+		class="border-2 {rxActive} aspect-[4/3] w-full flex justify-end items-end rounded-sm overflow-hidden"
+		onclick={handleOnClick}
+	>
+		<div class="aspect-[4/3] w-[70%] bg-primary-500/30 border-t-4 border-l-4 border-primary-500" style={rxStyles}></div>
 	</button>
-	<div class="text-[9px] opacity-60 text-center">{value}</div>
+	<div class="text-xs text-center">{value === 9999 ? 'Full' : `${value}px`}</div>
 </div>

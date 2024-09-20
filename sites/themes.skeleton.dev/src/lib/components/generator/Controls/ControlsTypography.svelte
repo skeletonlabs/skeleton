@@ -12,15 +12,26 @@
 <div class="space-y-4">
 	<p class="opacity-60">Define all typographic settings for your theme.</p>
 	<!-- Scale -->
-	<label class="label">
-		<span class="label-text">Typographic Scale Factor</span>
+	<div class="label">
+		<span class="label-text">Typographic Scale</span>
 		<!-- --type-scale-factor -->
-		<select class="select" name="--type-scale-factor" bind:value={settingsTypography['--type-scale-factor']}>
+		<div
+			class="grid grid-cols-3 preset-outlined-surface-200-800 rounded-container overflow-hidden divide-x divide-y divide-surface-200-800"
+		>
 			{#each constants.typographicScales as typographicScale}
-				<option value={typographicScale.value}>{typographicScale.value} - {typographicScale.label}</option>
+				<button
+					type="button"
+					onclick={() => (settingsTypography['--type-scale-factor'] = typographicScale.value)}
+					class="flex flex-col items-center py-2 {settingsTypography['--type-scale-factor'] === typographicScale.value
+						? 'preset-filled'
+						: 'hover:preset-tonal-primary'}"
+				>
+					<strong class="text-[16px]">{typographicScale.value}</strong>
+					<span class="text-[10px] opacity-60">{typographicScale.label}</span>
+				</button>
 			{/each}
-		</select>
-	</label>
+		</div>
+	</div>
 	<!-- Palette and Contrast -->
 	<Tabs bind:value={category as string} fluid>
 		{#snippet list()}
@@ -35,29 +46,40 @@
 					<!-- --base-font-color -->
 					<label class="label">
 						<span class="label-text">Light Mode Font Color</span>
-						<select class="select" name="--base-font-color" bind:value={settingsTypography['--base-font-color']}>
-							{#each constants.colorNames as colorName}
-								<optgroup label={colorName}>
-									{#each constants.colorShades as colorShade}
-										<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-									{/each}
-								</optgroup>
-							{/each}
-						</select>
+						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+							<div class="input-group-cell" style:background={`rgba(${settingsTypography['--base-font-color']})`}></div>
+							<select class="select" name="--base-font-color" bind:value={settingsTypography['--base-font-color']}>
+								{#each constants.colorNames as colorName}
+									<optgroup label={colorName}>
+										{#each constants.colorShades as colorShade}
+											<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+										{/each}
+									</optgroup>
+								{/each}
+							</select>
+						</div>
 					</label>
 					<!-- --base-font-color-dark -->
 					<label class="label">
 						<span class="label-text">Dark Mode Font Color</span>
-						<select class="select" name="--base-font-color-dark" bind:value={settingsTypography['--base-font-color-dark']}>
-							{#each constants.colorNames as colorName}
-								<optgroup label={colorName}>
-									{#each constants.colorShades as colorShade}
-										<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-									{/each}
-								</optgroup>
-							{/each}
-						</select>
+						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+							<div class="input-group-cell" style:background={`rgba(${settingsTypography['--base-font-color-dark']})`}></div>
+							<select class="select" name="--base-font-color-dark" bind:value={settingsTypography['--base-font-color-dark']}>
+								{#each constants.colorNames as colorName}
+									<optgroup label={colorName}>
+										{#each constants.colorShades as colorShade}
+											<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+										{/each}
+									</optgroup>
+								{/each}
+							</select>
+						</div>
 					</label>
+
+					<div class="col-span-2 p-4">
+						<p>This is a text.</p>
+					</div>
+
 					<!-- --base-font-family -->
 					<label class="label col-span-2">
 						<span class="label-text">Font Family</span>
@@ -121,30 +143,46 @@
 					<!-- --heading-font-color -->
 					<label class="label">
 						<span class="label-text">Light Mode Font Color</span>
-						<select class="select" name="--heading-font-color" bind:value={settingsTypography['--heading-font-color']}>
-							<option value="inherit">inherit</option>
-							{#each constants.colorNames as colorName}
-								<optgroup label={colorName}>
-									{#each constants.colorShades as colorShade}
-										<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-									{/each}
-								</optgroup>
-							{/each}
-						</select>
+						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+							<div
+								class="input-group-cell"
+								style:background={settingsTypography['--heading-font-color'] === 'inherit'
+									? `rgba(${settingsTypography['--base-font-color']})`
+									: `rgba(${settingsTypography['--heading-font-color']})`}
+							></div>
+							<select class="select" name="--heading-font-color" bind:value={settingsTypography['--heading-font-color']}>
+								<option value="inherit">inherit</option>
+								{#each constants.colorNames as colorName}
+									<optgroup label={colorName}>
+										{#each constants.colorShades as colorShade}
+											<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+										{/each}
+									</optgroup>
+								{/each}
+							</select>
+						</div>
 					</label>
 					<!-- --heading-font-color-dark -->
 					<label class="label">
 						<span class="label-text">Dark Mode Font Color</span>
-						<select class="select" name="--heading-font-color-dark" bind:value={settingsTypography['--heading-font-color-dark']}>
-							<option value="inherit">inherit</option>
-							{#each constants.colorNames as colorName}
-								<optgroup label={colorName}>
-									{#each constants.colorShades as colorShade}
-										<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-									{/each}
-								</optgroup>
-							{/each}
-						</select>
+						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+							<div
+								class="input-group-cell"
+								style:background={settingsTypography['--heading-font-color-dark'] === 'inherit'
+									? `rgba(${settingsTypography['--base-font-color-dark']})`
+									: `rgba(${settingsTypography['--heading-font-color-dark']})`}
+							></div>
+							<select class="select" name="--heading-font-color-dark" bind:value={settingsTypography['--heading-font-color-dark']}>
+								<option value="inherit">inherit</option>
+								{#each constants.colorNames as colorName}
+									<optgroup label={colorName}>
+										{#each constants.colorShades as colorShade}
+											<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+										{/each}
+									</optgroup>
+								{/each}
+							</select>
+						</div>
 					</label>
 					<!-- --heading-font-family -->
 					<label class="label col-span-2">
@@ -191,28 +229,46 @@
 					<!-- --anchor-font-color -->
 					<label class="label">
 						<span class="label-text">Light Mode Font Color</span>
-						<select class="select" name="--anchor-font-color" bind:value={settingsTypography['--anchor-font-color']}>
-							{#each constants.colorNames as colorName}
-								<optgroup label={colorName}>
-									{#each constants.colorShades as colorShade}
-										<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-									{/each}
-								</optgroup>
-							{/each}
-						</select>
+						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+							<div
+								class="input-group-cell"
+								style:background={settingsTypography['--anchor-font-color'] === 'inherit'
+									? `rgba(${settingsTypography['--base-font-color']})`
+									: `rgba(${settingsTypography['--anchor-font-color']})`}
+							></div>
+							<select class="select" name="--anchor-font-color" bind:value={settingsTypography['--anchor-font-color']}>
+								<option value="inherit">inherit</option>
+								{#each constants.colorNames as colorName}
+									<optgroup label={colorName}>
+										{#each constants.colorShades as colorShade}
+											<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+										{/each}
+									</optgroup>
+								{/each}
+							</select>
+						</div>
 					</label>
 					<!-- --anchor-font-color-dark -->
 					<label class="label">
 						<span class="label-text">Dark Mode Font Color</span>
-						<select class="select" name="--anchor-font-color-dark" bind:value={settingsTypography['--anchor-font-color-dark']}>
-							{#each constants.colorNames as colorName}
-								<optgroup label={colorName}>
-									{#each constants.colorShades as colorShade}
-										<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-									{/each}
-								</optgroup>
-							{/each}
-						</select>
+						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+							<div
+								class="input-group-cell"
+								style:background={settingsTypography['--anchor-font-color-dark'] === 'inherit'
+									? `rgba(${settingsTypography['--base-font-color-dark']})`
+									: `rgba(${settingsTypography['--anchor-font-color-dark']})`}
+							></div>
+							<select class="select" name="--anchor-font-color-dark" bind:value={settingsTypography['--anchor-font-color-dark']}>
+								<option value="inherit">inherit</option>
+								{#each constants.colorNames as colorName}
+									<optgroup label={colorName}>
+										{#each constants.colorShades as colorShade}
+											<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+										{/each}
+									</optgroup>
+								{/each}
+							</select>
+						</div>
 					</label>
 					<!-- --anchor-font-family -->
 					<label class="label col-span-2">
