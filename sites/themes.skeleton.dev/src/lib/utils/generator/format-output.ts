@@ -6,7 +6,10 @@ import type { SettingsCore, SettingsBackgrounds, SettingsTypography, SettingsSpa
 
 export function formatCore(core: SettingsCore) {
 	const _core = JSON.parse(JSON.stringify(core));
-	_core.name = core.name.trim().replace(/[^a-zA-Z]/g, ''); // letters only
+	// Strip all special characters from theme name
+	_core.name = core.name.trim().replace(/[^a-zA-Z]/g, '');
+	// Fallback to `theme` when theme name is empty
+	if (_core.name === '') _core.name = 'theme';
 	return _core;
 }
 
