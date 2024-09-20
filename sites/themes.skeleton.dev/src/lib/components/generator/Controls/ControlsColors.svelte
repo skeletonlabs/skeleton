@@ -3,6 +3,8 @@
 	import * as constants from '$lib/constants/constants';
 	// State
 	import { settingsColors } from '$lib/state/state.svelte';
+	// Utils
+	import { genColorRamp, seedColor, genRandomSeed } from '$lib/utils/colors';
 	// Components (Skeleton)
 	import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Icons
@@ -35,6 +37,17 @@
 	let currentColor = $state('primary');
 	let showAllShades = $state(false);
 	const rxShadeArray = $derived(showAllShades ? shadesAll : shades3x);
+
+	function promptColorSeed(colorName: string) {
+		const seed = prompt(`Provide a color value to generate a palette for ${colorName}.`);
+		if (seed) seedColor(colorName, seed);
+	}
+
+	function promptRandomColor(colorName: string) {
+		if (confirm(`Generate a random palette for ${colorName}?`)) {
+			genRandomSeed(colorName);
+		}
+	}
 </script>
 
 <div class="space-y-4">
@@ -57,11 +70,19 @@
 						<!-- Actions -->
 						<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-2">
 							<h3 class="h5">{colorSelection.find((c) => c.value === currentColor)?.label}</h3>
-							<button type="button" class="chip preset-outlined-surface-300-700 hover:preset-tonal">
+							<button
+								type="button"
+								class="chip preset-outlined-surface-300-700 hover:preset-tonal"
+								onclick={() => promptColorSeed(color.value)}
+							>
 								<IconSeed size={14} />
 								<span>Seed</span>
 							</button>
-							<button type="button" class="chip preset-outlined-surface-300-700 hover:preset-tonal">
+							<button
+								type="button"
+								class="chip preset-outlined-surface-300-700 hover:preset-tonal"
+								onclick={() => promptRandomColor(color.value)}
+							>
 								<IconRandom size={14} />
 								<span>Random</span>
 							</button>
@@ -69,7 +90,7 @@
 								<span class="type-scale-1 opacity-60">All</span>
 							</Switch>
 						</div>
-						<!-- Shades -->
+						<!-- Table: Shades -->
 						<table class="table">
 							<tbody>
 								{#each rxShadeArray as shade}
@@ -77,10 +98,22 @@
 										<td class="type-scale-1 opacity-60">{shade}</td>
 										<!-- --color-(name)-(shade) -->
 										<td>
-											<input type="text" class="input" bind:value={settingsColors[`--color-${color.value}-${shade}`]} />
+											<input
+												type="text"
+												class="input"
+												bind:value={settingsColors[`--color-${color.value}-${shade}`]}
+												oninput={() => genColorRamp(showAllShades, color.value)}
+											/>
 										</td>
 										<td class="w-[1%] whitespace-nowrap">
-											<input class="input" type="color" bind:value={settingsColors[`--color-${color.value}-${shade}`]} />
+											<!-- Known issue in Chrome; can ignore the console warning -->
+											<!-- https://github.com/sveltejs/svelte/issues/8446#issuecomment-2213484541 -->
+											<input
+												class="input"
+												type="color"
+												bind:value={settingsColors[`--color-${color.value}-${shade}`]}
+												oninput={() => genColorRamp(showAllShades, color.value)}
+											/>
 										</td>
 									</tr>
 								{/each}

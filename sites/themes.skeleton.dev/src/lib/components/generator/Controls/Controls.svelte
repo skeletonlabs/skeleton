@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Components (Skeleton)
-	import { Accordion, Segment, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
+	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 	// Components (Settings)
 	import ControlsCore from './ControlsCore.svelte';
 	import ControlsColors from './ControlsColors.svelte';
@@ -26,7 +26,7 @@
 	};
 
 	// State
-	const settings = $state([]);
+	const settings = $state(['colors']);
 </script>
 
 <section class="relative h-screen bg-surface-100-900 overflow-y-auto">
