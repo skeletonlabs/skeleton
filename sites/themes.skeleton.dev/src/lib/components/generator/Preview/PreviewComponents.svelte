@@ -69,15 +69,15 @@
 			<fieldset class="space-y-2">
 				<label class="label">
 					<span class="label-text">Full Name</span>
-					<input class="input" type="text" placeholder="Enter your name" />
+					<input class="input" type="text" placeholder="Enter your name" autocomplete="off" />
 				</label>
 				<label class="label">
 					<span class="label-text">Email</span>
-					<input class="input" type="text" placeholder="email@example.com" />
+					<input class="input" type="text" placeholder="email@example.com" autocomplete="off" />
 				</label>
 				<label class="label">
 					<span class="label-text">Password</span>
-					<input class="input" type="password" value="skeleton" />
+					<input class="input" type="password" value="skeleton" autocomplete="off" />
 				</label>
 			</fieldset>
 			<fieldset>
@@ -158,26 +158,4 @@
 			<button type="button" class="btn preset-filled-primary-500">Login</button>
 		{/snippet}
 	</AppBar>
-	<!-- Header -->
-	<header class="grid grid-cols-1 xl:grid-cols-[1fr_auto] items-center gap-4">
-		<!-- Text -->
-		<div class="space-y-5">
-			<h1 class="h1 text-balance">Lorem Ipsum.</h1>
-			<p class="type-scale-5 opacity-60">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem recusandae neque est, aut nisi dolore quibusdam optio ex dicta
-				ipsam, tempore eum, pariatur non consequatur consectetur veritatis.
-			</p>
-			<nav class="flex gap-4">
-				<button type="button" class="btn btn-lg preset-filled-primary-500">Call to Action</button>
-				<button type="button" class="btn btn-lg preset-tonal">Secondary Action</button>
-			</nav>
-		</div>
-		<!-- Source: https://picsum.photos/ -->
-		<div>
-			<div class="relative w-[320px] aspect-square bg-surface-100-900 rounded-container overflow-hidden">
-				<div class="absolute top-0 left-0 z-[1] w-full h-full bg-gradient-to-br from-primary-500/0 to-primary-500"></div>
-				<img class="grayscale" src="https://picsum.photos/320/320" alt="preview" />
-			</div>
-		</div>
-	</header>
 </div>
