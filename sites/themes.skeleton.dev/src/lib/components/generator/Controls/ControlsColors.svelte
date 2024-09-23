@@ -2,7 +2,7 @@
 	// Constants
 	import * as constants from '$lib/constants/generator';
 	// State
-	import { settingsColors } from '$lib/state/generator.svelte';
+	import { globals, settingsColors } from '$lib/state/generator.svelte';
 	// Utils
 	import { genColorRamp, seedColor, genRandomSeed } from '$lib/utils/generator/colors';
 	// Components (Skeleton)
@@ -34,7 +34,6 @@
 	const shades3x = [50, 500, 950];
 
 	// State
-	let currentColor = $state('primary');
 	let showAllShades = $state(false);
 	const rxShadeArray = $derived(showAllShades ? shadesAll : shades3x);
 
@@ -53,24 +52,24 @@
 <div class="space-y-4">
 	<p class="opacity-60">Select a color, then define the palette and contrast values.</p>
 	<!-- Color Tabs -->
-	<Tabs bind:value={currentColor} fluid>
+	<Tabs bind:value={globals.activeColor} fluid>
 		{#snippet list()}
 			{#each colorSelection as color}
 				<Tabs.Control value={color.value} labelBase="flex justify-center" stateInactive="">
 					<div class="aspect-square w-[52px] rounded-md flex justify-center items-center {color.class}" title={color.description}>
-						{#if color.value === currentColor}<IconEdit size={20} />{/if}
+						{#if color.value === globals.activeColor}<IconEdit size={20} />{/if}
 					</div>
 				</Tabs.Control>
 			{/each}
 		{/snippet}
 		{#snippet content()}
 			{#each colorSelection as color}
-				{#if color.value === currentColor}
-					{@const currentColorLabel = colorSelection.find((c) => c.value === currentColor)?.label}
+				{#if color.value === globals.activeColor}
+					{@const activeColorLabel = colorSelection.find((c) => c.value === globals.activeColor)?.label}
 					<div class="space-y-4">
 						<!-- Actions -->
 						<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-2">
-							<h3 class="h5">{currentColorLabel}</h3>
+							<h3 class="h5">{activeColorLabel}</h3>
 							<button
 								type="button"
 								class="chip preset-outlined-surface-300-700 hover:preset-tonal"

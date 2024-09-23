@@ -18,7 +18,6 @@
 	import IconEdges from 'lucide-svelte/icons/box-select';
 	import IconOpen from 'lucide-svelte/icons/chevron-up';
 	import IconClosed from 'lucide-svelte/icons/chevron-down';
-	import IconCode from 'lucide-svelte/icons/file-code';
 
 	// Local
 	const accordionItemProps = {
@@ -37,7 +36,7 @@
 	<header
 		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow"
 	>
-		<p class="font-bold">Settings</p>
+		<h2 class="font-bold">Settings</h2>
 		<button type="button" class="btn preset-outlined-surface-300-700 hover:preset-tonal" disabled>Import</button>
 	</header>
 	<!-- Controls: ore -->

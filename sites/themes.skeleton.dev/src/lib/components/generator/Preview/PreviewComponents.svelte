@@ -1,9 +1,19 @@
 <script lang="ts">
+	// State
+	import { globals, settingsCore } from '$lib/state/generator.svelte';
+	// Constants
+	import * as constants from '$lib/constants/generator';
 	// Components (Skeleton)
-	import { AppBar, Avatar, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
+	import { AppBar, Avatar, Segment, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconSearch from 'lucide-svelte/icons/search';
 	import IconSkull from 'lucide-svelte/icons/skull';
+	import IconLeft from 'lucide-svelte/icons/align-left';
+	import IconCenter from 'lucide-svelte/icons/align-center';
+	import IconRight from 'lucide-svelte/icons/align-right';
+	import IconJustify from 'lucide-svelte/icons/align-justify';
+
+	// State
+	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);
 </script>
 
 <div class="space-y-10">
@@ -14,9 +24,9 @@
 			<!-- Tabs -->
 			<Tabs value="planes" fluid>
 				{#snippet list()}
-					<Tabs.Control value="planes">Planes</Tabs.Control>
-					<Tabs.Control value="trains">Trains</Tabs.Control>
-					<Tabs.Control value="automobiles">Automobiles</Tabs.Control>
+					<Tabs.Control value="planes" labelBase="btn {currentPresets.hover}">Planes</Tabs.Control>
+					<Tabs.Control value="trains" labelBase="btn {currentPresets.hover}">Trains</Tabs.Control>
+					<Tabs.Control value="automobiles" labelBase="btn {currentPresets.hover}">Automobiles</Tabs.Control>
 				{/snippet}
 			</Tabs>
 			<!-- Avatars -->
@@ -24,38 +34,23 @@
 				<!-- Source: https://avatar.iran.liara.run/ -->
 				<Avatar src="/images/male.png" name="" size="size-full" imageClasses="grayscale" />
 				<Avatar src="/images/female.png" name="" size="size-full" imageClasses="grayscale" />
-				<Avatar name="Skeleton" size="size-full" background="preset-filled-primary-500" />
-				<Avatar name="Kevin" size="size-full" background="preset-tonal-primary" />
-				<Avatar name="Kevin" size="size-full" background="preset-outlined-primary-500"><IconSkull size={24} /></Avatar>
+				<Avatar name="Skeleton" size="size-full" background={currentPresets.filled} />
+				<Avatar name="Kevin" size="size-full" background={currentPresets.tonal} />
+				<Avatar name="Kevin" size="size-full" background={currentPresets.outlined}><IconSkull size={24} /></Avatar>
 				<Avatar name="Kevin" size="size-full" background="preset-outlined-surface-200-800"><IconSkull size={24} /></Avatar>
 			</div>
-			<!-- Checkboxes -->
-			<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
-				<form class="space-y-2">
-					<label class="flex items-center space-x-2">
-						<input class="checkbox" type="checkbox" />
-						<p>Respond to comment <a href="/themes/create" class="anchor">#354</a></p>
-					</label>
-					<label class="flex items-center space-x-2">
-						<input class="checkbox" type="checkbox" />
-						<p>Invite <a href="/themes/create" class="anchor">Michael</a> to the platform</p>
-					</label>
-					<label class="flex items-center space-x-2">
-						<input class="checkbox" type="checkbox" />
-						<p>Create and file a <a href="/themes/create" class="anchor">TPS report</a>.</p>
-					</label>
-					<label class="flex items-center space-x-2">
-						<input class="checkbox" type="checkbox" checked />
-						<p class="line-through">Close Q4 financial report.</p>
-					</label>
-					<label class="flex items-center space-x-2">
-						<input class="checkbox" type="checkbox" checked />
-						<p class="line-through">Review all active invoices.</p>
-					</label>
-				</form>
+			<!-- Alert -->
+			<div class="card {currentPresets.tonal} grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]">
+				<div>
+					<p class="font-bold">Success</p>
+					<p>Task has been completed.</p>
+				</div>
+				<div class="flex gap-1">
+					<button type="button" class="btn hover:preset-tonal">Dismiss</button>
+				</div>
 			</div>
 			<!-- Blockquote -->
-			<blockquote class="blockquote border-primary-400-600">
+			<blockquote class="blockquote">
 				First, have a definite, clear, practical ideal; a goal, an objective. Second, have the necessary means to achieve your ends: wisdom,
 				money, materials, and methods. Third, adjust all your means to that end.
 			</blockquote>
@@ -68,24 +63,20 @@
 			</fieldset>
 			<fieldset class="space-y-2">
 				<label class="label">
-					<span class="label-text">Full Name</span>
-					<input class="input" type="text" placeholder="Enter your name" autocomplete="off" />
-				</label>
-				<label class="label">
 					<span class="label-text">Email</span>
-					<input class="input" type="text" placeholder="email@example.com" autocomplete="off" />
+					<input class="input {currentPresets.input}" type="text" placeholder="email@example.com" autocomplete="off" />
 				</label>
 				<label class="label">
 					<span class="label-text">Password</span>
-					<input class="input" type="password" value="skeleton" autocomplete="off" />
+					<input class="input {currentPresets.input}" type="password" value="skeleton" autocomplete="off" />
 				</label>
 			</fieldset>
 			<fieldset>
-				<button type="button" class="btn preset-filled-primary-500 w-full">Create Account</button>
+				<button type="button" class="btn {currentPresets.filled} w-full">Create Account</button>
 			</fieldset>
-			<hr class="hr !my-7" />
+			<hr class="hr" />
 			<fieldset class="space-y-5">
-				<button type="button" class="btn preset-outlined-surface-200-800 w-full">Continue with Github</button>
+				<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal w-full">Continue with Github</button>
 			</fieldset>
 		</form>
 		<!-- Column 3 -->
@@ -93,51 +84,49 @@
 			<!-- Badges -->
 			<div class="grid grid-cols-4 gap-4">
 				<span class="badge preset-filled">Badge</span>
-				<span class="badge preset-filled-primary-500">Badge</span>
-				<span class="badge preset-tonal-primary">Badge</span>
-				<span class="badge preset-outlined-primary-500">Badge</span>
+				<span class="badge {currentPresets.filled}">Badge</span>
+				<span class="badge {currentPresets.tonal}">Badge</span>
+				<span class="badge {currentPresets.outlined}">Badge</span>
 			</div>
 			<!-- Buttons -->
 			<div class="grid grid-cols-[auto_1fr] item-center gap-4">
-				<Switch name="example" checked={true} />
+				<Switch name="example" checked={true} controlActive={currentPresets.filled} />
 				<div class="grid grid-cols-4 gap-4">
 					<button type="button" class="btn preset-filled"><IconSkull /></button>
-					<button type="button" class="btn preset-filled-primary-500"><IconSkull /></button>
-					<button type="button" class="btn preset-tonal-primary"><IconSkull /></button>
-					<button type="button" class="btn preset-outlined-primary-500"><IconSkull /></button>
+					<button type="button" class="btn {currentPresets.filled}"><IconSkull /></button>
+					<button type="button" class="btn {currentPresets.tonal}"><IconSkull /></button>
+					<button type="button" class="btn {currentPresets.outlined}"><IconSkull /></button>
 				</div>
 			</div>
-			<!-- Search -->
-			<div class="input-group grid-cols-[auto_1fr] divide-x divide-surface-200-800">
-				<div class="input-group-cell">
-					<IconSearch size={16} />
-				</div>
-				<input type="search" placeholder="Search..." />
-			</div>
-			<!-- Alert -->
-			<div class="card preset-tonal-primary grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]">
-				<div>
-					<p class="font-bold">Success</p>
-					<p>Task has been completed.</p>
-				</div>
-				<div class="flex gap-1">
-					<button type="button" class="btn hover:preset-tonal">Dismiss</button>
-				</div>
-			</div>
+			<!-- Segment Control -->
+			<Segment name="display" value="left" classes="w-full">
+				<Segment.Item value="left" classes="w-full">
+					<IconLeft />
+				</Segment.Item>
+				<Segment.Item value="center" classes="w-full">
+					<IconCenter />
+				</Segment.Item>
+				<Segment.Item value="right" classes="w-full">
+					<IconRight />
+				</Segment.Item>
+				<Segment.Item value="justify" classes="w-full">
+					<IconJustify />
+				</Segment.Item>
+			</Segment>
 			<!-- Cards -->
 			<div class="space-y-4">
 				<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 					<Avatar src="/images/male.png" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Gregory Smith</p>
-						<a href="mailto:gregory.smith@example.com" class="anchor type-scale-1">gregory.smith@example.com</a>
+						<p class="opacity-60 type-scale-1">gregory.smith@example.com</p>
 					</div>
 				</div>
 				<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 					<Avatar src="/images/female.png" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Stephanie Collins</p>
-						<a href="mailto:stephanie.collins@example.com" class="anchor type-scale-1">stephanie.collins@example.com</a>
+						<p class="opacity-60 type-scale-1">stephanie.collins@example.com</p>
 					</div>
 				</div>
 			</div>
@@ -155,7 +144,19 @@
 				<button type="button" class="btn hover:preset-tonal">Blog</button>
 				<button type="button" class="btn hover:preset-tonal">About</button>
 			</nav>
-			<button type="button" class="btn preset-filled-primary-500">Login</button>
+			<button type="button" class="btn {currentPresets.filled}">Login</button>
 		{/snippet}
 	</AppBar>
+	<!-- Masonary -->
+	<div class="relative w-full bg-surface-100-900 rounded-container overflow-hidden">
+		<div class="absolute bottom-0 left-0 right-0 z-[2] flex justify-center items-center">
+			<div class="text-center">
+				<h1 class="type-scale-11 font-bold inline-block {currentPresets.filled} px-5">
+					{settingsCore.name ? settingsCore.name : 'Skeleton'}
+				</h1>
+			</div>
+		</div>
+		<div class="absolute top-0 left-0 z-[1] w-full h-full bg-gradient-to-br from-black/0 {currentPresets.gradient}"></div>
+		<img class="grayscale" src="https://picsum.photos/1200/320" width="1200px" height="320px" alt="preview" />
+	</div>
 </div>

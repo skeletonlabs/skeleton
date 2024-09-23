@@ -4,6 +4,7 @@
 
 export interface Globals {
 	panel: 'preview' | 'code';
+	activeColor: string;
 }
 
 // Control Settings ---

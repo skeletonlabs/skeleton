@@ -5,6 +5,75 @@
 export const colorNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'] as const;
 export const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 
+// Preview Presets ---
+
+export const previewPresets: Record<string, Record<string, string>> = {
+	primary: {
+		filled: 'preset-filled-primary-500',
+		tonal: 'preset-tonal-primary',
+		outlined: 'preset-outlined-primary-500',
+		border: 'border-primary-500 dark:border-primary-500',
+		ring: 'ring-primary-500 dark:border-primary-500',
+		anchor: 'text-primary-500 dark:text-primary-500',
+		hover: 'hover:preset-tonal-primary',
+		gradient: 'to-primary-500'
+	},
+	secondary: {
+		filled: 'preset-filled-secondary-500',
+		tonal: 'preset-tonal-secondary',
+		outlined: 'preset-outlined-secondary-500',
+		input: 'focus:ring-secondary-500 focus:dark:ring-secondary-500',
+		anchor: 'text-secondary-500 dark:text-secondary-500',
+		hover: 'hover:preset-tonal-secondary',
+		gradient: 'to-secondary-500'
+	},
+	tertiary: {
+		filled: 'preset-filled-tertiary-500',
+		tonal: 'preset-tonal-tertiary',
+		outlined: 'preset-outlined-tertiary-500',
+		input: 'focus:ring-tertiary-500 focus:dark:ring-tertiary-500',
+		anchor: 'text-tertiary-500 dark:text-tertiary-500',
+		hover: 'hover:preset-tonal-tertiary',
+		gradient: 'to-tertiary-500'
+	},
+	success: {
+		filled: 'preset-filled-success-500',
+		tonal: 'preset-tonal-success',
+		outlined: 'preset-outlined-success-500',
+		input: 'focus:ring-success-500 focus:dark:ring-success-500',
+		anchor: 'text-success-500 dark:text-success-500',
+		hover: 'hover:preset-tonal-success',
+		gradient: 'to-success-500'
+	},
+	warning: {
+		filled: 'preset-filled-warning-500',
+		tonal: 'preset-tonal-warning',
+		outlined: 'preset-outlined-warning-500',
+		input: 'focus:ring-warning-500 focus:dark:ring-warning-500',
+		anchor: 'text-warning-500 dark:text-warning-500',
+		hover: 'hover:preset-tonal-warning',
+		gradient: 'to-warning-500'
+	},
+	error: {
+		filled: 'preset-filled-error-500',
+		tonal: 'preset-tonal-error',
+		outlined: 'preset-outlined-error-500',
+		input: 'focus:ring-error-500 focus:dark:ring-error-500',
+		anchor: 'text-error-500 dark:text-error-500',
+		hover: 'hover:preset-tonal-error',
+		gradient: 'to-error-500'
+	},
+	surface: {
+		filled: 'preset-filled-surface-500',
+		tonal: 'bg-surface-500/10 bg-surface-500/10',
+		outlined: 'preset-outlined-surface-500',
+		input: 'focus:border-surface-500 focus:dark:ring-surface-500',
+		anchor: 'text-surface-500 dark:text-surface-500',
+		hover: 'hover:preset-tonal-surface',
+		gradient: 'to-surface-500'
+	}
+};
+
 // Typography ---
 
 export const typographicScales = [

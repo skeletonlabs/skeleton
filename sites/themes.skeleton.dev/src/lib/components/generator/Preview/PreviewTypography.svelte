@@ -70,7 +70,7 @@
 	</div>
 	<!-- Header -->
 	<!-- Source: https://picsum.photos/ -->
-	<header class="card preset-filled-primary-500 col-span-2 grid grid-cols-1 xl:grid-cols-[1fr_auto] items-center gap-4 p-10">
+	<!-- <header class="card preset-filled-primary-500 col-span-2 grid grid-cols-1 xl:grid-cols-[1fr_auto] items-center gap-4 p-10">
 		<div class="space-y-5">
 			<header>
 				<h1 class="h1">Lorem Ipsum.</h1>
@@ -84,5 +84,5 @@
 				<button type="button" class="btn btn-lg preset-tonal">Secondary Action</button>
 			</nav>
 		</div>
-	</header>
+	</header> -->
 </div>
