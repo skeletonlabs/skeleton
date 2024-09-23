@@ -28,8 +28,8 @@
 	<!-- Header -->
 	<header class="sticky top-0 z-10 bg-surface-50/50 dark:bg-surface-950/50 backdrop-blur-xl p-10 py-5 shadow">
 		<nav class="flex justify-between gap-4">
-			<Logo />
-			<Segment name="display" bind:value={globals.panel}>
+			<a href="https://next.skeleton.dev/" target="_blank" title="Return to Skeleton"><Logo /></a>
+			<Segment name="display" bind:value={globals.panel as string}>
 				<Segment.Item value="preview" classes="btn-sm font-bold">Preview</Segment.Item>
 				<Segment.Item value="code" classes="btn-sm font-bold">Code</Segment.Item>
 			</Segment>

@@ -8,7 +8,7 @@
 	// Components (Skeleton)
 	import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconCheck from 'lucide-svelte/icons/check';
+	import IconEdit from 'lucide-svelte/icons/pencil';
 	import IconSeed from 'lucide-svelte/icons/sprout';
 	import IconRandom from 'lucide-svelte/icons/dices';
 
@@ -51,14 +51,14 @@
 </script>
 
 <div class="space-y-4">
-	<p class="opacity-60">Define the palette and contrast tones per color.</p>
+	<p class="opacity-60">Select a color, then define the palette and contrast values.</p>
 	<!-- Color Tabs -->
 	<Tabs bind:value={currentColor} fluid>
 		{#snippet list()}
 			{#each colorSelection as color}
 				<Tabs.Control value={color.value} labelBase="flex justify-center" stateInactive="">
-					<div class="aspect-square w-[52px] rounded flex justify-center items-center {color.class}" title={color.description}>
-						{#if color.value === currentColor}<IconCheck />{/if}
+					<div class="aspect-square w-[52px] rounded-md flex justify-center items-center {color.class}" title={color.description}>
+						{#if color.value === currentColor}<IconEdit size={20} />{/if}
 					</div>
 				</Tabs.Control>
 			{/each}
@@ -66,10 +66,11 @@
 		{#snippet content()}
 			{#each colorSelection as color}
 				{#if color.value === currentColor}
+					{@const currentColorLabel = colorSelection.find((c) => c.value === currentColor)?.label}
 					<div class="space-y-4">
 						<!-- Actions -->
 						<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-2">
-							<h3 class="h5">{colorSelection.find((c) => c.value === currentColor)?.label}</h3>
+							<h3 class="h5">{currentColorLabel}</h3>
 							<button
 								type="button"
 								class="chip preset-outlined-surface-300-700 hover:preset-tonal"
@@ -89,6 +90,14 @@
 							<Switch name="example" bind:checked={showAllShades} classes="!gap-2">
 								<span class="type-scale-1 opacity-60">All</span>
 							</Switch>
+						</div>
+						<!-- Message -->
+						<div>
+							{#if showAllShades}
+								<p class="opacity-60">All shades are manually defined.</p>
+							{:else}
+								<p class="opacity-60">Shades automatically blend between 50/500/950.</p>
+							{/if}
 						</div>
 						<!-- Table: Shades -->
 						<table class="table">
@@ -119,13 +128,12 @@
 								{/each}
 							</tbody>
 						</table>
-						<!-- Contrast -->
+						<!-- Light/Dark Contrast -->
 						<div class="space-y-4">
-							<h3 class="h5">Contrast</h3>
 							<div class="grid grid-cols-2 gap-4">
 								<!-- --color-(color)-contrast-dark -->
 								<label class="label">
-									<span class="label-text">Light Mode</span>
+									<span class="label-text">Light Mode Contrast</span>
 									<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
 										<div
 											class="input-group-cell"
@@ -149,7 +157,7 @@
 								</label>
 								<!-- --color-surface-contrast-light -->
 								<label class="label">
-									<span class="label-text">Dark Mode</span>
+									<span class="label-text">Dark Mode Contrast</span>
 									<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
 										<div
 											class="input-group-cell"

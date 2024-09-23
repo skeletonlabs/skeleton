@@ -1,15 +1,30 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
-
-	// Redirect
-	onMount(() => goto('/themes/create'));
+	// Components (generator)
+	import Logo from '$lib/components/common/Logo/Logo.svelte';
+	import Preview from '$lib/components/generator/Preview/Preview.svelte';
+	import Controls from '$lib/components/generator/Controls/Controls.svelte';
+	// Utils
+	import { generatePreviewCss } from '$lib/utils/generator/generate-css';
 </script>
 
-<main class="h-full flex justify-center items-center p-4">
-	<section class="card bg-surface-100-900 p-4 space-y-4">
-		<h2 class="h2">Themes</h2>
-		<p>This will be the promotation homepage in a future update.</p>
-		<a href="/themes/create" class="btn preset-filled">Browse to Generator &rarr;</a>
-	</section>
+<!-- Live Preview CSS -->
+<svelte:head>
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+	{@html `\<style\>${generatePreviewCss()}\</style\>`}
+</svelte:head>
+
+<!-- Warning: Mobile Not Supported -->
+<div class="lg:hidden absolute top-0 z-50 left-0 w-full h-full bg-surface-50-950 flex justify-center items-center p-4">
+	<div class="card bg-surface-100-900 max-w-96 p-10 space-y-5 shadow-xl">
+		<Logo />
+		<h2 class="h2">Not Available.</h2>
+		<p class="opacity-60">
+			The theme generator is not currently available for small screen devices. We recommend using either a table or desktop.
+		</p>
+	</div>
+</div>
+
+<main class="h-full grid grid-cols-[1fr_480px]" data-theme-preview>
+	<Preview />
+	<Controls />
 </main>

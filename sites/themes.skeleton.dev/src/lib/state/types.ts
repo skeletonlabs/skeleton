@@ -1,5 +1,13 @@
 // State Types
 
+// Globals ---
+
+export interface Globals {
+	panel: 'preview' | 'code';
+}
+
+// Control Settings ---
+
 export interface SettingsCore {
 	name: string;
 }

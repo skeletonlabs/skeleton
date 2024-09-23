@@ -3,7 +3,10 @@
 </script>
 
 <div class="space-y-4">
-	<p class="opacity-60">Define the scale factor for properties like padding, margin, width, height, gap, space, and more.</p>
+	<!-- prettier-ignore -->
+	<p class="opacity-60">
+		Set a scale factor for all <a href="https://tailwindcss.com/docs/customizing-spacing" target="_blank" class="anchor text-primary-700-300">Tailwind Spacing</a> utility classes.
+	</p>
 	<label class="label">
 		<div class="label-text flex justify-between items-center">
 			<span>Scale Factor</span>

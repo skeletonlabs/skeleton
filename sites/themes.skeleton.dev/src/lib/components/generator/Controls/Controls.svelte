@@ -62,13 +62,6 @@
 				{#snippet panel()}<ControlsBackgrounds />{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
-			<!-- Controls: Typography -->
-			<Accordion.Item value="typography" {...accordionItemProps}>
-				{#snippet lead()}<IconTypography size={24} class="btn btn-icon preset-tonal" />{/snippet}
-				{#snippet control()}<span class="h4">Typography</span>{/snippet}
-				{#snippet panel()}<ControlsTypography />{/snippet}
-			</Accordion.Item>
-			<hr class="hr" />
 			<!-- Controls: Spacing -->
 			<Accordion.Item value="spacing" {...accordionItemProps}>
 				{#snippet lead()}<IconSpacing size={24} class="btn btn-icon preset-tonal" />{/snippet}
@@ -83,19 +76,19 @@
 				{#snippet panel()}<ControlsEdges />{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
+			<!-- Controls: Typography -->
+			<Accordion.Item value="typography" {...accordionItemProps}>
+				{#snippet lead()}<IconTypography size={24} class="btn btn-icon preset-tonal" />{/snippet}
+				{#snippet control()}<span class="h4">Typography</span>{/snippet}
+				{#snippet panel()}<ControlsTypography />{/snippet}
+			</Accordion.Item>
+			<hr class="hr" />
 		</Accordion>
 	</div>
 	<!-- Footer -->
 	<footer class="p-5">
-		{#if globals.panel !== 'code'}
-			<button
-				type="button"
-				class="btn btn-lg w-full preset-outlined-surface-200-800 hover:preset-tonal"
-				onclick={() => (globals.panel = 'code')}
-			>
-				<IconCode />
-				<strong>Generate Theme</strong>
-			</button>
-		{/if}
+		<p class="type-scale-1 opacity-60">
+			Hint: Tap the <span class="badge preset-outlined-surface-300-700 mx-1">Code</span> toggle to access your generated theme code.
+		</p>
 	</footer>
 </section>

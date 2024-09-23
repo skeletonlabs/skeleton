@@ -43,7 +43,10 @@ export function genColorRamp(disabled: boolean, colorName: string) {
 
 /** Provide a seed color, generates a full palette ramp */
 export function seedColor(colorName: string, seedColor: string) {
-	if (!chroma.valid(seedColor)) return;
+	if (!chroma.valid(seedColor)) {
+		alert('Invalid color value provided.');
+		return;
+	}
 	// Generate high/med/low colors
 	const colorArray = [
 		chroma(seedColor).brighten(2.5).hex(), // high

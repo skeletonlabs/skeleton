@@ -108,7 +108,7 @@
 				</div>
 			</div>
 			<!-- Search -->
-			<div class="input-group grid-cols-[auto_1fr]">
+			<div class="input-group grid-cols-[auto_1fr] divide-x divide-surface-200-800">
 				<div class="input-group-cell">
 					<IconSearch size={16} />
 				</div>

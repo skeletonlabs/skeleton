@@ -6,7 +6,7 @@
 </script>
 
 <div class="space-y-4">
-	<p class="opacity-60">Define the theme background colors.</p>
+	<p class="opacity-60">Define the background colors per mode.</p>
 	<!-- --body-background-color -->
 	<label class="label">
 		<span class="label-text">Light Mode Background Color</span>

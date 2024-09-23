@@ -13,7 +13,10 @@
 	<p class="opacity-60">Define all typographic settings for your theme.</p>
 	<!-- Scale -->
 	<div class="label">
-		<span class="label-text">Typographic Scale</span>
+		<div class="flex justify-between gap-4">
+			<span class="label-text">Typographic Scale</span>
+			<a class="anchor text-primary-700-300 label-text" href="https://designcode.io/typographic-scales" target="_blank">What's This?</a>
+		</div>
 		<!-- --type-scale-factor -->
 		<div
 			class="grid grid-cols-3 preset-outlined-surface-200-800 rounded-container overflow-hidden divide-x divide-y divide-surface-200-800"
@@ -27,7 +30,7 @@
 						: 'hover:preset-tonal-primary'}"
 				>
 					<strong class="text-[16px]">{typographicScale.value}</strong>
-					<span class="text-[10px] opacity-60">{typographicScale.label}</span>
+					<strong class="text-[10px] opacity-50">{typographicScale.label}</strong>
 				</button>
 			{/each}
 		</div>
@@ -40,6 +43,11 @@
 			<Tabs.Control value="anchors">Anchors</Tabs.Control>
 		{/snippet}
 		{#snippet content()}
+			<p class="mb-5 opacity-60">
+				{#if category === 'base'}Set the global default text colors and font styles.{/if}
+				{#if category === 'headings'}Adjust heading text (H1-H6) color and font styles.{/if}
+				{#if category === 'anchors'}Ajust anchor link text color and font styles.{/if}
+			</p>
 			<!-- Panel: Base -->
 			<Tabs.Panel value="base">
 				<div class="grid grid-cols-2 gap-4">
