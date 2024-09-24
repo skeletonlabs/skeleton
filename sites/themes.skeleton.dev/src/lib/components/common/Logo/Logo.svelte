@@ -1,4 +1,4 @@
-<svg width="32px" height="32px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+<svg width="28px" height="28px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
 	<path
 		class="fill-current"
 		fill-rule="evenodd"

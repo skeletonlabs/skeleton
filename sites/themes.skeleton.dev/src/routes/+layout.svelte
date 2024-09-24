@@ -1,3 +1,4 @@
+<!-- Root Layout -->
 <script lang="ts">
 	import { page } from '$app/stores';
 
