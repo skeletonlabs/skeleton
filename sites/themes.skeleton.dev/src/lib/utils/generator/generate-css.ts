@@ -23,5 +23,6 @@ export function generatePreviewCss() {
 	for (const [key, value] of Object.entries(themeObject)) {
 		previewCss += `\t${key}: ${value};\n`;
 	}
+	// See root +layout.svelte to reference where this attribute is used
 	return `:root [data-theme='generated'] {\n${previewCss}\n}`;
 }
