@@ -37,7 +37,7 @@
 		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow"
 	>
 		<h2 class="font-bold">Settings</h2>
-		<button type="button" class="btn preset-outlined-surface-300-700 hover:preset-tonal" disabled>Import</button>
+		<a class="btn preset-outlined-surface-300-700 hover:preset-tonal" href="/themes/import">Import</a>
 	</header>
 	<!-- Controls: ore -->
 	<ControlsCore />

@@ -23,8 +23,5 @@ export function generatePreviewCss() {
 	for (const [key, value] of Object.entries(themeObject)) {
 		previewCss += `\t${key}: ${value};\n`;
 	}
-	// FIXME: disabled due to class precedence bug,
-	// See the `app.html` <body>` element.
-	// [data-theme-preview]
-	return `:root {\n${previewCss}\n}`;
+	return `:root [data-theme='generated'] {\n${previewCss}\n}`;
 }
