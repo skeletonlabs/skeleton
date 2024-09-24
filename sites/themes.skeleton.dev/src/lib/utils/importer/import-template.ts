@@ -8,23 +8,20 @@ import * as constants from '$lib/constants/generator';
 import { settingsCore, settingsColors } from '$lib/state/generator.svelte';
 // import type { SettingsCore } from '$lib/state/types';
 
-const coreColorArr: string[] = [];
-
-// Generate list of core colors
-constants.colorNames.forEach((colorName) => {
-	return constants.colorShades.forEach((colorShade) => {
-		coreColorArr.push(`--color-${colorName}-${colorShade}`);
-	});
-});
-
 // ---
 
 function importColorState(properties: Record<string, string>) {
+	const coreColorArr: string[] = [];
+	// Generate list of core colors
+	constants.colorNames.forEach((colorName) => {
+		return constants.colorShades.forEach((colorShade) => {
+			coreColorArr.push(`--color-${colorName}-${colorShade}`);
+		});
+	});
+	// Update State
 	Object.keys(settingsColors).forEach((key) => {
-		// If core color, format RGB -> Hex
-		if (coreColorArr.includes(properties[key])) settingsColors[key] = chroma(properties[key]).hex();
-		// Else use verbatim value
-		settingsColors[key] = properties[key];
+		// If core color, format RGB -> Hex, otherwise use verbatim
+		settingsColors[key] = coreColorArr.includes(key) ? chroma(`rgb(${properties[key].split(' ')})`).hex() : properties[key];
 	});
 }
 
