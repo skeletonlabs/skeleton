@@ -35,7 +35,6 @@ export async function importThemeFile(file: File, modeVersionTwo: boolean) {
 	// If v2 Mode is Enabled
 	if (modeVersionTwo) {
 		constants.colorNames.forEach((colorName) => {
-			// if (`--color-${colorName}-950` in properties === false)
 			properties[`--color-${colorName}-950`] = properties[`--color-${colorName}-900`];
 			properties[`--color-${colorName}-950`] = chroma(`rgb(${properties[`--color-${colorName}-950`].split(' ')})`)
 				.darken(0.2)
@@ -44,7 +43,7 @@ export async function importThemeFile(file: File, modeVersionTwo: boolean) {
 		});
 	}
 
-	console.log(JSON.stringify(properties, null, 2));
+	// console.log(JSON.stringify(properties, null, 2));
 
 	settingsCore.name = 'Custom';
 	formatColors(properties);
