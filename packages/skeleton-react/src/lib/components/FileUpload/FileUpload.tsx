@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useId } from 'react';
+import React, { useEffect, useId } from 'react';
 
 import * as fileUpload from '@zag-js/file-upload';
 import { normalizeProps, useMachine } from '@zag-js/react';
@@ -28,7 +28,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	filesListBase = 'mt-2 space-y-2',
 	filesListClasses = '',
 	// File
-	fileBase = 'grid grid-cols-[auto_auto_1fr_auto] rtl:grid-cols-[auto_1fr_auto_auto] items-center',
+	fileBase = 'grid grid-cols-[auto_1fr_auto] rtl:grid-cols-[1fr_auto_auto] items-center',
 	fileBg = 'preset-tonal',
 	fileGap = 'gap-4 px-4',
 	filePadding = 'py-2',
@@ -36,7 +36,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	fileClasses = '',
 	// File (content)
 	fileIcon = '',
-	fileName = 'type-scale-2',
+	fileName = 'type-scale-2 flex items-center gap-4',
 	fileSize = 'type-scale-1 opacity-60',
 	fileButton = '',
 	// State
@@ -49,6 +49,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	iconFile,
 	iconFileRemove,
 	// Zag
+	internalApi,
 	...zagProps
 }) => {
 	// Zag
@@ -59,6 +60,10 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 		{ context: zagProps }
 	);
 	const api = fileUpload.connect(state, send, normalizeProps);
+
+	useEffect(() => {
+		if (internalApi) internalApi(api);
+	}, [internalApi, api]);
 
 	// Reactive
 	const rxDisabled = state.context.disabled ? stateDisabled : '';
@@ -113,16 +118,18 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 							className={`${fileBase} ${fileBg} ${fileGap} ${filePadding} ${fileRounded} ${fileClasses}`}
 							data-testid="uploader-file"
 						>
-							<span className={fileIcon} data-testid="uploader-file-icon">
-								{iconFile ?? '•'}
-							</span>
 							{/* Name */}
 							<p {...api.getItemNameProps({ file })} className={fileName} data-testid="uploader-file-name">
-								{file.name}
+								{iconFile ?? (
+									<span className={fileIcon} data-testid="uploader-file-icon">
+										{iconFile}
+									</span>
+								)}
+								<span>{file.name}</span>
 							</p>
 							{/* Size */}
 							<p {...api.getItemNameProps({ file })} className={fileSize} data-testid="uploader-file-size">
-								{(file.size / 100000).toFixed(1)} mb
+								{api.getFileSize(file)}
 							</p>
 							{/* Button */}
 							<button {...api.getItemDeleteTriggerProps({ file })} className={fileButton} data-testid="uploader-file-button">

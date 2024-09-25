@@ -14,6 +14,8 @@ import ExampleDisabled from '@examples/components/file-upload/ExampleDisabled.sv
 import ExampleDisabledRaw from '@examples/components/file-upload/ExampleDisabled.svelte?raw';
 import ExampleRtl from '@examples/components/file-upload/ExampleRtl.svelte';
 import ExampleRtlRaw from '@examples/components/file-upload/ExampleRtl.svelte?raw';
+import ExampleApiBind from '@examples/components/file-upload/ExampleApiBind.svelte';
+import ExampleApiBindRaw from '@examples/components/file-upload/ExampleApiBind.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -54,6 +56,19 @@ Use the default `children` slot to overwrite the default dropzone interface. All
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleDisabledRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Bind to API
+
+You can optionally bind to the internal [Zag component API](https://zagjs.com/components/react/file-upload#machine-api) to access additional methods such as `clearFiles()`.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleApiBind client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleApiBindRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

@@ -1,5 +1,21 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.9
+
+### Patch Changes
+
+- chore: Remove `$effect` in `Segment.svelte` component that was emitting execessive logs ([#2858](https://github.com/skeletonlabs/skeleton/pull/2858))
+
+## 1.0.0-next.8
+
+### Minor Changes
+
+- feature: Improvements to the File Upload component ([#2843](https://github.com/skeletonlabs/skeleton/pull/2843))
+
+- feature: Added Tags Input component ([#2828](https://github.com/skeletonlabs/skeleton/pull/2828))
+
+- feature: Added the Pagination component ([#2841](https://github.com/skeletonlabs/skeleton/pull/2841))
+
 ## 1.0.0-next.7
 
 ### Minor Changes
