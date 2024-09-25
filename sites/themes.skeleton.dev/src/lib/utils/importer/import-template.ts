@@ -5,12 +5,18 @@ import chroma from 'chroma-js';
 // Constants
 import * as constants from '$lib/constants/generator';
 // State
-import { settingsCore, settingsColors } from '$lib/state/generator.svelte';
-// import type { SettingsCore } from '$lib/state/types';
+import {
+	settingsCore,
+	settingsColors,
+	settingsBackgrounds,
+	settingsSpacing,
+	settingsEdges,
+	settingsTypography
+} from '$lib/state/generator.svelte';
 
 // ---
 
-function importColorState(properties: Record<string, string>) {
+function formatColors(properties: Record<string, string>) {
 	const coreColorArr: string[] = [];
 	// Generate list of core colors
 	constants.colorNames.forEach((colorName) => {
@@ -25,13 +31,43 @@ function importColorState(properties: Record<string, string>) {
 	});
 }
 
+function formatBackgrounds(properties: Record<string, string>) {
+	Object.keys(settingsBackgrounds).forEach((key) => {
+		// @ts-expect-error type error
+		settingsBackgrounds[key] = properties[key];
+	});
+}
+
+function formatSpacing(properties: Record<string, string>) {
+	Object.keys(settingsSpacing).forEach((key) => {
+		// @ts-expect-error type error
+		settingsSpacing[key] = properties[key];
+	});
+}
+
+function formatEdges(properties: Record<string, string>) {
+	Object.keys(settingsEdges).forEach((key) => {
+		// @ts-expect-error type error
+		settingsEdges[key] = parseInt(properties[key].replace('px', ''));
+		// @ts-expect-error type error
+		console.log(settingsEdges[key], properties[key]);
+	});
+}
+
+function formatTypography(properties: Record<string, string>) {
+	Object.keys(settingsTypography).forEach((key) => {
+		// @ts-expect-error type error
+		settingsTypography[key] = properties[key];
+	});
+}
+
 // ---
 
 export function importThemeProperties(name: string, properties: Record<string, string>) {
-	// Set Theme Name
 	settingsCore.name = name;
-	// Import Color State
-	importColorState(properties);
-
-	console.log({ settingsCore, settingsColors });
+	formatColors(properties);
+	formatBackgrounds(properties);
+	formatSpacing(properties);
+	formatEdges(properties);
+	formatTypography(properties);
 }

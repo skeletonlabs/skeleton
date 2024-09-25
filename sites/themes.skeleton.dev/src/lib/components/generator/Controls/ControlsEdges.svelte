@@ -10,11 +10,11 @@
 	<h2 class="h5">Border Radius</h2>
 	<div class="label">
 		<span class="label-text">Base Border Radius</span>
-		<Edges name="rounded-base" items={[0, 2, 4, 6, 12, 9999]} bind:value={settingsEdges['--radii-default']} />
+		<Edges name="rounded-base" items={[0, 1, 2, 4, 6, 12, 9999]} bind:value={settingsEdges['--radii-default']} />
 	</div>
 	<div class="label">
 		<span class="label-text">Container Border Radius</span>
-		<Edges name="rounded-container" items={[0, 2, 4, 6, 12, 24]} bind:value={settingsEdges['--radii-container']} />
+		<Edges name="rounded-container" items={[0, 1, 2, 4, 6, 12, 24]} bind:value={settingsEdges['--radii-container']} />
 	</div>
 	<h2 class="h5">Edge Widths</h2>
 	<div class="label">

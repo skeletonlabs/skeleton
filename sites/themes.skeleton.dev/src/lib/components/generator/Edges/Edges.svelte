@@ -14,8 +14,8 @@
 		thickness = false,
 		name,
 		value = $bindable(0),
-		items = [0, 2, 4, 6, 12, 16, 24, 9999],
-		gridCols = 'grid-cols-6'
+		items = [0, 1, 2, 4, 6, 12, 16, 24, 9999],
+		gridCols = 'grid-cols-7'
 	}: EdgesProps = $props();
 
 	function setValue(v: number) {

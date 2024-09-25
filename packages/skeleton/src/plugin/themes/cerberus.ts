@@ -69,9 +69,9 @@ const cerberus = {
 		'--radii-container': '6px',
 
 		'--border-width-default': '1px',
-		'--divide-width-default': 'var(--border-width-default)',
-		'--outline-width-default': 'var(--border-width-default)',
-		'--ring-width-default': 'var(--border-width-default)',
+		'--divide-width-default': '1px',
+		'--outline-width-default': '1px',
+		'--ring-width-default': '1px',
 
 		// Colors ---
 
