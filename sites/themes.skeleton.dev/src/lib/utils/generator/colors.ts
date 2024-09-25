@@ -23,7 +23,6 @@ function applyColorState(colorName: string, colorScale: string[]) {
 	constants.colorShades.forEach((shade, i) => {
 		const targetShade = `--color-${colorName}-${shade}`;
 		settingsColors[targetShade] = colorScale[i];
-		console.log(settingsColors[targetShade]);
 	});
 }
 

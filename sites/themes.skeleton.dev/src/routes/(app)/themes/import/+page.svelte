@@ -3,37 +3,49 @@
 	// Themes
 	import * as themes from '@skeletonlabs/skeleton/themes';
 	// Utils
-	import { importThemeProperties } from '$lib/utils/importer/import-template';
-	// Componets(skeleton)
-	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
+	import { importThemeTemplate } from '$lib/utils/importer/import-template';
+	import { importThemeFile } from '$lib/utils/importer/import-file';
+	// Componets (skeleton)
+	import { FileUpload, Switch } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconUpload from 'lucide-svelte/icons/file-up';
 	import IconFile from 'lucide-svelte/icons/paperclip';
 	import IconRemove from 'lucide-svelte/icons/x-circle';
 
+	// State
+	let modeVersionTwo = $state(false);
+
 	function onSelectTemplate(name: string) {
 		// @ts-expect-error type error
-		importThemeProperties(name, themes[name].properties);
+		importThemeTemplate(name, themes[name].properties);
+		goto('/themes/create');
+	}
+
+	async function onFileUpload(event: any) {
+		if (event.acceptedFiles.length > 0) importThemeFile(event.acceptedFiles[0], modeVersionTwo);
 		goto('/themes/create');
 	}
 </script>
 
 <div class="space-y-10">
-	<!-- Back Button -->
-	<a href="/themes/create" class="btn hover:preset-tonal">
-		<span>&larr;</span>
-		<span>Return to Generator</span>
-	</a>
+	<header class="flex justify-between gap-4">
+		<!-- Back Button -->
+		<a href="/themes/create" class="btn hover:preset-tonal">
+			<span>&larr;</span>
+			<span>Return to Generator</span>
+		</a>
+		<Switch name="example" bind:checked={modeVersionTwo}>
+			<span class="opacity-60">v2 Mode</span>
+		</Switch>
+	</header>
 	<!-- File Upload -->
 	<FileUpload
-		disabled
-		name="example"
-		accept="image/*"
-		maxFiles={2}
+		name="file"
+		accept=".ts, .js"
+		maxFiles={1}
+		onFileChange={onFileUpload}
 		label="Drag and Drop Theme File"
 		subtext="Accepts .ts or .js formats."
-		onFileChange={console.log}
-		onFileReject={console.error}
 		interfacePadding="py-32"
 		classes="w-full"
 	>
