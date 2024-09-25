@@ -18,11 +18,11 @@ export async function importThemeFile(file: File, modeVersionTwo: boolean) {
 
 	// Format each line
 	const lineMapped = linesFiltered.map((line) => {
-		line = line.replaceAll('\t', ''); // tabbing
-		// line = line.replaceAll('\\"', ''); // backslash
-		line = line.replaceAll(`',`, ''); // final comma
-		line = line.replaceAll(`'`, ''); // open/close quotes
-		return line;
+		return (line = line
+			.replaceAll('\t', '') // tabbing
+			// .replaceAll('\\"', '') // backslash
+			.replaceAll(`',`, '') // final comma
+			.replaceAll(`'`, '')); // open/close quotes
 	});
 
 	// Create key/value object
@@ -35,8 +35,7 @@ export async function importThemeFile(file: File, modeVersionTwo: boolean) {
 	// If v2 Mode is Enabled
 	if (modeVersionTwo) {
 		constants.colorNames.forEach((colorName) => {
-			properties[`--color-${colorName}-950`] = properties[`--color-${colorName}-900`];
-			properties[`--color-${colorName}-950`] = chroma(`rgb(${properties[`--color-${colorName}-950`].split(' ')})`)
+			properties[`--color-${colorName}-950`] = chroma(`rgb(${properties[`--color-${colorName}-900`].split(' ')})`)
 				.darken(0.2)
 				.rgb()
 				.join(' ');
