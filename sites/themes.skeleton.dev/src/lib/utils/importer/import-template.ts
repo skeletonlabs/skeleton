@@ -49,8 +49,6 @@ function formatEdges(properties: Record<string, string>) {
 	Object.keys(settingsEdges).forEach((key) => {
 		// @ts-expect-error type error
 		settingsEdges[key] = parseInt(properties[key].replace('px', ''));
-		// @ts-expect-error type error
-		console.log(settingsEdges[key], properties[key]);
 	});
 }
 
