@@ -61,8 +61,8 @@
 		<!-- Column 2 -->
 		<form class="card bg-surface-500/5 border border-surface-200-800 p-5 space-y-5">
 			<fieldset class="space-y-2">
-				<h2 class="h2">Signup</h2>
-				<p class="opacity-60">Get started for free.</p>
+				<h2 class="h2">Login</h2>
+				<p class="opacity-60">Select a login method below.</p>
 			</fieldset>
 			<fieldset class="space-y-2">
 				<label class="label">
@@ -75,7 +75,7 @@
 				</label>
 			</fieldset>
 			<fieldset>
-				<button type="button" class="btn {currentPresets.filled} w-full">Create Account</button>
+				<button type="button" class="btn {currentPresets.filled} w-full">Sign In Now</button>
 			</fieldset>
 			<hr class="hr" />
 			<fieldset class="space-y-5">
