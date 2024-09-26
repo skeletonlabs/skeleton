@@ -5,12 +5,15 @@
 	import * as constants from '$lib/constants/generator';
 	// Components (Skeleton)
 	import { AppBar, Avatar, Segment, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
+	// Components (generator)
+	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
 	// Icons
 	import IconSkull from 'lucide-svelte/icons/skull';
 	import IconLeft from 'lucide-svelte/icons/align-left';
 	import IconCenter from 'lucide-svelte/icons/align-center';
 	import IconRight from 'lucide-svelte/icons/align-right';
 	import IconJustify from 'lucide-svelte/icons/align-justify';
+	import IconArrowUpRight from 'lucide-svelte/icons/arrow-up-right';
 
 	// State
 	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);
@@ -148,15 +151,38 @@
 		{/snippet}
 	</AppBar>
 	<!-- Masonary -->
-	<div class="relative w-full bg-surface-100-900 rounded-container overflow-hidden">
-		<div class="absolute bottom-0 left-0 right-0 z-[2] flex justify-center items-center">
-			<div class="text-center">
-				<h1 class="type-scale-11 font-bold inline-block {currentPresets.filled} px-5">
-					{settingsCore.name ? settingsCore.name : 'Skeleton'}
-				</h1>
+	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
+		<!-- Column 1: Image -->
+		<div
+			class="relative w-full bg-surface-100-900 rounded-container overflow-hidden"
+			style="background: url(https://picsum.photos/640/640) center center; backround-size: cover;"
+		>
+			<div class="absolute bottom-4 left-4 z-[2] flex justify-center items-center">
+				<p class="text-4xl text-balance max-w-[250px] font-bold inline-block text-primary-contrast-500 dark:text-primary-contrast-500">
+					Example text over a static image.
+				</p>
+			</div>
+			<div class="absolute top-0 left-0 z-[1] w-full h-full bg-gradient-to-b from-transparent {currentPresets.gradient}"></div>
+		</div>
+		<!-- Column 2: Chart -->
+		<div class="card bg-surface-500/5 border border-surface-200-800 p-5 space-y-2">
+			<header>
+				<small class="type-scale-3">Earnings</small>
+				<h2 class="h2 font-normal">$14,904</h2>
+			</header>
+			<ExampleChart preset={currentPresets.prop} />
+		</div>
+		<!-- Column 2: xxx -->
+		<div class="card {currentPresets.tonal} p-5 grid grid-rows-[auto_1fr]">
+			<header>
+				<small class="type-scale-3">Users</small>
+			</header>
+			<div class="spce-y-2 flex justify-center items-center scale-125">
+				<div>
+					<h2 class="h2 font-normal">1,337 <sup><IconArrowUpRight size={30} class="inline-block" /></sup></h2>
+					<p>New users in 12 months</p>
+				</div>
 			</div>
 		</div>
-		<div class="absolute top-0 left-0 z-[1] w-full h-full bg-gradient-to-br from-black/0 {currentPresets.gradient}"></div>
-		<img class="grayscale" src="https://picsum.photos/1200/320" width="1200px" height="320px" alt="preview" />
 	</div>
 </div>

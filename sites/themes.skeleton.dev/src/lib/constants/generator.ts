@@ -9,6 +9,7 @@ export const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
 
 export const previewPresets: Record<string, Record<string, string>> = {
 	primary: {
+		prop: '--color-primary-500',
 		filled: 'preset-filled-primary-500',
 		tonal: 'preset-tonal-primary',
 		outlined: 'preset-outlined-primary-500',
@@ -19,6 +20,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		gradient: 'to-primary-500'
 	},
 	secondary: {
+		prop: '--color-secondary-500',
 		filled: 'preset-filled-secondary-500',
 		tonal: 'preset-tonal-secondary',
 		outlined: 'preset-outlined-secondary-500',
@@ -28,6 +30,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		gradient: 'to-secondary-500'
 	},
 	tertiary: {
+		prop: '--color-tertiary-500',
 		filled: 'preset-filled-tertiary-500',
 		tonal: 'preset-tonal-tertiary',
 		outlined: 'preset-outlined-tertiary-500',
@@ -37,6 +40,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		gradient: 'to-tertiary-500'
 	},
 	success: {
+		prop: '--color-success-500',
 		filled: 'preset-filled-success-500',
 		tonal: 'preset-tonal-success',
 		outlined: 'preset-outlined-success-500',
@@ -46,6 +50,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		gradient: 'to-success-500'
 	},
 	warning: {
+		prop: '--color-warning-500',
 		filled: 'preset-filled-warning-500',
 		tonal: 'preset-tonal-warning',
 		outlined: 'preset-outlined-warning-500',
@@ -55,6 +60,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		gradient: 'to-warning-500'
 	},
 	error: {
+		prop: '--color-error-500',
 		filled: 'preset-filled-error-500',
 		tonal: 'preset-tonal-error',
 		outlined: 'preset-outlined-error-500',
@@ -64,6 +70,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		gradient: 'to-error-500'
 	},
 	surface: {
+		prop: '--color-surface-500',
 		filled: 'preset-filled-surface-500',
 		tonal: 'bg-surface-500/10 bg-surface-500/10',
 		outlined: 'preset-outlined-surface-500',
