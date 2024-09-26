@@ -3,11 +3,14 @@
 
 import chroma from 'chroma-js';
 import { settingsCore } from '$lib/state/generator.svelte';
-import { formatColors } from './format-input'; // formatBackgrounds, formatSpacing, formatEdges, formatTypography
+import { formatColors, formatEdgesLegacy } from './format-input';
 import * as constants from '$lib/constants/generator';
 
-export async function importThemeFile(file: File, modeVersionTwo: boolean) {
+export async function importThemeFile(file: File) {
 	const fileText = await file.text();
+
+	// Determine if v2 Legacy Mode
+	const ifLegacyMode = fileText.includes('--on-primary');
 
 	// Create array for each line
 	// https://stackoverflow.com/a/5035058
@@ -33,7 +36,7 @@ export async function importThemeFile(file: File, modeVersionTwo: boolean) {
 	});
 
 	// If v2 Mode is Enabled
-	if (modeVersionTwo) {
+	if (ifLegacyMode) {
 		constants.colorNames.forEach((colorName) => {
 			properties[`--color-${colorName}-950`] = chroma(`rgb(${properties[`--color-${colorName}-900`].split(' ')})`)
 				.darken(0.2)
@@ -46,8 +49,5 @@ export async function importThemeFile(file: File, modeVersionTwo: boolean) {
 
 	settingsCore.name = 'Custom';
 	formatColors(properties);
-	// formatBackgrounds(properties);
-	// formatSpacing(properties);
-	// formatEdges(properties);
-	// formatTypography(properties);
+	if (ifLegacyMode) formatEdgesLegacy(properties);
 }

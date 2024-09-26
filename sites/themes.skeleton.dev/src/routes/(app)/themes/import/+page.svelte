@@ -6,23 +6,27 @@
 	import { importThemeTemplate } from '$lib/utils/importer/import-template';
 	import { importThemeFile } from '$lib/utils/importer/import-file';
 	// Componets (skeleton)
-	import { FileUpload, Switch } from '@skeletonlabs/skeleton-svelte';
+	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconUpload from 'lucide-svelte/icons/file-up';
 	import IconFile from 'lucide-svelte/icons/paperclip';
 	import IconRemove from 'lucide-svelte/icons/x-circle';
 
-	// State
-	let modeVersionTwo = $state(false);
-
 	function onSelectTemplate(name: string) {
+		// Run template import
 		// @ts-expect-error type error
 		importThemeTemplate(name, themes[name].properties);
+		// Redirect to Genreator path
 		goto('/themes/create');
 	}
 
 	async function onFileUpload(event: any) {
-		if (event.acceptedFiles.length > 0) importThemeFile(event.acceptedFiles[0], modeVersionTwo);
+		if (event.acceptedFiles.length <= 0) return;
+		// Reset to Cerberus by default
+		importThemeTemplate('cerberus', themes['cerberus'].properties);
+		// Run file import
+		importThemeFile(event.acceptedFiles[0]);
+		// Redirect to Genreator path
 		goto('/themes/create');
 	}
 </script>
@@ -34,9 +38,6 @@
 			<span>&larr;</span>
 			<span>Return to Generator</span>
 		</a>
-		<Switch name="example" bind:checked={modeVersionTwo}>
-			<span class="opacity-60">v2 Mode</span>
-		</Switch>
 	</header>
 	<!-- File Upload -->
 	<FileUpload

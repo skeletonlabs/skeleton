@@ -143,8 +143,8 @@
 											name={`--color-${color.value}-contrast-light`}
 											bind:value={settingsColors[`--color-${color.value}-contrast-light`]}
 										>
+											<option value="0 0 0">Black</option>
 											{#each constants.colorNames as colorName}
-												<option value="0 0 0">Black</option>
 												<optgroup label={colorName}>
 													{#each constants.colorShades as colorShade}
 														<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
@@ -167,8 +167,8 @@
 											name={`--color-${color.value}-contrast-dark`}
 											bind:value={settingsColors[`--color-${color.value}-contrast-dark`]}
 										>
+											<option value="255 255 255">White</option>
 											{#each constants.colorNames as colorName}
-												<option value="255 255 255">White</option>
 												<optgroup label={colorName}>
 													{#each constants.colorShades as colorShade}
 														<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
