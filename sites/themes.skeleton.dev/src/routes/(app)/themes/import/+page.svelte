@@ -55,10 +55,10 @@
 		{#snippet iconFileRemove()}<IconRemove class="size-4" />{/snippet}
 	</FileUpload>
 	<!-- Or Text -->
-	<div class="flex justify-center gap-4 type-scale-6 opacity-60">
-		<span>&mdash;</span>
-		<p>or select a template</p>
-		<span>&mdash;</span>
+	<div class="flex justify-center gap-4">
+		<span class="opacity-10">&mdash;</span>
+		<span class="opacity-60">or select a template</span>
+		<span class="opacity-10">&mdash;</span>
 	</div>
 	<!-- Select Template -->
 	<div class="grid grid-cols-4 gap-5">
