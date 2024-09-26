@@ -3,7 +3,7 @@
 
 import chroma from 'chroma-js';
 import { settingsCore } from '$lib/state/generator.svelte';
-import { formatColors, formatEdgesLegacy } from './format-input';
+import { formatColors, formatColorsLegacy, formatEdgesLegacy } from './format-input';
 import * as constants from '$lib/constants/generator';
 
 export async function importThemeFile(file: File) {
@@ -45,6 +45,6 @@ export async function importThemeFile(file: File) {
 	}
 
 	settingsCore.name = file.name.replace('.ts', '').replace('.js', '');
-	formatColors(properties);
+	enableLegacyMode ? formatColorsLegacy(properties) : formatColors(properties);
 	if (enableLegacyMode) formatEdgesLegacy(properties);
 }

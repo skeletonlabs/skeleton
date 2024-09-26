@@ -3,21 +3,23 @@ import chroma from 'chroma-js';
 import * as constants from '$lib/constants/generator';
 // State
 import { settingsColors, settingsBackgrounds, settingsSpacing, settingsEdges, settingsTypography } from '$lib/state/generator.svelte';
+// Utils
+import { setColorContrast } from '$lib/utils/generator/colors';
 
 // Production (v3) ---
 
 export function formatColors(properties: Record<string, string>) {
-	const coreColorArr: string[] = [];
-	// Generate list of core colors
+	const paletteColorsArry: string[] = [];
+	// Generate list of palette colors (all colors 50-950)
 	constants.colorNames.forEach((colorName) => {
 		return constants.colorShades.forEach((colorShade) => {
-			coreColorArr.push(`--color-${colorName}-${colorShade}`);
+			paletteColorsArry.push(`--color-${colorName}-${colorShade}`);
 		});
 	});
-	// Update State
 	Object.keys(settingsColors).forEach((key) => {
-		// If core color, format RGB -> Hex, otherwise use verbatim
-		settingsColors[key] = coreColorArr.includes(key) ? chroma(`rgb(${properties[key].split(' ')})`).hex() : properties[key];
+		if (!properties[key]) return;
+		// If palette color, format RGB -> Hex, otherwise use verbatim
+		settingsColors[key] = paletteColorsArry.includes(key) ? chroma(`rgb(${properties[key].split(' ')})`).hex() : properties[key];
 	});
 }
 
@@ -50,6 +52,17 @@ export function formatTypography(properties: Record<string, string>) {
 }
 
 // Legacy (v2) ---
+
+export function formatColorsLegacy(properties: Record<string, string>) {
+	// Run Standard Formatting
+	formatColors(properties);
+	// Run Color Contrast Generator
+	constants.colorNames.forEach((colorName) => {
+		return constants.colorShades.forEach((colorShade) => {
+			setColorContrast(colorName, String(colorShade), `--color-${colorName}-${colorShade}`);
+		});
+	});
+}
 
 export function formatEdgesLegacy(properties: Record<string, string>) {
 	// v3 Key : v2 Key

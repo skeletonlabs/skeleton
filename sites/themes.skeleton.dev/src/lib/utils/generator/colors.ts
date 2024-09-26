@@ -18,11 +18,35 @@ function genColorScale(colorHigh: string, colorMed: string, colorLow: string) {
 		.colors(11);
 }
 
+export function setColorContrast(colorName: string, shade: string, targetShade: string) {
+	const paletteShade = settingsColors[targetShade];
+	let contrastLight = settingsColors[`--color-${colorName}-contrast-light`];
+	let contrastDark = settingsColors[`--color-${colorName}-contrast-dark`];
+	// Strip wrapping `var()`
+	if (contrastLight.includes('var')) contrastLight = contrastLight.replace('var(', '').replace(')', '');
+	if (contrastDark.includes('var')) contrastDark = contrastDark.replace('var(', '').replace(')', '');
+	// Get Raw Hex
+	if (contrastLight.includes('--')) contrastLight = settingsColors[contrastLight];
+	if (contrastDark.includes('--')) contrastDark = settingsColors[contrastDark];
+	// Compare
+	const contrastRatioLight = chroma.contrast(chroma(paletteShade), contrastLight);
+	const contrastRatioDark = chroma.contrast(chroma(paletteShade), contrastDark);
+	// Set State
+	if (contrastRatioLight > contrastRatioDark) {
+		settingsColors[`--color-${colorName}-contrast-${shade}`] = contrastLight;
+	} else {
+		settingsColors[`--color-${colorName}-contrast-${shade}`] = contrastDark;
+	}
+}
+
 /* Applies the color scale to the color state */
 function applyColorState(colorName: string, colorScale: string[]) {
 	constants.colorShades.forEach((shade, i) => {
+		// Apply core shades 50-950
 		const targetShade = `--color-${colorName}-${shade}`;
 		settingsColors[targetShade] = colorScale[i];
+		// Set Color Contrast
+		setColorContrast(colorName, String(shade), targetShade);
 	});
 }
 
