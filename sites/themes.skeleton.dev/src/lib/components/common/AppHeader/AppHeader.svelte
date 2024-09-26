@@ -18,6 +18,7 @@
 		</div>
 		<nav class="flex items-center gap-4">
 			<Lightswitch />
+			<button class="btn preset-filled">Login</button>
 		</nav>
 	</div>
 </header>

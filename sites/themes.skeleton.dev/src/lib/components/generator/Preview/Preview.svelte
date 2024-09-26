@@ -19,7 +19,7 @@
 	}
 </script>
 
-<section class="relative h-screen overflow-y-auto bg-body-color dark:bg-body-color-dark">
+<section class="relative h-screen overflow-y-auto bg-body-color dark:bg-body-color-dark bg-gradient-skeleton">
 	<!-- Content -->
 	<article class="container mx-auto">
 		{#if globals.panel === 'preview'}
