@@ -32,9 +32,9 @@ export function genColorContrast(colorName: string, shade: string, targetShade: 
 	const contrastRatioDark = chroma.contrast(chroma(paletteShade), contrastDark);
 	// Set State
 	if (contrastRatioLight > contrastRatioDark) {
-		settingsColors[`--color-${colorName}-contrast-${shade}`] = contrastLight;
+		settingsColors[`--color-${colorName}-contrast-${shade}`] = `var(--color-${colorName}-contrast-light)`;
 	} else {
-		settingsColors[`--color-${colorName}-contrast-${shade}`] = contrastDark;
+		settingsColors[`--color-${colorName}-contrast-${shade}`] = `var(--color-${colorName}-contrast-dark)`;
 	}
 }
 
