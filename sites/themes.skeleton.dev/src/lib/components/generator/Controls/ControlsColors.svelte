@@ -30,8 +30,8 @@
 		{ label: 'Error', description: 'Used for error states.', value: 'error', class: 'preset-filled-error-500' },
 		{ label: 'Surface', description: 'The neutral surface tones.', value: 'surface', class: 'preset-filled-surface-500' }
 	];
-	const shadesAll = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
-	const shades3x = [50, 500, 950];
+	const shadesAll = constants.colorShades;
+	const shades3x = [constants.colorShades[0], 500, constants.colorShades[constants.colorShades.length - 1]]; // 50/500/950
 
 	// State
 	let showAllShades = $state(false);
@@ -50,7 +50,7 @@
 </script>
 
 <div class="space-y-4">
-	<p class="opacity-60">Select a color, then define the palette and contrast values.</p>
+	<p class="opacity-60">Define the color palette per each available theme color.</p>
 	<!-- Color Tabs -->
 	<Tabs bind:value={globals.activeColor} fluid>
 		{#snippet list()}
@@ -74,6 +74,7 @@
 								type="button"
 								class="chip preset-outlined-surface-300-700 hover:preset-tonal"
 								onclick={() => promptColorSeed(color.value)}
+								title="Generate a full palette based on a single color value. The provide color represents shade 500."
 							>
 								<IconSeed size={14} />
 								<span>Seed</span>
@@ -82,6 +83,7 @@
 								type="button"
 								class="chip preset-outlined-surface-300-700 hover:preset-tonal"
 								onclick={() => promptRandomColor(color.value)}
+								title="Generate a palette using a randomly selected color."
 							>
 								<IconRandom size={14} />
 								<span>Random</span>
@@ -132,7 +134,7 @@
 							<div class="grid grid-cols-2 gap-4">
 								<!-- --color-(color)-contrast-dark -->
 								<label class="label">
-									<span class="label-text">Light Mode Contrast</span>
+									<span class="label-text">Light Contrast</span>
 									<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
 										<div
 											class="input-group-cell"
@@ -143,7 +145,7 @@
 											name={`--color-${color.value}-contrast-light`}
 											bind:value={settingsColors[`--color-${color.value}-contrast-light`]}
 										>
-											<option value="0 0 0">Black</option>
+											<option value="255 255 255">White</option>
 											{#each constants.colorNames as colorName}
 												<optgroup label={colorName}>
 													{#each constants.colorShades as colorShade}
@@ -156,7 +158,7 @@
 								</label>
 								<!-- --color-surface-contrast-light -->
 								<label class="label">
-									<span class="label-text">Dark Mode Contrast</span>
+									<span class="label-text">Dark Contrast</span>
 									<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
 										<div
 											class="input-group-cell"
@@ -167,7 +169,7 @@
 											name={`--color-${color.value}-contrast-dark`}
 											bind:value={settingsColors[`--color-${color.value}-contrast-dark`]}
 										>
-											<option value="255 255 255">White</option>
+											<option value="0 0 0">Black</option>
 											{#each constants.colorNames as colorName}
 												<optgroup label={colorName}>
 													{#each constants.colorShades as colorShade}

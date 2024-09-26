@@ -8,17 +8,16 @@ import { settingsColors } from '$lib/state/generator.svelte';
 
 /* Takes color shade 50/500/960 and generates a color scale */
 function genColorScale(colorHigh: string, colorMed: string, colorLow: string) {
-	const shadeFallback = '#CCCCCC';
 	return chroma
 		.scale([
-			chroma.valid(colorHigh) ? chroma(colorHigh) : shadeFallback,
-			chroma.valid(colorMed) ? chroma(colorMed) : shadeFallback,
-			chroma.valid(colorLow) ? chroma(colorLow) : shadeFallback
+			chroma.valid(colorHigh) ? chroma(colorHigh) : '#FFFFFF',
+			chroma.valid(colorMed) ? chroma(colorMed) : '#CCCCCC',
+			chroma.valid(colorLow) ? chroma(colorLow) : '#000000'
 		])
 		.colors(11);
 }
 
-export function setColorContrast(colorName: string, shade: string, targetShade: string) {
+export function genColorContrast(colorName: string, shade: string, targetShade: string) {
 	const paletteShade = settingsColors[targetShade];
 	let contrastLight = settingsColors[`--color-${colorName}-contrast-light`];
 	let contrastDark = settingsColors[`--color-${colorName}-contrast-dark`];
@@ -42,11 +41,11 @@ export function setColorContrast(colorName: string, shade: string, targetShade: 
 /* Applies the color scale to the color state */
 function applyColorState(colorName: string, colorScale: string[]) {
 	constants.colorShades.forEach((shade, i) => {
-		// Apply core shades 50-950
 		const targetShade = `--color-${colorName}-${shade}`;
+		// Set state
 		settingsColors[targetShade] = colorScale[i];
-		// Set Color Contrast
-		setColorContrast(colorName, String(shade), targetShade);
+		// Generate Color Contrast
+		genColorContrast(colorName, String(shade), targetShade);
 	});
 }
 

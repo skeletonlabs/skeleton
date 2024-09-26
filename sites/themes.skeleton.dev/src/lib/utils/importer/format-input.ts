@@ -4,7 +4,7 @@ import * as constants from '$lib/constants/generator';
 // State
 import { settingsColors, settingsBackgrounds, settingsSpacing, settingsEdges, settingsTypography } from '$lib/state/generator.svelte';
 // Utils
-import { setColorContrast } from '$lib/utils/generator/colors';
+import { genColorContrast } from '$lib/utils/generator/colors';
 
 // Production (v3) ---
 
@@ -17,6 +17,7 @@ export function formatColors(properties: Record<string, string>) {
 		});
 	});
 	Object.keys(settingsColors).forEach((key) => {
+		// Skip if value is undefined
 		if (!properties[key]) return;
 		// If palette color, format RGB -> Hex, otherwise use verbatim
 		settingsColors[key] = paletteColorsArry.includes(key) ? chroma(`rgb(${properties[key].split(' ')})`).hex() : properties[key];
@@ -56,10 +57,10 @@ export function formatTypography(properties: Record<string, string>) {
 export function formatColorsLegacy(properties: Record<string, string>) {
 	// Run Standard Formatting
 	formatColors(properties);
-	// Run Color Contrast Generator
+	// Generate Color Contrast
 	constants.colorNames.forEach((colorName) => {
 		return constants.colorShades.forEach((colorShade) => {
-			setColorContrast(colorName, String(colorShade), `--color-${colorName}-${colorShade}`);
+			genColorContrast(colorName, String(colorShade), `--color-${colorName}-${colorShade}`);
 		});
 	});
 }

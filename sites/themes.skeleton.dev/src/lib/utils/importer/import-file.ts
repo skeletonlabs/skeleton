@@ -34,7 +34,7 @@ export async function importThemeFile(file: File) {
 		properties[key] = value;
 	});
 
-	// If v2 Mode is Enabled
+	// If v2 Mode, generate 950 shades automatically
 	if (enableLegacyMode) {
 		constants.colorNames.forEach((colorName) => {
 			properties[`--color-${colorName}-950`] = chroma(`rgb(${properties[`--color-${colorName}-900`].split(' ')})`)
@@ -44,6 +44,7 @@ export async function importThemeFile(file: File) {
 		});
 	}
 
+	// Format and update state
 	settingsCore.name = file.name.replace('.ts', '').replace('.js', '');
 	enableLegacyMode ? formatColorsLegacy(properties) : formatColors(properties);
 	if (enableLegacyMode) formatEdgesLegacy(properties);
