@@ -32,35 +32,28 @@
 </script>
 
 <div class="space-y-10">
-	<header class="flex justify-between gap-4">
-		<!-- Back Button -->
-		<a href="/themes/create" class="btn hover:preset-tonal">
-			<span>&larr;</span>
-			<span>Return to Generator</span>
-		</a>
-	</header>
-	<!-- File Upload -->
+	<!-- Upload -->
 	<FileUpload
 		name="file"
 		accept=".ts, .js"
 		maxFiles={1}
 		onFileChange={onFileUpload}
-		label="Drag and Drop Theme File"
-		subtext="Accepts .ts or .js formats."
+		label="Drag and Drop Theme"
+		subtext="Accepts .ts or .js file formats."
 		interfacePadding="py-32"
 		classes="w-full"
 	>
-		{#snippet iconInterface()}<IconUpload class="size-8" />{/snippet}
+		{#snippet iconInterface()}<IconUpload class="size-16" />{/snippet}
 		{#snippet iconFile()}<IconFile class="size-4" />{/snippet}
 		{#snippet iconFileRemove()}<IconRemove class="size-4" />{/snippet}
 	</FileUpload>
-	<!-- Or Text -->
+	<!-- Text -->
 	<div class="flex justify-center gap-4">
 		<span class="opacity-10">&mdash;</span>
 		<span class="opacity-60">or select a template</span>
 		<span class="opacity-10">&mdash;</span>
 	</div>
-	<!-- Select Template -->
+	<!-- Templates -->
 	<div class="grid grid-cols-4 gap-5">
 		{#each Object.keys(themes) as theme}
 			<button

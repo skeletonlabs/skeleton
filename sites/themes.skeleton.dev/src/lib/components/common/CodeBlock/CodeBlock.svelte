@@ -77,7 +77,7 @@
 <style lang="postcss">
 	.codeblock :global {
 		.shiki {
-			@apply py-6 text-sm rounded-md whitespace-pre-wrap;
+			@apply py-6 text-xs rounded-md whitespace-pre-wrap;
 			@apply !bg-surface-900; /* set code block bg color */
 		}
 		.line {

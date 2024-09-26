@@ -1,9 +1,5 @@
-<script lang="ts">
-	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
-	onMount(() => goto('/themes/create')); // redirect
-</script>
+<!-- <script lang="ts"></script> -->
 
-<div class="card preset-filled-surface-100-900 p-4 text-center">
-	<p>Themes Homepage - Coming Soon</p>
+<div class="card preset-tonal-warning p-4 text-center">
+	<p>Future home of the <u>browse</u> page.</p>
 </div>

@@ -2,7 +2,7 @@
 	// State
 	import { globals } from '$lib/state/generator.svelte';
 	// Components (Skeleton)
-	import { Accordion } from '@skeletonlabs/skeleton-svelte';
+	import { Accordion, Segment } from '@skeletonlabs/skeleton-svelte';
 	// Components (Settings)
 	import ControlsCore from './ControlsCore.svelte';
 	import ControlsColors from './ControlsColors.svelte';
@@ -34,12 +34,14 @@
 <section class="relative h-screen bg-surface-100-900 pb-96 overflow-y-auto">
 	<!-- Header -->
 	<header
-		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow"
+		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow-lg"
 	>
-		<h2 class="font-bold">Settings</h2>
-		<a class="btn preset-outlined-surface-300-700 hover:preset-tonal" href="/themes/import">Import</a>
+		<Segment name="display" bind:value={globals.panel as string} classes="w-full">
+			<Segment.Item value="preview" classes="w-full">Preview</Segment.Item>
+			<Segment.Item value="code" classes="w-full">Code</Segment.Item>
+		</Segment>
 	</header>
-	<!-- Controls: ore -->
+	<!-- Controls: Core -->
 	<ControlsCore />
 	<!-- Settings Accordion -->
 	<div class="space-y-10">
@@ -85,9 +87,5 @@
 		</Accordion>
 	</div>
 	<!-- Footer -->
-	<footer class="p-5">
-		<p class="type-scale-1 opacity-60">
-			Hint: Tap the <span class="badge preset-outlined-surface-300-700 mx-1">Code</span> toggle to access your generated theme code.
-		</p>
-	</footer>
+	<!-- <footer class="p-5"></footer> -->
 </section>
