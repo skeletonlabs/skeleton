@@ -1,6 +1,6 @@
 <script lang="ts">
 	// State
-	import { globals, settingsCore } from '$lib/state/generator.svelte';
+	import { globals, settingsBackgrounds } from '$lib/state/generator.svelte';
 	// Constants
 	import * as constants from '$lib/constants/generator';
 	// Components (Skeleton)
@@ -15,11 +15,39 @@
 	import IconJustify from 'lucide-svelte/icons/align-justify';
 	import IconArrowUpRight from 'lucide-svelte/icons/arrow-up-right';
 
+	/** Automatically flips card bg colors based on the theme bg color. */
+	function setCardBgClass() {
+		let lightClass = 'bg-surface-100';
+		let darkClass = 'dark:bg-surface-900';
+		// If Light Condition
+		if (
+			settingsBackgrounds['--body-background-color'].includes('255 255 255') ||
+			settingsBackgrounds['--body-background-color'].includes('100')
+		) {
+			lightClass = 'bg-surface-50';
+		}
+		// If Dark Condition
+		if (settingsBackgrounds['--body-background-color-dark'].includes('900')) {
+			darkClass = 'dark:bg-surface-950';
+		}
+		return `${lightClass} ${darkClass}`;
+	}
+
 	// State
 	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);
+	const rxCardBgClass = $derived(setCardBgClass());
 </script>
 
 <div class="space-y-10">
+	<!-- Swatches -->
+	<div class="h-2 grid grid-cols-6 gap-1">
+		<div class="bg-primary-500 h-full"></div>
+		<div class="bg-secondary-500 h-full"></div>
+		<div class="bg-tertiary-500 h-full"></div>
+		<div class="bg-success-500 h-full"></div>
+		<div class="bg-warning-500 h-full"></div>
+		<div class="bg-error-500 h-full"></div>
+	</div>
 	<!-- Masonary -->
 	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
 		<!-- Column 1 -->
@@ -59,7 +87,7 @@
 			</blockquote>
 		</div>
 		<!-- Column 2 -->
-		<form class="card bg-surface-500/5 border border-surface-200-800 p-5 space-y-5">
+		<form class="card shadow {rxCardBgClass} border border-surface-200-800 p-5 space-y-5">
 			<fieldset class="space-y-2">
 				<h2 class="h2">Login</h2>
 				<p class="opacity-60">Select a login method below.</p>
@@ -118,14 +146,14 @@
 			</Segment>
 			<!-- Cards -->
 			<div class="space-y-4">
-				<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+				<div class="card shadow {rxCardBgClass} border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 					<Avatar src="/images/male.png" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Gregory Smith</p>
 						<p class="opacity-60 type-scale-1">gregory.smith@example.com</p>
 					</div>
 				</div>
-				<div class="card bg-surface-500/5 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+				<div class="card shadow {rxCardBgClass} border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 					<Avatar src="/images/female.png" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Stephanie Collins</p>
@@ -136,7 +164,7 @@
 		</div>
 	</div>
 	<!-- App Bar -->
-	<AppBar toolbarClasses="items-center" classes="shadow">
+	<AppBar background={rxCardBgClass} toolbarClasses="items-center" classes="shadow">
 		{#snippet lead()}
 			<IconSkull size={32} />
 		{/snippet}
@@ -154,7 +182,7 @@
 	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
 		<!-- Column 1: Image -->
 		<div
-			class="relative w-full bg-surface-100-900 rounded-container overflow-hidden"
+			class="relative w-full shadow {rxCardBgClass} rounded-container overflow-hidden"
 			style="background: url(https://picsum.photos/640/640) center center; backround-size: cover;"
 		>
 			<div class="absolute bottom-4 left-4 z-[2] flex justify-center items-center">
@@ -165,7 +193,7 @@
 			<div class="absolute top-0 left-0 z-[1] w-full h-full bg-gradient-to-b from-transparent {currentPresets.gradient}"></div>
 		</div>
 		<!-- Column 2: Chart -->
-		<div class="card bg-surface-500/5 border border-surface-200-800 p-5 space-y-2">
+		<div class="card shadow {rxCardBgClass} border border-surface-200-800 p-5 space-y-2">
 			<header>
 				<small class="type-scale-3">Earnings</small>
 				<h2 class="h2 font-normal">$14,904</h2>

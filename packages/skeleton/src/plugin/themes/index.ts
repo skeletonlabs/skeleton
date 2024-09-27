@@ -1,9 +1,11 @@
-import cerberus from './cerberus.js';
 import catppuccin from './catppuccin.js';
+import cerberus from './cerberus.js';
+import mona from './mona.js';
 import pine from './pine.js';
 import rose from './rose.js';
+import wumpus from './wumpus.js';
 
-export { cerberus, catppuccin, pine, rose };
+export { catppuccin, cerberus, mona, pine, rose, wumpus };
 
 export type Theme = {
 	name: string;
@@ -12,8 +14,10 @@ export type Theme = {
 
 export type ThemeProperties = {
 	// Spacing
+	// https://tailwindcss.com/docs/customizing-spacing
 	'--space-scale-factor': string;
 	// Typography
+	// https://designcode.io/typographic-scales
 	'--type-scale-factor': string;
 	'--type-scale-1': string;
 	'--type-scale-2': string;

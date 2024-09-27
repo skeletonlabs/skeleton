@@ -58,7 +58,7 @@
 		{#each Object.keys(themes) as theme}
 			<button
 				data-theme={theme}
-				class="w-full bg-surface-100-900 p-10 hover:preset-outlined-surface-800-200 rounded-md space-y-4"
+				class="w-full bg-surface-50-950 p-10 preset-outlined-surface-100-900 hover:preset-outlined-surface-800-200 rounded-md space-y-4"
 				onclick={() => onSelectTemplate(theme)}
 			>
 				<h3 class="h4 capitalize">{theme}</h3>
