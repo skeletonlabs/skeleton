@@ -1,11 +1,17 @@
 import catppuccin from './catppuccin.js';
 import cerberus from './cerberus.js';
+import imperial from './imperial.js';
+import jupiter from './jupiter.js';
+import mint from './mint.js';
 import mona from './mona.js';
 import pine from './pine.js';
+import reign from './reign.js';
 import rose from './rose.js';
+import terminus from './terminus.js';
 import wumpus from './wumpus.js';
+import vox from './vox.js';
 
-export { catppuccin, cerberus, mona, pine, rose, wumpus };
+export { catppuccin, cerberus, imperial, jupiter, mint, mona, pine, reign, rose, terminus, wumpus, vox };
 
 export type Theme = {
 	name: string;

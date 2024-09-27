@@ -63,13 +63,13 @@
 			>
 				<h3 class="h4 capitalize">{theme}</h3>
 				<div class="flex justify-center items-center -space-x-2">
-					<div class="aspect-square w-8 bg-primary-500 rounded-full"></div>
-					<div class="aspect-square w-8 bg-secondary-500 rounded-full"></div>
-					<div class="aspect-square w-8 bg-tertiary-500 rounded-full"></div>
-					<div class="aspect-square w-8 bg-success-500 rounded-full"></div>
-					<div class="aspect-square w-8 bg-warning-500 rounded-full"></div>
-					<div class="aspect-square w-8 bg-error-500 rounded-full"></div>
-					<div class="aspect-square w-8 bg-surface-500 rounded-full"></div>
+					<div class="aspect-square w-8 bg-primary-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-8 bg-secondary-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-8 bg-tertiary-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-8 bg-success-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-8 bg-warning-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-8 bg-error-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-8 bg-surface-500 border-[1px] border-black/10 rounded-full"></div>
 				</div>
 			</button>
 		{/each}

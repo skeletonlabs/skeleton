@@ -17,7 +17,20 @@ export default {
 	plugins: [
 		forms,
 		skeleton({
-			themes: [themes.catppuccin, themes.cerberus, themes.mona, themes.pine, themes.rose, themes.wumpus]
+			themes: [
+				themes.catppuccin,
+				themes.cerberus,
+				themes.imperial,
+				themes.jupiter,
+				themes.mint,
+				themes.mona,
+				themes.pine,
+				themes.terminus,
+				themes.reign,
+				themes.rose,
+				themes.wumpus,
+				themes.vox
+			]
 		})
 	]
 };
