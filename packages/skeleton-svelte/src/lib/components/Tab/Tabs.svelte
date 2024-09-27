@@ -14,7 +14,7 @@
 		// List
 		listBase = 'flex',
 		listJustify = 'justify-start',
-		listBorder = 'border-b border-surface-200-800',
+		listBorder = 'border-b-[1px] border-surface-200-800',
 		listMargin = 'mb-4',
 		listGap = 'gap-2',
 		listClasses = '',
