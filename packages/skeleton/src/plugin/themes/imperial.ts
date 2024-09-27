@@ -1,4 +1,4 @@
-import type { Theme } from '@skeletonlabs/skeleton/themes';
+import type { Theme } from './index.js';
 
 const imperial = {
 	name: 'imperial',
@@ -45,7 +45,7 @@ const imperial = {
 		'--anchor-text-decoration-focus': 'none',
 		'--space-scale-factor': '1',
 		'--radii-default': '6px',
-		'--radii-container': '24px',
+		'--radii-container': '12px',
 		'--border-width-default': '1px',
 		'--divide-width-default': '1px',
 		'--outline-width-default': '1px',

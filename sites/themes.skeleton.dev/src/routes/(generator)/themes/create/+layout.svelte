@@ -1,8 +1,4 @@
 <script lang="ts">
-	// State
-	import { globals } from '$lib/state/generator.svelte';
-	// Components (Skeleton)
-	import { Segment } from '@skeletonlabs/skeleton-svelte';
 	// Components (common)
 	import AppHeader from '$lib/components/common/AppHeader/AppHeader.svelte';
 

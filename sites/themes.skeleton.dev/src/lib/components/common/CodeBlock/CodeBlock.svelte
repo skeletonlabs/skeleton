@@ -29,7 +29,6 @@
 	// Process Language
 	const renderedCode = $derived(
 		// FIXME: https://github.com/sveltejs/eslint-plugin-svelte/issues/652
-		// eslint-disable-next-line svelte/valid-compile
 		$page.data.highlighter.codeToHtml(code.trim(), {
 			lang,
 			themes: {
@@ -41,11 +40,12 @@
 				 * This transformer adds the `highlighted` class to lines that are to be highlighted.
 				 */
 				{
-					line(node: any, lineNumber: any) {
+					// @ts-expect-error type
+					line(node, lineNumber) {
 						if (!highlightedLineNumbers.includes(lineNumber)) {
 							return;
 						}
-						// @ts-expect-error ~
+						// @ts-expect-error type
 						this.addClassToHast(node, 'highlighted');
 					}
 				}

@@ -20,7 +20,8 @@
 		goto('/themes/create');
 	}
 
-	async function onFileUpload(event: any) {
+	// @ts-expect-error type
+	async function onFileUpload(event) {
 		if (event.acceptedFiles.length <= 0) return;
 		// Reset to Cerberus by default
 		importThemeTemplate('cerberus', themes['cerberus'].properties);
