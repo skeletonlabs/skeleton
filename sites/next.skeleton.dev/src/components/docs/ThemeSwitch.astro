@@ -3,6 +3,11 @@
 // Ref: https://docs.astro.build/en/tutorial/6-islands/2/
 
 import { Palette } from 'lucide-react';
+import * as themes from '@skeletonlabs/skeleton/themes';
+
+function capitalizeFirstLetter(text: string) {
+	return text.charAt(0).toUpperCase() + text.slice(1);
+}
 ---
 
 <div class="input-group grid-cols-[auto_1fr] hover:preset-tonal">
@@ -10,18 +15,14 @@ import { Palette } from 'lucide-react';
 		<Palette size={18} />
 	</div>
 	<select id="themesList">
-		<option value="catppuccin" selected>Catppuccin</option>
-		<option value="cerberus" selected>Cerberus</option>
-		<option value="imperial" selected>Imperial</option>
-		<option value="jupiter" selected>Jupiter</option>
-		<option value="mint" selected>Mint</option>
-		<option value="mona" selected>Mona</option>
-		<option value="pine" selected>Pine</option>
-		<option value="terminus" selected>Terminus</option>
-		<option value="reign" selected>Reign</option>
-		<option value="rose" selected>Rose</option>
-		<option value="wumpus" selected>Wumpus</option>
-		<option value="vox" selected>Vox</option>
+		<!-- Loop and generate theme list automatically -->
+		{
+			Object.keys(themes).map((themeName) => (
+				<option value={themeName} selected>
+					{capitalizeFirstLetter(themeName)}
+				</option>
+			))
+		}
 	</select>
 </div>
 
