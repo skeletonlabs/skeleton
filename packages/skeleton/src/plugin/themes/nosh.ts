@@ -1,7 +1,7 @@
 import type { Theme } from './index.js';
 
-const imperial = {
-	name: 'imperial',
+const nosh = {
+	name: 'nosh',
 	properties: {
 		'--type-scale-factor': '1.067',
 		'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))',
@@ -223,4 +223,4 @@ const imperial = {
 	}
 } satisfies Theme;
 
-export default imperial;
+export default nosh;

@@ -1,17 +1,17 @@
 import catppuccin from './catppuccin.js';
 import cerberus from './cerberus.js';
 import concord from './concord.js';
-import imperial from './imperial.js';
 import jupiter from './jupiter.js';
 import mint from './mint.js';
 import mona from './mona.js';
+import nosh from './nosh.js';
 import pine from './pine.js';
 import reign from './reign.js';
 import rose from './rose.js';
 import terminus from './terminus.js';
 import vox from './vox.js';
 
-export { catppuccin, cerberus, imperial, jupiter, mint, mona, pine, reign, rose, terminus, concord, vox };
+export { catppuccin, cerberus, jupiter, mint, mona, nosh, pine, reign, rose, terminus, concord, vox };
 
 export type Theme = {
 	name: string;
