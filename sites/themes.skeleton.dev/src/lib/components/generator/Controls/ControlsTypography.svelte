@@ -57,6 +57,7 @@
 						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
 							<div class="input-group-cell" style:background={`rgba(${settingsTypography['--base-font-color']})`}></div>
 							<select class="select" name="--base-font-color" bind:value={settingsTypography['--base-font-color']}>
+								<option value="0 0 0">Black</option>
 								{#each constants.colorNames as colorName}
 									<optgroup label={colorName}>
 										{#each constants.colorShades as colorShade}
@@ -73,6 +74,7 @@
 						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
 							<div class="input-group-cell" style:background={`rgba(${settingsTypography['--base-font-color-dark']})`}></div>
 							<select class="select" name="--base-font-color-dark" bind:value={settingsTypography['--base-font-color-dark']}>
+								<option value="255 255 255">White</option>
 								{#each constants.colorNames as colorName}
 									<optgroup label={colorName}>
 										{#each constants.colorShades as colorShade}
@@ -155,6 +157,7 @@
 							></div>
 							<select class="select" name="--heading-font-color" bind:value={settingsTypography['--heading-font-color']}>
 								<option value="inherit">inherit</option>
+								<option value="0 0 0">Black</option>
 								{#each constants.colorNames as colorName}
 									<optgroup label={colorName}>
 										{#each constants.colorShades as colorShade}
@@ -177,6 +180,7 @@
 							></div>
 							<select class="select" name="--heading-font-color-dark" bind:value={settingsTypography['--heading-font-color-dark']}>
 								<option value="inherit">inherit</option>
+								<option value="255 255 255">White</option>
 								{#each constants.colorNames as colorName}
 									<optgroup label={colorName}>
 										{#each constants.colorShades as colorShade}

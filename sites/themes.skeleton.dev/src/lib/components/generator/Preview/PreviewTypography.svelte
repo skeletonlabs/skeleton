@@ -42,24 +42,25 @@
 		<!-- Content -->
 		<div class="space-y-4">
 			<h2 class="h2">Lorem Ipsum</h2>
-			<p class="opacity-60">
+			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Tincidunt dui ut ornare lectus sit amet est placerat. Nulla aliquet porttitor lacus luctus accumsan tortor posuere. Tempor orci eu
-				lobortis elementum nibh tellus molestie nunc non. Vitae suscipit tellus mauris a diam maecenas sed enim ut. Blandit aliquam etiam
-				erat velit scelerisque in dictum. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant.
+				Tincidunt dui ut ornare lectus sit <a class="anchor" href="/">amet est placerat</a>. Nulla aliquet porttitor lacus luctus accumsan
+				tortor posuere. Tempor orci eu lobortis elementum nibh tellus molestie nunc non. Vitae suscipit tellus mauris a diam maecenas sed
+				enim ut. Blandit aliquam etiam erat velit scelerisque in dictum. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar
+				pellentesque habitant.
 			</p>
 			<h3 class="h3">Elementum Pulvinar</h3>
-			<p class="opacity-60">
+			<p>
 				Id diam vel quam elementum pulvinar etiam non quam lacus. Vel pretium lectus quam id leo in vitae turpis. Aliquet sagittis id
-				consectetur purus ut faucibus pulvinar. Dui id ornare arcu odio ut sem nulla pharetra diam. Nec ultrices dui sapien eget mi.
-				Interdum varius sit amet mattis vulputate. Sed risus pretium quam vulputate dignissim suspendisse in est. Sed nisi lacus sed viverra
-				tellus in hac.
+				consectetur purus ut faucibus pulvinar. Dui id ornare arcu odio ut sem <a class="anchor" href="/">nulla pharetra</a> diam. Nec ultrices
+				dui sapien eget mi. Interdum varius sit amet mattis vulputate. Sed risus pretium quam vulputate dignissim suspendisse in est. Sed nisi
+				lacus sed viverra tellus in hac.
 			</p>
-			<p class="opacity-60">
+			<p>
 				Elementum eu facilisis sed odio morbi. Adipiscing at in tellus integer. In est ante in nibh mauris. Leo duis ut diam quam nulla
 				porttitor massa id. Urna neque viverra justo nec ultrices dui sapien eget mi. Ut pharetra sit amet aliquam id diam maecenas.
-				Scelerisque in dictum non consectetur. Nec feugiat nisl pretium fusce id velit ut. Sed lectus vestibulum mattis ullamcorper velit
-				sed ullamcorper. Non pulvinar neque laoreet suspendisse interdum consectetur libero id.
+				Scelerisque in dictum non consectetur. Nec feugiat nisl <a class="anchor" href="/">pretium fusce</a> id velit ut. Sed lectus vestibulum
+				mattis ullamcorper velit sed ullamcorper. Non pulvinar neque laoreet suspendisse interdum consectetur libero id.
 			</p>
 		</div>
 		<!-- Insert / Delete -->

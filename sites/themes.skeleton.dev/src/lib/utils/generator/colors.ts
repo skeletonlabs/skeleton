@@ -25,8 +25,14 @@ export function genColorContrast(colorName: string, shade: string, targetShade: 
 	if (contrastLight.includes('var')) contrastLight = contrastLight.replace('var(', '').replace(')', '');
 	if (contrastDark.includes('var')) contrastDark = contrastDark.replace('var(', '').replace(')', '');
 	// Get Raw Hex
-	if (contrastLight.includes('--')) contrastLight = settingsColors[contrastLight];
-	if (contrastDark.includes('--')) contrastDark = settingsColors[contrastDark];
+	if (!contrastLight.includes('inherit')) {
+		// If CSS Custom Property
+		if (contrastLight.includes('255 255 255')) contrastLight = '#FFFFFF';
+		if (contrastDark.includes('0 0 0')) contrastDark = '#000000';
+		// If White or Black
+		if (contrastLight.includes('--')) contrastLight = settingsColors[contrastLight];
+		if (contrastDark.includes('--')) contrastDark = settingsColors[contrastDark];
+	}
 	// Compare
 	const contrastRatioLight = chroma.contrast(chroma(paletteShade), contrastLight);
 	const contrastRatioDark = chroma.contrast(chroma(paletteShade), contrastDark);
