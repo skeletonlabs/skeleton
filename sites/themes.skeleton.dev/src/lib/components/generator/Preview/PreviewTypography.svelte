@@ -3,7 +3,7 @@
 	<div class="space-y-10">
 		<!-- Headings -->
 		<div>
-			<div class="space-y-2">
+			<div class="space-y-5">
 				<h1 class="h1">Heading 1</h1>
 				<h2 class="h2">Heading 2</h2>
 				<h3 class="h3">Heading 3</h3>

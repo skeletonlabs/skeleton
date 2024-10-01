@@ -17,7 +17,8 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		ring: 'ring-primary-500 dark:border-primary-500',
 		anchor: 'text-primary-500 dark:text-primary-500',
 		hover: 'hover:preset-tonal-primary',
-		gradient: 'to-primary-500'
+		gradient: 'to-primary-500',
+		contrast: 'text-primary-contrast-500 dark:text-primary-contrast-500'
 	},
 	secondary: {
 		prop: '--color-secondary-500',
@@ -27,7 +28,8 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		input: 'focus:ring-secondary-500 focus:dark:ring-secondary-500',
 		anchor: 'text-secondary-500 dark:text-secondary-500',
 		hover: 'hover:preset-tonal-secondary',
-		gradient: 'to-secondary-500'
+		gradient: 'to-secondary-500',
+		contrast: 'text-secondary-contrast-500 dark:text-secondary-contrast-500'
 	},
 	tertiary: {
 		prop: '--color-tertiary-500',
@@ -37,7 +39,8 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		input: 'focus:ring-tertiary-500 focus:dark:ring-tertiary-500',
 		anchor: 'text-tertiary-500 dark:text-tertiary-500',
 		hover: 'hover:preset-tonal-tertiary',
-		gradient: 'to-tertiary-500'
+		gradient: 'to-tertiary-500',
+		contrast: 'text-tertiary-contrast-500 dark:text-tertiary-contrast-500'
 	},
 	success: {
 		prop: '--color-success-500',
@@ -47,7 +50,8 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		input: 'focus:ring-success-500 focus:dark:ring-success-500',
 		anchor: 'text-success-500 dark:text-success-500',
 		hover: 'hover:preset-tonal-success',
-		gradient: 'to-success-500'
+		gradient: 'to-success-500',
+		contrast: 'text-success-contrast-500 dark:text-success-contrast-500'
 	},
 	warning: {
 		prop: '--color-warning-500',
@@ -57,7 +61,8 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		input: 'focus:ring-warning-500 focus:dark:ring-warning-500',
 		anchor: 'text-warning-500 dark:text-warning-500',
 		hover: 'hover:preset-tonal-warning',
-		gradient: 'to-warning-500'
+		gradient: 'to-warning-500',
+		contrast: 'text-warning-contrast-500 dark:text-warning-contrast-500'
 	},
 	error: {
 		prop: '--color-error-500',
@@ -67,7 +72,8 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		input: 'focus:ring-error-500 focus:dark:ring-error-500',
 		anchor: 'text-error-500 dark:text-error-500',
 		hover: 'hover:preset-tonal-error',
-		gradient: 'to-error-500'
+		gradient: 'to-error-500',
+		contrast: 'text-error-contrast-500 dark:text-error-contrast-500'
 	},
 	surface: {
 		prop: '--color-surface-500',
@@ -77,7 +83,8 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		input: 'focus:border-surface-500 focus:dark:ring-surface-500',
 		anchor: 'text-surface-500 dark:text-surface-500',
 		hover: 'hover:preset-tonal-surface',
-		gradient: 'to-surface-500'
+		gradient: 'to-surface-500',
+		contrast: 'text-surface-contrast-500 dark:text-surface-contrast-500'
 	}
 };
 

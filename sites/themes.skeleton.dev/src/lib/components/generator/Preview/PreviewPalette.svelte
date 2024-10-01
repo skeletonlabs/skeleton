@@ -223,13 +223,13 @@
 	<section class="space-y-5">
 		<h2 class="h4">Tonal</h2>
 		<div class="w-full grid grid-cols-11 gap-4">
-			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal"><IconCenter size={32} /></div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-primary"><IconCenter size={32} /></div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-secondary"><IconCenter size={32} /></div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-tertiary"><IconCenter size={32} /></div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-success"><IconCenter size={32} /></div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-warning"><IconCenter size={32} /></div>
 			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal-error"><IconCenter size={32} /></div>
+			<div class="aspect-square rounded-full flex justify-center items-center preset-tonal"><IconCenter size={32} /></div>
 		</div>
 	</section>
 </div>

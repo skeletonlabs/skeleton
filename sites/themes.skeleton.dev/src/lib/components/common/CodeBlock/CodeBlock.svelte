@@ -78,7 +78,7 @@
 	.codeblock :global {
 		.shiki {
 			@apply py-6 text-xs rounded-md whitespace-pre-wrap;
-			@apply !bg-surface-900; /* set code block bg color */
+			@apply !bg-black; /* set code block bg color */
 		}
 		.line {
 			/**

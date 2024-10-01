@@ -186,7 +186,7 @@
 			style="background: url(https://picsum.photos/640/640) center center; backround-size: cover;"
 		>
 			<div class="absolute bottom-4 left-4 z-[2] flex justify-center items-center">
-				<p class="text-4xl text-balance max-w-[250px] font-bold inline-block text-primary-contrast-500 dark:text-primary-contrast-500">
+				<p class="text-4xl text-balance max-w-[250px] font-bold inline-block {currentPresets.contrast}">
 					Example text over a static image.
 				</p>
 			</div>

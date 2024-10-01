@@ -37,9 +37,15 @@
 	let showAllShades = $state(false);
 	const rxShadeArray = $derived(showAllShades ? shadesAll : shades3x);
 
+	function onClearPalette() {
+		if (confirm('This will reset all theme colors to a neutral tone. Are you sure you wish to continue?')) {
+			constants.colorNames.forEach((colorName) => seedColor(colorName, '#CCCCCC'));
+		}
+	}
+
 	function promptColorSeed(colorName: string) {
-		const seed = prompt(`Provide a color value to generate a palette for ${colorName}.`);
-		if (seed) seedColor(colorName, seed);
+		const promptSeed = prompt(`Provide a color value to generate a palette for ${colorName}.`);
+		if (promptSeed) seedColor(colorName, promptSeed);
 	}
 
 	function promptRandomColor(colorName: string) {
@@ -51,6 +57,10 @@
 
 <div class="space-y-4">
 	<p class="opacity-60">Define the color palette per each available theme color.</p>
+	<!-- Button: Clear Palette -->
+	<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal w-full" onclick={onClearPalette}
+		>Clear Theme Palette</button
+	>
 	<!-- Color Tabs -->
 	<Tabs bind:value={globals.activeColor} fluid>
 		{#snippet list()}
