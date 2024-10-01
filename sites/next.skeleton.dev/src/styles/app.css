@@ -50,6 +50,7 @@ body {
 [data-theme='vox'] .card-enhanced {
 	@apply bg-surface-100-900;
 }
+[data-theme='catppuccin'] .card-enhanced,
 [data-theme='concord'] .card-enhanced,
 [data-theme='mint'] .card-enhanced {
 	@apply bg-surface-50-950;
