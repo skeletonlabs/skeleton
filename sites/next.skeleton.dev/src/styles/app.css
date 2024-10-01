@@ -49,3 +49,8 @@ body {
 [data-theme='wumpus'] .card-enhanced {
 	@apply bg-surface-50-950;
 }
+
+/* Filled Cards */
+.card-filled-enhanced {
+	@apply card preset-filled-primary-500;
+}
