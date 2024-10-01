@@ -37,49 +37,15 @@ body {
 	background-size: cover;
 }
 
-/* Card Outline */
-.card-enhanced-outlined {
-	@apply card border-surface-200-800 border;
+/* Cards */
+.card-enhanced {
+	@apply card border border-surface-200-800;
 }
-[data-theme='cerberus'] .card-enhanced-outlined {
-	@apply bg-body-color dark:bg-body-color-dark;
+[data-theme='terminus'] .card-enhanced,
+[data-theme='vox'] .card-enhanced {
+	@apply bg-surface-100-900;
 }
-[data-theme='catppuccin'] .card-enhanced-outlined {
-	@apply from-primary-500 to-secondary-500 border-0 bg-gradient-to-br p-0.5;
-}
-[data-theme='catppuccin'] .card-enhanced-outlined-inner {
-	@apply card bg-body-color dark:bg-body-color-dark;
-}
-[data-theme='pine'] .card-enhanced-outlined {
-	@apply border-0 border-b border-t bg-white/10 dark:bg-black/5;
-}
-[data-theme='rose'] .card-enhanced-outlined {
-	@apply bg-surface-500/5 border-0 backdrop-blur-2xl;
-}
-
-/* Card Gradient */
-.card-enhanced-gradient {
-	@apply card from-primary-500 to-secondary-500 text-primary-contrast-500 bg-gradient-to-br;
-}
-[data-theme='pine'] .card-enhanced-gradient {
-	@apply to-tertiary-500;
-}
-
-/* Button CTA (call to action) */
-.btn-enhanced-cta {
-	@apply btn preset-filled;
-}
-[data-theme='catppuccin'] .btn-enhanced-cta {
-	@apply btn from-primary-500 to-secondary-500 bg-gradient-to-br text-white shadow-xl ring-[2px] ring-inset ring-white/50;
-}
-
-/* Theme Doc Examples */
-.card-enhanced-example {
-	@apply card preset-filled-surface-100-900;
-}
-[data-theme='cerberus'] .card-enhanced-example {
-	@apply ring-primary-500 ring-4;
-}
-[data-theme='catppuccin'] .card-enhanced-example {
-	@apply preset-filled-primary-100-900 border-primary-500 border p-8;
+[data-theme='mint'] .card-enhanced,
+[data-theme='wumpus'] .card-enhanced {
+	@apply bg-surface-50-950;
 }
