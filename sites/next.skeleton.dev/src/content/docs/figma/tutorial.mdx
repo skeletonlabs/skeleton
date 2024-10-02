@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
-title: Setup Figma Design System
-description: Learn how to use Skeleton with Figma.
+title: Set-up Figma Design System
+description: Chapter 1 - Learn how to set-up and use the the Skeleton Figma Design System.
 order: 10
 ---
 
@@ -9,18 +9,19 @@ export const components = componentSet;
 
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
+import ArrowRight from 'lucide-svelte/icons/arrow-right';
 
 <iframe
   src="https://iframe.videodelivery.net/5d5bc37ffcf54c9b82e996823bffbb81?mute=true&preload=auto&primaryColor=aliceblue&letterboxColor=aliceblue"
   style="border: none"
-  className='aspect-video w-full rounded-container '
+  className='aspect-video w-full rounded-container'
   allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
   allowfullscreen="true"
 ></iframe>
 
 ## How to install the Figma library
 
-Figma <span class="badge preset-filled-primary-200-800">Professional Team</span>,  <span class="badge preset-filled-primary-500">Organization</span>, or  <span class="badge preset-filled-primary-800-200">Enterprise</span> Plan recommended.
+Figma Plan <span class="badge preset-filled-primary-500">Professional Team</span> or higher recommended.
 
 <Process>
     <ProcessStep step="1">
@@ -93,10 +94,18 @@ Figma <span class="badge preset-filled-primary-200-800">Professional Team</span>
 </Process>
 ---
 
-### You’ve completed a guide
+<div class="flex flex-col items-center gap-4">
+  <div class="flex flex-col items-center">
+    You’ve completed Chapter 1
 
-You should now understand how to install and use Skeleton Figma Library in your projects.
+    Congratulations! You've set-up the Figma Design-System in your project.
+  </div>
+  <div class="border-2 p-6 rounded-container flex flex-col items-center gap-4">
+  Next Up
 
-NEXT GUIDE:
+  Chapter 2: Set-up your own Theme
+  
+  <a class="btn preset-filled-primary-500" href="">Start Chapter 2 <ArrowRight /></a>
+  </div>
+</div>
 
-## Set-up your own Theme
