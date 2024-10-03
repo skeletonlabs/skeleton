@@ -29,13 +29,29 @@ body {
 */
 [data-theme='catppuccin'],
 [data-theme='cerberus'],
+[data-theme='crimson'],
+[data-theme='hamlindigo'],
 [data-theme='mint'],
+[data-theme='modern'],
+[data-theme='nouveau'],
 [data-theme='mona'],
 [data-theme='nosh'],
 [data-theme='pine'],
-[data-theme='rose'] {
-	background-image: radial-gradient(at 20% 100%, rgba(var(--color-secondary-500) / 0.075) 0px, transparent 40%),
-		radial-gradient(at 75% 75%, rgba(var(--color-primary-500) / 0.075) 0px, transparent 50%);
+[data-theme='rose'],
+[data-theme='sahara'],
+[data-theme='seafoam'],
+[data-theme='vintage'],
+[data-theme='wintry'] {
+	background-image: radial-gradient(at 20% 10%, rgba(var(--color-secondary-500) / 0.075) 0px, transparent 40%),
+		radial-gradient(at 75% 10%, rgba(var(--color-primary-500) / 0.075) 0px, transparent 50%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+[data-theme='skeleton'] {
+	background-image: radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%),
+		radial-gradient(at 98% 1%, rgba(var(--color-error-500) / 0.33) 0px, transparent 50%);
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -46,13 +62,16 @@ body {
 .card-enhanced {
 	@apply card border border-surface-200-800;
 }
+[data-theme='catppuccin'] .card-enhanced,
 [data-theme='terminus'] .card-enhanced,
-[data-theme='vox'] .card-enhanced {
+[data-theme='vox'] .card-enhanced,
+[data-theme='rocket'] .card-enhanced {
 	@apply bg-surface-100-900;
 }
-[data-theme='catppuccin'] .card-enhanced,
 [data-theme='concord'] .card-enhanced,
-[data-theme='mint'] .card-enhanced {
+[data-theme='mint'] .card-enhanced,
+[data-theme='skeleton'] .card-enhanced,
+[data-theme='vintage'] .card-enhanced {
 	@apply bg-surface-50-950;
 }
 

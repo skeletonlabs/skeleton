@@ -69,21 +69,4 @@
 			<ins class="ins" cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022"> Never Gonna Give You Up </ins>
 		</div>
 	</div>
-	<!-- Header -->
-	<!-- Source: https://picsum.photos/ -->
-	<!-- <header class="card preset-filled-primary-500 col-span-2 grid grid-cols-1 xl:grid-cols-[1fr_auto] items-center gap-4 p-10">
-		<div class="space-y-5">
-			<header>
-				<h1 class="h1">Lorem Ipsum.</h1>
-				<p class="type-scale-5 opacity-60">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem recusandae neque est, aut nisi dolore quibusdam optio ex
-					dicta ipsam, tempore eum, pariatur non consequatur consectetur veritatis.
-				</p>
-			</header>
-			<nav class="flex gap-4">
-				<button type="button" class="btn btn-lg preset-filled">Primary Action</button>
-				<button type="button" class="btn btn-lg preset-tonal">Secondary Action</button>
-			</nav>
-		</div>
-	</header> -->
 </div>

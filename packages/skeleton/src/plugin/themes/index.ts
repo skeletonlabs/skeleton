@@ -10,8 +10,43 @@ import reign from './reign.js';
 import rose from './rose.js';
 import terminus from './terminus.js';
 import vox from './vox.js';
+// v2 Legacy
+import crimson from './legacy/crimson.js';
+import hamlindigo from './legacy/hamlindigo.js';
+import modern from './legacy/modern.js';
+import nouveau from './legacy/nouveau.js';
+import rocket from './legacy/rocket.js';
+import sahara from './legacy/sahara.js';
+import seafoam from './legacy/seafoam.js';
+import skeleton from './legacy/skeleton.js';
+import vintage from './legacy/vintage.js';
+import wintry from './legacy/wintry.js';
 
-export { catppuccin, cerberus, jupiter, mint, mona, nosh, pine, reign, rose, terminus, concord, vox };
+export {
+	catppuccin,
+	cerberus,
+	jupiter,
+	mint,
+	mona,
+	nosh,
+	pine,
+	reign,
+	rose,
+	terminus,
+	concord,
+	vox,
+	// v2 Legacy
+	crimson,
+	hamlindigo,
+	modern,
+	nouveau,
+	rocket,
+	sahara,
+	seafoam,
+	skeleton,
+	vintage,
+	wintry
+};
 
 export type Theme = {
 	name: string;

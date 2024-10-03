@@ -55,22 +55,22 @@
 		<span class="opacity-10">&mdash;</span>
 	</div>
 	<!-- Templates -->
-	<div class="grid grid-cols-4 gap-5">
+	<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
 		{#each Object.keys(themes) as theme}
 			<button
 				data-theme={theme}
-				class="w-full bg-surface-50-950 p-10 preset-outlined-surface-100-900 hover:preset-outlined-surface-800-200 rounded-md space-y-4"
+				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-100-900 !ring-[1px] hover:preset-outlined-surface-800-200 rounded-md flex justify-between items-center gap-4"
 				onclick={() => onSelectTemplate(theme)}
 			>
-				<h3 class="h4 capitalize">{theme}</h3>
-				<div class="flex justify-center items-center -space-x-2">
-					<div class="aspect-square w-8 bg-primary-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-8 bg-secondary-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-8 bg-tertiary-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-8 bg-success-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-8 bg-warning-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-8 bg-error-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-8 bg-surface-500 border-[1px] border-black/10 rounded-full"></div>
+				<h3 class="h6 capitalize">{theme}</h3>
+				<div class="flex justify-center items-center -space-x-1">
+					<div class="aspect-square w-5 bg-primary-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-5 bg-secondary-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-5 bg-tertiary-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-5 bg-success-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-5 bg-warning-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-5 bg-error-500 border-[1px] border-black/10 rounded-full"></div>
+					<div class="aspect-square w-5 bg-surface-500 border-[1px] border-black/10 rounded-full"></div>
 				</div>
 			</button>
 		{/each}
