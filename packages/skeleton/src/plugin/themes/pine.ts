@@ -220,7 +220,8 @@ const pine = {
 		'--color-surface-contrast-800': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
-	}
+	},
+	metadata: { version: '3.0.0', emoji: '🌲' }
 } satisfies Theme;
 
 export default pine;

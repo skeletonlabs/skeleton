@@ -56,13 +56,14 @@
 	</div>
 	<!-- Templates -->
 	<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-		{#each Object.keys(themes) as theme}
+		{#each Object.entries(themes) as [key, values]}
 			<button
-				data-theme={theme}
-				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-100-900 !ring-[1px] hover:preset-outlined-surface-800-200 rounded-md flex justify-between items-center gap-4"
-				onclick={() => onSelectTemplate(theme)}
+				data-theme={key}
+				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-100-900 !ring-[1px] hover:preset-outlined-surface-800-200 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4"
+				onclick={() => onSelectTemplate(key)}
 			>
-				<h3 class="h6 capitalize">{theme}</h3>
+				<span>{values.metadata.emoji}</span>
+				<h3 class="h6 capitalize text-left">{key}</h3>
 				<div class="flex justify-center items-center -space-x-1">
 					<div class="aspect-square w-5 bg-primary-500 border-[1px] border-black/10 rounded-full"></div>
 					<div class="aspect-square w-5 bg-secondary-500 border-[1px] border-black/10 rounded-full"></div>

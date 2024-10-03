@@ -28,7 +28,8 @@ export function generateTheme() {
 			...formageEdges(settingsEdges),
 			...formatBackgrounds(settingsBackgrounds),
 			...formatColors(settingsColors)
-		}
+		},
+		metadata: { version: '3.0.0' }
 	};
 	return `
 import type { Theme } from '@skeletonlabs/skeleton/themes';\n

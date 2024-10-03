@@ -51,6 +51,10 @@ export {
 export type Theme = {
 	name: string;
 	properties: ThemeProperties;
+	metadata: {
+		version: string;
+		emoji?: string;
+	};
 };
 
 export type ThemeProperties = {
