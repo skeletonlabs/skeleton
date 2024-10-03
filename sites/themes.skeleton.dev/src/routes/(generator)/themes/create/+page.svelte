@@ -19,7 +19,7 @@
 		<Logo />
 		<h2 class="h2">Not Available.</h2>
 		<p class="opacity-60">
-			The theme generator is not currently available for small screen devices. We recommend using either a table or desktop.
+			The theme generator is not currently available for small screen devices. We recommend using either a tablet or desktop.
 		</p>
 	</div>
 </div>
