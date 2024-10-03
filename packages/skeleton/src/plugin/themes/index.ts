@@ -13,12 +13,12 @@ import vox from './vox.js';
 // v2 Legacy
 import crimson from './legacy/crimson.js';
 import hamlindigo from './legacy/hamlindigo.js';
+import legacy from './legacy/legacy.js';
 import modern from './legacy/modern.js';
 import nouveau from './legacy/nouveau.js';
 import rocket from './legacy/rocket.js';
 import sahara from './legacy/sahara.js';
 import seafoam from './legacy/seafoam.js';
-import skeleton from './legacy/skeleton.js';
 import vintage from './legacy/vintage.js';
 import wintry from './legacy/wintry.js';
 
@@ -38,12 +38,12 @@ export {
 	// v2 Legacy
 	crimson,
 	hamlindigo,
+	legacy,
 	modern,
 	nouveau,
 	rocket,
 	sahara,
 	seafoam,
-	skeleton,
 	vintage,
 	wintry
 };

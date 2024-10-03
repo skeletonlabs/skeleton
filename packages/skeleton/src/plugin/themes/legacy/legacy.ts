@@ -1,7 +1,7 @@
 import type { Theme } from '../index.js';
 
-const skeleton = {
-	name: 'skeleton',
+const legacy = {
+	name: 'legacy',
 	properties: {
 		'--type-scale-factor': '1.067',
 		'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))',
@@ -223,4 +223,4 @@ const skeleton = {
 	}
 } satisfies Theme;
 
-export default skeleton;
+export default legacy;

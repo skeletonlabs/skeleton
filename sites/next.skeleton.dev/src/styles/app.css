@@ -49,7 +49,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-[data-theme='skeleton'] {
+[data-theme='legacy'] {
 	background-image: radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%),
 		radial-gradient(at 98% 1%, rgba(var(--color-error-500) / 0.33) 0px, transparent 50%);
 	background-attachment: fixed;
@@ -69,8 +69,8 @@ body {
 	@apply bg-surface-100-900;
 }
 [data-theme='concord'] .card-enhanced,
+[data-theme='legacy'] .card-enhanced,
 [data-theme='mint'] .card-enhanced,
-[data-theme='skeleton'] .card-enhanced,
 [data-theme='vintage'] .card-enhanced {
 	@apply bg-surface-50-950;
 }
