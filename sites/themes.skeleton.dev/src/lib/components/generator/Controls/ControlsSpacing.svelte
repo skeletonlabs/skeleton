@@ -5,7 +5,7 @@
 <div class="space-y-4">
 	<!-- prettier-ignore -->
 	<p class="opacity-60">
-		Set a scale factor for all <a href="https://tailwindcss.com/docs/customizing-spacing" target="_blank" class="anchor text-primary-700-300">Tailwind Spacing</a> utility classes.
+		Set the scale factor for <a href="https://tailwindcss.com/docs/customizing-spacing" target="_blank" class="text-inherit underline">Tailwind Spacing</a> utilities.
 	</p>
 	<label class="label">
 		<div class="label-text flex justify-between items-center">

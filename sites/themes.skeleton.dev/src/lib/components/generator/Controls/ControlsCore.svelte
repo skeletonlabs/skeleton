@@ -3,5 +3,5 @@
 </script>
 
 <div class="p-5">
-	<input class="input" type="text" placeholder="Enter theme name..." bind:value={settingsCore.name} />
+	<input class="input" type="text" placeholder="Name your theme..." bind:value={settingsCore.name} />
 </div>

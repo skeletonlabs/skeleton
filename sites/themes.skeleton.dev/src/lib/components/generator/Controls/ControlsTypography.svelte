@@ -10,12 +10,12 @@
 </script>
 
 <div class="space-y-4">
-	<p class="opacity-60">Define all typographic settings for your theme.</p>
+	<!-- <p class="opacity-60">Define all typographic settings for your theme.</p> -->
 	<!-- Scale -->
 	<div class="label">
 		<div class="flex justify-between gap-4">
 			<span class="label-text">Typographic Scale</span>
-			<a class="anchor text-primary-700-300 label-text" href="https://designcode.io/typographic-scales" target="_blank">What's This?</a>
+			<a class="text-inherit underline label-text" href="https://designcode.io/typographic-scales" target="_blank">What's This?</a>
 		</div>
 		<!-- --type-scale-factor -->
 		<div
@@ -44,8 +44,8 @@
 		{/snippet}
 		{#snippet content()}
 			<p class="mb-5 opacity-60">
-				{#if category === 'base'}Set the global default text colors and font styles.{/if}
-				{#if category === 'headings'}Adjust heading text (H1-H6) color and font styles.{/if}
+				{#if category === 'base'}Set global defaults for text colors and font styles.{/if}
+				{#if category === 'headings'}Adjust headings (H1-H6) text color and font styles.{/if}
 				{#if category === 'anchors'}Ajust anchor link text color and font styles.{/if}
 			</p>
 			<!-- Panel: Base -->

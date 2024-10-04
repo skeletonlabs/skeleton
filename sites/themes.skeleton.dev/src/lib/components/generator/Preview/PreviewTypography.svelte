@@ -1,6 +1,9 @@
 <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
 	<!-- Column 1 -->
 	<div class="space-y-10">
+		<div class="preset-filled-primary-500 w-56 aspect-square p-4 flex justify-center items-center">
+			<span class="h1 type-scale-13">Aa</span>
+		</div>
 		<!-- Headings -->
 		<div>
 			<div class="space-y-5">
@@ -13,27 +16,15 @@
 			</div>
 		</div>
 		<!-- Paragraph -->
-		<div>
+		<div class="space-y-8">
 			<p>The quick brown fox jumps over the lazy dog.</p>
-		</div>
-		<!-- Blockquotes -->
-		<div>
+			<!-- Blockquotes -->
 			<blockquote class="blockquote">"The quick brown fox jumps over the lazy dog."</blockquote>
-		</div>
-		<!-- Pre -->
-		<div>
-			<pre class="pre">The quick brown fox jumps over the lazy dog.</pre>
-		</div>
-		<!-- Anchors -->
-		<div>
-			<a href="/" class="anchor">An example link</a>
-		</div>
-		<!-- Code -->
-		<div>
+			<!-- Anchors -->
+			<div><a href="/" class="anchor">An example link</a></div>
+			<!-- Code -->
 			<div>Insert the <code class="code">.example</code> class here.</div>
-		</div>
-		<!-- KBD -->
-		<div>
+			<!-- KBD -->
 			<div>Press <kbd class="kbd">⌘</kbd> + <kbd class="kbd">C</kbd> to copy.</div>
 		</div>
 	</div>
@@ -42,7 +33,7 @@
 		<!-- Content -->
 		<div class="space-y-4">
 			<h2 class="h2">Lorem Ipsum</h2>
-			<p>
+			<p class="type-scale-5">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 				Tincidunt dui ut ornare lectus sit <a class="anchor" href="/">amet est placerat</a>. Nulla aliquet porttitor lacus luctus accumsan
 				tortor posuere. Tempor orci eu lobortis elementum nibh tellus molestie nunc non. Vitae suscipit tellus mauris a diam maecenas sed
@@ -56,11 +47,11 @@
 				dui sapien eget mi. Interdum varius sit amet mattis vulputate. Sed risus pretium quam vulputate dignissim suspendisse in est. Sed nisi
 				lacus sed viverra tellus in hac.
 			</p>
+			<h4 class="h4">Consectetur Libero</h4>
 			<p>
 				Elementum eu facilisis sed odio morbi. Adipiscing at in tellus integer. In est ante in nibh mauris. Leo duis ut diam quam nulla
 				porttitor massa id. Urna neque viverra justo nec ultrices dui sapien eget mi. Ut pharetra sit amet aliquam id diam maecenas.
-				Scelerisque in dictum non consectetur. Nec feugiat nisl <a class="anchor" href="/">pretium fusce</a> id velit ut. Sed lectus vestibulum
-				mattis ullamcorper velit sed ullamcorper. Non pulvinar neque laoreet suspendisse interdum consectetur libero id.
+				Scelerisque in dictum non consectetur. Nec feugiat nisl <a class="anchor" href="/">pretium fusce</a> id velit ut.
 			</p>
 		</div>
 		<!-- Insert / Delete -->
@@ -68,5 +59,7 @@
 			<del class="del"><s>Always</s> Gonna Give You Up</del>
 			<ins class="ins" cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022"> Never Gonna Give You Up </ins>
 		</div>
+		<!-- Pre -->
+		<pre class="pre">The quick brown fox jumps over the lazy dog.</pre>
 	</div>
 </div>

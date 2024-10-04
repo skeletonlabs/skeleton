@@ -74,7 +74,9 @@
 .input-group option {
 	@apply cursor-pointer rounded p-2;
 }
+.select:not([size]):not([multiple]) optgroup,
 .select:not([size]):not([multiple]) option,
+.input-group optgroup,
 .input-group option {
 	@apply bg-surface-50 dark:bg-surface-950;
 	@apply text-surface-950 dark:text-surface-50;

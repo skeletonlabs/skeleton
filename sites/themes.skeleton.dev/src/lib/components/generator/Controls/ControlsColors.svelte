@@ -11,6 +11,7 @@
 	import IconEdit from 'lucide-svelte/icons/pencil';
 	import IconSeed from 'lucide-svelte/icons/sprout';
 	import IconRandom from 'lucide-svelte/icons/dices';
+	import IconClear from 'lucide-svelte/icons/eraser';
 
 	// Types
 	interface ColorSelection {
@@ -38,29 +39,34 @@
 	const rxShadeArray = $derived(showAllShades ? shadesAll : shades3x);
 
 	function onClearPalette() {
-		if (confirm('This will reset all theme colors to a neutral tone. Are you sure you wish to continue?')) {
+		if (
+			confirm(
+				'This will reset each color palette to neutral tones. This can be useful when starting a brand new theme. All current color changes will be lost, are you sure you wish to continue?'
+			)
+		) {
 			constants.colorNames.forEach((colorName) => seedColor(colorName, '#CCCCCC'));
 		}
 	}
 
 	function promptColorSeed(colorName: string) {
-		const promptSeed = prompt(`Provide a color value to generate a palette for ${colorName}.`);
+		const promptSeed = prompt(`Automatically generate a ${colorName} color palette from a hex color value that you provide.`);
 		if (promptSeed) seedColor(colorName, promptSeed);
 	}
 
 	function promptRandomColor(colorName: string) {
-		if (confirm(`Generate a random palette for ${colorName}?`)) {
+		if (confirm(`Generate a random palette for the ${colorName} color?`)) {
 			genRandomSeed(colorName);
 		}
 	}
 </script>
 
 <div class="space-y-4">
-	<p class="opacity-60">Define the color palette per each available theme color.</p>
+	<p class="opacity-60">Define a palette per each available theme color.</p>
 	<!-- Button: Clear Palette -->
-	<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal w-full" onclick={onClearPalette}
-		>Clear Theme Palette</button
-	>
+	<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal w-full" onclick={onClearPalette}>
+		<IconClear size={20} />
+		<span>Clear All Palettes</span>
+	</button>
 	<!-- Color Tabs -->
 	<Tabs bind:value={globals.activeColor} fluid>
 		{#snippet list()}
@@ -105,7 +111,7 @@
 						<!-- Message -->
 						<div>
 							{#if showAllShades}
-								<p class="opacity-60">All shades are manually defined.</p>
+								<p class="opacity-60">All shades must be manually defined.</p>
 							{:else}
 								<p class="opacity-60">Shades automatically blend between 50/500/950.</p>
 							{/if}

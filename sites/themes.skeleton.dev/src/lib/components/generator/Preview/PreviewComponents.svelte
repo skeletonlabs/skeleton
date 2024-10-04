@@ -196,7 +196,7 @@
 		<div class="card shadow {rxCardBgClass} border border-surface-200-800 p-5 space-y-2">
 			<header>
 				<small class="type-scale-3">Earnings</small>
-				<h2 class="h2 font-normal">$14,904</h2>
+				<h2 class="h2 font-normal">$14,546</h2>
 			</header>
 			<ExampleChart preset={currentPresets.prop} />
 		</div>
@@ -208,7 +208,7 @@
 			<div class="spce-y-2 flex justify-center items-center scale-125">
 				<div>
 					<h2 class="h2 font-normal">1,337 <sup><IconArrowUpRight size={30} class="inline-block" /></sup></h2>
-					<p>New users in 12 months</p>
+					<p>New users in 30 days.</p>
 				</div>
 			</div>
 		</div>

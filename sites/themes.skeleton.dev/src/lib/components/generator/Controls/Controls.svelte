@@ -87,5 +87,7 @@
 		</Accordion>
 	</div>
 	<!-- Footer -->
-	<!-- <footer class="p-5"></footer> -->
+	<!-- <footer class="p-5">
+		<p class="text-xs opacity-50">When ready, tap the <strong>Code</strong> button to obtain your theme.</p>
+	</footer> -->
 </section>

@@ -36,7 +36,10 @@
 			<!-- Theme Output -->
 			<section class="p-10 space-y-5">
 				<header class="flex justify-between gap-4">
-					<h2 class="h3">Theme Code</h2>
+					<!-- prettier-ignore -->
+					<p>
+						Copy the theme code below, then follow the <a href="https://next.skeleton.dev/docs/design/themes" target="_blank" class="anchor">documentation instructions</a>.
+					</p>
 					<button type="button" class="btn preset-outlined-surface-300-700 hover:preset-tonal" onclick={copyToClipboard}>Copy</button>
 				</header>
 				<CodeBlock lang="ts" code={generateTheme()} />
