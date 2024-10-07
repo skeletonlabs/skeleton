@@ -10,6 +10,7 @@ export const components = componentSet;
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
 import ArrowRight from 'lucide-svelte/icons/arrow-right';
+import Check from 'lucide-svelte/icons/check';
 
 <iframe
   src="https://iframe.videodelivery.net/5d5bc37ffcf54c9b82e996823bffbb81?mute=true&preload=auto&primaryColor=aliceblue&letterboxColor=aliceblue"
@@ -92,20 +93,25 @@ Figma Plan <span class="badge preset-filled-primary-500">Professional Team</span
       ![06_useLibrary.png](assets/install-figma-library/06_useLibrary.png)
     </ProcessStep>
 </Process>
----
 
-<div class="flex flex-col items-center gap-4">
-  <div class="flex flex-col items-center">
-    You’ve completed Chapter 1
 
-    Congratulations! You've set-up the Figma Design-System in your project.
+<div class="flex flex-col items-center gap-16 pt-16 pb-10">
+<div className='flex flex-col items-center gap-6'>
+<div className='w-20 flex flex-col items-center justify-center  preset-tonal-primary rounded-full aspect-square'>
+<Check />
+</div>
+  <div class="flex flex-col  gap-1 items-center">
+   <p> You’ve completed Chapter 1</p>
+   <p className='text-surface-600-400'> Congratulations! You've set-up the Figma Design-System in your project.</p>
   </div>
-  <div class="border-2 p-6 rounded-container flex flex-col items-center gap-4">
-  Next Up
-
-  Chapter 2: Set-up your own Theme
+  </div>
+  <div class="w-full border border-surface-100-900 p-6 rounded-container flex flex-col items-center gap-8">
   
-  <a class="btn preset-filled-primary-500" href="">Start Chapter 2 <ArrowRight /></a>
+   <div className='flex flex-col items-center gap-1'>
+    <p className='text-surface-600-400'>Next Up</p>
+    <h6 className='h6'>Chapter 2: Set-up your own Theme</h6>
+   </div>
+   <a class="btn preset-filled-primary-500" href="">Start Chapter 2 <ArrowRight size="20"/></a>
   </div>
 </div>
 
