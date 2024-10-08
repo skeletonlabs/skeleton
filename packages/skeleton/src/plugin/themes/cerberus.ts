@@ -3,31 +3,21 @@ import type { Theme } from './index.js';
 const cerberus = {
 	name: 'cerberus',
 	properties: {
-		// Spacing ---
-		// https://tailwindcss.com/docs/customizing-spacing
-
 		'--space-scale-factor': '1',
-
-		// Typography ---
-		// https://designcode.io/typographic-scales
-
-		// 1.067, 1.125, 1.2, 1.250, 1.333, 1.414, 1.5, 1.618
-		'--type-scale-factor': '1.067' /* Minor Second */,
-
-		'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))', // 12px
-		'--type-scale-2': 'calc(0.875rem * var(--type-scale-factor))', // 14px
-		'--type-scale-3': 'calc(1rem * var(--type-scale-factor))', // 16px
-		'--type-scale-4': 'calc(1.125rem * var(--type-scale-factor))', // 18px
-		'--type-scale-5': 'calc(1.25rem * var(--type-scale-factor))', // 20px
-		'--type-scale-6': 'calc(1.5rem * var(--type-scale-factor))', // 24px
-		'--type-scale-7': 'calc(1.875rem * var(--type-scale-factor))', // 30px
-		'--type-scale-8': 'calc(2.25rem * var(--type-scale-factor))', // 36px
-		'--type-scale-9': 'calc(3rem * var(--type-scale-factor))', // 48px
-		'--type-scale-10': 'calc(3.75rem * var(--type-scale-factor))', // 60px
-		'--type-scale-11': 'calc(4.5rem * var(--type-scale-factor))', // 72px
-		'--type-scale-12': 'calc(6rem * var(--type-scale-factor))', // 96px
-		'--type-scale-13': 'calc(8rem * var(--type-scale-factor))', // 128px
-
+		'--type-scale-factor': '1.067',
+		'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))',
+		'--type-scale-2': 'calc(0.875rem * var(--type-scale-factor))',
+		'--type-scale-3': 'calc(1rem * var(--type-scale-factor))',
+		'--type-scale-4': 'calc(1.125rem * var(--type-scale-factor))',
+		'--type-scale-5': 'calc(1.25rem * var(--type-scale-factor))',
+		'--type-scale-6': 'calc(1.5rem * var(--type-scale-factor))',
+		'--type-scale-7': 'calc(1.875rem * var(--type-scale-factor))',
+		'--type-scale-8': 'calc(2.25rem * var(--type-scale-factor))',
+		'--type-scale-9': 'calc(3rem * var(--type-scale-factor))',
+		'--type-scale-10': 'calc(3.75rem * var(--type-scale-factor))',
+		'--type-scale-11': 'calc(4.5rem * var(--type-scale-factor))',
+		'--type-scale-12': 'calc(6rem * var(--type-scale-factor))',
+		'--type-scale-13': 'calc(8rem * var(--type-scale-factor))',
 		'--base-font-color': 'var(--color-surface-950)',
 		'--base-font-color-dark': 'var(--color-surface-50)',
 		'--base-font-family': 'system-ui',
@@ -36,14 +26,12 @@ const cerberus = {
 		'--base-font-weight': 'normal',
 		'--base-font-style': 'normal',
 		'--base-letter-spacing': '0em',
-
 		'--heading-font-color': 'inherit',
 		'--heading-font-color-dark': 'inherit',
 		'--heading-font-family': 'inherit',
 		'--heading-font-weight': 'bold',
 		'--heading-font-style': 'normal',
 		'--heading-letter-spacing': 'inherit',
-
 		'--anchor-font-color': 'var(--color-primary-500)',
 		'--anchor-font-color-dark': 'var(--color-primary-500)',
 		'--anchor-font-family': 'inherit',
@@ -56,26 +44,14 @@ const cerberus = {
 		'--anchor-text-decoration-hover': 'underline',
 		'--anchor-text-decoration-active': 'none',
 		'--anchor-text-decoration-focus': 'none',
-
-		// Backgrounds ---
-
 		'--body-background-color': 'var(--color-surface-50)',
 		'--body-background-color-dark': 'var(--color-surface-950)',
-
-		// Borders ---
-		// Covers: rounded, borders, divides, outlines, rings
-
 		'--radii-default': '6px',
 		'--radii-container': '6px',
-
 		'--border-width-default': '1px',
-		'--divide-width-default': 'var(--border-width-default)',
-		'--outline-width-default': 'var(--border-width-default)',
-		'--ring-width-default': 'var(--border-width-default)',
-
-		// Colors ---
-
-		// Primary
+		'--divide-width-default': '1px',
+		'--outline-width-default': '1px',
+		'--ring-width-default': '1px',
 		'--color-primary-50': '211 229 255',
 		'--color-primary-100': '169 206 253',
 		'--color-primary-200': '127 182 250',
@@ -100,8 +76,6 @@ const cerberus = {
 		'--color-primary-contrast-800': 'var(--color-primary-contrast-light)',
 		'--color-primary-contrast-900': 'var(--color-primary-contrast-light)',
 		'--color-primary-contrast-950': 'var(--color-primary-contrast-light)',
-
-		// Secondary
 		'--color-secondary-50': '216 204 241',
 		'--color-secondary-100': '197 171 233',
 		'--color-secondary-200': '178 138 225',
@@ -126,8 +100,6 @@ const cerberus = {
 		'--color-secondary-contrast-800': 'var(--color-secondary-contrast-light)',
 		'--color-secondary-contrast-900': 'var(--color-secondary-contrast-light)',
 		'--color-secondary-contrast-950': 'var(--color-secondary-contrast-light)',
-
-		// Tertiary
 		'--color-tertiary-50': '255 206 251',
 		'--color-tertiary-100': '255 165 226',
 		'--color-tertiary-200': '255 124 202',
@@ -152,8 +124,6 @@ const cerberus = {
 		'--color-tertiary-contrast-800': 'var(--color-tertiary-contrast-light)',
 		'--color-tertiary-contrast-900': 'var(--color-tertiary-contrast-light)',
 		'--color-tertiary-contrast-950': 'var(--color-tertiary-contrast-light)',
-
-		// Success
 		'--color-success-50': '170 255 236',
 		'--color-success-100': '152 249 228',
 		'--color-success-200': '134 244 219',
@@ -178,8 +148,6 @@ const cerberus = {
 		'--color-success-contrast-800': 'var(--color-success-contrast-light)',
 		'--color-success-contrast-900': 'var(--color-success-contrast-light)',
 		'--color-success-contrast-950': 'var(--color-success-contrast-light)',
-
-		// Warning
 		'--color-warning-50': '255 239 207',
 		'--color-warning-100': '253 228 183',
 		'--color-warning-200': '252 217 158',
@@ -204,8 +172,6 @@ const cerberus = {
 		'--color-warning-contrast-800': 'var(--color-warning-contrast-light)',
 		'--color-warning-contrast-900': 'var(--color-warning-contrast-light)',
 		'--color-warning-contrast-950': 'var(--color-warning-contrast-light)',
-
-		// Error
 		'--color-error-50': '247 212 214',
 		'--color-error-100': '246 182 181',
 		'--color-error-200': '245 152 149',
@@ -230,9 +196,7 @@ const cerberus = {
 		'--color-error-contrast-800': 'var(--color-error-contrast-light)',
 		'--color-error-contrast-900': 'var(--color-error-contrast-light)',
 		'--color-error-contrast-950': 'var(--color-error-contrast-light)',
-
-		// Surface
-		'--color-surface-50': '255 255 255',
+		'--color-surface-50': '253 253 253',
 		'--color-surface-100': '224 224 224',
 		'--color-surface-200': '194 194 194',
 		'--color-surface-300': '163 163 163',
@@ -256,7 +220,8 @@ const cerberus = {
 		'--color-surface-contrast-800': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
-	}
+	},
+	metadata: { version: '3.0.0', emoji: '🐺' }
 } satisfies Theme;
 
 export default cerberus;
