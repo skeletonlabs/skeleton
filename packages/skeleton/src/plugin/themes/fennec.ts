@@ -1,7 +1,7 @@
 import type { Theme } from './index.js';
 
-const jupiter = {
-	name: 'jupiter',
+const fennec = {
+	name: 'fennec',
 	properties: {
 		'--type-scale-factor': '1.0',
 		'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))',
@@ -224,4 +224,4 @@ const jupiter = {
 	metadata: { version: '3.0.0', emoji: '🦊' }
 } satisfies Theme;
 
-export default jupiter;
+export default fennec;

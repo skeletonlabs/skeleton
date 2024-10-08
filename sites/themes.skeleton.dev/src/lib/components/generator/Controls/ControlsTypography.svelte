@@ -360,7 +360,7 @@
 					</label>
 					<!-- --anchor-text-decoration-focus -->
 					<label class="label">
-						<span class="label-text">Active</span>
+						<span class="label-text">Focus</span>
 						<select class="select" name="--anchor-text-decoration-focus" bind:value={settingsTypography['--anchor-text-decoration-focus']}>
 							{#each constants.textDecorations as textDecoration}
 								<option value={textDecoration}>{textDecoration}</option>

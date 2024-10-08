@@ -1,7 +1,7 @@
 import catppuccin from './catppuccin.js';
 import cerberus from './cerberus.js';
 import concord from './concord.js';
-import jupiter from './jupiter.js';
+import fennec from './fennec.js';
 import mint from './mint.js';
 import mona from './mona.js';
 import nosh from './nosh.js';
@@ -25,7 +25,7 @@ import wintry from './legacy/wintry.js';
 export {
 	catppuccin,
 	cerberus,
-	jupiter,
+	fennec,
 	mint,
 	mona,
 	nosh,
