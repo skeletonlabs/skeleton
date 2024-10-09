@@ -2,7 +2,7 @@ packages:
   - 'packages/*'
   - 'sites/*'
 
-define: &zag_version '^0.65.1'
+define: &zag_version '^0.73.1'
 
 catalog:
   '@zag-js/svelte': *zag_version
@@ -11,6 +11,7 @@ catalog:
   '@zag-js/avatar': *zag_version
   '@zag-js/file-upload': *zag_version
   '@zag-js/pagination': *zag_version
+  '@zag-js/popover': *zag_version
   '@zag-js/progress': *zag_version
   '@zag-js/radio-group': *zag_version
   '@zag-js/rating-group': *zag_version
