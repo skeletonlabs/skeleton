@@ -1,19 +1,68 @@
-import cerberus from './cerberus.js';
 import catppuccin from './catppuccin.js';
+import cerberus from './cerberus.js';
+import concord from './concord.js';
+import fennec from './fennec.js';
+import mint from './mint.js';
+import mona from './mona.js';
+import nosh from './nosh.js';
 import pine from './pine.js';
+import reign from './reign.js';
 import rose from './rose.js';
+import terminus from './terminus.js';
+import vox from './vox.js';
+// v2 Legacy
+import crimson from './legacy/crimson.js';
+import hamlindigo from './legacy/hamlindigo.js';
+import legacy from './legacy/legacy.js';
+import modern from './legacy/modern.js';
+import nouveau from './legacy/nouveau.js';
+import rocket from './legacy/rocket.js';
+import sahara from './legacy/sahara.js';
+import seafoam from './legacy/seafoam.js';
+import vintage from './legacy/vintage.js';
+import wintry from './legacy/wintry.js';
 
-export { cerberus, catppuccin, pine, rose };
+export {
+	catppuccin,
+	cerberus,
+	fennec,
+	mint,
+	mona,
+	nosh,
+	pine,
+	reign,
+	rose,
+	terminus,
+	concord,
+	vox,
+	// v2 Legacy
+	crimson,
+	hamlindigo,
+	legacy,
+	modern,
+	nouveau,
+	rocket,
+	sahara,
+	seafoam,
+	vintage,
+	wintry
+};
 
 export type Theme = {
 	name: string;
 	properties: ThemeProperties;
+	metadata: {
+		version: string;
+		emoji?: string;
+	};
 };
 
 export type ThemeProperties = {
 	// Spacing
+	// https://tailwindcss.com/docs/customizing-spacing
 	'--space-scale-factor': string;
 	// Typography
+	// https://designcode.io/typographic-scales
 	'--type-scale-factor': string;
 	'--type-scale-1': string;
 	'--type-scale-2': string;

@@ -3,11 +3,11 @@
 /* Horizontal Rule --- */
 
 .hr {
-	@apply border-surface-200-800 block w-full border-t;
+	@apply border-surface-200-800 block w-full border-t-[1px];
 }
 
 /* Vertical Rule --- */
 
 .vr {
-	@apply border-surface-200-800 inline-block h-full border-l;
+	@apply border-surface-200-800 inline-block h-full border-l-[1px];
 }

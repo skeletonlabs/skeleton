@@ -4,7 +4,7 @@
 
 	let {
 		// Root
-		base = 'border-b border-transparent',
+		base = 'border-b-[1px] border-transparent',
 		padding = 'pb-2',
 		translateX = 'translate-y-[1px]',
 		classes = '',

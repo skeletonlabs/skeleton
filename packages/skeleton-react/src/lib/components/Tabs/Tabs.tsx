@@ -48,7 +48,7 @@ const TabsList: FC<TabsListProps> = ({
 	// Root
 	base = 'flex',
 	justify = 'justify-start',
-	border = 'border-b border-surface-200-800',
+	border = 'border-b-[1px] border-surface-200-800',
 	margin = 'mb-4',
 	gap = 'gap-2',
 	classes = '',
@@ -66,7 +66,7 @@ const TabsList: FC<TabsListProps> = ({
 
 const TabsControl: FC<TabsControlProps> = ({
 	// Root
-	base = 'border-b border-transparent',
+	base = 'border-b-[1px] border-transparent',
 	padding = 'pb-2',
 	translateX = 'translate-y-[1px]',
 	classes = '',

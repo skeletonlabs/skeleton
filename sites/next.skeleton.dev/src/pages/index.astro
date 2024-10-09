@@ -23,11 +23,11 @@ const layoutProps = {
 		<section class="mx-auto space-y-10 text-center">
 			<!-- News -->
 			<a
-				class="btn preset-outlined-primary-500 hover:preset-tonal text-primary-500 rounded-full"
+				class="btn preset-filled-primary-500 rounded-full"
 				href="https://github.com/skeletonlabs/skeleton/discussions/2681"
 				target="_blank"
 			>
-				<span class="border-r border-surface-200-800 pr-4">🎉</span>
+				<span class="pr-4">🎉</span>
 				<span>Introducing the v3 Pre-Release</span>
 				<IconChevron className="size-4" />
 			</a>
@@ -35,12 +35,12 @@ const layoutProps = {
 			<Icon name="skeleton-full" class="size-32 mx-auto mb-10" />
 			<div class="space-y-8">
 				<!-- Text -->
-				<h1 class="heading-font-family text-4xl md:text-6xl font-semibold text-balance max-w-[800px] mx-auto">
-					An adaptive interface design system for Tailwind.
+				<h1 class="heading-font-family text-4xl md:text-6xl text-balance max-w-[800px] mx-auto">
+					An adaptive design system for extending Tailwind.
 				</h1>
 				<p class="mx-auto max-w-[800px] text-balance text-surface-800-200">
-					Skeleton integrates with Tailwind to provide opinionated solutions for themes, colors, typography and more. Including easy to use
-					components for your favorite web frameworks.
+					Skeleton integrates with Tailwind to provide an opinionated solutions for themes, colors, typography and more. Including easy to
+					use components for your favorite web frameworks.
 				</p>
 				<!-- Buttons -->
 				<nav class="flex justify-center gap-4">
@@ -68,22 +68,22 @@ const layoutProps = {
 
 		<!-- Design System -->
 		<section class="mx-auto space-y-8 text-center">
-			<div>
+			<div class="space-y-2">
 				<h2 class="h2">The Design System</h2>
-				<p>Learn more about core features of Skeleton.</p>
+				<p>The core features of Skeleton.</p>
 			</div>
 			<NavGrid collection="docs" path="design/" classes="grid-cols-1 md:grid-cols-2 xl:grid-cols-3" />
 		</section>
 
 		<!-- Components -->
 		<section class="mx-auto space-y-8 text-center">
-			<div>
+			<div class="space-y-2">
 				<h2 class="h2">Components</h2>
-				<p>Skeleton provides two categories of components.</p>
+				<p>Select from two categories of components.</p>
 			</div>
-			<section class="card border border-surface-200-800 p-10 grid grid-cols-1 xl:grid-cols-[1fr_auto_1fr] gap-4">
+			<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 				<!-- Tailwind -->
-				<div class="mx-auto space-y-8 text-center">
+				<div class="card-enhanced border-[1px] border-surface-200-800 p-10 space-y-5 text-center">
 					<div>
 						<h3 class="h4">Tailwind</h3>
 						<p>Common visual interfaces, such as buttons, that use Tailwind utility classes.</p>
@@ -93,10 +93,8 @@ const layoutProps = {
 						<IconChevron className="size-4" />
 					</a>
 				</div>
-				<!-- Divider -->
-				<div class="hidden xl:vr"></div>
 				<!-- Framework -->
-				<div class="mx-auto space-y-8 text-center">
+				<div class="card-enhanced border-[1px] border-surface-200-800 p-10 space-y-5 text-center">
 					<div>
 						<h3 class="h4">Framework-Specific</h3>
 						<p>Functional components that directly integrate the design system.</p>
