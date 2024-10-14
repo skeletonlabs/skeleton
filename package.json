@@ -1,57 +1,59 @@
 {
-	"name": "skeleton",
-	"version": "1.0.0",
-	"description": "monorepo for @skeletonlabs/skeleton",
-	"private": true,
-	"scripts": {
-		"test": "pnpm -F @skeletonlabs/skeleton test",
-		"preinstall": "npx only-allow pnpm",
-		"getall": "node scripts/checkout.cjs && pnpm i",
-		"postinstall": "pnpm -r sync",
-		"dev": "pnpm --no-sort --filter=skeleton.dev dev",
-		"csa": "node ./packages/create-skeleton-app/src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=welcome -p=sites --monorepo --inspector",
-		"csl": "node ./packages/create-skeleton-app/src/index.js --types=typescript --library --prettier --eslint --playwright --vitest --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=bare -p=packages --monorepo --inspector",
-		"templategen": "node ./scripts/template-gen.js",
-		"format": "pnpm --parallel format",
-		"ci:publish": "changeset publish",
-		"ci:package": "pnpm -r package",
-		"ci:release": "pnpm ci:package && pnpm ci:publish",
-		"ci:lint": "pnpm -r lint",
-		"ci:check": "pnpm -r check",
-		"cs": "changeset"
-	},
-	"license": "MIT",
-	"homepage": "https://skeleton.dev/",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/skeletonlabs/skeleton.git"
-	},
-	"bugs": {
-		"url": "https://github.com/skeletonlabs/skeleton/issues"
-	},
-	"keywords": [
-		"cli",
-		"components",
-		"ui",
-		"component",
-		"svelte",
-		"component-library",
-		"ui-components",
-		"ui-framework",
-		"tailwind",
-		"tailwindcss",
-		"components-library",
-		"sveltekit"
-	],
-	"devDependencies": {
-		"@changesets/cli": "^2.26.1",
-		"@svitejs/changesets-changelog-github-compact": "^1.1.0",
-		"cspell": "^6.31.1",
-		"shelljs": "^0.8.5"
-	},
-	"engines": {
-		"pnpm": ">=9.2.0"
-	},
-	"packageManager": "pnpm@9.2.0",
-	"type": "module"
+  "name": "skeleton",
+  "version": "1.0.0",
+  "description": "monorepo for @skeletonlabs/skeleton",
+  "private": true,
+  "scripts": {
+    "test": "pnpm -F @skeletonlabs/skeleton test",
+    "test:ui": "pnpm -F @skeletonlabs/skeleton test:ui",
+    "test:watch": "pnpm -F @skeletonlabs/skeleton test:watch",
+    "preinstall": "npx only-allow pnpm",
+    "getall": "node scripts/checkout.cjs && pnpm i",
+    "postinstall": "pnpm -r sync",
+    "dev": "pnpm --no-sort --filter=skeleton.dev dev",
+    "csa": "node ./packages/create-skeleton-app/src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=welcome -p=sites --monorepo --inspector",
+    "csl": "node ./packages/create-skeleton-app/src/index.js --types=typescript --library --prettier --eslint --playwright --vitest --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=bare -p=packages --monorepo --inspector",
+    "templategen": "node ./scripts/template-gen.js",
+    "format": "pnpm --parallel format",
+    "ci:publish": "changeset publish",
+    "ci:package": "pnpm -r package",
+    "ci:release": "pnpm ci:package && pnpm ci:publish",
+    "ci:lint": "pnpm -r lint",
+    "ci:check": "pnpm -r check",
+    "cs": "changeset"
+  },
+  "license": "MIT",
+  "homepage": "https://skeleton.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skeletonlabs/skeleton.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skeletonlabs/skeleton/issues"
+  },
+  "keywords": [
+    "cli",
+    "components",
+    "ui",
+    "component",
+    "svelte",
+    "component-library",
+    "ui-components",
+    "ui-framework",
+    "tailwind",
+    "tailwindcss",
+    "components-library",
+    "sveltekit"
+  ],
+  "devDependencies": {
+    "@changesets/cli": "^2.26.1",
+    "@svitejs/changesets-changelog-github-compact": "^1.1.0",
+    "cspell": "^6.31.1",
+    "shelljs": "^0.8.5"
+  },
+  "engines": {
+    "pnpm": ">=9.2.0"
+  },
+  "packageManager": "pnpm@9.2.0",
+  "type": "module"
 }
