@@ -1,5 +1,5 @@
 import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -18,6 +18,7 @@ const config = {
 			}
 		})
 	],
+	compilerOptions: { accessors: process.env.TEST },
 	kit: {
 		adapter: adapter()
 	}

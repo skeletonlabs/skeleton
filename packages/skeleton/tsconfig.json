@@ -9,6 +9,8 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
+		"types": ["vitest/globals", "@testing-library/jest-dom"],
+		"module": "nodenext", // Bugfix: required for compatibility since moduleResolution is set.
 		"moduleResolution": "nodenext"
 	}
 }

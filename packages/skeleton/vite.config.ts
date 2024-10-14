@@ -1,13 +1,14 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import type { UserConfig } from 'vite';
-import { configDefaults } from 'vitest/config';
+import { configDefaults, type UserConfig } from 'vitest/config';
+import { svelteTesting } from '@testing-library/svelte/vite';
 
 /** @type {import('vite').UserConfig} */
 const config: UserConfig = {
-	plugins: [sveltekit()],
+	plugins: [sveltekit(), svelteTesting()],
 	test: {
 		globals: true,
 		environment: 'jsdom',
+		setupFiles: ['./vitest-setup.ts'],
 		exclude: [...configDefaults.exclude, '**/package/**', '**/build/**']
 	},
 	server: {
