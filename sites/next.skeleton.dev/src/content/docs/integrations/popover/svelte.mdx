@@ -16,10 +16,8 @@ import ExampleSettingsRaw from '@examples/components/popover/ExampleSettings.sve
 ## Floating UI Svelte
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
-	[Floating UI Svelte](https://floating-ui-svelte.vercel.app/) is a brand new open-source library currently in development by [members of Skeleton](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). We expect this to become the defacto solution for the majority of Svelte users, at least until native popover APIs become widely available in all browsers. For now, please refer to the Svelte-specific components below.
+	<p class="type-scale-5">Coming soon! [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) is an upcoming open-source library in development by [members of Skeleton](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). Once available, we expect this to become the defacto solution for may Svelte users, even outside of Skeleton. For now, Skeleton provides several Svelte components as substitutions. These are more limited in scope, but still applicable for most use cases. These components will remain until Floating UI Svelte is ready for production, at which point each component will be become deprecated and slated for removal in the next major release (Skeleton 4.x).</p>
 </div>
-
-As a temporary solution, Skeleton provides dedicated components for Popovers, Comboboxes, and Modals. These will remain until Floating UI Svelte is ready for production. At which point these components will be marked deprecated and will be removed in the next major release (Skeleton 4.x). Please refer to our the instructions below for implementing each feature.
 
 ## Popover
 
@@ -32,7 +30,7 @@ As a temporary solution, Skeleton provides dedicated components for Popovers, Co
 	</Fragment>
 </Preview>
 
-### Placement
+### Popover Placement
 
 Use the `positioning` to pass an object of settings. Use `placement` to set the popover position.
 
@@ -45,9 +43,9 @@ Use the `positioning` to pass an object of settings. Use `placement` to set the 
 	</Fragment>
 </Preview>
 
-### Arrow
+### Popover Arrow
 
-Enable arrows with the `arrow` property. Match your popover background style using `arrowBackground`.
+Enable arrows with the `arrow` property. Use `arrowBackground` to match your popover background color.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -58,11 +56,9 @@ Enable arrows with the `arrow` property. Match your popover background style usi
 	</Fragment>
 </Preview>
 
-> NOTE: `!` (important) is required for all arrow background classes.
+### Popover Middleware
 
-### Middleware
-
-Use the `positioning` property to pass a subset of [Floating UI middleware settings](https://floating-ui.com/docs/middleware).
+Use the `positioning` property to pass advanced settings, including a subset of [Floating UI middleware](https://floating-ui.com/docs/middleware).
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -95,13 +91,19 @@ updatePosition?: (data: { updatePosition: () => Promise<void>; }) => void | Prom
 	</Fragment>
 </Preview>
 
+---
+
 ## Combobox
 
 > NOTE: coming soon!
 
+---
+
 ## Modals
 
 > NOTE: coming soon!
+
+---
 
 ## Native Browser APIs
 
