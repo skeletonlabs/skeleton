@@ -9,9 +9,13 @@
 	let {
 		open = $bindable(false),
 		arrow = false,
+		// Trigger
+		triggerBase = '',
+		triggerBackground = '',
+		triggerClasses = '',
 		// Arrow
 		arrowBase = '',
-		arrowBackground = '',
+		arrowBackground = '!bg-surface-200 dark:!bg-surface-800',
 		arrowClasses = '',
 		// Snippets
 		trigger,
@@ -43,7 +47,7 @@
 
 <div>
 	<!-- Snippet: Trigger -->
-	<button {...api.getTriggerProps()}>
+	<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
 		{@render trigger?.()}
 	</button>
 	<!-- Portal -->
