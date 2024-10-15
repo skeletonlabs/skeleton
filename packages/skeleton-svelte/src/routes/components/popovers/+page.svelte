@@ -23,7 +23,8 @@
 		<h1 class="h1">Popovers</h1>
 	</header>
 	<aside class="card preset-tonal-warning p-4 text-center">
-		<p>This component is available only for Svelte, and as temporary solution in Floating UI Svelte is available.</p>
+		<!-- prettier-ignore -->
+		<p>This component is available only for Svelte. It will remain until <a href="https://floating-ui-svelte.vercel.app/" target="_blank" class="underline">Floating UI Svelte</a> is ready.</p>
 	</aside>
 	<section class="grid grid-cols-[1fr_auto] items-center gap-4">
 		<pre class="pre">{JSON.stringify(openState, null, 2)}</pre>

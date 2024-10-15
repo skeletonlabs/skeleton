@@ -45,9 +45,9 @@
 				<a class="anchor" href="/components/tags-input">Tags Input</a>
 			</nav>
 		</div>
-		<!-- Overlays -->
+		<!-- Svelte-Only -->
 		<div class="space-y-8">
-			<span class="font-bold">Overlays</span>
+			<span class="font-bold">Svelte-Only</span>
 			<nav class="type-scale-2 flex flex-col gap-2">
 				<a class="anchor" href="/components/popovers">Popovers</a>
 			</nav>

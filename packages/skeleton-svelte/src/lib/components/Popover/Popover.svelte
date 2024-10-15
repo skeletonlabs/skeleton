@@ -45,7 +45,7 @@
 	const api = $derived(popover.connect(snapshot, send, normalizeProps));
 </script>
 
-<div>
+<span>
 	<!-- Snippet: Trigger -->
 	<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
 		{@render trigger?.()}
@@ -66,7 +66,7 @@
 			</div>
 		{/if}
 	</div>
-</div>
+</span>
 
 <style>
 	/* NOTE: using this temporarily */

@@ -1,0 +1,28 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+## Floating UI Svelte
+
+<div class="card preset-outlined-warning-500 p-8">
+	<p>
+		[Floating UI Svelte](https://floating-ui-svelte.vercel.app/) is a brand new open-source library currently in development by [members of Skeleton](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). We expect this to become the defacto solution for the majority of Svelte users, at least until native popover APIs become widely available in all browsers. For now, please refer to the Svelte-specific components below.
+	</p>
+</div>
+
+## Components
+
+Skeleton currently provides the following Svelte components. These will remain avialable until Floating UI Svelte is ready for production. At which point these components will be marked deprecated, then likely removed in the next major release (Skeleton 4.x)
+
+* [Popover Component](/docs/components/popover/svelte)
+* [Combobox Component](/docs/components/combobox/svelte)
+
+## Native Browser APIs
+
+Skeleton aims to support native-first whenever possible. Our long term goal is to help everyone transition from dedicated libraries like Floating UI to the following native browser APIs. Unfortunately some features are not widely available in all browsers at this time. However, Skeleton will adopt these as the defacto solution at some point in the future.
+
+* [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
+* [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
+* [CSS Anchoring Position](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning)
