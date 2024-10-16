@@ -11,18 +11,20 @@ import ExampleTooltip from '@examples/components/popover/ExampleTooltip.svelte';
 import ExampleTooltipRaw from '@examples/components/popover/ExampleTooltip.svelte?raw';
 import ExampleCombobox from '@examples/components/popover/ExampleCombobox.svelte';
 import ExampleComboboxRaw from '@examples/components/popover/ExampleCombobox.svelte?raw';
+import ExampleModal from '@examples/components/popover/ExampleModal.svelte';
+import ExampleModalRaw from '@examples/components/popover/ExampleModal.svelte?raw';
 
 ## Floating UI Svelte
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>Coming soon! [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) is an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this in development, Skeleton will provide the following Svelte-specific components as temporary substitutions. Note that these components will be be phased in Skeleton v4.x in favor of Floating UI Svelte in the future.</p>
+	<p>Please note that Skeleton will soon integrate [Floating UI Svelte](https://floating-ui-svelte.vercel.app/), an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this remains in development, we have provided several Svelte-specific components as substitutions. Note that these components will be be phased in Skeleton v4.x in favor of Floating UI Svelte.</p>
 </div>
 
 ## Components
 
 ### Popover
 
-Triggers a popover when you click the trigger button. Reference the [Zag API](https://zagjs.com/components/react/popover).
+Triggers an anchored popover when you click the trigger button. Reference the [Zag API](https://zagjs.com/components/react/popover).
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -38,7 +40,7 @@ Triggers a popover when you click the trigger button. Reference the [Zag API](ht
 
 ### Tooltip
 
-Triggers a popover when you hover the trigger element.
+Triggers an anchored popover when you hover the trigger element.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -54,7 +56,7 @@ Triggers a popover when you hover the trigger element.
 
 ### Combobox
 
-Triggers a popover list when you focus the input element.
+Triggers an anchored popover list when you focus the input element.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -65,13 +67,22 @@ Triggers a popover list when you focus the input element.
 	</Fragment>
 </Preview>
 
-### Modals
+### Modal
 
-> NOTE: coming soon!
+Displays a dialog popover in the middle of the screen.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleModal client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleModalRaw} lang="svelte" />
+	</Fragment>
+</Preview>
 
 ## Native Browser APIs
 
-Skeleton aims to support native-first whenever possible. Our long term goal is to help everyone transition from dedicated libraries like Floating UI to the following native browser APIs. Unfortunately some features are not widely available in all browsers at this time. However, Skeleton will adopt these as the defacto solution at some point in the future.
+Skeleton aims to support native-first whenever possible and long term we hope to support native browser APIs over third party liraries. Unfortunately not all APIs are available across all browsers yet. However, Skeleton will adopt these as they become more readily available in the future.
 
 * [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
 * [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
