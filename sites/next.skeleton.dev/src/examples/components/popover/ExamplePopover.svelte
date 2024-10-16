@@ -20,11 +20,13 @@
 	{#snippet trigger()}Click Me{/snippet}
 	{#snippet content()}
 		<header class="flex justify-between">
-			<p class="font-bold type-scale-5">Example</p>
+			<p class="font-bold type-scale-5">Popover Example</p>
 			<button class="btn-icon" onclick={popoverClose}><IconX /></button>
 		</header>
 		<article>
-			<p class="opacity-60">This will display a basic popover with a header and body. Including a title, description, and close button.</p>
+			<p class="opacity-60">
+				This will display a basic popover with a header and body. This also includes a title, description, and close button.
+			</p>
 		</article>
 	{/snippet}
 </Popover>
