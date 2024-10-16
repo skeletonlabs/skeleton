@@ -21,7 +21,7 @@
 		<button class="btn preset-filled" onclick={tooltipOpen} disabled={openState}>Hover</button>
 	</section>
 	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
-		<Tooltip bind:open={openState} positioning={{ placement: 'top' }} triggerBase="btn preset-tonal" tooltipBase="card preset-filled p-4">
+		<Tooltip bind:open={openState} positioning={{ placement: 'top' }} triggerBase="btn preset-tonal" contentBase="card preset-filled p-4">
 			{#snippet trigger()}Hover Me{/snippet}
 			{#snippet content()}This is a tooltip.{/snippet}
 		</Tooltip>

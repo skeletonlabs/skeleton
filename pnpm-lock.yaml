@@ -12,6 +12,9 @@ catalogs:
     '@zag-js/avatar':
       specifier: ^0.73.1
       version: 0.73.1
+    '@zag-js/combobox':
+      specifier: ^0.73.1
+      version: 0.73.1
     '@zag-js/file-upload':
       specifier: ^0.73.1
       version: 0.73.1
@@ -324,6 +327,9 @@ importers:
         specifier: 'catalog:'
         version: 0.73.1
       '@zag-js/avatar':
+        specifier: 'catalog:'
+        version: 0.73.1
+      '@zag-js/combobox':
         specifier: 'catalog:'
         version: 0.73.1
       '@zag-js/file-upload':
@@ -2205,6 +2211,12 @@ packages:
 
   '@zag-js/avatar@0.73.1':
     resolution: {integrity: sha512-VndfGVVuvD/Qeps3fmpHWo8u6PlU0QnJAcULmwgED1R+9DDH4bRk0nETeTfayWGExKlYylIPOc+wAcTbHNfJqg==}
+
+  '@zag-js/collection@0.73.1':
+    resolution: {integrity: sha512-Ar/lZv6QU83BHuLaFQErxbX8I4QbZ34iixlrQOpZV15ARz+DUHN219zukKVCHg+Bn70hGrMBSzd01Ghr5/lv0g==}
+
+  '@zag-js/combobox@0.73.1':
+    resolution: {integrity: sha512-6USucUzX5Fp6TwxlAPNEx2KIagaeVrb1VQwDgqZhJwyKpAbDhmmwlhMX+6ouiZwPIED5j3koTWX8QcpgJs5AwQ==}
 
   '@zag-js/core@0.73.1':
     resolution: {integrity: sha512-lZHDP3g5Wp2GWruxJB91zph5xbuC06Oz6Vx7uprbuEUpmjnKeqOPjMFPhPOdsZCR0MPUUW6OkJApzfTyKZ9E1w==}
@@ -8168,6 +8180,23 @@ snapshots:
       '@zag-js/anatomy': 0.73.1
       '@zag-js/core': 0.73.1
       '@zag-js/dom-query': 0.73.1
+      '@zag-js/types': 0.73.1
+      '@zag-js/utils': 0.73.1
+
+  '@zag-js/collection@0.73.1':
+    dependencies:
+      '@zag-js/utils': 0.73.1
+
+  '@zag-js/combobox@0.73.1':
+    dependencies:
+      '@zag-js/anatomy': 0.73.1
+      '@zag-js/aria-hidden': 0.73.1
+      '@zag-js/collection': 0.73.1
+      '@zag-js/core': 0.73.1
+      '@zag-js/dismissable': 0.73.1
+      '@zag-js/dom-event': 0.73.1
+      '@zag-js/dom-query': 0.73.1
+      '@zag-js/popper': 0.73.1
       '@zag-js/types': 0.73.1
       '@zag-js/utils': 0.73.1
 

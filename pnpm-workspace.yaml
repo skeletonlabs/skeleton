@@ -9,6 +9,7 @@ catalog:
   '@zag-js/react': *zag_version
   '@zag-js/accordion': *zag_version
   '@zag-js/avatar': *zag_version
+  '@zag-js/combobox': *zag_version
   '@zag-js/file-upload': *zag_version
   '@zag-js/pagination': *zag_version
   '@zag-js/popover': *zag_version

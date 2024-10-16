@@ -37,6 +37,7 @@
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
+		"@zag-js/combobox": "catalog:",
 		"@zag-js/file-upload": "catalog:",
 		"@zag-js/pagination": "catalog:",
 		"@zag-js/popover": "catalog:",
