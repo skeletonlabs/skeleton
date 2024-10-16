@@ -8,6 +8,7 @@
 
 	let {
 		data = $bindable([]),
+		label = '',
 		// Base
 		base = '',
 		width = '',
@@ -31,9 +32,9 @@
 		listClasses = '',
 		// Option
 		optionBase = 'btn justify-start w-full',
-		optionClasses = 'hover:preset-tonal',
+		optionHover = 'hover:preset-tonal',
+		optionClasses = '',
 		// Snippets
-		label,
 		arrow,
 		// Zag ---
 		...zagProps
@@ -76,7 +77,7 @@
 <span {...api.getRootProps()} class="{base} {width} {classes}">
 	<!-- Label -->
 	<label {...api.getLabelProps()} class="{labelBase} {labelClasses}">
-		{#if label}<span class={labelText}>{@render label()}</span>{/if}
+		{#if label}<span class={labelText}>{label}</span>{/if}
 		<!-- Input Group -->
 		<div {...api.getControlProps()} class="{inputGroupBase} {inputGroupClasses}">
 			<!-- Input -->
@@ -113,7 +114,7 @@
 				<nav {...api.getContentProps()} class="{listBase} {listClasses}">
 					{#each options as item}
 						<!-- Option -->
-						<button {...api.getItemProps({ item })} class="{optionBase} {optionClasses}">
+						<button {...api.getItemProps({ item })} class="{optionBase} {optionHover} {optionClasses}">
 							{item.label}
 						</button>
 					{/each}

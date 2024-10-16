@@ -9,6 +9,8 @@ import ExamplePopover from '@examples/components/popover/ExamplePopover.svelte';
 import ExamplePopoverRaw from '@examples/components/popover/ExamplePopover.svelte?raw';
 import ExampleTooltip from '@examples/components/popover/ExampleTooltip.svelte';
 import ExampleTooltipRaw from '@examples/components/popover/ExampleTooltip.svelte?raw';
+import ExampleCombobox from '@examples/components/popover/ExampleCombobox.svelte';
+import ExampleComboboxRaw from '@examples/components/popover/ExampleCombobox.svelte?raw';
 
 ## Floating UI Svelte
 
@@ -54,7 +56,14 @@ Triggers a popover when you hover the trigger element.
 
 Triggers a popover list when you focus the input element.
 
-> NOTE: coming soon!
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCombobox client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleComboboxRaw} lang="svelte" />
+	</Fragment>
+</Preview>
 
 ### Modals
 
