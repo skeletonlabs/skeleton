@@ -8,7 +8,6 @@
 
 	let {
 		open = $bindable(false),
-		arrow = false,
 		// Trigger
 		triggerBase = '',
 		triggerBackground = '',
