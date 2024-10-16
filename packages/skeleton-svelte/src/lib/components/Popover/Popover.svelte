@@ -13,6 +13,10 @@
 		triggerBase = '',
 		triggerBackground = '',
 		triggerClasses = '',
+		// Content
+		contentBase = '',
+		contentBackground = '',
+		contentClasses = '',
 		// Arrow
 		arrowBase = '',
 		arrowBackground = '!bg-surface-200 dark:!bg-surface-800',
@@ -54,7 +58,7 @@
 	<div use:portal={{ disabled: !api.portalled }} {...api.getPositionerProps()}>
 		<!-- Popover -->
 		{#if api.open}
-			<div {...api.getContentProps()} transition:fade={{ duration: 100 }}>
+			<div {...api.getContentProps()} transition:fade={{ duration: 150 }}>
 				<!-- Arrow -->
 				{#if arrow}
 					<div {...api.getArrowProps()}>
@@ -62,16 +66,14 @@
 					</div>
 				{/if}
 				<!-- Snippet: Content -->
-				<div>{@render content?.()}</div>
+				<div class="{contentBase} {contentBackground} {contentClasses}">{@render content?.()}</div>
 			</div>
 		{/if}
 	</div>
 </span>
 
 <style>
-	/* NOTE: using this temporarily */
 	:global([data-part='arrow']) {
-		/* --arrow-background: green; */
 		--arrow-size: 10px;
 	}
 </style>

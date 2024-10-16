@@ -15,6 +15,14 @@ export interface PopoverProps extends Omit<popover.Context, 'id' | 'open'> {
 	/** Provide arbitrary styles for the trigger. */
 	triggerClasses?: string;
 
+	// Content ---
+	/** Set base styles for the content. */
+	contentBase?: string;
+	/** Set background styles for the content. */
+	contentBackground?: string;
+	/** Provide arbitrary styles for the content. */
+	contentClasses?: string;
+
 	// Arrow ---
 	/** Set base styles for the arrow. */
 	arrowBase?: string;

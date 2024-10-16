@@ -1,0 +1,18 @@
+export type PositioningOptions = {
+	/** The strategy to use for positioning */
+	strategy?: "absolute" | "fixed"
+	/** The initial placement of the floating element */
+	placement?: "top" | "right" | "bottom" | "left" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end"
+	/** The offset of the floating element */
+	offset?: { mainAxis?: number; crossAxis?: number }
+	/** The main axis offset or gap between the reference and floating elements */
+	gutter?: number
+	/** Whether to flip the placement */
+	flip?: boolean
+	/** Whether to make the floating element same width as the reference element */
+	sameWidth?: boolean
+	/** The overflow boundary of the reference element */
+	boundary?: Boundary
+	/** Options to activate auto-update listeners */
+	listeners?: boolean | AutoUpdateOptions
+}

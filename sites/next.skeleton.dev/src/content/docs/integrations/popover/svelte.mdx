@@ -4,14 +4,9 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Example from '@examples/components/popover/Example.svelte';
-import ExampleRaw from '@examples/components/popover/Example.svelte?raw';
-import ExamplePlacement from '@examples/components/popover/ExamplePlacement.svelte';
-import ExamplePlacementRaw from '@examples/components/popover/ExamplePlacement.svelte?raw';
-import ExampleArrow from '@examples/components/popover/ExampleArrow.svelte';
-import ExampleArrowRaw from '@examples/components/popover/ExampleArrow.svelte?raw';
-import ExampleSettings from '@examples/components/popover/ExampleSettings.svelte';
-import ExampleSettingsRaw from '@examples/components/popover/ExampleSettings.svelte?raw';
+import ExamplePopover from '@examples/components/popover/ExamplePopover.svelte';
+import ExamplePopoverRaw from '@examples/components/popover/ExamplePopover.svelte?raw';
+import PostioningOptions from '@examples/components/popover/PostioningOptions.txt?raw';
 
 ## Floating UI Svelte
 
@@ -21,79 +16,34 @@ import ExampleSettingsRaw from '@examples/components/popover/ExampleSettings.sve
 
 ## Popover
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Example client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="svelte" />
-	</Fragment>
-</Preview>
-
-### Popover Placement
-
-Use the `positioning` to pass an object of settings. Use `placement` to set the popover position.
+Triggers a popover when you click the trigger element button.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExamplePlacement client:load />
+		<ExamplePopover client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExamplePlacementRaw} lang="svelte" />
+		<div class="space-y-4">
+			<Code code={ExamplePopoverRaw} lang="svelte" />
+			<Code code={PostioningOptions} lang="ts" />
+		</div>
 	</Fragment>
 </Preview>
 
-### Popover Arrow
 
-Enable arrows with the `arrow` property. Use `arrowBackground` to match your popover background color.
+---
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleArrow client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleArrowRaw} lang="svelte" />
-	</Fragment>
-</Preview>
+## Tooltip
 
-### Popover Middleware
+Triggers a popover when you hover the trigger element.
 
-Use the `positioning` property to pass advanced settings, including a subset of [Floating UI middleware](https://floating-ui.com/docs/middleware).
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleSettings client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleSettingsRaw} lang="svelte" />
-		<Code code={`
-// https://floating-ui.com/docs/middleware
-hideWhenDetached?: boolean;
-strategy?: "absolute" | "fixed";
-placement?: Placement;
-offset?: { mainAxis?: number; crossAxis?: number; };
-gutter?: number;
-shift?: number;
-overflowPadding?: number;
-arrowPadding?: number;
-flip?: boolean | Placement[];
-slide?: boolean;
-overlap?: boolean;
-sameWidth?: boolean;
-fitViewport?: boolean;
-boundary?: () => Boundary;
-listeners?: boolean | AutoUpdateOptions;
-onComplete?(data: ComputePositionReturn): void;
-onPositioned?(data: { placed: boolean; }): void;
-getAnchorRect?: (element: HTMLElement | VirtualElement | null) => AnchorRect | null;
-updatePosition?: (data: { updatePosition: () => Promise<void>; }) => void | Promise<void>;
-		`} lang="ts" />
-	</Fragment>
-</Preview>
+> NOTE: coming soon!
 
 ---
 
 ## Combobox
+
+Triggers a popover list when you focus the input element.
 
 > NOTE: coming soon!
 

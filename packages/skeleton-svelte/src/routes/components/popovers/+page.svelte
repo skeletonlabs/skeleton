@@ -31,22 +31,27 @@
 		<button class="btn preset-filled" onclick={popoverOpen} disabled={openState}>Open Popover</button>
 	</section>
 	<section class="border border-surface-200-800 space-y-4 p-10 pb-[300px] flex justify-center items-center">
-		<Popover bind:open={openState} positioning={{ placement: 'bottom', offset: { mainAxis: 20 } }} triggerBase="btn preset-filled" arrow>
+		<Popover
+			bind:open={openState}
+			positioning={{ placement: 'bottom', offset: { mainAxis: 20 } }}
+			triggerBase="btn preset-filled"
+			contentBase="card bg-surface-200-800 p-4 space-y-4 max-w-[320px]"
+			arrow
+			arrowBackground="!bg-surface-200 dark:!bg-surface-800"
+		>
 			{#snippet trigger()}Click Me{/snippet}
 			{#snippet content()}
-				<div class="card bg-surface-200-800 p-4 space-y-4 max-w-[320px]">
-					<header class="flex justify-between">
-						<p class="font-bold type-scale-5">Popover</p>
-						<button class="btn-icon" onclick={popoverClose}>
-							<IconX />
-						</button>
-					</header>
-					<article>
-						<p class="opacity-60">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima aut odio maxime placeat quia eligendi distinctio.
-						</p>
-					</article>
-				</div>
+				<header class="flex justify-between">
+					<p class="font-bold type-scale-5">Popover</p>
+					<button class="btn-icon" onclick={popoverClose}>
+						<IconX />
+					</button>
+				</header>
+				<article>
+					<p class="opacity-60">
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima aut odio maxime placeat quia eligendi distinctio.
+					</p>
+				</article>
 			{/snippet}
 		</Popover>
 	</section>
