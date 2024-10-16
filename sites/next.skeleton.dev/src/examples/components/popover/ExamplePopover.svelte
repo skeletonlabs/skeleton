@@ -12,7 +12,7 @@
 <Popover
 	bind:open={openState}
 	positioning={{ placement: 'top' }}
-	triggerBase="btn preset-filled"
+	triggerBase="btn preset-tonal"
 	contentBase="card bg-surface-200-800 p-4 space-y-4 max-w-[320px]"
 	arrow
 	arrowBackground="!bg-surface-200 dark:!bg-surface-800"

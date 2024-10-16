@@ -1,10 +1,10 @@
 import type { Snippet } from 'svelte';
-import * as popover from '@zag-js/popover';
+import * as tooltip from '@zag-js/tooltip';
 
-export interface PopoverProps extends Omit<popover.Context, 'id' | 'open'> {
-	/** Set the open state of the popover. */
+export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
+	/** Set the open state of the tooltip. */
 	open?: boolean;
-	/** Enable display of the popover arrow. */
+	/** Enable display of the tooltip arrow. */
 	arrow?: boolean;
 
 	// Trigger ---
@@ -23,17 +23,9 @@ export interface PopoverProps extends Omit<popover.Context, 'id' | 'open'> {
 	/** Provide arbitrary styles for the content. */
 	contentClasses?: string;
 
-	// Arrow ---
-	/** Set base styles for the arrow. */
-	arrowBase?: string;
-	/** Set background styles for the arrow. */
-	arrowBackground?: string;
-	/** Provide arbitrary styles for the arrow. */
-	arrowClasses?: string;
-
 	// Snippets ---
 	/** Provide the the trigger element, such as a button. */
 	trigger?: Snippet;
-	/** Provide the template contents of the popover itself. */
+	/** Provide the template contents of the tooltip itself. */
 	content?: Snippet;
 }

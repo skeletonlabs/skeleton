@@ -48,6 +48,9 @@ catalogs:
     '@zag-js/tags-input':
       specifier: ^0.73.1
       version: 0.73.1
+    '@zag-js/tooltip':
+      specifier: ^0.73.1
+      version: 0.73.1
     typescript:
       specifier: ^5.5.4
       version: 5.6.2
@@ -354,6 +357,9 @@ importers:
         specifier: 'catalog:'
         version: 0.73.1
       '@zag-js/tags-input':
+        specifier: 'catalog:'
+        version: 0.73.1
+      '@zag-js/tooltip':
         specifier: 'catalog:'
         version: 0.73.1
     devDependencies:
@@ -2291,6 +2297,9 @@ packages:
 
   '@zag-js/text-selection@0.73.1':
     resolution: {integrity: sha512-kZCUWAtYGoAX+0betLWBMXPGJhaNs8Bz3knIAs+0h9Kpk5U7VZz4MWWQEWwYQh+5Ef5fH99HB5fYisSVPfYxCg==}
+
+  '@zag-js/tooltip@0.73.1':
+    resolution: {integrity: sha512-U24CbdIpJhVixWjuuP+SeS9hod+Hw1rjLbIAk/kuV4DlFRXyCAgmq4GA3GdWtNHbaQE4YdcZ0dmpA0XgLM4Z8Q==}
 
   '@zag-js/types@0.73.1':
     resolution: {integrity: sha512-gXphV/IxB50F7W2FXv92YPflfTHNUF8hhUS+97EZDO9eaeoKAt08q16GtZgZeH3MY+TMkgNIPZizp4NhZfcZMg==}
@@ -8349,6 +8358,17 @@ snapshots:
   '@zag-js/text-selection@0.73.1':
     dependencies:
       '@zag-js/dom-query': 0.73.1
+
+  '@zag-js/tooltip@0.73.1':
+    dependencies:
+      '@zag-js/anatomy': 0.73.1
+      '@zag-js/core': 0.73.1
+      '@zag-js/dom-event': 0.73.1
+      '@zag-js/dom-query': 0.73.1
+      '@zag-js/focus-visible': 0.73.1
+      '@zag-js/popper': 0.73.1
+      '@zag-js/types': 0.73.1
+      '@zag-js/utils': 0.73.1
 
   '@zag-js/types@0.73.1':
     dependencies:

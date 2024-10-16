@@ -30,11 +30,11 @@
 		<pre class="pre">{JSON.stringify(openState, null, 2)}</pre>
 		<button class="btn preset-filled" onclick={popoverOpen} disabled={openState}>Open Popover</button>
 	</section>
-	<section class="border border-surface-200-800 space-y-4 p-10 pb-[300px] flex justify-center items-center">
+	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
 		<Popover
 			bind:open={openState}
 			positioning={{ placement: 'bottom', offset: { mainAxis: 20 } }}
-			triggerBase="btn preset-filled"
+			triggerBase="btn preset-tonal"
 			contentBase="card bg-surface-200-800 p-4 space-y-4 max-w-[320px]"
 			arrow
 			arrowBackground="!bg-surface-200 dark:!bg-surface-800"

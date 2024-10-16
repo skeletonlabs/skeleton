@@ -58,7 +58,7 @@
 	<div use:portal={{ disabled: !api.portalled }} {...api.getPositionerProps()}>
 		<!-- Popover -->
 		{#if api.open}
-			<div {...api.getContentProps()} transition:fade={{ duration: 150 }}>
+			<div {...api.getContentProps()} transition:fade={{ duration: 100 }}>
 				<!-- Arrow -->
 				{#if arrow}
 					<div {...api.getArrowProps()}>

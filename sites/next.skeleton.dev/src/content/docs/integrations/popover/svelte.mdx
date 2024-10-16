@@ -4,9 +4,11 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
+import PostioningOptions from '@examples/components/popover/PostioningOptions.txt?raw';
 import ExamplePopover from '@examples/components/popover/ExamplePopover.svelte';
 import ExamplePopoverRaw from '@examples/components/popover/ExamplePopover.svelte?raw';
-import PostioningOptions from '@examples/components/popover/PostioningOptions.txt?raw';
+import ExampleTooltip from '@examples/components/popover/ExampleTooltip.svelte';
+import ExampleTooltipRaw from '@examples/components/popover/ExampleTooltip.svelte?raw';
 
 ## Floating UI Svelte
 
@@ -36,7 +38,17 @@ Triggers a popover when you click the trigger button. Reference the [Zag API](ht
 
 Triggers a popover when you hover the trigger element.
 
-> NOTE: coming soon!
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleTooltip client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<div class="space-y-4">
+			<Code code={ExampleTooltipRaw} lang="svelte" />
+			<Code code={PostioningOptions} lang="ts" />
+		</div>
+	</Fragment>
+</Preview>
 
 ### Combobox
 
