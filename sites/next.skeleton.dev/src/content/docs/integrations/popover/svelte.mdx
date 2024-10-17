@@ -17,14 +17,14 @@ import ExampleModalRaw from '@examples/components/popover/ExampleModal.svelte?ra
 ## Floating UI Svelte
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>Please note that Skeleton will soon integrate [Floating UI Svelte](https://floating-ui-svelte.vercel.app/), an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this remains in development, we have provided several Svelte-specific components as substitutions. Note that these components will be be phased in Skeleton v4.x in favor of Floating UI Svelte.</p>
+	<p>Please note that Skeleton will integrate [Floating UI Svelte](https://floating-ui-svelte.vercel.app/), an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this is in development, we have provided several Svelte-specific components as substitutions. Note that these components will be be phased in Skeleton v4.x in favor of Floating UI Svelte primitives.</p>
 </div>
 
 ## Components
 
 ### Popover
 
-Triggers an anchored popover when you click the trigger button. Reference the [Zag API](https://zagjs.com/components/react/popover).
+Triggers an anchored popover when you click the trigger button.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -56,7 +56,7 @@ Triggers an anchored popover when you hover the trigger element.
 
 ### Combobox
 
-Triggers an anchored popover list when you focus the input element.
+Triggers an anchored popover list when you tap the arrow icon. Options are auto-suggested via typeahead.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -69,7 +69,7 @@ Triggers an anchored popover list when you focus the input element.
 
 ### Modal
 
-Displays a dialog popover in the middle of the screen.
+Displays a dialog popover for alerts that require immediate attention.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -82,7 +82,7 @@ Displays a dialog popover in the middle of the screen.
 
 ## Native Browser APIs
 
-Skeleton aims to support native-first whenever possible and long term we hope to support native browser APIs over third party liraries. Unfortunately not all APIs are available across all browsers yet. However, Skeleton will adopt these as they become more readily available in the future.
+Skeleton aims to support native-first options whenever possible and long term we hope to forego third party libraries in favor of native browser APIs. Unfortunately not all APIs required are currently available cross-browser. However, Skeleton does plan to adopt the following as soon as they are readily available.
 
 * [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
 * [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)

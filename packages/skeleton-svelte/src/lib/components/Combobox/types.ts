@@ -1,8 +1,12 @@
 import type { Snippet } from 'svelte';
 import * as combobox from '@zag-js/combobox';
 
-export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'label' | 'collection'> {
+export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection' | 'value' | 'label'> {
+	/** Provide the list of label and value data */
 	data?: { label: string; value: string }[];
+	/** Bind the selected value. */
+	value?: string[] | undefined;
+	/** Set the label to display. */
 	label?: string;
 
 	// Base ---
@@ -16,7 +20,7 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'label' | '
 	// Label ---
 	/** Set base classes for the label. */
 	labelBase?: string;
-	/** Set text classes for the label. */
+	/** Set text and font classes for the label. */
 	labelText?: string;
 	/** Provide arbitrary classes for the label. */
 	labelClasses?: string;
@@ -50,8 +54,12 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'label' | '
 	// Option ---
 	/** Set base classes for the option. */
 	optionBase?: string;
+	/** Set focus classes for the option. */
+	optonFocus?: string;
 	/** Set hover classes for the option. */
 	optionHover?: string;
+	/** Set active classes for the option. */
+	optionActive?: string;
 	/** Provide arbitrary classes for the option. */
 	optionClasses?: string;
 

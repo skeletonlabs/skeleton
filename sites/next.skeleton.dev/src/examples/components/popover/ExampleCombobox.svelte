@@ -12,9 +12,7 @@
 		{ label: 'Japan', value: 'JP' }
 	];
 
-	function onValueChange(details: { items: ComboxData[]; value: string[] }) {
-		console.log(details);
-	}
+	let selectedCountry = $state(['US']);
 </script>
 
-<Combobox data={comboboxData} label="Select Country" placeholder="Select..." {onValueChange} />
+<Combobox data={comboboxData} bind:value={selectedCountry} label="Select Country" placeholder="Select..." />

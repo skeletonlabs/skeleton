@@ -12,9 +12,7 @@
 		{ label: 'Japan', value: 'JP' }
 	];
 
-	function onValueChange(details: { items: ComboxData[]; value: string[] }) {
-		console.log(details);
-	}
+	let selectedCountry = $state(['US']);
 </script>
 
 <div class="space-y-10">
@@ -25,7 +23,10 @@
 		<!-- prettier-ignore -->
 		<p>This component is available only for Svelte. It will remain until <a href="https://floating-ui-svelte.vercel.app/" target="_blank" class="underline">Floating UI Svelte</a> ready for production.</p>
 	</aside>
+	<section>
+		<pre class="pre">{JSON.stringify(selectedCountry, null, 2)}</pre>
+	</section>
 	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
-		<Combobox data={comboboxData} label="Select Country" placeholder="Select..." {onValueChange} />
+		<Combobox data={comboboxData} bind:value={selectedCountry} label="Select Country" placeholder="Select..." />
 	</section>
 </div>

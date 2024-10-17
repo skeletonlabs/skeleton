@@ -8,6 +8,7 @@
 
 	let {
 		data = $bindable([]),
+		value = $bindable([]),
 		label = '',
 		// Base
 		base = '',
@@ -28,11 +29,13 @@
 		contentBackground = 'preset-outlined-surface-200-800 bg-surface-50-950',
 		contentClasses = '',
 		// List
-		listBase = '',
+		listBase = 'space-y-1',
 		listClasses = '',
 		// Option
 		optionBase = 'btn justify-start w-full',
+		optonFocus = 'bg-green-500',
 		optionHover = 'hover:preset-tonal',
+		optionActive = 'preset-filled-primary-500',
 		optionClasses = '',
 		// Snippets
 		arrow,
@@ -52,6 +55,8 @@
 		combobox.machine({
 			id: useId(),
 			collection,
+			value: $state.snapshot(value),
+			loopFocus: true,
 			onOpenChange() {
 				options = data;
 			},
@@ -60,6 +65,8 @@
 				const newOptions = filtered.length > 0 ? filtered : data;
 				collection.setItems(newOptions);
 				options = newOptions;
+				// Update value array state
+				value = filtered.map((item) => item.value);
 			}
 		}),
 		{
@@ -67,6 +74,9 @@
 				...zagProps,
 				get data() {
 					return $state.snapshot(data);
+				},
+				get value() {
+					return $state.snapshot(value);
 				}
 			}
 		}
@@ -113,8 +123,10 @@
 				<!-- List -->
 				<nav {...api.getContentProps()} class="{listBase} {listClasses}">
 					{#each options as item}
+						{@const isChecked = api.getItemProps({ item })['data-state'] === 'checked'}
+						{@const displayClass = isChecked ? optionActive : optionHover}
 						<!-- Option -->
-						<button {...api.getItemProps({ item })} class="{optionBase} {optionHover} {optionClasses}">
+						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}">
 							{item.label}
 						</button>
 					{/each}
@@ -123,3 +135,9 @@
 		</div>
 	{/if}
 </span>
+
+<style lang="postcss">
+	[data-part='item'][data-highlighted]:not([data-state='checked']) {
+		@apply bg-surface-500/10;
+	}
+</style>
