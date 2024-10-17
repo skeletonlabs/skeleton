@@ -24,8 +24,8 @@ Tips for Drawer modals:
 	positionerJustify="justify-start"
 	positionerAlign=""
 	positionerPadding=""
-	transitionspositionerIn={{ x: -480, duration: 200 }}
-	transitionspositionerOut={{ x: -480, duration: 200 }}
+	transitionsPositionerIn={{ x: -480, duration: 200 }}
+	transitionsPositionerOut={{ x: -480, duration: 200 }}
 >
 	{#snippet trigger()}Open Drawer{/snippet}
 	{#snippet content()}
