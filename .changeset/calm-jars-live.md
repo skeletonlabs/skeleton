@@ -2,4 +2,4 @@
 '@skeletonlabs/skeleton-svelte': minor
 ---
 
-feature: Implemented the Svelte Popover component
+feature: Implemented the Svelte components for Popover, Tooltip, Combobox, and Modal.
