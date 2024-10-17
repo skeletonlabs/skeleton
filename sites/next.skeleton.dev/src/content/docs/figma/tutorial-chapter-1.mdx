@@ -9,20 +9,11 @@ export const components = componentSet;
 
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
-import ArrowRight from 'lucide-svelte/icons/arrow-right';
-import Check from 'lucide-svelte/icons/check';
-
-<iframe
-  src="https://iframe.videodelivery.net/5d5bc37ffcf54c9b82e996823bffbb81?mute=true&preload=auto&primaryColor=aliceblue&letterboxColor=aliceblue"
-  style="border: none"
-  className='aspect-video w-full rounded-container'
-  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-  allowfullscreen="true"
-></iframe>
+import ChapterCompletion from '@components/docs/ChapterCompletion.astro'
 
 ## How to install the Figma library
 
-Figma Plan <span class="badge preset-filled-primary-500">Professional Team</span> or higher recommended.
+Figma Plan <a href="https://www.figma.com/pricing/#figma" class="chip preset-filled-primary-500" target="_blank">Professional Team</a> or higher recommended.
 
 <Process>
     <ProcessStep step="1">
@@ -95,23 +86,11 @@ Figma Plan <span class="badge preset-filled-primary-500">Professional Team</span
 </Process>
 
 
-<div class="flex flex-col items-center gap-16 pt-16 pb-10">
-<div className='flex flex-col items-center gap-6'>
-<div className='w-20 flex flex-col items-center justify-center  preset-tonal-primary rounded-full aspect-square'>
-<Check />
-</div>
-  <div class="flex flex-col  gap-1 items-center">
-   <p> You’ve completed Chapter 1</p>
-   <p className='text-surface-600-400'> Congratulations! You've set-up the Figma Design-System in your project.</p>
-  </div>
-  </div>
-  <div class="w-full border border-surface-100-900 p-6 rounded-container flex flex-col items-center gap-8">
-  
-   <div className='flex flex-col items-center gap-1'>
-    <p className='text-surface-600-400'>Next Up</p>
-    <h6 className='h6'>Chapter 2: Set-up your own Theme</h6>
-   </div>
-   <a class="btn preset-filled-primary-500" href="">Start Chapter 2 <ArrowRight size="20"/></a>
-  </div>
-</div>
+<ChapterCompletion
+  chapterTitle="You’ve completed Chapter 1"
+  completionMessage="Congratulations! You've set-up the Figma Design-System in your project."
+  nextChapterTitle="Chapter 2: Set-up your own Theme"
+  nextChapterLink="tutorial-chapter-2"
+  nextChapterButtonText="Start Chapter 2"
+/>
 
