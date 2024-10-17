@@ -47,8 +47,8 @@ export interface ModalProps extends Omit<dialog.Context, 'id' | 'open'> {
 	// Transitions ---
 	transitionsBackdropIn?: FadeParams;
 	transitionsBackdropOut?: FadeParams;
-	transitionspositionerIn?: FlyParams;
-	transitionspositionerOut?: FlyParams;
+	transitionsPositionerIn?: FlyParams;
+	transitionsPositionerOut?: FlyParams;
 
 	// Snippets ---
 	/** Provide the template contents of the trigger element. */

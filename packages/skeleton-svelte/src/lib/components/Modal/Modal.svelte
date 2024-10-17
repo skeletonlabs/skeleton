@@ -29,8 +29,8 @@
 		// Transitions
 		transitionsBackdropIn = { duration: 100 },
 		transitionsBackdropOut = { duration: 100 },
-		transitionspositionerIn = { y: 50, duration: 200 },
-		transitionspositionerOut = { y: 50, duration: 200 },
+		transitionsPositionerIn = { y: 50, duration: 200 },
+		transitionsPositionerOut = { y: 50, duration: 200 },
 		// Snippets
 		trigger,
 		content,
@@ -78,8 +78,8 @@
 			use:portal
 			{...api.getPositionerProps()}
 			class="{positionerBase} {positionerDisplay} {positionerJustify} {positionerAlign} {positionerPadding} {positionerClasses}"
-			in:fly={transitionspositionerIn}
-			out:fly={transitionspositionerOut}
+			in:fly={transitionsPositionerIn}
+			out:fly={transitionsPositionerOut}
 		>
 			<!-- Content -->
 			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}">
