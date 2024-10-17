@@ -33,7 +33,6 @@
 		listClasses = '',
 		// Option
 		optionBase = 'btn justify-start w-full',
-		optonFocus = 'bg-green-500',
 		optionHover = 'hover:preset-tonal',
 		optionActive = 'preset-filled-primary-500',
 		optionClasses = '',
