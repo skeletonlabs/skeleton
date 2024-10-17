@@ -25,6 +25,7 @@ export { default as Rating } from './components/Rating/index.js';
 export { default as Combobox } from './components/Combobox/Combobox.svelte';
 export { default as Popover } from './components/Popover/Popover.svelte';
 export { default as Tooltip } from './components/Tooltip/Tooltip.svelte';
+export { default as Modal } from './components/Modal/Modal.svelte';
 
 // Types
 export type { FileUploadApi } from './components/FileUpload/types.js';

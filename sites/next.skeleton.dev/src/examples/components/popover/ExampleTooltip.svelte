@@ -6,7 +6,7 @@
 <Tooltip
 	bind:open={openState}
 	positioning={{ placement: 'top' }}
-	triggerBase="btn preset-tonal"
+	triggerBase="underline"
 	contentBase="card preset-filled p-4"
 	openDelay={200}
 >
