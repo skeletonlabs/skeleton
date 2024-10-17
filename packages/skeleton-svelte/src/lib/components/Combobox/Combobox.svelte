@@ -64,8 +64,9 @@
 				const newOptions = filtered.length > 0 ? filtered : data;
 				collection.setItems(newOptions);
 				options = newOptions;
-				// Update value array state
-				value = filtered.map((item) => item.value);
+			},
+			onValueChange(event) {
+				value = event.value;
 			}
 		}),
 		{
