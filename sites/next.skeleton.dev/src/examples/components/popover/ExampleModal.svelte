@@ -14,10 +14,10 @@
 	contentBase="card bg-surface-100-900 p-4 space-y-4 shadow-xl max-w-screen-sm"
 	backdropClasses="backdrop-blur-sm"
 >
-	{#snippet trigger()}Click Me{/snippet}
+	{#snippet trigger()}Open Modal{/snippet}
 	{#snippet content()}
 		<header class="flex justify-between">
-			<h2 class="h2">Example Modal</h2>
+			<h2 class="h2">Modal Example</h2>
 		</header>
 		<article>
 			<p class="opacity-60">

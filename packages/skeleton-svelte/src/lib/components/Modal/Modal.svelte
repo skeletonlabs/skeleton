@@ -26,6 +26,11 @@
 		contentBase = '',
 		contentBackground = '',
 		contentClasses = '',
+		// Transitions
+		transitionsBackdropIn = { duration: 100 },
+		transitionsBackdropOut = { duration: 100 },
+		transitionspositionerIn = { y: 50, duration: 200 },
+		transitionspositionerOut = { y: 50, duration: 200 },
 		// Snippets
 		trigger,
 		content,
@@ -65,15 +70,16 @@
 			use:portal
 			{...api.getBackdropProps()}
 			class="{backdropBase} {backdropBackground} {backdropClasses}"
-			transition:fade={{ duration: 100 }}
+			in:fade={transitionsBackdropIn}
+			out:fade={transitionsBackdropOut}
 		></div>
 		<!-- Positioner -->
 		<div
 			use:portal
 			{...api.getPositionerProps()}
 			class="{positionerBase} {positionerDisplay} {positionerJustify} {positionerAlign} {positionerPadding} {positionerClasses}"
-			in:fly={{ y: 50, duration: 200 }}
-			out:fly={{ y: 50, duration: 200 }}
+			in:fly={transitionspositionerIn}
+			out:fly={transitionspositionerOut}
 		>
 			<!-- Content -->
 			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}">

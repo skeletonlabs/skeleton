@@ -1,5 +1,6 @@
 import type { Snippet } from 'svelte';
 import * as dialog from '@zag-js/dialog';
+import type { FlyParams, FadeParams } from 'svelte/transition';
 
 export interface ModalProps extends Omit<dialog.Context, 'id' | 'open'> {
 	/** Set the open state of the dialog. */
@@ -42,6 +43,12 @@ export interface ModalProps extends Omit<dialog.Context, 'id' | 'open'> {
 	contentBackground?: string;
 	/** Provide arbitrary classes for the content. */
 	contentClasses?: string;
+
+	// Transitions ---
+	transitionsBackdropIn?: FadeParams;
+	transitionsBackdropOut?: FadeParams;
+	transitionspositionerIn?: FlyParams;
+	transitionspositionerOut?: FlyParams;
 
 	// Snippets ---
 	/** Provide the template contents of the trigger element. */

@@ -13,6 +13,8 @@ import ExampleCombobox from '@examples/components/popover/ExampleCombobox.svelte
 import ExampleComboboxRaw from '@examples/components/popover/ExampleCombobox.svelte?raw';
 import ExampleModal from '@examples/components/popover/ExampleModal.svelte';
 import ExampleModalRaw from '@examples/components/popover/ExampleModal.svelte?raw';
+import ExampleModalDrawer from '@examples/components/popover/ExampleModalDrawer.svelte';
+import ExampleModalDrawerRaw from '@examples/components/popover/ExampleModalDrawer.svelte?raw';
 
 ## Floating UI Svelte
 
@@ -77,6 +79,15 @@ Displays a dialog popover for alerts that require immediate attention.
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleModalRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleModalDrawer client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleModalDrawerRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
