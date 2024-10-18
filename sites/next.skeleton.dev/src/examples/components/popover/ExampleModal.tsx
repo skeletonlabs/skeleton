@@ -1,4 +1,4 @@
-// Tutorial: https://floating-ui.com/docs/dialog
+// Based On: https://floating-ui.com/docs/dialog
 
 import React, { useState } from 'react';
 import {
