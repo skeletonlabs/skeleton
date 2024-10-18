@@ -19,14 +19,14 @@ import ExampleModalDrawerRaw from '@examples/components/popover/ExampleModalDraw
 ## Floating UI Svelte
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>Please note that Skeleton will integrate [Floating UI Svelte](https://floating-ui-svelte.vercel.app/), an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this is in development, we have provided several Svelte-specific components as substitutions. Note that these components will be be phased in Skeleton v4.x in favor of Floating UI Svelte primitives.</p>
+	<p>Please note that Skeleton will soon provide an integration guide for [Floating UI Svelte](https://floating-ui-svelte.vercel.app/), an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this is in development, we have provided several Svelte-specific components below to act as temporary substitutions. Note that these components are slated to be phased out in Skeleton v4.x, and will be replaced by Floating UI Svelte primitives similar to our React guide.</p>
 </div>
 
 ## Components
 
 ### Popover
 
-Triggers an anchored popover when you click the trigger button.
+Triggers an anchored popover when you <u>click</u> the trigger element. [View API Reference](https://zagjs.com/components/react/popover#methods-and-properties).
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -40,9 +40,10 @@ Triggers an anchored popover when you click the trigger button.
 	</Fragment>
 </Preview>
 
+
 ### Tooltip
 
-Triggers an anchored popover when you hover the trigger element.
+Triggers an anchored popover when you <u>hover</u> the trigger element. [View API Reference](https://zagjs.com/components/react/tooltip#methods-and-properties).
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -58,7 +59,7 @@ Triggers an anchored popover when you hover the trigger element.
 
 ### Combobox
 
-Triggers an anchored popover list when you tap the arrow icon. Options are auto-suggested via typeahead.
+Triggers an anchored popover list when you tap the arrow. Includes auto-suggestion via typeahead. [View API Reference](https://zagjs.com/components/react/combobox#methods-and-properties).
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -71,7 +72,7 @@ Triggers an anchored popover list when you tap the arrow icon. Options are auto-
 
 ### Modal
 
-Displays a dialog popover for alerts that require immediate attention.
+Generates any form of modal or dialog that require a user's immediate attention. [View API Reference](https://zagjs.com/components/react/dialog#methods-and-properties).
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -93,7 +94,7 @@ Displays a dialog popover for alerts that require immediate attention.
 
 ## Native Browser APIs
 
-Skeleton aims to support native-first options whenever possible and long term we hope to forego third party libraries in favor of native browser APIs. Unfortunately not all APIs required are currently available cross-browser. However, Skeleton does plan to adopt the following as soon as they are readily available.
+Skeleton will always favor native browser APIs over third-party libraries such as Floating UI Svelte. Unfortunately not all required APIs are widely available cross-browser. However, if your audience is limited to Chromium-based browsers, you should be able to support most of these features today.
 
 * [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
 * [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
