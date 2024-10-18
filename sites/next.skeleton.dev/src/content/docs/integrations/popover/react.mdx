@@ -4,20 +4,157 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
+import { Page as ExamplePopover } from '@examples/components/popover/ExamplePopover.tsx';
+import ExamplePopoverRaw from '@examples/components/popover/ExamplePopover.tsx?raw';
+import { Page as ExampleTooltip } from '@examples/components/popover/ExampleTooltip.tsx';
+import ExampleTooltipRaw from '@examples/components/popover/ExampleTooltip.tsx?raw';
+import { Page as ExampleCombobox } from '@examples/components/popover/ExampleCombobox.tsx';
+import ExampleComboboxRaw from '@examples/components/popover/ExampleCombobox.tsx?raw';
+import { Page as ExampleModal } from '@examples/components/popover/ExampleModal.tsx';
+import ExampleModalRaw from '@examples/components/popover/ExampleModal.tsx?raw';
+
 ## Floating UI React
 
-{/* prettier-ignore */}
-<p class="type-scale-5">The goal of [Floating UI](https://floating-ui.com/) is to provide the primitives required to create components for tooltips, popovers, dropdown menus, hover cards, modal dialogs, select menus, comboboxes, and more. Instead of providing any pre-built components, [Floating UI React](https://floating-ui.com/docs/react) provides a streamlined experience for creating common types of popovers. While enabling full control over how these features operate.</p>
-
-<figure class="card-filled-enhanced flex justify-center p-8">
+<figure class="card-filled-enhanced flex justify-center gap-4 p-8">
+	<a href="https://floating-ui.com/" target="_blank" class="btn preset-filled">
+		Floating UI &rarr;
+	</a>
 	<a href="https://floating-ui.com/docs/react" target="_blank" class="btn preset-filled">
-		Official Documentation &rarr;
+		Floating UI React &rarr;
 	</a>
 </figure>
 
-## Integration
+<p class="type-scale-5">[Floating UI](https://floating-ui.com/) provides a variety of primitives for creating tooltips, popovers, dropdown menus, hover cards, modal dialogs, select menus, comboboxes, and more. Instead of providing pre-built components, this guide will introduce the fundamentals of [Floating UI React](https://floating-ui.com/docs/react). Which will enable you to generate popovers of any type, paired with Skeleton design system and components.</p>
 
-> NOTE: the full Floating UI React integration guide is coming soon.
+## Learn the Basics
+
+If this is your first introduction to Floating UI, then we recommend starting here:
+
+* [Floating UI Tutorial](https://floating-ui.com/docs/tutorial) - teaches the basics using native Javascript.
+* [Floating UI React Tutorial](https://floating-ui.com/docs/react) - teaches the basics using the dedicated React package.
+
+---
+
+## Usage
+
+Floating UI React exposes all Floating UI [middleware](https://floating-ui.com/docs/middleware), types, etc.
+
+```ts
+import { useFloating } from '@floating-ui/react';
+```
+
+### Making Elements Float
+
+Common convention is to [generate a custom class]((https://floating-ui.com/docs/tutorial#making-the-tooltip-float)) to append to floating elements. While the class name is up to you, we'll use the following in all Skeleton-specific examples below.
+
+```css
+.floating {
+	width: max-content;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+```
+
+### Z-Index Stacking
+
+Please be aware that Floating UI does not take an opinionated stance on [z-index stacking](https://floating-ui.com/docs/misc#z-index-stacking).
+
+---
+
+## React Examples
+
+The following contains an extensive list of example using Floating UI React.
+
+* [Floating UI React Examples](https://floating-ui.com/docs/react-examples)
+
+## Skeleton Examples
+
+Let's explore how we might integrate Skeleton with Floating UI React primitives.
+
+### Popover
+
+Triggers an anchored popover when you <u>click</u> the trigger element.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExamplePopover client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExamplePopoverRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+### Tooltip
+
+Triggers an anchored popover when you <u>hover</u> the trigger element.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleTooltip client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleTooltipRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+### Combobox
+
+Triggers an anchored popover list on search. Includes autocomplete with automatic selection.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCombobox client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleComboboxRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+### Modal
+
+Generates any form of modal or dialog that require a user's immediate attention.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleModal client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleModalRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+---
+
+## Additional Tips
+
+### Reusable Components
+
+Floating UI React provides guidance for abstracting each of these features to reusable components:
+
+* [Popover Component](https://floating-ui.com/docs/popover#reusable-popover-component)
+* [Tooltip Component](https://floating-ui.com/docs/tooltip#reusable-tooltip-component)
+* [Combobox Component](https://codesandbox.io/p/sandbox/fragrant-water-bsuirj)
+* [Modal Component](https://floating-ui.com/docs/dialog#reusable-dialog-component)
+
+### Accessibility
+
+If you need guidance around a11y, including keyboard interactions, we recommend referencing the ARIA APG.
+
+<figure class="card-filled-enhanced flex justify-center gap-4 p-8">
+	<a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank" class="btn preset-filled">
+		ARIA APG Patterns &rarr;
+	</a>
+</figure>
+
+* [Tooltip Guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)
+* [Combobox Guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
+* [Modal](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
+* [Alert Dialog](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/)
+* [Alert](https://www.w3.org/WAI/ARIA/apg/patterns/alert/)
+* [Listbox Guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/)
+
+---
 
 ## Native Browser APIs
 

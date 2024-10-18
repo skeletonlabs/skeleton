@@ -21,7 +21,7 @@
 	{#snippet content()}
 		<header class="flex justify-between">
 			<p class="font-bold type-scale-5">Popover Example</p>
-			<button class="btn-icon" onclick={popoverClose}><IconX /></button>
+			<button class="btn-icon hover:preset-tonal" onclick={popoverClose}><IconX /></button>
 		</header>
 		<article>
 			<p class="opacity-60">

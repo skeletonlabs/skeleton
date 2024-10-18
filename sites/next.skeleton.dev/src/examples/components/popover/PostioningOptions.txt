@@ -1,3 +1,6 @@
+// Use the following settings to populate the `positioning` component property.
+// See also: https://floating-ui.com/docs/middleware
+
 export type PositioningOptions = {
 	/** Whether the popover should be hidden when the reference element is detached */
     hideWhenDetached?: boolean;
