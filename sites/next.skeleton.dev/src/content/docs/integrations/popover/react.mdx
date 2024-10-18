@@ -24,16 +24,16 @@ import ExampleModalRaw from '@examples/components/popover/ExampleModal.tsx?raw';
 	</a>
 </figure>
 
-<p class="type-scale-5">[Floating UI](https://floating-ui.com/) provides a variety of primitives for creating tooltips, popovers, dropdown menus, hover cards, modal dialogs, select menus, comboboxes, and more. Instead of providing pre-built components, this guide will introduce the fundamentals of [Floating UI React](https://floating-ui.com/docs/react). This provides open-ended tooling for creating popovers of any form factor, and easily pairs with the Skeleton design system and React components.</p>
+<p class="type-scale-5">[Floating UI](https://floating-ui.com/) provides primitives for creating tooltips, popovers, dropdown menus, hover cards, modal dialogs, select menus, comboboxes, and more. Instead of providing pre-built components, this guide will introduce the fundamentals of [Floating UI React](https://floating-ui.com/docs/react). This tool provides an open-ended solution for creating popovers of any form factor, then pairing this with Skeleton's design system and components.</p>
 
 ---
 
 ## Learn the Basics
 
-If this is your first introduction to Floating UI, start here:
+If this is your first time using Floating UI, start here:
 
 * [Floating UI Tutorial](https://floating-ui.com/docs/tutorial) - covers the basics of using native Javascript.
-* [Floating UI React Tutorial](https://floating-ui.com/docs/react) - covers the basics of using the dedicated React wrapper.
+* [Floating UI React Tutorial](https://floating-ui.com/docs/react) - covers the basics of using the React wrapper.
 
 ### Imports
 
@@ -45,7 +45,7 @@ import { useFloating } from '@floating-ui/react';
 
 ### Making Elements Float
 
-Make sure you include this [custom class]((https://floating-ui.com/docs/tutorial#making-the-tooltip-float)) in your global stylesheet. You can append this to each floating element. We'll use the following convention in all Skeleton examples below.
+Make sure you the following [custom class](https://floating-ui.com/docs/tutorial#making-the-tooltip-float) in your global stylesheet. This can then be easily reused for all floating elements. We'll use the following class as the convention for all Skeleton examples below.
 
 ```css
 .floating {
@@ -62,7 +62,7 @@ Please be aware that Floating UI does not take an opinionated stance on [z-index
 
 ### Middlware
 
-[Floating UI Middleware](https://floating-ui.com/docs/middleware) is a set of modules for customizing the look and feel of each popover.
+Make sure you're familiar with [Floating UI Middleware](https://floating-ui.com/docs/middleware), which provides modules for customizing the look and feel of popovers.
 
 ---
 
@@ -157,7 +157,7 @@ Generates any form of modal or dialog that require a user's immediate attention.
 
 ### Reusable Components
 
-The examples above can serve as the foundation for creating your own reusable components.
+Learn how to convert the primitive examples above into reusable components in your application.
 
 * [Popover Component](https://floating-ui.com/docs/popover#reusable-popover-component)
 * [Tooltip Component](https://floating-ui.com/docs/tooltip#reusable-tooltip-component)
@@ -167,7 +167,7 @@ The examples above can serve as the foundation for creating your own reusable co
 
 ### Accessibility
 
-For further assistance around around accessibility and keyboard interactions, reference the ARIA APG.
+When implementing popovers, make sure to account for accessibility requirements and keyboard interactions.
 
 <figure class="card-filled-enhanced flex justify-center gap-4 p-8">
 	<a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank" class="btn preset-filled">

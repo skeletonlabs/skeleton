@@ -51,6 +51,7 @@ export const Page: React.FC = () => {
 			{isOpen && (
 				<FloatingFocusManager context={context} modal={false}>
 					{/* Popover */}
+					{/* Note the use of the `.floating` class here */}
 					<div
 						ref={refs.setFloating}
 						style={floatingStyles}
