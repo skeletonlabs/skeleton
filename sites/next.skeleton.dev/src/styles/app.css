@@ -79,3 +79,27 @@ body {
 .card-filled-enhanced {
 	@apply card preset-filled-primary-500;
 }
+
+/* Floating UI */
+/* https://floating-ui.com/docs/tutorial#making-the-tooltip-float */
+/* https://floating-ui-svelte.vercel.app/docs/getting-started */
+
+.floating {
+	width: max-content;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* useTransition - https://floating-ui.com/docs/useTransition#usetransitionstatus */
+.floating {
+	transition-property: opacity;
+}
+.floating[data-status='open'],
+.floating[data-status='close'] {
+	transition-duration: 250ms;
+}
+.floating[data-status='initial'],
+.floating[data-status='close'] {
+	opacity: 0;
+}

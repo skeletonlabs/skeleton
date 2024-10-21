@@ -26,6 +26,7 @@
 		"@astrojs/react": "^3.6.2",
 		"@astrojs/svelte": "^5.7.0",
 		"@astrojs/tailwind": "^5.1.0",
+		"@floating-ui/react": "^0.26.25",
 		"@nanostores/persistent": "^0.9.1",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",
