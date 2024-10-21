@@ -24,7 +24,7 @@ import ExampleModalRaw from '@examples/components/popover/ExampleModal.tsx?raw';
 	</a>
 </figure>
 
-<p class="type-scale-5">[Floating UI](https://floating-ui.com/) provides primitives for creating tooltips, popovers, dropdown menus, hover cards, modal dialogs, select menus, comboboxes, and more. Instead of providing pre-built components, this guide will introduce the fundamentals of [Floating UI React](https://floating-ui.com/docs/react). This provides an open-ended solution for creating custom popover components of any form factor, paired with Skeleton's design system and components.</p>
+<p class="type-scale-5">[Floating UI](https://floating-ui.com/) provides primitives for creating tooltips, popovers, dropdown menus, hover cards, modal dialogs, select menus, comboboxes, and more. Instead of providing pre-built components, this guide will introduce the fundamentals of [Floating UI React](https://floating-ui.com/docs/react). This provides an open-ended solution for creating your own popover features and components for any form factor - while pairing with Skeleton's design system and components.</p>
 
 ---
 
@@ -45,7 +45,7 @@ import { useFloating } from '@floating-ui/react';
 
 ### Making Elements Float
 
-Make sure you the following [custom class](https://floating-ui.com/docs/tutorial#making-the-tooltip-float) in your global stylesheet. This can then be easily reused for all floating elements. We'll use the following class as the convention for all Skeleton examples below.
+You'll need a dedicated [CSS class](https://floating-ui.com/docs/tutorial#making-the-tooltip-float) to apply common styles to all floating elements. Apply the following in your global stylesheet. We'll use the following class convention for all Skeleton examples.
 
 ```css
 .floating {
@@ -58,17 +58,17 @@ Make sure you the following [custom class](https://floating-ui.com/docs/tutorial
 
 ### Z-Index Stacking
 
-Please be aware that Floating UI does not take an opinionated stance on [z-index stacking](https://floating-ui.com/docs/misc#z-index-stacking).
+Please be aware that Floating UI does not take an opinionated stance on [z-index stacking](https://floating-ui.com/docs/misc#z-index-stacking). This means that if a floating element is occluded by another element in the z-axis, you must handle this directly.
 
-### Middlware
+### Middleware
 
-Make sure you're familiar with [Floating UI Middleware](https://floating-ui.com/docs/middleware), which provides modules for customizing the look and feel of popovers.
+Make sure you're familiar all available [Floating UI Middleware](https://floating-ui.com/docs/middleware), which provides modules for customizing the look and feel of popovers.
 
 ---
 
 ## Examples
 
-Floating UI React provides an extensive set of [React examples](https://floating-ui.com/docs/react-examples). These serve as the foundation for integrating Skeleton.
+Floating UI React provides an extensive set of headless [React examples](https://floating-ui.com/docs/react-examples). We'll use these as the foundation for at the following set of examples that fully integrate Skeleton. See the official Floating UI React documentation for a complete [API Reference](https://floating-ui.com/docs/usefloating).
 
 ### Popover
 
@@ -124,40 +124,11 @@ Generates any form of modal or dialog that require a user's immediate attention.
 
 ---
 
-## API Reference
-
-| Framework | Description | |
-|---|---|---|
-| `useFloating` | The main Hook of the library that acts as a controller for all other Hooks and components. | [View](https://floating-ui.com/docs/useFloating) |
-| `useInteractions` | A hook to merge or compose interaction event handlers together, preserving memoization. | [View](https://floating-ui.com/docs/useInteractions) |
-| `useHover` | Opens the floating element while hovering over the reference element, like CSS `:hover`. | [View](https://floating-ui.com/docs/useHover) |
-| `useFocus` | Opens the floating element while the reference element has focus, like CSS `:focus`. | [View](https://floating-ui.com/docs/useFocus) |
-| `useClick` | Opens or closes the floating element when clicking the reference element. | [View](https://floating-ui.com/docs/useClick) |
-| `useRole` | Adds base screen reader props to the reference and floating elements for a given `role`. | [View](https://floating-ui.com/docs/useRole) |
-| `useDismiss` | Closes the floating element when a dismissal is requested — by default, when the user presses the `escape` key or outside of the floating element with their pointer. | [View](https://floating-ui.com/docs/useDismiss) |
-| `useListNavigation` | Adds arrow key-based navigation of a list of items, either using real DOM focus or virtual focus. | [View](https://floating-ui.com/docs/useListNavigation) |
-| `useTypeahead` | Provides a matching callback that can be used to focus an item as the user types, used in tandem with `useListNavigation()`. | [View](https://floating-ui.com/docs/useTypeahead) |
-| `useTransition` | Provides the ability to apply CSS transitions to a floating element, including correct handling of “placement-aware” transitions. | [View](https://floating-ui.com/docs/useTransition) |
-| `useClientPoint` | Positions the floating element at a given client point `(x, y)`, usually generated by a mouse event. By default, the client’s mouse position is automatically tracked. | [View](https://floating-ui.com/docs/useClientPoint) |
-| `FloatingArrow` | Renders a customizable `<svg>` pointing arrow triangle inside the floating element that gets automatically positioned. | [View](https://floating-ui.com/docs/FloatingArrow) |
-| `FloatingFocusManager` | Provides flexible modal or non-modal focus management for a floating element. Modal behavior is the default — focus is fully trapped inside the floating element while it is rendered. | [View](https://floating-ui.com/docs/FloatingFocusManager) |
-| `FloatingPortal` | Portals the floating element into a given container element — by default, outside of the app root and into the body. | [View](https://floating-ui.com/docs/FloatingPortal) |
-| `FloatingTree` | Provides context for nested floating elements when they are not children of each other on the DOM. | [View](https://floating-ui.com/docs/FloatingTree) |
-| `FloatingOverlay` | Provides base styling for a fixed overlay element. | [View](https://floating-ui.com/docs/FloatingOverlay) |
-| `FloatingList` | Provides the ability to create composable children APIs for list components | [View](https://floating-ui.com/docs/FloatingList) |
-| `FloatingDelayGroup` | Provides context for a group of floating elements that should share a `delay` which temporarily becomes `1` ms after the first floating element of the group opens. | [View](https://floating-ui.com/docs/FloatingDelayGroup) |
-| `Composite` | Creates a single tab stop whose items are navigated by arrow keys, which provides list navigation outside of floating element contexts. | [View](https://floating-ui.com/docs/Composite) |
-| `Inner` | Positions the floating element such that an inner element inside of it is anchored to the reference element, while handling scroll and overflow behavior. | [View](https://floating-ui.com/docs/inner) |
-| `React Utils` | Merges an array of refs, returning a memoized callback `ref` or `null`. | [View](https://floating-ui.com/docs/react-utils) |
-| `Custom Hooks` | You can build your own custom Hook to perform unique logic that is not currently exported by the library. | [View](https://floating-ui.com/docs/custom-hooks) |
-
----
-
 ## Additional Tips
 
 ### Reusable Components
 
-Learn how to convert the primitive examples above into reusable components in your application.
+See tips for convert the primitive examples above into reusable components in your local project.
 
 * [Popover Component](https://floating-ui.com/docs/popover#reusable-popover-component)
 * [Tooltip Component](https://floating-ui.com/docs/tooltip#reusable-tooltip-component)
@@ -167,7 +138,7 @@ Learn how to convert the primitive examples above into reusable components in yo
 
 ### Accessibility
 
-When implementing popovers, make sure to account for accessibility requirements and keyboard interactions.
+When implementing popovers, make sure to account for accessibility and keyboard interactions. Floating UI React provides a number of hooks and components to help facilitate all requirements.
 
 <figure class="card-filled-enhanced flex justify-center gap-4 p-8">
 	<a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank" class="btn preset-filled">
@@ -186,7 +157,7 @@ When implementing popovers, make sure to account for accessibility requirements 
 
 ## Native Browser APIs
 
-Skeleton will always favor native browser APIs over third-party libraries such as Floating UI React. Unfortunately not all required APIs are widely available cross-browser. However, if your audience is limited to Chromium-based browsers, you should be able to support most of these features today.
+Skeleton will always favor native browser APIs over third-party libraries such as Floating UI Svelte. The following is a list of current and upcoming incoming APIs we will aim to support in the future, but are not quite standardized cross-browser yet.
 
 * [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
 * [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
