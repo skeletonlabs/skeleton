@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.11
+
+### Minor Changes
+
+- feature: Implemented the Svelte components for Popover, Tooltip, Combobox, and Modal. ([#2872](https://github.com/skeletonlabs/skeleton/pull/2872))
+
 ## 1.0.0-next.10
 
 ### Patch Changes
