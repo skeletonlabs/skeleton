@@ -2,15 +2,18 @@ packages:
   - 'packages/*'
   - 'sites/*'
 
-define: &zag_version '^0.65.1'
+define: &zag_version '^0.75.0'
 
 catalog:
   '@zag-js/svelte': *zag_version
   '@zag-js/react': *zag_version
   '@zag-js/accordion': *zag_version
   '@zag-js/avatar': *zag_version
+  '@zag-js/combobox': *zag_version
+  '@zag-js/dialog': *zag_version
   '@zag-js/file-upload': *zag_version
   '@zag-js/pagination': *zag_version
+  '@zag-js/popover': *zag_version
   '@zag-js/progress': *zag_version
   '@zag-js/radio-group': *zag_version
   '@zag-js/rating-group': *zag_version
@@ -18,4 +21,5 @@ catalog:
   '@zag-js/switch': *zag_version
   '@zag-js/tabs': *zag_version
   '@zag-js/tags-input': *zag_version
-  typescript: '^5.5.4'
+  '@zag-js/tooltip': *zag_version
+  typescript: '^5.6.3'
