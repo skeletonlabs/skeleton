@@ -43,7 +43,7 @@
 	}: ComboboxProps = $props();
 
 	// Zag
-	let options = $state.frozen(data);
+	let options = $state.raw(data);
 	const collection = combobox.collection({
 		items: data,
 		// Map data structure
