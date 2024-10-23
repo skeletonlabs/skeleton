@@ -10,7 +10,7 @@
 	// Icons
 	import IconUpload from 'lucide-svelte/icons/file-up';
 	import IconFile from 'lucide-svelte/icons/paperclip';
-	import IconRemove from 'lucide-svelte/icons/x-circle';
+	import IconRemove from 'lucide-svelte/icons/circle-x';
 
 	function onSelectTemplate(name: string) {
 		// Run template import

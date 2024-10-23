@@ -15,7 +15,7 @@
 	import IconBackgrounds from 'lucide-svelte/icons/layers-2';
 	import IconTypography from 'lucide-svelte/icons/a-large-small';
 	import IconSpacing from 'lucide-svelte/icons/scaling';
-	import IconEdges from 'lucide-svelte/icons/box-select';
+	import IconEdges from 'lucide-svelte/icons/square-dashed';
 	import IconOpen from 'lucide-svelte/icons/chevron-up';
 	import IconClosed from 'lucide-svelte/icons/chevron-down';
 
