@@ -33,7 +33,6 @@
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",
 	"devDependencies": {
-		"@types/node": "22.7.9",
 		"@types/postcss-import": "^14.0.3",
 		"postcss": "8.4.47",
 		"postcss-import": "16.1.0",
