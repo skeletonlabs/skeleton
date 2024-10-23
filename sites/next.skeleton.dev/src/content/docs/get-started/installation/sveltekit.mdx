@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: SvelteKit
-description: Install and configure SvelteKit.
+description: Install and configure Skeleton for SvelteKit.
 order: 10
 ---
 
@@ -12,47 +12,36 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 
 {/* --- */}
 
-<div class="card preset-tonal-error grid grid-cols-1 items-center gap-4 p-8 py-6 lg:grid-cols-[1fr_auto]">
-	<p>
-		WARNING: This will install an early preview build of Skeleton v3 using Svelte 5. Please be aware that some features may be missing,
-		incomplete, or non-functional at this time. Report bugs and issues to GitHub or Discord.
-	</p>
+<div class="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
+	<p>WARNING: The following guide will install the <u>Skeleton v3 Beta</u> using the Svelte CLI. Please be aware that some features may be missing, incomplete, or non-functional at this time. Please report bugs and issues on GitHub or Discord.</p>
 </div>
 
 <Process>
     <ProcessStep step="1">
         ## Create a Project
-        Start by creating a new Svelte 5 project using `create-svelte`:
+        Start by creating a new Svelte 5 project using `sv` (the Svelte CLI):
+		> NOTE: make sure to select `tailwind` when prompted!
         ```console
-        npm create svelte@latest my-skeleton-app
-            - Addtional Options > Svelte 5 Preview (required!)
-        cd my-skeleton-app
-        npm install
+        npx sv create my-skeleton-app
+		cd my-skeleton-app
+		npm install
         ```
     </ProcessStep>
     <ProcessStep step="2">
         ## Install Skeleton
-        Install the Skeleton core and Skeleton Svelte packages.
+        Install the Skeleton core and Svelte component packages.
         ```console
         npm i -D @skeletonlabs/skeleton@next @skeletonlabs/skeleton-svelte@next
         ```
     </ProcessStep>
     <ProcessStep step="3">
-        ## Install Tailwind
-        Install Tailwind using [Svelte-Add](https://svelte-add.com/) to automate the process.
-        ```console
-        npx svelte-add@latest tailwindcss --tailwindcss-typography false
-        ```
-        > NOTE: if you see "something went wrong", everything will work as expected. Please proceed to the next step.
-    </ProcessStep>
-    <ProcessStep step="4">
         ## Configure Tailwind
         You may optionally install the `@types/node` package to prevent LSP errors in your Tailwind config.
         ```console
         npm i --save-dev @types/node
         ```
         Open `tailwind.config` in the root of your project and make these changes:
-        ```js title="tailwind.config" {3-5, 11, 17-19}
+        ```js title="tailwind.config" {3-5, 11, 17-20}
         import type { Config } from 'tailwindcss';
 
         import { join } from 'path';
@@ -70,13 +59,14 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
             },
             plugins: [
                 skeleton({
+                    // NOTE: each theme included will be added to your CSS bundle
                     themes: [ themes.cerberus, themes.rose ]
                 })
             ]
         }
         ```
     </ProcessStep>
-    <ProcessStep step="5">
+    <ProcessStep step="4">
         ## Set Active Theme
         Open `/src/app.html`, then set the `data-theme` attribute on the body to define the active theme.
         ```html title="app.html"
@@ -84,8 +74,11 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         ```
     </ProcessStep>
     <ProcessStep step="check">
-        ## Ready
-        You're now ready to begin using Skeleton.
+        ## Done
+        Start the dev server using the following command.
+		```console
+		npm run dev
+        ```
     </ProcessStep>
 
 </Process>
