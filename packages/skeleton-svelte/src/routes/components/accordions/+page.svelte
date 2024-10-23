@@ -30,7 +30,7 @@
 			{#each exampleItems as item, i}
 				<Accordion.Item value={item.value}>
 					{#snippet lead()}
-						<svelte:component this={item.icon} />
+						<item.icon></item.icon>
 					{/snippet}
 					{#snippet control()}
 						{item.title}
@@ -50,7 +50,7 @@
 			{#each exampleItems as item, i}
 				<Accordion.Item value={item.value}>
 					{#snippet lead()}
-						<svelte:component this={item.icon} />
+						<item.icon></item.icon>
 					{/snippet}
 					{#snippet control()}
 						{item.title}
@@ -70,7 +70,7 @@
 			{#each exampleItems as item, i}
 				<Accordion.Item value={item.value}>
 					{#snippet lead()}
-						<svelte:component this={item.icon} />
+						<item.icon></item.icon>
 					{/snippet}
 					{#snippet control()}
 						{item.title}
