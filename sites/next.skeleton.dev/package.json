@@ -50,8 +50,7 @@
 	"devDependencies": {
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
-		"@types/node": "^22.7.9",
-		"minimatch": "^10.0.1",
+		"minimatch": "^9.0.5",
 		"pagefind": "^1.1.1",
 		"vite-plugin-pagefind": "^0.2.10",
 		"vite-plugin-tw-plugin-watcher": "workspace:*"

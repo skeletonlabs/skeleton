@@ -539,12 +539,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.14(ts-node@10.9.2(@types/node@22.7.9)(typescript@5.6.3)))
-      '@types/node':
-        specifier: ^22.7.9
-        version: 22.7.9
       minimatch:
-        specifier: ^10.0.1
-        version: 10.0.1
+        specifier: ^9.0.5
+        version: 9.0.5
       pagefind:
         specifier: ^1.1.1
         version: 1.1.1
@@ -599,7 +596,7 @@ importers:
         version: 5.0.0-next.251
       svelte-check:
         specifier: ^3.8.6
-        version: 3.8.6(@babel/core@7.25.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(svelte@5.0.0-next.251)
+        version: 3.8.6(@babel/core@7.25.9)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(svelte@5.0.0-next.251)
       tailwindcss:
         specifier: ^3.4.12
         version: 3.4.14(ts-node@10.9.2(@types/node@22.7.9)(typescript@5.6.3))
@@ -4572,10 +4569,6 @@ packages:
   mini-svg-data-uri@1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
-
-  minimatch@10.0.1:
-    resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
-    engines: {node: 20 || >=22}
 
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -11582,10 +11575,6 @@ snapshots:
 
   mini-svg-data-uri@1.4.4: {}
 
-  minimatch@10.0.1:
-    dependencies:
-      brace-expansion: 2.0.1
-
   minimatch@3.1.2:
     dependencies:
       brace-expansion: 1.1.11
@@ -12838,14 +12827,14 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-check@3.8.6(@babel/core@7.25.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(svelte@5.0.0-next.251):
+  svelte-check@3.8.6(@babel/core@7.25.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(svelte@5.0.5):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 3.6.0
       picocolors: 1.1.1
       sade: 1.8.1
-      svelte: 5.0.0-next.251
-      svelte-preprocess: 5.1.4(@babel/core@7.25.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(svelte@5.0.0-next.251)(typescript@5.6.3)
+      svelte: 5.0.5
+      svelte-preprocess: 5.1.4(@babel/core@7.25.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(svelte@5.0.5)(typescript@5.6.3)
       typescript: 5.6.3
     transitivePeerDependencies:
       - '@babel/core'
@@ -12858,14 +12847,14 @@ snapshots:
       - stylus
       - sugarss
 
-  svelte-check@3.8.6(@babel/core@7.25.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(svelte@5.0.5):
+  svelte-check@3.8.6(@babel/core@7.25.9)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(svelte@5.0.0-next.251):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 3.6.0
       picocolors: 1.1.1
       sade: 1.8.1
-      svelte: 5.0.5
-      svelte-preprocess: 5.1.4(@babel/core@7.25.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(svelte@5.0.5)(typescript@5.6.3)
+      svelte: 5.0.0-next.251
+      svelte-preprocess: 5.1.4(@babel/core@7.25.9)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(svelte@5.0.0-next.251)(typescript@5.6.3)
       typescript: 5.6.3
     transitivePeerDependencies:
       - '@babel/core'
@@ -12900,20 +12889,6 @@ snapshots:
     optionalDependencies:
       svelte: 5.0.5
 
-  svelte-preprocess@5.1.4(@babel/core@7.25.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(svelte@5.0.0-next.251)(typescript@5.6.3):
-    dependencies:
-      '@types/pug': 2.0.10
-      detect-indent: 6.1.0
-      magic-string: 0.30.12
-      sorcery: 0.11.1
-      strip-indent: 3.0.0
-      svelte: 5.0.0-next.251
-    optionalDependencies:
-      '@babel/core': 7.25.9
-      postcss: 8.4.47
-      postcss-load-config: 5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)
-      typescript: 5.6.3
-
   svelte-preprocess@5.1.4(@babel/core@7.25.9)(postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1))(postcss@8.4.47)(svelte@5.0.5)(typescript@5.6.3):
     dependencies:
       '@types/pug': 2.0.10
@@ -12922,6 +12897,20 @@ snapshots:
       sorcery: 0.11.1
       strip-indent: 3.0.0
       svelte: 5.0.5
+    optionalDependencies:
+      '@babel/core': 7.25.9
+      postcss: 8.4.47
+      postcss-load-config: 5.1.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)
+      typescript: 5.6.3
+
+  svelte-preprocess@5.1.4(@babel/core@7.25.9)(postcss-load-config@5.1.0(postcss@8.4.47))(postcss@8.4.47)(svelte@5.0.0-next.251)(typescript@5.6.3):
+    dependencies:
+      '@types/pug': 2.0.10
+      detect-indent: 6.1.0
+      magic-string: 0.30.12
+      sorcery: 0.11.1
+      strip-indent: 3.0.0
+      svelte: 5.0.0-next.251
     optionalDependencies:
       '@babel/core': 7.25.9
       postcss: 8.4.47
