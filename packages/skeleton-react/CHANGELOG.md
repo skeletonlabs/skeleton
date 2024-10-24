@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.9
+
+### Minor Changes
+
+- chore: Updated to the latest dependencies ([#2892](https://github.com/skeletonlabs/skeleton/pull/2892))
+
 ## 1.0.0-next.8
 
 ### Patch Changes
