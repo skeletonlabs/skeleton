@@ -21,7 +21,7 @@ export default {
 		forms,
 		// typography,
 		skeleton({
-			themes: Object.values(themes)
+			themes: Object.values(themes) // all available themes
 		})
 	]
 };

@@ -1,22 +1,18 @@
+<!-- Root Layout -->
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	import '../app.pcss';
-	import { genCssCode } from '$lib/generator.svelte';
-	import type { Snippet } from 'svelte';
 
-	let {
-		children
-	}: {
-		children: Snippet;
-	} = $props();
+	let { children } = $props();
 
-	// FIXME: this will need a major refactor
-	let cssCode = $derived(genCssCode());
+	$effect(() => {
+		// Sets <body data-theme> based on active route
+		// Prevents generator CSS property precedence issues.
+		$page.url.pathname === '/themes/create'
+			? document.body.setAttribute('data-theme', 'generated')
+			: document.body.setAttribute('data-theme', 'cerberus');
+	});
 </script>
-
-<!-- Live Preview CSS -->
-<svelte:head>
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html `\<style\>${cssCode}\</style\>`}
-</svelte:head>
 
 {@render children?.()}

@@ -3,7 +3,6 @@ import type { Theme } from './index.js';
 const pine = {
 	name: 'pine',
 	properties: {
-		'--space-scale-factor': '1.0',
 		'--type-scale-factor': '1.0',
 		'--type-scale-1': 'calc(0.75rem * var(--type-scale-factor))',
 		'--type-scale-2': 'calc(0.875rem * var(--type-scale-factor))',
@@ -20,19 +19,19 @@ const pine = {
 		'--type-scale-13': 'calc(8rem * var(--type-scale-factor))',
 		'--base-font-color': 'var(--color-surface-950)',
 		'--base-font-color-dark': 'var(--color-surface-50)',
-		'--base-font-family': 'Rockwell, Rockwell Nova, Roboto Slab, DejaVu Serif, Sitka Small, serif',
-		'--base-font-size': '20px',
-		'--base-line-height': '32px',
+		'--base-font-family': 'Superclarendon, Bookman Old Style, URW Bookman, URW Bookman L, Georgia Pro, Georgia, serif',
+		'--base-font-size': 'inherit',
+		'--base-line-height': 'inherit',
 		'--base-font-weight': 'normal',
 		'--base-font-style': 'normal',
 		'--base-letter-spacing': '0em',
 		'--heading-font-color': 'var(--color-primary-800)',
 		'--heading-font-color-dark': 'var(--color-primary-300)',
-		'--heading-font-family': 'Rockwell, Rockwell Nova, Roboto Slab, DejaVu Serif, Sitka Small, serif',
-		'--heading-font-weight': 'bold',
+		'--heading-font-family': 'Superclarendon, Bookman Old Style, URW Bookman, URW Bookman L, Georgia Pro, Georgia, serif',
+		'--heading-font-weight': 'inherit',
 		'--heading-font-style': 'normal',
 		'--heading-letter-spacing': 'inherit',
-		'--anchor-font-color': 'var(--color-secondary-500)',
+		'--anchor-font-color': 'var(--color-secondary-400)',
 		'--anchor-font-color-dark': 'var(--color-secondary-100)',
 		'--anchor-font-family': 'inherit',
 		'--anchor-font-size': 'inherit',
@@ -44,14 +43,15 @@ const pine = {
 		'--anchor-text-decoration-hover': 'underline',
 		'--anchor-text-decoration-active': 'none',
 		'--anchor-text-decoration-focus': 'none',
-		'--body-background-color': 'var(--color-surface-50)',
-		'--body-background-color-dark': 'var(--color-surface-950)',
+		'--space-scale-factor': '1.0',
 		'--radii-default': '2px',
 		'--radii-container': '2px',
 		'--border-width-default': '1px',
-		'--ring-width-default': '1px',
-		'--outline-width-default': '1px',
 		'--divide-width-default': '1px',
+		'--outline-width-default': '1px',
+		'--ring-width-default': '1px',
+		'--body-background-color': 'var(--color-surface-50)',
+		'--body-background-color-dark': 'var(--color-surface-950)',
 		'--color-primary-50': '251 232 208',
 		'--color-primary-100': '233 211 181',
 		'--color-primary-200': '215 191 154',
@@ -220,7 +220,8 @@ const pine = {
 		'--color-surface-contrast-800': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
 		'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
-	}
+	},
+	metadata: { version: '3.0.0', emoji: '🌲' }
 } satisfies Theme;
 
 export default pine;

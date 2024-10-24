@@ -58,7 +58,7 @@
 /* Blockquote --- */
 
 .blockquote {
-	@apply border-l-surface-300 dark:border-l-surface-700 border-l pl-4 italic;
+	@apply border-l-surface-300 dark:border-l-surface-700 border-l-[1px] pl-4 italic;
 }
 
 /* Keyboard --- */

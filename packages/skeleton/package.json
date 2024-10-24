@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton",
-	"version": "3.0.0-next.4",
+	"version": "3.0.0-next.5",
 	"description": "Core plugin for Skeleton.",
 	"scripts": {
 		"build": "pnpm build:jss && tsup",
@@ -33,20 +33,19 @@
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",
 	"devDependencies": {
-		"@types/node": "18.16.16",
 		"@types/postcss-import": "^14.0.3",
-		"postcss": "8.4.24",
-		"postcss-import": "15.1.0",
-		"postcss-load-config": "4.0.1",
-		"tailwindcss": "3.4.1",
-		"tslib": "2.5.3",
-		"tsup": "^6.7.0",
-		"tsx": "^4.16.2",
+		"postcss": "8.4.47",
+		"postcss-import": "16.1.0",
+		"postcss-load-config": "6.0.1",
+		"tailwindcss": "3.4.14",
+		"tslib": "2.8.0",
+		"tsup": "^8.3.0",
+		"tsx": "^4.19.1",
 		"typescript": "catalog:"
 	},
 	"dependencies": {
 		"postcss-js": "4.0.1",
-		"postcss-selector-parser": "^6.1.1"
+		"postcss-selector-parser": "^7.0.0"
 	},
 	"peerDependencies": {
 		"tailwindcss": ">=3.0.0"

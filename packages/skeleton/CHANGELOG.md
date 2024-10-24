@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.0.0-next.5
+
+### Patch Changes
+
+- chore: Modified default styles based on theme gen improvements ([#2852](https://github.com/skeletonlabs/skeleton/pull/2852))
+
 ## 3.0.0-next.4
 
 ### Patch Changes
