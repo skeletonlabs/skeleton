@@ -1,0 +1,164 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import { Page as ExamplePopover } from '@examples/components/popover/ExamplePopover.tsx';
+import ExamplePopoverRaw from '@examples/components/popover/ExamplePopover.tsx?raw';
+import { Page as ExampleTooltip } from '@examples/components/popover/ExampleTooltip.tsx';
+import ExampleTooltipRaw from '@examples/components/popover/ExampleTooltip.tsx?raw';
+import { Page as ExampleCombobox } from '@examples/components/popover/ExampleCombobox.tsx';
+import ExampleComboboxRaw from '@examples/components/popover/ExampleCombobox.tsx?raw';
+import { Page as ExampleModal } from '@examples/components/popover/ExampleModal.tsx';
+import ExampleModalRaw from '@examples/components/popover/ExampleModal.tsx?raw';
+
+## Floating UI React
+
+<figure class="card-filled-enhanced flex justify-center gap-4 p-8">
+	<a href="https://floating-ui.com/" target="_blank" class="btn preset-filled">
+		Floating UI &rarr;
+	</a>
+	<a href="https://floating-ui.com/docs/react" target="_blank" class="btn preset-filled">
+		Floating UI React &rarr;
+	</a>
+</figure>
+
+<p class="type-scale-5">[Floating UI](https://floating-ui.com/) provides primitives for creating tooltips, popovers, dropdown menus, hover cards, modal dialogs, select menus, comboboxes, and more. Instead of providing pre-built components, this guide will introduce the fundamentals of [Floating UI React](https://floating-ui.com/docs/react). This provides an open-ended solution for creating your own popover features and components for any form factor - while pairing with Skeleton's design system and components.</p>
+
+---
+
+## Learn the Basics
+
+If this is your first time using Floating UI, start here:
+
+* [Floating UI Tutorial](https://floating-ui.com/docs/tutorial) - covers the basics of using native Javascript.
+* [Floating UI React Tutorial](https://floating-ui.com/docs/react) - covers the basics of using the React wrapper.
+
+### Imports
+
+Floating UI React exposes all required Floating UI middleware, types, etc.
+
+```ts
+import { useFloating } from '@floating-ui/react';
+```
+
+### Making Elements Float
+
+You'll need a dedicated [CSS class](https://floating-ui.com/docs/tutorial#making-the-tooltip-float) to apply common styles to all floating elements. Apply the following in your global stylesheet. We'll use the following class convention for all Skeleton examples.
+
+```css
+.floating {
+	width: max-content;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+```
+
+### Z-Index Stacking
+
+Please be aware that Floating UI does not take an opinionated stance on [z-index stacking](https://floating-ui.com/docs/misc#z-index-stacking). This means that if a floating element is occluded by another element in the z-axis, you must handle this directly.
+
+### Middleware
+
+Make sure you're familiar all available [Floating UI Middleware](https://floating-ui.com/docs/middleware), which provides modules for customizing the look and feel of popovers.
+
+---
+
+## Examples
+
+Floating UI React provides an extensive set of headless [React examples](https://floating-ui.com/docs/react-examples). We'll use these as the foundation for at the following set of examples that fully integrate Skeleton. See the official Floating UI React documentation for a complete [API Reference](https://floating-ui.com/docs/usefloating).
+
+### Popover
+
+Triggers an anchored popover when you <u>click</u> the trigger element.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExamplePopover client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExamplePopoverRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+### Tooltip
+
+Triggers an anchored popover when you <u>hover</u> the trigger element.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleTooltip client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleTooltipRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+### Combobox
+
+Triggers an anchored popover list on search. Includes autocomplete with automatic selection.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCombobox client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleComboboxRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+### Modal
+
+Generates any form of modal or dialog that require a user's immediate attention.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleModal client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleModalRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+---
+
+## Additional Tips
+
+### Reusable Components
+
+See tips for convert the primitive examples above into reusable components in your local project.
+
+* [Popover Component](https://floating-ui.com/docs/popover#reusable-popover-component)
+* [Tooltip Component](https://floating-ui.com/docs/tooltip#reusable-tooltip-component)
+* [Combobox Component](https://codesandbox.io/p/sandbox/fragrant-water-bsuirj)
+* [Modal Component](https://floating-ui.com/docs/dialog#reusable-dialog-component)
+* [More...](https://floating-ui.com/docs/react-examples#other)
+
+### Accessibility
+
+When implementing popovers, make sure to account for accessibility and keyboard interactions. Floating UI React provides a number of hooks and components to help facilitate all requirements.
+
+<figure class="card-filled-enhanced flex justify-center gap-4 p-8">
+	<a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank" class="btn preset-filled">
+		ARIA APG Patterns &rarr;
+	</a>
+</figure>
+
+* [Tooltip Guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)
+* [Combobox Guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
+* [Modal Guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
+* [Alert Dialog Guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/)
+* [Alert Guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/alert/)
+* [Listbox Guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/)
+
+---
+
+## Native Browser APIs
+
+Skeleton will always favor native browser APIs over third-party libraries such as Floating UI Svelte. The following is a list of current and upcoming incoming APIs we will aim to support in the future, but are not quite standardized cross-browser yet.
+
+* [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
+* [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
+* [CSS Anchoring Position](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning)

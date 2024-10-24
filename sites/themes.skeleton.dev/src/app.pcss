@@ -1,24 +1,22 @@
-/* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html,
 body {
-	@apply h-full overflow-hidden;
+	@apply h-full;
 }
 
-/* Typography --- */
-
-.text-soft {
-	@apply type-scale-1 opacity-60;
+/* Background Image */
+.bg-gradient-skeleton {
+	background-image: radial-gradient(at 20% 100%, rgba(var(--color-secondary-500) / 0.1) 0px, transparent 40%),
+		radial-gradient(at 75% 75%, rgba(var(--color-primary-500) / 0.1) 0px, transparent 50%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
+
 .label-text {
-	@apply text-soft mb-2;
-}
-
-/* Utility Classes */
-
-.scrollbar-gutter-stable {
-	scrollbar-gutter: stable;
+	@apply opacity-60;
 }

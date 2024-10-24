@@ -5,7 +5,7 @@ type PreviewProps = { selected: 'preview' | 'code'; preview: React.ReactNode; co
 /** Create preview/code tabs for showcasing features. */
 export const Preview: React.FC<PreviewProps> = (props) => {
 	const [selected, setSelected] = React.useState(props.selected || 'preview');
-	const cTab = 'border-b border-transparent pb-2 hover:[&>span]:preset-tonal-primary';
+	const cTab = 'border-b-[1px] border-transparent pb-2 hover:[&>span]:preset-tonal-primary';
 	const cTabControl = 'block p-2 px-4 capitalize rounded-container';
 	const cTabActive = '!border-surface-950-50';
 
@@ -17,7 +17,7 @@ export const Preview: React.FC<PreviewProps> = (props) => {
 		// TODO: fix this top margin due to generate script tags
 		<div className="mt-4 space-y-4">
 			{/* Tabs */}
-			<nav className="border-surface-200-800 flex gap-4 border-b">
+			<nav className="border-b-[1px] border-surface-200-800 flex gap-4">
 				<button className={`${cTab} ${selectedClass('preview')}`} onClick={() => setSelected('preview')}>
 					<span className={`${cTabControl}`}>Preview</span>
 				</button>
@@ -26,9 +26,7 @@ export const Preview: React.FC<PreviewProps> = (props) => {
 				</button>
 			</nav>
 			{/* Panel: Preview */}
-			<div className={`card-enhanced-outlined ${selected !== 'preview' && '!hidden'}`}>
-				<div className="card-enhanced-outlined-inner flex justify-center items-center p-8">{props.preview}</div>
-			</div>
+			<div className={`card-enhanced flex justify-center items-center p-8 ${selected !== 'preview' && '!hidden'}`}>{props.preview}</div>
 			{/* Panel: Codeblock */}
 			<div className={`w-full max-w-full ${selected === 'code' ? 'block' : 'hidden'}`}>{props.code}</div>
 		</div>
