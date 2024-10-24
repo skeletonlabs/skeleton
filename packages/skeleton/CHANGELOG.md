@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.0.0-next.6
+
+### Minor Changes
+
+- chore: Updated to the latest dependencies ([#2892](https://github.com/skeletonlabs/skeleton/pull/2892))
+
 ## 3.0.0-next.5
 
 ### Patch Changes
