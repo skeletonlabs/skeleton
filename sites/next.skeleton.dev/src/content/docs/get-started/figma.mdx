@@ -10,12 +10,23 @@ import Check  from 'lucide-svelte/icons/check';
 
 export const components = componentSet;
 
-<a
+
+
+<div
+  class="card flex flex-row justify-between preset-tonal-primary p-4 px-6 items-center"
+>
+  <div className="flex flex-row gap-4 items-center">
+    <div className="flex flex-col gap-1">
+      <h6 className="h6">Figma UI kit for Skeleton</h6>
+    </div>
+  </div>
+  <a
     class="btn preset-filled-primary-500 flex items-center gap-2 whitespace-nowrap"
     href="#get-access"
   >
     Get Access
   </a>
+</div>
 
 ![01_figmaHero.png](/src/content/docs/get-started/assets/01_figmaHero.png)
 
@@ -31,6 +42,8 @@ Import your custom Skeleton Theme with our Figma plugin and let it shine in your
 
 ## Learn step by step how to use Figma together with Skeleton.
 From setting-up Skeleton in Figma to creating wireframes and pixel perfect design, we cover your back.
+
+![04_tutorials.png](/src/content/docs/get-started/assets/04_tutorials.png)
 
 ## Get Access
 Support the development of Skeleton by purchasing the Figma UI Kit!
@@ -96,10 +109,10 @@ Support the development of Skeleton by purchasing the Figma UI Kit!
     </div>
   </div>
 
-  <div class="flex flex-col bg-surface-50-950 w-full border-l">
-    <div class="flex flex-col gap-1 p-8 border-t md:border-t-0 border-b">
+  <div class="flex flex-col bg-surface-50-950 w-full border-l border-surface-200-800">
+    <div class="flex flex-col gap-1 p-8 border-t md:border-t-0 border-b border-surface-200-800">
       <span class="text-xl font-semibold">Individual Plan</span>
-      <p class="text-sm text-surface-400-600 pb-12">License for 1 person</p>
+      <p class="text-sm text-surface-600-400 pb-12">License for 1 person</p>
 
       <div class="flex flex-row justify-between">
         <div class="flex flex-row gap-1 items-end">
@@ -114,6 +127,7 @@ Support the development of Skeleton by purchasing the Figma UI Kit!
         </a>
       </div>
     </div>
+
 
     <div class="flex flex-col gap-1 p-8">
       <span class="text-xl font-semibold">Team Plan</span>
@@ -152,5 +166,3 @@ Your purchase helps ensure continued development and success of Skeleton as free
   </div>
   <a href="/docs/figma/tutorial-chapter-1" class="btn preset-filled-primary-500" > Start Chapter 1 <ArrowRight size="20" /></a>
 </div>
-
-
