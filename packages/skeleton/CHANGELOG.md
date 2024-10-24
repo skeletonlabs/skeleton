@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 2.10.3
+
+### Patch Changes
+
+- chore: update peer dependencies to support Svelte 5 ([#2902](https://github.com/skeletonlabs/skeleton/pull/2902))
+
 ## 2.10.2
 
 ### Patch Changes
