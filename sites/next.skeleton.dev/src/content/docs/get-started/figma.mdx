@@ -5,159 +5,53 @@ description: The Figma UI Kit for Skeleton.
 order: 60
 ---
 
-import  ArrowRight from 'lucide-svelte/icons/arrow-right';
-import Check  from 'lucide-svelte/icons/check';
-
 export const components = componentSet;
 
+import FigmaBuyNow from '@components/docs/FigmaBuyNow.astro';
+import NavGrid from '@components/docs/NavGrid.astro';
 
-
+import { Image } from 'astro:assets';
+import ImgHero from '@images/get-started/figma/hero.png';
+import ImgComponents from '@images/get-started/figma/components.png';
+import ImgPlugin from '@images/get-started/figma/plugin.png';
+import ImgTutorial from '@images/get-started/figma/tutorials.png';
 
 <div class="relative">
-
-
-![01_figmaHero.png](/src/content/docs/get-started/assets/01_figmaHero.png)
-<a
-    class="btn btn-lg preset-filled-primary-500 flex items-center gap-2 whitespace-nowrap absolute top-6 right-6 shadow-lg w-48"
-    href="#get-access"
-  >
-    Get Access
-  </a>
+	<Image src={ImgHero} class="rounded-container" alt="hero" />
+	<a
+		class="btn btn-lg preset-filled-primary-500 flex items-center gap-2 whitespace-nowrap absolute top-6 right-6 shadow-lg w-48"
+		href="#get-access"
+	>
+		Get Access
+	</a>
 </div>
+
+Created and managed by [Bohdan Karpliak](https://www.linkedin.com/in/bohdan-karpliak-659a41162/) and [Micha Mailänder](https://www.linkedin.com/in/micha-mail%C3%A4nder-548aba16a/) in collaboration with [Skeleton Labs](https://www.skeletonlabs.co/).
 
 ## Start designing directly
+
 Save weeks of preparation work. We have crafted every Skeleton component plus other helpful components in detail for you, so you can focus completely on customer value.
 
-![02_components.png](/src/content/docs/get-started/assets/02_components.png)
+<Image src={ImgComponents} class="rounded-container" alt="components" />
 
 ## Make it your own
+
 Import your custom Skeleton Theme with our Figma plugin and let it shine in your design.
 
-![03_plugin.png](/src/content/docs/get-started/assets/03_plugin.png)
+<Image src={ImgPlugin} class="rounded-container" alt="plugins" />
 
-## Learn step by step how to use Figma together with Skeleton.
+## Pair Figma with Skeleton.
+
 From setting-up Skeleton in Figma to creating wireframes and pixel perfect design, we cover your back.
 
-![04_tutorials.png](/src/content/docs/get-started/assets/04_tutorials.png)
+<Image src={ImgTutorial} class="rounded-container" alt="tutorials" />
 
 ## Get Access
-Support the development of Skeleton by purchasing the Figma UI Kit!
 
-<div
-  class="flex flex-col md:flex-row bg-surface-50-950 rounded-container border border-surface-100-900 shadow-lg overflow-hidden"
->
-  <div class="flex flex-col p-8 w-full">
-    <span class="text-xl font-semibold h-full pb-8">Figma UI Kit for Skeleton includes:</span>
-    <div class="flex flex-col gap-3">
-      <div class="flex flex-row items-center gap-2">
-        <div
-          class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center"
-        >
-          <Check size="12" />
-        </div>
-        <p>Figma Skeleton v3 Components library</p>
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        <div
-          class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center"
-        >
-          <Check size="12" />
-        </div>
-        <p>Lucide Icons</p>
-      </div>
+Support the development of Skeleton by purchasing the Figma UI Kit! Your purchase helps ensure continued development and success of Skeleton as free and open-source project.
 
-      <div class="flex flex-row items-center gap-2">
-        <div
-          class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center"
-        >
-          <Check size="12" />
-        </div>
-        <p>Dark / Light Support</p>
-      </div>
+<FigmaBuyNow />
 
-      <div class="flex flex-row items-center gap-2">
-        <div
-          class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center"
-        >
-          <Check size="12" />
-        </div>
-        <p>Custom Theme Support</p>
-      </div>
+## Tutorials
 
-      <div class="flex flex-row items-center gap-2">
-        <div
-          class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center"
-        >
-          <Check size="12" />
-        </div>
-        <p>Figma Plugin to import your custom Theme</p>
-      </div>
-
-      <div class="flex flex-row items-center gap-2">
-        <div
-          class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center"
-        >
-          <Check size="12" />
-        </div>
-        <p>Tutorials</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="flex flex-col bg-surface-50-950 w-full border-l border-surface-200-800">
-    <div class="flex flex-col gap-1 p-8 border-t md:border-t-0 border-b border-surface-200-800">
-      <span class="text-xl font-semibold">Individual Plan</span>
-      <p class="text-sm text-surface-600-400 pb-12">License for 1 person</p>
-
-      <div class="flex flex-row justify-between">
-        <div class="flex flex-row gap-1 items-end">
-          <span class="text-4xl font-semibold">$109</span>
-          <span class="text-surface-400-600">+1 year of updates </span>
-        </div>
-        <a
-          href="https://polar.sh/skeleton-kit/products/d61c9909-1d23-4934-83fc-fa936a9db3d6"
-          class="btn self-end preset-filled-primary-500 flex items-center gap-2"
-        >
-          Buy
-        </a>
-      </div>
-    </div>
-
-
-    <div class="flex flex-col gap-1 p-8">
-      <span class="text-xl font-semibold">Team Plan</span>
-      <p class="text-sm text-surface-400-600 pb-12">License for 25 people</p>
-
-      <div class="flex flex-row justify-between">
-        <div class="flex flex-row gap-1 items-end">
-          <span class="text-4xl font-semibold">$219</span>
-          <span class="text-surface-400-600">+1 year of updates </span>
-        </div>
-        <a
-          href="https://polar.sh/skeleton-kit/products/a37848ad-cc61-4f86-997e-d15bd311316a"
-          class="btn self-end preset-filled-primary-500 flex items-center gap-2"
-        >
-          Buy
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
- 
-
-<p class="opacity-60">Created by [Bohdan Karpliak](https://www.linkedin.com/in/bohdan-karpliak-659a41162/), [Micha Mailänder](https://www.linkedin.com/in/micha-mail%C3%A4nder-548aba16a/), and [Skeleton Labs](https://www.skeletonlabs.co/).</p>
-
-Your purchase helps ensure continued development and success of Skeleton as free, open-source design system and component library.
-
-
-## Tutorial
-
-<div class="w-full border border-surface-100-900 p-6 rounded-container flex flex-col items-center gap-8">
-  <div class="flex flex-col items-center gap-1">
-    <p class="text-surface-600-400">Next Up</p>
-    <h6 class="h6">Chapter 1: Set-up Figma Design System</h6>
-  </div>
-  <a href="/docs/figma/tutorial-chapter-1" class="btn preset-filled-primary-500" > Start Chapter 1 <ArrowRight size="20" /></a>
-</div>
+<NavGrid collection="docs" path="tutorials/figma/" classes="md:grid-cols-1" />
