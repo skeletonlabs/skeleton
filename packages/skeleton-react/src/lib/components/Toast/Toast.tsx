@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useId } from 'react';
+import { Portal } from '@zag-js/react';
 import * as toast from '@zag-js/toast';
 import { useActor, useMachine, normalizeProps } from '@zag-js/react';
 import { ToastProps, ToastProviderProps } from './types.js';
@@ -18,16 +19,22 @@ const Toast: React.FC<ToastProps> = (props) => {
 	const [state, send] = useActor(props.actor);
 	const api = toast.connect(state, send, normalizeProps);
 
+	console.log(api.getActionTriggerProps());
+
 	return (
-		<div {...api.getRootProps()} className="card p-4 grid grid-cols-[1fr_auto] items-center gap-4">
+		<div {...api.getRootProps()} className="card p-4 grid grid-cols-[1fr_auto] items-start gap-4">
 			<div className="min-w-[280px]">
 				<strong {...api.getTitleProps()} className="whitespace-nowrap">
 					{api.title}
 				</strong>
 				<p {...api.getDescriptionProps()}>{api.description}</p>
+				<pre className="pre">{JSON.stringify(api, null, 2)}</pre>
+				<button {...api.getActionTriggerProps()} className="btn preset-filled">
+					Action
+				</button>
 			</div>
-			<button onClick={api.dismiss} className="btn preset-filled">
-				&times;
+			<button onClick={api.dismiss} className="btn-icon">
+				<span className="type-scale-4">&times;</span>
 			</button>
 		</div>
 	);
@@ -45,13 +52,17 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
 
 	return (
 		<ToastContext.Provider value={api}>
-			{api.getPlacements().map((placement) => (
-				<div key={placement} {...api.getGroupProps({ placement })}>
-					{api.getToastsByPlacement(placement).map((toast) => (
-						<Toast key={toast.id} actor={toast} />
-					))}
-				</div>
-			))}
+			{/* Toasts */}
+			<Portal>
+				{api.getPlacements().map((placement) => (
+					<div key={placement} {...api.getGroupProps({ placement })}>
+						{api.getToastsByPlacement(placement).map((toast) => (
+							<Toast key={toast.id} actor={toast} />
+						))}
+					</div>
+				))}
+			</Portal>
+			{/* Children */}
 			{children}
 		</ToastContext.Provider>
 	);
