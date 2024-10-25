@@ -22,11 +22,13 @@ const pageTitle = `${title ? title + ' - ' : ''}Skeleton`;
 		<title>{pageTitle}</title>
 		<!-- Analytics -->
 		<script defer data-domain="next.skeleton.dev" src="https://events.plygrnd.org/js/script.outbound-links.js"></script>
-		<!-- @ts-ignore -->
 		<script>
+			// @ts-expect-error for window.plausible
 			window.plausible =
+				// @ts-expect-error for window.plausible
 				window.plausible ||
 				function () {
+					// @ts-expect-error for window.plausible
 					(window.plausible.q = window.plausible.q || []).push(arguments);
 				};
 		</script>
