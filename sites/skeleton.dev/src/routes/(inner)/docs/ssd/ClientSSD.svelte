@@ -7,8 +7,8 @@
 	<section class="space-y-4">
 		<h3 class="h3" data-toc-ignore>1. Loading Data</h3>
 		<p>
-			To begin, let's add fake dataset in <code class="code">/src/lib/static/data.ts</code>. View a full reference
-			<a class="anchor" href="https://vincjo.fr/datatables/tutorial/html-table" target="_blank"> under the data tab.</a>
+			To begin, let's add fake dataset in <code class="code">/src/lib/data/data.ts</code>. View a full reference
+			<a class="anchor" href="https://vincjo.fr/datatables/examples/client/hello-world" target="_blank"> under the data tab.</a>
 		</p>
 		<CodeBlock
 			language="ts"
@@ -31,7 +31,7 @@ export default [
 		<p>
 			Create the new Datatable component in <code class="code">/src/lib/components/Datatable.svelte</code>, import your custom dataset, as
 			well as the
-			<code class="code">DataHandler</code> from Svelte Simple Datatables. Then, intialize the <code class="code">handler</code> and
+			<code class="code">DataHandler</code> from Svelte Simple Datatables. Then, initialize the <code class="code">handler</code> and
 			<code class="code">rows</code>.
 		</p>
 		<CodeBlock
