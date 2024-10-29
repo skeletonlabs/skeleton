@@ -27,7 +27,6 @@ const cGetStarted = await queryCollection('get-started/');
 const cDesign = await queryCollection('design/');
 const cTailwind = await queryCollection('tailwind/');
 const cResources = await queryCollection('resources/');
-const cFigma = await queryCollection('figma/');
 
 // Query the Components section
 const cComponents = await getCollection('docs', (entry) => {
@@ -50,8 +49,7 @@ const navigation = {
 	tailwind: cTailwind.sort(sortByOrder),
 	components: cComponents,
 	integrations: cIntegrations,
-	resources: cResources.sort(sortByOrder),
-	figma: cFigma.sort(sortByOrder)
+	resources: cResources.sort(sortByOrder)
 };
 ---
 
