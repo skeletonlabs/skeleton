@@ -133,7 +133,7 @@ onMount(() => {
 				</p>
 				<!-- prettier-ignore -->
 			</aside>
-			<h3 class="h3">Initilize</h3>
+			<h3 class="h3">Initialize</h3>
 			<p>
 				Import and add the following within your component. This will set the <code class="code">.dark</code> class on the root HTML element
 				in a highly performant manner. Please note that the CLI installer inserts <code class="code">class="dark"</code>
