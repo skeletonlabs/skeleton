@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
-title: Chapter 2 - How to Import Themes from Theme Generator
-description: The Skeleton Theme Generator allows you to create or choose from various project themes. You can import them with our “Skeleton Themes” plugin to use them in your Figma project.
+title: Chapter 2 - Import Themes
+description: Learn how to import your Skeleton theme into Figma.
 order: 10
 ---
 
@@ -12,7 +12,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 import NavGrid from '@components/docs/NavGrid.astro';
 
 import { Image } from 'astro:assets';
-import SvgSkeleton from '@images/tutorials/figma/chapter-1/skeletonFileIcon.svg';
+import SvgSkeleton from '@images/tutorials/figma/skeletonFileIcon.svg';
 import ImgOpenProject from '@images/tutorials/figma/chapter-2/01_openProject.png';
 import ImgOpenSkeleton from '@images/tutorials/figma/chapter-2/01_openSkeleton.png';
 import ImgOpenThemePlugin from '@images/tutorials/figma/chapter-2/02_openThemePlugin.png';
@@ -28,120 +28,123 @@ import ImgPasteTheme from '@images/tutorials/figma/chapter-2/06_pasteTheme.png';
 import ImgPublish from '@images/tutorials/figma/chapter-2/07_publish.png';
 import ImgPublishUpdates from '@images/tutorials/figma/chapter-2/07_publishUpdates.png';
 
-
+---
 
 ## Import Custom Theme
 
-
 <Process>
     <ProcessStep step="1">
-		### Open Skeleton v3 Figma Library
+        ### Open Skeleton v3 Figma Library
 
-		<b>Disclaimer:</b> The plugin will work only with Skeleton v3 Figma Library.
-			
-		<Image src={ImgOpenSkeleton} class="rounded-container" alt="Create New Project" />
+        **Important:** The plugin is compatible only with the Skeleton v3 Figma Library.
+        
+        <Image src={ImgOpenSkeleton} class="rounded-container" alt="Create New Project" />
     </ProcessStep>
+
     <ProcessStep step="2">
-		### Open Skeleton Themes plugin
+        ### Open Skeleton Themes plugin
 
-		Click on the ‘Actions’ button on the toolbar at the bottom, search for ‘Skeleton Themes’, and click on ‘Skeleton Themes’ to run the plugin.
+        Click on the `Actions`¹ button in the toolbar, search for `Skeleton Themes`², and click on the `Skeleton Themes`³ plugin when it appears.
 
-		<Image src={ImgOpenThemePlugin} class="rounded-container" alt="Create New Project" />
+        <Image src={ImgOpenThemePlugin} class="rounded-container" alt="Create New Project" />
     </ProcessStep>
+
     <ProcessStep step="3">
-		### Add new theme
+        ### Add new theme
 
-		The library comes preconfigured with the Theme `Cerberus`. To add your theme, click on ‘Add theme’.  
+        The library includes a default theme, `Cerberus`. To add your theme, click `Add theme`⁴.
 
-		<Image src={ImgAddNewTheme} class="rounded-container" alt="Import Project" />
+        <Image src={ImgAddNewTheme} class="rounded-container" alt="Import Project" />
     </ProcessStep>
+
     <ProcessStep step="4">
-		### Select theme
+        ### Select theme
 
-		Open the <a href="https://themes.skeleton.dev/themes/create"> Skeleton Theme Generator,</a> click `Import` at the top, and select your favorite theme. Alternatively, you can compose your own.
+        Copy your theme code by visiting the [Skeleton Theme Creator](https://themes.skeleton.dev/themes/create). Click `Import`⁵, then select a theme⁶, or compose your own.
 
-		<Image src={ImgSelectTheme} class="rounded-container" alt="Publish" />
+        <Image src={ImgSelectTheme} class="rounded-container" alt="Publish" />
     </ProcessStep>
-</Process>
 
-<Process>
     <ProcessStep step="5">
-		### Copy theme
+        ### Copy theme
 
-Click the `Code` tab on the right panel and copy the theme.
+        Open the `Code` tab in the right panel⁷ and copy the theme code⁸.
 
-		<Image src={ImgCopyTheme} class="rounded-container" alt="Create New File" />
+        <Image src={ImgCopyTheme} class="rounded-container" alt="Create New File" />
     </ProcessStep>
+
     <ProcessStep step="6">
-		### Paste theme
+        ### Paste theme
 
-		Go back to the `Skeleton Themes` plugin in Figma, paste the theme code into it, and click ‘Upload.’
+        Return to the `Skeleton Themes` plugin in Figma, paste the theme code⁹, and click `Upload`¹⁰.
 
-        <b>Note:</b> Depending on your machine capacity, theme uploading may take 3-5 mins.
-		<Image src={ImgPasteTheme} class="rounded-container" alt="Select Library" />
+        **Note:** Uploading the theme may take 3–5 minutes, depending on your device.
 
+        <Image src={ImgPasteTheme} class="rounded-container" alt="Select Library" />
     </ProcessStep>
+
     <ProcessStep step="7">
-		### Publish updates
+        ### Publish updates
 
-		After the theme is uploaded, we need to publish the library to make the new theme available in your project files.
-On the left panel, click on the `Book` icon. Then, click on the blue `Publish...` button.
+        After uploading, publish the library to make the new theme accessible. In the left panel, click the `Book` icon¹¹, then click the `Publish...` button¹². When the modal appears, click `Publish` again¹³.
 
-		<Image src={ImgPublishUpdates} class="rounded-container" alt="Use Library" />
-        After that, another modal will appear. Click the `Publish` button there again. 
-<b>Note:</b> Publishing a new theme may take 5-7 minutes.
-<Image src={ImgPublish} class="rounded-container" alt="Use Library" />
+        **Note:** Publishing may take 5–7 minutes.
+
+        <Image src={ImgPublishUpdates} class="rounded-container" alt="Use Library" />
+        <Image src={ImgPublish} class="rounded-container" alt="Use Library" />
     </ProcessStep>
 </Process>
 
-## Import Custom Theme
+---
 
-<ul class="list-inside list-disc space-y-2">
-Precondition:
-	<li>Completed <a href="#">Chapter 1: Set-up Skeleton Figma library</a></li>
-	<li>Completed <a href="#">Chapter 2: Import Custom Theme</a></li>
-	
-</ul>
+## Import Custom Theme in Project
+
+### Prerequisites:
+- Completed [Chapter 1: Set-up Skeleton Figma Library](chapter-1#how-to-install-the-figma-library)
+- Completed [Chapter 2: Import Custom Theme](#import-custom-theme)
 
 <Process>
     <ProcessStep step="1">
-		### Open project
+        ### Open Project
 
-		Open the project where you use the `Skeleton Figma Library`. 
-		<Image src={ImgOpenProject} class="rounded-container" alt="Use Library" />	
-		
+        Open the project where the `Skeleton Figma Library` is applied.
+        
+        <Image src={ImgOpenProject} class="rounded-container" alt="Use Library" />    
     </ProcessStep>
 
-     <ProcessStep step="2">
-		### Set the stage
+    <ProcessStep step="2">
+        ### Set the stage
 
-		Add ‘page examples’ components on the canvas to see how it works.
-		<Image src={ImgSetStage} class="rounded-container" alt="Use Library" />	
-		
+        Add `page examples` components on the canvas to preview your theme.
+
+        <Image src={ImgSetStage} class="rounded-container" alt="Use Library" />
     </ProcessStep>
 
-     <ProcessStep step="3">
-		### Switch theme
+    <ProcessStep step="3">
+        ### Switch theme
 
-		On the right panel, in the ‘Pages’ section, click `Apply variable mode`, hover over the `Theme` option, and select your theme (Chapter 2: Import Custom Theme).
-		<Image src={ImgSwitchTheme} class="rounded-container" alt="Use Library" />
-        Voila! You should see your theme applied to your components 	
-		
+        In the `Pages` section⁴ on the right panel, click `Apply variable mode`, hover over `Theme`, and select your imported theme⁵.
+
+        <Image src={ImgSwitchTheme} class="rounded-container" alt="Use Library" />
+        
+        Voilà! Your theme is now applied to the components.
+
         <Image src={ImgSwitchColorSchemeResult} class="rounded-container" alt="Use Library" />
     </ProcessStep>
 
-     <ProcessStep step="4">
-		### Switch modes
+    <ProcessStep step="4">
+        ### Switch modes
 
-		Each `theme` in Skeleton has a `light` and `dark` mode by default. You can switch `modes` in the same way as `themes`.
+        Skeleton themes include `light` and `dark` modes by default. Switch modes the same way you switch themes: in the `Pages` section⁶, click `Apply variable mode`, hover over `Color Scheme`, and select the scheme⁷.
 
-On the right panel, click `Apply variable mode` in the `Pages` section, hover over the `Color Scheme` option, and select your theme. 
-		 <Image src={ImgSwitchColorScheme} class="rounded-container" alt="Use Library" />
-         Your components are now in `Dark` `Color Scheme`
-    <Image src={ImgSwitchColorSchemeResult} class="rounded-container" alt="Use Library" />
-		
+        <Image src={ImgSwitchColorScheme} class="rounded-container" alt="Use Library" />
+        
+        Your components are now in the `Dark` `Color Scheme`.
+
+        <Image src={ImgSwitchColorSchemeResult} class="rounded-container" alt="Use Library" />
     </ProcessStep>
-
 </Process>
+
+---
 
 <NavGrid collection="docs" path="tutorials/figma/" classes="md:grid-cols-1" />
