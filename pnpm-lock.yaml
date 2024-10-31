@@ -6,57 +6,6 @@ settings:
 
 catalogs:
   default:
-    '@zag-js/accordion':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/avatar':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/combobox':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/dialog':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/file-upload':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/pagination':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/popover':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/progress':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/radio-group':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/rating-group':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/react':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/slider':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/svelte':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/switch':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/tabs':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/tags-input':
-      specifier: ^0.75.0
-      version: 0.75.0
-    '@zag-js/tooltip':
-      specifier: ^0.75.0
-      version: 0.75.0
     typescript:
       specifier: ^5.6.3
       version: 5.6.3

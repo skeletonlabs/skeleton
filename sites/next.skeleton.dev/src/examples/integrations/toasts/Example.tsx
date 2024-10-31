@@ -3,7 +3,6 @@ import toast, { Toaster } from 'react-hot-toast';
 
 export const Page: React.FC = () => {
 	function notify() {
-		// toast('Here is your toast.');
 		toast.custom(() => <div className={`card preset-filled-primary-500 p-4 shadow-md`}>Hello World! 👋</div>);
 	}
 

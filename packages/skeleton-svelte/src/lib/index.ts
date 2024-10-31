@@ -20,7 +20,8 @@ export { default as Switch } from './components/Switch/Switch.svelte';
 export { default as Tabs } from './components/Tab/index.js';
 export { default as TagsInput } from './components/TagsInput/TagsInput.svelte';
 export { default as Rating } from './components/Rating/index.js';
-// Temporary Popover Components
+// Temporary Components
+export { default as ToastProvider } from './components/Toast/ToastProvider.svelte';
 // These are available temporarily until Floating UI Svelte launches
 export { default as Combobox } from './components/Combobox/Combobox.svelte';
 export { default as Popover } from './components/Popover/Popover.svelte';
