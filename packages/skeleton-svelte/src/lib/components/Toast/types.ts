@@ -19,7 +19,7 @@ export interface Toast {
 	/** The unique toast description text. */
 	description?: string;
 	/**
-	 * Set one of the available toast types.
+	 * Define the toast type.
 	 * @default info
 	 */
 	type?: 'info' | 'error' | 'success';
@@ -43,7 +43,7 @@ export interface ToastProviderProps {
 	 * Offset from the viewport edge.
 	 * @default bottom-end
 	 */
-	placement?: string;
+	placement?: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
 	/**
 	 * Offset from the viewport edge.
 	 * @default 16px

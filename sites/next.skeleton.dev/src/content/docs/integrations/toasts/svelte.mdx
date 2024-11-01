@@ -4,14 +4,55 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Example from '@examples/integrations/toasts/Example.svelte';
-import ExampleRaw from '@examples/integrations/toasts/Example.svelte?raw';
+import ExampleProvider from '@examples/integrations/toasts/ExampleProvider.svelte';
+import ExamplePageContentRaw from '@examples/integrations/toasts/ExamplePageContent.svelte?raw';
+
+<div class="card preset-outlined-warning-500 p-8 space-y-8">
+	<p>This feature is currently available in a <code class="code">Beta</code> state, meaning the API and feature set are not yet stable. This is not recommended for production use as breaking changes occur. Please use this feature with caution.</p>
+</div>
+
+## Setup the Provider
+
+Wrap the contents of your app with `ToastProvider` in your root layout. We'll interface with this using the [Svelte Context API](https://svelte.dev/docs/svelte/context).
+
+```svelte title="+layout.svelte"
+<script lang="ts">
+	import { ToastProvider } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<ToastProvider>
+	{@render children()}
+</ToastProvider>
+```
+
+## Create a Toast
+
+Toast are available in three types, `info | error | success`. With `info` being the default.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:load />
+		<ExampleProvider client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="svelte" />
+		<Code code={ExamplePageContentRaw} lang="svelte" title="+page.svelte" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+### ToastProvider
+
+The list of available component props.
+
+* `placement?: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';` (default `bottom-end`)
+* `offset?: string;` - Offset from the viewport edge. (default: `16px`)
+* `dismissLabel?: string;` - The dismiss button label text. (default `&times;`)
+
+### Toast
+
+Supply these values within `toast.create()`.
+
+* `title?: string;` - The unique toast title text.
+* `description?: string;` - The unique toast description text.
+* `type?: 'info' | 'error' | 'success';` - Define the toast type. (default `info`)
+* `duration?: number;` - The duration of the toast. Default varies by type.
