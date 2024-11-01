@@ -3,11 +3,33 @@
 	import { flip } from 'svelte/animate';
 	import { fade } from 'svelte/transition';
 	import { useId } from '$lib/internal/use-id.js';
-	import type { Toast, ToastProviderProps } from './types.js';
+	import type { PlacementStyles, Toast, ToastProviderProps } from './types.js';
 
 	let {
 		placement = 'bottom-end',
 		offset = '16px',
+		dismissLabel = '',
+		// Group
+		groupBase = 'fixed flex flex-col items-end',
+		groupZIndex = 'z-[888]',
+		groupGap = 'gap-4',
+		groupClasses = '',
+		// Toast
+		toastBase = 'card py-2 px-3 grid grid-cols-[1fr_auto] items-center',
+		toastPadding = 'py-2 px-3',
+		toastGap = 'gap-4',
+		toastShadow = 'shadow-xl',
+		toastClasses = '',
+		// Message
+		messageBase = 'grid grid-cols-1 max-w-xs type-scale-1',
+		messageTitle = 'font-bold',
+		messageDescription = '',
+		messageClasses = '',
+		// Dismiss Button
+		btnDismissBase = 'btn-icon btn-icon-sm type-scale-3',
+		btnDimissPreset = '',
+		btnDismissHover = 'hover:preset-tonal',
+		btnDismissClasses = '',
 		// State
 		stateInfo = 'preset-filled',
 		stateError = 'preset-filled-error-500',
@@ -22,11 +44,11 @@
 		error: { duration: 5000 },
 		success: { duration: 2000 }
 	};
-	let placementOptions: Record<string, { top?: string; bottom?: string; left?: string; right?: string }> = {
-		'top-start': { top: offset, left: offset },
-		'top-end': { top: offset, right: offset },
-		'bottom-start': { bottom: offset, left: offset },
-		'bottom-end': { bottom: offset, right: offset }
+	let placementOptions: Record<string, PlacementStyles> = {
+		'top-start': { top: offset, left: offset, 'align-items': 'flex-start' },
+		'top-end': { top: offset, right: offset, 'align-items': 'flex-end' },
+		'bottom-start': { bottom: offset, left: offset, 'align-items': 'flex-start' },
+		'bottom-end': { bottom: offset, right: offset, 'align-items': 'flex-end' }
 	};
 
 	// State
@@ -50,7 +72,7 @@
 		}
 	});
 
-	function formatStyleAttr(style: { top?: string; bottom?: string; left?: string; right?: string }) {
+	function formatStyleAttr(style: PlacementStyles) {
 		return Object.entries(style)
 			.map(([k, v]) => `${k}:${v}`)
 			.join(';');
@@ -72,24 +94,33 @@
 </script>
 
 <!-- Toast Group -->
-<div class="fixed z-10 flex flex-col items-end gap-4" style={formatStyleAttr(placementOptions[placement])}>
-	{#each toastQueue as toast, i (toast)}
-		{@const stateClasses = getStateClasses(toast.type)}
-		<!-- Toast -->
-		<div
-			class="card py-2 px-3 grid grid-cols-[1fr_auto] items-center gap-4 shadow-xl {stateClasses}"
-			animate:flip={{ duration: 200 }}
-			transition:fade={{ duration: 200 }}
-		>
-			<!-- Message -->
-			<div class="grid grid-cols-1 max-w-[320px]">
-				{#if toast.title}<div class="type-scale-1 font-bold whitespace-nowrap">{toast.title}</div>{/if}
-				<div class="type-scale-1">{toast.description}</div>
+{#if toastQueue.length}
+	<div class="{groupBase} {groupZIndex} {groupGap} {groupClasses}" style={formatStyleAttr(placementOptions[placement])} data-part="root">
+		{#each toastQueue as toast, i (toast)}
+			{@const stateClasses = getStateClasses(toast.type)}
+			<!-- Toast -->
+			<div
+				data-type={toast.type}
+				class="{toastBase} {toastPadding} {toastGap} {toastShadow} {toastClasses} {stateClasses}"
+				animate:flip={{ duration: 200 }}
+				transition:fade={{ duration: 200 }}
+			>
+				<!-- Message -->
+				<div class="{messageBase} {messageClasses}">
+					{#if toast.title}<div class={messageTitle}>{toast.title}</div>{/if}
+					<div class={messageDescription}>{toast.description}</div>
+				</div>
+				<!-- Dismiss -->
+				<button
+					type="button"
+					class="{btnDismissBase} {btnDimissPreset} {btnDismissHover} {btnDismissClasses}"
+					onclick={() => dismiss(toast.id)}
+				>
+					{#if dismissLabel}{dismissLabel}{:else}&times;{/if}
+				</button>
 			</div>
-			<!-- Dismiss -->
-			<button type="button" class="btn-icon btn-icon-sm hover:preset-tonal" onclick={() => dismiss(toast.id)}>&times;</button>
-		</div>
-	{/each}
-</div>
+		{/each}
+	</div>
+{/if}
 
 {@render children?.()}
