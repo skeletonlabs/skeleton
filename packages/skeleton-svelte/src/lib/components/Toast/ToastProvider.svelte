@@ -39,7 +39,6 @@
 	}: ToastProviderProps = $props();
 
 	// Local
-	let defaultType = 'info';
 	let defaults: Record<string, Toast> = {
 		info: { duration: 5000 },
 		error: { duration: 5000 },
@@ -101,6 +100,7 @@
 			{@const stateClasses = getStateClasses(toast.type)}
 			<!-- Toast -->
 			<div
+				data-index={i}
 				data-type={toast.type}
 				class="{toastBase} {toastPadding} {toastGap} {toastShadow} {toastClasses} {stateClasses}"
 				animate:flip={{ duration: 200 }}
