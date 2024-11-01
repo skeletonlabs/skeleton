@@ -39,6 +39,7 @@
 	}: ToastProviderProps = $props();
 
 	// Local
+	let defaultType = 'info';
 	let defaults: Record<string, Toast> = {
 		info: { duration: 5000 },
 		error: { duration: 5000 },
@@ -59,7 +60,7 @@
 		create: (toast: Toast) => {
 			// Set default settings
 			toast = {
-				...defaults[String(toast.type)],
+				...defaults[String(toast.type || 'info')],
 				...toast,
 				id: useId()
 			};

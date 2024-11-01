@@ -5,16 +5,13 @@
 	export const toast: ToastContext = getContext('toast');
 
 	function triggerInfo() {
-		toast.create({
-			description: 'This is a basic toast message.',
-			type: 'info'
-		});
+		toast.create({ description: 'Hello World! 👋' });
 	}
 
 	function triggerError() {
 		toast.create({
 			title: 'Error',
-			description: 'Error: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, pariatur distinctio beatae.',
+			description: 'Uh oh, something went wrong.',
 			type: 'error'
 		});
 	}
@@ -22,7 +19,7 @@
 	function triggerSuccess() {
 		toast.create({
 			title: 'Success',
-			description: 'The task was successful!',
+			description: 'The task was was completed successfully!',
 			type: 'success'
 		});
 	}

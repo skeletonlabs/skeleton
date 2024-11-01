@@ -7,6 +7,27 @@ export const components = componentSet;
 import { Page as Example } from '@examples/integrations/toasts/Example.tsx';
 import ExampleRaw from '@examples/integrations/toasts/Example.tsx?raw';
 
+<p class="type-scale-5">[React-Hot-Toast](https://react-hot-toast.com/) provides a simple all-in-one solution for Toast notification. Custom toast templates can be implemented as using either JSX or React components, making it trivial to implement Skeleton and Tailwind utility classses.</p>
+
+<figure class="card-filled-enhanced flex justify-center gap-4 p-8">
+	<a href="https://react-hot-toast.com/docs" target="_blank" class="btn preset-filled">
+		Documentation
+	</a>
+	<a href="https://github.com/timolins/react-hot-toast" target="_blank" class="btn preset-filled">
+		GitHub
+	</a>
+</figure>
+
+## Installation
+
+```console
+npm install react-hot-toast
+```
+
+## Create a Toast
+
+For most users we recommend the use of custom toast templates, which enable Tailwind styles.
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Example client:load />
@@ -15,3 +36,7 @@ import ExampleRaw from '@examples/integrations/toasts/Example.tsx?raw';
 		<Code code={ExampleRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+Refer to the [official documentation](https://react-hot-toast.com/docs) for a complete API reference.

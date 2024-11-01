@@ -8,7 +8,7 @@ import ExampleProvider from '@examples/integrations/toasts/ExampleProvider.svelt
 import ExamplePageContentRaw from '@examples/integrations/toasts/ExamplePageContent.svelte?raw';
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>This feature is currently available in a <code class="code">Beta</code> state, meaning the API and feature set are not yet stable. This is not recommended for production use as breaking changes occur. Please use this feature with caution.</p>
+	<p>This feature is currently available as an early access <code class="code">Beta</code> preview, meaning the features and API are not yet stable. This feature is not yet recommended for production use as breaking changes may occur. Please use this feature with caution.</p>
 </div>
 
 ## Setup the Provider
@@ -27,7 +27,7 @@ Wrap the contents of your app with `ToastProvider` in your root layout. We'll in
 
 ## Create a Toast
 
-Toast are available in three types, `info | error | success`. With `info` being the default.
+There are three available types of toasts: `info | error | success`, with `info` being the default.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -53,6 +53,6 @@ The list of available component props.
 Supply these values within `toast.create()`.
 
 * `title?: string;` - The unique toast title text.
-* `description?: string;` - The unique toast description text.
+* `description: string;` - The unique toast description text.
 * `type?: 'info' | 'error' | 'success';` - Define the toast type. (default `info`)
 * `duration?: number;` - The duration of the toast. Default varies by type.
