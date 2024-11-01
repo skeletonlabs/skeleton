@@ -53,10 +53,10 @@ export const Page: React.FC = () => {
 					Toast: Info
 				</button>
 				<button className="btn preset-tonal" onClick={triggerError}>
-					Toast: Info
+					Toast: Error
 				</button>
 				<button className="btn preset-tonal" onClick={triggerSuccess}>
-					Toast: Info
+					Toast: Success
 				</button>
 			</div>
 
