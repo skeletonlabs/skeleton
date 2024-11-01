@@ -5,6 +5,8 @@ description: The Skeleton theme system.
 order: 0
 ---
 
+import ThemesList from '@components/docs/ThemeList.astro';
+
 export const components = componentSet;
 
 {/* prettier-ignore */}
@@ -14,12 +16,9 @@ export const components = componentSet;
 
 ## Preset Themes
 
-Skeleton comes with a selection of high quality preset themes out of the box.
+Skeleton comes with a selection of high quality preset themes out of the box. Tap one of the theme preview cards below to copy the theme name to your clipboard.
 
-- `cerberus`
-- `catppuccin`
-- `pine`
-- `rose`
+<ThemesList />
 
 Add the following import to the top of your `tailwind.config`, then continue to the register instructions below.
 
