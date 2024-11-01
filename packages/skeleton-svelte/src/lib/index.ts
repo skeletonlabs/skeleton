@@ -30,3 +30,4 @@ export { default as Modal } from './components/Modal/Modal.svelte';
 
 // Types
 export type { FileUploadApi } from './components/FileUpload/types.js';
+export type { ToastContext } from './components/Toast/types.js';

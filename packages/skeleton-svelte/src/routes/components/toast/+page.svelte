@@ -1,24 +1,13 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
+	import type { ToastContext } from '$lib/index.js';
 
-	interface Toast {
-		id?: string;
-		title?: string;
-		description?: string;
-		type?: string;
-		duration?: number;
-	}
-	interface ToastContext {
-		create: (toast: Toast) => void;
-	}
-
-	const toast: ToastContext = getContext('toast');
+	export const toast: ToastContext = getContext('toast');
 
 	function triggerInfo() {
 		toast.create({
 			description: 'This is a basic toast message.',
-			type: 'info',
-			duration: 5000
+			type: 'info'
 		});
 	}
 
@@ -26,8 +15,7 @@
 		toast.create({
 			title: 'Error',
 			description: 'Error: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, pariatur distinctio beatae.',
-			type: 'error',
-			duration: 5000
+			type: 'error'
 		});
 	}
 
@@ -35,8 +23,7 @@
 		toast.create({
 			title: 'Success',
 			description: 'The task was successful!',
-			type: 'success',
-			duration: 2000
+			type: 'success'
 		});
 	}
 </script>
