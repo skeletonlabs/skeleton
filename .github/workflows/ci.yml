@@ -23,6 +23,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build packages
+        run: pnpm -r package
+
       - name: Run package checks
         run: pnpm check
 

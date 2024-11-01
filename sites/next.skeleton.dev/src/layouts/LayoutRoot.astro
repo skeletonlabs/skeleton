@@ -20,6 +20,18 @@ const pageTitle = `${title ? title + ' - ' : ''}Skeleton`;
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<!-- Analytics -->
+		<script defer data-domain="next.skeleton.dev" src="https://events.plygrnd.org/js/script.outbound-links.js"></script>
+		<script>
+			// @ts-expect-error for window.plausible
+			window.plausible =
+				// @ts-expect-error for window.plausible
+				window.plausible ||
+				function () {
+					// @ts-expect-error for window.plausible
+					(window.plausible.q = window.plausible.q || []).push(arguments);
+				};
+		</script>
 	</head>
 	<body class:list={[classList]} data-theme="cerberus">
 		<slot />

@@ -6,9 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
 		<title>Themes - Skeleton</title>
+		<!-- Analytics -->
+		<script defer data-domain="themes.skeleton.dev" src="https://events.plygrnd.org/js/script.outbound-links.js"></script>
+		<script>
+			window.plausible =
+				window.plausible ||
+				function () {
+					(window.plausible.q = window.plausible.q || []).push(arguments);
+				};
+		</script>
 	</head>
-
-	<body data-sveltekit-preload-data="hover" data-theme="next">
+	<body data-sveltekit-preload-data="hover" data-theme="cerberus" class="bg-gradient-skeleton">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
