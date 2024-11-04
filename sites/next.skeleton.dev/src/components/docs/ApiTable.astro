@@ -1,49 +1,35 @@
 ---
+interface Props {
+	types: string[];
+	schema: {
+		name: string;
+		properties: {
+			name: string;
+			type: string;
+			required: boolean;
+			documentation: {
+				text: string | null;
+				tags: {
+					name: string;
+					value: string;
+				}[];
+			};
+		}[];
+	}[];
+}
+
 const { types, schema } = Astro.props;
 
-interface SchemaRow {
-	prop: string;
-	type: string;
-	description?: string;
-	default?: string;
-	required?: boolean;
-}
-
-function formatValuesType(valueType: string) {
-	if (valueType === undefined) return '(unknown)'; // ex: FileUpload > accept
-	if (valueType && valueType.includes('Partial')) return 'Partial<...>';
-	return valueType;
-}
-
-function formatSchemaData(typeKey: string) {
-	const { properties, propertyOrder, required } = schema.definitions[typeKey];
-	let schemaArr: SchemaRow[] = [];
-	// Sort Properties
-	let propertiesSorted: any = {};
-	if (propertyOrder) propertyOrder.forEach((p: string) => (propertiesSorted[p] = properties[p]));
-	// Generate Array of Props
-	Object.entries(propertiesSorted).map((schemaRow: any) => {
-		const [prop, values] = schemaRow;
-		schemaArr.push({
-			prop,
-			type: formatValuesType(values['$ref'] ? values['$ref'].replace('#/definitions/', '') : values.type),
-			description: values.description ?? '-',
-			default: values.hasOwnProperty('default') ? String(values.default) : '',
-			required: (required && required.includes(prop)) || false
-		});
-	});
-	// Return the schema array
-	return schemaArr;
-}
+const interfaces = schema.filter((schema) => types.includes(schema.name));
 ---
 
 <div class="space-y-8">
 	{
-		types.map((typeKey: string) => {
+		interfaces.map((i) => {
 			return (
 				<section class="space-y-4">
 					{/* Label */}
-					<h3 class="h3">{typeKey.replace('Props', '')}</h3>
+					<h3 class="h3">{i.name.replace('Props', '')}</h3>
 					{/* Table */}
 					<div class="table-wrap">
 						<table class="table caption-bottom">
@@ -55,22 +41,26 @@ function formatSchemaData(typeKey: string) {
 								</tr>
 							</thead>
 							<tbody class="hover:[&>tr]:bg-surface-500/5">
-								{formatSchemaData(typeKey).map((cell: any) => (
+								{i.properties.map((property) => (
 									<tr class="align-top">
 										{/* Property */}
 										<td>
 											<div class="flex items-center gap-1">
-												<code class="code">{cell.prop}</code>
-												{cell.required ? <span>*</span> : null}
+												<code class="code">{property.name}</code>
+												{property.required ? <span>*</span> : null}
 											</div>
 										</td>
 										{/* Type */}
-										<td class="italic opacity-60">{cell.type}</td>
+										<td class="italic opacity-60">{property.type}</td>
 										{/* Description */}
 										<td>
 											<div class="grid grid-cols-1 gap-2">
-												<article>{cell.description}</article>
-												{cell.default ? <small class="italic opacity-60">Default: {cell.default}</small> : null}
+												<article>{property.documentation.text}</article>
+												{property.documentation.tags.some((tag) => tag.name === 'default') ? (
+													<small class="italic opacity-60">
+														Default: {property.documentation.tags.find((tag) => tag.name === 'default')!.value}
+													</small>
+												) : null}
 											</div>
 										</td>
 									</tr>

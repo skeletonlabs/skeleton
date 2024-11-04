@@ -38,6 +38,7 @@
 		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte dev",
 		"dev:react": "pnpm -F @skeletonlabs/skeleton-react dev",
 		"format": "prettier -w .",
+		"generate-component-docs": "node scripts/generate-component-docs.js",
 		"format:check": "prettier . --check",
 		"lint": "eslint . --ignore-path .gitignore",
 		"lint:fix": "eslint . --fix --ignore-path .gitignore",
@@ -60,13 +61,15 @@
 		"eslint-plugin-react-hooks": "^4.6.2",
 		"eslint-plugin-react-refresh": "^0.4.12",
 		"eslint-plugin-svelte": "^2.44.1",
+		"fast-glob": "^3.3.1",
 		"globals": "^15.10.0",
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "^0.13.0",
 		"prettier-plugin-svelte": "^3.2.7",
 		"prettier-plugin-tailwindcss": "^0.6.8",
 		"rimraf": "^5.0.10",
-		"shelljs": "^0.8.5"
+		"shelljs": "^0.8.5",
+		"typelens": "^0.0.2"
 	},
 	"pnpm": {
 		"overrides": {

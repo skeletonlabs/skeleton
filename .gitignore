@@ -56,3 +56,6 @@ pnpm-debug.log*
 .temp/
 *.tgz
 .vscode/launch.json
+
+# Generated artifacts
+sites/next.skeleton.dev/.generated

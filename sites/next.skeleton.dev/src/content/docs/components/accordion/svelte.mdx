@@ -10,10 +10,12 @@ import ExampleCollapsible from '@examples/components/accordions/ExampleCollapsib
 import ExampleCollapsibleRaw from '@examples/components/accordions/ExampleCollapsible.svelte?raw';
 import ExampleMultiple from '@examples/components/accordions/ExampleMultiple.svelte';
 import ExampleMultipleRaw from '@examples/components/accordions/ExampleMultiple.svelte?raw';
+import AccordionDocs from '@component-docs/svelte/Accordion.json';
+
 
 {/* --- */}
 
-## Default 
+## Default
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -93,3 +95,5 @@ Use `multiple` to enable multiple items to be opened at once.
 	<AccordionItem>
 </Accordion>
 ```
+
+<ApiTable types={['AccordionProps', 'AccordionItemProps', 'AccordionControlProps', 'AccordionPanelProps']} schema={AccordionDocs} />
