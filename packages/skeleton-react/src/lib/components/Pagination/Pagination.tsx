@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, useId } from 'react';
 
 import * as pagination from '@zag-js/pagination';
