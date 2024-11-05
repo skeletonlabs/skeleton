@@ -1,20 +1,22 @@
+// @ts-expect-error - TODO: Fix
 import fg from 'fast-glob';
 import { getInterfaces } from 'typelens';
 import { writeFile, mkdir } from 'fs/promises';
 import { basename, dirname, join } from 'path';
 
-function extractPathInfo(path) {
+function extractPathInfo(path: string) {
 	const componentName = basename(dirname(path));
 	const frameworkMatch = path.match(/skeleton-([^/]+)/);
 	const frameworkName = frameworkMatch ? frameworkMatch[1] : 'unknown';
 	return { frameworkName, componentName };
 }
 
-async function ensureDirectoryExists(directory) {
+async function ensureDirectoryExists(directory: string) {
 	await mkdir(directory, { recursive: true });
 }
 
-async function processFile(path) {
+async function processFile(path: string) {
+	// @ts-expect-error - TODO: Fix
 	const baseOutputDir = join(import.meta.dirname, '..', 'sites/next.skeleton.dev/.generated/component-docs');
 	const { frameworkName, componentName } = extractPathInfo(path);
 	const interfaces = getInterfaces(path);

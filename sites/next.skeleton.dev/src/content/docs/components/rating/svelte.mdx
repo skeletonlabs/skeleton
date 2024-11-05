@@ -18,6 +18,7 @@ import ExampleReadOnly from '@examples/components/rating/ExampleReadOnly.svelte'
 import ExampleReadonlyRaw from '@examples/components/rating/ExampleReadOnly.svelte?raw';
 import ExampleRTL from '@examples/components/rating/ExampleRTL.svelte';
 import ExampleRTLRaw from '@examples/components/rating/ExampleRTL.svelte?raw';
+import RatingDocs from '@component-docs/svelte/Rating.json';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -94,3 +95,7 @@ import ExampleRTLRaw from '@examples/components/rating/ExampleRTL.svelte?raw';
 		<Code code={ExampleRTLRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable types={['RatingProps']} schema={RatingDocs} />

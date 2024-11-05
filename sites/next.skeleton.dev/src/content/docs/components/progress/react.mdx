@@ -6,25 +6,17 @@ export const components = componentSet;
 
 import { Page as Example } from '@examples/components/progress/Example.tsx';
 import ExampleRaw from '@examples/components/progress/Example.tsx?raw';
-
 import { Page as ExampleColors } from '@examples/components/progress/ExampleColors.tsx';
 import ExampleColorsRaw from '@examples/components/progress/ExampleColors.tsx?raw';
-
 import { Page as ExampleHeight } from '@examples/components/progress/ExampleHeight.tsx';
 import ExampleHeightRaw from '@examples/components/progress/ExampleHeight.tsx?raw';
-
 import { Page as ExampleIndeterminate } from '@examples/components/progress/ExampleIndeterminate.tsx';
 import ExampleIndeterminateRaw from '@examples/components/progress/ExampleIndeterminate.tsx?raw';
-
 import { Page as ExampleCustomAnimation } from '@examples/components/progress/ExampleCustomAnimation.tsx';
 import ExampleCustomAnimationRaw from '@examples/components/progress/ExampleCustomAnimation.tsx?raw';
-
 import ExampleNative from '@examples/components/progress/ExampleNative.astro';
 import ExampleNativeRaw from '@examples/components/progress/ExampleNative.astro?raw';
-
-import { ProgressSchema } from '@skeletonlabs/skeleton-react/schemas';
-
-{/* --- */}
+import ProgressDocs from '@component-docs/react/Progress.json';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -106,4 +98,4 @@ A native [progress](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pr
 
 ## API Reference
 
-<ApiTable types={['ProgressProps']} schema={ProgressSchema} />
+<ApiTable types={['ProgressProps']} schema={ProgressDocs} />

@@ -16,10 +16,7 @@ import { Page as ExampleVertical } from '@examples/components/segment-control/Ex
 import ExampleVerticalRaw from '@examples/components/segment-control/ExampleVertical.tsx?raw';
 import ExampleGroup from '@examples/tailwind/buttons/ExampleGroup.astro';
 import ExampleGroupRaw from '@examples/tailwind/buttons/ExampleGroup.astro?raw';
-
-import { SegmentSchema } from '@skeletonlabs/skeleton-react/schemas';
-
-{/* --- */}
+import SegmentDocs from '@component-docs/react/Segment.json';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -93,4 +90,4 @@ Consider using a Skeleton [Button Group](/docs/tailwind/buttons#group) if you ne
 
 ## API Reference
 
-<ApiTable types={['SegmentProps', 'SegmentItemsProps']} schema={SegmentSchema} />
+<ApiTable types={['SegmentProps', 'SegmentItemsProps']} schema={SegmentDocs} />

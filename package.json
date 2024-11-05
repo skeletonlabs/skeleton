@@ -29,21 +29,20 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"ci:package": "pnpm -r package",
-		"ci:publish": "changeset publish",
-		"ci:release": "pnpm ci:package && pnpm ci:publish",
+		"package": "pnpm -r package",
 		"check": "pnpm -r check",
-		"clean": "node ./scripts/rimraf.js",
-		"dev": "pnpm -F next.skeleton.dev dev",
-		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte dev",
-		"dev:react": "pnpm -F @skeletonlabs/skeleton-react dev",
-		"format": "prettier -w .",
-		"generate-component-docs": "node scripts/generate-component-docs.js",
-		"format:check": "prettier . --check",
+		"dev": "pnpm run --reporter append-only --color \"/dev:/\"",
+		"dev:docs": "pnpm -F @skeletonlabs/docs dev",
+		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
+		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
+		"build:docs": "pnpm package && pnpm generate-component-docs && pnpm -F @skeletonlabs/docs build",
+		"format": "prettier . --check",
+		"format:fix": "prettier . --write",
 		"lint": "eslint . --ignore-path .gitignore",
 		"lint:fix": "eslint . --fix --ignore-path .gitignore",
-		"postinstall": "pnpm -r sync",
-		"test": "pnpm -F \"@skeletonlabs/*\" test"
+		"test": "pnpm -F \"@skeletonlabs/*\" test",
+		"generate-component-docs": "tsx scripts/generate-component-docs.ts",
+		"postinstall": "pnpm -r sync"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.9",
@@ -69,6 +68,7 @@
 		"prettier-plugin-tailwindcss": "^0.6.8",
 		"rimraf": "^5.0.10",
 		"shelljs": "^0.8.5",
+		"tsx": "^4.19.1",
 		"typelens": "^0.0.2"
 	},
 	"pnpm": {

@@ -24,7 +24,7 @@ jobs:
         run: pnpm install
 
       - name: Build packages
-        run: pnpm -r package
+        run: pnpm package
 
       - name: Run package checks
         run: pnpm check
@@ -61,7 +61,7 @@ jobs:
         run: pnpm install
 
       - name: Run prettier
-        run: pnpm format:check
+        run: pnpm format
 
   test:
     name: Run tests

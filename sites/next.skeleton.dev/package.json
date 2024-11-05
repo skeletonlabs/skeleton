@@ -1,5 +1,5 @@
 {
-	"name": "next.skeleton.dev",
+	"name": "@skeletonlabs/docs",
 	"private": true,
 	"repository": {
 		"type": "git",
@@ -10,15 +10,11 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "pnpm run --reporter append-only --color \"/dev:/\"",
-		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
-		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
-		"dev:astro": "astro dev",
+		"dev": "astro dev",
 		"sync": "astro sync",
 		"check": "astro check",
-		"build": "pnpm -F \"@skeletonlabs/*\" package && astro build && pagefind",
-		"preview": "astro preview",
-		"astro": "astro"
+		"build": "astro build && pagefind",
+		"preview": "astro preview"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",

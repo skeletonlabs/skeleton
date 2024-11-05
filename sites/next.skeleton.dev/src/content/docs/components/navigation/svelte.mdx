@@ -12,6 +12,7 @@ import ExampleBar from '@examples/components/navigation/ExampleBar.svelte';
 import ExampleBarRaw from '@examples/components/navigation/ExampleBar.svelte?raw';
 import ExampleTiles from '@examples/components/navigation/ExampleTiles.svelte';
 import ExampleTilesRaw from '@examples/components/navigation/ExampleTiles.svelte?raw';
+import NavigationDocs from '@component-docs/svelte/Navigation.json';
 
 ## Rail
 
@@ -71,3 +72,7 @@ Tiles are universal between Rails and Bars. They default to buttons, but will co
 		<Code code={ExampleTilesRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable types={['NavCommonProps', 'NavBarProps', 'NavRailProps', 'NavTileProps']} schema={NavigationDocs} />

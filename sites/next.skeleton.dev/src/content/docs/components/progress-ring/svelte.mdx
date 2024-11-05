@@ -10,8 +10,7 @@ import ExampleIcons from '@examples/components/progress-rings/ExampleIcons.svelt
 import ExampleIconsRaw from '@examples/components/progress-rings/ExampleIcons.svelte?raw';
 import ExampleIndeterminate from '@examples/components/progress-rings/ExampleIndeterminate.svelte';
 import ExampleIndeterminateRaw from '@examples/components/progress-rings/ExampleIndeterminate.svelte?raw';
-
-{/* --- */}
+import ProgressRingDocs from '@component-docs/svelte/ProgressRing.json';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -47,3 +46,7 @@ Uses indeterminate mode when `value` is explicitly set to `null`.
 		<Code code={ExampleIndeterminateRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable types={['ProgressRingProps']} schema={ProgressRingDocs} />

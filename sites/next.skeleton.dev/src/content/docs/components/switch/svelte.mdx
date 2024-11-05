@@ -14,6 +14,7 @@ import ExampleLightswitch from '@examples/components/switch/ExampleLightswitch.s
 import ExampleLightswitchRaw from '@examples/components/switch/ExampleLightswitch.svelte?raw';
 import ExampleCompact from '@examples/components/switch/ExampleCompact.svelte';
 import ExampleCompactRaw from '@examples/components/switch/ExampleCompact.svelte?raw';
+import SwitchDocs from '@component-docs/svelte/Switch.json';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -73,3 +74,7 @@ This is a full fledge example using multiple features.
 		<Code code={ExampleLightswitchRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable types={['SwitchProps']} schema={SwitchDocs} />

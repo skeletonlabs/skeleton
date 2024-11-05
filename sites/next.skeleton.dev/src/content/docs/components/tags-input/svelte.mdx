@@ -14,6 +14,7 @@ import ExampleDisabled from '@examples/components/tags-input/ExampleDisabled.sve
 import ExampleDisabledRaw from '@examples/components/tags-input/ExampleDisabled.svelte?raw';
 import ExampleMisc from '@examples/components/tags-input/ExampleMisc.svelte';
 import ExampleMiscRaw from '@examples/components/tags-input/ExampleMisc.svelte?raw';
+import TagsInputDocs from '@component-docs/svelte/TagsInput.json';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -67,3 +68,7 @@ import ExampleMiscRaw from '@examples/components/tags-input/ExampleMisc.svelte?r
 		<Code code={ExampleMiscRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable types={['TagsInputProps']} schema={TagsInputDocs} />

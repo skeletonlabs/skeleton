@@ -18,6 +18,7 @@ import ExampleState from '@examples/components/slider/ExampleState.svelte';
 import ExampleStateRaw from '@examples/components/slider/ExampleState.svelte?raw';
 import ExampleRtl from '@examples/components/slider/ExampleRtl.svelte';
 import ExampleRtlRaw from '@examples/components/slider/ExampleRtl.svelte?raw';
+import SliderDocs from '@component-docs/svelte/Slider.json';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -97,3 +98,7 @@ import ExampleRtlRaw from '@examples/components/slider/ExampleRtl.svelte?raw';
 ## Usage Within Forms
 
 Make sure to add a unique `name` property.
+
+## API Reference
+
+<ApiTable types={['SliderProps']} schema={SliderDocs} />

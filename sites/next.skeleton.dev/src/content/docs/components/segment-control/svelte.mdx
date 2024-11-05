@@ -16,8 +16,7 @@ import ExampleVertical from '@examples/components/segment-control/ExampleVertica
 import ExampleVerticalRaw from '@examples/components/segment-control/ExampleVertical.svelte?raw';
 import ExampleGroup from '@examples/tailwind/buttons/ExampleGroup.astro';
 import ExampleGroupRaw from '@examples/tailwind/buttons/ExampleGroup.astro?raw';
-
-{/* --- */}
+import SegmentDocs from '@component-docs/svelte/Segment.json';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -88,3 +87,8 @@ Consider using a Skeleton [Button Group](/docs/tailwind/buttons#group) if you ne
 		<Code code={ExampleGroupRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+<ApiTable types={['SegmentProps', 'SegmentItemsProps']} schema={SegmentDocs} />
+

@@ -16,6 +16,7 @@ import ExampleRtl from '@examples/components/file-upload/ExampleRtl.svelte';
 import ExampleRtlRaw from '@examples/components/file-upload/ExampleRtl.svelte?raw';
 import ExampleApiBind from '@examples/components/file-upload/ExampleApiBind.svelte';
 import ExampleApiBindRaw from '@examples/components/file-upload/ExampleApiBind.svelte?raw';
+import FileUploadDocs from '@component-docs/svelte/FileUpload.json';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -143,3 +144,7 @@ function generatePreview(event) {
 <FileUpload directory> <!-- Enable dirctories -->
 <FileUpload capture> <!-- Enable media capture on mobile devices -->
 ```
+
+## API Reference
+
+<ApiTable types={['FileUploadProps']} schema={FileUploadDocs} />
