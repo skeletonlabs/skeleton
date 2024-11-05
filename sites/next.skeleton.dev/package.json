@@ -13,8 +13,9 @@
 		"dev": "astro dev",
 		"sync": "astro sync",
 		"check": "astro check",
-		"build": "astro build && pagefind",
-		"preview": "astro preview"
+		"build": "pnpm generate-component-docs && astro build && pagefind",
+		"preview": "astro preview",
+		"generate-component-docs": "tsx scripts/generate-component-docs.ts"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
@@ -48,6 +49,7 @@
 		"@tailwindcss/typography": "^0.5.15",
 		"minimatch": "^9.0.5",
 		"pagefind": "^1.1.1",
+		"tsx": "^4.19.1",
 		"vite-plugin-pagefind": "^0.2.10",
 		"vite-plugin-tw-plugin-watcher": "workspace:*"
 	}

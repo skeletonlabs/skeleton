@@ -30,9 +30,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "pnpm --reporter append-only --color \"/dev:/\"",
-		"dev:docs": " pnpm --filter \"@skeletonlabs/docs\" dev",
+		"dev:docs": " pnpm --filter \"@skeletonlabs/docs-next\" dev",
 		"dev:packages": "pnpm --recursive --filter \"@skeletonlabs/skeleton-*\" build:watch",
-		"build:docs": "pnpm package && pnpm generate-component-docs && pnpm -F @skeletonlabs/docs build",
+		"build:docs": "pnpm build:packages && pnpm --filter \"@skeletonlabs/docs-next\" build",
 		"build:packages": "pnpm --recursive --filter \"./packages/*\" build",
 		"format": "prettier . --check",
 		"format:fix": "prettier . --write",
@@ -40,7 +40,6 @@
 		"lint:fix": "eslint . --fix --ignore-path .gitignore",
 		"check": "pnpm --recursive check",
 		"test": "pnpm --filter \"@skeletonlabs/*\" test",
-		"generate-component-docs": "tsx scripts/generate-component-docs.ts",
 		"postinstall": "pnpm build:packages"
 	},
 	"devDependencies": {
