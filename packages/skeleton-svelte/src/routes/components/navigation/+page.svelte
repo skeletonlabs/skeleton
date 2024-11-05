@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Nav } from '$lib/index.js';
+	import { Navigation } from '$lib/index.js';
 	// Icons
 	import IconLogo from 'lucide-svelte/icons/skull';
 	import IconBox from 'lucide-svelte/icons/box';
@@ -25,38 +25,38 @@
 		<h2 class="h2">Bar</h2>
 		<pre class="pre">value: {value}</pre>
 		<div class="w-[320px]">
-			<Nav.Bar bind:value onchange={onChangeHandler}>
-				<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1">
+			<Navigation.Bar bind:value onchange={onChangeHandler}>
+				<Navigation.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1">
 					<IconBox />
-				</Nav.Tile>
-				<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2">
+				</Navigation.Tile>
+				<Navigation.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2">
 					<IconBox />
-				</Nav.Tile>
-				<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3">
+				</Navigation.Tile>
+				<Navigation.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3">
 					<IconBox />
-				</Nav.Tile>
-				<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4">
+				</Navigation.Tile>
+				<Navigation.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4">
 					<IconBox />
-				</Nav.Tile>
-			</Nav.Bar>
+				</Navigation.Tile>
+			</Navigation.Bar>
 		</div>
-		<Nav.Bar bind:value onchange={onChangeHandler}>
-			<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1">
+		<Navigation.Bar bind:value onchange={onChangeHandler}>
+			<Navigation.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1">
 				<IconBox />
-			</Nav.Tile>
-			<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2">
+			</Navigation.Tile>
+			<Navigation.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2">
 				<IconBox />
-			</Nav.Tile>
-			<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3">
+			</Navigation.Tile>
+			<Navigation.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3">
 				<IconBox />
-			</Nav.Tile>
-			<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4">
+			</Navigation.Tile>
+			<Navigation.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4">
 				<IconBox />
-			</Nav.Tile>
-			<Nav.Tile id="4" label="Tile 5" labelExpanded="Expanded Tile 5">
+			</Navigation.Tile>
+			<Navigation.Tile id="4" label="Tile 5" labelExpanded="Expanded Tile 5">
 				<IconBox />
-			</Nav.Tile>
-		</Nav.Bar>
+			</Navigation.Tile>
+		</Navigation.Bar>
 	</section>
 	<section class="space-y-4">
 		<header class="flex justify-between">
@@ -65,7 +65,7 @@
 		</header>
 		<div class="flex h-[960px] justify-center gap-10">
 			<!-- Expanded -->
-			<Nav.Rail {expanded} classes="transition-all">
+			<Navigation.Rail {expanded} classes="transition-all">
 				{#snippet header()}
 					<a href="/" class="flex aspect-square w-full flex-col items-center justify-center gap-2">
 						<IconLogo size={expanded ? 48 : 24} />
@@ -73,26 +73,26 @@
 					</a>
 				{/snippet}
 				{#snippet tiles()}
-					<Nav.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" href="/page/1" selected>
+					<Navigation.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1" href="/page/1" selected>
 						<IconBox />
-					</Nav.Tile>
-					<Nav.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" href="/page/2">
+					</Navigation.Tile>
+					<Navigation.Tile id="1" label="Tile 2" labelExpanded="Expanded Tile 2" href="/page/2">
 						<IconBox />
-					</Nav.Tile>
-					<Nav.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" href="/page/3">
+					</Navigation.Tile>
+					<Navigation.Tile id="2" label="Tile 3" labelExpanded="Expanded Tile 3" href="/page/3">
 						<IconBox />
-					</Nav.Tile>
-					<Nav.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" href="/page/4">
+					</Navigation.Tile>
+					<Navigation.Tile id="3" label="Tile 4" labelExpanded="Expanded Tile 4" href="/page/4">
 						<IconBox />
-					</Nav.Tile>
-					<Nav.Tile id="4" label="Tile 5" labelExpanded="Expanded Tile 5" href="/page/5">
+					</Navigation.Tile>
+					<Navigation.Tile id="4" label="Tile 5" labelExpanded="Expanded Tile 5" href="/page/5">
 						<IconBox />
-					</Nav.Tile>
+					</Navigation.Tile>
 				{/snippet}
 				{#snippet footer()}
-					<Nav.Tile labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></Nav.Tile>
+					<Navigation.Tile labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></Navigation.Tile>
 				{/snippet}
-			</Nav.Rail>
+			</Navigation.Rail>
 		</div>
 	</section>
 </div>
