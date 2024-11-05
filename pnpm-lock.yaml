@@ -454,9 +454,6 @@ importers:
         specifier: 'catalog:'
         version: 5.6.3
     devDependencies:
-      '@types/node':
-        specifier: ^22.8.7
-        version: 22.9.0
       unbuild:
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.6.3)
@@ -8753,6 +8750,7 @@ snapshots:
   '@types/node@22.9.0':
     dependencies:
       undici-types: 6.19.8
+    optional: true
 
   '@types/postcss-import@14.0.3':
     dependencies:
