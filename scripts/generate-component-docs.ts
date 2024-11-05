@@ -1,4 +1,3 @@
-// @ts-expect-error - TODO: Fix
 import fg from 'fast-glob';
 import { getInterfaces } from '@skeletonlabs/typelens';
 import { writeFile, mkdir } from 'fs/promises';
@@ -16,7 +15,6 @@ async function ensureDirectoryExists(directory: string) {
 }
 
 async function processFile(path: string) {
-	// @ts-expect-error - TODO: Fix
 	const baseOutputDir = join(import.meta.dirname, '..', 'sites/next.skeleton.dev/.generated/component-docs');
 	const { frameworkName, componentName } = extractPathInfo(path);
 	const interfaces = getInterfaces(path);
