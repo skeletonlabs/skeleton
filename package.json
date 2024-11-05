@@ -66,7 +66,6 @@
 		"prettier-plugin-astro": "^0.13.0",
 		"prettier-plugin-svelte": "^3.2.7",
 		"prettier-plugin-tailwindcss": "^0.6.8",
-		"rimraf": "^5.0.10",
 		"shelljs": "^0.8.5",
 		"tsx": "^4.19.1"
 	},
