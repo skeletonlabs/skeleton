@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { ToolbarCenterProps, AppBarHeadlineProps, ToolbarLeadProps, AppBarProps, ToolBarProps, ToolbarTrailProps } from './types.js';
