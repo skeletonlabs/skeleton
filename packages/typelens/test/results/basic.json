@@ -1,0 +1,16 @@
+[
+	{
+		"name": "Interface",
+		"properties": [
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "property",
+				"required": true,
+				"type": "string"
+			}
+		]
+	}
+]

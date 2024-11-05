@@ -4,6 +4,7 @@
 !/packages/skeleton*
 !/packages/plugin
 !/packages/vite-plugin-tw-plugin-watcher
+!/packages/typelens
 /sites/*
 !/sites/skeleton.dev
 !/sites/next.skeleton.dev

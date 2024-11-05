@@ -4,6 +4,7 @@ packages/plugin
 dist
 .svelte-kit
 **/public/pagefind/*
+sites/next.skeleton.dev/.generated
 
 # Ignore package manager lockfiles
 pnpm-lock.yaml

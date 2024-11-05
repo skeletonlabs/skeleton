@@ -1,6 +1,6 @@
 // @ts-expect-error - TODO: Fix
 import fg from 'fast-glob';
-import { getInterfaces } from 'typelens';
+import { getInterfaces } from '@skeletonlabs/typelens';
 import { writeFile, mkdir } from 'fs/promises';
 import { basename, dirname, join } from 'path';
 

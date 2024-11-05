@@ -46,6 +46,7 @@
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.9",
+		"@skeletonlabs/typelens": "workspace:^",
 		"@svitejs/changesets-changelog-github-compact": "^1.1.0",
 		"@types/node": "^20.16.11",
 		"@typescript-eslint/eslint-plugin": "^7.18.0",
@@ -68,8 +69,7 @@
 		"prettier-plugin-tailwindcss": "^0.6.8",
 		"rimraf": "^5.0.10",
 		"shelljs": "^0.8.5",
-		"tsx": "^4.19.1",
-		"typelens": "^0.0.2"
+		"tsx": "^4.19.1"
 	},
 	"pnpm": {
 		"overrides": {
