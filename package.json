@@ -29,7 +29,6 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"check": "pnpm --recursive check",
 		"dev": "pnpm --reporter append-only --color \"/dev:/\"",
 		"dev:docs": " pnpm --filter \"@skeletonlabs/docs\" dev",
 		"dev:packages": "pnpm --recursive --filter \"@skeletonlabs/skeleton-*\" build:watch",
@@ -39,6 +38,7 @@
 		"format:fix": "prettier . --write",
 		"lint": "eslint . --ignore-path .gitignore",
 		"lint:fix": "eslint . --fix --ignore-path .gitignore",
+		"check": "pnpm --recursive check",
 		"test": "pnpm --filter \"@skeletonlabs/*\" test",
 		"generate-component-docs": "tsx scripts/generate-component-docs.ts",
 		"postinstall": "pnpm build:packages"
