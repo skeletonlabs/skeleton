@@ -3,14 +3,12 @@
 	"version": "1.0.0-next.8",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"check": "pnpm package",
-		"package": "tsc --project tsconfig.package.json",
-		"package:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
-		"preview": "vite preview",
-		"test": "pnpm run \"/test:/\"",
-		"test:unit": "vitest"
+		"dev:vite": "vite",
+		"build:vite": "vite build",
+		"preview:vite": "vite preview",
+		"build": "tsc --project tsconfig.package.json",
+		"build:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
+		"test": "vitest"
 	},
 	"types": "./dist/index.d.ts",
 	"exports": {

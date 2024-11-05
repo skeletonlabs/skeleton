@@ -24,7 +24,7 @@ jobs:
         run: pnpm install
 
       - name: Build packages
-        run: pnpm package
+        run: pnpm build:packages
 
       - name: Run package checks
         run: pnpm check

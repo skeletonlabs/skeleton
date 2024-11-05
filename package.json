@@ -29,20 +29,19 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"package": "pnpm -r package",
-		"check": "pnpm -r check",
-		"dev": "pnpm run --reporter append-only --color \"/dev:/\"",
-		"dev:docs": "pnpm -F @skeletonlabs/docs dev",
-		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
-		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
+		"check": "pnpm --recursive check",
+		"dev": "pnpm --reporter append-only --color \"/dev:/\"",
+		"dev:docs": " pnpm --filter \"@skeletonlabs/docs\" dev",
+		"dev:packages": "pnpm --recursive --filter \"@skeletonlabs/skeleton-*\" build:watch",
 		"build:docs": "pnpm package && pnpm generate-component-docs && pnpm -F @skeletonlabs/docs build",
+		"build:packages": "pnpm --recursive --filter \"./packages/*\" build",
 		"format": "prettier . --check",
 		"format:fix": "prettier . --write",
 		"lint": "eslint . --ignore-path .gitignore",
 		"lint:fix": "eslint . --fix --ignore-path .gitignore",
-		"test": "pnpm -F \"@skeletonlabs/*\" test",
+		"test": "pnpm --filter \"@skeletonlabs/*\" test",
 		"generate-component-docs": "tsx scripts/generate-component-docs.ts",
-		"postinstall": "pnpm -r sync"
+		"postinstall": "pnpm build:packages"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.9",

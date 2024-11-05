@@ -3,8 +3,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"package": "unbuild",
-		"sync": "unbuild",
+		"build": "unbuild",
 		"test": "vitest"
 	},
 	"exports": {
