@@ -10,7 +10,7 @@ import ExampleToolbar from '@examples/components/app-bars/ExampleToolbar.svelte'
 import ExampleToolbarRaw from '@examples/components/app-bars/ExampleToolbar.svelte?raw';
 import ExampleResponsive from '@examples/components/app-bars/ExampleResponsive.svelte';
 import ExampleResponsiveRaw from '@examples/components/app-bars/ExampleResponsive.svelte?raw';
-import AppBarDocs from '@component-docs/svelte/AppBar.json';
+import AppBarSchema from '@component-schemas/svelte/AppBar.json';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -49,5 +49,5 @@ Use Tailwind's [responsive design](https://tailwindcss.com/docs/responsive-desig
 
 <ApiTable
 	types={['AppBarProps', 'ToolBarProps', 'ToolbarLeadProps', 'ToolbarCenterProps', 'ToolbarTrailProps', 'AppBarHeadlineProps']}
-	schema={AppBarDocs}
+	schema={AppBarSchema}
 />

@@ -4,7 +4,7 @@ import { writeFile, mkdir } from 'fs/promises';
 import { basename, dirname, join } from 'path';
 import { resolve } from 'node:url';
 
-const BASE_OUTPUT_DIR = join(import.meta.dirname, '..', './.generated/component-docs');
+const BASE_OUTPUT_DIR = join(import.meta.dirname, '..', './.generated/component-schemas');
 
 const logger = {
 	start: (msg: string) => console.time(`⏱️ ${msg}`),
