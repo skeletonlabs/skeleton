@@ -56,14 +56,17 @@
 	"exports": {
 		".": {
 			"types": "./dist/core/index.d.ts",
+			"require": "./dist/core/index.cjs",
 			"default": "./dist/core/index.js"
 		},
 		"./plugin": {
 			"types": "./dist/plugin/index.d.ts",
-			"require": "./dist/plugin/index.cjs"
+			"require": "./dist/plugin/index.cjs",
+			"default": "./dist/plugin/index.js"
 		},
 		"./themes": {
 			"types": "./dist/themes/index.d.ts",
+			"require": "./dist/themes/index.cjs",
 			"default": "./dist/themes/index.js"
 		}
 	},
