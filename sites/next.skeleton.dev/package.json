@@ -46,9 +46,9 @@
 		"typescript": "catalog:"
 	},
 	"devDependencies": {
+		"@clack/prompts": "^0.7.0",
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
-		"minimatch": "^9.0.5",
 		"pagefind": "^1.1.1",
 		"tsx": "^4.19.1",
 		"vite-plugin-pagefind": "^0.2.10",
