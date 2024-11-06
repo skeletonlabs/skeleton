@@ -55,19 +55,34 @@
 	"types": "./dist/core/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/core/index.d.ts",
-			"require": "./dist/core/index.cjs",
-			"default": "./dist/core/index.js"
+			"import": {
+				"types": "./dist/core/index.d.ts",
+				"default": "./dist/core/index.js"
+			},
+			"require": {
+				"types": "./dist/core/index.d.cts",
+				"default": "./dist/core/index.cjs"
+			}
 		},
 		"./plugin": {
-			"types": "./dist/plugin/index.d.ts",
-			"require": "./dist/plugin/index.cjs",
-			"default": "./dist/plugin/index.js"
+			"import": {
+				"types": "./dist/plugin/index.d.ts",
+				"default": "./dist/plugin/index.js"
+			},
+			"require": {
+				"types": "./dist/plugin/index.d.cts",
+				"default": "./dist/plugin/index.cjs"
+			}
 		},
 		"./themes": {
-			"types": "./dist/themes/index.d.ts",
-			"require": "./dist/themes/index.cjs",
-			"default": "./dist/themes/index.js"
+			"import": {
+				"types": "./dist/themes/index.d.ts",
+				"default": "./dist/themes/index.js"
+			},
+			"require": {
+				"types": "./dist/themes/index.d.cts",
+				"default": "./dist/themes/index.cjs"
+			}
 		}
 	},
 	"files": [
