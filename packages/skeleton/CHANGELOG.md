@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.0.0-next.7
+
+### Patch Changes
+
+- Fix conflicting build artifacts ([#2931](https://github.com/skeletonlabs/skeleton/pull/2931))
+
 ## 3.0.0-next.6
 
 ### Minor Changes
