@@ -10,8 +10,7 @@
 			"@components/*": ["src/components/*"],
 			"@examples/*": ["src/examples/*"],
 			"@content/*": ["src/content/*"],
-			"@styles/*": ["src/styles/*"],
-			"@component-schemas/*": [".generated/component-schemas/*"]
+			"@styles/*": ["src/styles/*"]
 		}
 	},
 	"exclude": ["node_modules", "dist", "public/pagefind"]

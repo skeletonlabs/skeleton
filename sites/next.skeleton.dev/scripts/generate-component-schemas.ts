@@ -5,18 +5,25 @@ import { basename, dirname, join } from 'path';
 import { resolve } from 'node:url';
 import { intro, spinner, outro } from '@clack/prompts';
 
-const OUTPUT_DIR = join(import.meta.dirname, '../.generated/component-schemas');
+const OUTPUT_DIR = join(import.meta.dirname, '../src/content/schemas');
 const MATCHER = './node_modules/@skeletonlabs/skeleton-*/src/lib/components/*/types.ts';
 
+function toKebabCase(str: string) {
+	str = str.charAt(0).toLowerCase() + str.slice(1);
+	return str.replace(/([A-Z])/g, '-$1').toLowerCase();
+}
+
 async function processFile(path: string): Promise<number> {
-	const componentName = basename(dirname(path));
+	const component = basename(dirname(path));
 	const framework = path.match(/skeleton-([^/]+)/)?.[1];
 	if (!framework) {
 		throw new Error(`Invalid framework path: ${path}`);
 	}
-	const outPath = join(OUTPUT_DIR, framework, `${componentName}.json`);
+	const outPath = join(OUTPUT_DIR, framework, `${toKebabCase(component)}.json`);
 	await mkdir(dirname(outPath), { recursive: true });
-	const interfaces = getInterfaces(path);
+	const interfaces = getInterfaces(path, {
+		matcher: /^[\w-]+Props$/
+	});
 	await writeFile(outPath, JSON.stringify(interfaces, null, 2));
 	return Object.keys(interfaces).length;
 }
