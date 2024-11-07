@@ -14,7 +14,6 @@ async function getSchemaFromSlug(slug: string | undefined) {
 	const component = parts.at(-2);
 	const framework = parts.at(-1);
 	if (!component || !framework) return null;
-	console.log({ component, framework });
 	return getEntry<'schemas', string>('schemas', `${framework}/${component}`).then((entry) => entry?.data);
 }
 ---
