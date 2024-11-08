@@ -260,23 +260,25 @@ const [value, setValue] = useState('foo');
 
 ## Generating Schema
 
-> NOTE: currently limited to the `skeleton-react` package only!
-
-When adding or editing a `types.ts` file, you'll be required to generate or update component type schema. This is useful for populating the API Reference per each component page. Make sure to follow these steps:
-
-1. When a `types.ts` files has been added or edited, run `pnpm schema` to generate `schema.json` files.
-2. Then, make sure each `schema.json` file is exported within the package `index.js` list.
-3. Finally, within each component page, import the schema data, then pass this to a `ApiTable` component.
-
-```ts
-import { AccordionSchema } from '@skeletonlabs/skeleton-react/schemas';
-```
+When you add or change component `types.ts` data, please run `pnpm schema` in the Astro documentation project to generate new component schema. This data is used to populate the API Reference information on each documentation page. In most cases you can just add the following component on the page and the available schema will automatically be consumed.
 
 ```tsx
-<ApiTable   />
+<ApiTable />
+```
+In rare cases you may need to specify the schema directly. To do so, import the schema JSON, then pass this via the `schema` prop.
+
+```ts
+import schema from '@content/schemas/svelte/toast.json';
+```
+```tsx
+<ApiTable schema={schema} />
 ```
 
-This will generate a styled table detailing type data for each type supplied.
+All generate schema files reside in the following directory.
+
+```
+/src/content/schemas/{framework}/{component}.json
+```
 
 ---
 
