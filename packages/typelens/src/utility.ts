@@ -66,7 +66,7 @@ export function getTypeKind(type: Type) {
 		return 'function';
 	} else if (type.flags & TypeFlags.Union) {
 		return 'union';
-	} else if (type.symbol?.name === 'Array' || type.symbol?.name === 'ReadonlyArray') {
+	} else if (type.symbol.name === 'Array' || type.symbol.name === 'ReadonlyArray') {
 		return 'array';
 	} else if (type.flags & TypeFlags.Object) {
 		const objectType = type as ObjectType;
