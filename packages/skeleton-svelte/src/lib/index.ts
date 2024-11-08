@@ -13,11 +13,11 @@ export { default as FileUpload } from './components/FileUpload/FileUpload.svelte
 export { default as Pagination } from './components/Pagination/Pagination.svelte';
 export { default as Progress } from './components/Progress/Progress.svelte';
 export { default as ProgressRing } from './components/ProgressRing/ProgressRing.svelte';
-export { default as Nav } from './components/Nav/index.js';
+export { default as Navigation } from './components/Navigation/index.js';
 export { default as Segment } from './components/Segment/index.js';
 export { default as Slider } from './components/Slider/Slider.svelte';
 export { default as Switch } from './components/Switch/Switch.svelte';
-export { default as Tabs } from './components/Tab/index.js';
+export { default as Tabs } from './components/Tabs/index.js';
 export { default as TagsInput } from './components/TagsInput/TagsInput.svelte';
 export { default as Rating } from './components/Rating/index.js';
 

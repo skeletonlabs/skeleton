@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Interface",
+		"properties": [
+			{
+				"documentation": {
+					"tags": [
+						{
+							"name": "default",
+							"value": "'foo'"
+						},
+						{
+							"name": "readonly",
+							"value": ""
+						}
+					],
+					"text": "Property"
+				},
+				"name": "property",
+				"required": true,
+				"type": "string",
+				"typeKind": "primitive"
+			}
+		]
+	}
+]

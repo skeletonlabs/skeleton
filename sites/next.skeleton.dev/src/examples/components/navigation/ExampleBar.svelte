@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Nav } from '@skeletonlabs/skeleton-svelte';
+	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 	import IconFolder from 'lucide-svelte/icons/folder';
 	import IconImage from 'lucide-svelte/icons/image';
 	import IconMusic from 'lucide-svelte/icons/music';
@@ -16,18 +16,18 @@
 		<p class="opacity-20">(Content)</p>
 	</div>
 	<!-- Component -->
-	<Nav.Bar bind:value onchange={console.log}>
-		<Nav.Tile id="0" label="Files">
+	<Navigation.Bar bind:value onchange={console.log}>
+		<Navigation.Tile id="0" label="Files">
 			<IconFolder />
-		</Nav.Tile>
-		<Nav.Tile id="1" label="Images">
+		</Navigation.Tile>
+		<Navigation.Tile id="1" label="Images">
 			<IconImage />
-		</Nav.Tile>
-		<Nav.Tile id="2" label="Music">
+		</Navigation.Tile>
+		<Navigation.Tile id="2" label="Music">
 			<IconMusic />
-		</Nav.Tile>
-		<Nav.Tile id="3" label="Videos">
+		</Navigation.Tile>
+		<Navigation.Tile id="3" label="Videos">
 			<IconVideo />
-		</Nav.Tile>
-	</Nav.Bar>
+		</Navigation.Tile>
+	</Navigation.Bar>
 </div>

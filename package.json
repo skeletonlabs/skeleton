@@ -29,23 +29,22 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"ci:package": "pnpm -r package",
-		"ci:publish": "changeset publish",
-		"ci:release": "pnpm ci:package && pnpm ci:publish",
-		"check": "pnpm -r check",
-		"clean": "node ./scripts/rimraf.js",
-		"dev": "pnpm -F next.skeleton.dev dev",
-		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte dev",
-		"dev:react": "pnpm -F @skeletonlabs/skeleton-react dev",
-		"format": "prettier -w .",
-		"format:check": "prettier . --check",
+		"dev": "pnpm --reporter append-only --color \"/dev:/\"",
+		"dev:docs": " pnpm --filter \"@skeletonlabs/docs-next\" dev",
+		"dev:packages": "pnpm --recursive --filter \"@skeletonlabs/skeleton-*\" build:watch",
+		"build:docs": "pnpm build:packages && pnpm --filter \"@skeletonlabs/docs-next\" build",
+		"build:packages": "pnpm --recursive --filter \"./packages/*\" build",
+		"format": "prettier . --check",
+		"format:fix": "prettier . --write",
 		"lint": "eslint . --ignore-path .gitignore",
 		"lint:fix": "eslint . --fix --ignore-path .gitignore",
-		"postinstall": "pnpm -r sync",
-		"test": "pnpm -F \"@skeletonlabs/*\" test"
+		"check": "pnpm --recursive check",
+		"test": "pnpm --filter \"@skeletonlabs/*\" test",
+		"postinstall": "pnpm build:packages"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.9",
+		"@skeletonlabs/typelens": "workspace:^",
 		"@svitejs/changesets-changelog-github-compact": "^1.1.0",
 		"@types/node": "^20.16.11",
 		"@typescript-eslint/eslint-plugin": "^7.18.0",
@@ -60,13 +59,14 @@
 		"eslint-plugin-react-hooks": "^4.6.2",
 		"eslint-plugin-react-refresh": "^0.4.12",
 		"eslint-plugin-svelte": "^2.44.1",
+		"fast-glob": "^3.3.1",
 		"globals": "^15.10.0",
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "^0.13.0",
 		"prettier-plugin-svelte": "^3.2.7",
 		"prettier-plugin-tailwindcss": "^0.6.8",
-		"rimraf": "^5.0.10",
-		"shelljs": "^0.8.5"
+		"shelljs": "^0.8.5",
+		"tsx": "^4.19.1"
 	},
 	"pnpm": {
 		"overrides": {

@@ -1,0 +1,42 @@
+[
+	{
+		"name": "InterfaceOne",
+		"properties": [
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "propertyOne",
+				"required": true,
+				"type": "string",
+				"typeKind": "primitive"
+			}
+		]
+	},
+	{
+		"name": "InterfaceTwo",
+		"properties": [
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "propertyTwo",
+				"required": true,
+				"type": "string",
+				"typeKind": "primitive"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "propertyOne",
+				"required": true,
+				"type": "string",
+				"typeKind": "primitive"
+			}
+		]
+	}
+]
