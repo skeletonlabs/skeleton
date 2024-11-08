@@ -131,7 +131,7 @@ const conicStops: ConicStop[] = [
 				</svelte:fragment>
 			</TabGroup>
 			<!-- prettier-ignore -->
-			<p>This data can be reactive, but be sure to adhere to standard Svelte requirements when <a class="anchor" href="https://svelte.dev/tutorial/updating-arrays-and-objects" target="_blank" rel="noreferrer">updating arrays</a>.</p>
+			<p>This data can be reactive, but be sure to adhere to standard Svelte requirements when <a class="anchor" href="https://v4.svelte.dev/tutorial/updating-arrays-and-objects" target="_blank" rel="noreferrer">updating arrays</a>.</p>
 		</div>
 		<!-- Legend -->
 		<div class="space-y-4">

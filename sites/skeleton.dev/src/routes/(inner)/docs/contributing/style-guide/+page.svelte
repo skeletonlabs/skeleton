@@ -60,7 +60,7 @@
 		<p>
 			Ensure relevant events bubble via <a
 				class="anchor"
-				href="https://svelte.dev/tutorial/dom-event-forwarding"
+				href="https://v4.svelte.dev/tutorial/dom-event-forwarding"
 				target="_blank"
 				rel="noreferrer">event forwarding</a
 			>.
