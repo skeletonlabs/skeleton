@@ -1,5 +1,6 @@
 ---
 import { getEntry, type CollectionEntry } from 'astro:content';
+import { Popover } from '@components/docs/Popover';
 
 interface Props {
 	schema?: CollectionEntry<'schemas'>['data'];
@@ -46,7 +47,20 @@ async function getSchemaFromSlug(slug: string | undefined) {
 											</div>
 										</td>
 										{/* Type */}
-										<td class="italic opacity-60">{property.typeKind === 'primitive' ? property.type : property.typeKind}</td>
+										<td>
+											{property.typeKind === 'primitive' ? (
+												<span class="italic opacity-60">{property.type}</span>
+											) : (
+												<Popover
+													trigger={`${property.typeKind} \u24D8`}
+													triggerBase="opacity-60 whitespace-nowrap mr-4"
+													arrowBase="fill-surface-950-50"
+													client:load
+												>
+													<div class="card preset-filled p-4 max-w-96 shadow-xl">{property.type}</div>
+												</Popover>
+											)}
+										</td>
 										{/* Description */}
 										<td>
 											<div class="grid grid-cols-1 gap-2">
