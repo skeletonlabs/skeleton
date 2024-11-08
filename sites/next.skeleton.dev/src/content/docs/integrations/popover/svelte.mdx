@@ -16,6 +16,10 @@ import ExampleModalRaw from '@examples/components/popover/ExampleModal.svelte?ra
 import ExampleModalDrawer from '@examples/components/popover/ExampleModalDrawer.svelte';
 import ExampleModalDrawerRaw from '@examples/components/popover/ExampleModalDrawer.svelte?raw';
 
+import { getEntry } from 'astro:content';
+
+{/* const schemaPopover = await getEntry('schemas', 'svelte/popover').then((entry) => entry.data); */}
+
 ## Floating UI Svelte
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
@@ -90,6 +94,10 @@ Generate modals or dialogs that require a user's immediate attention. [View API 
 		<Code code={ExampleModalDrawerRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+## API Reference
+
+{/* <ApiTable schema={schemaPopover} /> */}
 
 ## Native Browser APIs
 
