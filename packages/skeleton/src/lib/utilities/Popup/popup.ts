@@ -143,7 +143,6 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		if (triggerNode.contains(event.target)) return;
 		// If click it outside the popup
 		if (elemPopup && elemPopup.contains(event.target) === false) {
-			console.log(event.type);
 			const selection = window.getSelection();
 			if (selection && selection.toString().length == 0) {
 				close();
