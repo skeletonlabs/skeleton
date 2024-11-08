@@ -13,7 +13,7 @@
 		"dev": "astro dev",
 		"sync": "astro sync",
 		"check": "astro check",
-		"build": "pnpm generate-component-schemas && astro build && pagefind",
+		"build": "pnpm schema && astro build && pagefind",
 		"preview": "astro preview",
 		"schema": "tsx ./scripts/generate-schemas.ts"
 	},
