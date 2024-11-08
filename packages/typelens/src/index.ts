@@ -1,6 +1,6 @@
 import { type CompilerOptions, SymbolFlags, displayPartsToString, isInterfaceDeclaration } from 'typescript';
 import type { Interface } from './types.js';
-import { parse, walk } from './utility.js';
+import { getTypeKind, parse, walk } from './utility.js';
 
 export interface Options {
 	/**
@@ -33,7 +33,9 @@ export function getInterfaces(path: string, options: Options = {}): Interface[] 
 		const nodeType = typeChecker.getTypeAtLocation(node);
 		const properties = nodeType.getProperties().map((property) => {
 			const name = property.name;
-			const type = typeChecker.typeToString(typeChecker.getTypeOfSymbolAtLocation(property, node));
+			const propertyType = typeChecker.getTypeOfSymbolAtLocation(property, node);
+			const type = typeChecker.typeToString(propertyType);
+			const typeKind = getTypeKind(propertyType);
 			const required = !(property.flags & SymbolFlags.Optional);
 			const text = displayPartsToString(property.getDocumentationComment(typeChecker)) || null;
 			const tags = property.getJsDocTags(typeChecker).map((tag) => {
@@ -47,6 +49,7 @@ export function getInterfaces(path: string, options: Options = {}): Interface[] 
 			return {
 				name: name,
 				type: type,
+				typeKind: typeKind,
 				required: required,
 				documentation: {
 					text: text,

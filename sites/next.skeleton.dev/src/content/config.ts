@@ -28,6 +28,7 @@ const schemas = defineCollection({
 				z.object({
 					name: z.string(),
 					type: z.string(),
+					typeKind: z.string(),
 					required: z.boolean(),
 					documentation: z.object({
 						text: z.string().nullable(),

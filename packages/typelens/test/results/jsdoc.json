@@ -4,8 +4,17 @@
 		"properties": [
 			{
 				"documentation": {
-					"tags": [],
-					"text": null
+					"tags": [
+						{
+							"name": "default",
+							"value": "'foo'"
+						},
+						{
+							"name": "readonly",
+							"value": ""
+						}
+					],
+					"text": "Property"
 				},
 				"name": "property",
 				"required": true,

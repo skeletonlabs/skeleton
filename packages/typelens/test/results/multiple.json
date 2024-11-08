@@ -9,7 +9,8 @@
 				},
 				"name": "property",
 				"required": true,
-				"type": "string"
+				"type": "string",
+				"typeKind": "primitive"
 			}
 		]
 	},
@@ -23,7 +24,8 @@
 				},
 				"name": "property",
 				"required": true,
-				"type": "string"
+				"type": "string",
+				"typeKind": "primitive"
 			}
 		]
 	}

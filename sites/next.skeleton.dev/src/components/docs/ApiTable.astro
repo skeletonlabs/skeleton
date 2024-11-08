@@ -46,7 +46,7 @@ async function getSchemaFromSlug(slug: string | undefined) {
 											</div>
 										</td>
 										{/* Type */}
-										<td class="italic opacity-60">{property.type}</td>
+										<td class="italic opacity-60">{property.typeKind === 'primitive' ? property.type : property.typeKind}</td>
 										{/* Description */}
 										<td>
 											<div class="grid grid-cols-1 gap-2">

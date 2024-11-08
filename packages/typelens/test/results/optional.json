@@ -9,7 +9,8 @@
 				},
 				"name": "property",
 				"required": false,
-				"type": "string"
+				"type": "string",
+				"typeKind": "primitive"
 			}
 		]
 	}

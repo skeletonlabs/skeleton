@@ -8,7 +8,14 @@ import {
 	createCompilerHost,
 	createProgram,
 	createSourceFile,
-	forEachChild
+	forEachChild,
+	isFunctionTypeNode,
+	isTypeReferenceNode,
+	isUnionTypeNode,
+	Type,
+	TypeFlags,
+	ObjectType,
+	ObjectFlags
 } from 'typescript';
 import { defaultCompilerOptions } from './constants.js';
 
@@ -52,4 +59,23 @@ export function walk(node: Node, callback: (node: Node) => void) {
 		callback(node);
 		walk(node, callback);
 	});
+}
+
+export function getTypeKind(type: Type) {
+	if (type.getCallSignatures().length > 0) {
+		return 'function';
+	} else if (type.flags & TypeFlags.Union) {
+		return 'union';
+	} else if (type.symbol?.name === 'Array' || type.symbol?.name === 'ReadonlyArray') {
+		return 'array';
+	} else if (type.flags & TypeFlags.Object) {
+		const objectType = type as ObjectType;
+		if (
+			objectType.objectFlags & (ObjectFlags.Reference | ObjectFlags.Interface | ObjectFlags.Anonymous) ||
+			type.getProperties().length > 0
+		) {
+			return 'object';
+		}
+	}
+	return 'primitive';
 }
