@@ -136,6 +136,11 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	function toggle(): void {
 		popupState.open === false ? open() : close();
 	}
+
+	function handleMouseUp(event: MouseEvent) {
+		if (!triggerNode.contains(event.target as Node)) close();
+	}
+
 	function onWindowClick(event: any): void {
 		// Return if the popup is not yet open
 		if (popupState.open === false) return;
@@ -190,13 +195,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	switch (args.event) {
 		case 'click':
 			triggerNode.addEventListener('click', toggle, true);
-			window.addEventListener(
-				'mouseup',
-				(event) => {
-					if (!triggerNode.contains(event.target as Node)) close();
-				},
-				true
-			);
+			window.addEventListener('mouseup', handleMouseUp, true);
 			window.addEventListener('click', onWindowClick, true);
 			break;
 		case 'hover':
@@ -238,13 +237,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 			triggerNode.removeEventListener('blur', () => close(), true);
 			// Window Events
 			window.removeEventListener('click', onWindowClick, true);
-			window.removeEventListener(
-				'mouseup',
-				(event) => {
-					if (!triggerNode.contains(event.target as Node)) close();
-				},
-				true
-			);
+			window.removeEventListener('mouseup', handleMouseUp, true);
 			window.removeEventListener('keydown', onWindowKeyDown, true);
 		}
 	};
