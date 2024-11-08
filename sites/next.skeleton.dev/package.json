@@ -15,7 +15,7 @@
 		"check": "astro check",
 		"build": "pnpm generate-component-schemas && astro build && pagefind",
 		"preview": "astro preview",
-		"generate-component-schemas": "tsx scripts/generate-component-schemas.ts"
+		"schema": "tsx ./scripts/generate-schemas.ts"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",

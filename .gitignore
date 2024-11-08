@@ -22,9 +22,10 @@ package/
 .vercel/
 **/plugin/generated
 
-# generated types
+# generated
 .astro/
 .svelte-kit/
+sites/next.skeleton.dev/src/content/schemas/**/*.json
 
 # dependencies
 node_modules/
