@@ -16,9 +16,10 @@ import ExampleModalRaw from '@examples/components/popover/ExampleModal.svelte?ra
 import ExampleModalDrawer from '@examples/components/popover/ExampleModalDrawer.svelte';
 import ExampleModalDrawerRaw from '@examples/components/popover/ExampleModalDrawer.svelte?raw';
 
-import { getEntry } from 'astro:content';
-
-{/* const schemaPopover = await getEntry('schemas', 'svelte/popover').then((entry) => entry.data); */}
+import schemaPopover from '@content/schemas/svelte/popover.json';
+import schemaTooltip from '@content/schemas/svelte/tooltip.json';
+import schemaCombobox from '@content/schemas/svelte/combobox.json';
+import schemaModal from '@content/schemas/svelte/modal.json';
 
 ## Floating UI Svelte
 
@@ -95,10 +96,6 @@ Generate modals or dialogs that require a user's immediate attention. [View API 
 	</Fragment>
 </Preview>
 
-## API Reference
-
-{/* <ApiTable schema={schemaPopover} /> */}
-
 ## Native Browser APIs
 
 Skeleton will always favor native browser APIs over third-party libraries such as Floating UI Svelte. The following is a list of current and upcoming incoming APIs we will aim to support in the future, but are not quite standardized cross-browser yet.
@@ -106,3 +103,10 @@ Skeleton will always favor native browser APIs over third-party libraries such a
 * [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
 * [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
 * [CSS Anchoring Position](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning)
+
+## API Reference
+
+<ApiTable schema={schemaPopover} />
+<ApiTable schema={schemaTooltip} />
+<ApiTable schema={schemaCombobox} />
+<ApiTable schema={schemaModal} />
