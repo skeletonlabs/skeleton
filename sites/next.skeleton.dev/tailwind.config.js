@@ -1,3 +1,6 @@
+// import { skeleton } from '../../packages/skeleton/dist/plugin/index.cjs'
+// NOTE: Do not delete the above comment. It's required for local HMR on plugin changes.
+
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { skeleton } from '@skeletonlabs/skeleton/plugin';
@@ -20,7 +23,7 @@ export default {
 	plugins: [
 		forms,
 		skeleton({
-			themes: Object.values(themes)
+			themes: Object.values(themes) // All available themes
 		})
 	]
 };
