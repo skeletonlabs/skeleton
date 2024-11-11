@@ -14,8 +14,8 @@ export default {
 	darkMode: 'class',
 	content: [
 		'./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-		join(__dirname, 'node_modules/@skeletonlabs/skeleton-react/**/*.{html,js,ts,jsx,tsx}'),
-		join(__dirname, 'node_modules/@skeletonlabs/skeleton-svelte/**/*.{html,js,ts,svelte}')
+		join(__dirname, 'node_modules/@skeletonlabs/skeleton-react/dist/**/*.{html,js,ts,jsx,tsx}'),
+		join(__dirname, 'node_modules/@skeletonlabs/skeleton-svelte/dist/**/*.{html,js,ts,svelte}')
 	],
 	theme: {
 		extend: {}
