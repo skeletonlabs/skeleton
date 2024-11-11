@@ -60,8 +60,8 @@
 </script>
 
 <span>
+	<!-- Trigger -->
 	{#if trigger}
-		<!-- Trigger -->
 		<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
 			{@render trigger()}
 		</button>
