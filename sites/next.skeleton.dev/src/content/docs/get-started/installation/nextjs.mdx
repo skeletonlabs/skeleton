@@ -39,7 +39,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         import type { Config } from 'tailwindcss';
 
         import { join } from "path";
-        import { skeleton } from "@skeletonlabs/skeleton/plugin";
+        import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
         import * as themes from "@skeletonlabs/skeleton/themes";
 
         /** @type {import('tailwindcss').Config} \*/
@@ -48,7 +48,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
                 "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
                 "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
                 "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-                join(require.resolve('@skeletonlabs/skeleton-react'), '../**/*.{html,js,jsx,tsx,ts}')
+                contentPath(import.meta.url, 'react')
             ],
             theme: {
                 extend: {},
