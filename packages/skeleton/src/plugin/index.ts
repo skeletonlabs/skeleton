@@ -67,9 +67,8 @@ export function contentPath(fileURL: URL, framework: 'svelte' | 'react') {
 	const packageEntryPath = require.resolve(`@skeletonlabs/skeleton-${framework}`, { paths: [configPath] });
 	const packagePath = path.resolve(packageEntryPath, '..');
 
-	// assemble glob (globs use posix file seporators)
-	const relative = path.relative(configPath, packagePath).split(path.sep).join('/');
-	const glob = relative + fileExtensions[framework];
+	// assemble glob
+	const glob = path.join(packagePath, fileExtensions[framework]);
 	return glob;
 }
 
