@@ -24,7 +24,7 @@ jobs:
         run: pnpm install
 
       - name: Build packages
-        run: pnpm build:packages
+        run: pnpm package
 
       - name: Run package checks
         run: pnpm check
@@ -44,7 +44,7 @@ jobs:
         run: pnpm install
 
       - name: Run eslint
-        run: pnpm lint
+        run: pnpm lint:check
 
   format:
     name: Run formatting check
@@ -61,7 +61,7 @@ jobs:
         run: pnpm install
 
       - name: Run prettier
-        run: pnpm format
+        run: pnpm format:check
 
   test:
     name: Run tests

@@ -3,8 +3,8 @@
 	"version": "3.0.0-next.7",
 	"description": "Core plugin for Skeleton.",
 	"scripts": {
-		"build": "pnpm build:jss && tsup",
-		"build:jss": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/generate-jss.ts",
+		"package": "pnpm package:jss && tsup",
+		"package:jss": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/generate-jss.ts",
 		"convert": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/convert-theme.ts && pnpm format"
 	},
 	"repository": {

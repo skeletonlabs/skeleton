@@ -6,7 +6,7 @@ import { getContext, setContext } from 'svelte';
  * @returns [set, get, key] The setter, getter and key for the context, the getter returns the default value if the context is not set
  */
 export function createContext<T>(defaultValue: T) {
-	const key = Symbol();
+	const key: symbol = Symbol();
 	const set = (value: T) => setContext(key, value);
 	const get = () => getContext<T>(key) ?? defaultValue;
 	return [set, get, key] as const;

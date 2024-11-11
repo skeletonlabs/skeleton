@@ -1,9 +1,9 @@
 {
-	"name": "@skeletonlabs/typelens",
+	"name": "@skeletonlabs/necroparser",
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"build": "unbuild",
+		"package": "unbuild",
 		"test": "vitest"
 	},
 	"exports": {

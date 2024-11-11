@@ -30,7 +30,7 @@ jobs:
         run: pnpm install
 
       - name: Build packages
-        run: pnpm build:packages
+        run: pnpm package
 
       - name: Create Release Pull Request or Publish
         id: changesets
