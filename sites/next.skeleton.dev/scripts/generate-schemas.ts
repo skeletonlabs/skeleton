@@ -1,5 +1,5 @@
 import fg from 'fast-glob';
-import { getInterfaces } from '@skeletonlabs/typelens';
+import { getInterfaces } from '@skeletonlabs/necroparser';
 import { writeFile, mkdir, rm } from 'fs/promises';
 import { basename, dirname, join } from 'path';
 import { resolve } from 'node:url';

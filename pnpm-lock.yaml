@@ -498,8 +498,8 @@ importers:
         specifier: ^0.10.2
         version: 0.10.2(nanostores@0.11.3)
       '@skeletonlabs/skeleton':
-        specifier: '*'
-        version: 2.10.3(svelte@5.0.5)
+        specifier: workspace:*
+        version: link:../../packages/skeleton
       '@skeletonlabs/skeleton-react':
         specifier: workspace:*
         version: link:../../packages/skeleton-react
@@ -2134,11 +2134,6 @@ packages:
   '@sindresorhus/is@5.6.0':
     resolution: {integrity: sha512-TV7t8GKYaJWsn00tFDqBw8+Uqmr8A0fRU1tvTQhyZzGv0sJCGRQL3JGMI3ucuKo3XIZdUP+Lx7/gh2t3lewy7g==}
     engines: {node: '>=14.16'}
-
-  '@skeletonlabs/skeleton@2.10.3':
-    resolution: {integrity: sha512-O1RecF68zEVvZl3GgRS4emqWMUIQLHvTOFoqGOw/2OXCPE06IxUQrHQf2hnxCPxtGZNXY2YX8UNV38l+eH8GNQ==}
-    peerDependencies:
-      svelte: ^3.56.0 || ^4.0.0 || ^5.0.0
 
   '@sveltejs/adapter-auto@3.3.0':
     resolution: {integrity: sha512-EJZqY7eMM+bdbR898Xt9ufawUHLPJu7w3wPr4Cc+T1iIDf3fufVLWg4C71OluIqsdJqv85E4biKuHo3XXIY0PQ==}
@@ -8533,11 +8528,6 @@ snapshots:
   '@sinclair/typebox@0.27.8': {}
 
   '@sindresorhus/is@5.6.0': {}
-
-  '@skeletonlabs/skeleton@2.10.3(svelte@5.0.5)':
-    dependencies:
-      esm-env: 1.0.0
-      svelte: 5.0.5
 
   '@sveltejs/adapter-auto@3.3.0(@sveltejs/kit@2.7.2(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.0.5)(vite@5.4.10(@types/node@22.7.9)))(svelte@5.0.5)(vite@5.4.10(@types/node@22.7.9)))':
     dependencies:
