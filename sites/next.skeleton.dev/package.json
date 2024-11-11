@@ -8,7 +8,6 @@
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",
 	"type": "module",
-	"version": "0.0.1",
 	"scripts": {
 		"dev": "pnpm run --reporter append-only --color \"/dev:/\"",
 		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
