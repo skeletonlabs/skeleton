@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.12
+
+### Minor Changes
+
+- feature: Added the Svelte Toast component ([#2922](https://github.com/skeletonlabs/skeleton/pull/2922))
+
+- chore: Updated to the latest dependencies ([#2892](https://github.com/skeletonlabs/skeleton/pull/2892))
+
 ## 1.0.0-next.11
 
 ### Minor Changes

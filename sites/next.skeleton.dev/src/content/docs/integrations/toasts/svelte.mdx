@@ -1,0 +1,45 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import ExampleProvider from '@examples/integrations/toasts/ExampleProvider.svelte';
+import ExamplePageContentRaw from '@examples/integrations/toasts/ExamplePageContent.svelte?raw';
+
+import schema from '@content/schemas/svelte/toast.json';
+
+<div class="card preset-outlined-warning-500 p-8 space-y-8">
+	<p>This feature is currently available as an early access <code class="code">Beta</code> preview, meaning the features and API are not yet stable. This feature is not yet recommended for production use as breaking changes may occur. Please use this feature with caution.</p>
+</div>
+
+## Setup the Provider
+
+Wrap the contents of your app with `ToastProvider` in your root layout. We'll interface with this using the [Svelte Context API](https://svelte.dev/docs/svelte/context).
+
+```svelte title="+layout.svelte"
+<script lang="ts">
+	import { ToastProvider } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<ToastProvider>
+	{@render children()}
+</ToastProvider>
+```
+
+## Create a Toast
+
+There are three available types of toasts: `info | error | success`, with `info` being the default.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleProvider client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExamplePageContentRaw} lang="svelte" title="+page.svelte" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable schema={schema} />

@@ -1,3 +1,5 @@
+'use client';
+
 import * as rating from '@zag-js/rating-group';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import { useId, type FC } from 'react';

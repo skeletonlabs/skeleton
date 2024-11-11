@@ -21,10 +21,15 @@ export async function importThemeFile(file: File) {
 
 	// Format each line
 	const lineMapped = linesFiltered.map((line) => {
+		// prettier-ignore
 		return (line = line
+			.trim() // trim whitespace
 			.replaceAll('\t', '') // tabbing
-			.replaceAll(`',`, '') // final comma
-			.replaceAll(`'`, '')); // open/close quotes
+			.replaceAll(`',`, '') // final comma (single quote)
+			.replaceAll(`",`, '') // final comma (double quote)
+			.replaceAll(`'`, '') // open/close (single quotes)
+			.replaceAll(`"`, '') // open/close (double quote)
+		);
 	});
 
 	// Create key/value object

@@ -1,5 +1,5 @@
 {
-	"name": "next.skeleton.dev",
+	"name": "@skeletonlabs/docs-next",
 	"private": true,
 	"repository": {
 		"type": "git",
@@ -10,15 +10,12 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "pnpm run --reporter append-only --color \"/dev:/\"",
-		"dev:svelte": "pnpm -F @skeletonlabs/skeleton-svelte package:watch",
-		"dev:react": "pnpm -F @skeletonlabs/skeleton-react package:watch",
-		"dev:astro": "astro dev",
+		"dev": "astro dev",
 		"sync": "astro sync",
 		"check": "astro check",
-		"build": "pnpm -F \"@skeletonlabs/*\" package && astro build && pagefind",
+		"build": "pnpm schema && astro build && pagefind",
 		"preview": "astro preview",
-		"astro": "astro"
+		"schema": "tsx ./scripts/generate-schemas.ts"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
@@ -28,7 +25,7 @@
 		"@astrojs/tailwind": "^5.1.2",
 		"@floating-ui/react": "^0.26.25",
 		"@nanostores/persistent": "^0.10.2",
-		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton": "*",
 		"@skeletonlabs/skeleton-react": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@types/react": "^18.3.12",
@@ -42,16 +39,18 @@
 		"nanostores": "^0.11.3",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
+		"react-hot-toast": "^2.4.1",
 		"svelte": "^5.0.5",
 		"svelte-check": "^4.0.5",
 		"tailwindcss": "^3.4.14",
 		"typescript": "catalog:"
 	},
 	"devDependencies": {
+		"@clack/prompts": "^0.7.0",
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
-		"minimatch": "^9.0.5",
 		"pagefind": "^1.1.1",
+		"tsx": "^4.19.1",
 		"vite-plugin-pagefind": "^0.2.10",
 		"vite-plugin-tw-plugin-watcher": "workspace:*"
 	}
