@@ -51,8 +51,6 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 
 /**
  * Assembles content glob patterns for skeleton component packages
- * @param fileURL
- * @param framework
  * @example
  * const config = {
  * 	// ...
