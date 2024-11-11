@@ -41,14 +41,12 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         npm i --save-dev @types/node
         ```
         Open `tailwind.config` in the root of your project and make these changes:
-        ```js title="tailwind.config" {3-5, 11, 17-20}
+        ```ts title="tailwind.config" {3-4, 9, 15-18}
         import type { Config } from 'tailwindcss';
 
-        import { join } from 'path';
         import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
         import * as themes from '@skeletonlabs/skeleton/themes';
 
-        /** @type {import('tailwindcss').Config} \*/
         export default {
             content: [
                 './src/**/*.{html,js,svelte,ts}',
@@ -63,7 +61,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
                     themes: [ themes.cerberus, themes.rose ]
                 })
             ]
-        }
+        } satisfies Config
         ```
     </ProcessStep>
     <ProcessStep step="4">

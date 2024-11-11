@@ -35,14 +35,12 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     <ProcessStep step="4">
         ## Configure Tailwind
         Open `tailwind.config` in the root of your project and make these changes:
-        ```js title="tailwind.config" {3-5, 13, 19-22}
+        ```js title="tailwind.config" {3-4, 11, 17-20}
         import type { Config } from 'tailwindcss';
 
-        import { join } from "path";
         import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
         import * as themes from "@skeletonlabs/skeleton/themes";
 
-        /** @type {import('tailwindcss').Config} \*/
         export default {
             content: [
                 "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -59,7 +57,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
                     themes: [ themes.cerberus, themes.rose ]
                 })
             ]
-        }
+        } satisfies Config
         ```
     </ProcessStep>
     <ProcessStep step="5">
