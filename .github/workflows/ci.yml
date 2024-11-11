@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   check:
-    name: Run checks
+    name: Run check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
         run: pnpm check
 
   lint:
-    name: Run linter
+    name: Run lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,7 +47,7 @@ jobs:
         run: pnpm lint:check
 
   format:
-    name: Run formatting check
+    name: Run format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -64,7 +64,7 @@ jobs:
         run: pnpm format:check
 
   test:
-    name: Run tests
+    name: Run test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
