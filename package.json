@@ -30,7 +30,7 @@
 	"type": "module",
 	"scripts": {
 		"ci:publish": "changeset publish",
-		"dev": "pnpm --filter @skeletonlabs/docs-next dev",
+		"dev": "pnpm --filter next.skeleton.dev dev",
 		"build": "pnpm --recursive build",
 		"package": "pnpm --recursive package",
 		"test": "pnpm --recursive test",
