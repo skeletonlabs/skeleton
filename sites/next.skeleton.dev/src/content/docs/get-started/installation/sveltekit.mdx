@@ -36,10 +36,6 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="3">
         ## Configure Tailwind
-        You may optionally install the `@types/node` package to prevent LSP errors in your Tailwind config.
-        ```console
-        npm i --save-dev @types/node
-        ```
         Open `tailwind.config` in the root of your project and make these changes:
         ```ts title="tailwind.config" {3-4, 9, 15-18}
         import type { Config } from 'tailwindcss';
