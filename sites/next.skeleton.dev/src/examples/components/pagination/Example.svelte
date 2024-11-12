@@ -29,7 +29,7 @@
 
 	// State
 	let page = $state(1);
-	let size = $state(3);
+	let size = $state(5);
 	const slicedSource = $derived((s: SourceData[]) => s.slice((page - 1) * size, page * size));
 </script>
 

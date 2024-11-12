@@ -30,7 +30,7 @@ export function Component() {
 	];
 
 	// State
-	const [size, setSize] = useState<number>(3);
+	const [size, setSize] = useState<number>(5);
 	const [settings, setSettings] = useState({ page: 1, pageSize: size });
 	const slicedSource = (s: SourceData[]) => s.slice((settings.page - 1) * size, settings.page * size);
 	const sizeOptions = [1, 2, 5];
