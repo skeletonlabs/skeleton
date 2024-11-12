@@ -29,7 +29,7 @@
 
 	// State
 	let page = $state(1);
-	let size = $state(5);
+	let size = $state(3);
 	const slicedSource = $derived((s: SourceData[]) => s.slice((page - 1) * size, page * size));
 </script>
 
@@ -64,13 +64,13 @@
 		<!-- Footer -->
 		<footer class="flex justify-between">
 			<select name="size" id="size" class="select max-w-[150px]" bind:value={size}>
-				{#each [1, 2, 5] as v}
+				{#each [1, 2, 3, 5] as v}
 					<option value={v}>Items {v}</option>
 				{/each}
 				<option value={sourceData.length}>Show All</option>
 			</select>
 			<!-- Pagination (Alternative) -->
-			<Pagination bind:data={sourceData} bind:page bind:pageSize={size}>
+			<Pagination bind:data={sourceData} bind:page bind:pageSize={size} alternative>
 				{#snippet labelEllipsis()}<IconEllipsis class="size-4" />{/snippet}
 				{#snippet labelNext()}<IconArrowRight class="size-4" />{/snippet}
 				{#snippet labelPrevious()}<IconArrowLeft class="size-4" />{/snippet}

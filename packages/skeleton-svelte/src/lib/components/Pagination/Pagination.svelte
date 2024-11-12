@@ -138,7 +138,7 @@
 				<span class="opacity-60">
 					{api.page}
 					{textSeparator}
-					{api.count}
+					{api.totalPages}
 				</span>
 			</span>
 		{/if}
