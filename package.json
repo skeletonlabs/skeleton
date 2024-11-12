@@ -29,6 +29,7 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
+		"ci:publish": "changeset publish",
 		"dev": "pnpm --filter @skeletonlabs/docs-next dev",
 		"build": "pnpm --recursive build",
 		"package": "pnpm --recursive package",
