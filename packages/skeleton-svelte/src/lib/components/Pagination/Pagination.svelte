@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as pagination from '@zag-js/pagination';
+	import type PageSizeChangeDetails from '@zag-js/pagination';
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
 
 	import type { PaginationProps } from './types.js';
@@ -8,7 +9,7 @@
 	let {
 		page = $bindable(1),
 		pageSize = $bindable(10),
-		data,
+		data = $bindable([]),
 		alternative = false,
 		textSeparator = 'of',
 		// Titles
@@ -48,6 +49,9 @@
 			count: data.length,
 			onPageChange(details) {
 				page = details.page;
+			},
+			onPageSizeChange(details) {
+				pageSize = details.pageSize;
 			}
 		}),
 		{
@@ -58,6 +62,9 @@
 				},
 				get pageSize() {
 					return pageSize;
+				},
+				get count() {
+					return data.length;
 				}
 			}
 		}

@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import * as pagination from '@zag-js/pagination';
 
-export interface PaginationProps extends Omit<pagination.Context, 'id' | 'page' | 'pageSize'> {
+export interface PaginationProps extends Omit<pagination.Context, 'id' | 'page' | 'pageSize' | 'count'> {
 	/** Bind the current page. */
 	page: number;
 	/** Bind the number of data items to display. */
