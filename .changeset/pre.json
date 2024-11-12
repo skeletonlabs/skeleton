@@ -9,7 +9,8 @@
     "vite-plugin-tw-plugin-watcher": "0.0.0",
     "next.skeleton.dev": "0.0.1",
     "skeleton.dev": "1.0.1",
-    "themes.skeleton.dev": "0.0.1"
+    "themes.skeleton.dev": "0.0.1",
+    "@skeletonlabs/necroparser": "0.0.1"
   },
   "changesets": [
     "calm-jars-live",
@@ -18,8 +19,10 @@
     "clean-fans-pretend",
     "clever-carpets-own",
     "empty-cycles-dream",
+    "fluffy-rockets-call",
     "fuzzy-birds-rush",
     "gentle-ants-compare",
+    "heavy-bugs-obey",
     "kind-carrots-greet",
     "late-beers-bow",
     "little-glasses-drive",
@@ -36,6 +39,7 @@
     "sixty-jeans-drop",
     "small-ways-jump",
     "smooth-hornets-hunt",
+    "sour-shrimps-compete",
     "stale-poets-sell",
     "stale-taxis-kneel",
     "strong-tables-whisper",
