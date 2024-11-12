@@ -4,11 +4,11 @@
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
-		"dev:vite": "vite dev",
-		"build:vite": "vite build && npm run package",
-		"preview:vite": "vite preview",
-		"build": "svelte-package",
-		"build:watch": "svelte-package --watch",
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"package": "svelte-package",
+		"package:watch": "svelte-package --watch",
 		"prepublishOnly": "npm run package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"test": "vitest"
