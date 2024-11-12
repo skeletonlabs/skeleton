@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.0.0-next.9
+
+### Patch Changes
+
+- fix: add `string` type to `contentPath` args ([#2954](https://github.com/skeletonlabs/skeleton/pull/2954))
+
 ## 3.0.0-next.8
 
 ### Patch Changes
