@@ -33,7 +33,7 @@ export const Page: React.FC = () => {
 	const [size, setSize] = useState<number>(3);
 	const [settings, setSettings] = useState({ page: 1, pageSize: size });
 	const slicedSource = (s: SourceData[]) => s.slice((settings.page - 1) * size, settings.page * size);
-	const sizeOptions = [1, 3, 4, 10, 100];
+	const sizeOptions = [1, 2, 5];
 
 	return (
 		<section className="space-y-4">
@@ -74,6 +74,7 @@ export const Page: React.FC = () => {
 							Items {v}
 						</option>
 					))}
+					<option value={sourceData.length}>Show All</option>
 				</select>
 				{/* Pagination */}
 				<Pagination
