@@ -64,7 +64,7 @@
 		<!-- Footer -->
 		<footer class="flex justify-between">
 			<select name="size" id="size" class="select max-w-[150px]" bind:value={size}>
-				{#each [1, 3, 4] as v}
+				{#each [1, 2, 5] as v}
 					<option value={v}>Items {v}</option>
 				{/each}
 				<option value={sourceData.length}>Show All</option>
