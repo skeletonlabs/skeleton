@@ -60,7 +60,7 @@ const skeleton = plugin.withOptions<ConfigOptions>(
  * 	]
  * }
  */
-export function contentPath(fileURL: URL, framework: 'svelte' | 'react') {
+export function contentPath(fileURL: string | URL, framework: 'svelte' | 'react') {
 	const configPath = fileURLToPath(fileURL);
 	// resolve framework package path
 	const require = createRequire(fileURL);
