@@ -1,6 +1,5 @@
 <script lang="ts">
 	import * as pagination from '@zag-js/pagination';
-	import type PageSizeChangeDetails from '@zag-js/pagination';
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
 
 	import type { PaginationProps } from './types.js';
