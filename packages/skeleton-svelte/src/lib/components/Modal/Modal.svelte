@@ -61,9 +61,11 @@
 
 <span>
 	<!-- Trigger -->
-	<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
-		{@render trigger?.()}
-	</button>
+	{#if trigger}
+		<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
+			{@render trigger()}
+		</button>
+	{/if}
 	{#if api.open}
 		<!-- Backdrop -->
 		<div
