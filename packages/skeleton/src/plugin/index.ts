@@ -1,3 +1,6 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 import plugin from 'tailwindcss/plugin.js';
 import postcssJs from 'postcss-js';
 import { coreConfig, coreUtilities, getSkeletonClasses } from './core.js';
@@ -45,6 +48,34 @@ const skeleton = plugin.withOptions<ConfigOptions>(
 		return { ...coreConfig };
 	}
 );
+
+/**
+ * Assembles content glob patterns for skeleton component packages
+ * @example
+ * const config = {
+ * 	// ...
+ * 	content: [
+ * 		// ...
+ * 		contentPath(import.meta.url, "svelte")
+ * 	]
+ * }
+ */
+export function contentPath(fileURL: URL, framework: 'svelte' | 'react') {
+	const configPath = fileURLToPath(fileURL);
+	// resolve framework package path
+	const require = createRequire(fileURL);
+	const packageEntryPath = require.resolve(`@skeletonlabs/skeleton-${framework}`, { paths: [configPath] });
+	const packagePath = path.resolve(packageEntryPath, '..');
+
+	// assemble glob
+	const glob = path.join(packagePath, fileExtensions[framework]);
+	return glob;
+}
+
+const fileExtensions = {
+	react: '/**/*.{html,js,ts,jsx,tsx}',
+	svelte: '/**/*.{html,js,ts,svelte}'
+};
 
 export { skeleton };
 export type { ConfigOptions, Theme };
