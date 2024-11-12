@@ -123,7 +123,7 @@ export const Pagination: FC<PaginationProps> = ({
 								{api.pageRange.start + 1} - {api.pageRange.end}
 							</span>
 							<span className="opacity-60">
-								{api.page} {textSeparator} {api.count}
+								{api.page} {textSeparator} {api.totalPages}
 							</span>
 						</span>
 					)}

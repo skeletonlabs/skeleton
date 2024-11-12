@@ -8,7 +8,7 @@
 	let {
 		page = $bindable(1),
 		pageSize = $bindable(10),
-		data,
+		data = $bindable([]),
 		alternative = false,
 		textSeparator = 'of',
 		// Titles
@@ -48,6 +48,9 @@
 			count: data.length,
 			onPageChange(details) {
 				page = details.page;
+			},
+			onPageSizeChange(details) {
+				pageSize = details.pageSize;
 			}
 		}),
 		{
@@ -58,6 +61,9 @@
 				},
 				get pageSize() {
 					return pageSize;
+				},
+				get count() {
+					return data.length;
 				}
 			}
 		}
@@ -131,7 +137,7 @@
 				<span class="opacity-60">
 					{api.page}
 					{textSeparator}
-					{api.count}
+					{api.totalPages}
 				</span>
 			</span>
 		{/if}
