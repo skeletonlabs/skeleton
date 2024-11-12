@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.13
+
+### Patch Changes
+
+- Only render `<button>` when `trigger` snippet is defined. ([#2947](https://github.com/skeletonlabs/skeleton/pull/2947))
+
+- Renamed Nav component to Navigation to conform to our naming convention across packages ([#2928](https://github.com/skeletonlabs/skeleton/pull/2928))
+
 ## 1.0.0-next.12
 
 ### Minor Changes
