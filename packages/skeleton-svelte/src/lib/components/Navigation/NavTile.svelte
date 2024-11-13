@@ -10,6 +10,7 @@
 		labelExpanded,
 		title,
 		selected = false,
+		type = 'button',
 		// Root
 		base = 'flex items-center',
 		width = 'w-full',
@@ -42,7 +43,6 @@
 
 	// Reactive
 	const element = $derived(href ? 'a' : 'button');
-	const type = $derived(href ? undefined : 'button');
 	const role = $derived(href ? undefined : 'button');
 	const rxSize = $derived(ctx.parent === 'bar' ? `h-full` : `${aspect}`);
 	const classesCollapsed = $derived(`${rxSize} ${padding} ${gap} ${classes}`);
@@ -64,7 +64,7 @@
 	class="{base} {width} {rounded} {rxBackground} {rxMode}"
 	{href}
 	{target}
-	{type}
+	type={element === 'button' ? type : undefined}
 	{title}
 	{role}
 	onclick={onClickHandler}

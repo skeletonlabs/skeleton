@@ -112,6 +112,8 @@ export interface NavTileProps {
 	title?: string;
 	/** Enable the active selected state. */
 	selected?: boolean;
+	/** Set button type. */
+	type?: 'button' | 'submit' | 'reset';
 
 	// Root ---
 	/** Set base styles. */
