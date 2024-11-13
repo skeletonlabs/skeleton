@@ -1,3 +1,5 @@
+import { getPackage } from '../internal/get-package.js';
+
 const MIGRATIONS = {
 	'skeleton-3': skeletonThree
 };
@@ -10,4 +12,6 @@ export default function (migration: string) {
 
 function skeletonThree() {
 	console.log('Migrating to V3...');
+	const pkg = getPackage();
+	console.log(pkg);
 }
