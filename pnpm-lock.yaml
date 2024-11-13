@@ -141,6 +141,28 @@ importers:
         specifier: ^4.19.1
         version: 4.19.1
 
+  packages/cli:
+    dependencies:
+      '@clack/prompts':
+        specifier: ^0.7.0
+        version: 0.7.0
+      commander:
+        specifier: ^12.1.0
+        version: 12.1.0
+    devDependencies:
+      '@types/node':
+        specifier: ^22.1.0
+        version: 22.7.9
+      typescript:
+        specifier: 'catalog:'
+        version: 5.6.3
+      unbuild:
+        specifier: ^2.0.0
+        version: 2.0.0(typescript@5.6.3)
+      vitest:
+        specifier: ^2.0.5
+        version: 2.1.4(@types/node@22.7.9)(jsdom@25.0.1)
+
   packages/create-skeleton-app:
     dependencies:
       '@clack/prompts':
@@ -3070,6 +3092,10 @@ packages:
   commander@10.0.1:
     resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
     engines: {node: '>=14'}
+
+  commander@12.1.0:
+    resolution: {integrity: sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==}
+    engines: {node: '>=18'}
 
   commander@4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
@@ -8739,7 +8765,6 @@ snapshots:
   '@types/node@22.7.9':
     dependencies:
       undici-types: 6.19.8
-    optional: true
 
   '@types/postcss-import@14.0.3':
     dependencies:
@@ -8762,7 +8787,7 @@ snapshots:
 
   '@types/tar@6.1.13':
     dependencies:
-      '@types/node': 20.17.0
+      '@types/node': 22.7.9
       minipass: 4.2.8
 
   '@types/unist@2.0.11': {}
@@ -8771,7 +8796,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 20.17.0
+      '@types/node': 22.7.9
     optional: true
 
   '@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1)(typescript@5.6.3)':
@@ -8903,6 +8928,14 @@ snapshots:
       magic-string: 0.30.12
     optionalDependencies:
       vite: 5.4.10(@types/node@20.17.0)
+
+  '@vitest/mocker@2.1.4(vite@5.4.10(@types/node@22.7.9))':
+    dependencies:
+      '@vitest/spy': 2.1.4
+      estree-walker: 3.0.3
+      magic-string: 0.30.12
+    optionalDependencies:
+      vite: 5.4.10(@types/node@22.7.9)
 
   '@vitest/pretty-format@2.1.3':
     dependencies:
@@ -9862,6 +9895,8 @@ snapshots:
   comma-separated-tokens@2.0.3: {}
 
   commander@10.0.1: {}
+
+  commander@12.1.0: {}
 
   commander@4.1.1: {}
 
@@ -14277,6 +14312,23 @@ snapshots:
       - supports-color
       - terser
 
+  vite-node@2.1.4(@types/node@22.7.9):
+    dependencies:
+      cac: 6.7.14
+      debug: 4.3.7
+      pathe: 1.1.2
+      vite: 5.4.10(@types/node@22.7.9)
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
   vite-plugin-pagefind@0.2.10(vite@5.4.10(@types/node@22.7.9)):
     dependencies:
       colorette: 2.0.20
@@ -14404,6 +14456,42 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.17.0
+      jsdom: 25.0.1
+    transitivePeerDependencies:
+      - less
+      - lightningcss
+      - msw
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
+  vitest@2.1.4(@types/node@22.7.9)(jsdom@25.0.1):
+    dependencies:
+      '@vitest/expect': 2.1.4
+      '@vitest/mocker': 2.1.4(vite@5.4.10(@types/node@22.7.9))
+      '@vitest/pretty-format': 2.1.4
+      '@vitest/runner': 2.1.4
+      '@vitest/snapshot': 2.1.4
+      '@vitest/spy': 2.1.4
+      '@vitest/utils': 2.1.4
+      chai: 5.1.2
+      debug: 4.3.7
+      expect-type: 1.1.0
+      magic-string: 0.30.12
+      pathe: 1.1.2
+      std-env: 3.7.0
+      tinybench: 2.9.0
+      tinyexec: 0.3.1
+      tinypool: 1.0.1
+      tinyrainbow: 1.2.0
+      vite: 5.4.10(@types/node@22.7.9)
+      vite-node: 2.1.4(@types/node@22.7.9)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/node': 22.7.9
       jsdom: 25.0.1
     transitivePeerDependencies:
       - less
