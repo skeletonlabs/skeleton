@@ -10,7 +10,7 @@
 		labelExpanded,
 		title,
 		selected = false,
-		type,
+		type = 'button',
 		// Root
 		base = 'flex items-center',
 		width = 'w-full',
