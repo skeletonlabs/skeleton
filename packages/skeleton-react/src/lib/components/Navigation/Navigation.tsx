@@ -157,6 +157,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 	labelExpanded,
 	title,
 	selected = false,
+	type,
 	// Root
 	base = 'flex items-center',
 	width = 'w-full',
@@ -188,7 +189,6 @@ export const NavTile: React.FC<NavTileProps> = ({
 
 	// Local
 	const TileElement = href ? 'a' : 'button';
-	const type = href ? undefined : 'button';
 	const role = href ? undefined : 'button';
 
 	// Reactive
@@ -209,7 +209,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 			className={`${base} ${width} ${rounded} ${rxBackground} ${rxMode}`}
 			href={href}
 			target={target}
-			type={type}
+			type={TileElement === 'button' ? type : undefined}
 			title={title}
 			role={role}
 			onClick={onClickHandler}
