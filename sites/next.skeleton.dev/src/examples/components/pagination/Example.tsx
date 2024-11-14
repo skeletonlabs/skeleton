@@ -79,6 +79,7 @@ export const Page: React.FC = () => {
 				{/* Pagination */}
 				<Pagination
 					data={sourceData}
+					count={sourceData.length}
 					page={settings.page}
 					pageSize={size}
 					onPageChange={setSettings}
