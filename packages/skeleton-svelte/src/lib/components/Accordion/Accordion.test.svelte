@@ -1,3 +1,5 @@
+<!-- Accordion Test Component -->
+
 <script lang="ts">
 	import { Accordion } from '$lib/index.js';
 	let { childProps = {} } = $props();
