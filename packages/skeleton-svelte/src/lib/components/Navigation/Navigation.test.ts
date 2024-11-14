@@ -174,7 +174,6 @@ describe('NavRail > NavTile', () => {
 		const testValue = 'LabelExpanded';
 		render(NavRailTest, { rootProps: { expanded: true }, childProps: { labelExpanded: testValue } });
 		const component = screen.getAllByTestId(testIds.labelExpanded)[0];
-		console.log(component);
 		expect(component).toHaveTextContent(testValue);
 	});
 });
