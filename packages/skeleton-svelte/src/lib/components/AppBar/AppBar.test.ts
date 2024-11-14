@@ -15,7 +15,7 @@ describe('AppBar', () => {
 		expect(component).toBeInTheDocument();
 	});
 
-	it('Renders all snippet content', () => {
+	it('Renders all snippets', () => {
 		render(AppBar, {
 			children: mockSnippet('childrenSnippet'),
 			lead: mockSnippet('leadSnippet'),
