@@ -1,7 +1,7 @@
 import * as zagSwitch from '@zag-js/switch';
 import type { Snippet } from 'svelte';
 
-export interface SwitchProps extends Omit<zagSwitch.Context, 'id'> {
+export interface SwitchProps extends Omit<zagSwitch.Context, 'id' | 'onCheckedChange'> {
 	/** Set a unique name for the switch input. */
 	name: string;
 	/** Set the checked state. */
@@ -18,7 +18,7 @@ export interface SwitchProps extends Omit<zagSwitch.Context, 'id'> {
 	classes?: string;
 
 	// State ---
-	/** Set claseses for the focus state. */
+	/** Set classes for the focus state. */
 	stateFocused?: string;
 
 	// Control ---
@@ -82,4 +82,7 @@ export interface SwitchProps extends Omit<zagSwitch.Context, 'id'> {
 	inactiveChild?: Snippet;
 	/** The active state snippet. */
 	activeChild?: Snippet;
+	// Events ---
+	/** Triggers when the switch is toggled. */
+	onCheckedChange?: (value: boolean) => void;
 }
