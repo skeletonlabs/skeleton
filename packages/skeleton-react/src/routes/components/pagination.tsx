@@ -83,7 +83,6 @@ export function Component() {
 					{/* Pagination */}
 					<Pagination
 						data={sourceData}
-						count={sourceData.length}
 						page={settings.page}
 						pageSize={size}
 						onPageChange={setSettings}

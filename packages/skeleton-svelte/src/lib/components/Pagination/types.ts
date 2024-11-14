@@ -14,17 +14,6 @@ export interface PaginationProps extends Omit<pagination.Context, 'id' | 'page' 
 	/** Set the separator text or character, such as "of" in "X of Y". */
 	textSeparator?: string;
 
-	/** Set an optional title for the first button. */
-	titleFirst?: string;
-	/** Set an optional title for the previous button. */
-	titlePrevious?: string;
-	/** Set an optional title for the numeral buttons (ex: Page 1). */
-	titleNumeral?: string;
-	/** Set an optional title for the next button. */
-	titleNext?: string;
-	/** Set an optional title for the last button. */
-	titleLast?: string;
-
 	// Root ---
 	/** Sets base classes for the list. */
 	base?: string;
@@ -40,6 +29,18 @@ export interface PaginationProps extends Omit<pagination.Context, 'id' | 'page' 
 	rounded?: string;
 	/** Provide arbitrary CSS classes for the root. */
 	classes?: string;
+
+	// Title
+	/** Set an optional title for the first button. */
+	titleFirst?: string;
+	/** Set an optional title for the previous button. */
+	titlePrevious?: string;
+	/** Set an optional title for the numeral buttons (ex: Page 1). */
+	titleNumeral?: string;
+	/** Set an optional title for the next button. */
+	titleNext?: string;
+	/** Set an optional title for the last button. */
+	titleLast?: string;
 
 	// Buttons ---
 	/** Sets base classes for buttons. */

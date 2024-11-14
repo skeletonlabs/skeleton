@@ -17,7 +17,6 @@ const sourceData = [
 ];
 const commonProps = {
 	data: sourceData,
-	count: sourceData.length,
 	page: 1,
 	pageSize: 3
 };
