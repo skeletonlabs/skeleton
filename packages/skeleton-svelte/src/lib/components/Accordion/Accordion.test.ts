@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 
 import { Accordion } from '$lib/index.js';
-import AccordionTest from './AccordionTest.svelte';
+import AccordionTest from './Accordion.test.svelte';
 
 describe('Accordion', () => {
 	const testId = 'accordion';
@@ -57,8 +57,7 @@ describe('Accordion.Item', () => {
 
 	it('Renders in closed state', () => {
 		render(AccordionTest, {});
-		const component = screen.getAllByTestId(testId)[1]; // first item
-		console.log(component.dataset.state);
+		const component = screen.getAllByTestId(testId)[1]; // second item
 		expect(component.dataset.state).toEqual('closed');
 	});
 });
