@@ -11,7 +11,9 @@
 		"package:watch": "svelte-package --watch",
 		"prepublishOnly": "npm run package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"test": "vitest"
+		"test": "vitest",
+		"test:run": "vitest run",
+		"test:ui": "vitest --ui"
 	},
 	"types": "./dist/index.d.ts",
 	"exports": {
@@ -58,10 +60,10 @@
 		"@sveltejs/adapter-auto": "^3.2.2",
 		"@sveltejs/kit": "^2.5.18",
 		"@sveltejs/package": "^2.3.2",
-		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@tailwindcss/forms": "^0.5.7",
 		"@testing-library/jest-dom": "^6.4.7",
-		"@testing-library/svelte": "^4.2.3",
+		"@testing-library/svelte": "^5.2.4",
 		"autoprefixer": "^10.4.19",
 		"jsdom": "^24.1.1",
 		"lucide-svelte": "^0.436.0",
