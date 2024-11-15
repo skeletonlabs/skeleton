@@ -410,7 +410,7 @@ importers:
         specifier: ^2.3.2
         version: 2.3.7(svelte@5.0.5)(typescript@5.6.3)
       '@sveltejs/vite-plugin-svelte':
-        specifier: ^4.0.1
+        specifier: ^4.0.0
         version: 4.0.1(svelte@5.0.5)(vite@5.4.11(@types/node@20.17.6))
       '@tailwindcss/forms':
         specifier: ^0.5.7
