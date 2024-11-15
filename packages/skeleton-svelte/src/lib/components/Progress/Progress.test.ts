@@ -11,6 +11,10 @@ describe('Progress', () => {
 		track: 'progress-track',
 		meter: 'progress-meter'
 	};
+	const commonProps = {
+		value: 50,
+		max: 100
+	};
 
 	it('Renders the component', () => {
 		render(Progress, {});
@@ -21,7 +25,7 @@ describe('Progress', () => {
 	for (const prop of ['base', 'height', 'width', 'classes']) {
 		it(`Correctly applies the root \`${prop}\` prop`, () => {
 			const value = 'bg-green-500';
-			render(Progress, { value: 50, max: 100, [prop]: value });
+			render(Progress, { ...commonProps, [prop]: value });
 			const component = screen.getByTestId(testIds.root);
 			expect(component).toHaveClass(value);
 		});
@@ -30,7 +34,7 @@ describe('Progress', () => {
 	for (const prop of ['labelBase', 'labelText', 'labelClasses']) {
 		it(`Correctly applies the label \`${prop}\` prop`, () => {
 			const value = 'bg-green-500';
-			render(Progress, { value: 50, max: 100, children: mockSnippet('children'), [prop]: value });
+			render(Progress, { ...commonProps, children: mockSnippet('children'), [prop]: value });
 			const component = screen.getByTestId(testIds.label);
 			expect(component).toHaveClass(value);
 		});
@@ -39,7 +43,7 @@ describe('Progress', () => {
 	for (const prop of ['trackBase', 'trackBg', 'trackRounded', 'trackClasses']) {
 		it(`Correctly applies the track \`${prop}\` prop`, () => {
 			const value = 'bg-green-500';
-			render(Progress, { value: 50, max: 100, children: mockSnippet('children'), [prop]: value });
+			render(Progress, { ...commonProps, children: mockSnippet('children'), [prop]: value });
 			const component = screen.getByTestId(testIds.track);
 			expect(component).toHaveClass(value);
 		});
@@ -48,7 +52,7 @@ describe('Progress', () => {
 	for (const prop of ['meterBase', 'meterBg', 'meterRounded', 'meterTransition', 'meterClasses']) {
 		it(`Correctly applies the \`${prop}\` prop`, () => {
 			const value = 'bg-green-500';
-			render(Progress, { value: 50, max: 100, children: mockSnippet('children'), [prop]: value });
+			render(Progress, { ...commonProps, children: mockSnippet('children'), [prop]: value });
 			const component = screen.getByTestId(testIds.meter);
 			expect(component).toHaveClass(value);
 		});
