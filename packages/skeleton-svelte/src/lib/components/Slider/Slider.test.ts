@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 
-// import { mockSnippet } from '$lib/internal/test-utils.js';
 import { Slider } from '$lib/index.js';
 
 describe('Slider', () => {
