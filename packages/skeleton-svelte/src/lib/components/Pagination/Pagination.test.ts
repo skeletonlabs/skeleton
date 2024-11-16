@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
-
 import { Pagination } from '$lib/index.js';
 
 // Test Data

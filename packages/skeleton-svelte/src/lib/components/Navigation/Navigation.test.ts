@@ -102,6 +102,41 @@ describe('NavRail', () => {
 			expect(component).toHaveClass(value);
 		});
 	}
+
+	describe('NavTile', () => {
+		const testIds = {
+			root: 'nav-tile',
+			labelExpanded: 'nav-tile-label-expanded'
+		};
+
+		it('Renders the component', () => {
+			render(NavRailTest, {});
+			const component = screen.getAllByTestId(testIds.root)[0];
+			expect(component).toBeInTheDocument();
+		});
+
+		it('Renders child snippet', () => {
+			render(NavRailTest, {});
+			const component = screen.getAllByTestId(testIds.root)[0];
+			expect(component).toHaveTextContent('HeaderTile');
+		});
+
+		for (const prop of ['base', 'width', 'aspect', 'background', 'hover', 'gap', 'rounded']) {
+			it(`Correctly applies the \`${prop}\` prop`, () => {
+				const value = 'bg-green-500';
+				render(NavRailTest, { childProps: { [prop]: value } });
+				const component = screen.getAllByTestId(testIds.root)[0];
+				expect(component).toHaveClass(value);
+			});
+		}
+
+		it('Renders the labelExpanded in expanded mode', () => {
+			const testValue = 'LabelExpanded';
+			render(NavRailTest, { rootProps: { expanded: true }, childProps: { labelExpanded: testValue } });
+			const component = screen.getAllByTestId(testIds.labelExpanded)[0];
+			expect(component).toHaveTextContent(testValue);
+		});
+	});
 });
 
 describe('NavBar', () => {
@@ -141,64 +176,29 @@ describe('NavBar', () => {
 			expect(component).toHaveClass(value);
 		});
 	}
-});
 
-describe('NavRail > NavTile', () => {
-	const testIds = {
-		root: 'nav-tile',
-		labelExpanded: 'nav-tile-label-expanded'
-	};
+	describe('NavTile', () => {
+		const testId = 'nav-tile';
 
-	it('Renders the component', () => {
-		render(NavRailTest, {});
-		const component = screen.getAllByTestId(testIds.root)[0];
-		expect(component).toBeInTheDocument();
-	});
-
-	it('Renders child snippet', () => {
-		render(NavRailTest, {});
-		const component = screen.getAllByTestId(testIds.root)[0];
-		expect(component).toHaveTextContent('HeaderTile');
-	});
-
-	for (const prop of ['base', 'width', 'aspect', 'background', 'hover', 'gap', 'rounded']) {
-		it(`Correctly applies the \`${prop}\` prop`, () => {
-			const value = 'bg-green-500';
-			render(NavRailTest, { childProps: { [prop]: value } });
-			const component = screen.getAllByTestId(testIds.root)[0];
-			expect(component).toHaveClass(value);
-		});
-	}
-
-	it('Renders the labelExpanded in expanded mode', () => {
-		const testValue = 'LabelExpanded';
-		render(NavRailTest, { rootProps: { expanded: true }, childProps: { labelExpanded: testValue } });
-		const component = screen.getAllByTestId(testIds.labelExpanded)[0];
-		expect(component).toHaveTextContent(testValue);
-	});
-});
-
-describe('NavBar > NavTile', () => {
-	const testId = 'nav-tile';
-
-	it('Renders the component', () => {
-		render(NavBarTest, {});
-		const component = screen.getAllByTestId(testId)[0];
-		expect(component).toBeInTheDocument();
-	});
-
-	it('Renders child snippet', () => {
-		render(NavBarTest, {});
-		const component = screen.getAllByTestId(testId)[0];
-		expect(component).toHaveTextContent('TileOne');
-	});
-
-	for (const prop of ['base', 'width', 'active', 'padding', 'gap', 'rounded', 'classes']) {
-		it(`Correctly applies the \`${prop}\` prop`, () => {
-			const value = 'bg-green-500';
-			render(NavBarTest, { childProps: { [prop]: value } });
+		it('Renders the component', () => {
+			render(NavBarTest, {});
 			const component = screen.getAllByTestId(testId)[0];
-			expect(component).toHaveClass(value);
+			expect(component).toBeInTheDocument();
 		});
-	}
+
+		it('Renders child snippet', () => {
+			render(NavBarTest, {});
+			const component = screen.getAllByTestId(testId)[0];
+			expect(component).toHaveTextContent('TileOne');
+		});
+
+		for (const prop of ['base', 'width', 'active', 'padding', 'gap', 'rounded', 'classes']) {
+			it(`Correctly applies the \`${prop}\` prop`, () => {
+				const value = 'bg-green-500';
+				render(NavBarTest, { childProps: { [prop]: value } });
+				const component = screen.getAllByTestId(testId)[0];
+				expect(component).toHaveClass(value);
+			});
+		}
+	});
 });
