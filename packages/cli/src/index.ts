@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import migrate from './commands/migrate.js';
+import migrate from './commands/migrate/migrate.js';
 
 const program = new Command();
 
