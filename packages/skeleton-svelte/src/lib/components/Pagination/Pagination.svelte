@@ -11,12 +11,6 @@
 		data = $bindable([]),
 		alternative = false,
 		textSeparator = 'of',
-		// Titles
-		titleFirst,
-		titlePrevious,
-		titleNumeral,
-		titleNext,
-		titleLast,
 		// Root
 		base = 'inline-flex items-stretch overflow-hidden',
 		background = 'preset-outlined-surface-200-800',
@@ -25,6 +19,12 @@
 		padding = '',
 		rounded = 'rounded-container',
 		classes = '',
+		// Titles
+		titleFirst,
+		titlePrevious,
+		titleNumeral,
+		titleNext,
+		titleLast,
 		// Buttons
 		buttonBase = 'btn',
 		buttonActive = 'preset-filled',

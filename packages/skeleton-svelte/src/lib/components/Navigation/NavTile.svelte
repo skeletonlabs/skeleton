@@ -75,10 +75,10 @@
 	{#if children}<div>{@render children()}</div>{/if}
 	<!-- Label (base) -->
 	{#if label && !ctx.expanded}
-		<div class="{labelBase} {labelClasses}">{label}</div>
+		<div class="{labelBase} {labelClasses}" data-testid="nav-tile-label">{label}</div>
 	{/if}
 	<!-- Label (expanded) -->
 	{#if labelExpanded && ctx.expanded}
-		<div class="{labelExpandedBase} {labelExpandedClasses}">{labelExpanded}</div>
+		<div class="{labelExpandedBase} {labelExpandedClasses}" data-testid="nav-tile-label-expanded">{labelExpanded}</div>
 	{/if}
 </svelte:element>
