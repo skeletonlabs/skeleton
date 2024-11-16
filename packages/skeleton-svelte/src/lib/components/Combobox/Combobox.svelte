@@ -84,7 +84,7 @@
 	const api = $derived(combobox.connect(snapshot, send, normalizeProps));
 </script>
 
-<span {...api.getRootProps()} class="{base} {width} {classes}">
+<span {...api.getRootProps()} class="{base} {width} {classes}" data-testid="combobox">
 	<!-- Label -->
 	<label {...api.getLabelProps()} class="{labelBase} {labelClasses}">
 		{#if label}<span class={labelText}>{label}</span>{/if}

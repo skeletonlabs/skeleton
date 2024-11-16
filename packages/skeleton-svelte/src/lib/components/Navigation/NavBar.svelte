@@ -44,7 +44,7 @@
 
 <aside class="{base} {background} {width} {height} {padding} {classes}" data-testid="nav-bar">
 	{#if children}
-		<nav class="{tilesBase} {tilesFlexDirection} {tilesJustify} {tilesItems} {tilesGap} {tilesClasses}">
+		<nav class="{tilesBase} {tilesFlexDirection} {tilesJustify} {tilesItems} {tilesGap} {tilesClasses}" data-testid="nav-bar-tileset">
 			{@render children()}
 		</nav>
 	{/if}

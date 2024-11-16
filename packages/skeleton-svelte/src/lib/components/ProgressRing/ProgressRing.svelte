@@ -46,8 +46,8 @@
 	const api = $derived(progress.connect(snapshot, send, normalizeProps));
 
 	// Reactive Classes
-	const rxAnimCircle = $derived(api.indeterminate && 'animate-spin');
-	const rxAnimMeter = $derived(api.indeterminate && meterAnimate);
+	const rxAnimCircle = $derived(api.indeterminate ? 'animate-spin' : '');
+	const rxAnimMeter = $derived(api.indeterminate ? meterAnimate : '');
 </script>
 
 <!-- @component A circular progress bar. -->
