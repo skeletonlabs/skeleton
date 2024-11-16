@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { Segment } from '$lib/index.js';
-	let { childProps = {} } = $props();
-	let chilPropsSpread = childProps ?? {};
+	interface Props {
+		childProps?: Record<string, unknown>;
+	}
+	let { childProps }: Props = $props();
 </script>
 
 <Segment name="align" value="left">
-	<Segment.Item value="left" {...chilPropsSpread}>left</Segment.Item>
-	<Segment.Item value="center" {...chilPropsSpread}>center</Segment.Item>
-	<Segment.Item value="right" {...chilPropsSpread}>right</Segment.Item>
-	<Segment.Item value="justify" disabled {...chilPropsSpread}>justify</Segment.Item>
+	<Segment.Item value="left" {...childProps}>left</Segment.Item>
+	<Segment.Item value="center" {...childProps}>center</Segment.Item>
+	<Segment.Item value="right" {...childProps}>right</Segment.Item>
+	<Segment.Item value="justify" disabled {...childProps}>justify</Segment.Item>
 </Segment>
