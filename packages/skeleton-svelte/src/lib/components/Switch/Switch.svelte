@@ -56,7 +56,10 @@
 		zagSwitch.machine({
 			id: useId(),
 			name,
-			onCheckedChange: (details) => onCheckedChange(details.checked)
+			onCheckedChange: (details) => {
+				checked = details.checked;
+				onCheckedChange(details.checked);
+			}
 		}),
 		{
 			context: {
