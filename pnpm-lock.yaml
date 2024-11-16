@@ -162,6 +162,9 @@ importers:
       unbuild:
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.6.3)
+      valibot:
+        specifier: 1.0.0-beta.6
+        version: 1.0.0-beta.6(typescript@5.6.3)
       vitest:
         specifier: ^2.0.5
         version: 2.1.4(@types/node@22.7.9)(jsdom@25.0.1)
@@ -6638,6 +6641,14 @@ packages:
 
   valibot@0.31.0-rc.4:
     resolution: {integrity: sha512-2wKEnWVey4+JBVCrSF8nlITg2gMDqAuBoIplMpc5bIpQaeDR9wnrI/fudBooKlIW1EZpIMlWy8Ku2gtF/1uK9g==}
+
+  valibot@1.0.0-beta.6:
+    resolution: {integrity: sha512-x9ObzhqDCWFaWOa6Zri1mbFcc8OIIKP7cQtD9JauKt5pJFhpJkvAXT+49bFKjoVikiKVk7m33mXgUJb/Wfknmw==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
@@ -14247,6 +14258,10 @@ snapshots:
     optional: true
 
   valibot@0.31.0-rc.4: {}
+
+  valibot@1.0.0-beta.6(typescript@5.6.3):
+    optionalDependencies:
+      typescript: 5.6.3
 
   vfile-location@5.0.3:
     dependencies:
