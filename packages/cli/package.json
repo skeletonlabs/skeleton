@@ -25,7 +25,8 @@
 	"scripts": {
 		"package": "unbuild",
 		"package:watch": "unbuild --watch",
-		"test": "vitest"
+		"test": "vitest run",
+		"test:watch": "vitest watch"
 	},
 	"devDependencies": {
 		"@types/node": "^22.1.0",

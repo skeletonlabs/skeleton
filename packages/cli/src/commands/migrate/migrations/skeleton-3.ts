@@ -1,29 +1,53 @@
+import { readFileSync } from 'node:fs';
+
 interface Migration {
 	find: RegExp;
 	replace: string;
 }
 
 const migrations: Migration[] = [
-	// Color Pairings
+	// Forward color pairings
 	{
-		find: /(.*?)-(\w+)-50-900-token\b/g,
-		replace: '$1-$2-50-950'
+		find: /(\w+)-50-900-token\b/g,
+		replace: '$1-50-950'
 	},
 	{
-		find: /(.*?)-(\w+)-100-800-token\b/g,
-		replace: '$1-$2-100-900'
+		find: /(\w+)-100-800-token\b/g,
+		replace: '$1-100-900'
 	},
 	{
-		find: /(.*?)-(\w+)-200-700-token\b/g,
-		replace: '$1-$2-200-800'
+		find: /(\w+)-200-700-token\b/g,
+		replace: '$1-200-800'
 	},
 	{
-		find: /(.*?)-(\w+)-300-600-token\b/g,
-		replace: '$1-$2-300-700'
+		find: /(\w+)-300-600-token\b/g,
+		replace: '$1-300-700'
 	},
 	{
-		find: /(.*?)-(\w+)-400-500-token\b/g,
-		replace: '$1-$2-500'
+		find: /(\w+)-400-500-token\b/g,
+		replace: '$1-400-600'
+	},
+
+	// Backward color pairings
+	{
+		find: /(\w+)-900-50-token\b/g,
+		replace: '$1-950-50'
+	},
+	{
+		find: /(\w+)-800-100-token\b/g,
+		replace: '$1-900-100'
+	},
+	{
+		find: /(\w+)-700-200-token\b/g,
+		replace: '$1-800-200'
+	},
+	{
+		find: /(\w+)-600-300-token\b/g,
+		replace: '$1-700-300'
+	},
+	{
+		find: /(\w+)-500-400-token\b/g,
+		replace: '$1-600-400'
 	},
 
 	// Backgrounds
@@ -107,7 +131,8 @@ const migrations: Migration[] = [
 	}
 ];
 
-function migrate(source: string) {
+function migrate(path: string) {
+	const source = readFileSync(path, 'utf8');
 	return migrations.reduce((result, migration) => {
 		return result.replace(migration.find, migration.replace);
 	}, source);

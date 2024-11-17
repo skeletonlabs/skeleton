@@ -29,10 +29,8 @@ function getMigrationGroups(): MigrationGroup[] {
 		const name = fixtureName.replace('.svelte', '');
 		const inputPath = path.replace('./', '');
 		const outputPath = inputPath.replace('fixtures', 'results');
-
 		const absoluteInputPath = resolve(__dirname, inputPath);
 		const absoluteOutputPath = resolve(__dirname, outputPath);
-
 		if (!migrationMap.has(migration)) {
 			migrationMap.set(migration, { migration, fixtures: [] });
 		}
@@ -47,7 +45,7 @@ function getMigrationGroups(): MigrationGroup[] {
 	return Array.from(migrationMap.values());
 }
 
-function getMigrater(migration: string) {
+function getMigrator(migration: string) {
 	switch (migration) {
 		case 'skeleton-3': {
 			return migrateSkeleton3;
@@ -62,12 +60,12 @@ const migrationGroups = getMigrationGroups();
 
 for (const group of migrationGroups) {
 	describe(group.migration, () => {
-		const migrate = getMigrater(group.migration);
+		const migrate = getMigrator(group.migration);
 		for (const fixture of group.fixtures) {
 			test(fixture.name, () => {
-				const actual = readFileSync(fixture.input, 'utf8');
+				const migrated = migrate(fixture.input);
 				const expected = readFileSync(fixture.output, 'utf8');
-				expect(migrate(actual)).toBe(expected);
+				expect(migrated).toBe(expected);
 			});
 		}
 	});
