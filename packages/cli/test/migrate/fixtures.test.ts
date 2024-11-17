@@ -17,15 +17,15 @@ interface MigrationGroup {
 
 function getMigrationGroups(): MigrationGroup[] {
 	const migrationMap = new Map<string, MigrationGroup>();
-	const __filename = fileURLToPath(import.meta.url);
-	const __dirname = dirname(__filename);
-
+	const __dirname = dirname(fileURLToPath(import.meta.url));
 	Object.keys(
 		import.meta.glob('./fixtures/*/*.svelte', {
 			query: '?raw'
 		})
 	).forEach((path) => {
-		const [_, __, migration, fixtureName] = path.split('/');
+		const parts = path.split('/');
+		const fixtureName = parts.at(-1)!;
+		const migration = parts.at(-2)!;
 		const name = fixtureName.replace('.svelte', '');
 		const inputPath = path.replace('./', '');
 		const outputPath = inputPath.replace('fixtures', 'results');
@@ -34,14 +34,12 @@ function getMigrationGroups(): MigrationGroup[] {
 		if (!migrationMap.has(migration)) {
 			migrationMap.set(migration, { migration, fixtures: [] });
 		}
-
 		migrationMap.get(migration)!.fixtures.push({
 			name,
 			input: absoluteInputPath,
 			output: absoluteOutputPath
 		});
 	});
-
 	return Array.from(migrationMap.values());
 }
 
