@@ -3,7 +3,6 @@
 	import * as zagSwitch from '@zag-js/switch';
 	import type { SwitchProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
-	import { noop } from '../../internal/noop.js';
 	let {
 		name = '',
 		checked = $bindable(false),
@@ -45,8 +44,6 @@
 		children,
 		inactiveChild,
 		activeChild,
-		// Events
-		onCheckedChange = noop,
 		// ZagProps
 		...zagProps
 	}: SwitchProps = $props();
@@ -55,15 +52,15 @@
 	const [snapshot, send] = useMachine(
 		zagSwitch.machine({
 			id: useId(),
-			name,
-			onCheckedChange: (details) => {
-				checked = details.checked;
-				onCheckedChange(details.checked);
-			}
+			name
 		}),
 		{
 			context: {
 				...zagProps,
+				onCheckedChange: (details) => {
+					checked = details.checked;
+					zagProps.onCheckedChange?.(details);
+				},
 				get checked() {
 					return checked;
 				},
