@@ -59,7 +59,7 @@
 	const api = $derived(dialog.connect(snapshot, send, normalizeProps));
 </script>
 
-<span>
+<span data-testid="modal">
 	<!-- Trigger -->
 	{#if trigger}
 		<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">

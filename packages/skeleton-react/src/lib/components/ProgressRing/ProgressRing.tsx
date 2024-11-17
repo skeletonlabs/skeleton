@@ -47,8 +47,8 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	const api = progress.connect(state, send, normalizeProps);
 
 	// Reactive Classes
-	const rxAnimCircle = api.indeterminate && 'animate-spin';
-	const rxAnimMeter = api.indeterminate && meterAnimate;
+	const rxAnimCircle = api.indeterminate ? 'animate-spin' : '';
+	const rxAnimMeter = api.indeterminate ? meterAnimate : '';
 
 	return (
 		<figure {...api.getRootProps()} className={`${base} ${size} ${classes}`} data-testid="progress-ring">

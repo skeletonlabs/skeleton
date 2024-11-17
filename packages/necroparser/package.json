@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"package": "unbuild",
-		"test": "vitest"
+		"test": "vitest run"
 	},
 	"exports": {
 		".": {

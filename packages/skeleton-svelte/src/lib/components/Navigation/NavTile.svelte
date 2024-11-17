@@ -10,6 +10,7 @@
 		labelExpanded,
 		title,
 		selected = false,
+		type = 'button',
 		// Root
 		base = 'flex items-center',
 		width = 'w-full',
@@ -42,7 +43,6 @@
 
 	// Reactive
 	const element = $derived(href ? 'a' : 'button');
-	const type = $derived(href ? undefined : 'button');
 	const role = $derived(href ? undefined : 'button');
 	const rxSize = $derived(ctx.parent === 'bar' ? `h-full` : `${aspect}`);
 	const classesCollapsed = $derived(`${rxSize} ${padding} ${gap} ${classes}`);
@@ -64,7 +64,7 @@
 	class="{base} {width} {rounded} {rxBackground} {rxMode}"
 	{href}
 	{target}
-	{type}
+	type={element === 'button' ? type : undefined}
 	{title}
 	{role}
 	onclick={onClickHandler}
@@ -75,10 +75,10 @@
 	{#if children}<div>{@render children()}</div>{/if}
 	<!-- Label (base) -->
 	{#if label && !ctx.expanded}
-		<div class="{labelBase} {labelClasses}">{label}</div>
+		<div class="{labelBase} {labelClasses}" data-testid="nav-tile-label">{label}</div>
 	{/if}
 	<!-- Label (expanded) -->
 	{#if labelExpanded && ctx.expanded}
-		<div class="{labelExpandedBase} {labelExpandedClasses}">{labelExpanded}</div>
+		<div class="{labelExpandedBase} {labelExpandedClasses}" data-testid="nav-tile-label-expanded">{labelExpanded}</div>
 	{/if}
 </svelte:element>
