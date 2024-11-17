@@ -42,14 +42,15 @@
 	const [snapshot, send] = useMachine(
 		dialog.machine({
 			id: useId(),
-			open,
-			onOpenChange(details) {
-				open = details.open;
-			}
+			open
 		}),
 		{
 			context: {
 				...zagProps,
+				onOpenChange(details) {
+					zagProps.onOpenChange?.(details);
+					open = details.open;
+				},
 				get open() {
 					return $state.snapshot(open);
 				}
