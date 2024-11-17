@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 
 import { mockSnippet } from '$lib/internal/test-utils.js';
@@ -62,4 +62,12 @@ describe('Switch', () => {
 			expect(component).toHaveClass(value);
 		});
 	}
+
+	it('Should call the `onCheckedChange` event handler', async () => {
+		const fn = vi.fn();
+		render(Switch, { ...commonProps, onCheckedChange: fn("Switch status changed") });
+		const component = screen.getByTestId(testIds.input);
+		component.click();
+		expect(fn.mock.calls).toStrictEqual([["Switch status changed"]]);
+	});
 });
