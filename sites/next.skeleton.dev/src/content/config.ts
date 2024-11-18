@@ -10,6 +10,8 @@ const docs = defineCollection({
 		srcAlly: z.string().optional(),
 		srcZag: z.string().optional(),
 		showDocsUrl: z.boolean().optional().default(false),
+		pubDate: z.date().optional(),
+		tags: z.array(z.string()).optional(),
 		order: z.number().optional().default(0)
 	})
 });
