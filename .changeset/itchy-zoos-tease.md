@@ -2,4 +2,4 @@
 '@skeletonlabs/skeleton-svelte': patch
 ---
 
-feature: Make onCheckedChange available as a prop for Switch component
+bugfix: Adjust Svelte Switch to allow for `bind:checked` and `onCheckedChange` at the same time.

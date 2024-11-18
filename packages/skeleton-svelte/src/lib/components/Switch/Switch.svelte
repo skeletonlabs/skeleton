@@ -58,8 +58,9 @@
 			context: {
 				...zagProps,
 				onCheckedChange: (details) => {
-					checked = details.checked;
+					// Order of operations matters here:
 					zagProps.onCheckedChange?.(details);
+					checked = details.checked;
 				},
 				get checked() {
 					return checked;
