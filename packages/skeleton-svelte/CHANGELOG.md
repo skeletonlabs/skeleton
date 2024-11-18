@@ -1,5 +1,19 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.14
+
+### Patch Changes
+
+- bugfix: Resolved Pagination alternative mode page count issue ([#2956](https://github.com/skeletonlabs/skeleton/pull/2956))
+
+- bugfix: Adjust Svelte Switch to allow for `bind:checked` and `onCheckedChange` at the same time. ([#2967](https://github.com/skeletonlabs/skeleton/pull/2967))
+
+- chore: Implemented Svelte test specs for all components ([#2968](https://github.com/skeletonlabs/skeleton/pull/2968))
+
+- bugfix: resolved Svelte Pagination component reactivity issues ([#2956](https://github.com/skeletonlabs/skeleton/pull/2956))
+
+- `onOpenChange` will no longer be internally overriden and thus fix `bind:open` when used in conjunction with `onOpenChange`. ([#2970](https://github.com/skeletonlabs/skeleton/pull/2970))
+
 ## 1.0.0-next.13
 
 ### Patch Changes
