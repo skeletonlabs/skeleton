@@ -58,8 +58,8 @@
 			context: {
 				...zagProps,
 				onCheckedChange: (details) => {
-					checked = details.checked;
 					zagProps.onCheckedChange?.(details);
+					checked = details.checked;
 				},
 				get checked() {
 					return checked;
