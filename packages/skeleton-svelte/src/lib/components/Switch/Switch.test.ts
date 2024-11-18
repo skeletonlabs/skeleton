@@ -65,9 +65,9 @@ describe('Switch', () => {
 
 	it('Should call the `onCheckedChange` event handler', async () => {
 		const fn = vi.fn();
-		render(Switch, { ...commonProps, onCheckedChange: fn("Switch status changed") });
+		render(Switch, { ...commonProps, onCheckedChange: fn('Switch status changed') });
 		const component = screen.getByTestId(testIds.input);
 		component.click();
-		expect(fn.mock.calls).toStrictEqual([["Switch status changed"]]);
+		expect(fn.mock.calls).toStrictEqual([['Switch status changed']]);
 	});
 });
