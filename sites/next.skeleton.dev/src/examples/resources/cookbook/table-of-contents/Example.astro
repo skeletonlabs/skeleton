@@ -46,7 +46,7 @@ function setIndentationClass(depth: number) {
 			headings.map((heading: PageHeadings) => (
 				<li>
 					{/* Apply a indentation class based on the depth. */}
-					<a href={`#${heading.slug}`} class="anchor block" class:list={`${setIndentationClass(heading.depth)}`}>
+					<a href={`#${heading.slug}`} class="anchor block" class:list={setIndentationClass(heading.depth)}>
 						{heading.text}
 					</a>
 				</li>

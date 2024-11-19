@@ -1,0 +1,15 @@
+<div class="w-full">
+	<!-- Scroll Container -->
+	<div class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto px-4 py-10">
+		<!-- Generate a array of 8 items; loop through each item -->
+		{
+			Array.from({ length: 8 }).map((_, i) => (
+				// Each scrollable card element. Reference alignment options:
+				// https://tailwindcss.com/docs/scroll-snap-align
+				<div class="snap-start shrink-0 card bg-surface-100-900 py-20 w-40 md:w-80 text-center">
+					<span>{i + 1}</span>
+				</div>
+			))
+		}
+	</div>
+</div>
