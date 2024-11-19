@@ -14,7 +14,7 @@ import ExampleRaw from '@examples/resources/cookbook/scroll-containers/Example.a
 import ExampleCarousel from '@examples/resources/cookbook/scroll-containers/ExampleCarousel.astro';
 import ExampleCarouselRaw from '@examples/resources/cookbook/scroll-containers/ExampleCarousel.astro?raw';
 
-<Preview>
+<Preview client:load>
 	<Fragment slot="preview">
 		<Example />
 	</Fragment>
@@ -68,7 +68,7 @@ Use the following links to learn more about Tailwind's scroll behavior and snap 
 
 Using Scroll Containers, we can create a fully functional carousel, complete with thumbnail selection. This introduces javascript logic to control the carousel navigation on demand.
 
-<Preview>
+<Preview client:load>
 	<Fragment slot="preview">
 		<ExampleCarousel />
 	</Fragment>
