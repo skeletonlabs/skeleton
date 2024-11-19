@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.10
+
+### Patch Changes
+
+- bugfix: Minor bugfix to progressRing indeterminate class logic ([#2968](https://github.com/skeletonlabs/skeleton/pull/2968))
+
+- bugfix: Resolved Pagination alternative mode page count issue ([#2956](https://github.com/skeletonlabs/skeleton/pull/2956))
+
 ## 1.0.0-next.9
 
 ### Minor Changes
