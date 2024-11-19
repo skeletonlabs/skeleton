@@ -1,0 +1,44 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: SVG Filters
+description: Apply filter effects to elements and images.
+showDocsUrl: true
+pubDate: 2024-11-19
+tags: ['native', 'effects']
+---
+
+export const components = componentSet;
+
+import Example from '@examples/resources/cookbook/svg-filters/Example.astro';
+import ExampleRaw from '@examples/resources/cookbook/svg-filters/Example.astro?raw';
+
+## How It Works
+
+This feature is enabled by the native [SVG filters](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter) browser API, paired with [feColorMatrix](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix) transformations.
+
+## Minimal Example
+
+In this example, we'll create an SVG with a unique ID of `Emerald`. Then apply this to the image using `filter: url(#Emerald)`.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Example />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Skeleton Filters
+
+> Coming soon!
+
+## Create a Filter
+
+We recommend [SVG Color Matrix Mixer](https://fecolormatrix.com/) by [Rik Schennink](https://x.com/rikschennink/) to aid in creating your own filters.
+
+## Tips
+
+- Store your SVGs locally within your project for quick and reusable imports.
+- Imports support both `.svg` and framework component formats (ex: `.svelte`, `.tsx`)
+- SVGs have a precense in the DOM, and will be affected by `space-x|y` utility classes.
