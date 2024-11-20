@@ -13,6 +13,7 @@ const generatedArray = Array.from({ length: 6 });
 		</button>
 		<!-- Full Images -->
 		<div data-carousel class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
+			<!-- Loop X many times. -->
 			{
 				generatedArray.map((_, i: number) => (
 					<img
@@ -31,10 +32,16 @@ const generatedArray = Array.from({ length: 6 });
 	</div>
 	<!-- Thumbnails -->
 	<div class="card p-4 grid grid-cols-6 gap-4">
+		<!-- Loop X many times. -->
 		{
 			generatedArray.map((_, i: number) => (
 				<button type="button" data-thumbnail>
-					<img class="rounded-container" src={`https://picsum.photos/seed/${i + 1}/256`} alt={`thumb-${i}`} loading="lazy" />
+					<img
+						class="rounded-container hover:brightness-125"
+						src={`https://picsum.photos/seed/${i + 1}/256`}
+						alt={`thumb-${i}`}
+						loading="lazy"
+					/>
 				</button>
 			))
 		}
@@ -60,7 +67,7 @@ const generatedArray = Array.from({ length: 6 });
 	}
 
 	/** On navigation left, scroll the container */
-	function carouselLeft(): void {
+	function carouselLeft() {
 		if (!elemCarousel) return;
 		const x =
 			elemCarousel.scrollLeft === 0
@@ -70,7 +77,7 @@ const generatedArray = Array.from({ length: 6 });
 	}
 
 	/** On navigation right, scroll the container */
-	function carouselRight(): void {
+	function carouselRight() {
 		if (!elemCarousel) return;
 		const x =
 			elemCarousel.scrollLeft === elemCarousel.scrollWidth - elemCarousel.clientWidth

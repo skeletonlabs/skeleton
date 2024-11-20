@@ -13,6 +13,8 @@ import Example from '@examples/resources/cookbook/scroll-containers/Example.astr
 import ExampleRaw from '@examples/resources/cookbook/scroll-containers/Example.astro?raw';
 import ExampleCarousel from '@examples/resources/cookbook/scroll-containers/ExampleCarousel.astro';
 import ExampleCarouselRaw from '@examples/resources/cookbook/scroll-containers/ExampleCarousel.astro?raw';
+import ExampleMultiColumn from '@examples/resources/cookbook/scroll-containers/ExampleMultiColumn.astro';
+import ExampleMultiColumnRaw from '@examples/resources/cookbook/scroll-containers/ExampleMultiColumn.astro?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -27,42 +29,14 @@ import ExampleCarouselRaw from '@examples/resources/cookbook/scroll-containers/E
 
 Use the following links to learn more about Tailwind's scroll behavior and snap features.
 
-<div class="table-container">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Feature</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-behavior" target="_blank">scroll-behavior</a></td>
-				<td>Controls the scroll behavior of an element.</td>
-			</tr>
-			<tr>
-				<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-margin" target="_blank">scroll-margin</a></td>
-				<td>Controls the scroll offset around items in a snap container.</td>
-			</tr>
-			<tr>
-				<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-padding" target="_blank">scroll-padding</a></td>
-				<td>Controls an element's scroll offset within a snap container.</td>
-			</tr>
-			<tr>
-				<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-snap-align" target="_blank">scroll-snap-align</a></td>
-				<td>Controls the scroll snap alignment of an element.</td>
-			</tr>
-			<tr>
-				<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-snap-stop" target="_blank">scroll-snap-stop</a></td>
-				<td>Controls whether you can skip past possible snap positions.</td>
-			</tr>
-			<tr>
-				<td><a class="anchor" href="https://tailwindcss.com/docs/scroll-snap-type" target="_blank">scroll-snap-type</a></td>
-				<td>Controls how strictly snap points are enforced in a snap container.</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+| Feature | Description |
+| -- | -- |
+| [scroll-behavior](https://tailwindcss.com/docs/scroll-behavior) | Controls the scroll behavior of an element. |
+| [scroll-margin](https://tailwindcss.com/docs/scroll-margin) | Controls the scroll offset around items in a snap container. |
+| [scroll-padding](https://tailwindcss.com/docs/scroll-padding) | Controls an element's scroll offset within a snap container. |
+| [scroll-snap-align](https://tailwindcss.com/docs/scroll-snap-align) | Controls the scroll snap alignment of an element. |
+| [scroll-snap-stop](https://tailwindcss.com/docs/scroll-snap-stop) | Controls whether you can skip past possible snap positions. |
+| [scroll-snap-type](https://tailwindcss.com/docs/scroll-snap-type) | Controls how strictly snap points are enforced in a snap container. |
 
 ## Carousels
 
@@ -79,4 +53,15 @@ Using Scroll Containers, we can create a fully functional carousel, complete wit
 
 ## Multi-Column
 
-> (Coming Soon...)
+Per the following example, we can also scroll a group of items as a "set".
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleMultiColumn />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleMultiColumnRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+> Images courtesy of [The Movie Database](https://www.themoviedb.org/)
