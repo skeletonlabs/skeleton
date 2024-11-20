@@ -20,9 +20,9 @@ import ExampleFeedRaw from '@examples/resources/cookbook/chat/ExampleFeed.astro?
 import ExampleBubbles from '@examples/resources/cookbook/chat/ExampleBubbles.astro';
 import ExampleBubblesRaw from '@examples/resources/cookbook/chat/ExampleBubbles.astro?raw';
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
-		<Example client:load />
+		<Example client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<div class="card preset-outlined-warning-500 p-8 space-y-8 mb-4">
@@ -36,7 +36,7 @@ import ExampleBubblesRaw from '@examples/resources/cookbook/chat/ExampleBubbles.
 
 We recommend using Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns) utility classes to define horizontal columns for your layout.
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<ExampleColumns />
 	</Fragment>
@@ -49,7 +49,7 @@ We recommend using Tailwind's [grid column](https://tailwindcss.com/docs/grid-te
 
 We recommend using Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utility classes to define vertical layout rows for your layout.
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<ExampleRows />
 	</Fragment>
@@ -62,7 +62,7 @@ We recommend using Tailwind's [grid row](https://tailwindcss.com/docs/grid-templ
 
 Within our feed element, we'll generate a feed of messages. Note that we'll replace the `<pre>` tags in the next example.
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<ExampleFeed />
 	</Fragment>
@@ -75,7 +75,7 @@ Within our feed element, we'll generate a feed of messages. Note that we'll repl
 
 By mixing Skeleton features with Tailwind styling, we can provided message bubble interfaces for each type of feed post.
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<ExampleBubbles />
 	</Fragment>

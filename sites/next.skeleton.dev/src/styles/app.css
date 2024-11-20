@@ -66,13 +66,13 @@ body {
 [data-theme='terminus'] .card-enhanced,
 [data-theme='vox'] .card-enhanced,
 [data-theme='rocket'] .card-enhanced {
-	@apply bg-surface-100-900;
+	@apply bg-surface-100/30 dark:bg-surface-900/30;
 }
 [data-theme='concord'] .card-enhanced,
 [data-theme='legacy'] .card-enhanced,
 [data-theme='mint'] .card-enhanced,
 [data-theme='vintage'] .card-enhanced {
-	@apply bg-surface-50-950;
+	@apply bg-surface-50/30 dark:bg-surface-950/30;
 }
 
 /* Filled Cards */

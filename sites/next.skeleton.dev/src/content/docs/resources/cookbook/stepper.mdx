@@ -15,9 +15,9 @@ import ExampleComponent from '@examples/resources/cookbook/stepper/ExampleCompon
 import ExampleComponentRaw from '@examples/resources/cookbook/stepper/ExampleComponent.svelte?raw';
 import ExampleStepOne from '@examples/resources/cookbook/stepper/ExampleStepOne.svelte?raw';
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
-		<Example client:load />
+		<Example client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<div class="card preset-outlined-warning-500 p-8 space-y-8 mb-4">
@@ -31,9 +31,9 @@ import ExampleStepOne from '@examples/resources/cookbook/stepper/ExampleStepOne.
 
 You may optionally substitute primative source data for component references and properties.
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleComponent client:load />
+		<ExampleComponent client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<div class="space-y-4">

@@ -115,12 +115,12 @@
 	});
 </script>
 
-<section class="card bg-surface-100-900">
+<section class="card bg-surface-100-900 rounded-container overflow-hidden">
 	<div class="chat w-full h-full grid grid-cols-1 lg:grid-cols-[30%_1fr]">
 		<!-- Navigation -->
-		<div class="hidden lg:grid grid-rows-[auto_1fr_auto] border-r border-surface-200-800">
+		<div class="hidden lg:grid grid-rows-[auto_1fr_auto] border-r-[1px] border-surface-200-800">
 			<!-- Header -->
-			<header class="border-b border-surface-200-800 p-4">
+			<header class="border-b-[1px] border-surface-200-800 p-4">
 				<input class="input" type="search" placeholder="Search..." />
 			</header>
 			<!-- List -->
@@ -144,7 +144,7 @@
 				</div>
 			</div>
 			<!-- Footer -->
-			<!-- <footer class="border-t border-surface-200-800 p-4">(footer)</footer> -->
+			<!-- <footer class="border-t-[1px] border-surface-200-800 p-4">(footer)</footer> -->
 		</div>
 		<!-- Chat -->
 		<div class="grid grid-row-[1fr_auto]">
@@ -177,7 +177,7 @@
 				{/each}
 			</section>
 			<!-- Prompt -->
-			<section class="border-t border-surface-200-800 p-4">
+			<section class="border-t-[1px] border-surface-200-800 p-4">
 				<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800 rounded-container-token">
 					<button class="input-group-cell preset-tonal">+</button>
 					<textarea
