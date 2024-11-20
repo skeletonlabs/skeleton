@@ -11,6 +11,9 @@ export const components = componentSet;
 
 import Example from '@examples/resources/cookbook/stepper/Example.svelte';
 import ExampleRaw from '@examples/resources/cookbook/stepper/Example.svelte?raw';
+import ExampleComponent from '@examples/resources/cookbook/stepper/ExampleComponent.svelte';
+import ExampleComponentRaw from '@examples/resources/cookbook/stepper/ExampleComponent.svelte?raw';
+import ExampleStepOne from '@examples/resources/cookbook/stepper/ExampleStepOne.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -21,5 +24,24 @@ import ExampleRaw from '@examples/resources/cookbook/stepper/Example.svelte?raw'
 			<p>The example below has been constructed using <strong>Svelte</strong>. Other frameworks will be available in the future.</p>
 		</div>
 		<Code code={ExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Using Components
+
+You may optionally substitute primative source data for component references and properties.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleComponent client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<div class="space-y-4">
+			<div class="card preset-outlined-warning-500 p-8 space-y-8">
+				<p>The example below has been constructed using <strong>Svelte</strong>. Other frameworks will be available in the future.</p>
+			</div>
+			<Code code={ExampleComponentRaw} lang="svelte" />
+			<Code code={ExampleStepOne} lang="svelte" title="ExampleStepOne.svelte" />
+		</div>
 	</Fragment>
 </Preview>
