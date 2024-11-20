@@ -75,7 +75,7 @@
 	];
 	let currentMessage = '';
 
-	function scrollChatBottom(behavior?: ScrollBehavior) {
+	function scrollChatBottom(behavior?: 'auto' | 'instant' | 'smooth') {
 		elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
 	}
 

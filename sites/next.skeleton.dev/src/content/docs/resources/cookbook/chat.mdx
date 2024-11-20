@@ -95,7 +95,7 @@ We can utilize a Skeleton [input group](/docs/tailwind/forms#groups) styles to c
 Bind your scrollable feed panel element reference ([Svelte](https://svelte.dev/docs/svelte/bind) | [React](https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom)), then use [scrollTo](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo) to scroll the panel to the bottom on demand. Scroll behavior can be set via `behavior: 'smooth'`.
 
 ```ts
-function scrollChatBottom(behavior?: ScrollBehavior = 'smooth') {
+function scrollChatBottom(behavior?: 'auto' | 'instant' | 'smooth' = 'smooth') {
 	// `elemChat` represents our scrollable panel element
 	elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
 }
