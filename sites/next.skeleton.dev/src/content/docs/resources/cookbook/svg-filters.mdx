@@ -14,11 +14,12 @@ import ExampleRaw from '@examples/resources/cookbook/svg-filters/Example.astro?r
 
 ## How It Works
 
-This feature is enabled by the native [SVG filters](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter) browser API, paired with [feColorMatrix](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix) transformations.
+This feature is enabled by [SVG filters](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter) paired with [feColorMatrix](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix) transformations.
 
 ## Minimal Example
 
-In this example, we'll create an SVG with a unique ID of `Emerald`. Then apply this to the image using `filter: url(#Emerald)`.
+
+The SVG controls the filter settings. The filter is applied using `filter: url(#Emerald)` and linking the SVG's unique ID.
 
 <Preview client:visible>
 	<Fragment slot="preview">
@@ -39,6 +40,8 @@ We recommend [SVG Color Matrix Mixer](https://fecolormatrix.com/) by [Rik Schenn
 
 ## Tips
 
-- Store your SVGs locally within your project for quick and reusable imports.
-- Imports support both `.svg` and framework component formats (ex: `.svelte`, `.tsx`)
-- SVGs have a precense in the DOM, and will be affected by `space-x|y` utility classes.
+- The SVG must be in the same scope as the elements you're filtering.
+- Consder storing your SVGs witin your local project for quick and reusable imports.
+- Most Vite-based meta-frameworks support direct `.svg` imports.
+- Optionally you can embed the SVG within a component and import that (ex: `.svelte`, `.tsx`).
+- Filter SVGs are affected by flow of the document, including Tailwind classes such as `space-x|y`.

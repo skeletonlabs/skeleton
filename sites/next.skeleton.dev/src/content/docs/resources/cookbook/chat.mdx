@@ -34,7 +34,7 @@ import ExampleBubblesRaw from '@examples/resources/cookbook/chat/ExampleBubbles.
 
 ## Layout Columns
 
-We recommend using Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns) utility classes to define horizontal columns for your layout.
+Use Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns) utility classes to define horizontal columns for your layout.
 
 <Preview client:visible>
 	<Fragment slot="preview">
@@ -47,7 +47,7 @@ We recommend using Tailwind's [grid column](https://tailwindcss.com/docs/grid-te
 
 ## Layout Rows
 
-We recommend using Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utility classes to define vertical layout rows for your layout.
+Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utility classes to define vertical layout rows for your layout.
 
 <Preview client:visible>
 	<Fragment slot="preview">
@@ -60,7 +60,7 @@ We recommend using Tailwind's [grid row](https://tailwindcss.com/docs/grid-templ
 
 ## Message Feed
 
-Within our feed element, we'll generate a feed of messages. Note that we'll replace the `<pre>` tags in the next example.
+The feed simply loops through the available feed data. Each `<pre>` tag represents a single *bubble* element.
 
 <Preview client:visible>
 	<Fragment slot="preview">
@@ -73,7 +73,7 @@ Within our feed element, we'll generate a feed of messages. Note that we'll repl
 
 ## Message Bubbles
 
-By mixing Skeleton features with Tailwind styling, we can provided message bubble interfaces for each type of feed post.
+Provide styling to each bubble element.
 
 <Preview client:visible>
 	<Fragment slot="preview">
@@ -86,7 +86,7 @@ By mixing Skeleton features with Tailwind styling, we can provided message bubbl
 
 ## Prompt
 
-We can utilize a Skeleton [input group](/docs/tailwind/forms#groups) styles to create a custom text prompt.
+Use Skeleton's [input group](/docs/tailwind/forms#groups) styles to create a custom text prompt.
 
 ---
 

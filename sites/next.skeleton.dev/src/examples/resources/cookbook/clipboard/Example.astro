@@ -9,11 +9,11 @@
 
 	// Add a click event handler to the trigger
 	elemButton?.addEventListener('click', () => {
-		// Call `navigator.clipboard`
+		// Call the Clipboard API
 		navigator.clipboard
-			// Use the `writeText` method write to the clipboard
+			// Use the `writeText` method write content to the clipboard
 			.writeText(sourceData)
-			// Handle the completed state
+			// Handle confirmation
 			.then(() => console.log('Source data copied to clipboard!'));
 	});
 </script>

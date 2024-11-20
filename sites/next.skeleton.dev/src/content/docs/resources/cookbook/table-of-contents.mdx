@@ -23,7 +23,7 @@ import ExampleRaw from '@examples/resources/cookbook/table-of-contents/Example.a
 
 ## Deep Linking
 
-Browsers allow you to deep link to any element via the ID. This is accomplished with an anchor tag and `#` href value. By tapping this anchor in the viewport, the page will automaticaly scroll the `<body>` to bring the element into view.
+Browsers allow you to deep link to any element via the ID. This is accomplished with an anchor tag and hashed (`#`) href value. When interacting with these anchors, the viewport will automatically attempt to scroll the `<body>` element and bring the element into view.
 
 ```html
 <h2 class="#some-example-slug">Some Example Heading<h2>
@@ -32,7 +32,7 @@ Browsers allow you to deep link to any element via the ID. This is accomplished 
 <a href="#real-world-example" class="anchor">Some Example Heading</a>
 ```
 
-> TIP: If you abstract scrolling away from the body element, this will not work.
+> TIP: If you abstract scrolling away from the `<body>` element, this will not work.
 
 ## Scroll Behavior
 
