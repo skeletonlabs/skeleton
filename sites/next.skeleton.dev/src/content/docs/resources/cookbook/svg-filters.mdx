@@ -30,18 +30,20 @@ The SVG controls the filter settings. The filter is applied using `filter: url(#
 	</Fragment>
 </Preview>
 
-## Skeleton Filters
-
-> Coming soon!
-
 ## Create a Filter
 
-We recommend [SVG Color Matrix Mixer](https://fecolormatrix.com/) by [Rik Schennink](https://x.com/rikschennink/) to aid in creating your own filters.
+We recommend [SVG Color Matrix Mixer](https://fecolormatrix.com/) by [Rik Schennink](https://x.com/rikschennink/) to create your own filters.
+
+## From Skeleton
+
+Skeleton provides a collection of [open source SVG filters](https://github.com/skeletonlabs/svg-filters). Pull requests welcome!
+
+<img src="https://i.imgur.com/lI7sUfs.png" class="w-full border border-surface-200-800 rounded-container overflow-hidden shadow" alt="Previews" />
 
 ## Tips
 
-- The SVG must be in the same scope as the elements you're filtering.
+- The SVG must be in the same scope as the elements being filtering.
 - Consder storing your SVGs witin your local project for quick and reusable imports.
-- Most Vite-based meta-frameworks support direct `.svg` imports.
-- Optionally you can embed the SVG within a component and import that (ex: `.svelte`, `.tsx`).
-- Filter SVGs are affected by flow of the document, including Tailwind classes such as `space-x|y`.
+- All Vite-based frameworks support [.svg imports](https://vite.dev/guide/assets.html#importing-asset-as-url).
+- Optionally you can embed the SVG within a component (ex: `.svelte`, `.tsx`), then import that.
+- Filter SVGs are affected by the flow DOM, including class styles such as `space-{x|y}`.
