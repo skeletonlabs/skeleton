@@ -193,7 +193,7 @@
 			<button
 				type="button"
 				aria-label={labelFirst}
-				class={buttonClasses}
+				class="{buttonClasses} {lastPage <= 1 ? '!hidden' : ''}"
 				on:click={() => {
 					gotoPage(0);
 				}}
@@ -251,7 +251,7 @@
 			<button
 				type="button"
 				aria-label={labelLast}
-				class={buttonClasses}
+				class="{buttonClasses} {lastPage <= 1 ? '!hidden' : ''}"
 				on:click={() => {
 					gotoPage(lastPage);
 				}}
