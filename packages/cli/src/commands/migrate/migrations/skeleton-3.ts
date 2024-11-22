@@ -166,7 +166,7 @@ function migrateClasses(code: string) {
 	}, code);
 }
 
-function migrateSvelte(code: string) {
+function migrateSvelteCode(code: string) {
 	code = migrateClasses(code);
 	// TODO: Generate AST (svelte/compiler)
 	// TODO: Update imports
@@ -174,7 +174,7 @@ function migrateSvelte(code: string) {
 	return code;
 }
 
-function migrateModule(code: string) {
+function migrateModuleCode(code: string) {
 	code = migrateClasses(code);
 	// TODO: Generate AST (acorn-typecript)
 	// TODO: Update imports
@@ -185,7 +185,7 @@ function migrateSourceCode() {
 	for (const path of fg.sync(`./src/**/*.{js,cjs,mjs,ts,cts,mts,svelte}`)) {
 		const code = readFileSync(path, 'utf-8');
 		const extension = extname(path);
-		const migrated = extension === '.svelte' ? migrateSvelte(code) : migrateModule(code);
+		const migrated = extension === '.svelte' ? migrateSvelteCode(code) : migrateModuleCode(code);
 		writeFileSync(path, migrated);
 	}
 }
@@ -196,4 +196,4 @@ function migrate() {
 	migrateSourceCode();
 }
 
-export { migrate };
+export { migrate, migrateModuleCode, migrateSvelteCode };
