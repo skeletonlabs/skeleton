@@ -44,8 +44,8 @@ describe('skeleton-3', () => {
 				const fileName = basename(fixturePath);
 				const resultPath = fixturePath.replace('/fixtures/', '/results/');
 				test(`${fileName}`, () => {
-					const result = migrateFunction(readFileSync(fixturePath, 'utf-8'));
-					const expected = readFileSync(resultPath, 'utf-8');
+					const result = migrateFunction(readFileSync(fixturePath, 'utf-8')).trim();
+					const expected = readFileSync(resultPath, 'utf-8').trim();
 					expect(result).toBe(expected);
 				});
 			});

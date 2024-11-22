@@ -19,7 +19,6 @@ vite.config.ts.timestamp-*
 
 # build output
 dist/
-package/
 .vercel/
 **/plugin/generated
 

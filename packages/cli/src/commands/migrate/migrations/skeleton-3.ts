@@ -150,7 +150,7 @@ function migratePackage(code: string) {
 			dependencies['@skeletonlabs/skeleton'] = '^3.0.0';
 		}
 	}
-	return JSON.stringify(packageJson, null, 2);
+	return JSON.stringify(packageJson, null, '\t');
 }
 
 function migrateTailwindConfig(code: string) {
