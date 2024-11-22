@@ -1,11 +1,13 @@
 import { Command } from 'commander';
-import { getPackage } from './utilities/get-package.js';
+import migrate from '../commands/migrate/migrate.js';
 
-const pkg = getPackage();
+const program = new Command();
 
-const program = new Command()
-	.name('Skeleton')
-	.description('A CLI tool for Skeleton related functionality')
-	.version(String(pkg?.version ?? '0.0.0'));
+// Info
+program.name('Skeleton');
+program.description('A CLI tool for Skeleton related functionality');
+
+// Commands
+program.command('migrate').action(migrate).argument('<migration>', 'Migration to run');
 
 export { program };

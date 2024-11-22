@@ -351,7 +351,7 @@ export const Accordion = Object.assign(
 
 ### Svelte
 
-Create a new `index.ts` file colocated within the `/component/<ComponentName>` directory:
+Create a new `migrate.ts` file colocated within the `/component/<ComponentName>` directory:
 
 ```ts
 import Tabs from './Tabs.svelte';
@@ -366,7 +366,7 @@ Finally, make sure components are included in the package export list.
 
 ### React
 
-Found in `/src/lib/index.ts`.
+Found in `/src/lib/migrate.ts`.
 
 ```ts
 export { Foo } from '../components/Foo/Foo.jsx';
@@ -375,7 +375,7 @@ export { Bar } from '../components/Bar/Bar.jsx';
 
 ### Svelte
 
-Found in `/src/components/index.ts`.
+Found in `/src/components/migrate.ts`.
 
 ```ts
 export { default as Foo } from './components/Foo';

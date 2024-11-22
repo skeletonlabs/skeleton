@@ -1,11 +1,10 @@
-import { readFileSync } from 'node:fs';
+import fg from 'fast-glob';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { extname } from 'node:path';
+import type { PackageJson } from 'type-fest';
+import { lt } from 'semver';
 
-interface Migration {
-	find: RegExp;
-	replace: string;
-}
-
-const migrations: Migration[] = [
+const CLASS_REGEXES = [
 	// Forward color pairings
 	{
 		find: /(\w+)-50-900-token\b/g,
@@ -66,7 +65,7 @@ const migrations: Migration[] = [
 
 	// Border Radius
 	{
-		find: /rounded-token\b/g,
+		find: /rounded\b/g,
 		replace: 'rounded'
 	},
 	{
@@ -74,7 +73,7 @@ const migrations: Migration[] = [
 		replace: 'rounded-$1'
 	},
 	{
-		find: /rounded-container-token\b/g,
+		find: /rounded-container\b/g,
 		replace: 'rounded-container'
 	},
 	{
@@ -84,7 +83,7 @@ const migrations: Migration[] = [
 
 	// Borders
 	{
-		find: /border-token\b/g,
+		find: /border\b/g,
 		replace: 'border'
 	},
 	{
@@ -94,7 +93,7 @@ const migrations: Migration[] = [
 
 	// Rings
 	{
-		find: /ring-token\b/g,
+		find: /ring\b/g,
 		replace: 'ring'
 	},
 	{
@@ -104,15 +103,15 @@ const migrations: Migration[] = [
 
 	// Text
 	{
-		find: /font-headings-token\b/g,
+		find: /heading-font-family\b/g,
 		replace: 'heading-font-family'
 	},
 	{
-		find: /font-token\b/g,
+		find: /base-font-family\b/g,
 		replace: 'base-font-family'
 	},
 	{
-		find: /text-token\b/g,
+		find: /base-font-color\b/g,
 		replace: 'base-font-color'
 	},
 	{
@@ -131,11 +130,71 @@ const migrations: Migration[] = [
 	}
 ];
 
-function migrate(path: string) {
-	const source = readFileSync(path, 'utf8');
-	return migrations.reduce((result, migration) => {
+function migratePackageJson() {
+	if (!existsSync('package.json')) {
+		throw new Error('Please migrate inside the root of a project with a "package.json".');
+	}
+	const packageJson: PackageJson = JSON.parse(readFileSync('package.json', 'utf8'));
+
+	for (const field of ['dependencies', 'devDependencies'] as const) {
+		const dependencies = packageJson[field];
+		if (!dependencies) {
+			continue;
+		}
+		if (dependencies['@skeletonlabs/skeleton']) {
+			const version = dependencies['@skeletonlabs/skeleton'];
+			if (lt(version, '3.0.0')) {
+				delete dependencies['@skeletonlabs/skeleton'];
+				dependencies['@skeletonlabs/skeleton-svelte'] = '^1.0.0';
+			}
+		}
+		if (dependencies['@skeletonlabs/tw-plugin']) {
+			delete dependencies['@skeletonlabs/tw-plugin'];
+			dependencies['@skeletonlabs/skeleton'] = '^3.0.0';
+		}
+	}
+	writeFileSync('package.json', JSON.stringify(packageJson, null, 4));
+}
+
+function migrateTailwindConfig() {
+	// TODO: Update `tailwind.config.{js/cjs/mjs/ts/cts/mts}` (plugin, contentPath, themes)
+}
+
+function migrateClasses(code: string) {
+	return CLASS_REGEXES.reduce((result, migration) => {
 		return result.replace(migration.find, migration.replace);
-	}, source);
+	}, code);
+}
+
+function migrateSvelte(code: string) {
+	code = migrateClasses(code);
+	// TODO: Generate AST (svelte/compiler)
+	// TODO: Update imports
+	// TODO: Update components
+	return code;
+}
+
+function migrateModule(code: string) {
+	code = migrateClasses(code);
+	// TODO: Generate AST (acorn-typecript)
+	// TODO: Update imports
+	// TODO: Update components
+	return code;
+}
+
+function migrateSourceCode() {
+	for (const path of fg.sync(`./src/**/*.{js,cjs,mjs,ts,cts,mts,svelte}`)) {
+		const code = readFileSync(path, 'utf-8');
+		const extension = extname(path);
+		const migrated = extension === '.svelte' ? migrateSvelte(code) : migrateModule(code);
+		writeFileSync(path, migrated);
+	}
+}
+
+function migrate() {
+	migratePackageJson();
+	migrateTailwindConfig();
+	migrateSourceCode();
 }
 
 export { migrate };
