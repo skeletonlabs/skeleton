@@ -1,32 +1,34 @@
 ---
-const imgSrc = 'https://picsum.photos/seed/skeleton/1024/768';
-const imgClasses = 'w-full max-w-[1024px] aspect-video rounded-container';
+import * as Filters from './filters/index.js';
 ---
 
-<!-- Implement a style tag with the filter property -->
-<img src={imgSrc} class={imgClasses} style="filter: url(#Emerald)" />
+<!-- Generate Previews -->
+<div class="w-full grid grid-cols-3 gap-4">
+	{
+		// Loop each filter
+		Object.keys(Filters).map((filterName: string, i: number) => (
+			<div class="flex flex-col items-center space-y-2">
+				{/* Apply the `filter: url()` style. */}
+				<img
+					src={`https://picsum.photos/seed/skeleton/320`}
+					class="rounded-container"
+					alt={`full-${i}`}
+					loading="lazy"
+					style={`filter: url(#${filterName})`}
+				/>
+				<span class="badge preset-tonal">#{filterName}</span>
+			</div>
+		))
+	}
+</div>
 
-<!-- SVG Filter -->
-<!-- Consider importing this as an .svg or component -->
-<svg class="hidden absolute -left-full w-0 h-0">
-	<!-- Set the unique filter name via the `id` -->
-	<filter id="Emerald" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-		<feColorMatrix
-			type="matrix"
-			in="SourceGraphic"
-			result="colormatrix"
-			values="
-            .16 .185 .129 0 0
-            .16 .185 .129 0 0
-            .16 .185 .129 0 0
-            0 0 0 0.33 0"
-		></feColorMatrix>
-		<feComponentTransfer in="colormatrix" result="componentTransfer">
-			<feFuncR type="table" tableValues="0.03 0.9"></feFuncR>
-			<feFuncG type="table" tableValues="0.57 1"></feFuncG>
-			<feFuncB type="table" tableValues="0.49 0.53"></feFuncB>
-			<feFuncA type="table" tableValues="0 1"></feFuncA>
-		</feComponentTransfer>
-		<feBlend mode="normal" in="componentTransfer" in2="SourceGraphic" result="blend"></feBlend>
-	</filter>
-</svg>
+<!-- Filter Embeds -->
+<Filters.Apollo />
+<Filters.BlueNight />
+<Filters.Emerald />
+<Filters.GreenFall />
+<Filters.Noir />
+<Filters.NoirLight />
+<Filters.Rustic />
+<Filters.Summer />
+<Filters.XPro />

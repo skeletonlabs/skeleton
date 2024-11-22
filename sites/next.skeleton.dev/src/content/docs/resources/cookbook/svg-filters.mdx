@@ -10,23 +10,50 @@ tags: ['native', 'effects']
 export const components = componentSet;
 
 import Example from '@examples/resources/cookbook/svg-filters/Example.astro';
-import ExampleRaw from '@examples/resources/cookbook/svg-filters/Example.astro?raw';
+
+import ApolloRaw from '@examples/resources/cookbook/svg-filters/filters/Apollo.astro?raw';
+import BlueNightRaw from '@examples/resources/cookbook/svg-filters/filters/BlueNight.astro?raw';
+import EmeraldRaw from '@examples/resources/cookbook/svg-filters/filters/Emerald.astro?raw';
+import GreenFallRaw from '@examples/resources/cookbook/svg-filters/filters/GreenFall.astro?raw';
+import NoirRaw from '@examples/resources/cookbook/svg-filters/filters/Noir.astro?raw';
+import NoirLightRaw from '@examples/resources/cookbook/svg-filters/filters/NoirLight.astro?raw';
+import RusticRaw from '@examples/resources/cookbook/svg-filters/filters/Rustic.astro?raw';
+import SummerRaw from '@examples/resources/cookbook/svg-filters/filters/Summer.astro?raw';
+import XProRaw from '@examples/resources/cookbook/svg-filters/filters/XPro.astro?raw';
 
 ## How It Works
 
 This feature is enabled by [SVG filters](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter) paired with [feColorMatrix](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix) transformations.
 
-## Minimal Example
+## Usage
 
+Apply a filter to any element using the Filter style property and passing the unique SVG Filter ID.
 
-The SVG controls the filter settings. The filter is applied using `filter: url(#Emerald)` and linking the SVG's unique ID.
+```html
+<!-- The Target Element -->
+<img ... style="filter: url(#Apollo)" />
+
+<!-- The SVG Filter with a matching unique ID -->
+<svg><filter id="Apollo">...</filter></svg>
+```
+
+We've provided a curated collection of SVG Filters to choose from below.
 
 <Preview client:visible>
 	<Fragment slot="preview">
 		<Example />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<div class="space-y-4">
+			<Code code={ApolloRaw} lang="astro" />
+			<Code code={BlueNightRaw} lang="astro" />
+			<Code code={GreenFallRaw} lang="astro" />
+			<Code code={NoirRaw} lang="astro" />
+			<Code code={NoirLightRaw} lang="astro" />
+			<Code code={RusticRaw} lang="astro" />
+			<Code code={SummerRaw} lang="astro" />
+			<Code code={XProRaw} lang="astro" />
+		</div>
 	</Fragment>
 </Preview>
 
@@ -34,16 +61,10 @@ The SVG controls the filter settings. The filter is applied using `filter: url(#
 
 We recommend [SVG Color Matrix Mixer](https://fecolormatrix.com/) by [Rik Schennink](https://x.com/rikschennink/) to create your own filters.
 
-## From Skeleton
-
-Skeleton provides a collection of [open source SVG filters](https://github.com/skeletonlabs/svg-filters). Pull requests welcome!
-
-<img src="https://i.imgur.com/lI7sUfs.png" class="w-full border border-surface-200-800 rounded-container overflow-hidden shadow" alt="Previews" />
-
 ## Tips
 
-- The SVG must be in the same scope as the elements being filtering.
+- The SVG must be in the same scope as the elements you wish to filter. Global scope is acceptable.
 - Consder storing your SVGs witin your local project for quick and reusable imports.
-- All Vite-based frameworks support [.svg imports](https://vite.dev/guide/assets.html#importing-asset-as-url).
-- Optionally you can embed the SVG within a component (ex: `.svelte`, `.tsx`), then import that.
+- All Vite-based frameworks support [SVG imports](https://vite.dev/guide/assets.html#importing-asset-as-url).
+- Optionally you can embed the SVG within a imported component (ex: `Apollo.svelte`, `Apollo.tsx`).
 - Filter SVGs are affected by the flow DOM, including class styles such as `space-{x|y}`.
