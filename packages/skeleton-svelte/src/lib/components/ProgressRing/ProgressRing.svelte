@@ -6,6 +6,7 @@
 
 	let {
 		label,
+		showLabel = false,
 		strokeWidth = '10px',
 		strokeLinecap = 'round',
 		// Root
@@ -30,7 +31,6 @@
 		meterDuration = 'duration-200',
 		meterClasses = '',
 		// Label
-		showLabel = false,
 		labelBase = '',
 		labelFill = 'fill-surface-950-50',
 		labelFontSize = 24, // px

@@ -8,6 +8,7 @@ import type { ProgressRingProps } from './types.js';
 
 export const ProgressRing: FC<ProgressRingProps> = ({
 	label,
+	showLabel = false,
 	strokeWidth = '10px',
 	strokeLinecap = 'round',
 	// Root
@@ -32,7 +33,6 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	meterDuration = 'duration-200',
 	meterClasses = '',
 	// Label
-	showLabel = false,
 	labelBase = '',
 	labelFill = 'fill-surface-950-50',
 	labelFontSize = 24, // px

@@ -71,10 +71,6 @@
 					"description": "Set the text for the scalable label",
 					"type": "string"
 				},
-				"showLabel": {
-					"description": "Show the label",
-					"type": "boolean"
-				},
 				"labelBase": {
 					"description": "Set the label classes",
 					"type": "string"
@@ -134,6 +130,10 @@
 					"default": "horizontal",
 					"description": "The orientation of the element."
 				},
+				"showLabel": {
+					"description": "When enabled, show a text label with the percentage amount",
+					"type": "boolean"
+				},
 				"size": {
 					"description": "Set the root size classes",
 					"type": "string"
@@ -179,6 +179,7 @@
 			},
 			"propertyOrder": [
 				"label",
+				"showLabel",
 				"strokeWidth",
 				"strokeLinecap",
 				"base",
