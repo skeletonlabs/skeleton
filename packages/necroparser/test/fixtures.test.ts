@@ -2,12 +2,12 @@ import { fileURLToPath, resolve } from 'node:url';
 import { describe, expect, test } from 'vitest';
 import { getInterfaces } from '../src/index.js';
 
-const fixtures = import.meta.glob('./fixtures/*.ts', {
+const fixturesTest = import.meta.glob('./fixtures/*.ts', {
 	query: '?raw'
 });
 
 describe('fixtures', () => {
-	for (const path of Object.keys(fixtures)) {
+	for (const path of Object.keys(fixturesTest)) {
 		const name = path.split('/').at(-1);
 		if (!name) {
 			continue;
