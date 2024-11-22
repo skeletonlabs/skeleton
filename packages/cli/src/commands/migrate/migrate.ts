@@ -1,6 +1,6 @@
-import { migrate as skeleton3 } from './migrations/skeleton-3.js';
+import { migrateProject as migrateProjectToSkeleton3 } from './migrations/skeleton-3.js';
 
-const MIGRATIONS = new Map([['skeleton-3', skeleton3]]);
+const MIGRATIONS = new Map([['skeleton-3', migrateProjectToSkeleton3]]);
 
 function migrate(migration: string) {
 	const migrate = MIGRATIONS.get(migration);

@@ -3,6 +3,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { extname } from 'node:path';
 import type { PackageJson } from 'type-fest';
 import { lt } from 'semver';
+import { join } from 'path';
 
 const CLASS_REGEXES = [
 	// Forward color pairings
@@ -65,7 +66,7 @@ const CLASS_REGEXES = [
 
 	// Border Radius
 	{
-		find: /rounded\b/g,
+		find: /rounded-token\b/g,
 		replace: 'rounded'
 	},
 	{
@@ -73,7 +74,7 @@ const CLASS_REGEXES = [
 		replace: 'rounded-$1'
 	},
 	{
-		find: /rounded-container\b/g,
+		find: /rounded-container-token\b/g,
 		replace: 'rounded-container'
 	},
 	{
@@ -130,12 +131,8 @@ const CLASS_REGEXES = [
 	}
 ];
 
-function migratePackageJson() {
-	if (!existsSync('package.json')) {
-		throw new Error('Please migrate inside the root of a project with a "package.json".');
-	}
-	const packageJson: PackageJson = JSON.parse(readFileSync('package.json', 'utf8'));
-
+function migratePackage(code: string) {
+	const packageJson: PackageJson = JSON.parse(code);
 	for (const field of ['dependencies', 'devDependencies'] as const) {
 		const dependencies = packageJson[field];
 		if (!dependencies) {
@@ -153,11 +150,12 @@ function migratePackageJson() {
 			dependencies['@skeletonlabs/skeleton'] = '^3.0.0';
 		}
 	}
-	writeFileSync('package.json', JSON.stringify(packageJson, null, 4));
+	return JSON.stringify(packageJson, null, 2);
 }
 
-function migrateTailwindConfig() {
+function migrateTailwindConfig(code: string) {
 	// TODO: Update `tailwind.config.{js/cjs/mjs/ts/cts/mts}` (plugin, contentPath, themes)
+	return code;
 }
 
 function migrateClasses(code: string) {
@@ -181,19 +179,33 @@ function migrateModuleCode(code: string) {
 	return code;
 }
 
-function migrateSourceCode() {
-	for (const path of fg.sync(`./src/**/*.{js,cjs,mjs,ts,cts,mts,svelte}`)) {
-		const code = readFileSync(path, 'utf-8');
+function migrateProject(cwd = process.cwd()) {
+	// package.json
+	const packagePath = join(cwd, 'package.json');
+	if (!existsSync(packagePath)) {
+		throw new Error('"package.json" not found, please migrate from the root of your project.');
+	}
+	const packageCode = readFileSync(packagePath, 'utf-8');
+	const migratedPackageCode = migratePackage(packageCode);
+	writeFileSync(packagePath, migratedPackageCode);
+
+	// tailwind.config.js
+	const tailwindConfigPath = join(cwd, 'tailwind.config.js');
+	if (!existsSync(tailwindConfigPath)) {
+		throw new Error('"tailwind.config.js" not found, please migrate from the root of your project.');
+	}
+	const tailwindConfigCode = readFileSync(tailwindConfigPath, 'utf-8');
+	const migrateTailwindConfigCode = migrateTailwindConfig(tailwindConfigCode);
+	writeFileSync(tailwindConfigCode, migrateTailwindConfigCode);
+
+	// Source code
+	const paths = fg.sync(`./src/**/*.{js,cjs,mjs,ts,cts,mts,svelte}`);
+	for (const path of paths) {
+		const sourceCode = readFileSync(path, 'utf-8');
 		const extension = extname(path);
-		const migrated = extension === '.svelte' ? migrateSvelteCode(code) : migrateModuleCode(code);
-		writeFileSync(path, migrated);
+		const migratedCode = extension === '.svelte' ? migrateSvelteCode(sourceCode) : migrateModuleCode(sourceCode);
+		writeFileSync(path, migratedCode);
 	}
 }
 
-function migrate() {
-	migratePackageJson();
-	migrateTailwindConfig();
-	migrateSourceCode();
-}
-
-export { migrate, migrateModuleCode, migrateSvelteCode };
+export { migrateProject, migratePackage, migrateTailwindConfig, migrateModuleCode, migrateSvelteCode };
