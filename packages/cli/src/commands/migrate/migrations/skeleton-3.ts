@@ -178,7 +178,6 @@ function migrateModule(code: string) {
 	code = migrateClasses(code);
 	// TODO: Generate AST (acorn-typecript)
 	// TODO: Update imports
-	// TODO: Update components
 	return code;
 }
 
