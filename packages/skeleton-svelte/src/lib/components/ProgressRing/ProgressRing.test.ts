@@ -29,7 +29,7 @@ describe('ProgressRing', () => {
 	});
 
 	it('should render the value percentage text', () => {
-		render(ProgressRing, { ...commonProps });
+		render(ProgressRing, { ...commonProps, showLabel: true });
 		const component = screen.getByTestId(testIds.ringLabel);
 		expect(component).toHaveTextContent(`${commonProps.value}%`);
 	});
@@ -59,4 +59,9 @@ describe('ProgressRing', () => {
 			expect(component).toHaveClass(value);
 		});
 	}
+
+	it('Should not render the label when `showLabel` is false', () => {
+		render(ProgressRing, { ...commonProps, showLabel: false });
+		expect(screen.queryAllByTestId(testIds.ringLabel)).toStrictEqual([]);
+	});
 });

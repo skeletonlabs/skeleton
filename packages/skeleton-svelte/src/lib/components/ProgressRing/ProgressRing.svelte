@@ -30,6 +30,7 @@
 		meterDuration = 'duration-200',
 		meterClasses = '',
 		// Label
+		showLabel = false,
 		labelBase = '',
 		labelFill = 'fill-surface-950-50',
 		labelFontSize = 24, // px
@@ -74,7 +75,7 @@
 			data-testid="progress-ring-meter"
 		/>
 		<!-- Label -->
-		{#if api.value !== null && !children}
+		{#if api.value !== null && !children && showLabel}
 			<text
 				class="{labelBase} {labelFill} {labelClasses}"
 				x="50%"

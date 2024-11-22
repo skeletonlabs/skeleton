@@ -52,6 +52,8 @@ export interface ProgressRingProps extends Omit<progress.Context, 'id'> {
 	meterClasses?: string;
 
 	// Label ---
+	/** Show auto-scaled label */
+	showLabel?: boolean;
 	/** Set the label classes */
 	labelBase?: string;
 	/** Set the label fill color classes */

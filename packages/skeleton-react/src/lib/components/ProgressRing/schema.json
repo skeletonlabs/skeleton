@@ -71,6 +71,10 @@
 					"description": "Set the text for the scalable label",
 					"type": "string"
 				},
+				"showLabel": {
+					"description": "Show the label",
+					"type": "boolean"
+				},
 				"labelBase": {
 					"description": "Set the label classes",
 					"type": "string"

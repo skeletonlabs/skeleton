@@ -32,6 +32,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	meterDuration = 'duration-200',
 	meterClasses = '',
 	// Label
+	showLabel = false,
 	labelBase = '',
 	labelFill = 'fill-surface-950-50',
 	labelFontSize = 24, // px
@@ -77,7 +78,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 					data-testid="progress-ring-meter"
 				/>
 				{/* Label */}
-				{api.value !== null && !children && (
+				{api.value !== null && !children && showLabel && (
 					<text
 						className={`${labelBase} ${labelFill} ${labelClasses}`}
 						x="50%"

@@ -51,6 +51,8 @@ export interface ProgressRingProps extends React.PropsWithChildren, Omit<progres
 	meterClasses?: string;
 
 	// Label ---
+	/** Show auto-scaled label */
+	showLabel?: boolean;
 	/** Set the label classes */
 	labelBase?: string;
 	/** Set the label fill color classes */
