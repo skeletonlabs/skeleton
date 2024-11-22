@@ -10,10 +10,10 @@ import {
 } from '../../../../src/commands/migrate/migrations/skeleton-3.js';
 
 const migrationFunctions = {
-	package: migratePackage,
-	'tailwind.config': migrateTailwindConfig,
-	svelte: migrateSvelteCode,
-	module: migrateModuleCode
+	packages: migratePackage,
+	'tailwind-configs': migrateTailwindConfig,
+	components: migrateSvelteCode,
+	modules: migrateModuleCode
 } as const;
 
 type MigrationType = keyof typeof migrationFunctions;
