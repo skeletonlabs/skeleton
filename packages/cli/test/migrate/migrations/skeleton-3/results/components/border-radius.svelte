@@ -3,3 +3,8 @@
 <div class="rounded-tr"></div>
 <div class="rounded-bl"></div>
 <div class="rounded-br"></div>
+<div class="rounded-container"></div>
+<div class="rounded-container-tl"></div>
+<div class="rounded-container-tr"></div>
+<div class="rounded-container-bl"></div>
+<div class="rounded-container-br"></div>

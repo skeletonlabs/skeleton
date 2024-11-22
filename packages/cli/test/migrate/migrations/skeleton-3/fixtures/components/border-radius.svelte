@@ -3,3 +3,8 @@
 <div class="rounded-tr-token"></div>
 <div class="rounded-bl-token"></div>
 <div class="rounded-br-token"></div>
+<div class="rounded-container-token"></div>
+<div class="rounded-container-tl-token"></div>
+<div class="rounded-container-tr-token"></div>
+<div class="rounded-container-bl-token"></div>
+<div class="rounded-container-br-token"></div>

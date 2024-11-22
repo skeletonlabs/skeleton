@@ -1,0 +1,12 @@
+<div class="border-token"></div>
+<div class="border-secondary-50-900-token"></div>
+<div class="border-secondary-100-800-token"></div>
+<div class="border-secondary-200-700-token"></div>
+<div class="border-secondary-300-600-token"></div>
+<div class="border-secondary-400-500-token"></div>
+<div class="border-secondary-500-token"></div>
+<div class="border-secondary-500-400-token"></div>
+<div class="border-secondary-600-300-token"></div>
+<div class="border-secondary-700-200-token"></div>
+<div class="border-secondary-800-100-token"></div>
+<div class="border-secondary-900-500-token"></div>
