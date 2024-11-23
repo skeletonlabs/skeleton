@@ -4,6 +4,8 @@ import { extname } from 'node:path';
 import type { PackageJson } from 'type-fest';
 import { lt } from 'semver';
 import { join } from 'path';
+import { Project } from 'ts-morph';
+import { ScriptKind, ScriptTarget } from 'typescript';
 
 const CLASS_REGEXES = [
 	// Forward color pairings
@@ -154,8 +156,29 @@ function migratePackage(code: string) {
 }
 
 function migrateTailwindConfig(code: string) {
-	// TODO: Update `tailwind.config.{js/cjs/mjs/ts/cts/mts}` (plugin, contentPath, themes)
-	return code;
+	const project = new Project({
+		useInMemoryFileSystem: true,
+		compilerOptions: {
+			target: ScriptTarget.Latest
+		}
+	});
+	const sourceFile = project.createSourceFile('virtual.ts', code, { scriptKind: ScriptKind.TS });
+
+	// Imports
+	sourceFile.getImportDeclarations().forEach((importDeclaration) => {
+		if (['@skeletonlabs/tw-plugin', 'path', 'node:path'].includes(importDeclaration.getModuleSpecifierValue())) {
+			importDeclaration.remove();
+		}
+	});
+	sourceFile.addImportDeclarations([
+		{
+			namedImports: [{ name: 'skeleton' }, { name: 'contentPath' }],
+			moduleSpecifier: '@skeletonlabs/skeleton/plugin'
+		}
+	]);
+
+	// Configuration
+	return sourceFile.getFullText();
 }
 
 function migrateClasses(code: string) {

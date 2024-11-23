@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { migrateClasses } from './skeleton-3.js';
+import { migrateClasses, migrateTailwindConfig } from './skeleton-3.js';
 
 const COLORS = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'];
 const CSS_PROPERTIES = ['bg', 'accent', 'border', 'caret', 'decoration', 'divide', 'fill', 'outline', 'ring', 'shadow', 'stroke', 'text'];
@@ -112,5 +112,17 @@ describe('migrateClasses', () => {
 				expect(migrateClasses(v2)).toBe(v3);
 			});
 		}
+	});
+});
+
+describe('migrateTailwindConfig', () => {
+	it('migrates imports', () => {
+		const v2 = `import { skeleton } from "@skeletonlabs/tw-plugin";`;
+		const v3 = `import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";`;
+		expect(migrateTailwindConfig(v2)).toBe(v3);
+	});
+
+	it('migrates `config.content`', () => {
+		const v2 = `export default { content: ['`;
 	});
 });
