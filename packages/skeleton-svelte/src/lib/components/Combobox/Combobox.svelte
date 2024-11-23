@@ -93,7 +93,7 @@
 			<!-- Input -->
 			<input {...api.getInputProps()} class={inputGroupInput} />
 			<!-- Arrow -->
-			<button {...api.getTriggerProps()} class={inputGroupButton}>
+			<button {...api.getTriggerProps()} class={inputGroupButton} type="button">
 				{#if arrow}
 					{@render arrow()}
 				{:else}
