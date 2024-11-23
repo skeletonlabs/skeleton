@@ -84,7 +84,7 @@ const CLASS_REGEXES = [
 
 	// Borders
 	{
-		find: /border\b/g,
+		find: /border-token\b/g,
 		replace: 'border'
 	},
 	{
@@ -94,7 +94,7 @@ const CLASS_REGEXES = [
 
 	// Rings
 	{
-		find: /ring\b/g,
+		find: /ring-token\b/g,
 		replace: 'ring'
 	},
 	{
