@@ -166,18 +166,18 @@ function migrateTailwindConfig(code: string) {
 
 	// Imports
 	sourceFile.getImportDeclarations().forEach((importDeclaration) => {
-		if (['@skeletonlabs/tw-plugin', 'path', 'node:path'].includes(importDeclaration.getModuleSpecifierValue())) {
+		const specifier = importDeclaration.getModuleSpecifierValue();
+		if (specifier === '@skeletonlabs/tw-plugin') {
+			importDeclaration.remove();
+			sourceFile.addImportDeclaration({
+				namedImports: [{ name: 'skeleton' }, { name: 'contentPath' }],
+				moduleSpecifier: '@skeletonlabs/skeleton/plugin'
+			});
+		}
+		if (['path', 'node:path'].includes(specifier)) {
 			importDeclaration.remove();
 		}
 	});
-	sourceFile.addImportDeclarations([
-		{
-			namedImports: [{ name: 'skeleton' }, { name: 'contentPath' }],
-			moduleSpecifier: '@skeletonlabs/skeleton/plugin'
-		}
-	]);
-
-	// Configuration
 	return sourceFile.getFullText();
 }
 

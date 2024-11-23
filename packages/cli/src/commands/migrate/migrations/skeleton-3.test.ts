@@ -116,13 +116,19 @@ describe('migrateClasses', () => {
 });
 
 describe('migrateTailwindConfig', () => {
-	it('migrates imports', () => {
+	it('migrates plugin imports', () => {
 		const v2 = `import { skeleton } from "@skeletonlabs/tw-plugin";`;
 		const v3 = `import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";`;
-		expect(migrateTailwindConfig(v2)).toBe(v3);
+		expect(migrateTailwindConfig(v2).trim()).toBe(v3);
 	});
-
-	it('migrates `config.content`', () => {
-		const v2 = `export default { content: ['`;
+	it('removes `path` imports', () => {
+		const v2 = `import { join } from "path";`;
+		const v3 = ``;
+		expect(migrateTailwindConfig(v2).trim()).toBe(v3);
+	});
+	it('removes `node:path` imports', () => {
+		const v2 = `import { join } from "node:path";`;
+		const v3 = ``;
+		expect(migrateTailwindConfig(v2).trim()).toBe(v3);
 	});
 });
