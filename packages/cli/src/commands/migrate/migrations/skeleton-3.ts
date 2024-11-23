@@ -25,7 +25,7 @@ const CLASS_REGEXES = [
 	},
 	{
 		find: /(\w+)-400-500-token\b/g,
-		replace: '$1-400-600'
+		replace: '$1-500'
 	},
 
 	// Backward color pairings
@@ -53,15 +53,15 @@ const CLASS_REGEXES = [
 	// Backgrounds
 	{
 		find: /bg-(\w+)-backdrop-token\b/g,
-		replace: 'bg-surface-50/50 dark:bg-surface-950/50'
+		replace: 'bg-$1-50/50 dark:bg-$1-950/50'
 	},
 	{
 		find: /bg-(\w+)-hover-token\b/g,
-		replace: 'preset-tonal'
+		replace: 'preset-tonal-$1'
 	},
 	{
 		find: /bg-(\w+)-active-token\b/g,
-		replace: 'preset-tonal-primary'
+		replace: 'preset-filled-$1-500'
 	},
 
 	// Border Radius
@@ -208,4 +208,4 @@ function migrateProject(cwd = process.cwd()) {
 	}
 }
 
-export { migrateProject, migratePackage, migrateTailwindConfig, migrateModuleCode, migrateSvelteCode };
+export { migrateProject, migratePackage, migrateTailwindConfig, migrateClasses, migrateModuleCode, migrateSvelteCode };

@@ -1,6 +1,0 @@
-{
-	"dependencies": {
-		"@skeletonlabs/skeleton": "1.0.0",
-		"@skeletonlabs/tw-plugin": "1.0.0"
-	}
-}
