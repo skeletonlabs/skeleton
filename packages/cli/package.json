@@ -20,7 +20,8 @@
 	"types": "./dist/index.d.ts",
 	"bin": "./dist/index.mjs",
 	"files": [
-		"dist"
+		"dist",
+		"!**/*.test.*"
 	],
 	"scripts": {
 		"package": "unbuild",
