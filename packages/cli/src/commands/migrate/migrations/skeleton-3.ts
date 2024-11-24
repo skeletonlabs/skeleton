@@ -2,7 +2,7 @@ import fg from 'fast-glob';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { extname } from 'node:path';
 import type { PackageJson } from 'type-fest';
-import { lt } from 'semver';
+import { lt, valid } from 'semver';
 import { join } from 'path';
 import { Project } from 'ts-morph';
 import { ScriptKind, ScriptTarget } from 'typescript';
@@ -207,7 +207,7 @@ function migratePackage(code: string) {
 		}
 		if (dependencies['@skeletonlabs/skeleton']) {
 			const version = dependencies['@skeletonlabs/skeleton'];
-			if (lt(version, '3.0.0')) {
+			if (valid(version) && lt(version, '3.0.0')) {
 				delete dependencies['@skeletonlabs/skeleton'];
 				dependencies['@skeletonlabs/skeleton-svelte'] = '^1.0.0';
 			}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { migrateClasses, migrateTailwindConfig } from './skeleton-3.js';
+import { migrateClasses, migratePackage, migrateTailwindConfig } from './skeleton-3.js';
 
 const COLORS = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'];
 const CSS_PROPERTIES = ['bg', 'accent', 'border', 'caret', 'decoration', 'divide', 'fill', 'outline', 'ring', 'shadow', 'stroke', 'text'];
@@ -235,6 +235,75 @@ describe('migrateClasses', () => {
 				expect(migrateClasses(v2)).toBe(v3);
 			});
 		}
+	});
+});
+
+describe('migratePackage', () => {
+	it('migrates `@skeletonlabs/skeleton` dependency below 3.0.0', () => {
+		const v2 = JSON.stringify(
+			{
+				dependencies: {
+					'@skeletonlabs/skeleton': '2.0.1'
+				}
+			},
+			null,
+			'\t'
+		);
+		const v3 = JSON.stringify(
+			{
+				dependencies: {
+					'@skeletonlabs/skeleton-svelte': '^1.0.0'
+				}
+			},
+			null,
+			'\t'
+		);
+		expect(migratePackage(v2)).toBe(v3);
+	});
+	it('ignores `@skeletonlabs`/skeleton` dependency at or above 3.0.0', () => {
+		const v3 = JSON.stringify(
+			{
+				dependencies: {
+					'@skeletonlabs/skeleton': '^3.0.0'
+				}
+			},
+			null,
+			'\t'
+		);
+		expect(migratePackage(v3)).toBe(v3);
+	});
+	it('migrates `@skeletonlabs/tw-plugin` dependency', () => {
+		const v2 = JSON.stringify(
+			{
+				dependencies: {
+					'@skeletonlabs/tw-plugin': '^2.0.0'
+				}
+			},
+			null,
+			'\t'
+		);
+		const v3 = JSON.stringify(
+			{
+				dependencies: {
+					'@skeletonlabs/skeleton': '^3.0.0'
+				}
+			},
+			null,
+			'\t'
+		);
+		expect(migratePackage(v2)).toBe(v3);
+	});
+	it('ignores irrelevant packages', () => {
+		const v2 = JSON.stringify(
+			{
+				dependencies: {
+					'some-other-package': '1.0.0'
+				}
+			},
+			null,
+			'\t'
+		);
+		expect(migratePackage(v2)).toBe(v2);
 	});
 });
 
