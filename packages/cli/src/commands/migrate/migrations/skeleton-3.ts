@@ -254,13 +254,10 @@ function migrateTailwindConfig(code: string) {
 		}
 		if (exportExpression.isKind(SyntaxKind.Identifier)) {
 			const definition = exportExpression.getDefinitionNodes()[0];
-			if (definition && definition.isKind(SyntaxKind.VariableDeclaration)) {
-				const initializer = definition.getInitializer();
-				if (initializer) {
-					const objectLiteralExpression = initializer.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
-					if (objectLiteralExpression) {
-						return objectLiteralExpression;
-					}
+			if (definition.isKind(SyntaxKind.VariableDeclaration)) {
+				const objectLiteralExpression = definition.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
+				if (objectLiteralExpression) {
+					return objectLiteralExpression;
 				}
 			}
 		}

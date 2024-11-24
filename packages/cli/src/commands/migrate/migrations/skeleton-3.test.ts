@@ -308,8 +308,96 @@ describe('migratePackage', () => {
 });
 
 describe('migrateTailwindConfig', () => {
-	it('migrates tailwind.config', () => {
-		const v2 = `
+	describe('javascript', () => {
+		it('migrates', () => {
+			const v2 = `
+import { join } from 'path';
+import { skeleton } from '@skeletonlabs/tw-plugin';
+
+export default {
+    darkMode: 'class',
+    content: [
+        './src/**/*.{html,js,svelte,ts}',
+        join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+    ],
+    plugins: [skeleton]
+}`;
+
+			const v3 = `
+import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
+
+export default {
+    darkMode: 'class',
+    content: [
+        './src/**/*.{html,js,svelte,ts}',
+        contentPath(import.meta.url, 'svelte')
+    ],
+    plugins: [skeleton]
+}`;
+			expect(migrateTailwindConfig(v2)).toBe(v3);
+		});
+		it('migrates with referenced export', () => {
+			const v2 = `
+import { join } from 'path';
+import { skeleton } from '@skeletonlabs/tw-plugin';
+
+const config = {
+    darkMode: 'class',
+    content: [
+        './src/**/*.{html,js,svelte,ts}',
+        join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+    ],
+    plugins: [skeleton]
+};
+
+export default config;`;
+
+			const v3 = `
+import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
+
+const config = {
+    darkMode: 'class',
+    content: [
+        './src/**/*.{html,js,svelte,ts}',
+        contentPath(import.meta.url, 'svelte')
+    ],
+    plugins: [skeleton]
+};
+
+export default config;`;
+			expect(migrateTailwindConfig(v2)).toBe(v3);
+		});
+		it('migrates tailwind.config with alternative content array order', () => {
+			const v2 = `
+import { join } from 'path';
+import { skeleton } from '@skeletonlabs/tw-plugin';
+
+export default {
+    darkMode: 'class',
+    content: [
+        join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}'),
+        './src/**/*.{html,js,svelte,ts}'
+    ],
+    plugins: [skeleton]
+}`;
+
+			const v3 = `
+import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
+
+export default {
+    darkMode: 'class',
+    content: [
+        contentPath(import.meta.url, 'svelte'),
+        './src/**/*.{html,js,svelte,ts}'
+    ],
+    plugins: [skeleton]
+}`;
+			expect(migrateTailwindConfig(v2)).toBe(v3);
+		});
+	});
+	describe('typescript', () => {
+		it('migrates', () => {
+			const v2 = `
 import { join } from 'path';
 import { skeleton } from '@skeletonlabs/tw-plugin';
 import type { Config } from 'tailwindcss';
@@ -323,7 +411,7 @@ export default {
     plugins: [skeleton]
 } satisfies Config;`;
 
-		const v3 = `
+			const v3 = `
 import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
 import type { Config } from 'tailwindcss';
 
@@ -335,10 +423,10 @@ export default {
     ],
     plugins: [skeleton]
 } satisfies Config;`;
-		expect(migrateTailwindConfig(v2)).toBe(v3);
-	});
-	it('migrates tailwind.config with referenced export', () => {
-		const v2 = `
+			expect(migrateTailwindConfig(v2)).toBe(v3);
+		});
+		it('migrates with referenced export', () => {
+			const v2 = `
 import { join } from 'path';
 import { skeleton } from '@skeletonlabs/tw-plugin';
 import type { Config } from 'tailwindcss';
@@ -354,7 +442,7 @@ const config = {
 
 export default config;`;
 
-		const v3 = `
+			const v3 = `
 import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
 import type { Config } from 'tailwindcss';
 
@@ -368,10 +456,10 @@ const config = {
 } satisfies Config;
 
 export default config;`;
-		expect(migrateTailwindConfig(v2)).toBe(v3);
-	});
-	it('migrates tailwind.config with alternative content array order', () => {
-		const v2 = `
+			expect(migrateTailwindConfig(v2)).toBe(v3);
+		});
+		it('migrates with alternative content array order', () => {
+			const v2 = `
 import { join } from 'path';
 import { skeleton } from '@skeletonlabs/tw-plugin';
 import type { Config } from 'tailwindcss';
@@ -385,7 +473,7 @@ export default {
     plugins: [skeleton]
 } satisfies Config;`;
 
-		const v3 = `
+			const v3 = `
 import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
 import type { Config } from 'tailwindcss';
 
@@ -397,6 +485,7 @@ export default {
     ],
     plugins: [skeleton]
 } satisfies Config;`;
-		expect(migrateTailwindConfig(v2)).toBe(v3);
+			expect(migrateTailwindConfig(v2)).toBe(v3);
+		});
 	});
 });
