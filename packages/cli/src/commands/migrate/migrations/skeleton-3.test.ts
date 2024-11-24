@@ -370,4 +370,33 @@ const config = {
 export default config;`;
 		expect(migrateTailwindConfig(v2)).toBe(v3);
 	});
+	it('migrates tailwind.config with alternative content array order', () => {
+		const v2 = `
+import { join } from 'path';
+import { skeleton } from '@skeletonlabs/tw-plugin';
+import type { Config } from 'tailwindcss';
+
+export default {
+    darkMode: 'class',
+    content: [
+        join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}'),
+        './src/**/*.{html,js,svelte,ts}'
+    ],
+    plugins: [skeleton]
+} satisfies Config;`;
+
+		const v3 = `
+import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
+import type { Config } from 'tailwindcss';
+
+export default {
+    darkMode: 'class',
+    content: [
+        contentPath(import.meta.url, 'svelte'),
+        './src/**/*.{html,js,svelte,ts}'
+    ],
+    plugins: [skeleton]
+} satisfies Config;`;
+		expect(migrateTailwindConfig(v2)).toBe(v3);
+	});
 });

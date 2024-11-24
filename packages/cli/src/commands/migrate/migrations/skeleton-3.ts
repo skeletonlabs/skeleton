@@ -274,17 +274,17 @@ function migrateTailwindConfig(code: string) {
 		if (!expression.isKind(SyntaxKind.Identifier) || expression.getText() !== 'join') {
 			return;
 		}
-		const args = node.getArguments();
+		const [argOne, argTwo] = node.getArguments();
 		const firstArgMatches =
-			ts.isCallExpression(args[0].compilerNode) &&
-			ts.isPropertyAccessExpression(args[0].compilerNode.expression) &&
-			ts.isIdentifier(args[0].compilerNode.expression.expression) &&
-			args[0].compilerNode.expression.expression.text === 'require' &&
-			args[0].compilerNode.expression.name.text === 'resolve' &&
-			args[0].compilerNode.arguments.length === 1 &&
-			ts.isStringLiteral(args[0].compilerNode.arguments[0]) &&
-			args[0].compilerNode.arguments[0].text === '@skeletonlabs/skeleton';
-		const secondArgMatches = ts.isStringLiteral(args[1].compilerNode) && args[1].compilerNode.text === '../**/*.{html,js,svelte,ts}';
+			ts.isCallExpression(argOne.compilerNode) &&
+			ts.isPropertyAccessExpression(argOne.compilerNode.expression) &&
+			ts.isIdentifier(argOne.compilerNode.expression.expression) &&
+			argOne.compilerNode.expression.expression.text === 'require' &&
+			argOne.compilerNode.expression.name.text === 'resolve' &&
+			argOne.compilerNode.arguments.length === 1 &&
+			ts.isStringLiteral(argOne.compilerNode.arguments[0]) &&
+			argOne.compilerNode.arguments[0].text === '@skeletonlabs/skeleton';
+		const secondArgMatches = ts.isStringLiteral(argTwo.compilerNode) && argTwo.compilerNode.text === '../**/*.{html,js,svelte,ts}';
 		return firstArgMatches && secondArgMatches;
 	}
 	const configNode = getDefaultExportObject(sourceFile);
