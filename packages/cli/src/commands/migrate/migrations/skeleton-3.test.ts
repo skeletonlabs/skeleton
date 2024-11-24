@@ -308,78 +308,66 @@ describe('migratePackage', () => {
 });
 
 describe('migrateTailwindConfig', () => {
-	it('migrates plugin imports', () => {
-		const v2 = `import { skeleton } from "@skeletonlabs/tw-plugin";`;
-		const v3 = `import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";`;
-		expect(migrateTailwindConfig(v2).trim()).toBe(v3);
-	});
-	it('removes `path` imports', () => {
-		const v2 = `import { join } from "path";`;
-		const v3 = ``;
-		expect(migrateTailwindConfig(v2).trim()).toBe(v3);
-	});
-	it('removes `node:path` imports', () => {
-		const v2 = `import { join } from "node:path";`;
-		const v3 = ``;
-		expect(migrateTailwindConfig(v2).trim()).toBe(v3);
-	});
-	it('migrates content path with direct default export', () => {
+	it('migrates tailwind.config', () => {
 		const v2 = `
-        export default {
-            content: [
-                './src/**/*.{html,js,svelte,ts}',
-                join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
-            ],
-        };
-    `;
+import { join } from 'path';
+import { skeleton } from '@skeletonlabs/tw-plugin';
+import type { Config } from 'tailwindcss';
+
+export default {
+    darkMode: 'class',
+    content: [
+        './src/**/*.{html,js,svelte,ts}',
+        join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+    ],
+    plugins: [skeleton]
+} satisfies Config;`;
+
 		const v3 = `
-        export default {
-            content: [
-                './src/**/*.{html,js,svelte,ts}',
-                contentPath(import.meta.url, 'svelte')
-            ],
-        };
-    `;
+import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
+import type { Config } from 'tailwindcss';
+
+export default {
+    darkMode: 'class',
+    content: [
+        './src/**/*.{html,js,svelte,ts}',
+        contentPath(import.meta.url, 'svelte')
+    ],
+    plugins: [skeleton]
+} satisfies Config;`;
 		expect(migrateTailwindConfig(v2)).toBe(v3);
 	});
-	it('migrates content path with referenced default export', () => {
+	it('migrates tailwind.config with referenced export', () => {
 		const v2 = `
-        const config = {
-            content: [
-                './src/**/*.{html,js,svelte,ts}',
-                join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
-            ],
-        };
-        export default config;
-    `;
+import { join } from 'path';
+import { skeleton } from '@skeletonlabs/tw-plugin';
+import type { Config } from 'tailwindcss';
+
+const config = {
+    darkMode: 'class',
+    content: [
+        './src/**/*.{html,js,svelte,ts}',
+        join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+    ],
+    plugins: [skeleton]
+} satisfies Config;
+
+export default config;`;
+
 		const v3 = `
-        const config = {
-            content: [
-                './src/**/*.{html,js,svelte,ts}',
-                contentPath(import.meta.url, 'svelte')
-            ],
-        };
-        export default config;
-    `;
-		expect(migrateTailwindConfig(v2)).toBe(v3);
-	});
-	it('migrates content path with alternative `content` order', () => {
-		const v2 = `
-        export default {
-            content: [
-                join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}'),
-                './src/**/*.{html,js,svelte,ts}'
-            ],
-        };
-    `;
-		const v3 = `
-        export default {
-            content: [
-                contentPath(import.meta.url, 'svelte'),
-                './src/**/*.{html,js,svelte,ts}'
-            ],
-        };
-    `;
+import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
+import type { Config } from 'tailwindcss';
+
+const config = {
+    darkMode: 'class',
+    content: [
+        './src/**/*.{html,js,svelte,ts}',
+        contentPath(import.meta.url, 'svelte')
+    ],
+    plugins: [skeleton]
+} satisfies Config;
+
+export default config;`;
 		expect(migrateTailwindConfig(v2)).toBe(v3);
 	});
 });

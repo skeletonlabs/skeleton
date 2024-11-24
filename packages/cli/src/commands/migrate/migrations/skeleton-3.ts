@@ -232,11 +232,8 @@ function migrateTailwindConfig(code: string) {
 	sourceFile.getImportDeclarations().forEach((importDeclaration) => {
 		const specifier = importDeclaration.getModuleSpecifierValue();
 		if (specifier === '@skeletonlabs/tw-plugin') {
-			importDeclaration.remove();
-			sourceFile.addImportDeclaration({
-				namedImports: [{ name: 'skeleton' }, { name: 'contentPath' }],
-				moduleSpecifier: '@skeletonlabs/skeleton/plugin'
-			});
+			importDeclaration.addNamedImport('contentPath');
+			importDeclaration.setModuleSpecifier('@skeletonlabs/skeleton/plugin');
 		}
 		if (['path', 'node:path'].includes(specifier)) {
 			importDeclaration.remove();
@@ -323,7 +320,7 @@ function migrateSvelteCode(code: string) {
 
 function migrateModuleCode(code: string) {
 	code = migrateClasses(code);
-	// TODO: Generate AST (acorn-typecript)
+	// TODO: Generate AST (ts-morph)
 	// TODO: Update imports
 	return code;
 }
