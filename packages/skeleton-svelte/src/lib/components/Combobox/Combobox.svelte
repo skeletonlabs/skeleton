@@ -93,7 +93,7 @@
 			<!-- Input -->
 			<input {...api.getInputProps()} class={inputGroupInput} />
 			<!-- Arrow -->
-			<button {...api.getTriggerProps()} class={inputGroupButton} type="button">
+			<button {...api.getTriggerProps()} class={inputGroupButton}>
 				{#if arrow}
 					{@render arrow()}
 				{:else}
@@ -126,7 +126,8 @@
 						{@const isChecked = api.getItemProps({ item })['data-state'] === 'checked'}
 						{@const displayClass = isChecked ? optionActive : optionHover}
 						<!-- Option -->
-						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}">
+						<!-- ZagJs should have set button type to "button" here. See https://github.com/skeletonlabs/skeleton/pull/2998#discussion_r1855511385 -->
+						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}" type="button">
 							{item.label}
 						</button>
 					{/each}
