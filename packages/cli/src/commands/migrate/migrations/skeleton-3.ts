@@ -7,8 +7,7 @@ import { join } from 'path';
 import { Project } from 'ts-morph';
 import { ScriptKind, ScriptTarget } from 'typescript';
 
-const CLASS_REGEXES = [
-	// Forward color pairings
+const COLOR_PAIRING_REGEXES = [
 	{
 		find: /(\w+)-50-900-token\b/g,
 		replace: '$1-50-950'
@@ -29,8 +28,6 @@ const CLASS_REGEXES = [
 		find: /(\w+)-400-500-token\b/g,
 		replace: '$1-500'
 	},
-
-	// Backward color pairings
 	{
 		find: /(\w+)-900-50-token\b/g,
 		replace: '$1-950-50'
@@ -50,9 +47,10 @@ const CLASS_REGEXES = [
 	{
 		find: /(\w+)-500-400-token\b/g,
 		replace: '$1-600-400'
-	},
+	}
+];
 
-	// Backgrounds
+const BACKGROUND_REGEXES = [
 	{
 		find: /bg-(\w+)-backdrop-token\b/g,
 		replace: 'bg-$1-50/50 dark:bg-$1-950/50'
@@ -64,9 +62,10 @@ const CLASS_REGEXES = [
 	{
 		find: /bg-(\w+)-active-token\b/g,
 		replace: 'preset-filled-$1-500'
-	},
+	}
+];
 
-	// Border Radius
+const BORDER_RADIUS_REGEXES = [
 	{
 		find: /rounded-token\b/g,
 		replace: 'rounded'
@@ -82,9 +81,10 @@ const CLASS_REGEXES = [
 	{
 		find: /rounded-(tl|tr|bl|br)-container-token\b/g,
 		replace: 'rounded-$1-container'
-	},
+	}
+];
 
-	// Borders
+const BORDER_RING_REGEXES = [
 	{
 		find: /border-token\b/g,
 		replace: 'border'
@@ -93,8 +93,6 @@ const CLASS_REGEXES = [
 		find: /border-(\w+)-(\d+)-(\d+)-token\b/g,
 		replace: 'border-$1-$2-$3'
 	},
-
-	// Rings
 	{
 		find: /ring-token\b/g,
 		replace: 'ring'
@@ -102,19 +100,20 @@ const CLASS_REGEXES = [
 	{
 		find: /ring-(\w+)-(\d+)-(\d+)-token\b/g,
 		replace: 'ring-$1-$2-$3'
-	},
+	}
+];
 
-	// Text
+const TEXT_REGEXES = [
 	{
-		find: /heading-font-family\b/g,
+		find: /font-headings-token\b/g,
 		replace: 'heading-font-family'
 	},
 	{
-		find: /base-font-family\b/g,
+		find: /font-token\b/g,
 		replace: 'base-font-family'
 	},
 	{
-		find: /base-font-color\b/g,
+		find: /text-token\b/g,
 		replace: 'base-font-color'
 	},
 	{
@@ -122,15 +121,81 @@ const CLASS_REGEXES = [
 		replace: 'text-$1-contrast-500'
 	},
 	{
-		find: /text-(\w+)-(\d+)-(\d+)-token\b/g,
+		find: /text-(\w+)-([^-]+)-([^-]+)-token\b/g,
 		replace: 'text-$1-$2-$3'
-	},
-
-	// Text Decoration
-	{
-		find: /decoration-(\w+)-(\d+)-(\d+)-token\b/g,
-		replace: 'decoration-$1-$2-$3'
 	}
+];
+
+const DECORATION_ACCENT_REGEXES = [
+	{
+		find: /decoration-(\w+)-([^-]+)-([^-]+)-token\b/g,
+		replace: 'decoration-$1-$2-$3'
+	},
+	{
+		find: /accent-(\w+)-token\b/g,
+		replace: 'accent-$1-500'
+	}
+];
+
+const PRESET_REGEXES = [
+	{
+		find: /variant-filled-(\w+)\b/g,
+		replace: 'variant-filled-$1-500'
+	},
+	{
+		find: /variant-ghost-(\w+)\b/g,
+		replace: 'preset-tonal-$1 border border-$1-500'
+	},
+	{
+		find: /variant-soft-(\w+)\b/g,
+		replace: 'preset-tonal-$1'
+	},
+	{
+		find: /variant-ringed-(\w+)\b/g,
+		replace: 'preset-outlined-$1-500'
+	},
+	{
+		find: /variant-glass-(\w+)\b/g,
+		replace: 'preset-tonal-$1'
+	},
+	{
+		find: /variant-gradient-(\w+)-(\w+)\b/g,
+		replace: 'from-$1-500 to-$2-500'
+	}
+];
+
+const TAILWIND_COMPONENT_REGEXES = [
+	{
+		find: /\bcard\b(?!.*bg-)/g,
+		replace: 'card bg-surface-100-900-token'
+	},
+	{
+		find: /btn-xl\b/g,
+		replace: 'btn-lg'
+	},
+	{
+		find: /btn-icon-xl\b/g,
+		replace: 'btn-icon-lg'
+	},
+	{
+		find: /btn-group\b/g,
+		replace: ''
+	},
+	{
+		find: /table-hover\b/g,
+		replace: ''
+	}
+];
+
+const CLASS_REGEXES = [
+	...COLOR_PAIRING_REGEXES,
+	...BACKGROUND_REGEXES,
+	...BORDER_RADIUS_REGEXES,
+	...BORDER_RING_REGEXES,
+	...TEXT_REGEXES,
+	...DECORATION_ACCENT_REGEXES,
+	...PRESET_REGEXES,
+	...TAILWIND_COMPONENT_REGEXES
 ];
 
 function migratePackage(code: string) {

@@ -8,6 +8,22 @@ const V3_PAIRINGS = ['50-950', '100-900', '200-800', '300-700', '500', '600-400'
 const CORNERS = ['tl', 'tr', 'bl', 'br'];
 
 describe('migrateClasses', () => {
+	describe('color pairings', () => {
+		const createColorPairingMappings = () =>
+			CSS_PROPERTIES.flatMap((property) =>
+				COLORS.flatMap((color) =>
+					V2_PAIRINGS.map((v2Pairing, index) => ({
+						v2: `${property}-${color}-${v2Pairing}-token`,
+						v3: `${property}-${color}-${V3_PAIRINGS[index]}`
+					}))
+				)
+			);
+		for (const { v2, v3 } of createColorPairingMappings()) {
+			it(`migrates ${v2}`, () => {
+				expect(migrateClasses(v2)).toBe(v3);
+			});
+		}
+	});
 	describe('backgrounds', () => {
 		const createBackgroundMappings = () => [
 			// Backdrop mappings
@@ -27,22 +43,6 @@ describe('migrateClasses', () => {
 			}))
 		];
 		for (const { v2, v3 } of createBackgroundMappings()) {
-			it(`migrates ${v2}`, () => {
-				expect(migrateClasses(v2)).toBe(v3);
-			});
-		}
-	});
-	describe('color pairings', () => {
-		const createColorPairingMappings = () =>
-			CSS_PROPERTIES.flatMap((property) =>
-				COLORS.flatMap((color) =>
-					V2_PAIRINGS.map((v2Pairing, index) => ({
-						v2: `${property}-${color}-${v2Pairing}-token`,
-						v3: `${property}-${color}-${V3_PAIRINGS[index]}`
-					}))
-				)
-			);
-		for (const { v2, v3 } of createColorPairingMappings()) {
 			it(`migrates ${v2}`, () => {
 				expect(migrateClasses(v2)).toBe(v3);
 			});
@@ -108,6 +108,129 @@ describe('migrateClasses', () => {
 			)
 		];
 		for (const { v2, v3 } of createRingMappings()) {
+			it(`migrates ${v2}`, () => {
+				expect(migrateClasses(v2)).toBe(v3);
+			});
+		}
+	});
+	describe('text', () => {
+		const createTextMappings = () => [
+			// Font tokens
+			{
+				v2: 'font-token',
+				v3: 'base-font-family'
+			},
+			{
+				v2: 'font-headings-token',
+				v3: 'heading-font-family'
+			},
+			// Text color tokens
+			{
+				v2: 'text-token',
+				v3: 'base-font-color'
+			},
+			// Text on color contrast tokens
+			...COLORS.map((color) => ({
+				v2: `text-on-${color}-token`,
+				v3: `text-${color}-contrast-500`
+			})),
+			// Text color pairings
+			...COLORS.flatMap((color) =>
+				V2_PAIRINGS.map((v2Pairing, index) => ({
+					v2: `text-${color}-${v2Pairing}-token`,
+					v3: `text-${color}-${V3_PAIRINGS[index]}`
+				}))
+			)
+		];
+		for (const { v2, v3 } of createTextMappings()) {
+			it(`migrates ${v2}`, () => {
+				expect(migrateClasses(v2)).toBe(v3);
+			});
+		}
+	});
+
+	describe('text decoration', () => {
+		const createDecorationMappings = () =>
+			COLORS.flatMap((color) =>
+				V2_PAIRINGS.map((v2Pairing, index) => ({
+					v2: `decoration-${color}-${v2Pairing}-token`,
+					v3: `decoration-${color}-${V3_PAIRINGS[index]}`
+				}))
+			);
+
+		for (const { v2, v3 } of createDecorationMappings()) {
+			it(`migrates ${v2}`, () => {
+				expect(migrateClasses(v2)).toBe(v3);
+			});
+		}
+	});
+
+	describe('accent', () => {
+		const createAccentMappings = () =>
+			COLORS.map((color) => ({
+				v2: `accent-${color}-token`,
+				v3: `accent-${color}-500`
+			}));
+
+		for (const { v2, v3 } of createAccentMappings()) {
+			it(`migrates ${v2}`, () => {
+				expect(migrateClasses(v2)).toBe(v3);
+			});
+		}
+	});
+	describe('presets', () => {
+		const createPresetMappings = () => [
+			...COLORS.map((color) => ({
+				v2: `variant-filled-${color}`,
+				v3: `variant-filled-${color}-500`
+			})),
+			...COLORS.map((color) => ({
+				v2: `variant-ghost-${color}`,
+				v3: `preset-tonal-${color} border border-${color}-500`
+			})),
+			...COLORS.map((color) => ({
+				v2: `variant-soft-${color}`,
+				v3: `preset-tonal-${color}`
+			})),
+			...COLORS.map((color) => ({
+				v2: `variant-ringed-${color}`,
+				v3: `preset-outlined-${color}-500`
+			})),
+			...COLORS.map((color) => ({
+				v2: `variant-glass-${color}`,
+				v3: `preset-tonal-${color}`
+			}))
+		];
+		for (const { v2, v3 } of createPresetMappings()) {
+			it(`migrates ${v2}`, () => {
+				expect(migrateClasses(v2)).toBe(v3);
+			});
+		}
+	});
+	describe('tailwind components', () => {
+		const createTailwindMappings = () => [
+			{
+				v2: 'card',
+				v3: 'card bg-surface-100-900-token'
+			},
+			{
+				v2: 'btn-xl',
+				v3: 'btn-lg'
+			},
+			{
+				v2: 'btn-icon-xl',
+				v3: 'btn-icon-lg'
+			},
+			{
+				v2: 'btn-group',
+				v3: ''
+			},
+			{
+				v2: 'table-hover',
+				v3: ''
+			}
+		];
+		for (const { v2, v3 } of createTailwindMappings()) {
 			it(`migrates ${v2}`, () => {
 				expect(migrateClasses(v2)).toBe(v3);
 			});
