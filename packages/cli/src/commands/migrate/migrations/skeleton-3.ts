@@ -4,8 +4,7 @@ import { extname } from 'node:path';
 import type { PackageJson } from 'type-fest';
 import { lt, valid } from 'semver';
 import { join } from 'path';
-import { Project } from 'ts-morph';
-import { ScriptKind, ScriptTarget } from 'typescript';
+import { Project, SourceFile, SyntaxKind, ts } from 'ts-morph';
 
 const COLOR_PAIRING_REGEXES = [
 	{
@@ -224,10 +223,10 @@ function migrateTailwindConfig(code: string) {
 	const project = new Project({
 		useInMemoryFileSystem: true,
 		compilerOptions: {
-			target: ScriptTarget.Latest
+			target: ts.ScriptTarget.Latest
 		}
 	});
-	const sourceFile = project.createSourceFile('virtual.ts', code, { scriptKind: ScriptKind.TS });
+	const sourceFile = project.createSourceFile('virtual.ts', code, { scriptKind: ts.ScriptKind.TS });
 
 	// Imports
 	sourceFile.getImportDeclarations().forEach((importDeclaration) => {
@@ -243,6 +242,68 @@ function migrateTailwindConfig(code: string) {
 			importDeclaration.remove();
 		}
 	});
+
+	// Content path
+	function findDefaultExportedObject(sourceFile: SourceFile) {
+		const exportAssignment = sourceFile.getFirstDescendantByKind(SyntaxKind.ExportAssignment);
+		if (exportAssignment) {
+			const expression = exportAssignment.getExpression();
+			if (expression && ts.isIdentifier(expression.compilerNode)) {
+				const identifier = sourceFile.getVariableDeclaration(expression.getText());
+				if (identifier) {
+					return identifier.getInitializerIfKind(SyntaxKind.ObjectLiteralExpression);
+				}
+			} else if (expression && ts.isObjectLiteralExpression(expression.compilerNode)) {
+				return expression.asKindOrThrow(SyntaxKind.ObjectLiteralExpression);
+			}
+		}
+		return null;
+	}
+	function isJoinWithSkeletonsLabsCall(node: ts.Node) {
+		if (ts.isCallExpression(node)) {
+			const expression = node.expression;
+			if (ts.isIdentifier(expression) && expression.text === 'join') {
+				const args = node.arguments;
+				if (args.length === 2) {
+					const firstArg = args[0];
+					const secondArg = args[1];
+					if (
+						ts.isCallExpression(firstArg) &&
+						ts.isPropertyAccessExpression(firstArg.expression) &&
+						ts.isIdentifier(firstArg.expression.expression) &&
+						firstArg.expression.expression.text === 'require' &&
+						firstArg.expression.name.text === 'resolve' &&
+						firstArg.arguments.length === 1 &&
+						ts.isStringLiteral(firstArg.arguments[0]) &&
+						firstArg.arguments[0].text === '@skeletonlabs/skeleton'
+					) {
+						if (ts.isStringLiteral(secondArg) && secondArg.text === '../**/*.{html,js,svelte,ts}') {
+							return true;
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+	const defaultExportedObject = findDefaultExportedObject(sourceFile);
+	if (defaultExportedObject) {
+		const contentProperty = defaultExportedObject.getProperty('content');
+		if (contentProperty && ts.isPropertyAssignment(contentProperty.compilerNode)) {
+			const propertyAssignment = contentProperty.asKindOrThrow(SyntaxKind.PropertyAssignment);
+			const initializer = propertyAssignment.getInitializer();
+			if (initializer && ts.isArrayLiteralExpression(initializer.compilerNode)) {
+				const arrayLiteral = initializer.asKindOrThrow(SyntaxKind.ArrayLiteralExpression);
+				const elements = arrayLiteral.getElements();
+				for (const element of elements) {
+					if (isJoinWithSkeletonsLabsCall(element.compilerNode)) {
+						element.replaceWithText("contentPath(import.meta.url, 'svelte')");
+					}
+				}
+			}
+		}
+	}
+
 	return sourceFile.getFullText();
 }
 

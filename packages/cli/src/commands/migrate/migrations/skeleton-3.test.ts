@@ -323,4 +323,63 @@ describe('migrateTailwindConfig', () => {
 		const v3 = ``;
 		expect(migrateTailwindConfig(v2).trim()).toBe(v3);
 	});
+	it('migrates content path with direct default export', () => {
+		const v2 = `
+        export default {
+            content: [
+                './src/**/*.{html,js,svelte,ts}',
+                join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+            ],
+        };
+    `;
+		const v3 = `
+        export default {
+            content: [
+                './src/**/*.{html,js,svelte,ts}',
+                contentPath(import.meta.url, 'svelte')
+            ],
+        };
+    `;
+		expect(migrateTailwindConfig(v2)).toBe(v3);
+	});
+	it('migrates content path with referenced default export', () => {
+		const v2 = `
+        const config = {
+            content: [
+                './src/**/*.{html,js,svelte,ts}',
+                join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+            ],
+        };
+        export default config;
+    `;
+		const v3 = `
+        const config = {
+            content: [
+                './src/**/*.{html,js,svelte,ts}',
+                contentPath(import.meta.url, 'svelte')
+            ],
+        };
+        export default config;
+    `;
+		expect(migrateTailwindConfig(v2)).toBe(v3);
+	});
+	it('migrates content path with alternative `content` order', () => {
+		const v2 = `
+        export default {
+            content: [
+                join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}'),
+                './src/**/*.{html,js,svelte,ts}'
+            ],
+        };
+    `;
+		const v3 = `
+        export default {
+            content: [
+                contentPath(import.meta.url, 'svelte'),
+                './src/**/*.{html,js,svelte,ts}'
+            ],
+        };
+    `;
+		expect(migrateTailwindConfig(v2)).toBe(v3);
+	});
 });
