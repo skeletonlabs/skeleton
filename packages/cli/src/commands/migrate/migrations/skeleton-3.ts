@@ -4,7 +4,8 @@ import { extname } from 'node:path';
 import type { PackageJson } from 'type-fest';
 import { lt, valid } from 'semver';
 import { join } from 'path';
-import { Project, SourceFile, SyntaxKind, ts } from 'ts-morph';
+import { Node, ObjectLiteralExpression, Project, SatisfiesExpression, SourceFile, ts } from 'ts-morph';
+import SyntaxKind = ts.SyntaxKind;
 
 const COLOR_PAIRING_REGEXES = [
 	{
@@ -241,51 +242,54 @@ function migrateTailwindConfig(code: string) {
 	});
 
 	// Content path
-	function findDefaultExportedObject(sourceFile: SourceFile) {
+	function getDefaultExportObject(sourceFile: SourceFile): ObjectLiteralExpression | SatisfiesExpression | null {
 		const exportAssignment = sourceFile.getFirstDescendantByKind(SyntaxKind.ExportAssignment);
-		if (exportAssignment) {
-			const expression = exportAssignment.getExpression();
-			if (expression && ts.isIdentifier(expression.compilerNode)) {
-				const identifier = sourceFile.getVariableDeclaration(expression.getText());
-				if (identifier) {
-					return identifier.getInitializerIfKind(SyntaxKind.ObjectLiteralExpression);
-				}
-			} else if (expression && ts.isObjectLiteralExpression(expression.compilerNode)) {
-				return expression.asKindOrThrow(SyntaxKind.ObjectLiteralExpression);
-			}
+		if (!exportAssignment) {
+			return null;
 		}
-		return null;
-	}
-	function isJoinWithSkeletonsLabsCall(node: ts.Node) {
-		if (ts.isCallExpression(node)) {
-			const expression = node.expression;
-			if (ts.isIdentifier(expression) && expression.text === 'join') {
-				const args = node.arguments;
-				if (args.length === 2) {
-					const firstArg = args[0];
-					const secondArg = args[1];
-					if (
-						ts.isCallExpression(firstArg) &&
-						ts.isPropertyAccessExpression(firstArg.expression) &&
-						ts.isIdentifier(firstArg.expression.expression) &&
-						firstArg.expression.expression.text === 'require' &&
-						firstArg.expression.name.text === 'resolve' &&
-						firstArg.arguments.length === 1 &&
-						ts.isStringLiteral(firstArg.arguments[0]) &&
-						firstArg.arguments[0].text === '@skeletonlabs/skeleton'
-					) {
-						if (ts.isStringLiteral(secondArg) && secondArg.text === '../**/*.{html,js,svelte,ts}') {
-							return true;
-						}
+		const exportExpression = exportAssignment.getExpression();
+		const objectLiteralExpression = exportAssignment.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
+		if (objectLiteralExpression) {
+			return objectLiteralExpression;
+		}
+		if (exportExpression.isKind(SyntaxKind.Identifier)) {
+			const definition = exportExpression.getDefinitionNodes()[0];
+			if (definition && definition.isKind(SyntaxKind.VariableDeclaration)) {
+				const initializer = definition.getInitializer();
+				if (initializer) {
+					const objectLiteralExpression = initializer.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
+					if (objectLiteralExpression) {
+						return objectLiteralExpression;
 					}
 				}
 			}
 		}
-		return false;
+		return null;
 	}
-	const defaultExportedObject = findDefaultExportedObject(sourceFile);
-	if (defaultExportedObject) {
-		const contentProperty = defaultExportedObject.getProperty('content');
+	function isJoinedContent(node: Node) {
+		if (!node.isKind(SyntaxKind.CallExpression)) {
+			return;
+		}
+		const expression = node.getExpression();
+		if (!expression.isKind(SyntaxKind.Identifier) || expression.getText() !== 'join') {
+			return;
+		}
+		const args = node.getArguments();
+		const firstArgMatches =
+			ts.isCallExpression(args[0].compilerNode) &&
+			ts.isPropertyAccessExpression(args[0].compilerNode.expression) &&
+			ts.isIdentifier(args[0].compilerNode.expression.expression) &&
+			args[0].compilerNode.expression.expression.text === 'require' &&
+			args[0].compilerNode.expression.name.text === 'resolve' &&
+			args[0].compilerNode.arguments.length === 1 &&
+			ts.isStringLiteral(args[0].compilerNode.arguments[0]) &&
+			args[0].compilerNode.arguments[0].text === '@skeletonlabs/skeleton';
+		const secondArgMatches = ts.isStringLiteral(args[1].compilerNode) && args[1].compilerNode.text === '../**/*.{html,js,svelte,ts}';
+		return firstArgMatches && secondArgMatches;
+	}
+	const configNode = getDefaultExportObject(sourceFile);
+	if (configNode) {
+		const contentProperty = configNode.getProperty('content');
 		if (contentProperty && ts.isPropertyAssignment(contentProperty.compilerNode)) {
 			const propertyAssignment = contentProperty.asKindOrThrow(SyntaxKind.PropertyAssignment);
 			const initializer = propertyAssignment.getInitializer();
@@ -293,14 +297,13 @@ function migrateTailwindConfig(code: string) {
 				const arrayLiteral = initializer.asKindOrThrow(SyntaxKind.ArrayLiteralExpression);
 				const elements = arrayLiteral.getElements();
 				for (const element of elements) {
-					if (isJoinWithSkeletonsLabsCall(element.compilerNode)) {
+					if (isJoinedContent(element)) {
 						element.replaceWithText("contentPath(import.meta.url, 'svelte')");
 					}
 				}
 			}
 		}
 	}
-
 	return sourceFile.getFullText();
 }
 
