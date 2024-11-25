@@ -1,5 +1,4 @@
-import React from 'react';
-import { Nav } from '@skeletonlabs/skeleton-react';
+import { Navigation } from '@skeletonlabs/skeleton-react';
 import {
 	Menu as IconMenu,
 	Folder as IconFolder,
@@ -15,17 +14,17 @@ export const Page: React.FC = () => {
 		<div className="card border-surface-100-900 grid h-[640px] w-full grid-cols-[auto_1fr] border-[1px]">
 			{/* Component */}
 			{/* prettier-ignore */}
-			<Nav.Rail
+			<Navigation.Rail
                 expanded
-				header={<Nav.Tile href="/" labelExpanded="Menu"><IconMenu /></Nav.Tile>}
-				footer={<Nav.Tile href="/settings" labelExpanded="Settings"><IconSettings /></Nav.Tile>}
+				header={<Navigation.Tile href="/" labelExpanded="Menu"><IconMenu /></Navigation.Tile>}
+				footer={<Navigation.Tile href="/settings" labelExpanded="Settings"><IconSettings /></Navigation.Tile>}
 			>
-				<Nav.Tile id="0" labelExpanded="Browse Files" href="#"><IconFolder /></Nav.Tile>
-				<Nav.Tile id="1" labelExpanded="Browse Images" href="#"><IconImage /></Nav.Tile>
-				<Nav.Tile id="2" labelExpanded="Browse Music" href="#"><IconMusic /></Nav.Tile>
-				<Nav.Tile id="3" labelExpanded="Browse Videos" href="#"><IconVideo /></Nav.Tile>
-				<Nav.Tile id="4" labelExpanded="Browse Games" href="#"><IconGames /></Nav.Tile>
-			</Nav.Rail>
+				<Navigation.Tile id="0" labelExpanded="Browse Files" href="#"><IconFolder /></Navigation.Tile>
+				<Navigation.Tile id="1" labelExpanded="Browse Images" href="#"><IconImage /></Navigation.Tile>
+				<Navigation.Tile id="2" labelExpanded="Browse Music" href="#"><IconMusic /></Navigation.Tile>
+				<Navigation.Tile id="3" labelExpanded="Browse Videos" href="#"><IconVideo /></Navigation.Tile>
+				<Navigation.Tile id="4" labelExpanded="Browse Games" href="#"><IconGames /></Navigation.Tile>
+			</Navigation.Rail>
 			{/* Content */}
 			<div className="flex items-center justify-center">
 				<p className="opacity-20">(Content)</p>
