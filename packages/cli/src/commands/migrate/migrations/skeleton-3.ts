@@ -4,8 +4,11 @@ import { extname } from 'node:path';
 import type { PackageJson } from 'type-fest';
 import { lt, valid } from 'semver';
 import { join } from 'path';
-import { Node, ObjectLiteralExpression, Project, SatisfiesExpression, SourceFile, ts } from 'ts-morph';
+import { Node, ts } from 'ts-morph';
 import SyntaxKind = ts.SyntaxKind;
+import { getDefaultExportObject } from '../../../internal/get-default-export.js';
+import { createSourceFile } from '../../../internal/create-source-file.js';
+import { isModuleUsed } from '../../../internal/is-module-used.js';
 
 const COLOR_PAIRING_REGEXES = [
 	{
@@ -221,48 +224,9 @@ function migratePackage(code: string) {
 }
 
 function migrateTailwindConfig(code: string) {
-	const project = new Project({
-		useInMemoryFileSystem: true,
-		compilerOptions: {
-			target: ts.ScriptTarget.Latest
-		}
-	});
-	const sourceFile = project.createSourceFile('virtual.ts', code, { scriptKind: ts.ScriptKind.TS });
-
-	// Imports
-	sourceFile.getImportDeclarations().forEach((importDeclaration) => {
-		const specifier = importDeclaration.getModuleSpecifierValue();
-		if (specifier === '@skeletonlabs/tw-plugin') {
-			importDeclaration.addNamedImport('contentPath');
-			importDeclaration.setModuleSpecifier('@skeletonlabs/skeleton/plugin');
-		}
-		if (['path', 'node:path'].includes(specifier)) {
-			importDeclaration.remove();
-		}
-	});
+	const sourceFile = createSourceFile(code);
 
 	// Content path
-	function getDefaultExportObject(sourceFile: SourceFile): ObjectLiteralExpression | SatisfiesExpression | null {
-		const exportAssignment = sourceFile.getFirstDescendantByKind(SyntaxKind.ExportAssignment);
-		if (!exportAssignment) {
-			return null;
-		}
-		const exportExpression = exportAssignment.getExpression();
-		const objectLiteralExpression = exportAssignment.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
-		if (objectLiteralExpression) {
-			return objectLiteralExpression;
-		}
-		if (exportExpression.isKind(SyntaxKind.Identifier)) {
-			const definition = exportExpression.getDefinitionNodes()[0];
-			if (definition.isKind(SyntaxKind.VariableDeclaration)) {
-				const objectLiteralExpression = definition.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
-				if (objectLiteralExpression) {
-					return objectLiteralExpression;
-				}
-			}
-		}
-		return null;
-	}
 	function isJoinedContent(node: Node) {
 		if (!node.isKind(SyntaxKind.CallExpression)) {
 			return false;
@@ -317,6 +281,27 @@ function migrateTailwindConfig(code: string) {
 			}
 		}
 	}
+
+	// Imports
+	sourceFile.getImportDeclarations().forEach((importDeclaration) => {
+		const specifier = importDeclaration.getModuleSpecifierValue();
+		if (specifier === '@skeletonlabs/tw-plugin') {
+			importDeclaration.addNamedImport('contentPath');
+			importDeclaration.setModuleSpecifier('@skeletonlabs/skeleton/plugin');
+		}
+		if (['path', 'node:path'].includes(specifier)) {
+			const namedImports = importDeclaration.getNamedImports();
+			const joinImport = namedImports.find((imp) => imp.getName() === 'join');
+			if (joinImport) {
+				if (namedImports.length === 1 && !isModuleUsed(sourceFile, 'join')) {
+					importDeclaration.remove();
+				} else {
+					joinImport.remove();
+				}
+			}
+		}
+	});
+
 	return sourceFile.getFullText();
 }
 

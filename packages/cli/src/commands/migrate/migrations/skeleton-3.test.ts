@@ -327,9 +327,10 @@ export default {
 }`;
 		expect(migrateTailwindConfig(v2)).toBe(v3);
 	});
-	it('removes `path` imports', () => {
-		const v2 = `
-import { join } from 'path';
+	for (const module of ['path', 'node:path']) {
+		it(`removes \`${module}\` imports when unused`, () => {
+			const v2 = `
+import { join } from '${module}';
 import { skeleton } from '@skeletonlabs/tw-plugin';
 
 export default {
@@ -341,7 +342,7 @@ export default {
     plugins: [skeleton]
 }`;
 
-		const v3 = `
+			const v3 = `
 import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
 
 export default {
@@ -352,35 +353,41 @@ export default {
     ],
     plugins: [skeleton]
 }`;
-		expect(migrateTailwindConfig(v2)).toBe(v3);
-	});
-	it('removes `node:path` imports', () => {
-		const v2 = `
-import { join } from 'node:path';
+			expect(migrateTailwindConfig(v2)).toBe(v3);
+		});
+		it(`keeps \`${module}\` import when used for other operations`, () => {
+			const v2 = `
+import { join, basename } from '${module}';
 import { skeleton } from '@skeletonlabs/tw-plugin';
 
+const configPath = basename(__dirname);
+
 export default {
-		darkMode: 'class',
-		content: [
-				'./src/**/*.{html,js,svelte,ts}',
-				join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
-		],
-		plugins: [skeleton]
+   darkMode: 'class',
+   content: [
+     './src/**/*.{html,js,svelte,ts}',
+     join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+   ],
+   plugins: [skeleton]
 }`;
 
-		const v3 = `
+			const v3 = `
+import { basename } from '${module}';
 import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
 
+const configPath = basename(__dirname);
+
 export default {
-		darkMode: 'class',
-		content: [
-				'./src/**/*.{html,js,svelte,ts}',
-				contentPath(import.meta.url, 'svelte')
-		],
-		plugins: [skeleton]
+   darkMode: 'class',
+   content: [
+     './src/**/*.{html,js,svelte,ts}',
+     contentPath(import.meta.url, 'svelte')
+   ],
+   plugins: [skeleton]
 }`;
-		expect(migrateTailwindConfig(v2)).toBe(v3);
-	});
+			expect(migrateTailwindConfig(v2)).toBe(v3);
+		});
+	}
 });
 
 describe('migrateClasses', () => {
