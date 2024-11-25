@@ -265,25 +265,41 @@ function migrateTailwindConfig(code: string) {
 	}
 	function isJoinedContent(node: Node) {
 		if (!node.isKind(SyntaxKind.CallExpression)) {
-			return;
+			return false;
 		}
 		const expression = node.getExpression();
 		if (!expression.isKind(SyntaxKind.Identifier) || expression.getText() !== 'join') {
-			return;
+			return false;
 		}
 		const [argOne, argTwo] = node.getArguments();
-		const firstArgMatches =
-			ts.isCallExpression(argOne.compilerNode) &&
-			ts.isPropertyAccessExpression(argOne.compilerNode.expression) &&
-			ts.isIdentifier(argOne.compilerNode.expression.expression) &&
-			argOne.compilerNode.expression.expression.text === 'require' &&
-			argOne.compilerNode.expression.name.text === 'resolve' &&
-			argOne.compilerNode.arguments.length === 1 &&
-			ts.isStringLiteral(argOne.compilerNode.arguments[0]) &&
-			argOne.compilerNode.arguments[0].text === '@skeletonlabs/skeleton';
-		const secondArgMatches = ts.isStringLiteral(argTwo.compilerNode) && argTwo.compilerNode.text === '../**/*.{html,js,svelte,ts}';
-		return firstArgMatches && secondArgMatches;
+		if (!argOne.isKind(SyntaxKind.CallExpression)) {
+			return false;
+		}
+		const argOneExpression = argOne.getExpression();
+		if (!argOneExpression.isKind(SyntaxKind.PropertyAccessExpression)) {
+			return false;
+		}
+		const requireExpression = argOneExpression.getExpression();
+		if (!requireExpression.isKind(SyntaxKind.Identifier) || requireExpression.getText() !== 'require') {
+			return false;
+		}
+		if (argOneExpression.getName() !== 'resolve') {
+			return false;
+		}
+		const callArgs = argOne.getArguments();
+		if (callArgs.length !== 1) {
+			return false;
+		}
+		const firstCallArg = callArgs[0];
+		if (!firstCallArg.isKind(SyntaxKind.StringLiteral) || firstCallArg.getLiteralText() !== '@skeletonlabs/skeleton') {
+			return false;
+		}
+		if (!argTwo.isKind(SyntaxKind.StringLiteral) || argTwo.getLiteralText() !== '../**/*.{html,js,svelte,ts}') {
+			return false;
+		}
+		return true;
 	}
+
 	const configNode = getDefaultExportObject(sourceFile);
 	if (configNode) {
 		const contentProperty = configNode.getProperty('content');
