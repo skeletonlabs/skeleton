@@ -626,7 +626,7 @@ let booksChildren: TreeViewItem[] = [];
 						language="html"
 						code={`
 <TreeView selection multiple>
-	<TreeViewItem bind:group={mediums} name="medium" value="books" children={children}>
+	<TreeViewItem bind:group={mediums} name="medium" value="books" children={booksChildren}>
 		<svelte:fragment slot="lead">(icon)</svelte:fragment>
 		<p>Books</p>
 		<svelte:fragment slot="children">
