@@ -1,22 +1,22 @@
 import React from 'react';
-import { Nav } from '@skeletonlabs/skeleton-react';
+import { Navigation } from '@skeletonlabs/skeleton-react';
 import { Box as IconBox } from 'lucide-react';
 
 export const Page: React.FC = () => {
 	return (
 		<div className="card preset-filled-surface-100-900 grid grid-cols-3 gap-5 p-5">
 			{/* By default tiles are <button> elements */}
-			<Nav.Tile id="0" label="Button">
+			<Navigation.Tile id="0" label="Button">
 				<IconBox />
-			</Nav.Tile>
+			</Navigation.Tile>
 			{/* Add selected to button tiles to enable the active state */}
-			<Nav.Tile id="0" label="Button" selected>
+			<Navigation.Tile id="0" label="Button" selected>
 				<IconBox />
-			</Nav.Tile>
+			</Navigation.Tile>
 			{/* When adding an href, they are converted to anchors */}
-			<Nav.Tile id="0" label="Anchor" href="#">
+			<Navigation.Tile id="0" label="Anchor" href="#">
 				<IconBox />
-			</Nav.Tile>
+			</Navigation.Tile>
 		</div>
 	);
 };
