@@ -1,14 +1,14 @@
 import fg from 'fast-glob';
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { extname } from 'node:path';
 import type { PackageJson } from 'type-fest';
 import { lt, valid } from 'semver';
-import { join } from 'path';
 import { Node, ts } from 'ts-morph';
 import SyntaxKind = ts.SyntaxKind;
 import { getDefaultExportObject } from '../../../internal/get-default-export.js';
 import { createSourceFile } from '../../../internal/create-source-file.js';
 import { isModuleUsed } from '../../../internal/is-module-used.js';
+import { cancel, spinner } from '@clack/prompts';
 
 const COLOR_PAIRING_REGEXES = [
 	{
@@ -327,32 +327,43 @@ function migrateModuleCode(code: string) {
 }
 
 function migrateProject(cwd = process.cwd()) {
+	const migration = spinner();
+	migration.start('Starting migration!');
+
 	// package.json
-	const packagePath = join(cwd, 'package.json');
-	if (!existsSync(packagePath)) {
-		throw new Error('"package.json" not found, please migrate from the root of your project.');
+	const packageMatcher = 'package.json';
+	const packagePath = fg.sync(`./${packageMatcher}`, { cwd })[0];
+	if (!packagePath) {
+		cancel(`"${packageMatcher}" not found, please migrate from the root of your project.`);
+		process.exit(1);
 	}
+	migration.message(`Migrating ${packagePath}...`);
 	const packageCode = readFileSync(packagePath, 'utf-8');
 	const migratedPackageCode = migratePackage(packageCode);
 	writeFileSync(packagePath, migratedPackageCode);
 
 	// tailwind.config.js
-	const tailwindConfigPath = join(cwd, 'tailwind.config.js');
-	if (!existsSync(tailwindConfigPath)) {
-		throw new Error('"tailwind.config.js" not found, please migrate from the root of your project.');
+	const tailwindConfigMatcher = 'tailwind.config.{js,mjs,ts,mts}';
+	const tailwindConfigPath = fg.sync(`./${tailwindConfigMatcher}`, { cwd })[0];
+	if (!tailwindConfigPath) {
+		cancel(`"${tailwindConfigMatcher}" not found, please migrate from the root of your project.`);
+		process.exit(1);
 	}
+	migration.message(`Migrating ${tailwindConfigPath}...`);
 	const tailwindConfigCode = readFileSync(tailwindConfigPath, 'utf-8');
 	const migrateTailwindConfigCode = migrateTailwindConfig(tailwindConfigCode);
-	writeFileSync(tailwindConfigCode, migrateTailwindConfigCode);
+	writeFileSync(tailwindConfigPath, migrateTailwindConfigCode);
 
 	// Source code
 	const paths = fg.sync(`./src/**/*.{js,cjs,mjs,ts,cts,mts,svelte}`);
 	for (const path of paths) {
 		const sourceCode = readFileSync(path, 'utf-8');
 		const extension = extname(path);
+		migration.message(`Migrating ${path}...`);
 		const migratedCode = extension === '.svelte' ? migrateSvelteCode(sourceCode) : migrateModuleCode(sourceCode);
 		writeFileSync(path, migratedCode);
 	}
+	migration.stop('Migration successful!');
 }
 
 export { migrateProject, migratePackage, migrateTailwindConfig, migrateClasses, migrateModuleCode, migrateSvelteCode };
