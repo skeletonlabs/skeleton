@@ -330,25 +330,25 @@ function migrateProject(cwd = process.cwd()) {
 	const migration = spinner();
 	migration.start('Starting migration!');
 
-	// package.json
 	const packageMatcher = 'package.json';
 	const packagePath = fg.sync(`./${packageMatcher}`, { cwd })[0];
-	if (!packagePath) {
-		cancel(`"${packageMatcher}" not found, please migrate from the root of your project.`);
-		process.exit(1);
+	const tailwindConfigMatcher = 'tailwind.config.{js,mjs,ts,mts}';
+	const tailwindConfigPath = fg.sync(`./${tailwindConfigMatcher}`, { cwd })[0];
+
+	for (const path of [packagePath, tailwindConfigPath]) {
+		if (!path) {
+			cancel(`"${path}" not found, please migrate from the root of your project.`);
+			process.exit(1);
+		}
 	}
+
+	// package.json
 	migration.message(`Migrating ${packagePath}...`);
 	const packageCode = readFileSync(packagePath, 'utf-8');
 	const migratedPackageCode = migratePackage(packageCode);
 	writeFileSync(packagePath, migratedPackageCode);
 
 	// tailwind.config.js
-	const tailwindConfigMatcher = 'tailwind.config.{js,mjs,ts,mts}';
-	const tailwindConfigPath = fg.sync(`./${tailwindConfigMatcher}`, { cwd })[0];
-	if (!tailwindConfigPath) {
-		cancel(`"${tailwindConfigMatcher}" not found, please migrate from the root of your project.`);
-		process.exit(1);
-	}
 	migration.message(`Migrating ${tailwindConfigPath}...`);
 	const tailwindConfigCode = readFileSync(tailwindConfigPath, 'utf-8');
 	const migrateTailwindConfigCode = migrateTailwindConfig(tailwindConfigCode);
