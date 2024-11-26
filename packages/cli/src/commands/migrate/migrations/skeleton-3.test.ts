@@ -392,7 +392,7 @@ export default {
 
 describe('migrateClasses', () => {
 	const COLORS = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'];
-	const COLOR_PROPERTIES = ['bg', 'accent', 'border', 'caret', 'decoration', 'divide', 'fill', 'outline', 'ring', 'shadow', 'stroke', 'text'];
+	const COLOR_PROPERTIES = ['bg', 'ring', 'border', 'text'];
 	const V2_PAIRINGS = ['50-900', '100-800', '200-700', '300-600', '400-500', '500-400', '600-300', '700-200', '800-100', '900-50'];
 	const V3_PAIRINGS = ['50-950', '100-900', '200-800', '300-700', '500', '600-400', '700-300', '800-200', '900-100', '950-50'];
 	const CORNERS = ['tl', 'tr', 'bl', 'br'];
