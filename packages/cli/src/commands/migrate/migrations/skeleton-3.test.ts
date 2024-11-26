@@ -595,10 +595,14 @@ describe('migrateClasses', () => {
 	});
 	describe('tailwind components', () => {
 		const createTailwindMappings = () => [
-			{
-				v2: 'card',
-				v3: 'card bg-surface-100-900-token'
-			},
+			/**
+			 * Disabled until further discussion
+			 * @see https://github.com/skeletonlabs/skeleton/pull/2972#discussion_r1857260763
+			 */
+			// {
+			// 	v2: 'card',
+			// 	v3: 'card bg-surface-100-900-token'
+			// },
 			{
 				v2: 'btn-xl',
 				v3: 'btn-lg'

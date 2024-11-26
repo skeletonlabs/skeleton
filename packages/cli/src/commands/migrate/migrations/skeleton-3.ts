@@ -168,10 +168,14 @@ const PRESET_REGEXES = [
 ];
 
 const TAILWIND_COMPONENT_REGEXES = [
-	{
-		find: /\bcard\b(?!.*bg-)/g,
-		replace: 'card bg-surface-100-900-token'
-	},
+	/**
+	 * Disabled until further discussion
+	 * @see https://github.com/skeletonlabs/skeleton/pull/2972#discussion_r1857260763
+	 */
+	// {
+	// 	find: /\bcard\b(?!.*bg-)/g,
+	// 	replace: 'card bg-surface-100-900-token'
+	// },
 	{
 		find: /btn-xl\b/g,
 		replace: 'btn-lg'
