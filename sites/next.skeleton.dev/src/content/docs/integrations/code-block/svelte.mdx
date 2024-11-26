@@ -4,9 +4,9 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import SveltePageRaw from '@examples/integrations/code-block/SveltePage.txt?raw';
 import SvelteComponentRaw from '@examples/integrations/code-block/SvelteComponent.txt?raw';
-import SvelteTypeRaw from '@examples/integrations/code-block/SvelteType.txt?raw';
+import TypesRaw from '@examples/integrations/code-block/Types.txt?raw';
+import SveltePageRaw from '@examples/integrations/code-block/SveltePage.txt?raw';
 
 {/* --- */}
 
@@ -40,13 +40,12 @@ A reusable component should suffice in most projects. Tap the `code` tab below t
 
 <Preview client:load>
 	<Fragment slot="preview">
-		{/* <ExamplePopover client:load /> */}
 		<img src="https://i.imgur.com/Dw4ctwQ.png" class="w-full" />
 	</Fragment>
 	<Fragment slot="code">
 		<div class="space-y-4">
 			<Code code={SvelteComponentRaw} lang="svelte" title="CodeBlock.svelte" />
-			<Code code={SvelteTypeRaw} lang="ts" title="types.ts" />
+			<Code code={TypesRaw} lang="ts" title="types.ts" />
 			<Code code={SveltePageRaw} lang="svelte" title="+page.svelte" />
 		</div>
 	</Fragment>
