@@ -10,6 +10,7 @@ export const Pagination: FC<PaginationProps> = ({
 	data,
 	alternative = false,
 	textSeparator = 'of',
+	showFirstLastButtons = false,
 	// Titles
 	titleFirst,
 	titlePrevious,
@@ -63,14 +64,14 @@ export const Pagination: FC<PaginationProps> = ({
 					data-testid="pagination"
 				>
 					{/* Button: First Page */}
-					{alternative && (
+					{showFirstLastButtons && (
 						<button
 							type="button"
 							onClick={api.goToFirstPage}
 							className={`${buttonBase} ${buttonInactive} ${buttonHover} ${buttonClasses}`}
 							title={titleFirst}
 							disabled={api.page === 1}
-							data-testid="pagination-button-previous"
+							data-testid="pagination-button-first"
 						>
 							{labelFirst}
 						</button>
@@ -139,14 +140,14 @@ export const Pagination: FC<PaginationProps> = ({
 						{labelNext}
 					</button>
 					{/* Button: Last Page */}
-					{alternative && (
+					{showFirstLastButtons && (
 						<button
 							type="button"
 							onClick={api.goToLastPage}
 							className={`${buttonBase} ${buttonInactive} ${buttonHover} ${buttonClasses}`}
 							title={titleLast}
 							disabled={!api.nextPage}
-							data-testid="pagination-button-previous"
+							data-testid="pagination-button-last"
 						>
 							{labelLast}
 						</button>
