@@ -9,10 +9,12 @@ export interface PaginationProps extends Omit<pagination.Context, 'id' | 'page' 
 
 	// Provide source data as an array.
 	data: unknown[];
-	// Enables altnerative display with stats and first/last buttons.
+	// Enables alternative display with stats and first/last buttons.
 	alternative?: boolean;
 	/** Set the separator text or character, such as "of" in "X of Y". */
 	textSeparator?: string;
+	/** Show first and last page button. */
+	showFirstLastButtons?: boolean;
 
 	// Root ---
 	/** Sets base classes for the list. */
