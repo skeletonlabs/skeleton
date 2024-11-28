@@ -38,6 +38,8 @@
 		optionClasses = '',
 		// Snippets
 		arrow,
+		// Customization
+		transformFunction = (values) => (values ? values.join(', ') : ''),
 		// Zag ---
 		...zagProps
 	}: ComboboxProps = $props();
@@ -82,6 +84,12 @@
 		}
 	);
 	const api = $derived(combobox.connect(snapshot, send, normalizeProps));
+
+	const selectedLabels = $derived.by(() => {
+		if (snapshot.context.multiple) {
+			return transformFunction(snapshot.context.value.map((item) => data.find((option) => option.value === item)?.label));
+		}
+	});
 </script>
 
 <span {...api.getRootProps()} class="{base} {width} {classes}" data-testid="combobox">
@@ -91,7 +99,13 @@
 		<!-- Input Group -->
 		<div {...api.getControlProps()} class="{inputGroupBase} {inputGroupClasses}">
 			<!-- Input -->
-			<input {...api.getInputProps()} class={inputGroupInput} />
+			{#if snapshot.context.multiple}
+				<!-- https://zagjs.com/components/svelte/combobox#selecting-multiple-values -->
+				<!-- Zag requires us to handle this on our own -->
+				<input {...api.getInputProps()} class={inputGroupInput} value={selectedLabels} />
+			{:else}
+				<input {...api.getInputProps()} class={inputGroupInput} />
+			{/if}
 			<!-- Arrow -->
 			<button {...api.getTriggerProps()} class={inputGroupButton}>
 				{#if arrow}

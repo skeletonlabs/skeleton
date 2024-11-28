@@ -5,7 +5,7 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	/** Provide the list of label and value data */
 	data?: { label: string; value: string }[];
 	/** Bind the selected value. */
-	value?: string[] | undefined;
+	value?: string[];
 	/** Set the label to display. */
 	label?: string;
 
@@ -66,4 +66,8 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	// Snippets ---
 	/** Provide a custom arrow icon. */
 	arrow?: Snippet;
+
+	// Customization ---
+	/** Transform function. Used to transform values when multiple is enabled */
+	transformFunction?: (value: (string | undefined)[]) => string;
 }
