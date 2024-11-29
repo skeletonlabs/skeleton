@@ -8,15 +8,17 @@ import { Check as IconCheck } from 'lucide-react';
 <script>
 	const htmlElement = document.documentElement;
 
-	const buyButton = document.querySelector('[data-polar-checkout]');
+	const buyButtons = document.querySelectorAll('[data-polar-checkout]');
 
 	/**
-	 * Updates the theme of the buy button based on the presence of the 'dark' class on the HTML element
+	 * Updates the theme of the buy buttons based on the presence of the 'dark' class on the HTML element
 	 */
 	function updateTheme() {
 		const theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
 
-		buyButton?.setAttribute('data-polar-checkout-theme', theme);
+		buyButtons.forEach((button) => {
+			button.setAttribute('data-polar-checkout-theme', theme);
+		});
 	}
 
 	// Initial update of the theme
@@ -24,9 +26,9 @@ import { Check as IconCheck } from 'lucide-react';
 
 	// Create a MutationObserver to observe changes to the class attribute of the HTML element
 	new MutationObserver(() => {
-		// Update the theme when the class attribute changes
 		updateTheme();
 	}).observe(htmlElement, {
+		// Observe changes to attributes
 		attributes: true,
 		// Only observe changes to the class attribute
 		attributeFilter: ['class']
