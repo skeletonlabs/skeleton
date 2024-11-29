@@ -2,6 +2,37 @@
 import { Check as IconCheck } from 'lucide-react';
 ---
 
+<!-- Load the Polar checkout script -->
+<script src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js" defer data-auto-init></script>
+
+<script>
+	const htmlElement = document.documentElement;
+
+	const buyButton = document.querySelector('[data-polar-checkout]');
+
+	/**
+	 * Updates the theme of the buy button based on the presence of the 'dark' class on the HTML element
+	 */
+	function updateTheme() {
+		const theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+
+		buyButton?.setAttribute('data-polar-checkout-theme', theme);
+	}
+
+	// Initial update of the theme
+	updateTheme();
+
+	// Create a MutationObserver to observe changes to the class attribute of the HTML element
+	new MutationObserver(() => {
+		// Update the theme when the class attribute changes
+		updateTheme();
+	}).observe(htmlElement, {
+		attributes: true,
+		// Only observe changes to the class attribute
+		attributeFilter: ['class']
+	});
+</script>
+
 <div class="flex flex-col bg-transparent rounded-container border-[1px] border-surface-200-800 shadow-lg overflow-hidden">
 	<div class="flex flex-col p-6 w-full">
 		<span class="text-xl font-semibold h-full pb-6">Figma UI Kit for Skeleton includes:</span>
@@ -48,16 +79,16 @@ import { Check as IconCheck } from 'lucide-react';
 		<div class="flex flex-col gap-1 p-6 border-r md:border-t-0 border-b md:border-b-0 border-surface-200-800 w-full">
 			<span class="text-lg font-semibold"><span class="text-surface-600-400">License for</span> 1 person</span>
 			<div class="flex flex-col h-full pt-12">
-				<div class="flex flex-row gap-1 items-end pb-4 ">
+				<div class="flex flex-row gap-1 items-end pb-4">
 					<span class="text-4xl font-semibold">$109</span>
 					<span class="opacity-60">+1 year of updates </span>
 				</div>
 				<a
-					href="https://polar.sh/skeleton-kit/products/d61c9909-1d23-4934-83fc-fa936a9db3d6"
-					class="btn btn-lg self-end preset-filled-primary-500 flex items-center gap-2 w-full"
+					href="https://buy.polar.sh/polar_cl_4Wd2CxwXfx-g5z-87D2PNRkdamIiohCLnxH3UqaAqGA"
+					data-polar-checkout
+					data-polar-checkout-theme="dark"
+					class="btn btn-lg self-end preset-filled-primary-500 flex items-center gap-2 w-full">Buy</a
 				>
-					Buy
-				</a>
 			</div>
 		</div>
 		<div class="flex flex-col gap-1 p-6 w-full">
@@ -69,11 +100,11 @@ import { Check as IconCheck } from 'lucide-react';
 					<span class="opacity-60">+1 year of updates </span>
 				</div>
 				<a
-					href="https://polar.sh/skeleton-kit/products/a37848ad-cc61-4f86-997e-d15bd311316a"
-					class="btn btn-lg self-end preset-filled-primary-500 flex items-center gap-2 w-full"
+					href="https://buy.polar.sh/polar_cl_vLLsRrjP5rIuLgp6Loez6lPjyg1vrAhH435-MVhIpIk"
+					data-polar-checkout
+					data-polar-checkout-theme="dark"
+					class="btn btn-lg self-end preset-filled-primary-500 flex items-center gap-2 w-full">Buy</a
 				>
-					Buy
-				</a>
 			</div>
 		</div>
 	</div>
