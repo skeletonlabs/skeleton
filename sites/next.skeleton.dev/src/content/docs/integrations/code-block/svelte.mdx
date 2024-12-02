@@ -4,6 +4,7 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
+import Example from '@examples/integrations/code-block/Example.astro';
 import SvelteComponentRaw from '@examples/integrations/code-block/SvelteComponent.txt?raw';
 import TypesRaw from '@examples/integrations/code-block/Types.txt?raw';
 import SveltePageRaw from '@examples/integrations/code-block/SveltePage.txt?raw';
@@ -17,10 +18,6 @@ import SveltePageRaw from '@examples/integrations/code-block/SveltePage.txt?raw'
 		Shiki Documentation &rarr;
 	</a>
 </figure>
-
-<div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>This documentation site is built and maintained use [Astro](https://astro.build/). As such, all code blocks are implemented using [Expressive Code](https://expressive-code.com/), which utilizes Shiki [under the hood](https://expressive-code.com/key-features/syntax-highlighting/#differences-to-shikis-html-output). To avoid dependency and configuration conflicts, live previews have been substituted with screenshots. This will more accurately portray what you'll see in a real world Skeleton project.</p>
-</div>
 
 ## Installation
 
@@ -36,11 +33,11 @@ A reusable component should suffice in most projects. Tap the `code` tab below t
 
 1. Implement a new `<CodeBlock>` component in `/src/lib/components/CodeBlock/CodeBlock.svelte`.
 2. Implement the required component prop types in `/src/lib/components/CodeBlock/types.ts`.
-3. Implement a several variations of our `<CodeBlock>` component in any SvelteKit route `+page.svelte`.
+3. Implement several variations of our `<CodeBlock>` component in any SvelteKit route `+page.svelte`.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<img src="https://i.imgur.com/Dw4ctwQ.png" class="w-full" />
+		<Example />
 	</Fragment>
 	<Fragment slot="code">
 		<div class="space-y-4">
@@ -63,7 +60,7 @@ A few things of note about this component:
 ## Programmatic Usage
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>This use case falls outside the scope of Skeleton. The following is provided to point you in the right direction.</p>
+	<p>This use case falls outside the scope of Skeleton. The following is provided merely as guidance.</p>
 </div>
 
 In some cases you may not have direct access to the source code, such as content from a blog posts or CMS pages. In fact the code may even come pre-baked with surrounding `<pre>` or `<code>` elements. For this, you'll need to follow the general steps below. Specific implementation may differ based on your app and meta-framework.
