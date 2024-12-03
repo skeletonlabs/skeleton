@@ -3,4 +3,4 @@
 '@skeletonlabs/skeleton-react': patch
 ---
 
-feature: Show first and last button to be an optional props.
+feature: Add `showFirstLastButtons` prop to Pagination to enable toggling first and last buttons.

@@ -3,4 +3,4 @@
 '@skeletonlabs/skeleton-react': patch
 ---
 
-Introduce `showLabel` as a new prop for **ProgressRing** component
+chore: ProgressRing component no longer has a label by default, but can be enabled with `showLabel` prop.

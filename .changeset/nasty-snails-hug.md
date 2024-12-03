@@ -2,4 +2,4 @@
 '@skeletonlabs/skeleton-react': patch
 ---
 
-Nav component for React will now be renamed to Navigation along with all its child components
+chore: the React `<Nav>` component renamed `<Navigation>` to be uniform with other frameworks
