@@ -1,5 +1,15 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.15
+
+### Patch Changes
+
+- feature: Add `showFirstLastButtons` prop to Pagination to enable toggling first and last buttons. ([#3007](https://github.com/skeletonlabs/skeleton/pull/3007))
+
+- bugfix: Set button type to `button` for Svelte's Combobox options ([#2998](https://github.com/skeletonlabs/skeleton/pull/2998))
+
+- chore: ProgressRing component no longer has a label by default, but can be enabled with `showLabel` prop. ([#2996](https://github.com/skeletonlabs/skeleton/pull/2996))
+
 ## 1.0.0-next.14
 
 ### Patch Changes
