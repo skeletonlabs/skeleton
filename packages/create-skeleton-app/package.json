@@ -52,7 +52,7 @@
 		"semver": "^7.5.4"
 	},
 	"devDependencies": {
-		"archiver": "^6.0.1",
+		"archiver": "^7.0.1",
 		"eslint": "^8.49.0",
 		"eslint-config-prettier": "^9.0.0"
 	}
