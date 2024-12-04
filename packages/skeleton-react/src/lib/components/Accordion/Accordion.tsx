@@ -1,27 +1,13 @@
 'use client';
 
-import { createContext, useContext, useId } from 'react';
+import { useContext, useId } from 'react';
 import type { FC } from 'react';
 import * as accordion from '@zag-js/accordion';
 import { useMachine, normalizeProps } from '@zag-js/react';
 
-import type { AccordionContextState, AccordionControlProps, AccordionItemProps, AccordionPanelProps, AccordionProps } from './types.js';
+import type { AccordionControlProps, AccordionItemProps, AccordionPanelProps, AccordionProps } from './types.js';
+import { AccordionContext, AccordionItemContext } from './contexts.js';
 import { noop } from '../../internal/noop.js';
-
-// Contexts ---
-
-export const AccordionContext = createContext<AccordionContextState>({
-	animDuration: 0.2,
-	iconOpen: '-',
-	iconClosed: '+',
-	api: {} as ReturnType<typeof accordion.connect>
-});
-export const AccordionItemContext = createContext<accordion.ItemProps>({
-	value: '',
-	disabled: false
-});
-
-// Components ---
 
 const AccordionRoot: FC<AccordionProps> = ({
 	animDuration = 0.2,

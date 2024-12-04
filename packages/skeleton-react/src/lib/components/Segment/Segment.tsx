@@ -1,19 +1,11 @@
 'use client';
 
-import { FC, createContext, useContext, useId } from 'react';
+import { FC, useContext, useId } from 'react';
 import * as radio from '@zag-js/radio-group';
 import { useMachine, normalizeProps } from '@zag-js/react';
-import type { SegmentContextState, SegmentProps, SegmentItemsProps } from './types.js';
+import type { SegmentProps, SegmentItemsProps } from './types.js';
+import { SegmentContext } from './contexts.js';
 import { noop } from '../../internal/noop.js';
-
-// Contexts ---
-
-export const SegmentContext = createContext<SegmentContextState>({
-	api: {} as ReturnType<typeof radio.connect>,
-	indicatorText: ''
-});
-
-// Components ---
 
 const SegmentRoot: FC<SegmentProps> = ({
 	orientation = 'horizontal',
