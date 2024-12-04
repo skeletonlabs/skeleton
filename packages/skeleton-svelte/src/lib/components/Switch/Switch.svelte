@@ -3,7 +3,6 @@
 	import * as zagSwitch from '@zag-js/switch';
 	import type { SwitchProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
-
 	let {
 		name = '',
 		checked = $bindable(false),
@@ -53,14 +52,16 @@
 	const [snapshot, send] = useMachine(
 		zagSwitch.machine({
 			id: useId(),
-			name,
-			onCheckedChange(details) {
-				checked = details.checked;
-			}
+			name
 		}),
 		{
 			context: {
 				...zagProps,
+				onCheckedChange: (details) => {
+					// Order of operations matters here:
+					zagProps.onCheckedChange?.(details);
+					checked = details.checked;
+				},
 				get checked() {
 					return checked;
 				},

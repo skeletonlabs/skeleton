@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton
 
+## 3.0.0-next.9
+
+### Patch Changes
+
+- fix: add `string` type to `contentPath` args ([#2954](https://github.com/skeletonlabs/skeleton/pull/2954))
+
+## 3.0.0-next.8
+
+### Patch Changes
+
+- feature: Added a `contentPath` utility function for tailwind content paths ([#2949](https://github.com/skeletonlabs/skeleton/pull/2949))
+
 ## 3.0.0-next.7
 
 ### Patch Changes

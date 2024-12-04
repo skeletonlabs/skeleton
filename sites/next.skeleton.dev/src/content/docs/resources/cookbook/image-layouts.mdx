@@ -3,6 +3,8 @@ layout: '@layouts/LayoutDoc.astro'
 title: Image Layouts
 description: Layouts for displaying sets of images.
 showDocsUrl: true
+pubDate: 2024-11-18
+tags: ['presentation', 'layouts', 'images']
 ---
 
 export const components = componentSet;
@@ -18,7 +20,7 @@ import ExampleFeaturedRaw from '@examples/resources/cookbook/image-layouts/Examp
 
 ## Grid
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<ExampleGrid />
 	</Fragment>
@@ -29,7 +31,7 @@ import ExampleFeaturedRaw from '@examples/resources/cookbook/image-layouts/Examp
 
 ## Quad
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<ExampleQuad />
 	</Fragment>
@@ -40,7 +42,7 @@ import ExampleFeaturedRaw from '@examples/resources/cookbook/image-layouts/Examp
 
 ## Masonry
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<ExampleMasonry />
 	</Fragment>
@@ -51,7 +53,7 @@ import ExampleFeaturedRaw from '@examples/resources/cookbook/image-layouts/Examp
 
 ## Featured
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<ExampleFeatured />
 	</Fragment>

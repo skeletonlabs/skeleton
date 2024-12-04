@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import * as pagination from '@zag-js/pagination';
 
-export interface PaginationProps extends Omit<pagination.Context, 'id' | 'page' | 'pageSize'> {
+export interface PaginationProps extends Omit<pagination.Context, 'id' | 'page' | 'pageSize' | 'count'> {
 	/** Bind the current page. */
 	page: number;
 	/** Bind the number of data items to display. */
@@ -9,21 +9,12 @@ export interface PaginationProps extends Omit<pagination.Context, 'id' | 'page' 
 
 	// Provide source data as an array.
 	data: unknown[];
-	// Enables altnerative display with stats and first/last buttons.
+	// Enables alternative display with stats and first/last buttons.
 	alternative?: boolean;
 	/** Set the separator text or character, such as "of" in "X of Y". */
 	textSeparator?: string;
-
-	/** Set an optional title for the first button. */
-	titleFirst?: string;
-	/** Set an optional title for the previous button. */
-	titlePrevious?: string;
-	/** Set an optional title for the numeral buttons (ex: Page 1). */
-	titleNumeral?: string;
-	/** Set an optional title for the next button. */
-	titleNext?: string;
-	/** Set an optional title for the last button. */
-	titleLast?: string;
+	/** Show first and last page button. */
+	showFirstLastButtons?: boolean;
 
 	// Root ---
 	/** Sets base classes for the list. */
@@ -40,6 +31,18 @@ export interface PaginationProps extends Omit<pagination.Context, 'id' | 'page' 
 	rounded?: string;
 	/** Provide arbitrary CSS classes for the root. */
 	classes?: string;
+
+	// Title
+	/** Set an optional title for the first button. */
+	titleFirst?: string;
+	/** Set an optional title for the previous button. */
+	titlePrevious?: string;
+	/** Set an optional title for the numeral buttons (ex: Page 1). */
+	titleNumeral?: string;
+	/** Set an optional title for the next button. */
+	titleNext?: string;
+	/** Set an optional title for the last button. */
+	titleLast?: string;
 
 	// Buttons ---
 	/** Sets base classes for buttons. */

@@ -30,7 +30,7 @@ jobs:
         run: pnpm install
 
       - name: Build packages
-        run: pnpm build:packages
+        run: pnpm package
 
       - name: Create Release Pull Request or Publish
         id: changesets
@@ -38,7 +38,7 @@ jobs:
         with:
           commit: 'chore(next-release): version package'
           title: 'chore(next-release): version package'
-          publish: pnpm changeset publish
+          publish: pnpm ci:publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

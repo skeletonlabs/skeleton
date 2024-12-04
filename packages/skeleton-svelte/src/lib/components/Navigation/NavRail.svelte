@@ -68,19 +68,25 @@
 <aside class="{base} {background} {height} {padding} {rxWidth} {classes}" data-testid="nav-rail">
 	<!-- Header -->
 	{#if header}
-		<header class="{headerBase} {headerFlexDirection} {headerJustify} {headerItems} {headerGap} {headerClasses}">
+		<header
+			class="{headerBase} {headerFlexDirection} {headerJustify} {headerItems} {headerGap} {headerClasses}"
+			data-testid="nav-rail-header"
+		>
 			{@render header()}
 		</header>
 	{/if}
 	<!-- Tiles -->
 	{#if tiles}
-		<nav class="{tilesBase} {tilesFlexDirection} {tilesJustify} {tilesItems} {tilesGap} {tilesClasses}">
+		<nav class="{tilesBase} {tilesFlexDirection} {tilesJustify} {tilesItems} {tilesGap} {tilesClasses}" data-testid="nav-rail-tiles">
 			{@render tiles()}
 		</nav>
 	{/if}
 	<!-- Footer -->
 	{#if footer}
-		<footer class="{footerBase} {footerFlexDirection} {footerJustify} {footerItems} {footerGap} {footerClasses}">
+		<footer
+			class="{footerBase} {footerFlexDirection} {footerJustify} {footerItems} {footerGap} {footerClasses}"
+			data-testid="nav-rail-footer"
+		>
 			{@render footer()}
 		</footer>
 	{/if}

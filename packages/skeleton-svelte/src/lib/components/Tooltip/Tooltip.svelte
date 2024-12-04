@@ -44,7 +44,7 @@
 	const api = $derived(tooltip.connect(snapshot, send, normalizeProps));
 </script>
 
-<span>
+<span data-testid="tooltip">
 	<!-- Snippet: Trigger -->
 	<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
 		{@render trigger?.()}

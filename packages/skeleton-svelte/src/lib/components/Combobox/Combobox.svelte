@@ -84,7 +84,7 @@
 	const api = $derived(combobox.connect(snapshot, send, normalizeProps));
 </script>
 
-<span {...api.getRootProps()} class="{base} {width} {classes}">
+<span {...api.getRootProps()} class="{base} {width} {classes}" data-testid="combobox">
 	<!-- Label -->
 	<label {...api.getLabelProps()} class="{labelBase} {labelClasses}">
 		{#if label}<span class={labelText}>{label}</span>{/if}
@@ -126,7 +126,8 @@
 						{@const isChecked = api.getItemProps({ item })['data-state'] === 'checked'}
 						{@const displayClass = isChecked ? optionActive : optionHover}
 						<!-- Option -->
-						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}">
+						<!-- ZagJs should have set button type to "button" here. See https://github.com/skeletonlabs/skeleton/pull/2998#discussion_r1855511385 -->
+						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}" type="button">
 							{item.label}
 						</button>
 					{/each}

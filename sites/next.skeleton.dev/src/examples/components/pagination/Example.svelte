@@ -14,7 +14,7 @@
 		symbol: string;
 	}
 
-	const sourceData: SourceData[] = [
+	let sourceData: SourceData[] = $state([
 		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
 		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
 		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
@@ -25,11 +25,11 @@
 		{ position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
 		{ position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
 		{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
-	];
+	]);
 
 	// State
 	let page = $state(1);
-	let size = $state(3);
+	let size = $state(5);
 	const slicedSource = $derived((s: SourceData[]) => s.slice((page - 1) * size, page * size));
 </script>
 
@@ -60,12 +60,13 @@
 	<!-- Footer -->
 	<footer class="flex justify-between">
 		<select name="size" id="size" class="select max-w-[150px]" bind:value={size}>
-			{#each [1, 3, 4, 10, 100] as v}
+			{#each [1, 2, 5] as v}
 				<option value={v}>Items {v}</option>
 			{/each}
+			<option value={sourceData.length}>Show All</option>
 		</select>
 		<!-- Pagination -->
-		<Pagination data={sourceData} count={sourceData.length} bind:page bind:pageSize={size}>
+		<Pagination bind:data={sourceData} bind:page bind:pageSize={size} siblingCount={4}>
 			{#snippet labelEllipsis()}<IconEllipsis class="size-4" />{/snippet}
 			{#snippet labelNext()}<IconArrowRight class="size-4" />{/snippet}
 			{#snippet labelPrevious()}<IconArrowLeft class="size-4" />{/snippet}

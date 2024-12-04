@@ -1,14 +1,14 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "1.0.0-next.12",
+	"version": "1.0.0-next.15",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
-		"dev:vite": "vite dev",
-		"build:vite": "vite build && npm run package",
-		"preview:vite": "vite preview",
-		"build": "svelte-package",
-		"build:watch": "svelte-package --watch",
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"package": "svelte-package",
+		"package:watch": "svelte-package --watch",
 		"prepublishOnly": "npm run package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"test": "vitest"
@@ -53,17 +53,16 @@
 		"svelte": "^5.0.0"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.45.3",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@sveltejs/adapter-auto": "^3.2.2",
 		"@sveltejs/kit": "^2.5.18",
 		"@sveltejs/package": "^2.3.2",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
 		"@tailwindcss/forms": "^0.5.7",
-		"@testing-library/jest-dom": "^6.4.7",
-		"@testing-library/svelte": "^4.2.3",
+		"@testing-library/jest-dom": "^6.6.2",
+		"@testing-library/svelte": "^5.2.4",
 		"autoprefixer": "^10.4.19",
-		"jsdom": "^24.1.1",
+		"jsdom": "^25.0.1",
 		"lucide-svelte": "^0.436.0",
 		"postcss": "^8.4.39",
 		"postcss-load-config": "^5.1.0",
@@ -75,7 +74,7 @@
 		"typescript": "catalog:",
 		"vite": "^5.3.4",
 		"vite-plugin-tw-plugin-watcher": "workspace:*",
-		"vitest": "^1.6.0"
+		"vitest": "^2.1.5"
 	},
 	"type": "module"
 }

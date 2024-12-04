@@ -54,4 +54,12 @@ describe('<Pagination>', () => {
 		const component = getByTestId('pagination');
 		expect(component).toHaveClass(testClass);
 	});
+
+	it('should render first and last buttons if required', () => {
+		const { getByTestId } = render(<Pagination {...commonProps} showFirstLastButtons />);
+		const firstButton = getByTestId('pagination-button-first');
+		const lastButton = getByTestId('pagination-button-last');
+		expect(firstButton).toBeInTheDocument();
+		expect(lastButton).toBeInTheDocument();
+	});
 });

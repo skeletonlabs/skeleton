@@ -29,22 +29,21 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"dev": "pnpm --reporter append-only --color \"/dev:/\"",
-		"dev:docs": " pnpm --filter \"@skeletonlabs/docs-next\" dev",
-		"dev:packages": "pnpm --recursive --filter \"@skeletonlabs/skeleton-*\" build:watch",
-		"build:docs": "pnpm build:packages && pnpm --filter \"@skeletonlabs/docs-next\" build",
-		"build:packages": "pnpm --recursive --filter \"./packages/*\" build",
-		"format": "prettier . --check",
-		"format:fix": "prettier . --write",
-		"lint": "eslint . --ignore-path .gitignore",
-		"lint:fix": "eslint . --fix --ignore-path .gitignore",
+		"ci:publish": "changeset publish",
+		"dev": "pnpm --filter next.skeleton.dev dev",
+		"build": "pnpm --recursive build",
+		"package": "pnpm --recursive package",
+		"test": "pnpm --recursive test",
 		"check": "pnpm --recursive check",
-		"test": "pnpm --filter \"@skeletonlabs/*\" test",
-		"postinstall": "pnpm build:packages"
+		"format": "prettier . --write",
+		"format:check": "prettier . --check",
+		"lint": "eslint . --fix --ignore-path .gitignore",
+		"lint:check": "eslint . --ignore-path .gitignore",
+		"postinstall": "pnpm package"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.9",
-		"@skeletonlabs/typelens": "workspace:^",
+		"@skeletonlabs/necroparser": "workspace:*",
 		"@svitejs/changesets-changelog-github-compact": "^1.1.0",
 		"@types/node": "^20.16.11",
 		"@typescript-eslint/eslint-plugin": "^7.18.0",
@@ -67,11 +66,6 @@
 		"prettier-plugin-tailwindcss": "^0.6.8",
 		"shelljs": "^0.8.5",
 		"tsx": "^4.19.1"
-	},
-	"pnpm": {
-		"overrides": {
-			"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6"
-		}
 	},
 	"packageManager": "pnpm@9.5.0"
 }

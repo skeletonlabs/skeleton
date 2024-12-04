@@ -8,15 +8,10 @@
 	let {
 		page = $bindable(1),
 		pageSize = $bindable(10),
-		data,
+		data = $bindable([]),
 		alternative = false,
 		textSeparator = 'of',
-		// Titles
-		titleFirst,
-		titlePrevious,
-		titleNumeral,
-		titleNext,
-		titleLast,
+		showFirstLastButtons = false,
 		// Root
 		base = 'inline-flex items-stretch overflow-hidden',
 		background = 'preset-outlined-surface-200-800',
@@ -25,6 +20,12 @@
 		padding = '',
 		rounded = 'rounded-container',
 		classes = '',
+		// Titles
+		titleFirst,
+		titlePrevious,
+		titleNumeral,
+		titleNext,
+		titleLast,
 		// Buttons
 		buttonBase = 'btn',
 		buttonActive = 'preset-filled',
@@ -48,6 +49,9 @@
 			count: data.length,
 			onPageChange(details) {
 				page = details.page;
+			},
+			onPageSizeChange(details) {
+				pageSize = details.pageSize;
 			}
 		}),
 		{
@@ -58,6 +62,9 @@
 				},
 				get pageSize() {
 					return pageSize;
+				},
+				get count() {
+					return data.length;
 				}
 			}
 		}
@@ -73,14 +80,14 @@
 {#if api.totalPages > 1}
 	<div {...api.getRootProps()} class="{base} {background} {border} {gap} {padding} {rounded} {classes}" data-testid="pagination">
 		<!-- Button: First Page -->
-		{#if alternative}
+		{#if showFirstLastButtons}
 			<button
 				type="button"
 				onclick={api.goToFirstPage}
 				class="{buttonBase} {buttonInactive} {buttonHover} {buttonClasses}"
 				title={titleFirst}
 				disabled={api.page === 1}
-				data-testid="pagination-button-previous"
+				data-testid="pagination-button-first"
 			>
 				{#if labelFirst}{@render labelFirst()}{:else}&laquo;{/if}
 			</button>
@@ -131,7 +138,7 @@
 				<span class="opacity-60">
 					{api.page}
 					{textSeparator}
-					{api.count}
+					{api.totalPages}
 				</span>
 			</span>
 		{/if}
@@ -147,14 +154,14 @@
 			{#if labelNext}{@render labelNext()}{:else}&rarr;{/if}
 		</button>
 		<!-- Button: Last Page -->
-		{#if alternative}
+		{#if showFirstLastButtons}
 			<button
 				type="button"
 				onclick={api.goToLastPage}
 				class="{buttonBase} {buttonInactive} {buttonHover} {buttonClasses}"
 				title={titleLast}
 				disabled={!api.nextPage}
-				data-testid="pagination-button-previous"
+				data-testid="pagination-button-last"
 			>
 				{#if labelLast}{@render labelLast()}{:else}&raquo;{/if}
 			</button>

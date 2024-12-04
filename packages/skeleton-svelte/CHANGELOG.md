@@ -1,5 +1,37 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.15
+
+### Patch Changes
+
+- feature: Add `showFirstLastButtons` prop to Pagination to enable toggling first and last buttons. ([#3007](https://github.com/skeletonlabs/skeleton/pull/3007))
+
+- bugfix: Set button type to `button` for Svelte's Combobox options ([#2998](https://github.com/skeletonlabs/skeleton/pull/2998))
+
+- chore: ProgressRing component no longer has a label by default, but can be enabled with `showLabel` prop. ([#2996](https://github.com/skeletonlabs/skeleton/pull/2996))
+
+## 1.0.0-next.14
+
+### Patch Changes
+
+- bugfix: Resolved Pagination alternative mode page count issue ([#2956](https://github.com/skeletonlabs/skeleton/pull/2956))
+
+- bugfix: Adjust Svelte Switch to allow for `bind:checked` and `onCheckedChange` at the same time. ([#2967](https://github.com/skeletonlabs/skeleton/pull/2967))
+
+- chore: Implemented Svelte test specs for all components ([#2968](https://github.com/skeletonlabs/skeleton/pull/2968))
+
+- bugfix: resolved Svelte Pagination component reactivity issues ([#2956](https://github.com/skeletonlabs/skeleton/pull/2956))
+
+- `onOpenChange` will no longer be internally overriden and thus fix `bind:open` when used in conjunction with `onOpenChange`. ([#2970](https://github.com/skeletonlabs/skeleton/pull/2970))
+
+## 1.0.0-next.13
+
+### Patch Changes
+
+- Only render `<button>` when `trigger` snippet is defined. ([#2947](https://github.com/skeletonlabs/skeleton/pull/2947))
+
+- Renamed Nav component to Navigation to conform to our naming convention across packages ([#2928](https://github.com/skeletonlabs/skeleton/pull/2928))
+
 ## 1.0.0-next.12
 
 ### Minor Changes

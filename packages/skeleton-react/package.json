@@ -1,13 +1,13 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "1.0.0-next.9",
+	"version": "1.0.0-next.11",
 	"type": "module",
 	"scripts": {
-		"dev:vite": "vite",
-		"build:vite": "vite build",
-		"preview:vite": "vite preview",
-		"build": "tsc --project tsconfig.package.json",
-		"build:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"package": "tsc --project tsconfig.package.json",
+		"package:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
 		"test": "vitest"
 	},
 	"types": "./dist/index.d.ts",

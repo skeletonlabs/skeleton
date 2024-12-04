@@ -1,7 +1,7 @@
 import { Skull as IconLogo, Menu as IconMenu, Box as IconBox, Settings as IconSettings } from 'lucide-react';
 import { useState } from 'react';
 
-import { Nav } from '$lib/components/Navigation/Navigation.js';
+import { Navigation } from '$lib/components/Navigation/Navigation.js';
 
 export function Component() {
 	const [value, setValue] = useState('0');
@@ -14,54 +14,54 @@ export function Component() {
 			<section className="space-y-4">
 				<h2 className="h2">Bar</h2>
 				<pre className="pre">value: {value}</pre>
-				<Nav.Bar value={value} onChange={setValue}>
-					<Nav.Tile id="0" label="Tile 1">
+				<Navigation.Bar value={value} onChange={setValue}>
+					<Navigation.Tile id="0" label="Tile 1">
 						<IconBox />
-					</Nav.Tile>
-					<Nav.Tile id="1" label="Tile 2">
+					</Navigation.Tile>
+					<Navigation.Tile id="1" label="Tile 2">
 						<IconBox />
-					</Nav.Tile>
-					<Nav.Tile id="2" label="Tile 3">
+					</Navigation.Tile>
+					<Navigation.Tile id="2" label="Tile 3">
 						<IconBox />
-					</Nav.Tile>
-					<Nav.Tile id="3" label="Tile 4">
+					</Navigation.Tile>
+					<Navigation.Tile id="3" label="Tile 4">
 						<IconBox />
-					</Nav.Tile>
-				</Nav.Bar>
+					</Navigation.Tile>
+				</Navigation.Bar>
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">Rail</h2>
 				<div className="flex h-[960px] justify-center gap-10">
-					<Nav.Rail
+					<Navigation.Rail
 						header={
-							<Nav.Tile href="/" title="Menu">
+							<Navigation.Tile href="/" title="Menu">
 								<IconMenu />
-							</Nav.Tile>
+							</Navigation.Tile>
 						}
 						footer={
-							<Nav.Tile href="/settings" title="settings">
+							<Navigation.Tile href="/settings" title="settings">
 								<IconSettings />
-							</Nav.Tile>
+							</Navigation.Tile>
 						}
 					>
-						<Nav.Tile id="0" label="Tile 1" href="#" selected>
+						<Navigation.Tile id="0" label="Tile 1" href="#" selected>
 							<IconBox />
-						</Nav.Tile>
-						<Nav.Tile id="1" label="Tile 2" href="#">
+						</Navigation.Tile>
+						<Navigation.Tile id="1" label="Tile 2" href="#">
 							<IconBox />
-						</Nav.Tile>
-						<Nav.Tile id="2" label="Tile 3" href="#">
+						</Navigation.Tile>
+						<Navigation.Tile id="2" label="Tile 3" href="#">
 							<IconBox />
-						</Nav.Tile>
-						<Nav.Tile id="3" label="Tile 4" href="#">
+						</Navigation.Tile>
+						<Navigation.Tile id="3" label="Tile 4" href="#">
 							<IconBox />
-						</Nav.Tile>
-						<Nav.Tile id="4" label="Tile 5" href="#">
+						</Navigation.Tile>
+						<Navigation.Tile id="4" label="Tile 5" href="#">
 							<IconBox />
-						</Nav.Tile>
-					</Nav.Rail>
+						</Navigation.Tile>
+					</Navigation.Rail>
 					{/* expanded */}
-					<Nav.Rail
+					<Navigation.Rail
 						expanded
 						header={
 							<a href="/" className="flex aspect-square w-full flex-col items-center justify-center gap-2">
@@ -70,27 +70,27 @@ export function Component() {
 							</a>
 						}
 						footer={
-							<Nav.Tile labelExpanded="Settings" href="/settings">
+							<Navigation.Tile labelExpanded="Settings" href="/settings">
 								<IconSettings />
-							</Nav.Tile>
+							</Navigation.Tile>
 						}
 					>
-						<Nav.Tile id="0" labelExpanded="Expanded Tile 1" href="#">
+						<Navigation.Tile id="0" labelExpanded="Expanded Tile 1" href="#">
 							<IconBox />
-						</Nav.Tile>
-						<Nav.Tile id="1" labelExpanded="Expanded Tile 2" href="#">
+						</Navigation.Tile>
+						<Navigation.Tile id="1" labelExpanded="Expanded Tile 2" href="#">
 							<IconBox />
-						</Nav.Tile>
-						<Nav.Tile id="2" labelExpanded="Expanded Tile 3" href="#">
+						</Navigation.Tile>
+						<Navigation.Tile id="2" labelExpanded="Expanded Tile 3" href="#">
 							<IconBox />
-						</Nav.Tile>
-						<Nav.Tile id="3" labelExpanded="Expanded Tile 4" href="#">
+						</Navigation.Tile>
+						<Navigation.Tile id="3" labelExpanded="Expanded Tile 4" href="#">
 							<IconBox />
-						</Nav.Tile>
-						<Nav.Tile id="4" labelExpanded="Expanded Tile 5" href="#">
+						</Navigation.Tile>
+						<Navigation.Tile id="4" labelExpanded="Expanded Tile 5" href="#">
 							<IconBox />
-						</Nav.Tile>
-					</Nav.Rail>
+						</Navigation.Tile>
+					</Navigation.Rail>
 				</div>
 			</section>
 		</div>

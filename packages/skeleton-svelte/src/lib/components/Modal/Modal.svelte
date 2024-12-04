@@ -42,14 +42,15 @@
 	const [snapshot, send] = useMachine(
 		dialog.machine({
 			id: useId(),
-			open,
-			onOpenChange(details) {
-				open = details.open;
-			}
+			open
 		}),
 		{
 			context: {
 				...zagProps,
+				onOpenChange(details) {
+					zagProps.onOpenChange?.(details);
+					open = details.open;
+				},
 				get open() {
 					return $state.snapshot(open);
 				}
@@ -59,11 +60,13 @@
 	const api = $derived(dialog.connect(snapshot, send, normalizeProps));
 </script>
 
-<span>
+<span data-testid="modal">
 	<!-- Trigger -->
-	<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
-		{@render trigger?.()}
-	</button>
+	{#if trigger}
+		<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
+			{@render trigger()}
+		</button>
+	{/if}
 	{#if api.open}
 		<!-- Backdrop -->
 		<div
