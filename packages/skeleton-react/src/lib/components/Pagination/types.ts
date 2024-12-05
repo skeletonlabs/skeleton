@@ -1,9 +1,12 @@
 import { ReactNode } from 'react';
 import * as pagination from '@zag-js/pagination';
 
-export interface PaginationProps extends Omit<pagination.Context, 'id'> {
+export interface PaginationProps extends Omit<pagination.Context, 'id' | 'count'> {
 	// Provide source data as an array.
 	data: unknown[];
+	/** Total number of data items. Required for server-side pagination. */
+	count?: number;
+
 	// Enables alternative display with stats and first/last buttons.
 	alternative?: boolean;
 	/** Set the separator text or character, such as "of" in "X of Y". */
