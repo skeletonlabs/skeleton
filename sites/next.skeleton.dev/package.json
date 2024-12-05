@@ -42,9 +42,9 @@
 		"nanostores": "^0.11.3",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
-		"sharp": "^0.33.5",
 		"react-hot-toast": "^2.4.1",
-		"svelte": "^5.0.5",
+		"sharp": "^0.33.5",
+		"svelte": "^5.6.0",
 		"svelte-check": "^4.0.5",
 		"tailwindcss": "^3.4.14",
 		"typescript": "catalog:"
