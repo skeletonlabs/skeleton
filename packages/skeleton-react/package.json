@@ -8,7 +8,7 @@
 		"preview": "vite preview",
 		"package": "tsc --project tsconfig.package.json",
 		"package:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
-		"test": "vitest"
+		"test": "vitest run"
 	},
 	"types": "./dist/index.d.ts",
 	"exports": {
