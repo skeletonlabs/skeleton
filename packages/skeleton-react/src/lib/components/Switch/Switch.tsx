@@ -112,9 +112,11 @@ export const Switch: React.FC<SwitchProps> = ({
 				</span>
 			</span>
 			{/* Label */}
-			<span {...api.getLabelProps()} className={`${labelBase} ${labelClasses}`} data-testid="switch-label">
-				{children}
-			</span>
+			{children ? (
+				<span {...api.getLabelProps()} className={`${labelBase} ${labelClasses}`} data-testid="switch-label">
+					{children}
+				</span>
+			) : null}
 		</label>
 	);
 };
