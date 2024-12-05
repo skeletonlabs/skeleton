@@ -101,19 +101,19 @@ describe('<Segment.Item>', () => {
 			</Segment>
 		);
 		const component = getByTestId('segment-item');
-		const ariaSelected = component.getAttribute('aria-selected');
-		expect(ariaSelected).toBeFalsy();
+		const checked = component.getAttribute('data-state');
+		expect(checked).toBe('unchecked');
 	});
 
 	it('should render in the checked state', () => {
 		const { getByTestId } = render(
-			<Segment name="align" value="1">
+			<Segment name="align" value="0">
 				<Segment.Item value="0">TestItem1</Segment.Item>
 			</Segment>
 		);
 		const component = getByTestId('segment-item');
-		const ariaSelected = component.getAttribute('aria-selected');
-		expect(ariaSelected).toBeTruthy();
+		const checked = component.getAttribute('data-state');
+		expect(checked).toBe('checked');
 	});
 
 	it('should render in the disabled state', () => {
