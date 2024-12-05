@@ -7,9 +7,7 @@ import path from 'node:path';
 
 export default defineConfig({
 	plugins: [
-		// @ts-expect-error remove once `vitest` adds `vite@6` as a peer dependency
 		sveltekit(),
-		// @ts-expect-error remove once `vitest` adds `vite@6` as a peer dependency
 		svelteTesting(),
 		skeletonPluginWatcher(path.resolve(path.join('..', '..', 'packages', 'skeleton', 'src', 'plugin')))
 	],
