@@ -63,6 +63,7 @@ module.exports = {
 			{
 				argsIgnorePattern: '^_'
 			}
-		]
+		],
+		'@typescript-eslint/no-unused-expressions': 'off'
 	}
 };

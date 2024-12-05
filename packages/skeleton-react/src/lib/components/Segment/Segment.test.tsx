@@ -102,7 +102,7 @@ describe('<Segment.Item>', () => {
 		);
 		const component = getByTestId('segment-item');
 		const ariaSelected = component.getAttribute('aria-selected');
-		expect(ariaSelected).toBeFalsy;
+		expect(ariaSelected).toBeFalsy();
 	});
 
 	it('should render in the checked state', () => {
@@ -113,7 +113,7 @@ describe('<Segment.Item>', () => {
 		);
 		const component = getByTestId('segment-item');
 		const ariaSelected = component.getAttribute('aria-selected');
-		expect(ariaSelected).toBeTruthy;
+		expect(ariaSelected).toBeTruthy();
 	});
 
 	it('should render in the disabled state', () => {

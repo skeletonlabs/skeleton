@@ -42,14 +42,14 @@ async function main() {
 			s.message(`Processing ${componentName}...`);
 			try {
 				totalInterfaces += await processFile(path);
-			} catch (error) {
+			} catch {
 				s.message(`Failed to process ${componentName}`);
 			}
 		}
 		const seconds = ((performance.now() - startTime) / 1000).toFixed(1);
 		s.stop(`Processed ${totalInterfaces} interfaces from ${paths.length} files in ${seconds}s`);
 		outro('Documentation generation complete!');
-	} catch (error) {
+	} catch {
 		process.exit(1);
 	}
 }
