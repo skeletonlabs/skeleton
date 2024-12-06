@@ -13,6 +13,10 @@
 		triggerBase = '',
 		triggerBackground = '',
 		triggerClasses = '',
+		// Positioner
+		positionerBase = '',
+		positionerZIndex = '',
+		positionerClasses = '',
 		// Content
 		contentBase = '',
 		contentBackground = '',
@@ -55,7 +59,11 @@
 		{@render trigger?.()}
 	</button>
 	<!-- Portal -->
-	<div use:portal={{ disabled: !api.portalled }} {...api.getPositionerProps()}>
+	<div
+		use:portal={{ disabled: !api.portalled }}
+		{...api.getPositionerProps()}
+		class="{positionerBase} {positionerZIndex} {positionerClasses}"
+	>
 		<!-- Popover -->
 		{#if api.open}
 			<div {...api.getContentProps()} transition:fade={{ duration: 100 }}>

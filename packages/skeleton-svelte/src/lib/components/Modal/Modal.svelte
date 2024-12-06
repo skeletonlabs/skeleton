@@ -21,6 +21,7 @@
 		positionerJustify = 'justify-center',
 		positionerAlign = 'items-center',
 		positionerPadding = 'p-4',
+		positionerZIndex = '',
 		positionerClasses = '',
 		// Content
 		contentBase = '',
@@ -80,7 +81,7 @@
 		<div
 			use:portal
 			{...api.getPositionerProps()}
-			class="{positionerBase} {positionerDisplay} {positionerJustify} {positionerAlign} {positionerPadding} {positionerClasses}"
+			class="{positionerBase} {positionerDisplay} {positionerJustify} {positionerAlign} {positionerPadding} {positionerZIndex} {positionerClasses}"
 			in:fly={transitionsPositionerIn}
 			out:fly={transitionsPositionerOut}
 		>
