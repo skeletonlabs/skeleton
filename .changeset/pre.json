@@ -13,6 +13,7 @@
     "@skeletonlabs/necroparser": "0.0.1"
   },
   "changesets": [
+    "blue-moles-swim",
     "calm-cougars-yawn",
     "calm-jars-live",
     "chilled-avocados-pull",
@@ -26,6 +27,7 @@
     "fuzzy-birds-rush",
     "gentle-ants-compare",
     "heavy-bugs-obey",
+    "hip-poems-perform",
     "honest-bears-learn",
     "itchy-zoos-tease",
     "kind-carrots-greet",
@@ -43,6 +45,7 @@
     "serious-cooks-return",
     "shaggy-impalas-press",
     "shy-papayas-behave",
+    "silent-rings-whisper",
     "silver-balloons-impress",
     "six-tables-warn",
     "sixty-jeans-drop",
@@ -57,6 +60,7 @@
     "tame-crews-poke",
     "tiny-icons-beam",
     "tricky-cycles-admire",
+    "weak-items-destroy",
     "wicked-seahorses-itch"
   ]
 }
