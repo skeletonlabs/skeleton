@@ -9,6 +9,9 @@
 	let {
 		open = $bindable(false),
 		arrow = false,
+		// Base
+		base = '',
+		classes = '',
 		// Trigger
 		triggerBase = '',
 		triggerBackground = '',
@@ -53,7 +56,7 @@
 	const api = $derived(popover.connect(snapshot, send, normalizeProps));
 </script>
 
-<span data-testid="popover">
+<span class="{base} {classes}" data-testid="popover">
 	<!-- Snippet: Trigger -->
 	<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
 		{@render trigger?.()}
