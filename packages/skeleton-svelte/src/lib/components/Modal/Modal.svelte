@@ -7,6 +7,9 @@
 
 	let {
 		open = $bindable(false),
+		// Base
+		base = '',
+		classes = '',
 		// Trigger
 		triggerBase = '',
 		triggerBackground = '',
@@ -61,7 +64,7 @@
 	const api = $derived(dialog.connect(snapshot, send, normalizeProps));
 </script>
 
-<span data-testid="modal">
+<span class="{base} {classes}" data-testid="modal">
 	<!-- Trigger -->
 	{#if trigger}
 		<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">

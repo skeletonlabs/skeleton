@@ -6,6 +6,12 @@ export interface ModalProps extends Omit<dialog.Context, 'id' | 'open'> {
 	/** Set the open state of the dialog. */
 	open?: boolean;
 
+	// Base ---
+	// Set base classes for the root element.
+	base?: string;
+	// Provide arbitrary classes for the root element.
+	classes?: string;
+
 	// Trigger ---
 	/** Set base classes for the trigger. */
 	triggerBase?: string;

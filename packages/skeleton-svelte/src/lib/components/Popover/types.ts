@@ -7,6 +7,12 @@ export interface PopoverProps extends Omit<popover.Context, 'id' | 'open'> {
 	/** Enable display of the popover arrow. */
 	arrow?: boolean;
 
+	// Base ---
+	// Set base classes for the root element.
+	base?: string;
+	// Provide arbitrary classes for the root element.
+	classes?: string;
+
 	// Trigger ---
 	/** Set base classes for the trigger. */
 	triggerBase?: string;

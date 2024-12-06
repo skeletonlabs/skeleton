@@ -8,6 +8,9 @@
 
 	let {
 		open = $bindable(false),
+		// Base
+		base = '',
+		classes = '',
 		// Trigger
 		triggerBase = '',
 		triggerBackground = '',
@@ -48,7 +51,7 @@
 	const api = $derived(tooltip.connect(snapshot, send, normalizeProps));
 </script>
 
-<span data-testid="tooltip">
+<span class="{base} {classes}" data-testid="tooltip">
 	<!-- Snippet: Trigger -->
 	<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
 		{@render trigger?.()}
