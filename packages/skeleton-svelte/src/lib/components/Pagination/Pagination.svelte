@@ -64,7 +64,8 @@
 					return pageSize;
 				},
 				get count() {
-					return data.length;
+					// Use 'count' if specified; required for server-side pagination.
+					return zagProps.count ?? data.length;
 				}
 			}
 		}

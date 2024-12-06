@@ -44,7 +44,8 @@ export const Pagination: FC<PaginationProps> = ({
 	const [state, send] = useMachine(
 		pagination.machine({
 			id: useId(),
-			count: data.length
+			// Use 'count' if specified; required for server-side pagination.
+			count: zagProps.count ?? data.length
 		}),
 		{ context: zagProps }
 	);
