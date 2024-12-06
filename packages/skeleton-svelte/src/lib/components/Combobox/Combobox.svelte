@@ -24,13 +24,15 @@
 		inputGroupButton = 'input-group-cell',
 		inputGroupArrow = '',
 		inputGroupClasses = '',
+		// Positioner
+		positionerBase = '',
+		positionerZIndex = '',
+		positionerClasses = '',
 		// Content
 		contentBase = 'card p-2',
 		contentBackground = 'preset-outlined-surface-200-800 bg-surface-50-950',
+		contentSpaceY = 'space-y-1',
 		contentClasses = '',
-		// List
-		listBase = 'space-y-1',
-		listClasses = '',
 		// Option
 		optionBase = 'btn justify-start w-full',
 		optionHover = 'hover:preset-tonal',
@@ -116,12 +118,12 @@
 			</button>
 		</div>
 	</label>
-	<!-- Content -->
+	<!-- Menu -->
 	{#if api.open}
-		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{contentBase} {contentBackground} {contentClasses}">
+		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerZIndex} {positionerClasses}">
 			{#if options.length > 0}
-				<!-- List -->
-				<nav {...api.getContentProps()} class="{listBase} {listClasses}">
+				<!-- Content (list) -->
+				<nav {...api.getContentProps()} class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses}">
 					{#each options as item}
 						{@const isChecked = api.getItemProps({ item })['data-state'] === 'checked'}
 						{@const displayClass = isChecked ? optionActive : optionHover}

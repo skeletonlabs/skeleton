@@ -13,6 +13,14 @@ export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	/** Provide arbitrary styles for the trigger. */
 	triggerClasses?: string;
 
+	// Positioner ---
+	/** Set base classes for the positioner. */
+	positionerBase?: string;
+	/** Set z-index classes for the positioner. */
+	positionerZIndex?: string;
+	/** Provide arbitrary classes for the positioner. */
+	positionerClasses?: string;
+
 	// Content ---
 	/** Set base styles for the content. */
 	contentBase?: string;

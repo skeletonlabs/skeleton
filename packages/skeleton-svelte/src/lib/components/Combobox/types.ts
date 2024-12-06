@@ -37,19 +37,23 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	/** Provide arbitrary classes for the input group. */
 	inputGroupClasses?: string;
 
+	// Positioner ---
+	/** Set base classes for the positioner. */
+	positionerBase?: string;
+	/** Set z-index classes for the positioner. */
+	positionerZIndex?: string;
+	/** Provide arbitrary classes for the positioner. */
+	positionerClasses?: string;
+
 	// Content ---
 	/** Set base classes for the content. */
 	contentBase?: string;
 	/** Set background classes for the content. */
 	contentBackground?: string;
+	/** Set space-y classes for the content. */
+	contentSpaceY?: string;
 	/** Provide arbitrary classes for the content. */
 	contentClasses?: string;
-
-	// List ---
-	/** Set base classes for the list. */
-	listBase?: string;
-	/** Provide arbitrary classes for the list. */
-	listClasses?: string;
 
 	// Option ---
 	/** Set base classes for the option. */
