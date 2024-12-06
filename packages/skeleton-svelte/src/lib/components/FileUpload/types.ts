@@ -2,7 +2,7 @@ import type { Snippet } from 'svelte';
 import * as fileUpload from '@zag-js/file-upload';
 import type { PropTypes } from '@zag-js/svelte';
 
-export interface FileUploadApi extends fileUpload.Api<PropTypes> {}
+export type FileUploadApi = fileUpload.Api<PropTypes>;
 
 export interface FileUploadProps extends Omit<fileUpload.Context, 'id' | 'value'> {
 	/** Set the interface text value. */

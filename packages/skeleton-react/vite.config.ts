@@ -1,5 +1,4 @@
-import { defineConfig } from 'vite';
-import { configDefaults } from 'vitest/config';
+import { defineConfig, configDefaults } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import RemixRouter from 'vite-plugin-remix-router';
 import skeletonPluginWatcher from 'vite-plugin-tw-plugin-watcher';
@@ -8,6 +7,7 @@ import path from 'node:path';
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
+		// @ts-expect-error remove once `vitest` adds `vite@6` as a peer dependency
 		react(),
 		// https://vite-remix-router.vercel.app/
 		RemixRouter(),

@@ -247,7 +247,7 @@ async function createVSCodeSettings() {
 			'https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json'
 		).text();
 		writeFileSync(join(cwd(), '.vscode', 'settings.json'), data);
-	} catch (error) {
+	} catch {
 		console.error('Unable to download settings file for VSCode, please read manual instructions at https://skeleton.dev/guides/install');
 	}
 }

@@ -22,9 +22,9 @@
 		"typescript": "catalog:"
 	},
 	"devDependencies": {
-		"@types/node": "^20.16.11",
+		"@types/node": "^22.10.1",
 		"unbuild": "^2.0.0",
-		"vite": "^5.4.10",
-		"vitest": "^2.1.4"
+		"vite": "^6.0.2",
+		"vitest": "^2.1.8"
 	}
 }
