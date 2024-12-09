@@ -38,11 +38,11 @@ export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Contex
 	// States ---
 	/** Set classes to provide a vertical layout. */
 	orientVertical?: string;
-	/** Set classes to provide a horizintal layout. */
+	/** Set classes to provide a horizontal layout. */
 	orientHorizontal?: string;
-	/** Set claseses for the disabled state. */
+	/** Set classes for the disabled state. */
 	stateDisabled?: string;
-	/** Set claseses for the read-only state. */
+	/** Set classes for the read-only state. */
 	stateReadOnly?: string;
 
 	// Indicator ---
@@ -56,6 +56,10 @@ export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Contex
 	indicatorRounded?: string;
 	/** Provide arbitrary CSS classes to the indicator. */
 	indicatorClasses?: string;
+
+	// Label ---
+	/** Set aria-labelledby for element */
+	labelledby?: string;
 
 	// Events ---
 	/** Triggers when the value state is changed. */

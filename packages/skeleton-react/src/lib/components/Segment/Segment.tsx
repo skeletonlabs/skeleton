@@ -39,6 +39,8 @@ const SegmentRoot: FC<SegmentProps> = ({
 	indicatorClasses = '',
 	// Events
 	onValueChange = noop,
+	// Label
+	labelledby = '',
 	// Children
 	children,
 	// Zag
@@ -68,6 +70,7 @@ const SegmentRoot: FC<SegmentProps> = ({
 			{...api.getRootProps()}
 			className={`${base} ${rxOrientation} ${background} ${border} ${padding} ${gap} ${rounded} ${width} ${rxDisabled} ${rxReadOnly} ${classes}`}
 			data-testid="segment"
+			aria-labelledby={labelledby}
 		>
 			{/* Indicator */}
 			<div
