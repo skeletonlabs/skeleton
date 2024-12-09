@@ -12,22 +12,21 @@ jobs:
     if: github.repository == 'skeletonlabs/skeleton'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Use PNPM
-        uses: pnpm/action-setup@v4
-
-      - name: Use Node v18
-        uses: actions/setup-node@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build packages
+        run: pnpm package
 
       - name: Create Release Pull Request or Publish
         id: changesets
@@ -35,7 +34,7 @@ jobs:
         with:
           commit: 'chore(next-release): version package'
           title: 'chore(next-release): version package'
-          publish: pnpm ci:release
+          publish: pnpm ci:publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

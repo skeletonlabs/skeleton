@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as radio from '@zag-js/radio-group';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import type { SegmentControl } from './types.js';
+	import type { SegmentProps } from './types.js';
 	import { setSegmentContext } from './context.js';
 	import { useId } from '$lib/internal/use-id.js';
 
@@ -32,7 +32,7 @@
 		children,
 		// Zag
 		...zagProps
-	}: SegmentControl = $props();
+	}: SegmentProps = $props();
 
 	// Zag
 	const [snapshot, send] = useMachine(

@@ -1,13 +1,11 @@
 {
 	"name": "@skeletonlabs/skeleton",
-	"version": "3.0.0-next.6",
+	"version": "3.0.0-next.9",
 	"description": "Core plugin for Skeleton.",
 	"scripts": {
-		"build": "pnpm build:jss && tsup",
-		"build:jss": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/generate-jss.ts",
-		"convert": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/convert-theme.ts && pnpm format",
-		"sync": "pnpm build:jss && tsup",
-		"package": "pnpm build:jss && tsup"
+		"package": "pnpm package:jss && tsup",
+		"package:jss": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/generate-jss.ts",
+		"convert": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/convert-theme.ts && pnpm format"
 	},
 	"repository": {
 		"type": "git",
@@ -34,13 +32,11 @@
 	"homepage": "https://skeleton.dev/",
 	"devDependencies": {
 		"@types/postcss-import": "^14.0.3",
-		"postcss": "8.4.47",
-		"postcss-import": "16.1.0",
-		"postcss-load-config": "6.0.1",
-		"tailwindcss": "3.4.14",
-		"tslib": "2.8.0",
-		"tsup": "^8.3.0",
-		"tsx": "^4.19.1",
+		"postcss": "^8.4.49",
+		"postcss-import": "^16.1.0",
+		"postcss-load-config": "^6.0.1",
+		"tailwindcss": "^3.4.16",
+		"tsup": "^8.3.5",
 		"typescript": "catalog:"
 	},
 	"dependencies": {
@@ -55,16 +51,34 @@
 	"types": "./dist/core/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/core/index.d.ts",
-			"default": "./dist/core/index.js"
+			"import": {
+				"types": "./dist/core/index.d.ts",
+				"default": "./dist/core/index.js"
+			},
+			"require": {
+				"types": "./dist/core/index.d.cts",
+				"default": "./dist/core/index.cjs"
+			}
 		},
 		"./plugin": {
-			"types": "./dist/plugin/index.d.ts",
-			"require": "./dist/plugin/index.cjs"
+			"import": {
+				"types": "./dist/plugin/index.d.ts",
+				"default": "./dist/plugin/index.js"
+			},
+			"require": {
+				"types": "./dist/plugin/index.d.cts",
+				"default": "./dist/plugin/index.cjs"
+			}
 		},
 		"./themes": {
-			"types": "./dist/themes/index.d.ts",
-			"default": "./dist/themes/index.js"
+			"import": {
+				"types": "./dist/themes/index.d.ts",
+				"default": "./dist/themes/index.js"
+			},
+			"require": {
+				"types": "./dist/themes/index.d.cts",
+				"default": "./dist/themes/index.cjs"
+			}
 		}
 	},
 	"files": [

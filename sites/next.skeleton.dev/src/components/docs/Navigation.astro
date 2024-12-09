@@ -17,7 +17,7 @@ async function queryCollection(startsWith: string) {
 	return await getCollection('docs', (entry) => {
 		if (!entry.id.startsWith(startsWith)) return;
 		if (entry.id.split('/').length > 2) return;
-		if (entry.id.endsWith('meta.mdx')) return;
+		if (entry.id.endsWith('meta')) return;
 		return entry;
 	});
 }
@@ -31,14 +31,14 @@ const cResources = await queryCollection('resources/');
 // Query the Components section
 const cComponents = await getCollection('docs', (entry) => {
 	if (!entry.id.startsWith('components/')) return;
-	if (!entry.id.endsWith('meta.mdx')) return;
+	if (!entry.id.endsWith('meta')) return;
 	return entry;
 });
 
 // Query the Integrations section
 const cIntegrations = await getCollection('docs', (entry) => {
 	if (!entry.id.startsWith('integrations/')) return;
-	if (!entry.id.endsWith('meta.mdx')) return;
+	if (!entry.id.endsWith('meta')) return;
 	return entry;
 });
 

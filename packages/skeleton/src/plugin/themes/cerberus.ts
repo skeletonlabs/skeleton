@@ -33,7 +33,7 @@ const cerberus = {
 		'--heading-font-style': 'normal',
 		'--heading-letter-spacing': 'inherit',
 		'--anchor-font-color': 'var(--color-primary-500)',
-		'--anchor-font-color-dark': 'var(--color-primary-500)',
+		'--anchor-font-color-dark': 'var(--color-primary-400)',
 		'--anchor-font-family': 'inherit',
 		'--anchor-font-size': 'inherit',
 		'--anchor-line-height': 'inherit',

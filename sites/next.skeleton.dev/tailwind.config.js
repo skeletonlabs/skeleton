@@ -1,8 +1,7 @@
 // import { skeleton } from '../../packages/skeleton/dist/plugin/index.cjs'
-// NOTE: do not delete the above comment. It's required for local HMR on plugin changes.
+// NOTE: Do not delete the above comment. It's required for local HMR on plugin changes.
 
-import { join } from 'path';
-import { skeleton } from '@skeletonlabs/skeleton/plugin';
+import { skeleton, contentPath } from '../../packages/skeleton/dist/plugin/index.js';
 import * as themes from '@skeletonlabs/skeleton/themes';
 import forms from '@tailwindcss/forms';
 
@@ -11,17 +10,16 @@ export default {
 	darkMode: 'class',
 	content: [
 		'./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-		join(require.resolve('@skeletonlabs/skeleton-react'), '../**/*.{html,js,ts,jsx,tsx}'),
-		join(require.resolve('@skeletonlabs/skeleton-svelte'), '../**/*.{html,js,ts,svelte}')
+		contentPath(import.meta.url, 'svelte'),
+		contentPath(import.meta.url, 'react')
 	],
 	theme: {
 		extend: {}
 	},
 	plugins: [
 		forms,
-		// typography,
 		skeleton({
-			themes: Object.values(themes) // all available themes
+			themes: Object.values(themes) // All available themes
 		})
 	]
 };

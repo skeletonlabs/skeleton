@@ -8,6 +8,7 @@ import type { ProgressRingProps } from './types.js';
 
 export const ProgressRing: FC<ProgressRingProps> = ({
 	label,
+	showLabel = false,
 	strokeWidth = '10px',
 	strokeLinecap = 'round',
 	// Root
@@ -47,8 +48,8 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	const api = progress.connect(state, send, normalizeProps);
 
 	// Reactive Classes
-	const rxAnimCircle = api.indeterminate && 'animate-spin';
-	const rxAnimMeter = api.indeterminate && meterAnimate;
+	const rxAnimCircle = api.indeterminate ? 'animate-spin' : '';
+	const rxAnimMeter = api.indeterminate ? meterAnimate : '';
 
 	return (
 		<figure {...api.getRootProps()} className={`${base} ${size} ${classes}`} data-testid="progress-ring">
@@ -77,7 +78,7 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 					data-testid="progress-ring-meter"
 				/>
 				{/* Label */}
-				{api.value !== null && !children && (
+				{api.value !== null && !children && showLabel && (
 					<text
 						className={`${labelBase} ${labelFill} ${labelClasses}`}
 						x="50%"

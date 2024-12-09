@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"lib": ["DOM", "ESNext"],
+		"moduleDetection": "force",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"types": ["node", "vite/client"],
+		"strict": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"skipDefaultLibCheck": true,
+		"skipLibCheck": true
+	},
+	"include": ["src/*.ts"]
+}

@@ -1,4 +1,5 @@
 ---
+import LayoutRoot from '@layouts/LayoutRoot.astro';
 import type { GetStaticPaths } from 'astro';
 import { getCollection, getEntry } from 'astro:content';
 
@@ -29,4 +30,6 @@ if (meta !== undefined) {
 }
 ---
 
-<Content />
+<LayoutRoot>
+	<Content />
+</LayoutRoot>

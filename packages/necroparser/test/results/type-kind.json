@@ -1,0 +1,47 @@
+[
+	{
+		"name": "Interface",
+		"properties": [
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "primitive",
+				"required": true,
+				"type": "string",
+				"typeKind": "primitive"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "array",
+				"required": true,
+				"type": "string[]",
+				"typeKind": "array"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "object",
+				"required": true,
+				"type": "{ [key: string]: unknown; }",
+				"typeKind": "object"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "union",
+				"required": true,
+				"type": "\"foo\" | \"bar\"",
+				"typeKind": "union"
+			}
+		]
+	}
+]

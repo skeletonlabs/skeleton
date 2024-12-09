@@ -1,20 +1,37 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: Alerts
-description: Displays customizable alerts to attract attention and provide critical actions.
+description: General purpose notifications to attract attention and provide critical actions.
 showDocsUrl: true
+pubDate: 2024-11-18
+tags: ['presentation', 'notifications']
 ---
 
 export const components = componentSet;
 
 import Example from '@examples/resources/cookbook/alerts/Example.astro';
 import ExampleRaw from '@examples/resources/cookbook/alerts/Example.astro?raw';
+import ExampleColors from '@examples/resources/cookbook/alerts/ExampleColors.astro';
+import ExampleColorsRaw from '@examples/resources/cookbook/alerts/ExampleColors.astro?raw';
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<Example />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Styling
+
+For even more customization, try mixing and matching various [Presets](/docs/design/presets) classes.
+
+<Preview client:visible>
+	<Fragment slot="preview">
+		<ExampleColors />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleColorsRaw} lang="astro" />
 	</Fragment>
 </Preview>

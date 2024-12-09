@@ -10,51 +10,51 @@ concurrency:
 
 jobs:
   check:
-    name: Run checks
+    name: Run check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Build packages
-        run: pnpm -r package
+        run: pnpm package
 
       - name: Run package checks
         run: pnpm check
 
   lint:
-    name: Run linter
+    name: Run lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Run eslint
-        run: pnpm lint
+        run: pnpm lint:check
 
   format:
-    name: Run formatting check
+    name: Run format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies
@@ -64,21 +64,18 @@ jobs:
         run: pnpm format:check
 
   test:
-    name: Run tests
+    name: Run test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
-
-      - name: Install playwright browsers
-        run: pnpm -F @skeletonlabs/skeleton-svelte exec playwright install
 
       - name: Run tests
         run: pnpm test

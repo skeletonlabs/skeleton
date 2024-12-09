@@ -95,7 +95,12 @@
 
 <!-- Toast Group -->
 {#if toastQueue.length}
-	<div class="{groupBase} {groupZIndex} {groupGap} {groupClasses}" style={formatStyleAttr(placementOptions[placement])} data-part="root">
+	<div
+		class="{groupBase} {groupZIndex} {groupGap} {groupClasses}"
+		style={formatStyleAttr(placementOptions[placement])}
+		data-part="root"
+		data-testid="toast-provider"
+	>
 		{#each toastQueue as toast, i (toast)}
 			{@const stateClasses = getStateClasses(toast.type)}
 			<!-- Toast -->

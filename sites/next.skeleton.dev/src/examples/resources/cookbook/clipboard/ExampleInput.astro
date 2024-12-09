@@ -1,0 +1,20 @@
+<div class="flex items-center gap-4">
+	<input type="text" class="input" value="Hello Skeleton" data-source />
+	<button class="btn preset-filled" data-trigger>Copy</button>
+</div>
+
+<script>
+	// Create element references
+	const elemButton: HTMLButtonElement | null = document.querySelector('[data-trigger]');
+	const elemInput: HTMLInputElement | null = document.querySelector('[data-source]');
+
+	// Add a click event handler to the trigger
+	elemButton?.addEventListener('click', () => {
+		// Call the Clipboard API
+		navigator.clipboard
+			// Use the `writeText` method write content to the clipboard
+			.writeText(elemInput?.value || '')
+			// Handle confirmation
+			.then(() => console.log('Input value copied to clipboard!'));
+	});
+</script>

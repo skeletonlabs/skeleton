@@ -22,7 +22,7 @@
 	</header>
 	<pre class="pre">{JSON.stringify({ disturb, notifications, disabled, icons, lightswitch, compact }, null, 2)}</pre>
 	<section class="space-y-4 p-4">
-		<Switch name="disturb" bind:checked={disturb}>
+		<Switch name="disturb" bind:checked={disturb} onCheckedChange={console.log}>
 			<p>Defaults to inactive state.</p>
 		</Switch>
 		<hr class="hr" />

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Nav } from '@skeletonlabs/skeleton-svelte';
+	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconMenu from 'lucide-svelte/icons/menu';
 	import IconFolder from 'lucide-svelte/icons/folder';
@@ -14,31 +14,31 @@
 
 <div class="card border-surface-100-900 grid h-[760px] w-full grid-cols-[auto_1fr] border-[1px]">
 	<!-- Component -->
-	<Nav.Rail expanded>
+	<Navigation.Rail expanded>
 		{#snippet header()}
-			<Nav.Tile href="/" labelExpanded="Menu"><IconMenu /></Nav.Tile>
+			<Navigation.Tile href="/" labelExpanded="Menu"><IconMenu /></Navigation.Tile>
 		{/snippet}
 		{#snippet tiles()}
-			<Nav.Tile id="0" labelExpanded="Browse Files" href={hrefExample}>
+			<Navigation.Tile id="0" labelExpanded="Browse Files" href={hrefExample}>
 				<IconFolder />
-			</Nav.Tile>
-			<Nav.Tile id="1" labelExpanded="Browse Images" href={hrefExample}>
+			</Navigation.Tile>
+			<Navigation.Tile id="1" labelExpanded="Browse Images" href={hrefExample}>
 				<IconImage />
-			</Nav.Tile>
-			<Nav.Tile id="2" labelExpanded="Browse Music" href={hrefExample}>
+			</Navigation.Tile>
+			<Navigation.Tile id="2" labelExpanded="Browse Music" href={hrefExample}>
 				<IconMusic />
-			</Nav.Tile>
-			<Nav.Tile id="2" labelExpanded="Browse Videos" href={hrefExample}>
+			</Navigation.Tile>
+			<Navigation.Tile id="2" labelExpanded="Browse Videos" href={hrefExample}>
 				<IconVideo />
-			</Nav.Tile>
-			<Nav.Tile id="2" labelExpanded="Browse Games" href={hrefExample}>
+			</Navigation.Tile>
+			<Navigation.Tile id="2" labelExpanded="Browse Games" href={hrefExample}>
 				<IconGames />
-			</Nav.Tile>
+			</Navigation.Tile>
 		{/snippet}
 		{#snippet footer()}
-			<Nav.Tile labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></Nav.Tile>
+			<Navigation.Tile labelExpanded="Settings" href="/settings" title="Settings"><IconSettings /></Navigation.Tile>
 		{/snippet}
-	</Nav.Rail>
+	</Navigation.Rail>
 	<!-- Content -->
 	<div class="flex items-center justify-center">
 		<p class="opacity-20">(Content)</p>

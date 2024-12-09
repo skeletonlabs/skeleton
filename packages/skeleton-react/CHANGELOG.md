@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.11
+
+### Patch Changes
+
+- feature: Add `showFirstLastButtons` prop to Pagination to enable toggling first and last buttons. ([#3007](https://github.com/skeletonlabs/skeleton/pull/3007))
+
+- chore: the React `<Nav>` component renamed `<Navigation>` to be uniform with other frameworks ([#3004](https://github.com/skeletonlabs/skeleton/pull/3004))
+
+- chore: ProgressRing component no longer has a label by default, but can be enabled with `showLabel` prop. ([#2996](https://github.com/skeletonlabs/skeleton/pull/2996))
+
+## 1.0.0-next.10
+
+### Patch Changes
+
+- bugfix: Minor bugfix to progressRing indeterminate class logic ([#2968](https://github.com/skeletonlabs/skeleton/pull/2968))
+
+- bugfix: Resolved Pagination alternative mode page count issue ([#2956](https://github.com/skeletonlabs/skeleton/pull/2956))
+
 ## 1.0.0-next.9
 
 ### Minor Changes

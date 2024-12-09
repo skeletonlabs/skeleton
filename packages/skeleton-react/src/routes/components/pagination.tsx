@@ -30,10 +30,10 @@ export function Component() {
 	];
 
 	// State
-	const [size, setSize] = useState<number>(3);
+	const [size, setSize] = useState<number>(5);
 	const [settings, setSettings] = useState({ page: 1, pageSize: size });
 	const slicedSource = (s: SourceData[]) => s.slice((settings.page - 1) * size, settings.page * size);
-	const sizeOptions = [1, 3, 4, 10, 100];
+	const sizeOptions = [1, 2, 5];
 
 	return (
 		<div className="space-y-10">
@@ -78,6 +78,7 @@ export function Component() {
 								Items {v}
 							</option>
 						))}
+						<option value={sourceData.length}>Show All</option>
 					</select>
 					{/* Pagination */}
 					<Pagination

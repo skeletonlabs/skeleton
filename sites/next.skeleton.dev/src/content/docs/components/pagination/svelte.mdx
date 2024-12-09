@@ -30,3 +30,27 @@ Display an alternative interface using the `alternative` property.
 		<Code code={ExampleAltRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+## Handling Total Count
+
+If your source data is pre-truncated (ex: server-side pagination). Make sure to specify the total item `count`.
+
+```json
+// Mock Server Response
+pagination: {
+	"page": 1,
+	"limit": 2,
+	"pages": 1,
+	"total": 1, // <----
+	"next": null,
+	"prev": null
+}
+```
+
+```svelte
+<Pagination count={pagination.total} ... />
+```
+
+## API Reference
+
+<ApiTable   />

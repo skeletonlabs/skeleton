@@ -16,7 +16,7 @@ export default defineConfig([
 		...base,
 		entry: ['src/plugin/index.ts'],
 		outDir: 'dist/plugin',
-		format: ['cjs'],
+		format: ['esm', 'cjs'],
 		tsconfig: 'src/plugin/tsconfig.json'
 	},
 	{
@@ -24,7 +24,7 @@ export default defineConfig([
 		...base,
 		entry: ['src/plugin/themes/index.ts'],
 		outDir: 'dist/themes',
-		format: ['esm'],
+		format: ['esm', 'cjs'],
 		tsconfig: 'src/plugin/tsconfig.json'
 	},
 	{
@@ -32,7 +32,7 @@ export default defineConfig([
 		...base,
 		entry: ['src/core/index.ts'],
 		outDir: 'dist/core',
-		format: ['esm'],
+		format: ['esm', 'cjs'],
 		tsconfig: 'src/core/tsconfig.json'
 	}
 ]);

@@ -3,6 +3,8 @@ layout: '@layouts/LayoutDoc.astro'
 title: Logo Clouds
 description: Provides a grid for presenting a set of logos, brands, or sponsors.
 showDocsUrl: true
+pubDate: 2024-11-18
+tags: ['presentation', 'branding']
 ---
 
 export const components = componentSet;
@@ -12,7 +14,7 @@ import ExampleRaw from '@examples/resources/cookbook/logo-clouds/Example.astro?r
 import ExampleRows from '@examples/resources/cookbook/logo-clouds/ExampleRows.astro';
 import ExampleRowsRaw from '@examples/resources/cookbook/logo-clouds/ExampleRows.astro?raw';
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<Example />
 	</Fragment>
@@ -23,7 +25,7 @@ import ExampleRowsRaw from '@examples/resources/cookbook/logo-clouds/ExampleRows
 
 ## Rows
 
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview">
 		<ExampleRows />
 	</Fragment>

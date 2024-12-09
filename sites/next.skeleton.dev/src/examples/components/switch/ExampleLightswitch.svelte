@@ -15,7 +15,7 @@
 	}
 </script>
 
-<Switch name="mode" controlActive="bg-surface-200" bind:checked={mode} onchange={handleModeChange}>
+<Switch name="mode" controlActive="bg-surface-200" bind:checked={mode} onCheckedChange={handleModeChange}>
 	{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 	{#snippet activeChild()}<IconSun size="14" />{/snippet}
 </Switch>
