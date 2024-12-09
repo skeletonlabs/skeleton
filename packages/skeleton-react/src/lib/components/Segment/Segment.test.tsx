@@ -69,7 +69,7 @@ describe('<Segment>', () => {
 		expect(component).toHaveClass(testClass);
 	});
 
-	it('should have semantic link', () => {
+	it('should have aria-labelledby attribute', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0" labelledby="align-label">
 				<Segment.Item value="0">TestItem1</Segment.Item>
