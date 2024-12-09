@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import * as combobox from '@zag-js/combobox';
 
-export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection' | 'value' | 'label'> {
+export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection' | 'value' | 'label' | 'multiple'> {
 	/** Provide the list of label and value data */
 	data?: { label: string; value: string }[];
 	/** Bind the selected value. */
