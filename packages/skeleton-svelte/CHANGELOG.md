@@ -1,5 +1,19 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.16
+
+### Patch Changes
+
+- bugfix: Reinstate Pagination `count` prop. ([#3026](https://github.com/skeletonlabs/skeleton/pull/3026))
+
+- chore: Added base style prop classes to Svelte Popover, Tooltip, and Modal components ([#3031](https://github.com/skeletonlabs/skeleton/pull/3031))
+
+- chore: Added positioner and z-index style props to the Svelte Popover, Tooltip, Combobox, and Modal components ([#3029](https://github.com/skeletonlabs/skeleton/pull/3029))
+
+- chore: Disabled the unsupported Svelte Combobox multiple property ([#3033](https://github.com/skeletonlabs/skeleton/pull/3033))
+
+- bugfix: empty padding when switch has no children ([#3024](https://github.com/skeletonlabs/skeleton/pull/3024))
+
 ## 1.0.0-next.15
 
 ### Patch Changes
