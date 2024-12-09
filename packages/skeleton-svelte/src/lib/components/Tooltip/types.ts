@@ -5,6 +5,12 @@ export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	/** Set the open state of the tooltip. */
 	open?: boolean;
 
+	// Base ---
+	// Set base classes for the root element.
+	base?: string;
+	// Provide arbitrary classes for the root element.
+	classes?: string;
+
 	// Trigger ---
 	/** Set base styles for the trigger. */
 	triggerBase?: string;
@@ -12,6 +18,14 @@ export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	triggerBackground?: string;
 	/** Provide arbitrary styles for the trigger. */
 	triggerClasses?: string;
+
+	// Positioner ---
+	/** Set base classes for the positioner. */
+	positionerBase?: string;
+	/** Set z-index classes for the positioner. */
+	positionerZIndex?: string;
+	/** Provide arbitrary classes for the positioner. */
+	positionerClasses?: string;
 
 	// Content ---
 	/** Set base styles for the content. */

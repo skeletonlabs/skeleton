@@ -2,6 +2,7 @@
 // NOTE: do not delete the above comment. It's required for local HMR on plugin changes.
 
 import { skeleton } from '@skeletonlabs/skeleton/plugin';
+import forms from '@tailwindcss/forms';
 import * as themes from '@skeletonlabs/skeleton/themes';
 
 /** @type {import('tailwindcss').Config} */
@@ -12,7 +13,7 @@ export default {
 		extend: {}
 	},
 	plugins: [
-		require('@tailwindcss/forms'),
+		forms,
 		skeleton({
 			themes: [themes.cerberus, themes.catppuccin, themes.pine, themes.rose]
 		})

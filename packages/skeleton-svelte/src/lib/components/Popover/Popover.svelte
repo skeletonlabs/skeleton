@@ -9,10 +9,17 @@
 	let {
 		open = $bindable(false),
 		arrow = false,
+		// Base
+		base = '',
+		classes = '',
 		// Trigger
 		triggerBase = '',
 		triggerBackground = '',
 		triggerClasses = '',
+		// Positioner
+		positionerBase = '',
+		positionerZIndex = '',
+		positionerClasses = '',
 		// Content
 		contentBase = '',
 		contentBackground = '',
@@ -49,13 +56,17 @@
 	const api = $derived(popover.connect(snapshot, send, normalizeProps));
 </script>
 
-<span data-testid="popover">
+<span class="{base} {classes}" data-testid="popover">
 	<!-- Snippet: Trigger -->
 	<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
 		{@render trigger?.()}
 	</button>
 	<!-- Portal -->
-	<div use:portal={{ disabled: !api.portalled }} {...api.getPositionerProps()}>
+	<div
+		use:portal={{ disabled: !api.portalled }}
+		{...api.getPositionerProps()}
+		class="{positionerBase} {positionerZIndex} {positionerClasses}"
+	>
 		<!-- Popover -->
 		{#if api.open}
 			<div {...api.getContentProps()} transition:fade={{ duration: 100 }}>

@@ -8,10 +8,17 @@
 
 	let {
 		open = $bindable(false),
+		// Base
+		base = '',
+		classes = '',
 		// Trigger
 		triggerBase = '',
 		triggerBackground = '',
 		triggerClasses = '',
+		// Positioner
+		positionerBase = '',
+		positionerZIndex = '',
+		positionerClasses = '',
 		// Content
 		contentBase = '',
 		contentBackground = '',
@@ -44,14 +51,14 @@
 	const api = $derived(tooltip.connect(snapshot, send, normalizeProps));
 </script>
 
-<span data-testid="tooltip">
+<span class="{base} {classes}" data-testid="tooltip">
 	<!-- Snippet: Trigger -->
 	<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
 		{@render trigger?.()}
 	</button>
 	<!-- Tooltip Content -->
 	{#if api.open}
-		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }}>
+		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerZIndex} {positionerClasses}">
 			<!-- Snippet Content -->
 			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}">
 				{@render content?.()}

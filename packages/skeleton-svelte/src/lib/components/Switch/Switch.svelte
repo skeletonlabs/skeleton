@@ -124,7 +124,9 @@
 		</span>
 	</span>
 	<!-- Label -->
-	<span {...api.getLabelProps()} class="{labelBase} {labelClasses}" data-testid="switch-label">
-		{@render children?.()}
-	</span>
+	{#if children}
+		<span {...api.getLabelProps()} class="{labelBase} {labelClasses}" data-testid="switch-label">
+			{@render children()}
+		</span>
+	{/if}
 </label>

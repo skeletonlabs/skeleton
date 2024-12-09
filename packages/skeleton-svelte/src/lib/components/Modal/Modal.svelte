@@ -7,6 +7,9 @@
 
 	let {
 		open = $bindable(false),
+		// Base
+		base = '',
+		classes = '',
 		// Trigger
 		triggerBase = '',
 		triggerBackground = '',
@@ -21,6 +24,7 @@
 		positionerJustify = 'justify-center',
 		positionerAlign = 'items-center',
 		positionerPadding = 'p-4',
+		positionerZIndex = '',
 		positionerClasses = '',
 		// Content
 		contentBase = '',
@@ -60,7 +64,7 @@
 	const api = $derived(dialog.connect(snapshot, send, normalizeProps));
 </script>
 
-<span data-testid="modal">
+<span class="{base} {classes}" data-testid="modal">
 	<!-- Trigger -->
 	{#if trigger}
 		<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
@@ -80,7 +84,7 @@
 		<div
 			use:portal
 			{...api.getPositionerProps()}
-			class="{positionerBase} {positionerDisplay} {positionerJustify} {positionerAlign} {positionerPadding} {positionerClasses}"
+			class="{positionerBase} {positionerDisplay} {positionerJustify} {positionerAlign} {positionerPadding} {positionerZIndex} {positionerClasses}"
 			in:fly={transitionsPositionerIn}
 			out:fly={transitionsPositionerOut}
 		>
