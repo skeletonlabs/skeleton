@@ -51,8 +51,8 @@
 		"@zag-js/tags-input": "catalog:"
 	},
 	"peerDependencies": {
-		"react": "^18.0.0",
-		"react-dom": "^18.0.0"
+		"react": "^18.0.0 || ^19.0.0",
+		"react-dom": "^18.0.0 || ^19.0.0"
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
