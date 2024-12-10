@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.12
+
+### Patch Changes
+
+- bugfix: Reinstate Pagination `count` prop. ([#3026](https://github.com/skeletonlabs/skeleton/pull/3026))
+
+- chore: Updated peer dependencies to support React 19 ([#3038](https://github.com/skeletonlabs/skeleton/pull/3038))
+
+- bugfix: empty padding when switch has no children ([#3024](https://github.com/skeletonlabs/skeleton/pull/3024))
+
+- bugfix: Set unique `key` properly for React's Rating component ([#3043](https://github.com/skeletonlabs/skeleton/pull/3043))
+
 ## 1.0.0-next.11
 
 ### Patch Changes

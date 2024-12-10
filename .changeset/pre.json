@@ -13,6 +13,7 @@
     "@skeletonlabs/necroparser": "0.0.1"
   },
   "changesets": [
+    "blue-moles-swim",
     "calm-cougars-yawn",
     "calm-jars-live",
     "chilled-avocados-pull",
@@ -20,12 +21,14 @@
     "chilled-trainers-drop",
     "clean-fans-pretend",
     "clever-carpets-own",
+    "clever-terms-train",
     "cuddly-dingos-sell",
     "empty-cycles-dream",
     "fluffy-rockets-call",
     "fuzzy-birds-rush",
     "gentle-ants-compare",
     "heavy-bugs-obey",
+    "hip-poems-perform",
     "honest-bears-learn",
     "itchy-zoos-tease",
     "kind-carrots-greet",
@@ -43,9 +46,11 @@
     "serious-cooks-return",
     "shaggy-impalas-press",
     "shy-papayas-behave",
+    "silent-rings-whisper",
     "silver-balloons-impress",
     "six-tables-warn",
     "sixty-jeans-drop",
+    "slimy-keys-bathe",
     "small-ways-jump",
     "smooth-hornets-hunt",
     "sour-shrimps-compete",
@@ -57,6 +62,8 @@
     "tame-crews-poke",
     "tiny-icons-beam",
     "tricky-cycles-admire",
-    "wicked-seahorses-itch"
+    "weak-items-destroy",
+    "wicked-seahorses-itch",
+    "wild-wolves-wink"
   ]
 }
