@@ -28,6 +28,10 @@
 		indicatorText = 'text-surface-contrast-950 dark:text-surface-contrast-50',
 		indicatorRounded = 'rounded',
 		indicatorClasses = '',
+
+		// Label
+		labelledby = '',
+
 		// Snippets
 		children,
 		// Zag
@@ -75,6 +79,7 @@
 <div
 	{...api.getRootProps()}
 	class="{base} {rxOrientation} {background} {border} {padding} {gap} {rounded} {width} {rxDisabled} {rxReadOnly} {classes}"
+	aria-labelledby={labelledby}
 	data-testid="segment"
 >
 	<!-- Indicator -->

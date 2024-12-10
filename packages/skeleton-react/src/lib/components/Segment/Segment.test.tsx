@@ -68,6 +68,16 @@ describe('<Segment>', () => {
 		const component = getByTestId('segment');
 		expect(component).toHaveClass(testClass);
 	});
+
+	it('should have aria-labelledby attribute', () => {
+		const { getByTestId } = render(
+			<Segment name="align" value="0" labelledby="align-label">
+				<Segment.Item value="0">TestItem1</Segment.Item>
+			</Segment>
+		);
+		const component = getByTestId('segment');
+		expect(component).toHaveAttribute('aria-labelledby', 'align-label');
+	});
 });
 
 // Segment Item ---
