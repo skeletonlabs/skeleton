@@ -24,6 +24,7 @@ async function queryCollection(startsWith: string) {
 
 // Query each collection we wish to display
 const cGetStarted = await queryCollection('get-started/');
+const cGuides = await queryCollection('guides/');
 const cDesign = await queryCollection('design/');
 const cTailwind = await queryCollection('tailwind/');
 const cResources = await queryCollection('resources/');
@@ -45,6 +46,7 @@ const cIntegrations = await getCollection('docs', (entry) => {
 // Set the Label and Link List for each navigation section
 const navigation = {
 	'get-started': cGetStarted.sort(sortByOrder),
+	guides: cGuides.sort(sortByOrder),
 	design: cDesign.sort(sortByOrder),
 	tailwind: cTailwind.sort(sortByOrder),
 	components: cComponents,
