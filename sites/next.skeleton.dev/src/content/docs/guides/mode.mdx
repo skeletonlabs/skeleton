@@ -1,0 +1,41 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Dark Mode
+description: Learn how to use Tailwind's dark mode feature for your Skeleton project.
+order: 40
+---
+
+export const components = componentSet;
+
+<p class="type-scale-5">Skeleton does not implement a custom solution for Dark Mode, but rather fully utilizes the mechanics [provided by Tailwind](https://tailwindcss.com/docs/dark-mode). This allows mode to be toggled based on the operating system, or manually controlled via user settings.</p>
+
+## Fundamentals
+
+Tailwind provides two Dark Mode strategies, defined in your [Tailwind configuration](https://tailwindcss.com/docs/dark-mode).
+
+- `darkMode: 'selector'` - enables the Selector strategy.
+- `darkMode: 'media'` - enables the Media strategy.
+
+### Selector Strategy
+
+See [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually) for toggling dark mode. This is accomplished by adding or removing  a `.dark` class to your document's `<html>` element to determine the mode. The exact instructions for implementing this may differ based on your app's meta-framework.
+
+### Media Strategy
+
+Uses CSS's [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) to set the mode based on operating system preference. You may toggle the light or dark mode setting within your operating system system settings. In some browsera nd devices this may require you to refresh the browser page.
+
+## Styling Elements
+
+The base value represents light mode, while the `dark:` modifier overrides this value for dark mode. Note that all Skeleton components implement this technique out of the box.
+
+```html
+<!--
+Light Mode: White Background
+Dark Mode: Black Background
+-->
+<div class="bg-white dark:bg-black">...</div>
+```
+
+## Using Color Parings
+
+Skeleton provides opinionated utility classes called [Color Pairings](/docs/design/colors#pairings) to assist with balancing theme colors for light and dark mode.

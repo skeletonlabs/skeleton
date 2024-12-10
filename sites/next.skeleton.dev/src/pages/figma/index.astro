@@ -1,0 +1,21 @@
+---
+// Layout
+import LayoutRoot from '@layouts/LayoutRoot.astro';
+// Components
+import Header from '@components/docs/Header.astro';
+import Footer from '@components/docs/Footer.astro';
+
+const layoutProps = {};
+---
+
+<LayoutRoot {...layoutProps}>
+	<!-- Header -->
+	<Header />
+	<!-- Main -->
+	<main class="max-w-3xl mx-auto space-y-10 py-10 px-4">
+		<!-- NOTE: feel free to add any page content here! -->
+		<p class="text-center">Coming soon!</p>
+	</main>
+	<!-- Footer -->
+	<Footer />
+</LayoutRoot>
