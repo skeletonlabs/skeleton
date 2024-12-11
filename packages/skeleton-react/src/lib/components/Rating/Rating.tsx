@@ -16,7 +16,7 @@ export const Rating: FC<RatingProps> = ({
 	controlGap = 'gap-2',
 	controlClasses,
 	// Label
-	labelBase = '',
+	labelBase = 'label-text',
 	labelClasses = '',
 	// Item
 	itemBase = '',

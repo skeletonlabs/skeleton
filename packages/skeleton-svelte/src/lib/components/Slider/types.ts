@@ -56,8 +56,6 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'thumbSize'> {
 	thumbRingColor?: string;
 	/** Set border-radius classes for the thumb. */
 	thumbRounded?: string;
-	/** Set scale classes for the thumb. */
-	thumbScale?: string;
 	/** Set cursor classes for the thumb. */
 	thumbCursor?: string;
 	/** Provide arbitrary classes for the thumb. */

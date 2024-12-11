@@ -12,7 +12,7 @@
 		base = 'inline-flex items-center gap-4',
 		classes = '',
 		// State
-		stateFocused = '[&>span]:focused',
+		stateFocused = 'data-[focus-visible]:focused',
 		// Control
 		controlBase = 'cursor-pointer transition duration-200',
 		controlInactive = 'preset-filled-surface-200-800',
@@ -98,13 +98,13 @@
 
 <!-- @component A control for toggling between checked states. -->
 
-<label {...api.getRootProps()} class="{base} {rxFocused} {classes}" data-testid="switch">
+<label {...api.getRootProps()} class="{base} {classes}" data-testid="switch">
 	<!-- Input -->
 	<input {...api.getHiddenInputProps()} data-testid="switch-input" />
 	<!-- Control -->
 	<span
 		{...api.getControlProps()}
-		class="{controlBase} {rxTrackState} {controlWidth} {controlHeight} {controlPadding} {controlRounded} {controlHover} {rxDisabled}  {controlClasses}"
+		class="{controlBase} {rxTrackState} {rxFocused} {controlWidth} {controlHeight} {controlPadding} {controlRounded} {controlHover} {rxDisabled}  {controlClasses}"
 		data-testid="switch-control"
 	>
 		<!-- Thumb -->
