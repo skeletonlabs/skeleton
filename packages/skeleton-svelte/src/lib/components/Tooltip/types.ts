@@ -36,7 +36,7 @@ export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	contentClasses?: string;
 
 	// Snippets ---
-	/** Provide the the trigger element, such as a button. */
+	/** Provide the template contents inside the trigger button. */
 	trigger?: Snippet;
 	/** Provide the template contents of the tooltip itself. */
 	content?: Snippet;
