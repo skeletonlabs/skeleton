@@ -1,8 +1,8 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
-title: SvelteKit
-description: Install and configure Skeleton for SvelteKit.
-order: 10
+title: Astro
+description: Install and configure Skeleton for Astro.
+order: 20
 ---
 
 export const components = componentSet;
@@ -13,40 +13,43 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 {/* --- */}
 
 <div class="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
-	<p>WARNING: The following guide will install the <u>Skeleton v3 Beta</u> using the Svelte CLI. Please be aware that some features may be missing, incomplete, or non-functional at this time. Please report bugs and issues on <a class='anchor' href='https://github.com/skeletonlabs/skeleton/issues/new/choose' target='_blank' rel='external'>GitHub</a> or <a class='anchor' href='https://discord.gg/EXqV7W8MtY' target='_blank' rel='external'>Discord</a>.</p>
+	<p>WARNING: The following guide will install the <u>Skeleton v3 Beta</u> using npm. Please be aware that some features may be missing, incomplete, or non-functional at this time. Please report bugs and issues on <a class='anchor' href='https://github.com/skeletonlabs/skeleton/issues/new/choose' target='_blank' rel='external'>GitHub</a> or <a class='anchor' href='https://discord.gg/EXqV7W8MtY' target='_blank' rel='external'>Discord</a>.</p>
 </div>
 
 <Process>
     <ProcessStep step="1">
         ## Create a Project
-        Start by creating a new Svelte 5 project using `sv` (the Svelte CLI):
-		> NOTE: make sure to select `tailwind` when prompted!
+        Start by creating a new Astro project:
         ```console
-        npx sv create my-skeleton-app
+        npm create astro@latest my-skeleton-app
 		cd my-skeleton-app
         ```
     </ProcessStep>
     <ProcessStep step="2">
-        ## Install Skeleton
-        Install the Skeleton core and Svelte component packages.
+        ## Install Tailwind
+        Install Tailwind and its dependencies:
         ```console
-        npm i -D @skeletonlabs/skeleton@next @skeletonlabs/skeleton-svelte@next
+        npx astro add tailwind
         ```
     </ProcessStep>
     <ProcessStep step="3">
+        ## Install Skeleton
+        Install the Skeleton core package.
+        ```console
+        npm i -D @skeletonlabs/skeleton@next
+        ```
+    </ProcessStep>
+    <ProcessStep step="4">
         ## Configure Tailwind
         Open `tailwind.config` in the root of your project and make these changes:
-        ```ts title="tailwind.config" {3-4, 9, 15-18}
+        ```ts title="tailwind.config" {3-4, 12-15}
         import type { Config } from 'tailwindcss';
 
         import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
         import * as themes from '@skeletonlabs/skeleton/themes';
 
         export default {
-            content: [
-                './src/**/*.{html,js,svelte,ts}',
-                contentPath(import.meta.url, 'svelte')
-            ],
+            content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
             theme: {
                 extend: {},
             },
@@ -55,14 +58,14 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
                     // NOTE: each theme included will be added to your CSS bundle
                     themes: [ themes.cerberus, themes.rose ]
                 })
-            ]
-        } satisfies Config
+            ],
+        } satisfies Config;
         ```
     </ProcessStep>
-    <ProcessStep step="4">
+    <ProcessStep step="5">
         ## Set Active Theme
-        Open `/src/app.html`, then set the `data-theme` attribute on the body to define the active theme.
-        ```html title="app.html"
+        Open `layouts/Layout.astro`, then set the `data-theme` attribute on the body to define the active theme.
+        ```html title="layouts/Layout.astro"
         <body data-theme="cerberus">...</body>
         ```
     </ProcessStep>
@@ -73,5 +76,4 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 		npm run dev
         ```
     </ProcessStep>
-
 </Process>
