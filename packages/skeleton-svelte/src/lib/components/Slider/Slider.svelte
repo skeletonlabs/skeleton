@@ -33,7 +33,6 @@
 		thumbRingSize = 'ring-2',
 		thumbRingColor = 'ring-surface-950-50',
 		thumbRounded = 'rounded-full',
-		thumbScale = 'hover:scale-125',
 		thumbCursor = 'hover:cursor-pointer',
 		thumbClasses = '',
 		// Markers ---
@@ -74,7 +73,7 @@
 
 	// Reactive
 	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
-	const rxReadOnly = $derived(snapshot.context.readOnly ? stateReadOnly : `${thumbScale} ${thumbCursor}`);
+	const rxReadOnly = $derived(snapshot.context.readOnly ? stateReadOnly : thumbCursor);
 </script>
 
 <div {...api.getRootProps()} class="{base} {height} {spaceY} {rxDisabled} {classes}" data-testid="slider">

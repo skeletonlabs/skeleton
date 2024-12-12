@@ -14,7 +14,7 @@ export interface SegmentProps extends Omit<radio.Context, 'id' | 'orientation' |
 	/** Set the active value. */
 	value?: string;
 	/** Set the orientation. */
-	orientation?: 'horizontal' | 'vertical' | undefined;
+	orientation?: 'horizontal' | 'vertical';
 
 	// Root ---
 	/** Sets base classes. */
@@ -39,13 +39,13 @@ export interface SegmentProps extends Omit<radio.Context, 'id' | 'orientation' |
 	// Orientation---
 	/** Set classes to provide a vertical layout. */
 	orientVertical?: string;
-	/** Set classes to provide a horizintal layout. */
+	/** Set classes to provide a horizontal layout. */
 	orientHorizontal?: string;
 
 	// States ---
-	/** Set claseses for the disabled state. */
+	/** Set classes for the disabled state. */
 	stateDisabled?: string;
-	/** Set claseses for the read-only state. */
+	/** Set classes for the read-only state. */
 	stateReadOnly?: string;
 
 	// Indicator
@@ -60,6 +60,10 @@ export interface SegmentProps extends Omit<radio.Context, 'id' | 'orientation' |
 	/** Provide arbitrary CSS classes to the indicator. */
 	indicatorClasses?: string;
 
+	// Label ---
+	/** Set aria-labelledby for element */
+	labelledby?: string;
+
 	// Snippets ---
 	/** The default child slot. */
 	children?: Snippet;
@@ -72,9 +76,9 @@ export interface SegmentItemProps extends Omit<radio.ItemProps, 'invalid'> {
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
-	/** Set claseses for the disabled state. */
+	/** Set classes for the disabled state. */
 	stateDisabled?: string;
-	/** Set claseses for the focus state. */
+	/** Set classes for the focus state. */
 	stateFocused?: string;
 
 	// Label ---
