@@ -9,7 +9,8 @@ import FigmaBuyNow from '@components/docs/FigmaBuyNow.astro';
 import NavGrid from '@components/docs/NavGrid.astro';
 
 import { Image } from 'astro:assets';
-import ImgHero from '@images/get-started/figma/hero.webp';
+import ImgHeroDark from '@images/get-started/figma/hero-dark.webp';
+import ImgHeroLight from '@images/get-started/figma/hero-light.webp';
 import ImgComponents from '@images/get-started/figma/components.webp';
 import ImgPlugin from '@images/get-started/figma/plugin.webp';
 import ImgTutorial from '@images/get-started/figma/tutorials.webp';
@@ -25,25 +26,28 @@ const layoutProps = {};
 	<!-- Header -->
 	<Header />
 	<!-- Main -->
-	<main class="max-w-5xl mx-auto space-y-10 py-10 px-4">
+	<main class="mx-auto flex flex-col items-center space-y-10 py-10 px-4 mt-0 md:mt-10">
 		<!-- NOTE: feel free to add any page content here! -->
-		<div class="relative flex flex-col gap-6 -top-10">
-			<h1 class="h1">Design faster. Align better. Deliver consistently.</h1>
-			<p class="type-scale-4 opacity-60">
+		<div class="max-w-4xl relative flex flex-col items-center gap-6">
+			<h1 class="h1 text-center">Design faster. Align&nbsp;better. 
+			Deliver&nbsp;consistently.</h1>
+			<p class="type-scale-4 opacity-60 text-center w-full md:w-1/2">
 				Turn Figma into your superpower for creating apps that look stunning, align with clients and developers, and stay on-brand with
 				ease.
 			</p>
 		</div>
 
-		<div class="flex flex-col pb-8">
-			<a class="btn btn-lg preset-filled-primary-500 flex items-center gap-2 whitespace-nowrap shadow-lg w-48" href="#get-access">
+		<div class="flex flex-col items-center pb-8">
+			<a href="#get-access" class="btn btn-lg preset-filled-primary-500 flex items-center gap-2 whitespace-nowrap shadow-lg w-48" href="#get-access">
 				Get Access
 			</a>
 		</div>
-
-		<Image src={ImgHero} class="rounded-container" alt="hero" />
-
-		<h2 class="h2">Are you struggling to create consistent designs?</h2>
+<div class="relative">
+		<Image src={ImgHeroDark} class=" w-full rounded-container max-w-6xl hidden dark:block" alt="hero" />
+		<Image src={ImgHeroLight} class="w-full rounded-container max-w-6xl dark:hidden" alt="hero" />
+		</div>
+<div class="max-w-4xl">
+		<h2 class="h2 py-12">Are you struggling to create consistent designs?</h2>
 
 		<div class="flex flex-col md:flex-row gap-4 pb-12 pt-2">
 			<div class="basis-1/3 flex flex-row md:flex-col gap-4 p-6 bg-transparent shadow-lg border border-surface-200-800 rounded-container">
@@ -130,7 +134,7 @@ const layoutProps = {};
 				Skeleton 🙂
 			</blockquote>
 
-			<div class="flex flex-col gap-12">
+			<div class="flex flex-col gap-12 pb-12">
 				<a class="text-surface-700-300">Rob, in Skeleton community</a>
 				<a class="btn btn-lg preset-filled-primary-500 flex items-center gap-2 whitespace-nowrap shadow-lg w-fit" href="#get-access">
 					Join over 4500+ people
@@ -138,19 +142,20 @@ const layoutProps = {};
 			</div>
 		</div>
 
-		<h2 class="h2">Get Access</h2>
+		<h2 class="h2 pb-8" id="get-access">Get Access</h2>
 
 		<FigmaBuyNow />
 
-		Created with ❤️ from <a class="anchor" href="https://www.linkedin.com/in/micha-mail%C3%A4nder-548aba16a/">Micha</a>,
-		<a class="anchor" href="https://www.linkedin.com/in/bohdan-karpliak-659a41162/">Bohdan</a>, and <a
+		<p class="pt-4 pb-16">Created with ❤️ from <a class="anchor" href="https://www.linkedin.com/in/micha-mail%C3%A4nder-548aba16a/" target="_blank">Micha</a>,
+		<a class="anchor" href="https://www.linkedin.com/in/bohdan-karpliak-659a41162/" target="_blank">Bohdan</a>, and <a
 			class="anchor"
-			href="https://www.skeletonlabs.co/">Skeleton Labs</a
-		>.
+			href="https://www.skeletonlabs.co/" target="_blank">Skeleton Labs</a
+		>.</p>
 
-		<h2 class="h2">Tutorials</h2>
+		<h2 class="h2 pb-8">Tutorials</h2>
 
 		<NavGrid collection="docs" path="tutorials/figma/" classes="md:grid-cols-1" />
+	</div>
 	</main>
 	<!-- Footer -->
 	<Footer />
