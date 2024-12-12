@@ -4,7 +4,7 @@
 .btn-icon {
 	@apply rounded font-medium no-underline;
 	@apply inline-flex items-center justify-center gap-4 whitespace-nowrap;
-	@apply transition-all hover:brightness-90 dark:hover:brightness-110;
+	@apply transition-all hover:brightness-90 dark:hover:brightness-150;
 }
 
 /* Button Sizes --- */
