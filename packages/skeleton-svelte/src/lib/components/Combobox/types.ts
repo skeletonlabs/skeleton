@@ -70,4 +70,8 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	// Snippets ---
 	/** Provide a custom arrow icon. */
 	arrow?: Snippet;
+
+	// Events ---
+	/** Handle the combobox dropdown button click event. */
+	onclick?: (event: Event) => void;
 }

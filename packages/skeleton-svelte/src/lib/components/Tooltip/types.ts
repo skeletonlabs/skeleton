@@ -40,4 +40,8 @@ export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	trigger?: Snippet;
 	/** Provide the template contents of the tooltip itself. */
 	content?: Snippet;
+
+	// Events ---
+	/** Handle the tooltip button hover event. */
+	onmouseover?: () => void;
 }

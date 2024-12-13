@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 
 	import * as popover from '@zag-js/popover';
-	import { portal, useMachine, normalizeProps } from '@zag-js/svelte';
+	import { portal, useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import type { PopoverProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
 
@@ -31,6 +31,8 @@
 		// Snippets
 		trigger,
 		content,
+		// Events
+		onclick,
 		// Zag ---
 		...zagProps
 	}: PopoverProps = $props();
@@ -54,11 +56,12 @@
 		}
 	);
 	const api = $derived(popover.connect(snapshot, send, normalizeProps));
+	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>
 
 <span class="{base} {classes}" data-testid="popover">
 	<!-- Snippet: Trigger -->
-	<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
 		{@render trigger?.()}
 	</button>
 	<!-- Portal -->
