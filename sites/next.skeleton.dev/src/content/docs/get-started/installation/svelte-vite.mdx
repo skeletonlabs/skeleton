@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
-title: Svelte + Vite
-description: Install and configure Skeleton for Svelte + Vite.
+title: Vite + Svelte
+description: Install and configure Skeleton for Vite + Svelte.
 order: 30
 ---
 
@@ -13,73 +13,74 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 {/* --- */}
 
 <div class="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
-	<p>WARNING: The following guide will install the <u>Skeleton v3 Beta</u> using npm. Please be aware that some features may be missing, incomplete, or non-functional at this time. Please report bugs and issues on <a class='anchor' href='https://github.com/skeletonlabs/skeleton/issues/new/choose' target='_blank' rel='external'>GitHub</a> or <a class='anchor' href='https://discord.gg/EXqV7W8MtY' target='_blank' rel='external'>Discord</a>.</p>
+	<p>WARNING: The following guide will install a pre-release version of Skeleton v3. Be aware that some features may be missing, incomplete, or non-functional at this time. Please report bugs and issues on <a class='underline' href='https://github.com/skeletonlabs/skeleton/issues/new/choose' target='_blank' rel='external'>GitHub</a> or <a class='underline' href='https://discord.gg/EXqV7W8MtY' target='_blank' rel='external'>Discord</a>.</p>
 </div>
 
 <Process>
     <ProcessStep step="1">
         ## Create a Project
-        Start by creating a new Svelte 5 project (select option `Svelte`):
+        Start by creating a new Vite project. The template flags will install Svelte and Typescript.
         ```console
-        npm create vite@latest my-skeleton-app
+        npm create vite@latest my-skeleton-app -- --template svelte-ts
 		cd my-skeleton-app
+		npm install
         ```
     </ProcessStep>
     <ProcessStep step="2">
-        ## Install Tailwind
+       ## Install Skeleton
+        Install the Skeleton core and Svelte component packages.
+        ```console
+        npm i -D @skeletonlabs/skeleton@next @skeletonlabs/skeleton-svelte@next
+        ```
+    </ProcessStep>
+    <ProcessStep step="3">
+         ## Install Tailwind
         Install Tailwind and its dependencies.
         ```console
         npm install -D tailwindcss postcss autoprefixer
         npx tailwindcss init -p
         ```
     </ProcessStep>
-    <ProcessStep step="3">
-        ## Install Skeleton
-        Install the Skeleton core and Svelte component packages.
-        ```console
-        npm i -D @skeletonlabs/skeleton@next @skeletonlabs/skeleton-svelte@next
-        ```
-    </ProcessStep>
     <ProcessStep step="4">
         ## Configure Tailwind
         Open `tailwind.config` in the root of your project and make these changes:
-        ```ts title="tailwind.config" {3-4, 8-10, 16-19}
-        import type { Config } from 'tailwindcss';
+        ```js title="tailwind.config" {1,2, 7-9, 15-18}
+        import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
+		import * as themes from "@skeletonlabs/skeleton/themes";
 
-        import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
-        import * as themes from '@skeletonlabs/skeleton/themes';
-
-        export default {
-            content: [
-                './index.html',
-                './src/**/*.{html,js,svelte,ts}',
-                contentPath(import.meta.url, 'svelte')
-            ],
-            theme: {
-                extend: {},
-            },
-            plugins: [
-                skeleton({
-                    // NOTE: each theme included will be added to your CSS bundle
-                    themes: [ themes.cerberus, themes.rose ]
-                })
-            ]
-        } satisfies Config
+		/** @type {import('tailwindcss').Config} */
+		export default {
+			content: [
+				"./index.html",
+				"./src/**/*.{js,ts,svelte}",
+				contentPath(import.meta.url, "svelte"),
+			],
+			theme: {
+				extend: {},
+			},
+			plugins: [
+				skeleton({
+					// NOTE: each theme included will be added to your CSS bundle
+					themes: [themes.cerberus, themes.rose],
+				}),
+			],
+		};
         ```
     </ProcessStep>
     <ProcessStep step="5">
-        ## Add Tailwind directives to your CSS
+        ## Add Tailwind Directives
         Open `src/app.css` and add the following Tailwind directives:
-        ```css title="src/app.css" {1-3}
+        ```css title="src/app.css"
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
         ```
+		We also recommend removing all existing CSS styles in `/src/app.css` and `/src/App.svelte`.
     </ProcessStep>
     <ProcessStep step="6">
-        ## Set Active Theme
+        ## Set the Active Theme
         Open `index.html`, then set the `data-theme` attribute on the body to define the active theme.
-        ```html title="app.html"
+        ```html title="index.html"
         <body data-theme="cerberus">...</body>
         ```
     </ProcessStep>
