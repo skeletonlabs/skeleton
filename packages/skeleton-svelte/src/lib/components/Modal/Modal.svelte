@@ -68,7 +68,7 @@
 </script>
 
 <span class="{base} {classes}" data-testid="modal">
-	<!-- Trigger -->	 
+	<!-- Trigger -->
 	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
 		{@render trigger?.()}
 	</button>
