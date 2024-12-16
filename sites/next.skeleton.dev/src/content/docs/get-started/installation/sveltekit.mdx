@@ -19,12 +19,12 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 <Process>
     <ProcessStep step="1">
         ## Create a Project
-        Start by creating a new Svelte 5 project using `sv` (the Svelte CLI):
-		> NOTE: make sure to select `tailwind` when prompted!
+        Create a new Svelte 5 project using `sv` (the [Svelte CLI](https://svelte.dev/docs/cli/overview)). This generates a minimal project with Typescript enabled.
         ```console
-        npx sv create my-skeleton-app
+        npx sv create --template minimal --types ts my-skeleton-app
 		cd my-skeleton-app
         ```
+		> NOTE: make sure to select `tailwind` when prompted, otherwise use `npx sv add tailwindcss` to add it retroactively.
     </ProcessStep>
     <ProcessStep step="2">
         ## Install Skeleton
@@ -35,7 +35,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="3">
         ## Configure Tailwind
-        Open `tailwind.config` in the root of your project and make these changes:
+        Open `tailwind.config` in the root of your project and make the following changes:
         ```ts title="tailwind.config" {3-4, 9, 15-18}
         import type { Config } from 'tailwindcss';
 
@@ -52,7 +52,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
             },
             plugins: [
                 skeleton({
-                    // NOTE: each theme included will be added to your CSS bundle
+                    // NOTE: each theme included will increase the size of your CSS bundle
                     themes: [ themes.cerberus, themes.rose ]
                 })
             ]
@@ -61,7 +61,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="4">
         ## Set Active Theme
-        Open `/src/app.html`, then set the `data-theme` attribute on the body to define the active theme.
+        Open `/src/app.html`, then set the `data-theme` attribute on the body tag to define the active theme.
         ```html title="app.html"
         <body data-theme="cerberus">...</body>
         ```

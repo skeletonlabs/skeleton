@@ -34,7 +34,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="4">
         ## Configure Tailwind
-        Open `tailwind.config` in the root of your project and make these changes:
+        Open `tailwind.config` in the root of your project and make the following changes:
         ```js title="tailwind.config" {3-4, 11, 17-20}
         import type { Config } from 'tailwindcss';
 
@@ -53,7 +53,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
             },
             plugins: [
                 skeleton({
-                    // NOTE: each theme included will be added to your CSS bundle
+                    // NOTE: each theme included will increase the size of your CSS bundle
                     themes: [ themes.cerberus, themes.rose ]
                 })
             ]
@@ -62,7 +62,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="5">
         ## Set Active Theme
-        Open `/src/app/layout.tsx`, then set the `data-theme` attribute to define the active theme.
+        Open `/src/app/layout.tsx`, then set the `data-theme` attribute on the body tag to define the active theme.
         ```html title="layout.tsx"
         <body data-theme="cerberus">...</body>
         ```

@@ -19,7 +19,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 <Process>
     <ProcessStep step="1">
         ## Create a Project
-        Start by creating a new Vite project. The template flags will install React and Typescript.
+        Start by creating a new [Vite](https://vite.dev/guide/#scaffolding-your-first-vite-project) project. The template flags will install React and Typescript.
         ```console
         npm create vite@latest my-skeleton-app -- --template react-ts
 		cd my-skeleton-app
@@ -43,7 +43,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="4">
         ## Configure Tailwind
-        Open `tailwind.config` in the root of your project and make these changes:
+        Locate `tailwind.config` in the root of your project and make the following changes:
         ```js title="tailwind.config" {1,2, 7-9, 15-18}
         import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
 		import * as themes from "@skeletonlabs/skeleton/themes";
@@ -60,7 +60,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 			},
 			plugins: [
 				skeleton({
-					// NOTE: each theme included will be added to your CSS bundle
+					// NOTE: each theme included will increase the size of your CSS bundle
 					themes: [themes.cerberus, themes.rose],
 				}),
 			],
@@ -69,7 +69,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="5">
         ## Add Tailwind Directives
-        Open `src/index.css` and add the following Tailwind directives:
+        Open `/src/index.css` and add the following Tailwind directives:
         ```css title="src/index.css"
         @tailwind base;
         @tailwind components;
@@ -79,7 +79,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="6">
         ## Set the Active Theme
-        Open `index.html`, then set the `data-theme` attribute on the body to define the active theme.
+        Open `index.html`, then set the `data-theme` attribute on the body tag to define the active theme.
         ```html title="index.html"
         <body data-theme="cerberus">...</body>
         ```

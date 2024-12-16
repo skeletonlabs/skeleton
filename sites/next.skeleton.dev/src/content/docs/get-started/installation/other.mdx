@@ -16,32 +16,32 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 	<p>WARNING: The following guide will install a pre-release version of Skeleton v3. Be aware that some features may be missing, incomplete, or non-functional at this time. Please report bugs and issues on <a class='underline' href='https://github.com/skeletonlabs/skeleton/issues/new/choose' target='_blank' rel='external'>GitHub</a> or <a class='underline' href='https://discord.gg/EXqV7W8MtY' target='_blank' rel='external'>Discord</a>.</p>
 </div>
 
-The core of Skeleton is our robust [Tailwind Plugin](/docs/get-started/plugin), which is framework agnostic. This provides access to all [design system](/docs/get-started/fundamentals#design-system) and [Tailwind-based](/docs/get-started/fundamentals#tailwind) features - everything *except* components. The only prerequisites are as follows.
+The core of Skeleton is our [Tailwind Plugin](/docs/get-started/plugin), which provides access to our framework agnostic [design system](/docs/get-started/fundamentals#design-system) and [Tailwind-based](/docs/get-started/fundamentals#tailwind) features - everything *except* components. This comes with two prerequisites:
 
 - Node-based package management (NPM, PNPM, etc)
 - Tailwind CSS
 
-The exact instructions for installing Skeleton will differ per framework, but we've provided a generic guide below.
+The exact instructions for installing Skeleton will differ per framework, however we've provided a generic guide below.
 
 <Process>
     <ProcessStep step="1">
         ## Create a Project
-        Create any web-based application of your choice.
+        Scaffold your web-based application using any framework (such as [Nuxt](https://nuxt.com/), [SolidStart](https://start.solidjs.com/), [Laravel](https://laravel.com/), etc.)
     </ProcessStep>
     <ProcessStep step="2">
         ## Install Tailwind
-		Follow the [official instructions](https://tailwindcss.com/docs/installation/framework-guides) to install Tailwind for your application of choice.
+		Follow the [official instructions](https://tailwindcss.com/docs/installation/framework-guides) to install Tailwind for your framework of choice.
     </ProcessStep>
     <ProcessStep step="3">
         ## Install Skeleton
-        Install the Skeleton core package to gain access to the Tailwind plugin.
+        Install the Skeleton core package to gain access to the Skeleton Tailwind plugin.
         ```console
         npm i -D @skeletonlabs/skeleton@next
         ```
     </ProcessStep>
     <ProcessStep step="4">
         ## Configure Tailwind
-        Open `tailwind.config` in the root of your project. Note the exact structure may differ slightly for your project.
+        Open `tailwind.config` in the root of your project. The structure of this file may differ slightly for your framework.
         ```ts title="tailwind.config" {1,2, 13-16}
 		import { skeleton } from '@skeletonlabs/skeleton/plugin';
 		import * as themes from '@skeletonlabs/skeleton/themes';
@@ -49,14 +49,14 @@ The exact instructions for installing Skeleton will differ per framework, but we
         /** @type {import('tailwindcss').Config} */
 		export default {
 			content: [
-				// NOTE: preserve any settings provided here
+				// IMPORTANT: preserve any settings provided here
 			],
 			theme: {
 				extend: {},
 			},
 			plugins: [
 				skeleton({
-					// NOTE: each theme included will be added to your CSS bundle
+					// NOTE: each theme included will increase the size of your CSS bundle
 					themes: [themes.cerberus, themes.rose],
 				}),
 			],
@@ -65,7 +65,7 @@ The exact instructions for installing Skeleton will differ per framework, but we
     </ProcessStep>
 	<ProcessStep step="6">
         ## Set Active Theme
-        Open the file containing the `<body>` tag for your project and set the active theme using the `data-theme` attribute.
+        Open the file containing the `<body>` tag for your project and set the `data-theme` attribute to define your active theme.
         ```html
         <body data-theme="cerberus">...</body>
         ```
@@ -75,3 +75,9 @@ The exact instructions for installing Skeleton will differ per framework, but we
         Start the dev server for your framework of choice.
     </ProcessStep>
 </Process>
+
+---
+
+## Support
+
+While we officially limit support for Skeleton to React, Svelte, and Astro frameworks for now, we have a thriving community of users on [GitHub](https://github.com/skeletonlabs/skeleton/discussions) and [Discord](https://discord.gg/EXqV7W8MtY). If you need further support (directly related to Skeleton) considering reaching out. Other members of the community may be able to assist you.
