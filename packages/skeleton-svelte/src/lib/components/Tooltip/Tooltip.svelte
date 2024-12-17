@@ -28,6 +28,7 @@
 		content,
 		// Events
 		onmouseover,
+		onclick,
 		// Zag ---
 		...zagProps
 	}: TooltipProps = $props();
@@ -51,7 +52,7 @@
 		}
 	);
 	const api = $derived(tooltip.connect(snapshot, send, normalizeProps));
-	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onmouseover }));
+	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onmouseover, onclick }));
 </script>
 
 <span class="{base} {classes}" data-testid="tooltip">

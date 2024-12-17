@@ -59,7 +59,7 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	/** Set base classes for the option. */
 	optionBase?: string;
 	/** Set focus classes for the option. */
-	optonFocus?: string;
+	optionFocus?: string;
 	/** Set hover classes for the option. */
 	optionHover?: string;
 	/** Set active classes for the option. */
