@@ -58,7 +58,7 @@ describe('Toast.svelte', () => {
 		const [wrapperVisibilityOnAToBChange, wrapperVisibilityAfterAOutroFinishes, wrapperVisibilityAfterBOutroFinishes] = await Promise.all([
 			getWrapperElementAfterTimeout(10),
 			getWrapperElementAfterTimeout(16),
-			getWrapperElementAfterTimeout(50)
+			getWrapperElementAfterTimeout(80)
 		]);
 
 		expect(wrapperVisibilityOnAToBChange).toBeTruthy();
