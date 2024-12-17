@@ -13,6 +13,7 @@
     "@skeletonlabs/necroparser": "0.0.1"
   },
   "changesets": [
+    "blue-moles-swim",
     "calm-cougars-yawn",
     "calm-jars-live",
     "chilled-avocados-pull",
@@ -20,12 +21,16 @@
     "chilled-trainers-drop",
     "clean-fans-pretend",
     "clever-carpets-own",
+    "clever-terms-train",
     "cuddly-dingos-sell",
+    "eleven-eggs-add",
     "empty-cycles-dream",
     "fluffy-rockets-call",
     "fuzzy-birds-rush",
     "gentle-ants-compare",
+    "healthy-onions-hide",
     "heavy-bugs-obey",
+    "hip-poems-perform",
     "honest-bears-learn",
     "itchy-zoos-tease",
     "kind-carrots-greet",
@@ -33,6 +38,7 @@
     "late-beers-bow",
     "little-glasses-drive",
     "lovely-dingos-join",
+    "lovely-walls-push",
     "mean-schools-double",
     "nasty-chefs-build",
     "nasty-snails-hug",
@@ -43,9 +49,12 @@
     "serious-cooks-return",
     "shaggy-impalas-press",
     "shy-papayas-behave",
+    "silent-rings-whisper",
     "silver-balloons-impress",
+    "six-cooks-whisper",
     "six-tables-warn",
     "sixty-jeans-drop",
+    "slimy-keys-bathe",
     "small-ways-jump",
     "smooth-hornets-hunt",
     "sour-shrimps-compete",
@@ -56,7 +65,11 @@
     "swift-students-confess",
     "tame-crews-poke",
     "tiny-icons-beam",
+    "tiny-mugs-know",
     "tricky-cycles-admire",
-    "wicked-seahorses-itch"
+    "tricky-snakes-begin",
+    "weak-items-destroy",
+    "wicked-seahorses-itch",
+    "wild-wolves-wink"
   ]
 }

@@ -1,5 +1,29 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.16
+
+### Patch Changes
+
+- bugfix: Reinstate Pagination `count` prop. ([#3026](https://github.com/skeletonlabs/skeleton/pull/3026))
+
+- feature: Add option to set `aria-labelledby` for Segment component ([#3034](https://github.com/skeletonlabs/skeleton/pull/3034))
+
+- chore: Improved Ratings component default half star SVG ([#3048](https://github.com/skeletonlabs/skeleton/pull/3048))
+
+- chore: Added base style prop classes to Svelte Popover, Tooltip, and Modal components ([#3031](https://github.com/skeletonlabs/skeleton/pull/3031))
+
+- chore: Added positioner and z-index style props to the Svelte Popover, Tooltip, Combobox, and Modal components ([#3029](https://github.com/skeletonlabs/skeleton/pull/3029))
+
+- docs: update `trigger` props description for _Popover_, _Modal_ and _Tooltip_ ([#3046](https://github.com/skeletonlabs/skeleton/pull/3046))
+
+- chore: Disabled the unsupported Svelte Combobox multiple property ([#3033](https://github.com/skeletonlabs/skeleton/pull/3033))
+
+- feat: Implements trigger event props for Svelte's _Popover_, _Modal_, _Combobox_ and _Tooltip_. ([#3053](https://github.com/skeletonlabs/skeleton/pull/3053))
+
+- chore: Improved focus states for Switch and Slider components. Minor style improvements to the Ratings label text. ([#3045](https://github.com/skeletonlabs/skeleton/pull/3045))
+
+- bugfix: empty padding when switch has no children ([#3024](https://github.com/skeletonlabs/skeleton/pull/3024))
+
 ## 1.0.0-next.15
 
 ### Patch Changes
