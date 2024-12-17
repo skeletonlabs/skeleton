@@ -7,9 +7,9 @@ export interface ModalProps extends Omit<dialog.Context, 'id' | 'open'> {
 	open?: boolean;
 
 	// Base ---
-	// Set base classes for the root element.
+	/** Set base classes for the root element. */
 	base?: string;
-	// Provide arbitrary classes for the root element.
+	/** Provide arbitrary classes for the root element. */
 	classes?: string;
 
 	// Trigger ---
@@ -53,9 +53,13 @@ export interface ModalProps extends Omit<dialog.Context, 'id' | 'open'> {
 	contentClasses?: string;
 
 	// Transitions ---
+	/** Provide transition for backdrop in */
 	transitionsBackdropIn?: FadeParams;
+	/** Provide transition for backdrop out */
 	transitionsBackdropOut?: FadeParams;
+	/** Provide transition for dialog in */
 	transitionsPositionerIn?: FlyParams;
+	/** Provide transition for dialog out */
 	transitionsPositionerOut?: FlyParams;
 
 	// Snippets ---

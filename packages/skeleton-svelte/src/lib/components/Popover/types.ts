@@ -8,9 +8,9 @@ export interface PopoverProps extends Omit<popover.Context, 'id' | 'open'> {
 	arrow?: boolean;
 
 	// Base ---
-	// Set base classes for the root element.
+	/** Set base classes for the root element. */
 	base?: string;
-	// Provide arbitrary classes for the root element.
+	/** Provide arbitrary classes for the root element. */
 	classes?: string;
 
 	// Trigger ---
