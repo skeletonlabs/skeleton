@@ -38,7 +38,6 @@
 		optionHover = 'hover:preset-tonal',
 		optionActive = 'preset-filled-primary-500',
 		optionClasses = '',
-		optionFocus = '',
 		// Snippets
 		arrow,
 		// Events

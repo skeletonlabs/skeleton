@@ -46,5 +46,4 @@ export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	onmouseover?: () => void;
 	/** Handle the tooltip button click event. */
 	onclick?: () => void;
-
 }
