@@ -50,4 +50,8 @@ export interface PopoverProps extends Omit<popover.Context, 'id' | 'open'> {
 	trigger?: Snippet;
 	/** Provide the template contents of the popover itself. */
 	content?: Snippet;
+
+	// Events ---
+	/** Handle the popover button click event. */
+	onclick?: () => void;
 }

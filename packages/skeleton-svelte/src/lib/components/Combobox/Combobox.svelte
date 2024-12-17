@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 
 	import * as combobox from '@zag-js/combobox';
-	import { useMachine, normalizeProps } from '@zag-js/svelte';
+	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import type { ComboboxProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
 
@@ -40,6 +40,8 @@
 		optionClasses = '',
 		// Snippets
 		arrow,
+		// Events
+		onclick,
 		// Zag ---
 		...zagProps
 	}: ComboboxProps = $props();
@@ -84,6 +86,7 @@
 		}
 	);
 	const api = $derived(combobox.connect(snapshot, send, normalizeProps));
+	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>
 
 <span {...api.getRootProps()} class="{base} {width} {classes}" data-testid="combobox">
@@ -95,7 +98,7 @@
 			<!-- Input -->
 			<input {...api.getInputProps()} class={inputGroupInput} />
 			<!-- Arrow -->
-			<button {...api.getTriggerProps()} class={inputGroupButton}>
+			<button {...triggerProps} class={inputGroupButton}>
 				{#if arrow}
 					{@render arrow()}
 				{:else}

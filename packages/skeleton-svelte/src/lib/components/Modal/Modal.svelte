@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fly, fade } from 'svelte/transition';
 	import * as dialog from '@zag-js/dialog';
-	import { portal, normalizeProps, useMachine } from '@zag-js/svelte';
+	import { portal, normalizeProps, useMachine, mergeProps } from '@zag-js/svelte';
 	import type { ModalProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
 
@@ -38,6 +38,8 @@
 		// Snippets
 		trigger,
 		content,
+		// Events
+		onclick,
 		// Zag ---
 		...zagProps
 	}: ModalProps = $props();
@@ -62,15 +64,15 @@
 		}
 	);
 	const api = $derived(dialog.connect(snapshot, send, normalizeProps));
+	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>
 
 <span class="{base} {classes}" data-testid="modal">
 	<!-- Trigger -->
-	{#if trigger}
-		<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
-			{@render trigger()}
-		</button>
-	{/if}
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
+		{@render trigger?.()}
+	</button>
+
 	{#if api.open}
 		<!-- Backdrop -->
 		<div

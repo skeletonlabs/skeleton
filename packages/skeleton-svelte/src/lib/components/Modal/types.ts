@@ -63,4 +63,8 @@ export interface ModalProps extends Omit<dialog.Context, 'id' | 'open'> {
 	trigger?: Snippet;
 	/** Provide the template contents of the dialog itself. */
 	content?: Snippet;
+
+	// Events ---
+	/** Handle the dialog button click event. */
+	onclick?: () => void;
 }
