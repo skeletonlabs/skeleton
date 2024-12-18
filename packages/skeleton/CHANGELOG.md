@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 2.10.4
+
+### Patch Changes
+
+- bugfix: fix popup disappearing when dragging mouse out of the input box ([#2937](https://github.com/skeletonlabs/skeleton/pull/2937))
+
 ## 2.10.3
 
 ### Patch Changes
