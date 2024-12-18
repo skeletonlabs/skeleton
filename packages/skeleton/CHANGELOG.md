@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.0.0-next.10
+
+### Patch Changes
+
+- chore: Improved button hover state brightness effect ([#3050](https://github.com/skeletonlabs/skeleton/pull/3050))
+
 ## 3.0.0-next.9
 
 ### Patch Changes
