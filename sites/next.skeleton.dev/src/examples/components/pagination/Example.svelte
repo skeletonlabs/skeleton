@@ -40,9 +40,9 @@
 			<thead>
 				<tr>
 					<th>Position</th>
-					<th>Symbol</th>
 					<th>Name</th>
-					<th class="!text-right">Weight</th>
+					<th>Weight</th>
+					<th class="!text-right">Symbol</th>
 				</tr>
 			</thead>
 			<tbody class="hover:[&>tr]:preset-tonal-primary">

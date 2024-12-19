@@ -38,20 +38,19 @@
 		"format": "prettier . --write",
 		"format:check": "prettier . --check",
 		"lint": "eslint . --fix --ignore-path .gitignore",
-		"lint:check": "eslint . --ignore-path .gitignore",
-		"postinstall": "pnpm package"
+		"lint:check": "eslint . --ignore-path .gitignore"
 	},
 	"devDependencies": {
-		"@changesets/cli": "^2.27.9",
+		"@changesets/cli": "^2.27.10",
 		"@skeletonlabs/necroparser": "workspace:*",
 		"@svitejs/changesets-changelog-github-compact": "^1.1.0",
-		"@types/node": "^20.16.11",
-		"@typescript-eslint/eslint-plugin": "^7.18.0",
-		"@typescript-eslint/parser": "^7.18.0",
+		"@types/node": "^22.10.1",
+		"@typescript-eslint/eslint-plugin": "^8.17.0",
+		"@typescript-eslint/parser": "^8.17.0",
 		"cspell": "^6.31.3",
 		"eslint": "^8.57.1",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-jsx-a11y": "^6.10.0",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-prettier": "^5.2.1",
 		"eslint-plugin-react": "^7.37.1",
 		"eslint-plugin-react-compiler": "0.0.0-experimental-51a85ea-20240601",
@@ -59,13 +58,13 @@
 		"eslint-plugin-react-refresh": "^0.4.12",
 		"eslint-plugin-svelte": "^2.44.1",
 		"fast-glob": "^3.3.1",
-		"globals": "^15.10.0",
-		"prettier": "^3.3.3",
-		"prettier-plugin-astro": "^0.13.0",
-		"prettier-plugin-svelte": "^3.2.7",
-		"prettier-plugin-tailwindcss": "^0.6.8",
+		"globals": "^15.13.0",
+		"prettier": "^3.4.2",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-svelte": "^3.3.2",
+		"prettier-plugin-tailwindcss": "^0.6.9",
 		"shelljs": "^0.8.5",
-		"tsx": "^4.19.1"
+		"tsx": "^4.19.2"
 	},
 	"packageManager": "pnpm@9.5.0"
 }

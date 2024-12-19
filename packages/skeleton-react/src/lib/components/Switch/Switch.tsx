@@ -14,7 +14,7 @@ export const Switch: React.FC<SwitchProps> = ({
 	// Root (Track)
 	base = 'inline-flex items-center gap-4',
 	// State
-	stateFocused = '[&>span]:focused',
+	stateFocused = 'data-[focus-visible]:focused',
 	classes = '',
 	// Control
 	controlBase = 'cursor-pointer transition duration-200',
@@ -82,13 +82,13 @@ export const Switch: React.FC<SwitchProps> = ({
 	const rxFocused = api.focused ? stateFocused : '';
 
 	return (
-		<label {...api.getRootProps()} className={`${base} ${rxFocused} ${classes}`} data-testid="switch">
+		<label {...api.getRootProps()} className={`${base} ${classes}`} data-testid="switch">
 			{/* Input */}
 			<input {...api.getHiddenInputProps()} data-testid="switch-input" />
 			{/* Control */}
 			<span
 				{...api.getControlProps()}
-				className={`${controlBase} ${rxTrackState} ${controlWidth} ${controlHeight} ${controlPadding} ${controlRounded} ${controlHover} ${rxDisabled}  ${controlClasses}`}
+				className={`${controlBase} ${rxTrackState} ${rxFocused} ${controlWidth} ${controlHeight} ${controlPadding} ${controlRounded} ${controlHover} ${rxDisabled}  ${controlClasses}`}
 				data-testid="switch-control"
 			>
 				{/* Thumb */}
@@ -112,9 +112,11 @@ export const Switch: React.FC<SwitchProps> = ({
 				</span>
 			</span>
 			{/* Label */}
-			<span {...api.getLabelProps()} className={`${labelBase} ${labelClasses}`} data-testid="switch-label">
-				{children}
-			</span>
+			{children ? (
+				<span {...api.getLabelProps()} className={`${labelBase} ${labelClasses}`} data-testid="switch-label">
+					{children}
+				</span>
+			) : null}
 		</label>
 	);
 };

@@ -1,5 +1,41 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.12
+
+### Patch Changes
+
+- bugfix: Reinstate Pagination `count` prop. ([#3026](https://github.com/skeletonlabs/skeleton/pull/3026))
+
+- chore: Updated peer dependencies to support React 19 ([#3038](https://github.com/skeletonlabs/skeleton/pull/3038))
+
+- feature: Add option to set `aria-labelledby` for Segment component ([#3034](https://github.com/skeletonlabs/skeleton/pull/3034))
+
+- chore: Improved Ratings component default half star SVG ([#3048](https://github.com/skeletonlabs/skeleton/pull/3048))
+
+- chore: Improved focus states for Switch and Slider components. Minor style improvements to the Ratings label text. ([#3045](https://github.com/skeletonlabs/skeleton/pull/3045))
+
+- bugfix: empty padding when switch has no children ([#3024](https://github.com/skeletonlabs/skeleton/pull/3024))
+
+- bugfix: Set unique `key` properly for React's Rating component ([#3043](https://github.com/skeletonlabs/skeleton/pull/3043))
+
+## 1.0.0-next.11
+
+### Patch Changes
+
+- feature: Add `showFirstLastButtons` prop to Pagination to enable toggling first and last buttons. ([#3007](https://github.com/skeletonlabs/skeleton/pull/3007))
+
+- chore: the React `<Nav>` component renamed `<Navigation>` to be uniform with other frameworks ([#3004](https://github.com/skeletonlabs/skeleton/pull/3004))
+
+- chore: ProgressRing component no longer has a label by default, but can be enabled with `showLabel` prop. ([#2996](https://github.com/skeletonlabs/skeleton/pull/2996))
+
+## 1.0.0-next.10
+
+### Patch Changes
+
+- bugfix: Minor bugfix to progressRing indeterminate class logic ([#2968](https://github.com/skeletonlabs/skeleton/pull/2968))
+
+- bugfix: Resolved Pagination alternative mode page count issue ([#2956](https://github.com/skeletonlabs/skeleton/pull/2956))
+
 ## 1.0.0-next.9
 
 ### Minor Changes

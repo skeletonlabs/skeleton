@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav } from '@skeletonlabs/skeleton-react';
+import { Navigation } from '@skeletonlabs/skeleton-react';
 import { Folder as IconFolder, Image as IconImage, Music as IconMusic, Video as IconVideo } from 'lucide-react';
 
 export const Page: React.FC = () => {
@@ -15,12 +15,12 @@ export const Page: React.FC = () => {
 			</div>
 			{/* Component */}
 			{/* prettier-ignore */}
-			<Nav.Bar value={value} onChange={setValue}>
-				<Nav.Tile id="0" label="Files"><IconFolder /></Nav.Tile>
-				<Nav.Tile id="1" label="Images"><IconImage /></Nav.Tile>
-				<Nav.Tile id="2" label="Music"><IconMusic /></Nav.Tile>
-				<Nav.Tile id="3" label="Videos"><IconVideo /></Nav.Tile>
-			</Nav.Bar>
+			<Navigation.Bar value={value} onChange={setValue}>
+				<Navigation.Tile id="0" label="Files"><IconFolder /></Navigation.Tile>
+				<Navigation.Tile id="1" label="Images"><IconImage /></Navigation.Tile>
+				<Navigation.Tile id="2" label="Music"><IconMusic /></Navigation.Tile>
+				<Navigation.Tile id="3" label="Videos"><IconVideo /></Navigation.Tile>
+			</Navigation.Bar>
 		</div>
 	);
 };

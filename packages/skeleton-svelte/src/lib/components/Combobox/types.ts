@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import * as combobox from '@zag-js/combobox';
 
-export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection' | 'value' | 'label'> {
+export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection' | 'value' | 'label' | 'multiple'> {
 	/** Provide the list of label and value data */
 	data?: { label: string; value: string }[];
 	/** Bind the selected value. */
@@ -37,25 +37,29 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	/** Provide arbitrary classes for the input group. */
 	inputGroupClasses?: string;
 
+	// Positioner ---
+	/** Set base classes for the positioner. */
+	positionerBase?: string;
+	/** Set z-index classes for the positioner. */
+	positionerZIndex?: string;
+	/** Provide arbitrary classes for the positioner. */
+	positionerClasses?: string;
+
 	// Content ---
 	/** Set base classes for the content. */
 	contentBase?: string;
 	/** Set background classes for the content. */
 	contentBackground?: string;
+	/** Set space-y classes for the content. */
+	contentSpaceY?: string;
 	/** Provide arbitrary classes for the content. */
 	contentClasses?: string;
-
-	// List ---
-	/** Set base classes for the list. */
-	listBase?: string;
-	/** Provide arbitrary classes for the list. */
-	listClasses?: string;
 
 	// Option ---
 	/** Set base classes for the option. */
 	optionBase?: string;
 	/** Set focus classes for the option. */
-	optonFocus?: string;
+	optionFocus?: string;
 	/** Set hover classes for the option. */
 	optionHover?: string;
 	/** Set active classes for the option. */
@@ -66,4 +70,8 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	// Snippets ---
 	/** Provide a custom arrow icon. */
 	arrow?: Snippet;
+
+	// Events ---
+	/** Handle the combobox dropdown button click event. */
+	onclick?: (event: Event) => void;
 }

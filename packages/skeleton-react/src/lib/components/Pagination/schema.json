@@ -136,6 +136,11 @@
 					"description": "Sets border radius classes for the list.",
 					"type": "string"
 				},
+				"showFirstLastButtons": {
+					"default": false,
+					"description": "Show first and last page button.",
+					"type": "boolean"
+				},
 				"siblingCount": {
 					"default": 1,
 					"description": "Number of pages to show beside active page",

@@ -11,6 +11,7 @@
 		data = $bindable([]),
 		alternative = false,
 		textSeparator = 'of',
+		showFirstLastButtons = false,
 		// Root
 		base = 'inline-flex items-stretch overflow-hidden',
 		background = 'preset-outlined-surface-200-800',
@@ -63,7 +64,8 @@
 					return pageSize;
 				},
 				get count() {
-					return data.length;
+					// Use 'count' if specified; required for server-side pagination.
+					return zagProps.count ?? data.length;
 				}
 			}
 		}
@@ -79,14 +81,14 @@
 {#if api.totalPages > 1}
 	<div {...api.getRootProps()} class="{base} {background} {border} {gap} {padding} {rounded} {classes}" data-testid="pagination">
 		<!-- Button: First Page -->
-		{#if alternative}
+		{#if showFirstLastButtons}
 			<button
 				type="button"
 				onclick={api.goToFirstPage}
 				class="{buttonBase} {buttonInactive} {buttonHover} {buttonClasses}"
 				title={titleFirst}
 				disabled={api.page === 1}
-				data-testid="pagination-button-previous"
+				data-testid="pagination-button-first"
 			>
 				{#if labelFirst}{@render labelFirst()}{:else}&laquo;{/if}
 			</button>
@@ -153,14 +155,14 @@
 			{#if labelNext}{@render labelNext()}{:else}&rarr;{/if}
 		</button>
 		<!-- Button: Last Page -->
-		{#if alternative}
+		{#if showFirstLastButtons}
 			<button
 				type="button"
 				onclick={api.goToLastPage}
 				class="{buttonBase} {buttonInactive} {buttonHover} {buttonClasses}"
 				title={titleLast}
 				disabled={!api.nextPage}
-				data-testid="pagination-button-previous"
+				data-testid="pagination-button-last"
 			>
 				{#if labelLast}{@render labelLast()}{:else}&raquo;{/if}
 			</button>

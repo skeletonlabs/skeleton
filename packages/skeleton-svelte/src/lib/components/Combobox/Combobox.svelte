@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 
 	import * as combobox from '@zag-js/combobox';
-	import { useMachine, normalizeProps } from '@zag-js/svelte';
+	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import type { ComboboxProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
 
@@ -24,13 +24,15 @@
 		inputGroupButton = 'input-group-cell',
 		inputGroupArrow = '',
 		inputGroupClasses = '',
+		// Positioner
+		positionerBase = '',
+		positionerZIndex = '',
+		positionerClasses = '',
 		// Content
 		contentBase = 'card p-2',
 		contentBackground = 'preset-outlined-surface-200-800 bg-surface-50-950',
+		contentSpaceY = 'space-y-1',
 		contentClasses = '',
-		// List
-		listBase = 'space-y-1',
-		listClasses = '',
 		// Option
 		optionBase = 'btn justify-start w-full',
 		optionHover = 'hover:preset-tonal',
@@ -38,6 +40,8 @@
 		optionClasses = '',
 		// Snippets
 		arrow,
+		// Events
+		onclick,
 		// Zag ---
 		...zagProps
 	}: ComboboxProps = $props();
@@ -82,6 +86,7 @@
 		}
 	);
 	const api = $derived(combobox.connect(snapshot, send, normalizeProps));
+	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>
 
 <span {...api.getRootProps()} class="{base} {width} {classes}" data-testid="combobox">
@@ -93,7 +98,7 @@
 			<!-- Input -->
 			<input {...api.getInputProps()} class={inputGroupInput} />
 			<!-- Arrow -->
-			<button {...api.getTriggerProps()} class={inputGroupButton}>
+			<button {...triggerProps} class={inputGroupButton}>
 				{#if arrow}
 					{@render arrow()}
 				{:else}
@@ -116,17 +121,18 @@
 			</button>
 		</div>
 	</label>
-	<!-- Content -->
+	<!-- Menu -->
 	{#if api.open}
-		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{contentBase} {contentBackground} {contentClasses}">
+		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerZIndex} {positionerClasses}">
 			{#if options.length > 0}
-				<!-- List -->
-				<nav {...api.getContentProps()} class="{listBase} {listClasses}">
+				<!-- Content (list) -->
+				<nav {...api.getContentProps()} class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses}">
 					{#each options as item}
 						{@const isChecked = api.getItemProps({ item })['data-state'] === 'checked'}
 						{@const displayClass = isChecked ? optionActive : optionHover}
 						<!-- Option -->
-						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}">
+						<!-- ZagJs should have set button type to "button" here. See https://github.com/skeletonlabs/skeleton/pull/2998#discussion_r1855511385 -->
+						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}" type="button">
 							{item.label}
 						</button>
 					{/each}

@@ -6,6 +6,7 @@
 
 	let {
 		label,
+		showLabel = false,
 		strokeWidth = '10px',
 		strokeLinecap = 'round',
 		// Root
@@ -74,7 +75,7 @@
 			data-testid="progress-ring-meter"
 		/>
 		<!-- Label -->
-		{#if api.value !== null && !children}
+		{#if api.value !== null && !children && showLabel}
 			<text
 				class="{labelBase} {labelFill} {labelClasses}"
 				x="50%"

@@ -11,7 +11,7 @@ const { collection, path, classes } = Astro.props;
 
 // Get collection, filter by path
 const collectionItems = await getCollection(collection, (item) => {
-	if (item.slug.includes(path) && !item.id.endsWith('meta.mdx')) return item;
+	if (item.filePath?.includes(path) && !item.id.endsWith('meta.mdx')) return item;
 });
 
 // Sort Order

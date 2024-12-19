@@ -56,15 +56,15 @@ describe('SegmentItem', () => {
 	it('should render in the checked state', () => {
 		render(SegmentTest, {});
 		const component = screen.getAllByTestId(testIds.root)[0];
-		const ariaSelected = component.getAttribute('aria-selected');
-		expect(ariaSelected).toBeTruthy;
+		const attrDataState = component.getAttribute('data-state');
+		expect(attrDataState).toBe('checked');
 	});
 
 	it('should render in the unchecked state', () => {
 		render(SegmentTest, {});
 		const component = screen.getAllByTestId(testIds.root)[1];
-		const ariaSelected = component.getAttribute('aria-selected');
-		expect(ariaSelected).toBeFalsy;
+		const attrDataState = component.getAttribute('data-state');
+		expect(attrDataState).toBe('unchecked');
 	});
 
 	it('should render in the disabled state', () => {
