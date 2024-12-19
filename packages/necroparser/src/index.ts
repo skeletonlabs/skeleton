@@ -33,7 +33,7 @@ function isArrayType(type: ts.Type) {
 	return type.symbol?.name === 'Array' || type.symbol?.name === 'ReadonlyArray';
 }
 
-function isObjectType(type: ts.Type): boolean {
+function isObjectType(type: ts.Type) {
 	if (!(type.flags & ts.TypeFlags.Object)) {
 		return false;
 	}
@@ -42,7 +42,7 @@ function isObjectType(type: ts.Type): boolean {
 	return hasObjectFlags || type.getProperties().length > 0;
 }
 
-function determineTypeKind(type: ts.Type): InterfaceProperty['typeKind'] {
+function determineTypeKind(type: ts.Type) {
 	if (isFunctionType(type)) {
 		return 'function';
 	}
@@ -76,7 +76,7 @@ function parseProperty(property: ts.Symbol, node: ts.Node, typeChecker: ts.TypeC
 	};
 }
 
-function createVirtualCompilerHost(sourcePath: string, sourceCode: string): ts.CompilerHost {
+function createVirtualCompilerHost(sourcePath: string, sourceCode: string) {
 	const host = ts.createCompilerHost({});
 	const originalGetSourceFile = host.getSourceFile;
 	const virtualFileName = 'virtual.ts';
@@ -90,7 +90,7 @@ function createVirtualCompilerHost(sourcePath: string, sourceCode: string): ts.C
 	return host;
 }
 
-function walkAst(node: ts.Node, callback: (node: ts.Node) => void): void {
+function walkAst(node: ts.Node, callback: (node: ts.Node) => void) {
 	ts.forEachChild(node, (childNode) => {
 		callback(childNode);
 		walkAst(childNode, callback);
