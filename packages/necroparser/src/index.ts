@@ -43,7 +43,7 @@ function walk(node: Node, callback: (node: Node) => void) {
 	});
 }
 
-function getTypeKind(type: Type) {
+function getTypeKind(type: Type): Interface['properties'][number]['typeKind'] {
 	if (type.getCallSignatures().length > 0) {
 		return 'function';
 	}
