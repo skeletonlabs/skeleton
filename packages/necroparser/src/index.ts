@@ -1,14 +1,4 @@
-import { InterfaceDeclaration, Project, PropertySignature } from 'ts-morph';
-import type { CompilerOptions } from 'ts-morph';
-
-const DEFAULT_COMPILER_OPTIONS = {
-	module: 199,
-	target: 99,
-	allowJs: true,
-	skipDefaultLibCheck: true,
-	skipLibCheck: true,
-	moduleDetection: 3
-} satisfies CompilerOptions;
+import { Project, PropertySignature } from 'ts-morph';
 
 interface Interface {
 	name: string;
@@ -67,30 +57,12 @@ function getDocumentation(property: PropertySignature): Interface['properties'][
 }
 
 function getInterfaces(path: string): Interface[] {
-	const project = new Project({
-		compilerOptions: {
-			...DEFAULT_COMPILER_OPTIONS,
-			paths: {
-				'*': ['*', 'node_modules/*']
-			}
-		}
-	});
-	const collectProperties = (interface_: InterfaceDeclaration): PropertySignature[] => {
-		const properties = [...interface_.getProperties()];
-		for (const base of interface_.getBaseDeclarations()) {
-			if (base.getKindName() === 'InterfaceDeclaration') {
-				properties.push(...collectProperties(base as InterfaceDeclaration));
-			}
-		}
-		return properties;
-	};
+	const project = new Project();
 	const file = project.addSourceFileAtPath(path);
 	return file.getInterfaces().map((interface_) => {
-		const properties = collectProperties(interface_);
-		console.log(properties.map((p) => p.getName()));
 		return {
 			name: interface_.getName(),
-			properties: properties.map((property) => {
+			properties: interface_.getProperties().map((property) => {
 				return {
 					name: property.getName(),
 					type: property.getType().getText(),
