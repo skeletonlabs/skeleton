@@ -11,7 +11,7 @@
 						},
 						{
 							"name": "readonly",
-							"value": ""
+							"value": null
 						}
 					],
 					"text": "Property"

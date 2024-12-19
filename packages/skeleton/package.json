@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton",
-	"version": "3.0.0-next.9",
+	"version": "3.0.0-next.10",
 	"description": "Core plugin for Skeleton.",
 	"scripts": {
 		"package": "pnpm package:jss && tsup",

@@ -21,9 +21,7 @@ async function processFile(path: string): Promise<number> {
 	}
 	const outPath = join(OUTPUT_DIR, framework, `${toKebabCase(component)}.json`);
 	await mkdir(dirname(outPath), { recursive: true });
-	const interfaces = getInterfaces(path, {
-		matcher: /^[\w-]+Props$/
-	});
+	const interfaces = getInterfaces(path).filter((i) => i.name.match(/^[\w-]+Props$/));
 	await writeFile(outPath, JSON.stringify(interfaces, null, 2));
 	return Object.keys(interfaces).length;
 }

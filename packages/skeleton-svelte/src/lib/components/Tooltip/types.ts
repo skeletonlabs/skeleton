@@ -6,9 +6,9 @@ export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	open?: boolean;
 
 	// Base ---
-	// Set base classes for the root element.
+	/** Set base classes for the root element. */
 	base?: string;
-	// Provide arbitrary classes for the root element.
+	/** Provide arbitrary classes for the root element. */
 	classes?: string;
 
 	// Trigger ---
@@ -40,4 +40,10 @@ export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	trigger?: Snippet;
 	/** Provide the template contents of the tooltip itself. */
 	content?: Snippet;
+
+	// Events ---
+	/** Handle the tooltip button hover event. */
+	onmouseover?: () => void;
+	/** Handle the tooltip button click event. */
+	onclick?: () => void;
 }
