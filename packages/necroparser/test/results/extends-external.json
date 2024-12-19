@@ -13,7 +13,7 @@
 			{
 				"name": "multiple",
 				"type": "boolean",
-				"typeKind": "union",
+				"typeKind": "primitive",
 				"required": false,
 				"documentation": {
 					"text": "Whether multiple accordion items can be expanded at the same time.",
@@ -23,7 +23,7 @@
 			{
 				"name": "collapsible",
 				"type": "boolean",
-				"typeKind": "union",
+				"typeKind": "primitive",
 				"required": false,
 				"documentation": {
 					"text": "Whether an accordion item can be closed after it has been expanded.",
@@ -40,7 +40,7 @@
 			{
 				"name": "disabled",
 				"type": "boolean",
-				"typeKind": "union",
+				"typeKind": "primitive",
 				"required": false,
 				"documentation": { "text": "Whether the accordion items are disabled", "tags": [] }
 			},
@@ -61,14 +61,14 @@
 			{
 				"name": "orientation",
 				"type": "\"horizontal\" | \"vertical\"",
-				"typeKind": "union",
+				"typeKind": "primitive",
 				"required": false,
 				"documentation": { "text": "The orientation of the accordion items.", "tags": [{ "name": "default", "value": "\"vertical\"" }] }
 			},
 			{
 				"name": "dir",
 				"type": "\"ltr\" | \"rtl\"",
-				"typeKind": "union",
+				"typeKind": "primitive",
 				"required": false,
 				"documentation": { "text": "The document's text/writing direction.", "tags": [{ "name": "default", "value": "\"ltr\"" }] }
 			},
