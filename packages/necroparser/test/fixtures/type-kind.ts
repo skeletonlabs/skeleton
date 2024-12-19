@@ -5,5 +5,5 @@ interface Interface {
 	object: {
 		[key: string]: unknown;
 	};
-	union: 'foo' | 'bar';
+	function: () => void;
 }
