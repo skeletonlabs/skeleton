@@ -16,7 +16,7 @@ import {
 	ObjectFlags,
 	isInterfaceDeclaration,
 	SymbolFlags,
-	displayPartsToString
+	displayPartsToString, getDefaultCompilerOptions
 } from 'typescript';
 
 interface Interface {
@@ -70,20 +70,7 @@ function getTypeKind(type: Type): Interface['properties'][number]['typeKind'] {
 
 function getInterfaces(path: string) {
 	const code = readFileSync(path, { encoding: 'utf-8' });
-	const compilerOptions = {
-		strict: true,
-		module: ModuleKind.NodeNext,
-		target: ScriptTarget.ESNext,
-		allowJs: true,
-		skipDefaultLibCheck: true,
-		skipLibCheck: true,
-		moduleDetection: ModuleDetectionKind.Force,
-		baseUrl: dirname(path),
-		paths: {
-			'*': ['*', 'node_modules/*']
-		}
-	};
-	const host = createCompilerHost(compilerOptions);
+	const host = createCompilerHost({});
 	const originalGetSourceFile = host.getSourceFile;
 	host.getCurrentDirectory = () => dirname(path);
 	const virtualFileName = `${randomUUID()}.tsx`;
