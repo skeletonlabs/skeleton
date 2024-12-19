@@ -25,6 +25,11 @@ interface Interface {
 	properties: InterfaceProperty[];
 }
 
+interface Options {
+	matcher?: RegExp | string;
+	transformProperty?: (property: InterfaceProperty) => InterfaceProperty;
+}
+
 function isFunctionType(type: ts.Type) {
 	return type.getCallSignatures().length > 0;
 }
@@ -97,7 +102,7 @@ function walkAst(node: ts.Node, callback: (node: ts.Node) => void) {
 	});
 }
 
-function getInterfaces(path: string): Interface[] {
+function getInterfaces(path: string, options: Options = {}): Interface[] {
 	const sourceCode = readFileSync(path, 'utf-8');
 	const host = createVirtualCompilerHost(path, sourceCode);
 	const program = ts.createProgram({
@@ -112,10 +117,20 @@ function getInterfaces(path: string): Interface[] {
 		if (!ts.isInterfaceDeclaration(node)) {
 			return;
 		}
+		const name = node.name.getText();
+		if (options.matcher && !name.match(options.matcher)) {
+			return;
+		}
 		const nodeType = typeChecker.getTypeAtLocation(node);
 		interfaces.push({
-			name: node.name.getText(),
-			properties: nodeType.getProperties().map((property) => parseProperty(property, node, typeChecker))
+			name: name,
+			properties: nodeType.getProperties().map((property) => {
+				const parsedProperty = parseProperty(property, node, typeChecker);
+				if (options.transformProperty) {
+					return options.transformProperty(parsedProperty);
+				}
+				return parsedProperty;
+			})
 		});
 	});
 	return interfaces;
