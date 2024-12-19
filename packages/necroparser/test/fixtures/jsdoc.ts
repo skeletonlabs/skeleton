@@ -2,7 +2,6 @@
 interface Interface {
 	/**
 	 * Property
-	 *
 	 * @default 'foo'
 	 * @readonly
 	 */

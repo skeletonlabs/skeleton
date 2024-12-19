@@ -1,6 +1,8 @@
+/// <reference types="vite/client" />
+
 import { fileURLToPath, resolve } from 'node:url';
 import { describe, expect, test } from 'vitest';
-import { getInterfaces } from '../src';
+import { getInterfaces } from '../src/index.js';
 
 const fixtures = import.meta.glob('./fixtures/*.ts', {
 	query: '?raw'
