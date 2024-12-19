@@ -2,96 +2,121 @@ import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import ts from 'typescript';
 
+interface DocumentationTag {
+	name: string;
+	value: string | null;
+}
+
+interface PropertyDocumentation {
+	text: string | null;
+	tags: DocumentationTag[];
+}
+
+interface InterfaceProperty {
+	name: string;
+	type: string;
+	typeKind: 'function' | 'array' | 'object' | 'primitive';
+	required: boolean;
+	documentation: PropertyDocumentation;
+}
+
 interface Interface {
 	name: string;
-	properties: {
-		name: string;
-		type: string;
-		typeKind: 'function' | 'array' | 'object' | 'primitive';
-		required: boolean;
-		documentation: {
-			text: string | null;
-			tags: {
-				name: string;
-				value: string | null;
-			}[];
-		};
-	}[];
+	properties: InterfaceProperty[];
 }
 
-function walk(node: ts.Node, callback: (node: ts.Node) => void) {
-	ts.forEachChild(node, (node) => {
-		callback(node);
-		walk(node, callback);
-	});
+function isFunctionType(type: ts.Type) {
+	return type.getCallSignatures().length > 0;
 }
 
-function getTypeKind(type: ts.Type): Interface['properties'][number]['typeKind'] {
-	if (type.getCallSignatures().length > 0) {
+function isArrayType(type: ts.Type) {
+	return type.symbol?.name === 'Array' || type.symbol?.name === 'ReadonlyArray';
+}
+
+function isObjectType(type: ts.Type): boolean {
+	if (!(type.flags & ts.TypeFlags.Object)) {
+		return false;
+	}
+	const objectType = type as ts.ObjectType;
+	const hasObjectFlags = Boolean(objectType.objectFlags & (ts.ObjectFlags.Reference | ts.ObjectFlags.Interface | ts.ObjectFlags.Anonymous));
+	return hasObjectFlags || type.getProperties().length > 0;
+}
+
+function determineTypeKind(type: ts.Type): InterfaceProperty['typeKind'] {
+	if (isFunctionType(type)) {
 		return 'function';
 	}
-	if (type.symbol?.name === 'Array' || type.symbol?.name === 'ReadonlyArray') {
+	if (isArrayType(type)) {
 		return 'array';
 	}
-	if (type.flags & ts.TypeFlags.Object) {
-		const objectType = type as ts.ObjectType;
-		if (
-			objectType.objectFlags & (ts.ObjectFlags.Reference | ts.ObjectFlags.Interface | ts.ObjectFlags.Anonymous) ||
-			type.getProperties().length > 0
-		) {
-			return 'object';
-		}
+	if (isObjectType(type)) {
+		return 'object';
 	}
 	return 'primitive';
 }
 
-function getInterfaces(path: string) {
-	const code = readFileSync(path, 'utf-8');
+function parseDocumentation(symbol: ts.Symbol, typeChecker: ts.TypeChecker): PropertyDocumentation {
+	return {
+		text: ts.displayPartsToString(symbol.getDocumentationComment(typeChecker)) || null,
+		tags: symbol.getJsDocTags(typeChecker).map((tag) => ({
+			name: tag.name,
+			value: ts.displayPartsToString(tag.text) || null
+		}))
+	};
+}
+
+function parseProperty(property: ts.Symbol, node: ts.Node, typeChecker: ts.TypeChecker): InterfaceProperty {
+	const propertyType = typeChecker.getTypeOfSymbolAtLocation(property, node);
+
+	return {
+		name: property.getName(),
+		type: typeChecker.typeToString(propertyType),
+		typeKind: determineTypeKind(propertyType),
+		required: !(property.flags & ts.SymbolFlags.Optional),
+		documentation: parseDocumentation(property, typeChecker)
+	};
+}
+
+function createVirtualCompilerHost(sourcePath: string, sourceCode: string): ts.CompilerHost {
 	const host = ts.createCompilerHost({});
 	const originalGetSourceFile = host.getSourceFile;
-	host.getCurrentDirectory = () => dirname(path);
 	const virtualFileName = 'virtual.ts';
+	host.getCurrentDirectory = () => dirname(sourcePath);
 	host.getSourceFile = (fileName, scriptTarget) => {
 		if (fileName === virtualFileName) {
-			return ts.createSourceFile(fileName, code, ts.ScriptTarget.Latest, true);
+			return ts.createSourceFile(fileName, sourceCode, ts.ScriptTarget.Latest, true);
 		}
-		return originalGetSourceFile(resolve(dirname(path), fileName), scriptTarget);
+		return originalGetSourceFile(resolve(dirname(sourcePath), fileName), scriptTarget);
 	};
+	return host;
+}
+
+function walkAst(node: ts.Node, callback: (node: ts.Node) => void): void {
+	ts.forEachChild(node, (childNode) => {
+		callback(childNode);
+		walkAst(childNode, callback);
+	});
+}
+
+function getInterfaces(path: string): Interface[] {
+	const sourceCode = readFileSync(path, 'utf-8');
+	const host = createVirtualCompilerHost(path, sourceCode);
 	const program = ts.createProgram({
-		rootNames: [virtualFileName],
+		rootNames: ['virtual.ts'],
 		options: {},
-		host: host
+		host
 	});
 	const typeChecker = program.getTypeChecker();
-	const root = program.getSourceFile(virtualFileName)!;
+	const sourceFile = program.getSourceFile('virtual.ts')!;
 	const interfaces: Interface[] = [];
-	walk(root, (node) => {
+	walkAst(sourceFile, (node) => {
 		if (!ts.isInterfaceDeclaration(node)) {
 			return;
 		}
 		const nodeType = typeChecker.getTypeAtLocation(node);
 		interfaces.push({
 			name: node.name.getText(),
-			properties: nodeType.getProperties().map((property) => {
-				const propertyType = typeChecker.getTypeOfSymbolAtLocation(property, node);
-				return {
-					name: property.getName(),
-					type: typeChecker.typeToString(propertyType),
-					typeKind: getTypeKind(propertyType),
-					required: !(property.flags & ts.SymbolFlags.Optional),
-					documentation: {
-						text: ts.displayPartsToString(property.getDocumentationComment(typeChecker)) || null,
-						tags: property.getJsDocTags(typeChecker).map((tag) => {
-							const name = tag.name;
-							const value = ts.displayPartsToString(tag.text);
-							return {
-								name: name,
-								value: value === '' ? null : value
-							};
-						})
-					}
-				};
-			})
+			properties: nodeType.getProperties().map((property) => parseProperty(property, node, typeChecker))
 		});
 	});
 	return interfaces;
