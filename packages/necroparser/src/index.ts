@@ -6,8 +6,6 @@ import {
 	createProgram,
 	createSourceFile,
 	forEachChild,
-	ModuleDetectionKind,
-	ModuleKind,
 	ScriptTarget,
 	Node,
 	Type,
@@ -16,7 +14,7 @@ import {
 	ObjectFlags,
 	isInterfaceDeclaration,
 	SymbolFlags,
-	displayPartsToString, getDefaultCompilerOptions
+	displayPartsToString
 } from 'typescript';
 
 interface Interface {
