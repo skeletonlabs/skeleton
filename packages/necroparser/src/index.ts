@@ -67,7 +67,6 @@ function parseDocumentation(symbol: ts.Symbol, typeChecker: ts.TypeChecker): Pro
 
 function parseProperty(property: ts.Symbol, node: ts.Node, typeChecker: ts.TypeChecker): InterfaceProperty {
 	const propertyType = typeChecker.getTypeOfSymbolAtLocation(property, node);
-
 	return {
 		name: property.getName(),
 		type: typeChecker.typeToString(propertyType),
