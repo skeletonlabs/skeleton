@@ -1,0 +1,127 @@
+[
+	{
+		"name": "Interface",
+		"properties": [
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "property",
+				"required": true,
+				"type": "string",
+				"typeKind": "primitive"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "ids",
+				"required": false,
+				"type": "Partial<{ root: string; item(value: string): string; itemContent(value: string): string; itemTrigger(value: string): string; }>",
+				"typeKind": "object"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "multiple",
+				"required": false,
+				"type": "boolean",
+				"typeKind": "primitive"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "collapsible",
+				"required": false,
+				"type": "boolean",
+				"typeKind": "primitive"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "value",
+				"required": true,
+				"type": "string[]",
+				"typeKind": "array"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "disabled",
+				"required": false,
+				"type": "boolean",
+				"typeKind": "primitive"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "onValueChange",
+				"required": false,
+				"type": "(details: { value: string[]; }) => void",
+				"typeKind": "function"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "onFocusChange",
+				"required": false,
+				"type": "(details: { value: string | null; }) => void",
+				"typeKind": "function"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "orientation",
+				"required": false,
+				"type": "\"horizontal\" | \"vertical\"",
+				"typeKind": "union"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "dir",
+				"required": false,
+				"type": "string",
+				"typeKind": "primitive"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "id",
+				"required": true,
+				"type": "string",
+				"typeKind": "primitive"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "getRootNode",
+				"required": false,
+				"type": "() => Node",
+				"typeKind": "function"
+			}
+		]
+	}
+]

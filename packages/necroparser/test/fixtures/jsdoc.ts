@@ -1,8 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Interface {
-	/**
-	 * Property
-	 *
+	/**Property
 	 * @default 'foo'
 	 * @readonly
 	 */
