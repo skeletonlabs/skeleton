@@ -1,7 +1,7 @@
 {
 	"name": "@skeletonlabs/necroparser",
 	"private": true,
-	"version": "0.0.1",
+	"version": "0.0.2-next.0",
 	"type": "module",
 	"scripts": {
 		"package": "unbuild",
