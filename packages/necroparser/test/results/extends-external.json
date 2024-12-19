@@ -2,125 +2,92 @@
 	{
 		"name": "Interface",
 		"properties": [
+			{ "name": "property", "type": "string", "typeKind": "primitive", "required": true, "documentation": { "text": null, "tags": [] } },
 			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
-				"name": "property",
-				"required": true,
-				"type": "string",
-				"typeKind": "primitive"
-			},
-			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
 				"name": "ids",
-				"required": false,
 				"type": "Partial<{ root: string; item(value: string): string; itemContent(value: string): string; itemTrigger(value: string): string; }>",
-				"typeKind": "object"
+				"typeKind": "object",
+				"required": false,
+				"documentation": { "text": "The ids of the elements in the accordion. Useful for composition.", "tags": [] }
 			},
 			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
 				"name": "multiple",
-				"required": false,
 				"type": "boolean",
-				"typeKind": "primitive"
+				"typeKind": "union",
+				"required": false,
+				"documentation": {
+					"text": "Whether multiple accordion items can be expanded at the same time.",
+					"tags": [{ "name": "default", "value": "false" }]
+				}
 			},
 			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
 				"name": "collapsible",
-				"required": false,
 				"type": "boolean",
-				"typeKind": "primitive"
+				"typeKind": "union",
+				"required": false,
+				"documentation": {
+					"text": "Whether an accordion item can be closed after it has been expanded.",
+					"tags": [{ "name": "default", "value": "false" }]
+				}
 			},
 			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
 				"name": "value",
-				"required": true,
 				"type": "string[]",
-				"typeKind": "array"
+				"typeKind": "array",
+				"required": false,
+				"documentation": { "text": "The `value` of the accordion items that are currently being expanded.", "tags": [] }
 			},
 			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
 				"name": "disabled",
-				"required": false,
 				"type": "boolean",
-				"typeKind": "primitive"
+				"typeKind": "union",
+				"required": false,
+				"documentation": { "text": "Whether the accordion items are disabled", "tags": [] }
 			},
 			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
 				"name": "onValueChange",
+				"type": "(details: ValueChangeDetails) => void",
+				"typeKind": "function",
 				"required": false,
-				"type": "(details: { value: string[]; }) => void",
-				"typeKind": "function"
+				"documentation": { "text": "The callback fired when the state of expanded/collapsed accordion items changes.", "tags": [] }
 			},
 			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
 				"name": "onFocusChange",
+				"type": "(details: FocusChangeDetails) => void",
+				"typeKind": "function",
 				"required": false,
-				"type": "(details: { value: string | null; }) => void",
-				"typeKind": "function"
+				"documentation": { "text": "The callback fired when the focused accordion item changes.", "tags": [] }
 			},
 			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
 				"name": "orientation",
-				"required": false,
 				"type": "\"horizontal\" | \"vertical\"",
-				"typeKind": "union"
+				"typeKind": "union",
+				"required": false,
+				"documentation": { "text": "The orientation of the accordion items.", "tags": [{ "name": "default", "value": "\"vertical\"" }] }
 			},
 			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
 				"name": "dir",
+				"type": "\"ltr\" | \"rtl\"",
+				"typeKind": "union",
 				"required": false,
-				"type": "string",
-				"typeKind": "primitive"
+				"documentation": { "text": "The document's text/writing direction.", "tags": [{ "name": "default", "value": "\"ltr\"" }] }
 			},
 			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
-				"name": "id",
-				"required": true,
-				"type": "string",
-				"typeKind": "primitive"
-			},
-			{
-				"documentation": {
-					"tags": [],
-					"text": null
-				},
 				"name": "getRootNode",
+				"type": "() => ShadowRoot | Node | Document",
+				"typeKind": "function",
 				"required": false,
-				"type": "() => Node",
-				"typeKind": "function"
+				"documentation": {
+					"text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+					"tags": []
+				}
+			},
+			{
+				"name": "id",
+				"type": "string",
+				"typeKind": "primitive",
+				"required": true,
+				"documentation": { "text": "The unique identifier of the machine.", "tags": [] }
 			}
 		]
 	}

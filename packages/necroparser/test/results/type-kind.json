@@ -27,6 +27,26 @@
 					"tags": [],
 					"text": null
 				},
+				"name": "union",
+				"required": true,
+				"type": "string | number",
+				"typeKind": "union"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
+				"name": "intersection",
+				"required": true,
+				"type": "Record<string, string> & Record<string, number>",
+				"typeKind": "intersection"
+			},
+			{
+				"documentation": {
+					"tags": [],
+					"text": null
+				},
 				"name": "object",
 				"required": true,
 				"type": "{ [key: string]: unknown; }",

@@ -5,7 +5,7 @@
 		"moduleDetection": "force",
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
-		"types": ["node", "vite/client"],
+		"types": ["node"],
 		"strict": true,
 		"noEmit": true,
 		"esModuleInterop": true,
