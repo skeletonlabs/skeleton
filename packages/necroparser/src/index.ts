@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import * as ts from 'typescript';
+import ts from 'typescript';
 
 interface Interface {
 	name: string;
