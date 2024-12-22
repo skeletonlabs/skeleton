@@ -3,4 +3,4 @@
 '@skeletonlabs/skeleton-react': patch
 ---
 
-Remove extra height class from NavBar
+chore: Remove extra height class from NavBar
