@@ -5,7 +5,7 @@
 	let {
 		value = $bindable(''),
 		// Root
-		base = 'h-full flex flex-col',
+		base = 'flex flex-col',
 		background = 'preset-filled-surface-100-900',
 		width = 'min-w-[320px] w-full',
 		height = 'h-20',

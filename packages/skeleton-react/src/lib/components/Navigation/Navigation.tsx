@@ -18,7 +18,7 @@ export const NavRail: React.FC<NavRailProps> = ({
 	value = '',
 	expanded = false,
 	// Root
-	base = 'h-full flex flex-col',
+	base = 'flex flex-col',
 	background = 'preset-filled-surface-100-900',
 	padding = 'p-1',
 	width = 'w-24',
