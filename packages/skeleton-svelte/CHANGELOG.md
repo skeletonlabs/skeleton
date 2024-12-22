@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.17
+
+### Patch Changes
+
+- chore: Remove extra height class from NavBar ([#3074](https://github.com/skeletonlabs/skeleton/pull/3074))
+
 ## 1.0.0-next.16
 
 ### Patch Changes
