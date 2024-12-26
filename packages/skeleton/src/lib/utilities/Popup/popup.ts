@@ -138,7 +138,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	}
 
 	function handleMouseUp(event: MouseEvent) {
-		if (!triggerNode.contains(event.target as Node)) close();
+		if (!triggerNode.contains(event.target as Node) && !elemPopup.contains(event.target as Node)) close();
 	}
 
 	function onWindowClick(event: any): void {
