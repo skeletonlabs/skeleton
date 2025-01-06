@@ -7,26 +7,31 @@ order: 40
 
 export const components = componentSet;
 
-<p class="type-scale-5">Skeleton does not implement a custom solution for Dark Mode, but rather fully utilizes the mechanics [provided by Tailwind](https://tailwindcss.com/docs/dark-mode). This allows mode to be toggled based on the operating system, or manually controlled via user settings.</p>
+<p class="type-scale-5">Skeleton makes use of Tailwind's [Dark Mode](https://tailwindcss.com/docs/dark-mode) out of the box. This allows the mode to be toggle manually by end users, automatically via operating system settings, or through a combination of both.</p>
 
 ## Fundamentals
 
-Tailwind provides two Dark Mode strategies, defined in your [Tailwind configuration](https://tailwindcss.com/docs/dark-mode).
-
-- `darkMode: 'selector'` - enables the Selector strategy.
-- `darkMode: 'media'` - enables the Media strategy.
+Tailwind offers two strategies, enabled within your project's [Tailwind configuration](https://tailwindcss.com/docs/dark-mode).
 
 ### Selector Strategy
 
-See [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually) for toggling dark mode. This is accomplished by adding or removing  a `.dark` class to your document's `<html>` element to determine the mode. The exact instructions for implementing this may differ based on your app's meta-framework.
+```ts
+darkMode: 'selector'
+```
+
+See [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually) for toggling the selector. This is accomplished by adding or removing  a `.dark` class to your document's `<html>` element to determine the mode.
 
 ### Media Strategy
 
-Uses CSS's [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) to set the mode based on operating system preference. You may toggle the light or dark mode setting within your operating system system settings. In some browsera nd devices this may require you to refresh the browser page.
+```ts
+darkMode: 'media'
+```
+
+Uses CSS's [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) to set the mode based on operating system settings. In some browser and devices this may require you to refresh the browser page to reflect the changes.
 
 ## Styling Elements
 
-The base value represents light mode, while the `dark:` modifier overrides this value for dark mode. Note that all Skeleton components implement this technique out of the box.
+When styling elements with Tailwind, the base color represents light mode, while the `dark:` modifier overrides this value for dark mode. Note that all Skeleton components implement this technique to handle either the display for either mode.
 
 ```html
 <!--
@@ -38,4 +43,20 @@ Dark Mode: Black Background
 
 ## Using Color Parings
 
-Skeleton provides opinionated utility classes called [Color Pairings](/docs/design/colors#pairings) to assist with balancing theme colors for light and dark mode.
+Skeleton provides set of utility classes called [Color Pairings](/docs/design/colors#pairings). These combine both base and dark mode classes within a single classes, enabling an opinionated manner for balancing your Skeleton theme colors in either mode.
+
+---
+
+## Lightswitch Alternatives
+
+In legacy versions, Skeleton provided a dedicated `<Lightswitch>` component for toggling dark mode using the `selector` strategy. Unfortunately this is no longer possible given the sheer number of permutations per available options:
+
+- Supporting the `selector`, `media`, or a combination of both strategies.
+- Supporting the unique APIs of each tech stacks and/or meta-framework.
+- Handling state and persistence; local vs remote storage (e.g. account-based storage)
+
+Given this, we recommend the following alternatives:
+
+1. Reference the [Astro component](https://github.com/skeletonlabs/skeleton/blob/next/sites/next.skeleton.dev/src/components/docs/Lightswitch.astro) generated for this documenation site using primarily native Javascript.
+2. Drop manual selection in favor of the `media` strategy, to adhere to your user's operating system settings.
+3. Generate your own component following [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection) and APIs provided by your stack of choice.
