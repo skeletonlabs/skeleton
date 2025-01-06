@@ -16,46 +16,70 @@ export const components = componentSet;
 	allowfullscreen
 />
 
-## Why Skeleton?
+## Our Philosophy
 
-At the core, Skeleton provides a uniform design language and a structured framework for controlling the look and feel of your product and user experience. A well produced design system can greatly reduce the amount of time spent recreating elements and redefining patterns while building products and user interfaces at scale.
-
-### Theme System
-
-Skeleton fully embraces [Tailwind](https://tailwindcss.com/), while extending its capabilities in really meaningful ways. Providing best in class support for themes, colors, typography, spacing, and more. Including a fully curated set of themes out of the box, as well as a powerful [theme generator](https://themes.skeleton.dev/) for creating your own unique themes on demand.
+At the core, Skeleton provides a uniform design language and a structured framework for controlling the look and feel of your product and user experience. A well produced design system can greatly reduce the amount of time spent managing design elements and patterns, allowing you to more quickly produce user interfaces at scale.
 
 ### Framework Agnostic
 
-Skeleton's core package is framework agnostic, requiring only a single dependency - Tailwind. This gives you full access to the design system, themes, and more for nearly any web-based application.
+Skeleton's core package is framework agnostic, requiring only a single dependency: [Tailwind CSS](https://tailwindcss.com/). This provides full access to all design system features, enabling you to build and maintain your own component library for your framework of choice. While also providing an optional and opt-in suite of components for React and Svelte users.
 
-### Components
+### Native-First
 
-Skeleton's components utilize [Zag.js](https://zagjs.com/) as their foundation, which provides a collection of framework-agnostic UI component patterns component to manage logic and state. While the interface fully adapts to your to the Skeleton design system automatically. Currently supporting React and Svelte, with additional frameworks planned for the future.
+We aim to embrace the interface of the web, not replace it, which is why Skeleton defaults to native browser elements and APIs whenever possible. You can see this reflected in our implementation of buttons, form elements, and (soon) popovers. Beyond the ease of use, we feel this also offers a best in class solution for accessibility.
 
-### Figma UI Kit
+### Design Systems
 
-Skeleton provides access to a fully featured [Figma UI Kit](/docs/get-started/figma) to assist designers in drafting a visual concept of your upcoming projects.
+Our goal is to standarize the design process, providing common conventions that are easier to learn and retain, whether you work alone or in a team environment. Covering common fixtures such as: themes, colors, typography, spacing, and more.
+
+### Utility-First
+
+Skeleton fully embraces [Tailwind](https://tailwindcss.com/) and their [utility-first approach](https://tailwindcss.com/docs/utility-first), supporting all built-in features, while extending the capabilities in meaningful ways. We adore Tailwind's opinionated structure, which aligns with our approach to standarization. And feel this is perfect compliment to the encapsulated components of the modern web.
+
+### Functional Components
+
+While Skeleton strives to be native first, there will be times where you need to go a bit further. For this, Skeleton provides an optional suite of functional components, built on the foundation of [Zag.js](https://zagjs.com/). These components fully adapt to design system out of the box. And while we currently only support React and Svelte, we hope to extend this to additional frameworks very soon.
+
+### Opt-In by Default
+
+Skeleton aims to provide a modular and opt-in approach top-to-bottom. Enabling interfaces features like buttons and typography via dedicated utility classes. While still allowing for a simple escape hatch when you need to draw outside the lines and generate your own custom interface elements.
+
+### Customization
+
+While Skeleton aims to provide reasonable defaults out of the box, we strongly encourge you to view it as a foundation. Implement your own themes and presets, use Skeleton's utlity classes as primitives to generate more complex classes, and modify functional components with our powerful style props system. But you should never feel limited to the default settings or aesthetic.
 
 ---
 
-## Open Source
+## Additional Benefits
 
-Skeleton is committed to [free and open-source software (FOSS)](https://github.com/skeletonlabs/skeleton) and is covered by the [MIT License](https://github.com/skeletonlabs/skeleton?tab=MIT-1-ov-file#readme).
+### Open Source
+
+Skeleton provides as [free and open-source software (FOSS)](https://github.com/skeletonlabs/skeleton) under the [MIT License](https://github.com/skeletonlabs/skeleton?tab=MIT-1-ov-file#readme).
 
 ### The Community
 
-Skeleton has a thriving community of users and contributors on both [GitHub](https://github.com/skeletonlabs/skeleton) and [Discord](https://discord.gg/EXqV7W8MtY).
+Skeleton has a huge community of users and contributors across [GitHub](https://github.com/skeletonlabs/skeleton), [Discord](https://discord.gg/EXqV7W8MtY), and [Bluesky](https://bsky.app/profile/skeletonlabs.bsky.social).
 
-### Updates
+### Regular Updates
 
-We have maintained a set release cadence, providing new updates every two weeks. [See our changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md).
+We have maintained a set release cadence, providing new updates every two weeks for year. [See our changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md).
 
-### Contributing
+### Themes System
 
-Interested in contributing? See our [Contribution Guidelines](/docs/resources/contribute).
+Skeleton comes equipped with a curated set of themes out of the box, as well as a powerful [theme generator](https://themes.skeleton.dev/) for crafting your custom theme on-demand.
+
+### Figma UI Kit
+
+Skeleton provides access to a fully featured [Figma UI Kit](/figma) to assist designers in drafting a visual concept of upcoming projects.
 
 ---
 
 ## Get Started
 
-Ready to get started? Check out our comprehensive [installation guides](/docs/get-started/installation) or start [learning the fundamentals](/docs/get-started/fundamentals).
+### Using Skeleton
+
+Ready to get started? Check out our comprehensive [installation guides](/docs/get-started/installation) and begin [learning the fundamentals](/docs/get-started/fundamentals).
+
+### Contributing
+
+Please refer to our dedicated [Contribution Guidelines](/docs/resources/contribute) if you wish to contribute directly.
