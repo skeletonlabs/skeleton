@@ -129,7 +129,7 @@ function generatePreview(event) {
 		const image = event.target.result;
 		// set the image as the src of an image element
 	}
-	reader.readAsDataURL(details.acceptedFiles[0]);
+	reader.readAsDataURL(event.details.acceptedFiles[0]);
 }
 ```
 ```svelte
@@ -140,7 +140,7 @@ function generatePreview(event) {
 
 ```svelte
 <FileUpload allowDrop> <!-- Enable drag-and-drop -->
-<FileUpload directory> <!-- Enable dirctories -->
+<FileUpload directory> <!-- Enable directories -->
 <FileUpload capture> <!-- Enable media capture on mobile devices -->
 ```
 
