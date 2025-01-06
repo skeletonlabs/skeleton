@@ -12,3 +12,13 @@ import NavGrid from '@components/docs/NavGrid.astro';
 {/* --- */}
 
 <NavGrid collection="docs" path="installation/" classes="md:grid-cols-2" />
+
+## Mixing UI Libraries
+
+### Supported
+
+Skeleton's design system can directly support headless functional component solutions, such as [Melt UI](https://www.melt-ui.com/), [Radix](https://www.radix-ui.com/), and [Zag.js](https://zagjs.com/). Additionally we support integration with "Tailwind component" libraries such as the [Tailwind UI](https://tailwindui.com/). Essentially any library that supports Tailwind and allows you to supply your own Tailwind utility classes.
+
+### Unsupported
+
+Unfortunately, we cannot support direct integration with [Flowbite React](https://flowbite-react.com/), [Flowbite Svelte](https://flowbite-svelte.com/), [Daisy UI](https://daisyui.com/), or similar. Just like Skeleton, these libraries rely on their own dedicated Tailwind plugin that directly overlaps with many core features of Skeleton, such as utility class names and color values. Mixing Skeleton with these libraries will lead to adverse results. Although we recommend all of these as excellent alternative to Skeleton!
