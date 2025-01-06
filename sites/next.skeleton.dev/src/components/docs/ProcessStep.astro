@@ -7,7 +7,7 @@ const { step } = Astro.props;
 	<div class="type-scale-2 preset-filled-surface-200-800 -ml-4 flex size-7 items-center justify-center rounded-full">
 		{step !== 'check' ? step : <Check size={16} />}
 	</div>
-	<article class="[&>.h2]:!type-scale-4 space-y-4">
+	<article class="[&>.h2]:!type-scale-4 [&>.h3]:!type-scale-4 space-y-4">
 		<slot />
 	</article>
 </div>

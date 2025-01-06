@@ -12,35 +12,41 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 
 {/* --- */}
 
+## Requirements
+
+The core of Skeleton is our [Tailwind Plugin](/docs/get-started/plugin), which provides access to our framework agnostic [design system](/docs/get-started/fundamentals#design-system) and [Tailwind-based](/docs/get-started/fundamentals#tailwind) features - everything *except* components. This comes with two prerequisites:
+
+| Tooling | Minimum Version |
+|---|---|
+| Package Management | NPM, PNPM, Yarn, etc. |
+| [Tailwind](https://tailwindcss.com/) | 3 |
+
+The exact instructions for installing Skeleton will differ per framework, however we've provided a generic guide below. Use this as a foundation for getting started in non-supported frameworks.
+
+## Installation
+
 <div class="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
 	<p>WARNING: The following guide will install a pre-release version of Skeleton v3. Be aware that some features may be missing, incomplete, or non-functional at this time. Please report bugs and issues on <a class='underline' href='https://github.com/skeletonlabs/skeleton/issues/new/choose' target='_blank' rel='external'>GitHub</a> or <a class='underline' href='https://discord.gg/EXqV7W8MtY' target='_blank' rel='external'>Discord</a>.</p>
 </div>
 
-The core of Skeleton is our [Tailwind Plugin](/docs/get-started/plugin), which provides access to our framework agnostic [design system](/docs/get-started/fundamentals#design-system) and [Tailwind-based](/docs/get-started/fundamentals#tailwind) features - everything *except* components. This comes with two prerequisites:
-
-- Node-based package management (NPM, PNPM, etc)
-- Tailwind CSS
-
-The exact instructions for installing Skeleton will differ per framework, however we've provided a generic guide below.
-
 <Process>
     <ProcessStep step="1">
-        ## Create a Project
+        ### Create a Project
         Scaffold your web-based application using any framework (such as [Nuxt](https://nuxt.com/), [SolidStart](https://start.solidjs.com/), [Laravel](https://laravel.com/), etc.)
     </ProcessStep>
     <ProcessStep step="2">
-        ## Install Tailwind
+        ### Install Tailwind
 		Follow the [official instructions](https://tailwindcss.com/docs/installation/framework-guides) to install Tailwind for your framework of choice.
     </ProcessStep>
     <ProcessStep step="3">
-        ## Install Skeleton
+        ### Install Skeleton
         Install the Skeleton core package to gain access to the Skeleton Tailwind plugin.
         ```console
         npm i -D @skeletonlabs/skeleton@next
         ```
     </ProcessStep>
     <ProcessStep step="4">
-        ## Configure Tailwind
+        ### Configure Tailwind
         Open `tailwind.config` in the root of your project. The structure of this file may differ slightly for your framework.
         ```ts title="tailwind.config" {1,2, 13-16}
 		import { skeleton } from '@skeletonlabs/skeleton/plugin';
@@ -64,20 +70,18 @@ The exact instructions for installing Skeleton will differ per framework, howeve
         ```
     </ProcessStep>
 	<ProcessStep step="6">
-        ## Set Active Theme
+        ### Set Active Theme
         Open the file containing the `<body>` tag for your project and set the `data-theme` attribute to define your active theme.
         ```html
         <body data-theme="cerberus">...</body>
         ```
     </ProcessStep>
     <ProcessStep step="check">
-        ## Run the Project
+        ### Run the Project
         Start the dev server for your framework of choice.
     </ProcessStep>
 </Process>
 
----
-
 ## Support
 
-While we officially limit support for Skeleton to React, Svelte, and Astro frameworks for now, we have a thriving community of users on [GitHub](https://github.com/skeletonlabs/skeleton/discussions) and [Discord](https://discord.gg/EXqV7W8MtY). If you need further support (directly related to Skeleton) considering reaching out. Other members of the community may be able to assist you.
+While we officially limit support for Skeleton to React, Svelte, and Astro for now, Skeleton has an active community of users on [GitHub](https://github.com/skeletonlabs/skeleton/discussions) and [Discord](https://discord.gg/EXqV7W8MtY). If you need support (directly related to Skeleton) considering reaching out in these spaces. Other members of the community may be able to assist you.
