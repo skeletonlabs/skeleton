@@ -21,7 +21,7 @@ import ExampleCustomRaw from '@examples/design/presets/ExampleCustom.astro?raw';
 import ExampleGradient from '@examples/design/presets/ExampleGradient.astro';
 import ExampleGradientRaw from '@examples/design/presets/ExampleGradient.astro?raw';
 
-Presets are complex utilty classes that combine various Skeleton primitives, allowing you a quick way to style buttons, badges, cards, and more. Create any combination of styles by mixing Skeleton Presets and Tailwind primatives.
+<p class="type-scale-5">Presets are complex utilty classes that combine various Skeleton primitives. Allowing you quickly style buttons, badges, cards, and more. Create any combination of styles by mixing Skeleton Presets and Tailwind primitives.</p>
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -40,7 +40,7 @@ Presets are complex utilty classes that combine various Skeleton primitives, all
 6. **Ghost Icon** - has no style by default, but shows a branded tonal preset on hover.
 7. **Gradient** - a custom preset generated using Tailwind gradient primitives.
 
-## Options
+## Built-Ins
 
 ### Filled
 
@@ -87,15 +87,15 @@ preset-outlined-{color}-{shade}-{shade}
 	</Fragment>
 </Preview>
 
-## Customization
+## Custom Presets
 
-### Custom Presets
+### Create a Preset
 
-Since Presets are just a combination of Skeleton and Tailwind primitives, you can abstract these to your global stylesheet to create your own custom preset styles. We recommend the `preset-{foo}` naming scheme to keep this standardized.
+Presets are pre-generated combination of Skeleton and Tailwind primitives, which means you can abstract these to create your own set. Add these classes to your global stylesheet and use anywhere you would use the built-in presets. Just make sure to use the `preset-{foo}` naming scheme to keep things standardized.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleCustom client:load />
+		<ExampleCustom />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleCustomRaw} lang="astro" />
@@ -104,13 +104,13 @@ Since Presets are just a combination of Skeleton and Tailwind primitives, you ca
 
 ### Gradient Presets
 
-Tailwind provides a number of powerful [Gradient utilities](https://tailwindcss.com/docs/gradient-color-stops). Use these to create any combination of gradient presets.
+Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/gradient-color-stops) utility classes. Combine these to create your own unique gradient presets.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleGradient client:load />
+		<ExampleGradient />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleGradientRaw} lang="svelte" />
+		<Code code={ExampleGradientRaw} lang="astro" />
 	</Fragment>
 </Preview>

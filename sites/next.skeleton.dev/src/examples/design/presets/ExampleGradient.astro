@@ -1,11 +1,33 @@
-<div class="card preset-gradient-example aspect-square flex justify-center items-center p-10">
-	<p>Hover Me</p>
+<div class="w-full grid grid-cols-3 gap-4">
+	<!-- 1 -->
+	<div class="card preset-gradient-one flex justify-center items-center p-10">
+		<span class="font-bold">1</span>
+	</div>
+	<!-- 2 -->
+	<div class="card preset-gradient-two flex justify-center items-center p-10">
+		<span class="font-bold">2</span>
+	</div>
+	<!-- 3 -->
+	<div class="card preset-gradient-three flex justify-center items-center p-10">
+		<span class="font-bold">3</span>
+	</div>
 </div>
 
 <style lang="postcss">
 	/* Create a custom preset in your global stylesheet */
-	.preset-gradient-example {
-		@apply bg-gradient-to-br from-secondary-500 to-tertiary-500 text-white;
+	.preset-gradient-one {
+		@apply bg-gradient-to-br from-primary-500 to-tertiary-500 text-white;
 		@apply hover:bg-gradient-to-tl;
+		@apply text-primary-contrast-500;
+	}
+	.preset-gradient-two {
+		@apply bg-gradient-to-br from-error-500 to-warning-500 text-white;
+		@apply hover:bg-gradient-to-tl;
+		@apply text-error-contrast-500;
+	}
+	.preset-gradient-three {
+		@apply bg-gradient-to-br from-success-500 to-warning-500 text-white;
+		@apply hover:bg-gradient-to-tl;
+		@apply text-success-contrast-500;
 	}
 </style>
