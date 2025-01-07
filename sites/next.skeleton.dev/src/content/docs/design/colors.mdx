@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: Colors
-description: The Skeleton color system.
+description: The Skeleton theme color system.
 srcCore: '/plugin/extends/colors.ts'
 order: 10
 ---
@@ -9,46 +9,81 @@ order: 10
 export const components = componentSet;
 
 import ExampleColors from '@examples/design/colors/ExampleColors.astro';
-import ExampleColorsRaw from '@examples/design/colors/ExampleColors.astro?raw';
+import ExampleContrast from '@examples/design/colors/ExampleContrast.astro';
+import ExampleContrastRaw from '@examples/design/colors/ExampleContrast.astro?raw';
 import ExamplePairings from '@examples/design/colors/ExamplePairings.astro';
-import ExamplePairingsRaw from '@examples/design/colors/ExamplePairings.astro?raw';
+import ExamplePairingsStack from '@examples/design/colors/ExamplePairingsStack.astro';
 
-## Supports
+<ExampleColors />
 
-`accent`, `bg`, `border`, `caret`, `decoration`, `divide`, `fill`, `outline`, `ring`, `shadow`, `stroke`, `text`
+Supports <u>all</u> standard Tailwind color utility classes using the following pattern.
 
-## Palette
+```
+{property}-{color}-{shade}
+```
 
-Available to all supported properties via `.{property}-{color}-{shade}`
+| Key | Accepted Values |
+|---|---|
+| Property | `accent`, `bg`, `border`, `caret`, `decoration`, `divide`, `fill`, `outline`, `ring`, `shadow`, `stroke`, `text`
+| Color | `primary`, `secondary`, `tertiary`, `success`, `warning`, `error`, `surface` |
+| Shade | `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950` |
+
+```html
+<div class="bg-primary-500">...</div>
+<div class="border border-secondary-600">...</div>
+<svg class="fill-surface-950">...</svg>
+```
+
+## Contrast Colors
+
+Skeleton themes also include contrast color values for every shade. These are defined via each respective [theme property](/docs/get-started/plugin#colors).
+
+```
+[style]-[color]-contrast-[shade]
+```
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleColors />
+		<ExampleContrast />
 	</Fragment>
 	<Fragment slot="code">
-		{/* <Code code={ExampleColorsRaw} lang="astro" /> */}
-		```html
-		<div class="bg-primary-500">Background Primary 500</div>
-		<div class="border border-secondary-600">Border Secondary 600</div>
-		<svg class="fill-surface-950">Fill Surface 950</svg>
-		```
+		<Code code={ExampleContrastRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
 ## Pairings
 
-Available to all supported properties via `.{property}-{color}-{lightModeShade}-{darkModeShade}`
+Color Pairings are dedicated utility classes that provide an opinionated pair of color for light and dark mode.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExamplePairings />
-	</Fragment>
-	<Fragment slot="code">
-		{/* <Code code={ExamplePairingsRaw} lang="astro" /> */}
-		```html
-		<div class="bg-primary-100-900">Forward</div>
-		<div class="bg-primary-500">Default</div>
-		<div class="bg-primary-900-100">Backward</div>
-		```
-	</Fragment>
-</Preview>
+```
+{property}-{color}-{lightModeShade}-{darkModeShade}
+```
+
+<ExamplePairings />
+
+Color Parings can be used to generate a heierarchy of visual layers, ranging from foreground to background elements. This uses the same color ramp, but inverts the order from light to dark mode. See this visualized below.
+
+<ExamplePairingsStack />
+
+* We can use shade `950` for light mode and `50` from dark mode respectively for our text color.
+* Then use shade `50` from light mode and `950` from dark mode respectively for our app background.
+* While using the static `500` shade key brand elements, such as buttons or banners.
+* Then reserve multiple layers between for elements such as cards, inputs, and more.
+
+```html
+<div class="bg-primary-950-50">Foreground</div>
+<div class="bg-primary-900-100">...</div>
+<div class="bg-primary-800-200">...</div>
+<div class="bg-primary-700-300">...</div>
+<div class="bg-primary-600-400">...</div>
+<div class="bg-primary-500">500</div>
+<div class="bg-primary-400-600">...</div>
+<div class="bg-primary-300-700">...</div>
+<div class="bg-primary-200-800">...</div>
+<div class="bg-primary-100-900"></div>
+<div class="bg-primary-50-950">Background</div>
+```
+
+## Presets
+
+See the [Preset system](/docs/design/presets) for canned utlity classes that automatically mix contrast and color pairings.

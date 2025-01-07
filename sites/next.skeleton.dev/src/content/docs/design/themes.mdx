@@ -98,7 +98,7 @@ You may update the CSS Custom Properties provided by Skeleton's preset themes. U
 
 ### Target Themes
 
-If your application supports multiple themes, you can target changes only to specific themes using the following technique.
+If your application supports multiple themes, you can target changes to specific themes using the `data-theme` attribute.
 
 ```css title="app.css"
 /** Cerberus theme h1 tags only. */
@@ -113,7 +113,7 @@ If your application supports multiple themes, you can target changes only to spe
 
 ### Backgrounds
 
-Your default application background color is set automatically using two specific theme properties. These can be overwritten in your global stylesheet using the Theme Properties technique described above.
+Your application background color is set automatically using two specific theme properties. These can be overwritten in your global stylesheet using the following [theme properties](/docs/get-started/plugin#colors).
 
 - Light Mode: `—body-background-color`
 - Dark Mode: `—body-background-color-dark`
@@ -125,7 +125,7 @@ You can also adjust the values directly by targetting the `<body>` element.
 body { @apply bg-pink-500 dark:bg-green-500; }
 ```
 
-Background images are also supported, including CSS mesh gradients. By setting each color with theme properties, you can ensure the gradient adheres to your theme's unique palette. We recommend the use of Mesher to generate your own custom mesh gradients.
+Background images are also supported, including CSS mesh gradients. By using theme properties for each color, you can ensure the gradient adheres to your theme's palette. We recommend Mesher to generate your own custom mesh gradients.
 
 <figure class="card-filled-enhanced flex justify-center p-8">
 	<a
