@@ -1,0 +1,11 @@
+<div class="card preset-gradient-example aspect-square flex justify-center items-center p-10">
+	<p>Hover Me</p>
+</div>
+
+<style lang="postcss">
+	/* Create a custom preset in your global stylesheet */
+	.preset-gradient-example {
+		@apply bg-gradient-to-br from-secondary-500 to-tertiary-500 text-white;
+		@apply hover:bg-gradient-to-tl;
+	}
+</style>
