@@ -15,10 +15,8 @@ import NavGrid from '@components/docs/NavGrid.astro';
 
 ## Mixing UI Libraries
 
-### Supported
+Skeleton's design system is great for headless component libraries, such as [Melt UI](https://www.melt-ui.com/), [Radix](https://www.radix-ui.com/), and [Zag.js](https://zagjs.com/). As well as "Tailwind component" libraries such as the [Tailwind UI](https://tailwindui.com/). Essentially any library that supports Tailwind, but very specifically allows you to insert or substitute Skeleton-provided utility classes.
 
-Skeleton's design system can directly support headless functional component solutions, such as [Melt UI](https://www.melt-ui.com/), [Radix](https://www.radix-ui.com/), and [Zag.js](https://zagjs.com/). Additionally we support integration with "Tailwind component" libraries such as the [Tailwind UI](https://tailwindui.com/). Essentially any library that supports Tailwind and allows you to supply your own Tailwind utility classes.
+### Unsupported Libraries
 
-### Unsupported
-
-Unfortunately, we cannot support direct integration with [Flowbite React](https://flowbite-react.com/), [Flowbite Svelte](https://flowbite-svelte.com/), [Daisy UI](https://daisyui.com/), or similar. Just like Skeleton, these libraries rely on their own dedicated Tailwind plugin that directly overlaps with many core features of Skeleton, such as utility class names and color values. Mixing Skeleton with these libraries will lead to adverse results. Although we recommend all of these as excellent alternative to Skeleton!
+Unfortunately Skeleton does not support integration with [Flowbite React](https://flowbite-react.com/), [Flowbite Svelte](https://flowbite-svelte.com/), or [Daisy UI](https://daisyui.com/) at this time. Similar to Skeleton, these libraries depend on a dedicated Tailwind plugin that directly overlaps with many of our core features, such as class names and color values. Mixing Skeleton with these libraries will lead to adverse results. Although we do recommend these as excellent alternative to Skeleton!
