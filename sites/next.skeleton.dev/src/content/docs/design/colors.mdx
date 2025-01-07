@@ -36,10 +36,10 @@ Supports <u>all</u> standard Tailwind color utility classes using the following 
 
 ## Contrast Colors
 
-Skeleton themes also include contrast color values for every shade. These are defined via each respective [theme property](/docs/get-started/plugin#colors).
+Skeleton themes also include contrast color values for every shade. Use these to set contrasting values for overlapping text and icon fill styles. These are defined via each respective [theme property](/docs/get-started/plugin#colors).
 
 ```
-[style]-[color]-contrast-[shade]
+{property}-{color}-contrast-{shade}
 ```
 
 <Preview client:load>
@@ -51,9 +51,11 @@ Skeleton themes also include contrast color values for every shade. These are de
 	</Fragment>
 </Preview>
 
+See the [Preset system](/docs/design/presets) for additional utlity classes that automatically mix each color and contrast tone.
+
 ## Pairings
 
-Color Pairings are dedicated utility classes that provide an opinionated pair of color for light and dark mode.
+Color Pairings are utility classes that provide an opinionated pairing of colors for light and dark mode.
 
 ```
 {property}-{color}-{lightModeShade}-{darkModeShade}
@@ -76,14 +78,10 @@ Color Parings can be used to generate a heierarchy of visual layers, ranging fro
 <div class="bg-primary-800-200">...</div>
 <div class="bg-primary-700-300">...</div>
 <div class="bg-primary-600-400">...</div>
-<div class="bg-primary-500">500</div>
+<div class="bg-primary-500">Branding</div>
 <div class="bg-primary-400-600">...</div>
 <div class="bg-primary-300-700">...</div>
 <div class="bg-primary-200-800">...</div>
 <div class="bg-primary-100-900"></div>
 <div class="bg-primary-50-950">Background</div>
 ```
-
-## Presets
-
-See the [Preset system](/docs/design/presets) for canned utlity classes that automatically mix contrast and color pairings.
