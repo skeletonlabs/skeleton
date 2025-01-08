@@ -27,6 +27,10 @@ import Keyboard from '@examples/design/typography/Keyboard.astro';
 import KeyboardRaw from '@examples/design/typography/Keyboard.astro?raw';
 import InsDel from '@examples/design/typography/InsDel.astro';
 import InsDelRaw from '@examples/design/typography/InsDel.astro?raw';
+
+import Semantic from '@examples/design/typography/Semantic.svelte';
+import SemanticRaw from '@examples/design/typography/Semantic.svelte?raw';
+
 import ListUnordered from '@examples/design/typography/ListUnordered.astro';
 import ListUnorderedRaw from '@examples/design/typography/ListUnordered.astro?raw';
 import ListOrdered from '@examples/design/typography/ListOrdered.astro';
@@ -39,8 +43,6 @@ import ListNav from '@examples/design/typography/ListNav.astro';
 import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 
 ## Utlity Classes
-
-Reusable opt-in CSS classes for common typographic elements.
 
 ### Headings
 
@@ -130,9 +132,66 @@ Reusable opt-in CSS classes for common typographic elements.
 	</Fragment>
 </Preview>
 
+### Lists
+
+#### Unordered
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ListUnordered />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListUnorderedRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+#### Ordered
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ListOrdered />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListOrderedRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+#### Basic
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ListBasic />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListBasicRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+#### Description
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ListDesc />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListDescRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+#### Navigation
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ListNav />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListNavRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
 ## Primitives
 
-The primitive building blocks for defining custom typographic settings.
+The basic building blocks which Skeleton typography is built upon.
 
 ### Typographic Scale
 
@@ -161,65 +220,15 @@ Primimtive font sizes based on your theme's [typographic scale](https://designco
 	</Fragment>
 </Preview>
 
-### Semantic Typography
+## Semantic Typography
 
-...
-
-## Lists
-
-Skeleton does not provide list styles, and instead recommend using Tailwind primatives per the examples below.
-
-### Unordered
+We've provided an optional boilerplate combining various Skeleton and Tailwind primitives into a set of semantic class styles. Tap the code view, copy the classes to your global stylesheet, then feel free to modify as desired. Make sure to keep use a standard prefix like `type-{foo}` to prevent overlap with Skeletona and Tailwind class names.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ListUnordered />
+		<Semantic client:load />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListUnorderedRaw} lang="astro" />
-	</Fragment>
-</Preview>
-
-### Ordered
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ListOrdered />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ListOrderedRaw} lang="astro" />
-	</Fragment>
-</Preview>
-
-### Basic
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ListBasic />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ListBasicRaw} lang="astro" />
-	</Fragment>
-</Preview>
-
-### Description
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ListDesc />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ListDescRaw} lang="astro" />
-	</Fragment>
-</Preview>
-
-### Navigation
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ListNav />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ListNavRaw} lang="astro" />
+		<Code code={SemanticRaw} lang="svelte" />
 	</Fragment>
 </Preview>
