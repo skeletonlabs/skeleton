@@ -43,9 +43,9 @@ export const Page: React.FC = () => {
 					<thead>
 						<tr>
 							<th>Position</th>
-							<th>Symbol</th>
 							<th>Name</th>
-							<th className="!text-right">Weight</th>
+							<th>Weight</th>
+							<th className="!text-right">Symbol</th>
 						</tr>
 					</thead>
 					<tbody className="hover:[&>tr]:preset-tonal-primary">

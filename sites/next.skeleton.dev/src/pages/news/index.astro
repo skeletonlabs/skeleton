@@ -15,6 +15,9 @@ const layoutProps = {
 interface BlueskyPost {
 	post: {
 		uri: string;
+		author: {
+			handle: string;
+		};
 		record: {
 			createdAt: string;
 			text: string;
@@ -36,7 +39,7 @@ interface BlueskyPost {
 
 const queryParms = new URLSearchParams({
 	actor: 'skeletonlabs.bsky.social',
-	limit: '10',
+	limit: '15',
 	filter: 'posts_no_replies'
 });
 const response = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?${queryParms}`, {
@@ -44,6 +47,12 @@ const response = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.get
 	headers: { Accept: 'application/json' }
 });
 const timeline = await response.json();
+
+// Format Post URL
+function formatUri(uri: string) {
+	const postId = uri.split('/').slice(-1)[0];
+	return `https://bsky.app/profile/skeletonlabs.bsky.social/post/${postId}`;
+}
 
 // Post Text Formatter
 function postTextFormatter(text: string) {
@@ -77,44 +86,52 @@ function dateFormatter(date: string) {
 		<div class="space-y-4">
 			{
 				timeline.feed.map((item: BlueskyPost) => {
-					return (
-						<article class="card preset-outlined-surface-200-800 p-4 xl:p-10 space-y-4">
-							<header class="flex justify-between items-center">
-								{/* Avatar */}
-								<img
-									class="w-10 rounded-full overflow-hidden"
-									src="https://cdn.bsky.app/img/avatar_thumbnail/plain/did:plc:whtgi5zx7ylmdw2i76vq7vq4/bafkreicyyaq6y2iqhow3vknjyvenqqpxoxls63miv5traflivi44kkp4gq@jpeg"
-								/>
-								{/* Timestamp */}
-								<small class="opacity-60">{dateFormatter(item.post.record.createdAt)}</small>
-							</header>
-							{/* Post */}
-							<p class="xl:type-scale-4">{postTextFormatter(item.post.record.text)}</p>
-							{/* Embeds */}
-							<footer class="space-y-4">
-								{/* Embed: GitHub */}
-								{item.post.embed.$type.includes('external') && (
-									<a class="block" href={item.post.embed.external.uri} target="_blank">
-										{item.post.embed.external.thumb ? (
+					// Filter by only Skeleton Labs posts
+					if (item.post.author.handle === 'skeletonlabs.bsky.social')
+						return (
+							<>
+								{/* <pre class="pre">{JSON.stringify(item, null, 2)}</pre> */}
+								<a href={formatUri(item.post.uri)} target="_blank" class="block">
+									<article class="card preset-outlined-surface-200-800 hover:preset-tonal p-4 xl:p-10 space-y-4">
+										<header class="flex justify-between items-center">
+											{/* Avatar */}
 											<img
-												class="bg-surface-500/10 hover:bg-surface-500 p-0.5 rounded-container overflow-hidden shadow"
-												src={item.post.embed.external.thumb}
+												class="w-10 rounded-full overflow-hidden"
+												src="https://cdn.bsky.app/img/avatar_thumbnail/plain/did:plc:whtgi5zx7ylmdw2i76vq7vq4/bafkreicyyaq6y2iqhow3vknjyvenqqpxoxls63miv5traflivi44kkp4gq@jpeg"
 											/>
-										) : (
-											<div class="card preset-outlined-surface-200-800 hover:preset-tonal p-4 text-surface-800-200">
-												{item.post.embed.external.title}
-											</div>
-										)}
-									</a>
-								)}
-								{/* Embed: Images */}
-								{item.post.embed.$type.includes('images') &&
-									item.post.embed.images.map((image) => {
-										return <img class="bg-surface-500/10 p-1 rounded-container overflow-hidden shadow" src={image.thumb} />;
-									})}
-							</footer>
-						</article>
-					);
+											{/* Timestamp */}
+											<small class="opacity-60">{dateFormatter(item.post.record.createdAt)}</small>
+										</header>
+										{/* Post */}
+										<p class="xl:type-scale-4">{postTextFormatter(item.post.record.text)}</p>
+										{/* Embeds */}
+										<footer class="space-y-4">
+											{/* Embed: GitHub */}
+											{item.post.embed && item.post.embed.$type.includes('external') && (
+												<div class="block">
+													{item.post.embed.external.thumb ? (
+														<img
+															class="w-full bg-surface-500/10 hover:bg-surface-500 p-0.5 rounded-container overflow-hidden shadow"
+															src={item.post.embed.external.thumb}
+														/>
+													) : (
+														<div class="card preset-outlined-surface-200-800 p-4 text-surface-800-200">
+															{item.post.embed.external.title}
+														</div>
+													)}
+												</div>
+											)}
+											{/* Embed: Images */}
+											{item.post.embed &&
+												item.post.embed.$type.includes('images') &&
+												item.post.embed.images.map((image) => {
+													return <img class="w-full bg-surface-500/10 p-1 rounded-container overflow-hidden shadow" src={image.thumb} />;
+												})}
+										</footer>
+									</article>
+								</a>
+							</>
+						);
 				})
 			}
 		</div>

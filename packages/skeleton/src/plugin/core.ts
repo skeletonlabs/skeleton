@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 // The Skeleton Tailwind Plugin
 // Tailwind Docs: https://tailwindcss.com/docs/plugins
 // Skeleton Docs: https://www.skeleton.dev/docs/get-started
@@ -37,6 +36,7 @@ export const coreConfig = {
 export function getSkeletonClasses() {
 	// try/catch because it will throw when generated-classes.js isn't generated yet
 	try {
+		// eslint-disable-next-line @typescript-eslint/no-require-imports
 		const { components, base } = require('./generated/generated-classes.cjs');
 
 		if (typeof components !== 'object' || typeof base !== 'object') {

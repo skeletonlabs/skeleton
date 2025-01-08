@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import { fileURLToPath, resolve } from 'node:url';
 import { describe, expect, test } from 'vitest';
 import { getInterfaces } from '../src/index.js';

@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { fly, fade } from 'svelte/transition';
 	import * as dialog from '@zag-js/dialog';
-	import { portal, normalizeProps, useMachine } from '@zag-js/svelte';
+	import { portal, normalizeProps, useMachine, mergeProps } from '@zag-js/svelte';
 	import type { ModalProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
 
 	let {
 		open = $bindable(false),
+		// Base
+		base = '',
+		classes = '',
 		// Trigger
 		triggerBase = '',
 		triggerBackground = '',
@@ -21,6 +24,7 @@
 		positionerJustify = 'justify-center',
 		positionerAlign = 'items-center',
 		positionerPadding = 'p-4',
+		positionerZIndex = '',
 		positionerClasses = '',
 		// Content
 		contentBase = '',
@@ -34,6 +38,8 @@
 		// Snippets
 		trigger,
 		content,
+		// Events
+		onclick,
 		// Zag ---
 		...zagProps
 	}: ModalProps = $props();
@@ -42,14 +48,15 @@
 	const [snapshot, send] = useMachine(
 		dialog.machine({
 			id: useId(),
-			open,
-			onOpenChange(details) {
-				open = details.open;
-			}
+			open
 		}),
 		{
 			context: {
 				...zagProps,
+				onOpenChange(details) {
+					zagProps.onOpenChange?.(details);
+					open = details.open;
+				},
 				get open() {
 					return $state.snapshot(open);
 				}
@@ -57,15 +64,15 @@
 		}
 	);
 	const api = $derived(dialog.connect(snapshot, send, normalizeProps));
+	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>
 
-<span data-testid="modal">
+<span class="{base} {classes}" data-testid="modal">
 	<!-- Trigger -->
-	{#if trigger}
-		<button {...api.getTriggerProps()} class="{triggerBase} {triggerBackground} {triggerClasses}">
-			{@render trigger()}
-		</button>
-	{/if}
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
+		{@render trigger?.()}
+	</button>
+
 	{#if api.open}
 		<!-- Backdrop -->
 		<div
@@ -79,7 +86,7 @@
 		<div
 			use:portal
 			{...api.getPositionerProps()}
-			class="{positionerBase} {positionerDisplay} {positionerJustify} {positionerAlign} {positionerPadding} {positionerClasses}"
+			class="{positionerBase} {positionerDisplay} {positionerJustify} {positionerAlign} {positionerPadding} {positionerZIndex} {positionerClasses}"
 			in:fly={transitionsPositionerIn}
 			out:fly={transitionsPositionerOut}
 		>

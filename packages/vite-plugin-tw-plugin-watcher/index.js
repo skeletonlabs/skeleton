@@ -72,7 +72,7 @@ export default function skeletonPluginWatcher(twPluginPath) {
 					if (!locked) {
 						locked = true;
 						const now = Date.now();
-						exec('pnpm -F @skeletonlabs/skeleton build', (err, _, stderr) => {
+						exec('pnpm -F @skeletonlabs/skeleton package', (err, _, stderr) => {
 							if (err) {
 								log.error(stderr);
 							} else {
@@ -86,7 +86,7 @@ export default function skeletonPluginWatcher(twPluginPath) {
 		},
 		async buildStart() {
 			const now = Date.now();
-			exec('pnpm -F @skeletonlabs/skeleton build', (err, _, stderr) => {
+			exec('pnpm -F @skeletonlabs/skeleton package', (err, _, stderr) => {
 				if (err) log.error(stderr);
 				else log.info(`Completed in ${Date.now() - now}ms`, 'green');
 			});

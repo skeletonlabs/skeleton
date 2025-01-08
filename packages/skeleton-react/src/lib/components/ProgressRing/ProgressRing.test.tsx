@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { render } from '@testing-library/react';
+import { queryAllByTestId, render } from '@testing-library/react';
 
 import { ProgressRing } from './ProgressRing.js';
 
@@ -21,7 +21,7 @@ describe('<ProgressRing>', () => {
 	it('should render the value percentage text', () => {
 		const value = 50;
 		const max = 100;
-		const { getByTestId } = render(<ProgressRing value={value} max={max} />);
+		const { getByTestId } = render(<ProgressRing value={value} max={max} showLabel={true} />);
 		const component = getByTestId('progress-ring-label');
 		expect(component).toHaveTextContent(`${value}%`);
 	});
@@ -59,5 +59,11 @@ describe('<ProgressRing>', () => {
 		const { getByTestId } = render(<ProgressRing classes={testClass} />);
 		const component = getByTestId('progress-ring');
 		expect(component).toHaveClass(testClass);
+	});
+
+	it('Should not render the label when `showLabel` is false', () => {
+		const { getByTestId } = render(<ProgressRing />);
+		const component = getByTestId('progress-ring');
+		expect(queryAllByTestId(component, 'progress-ring-label')).toStrictEqual([]);
 	});
 });

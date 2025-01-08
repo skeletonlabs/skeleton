@@ -3,7 +3,6 @@
 	import * as zagSwitch from '@zag-js/switch';
 	import type { SwitchProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
-
 	let {
 		name = '',
 		checked = $bindable(false),
@@ -13,7 +12,7 @@
 		base = 'inline-flex items-center gap-4',
 		classes = '',
 		// State
-		stateFocused = '[&>span]:focused',
+		stateFocused = 'data-[focus-visible]:focused',
 		// Control
 		controlBase = 'cursor-pointer transition duration-200',
 		controlInactive = 'preset-filled-surface-200-800',
@@ -53,14 +52,16 @@
 	const [snapshot, send] = useMachine(
 		zagSwitch.machine({
 			id: useId(),
-			name,
-			onCheckedChange(details) {
-				checked = details.checked;
-			}
+			name
 		}),
 		{
 			context: {
 				...zagProps,
+				onCheckedChange: (details) => {
+					// Order of operations matters here:
+					zagProps.onCheckedChange?.(details);
+					checked = details.checked;
+				},
 				get checked() {
 					return checked;
 				},
@@ -97,13 +98,13 @@
 
 <!-- @component A control for toggling between checked states. -->
 
-<label {...api.getRootProps()} class="{base} {rxFocused} {classes}" data-testid="switch">
+<label {...api.getRootProps()} class="{base} {classes}" data-testid="switch">
 	<!-- Input -->
 	<input {...api.getHiddenInputProps()} data-testid="switch-input" />
 	<!-- Control -->
 	<span
 		{...api.getControlProps()}
-		class="{controlBase} {rxTrackState} {controlWidth} {controlHeight} {controlPadding} {controlRounded} {controlHover} {rxDisabled}  {controlClasses}"
+		class="{controlBase} {rxTrackState} {rxFocused} {controlWidth} {controlHeight} {controlPadding} {controlRounded} {controlHover} {rxDisabled}  {controlClasses}"
 		data-testid="switch-control"
 	>
 		<!-- Thumb -->
@@ -123,7 +124,9 @@
 		</span>
 	</span>
 	<!-- Label -->
-	<span {...api.getLabelProps()} class="{labelBase} {labelClasses}" data-testid="switch-label">
-		{@render children?.()}
-	</span>
+	{#if children}
+		<span {...api.getLabelProps()} class="{labelBase} {labelClasses}" data-testid="switch-label">
+			{@render children()}
+		</span>
+	{/if}
 </label>

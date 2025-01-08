@@ -22,7 +22,16 @@ async function processFile(path: string): Promise<number> {
 	const outPath = join(OUTPUT_DIR, framework, `${toKebabCase(component)}.json`);
 	await mkdir(dirname(outPath), { recursive: true });
 	const interfaces = getInterfaces(path, {
-		matcher: /^[\w-]+Props$/
+		matcher: /^[\w-]+Props$/,
+		transformProperty(property) {
+			if (property.type.startsWith('Snippet')) {
+				return {
+					...property,
+					typeKind: 'primitive'
+				};
+			}
+			return property;
+		}
 	});
 	await writeFile(outPath, JSON.stringify(interfaces, null, 2));
 	return Object.keys(interfaces).length;
@@ -42,14 +51,14 @@ async function main() {
 			s.message(`Processing ${componentName}...`);
 			try {
 				totalInterfaces += await processFile(path);
-			} catch (error) {
+			} catch {
 				s.message(`Failed to process ${componentName}`);
 			}
 		}
 		const seconds = ((performance.now() - startTime) / 1000).toFixed(1);
 		s.stop(`Processed ${totalInterfaces} interfaces from ${paths.length} files in ${seconds}s`);
 		outro('Documentation generation complete!');
-	} catch (error) {
+	} catch {
 		process.exit(1);
 	}
 }

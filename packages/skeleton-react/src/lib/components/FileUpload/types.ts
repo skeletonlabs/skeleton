@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import * as fileUpload from '@zag-js/file-upload';
 import type { PropTypes } from '@zag-js/react';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface FileUploadApi extends fileUpload.Api<PropTypes> {}
 
 export interface FileUploadProps extends React.PropsWithChildren, Omit<fileUpload.Context, 'id'> {
