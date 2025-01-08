@@ -49,14 +49,14 @@ Skeleton provides utility classes called [Color Pairings](/docs/design/colors#pa
 
 ## Lightswitch Alternatives
 
-In legacy versions, Skeleton provided a dedicated `<Lightswitch>` component for toggling dark mode using the `selector` strategy. Unfortunately this is no longer possible given the sheer number of permutations per available options:
+In legacy versions, Skeleton provided a dedicated `<Lightswitch>` component for toggling dark mode using the `selector` strategy. Unfortunately this is no longer possible given the sheer number of permutations available:
 
-- Supporting the `selector`, `media`, or a combination of both strategies.
+- Supporting the `selector`, `media`, or a hybrid strategy.
 - Supporting the unique APIs of each tech stacks and/or meta-framework.
 - Handling state and persistence; local vs remote storage (e.g. account-based storage)
 
 Given this, we recommend the following alternatives:
 
-1. Reference the [Astro component](https://github.com/skeletonlabs/skeleton/blob/next/sites/next.skeleton.dev/src/components/docs/Lightswitch.astro) generated for this documenation site using primarily native Javascript.
-2. Drop manual selection in favor of the `media` strategy, to adhere to your user's operating system settings.
+1. Drop manual selection in favor of only the `media` strategy, to adhere to your user's operating system settings.
+2. Generate your component using the [Astro component](https://github.com/skeletonlabs/skeleton/blob/next/sites/next.skeleton.dev/src/components/docs/Lightswitch.astro) generated for this documenation as reference.
 3. Generate your own component following [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection) and APIs provided by your stack of choice.

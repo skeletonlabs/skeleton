@@ -86,7 +86,7 @@ Finally, set the active theme to display using the `data-theme` attribute on you
 
 ### Theme Properties
 
-You may update the CSS Custom Properties provided by Skeleton's preset themes. Use the following syntax and apply these styles changes in your global stylesheet. This will target the root scope, a specific theme, then set each property value.
+If you wish to update the CSS Custom Properties provided by any of Skeleton's preset themes. Apply the following changes in your global stylesheet. This will target the root scope, a specific theme, then modify each [theme property](/docs/get-started/plugin) value.
 
 {/* prettier-ignore */}
 ```css title="app.css"
@@ -98,14 +98,14 @@ You may update the CSS Custom Properties provided by Skeleton's preset themes. U
 
 ### Target Themes
 
-If your application supports multiple themes, you can target changes to specific themes using the `data-theme` attribute.
+If your application supports multiple themes, you can target changes to specific themes via the `data-theme` attribute.
 
 ```css title="app.css"
 /** Cerberus theme h1 tags only. */
 [data-theme='cerberus'] h1 {
     background: pink;
 }
-/** Mono theme h1 tags only. */
+/** Mona theme h1 tags only. */
 [data-theme='mona'] h1 {
     background: green;
 }
@@ -118,24 +118,14 @@ Your application background color is set automatically using two specific theme 
 - Light Mode: `—body-background-color`
 - Dark Mode: `—body-background-color-dark`
 
-You can also adjust the values directly by targetting the `<body>` element.
+Additionally you can modify these directly with CSS by targetting the `<body>` element.
 
 ```css title="app.css"
 /* Pink in light mode, green in dark mode. */
 body { @apply bg-pink-500 dark:bg-green-500; }
 ```
 
-Background images are also supported, including CSS mesh gradients. By using theme properties for each color, you can ensure the gradient adheres to your theme's palette. We recommend Mesher to generate your own custom mesh gradients.
-
-<figure class="card-filled-enhanced flex justify-center p-8">
-	<a
-		class="btn preset-filled"
-		href="https://csshero.org/mesher/"
-		target="_blank"
-	>
-		Mesher by CSS Hero &rarr;
-	</a>
-</figure>
+Background images are also supported, including CSS mesh gradients. By using theme properties for each color, you can ensure the gradient adheres to your theme's palette.
 
 ```css title="app.css"
 [data-theme='cerberus'] {
@@ -149,12 +139,24 @@ Background images are also supported, including CSS mesh gradients. By using the
 }
 ```
 
-See how we handle [targetted theme gradients](https://github.com/skeletonlabs/skeleton/blob/next/sites/next.skeleton.dev/src/styles/app.css#L44) for this website.
+Use Mesher to quickly and easily generate custom mesh gradients.
+
+<figure class="card-filled-enhanced flex justify-center p-8">
+	<a
+		class="btn preset-filled"
+		href="https://csshero.org/mesher/"
+		target="_blank"
+	>
+		Mesher by CSS Hero &rarr;
+	</a>
+</figure>
+
+> TIP: See how we handle [targetted theme gradients](https://github.com/skeletonlabs/skeleton/blob/next/sites/next.skeleton.dev/src/styles/app.css#L44) for this website.
 
 
 ### Custom Fonts
 
-Skeleton recommends the use of [Fontsource](https://fontsource.org/) for custom fonts.
+Skeleton recommends the use of [Fontsource](https://fontsource.org/) for installing and managing custom.
 
 
 <figure class="card-filled-enhanced flex justify-center p-8">
@@ -173,13 +175,13 @@ Install your font of choice.
 npm install @fontsource/open-sans
 ```
 
-You can then import each font at the top of your global stylesheet.
+Then import each font at the top of your global stylesheet.
 
 ```css title="app.css"
 import "@fontsource/open-sans";
 ```
 
-Then overwrite each applicable [theme property](/docs/get-started/plugin#base-1) for your target theme.
+Finally, overwrite each applicable [theme property](/docs/get-started/plugin#base-1) for your target theme.
 
 ```css title="app.css"
 :root [data-theme='cerberus'] {
@@ -189,7 +191,7 @@ Then overwrite each applicable [theme property](/docs/get-started/plugin#base-1)
 }
 ```
 
-For custom themes, these settings are can be defined directly in each respective theme file.
+For custom themes, these settings are can be defined directly within each respective theme file.
 
 ---
 

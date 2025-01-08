@@ -12,6 +12,7 @@ import ExampleColors from '@examples/design/colors/ExampleColors.astro';
 import ExampleContrast from '@examples/design/colors/ExampleContrast.astro';
 import ExampleContrastRaw from '@examples/design/colors/ExampleContrast.astro?raw';
 import ExamplePairings from '@examples/design/colors/ExamplePairings.astro';
+import ExamplePairingsDynamic from '@examples/design/colors/ExamplePairingsDynamic.astro';
 import ExamplePairingsStack from '@examples/design/colors/ExamplePairingsStack.astro';
 
 <ExampleColors />
@@ -36,7 +37,7 @@ Supports <u>all</u> standard Tailwind color utility classes using the following 
 
 ## Contrast Colors
 
-Skeleton themes also include contrast color values for every shade. Use these to set contrasting values for overlapping text and icon fill styles. These are defined via each respective [theme property](/docs/get-started/plugin#colors).
+Skeleton themes also include contrast color values for each and every shade. Use these to provide accessible overlapping text and icon fill color styles. Defined via each respective [theme property](/docs/get-started/plugin#colors).
 
 ```
 {property}-{color}-contrast-{shade}
@@ -61,15 +62,21 @@ Color Pairings are utility classes that provide an opinionated pairing of colors
 {property}-{color}-{lightModeShade}-{darkModeShade}
 ```
 
+Below is a static representation of each pairing.
+
 <ExamplePairings />
 
-Color Parings can be used to generate a heierarchy of visual layers, ranging from foreground to background elements. This uses the same color ramp, but inverts the order from light to dark mode. See this visualized below.
+Toggle light and dark mode to preview how each pairing automatically adjusts.
+
+<ExamplePairingsDynamic />
+
+Color Parings can be used to generate a heierarchy of visual layers, ranging from foreground to background elements. This uses the same color ramp but inverts the order from light to dark mode.
 
 <ExamplePairingsStack />
 
 * We can use shade `950` for light mode and `50` from dark mode respectively for our text color.
 * Then use shade `50` from light mode and `950` from dark mode respectively for our app background.
-* While using the static `500` shade key brand elements, such as buttons or banners.
+* Use the static `500` shade for key branding elements, such as buttons or banners.
 * Then reserve multiple layers between for elements such as cards, inputs, and more.
 
 ```html
@@ -82,6 +89,6 @@ Color Parings can be used to generate a heierarchy of visual layers, ranging fro
 <div class="bg-primary-400-600">...</div>
 <div class="bg-primary-300-700">...</div>
 <div class="bg-primary-200-800">...</div>
-<div class="bg-primary-100-900"></div>
+<div class="bg-primary-100-900">...</div>
 <div class="bg-primary-50-950">Background</div>
 ```
