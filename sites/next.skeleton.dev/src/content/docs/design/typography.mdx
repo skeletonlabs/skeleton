@@ -8,8 +8,9 @@ order: 30
 
 export const components = componentSet;
 
-import TypeScale from '@examples/design/typography/TypeScale.astro';
-import TypeScaleRaw from '@examples/design/typography/TypeScale.astro?raw';
+import TypeScale from '@examples/design/typography/TypeScale.svelte';
+import TypeScaleRaw from '@examples/design/typography/TypeScale.svelte?raw';
+
 import Headings from '@examples/design/typography/Headings.astro';
 import HeadingsRaw from '@examples/design/typography/Headings.astro?raw';
 import Paragraphs from '@examples/design/typography/Paragraphs.astro';
@@ -37,22 +38,9 @@ import ListDescRaw from '@examples/design/typography/ListDesc.astro?raw';
 import ListNav from '@examples/design/typography/ListNav.astro';
 import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 
-## Typographic Scale
+## Utlity Classes
 
-Font size based on your theme's typographic scale, via `--type-scale-factor`.
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<TypeScale />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={TypeScaleRaw} lang="html" />
-	</Fragment>
-</Preview>
-
-## Typographic Utilities
-
-Reusable opt-in styles for common typographic elements.
+Reusable opt-in CSS classes for common typographic elements.
 
 ### Headings
 
@@ -61,7 +49,7 @@ Reusable opt-in styles for common typographic elements.
 		<Headings />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={HeadingsRaw} lang="html" />
+		<Code code={HeadingsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -72,7 +60,7 @@ Reusable opt-in styles for common typographic elements.
 		<Paragraphs />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ParagraphsRaw} lang="html" />
+		<Code code={ParagraphsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -83,7 +71,7 @@ Reusable opt-in styles for common typographic elements.
 		<Blockquotes />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={BlockquotesRaw} lang="html" />
+		<Code code={BlockquotesRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -94,7 +82,7 @@ Reusable opt-in styles for common typographic elements.
 		<Anchors />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={AnchorsRaw} lang="html" />
+		<Code code={AnchorsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -105,7 +93,7 @@ Reusable opt-in styles for common typographic elements.
 		<Pre />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={PreRaw} lang="html" />
+		<Code code={PreRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -116,7 +104,7 @@ Reusable opt-in styles for common typographic elements.
 		<CodeTag />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={CodeTagRaw} lang="html" />
+		<Code code={CodeTagRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -127,24 +115,59 @@ Reusable opt-in styles for common typographic elements.
 		<Keyboard />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={KeyboardRaw} lang="html" />
+		<Code code={KeyboardRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
-## Insert & Delete
+### Insert & Delete
 
 <Preview client:load>
 	<Fragment slot="preview">
 		<InsDel />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={InsDelRaw} lang="html" />
+		<Code code={InsDelRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
+## Primitives
+
+The primitive building blocks for defining custom typographic settings.
+
+### Typographic Scale
+
+Primimtive font sizes based on your theme's [typographic scale](https://designcode.io/typographic-scales). Defined via the `--type-scale-factor` theme property.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<TypeScale client:load />
+	</Fragment>
+	<Fragment slot="code">
+		```html
+		<h1 class="type-scale-1">Type Scale 1</h1>
+		<h2 class="type-scale-2">Type Scale 2</h2>
+		<h3 class="type-scale-3">Type Scale 3</h3>
+		<h4 class="type-scale-4">Type Scale 4</h4>
+		<h5 class="type-scale-5">Type Scale 5</h5>
+		<h6 class="type-scale-6">Type Scale 6</h6>
+		<h6 class="type-scale-7">Type Scale 7</h6>
+		<h6 class="type-scale-8">Type Scale 8</h6>
+		<h6 class="type-scale-9">Type Scale 9</h6>
+		<h6 class="type-scale-10">Type Scale 10</h6>
+		<h6 class="type-scale-11">Type Scale 11</h6>
+		<h6 class="type-scale-12">Type Scale 12</h6>
+		<h6 class="type-scale-13">Type Scale 13</h6>
+		```
+	</Fragment>
+</Preview>
+
+### Semantic Typography
+
+...
+
 ## Lists
 
-Skeleton does not provide list styles, and instead recommend using Tailwind primatives as shown below.
+Skeleton does not provide list styles, and instead recommend using Tailwind primatives per the examples below.
 
 ### Unordered
 
@@ -153,7 +176,7 @@ Skeleton does not provide list styles, and instead recommend using Tailwind prim
 		<ListUnordered />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListUnorderedRaw} lang="html" />
+		<Code code={ListUnorderedRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -164,7 +187,7 @@ Skeleton does not provide list styles, and instead recommend using Tailwind prim
 		<ListOrdered />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListOrderedRaw} lang="html" />
+		<Code code={ListOrderedRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -175,7 +198,7 @@ Skeleton does not provide list styles, and instead recommend using Tailwind prim
 		<ListBasic />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListBasicRaw} lang="html" />
+		<Code code={ListBasicRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -186,7 +209,7 @@ Skeleton does not provide list styles, and instead recommend using Tailwind prim
 		<ListDesc />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListDescRaw} lang="html" />
+		<Code code={ListDescRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -197,6 +220,6 @@ Skeleton does not provide list styles, and instead recommend using Tailwind prim
 		<ListNav />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListNavRaw} lang="html" />
+		<Code code={ListNavRaw} lang="astro" />
 	</Fragment>
 </Preview>
