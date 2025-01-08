@@ -1,0 +1,51 @@
+{
+	"name": "@skeletonlabs/skeleton-cli",
+	"version": "0.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/skeletonlabs/skeleton",
+		"directory": "packages/skeleton-cli"
+	},
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		},
+		"./migrate": {
+			"import": "./dist/commands/migrate/index.mjs",
+			"require": "./dist/commands/migrate/index.cjs"
+		}
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"bin": "./dist/index.mjs",
+	"files": [
+		"dist",
+		"!**/*.test.*"
+	],
+	"scripts": {
+		"package": "unbuild",
+		"package:watch": "unbuild --watch",
+		"test": "vitest run",
+		"test:watch": "vitest watch"
+	},
+	"devDependencies": {
+		"@types/node": "^22.1.0",
+		"@types/semver": "^7.5.8",
+		"type-fest": "^4.27.0",
+		"typescript": "catalog:",
+		"unbuild": "^2.0.0",
+		"vitest": "^2.0.5"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"@clack/prompts": "^0.7.0",
+		"commander": "^12.1.0",
+		"fast-glob": "^3.3.1",
+		"semver": "^7.6.3",
+		"ts-morph": "^24.0.0"
+	}
+}

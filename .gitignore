@@ -5,6 +5,7 @@
 !/packages/plugin
 !/packages/vite-plugin-tw-plugin-watcher
 !/packages/necroparser
+!/packages/skeleton-cli
 /sites/*
 !/sites/skeleton.dev
 !/sites/next.skeleton.dev
@@ -18,7 +19,6 @@ vite.config.ts.timestamp-*
 
 # build output
 dist/
-package/
 .vercel/
 **/plugin/generated
 
