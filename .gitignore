@@ -5,7 +5,7 @@
 !/packages/plugin
 !/packages/vite-plugin-tw-plugin-watcher
 !/packages/necroparser
-!/packages/cli
+!/packages/skeleton-cli
 /sites/*
 !/sites/skeleton.dev
 !/sites/next.skeleton.dev

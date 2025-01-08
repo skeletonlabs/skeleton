@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command } from 'commander';
 import migrate from './commands/migrate/migrate.js';
 

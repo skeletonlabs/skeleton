@@ -1,10 +1,10 @@
 {
-	"name": "@skeletonlabs/cli",
+	"name": "@skeletonlabs/skeleton-cli",
 	"version": "0.0.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/skeletonlabs/skeleton",
-		"directory": "packages/cli"
+		"directory": "packages/skeleton-cli"
 	},
 	"sideEffects": false,
 	"type": "module",
