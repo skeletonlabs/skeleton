@@ -5,7 +5,7 @@ The Skeleton CLI is a command-line tool that helps you create and manage your Sk
 ## Usage
 
 ```bash
-npx @skeletonlabs/skeleton [command] [args]
+npx @skeletonlabs/skeleton-cli [command] [args]
 ```
 
 ## Commands
