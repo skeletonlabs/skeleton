@@ -154,21 +154,37 @@ const PRESET_REGEXES = [
 		replace: 'preset-tonal-$1 border border-$1-500'
 	},
 	{
+		find: /variant-ghost\b/g,
+		replace: 'preset-tonal border border-surface-500'
+	},
+	{
 		find: /variant-soft-(\w+)\b/g,
 		replace: 'preset-tonal-$1'
+	},
+	{
+		find: /variant-soft\b/g,
+		replace: 'preset-tonal'
 	},
 	{
 		find: /variant-ringed-(\w+)\b/g,
 		replace: 'preset-outlined-$1-500'
 	},
 	{
+		find: /variant-ringed\b/g,
+		replace: 'preset-outlined'
+	},
+	{
 		find: /variant-glass-(\w+)\b/g,
 		replace: 'preset-tonal-$1'
 	},
 	{
+		find: /variant-glass\b/g,
+		replace: 'preset-tonal'
+	},
+	{
 		find: /variant-gradient-(\w+)-(\w+)\b/g,
 		replace: 'from-$1-500 to-$2-500'
-	}
+	},
 ];
 
 const TAILWIND_COMPONENT_REGEXES = [

@@ -574,18 +574,34 @@ describe('migrateClasses', () => {
 				v2: `variant-filled-${color}`,
 				v3: `preset-filled-${color}-500`
 			})),
+			{
+				v2: 'variant-ghost',
+				v3: 'preset-tonal border border-surface-500'
+			},
 			...COLORS.map((color) => ({
 				v2: `variant-ghost-${color}`,
 				v3: `preset-tonal-${color} border border-${color}-500`
 			})),
+			{
+				v2: 'variant-soft',
+				v3: 'preset-tonal'
+			},
 			...COLORS.map((color) => ({
 				v2: `variant-soft-${color}`,
 				v3: `preset-tonal-${color}`
 			})),
+			{
+				v2: 'variant-ringed',
+				v3: 'preset-outlined'
+			},
 			...COLORS.map((color) => ({
 				v2: `variant-ringed-${color}`,
 				v3: `preset-outlined-${color}-500`
 			})),
+			{
+				v2: 'variant-glass',
+				v3: 'preset-tonal'
+			},
 			...COLORS.map((color) => ({
 				v2: `variant-glass-${color}`,
 				v3: `preset-tonal-${color}`
