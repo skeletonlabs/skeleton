@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.13
+
+### Patch Changes
+
+- chore: Remove extra height class from NavBar ([#3074](https://github.com/skeletonlabs/skeleton/pull/3074))
+
 ## 1.0.0-next.12
 
 ### Patch Changes
