@@ -96,6 +96,18 @@ Generate modals or dialogs that require a user's immediate attention. [View API 
 	</Fragment>
 </Preview>
 
+## Z-Index
+
+Skeleton does not take an opinionated stance about how your popovers stack on the z-axis. This means your element may be occluded beneath another positioned element if it has a higher z-index. You can modify the z-index value for each popover using the following style property.
+
+All popover components utilize the `positionerZIndex` style, which can take any valid [Tailwind z-index utility class](https://tailwindcss.com/docs/z-index).
+
+```svelte
+<Popover ... positionerZIndex="z-10">
+	<!-- ... -->
+</Popover>
+```
+
 ## Native Browser APIs
 
 Skeleton will always favor native browser APIs over third-party libraries such as Floating UI Svelte. The following is a list of current and upcoming incoming APIs we will aim to support in the future, but are not quite standardized cross-browser yet.
