@@ -566,9 +566,13 @@ describe('migrateClasses', () => {
 	});
 	describe('presets', () => {
 		const createPresetMappings = () => [
+			{
+				v2: 'variant-filled',
+				v3: 'preset-filled'
+			},
 			...COLORS.map((color) => ({
 				v2: `variant-filled-${color}`,
-				v3: `variant-filled-${color}-500`
+				v3: `preset-filled-${color}-500`
 			})),
 			...COLORS.map((color) => ({
 				v2: `variant-ghost-${color}`,

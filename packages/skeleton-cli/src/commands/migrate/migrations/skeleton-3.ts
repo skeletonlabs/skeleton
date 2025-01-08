@@ -143,7 +143,11 @@ const DECORATION_ACCENT_REGEXES = [
 const PRESET_REGEXES = [
 	{
 		find: /variant-filled-(\w+)\b/g,
-		replace: 'variant-filled-$1-500'
+		replace: 'preset-filled-$1-500'
+	},
+	{
+		find: /variant-filled\b/g,
+		replace: 'preset-filled'
 	},
 	{
 		find: /variant-ghost-(\w+)\b/g,
