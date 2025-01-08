@@ -12,6 +12,10 @@
 		".": {
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.cjs"
+		},
+		"./migrate": {
+			"import": "./dist/commands/migrate/index.mjs",
+			"require": "./dist/commands/migrate/index.cjs"
 		}
 	},
 	"main": "./dist/index.cjs",

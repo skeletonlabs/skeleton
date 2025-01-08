@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-
 import { Command } from 'commander';
-import migrate from './commands/migrate/migrate.js';
+import { migrate } from './commands/migrate/index.js';
 
 const program = new Command();
 
