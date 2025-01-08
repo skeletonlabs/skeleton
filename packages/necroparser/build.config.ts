@@ -1,10 +1,9 @@
 import { defineBuildConfig } from 'unbuild';
 
 export default defineBuildConfig({
-	entries: ['src/index'],
-	outDir: 'dist',
-	clean: true,
+	entries: ['./src/index.ts'],
 	declaration: true,
+	clean: true,
 	rollup: {
 		emitCJS: true
 	}
