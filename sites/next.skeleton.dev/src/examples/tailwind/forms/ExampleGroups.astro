@@ -3,12 +3,12 @@ import { CircleDollarSign, Check, Search } from 'lucide-react';
 ---
 
 <form class="mx-auto w-full max-w-md space-y-8">
-	{/* Website */}
+	<!-- Website -->
 	<div class="input-group divide-surface-200-800 grid-cols-[auto_1fr_auto] divide-x">
 		<div class="input-group-cell preset-tonal-surface">https://</div>
 		<input type="text" placeholder="www.example.com" />
 	</div>
-	{/* Amount */}
+	<!-- Amount -->
 	<div class="input-group divide-surface-200-800 grid-cols-[auto_1fr_auto] divide-x">
 		<div class="input-group-cell preset-tonal-surface">
 			<CircleDollarSign size={16} />
@@ -17,17 +17,17 @@ import { CircleDollarSign, Check, Search } from 'lucide-react';
 		<select>
 			<option>USD</option>
 			<option>CAD</option>
-			<option>EURO</option>
+			<option>EUR</option>
 		</select>
 	</div>
-	{/* Username */}
+	<!-- Username -->
 	<div class="input-group divide-surface-200-800 grid-cols-[1fr_auto] divide-x">
 		<input type="text" placeholder="Enter Username..." />
 		<button class="btn preset-filled" title="Username already in use.">
 			<Check size={16} />
 		</button>
 	</div>
-	{/* Search */}
+	<!-- Search -->
 	<div class="input-group divide-surface-200-800 grid-cols-[auto_1fr_auto] divide-x">
 		<div class="input-group-cell">
 			<Search size={16} />

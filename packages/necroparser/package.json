@@ -1,11 +1,12 @@
 {
 	"name": "@skeletonlabs/necroparser",
 	"private": true,
-	"version": "0.0.1",
+	"version": "0.0.2-next.0",
 	"type": "module",
 	"scripts": {
 		"package": "unbuild",
-		"test": "vitest run"
+		"test": "vitest run",
+		"test:watch": "vitest watch"
 	},
 	"exports": {
 		".": {
@@ -21,7 +22,7 @@
 	"devDependencies": {
 		"@zag-js/accordion": "^0.78.3",
 		"memfs": "^4.15.0",
-		"unbuild": "^2.0.0",
+		"unbuild": "^3.2.0",
 		"vite": "^6.0.4",
 		"vitest": "^2.1.8"
 	},
