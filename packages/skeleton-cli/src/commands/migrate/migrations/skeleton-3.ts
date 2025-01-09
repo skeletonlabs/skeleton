@@ -4,11 +4,12 @@ import { extname } from 'node:path';
 import type { PackageJson } from 'type-fest';
 import { lt, valid } from 'semver';
 import { Node, ts } from 'ts-morph';
-import SyntaxKind = ts.SyntaxKind;
 import { getDefaultExportObject } from '../../../internal/get-default-export.js';
 import { createSourceFile } from '../../../internal/create-source-file.js';
 import { isModuleUsed } from '../../../internal/is-module-used.js';
 import { cancel, spinner } from '@clack/prompts';
+import getLatestVersion from 'latest-version';
+import SyntaxKind = ts.SyntaxKind;
 
 const COLOR_PAIRING_REGEXES = [
 	{
@@ -184,7 +185,7 @@ const PRESET_REGEXES = [
 	{
 		find: /variant-gradient-(\w+)-(\w+)\b/g,
 		replace: 'from-$1-500 to-$2-500'
-	},
+	}
 ];
 
 const TAILWIND_COMPONENT_REGEXES = [
@@ -225,7 +226,7 @@ const CLASS_REGEXES = [
 	...TAILWIND_COMPONENT_REGEXES
 ];
 
-function migratePackage(code: string) {
+async function migratePackage(code: string) {
 	const packageJson: PackageJson = JSON.parse(code);
 	for (const field of ['dependencies', 'devDependencies'] as const) {
 		const dependencies = packageJson[field];
@@ -236,12 +237,14 @@ function migratePackage(code: string) {
 			const version = dependencies['@skeletonlabs/skeleton'];
 			if (valid(version) && lt(version, '3.0.0')) {
 				delete dependencies['@skeletonlabs/skeleton'];
-				dependencies['@skeletonlabs/skeleton-svelte'] = '^1.0.0';
+				dependencies['@skeletonlabs/skeleton-svelte'] = await getLatestVersion('@skeletonlabs/skeleton-svelte', {
+					version: '>=1.0.0-0 <2.0.0'
+				});
 			}
 		}
 		if (dependencies['@skeletonlabs/tw-plugin']) {
 			delete dependencies['@skeletonlabs/tw-plugin'];
-			dependencies['@skeletonlabs/skeleton'] = '^3.0.0';
+			dependencies['@skeletonlabs/skeleton'] = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
 		}
 	}
 	return JSON.stringify(packageJson, null, '\t');
@@ -350,7 +353,7 @@ function migrateModuleCode(code: string) {
 	return code;
 }
 
-function migrateProject(cwd = process.cwd()) {
+async function migrateProject(cwd = process.cwd()) {
 	const migration = spinner();
 	migration.start('Starting migration!');
 
@@ -369,7 +372,7 @@ function migrateProject(cwd = process.cwd()) {
 	// package.json
 	migration.message(`Migrating ${packagePath}...`);
 	const packageCode = readFileSync(packagePath, 'utf-8');
-	const migratedPackageCode = migratePackage(packageCode);
+	const migratedPackageCode = await migratePackage(packageCode);
 	writeFileSync(packagePath, migratedPackageCode);
 
 	// tailwind.config.js

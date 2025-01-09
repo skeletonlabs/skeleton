@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { migrateClasses, migratePackage, migrateTailwindConfig } from './skeleton-3.js';
+import getLatestVersion from 'latest-version';
 
 describe('migratePackage', () => {
-	it('migrates `@skeletonlabs/skeleton` dependency below 3.0.0', () => {
+	it('migrates `@skeletonlabs/skeleton` dependency below 3.0.0', async () => {
+		const version = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
 		const v2 = JSON.stringify(
 			{
 				dependencies: {
@@ -15,15 +17,15 @@ describe('migratePackage', () => {
 		const v3 = JSON.stringify(
 			{
 				dependencies: {
-					'@skeletonlabs/skeleton-svelte': '^1.0.0'
+					'@skeletonlabs/skeleton-svelte': version
 				}
 			},
 			null,
 			'\t'
 		);
-		expect(migratePackage(v2)).toBe(v3);
+		expect(await migratePackage(v2)).toBe(v3);
 	});
-	it('ignores `@skeletonlabs`/skeleton` dependency at or above 3.0.0', () => {
+	it('ignores `@skeletonlabs/skeleton` dependency at or above 3.0.0', async () => {
 		const v3 = JSON.stringify(
 			{
 				dependencies: {
@@ -33,9 +35,10 @@ describe('migratePackage', () => {
 			null,
 			'\t'
 		);
-		expect(migratePackage(v3)).toBe(v3);
+		expect(await migratePackage(v3)).toBe(v3);
 	});
-	it('migrates `@skeletonlabs/tw-plugin` dependency', () => {
+	it('migrates `@skeletonlabs/tw-plugin` dependency', async () => {
+		const version = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
 		const v2 = JSON.stringify(
 			{
 				dependencies: {
@@ -48,15 +51,15 @@ describe('migratePackage', () => {
 		const v3 = JSON.stringify(
 			{
 				dependencies: {
-					'@skeletonlabs/skeleton': '^3.0.0'
+					'@skeletonlabs/skeleton': version
 				}
 			},
 			null,
 			'\t'
 		);
-		expect(migratePackage(v2)).toBe(v3);
+		expect(await migratePackage(v2)).toBe(v3);
 	});
-	it('ignores irrelevant packages', () => {
+	it('ignores irrelevant packages', async () => {
 		const v2 = JSON.stringify(
 			{
 				dependencies: {
@@ -66,7 +69,7 @@ describe('migratePackage', () => {
 			null,
 			'\t'
 		);
-		expect(migratePackage(v2)).toBe(v2);
+		expect(await migratePackage(v2)).toBe(v2);
 	});
 });
 

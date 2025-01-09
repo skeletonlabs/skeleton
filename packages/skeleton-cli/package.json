@@ -46,6 +46,7 @@
 		"commander": "^12.1.0",
 		"fast-glob": "^3.3.1",
 		"semver": "^7.6.3",
-		"ts-morph": "^24.0.0"
+		"ts-morph": "^24.0.0",
+		"latest-version": "^9.0.0"
 	}
 }
