@@ -38,13 +38,13 @@ function capitalizeFirstLetter(text: string) {
 		// Change Handler
 		function onChangeHandler(event: any) {
 			const selectedTheme = event.target.value;
-			document.body.classList.add('transition-colors');
+			document.body.classList.add('transition-all');
 			document.body.classList.add('duration-200');
 			document.body.dataset.theme = selectedTheme;
 			setBodyAttr(selectedTheme);
 			localStorage.setItem('theme', selectedTheme);
 			setTimeout(() => {
-				document.body.classList.remove('transition-colors');
+				document.body.classList.remove('transition-all');
 				document.body.classList.remove('duration-200');
 			}, 200);
 		}
