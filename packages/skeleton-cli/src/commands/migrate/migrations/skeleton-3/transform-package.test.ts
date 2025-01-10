@@ -4,28 +4,85 @@ import { describe, it, expect, vi } from 'vitest';
 
 vi.mock('latest-version', () => {
 	return {
-		default: vi.fn(),
+		default: vi.fn()
 	};
 });
 
 describe('transformPackageContent', () => {
-	it('updates @skeletonlabs/skeleton version if @skeletonlabs/tw-plugin is present', async () => {
-		vi.mocked(getLatestVersion).mockReturnValue(new Promise((resolve) => resolve('3.0.0')));
-		const v2 = `
-			{
-				"dependencies": {
-					"@skeletonlabs/tw-plugin": "^1.0.0"
-				}
+	it('updates the "@skeletonlabs/tw-plugin" dependency', async () => {
+		vi.mocked(getLatestVersion).mockReturnValue(Promise.resolve('3.0.0'));
+		const input = `{
+	"dependencies": {
+		"@skeletonlabs/tw-plugin": "^1.0.0"
+	}
+}`;
+		const expectedOutput = `{
+	"dependencies": {
+		"@skeletonlabs/skeleton": "^3.0.0"
+	}
+}`;
+		const output = await transformPackageContent(input);
+		expect(output).toBe(expectedOutput);
+	});
+	it('updates the "@skeletonlabs/skeleton" dependency', async () => {
+		vi.mocked(getLatestVersion).mockReturnValue(Promise.resolve('3.0.0'));
+		const input = `{
+	"dependencies": {
+		"@skeletonlabs/skeleton": "^2.0.0"
+	}
+}`;
+		const expectedOutput = `{
+	"dependencies": {
+		"@skeletonlabs/skeleton-svelte": "^3.0.0"
+	}
+}`;
+		const output = await transformPackageContent(input);
+		expect(output).toBe(expectedOutput);
+	});
+	it('updates both "@skeletonlabs/tw-plugin" and "@skeletonlabs/skeleton" dependencies', async () => {
+		vi.mocked(getLatestVersion).mockImplementation((pkg) => {
+			switch (pkg) {
+				case '@skeletonlabs/skeleton-svelte':
+					return Promise.resolve('1.0.0');
+				case '@skeletonlabs/skeleton':
+					return Promise.resolve('3.0.0');
 			}
-		`;
-		const v3 = `
-			{
-				"dependencies": {
-					"@skeletonlabs/skeleton": "^3.0.0"
-				}
-			}
-		`;
-		const result = await transformPackageContent(v2);
-	    expect(result).toBe(v3);
+			return Promise.resolve('0.0.0');
+		});
+		const input = `{
+	"dependencies": {
+		"@skeletonlabs/tw-plugin": "^1.0.0",
+		"@skeletonlabs/skeleton": "^2.0.0"
+	}
+}`;
+		const expectedOutput = `{
+	"dependencies": {
+		"@skeletonlabs/skeleton-svelte": "^1.0.0",
+		"@skeletonlabs/skeleton": "^3.0.0"
+	}
+}`;
+		const output = await transformPackageContent(input);
+		expect(output).toBe(expectedOutput);
+	});
+	it('does not update "@skeletonlabs/skeleton" if version is >=3.0.0', async () => {
+		vi.mocked(getLatestVersion).mockReturnValue(Promise.resolve('3.0.0'));
+		const input = `{
+	"dependencies": {
+		"@skeletonlabs/skeleton": "^3.0.0"
+	}
+}`;
+		const expectedOutput = `{
+	"dependencies": {
+		"@skeletonlabs/skeleton": "^3.0.0"
+	}
+}`;
+		const output = await transformPackageContent(input);
+		expect(output).toBe(expectedOutput);
+	});
+	it('handles missing dependencies and devDependencies fields', async () => {
+		const input = `{}`;
+		const expectedOutput = `{}`;
+		const output = await transformPackageContent(input);
+		expect(output).toBe(expectedOutput);
 	});
 });

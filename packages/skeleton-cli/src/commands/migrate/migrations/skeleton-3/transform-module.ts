@@ -15,4 +15,4 @@ async function transformModule(path: string) {
 	await writeFile(path, transformed);
 }
 
-export { transformModuleContent, transformModule  };
+export { transformModuleContent, transformModule };

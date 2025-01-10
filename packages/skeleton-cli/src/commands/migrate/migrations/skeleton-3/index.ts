@@ -1,7 +1,7 @@
 import { cancel, intro, outro } from '@clack/prompts';
 import fg from 'fast-glob';
-import {transformTailwindConfig} from "./transform-tailwind-config.js";
-import {transformPackage} from "./transform-package.js";
+import { transformTailwindConfig } from './transform-tailwind-config.js';
+import { transformPackage } from './transform-package.js';
 
 export default async function (cwd = process.cwd()) {
 	intro('Starting the `skeleton-3` migration...');
