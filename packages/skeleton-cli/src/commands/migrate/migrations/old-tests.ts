@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { migrateClasses, migratePackage, migrateTailwindConfig } from './skeleton-3.js';
 import getLatestVersion from 'latest-version';
 
+/**
+ * TODO: Move these tests to the corresponding transform files
+ */
+
 describe('migratePackage', () => {
 	it('migrates `@skeletonlabs/skeleton` dependency below 3.0.0', async () => {
 		const version = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });

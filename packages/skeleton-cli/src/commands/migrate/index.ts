@@ -2,7 +2,7 @@ import { migrateProject as migrateProjectToSkeleton3 } from './migrations/skelet
 
 const MIGRATIONS = new Map([['skeleton-3', migrateProjectToSkeleton3]]);
 
-function migrate(migration: string) {
+async function migrate(migration: string) {
 	const migrate = MIGRATIONS.get(migration);
 	if (migrate === undefined) {
 		throw new Error(
@@ -11,7 +11,7 @@ function migrate(migration: string) {
 				.join(', ')}`
 		);
 	}
-	migrate();
+	await migrate();
 }
 
 export { migrate };
