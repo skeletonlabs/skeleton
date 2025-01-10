@@ -7,6 +7,7 @@ function transformTailwindConfigContent(code: string) {
 	// TODO: Update imports
 	// TODO: Update content path
 	// TODO: Update skeleton plugin config
+	console.log(module.imports);
 	return generateCode(module).code;
 }
 
