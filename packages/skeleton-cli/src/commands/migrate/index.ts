@@ -2,7 +2,11 @@ import skeleton3 from './migrations/skeleton-3/index.js';
 
 const MIGRATIONS = new Map([['skeleton-3', skeleton3]]);
 
-async function migrate(migration: string) {
+interface MigrateOptions {
+	cwd?: string;
+}
+
+async function migrate(migration: string, options: MigrateOptions = {}) {
 	const migrate = MIGRATIONS.get(migration);
 	if (migrate === undefined) {
 		throw new Error(
@@ -11,7 +15,8 @@ async function migrate(migration: string) {
 				.join(', ')}`
 		);
 	}
-	await migrate();
+	await migrate(options);
 }
 
+export type { MigrateOptions };
 export { migrate };

@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import { transformTailwindConfigContent } from './transform-tailwind-config.js';
-import dedent from 'dedent';
 
 describe('transformTailwindConfigContent', () => {
 	it('transforms imports', () => {

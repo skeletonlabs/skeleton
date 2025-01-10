@@ -6,57 +6,6 @@ settings:
 
 catalogs:
   default:
-    '@zag-js/accordion':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/avatar':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/combobox':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/dialog':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/file-upload':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/pagination':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/popover':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/progress':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/radio-group':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/rating-group':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/react':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/slider':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/svelte':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/switch':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/tabs':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/tags-input':
-      specifier: ^0.78.3
-      version: 0.78.3
-    '@zag-js/tooltip':
-      specifier: ^0.78.3
-      version: 0.78.3
     typescript:
       specifier: ^5.6.3
       version: 5.6.3
@@ -248,9 +197,6 @@ importers:
       latest-version:
         specifier: ^9.0.0
         version: 9.0.0
-      package-manager-detector:
-        specifier: ^0.2.8
-        version: 0.2.8
       semver:
         specifier: ^7.6.3
         version: 7.6.3
@@ -264,9 +210,6 @@ importers:
       '@types/semver':
         specifier: ^7.5.8
         version: 7.5.8
-      dedent:
-        specifier: ^1.5.3
-        version: 1.5.3
       type-fest:
         specifier: ^4.27.0
         version: 4.30.0
@@ -3427,14 +3370,6 @@ packages:
   dedent-js@1.0.1:
     resolution: {integrity: sha512-OUepMozQULMLUmhxS95Vudo0jb0UchLimi3+pQ2plj61Fcy8axbP9hbiD4Sz6DPqn6XG3kfmziVfQ1rSys5AJQ==}
 
-  dedent@1.5.3:
-    resolution: {integrity: sha512-NHQtfOOW68WD8lgypbLA5oT+Bt0xXJhiYvoR6SmmNXZfpzOGXwdKWmcwG8N7PwVVWV3eF/68nmD9BaJSsTBhyQ==}
-    peerDependencies:
-      babel-plugin-macros: ^3.1.0
-    peerDependenciesMeta:
-      babel-plugin-macros:
-        optional: true
-
   deep-eql@5.0.2:
     resolution: {integrity: sha512-h5k/5U50IJJFpzfL6nO9jaaumfjO/f2NjK/oYB2Djzm4p9L+3T9qWpZqZ2hAbLPuuYq9wrU08WQyBTL5GbPk5Q==}
     engines: {node: '>=6'}
@@ -5166,9 +5101,6 @@ packages:
 
   package-manager-detector@0.2.7:
     resolution: {integrity: sha512-g4+387DXDKlZzHkP+9FLt8yKj8+/3tOkPv7DVTJGGRm00RkEWgqbFstX1mXJ4M0VDYhUqsTOiISqNOJnhAu3PQ==}
-
-  package-manager-detector@0.2.8:
-    resolution: {integrity: sha512-ts9KSdroZisdvKMWVAVCXiKqnqNfXz4+IbrBG8/BWx/TR5le+jfenvoBuIZ6UWM9nz47W7AbD9qYfAwfWMIwzA==}
 
   pagefind@1.2.0:
     resolution: {integrity: sha512-sFVv5/x73qCp9KlLHv8/uWDv7rG1tsWcG9MuXc5YTrXIrb8c1Gshm9oc5rMLXNZILXUWai8WczqaK4jjroEzng==}
@@ -10148,8 +10080,6 @@ snapshots:
 
   dedent-js@1.0.1: {}
 
-  dedent@1.5.3: {}
-
   deep-eql@5.0.2: {}
 
   deep-extend@0.6.0: {}
@@ -12390,8 +12320,6 @@ snapshots:
       semver: 7.6.3
 
   package-manager-detector@0.2.7: {}
-
-  package-manager-detector@0.2.8: {}
 
   pagefind@1.2.0:
     optionalDependencies:
