@@ -35,6 +35,7 @@
 	"devDependencies": {
 		"@types/node": "^22.1.0",
 		"@types/semver": "^7.5.8",
+		"dedent": "^1.5.3",
 		"type-fest": "^4.27.0",
 		"typescript": "catalog:",
 		"unbuild": "^3.2.0",
@@ -46,8 +47,8 @@
 		"commander": "^12.1.0",
 		"fast-glob": "^3.3.1",
 		"latest-version": "^9.0.0",
-		"magicast": "^0.3.5",
 		"package-manager-detector": "^0.2.8",
-		"semver": "^7.6.3"
+		"semver": "^7.6.3",
+		"ts-morph": "^25.0.0"
 	}
 }
