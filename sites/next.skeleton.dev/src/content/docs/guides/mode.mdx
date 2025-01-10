@@ -43,13 +43,13 @@ Dark Mode: Black Background
 
 ## Using Color Parings
 
-Skeleton provides utility classes called [Color Pairings](/docs/design/colors#pairings). These combine both base and dark mode classes into a singlular class, enabling an opinionated way to balance Skeleton theme colors for either mode.
+Skeleton provides utility classes called [Color Pairings](/docs/design/colors#color-pairings). These combine both base and dark mode classes into a singlular class, enabling an opinionated way to balance Skeleton theme colors for either mode.
 
 ---
 
 ## Lightswitch Alternatives
 
-In legacy versions, Skeleton provided a dedicated `<Lightswitch>` component for toggling dark mode using the `selector` strategy. Unfortunately this is no longer possible given the sheer number of permutations available:
+In legacy versions of Skeleton we offered a `<Lightswitch>` component for toggling dark mode using the `selector` strategy. Unfortunately this is no longer possible given the sheer number of combinations of use cases:
 
 - Supporting the `selector`, `media`, or a hybrid strategy.
 - Supporting the unique APIs of each tech stacks and/or meta-framework.
@@ -57,6 +57,8 @@ In legacy versions, Skeleton provided a dedicated `<Lightswitch>` component for 
 
 Given this, we recommend the following alternatives:
 
-1. Drop manual selection in favor of only the `media` strategy, to adhere to your user's operating system settings.
-2. Generate your component using the [Astro component](https://github.com/skeletonlabs/skeleton/blob/next/sites/next.skeleton.dev/src/components/docs/Lightswitch.astro) generated for this documenation as reference.
-3. Generate your own component following [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection) and APIs provided by your stack of choice.
+1. Forego user-based selection in favor of only the `media` strategy, to adhere to the user's OS settings.
+2. Generate your own component based on our barebones [Astro component](https://github.com/skeletonlabs/skeleton/blob/next/sites/next.skeleton.dev/src/components/docs/Lightswitch.astro).
+3. Use [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection) and APIs provided to generate a component that meets all your needs.
+
+In the future we hope to revisit this with more specific examples and references.

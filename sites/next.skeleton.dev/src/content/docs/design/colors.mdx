@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: Colors
-description: The Skeleton theme color system.
+description: The Skeleton color system.
 srcCore: '/plugin/extends/colors.ts'
 order: 10
 ---
@@ -37,7 +37,7 @@ Supports <u>all</u> standard Tailwind color utility classes using the following 
 
 ## Contrast Colors
 
-Skeleton themes also include contrast color values for each and every shade. Use these to provide accessible overlapping text and icon fill color styles. Defined via each respective [theme property](/docs/get-started/plugin#colors).
+Skeleton themes also include contrast color values for every shade. Use these to provide accessible overlapping text and icon fill color styles. Defined via each respective [theme property](/docs/get-started/plugin#colors).
 
 ```
 {property}-{color}-contrast-{shade}
@@ -54,28 +54,34 @@ Skeleton themes also include contrast color values for each and every shade. Use
 
 See the [Preset system](/docs/design/presets) for additional utlity classes that automatically mix each color and contrast tone.
 
-## Pairings
+## Color Pairings
 
-Color Pairings are utility classes that provide an opinionated pairing of colors for light and dark mode.
+Utility classes that provide an opinionated pairing of colors for light and dark mode.
 
 ```
 {property}-{color}-{lightModeShade}-{darkModeShade}
 ```
 
-Below is a static representation of each pairing.
+For example, here's what the `text-primary-300-700` color pairing represents. Since this is a combination of classes, Tailwind features like transparency are not possible. If you need this, consider using each primitive class directly.
+
+```css
+.text-primary-300-700 { @apply text-primary-300 dark:text-primary-700; }
+```
+
+Below shows a static representation of each available pairing for the primary color.
 
 <ExamplePairings />
 
-Toggle light and dark mode to preview how each pairing automatically adjusts.
+Toggle light and dark mode to preview how the following pairings automatically adjust.
 
 <ExamplePairingsDynamic />
 
-Color Parings can be used to generate a heierarchy of visual layers, ranging from foreground to background elements. This uses the same color ramp but inverts the order from light to dark mode.
+Color Parings are useful for generating a heierarchy of visual layers, ranging from foreground to background elements. Each reuse the same color ramp but, but inverts the order when toggling from light to dark mode.
 
 <ExamplePairingsStack />
 
-* We can use shade `950` for light mode and `50` from dark mode respectively for our text color.
-* Then use shade `50` from light mode and `950` from dark mode respectively for our app background.
+* We can use shade `950` for light mode and `50` from dark mode to represent our body text color.
+* Then use shade `50` from light mode and `950` from dark mode to represent our app background.
 * Use the static `500` shade for key branding elements, such as buttons or banners.
 * Then reserve multiple layers between for elements such as cards, inputs, and more.
 

@@ -113,12 +113,16 @@ If your application supports multiple themes, you can target changes to specific
 
 ### Backgrounds
 
-Your application background color is set automatically using two specific theme properties. These can be overwritten in your global stylesheet using the following [theme properties](/docs/get-started/plugin#colors).
+Your app's background colors are set automatically using two specific [theme properties](/docs/get-started/plugin#colors). Overwrite these using your global stylesheet.
 
-- Light Mode: `—body-background-color`
-- Dark Mode: `—body-background-color-dark`
+```css title="app.css"
+[data-theme='cerberus'] {
+    —body-background-color: 'pink';
+	—body-background-color-dark: 'green';
+}
+```
 
-Additionally you can modify these directly with CSS by targetting the `<body>` element.
+You may also use Tailwind or vanilla CSS by targetting the `<body>` element.
 
 ```css title="app.css"
 /* Pink in light mode, green in dark mode. */
@@ -156,8 +160,7 @@ Use Mesher to quickly and easily generate custom mesh gradients.
 
 ### Custom Fonts
 
-Skeleton recommends the use of [Fontsource](https://fontsource.org/) for installing and managing custom.
-
+Skeleton recommends the use of [Fontsource](https://fontsource.org/) for installing and managing custom fonts.
 
 <figure class="card-filled-enhanced flex justify-center p-8">
 	<a

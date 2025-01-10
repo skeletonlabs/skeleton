@@ -98,10 +98,10 @@ Generate modals or dialogs that require a user's immediate attention. [View API 
 
 ## Z-Index
 
-Skeleton does not take an opinionated stance about how your popovers stack on the z-axis. This means your element may be occluded beneath another positioned element if it has a higher z-index. All popover components utilize the `positionerZIndex` style prop, which accepts any valid [Tailwind z-index utility class](https://tailwindcss.com/docs/z-index).
+Skeleton does not take an opinionated stance regarding z-index stacking. This means elements may be occluded beneath other elements with a higher index. Adjust this using the `zIndex` component property.
 
 ```svelte
-<Popover ... positionerZIndex="z-10">
+<Popover ... zIndex={10}>
 	<!-- ... -->
 </Popover>
 ```
