@@ -15,12 +15,12 @@ Take care to read all contributions guidelines before you begin!
 
 1. Learn how to [contribute to open source](https://opensource.guide/how-to-contribute/).
 2. Follow a [step-by-step guide](https://github.com/firstcontributions/first-contributions) to practice your first contribution.
-3. Locate an [open issue on GitHub](https://github.com/skeletonlabs/skeleton/issues). Let us know you would like to volunteer.
+3. Locate an [open issue on GitHub](https://github.com/skeletonlabs/skeleton/issues). Post a comment letting us know you wish to volunteer.
 4. Optionally, you may coordinate efforts on the `#contributors` channel within [Discord](https://discord.gg/EXqV7W8MtY).
-5. If the Skeleton team approves your request, you'll be assigned to the issue.
-6. Complete the work and submit a pull request and we'll review the changes.
+5. A member of the Skeleton team will assign the issue to you and help outline requirements.
+6. Complete the work and submit a pull request per the requirements on this page.
 
-> NOTE: non-trivial PRs submitted without our prior consent will be denied. Repeat offenders will be banned.
+> NOTE: non-trivial PRs submitted without our prior consent will be denied. Repeat offenders will be blocked.
 
 ## Using PNPM
 
@@ -29,13 +29,15 @@ Skeleton makes use of [PNPM](https://pnpm.io/) and [PNPM workspaces](https://pnp
 1. [Install PNPM](https://pnpm.io/installation) on your local computer.
 2. [Fork the Skeleton monorepo](https://github.com/skeletonlabs/skeleton) via the option on GitHub.
 3. Use Git to clone the forked project to your local machine.
-4. Point your terminal at one of the sites or package projects listed below.
-5. Run `pnpm i` to install the required depedencies.
+4. Run `pnpm i` from the root to install the required depedencies.
+5. Point your terminal at one of the `/sites` or `/package` projects detailed below.
 6. Run `pnpm dev` to start a local dev server for each project.
 
 > NOTE: Make sure you're running `pnpm 9.5.0` or higher. You can check with `pnpm --version`.
 
 ### Adding Dependencies
+
+As a courtesy, please consult with Skeleton team members before adding dependencies. We may be able to offer alternatives.
 
 Dependencies may be installed using the standard `pnpm i` command. However, in some cases it may be beneficial to maintain a uniform version shared across multiple projects or within each `package.json`. For this we can make use of [PNPM Catalogs](https://pnpm.io/catalogs).
 
@@ -43,8 +45,8 @@ The master version is maintained in the monorepo root in `pnpm-workspace.yaml`:
 
 ```yaml
 catalog:
- # ...
- <package>: <version>
+	# ...
+	<package>: <version>
 ```
 
 Use the following convention to link each project's dependency to the shared Catalog version:
@@ -57,33 +59,35 @@ pnpm add <package>@catalog:
 
 ### Sites
 
-Public facing websites that are deployed to Vercel.
+Public facing websites that are deployed and hosted for users to browse.
 
-| Path                         | Description                                        |
-| ---------------------------- | -------------------------------------------------- |
-| `/sites/skeleton.dev`        | The production skeleton.dev documentation website. |
-| `/sites/next.skeleton.dev`   | The temporary Next/v3 documentation website.       |
-| `/sites/themes.skeleton.dev` | The Skeleton themes generator website              |
+| Path | Description |
+| --- | --- |
+| `/sites/skeleton.dev` | The production documentation website. |
+| `/sites/themes.skeleton.dev` | The Skeleton themes generator website |
 
 ### Packages
 
 Modular Skeleton packages distributed via NPM.
 
-| Path                            | Description                                                         |
-| ------------------------------- | ------------------------------------------------------------------- |
-| `/packages/skeleton`            | The Skeleton core package, containing the Tailwind plugin.          |
-| `/packages/skeleton-react`      | The Skeleton React package, containing Skeleton React components.   |
-| `/packages/skeleton-svelte`     | The Skeleton Svelte package, containing Skeleton Svelte components. |
-| `/packages/create-skeleton-app` | The Skeleton onboarding CLI application.                            |
+| Path | Description |
+| --- | --- |
+| `/packages/skeleton` | The Skeleton core package, containing the Tailwind plugin. |
+| `/packages/skeleton-react` | The Skeleton React package, containing Skeleton React components. |
+| `/packages/skeleton-svelte` | The Skeleton Svelte package, containing Skeleton Svelte components. |
+| `/packages/cli` | The public-facing Skeleton CLI. Used for migrations, etc. |
+| `/packages/necroparser` | An internal tool for generating component type schema for API references. |
+| `/packages/vite-plugin-tw-plugin-watcher` | An internal tool handling HRM updates to the Tailwind plugin. |
 
 ## Branch
 
-Skeleton uses two primary branches. All pull requests should be created from and to the `dev` branch.
+Skeleton utilizes three primary branches.
 
 | Branch   | Description                                        | Pull Requests                                  |
 | -------- | -------------------------------------------------- | ---------------------------------------------- |
-| `dev`    | Represents the bleeding edge developement branch.  | <Check size={16} className='inline' /> Allowed |
 | `master` | Represents the release branch of the all projects. | <X size={16} className='inline' /> Never       |
+| `dev`    | Represents a queue of new features prepped for release.  | <Check size={16} className='inline' /> Allowed |
+| `next`    | Represents the bleeding edge pre-release branch.  | <Check size={16} className='inline' /> Allowed |
 
 ### PR Branch Conventions
 
@@ -96,7 +100,7 @@ Please use the following naming convention when creating your pull request.
 | `chore/*`   | When implementing small changes.      |
 | `bugfix/*`  | When implementing feature bugfixes.   |
 
-Keep branch names short and semantic, using dashes to seperate words.
+Keep branch names short and semantic, and use snake-case to seperate words.
 
 ```
 docs/get-started-typo-fix
@@ -105,26 +109,26 @@ bugfix/accordion-render-issue
 
 ## Changesets
 
-[Changesets](https://github.com/changesets/changesets) are used to automatically generate the changelog for each release. Any contributions made within `/packages` must contain a Changeset, contributions within `/sites` should not include a Changeset.
+[Changesets](https://github.com/changesets/changesets) are used to automatically generate the changelog for each release. Any contributions made within `/packages` must contain a Changeset, while contributions within `/sites` should never include a Changeset.
 
-Use the following instructions to generate a changeset.
+Follow these instructions to generate a changeset:
 
 1. Make sure you're within your local pull request feature branch.
 2. Navigate to the root of the Skeleton monorepo.
 3. Run `pnpm changeset` to trigger the Changeset CLI.
 4. Follow the instructions when prompted.
 5. Changeset are added as `.md` files within the `/.changeset` directory.
-6. You may edit or revise a Changeset right up until release.
+6. You may edit or revise a Changeset before your PR is merged.
 
-Changesets use semantic version. We recommend the following convention.
+Changesets use semantic versioning. We recommend the following convention.
 
 | Version | Role                                         |
 | ------- | -------------------------------------------- |
-| `major` | Do not use. Reserved for maintainers.        |
-| `minor` | For notable changes, such as a new features. |
+| `major` | Do not use. Reserved for maintainers only.   |
+| `minor` | For notable changes, such as a new feature.  |
 | `patch` | For small changes, such as a fixing a typo.  |
 
-Changeset descriptions will appear verbatim on the [Changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md). Keep it short, semantic, and prefix this like branch names.
+Changeset descriptions will appear verbatim on the [Changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md). Keep it short, semantic, and and include the same [branch prefix](/docs/resources/contribute/get-started#pr-branch-conventions).
 
 ```mdx
 ---
@@ -136,7 +140,7 @@ feature: Added a new `background` component prop.
 
 ## Tooling
 
-Skeleton makes use of the following technology to improve the developer experience. It's recommended you run these tools regularly while working on new contributions, ideally before each commit.
+Skeleton makes use of the following technology to improve the developer experience. It's recommended you run these tools before flagging the PR as "ready for review".
 
 ### Root Commands
 
@@ -145,7 +149,7 @@ Run the following commands in the monorepo root to recursively check each PNPM w
 - `pnpm check` - triggers each project's respective diagnostic tooling, such a [Svelte Check](https://github.com/sveltejs/language-tools).
 - `pnpm format` - triggers [Prettier](https://prettier.io/) to automatically format code to the defined rulesets.
 - `pnpm lint` - triggers [ES Lint](https://eslint.org/) to check for any pending linting issues.
-- `pnpm test` - triggers all available test cases using tools such as [Vitest](https://vitest.dev/).
+- `pnpm test` - runs all available unit test using [Vitest](https://vitest.dev/).
 
 ### Local Commands
 
@@ -158,7 +162,7 @@ pnpm -w lint
 
 ### VS Code Extensions
 
-We recommend the following extensions for VS Code.
+We recommend the use of VS Code for contributions, and the following VS Code extensions.
 
 - [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
 - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)

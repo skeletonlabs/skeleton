@@ -8,8 +8,9 @@ order: 30
 
 export const components = componentSet;
 
-import TypeScale from '@examples/design/typography/TypeScale.astro';
-import TypeScaleRaw from '@examples/design/typography/TypeScale.astro?raw';
+import TypeScale from '@examples/design/typography/TypeScale.svelte';
+import TypeScaleRaw from '@examples/design/typography/TypeScale.svelte?raw';
+
 import Headings from '@examples/design/typography/Headings.astro';
 import HeadingsRaw from '@examples/design/typography/Headings.astro?raw';
 import Paragraphs from '@examples/design/typography/Paragraphs.astro';
@@ -26,6 +27,10 @@ import Keyboard from '@examples/design/typography/Keyboard.astro';
 import KeyboardRaw from '@examples/design/typography/Keyboard.astro?raw';
 import InsDel from '@examples/design/typography/InsDel.astro';
 import InsDelRaw from '@examples/design/typography/InsDel.astro?raw';
+
+import Semantic from '@examples/design/typography/Semantic.svelte';
+import SemanticRaw from '@examples/design/typography/Semantic.svelte?raw';
+
 import ListUnordered from '@examples/design/typography/ListUnordered.astro';
 import ListUnorderedRaw from '@examples/design/typography/ListUnordered.astro?raw';
 import ListOrdered from '@examples/design/typography/ListOrdered.astro';
@@ -37,22 +42,9 @@ import ListDescRaw from '@examples/design/typography/ListDesc.astro?raw';
 import ListNav from '@examples/design/typography/ListNav.astro';
 import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 
-## Typographic Scale
+<p class="type-scale-5">Skeleton provides an array of opt-in utility classes for common typographic elements. As well as a number of primitives for extending and generating semantic typography sets. Use theme settings to provide the perfect typographic scale.</p>
 
-Font size based on your theme's typographic scale, via `--type-scale-factor`.
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<TypeScale />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={TypeScaleRaw} lang="html" />
-	</Fragment>
-</Preview>
-
-## Typographic Utilities
-
-Reusable opt-in styles for common typographic elements.
+## Utlity Classes
 
 ### Headings
 
@@ -61,7 +53,7 @@ Reusable opt-in styles for common typographic elements.
 		<Headings />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={HeadingsRaw} lang="html" />
+		<Code code={HeadingsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -72,7 +64,7 @@ Reusable opt-in styles for common typographic elements.
 		<Paragraphs />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ParagraphsRaw} lang="html" />
+		<Code code={ParagraphsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -83,7 +75,7 @@ Reusable opt-in styles for common typographic elements.
 		<Blockquotes />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={BlockquotesRaw} lang="html" />
+		<Code code={BlockquotesRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -94,7 +86,7 @@ Reusable opt-in styles for common typographic elements.
 		<Anchors />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={AnchorsRaw} lang="html" />
+		<Code code={AnchorsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -105,7 +97,7 @@ Reusable opt-in styles for common typographic elements.
 		<Pre />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={PreRaw} lang="html" />
+		<Code code={PreRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -116,7 +108,7 @@ Reusable opt-in styles for common typographic elements.
 		<CodeTag />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={CodeTagRaw} lang="html" />
+		<Code code={CodeTagRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -127,76 +119,118 @@ Reusable opt-in styles for common typographic elements.
 		<Keyboard />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={KeyboardRaw} lang="html" />
+		<Code code={KeyboardRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
-## Insert & Delete
+### Insert & Delete
 
 <Preview client:load>
 	<Fragment slot="preview">
 		<InsDel />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={InsDelRaw} lang="html" />
+		<Code code={InsDelRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
-## Lists
+### Lists
 
-Skeleton does not provide list styles, and instead recommend using Tailwind primatives as shown below.
-
-### Unordered
+#### Unordered
 
 <Preview client:load>
 	<Fragment slot="preview">
 		<ListUnordered />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListUnorderedRaw} lang="html" />
+		<Code code={ListUnorderedRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
-### Ordered
+#### Ordered
 
 <Preview client:load>
 	<Fragment slot="preview">
 		<ListOrdered />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListOrderedRaw} lang="html" />
+		<Code code={ListOrderedRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
-### Basic
+#### Basic
 
 <Preview client:load>
 	<Fragment slot="preview">
 		<ListBasic />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListBasicRaw} lang="html" />
+		<Code code={ListBasicRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
-### Description
+#### Description
 
 <Preview client:load>
 	<Fragment slot="preview">
 		<ListDesc />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListDescRaw} lang="html" />
+		<Code code={ListDescRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
-### Navigation
+#### Navigation
 
 <Preview client:load>
 	<Fragment slot="preview">
 		<ListNav />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ListNavRaw} lang="html" />
+		<Code code={ListNavRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Primitives
+
+The basic building blocks that Skeleton typography is built upon.
+
+### Typographic Scale
+
+Primimtive font sizes based on your theme's [typographic scale](https://designcode.io/typographic-scales), via the `--type-scale-factor` [theme property](/docs/get-started/plugin#type-scale).
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<TypeScale client:load />
+	</Fragment>
+	<Fragment slot="code">
+		```html
+		<h1 class="type-scale-1">Type Scale 1</h1>
+		<h2 class="type-scale-2">Type Scale 2</h2>
+		<h3 class="type-scale-3">Type Scale 3</h3>
+		<h4 class="type-scale-4">Type Scale 4</h4>
+		<h5 class="type-scale-5">Type Scale 5</h5>
+		<h6 class="type-scale-6">Type Scale 6</h6>
+		<h6 class="type-scale-7">Type Scale 7</h6>
+		<h6 class="type-scale-8">Type Scale 8</h6>
+		<h6 class="type-scale-9">Type Scale 9</h6>
+		<h6 class="type-scale-10">Type Scale 10</h6>
+		<h6 class="type-scale-11">Type Scale 11</h6>
+		<h6 class="type-scale-12">Type Scale 12</h6>
+		<h6 class="type-scale-13">Type Scale 13</h6>
+		```
+	</Fragment>
+</Preview>
+
+### Semantic Typography
+
+Given that typography can differ wildly from project to project, we've provided an opinionated boilerplate for generating a set of semantic typography. These classes are constructed using a combination of Skelton and Tailwind primitives. Tap the code view, copy the styles to your global stylesheet, then modify as desired. Use the `type-{foo}` prefix to help keep things standarized.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Semantic client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={SemanticRaw} lang="svelte" />
 	</Fragment>
 </Preview>

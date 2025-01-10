@@ -16,46 +16,66 @@ export const components = componentSet;
 	allowfullscreen
 />
 
-## Why Skeleton?
+## Our Philosophy
 
-At the core, Skeleton provides a uniform design language and a structured framework for controlling the look and feel of your product and user experience. A well produced design system can greatly reduce the amount of time spent recreating elements and redefining patterns while building products and user interfaces at scale.
-
-### Theme System
-
-Skeleton fully embraces [Tailwind](https://tailwindcss.com/), while extending its capabilities in really meaningful ways. Providing best in class support for themes, colors, typography, spacing, and more. Including a fully curated set of themes out of the box, as well as a powerful [theme generator](https://themes.skeleton.dev/) for creating your own unique themes on demand.
+Skeleton provides a uniform design language and structured framework for controlling the look and feel of your product and user experience. It serves as an opinionated design system that aims to greatly reduce the amount of time spent managing design elements and patterns, allowing you to more quickly build and manage your frontend interfaces at scale.
 
 ### Framework Agnostic
 
-Skeleton's core package is framework agnostic, requiring only a single dependency - Tailwind. This gives you full access to the design system, themes, and more for nearly any web-based application.
+Skeleton's core features are framework agnostic, only requiring the use of [Tailwind CSS](https://tailwindcss.com/). This provides full access to all design system features, while enabling you to standarize the design process for your framework of choice.
 
-### Components
+### Native-First
 
-Skeleton's components utilize [Zag.js](https://zagjs.com/) as their foundation, which provides a collection of framework-agnostic UI component patterns component to manage logic and state. While the interface fully adapts to your to the Skeleton design system automatically. Currently supporting React and Svelte, with additional frameworks planned for the future.
+We aim to embrace the interface of the web, not replace it. This is why Skeleton defaults to native browser elements and APIs whenever possible. You can see this reflected in our implementation of buttons, form elements, and many other features. Beyond ease of use, we feel this offers a huge boost to accessibility.
 
-### Figma UI Kit
+### Standarized
 
-Skeleton provides access to a fully featured [Figma UI Kit](/docs/get-started/figma) to assist designers in drafting a visual concept of your upcoming projects.
+We aim to standarize the design process, providing common conventions that are easy to learn and retain, whether you work alone or in a team environment. Covering common fixtures such as themes, colors, typography, spacing, and more.
+
+### Utility-First
+
+Skeleton fully embraces the [utility-first](https://tailwindcss.com/docs/utility-first) approach to styling, supporting all features provided by [Tailwind](https://tailwindcss.com/), while extending it's capabilities in meaningful ways. Skeleton builds on Tailwind's standardization, while still supporting the encapsulated components of the modern web.
+
+### Opt-In by Default
+
+Most features in Skeleton are modular and opt-in by default. Enabling interface features like buttons and typography via dedicated utility classes. This allows for a simple escape hatch when you need to draw outside the lines and generate custom interfaces.
+
+### Adaptive
+
+Skeleton is intended to adapt to the design and aesthetic of your project, while still providing reasonable defaults. We provide the foundation for you to build from by mixing our various primitive features or using the style props for each component. Skeleton also comes equipped with a powerful [theme generator](https://themes.skeleton.dev/) for crafting custom themes for those that are design savvy, while also providing a curated set of themes for those that are not.
+
+### Functional Components
+
+We prioritize native first, but there will be times where you need to go further. For this, Skeleton provides an optional suite of functional components built atop the foundation of [Zag.js](https://zagjs.com/). These components automatically adapt to the Skeleton design system out of the box. We currently support React and Svelte, with plans to extend to additional frameworks in the near future.
 
 ---
 
-## Open Source
+## Additional Benefits
 
-Skeleton is committed to [free and open-source software (FOSS)](https://github.com/skeletonlabs/skeleton) and is covered by the [MIT License](https://github.com/skeletonlabs/skeleton?tab=MIT-1-ov-file#readme).
+### Open Source
+
+Skeleton provides as [free and open-source software (FOSS)](https://github.com/skeletonlabs/skeleton) under the [MIT License](https://github.com/skeletonlabs/skeleton?tab=MIT-1-ov-file#readme).
 
 ### The Community
 
-Skeleton has a thriving community of users and contributors on both [GitHub](https://github.com/skeletonlabs/skeleton) and [Discord](https://discord.gg/EXqV7W8MtY).
+Skeleton boasts a vast community of users and contributors across [GitHub](https://github.com/skeletonlabs/skeleton), [Discord](https://discord.gg/EXqV7W8MtY), and [Bluesky](https://bsky.app/profile/skeletonlabs.bsky.social).
 
-### Updates
+### Frequent Updates
 
-We have maintained a set release cadence, providing new updates every two weeks. [See our changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md).
+Skeleton has maintained a set release cadence for years. Just take a look at our [changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md).
 
-### Contributing
+### Figma UI Kit
 
-Interested in contributing? See our [Contribution Guidelines](/docs/resources/contribute).
+Skeleton provides access to a fully featured [Figma UI Kit](/figma) to assist designers in drafting a visual concept of upcoming projects.
 
 ---
 
 ## Get Started
 
-Ready to get started? Check out our comprehensive [installation guides](/docs/get-started/installation) or start [learning the fundamentals](/docs/get-started/fundamentals).
+### Using Skeleton
+
+Ready to get started? Check out our comprehensive [installation guides](/docs/get-started/installation) and begin [learning the fundamentals](/docs/get-started/fundamentals).
+
+### Contributing
+
+Please refer to our dedicated [Contribution Guidelines](/docs/resources/contribute) if you wish to contribute directly.
