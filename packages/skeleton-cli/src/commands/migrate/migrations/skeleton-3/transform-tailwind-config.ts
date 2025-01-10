@@ -42,7 +42,7 @@ function transformTailwindConfigContent(code: string) {
 	const module = parseCode(code);
 
 	/**
-	 * Transform `config.content`
+	 * Transform content paths
 	 */
 	const configNode = getDefaultExportObject(module);
 	if (configNode) {

@@ -11,31 +11,39 @@ vi.mock('latest-version', () => {
 describe('transformPackageContent', () => {
 	it('updates the "@skeletonlabs/tw-plugin" dependency', async () => {
 		vi.mocked(getLatestVersion).mockReturnValue(Promise.resolve('3.0.0'));
-		const input = `{
+		const input = `
+{
 	"dependencies": {
 		"@skeletonlabs/tw-plugin": "^1.0.0"
 	}
-}`;
-		const expectedOutput = `{
+}
+`.trim();
+		const expectedOutput = `
+{
 	"dependencies": {
 		"@skeletonlabs/skeleton": "^3.0.0"
 	}
-}`;
+}
+`.trim();
 		const output = await transformPackageContent(input);
 		expect(output).toBe(expectedOutput);
 	});
 	it('updates the "@skeletonlabs/skeleton" dependency', async () => {
 		vi.mocked(getLatestVersion).mockReturnValue(Promise.resolve('3.0.0'));
-		const input = `{
+		const input = `
+{
 	"dependencies": {
 		"@skeletonlabs/skeleton": "^2.0.0"
 	}
-}`;
-		const expectedOutput = `{
+}
+`.trim();
+		const expectedOutput = `
+{
 	"dependencies": {
 		"@skeletonlabs/skeleton-svelte": "^3.0.0"
 	}
-}`;
+}
+`.trim();
 		const output = await transformPackageContent(input);
 		expect(output).toBe(expectedOutput);
 	});
@@ -49,33 +57,41 @@ describe('transformPackageContent', () => {
 			}
 			return Promise.resolve('0.0.0');
 		});
-		const input = `{
+		const input = `
+{
 	"dependencies": {
 		"@skeletonlabs/tw-plugin": "^1.0.0",
 		"@skeletonlabs/skeleton": "^2.0.0"
 	}
-}`;
-		const expectedOutput = `{
+}
+`.trim();
+		const expectedOutput = `
+{
 	"dependencies": {
 		"@skeletonlabs/skeleton-svelte": "^1.0.0",
 		"@skeletonlabs/skeleton": "^3.0.0"
 	}
-}`;
+}
+`.trim();
 		const output = await transformPackageContent(input);
 		expect(output).toBe(expectedOutput);
 	});
 	it('does not update "@skeletonlabs/skeleton" if version is >=3.0.0', async () => {
 		vi.mocked(getLatestVersion).mockReturnValue(Promise.resolve('3.0.0'));
-		const input = `{
+		const input = `
+{
 	"dependencies": {
 		"@skeletonlabs/skeleton": "^3.0.0"
 	}
-}`;
-		const expectedOutput = `{
+}
+`.trim();
+		const expectedOutput = `
+{
 	"dependencies": {
 		"@skeletonlabs/skeleton": "^3.0.0"
 	}
-}`;
+}
+`.trim();
 		const output = await transformPackageContent(input);
 		expect(output).toBe(expectedOutput);
 	});
