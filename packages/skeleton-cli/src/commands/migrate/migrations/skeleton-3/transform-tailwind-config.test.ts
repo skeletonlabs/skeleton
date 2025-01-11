@@ -2,39 +2,43 @@ import { describe, expect, it } from 'vitest';
 import { transformTailwindConfigContent } from './transform-tailwind-config.js';
 
 describe('transformTailwindConfigContent', () => {
-	it('transforms imports', () => {
+	it('transforms config', () => {
 		const input = `
-import { join } from 'path';
-import { skeleton } from '@skeletonlabs/tw-plugin';
-`.trim();
-		const expectedOutput = `
-import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
-`.trim();
-		const output = transformTailwindConfigContent(input);
-		expect(output).toBe(expectedOutput);
-	});
-
-	it('transforms content paths', () => {
-		const input = `
-import { join } from 'path';
-import { skeleton } from '@skeletonlabs/tw-plugin';
+import { join } from "path";
+import { skeleton } from "@skeletonlabs/tw-plugin";
 
 export default {
 	content: [
-		join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+		"./src/**/*.{html,js,svelte,ts}",
+		join(require.resolve("@skeletonlabs/skeleton"), "../**/*.{html,js,svelte,ts}")
+	],
+	plugins: [
+		skeleton({
+			themes: {
+				preset: ["skeleton"]
+			}
+		})
 	]
 }
 `.trim();
-		const expectedOutput = `
-import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
+
+		const output = `
+import { join } from "path";
+import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
+import * as themes from "@skeletonlabs/skeleton/themes";
 
 export default {
 	content: [
-		contentPath(import.meta.url, 'svelte')
+		"./src/**/*.{html,js,svelte,ts}",
+		contentPath(import.meta.url, "svelte")
+	],
+	plugins: [
+		skeleton({
+			themes: [themes.legacy]
+		})
 	]
 }
 `.trim();
-		const output = transformTailwindConfigContent(input);
-		expect(output).toBe(expectedOutput);
+		expect(transformTailwindConfigContent(input)).toBe(output);
 	});
 });
