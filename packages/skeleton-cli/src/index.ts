@@ -20,9 +20,9 @@ program.configureOutput({
 		process.exit(1);
 	}
 });
-// @ts-expect-error - Abusing the API to add the outro after the help message
 program.addHelpText('afterAll', () => {
 	outro(bgGreenBright(black(' All Done! ')));
+	return '';
 });
 
 /**
