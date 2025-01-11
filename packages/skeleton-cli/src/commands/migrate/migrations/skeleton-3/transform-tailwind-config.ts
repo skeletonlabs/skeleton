@@ -9,14 +9,12 @@ function transformContentPath(root: jscs.Collection) {
 				value: '@skeletonlabs/tw-plugin'
 			}
 		})
-		.forEach((path) => {
-			const specifiers = path.node.specifiers ?? [];
-			const hasSkeletonImport = specifiers.some((specifier) => specifier.local?.name === 'skeleton');
-			const updatedSpecifiers = [...specifiers, jscs.importSpecifier(jscs.identifier('contentPath'))];
-			jscs(path).replaceWith(
-				jscs.importDeclaration(hasSkeletonImport ? updatedSpecifiers : specifiers, jscs.literal('@skeletonlabs/skeleton/plugin'))
-			);
-		});
+		.replaceWith(
+			jscs.importDeclaration(
+				[jscs.importSpecifier(jscs.identifier('skeleton')), jscs.importSpecifier(jscs.identifier('contentPath'))],
+				jscs.literal('@skeletonlabs/skeleton/plugin')
+			)
+		);
 	root
 		.find(jscs.CallExpression, {
 			callee: {
@@ -47,6 +45,63 @@ function transformContentPath(root: jscs.Collection) {
 		.replaceWith(jscs.callExpression(jscs.identifier('contentPath'), [jscs.identifier('import.meta.url'), jscs.literal('svelte')]));
 }
 
+function extractPresetThemes(path: jscs.ASTPath<jscs.ObjectExpression>) {
+	const property = path.node.properties.find((property) => {
+		return property.type === 'Property' && property.key.type === 'Identifier' && property.key.name === 'preset';
+	}) as jscs.Property | undefined;
+	if (!(property && property.value.type === 'ArrayExpression')) {
+		return [];
+	}
+	return property.value.elements
+		.map((element) => {
+			let name: string | null = null;
+			switch (element?.type) {
+				case 'Literal': {
+					name = String(element.value);
+					break;
+				}
+				case 'ObjectExpression': {
+					const property = element.properties.find((property) => {
+						return (
+							property.type === 'Property' &&
+							property.key.type === 'Identifier' &&
+							property.key.name === 'name' &&
+							property.value.type === 'Literal'
+						);
+					}) as jscs.Property | undefined;
+					if (!(property && property.value.type === 'Literal')) {
+						break;
+					}
+					name = String(property.value.value);
+					break;
+				}
+			}
+			const theme = THEMES.find((theme) => theme.v2 === name);
+			if (!theme) {
+				return null;
+			}
+			return jscs.identifier(`themes.${theme.v3}`);
+		})
+		.filter((item) => item !== null);
+}
+
+function extractCustomThemes(path: jscs.ASTPath<jscs.ObjectExpression>) {
+	const property = path.node.properties.find((property) => {
+		return property.type === 'Property' && property.key.type === 'Identifier' && property.key.name === 'custom';
+	}) as jscs.Property | undefined;
+	if (!(property && property.value.type === 'ArrayExpression')) {
+		return [];
+	}
+	return property.value.elements
+		.map((element) => {
+			if (!(element && element.type === 'Identifier')) {
+				return null;
+			}
+			return jscs.identifier(`/* Unable to migrate "${element.name}" */`);
+		})
+		.filter((item) => item !== null);
+}
+
 function transformSkeletonConfig(root: jscs.Collection) {
 	root
 		.find(jscs.CallExpression, {
@@ -55,37 +110,22 @@ function transformSkeletonConfig(root: jscs.Collection) {
 				name: 'skeleton'
 			}
 		})
-		.find(jscs.ObjectExpression, {
-			properties: [
-				{
-					key: {
-						type: 'Identifier',
-						name: 'themes'
-					},
-					value: {
-						type: 'ObjectExpression'
-					}
-				}
-			]
+		.find(jscs.ObjectExpression, (path) => {
+			return path.properties.some(
+				(property) => property.type === 'Property' && property.key.type === 'Identifier' && property.key.name === 'themes'
+			);
 		})
-		.find(jscs.Property, {
-			key: {
-				type: 'Identifier',
-				name: 'themes'
-			}
+		.find(jscs.ObjectExpression, (path) => {
+			return path.properties.some(
+				(property) => property.type === 'Property' && property.key.type === 'Identifier' && ['preset', 'custom'].includes(property.key.name)
+			);
 		})
-		.find(jscs.Property, {
-			key: {
-				type: 'Identifier',
-				name: 'preset'
-			}
-		})
-		.forEach((path) => {
-			const importStatements = root.find(jscs.ImportDeclaration);
-			const hasThemesImport = importStatements.some((path) => path.node.source.value === '@skeletonlabs/skeleton/themes');
-			if (!hasThemesImport) {
-				importStatements
-					.at(0)
+		.replaceWith((path) => {
+			const presetThemes = extractPresetThemes(path);
+			if (presetThemes.length > 0) {
+				root
+					.find(jscs.ImportDeclaration)
+					.at(-1)
 					.insertAfter(
 						jscs.importDeclaration(
 							[jscs.importNamespaceSpecifier(jscs.identifier('themes'))],
@@ -93,6 +133,8 @@ function transformSkeletonConfig(root: jscs.Collection) {
 						)
 					);
 			}
+			const customThemes = extractCustomThemes(path);
+			return jscs.arrayExpression([...presetThemes, ...customThemes]);
 		});
 }
 
@@ -100,7 +142,9 @@ function transformTailwindConfigContent(code: string) {
 	const root = jscs(code);
 	transformContentPath(root);
 	transformSkeletonConfig(root);
-	return root.toSource();
+	return root.toSource({
+		lineTerminator: '\n'
+	});
 }
 
 async function transformTailwindConfig(path: string) {

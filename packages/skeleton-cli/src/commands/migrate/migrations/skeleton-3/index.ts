@@ -3,6 +3,7 @@ import { transformTailwindConfig } from './transform-tailwind-config.js';
 import { transformPackage } from './transform-package.js';
 import type { MigrateOptions } from '../../index.js';
 import { program } from 'commander';
+import { spinner } from '@clack/prompts';
 
 export default async function (options: MigrateOptions) {
 	/**
@@ -35,8 +36,16 @@ export default async function (options: MigrateOptions) {
 	/**
 	 * Run migrations
 	 */
+	const packageSpinner = spinner();
+	packageSpinner.start(`Migrating ${pkg.matcher}...`);
 	await transformPackage(pkg.paths[0]);
+	packageSpinner.stop(`Successfully migrated ${pkg.matcher}`);
+
+	const tailwindConfigSpinner = spinner();
+	tailwindConfigSpinner.start(`Migrating ${tailwindConfig.matcher}...`);
 	await transformTailwindConfig(tailwindConfig.paths[0]);
+	tailwindConfigSpinner.stop(`Successfully migrated ${pkg.matcher}`);
+
 	// TODO: Transform svelte components (.svelte)
 	// TODO: Transform modules (.ts/.js)
 	// TODO: Run: "<pm> install"
