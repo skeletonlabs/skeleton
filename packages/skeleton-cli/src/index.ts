@@ -5,19 +5,10 @@ import { bgBlueBright, bgGreenBright, black, dim, red } from 'colorette';
 import { Command } from 'commander';
 
 const cli = new Command()
-	/**
-	 * Info
-	 */
 	.name('@skeletonlabs/skeleton-cli')
 	.description('The CLI for Skeleton relating tooling.')
-	/**
-	 * Commands
-	 */
 	.addCommand(migrate)
 	.copyInheritedSettings(migrate)
-	/**
-	 * Configuration
-	 */
 	.configureOutput({
 		writeOut: log.info,
 		writeErr(str) {
@@ -38,14 +29,15 @@ const cli = new Command()
 		log.success(dim(`Finished "${`${ctx.name()}${args ? ` ${args}` : ''}`}"`));
 	});
 
-/**
- * Run CLI
- */
-intro(bgBlueBright(black(' Welcome to the Skeleton CLI 💀 ')));
-if (process.argv.length === 2) {
-	cli.error('error: no command provided');
+async function main() {
+	intro(bgBlueBright(black(' Welcome to the Skeleton CLI 💀 ')));
+	if (process.argv.length === 2) {
+		cli.error('error: no command provided');
+	}
+	await cli.parseAsync(process.argv);
+	outro(bgGreenBright(black(' All Done! ')));
 }
-await cli.parseAsync(process.argv);
-outro(bgGreenBright(black(' All Done! ')));
+
+main();
 
 export { cli };

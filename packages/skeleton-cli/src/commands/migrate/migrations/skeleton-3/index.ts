@@ -6,14 +6,8 @@ import { spinner } from '@clack/prompts';
 import { cli } from '../../../../index';
 
 export default async function (options: MigrateOptions) {
-	/**
-	 * Option handling
-	 */
 	const cwd = options.cwd ?? process.cwd();
 
-	/**
-	 * Ensure the required files exist.
-	 */
 	const pkg = {
 		matcher: 'package.json',
 		paths: await fg('package.json', { cwd })
@@ -22,6 +16,7 @@ export default async function (options: MigrateOptions) {
 		matcher: 'tailwind.config.{js,mjs,ts,mts}',
 		paths: await fg('tailwind.config.{js,mjs,ts,mts}', { cwd })
 	};
+
 	for (const file of [pkg, tailwindConfig]) {
 		if (file.paths.length === 0) {
 			cli.error(`"${file.matcher}" not found in directory "${cwd}".`);
@@ -31,9 +26,6 @@ export default async function (options: MigrateOptions) {
 		}
 	}
 
-	/**
-	 * Run migrations
-	 */
 	const packageSpinner = spinner();
 	packageSpinner.start(`Migrating ${pkg.matcher}...`);
 	await transformPackage(pkg.paths[0]);
@@ -43,7 +35,6 @@ export default async function (options: MigrateOptions) {
 	tailwindConfigSpinner.start(`Migrating ${tailwindConfig.matcher}...`);
 	await transformTailwindConfig(tailwindConfig.paths[0]);
 	tailwindConfigSpinner.stop(`Successfully migrated ${pkg.matcher}`);
-
 	// TODO: Transform svelte components (.svelte)
 	// TODO: Transform modules (.ts/.js)
 	// TODO: Run: "<pm> install"
