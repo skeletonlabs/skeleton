@@ -1,44 +1,42 @@
 #!/usr/bin/env node
-import { Command, program } from 'commander';
-import { intro, log, outro} from '@clack/prompts';
-import { getPackage } from "./internal/get-package.js";
-import { migrate } from "./commands/migrate/index.js";
-import {bgBlue, bgGreen, bgRed, black, bold, red } from 'colorette';
+import { intro, log, outro } from '@clack/prompts';
+import { migrate } from './commands/migrate/index.js';
+import { bgBlueBright, bgGreenBright, black, red } from 'colorette';
+import { program } from 'commander';
 
 /**
  * Info
  */
-const pkg = await getPackage();
-program.name(pkg.name);
-program.description(pkg.description);
-program.version(pkg.version);
+program.name('@skeletonlabs/skeleton-cli');
+program.description('The CLI for Skeleton relating tooling.');
 
+/**
+ * Configuration
+ */
+program.configureOutput({
+	writeOut: log.info,
+	writeErr(str) {
+		outro(red(str.replace('\n', ' ')));
+		process.exit(1);
+	}
+});
+// @ts-expect-error - Abusing the API to add the outro after the help message
+program.addHelpText('afterAll', () => {
+	outro(bgGreenBright(black(' All Done! ')));
+});
 
 /**
  * Commands
  */
 program.addCommand(migrate);
-program.addCommand(new Command('init').action(() => {}));
-
-/**
- * Configuration
- */
-program.hook('postAction', () => {
-	outro(bgGreen(bold(' All done! ')));
-});
-program.configureOutput({
-	writeOut: log.info,
-	writeErr(str) {
-		log.error(red(bold(str)));
-		outro(bgRed(black(bold(` Exiting due to error `))));
-		process.exit(1);
-	},
-});
+migrate.copyInheritedSettings(program);
 
 /**
  * Parse
  */
-intro(bgBlue(black(bold('Welcome to the Skeleton CLI'))));
-program.parse(process.argv);
-
-
+intro(bgBlueBright(black(' Welcome to the Skeleton CLI ')));
+if (process.argv.length === 2) {
+	program.error('error: no command provided');
+}
+await program.parseAsync(process.argv);
+outro(bgGreenBright(black(' All Done! ')));

@@ -11,18 +11,14 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs"
+			"import": "./dist/index.mjs"
 		},
 		"./migrate": {
-			"import": "./dist/commands/migrate/index.mjs",
-			"require": "./dist/commands/migrate/index.cjs"
+			"import": "./dist/commands/migrate/index.mjs"
 		}
 	},
-	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
-	"bin": "./dist/index.mjs",
 	"files": [
 		"dist",
 		"!**/*.test.*"

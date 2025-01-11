@@ -32,7 +32,6 @@ function transformPluginConfig(module: SourceFile) {
 	if (!configNode) {
 		return;
 	}
-
 }
 
 function transformImports(module: SourceFile) {
@@ -54,7 +53,6 @@ function transformImports(module: SourceFile) {
 			}
 		}
 	}
-
 }
 
 function isJoinedContent(node: Node) {
