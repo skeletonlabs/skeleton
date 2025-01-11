@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'fs/promises';
 import type { PackageJson } from 'type-fest';
 import getLatestVersion from 'latest-version';
 import { coerce, lt } from 'semver';
+import { sortPropertiesAlphabetically } from '../../../../internal/sort-properties-alphabetically';
 
 async function transformPackageContent(code: string) {
 	const pkg = JSON.parse(code) as PackageJson;
@@ -20,6 +21,7 @@ async function transformPackageContent(code: string) {
 			delete pkg[field]['@skeletonlabs/tw-plugin'];
 			pkg[field]['@skeletonlabs/skeleton'] = `^${skeletonVersion}`;
 		}
+		pkg[field] = sortPropertiesAlphabetically(pkg[field] as Record<string, string>);
 	}
 	return JSON.stringify(pkg, null, '\t');
 }

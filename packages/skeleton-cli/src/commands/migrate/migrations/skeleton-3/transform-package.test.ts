@@ -68,8 +68,8 @@ describe('transformPackageContent', () => {
 		const expectedOutput = `
 {
 	"dependencies": {
-		"@skeletonlabs/skeleton-svelte": "^1.0.0",
-		"@skeletonlabs/skeleton": "^3.0.0"
+		"@skeletonlabs/skeleton": "^3.0.0",
+		"@skeletonlabs/skeleton-svelte": "^1.0.0"
 	}
 }
 `.trim();
