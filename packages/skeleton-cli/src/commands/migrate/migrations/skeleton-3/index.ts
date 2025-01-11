@@ -35,6 +35,7 @@ export default async function (options: MigrateOptions) {
 	tailwindConfigSpinner.start(`Migrating ${tailwindConfig.matcher}...`);
 	await transformTailwindConfig(tailwindConfig.paths[0]);
 	tailwindConfigSpinner.stop(`Successfully migrated ${pkg.matcher}`);
+
 	// TODO: Transform svelte components (.svelte)
 	// TODO: Transform modules (.ts/.js)
 	// TODO: Run: "<pm> install"
