@@ -1,28 +1,20 @@
 import skeleton3 from './migrations/skeleton-3/index.js';
-import { Command, program } from 'commander';
+import { Argument, Command, Option } from 'commander';
+import { MapKey } from 'type-fest/source/entry';
 
 interface MigrateOptions {
 	cwd?: string;
 }
 
-const MIGRATIONS = new Map([['skeleton-3', skeleton3]]);
+const MIGRATIONS = new Map([['skeleton-3', skeleton3]] as const);
 
-const migrate = new Command('migrate');
-
-migrate.description('Run a migration');
-migrate.argument('<migration>', 'The migration to run');
-migrate.option('--cwd <cwd>', 'The directory to run the migration in');
-migrate.action(async (migration: string, options: MigrateOptions) => {
-	const migrate = MIGRATIONS.get(migration);
-	if (!migrate) {
-		program.error(
-			`error: unknown migration "${migration}". Valid migration(s) are: ${Array.from(MIGRATIONS.keys())
-				.map((migration) => `"${migration}"`)
-				.join(', ')}`
-		);
-	}
-	await migrate(options);
-});
+const migrate = new Command('migrate')
+	.description('Run a migration')
+	.addArgument(new Argument('<migration>', 'The migration to run').choices(Array.from(MIGRATIONS.keys())))
+	.addOption(new Option('--cwd <cwd>', 'The directory to run the migration in'))
+	.action(async (migration: MapKey<typeof MIGRATIONS>, options: MigrateOptions) => {
+		await MIGRATIONS.get(migration)!(options);
+	});
 
 export type { MigrateOptions };
 export { migrate };

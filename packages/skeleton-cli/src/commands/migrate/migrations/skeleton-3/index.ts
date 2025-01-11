@@ -2,8 +2,8 @@ import fg from 'fast-glob';
 import { transformTailwindConfig } from './transform-tailwind-config.js';
 import { transformPackage } from './transform-package.js';
 import type { MigrateOptions } from '../../index.js';
-import { program } from 'commander';
 import { spinner } from '@clack/prompts';
+import { cli } from '../../../../index';
 
 export default async function (options: MigrateOptions) {
 	/**
@@ -24,12 +24,10 @@ export default async function (options: MigrateOptions) {
 	};
 	for (const file of [pkg, tailwindConfig]) {
 		if (file.paths.length === 0) {
-			program.error(
-				`"${file.matcher}" not found in directory: "${cwd}", please change directory into your project root or provide the "cwd" argument`
-			);
+			cli.error(`"${file.matcher}" not found in directory "${cwd}".`);
 		}
 		if (file.paths.length > 1) {
-			program.error(`Multiple "${file.matcher}" files found in directory: "${cwd}", please ensure there is only one`);
+			cli.error(`Multiple "${file.matcher}" files found in directory: "${cwd}", please ensure there is only one`);
 		}
 	}
 
