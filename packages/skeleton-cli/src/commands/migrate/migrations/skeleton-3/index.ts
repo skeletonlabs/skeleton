@@ -3,7 +3,7 @@ import { transformTailwindConfig } from './transform-tailwind-config.js';
 import { transformPackage } from './transform-package.js';
 import type { MigrateOptions } from '../../index.js';
 import { spinner } from '@clack/prompts';
-import { cli } from '../../../../index';
+import { cli } from '../../../../index.js';
 
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
