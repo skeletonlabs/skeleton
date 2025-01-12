@@ -6,9 +6,11 @@ const THEMES_IMPORT = types.builders.importDeclaration(
 	[types.builders.importNamespaceSpecifier(types.builders.identifier('themes'))],
 	types.builders.literal('@skeletonlabs/skeleton/themes')
 );
-const CUSTOM_THEME_NOTICE_COMMENT = types.builders.commentBlock(
-	'*\n * Custom themes were detected and commented out due to them not being compatible with the V3 theme format.\n * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.\n '
-);
+
+const CUSTOM_THEME_NOTICE_COMMENT = types.builders.commentBlock(`*
+ * Custom themes were detected and commented out due to them not being compatible with the V3 theme format.
+ * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.
+ `);
 
 function transformTailwindConfigContent(code: string) {
 	const ast = parse(code);
