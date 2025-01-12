@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { transformModuleContent } from './transform-module.js';
 
-describe.skip('transformModuleContent', () => {
+describe('transformModuleContent', () => {
 	it('transforms imports', () => {
 		expect(
 			transformModuleContent(`
@@ -17,7 +17,7 @@ import { Avatar } from "@skeletonlabs/skeleton-svelte";
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
-	it('transforms classes', () => {
+	it('transforms classes in strings', () => {
 		expect(
 			transformModuleContent(`
 const foo = "rounded-token";
