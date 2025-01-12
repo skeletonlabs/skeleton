@@ -1,4 +1,4 @@
-import { builders, generateCode, parseModule, type Proxified, type ProxifiedModule, type ProxifiedValue } from 'magicast';
+import { builders, generateCode, parseModule, type ProxifiedModule, type ProxifiedValue } from 'magicast';
 import { readFile, writeFile } from 'node:fs/promises';
 import { getDefaultExportOptions } from 'magicast/helpers';
 import { THEMES } from '../../../../internal/mappers/themes';
@@ -43,36 +43,31 @@ function transformSkeletonConfig(mod: ProxifiedModule) {
 	if (!(options && options.themes && options.themes.$type === 'object')) {
 		return;
 	}
-	if (options.themes.custom) {
-		for (const custom of options.themes.custom) {
-			if (custom.$type !== 'identifier') {
-				continue;
-			}
-			options.themes.$ast.leadingComments ||= [];
-			options.themes.$ast.leadingComments.push({
-				type: 'CommentLine',
-				value: custom.$name
-			});
-		}
-	}
+	const presetThemes = [];
 	if (options.themes.preset) {
 		mod.imports.$append({
 			from: '@skeletonlabs/skeleton/themes',
 			imported: '*',
 			local: 'themes'
 		});
-		const themes: Proxified[] = [];
 		for (const preset of options.themes.preset) {
 			const name = typeof preset === 'string' ? preset : preset.name;
 			const theme = THEMES.find((t) => t.v2 === name);
 			if (theme) {
-				themes.push(builders.raw(`themes.${theme.v3}`));
+				presetThemes.push(builders.raw(`themes.${theme.v3}`));
 			}
 		}
-		options.themes = themes;
-	} else {
-		options.themes = [];
 	}
+	const customThemes = [];
+	if (options.themes.custom) {
+		for (const custom of options.themes.custom) {
+			if (custom.$type !== 'identifier') {
+				continue;
+			}
+			// customThemes.push(builders.raw(`/** ${custom.$name} */`));
+		}
+	}
+	options.themes = [...presetThemes, ...customThemes];
 }
 
 function transformTailwindConfigContent(code: string) {
