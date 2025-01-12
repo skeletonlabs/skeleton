@@ -1,20 +1,18 @@
 import skeleton3 from './migrations/skeleton-3/index.js';
 import { Argument, Command, Option } from 'commander';
-import { MapKey } from 'type-fest/source/entry';
 
 interface MigrateOptions {
 	cwd?: string;
 }
-
-const MIGRATIONS = new Map([['skeleton-3', skeleton3]] as const);
+const MIGRATIONS = {
+	'skeleton-3': skeleton3
+} as const;
 
 const migrate = new Command('migrate')
 	.description('Run a migration')
-	.addArgument(new Argument('<migration>', 'The migration to run').choices(Array.from(MIGRATIONS.keys())))
+	.addArgument(new Argument('<migration>', 'The migration to run').choices(Object.keys(MIGRATIONS)))
 	.addOption(new Option('--cwd <cwd>', 'The directory to run the migration in'))
-	.action(async (migration: MapKey<typeof MIGRATIONS>, options: MigrateOptions) => {
-		await MIGRATIONS.get(migration)!(options);
-	});
+	.action((migration: keyof typeof MIGRATIONS, options: MigrateOptions) => MIGRATIONS[migration](options));
 
 export type { MigrateOptions };
 export { migrate };

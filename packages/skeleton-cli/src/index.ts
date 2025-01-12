@@ -22,11 +22,7 @@ const cli = new Command()
 	})
 	.hook('preAction', (_, ctx) => {
 		const args = ctx.args.join(' ');
-		log.info(dim(`Running "${`${ctx.name()}${args ? ` ${args}` : ''}`}"...`));
-	})
-	.hook('postAction', (_, ctx) => {
-		const args = ctx.args.join(' ');
-		log.success(dim(`Finished "${`${ctx.name()}${args ? ` ${args}` : ''}`}"`));
+		log.message(dim(`Running "${`${ctx.name()}${args ? ` ${args}` : ''}`}"...`));
 	});
 
 async function main() {

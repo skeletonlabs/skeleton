@@ -1,4 +1,4 @@
-import { builders, generateCode, parseModule, type ProxifiedModule, type ProxifiedValue } from 'magicast';
+import { builders, generateCode, parseModule, Proxified, type ProxifiedModule, type ProxifiedValue } from 'magicast';
 import { readFile, writeFile } from 'node:fs/promises';
 import { getDefaultExportOptions } from 'magicast/helpers';
 import { THEMES } from '../../../../internal/mappers/themes';
@@ -25,6 +25,9 @@ function transformContent(mod: ProxifiedModule) {
 	if (index === -1) {
 		return;
 	}
+	if (mod.imports['join']) {
+		delete mod.imports['join'];
+	}
 	config.content.splice(index, 1, builders.functionCall('contentPath', builders.raw('import.meta.url'), builders.raw(`\'svelte\'`)));
 }
 
@@ -43,7 +46,7 @@ function transformSkeletonConfig(mod: ProxifiedModule) {
 	if (!(options && options.themes && options.themes.$type === 'object')) {
 		return;
 	}
-	const presetThemes = [];
+	const presetThemes: Proxified[] = [];
 	if (options.themes.preset) {
 		mod.imports.$append({
 			from: '@skeletonlabs/skeleton/themes',
@@ -58,7 +61,7 @@ function transformSkeletonConfig(mod: ProxifiedModule) {
 			}
 		}
 	}
-	const customThemes = [];
+	const customThemes: Proxified[] = [];
 	if (options.themes.custom) {
 		for (const custom of options.themes.custom) {
 			if (custom.$type !== 'identifier') {

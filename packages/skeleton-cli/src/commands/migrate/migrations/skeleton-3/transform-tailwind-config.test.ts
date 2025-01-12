@@ -13,7 +13,6 @@ plugins: [skeleton({ themes: { preset: ["skeleton"] } })]
 `.trim();
 
 		const output = `
-import {join} from "path";
 import {skeleton, contentPath} from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 export default {
@@ -34,7 +33,6 @@ plugins: [skeleton({ themes: { preset: ["skeleton"] } })]
 `.trim();
 
 		const output = `
-import {join} from "path";
 import {skeleton, contentPath} from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 export default {
@@ -55,7 +53,6 @@ plugins: [skeleton({ themes: { preset: [{ name: "skeleton", enhancements: true }
 `.trim();
 
 		const output = `
-import {join} from "path";
 import {skeleton, contentPath} from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 export default {
@@ -77,7 +74,6 @@ plugins: [skeleton({ themes: { custom: [customTheme] } })]
 `.trim();
 
 		const output = `
-import {join} from "path";
 import {customTheme} from "custom-theme";
 import {skeleton, contentPath} from "@skeletonlabs/skeleton/plugin";
 export default {
@@ -98,7 +94,6 @@ plugins: [skeleton({ base: true, themes: { preset: ["skeleton"] }, prefix: "sk-"
 `.trim();
 
 		const output = `
-import {join} from "path";
 import {skeleton, contentPath} from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 export default {
