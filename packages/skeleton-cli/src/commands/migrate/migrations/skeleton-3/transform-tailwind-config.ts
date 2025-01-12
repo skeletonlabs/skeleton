@@ -148,9 +148,7 @@ function transformTailwindConfigContent(code: string) {
 			this.traverse(path);
 		}
 	});
-
-	ast.program.comments ||= [];
-	ast.program.comments = [...comments, ...ast.program.comments];
+	ast.program.comments = [...comments, ...(ast.program.comments ?? [])];
 	ast.program.body = [...imports, ...ast.program.body];
 	return print(ast).code;
 }
