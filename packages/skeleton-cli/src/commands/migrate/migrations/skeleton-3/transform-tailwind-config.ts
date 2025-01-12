@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { parse, print, types, visit } from 'recast';
-import { THEMES } from '../../../../internal/mappers/themes';
+import { THEME_MAPPINGS } from '../../../../internal/theme-mappings.js';
 
 const THEMES_IMPORT = types.builders.importDeclaration(
 	[types.builders.importNamespaceSpecifier(types.builders.identifier('themes'))],
@@ -108,7 +108,7 @@ function transformTailwindConfigContent(code: string) {
 									if (!name) {
 										continue;
 									}
-									const theme = THEMES.find((theme) => theme.v2 === name);
+									const theme = THEME_MAPPINGS.find((theme) => theme.v2 === name);
 									if (!theme) {
 										return;
 									}

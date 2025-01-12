@@ -1,4 +1,4 @@
-const THEMES = [
+const THEME_MAPPINGS = [
 	{
 		v2: 'skeleton',
 		v3: 'legacy'
@@ -41,4 +41,4 @@ const THEMES = [
 	}
 ];
 
-export { THEMES };
+export { THEME_MAPPINGS };
