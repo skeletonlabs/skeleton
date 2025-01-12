@@ -26,8 +26,8 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import * as themes from "@skeletonlabs/skeleton/themes";
 import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
+import * as themes from "@skeletonlabs/skeleton/themes";
 
 export default {
 	content: [
@@ -69,8 +69,8 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import * as themes from "@skeletonlabs/skeleton/themes";
 import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
+import * as themes from "@skeletonlabs/skeleton/themes";
 
 export default {
 	content: [
@@ -112,8 +112,8 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import * as themes from "@skeletonlabs/skeleton/themes";
 import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
+import * as themes from "@skeletonlabs/skeleton/themes";
 
 export default {
 	content: [
@@ -155,7 +155,12 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
+/**
+ * Custom themes were detected and commented out due to them not being compatible with the V3 theme format.
+ * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.
+ */
 import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
+import * as themes from "@skeletonlabs/skeleton/themes";
 
 export default {
 	content: [
@@ -164,7 +169,7 @@ export default {
 	],
 	plugins: [
 		skeleton({
-			themes: [/* myCustomTheme */]
+			themes: [/* myCustomTheme */, themes.cerberus]
 		})
 	]
 }
@@ -200,8 +205,8 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import * as themes from "@skeletonlabs/skeleton/themes";
 import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
+import * as themes from "@skeletonlabs/skeleton/themes";
 
 export default {
 	content: [

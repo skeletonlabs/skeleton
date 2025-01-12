@@ -2,15 +2,27 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { parse, print, types, visit } from 'recast';
 import { THEMES } from '../../../../internal/mappers/themes';
 
-function transformContent(program: types.namedTypes.Program) {
-	visit(program, {
+const THEMES_IMPORT = types.builders.importDeclaration(
+	[types.builders.importNamespaceSpecifier(types.builders.identifier('themes'))],
+	types.builders.literal('@skeletonlabs/skeleton/themes')
+);
+const CUSTOM_THEME_NOTICE_COMMENT = types.builders.commentBlock(
+	'*\n * Custom themes were detected and commented out due to them not being compatible with the V3 theme format.\n * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.\n '
+);
+
+function transformTailwindConfigContent(code: string) {
+	const ast = parse(code);
+	const comments: Set<types.namedTypes.Comment> = new Set();
+	const imports: Set<types.namedTypes.ImportDeclaration> = new Set();
+	visit(ast.program, {
 		visitImportDeclaration(path) {
 			if (path.node.source.value === 'path') {
 				path.prune();
 				return false;
 			}
 			if (path.node.source.value === '@skeletonlabs/tw-plugin') {
-				path.replace(
+				path.prune();
+				imports.add(
 					types.builders.importDeclaration(
 						[
 							types.builders.importSpecifier(types.builders.identifier('skeleton')),
@@ -46,14 +58,6 @@ function transformContent(program: types.namedTypes.Program) {
 				);
 				return false;
 			}
-			this.traverse(path);
-		}
-	});
-}
-
-function transformSkeletonConfig(program: types.namedTypes.Program) {
-	visit(program, {
-		visitCallExpression(path) {
 			if (
 				path.node.callee.type === 'Identifier' &&
 				path.node.callee.name === 'skeleton' &&
@@ -66,7 +70,7 @@ function transformSkeletonConfig(program: types.namedTypes.Program) {
 						optionProperty.key.name === 'themes' &&
 						optionProperty.value.type === 'ObjectExpression'
 					) {
-						const themes = types.builders.arrayExpression([]);
+						const themes: Set<string> = new Set();
 						for (const theme of optionProperty.value.properties) {
 							if (
 								theme.type === 'Property' &&
@@ -75,12 +79,7 @@ function transformSkeletonConfig(program: types.namedTypes.Program) {
 								theme.value.type === 'ArrayExpression' &&
 								theme.value.elements.length > 0
 							) {
-								program.body.unshift(
-									types.builders.importDeclaration(
-										[types.builders.importNamespaceSpecifier(types.builders.identifier('themes'))],
-										types.builders.literal('@skeletonlabs/skeleton/themes')
-									)
-								);
+								imports.add(THEMES_IMPORT);
 								for (const presetTheme of theme.value.elements) {
 									if (!presetTheme) {
 										continue;
@@ -109,7 +108,7 @@ function transformSkeletonConfig(program: types.namedTypes.Program) {
 									if (!theme) {
 										return;
 									}
-									themes.elements.push(types.builders.identifier(`themes.${theme.v3}`));
+									themes.add(`themes.${theme.v3}`);
 								}
 							}
 							if (
@@ -123,25 +122,32 @@ function transformSkeletonConfig(program: types.namedTypes.Program) {
 									if (!customTheme) {
 										continue;
 									}
-									if (customTheme.type === 'Identifier') {
-										themes.elements.push(types.builders.identifier(`/* ${customTheme.name} */`));
+									if (customTheme.type !== 'Identifier') {
+										return;
 									}
+									themes.add(`/* ${customTheme.name} */`);
+									themes.add('themes.cerberus');
+									imports.add(THEMES_IMPORT);
+									comments.add(CUSTOM_THEME_NOTICE_COMMENT);
 								}
 							}
 						}
-						optionProperty.value = themes;
+						optionProperty.value = types.builders.arrayExpression(
+							themes
+								.values()
+								.map((theme) => types.builders.identifier(theme))
+								.toArray()
+						);
 					}
 				}
 			}
 			this.traverse(path);
 		}
 	});
-}
 
-function transformTailwindConfigContent(code: string) {
-	const ast = parse(code);
-	transformContent(ast.program);
-	transformSkeletonConfig(ast.program);
+	ast.program.comments ||= [];
+	ast.program.comments = [...comments, ...ast.program.comments];
+	ast.program.body = [...imports, ...ast.program.body];
 	return print(ast).code;
 }
 
