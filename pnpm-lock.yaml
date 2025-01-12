@@ -6,6 +6,57 @@ settings:
 
 catalogs:
   default:
+    '@zag-js/accordion':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/avatar':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/combobox':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/dialog':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/file-upload':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/pagination':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/popover':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/progress':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/radio-group':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/rating-group':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/react':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/slider':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/svelte':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/switch':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/tabs':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/tags-input':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/tooltip':
+      specifier: ^0.78.3
+      version: 0.78.3
     typescript:
       specifier: ^5.6.3
       version: 5.6.3
@@ -61,7 +112,7 @@ importers:
         version: 0.4.13(eslint@8.57.1)
       eslint-plugin-svelte:
         specifier: ^2.44.1
-        version: 2.46.0(eslint@8.57.1)(svelte@5.6.2)(ts-node@10.9.2(@types/node@22.10.1)(typescript@5.7.2))
+        version: 2.46.0(eslint@8.57.1)(svelte@5.17.3)(ts-node@10.9.2(@types/node@22.10.1)(typescript@5.7.2))
       fast-glob:
         specifier: ^3.3.1
         version: 3.3.2
@@ -76,10 +127,10 @@ importers:
         version: 0.14.1
       prettier-plugin-svelte:
         specifier: ^3.3.2
-        version: 3.3.2(prettier@3.4.2)(svelte@5.6.2)
+        version: 3.3.2(prettier@3.4.2)(svelte@5.17.3)
       prettier-plugin-tailwindcss:
         specifier: ^0.6.9
-        version: 0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.6.2))(prettier@3.4.2)
+        version: 0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.17.3))(prettier@3.4.2)
       shelljs:
         specifier: ^0.8.5
         version: 0.8.5
@@ -3719,6 +3770,9 @@ packages:
   esrap@1.2.3:
     resolution: {integrity: sha512-ZlQmCCK+n7SGoqo7DnfKaP1sJZa49P01/dXzmjCASSo04p72w8EksT2NMK8CEX8DhKsfJXANioIw8VyHNsBfvQ==}
 
+  esrap@1.4.2:
+    resolution: {integrity: sha512-FhVlJzvTw7ZLxYZ7RyHwQCFE64dkkpzGNNnphaGCLwjqGk1SQcqzbgdx9FowPCktx6NOSHkzvcZ3vsvdH54YXA==}
+
   esrecurse@4.3.0:
     resolution: {integrity: sha512-KmfKL3b6G+RXvP8N1vr3Tq1kL/oCFgn2NYXEtqP8/L3pKapUA4G8cFVaoF3SU323CD4XypR/ffioHmkti6/Tag==}
     engines: {node: '>=4.0'}
@@ -6155,6 +6209,10 @@ packages:
     peerDependencies:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
       typescript: ^4.9.4 || ^5.0.0
+
+  svelte@5.17.3:
+    resolution: {integrity: sha512-eLgtpR2JiTgeuNQRCDcLx35Z7Lu9Qe09GPOz+gvtR9nmIZu5xgFd6oFiLGQlxLD0/u7xVyF5AUkjDVyFHe6Bvw==}
+    engines: {node: '>=18'}
 
   svelte@5.6.2:
     resolution: {integrity: sha512-fyq4gCUW9OoR9X8I1BzmMVIOxzTlyCLI5gArRRTUuJj+jIUSHtud7c+MguQNGLv7Z/rGWxJyG9ZRFd/cFp/klA==}
@@ -8898,7 +8956,7 @@ snapshots:
     dependencies:
       '@vitest/spy': 3.0.0-beta.1
       estree-walker: 3.0.3
-      magic-string: 0.30.14
+      magic-string: 0.30.17
     optionalDependencies:
       vite: 6.0.2(@types/node@22.10.1)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1)
 
@@ -8929,7 +8987,7 @@ snapshots:
   '@vitest/snapshot@3.0.0-beta.1':
     dependencies:
       '@vitest/pretty-format': 3.0.0-beta.1
-      magic-string: 0.30.14
+      magic-string: 0.30.17
       pathe: 1.1.2
 
   '@vitest/spy@2.1.8':
@@ -10551,7 +10609,7 @@ snapshots:
       string.prototype.matchall: 4.0.11
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-svelte@2.46.0(eslint@8.57.1)(svelte@5.6.2)(ts-node@10.9.2(@types/node@22.10.1)(typescript@5.7.2)):
+  eslint-plugin-svelte@2.46.0(eslint@8.57.1)(svelte@5.17.3)(ts-node@10.9.2(@types/node@22.10.1)(typescript@5.7.2)):
     dependencies:
       '@eslint-community/eslint-utils': 4.4.1(eslint@8.57.1)
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -10564,9 +10622,9 @@ snapshots:
       postcss-safe-parser: 6.0.0(postcss@8.4.49)
       postcss-selector-parser: 6.1.2
       semver: 7.6.3
-      svelte-eslint-parser: 0.43.0(svelte@5.6.2)
+      svelte-eslint-parser: 0.43.0(svelte@5.17.3)
     optionalDependencies:
-      svelte: 5.6.2
+      svelte: 5.17.3
     transitivePeerDependencies:
       - ts-node
 
@@ -10640,6 +10698,10 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
       '@types/estree': 1.0.6
+
+  esrap@1.4.2:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.0
 
   esrecurse@4.3.0:
     dependencies:
@@ -12722,17 +12784,17 @@ snapshots:
       prettier: 3.4.2
       sass-formatter: 0.7.9
 
-  prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.6.2):
+  prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.17.3):
     dependencies:
       prettier: 3.4.2
-      svelte: 5.6.2
+      svelte: 5.17.3
 
-  prettier-plugin-tailwindcss@0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.6.2))(prettier@3.4.2):
+  prettier-plugin-tailwindcss@0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.17.3))(prettier@3.4.2):
     dependencies:
       prettier: 3.4.2
     optionalDependencies:
       prettier-plugin-astro: 0.14.1
-      prettier-plugin-svelte: 3.3.2(prettier@3.4.2)(svelte@5.6.2)
+      prettier-plugin-svelte: 3.3.2(prettier@3.4.2)(svelte@5.17.3)
 
   prettier@2.8.7:
     optional: true
@@ -13488,7 +13550,7 @@ snapshots:
     transitivePeerDependencies:
       - picomatch
 
-  svelte-eslint-parser@0.43.0(svelte@5.6.2):
+  svelte-eslint-parser@0.43.0(svelte@5.17.3):
     dependencies:
       eslint-scope: 7.2.2
       eslint-visitor-keys: 3.4.3
@@ -13496,7 +13558,7 @@ snapshots:
       postcss: 8.4.49
       postcss-scss: 4.0.9(postcss@8.4.49)
     optionalDependencies:
-      svelte: 5.6.2
+      svelte: 5.17.3
 
   svelte2tsx@0.7.30(svelte@5.6.2)(typescript@5.6.3):
     dependencies:
@@ -13504,6 +13566,23 @@ snapshots:
       pascal-case: 3.1.2
       svelte: 5.6.2
       typescript: 5.6.3
+
+  svelte@5.17.3:
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@jridgewell/sourcemap-codec': 1.5.0
+      '@types/estree': 1.0.6
+      acorn: 8.14.0
+      acorn-typescript: 1.4.13(acorn@8.14.0)
+      aria-query: 5.3.2
+      axobject-query: 4.1.0
+      clsx: 2.1.1
+      esm-env: 1.2.1
+      esrap: 1.4.2
+      is-reference: 3.0.3
+      locate-character: 3.0.0
+      magic-string: 0.30.17
+      zimmerframe: 1.1.2
 
   svelte@5.6.2:
     dependencies:

@@ -18,7 +18,7 @@ function transformTailwindConfigContent(code: string) {
 	const ast = parse(code);
 	const comments: Set<types.namedTypes.Comment> = new Set();
 	const imports: Set<types.namedTypes.ImportDeclaration> = new Set();
-	visit(ast.program, {
+	visit(ast, {
 		visitImportDeclaration(path) {
 			if (path.node.source.value === 'path') {
 				path.prune();
