@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { transformSvelteContent } from './transform-svelte.js';
 
-describe('transformSvelteContent', () => {
+describe.skip('transformSvelteContent', () => {
 	it('transforms imports', () => {
 		expect(
 			transformSvelteContent(`

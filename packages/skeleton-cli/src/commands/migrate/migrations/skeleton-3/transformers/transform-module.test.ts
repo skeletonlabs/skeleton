@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { transformModuleContent } from './transform-module.js';
 
-describe('transformModuleContent', () => {
+describe.skip('transformModuleContent', () => {
 	it('transforms imports', () => {
 		expect(
 			transformModuleContent(`

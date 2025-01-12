@@ -260,6 +260,9 @@ importers:
       semver:
         specifier: ^7.6.3
         version: 7.6.3
+      ts-morph:
+        specifier: ^25.0.0
+        version: 25.0.0
     devDependencies:
       '@types/node':
         specifier: ^22.1.0
@@ -2386,6 +2389,9 @@ packages:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
 
+  '@ts-morph/common@0.26.0':
+    resolution: {integrity: sha512-/RmKAtctStXqM5nECMQ46duT74Hoig/DBzhWXGHcodlDNrgRbsbwwHqSKFNbca6z9Xt/CUWMeXOsC9QEN1+rqw==}
+
   '@tsconfig/node10@1.0.11':
     resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
 
@@ -3156,6 +3162,9 @@ packages:
   clsx@2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
+
+  code-block-writer@13.0.3:
+    resolution: {integrity: sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==}
 
   collapse-white-space@2.1.0:
     resolution: {integrity: sha512-loKTxY1zCOuG4j9f6EPnuyyYkf58RnhhWTvRoZEokgB+WbdXehfjFviyOVYkqzEWz1Q5kRiZdBYS5SwxbQYwzw==}
@@ -6354,6 +6363,9 @@ packages:
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
+  ts-morph@25.0.0:
+    resolution: {integrity: sha512-ERPTUVO5qF8cEGJgAejGOsCVlbk8d0SDyiJsucKQT5XgqoZslv0Qml+gnui6Yy6o+uQqw5SestyW2HvlVtT/Sg==}
+
   ts-node@10.9.2:
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
@@ -8721,6 +8733,12 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
+  '@ts-morph/common@0.26.0':
+    dependencies:
+      fast-glob: 3.3.2
+      minimatch: 9.0.5
+      path-browserify: 1.0.1
+
   '@tsconfig/node10@1.0.11':
     optional: true
 
@@ -9830,6 +9848,8 @@ snapshots:
   clone@1.0.4: {}
 
   clsx@2.1.1: {}
+
+  code-block-writer@13.0.3: {}
 
   collapse-white-space@2.1.0: {}
 
@@ -13746,6 +13766,11 @@ snapshots:
       typescript: 5.7.2
 
   ts-interface-checker@0.1.13: {}
+
+  ts-morph@25.0.0:
+    dependencies:
+      '@ts-morph/common': 0.26.0
+      code-block-writer: 13.0.3
 
   ts-node@10.9.2(@types/node@22.10.1)(typescript@5.6.3):
     dependencies:

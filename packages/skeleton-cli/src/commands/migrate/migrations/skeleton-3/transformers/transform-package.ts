@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'fs/promises';
 import type { PackageJson } from 'type-fest';
 import getLatestVersion from 'latest-version';
 import { coerce, lt } from 'semver';
-import { sortPropertiesAlphabetically } from '../../../../internal/sort-properties-alphabetically';
+import { sortPropertiesAlphabetically } from '../../../../../internal/sort-properties-alphabetically.js';
 
 async function transformPackageContent(code: string) {
 	const pkg = JSON.parse(code) as PackageJson;
