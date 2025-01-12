@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { transformModuleContent } from "./transform-module.js";
+import { describe, expect, it } from 'vitest';
+import { transformModuleContent } from './transform-module.js';
 
 describe('transformModuleContent', () => {
 	it('transforms imports', () => {
