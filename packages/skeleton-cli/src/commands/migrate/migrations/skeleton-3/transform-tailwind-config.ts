@@ -8,6 +8,8 @@ const THEMES_IMPORT = types.builders.importDeclaration(
 );
 
 const CUSTOM_THEME_NOTICE_COMMENT = types.builders.commentBlock(`*
+ * SKELETON MIGRATION NOTICE
+ *
  * Custom themes were detected and commented out due to them not being compatible with the V3 theme format.
  * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.
  `);

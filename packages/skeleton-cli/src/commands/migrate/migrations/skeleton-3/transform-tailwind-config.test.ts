@@ -156,6 +156,8 @@ export default {
 		).toBe(
 			`
 /**
+ * SKELETON MIGRATION NOTICE
+ *
  * Custom themes were detected and commented out due to them not being compatible with the V3 theme format.
  * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.
  */
