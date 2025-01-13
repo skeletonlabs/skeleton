@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.4
+
+### Patch Changes
+
+- Feature: Svelte template code is now included when migrating svelte code. ([#3105](https://github.com/skeletonlabs/skeleton/pull/3105))
+
+- Bugfix: Unused identifiers like imports are removed after tranformation. ([#3105](https://github.com/skeletonlabs/skeleton/pull/3105))
+
 ## 0.0.1-next.3
 
 ### Patch Changes
