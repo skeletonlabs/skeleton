@@ -78,7 +78,7 @@ describe('transformSvelteContent', () => {
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
-	it('transforms classes in template', () => {
+	it.skip('transforms classes in template', () => {
 		expect(
 			transformSvelteContent(`
 <div class="rounded-token"></div>

@@ -2,4 +2,4 @@
 '@skeletonlabs/skeleton-cli': patch
 ---
 
-Tailwind config will now be fully transformed.
+Feature: tailwind.config transformation also include skeleton configuration.
