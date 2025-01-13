@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import { createSourceFile } from '../../../../../internal/create-source-file.js';
 import { Node } from 'ts-morph';
 import { transformClasses } from './transform-classes.js';
+import { createSourceFile } from '../../../../../utility/create-source-file.js';
 
 function transformModuleContent(code: string) {
 	const file = createSourceFile(code);
