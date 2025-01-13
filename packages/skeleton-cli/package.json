@@ -39,6 +39,7 @@
 		"@clack/prompts": "^0.7.0",
 		"colorette": "^2.0.20",
 		"commander": "^13.0.0",
+		"detect-indent": "^7.0.1",
 		"estree-walker": "^3.0.3",
 		"fast-glob": "^3.3.1",
 		"latest-version": "^9.0.0",

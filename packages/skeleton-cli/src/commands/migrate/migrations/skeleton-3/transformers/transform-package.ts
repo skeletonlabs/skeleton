@@ -3,6 +3,7 @@ import type { PackageJson } from 'type-fest';
 import getLatestVersion from 'latest-version';
 import { coerce, lt } from 'semver';
 import { sortPropertiesAlphabetically } from '../../../../../utility/sort-properties-alphabetically';
+import detectIndent from 'detect-indent';
 
 async function transformPackageContent(code: string) {
 	const pkg = JSON.parse(code) as PackageJson;
@@ -23,7 +24,7 @@ async function transformPackageContent(code: string) {
 		}
 		pkg[field] = sortPropertiesAlphabetically(pkg[field] as Record<string, string>);
 	}
-	return JSON.stringify(pkg, null, '\t');
+	return JSON.stringify(pkg, null, detectIndent(code).indent || '\t');
 }
 
 async function transformPackage(path: string) {
