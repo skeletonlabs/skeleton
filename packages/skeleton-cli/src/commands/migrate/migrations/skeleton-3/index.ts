@@ -1,6 +1,6 @@
 import fg from 'fast-glob';
-import { transformTailwindConfig } from './transform-tailwind-config.js';
-import { transformPackage } from './transform-package.js';
+import { transformTailwindConfig } from './transformers/transform-tailwind-config.js';
+import { transformPackage } from './transformers/transform-package.js';
 import type { MigrateOptions } from '../../index.js';
 import { spinner } from '@clack/prompts';
 import { cli } from '../../../../index.js';

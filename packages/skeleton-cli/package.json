@@ -12,9 +12,6 @@
 	"exports": {
 		".": {
 			"import": "./dist/index.mjs"
-		},
-		"./migrate": {
-			"import": "./dist/commands/migrate/index.mjs"
 		}
 	},
 	"module": "./dist/index.mjs",
@@ -45,7 +42,6 @@
 		"fast-glob": "^3.3.1",
 		"latest-version": "^9.0.0",
 		"package-manager-detector": "^0.2.8",
-		"recast": "^0.23.9",
 		"semver": "^7.6.3",
 		"ts-morph": "^25.0.0"
 	}
