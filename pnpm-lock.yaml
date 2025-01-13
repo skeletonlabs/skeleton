@@ -269,6 +269,9 @@ importers:
       ts-morph:
         specifier: ^25.0.0
         version: 25.0.0
+      zimmerframe:
+        specifier: ^1.1.2
+        version: 1.1.2
     devDependencies:
       '@types/node':
         specifier: ^22.1.0

@@ -6,12 +6,16 @@ describe('transformModuleContent', () => {
 		expect(
 			transformModuleContent(`
 import { Avatar } from "@skeletonlabs/skeleton";
+
+Avatar;
 		`)
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
 import { Avatar } from "@skeletonlabs/skeleton-svelte";
+
+Avatar;
 		`
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
@@ -36,12 +40,16 @@ const foo = "rounded";
 		expect(
 			transformModuleContent(`
 import foo from "rounded-token";
+
+foo;
 		`)
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
 import foo from "rounded-token";
+
+foo;
 		`
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
