@@ -1,5 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-cli",
+	"description": "The CLI for Skeleton relating tooling.",
 	"version": "0.0.1-next.1",
 	"repository": {
 		"type": "git",
@@ -10,18 +11,11 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs"
-		},
-		"./migrate": {
-			"import": "./dist/commands/migrate/index.mjs",
-			"require": "./dist/commands/migrate/index.cjs"
+			"import": "./dist/index.mjs"
 		}
 	},
-	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
-	"bin": "./dist/index.mjs",
 	"files": [
 		"dist",
 		"!**/*.test.*"
@@ -43,9 +37,15 @@
 	"license": "MIT",
 	"dependencies": {
 		"@clack/prompts": "^0.7.0",
-		"commander": "^12.1.0",
+		"colorette": "^2.0.20",
+		"commander": "^13.0.0",
+		"estree-walker": "^3.0.3",
 		"fast-glob": "^3.3.1",
+		"latest-version": "^9.0.0",
+		"magic-string": "^0.30.17",
+		"package-manager-detector": "^0.2.8",
 		"semver": "^7.6.3",
-		"ts-morph": "^24.0.0"
+		"svelte": "^5.17.3",
+		"ts-morph": "^25.0.0"
 	}
 }
