@@ -66,5 +66,5 @@ export default async function (options: MigrateOptions) {
 		}
 		sourceFilesSpinner.message(`Successfully migrated ${sourceFile}`);
 	}
-	sourceFilesSpinner.start('Successfully migrated all source files');
+	sourceFilesSpinner.stop('Successfully migrated all source files');
 }
