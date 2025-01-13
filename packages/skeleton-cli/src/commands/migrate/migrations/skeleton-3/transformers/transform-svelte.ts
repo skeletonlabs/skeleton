@@ -13,12 +13,10 @@ function transformSvelteContent(code: string) {
 	const ast = parse(code, {
 		modern: true
 	});
-
-	for (const script of ['instance', 'module'] as const) {
-		if (!ast[script]) {
-			continue;
-		}
-		walk(ast[script].content, {
+	const roots = [ast.instance, ast.module, ast.fragment].filter((node) => node !== null);
+	for (const root of roots) {
+		// @ts-expect-error - estree-walker doesn't play nice with Fragment from svelte/compiler
+		walk(root, {
 			enter(node, parent) {
 				if (
 					node.type === 'ImportDeclaration' &&
