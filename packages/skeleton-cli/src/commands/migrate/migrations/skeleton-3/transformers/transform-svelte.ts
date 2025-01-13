@@ -38,6 +38,10 @@ function transformSvelteContent(code: string) {
 				if (node.type === 'Text' && hasRange(node)) {
 					s.update(node.start, node.end, transformClasses(node.data));
 				}
+				if (node.type === 'ClassDirective' && node.expression.type !== 'Identifier' && hasRange(node)) {
+					const adjustedStart = node.start + 'class:'.length;
+					s.update(adjustedStart, adjustedStart + node.name.length, transformClasses(node.name));
+				}
 			}
 		});
 	}
