@@ -2,10 +2,22 @@ import fg from 'fast-glob';
 import { transformTailwindConfig } from './transformers/transform-tailwind-config.js';
 import { transformPackage } from './transformers/transform-package.js';
 import type { MigrateOptions } from '../../index.js';
-import { spinner } from '@clack/prompts';
+import { isCancel, multiselect, spinner } from '@clack/prompts';
 import { cli } from '../../../../index.js';
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
+
+	const availableSourceCodeFolders = await fg('*', { cwd, onlyDirectories: true, ignore: ['node_modules'] });
+
+	const chosenSourceCodeFolders = await multiselect({
+		message: 'What folders contain usage of Skeleton? (classes, imports, etc.)',
+		options: availableSourceCodeFolders.map((folder) => ({ label: folder, value: folder })),
+		initialValues: availableSourceCodeFolders
+	});
+
+	if (isCancel(chosenSourceCodeFolders)) {
+		cli.error('Migration cancelled.');
+	}
 
 	const pkg = {
 		matcher: 'package.json',
@@ -21,7 +33,7 @@ export default async function (options: MigrateOptions) {
 			cli.error(`"${file.matcher}" not found in directory "${cwd}".`);
 		}
 		if (file.paths.length > 1) {
-			cli.error(`Multiple "${file.matcher}" files found in directory: "${cwd}", please ensure there is only one`);
+			cli.error(`Multiple "${file.matcher}" entries found in directory: "${cwd}", please ensure there is only one`);
 		}
 	}
 

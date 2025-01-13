@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { transformSvelteContent } from './transform-svelte.js';
 
-describe.skip('transformSvelteContent', () => {
-	it('transforms imports', () => {
+describe('transformSvelteContent', () => {
+	it('transforms imports in instance script', () => {
 		expect(
 			transformSvelteContent(`
 <script>
@@ -21,24 +21,73 @@ describe.skip('transformSvelteContent', () => {
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
-	it('transforms classes', () => {
+	it('transforms imports in module script', () => {
+		expect(
+			transformSvelteContent(`
+<script module>
+	import { Avatar } from "@skeletonlabs/skeleton";
+</script>
+		`)
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		).toBe(
+			`
+<script module>
+	import { Avatar } from "@skeletonlabs/skeleton-svelte";
+</script>
+		`
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		);
+	});
+	it('transforms classes in instance script', () => {
 		expect(
 			transformSvelteContent(`
 <script>
-	import { Avatar } from "@skeletonlabs/skeleton";
+	const classes = "rounded-token";
 </script>
-
-<Avatar rounded="rounded-token" />
 		`)
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
 <script>
-	import { Avatar } from "@skeletonlabs/skeleton-svelte";
+	const classes = "rounded";
 </script>
-
-<Avatar rounded="rounded" />
+		`
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		);
+	});
+	it('transforms classes in module script', () => {
+		expect(
+			transformSvelteContent(`
+<script module>
+	const classes = "rounded-token";
+</script>
+		`)
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		).toBe(
+			`
+<script module>
+	const classes = "rounded";
+</script>
+		`
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		);
+	});
+	it('transforms classes in template', () => {
+		expect(
+			transformSvelteContent(`
+<div class="rounded-token"></div>
+		`)
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		).toBe(
+			`
+<div class="rounded"></div>
 		`
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
