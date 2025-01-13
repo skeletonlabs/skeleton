@@ -6,7 +6,7 @@ import { Command } from 'commander';
 
 const cli = new Command()
 	.name('@skeletonlabs/skeleton-cli')
-	.description('The CLI for Skeleton relating tooling.')
+	.description('The CLI for Skeleton related tooling.')
 	.addCommand(migrate)
 	.copyInheritedSettings(migrate)
 	.configureOutput({
