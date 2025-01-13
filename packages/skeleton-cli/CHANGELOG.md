@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.3
+
+### Patch Changes
+
+- Bugfix: Add `bin` back to package.json ([#3103](https://github.com/skeletonlabs/skeleton/pull/3103))
+
 ## 0.0.1-next.2
 
 ### Patch Changes
