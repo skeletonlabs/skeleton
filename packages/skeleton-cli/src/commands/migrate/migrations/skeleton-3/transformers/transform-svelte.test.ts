@@ -78,7 +78,7 @@ describe('transformSvelteContent', () => {
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
-	it.skip('transforms classes in template', () => {
+	it('transforms classes in template attributes', () => {
 		expect(
 			transformSvelteContent(`
 <div class="rounded-token"></div>
@@ -88,6 +88,21 @@ describe('transformSvelteContent', () => {
 		).toBe(
 			`
 <div class="rounded"></div>
+		`
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		);
+	});
+	it('transforms classes in template attribute expressions', () => {
+		expect(
+			transformSvelteContent(`
+<div class={"rounded-token"}></div>
+		`)
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		).toBe(
+			`
+<div class={"rounded"}></div>
 		`
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')

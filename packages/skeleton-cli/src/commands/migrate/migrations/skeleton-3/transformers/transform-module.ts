@@ -17,6 +17,7 @@ function transformModuleContent(code: string) {
 		}
 		node.setLiteralValue(transformClasses(node.getLiteralValue()));
 	});
+	file.fixUnusedIdentifiers();
 	return file.getFullText();
 }
 
