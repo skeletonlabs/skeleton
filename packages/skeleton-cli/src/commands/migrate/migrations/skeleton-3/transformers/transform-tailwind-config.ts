@@ -82,7 +82,8 @@ function transformTailwindContentOption(file: SourceFile) {
 	}
 	joinCallExpression.replaceWithText('contentPath(import.meta.url, "svelte")');
 	for (const importDeclaration of file.getImportDeclarations()) {
-		if (importDeclaration.getModuleSpecifierValue() === '@skeletonlabs/tw-plugin') {
+		const moduleSpecifier = importDeclaration.getModuleSpecifierValue();
+		if (moduleSpecifier === '@skeletonlabs/tw-plugin') {
 			importDeclaration.setModuleSpecifier('@skeletonlabs/skeleton/plugin');
 			importDeclaration.addNamedImport('contentPath');
 		}
@@ -208,6 +209,7 @@ function transformTailwindConfigContent(code: string) {
 	const file = createSourceFile(code);
 	transformTailwindContentOption(file);
 	transformSkeletonThemesOption(file);
+	file.fixUnusedIdentifiers();
 	return file.getFullText();
 }
 

@@ -26,7 +26,6 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import { join } from "path";
 import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 
@@ -70,7 +69,6 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import { join } from "path";
 import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 
@@ -114,7 +112,6 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import { join } from "path";
 import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 
@@ -165,7 +162,6 @@ export default {
  * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.
  */
 
-import { join } from "path";
 import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 
@@ -212,7 +208,6 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import { join } from "path";
 import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 
