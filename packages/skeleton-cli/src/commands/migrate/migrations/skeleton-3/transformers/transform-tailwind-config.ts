@@ -1,8 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { CallExpression, Node, ObjectLiteralExpression, SourceFile } from 'ts-morph';
-import { getDefaultExportObject } from '../../../../../internal/get-default-export-object.js';
-import { createSourceFile } from '../../../../../internal/create-source-file.js';
-import { THEME_MAPPINGS } from '../../../../../internal/theme-mappings.js';
+import { getDefaultExportObject } from '../../../../../utility/get-default-export-object';
+import { THEME_MAPPINGS } from '../utility/theme-mappings';
+import { createSourceFile } from '../../../../../utility/create-source-file';
 
 function isJoinCallExpression(node: Node): node is CallExpression {
 	if (!Node.isCallExpression(node)) {
