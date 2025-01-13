@@ -32,4 +32,19 @@ const foo = "rounded";
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
+	it('does not transform classes in imports', () => {
+		expect(
+			transformModuleContent(`
+import foo from "rounded-token";
+		`)
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		).toBe(
+			`
+import foo from "rounded-token";
+		`
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		);
+	});
 });
