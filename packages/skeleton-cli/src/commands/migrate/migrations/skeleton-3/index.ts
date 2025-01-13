@@ -4,20 +4,12 @@ import { transformPackage } from './transformers/transform-package.js';
 import type { MigrateOptions } from '../../index.js';
 import { isCancel, multiselect, spinner } from '@clack/prompts';
 import { cli } from '../../../../index.js';
+import { extname } from 'node:path';
+import { transformSvelte } from './transformers/transform-svelte';
+import { transformModule } from './transformers/transform-module';
+
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
-
-	const availableSourceCodeFolders = await fg('*', { cwd, onlyDirectories: true, ignore: ['node_modules'] });
-
-	const chosenSourceCodeFolders = await multiselect({
-		message: 'What folders contain usage of Skeleton? (classes, imports, etc.)',
-		options: availableSourceCodeFolders.map((folder) => ({ label: folder, value: folder })),
-		initialValues: availableSourceCodeFolders
-	});
-
-	if (isCancel(chosenSourceCodeFolders)) {
-		cli.error('Migration cancelled.');
-	}
 
 	const pkg = {
 		matcher: 'package.json',
@@ -37,6 +29,18 @@ export default async function (options: MigrateOptions) {
 		}
 	}
 
+	const availableSourceFolders = await fg('*', { cwd, onlyDirectories: true, ignore: ['node_modules'] });
+	const sourceFolders = await multiselect({
+		message: 'What folders contain usage of Skeleton? (classes, imports, etc.)',
+		options: availableSourceFolders.map((folder) => ({ label: folder, value: folder })),
+		initialValues: availableSourceFolders
+	});
+
+	if (isCancel(sourceFolders)) {
+		cli.error('Migration cancelled.');
+		return;
+	}
+
 	const packageSpinner = spinner();
 	packageSpinner.start(`Migrating ${pkg.matcher}...`);
 	await transformPackage(pkg.paths[0]);
@@ -47,6 +51,20 @@ export default async function (options: MigrateOptions) {
 	await transformTailwindConfig(tailwindConfig.paths[0]);
 	tailwindConfigSpinner.stop(`Successfully migrated ${tailwindConfig.matcher}`);
 
-	// TODO: Transform svelte components (.svelte)
-	// TODO: Transform modules (.ts/.js)
+	const sourceFileMatcher = `{${sourceFolders.join(',')}}/**/*.{js,mjs,ts,mts,svelte}`;
+	const sourceFiles = await fg(sourceFileMatcher, { cwd, ignore: ['node_modules', 'dist', 'build', 'public'] });
+
+	const sourceFilesSpinner = spinner();
+	sourceFilesSpinner.start(`Migrating source files...`);
+	for (const sourceFile of sourceFiles) {
+		sourceFilesSpinner.message(`Migrating ${sourceFile}...`);
+		const extension = extname(sourceFile);
+		if (extension === '.svelte') {
+			await transformSvelte(sourceFile);
+		} else {
+			await transformModule(sourceFile);
+		}
+		sourceFilesSpinner.message(`Successfully migrated ${sourceFile}`);
+	}
+	sourceFilesSpinner.start('Successfully migrated all source files');
 }
