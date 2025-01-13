@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-cli",
-	"description": "The CLI for Skeleton relating tooling.",
+	"description": "The CLI for Skeleton related tooling.",
 	"version": "0.0.1-next.2",
 	"repository": {
 		"type": "git",
@@ -14,7 +14,7 @@
 			"import": "./dist/index.mjs"
 		}
 	},
-	"module": "./dist/index.mjs",
+	"bin": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist",
