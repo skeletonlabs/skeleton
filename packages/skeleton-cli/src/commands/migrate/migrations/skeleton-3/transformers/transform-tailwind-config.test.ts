@@ -137,6 +137,40 @@ export default {
 			);
 		});
 	}
+	it(`transforms a config with multiple preset themes`, () => {
+		expect(
+			transformTailwindConfig(`
+import { skeleton } from "@skeletonlabs/tw-plugin";
+
+export default {
+	plugins: [
+		skeleton({
+			themes: {
+				preset: ["skeleton", "gold-nouveau"]
+			}
+		})
+	],
+}
+		`)
+				.code.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		).toBe(
+			`
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
+import * as themes from "@skeletonlabs/skeleton/themes";
+
+export default {
+	plugins: [
+		skeleton({
+			themes: [themes.legacy, themes.nouveau]
+		})
+	],
+}
+		`
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		);
+	});
 	it('transforms a config with custom themes', () => {
 		expect(
 			transformTailwindConfig(`
