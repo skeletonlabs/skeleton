@@ -1,24 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import { transformTailwindConfig } from './transform-tailwind-config.js';
+import { THEME_MAPPINGS } from '../utility/theme-mappings.js';
 
 describe('transformTailwindConfig', () => {
-	it('transforms a config', () => {
+	it('transforms content path', () => {
 		expect(
 			transformTailwindConfig(`
 import { join } from "path";
-import { skeleton } from "@skeletonlabs/tw-plugin";
 
 export default {
 	content: [
 		"./src/**/*.{html,js,svelte,ts}",
 		join(require.resolve("@skeletonlabs/skeleton"), "../**/*.{html,js,svelte,ts}")
-	],
-	plugins: [
-		skeleton({
-			themes: {
-				preset: ["skeleton"]
-			}
-		})
 	]
 }
 		`)
@@ -26,18 +19,12 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
-import * as themes from "@skeletonlabs/skeleton/themes";
+import { contentPath } from "@skeletonlabs/skeleton/plugin";
 
 export default {
 	content: [
 		"./src/**/*.{html,js,svelte,ts}",
 		contentPath(import.meta.url, "svelte")
-	],
-	plugins: [
-		skeleton({
-			themes: [themes.legacy]
-		})
 	]
 }
 		`
@@ -45,23 +32,15 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
-	it('transforms a config with alternative content ordering', () => {
+	it('transforms content path with at different index', () => {
 		expect(
 			transformTailwindConfig(`
 import { join } from "path";
-import { skeleton } from "@skeletonlabs/tw-plugin";
 
 export default {
 	content: [
 		join(require.resolve("@skeletonlabs/skeleton"), "../**/*.{html,js,svelte,ts}"),
 		"./src/**/*.{html,js,svelte,ts}"
-	],
-	plugins: [
-		skeleton({
-			themes: {
-				preset: ["skeleton"]
-			}
-		})
 	]
 }
 		`)
@@ -69,18 +48,12 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
-import * as themes from "@skeletonlabs/skeleton/themes";
+import { contentPath } from "@skeletonlabs/skeleton/plugin";
 
 export default {
 	content: [
 		contentPath(import.meta.url, "svelte"),
 		"./src/**/*.{html,js,svelte,ts}"
-	],
-	plugins: [
-		skeleton({
-			themes: [themes.legacy]
-		})
 	]
 }
 		`
@@ -88,67 +61,96 @@ export default {
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
-	it('transforms a config with alternative preset notation', () => {
-		expect(
-			transformTailwindConfig(`
-import { join } from "path";
+	for (const [oldTheme, newTheme] of Object.entries(THEME_MAPPINGS)) {
+		it(`transforms a config with ${oldTheme} theme`, () => {
+			expect(
+				transformTailwindConfig(`
 import { skeleton } from "@skeletonlabs/tw-plugin";
 
 export default {
-	content: [
-		"./src/**/*.{html,js,svelte,ts}",
-		join(require.resolve("@skeletonlabs/skeleton"), "../**/*.{html,js,svelte,ts}")
-	],
 	plugins: [
 		skeleton({
 			themes: {
-				preset: [{ name: "skeleton", enhancements: true }]
+				preset: ["${oldTheme}"]
 			}
 		})
-	]
+	],
 }
 		`)
-				.code.trim()
-				.replace(/\r\n|\r|\n/g, '\n')
-		).toBe(
-			`
-import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
+					.code.trim()
+					.replace(/\r\n|\r|\n/g, '\n')
+			).toBe(
+				`
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 
 export default {
-	content: [
-		"./src/**/*.{html,js,svelte,ts}",
-		contentPath(import.meta.url, "svelte")
-	],
 	plugins: [
 		skeleton({
-			themes: [themes.legacy]
+			themes: [themes.${newTheme}]
 		})
-	]
+	],
 }
 		`
-				.trim()
-				.replace(/\r\n|\r|\n/g, '\n')
-		);
-	});
-	it('transforms a config with custom themes', () => {
-		expect(
-			transformTailwindConfig(`
+					.trim()
+					.replace(/\r\n|\r|\n/g, '\n')
+			);
+		});
+		it(`transforms a config with ${oldTheme} theme using the object theme format`, () => {
+			expect(
+				transformTailwindConfig(`
 import { join } from "path";
 import { skeleton } from "@skeletonlabs/tw-plugin";
 
 export default {
-	content: [
-		"./src/**/*.{html,js,svelte,ts}",
-		join(require.resolve("@skeletonlabs/skeleton"), "../**/*.{html,js,svelte,ts}")
+	plugins: [
+		skeleton({
+			themes: {
+				preset: [
+					{
+						name: "${oldTheme}",
+						enhancements: true
+					}
+				]
+			}
+		})
 	],
+}
+		`)
+					.code.trim()
+					.replace(/\r\n|\r|\n/g, '\n')
+			).toBe(
+				`
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
+import * as themes from "@skeletonlabs/skeleton/themes";
+
+export default {
+	plugins: [
+		skeleton({
+			themes: [themes.${newTheme}]
+		})
+	],
+}
+		`
+					.trim()
+					.replace(/\r\n|\r|\n/g, '\n')
+			);
+		});
+	}
+	it('transforms a config with custom themes', () => {
+		expect(
+			transformTailwindConfig(`
+import { skeleton } from "@skeletonlabs/tw-plugin";
+import myCustomTheme from "./my-custom-theme.js";
+
+export default {
 	plugins: [
 		skeleton({
 			themes: {
 				custom: [myCustomTheme]
 			}
 		})
-	]
+	],
 }
 		`)
 				.code.trim()
@@ -158,71 +160,137 @@ export default {
 /**
  * SKELETON MIGRATION NOTICE
  *
- * Custom themes were detected and commented out due to them not being compatible with the V3 theme format.
+ * The following custom themes were detected and commented out due to them not being compatible with the V3 theme format:
+ *
+ * - myCustomTheme
+ *
  * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.
  */
 
-import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 
 export default {
-	content: [
-		"./src/**/*.{html,js,svelte,ts}",
-		contentPath(import.meta.url, "svelte")
-	],
 	plugins: [
 		skeleton({
-			themes: [/* myCustomTheme */, themes.cerberus]
+			themes: [themes.cerberus /* myCustomTheme */]
 		})
-	]
+	],
 }
 		`
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
-
-	it('transforms a config while preserving other plugin options', () => {
+	it('transforms a config with multiple custom themes', () => {
 		expect(
 			transformTailwindConfig(`
-import { join } from "path";
 import { skeleton } from "@skeletonlabs/tw-plugin";
+import myCustomTheme from "./my-custom-theme.js";
+import myCustomThemeTwo from "./my-custom-theme-two.js";
 
 export default {
-	content: [
-		"./src/**/*.{html,js,svelte,ts}",
-		join(require.resolve("@skeletonlabs/skeleton"), "../**/*.{html,js,svelte,ts}")
-	],
 	plugins: [
 		skeleton({
-			base: true,
 			themes: {
-				preset: ["skeleton"]
-			},
-			prefix: "sk-"
+				custom: [myCustomTheme, myCustomThemeTwo]
+			}
 		})
-	]
+	],
 }
 		`)
 				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
-import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
+/**
+ * SKELETON MIGRATION NOTICE
+ *
+ * The following custom themes were detected and commented out due to them not being compatible with the V3 theme format:
+ *
+ * - myCustomTheme
+ * - myCustomThemeTwo
+ *
+ * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.
+ */
+
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
 import * as themes from "@skeletonlabs/skeleton/themes";
 
 export default {
-	content: [
-		"./src/**/*.{html,js,svelte,ts}",
-		contentPath(import.meta.url, "svelte")
+	plugins: [
+		skeleton({
+			themes: [themes.cerberus /* myCustomTheme, myCustomThemeTwo */]
+		})
 	],
+}
+		`
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		);
+	});
+	it('does not add a themes import when no themes are set', () => {
+		expect(
+			transformTailwindConfig(`
+import { join } from "path";
+import { skeleton } from "@skeletonlabs/tw-plugin";
+
+export default {
+	plugins: [
+		skeleton({
+			themes: {}
+		})
+	],
+}
+		`)
+				.code.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		).toBe(
+			`
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
+
+export default {
+	plugins: [
+		skeleton({
+			themes: []
+		})
+	],
+}
+		`
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		);
+	});
+	it('keeps other skeleton configuration options', () => {
+		expect(
+			transformTailwindConfig(`
+import { join } from "path";
+import { skeleton } from "@skeletonlabs/tw-plugin";
+
+export default {
 	plugins: [
 		skeleton({
 			base: true,
-			themes: [themes.legacy],
+			themes: {},
 			prefix: "sk-"
 		})
-	]
+	],
+}
+		`)
+				.code.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		).toBe(
+			`
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
+
+export default {
+	plugins: [
+		skeleton({
+			base: true,
+			themes: [],
+			prefix: "sk-"
+		})
+	],
 }
 		`
 				.trim()

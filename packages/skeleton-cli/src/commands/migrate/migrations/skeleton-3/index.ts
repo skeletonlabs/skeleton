@@ -10,6 +10,7 @@ import { transformModule } from './transformers/transform-module.js';
 import { transformApp } from './transformers/transform-app.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { installDependencies } from '../../../../utility/install-dependencies.js';
+import { DEFAULT_THEME } from './utility/theme-mappings.js';
 
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
@@ -66,14 +67,14 @@ export default async function (options: MigrateOptions) {
 		packageSpinner.stop(`Failed to migrate ${pkg.matcher}`);
 	}
 
-	let themeName: string | null = null;
+	let theme: string | null = null;
 
 	const tailwindSpinner = spinner();
 	tailwindSpinner.start(`Migrating ${tailwindConfig.matcher}...`);
 	try {
 		const tailwindCode = await readFile(tailwindConfig.paths[0], 'utf-8');
 		const transformedTailwind = transformTailwindConfig(tailwindCode);
-		themeName = transformedTailwind.meta.themes.find((theme) => theme.type === 'preset')?.name ?? null;
+		theme = transformedTailwind.meta.themes.preset.at(0) ?? null;
 		await writeFile(tailwindConfig.paths[0], transformedTailwind.code);
 		tailwindSpinner.stop(`Successfully migrated ${tailwindConfig.matcher}`);
 	} catch (e) {
@@ -87,7 +88,7 @@ export default async function (options: MigrateOptions) {
 	appSpinner.start(`Migrating ${app.matcher}...`);
 	try {
 		const appCode = await readFile(app.paths[0], 'utf-8');
-		const transformedApp = transformApp(appCode, themeName ?? 'cerberus');
+		const transformedApp = transformApp(appCode, theme ?? DEFAULT_THEME);
 		await writeFile(app.paths[0], transformedApp.code);
 		appSpinner.stop(`Successfully migrated ${app.matcher}!`);
 	} catch (e) {

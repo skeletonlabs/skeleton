@@ -1,6 +1,6 @@
 import { CallExpression, Node, ObjectLiteralExpression, SourceFile } from 'ts-morph';
 import { getDefaultExportObject } from '../../../../../utility/get-default-export-object';
-import { THEME_MAPPINGS } from '../utility/theme-mappings';
+import { DEFAULT_THEME, THEME_MAPPINGS } from '../utility/theme-mappings';
 import { createSourceFile } from '../../../../../utility/create-source-file';
 
 function isJoinCallExpression(node: Node): node is CallExpression {
@@ -80,12 +80,15 @@ function transformTailwindContentOption(file: SourceFile) {
 		return;
 	}
 	joinCallExpression.replaceWithText('contentPath(import.meta.url, "svelte")');
-	for (const importDeclaration of file.getImportDeclarations()) {
-		const moduleSpecifier = importDeclaration.getModuleSpecifierValue();
-		if (moduleSpecifier === '@skeletonlabs/tw-plugin') {
-			importDeclaration.setModuleSpecifier('@skeletonlabs/skeleton/plugin');
-			importDeclaration.addNamedImport('contentPath');
-		}
+	file.getImportDeclaration('@skeletonlabs/tw-plugin')?.remove();
+	const skeletonPluginImportDeclaration = file.getImportDeclaration('@skeletonlabs/skeleton/plugin');
+	if (skeletonPluginImportDeclaration) {
+		skeletonPluginImportDeclaration.addNamedImport('contentPath');
+	} else {
+		file.addImportDeclaration({
+			moduleSpecifier: '@skeletonlabs/skeleton/plugin',
+			namedImports: ['contentPath']
+		});
 	}
 }
 
@@ -108,55 +111,39 @@ function getThemeName(node: Node) {
 }
 
 function extractPresetThemes(node: ObjectLiteralExpression) {
+	const themes = new Set<string>();
 	const presetThemesProperty = node.getProperty('preset');
 	if (!(presetThemesProperty && Node.isPropertyAssignment(presetThemesProperty))) {
-		return [];
+		return themes;
 	}
 	const presetThemesArray = presetThemesProperty.getInitializer();
 	if (!(presetThemesArray && Node.isArrayLiteralExpression(presetThemesArray))) {
-		return [];
+		return themes;
 	}
-	return presetThemesArray
-		.getElements()
-		.map((node) => {
-			const themeName = getThemeName(node);
-			if (!themeName) {
-				return null;
-			}
-			return {
-				type: 'preset',
-				name: themeName
-			};
-		})
-		.filter((node) => node !== null);
+	for (const element of presetThemesArray.getElements()) {
+		const themeName = getThemeName(element);
+		if (themeName) {
+			themes.add(themeName);
+		}
+	}
+	return themes;
 }
 
 function extractCustomThemes(node: ObjectLiteralExpression) {
+	const themes = new Set<string>();
 	const customThemesProperty = node.getProperty('custom');
 	if (!(customThemesProperty && Node.isPropertyAssignment(customThemesProperty))) {
-		return [];
+		return themes;
 	}
 	const customThemeArray = customThemesProperty.getInitializer();
 	if (!(customThemeArray && Node.isArrayLiteralExpression(customThemeArray))) {
-		return [];
+		return themes;
 	}
-	const themes = customThemeArray
-		.getElements()
-		.map((node) => {
-			if (!Node.isIdentifier(node)) {
-				return null;
-			}
-			return {
-				type: 'custom',
-				name: node.getText()
-			};
-		})
-		.filter((node) => node !== null);
-	if (themes.length > 0) {
-		themes.push({
-			type: 'preset',
-			name: 'cerberus'
-		});
+	for (const element of customThemeArray.getElements()) {
+		if (!Node.isIdentifier(element)) {
+			continue;
+		}
+		themes.add(element.getText());
 	}
 	return themes;
 }
@@ -164,60 +151,95 @@ function extractCustomThemes(node: ObjectLiteralExpression) {
 function transformSkeletonThemesOption(file: SourceFile) {
 	const defaultExportObject = getDefaultExportObject(file);
 	if (!defaultExportObject) {
-		return [];
+		return {
+			preset: [],
+			custom: []
+		};
 	}
 	const pluginsProperty = defaultExportObject.getProperty('plugins');
 	if (!(pluginsProperty && Node.isPropertyAssignment(pluginsProperty))) {
-		return [];
+		return {
+			preset: [],
+			custom: []
+		};
 	}
 	const pluginsArray = pluginsProperty.getInitializer();
 	if (!(pluginsArray && Node.isArrayLiteralExpression(pluginsArray))) {
-		return [];
+		return {
+			preset: [],
+			custom: []
+		};
 	}
 	const skeletonPluginCallExpression = pluginsArray.getElements().find(isSkeletonPluginCallExpression);
 	if (!skeletonPluginCallExpression) {
-		return [];
+		return {
+			preset: [],
+			custom: []
+		};
+	}
+	file.getImportDeclaration('@skeletonlabs/tw-plugin')?.remove();
+	const skeletonPluginImportDeclaration = file.getImportDeclaration('@skeletonlabs/skeleton/plugin');
+	if (skeletonPluginImportDeclaration) {
+		skeletonPluginImportDeclaration.addNamedImport('skeleton');
+	} else {
+		file.addImportDeclaration({
+			moduleSpecifier: '@skeletonlabs/skeleton/plugin',
+			namedImports: ['skeleton']
+		});
 	}
 	const skeletonConfigObject = skeletonPluginCallExpression.getArguments().at(0);
 	if (!(skeletonConfigObject && Node.isObjectLiteralExpression(skeletonConfigObject))) {
-		return [];
+		return {
+			preset: [],
+			custom: []
+		};
 	}
 	const themesProperty = skeletonConfigObject.getProperty('themes');
 	if (!(themesProperty && Node.isPropertyAssignment(themesProperty))) {
-		return [];
+		return {
+			preset: [],
+			custom: []
+		};
 	}
 	const themesObject = themesProperty.getInitializer();
 	if (!(themesObject && Node.isObjectLiteralExpression(themesObject))) {
-		return [];
+		return {
+			preset: [],
+			custom: []
+		};
 	}
 	const presetThemes = extractPresetThemes(themesObject);
 	const customThemes = extractCustomThemes(themesObject);
-	if (customThemes.length > 0) {
-		file.insertStatements(
-			0,
-			`/**
- * SKELETON MIGRATION NOTICE
- *
- * Custom themes were detected and commented out due to them not being compatible with the V3 theme format.
- * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.
- */`
-		);
-	}
-	const themes = [...new Set([...presetThemes, ...customThemes])];
-	if (themes.some((theme) => theme.type === 'preset')) {
+	if ((presetThemes.size > 0 || customThemes.size > 0)) {
 		file.addImportDeclaration({
 			moduleSpecifier: '@skeletonlabs/skeleton/themes',
 			namespaceImport: 'themes'
 		});
 	}
-	themesProperty.setInitializer(
-		`[${themes
-			.map((theme) => {
-				return theme.type === 'preset' ? `themes.${theme.name}` : `/* ${theme.name} */`;
-			})
-			.join(', ')}]`
-	);
-	return themes;
+	if (customThemes.size > 0) {
+		file.insertStatements(
+			0,
+			`/**
+ * SKELETON MIGRATION NOTICE
+ *
+ * The following custom themes were detected and commented out due to them not being compatible with the V3 theme format:
+ *
+${[...customThemes].map((theme) => ` * - ${theme}`).join('\n')}
+ *
+ * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.
+ */`
+		);
+	}
+	if (customThemes.size > 0 && presetThemes.size === 0) {
+		presetThemes.add(DEFAULT_THEME);
+	}
+	const presetThemesString = [...presetThemes].map((theme) => `themes.${theme}`).join(', ');
+	const customThemesString = customThemes.size > 0 ? `/* ${[...customThemes].join(', ')} */` : null;
+	themesProperty.setInitializer(`[${presetThemesString}${customThemesString ? ` ${customThemesString}` : ''}]`);
+	return {
+		preset: [...presetThemes],
+		custom: [...customThemes]
+	};
 }
 
 function transformTailwindConfig(code: string) {
