@@ -1,4 +1,3 @@
-import { readFile, writeFile } from 'node:fs/promises';
 import { CallExpression, Node, ObjectLiteralExpression, SourceFile } from 'ts-morph';
 import { getDefaultExportObject } from '../../../../../utility/get-default-export-object';
 import { THEME_MAPPINGS } from '../utility/theme-mappings';
@@ -124,7 +123,10 @@ function extractPresetThemes(node: ObjectLiteralExpression) {
 			if (!themeName) {
 				return null;
 			}
-			return `themes.${themeName}`;
+			return {
+				type: 'preset',
+				name: themeName
+			};
 		})
 		.filter((node) => node !== null);
 }
@@ -144,11 +146,17 @@ function extractCustomThemes(node: ObjectLiteralExpression) {
 			if (!Node.isIdentifier(node)) {
 				return null;
 			}
-			return `/* ${node.getFullText()} */`;
+			return {
+				type: 'custom',
+				name: node.getText()
+			};
 		})
 		.filter((node) => node !== null);
 	if (themes.length > 0) {
-		themes.push('themes.cerberus');
+		themes.push({
+			type: 'preset',
+			name: 'cerberus'
+		});
 	}
 	return themes;
 }
@@ -156,31 +164,31 @@ function extractCustomThemes(node: ObjectLiteralExpression) {
 function transformSkeletonThemesOption(file: SourceFile) {
 	const defaultExportObject = getDefaultExportObject(file);
 	if (!defaultExportObject) {
-		return;
+		return [];
 	}
 	const pluginsProperty = defaultExportObject.getProperty('plugins');
 	if (!(pluginsProperty && Node.isPropertyAssignment(pluginsProperty))) {
-		return;
+		return [];
 	}
 	const pluginsArray = pluginsProperty.getInitializer();
 	if (!(pluginsArray && Node.isArrayLiteralExpression(pluginsArray))) {
-		return;
+		return [];
 	}
 	const skeletonPluginCallExpression = pluginsArray.getElements().find(isSkeletonPluginCallExpression);
 	if (!skeletonPluginCallExpression) {
-		return;
+		return [];
 	}
 	const skeletonConfigObject = skeletonPluginCallExpression.getArguments().at(0);
 	if (!(skeletonConfigObject && Node.isObjectLiteralExpression(skeletonConfigObject))) {
-		return;
+		return [];
 	}
 	const themesProperty = skeletonConfigObject.getProperty('themes');
 	if (!(themesProperty && Node.isPropertyAssignment(themesProperty))) {
-		return;
+		return [];
 	}
 	const themesObject = themesProperty.getInitializer();
 	if (!(themesObject && Node.isObjectLiteralExpression(themesObject))) {
-		return;
+		return [];
 	}
 	const presetThemes = extractPresetThemes(themesObject);
 	const customThemes = extractCustomThemes(themesObject);
@@ -196,27 +204,33 @@ function transformSkeletonThemesOption(file: SourceFile) {
 		);
 	}
 	const themes = [...new Set([...presetThemes, ...customThemes])];
-	if (themes.some((theme) => theme.startsWith('themes.'))) {
+	if (themes.some((theme) => theme.type === 'preset')) {
 		file.addImportDeclaration({
 			moduleSpecifier: '@skeletonlabs/skeleton/themes',
 			namespaceImport: 'themes'
 		});
 	}
-	themesProperty.setInitializer(`[${themes.join(', ')}]`);
+	themesProperty.setInitializer(
+		`[${themes
+			.map((theme) => {
+				return theme.type === 'preset' ? `themes.${theme.name}` : `/* ${theme.name} */`;
+			})
+			.join(', ')}]`
+	);
+	return themes;
 }
 
-function transformTailwindConfigContent(code: string) {
+function transformTailwindConfig(code: string) {
 	const file = createSourceFile(code);
 	transformTailwindContentOption(file);
-	transformSkeletonThemesOption(file);
+	const themes = transformSkeletonThemesOption(file);
 	file.fixUnusedIdentifiers();
-	return file.getFullText();
+	return {
+		code: file.getFullText(),
+		meta: {
+			themes: themes
+		}
+	};
 }
 
-async function transformTailwindConfig(path: string) {
-	const code = await readFile(path, 'utf-8');
-	const transformed = transformTailwindConfigContent(code);
-	await writeFile(path, transformed);
-}
-
-export { transformTailwindConfigContent, transformTailwindConfig };
+export { transformTailwindConfig };

@@ -1,15 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { transformModuleContent } from './transform-module.js';
+import { transformModule } from './transform-module.js';
 
 describe('transformModuleContent', () => {
 	it('transforms imports', () => {
 		expect(
-			transformModuleContent(`
+			transformModule(`
 import { Avatar } from "@skeletonlabs/skeleton";
 
 Avatar;
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -23,10 +23,10 @@ Avatar;
 	});
 	it('transforms classes in strings', () => {
 		expect(
-			transformModuleContent(`
+			transformModule(`
 const foo = "rounded-token";
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -38,12 +38,12 @@ const foo = "rounded";
 	});
 	it('does not transform classes in imports', () => {
 		expect(
-			transformModuleContent(`
+			transformModule(`
 import foo from "rounded-token";
 
 foo;
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`

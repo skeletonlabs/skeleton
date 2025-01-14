@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { transformTailwindConfigContent } from './transform-tailwind-config.js';
+import { transformTailwindConfig } from './transform-tailwind-config.js';
 
-describe('transformTailwindConfigContent', () => {
+describe('transformTailwindConfig', () => {
 	it('transforms a config', () => {
 		expect(
-			transformTailwindConfigContent(`
+			transformTailwindConfig(`
 import { join } from "path";
 import { skeleton } from "@skeletonlabs/tw-plugin";
 
@@ -22,7 +22,7 @@ export default {
 	]
 }
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -47,7 +47,7 @@ export default {
 	});
 	it('transforms a config with alternative content ordering', () => {
 		expect(
-			transformTailwindConfigContent(`
+			transformTailwindConfig(`
 import { join } from "path";
 import { skeleton } from "@skeletonlabs/tw-plugin";
 
@@ -65,7 +65,7 @@ export default {
 	]
 }
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -90,7 +90,7 @@ export default {
 	});
 	it('transforms a config with alternative preset notation', () => {
 		expect(
-			transformTailwindConfigContent(`
+			transformTailwindConfig(`
 import { join } from "path";
 import { skeleton } from "@skeletonlabs/tw-plugin";
 
@@ -108,7 +108,7 @@ export default {
 	]
 }
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -133,7 +133,7 @@ export default {
 	});
 	it('transforms a config with custom themes', () => {
 		expect(
-			transformTailwindConfigContent(`
+			transformTailwindConfig(`
 import { join } from "path";
 import { skeleton } from "@skeletonlabs/tw-plugin";
 
@@ -151,7 +151,7 @@ export default {
 	]
 }
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -184,7 +184,7 @@ export default {
 
 	it('transforms a config while preserving other plugin options', () => {
 		expect(
-			transformTailwindConfigContent(`
+			transformTailwindConfig(`
 import { join } from "path";
 import { skeleton } from "@skeletonlabs/tw-plugin";
 
@@ -204,7 +204,7 @@ export default {
 	]
 }
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`

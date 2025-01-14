@@ -1,15 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { transformSvelteContent } from './transform-svelte.js';
+import { transformSvelte } from './transform-svelte.js';
 
-describe('transformSvelteContent', () => {
+describe('transformSvelte', () => {
 	it('transforms imports in instance script', () => {
 		expect(
-			transformSvelteContent(`
+			transformSvelte(`
 <script>
 	import { Avatar } from "@skeletonlabs/skeleton";
 </script>
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -23,12 +23,12 @@ describe('transformSvelteContent', () => {
 	});
 	it('transforms imports in module script', () => {
 		expect(
-			transformSvelteContent(`
+			transformSvelte(`
 <script module>
 	import { Avatar } from "@skeletonlabs/skeleton";
 </script>
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -42,12 +42,12 @@ describe('transformSvelteContent', () => {
 	});
 	it('transforms classes in instance script', () => {
 		expect(
-			transformSvelteContent(`
+			transformSvelte(`
 <script>
 	const classes = "rounded-token";
 </script>
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -61,12 +61,12 @@ describe('transformSvelteContent', () => {
 	});
 	it('transforms classes in module script', () => {
 		expect(
-			transformSvelteContent(`
+			transformSvelte(`
 <script module>
 	const classes = "rounded-token";
 </script>
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -80,10 +80,10 @@ describe('transformSvelteContent', () => {
 	});
 	it('transforms classes in an attribute', () => {
 		expect(
-			transformSvelteContent(`
+			transformSvelte(`
 <div class="rounded-token"></div>
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -95,10 +95,10 @@ describe('transformSvelteContent', () => {
 	});
 	it('transforms classes in an expression attribute', () => {
 		expect(
-			transformSvelteContent(`
+			transformSvelte(`
 <div class={"rounded-token"}></div>
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -110,10 +110,10 @@ describe('transformSvelteContent', () => {
 	});
 	it('transforms classes in the class: directive', () => {
 		expect(
-			transformSvelteContent(`
+			transformSvelte(`
 <div class:rounded-token={true}></div>
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`
@@ -125,10 +125,10 @@ describe('transformSvelteContent', () => {
 	});
 	it('ignores classes in the class: directive that are also an identifier', () => {
 		expect(
-			transformSvelteContent(`
+			transformSvelte(`
 <div class:rounded-token></div>
 		`)
-				.trim()
+				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
 			`

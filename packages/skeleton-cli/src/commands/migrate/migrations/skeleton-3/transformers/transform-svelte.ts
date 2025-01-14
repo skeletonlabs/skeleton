@@ -1,4 +1,3 @@
-import { readFile, writeFile } from 'node:fs/promises';
 import { AST, parse } from 'svelte/compiler';
 import { walk, type Node } from 'estree-walker';
 import MagicString from 'magic-string';
@@ -8,7 +7,7 @@ function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) 
 	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number';
 }
 
-function transformSvelteContent(code: string) {
+function transformSvelte(code: string) {
 	const s = new MagicString(code);
 	const ast = parse(code, {
 		modern: true
@@ -45,13 +44,9 @@ function transformSvelteContent(code: string) {
 			}
 		});
 	}
-	return s.toString();
+	return {
+		code: s.toString()
+	};
 }
 
-async function transformSvelte(path: string) {
-	const code = await readFile(path, 'utf-8');
-	const transformed = transformSvelteContent(code);
-	await writeFile(path, transformed);
-}
-
-export { transformSvelteContent, transformSvelte };
+export { transformSvelte };

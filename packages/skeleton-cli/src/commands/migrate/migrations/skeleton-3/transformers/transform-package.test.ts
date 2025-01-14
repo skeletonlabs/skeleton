@@ -1,4 +1,4 @@
-import { transformPackageContent } from './transform-package.js';
+import { transformPackage } from './transform-package.js';
 import getLatestVersion from 'latest-version';
 import { describe, it, expect, vi } from 'vitest';
 
@@ -8,19 +8,19 @@ vi.mock('latest-version', () => {
 	};
 });
 
-describe('transformPackageContent', () => {
+describe('transformPackage', () => {
 	it('updates the "@skeletonlabs/tw-plugin" dependency', async () => {
 		vi.mocked(getLatestVersion).mockReturnValue(Promise.resolve('3.0.0'));
 		expect(
 			(
-				await transformPackageContent(`
+				await transformPackage(`
 {
 	"dependencies": {
 		"@skeletonlabs/tw-plugin": "^1.0.0"
 	}
 }
 		`)
-			)
+			).code
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
@@ -40,14 +40,14 @@ describe('transformPackageContent', () => {
 
 		expect(
 			(
-				await transformPackageContent(`
+				await transformPackage(`
 {
 	"dependencies": {
 		"@skeletonlabs/skeleton": "^2.0.0"
 	}
 }
 		`)
-			)
+			).code
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
@@ -74,7 +74,7 @@ describe('transformPackageContent', () => {
 		});
 		expect(
 			(
-				await transformPackageContent(`
+				await transformPackage(`
 {
 	"dependencies": {
 		"@skeletonlabs/tw-plugin": "^1.0.0",
@@ -82,7 +82,7 @@ describe('transformPackageContent', () => {
 	}
 }
 		`)
-			)
+			).code
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
@@ -102,14 +102,14 @@ describe('transformPackageContent', () => {
 		vi.mocked(getLatestVersion).mockReturnValue(Promise.resolve('3.0.0'));
 		expect(
 			(
-				await transformPackageContent(`
+				await transformPackage(`
 {
 	"dependencies": {
 		"@skeletonlabs/skeleton": "^3.0.0"
 	}
 }
 		`)
-			)
+			).code
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
 		).toBe(
