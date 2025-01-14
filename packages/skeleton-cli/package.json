@@ -28,6 +28,7 @@
 	},
 	"devDependencies": {
 		"@types/jsdom": "^21.1.7",
+		"@types/estree": "^1.0.6",
 		"@types/node": "^22.1.0",
 		"@types/semver": "^7.5.8",
 		"type-fest": "^4.27.0",
@@ -41,15 +42,13 @@
 		"colorette": "^2.0.20",
 		"commander": "^13.0.0",
 		"detect-indent": "^7.0.1",
-		"estree-walker": "^3.0.3",
 		"fast-glob": "^3.3.1",
-		"jsdom": "^25.0.1",
 		"latest-version": "^9.0.0",
 		"magic-string": "^0.30.17",
 		"package-manager-detector": "^0.2.8",
-		"parse5": "^7.2.1",
 		"semver": "^7.6.3",
 		"svelte": "^5.17.3",
-		"ts-morph": "^25.0.0"
+		"ts-morph": "^25.0.0",
+		"zimmerframe": "^1.1.2"
 	}
 }

@@ -6,6 +6,57 @@ settings:
 
 catalogs:
   default:
+    '@zag-js/accordion':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/avatar':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/combobox':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/dialog':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/file-upload':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/pagination':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/popover':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/progress':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/radio-group':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/rating-group':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/react':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/slider':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/svelte':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/switch':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/tabs':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/tags-input':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/tooltip':
+      specifier: ^0.78.3
+      version: 0.78.3
     typescript:
       specifier: ^5.6.3
       version: 5.6.3
@@ -197,15 +248,9 @@ importers:
       detect-indent:
         specifier: ^7.0.1
         version: 7.0.1
-      estree-walker:
-        specifier: ^3.0.3
-        version: 3.0.3
       fast-glob:
         specifier: ^3.3.1
         version: 3.3.2
-      jsdom:
-        specifier: ^25.0.1
-        version: 25.0.1
       latest-version:
         specifier: ^9.0.0
         version: 9.0.0
@@ -215,9 +260,6 @@ importers:
       package-manager-detector:
         specifier: ^0.2.8
         version: 0.2.8
-      parse5:
-        specifier: ^7.2.1
-        version: 7.2.1
       semver:
         specifier: ^7.6.3
         version: 7.6.3
@@ -227,7 +269,13 @@ importers:
       ts-morph:
         specifier: ^25.0.0
         version: 25.0.0
+      zimmerframe:
+        specifier: ^1.1.2
+        version: 1.1.2
     devDependencies:
+      '@types/estree':
+        specifier: ^1.0.6
+        version: 1.0.6
       '@types/jsdom':
         specifier: ^21.1.7
         version: 21.1.7
