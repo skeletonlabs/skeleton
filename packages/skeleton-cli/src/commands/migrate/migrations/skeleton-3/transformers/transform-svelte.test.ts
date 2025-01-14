@@ -1,11 +1,110 @@
 import { describe, expect, it } from 'vitest';
 import { transformSvelte } from './transform-svelte.js';
 import { COMPONENT_MAPPINGS } from '../utility/component-mappings.js';
+import { REMOVED_COMPONENTS } from '../utility/removed-components.js';
 
 describe('transformSvelte', () => {
+	for (const removedComponent of REMOVED_COMPONENTS) {
+		for (const script of ['instance', 'module']) {
+			it(`removes the \`${removedComponent}\` named import and import declaration (${script})`, () => {
+				expect(
+					transformSvelte(`
+<script${script === 'module' ? ' module' : ''}>
+	import { ${removedComponent} } from "@skeletonlabs/skeleton";
+
+	${removedComponent};
+</script>
+
+<${removedComponent} />
+		`)
+						.code.trim()
+						.replace(/\r\n|\r|\n/g, '\n')
+				).toBe(
+					`
+<script${script === 'module' ? ' module' : ''}>
+\t
+
+	${removedComponent};
+</script>
+
+<${removedComponent} />
+		`
+						.trim()
+						.replace(/\r\n|\r|\n/g, '\n')
+				);
+			});
+			it(`removes the \`${removedComponent}\` named import and keeps the other named imports (${script})`, () => {
+				expect(
+					transformSvelte(`
+<script${script === 'module' ? ' module' : ''}>
+	import { Foo,
+${removedComponent} } from "@skeletonlabs/skeleton";
+
+	Foo;
+	${removedComponent};
+</script>
+
+<Foo />
+<${removedComponent} />
+		`)
+						.code.trim()
+						.replace(/\r\n|\r|\n/g, '\n')
+				).toBe(
+					`
+<script${script === 'module' ? ' module' : ''}>
+	import { Foo } from "@skeletonlabs/skeleton-svelte";
+
+	Foo;
+	${removedComponent};
+</script>
+
+<Foo />
+<${removedComponent} />
+		`
+						.trim()
+						.replace(/\r\n|\r|\n/g, '\n')
+				);
+			});
+			it(`removes the \`${removedComponent}\` named import and keeps the default import (${script})`, () => {
+				expect(
+					transformSvelte(`
+<script${script === 'module' ? ' module' : ''}>
+	import Foo, { ${removedComponent}, Bar } from "@skeletonlabs/skeleton";
+
+	Foo;
+	${removedComponent};
+	Bar;
+</script>
+
+<Foo />
+<${removedComponent} />
+<Bar />
+		`)
+						.code.trim()
+						.replace(/\r\n|\r|\n/g, '\n')
+				).toBe(
+					`
+<script${script === 'module' ? ' module' : ''}>
+	import Foo, { Bar } from "@skeletonlabs/skeleton-svelte";
+
+	Foo;
+	${removedComponent};
+	Bar;
+</script>
+
+<Foo />
+<${removedComponent} />
+<Bar />
+		`
+						.trim()
+						.replace(/\r\n|\r|\n/g, '\n')
+				);
+			});
+		}
+	}
 	for (const [oldComponent, newComponent] of Object.entries(COMPONENT_MAPPINGS)) {
 		for (const script of ['instance', 'module']) {
-			it(`transforms the \`${oldComponent}\` import and its usages in the \`${script}\` script`, () => {
+			it(`transforms the \`${oldComponent}\` import and its usages (${script})`, () => {
 				expect(
 					transformSvelte(`
 <script${script === 'module' ? ' module' : ''}>
@@ -54,7 +153,7 @@ describe('transformSvelte', () => {
 			expect(
 				transformSvelte(`
 <script${script === 'module' ? ' module' : ''}>
-	const classes = "rounded-token";
+	const foo = "rounded-token";
 </script>
 		`)
 					.code.trim()
@@ -62,7 +161,7 @@ describe('transformSvelte', () => {
 			).toBe(
 				`
 <script${script === 'module' ? ' module' : ''}>
-	const classes = "rounded";
+	const foo = "rounded";
 </script>
 		`
 					.trim()
