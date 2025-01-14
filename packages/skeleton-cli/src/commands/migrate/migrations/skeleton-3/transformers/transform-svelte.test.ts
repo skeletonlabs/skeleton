@@ -1,91 +1,39 @@
 import { describe, expect, it } from 'vitest';
 import { transformSvelte } from './transform-svelte.js';
+import { COMPONENT_MAPPINGS } from '../utility/component-mappings.js';
 
 describe('transformSvelte', () => {
-	it('transforms imports in instance script', () => {
-		expect(
-			transformSvelte(`
-<script>
-	import { Avatar } from "@skeletonlabs/skeleton";
+	for (const [oldComponent, newComponent] of Object.entries(COMPONENT_MAPPINGS)) {
+		for (const script of ['instance', 'module']) {
+			it(`transforms the \`${oldComponent}\` import and its usages in the \`${script}\` script`, () => {
+				expect(
+					transformSvelte(`
+<script${script === 'module' ? ' module' : ''}>
+	import { ${oldComponent} } from "@skeletonlabs/skeleton";
+
+	${oldComponent};
 </script>
 
-<Avatar />
+<${oldComponent} />
 		`)
-				.code.trim()
-				.replace(/\r\n|\r|\n/g, '\n')
-		).toBe(
-			`
-<script>
-	import { Avatar } from "@skeletonlabs/skeleton-svelte";
+						.code.trim()
+						.replace(/\r\n|\r|\n/g, '\n')
+				).toBe(
+					`
+<script${script === 'module' ? ' module' : ''}>
+	import { ${newComponent} } from "@skeletonlabs/skeleton-svelte";
+
+	${newComponent};
 </script>
 
-<Avatar />
+<${newComponent} />
 		`
-				.trim()
-				.replace(/\r\n|\r|\n/g, '\n')
-		);
-	});
-	it('transforms imports in module script', () => {
-		expect(
-			transformSvelte(`
-<script module>
-	import { Avatar } from "@skeletonlabs/skeleton";
-</script>
-
-<Avatar />
-		`)
-				.code.trim()
-				.replace(/\r\n|\r|\n/g, '\n')
-		).toBe(
-			`
-<script module>
-	import { Avatar } from "@skeletonlabs/skeleton-svelte";
-</script>
-
-<Avatar />
-		`
-				.trim()
-				.replace(/\r\n|\r|\n/g, '\n')
-		);
-	});
-	it('transforms classes in instance script', () => {
-		expect(
-			transformSvelte(`
-<script>
-	const classes = "rounded-token";
-</script>
-		`)
-				.code.trim()
-				.replace(/\r\n|\r|\n/g, '\n')
-		).toBe(
-			`
-<script>
-	const classes = "rounded";
-</script>
-		`
-				.trim()
-				.replace(/\r\n|\r|\n/g, '\n')
-		);
-	});
-	it('transforms classes in module script', () => {
-		expect(
-			transformSvelte(`
-<script module>
-	const classes = "rounded-token";
-</script>
-		`)
-				.code.trim()
-				.replace(/\r\n|\r|\n/g, '\n')
-		).toBe(
-			`
-<script module>
-	const classes = "rounded";
-</script>
-		`
-				.trim()
-				.replace(/\r\n|\r|\n/g, '\n')
-		);
-	});
+						.trim()
+						.replace(/\r\n|\r|\n/g, '\n')
+				);
+			});
+		}
+	}
 	it('transforms classes in an attribute', () => {
 		expect(
 			transformSvelte(`
@@ -101,6 +49,27 @@ describe('transformSvelte', () => {
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
+	for (const script of ['instance', 'module']) {
+		it(`transforms classes in the \`${script}\` script`, () => {
+			expect(
+				transformSvelte(`
+<script${script === 'module' ? ' module' : ''}>
+	const classes = "rounded-token";
+</script>
+		`)
+					.code.trim()
+					.replace(/\r\n|\r|\n/g, '\n')
+			).toBe(
+				`
+<script${script === 'module' ? ' module' : ''}>
+	const classes = "rounded";
+</script>
+		`
+					.trim()
+					.replace(/\r\n|\r|\n/g, '\n')
+			);
+		});
+	}
 	it('transforms classes in an expression attribute', () => {
 		expect(
 			transformSvelte(`

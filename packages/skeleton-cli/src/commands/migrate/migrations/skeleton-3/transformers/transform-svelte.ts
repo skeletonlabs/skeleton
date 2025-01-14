@@ -3,6 +3,7 @@ import type { Node } from 'estree';
 import { walk } from 'zimmerframe';
 import MagicString from 'magic-string';
 import { transformClasses } from './transform-classes.js';
+import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
 
 function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
 	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number';
@@ -23,6 +24,26 @@ function transformSvelte(code: string) {
 					if (node.source.type === 'Literal' && node.source.value === '@skeletonlabs/skeleton' && hasRange(node.source)) {
 						// Add 1 to the start and subtract 1 from the end to exclude (and thus preserve) the quotes
 						s.update(node.source.start + 1, node.source.end - 1, '@skeletonlabs/skeleton-svelte');
+					}
+					ctx.next();
+				},
+				Identifier(node, ctx) {
+					if (node.name in COMPONENT_MAPPINGS && hasRange(node)) {
+						s.update(node.start, node.end, COMPONENT_MAPPINGS[node.name]);
+					}
+					ctx.next();
+				},
+				Component(node, ctx) {
+					if (node.name in COMPONENT_MAPPINGS && hasRange(node)) {
+						// Adjusts for the opening tag (`<`)
+						const adjustedStart = node.start + 1;
+						s.update(adjustedStart, adjustedStart + node.name.length, COMPONENT_MAPPINGS[node.name]);
+					}
+					ctx.next();
+				},
+				ImportSpecifier(node, ctx) {
+					if (node.imported.type === 'Identifier' && node.imported.name in COMPONENT_MAPPINGS && hasRange(node.imported)) {
+						s.update(node.imported.start, node.imported.end, COMPONENT_MAPPINGS[node.imported.name]);
 					}
 					ctx.next();
 				},
