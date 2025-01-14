@@ -210,7 +210,7 @@ function transformSkeletonThemesOption(file: SourceFile) {
 	}
 	const presetThemes = extractPresetThemes(themesObject);
 	const customThemes = extractCustomThemes(themesObject);
-	if ((presetThemes.size > 0 || customThemes.size > 0)) {
+	if (presetThemes.size > 0 || customThemes.size > 0) {
 		file.addImportDeclaration({
 			moduleSpecifier: '@skeletonlabs/skeleton/themes',
 			namespaceImport: 'themes'
