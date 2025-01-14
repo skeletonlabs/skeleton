@@ -123,7 +123,28 @@ describe('transformSvelte', () => {
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
-	it('ignores classes in the class: directive that are also an identifier', () => {
+	it('ignores classes in the class: directive that equal an identifier', () => {
+		expect(
+			transformSvelte(`
+<script>
+	const foo = true;
+</script>
+<div class:rounded-token={foo}></div>
+		`)
+				.code.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		).toBe(
+			`
+<script>
+	const foo = true;
+</script>
+<div class:rounded={foo}></div>
+		`
+				.trim()
+				.replace(/\r\n|\r|\n/g, '\n')
+		);
+	});
+	it('ignores classes in the class: directive that are also the identifier', () => {
 		expect(
 			transformSvelte(`
 <div class:rounded-token></div>

@@ -1,4 +1,4 @@
-import { AST, parse } from 'svelte/compiler';
+import { type AST, parse } from 'svelte/compiler';
 import { walk, type Node } from 'estree-walker';
 import MagicString from 'magic-string';
 import { transformClasses } from './transform-classes.js';
@@ -37,7 +37,7 @@ function transformSvelte(code: string) {
 				if (node.type === 'Text' && hasRange(node)) {
 					s.update(node.start, node.end, transformClasses(node.data).code);
 				}
-				if (node.type === 'ClassDirective' && node.expression.type !== 'Identifier' && hasRange(node)) {
+				if (node.type === 'ClassDirective' && !(node.expression.type === 'Identifier' && !('loc' in node.expression) && node.name === node.expression.name) && hasRange(node)) {
 					const adjustedStart = node.start + 'class:'.length;
 					s.update(adjustedStart, adjustedStart + node.name.length, transformClasses(node.name).code);
 				}
