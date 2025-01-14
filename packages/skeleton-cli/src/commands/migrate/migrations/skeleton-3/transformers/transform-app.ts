@@ -21,7 +21,6 @@ function transformApp(code: string, theme: string) {
 			}
 		}
 	});
-
 	return {
 		code: s.toString()
 	};

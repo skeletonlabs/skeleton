@@ -214,9 +214,11 @@ const CLASS_REGEXES = [
 ];
 
 function transformClasses(code: string) {
-	return CLASS_REGEXES.reduce((result, migration) => {
-		return result.replace(migration.find, migration.replace);
-	}, code);
+	return {
+		code: CLASS_REGEXES.reduce((result, migration) => {
+			return result.replace(migration.find, migration.replace);
+		}, code)
+	};
 }
 
 export { transformClasses };

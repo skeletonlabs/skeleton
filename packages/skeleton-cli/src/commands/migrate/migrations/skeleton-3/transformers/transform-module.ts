@@ -14,7 +14,7 @@ function transformModule(code: string) {
 		if (!(Node.isStringLiteral(node) && !Node.isImportDeclaration(node.getParent()))) {
 			return;
 		}
-		node.setLiteralValue(transformClasses(node.getLiteralValue()));
+		node.setLiteralValue(transformClasses(node.getLiteralValue()).code);
 	});
 	file.fixUnusedIdentifiers();
 	return {

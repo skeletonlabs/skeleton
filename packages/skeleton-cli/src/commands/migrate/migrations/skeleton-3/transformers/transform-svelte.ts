@@ -32,14 +32,14 @@ function transformSvelte(code: string) {
 					hasRange(node)
 				) {
 					// Add 1 to the start and subtract 1 from the end to exclude (and thus preserve) the quotes
-					s.update(node.start + 1, node.end - 1, transformClasses(node.value));
+					s.update(node.start + 1, node.end - 1, transformClasses(node.value).code);
 				}
 				if (node.type === 'Text' && hasRange(node)) {
-					s.update(node.start, node.end, transformClasses(node.data));
+					s.update(node.start, node.end, transformClasses(node.data).code);
 				}
 				if (node.type === 'ClassDirective' && node.expression.type !== 'Identifier' && hasRange(node)) {
 					const adjustedStart = node.start + 'class:'.length;
-					s.update(adjustedStart, adjustedStart + node.name.length, transformClasses(node.name));
+					s.update(adjustedStart, adjustedStart + node.name.length, transformClasses(node.name).code);
 				}
 			}
 		});
