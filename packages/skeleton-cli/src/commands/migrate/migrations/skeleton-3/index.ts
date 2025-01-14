@@ -10,7 +10,7 @@ import { transformModule } from './transformers/transform-module.js';
 import { transformApp } from './transformers/transform-app.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { installDependencies } from '../../../../utility/install-dependencies.js';
-import { DEFAULT_THEME } from './utility/theme-mappings.js';
+import { FALLBACK_THEME } from './utility/constants';
 
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
@@ -88,7 +88,7 @@ export default async function (options: MigrateOptions) {
 	appSpinner.start(`Migrating ${app.matcher}...`);
 	try {
 		const appCode = await readFile(app.paths[0], 'utf-8');
-		const transformedApp = transformApp(appCode, theme ?? DEFAULT_THEME);
+		const transformedApp = transformApp(appCode, theme ?? FALLBACK_THEME);
 		await writeFile(app.paths[0], transformedApp.code);
 		appSpinner.stop(`Successfully migrated ${app.matcher}!`);
 	} catch (e) {

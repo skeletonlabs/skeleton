@@ -11,6 +11,4 @@ const THEME_MAPPINGS: Record<string, string> = {
 	crimson: 'crimson'
 };
 
-const DEFAULT_THEME = 'cerberus';
-
-export { THEME_MAPPINGS, DEFAULT_THEME };
+export { THEME_MAPPINGS };

@@ -1,7 +1,8 @@
 import { CallExpression, Node, ObjectLiteralExpression, SourceFile } from 'ts-morph';
 import { getDefaultExportObject } from '../../../../../utility/get-default-export-object';
-import { DEFAULT_THEME, THEME_MAPPINGS } from '../utility/theme-mappings';
+import { THEME_MAPPINGS } from '../utility/theme-mappings';
 import { createSourceFile } from '../../../../../utility/create-source-file';
+import { FALLBACK_THEME } from '../utility/constants';
 
 function isJoinCallExpression(node: Node): node is CallExpression {
 	if (!Node.isCallExpression(node)) {
@@ -231,7 +232,7 @@ ${[...customThemes].map((theme) => ` * - ${theme}`).join('\n')}
 		);
 	}
 	if (customThemes.size > 0 && presetThemes.size === 0) {
-		presetThemes.add(DEFAULT_THEME);
+		presetThemes.add(FALLBACK_THEME);
 	}
 	const presetThemesString = [...presetThemes].map((theme) => `themes.${theme}`).join(', ');
 	const customThemesString = customThemes.size > 0 ? `/* ${[...customThemes].join(', ')} */` : null;

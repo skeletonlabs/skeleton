@@ -8,6 +8,8 @@ describe('transformSvelte', () => {
 <script>
 	import { Avatar } from "@skeletonlabs/skeleton";
 </script>
+
+<Avatar />
 		`)
 				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
@@ -16,6 +18,8 @@ describe('transformSvelte', () => {
 <script>
 	import { Avatar } from "@skeletonlabs/skeleton-svelte";
 </script>
+
+<Avatar />
 		`
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
@@ -27,6 +31,8 @@ describe('transformSvelte', () => {
 <script module>
 	import { Avatar } from "@skeletonlabs/skeleton";
 </script>
+
+<Avatar />
 		`)
 				.code.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
@@ -35,6 +41,8 @@ describe('transformSvelte', () => {
 <script module>
 	import { Avatar } from "@skeletonlabs/skeleton-svelte";
 </script>
+
+<Avatar />
 		`
 				.trim()
 				.replace(/\r\n|\r|\n/g, '\n')
