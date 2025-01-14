@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { transformApp } from './transform-app.js';
 
 describe('transformsApp', () => {
-	it('edits the `data-them` attribute when already present', () => {
+	it('transforms the `data-them` attribute when present', () => {
 		expect(
 			transformApp(
 				`
@@ -27,7 +27,7 @@ describe('transformsApp', () => {
 				.replace(/\r\n|\r|\n/g, '\n')
 		);
 	});
-	it('adds the `data-theme` attribute ', () => {
+	it('adds the `data-theme` attribute', () => {
 		expect(
 			transformApp(
 				`

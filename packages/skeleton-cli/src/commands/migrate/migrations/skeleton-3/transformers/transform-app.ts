@@ -13,10 +13,11 @@ function transformApp(code: string, theme: string) {
 				const dataThemeAttribute = node.attributes.find((attribute) => {
 					return attribute.type === 'Attribute' && attribute.name === 'data-theme';
 				});
+				const newDataThemeAttribute = `data-theme="${theme}"`;
 				if (dataThemeAttribute) {
-					s.update(dataThemeAttribute.start, dataThemeAttribute.end, `data-theme="${theme}"`);
+					s.update(dataThemeAttribute.start, dataThemeAttribute.end, newDataThemeAttribute);
 				} else {
-					s.appendRight(node.start + '<body'.length, ` data-theme="${theme}"`);
+					s.appendLeft(node.start + '<body'.length, ` ${newDataThemeAttribute}`);
 				}
 			}
 		}

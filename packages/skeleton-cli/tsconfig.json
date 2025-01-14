@@ -10,6 +10,7 @@
 		"noEmit": true,
 		"esModuleInterop": true,
 		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true
 	},
