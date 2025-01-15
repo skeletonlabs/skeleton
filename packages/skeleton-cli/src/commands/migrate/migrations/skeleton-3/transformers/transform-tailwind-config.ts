@@ -1,9 +1,9 @@
 import { CallExpression, Node, ObjectLiteralExpression, SourceFile } from 'ts-morph';
 import { THEME_MAPPINGS } from '../utility/theme-mappings';
 import { FALLBACK_THEME } from '../utility/constants';
-import {addNamedImport} from "../../../../../utility/ts-morph/add-named-import";
-import {getDefaultExportObject} from "../../../../../utility/ts-morph/get-default-export-object";
-import {parseSourceFile} from "../../../../../utility/ts-morph/parse-source-file";
+import { addNamedImport } from '../../../../../utility/ts-morph/add-named-import';
+import { getDefaultExportObject } from '../../../../../utility/ts-morph/get-default-export-object';
+import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file';
 
 function isJoinCallExpression(node: Node): node is CallExpression {
 	if (!Node.isCallExpression(node)) {
