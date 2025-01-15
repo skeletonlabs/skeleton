@@ -1,8 +1,9 @@
 import { CallExpression, Node, ObjectLiteralExpression, SourceFile } from 'ts-morph';
-import { getDefaultExportObject } from '../../../../../utility/get-default-export-object';
 import { THEME_MAPPINGS } from '../utility/theme-mappings';
-import { createSourceFile } from '../../../../../utility/create-source-file';
 import { FALLBACK_THEME } from '../utility/constants';
+import {addNamedImport} from "../../../../../utility/ts-morph/add-named-import";
+import {getDefaultExportObject} from "../../../../../utility/ts-morph/get-default-export-object";
+import {parseSourceFile} from "../../../../../utility/ts-morph/parse-source-file";
 
 function isJoinCallExpression(node: Node): node is CallExpression {
 	if (!Node.isCallExpression(node)) {
@@ -82,15 +83,7 @@ function transformTailwindContentOption(file: SourceFile) {
 	}
 	joinCallExpression.replaceWithText('contentPath(import.meta.url, "svelte")');
 	file.getImportDeclaration('@skeletonlabs/tw-plugin')?.remove();
-	const skeletonPluginImportDeclaration = file.getImportDeclaration('@skeletonlabs/skeleton/plugin');
-	if (skeletonPluginImportDeclaration) {
-		skeletonPluginImportDeclaration.addNamedImport('contentPath');
-	} else {
-		file.addImportDeclaration({
-			moduleSpecifier: '@skeletonlabs/skeleton/plugin',
-			namedImports: ['contentPath']
-		});
-	}
+	addNamedImport(file, '@skeletonlabs/skeleton/plugin', 'contentPath');
 }
 
 function getThemeName(node: Node) {
@@ -179,15 +172,7 @@ function transformSkeletonThemesOption(file: SourceFile) {
 		};
 	}
 	file.getImportDeclaration('@skeletonlabs/tw-plugin')?.remove();
-	const skeletonPluginImportDeclaration = file.getImportDeclaration('@skeletonlabs/skeleton/plugin');
-	if (skeletonPluginImportDeclaration) {
-		skeletonPluginImportDeclaration.addNamedImport('skeleton');
-	} else {
-		file.addImportDeclaration({
-			moduleSpecifier: '@skeletonlabs/skeleton/plugin',
-			namedImports: ['skeleton']
-		});
-	}
+	addNamedImport(file, '@skeletonlabs/skeleton/plugin', 'skeleton');
 	const skeletonConfigObject = skeletonPluginCallExpression.getArguments().at(0);
 	if (!(skeletonConfigObject && Node.isObjectLiteralExpression(skeletonConfigObject))) {
 		return {
@@ -244,7 +229,7 @@ ${[...customThemes].map((theme) => ` * - ${theme}`).join('\n')}
 }
 
 function transformTailwindConfig(code: string) {
-	const file = createSourceFile(code);
+	const file = parseSourceFile(code);
 	transformTailwindContentOption(file);
 	const themes = transformSkeletonThemesOption(file);
 	file.fixUnusedIdentifiers();

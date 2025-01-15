@@ -1,11 +1,12 @@
 import { transformClasses } from './transform-classes.js';
-import { createSourceFile } from '../../../../../utility/create-source-file.js';
 import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
 import { REMOVED_COMPONENTS } from '../utility/removed-components';
 import { Node } from 'ts-morph';
+import {addNamedImport} from "../../../../../utility/ts-morph/add-named-import";
+import {parseSourceFile} from "../../../../../utility/ts-morph/parse-source-file";
 
 function transformModule(code: string) {
-	const file = createSourceFile(code);
+	const file = parseSourceFile(code);
 	file.forEachDescendant((node) => {
 		if (Node.isImportDeclaration(node)) {
 			const moduleSpecifier = node.getModuleSpecifier();
@@ -16,7 +17,8 @@ function transformModule(code: string) {
 		if (Node.isImportSpecifier(node)) {
 			const name = node.getName();
 			if (name in COMPONENT_MAPPINGS) {
-				node.setName(COMPONENT_MAPPINGS[name]);
+				node.remove();
+				addNamedImport(file, '@skeletonlabs/skeleton-svelte', COMPONENT_MAPPINGS[name]);
 			}
 			if (REMOVED_COMPONENTS.includes(name)) {
 				const parent = node.getParent().getParent().getParent();
