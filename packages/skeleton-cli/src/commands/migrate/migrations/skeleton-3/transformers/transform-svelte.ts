@@ -5,10 +5,8 @@ import MagicString from 'magic-string';
 import { transformClasses } from './transform-classes.js';
 import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
 import { renameComponent } from '../../../../../utility/svelte/rename-component';
-
-function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
-	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number';
-}
+import { hasRange } from '../../../../../utility/svelte/has-range';
+import { renameImportSpecifier } from '../../../../../utility/svelte/rename-import-specifier';
 
 function transformClassLocations(s: MagicString): Visitors<Node | AST.SvelteNode, unknown> {
 	return {
@@ -46,6 +44,19 @@ function transformImports(s: MagicString) {
 			}
 			ctx.next();
 		},
+		ImportSpecifier(node, ctx) {
+			const parent = ctx.path.at(-1);
+			if (
+				parent &&
+				parent.type === 'ImportDeclaration' &&
+				node.imported.type === 'Identifier' &&
+				node.imported.name in COMPONENT_MAPPINGS &&
+				hasRange(node)
+			) {
+				renameImportSpecifier(s, node, parent, COMPONENT_MAPPINGS[node.imported.name]);
+			}
+			ctx.next();
+		},
 		Identifier(node, ctx) {
 			if (node.name in COMPONENT_MAPPINGS && hasRange(node)) {
 				s.update(node.start, node.end, COMPONENT_MAPPINGS[node.name]);
@@ -54,11 +65,10 @@ function transformImports(s: MagicString) {
 		},
 		Component(node, ctx) {
 			if (node.name in COMPONENT_MAPPINGS && hasRange(node)) {
-				renameComponent(s, node);
+				renameComponent(s, node, COMPONENT_MAPPINGS[node.name]);
 			}
 			ctx.next();
 		}
-		// TODO
 	} satisfies Visitors<Node | AST.SvelteNode, unknown>;
 }
 
