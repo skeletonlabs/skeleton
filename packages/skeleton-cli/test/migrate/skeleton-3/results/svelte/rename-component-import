@@ -1,0 +1,7 @@
+<script>
+	import { Navigation } from "@skeletonlabs/skeleton-svelte";
+
+	Navigation;
+</script>
+
+<Navigation />

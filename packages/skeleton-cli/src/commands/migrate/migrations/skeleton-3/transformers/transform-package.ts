@@ -1,13 +1,10 @@
 import type { PackageJson } from 'type-fest';
-import getLatestVersion from 'latest-version';
 import { coerce, lt } from 'semver';
 import { sortPropertiesAlphabetically } from '../../../../../utility/sort-properties-alphabetically';
 import detectIndent from 'detect-indent';
 
-async function transformPackage(code: string) {
+function transformPackage(code: string, skeletonVersion: string, skeletonSvelteVersion: string) {
 	const pkg = JSON.parse(code) as PackageJson;
-	const skeletonVersion = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
-	const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
 	for (const field of ['dependencies', 'devDependencies'] as const) {
 		if (!pkg[field]) {
 			continue;

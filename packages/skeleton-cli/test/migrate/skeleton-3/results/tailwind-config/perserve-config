@@ -1,0 +1,11 @@
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
+
+export default {
+	plugins: [
+		skeleton({
+			base: true,
+			themes: [],
+			prefix: "sk-"
+		})
+	],
+}

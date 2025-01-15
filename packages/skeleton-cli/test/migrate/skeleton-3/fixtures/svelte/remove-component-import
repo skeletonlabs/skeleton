@@ -1,0 +1,7 @@
+<script>
+	import { AppShell } from "@skeletonlabs/skeleton";
+
+	AppShell;
+</script>
+
+<AppShell />

@@ -1,0 +1,8 @@
+import { contentPath } from "@skeletonlabs/skeleton/plugin";
+
+export default {
+	content: [
+		contentPath(import.meta.url, "svelte"),
+		"./src/**/*.{html,js,svelte,ts}"
+	]
+}

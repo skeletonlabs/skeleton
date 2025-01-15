@@ -1,0 +1,11 @@
+import { skeleton } from "@skeletonlabs/tw-plugin";
+
+export default {
+	plugins: [
+		skeleton({
+			themes: {
+				preset: ["skeleton",  "gold-nouveau", "wintry", "modern", "rocket", "seafoam", "vintage", "sahara", "hamlindigo",  "crimson"]
+			}
+		})
+	],
+}

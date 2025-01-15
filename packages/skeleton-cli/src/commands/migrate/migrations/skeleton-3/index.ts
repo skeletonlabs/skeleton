@@ -11,6 +11,7 @@ import { transformApp } from './transformers/transform-app.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { installDependencies } from '../../../../utility/install-dependencies.js';
 import { FALLBACK_THEME } from './utility/constants';
+import getLatestVersion from 'latest-version';
 
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
@@ -57,7 +58,9 @@ export default async function (options: MigrateOptions) {
 	packageSpinner.start(`Migrating ${pkg.matcher}...`);
 	try {
 		const pkgCode = await readFile(pkg.paths[0], 'utf-8');
-		const transformedPkg = await transformPackage(pkgCode);
+		const skeletonVersion = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
+		const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
+		const transformedPkg = transformPackage(pkgCode, skeletonVersion, skeletonSvelteVersion);
 		await writeFile(pkg.paths[0], transformedPkg.code);
 		packageSpinner.stop(`Successfully migrated ${pkg.matcher}`);
 	} catch (e) {
