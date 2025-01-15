@@ -248,9 +248,6 @@ importers:
       detect-indent:
         specifier: ^7.0.1
         version: 7.0.1
-      esrap:
-        specifier: ^1.4.3
-        version: 1.4.3
       fast-glob:
         specifier: ^3.3.1
         version: 3.3.2
