@@ -3,6 +3,8 @@ import type { Node } from 'estree';
 import { type Visitors, walk } from 'zimmerframe';
 import MagicString from 'magic-string';
 import { transformClasses } from './transform-classes.js';
+import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
+import { renameComponent } from '../../../../../utility/svelte/rename-component';
 
 function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
 	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number';
@@ -35,6 +37,27 @@ function transformClassLocations(s: MagicString): Visitors<Node | AST.SvelteNode
 
 function transformImports(s: MagicString) {
 	return {
+		Literal(node, ctx) {
+			const parent = ctx.path.at(-1);
+			const parentIsImportDeclaration = parent && parent.type === 'ImportDeclaration';
+			if (parentIsImportDeclaration && node.value === '@skeletonlabs/skeleton' && hasRange(node)) {
+				// Add 1 to the start and subtract 1 from the end to exclude (and thus preserve) the quotes
+				s.update(node.start + 1, node.end - 1, '@skeletonlabs/skeleton-svelte');
+			}
+			ctx.next();
+		},
+		Identifier(node, ctx) {
+			if (node.name in COMPONENT_MAPPINGS && hasRange(node)) {
+				s.update(node.start, node.end, COMPONENT_MAPPINGS[node.name]);
+			}
+			ctx.next();
+		},
+		Component(node, ctx) {
+			if (node.name in COMPONENT_MAPPINGS && hasRange(node)) {
+				renameComponent(s, node);
+			}
+			ctx.next();
+		}
 		// TODO
 	} satisfies Visitors<Node | AST.SvelteNode, unknown>;
 }
@@ -46,6 +69,7 @@ function transformSvelte(code: string) {
 	});
 	for (const ast of [root.instance, root.module, root.fragment].filter((node) => !!node)) {
 		for (const visitors of [transformImports(s), transformClassLocations(s)]) {
+			// @ts-expect-error: FIXME
 			walk(ast as Node | AST.SvelteNode, {}, visitors);
 		}
 	}

@@ -13,7 +13,7 @@
 	SlideToggle;
 </script>
 
-<AppRail />
+<AppRail></AppRail>
 <FileButton />
 <FileDropzone />
 <InputChip />
