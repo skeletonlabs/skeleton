@@ -65,9 +65,11 @@ export default async function (options: MigrateOptions) {
 		packageSpinner.stop(`Successfully migrated ${pkg.matcher}`);
 	} catch (e) {
 		if (e instanceof Error) {
-			packageSpinner.stop(`Failed to migrate ${pkg.matcher}: ${e.message}`);
+			packageSpinner.stop(`Failed to migrate ${pkg.matcher}: ${e.message}`, 1);
+		} else {
+			packageSpinner.stop(`Failed to migrate ${pkg.matcher}`, 1);
 		}
-		packageSpinner.stop(`Failed to migrate ${pkg.matcher}`);
+		cli.error('Cancelled migration due to error');
 	}
 
 	let theme: string | null = null;
@@ -82,9 +84,11 @@ export default async function (options: MigrateOptions) {
 		tailwindSpinner.stop(`Successfully migrated ${tailwindConfig.matcher}`);
 	} catch (e) {
 		if (e instanceof Error) {
-			tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}: ${e.message}`);
+			tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}: ${e.message}`, 1);
+		} else {
+			tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}`, 1);
 		}
-		tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}`);
+		cli.error('Cancelled migration due to error');
 	}
 
 	const appSpinner = spinner();
@@ -93,12 +97,14 @@ export default async function (options: MigrateOptions) {
 		const appCode = await readFile(app.paths[0], 'utf-8');
 		const transformedApp = transformApp(appCode, theme ?? FALLBACK_THEME);
 		await writeFile(app.paths[0], transformedApp.code);
-		appSpinner.stop(`Successfully migrated ${app.matcher}!`);
+		appSpinner.stop(`Successfully migrated ${app.matcher}`);
 	} catch (e) {
 		if (e instanceof Error) {
-			appSpinner.stop(`Failed to migrate ${app.matcher}: ${e.message}`);
+			appSpinner.stop(`Failed to migrate ${app.matcher}: ${e.message}`, 1);
+		} else {
+			appSpinner.stop(`Failed to migrate ${app.matcher}`, 1);
 		}
-		appSpinner.stop(`Failed to migrate ${app.matcher}.`);
+		cli.error('Cancelled migration due to error');
 	}
 
 	const sourceFileMatcher = `{${sourceFolders.join(',')}}/**/*.{js,mjs,ts,mts,svelte}`;
@@ -109,10 +115,10 @@ export default async function (options: MigrateOptions) {
 
 	const sourceFilesSpinner = spinner();
 	sourceFilesSpinner.start(`Migrating source files...`);
-	try {
-		for (const sourceFile of sourceFiles) {
-			sourceFilesSpinner.message(`Migrating ${sourceFile}...`);
-			const extension = extname(sourceFile);
+	for (const sourceFile of sourceFiles) {
+		sourceFilesSpinner.message(`Migrating ${sourceFile}...`);
+		const extension = extname(sourceFile);
+		try {
 			if (extension === '.svelte') {
 				const svelteCode = await readFile(sourceFile, 'utf-8');
 				const transformedSvelte = transformSvelte(svelteCode);
@@ -122,25 +128,30 @@ export default async function (options: MigrateOptions) {
 				const transformedModule = transformModule(moduleCode);
 				await writeFile(sourceFile, transformedModule.code);
 			}
-			sourceFilesSpinner.message(`Successfully migrated ${sourceFile}!`);
+			sourceFilesSpinner.message(`Successfully migrated ${sourceFile}`);
+		} catch (e) {
+			if (e instanceof Error) {
+				sourceFilesSpinner.stop(`Failed to migrate ${sourceFile}: ${e.message}`, 1);
+			} else {
+				sourceFilesSpinner.stop(`Failed to migrate ${sourceFile}`, 1);
+			}
+			cli.error('Cancelled migration due to error');
 		}
-		sourceFilesSpinner.stop('Successfully migrated all source files!');
-	} catch (error) {
-		if (error instanceof Error) {
-			sourceFilesSpinner.stop(`Failed to migrate source files: ${error.message}`);
-		}
-		sourceFilesSpinner.stop('Failed to migrate source files.');
 	}
+	sourceFilesSpinner.stop('Successfully migrated all source files');
 
 	const installDependenciesSpinner = spinner();
 	installDependenciesSpinner.start('Installing dependencies...');
 	try {
 		await installDependencies(cwd);
-		installDependenciesSpinner.stop('Successfully installed dependencies!');
+		installDependenciesSpinner.stop('Successfully installed dependencies');
 	} catch (e) {
 		if (e instanceof Error) {
 			installDependenciesSpinner.stop(`Failed to install dependencies: ${e.message}`);
+		} else {
+			installDependenciesSpinner.stop('Failed to install dependencies', 1);
 		}
-		installDependenciesSpinner.stop('Failed to install dependencies.');
+		cli.error('Cancelled migration due to error');
+		
 	}
 }
