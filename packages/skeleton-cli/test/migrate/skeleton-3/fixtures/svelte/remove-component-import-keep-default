@@ -1,0 +1,5 @@
+<script>
+	import Foo, { AppShell } from "@skeletonlabs/skeleton";
+</script>
+
+<AppShell />

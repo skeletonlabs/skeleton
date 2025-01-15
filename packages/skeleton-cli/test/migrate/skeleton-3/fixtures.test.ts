@@ -15,7 +15,7 @@ const TRANSFORMER_MAP = {
 	package: transformPackage
 };
 
-const fixturesTest = import.meta.glob('./fixtures/**/*', {
+const fixtures = import.meta.glob('./fixtures/**/*', {
 	query: '?raw'
 });
 
@@ -32,22 +32,22 @@ function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 	}
 }
 
-const testCases: Record<string, { name: string; path: string }[]> = {};
+const fixtureTests: Record<string, { name: string; path: string }[]> = {};
 
-for (const path of Object.keys(fixturesTest)) {
+for (const path of Object.keys(fixtures)) {
 	const name = path.split('/').at(-1);
-	const transformerName = path.split('/').at(-2) as keyof typeof TRANSFORMER_MAP | undefined;
-	if (!name || !transformerName || !(transformerName in TRANSFORMER_MAP)) {
+	const transformer = path.split('/').at(-2) as keyof typeof TRANSFORMER_MAP | undefined;
+	if (!name || !transformer || !(transformer in TRANSFORMER_MAP)) {
 		continue;
 	}
-	if (!testCases[transformerName]) {
-		testCases[transformerName] = [];
+	if (!fixtureTests[transformer]) {
+		fixtureTests[transformer] = [];
 	}
-	testCases[transformerName].push({ name, path });
+	fixtureTests[transformer].push({ name, path });
 }
 
 describe('fixtures', () => {
-	for (const [transformerName, cases] of Object.entries(testCases)) {
+	for (const [transformerName, cases] of Object.entries(fixtureTests)) {
 		describe(transformerName, () => {
 			for (const { name, path } of cases) {
 				test(name, async () => {
