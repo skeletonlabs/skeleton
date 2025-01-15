@@ -10,7 +10,7 @@ function renameComponent(s: MagicString, node: AST.Component, name: string) {
 	const adjustedStart = node.start + 1;
 	s.update(adjustedStart, adjustedStart + node.name.length, name);
 	const componentString = s.original.slice(node.start, node.end);
-	const indexOfNonSelfClosingTag = componentString.lastIndexOf('</', node.start);
+	const indexOfNonSelfClosingTag = componentString.lastIndexOf('</');
 	if (indexOfNonSelfClosingTag === -1 || node.start + indexOfNonSelfClosingTag > node.end) {
 		return;
 	}
@@ -46,7 +46,7 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 		{
 			Literal(node, ctx) {
 				const parent = ctx.path.at(-1);
-				if (typeof node.value === 'string' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
+				if (typeof node.value === 'string' && node.value !== '' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
 					// Add 1 to the start and subtract 1 from the end to exclude (and thus preserve) the quotes
 					s.update(node.start + 1, node.end - 1, transformClasses(node.value).code);
 				}

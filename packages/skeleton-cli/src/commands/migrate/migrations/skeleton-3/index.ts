@@ -2,7 +2,7 @@ import fg from 'fast-glob';
 import { transformTailwindConfig } from './transformers/transform-tailwind-config.js';
 import { transformPackage } from './transformers/transform-package.js';
 import type { MigrateOptions } from '../../index.js';
-import { isCancel, multiselect, spinner } from '@clack/prompts';
+import { isCancel, log, multiselect, spinner } from '@clack/prompts';
 import { cli } from '../../../../index.js';
 import { extname } from 'node:path';
 import { transformSvelte } from './transformers/transform-svelte.js';
@@ -62,7 +62,7 @@ export default async function (options: MigrateOptions) {
 		const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
 		const transformedPkg = transformPackage(pkgCode, skeletonVersion, skeletonSvelteVersion);
 		await writeFile(pkg.paths[0], transformedPkg.code);
-		packageSpinner.stop(`Successfully migrated ${pkg.matcher}`);
+		packageSpinner.stop(`Successfully migrated ${pkg.matcher}!`);
 	} catch (e) {
 		if (e instanceof Error) {
 			packageSpinner.stop(`Failed to migrate ${pkg.matcher}: ${e.message}`, 1);
@@ -81,7 +81,7 @@ export default async function (options: MigrateOptions) {
 		const transformedTailwind = transformTailwindConfig(tailwindCode);
 		theme = transformedTailwind.meta.themes.preset.at(0) ?? null;
 		await writeFile(tailwindConfig.paths[0], transformedTailwind.code);
-		tailwindSpinner.stop(`Successfully migrated ${tailwindConfig.matcher}`);
+		tailwindSpinner.stop(`Successfully migrated ${tailwindConfig.matcher}!`);
 	} catch (e) {
 		if (e instanceof Error) {
 			tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}: ${e.message}`, 1);
@@ -97,7 +97,7 @@ export default async function (options: MigrateOptions) {
 		const appCode = await readFile(app.paths[0], 'utf-8');
 		const transformedApp = transformApp(appCode, theme ?? FALLBACK_THEME);
 		await writeFile(app.paths[0], transformedApp.code);
-		appSpinner.stop(`Successfully migrated ${app.matcher}`);
+		appSpinner.stop(`Successfully migrated ${app.matcher}!`);
 	} catch (e) {
 		if (e instanceof Error) {
 			appSpinner.stop(`Failed to migrate ${app.matcher}: ${e.message}`, 1);
@@ -128,7 +128,7 @@ export default async function (options: MigrateOptions) {
 				const transformedModule = transformModule(moduleCode);
 				await writeFile(sourceFile, transformedModule.code);
 			}
-			sourceFilesSpinner.message(`Successfully migrated ${sourceFile}`);
+			sourceFilesSpinner.message(`Successfully migrated ${sourceFile}!!`);
 		} catch (e) {
 			if (e instanceof Error) {
 				sourceFilesSpinner.stop(`Failed to migrate ${sourceFile}: ${e.message}`, 1);
@@ -138,13 +138,13 @@ export default async function (options: MigrateOptions) {
 			cli.error('Cancelled migration due to error');
 		}
 	}
-	sourceFilesSpinner.stop('Successfully migrated all source files');
+	sourceFilesSpinner.stop('Successfully migrated all source files!');
 
 	const installDependenciesSpinner = spinner();
 	installDependenciesSpinner.start('Installing dependencies...');
 	try {
 		await installDependencies(cwd);
-		installDependenciesSpinner.stop('Successfully installed dependencies');
+		installDependenciesSpinner.stop('Successfully installed dependencies!');
 	} catch (e) {
 		if (e instanceof Error) {
 			installDependenciesSpinner.stop(`Failed to install dependencies: ${e.message}`);
@@ -152,6 +152,6 @@ export default async function (options: MigrateOptions) {
 			installDependenciesSpinner.stop('Failed to install dependencies', 1);
 		}
 		cli.error('Cancelled migration due to error');
-		
 	}
+	log.info('Migration complete! Visit https://next.skeleton.dev/ to learn more about all the new features in Skeleton V3.');
 }
