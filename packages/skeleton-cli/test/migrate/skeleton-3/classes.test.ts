@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { transformClasses } from './transform-classes.js';
+import { transformClasses } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-classes.js';
 
 describe('transformClasses', () => {
 	const COLORS = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'];
@@ -19,7 +19,7 @@ describe('transformClasses', () => {
 			);
 		for (const { v2, v3 } of createColorPairingMappings()) {
 			it(`transforms ${v2}`, () => {
-				expect(transformClasses(v2)).toBe(v3);
+				expect(transformClasses(v2).code).toBe(v3);
 			});
 		}
 	});
@@ -43,7 +43,7 @@ describe('transformClasses', () => {
 		];
 		for (const { v2, v3 } of createBackgroundMappings()) {
 			it(`transforms ${v2}`, () => {
-				expect(transformClasses(v2)).toBe(v3);
+				expect(transformClasses(v2).code).toBe(v3);
 			});
 		}
 	});
@@ -70,7 +70,7 @@ describe('transformClasses', () => {
 		];
 		for (const { v2, v3 } of createBorderRadiusMappings()) {
 			it(`transforms ${v2}`, () => {
-				expect(transformClasses(v2)).toBe(v3);
+				expect(transformClasses(v2).code).toBe(v3);
 			});
 		}
 	});
@@ -89,7 +89,7 @@ describe('transformClasses', () => {
 		];
 		for (const { v2, v3 } of createBorderMappings()) {
 			it(`transforms ${v2}`, () => {
-				expect(transformClasses(v2)).toBe(v3);
+				expect(transformClasses(v2).code).toBe(v3);
 			});
 		}
 	});
@@ -108,7 +108,7 @@ describe('transformClasses', () => {
 		];
 		for (const { v2, v3 } of createRingMappings()) {
 			it(`transforms ${v2}`, () => {
-				expect(transformClasses(v2)).toBe(v3);
+				expect(transformClasses(v2).code).toBe(v3);
 			});
 		}
 	});
@@ -143,7 +143,7 @@ describe('transformClasses', () => {
 		];
 		for (const { v2, v3 } of createTextMappings()) {
 			it(`transforms ${v2}`, () => {
-				expect(transformClasses(v2)).toBe(v3);
+				expect(transformClasses(v2).code).toBe(v3);
 			});
 		}
 	});
@@ -158,7 +158,7 @@ describe('transformClasses', () => {
 
 		for (const { v2, v3 } of createDecorationMappings()) {
 			it(`transforms ${v2}`, () => {
-				expect(transformClasses(v2)).toBe(v3);
+				expect(transformClasses(v2).code).toBe(v3);
 			});
 		}
 	});
@@ -171,7 +171,7 @@ describe('transformClasses', () => {
 
 		for (const { v2, v3 } of createAccentMappings()) {
 			it(`transforms ${v2}`, () => {
-				expect(transformClasses(v2)).toBe(v3);
+				expect(transformClasses(v2).code).toBe(v3);
 			});
 		}
 	});
@@ -220,7 +220,7 @@ describe('transformClasses', () => {
 		];
 		for (const { v2, v3 } of createPresetMappings()) {
 			it(`transforms ${v2}`, () => {
-				expect(transformClasses(v2)).toBe(v3);
+				expect(transformClasses(v2).code).toBe(v3);
 			});
 		}
 	});
@@ -253,7 +253,7 @@ describe('transformClasses', () => {
 		];
 		for (const { v2, v3 } of createTailwindMappings()) {
 			it(`transforms ${v2}`, () => {
-				expect(transformClasses(v2)).toBe(v3);
+				expect(transformClasses(v2).code).toBe(v3);
 			});
 		}
 	});

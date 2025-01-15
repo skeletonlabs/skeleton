@@ -1,0 +1,10 @@
+import { join } from "path";
+import { skeleton } from "@skeletonlabs/tw-plugin";
+
+export default {
+	plugins: [
+		skeleton({
+			themes: {}
+		})
+	],
+}

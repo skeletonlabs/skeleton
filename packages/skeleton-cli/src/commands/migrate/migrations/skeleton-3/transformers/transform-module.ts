@@ -1,30 +1,53 @@
-import { readFile, writeFile } from 'node:fs/promises';
-import { Node } from 'ts-morph';
 import { transformClasses } from './transform-classes.js';
-import { createSourceFile } from '../../../../../utility/create-source-file.js';
+import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
+import { REMOVED_COMPONENTS } from '../utility/removed-components';
+import { Node } from 'ts-morph';
+import { addNamedImport } from '../../../../../utility/ts-morph/add-named-import';
+import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file';
 
-function transformModuleContent(code: string) {
-	const file = createSourceFile(code);
-	for (const importDeclaration of file.getImportDeclarations()) {
-		const moduleSpecifier = importDeclaration.getModuleSpecifier();
-		if (moduleSpecifier.getLiteralText() === '@skeletonlabs/skeleton') {
-			importDeclaration.setModuleSpecifier('@skeletonlabs/skeleton-svelte');
-		}
-	}
+function transformModule(code: string) {
+	const file = parseSourceFile(code);
 	file.forEachDescendant((node) => {
-		if (!(Node.isStringLiteral(node) && !Node.isImportDeclaration(node.getParent()))) {
-			return;
+		if (Node.isImportDeclaration(node)) {
+			const moduleSpecifier = node.getModuleSpecifier();
+			if (moduleSpecifier.getLiteralText() === '@skeletonlabs/skeleton') {
+				node.setModuleSpecifier('@skeletonlabs/skeleton-svelte');
+			}
 		}
-		node.setLiteralValue(transformClasses(node.getLiteralValue()));
+		if (Node.isImportSpecifier(node)) {
+			const name = node.getName();
+			if (name in COMPONENT_MAPPINGS) {
+				node.remove();
+				addNamedImport(file, '@skeletonlabs/skeleton-svelte', COMPONENT_MAPPINGS[name]);
+			}
+			if (REMOVED_COMPONENTS.includes(name)) {
+				const parent = node.getParent().getParent().getParent();
+				if (
+					Node.isImportDeclaration(parent) &&
+					parent.getNamedImports().length === 1 &&
+					!parent.getDefaultImport() &&
+					!parent.getNamespaceImport()
+				) {
+					parent.remove();
+				} else {
+					node.remove();
+				}
+			}
+		}
+		if (!node.wasForgotten() && Node.isIdentifier(node)) {
+			const name = node.getText();
+			if (name in COMPONENT_MAPPINGS) {
+				node.replaceWithText(COMPONENT_MAPPINGS[name]);
+			}
+		}
+		if (!node.wasForgotten() && Node.isStringLiteral(node) && !Node.isImportDeclaration(node.getParent())) {
+			node.setLiteralValue(transformClasses(node.getLiteralValue()).code);
+		}
 	});
 	file.fixUnusedIdentifiers();
-	return file.getFullText();
+	return {
+		code: file.getFullText()
+	};
 }
 
-async function transformModule(path: string) {
-	const code = await readFile(path, 'utf-8');
-	const transformed = transformModuleContent(code);
-	await writeFile(path, transformed);
-}
-
-export { transformModuleContent, transformModule };
+export { transformModule };

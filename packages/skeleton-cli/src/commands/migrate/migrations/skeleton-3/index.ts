@@ -5,8 +5,13 @@ import type { MigrateOptions } from '../../index.js';
 import { isCancel, multiselect, spinner } from '@clack/prompts';
 import { cli } from '../../../../index.js';
 import { extname } from 'node:path';
-import { transformSvelte } from './transformers/transform-svelte';
-import { transformModule } from './transformers/transform-module';
+import { transformSvelte } from './transformers/transform-svelte.js';
+import { transformModule } from './transformers/transform-module.js';
+import { transformApp } from './transformers/transform-app.js';
+import { readFile, writeFile } from 'node:fs/promises';
+import { installDependencies } from '../../../../utility/install-dependencies.js';
+import { FALLBACK_THEME } from './utility/constants';
+import getLatestVersion from 'latest-version';
 
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
@@ -19,8 +24,12 @@ export default async function (options: MigrateOptions) {
 		matcher: 'tailwind.config.{js,mjs,ts,mts}',
 		paths: await fg('tailwind.config.{js,mjs,ts,mts}', { cwd })
 	};
+	const app = {
+		matcher: 'src/app.html',
+		paths: await fg('src/app.html', { cwd })
+	};
 
-	for (const file of [pkg, tailwindConfig]) {
+	for (const file of [pkg, tailwindConfig, app]) {
 		if (file.paths.length === 0) {
 			cli.error(`"${file.matcher}" not found in directory "${cwd}".`);
 		}
@@ -29,7 +38,11 @@ export default async function (options: MigrateOptions) {
 		}
 	}
 
-	const availableSourceFolders = await fg('*', { cwd, onlyDirectories: true, ignore: ['node_modules'] });
+	const availableSourceFolders = await fg('*', {
+		cwd: cwd,
+		onlyDirectories: true,
+		ignore: ['node_modules']
+	});
 	const sourceFolders = await multiselect({
 		message: 'What folders contain usage of Skeleton? (classes, imports, etc.)',
 		options: availableSourceFolders.map((folder) => ({ label: folder, value: folder })),
@@ -37,34 +50,97 @@ export default async function (options: MigrateOptions) {
 	});
 
 	if (isCancel(sourceFolders)) {
-		cli.error('Migration cancelled.');
+		cli.error('Migration cancelled by user.');
 		return;
 	}
 
 	const packageSpinner = spinner();
 	packageSpinner.start(`Migrating ${pkg.matcher}...`);
-	await transformPackage(pkg.paths[0]);
-	packageSpinner.stop(`Successfully migrated ${pkg.matcher}`);
+	try {
+		const pkgCode = await readFile(pkg.paths[0], 'utf-8');
+		const skeletonVersion = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
+		const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
+		const transformedPkg = transformPackage(pkgCode, skeletonVersion, skeletonSvelteVersion);
+		await writeFile(pkg.paths[0], transformedPkg.code);
+		packageSpinner.stop(`Successfully migrated ${pkg.matcher}`);
+	} catch (e) {
+		if (e instanceof Error) {
+			packageSpinner.stop(`Failed to migrate ${pkg.matcher}: ${e.message}`);
+		}
+		packageSpinner.stop(`Failed to migrate ${pkg.matcher}`);
+	}
 
-	const tailwindConfigSpinner = spinner();
-	tailwindConfigSpinner.start(`Migrating ${tailwindConfig.matcher}...`);
-	await transformTailwindConfig(tailwindConfig.paths[0]);
-	tailwindConfigSpinner.stop(`Successfully migrated ${tailwindConfig.matcher}`);
+	let theme: string | null = null;
+
+	const tailwindSpinner = spinner();
+	tailwindSpinner.start(`Migrating ${tailwindConfig.matcher}...`);
+	try {
+		const tailwindCode = await readFile(tailwindConfig.paths[0], 'utf-8');
+		const transformedTailwind = transformTailwindConfig(tailwindCode);
+		theme = transformedTailwind.meta.themes.preset.at(0) ?? null;
+		await writeFile(tailwindConfig.paths[0], transformedTailwind.code);
+		tailwindSpinner.stop(`Successfully migrated ${tailwindConfig.matcher}`);
+	} catch (e) {
+		if (e instanceof Error) {
+			tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}: ${e.message}`);
+		}
+		tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}`);
+	}
+
+	const appSpinner = spinner();
+	appSpinner.start(`Migrating ${app.matcher}...`);
+	try {
+		const appCode = await readFile(app.paths[0], 'utf-8');
+		const transformedApp = transformApp(appCode, theme ?? FALLBACK_THEME);
+		await writeFile(app.paths[0], transformedApp.code);
+		appSpinner.stop(`Successfully migrated ${app.matcher}!`);
+	} catch (e) {
+		if (e instanceof Error) {
+			appSpinner.stop(`Failed to migrate ${app.matcher}: ${e.message}`);
+		}
+		appSpinner.stop(`Failed to migrate ${app.matcher}.`);
+	}
 
 	const sourceFileMatcher = `{${sourceFolders.join(',')}}/**/*.{js,mjs,ts,mts,svelte}`;
-	const sourceFiles = await fg(sourceFileMatcher, { cwd, ignore: ['node_modules', 'dist', 'build', 'public'] });
+	const sourceFiles = await fg(sourceFileMatcher, {
+		cwd: cwd,
+		ignore: ['node_modules']
+	});
 
 	const sourceFilesSpinner = spinner();
 	sourceFilesSpinner.start(`Migrating source files...`);
-	for (const sourceFile of sourceFiles) {
-		sourceFilesSpinner.message(`Migrating ${sourceFile}...`);
-		const extension = extname(sourceFile);
-		if (extension === '.svelte') {
-			await transformSvelte(sourceFile);
-		} else {
-			await transformModule(sourceFile);
+	try {
+		for (const sourceFile of sourceFiles) {
+			sourceFilesSpinner.message(`Migrating ${sourceFile}...`);
+			const extension = extname(sourceFile);
+			if (extension === '.svelte') {
+				const svelteCode = await readFile(sourceFile, 'utf-8');
+				const transformedSvelte = transformSvelte(svelteCode);
+				await writeFile(sourceFile, transformedSvelte.code);
+			} else {
+				const moduleCode = await readFile(sourceFile, 'utf-8');
+				const transformedModule = transformModule(moduleCode);
+				await writeFile(sourceFile, transformedModule.code);
+			}
+			sourceFilesSpinner.message(`Successfully migrated ${sourceFile}!`);
 		}
-		sourceFilesSpinner.message(`Successfully migrated ${sourceFile}`);
+		sourceFilesSpinner.stop('Successfully migrated all source files!');
+	} catch (error) {
+		if (error instanceof Error) {
+			sourceFilesSpinner.stop(`Failed to migrate source files: ${error.message}`);
+		}
+		sourceFilesSpinner.stop('Failed to migrate source files.');
 	}
-	sourceFilesSpinner.stop('Successfully migrated all source files');
+
+	const installDependenciesSpinner = spinner();
+	installDependenciesSpinner.start('Installing dependencies...');
+	try {
+		await installDependencies(cwd);
+		installDependenciesSpinner.stop('Successfully installed dependencies!');
+	} catch (e) {
+		if (e instanceof Error) {
+			installDependenciesSpinner.stop(`Failed to install dependencies: ${e.message}`);
+		}
+		installDependenciesSpinner.stop('Failed to install dependencies.');
+	}
 }

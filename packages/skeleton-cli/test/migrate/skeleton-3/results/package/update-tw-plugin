@@ -1,0 +1,5 @@
+{
+	"dependencies": {
+		"@skeletonlabs/skeleton": "^3.0.0"
+	}
+}
