@@ -2,7 +2,7 @@ const COMPONENT_MAPPINGS: Record<string, string> = {
 	AppRail: 'Navigation',
 	FileButton: 'FileUpload',
 	FileDropzone: 'FileUpload',
-	InputChip: 'TagsInputs',
+	InputChip: 'TagsInput',
 	Paginator: 'Pagination',
 	ProgressBar: 'Progress',
 	ProgressRadial: 'ProgressRing',

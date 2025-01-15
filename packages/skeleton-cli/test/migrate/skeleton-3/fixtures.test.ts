@@ -32,6 +32,10 @@ function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 	}
 }
 
+function clean(code: string) {
+	return code.trim().replace(/\r\n|\r|\n/g, '\n');
+}
+
 const fixtureTests: Record<string, { name: string; path: string }[]> = {};
 
 for (const path of Object.keys(fixtures)) {
@@ -56,7 +60,7 @@ describe('fixtures', () => {
 						transformerName as keyof typeof TRANSFORMER_MAP
 					);
 					const expected = await readFile(resolve(fileURLToPath(import.meta.url), path.replace('fixtures', 'results')), 'utf-8');
-					expect(result.trim()).toEqual(expected.trim());
+					expect(clean(result)).toEqual(clean(expected));
 				});
 			}
 		});

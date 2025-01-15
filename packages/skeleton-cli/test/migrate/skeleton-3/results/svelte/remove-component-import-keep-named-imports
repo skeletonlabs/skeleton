@@ -2,4 +2,12 @@
 	import { Foo, Bar } from "@skeletonlabs/skeleton-svelte";
 </script>
 
+<Foo />
 <AppShell />
+<Autocomplete />
+<ConicGradient />
+<Lightswitch />
+<ListBox />
+<Stepper />
+<Table />
+<Bar />

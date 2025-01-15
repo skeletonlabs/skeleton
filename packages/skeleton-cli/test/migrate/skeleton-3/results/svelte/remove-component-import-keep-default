@@ -1,5 +1,12 @@
 <script>
-	import Foo from "@skeletonlabs/skeleton";
+	import Foo from "@skeletonlabs/skeleton-svelte";
 </script>
 
+<Foo />
 <AppShell />
+<Autocomplete />
+<ConicGradient />
+<Lightswitch />
+<ListBox />
+<Stepper />
+<Table />

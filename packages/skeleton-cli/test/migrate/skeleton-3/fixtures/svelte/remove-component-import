@@ -1,5 +1,11 @@
 <script>
-	import { AppShell } from "@skeletonlabs/skeleton";
+	import { AppShell, Autocomplete, ConicGradient, Lightswitch, ListBox, Stepper, Table } from "@skeletonlabs/skeleton";
 </script>
 
 <AppShell />
+<Autocomplete />
+<ConicGradient />
+<Lightswitch />
+<ListBox />
+<Stepper />
+<Table />
