@@ -14,6 +14,8 @@
     "@skeletonlabs/skeleton-cli": "0.0.0"
   },
   "changesets": [
+    "afraid-geckos-try",
+    "big-radios-pretend",
     "blue-moles-swim",
     "brave-ties-try",
     "calm-cougars-yawn",
@@ -21,11 +23,13 @@
     "chilled-avocados-pull",
     "chilled-comics-hear",
     "chilled-trainers-drop",
+    "chilly-news-jam",
     "clean-fans-pretend",
     "clever-carpets-own",
     "clever-shirts-brake",
     "clever-terms-train",
     "cuddly-dingos-sell",
+    "early-suns-cry",
     "eleven-eggs-add",
     "empty-cycles-dream",
     "fluffy-rockets-call",
@@ -38,6 +42,7 @@
     "hip-poems-perform",
     "honest-bears-learn",
     "hungry-dots-grin",
+    "itchy-knives-try",
     "itchy-zoos-tease",
     "kind-carrots-greet",
     "kind-penguins-build",
@@ -47,6 +52,7 @@
     "lovely-walls-push",
     "mean-schools-double",
     "mighty-poets-mate",
+    "modern-pianos-sparkle",
     "nasty-chefs-build",
     "nasty-snails-hug",
     "olive-coats-brake",
@@ -82,6 +88,7 @@
     "tricky-snakes-begin",
     "violet-buckets-switch",
     "weak-items-destroy",
+    "wicked-maps-rest",
     "wicked-seahorses-itch",
     "wild-wolves-wink"
   ]

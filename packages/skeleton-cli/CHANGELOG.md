@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.5
+
+### Patch Changes
+
+- Feature: The `class:` directive will also be transformed when they're not also an identifier. ([#3107](https://github.com/skeletonlabs/skeleton/pull/3107))
+
+- Bugfix: transformations on the package.json now preserve the original indentation. ([#3107](https://github.com/skeletonlabs/skeleton/pull/3107))
+
+- Feature: `app.html` is now transformed. ([#3107](https://github.com/skeletonlabs/skeleton/pull/3107))
+
+- Feature: Better error handling is now in place. ([#3107](https://github.com/skeletonlabs/skeleton/pull/3107))
+
+- Feature: `<packagemanager> install` is now ran at the end of the migration. ([#3107](https://github.com/skeletonlabs/skeleton/pull/3107))
+
+- Feature: Rename all components imports and usages. ([#3107](https://github.com/skeletonlabs/skeleton/pull/3107))
+
+- Feature: Removed components have their imports removed. ([#3107](https://github.com/skeletonlabs/skeleton/pull/3107))
+
 ## 0.0.1-next.4
 
 ### Patch Changes
