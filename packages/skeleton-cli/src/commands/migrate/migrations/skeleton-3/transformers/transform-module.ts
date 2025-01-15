@@ -1,8 +1,8 @@
-import { Node } from 'ts-morph';
 import { transformClasses } from './transform-classes.js';
 import { createSourceFile } from '../../../../../utility/create-source-file.js';
 import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
 import { REMOVED_COMPONENTS } from '../utility/removed-components';
+import { Node } from 'ts-morph';
 
 function transformModule(code: string) {
 	const file = createSourceFile(code);
@@ -14,10 +14,9 @@ function transformModule(code: string) {
 			}
 		}
 		if (Node.isImportSpecifier(node)) {
-			const importedName = node.getNameNode();
-			const name = importedName.getText();
+			const name = node.getName();
 			if (name in COMPONENT_MAPPINGS) {
-				importedName.replaceWithText(COMPONENT_MAPPINGS[name]);
+				node.setName(COMPONENT_MAPPINGS[name]);
 			}
 			if (REMOVED_COMPONENTS.includes(name)) {
 				const parent = node.getParent().getParent().getParent();
