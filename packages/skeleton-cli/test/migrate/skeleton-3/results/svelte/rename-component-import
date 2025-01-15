@@ -13,13 +13,23 @@
 	Switch;
 </script>
 
+<Navigation />
 <Navigation></Navigation>
 <FileUpload />
+<FileUpload></FileUpload>
 <FileUpload />
+<FileUpload></FileUpload>
 <TagsInput />
+<TagsInput></TagsInput>
 <Pagination />
+<Pagination></Pagination>
 <Progress />
+<Progress></Progress>
 <ProgressRing />
+<ProgressRing></ProgressRing>
 <Segment />
+<Segment></Segment>
 <Slider />
+<Slider></Slider>
 <Switch />
+<Switch></Switch>

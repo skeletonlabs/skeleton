@@ -13,13 +13,23 @@
 	SlideToggle;
 </script>
 
+<AppRail />
 <AppRail></AppRail>
 <FileButton />
+<FileButton></FileButton>
 <FileDropzone />
+<FileDropzone></FileDropzone>
 <InputChip />
+<InputChip></InputChip>
 <Paginator />
+<Paginator></Paginator>
 <ProgressBar />
+<ProgressBar></ProgressBar>
 <ProgressRadial />
+<ProgressRadial></ProgressRadial>
 <RadioGroup />
+<RadioGroup></RadioGroup>
 <RangeSlider />
+<RangeSlider></RangeSlider>
 <SlideToggle />
+<SlideToggle></SlideToggle>
