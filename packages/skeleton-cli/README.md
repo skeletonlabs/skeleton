@@ -1,6 +1,6 @@
 # Skeleton CLI
 
-The Skeleton CLI is a command-line tool that helps you create and manage your Skeleton projects.
+The CLI for Skeleton related tooling.
 
 ## Usage
 
@@ -16,6 +16,8 @@ npx @skeletonlabs/skeleton-cli [command] [args]
 
 The `skeleton-3` migration will migrate your project from V2 to V3, this includes:
 
-- All tailwind classes
+- Tailwind classes
+- Import statements
+- Component names
 - Your `package.json`
-- Your `tailwind.config.[js|ts]`
+- Your `tailwind.config`
