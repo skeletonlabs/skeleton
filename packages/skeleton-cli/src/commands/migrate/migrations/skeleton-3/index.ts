@@ -24,25 +24,25 @@ export default async function (options: MigrateOptions) {
 
 	// Find all required files
 	const pkg = {
-		matcher: 'package.json',
+		name: 'package.json',
 		paths: await fg('package.json', { cwd })
 	};
 	const tailwindConfig = {
-		matcher: 'tailwind.config.{js,mjs,ts,mts}',
+		name: 'tailwind.config',
 		paths: await fg('tailwind.config.{js,mjs,ts,mts}', { cwd })
 	};
 	const app = {
-		matcher: 'src/app.html',
+		name: 'app.html',
 		paths: await fg('src/app.html', { cwd })
 	};
 
 	// Validate file existence
 	for (const file of [pkg, tailwindConfig, app]) {
 		if (file.paths.length === 0) {
-			cli.error(`"${file.matcher}" not found in directory "${cwd}".`);
+			cli.error(`"${file.name}" not found in directory "${cwd}".`);
 		}
 		if (file.paths.length > 1) {
-			cli.error(`Multiple "${file.matcher}" entries found in directory: "${cwd}", please ensure there is only one`);
+			cli.error(`Multiple "${file.name}" entries found in directory: "${cwd}", please ensure there is only one`);
 		}
 	}
 
@@ -53,7 +53,7 @@ export default async function (options: MigrateOptions) {
 		ignore: ['node_modules']
 	});
 	const sourceFolders = await multiselect({
-		message: 'What folders contain usage of Skeleton? (classes, imports, etc.)',
+		message: 'What folders make use of Skeleton? (classes, imports, etc...)',
 		options: availableSourceFolders.map((folder) => ({ label: folder, value: folder })),
 		initialValues: availableSourceFolders
 	});
@@ -67,43 +67,43 @@ export default async function (options: MigrateOptions) {
 
 	// Migrate package.json
 	const packageSpinner = spinner();
-	packageSpinner.start(`Migrating ${pkg.matcher}...`);
+	packageSpinner.start(`Migrating ${pkg.name}...`);
 	try {
 		const pkgCode = await readFile(pkg.paths[0], 'utf-8');
 		const skeletonVersion = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
 		const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
 		const transformedPkg = transformPackage(pkgCode, skeletonVersion, skeletonSvelteVersion);
 		migrations.push({ path: pkg.paths[0], content: transformedPkg.code });
-		packageSpinner.stop(`Successfully prepared ${pkg.matcher} migration!`);
+		packageSpinner.stop(`Successfully migrated ${pkg.name}!`);
 	} catch (e) {
-		packageSpinner.stop(`Failed to migrate ${pkg.matcher}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+		packageSpinner.stop(`Failed to migrate ${pkg.name}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
 		cli.error('Migration canceled, nothing written to disk');
 	}
 
 	// Migrate tailwind config
 	const tailwindSpinner = spinner();
-	tailwindSpinner.start(`Migrating ${tailwindConfig.matcher}...`);
+	tailwindSpinner.start(`Migrating ${tailwindConfig.name}...`);
 	try {
 		const tailwindCode = await readFile(tailwindConfig.paths[0], 'utf-8');
 		const transformedTailwind = transformTailwindConfig(tailwindCode);
 		theme = transformedTailwind.meta.themes.preset.at(0) ?? null;
 		migrations.push({ path: tailwindConfig.paths[0], content: transformedTailwind.code });
-		tailwindSpinner.stop(`Successfully prepared ${tailwindConfig.matcher} migration!`);
+		tailwindSpinner.stop(`Successfully migrated ${tailwindConfig.name}!`);
 	} catch (e) {
-		tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+		tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.name}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
 		cli.error('Migration canceled, nothing written to disk');
 	}
 
 	// Migrate app.html
 	const appSpinner = spinner();
-	appSpinner.start(`Migrating ${app.matcher}...`);
+	appSpinner.start(`Migrating ${app.name}...`);
 	try {
 		const appCode = await readFile(app.paths[0], 'utf-8');
 		const transformedApp = transformApp(appCode, theme ?? FALLBACK_THEME);
 		migrations.push({ path: app.paths[0], content: transformedApp.code });
-		appSpinner.stop(`Successfully prepared ${app.matcher} migration!`);
+		appSpinner.stop(`Successfully migrated ${app.name}!`);
 	} catch (e) {
-		appSpinner.stop(`Failed to migrate ${app.matcher}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+		appSpinner.stop(`Failed to migrate ${app.name}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
 		cli.error('Migration canceled, nothing written to disk');
 	}
 
@@ -128,7 +128,7 @@ export default async function (options: MigrateOptions) {
 				const transformedModule = transformModule(code);
 				migrations.push({ path: sourceFile, content: transformedModule.code });
 			}
-			sourceFilesSpinner.message(`Successfully prepared ${sourceFile} migration!`);
+			sourceFilesSpinner.message(`Successfully migrated ${sourceFile}!`);
 		} catch (e) {
 			sourceFilesSpinner.stop(`Failed to migrate ${sourceFile}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
 			cli.error('Migration canceled, nothing written to disk');
@@ -138,10 +138,10 @@ export default async function (options: MigrateOptions) {
 
 	// Write all migrations to disk
 	const writeSpinner = spinner();
-	writeSpinner.start('Applying all migrations to disk...');
+	writeSpinner.start('Applying all migrations...');
 	try {
 		await Promise.all(migrations.map(({ path, content }) => writeFile(path, content)));
-		writeSpinner.stop('Successfully applied all migrations to disk!');
+		writeSpinner.stop('Successfully applied all migrations!');
 	} catch (e) {
 		writeSpinner.stop(`Failed to apply migrations: ${e instanceof Error ? e.message.replace('\n', ' ') : 'Unknown error'}`, 1);
 		cli.error('Migration canceled');
@@ -149,12 +149,12 @@ export default async function (options: MigrateOptions) {
 
 	// Install dependencies
 	const installDependenciesSpinner = spinner();
-	installDependenciesSpinner.start('Installing dependencies...');
+	installDependenciesSpinner.start('Updating dependencies...');
 	try {
 		await installDependencies(cwd);
-		installDependenciesSpinner.stop('Successfully installed dependencies!');
+		installDependenciesSpinner.stop('Successfully updated dependencies!');
 	} catch (e) {
-		installDependenciesSpinner.stop(`Failed to install dependencies: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+		installDependenciesSpinner.stop(`Failed to update dependencies: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
 		cli.error('Migration canceled');
 		return;
 	}
