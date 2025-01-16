@@ -134,7 +134,7 @@ export default async function (options: MigrateOptions) {
 			cli.error('Migration canceled, nothing written to disk');
 		}
 	}
-	sourceFilesSpinner.stop('Successfully prepared all source file migrations!');
+	sourceFilesSpinner.stop('Successfully migrated all source files!');
 
 	// Write all migrations to disk
 	const writeSpinner = spinner();
