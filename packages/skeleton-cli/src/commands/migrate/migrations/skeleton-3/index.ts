@@ -13,9 +13,16 @@ import { installDependencies } from '../../../../utility/install-dependencies.js
 import { FALLBACK_THEME } from './utility/constants';
 import getLatestVersion from 'latest-version';
 
+interface FileMigration {
+	path: string;
+	content: string;
+}
+
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
+	const migrations: FileMigration[] = [];
 
+	// Find all required files
 	const pkg = {
 		matcher: 'package.json',
 		paths: await fg('package.json', { cwd })
@@ -29,6 +36,7 @@ export default async function (options: MigrateOptions) {
 		paths: await fg('src/app.html', { cwd })
 	};
 
+	// Validate file existence
 	for (const file of [pkg, tailwindConfig, app]) {
 		if (file.paths.length === 0) {
 			cli.error(`"${file.matcher}" not found in directory "${cwd}".`);
@@ -38,6 +46,7 @@ export default async function (options: MigrateOptions) {
 		}
 	}
 
+	// Get source folders
 	const availableSourceFolders = await fg('*', {
 		cwd: cwd,
 		onlyDirectories: true,
@@ -50,10 +59,13 @@ export default async function (options: MigrateOptions) {
 	});
 
 	if (isCancel(sourceFolders)) {
-		cli.error('Migration cancelled by user.');
+		cli.error('Migration canceled, nothing written to disk');
 		return;
 	}
 
+	let theme: string | null = null;
+
+	// Migrate package.json
 	const packageSpinner = spinner();
 	packageSpinner.start(`Migrating ${pkg.matcher}...`);
 	try {
@@ -61,52 +73,41 @@ export default async function (options: MigrateOptions) {
 		const skeletonVersion = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
 		const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
 		const transformedPkg = transformPackage(pkgCode, skeletonVersion, skeletonSvelteVersion);
-		await writeFile(pkg.paths[0], transformedPkg.code);
-		packageSpinner.stop(`Successfully migrated ${pkg.matcher}!`);
+		migrations.push({ path: pkg.paths[0], content: transformedPkg.code });
+		packageSpinner.stop(`Successfully prepared ${pkg.matcher} migration!`);
 	} catch (e) {
-		if (e instanceof Error) {
-			packageSpinner.stop(`Failed to migrate ${pkg.matcher}: ${e.message}`, 1);
-		} else {
-			packageSpinner.stop(`Failed to migrate ${pkg.matcher}`, 1);
-		}
-		cli.error('Cancelled migration due to error');
+		packageSpinner.stop(`Failed to migrate ${pkg.matcher}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+		cli.error('Migration canceled, nothing written to disk');
 	}
 
-	let theme: string | null = null;
-
+	// Migrate tailwind config
 	const tailwindSpinner = spinner();
 	tailwindSpinner.start(`Migrating ${tailwindConfig.matcher}...`);
 	try {
 		const tailwindCode = await readFile(tailwindConfig.paths[0], 'utf-8');
 		const transformedTailwind = transformTailwindConfig(tailwindCode);
 		theme = transformedTailwind.meta.themes.preset.at(0) ?? null;
-		await writeFile(tailwindConfig.paths[0], transformedTailwind.code);
-		tailwindSpinner.stop(`Successfully migrated ${tailwindConfig.matcher}!`);
+		migrations.push({ path: tailwindConfig.paths[0], content: transformedTailwind.code });
+		tailwindSpinner.stop(`Successfully prepared ${tailwindConfig.matcher} migration!`);
 	} catch (e) {
-		if (e instanceof Error) {
-			tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}: ${e.message}`, 1);
-		} else {
-			tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}`, 1);
-		}
-		cli.error('Cancelled migration due to error');
+		tailwindSpinner.stop(`Failed to migrate ${tailwindConfig.matcher}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+		cli.error('Migration canceled, nothing written to disk');
 	}
 
+	// Migrate app.html
 	const appSpinner = spinner();
 	appSpinner.start(`Migrating ${app.matcher}...`);
 	try {
 		const appCode = await readFile(app.paths[0], 'utf-8');
 		const transformedApp = transformApp(appCode, theme ?? FALLBACK_THEME);
-		await writeFile(app.paths[0], transformedApp.code);
-		appSpinner.stop(`Successfully migrated ${app.matcher}!`);
+		migrations.push({ path: app.paths[0], content: transformedApp.code });
+		appSpinner.stop(`Successfully prepared ${app.matcher} migration!`);
 	} catch (e) {
-		if (e instanceof Error) {
-			appSpinner.stop(`Failed to migrate ${app.matcher}: ${e.message}`, 1);
-		} else {
-			appSpinner.stop(`Failed to migrate ${app.matcher}`, 1);
-		}
-		cli.error('Cancelled migration due to error');
+		appSpinner.stop(`Failed to migrate ${app.matcher}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+		cli.error('Migration canceled, nothing written to disk');
 	}
 
+	// Migrate source files
 	const sourceFileMatcher = `{${sourceFolders.join(',')}}/**/*.{js,mjs,ts,mts,svelte}`;
 	const sourceFiles = await fg(sourceFileMatcher, {
 		cwd: cwd,
@@ -119,39 +120,43 @@ export default async function (options: MigrateOptions) {
 		sourceFilesSpinner.message(`Migrating ${sourceFile}...`);
 		const extension = extname(sourceFile);
 		try {
+			const code = await readFile(sourceFile, 'utf-8');
 			if (extension === '.svelte') {
-				const svelteCode = await readFile(sourceFile, 'utf-8');
-				const transformedSvelte = transformSvelte(svelteCode);
-				await writeFile(sourceFile, transformedSvelte.code);
+				const transformedSvelte = transformSvelte(code);
+				migrations.push({ path: sourceFile, content: transformedSvelte.code });
 			} else {
-				const moduleCode = await readFile(sourceFile, 'utf-8');
-				const transformedModule = transformModule(moduleCode);
-				await writeFile(sourceFile, transformedModule.code);
+				const transformedModule = transformModule(code);
+				migrations.push({ path: sourceFile, content: transformedModule.code });
 			}
-			sourceFilesSpinner.message(`Successfully migrated ${sourceFile}!!`);
+			sourceFilesSpinner.message(`Successfully prepared ${sourceFile} migration!`);
 		} catch (e) {
-			if (e instanceof Error) {
-				sourceFilesSpinner.stop(`Failed to migrate ${sourceFile}: ${e.message}`, 1);
-			} else {
-				sourceFilesSpinner.stop(`Failed to migrate ${sourceFile}`, 1);
-			}
-			cli.error('Cancelled migration due to error');
+			sourceFilesSpinner.stop(`Failed to migrate ${sourceFile}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+			cli.error('Migration canceled, nothing written to disk');
 		}
 	}
-	sourceFilesSpinner.stop('Successfully migrated all source files!');
+	sourceFilesSpinner.stop('Successfully prepared all source file migrations!');
 
+	// Write all migrations to disk
+	const writeSpinner = spinner();
+	writeSpinner.start('Applying all migrations to disk...');
+	try {
+		await Promise.all(migrations.map(({ path, content }) => writeFile(path, content)));
+		writeSpinner.stop('Successfully applied all migrations to disk!');
+	} catch (e) {
+		writeSpinner.stop(`Failed to apply migrations: ${e instanceof Error ? e.message.replace('\n', ' ') : 'Unknown error'}`, 1);
+		cli.error('Migration canceled');
+	}
+
+	// Install dependencies
 	const installDependenciesSpinner = spinner();
 	installDependenciesSpinner.start('Installing dependencies...');
 	try {
 		await installDependencies(cwd);
 		installDependenciesSpinner.stop('Successfully installed dependencies!');
 	} catch (e) {
-		if (e instanceof Error) {
-			installDependenciesSpinner.stop(`Failed to install dependencies: ${e.message}`);
-		} else {
-			installDependenciesSpinner.stop('Failed to install dependencies', 1);
-		}
-		cli.error('Cancelled migration due to error');
+		installDependenciesSpinner.stop(`Failed to install dependencies: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+		cli.error('Migration canceled');
+		return;
 	}
-	log.info('Migration complete! Visit https://next.skeleton.dev/ to learn more about all the new features in Skeleton V3.');
+	log.info('Migration complete! Visit https://skeleton.dev for more information.');
 }
