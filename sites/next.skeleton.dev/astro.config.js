@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import path from 'node:path';
 
 // Integrations
+import partytown from '@astrojs/partytown';
 import tailwind from '@astrojs/tailwind';
 import svelte from '@astrojs/svelte';
 import react from '@astrojs/react';
@@ -17,6 +18,8 @@ import pagefind from 'vite-plugin-pagefind';
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
+		// https://docs.astro.build/en/guides/integrations-guide/partytown/
+		partytown(),
 		// https://docs.astro.build/en/guides/integrations-guide/tailwind/
 		tailwind(),
 		// https://docs.astro.build/en/guides/integrations-guide/svelte/
