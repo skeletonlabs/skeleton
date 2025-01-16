@@ -21,7 +21,12 @@ const pageTitle = `${title ? title + ' - ' : ''}Skeleton`;
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 		<!-- Analytics -->
-		<script defer data-domain="next.skeleton.dev" src="https://events.plygrnd.org/js/script.outbound-links.js" is:inline></script>
+		<script
+			type="text/partytown"
+			defer
+			data-domain="next.skeleton.dev"
+			src="https://events.plygrnd.org/js/script.outbound-links.js"
+			is:inline></script>
 		<script>
 			// @ts-expect-error for window.plausible
 			window.plausible =
