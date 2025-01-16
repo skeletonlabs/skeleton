@@ -53,7 +53,7 @@ export default async function (options: MigrateOptions) {
 		ignore: ['node_modules']
 	});
 	const sourceFolders = await multiselect({
-		message: 'What folders make use of Skeleton? (classes, imports, etc...)',
+		message: 'What folders make use of Skeleton? (classes, imports, etc.)',
 		options: availableSourceFolders.map((folder) => ({ label: folder, value: folder })),
 		initialValues: availableSourceFolders
 	});
