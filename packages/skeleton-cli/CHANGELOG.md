@@ -1,5 +1,19 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.6
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Renaming components no longer includes a bug that could cause invalid components to be produced in bigger components ([#3110](https://github.com/skeletonlabs/skeleton/pull/3110))
+
+- Bugfix (migrate/skeleton-3): Empty strings no longer crash the `transformSvelte` function ([#3110](https://github.com/skeletonlabs/skeleton/pull/3110))
+
+- Bugfix: Fixed longstanding bug of svelte files not being transformed properly. ([#3110](https://github.com/skeletonlabs/skeleton/pull/3110))
+
+- Feature (migrate/skeleton-3): `TabGroup` is now renamed to `Tabs` ([#3110](https://github.com/skeletonlabs/skeleton/pull/3110))
+
+- Feature (migrate/skeleton-3): All file transformations are batched to write to disk at the end of the migration, this will prevent any files being written to disk if any of the file transformations fail. ([#3110](https://github.com/skeletonlabs/skeleton/pull/3110))
+
 ## 0.0.1-next.5
 
 ### Patch Changes
