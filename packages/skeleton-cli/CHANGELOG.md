@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.7
+
+### Patch Changes
+
+- Feature: Name, description and version are now pulled from the `package.json`. ([#3116](https://github.com/skeletonlabs/skeleton/pull/3116))
+
+- Bugfix (migrate/skeleton-3): Remove `fixUnusedIdentifiers` calls to reduce migration noise. ([#3119](https://github.com/skeletonlabs/skeleton/pull/3119))
+
 ## 0.0.1-next.6
 
 ### Patch Changes
