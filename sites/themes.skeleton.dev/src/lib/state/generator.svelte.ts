@@ -4,7 +4,7 @@ import type { Globals, SettingsCore, SettingsBackgrounds, SettingsTypography, Se
 // Globals
 
 export const globals: Globals = $state({
-	/** Set the preivew panel: preview | code */
+	/** Set the preview panel: preview | code */
 	panel: 'preview',
 	activeColor: 'primary'
 });

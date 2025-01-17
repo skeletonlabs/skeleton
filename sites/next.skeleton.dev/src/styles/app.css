@@ -5,7 +5,7 @@ body {
 	@apply h-full;
 }
 
-/* Local Utiilties --- */
+/* Local Utilities --- */
 
 .flex-centered {
 	@apply flex items-center justify-center;

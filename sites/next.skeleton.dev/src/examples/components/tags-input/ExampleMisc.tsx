@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { TagsInput } from '@skeletonlabs/skeleton-react';
 
 export const Page: React.FC = () => {
-	const [flavors, setFlavors] = useState(['Vanilla', 'Chocolate', 'Stawberry']);
+	const [flavors, setFlavors] = useState(['Vanilla', 'Chocolate', 'Strawberry']);
 
 	return (
 		<section className="w-full space-y-4">

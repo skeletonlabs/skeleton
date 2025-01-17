@@ -48,7 +48,7 @@
 		<div class="bg-warning-500 h-full"></div>
 		<div class="bg-error-500 h-full"></div>
 	</div>
-	<!-- Masonary -->
+	<!-- Masonry -->
 	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
 		<!-- Column 1 -->
 		<div class="space-y-10">
@@ -178,7 +178,7 @@
 			<button type="button" class="btn {currentPresets.filled}">Login</button>
 		{/snippet}
 	</AppBar>
-	<!-- Masonary -->
+	<!-- Masonry -->
 	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
 		<!-- Column 1: Image -->
 		<div

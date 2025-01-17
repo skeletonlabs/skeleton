@@ -11,7 +11,7 @@ describe('TagsInput', () => {
 		delete: 'tag-delete'
 	};
 	const commonProps = {
-		value: ['Vanilla', 'Chocolate', 'Stawberry']
+		value: ['Vanilla', 'Chocolate', 'Strawberry']
 	};
 
 	it('Renders the component', () => {

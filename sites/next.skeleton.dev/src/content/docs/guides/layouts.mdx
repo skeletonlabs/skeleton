@@ -51,7 +51,7 @@ Prioritize the `<body>` element as the scrollable page element over child elemen
 1. Mobile browser's "pull to refresh" feature will not work as expected.
 2. The Mobile Safari's browser interface will not auto-hide when scrolling vertically.
 3. CSS print styles may not work as expected.
-4. Accessbility may be adversely affected, especially on touch screen devices.
+4. Accessability may be adversely affected, especially on touch screen devices.
 5. May introduce inconsistent behavior between your app framework's layout solution.
 
 ## Tailwind Utilities
@@ -94,7 +94,7 @@ The following options are available for both [Flexbox](https://css-tricks.com/sn
 We recommend you utilize Tailwind's built-in [responsive breakpoints](https://tailwindcss.com/docs/responsive-design) for handling responsive design.
 
 ```html
-<!-- Use a single column on small screens; show multiple columns at the medium breakpoit or wider -->
+<!-- Use a single column on small screens; show multiple columns at the medium breakpoint or wider -->
 <div class="grid grid-cols-1 md:grid-cols-[auto_1fr]">
 	<!-- Hide the sidebar on small screens; show at the medium breakpoint or wider -->
 	<aside class="hidden md:block">(sidebar)</aside>
@@ -164,7 +164,7 @@ If you wish for your header or sidebar to remain fixed while scrolling, try the 
 
 ### Sticky Header
 
-For `<header>`, we'll implement a few specific utlity classes:
+For `<header>`, we'll implement a few specific utility classes:
 
 - [sticky](https://tailwindcss.com/docs/position#sticky-positioning-elements) - Sets the CSS display to a value of sticky.
 - [top-0](https://tailwindcss.com/docs/top-right-bottom-left) - Sets the top offset to a value of 0px.
@@ -211,7 +211,7 @@ You may use the [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) pr
 <aside class="... sticky top-0 h-[calc(100vh-100px)]">(sidebar)</aside>
 ```
 
-1. Sets the `height` value using an abitrary syntax
+1. Sets the `height` value using an arbitrary syntax
 2. The initial value is set to 100vh (100% of the viewport height)
 3. Finally we subtrack the offset for our header (ex: 100px)
 

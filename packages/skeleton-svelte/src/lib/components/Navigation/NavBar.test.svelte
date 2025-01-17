@@ -1,4 +1,4 @@
-<!-- Navigation Bar Test Copmonent -->
+<!-- Navigation Bar Test Component -->
 
 <script lang="ts">
 	import { Navigation } from '$lib/index.js';

@@ -3,7 +3,7 @@ import { TagsInput } from '$lib/components/TagsInput/TagsInput.js';
 import { XCircle as IconDelete } from 'lucide-react';
 
 export function Component() {
-	const [flavors, setFlavors] = useState(['Vanilla', 'Chocolate', 'Stawberry']);
+	const [flavors, setFlavors] = useState(['Vanilla', 'Chocolate', 'Strawberry']);
 
 	return (
 		<div className="space-y-10">
