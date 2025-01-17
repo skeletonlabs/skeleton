@@ -1,0 +1,5 @@
+<script>
+	const foo = true;
+</script>
+
+<div class:rounded={foo}></div>
