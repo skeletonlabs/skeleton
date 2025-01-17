@@ -5,13 +5,8 @@ import { Node } from 'ts-morph';
 import { addNamedImport } from '../../../../../utility/ts-morph/add-named-import';
 import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file';
 
-interface TransformModuleOptions {
-	fixUnusedIdentifiers?: boolean;
-}
-
-function transformModule(code: string, options: TransformModuleOptions = {}) {
+function transformModule(code: string) {
 	const file = parseSourceFile(code);
-	const fixUnusedIdentifiers = options.fixUnusedIdentifiers ?? true;
 	file.forEachDescendant((node) => {
 		if (Node.isImportDeclaration(node)) {
 			const moduleSpecifier = node.getModuleSpecifier();
@@ -49,9 +44,6 @@ function transformModule(code: string, options: TransformModuleOptions = {}) {
 			node.setLiteralValue(transformClasses(node.getLiteralValue()).code);
 		}
 	});
-	if (fixUnusedIdentifiers) {
-		file.fixUnusedIdentifiers();
-	}
 	return {
 		code: file.getFullText()
 	};

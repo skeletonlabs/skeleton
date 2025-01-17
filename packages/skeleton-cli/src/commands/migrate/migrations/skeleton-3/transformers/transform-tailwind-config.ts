@@ -232,7 +232,6 @@ function transformTailwindConfig(code: string) {
 	const file = parseSourceFile(code);
 	transformTailwindContentOption(file);
 	const themes = transformSkeletonThemesOption(file);
-	file.fixUnusedIdentifiers();
 	return {
 		code: file.getFullText(),
 		meta: {
