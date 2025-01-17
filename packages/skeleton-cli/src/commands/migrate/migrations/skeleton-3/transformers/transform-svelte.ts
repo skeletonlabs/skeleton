@@ -25,9 +25,7 @@ function transformScript(s: MagicString, script: AST.Script) {
 		throw new Error('Script tags not found in content');
 	}
 	const codeContent = content.slice(openingTag.length, content.length - closingTag.length);
-	const transformed = transformModule(codeContent, {
-		fixUnusedIdentifiers: false
-	});
+	const transformed = transformModule(codeContent);
 	if (!transformed.code.trim()) {
 		s.overwrite(script.start, script.end, '');
 	} else {
