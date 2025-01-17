@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 import { intro, log, outro } from '@clack/prompts';
-import { migrate } from './commands/migrate/index.js';
+import { migrate } from './commands/migrate';
 import { bgBlueBright, bgGreenBright, black, dim, red } from 'colorette';
 import { Command } from 'commander';
+import { getOurPackageJson } from './utility/get-our-package-json';
+
+const pkg = await getOurPackageJson();
 
 const cli = new Command()
-	.name('@skeletonlabs/skeleton-cli')
-	.description('The CLI for Skeleton related tooling.')
+	.name(pkg.name)
+	.description(pkg.description)
+	.version(pkg.version)
 	.addCommand(migrate)
 	.copyInheritedSettings(migrate)
 	.configureOutput({
@@ -15,10 +19,6 @@ const cli = new Command()
 			outro(red(str.replace('\n', ' ')));
 			process.exit(1);
 		}
-	})
-	.addHelpText('afterAll', () => {
-		outro(bgGreenBright(black(' All Done! ')));
-		return '';
 	})
 	.hook('preAction', (_, ctx) => {
 		const args = ctx.args.join(' ');
@@ -34,6 +34,6 @@ async function main() {
 	outro(bgGreenBright(black(' All Done! ')));
 }
 
-main();
+await main();
 
 export { cli };
