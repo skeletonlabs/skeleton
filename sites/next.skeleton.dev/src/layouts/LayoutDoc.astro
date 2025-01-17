@@ -44,7 +44,7 @@ const { frontmatter, headings } = Astro.props satisfies Props;
 // Layout Props
 const layoutProps = {
 	title: frontmatter.title,
-	classList: 'grid grid-rows-[auto_1fr] xl:grid-rows-[auto_1fr_auto]'
+	classList: 'grid grid-rows-[auto_1fr]'
 };
 // GitHub Settings
 const branch = 'next';
@@ -63,17 +63,17 @@ const urls = {
 	<!-- Header -->
 	<Header />
 	<!-- Page -->
-	<div class="container mx-auto grid grid-cols-1 xl:grid-cols-[200px_minmax(0px,_1fr)_290px]">
+	<div class="container mx-auto grid grid-cols-1 xl:grid-cols-[240px_1fr_280px]">
 		<!-- Navigation -->
-		<aside class="sticky top-0 hidden max-h-screen self-start overflow-y-auto p-4 py-10 pb-96 xl:block xl:px-0" data-navigation>
+		<aside class="hidden xl:block self-start sticky top-[70px] h-[calc(100vh-70px)] py-4 xl:py-10 !pb-96 overflow-y-auto" data-navigation>
 			<Navigation />
 		</aside>
 		<!-- Main -->
-		<main class="space-y-8 self-start p-4 xl:p-10 xl:pb-48" id="_top">
-			<!-- Breadcrumbs -->
-			<Breadcrumbs />
+		<main class="px-4 xl:p-10 py-10 space-y-8 [&_.scroll-header]:scroll-mt-[calc(70px+40px)]">
 			<!-- Header -->
-			<header class="space-y-4" data-pagefind-body>
+			<header class="scroll-header space-y-4" data-pagefind-body id="_top">
+				<!-- Breadcrumbs -->
+				<Breadcrumbs />
 				<h1 class="h1">{frontmatter.title ?? '(title)'}</h1>
 				<p class="type-scale-4 opacity-60">{frontmatter.description ?? '(description)'}</p>
 			</header>
@@ -85,18 +85,19 @@ const urls = {
 			<article class="space-y-8" data-pagefind-body>
 				<slot />
 			</article>
-			<!-- API Reference -->
-			<!-- TODO: add API tables here -->
+			<!-- Footer -->
+			<Footer />
 		</main>
 		<!-- Sidebar -->
-		<aside class="sticky top-0 hidden max-h-screen self-start overflow-y-auto p-4 xl:block xl:p-10 xl:pl-0">
-			<!-- TODO: add Carbon Ads here -->
-			<!-- Table of Components -->
+		<aside class="hidden xl:block self-start sticky top-[70px] h-[calc(100vh-70px)] py-4 xl:py-10 space-y-8 overflow-y-auto">
+			<!-- Carbon Ads -->
+			<!-- <div class="card aspect-video flex justify-center items-center preset-tonal">(ad)</div> -->
+			<!-- Table of Contents -->
 			<TableOfContents {headings} />
+			<!-- Promot -->
+			<!-- <div class="card aspect-video flex justify-center items-center preset-tonal">(promo)</div> -->
 		</aside>
 	</div>
-	<!-- Footer -->
-	<Footer />
 </LayoutRoot>
 
 <script>

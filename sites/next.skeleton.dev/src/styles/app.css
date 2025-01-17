@@ -1,8 +1,7 @@
 /* Global Styles */
 
-html,
-body {
-	@apply h-full;
+html {
+	scroll-behavior: smooth;
 }
 
 /* Local Utiilties --- */
