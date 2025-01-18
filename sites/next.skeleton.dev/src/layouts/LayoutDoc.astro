@@ -63,13 +63,13 @@ const urls = {
 	<!-- Header -->
 	<Header />
 	<!-- Page -->
-	<div class="container mx-auto grid grid-cols-1 xl:grid-cols-[240px_1fr_280px]">
+	<div class="container mx-auto grid grid-cols-1 xl:grid-cols-[240px_1fr_280px] px-4 xl:px-10">
 		<!-- Navigation -->
 		<aside class="hidden xl:block self-start sticky top-[70px] h-[calc(100vh-70px)] py-4 xl:py-10 !pb-96 overflow-y-auto" data-navigation>
 			<Navigation />
 		</aside>
 		<!-- Main -->
-		<main class="px-4 xl:p-10 py-10 space-y-8 [&_.scroll-header]:scroll-mt-[calc(70px+40px)]">
+		<main class="px-4 xl:px-10 py-10 !pb-96 space-y-8 [&_.scroll-header]:scroll-mt-[calc(70px+40px)]">
 			<!-- Header -->
 			<header class="scroll-header space-y-4" data-pagefind-body id="_top">
 				<!-- Breadcrumbs -->
@@ -86,7 +86,7 @@ const urls = {
 				<slot />
 			</article>
 			<!-- Footer -->
-			<Footer />
+			<Footer classList="py-4 px-4 xl:px-0" />
 		</main>
 		<!-- Sidebar -->
 		<aside class="hidden xl:block self-start sticky top-[70px] h-[calc(100vh-70px)] py-4 xl:py-10 space-y-8 overflow-y-auto">

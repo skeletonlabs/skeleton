@@ -6,7 +6,7 @@ import Header from '@components/docs/Header.astro';
 import Footer from '@components/docs/Footer.astro';
 
 const layoutProps = {
-	classList: 'grid grid-rows-[auto_1fr_auto] gap-10'
+	classList: ''
 };
 
 // Bluesky News Feed
@@ -71,7 +71,7 @@ function dateFormatter(date: string) {
 	<!-- Header -->
 	<Header />
 	<!-- Main -->
-	<main class="max-w-3xl mx-auto space-y-10 px-4">
+	<main class="max-w-3xl mx-auto space-y-10 px-4 py-10">
 		<header class="flex justify-between items-center">
 			<h2 class="h2">Latest News</h2>
 			<a
