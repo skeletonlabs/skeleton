@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.9
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Partially reverts the previous change to `hasRange` and checks for empty strings instead as it's more consistent in the cases where we're preserving quotes. ([#3125](https://github.com/skeletonlabs/skeleton/pull/3125))
+
 ## 0.0.1-next.8
 
 ### Patch Changes
