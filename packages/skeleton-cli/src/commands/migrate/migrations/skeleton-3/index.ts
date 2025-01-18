@@ -108,33 +108,35 @@ export default async function (options: MigrateOptions) {
 	}
 
 	// Migrate source files
-	const sourceFileMatcher = `{${sourceFolders.join(',')}}/**/*.{js,mjs,ts,mts,svelte}`;
-	const sourceFiles = await fg(sourceFileMatcher, {
-		cwd: cwd,
-		ignore: ['node_modules']
-	});
+	if (sourceFolders.length > 0) {
+		const sourceFileMatcher = `${sourceFolders.length === 1 ? sourceFolders.at(0) : `{${sourceFolders.join(',')}}`}/**/*.{js,mjs,ts,mts,svelte}`;
+		const sourceFiles = await fg(sourceFileMatcher, {
+			cwd: cwd,
+			ignore: ['node_modules']
+		});
 
-	const sourceFilesSpinner = spinner();
-	sourceFilesSpinner.start(`Migrating source files...`);
-	for (const sourceFile of sourceFiles) {
-		sourceFilesSpinner.message(`Migrating ${sourceFile}...`);
-		const extension = extname(sourceFile);
-		try {
-			const code = await readFile(sourceFile, 'utf-8');
-			if (extension === '.svelte') {
-				const transformedSvelte = transformSvelte(code);
-				migrations.push({ path: sourceFile, content: transformedSvelte.code });
-			} else {
-				const transformedModule = transformModule(code);
-				migrations.push({ path: sourceFile, content: transformedModule.code });
+		const sourceFilesSpinner = spinner();
+		sourceFilesSpinner.start(`Migrating source files...`);
+		for (const sourceFile of sourceFiles) {
+			sourceFilesSpinner.message(`Migrating ${sourceFile}...`);
+			const extension = extname(sourceFile);
+			try {
+				const code = await readFile(sourceFile, 'utf-8');
+				if (extension === '.svelte') {
+					const transformedSvelte = transformSvelte(code);
+					migrations.push({ path: sourceFile, content: transformedSvelte.code });
+				} else {
+					const transformedModule = transformModule(code);
+					migrations.push({ path: sourceFile, content: transformedModule.code });
+				}
+				sourceFilesSpinner.message(`Successfully migrated ${sourceFile}!`);
+			} catch (e) {
+				sourceFilesSpinner.stop(`Failed to migrate ${sourceFile}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+				cli.error('Migration canceled, nothing written to disk');
 			}
-			sourceFilesSpinner.message(`Successfully migrated ${sourceFile}!`);
-		} catch (e) {
-			sourceFilesSpinner.stop(`Failed to migrate ${sourceFile}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
-			cli.error('Migration canceled, nothing written to disk');
 		}
+		sourceFilesSpinner.stop('Successfully migrated all source files!');
 	}
-	sourceFilesSpinner.stop('Successfully migrated all source files!');
 
 	// Write all migrations to disk
 	const writeSpinner = spinner();
