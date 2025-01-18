@@ -1,7 +1,7 @@
 ---
 import { Menu as IconMenu, X as IconClose } from 'lucide-react';
-// import Lightswitch from './Lightswitch.astro';
-// import ThemeSwitch from './ThemeSwitch.astro';
+import ThemeSwitch from './ThemeSwitch.astro';
+import Lightswitch from './Lightswitch.astro';
 
 interface DrawerProps {
 	navigation?: {
@@ -15,7 +15,7 @@ interface DrawerProps {
 
 const {
 	navigation = [],
-	base = 'xl:hidden preset-filled-surface-100-900 shadow-xl fixed top-0 left-0 bottom-0 z-50 w-[320px] p-4 pb-24 space-y-10 overflow-y-auto transition-transform duration-100 -translate-x-[320px]',
+	base = 'xl:hidden preset-filled-surface-100-900 shadow-xl fixed top-0 left-0 bottom-0 h-screen z-50 w-[320px] p-4 pb-24 space-y-10 overflow-y-auto transition-transform duration-100 -translate-x-[320px]',
 	classes = ''
 }: DrawerProps = Astro.props;
 ---
@@ -30,10 +30,10 @@ const {
 		</button>
 	</header>
 	<!-- Theme / Lightswitch -->
-	<!-- <div class="grid grid-cols-[1fr_auto] gap-4 items-center">
+	<div class="grid grid-cols-[1fr_auto] gap-4 items-center">
 		<ThemeSwitch />
 		<Lightswitch />
-	</div> -->
+	</div>
 	<!-- Navigation -->
 	<nav class="flex flex-col gap-2">
 		<span class="font-bold capitalize">Navigate</span>
@@ -57,7 +57,7 @@ const {
 
 <script is:inline>
 	const elemDrawer = document.querySelector('#drawer');
-	const elemTriggersList = document.querySelectorAll('[data-drawer-toggle], #drawer button, #drawer a');
+	const elemTriggersList = document.querySelectorAll('[data-drawer-toggle], #drawer a');
 
 	// For each toggleable element
 	elemTriggersList.forEach((elem) => {
