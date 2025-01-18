@@ -129,7 +129,7 @@
 	.input-group {
 		@apply grid overflow-hidden;
 	}
-	.input-group input,
+	.input-group input:not([type="checkbox"]):not([type="radio"]),
 	.input-group select {
 		@apply border-0 !ring-0 bg-transparent;
 	}
