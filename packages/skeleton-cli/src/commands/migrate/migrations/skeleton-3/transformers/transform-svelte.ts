@@ -67,7 +67,7 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 				ctx.next();
 			},
 			Component(node, ctx) {
-				if (node.name in COMPONENT_MAPPINGS && hasRange(node)) {
+				if (Object.hasOwn(COMPONENT_MAPPINGS, node.name) && hasRange(node)) {
 					renameComponent(s, node, COMPONENT_MAPPINGS[node.name]);
 				}
 				ctx.next();
