@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.8
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Selecting a single folder would cause 0 files to be globbed. ([#3123](https://github.com/skeletonlabs/skeleton/pull/3123))
+
+- Bugfix (migrate/skeleton-3): Additionally check if range actually has characters (start < end). ([#3123](https://github.com/skeletonlabs/skeleton/pull/3123))
+
 ## 0.0.1-next.7
 
 ### Patch Changes
