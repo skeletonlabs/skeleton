@@ -34,7 +34,7 @@ function transformScript(s: MagicString, script: AST.Script) {
 }
 
 function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
-	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number';
+	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number' && node.start < node.end;
 }
 
 function transformFragment(s: MagicString, fragment: AST.Fragment) {
@@ -44,14 +44,16 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 		{
 			Literal(node, ctx) {
 				const parent = ctx.path.at(-1);
-				if (typeof node.value === 'string' && node.value !== '' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
+				if (typeof node.value === 'string' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
 					// Add 1 to the start and subtract 1 from the end to exclude (and thus preserve) the quotes
 					s.update(node.start + 1, node.end - 1, transformClasses(node.value).code);
 				}
 				ctx.next();
 			},
 			Text(node, ctx) {
-				s.update(node.start, node.end, transformClasses(node.data).code);
+				if (hasRange(node)) {
+					s.update(node.start, node.end, transformClasses(node.data).code);
+				}
 				ctx.next();
 			},
 			ClassDirective(node, ctx) {
