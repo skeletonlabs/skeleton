@@ -1,0 +1,203 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Astro
+description: Install and configure Skeleton for Astro.
+order: 1000
+---
+
+export const components = componentSet;
+
+import Process from '@components/docs/Process.astro';
+import ProcessStep from '@components/docs/ProcessStep.astro';
+
+{/* --- */}
+
+## Requirements
+
+| Tooling | Minimum Version |
+|---|---|
+| [Astro](https://vite.dev/) | 5 |
+| [React](https://react.dev/) | 18 |
+| [Svelte](https://svelte.dev/) | 5 |
+| [Tailwind](https://tailwindcss.com/) | 3 |
+
+## Installation
+
+<div class="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
+	<p>WARNING: The following guide will install a pre-release version of Skeleton v3. Be aware that some features may be missing, incomplete, or non-functional at this time. Please report bugs and issues on <a class='underline' href='https://github.com/skeletonlabs/skeleton/issues/new/choose' target='_blank' rel='external'>GitHub</a> or <a class='underline' href='https://discord.gg/EXqV7W8MtY' target='_blank' rel='external'>Discord</a>.</p>
+</div>
+
+Learn how to install the Skeleton core into your Astro project. We'll cover using components in the section below.
+
+<Process>
+    <ProcessStep step="1">
+        ### Create a Project
+        Start by creating a new Astro project. We recommend selecting all default options.
+        ```console
+        npm create astro@latest my-skeleton-app
+		cd my-skeleton-app
+        ```
+    </ProcessStep>
+    <ProcessStep step="2">
+        ### Install Tailwind
+        Install Tailwind using Astro Add:
+        ```console
+        npx astro add tailwind
+        ```
+    </ProcessStep>
+    <ProcessStep step="3">
+        ### Install Skeleton
+        Install the Skeleton core package for the Tailwind plugin. Once again, please note this does not include components.
+        ```console
+        npm i -D @skeletonlabs/skeleton@next
+        ```
+    </ProcessStep>
+    <ProcessStep step="4">
+        ### Configure Tailwind
+        Open `tailwind.config` in the root of your project and make the following changes:
+        ```ts title="tailwind.config" {1,2, 11-14}
+		import { skeleton } from '@skeletonlabs/skeleton/plugin';
+		import * as themes from '@skeletonlabs/skeleton/themes';
+
+        /** @type {import('tailwindcss').Config} */
+		export default {
+			content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+			theme: {
+				extend: {},
+			},
+			plugins: [
+				skeleton({
+					// NOTE: each theme included will increase the size of your CSS bundle
+					themes: [themes.cerberus, themes.rose],
+				}),
+			],
+		};
+        ```
+    </ProcessStep>
+    <ProcessStep step="5">
+        ### Remove Default Content and Styles
+        We recommend you open `/src/components/welcome.astro` and remove all default HTML and CSS. Here's a simple starter layout.
+		```astro
+		---
+		const framework = 'Astro';
+		---
+
+		<main class="p-10 space-y-4">
+			<h1 class="h1">Hello {framework}</h1>
+			<p>This page is working.</p>
+			<button type="button" class="btn preset-filled">Example Button</button>
+		</main>
+		```
+    </ProcessStep>
+	<ProcessStep step="6">
+        ### Set Active Theme
+        Open `/src/layouts/Layout.astro`, then set the `data-theme` attribute on the body tag to define the active theme.
+        ```html title="layouts/Layout.astro"
+        <body data-theme="cerberus">...</body>
+        ```
+    </ProcessStep>
+    <ProcessStep step="check">
+        ### Run the Project
+        Start the dev server using the following command.
+		```console
+		npm run dev
+        ```
+    </ProcessStep>
+</Process>
+---
+
+## Using Components in Astro
+
+While Astro can support [multiple Frontend frameworks](https://docs.astro.build/en/guides/integrations-guide/), please be aware this comes with some notable restrictions:
+
+- With the exception of this [experimental flag for React children](https://docs.astro.build/en/guides/integrations-guide/react/#children-parsing), components cannot utilize slotted content in `.astro` files.
+- You will need to install additional packages for both Astro and Skeleton per your framework of choice.
+- You may need a *wrapper* component to use to utilize all component feature. We'll demo this below.
+
+<Process>
+    <ProcessStep step="1">
+        ### Astro Framework Packages
+        Install only the Astro framework(s) packages you intend to use.
+        ```console
+        npx astro add react
+        ```
+		https://docs.astro.build/en/guides/integrations-guide/react/
+        ```console
+		npx astro add svelte
+        ```
+		https://docs.astro.build/en/guides/integrations-guide/svelte/
+    </ProcessStep>
+	<ProcessStep step="2">
+        ### Skeleton Framework Packages
+        Install only the Skeleton framework(s) packages you intend to use.
+        ```console
+       	@skeletonlabs/skeleton-react@next
+        ```
+        ```console
+		@skeletonlabs/skeleton-svelte@next
+        ```
+    </ProcessStep>
+	<ProcessStep step="3">
+        ### Configure Tailwind
+        Open `tailwind.config` in the root of your project and make these changes. First, include the `contentPath` import.
+        ```ts
+       	import { skeleton, contentPath } from '@skeletonlabs/skeleton';
+        ```
+		Then append `content` for ONLY the framework(s) you intend to use.
+        ```ts
+		export default {
+			{/* ... */}
+			content: [
+				'./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', // <-- Keep this
+				contentPath(import.meta.url, 'react'), // <-- Add this for React
+				contentPath(import.meta.url, 'svelte') // <-- Add this for Svelte
+			],
+			{/* ... */}
+		};
+        ```
+    </ProcessStep>
+	<ProcessStep step="4">
+        ### Using Wrapper Components
+        In most cases, frontend framework components may not be fully functional if used directly within `.astro` files. To overcome this, you may utilize a wrapper component of that framework. Here's a demo using the Skeleton Avatar component as an example.
+		#### React
+		```tsx title="ReactAvatarWrapper.tsx"
+		import React from 'react';
+		import { Avatar } from '@skeletonlabs/skeleton-react';
+
+		export const ReactAvatarWrapper: React.FC = () => {
+			const imgSrc = '...';
+			return <Avatar src={imgSrc} name="skeleton" />;
+		};
+		```
+		```astro title="page.astro"
+		---
+		import { ReactAvatarWrapper } from '@components/ReactAvatarWrapper';
+		---
+
+		<ReactAvatarWrapper />
+		```
+		#### Svelte
+		```svelte title="SvelteAvatarWrapper.svelte"
+		<script lang="ts">
+		import { Avatar } from '@skeletonlabs/skeleton-svelte';
+		const imgSrc = '...';
+		</script>
+
+		<Avatar src={imgSrc} name="skeleton" />
+		```
+		```astro title="page.astro"
+		---
+		import { SvelteAvatarWrapper } from '@components/SvelteAvatarWrapper';
+		---
+
+		<SvelteAvatarWrapper />
+		```
+    </ProcessStep>
+	<ProcessStep step="check">
+        ### Run the Project
+        Start the dev server using the following command.
+		```console
+		npm run dev
+        ```
+    </ProcessStep>
+</Process>

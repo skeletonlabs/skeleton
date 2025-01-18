@@ -33,7 +33,6 @@ export const Slider: FC<SliderProps> = ({
 	thumbRingSize = 'ring-2',
 	thumbRingColor = 'ring-surface-950-50',
 	thumbRounded = 'rounded-full',
-	thumbScale = 'hover:scale-125',
 	thumbCursor = 'hover:cursor-pointer',
 	thumbClasses = '',
 	// Markers ---
@@ -68,7 +67,7 @@ export const Slider: FC<SliderProps> = ({
 
 	// Reactive
 	const rxDisabled = state.context.disabled ? stateDisabled : '';
-	const rxReadOnly = state.context.readOnly ? stateReadOnly : `${thumbScale} ${thumbCursor}`;
+	const rxReadOnly = state.context.readOnly ? stateReadOnly : thumbCursor;
 
 	return (
 		<div {...api.getRootProps()} className={`${base} ${height} ${rxDisabled} ${classes}`} data-testid="slider">

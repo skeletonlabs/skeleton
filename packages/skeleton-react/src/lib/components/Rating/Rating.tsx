@@ -16,7 +16,7 @@ export const Rating: FC<RatingProps> = ({
 	controlGap = 'gap-2',
 	controlClasses,
 	// Label
-	labelBase = '',
+	labelBase = 'label-text',
 	labelClasses = '',
 	// Item
 	itemBase = '',
@@ -65,7 +65,6 @@ export const Rating: FC<RatingProps> = ({
 				className={`${controlBase} ${controlGap} ${rxInteractive} ${rxReadOnly} ${rxDisabled} ${controlClasses}`}
 				data-testid="rating-control"
 			>
-				{/* FIXME: `item` is causing React key error; is not unique on re-render? */}
 				{api.items.map((item) => {
 					const itemState = api.getItemState({ index: item });
 					const icon = (() => {
@@ -78,12 +77,10 @@ export const Rating: FC<RatingProps> = ({
 						}
 					})();
 					return (
-						<>
+						<span key={item} {...api.getItemProps({ index: item })} className={`${itemBase} ${itemClasses}`} data-testid="rating-item">
 							{/* Item */}
-							<span key={item} {...api.getItemProps({ index: item })} className={`${itemBase} ${itemClasses}`} data-testid="rating-item">
-								{icon}
-							</span>
-						</>
+							{icon}
+						</span>
 					);
 				})}
 			</div>

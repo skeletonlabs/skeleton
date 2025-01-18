@@ -9,7 +9,13 @@ export const components = componentSet;
 
 ## Astro
 
-The Skeleton documentation is created using [Astro](https://astro.build/).
+The Skeleton documentation website is maintained using the Astro framework.
+
+<figure class="linker">
+	<a href="https://astro.build/" target="_blank" class="btn preset-filled">
+		Astro Documentation &rarr;
+	</a>
+</figure>
 
 ### Integrations
 
@@ -34,13 +40,14 @@ Navigate the app structure within the `/src` directory. This includes the follow
 | `/icons`      | Contains custom SVG icons for the site.   |
 | `/layouts`    | The Astro page layouts.                   |
 | `/pages`      | The Astro page route templates.           |
-| `/styles`     | All doc site stylesheets.                 |
+| `/stores`     | A collection of Nanostores for state.     |
+| `/styles`     | All documentation website stylesheets.    |
 
 ## Pages
 
 ### Standard Pages
 
-1. Browse to `/content/docs` and create a new `.mdx` file within the appropriate [content collection](https://docs.astro.build/en/guides/content-collections/).
+1. Browse to `/content/docs/` and create a new `.mdx` file within the appropriate [content collection](https://docs.astro.build/en/guides/content-collections/).
 2. Complete all required Frontmatter metadata within the frontmatter `---` fences.
 3. New pages will be automatically added to the sidebar navigation.
 
@@ -49,8 +56,8 @@ Navigate the app structure within the `/src` directory. This includes the follow
 Component page content is split into three files within `/content/docs/components/{feature}/`.
 
 - `meta.mdx` - common frontmatter metadata for the page header (ex: title, description, etc).
-- `react.mdx` - examples and usage information specific to the React component.
-- `svelte.mdx` - examples and usage information specific to the Svelte component.
+- `react.mdx` - examples and usage information specific to the React component tab.
+- `svelte.mdx` - examples and usage information specific to the Svelte component tab.
 
 ### Hidden Pages
 
@@ -62,7 +69,7 @@ View the [Astro MDX Documention](https://docs.astro.build/en/guides/markdown-con
 
 ### MDX Components
 
-This applications makes use of [custom MDX components](https://mdxjs.com/table-of-components/) to enable Skeleton typography styles for page contents. Find these components within `/src/components/mdx`. To enable these components, add the following import.
+This application makes use of [custom MDX components](https://mdxjs.com/table-of-components/) to enable Skeleton typography styles for page contents. Browse these components within `/src/components/mdx`. To enable MDX components for your page, add the following import.
 
 {/* prettier-ignore */}
 ```ts
@@ -73,15 +80,22 @@ export const components = componentSet {/* <-- ADD THIS! */}
 {/* (content) */}
 ```
 
+## Doc-Only Components
+
+Functional components for the Astro project are housed in `/src/components`. These support Astro/Svelte/React.
+
+* Astro - used for simple presentational components without logic.
+* React/Svelte - functional components that implement state, logic, or interaction.
+
 ## Global Components
 
 A suite of global components are automatically imported within MDX pages via [astro-auto-importer](https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import).
 
-> TIP: These components are configure via `astro.config.mjs` > `AutoImport()`
+> TIP: These components are configure via `astro.config.mjs` > `AutoImport()` in the project root.
 
 ### Essential Code
 
-Code Blocks are provided via [Expressive Code](https://expressive-code.com/) while using either the Code component or Markdown fences. This is powered by the [Shiki](https://shiki.matsu.io/) syntaxt highlighter. See the [list of supported languages](https://github.com/shikijs/textmate-grammars-themes/blob/main/packages/tm-grammars/README.md).
+Code Blocks are provided via [Expressive Code](https://expressive-code.com/) via either the `<Code>` component or Markdown fences. This is powered by the [Shiki](https://shiki.matsu.io/) syntaxt highlighter. View the [list of supported languages](https://github.com/shikijs/textmate-grammars-themes/blob/main/packages/tm-grammars/README.md).
 
 ```tsx
 <Code code={`<div>Skeleton<div>`} lang="html" />
@@ -91,7 +105,7 @@ Code Blocks are provided via [Expressive Code](https://expressive-code.com/) whi
 
 ### Preview
 
-Allows you to quickly preview an example component and toggle the source code.
+Allows you to quickly toggle between an exapmle component and it's source code.
 
 ```ts
 import Example from '@examples/foo/Example.astro';
@@ -104,6 +118,8 @@ import ExampleRaw from '@examples/foo/Example.astro?raw';
 	<Fragment slot="code"><Code code={ExampleRaw} lang="html" /></Fragment>
 </Preview>
 ```
+
+> TIP: For React or Svelte components, make sure to use [Astro's hydration directives](https://docs.astro.build/en/guides/framework-components/#hydrating-interactive-components).
 
 ### Tables
 
@@ -122,9 +138,9 @@ export const tableProps: [
 ```
 
 ```html
-<table label="Props" data="{tableData}" tonal>
+<Table label="Props" data="{tableData}" tonal>
 	...
-</table>
+</Table>
 ```
 
 > TIP: Optionally add the `tonal` or `kbd` props to highlight content in the first column.
@@ -133,11 +149,11 @@ export const tableProps: [
 
 ### Lucide
 
-This application implements the [React version](https://lucide.dev/guide/packages/lucide-react) of [Lucide](https://lucide.dev/) for most icons. View <a href="/docs/design/iconography" class="anchor">Iconography</a> for additional information.
+This application implements the [React version](https://lucide.dev/guide/packages/lucide-react) of [Lucide](https://lucide.dev/) for most icons. View <a href="/docs/integrations/iconography/svelte" class="anchor">Iconography</a> details.
 
 ### Astro Icons
 
-This application implements [Astro-Icon](https://www.astroicon.dev/) for local custom SVGs and brand icon.
+Additionally, this application implements [Astro-Icon](https://www.astroicon.dev/) for local custom SVGs and brand icon.
 
 ```ts
 import { Icon } from 'astro-icon/components';
@@ -148,3 +164,8 @@ import { Icon } from 'astro-icon/components';
 <Icon name="react" size={24} />
 <Icon name="svelte" size={24} />
 ```
+
+* Each icon must be provided in a `.svg` format.
+* Icon assets can be located in `/src/icons`
+* The `name` attribute should match the icon filename.
+* You must restart the Astro server when inserting new icons.

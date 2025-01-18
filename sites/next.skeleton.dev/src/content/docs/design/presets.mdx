@@ -1,23 +1,52 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: Presets
-description: Provides a robust preset combination of classes.
+description: Canned styles for your interface elements.
 srcCore: '/plugin/utilities/presets.ts'
 order: 20
 ---
 
 export const components = componentSet;
 
+import Example from '@examples/design/presets/Example.svelte';
+import ExampleRaw from '@examples/design/presets/Example.svelte?raw';
 import ExampleFilled from '@examples/design/presets/ExampleFilled.astro';
 import ExampleFilledRaw from '@examples/design/presets/ExampleFilled.astro?raw';
 import ExampleTonal from '@examples/design/presets/ExampleTonal.astro';
 import ExampleTonalRaw from '@examples/design/presets/ExampleTonal.astro?raw';
 import ExampleOutlined from '@examples/design/presets/ExampleOutlined.astro';
 import ExampleOutlinedRaw from '@examples/design/presets/ExampleOutlined.astro?raw';
+import ExampleCustom from '@examples/design/presets/ExampleCustom.astro';
+import ExampleCustomRaw from '@examples/design/presets/ExampleCustom.astro?raw';
+import ExampleGradient from '@examples/design/presets/ExampleGradient.astro';
+import ExampleGradientRaw from '@examples/design/presets/ExampleGradient.astro?raw';
 
-## Filled
+<p class="type-scale-5">Presets are complex utilty classes that combine various Skeleton primitives. Allowing you quickly style buttons, badges, cards, and more. Create any combination of styles by mixing Skeleton Presets and Tailwind primitives.</p>
 
-Available via `.preset-filled-{color}-{shade}-{shade}`
+<Preview client:load>
+	<Fragment slot="preview">
+		<Example client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+1. **Filled** - a filled preset of the primary brand color.
+2. **Tonal** - a tonal preset of the primary brand color.
+3. **Outlined** - an outlined preset of the primary brand color.
+4. **Elevated** - mixes a filled preset with a shadow.
+5. **Ghost** - has no style by default, but shows a tonal preset on hover.
+6. **Ghost Icon** - has no style by default, but shows a branded tonal preset on hover.
+7. **Gradient** - a custom preset generated using Tailwind gradient primitives.
+
+## Built-Ins
+
+### Filled
+
+```
+preset-filled-{color}-{lightModeShade}-{darkModeShade}
+```
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -28,9 +57,11 @@ Available via `.preset-filled-{color}-{shade}-{shade}`
 	</Fragment>
 </Preview>
 
-## Tonal
+### Tonal
 
-Available via `.preset-tonal-{color}`
+```
+preset-tonal-{color}
+```
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -41,9 +72,11 @@ Available via `.preset-tonal-{color}`
 	</Fragment>
 </Preview>
 
-## Outlined
+### Outlined
 
-Available via `.preset-outlined-{color}-{shade}-{shade}`
+```
+preset-outlined-{color}-{shade}-{shade}
+```
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -54,6 +87,30 @@ Available via `.preset-outlined-{color}-{shade}-{shade}`
 	</Fragment>
 </Preview>
 
-## Gradients
+## Custom Presets
 
-See the [Tailwind Gradient Stops](https://tailwindcss.com/docs/gradient-color-stops) documentation for more information.
+### Create a Preset
+
+Presets are pre-generated combination of Skeleton and Tailwind primitives, which means you can abstract these to create your own set. Add these classes to your global stylesheet and use anywhere you would use the built-in presets. Use the `preset-{foo}` naming scheme to keep things standardized.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCustom />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleCustomRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Gradient Presets
+
+Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/gradient-color-stops) utility classes. Combine these to create your own unique gradient presets.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleGradient />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleGradientRaw} lang="astro" />
+	</Fragment>
+</Preview>

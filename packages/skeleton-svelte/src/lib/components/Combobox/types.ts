@@ -59,7 +59,7 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	/** Set base classes for the option. */
 	optionBase?: string;
 	/** Set focus classes for the option. */
-	optonFocus?: string;
+	optionFocus?: string;
 	/** Set hover classes for the option. */
 	optionHover?: string;
 	/** Set active classes for the option. */
@@ -70,4 +70,8 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	// Snippets ---
 	/** Provide a custom arrow icon. */
 	arrow?: Snippet;
+
+	// Events ---
+	/** Handle the combobox dropdown button click event. */
+	onclick?: (event: Event) => void;
 }

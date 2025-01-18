@@ -1,0 +1,38 @@
+<script>
+	import { Navigation, FileUpload, TagsInput, Pagination, Progress, ProgressRing, Segment, Slider, Switch, Tabs } from "@skeletonlabs/skeleton-svelte";
+
+	Navigation;
+	FileUpload;
+	FileUpload;
+	TagsInput;
+	Pagination;
+	Progress;
+	ProgressRing;
+	Segment;
+	Slider;
+	Switch;
+	Tabs;
+</script>
+
+<Navigation />
+<Navigation></Navigation>
+<FileUpload />
+<FileUpload></FileUpload>
+<FileUpload />
+<FileUpload></FileUpload>
+<TagsInput />
+<TagsInput></TagsInput>
+<Pagination />
+<Pagination></Pagination>
+<Progress />
+<Progress></Progress>
+<ProgressRing />
+<ProgressRing></ProgressRing>
+<Segment />
+<Segment></Segment>
+<Slider />
+<Slider></Slider>
+<Switch />
+<Switch></Switch>
+<Tabs />
+<Tabs></Tabs>

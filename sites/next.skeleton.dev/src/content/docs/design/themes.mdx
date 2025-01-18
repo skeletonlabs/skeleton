@@ -30,9 +30,9 @@ import * as themes from '@skeletonlabs/skeleton/themes';
 
 Optionally you can choose to generate a custom theme to adapt to your app's unique design aesthetic. Skeleton provides a powerful but easy to use theme generator to make to enable this.
 
-<figure class="card-filled-enhanced flex justify-center p-8">
-	<a href="https://themes.skeleton.dev/" target="_blank" class="btn preset-filled">
-		Theme Generator &rarr;
+<figure class="linker">
+	<a href="https://themes.skeleton.dev/" target="_blank" class="linker-item">
+		Theme Generator
 	</a>
 </figure>
 
@@ -82,21 +82,119 @@ Finally, set the active theme to display using the `data-theme` attribute on you
 
 ---
 
-## Customizing Presets
+## Customize and Extend
 
-You may update the CSS Custom Properties provided by Skeleton's preset themes. Use the following syntax and apply these styles changes to your project's global stylesheet. This will target the root scope, a specific theme, then set the property value.
+### Theme Properties
+
+If you wish to update the CSS Custom Properties provided by any of Skeleton's preset themes. Apply the following changes in your global stylesheet. This will target the root scope, a specific theme, then modify each [theme property](/docs/get-started/plugin) value.
 
 {/* prettier-ignore */}
-```ts title="app.pcss"
+```css title="app.css"
 :root [data-theme='cerberus'] {
     --base-font-family: system-ui;
     --heading-font-family: system-ui;
 }
 ```
 
-## Custom Fonts
+### Target Themes
 
-> COMING SOON
+If your application supports multiple themes, you can target changes to specific themes via the `data-theme` attribute.
+
+```css title="app.css"
+/** Cerberus theme h1 tags only. */
+[data-theme='cerberus'] h1 {
+    background: pink;
+}
+/** Mona theme h1 tags only. */
+[data-theme='mona'] h1 {
+    background: green;
+}
+```
+
+### Backgrounds
+
+Your app's background colors are set automatically using two specific [theme properties](/docs/get-started/plugin#colors). Overwrite these using your global stylesheet.
+
+```css title="app.css"
+[data-theme='cerberus'] {
+    —body-background-color: 'pink';
+	—body-background-color-dark: 'green';
+}
+```
+
+You may also use Tailwind or vanilla CSS by targetting the `<body>` element.
+
+```css title="app.css"
+/* Pink in light mode, green in dark mode. */
+body { @apply bg-pink-500 dark:bg-green-500; }
+```
+
+Background images are also supported, including CSS mesh gradients. By using theme properties for each color, you can ensure the gradient adheres to your theme's palette.
+
+```css title="app.css"
+[data-theme='cerberus'] {
+	background-image:
+		radial-gradient(at 20% 10%, rgba(var(--color-secondary-500) / 0.075) 0px, transparent 40%),
+		radial-gradient(at 75% 10%, rgba(var(--color-primary-500) / 0.075) 0px, transparent 50%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+```
+
+Use Mesher to quickly and easily generate custom mesh gradients.
+
+<figure class="linker">
+	<a
+		class="btn preset-filled"
+		href="https://csshero.org/mesher/"
+		target="_blank"
+	>
+		Mesher by CSS Hero
+	</a>
+</figure>
+
+> TIP: See how we handle [targetted theme gradients](https://github.com/skeletonlabs/skeleton/blob/next/sites/next.skeleton.dev/src/styles/app.css#L44) for this website.
+
+
+### Custom Fonts
+
+Skeleton recommends the use of [Fontsource](https://fontsource.org/) for installing and managing custom fonts.
+
+<figure class="linker">
+	<a
+		class="btn preset-filled"
+		href="https://fontsource.org/"
+		target="_blank"
+	>
+		Browse Fontsource
+	</a>
+</figure>
+
+Install your font of choice.
+
+```console
+npm install @fontsource/open-sans
+```
+
+Then import each font at the top of your global stylesheet.
+
+```css title="app.css"
+import "@fontsource/open-sans";
+```
+
+Finally, overwrite each applicable [theme property](/docs/get-started/plugin#base-1) for your target theme.
+
+```css title="app.css"
+:root [data-theme='cerberus'] {
+    --heading-font-family: "Open Sans", sans-serif;
+    /* --base-font-family: ... */
+    /* --anchor-font-family: ... */
+}
+```
+
+For custom themes, these settings are can be defined directly within each respective theme file.
 
 ---
 

@@ -8,7 +8,7 @@ This project has been created using a [Vite/React](https://vitejs.dev/).
 
 ## Exports
 
-Library exports are contained within `/src/lib/index.ts`
+Library exports are contained within `/src/lib/migrate.ts`
 
 ## Routing
 

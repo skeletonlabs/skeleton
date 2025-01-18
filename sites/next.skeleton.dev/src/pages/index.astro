@@ -1,7 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { ChevronRight as IconChevron } from 'lucide-react';
-// import { socialLinks } from 'src/stores/social-links';
 // Components
 import LayoutRoot from '@layouts/LayoutRoot.astro';
 import Header from '@components/docs/Header.astro';
@@ -9,7 +8,7 @@ import Footer from '@components/docs/Footer.astro';
 import NavGrid from '@components/docs/NavGrid.astro';
 
 const layoutProps = {
-	classList: 'grid grid-rows-[auto_1fr_auto] gap-10'
+	classList: ''
 };
 ---
 
@@ -18,17 +17,17 @@ const layoutProps = {
 	<Header />
 
 	<!-- Main -->
-	<main class="container mx-auto space-y-20 px-4">
+	<main class="container mx-auto space-y-20 px-4 py-10">
 		<!-- Hero -->
 		<section class="mx-auto space-y-10 text-center">
 			<!-- News -->
 			<a
 				class="btn preset-filled-primary-500 rounded-full"
-				href="https://github.com/skeletonlabs/skeleton/discussions/2919"
+				href="https://github.com/skeletonlabs/skeleton/discussions/3062"
 				target="_blank"
 			>
-				<span class="pr-4">🎉</span>
-				<span>Introducing the v3 Beta</span>
+				<span>🎉</span>
+				<span>Introducing the v3 Release Candidate</span>
 				<IconChevron className="size-4" />
 			</a>
 			<!-- Mascot -->
@@ -44,17 +43,12 @@ const layoutProps = {
 				</p>
 				<!-- Buttons -->
 				<nav class="flex justify-center gap-4">
-					<a href="/docs/get-started/introduction" class="btn preset-filled">
+					<a href="/docs/get-started/installation" class="btn preset-filled">
 						<span>Get Started</span>
 						<IconChevron className="size-4" />
 					</a>
-					<a
-						href=" https://github.com/skeletonlabs/skeleton"
-						target="_blank"
-						class="btn preset-outlined-surface-200-800 hover:preset-tonal"
-					>
-						<Icon name="github" size={18} />
-						<span>GitHub</span>
+					<a href="/docs/get-started/introduction" class="btn preset-outlined-surface-200-800 hover:preset-tonal">
+						<span>Learn More</span>
 					</a>
 				</nav>
 				<!-- Tech Icons -->
@@ -106,23 +100,6 @@ const layoutProps = {
 				</div>
 			</section>
 		</section>
-
-		<!-- Social -->
-		<!-- <section class="mx-auto space-y-8 text-center">
-			<div>
-				<h2 class="h2">Stay In Touch</h2>
-				<p>Reach out and connect on these social network platforms.</p>
-			</div>
-			<nav class="flex justify-center gap-8">
-				{
-					socialLinks.get().map((l) => (
-						<a href={l.href} target="_blank" title={l.label}>
-							<Icon name={l.icon} size={32} />
-						</a>
-					))
-				}
-			</nav>
-		</section> -->
 	</main>
 
 	<!-- Footer -->

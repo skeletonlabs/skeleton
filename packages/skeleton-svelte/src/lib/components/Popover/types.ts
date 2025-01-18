@@ -8,9 +8,9 @@ export interface PopoverProps extends Omit<popover.Context, 'id' | 'open'> {
 	arrow?: boolean;
 
 	// Base ---
-	// Set base classes for the root element.
+	/** Set base classes for the root element. */
 	base?: string;
-	// Provide arbitrary classes for the root element.
+	/** Provide arbitrary classes for the root element. */
 	classes?: string;
 
 	// Trigger ---
@@ -46,8 +46,12 @@ export interface PopoverProps extends Omit<popover.Context, 'id' | 'open'> {
 	arrowClasses?: string;
 
 	// Snippets ---
-	/** Provide the the trigger element, such as a button. */
+	/** Provide the template contents inside the trigger button. */
 	trigger?: Snippet;
 	/** Provide the template contents of the popover itself. */
 	content?: Snippet;
+
+	// Events ---
+	/** Handle the popover button click event. */
+	onclick?: () => void;
 }

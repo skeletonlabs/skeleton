@@ -37,10 +37,10 @@
 					"tags": [],
 					"text": null
 				},
-				"name": "union",
+				"name": "function",
 				"required": true,
-				"type": "\"foo\" | \"bar\"",
-				"typeKind": "union"
+				"type": "() => void",
+				"typeKind": "function"
 			}
 		]
 	}

@@ -1,0 +1,22 @@
+/**
+ * SKELETON MIGRATION NOTICE
+ *
+ * The following custom themes were detected and commented out due to them not being compatible with the V3 theme format:
+ *
+ * - myCustomTheme
+ * - myCustomThemeTwo
+ *
+ * See https://github.com/skeletonlabs/skeleton/discussions/2921 for info on how to migrate these yourself.
+ */
+import myCustomTheme from "./my-custom-theme.js";
+import myCustomThemeTwo from "./my-custom-theme-two.js";
+import { skeleton } from "@skeletonlabs/skeleton/plugin";
+import * as themes from "@skeletonlabs/skeleton/themes";
+
+export default {
+	plugins: [
+		skeleton({
+			themes: [themes.cerberus /* myCustomTheme, myCustomThemeTwo */]
+		})
+	],
+}

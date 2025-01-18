@@ -1,0 +1,11 @@
+import { Foo, AppShell, Autocomplete, ConicGradient, Lightswitch, ListBox, Stepper, Table, Bar } from "@skeletonlabs/skeleton";
+
+Foo;
+AppShell;
+Autocomplete;
+ConicGradient;
+Lightswitch;
+ListBox;
+Stepper;
+Table;
+Bar;
