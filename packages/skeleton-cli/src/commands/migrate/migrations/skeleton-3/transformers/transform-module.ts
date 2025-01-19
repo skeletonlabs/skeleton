@@ -16,7 +16,7 @@ function transformModule(code: string) {
 		}
 		if (Node.isImportSpecifier(node)) {
 			const name = node.getName();
-			if (name in COMPONENT_MAPPINGS) {
+			if (Object.hasOwn(COMPONENT_MAPPINGS, name)) {
 				node.remove();
 				addNamedImport(file, '@skeletonlabs/skeleton-svelte', COMPONENT_MAPPINGS[name]);
 			}
@@ -36,7 +36,7 @@ function transformModule(code: string) {
 		}
 		if (!node.wasForgotten() && Node.isIdentifier(node)) {
 			const name = node.getText();
-			if (name in COMPONENT_MAPPINGS) {
+			if (Object.hasOwn(COMPONENT_MAPPINGS, name)) {
 				node.replaceWithText(COMPONENT_MAPPINGS[name]);
 			}
 		}
