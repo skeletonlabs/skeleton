@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.10
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Switch from `property in object` to `Object.hasOwn` so inherited properties aren't included. ([#3127](https://github.com/skeletonlabs/skeleton/pull/3127))
+
 ## 0.0.1-next.9
 
 ### Patch Changes
