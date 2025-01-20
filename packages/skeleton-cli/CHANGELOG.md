@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.12
+
+### Patch Changes
+
+- Chore (migrate/skeleton-3): Simpler method of preserving quotes in Svelte template. ([#3132](https://github.com/skeletonlabs/skeleton/pull/3132))
+
 ## 0.0.1-next.11
 
 ### Patch Changes
