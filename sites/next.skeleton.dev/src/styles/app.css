@@ -18,6 +18,24 @@ html {
 
 /* Theme Enhancements --- */
 
+/* Homepage Gradients */
+
+.gradient-homepage-one {
+	background-size: cover;
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 24% 25%, rgba(var(--color-primary-500) / 0.30) 0px, transparent 30%),
+		radial-gradient(at 35% 13%, rgba(var(--color-success-500) / 0.18) 0px, transparent 30%),
+		radial-gradient(at 100% 64%, rgba(var(--color-error-500) / 0.03) 0px, transparent 40%);
+}
+.gradient-homepage-two {
+	background-size: cover;
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 25% 40%, rgba(var(--color-success-500) / 0.12) 0px, transparent 35%),
+		radial-gradient(at 100% 58%, rgba(var(--color-primary-500) / 0.15) 0px, transparent 35%);
+}
+
 /* Background Gradient */
 /*
 [data-theme='jupiter']
@@ -30,6 +48,7 @@ html {
 [data-theme='cerberus'],
 [data-theme='crimson'],
 [data-theme='hamlindigo'],
+[data-theme='legacy'],
 [data-theme='mint'],
 [data-theme='modern'],
 [data-theme='nouveau'],
@@ -41,20 +60,11 @@ html {
 [data-theme='seafoam'],
 [data-theme='vintage'],
 [data-theme='wintry'] {
-	background-image: radial-gradient(at 20% 10%, rgba(var(--color-secondary-500) / 0.075) 0px, transparent 40%),
-		radial-gradient(at 75% 10%, rgba(var(--color-primary-500) / 0.075) 0px, transparent 50%);
 	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-[data-theme='legacy'] {
-	background-image: radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%),
-		radial-gradient(at 98% 1%, rgba(var(--color-error-500) / 0.33) 0px, transparent 50%);
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 0% 25%, rgba(var(--color-primary-500) / 0.15) 0px, transparent 30%),
+		radial-gradient(at 15% 06%, rgba(var(--color-success-500) / 0.09) 0px, transparent 30%);
 }
 
 /* Cards */
