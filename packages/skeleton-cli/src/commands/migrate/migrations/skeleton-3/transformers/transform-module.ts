@@ -41,7 +41,7 @@ function transformModule(code: string) {
 			}
 		}
 		if (!node.wasForgotten() && Node.isStringLiteral(node) && !Node.isImportDeclaration(node.getParent())) {
-			node.setLiteralValue(transformClasses(node.getLiteralValue()).code);
+			node.replaceWithText(transformClasses(node.getText()).code);
 		}
 	});
 	return {
