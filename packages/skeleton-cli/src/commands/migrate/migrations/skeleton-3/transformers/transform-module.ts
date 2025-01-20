@@ -1,4 +1,4 @@
-import { transformClasses } from './transform-classes.js';
+import { transformClasses } from './transform-classes';
 import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
 import { REMOVED_COMPONENTS } from '../utility/removed-components';
 import { Node } from 'ts-morph';
