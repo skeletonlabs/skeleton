@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.11
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Special characters like `\n`, `\t`, etc. are no longer literally interpreted. ([#3130](https://github.com/skeletonlabs/skeleton/pull/3130))
+
 ## 0.0.1-next.10
 
 ### Patch Changes
