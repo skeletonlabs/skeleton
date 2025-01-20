@@ -20,7 +20,7 @@
 		"chroma-js": "^3.1.2",
 		"lucide-svelte": "^0.465.0",
 		"shiki": "^1.24.0",
-		"svelte": "5.6.2",
+		"svelte": "^5.19.0",
 		"svelte-check": "^4.1.1",
 		"tailwindcss": "^3.4.16",
 		"typescript": "catalog:",
