@@ -47,7 +47,7 @@
 		"nanoid": "^5.0.9",
 		"package-manager-detector": "^0.2.8",
 		"semver": "^7.6.3",
-		"svelte": "^5.17.3",
+		"svelte": "catalog:",
 		"ts-morph": "^25.0.0",
 		"zimmerframe": "^1.1.2"
 	}
