@@ -2,7 +2,7 @@ import { type AST, parse } from 'svelte/compiler';
 import type { Node } from 'estree';
 import { walk } from 'zimmerframe';
 import MagicString from 'magic-string';
-import { transformClasses } from './transform-classes.js';
+import { transformClasses } from './transform-classes';
 import { transformModule } from './transform-module';
 import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
 
@@ -44,9 +44,8 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 		{
 			Literal(node, ctx) {
 				const parent = ctx.path.at(-1);
-				if (typeof node.value === 'string' && node.value !== '' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
-					// Add 1 to the start and subtract 1 from the end to exclude (and thus preserve) the quotes
-					s.update(node.start + 1, node.end - 1, transformClasses(node.value).code);
+				if (typeof node.raw === 'string' && node.raw !== '' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
+					s.update(node.start, node.end, transformClasses(node.raw).code);
 				}
 				ctx.next();
 			},

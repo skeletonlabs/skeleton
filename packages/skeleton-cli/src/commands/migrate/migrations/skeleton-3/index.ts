@@ -1,15 +1,15 @@
 import fg from 'fast-glob';
-import { transformTailwindConfig } from './transformers/transform-tailwind-config.js';
-import { transformPackage } from './transformers/transform-package.js';
-import type { MigrateOptions } from '../../index.js';
+import { transformTailwindConfig } from './transformers/transform-tailwind-config';
+import { transformPackage } from './transformers/transform-package';
+import type { MigrateOptions } from '../..';
 import { isCancel, log, multiselect, spinner } from '@clack/prompts';
-import { cli } from '../../../../index.js';
+import { cli } from '../../../..';
 import { extname } from 'node:path';
-import { transformSvelte } from './transformers/transform-svelte.js';
-import { transformModule } from './transformers/transform-module.js';
-import { transformApp } from './transformers/transform-app.js';
+import { transformSvelte } from './transformers/transform-svelte';
+import { transformModule } from './transformers/transform-module';
+import { transformApp } from './transformers/transform-app';
 import { readFile, writeFile } from 'node:fs/promises';
-import { installDependencies } from '../../../../utility/install-dependencies.js';
+import { installDependencies } from '../../../../utility/install-dependencies';
 import { FALLBACK_THEME } from './utility/constants';
 import getLatestVersion from 'latest-version';
 
