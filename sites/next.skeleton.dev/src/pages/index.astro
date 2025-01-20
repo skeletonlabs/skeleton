@@ -35,7 +35,7 @@ const layoutProps = { classList: '' };
 							</a>
 							<h1 class="heading-font-family text-4xl md:text-6xl font-bold text-balance">An adaptive design system for Tailwind.</h1>
 							<p class="text-balance">
-								Skeleton augments Tailwind CSS with our opinionated design system, and provides easy to use components for modern web
+								Skeleton extends Tailwind CSS with our opinionated design system, while also providing easy to use components for modern web
 								frameworks.
 							</p>
 							<!-- Buttons -->
@@ -57,14 +57,36 @@ const layoutProps = { classList: '' };
 			<section class="hidden xl:block">
 				<div class="container mx-auto p-10 py-20">
 					<div class="grid grid-cols-4 gap-4">
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-4">Card 1</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-4">Card 2</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-4">Card 3</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-4">Card 4</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-4">Card 5</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-4">Card 6</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-4">Card 7</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-4">Card 8</div>
+						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5">
+							<div>
+								<h3 class="h3">Create Account.</h3>
+								<p class="opacity-60">Complete the form below to get started.</p>
+							</div>
+							<div class="grid grid-cols-2 gap-5">
+								<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">GitHub</button>
+								<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Google</button>
+							</div>
+							<hr class="hr" />
+							<div class="grid-grid-cols-1 gap-5">
+								<label class="label">
+									<span class="label-text">Email</span>
+									<input type="email" class="input" placeholder="me@example.com" />
+								</label>
+								<label class="label">
+									<span class="label-text">Password</span>
+									<input type="password" class="input" placeholder="me@example.com" />
+								</label>
+							</div>
+							<hr class="hr" />
+							<button class="w-full btn preset-filled">Create Account</button>
+						</div>
+						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 2</div>
+						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 3</div>
+						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 4</div>
+						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 5</div>
+						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 6</div>
+						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 7</div>
+						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 8</div>
 					</div>
 				</div>
 			</section>
@@ -79,6 +101,7 @@ const layoutProps = { classList: '' };
 							<p class="text-balance opacity-60 max-w-96">
 								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum id, aperiam vel.
 							</p>
+							<p class="mt-4 text-xs opacity-30">Components available for React and Svelte.</p>
 						</div>
 						<!-- Options -->
 						<div class="grid grid-cols-6 gap-4">
@@ -167,7 +190,9 @@ const layoutProps = { classList: '' };
 							</p>
 						</div>
 						<!-- Carousel -->
-						<div class="self-center card bg-gradient-to-br from-primary-500 to-primary-800 aspect-video overflow-hidden shadow-xl"></div>
+						<div class="self-center card bg-gradient-to-br from-primary-500 to-success-500 aspect-video overflow-hidden shadow-xl">
+							<img src="https://i.imgur.com/KOrl47B.png" alt="figma" class="w-full h-auto" />
+						</div>
 					</div>
 				</div>
 			</section>
@@ -175,7 +200,7 @@ const layoutProps = { classList: '' };
 			<!-- Section: Components -->
 			<section>
 				<div class="container mx-auto p-10 py-20">
-					<div class="grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-2">
+					<div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
 						<div class="space-y-10">
 							<div class="text-center">
 								<h2 class="h2">Tailwind Components</h2>
@@ -184,9 +209,9 @@ const layoutProps = { classList: '' };
 								</p>
 							</div>
 							<div
-								class="card bg-gradient-to-br from-tertiary-500 via-secondary-500 to-secondary-500 aspect-video shadow-xl flex justify-center items-center"
+								class="card bg-gradient-radial from-tertiary-500 to-secondary-500 aspect-video shadow-xl flex justify-center items-center"
 							>
-								<a href="/" class="btn btn-lg preset-filled">
+								<a href="/" class="btn preset-filled scale-150">
 									<span>Button</span>
 									<IconChevron className="size-4" />
 								</a>
@@ -200,9 +225,9 @@ const layoutProps = { classList: '' };
 								</p>
 							</div>
 							<div
-								class="card bg-gradient-to-br from-secondary-500 via-secondary-500 to-tertiary-500 aspect-video shadow-xl flex justify-center items-center"
+								class="card bg-gradient-radial from-tertiary-500 to-secondary-500 aspect-video shadow-xl flex justify-center items-center"
 							>
-								<!-- (preview) -->
+								<span class="btn preset-filled scale-150">Switch</span>
 							</div>
 						</div>
 					</div>
@@ -279,7 +304,7 @@ const layoutProps = { classList: '' };
 							{
 								Array.from(Array(196)).map((a) => {
 									return (
-										<div class="bg-surface-500 w-full aspect-square rounded-full flex justify-center items-center">
+										<div class="preset-tonal w-full aspect-square rounded-full flex justify-center items-center">
 											<span class="text-xs">A</span>
 										</div>
 									);
@@ -360,8 +385,8 @@ const layoutProps = { classList: '' };
 						{
 							Array.from(Array(26)).map((a) => {
 								return (
-									<div class="bg-surface-500 w-full aspect-square rounded-full flex justify-center items-center">
-										<span class="text-xs">A</span>
+									<div class="preset-tonal w-full aspect-square rounded-full flex justify-center items-center">
+										<span>A</span>
 									</div>
 								);
 							})
@@ -374,7 +399,7 @@ const layoutProps = { classList: '' };
 		<!-- Section: CTA -->
 		<section>
 			<div class="container mx-auto p-10 py-20">
-				<div class="card bg-gradient-to-r from-primary-500 via-secondary-500 to-tertiary-500 px-10 py-8 grid grid-cols-[1fr_auto] gap-10">
+				<div class="card bg-gradient-to-r from-primary-500 to-secondary-500 px-10 py-8 grid grid-cols-[1fr_auto] gap-10">
 					<div class="max-w-96">
 						<h2 class="h2">Start building with Skeleton today.</h2>
 					</div>
