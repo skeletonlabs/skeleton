@@ -10,6 +10,12 @@ html {
 	@apply flex items-center justify-center;
 }
 
+.bg-noise {
+	background-image: url('../images/noise-light.png');
+	background-repeat: repeat;
+	background-blend-mode: overlay;
+}
+
 /* Astro Components --- */
 
 .astro-code {
@@ -32,8 +38,8 @@ html {
 	background-size: cover;
 	/* prettier-ignore */
 	background-image:
-		radial-gradient(at 25% 40%, rgba(var(--color-success-500) / 0.12) 0px, transparent 35%),
-		radial-gradient(at 100% 58%, rgba(var(--color-primary-500) / 0.15) 0px, transparent 35%);
+		radial-gradient(at 25% 40%, rgba(var(--color-primary-500) / 0.10) 0px, transparent 35%),
+		radial-gradient(at 100% 58%, rgba(var(--color-success-500) / 0.05) 0px, transparent 35%);
 }
 
 /* Background Gradient */
@@ -93,8 +99,8 @@ html {
 /* Prominant link elements for MDX pages */
 
 .linker {
-	@apply card flex justify-center px-4 py-8 shadow;
-	@apply bg-gradient-to-br from-primary-500 to-primary-800 text-primary-contrast-500;
+	@apply card flex justify-center px-4 py-10 shadow;
+	@apply bg-noise preset-filled-primary-500;
 }
 .linker-item {
 	@apply btn bg-surface-50 text-surface-950 shadow;

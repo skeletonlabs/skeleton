@@ -17,7 +17,7 @@ const layoutProps = { classList: '' };
 	<!-- Main -->
 	<main class="bg-surface-50-950">
 		<!-- Gradient 1 -->
-		<div class="gradient-homepage-one">
+		<div class="gradient-homepage-one bg-gradient-noise">
 			<!-- Section: Hero -->
 			<section>
 				<div class="container mx-auto flex justify-center p-10 py-20">
@@ -28,11 +28,13 @@ const layoutProps = { classList: '' };
 						</div>
 						<!-- Hero Text -->
 						<div class="self-center space-y-4">
+							<!-- Announcement -->
 							<a href="/#" class="btn btn-sm preset-filled-primary-500 gap-2">
 								<span>🎉</span>
 								<span>Skeleton v3 now avilable!</span>
 								<IconChevron className="size-4" />
 							</a>
+							<!-- Text -->
 							<h1 class="heading-font-family text-4xl md:text-6xl font-bold xl:text-balance">
 								An adaptive design system powered by Tailwind CSS.
 							</h1>
@@ -41,7 +43,7 @@ const layoutProps = { classList: '' };
 								own <a class="underline" href="https://themes.skeleton.dev/themes/create" target="_blank">customizable</a> design system, while
 								providing easy to use components for modern web frameworks.
 							</p>
-							<!-- Buttons -->
+							<!-- CTA Buttons -->
 							<nav class="flex gap-4">
 								<a href="/docs/get-started/installation" class="btn preset-filled">
 									<span>Get Started</span>
@@ -99,15 +101,15 @@ const layoutProps = { classList: '' };
 				<div class="container mx-auto p-10 py-20">
 					<div class="card preset-filled-surface-100-900 px-10 py-8 grid grid-cols-1 xl:grid-cols-[auto_2fr] gap-10">
 						<!-- Text -->
-						<div class="self-center">
+						<div class="self-center space-y-2">
 							<h2 class="h2">Try it live.</h2>
 							<p class="text-balance opacity-60 max-w-96">
 								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum id, aperiam vel.
 							</p>
-							<p class="mt-4 text-xs opacity-30">Components available for React and Svelte.</p>
+							<p class="pt-4 text-xs opacity-30">Components available for React and Svelte.</p>
 						</div>
 						<!-- Options -->
-						<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+						<div class="self-center grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
 							<a
 								href="/docs/get-started/installation"
 								class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
@@ -175,8 +177,8 @@ const layoutProps = { classList: '' };
 				<div class="container mx-auto p-10 py-20">
 					<div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
 						<!-- Text -->
-						<div class="self-center space-y-4">
-							<h2 class="h2">Manage a customizable design system.</h2>
+						<div class="self-center space-y-8">
+							<h2 class="h2">Design System</h2>
 							<nav class="grid grid-cols-2 gap-4">
 								<button type="button" class="btn preset-filled">Figma UI Kit</button>
 								<button type="button" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Themes</button>
@@ -193,9 +195,7 @@ const layoutProps = { classList: '' };
 							</p>
 						</div>
 						<!-- Carousel -->
-						<div
-							class="self-center card bg-gradient-to-r from-primary-300 to-primary-700 text-primary-contrast-300 aspect-video overflow-hidden shadow-xl"
-						>
+						<div class="self-center card bg-noise preset-filled-primary-500 aspect-video overflow-hidden shadow-xl">
 							<img src="https://i.imgur.com/KOrl47B.png" alt="figma" class="w-full h-auto" />
 						</div>
 					</div>
@@ -207,15 +207,13 @@ const layoutProps = { classList: '' };
 				<div class="container mx-auto p-10 py-20">
 					<div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
 						<div class="space-y-10">
-							<div class="text-center">
+							<div class="text-center space-y-2">
 								<h2 class="h2">Tailwind Components</h2>
 								<p class="text-balance opacity-60">
 									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
 								</p>
 							</div>
-							<div
-								class="card bg-gradient-radial from-secondary-300 to-secondary-700 text-secondary-contrast-300 aspect-video shadow-xl flex justify-center items-center"
-							>
+							<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
 								<a href="/" class="btn preset-filled scale-150">
 									<span>Button</span>
 									<IconChevron className="size-4" />
@@ -223,15 +221,13 @@ const layoutProps = { classList: '' };
 							</div>
 						</div>
 						<div class="space-y-10">
-							<div class="text-center">
+							<div class="text-center space-y-2">
 								<h2 class="h2">Functional Components</h2>
 								<p class="text-balance opacity-60">
 									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
 								</p>
 							</div>
-							<div
-								class="card bg-gradient-radial from-secondary-300 to-secondary-700 text-secondary-contrast-300 aspect-video shadow-xl flex justify-center items-center"
-							>
+							<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
 								<span class="btn preset-filled scale-150">Switch</span>
 							</div>
 						</div>
@@ -243,7 +239,7 @@ const layoutProps = { classList: '' };
 			<section>
 				<div class="container mx-auto p-10 py-20 space-y-10">
 					<!-- Text -->
-					<div class="text-center">
+					<div class="text-center space-y-2">
 						<h2 class="h2">And Even More...</h2>
 						<p class="text-balance opacity-60">
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
@@ -318,7 +314,7 @@ const layoutProps = { classList: '' };
 						</div>
 						<!-- Text -->
 						<div class="space-y-4">
-							<div>
+							<div class="space-y-2">
 								<h2 class="h2 text-balance">Open Source</h2>
 								<p class="opacity-60">
 									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
@@ -373,7 +369,7 @@ const layoutProps = { classList: '' };
 				<div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
 					<!-- Text -->
 					<div class="space-y-4">
-						<div>
+						<div class="space-y-2">
 							<h2 class="h2 text-balance">Sponsor Us</h2>
 							<p class="opacity-60">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
@@ -403,11 +399,9 @@ const layoutProps = { classList: '' };
 		<!-- Section: CTA -->
 		<section>
 			<div class="container mx-auto p-10 py-20">
-				<div
-					class="card bg-gradient-to-br from-primary-300 to-primary-700 px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 shadow-xl"
-				>
+				<div class="card bg-noise preset-filled-primary-500 px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 shadow-xl">
 					<div class="max-w-[400px]">
-						<h2 class="h2 !text-primary-contrast-300">Start building with Skeleton today.</h2>
+						<h2 class="h2 leading-snug">Start building with Skeleton today.</h2>
 					</div>
 					<nav class="self-center flex gap-4">
 						<a href="/docs/get-started/introduction" class="btn preset-outlined hover:preset-tonal">
