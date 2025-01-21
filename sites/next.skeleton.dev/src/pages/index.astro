@@ -1,11 +1,18 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { ChevronRight as IconChevron } from 'lucide-react';
-import { Ellipsis as IconEllipsis } from 'lucide-react';
 // Components
 import LayoutRoot from '@layouts/LayoutRoot.astro';
 import Header from '@components/docs/Header.astro';
 import Footer from '@components/docs/Footer.astro';
+import HomeHero from '@components/homepage/HomeHero.astro';
+import HomeCompGrid from '@components/homepage/HomeCompGrid.astro';
+import HomePlayground from '@components/homepage/HomePlayground.astro';
+import HomeDesignSystem from '@components/homepage/HomeDesignSystem.svelte'; // hydrate
+import HomeFuncComps from '@components/homepage/HomeFuncComps.svelte'; // hydrate
+import HomeEvenMore from '@components/homepage/HomeEvenMore.astro';
+import HomeOpenSource from '@components/homepage/HomeOpenSource.astro';
+import HomeMetrics from '@components/homepage/HomeMetrics.astro';
+import HomeSponsors from '@components/homepage/HomeSponsors.astro';
+import HomeBottomCta from '@components/homepage/HomeBottomCta.astro';
 // Props
 const layoutProps = { classList: '' };
 ---
@@ -21,151 +28,21 @@ const layoutProps = { classList: '' };
 			<!-- Section: Hero -->
 			<section>
 				<div class="container mx-auto flex justify-center p-10 py-20">
-					<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-10">
-						<!-- Mascot -->
-						<div class="flex justify-center items-center">
-							<Icon name="skeleton-full" class="size-64 aspect-square" />
-						</div>
-						<!-- Hero Text -->
-						<div class="self-center space-y-4">
-							<!-- Announcement -->
-							<a href="/#" class="btn btn-sm preset-filled-primary-500 gap-2 shadow">
-								<span>🎉</span>
-								<span>Skeleton v3 now avilable!</span>
-								<IconChevron className="size-4" />
-							</a>
-							<!-- Text -->
-							<h1 class="heading-font-family text-4xl md:text-6xl font-bold xl:text-balance">
-								An adaptive design system powered by Tailwind CSS.
-							</h1>
-							<p class="text-lg xl:text-balance">
-								Skeleton extends <a class="underline" href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> to help you create your
-								own <a class="underline" href="https://themes.skeleton.dev/themes/create" target="_blank">customizable</a> design system, while
-								providing easy to use components for modern web frameworks.
-							</p>
-							<!-- CTA Buttons -->
-							<nav class="flex gap-4">
-								<a href="/docs/get-started/installation" class="btn preset-filled">
-									<span>Get Started</span>
-									<IconChevron className="size-4" />
-								</a>
-								<a href="/docs/get-started/introduction" class="btn preset-outlined-surface-400-600 hover:preset-tonal">
-									<span>Learn More</span>
-								</a>
-							</nav>
-						</div>
-					</div>
+					<HomeHero />
 				</div>
 			</section>
 
 			<!-- Section: Component Grid -->
 			<section class="hidden xl:block">
 				<div class="container mx-auto p-10 py-20">
-					<div class="grid grid-cols-4 gap-4">
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5">
-							<div>
-								<h3 class="h3">Create Account.</h3>
-								<p class="opacity-60">Complete the form below to get started.</p>
-							</div>
-							<div class="grid grid-cols-2 gap-5">
-								<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">GitHub</button>
-								<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Google</button>
-							</div>
-							<hr class="hr" />
-							<div class="grid-grid-cols-1 gap-5">
-								<label class="label">
-									<span class="label-text">Email</span>
-									<input type="email" class="input" placeholder="me@example.com" />
-								</label>
-								<label class="label">
-									<span class="label-text">Password</span>
-									<input type="password" class="input" placeholder="me@example.com" />
-								</label>
-							</div>
-							<hr class="hr" />
-							<button class="w-full btn preset-filled">Create Account</button>
-						</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 2</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 3</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 4</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 5</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 6</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 7</div>
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-5">Card 8</div>
-					</div>
+					<HomeCompGrid />
 				</div>
 			</section>
 
 			<!-- Section: Playground -->
 			<section class="hidden md:block">
 				<div class="container mx-auto p-10 py-20">
-					<div class="card preset-filled-surface-100-900 px-10 py-8 grid grid-cols-1 xl:grid-cols-[auto_2fr] gap-10">
-						<!-- Text -->
-						<div class="self-center space-y-2">
-							<h2 class="h2">Try it live.</h2>
-							<p class="text-balance opacity-60 max-w-96">
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum id, aperiam vel.
-							</p>
-							<p class="pt-4 text-xs opacity-30">Components available for React and Svelte.</p>
-						</div>
-						<!-- Options -->
-						<div class="self-center grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
-							<a
-								href="/docs/get-started/installation"
-								class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
-							>
-								<div class="w-20 aspect-square rounded-full flex justify-center items-center bg-[#00D8FF]">
-									<Icon name="react" size={40} class="text-white" />
-								</div>
-								<span class="font-bold text-xs">React</span>
-							</a>
-							<a
-								href="/docs/get-started/installation"
-								class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
-							>
-								<div class="w-20 aspect-square rounded-full flex justify-center items-center bg-[#FF3E00]">
-									<Icon name="svelte" size={40} class="text-white" />
-								</div>
-								<span class="font-bold text-xs">Svelte</span>
-							</a>
-							<a
-								href="/docs/get-started/installation"
-								class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
-							>
-								<div class="w-20 aspect-square rounded-full flex justify-center items-center bg-[#42B883]">
-									<Icon name="tailwind" size={40} class="text-white" />
-								</div>
-								<span class="font-bold text-xs">Vue</span>
-							</a>
-							<a
-								href="/docs/get-started/installation"
-								class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
-							>
-								<div class="w-20 aspect-square rounded-full flex justify-center items-center bg-[#57A0FF]">
-									<Icon name="tailwind" size={40} class="text-white" />
-								</div>
-								<span class="font-bold text-xs">Solid</span>
-							</a>
-							<a
-								href="/docs/get-started/installation"
-								class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
-							>
-								<div class="w-20 aspect-square rounded-full flex justify-center items-center bg-[#761CBA]">
-									<Icon name="tailwind" size={40} class="text-white" />
-								</div>
-								<span class="font-bold text-xs">Astro</span>
-							</a>
-							<a
-								href="/docs/get-started/installation"
-								class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
-							>
-								<div class="w-20 aspect-square rounded-full flex justify-center items-center preset-tonal">
-									<IconEllipsis className="size-4" />
-								</div>
-								<span class="font-bold text-xs">More</span>
-							</a>
-						</div>
-					</div>
+					<HomePlayground />
 				</div>
 			</section>
 		</div>
@@ -175,190 +52,35 @@ const layoutProps = { classList: '' };
 			<!-- Section: Design System -->
 			<section>
 				<div class="container mx-auto p-10 py-20">
-					<div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
-						<!-- Text -->
-						<div class="self-center space-y-8">
-							<h2 class="h2">Design System</h2>
-							<nav class="grid grid-cols-2 gap-4">
-								<button type="button" class="btn preset-filled">Figma UI Kit</button>
-								<button type="button" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Themes</button>
-								<button type="button" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Colors</button>
-								<button type="button" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Presets</button>
-								<button type="button" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Typography</button>
-								<button type="button" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Spacing</button>
-								<button type="button" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Iconography</button>
-								<button type="button" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Motion</button>
-							</nav>
-							<p class="opacity-60">
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum id, aperiam vel consectetur odio animi fugiat eveniet? Vel
-								totam similique pariatur iusto esse dignissimos.
-							</p>
-						</div>
-						<!-- Carousel -->
-						<div class="self-center card bg-noise preset-filled-primary-500 aspect-video overflow-hidden shadow-xl">
-							<img src="https://i.imgur.com/KOrl47B.png" alt="figma" class="w-full h-auto" />
-						</div>
-					</div>
+					<HomeDesignSystem client:load />
 				</div>
 			</section>
 
 			<!-- Section: Components -->
 			<section>
 				<div class="container mx-auto p-10 py-20">
-					<div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
-						<div class="space-y-10">
-							<div class="text-center space-y-2">
-								<h2 class="h2">Tailwind Components</h2>
-								<p class="text-balance opacity-60">
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-								</p>
-							</div>
-							<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
-								<a href="/" class="btn preset-filled scale-150">
-									<span>Button</span>
-									<IconChevron className="size-4" />
-								</a>
-							</div>
-						</div>
-						<div class="space-y-10">
-							<div class="text-center space-y-2">
-								<h2 class="h2">Functional Components</h2>
-								<p class="text-balance opacity-60">
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-								</p>
-							</div>
-							<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
-								<span class="btn preset-filled scale-150">Switch</span>
-							</div>
-						</div>
-					</div>
+					<HomeFuncComps client:load />
 				</div>
 			</section>
 
 			<!-- Section: Even More -->
 			<section>
-				<div class="container mx-auto p-10 py-20 space-y-10">
-					<!-- Text -->
-					<div class="text-center space-y-2">
-						<h2 class="h2">And Even More...</h2>
-						<p class="text-balance opacity-60">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-						</p>
-					</div>
-					<!-- Grid -->
-					<div class="grid grid-cols-1 xl:grid-cols-3 xl:grid-rows-3 gap-4">
-						<!-- 1 -->
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:col-span-2">
-							<div class="w-full h-full flex flex-col justify-end">
-								<h3 class="h4">Framework Agnostic</h3>
-								<p class="text-balance max-w-lg opacity-60">
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-								</p>
-							</div>
-						</div>
-						<!-- 2 -->
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:row-span-2 xl:col-start-3">
-							<div class="w-full h-full flex flex-col justify-end">
-								<h3 class="h4">Typescript</h3>
-								<p class="text-balance max-w-lg opacity-60">
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-								</p>
-							</div>
-						</div>
-						<!-- 3 -->
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:row-span-2 xl:row-start-2">
-							<div class="w-full h-full flex flex-col justify-end">
-								<h3 class="h4">Integrations</h3>
-								<p class="text-balance max-w-lg opacity-60">
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-								</p>
-							</div>
-						</div>
-						<!-- 4 -->
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:row-start-2">
-							<div class="w-full h-full flex flex-col justify-end">
-								<h3 class="h4">Dark Mode</h3>
-								<p class="text-balance max-w-lg opacity-60">
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-								</p>
-							</div>
-						</div>
-						<!-- 5 -->
-						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:col-span-2 xl:col-start-2 xl:row-start-3">
-							<div class="w-full h-full flex flex-col justify-end">
-								<h3 class="h4">Accessibility</h3>
-								<p class="text-balance max-w-lg opacity-60">
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-								</p>
-							</div>
-						</div>
-					</div>
+				<div class="container mx-auto p-10 py-20">
+					<HomeEvenMore />
 				</div>
 			</section>
 
 			<!-- Section: Open Source -->
 			<section>
 				<div class="container mx-auto p-10 py-20">
-					<div class="grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-10">
-						<!-- Grid -->
-						<div class="grid grid-cols-10 md:grid-cols-[repeat(20,minmax(0,1fr))] gap-2">
-							{
-								Array.from(Array(196)).map((a) => {
-									return (
-										<div class="preset-tonal w-full aspect-square rounded-full flex justify-center items-center">
-											<span class="text-xs">A</span>
-										</div>
-									);
-								})
-							}
-						</div>
-						<!-- Text -->
-						<div class="space-y-4">
-							<div class="space-y-2">
-								<h2 class="h2 text-balance">Open Source</h2>
-								<p class="opacity-60">
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-								</p>
-							</div>
-							<nav class="flex gap-4">
-								<a href="/" class="btn preset-filled">
-									<span>View on GitHub</span>
-									<IconChevron className="size-4" />
-								</a>
-								<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">
-									<span>How to Contribute</span>
-								</a>
-							</nav>
-						</div>
-					</div>
+					<HomeOpenSource />
 				</div>
 			</section>
 
 			<!-- Section: Metrics -->
 			<section>
 				<div class="container mx-auto p-10 py-20">
-					<div class="card preset-outlined-surface-200-800 px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-10">
-						<div class="flex md:justify-center">
-							<div>
-								<h2 class="text-6xl xl:text-8xl font-bold">80k+</h2>
-								<p class="text-sx opacity-60">Monthly Downloads</p>
-							</div>
-						</div>
-						<span class="hidden md:block vr"></span>
-						<div class="flex md:justify-center">
-							<div>
-								<h2 class="text-6xl xl:text-8xl font-bold">5k+</h2>
-								<p class="text-sx opacity-60">GitHub Stars</p>
-							</div>
-						</div>
-						<span class="hidden md:block vr"></span>
-						<div class="flex md:justify-center">
-							<div>
-								<h2 class="text-6xl xl:text-8xl font-bold">2k+</h2>
-								<p class="text-sx opacity-60">Discord Members</p>
-							</div>
-						</div>
-					</div>
+					<HomeMetrics />
 				</div>
 			</section>
 		</div>
@@ -366,53 +88,14 @@ const layoutProps = { classList: '' };
 		<!-- Section: Sponsors -->
 		<section>
 			<div class="container mx-auto p-10 py-20">
-				<div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
-					<!-- Text -->
-					<div class="space-y-4">
-						<div class="space-y-2">
-							<h2 class="h2 text-balance">Sponsor Us</h2>
-							<p class="opacity-60">
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-							</p>
-						</div>
-						<nav class="flex gap-4">
-							<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">GitHub Sponsors</a>
-							<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Ko-Fi</a>
-						</nav>
-					</div>
-					<!-- Grid -->
-					<div class="grid grid-cols-8 md:grid-cols-10 gap-4">
-						{
-							Array.from(Array(26)).map((a) => {
-								return (
-									<div class="preset-tonal w-full aspect-square rounded-full flex justify-center items-center">
-										<span>A</span>
-									</div>
-								);
-							})
-						}
-					</div>
-				</div>
+				<HomeSponsors />
 			</div>
 		</section>
 
 		<!-- Section: CTA -->
 		<section>
 			<div class="container mx-auto p-10 py-20">
-				<div class="card bg-noise preset-filled-primary-500 px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 shadow-xl">
-					<div class="max-w-[400px]">
-						<h2 class="h2 leading-snug">Start building with Skeleton today.</h2>
-					</div>
-					<nav class="self-center flex gap-4">
-						<a href="/docs/get-started/introduction" class="btn preset-outlined hover:preset-tonal">
-							<span>Learn More</span>
-						</a>
-						<a href="/docs/get-started/installation" class="btn preset-filled">
-							<span>Get Started</span>
-							<IconChevron className="size-4" />
-						</a>
-					</nav>
-				</div>
+				<HomeBottomCta />
 			</div>
 		</section>
 	</main>

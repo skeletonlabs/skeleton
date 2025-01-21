@@ -1,0 +1,27 @@
+<div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
+	<!-- Text -->
+	<div class="space-y-4">
+		<div class="space-y-2">
+			<h2 class="h2 text-balance">Sponsor Us</h2>
+			<p class="opacity-60">
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
+			</p>
+		</div>
+		<nav class="flex gap-4">
+			<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">GitHub Sponsors</a>
+			<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Ko-Fi</a>
+		</nav>
+	</div>
+	<!-- Grid -->
+	<div class="grid grid-cols-8 md:grid-cols-10 gap-4">
+		{
+			Array.from(Array(26)).map((a) => {
+				return (
+					<div class="preset-tonal w-full aspect-square rounded-full flex justify-center items-center">
+						<span>A</span>
+					</div>
+				);
+			})
+		}
+	</div>
+</div>

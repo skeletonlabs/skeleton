@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Ellipsis as IconEllipsis } from 'lucide-react';
+---
+
+<div class="card preset-filled-surface-100-900 px-10 py-8 grid grid-cols-1 xl:grid-cols-[auto_2fr] gap-10">
+	<!-- Text -->
+	<div class="self-center space-y-2">
+		<h2 class="h2">Try it live.</h2>
+		<p class="text-balance opacity-60 max-w-96">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum id, aperiam vel.</p>
+		<p class="pt-4 text-xs opacity-30">Components available for React and Svelte.</p>
+	</div>
+	<!-- Options -->
+	<div class="self-center grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+		<a
+			href="/docs/get-started/installation"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-20 aspect-square rounded-full flex justify-center items-center bg-[#00D8FF]">
+				<Icon name="react" size={40} class="text-white" />
+			</div>
+			<span class="font-bold text-xs">React</span>
+		</a>
+		<a
+			href="/docs/get-started/installation"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-20 aspect-square rounded-full flex justify-center items-center bg-[#FF3E00]">
+				<Icon name="svelte" size={40} class="text-white" />
+			</div>
+			<span class="font-bold text-xs">Svelte</span>
+		</a>
+		<a
+			href="/docs/get-started/installation"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-20 aspect-square rounded-full flex justify-center items-center bg-[#42B883]">
+				<Icon name="tailwind" size={40} class="text-white" />
+			</div>
+			<span class="font-bold text-xs">Vue</span>
+		</a>
+		<a
+			href="/docs/get-started/installation"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-20 aspect-square rounded-full flex justify-center items-center bg-[#57A0FF]">
+				<Icon name="tailwind" size={40} class="text-white" />
+			</div>
+			<span class="font-bold text-xs">Solid</span>
+		</a>
+		<a
+			href="/docs/get-started/installation"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-20 aspect-square rounded-full flex justify-center items-center bg-[#761CBA]">
+				<Icon name="tailwind" size={40} class="text-white" />
+			</div>
+			<span class="font-bold text-xs">Astro</span>
+		</a>
+		<a
+			href="/docs/get-started/installation"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-20 aspect-square rounded-full flex justify-center items-center preset-tonal">
+				<IconEllipsis className="size-4" />
+			</div>
+			<span class="font-bold text-xs">More</span>
+		</a>
+	</div>
+</div>
