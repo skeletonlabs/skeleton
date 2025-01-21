@@ -14,7 +14,7 @@
 			</p>
 		</div>
 		<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
-			<a href="/" class="btn preset-filled scale-150">
+			<a href="/" class="btn preset-filled scale-150 shadow-xl">
 				<span>Button</span>
 				<IconChevron className="size-4" />
 			</a>
@@ -28,7 +28,13 @@
 			</p>
 		</div>
 		<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
-			<Switch name="example" bind:checked={state} controlActive="bg-surface-200" controlInactive="bg-surface-800" classes="scale-[2.0]" />
+			<Switch
+				name="example"
+				bind:checked={state}
+				controlActive="bg-surface-200"
+				controlInactive="bg-surface-800"
+				classes="scale-[2.0] shadow-xl"
+			/>
 		</div>
 	</div>
 </div>

@@ -6,8 +6,8 @@ import Footer from '@components/docs/Footer.astro';
 import HomeHero from '@components/homepage/HomeHero.astro';
 import HomeCompGrid from '@components/homepage/HomeCompGrid.astro';
 import HomePlayground from '@components/homepage/HomePlayground.astro';
-import HomeDesignSystem from '@components/homepage/HomeDesignSystem.svelte'; // hydrate
-import HomeFuncComps from '@components/homepage/HomeFuncComps.svelte'; // hydrate
+import HomeDesignSystem from '@components/homepage/HomeDesignSystem.svelte';
+import HomeFrameworkComps from '@components/homepage/HomeFrameworkComps.svelte';
 import HomeEvenMore from '@components/homepage/HomeEvenMore.astro';
 import HomeOpenSource from '@components/homepage/HomeOpenSource.astro';
 import HomeMetrics from '@components/homepage/HomeMetrics.astro';
@@ -56,10 +56,10 @@ const layoutProps = { classList: '' };
 				</div>
 			</section>
 
-			<!-- Section: Components -->
+			<!-- Section: Tailwind / Functional Components -->
 			<section>
 				<div class="container mx-auto p-10 py-20">
-					<HomeFuncComps client:load />
+					<HomeFrameworkComps client:load />
 				</div>
 			</section>
 
