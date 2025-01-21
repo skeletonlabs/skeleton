@@ -1,21 +1,9 @@
-<script>
-	import { Navigation, FileUpload, TagsInput, Pagination, Progress, ProgressRing, Segment, Slider, Switch, Tabs } from "@skeletonlabs/skeleton-svelte";
-
-	Navigation;
-	FileUpload;
-	FileUpload;
-	TagsInput;
-	Pagination;
-	Progress;
-	ProgressRing;
-	Segment;
-	Slider;
-	Switch;
-	Tabs;
-</script>
-
+<Accordion.Item />
+<Accordion.Item></Accordion.Item>
 <Navigation />
 <Navigation></Navigation>
+<Navigation.Tile />
+<Navigation.Tile></Navigation.Tile>
 <FileUpload />
 <FileUpload></FileUpload>
 <FileUpload />
@@ -30,9 +18,17 @@
 <ProgressRing></ProgressRing>
 <Segment />
 <Segment></Segment>
+<Segment.Item />
+<Segment.Item></Segment.Item>
 <Slider />
 <Slider></Slider>
+<Rating />
+<Rating></Rating>
 <Switch />
 <Switch></Switch>
 <Tabs />
 <Tabs></Tabs>
+<Tabs.Control />
+<Tabs.Control></Tabs.Control>
+<ToastProvider />
+<ToastProvider></ToastProvider>

@@ -1,9 +1,9 @@
 import { transformClasses } from './transform-classes';
-import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
-import { REMOVED_COMPONENTS } from '../utility/removed-components';
 import { Node } from 'ts-morph';
 import { addNamedImport } from '../../../../../utility/ts-morph/add-named-import';
 import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file';
+import { RENAMED_EXPORTS } from '../utility/exports/renamed-exports';
+import { REMOVED_EXPORTS } from '../utility/exports/removed-exports';
 
 function transformModule(code: string) {
 	const file = parseSourceFile(code);
@@ -16,18 +16,13 @@ function transformModule(code: string) {
 		}
 		if (Node.isImportSpecifier(node)) {
 			const name = node.getName();
-			if (Object.hasOwn(COMPONENT_MAPPINGS, name)) {
+			if (Object.hasOwn(RENAMED_EXPORTS, name) && !RENAMED_EXPORTS[name].match(/^[A-Za-z]+\.[A-Za-z]+$/)) {
 				node.remove();
-				addNamedImport(file, '@skeletonlabs/skeleton-svelte', COMPONENT_MAPPINGS[name]);
+				addNamedImport(file, '@skeletonlabs/skeleton-svelte', RENAMED_EXPORTS[name]);
 			}
-			if (REMOVED_COMPONENTS.includes(name)) {
-				const parent = node.getParent().getParent().getParent();
-				if (
-					Node.isImportDeclaration(parent) &&
-					parent.getNamedImports().length === 1 &&
-					!parent.getDefaultImport() &&
-					!parent.getNamespaceImport()
-				) {
+			if (REMOVED_EXPORTS.includes(name)) {
+				const parent = node.getImportDeclaration();
+				if (parent.getNamedImports().length === 1 && !parent.getDefaultImport() && !parent.getNamespaceImport()) {
 					parent.remove();
 				} else {
 					node.remove();
@@ -36,8 +31,8 @@ function transformModule(code: string) {
 		}
 		if (!node.wasForgotten() && Node.isIdentifier(node)) {
 			const name = node.getText();
-			if (Object.hasOwn(COMPONENT_MAPPINGS, name)) {
-				node.replaceWithText(COMPONENT_MAPPINGS[name]);
+			if (Object.hasOwn(RENAMED_EXPORTS, name)) {
+				node.replaceWithText(RENAMED_EXPORTS[name]);
 			}
 		}
 		if (!node.wasForgotten() && Node.isStringLiteral(node) && !Node.isImportDeclaration(node.getParent())) {
