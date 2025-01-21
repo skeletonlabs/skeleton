@@ -21,7 +21,7 @@ const layoutProps = { classList: '' };
 			<!-- Section: Hero -->
 			<section>
 				<div class="container mx-auto flex justify-center p-10 py-20">
-					<div class="grid grid-cols-[256px_640px] gap-10">
+					<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-10">
 						<!-- Mascot -->
 						<div class="flex justify-center items-center">
 							<Icon name="skeleton-full" class="size-64 aspect-square" />
@@ -33,10 +33,13 @@ const layoutProps = { classList: '' };
 								<span>Skeleton v3 now avilable!</span>
 								<IconChevron className="size-4" />
 							</a>
-							<h1 class="heading-font-family text-4xl md:text-6xl font-bold text-balance">An adaptive design system for Tailwind.</h1>
-							<p class="text-balance">
-								Skeleton extends Tailwind CSS with our opinionated design system, while also providing easy to use components for modern web
-								frameworks.
+							<h1 class="heading-font-family text-4xl md:text-6xl font-bold xl:text-balance">
+								An adaptive design system powered by Tailwind CSS.
+							</h1>
+							<p class="text-lg xl:text-balance">
+								Skeleton extends <a class="underline" href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> to help you create your
+								own <a class="underline" href="https://themes.skeleton.dev/themes/create" target="_blank">customizable</a> design system, while
+								providing easy to use components for modern web frameworks.
 							</p>
 							<!-- Buttons -->
 							<nav class="flex gap-4">
@@ -92,9 +95,9 @@ const layoutProps = { classList: '' };
 			</section>
 
 			<!-- Section: Playground -->
-			<section>
+			<section class="hidden md:block">
 				<div class="container mx-auto p-10 py-20">
-					<div class="card preset-filled-surface-100-900 px-10 py-8 grid grid-cols-[auto_2fr] gap-">
+					<div class="card preset-filled-surface-100-900 px-10 py-8 grid grid-cols-1 xl:grid-cols-[auto_2fr] gap-10">
 						<!-- Text -->
 						<div class="self-center">
 							<h2 class="h2">Try it live.</h2>
@@ -104,7 +107,7 @@ const layoutProps = { classList: '' };
 							<p class="mt-4 text-xs opacity-30">Components available for React and Svelte.</p>
 						</div>
 						<!-- Options -->
-						<div class="grid grid-cols-6 gap-4">
+						<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
 							<a
 								href="/docs/get-started/installation"
 								class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
@@ -170,10 +173,10 @@ const layoutProps = { classList: '' };
 			<!-- Section: Design System -->
 			<section>
 				<div class="container mx-auto p-10 py-20">
-					<div class="grid grid-cols-2 xl:grid-cols-[1fr_2fr] gap-10">
+					<div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
 						<!-- Text -->
 						<div class="self-center space-y-4">
-							<h2 class="h2">Manage a fully featured design system.</h2>
+							<h2 class="h2">Manage a customizable design system.</h2>
 							<nav class="grid grid-cols-2 gap-4">
 								<button type="button" class="btn preset-filled">Figma UI Kit</button>
 								<button type="button" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Themes</button>
@@ -190,7 +193,9 @@ const layoutProps = { classList: '' };
 							</p>
 						</div>
 						<!-- Carousel -->
-						<div class="self-center card preset-filled-primary-500 aspect-video overflow-hidden shadow-xl">
+						<div
+							class="self-center card bg-gradient-to-r from-primary-300 to-primary-700 text-primary-contrast-300 aspect-video overflow-hidden shadow-xl"
+						>
 							<img src="https://i.imgur.com/KOrl47B.png" alt="figma" class="w-full h-auto" />
 						</div>
 					</div>
@@ -208,7 +213,9 @@ const layoutProps = { classList: '' };
 									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
 								</p>
 							</div>
-							<div class="card preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
+							<div
+								class="card bg-gradient-radial from-secondary-300 to-secondary-700 text-secondary-contrast-300 aspect-video shadow-xl flex justify-center items-center"
+							>
 								<a href="/" class="btn preset-filled scale-150">
 									<span>Button</span>
 									<IconChevron className="size-4" />
@@ -222,7 +229,9 @@ const layoutProps = { classList: '' };
 									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
 								</p>
 							</div>
-							<div class="card preset-filled-tertiary-500 aspect-video shadow-xl flex justify-center items-center">
+							<div
+								class="card bg-gradient-radial from-secondary-300 to-secondary-700 text-secondary-contrast-300 aspect-video shadow-xl flex justify-center items-center"
+							>
 								<span class="btn preset-filled scale-150">Switch</span>
 							</div>
 						</div>
@@ -241,7 +250,7 @@ const layoutProps = { classList: '' };
 						</p>
 					</div>
 					<!-- Grid -->
-					<div class="grid grid-cols-3 grid-rows-3 gap-4">
+					<div class="grid grid-cols-1 xl:grid-cols-3 xl:grid-rows-3 gap-4">
 						<!-- 1 -->
 						<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:col-span-2">
 							<div class="w-full h-full flex flex-col justify-end">
@@ -294,9 +303,9 @@ const layoutProps = { classList: '' };
 			<!-- Section: Open Source -->
 			<section>
 				<div class="container mx-auto p-10 py-20">
-					<div class="grid grid-cols-[2fr_1fr] gap-10">
+					<div class="grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-10">
 						<!-- Grid -->
-						<div class="grid grid-cols-[repeat(20,minmax(0,1fr))] gap-2">
+						<div class="grid grid-cols-10 md:grid-cols-[repeat(20,minmax(0,1fr))] gap-2">
 							{
 								Array.from(Array(196)).map((a) => {
 									return (
@@ -310,7 +319,7 @@ const layoutProps = { classList: '' };
 						<!-- Text -->
 						<div class="space-y-4">
 							<div>
-								<h2 class="h2 text-balance">Provided as free and open source software.</h2>
+								<h2 class="h2 text-balance">Open Source</h2>
 								<p class="opacity-60">
 									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
 								</p>
@@ -332,24 +341,24 @@ const layoutProps = { classList: '' };
 			<!-- Section: Metrics -->
 			<section>
 				<div class="container mx-auto p-10 py-20">
-					<div class="card preset-outlined-surface-200-800 px-10 py-8 grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-10">
-						<div class="flex justify-center">
+					<div class="card preset-outlined-surface-200-800 px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-10">
+						<div class="flex md:justify-center">
 							<div>
-								<h2 class="text-8xl font-bold">80k+</h2>
+								<h2 class="text-6xl xl:text-8xl font-bold">80k+</h2>
 								<p class="text-sx opacity-60">Monthly Downloads</p>
 							</div>
 						</div>
-						<span class="vr"></span>
-						<div class="flex justify-center">
+						<span class="hidden md:block vr"></span>
+						<div class="flex md:justify-center">
 							<div>
-								<h2 class="text-8xl font-bold">5k+</h2>
+								<h2 class="text-6xl xl:text-8xl font-bold">5k+</h2>
 								<p class="text-sx opacity-60">GitHub Stars</p>
 							</div>
 						</div>
-						<span class="vr"></span>
-						<div class="flex justify-center">
+						<span class="hidden md:block vr"></span>
+						<div class="flex md:justify-center">
 							<div>
-								<h2 class="text-8xl font-bold">2k+</h2>
+								<h2 class="text-6xl xl:text-8xl font-bold">2k+</h2>
 								<p class="text-sx opacity-60">Discord Members</p>
 							</div>
 						</div>
@@ -361,23 +370,22 @@ const layoutProps = { classList: '' };
 		<!-- Section: Sponsors -->
 		<section>
 			<div class="container mx-auto p-10 py-20">
-				<div class="grid grid-cols-[1fr_2fr] gap-10">
+				<div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
 					<!-- Text -->
 					<div class="space-y-4">
 						<div>
-							<h2 class="h2 text-balance">Sponsor Us.</h2>
+							<h2 class="h2 text-balance">Sponsor Us</h2>
 							<p class="opacity-60">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
 							</p>
 						</div>
-						<nav class="grid grid-cols-3 gap-4">
-							<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">GitHub</a>
+						<nav class="flex gap-4">
+							<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">GitHub Sponsors</a>
 							<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Ko-Fi</a>
-							<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Patreon</a>
 						</nav>
 					</div>
 					<!-- Grid -->
-					<div class="grid grid-cols-10 gap-4">
+					<div class="grid grid-cols-8 md:grid-cols-10 gap-4">
 						{
 							Array.from(Array(26)).map((a) => {
 								return (
@@ -395,14 +403,21 @@ const layoutProps = { classList: '' };
 		<!-- Section: CTA -->
 		<section>
 			<div class="container mx-auto p-10 py-20">
-				<div class="card bg-gradient-to-r from-primary-500 to-secondary-500 px-10 py-8 grid grid-cols-[1fr_auto] gap-10">
-					<div class="max-w-96">
-						<h2 class="h2">Start building with Skeleton today.</h2>
+				<div
+					class="card bg-gradient-to-br from-primary-300 to-primary-700 px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 shadow-xl"
+				>
+					<div class="max-w-[400px]">
+						<h2 class="h2 !text-primary-contrast-300">Start building with Skeleton today.</h2>
 					</div>
-					<a href="/" class="self-center btn btn-lg preset-filled">
-						<span>Get Started</span>
-						<IconChevron className="size-4" />
-					</a>
+					<nav class="self-center flex gap-4">
+						<a href="/docs/get-started/introduction" class="btn preset-outlined hover:preset-tonal">
+							<span>Learn More</span>
+						</a>
+						<a href="/docs/get-started/installation" class="btn preset-filled">
+							<span>Get Started</span>
+							<IconChevron className="size-4" />
+						</a>
+					</nav>
 				</div>
 			</div>
 		</section>
