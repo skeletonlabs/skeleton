@@ -4,7 +4,7 @@ import LayoutRoot from '@layouts/LayoutRoot.astro';
 import Header from '@components/docs/Header.astro';
 import Footer from '@components/docs/Footer.astro';
 import HomeHero from '@components/homepage/HomeHero.astro';
-import HomeCompGrid from '@components/homepage/HomeCompGrid.astro';
+import HomeCompGrid from '@components/homepage/HomeCompGrid.svelte';
 import HomePlayground from '@components/homepage/HomePlayground.astro';
 import HomeDesignSystem from '@components/homepage/HomeDesignSystem.svelte';
 import HomeFrameworkComps from '@components/homepage/HomeFrameworkComps.svelte';
@@ -33,9 +33,9 @@ const layoutProps = { classList: '' };
 			</section>
 
 			<!-- Section: Component Grid -->
-			<section class="hidden xl:block">
+			<section class="hidden 2xl:block">
 				<div class="container mx-auto p-10 py-20">
-					<HomeCompGrid />
+					<HomeCompGrid client:load />
 				</div>
 			</section>
 
