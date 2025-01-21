@@ -1,5 +1,7 @@
-const COMPONENT_MAPPINGS: Record<string, string> = {
+const RENAMED_EXPORTS: Record<string, string> = {
+	AccordionItem: 'Accordion.Item',
 	AppRail: 'Navigation',
+	AppRailTile: 'Navigation.Tile',
 	FileButton: 'FileUpload',
 	FileDropzone: 'FileUpload',
 	InputChip: 'TagsInput',
@@ -7,9 +9,13 @@ const COMPONENT_MAPPINGS: Record<string, string> = {
 	ProgressBar: 'Progress',
 	ProgressRadial: 'ProgressRing',
 	RadioGroup: 'Segment',
+	RadioItem: 'Segment.Item',
 	RangeSlider: 'Slider',
+	Ratings: 'Rating',
 	SlideToggle: 'Switch',
-	TabGroup: 'Tabs'
+	TabAnchor: 'Tabs.Control',
+	TabGroup: 'Tabs',
+	Toast: 'ToastProvider'
 };
 
-export { COMPONENT_MAPPINGS };
+export { RENAMED_EXPORTS };
