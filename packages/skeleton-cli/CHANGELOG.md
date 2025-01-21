@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.13
+
+### Patch Changes
+
+- Feature (migrate/skeleton-3): All removed and renamed exports are now migrated. ([#3139](https://github.com/skeletonlabs/skeleton/pull/3139))
+
 ## 0.0.1-next.12
 
 ### Patch Changes
