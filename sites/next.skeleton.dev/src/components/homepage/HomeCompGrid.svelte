@@ -240,24 +240,24 @@
 			<hr class="hr" />
 			<div class="space-y-4">
 				<div class="flex justify-between items-center">
-					<span class="text-xl font-bold">$2,900</span>
+					<span class="text-xl font-bold">$3,900</span>
 					<span class="badge preset-tonal-success">+20%</span>
 				</div>
-				<progress class="progress" value="66" max="100"></progress>
+				<progress class="progress" value="39" max="100"></progress>
 			</div>
 			<div class="space-y-4">
 				<div class="flex justify-between items-center">
 					<span class="text-xl font-bold">$6,400</span>
 					<span class="badge preset-tonal-error">-5%</span>
 				</div>
-				<progress class="progress" value="28" max="100"></progress>
+				<progress class="progress" value="64" max="100"></progress>
 			</div>
 			<div class="space-y-4">
 				<div class="flex justify-between items-center">
 					<span class="text-xl font-bold">$1,300</span>
 					<span class="badge preset-tonal-success">+8%</span>
 				</div>
-				<progress class="progress" value="28" max="100"></progress>
+				<progress class="progress" value="13" max="100"></progress>
 			</div>
 		</div>
 		<!-- 9 -->
@@ -367,7 +367,7 @@
 		<div class={`${cardClasses} col-span-2 row-span-2 col-start-3 row-start-7`}>
 			<div class="h-full grid grid-cols-[auto_2fr_0.5fr] items-center gap-2 px-5">
 				<button type="button" class="btn-icon btn-icon-lg rounded-full preset-filled-primary-500 scale-150">
-					<IconPlay class="size-6 fill-surface-950-50 stroke-none" />
+					<IconPlay class="size-6 fill-surface-50 stroke-none" />
 				</button>
 				<div class="grid grid-cols-[auto_1fr_auto] gap-5 items-center px-10">
 					<button type="button" class="btn hover:preset-tonal"><IconRewind class="size-4 opacity-60" /></button>
