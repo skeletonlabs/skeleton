@@ -4,78 +4,42 @@
 	import IconHeart from 'lucide-svelte/icons/heart';
 	import IconUserRound from 'lucide-svelte/icons/user-round';
 	import IconTriangle from 'lucide-svelte/icons/triangle';
-	// Components
-	import ExampleColors from '@examples/design/colors/ExampleColors.svelte';
 
 	let state = $state(0);
 	const steps = [
 		{
-			label: 'Figma UI Kit',
-			desc: 'Import Skeleton themes directly into Figma using our dedicated plugin. Switch between dark and light modes on the fly. Preview all available components instantly.'
+			label: 'The Figma UI Kit',
+			desc: 'This premium kit allows you to import Skeleton themes directly into Figma a dedicated plugin. Switch between dark and light modes on the fly. Preview all available components instantly.'
 		},
 		{
 			label: 'Themes',
-			desc: 'Themes are the heart of the Skeleton’s design system, empowered by CSS custom properties, authored as CSS-in-JS to enable simple integration into Skeleton’s Tailwind plugin. Which allows for simple pre-registration and switching on demand.'
+			desc: 'Themes are empowered by CSS custom properties, enabling simple integration into Skeleton’s Tailwind plugin. Allowing for simple registration and easy switching on demand.'
 		},
 		{
 			label: 'Colors',
-			desc: 'Manages your entire color palette, with support for contrast tones. Make use of Color Pairings for balancing dark mode and Presets to quickly style elements.'
+			desc: 'Manages your full color palette with support for contrast tones. Make use of Color Pairings for balancing dark mode. As well as Presets to apply canned styles to elements and components.'
 		},
 		{
 			label: 'Presets',
-			desc: 'Presets are complex utilty classes that combine various Skeleton primitives. Allowing you quickly style buttons, badges, cards, and more. Create any combination of styles by mixing Skeleton Presets and Tailwind primitives.'
+			desc: 'Presets are utilty classes that combine Tailwind and Skeleton primitives. Quickly style buttons, badges, cards, and more. Create any combination by mixing and matching primitives.'
 		},
 		{
 			label: 'Typography',
-			desc: 'Skeleton provides an array of opt-in utility classes for common typographic elements. As well as a number of primitives for extending and generating semantic typography sets. Use theme settings to provide the perfect typographic scale.'
+			desc: 'Skeleton provides an array of opt-in utility classes for typographic elements. Includes primitives for generating semantic typography. Adjust theme settings to set the perfect typographic scale.'
 		},
 		{
 			label: 'Spacing',
-			desc: 'This extends the Tailwind spacing system, enabling dynamic scaling based on a theme-specified scale factor.'
+			desc: 'This extends the Tailwind spacing system, adjust dynamic scaling using a single theme-specified scale factor.'
 		},
 		{
 			label: 'Iconography',
-			desc: 'Skeleton takes an agnostic approach to icons, meaning you can use any combination of SVGs, emoji, unicode, or dedicated icon libraries. Mix and match to fulfill your project’s unique requirements.'
+			desc: 'Skeleton takes an agnostic approach to icons, allowing you to bring your own icon library or mix and match to fulfill your project’s aesthetic or requirements.'
 		}
 	];
 	const btnActive = 'btn preset-filled';
 	const btnInactive = 'btn preset-outlined-surface-400-600 hover:preset-tonal';
 
-	export const spacing = [
-		'h-[1px]',
-		'h-0.5',
-		'h-1',
-		'h-1.5',
-		'h-2',
-		'h-2.5',
-		'h-3',
-		'h-3.5',
-		'h-4',
-		'h-5',
-		'h-6',
-		'h-7',
-		'h-8',
-		'h-9',
-		'h-10',
-		'h-11',
-		'h-12',
-		'h-14',
-		'h-16',
-		'h-20',
-		'h-24',
-		'h-28',
-		'h-32',
-		'h-36',
-		'h-40',
-		'h-44',
-		'h-48',
-		'h-52',
-		'h-56',
-		'h-60',
-		'h-64',
-		'h-72',
-		'h-80'
-	];
+	export const spacing = ['w-4', 'w-8', 'w-16', 'w-24', 'w-32', 'w-48', 'w-56', 'w-64', 'w-72'];
 
 	function setState(newState: number) {
 		state = newState;
@@ -86,13 +50,13 @@
 	}
 </script>
 
-<div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
+<div class="grid grid-cols-1 xl:grid-cols-[0.75fr_2fr] gap-10">
 	<!-- Text -->
 	<div class="space-y-8">
 		<h2 class="h2">Design System</h2>
 		<nav class="grid grid-cols-2 gap-4">
 			{#each steps as step, i}
-				<button type="button" onclick={() => setState(i)} class={setStateClass(i)}>{step.label}</button>
+				<button type="button" onclick={() => setState(i)} class={`${setStateClass(i)} ${i === 0 ? 'col-span-2' : ''}`}>{step.label}</button>
 			{/each}
 		</nav>
 		<p class="opacity-60">{steps[state].desc}</p>
@@ -139,7 +103,14 @@ const theme = {
 			</div>
 		{:else if state == 2}
 			<!-- Step 3: Colors -->
-			<div class="w-full p-10"><ExampleColors /></div>
+			<div class="grid grid-cols-3 gap-5 md:gap-10">
+				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-secondary-500"></div>
+				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-tertiary-500"></div>
+				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-success-500"></div>
+				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-error-500"></div>
+				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-warning-500"></div>
+				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-surface-500"></div>
+			</div>
 		{:else if state == 3}
 			<!-- Step 4: Presets -->
 			<div class="md:scale-125 xl:scale-150 grid grid-cols-3 gap-6 xl:gap-10">
@@ -147,19 +118,19 @@ const theme = {
 					<button type="button" class="btn preset-filled">Filled</button>
 				</div>
 				<div class="flex flex-col items-center gap-4">
-					<button type="button" class="btn preset-tonal">Tonal</button>
+					<button type="button" class="btn preset-tonal hover:preset-filled">Tonal</button>
 				</div>
 				<div class="flex flex-col items-center gap-4">
-					<button type="button" class="btn preset-outlined">Outlined</button>
+					<button type="button" class="btn preset-outlined-surface">Outlined</button>
 				</div>
 				<div class="flex flex-col items-center gap-4">
 					<button type="button" class="btn preset-filled shadow-xl">Elevated</button>
 				</div>
 				<div class="flex flex-col items-center gap-4">
-					<button type="button" class="btn hover:preset-tonal">Ghost</button>
+					<button type="button" class="btn hover:preset-filled">Ghost</button>
 				</div>
 				<div class="flex flex-col items-center gap-4">
-					<button type="button" class="btn hover:preset-tonal">
+					<button type="button" class="btn hover:preset-filled">
 						<IconBookmark className="size-6" />
 					</button>
 				</div>
@@ -172,9 +143,12 @@ const theme = {
 			</div>
 		{:else if state == 5}
 			<!-- Step 6: Spacing -->
-			<div class="flex items-end gap-3">
+			<div class="md:scale-150 flex flex-col items-start gap-1">
 				{#each spacing as rowHeight}
-					<div class="preset-filled w-2 {rowHeight}"></div>
+					<div class="grid grid-cols-[32px_1fr] items-center gap-2">
+						<span class="text-xs text-right">{rowHeight}</span>
+						<div class="bg-surface-50 h-2 {rowHeight}"></div>
+					</div>
 				{/each}
 			</div>
 		{:else if state == 6}

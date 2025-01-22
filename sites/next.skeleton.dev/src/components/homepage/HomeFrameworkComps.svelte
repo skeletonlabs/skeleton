@@ -10,7 +10,7 @@
 		<div class="text-center space-y-2">
 			<h2 class="h2">Tailwind Components</h2>
 			<p class="text-balance opacity-60">
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
+				Common visual interfaces such as cards, buttons, and badges. Use native HTML elements and Tailwind utility classes.
 			</p>
 		</div>
 		<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
@@ -24,7 +24,7 @@
 		<div class="text-center space-y-2">
 			<h2 class="h2">Functional Components</h2>
 			<p class="text-balance opacity-60">
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
+				Interactive components for supported frameworks. Handle state and logic for user interaction and form elements.
 			</p>
 		</div>
 		<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
