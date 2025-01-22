@@ -74,19 +74,19 @@ html {
 
 /* Cards */
 .card-enhanced {
-	@apply card border border-surface-200-800;
+	@apply card border border-primary-200-800;
 }
 [data-theme='catppuccin'] .card-enhanced,
 [data-theme='terminus'] .card-enhanced,
 [data-theme='vox'] .card-enhanced,
 [data-theme='rocket'] .card-enhanced {
-	@apply bg-surface-100/30 dark:bg-surface-900/30;
+	@apply bg-primary-100/30 dark:bg-primary-900/30;
 }
 [data-theme='concord'] .card-enhanced,
 [data-theme='legacy'] .card-enhanced,
 [data-theme='mint'] .card-enhanced,
 [data-theme='vintage'] .card-enhanced {
-	@apply bg-surface-50/30 dark:bg-surface-950/30;
+	@apply bg-primary-50/30 dark:bg-primary-950/30;
 }
 
 /* Filled Cards */
@@ -102,7 +102,7 @@ html {
 	@apply bg-noise preset-filled-primary-500;
 }
 .linker-item {
-	@apply btn bg-surface-50 text-surface-950 shadow;
+	@apply btn bg-primary-50 text-primary-950 shadow;
 }
 
 /* Floating UI */

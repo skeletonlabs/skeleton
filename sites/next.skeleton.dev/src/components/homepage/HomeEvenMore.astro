@@ -1,3 +1,12 @@
+---
+import IconFramework from 'lucide-svelte/icons/badge-check';
+import IconDesign from 'lucide-svelte/icons/palette';
+import IconTypescript from 'lucide-svelte/icons/file-code';
+import IconDarkMode from 'lucide-svelte/icons/sun-moon';
+import IconIntegrations from 'lucide-svelte/icons/blocks';
+import IconA11y from 'lucide-svelte/icons/accessibility';
+---
+
 <div class="space-y-10">
 	<!-- Text -->
 	<div class="text-center space-y-2">
@@ -8,50 +17,57 @@
 		</p>
 	</div>
 	<!-- Grid -->
-	<div class="grid grid-cols-1 xl:grid-cols-3 xl:grid-rows-3 gap-4">
+	<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
 		<!-- 1 -->
-		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:col-span-2">
-			<div class="w-full h-full flex flex-col justify-end">
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconFramework class="size-8" />
 				<h3 class="h4">Framework Agnostic</h3>
-				<p class="text-balance max-w-lg opacity-60">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
+				<p class="text-balance opacity-60">
+					If you can Tailwind, you can use Skeleton. Including optional components for React and Svelte.
 				</p>
 			</div>
 		</div>
 		<!-- 2 -->
-		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:row-span-2 xl:col-start-3">
-			<div class="w-full h-full flex flex-col justify-end">
-				<h3 class="h4">Typescript</h3>
-				<p class="text-balance max-w-lg opacity-60">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconDesign class="size-8" />
+				<h3 class="h4">Adaptive Design</h3>
+				<p class="text-balance opacity-60">
+					Generate a theme in seconds, then use it to control the look and feel for your entire application.
 				</p>
 			</div>
 		</div>
 		<!-- 3 -->
-		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:row-span-2 xl:row-start-2">
-			<div class="w-full h-full flex flex-col justify-end">
-				<h3 class="h4">Integrations</h3>
-				<p class="text-balance max-w-lg opacity-60">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-				</p>
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconTypescript class="size-8" />
+				<h3 class="h4">Typescript</h3>
+				<p class="text-balance opacity-60">Utilize Typescript to get IntelliSense feedback as you develop your application.</p>
 			</div>
 		</div>
 		<!-- 4 -->
-		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:row-start-2">
-			<div class="w-full h-full flex flex-col justify-end">
-				<h3 class="h4">Dark Mode</h3>
-				<p class="text-balance max-w-lg opacity-60">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-				</p>
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconDarkMode class="size-8" />
+				<h3 class="h4">Integrations</h3>
+				<p class="text-balance opacity-60">Easily extend Skeletonw with tools like popovers, code blocks, and more.</p>
 			</div>
 		</div>
 		<!-- 5 -->
-		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 min-h-64 p-10 xl:col-span-2 xl:col-start-2 xl:row-start-3">
-			<div class="w-full h-full flex flex-col justify-end">
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconIntegrations class="size-8" />
+				<h3 class="h4">Dark Mode</h3>
+				<p class="text-balance opacity-60">Themes support dark mode by default, using our powerful Color Pairing system.</p>
+			</div>
+		</div>
+		<!-- 6 -->
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconA11y class="size-8" />
 				<h3 class="h4">Accessibility</h3>
-				<p class="text-balance max-w-lg opacity-60">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae doloribus quaerat placeat optio fuga est incidunt.
-				</p>
+				<p class="text-balance opacity-60">WAI-ARIA compliant for semantics, attributes, and keyboard interactions.</p>
 			</div>
 		</div>
 	</div>
