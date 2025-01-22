@@ -1,5 +1,16 @@
 <script lang="ts">
-	import { Avatar, Switch, ProgressRing } from '@skeletonlabs/skeleton-svelte';
+	import { Avatar, Segment, Slider, Switch, ProgressRing } from '@skeletonlabs/skeleton-svelte';
+	import IconPlay from 'lucide-svelte/icons/play';
+	import IconNormalize from 'lucide-svelte/icons/audio-waveform';
+	import IconEqualizer from 'lucide-svelte/icons/audio-lines';
+	import Icon3dAudio from 'lucide-svelte/icons/move-3d';
+	import IconCrossfade from 'lucide-svelte/icons/chart-no-axes-column-increasing';
+	import IconArrowUpRight from 'lucide-svelte/icons/arrow-up-right';
+	import IconCheck from 'lucide-svelte/icons/check';
+	import IconUsers from 'lucide-svelte/icons/user';
+	import IconRewind from 'lucide-svelte/icons/rewind';
+	import IconFastFoward from 'lucide-svelte/icons/fast-forward';
+	import IconVolume from 'lucide-svelte/icons/volume-2';
 
 	// Classes
 	const cardClasses = 'card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5';
@@ -14,8 +25,12 @@
 	});
 
 	// Seed Data
-	const avatar =
-		'https://images.unsplash.com/photo-1620122303020-87ec826cf70d?q=80&w=256&h=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+	const teamData = [
+		{ name: 'Janet Rosenbell', email: 'jrosenbell@email.com' },
+		{ name: 'Jason Greene', email: 'jgreene@email.com' },
+		{ name: 'Lucas Gamble', email: 'lgamble@email.com' },
+		{ name: 'Murray Henderson', email: 'mhenderson@email.com' }
+	];
 	const tableData = [
 		{ position: '0', name: 'Iron', symbol: 'Fe', atomic_no: '26' },
 		{ position: '1', name: 'Rhodium', symbol: 'Rh', atomic_no: '45' },
@@ -47,17 +62,16 @@
 				<input type="password" class="input" placeholder="me@example.com" />
 			</label>
 		</article>
-		<hr class="hr" />
 		<button class="w-full btn preset-filled-primary-500">Create Account</button>
 	</div>
 	<!-- 2 -->
 	<div class={`${cardClasses}`}>
 		<header class="space-y-1">
-			<h2 class="h4">Notifications.</h2>
+			<h2 class="h6">Notifications.</h2>
 			<p class="opacity-60">Toggle each available notification.</p>
 		</header>
 		<hr class="hr" />
-		<section class="w-full space-y-4">
+		<section class="w-full space-y-5">
 			<div class="flex justify-between items-center gap-4">
 				<p>Enable do not distrurb.</p>
 				<Switch name="disturb" bind:checked={notifications.disturb}></Switch>
@@ -91,22 +105,71 @@
 				<h2 class="h5">Team</h2>
 				<p class="opacity-60">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit.</p>
 			</header>
-			<hr class="hr" />
 			<input type="search" class="input" placeholder="Search Members..." />
-			{#each [0, 0, 0] as user}
-				<div class="card preset-outlined-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
-					<Avatar src={avatar} name="" size="size-14" imageClasses="grayscale" />
-					<div>
-						<p class="font-bold">Janet Rosenbell</p>
-						<p class="opacity-60 type-scale-1">jrosenbell@example.com</p>
-					</div>
-				</div>
-			{/each}
-			<p class="text-xs opacity-60 text-center">Now viewing <strong>3</strong> members of <strong>100</strong>.</p>
+			<div class="grid grid-cols-1 gap-2">
+				{#each teamData as member, i}
+					<hr class="hr" />
+					<button type="button" class="card w-full grid grid-cols-[auto_1fr] items-center gap-4 p-3">
+						<Avatar src="https://i.pravatar.cc/150?img={i + 10}" name="" size="size-10" imageClasses="grayscale" />
+						<div class="text-left">
+							<p class="font-bold">{member.name}</p>
+							<p class="opacity-60 type-scale-1">{member.email}</p>
+						</div>
+					</button>
+				{/each}
+			</div>
 		</div>
 	</div>
 	<!-- 4 -->
-	<div class={`${cardClasses} row-span-2`}>4</div>
+	<div class={`${cardClasses} row-span-2`}>
+		<header class="flex justify-between items-center">
+			<h2 class="h4">Music</h2>
+			<p class="text-xs opacity-60">Harman Kardon Luna</p>
+		</header>
+		<img src="https://i.imgur.com/kocJdtN.png" alt="Massive Attack" class="rounded-container border-[1px] border-surface-500/50" />
+		<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
+			<IconPlay class="size-4 opacity-60" />
+			<Slider name="example" value={[75]} />
+		</div>
+		<div class="grid grid-cols-4 gap-2 items-center">
+			<a
+				href="/docs/get-started/installation"
+				class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			>
+				<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
+					<IconNormalize class="size-4" />
+				</div>
+				<span class="text-[10px]">Normalize</span>
+			</a>
+			<a
+				href="/docs/get-started/installation"
+				class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			>
+				<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
+					<IconEqualizer class="size-4" />
+				</div>
+				<span class="text-[10px]">Equalizer</span>
+			</a>
+			<a
+				href="/docs/get-started/installation"
+				class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			>
+				<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
+					<Icon3dAudio class="size-4" />
+				</div>
+				<span class="text-[10px]">3D Audio</span>
+			</a>
+			<a
+				href="/docs/get-started/installation"
+				class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			>
+				<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
+					<IconCrossfade class="size-4" />
+				</div>
+				<span class="text-[10px]">Crossfade</span>
+			</a>
+		</div>
+	</div>
 	<!-- 5 -->
 	<div class={`${cardClasses}`}>
 		<div class="flex justify-between items-center gap-4">
@@ -121,25 +184,32 @@
 	</div>
 	<!-- 6 -->
 	<div class={`${cardClasses} row-span-2`}>
-		<header>
-			<h2 class="h5">Statistic Overview</h2>
-			<p class="opacity-60">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit.</p>
-		</header>
-		<hr class="hr" />
+		<h2 class="h5">Statistics</h2>
 		<div class="card grid grid-cols-3 gap-5">
 			<div class="flex flex-col items-start">
 				<h2 class="text-3xl font-bold">64k+</h2>
-				<p class="type-scale-1 opacity-60">Downloads</p>
+				<div class="grid grid-cols-1 gap-2">
+					<p class="type-scale-1 opacity-60">Downloads</p>
+					<badge class="badge preset-tonal-success">&uarr; 4%</badge>
+				</div>
 			</div>
 			<div class="flex flex-col items-start">
 				<h2 class="text-3xl font-bold">93k+</h2>
-				<p class="type-scale-1 opacity-60">Views</p>
+				<div class="grid grid-cols-1 gap-2">
+					<p class="type-scale-1 opacity-60">Views</p>
+					<badge class="badge preset-tonal-error">&darr; 2.4%</badge>
+				</div>
 			</div>
 			<div class="flex flex-col items-start">
 				<h2 class="text-3xl font-bold">15k+</h2>
-				<p class="type-scale-1 opacity-60">Members</p>
+				<div class="grid grid-cols-1 gap-2">
+					<p class="type-scale-1 opacity-60">Members</p>
+					<badge class="badge preset-tonal-success">&uarr; 8%</badge>
+				</div>
 			</div>
 		</div>
+		<hr class="hr" />
+		<p class="opacity-60">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam impedit.</p>
 	</div>
 	<!-- 7 -->
 	<div class={`${cardClasses} row-span-2 row-start-3`}>
@@ -148,7 +218,7 @@
 			<p class="opacity-60">Lorem, ipsum dolor sit amet adipisicing.</p>
 		</header>
 		<div class="flex justify-center items-center">
-			<ProgressRing value={32} max={100} showLabel size="size-48" />
+			<ProgressRing value={32} max={100} showLabel size="size-56" />
 		</div>
 	</div>
 	<!-- 8 -->
@@ -158,65 +228,151 @@
 				<h2 class="h3">Revenue</h2>
 				<p class="text-xs opacity-60">April 1-13</p>
 			</div>
-			<button type="button" class="btn-icon rounded-full preset-tonal -rotate-45">&rarr;</button>
+			<button type="button" class="btn-icon rounded-full preset-tonal">
+				<IconArrowUpRight class="size-4" />
+			</button>
 		</header>
 		<hr class="hr" />
 		<div class="space-y-4">
 			<div class="flex justify-between items-center">
 				<span class="text-4xl">$2,900<span class="opacity-60">.00</span></span>
-				<span class="badge preset-tonal">+20%</span>
+				<span class="badge preset-tonal-success">+20%</span>
 			</div>
 			<progress class="progress" value="66" max="100"></progress>
 		</div>
 		<div class="space-y-4">
 			<div class="flex justify-between items-center">
 				<span class="text-4xl">$1,400<span class="opacity-60">.00</span></span>
-				<span class="badge preset-tonal">-5%</span>
+				<span class="badge preset-tonal-error">-5%</span>
 			</div>
 			<progress class="progress" value="28" max="100"></progress>
 		</div>
 	</div>
 	<!-- 9 -->
-	<div class={`${cardClasses} row-span-2 col-start-2 row-start-4`}>9</div>
+	<div class={`${cardClasses} row-span-2 col-start-2 row-start-4`}>
+		<p class="font-bold">Delivery</p>
+		<nav class="grid grid-cols-2 gap-2">
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Tomorrow</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Within 2 days</button>
+		</nav>
+		<p class="font-bold">Size</p>
+		<nav class="grid grid-cols-5 gap-2">
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">5.5</button>
+			<button class="btn preset-filled-primary-500">6</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">6.5</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">7</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">7.5</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">8</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">8.5</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">9</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">9.5</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">10</button>
+		</nav>
+		<p class="font-bold">Material</p>
+		<nav class="grid grid-cols-4 gap-2">
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Canvas</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Mesh</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Suede</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Leather</button>
+		</nav>
+	</div>
 	<!-- 10 -->
-	<div class={`${cardClasses} row-span-2 row-start-5`}>10</div>
+	<div class={`${cardClasses} row-span-2 row-start-5 text-center`}>
+		<button type="button" class="w-16 aspect-square preset-tonal-success flex justify-center items-center mx-auto rounded-full">
+			<IconCheck class="size-8" />
+		</button>
+		<div class="space-y-2 text-center">
+			<h2 class="h2">Invoice Paid</h2>
+			<p class="text-sm opacity-60">You paid $14,276. Receipt sent to</p>
+			<p class="font-bold">me@email.com</p>
+		</div>
+		<nav class="grid grid-cols-1 gap-2">
+			<button class="btn preset-filled-primary-500">Mark Completed</button>
+			<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Cancel</button>
+		</nav>
+	</div>
 	<!-- 11 -->
 	<div class={`${cardClasses} col-span-2 row-span-2 col-start-3 row-start-5`}>
+		<input type="search" class="input" placeholder="Filter elements..." />
 		<div class="table-wrap">
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Position</th>
+						<th>
+							<input type="checkbox" class="checkbox" />
+						</th>
 						<th>Symbol</th>
 						<th>Name</th>
 						<th class="!text-right">Weight</th>
 					</tr>
 				</thead>
 				<tbody class="hover:[&>tr]:preset-tonal-primary">
-					{#each tableData as row}
+					{#each tableData as row, i}
 						<tr>
-							<td>{row.position}</td>
+							<td>
+								<input type="checkbox" class="checkbox" checked={i === 1} />
+							</td>
 							<td>{row.symbol}</td>
 							<td>{row.name}</td>
 							<td class="text-right">{row.atomic_no}</td>
 						</tr>
 					{/each}
 				</tbody>
-				<tfoot>
-					<tr>
-						<td colspan="3">Total</td>
-						<td class="text-right">{tableData.length} Elements</td>
-					</tr>
-				</tfoot>
 			</table>
 		</div>
 	</div>
 	<!-- 12 -->
-	<div class={`${cardClasses} row-span-2 col-start-2 row-start-6`}>12</div>
+	<div class={`${cardClasses} row-span-2 col-start-2 row-start-6 row-end-9`}>
+		<h2 class="h4">Set Reminder</h2>
+		<label class="label">
+			<span class="label text">Mode</span>
+			<nav class="btn-group preset-outlined-surface-200-800 grid grid-cols-3 gap-2 p-2">
+				<button type="button" class="btn preset-filled">5 mins</button>
+				<button type="button" class="btn hover:preset-tonal">24 hours</button>
+				<button type="button" class="btn hover:preset-tonal">30 days</button>
+			</nav>
+		</label>
+		<label class="label">
+			<span class="label text">Message</span>
+			<textarea name="message" id="message" class="textarea" placeholder="Provide a message..."></textarea>
+		</label>
+		<div class="flex justify-end">
+			<button class="btn preset-filled-primary-500">Submit</button>
+		</div>
+	</div>
 	<!-- 13 -->
-	<div class={`${cardClasses} row-span-2 row-start-7`}>13</div>
+	<div class={`${cardClasses} row-span-2 row-start-7`}>
+		<div class="grid grid-cols-[1fr_auto] items-start gap-5">
+			<div class="space-y-2">
+				<h2 class="h6">Contributions</h2>
+				<h2 class="h2">+1,248</h2>
+				<p class="text-xs opacity-60">+150% year over year</p>
+			</div>
+			<IconUsers class="size-4 opacity-60" />
+		</div>
+	</div>
 	<!-- 14 -->
-	<div class={`${cardClasses} col-start-2 row-start-8`}>14</div>
-	<!-- 15 -->
-	<div class={`${cardClasses} col-span-2 row-span-2 col-start-3 row-start-7`}>15</div>
+	<div class={`${cardClasses} col-span-2 row-span-2 col-start-3 row-start-7`}>
+		<div class="h-full grid grid-cols-[auto_2fr_0.5fr] items-center gap-2 px-5">
+			<button type="button" class="btn-icon btn-icon-lg rounded-full preset-filled-primary-500 scale-150">
+				<IconPlay class="size-6 fill-surface-950-50 stroke-none" />
+			</button>
+			<div class="grid grid-cols-[auto_1fr_auto] gap-5 items-center px-10">
+				<button type="button" class="btn hover:preset-tonal"><IconRewind class="size-4 opacity-60" /></button>
+				<div class="space-y-1">
+					<p class="font-bold">Pink Floyd</p>
+					<div class="flex justify-between items-end">
+						<p class="text-xs opacity-60">Another Brick in the Wall</p>
+						<p class="text-xs opacity-60">3:16</p>
+					</div>
+					<progress class="progress" value={75} max={100}></progress>
+				</div>
+				<button type="button" class="btn hover:preset-tonal"><IconFastFoward class="size-4 opacity-60" /></button>
+			</div>
+			<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
+				<IconVolume class="size-4 opacity-60" />
+				<Slider name="example" value={[70]} />
+			</div>
+		</div>
+	</div>
 </div>
