@@ -1,3 +1,46 @@
+---
+import { Octokit } from 'octokit';
+
+// https://github.com/octokit/octokit.js?tab=readme-ov-file#octokitjs
+const octokit = new Octokit();
+const sponsors = await octokit.graphql(
+	`
+query($org: String!) {
+  organization(login: $org) {
+    sponsors {
+      totalCount
+      nodes {
+        ... on User {
+          login
+          name
+          avatarUrl
+          websiteUrl
+          sponsorsTier {
+            monthlyPriceInDollars
+            name
+          }
+        }
+        ... on Organization {
+          login
+          name
+          avatarUrl
+          websiteUrl
+          sponsorsTier {
+            monthlyPriceInDollars
+            name
+          }
+        }
+      }
+    }
+  }
+}
+`,
+	{
+		org: 'skeletonlabs'
+	}
+);
+---
+
 <div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
 	<!-- Text -->
 	<div class="space-y-4">
@@ -14,15 +57,16 @@
 		</nav>
 	</div>
 	<!-- Grid -->
-	<div class="grid grid-cols-8 md:grid-cols-10 gap-4">
+	<!-- <div class="grid grid-cols-8 md:grid-cols-10 gap-4">
 		{
-			Array.from(Array(26)).map((a) => {
+			sponsors.map((sponsor) => {
 				return (
-					<div class="preset-tonal w-full aspect-square rounded-full flex justify-center items-center">
-						<span>A</span>
-					</div>
+					<a class="hover:scale-125" href={sponsor.html_url} target="_blank" title={sponsor.login}>
+						<img class="bg-surface-500 rounded-full" src={sponsor.avatar_url} alt={sponsor.login} />
+					</a>
 				);
 			})
 		}
-	</div>
+	</div> -->
+	<pre class="pre">{JSON.stringify(sponsors, null, 2)}</pre>
 </div>

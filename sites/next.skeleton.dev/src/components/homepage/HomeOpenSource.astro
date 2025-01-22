@@ -1,16 +1,26 @@
 ---
 import { ChevronRight as IconChevron } from 'lucide-react';
+
+import { Octokit } from 'octokit';
+
+// https://github.com/octokit/octokit.js?tab=readme-ov-file#octokitjs
+const octokit = new Octokit();
+const { data: contributors } = await octokit.rest.repos.listContributors({
+	owner: 'skeletonlabs',
+	repo: 'skeleton',
+	per_page: 100
+});
 ---
 
-<div class="grid grid-cols-1 xl:grid-cols-[2.5fr_1fr] gap-10">
+<div class="grid grid-cols-1 xl:grid-cols-[2.5fr_1fr] items-start gap-10">
 	<!-- Grid -->
-	<div class="grid grid-cols-10 md:grid-cols-[repeat(20,minmax(0,1fr))] gap-2">
+	<div class="grid grid-cols-10 md:grid-cols-[repeat(20,minmax(0,1fr))] gap-3">
 		{
-			Array.from(Array(196)).map((a) => {
+			contributors.map((contributor) => {
 				return (
-					<div class="preset-tonal w-full aspect-square rounded-full flex justify-center items-center">
-						<span class="text-xs">A</span>
-					</div>
+					<a class="hover:scale-125" href={contributor.html_url} target="_blank" title={contributor.login}>
+						<img class="bg-surface-500 rounded-full" src={contributor.avatar_url} alt={contributor.login} />
+					</a>
 				);
 			})
 		}
