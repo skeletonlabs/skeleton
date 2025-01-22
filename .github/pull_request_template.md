@@ -8,7 +8,7 @@ Closes #{issueNumber}
 
 ## Checklist
 
-Please read and apply all [contribution requirements](https://next.skeleton.dev/docs/resources/contribute).
+Please read and apply all [contribution requirements](https://skeleton.dev/docs/resources/contribute/).
 
 - [ ] Your branch should be prefixed with: `docs/`, `feature/`, `chore/`, `bugfix/`
 - [ ] Skeleton v3 contributions must target the `next` branch (NEVER `dev` or `master`)
@@ -21,7 +21,7 @@ Please read and apply all [contribution requirements](https://next.skeleton.dev/
 
 ## Changsets
 
-[View our documentation](http://localhost:4321/docs/resources/contribute/get-started#changesets) to learn more about [Changesets](https://github.com/changesets/changesets). To create a Changeset:
+[View our documentation](https://skeleton.dev/docs/resources/contribute/get-started#changesets) to learn more about [Changesets](https://github.com/changesets/changesets). To create a Changeset:
 
 1. Navigate to the root of the monorepo in your terminal
 2. Run `pnpm changeset` and follow the prompts
