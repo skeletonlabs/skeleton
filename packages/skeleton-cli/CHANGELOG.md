@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.16
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Perserve non-skeleton imports and identifiers. ([#3148](https://github.com/skeletonlabs/skeleton/pull/3148))
+
 ## 0.0.1-next.15
 
 ### Patch Changes
