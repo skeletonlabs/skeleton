@@ -1,0 +1,5 @@
+<script>
+	import { AccordionItem } from '@skeletonlabs/not-skeleton';
+</script>
+
+<AccordionItem />

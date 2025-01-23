@@ -16,7 +16,8 @@ const EXPORT_MAPPINGS: Record<
 > = {
 	AccordionItem: {
 		namedImport: {
-			type: 'removed'
+			type: 'renamed',
+			value: 'Accordion'
 		},
 		identifier: {
 			type: 'renamed',
@@ -254,7 +255,10 @@ const EXPORT_MAPPINGS: Record<
 		}
 	},
 	AppRailTile: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Navigation'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Navigation.Tile'
@@ -331,7 +335,10 @@ const EXPORT_MAPPINGS: Record<
 		}
 	},
 	RadioItem: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Segment'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Segment.Item'
@@ -368,7 +375,10 @@ const EXPORT_MAPPINGS: Record<
 		}
 	},
 	TabAnchor: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Tabs'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Tabs.Control'
