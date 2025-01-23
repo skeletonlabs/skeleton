@@ -1,0 +1,3 @@
+import { AccordionItem } from '@skeletonlabs/not-skeleton';
+
+AccordionItem;

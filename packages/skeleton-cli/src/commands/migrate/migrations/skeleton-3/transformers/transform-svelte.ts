@@ -31,13 +31,16 @@ function transformScript(s: MagicString, script: AST.Script) {
 	} else {
 		s.overwrite(script.start, script.end, `${openingTag}${transformed.code}${closingTag}`);
 	}
+	return {
+		meta: transformed.meta
+	};
 }
 
 function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
 	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number';
 }
 
-function transformFragment(s: MagicString, fragment: AST.Fragment) {
+function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImports: string[]) {
 	walk(
 		fragment as AST.SvelteNode,
 		{},
@@ -66,7 +69,7 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 				ctx.next();
 			},
 			Component(node, ctx) {
-				if (Object.hasOwn(EXPORT_MAPPINGS, node.name)) {
+				if (Object.hasOwn(EXPORT_MAPPINGS, node.name) && skeletonImports.includes(node.name)) {
 					const exportMapping = EXPORT_MAPPINGS[node.name];
 					if (exportMapping.identifier.type === 'renamed' && hasRange(node)) {
 						renameComponent(s, node, exportMapping.identifier.value);
@@ -86,13 +89,14 @@ function transformSvelte(code: string) {
 	const root = parse(code, {
 		modern: true
 	});
+	let skeletonImports: string[] = [];
 	if (root.module) {
-		transformScript(s, root.module);
+		skeletonImports = [...skeletonImports, ...transformScript(s, root.module).meta.skeletonImports];
 	}
 	if (root.instance) {
-		transformScript(s, root.instance);
+		skeletonImports = [...skeletonImports, ...transformScript(s, root.instance).meta.skeletonImports];
 	}
-	transformFragment(s, root.fragment);
+	transformFragment(s, root.fragment, skeletonImports);
 	return {
 		code: s.toString()
 	};
