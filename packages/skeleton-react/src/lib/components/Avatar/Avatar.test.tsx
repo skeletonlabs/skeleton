@@ -43,6 +43,12 @@ describe('Avatar', () => {
 					expect(component.getByTestId(testId)).toHaveClass(value);
 				});
 			}
+
+			it('Correctly applies the `style` prop', () => {
+				const value = { 'background-color': 'rgb(0, 128, 0)', opacity: 0.5 };
+				const component = render(<Avatar name="name" src="src" style={value}></Avatar>);
+				expect(component.getByTestId(testId)).toHaveStyle('background-color: rgb(0, 128, 0); opacity: 0.5;');
+			});
 		});
 
 		describe('Fallback', () => {

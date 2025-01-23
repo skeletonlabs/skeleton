@@ -21,6 +21,7 @@
 		// Image
 		imageBase = 'w-full object-cover',
 		imageClasses = '',
+		style = '',
 		// Fallback
 		fallbackBase = 'w-full h-full flex justify-center items-center',
 		fallbackClasses = '',
@@ -54,6 +55,7 @@
 			class="{imageBase} {imageClasses}"
 			style:filter={filter && `url(${filter})`}
 			data-testid="avatar-image"
+			{style}
 		/>
 	{/if}
 	<!-- Fallback -->

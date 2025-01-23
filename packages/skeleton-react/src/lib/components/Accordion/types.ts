@@ -63,7 +63,7 @@ export interface AccordionItemProps extends React.PropsWithChildren, accordion.I
 
 export interface AccordionControlProps extends React.PropsWithChildren {
 	/** The heading element. */
-	headingElement?: keyof JSX.IntrinsicElements;
+	headingElement?: keyof React.JSX.IntrinsicElements;
 	/** Set a disabled state for the item. */
 	disabled?: boolean;
 

@@ -31,6 +31,8 @@ export interface AvatarProps extends React.PropsWithChildren {
 	imageBase?: string;
 	/** Provide avatar image arbitrary CSS classes. */
 	imageClasses?: string;
+	/** Set avatar image styles. */
+	style?: React.CSSProperties;
 
 	// Fallback ---
 	/** Set base classes for the fallback element. */
