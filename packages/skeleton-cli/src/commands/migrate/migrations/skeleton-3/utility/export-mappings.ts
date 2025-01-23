@@ -244,7 +244,10 @@ const EXPORT_MAPPINGS: Record<
 		identifier: { type: 'removed' }
 	},
 	AppRail: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Navigation'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Navigation'
@@ -258,49 +261,70 @@ const EXPORT_MAPPINGS: Record<
 		}
 	},
 	FileButton: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'FileUpload'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'FileUpload'
 		}
 	},
 	FileDropzone: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'FileUpload'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'FileUpload'
 		}
 	},
 	InputChip: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'TagsInput'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'TagsInput'
 		}
 	},
 	Paginator: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Pagination'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Pagination'
 		}
 	},
 	ProgressBar: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Progress'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Progress'
 		}
 	},
 	ProgressRadial: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'ProgressRing'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'ProgressRing'
 		}
 	},
 	RadioGroup: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Segment'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Segment'
@@ -314,21 +338,30 @@ const EXPORT_MAPPINGS: Record<
 		}
 	},
 	RangeSlider: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Slider'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Slider'
 		}
 	},
 	Ratings: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Rating'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Rating'
 		}
 	},
 	SlideToggle: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Switch'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Switch'
@@ -342,14 +375,20 @@ const EXPORT_MAPPINGS: Record<
 		}
 	},
 	TabGroup: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'Tabs'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'Tabs'
 		}
 	},
 	Toast: {
-		namedImport: { type: 'removed' },
+		namedImport: {
+			type: 'renamed',
+			value: 'ToastProvider'
+		},
 		identifier: {
 			type: 'renamed',
 			value: 'ToastProvider'
