@@ -113,3 +113,21 @@ html {
 .floating[data-status='close'] {
 	opacity: 0;
 }
+
+/* Carbon Ad Styles */
+
+#carbonads {
+	@apply bg-surface-50-950 border border-surface-500/30;
+}
+#carbonads .carbon-wrap {
+	@apply grid grid-cols-[auto_1fr] gap-4;
+}
+#carbonads .carbon-text {
+	@apply text-[0.775em] leading-[1.4em] opacity-75 no-underline;
+	@apply p-1;
+}
+#carbonads .carbon-poweredby {
+	@apply bg-surface-100-900;
+	@apply text-[0.5em] opacity-50 no-underline uppercase;
+	@apply block text-right p-1;
+}
