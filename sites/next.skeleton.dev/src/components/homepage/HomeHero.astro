@@ -3,19 +3,25 @@ import { Icon } from 'astro-icon/components';
 import { ChevronRight as IconChevron } from 'lucide-react';
 ---
 
-<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-10">
+<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-20">
 	<!-- Mascot -->
 	<div class="flex justify-center items-center">
-		<Icon name="skeleton-full" class="size-64 aspect-square" />
+		<div class="relative size-48 md:size-64 aspect-square">
+			<Icon class="absolute top-0 left-0 z-[1] size-full aspect-square drop-shadow-md" name="skeleton-full" />
+			<div
+				class="absolute top-0 left-0 bg-secondary-500 size-full aspect-square rounded-full bg-gradient-conic from-primary-500 to-success-500 blur-3xl"
+			>
+			</div>
+		</div>
 	</div>
 	<!-- Hero Text -->
 	<div class="self-center space-y-4">
 		<!-- Announcement -->
-		<a href="/#" class="btn btn-sm preset-filled-primary-500 gap-2 shadow">
+		<!-- <a href="/#" class="btn btn-sm preset-filled-primary-500 gap-2 shadow">
 			<span>🎉</span>
 			<span>Skeleton v3 now avilable!</span>
 			<IconChevron className="size-4" />
-		</a>
+		</a> -->
 		<!-- Text -->
 		<h1 class="heading-font-family text-4xl md:text-6xl font-bold xl:text-balance">An adaptive design system powered by Tailwind CSS.</h1>
 		<p class="text-lg xl:text-balance">

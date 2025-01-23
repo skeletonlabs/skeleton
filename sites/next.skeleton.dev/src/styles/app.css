@@ -72,23 +72,6 @@ html {
 		radial-gradient(at 15% 06%, rgba(var(--color-success-500) / 0.05) 0px, transparent 30%);
 }
 
-/* Cards */
-.card-enhanced {
-	@apply card border border-primary-200-800;
-}
-[data-theme='catppuccin'] .card-enhanced,
-[data-theme='terminus'] .card-enhanced,
-[data-theme='vox'] .card-enhanced,
-[data-theme='rocket'] .card-enhanced {
-	@apply bg-primary-100/30 dark:bg-primary-900/30;
-}
-[data-theme='concord'] .card-enhanced,
-[data-theme='legacy'] .card-enhanced,
-[data-theme='mint'] .card-enhanced,
-[data-theme='vintage'] .card-enhanced {
-	@apply bg-primary-50/30 dark:bg-primary-950/30;
-}
-
 /* Filled Cards */
 .card-filled-enhanced {
 	@apply card preset-filled-primary-500;

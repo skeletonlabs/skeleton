@@ -10,7 +10,7 @@
 		<div class="text-center space-y-2">
 			<h2 class="h2">Tailwind Components</h2>
 			<p class="text-balance opacity-60">
-				Common visual interfaces such as cards, buttons, and badges. Use native HTML elements and Tailwind utility classes.
+				Common visual interfaces, such as cards, buttons, and badges. Utilize native HTML elements and Tailwind utility classes.
 			</p>
 		</div>
 		<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">

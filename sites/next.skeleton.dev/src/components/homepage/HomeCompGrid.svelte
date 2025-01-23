@@ -48,7 +48,7 @@
 		<div class={`${cardClasses}`}>
 			<header>
 				<h3 class="h3">Create Account.</h3>
-				<p class="opacity-60">Complete the form below to get started.</p>
+				<p class="opacity-60">Complete the form to get started.</p>
 			</header>
 			<nav class="grid grid-cols-2 gap-5">
 				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">GitHub</button>
@@ -71,7 +71,7 @@
 		<div class={`${cardClasses}`}>
 			<header class="space-y-1">
 				<h2 class="h6">Notifications.</h2>
-				<p class="opacity-60">Toggle each available notification.</p>
+				<p class="opacity-60">Review each available option.</p>
 			</header>
 			<hr class="hr" />
 			<section class="w-full space-y-5">
@@ -106,7 +106,7 @@
 			<div class="space-y-4">
 				<header>
 					<h2 class="h5">Team</h2>
-					<p class="opacity-60">View all members of the team. Use the search field provided to filter the list.</p>
+					<p class="opacity-60">View all members of the team, or filter using the search field provided.</p>
 				</header>
 				<input type="search" class="input" placeholder="Search Members..." />
 				<div class="grid grid-cols-1 gap-2">
@@ -216,10 +216,7 @@
 		</div>
 		<!-- 7 -->
 		<div class={`${cardClasses} row-span-2 row-start-3`}>
-			<header>
-				<h2 class="h3">Progress</h2>
-				<p class="opacity-60">View how far you are in the main quest.</p>
-			</header>
+			<h2 class="h3 text-center">Progression</h2>
 			<div class="grid grid-cols-[1fr_auto] grid-row-2 gap-5">
 				<ProgressRing value={32} max={100} showLabel size="size-56" strokeWidth="14px" labelClasses="text-4xl" classes="row-span-2" />
 				<ProgressRing value={66} max={100} showLabel size="size-16" strokeWidth="5px" labelClasses="text-sm" classes="self-center" />
@@ -231,7 +228,7 @@
 			<header class="flex justify-between">
 				<div>
 					<h2 class="h3">Revenue</h2>
-					<p class="text-xs opacity-60">April 1-13</p>
+					<p class="text-xs opacity-60">Posted April 1-13</p>
 				</div>
 				<button type="button" class="btn-icon rounded-full preset-tonal">
 					<IconArrowUpRight class="size-4" />
@@ -295,8 +292,8 @@
 			</button>
 			<div class="space-y-2 text-center">
 				<h2 class="h2">Invoice Paid</h2>
-				<p class="text-sm opacity-60">You paid $14,276. Receipt sent to</p>
-				<p class="font-bold">me@email.com</p>
+				<p class="text-sm opacity-60">You paid $14,276. Receipt submited to:</p>
+				<p class="font-bold text-xl">me@email.com</p>
 			</div>
 			<nav class="grid grid-cols-1 gap-2">
 				<button class="btn preset-filled-primary-500">Mark Completed</button>
@@ -318,7 +315,7 @@
 							<th class="!text-right">Weight</th>
 						</tr>
 					</thead>
-					<tbody class="hover:[&>tr]:preset-tonal-primary">
+					<tbody class="hover:[&>tr]:preset-tonal">
 						{#each tableData as row, i}
 							<tr>
 								<td>
@@ -367,17 +364,17 @@
 		<div class={`${cardClasses} col-span-2 row-span-2 col-start-3 row-start-7`}>
 			<div class="h-full grid grid-cols-[auto_2fr_0.5fr] items-center gap-2 px-5">
 				<button type="button" class="btn-icon btn-icon-lg rounded-full preset-filled-primary-500 scale-150">
-					<IconPlay class="size-6 fill-surface-50 stroke-none" />
+					<IconPlay class="size-6 fill-current stroke-none" />
 				</button>
 				<div class="grid grid-cols-[auto_1fr_auto] gap-5 items-center px-10">
 					<button type="button" class="btn hover:preset-tonal"><IconRewind class="size-4 opacity-60" /></button>
 					<div class="space-y-1">
 						<p class="font-bold">Pink Floyd</p>
+						<progress class="progress" value={75} max={100}></progress>
 						<div class="flex justify-between items-end">
 							<p class="text-xs opacity-60">Another Brick in the Wall</p>
 							<p class="text-xs opacity-60">3:16</p>
 						</div>
-						<progress class="progress" value={75} max={100}></progress>
 					</div>
 					<button type="button" class="btn hover:preset-tonal"><IconFastFoward class="size-4 opacity-60" /></button>
 				</div>

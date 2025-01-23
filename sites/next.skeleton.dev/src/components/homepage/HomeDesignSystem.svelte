@@ -1,5 +1,6 @@
 <script lang="ts">
 	// Icons
+	import IconFigma from 'lucide-svelte/icons/figma';
 	import IconBookmark from 'lucide-svelte/icons/bookmark';
 	import IconHeart from 'lucide-svelte/icons/heart';
 	import IconUserRound from 'lucide-svelte/icons/user-round';
@@ -56,7 +57,10 @@
 		<h2 class="h2">Design System</h2>
 		<nav class="grid grid-cols-2 gap-4">
 			{#each steps as step, i}
-				<button type="button" onclick={() => setState(i)} class={`${setStateClass(i)} ${i === 0 ? 'col-span-2' : ''}`}>{step.label}</button>
+				<button type="button" onclick={() => setState(i)} class={`${setStateClass(i)} ${i === 0 ? 'col-span-2' : ''}`}>
+					{#if i === 0}<IconFigma class="size-4" />{/if}
+					<span>{step.label}</span>
+				</button>
 			{/each}
 		</nav>
 		<p class="opacity-60">{steps[state].desc}</p>
