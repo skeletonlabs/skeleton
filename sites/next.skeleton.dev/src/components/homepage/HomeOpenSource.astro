@@ -14,7 +14,7 @@ const { data: contributors } = await octokit.rest.repos.listContributors({
 
 <div class="grid grid-cols-1 xl:grid-cols-[2.5fr_1fr] items-start gap-10">
 	<!-- Grid -->
-	<div class="grid grid-cols-10 md:grid-cols-[repeat(20,minmax(0,1fr))] gap-3">
+	<div class="grid grid-cols-10 xl:grid-cols-[repeat(20,minmax(0,1fr))] gap-3">
 		{
 			contributors.map((contributor) => {
 				return (
@@ -40,7 +40,7 @@ const { data: contributors } = await octokit.rest.repos.listContributors({
 				<span>View GitHub</span>
 				<IconChevron className="size-4" />
 			</a>
-			<a href="/docs/resources/contribute" class="btn preset-outlined-surface-400-600 hover:preset-tonal">
+			<a href="/docs/resources/contribute" class="btn preset-outlined-surface-800-200 hover:preset-tonal">
 				<span>How to Contribute</span>
 			</a>
 		</nav>

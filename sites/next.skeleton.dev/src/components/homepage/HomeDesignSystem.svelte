@@ -38,7 +38,7 @@
 		}
 	];
 	const btnActive = 'btn preset-filled';
-	const btnInactive = 'btn preset-outlined-surface-400-600 hover:preset-tonal';
+	const btnInactive = 'btn preset-outlined-surface-800-200 hover:preset-tonal';
 
 	export const spacing = ['w-4', 'w-8', 'w-16', 'w-24', 'w-32', 'w-48', 'w-56', 'w-64', 'w-72'];
 
@@ -108,32 +108,32 @@ const theme = {
 		{:else if state == 2}
 			<!-- Step 3: Colors -->
 			<div class="grid grid-cols-3 gap-5 md:gap-10">
-				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-secondary-500"></div>
-				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-tertiary-500"></div>
-				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-success-500"></div>
-				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-error-500"></div>
-				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-warning-500"></div>
-				<div class="w-16 md:w-32 aspect-square rounded-full shadow-xl bg-surface-500"></div>
+				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-secondary-500"></div>
+				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-tertiary-500"></div>
+				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-success-500"></div>
+				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-error-500"></div>
+				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-warning-500"></div>
+				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-surface-500"></div>
 			</div>
 		{:else if state == 3}
 			<!-- Step 4: Presets -->
-			<div class="md:scale-125 xl:scale-150 grid grid-cols-3 gap-6 xl:gap-10">
-				<div class="flex flex-col items-center gap-4">
+			<div class="md:scale-125 xl:scale-150 grid grid-cols-3 gap-4 xl:gap-10">
+				<div class="flex flex-col items-center">
 					<button type="button" class="btn preset-filled">Filled</button>
 				</div>
-				<div class="flex flex-col items-center gap-4">
+				<div class="flex flex-col items-center">
 					<button type="button" class="btn preset-tonal hover:preset-filled">Tonal</button>
 				</div>
-				<div class="flex flex-col items-center gap-4">
-					<button type="button" class="btn preset-outlined-surface">Outlined</button>
+				<div class="flex flex-col items-center">
+					<button type="button" class="btn preset-outlined">Outlined</button>
 				</div>
-				<div class="flex flex-col items-center gap-4">
+				<div class="flex flex-col items-center">
 					<button type="button" class="btn preset-filled shadow-xl">Elevated</button>
 				</div>
-				<div class="flex flex-col items-center gap-4">
+				<div class="flex flex-col items-center">
 					<button type="button" class="btn hover:preset-filled">Ghost</button>
 				</div>
-				<div class="flex flex-col items-center gap-4">
+				<div class="flex flex-col items-center">
 					<button type="button" class="btn hover:preset-filled">
 						<IconBookmark className="size-6" />
 					</button>
@@ -143,11 +143,11 @@ const theme = {
 			<!-- Step 5: Typography -->
 			<div class="text-center space-y-4">
 				<h1 class="heading-font-family type-scale-11 md:type-scale-13 leading-none font-bold">Aa</h1>
-				<p class="md:text-lg">The quick brown fox jumped over the lazy dog.</p>
+				<p class="text-xs md:text-lg">The quick brown fox jumped over the lazy dog.</p>
 			</div>
 		{:else if state == 5}
 			<!-- Step 6: Spacing -->
-			<div class="md:scale-150 flex flex-col items-start gap-1">
+			<div class="scale-75 md:scale-150 flex flex-col items-start gap-1">
 				{#each spacing as rowHeight}
 					<div class="grid grid-cols-[32px_1fr] items-center gap-2">
 						<span class="text-xs text-right">{rowHeight}</span>
@@ -157,7 +157,7 @@ const theme = {
 			</div>
 		{:else if state == 6}
 			<!-- Step 7: Iconography -->
-			<div class="flex gap-10">
+			<div class="flex gap-5 md:gap-10">
 				<IconHeart class="size-16 md:size-24" />
 				<IconUserRound class="size-16 md:size-24" />
 				<IconTriangle class="size-16 md:size-24" />

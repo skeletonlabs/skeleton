@@ -135,42 +135,30 @@
 				<Slider name="example" value={[75]} />
 			</div>
 			<div class="grid grid-cols-4 gap-2 items-center">
-				<a
-					href="/docs/get-started/installation"
-					class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
-				>
+				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
 					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
 						<IconNormalize class="size-4" />
 					</div>
 					<span class="text-[10px]">Normalize</span>
-				</a>
-				<a
-					href="/docs/get-started/installation"
-					class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
-				>
+				</button>
+				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
 					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
 						<IconEqualizer class="size-4" />
 					</div>
 					<span class="text-[10px]">Equalizer</span>
-				</a>
-				<a
-					href="/docs/get-started/installation"
-					class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
-				>
+				</button>
+				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
 					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
 						<Icon3dAudio class="size-4" />
 					</div>
 					<span class="text-[10px]">3D Audio</span>
-				</a>
-				<a
-					href="/docs/get-started/installation"
-					class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
-				>
+				</button>
+				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
 					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
 						<IconCrossfade class="size-4" />
 					</div>
 					<span class="text-[10px]">Crossfade</span>
-				</a>
+				</button>
 			</div>
 		</div>
 		<!-- 5 -->
