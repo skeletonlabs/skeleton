@@ -1,46 +1,3 @@
----
-import { Octokit } from 'octokit';
-
-// https://github.com/octokit/octokit.js?tab=readme-ov-file#octokitjs
-const octokit = new Octokit();
-const sponsors = await octokit.graphql(
-	`
-query($org: String!) {
-  organization(login: $org) {
-    sponsors {
-      totalCount
-      nodes {
-        ... on User {
-          login
-          name
-          avatarUrl
-          websiteUrl
-          sponsorsTier {
-            monthlyPriceInDollars
-            name
-          }
-        }
-        ... on Organization {
-          login
-          name
-          avatarUrl
-          websiteUrl
-          sponsorsTier {
-            monthlyPriceInDollars
-            name
-          }
-        }
-      }
-    }
-  }
-}
-`,
-	{
-		org: 'skeletonlabs'
-	}
-);
----
-
 <div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
 	<!-- Text -->
 	<div class="space-y-4">
@@ -51,22 +8,21 @@ query($org: String!) {
 				providing fun incentives in return for each supporter.
 			</p>
 		</div>
-		<nav class="flex gap-4">
-			<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">GitHub Sponsors</a>
-			<a href="/" class="btn preset-outlined-surface-400-600 hover:preset-tonal">Ko-Fi</a>
-		</nav>
 	</div>
-	<!-- Grid -->
-	<!-- <div class="grid grid-cols-8 md:grid-cols-10 gap-4">
-		{
-			sponsors.map((sponsor) => {
-				return (
-					<a class="hover:scale-125" href={sponsor.html_url} target="_blank" title={sponsor.login}>
-						<img class="bg-surface-500 rounded-full" src={sponsor.avatar_url} alt={sponsor.login} />
-					</a>
-				);
-			})
-		}
-	</div> -->
-	<pre class="pre">{JSON.stringify(sponsors, null, 2)}</pre>
+	<nav class="grid grid-cols-2 gap-10">
+		<a href="/" class="card preset-filled-surface-100-900 hover:preset-filled-surface-200-800 p-10">
+			<div class="flex flex-col items-center gap-10">
+				<h3 class="h5">On GitHub</h3>
+				<div class="w-full aspect-square rounded-full bg-[url('https://i.imgur.com/sCbl5la.png')] bg-cover bg-center bg-no-repeat"></div>
+				<button type="button" class="btn preset-filled">Contribute Now</button>
+			</div>
+		</a>
+		<a href="/" class="card preset-filled-surface-100-900 hover:preset-filled-surface-200-800 p-10">
+			<div class="flex flex-col items-center gap-10">
+				<h3 class="h5">On Ko-Fi</h3>
+				<div class="w-full aspect-square rounded-full bg-[url('https://i.imgur.com/XygKW13.png')] bg-cover bg-center bg-no-repeat"></div>
+				<button type="button" class="btn preset-filled">Contribute Now</button>
+			</div>
+		</a>
+	</nav>
 </div>
