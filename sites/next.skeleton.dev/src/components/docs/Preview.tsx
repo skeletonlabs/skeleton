@@ -49,7 +49,9 @@ export const Preview: React.FC<PreviewProps> = (props) => {
 				)}
 			</nav>
 			{/* Panel: Preview */}
-			<div className={`card-enhanced flex justify-center items-center p-8 ${props.preview && selected === 'preview' ? 'block' : 'hidden'}`}>
+			<div
+				className={`card bg-noise bg-surface-50-950 border-[1px] border-surface-200-800 flex justify-center items-center p-8 ${props.preview && selected === 'preview' ? 'block' : 'hidden'}`}
+			>
 				{props.preview}
 			</div>
 			{/* Panel: Code (Generic) */}

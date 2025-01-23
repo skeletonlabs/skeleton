@@ -1,0 +1,69 @@
+---
+import IconFramework from 'lucide-svelte/icons/badge-check';
+import IconDesign from 'lucide-svelte/icons/palette';
+import IconTypescript from 'lucide-svelte/icons/file-code';
+import IconDarkMode from 'lucide-svelte/icons/sun-moon';
+import IconIntegrations from 'lucide-svelte/icons/puzzle';
+import IconZag from 'lucide-svelte/icons/blocks';
+---
+
+<div class="space-y-10">
+	<!-- Text -->
+	<div class="text-center space-y-2">
+		<h2 class="h2">And Even More...</h2>
+		<p class="opacity-60">
+			Solve the hard problems at scale. Skeleton comes with an assortment of quality of life features out of the box.
+		</p>
+	</div>
+	<!-- Grid -->
+	<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+		<!-- 1 -->
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconFramework class="size-8 opacity-60" />
+				<h3 class="h4">Framework Agnostic</h3>
+				<p class="opacity-60">Core features require only a single single depdendency &mdash; Tailwind CSS.</p>
+			</div>
+		</div>
+		<!-- 2 -->
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconZag class="size-8 opacity-60" />
+				<h3 class="h4">Zag.js Components</h3>
+				<p class="opacity-60">A foundation for cross-framework components. Standardizing features and accessessibly.</p>
+			</div>
+		</div>
+		<!-- 3 -->
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconIntegrations class="size-8 opacity-60" />
+				<h3 class="h4">Integrations</h3>
+				<p class="opacity-60">Extend Skeleton with easy to follow guides for popovers, code blocks, and more.</p>
+			</div>
+		</div>
+		<!-- 4 -->
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconDesign class="size-8 opacity-60" />
+				<h3 class="h4">Adaptive Design</h3>
+				<p class="opacity-60">Utilize themes as the foundation of your design to replicate any visual aesthetic.</p>
+			</div>
+		</div>
+		<!-- 5 -->
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconDarkMode class="size-8 opacity-60" />
+				<h3 class="h4">Dark Mode</h3>
+				<p class="opacity-60">Skeleton themes supports Tailwind's dark mode mechanisms out of the box.</p>
+			</div>
+		</div>
+		<!-- 6 -->
+		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
+			<div class="w-full h-full flex flex-col justify-end space-y-2">
+				<IconTypescript class="size-8 opacity-60" />
+				<h3 class="h4">Typescript</h3>
+				<p class="opacity-60">Type-safe by default, with helpful IntelliSense feedback as you work.</p>
+			</div>
+		</div>
+	</div>
+</div>
