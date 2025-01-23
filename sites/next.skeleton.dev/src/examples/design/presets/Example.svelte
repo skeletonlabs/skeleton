@@ -16,7 +16,7 @@
 	</div>
 	<!-- 3. Outlined -->
 	<div class="flex flex-col items-center gap-4">
-		<button type="button" class="btn preset-outlined-primary-500">Tonal</button>
+		<button type="button" class="btn preset-outlined-primary-500">Outlined</button>
 		<div class={diagramCircle}>3</div>
 	</div>
 	<!-- 4. Elevated -->
