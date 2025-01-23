@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.15
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Export mappings are safely accessed. ([#3146](https://github.com/skeletonlabs/skeleton/pull/3146))
+
 ## 0.0.1-next.14
 
 ### Patch Changes
