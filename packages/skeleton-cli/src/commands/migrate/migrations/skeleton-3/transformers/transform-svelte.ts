@@ -4,7 +4,7 @@ import { walk } from 'zimmerframe';
 import MagicString from 'magic-string';
 import { transformClasses } from './transform-classes';
 import { transformModule } from './transform-module';
-import { RENAMED_EXPORTS } from '../utility/exports/renamed-exports';
+import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 
 function renameComponent(s: MagicString, node: AST.Component, name: string) {
 	const adjustedStart = node.start + 1;
@@ -66,8 +66,9 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 				ctx.next();
 			},
 			Component(node, ctx) {
-				if (Object.hasOwn(RENAMED_EXPORTS, node.name) && hasRange(node)) {
-					renameComponent(s, node, RENAMED_EXPORTS[node.name]);
+				const exportMapping = EXPORT_MAPPINGS[node.name];
+				if (exportMapping && exportMapping.identifier.type === 'renamed' && hasRange(node)) {
+					renameComponent(s, node, exportMapping.identifier.value);
 				}
 				ctx.next();
 			}

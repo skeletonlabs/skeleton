@@ -1,1 +1,1 @@
-import { Navigation, FileUpload, TagsInput, Pagination, Progress, ProgressRing, Segment, Slider, Switch, Tabs } from "@skeletonlabs/skeleton-svelte";
+import { Accordion, Navigation, FileUpload, TagsInput, Pagination, Progress, ProgressRing, Segment, Slider, Switch, Tabs } from "@skeletonlabs/skeleton-svelte";
