@@ -63,8 +63,6 @@ export default async function (options: MigrateOptions) {
 		return;
 	}
 
-	let theme: string | null = null;
-
 	// Migrate package.json
 	const packageSpinner = spinner();
 	packageSpinner.start(`Migrating ${pkg.name}...`);
@@ -79,6 +77,8 @@ export default async function (options: MigrateOptions) {
 		packageSpinner.stop(`Failed to migrate ${pkg.name}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
 		cli.error('Migration canceled, nothing written to disk');
 	}
+
+	let theme: string | null = null;
 
 	// Migrate tailwind config
 	const tailwindSpinner = spinner();
