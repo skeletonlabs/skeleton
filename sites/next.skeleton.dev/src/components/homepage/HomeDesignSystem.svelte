@@ -18,11 +18,11 @@
 		},
 		{
 			label: 'Colors',
-			desc: 'Manages your full color palette with support for contrast tones. Make use of Color Pairings for balancing dark mode. As well as Presets to apply canned styles to elements and components.'
+			desc: 'Manage your color palette with support for contrast tones. Make use of Color Pairings for balancing dark mode. As well as Presets to apply canned styles to elements and components.'
 		},
 		{
 			label: 'Presets',
-			desc: 'Presets are utilty classes that combine Tailwind and Skeleton primitives. Quickly style buttons, badges, cards, and more. Create any combination by mixing and matching primitives.'
+			desc: 'Presets are utilty classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.'
 		},
 		{
 			label: 'Typography',
@@ -34,7 +34,7 @@
 		},
 		{
 			label: 'Iconography',
-			desc: 'Skeleton takes an agnostic approach to icons, allowing you to bring your own icon library or mix and match to fulfill your project’s aesthetic or requirements.'
+			desc: 'Skeleton takes an agnostic approach to icons, allowing you to bring your own icon library or mix and match to fulfill your project’s aesthetic.'
 		}
 	];
 	const btnActive = 'btn preset-filled';
