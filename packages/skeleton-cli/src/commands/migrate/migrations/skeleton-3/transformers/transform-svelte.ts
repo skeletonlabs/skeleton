@@ -66,9 +66,11 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 				ctx.next();
 			},
 			Component(node, ctx) {
-				const exportMapping = EXPORT_MAPPINGS[node.name];
-				if (exportMapping && exportMapping.identifier.type === 'renamed' && hasRange(node)) {
-					renameComponent(s, node, exportMapping.identifier.value);
+				if (Object.hasOwn(EXPORT_MAPPINGS, node.name)) {
+					const exportMapping = EXPORT_MAPPINGS[node.name];
+					if (exportMapping.identifier.type === 'renamed' && hasRange(node)) {
+						renameComponent(s, node, exportMapping.identifier.value);
+					}
 				}
 				ctx.next();
 			}
