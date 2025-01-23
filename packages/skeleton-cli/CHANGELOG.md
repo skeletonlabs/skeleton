@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.14
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Correctly handle conflicting renames/imports. ([#3144](https://github.com/skeletonlabs/skeleton/pull/3144))
+
 ## 0.0.1-next.13
 
 ### Patch Changes
