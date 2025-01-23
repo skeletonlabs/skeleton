@@ -50,7 +50,7 @@
 
 ### Patch Changes
 
-- chore: Standarize use of Use Client directive in all components. ([#2927](https://github.com/skeletonlabs/skeleton/pull/2927))
+- chore: Standardize use of Use Client directive in all components. ([#2927](https://github.com/skeletonlabs/skeleton/pull/2927))
 
 ## 1.0.0-next.8
 

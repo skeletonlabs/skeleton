@@ -10,7 +10,7 @@
 
 <!--
 Tips for Drawer modals:
-- Use `contentBase` to set styles, incuding height/width
+- Use `contentBase` to set styles, including height/width
 - Set justify-start to align to the left
 - Clear the align and padding styles
 - Use `positionerClasses` to set the

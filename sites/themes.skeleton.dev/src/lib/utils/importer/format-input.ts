@@ -9,18 +9,18 @@ import { genColorContrast } from '$lib/utils/generator/colors';
 // Production (v3) ---
 
 export function formatColors(properties: Record<string, string>) {
-	const paletteColorsArry: string[] = [];
+	const paletteColorsArray: string[] = [];
 	// Generate list of palette colors (all colors 50-950)
 	constants.colorNames.forEach((colorName) => {
 		return constants.colorShades.forEach((colorShade) => {
-			paletteColorsArry.push(`--color-${colorName}-${colorShade}`);
+			paletteColorsArray.push(`--color-${colorName}-${colorShade}`);
 		});
 	});
 	Object.keys(settingsColors).forEach((key) => {
 		// Skip if value is undefined
 		if (!properties[key]) return;
 		// If palette color, format RGB -> Hex, otherwise use verbatim
-		settingsColors[key] = paletteColorsArry.includes(key) ? chroma(`rgb(${properties[key].split(' ')})`).hex() : properties[key];
+		settingsColors[key] = paletteColorsArray.includes(key) ? chroma(`rgb(${properties[key].split(' ')})`).hex() : properties[key];
 	});
 }
 

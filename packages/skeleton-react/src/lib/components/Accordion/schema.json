@@ -401,7 +401,7 @@
 				},
 				"multiple": {
 					"default": false,
-					"description": "Whether multple accordion items can be expanded at the same time.",
+					"description": "Whether multiple accordion items can be expanded at the same time.",
 					"type": "boolean"
 				},
 				"onFocusChange": {

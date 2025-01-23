@@ -46,7 +46,7 @@
 			<p class="mb-5 opacity-60">
 				{#if category === 'base'}Set global defaults for text colors and font styles.{/if}
 				{#if category === 'headings'}Adjust headings (H1-H6) text color and font styles.{/if}
-				{#if category === 'anchors'}Ajust anchor link text color and font styles.{/if}
+				{#if category === 'anchors'}Adjust anchor link text color and font styles.{/if}
 			</p>
 			<!-- Panel: Base -->
 			<Tabs.Panel value="base">

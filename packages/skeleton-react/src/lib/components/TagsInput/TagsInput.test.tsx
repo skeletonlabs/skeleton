@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 
 import { TagsInput } from './TagsInput.js';
 
-const flavors = ['Vanilla', 'Chocolate', 'Stawberry'];
+const flavors = ['Vanilla', 'Chocolate', 'Strawberry'];
 
 describe('<Switch>', () => {
 	it('should render the component', () => {

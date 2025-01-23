@@ -130,7 +130,7 @@ let {
 </div>
 ```
 
-- `base` - houses any structual utility classes, which can be replaced in a faux-headless manner.
+- `base` - houses any structural utility classes, which can be replaced in a faux-headless manner.
   - The outter most element is referred to as the Parent in this context. Elements within are children.
   - Parent props are not prefixed, which helps maintain parity cross-framework
   - Child props are prefixed: `titleBase`, `panelBase`, `controlBase`.
@@ -200,7 +200,7 @@ export interface AccordionItemProps {
 ```
 
 * The type file should be co-located with the component and named `types.ts`.
-* The inteface name should match `{ComponentName}Props`.
+* The interface name should match `{ComponentName}Props`.
 * Use comments to denote blocks of related props.
 * Keep each prop description short and semantic.
 * The order should match prop implementation.
@@ -286,7 +286,7 @@ When you add or change component `types.ts` data, new schema data will be genera
 <ApiTable />
 ```
 
-Generate schema assets reside in the documenation project, within the following directory.
+Generate schema assets reside in the documentation project, within the following directory.
 
 ```
 /src/content/schemas/{framework}/{component}.json

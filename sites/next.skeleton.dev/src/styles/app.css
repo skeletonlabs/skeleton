@@ -4,7 +4,7 @@ html {
 	scroll-behavior: smooth;
 }
 
-/* Local Utiilties --- */
+/* Local Utilities --- */
 
 .flex-centered {
 	@apply flex items-center justify-center;

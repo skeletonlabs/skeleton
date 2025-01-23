@@ -16,7 +16,7 @@
 		// Run template import
 		// @ts-expect-error type error
 		importThemeTemplate(name, themes[name].properties);
-		// Redirect to Genreator path
+		// Redirect to Generator path
 		goto('/themes/create');
 	}
 
@@ -27,7 +27,7 @@
 		importThemeTemplate('cerberus', themes['cerberus'].properties);
 		// Run file import
 		importThemeFile(event.acceptedFiles[0]);
-		// Redirect to Genreator path
+		// Redirect to Generator path
 		goto('/themes/create');
 	}
 </script>
