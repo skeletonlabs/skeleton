@@ -33,6 +33,9 @@
 	const slicedSource = $derived((s: SourceData[]) => s.slice((page - 1) * size, page * size));
 </script>
 
+Page: {page}
+Size: {size}
+
 <div class="space-y-10">
 	<header>
 		<h1 class="h1">Pagination</h1>
@@ -70,7 +73,7 @@
 				<option value={sourceData.length}>Show All</option>
 			</select>
 			<!-- Pagination (Alternative) -->
-			<Pagination bind:data={sourceData} bind:page bind:pageSize={size} alternative>
+			<Pagination bind:data={sourceData} bind:page bind:pageSize={size} alternative onPageSizeChange={console.log}>
 				{#snippet labelEllipsis()}<IconEllipsis class="size-4" />{/snippet}
 				{#snippet labelNext()}<IconArrowRight class="size-4" />{/snippet}
 				{#snippet labelPrevious()}<IconArrowLeft class="size-4" />{/snippet}

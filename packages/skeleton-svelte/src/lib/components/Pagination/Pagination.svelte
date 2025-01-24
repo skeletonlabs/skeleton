@@ -4,6 +4,7 @@
 
 	import type { PaginationProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
+	import {untrack} from "svelte";
 
 	let {
 		page = $bindable(1),
@@ -46,31 +47,37 @@
 	const [snapshot, send] = useMachine(
 		pagination.machine({
 			id: useId(),
-			count: data.length,
-			onPageChange(details) {
-				page = details.page;
-			},
-			onPageSizeChange(details) {
-				pageSize = details.pageSize;
-			}
+			page: page,
+			pageSize: pageSize,
+			count: zagProps.count ?? data.length,
 		}),
 		{
 			context: {
 				...zagProps,
-				get page() {
-					return page;
+				onPageChange(details) {
+					zagProps.onPageChange?.(details);
+					page = details.page;
 				},
-				get pageSize() {
-					return pageSize;
-				},
-				get count() {
-					// Use 'count' if specified; required for server-side pagination.
-					return zagProps.count ?? data.length;
+				onPageSizeChange(details) {
+					zagProps.onPageSizeChange?.(details);
+					pageSize = details.pageSize;
 				}
 			}
 		}
 	);
 	const api = $derived(pagination.connect(snapshot, send, normalizeProps));
+
+	$effect.pre(() => {
+		untrack(() => api).setPage(page);
+	});
+
+	$effect.pre(() => {
+		untrack(() => api).setPageSize(pageSize);
+	});
+
+	$effect.pre(() => {
+		untrack(() => api).setCount(zagProps.count ?? data.length);
+	});
 
 	// Reactive
 	const rxButtonActive = (page: { value: number }) => {
