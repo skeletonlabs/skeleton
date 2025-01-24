@@ -177,11 +177,11 @@
 					"type": "string"
 				},
 				"stateDisabled": {
-					"description": "Set claseses for the disabled state.",
+					"description": "Set classes for the disabled state.",
 					"type": "string"
 				},
 				"stateFocused": {
-					"description": "Set claseses for the focus state.",
+					"description": "Set classes for the focus state.",
 					"type": "string"
 				},
 				"value": {
@@ -274,7 +274,7 @@
 					"type": "object"
 				},
 				"orientHorizontal": {
-					"description": "Set classes to provide a horizintal layout.",
+					"description": "Set classes to provide a horizontal layout.",
 					"type": "string"
 				},
 				"orientVertical": {
@@ -299,11 +299,11 @@
 					"type": "string"
 				},
 				"stateDisabled": {
-					"description": "Set claseses for the disabled state.",
+					"description": "Set classes for the disabled state.",
 					"type": "string"
 				},
 				"stateReadOnly": {
-					"description": "Set claseses for the read-only state.",
+					"description": "Set classes for the read-only state.",
 					"type": "string"
 				},
 				"value": {

@@ -19,7 +19,7 @@ export function Component() {
 				<Rating value={value} onValueChange={setValue} iconEmpty={<Bone size={24} />} iconFull={<Skull size={24} />}></Rating>
 			</section>
 			<section className="space-y-4">
-				<h2 className="h2">With Halfs</h2>
+				<h2 className="h2">With Halves</h2>
 				<Rating value={value} onValueChange={setValue} allowHalf></Rating>
 			</section>
 			<section className="space-y-4">

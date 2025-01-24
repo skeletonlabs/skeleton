@@ -18,7 +18,7 @@ export interface SwitchProps extends React.PropsWithChildren, Omit<zagSwitch.Con
 	classes?: string;
 
 	// State ---
-	/** Set claseses for the focus state. */
+	/** Set classes for the focus state. */
 	stateFocused?: string;
 
 	// Control ---

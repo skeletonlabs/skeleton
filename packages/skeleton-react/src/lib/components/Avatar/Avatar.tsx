@@ -22,6 +22,7 @@ export const Avatar: React.FC<AvatarProps> = ({
 	// Image
 	imageBase = 'w-full object-cover',
 	imageClasses = '',
+	style,
 	// Fallback
 	fallbackBase = 'w-full h-full flex justify-center items-center',
 	fallbackClasses = '',
@@ -53,7 +54,7 @@ export const Avatar: React.FC<AvatarProps> = ({
 					srcSet={srcSet}
 					alt={name}
 					className={`${imageBase} ${imageClasses}`}
-					style={{ filter: filter ? `url(${filter})` : undefined }}
+					style={{ ...style, filter: filter ? `url(${filter})` : undefined }}
 					data-testid="avatar-image"
 				/>
 			)}

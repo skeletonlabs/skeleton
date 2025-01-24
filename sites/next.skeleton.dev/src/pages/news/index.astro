@@ -37,12 +37,12 @@ interface BlueskyPost {
 	};
 }
 
-const queryParms = new URLSearchParams({
+const queryParams = new URLSearchParams({
 	actor: 'skeletonlabs.bsky.social',
 	limit: '15',
 	filter: 'posts_no_replies'
 });
-const response = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?${queryParms}`, {
+const response = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?${queryParams}`, {
 	method: 'GET',
 	headers: { Accept: 'application/json' }
 });

@@ -11,7 +11,7 @@ body:
   - type: textarea
     attributes:
       label: Expected Behavior
-      description: A description of what you're experiencing.
+      description: How do you think should it behave.
     validations:
       required: false
   - type: textarea
@@ -33,6 +33,6 @@ body:
     attributes:
       label: More Information
       description: |
-        Provide relevant links or additionl information.
+        Provide relevant links or additional information.
     validations:
       required: false

@@ -239,7 +239,7 @@
 					"type": "boolean"
 				},
 				"stateFocused": {
-					"description": "Set claseses for the focus state.",
+					"description": "Set classes for the focus state.",
 					"type": "string"
 				},
 				"thumbActive": {

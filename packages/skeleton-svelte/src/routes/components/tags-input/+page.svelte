@@ -2,7 +2,7 @@
 	import { TagsInput } from '$lib/index.js';
 	import IconDelete from 'lucide-svelte/icons/circle-x';
 
-	let flavors = $state(['Vanilla', 'Chocolate', 'Stawberry']);
+	let flavors = $state(['Vanilla', 'Chocolate', 'Strawberry']);
 </script>
 
 <div class="space-y-10">

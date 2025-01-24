@@ -1,4 +1,4 @@
-<!-- Navigation Rail Test Copmonent -->
+<!-- Navigation Rail Test Component -->
 
 <script lang="ts">
 	import { Navigation } from '$lib/index.js';

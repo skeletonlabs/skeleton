@@ -33,6 +33,8 @@ export interface AvatarProps {
 	imageBase?: string;
 	/** Provide avatar image arbitrary CSS classes. */
 	imageClasses?: string;
+	/** Set avatar image styles. */
+	style?: string;
 
 	// Fallback ---
 	/** Set base classes for the fallback element. */
