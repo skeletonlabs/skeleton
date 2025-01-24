@@ -2,39 +2,6 @@
 import { Check as IconCheck } from 'lucide-react';
 ---
 
-<!-- Load the Polar checkout script -->
-<script src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js" defer data-auto-init></script>
-
-<script>
-	const htmlElement = document.documentElement;
-
-	const buyButtons = document.querySelectorAll('[data-polar-checkout]');
-
-	/**
-	 * Updates the theme of the buy buttons based on the presence of the 'dark' class on the HTML element
-	 */
-	function updateTheme() {
-		const theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
-
-		buyButtons.forEach((button) => {
-			button.setAttribute('data-polar-checkout-theme', theme);
-		});
-	}
-
-	// Initial update of the theme
-	updateTheme();
-
-	// Create a MutationObserver to observe changes to the class attribute of the HTML element
-	new MutationObserver(() => {
-		updateTheme();
-	}).observe(htmlElement, {
-		// Observe changes to attributes
-		attributes: true,
-		// Only observe changes to the class attribute
-		attributeFilter: ['class']
-	});
-</script>
-
 <div class="w-full max-w-[960px] flex flex-col card bg-surface-50-950 border-[1px] border-surface-200-800 overflow-hidden">
 	<div class="flex flex-col p-6 w-full">
 		<h2 class="h2 pb-8" id="get-access">Get Access</h2>
@@ -112,3 +79,36 @@ import { Check as IconCheck } from 'lucide-react';
 		</div>
 	</div>
 </div>
+
+<!-- Load the Polar checkout script -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js" defer data-auto-init></script>
+
+<script>
+	const htmlElement = document.documentElement;
+
+	const buyButtons = document.querySelectorAll('[data-polar-checkout]');
+
+	/**
+	 * Updates the theme of the buy buttons based on the presence of the 'dark' class on the HTML element
+	 */
+	function updateTheme() {
+		const theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+
+		buyButtons.forEach((button) => {
+			button.setAttribute('data-polar-checkout-theme', theme);
+		});
+	}
+
+	// Initial update of the theme
+	updateTheme();
+
+	// Create a MutationObserver to observe changes to the class attribute of the HTML element
+	new MutationObserver(() => {
+		updateTheme();
+	}).observe(htmlElement, {
+		// Observe changes to attributes
+		attributes: true,
+		// Only observe changes to the class attribute
+		attributeFilter: ['class']
+	});
+</script>

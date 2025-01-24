@@ -4,67 +4,11 @@ import { Icon } from 'astro-icon/components';
 import LayoutRoot from '@layouts/LayoutRoot.astro';
 import Header from '@components/docs/Header.astro';
 import Footer from '@components/docs/Footer.astro';
+import BlueSkyFeed from '@components/docs/BlueskyFeed.svelte';
 
 const layoutProps = {
 	classList: ''
 };
-
-// Bluesky News Feed
-// https://docs.bsky.app/docs/api/app-bsky-feed-get-author-feed
-
-interface BlueskyPost {
-	post: {
-		uri: string;
-		author: {
-			handle: string;
-		};
-		record: {
-			createdAt: string;
-			text: string;
-		};
-		embed: {
-			$type: string;
-			images: {
-				thumb: string;
-				alt: string;
-			}[];
-			external: {
-				uri: string;
-				title: string;
-				thumb: string;
-			};
-		};
-	};
-}
-
-const queryParams = new URLSearchParams({
-	actor: 'skeletonlabs.bsky.social',
-	limit: '15',
-	filter: 'posts_no_replies'
-});
-const response = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?${queryParams}`, {
-	method: 'GET',
-	headers: { Accept: 'application/json' }
-});
-const timeline = await response.json();
-
-// Format Post URL
-function formatUri(uri: string) {
-	const postId = uri.split('/').slice(-1)[0];
-	return `https://bsky.app/profile/skeletonlabs.bsky.social/post/${postId}`;
-}
-
-// Post Text Formatter
-function postTextFormatter(text: string) {
-	// Link text is truncated, we need to prune them here.
-	text = text.replaceAll('github.com/skeletonlabs...', '');
-	return text;
-}
-
-// Date Formatter
-function dateFormatter(date: string) {
-	return new Date(date).toLocaleDateString();
-}
 ---
 
 <LayoutRoot {...layoutProps}>
@@ -83,57 +27,8 @@ function dateFormatter(date: string) {
 				<span>Feed</span>
 			</a>
 		</header>
-		<div class="space-y-4">
-			{
-				timeline.feed.map((item: BlueskyPost) => {
-					// Filter by only Skeleton Labs posts
-					if (item.post.author.handle === 'skeletonlabs.bsky.social')
-						return (
-							<>
-								{/* <pre class="pre">{JSON.stringify(item, null, 2)}</pre> */}
-								<a href={formatUri(item.post.uri)} target="_blank" class="block">
-									<article class="card preset-outlined-surface-200-800 hover:preset-tonal p-4 xl:p-10 space-y-4">
-										<header class="flex justify-between items-center">
-											{/* Avatar */}
-											<img
-												class="w-10 rounded-full overflow-hidden"
-												src="https://cdn.bsky.app/img/avatar_thumbnail/plain/did:plc:whtgi5zx7ylmdw2i76vq7vq4/bafkreicyyaq6y2iqhow3vknjyvenqqpxoxls63miv5traflivi44kkp4gq@jpeg"
-											/>
-											{/* Timestamp */}
-											<small class="opacity-60">{dateFormatter(item.post.record.createdAt)}</small>
-										</header>
-										{/* Post */}
-										<p class="xl:type-scale-4">{postTextFormatter(item.post.record.text)}</p>
-										{/* Embeds */}
-										<footer class="space-y-4">
-											{/* Embed: GitHub */}
-											{item.post.embed && item.post.embed.$type.includes('external') && (
-												<div class="block">
-													{item.post.embed.external.thumb ? (
-														<img
-															class="w-full bg-surface-500/10 hover:bg-surface-500 p-0.5 rounded-container overflow-hidden shadow"
-															src={item.post.embed.external.thumb}
-														/>
-													) : (
-														<div class="card preset-outlined-surface-200-800 p-4 text-surface-800-200">
-															{item.post.embed.external.title}
-														</div>
-													)}
-												</div>
-											)}
-											{/* Embed: Images */}
-											{item.post.embed &&
-												item.post.embed.$type.includes('images') &&
-												item.post.embed.images.map((image) => {
-													return <img class="w-full bg-surface-500/10 p-1 rounded-container overflow-hidden shadow" src={image.thumb} />;
-												})}
-										</footer>
-									</article>
-								</a>
-							</>
-						);
-				})
-			}
+		<div class="grid gap-8">
+			<BlueSkyFeed client:only />
 		</div>
 		<div class="flex justify-center">
 			<a class="btn preset-filled" href="https://bsky.app/profile/skeletonlabs.bsky.social" target="_blank">
