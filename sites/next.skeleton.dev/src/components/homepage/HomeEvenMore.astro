@@ -1,10 +1,12 @@
 ---
-import IconFramework from 'lucide-svelte/icons/badge-check';
-import IconDesign from 'lucide-svelte/icons/palette';
-import IconTypescript from 'lucide-svelte/icons/file-code';
-import IconDarkMode from 'lucide-svelte/icons/sun-moon';
-import IconIntegrations from 'lucide-svelte/icons/puzzle';
-import IconZag from 'lucide-svelte/icons/blocks';
+import {
+	BadgeCheck as IconFramework,
+	Palette as IconDesign,
+	FileCode as IconTypescript,
+	SunMoon as IconDarkMode,
+	Puzzle as IconIntegrations,
+	Blocks as IconZag
+} from 'lucide-react';
 ---
 
 <div class="space-y-10">
@@ -20,7 +22,7 @@ import IconZag from 'lucide-svelte/icons/blocks';
 		<!-- 1 -->
 		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
 			<div class="w-full h-full flex flex-col justify-end space-y-2">
-				<IconFramework class="size-8 opacity-60" />
+				<IconFramework class:list="size-8 opacity-60" />
 				<h3 class="h4">Framework Agnostic</h3>
 				<p class="opacity-60">Core features require only a single single depdendency &mdash; Tailwind CSS.</p>
 			</div>
@@ -28,7 +30,7 @@ import IconZag from 'lucide-svelte/icons/blocks';
 		<!-- 2 -->
 		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
 			<div class="w-full h-full flex flex-col justify-end space-y-2">
-				<IconZag class="size-8 opacity-60" />
+				<IconZag class:list="size-8 opacity-60" />
 				<h3 class="h4">Zag.js Components</h3>
 				<p class="opacity-60">A foundation for cross-framework components. Standardizing features and accessessibly.</p>
 			</div>
@@ -36,7 +38,7 @@ import IconZag from 'lucide-svelte/icons/blocks';
 		<!-- 3 -->
 		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
 			<div class="w-full h-full flex flex-col justify-end space-y-2">
-				<IconIntegrations class="size-8 opacity-60" />
+				<IconIntegrations class:list="size-8 opacity-60" />
 				<h3 class="h4">Integrations</h3>
 				<p class="opacity-60">Extend Skeleton with easy to follow guides for popovers, code blocks, and more.</p>
 			</div>
@@ -44,7 +46,7 @@ import IconZag from 'lucide-svelte/icons/blocks';
 		<!-- 4 -->
 		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
 			<div class="w-full h-full flex flex-col justify-end space-y-2">
-				<IconDesign class="size-8 opacity-60" />
+				<IconDesign class:list="size-8 opacity-60" />
 				<h3 class="h4">Adaptive Design</h3>
 				<p class="opacity-60">Utilize themes as the foundation of your design to replicate any visual aesthetic.</p>
 			</div>
@@ -52,7 +54,7 @@ import IconZag from 'lucide-svelte/icons/blocks';
 		<!-- 5 -->
 		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
 			<div class="w-full h-full flex flex-col justify-end space-y-2">
-				<IconDarkMode class="size-8 opacity-60" />
+				<IconDarkMode class:list="size-8 opacity-60" />
 				<h3 class="h4">Dark Mode</h3>
 				<p class="opacity-60">Skeleton themes supports Tailwind's dark mode mechanisms out of the box.</p>
 			</div>
@@ -60,7 +62,7 @@ import IconZag from 'lucide-svelte/icons/blocks';
 		<!-- 6 -->
 		<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10">
 			<div class="w-full h-full flex flex-col justify-end space-y-2">
-				<IconTypescript class="size-8 opacity-60" />
+				<IconTypescript class:list="size-8 opacity-60" />
 				<h3 class="h4">Typescript</h3>
 				<p class="opacity-60">Type-safe by default, with helpful IntelliSense feedback as you work.</p>
 			</div>
