@@ -3,23 +3,49 @@ import '@styles/app.css';
 
 interface Props {
 	title?: string;
+	description?: string;
 	classList?: string;
 }
 
-const { title, classList } = Astro.props satisfies Props;
+const { title, description, classList } = Astro.props satisfies Props;
 
-const pageTitle = `${title ? title + ' - ' : ''}Skeleton`;
+// Format meta tag data
+const meta = {
+	title: `${title ? title + ' - ' : ''}Skeleton`,
+	description: description ? description : 'Skeleton is an adaptive design system powered by Tailwind CSS.',
+	image: 'https://user-images.githubusercontent.com/1509726/212382766-f29b9c9a-82e3-44c2-b911-b17a9197e5b9.jpg'
+};
 ---
 
 <!doctype html>
 <html lang="en" class="dark">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<title>{meta.title}</title>
 		<link rel="icon" type="image/png" href="/favicon.png" />
+		<!-- Meta Tags -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
+		<meta name="title" content={meta.title} />
+		<meta name="description" content={meta.description} />
+		<meta
+			name="keywords"
+			content="design system, tailwind, tailwind css, web, ui, components, svelte, sveltekit, react, next.js, vue, nuxt, solid, solidstart, astro, vite, reactive, accessibility, typescript, css, open source, adaptive"
+		/>
+		<meta name="theme-color" content="#111111" />
+		<meta name="author" content="Skeleton Labs" />
+		<!-- Open Graph - https://ogp.me/ -->
+		<meta property="og:site_name" content="Skeleton" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={`https://www.skeleton.dev${Astro.url.pathname}`} />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:title" content={meta.title} />
+		<meta property="og:description" content={meta.description} />
+		<meta property="og:image" content={meta.image} />
+		<meta property="og:image:secure_url" content={meta.image} />
+		<meta property="og:image:type" content="image/jpg" />
+		<meta property="og:image:width" content="1707" />
+		<meta property="og:image:height" content="1233" />
 		<!-- Analytics -->
 		<script
 			type="text/partytown"
