@@ -63,7 +63,12 @@
 				</button>
 			{/each}
 		</nav>
-		<p class="opacity-60">{steps[state].desc}</p>
+		<div class="space-y-4">
+			<p class="opacity-60">{steps[state].desc}</p>
+			{#if state === 0}
+				<a href="/figma" class="btn preset-tonal w-full">Learn More &rarr;</a>
+			{/if}
+		</div>
 	</div>
 	<!-- Carousel -->
 	<div class="card bg-noise preset-filled-primary-500 aspect-video flex justify-center items-center overflow-hidden shadow-xl">
