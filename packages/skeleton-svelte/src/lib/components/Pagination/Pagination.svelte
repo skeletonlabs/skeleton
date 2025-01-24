@@ -46,19 +46,19 @@
 	const [snapshot, send] = useMachine(
 		pagination.machine({
 			id: useId(),
-			count: data.length,
-			onPageChange(details) {
-				zagProps.onPageChange?.(details);
-				page = details.page;
-			},
-			onPageSizeChange(details) {
-				zagProps.onPageSizeChange?.(details);
-				pageSize = details.pageSize;
-			}
+			count: data.length
 		}),
 		{
 			context: {
 				...zagProps,
+				onPageChange(details) {
+					zagProps.onPageChange?.(details);
+					page = details.page;
+				},
+				onPageSizeChange(details) {
+					zagProps.onPageSizeChange?.(details);
+					pageSize = details.pageSize;
+				},
 				get page() {
 					return page;
 				},
