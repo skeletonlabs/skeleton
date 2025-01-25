@@ -1,5 +1,11 @@
 # @skeletonlabs/tw-plugin
 
+## 0.4.1
+
+### Patch Changes
+
+- bugfix: Excluded checkbox and radio from input group styles ([#3122](https://github.com/skeletonlabs/skeleton/pull/3122))
+
 ## 0.4.0
 
 ### Minor Changes
