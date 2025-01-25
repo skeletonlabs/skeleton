@@ -4,7 +4,7 @@
 
 	import type { PaginationProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
-	import {untrack} from "svelte";
+	import { untrack } from 'svelte';
 
 	let {
 		page = $bindable(1),
@@ -49,7 +49,7 @@
 			id: useId(),
 			page: page,
 			pageSize: pageSize,
-			count: zagProps.count ?? data.length,
+			count: zagProps.count ?? data.length
 		}),
 		{
 			context: {

@@ -22,7 +22,7 @@
 	{/each}
 {:then posts}
 	{#each posts as post (post.cid)}
-		<a href={post.uri} target="_blank" class="block">
+		<a href="https://bsky.app/profile/{post.author.handle}/post/{post.uri.split('/').at(-1)}" target="_blank" class="block">
 			<article class="card preset-outlined-surface-200-800 hover:preset-tonal p-4 xl:p-10 space-y-4">
 				<header class="flex justify-between items-center">
 					<img
