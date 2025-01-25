@@ -26,10 +26,8 @@
 			{:else if $storeOnboardMethod === 'manual'}
 				<div class="space-y-4">
 					<!-- prettier-ignore -->
-					<p>
-						<a class="anchor" href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> automates the process of installing Tailwind in SvelteKit.
-					</p>
-					<CodeBlock language="shell" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
+					<p>In case you have not added Tailwind when creating the project, Svelte CLI can also automates the process of installing Tailwind in your SvelteKit project.<p>
+					<CodeBlock language="shell" code={`npx sv add tailwindcss`} />
 				</div>
 				<h3 class="h3">Tailwind Configuration</h3>
 				<p>

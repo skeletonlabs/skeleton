@@ -33,8 +33,9 @@ cd my-skeleton-app
 				<CodeBlock
 					language="shell"
 					code={`
-npm create svelte@latest my-skeleton-app
+npx sv create my-skeleton-app
 	- Enable Typescript when prompted (recommended)
+	- Add TailwindCSS to project when prompted (recommended)
 cd my-skeleton-app
 npm install
 		`}
