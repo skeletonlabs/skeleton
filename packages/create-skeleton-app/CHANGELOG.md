@@ -1,5 +1,11 @@
 # create-skeleton-app
 
+## 0.0.56
+
+### Patch Changes
+
+- Bugfix: Pin tailwind versions to prevent newer (major) versions of tailwind being installed. ([#3171](https://github.com/skeletonlabs/skeleton/pull/3171))
+
 ## 0.0.55
 
 ### Patch Changes

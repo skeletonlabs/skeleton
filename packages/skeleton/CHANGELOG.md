@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 2.11.0
+
+### Minor Changes
+
+- Fix CloseQuery has no effect and popup disappear on click ([#3076](https://github.com/skeletonlabs/skeleton/pull/3076))
+
 ## 2.10.4
 
 ### Patch Changes
