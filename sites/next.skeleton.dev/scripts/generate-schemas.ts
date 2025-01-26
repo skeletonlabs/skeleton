@@ -15,7 +15,9 @@ function toKebabCase(str: string) {
 
 async function processFile(path: string): Promise<number> {
 	const component = basename(dirname(path));
-	const framework = path.match(/skeleton-([^/]+)/)?.[1];
+	const matches = path.match(/skeleton-([^/]+)(?=\/|$)/g);
+	const match = matches?.at(-1);
+	const framework = match?.replace('skeleton-', '');
 	if (!framework) {
 		throw new Error(`Invalid framework path: ${path}`);
 	}
