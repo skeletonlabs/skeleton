@@ -80,6 +80,20 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<!-- Alert -->
+		<aside class="alert variant-ghost-error">
+			<i class="fa-solid fa-triangle-exclamation text-4xl"></i>
+			<div class="alert-message" data-toc-ignore>
+				<h3 class="h3" data-toc-ignore>Deprecated</h3>
+				<!-- prettier-ignore -->
+				<p>
+					This feature will remain function in Skeleton 2.x, but be temporarily unavailable in Skeleton v3. If you rely on this feature, please consider a third-party alternative.
+				</p>
+			</div>
+			<div class="alert-actions">
+				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/issues/2358#issuecomment-2313215789" target="_blank">Learn More</a>
+			</div>
+		</aside>
 		<DocsPreview regionFooter="text-center">
 			<svelte:fragment slot="preview">
 				<div class="w-full max-w-[480px] card p-4 text-token">
