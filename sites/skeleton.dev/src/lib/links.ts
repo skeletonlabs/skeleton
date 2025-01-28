@@ -116,7 +116,6 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ href: '/components/file-buttons', label: 'File Buttons', keywords: 'upload, form, input, file, media' },
 				{ href: '/components/file-dropzone', label: 'File Dropzone', keywords: 'upload, form, input, file, media, drag, drop' },
 				{ href: '/components/input-chips', label: 'Input Chips', keywords: 'multi, multiple, select, tags, form, validation' },
-				{ href: '/components/listboxes', label: 'Listboxes', keywords: 'list, select, multi, multiple' },
 				{ href: '/components/paginators', label: 'Paginators', keywords: 'nav, navigation, table, data, list' },
 				{ href: '/components/progress-bars', label: 'Progress Bars', keywords: 'meter, track, indeterminate, determinate, min, max' },
 				{ href: '/components/progress-radials', label: 'Progress Radials', keywords: 'meter, track, indeterminate, determinate, spin' },
@@ -124,8 +123,7 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ href: '/components/radio-groups', label: 'Radio Groups', keywords: 'input, form, select, selection' },
 				{ href: '/components/range-sliders', label: 'Range Sliders', keywords: 'value, min, max, step,, tick, input, form' },
 				{ href: '/components/slide-toggles', label: 'Slide Toggles', keywords: 'check, checkbox, toggle, input, form' },
-				{ href: '/components/tabs', label: 'Tabs', keywords: 'select, selection, panel' },
-				{ href: '/components/tree-views', label: 'Tree Views', keywords: 'tree, view, node' }
+				{ href: '/components/tabs', label: 'Tabs', keywords: 'select, selection, panel' }
 			]
 		},
 		// Deprecated
@@ -138,7 +136,9 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 					keywords: 'layout, header, footer, sidebar, page, content',
 					badge: 'Deprecated'
 				},
+				{ href: '/components/listboxes', label: 'Listboxes', keywords: 'list, select, multi, multiple', badge: 'Deprecated' },
 				{ href: '/components/tables', label: 'Tables', keywords: 'data, entry', badge: 'Deprecated' },
+				{ href: '/components/tree-views', label: 'Tree Views', keywords: 'tree, view, node', badge: 'Deprecated' },
 				{ href: '/components/steppers', label: 'Steppers', keywords: 'intro, onboard, onboarding, form, progress', badge: 'Deprecated' }
 			]
 		}

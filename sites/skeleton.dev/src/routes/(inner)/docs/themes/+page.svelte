@@ -3,11 +3,7 @@
 	// Docs
 	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
 	// Components
-	import { Tab, TabGroup, CodeBlock, type TableSource, Table } from '@skeletonlabs/skeleton';
-
-	// Local
-	let activeTheme = themes[1];
-	let tabsFontImport = 0;
+	import { CodeBlock, type TableSource, Table } from '@skeletonlabs/skeleton';
 
 	// Table
 	const sourceCssProperties = [
@@ -28,9 +24,6 @@
 		// The data visibly shown in your table body UI.
 		body: sourceCssProperties
 	};
-
-	// Reactive
-	$: activeFonts = activeTheme.fonts.length ? activeTheme.fonts : themes[0].fonts;
 </script>
 
 <LayoutPage>
@@ -106,7 +99,7 @@
 			<span class="badge variant-filled-warning">New in v2</span>
 		</div>
 		<p>
-			Themes are configured via Skeleton's Tailwind plugin in your <code class="code">tailwind.config.[ts|js|cjs]</code>, found in your
+			Themes are configured via Skeleton's Tailwind plugin in your <code class="code">tailwind.config</code>, found in your
 			project root.
 		</p>
 		<h3 class="h3">Register Themes</h3>
@@ -240,145 +233,16 @@ body {
 
 	<section class="space-y-4">
 		<h2 class="h2">Custom Fonts</h2>
-		<!-- prettier-ignore -->
-		<p>
-            Fonts may be installed from a local or remote source. For <a class="anchor" href="https://gdpr.eu/" target="_blank" rel="noreferrer">GDPR compliance</a> and optimal performance we recommend installing the fonts locally. For this guide we'll demonstrate this process using free fonts from <a class="anchor" href="https://fonts.google.com/" target="_blank" rel="noreferrer">Google Fonts</a>.
-		</p>
-		<TabGroup regionPanel="space-y-4">
-			<Tab bind:group={tabsFontImport} name="tab1" value={0}>Local (recommended)</Tab>
-			<Tab bind:group={tabsFontImport} name="tab2" value={1}>Remote</Tab>
-			<!-- Tab Panels --->
-			<svelte:fragment slot="panel">
-				{#if tabsFontImport === 0}
-					<!-- 1 -->
-					<h3 class="h3" data-toc-ignore>1. Download a Font</h3>
-					<p>Select a font on Google Fonts, then tap the "Download Family" button near the top-right of the page.</p>
-					<div class="card variant-glass p-4 flex justify-center items-center gap-2">
-						{#each activeFonts as f}
-							<a class="btn variant-filled-primary" href={f.url} target="_blank" rel="noreferrer">
-								<i class="fa-solid fa-download"></i>
-								<span>{f.name}</span>
-							</a>
-						{/each}
-					</div>
-					<!-- 2 -->
-					<h3 class="h3" data-toc-ignore>2. Add the Font Files</h3>
-					<p>
-						Unzip the downloaded file, then copy all font files to the <code class="code">/static/fonts</code> directory in the root of your
-						SvelteKit project. When available we recommend using variable fonts as they require only a single file. Otherwise copy all
-						static font file assets to the <code class="code">/static/fonts</code> directory.
-					</p>
-					{#each activeFonts as f}
-						<CodeBlock language="shell" code={`/static/fonts/${f.file}`} />
-					{/each}
-					<!-- 3 -->
-					<h3 class="h3" data-toc-ignore>3. Apply @font-face</h3>
-					<!-- prettier-ignore -->
-					<p>At the top of your global stylesheet <code class="code">/src/app.postcss</code> append the <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="noreferrer">@font-face</a> settings per each font. The <code class="code">font-family</code> assigns the font's reference name, while <code class="code">src</code> points to the font file(s) in your <code class="code">/static/fonts</code> directory.</p>
-					{#each activeFonts as f}
-						<CodeBlock
-							language="css"
-							code={`
-@font-face {
-	/* Reference name */
-	font-family: '${f.name}';
-	/* For multiple files use commas, ex: url(), url(), ... */
-	src: url('/fonts/${f.file}');
-}
-							`}
-						/>
-					{/each}
-					<!-- 4 -->
-					<h3 class="h3" data-toc-ignore>4. Set the Font Family.</h3>
-					<p>
-						Use CSS Property overrides or open your custom theme to set the font family for <em>base</em> and
-						<em>heading</em> properties. Be sure to use the same reference name set above or your font <u>will not work</u>.
-					</p>
-					{#each activeFonts as f}
-						<CodeBlock
-							language="css"
-							code={`
-/* NOTE: set your target theme name (ex: skeleton, wintry, modern, etc) */\n
+		<p>We recommend the use of <a href="https://fontsource.org/" target="_blank" class="anchor">Fontsource</a> managing custom fonts. Start by installing the font of your choice.</p>
+		<CodeBlock language="console" code={`npm install @fontsource/open-sans`} />
+		<p>Then import each font at the top of your global stylesheet in <code class="code">/src/app.css</code></p>
+		<CodeBlock language="css" code={`import "@fontsource/open-sans";`} />
+		<p>Finally, overwrite the CSS Custom Properties for your them with the new font-family set.</p>
+		<CodeBlock language="css" code={`
 :root [data-theme='skeleton'] {
-    --theme-font-family-base: '${f.name}', sans-serif;
-    --theme-font-family-heading: '${f.name}', sans-serif;
-    /* ... */
+    --theme-font-family-base: "Open Sans", sans-serif;
+    --theme-font-family-heading: "Open Sans", sans-serif;
 }
-                        	`}
-						/>
-					{/each}
-					<!-- 5 -->
-					<h3 class="h3" data-toc-ignore>5. Handle Font Flickering.</h3>
-					<p>
-						To avoid your page flickering during hydration, consider using the <code class="code">font-display</code> descriptor for the
-						<code class="code">@font-face</code>
-						at-rule that determines how a font face is displayed based on whether and when it is downloaded and ready to use.
-						<br />
-						<br />Replace your <code class="code">@font-face</code> at-rule with the following:
-					</p>
-					{#each activeFonts as f}
-						<CodeBlock
-							language="css"
-							code={`
-@font-face {
-	/* Reference name */
-	font-family: '${f.name}';
-	/* For multiple files use commas, ex: url(), url(), ... */
-	src: url('/fonts/${f.file}');
-	/* Gives the font face an extremely small block period and an infinite swap period. */
-	font-display: swap;
-}
-					`}
-						/>
-					{/each}
-				{:else if tabsFontImport === 1}
-					<aside class="alert alert-message variant-ghost-warning">
-						<p><strong>Warning:</strong> please be aware that using remote imports are typically not GDPR compliant.</p>
-					</aside>
-					<!-- 1 -->
-					<h3 class="h3" data-toc-ignore>1. Select a Font</h3>
-					<p>
-						Choose a font on Google Fonts, select each font weight you wish to use, then tap the "View Select Families" icon button at the
-						very top-right of the page. Under the "Use on the Web" section, choose <code class="code">@import</code>, then copy the import
-						statement.
-					</p>
-					<div class="card variant-glass p-4 flex justify-center items-center gap-2">
-						{#each activeFonts as f}
-							<a class="btn variant-filled-primary" href={f.url} target="_blank" rel="noreferrer">
-								<span>{f.name}</span>
-								<i class="fa-solid fa-arrow-up-right-from-square"></i>
-							</a>
-						{/each}
-					</div>
-					<h3 class="h3" data-toc-ignore>2. Set the Import</h3>
-					<p>
-						Open your global stylesheet in <code class="code">/src/app.postcss</code> and paste the import statement at the top of the file,
-						above all <code class="code">@tailwind</code> directives.
-					</p>
-					{#each activeFonts as f}
-						<CodeBlock language="css" code={`@import url('${f.import}');`} />
-					{/each}
-					<!-- 3 -->
-					<h3 class="h3" data-toc-ignore>3. Set the Font Family.</h3>
-					<p>
-						Google Fonts also provides a recommend font family set. Copy the provided set, then apply this to either the <em>base</em> or
-						<em>heading</em> properties as desired.
-					</p>
-					{#each activeFonts as f}
-						<CodeBlock
-							language="css"
-							code={`
-/* NOTE: set your target theme name (ex: skeleton, wintry, modern, etc) */\n
-:root [data-theme='skeleton'] {
-    --theme-font-family-base: '${f.name}', sans-serif;
-    --theme-font-family-heading: '${f.name}', sans-serif;
-    /* ... */
-}
-                        	`}
-						/>
-					{/each}
-				{/if}
-			</svelte:fragment>
-		</TabGroup>
+		`} />
 	</section>
 </LayoutPage>

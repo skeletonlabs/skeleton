@@ -40,7 +40,7 @@
 			<CodeBlock
 				language="ts"
 				code={`
-// tailwind.config.[ts|js|cjs]\n
+// tailwind.config\n
 module.exports = {
   darkMode: 'selector', // <--
   // ...
@@ -72,7 +72,7 @@ module.exports = {
 			<CodeBlock
 				language="ts"
 				code={`
-// tailwind.config.[ts|js|cjs]\n
+// tailwind.config\n
 module.exports = {
 	darkMode: 'media', // <--
 	// ...
