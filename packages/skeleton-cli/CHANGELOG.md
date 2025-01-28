@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.17
+
+### Patch Changes
+
+- Feature (migrate/skeleton-3): Installing dependencies shows actual spinner. ([#3150](https://github.com/skeletonlabs/skeleton/pull/3150))
+
 ## 0.0.1-next.16
 
 ### Patch Changes
