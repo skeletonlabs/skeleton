@@ -97,7 +97,7 @@
 				out of the box. Best of all you can use these within your custom components as well!
 			</p>
 		</section>
-		<section class="space-y-4">
+		<!-- <section class="space-y-4">
 			<h2 class="h2">Learn More</h2>
 			<p>We recommend this conference talk by Brad Frost if you would like to learn more about the design token concept.</p>
 			<iframe
@@ -108,7 +108,7 @@
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 				allowfullscreen
 			></iframe>
-		</section>
+		</section> -->
 		<section class="space-y-4">
 			<h2 class="h2">Theme Flow</h2>
 			<p>

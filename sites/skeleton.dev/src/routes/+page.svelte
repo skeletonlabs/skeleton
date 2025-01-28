@@ -23,12 +23,12 @@
 	<div class="variant-filled-primary p-4">
 		<div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
 			<div class="flex items-center gap-6">
-				<span class="text-xl">🎉</span>
-				<p class="text-lg">The Skeleton v3 Beta is now available!</p>
+				<span class="text-2xl">🎉</span>
+				<p class="text-lg">Preview the new and upcoming version of Skeleton.</p>
 			</div>
 			<div class="flex gap-4">
-				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/discussions/2919" target="_blank">Learn More</a>
-				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/discussions/2921" target="_blank">Migration Guide</a>
+				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/discussions/3062" target="_blank">What's New</a>
+				<a class="btn variant-filled" href="https://next.skeleton.dev/" target="_blank">Preview &rarr;</a>
 			</div>
 		</div>
 	</div>

@@ -36,6 +36,14 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<!-- Alert -->
+		<aside class="alert variant-ghost-error">
+			<i class="fa-solid fa-triangle-exclamation text-4xl"></i>
+			<div class="alert-message" data-toc-ignore>
+				<h3 class="h3" data-toc-ignore>Deprecated</h3>
+				<p>This feature is being phased out as we transition to Skeleton v3. It will remain functional for all 2.x releases.</p>
+			</div>
+		</aside>
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="w-full max-w-[480px] card p-4 text-token">

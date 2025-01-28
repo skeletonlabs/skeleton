@@ -65,11 +65,11 @@
 				<h3 class="h3" data-toc-ignore>Deprecated</h3>
 				<!-- prettier-ignore -->
 				<p>
-					This feature is being phased out as we transition to <a class="underline" href="https://github.com/skeletonlabs/skeleton/discussions/2375" target="_blank">Skeleton v3</a>. This will remain functional for all 2.x releases. Expect a dedicated v3 alternative as soon as possible.
+					This feature is being phased out as we transition to Skeleton v3. It will remain functional for all 2.x releases. Please review our generic guide for creating your own stepper.
 				</p>
 			</div>
 			<div class="alert-actions">
-				<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/issues/1780" target="_blank"> Learn More </a>
+				<a class="btn variant-filled" href="https://next.skeleton.dev/docs/guides/cookbook/stepper" target="_blank">View Guide</a>
 			</div>
 		</aside>
 		<!-- Preview -->
