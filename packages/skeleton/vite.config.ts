@@ -1,37 +1,38 @@
-import { defineConfig, Plugin, ResolvedConfig } from 'vite';
+import {createServer, defineConfig, Plugin, ViteDevServer} from 'vite';
 import fg from 'fast-glob';
-import generateColorPairings from './src/generators/color-pairings.css.js';
-import { mkdir, writeFile } from 'fs/promises';
-import { dirname, join } from 'path';
-import { existsSync } from 'node:fs';
-import generatePresets from './src/generators/presets.css.js';
+import { ViteNodeServer } from "vite-node/server";
+import { ViteNodeRunner } from "vite-node/client";
 
-interface GeneratedFile {
-	input: string;
-	output: string;
-	generator: () => string;
-}
-
-function cssGenerator(files: GeneratedFile[] = []) {
-	let resolvedConfig: ResolvedConfig;
+async function generators(files: string[] = []) {
+	let viteDevServer: ViteDevServer;
+	let viteNodeServer: ViteNodeServer;
+	let viteNodeRunner: ViteNodeRunner;
 	return {
-		name: 'css-generator',
+		name: 'generators',
 		apply: 'build',
-		async configResolved(config) {
-			resolvedConfig = config;
-			for (const file of files) {
-				const path = join(config.root, file.output);
-				if (!existsSync(dirname(path))) {
-					await mkdir(dirname(path), { recursive: true });
-				}
-				await writeFile(path, file.generator());
-			}
+		async config(config) {
+			viteDevServer = await createServer(config);
+			await viteDevServer.pluginContainer.buildStart();
+			viteNodeServer = new ViteNodeServer(viteDevServer);
+			viteNodeRunner = new ViteNodeRunner({
+				root: viteDevServer.config.root,
+				base: viteDevServer.config.base,
+				fetchModule(id) {
+					return viteNodeServer.fetchModule(id)
+				},
+				resolveId(id, importer) {
+					return viteNodeServer.resolveId(id, importer)
+				},
+			});
 		},
 		async buildStart() {
 			for (const file of files) {
-				const path = join(resolvedConfig.root, file.input);
-				this.addWatchFile(path);
+				this.addWatchFile(file);
+				await viteNodeRunner.executeFile(file);
 			}
+		},
+		async buildEnd() {
+			await viteDevServer.close();
 		}
 	} satisfies Plugin;
 }
@@ -49,17 +50,9 @@ export default defineConfig({
 		}
 	},
 	plugins: [
-		cssGenerator([
-			{
-				input: './src/generators/color-pairings.css.ts',
-				output: './generated/color-pairings.css',
-				generator: generateColorPairings
-			},
-			{
-				input: './src/generators/presets.css.ts',
-				output: './generated/presets.css',
-				generator: generatePresets
-			}
+		generators([
+			'./src/generators/color-pairings.css.ts',
+			'./src/generators/presets.css.ts'
 		])
 	]
 });
