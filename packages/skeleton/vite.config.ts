@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import fg from 'fast-glob';
 
 export default defineConfig({
-	css
 	build: {
 		cssCodeSplit: true,
 		cssMinify: false,
