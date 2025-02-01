@@ -1,13 +1,46 @@
-import { defineConfig } from 'vite';
+import { defineConfig, Plugin, ResolvedConfig } from 'vite';
 import fg from 'fast-glob';
-import { generateColorPairings } from './src/computed/color-pairings.js';
-import { generatePresets } from './src/computed/presets.js';
+import generateColorPairings from './src/generators/color-pairings.css.js';
+import { mkdir, writeFile } from 'fs/promises';
+import { dirname, join } from 'path';
+import { existsSync } from 'node:fs';
+import generatePresets from './src/generators/presets.css.js';
+
+interface GeneratedFile {
+	input: string;
+	output: string;
+	generator: () => string;
+}
+
+function cssGenerator(files: GeneratedFile[] = []) {
+	let resolvedConfig: ResolvedConfig;
+	return {
+		name: 'css-generator',
+		apply: 'build',
+		async configResolved(config) {
+			resolvedConfig = config;
+			for (const file of files) {
+				const path = join(config.root, file.output);
+				if (!existsSync(dirname(path))) {
+					await mkdir(dirname(path), { recursive: true });
+				}
+				await writeFile(path, file.generator());
+			}
+		},
+		async buildStart() {
+			for (const file of files) {
+				const path = join(resolvedConfig.root, file.input);
+				this.addWatchFile(path);
+			}
+		}
+	} satisfies Plugin;
+}
 
 export default defineConfig({
 	build: {
 		cssCodeSplit: true,
 		lib: {
-			entry: ['src/static/base.css', 'src/static/components.css', 'src/themes/cerberus.css']
+			entry: ['src/index.css', ...(await fg.glob('./src/themes/*.css'))]
 		},
 		rollupOptions: {
 			output: {
@@ -16,38 +49,17 @@ export default defineConfig({
 		}
 	},
 	plugins: [
-		{
-			name: 'skeleton-chunk-generation',
-			apply: 'build',
-			async buildStart() {
-				const files = await fg('./src/computed/*.ts');
-				for (const file of files) {
-					this.addWatchFile(file);
-				}
-				this.emitFile({
-					fileName: 'computed/color-pairings.css',
-					type: 'prebuilt-chunk',
-					code: generateColorPairings()
-				});
-				this.emitFile({
-					fileName: 'computed/presets.css',
-					type: 'prebuilt-chunk',
-					code: generatePresets()
-				});
+		cssGenerator([
+			{
+				input: './src/generators/color-pairings.css.ts',
+				output: './generated/color-pairings.css',
+				generator: generateColorPairings
 			},
-			buildEnd() {
-				console.log(
-					this.emitFile({
-						fileName: 'index.css',
-						type: 'prebuilt-chunk',
-						code: `@import './static/base.css';
-@import './static/components.css';
-@import './computed/presets.css';
-@import './computed/color-pairings.css';
-`
-					})
-				);
+			{
+				input: './src/generators/presets.css.ts',
+				output: './generated/presets.css',
+				generator: generatePresets
 			}
-		}
+		])
 	]
 });

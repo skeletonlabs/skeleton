@@ -8,6 +8,9 @@
 	"exports": {
 		".": {
 			"default": "./dist/index.css"
+		},
+		"./themes/*": {
+			"default": "./dist/themes/*"
 		}
 	},
 	"files": [
@@ -16,7 +19,8 @@
 	"devDependencies": {
 		"typescript": "^5.7.3",
 		"vite": "^6.0.11",
-		"vite-node": "^3.0.4"
+		"vite-node": "^3.0.4",
+		"vite-plugin-virtual": "^0.3.0"
 	},
 	"type": "module",
 	"dependencies": {

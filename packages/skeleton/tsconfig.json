@@ -12,7 +12,10 @@
 		"isolatedModules": true,
 		"verbatimModuleSyntax": true,
 		"skipDefaultLibCheck": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"paths": {
+			"@generated": ["./generated/*"]
+		}
 	},
 	"include": ["src/*.ts"]
 }
