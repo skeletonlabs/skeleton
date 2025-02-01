@@ -10,7 +10,7 @@ export default defineConfig({
 			entry: [
 				'src/static/base.css',
 				'src/static/components.css',
-				'src/index.css',
+				'src/themes/cerberus.css',
 			]
 		},
 		rollupOptions: {
@@ -19,7 +19,6 @@ export default defineConfig({
 			}
 		}
 	},
-	assetsInclude: ['src/index.css'],
 	plugins: [
 		{
 			name: 'skeleton-chunk-generation',
@@ -39,6 +38,17 @@ export default defineConfig({
 					type: 'prebuilt-chunk',
 					code: generatePresets()
 				});
+			},
+			buildEnd() {
+				console.log(this.emitFile({
+					fileName: 'index.css',
+					type: 'prebuilt-chunk',
+					code: `@import './static/base.css';
+@import './static/components.css';
+@import './computed/presets.css';
+@import './computed/color-pairings.css';
+`
+				}));
 			}
 		}
 	]
