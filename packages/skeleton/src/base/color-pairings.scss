@@ -3,9 +3,10 @@
 
 @theme {
 	@each $color in constants.$colors {
-		@each $light, $dark in list.zip(constants.$light-shades, constants.$dark-shades) {
-			--color-#{$color}-#{$light}-#{$dark}: light-dark(var(--color-#{$color}-#{$light}), var(--color-#{$color}-#{$dark}));
-			--color-#{$color}-#{$dark}-#{$light}: light-dark(var(--color-#{$color}-#{$dark}), var(--color-#{$color}-#{$light}));
+		@each $shade in constants.$shades {
+			$complementing-shade: 1000 - $shade;
+			--color-#{$color}-#{$shade}-#{$complementing-shade}: light-dark(var(--color-#{$color}-#{$shade}), var(--color-#{$color}-#{$complementing-shade}));
+			--color-#{$color}-#{$complementing-shade}-#{$shade}: light-dark(var(--color-#{$color}-#{$complementing-shade}), var(--color-#{$color}-#{$shade}));
 		}
 	}
 }
