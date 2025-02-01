@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"lib": ["DOM", "ESNext"],
+		"moduleDetection": "force",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"types": ["node"],
+		"strict": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+		"skipDefaultLibCheck": true,
+		"skipLibCheck": true
+	},
+	"include": ["src/*.ts"]
+}
