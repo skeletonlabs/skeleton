@@ -1,12 +1,9 @@
 @use 'sass:list';
-
-$colors: primary, secondary, tertiary, surface, success, info, warning;
-$light-shades: 50, 100, 200, 300, 400;
-$dark-shades: 950, 900, 800, 700, 600;
+@use '../internal/constants';
 
 @theme {
-	@each $color in $colors {
-		@each $light, $dark in list.zip($light-shades, $dark-shades) {
+	@each $color in constants.$colors {
+		@each $light, $dark in list.zip(constants.$light-shades, constants.$dark-shades) {
 			--color-#{$color}-#{$light}-#{$dark}: light-dark(var(--color-#{$color}-#{$light}), var(--color-#{$color}-#{$dark}));
 			--color-#{$color}-#{$dark}-#{$light}: light-dark(var(--color-#{$color}-#{$dark}), var(--color-#{$color}-#{$light}));
 		}

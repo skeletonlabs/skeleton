@@ -6,12 +6,12 @@ export default defineConfig({
 		cssCodeSplit: true,
 		cssMinify: false,
 		lib: {
-			entry: ['src/core/index.css', ...(await fg.glob('./src/themes/*.css'))]
+			entry: ['./src/index.scss', ...(await fg.glob('./src/themes/*.scss'))]
 		},
 		rollupOptions: {
 			output: {
 				preserveModules: true
 			}
 		}
-	},
+	}
 });
