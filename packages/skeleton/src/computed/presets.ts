@@ -1,8 +1,5 @@
 function generatePresets() {
-	return {
-		test: 'test'
-	}
+	return '';
 }
-
 
 export { generatePresets };

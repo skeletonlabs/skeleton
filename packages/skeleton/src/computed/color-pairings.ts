@@ -1,8 +1,5 @@
 function generateColorPairings() {
-	return {
-		test: ''
-	}
+	return '';
 }
-
 
 export { generateColorPairings };
