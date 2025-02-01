@@ -6,7 +6,7 @@ export default defineConfig({
 		cssCodeSplit: true,
 		cssMinify: false,
 		lib: {
-			entry: ['./src/index.scss', ...(await fg.glob('./src/themes/*.scss'))]
+			entry: ['./src/index.css', ...(await fg.glob('./src/themes/*.{css,scss}'))]
 		},
 		rollupOptions: {
 			output: {
