@@ -7,7 +7,11 @@ export default defineConfig({
 	build: {
 		cssCodeSplit: true,
 		lib: {
-			entry: ['src/static/base.css', 'src/static/components.css', 'src/themes/cerberus.css']
+			entry: [
+				'src/static/base.css',
+				'src/static/components.css',
+				'src/index.css',
+			]
 		},
 		rollupOptions: {
 			output: {
@@ -15,9 +19,10 @@ export default defineConfig({
 			}
 		}
 	},
+	assetsInclude: ['src/index.css'],
 	plugins: [
 		{
-			name: 'skeleton-computed-chunk-generation',
+			name: 'skeleton-chunk-generation',
 			apply: 'build',
 			async buildStart() {
 				const files = await fg('./src/computed/*.ts');
@@ -33,16 +38,6 @@ export default defineConfig({
 					fileName: 'computed/presets.css',
 					type: 'prebuilt-chunk',
 					code: generatePresets()
-				});
-			},
-			buildEnd() {
-				this.emitFile({
-					fileName: 'index.css',
-					type: 'prebuilt-chunk',
-					code: `@import './static/base.css';
-@import './static/components.css';
-@import './computed/presets.css';
-@import './computed/color-pairings.css';`
 				});
 			}
 		}
