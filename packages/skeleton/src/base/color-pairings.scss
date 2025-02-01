@@ -1,18 +1,16 @@
 @use 'sass:list';
 @use '../internal/constants';
 
-/** FIXME: Themes are flipped, so darker colors are active on light mode and vice versa */
-
 @theme {
 	@each $color in constants.$colors {
 		@each $shade in constants.$shades {
-			$complementing-shade: 1000 - $shade;
-			--color-#{$color}-#{$shade}-#{$complementing-shade}: light-dark(
+			$contrasting-shade: 1000 - $shade;
+			--color-#{$color}-#{$shade}-#{$contrasting-shade}: light-dark(
 				var(--color-#{$color}-#{$shade}),
-				var(--color-#{$color}-#{$complementing-shade})
+				var(--color-#{$color}-#{$contrasting-shade})
 			);
-			--color-#{$color}-#{$complementing-shade}-#{$shade}: light-dark(
-				var(--color-#{$color}-#{$complementing-shade}),
+			--color-#{$color}-#{$contrasting-shade}-#{$shade}: light-dark(
+				var(--color-#{$color}-#{$contrasting-shade}),
 				var(--color-#{$color}-#{$shade})
 			);
 		}
