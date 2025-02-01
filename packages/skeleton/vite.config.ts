@@ -8,6 +8,11 @@ export default defineConfig({
 		cssCodeSplit: true,
 		lib: {
 			entry: ['src/static/base.css', 'src/static/components.css', 'src/themes/cerberus.css']
+		},
+		rollupOptions: {
+			output: {
+				preserveModules: true
+			}
 		}
 	},
 	plugins: [
@@ -20,12 +25,12 @@ export default defineConfig({
 					this.addWatchFile(file);
 				}
 				this.emitFile({
-					fileName: 'color-pairings.css',
+					fileName: 'computed/color-pairings.css',
 					type: 'prebuilt-chunk',
 					code: generateColorPairings()
 				});
 				this.emitFile({
-					fileName: 'presets.css',
+					fileName: 'computed/presets.css',
 					type: 'prebuilt-chunk',
 					code: generatePresets()
 				});
@@ -34,10 +39,10 @@ export default defineConfig({
 				this.emitFile({
 					fileName: 'index.css',
 					type: 'prebuilt-chunk',
-					code: `@import './base.css';
-@import './components.css';
-@import './presets.css';
-@import './color-pairings.css';`
+					code: `@import './static/base.css';
+@import './static/components.css';
+@import './computed/presets.css';
+@import './computed/color-pairings.css';`
 				});
 			}
 		}
