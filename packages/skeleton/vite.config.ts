@@ -7,11 +7,7 @@ export default defineConfig({
 	build: {
 		cssCodeSplit: true,
 		lib: {
-			entry: [
-				'src/static/base.css',
-				'src/static/components.css',
-				'src/themes/cerberus.css',
-			]
+			entry: ['src/static/base.css', 'src/static/components.css', 'src/themes/cerberus.css']
 		},
 		rollupOptions: {
 			output: {
@@ -40,15 +36,17 @@ export default defineConfig({
 				});
 			},
 			buildEnd() {
-				console.log(this.emitFile({
-					fileName: 'index.css',
-					type: 'prebuilt-chunk',
-					code: `@import './static/base.css';
+				console.log(
+					this.emitFile({
+						fileName: 'index.css',
+						type: 'prebuilt-chunk',
+						code: `@import './static/base.css';
 @import './static/components.css';
 @import './computed/presets.css';
 @import './computed/color-pairings.css';
 `
-				}));
+					})
+				);
 			}
 		}
 	]
