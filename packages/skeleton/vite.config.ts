@@ -8,8 +8,8 @@ export default defineConfig({
 		cssCodeSplit: true,
 		lib: {
 			entry: [
-				'src/base.css',
-				'src/components.css',
+				'src/static/base.css',
+				'src/static/components.css',
 				'src/themes/cerberus.css'
 			]
 		}
@@ -36,10 +36,10 @@ export default defineConfig({
 				fileName: 'index.css',
 				type: 'prebuilt-chunk',
 				code: `
-				@import 'base.css';
-				@import 'components.css';
-				@import 'presets.css';
-				@import 'color-pairings.css';
+				@import './base.css';
+				@import './components.css';
+				@import './presets.css';
+				@import './color-pairings.css';
 				`.trim()
 			})
 		}
