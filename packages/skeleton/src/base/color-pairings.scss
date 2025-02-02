@@ -1,5 +1,5 @@
 @use 'sass:list';
-@use '../internal/constants';
+@use '../internal/constants.scss';
 
 @theme {
 	@each $color in constants.$colors {
