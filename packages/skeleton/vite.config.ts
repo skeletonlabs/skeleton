@@ -8,7 +8,7 @@ export default defineConfig({
 		cssCodeSplit: true,
 		lib: {
 			entry: {
-				['index']: 'src/index.css',
+				['core/index']: 'src/core/index.css',
 				...(await fg.glob('./src/themes/**/*.{css,scss}')).reduce(
 					(entries, input) => {
 						Object.assign(entries, {
