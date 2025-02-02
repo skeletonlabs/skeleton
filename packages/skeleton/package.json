@@ -7,7 +7,7 @@
 	},
 	"exports": {
 		".": {
-			"default": "./dist/core/index.css"
+			"default": "./dist/index.css"
 		},
 		"./themes/*": {
 			"default": "./dist/themes/*.css"
