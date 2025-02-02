@@ -1,0 +1,73 @@
+@use '../internal/constants.scss';
+
+@for $i from 1 through 13 {
+	@utility type-scale-#{$i} {
+		font-size: var(--type-scale-#{$i});
+	}
+}
+
+$font-properties: (
+	base: (
+		color: --base-font-color,
+		family: --base-font-family,
+		size: --base-font-size,
+		line-height: --base-line-height,
+		weight: --base-font-weight,
+		style: --base-font-style,
+		spacing: --base-letter-spacing
+	),
+	heading: (
+		color: --heading-font-color,
+		family: --heading-font-family,
+		size: --heading-font-size,
+		line-height: --heading-line-height,
+		weight: --heading-font-weight,
+		style: --heading-font-style,
+		spacing: --heading-letter-spacing
+	),
+	anchor: (
+		color: --anchor-font-color,
+		family: --anchor-font-family,
+		size: --anchor-font-size,
+		line-height: --anchor-line-height,
+		weight: --anchor-font-weight,
+		style: --anchor-font-style,
+		spacing: --anchor-letter-spacing,
+		text-decoration: --anchor-text-decoration,
+		text-decoration-active: --anchor-text-decoration-active,
+		text-decoration-focus: --anchor-text-decoration-focus,
+		text-decoration-hover: --anchor-text-decoration-hover
+	)
+);
+
+@each $group, $properties in $font-properties {
+	@each $property, $variable in $properties {
+		@utility #{$group}-#{$property} {
+			#{$property}: var(#{$variable});
+		}
+	}
+}
+
+@utility base-font-color {
+	color: rgb(var(--base-font-color));
+}
+
+@utility base-font-color-dark {
+	color: rgb(var(--base-font-color-dark));
+}
+
+@utility heading-font-color {
+	color: rgb(var(--heading-font-color));
+}
+
+@utility heading-font-color-dark {
+	color: rgb(var(--heading-font-color-dark));
+}
+
+@utility anchor-font-color {
+	color: rgb(var(--anchor-font-color));
+}
+
+@utility anchor-font-color-dark {
+	color: rgb(var(--anchor-font-color-dark));
+}

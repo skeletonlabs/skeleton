@@ -1,7 +1,0 @@
-@use '../internal/constants.scss';
-
-@for $i from 1 through 13 {
-	@utility type-scale-#{$i} {
-		font-size: var(--type-scale-#{$i});
-	}
-}

@@ -6,6 +6,7 @@ import { extname } from 'node:path';
 export default defineConfig({
 	build: {
 		cssCodeSplit: true,
+		cssMinify: false,
 		lib: {
 			entry: {
 				['index']: 'src/index.css',
