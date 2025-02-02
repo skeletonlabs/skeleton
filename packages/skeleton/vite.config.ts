@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import fg from 'fast-glob';
-import { basename } from 'path';
-import { extname } from 'node:path';
+import { basename, extname } from 'node:path';
 
 export default defineConfig({
 	build: {
@@ -9,10 +8,10 @@ export default defineConfig({
 		lib: {
 			entry: {
 				['core/index']: 'src/core/index.css',
-				...(await fg.glob('./src/themes/**/*.{css,scss}')).reduce(
+				...(await fg.glob('./src/themes/*.{css,scss}')).reduce(
 					(entries, input) => {
 						Object.assign(entries, {
-							[`themes/${basename(input, extname(input))}`]: input
+							[`themes/${basename(input)}`]: input
 						});
 						return entries;
 					},
