@@ -28,9 +28,7 @@ pnpm add @skeletonlabs/skeleton
 3. Set your imported theme in your HTML root:
 
 ```html
-<!doctype html>
-<html data-theme="cerberus">
-	<!-- Add Skeleton Theme -->
+<html data-theme="cerberus"> <!-- Add Skeleton Theme -->
 	<!-- ... -->
 </html>
 ```
