@@ -1,0 +1,71 @@
+/* Base - Theme */
+/* Configure the default @theme settings. */
+
+@use '../constants.scss';
+
+@theme {
+	/* Spacing --- */
+	/* https://tailwindcss.com/docs/functions-and-directives#spacing-function */
+	--spacing: var(--spacing);
+
+	/* Typography --- */
+	--base-font-color: var(--color-surface-950);
+	--base-font-color-dark: var(--color-surface-50);
+	--base-font-family: system-ui;
+	--base-font-size: inherit;
+	--base-line-height: inherit;
+	--base-font-weight: normal;
+	--base-font-style: normal;
+	--base-letter-spacing: 0em;
+	/* --- */
+	--heading-font-color: inherit;
+	--heading-font-color-dark: inherit;
+	--heading-font-family: inherit;
+	--heading-font-weight: bold;
+	--heading-font-style: normal;
+	--heading-letter-spacing: inherit;
+	/* --- */
+	--anchor-font-color: var(--color-primary-500);
+	--anchor-font-color-dark: var(--color-primary-400);
+	--anchor-font-family: inherit;
+	--anchor-font-size: inherit;
+	--anchor-line-height: inherit;
+	--anchor-font-weight: inherit;
+	--anchor-font-style: inherit;
+	--anchor-letter-spacing: inherit;
+	--anchor-text-decoration: none;
+	--anchor-text-decoration-hover: underline;
+	--anchor-text-decoration-active: none;
+	--anchor-text-decoration-focus: none;
+
+	/* Backgrounds --- */
+	--body-background-color: var(--color-surface-50);
+	--body-background-color-dark: var(--color-surface-950);
+
+	/* Edges --- */
+	--radii-default: 6px;
+	--radii-container: 6px;
+	--border-width-default: 1px;
+	--divide-width-default: 1px;
+	--outline-width-default: 1px;
+	--ring-width-default: 1px;
+
+	/* Colors --- */
+	/* --color-primary-500: #ffffff; */
+	/* --color-primary-contrast-500: #ffffff; */
+	/*
+	@each $color-name in constants.$color-names {
+		@each $color-shade in constants.$color-shades {
+			$color-shade-contrast: 1000 - $color-shade;
+			--color-#{$color-name}-#{$color-shade}-#{$color-shade-contrast}: light-dark(
+				var(--color-#{$color-name}-#{$color-shade}),
+				var(--color-#{$color-name}-#{$color-shade-contrast})
+			);
+			--color-#{$color}-#{$color-shade-contrast}-#{$color-shade}: light-dark(
+				var(--color-#{$color}-#{$color-shade-contrast}),
+				var(--color-#{$color}-#{$color-shade})
+			);
+		}
+	}
+	*/
+}

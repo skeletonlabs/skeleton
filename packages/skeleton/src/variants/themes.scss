@@ -1,4 +1,4 @@
-@use '../internal/constants.scss';
+@use '../constants.scss';
 
 @each $theme in constants.$themes {
 	@custom-variant theme-#{$theme} (&:where([data-theme="#{$theme}"] *));
