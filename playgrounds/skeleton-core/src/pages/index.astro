@@ -1,11 +1,15 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// import Welcome from '@components/Welcome.astro';
+import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<div class="flex h-full w-full items-center justify-center">
+		<div class="max-w-[600px] text-balance text-center">
+			<p>
+				This is a playground for <code class="bg-blue-500/10 p-1 rounded">@skeletonlabs/skeleton</code>. Select a feature from the list to
+				preview.
+			</p>
+		</div>
+	</div>
 </Layout>

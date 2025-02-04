@@ -1,5 +1,10 @@
 ---
 import '../styles/global.css';
+
+/* FIXME: this is temporary */
+const classes = {
+	anchor: 'opacity-60 hover:opacity-100 hover:underline'
+};
 ---
 
 <!doctype html>
@@ -9,10 +14,41 @@ import '../styles/global.css';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Skeleton - Core</title>
 	</head>
 	<body>
-		<slot />
+		<div class="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
+			<!-- Sidebar -->
+			<div class="bg-[#242424] p-8 space-y-8 overflow-y-auto">
+				<header>
+					<a class="text-base bg-[#06B6D4] p-2 font-mono font-bold text-white" href="/">skeleton-core</a>
+				</header>
+				<!-- <hr class="hr" /> -->
+				<!-- Design -->
+				<div class="space-y-8">
+					<span class="block font-bold">Design System</span>
+					<nav class="type-scale-2 flex flex-col gap-2">
+						<a class:list={classes.anchor} href="/design/colors">Colors</a>
+						<!-- <a class:list={classes.anchor} href="/design/presets">Presets</a> -->
+						<!-- <a class:list={classes.anchor} href="/design/typography">Typography</a> -->
+						<!-- <a class:list={classes.anchor} href="/design/spacing">Spacing</a> -->
+					</nav>
+				</div>
+				<!-- Tailwind Components -->
+				<div class="space-y-8">
+					<span class="block font-bold">Tailwind Components</span>
+					<nav class="type-scale-2 flex flex-col gap-2">
+						<!-- <a class:list={classes.anchor} href="/components/badges">Badges</a> -->
+						<a class:list={classes.anchor} href="/components/buttons">Buttons</a>
+						<!-- <a class:list={classes.anchor} href="/components/cards">Cards</a> -->
+					</nav>
+				</div>
+			</div>
+			<!-- Main -->
+			<main class="space-y-8 overflow-y-auto p-8">
+				<slot />
+			</main>
+		</div>
 	</body>
 </html>
 
