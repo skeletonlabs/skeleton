@@ -3,6 +3,5 @@
 @import '@skeletonlabs/skeleton/themes/cerberus';
 
 body {
-	/* background: var(--color-surface-50-950); */
-	bakcground: black;
+	background: var(--color-surface-50-950);
 }
