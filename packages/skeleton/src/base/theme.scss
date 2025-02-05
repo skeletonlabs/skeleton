@@ -2,6 +2,7 @@
 /* Configure the default @theme settings. */
 
 @use '../constants.scss';
+@use 'sass:list';
 
 @theme {
 	/* Spacing --- */
@@ -51,18 +52,15 @@
 	--ring-width-default: 1px;
 
 	/* Colors --- */
-	@each $color-name in constants.$color-names {
-		--color-#{$color-name}-500: #ffffff;
-		--color-#{$color-name}-contrast-500: #ffffff;
-		@for $i from 0 through 5 {
-			$light-shade: nth(constants.$color-shades, $i + 1); // Gets shades 50-400
-			$dark-shade: nth(constants.$color-shades, 11 - $i); // Gets shades 950-600
-			@if $light-shade != 500 and $dark-shade != 500 {
-				--color-#{$color-name}-#{$light-shade}-#{$dark-shade}: light-dark(
-					var(--color-#{$color-name}-#{$light-shade}),
-					var(--color-#{$color-name}-#{$dark-shade})
-				);
-			}
+	@each $name in constants.$color-names {
+		@each $shade in constants.$color-shades {
+			--color-#{$name}-#{$shade}: #ffffff;
+			--color-#{$name}-contrast-#{$shade}: #000000;
+		}
+		@each $pairing in constants.$color-pairings {
+			$light: list.nth($pairing, 1);
+			$dark: list.nth($pairing, 2);
+			--color-#{$name}-#{$light}-#{$dark}: light-dark(var(--color-#{$name}-#{$light}), var(--color-#{$name}-#{$dark}));
 		}
 	}
 }
