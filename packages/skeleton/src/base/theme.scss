@@ -10,20 +10,50 @@
 	--spacing: 0.25rem;
 
 	/* Typography --- */
+	--type-scale-factor: 1;
+	/* --- */
+	--text-xs: calc(0.75rem * var(--type-scale-factor));
+	--text-sm: calc(0.875rem * var(--type-scale-factor));
+	--text-base: calc(1rem * var(--type-scale-factor));
+	--text-lg: calc(1.125rem * var(--type-scale-factor));
+	--text-xl: calc(1.25rem * var(--type-scale-factor));
+	--text-2xl: calc(1.5rem * var(--type-scale-factor));
+	--text-3xl: calc(1.875rem * var(--type-scale-factor));
+	--text-4xl: calc(2.25rem * var(--type-scale-factor));
+	--text-5xl: calc(3rem * var(--type-scale-factor));
+	--text-6xl: calc(3.75rem * var(--type-scale-factor));
+	--text-7xl: calc(4.5rem * var(--type-scale-factor));
+	--text-8xl: calc(6rem * var(--type-scale-factor));
+	--text-9xl: calc(8rem * var(--type-scale-factor));
+	/* --- */
+	--text-xs--line-height: calc(calc(1 / 0.75) * var(--type-scale-factor));
+	--text-sm--line-height: calc(calc(1.25 / 0.875) * var(--type-scale-factor));
+	--text-base--line-height: calc(calc(1.5 / 1) * var(--type-scale-factor));
+	--text-lg--line-height: calc(calc(1.75 / 1.125) * var(--type-scale-factor));
+	--text-xl--line-height: calc(calc(1.75 / 1.25) * var(--type-scale-factor));
+	--text-2xl--line-height: calc(calc(2 / 1.5) * var(--type-scale-factor));
+	--text-3xl--line-height: calc(calc(2.25 / 1.875) * var(--type-scale-factor));
+	--text-4xl--line-height: calc(calc(2.5 / 2.25) * var(--type-scale-factor));
+	--text-5xl--line-height: calc(1 * var(--type-scale-factor));
+	--text-6xl--line-height: calc(1 * var(--type-scale-factor));
+	--text-7xl--line-height: calc(1 * var(--type-scale-factor));
+	--text-8xl--line-height: calc(1 * var(--type-scale-factor));
+	--text-9xl--line-height: calc(1 * var(--type-scale-factor));
+	/* --- */
 	--base-font-color: var(--color-surface-950);
 	--base-font-color-dark: var(--color-surface-50);
-	--base-font-family: system-ui;
+	--base-font-family: inherit;
 	--base-font-size: inherit;
 	--base-line-height: inherit;
-	--base-font-weight: normal;
-	--base-font-style: normal;
-	--base-letter-spacing: 0em;
+	--base-font-weight: inherit;
+	--base-font-style: inherit;
+	--base-letter-spacing: inherit;
 	/* --- */
 	--heading-font-color: inherit;
 	--heading-font-color-dark: inherit;
 	--heading-font-family: inherit;
-	--heading-font-weight: bold;
-	--heading-font-style: normal;
+	--heading-font-weight: inherit;
+	--heading-font-style: inherit;
 	--heading-letter-spacing: inherit;
 	/* --- */
 	--anchor-font-color: var(--color-primary-500);
@@ -34,10 +64,10 @@
 	--anchor-font-weight: inherit;
 	--anchor-font-style: inherit;
 	--anchor-letter-spacing: inherit;
-	--anchor-text-decoration: none;
+	--anchor-text-decoration: inherit;
 	--anchor-text-decoration-hover: underline;
-	--anchor-text-decoration-active: none;
-	--anchor-text-decoration-focus: none;
+	--anchor-text-decoration-active: inherit;
+	--anchor-text-decoration-focus: inherit;
 
 	/* Backgrounds --- */
 	--body-background-color: var(--color-surface-50);

@@ -1,0 +1,94 @@
+/* Components: Typography */
+
+@layer components {
+	/* Headings --- */
+
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		color: var(--heading-font-color);
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-font-weight);
+		font-style: var(--heading-font-style);
+		letter-spacing: var(--heading-letter-spacing);
+		@variant dark {
+			color: var(--heading-font-color-dark);
+		}
+	}
+	.h1 {
+		font-size: var(--text-4xl);
+		line-height: var(--text-4xl--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-5xl);
+			line-height: var(--text-5xl--line-height);
+		}
+	}
+	.h2 {
+		font-size: var(--text-3xl);
+		line-height: var(--text-3xl--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-4xl);
+			line-height: var(--text-4xl--line-height);
+		}
+	}
+	.h3 {
+		font-size: var(--text-2xl);
+		line-height: var(--text-2xl--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-3xl);
+			line-height: var(--text-3xl--line-height);
+		}
+	}
+	.h4 {
+		font-size: var(--text-xl);
+		line-height: var(--text-xl--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-2xl);
+			line-height: var(--text-2xl--line-height);
+		}
+	}
+	.h5 {
+		font-size: var(--text-lg);
+		line-height: var(--text-lg--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-xl);
+			line-height: var(--text-xl--line-height);
+		}
+	}
+	.h6 {
+		font-size: var(--text-base);
+		line-height: var(--text-base--line-height);
+		@media (width >= var(--breakpoint-md)) {
+			font-size: var(--text-lg);
+			line-height: var(--text-lg--line-height);
+		}
+	}
+
+	/* Anchors --- */
+
+	.anchor {
+		color: var(--anchor-font-color);
+		font-family: var(--anchor-font-family);
+		font-size: var(--anchor-font-size);
+		line-height: var(--anchor-line-height);
+		font-weight: var(--anchor-font-weight);
+		font-style: var(--anchor-font-style);
+		letter-spacing: var(--anchor-letter-spacing);
+		text-decoration: var(--anchor-text-decoration);
+		@variant hover {
+			text-decoration: var(--anchor-text-decoration-hover);
+		}
+		@variant active {
+			text-decoration: var(--anchor-text-decoration-active);
+		}
+		@variant focus {
+			text-decoration: var(--anchor-text-decoration-focus);
+		}
+		@variant dark {
+			color: var(--anchor-font-color-dark);
+		}
+	}
+}
