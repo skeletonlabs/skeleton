@@ -51,13 +51,12 @@
 	--ring-width-default: 1px;
 
 	/* Colors --- */
-	--color-primary-500: #ffffff;
-	--color-primary-contrast-500: #ffffff;
 	@each $color-name in constants.$color-names {
+		--color-#{$color-name}-500: #ffffff;
+		--color-#{$color-name}-contrast-500: #ffffff;
 		@for $i from 0 through 5 {
 			$light-shade: nth(constants.$color-shades, $i + 1); // Gets shades 50-400
 			$dark-shade: nth(constants.$color-shades, 11 - $i); // Gets shades 950-600
-
 			@if $light-shade != 500 and $dark-shade != 500 {
 				--color-#{$color-name}-#{$light-shade}-#{$dark-shade}: light-dark(
 					var(--color-#{$color-name}-#{$light-shade}),
