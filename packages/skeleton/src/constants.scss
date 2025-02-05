@@ -4,48 +4,33 @@
 
 $color-names: (primary, secondary, tertiary, success, warning, error, surface);
 $color-shades: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950);
-$color-pairings: (
-	(
-		'light': 50,
-		'dark': 950
-	),
-	(
-		'light': 100,
-		'dark': 900
-	),
-	(
-		'light': 200,
-		'dark': 800
-	),
-	(
-		'light': 300,
-		'dark': 700
-	),
-	(
-		'light': 400,
-		'dark': 600
-	),
-	(
-		'light': 600,
-		'dark': 400
-	),
-	(
-		'light': 700,
-		'dark': 300
-	),
-	(
-		'light': 800,
-		'dark': 200
-	),
-	(
-		'light': 900,
-		'dark': 100
-	),
-	(
-		'light': 950,
-		'dark': 50
-	)
-);
+
+@function generate-color-pairings($shades) {
+	$pairings: ();
+	$length: length($shades);
+	$middle: ceil($length / 2);
+	@for $i from 1 through $middle - 1 {
+		$light-shade: nth($shades, $i);
+		$dark-shade: nth($shades, -$i);
+		$pair: (
+			'light': $light-shade,
+			'dark': $dark-shade
+		);
+		$pairings: append($pairings, $pair);
+	}
+	@for $i from 1 through $middle - 1 {
+		$light-shade: nth($shades, -$i);
+		$dark-shade: nth($shades, $i);
+		$pair: (
+			'light': $light-shade,
+			'dark': $dark-shade
+		);
+		$pairings: append($pairings, $pair);
+	}
+	@return $pairings;
+}
+
+$color-pairings: generate-color-pairings($color-shades);
 
 /* Themes --- */
 

@@ -51,21 +51,19 @@
 	--ring-width-default: 1px;
 
 	/* Colors --- */
-	/* --color-primary-500: #ffffff; */
-	/* --color-primary-contrast-500: #ffffff; */
-	/*
+	--color-primary-500: #ffffff;
+	--color-primary-contrast-500: #ffffff;
 	@each $color-name in constants.$color-names {
-		@each $color-shade in constants.$color-shades {
-			$color-shade-contrast: 1000 - $color-shade;
-			--color-#{$color-name}-#{$color-shade}-#{$color-shade-contrast}: light-dark(
-				var(--color-#{$color-name}-#{$color-shade}),
-				var(--color-#{$color-name}-#{$color-shade-contrast})
-			);
-			--color-#{$color}-#{$color-shade-contrast}-#{$color-shade}: light-dark(
-				var(--color-#{$color}-#{$color-shade-contrast}),
-				var(--color-#{$color}-#{$color-shade})
-			);
+		@for $i from 0 through 5 {
+			$light-shade: nth(constants.$color-shades, $i + 1); // Gets shades 50-400
+			$dark-shade: nth(constants.$color-shades, 11 - $i); // Gets shades 950-600
+
+			@if $light-shade != 500 and $dark-shade != 500 {
+				--color-#{$color-name}-#{$light-shade}-#{$dark-shade}: light-dark(
+					var(--color-#{$color-name}-#{$light-shade}),
+					var(--color-#{$color-name}-#{$dark-shade})
+				);
+			}
 		}
 	}
-	*/
 }
