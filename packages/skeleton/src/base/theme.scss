@@ -53,14 +53,30 @@
 
 	/* Colors --- */
 	@each $name in constants.$color-names {
-		@each $shade in constants.$color-shades {
-			--color-#{$name}-#{$shade}: #ffffff;
-			--color-#{$name}-contrast-#{$shade}: #000000;
+		@for $i from 1 through list.length(constants.$color-shades) {
+			$shade: list.nth(constants.$color-shades, $i);
+			--color-#{$name}-#{$shade}: #{list.nth(constants.$color-ramp, $i)};
 		}
+
 		@each $pairing in constants.$color-pairings {
 			$light: list.nth($pairing, 1);
 			$dark: list.nth($pairing, 2);
 			--color-#{$name}-#{$light}-#{$dark}: light-dark(var(--color-#{$name}-#{$light}), var(--color-#{$name}-#{$dark}));
 		}
+
+		--color-#{$name}-contrast-dark: var(--color-#{$name}-950);
+		--color-#{$name}-contrast-light: var(--color-#{$name}-50);
+
+		--color-#{$name}-contrast-50: var(--color-#{$name}-contrast-dark);
+		--color-#{$name}-contrast-100: var(--color-#{$name}-contrast-dark);
+		--color-#{$name}-contrast-200: var(--color-#{$name}-contrast-dark);
+		--color-#{$name}-contrast-300: var(--color-#{$name}-contrast-dark);
+		--color-#{$name}-contrast-400: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-500: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-600: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-700: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-800: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-900: var(--color-#{$name}-contrast-light);
+		--color-#{$name}-contrast-950: var(--color-#{$name}-contrast-light);
 	}
 }
