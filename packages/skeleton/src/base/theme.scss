@@ -62,6 +62,10 @@
 			$light: list.nth($pairing, 1);
 			$dark: list.nth($pairing, 2);
 			--color-#{$name}-#{$light}-#{$dark}: light-dark(var(--color-#{$name}-#{$light}), var(--color-#{$name}-#{$dark}));
+			--color-#{$name}-contrast-#{$light}-#{$dark}: light-dark(
+				var(--color-#{$name}-contrast-#{$light}),
+				var(--color-#{$name}-contrast-#{$dark})
+			);
 		}
 
 		--color-#{$name}-contrast-dark: var(--color-#{$name}-950);
