@@ -91,4 +91,88 @@
 			color: var(--anchor-font-color-dark);
 		}
 	}
+
+	/* Blockquote --- */
+
+	.blockquote {
+		border-left-width: 1px;
+		border-left-color: var(--color-surface-300-700);
+		padding-left: --spacing(4);
+		font-style: italic;
+	}
+
+	/* Keyboard --- */
+
+	.kbd {
+		background-color: var(--color-surface-500);
+		border-radius: var(--radii-default);
+		color: var(--color-surface-contrast-500);
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		whitespace: nowrap;
+		overflow-x: auto;
+		padding-inline: --spacing(1);
+		padding-block: --spacing(0.5);
+	}
+
+	/* Preformated / Code --- */
+
+	.pre {
+		background-color: var(--color-black);
+		border-radius: var(--radii-container);
+		color: var(--color-white);
+		font-size: var(--text-xs);
+		whitespace: pre-wrap;
+		padding: --spacing(4);
+		overflow-x: auto;
+	}
+
+	:not(pre, .ec-line) > .code {
+		background-color: var(--color-primary-50-950);
+		border-radius: var(--radii-default);
+		color: var(--color-primary-contrast-50-950);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		whitespace: nowrap;
+		padding-inline: --spacing(1.5);
+		padding-block: --spacing(0.5);
+		overflow-x: auto;
+	}
+
+	/* Insertions / Deletions --- */
+	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
+	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
+
+	.ins,
+	.del {
+		position: relative;
+		display: block;
+		padding: --spacing(0.5);
+		padding-left: --spacing(5);
+		text-decoration: none;
+	}
+
+	.ins::before,
+	.del::before {
+		position: absolute;
+		left: --spacing(1);
+		font-family: var(--font-mono);
+	}
+	.ins::before {
+		content: '+';
+	}
+	.del::before {
+		content: '−';
+	}
+
+	.ins {
+		background-color: var(--color-success-500);
+		color: var(--color-success-contrast-500);
+		font-family: var(--font-mono);
+	}
+	.del {
+		background-color: var(--color-error-500);
+		color: var(--color-error-contrast-500);
+		font-family: var(--font-mono);
+	}
 }
