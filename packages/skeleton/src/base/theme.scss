@@ -109,15 +109,13 @@
 	/* Color Pairings */
 	/* https://github.com/tailwindlabs/tailwindcss/discussions/16292#discussioncomment-12076534 */
 	@each $name in constants.$color-names {
-		@each $shade in constants.$color-shades {
-			$contrasting-shade: 1000 - $shade;
-			--color-#{$name}-#{$shade}-#{$contrasting-shade}: light-dark(
-				var(--color-#{$name}-#{$shade}),
-				var(--color-#{$name}-#{$contrasting-shade})
-			);
-			--color-#{$name}-#{$contrasting-shade}-#{$shade}: light-dark(
-				var(--color-#{$name}-#{$contrasting-shade}),
-				var(--color-#{$name}-#{$shade})
+		@each $pairing in constants.$color-pairings {
+			$light: list.nth($pairing, 1);
+			$dark: list.nth($pairing, 2);
+			--color-#{$name}-#{$light}-#{$dark}: light-dark(var(--color-#{$name}-#{$light}), var(--color-#{$name}-#{$dark}));
+			--color-#{$name}-contrast-#{$light}-#{$dark}: light-dark(
+				var(--color-#{$name}-contrast-#{$light}),
+				var(--color-#{$name}-contrast-#{$dark})
 			);
 		}
 	}
