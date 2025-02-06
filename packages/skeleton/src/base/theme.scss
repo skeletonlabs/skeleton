@@ -4,7 +4,7 @@
 @use '../constants.scss';
 @use 'sass:list';
 
-@theme {
+@theme inline {
 	/* Spacing --- */
 	/* https://tailwindcss.com/docs/functions-and-directives#spacing-function */
 	--spacing: 0.25rem;
