@@ -9,6 +9,7 @@
 	let {
 		open = $bindable(false),
 		disabled = false,
+		arrow = false,
 		// Base
 		base = '',
 		classes = '',
@@ -24,6 +25,10 @@
 		contentBase = '',
 		contentBackground = '',
 		contentClasses = '',
+		// Arrow
+		arrowBase = '',
+		arrowBackground = '!bg-white',
+		arrowClasses = '',
 		// Snippets
 		trigger,
 		content,
@@ -65,6 +70,12 @@
 	<!-- Tooltip Content -->
 	{#if api.open}
 		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerZIndex} {positionerClasses}">
+			<!-- Arrow -->
+			{#if arrow}
+				<div {...api.getArrowProps()}>
+					<div {...api.getArrowTipProps()} class="{arrowBase} {arrowBackground} {arrowClasses}"></div>
+				</div>
+			{/if}
 			<!-- Snippet Content -->
 			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}">
 				{@render content?.()}
@@ -72,3 +83,10 @@
 		</div>
 	{/if}
 </span>
+
+<style>
+	:global([data-part='arrow']) {
+		--arrow-size: 10px;
+		--arrow-background: white;
+	}
+</style>
