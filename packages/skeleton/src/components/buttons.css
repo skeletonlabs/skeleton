@@ -14,8 +14,9 @@
 	whitespace: nowrap;
 	/* Transitions */
 	transition-property: all;
-	transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
-	transition-duration: var(--default-transition-duration); /* 150ms */
+	transition-timing-function: var(--default-transition-timing-function);
+	transition-duration: var(--default-transition-duration);
+	/* Variants */
 	@variant hover {
 		filter: brightness(105%);
 		@variant dark {
@@ -32,21 +33,21 @@
 	padding-inline: --spacing(4);
 	padding-block: --spacing(2);
 	font-size: var(--text-base);
-	line-height: var(--text-base--line-height);
+	line-height: 1;
 }
 .btn-sm {
 	height: --spacing(7);
 	padding-inline: --spacing(3);
 	padding-block: --spacing(2);
 	font-size: var(--text-xs);
-	line-height: var(--text-xs--line-height);
+	line-height: 1;
 }
 .btn-lg {
 	height: --spacing(12);
 	padding-inline: --spacing(6);
 	padding-block: --spacing(2);
 	font-size: var(--text-xl);
-	line-height: var(--text-xl--line-height);
+	line-height: 1;
 }
 
 .btn-icon-base,
@@ -54,19 +55,19 @@
 	aspect-ratio: 1 / 1;
 	height: --spacing(9);
 	font-size: var(--text-base);
-	line-height: var(--text-base--line-height);
+	line-height: 1;
 }
 .btn-icon-sm {
 	aspect-ratio: 1 / 1;
 	height: --spacing(7);
 	font-size: var(--text-base);
-	line-height: var(--text-base--line-height);
+	line-height: 1;
 }
 .btn-icon-lg {
 	aspect-ratio: 1 / 1;
 	height: --spacing(12);
 	font-size: var(--text-2xl);
-	line-height: var(--text-2xl--line-height);
+	line-height: 1;
 }
 
 /* Button Groups --- */
