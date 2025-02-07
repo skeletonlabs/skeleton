@@ -8,6 +8,7 @@
 
 	let {
 		open = $bindable(false),
+		disabled = false,
 		arrow = false,
 		// Base
 		base = '',
@@ -63,7 +64,7 @@
 
 <span class="{base} {classes}" data-testid="tooltip">
 	<!-- Snippet: Trigger -->
-	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled}>
 		{@render trigger?.()}
 	</button>
 	<!-- Tooltip Content -->
