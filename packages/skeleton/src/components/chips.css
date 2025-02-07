@@ -1,44 +1,45 @@
 /* Components: Chips */
 
-.chip,
-.chip-icon {
-	cursor: pointer;
-	border-radius: var(--radius-base);
-	font-weight: var(--font-weight-medium);
-	text-decoration-line: none;
-	display: inline-flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	gap: --spacing(2);
-	whitespace: nowrap;
-	/* Transitions */
-	transition-property: all;
-	transition-timing-function: var(--default-transition-timing-function);
-	transition-duration: var(--default-transition-duration);
-	/* Variants */
-	@variant hover {
-		filter: brightness(105%);
-		@variant dark {
-			filter: brightness(75%);
+@layer components {
+	.chip,
+	.chip-icon {
+		cursor: pointer;
+		border-radius: var(--radius-base);
+		font-weight: var(--font-weight-medium);
+		text-decoration-line: none;
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: --spacing(2);
+		whitespace: nowrap;
+		/* Transitions */
+		transition-property: all;
+		transition-timing-function: var(--default-transition-timing-function);
+		transition-duration: var(--default-transition-duration);
+		/* Variants */
+		@variant hover {
+			filter: brightness(105%);
+			@variant dark {
+				filter: brightness(75%);
+			}
 		}
 	}
-}
 
-/* Sizes --- */
+	/* Sizes --- */
 
-.chip {
-	height: --spacing(6);
-	padding-inline: --spacing(3);
-	padding-block: --spacing(2);
-	font-size: var(--text-xs);
-	line-height: --spacing(6);
-}
-
-.chip-icon {
-	border-radius: 100%;
-	aspect-ratio: 1 / 1;
-	height: --spacing(6);
-	font-size: var(--text-xs);
-	line-height: --spacing(6);
+	.chip {
+		height: --spacing(6);
+		padding-inline: --spacing(3);
+		padding-block: --spacing(2);
+		font-size: var(--text-xs);
+		line-height: --spacing(6);
+	}
+	.chip-icon {
+		border-radius: 100%;
+		aspect-ratio: 1 / 1;
+		height: --spacing(6);
+		font-size: var(--text-xs);
+		line-height: --spacing(6);
+	}
 }

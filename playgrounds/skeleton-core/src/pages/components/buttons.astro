@@ -7,20 +7,20 @@ import Layout from '@layouts/Layout.astro';
 		<div class="space-y-10">
 			<header><h1 class="h1">Buttons</h1></header>
 		</div>
-		<!-- Neutral -->
-		<div class="flex items-center gap-4">
-			<button type="button" class="btn-icon preset-filled">&rarr;</button>
-			<button type="button" class="btn preset-filled">Button</button>
-			<button type="button" class="btn preset-filled">
-				<span>Button</span>
-				<span>&rarr;</span>
-			</button>
-		</div>
+		<!-- Sizes -->
 		<div class="flex items-center gap-4">
 			<button type="button" class="btn-icon btn-icon-sm preset-filled">&rarr;</button>
 			<button type="button" class="btn btn-sm preset-filled">Small</button>
 			<button type="button" class="btn btn-sm preset-filled">
 				<span>Small</span>
+				<span>&rarr;</span>
+			</button>
+		</div>
+		<div class="flex items-center gap-4">
+			<button type="button" class="btn-icon preset-filled">&rarr;</button>
+			<button type="button" class="btn preset-filled">Base</button>
+			<button type="button" class="btn preset-filled">
+				<span>Base</span>
 				<span>&rarr;</span>
 			</button>
 		</div>
@@ -31,6 +31,12 @@ import Layout from '@layouts/Layout.astro';
 				<span>Large</span>
 				<span>&rarr;</span>
 			</button>
+		</div>
+		<!-- Icons -->
+		<div class="flex items-center gap-4">
+			<button type="button" class="btn-icon btn-icon-sm preset-filled">&rarr;</button>
+			<button type="button" class="btn-icon preset-filled">&rarr;</button>
+			<button type="button" class="btn-icon btn-icon-lg preset-filled">&rarr;</button>
 		</div>
 		<!-- Presets -->
 		<div class="space-y-4">
@@ -84,17 +90,10 @@ import Layout from '@layouts/Layout.astro';
 				<button type="button" class="btn text-surface-500 hover:preset-tonal">&rarr;</button>
 			</div>
 		</div>
-		<!-- Sizes (basic) -->
+		<!-- Responsive -->
 		<div class="flex items-center gap-4">
-			<button type="button" class="btn btn-sm preset-filled">Small</button>
-			<button type="button" class="btn preset-filled">Base</button>
-			<button type="button" class="btn btn-lg preset-filled">Large</button>
-		</div>
-		<!-- Sizes (icon) -->
-		<div class="flex items-center gap-4">
-			<button type="button" class="btn-icon btn-icon-sm preset-filled">&rarr;</button>
-			<button type="button" class="btn-icon preset-filled">&rarr;</button>
-			<button type="button" class="btn-icon btn-icon-lg preset-filled">&rarr;</button>
+			<button type="button" class="btn btn-sm md:btn-base lg:btn-lg preset-filled">Responsive</button>
+			<button type="button" class="btn-icon btn-icon-sm md:btn-icon-base lg:btn-icon-lg preset-filled">&rarr;</button>
 		</div>
 		<!-- Disabled -->
 		<div class="flex items-center gap-4">
