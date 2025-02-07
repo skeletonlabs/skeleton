@@ -13,7 +13,7 @@
 		justify-content: center;
 		gap: --spacing(2);
 		whitespace: nowrap;
-		/* Transitions */
+		/* Transitions (all) */
 		transition-property: all;
 		transition-timing-function: var(--default-transition-timing-function);
 		transition-duration: var(--default-transition-duration);
