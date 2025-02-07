@@ -105,7 +105,7 @@
 
 	.kbd {
 		background-color: var(--color-surface-500);
-		border-radius: var(--radii-default);
+		border-radius: var(--radius-base);
 		color: var(--color-surface-contrast-500);
 		font-family: var(--font-mono);
 		font-size: var(--text-sm);
@@ -119,7 +119,7 @@
 
 	.pre {
 		background-color: var(--color-black);
-		border-radius: var(--radii-container);
+		border-radius: var(--radius-container);
 		color: var(--color-white);
 		font-size: var(--text-xs);
 		whitespace: pre-wrap;
@@ -129,7 +129,7 @@
 
 	:not(pre, .ec-line) > .code {
 		background-color: var(--color-primary-50-950);
-		border-radius: var(--radii-default);
+		border-radius: var(--radius-base);
 		color: var(--color-primary-contrast-50-950);
 		font-family: var(--font-mono);
 		font-size: var(--text-xs);

@@ -1,3 +1,80 @@
 /* Components: Buttons */
 
-/* ... */
+.btn,
+.btn-icon {
+	cursor: pointer;
+	border-radius: var(--radius-base);
+	font-weight: var(--font-weight-medium);
+	text-decoration-line: none;
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: --spacing(2);
+	whitespace: nowrap;
+	/* Transitions */
+	transition-property: all;
+	transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+	transition-duration: var(--default-transition-duration); /* 150ms */
+	@variant hover {
+		filter: brightness(105%);
+		@variant dark {
+			filter: brightness(75%);
+		}
+	}
+}
+
+/* Button Sizes --- */
+
+.btn-base,
+.btn {
+	height: --spacing(9);
+	padding-inline: --spacing(4);
+	padding-block: --spacing(2);
+	font-size: var(--text-base);
+	line-height: var(--text-base--line-height);
+}
+.btn-sm {
+	height: --spacing(7);
+	padding-inline: --spacing(3);
+	padding-block: --spacing(2);
+	font-size: var(--text-xs);
+	line-height: var(--text-xs--line-height);
+}
+.btn-lg {
+	height: --spacing(12);
+	padding-inline: --spacing(6);
+	padding-block: --spacing(2);
+	font-size: var(--text-xl);
+	line-height: var(--text-xl--line-height);
+}
+
+.btn-icon-base,
+.btn-icon {
+	aspect-ratio: 1 / 1;
+	height: --spacing(9);
+	font-size: var(--text-base);
+	line-height: var(--text-base--line-height);
+}
+.btn-icon-sm {
+	aspect-ratio: 1 / 1;
+	height: --spacing(7);
+	font-size: var(--text-base);
+	line-height: var(--text-base--line-height);
+}
+.btn-icon-lg {
+	aspect-ratio: 1 / 1;
+	height: --spacing(12);
+	font-size: var(--text-2xl);
+	line-height: var(--text-2xl--line-height);
+}
+
+/* Button Groups --- */
+
+.btn-group {
+	border-radius: var(--radius-container);
+	display: flex;
+	gap: --spacing(2);
+	padding: --spacing(2);
+	overflow: hidden;
+}

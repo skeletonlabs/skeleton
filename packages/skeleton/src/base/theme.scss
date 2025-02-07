@@ -73,9 +73,11 @@
 	--body-background-color: var(--color-surface-50);
 	--body-background-color-dark: var(--color-surface-950);
 
+	/* Radius --- */
+	--radius-base: 0.25rem;
+	--radius-container: 0.25rem;
+
 	/* Edges --- */
-	--radii-default: 6px;
-	--radii-container: 6px;
 	--border-width-default: 1px;
 	--divide-width-default: 1px;
 	--outline-width-default: 1px;

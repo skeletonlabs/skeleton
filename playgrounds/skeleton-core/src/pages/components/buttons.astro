@@ -4,6 +4,109 @@ import Layout from '@layouts/Layout.astro';
 
 <Layout>
 	<div class="space-y-10">
-		<header><h1 class="h1">Buttons</h1></header>
+		<div class="space-y-10">
+			<header><h1 class="h1">Buttons</h1></header>
+		</div>
+		<!-- Neutral -->
+		<div class="flex items-center gap-4">
+			<button type="button" class="btn-icon preset-filled">&rarr;</button>
+			<button type="button" class="btn preset-filled">Button</button>
+			<button type="button" class="btn preset-filled">
+				<span>Button</span>
+				<span>&rarr;</span>
+			</button>
+		</div>
+		<div class="flex items-center gap-4">
+			<button type="button" class="btn-icon btn-icon-sm preset-filled">&rarr;</button>
+			<button type="button" class="btn btn-sm preset-filled">Small</button>
+			<button type="button" class="btn btn-sm preset-filled">
+				<span>Small</span>
+				<span>&rarr;</span>
+			</button>
+		</div>
+		<div class="flex items-center gap-4">
+			<button type="button" class="btn-icon btn-icon-lg preset-filled">&rarr;</button>
+			<button type="button" class="btn btn-lg preset-filled">Large</button>
+			<button type="button" class="btn btn-lg preset-filled">
+				<span>Large</span>
+				<span>&rarr;</span>
+			</button>
+		</div>
+		<!-- Presets -->
+		<div class="space-y-4">
+			<div class="flex gap-4">
+				<button type="button" class="btn preset-filled-primary-500">Button</button>
+				<button type="button" class="btn preset-tonal-primary">Button</button>
+				<button type="button" class="btn preset-outlined-primary-500">Button</button>
+				<button type="button" class="btn text-primary-500 hover:preset-tonal">Button</button>
+				<button type="button" class="btn text-primary-500 hover:preset-tonal">&rarr;</button>
+			</div>
+			<div class="flex gap-4">
+				<button type="button" class="btn preset-filled-secondary-500">Button</button>
+				<button type="button" class="btn preset-tonal-secondary">Button</button>
+				<button type="button" class="btn preset-outlined-secondary-500">Button</button>
+				<button type="button" class="btn text-secondary-500 hover:preset-tonal">Button</button>
+				<button type="button" class="btn text-secondary-500 hover:preset-tonal">&rarr;</button>
+			</div>
+			<div class="flex gap-4">
+				<button type="button" class="btn preset-filled-tertiary-500">Button</button>
+				<button type="button" class="btn preset-tonal-tertiary">Button</button>
+				<button type="button" class="btn preset-outlined-tertiary-500">Button</button>
+				<button type="button" class="btn text-tertiary-500 hover:preset-tonal">Button</button>
+				<button type="button" class="btn text-tertiary-500 hover:preset-tonal">&rarr;</button>
+			</div>
+			<div class="flex gap-4">
+				<button type="button" class="btn preset-filled-success-500">Button</button>
+				<button type="button" class="btn preset-tonal-success">Button</button>
+				<button type="button" class="btn preset-outlined-success-500">Button</button>
+				<button type="button" class="btn text-success-500 hover:preset-tonal">Button</button>
+				<button type="button" class="btn text-success-500 hover:preset-tonal">&rarr;</button>
+			</div>
+			<div class="flex gap-4">
+				<button type="button" class="btn preset-filled-warning-500">Button</button>
+				<button type="button" class="btn preset-tonal-warning">Button</button>
+				<button type="button" class="btn preset-outlined-warning-500">Button</button>
+				<button type="button" class="btn text-warning-500 hover:preset-tonal">Button</button>
+				<button type="button" class="btn text-warning-500 hover:preset-tonal">&rarr;</button>
+			</div>
+			<div class="flex gap-4">
+				<button type="button" class="btn preset-filled-error-500">Button</button>
+				<button type="button" class="btn preset-tonal-error">Button</button>
+				<button type="button" class="btn preset-outlined-error-500">Button</button>
+				<button type="button" class="btn text-error-500 hover:preset-tonal">Button</button>
+				<button type="button" class="btn text-error-500 hover:preset-tonal">&rarr;</button>
+			</div>
+			<div class="flex gap-4">
+				<button type="button" class="btn preset-filled-surface-500">Button</button>
+				<button type="button" class="btn preset-tonal-surface">Button</button>
+				<button type="button" class="btn preset-outlined-surface-500">Button</button>
+				<button type="button" class="btn text-surface-500 hover:preset-tonal">Button</button>
+				<button type="button" class="btn text-surface-500 hover:preset-tonal">&rarr;</button>
+			</div>
+		</div>
+		<!-- Sizes (basic) -->
+		<div class="flex items-center gap-4">
+			<button type="button" class="btn btn-sm preset-filled">Small</button>
+			<button type="button" class="btn preset-filled">Base</button>
+			<button type="button" class="btn btn-lg preset-filled">Large</button>
+		</div>
+		<!-- Sizes (icon) -->
+		<div class="flex items-center gap-4">
+			<button type="button" class="btn-icon btn-icon-sm preset-filled">&rarr;</button>
+			<button type="button" class="btn-icon preset-filled">&rarr;</button>
+			<button type="button" class="btn-icon btn-icon-lg preset-filled">&rarr;</button>
+		</div>
+		<!-- Disabled -->
+		<div class="flex items-center gap-4">
+			<button type="button" class="btn preset-filled-primary-500" disabled>Button</button>
+		</div>
+		<!-- Group -->
+		<div class="flex items-center gap-4">
+			<nav class="btn-group preset-outlined-surface-200-800 flex-col p-2 md:flex-row">
+				<button type="button" class="btn preset-filled">January</button>
+				<button type="button" class="btn hover:preset-tonal">February</button>
+				<button type="button" class="btn hover:preset-tonal">March</button>
+			</nav>
+		</div>
 	</div>
 </Layout>

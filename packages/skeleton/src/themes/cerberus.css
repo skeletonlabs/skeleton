@@ -29,12 +29,12 @@
 	--anchor-text-decoration-focus: none;
 	--body-background-color: var(--color-surface-50);
 	--body-background-color-dark: var(--color-surface-950);
-	--radii-default: 6px;
-	--radii-container: 6px;
-	--border-width-default: 1px;
-	--divide-width-default: 1px;
-	--outline-width-default: 1px;
-	--ring-width-default: 1px;
+	--radius-base: 0.25rem;
+	--radius-container: 0.25rem;
+	--border-width-base: 1px;
+	--divide-width-base: 1px;
+	--outline-width-base: 1px;
+	--ring-width-base: 1px;
 	--color-primary-100: rgb(169 206 253);
 	--color-primary-200: rgb(127, 182, 250);
 	--color-primary-300: rgb(85, 159, 248);
