@@ -1,5 +1,15 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.19
+
+### Patch Changes
+
+- feat: Implement `arrow` for Tooltip ([#3185](https://github.com/skeletonlabs/skeleton/pull/3185))
+
+- feat: Implement `disabled` for Modal, Tooltip, Popover and Combobox ([#3186](https://github.com/skeletonlabs/skeleton/pull/3186))
+
+- feat: Make Svelte Slider marker snippet take the marker value as argument to enable marker customization ([#3205](https://github.com/skeletonlabs/skeleton/pull/3205))
+
 ## 1.0.0-next.18
 
 ### Patch Changes
