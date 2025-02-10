@@ -29,17 +29,19 @@
 	/* Sizes --- */
 
 	.btn {
-		height: --spacing(10);
+		font-size: var(--text-base);
+		line-height: --spacing(8);
+		height: --spacing(8);
 		padding-inline: --spacing(4);
 		padding-block: --spacing(2);
-		font-size: var(--text-base);
-		line-height: --spacing(10);
 	}
 	.btn-icon {
-		aspect-ratio: 1 / 1;
-		height: --spacing(10);
 		font-size: var(--text-base);
-		line-height: --spacing(10);
+		line-height: --spacing(8);
+		width: --spacing(8);
+		height: --spacing(8);
+		padding-inline: --spacing(4);
+		padding-block: --spacing(2);
 	}
 
 	/* Group --- */
@@ -59,43 +61,49 @@
 
 /* Button */
 @utility btn-sm {
-	height: --spacing(7);
+	font-size: var(--text-xs);
+	line-height: --spacing(6);
+	height: --spacing(6);
 	padding-inline: --spacing(3);
 	padding-block: --spacing(2);
-	font-size: var(--text-xs);
-	line-height: --spacing(7);
 }
 @utility btn-base {
-	height: --spacing(10);
+	font-size: var(--text-base);
+	line-height: --spacing(8);
+	height: --spacing(8);
 	padding-inline: --spacing(4);
 	padding-block: --spacing(2);
-	font-size: var(--text-base);
-	line-height: --spacing(10);
 }
 @utility btn-lg {
+	font-size: var(--text-lg);
+	line-height: --spacing(12);
 	height: --spacing(12);
 	padding-inline: --spacing(6);
 	padding-block: --spacing(2);
-	font-size: var(--text-xl);
-	line-height: --spacing(12);
 }
 
 /* Button Icon */
 @utility btn-icon-sm {
-	aspect-ratio: 1 / 1;
-	height: --spacing(7);
-	font-size: var(--text-sm);
-	line-height: --spacing(7);
+	font-size: var(--text-xs);
+	line-height: --spacing(6);
+	width: --spacing(6);
+	height: --spacing(6);
+	padding-inline: --spacing(3);
+	padding-block: --spacing(2);
 }
 @utility btn-icon-base {
-	aspect-ratio: 1 / 1;
-	height: --spacing(9);
 	font-size: var(--text-base);
-	line-height: --spacing(9);
+	line-height: --spacing(8);
+	width: --spacing(8);
+	height: --spacing(8);
+	padding-inline: --spacing(4);
+	padding-block: --spacing(2);
 }
 @utility btn-icon-lg {
-	aspect-ratio: 1 / 1;
-	height: --spacing(12);
-	font-size: var(--text-2xl);
+	font-size: var(--text-lg);
 	line-height: --spacing(12);
+	width: --spacing(12);
+	height: --spacing(12);
+	padding-inline: --spacing(6);
+	padding-block: --spacing(2);
 }

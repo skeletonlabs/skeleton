@@ -17,17 +17,19 @@
 	/* Sizes --- */
 
 	.badge {
+		font-size: var(--text-xs);
+		line-height: --spacing(6);
 		height: --spacing(6);
 		padding-inline: --spacing(3);
 		padding-block: --spacing(2);
-		font-size: var(--text-xs);
-		line-height: --spacing(6);
 	}
 	.badge-icon {
 		border-radius: 100%;
-		aspect-ratio: 1 / 1;
-		height: --spacing(6);
 		font-size: var(--text-xs);
 		line-height: --spacing(6);
+		width: --spacing(6);
+		height: --spacing(6);
+		padding-inline: --spacing(3);
+		padding-block: --spacing(2);
 	}
 }
