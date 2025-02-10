@@ -42,9 +42,6 @@ export const spacing = [
 <Layout>
 	<div class="space-y-10">
 		<header><h1 class="h1">Spacing</h1></header>
-		<aside class="bg-warning-500 text-warning-contrast-500 p-4 text-center">
-			NOTE: review this page once Table styles are implemented.
-		</aside>
 		<div class="table-wrap">
 			<table class="table">
 				<thead>
@@ -53,7 +50,7 @@ export const spacing = [
 						<th>Preview</th>
 					</tr>
 				</thead>
-				<tbody class="hover:[&>tr]:preset-tonal-primary">
+				<tbody class="[&>tr]:hover:preset-tonal">
 					{
 						spacing.map((space) => (
 							<tr>
