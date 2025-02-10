@@ -63,7 +63,7 @@
 
 <span class="{base} {classes}" data-testid="popover">
 	<!-- Snippet: Trigger -->
-	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled}>
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
 		{@render trigger?.()}
 	</button>
 	<!-- Portal -->
