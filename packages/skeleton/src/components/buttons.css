@@ -29,17 +29,17 @@
 	/* Sizes --- */
 
 	.btn {
-		height: --spacing(9);
+		height: --spacing(10);
 		padding-inline: --spacing(4);
 		padding-block: --spacing(2);
 		font-size: var(--text-base);
-		line-height: --spacing(9);
+		line-height: --spacing(10);
 	}
 	.btn-icon {
 		aspect-ratio: 1 / 1;
-		height: --spacing(9);
+		height: --spacing(10);
 		font-size: var(--text-base);
-		line-height: --spacing(9);
+		line-height: --spacing(10);
 	}
 
 	/* Group --- */
@@ -66,11 +66,11 @@
 	line-height: --spacing(7);
 }
 @utility btn-base {
-	height: --spacing(9);
+	height: --spacing(10);
 	padding-inline: --spacing(4);
 	padding-block: --spacing(2);
 	font-size: var(--text-base);
-	line-height: --spacing(9);
+	line-height: --spacing(10);
 }
 @utility btn-lg {
 	height: --spacing(12);
