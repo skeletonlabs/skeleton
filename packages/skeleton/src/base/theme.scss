@@ -46,10 +46,9 @@
 	--radius-container: 0.25rem;
 
 	/* Edges --- */
-	--border-width-default: 1px;
-	--divide-width-default: 1px;
-	--outline-width-default: 1px;
-	--ring-width-default: 1px;
+	--default-border-width: 1px;
+	--default-divide-width: 1px;
+	--default-ring-width: 1px;
 
 	/* Colors --- */
 	@each $name in constants.$color-names {
@@ -80,6 +79,20 @@
 	--body-background-color: var(--color-surface-50);
 	--body-background-color-dark: var(--color-surface-950);
 
+	/* Color Pairings --- */
+	/* https://github.com/tailwindlabs/tailwindcss/discussions/16292#discussioncomment-12076534 */
+	@each $name in constants.$color-names {
+		@each $pairing in constants.$color-pairings {
+			$light: list.nth($pairing, 1);
+			$dark: list.nth($pairing, 2);
+			--color-#{$name}-#{$light}-#{$dark}: light-dark(var(--color-#{$name}-#{$light}), var(--color-#{$name}-#{$dark}));
+			--color-#{$name}-contrast-#{$light}-#{$dark}: light-dark(
+				var(--color-#{$name}-contrast-#{$light}),
+				var(--color-#{$name}-contrast-#{$dark})
+			);
+		}
+	}
+
 	/* Typography --- */
 	--text-xs: calc(0.75rem * var(--text-scaling));
 	--text-xs--line-height: calc(calc(1 / 0.75) * var(--text-scaling));
@@ -107,18 +120,4 @@
 	--text-8xl--line-height: calc(1 * var(--text-scaling));
 	--text-9xl: calc(8rem * var(--text-scaling));
 	--text-9xl--line-height: calc(1 * var(--text-scaling));
-
-	/* Color Pairings --- */
-	/* https://github.com/tailwindlabs/tailwindcss/discussions/16292#discussioncomment-12076534 */
-	@each $name in constants.$color-names {
-		@each $pairing in constants.$color-pairings {
-			$light: list.nth($pairing, 1);
-			$dark: list.nth($pairing, 2);
-			--color-#{$name}-#{$light}-#{$dark}: light-dark(var(--color-#{$name}-#{$light}), var(--color-#{$name}-#{$dark}));
-			--color-#{$name}-contrast-#{$light}-#{$dark}: light-dark(
-				var(--color-#{$name}-contrast-#{$light}),
-				var(--color-#{$name}-contrast-#{$dark})
-			);
-		}
-	}
 }
