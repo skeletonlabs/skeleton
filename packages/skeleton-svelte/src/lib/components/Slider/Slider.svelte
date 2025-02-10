@@ -107,7 +107,7 @@
 				<!-- Mark -->
 				<span {...api.getMarkerProps({ value })} class="{markBase} {markText} {markOpacity} {markClasses}" data-testid="slider-mark">
 					{#if mark}
-						{@render mark()}
+						{@render mark(value)}
 					{:else}
 						{value}
 					{/if}

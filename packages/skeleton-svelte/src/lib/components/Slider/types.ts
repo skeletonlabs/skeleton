@@ -84,6 +84,6 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'thumbSize'> {
 	stateReadOnly?: string;
 
 	// Children
-	/** Replace numeric markers with symbol, such as a icon. */
-	mark?: Snippet;
+	/** Replace numeric markers with symbol, such as a icon. Takes marker value as argument. */
+	mark?: Snippet<[number]>;
 }
