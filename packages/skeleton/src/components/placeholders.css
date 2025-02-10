@@ -1,0 +1,18 @@
+/* Components: Placeholders */
+
+@layer components {
+	.placeholder {
+		/* @apply bg-surface-500/20 min-h-4 rounded; */
+		background-color: var(--color-surface-200-800);
+		border-radius: var(--radius-base);
+		min-height: --spacing(4);
+	}
+
+	.placeholder-circle {
+		/* @apply bg-surface-500/20 aspect-square size-5 rounded-full; */
+		aspect-ratio: 1 / 1;
+		background-color: var(--color-surface-200-800);
+		border-radius: 100%;
+		min-height: --spacing(5);
+	}
+}
