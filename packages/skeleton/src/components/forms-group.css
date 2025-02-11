@@ -1,0 +1,21 @@
+/* Components: Forms > Input Group */
+
+@layer components {
+	/* .input-group {
+		display: grid;
+		gap: --spacing(2);
+		align-items: stretch;
+		overflow: hidden;
+	}
+
+	.input-group-label {
+		font-size: var(--text-xs);
+		line-height: var(--text-xs--line-height);
+		font-weight: bold;
+		border-radius: var(--radius-base);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-inline: --spacing(4);
+	} */
+}

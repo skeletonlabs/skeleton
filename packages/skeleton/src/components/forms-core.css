@@ -1,0 +1,26 @@
+/* Components: Forms (Core) */
+
+@layer components {
+	/* Resets --- */
+
+	.fieldset,
+	.legend,
+	.label {
+		display: block;
+		width: 100%;
+	}
+
+	/* Labels --- */
+
+	.label > * + * {
+		margin-top: --spacing(1);
+	}
+
+	.label-text {
+		display: block;
+		font-size: var(--text-xs);
+		line-height: var(--text-xs--line-height);
+		font-weight: var(--font-weight-medium);
+		text-decoration-line: none;
+	}
+}

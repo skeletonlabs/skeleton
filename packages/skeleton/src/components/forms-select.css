@@ -1,0 +1,73 @@
+/* Components: Forms > Select */
+
+/*
+	BROWSER CONSISTENCY WARNING:
+	Select (especially Size and Multiple) are notoriously difficult to style
+	consistently cross-browser, so all styles adhere to progress enhancement.
+	We've styled this element within the confines of that browser's capabilities.
+*/
+
+@layer components {
+	.select {
+		display: block;
+		border-radius: var(--radius-base);
+		border-width: var(--default-border-width);
+		border-color: var(--color-surface-200-800);
+		background-color: transparent;
+		/* --- */
+		height: --spacing(9);
+		width: 100%;
+		padding-block: 0px;
+		/* --- */
+		outline-color: transparent;
+		--tw-ring-color: transparent;
+		@variant active {
+			border-color: var(--color-primary-500);
+		}
+		@variant focus {
+			border-color: var(--color-primary-500);
+		}
+		@variant focus-within {
+			border-color: var(--color-primary-500);
+		}
+	}
+
+	.select > * + * {
+		margin-top: --spacing(2);
+	}
+
+	.select[multiple],
+	.select[size] {
+		height: auto;
+		padding: --spacing(2);
+	}
+
+	/* Optgroup --- */
+
+	.select optgroup > * + * {
+		margin-top: --spacing(2);
+	}
+
+	.select optgroup option:first-of-type {
+		margin-top: --spacing(2);
+	}
+	.select optgroup option:last-child {
+		margin-bottom: --spacing(2) !important;
+	}
+
+	/* Option --- */
+
+	.select option {
+		border-radius: var(--radius-base);
+		font-size: var(--text-base);
+		line-height: --spacing(9);
+		height: --spacing(9);
+		padding: --spacing(2);
+	}
+
+	.select option:checked {
+		/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
+		background-image: linear-gradient(0deg, var(--color-primary-500) 0%, var(--color-primary-500) 100%);
+		color: var(--color-primary-contrast-950-50);
+	}
+}
