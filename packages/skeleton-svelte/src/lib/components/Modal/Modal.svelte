@@ -70,7 +70,7 @@
 
 <span class="{base} {classes}" data-testid="modal">
 	<!-- Trigger -->
-	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled}>
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
 		{@render trigger?.()}
 	</button>
 
