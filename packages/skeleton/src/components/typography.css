@@ -95,8 +95,8 @@
 	/* Blockquote --- */
 
 	.blockquote {
-		border-left-width: 1px;
-		border-left-color: var(--color-surface-300-700);
+		border-left-width: 3px;
+		border-left-color: var(--color-primary-500);
 		padding-left: --spacing(4);
 		font-style: italic;
 	}
@@ -104,21 +104,24 @@
 	/* Keyboard --- */
 
 	.kbd {
-		background-color: var(--color-surface-500);
+		background-color: var(--color-surface-300-700);
+		border-width: 1px;
+		border-color: var(--color-surface-600-400);
 		border-radius: var(--radius-base);
 		color: var(--color-surface-contrast-500);
 		font-family: var(--font-mono);
 		font-size: var(--text-sm);
 		whitespace: nowrap;
 		overflow-x: auto;
-		padding-inline: --spacing(1);
-		padding-block: --spacing(0.5);
+		padding-inline: --spacing(1.5);
+		padding-block: --spacing(0.25);
 	}
 
 	/* Preformated / Code --- */
 
 	.pre {
-		background-color: var(--color-black);
+		background-color: rgba(0, 0, 0, 0.85);
+		backdrop-filter: blur(var(--blur-sm));
 		border-radius: var(--radius-container);
 		color: var(--color-white);
 		font-size: var(--text-xs);
@@ -128,14 +131,14 @@
 	}
 
 	:not(pre, .ec-line) > .code {
-		background-color: var(--color-primary-50-950);
+		background-color: var(--color-primary-100-900);
 		border-radius: var(--radius-base);
 		color: var(--color-primary-contrast-50-950);
 		font-family: var(--font-mono);
 		font-size: var(--text-xs);
 		whitespace: nowrap;
 		padding-inline: --spacing(1.5);
-		padding-block: --spacing(0.5);
+		padding-block: --spacing(0.75);
 		overflow-x: auto;
 	}
 

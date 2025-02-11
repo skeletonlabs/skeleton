@@ -15,11 +15,11 @@
 		width: 100%;
 	}
 
-	/* Table Head --- */
+	/* Head --- */
 
 	.table thead {
-		color: var(--color-surface-600-400);
-		border-bottom: 1px;
+		color: var(--color-surface-700-300);
+		border-bottom-width: 1px;
 		border-color: var(--color-surface-200-800);
 	}
 
@@ -28,7 +28,7 @@
 		font-weight: 400;
 	}
 
-	/* Table Body --- */
+	/* Body --- */
 
 	.table tbody {
 		& > :not(:last-child) {
@@ -40,22 +40,22 @@
 		}
 	}
 
-	/* Table Foot --- */
+	/* Foot --- */
 
 	.table tfoot {
-		border-top: 1px;
+		border-top-width: 1px;
 		border-color: var(--color-surface-200-800);
 		background-color: var(--color-surface-100-900);
 	}
 
-	/* Table Cells */
+	/* Cells */
 
 	.table th,
 	.table td {
 		padding: --spacing(2);
 	}
 
-	/* Table Caption */
+	/* Caption */
 
 	.table caption {
 		color: var(--color-surface-600-400);
