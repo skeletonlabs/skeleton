@@ -39,8 +39,8 @@ export interface ModalProps extends Omit<dialog.Context, 'id' | 'open'> {
 	positionerAlign?: string;
 	/** Set padding classes for the positioner. */
 	positionerPadding?: string;
-	/** Set z-index classes for the positioner. */
-	positionerZIndex?: string;
+	/** Set z-index for the positioner. */
+	zIndex?: string;
 	/** Provide arbitrary classes for the positioner. */
 	positionerClasses?: string;
 

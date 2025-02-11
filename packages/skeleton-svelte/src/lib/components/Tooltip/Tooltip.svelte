@@ -17,7 +17,7 @@
 		triggerClasses = '',
 		// Positioner
 		positionerBase = '',
-		positionerZIndex = '',
+		zIndex = 'auto',
 		positionerClasses = '',
 		// Content
 		contentBase = '',
@@ -63,9 +63,9 @@
 	</button>
 	<!-- Tooltip Content -->
 	{#if api.open}
-		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerZIndex} {positionerClasses}">
+		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerClasses}">
 			<!-- Snippet Content -->
-			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}">
+			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}" style="z-index: {zIndex};">
 				{@render content?.()}
 			</div>
 		</div>

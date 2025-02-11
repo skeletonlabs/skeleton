@@ -40,8 +40,8 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	// Positioner ---
 	/** Set base classes for the positioner. */
 	positionerBase?: string;
-	/** Set z-index classes for the positioner. */
-	positionerZIndex?: string;
+	/** Set z-index for the positioner. */
+	zIndex?: string;
 	/** Provide arbitrary classes for the positioner. */
 	positionerClasses?: string;
 
