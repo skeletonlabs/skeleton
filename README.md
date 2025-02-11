@@ -1,4 +1,4 @@
-[![Skeleton](https://i.imgur.com/LdOsopJ.png)](https://www.skeleton.dev/)
+[![Skeleton](https://i.imgur.com/3YVHkcc.png)](https://www.skeleton.dev/)
 
 [![npm version](https://img.shields.io/npm/v/@skeletonlabs/skeleton?logo=npm&color=cb3837&label=skeleton)](https://www.npmjs.com/package/@skeletonlabs/skeleton)
 [![npm version](https://img.shields.io/npm/v/@skeletonlabs/skeleton-react?logo=npm&color=cb3837&label=skeleton-react)](https://www.npmjs.com/package/@skeletonlabs/skeleton-react)

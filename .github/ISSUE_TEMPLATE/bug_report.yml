@@ -1,6 +1,7 @@
 name: 🐞 Bug
 description: Report an issue or bug
 labels: [bug]
+type: Bug
 body:
   - type: textarea
     attributes:
@@ -29,6 +30,26 @@ body:
     id: reproduction
     attributes:
       label: Link to Reproduction / Stackblitz
+  - type: textarea
+    attributes:
+      label: Environment Information
+      description: Relevant information about your environment. Use `npx envinfo --system --npmPackages "@skeletonlabs/*" --binaries --browsers` to get this information.
+      placeholder: |
+        System:
+          OS: Windows 11 10.0.26100
+          CPU: (12) x64 12th Gen Intel(R) Core(TM) i5-12400
+          Memory: 4.72 GB / 15.78 GB
+        Binaries:
+          Node: 22.11.0 - C:\Program Files\nodejs\node.EXE
+          Yarn: 1.22.19 - ~\AppData\Roaming\npm\yarn.CMD
+          npm: 10.2.0 - C:\Program Files\nodejs\npm.CMD
+          pnpm: 9.6.0 - ~\AppData\Local\pnpm\pnpm.CMD
+        Browsers:
+          Edge: Chromium (130.0.2849.46)
+          Internet Explorer: 11.0.26100.1882
+        npmPackages:
+          @skeletonlabs/skeleton: ^3.0.0-next.10 => 3.0.0-next.10
+          @skeletonlabs/skeleton-react: ^1.0.0-next.13 => 1.0.0-next.13
   - type: textarea
     attributes:
       label: More Information

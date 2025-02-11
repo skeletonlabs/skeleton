@@ -29,11 +29,12 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 <Process>
     <ProcessStep step="1">
         ### Create a Project
-        Start by creating a new project using `create-next-app` (the Next.js CLI):
+        Start by creating a new project using `create-next-app`, the Next.js CLI:
         ```console
-        npm create next-app@latest my-skeleton-app --typescript --tailwind --eslint
+        npm create next-app@15.1.6 my-skeleton-app --typescript --tailwind --eslint
         cd my-skeleton-app
         ```
+		> NOTE: note that we are temporarily pinning `v15.1.6` to ensure Tailwind v3 is the only version available to install. Please note that [Tailwind v4 support is coming soon](https://github.com/skeletonlabs/skeleton/discussions/3175), at which point we'll enable `@latest` again.
     </ProcessStep>
     <ProcessStep step="2">
         ### Install Skeleton
