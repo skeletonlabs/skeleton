@@ -1,0 +1,11 @@
+/* Components: Keyframe - Progress Indeterminate */
+/* NOTE: only for use in the progress bar functional component. */
+
+@keyframes anim-progress-indeterminate {
+	from: {
+		transform: translateX(-200%);
+	}
+	to: {
+		transform: translateX(200%);
+	}
+}
