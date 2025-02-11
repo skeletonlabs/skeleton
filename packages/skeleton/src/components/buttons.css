@@ -17,29 +17,22 @@
 		transition-property: all;
 		transition-timing-function: var(--default-transition-timing-function);
 		transition-duration: var(--default-transition-duration);
-		/* Variants */
-		@variant hover {
-			filter: brightness(105%);
-			@variant dark {
-				filter: brightness(75%);
-			}
-		}
 	}
 
 	/* Sizes --- */
 
 	.btn {
 		font-size: var(--text-base);
-		line-height: --spacing(8);
-		height: --spacing(8);
+		line-height: --spacing(9);
+		height: --spacing(9);
 		padding-inline: --spacing(4);
 		padding-block: --spacing(2);
 	}
 	.btn-icon {
 		font-size: var(--text-base);
-		line-height: --spacing(8);
-		width: --spacing(8);
-		height: --spacing(8);
+		line-height: --spacing(9);
+		width: --spacing(9);
+		height: --spacing(9);
 		padding-inline: --spacing(4);
 		padding-block: --spacing(2);
 	}
