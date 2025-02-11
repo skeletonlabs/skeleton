@@ -50,116 +50,163 @@ function generateMarkdownApiTable(schema: any[]): string {
 	return markdown;
 }
 
-export const GET: APIRoute = async () => {
-	// Get all meta entries for components.
-	// Meta entries have slugs like "components/<component>/meta".
-	const metaEntries = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('components/') && entry.slug.endsWith('/meta'));
+/**
+ * Processes preview blocks by replacing them with Markdown code blocks.
+ * Accepts an optional language parameter to specify the language for the code block.
+ */
+async function processPreviewBlocks(content: string, language: string = 'svelte'): Promise<string> {
+	// Collect raw import mappings (only those ending with ?raw)
+	const rawImportRegex = /import\s+(\w+)\s+from\s+['"]([^'"]+\?raw)['"];/g;
+	const rawImports: Record<string, string> = {};
+	let match;
+	while ((match = rawImportRegex.exec(content)) !== null) {
+		const identifier = match[1];
+		const importPathWithRaw = match[2]; // e.g. '@examples/components/accordions/Example.svelte?raw'
+		const importPath = importPathWithRaw.replace(/\?raw$/, '');
+		rawImports[identifier] = importPath;
+	}
 
-	let finalContent = '';
-
-	for (const metaEntry of metaEntries) {
-		// Derive the corresponding svelte doc by replacing "/meta" with "/svelte"
-		const svelteSlug = metaEntry.slug.replace(/\/meta$/, '/svelte');
-		const svelteEntry = await getEntry('docs', svelteSlug);
-		if (!svelteEntry) continue;
-
-		let content = svelteEntry.body;
-
-		// Raw imports always end with ?raw
-		const rawImportRegex = /import\s+(\w+)\s+from\s+['"]([^'"]+\?raw)['"];/g;
-		const rawImports: Record<string, string> = {};
-		let match;
-		while ((match = rawImportRegex.exec(content)) !== null) {
-			const identifier = match[1];
-			const importPathWithRaw = match[2]; // e.g. '@examples/components/accordions/Example.svelte?raw'
-			// Remove the "?raw" to get the actual file path.
-			const importPath = importPathWithRaw.replace(/\?raw$/, '');
-			rawImports[identifier] = importPath;
+	// Replace <Preview>…</Preview> blocks with Markdown code blocks.
+	const previewBlockRegex = /<Preview[^>]*>[\s\S]*?<\/Preview>/g;
+	const previewBlocks = Array.from(content.matchAll(previewBlockRegex));
+	for (const previewMatch of previewBlocks) {
+		const previewBlock = previewMatch[0];
+		// Extract the code variable from the <Code code={...}> tag.
+		const codeIdentifierMatch = previewBlock.match(/<Code\s+code=\{([^}]+)\}/);
+		if (!codeIdentifierMatch) continue;
+		const codeIdentifier = codeIdentifierMatch[1].trim();
+		const importPath = rawImports[codeIdentifier];
+		if (!importPath) continue;
+		// Adjust alias if necessary (for example, '@examples' to './src/examples')
+		const resolvedPath = importPath.replace('@examples', './src/examples');
+		let fileContent = '';
+		try {
+			fileContent = await fs.readFile(path.resolve(resolvedPath), 'utf-8');
+		} catch (err) {
+			console.error('Error reading file:', resolvedPath, err);
+			fileContent = '// Error loading file';
 		}
+		const replacement = `\`\`\`${language}\n${fileContent}\n\`\`\``;
+		content = content.replace(previewBlock, replacement);
+	}
+	return content;
+}
 
-		// Replace <Preview>…</Preview> blocks with Markdown code blocks.
-		const previewBlockRegex = /<Preview[^>]*>[\s\S]*?<\/Preview>/g;
-		const previewBlocks = Array.from(content.matchAll(previewBlockRegex));
-		for (const previewMatch of previewBlocks) {
-			const previewBlock = previewMatch[0];
-			// Extract the code variable from the <Code code={...}> tag.
-			const codeIdentifierMatch = previewBlock.match(/<Code\s+code=\{([^}]+)\}/);
-			if (!codeIdentifierMatch) continue;
-			const codeIdentifier = codeIdentifierMatch[1].trim();
-			// Look up the corresponding file path using the rawImports mapping.
-			const importPath = rawImports[codeIdentifier];
-			if (!importPath) continue;
-			// Adjust alias if necessary (e.g. '@examples' to './src/examples')
-			const resolvedPath = importPath.replace('@examples', './src/examples');
-			let fileContent = '';
-			try {
-				fileContent = await fs.readFile(path.resolve(resolvedPath), 'utf-8');
-			} catch (err) {
-				console.error('Error reading file:', resolvedPath, err);
-				fileContent = '// Error loading file';
-			}
-			const replacement = `\`\`\`svelte\n${fileContent}\n\`\`\``;
-			content = content.replace(previewBlock, replacement);
-		}
+/**
+ * Processes API tables (only for Components docs).
+ */
+async function processApiTables(content: string, docSlug: string): Promise<string> {
+	// Extract schema imports (paths ending with .json)
+	const schemaImportRegex = /import\s+(\w+)\s+from\s+['"]([^'"]+\.json)['"];/g;
+	const schemaImports: Record<string, string> = {};
+	let match;
+	while ((match = schemaImportRegex.exec(content)) !== null) {
+		const identifier = match[1];
+		const importPath = match[2];
+		schemaImports[identifier] = importPath;
+	}
 
-		// Schema imports always end with .json
-		const schemaImportRegex = /import\s+(\w+)\s+from\s+['"]([^'"]+\.json)['"];/g;
-		const schemaImports: Record<string, string> = {};
-		while ((match = schemaImportRegex.exec(content)) !== null) {
-			const identifier = match[1];
-			const importPath = match[2]; // Matches paths ending with .json
-			schemaImports[identifier] = importPath;
-		}
-
-		// API table replacement logic
-		// The API table can be either <ApiTable schema={...} /> or just <ApiTable />.
-		const apiTableRegex = /<ApiTable(?:\s+schema=\{([^}]+)\})?\s*\/>/g;
-		const apiTableMatches = Array.from(content.matchAll(apiTableRegex));
-		// Process in reverse order to avoid index issues.
-		for (const apiMatch of apiTableMatches.reverse()) {
-			const fullMatch = apiMatch[0];
-			const schemaVar = apiMatch[1]?.trim();
-			let schemaData: any;
-			if (schemaVar) {
-				// Look up the corresponding schema file via schemaImports.
-				const importPath = schemaImports[schemaVar];
-				if (importPath) {
-					// Adjust the alias; for example, '@schemas' maps to './src/schemas'
-					const resolvedPath = importPath.replace('@schemas', './src/schemas');
-					try {
-						const schemaModule = await import(path.resolve(resolvedPath));
-						schemaData = schemaModule.default || schemaModule;
-					} catch (err) {
-						console.error('Error importing schema file:', resolvedPath, err);
-						schemaData = [];
-					}
-				} else {
+	// Replace <ApiTable .../> blocks.
+	const apiTableRegex = /<ApiTable(?:\s+schema=\{([^}]+)\})?\s*\/>/g;
+	const apiTableMatches = Array.from(content.matchAll(apiTableRegex));
+	// Process in reverse order to avoid index issues.
+	for (const apiMatch of apiTableMatches.reverse()) {
+		const fullMatch = apiMatch[0];
+		const schemaVar = apiMatch[1]?.trim();
+		let schemaData: any;
+		if (schemaVar) {
+			// Look up the corresponding schema file via schemaImports.
+			const importPath = schemaImports[schemaVar];
+			if (importPath) {
+				// Adjust the alias; for example, '@schemas' maps to './src/schemas'
+				const resolvedPath = importPath.replace('@schemas', './src/schemas');
+				try {
+					const schemaModule = await import(path.resolve(resolvedPath));
+					schemaData = schemaModule.default || schemaModule;
+				} catch (err) {
+					console.error('Error importing schema file:', resolvedPath, err);
 					schemaData = [];
 				}
 			} else {
-				// If no schema prop is provided, fetch the schema using the doc’s slug.
-				schemaData = await getSchemaFromSlug(svelteEntry.slug);
-			}
-			if (!Array.isArray(schemaData)) {
 				schemaData = [];
 			}
-			const markdownTable = generateMarkdownApiTable(schemaData);
-			content = content.replace(fullMatch, markdownTable);
+		} else {
+			// If no schema prop is provided, fetch the schema using the doc’s slug.
+			schemaData = await getSchemaFromSlug(docSlug);
 		}
-
-		// Remove unnnessary imports thats not part of the documentation
-		content = content.replace(/^(export\s+.*|import\s+.*)\r?\n/gm, '');
-
-		content = `# ${metaEntry.data.title}\n${metaEntry.data.description}\n\n${content}`;
-
-		// Add divider between contents
-		finalContent += content + '\n\n---\n\n';
-
-		// Remove double lines
-		finalContent = finalContent.replace(/(\r?\n){2,}/g, '\n');
+		if (!Array.isArray(schemaData)) {
+			schemaData = [];
+		}
+		const markdownTable = generateMarkdownApiTable(schemaData);
+		content = content.replace(fullMatch, markdownTable);
 	}
+	return content;
+}
 
-	return new Response(finalContent, {
+/**
+ * Processes Tailwind documentation files.
+ * Tailwind docs are those with a slug starting with "tailwind/".
+ * They do not include API table logic.
+ */
+async function processTailwind(): Promise<string> {
+	const tailwindDocs = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('tailwind/'));
+
+	let tailwindContent = '';
+	for (const doc of tailwindDocs) {
+		let content = doc.body;
+		// Process preview blocks with language set to "html"
+		content = await processPreviewBlocks(content, 'html');
+		// Prepend the Tailwind doc header (using inline meta data)
+		content = `# ${doc.data.title}\n${doc.data.description}\n\n${content}`;
+		tailwindContent += content + '\n\n---\n\n';
+	}
+	// Add a top-level header for Tailwind docs.
+	tailwindContent = `# Tailwind\n\n` + tailwindContent;
+	return tailwindContent;
+}
+
+/**
+ * Processes Components documentation.
+ * Components are represented by a meta file (with slug "components/<comp>/meta")
+ * and a corresponding Svelte doc (with slug "components/<comp>/svelte").
+ */
+async function processComponents(): Promise<string> {
+	const metaEntries = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('components/') && entry.slug.endsWith('/meta'));
+	let componentsContent = '';
+	for (const metaEntry of metaEntries) {
+		// Derive the corresponding Svelte doc by replacing "/meta" with "/svelte"
+		const svelteSlug = metaEntry.slug.replace(/\/meta$/, '/svelte');
+		const svelteEntry = await getEntry('docs', svelteSlug);
+		if (!svelteEntry) continue;
+		let content = svelteEntry.body;
+		// Process preview blocks with language set to "svelte"
+		content = await processPreviewBlocks(content, 'svelte');
+		// Process API tables for components
+		content = await processApiTables(content, svelteEntry.slug);
+		// Prepend the Components doc header from meta data
+		content = `# ${metaEntry.data.title}\n${metaEntry.data.description}\n\n${content}`;
+		componentsContent += content + '\n\n---\n\n';
+	}
+	// Add a top-level header for Components docs.
+	componentsContent = `# Components\n\n` + componentsContent;
+	return componentsContent;
+}
+
+/**
+ * Main API function: minimal and high-level.
+ */
+export const GET: APIRoute = async () => {
+	let content = '';
+	content += await processTailwind();
+	content += '\n\n';
+	content += await processComponents();
+
+	// Global final cleanup: remove top-level import/export statements
+	// and collapse multiple newlines into one.
+	content = content.replace(/^(export\s+.*|import\s+.*)\r?\n/gm, '');
+	content = content.replace(/(\r?\n){2,}/g, '\n');
+
+	return new Response(content, {
 		headers: { 'Content-Type': 'text/plain; charset=utf-8' }
 	});
 };
