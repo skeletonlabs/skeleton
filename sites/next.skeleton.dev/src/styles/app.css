@@ -1,3 +1,11 @@
+@import 'tailwindcss';
+
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton/optional/presets';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Global Styles */
 
 html {
