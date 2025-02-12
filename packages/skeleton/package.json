@@ -11,6 +11,9 @@
 		},
 		"./themes/*": {
 			"default": "./dist/themes/*.css"
+		},
+		"./optional/*": {
+			"default": "./dist/optional/*.css"
 		}
 	},
 	"files": [
