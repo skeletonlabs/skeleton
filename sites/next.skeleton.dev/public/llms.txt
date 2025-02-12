@@ -9,6 +9,6 @@
 - [Svelte package documentation](https://skeleton.dev/llms-svelte.txt): documentation with Svelte specific examples.
 
 ## Notes
-- The content is automatically generated from the same source as the official documentation
+- The content is automatically generated from the official documentation
 - Skeleton's core features are framework agnostic, only requiring the use of [Tailwind CSS](https://tailwindcss.com/). This provides full access to all design system features, while enabling you to standardize the design process for your framework of choice.
 
