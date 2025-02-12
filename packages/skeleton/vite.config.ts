@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import fg from 'fast-glob';
-import { basename } from 'node:path';
+import { basename, dirname, join } from 'node:path';
 
 export default defineConfig({
 	build: {
@@ -10,17 +10,14 @@ export default defineConfig({
 		lib: {
 			entry: {
 				['index']: 'src/index.css',
-				...Object.fromEntries((await fg.glob('./src/themes/*.{css,scss}')).map((path) => [`themes/${basename(path)}`, path])),
-				...Object.fromEntries((await fg.glob('./src/optional/*.{css,scss}')).map((path) => [`optional/${basename(path)}`, path]))
+				...Object.fromEntries(
+					(await fg.glob('./src/{themes,optional}/*.{css,scss}')).map((path) => {
+						const directory = basename(dirname(path));
+						const filename = basename(path);
+						return [join(directory, filename), path];
+					})
+				)
 			}
 		}
-	},
-	plugins: [
-		{
-			name: 'custom-plugin',
-			configResolved(config) {
-				console.log(config.build.lib);
-			}
-		}
-	]
+	}
 });
