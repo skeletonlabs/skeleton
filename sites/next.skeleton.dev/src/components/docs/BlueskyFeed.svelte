@@ -27,7 +27,7 @@
 				<header class="flex justify-between items-center">
 					<img
 						class="w-10 rounded-full overflow-hidden"
-						src="https://cdn.bsky.app/img/avatar_thumbnail/plain/did:plc:whtgi5zx7ylmdw2i76vq7vq4/bafkreicyyaq6y2iqhow3vknjyvenqqpxoxls63miv5traflivi44kkp4gq@jpeg"
+						src="https://avatars.githubusercontent.com/u/118298875?s=400&u=66ff2a8ff80de0400757270d5a4eb90d61c867f1&v=4"
 						alt="avatar"
 					/>
 					<small class="opacity-60">{new Date(post.record.createdAt).toLocaleString()}</small>
