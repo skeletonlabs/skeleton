@@ -1,10 +1,23 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getEntry, getCollection } from 'astro:content';
 import fs from 'fs/promises';
 import path from 'path';
 
-export type Framework = 'svelte' | 'react';
+type Framework = 'svelte' | 'react';
+type Schema = {
+	name: string;
+	properties: Array<{
+		type: string;
+		name: string;
+		typeKind: string;
+		required: boolean;
+		documentation: {
+			tags: Array<{ value: string; name: string }>;
+			text: string | null;
+		};
+	}>;
+};
 
+// Exact copy from ApiTable.astro
 async function getSchemaFromSlug(slug: string | undefined) {
 	if (!slug) return null;
 	const parts = slug.split('/');
@@ -15,22 +28,22 @@ async function getSchemaFromSlug(slug: string | undefined) {
 	return entry?.data;
 }
 
-function generateMarkdownApiTable(schema: any[]): string {
+// Replacement from ApiTable.astro but instead converts schema to markdown tables
+function generateMarkdownApiTable(schema: Schema[]): string {
 	if (!schema || !Array.isArray(schema) || schema.length === 0) {
 		return '';
 	}
 	let markdown = '';
 	schema.forEach((section) => {
-		// Remove "Props" from the section name
 		const sectionTitle = section.name.replace('Props', '');
 		markdown += `\n### ${sectionTitle}\n\n`;
 		markdown += `| Property | Type | Description |\n`;
 		markdown += `| --- | --- | --- |\n`;
-		section.properties.forEach((property: any) => {
+		section.properties.forEach((property) => {
 			const propName = `\`${property.name}\`${property.required ? '*' : ''}`;
 			const typeStr = property.type;
 			let description = property.documentation.text || '';
-			const defaultTag = property.documentation.tags.find((tag: any) => tag.name === 'default');
+			const defaultTag = property.documentation.tags.find((tag) => tag.name === 'default');
 			if (defaultTag) {
 				description += `\nDefault: ${defaultTag.value}`;
 			}
@@ -49,6 +62,7 @@ function generateMarkdownApiTable(schema: any[]): string {
  */
 async function processPreviewBlocks(content: string, language: string): Promise<string> {
 	// Collect raw import mappings (only those ending with ?raw)
+	// All examples are imported as raw.
 	const rawImportRegex = /import\s+(\w+)\s+from\s+['"]([^'"]+\?raw)['"];/g;
 	const rawImports: Record<string, string> = {};
 	let match;
@@ -64,6 +78,19 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 	const previewBlocks = Array.from(content.matchAll(previewBlockRegex));
 	for (const previewMatch of previewBlocks) {
 		const previewBlock = previewMatch[0];
+		// Example preview block
+		//<Preview client:load>
+		// 	<Fragment slot="preview">
+		// 		<Example client:load />
+		// 	</Fragment>
+		// 	<Fragment slot="code">
+		// 	    <Code code={ExampleRaw} lang="tsx" />
+		// </Fragment>
+		//</Preview>
+		// We really only care about the code part and detect which path it is refering to
+		// by using the rawImports Record
+
+		// <Code code={ExampleRaw} lang="tsx" /> -> ExampleRaw
 		const codeIdentifierMatch = previewBlock.match(/<Code\s+code=\{([^}]+)\}/);
 		if (!codeIdentifierMatch) continue;
 		const codeIdentifier = codeIdentifierMatch[1].trim();
@@ -83,7 +110,15 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 	return content;
 }
 
+/**
+ * Replaces preview blocks with Markdown code blocks.
+ * @param content The content to process.
+ * @param docSlug The slug of the content.
+ */
 async function processApiTables(content: string, docSlug: string): Promise<string> {
+	// ApiTable might be called in a few ways:
+	// 1. <ApiTable /> 2. <ApiTable {schema} />
+	// The schema is always imported as json
 	const schemaImportRegex = /import\s+(\w+)\s+from\s+['"]([^'"]+\.json)['"];/g;
 	const schemaImports: Record<string, string> = {};
 	let match;
@@ -98,13 +133,13 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 	for (const apiMatch of apiTableMatches.reverse()) {
 		const fullMatch = apiMatch[0];
 		const schemaVar = apiMatch[1]?.trim();
-		let schemaData: any;
+		let schemaData: Schema[];
 		if (schemaVar) {
 			const importPath = schemaImports[schemaVar];
 			if (importPath) {
 				const resolvedPath = importPath.replace(/^@schemas|@content\/schemas/, './src/content/schemas');
 				try {
-					const schemaModule = await import(path.resolve(resolvedPath));
+					const schemaModule = await import(/* @vite-ignore */ path.resolve(resolvedPath));
 					schemaData = schemaModule.default || schemaModule;
 				} catch (err) {
 					console.error('Error importing schema file:', resolvedPath, err);
@@ -114,7 +149,7 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 				schemaData = [];
 			}
 		} else {
-			schemaData = await getSchemaFromSlug(docSlug);
+			schemaData = (await getSchemaFromSlug(docSlug)) as Schema[];
 		}
 		if (!Array.isArray(schemaData)) {
 			schemaData = [];
@@ -136,7 +171,7 @@ async function processGetStarted(): Promise<string> {
 	for (const doc of generalDocs) {
 		content += `# ${doc.data.title}\n${doc.data.description}\n\n${doc.body}\n\n---\n\n`;
 	}
-	// If there are installation docs, add them as a subcategory.
+	// Installation docs as subcategory
 	if (installationDocs.length) {
 		content += '## Installation\n\n';
 		for (const doc of installationDocs) {
@@ -153,6 +188,7 @@ async function processGuidesGeneral(): Promise<string> {
 	let guidesContent = '';
 	for (const doc of guidesDocs) {
 		let content = doc.body;
+		// Guides only has preview blocks without ApiTables
 		content = await processPreviewBlocks(content, 'html');
 		content = `# ${doc.data.title}\n${doc.data.description}\n\n${content}`;
 		guidesContent += content + '\n\n---\n\n';
@@ -165,6 +201,7 @@ async function processGuidesCookbook(): Promise<string> {
 	let cookbookContent = '';
 	for (const doc of cookbookDocs) {
 		let content = doc.body;
+		// Cookbook only has PreviewBlocks
 		content = await processPreviewBlocks(content, 'html');
 		content = `# ${doc.data.title}\n${doc.data.description}\n\n${content}`;
 		cookbookContent += content + '\n\n---\n\n';
