@@ -27,6 +27,27 @@
 		}
 	}
 
+	/* Ghost Input --- */
+	/* Used for the <TagsInput> component. */
+
+	.input-ghost {
+		padding: 0px;
+		background-color: transparent;
+		border-color: transparent;
+		/* --- */
+		outline-color: transparent;
+		--tw-ring-color: transparent;
+		@variant active {
+			border-color: transparent !important;
+		}
+		@variant focus {
+			border-color: transparent !important;
+		}
+		@variant focus-within {
+			border-color: transparent !important;
+		}
+	}
+
 	/* File Date/Time --- */
 
 	.input[type='date'],

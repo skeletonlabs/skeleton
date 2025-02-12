@@ -32,7 +32,7 @@
 					/>
 					<small class="opacity-60">{new Date(post.record.createdAt).toLocaleString()}</small>
 				</header>
-				<p class="xl:type-scale-4">{post.record.text}</p>
+				<p class="xl:text-lg">{post.record.text}</p>
 				<footer class="space-y-4">
 					{#if post.embed}
 						{#if post.embed.$type.includes('external')}

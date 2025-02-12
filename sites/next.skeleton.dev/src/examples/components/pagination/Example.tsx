@@ -48,7 +48,7 @@ export const Page: React.FC = () => {
 							<th className="!text-right">Symbol</th>
 						</tr>
 					</thead>
-					<tbody className="hover:[&>tr]:preset-tonal-primary">
+					<tbody className="[&>tr]:hover:preset-tonal-primary">
 						{slicedSource(sourceData).map((row) => (
 							<tr key={row.position}>
 								<td>{row.position}</td>

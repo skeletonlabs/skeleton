@@ -3,7 +3,7 @@
 
 @keyframes anim-ring-indeterminate {
 	from: {
-		stroke-dasharray: 1400;
+		stroke-dasharray: 1, 400;
 		stroke-dashoffset: 0;
 	}
 	to: {

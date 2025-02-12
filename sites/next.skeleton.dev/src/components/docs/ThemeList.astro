@@ -1,8 +1,12 @@
 ---
-import * as themes from '@skeletonlabs/skeleton/themes';
+// import * as themes from '@skeletonlabs/skeleton/themes';
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-2">
+<div class="card p-4 bg-red-500 text-center">
+	<p>ThemesList component is currently disabled.</p>
+</div>
+
+<!-- <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-2">
 	{
 		Object.entries(themes).map(([key, values]) => (
 			<button
@@ -23,12 +27,12 @@ import * as themes from '@skeletonlabs/skeleton/themes';
 			</button>
 		))
 	}
-</div>
+</div> -->
 
-<script>
+<!-- <script>
 	for (const button of document.querySelectorAll<HTMLButtonElement>('button[data-theme]')) {
 		button.addEventListener('click', async () => {
 			await navigator.clipboard.writeText(button.dataset.theme!);
 		});
 	}
-</script>
+</script> -->

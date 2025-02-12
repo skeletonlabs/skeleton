@@ -116,7 +116,7 @@
 							<Avatar src="https://i.pravatar.cc/150?img={i + 10}" name="" size="size-10" imageClasses="grayscale" />
 							<div class="text-left">
 								<p class="font-bold">{member.name}</p>
-								<p class="opacity-60 type-scale-1">{member.email}</p>
+								<p class="opacity-60 text-xs">{member.email}</p>
 							</div>
 						</button>
 					{/each}
@@ -180,21 +180,21 @@
 				<div class="flex flex-col items-start">
 					<h2 class="text-3xl font-bold">64k+</h2>
 					<div class="grid grid-cols-1 gap-2">
-						<p class="type-scale-1 opacity-60">Downloads</p>
+						<p class="text-xs opacity-60">Downloads</p>
 						<badge class="badge preset-tonal-success">&uarr; 4%</badge>
 					</div>
 				</div>
 				<div class="flex flex-col items-start">
 					<h2 class="text-3xl font-bold">93k+</h2>
 					<div class="grid grid-cols-1 gap-2">
-						<p class="type-scale-1 opacity-60">Views</p>
+						<p class="text-xs opacity-60">Views</p>
 						<badge class="badge preset-tonal-error">&darr; 2.4%</badge>
 					</div>
 				</div>
 				<div class="flex flex-col items-start">
 					<h2 class="text-3xl font-bold">15k+</h2>
 					<div class="grid grid-cols-1 gap-2">
-						<p class="type-scale-1 opacity-60">Members</p>
+						<p class="text-xs opacity-60">Members</p>
 						<badge class="badge preset-tonal-success">&uarr; 8%</badge>
 					</div>
 				</div>
@@ -303,7 +303,7 @@
 							<th class="!text-right">Weight</th>
 						</tr>
 					</thead>
-					<tbody class="hover:[&>tr]:preset-tonal">
+					<tbody class="[&>tr]:hover:preset-tonal">
 						{#each tableData as row, i}
 							<tr>
 								<td>

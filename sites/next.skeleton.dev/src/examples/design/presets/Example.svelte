@@ -46,6 +46,7 @@
 <style lang="postcss">
 	/* Create a custom preset in your global stylesheet */
 	.preset-gradient {
-		@apply bg-gradient-to-br from-secondary-500 to-tertiary-500 text-white;
+		background-image: linear-gradient(45deg, var(--color-secondary-500), var(--color-tertiary-500));
+		color: var(--color-primary-contrast-500);
 	}
 </style>

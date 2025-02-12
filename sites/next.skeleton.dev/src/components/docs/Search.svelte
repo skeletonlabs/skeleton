@@ -180,8 +180,8 @@
 							>
 								<span><IconBook class="size-6 opacity-60" /></span>
 								<div class="space-y-1">
-									<p class="type-scale-4 font-bold">{result.meta.title}</p>
-									<p class="type-scale-1">{result.url}</p>
+									<p class="text-lg font-bold">{result.meta.title}</p>
+									<p class="text-xs">{result.url}</p>
 								</div>
 								<span><IconChevronRight class="size-4 opacity-60" /></span>
 							</a>
@@ -197,8 +197,8 @@
 											<IconHash class="size-4 opacity-60" />
 										</span>
 										<div class="space-y-1 overflow-hidden">
-											<p class="type-scale-3 font-bold">{subResult.title}</p>
-											<p class="type-scale-1 text-surface-600-400 break-words">
+											<p class="text-base font-bold">{subResult.title}</p>
+											<p class="text-xs text-surface-600-400 break-words">
 												<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 												{@html subResult.excerpt}
 											</p>

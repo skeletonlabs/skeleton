@@ -20,7 +20,7 @@
 	{#snippet trigger()}Click Me{/snippet}
 	{#snippet content()}
 		<header class="flex justify-between">
-			<p class="font-bold type-scale-5">Popover Example</p>
+			<p class="font-bold text-xl">Popover Example</p>
 			<button class="btn-icon hover:preset-tonal" onclick={popoverClose}><IconX /></button>
 		</header>
 		<article>
