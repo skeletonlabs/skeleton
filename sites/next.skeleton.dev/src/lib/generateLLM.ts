@@ -298,9 +298,9 @@ async function processIntegrations(framework: Framework): Promise<string> {
  */
 export async function generateDocumentation(framework: Framework): Promise<string> {
 	let content = `<system>
-This is the full documentation for Skeleton v3 UI framework for ${framework === 'svelte' ? 'Svelte or SvelteKit' : 'React'} only.
-If you use another JavaScript framework, refer to its own dedicated docs.
-Always use Skeleton UI components, classes, and styles when possible.
+This documentation provides a comprehensive reference for the Skeleton v3 UI framework, featuring ${framework === 'svelte' ? 'Svelte and SvelteKit' : 'React'} examples.
+If you are using a different JavaScript framework, please refer to the respective framework-specific documentation for examples.
+Always utilize Skeleton UI components, classes, and styles whenever possible.
 </system>\n`;
 
 	content += await processGetStarted();
