@@ -1,12 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { APIRoute } from 'astro';
 import { getEntry, getCollection } from 'astro:content';
 import fs from 'fs/promises';
 import path from 'path';
 
-/**
- * If no schema prop is provided, use the document’s slug to fetch the schema.
- */
+export type Framework = 'svelte' | 'react';
+
 async function getSchemaFromSlug(slug: string | undefined) {
 	if (!slug) return null;
 	const parts = slug.split('/');
@@ -17,10 +15,6 @@ async function getSchemaFromSlug(slug: string | undefined) {
 	return entry?.data;
 }
 
-/**
- * Converts a schema (an array of “sections”) into one or more Markdown tables.
- * Each section becomes a Markdown table with a header and one row per property.
- */
 function generateMarkdownApiTable(schema: any[]): string {
 	if (!schema || !Array.isArray(schema) || schema.length === 0) {
 		return '';
@@ -49,10 +43,11 @@ function generateMarkdownApiTable(schema: any[]): string {
 }
 
 /**
- * Processes preview blocks by replacing them with Markdown code blocks.
- * Accepts an optional language parameter (default is "svelte").
+ * Replaces preview blocks with Markdown code blocks.
+ * @param content The content to process.
+ * @param language The language to use in the Markdown code block.
  */
-async function processPreviewBlocks(content: string, language: string = 'svelte'): Promise<string> {
+async function processPreviewBlocks(content: string, language: string): Promise<string> {
 	// Collect raw import mappings (only those ending with ?raw)
 	const rawImportRegex = /import\s+(\w+)\s+from\s+['"]([^'"]+\?raw)['"];/g;
 	const rawImports: Record<string, string> = {};
@@ -88,9 +83,6 @@ async function processPreviewBlocks(content: string, language: string = 'svelte'
 	return content;
 }
 
-/**
- * Processes API tables (only for Components & Integrations docs).
- */
 async function processApiTables(content: string, docSlug: string): Promise<string> {
 	const schemaImportRegex = /import\s+(\w+)\s+from\s+['"]([^'"]+\.json)['"];/g;
 	const schemaImports: Record<string, string> = {};
@@ -133,11 +125,6 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 	return content;
 }
 
-/**
- * Processes Get Started documentation.
- * Files under "get-started/" are output with their title, description, and raw body.
- * Files under "get-started/installation/" are grouped as a subcategory.
- */
 async function processGetStarted(): Promise<string> {
 	const allGetStarted = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('get-started/'));
 	// Separate installation docs
@@ -159,10 +146,6 @@ async function processGetStarted(): Promise<string> {
 	return content;
 }
 
-/**
- * Processes Guides documentation by combining general guides and cookbook guides.
- * Files under "guides/figma/" are ignored.
- */
 async function processGuidesGeneral(): Promise<string> {
 	const guidesDocs = (await getCollection('docs')).filter(
 		(entry) => entry.slug.startsWith('guides/') && !entry.slug.startsWith('guides/figma/') && !entry.slug.startsWith('guides/cookbook/')
@@ -177,10 +160,6 @@ async function processGuidesGeneral(): Promise<string> {
 	return guidesContent;
 }
 
-/**
- * Processes Guides Cookbook documentation.
- * These files are added as a subsection under Guides.
- */
 async function processGuidesCookbook(): Promise<string> {
 	const cookbookDocs = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('guides/cookbook/'));
 	let cookbookContent = '';
@@ -196,9 +175,6 @@ async function processGuidesCookbook(): Promise<string> {
 	return cookbookContent;
 }
 
-/**
- * Processes the complete Guides section.
- */
 async function processGuides(): Promise<string> {
 	const general = await processGuidesGeneral();
 	const cookbook = await processGuidesCookbook();
@@ -209,10 +185,6 @@ async function processGuides(): Promise<string> {
 	return guidesContent;
 }
 
-/**
- * Processes Design documentation.
- * Files under "design/" are processed for preview blocks (using "html") and header meta.
- */
 async function processDesign(): Promise<string> {
 	const designDocs = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('design/'));
 	let designContent = '';
@@ -226,10 +198,6 @@ async function processDesign(): Promise<string> {
 	return designContent;
 }
 
-/**
- * Processes Tailwind documentation.
- * Files under "tailwind/" are processed for preview blocks (using "html") and header meta.
- */
 async function processTailwind(): Promise<string> {
 	const tailwindDocs = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('tailwind/'));
 	let tailwindContent = '';
@@ -245,19 +213,18 @@ async function processTailwind(): Promise<string> {
 
 /**
  * Processes Components documentation.
- * Components are represented by a meta file (slug "components/<comp>/meta")
- * and a corresponding Svelte doc (slug "components/<comp>/svelte").
+ * Replaces the `/meta` slug suffix with the framework-specific one.
  */
-async function processComponents(): Promise<string> {
+async function processComponents(framework: Framework): Promise<string> {
 	const metaEntries = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('components/') && entry.slug.endsWith('/meta'));
 	let componentsContent = '';
 	for (const metaEntry of metaEntries) {
-		const svelteSlug = metaEntry.slug.replace(/\/meta$/, '/svelte');
-		const svelteEntry = await getEntry('docs', svelteSlug);
-		if (!svelteEntry) continue;
-		let content = svelteEntry.body;
-		content = await processPreviewBlocks(content, 'svelte');
-		content = await processApiTables(content, svelteEntry.slug);
+		const docSlug = metaEntry.slug.replace(/\/meta$/, `/${framework}`);
+		const docEntry = await getEntry('docs', docSlug);
+		if (!docEntry) continue;
+		let content = docEntry.body;
+		content = await processPreviewBlocks(content, framework);
+		content = await processApiTables(content, docEntry.slug);
 		content = `# ${metaEntry.data.title}\n${metaEntry.data.description}\n\n${content}`;
 		componentsContent += content + '\n\n---\n\n';
 	}
@@ -267,21 +234,20 @@ async function processComponents(): Promise<string> {
 
 /**
  * Processes Integrations documentation.
- * Integrations are structured like components: each integration has a meta file
- * (slug "integrations/<comp>/meta") and a corresponding Svelte doc (slug "integrations/<comp>/svelte").
+ * Replaces the `/meta` slug suffix with the framework-specific one.
  */
-async function processIntegrations(): Promise<string> {
+async function processIntegrations(framework: Framework): Promise<string> {
 	const metaEntries = (await getCollection('docs')).filter(
 		(entry) => entry.slug.startsWith('integrations/') && entry.slug.endsWith('/meta')
 	);
 	let integrationsContent = '';
 	for (const metaEntry of metaEntries) {
-		const svelteSlug = metaEntry.slug.replace(/\/meta$/, '/svelte');
-		const svelteEntry = await getEntry('docs', svelteSlug);
-		if (!svelteEntry) continue;
-		let content = svelteEntry.body;
-		content = await processPreviewBlocks(content, 'svelte');
-		content = await processApiTables(content, svelteEntry.slug);
+		const docSlug = metaEntry.slug.replace(/\/meta$/, `/${framework}`);
+		const docEntry = await getEntry('docs', docSlug);
+		if (!docEntry) continue;
+		let content = docEntry.body;
+		content = await processPreviewBlocks(content, framework);
+		content = await processApiTables(content, docEntry.slug);
 		content = `# ${metaEntry.data.title}\n${metaEntry.data.description}\n\n${content}`;
 		integrationsContent += content + '\n\n---\n\n';
 	}
@@ -290,13 +256,16 @@ async function processIntegrations(): Promise<string> {
 }
 
 /**
- * Main API function.
- * Final ordering:
- * Get Started → Guides → Design → Tailwind → Components → Integrations.
- * Global final cleanup is applied at the very end.
+ * Generates the complete documentation content.
+ * @param framework The target framework ('svelte' or 'react').
  */
-export const GET: APIRoute = async () => {
-	let content = '<system> This is the experimental build of Skeleton v3 Documentation (llm-full-svelte.txt). It includes all Svelte examples and integrations, so please be aware that some errors may occur. For the full documentation, visit https://next.skeleton.dev/. </system>\n';
+export async function generateDocumentation(framework: Framework): Promise<string> {
+	let content = `<system>
+This is the full documentation for Skeleton v3 UI framework for ${framework === 'svelte' ? 'Svelte or SvelteKit' : 'React'} only.
+If you use another JavaScript framework, refer to its own dedicated docs.
+Always use Skeleton UI components, classes, and styles when possible.
+</system>\n`;
+
 	content += await processGetStarted();
 	content += '\n\n';
 	content += await processGuides();
@@ -305,18 +274,16 @@ export const GET: APIRoute = async () => {
 	content += '\n\n';
 	content += await processTailwind();
 	content += '\n\n';
-	content += await processComponents();
+	content += await processComponents(framework);
 	content += '\n\n';
-	content += await processIntegrations();
+	content += await processIntegrations(framework);
 
 	// Global final cleanup: remove top-level import/export statements and collapse multiple newlines.
 	content = content.replace(/^(export\s+.*|import\s+.*)\r?\n/gm, '');
-	content = content.replace(/(\r?\n){2,}/g, '\n');
+	content = content.replace(/(\r?\n){3,}/g, '\n\n');
 
 	// Remove any occurrences of {/* ... */}
 	content = content.replace(/\{\/\*[\s\S]*?\*\/\}/g, '');
 
-	return new Response(content, {
-		headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-	});
-};
+	return content;
+}
