@@ -147,6 +147,6 @@
 
 <style lang="postcss">
 	[data-part='item'][data-highlighted]:not([data-state='checked']) {
-		@apply bg-surface-500/10;
+		background-color: var(--color-surface-200-800);
 	}
 </style>

@@ -15,7 +15,9 @@ html {
 /* Local Utilities --- */
 
 .flex-centered {
-	@apply flex items-center justify-center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .bg-noise {
@@ -27,7 +29,8 @@ html {
 /* Astro Components --- */
 
 .astro-code {
-	@apply rounded-container p-4;
+	border-radius: var(--radius-container);
+	padding: --spacing(4);
 }
 
 /* Theme Enhancements --- */
@@ -82,18 +85,22 @@ html {
 
 /* Filled Cards */
 .card-filled-enhanced {
-	@apply card preset-filled-primary-500;
+	border-radius: var(--radius-container);
+	background-color: var(--color-primary-500);
+	color: var(--color-primary-contrast-500);
 }
 
 /* Linker */
 /* Prominant link elements for MDX pages */
 
 .linker {
-	@apply card flex justify-center px-4 py-10 shadow;
-	@apply bg-noise preset-filled-primary-500;
-}
-.linker-item {
-	@apply btn bg-primary-50 text-primary-950 shadow;
+	border-radius: var(--radius-container);
+	display: flex;
+	justify-content: center;
+	padding-inline: --spacing(4);
+	padding-block: --spacing(10);
+	background-color: var(--color-primary-500);
+	color: var(--color-primary-contrast-500);
 }
 
 /* Floating UI */
@@ -123,17 +130,22 @@ html {
 /* Carbon Ad Styles */
 
 #carbonads {
-	@apply bg-surface-50-950 border border-surface-500/30;
+	background-color: var(--color-surface-50-950);
+	border-width: 1px;
+	border-color: var(--color-surface-200-800);
 }
 #carbonads .carbon-wrap {
-	@apply grid grid-cols-[auto_1fr] gap-4;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: --spacing(3);
 }
 #carbonads .carbon-text {
-	@apply text-[0.775em] leading-[1.4em] opacity-75 no-underline;
-	@apply p-1;
+	font-size: var(--text-xs);
+	line-height: var(--text-xs--line-height);
+	padding: --spacing(1);
+	text-decoration-line: none;
+	opacity: 0.75;
 }
 #carbonads .carbon-poweredby {
-	@apply bg-surface-100-900;
-	@apply text-[0.5em] opacity-50 no-underline uppercase;
-	@apply block text-right p-1;
+	background-color: var(--color-surface-100-900);
 }
