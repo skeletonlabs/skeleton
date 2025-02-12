@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@plugin "@tailwindcss/forms";
 
 @import '@skeletonlabs/skeleton';
 @import '@skeletonlabs/skeleton/themes/cerberus';
