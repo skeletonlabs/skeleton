@@ -80,8 +80,8 @@ html {
 	background-attachment: fixed;
 	/* prettier-ignore */
 	background-image:
-		radial-gradient(at 0% 25%, rgba(var(--color-primary-500) / 0.10) 0px, transparent 30%),
-		radial-gradient(at 15% 06%, rgba(var(--color-success-500) / 0.05) 0px, transparent 30%);
+		radial-gradient(at 0% 25%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
+		radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 30%);
 }
 
 /* Filled Cards */
