@@ -11,7 +11,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: --spacing(2);
-		whitespace: nowrap;
+		white-space: nowrap;
 	}
 
 	/* Sizes --- */
@@ -29,7 +29,5 @@
 		line-height: --spacing(6);
 		width: --spacing(6);
 		height: --spacing(6);
-		padding-inline: --spacing(3);
-		padding-block: --spacing(2);
 	}
 }

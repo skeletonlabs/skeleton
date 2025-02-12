@@ -111,7 +111,7 @@
 		color: var(--color-surface-contrast-500);
 		font-family: var(--font-mono);
 		font-size: var(--text-sm);
-		whitespace: nowrap;
+		white-space: nowrap;
 		overflow-x: auto;
 		padding-inline: --spacing(1.5);
 		padding-block: --spacing(0.25);
@@ -125,7 +125,7 @@
 		border-radius: var(--radius-container);
 		color: var(--color-white);
 		font-size: var(--text-xs);
-		whitespace: pre-wrap;
+		white-space: pre-wrap;
 		padding: --spacing(4);
 		overflow-x: auto;
 	}
@@ -136,7 +136,7 @@
 		color: var(--color-primary-contrast-50-950);
 		font-family: var(--font-mono);
 		font-size: var(--text-xs);
-		whitespace: nowrap;
+		white-space: nowrap;
 		padding-inline: --spacing(1.5);
 		padding-block: --spacing(0.75);
 		overflow-x: auto;

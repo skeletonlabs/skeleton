@@ -12,7 +12,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: --spacing(2);
-		whitespace: nowrap;
+		white-space: nowrap;
 		/* Transitions (all) */
 		transition-property: all;
 		transition-timing-function: var(--default-transition-timing-function);
@@ -33,8 +33,6 @@
 		line-height: --spacing(9);
 		width: --spacing(9);
 		height: --spacing(9);
-		padding-inline: --spacing(4);
-		padding-block: --spacing(2);
 	}
 
 	/* Group --- */
@@ -81,22 +79,16 @@
 	line-height: --spacing(6);
 	width: --spacing(6);
 	height: --spacing(6);
-	padding-inline: --spacing(3);
-	padding-block: --spacing(2);
 }
 @utility btn-icon-base {
 	font-size: var(--text-base);
 	line-height: --spacing(8);
 	width: --spacing(8);
 	height: --spacing(8);
-	padding-inline: --spacing(4);
-	padding-block: --spacing(2);
 }
 @utility btn-icon-lg {
 	font-size: var(--text-lg);
 	line-height: --spacing(12);
 	width: --spacing(12);
 	height: --spacing(12);
-	padding-inline: --spacing(6);
-	padding-block: --spacing(2);
 }

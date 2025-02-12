@@ -141,12 +141,17 @@ html {
 	gap: --spacing(3);
 }
 #carbonads .carbon-text {
-	font-size: var(--text-xs);
-	line-height: var(--text-xs--line-height);
+	font-size: 11px;
 	padding: --spacing(1);
 	text-decoration-line: none;
 	opacity: 0.75;
 }
 #carbonads .carbon-poweredby {
+	display: block;
 	background-color: var(--color-surface-100-900);
+	color: var(--color-surface-600-400);
+	font-size: 10px;
+	padding: --spacing(1);
+	text-align: right;
+	text-transform: uppercase;
 }

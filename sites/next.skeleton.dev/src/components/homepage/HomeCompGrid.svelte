@@ -223,21 +223,21 @@
 				</button>
 			</header>
 			<hr class="hr" />
-			<div class="space-y-4">
+			<div class="space-y-1">
 				<div class="flex justify-between items-center">
 					<span class="text-xl font-bold">$3,900</span>
 					<span class="badge preset-tonal-success">+20%</span>
 				</div>
 				<progress class="progress" value="39" max="100"></progress>
 			</div>
-			<div class="space-y-4">
+			<div class="space-y-1">
 				<div class="flex justify-between items-center">
 					<span class="text-xl font-bold">$6,400</span>
 					<span class="badge preset-tonal-error">-5%</span>
 				</div>
 				<progress class="progress" value="64" max="100"></progress>
 			</div>
-			<div class="space-y-4">
+			<div class="space-y-1">
 				<div class="flex justify-between items-center">
 					<span class="text-xl font-bold">$1,300</span>
 					<span class="badge preset-tonal-success">+8%</span>
@@ -247,31 +247,37 @@
 		</div>
 		<!-- 9 -->
 		<div class={`${cardClasses} row-span-2 col-start-2 row-start-4`}>
-			<p class="font-bold">Delivery</p>
-			<nav class="grid grid-cols-2 gap-2">
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Tomorrow</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Within 2 days</button>
-			</nav>
-			<p class="font-bold">Size</p>
-			<nav class="grid grid-cols-5 gap-2">
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">5.5</button>
-				<button class="btn preset-filled-primary-500">6</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">6.5</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">7</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">7.5</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">8</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">8.5</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">9</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">9.5</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">10</button>
-			</nav>
-			<p class="font-bold">Material</p>
-			<nav class="grid grid-cols-4 gap-2">
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Canvas</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Mesh</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Suede</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Leather</button>
-			</nav>
+			<div class="space-y-2">
+				<p class="font-bold">Delivery</p>
+				<nav class="grid grid-cols-2 gap-2">
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Tomorrow</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Within 2 days</button>
+				</nav>
+			</div>
+			<div class="space-y-2">
+				<p class="font-bold">Size</p>
+				<nav class="grid grid-cols-5 gap-2">
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">5.5</button>
+					<button class="btn preset-filled-primary-500">6</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">6.5</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">7</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">7.5</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">8</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">8.5</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">9</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">9.5</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">10</button>
+				</nav>
+			</div>
+			<div class="space-y-2">
+				<p class="font-bold">Material</p>
+				<nav class="grid grid-cols-4 gap-2">
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Canvas</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Mesh</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Suede</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Leather</button>
+				</nav>
+			</div>
 		</div>
 		<!-- 10 -->
 		<div class={`${cardClasses} row-span-2 row-start-5 text-center`}>
@@ -281,7 +287,7 @@
 			<div class="space-y-2 text-center">
 				<h2 class="h2">Invoice Paid</h2>
 				<p class="text-sm opacity-60">You paid $14,276. Receipt submited to:</p>
-				<p class="font-bold text-xl">me@email.com</p>
+				<p class="font-bold">me@email.com</p>
 			</div>
 			<nav class="grid grid-cols-1 gap-2">
 				<button class="btn preset-filled-primary-500">Mark Completed</button>
@@ -342,7 +348,7 @@
 			<div class="grid grid-cols-[1fr_auto] items-start gap-5">
 				<div class="space-y-2">
 					<h2 class="h6">Contributions</h2>
-					<h2 class="h2">+1,248</h2>
+					<h2 class="text-4xl font-bold">+1,248</h2>
 					<p class="text-xs opacity-60"><span class="badge preset-tonal">+150% increase</span></p>
 				</div>
 				<IconUsers class="size-4 opacity-60" />
