@@ -20,3 +20,5 @@ pnpm-lock.yaml
 # Ignore .mdx files because codeblocks indside .mdx files are broken with prettier
 # See: https://github.com/prettier/prettier/issues/12209
 sites/next.skeleton.dev/**/*.mdx
+
+# test
