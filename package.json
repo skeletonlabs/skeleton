@@ -38,8 +38,7 @@
 		"format:check": "prettier . --check",
 		"lint": "eslint . --fix --ignore-path .gitignore",
 		"lint:check": "eslint . --ignore-path .gitignore",
-		"changeset:publish": "changeset publish",
-		"postinstall": "pnpm build"
+		"changeset:publish": "changeset publish"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.10",
