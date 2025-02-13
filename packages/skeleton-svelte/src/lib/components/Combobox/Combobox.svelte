@@ -21,8 +21,8 @@
 		labelClasses = '',
 		// Input
 		inputGroupBase = 'input-group grid-cols-[1fr_auto]',
-		inputGroupInput = '',
-		inputGroupButton = 'input-group-cell',
+		inputGroupInput = 'ig-input',
+		inputGroupButton = 'ig-btn hover:preset-tonal',
 		inputGroupArrow = '',
 		inputGroupClasses = '',
 		// Positioner

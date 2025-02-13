@@ -14,16 +14,15 @@
 	padding: --spacing(2);
 
 	outline-color: transparent;
-	--tw-ring-color: transparent;
 
 	@variant active {
-		border-color: var(--color-primary-500);
+		--tw-ring-color: var(--color-primary-500);
 	}
 	@variant focus {
-		border-color: var(--color-primary-500);
+		--tw-ring-color: var(--color-primary-500);
 	}
 	@variant focus-within {
-		border-color: var(--color-primary-500);
+		--tw-ring-color: var(--color-primary-500);
 	}
 
 	/* File Date/Time --- */

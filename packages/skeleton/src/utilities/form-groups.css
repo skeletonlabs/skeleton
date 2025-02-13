@@ -1,13 +1,51 @@
 /* Components: Forms > Input Group */
 
-/*
-@utilityinput-group {}
+@utility input-group {
+	display: grid;
+	align-items: stretch;
+	border-radius: var(--radius-base);
+	border-width: var(--default-border-width);
+	border-color: var(--color-surface-200-800);
+	overflow: hidden;
 
-@utilityig-cell {}
+	& > * + * {
+		border-left-width: 1px !important;
+		border-color: var(--color-surface-200-800);
+	}
+}
 
-@utilityig-input {}
+/* Child Elements -- */
 
-@utilityig-select {}
+@utility ig-cell {
+	font-size: var(--text-sm);
+	display: flex;
+	justify-contents: center;
+	align-items: center;
+	padding-inline: --spacing(4);
+}
 
-@utilityig-button {}
-*/
+@utility ig-input {
+	--tw-ring-inset: inset;
+	background-color: transparent;
+	border-width: 0;
+}
+
+@utility ig-select {
+	--tw-ring-inset: inset;
+	background-color: transparent;
+	border-width: 0;
+}
+
+@utility ig-btn {
+	--tw-ring-inset: inset;
+	cursor: pointer;
+	font-size: var(--text-base);
+	font-weight: var(--font-weight-medium);
+	text-decoration-line: none;
+	display: flex;
+	justify-contents: center;
+	align-items: center;
+	gap: --spacing(2);
+	padding-inline: --spacing(4);
+	white-space: nowrap;
+}

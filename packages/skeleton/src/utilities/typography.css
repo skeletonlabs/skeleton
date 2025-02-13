@@ -178,7 +178,7 @@
 }
 
 @utility code {
-	&:not(pre, .ec-line) > & {
+	&:not(pre &, .ec-line &) {
 		background-color: var(--color-primary-100-900);
 		border-radius: var(--radius-base);
 		color: var(--color-primary-contrast-50-950);

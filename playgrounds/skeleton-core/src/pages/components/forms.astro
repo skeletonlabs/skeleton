@@ -205,15 +205,15 @@ import Layout from '@layouts/Layout.astro';
 		<!-- Groups -->
 		<section class="space-y-4">
 			<h2 class="h2">Groups</h2>
-			<form class="w-full max-w-md space-y-8">
+			<form class="w-full space-y-4">
 				<!-- Website -->
-				<div class="input-group divide-surface-200-800 grid-cols-[auto_1fr_auto] divide-x">
-					<div class="ig-cell preset-tonal-surface">https://</div>
+				<div class="input-group grid-cols-[auto_1fr_auto]">
+					<div class="ig-cell preset-tonal">https://</div>
 					<input class="ig-input" type="text" placeholder="www.example.com" />
 				</div>
 				<!-- Amount -->
-				<div class="input-group divide-surface-200-800 grid-cols-[auto_1fr_auto] divide-x">
-					<div class="ig-cell preset-tonal-surface">$</div>
+				<div class="input-group grid-cols-[auto_1fr_auto]">
+					<div class="ig-cell preset-tonal">$</div>
 					<input class="ig-input" type="text" placeholder="Amount" />
 					<select class="ig-select">
 						<option>USD</option>
@@ -222,13 +222,13 @@ import Layout from '@layouts/Layout.astro';
 					</select>
 				</div>
 				<!-- Username -->
-				<div class="input-group divide-surface-200-800 grid-cols-[1fr_auto] divide-x">
-					<input type="text" placeholder="Enter Username..." />
+				<div class="input-group grid-cols-[1fr_auto]">
+					<input class="ig-input" type="text" placeholder="Enter Username..." />
 					<button class="ig-btn preset-filled" title="Username already in use.">&check;</button>
 				</div>
 				<!-- Search -->
-				<div class="input-group divide-surface-200-800 grid-cols-[auto_1fr_auto] divide-x">
-					<div class="input-group-cell">🔍</div>
+				<div class="input-group grid-cols-[auto_1fr_auto]">
+					<div class="ig-cell preset-tonal">🔍</div>
 					<input class="ig-input" type="search" placeholder="Search..." />
 					<button class="ig-btn preset-filled">Submit</button>
 				</div>
