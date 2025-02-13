@@ -16,7 +16,7 @@ describe('<Segment>', () => {
 		expect(component).toBeInTheDocument();
 	});
 
-	it('should allow you to pass arbitrary classses', () => {
+	it('should allow you to pass arbitrary classes', () => {
 		const testClasses = 'bg-green-500';
 		const { getByTestId } = render(
 			<Segment name="align" value="0" classes={testClasses}>
