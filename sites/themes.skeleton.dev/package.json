@@ -14,7 +14,8 @@
 		"@sveltejs/adapter-auto": "^3.3.1",
 		"@sveltejs/kit": "^2.9.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.1",
-		"@tailwindcss/forms": "^0.5.9",
+		"@tailwindcss/forms": "^0.5.10",
+		"@tailwindcss/vite": "^4.0.2",
 		"@types/chroma-js": "^2.4.4",
 		"autoprefixer": "^10.4.20",
 		"chroma-js": "^3.1.2",
@@ -24,8 +25,7 @@
 		"svelte-check": "^4.1.1",
 		"tailwindcss": "^4.0.6",
 		"typescript": "catalog:",
-		"vite": "^6.0.2",
-		"@tailwindcss/vite": "^4.0.2"
+		"vite": "^6.0.2"
 	},
 	"type": "module"
 }
