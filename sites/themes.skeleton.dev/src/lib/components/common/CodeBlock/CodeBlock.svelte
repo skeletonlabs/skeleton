@@ -73,25 +73,31 @@
 </figure>
 
 <!-- eslint-enable svelte/no-at-html-tags -->
-<!-- TODO: Move away from @apply
 <style lang="postcss">
 	.codeblock :global {
+		background-color: var(--color-surface-950);
+		border: 1px solid var(--color-surface-100-900);
+		border-radius: var(--radius-container);
+		padding-block: calc(var(--spacing) * 6);
 		.shiki {
-			@apply py-6 text-xs rounded-md whitespace-pre-wrap;
-			@apply !bg-black; /* set code block bg color */
+			font-size: var(--text-xs);
+			line-height: var(--text-xs--line-height);
+			white-space: pre-wrap;
 		}
 		.line {
 			/**
 			* Horizontal padding is added per line instead of the container
 			* so that highlights extend fully to the end of the codeblock
 			*/
-			@apply px-6 inline-block w-full;
+			display: inline-block;
+			padding-inline: calc(var(--spacing) * 4);
+			width: 100%;
 		}
 		.highlighted {
-			@apply !bg-surface-500/25;
+			background-color: color-mix(in oklab, var(--color-surface-500) 25%, transparent) !important;
 		}
 		.highlighted > span {
-			@apply !bg-transparent;
+			background-color: transparent !important;
 		}
 	}
-</style> -->
+</style>

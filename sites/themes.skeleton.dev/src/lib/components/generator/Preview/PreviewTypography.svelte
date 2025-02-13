@@ -2,7 +2,7 @@
 	<!-- Column 1 -->
 	<div class="space-y-10">
 		<div class="preset-filled-primary-500 w-56 aspect-square p-4 flex justify-center items-center">
-			<span class="h1 type-scale-13">Aa</span>
+			<span class="h1 text-8xl">Aa</span>
 		</div>
 		<!-- Headings -->
 		<div>
@@ -33,7 +33,7 @@
 		<!-- Content -->
 		<div class="space-y-4">
 			<h2 class="h2">Lorem Ipsum</h2>
-			<p class="type-scale-5">
+			<p class="text-xl">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 				Tincidunt dui ut ornare lectus sit <a class="anchor" href="/">amet est placerat</a>. Nulla aliquet porttitor lacus luctus accumsan
 				tortor posuere. Tempor orci eu lobortis elementum nibh tellus molestie nunc non. Vitae suscipit tellus mauris a diam maecenas sed

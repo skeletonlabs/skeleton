@@ -34,6 +34,7 @@
 	--default-border-width: 1px;
 	--default-divide-width: 1px;
 	--default-ring-width: 1px;
+	--color-primary-50: oklch(0.92 0.04 257.51);
 	--color-primary-100: oklch(0.84 0.08 254.62);
 	--color-primary-200: oklch(0.77 0.11 254.28);
 	--color-primary-300: oklch(0.7 0.15 254.36);

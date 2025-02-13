@@ -11,8 +11,8 @@
 	<label class="label">
 		<span class="label-text">Light Mode Background</span>
 		<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-			<div class="input-group-cell" style:background={`rgba(${settingsBackgrounds['--body-background-color']})`}></div>
-			<select name="--body-background-color" bind:value={settingsBackgrounds['--body-background-color']}>
+			<div class="ig-cell aspect-square" style:background={`rgba(${settingsBackgrounds['--body-background-color']})`}></div>
+			<select class="ig-select" name="--body-background-color" bind:value={settingsBackgrounds['--body-background-color']}>
 				<option value="255 255 255">White</option>
 				{#each constants.colorNames as colorName}
 					<optgroup label={colorName}>
@@ -28,8 +28,8 @@
 	<label class="label">
 		<span class="label-text">Dark Mode Background</span>
 		<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-			<div class="input-group-cell" style:background={`rgba(${settingsBackgrounds['--body-background-color-dark']})`}></div>
-			<select name="--body-background-color-dark" bind:value={settingsBackgrounds['--body-background-color-dark']}>
+			<div class="ig-cell aspect-square" style:background={`rgba(${settingsBackgrounds['--body-background-color-dark']})`}></div>
+			<select class="ig-select" name="--body-background-color-dark" bind:value={settingsBackgrounds['--body-background-color-dark']}>
 				<option value="0 0 0">Black</option>
 				{#each constants.colorNames as colorName}
 					<optgroup label={colorName}>

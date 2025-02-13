@@ -7,12 +7,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Background Image */
-body {
+/* body {
 	background-attachment: fixed;
 	background-size: cover;
-	/* prettier-ignore */
 	background-image:
 		radial-gradient(at 0% 25%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
 		radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 30%);
-}
+} */

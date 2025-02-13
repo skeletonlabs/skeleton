@@ -105,7 +105,7 @@
 								<span>Random</span>
 							</button>
 							<Switch name="example" bind:checked={showAllShades} classes="!gap-2">
-								<span class="type-scale-1 opacity-60">All</span>
+								<span class="text-xs opacity-60">All</span>
 							</Switch>
 						</div>
 						<!-- Message -->
@@ -121,7 +121,7 @@
 							<tbody>
 								{#each rxShadeArray as shade}
 									<tr>
-										<td class="type-scale-1 opacity-60">{shade}</td>
+										<td class="text-xs opacity-60">{shade}</td>
 										<!-- --color-(name)-(shade) -->
 										<td>
 											<input
@@ -151,13 +151,13 @@
 								<!-- --color-(color)-contrast-dark -->
 								<label class="label">
 									<span class="label-text">Light Contrast</span>
-									<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+									<div class="input-group grid-cols-[auto_1fr] divide-x divide-surface-200-800">
 										<div
-											class="input-group-cell"
+											class="ig-cell aspect-square"
 											style:background={`rgba(${settingsColors[`--color-${color.value}-contrast-light`]})`}
 										></div>
 										<select
-											class="select"
+											class="ig-select"
 											name={`--color-${color.value}-contrast-light`}
 											bind:value={settingsColors[`--color-${color.value}-contrast-light`]}
 										>
@@ -175,13 +175,13 @@
 								<!-- --color-surface-contrast-light -->
 								<label class="label">
 									<span class="label-text">Dark Contrast</span>
-									<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
+									<div class="input-group grid-cols-[auto_1fr] divide-x divide-surface-200-800">
 										<div
-											class="input-group-cell"
+											class="ig-cell aspect-square"
 											style:background={`rgba(${settingsColors[`--color-${color.value}-contrast-dark`]})`}
 										></div>
 										<select
-											class="select"
+											class="ig-select"
 											name={`--color-${color.value}-contrast-dark`}
 											bind:value={settingsColors[`--color-${color.value}-contrast-dark`]}
 										>

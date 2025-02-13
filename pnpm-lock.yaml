@@ -4,6 +4,66 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@zag-js/accordion':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/avatar':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/combobox':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/dialog':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/file-upload':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/pagination':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/popover':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/progress':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/radio-group':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/rating-group':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/react':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/slider':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/svelte':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/switch':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/tabs':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/tags-input':
+      specifier: ^0.78.3
+      version: 0.78.3
+    '@zag-js/tooltip':
+      specifier: ^0.78.3
+      version: 0.78.3
+    svelte:
+      specifier: ^5.19.0
+      version: 5.19.0
+    typescript:
+      specifier: ^5.6.3
+      version: 5.6.3
+
 importers:
 
   .:

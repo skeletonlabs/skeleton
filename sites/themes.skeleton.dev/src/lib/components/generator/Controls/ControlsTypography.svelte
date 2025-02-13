@@ -55,8 +55,8 @@
 					<label class="label">
 						<span class="label-text">Light Mode Font Color</span>
 						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-							<div class="input-group-cell" style:background={`rgba(${settingsTypography['--base-font-color']})`}></div>
-							<select class="select" name="--base-font-color" bind:value={settingsTypography['--base-font-color']}>
+							<div class="ig-cell aspect-square" style:background={`rgba(${settingsTypography['--base-font-color']})`}></div>
+							<select class="ig-select" name="--base-font-color" bind:value={settingsTypography['--base-font-color']}>
 								<option value="0 0 0">Black</option>
 								{#each constants.colorNames as colorName}
 									<optgroup label={colorName}>
@@ -72,8 +72,8 @@
 					<label class="label">
 						<span class="label-text">Dark Mode Font Color</span>
 						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-							<div class="input-group-cell" style:background={`rgba(${settingsTypography['--base-font-color-dark']})`}></div>
-							<select class="select" name="--base-font-color-dark" bind:value={settingsTypography['--base-font-color-dark']}>
+							<div class="ig-cell aspect-square" style:background={`rgba(${settingsTypography['--base-font-color-dark']})`}></div>
+							<select class="ig-select" name="--base-font-color-dark" bind:value={settingsTypography['--base-font-color-dark']}>
 								<option value="255 255 255">White</option>
 								{#each constants.colorNames as colorName}
 									<optgroup label={colorName}>
@@ -150,7 +150,7 @@
 						<span class="label-text">Light Mode Font Color</span>
 						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
 							<div
-								class="input-group-cell"
+								class="ig-cell"
 								style:background={settingsTypography['--heading-font-color'] === 'inherit'
 									? `rgba(${settingsTypography['--base-font-color']})`
 									: `rgba(${settingsTypography['--heading-font-color']})`}
@@ -173,7 +173,7 @@
 						<span class="label-text">Dark Mode Font Color</span>
 						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
 							<div
-								class="input-group-cell"
+								class="ig-cell"
 								style:background={settingsTypography['--heading-font-color-dark'] === 'inherit'
 									? `rgba(${settingsTypography['--base-font-color-dark']})`
 									: `rgba(${settingsTypography['--heading-font-color-dark']})`}
@@ -238,7 +238,7 @@
 						<span class="label-text">Light Mode Font Color</span>
 						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
 							<div
-								class="input-group-cell"
+								class="ig-cell"
 								style:background={settingsTypography['--anchor-font-color'] === 'inherit'
 									? `rgba(${settingsTypography['--base-font-color']})`
 									: `rgba(${settingsTypography['--anchor-font-color']})`}
@@ -260,7 +260,7 @@
 						<span class="label-text">Dark Mode Font Color</span>
 						<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
 							<div
-								class="input-group-cell"
+								class="ig-cell"
 								style:background={settingsTypography['--anchor-font-color-dark'] === 'inherit'
 									? `rgba(${settingsTypography['--base-font-color-dark']})`
 									: `rgba(${settingsTypography['--anchor-font-color-dark']})`}
