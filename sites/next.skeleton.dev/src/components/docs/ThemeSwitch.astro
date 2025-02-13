@@ -32,7 +32,6 @@ import { Palette } from 'lucide-react';
 	const themeSelects = document.querySelectorAll<HTMLSelectElement>('[data-theme-list]');
 	themeSelects.forEach((themeSelect) => {
 		themeSelect.value = localStorage.getItem('theme') || 'cerberus';
-		console.log(themeSelect.value);
 		themeSelect.addEventListener('change', (event) => {
 			if (!(event.target instanceof HTMLSelectElement)) return;
 			document.body.classList.add('transition-all');
