@@ -139,12 +139,12 @@
 >
 	<!-- Search Field -->
 	<div class="input-group grid-cols-[auto_1fr_auto]">
-		<div class="input-group-cell">
+		<div class="ig-cell">
 			<IconSearch class="size-4 opacity-60" />
 		</div>
-		<input placeholder="Search..." bind:value={query} />
-		<button type="button" class="btn-icon preset-tonal translate-y-0.5 scale-75" onclick={toggleFilters} title="Show Filters" tabindex="-1">
-			<IconFilter class="size-6" />
+		<input class="ig-input" placeholder="Search..." bind:value={query} />
+		<button type="button" class="ig-btn hover:preset-tonal" onclick={toggleFilters} title="Show Filters" tabindex="-1">
+			<IconFilter class="size-4" />
 		</button>
 	</div>
 	<!-- Filters -->
@@ -167,7 +167,7 @@
 			{#if results.length === 0 && query !== ''}
 				<p class="py-10 text-center">No results found for <code class="code">{query}</code></p>
 			{:else if results.length === 0}
-				<p class="py-10 text-center">What can we help you find?</p>
+				<p class="py-10 text-center text-xl">What can we help you find?</p>
 			{:else}
 				<ol class="flex flex-col gap-4 space-y-4">
 					{#each results as result}
