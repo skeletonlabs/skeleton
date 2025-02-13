@@ -50,10 +50,10 @@ body:
         npmPackages:
           @skeletonlabs/skeleton: ^3.0.0-next.10 => 3.0.0-next.10
           @skeletonlabs/skeleton-react: ^1.0.0-next.13 => 1.0.0-next.13
-  - type: textarea
-    attributes:
+- type: textarea
+  attributes:
     label: More Information
     description: |
-      Provide relevant links or additionl information.
+      Provide relevant links or additional information.
   validations:
     required: false
