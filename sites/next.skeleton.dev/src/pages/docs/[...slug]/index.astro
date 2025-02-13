@@ -19,14 +19,15 @@ export const getStaticPaths = (async () => {
 const { page } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(page);
 
+let meta: Awaited<ReturnType<typeof getEntry>>;
 if (page.id.startsWith('components/')) {
-	const meta = await getEntry('docs', page.id.replace(/\/[^\/]*$/, '/meta'));
+	meta = await getEntry('docs', page.id.replace(/\/[^\/]*$/, '/meta'));
 	if (meta !== undefined) {
 		Object.assign(remarkPluginFrontmatter, meta.data);
 	}
 }
 ---
 
-<LayoutRoot title={meta ? meta.data.title : entry.data.title} description={meta ? meta.data.title : entry.data.description}>
+<LayoutRoot title={meta ? meta.data.title : page.data.title} description={meta ? meta.data.title : page.data.description}>
 	<Content />
 </LayoutRoot>
