@@ -12,9 +12,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"build": "pnpm run schema && astro build && pnpm run pagefind",
-		"sync": "astro sync",
 		"check": "astro check",
-		"preview": "astro preview",
 		"schema": "tsx ./scripts/generate-schemas.ts",
 		"pagefind": "pagefind --site dist --exclude-selectors \".expressive-code\""
 	},
