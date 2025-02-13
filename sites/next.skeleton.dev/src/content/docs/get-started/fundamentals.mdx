@@ -22,7 +22,7 @@ A fully featured [Figma UI Kit](/docs/get-started/figma) is available to designe
 
 ### Iconography
 
-Skeleton is icon agnostic, meaning you may bring your own iconography solution. However, all code examples in this documentation website default to [Lucide](https://lucide.dev/). See our integration guides for [React](/docs/integrations/iconography/react) or [Svelte](/docs/integrations/iconography/react) if you wish to follow our lead.
+Skeleton is icon agnostic, meaning you may bring your own iconography solution. However, all code examples in this documentation website default to [Lucide](https://lucide.dev/). See our integration guides for [React](/docs/integrations/iconography/react) or [Svelte](/docs/integrations/iconography/svelte) if you wish to follow our lead.
 
 ### Systems
 
@@ -55,7 +55,7 @@ Skeleton's components utilize [Zag.js](https://zagjs.com/) as their foundation, 
 
 ### Importing Component
 
-Import the component you wish to use fom your framework package of choice, then insert it into your page template.
+Import the component you wish to use from your framework package of choice, then insert it into your page template.
 
 ```ts
 import { Avatar } from '@skeletonlabs/skeleton-{framework}';
@@ -112,7 +112,7 @@ We can use the `background` style prop to replace the default background color.
 <Avatar background="bg-blue-500">Sk</Avatar>
 ```
 
-Since the component doesn't have a dedicated `border` prop, we can extend our class list using `classses`.
+Since the component doesn't have a dedicated `border` prop, we can extend our class list using `classes`.
 
 ```ts
 <Avatar classes="border-4 border-green-500">Sk</Avatar>
