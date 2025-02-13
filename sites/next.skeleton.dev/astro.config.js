@@ -11,8 +11,6 @@ import mdx from '@astrojs/mdx';
 import tailwindcss from '@tailwindcss/vite';
 import { pagefind } from 'vite-plugin-pagefind';
 
-// test
-
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
