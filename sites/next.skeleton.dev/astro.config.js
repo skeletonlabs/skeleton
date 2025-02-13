@@ -1,7 +1,4 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-// import path from 'node:path';
-
 // Integrations
 import partytown from '@astrojs/partytown';
 import svelte from '@astrojs/svelte';
@@ -12,7 +9,7 @@ import AutoImport from 'astro-auto-import';
 import mdx from '@astrojs/mdx';
 // Vite Plugins
 import tailwindcss from '@tailwindcss/vite';
-import pagefind from 'vite-plugin-pagefind';
+import { pagefind } from 'vite-plugin-pagefind';
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,7 +25,7 @@ export default defineConfig({
 		// https://expressive-code.com/
 		expressiveCode({
 			defaultProps: { wrap: true },
-			themes: ['dark-plus']
+			themes: ['dark-plus', 'github-dark']
 		}),
 		// https://www.astroicon.dev/
 		icon({
@@ -65,7 +62,7 @@ export default defineConfig({
 		plugins: [
 			// https://tailwindcss.com/docs/installation/framework-guides/astro
 			tailwindcss(),
-			// https://pagefind.app/
+			// https://github.com/Hugos68/vite-plugin-pagefind
 			pagefind()
 		]
 	}
