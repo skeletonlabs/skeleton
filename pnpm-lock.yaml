@@ -508,7 +508,7 @@ importers:
         version: link:../../packages/skeleton
       '@tailwindcss/vite':
         specifier: ^4.0.2
-        version: 4.0.6(vite@6.1.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4)(tsx@4.19.2)(yaml@2.7.0))
+        version: 4.0.6(vite@6.0.11(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4)(tsx@4.19.2)(yaml@2.7.0))
       astro:
         specifier: ^5.2.3
         version: 5.2.6(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.6)(sass-embedded@1.83.4)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
@@ -540,6 +540,9 @@ importers:
       '@atproto/api':
         specifier: ^0.13.31
         version: 0.13.35
+      '@clack/prompts':
+        specifier: ^0.7.0
+        version: 0.7.0
       '@floating-ui/react':
         specifier: ^0.26.28
         version: 0.26.28(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -555,6 +558,9 @@ importers:
       '@skeletonlabs/skeleton-svelte':
         specifier: workspace:*
         version: link:../../packages/skeleton-svelte
+      '@tailwindcss/forms':
+        specifier: ^0.5.9
+        version: 0.5.10(tailwindcss@4.0.6)
       '@tailwindcss/vite':
         specifier: ^4.0.2
         version: 4.0.6(vite@6.0.11(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4)(tsx@4.19.2)(yaml@2.7.0))
@@ -588,6 +594,9 @@ importers:
       octokit:
         specifier: ^4.1.0
         version: 4.1.1
+      pagefind:
+        specifier: ^1.2.0
+        version: 1.3.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -609,22 +618,12 @@ importers:
       tailwindcss:
         specifier: ^4.0.6
         version: 4.0.6
-      typescript:
-        specifier: 'catalog:'
-        version: 5.6.3
-    devDependencies:
-      '@clack/prompts':
-        specifier: ^0.7.0
-        version: 0.7.0
-      '@tailwindcss/forms':
-        specifier: ^0.5.9
-        version: 0.5.10(tailwindcss@4.0.6)
-      pagefind:
-        specifier: ^1.2.0
-        version: 1.3.0
       tsx:
         specifier: ^4.19.2
         version: 4.19.2
+      typescript:
+        specifier: 'catalog:'
+        version: 5.6.3
       vite-plugin-pagefind:
         specifier: ^1.0.5
         version: 1.0.5(vite@6.0.11(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4)(tsx@4.19.2)(yaml@2.7.0))
