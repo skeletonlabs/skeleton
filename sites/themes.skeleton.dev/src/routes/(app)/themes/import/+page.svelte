@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	// Themes
-	import * as themes from '@skeletonlabs/skeleton/themes';
+	// import * as themes from '@skeletonlabs/skeleton/themes'; FIXME: tailwind v4 conversion
 	// Utils
 	import { importThemeTemplate } from '$lib/utils/importer/import-template';
 	import { importThemeFile } from '$lib/utils/importer/import-file';
@@ -14,8 +14,7 @@
 
 	function onSelectTemplate(name: string) {
 		// Run template import
-		// @ts-expect-error type error
-		importThemeTemplate(name, themes[name].properties);
+		// importThemeTemplate(name, themes[name].properties); FIXME: tailwind v4 conversion
 		// Redirect to Generator path
 		goto('/themes/create');
 	}
@@ -24,7 +23,7 @@
 	async function onFileUpload(event) {
 		if (event.acceptedFiles.length <= 0) return;
 		// Reset to Cerberus by default
-		importThemeTemplate('cerberus', themes['cerberus'].properties);
+		// importThemeTemplate('cerberus', themes['cerberus'].properties); FIXME: tailwind v4 conversion
 		// Run file import
 		importThemeFile(event.acceptedFiles[0]);
 		// Redirect to Generator path
@@ -56,7 +55,7 @@
 	</div>
 	<!-- Templates -->
 	<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-		{#each Object.entries(themes) as [key, values]}
+		<!-- {#each Object.entries(themes) as [key, values]} FIXME: tailwind v4 conversion
 			<button
 				data-theme={key}
 				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-100-900 !ring-[1px] hover:preset-outlined-surface-800-200 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4"
@@ -74,6 +73,6 @@
 					<div class="aspect-square w-5 bg-surface-500 border-[1px] border-black/10 rounded-full"></div>
 				</div>
 			</button>
-		{/each}
+		{/each} -->
 	</div>
 </div>
