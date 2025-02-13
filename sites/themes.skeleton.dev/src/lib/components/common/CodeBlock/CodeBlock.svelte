@@ -73,7 +73,7 @@
 </figure>
 
 <!-- eslint-enable svelte/no-at-html-tags -->
-
+<!-- TODO: Move away from @apply
 <style lang="postcss">
 	.codeblock :global {
 		.shiki {
@@ -94,4 +94,4 @@
 			@apply !bg-transparent;
 		}
 	}
-</style>
+</style> -->

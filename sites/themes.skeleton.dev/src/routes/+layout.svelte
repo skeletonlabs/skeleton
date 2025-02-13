@@ -2,7 +2,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-	import '../app.pcss';
+	import '../app.css';
 
 	let { children } = $props();
 

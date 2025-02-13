@@ -1,10 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/themes/cerberus';
 
 html,
 body {
-	@apply h-full;
+	height: 100%;
 }
 
 /* Background Image */
@@ -19,5 +19,5 @@ body {
 }
 
 .label-text {
-	@apply opacity-60;
+	opacity: 60%;
 }

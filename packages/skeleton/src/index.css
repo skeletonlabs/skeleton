@@ -2,8 +2,8 @@
 /* Do not change this unless prompted to. */
 
 /* Base Styles */
-@import 'base/index.css';
+@import './base/index.css';
 /* Features */
-@import 'components/index.css';
-@import 'utilities/index.css';
-@import 'variants/index.css';
+@import './components/index.css';
+@import './utilities/index.css';
+@import './variants/index.css';

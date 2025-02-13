@@ -1,49 +1,57 @@
 /* Components: Buttons */
 
-@layer components {
-	.btn,
-	.btn-icon {
-		cursor: pointer;
-		border-radius: var(--radius-base);
-		font-weight: var(--font-weight-medium);
-		text-decoration-line: none;
-		display: inline-flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		gap: --spacing(2);
-		white-space: nowrap;
-		/* Transitions (all) */
-		transition-property: all;
-		transition-timing-function: var(--default-transition-timing-function);
-		transition-duration: var(--default-transition-duration);
-	}
+@utility btn {
+  cursor: pointer;
+  border-radius: var(--radius-base);
+  font-weight: var(--font-weight-medium);
+  text-decoration-line: none;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: --spacing(2);
+  white-space: nowrap;
+  /* Transitions (all) */
+  transition-property: all;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
 
-	/* Sizes --- */
+  /* Sizes --- */
+  font-size: var(--text-base);
+  line-height: --spacing(9);
+  height: --spacing(9);
+  padding-inline: --spacing(4);
+  padding-block: --spacing(2);
+}
 
-	.btn {
-		font-size: var(--text-base);
-		line-height: --spacing(9);
-		height: --spacing(9);
-		padding-inline: --spacing(4);
-		padding-block: --spacing(2);
-	}
-	.btn-icon {
-		font-size: var(--text-base);
-		line-height: --spacing(9);
-		width: --spacing(9);
-		height: --spacing(9);
-	}
+@utility btn-icon {
+  cursor: pointer;
+  border-radius: var(--radius-base);
+  font-weight: var(--font-weight-medium);
+  text-decoration-line: none;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: --spacing(2);
+  white-space: nowrap;
+  /* Transitions (all) */
+  transition-property: all;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+  font-size: var(--text-base);
+  line-height: --spacing(9);
+  width: --spacing(9);
+  height: --spacing(9);
+}
 
-	/* Group --- */
-
-	.btn-group {
-		border-radius: var(--radius-container);
-		display: inline-flex;
-		gap: --spacing(2);
-		padding: --spacing(2);
-		overflow: hidden;
-	}
+@utility btn-group {
+  /* Group --- */
+  border-radius: var(--radius-container);
+  display: inline-flex;
+  gap: --spacing(2);
+  padding: --spacing(2);
+  overflow: hidden;
 }
 
 /* Size Utilities --- */
@@ -52,43 +60,43 @@
 
 /* Button */
 @utility btn-sm {
-	font-size: var(--text-xs);
-	line-height: --spacing(6);
-	height: --spacing(6);
-	padding-inline: --spacing(3);
-	padding-block: --spacing(2);
+  font-size: var(--text-xs);
+  line-height: --spacing(6);
+  height: --spacing(6);
+  padding-inline: --spacing(3);
+  padding-block: --spacing(2);
 }
 @utility btn-base {
-	font-size: var(--text-base);
-	line-height: --spacing(8);
-	height: --spacing(8);
-	padding-inline: --spacing(4);
-	padding-block: --spacing(2);
+  font-size: var(--text-base);
+  line-height: --spacing(8);
+  height: --spacing(8);
+  padding-inline: --spacing(4);
+  padding-block: --spacing(2);
 }
 @utility btn-lg {
-	font-size: var(--text-lg);
-	line-height: --spacing(12);
-	height: --spacing(12);
-	padding-inline: --spacing(6);
-	padding-block: --spacing(2);
+  font-size: var(--text-lg);
+  line-height: --spacing(12);
+  height: --spacing(12);
+  padding-inline: --spacing(6);
+  padding-block: --spacing(2);
 }
 
 /* Button Icon */
 @utility btn-icon-sm {
-	font-size: var(--text-xs);
-	line-height: --spacing(6);
-	width: --spacing(6);
-	height: --spacing(6);
+  font-size: var(--text-xs);
+  line-height: --spacing(6);
+  width: --spacing(6);
+  height: --spacing(6);
 }
 @utility btn-icon-base {
-	font-size: var(--text-base);
-	line-height: --spacing(8);
-	width: --spacing(8);
-	height: --spacing(8);
+  font-size: var(--text-base);
+  line-height: --spacing(8);
+  width: --spacing(8);
+  height: --spacing(8);
 }
 @utility btn-icon-lg {
-	font-size: var(--text-lg);
-	line-height: --spacing(12);
-	width: --spacing(12);
-	height: --spacing(12);
+  font-size: var(--text-lg);
+  line-height: --spacing(12);
+  width: --spacing(12);
+  height: --spacing(12);
 }
