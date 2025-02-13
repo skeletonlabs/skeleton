@@ -44,6 +44,14 @@
 		}
 	}
 
+	/* Elements --- */
+
+	/* https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor */
+	button:not(:disabled),
+	[role='button']:not(:disabled) {
+		cursor: pointer;
+	}
+
 	/* Selection --- */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
 
@@ -54,9 +62,11 @@
 	/* States --- */
 
 	*:disabled,
-	.disabled > * {
+	.disabled {
 		opacity: 0.5;
-		pointer-events: none;
+		& > * {
+			pointer-events: none;
+		}
 	}
 
 	/* Outlines and Focus --- */
