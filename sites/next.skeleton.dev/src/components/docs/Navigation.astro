@@ -66,8 +66,8 @@ const navigation = {
 				<ul class="flex flex-col gap-1">
 					{pages.map((page) => (
 						<a
-							class={`px-2 py-1 rounded ${currentPath.includes(page.slug.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
-							href={`/docs/${page.slug}`}
+							class={`px-2 py-1 rounded ${currentPath.includes(page.id.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
+							href={`/docs/${page.id}`}
 							title={page.data.title}
 						>
 							{page.data.title}
