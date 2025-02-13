@@ -19,7 +19,7 @@ const meta = {
 ---
 
 <!doctype html>
-<html lang="en" data-theme="cerberus" class="dark">
+<html lang="en">
 	<head>
 		<title>{meta.title}</title>
 		<link rel="icon" type="image/png" href="/favicon.png" />
@@ -54,6 +54,21 @@ const meta = {
 		<meta name="twitter:title" content={meta.title} />
 		<meta name="twitter:description" content={meta.description} />
 		<meta name="twitter:image" content={meta.image} />
+		<!-- Mode -->
+		<script is:inline>
+			const storedMode = localStorage.getItem('mode');
+			const preferredMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+			const defaultMode = 'dark';
+			const mode = storedMode ?? preferredMode ?? defaultMode;
+			document.documentElement.setAttribute('data-mode', mode);
+		</script>
+		<!-- Theme -->
+		<script is:inline>
+			const storedTheme = localStorage.getItem('theme');
+			const defaultTheme = 'cerberus';
+			const theme = storedTheme ?? defaultTheme;
+			document.documentElement.setAttribute('data-theme', theme);
+		</script>
 		<!-- Analytics -->
 		<script
 			type="text/partytown"

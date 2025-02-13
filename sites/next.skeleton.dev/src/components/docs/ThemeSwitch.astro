@@ -24,37 +24,25 @@ import { Palette } from 'lucide-react';
 			))
 		} -->
 	<option value="cerberus">Cerberus</option>
+	<option value="catpunccin">Catpuccin</option>
 </select>
 <!-- </div> -->
 
 <script>
-	const elemSelect = document.querySelectorAll('[data-theme-list]');
-	const lsTheme = localStorage.getItem('theme') || 'cerberus';
-
-	if (elemSelect) {
-		// Init
-		elemSelect.forEach((es: any) => (es.value = lsTheme));
-		setBodyAttr(lsTheme);
-
-		// Change Handler
-		function onChangeHandler(event: any) {
-			const selectedTheme = event.target.value;
+	const themeSelects = document.querySelectorAll<HTMLSelectElement>('[data-theme-list]');
+	themeSelects.forEach((themeSelect) => {
+		themeSelect.value = localStorage.getItem('theme') || 'cerberus';
+		console.log(themeSelect.value);
+		themeSelect.addEventListener('change', (event) => {
+			if (!(event.target instanceof HTMLSelectElement)) return;
 			document.body.classList.add('transition-all');
 			document.body.classList.add('duration-200');
-			document.body.dataset.theme = selectedTheme;
-			setBodyAttr(selectedTheme);
-			localStorage.setItem('theme', selectedTheme);
+			document.documentElement.setAttribute('data-theme', event.target.value);
+			localStorage.setItem('theme', event.target.value);
 			setTimeout(() => {
 				document.body.classList.remove('transition-all');
 				document.body.classList.remove('duration-200');
 			}, 200);
-		}
-
-		function setBodyAttr(theme: any) {
-			document.body.dataset.theme = theme;
-		}
-
-		// Listeners
-		elemSelect.forEach((es: any) => es.addEventListener('change', onChangeHandler));
-	}
+		});
+	});
 </script>
