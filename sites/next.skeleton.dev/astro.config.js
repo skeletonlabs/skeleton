@@ -63,7 +63,9 @@ export default defineConfig({
 			// https://tailwindcss.com/docs/installation/framework-guides/astro
 			tailwindcss(),
 			// https://github.com/Hugos68/vite-plugin-pagefind
-			pagefind()
+			pagefind({
+				outputDirectory: 'dist'
+			})
 		]
 	}
 });
