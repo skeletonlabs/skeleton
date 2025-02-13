@@ -16,11 +16,6 @@ const docs = defineCollection({
 	})
 });
 
-const blog = defineCollection({
-	type: 'content',
-	schema: z.object({})
-});
-
 const schemas = defineCollection({
 	type: 'data',
 	schema: z.array(
@@ -47,4 +42,4 @@ const schemas = defineCollection({
 	)
 });
 
-export const collections = { docs, blog, schemas };
+export const collections = { docs, schemas };
