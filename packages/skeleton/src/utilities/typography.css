@@ -7,14 +7,17 @@
 	font-weight: var(--heading-font-weight);
 	font-style: var(--heading-font-style);
 	letter-spacing: var(--heading-letter-spacing);
-	@variant dark {
-		color: var(--heading-font-color-dark);
-	}
+
 	font-size: var(--text-4xl);
 	line-height: var(--text-4xl--line-height);
+
 	@media (width >= var(--breakpoint-md)) {
 		font-size: var(--text-5xl);
 		line-height: var(--text-5xl--line-height);
+	}
+
+	@variant dark {
+		color: var(--heading-font-color-dark);
 	}
 }
 
@@ -24,14 +27,17 @@
 	font-weight: var(--heading-font-weight);
 	font-style: var(--heading-font-style);
 	letter-spacing: var(--heading-letter-spacing);
-	@variant dark {
-		color: var(--heading-font-color-dark);
-	}
+
 	font-size: var(--text-3xl);
 	line-height: var(--text-3xl--line-height);
+
 	@media (width >= var(--breakpoint-md)) {
 		font-size: var(--text-4xl);
 		line-height: var(--text-4xl--line-height);
+	}
+
+	@variant dark {
+		color: var(--heading-font-color-dark);
 	}
 }
 
@@ -41,14 +47,17 @@
 	font-weight: var(--heading-font-weight);
 	font-style: var(--heading-font-style);
 	letter-spacing: var(--heading-letter-spacing);
-	@variant dark {
-		color: var(--heading-font-color-dark);
-	}
+
 	font-size: var(--text-2xl);
 	line-height: var(--text-2xl--line-height);
+
 	@media (width >= var(--breakpoint-md)) {
 		font-size: var(--text-3xl);
 		line-height: var(--text-3xl--line-height);
+	}
+
+	@variant dark {
+		color: var(--heading-font-color-dark);
 	}
 }
 
@@ -58,14 +67,17 @@
 	font-weight: var(--heading-font-weight);
 	font-style: var(--heading-font-style);
 	letter-spacing: var(--heading-letter-spacing);
-	@variant dark {
-		color: var(--heading-font-color-dark);
-	}
+
 	font-size: var(--text-xl);
 	line-height: var(--text-xl--line-height);
+
 	@media (width >= var(--breakpoint-md)) {
 		font-size: var(--text-2xl);
 		line-height: var(--text-2xl--line-height);
+	}
+
+	@variant dark {
+		color: var(--heading-font-color-dark);
 	}
 }
 
@@ -75,14 +87,17 @@
 	font-weight: var(--heading-font-weight);
 	font-style: var(--heading-font-style);
 	letter-spacing: var(--heading-letter-spacing);
-	@variant dark {
-		color: var(--heading-font-color-dark);
-	}
+
 	font-size: var(--text-lg);
 	line-height: var(--text-lg--line-height);
+
 	@media (width >= var(--breakpoint-md)) {
 		font-size: var(--text-xl);
 		line-height: var(--text-xl--line-height);
+	}
+
+	@variant dark {
+		color: var(--heading-font-color-dark);
 	}
 }
 
@@ -92,19 +107,21 @@
 	font-weight: var(--heading-font-weight);
 	font-style: var(--heading-font-style);
 	letter-spacing: var(--heading-letter-spacing);
-	@variant dark {
-		color: var(--heading-font-color-dark);
-	}
+
 	font-size: var(--text-base);
 	line-height: var(--text-base--line-height);
+
 	@media (width >= var(--breakpoint-md)) {
 		font-size: var(--text-lg);
 		line-height: var(--text-lg--line-height);
 	}
+
+	@variant dark {
+		color: var(--heading-font-color-dark);
+	}
 }
 
 @utility anchor {
-	/* Anchors --- */
 	color: var(--anchor-font-color);
 	font-family: var(--anchor-font-family);
 	font-size: var(--anchor-font-size);
@@ -113,6 +130,7 @@
 	font-style: var(--anchor-font-style);
 	letter-spacing: var(--anchor-letter-spacing);
 	text-decoration: var(--anchor-text-decoration);
+
 	@variant hover {
 		text-decoration: var(--anchor-text-decoration-hover);
 	}
@@ -128,7 +146,6 @@
 }
 
 @utility blockquote {
-	/* Blockquote --- */
 	border-left-width: 3px;
 	border-left-color: var(--color-primary-500);
 	padding-left: --spacing(4);
@@ -136,7 +153,6 @@
 }
 
 @utility kbd {
-	/* Keyboard --- */
 	background-color: var(--color-surface-300-700);
 	border-width: 1px;
 	border-color: var(--color-surface-600-400);
@@ -151,7 +167,6 @@
 }
 
 @utility pre {
-	/* Preformated / Code --- */
 	background-color: rgba(0, 0, 0, 0.85);
 	backdrop-filter: blur(var(--blur-sm));
 	border-radius: var(--radius-container);
@@ -163,7 +178,7 @@
 }
 
 @utility code {
-	:not(pre, .ec-line) > & {
+	&:not(pre, .ec-line) > & {
 		background-color: var(--color-primary-100-900);
 		border-radius: var(--radius-base);
 		color: var(--color-primary-contrast-50-950);
@@ -176,10 +191,14 @@
 	}
 }
 
+/* Insertions / Deletions --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
+
 @utility ins {
-	/* Insertions / Deletions --- */
-	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
-	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
+	background-color: var(--color-success-500);
+	color: var(--color-success-contrast-500);
+	font-family: var(--font-mono);
 	position: relative;
 	display: block;
 	padding: --spacing(0.5);
@@ -194,12 +213,12 @@
 	&::before {
 		content: '+';
 	}
-	background-color: var(--color-success-500);
-	color: var(--color-success-contrast-500);
-	font-family: var(--font-mono);
 }
 
 @utility del {
+	background-color: var(--color-error-500);
+	color: var(--color-error-contrast-500);
+	font-family: var(--font-mono);
 	position: relative;
 	display: block;
 	padding: --spacing(0.5);
@@ -214,7 +233,4 @@
 	&::before {
 		content: '−';
 	}
-	background-color: var(--color-error-500);
-	color: var(--color-error-contrast-500);
-	font-family: var(--font-mono);
 }

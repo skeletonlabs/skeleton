@@ -13,13 +13,15 @@
 	border-width: var(--default-border-width);
 	border-color: var(--color-surface-200-800);
 	background-color: transparent;
-	/* --- */
+
+	/* Base Size */
 	height: --spacing(9);
 	width: 100%;
 	padding-block: 0px;
-	/* --- */
+
 	outline-color: transparent;
 	--tw-ring-color: transparent;
+
 	@variant active {
 		border-color: var(--color-primary-500);
 	}

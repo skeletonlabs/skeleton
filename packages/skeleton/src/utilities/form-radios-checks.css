@@ -2,11 +2,13 @@
 
 @utility checkbox {
 	--tw-ring-color: var(--color-surface-200-800);
+
 	cursor: pointer;
 	background-color: var(--color-surface-300-700);
 	border-radius: var(--radius-sm);
 	height: --spacing(5);
 	width: --spacing(5);
+
 	@variant focus-within {
 		--tw-ring-color: var(--color-primary-500);
 	}
@@ -19,6 +21,7 @@
 
 	&:checked {
 		background-color: var(--color-primary-500);
+
 		@variant hover {
 			background-color: var(--color-primary-500);
 		}
@@ -30,6 +33,7 @@
 
 	&:indeterminate {
 		background-color: var(--color-primary-500);
+
 		@variant hover {
 			background-color: var(--color-primary-500);
 		}
@@ -42,11 +46,18 @@
 
 @utility radio {
 	--tw-ring-color: var(--color-surface-200-800);
+
 	cursor: pointer;
 	background-color: var(--color-surface-300-700);
 	border-radius: var(--radius-sm);
 	height: --spacing(5);
 	width: --spacing(5);
+
+	/* Base Size --- */
+	border-radius: 100%;
+	height: --spacing(5);
+	width: --spacing(5);
+
 	@variant focus-within {
 		--tw-ring-color: var(--color-primary-500);
 	}
@@ -59,6 +70,7 @@
 
 	&:checked {
 		background-color: var(--color-primary-500);
+
 		@variant hover {
 			background-color: var(--color-primary-500);
 		}
@@ -67,7 +79,4 @@
 			border: 0;
 		}
 	}
-	border-radius: 100%;
-	height: --spacing(5);
-	width: --spacing(5);
 }

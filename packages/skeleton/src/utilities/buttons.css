@@ -11,12 +11,13 @@
 	justify-content: center;
 	gap: --spacing(2);
 	white-space: nowrap;
+
 	/* Transitions (all) */
 	transition-property: all;
 	transition-timing-function: var(--default-transition-timing-function);
 	transition-duration: var(--default-transition-duration);
 
-	/* Sizes --- */
+	/* Base Size --- */
 	font-size: var(--text-base);
 	line-height: --spacing(9);
 	height: --spacing(9);
@@ -35,10 +36,13 @@
 	justify-content: center;
 	gap: --spacing(2);
 	white-space: nowrap;
+
 	/* Transitions (all) */
 	transition-property: all;
 	transition-timing-function: var(--default-transition-timing-function);
 	transition-duration: var(--default-transition-duration);
+
+	/* Base Size --- */
 	font-size: var(--text-base);
 	line-height: --spacing(9);
 	width: --spacing(9);
@@ -54,9 +58,7 @@
 	overflow: hidden;
 }
 
-/* Size Utilities --- */
-/* Enable responsive sizing, for example: */
-/* <button class="btn btn-sm md:btn-base lg:btn-lg"> */
+/* Sizes --- */
 
 /* Button */
 @utility btn-sm {

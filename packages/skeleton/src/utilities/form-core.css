@@ -1,7 +1,6 @@
 /* Components: Forms (Core) */
 
 @utility fieldset {
-	/* Resets --- */
 	display: block;
 	width: 100%;
 }
@@ -14,9 +13,6 @@
 @utility label {
 	display: block;
 	width: 100%;
-
-	/* Labels --- */
-
 	& > * + * {
 		margin-top: --spacing(1);
 	}

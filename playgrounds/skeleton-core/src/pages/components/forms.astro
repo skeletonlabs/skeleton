@@ -203,36 +203,36 @@ import Layout from '@layouts/Layout.astro';
 			</form>
 		</section>
 		<!-- Groups -->
-		<!-- <section class="space-y-4">
+		<section class="space-y-4">
 			<h2 class="h2">Groups</h2>
-			<form class="mx-auto w-full space-y-8">
-				// Website
-				<div class="input-group grid-cols-[auto_1fr]">
-					<div class="input-group-label">https://</div>
-					<input class="input" type="text" placeholder="www.example.com" />
+			<form class="w-full max-w-md space-y-8">
+				<!-- Website -->
+				<div class="input-group divide-surface-200-800 grid-cols-[auto_1fr_auto] divide-x">
+					<div class="ig-cell preset-tonal-surface">https://</div>
+					<input class="ig-input" type="text" placeholder="www.example.com" />
 				</div>
-				// Amount
-				<div class="input-group grid-cols-[auto_1fr_auto]">
-					<div class="input-group-label">$</div>
-					<input class="input" type="text" placeholder="Amount" />
-					<select class="select">
+				<!-- Amount -->
+				<div class="input-group divide-surface-200-800 grid-cols-[auto_1fr_auto] divide-x">
+					<div class="ig-cell preset-tonal-surface">$</div>
+					<input class="ig-input" type="text" placeholder="Amount" />
+					<select class="ig-select">
 						<option>USD</option>
 						<option>CAD</option>
 						<option>EUR</option>
 					</select>
 				</div>
-				// Username
-				<div class="input-group grid-cols-[1fr_auto]">
-					<input class="input" type="text" placeholder="Enter Username..." />
-					<button class="btn-icon preset-filled" title="Username already in use.">&check;</button>
+				<!-- Username -->
+				<div class="input-group divide-surface-200-800 grid-cols-[1fr_auto] divide-x">
+					<input type="text" placeholder="Enter Username..." />
+					<button class="ig-btn preset-filled" title="Username already in use.">&check;</button>
 				</div>
-				// Search
-				<div class="input-group grid-cols-[auto_1fr_auto]">
-					<div class="input-group-label">🔍</div>
-					<input class="input" type="search" placeholder="Search..." />
-					<button class="btn preset-filled">Submit</button>
+				<!-- Search -->
+				<div class="input-group divide-surface-200-800 grid-cols-[auto_1fr_auto] divide-x">
+					<div class="input-group-cell">🔍</div>
+					<input class="ig-input" type="search" placeholder="Search..." />
+					<button class="ig-btn preset-filled">Submit</button>
 				</div>
 			</form>
-		</section> -->
+		</section>
 	</div>
 </Layout>

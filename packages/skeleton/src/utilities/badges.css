@@ -11,7 +11,7 @@
 	gap: --spacing(2);
 	white-space: nowrap;
 
-	/* Sizes --- */
+	/* Base Size --- */
 	font-size: var(--text-xs);
 	line-height: --spacing(6);
 	height: --spacing(6);
@@ -30,6 +30,8 @@
 	gap: --spacing(2);
 	white-space: nowrap;
 	border-radius: 100%;
+
+	/* Base Size --- */
 	font-size: var(--text-xs);
 	line-height: --spacing(6);
 	width: --spacing(6);

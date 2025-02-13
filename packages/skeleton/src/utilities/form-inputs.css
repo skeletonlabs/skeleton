@@ -6,15 +6,16 @@
 	border-width: var(--default-border-width);
 	border-color: var(--color-surface-200-800);
 	background-color: transparent;
-	/* --- */
+
 	font-size: var(--text-base);
 	line-height: --spacing(9);
 	height: --spacing(9);
 	width: 100%;
 	padding: --spacing(2);
-	/* --- */
+
 	outline-color: transparent;
 	--tw-ring-color: transparent;
+
 	@variant active {
 		border-color: var(--color-primary-500);
 	}
@@ -55,7 +56,8 @@
 		border-radius: var(--radius-base);
 		font-weight: var(--font-weight-medium);
 		text-decoration-line: none;
-		/* --- */
+
+		/* Base Size */
 		font-size: var(--text-xs);
 		height: 100%;
 		padding-inline: --spacing(3);
@@ -91,15 +93,17 @@
 	}
 }
 
+/* Ghost Input*/
+/* Used for the <TagsInput> component. */
 @utility input-ghost {
-	/* Ghost Input --- */
 	/* Used for the <TagsInput> component. */
 	padding: 0px;
 	background-color: transparent;
 	border-color: transparent;
-	/* --- */
+
 	outline-color: transparent;
 	--tw-ring-color: transparent;
+
 	@variant active {
 		border-color: transparent !important;
 	}
