@@ -1,17 +1,17 @@
 /* Components: Dividers */
 
 @utility hr {
-  /* Horizontal Rule --- */
-  border-color: var(--color-surface-200-800);
-  border-top-width: 1px;
-  display: block;
-  width: 100%;
+	/* Horizontal Rule --- */
+	border-color: var(--color-surface-200-800);
+	border-top-width: 1px;
+	display: block;
+	width: 100%;
 }
 
 @utility vr {
-  /* Vertical Rule --- */
-  border-color: var(--color-surface-200-800);
-  border-left-width: 1px;
-  display: inline-block;
-  height: 100%;
+	/* Vertical Rule --- */
+	border-color: var(--color-surface-200-800);
+	border-left-width: 1px;
+	display: inline-block;
+	height: 100%;
 }

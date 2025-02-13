@@ -1,27 +1,27 @@
 /* Components: Forms > Textarea */
 
 @utility textarea {
-  display: block;
-  border-radius: var(--radius-base);
-  border-width: var(--default-border-width);
-  border-color: var(--color-surface-200-800);
-  background-color: transparent;
-  /* --- */
-  font-size: var(--text-base);
-  line-height: --spacing(9);
-  height: auto;
-  width: 100%;
-  padding: --spacing(2);
-  /* --- */
-  outline-color: transparent;
-  --tw-ring-color: transparent;
-  @variant active {
-    border-color: var(--color-primary-500);
-  }
-  @variant focus {
-    border-color: var(--color-primary-500);
-  }
-  @variant focus-within {
-    border-color: var(--color-primary-500);
-  }
+	display: block;
+	border-radius: var(--radius-base);
+	border-width: var(--default-border-width);
+	border-color: var(--color-surface-200-800);
+	background-color: transparent;
+	/* --- */
+	font-size: var(--text-base);
+	line-height: --spacing(9);
+	height: auto;
+	width: 100%;
+	padding: --spacing(2);
+	/* --- */
+	outline-color: transparent;
+	--tw-ring-color: transparent;
+	@variant active {
+		border-color: var(--color-primary-500);
+	}
+	@variant focus {
+		border-color: var(--color-primary-500);
+	}
+	@variant focus-within {
+		border-color: var(--color-primary-500);
+	}
 }

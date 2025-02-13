@@ -1,33 +1,33 @@
 /* Components: Cards */
 
 @utility card {
-  border-radius: var(--radius-container);
+	border-radius: var(--radius-container);
 
-  & a {
-    /* Transitions (all) */
-    transition-property: all;
-    transition-timing-function: var(--default-transition-timing-function);
-    transition-duration: var(--default-transition-duration);
-    /* Variants */
-    @variant hover {
-      filter: brightness(95%);
-      @variant dark {
-        filter: brightness(110%);
-      }
-    }
-  }
+	& a {
+		/* Transitions (all) */
+		transition-property: all;
+		transition-timing-function: var(--default-transition-timing-function);
+		transition-duration: var(--default-transition-duration);
+		/* Variants */
+		@variant hover {
+			filter: brightness(95%);
+			@variant dark {
+				filter: brightness(110%);
+			}
+		}
+	}
 }
 
 @utility card-hover {
-  /* Transitions (all) */
-  transition-property: all;
-  transition-timing-function: var(--default-transition-timing-function);
-  transition-duration: var(--default-transition-duration);
-  /* Variants */
-  @variant hover {
-    filter: brightness(95%);
-    @variant dark {
-      filter: brightness(110%);
-    }
-  }
+	/* Transitions (all) */
+	transition-property: all;
+	transition-timing-function: var(--default-transition-timing-function);
+	transition-duration: var(--default-transition-duration);
+	/* Variants */
+	@variant hover {
+		filter: brightness(95%);
+		@variant dark {
+			filter: brightness(110%);
+		}
+	}
 }
