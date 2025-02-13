@@ -615,10 +615,6 @@ importers:
         version: 1.0.5(vite@6.0.11(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4)(tsx@4.19.2)(yaml@2.7.0))
 
   sites/themes.skeleton.dev:
-    dependencies:
-      '@tailwindcss/vite':
-        specifier: ^4.0.2
-        version: 4.0.6(vite@6.1.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4)(tsx@4.19.2)(yaml@2.7.0))
     devDependencies:
       '@skeletonlabs/skeleton':
         specifier: workspace:*
@@ -638,6 +634,9 @@ importers:
       '@tailwindcss/forms':
         specifier: ^0.5.9
         version: 0.5.10(tailwindcss@4.0.6)
+      '@tailwindcss/vite':
+        specifier: ^4.0.2
+        version: 4.0.6(vite@6.1.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4)(tsx@4.19.2)(yaml@2.7.0))
       '@types/chroma-js':
         specifier: ^2.4.4
         version: 2.4.5

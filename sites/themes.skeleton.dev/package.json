@@ -24,10 +24,8 @@
 		"svelte-check": "^4.1.1",
 		"tailwindcss": "^4.0.6",
 		"typescript": "catalog:",
-		"vite": "^6.0.2"
-	},
-	"type": "module",
-	"dependencies": {
+		"vite": "^6.0.2",
 		"@tailwindcss/vite": "^4.0.2"
-	}
+	},
+	"type": "module"
 }
