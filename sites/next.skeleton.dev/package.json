@@ -22,9 +22,9 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
-		"@astrojs/mdx": "^4.0.1",
+		"@astrojs/mdx": "^4.0.8",
 		"@astrojs/partytown": "^2.1.3",
-		"@astrojs/react": "^4.0.0",
+		"@astrojs/react": "^4.2.0",
 		"@astrojs/svelte": "^7.0.4",
 		"@atproto/api": "^0.13.31",
 		"@floating-ui/react": "^0.26.28",
@@ -34,7 +34,7 @@
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@tailwindcss/vite": "^4.0.2",
 		"@types/react": "^18.3.13",
-		"astro": "^5.0.2",
+		"astro": "^5.2.6",
 		"astro-auto-import": "^0.4.4",
 		"astro-expressive-code": "^0.38.3",
 		"astro-icon": "^1.1.4",
@@ -50,9 +50,7 @@
 		"svelte": "catalog:",
 		"svelte-check": "^4.1.1",
 		"tailwindcss": "^4.0.6",
-		"typescript": "catalog:"
-	},
-	"devDependencies": {
+		"typescript": "catalog:",
 		"@clack/prompts": "^0.7.0",
 		"@tailwindcss/forms": "^0.5.9",
 		"pagefind": "^1.2.0",
