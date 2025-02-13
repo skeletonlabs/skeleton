@@ -10,6 +10,7 @@
 		data = $bindable([]),
 		value = $bindable([]),
 		label = '',
+		disabled = false,
 		// Base
 		base = '',
 		width = '',
@@ -26,7 +27,7 @@
 		inputGroupClasses = '',
 		// Positioner
 		positionerBase = '',
-		positionerZIndex = '',
+		zIndex = 'auto',
 		positionerClasses = '',
 		// Content
 		contentBase = 'card p-2',
@@ -99,9 +100,9 @@
 		<!-- Input Group -->
 		<div {...api.getControlProps()} class="{inputGroupBase} {inputGroupClasses}">
 			<!-- Input -->
-			<input {...api.getInputProps()} class={inputGroupInput} />
+			<input {...api.getInputProps()} class={inputGroupInput} {disabled} />
 			<!-- Arrow -->
-			<button {...triggerProps} class={inputGroupButton}>
+			<button {...triggerProps} class={inputGroupButton} {disabled}>
 				{#if arrow}
 					{@render arrow()}
 				{:else}
@@ -126,10 +127,14 @@
 	</label>
 	<!-- Menu -->
 	{#if api.open}
-		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerZIndex} {positionerClasses}">
+		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerClasses}">
 			{#if options.length > 0}
 				<!-- Content (list) -->
-				<nav {...api.getContentProps()} class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses}">
+				<nav
+					{...api.getContentProps()}
+					class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses}"
+					style="z-index: {zIndex}"
+				>
 					{#each options as item}
 						{@const isChecked = api.getItemProps({ item })['data-state'] === 'checked'}
 						{@const displayClass = isChecked ? optionActive : optionHover}

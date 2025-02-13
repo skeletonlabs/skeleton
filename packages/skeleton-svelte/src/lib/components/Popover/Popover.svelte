@@ -9,6 +9,7 @@
 	let {
 		open = $bindable(false),
 		arrow = false,
+		disabled = false,
 		// Base
 		base = '',
 		classes = '',
@@ -18,7 +19,7 @@
 		triggerClasses = '',
 		// Positioner
 		positionerBase = '',
-		positionerZIndex = '',
+		zIndex = 'auto',
 		positionerClasses = '',
 		// Content
 		contentBase = '',
@@ -62,18 +63,14 @@
 
 <span class="{base} {classes}" data-testid="popover">
 	<!-- Snippet: Trigger -->
-	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
 		{@render trigger?.()}
 	</button>
 	<!-- Portal -->
-	<div
-		use:portal={{ disabled: !api.portalled }}
-		{...api.getPositionerProps()}
-		class="{positionerBase} {positionerZIndex} {positionerClasses}"
-	>
+	<div use:portal={{ disabled: !api.portalled }} {...api.getPositionerProps()} class="{positionerBase} {positionerClasses}">
 		<!-- Popover -->
 		{#if api.open}
-			<div {...api.getContentProps()} transition:fade={{ duration: 100 }}>
+			<div {...api.getContentProps()} transition:fade={{ duration: 100 }} style="z-index: {zIndex};">
 				<!-- Arrow -->
 				{#if arrow}
 					<div {...api.getArrowProps()}>

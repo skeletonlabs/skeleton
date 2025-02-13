@@ -27,6 +27,6 @@ if (page.id.startsWith('components/')) {
 }
 ---
 
-<LayoutRoot title={page.data.title} description={page.data.description}>
+<LayoutRoot title={meta ? meta.data.title : entry.data.title} description={meta ? meta.data.title : entry.data.description}>
 	<Content />
 </LayoutRoot>

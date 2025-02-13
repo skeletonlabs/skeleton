@@ -8,6 +8,8 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	value?: string[] | undefined;
 	/** Set the label to display. */
 	label?: string;
+	/** Disable the trigger element of the combobox */
+	disabled?: boolean;
 
 	// Base ---
 	/** Set base classes for the root element. */
@@ -40,8 +42,8 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 	// Positioner ---
 	/** Set base classes for the positioner. */
 	positionerBase?: string;
-	/** Set z-index classes for the positioner. */
-	positionerZIndex?: string;
+	/** Set z-index for the positioner. */
+	zIndex?: string;
 	/** Provide arbitrary classes for the positioner. */
 	positionerClasses?: string;
 

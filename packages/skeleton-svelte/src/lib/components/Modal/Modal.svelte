@@ -7,6 +7,7 @@
 
 	let {
 		open = $bindable(false),
+		disabled = false,
 		// Base
 		base = '',
 		classes = '',
@@ -24,7 +25,7 @@
 		positionerJustify = 'justify-center',
 		positionerAlign = 'items-center',
 		positionerPadding = 'p-4',
-		positionerZIndex = '',
+		zIndex = 'auto',
 		positionerClasses = '',
 		// Content
 		contentBase = '',
@@ -69,7 +70,7 @@
 
 <span class="{base} {classes}" data-testid="modal">
 	<!-- Trigger -->
-	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
 		{@render trigger?.()}
 	</button>
 
@@ -86,12 +87,12 @@
 		<div
 			use:portal
 			{...api.getPositionerProps()}
-			class="{positionerBase} {positionerDisplay} {positionerJustify} {positionerAlign} {positionerPadding} {positionerZIndex} {positionerClasses}"
+			class="{positionerBase} {positionerDisplay} {positionerJustify} {positionerAlign} {positionerPadding} {positionerClasses}"
 			in:fly={transitionsPositionerIn}
 			out:fly={transitionsPositionerOut}
 		>
 			<!-- Content -->
-			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}">
+			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}" style="z-index: {zIndex};">
 				{@render content?.()}
 			</div>
 		</div>

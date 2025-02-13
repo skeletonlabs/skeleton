@@ -1,5 +1,19 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.19
+
+### Patch Changes
+
+- feat: set trigger button type to `button` for **Tooltip**, **Popover** and **Modal** ([#3208](https://github.com/skeletonlabs/skeleton/pull/3208))
+
+- feat: Implement `arrow` for Tooltip ([#3185](https://github.com/skeletonlabs/skeleton/pull/3185))
+
+- feat: renamed `positionerZIndex` to `zIndex` and used CSS values instead of Tailwind classes for **Popover**, **Modal**, **Tooltip** and **Combobox** ([#3210](https://github.com/skeletonlabs/skeleton/pull/3210))
+
+- feat: Implement `disabled` for Modal, Tooltip, Popover and Combobox ([#3186](https://github.com/skeletonlabs/skeleton/pull/3186))
+
+- feat: Make Svelte Slider marker snippet take the marker value as argument to enable marker customization ([#3205](https://github.com/skeletonlabs/skeleton/pull/3205))
+
 ## 1.0.0-next.18
 
 ### Patch Changes

@@ -8,6 +8,8 @@
 
 	let {
 		open = $bindable(false),
+		disabled = false,
+		arrow = false,
 		// Base
 		base = '',
 		classes = '',
@@ -17,12 +19,16 @@
 		triggerClasses = '',
 		// Positioner
 		positionerBase = '',
-		positionerZIndex = '',
+		zIndex = 'auto',
 		positionerClasses = '',
 		// Content
 		contentBase = '',
 		contentBackground = '',
 		contentClasses = '',
+		// Arrow
+		arrowBase = '',
+		arrowBackground = '!bg-white',
+		arrowClasses = '',
 		// Snippets
 		trigger,
 		content,
@@ -58,16 +64,29 @@
 
 <span class="{base} {classes}" data-testid="tooltip">
 	<!-- Snippet: Trigger -->
-	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
+	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
 		{@render trigger?.()}
 	</button>
 	<!-- Tooltip Content -->
 	{#if api.open}
-		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerZIndex} {positionerClasses}">
+		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerClasses}">
+			<!-- Arrow -->
+			{#if arrow}
+				<div {...api.getArrowProps()}>
+					<div {...api.getArrowTipProps()} class="{arrowBase} {arrowBackground} {arrowClasses}"></div>
+				</div>
+			{/if}
 			<!-- Snippet Content -->
-			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}">
+			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}" style="z-index: {zIndex};">
 				{@render content?.()}
 			</div>
 		</div>
 	{/if}
 </span>
+
+<style>
+	:global([data-part='arrow']) {
+		--arrow-size: 10px;
+		--arrow-background: white;
+	}
+</style>
