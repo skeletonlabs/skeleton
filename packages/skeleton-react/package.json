@@ -3,12 +3,10 @@
 	"version": "1.0.0-next.14",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"package": "tsc --project tsconfig.package.json",
-		"package:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
-		"test": "vitest run"
+		"build": "tsc --project tsconfig.package.json",
+		"dev": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
+		"test": "vitest run",
+		"test:watch": "vitest run --watch"
 	},
 	"types": "./dist/index.d.ts",
 	"exports": {

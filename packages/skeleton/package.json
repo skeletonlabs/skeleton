@@ -2,8 +2,8 @@
 	"name": "@skeletonlabs/skeleton",
 	"version": "3.0.0-next.10",
 	"scripts": {
-		"package": "vite build",
-		"package:watch": "vite build --watch"
+		"build": "vite build",
+		"dev": "vite build --watch"
 	},
 	"exports": {
 		".": {

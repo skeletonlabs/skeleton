@@ -10,15 +10,13 @@
 	"homepage": "https://skeleton.dev/",
 	"type": "module",
 	"scripts": {
-		"dev": "pnpm run --reporter=append-only --color \"/dev:/\"",
-		"dev:svelte": "pnpm --filter @skeletonlabs/skeleton-svelte package:watch",
-		"dev:react": "pnpm --filter @skeletonlabs/skeleton-react package:watch",
-		"dev:astro": "astro dev",
+		"dev": "astro dev",
+		"build": "pnpm run schema && astro build && pnpm run pagefind",
 		"sync": "astro sync",
 		"check": "astro check",
-		"build": "pnpm schema && astro build && pagefind --site dist --exclude-selectors \".expressive-code\"",
 		"preview": "astro preview",
-		"schema": "tsx ./scripts/generate-schemas.ts"
+		"schema": "tsx ./scripts/generate-schemas.ts",
+		"pagefind": "pagefind --site dist --exclude-selectors \".expressive-code\""
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",

@@ -20,8 +20,8 @@
 		"dist"
 	],
 	"scripts": {
-		"package": "unbuild",
-		"package:watch": "unbuild --watch",
+		"build": "unbuild",
+		"dev": "unbuild --watch",
 		"test": "vitest run",
 		"test:watch": "vitest watch"
 	},
