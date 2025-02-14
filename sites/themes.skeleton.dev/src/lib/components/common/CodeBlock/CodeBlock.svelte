@@ -43,11 +43,7 @@
 	}: CodeBlockProps = $props();
 
 	// Shiki convert to HTML
-	let generatedHtml = $state(shiki.codeToHtml(code, { lang, theme }));
-
-	$effect(() => {
-		generatedHtml = shiki.codeToHtml(code, { lang, theme });
-	});
+	let generatedHtml = $derived(shiki.codeToHtml(code, { lang, theme }));
 </script>
 
 <div class="{base} {rounded} {shadow} {classes} {preBase} {prePadding} {preClasses}">
