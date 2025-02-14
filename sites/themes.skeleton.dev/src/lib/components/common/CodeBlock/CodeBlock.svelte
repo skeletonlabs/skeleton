@@ -5,7 +5,7 @@
 	import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
 	// Themes
 	// https://shiki.style/themes
-	import currentTheme from 'shiki/themes/aurora-x.mjs';
+	import auroraX from 'shiki/themes/aurora-x.mjs';
 	// Languages
 	// https://shiki.style/languages
 	import console from 'shiki/langs/console.mjs';
@@ -18,7 +18,7 @@
 	const shiki = createHighlighterCoreSync({
 		engine: createJavaScriptRegexEngine(),
 		// Implement your import theme.
-		themes: [currentTheme],
+		themes: [auroraX],
 		// Implement your imported and supported languages.
 		langs: [console, html, css, js, ts]
 	});
@@ -42,8 +42,7 @@
 		preClasses = ''
 	}: CodeBlockProps = $props();
 
-	// Shiki convert to HTML
-	let generatedHtml = $derived(shiki.codeToHtml(code, { lang, theme }));
+	const generatedHtml = $derived(shiki.codeToHtml(code, { lang, theme }));
 </script>
 
 <div class="{base} {rounded} {shadow} {classes} {preBase} {prePadding} {preClasses}">
