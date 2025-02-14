@@ -39,7 +39,7 @@
 		"lint": "eslint . --fix --ignore-path .gitignore",
 		"lint:check": "eslint . --ignore-path .gitignore",
 		"changeset:publish": "changeset publish",
-		"postinstall": "pnpm --recursive --filter \"./packages/*\" build"
+		"postinstall": "pnpm --recursive --parallel --filter \"./packages/*\" build"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.10",
