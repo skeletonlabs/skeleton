@@ -4,8 +4,8 @@
 	interface EdgesProps {
 		thickness?: boolean;
 		name: string;
-		value: number;
-		items: number[];
+		value: string;
+		items: string[];
 		gridCols?: string;
 	}
 
@@ -13,12 +13,12 @@
 	let {
 		thickness = false,
 		name,
-		value = $bindable(0),
-		items = [0, 1, 2, 4, 6, 12, 16, 24, 9999],
+		value = $bindable(),
+		items = [],
 		gridCols = 'grid-cols-7'
 	}: EdgesProps = $props();
 
-	function setValue(v: number) {
+	function setValue(v: string) {
 		value = v;
 	}
 </script>

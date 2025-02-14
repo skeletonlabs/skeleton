@@ -17,15 +17,15 @@
 			<span class="label-text">Typographic Scale</span>
 			<a class="text-inherit underline label-text" href="https://designcode.io/typographic-scales" target="_blank">What's This?</a>
 		</div>
-		<!-- --type-scale-factor -->
+		<!-- --text-scaling -->
 		<div
 			class="grid grid-cols-3 preset-outlined-surface-200-800 rounded-container overflow-hidden divide-x divide-y divide-surface-200-800"
 		>
 			{#each constants.typographicScales as typographicScale}
 				<button
 					type="button"
-					onclick={() => (settingsTypography['--type-scale-factor'] = typographicScale.value)}
-					class="flex flex-col items-center py-2 {settingsTypography['--type-scale-factor'] === typographicScale.value
+					onclick={() => (settingsTypography['--text-scaling'] = typographicScale.value)}
+					class="flex flex-col items-center py-2 {settingsTypography['--text-scaling'] === typographicScale.value
 						? 'preset-filled'
 						: 'hover:preset-tonal-primary'}"
 				>

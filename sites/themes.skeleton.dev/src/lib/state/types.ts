@@ -23,21 +23,7 @@ export interface SettingsBackgrounds {
 
 export interface SettingsTypography {
 	// Scale Factor
-	'--type-scale-factor': string;
-	// Scale Numeric
-	'--type-scale-1': string;
-	'--type-scale-2': string;
-	'--type-scale-3': string;
-	'--type-scale-4': string;
-	'--type-scale-5': string;
-	'--type-scale-6': string;
-	'--type-scale-7': string;
-	'--type-scale-8': string;
-	'--type-scale-9': string;
-	'--type-scale-10': string;
-	'--type-scale-11': string;
-	'--type-scale-12': string;
-	'--type-scale-13': string;
+	'--text-scaling': number;
 	// Base
 	'--base-font-color': string;
 	'--base-font-color-dark': string;
@@ -70,14 +56,13 @@ export interface SettingsTypography {
 }
 
 export interface SettingsSpacing {
-	'--space-scale-factor': number;
+	'--spacing': number; // rem
 }
 
 export interface SettingsEdges {
-	'--radii-default': number;
-	'--radii-container': number;
-	'--border-width-default': number;
-	'--divide-width-default': number;
-	'--outline-width-default': number;
-	'--ring-width-default': number;
+	'--radius-base': string; // rem
+	'--radius-container': string; // rem
+	'--default-border-width': string; // px
+	'--default-divide-width': string; // px
+	'--default-ring-width': string; // px
 }

@@ -69,11 +69,10 @@ export function formatEdgesLegacy(properties: Record<string, string>) {
 	// v3 Key : v2 Key
 	const edgeMapping = {
 		'--radii-default': '--theme-rounded-base',
-		'--radii-container': '--theme-rounded-container',
-		'--border-width-default': '--theme-border-base',
-		'--divide-width-default': '--theme-border-base',
-		'--outline-width-default': '--theme-border-base',
-		'--ring-width-default': '--theme-border-base'
+		'--radius-container': '--theme-rounded-container',
+		'--default-border-width': '--theme-border-base',
+		'--default-divide-width': '--theme-border-base',
+		'--default-ring-width': '--theme-border-base'
 	};
 	// Loop and set state
 	for (const edgeKey in edgeMapping) {
