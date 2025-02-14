@@ -47,8 +47,6 @@ export function formatBackgrounds(backgrounds: SettingsBackgrounds) {
 }
 
 export function formatColors(colors: Record<string, string>) {
-	console.log(colors);
-
 	const _colors = JSON.parse(JSON.stringify(colors));
 	Object.keys(_colors).forEach((key) => {
 		// @ts-expect-error oklch param
