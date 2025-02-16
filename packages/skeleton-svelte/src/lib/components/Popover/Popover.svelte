@@ -63,9 +63,11 @@
 
 <span class="{base} {classes}" data-testid="popover">
 	<!-- Snippet: Trigger -->
-	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
-		{@render trigger?.()}
-	</button>
+	{#if trigger}
+		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
+			{@render trigger?.()}
+		</button>
+	{/if}
 	<!-- Portal -->
 	<div use:portal={{ disabled: !api.portalled }} {...api.getPositionerProps()} class="{positionerBase} {positionerClasses}">
 		<!-- Popover -->
