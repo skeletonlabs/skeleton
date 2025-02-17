@@ -3,9 +3,8 @@
 	// Themes
 	import { themes } from '@skeletonlabs/skeleton/themes';
 	// Utils
-	// import { importThemeTemplate } from '$lib/utils/importer/import-template';
-	// import { importThemeFile } from '$lib/utils/importer/import-file';
 	import { importThemeV2 } from '$lib/utils/importer/import-theme-v2';
+	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
 	// Componets (skeleton)
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 	// Icons
@@ -13,29 +12,37 @@
 	import IconFile from 'lucide-svelte/icons/paperclip';
 	import IconRemove from 'lucide-svelte/icons/circle-x';
 
-	function onSelectTemplate(name: string) {
-		console.log(name);
+	// const defaultThemeName = 'cerberus';
+
+	// function resetToDefaults() {
+	// 	const defaultTheme = themes.find((t) => t.name === defaultThemeName)!;
+	// 	importThemeV3(defaultTheme.css, defaultThemeName);
+	// }
+
+	function onSelectTemplate(fileCss: string, fileName: string) {
+		// Reset to default theme
+		// if (fileName !== defaultThemeName) resetToDefaults();
 		// Run template import
-		// importThemeTemplate(name, themes[name].properties); FIXME: tailwind v4 conversion
+		importThemeV3(JSON.parse(fileCss), fileName);
 		// Redirect to Generator page
-		// goto('/themes/create');
+		goto('/themes/create');
 	}
 
 	// @ts-expect-error type
 	async function onFileUpload(event) {
 		if (event.acceptedFiles.length <= 0) return;
-		// Reset to Cerberus by default
-		// importThemeTemplate('cerberus', themes['cerberus'].properties); FIXME: tailwind v4 conversion
+		// Reset to default theme
+		// resetToDefaults();
 		// Gather Theme Data
 		const fileName = event.acceptedFiles[0].name;
-		const fileContents = event.acceptedFiles[0];
-		const isLegacyTheme = !fileName.includes('.css');
-		// Run versioned importer
-		if (isLegacyTheme) {
-			importThemeV2(fileContents);
+		const file = event.acceptedFiles[0];
+		const fileText = await file.text();
+		const isCssFormat = fileName.includes('.css');
+		// Run Importer
+		if (isCssFormat) {
+			importThemeV3(fileText, fileName);
 		} else {
-			// importThemeV3(fileContents);
-			console.log('trigger: importThemeV3()');
+			importThemeV2(fileText, fileName);
 		}
 		// Redirect to Generator page
 		goto('/themes/create');
@@ -70,7 +77,7 @@
 			<button
 				data-theme={theme.name}
 				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-100-900 !ring-[1px] hover:preset-outlined-surface-800-200 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4"
-				onclick={() => onSelectTemplate(theme.css)}
+				onclick={() => onSelectTemplate(theme.css, theme.name)}
 			>
 				<span>{theme.emoji}</span>
 				<h3 class="h6 capitalize text-left">{theme.name}</h3>

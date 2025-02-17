@@ -5,9 +5,7 @@ import * as constants from '$lib/constants/generator';
 import chroma from 'chroma-js';
 import { settingsCore, settingsColors } from '$lib/state/generator.svelte';
 
-export async function importThemeV2(file: File) {
-	const fileText = await file.text();
-
+export async function importThemeV2(fileText: string, fileName: string) {
 	// Create array for each line
 	// https://stackoverflow.com/a/5035058
 	const lines = fileText.match(/[^\r\n]+/g)!;
@@ -59,9 +57,11 @@ export async function importThemeV2(file: File) {
 	});
 
 	// Set Generator State
-	settingsCore.name = file.name.split('.')[0]; // before .js|.ts
+	if (fileName) settingsCore.name = fileName.split('.')[0]; // before .js|.ts
 	// Colors
 	for (const key in properties) {
-		settingsColors[key] = properties[key];
+		if (key in settingsColors) {
+			settingsColors[key] = properties[key];
+		}
 	}
 }
