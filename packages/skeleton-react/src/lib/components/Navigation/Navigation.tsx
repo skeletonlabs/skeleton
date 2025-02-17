@@ -156,7 +156,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 	label,
 	labelExpanded,
 	title,
-	selected = false,
+	selected = undefined,
 	type = 'button',
 	// Root
 	base = 'flex items-center',
@@ -201,7 +201,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 	const classesCollapsed = `${rxSize} ${padding} ${gap} ${classes}`;
 	const classesExtended = `${expandedPadding} ${expandedGap} ${expandedClasses}`;
 	const rxMode = ctx.expanded ? classesExtended : classesCollapsed;
-	const rxBackground = selected || ctx.value === id ? active : `${background} ${hover}`;
+	const rxBackground = (selected !== undefined ? selected : ctx.value === id) ? active : `${background} ${hover}`;
 
 	function onClickHandler() {
 		if (onClick && !id) throw new Error('No ID was provided');
