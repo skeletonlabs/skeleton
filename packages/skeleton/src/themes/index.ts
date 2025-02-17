@@ -25,111 +25,111 @@ export const themes = [
 	{
 		name: 'catppuccin',
 		css: catppuccin,
-		emoji: undefined
+		emoji: '🐈'
 	},
 	{
 		name: 'cerberus',
 		css: cerberus,
-		emoji: undefined
+		emoji: '🐺'
 	},
 	{
 		name: 'concord',
 		css: concord,
-		emoji: undefined
+		emoji: '🤖'
 	},
 	{
 		name: 'crimson',
 		css: crimson,
-		emoji: undefined
+		emoji: '🔴'
 	},
 	{
 		name: 'fennec',
 		css: fennec,
-		emoji: undefined
+		emoji: '🦊'
 	},
 	{
 		name: 'hamlindigo',
 		css: hamlindigo,
-		emoji: undefined
+		emoji: '👔'
 	},
 	{
 		name: 'legacy',
 		css: legacy,
-		emoji: undefined
+		emoji: '💀'
 	},
 	{
 		name: 'mint',
 		css: mint,
-		emoji: undefined
+		emoji: '🍃'
 	},
 	{
 		name: 'modern',
 		css: modern,
-		emoji: undefined
+		emoji: '🌸'
 	},
 	{
 		name: 'mona',
 		css: mona,
-		emoji: undefined
+		emoji: '🐙'
 	},
 	{
 		name: 'nosh',
 		css: nosh,
-		emoji: undefined
+		emoji: '🥙'
 	},
 	{
 		name: 'nouveau',
 		css: nouveau,
-		emoji: undefined
+		emoji: '👑'
 	},
 	{
 		name: 'pine',
 		css: pine,
-		emoji: undefined
+		emoji: '🌲'
 	},
 	{
 		name: 'reign',
 		css: reign,
-		emoji: undefined
+		emoji: '📒'
 	},
 	{
 		name: 'rocket',
 		css: rocket,
-		emoji: undefined
+		emoji: '🚀'
 	},
 	{
 		name: 'rose',
 		css: rose,
-		emoji: undefined
+		emoji: '🌷'
 	},
 	{
 		name: 'sahara',
 		css: sahara,
-		emoji: undefined
+		emoji: '🏜️'
 	},
 	{
 		name: 'seafoam',
 		css: seafoam,
-		emoji: undefined
+		emoji: '🧜‍♀️'
 	},
 	{
 		name: 'terminus',
 		css: terminus,
-		emoji: undefined
+		emoji: '🌑'
 	},
 	{
 		name: 'vintage',
 		css: vintage,
-		emoji: undefined
+		emoji: '📺'
 	},
 	{
 		name: 'vox',
 		css: vox,
-		emoji: undefined
+		emoji: '👾'
 	},
 	{
 		name: 'wintry',
 		css: wintry,
-		emoji: undefined
+		emoji: '🌨️'
 	}
 ] as const;
