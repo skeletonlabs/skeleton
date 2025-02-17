@@ -201,7 +201,8 @@ export const NavTile: React.FC<NavTileProps> = ({
 	const classesCollapsed = `${rxSize} ${padding} ${gap} ${classes}`;
 	const classesExtended = `${expandedPadding} ${expandedGap} ${expandedClasses}`;
 	const rxMode = ctx.expanded ? classesExtended : classesCollapsed;
-	const rxBackground = (selected !== undefined ? selected : ctx.value === id) ? active : `${background} ${hover}`;
+	const isActive = selected !== undefined ? selected : ctx.value === id;
+	const rxBackground = isActive ? active : `${background} ${hover}`;
 
 	function onClickHandler() {
 		if (onClick && !id) throw new Error('No ID was provided');
