@@ -1,7 +1,6 @@
 // Import v3 Theme File
 // Read v3 theme file contents, updates local generator state.
 
-// import * as constants from '$lib/constants/generator';
 import chroma from 'chroma-js';
 import {
 	settingsCore,
