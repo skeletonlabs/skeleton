@@ -65,7 +65,7 @@
 	<!-- Snippet: Trigger -->
 	{#if trigger}
 		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
-			{@render trigger?.()}
+			{@render trigger()}
 		</button>
 	{/if}
 	<!-- Portal -->
