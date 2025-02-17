@@ -29,7 +29,7 @@ function transformAppHtml(code: string) {
 						}
 						const theme = attribute.value[0].data;
 						if (Object.hasOwn(THEME_MAPPINGS, theme)) {
-							s.update(attribute.start, attribute.end, `data-theme="${theme}"`);
+							s.update(attribute.start, attribute.end, `data-theme="${THEME_MAPPINGS[theme]}"`);
 						} else {
 							s.remove(attribute.start, attribute.end);
 						}
