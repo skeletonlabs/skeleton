@@ -1,27 +1,38 @@
 import { type AST, parse } from 'svelte/compiler';
 import MagicString from 'magic-string';
 import { walk } from 'zimmerframe';
-import { FALLBACK_THEME } from '../utility/constants.js';
+import { THEME_MAPPINGS } from '../utility/theme-mappings';
 
 function transformAppHtml(code: string) {
 	const s = new MagicString(code);
 	const ast = parse(code, {
 		modern: true
 	});
+	let theme: string | undefined;
 	walk(
 		ast.fragment as AST.SvelteNode,
 		{},
 		{
 			RegularElement(node, ctx) {
 				if (node.name === 'body') {
-					const dataThemeAttribute = node.attributes.find((attribute) => {
-						return attribute.type === 'Attribute' && attribute.name === 'data-theme';
-					});
-					const newDataThemeAttribute = `data-theme="${FALLBACK_THEME}"`;
-					if (dataThemeAttribute) {
-						s.update(dataThemeAttribute.start, dataThemeAttribute.end, newDataThemeAttribute);
-					} else {
-						s.appendLeft(node.start + '<body'.length, ` ${newDataThemeAttribute}`);
+					for (const attribute of node.attributes) {
+						if (
+							!(
+								attribute.type === 'Attribute' &&
+								attribute.name === 'data-theme' &&
+								Array.isArray(attribute.value) &&
+								attribute.value.length === 1 &&
+								attribute.value[0].type === 'Text'
+							)
+						) {
+							continue;
+						}
+						const theme = attribute.value[0].data;
+						if (Object.hasOwn(THEME_MAPPINGS, theme)) {
+							s.update(attribute.start, attribute.end, `data-theme="${theme}"`);
+						} else {
+							s.remove(attribute.start, attribute.end);
+						}
 					}
 				}
 				ctx.next();
@@ -29,7 +40,10 @@ function transformAppHtml(code: string) {
 		}
 	);
 	return {
-		code: s.toString()
+		code: s.toString(),
+		meta: {
+			theme: theme
+		}
 	};
 }
 
