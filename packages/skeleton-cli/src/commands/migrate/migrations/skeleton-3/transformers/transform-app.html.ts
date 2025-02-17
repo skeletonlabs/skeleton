@@ -1,8 +1,9 @@
 import { type AST, parse } from 'svelte/compiler';
 import MagicString from 'magic-string';
 import { walk } from 'zimmerframe';
+import { FALLBACK_THEME } from '../utility/constants.js';
 
-function transformApp(code: string, theme: string) {
+function transformAppHtml(code: string) {
 	const s = new MagicString(code);
 	const ast = parse(code, {
 		modern: true
@@ -16,7 +17,7 @@ function transformApp(code: string, theme: string) {
 					const dataThemeAttribute = node.attributes.find((attribute) => {
 						return attribute.type === 'Attribute' && attribute.name === 'data-theme';
 					});
-					const newDataThemeAttribute = `data-theme="${theme}"`;
+					const newDataThemeAttribute = `data-theme="${FALLBACK_THEME}"`;
 					if (dataThemeAttribute) {
 						s.update(dataThemeAttribute.start, dataThemeAttribute.end, newDataThemeAttribute);
 					} else {
@@ -32,4 +33,4 @@ function transformApp(code: string, theme: string) {
 	};
 }
 
-export { transformApp };
+export { transformAppHtml };

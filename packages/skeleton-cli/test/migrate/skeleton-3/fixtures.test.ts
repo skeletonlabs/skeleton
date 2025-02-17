@@ -3,16 +3,16 @@ import { describe, expect, test } from 'vitest';
 import { readFile } from 'node:fs/promises';
 import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-svelte.js';
 import { transformModule } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-module.js';
-import { transformTailwindConfig } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-tailwind-config.js';
-import { transformApp } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.js';
-import { transformPackage } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-package.js';
+import { transformAppHtml } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.html.js';
+import { transformPackage } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-package.json.js';
+import { transformAppCss } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.css.js';
 
 const TRANSFORMER_MAP = {
 	svelte: transformSvelte,
 	module: transformModule,
-	'tailwind-config': transformTailwindConfig,
-	app: transformApp,
-	package: transformPackage
+	'app.css': transformAppCss,
+	'app.html': transformAppHtml,
+	'package.json': transformPackage
 };
 
 const fixtures = import.meta.glob('./fixtures/**/*', {
@@ -23,11 +23,10 @@ function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 	switch (transformer) {
 		case 'svelte':
 		case 'module':
-		case 'tailwind-config':
+		case 'app.css':
+		case 'app.html':
 			return TRANSFORMER_MAP[transformer](code).code;
-		case 'app':
-			return TRANSFORMER_MAP[transformer](code, 'cerberus').code;
-		case 'package':
+		case 'package.json':
 			return TRANSFORMER_MAP[transformer](code, '3.0.0', '1.0.0').code;
 	}
 }
