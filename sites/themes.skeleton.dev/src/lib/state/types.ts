@@ -23,7 +23,7 @@ export interface SettingsBackgrounds {
 
 export interface SettingsTypography {
 	// Scale Factor
-	'--text-scaling': number; // FIXME: convert to string
+	'--text-scaling': string;
 	// Base
 	'--base-font-color': string;
 	'--base-font-color-dark': string;

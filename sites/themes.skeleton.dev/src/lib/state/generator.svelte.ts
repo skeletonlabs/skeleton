@@ -201,7 +201,7 @@ export const settingsBackgrounds: SettingsBackgrounds = $state({
 // Reference: https://designcode.io/typographic-scales
 export const settingsTypography: SettingsTypography = $state({
 	// Scale Factor
-	'--text-scaling': 1.067,
+	'--text-scaling': '1.067',
 	// Base
 	'--base-font-color': 'var(--color-surface-950)',
 	'--base-font-color-dark': 'var(--color-surface-50)',
