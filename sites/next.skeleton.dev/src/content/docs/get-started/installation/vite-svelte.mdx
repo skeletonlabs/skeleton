@@ -43,12 +43,13 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         npm i -D @skeletonlabs/skeleton@next @skeletonlabs/skeleton-svelte@next
         ```
     </ProcessStep>
+    {/* TODO: remove @3.4.17 when tailwind 4 support came out */}
     <ProcessStep step="3">
          ### Install Tailwind
         Install Tailwind and its dependencies.
         ```console
         npm install -D tailwindcss postcss autoprefixer
-        npx tailwindcss init -p
+        npx tailwindcss@3.4.17 init -p
         ```
     </ProcessStep>
     <ProcessStep step="4">
