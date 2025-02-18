@@ -2,6 +2,7 @@
 // Read v3 theme file contents, updates local generator state.
 
 import chroma from 'chroma-js';
+import * as constants from '$lib/constants/generator';
 import {
 	settingsCore,
 	settingsColors,
@@ -10,6 +11,7 @@ import {
 	settingsSpacing,
 	settingsEdges
 } from '$lib/state/generator.svelte';
+import { genColorRamp } from '$lib/utils/generator/colors';
 
 export async function importThemeV3(fileText: string, fileName: string) {
 	// Create array for each line
@@ -64,4 +66,8 @@ export async function importThemeV3(fileText: string, fileName: string) {
 			settingsEdges[key] = properties[key];
 		}
 	}
+
+	/* Generate Contrast Colors */
+	/* NOTE: this is a bit redudant, but should get us by for now */
+	constants.colorNames.forEach((name) => genColorRamp(false, name));
 }

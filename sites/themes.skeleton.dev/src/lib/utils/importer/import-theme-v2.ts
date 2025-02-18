@@ -4,6 +4,7 @@
 import * as constants from '$lib/constants/generator';
 import chroma from 'chroma-js';
 import { settingsCore, settingsColors } from '$lib/state/generator.svelte';
+import { genColorRamp } from '$lib/utils/generator/colors';
 
 export async function importThemeV2(fileText: string, fileName: string) {
 	// Create array for each line
@@ -64,4 +65,8 @@ export async function importThemeV2(fileText: string, fileName: string) {
 			settingsColors[key] = properties[key];
 		}
 	}
+
+	/* Generate Contrast Colors */
+	/* NOTE: this is a bit redudant, but should get us by for now */
+	constants.colorNames.forEach((name) => genColorRamp(false, name));
 }
