@@ -12,16 +12,16 @@
 	import IconFile from 'lucide-svelte/icons/paperclip';
 	import IconRemove from 'lucide-svelte/icons/circle-x';
 
-	// const defaultThemeName = 'cerberus';
+	const defaultThemeName = 'cerberus';
 
-	// function resetToDefaults() {
-	// 	const defaultTheme = themes.find((t) => t.name === defaultThemeName)!;
-	// 	importThemeV3(defaultTheme.css, defaultThemeName);
-	// }
+	function resetToDefaults() {
+		const defaultTheme = themes.find((t) => t.name === defaultThemeName)!;
+		importThemeV3(defaultTheme.css, defaultThemeName);
+	}
 
 	function onSelectTemplate(fileCss: string, fileName: string) {
 		// Reset to default theme
-		// if (fileName !== defaultThemeName) resetToDefaults();
+		if (fileName !== defaultThemeName) resetToDefaults();
 		// Run template import
 		importThemeV3(JSON.parse(fileCss), fileName);
 		// Redirect to Generator page
@@ -32,7 +32,7 @@
 	async function onFileUpload(event) {
 		if (event.acceptedFiles.length <= 0) return;
 		// Reset to default theme
-		// resetToDefaults();
+		resetToDefaults();
 		// Gather Theme Data
 		const fileName = event.acceptedFiles[0].name;
 		const file = event.acceptedFiles[0];
