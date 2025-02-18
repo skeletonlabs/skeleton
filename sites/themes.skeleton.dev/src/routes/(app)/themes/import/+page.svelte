@@ -76,7 +76,7 @@
 		{#each themes as theme}
 			<button
 				data-theme={theme.name}
-				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-100-900 !ring-[1px] hover:preset-outlined-surface-800-200 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4"
+				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-200-800 hover:preset-outlined-surface-800-200 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4"
 				onclick={() => onSelectTemplate(theme.css, theme.name)}
 			>
 				<span>{theme.emoji}</span>

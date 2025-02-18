@@ -20,5 +20,5 @@ ${formatBackgrounds(settingsBackgrounds)}
 ${formatColors(settingsColors)}
 `.trim();
 	// See root +layout.svelte to reference where this attribute is used
-	return `[data-theme='generated'] {\n${themeCss}\n}`;
+	return `[data-theme="generated"] {\n${themeCss}\n}`;
 }
