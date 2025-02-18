@@ -40,16 +40,16 @@
 		const fileText = await file.text();
 		const isCssFormat = fileName.includes('.css');
 
-		// // Run Importer
+		// Run Importer
 		if (isCssFormat) {
 			importThemeV3(fileText, fileName);
 		} else {
 			importThemeV2(fileText, fileName);
 		}
 
-		// **** TEMPORARY ****
+		// ******** DEBUG ONLY ********
 		// importThemeV3Rc1(fileText, fileName);
-		// ******** / ********
+		// ************ / *************
 
 		// Redirect to Generator page
 		goto('/themes/create');

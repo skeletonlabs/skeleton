@@ -40,10 +40,12 @@ export async function importThemeV3Rc1(fileText: string, fileName: string) {
 	});
 
 	// Modify Property Key/Values ---
-	// Rename
+	// Set Value
 	properties['--spacing'] = '0.25rem';
 	properties['--text-scaling'] = '1.067';
-	// Set Value
+	properties['--base-font-family'] = 'inherit';
+	properties['--heading-font-family'] = 'inherit';
+	properties['--anchor-font-family'] = 'inherit';
 	properties['--radius-base'] = '0.375rem';
 	properties['--radius-container'] = '0.75rem';
 	properties['--default-border-width'] = '1px';

@@ -34,9 +34,6 @@ export function formatSpacing(spacing: SettingsSpacing) {
 
 export function formageEdges(edges: SettingsEdges) {
 	const _edges = JSON.parse(JSON.stringify(edges));
-	Object.keys(_edges).forEach((key) => {
-		if (typeof _edges[key] === 'number') _edges[key] = String(_edges[key] + 'px');
-	});
 	return objectToCssProperties(_edges);
 }
 
