@@ -1,2 +1,5 @@
-<!-- prettier-ignore -->
-<body data-theme="custom"></body>
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body data-theme="custom"></body>
+</html>
