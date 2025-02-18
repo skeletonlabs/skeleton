@@ -14,16 +14,27 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 
 ## Requirements
 
-| Tooling | Minimum Version |
-|---|---|
-| [Vite](https://vite.dev/) | 6 |
-| [React](https://react.dev/) | 18 |
-| [Tailwind](https://tailwindcss.com/) | 3 |
+| Tooling                              | Minimum Version |
+| ------------------------------------ | --------------- |
+| [Vite](https://vite.dev/)            | 6               |
+| [React](https://react.dev/)          | 18              |
+| [Tailwind](https://tailwindcss.com/) | 3               |
 
 ## Installation
 
 <div class="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
-	<p>WARNING: The following guide will install a pre-release version of Skeleton v3. Be aware that some features may be missing, incomplete, or non-functional at this time. Please report bugs and issues on <a class='underline' href='https://github.com/skeletonlabs/skeleton/issues/new/choose' target='_blank' rel='external'>GitHub</a> or <a class='underline' href='https://discord.gg/EXqV7W8MtY' target='_blank' rel='external'>Discord</a>.</p>
+	<p>
+		WARNING: The following guide will install a pre-release version of Skeleton v3. Be aware that some features may be missing, incomplete,
+		or non-functional at this time. Please report bugs and issues on{' '}
+		<a class="underline" href="https://github.com/skeletonlabs/skeleton/issues/new/choose" target="_blank" rel="external">
+			GitHub
+		</a>{' '}
+		or{' '}
+		<a class="underline" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="external">
+			Discord
+		</a>
+		.
+	</p>
 </div>
 
 <Process>
@@ -59,23 +70,23 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         import { skeleton, contentPath } from "@skeletonlabs/skeleton/plugin";
 		import * as themes from "@skeletonlabs/skeleton/themes";
 
-		/** @type {import('tailwindcss').Config} */
-		export default {
-			content: [
-				"./index.html",
-				"./src/**/*.{js,ts,jsx,tsx}",
-				contentPath(import.meta.url, "react"),
-			],
-			theme: {
-				extend: {},
-			},
-			plugins: [
-				skeleton({
-					// NOTE: each theme included will increase the size of your CSS bundle
-					themes: [themes.cerberus, themes.rose],
-				}),
-			],
-		};
+    	/** @type {import('tailwindcss').Config} */
+    	export default {
+    		content: [
+    			"./index.html",
+    			"./src/**/*.{js,ts,jsx,tsx}",
+    			contentPath(import.meta.url, "react"),
+    		],
+    		theme: {
+    			extend: {},
+    		},
+    		plugins: [
+    			skeleton({
+    				// NOTE: each theme included will increase the size of your CSS bundle
+    				themes: [themes.cerberus, themes.rose],
+    			}),
+    		],
+    	};
         ```
     </ProcessStep>
     <ProcessStep step="5">
@@ -86,7 +97,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         @tailwind components;
         @tailwind utilities;
         ```
-		We also recommend removing all existing CSS styles in `/src/index.css` and `/src/App.css`.
+    	We also recommend removing all existing CSS styles in `/src/index.css` and `/src/App.css`.
     </ProcessStep>
     <ProcessStep step="6">
         ### Set the Active Theme
@@ -98,8 +109,9 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     <ProcessStep step="check">
         ### Done
         Start the dev server using the following command.
-		```console
-		npm run dev
+    	```console
+    	npm run dev
         ```
     </ProcessStep>
+
 </Process>
