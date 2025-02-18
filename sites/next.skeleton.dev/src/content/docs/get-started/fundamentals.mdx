@@ -60,7 +60,6 @@ Import the component you wish to use from your framework package of choice, then
 ```ts
 import { Avatar } from '@skeletonlabs/skeleton-{framework}';
 ```
-
 ```ts
 <Avatar />
 ```
@@ -91,20 +90,19 @@ Imagine the Avatar component was created like so:
 
 ```ts title="Example Props"
 {
-	(src = './some-placeholder.jpg'),
-		(alt = ''),
-		// ...
-		(base = 'flex justify-center items-center overflow-hidden'),
-		(background = 'bg-slate-500');
-	(rounded = 'rounded-full'),
-		// ...
-		(classes = '');
+	src = './some-placeholder.jpg',
+	alt = '',
+	// ...
+	base = 'flex justify-center items-center overflow-hidden',
+	background = 'bg-slate-500'
+	rounded = 'rounded-full',
+	// ...
+	classes = ''
 }
 ```
-
 ```html title="Example Template"
 <figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}">
-	<img {src} alt="{name}" class="{imageBase} {imageClasses}" />
+	<img {src} alt={name} class="{imageBase} {imageClasses}" />
 </figure>
 ```
 

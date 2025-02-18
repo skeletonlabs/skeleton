@@ -104,11 +104,10 @@ You can optionally bind to the internal [Zag component API](https://zagjs.com/co
 
 ```ts
 function validateFileSize(file) {
-	if (file.size > 1024 * 1024 * 10) return ['FILE_TOO_LARGE'];
+	if (file.size > 1024 * 1024 * 10) return ["FILE_TOO_LARGE"];
 	return null;
 }
 ```
-
 ```svelte
 <FileUpload validate={validateFileSize} onFileReject={console.error}>
 ```
@@ -129,11 +128,10 @@ function generatePreview(event) {
 	reader.onload = (event) => {
 		const image = event.target.result;
 		// set the image as the src of an image element
-	};
+	}
 	reader.readAsDataURL(event.details.acceptedFiles[0]);
 }
 ```
-
 ```svelte
 <FileUpload onFileChange={generatePreview}>
 ```
@@ -148,4 +146,4 @@ function generatePreview(event) {
 
 ## API Reference
 
-<ApiTable />
+<ApiTable   />

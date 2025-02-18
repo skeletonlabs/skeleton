@@ -61,33 +61,33 @@ pnpm add <package>@catalog:
 
 Public facing websites that are deployed and hosted for users to browse.
 
-| Path                         | Description                           |
-| ---------------------------- | ------------------------------------- |
-| `/sites/skeleton.dev`        | The production documentation website. |
+| Path | Description |
+| --- | --- |
+| `/sites/skeleton.dev` | The production documentation website. |
 | `/sites/themes.skeleton.dev` | The Skeleton themes generator website |
 
 ### Packages
 
 Modular Skeleton packages distributed via NPM.
 
-| Path                                      | Description                                                               |
-| ----------------------------------------- | ------------------------------------------------------------------------- |
-| `/packages/skeleton`                      | The Skeleton core package, containing the Tailwind plugin.                |
-| `/packages/skeleton-react`                | The Skeleton React package, containing Skeleton React components.         |
-| `/packages/skeleton-svelte`               | The Skeleton Svelte package, containing Skeleton Svelte components.       |
-| `/packages/cli`                           | The public-facing Skeleton CLI. Used for migrations, etc.                 |
-| `/packages/necroparser`                   | An internal tool for generating component type schema for API references. |
-| `/packages/vite-plugin-tw-plugin-watcher` | An internal tool handling HRM updates to the Tailwind plugin.             |
+| Path | Description |
+| --- | --- |
+| `/packages/skeleton` | The Skeleton core package, containing the Tailwind plugin. |
+| `/packages/skeleton-react` | The Skeleton React package, containing Skeleton React components. |
+| `/packages/skeleton-svelte` | The Skeleton Svelte package, containing Skeleton Svelte components. |
+| `/packages/cli` | The public-facing Skeleton CLI. Used for migrations, etc. |
+| `/packages/necroparser` | An internal tool for generating component type schema for API references. |
+| `/packages/vite-plugin-tw-plugin-watcher` | An internal tool handling HRM updates to the Tailwind plugin. |
 
 ## Branch
 
 Skeleton utilizes three primary branches.
 
-| Branch   | Description                                             | Pull Requests                                  |
-| -------- | ------------------------------------------------------- | ---------------------------------------------- |
-| `master` | Represents the release branch of the all projects.      | <X size={16} className='inline' /> Never       |
-| `dev`    | Represents a queue of new features prepped for release. | <Check size={16} className='inline' /> Allowed |
-| `next`   | Represents the bleeding edge pre-release branch.        | <Check size={16} className='inline' /> Allowed |
+| Branch   | Description                                        | Pull Requests                                  |
+| -------- | -------------------------------------------------- | ---------------------------------------------- |
+| `master` | Represents the release branch of the all projects. | <X size={16} className='inline' /> Never       |
+| `dev`    | Represents a queue of new features prepped for release.  | <Check size={16} className='inline' /> Allowed |
+| `next`    | Represents the bleeding edge pre-release branch.  | <Check size={16} className='inline' /> Allowed |
 
 ### PR Branch Conventions
 
@@ -122,11 +122,11 @@ Follow these instructions to generate a changeset:
 
 Changesets use semantic versioning. We recommend the following convention.
 
-| Version | Role                                        |
-| ------- | ------------------------------------------- |
-| `major` | Do not use. Reserved for maintainers only.  |
-| `minor` | For notable changes, such as a new feature. |
-| `patch` | For small changes, such as a fixing a typo. |
+| Version | Role                                         |
+| ------- | -------------------------------------------- |
+| `major` | Do not use. Reserved for maintainers only.   |
+| `minor` | For notable changes, such as a new feature.  |
+| `patch` | For small changes, such as a fixing a typo.  |
 
 Changeset descriptions will appear verbatim on the [Changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md). Keep it short, semantic, and and include the same [branch prefix](/docs/resources/contribute/get-started#pr-branch-conventions).
 

@@ -199,11 +199,11 @@ export interface AccordionItemProps {
 }
 ```
 
-- The type file should be co-located with the component and named `types.ts`.
-- The interface name should match `{ComponentName}Props`.
-- Use comments to denote blocks of related props.
-- Keep each prop description short and semantic.
-- The order should match prop implementation.
+* The type file should be co-located with the component and named `types.ts`.
+* The interface name should match `{ComponentName}Props`.
+* Use comments to denote blocks of related props.
+* Keep each prop description short and semantic.
+* The order should match prop implementation.
 
 ## Context API
 
@@ -256,10 +256,9 @@ See the examples per each framework below.
 ```ts
 const value = $state('foo');
 ```
-
 ```svelte
 <!-- onChange is option and not required -->
-<Control bind:value name="flavors">
+<Control bind:value={value} name="flavors">
 	<Control.Item id="chocolate" value="chocolate">Chocolate</Control.Item>
 	<Control.Item id="strawberry" value="strawberry">Strawberry</Control.Item>
 </Control>
@@ -270,15 +269,10 @@ const value = $state('foo');
 ```tsx
 const [value, setValue] = useState('foo');
 ```
-
 ```tsx
 <Control value={value} name="flavors" onValueChange={setValue}>
-	<Control.Item id="chocolate" value="chocolate">
-		Chocolate
-	</Control.Item>
-	<Control.Item id="strawberry" value="strawberry">
-		Strawberry
-	</Control.Item>
+	<Control.Item id="chocolate" value="chocolate">Chocolate</Control.Item>
+	<Control.Item id="strawberry" value="strawberry">Strawberry</Control.Item>
 </Control>
 ```
 

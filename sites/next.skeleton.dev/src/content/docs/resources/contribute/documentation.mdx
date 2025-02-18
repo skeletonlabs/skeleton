@@ -84,8 +84,8 @@ export const components = componentSet {/* <-- ADD THIS! */}
 
 Functional components for the Astro project are housed in `/src/components`. These support Astro/Svelte/React.
 
-- Astro - used for simple presentational components without logic.
-- React/Svelte - functional components that implement state, logic, or interaction.
+* Astro - used for simple presentational components without logic.
+* React/Svelte - functional components that implement state, logic, or interaction.
 
 ## Global Components
 
@@ -138,9 +138,9 @@ export const tableProps: [
 ```
 
 ```html
-<table label="Props" data="{tableData}" tonal>
+<Table label="Props" data="{tableData}" tonal>
 	...
-</table>
+</Table>
 ```
 
 > TIP: Optionally add the `tonal` or `kbd` props to highlight content in the first column.
@@ -165,7 +165,7 @@ import { Icon } from 'astro-icon/components';
 <Icon name="svelte" size={24} />
 ```
 
-- Each icon must be provided in a `.svg` format.
-- Icon assets can be located in `/src/icons`
-- The `name` attribute should match the icon filename.
-- You must restart the Astro server when inserting new icons.
+* Each icon must be provided in a `.svg` format.
+* Icon assets can be located in `/src/icons`
+* The `name` attribute should match the icon filename.
+* You must restart the Astro server when inserting new icons.
