@@ -27,6 +27,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^22.1.0",
+		"@types/estree": "^1.0.6",
 		"@types/semver": "^7.5.8",
 		"type-fest": "^4.27.0",
 		"typescript": "catalog:",
@@ -36,7 +37,6 @@
 	"license": "MIT",
 	"dependencies": {
 		"@clack/prompts": "^0.7.0",
-		"@types/estree": "^1.0.6",
 		"colorette": "^2.0.20",
 		"commander": "^13.0.0",
 		"detect-indent": "^7.0.1",
