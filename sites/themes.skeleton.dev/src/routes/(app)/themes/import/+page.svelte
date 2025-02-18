@@ -5,6 +5,7 @@
 	// Utils
 	import { importThemeV2 } from '$lib/utils/importer/import-theme-v2';
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
+	import { importThemeV3Rc1 } from '$lib/utils/importer/import-theme-v3-rc1';
 	// Componets (skeleton)
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 	// Icons
@@ -12,16 +13,16 @@
 	import IconFile from 'lucide-svelte/icons/paperclip';
 	import IconRemove from 'lucide-svelte/icons/circle-x';
 
-	// const defaultThemeName = 'cerberus';
+	const defaultThemeName = 'cerberus';
 
-	// function resetToDefaults() {
-	// 	const defaultTheme = themes.find((t) => t.name === defaultThemeName)!;
-	// 	importThemeV3(defaultTheme.css, defaultThemeName);
-	// }
+	function resetToDefaults() {
+		const defaultTheme = themes.find((t) => t.name === defaultThemeName)!;
+		importThemeV3(defaultTheme.css, defaultThemeName);
+	}
 
 	function onSelectTemplate(fileCss: string, fileName: string) {
 		// Reset to default theme
-		// if (fileName !== defaultThemeName) resetToDefaults();
+		if (fileName !== defaultThemeName) resetToDefaults();
 		// Run template import
 		importThemeV3(JSON.parse(fileCss), fileName);
 		// Redirect to Generator page
@@ -32,18 +33,24 @@
 	async function onFileUpload(event) {
 		if (event.acceptedFiles.length <= 0) return;
 		// Reset to default theme
-		// resetToDefaults();
+		resetToDefaults();
 		// Gather Theme Data
 		const fileName = event.acceptedFiles[0].name;
 		const file = event.acceptedFiles[0];
 		const fileText = await file.text();
 		const isCssFormat = fileName.includes('.css');
-		// Run Importer
+
+		// // Run Importer
 		if (isCssFormat) {
 			importThemeV3(fileText, fileName);
 		} else {
 			importThemeV2(fileText, fileName);
 		}
+
+		// **** TEMPORARY ****
+		// importThemeV3Rc1(fileText, fileName);
+		// ******** / ********
+
 		// Redirect to Generator page
 		goto('/themes/create');
 	}
@@ -76,7 +83,7 @@
 		{#each themes as theme}
 			<button
 				data-theme={theme.name}
-				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-100-900 !ring-[1px] hover:preset-outlined-surface-800-200 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4"
+				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-200-800 hover:preset-outlined-surface-800-200 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4"
 				onclick={() => onSelectTemplate(theme.css, theme.name)}
 			>
 				<span>{theme.emoji}</span>

@@ -1,5 +1,19 @@
 <script lang="ts">
 	import { settingsSpacing } from '$lib/state/generator.svelte';
+
+	const options = [
+		{ label: 'Tight', size: '0.20rem' },
+		{ label: 'Base', size: '0.25rem' },
+		{ label: 'Loose', size: '0.28rem' }
+	];
+
+	function set(newValue: string) {
+		settingsSpacing['--spacing'] = newValue;
+	}
+
+	function activeClass(size: string) {
+		return settingsSpacing['--spacing'] === size ? 'preset-filled' : 'preset-tonal';
+	}
 </script>
 
 <div class="space-y-4">
@@ -8,10 +22,11 @@
 		Set the scale factor for <a href="https://tailwindcss.com/docs/customizing-spacing" target="_blank" class="text-inherit underline">Tailwind Spacing</a> utilities.
 	</p>
 	<label class="label">
-		<div class="label-text flex justify-between items-center">
-			<span>Scale Factor</span>
-			<span class="opacity-60">x {settingsSpacing['--spacing']}</span>
+		<span class="label-text">Scale Factor</span>
+		<div class="grid grid-cols-3 gap-4">
+			{#each options as o}
+				<button type="button" class="btn {activeClass(o.size)}" onclick={() => set(o.size)}>{o.label}</button>
+			{/each}
 		</div>
-		<input class="input" type="range" name="space-scale-factor" bind:value={settingsSpacing['--spacing']} min={0.1} max={0.5} step={0.05} />
 	</label>
 </div>
