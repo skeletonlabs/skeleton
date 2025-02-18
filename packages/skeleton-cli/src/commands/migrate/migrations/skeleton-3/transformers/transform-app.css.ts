@@ -2,7 +2,7 @@ import { atRule, comment, parse, Node, Root, AtRule } from 'postcss';
 import type { Theme } from '../utility/types';
 
 function getTailwindImport(root: Root) {
-	let tailwindImport: AtRule | null = null;
+	let tailwindImport: AtRule | undefined;
 	root.walkAtRules('import', (atRule) => {
 		if (atRule.params.includes('tailwindcss')) {
 			tailwindImport = atRule;
