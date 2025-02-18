@@ -31,11 +31,7 @@ function transformAppHtml(code: string) {
 						if (Object.hasOwn(THEME_MAPPINGS, theme)) {
 							s.update(attribute.start, attribute.end, `data-theme="${THEME_MAPPINGS[theme]}"`);
 						} else {
-							s.remove(attribute.start, attribute.end);
-						}
-					}
-				}
-				ctx.next();
+			$('html').attr('data-theme', theme);
 			}
 		}
 	);
