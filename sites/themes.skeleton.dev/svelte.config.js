@@ -9,4 +9,3 @@ const config = {
 	}
 };
 export default config;
-w;
