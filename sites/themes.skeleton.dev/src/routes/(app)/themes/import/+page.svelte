@@ -24,7 +24,7 @@
 		// Reset to default theme
 		if (fileName !== defaultThemeName) resetToDefaults();
 		// Run template import
-		importThemeV3(JSON.parse(fileCss), fileName);
+		importThemeV3(fileCss, fileName);
 		// Redirect to Generator page
 		goto('/themes/create');
 	}
