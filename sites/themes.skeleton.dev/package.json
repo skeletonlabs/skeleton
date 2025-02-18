@@ -10,7 +10,7 @@
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
-		"@sveltejs/adapter-auto": "^3.3.1",
+		"@sveltejs/adapter-vercel": "^5.6.2",
 		"@sveltejs/kit": "^2.9.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.1",
 		"@tailwindcss/forms": "^0.5.10",
