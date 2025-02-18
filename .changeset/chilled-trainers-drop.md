@@ -1,6 +1,6 @@
 ---
-'@skeletonlabs/skeleton-svelte': minor
-'@skeletonlabs/skeleton-react': minor
+"@skeletonlabs/skeleton-svelte": minor
+"@skeletonlabs/skeleton-react": minor
 ---
 
 - chore: Svelte Accordion and Nav components now use dot notation syntax

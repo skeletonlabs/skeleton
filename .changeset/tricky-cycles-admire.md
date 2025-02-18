@@ -1,5 +1,5 @@
 ---
-'@skeletonlabs/skeleton-svelte': patch
+"@skeletonlabs/skeleton-svelte": patch
 ---
 
 bugfix: Resolve Zag dependency error
