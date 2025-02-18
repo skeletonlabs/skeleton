@@ -20,6 +20,12 @@ function transformAppCss(code: string, theme: Theme) {
 			params: '"@skeletonlabs/skeleton"'
 		})
 	);
+	nodes.push(
+		atRule({
+			name: 'import',
+			params: '"@skeletonlabs/skeleton/optional/presets"'
+		})
+	);
 	switch (theme.type) {
 		case 'preset':
 			nodes.push(
