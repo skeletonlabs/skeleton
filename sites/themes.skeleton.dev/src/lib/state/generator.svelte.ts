@@ -235,7 +235,7 @@ export const settingsTypography: SettingsTypography = $state({
 
 // Reference: https://tailwindcss.com/docs/customizing-spacing
 export const settingsSpacing: SettingsSpacing = $state({
-	'--spacing': 0.25 // rem
+	'--spacing': '0.25rem'
 });
 
 export const settingsEdges: SettingsEdges = $state({

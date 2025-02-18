@@ -29,7 +29,6 @@ export function formatTypography(typography: SettingsTypography) {
 
 export function formatSpacing(spacing: SettingsSpacing) {
 	const _spacing = JSON.parse(JSON.stringify(spacing));
-	_spacing['--spacing'] = String(_spacing['--spacing'] + 'rem');
 	return objectToCssProperties(_spacing);
 }
 

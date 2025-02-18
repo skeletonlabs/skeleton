@@ -12,7 +12,7 @@
 		<!--  -->
 		<Edges
 			name="rounded-base"
-			items={['0rem', '0.063rem', '0.125rem', '0.25rem', '0.375rem', '0.75rem', '100%']}
+			items={['0rem', '0.063rem', '0.125rem', '0.25rem', '0.375rem', '0.75rem', '9999rem']}
 			bind:value={settingsEdges['--radius-base']}
 		/>
 	</div>
@@ -28,16 +28,16 @@
 	<div class="label">
 		<span class="label-text">Border Width</span>
 		<!--  -->
-		<Edges name="borders" items={['0px', '1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-border-width']} thickness />
+		<Edges name="borders" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-border-width']} thickness />
 	</div>
 	<div class="label">
 		<!-- ['0rem', '0.063rem', '0.125rem', '0.25rem',' 0.375rem'] -->
 		<span class="label-text">Ring Width</span>
-		<Edges name="rings" items={['0px', '1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-ring-width']} thickness />
+		<Edges name="rings" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-ring-width']} thickness />
 	</div>
 	<div class="label">
 		<!-- ['0rem', '0.063rem', '0.125rem', '0.25rem',' 0.375rem'] -->
 		<span class="label-text">Divider Width</span>
-		<Edges name="dividers" items={['0px', '1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-divide-width']} thickness />
+		<Edges name="dividers" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-divide-width']} thickness />
 	</div>
 </div>

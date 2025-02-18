@@ -56,7 +56,7 @@ export interface SettingsTypography {
 }
 
 export interface SettingsSpacing {
-	'--spacing': number; // rem // FIXME: convert to string
+	'--spacing': string; // rem
 }
 
 export interface SettingsEdges {
