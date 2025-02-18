@@ -8,9 +8,11 @@ import { transformSvelte } from './transformers/transform-svelte';
 import { readFile, writeFile } from 'node:fs/promises';
 import { installDependencies } from '../../../../utility/install-dependencies';
 import getLatestVersion from 'latest-version';
-import { transformAppCss } from './transformers/transform-app.css.js';
-import { transformAppHtml } from './transformers/transform-app.html.js';
+import { transformAppCss } from './transformers/transform-app.css';
+import { transformAppHtml } from './transformers/transform-app.html';
 import { transformModule } from './transformers/transform-module';
+import { FALLBACK_THEME } from './utility/constants';
+import type { Theme } from './utility/types';
 
 interface FileMigration {
 	path: string;
@@ -77,29 +79,32 @@ export default async function (options: MigrateOptions) {
 		cli.error('Migration canceled, nothing written to disk');
 	}
 
-	// Migrate app.css
-	const appCssSpinner = spinner();
-	appCssSpinner.start(`Migrating ${appCss.name}...`);
-	try {
-		const appCssCode = await readFile(appCss.paths[0], 'utf-8');
-		const transformedAppCssCode = transformAppCss(appCssCode);
-		migrations.push({ path: appCss.paths[0], content: transformedAppCssCode.code });
-		appCssSpinner.stop(`Successfully migrated ${appCss.name}!`);
-	} catch (e) {
-		appCssSpinner.stop(`Failed to migrate ${appCss.name}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
-		cli.error('Migration canceled, nothing written to disk');
-	}
+	let theme: Theme | undefined;
 
 	// Migrate app.html
 	const appHtmlSpinner = spinner();
 	appHtmlSpinner.start(`Migrating ${appHtml.name}...`);
 	try {
 		const appHtmlCode = await readFile(appHtml.paths[0], 'utf-8');
-		const transformedAppHtmlCode = transformAppHtml(appHtmlCode);
-		migrations.push({ path: appHtml.paths[0], content: transformedAppHtmlCode.code });
+		const transformedAppHtml = transformAppHtml(appHtmlCode);
+		theme = transformedAppHtml.meta.theme;
+		migrations.push({ path: appHtml.paths[0], content: transformedAppHtml.code });
 		appHtmlSpinner.stop(`Successfully migrated ${appHtml.name}!`);
 	} catch (e) {
 		appHtmlSpinner.stop(`Failed to migrate ${appHtml.name}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
+		cli.error('Migration canceled, nothing written to disk');
+	}
+
+	// Migrate app.css
+	const appCssSpinner = spinner();
+	appCssSpinner.start(`Migrating ${appCss.name}...`);
+	try {
+		const appCssCode = await readFile(appCss.paths[0], 'utf-8');
+		const transformedAppCssCode = transformAppCss(appCssCode, theme ?? FALLBACK_THEME);
+		migrations.push({ path: appCss.paths[0], content: transformedAppCssCode.code });
+		appCssSpinner.stop(`Successfully migrated ${appCss.name}!`);
+	} catch (e) {
+		appCssSpinner.stop(`Failed to migrate ${appCss.name}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
 		cli.error('Migration canceled, nothing written to disk');
 	}
 

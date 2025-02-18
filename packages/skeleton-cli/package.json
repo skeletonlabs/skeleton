@@ -36,6 +36,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"@clack/prompts": "^0.7.0",
+		"@types/estree": "^1.0.6",
 		"colorette": "^2.0.20",
 		"commander": "^13.0.0",
 		"detect-indent": "^7.0.1",
@@ -45,6 +46,7 @@
 		"nanoid": "^5.0.9",
 		"node-html-parser": "^7.0.1",
 		"package-manager-detector": "^0.2.8",
+		"postcss": "^8.4.49",
 		"semver": "^7.6.3",
 		"svelte": "catalog:",
 		"ts-morph": "^25.0.0",

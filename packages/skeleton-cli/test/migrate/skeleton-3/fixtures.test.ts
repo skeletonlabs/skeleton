@@ -6,6 +6,7 @@ import { transformModule } from '../../../src/commands/migrate/migrations/skelet
 import { transformAppHtml } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.html.js';
 import { transformPackage } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-package.json.js';
 import { transformAppCss } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.css.js';
+import { FALLBACK_THEME } from '../../../src/commands/migrate/migrations/skeleton-3/utility/constants.js';
 
 const TRANSFORMER_MAP = {
 	svelte: transformSvelte,
@@ -23,9 +24,10 @@ function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 	switch (transformer) {
 		case 'svelte':
 		case 'module':
-		case 'app.css':
 		case 'app.html':
 			return TRANSFORMER_MAP[transformer](code).code;
+		case 'app.css':
+			return TRANSFORMER_MAP[transformer](code, FALLBACK_THEME).code;
 		case 'package.json':
 			return TRANSFORMER_MAP[transformer](code, '3.0.0', '1.0.0').code;
 	}
