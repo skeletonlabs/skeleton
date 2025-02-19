@@ -1,5 +1,5 @@
 import fg from 'fast-glob';
-import { transformPackage } from './transformers/transform-package.json';
+import { transformPackageJson } from './transformers/transform-package.json';
 import type { MigrateOptions } from '../..';
 import { isCancel, log, multiselect, spinner } from '@clack/prompts';
 import { cli } from '../../../..';
@@ -28,17 +28,17 @@ export default async function (options: MigrateOptions) {
 		name: 'package.json',
 		paths: await fg('package.json', { cwd })
 	};
-	const appCss = {
-		name: 'app.css',
-		paths: await fg('src/app.css', { cwd })
-	};
 	const appHtml = {
-		name: 'app.html',
+		name: 'src/app.html',
 		paths: await fg('src/app.html', { cwd })
+	};
+	const appCss = {
+		name: 'src/app.css',
+		paths: await fg('src/app.css', { cwd })
 	};
 
 	// Validate file existence
-	for (const file of [packageJson, appCss, appHtml]) {
+	for (const file of [packageJson, appHtml, appCss]) {
 		if (file.paths.length === 0) {
 			cli.error(`"${file.name}" not found in directory "${cwd}".`);
 		}
@@ -71,8 +71,8 @@ export default async function (options: MigrateOptions) {
 		const packageJsonCode = await readFile(packageJson.paths[0], 'utf-8');
 		const skeletonVersion = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
 		const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
-		const transformedPackageJsonCode = transformPackage(packageJsonCode, skeletonVersion, skeletonSvelteVersion);
-		migrations.push({ path: packageJson.paths[0], content: transformedPackageJsonCode.code });
+		const transformedPackageJson = transformPackageJson(packageJsonCode, skeletonVersion, skeletonSvelteVersion);
+		migrations.push({ path: packageJson.paths[0], content: transformedPackageJson.code });
 		packageSpinner.stop(`Successfully migrated ${packageJson.name}!`);
 	} catch (e) {
 		packageSpinner.stop(`Failed to migrate ${packageJson.name}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
@@ -100,8 +100,8 @@ export default async function (options: MigrateOptions) {
 	appCssSpinner.start(`Migrating ${appCss.name}...`);
 	try {
 		const appCssCode = await readFile(appCss.paths[0], 'utf-8');
-		const transformedAppCssCode = transformAppCss(appCssCode, theme ?? FALLBACK_THEME);
-		migrations.push({ path: appCss.paths[0], content: transformedAppCssCode.code });
+		const transformedAppCss = transformAppCss(appCssCode, theme ?? FALLBACK_THEME);
+		migrations.push({ path: appCss.paths[0], content: transformedAppCss.code });
 		appCssSpinner.stop(`Successfully migrated ${appCss.name}!`);
 	} catch (e) {
 		appCssSpinner.stop(`Failed to migrate ${appCss.name}: ${e instanceof Error ? e.message : 'Unknown error'}`, 1);
@@ -124,11 +124,11 @@ export default async function (options: MigrateOptions) {
 			try {
 				const code = await readFile(sourceFile, 'utf-8');
 				if (extension === '.svelte') {
-					const transformedSvelteCode = transformSvelte(code);
-					migrations.push({ path: sourceFile, content: transformedSvelteCode.code });
+					const transformedSvelte = transformSvelte(code);
+					migrations.push({ path: sourceFile, content: transformedSvelte.code });
 				} else {
-					const transformedModuleCode = transformModule(code);
-					migrations.push({ path: sourceFile, content: transformedModuleCode.code });
+					const transformedModule = transformModule(code);
+					migrations.push({ path: sourceFile, content: transformedModule.code });
 				}
 				sourceFilesSpinner.message(`Successfully migrated ${sourceFile}!`);
 			} catch (e) {
