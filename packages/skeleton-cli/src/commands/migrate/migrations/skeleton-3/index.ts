@@ -28,17 +28,17 @@ export default async function (options: MigrateOptions) {
 		name: 'package.json',
 		paths: await fg('package.json', { cwd })
 	};
-	const appCss = {
-		name: 'app.css',
-		paths: await fg('src/app.css', { cwd })
-	};
 	const appHtml = {
-		name: 'app.html',
+		name: 'src/app.html',
 		paths: await fg('src/app.html', { cwd })
+	};
+	const appCss = {
+		name: 'src/app.css',
+		paths: await fg('src/app.css', { cwd })
 	};
 
 	// Validate file existence
-	for (const file of [packageJson, appCss, appHtml]) {
+	for (const file of [packageJson, appHtml, appCss]) {
 		if (file.paths.length === 0) {
 			cli.error(`"${file.name}" not found in directory "${cwd}".`);
 		}
