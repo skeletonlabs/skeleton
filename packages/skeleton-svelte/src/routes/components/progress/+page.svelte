@@ -69,7 +69,7 @@
 	</section>
 </div>
 
-<style lang="postcss">
+<style>
 	:global(.custom-indeterminate) {
 		animation: custom-indeterminate 2s linear infinite;
 	}

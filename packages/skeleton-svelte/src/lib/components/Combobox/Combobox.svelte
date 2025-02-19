@@ -150,7 +150,7 @@
 	{/if}
 </span>
 
-<style lang="postcss">
+<style>
 	[data-part='item'][data-highlighted]:not([data-state='checked']) {
 		background-color: var(--color-surface-200-800);
 	}
