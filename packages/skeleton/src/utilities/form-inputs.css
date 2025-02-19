@@ -25,6 +25,12 @@
 		--tw-ring-color: var(--color-primary-500);
 	}
 
+	/* Placeholder --- */
+
+	&::placeholder {
+		color: var(--color-surface-800-200);
+	}
+
 	/* File Date/Time --- */
 
 	&[type='date'] {
