@@ -24,7 +24,13 @@ import schemaModal from '@content/schemas/svelte/modal.json';
 ## Floating UI Svelte
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>Please note this section will be the future home of the [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) integrateion guide, an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this project is in development, we have provided several Svelte-specific components to act as temporary substitutions. Note that these components will remain available until our next major release (Skeleton v4.x). However, the goal will be to replace these with Floating UI Svelte as soon as possible.</p>
+	<p>
+		Please note this section will be the future home of the [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) integrateion guide,
+		an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this
+		project is in development, we have provided several Svelte-specific components to act as temporary substitutions. Note that these
+		components will remain available until our next major release (Skeleton v4.x). However, the goal will be to replace these with Floating
+		UI Svelte as soon as possible.
+	</p>
 </div>
 
 ## Components
@@ -101,7 +107,7 @@ Generate modals or dialogs that require a user's immediate attention. [View API 
 Skeleton does not take an opinionated stance regarding z-index stacking. This means elements may be occluded beneath other elements with a higher index. Adjust this using the `zIndex` component property.
 
 ```svelte
-<Popover ... zIndex="{10}">
+<Popover ... zIndex={10}>
 	<!-- ... -->
 </Popover>
 ```
@@ -110,9 +116,9 @@ Skeleton does not take an opinionated stance regarding z-index stacking. This me
 
 Skeleton will always favor native browser APIs over third-party libraries such as Floating UI Svelte. The following is a list of current and upcoming incoming APIs we will aim to support in the future, but are not quite standardized cross-browser yet.
 
-* [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
-* [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
-* [CSS Anchoring Position](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning)
+- [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
+- [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
+- [CSS Anchoring Position](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning)
 
 ## API Reference
 

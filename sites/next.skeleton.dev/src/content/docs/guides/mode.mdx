@@ -7,7 +7,10 @@ order: 40
 
 export const components = componentSet;
 
-<p class="type-scale-5">Skeleton makes use of Tailwind's [Dark Mode](https://tailwindcss.com/docs/dark-mode) out of the box. This allows the mode to be toggle manually by end users, automatically via operating system settings, or through a combination of both.</p>
+<p class="type-scale-5">
+	Skeleton makes use of Tailwind's [Dark Mode](https://tailwindcss.com/docs/dark-mode) out of the box. This allows the mode to be toggle
+	manually by end users, automatically via operating system settings, or through a combination of both.
+</p>
 
 ## Fundamentals
 
@@ -16,15 +19,15 @@ Tailwind offers two strategies, enabled within your project's [Tailwind configur
 ### Selector Strategy
 
 ```ts
-darkMode: 'selector'
+darkMode: 'selector';
 ```
 
-See [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually) for toggling the selector. This is accomplished by adding or removing  a `.dark` class to your document's `<html>` element to determine the mode.
+See [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually) for toggling the selector. This is accomplished by adding or removing a `.dark` class to your document's `<html>` element to determine the mode.
 
 ### Media Strategy
 
 ```ts
-darkMode: 'media'
+darkMode: 'media';
 ```
 
 Uses CSS's [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) to set the mode based on operating system settings. In some browser and devices this may require you to refresh the browser page to reflect the changes.
