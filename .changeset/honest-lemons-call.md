@@ -2,4 +2,4 @@
 '@skeletonlabs/skeleton-cli': patch
 ---
 
-Feature: Tailwind V4
+Feature (migrate/skeleton-3): Tailwind V4 support.
