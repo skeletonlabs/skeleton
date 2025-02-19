@@ -11,7 +11,7 @@
 		// Prevents generator CSS property precedence issues.
 		$page.url.pathname === '/themes/create'
 			? document.documentElement.setAttribute('data-theme', 'generated')
-			: document.documentElement.setAttribute('data-theme', 'cerberus');
+			: document.documentElement.setAttribute('data-theme', ''); // cerberus
 	});
 </script>
 

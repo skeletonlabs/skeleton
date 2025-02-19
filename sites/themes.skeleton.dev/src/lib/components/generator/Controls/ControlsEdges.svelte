@@ -24,7 +24,7 @@
 			bind:value={settingsEdges['--radius-container']}
 		/>
 	</div>
-	<h2 class="h5">Edge Widths</h2>
+	<h2 class="h5">Default Edge Widths</h2>
 	<div class="label">
 		<span class="label-text">Border Width</span>
 		<!--  -->

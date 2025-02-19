@@ -2,7 +2,7 @@
 	<!-- Column 1 -->
 	<div class="space-y-10">
 		<div class="preset-filled-primary-500 w-56 aspect-square p-4 flex justify-center items-center">
-			<span class="h1 text-8xl">Aa</span>
+			<span class="h1 text-8xl text-current">Aa</span>
 		</div>
 		<!-- Headings -->
 		<div>

@@ -64,9 +64,11 @@
 
 <span class="{base} {classes}" data-testid="tooltip">
 	<!-- Snippet: Trigger -->
-	<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
-		{@render trigger?.()}
-	</button>
+	{#if trigger}
+		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
+			{@render trigger()}
+		</button>
+	{/if}
 	<!-- Tooltip Content -->
 	{#if api.open}
 		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerClasses}">

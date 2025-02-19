@@ -1,20 +1,16 @@
 ---
-// import * as themes from '@skeletonlabs/skeleton/themes';
+import { themes } from '@skeletonlabs/skeleton/themes';
 ---
 
-<div class="card p-4 bg-red-500 text-center">
-	<p>ThemesList component is currently disabled.</p>
-</div>
-
-<!-- <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-2">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
 	{
-		Object.entries(themes).map(([key, values]) => (
+		themes.map((theme) => (
 			<button
-				data-theme={key}
-				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-100-900 !ring-[1px] hover:preset-outlined-surface-800-200 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4"
+				data-theme={theme.name}
+				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-100-900 hover:preset-outlined-surface-800-200 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4"
 			>
-				<span>{values.metadata.emoji}</span>
-				<h3 class="font-bold font-sans text-left !text-surface-950-50">{key}</h3>
+				<span>{theme.emoji}</span>
+				<h3 class="text-lg capitalize cap text-left">{theme.name}</h3>
 				<div class="flex justify-center items-center -space-x-1">
 					<div class="aspect-square w-4 bg-primary-500 border-[1px] border-black/10 rounded-full" />
 					<div class="aspect-square w-4 bg-secondary-500 border-[1px] border-black/10 rounded-full" />
@@ -27,12 +23,12 @@
 			</button>
 		))
 	}
-</div> -->
+</div>
 
-<!-- <script>
+<script>
 	for (const button of document.querySelectorAll<HTMLButtonElement>('button[data-theme]')) {
 		button.addEventListener('click', async () => {
 			await navigator.clipboard.writeText(button.dataset.theme!);
 		});
 	}
-</script> -->
+</script>
