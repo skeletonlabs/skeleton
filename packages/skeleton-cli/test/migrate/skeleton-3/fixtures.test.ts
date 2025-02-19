@@ -4,16 +4,16 @@ import { readFile } from 'node:fs/promises';
 import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-svelte.js';
 import { transformModule } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-module.js';
 import { transformAppHtml } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.html.js';
-import { transformPackage } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-package.json.js';
+import { transformPackageJson } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-package.json.js';
 import { transformAppCss } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.css.js';
 import { FALLBACK_THEME } from '../../../src/commands/migrate/migrations/skeleton-3/utility/constants.js';
 
 const TRANSFORMER_MAP = {
 	svelte: transformSvelte,
 	module: transformModule,
-	'app.css': transformAppCss,
 	'app.html': transformAppHtml,
-	'package.json': transformPackage
+	'app.css': transformAppCss,
+	'package.json': transformPackageJson
 };
 
 const fixtures = import.meta.glob('./fixtures/**/*', {
