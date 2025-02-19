@@ -207,6 +207,10 @@ importers:
         version: 2.1.9(@types/node@22.13.2)(jsdom@26.0.0)(lightningcss@1.29.1)(sass-embedded@1.83.4)
 
   packages/skeleton:
+    dependencies:
+      tailwindcss:
+        specifier: '>=4.0.0'
+        version: 4.0.6
     devDependencies:
       fast-glob:
         specifier: ^3.3.1

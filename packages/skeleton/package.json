@@ -5,28 +5,36 @@
 		"build": "vite build",
 		"dev": "vite build --watch"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/skeletonlabs/skeleton.git"
+	},
 	"exports": {
 		".": {
-			"default": "./dist/index.css"
+			"style": "./dist/index.css"
 		},
 		"./themes": {
 			"import": "./dist/themes/index.js",
 			"require": "./dist/themes/index.cjs"
 		},
 		"./themes/*": {
-			"default": "./dist/themes/*.css"
+			"style": "./dist/themes/*.css"
 		},
 		"./optional/*": {
-			"default": "./dist/optional/*.css"
+			"style": "./dist/optional/*.css"
 		}
 	},
 	"files": [
 		"dist"
 	],
+	"peerDependencies": {
+		"tailwindcss": ">=4.0.0"
+	},
 	"devDependencies": {
 		"fast-glob": "^3.3.1",
 		"sass-embedded": "^1.83.4",
 		"vite": "^6.0.11"
 	},
-	"type": "module"
+	"type": "module",
+	"license": "MIT"
 }
