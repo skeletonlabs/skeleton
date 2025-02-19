@@ -14,7 +14,7 @@
 		controlBase = 'flex text-start items-center space-x-4 w-full',
 		controlHover = 'hover:preset-tonal-primary',
 		controlPadding = 'py-2 px-4',
-		controlRounded = 'rounded',
+		controlRounded = 'rounded-base',
 		controlClasses,
 		// Lead
 		leadBase = '',

@@ -13,7 +13,7 @@
 		base = '',
 		padding = '',
 		spaceY = 'space-y-2',
-		rounded = 'rounded',
+		rounded = 'rounded-base',
 		width = 'w-full',
 		classes = '',
 		// Snippets

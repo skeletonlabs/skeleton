@@ -29,7 +29,7 @@ const AccordionRoot: FC<AccordionProps> = ({
 	base = '',
 	padding = '',
 	spaceY = 'space-y-2',
-	rounded = 'rounded',
+	rounded = 'rounded-base',
 	width = 'w-full',
 	classes = '',
 	// Icons
@@ -86,7 +86,7 @@ const AccordionControl: FC<AccordionControlProps> = ({
 	base = 'flex text-start items-center space-x-4 w-full',
 	hover = 'hover:preset-tonal-primary',
 	padding = 'py-2 px-4',
-	rounded = 'rounded',
+	rounded = 'rounded-base',
 	classes = '',
 	// Lead
 	leadBase = '',

@@ -18,12 +18,12 @@
 		// Track
 		trackBase = 'h-full w-full overflow-x-hidden',
 		trackBg = 'bg-surface-200-800',
-		trackRounded = 'rounded',
+		trackRounded = 'rounded-base',
 		trackClasses = '',
 		// Meter
 		meterBase = 'h-full w-full',
 		meterBg = 'bg-surface-950-50',
-		meterRounded = 'rounded',
+		meterRounded = 'rounded-base',
 		meterTransition = 'transition-[width]',
 		meterAnimate = 'animate-progress-indeterminate',
 		meterClasses = '',

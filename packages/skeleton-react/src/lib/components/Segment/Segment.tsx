@@ -35,7 +35,7 @@ const SegmentRoot: FC<SegmentProps> = ({
 	indicatorBase = 'top-[var(--top)] left-[var(--left)] w-[var(--width)] h-[var(--height)]',
 	indicatorBg = 'preset-filled',
 	indicatorText = 'text-surface-contrast-950 dark:text-surface-contrast-50',
-	indicatorRounded = 'rounded',
+	indicatorRounded = 'rounded-base',
 	indicatorClasses = '',
 	// Events
 	onValueChange = noop,
