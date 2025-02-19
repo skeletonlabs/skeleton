@@ -2,18 +2,21 @@
 
 @utility input {
 	display: block;
-	border-radius: var(--radius-base);
-	border-width: var(--default-border-width);
-	border-color: var(--color-surface-200-800);
 	background-color: transparent;
-
+	border-radius: var(--radius-base);
 	font-size: var(--text-base);
 	line-height: --spacing(9);
 	height: --spacing(9);
 	width: 100%;
 	padding: --spacing(2);
 
+	/* Edges --- */
 	outline-color: transparent;
+	border-width: 0;
+	--tw-ring-inset: inset;
+	--tw-ring-color: var(--color-surface-200-800);
+	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
+	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 
 	@variant active {
 		--tw-ring-color: var(--color-primary-500);
@@ -75,6 +78,7 @@
 
 	&[type='range'] {
 		accent-color: var(--color-surface-950-50);
+		box-shadow: none;
 	}
 
 	/* Color Picker Input --- */
