@@ -49,7 +49,7 @@
 	const classesCollapsed = $derived(`${rxSize} ${padding} ${gap} ${classes}`);
 	const classesExtended = $derived(`${expandedPadding} ${expandedGap} ${expandedClasses}`);
 	const rxMode = $derived(ctx.expanded ? classesExtended : classesCollapsed);
-	const isActive = $derived(selected !== undefined ? selected : ctx.value === id)
+	const isActive = $derived(selected !== undefined ? selected : ctx.value === id);
 	const rxBackground = $derived(isActive ? active : `${background} ${hover}`);
 
 	function onClickHandler() {
