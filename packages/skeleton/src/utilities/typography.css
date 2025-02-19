@@ -1,7 +1,6 @@
 /* Components: Typography */
 
 @utility h1 {
-	/* Headings --- */
 	color: var(--heading-font-color);
 	font-family: var(--heading-font-family);
 	font-weight: var(--heading-font-weight);

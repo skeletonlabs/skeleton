@@ -48,8 +48,8 @@
 				<Avatar src="/images/female.png" name="" size="size-full" imageClasses="grayscale" />
 				<Avatar name="Skeleton" size="size-full" background={currentPresets.filled} />
 				<Avatar name="Kevin" size="size-full" background={currentPresets.tonal} />
-				<Avatar name="Kevin" size="size-full" background={currentPresets.outlined}><IconSkull size={24} /></Avatar>
-				<Avatar name="Kevin" size="size-full" background="preset-outlined-surface-200-800"><IconSkull size={24} /></Avatar>
+				<Avatar name="Kevin" size="size-full" background={currentPresets.outlined}><IconSkull size={20} /></Avatar>
+				<Avatar name="Kevin" size="size-full" background="preset-outlined-surface-200-800"><IconSkull size={20} /></Avatar>
 			</div>
 			<!-- Alert -->
 			<div class="card {currentPresets.tonal} grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]">
@@ -104,10 +104,10 @@
 			<div class="grid grid-cols-[auto_1fr] item-center gap-4">
 				<Switch name="example" checked={true} controlActive={currentPresets.filled} />
 				<div class="grid grid-cols-4 gap-4">
-					<button type="button" class="btn preset-filled"><IconSkull /></button>
-					<button type="button" class="btn {currentPresets.filled}"><IconSkull /></button>
-					<button type="button" class="btn {currentPresets.tonal}"><IconSkull /></button>
-					<button type="button" class="btn {currentPresets.outlined}"><IconSkull /></button>
+					<button type="button" class="btn preset-filled"><IconSkull size={20} /></button>
+					<button type="button" class="btn {currentPresets.filled}"><IconSkull size={20} /></button>
+					<button type="button" class="btn {currentPresets.tonal}"><IconSkull size={20} /></button>
+					<button type="button" class="btn {currentPresets.outlined}"><IconSkull size={20} /></button>
 				</div>
 			</div>
 			<!-- Segment Control -->

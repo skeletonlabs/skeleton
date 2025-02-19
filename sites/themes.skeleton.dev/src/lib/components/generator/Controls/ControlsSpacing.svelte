@@ -2,7 +2,7 @@
 	import { settingsSpacing } from '$lib/state/generator.svelte';
 
 	const options = [
-		{ label: 'Tight', size: '0.20rem' },
+		{ label: 'Tight', size: '0.22rem' },
 		{ label: 'Base', size: '0.25rem' },
 		{ label: 'Loose', size: '0.28rem' }
 	];
