@@ -60,7 +60,7 @@ Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utili
 
 ## Message Feed
 
-The feed simply loops through the available feed data. Each `<pre>` tag represents a single *bubble* element.
+The feed simply loops through the available feed data. Each `<pre>` tag represents a single _bubble_ element.
 
 <Preview client:visible>
 	<Fragment slot="preview">
@@ -106,22 +106,16 @@ function scrollChatBottom(behavior?: 'auto' | 'instant' | 'smooth' = 'smooth') {
 Below we'll cover how to append the message feed with a new message from the host user. Per our above examples, we'll use the same `messageFeed` data structure.
 
 ```ts
-let messageFeed = [ /* ...*/ ];
+let messageFeed = [
+	/* ...*/
+];
 ```
 
 Then bind to the textarea for your prompt in order to capture any message typed by the user.
 
 <Preview selected="codeReact" client:visible>
-	<Fragment slot="codeReact">
-		```tsx
-		let elemPrompt: HTMLElement = useRef();
-		```
-	</Fragment>
-	<Fragment slot="codeSvelte">
-		```ts
-		let elemPrompt: HTMLElement;
-		```
-	</Fragment>
+	<Fragment slot="codeReact">```tsx let elemPrompt: HTMLElement = useRef(); ```</Fragment>
+	<Fragment slot="codeSvelte">```ts let elemPrompt: HTMLElement; ```</Fragment>
 </Preview>
 
 <Preview selected="codeReact" client:visible>
@@ -155,7 +149,9 @@ function addMessage(): void {
 	// Clear the textarea message
 	elemPrompt.value = '';
 	// Smoothly scroll to the bottom of the feed
-	setTimeout(() => { scrollChatBottom('smooth'); }, 0);
+	setTimeout(() => {
+		scrollChatBottom('smooth');
+	}, 0);
 }
 ```
 

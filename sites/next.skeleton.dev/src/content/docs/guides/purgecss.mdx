@@ -26,29 +26,24 @@ Unfortunately, this is a limitation of how Tailwind implements its <a class="anc
 
 Ideally, you only want selectors for classes you actually use. This is where <a class="anchor" href="https://purgecss.com/" target="_blank">PurgeCSS</a> comes in. We analyze the files that are part of your project's module graph and extract the utilized Tailwind classes. From there, the plugin passes them along to PurgeCSS for final processing.
 
->This plugin will no longer be necessary after the release of <a class="anchor" href="https://tailwindcss.com/blog/tailwindcss-v4-alpha" target="_blank">Tailwind v4</a>, which introduces a new <a class="anchor" href="https://tailwindcss.com/blog/tailwindcss-v4-alpha#zero-configuration-content-detection" target="_blank">Vite plugin</a> that auto-detects classes from the module graph. As such, **this plugin only supports Tailwind v3**.
-
+> This plugin will no longer be necessary after the release of <a class="anchor" href="https://tailwindcss.com/blog/tailwindcss-v4-alpha" target="_blank">Tailwind v4</a>, which introduces a new <a class="anchor" href="https://tailwindcss.com/blog/tailwindcss-v4-alpha#zero-configuration-content-detection" target="_blank">Vite plugin</a> that auto-detects classes from the module graph. As such, **this plugin only supports Tailwind v3**.
 
 ---
 
 ## Usage
 
->Last updated for `vite-plugin-tailwind-purgecss v0.3.0`. Check the plugin’s <a class="anchor" href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank">GitHub</a> for the latest instructions.
+> Last updated for `vite-plugin-tailwind-purgecss v0.3.0`. Check the plugin’s <a class="anchor" href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank">GitHub</a> for the latest instructions.
 
 ### Supported Frameworks
 
-
 This plugin supports the following Vite-based frameworks:
-
 
 - SvelteKit
 - Vite + Svelte
 - Vite + React
 - Astro
 
-
 Next.js is **not supported** because it does not use Vite.
-
 
 ### Installation
 
@@ -67,16 +62,15 @@ import { purgeCss } from 'vite-plugin-tailwind-purgecss';
 // Other Vite plugins here, e.g. SvelteKit or React plugin
 
 export default defineConfig({
-  plugins: [
-    // existing plugins
-    purgeCss()
-  ]
+	plugins: [
+		// existing plugins
+		purgeCss()
+	]
 });
 ```
 
 ---
 
 ## Attribution
-
 
 This plugin is provided courtesy of Skeleton co-maintainer <a class="anchor" href="https://github.com/AdrianGonz97" target="_blank" rel="noreferrer">Adrian (aka CokaKoala)</a>. Feel free to explore and contribute to <a class="anchor" href="https://github.com/AdrianGonz97/vite-plugin-tailwind-purgecss" target="_blank" rel="noreferrer">vite-plugin-tailwind-purgecss</a> on GitHub.
