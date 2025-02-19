@@ -1,13 +1,13 @@
-import * as svelte from 'svelte/compiler';
-import * as postcss from 'postcss';
+import { type AST, parse } from 'svelte/compiler';
 import type { Node } from 'estree';
 import { walk } from 'zimmerframe';
 import MagicString from 'magic-string';
 import { transformClasses } from './transform-classes';
 import { transformModule } from './transform-module';
+import { transformStyleSheet } from './transform-stylesheet';
 import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 
-function renameComponent(s: MagicString, node: svelte.AST.Component, name: string) {
+function renameComponent(s: MagicString, node: AST.Component, name: string) {
 	const adjustedStart = node.start + 1;
 	s.update(adjustedStart, adjustedStart + node.name.length, name);
 	const componentString = s.original.slice(node.start, node.end);
@@ -18,7 +18,14 @@ function renameComponent(s: MagicString, node: svelte.AST.Component, name: strin
 	s.update(node.start + indexOfNonSelfClosingTag + 2, node.start + indexOfNonSelfClosingTag + 2 + node.name.length, name);
 }
 
-function transformScript(s: MagicString, script: svelte.AST.Script) {
+function transformScript(s: MagicString, script: AST.Script | null) {
+	if (!script) {
+		return {
+			meta: {
+				skeletonImports: []
+			}
+		};
+	}
 	const content = s.original.slice(script.start, script.end);
 	const openingTag = content.match(/^<script[^>]*>/)?.at(0);
 	const closingTag = content.match(/<\/script>$/)?.at(0);
@@ -37,13 +44,21 @@ function transformScript(s: MagicString, script: svelte.AST.Script) {
 	};
 }
 
-function hasRange(node: Node | svelte.AST.SvelteNode): node is (Node | svelte.AST.SvelteNode) & { start: number; end: number } {
+function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
+	if (!css) {
+		return;
+	}
+	const transformed = transformStyleSheet(s.original.slice(css.content.start, css.content.end));
+	s.overwrite(css.content.start, css.content.end, transformed.code);
+}
+
+function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
 	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number';
 }
 
-function transformFragment(s: MagicString, fragment: svelte.AST.Fragment, skeletonImports: string[]) {
+function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImports: string[]) {
 	walk(
-		fragment as svelte.AST.SvelteNode,
+		fragment as AST.SvelteNode,
 		{},
 		{
 			Literal(node, ctx) {
@@ -85,34 +100,17 @@ function transformFragment(s: MagicString, fragment: svelte.AST.Fragment, skelet
 	};
 }
 
-function transformCss(s: MagicString, css: svelte.AST.CSS.StyleSheet) {
-	const content = s.original.slice(css.content.start, css.content.end);
-	const parsed = postcss.parse(content);
-	parsed.walkAtRules((rule) => {
-		if (rule.name !== 'apply') {
-			return;
-		}
-		rule.params = transformClasses(rule.params).code;
-	});
-	s.overwrite(css.content.start, css.content.end, parsed.toString());
-}
-
 function transformSvelte(code: string) {
 	const s = new MagicString(code);
-	const root = svelte.parse(code, {
+	const root = parse(code, {
 		modern: true
 	});
-	let skeletonImports: string[] = [];
-	if (root.module) {
-		skeletonImports = [...skeletonImports, ...transformScript(s, root.module).meta.skeletonImports];
-	}
-	if (root.instance) {
-		skeletonImports = [...skeletonImports, ...transformScript(s, root.instance).meta.skeletonImports];
-	}
+	const skeletonImports = [
+		...transformScript(s, root.module).meta.skeletonImports,
+		...transformScript(s, root.instance).meta.skeletonImports
+	];
 	transformFragment(s, root.fragment, skeletonImports);
-	if (root.css) {
-		transformCss(s, root.css);
-	}
+	transformCss(s, root.css);
 	return {
 		code: s.toString()
 	};

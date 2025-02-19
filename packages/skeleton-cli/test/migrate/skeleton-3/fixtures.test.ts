@@ -7,10 +7,12 @@ import { transformAppHtml } from '../../../src/commands/migrate/migrations/skele
 import { transformPackageJson } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-package.json.js';
 import { transformAppCss } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.css.js';
 import { FALLBACK_THEME } from '../../../src/commands/migrate/migrations/skeleton-3/utility/constants.js';
+import { transformStyleSheet } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-stylesheet.js';
 
 const TRANSFORMER_MAP = {
 	svelte: transformSvelte,
 	module: transformModule,
+	stylesheet: transformStyleSheet,
 	'app.html': transformAppHtml,
 	'app.css': transformAppCss,
 	'package.json': transformPackageJson
@@ -24,6 +26,7 @@ function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 	switch (transformer) {
 		case 'svelte':
 		case 'module':
+		case 'stylesheet':
 		case 'app.html':
 			return TRANSFORMER_MAP[transformer](code).code;
 		case 'app.css':

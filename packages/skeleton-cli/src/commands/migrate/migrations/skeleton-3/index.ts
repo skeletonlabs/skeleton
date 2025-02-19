@@ -13,6 +13,7 @@ import { transformAppHtml } from './transformers/transform-app.html';
 import { transformModule } from './transformers/transform-module';
 import { FALLBACK_THEME } from './utility/constants';
 import type { Theme } from './utility/types';
+import { transformStyleSheet } from './transformers/transform-stylesheet';
 
 interface FileMigration {
 	path: string;
@@ -33,8 +34,8 @@ export default async function (options: MigrateOptions) {
 		paths: await fg('src/app.html', { cwd })
 	};
 	const appCss = {
-		name: 'src/app.css',
-		paths: await fg('src/app.css', { cwd })
+		name: 'src/app.{css,pcss,postcss}',
+		paths: await fg('src/app.{css,pcss,postcss}', { cwd })
 	};
 
 	// Validate file existence
@@ -110,12 +111,11 @@ export default async function (options: MigrateOptions) {
 
 	// Migrate source files
 	if (sourceFolders.length > 0) {
-		const sourceFileMatcher = `${sourceFolders.length === 1 ? sourceFolders.at(0) : `{${sourceFolders.join(',')}}`}/**/*.{js,mjs,ts,mts,svelte}`;
+		const sourceFileMatcher = `${sourceFolders.length === 1 ? sourceFolders.at(0) : `{${sourceFolders.join(',')}}`}/**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`;
 		const sourceFiles = await fg(sourceFileMatcher, {
 			cwd: cwd,
 			ignore: ['node_modules']
 		});
-
 		const sourceFilesSpinner = spinner();
 		sourceFilesSpinner.start(`Migrating source files...`);
 		for (const sourceFile of sourceFiles) {
@@ -123,12 +123,27 @@ export default async function (options: MigrateOptions) {
 			const extension = extname(sourceFile);
 			try {
 				const code = await readFile(sourceFile, 'utf-8');
-				if (extension === '.svelte') {
-					const transformedSvelte = transformSvelte(code);
-					migrations.push({ path: sourceFile, content: transformedSvelte.code });
-				} else {
-					const transformedModule = transformModule(code);
-					migrations.push({ path: sourceFile, content: transformedModule.code });
+				switch (extension) {
+					case '.svelte': {
+						const transformedSvelte = transformSvelte(code);
+						migrations.push({ path: sourceFile, content: transformedSvelte.code });
+						break;
+					}
+					case '.js':
+					case '.mjs':
+					case '.ts':
+					case '.mts': {
+						const transformedModule = transformModule(code);
+						migrations.push({ path: sourceFile, content: transformedModule.code });
+						break;
+					}
+					case '.css':
+					case '.pcss':
+					case '.postcss': {
+						const transformedStyleSheet = transformStyleSheet(code);
+						migrations.push({ path: sourceFile, content: transformedStyleSheet.code });
+						break;
+					}
 				}
 				sourceFilesSpinner.message(`Successfully migrated ${sourceFile}!`);
 			} catch (e) {
