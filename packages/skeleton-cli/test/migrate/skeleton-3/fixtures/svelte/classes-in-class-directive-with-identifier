@@ -2,4 +2,4 @@
 	const foo = true;
 </script>
 
-<div class:rounded-token={foo}></div>
+<div class:rounded-token="{foo}"></div>

@@ -51,7 +51,7 @@ describe('transformClasses', () => {
 		const createBorderRadiusMappings = () => [
 			{
 				v2: 'rounded-token',
-				v3: 'rounded'
+				v3: 'rounded-base'
 			},
 			{
 				v2: 'rounded-container-token',
@@ -60,7 +60,7 @@ describe('transformClasses', () => {
 			...CORNERS.flatMap((corner) => [
 				{
 					v2: `rounded-${corner}-token`,
-					v3: `rounded-${corner}`
+					v3: `rounded-${corner}-base`
 				},
 				{
 					v2: `rounded-${corner}-container-token`,

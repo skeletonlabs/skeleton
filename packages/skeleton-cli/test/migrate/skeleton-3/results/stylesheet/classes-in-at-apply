@@ -1,3 +1,3 @@
 .foo {
-	@apply rounded;
+	@apply rounded-base;
 }

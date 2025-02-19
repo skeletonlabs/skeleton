@@ -1,3 +1,3 @@
 <script>
-	const foo = "rounded";
+	const foo = 'rounded-base';
 </script>

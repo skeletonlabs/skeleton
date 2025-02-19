@@ -1,5 +1,5 @@
 <style lang="postcss">
 	.foo {
-		@apply rounded;
+		@apply rounded-base;
 	}
 </style>
