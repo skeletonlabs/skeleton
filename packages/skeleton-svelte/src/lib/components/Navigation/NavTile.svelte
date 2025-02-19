@@ -10,7 +10,7 @@
 		label,
 		labelExpanded,
 		title,
-		selected = false,
+		selected = undefined,
 		type = 'button',
 		// Root
 		base = 'flex items-center',
@@ -49,7 +49,8 @@
 	const classesCollapsed = $derived(`${rxSize} ${padding} ${gap} ${classes}`);
 	const classesExtended = $derived(`${expandedPadding} ${expandedGap} ${expandedClasses}`);
 	const rxMode = $derived(ctx.expanded ? classesExtended : classesCollapsed);
-	const rxBackground = $derived(selected || ctx.value === id ? active : `${background} ${hover}`);
+	const isActive = $derived(selected !== undefined ? selected : ctx.value === id)
+	const rxBackground = $derived(isActive ? active : `${background} ${hover}`);
 
 	function onClickHandler() {
 		if (onclick && !id) throw new Error('No ID was provided');
