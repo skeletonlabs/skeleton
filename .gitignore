@@ -1,20 +1,3 @@
-# packages
-/packages/*
-!/packages/create-skeleton-app
-!/packages/skeleton
-!/packages/skeleton-*
-!/packages/necroparser
-
-# sites
-/sites/*
-!/sites/next.skeleton.dev
-!/sites/themes.skeleton.dev
-
-# playgrounds
-/playgrounds/*
-!/playgrounds/skeleton
-!/playgrounds/skeleton-*
-
 # pagefind
 **/pagefind
 vite.config.js.timestamp-*

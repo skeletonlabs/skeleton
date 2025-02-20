@@ -7,5 +7,9 @@
 	"linked": [],
 	"access": "public",
 	"baseBranch": "dev",
-	"updateInternalDependencies": "patch"
+	"updateInternalDependencies": "patch",
+	"ignore": [
+		"@skeletonlabs/skeleton-common",
+		"@skeletonlabs/necroparser"
+	]
 }
