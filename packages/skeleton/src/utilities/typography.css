@@ -14,7 +14,6 @@
 		font-size: var(--text-5xl);
 		line-height: var(--text-5xl--line-height);
 	}
-
 	@variant dark {
 		color: var(--heading-font-color-dark);
 	}
@@ -30,11 +29,10 @@
 	font-size: var(--text-3xl);
 	line-height: var(--text-3xl--line-height);
 
-	@media (width >= var(--breakpoint-md)) {
+	@variant md {
 		font-size: var(--text-4xl);
 		line-height: var(--text-4xl--line-height);
 	}
-
 	@variant dark {
 		color: var(--heading-font-color-dark);
 	}
@@ -50,11 +48,10 @@
 	font-size: var(--text-2xl);
 	line-height: var(--text-2xl--line-height);
 
-	@media (width >= var(--breakpoint-md)) {
+	@variant md {
 		font-size: var(--text-3xl);
 		line-height: var(--text-3xl--line-height);
 	}
-
 	@variant dark {
 		color: var(--heading-font-color-dark);
 	}
@@ -70,7 +67,7 @@
 	font-size: var(--text-xl);
 	line-height: var(--text-xl--line-height);
 
-	@media (width >= var(--breakpoint-md)) {
+	@variant md {
 		font-size: var(--text-2xl);
 		line-height: var(--text-2xl--line-height);
 	}
@@ -90,11 +87,10 @@
 	font-size: var(--text-lg);
 	line-height: var(--text-lg--line-height);
 
-	@media (width >= var(--breakpoint-md)) {
+	@variant md {
 		font-size: var(--text-xl);
 		line-height: var(--text-xl--line-height);
 	}
-
 	@variant dark {
 		color: var(--heading-font-color-dark);
 	}
@@ -110,11 +106,10 @@
 	font-size: var(--text-base);
 	line-height: var(--text-base--line-height);
 
-	@media (width >= var(--breakpoint-md)) {
+	@variant md {
 		font-size: var(--text-lg);
 		line-height: var(--text-lg--line-height);
 	}
-
 	@variant dark {
 		color: var(--heading-font-color-dark);
 	}
