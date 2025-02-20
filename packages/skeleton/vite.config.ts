@@ -10,7 +10,6 @@ export default defineConfig({
 		lib: {
 			entry: {
 				['index']: 'src/index.css',
-				['themes/index']: 'src/themes/index.ts',
 				...Object.fromEntries(
 					(await fg.glob('./src/{themes,optional}/*.{css,scss}')).map((path) => {
 						const directory = basename(dirname(path));

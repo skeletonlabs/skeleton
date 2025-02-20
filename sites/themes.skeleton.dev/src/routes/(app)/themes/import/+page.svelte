@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	// Themes
-	import { themes } from '@skeletonlabs/skeleton/themes';
+	import { themes } from '@skeletonlabs/skeleton-common';
 	// Utils
 	import { importThemeV2 } from '$lib/utils/importer/import-theme-v2';
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';

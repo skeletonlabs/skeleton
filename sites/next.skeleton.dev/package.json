@@ -26,6 +26,7 @@
 		"@floating-ui/react": "^0.26.28",
 		"@nanostores/persistent": "^0.10.2",
 		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@tailwindcss/vite": "^4.0.2",
