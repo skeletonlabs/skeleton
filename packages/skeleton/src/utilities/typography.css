@@ -10,7 +10,7 @@
 	font-size: var(--text-4xl);
 	line-height: var(--text-4xl--line-height);
 
-	@media (width >= var(--breakpoint-md)) {
+	@variant md {
 		font-size: var(--text-5xl);
 		line-height: var(--text-5xl--line-height);
 	}
