@@ -103,11 +103,11 @@ If your application supports multiple themes, you can target changes to specific
 ```css title="app.css"
 /** Cerberus theme h1 tags only. */
 [data-theme='cerberus'] h1 {
-    background: pink;
+	background: pink;
 }
 /** Mona theme h1 tags only. */
 [data-theme='mona'] h1 {
-    background: green;
+	background: green;
 }
 ```
 
@@ -117,7 +117,7 @@ Your app's background colors are set automatically using two specific [theme pro
 
 ```css title="app.css"
 [data-theme='cerberus'] {
-    —body-background-color: 'pink';
+	—body-background-color: 'pink';
 	—body-background-color-dark: 'green';
 }
 ```
@@ -126,7 +126,9 @@ You may also use Tailwind or vanilla CSS by targetting the `<body>` element.
 
 ```css title="app.css"
 /* Pink in light mode, green in dark mode. */
-body { @apply bg-pink-500 dark:bg-green-500; }
+body {
+	@apply bg-pink-500 dark:bg-green-500;
+}
 ```
 
 Background images are also supported, including CSS mesh gradients. By using theme properties for each color, you can ensure the gradient adheres to your theme's palette.
@@ -146,28 +148,19 @@ Background images are also supported, including CSS mesh gradients. By using the
 Use Mesher to quickly and easily generate custom mesh gradients.
 
 <figure class="linker bg-noise">
-	<a
-		class="btn preset-filled"
-		href="https://csshero.org/mesher/"
-		target="_blank"
-	>
+	<a class="btn preset-filled" href="https://csshero.org/mesher/" target="_blank">
 		Mesher by CSS Hero
 	</a>
 </figure>
 
 > TIP: See how we handle [targetted theme gradients](https://github.com/skeletonlabs/skeleton/blob/next/sites/next.skeleton.dev/src/styles/app.css#L44) for this website.
 
-
 ### Custom Fonts
 
 Skeleton recommends the use of [Fontsource](https://fontsource.org/) for installing and managing custom fonts.
 
 <figure class="linker bg-noise">
-	<a
-		class="btn preset-filled"
-		href="https://fontsource.org/"
-		target="_blank"
-	>
+	<a class="btn preset-filled" href="https://fontsource.org/" target="_blank">
 		Browse Fontsource
 	</a>
 </figure>
@@ -188,9 +181,9 @@ Finally, overwrite each applicable [theme property](/docs/get-started/plugin#bas
 
 ```css title="app.css"
 :root [data-theme='cerberus'] {
-    --heading-font-family: "Open Sans", sans-serif;
-    /* --base-font-family: ... */
-    /* --anchor-font-family: ... */
+	--heading-font-family: 'Open Sans', sans-serif;
+	/* --base-font-family: ... */
+	/* --anchor-font-family: ... */
 }
 ```
 
