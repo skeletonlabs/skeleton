@@ -50,9 +50,9 @@ const cIntegrations = await getCollection('docs', (entry) => {
 const navigation = {
 	'get-started': cGetStarted.sort(sortByOrder),
 	guides: cGuides.sort(sortByOrder),
-	design: cDesign.sort(sortByOrder),
-	tailwind: cTailwind.sort(sortByOrder),
-	components: cComponents,
+	'design-system': cDesign.sort(sortByOrder),
+	'tailwind-components': cTailwind.sort(sortByOrder),
+	'framework-components': cComponents,
 	integrations: cIntegrations,
 	resources: cResources.sort(sortByOrder)
 };
@@ -62,7 +62,7 @@ const navigation = {
 	{
 		Object.entries(navigation).map(([key, pages]) => (
 			<nav class="flex flex-col gap-2">
-				<span class="font-bold capitalize ml-2">{key.replace('-', ' ')}</span>
+				<span class="text-sm font-bold capitalize ml-2">{key.replace('-', ' ')}</span>
 				<ul class="flex flex-col gap-1">
 					{pages.map((page) => (
 						<a

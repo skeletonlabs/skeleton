@@ -86,7 +86,7 @@ Finally, set the active theme to display using the `data-theme` attribute on you
 
 ### Theme Properties
 
-If you wish to update the CSS Custom Properties provided by any of Skeleton's preset themes. Apply the following changes in your global stylesheet. This will target the root scope, a specific theme, then modify each [theme property](/docs/get-started/plugin) value.
+If you wish to update the CSS Custom Properties provided by any of Skeleton's preset themes. Apply the following changes in your global stylesheet. This will target the root scope, a specific theme, then modify each [theme property](/docs/get-started/core-api) value.
 
 {/* prettier-ignore */}
 ```css title="app.css"
@@ -113,7 +113,7 @@ If your application supports multiple themes, you can target changes to specific
 
 ### Backgrounds
 
-Your app's background colors are set automatically using two specific [theme properties](/docs/get-started/plugin#colors). Overwrite these using your global stylesheet.
+Your app's background colors are set automatically using two specific [theme properties](/docs/get-started/core-api#colors). Overwrite these using your global stylesheet.
 
 ```css title="app.css"
 [data-theme='cerberus'] {
@@ -177,7 +177,7 @@ Then import each font at the top of your global stylesheet.
 import "@fontsource/open-sans";
 ```
 
-Finally, overwrite each applicable [theme property](/docs/get-started/plugin#base-1) for your target theme.
+Finally, overwrite each applicable [theme property](/docs/get-started/core-api#base-1) for your target theme.
 
 ```css title="app.css"
 :root [data-theme='cerberus'] {
@@ -193,4 +193,4 @@ For custom themes, these settings are can be defined directly within each respec
 
 ## API Reference
 
-For more information, please refer to the full [Tailwind Plugin documentation](/docs/get-started/plugin).
+For more information, please refer to the full [Tailwind Plugin documentation](/docs/get-started/core-api).

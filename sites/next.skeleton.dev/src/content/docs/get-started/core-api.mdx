@@ -1,0 +1,194 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Core API
+description: Learn about the specific features Skeleton introduces to Tailwind.
+showDocsUrl: false
+order: 30
+---
+
+export const components = componentSet;
+import NavGrid from '@components/docs/NavGrid.astro';
+
+{/* prettier-ignore */}
+<p class="text-xl"> The heart of Skeleton is our powerful core package. This adapts and
+	extends Tailwind to handle Skeleton's global styles, color system, typography, and more. The following API details all available Skeleton utility classes and the theme-specific CSS custom properties.</p>
+
+---
+
+## @base
+
+Provides a set of opinionated base styles to your application.
+
+<figure class="linker bg-noise">
+	<a
+		class="btn preset-filled"
+		href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/base/globals.css"
+		target="_blank"
+	>
+		View Global Styles
+	</a>
+</figure>
+
+## @theme
+
+Skeleton extends the Tailwind `@theme` with the following.
+
+<figure class="linker bg-noise">
+	<a
+		class="btn preset-filled"
+		href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/base/theme.scss"
+		target="_blank"
+	>
+		View Theme Properties
+	</a>
+</figure>
+
+### Colors
+
+Extends the Tailwind palette to introduce the [Skeleton color palette](/docs/design/colors).
+
+| Class                              | Theme Property                   |
+| ---------------------------------- | -------------------------------- |
+| `[property]-[color]-[shade]`          | --color-[color]-[shade]          |
+| `[property]-[color]-contrast-[shade]` | --color-[color]-contrast-[shade] |
+| `body-color`                       | --body-background-color          |
+| `body-color-dark`                  | --body-background-color-dark     |
+
+### Color Pairings
+
+[Color Pairing](/docs/design/colors#color-pairings) balance theme colors between light and dark mode.
+
+| Class | Theme Property |
+| -- | -- |
+| `[property]-[color]-[shade]-[shade]` | --color-[color]-[shade]-[shade] |
+
+### Spacing
+
+Integrates the [Tailwind Spacing property](https://tailwindcss.com/docs/functions-and-directives#spacing-function) to enable [dynamic scaling](/docs/design/spacing) for various utility classes.
+
+| Class | Theme Property |
+| -- | -- |
+| (various) | --spacing |
+
+### Typography
+
+Implements [typographic scale](https://designcode.io/typographic-scales) into [font sizes](https://tailwindcss.com/docs/font-size) using the following formula and the `--text-scaling` property.
+
+```plaintext
+--text-{size}: calc({remSize} * var(--text-scaling));
+--text-{size}--line-height: calc(calc(1 / {remSize}) * var(--text-scaling));
+```
+
+#### Base
+
+Controls the style of the default page text.
+
+| Class                  | Theme Property         |
+| ---------------------- | ---------------------- |
+| `base-font-color`      | --base-font-color      |
+| `base-font-color-dark` | --base-font-color-dark |
+| `base-font-family`     | --base-font-family     |
+| `base-font-size`       | --base-font-size       |
+| `base-line-height`     | --base-line-height     |
+| `base-font-weight`     | --base-font-weight     |
+| `base-font-style`      | --base-font-style      |
+| `base-letter-spacing`  | --base-letter-spacing  |
+
+#### Heading
+
+Controls the style of the heading text.
+
+| Class                     | Theme Property            |
+| ------------------------- | ------------------------- |
+| `heading-font-color`      | --heading-font-color      |
+| `heading-font-color-dark` | --heading-font-color-dark |
+| `heading-font-family`     | --heading-font-family     |
+| `heading-font-size`       | --heading-font-size       |
+| `heading-line-height`     | --heading-line-height     |
+| `heading-font-weight`     | --heading-font-weight     |
+| `heading-font-style`      | --heading-font-style      |
+| `heading-letter-spacing`  | --heading-letter-spacing  |
+
+#### Anchor
+
+Controls the style of anchor links.
+
+| Class                           | Theme Property                  |
+| ------------------------------- | ------------------------------- |
+| `anchor-font-color`             | --anchor-font-color             |
+| `anchor-font-color-dark`        | --anchor-font-color-dark        |
+| `anchor-font-family`            | --anchor-font-family            |
+| `anchor-font-size`              | --anchor-font-size              |
+| `anchor-line-height`            | --anchor-line-height            |
+| `anchor-font-weight`            | --anchor-font-weight            |
+| `anchor-font-style`             | --anchor-font-style             |
+| `anchor-letter-spacing`         | --anchor-letter-spacing         |
+| `anchor-text-decoration`        | --anchor-text-decoration        |
+| `anchor-text-decoration-active` | --anchor-text-decoration-active |
+| `anchor-text-decoration-focus`  | --anchor-text-decoration-focus  |
+| `anchor-text-decoration-hover`  | --anchor-text-decoration-hover  |
+
+### Radius
+
+Implements design tokens based on your theme settings for small and large elements.
+
+| Class | Theme Property |
+| -- | -- |
+| `rounded-base` | --radius-base |
+| `rounded-container` | --radius-container |
+
+### Edges
+
+Defines the default sizes for border, divide, and ring widths.
+
+| Class               | Theme Property          |
+| ------------------- | ----------------------- |
+| `border`            | --default-border-width  |
+| `ring`              | --default-ring-width    |
+| `divide`            | --default-divide-width  |
+
+## @utility
+
+<figure class="linker bg-noise">
+	<a href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/utilities" target="_blank" class="btn preset-filled">
+		View Utility Styles
+	</a>
+</figure>
+
+### Tailwind Components
+
+<NavGrid collection="docs" path="tailwind/" classes="md:grid-cols-2" />
+
+## @variant
+
+### Themes
+
+Enables you to target and style elements for a particular theme.
+
+```html
+<div class="bg-green-500 theme-cerberus:bg-red-500">...</div>
+<div class="bg-green-500 theme-mona:bg-red-500">...</div>
+<div class="bg-green-500 theme-vox:bg-red-500">...</div>
+```
+
+## Optional
+
+### Preset
+
+Provides a canned set of background and foreground styles for use with buttons, badges, cards, and more.
+
+<figure class="linker bg-noise">
+	<a href="/docs/design/presets" class="btn preset-filled">
+		Browse Presets
+	</a>
+</figure>
+
+### Themes
+
+Provides a canned set of hand curated themes for Skeleton.
+
+<figure class="linker bg-noise">
+	<a href="/docs/design/themes" class="btn preset-filled">
+		Browse Themes
+	</a>
+</figure>

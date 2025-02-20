@@ -81,7 +81,7 @@
 
 <!--
 	Copy the following classes to your global stylesheet. Rename and modify as desired.
-	Reference: http://skeleton.dev/docs/get-started/plugin#typography
+	Reference: http://skeleton.dev/docs/get-started/core-api#typography
 -->
 <!-- <style lang="postcss">
 	.type-display-4 {
