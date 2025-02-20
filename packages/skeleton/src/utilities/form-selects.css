@@ -53,6 +53,11 @@
 
 	/* Optgroup --- */
 
+	& optgroup {
+		background-color: var(--color-surface-50-950);
+		color: var(--color-surface-950-50);
+	}
+
 	& optgroup > * + * {
 		margin-top: --spacing(2);
 	}
@@ -67,6 +72,8 @@
 	/* Option --- */
 
 	& option {
+		background-color: var(--color-surface-50-950);
+		color: var(--color-surface-950-50);
 		border-radius: var(--radius-base);
 		font-size: var(--text-base);
 		line-height: --spacing(9);
