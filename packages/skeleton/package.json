@@ -13,10 +13,6 @@
 		".": {
 			"style": "./dist/index.css"
 		},
-		"./themes": {
-			"import": "./dist/themes/index.js",
-			"require": "./dist/themes/index.cjs"
-		},
 		"./themes/*": {
 			"style": "./dist/themes/*.css"
 		},
