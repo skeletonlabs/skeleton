@@ -70,7 +70,7 @@
 		<!-- 2 -->
 		<div class={`${cardClasses}`}>
 			<header class="space-y-1">
-				<h2 class="h3">Notifications.</h2>
+				<h2 class="h4">Notifications.</h2>
 				<p class="opacity-60">Review each available option.</p>
 			</header>
 			<hr class="hr" />
@@ -105,7 +105,7 @@
 		<div class={`${cardClasses} row-span-2`}>
 			<div class="space-y-4">
 				<header>
-					<h2 class="h3">Team</h2>
+					<h2 class="h4">Team</h2>
 					<p class="opacity-60">View all members of the team, or filter using the search field provided.</p>
 				</header>
 				<input type="search" class="input" placeholder="Search Members..." />
@@ -215,7 +215,7 @@
 		<div class={`${cardClasses} col-span-2 row-span-2 col-start-3 row-start-3`}>
 			<header class="flex justify-between">
 				<div>
-					<h2 class="h2">Revenue</h2>
+					<h2 class="h3">Revenue</h2>
 					<p class="text-xs opacity-60">Posted April 1-13</p>
 				</div>
 				<button type="button" class="btn-icon rounded-full preset-tonal">
@@ -345,13 +345,13 @@
 		</div>
 		<!-- 13 -->
 		<div class={`${cardClasses} row-span-2 row-start-7`}>
-			<div class="grid grid-cols-[1fr_auto] items-start gap-5">
-				<div class="space-y-2">
+			<div class="space-y-2">
+				<header class="flex justify-between items-center gap-4">
 					<h2 class="h6">Contributions</h2>
-					<h2 class="text-4xl font-bold">+1,248</h2>
-					<p class="text-xs opacity-60"><span class="badge preset-tonal">+150% increase</span></p>
-				</div>
-				<IconUsers class="size-4 opacity-60" />
+					<IconUsers class="size-4 opacity-60" />
+				</header>
+				<h2 class="text-4xl font-bold">+1,248</h2>
+				<p class="text-xs opacity-60"><span class="badge preset-tonal">+150% increase</span></p>
 			</div>
 		</div>
 		<!-- 14 -->
