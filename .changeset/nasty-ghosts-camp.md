@@ -2,4 +2,4 @@
 '@skeletonlabs/skeleton': patch
 ---
 
-Feature: Tailwind V4.
+feat: Tailwind v4

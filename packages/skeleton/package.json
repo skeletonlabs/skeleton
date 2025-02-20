@@ -13,10 +13,6 @@
 		".": {
 			"style": "./dist/index.css"
 		},
-		"./themes": {
-			"import": "./dist/themes/index.js",
-			"require": "./dist/themes/index.cjs"
-		},
 		"./themes/*": {
 			"style": "./dist/themes/*.css"
 		},
@@ -28,11 +24,11 @@
 		"dist"
 	],
 	"peerDependencies": {
-		"tailwindcss": ">=4.0.0"
+		"tailwindcss": "^4.0.0"
 	},
 	"devDependencies": {
-		"fast-glob": "^3.3.1",
 		"sass-embedded": "^1.83.4",
+		"tinyglobby": "^0.2.12",
 		"vite": "^6.0.11"
 	},
 	"type": "module",

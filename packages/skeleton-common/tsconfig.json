@@ -1,13 +1,12 @@
 {
 	"compilerOptions": {
 		"target": "ESNext",
-		"lib": ["DOM", "ESNext"],
+		"lib": ["ESNext"],
 		"moduleDetection": "force",
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
 		"types": ["node"],
 		"strict": true,
-		"declaration": true,
 		"noEmit": true,
 		"esModuleInterop": true,
 		"isolatedModules": true,

@@ -9,6 +9,7 @@
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@sveltejs/adapter-vercel": "^5.6.2",
 		"@sveltejs/kit": "^2.9.0",
@@ -22,7 +23,7 @@
 		"shiki": "^2.3.2",
 		"svelte": "catalog:",
 		"svelte-check": "^4.1.1",
-		"tailwindcss": "^4.0.6",
+		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite": "^6.0.2"
 	},

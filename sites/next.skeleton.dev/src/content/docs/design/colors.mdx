@@ -23,11 +23,11 @@ Supports <u>all</u> standard Tailwind color utility classes using the following 
 {property}-{color}-{shade}
 ```
 
-| Key | Accepted Values |
-|---|---|
-| Property | `accent`, `bg`, `border`, `caret`, `decoration`, `divide`, `fill`, `outline`, `ring`, `shadow`, `stroke`, `text`
-| Color | `primary`, `secondary`, `tertiary`, `success`, `warning`, `error`, `surface` |
-| Shade | `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950` |
+| Key      | Accepted Values                                                                                                  |
+| -------- | ---------------------------------------------------------------------------------------------------------------- |
+| Property | `accent`, `bg`, `border`, `caret`, `decoration`, `divide`, `fill`, `outline`, `ring`, `shadow`, `stroke`, `text` |
+| Color    | `primary`, `secondary`, `tertiary`, `success`, `warning`, `error`, `surface`                                     |
+| Shade    | `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`                                       |
 
 ```html
 <div class="bg-primary-500">...</div>
@@ -65,7 +65,9 @@ Utility classes that provide an opinionated pairing of colors for light and dark
 For example, here's what the `text-primary-300-700` color pairing represents. Since this is a combination of classes, Tailwind features like transparency are not possible. If you need this, consider using each primitive class directly.
 
 ```css
-.text-primary-300-700 { @apply text-primary-300 dark:text-primary-700; }
+.text-primary-300-700 {
+	@apply text-primary-300 dark:text-primary-700;
+}
 ```
 
 Below shows a static representation of each available pairing for the primary color.
@@ -80,10 +82,10 @@ Color Parings are useful for generating a hierarchy of visual layers, ranging fr
 
 <ExamplePairingsStack />
 
-* We can use shade `950` for light mode and `50` from dark mode to represent our body text color.
-* Then use shade `50` from light mode and `950` from dark mode to represent our app background.
-* Use the static `500` shade for key branding elements, such as buttons or banners.
-* Then reserve multiple layers between for elements such as cards, inputs, and more.
+- We can use shade `950` for light mode and `50` from dark mode to represent our body text color.
+- Then use shade `50` from light mode and `950` from dark mode to represent our app background.
+- Use the static `500` shade for key branding elements, such as buttons or banners.
+- Then reserve multiple layers between for elements such as cards, inputs, and more.
 
 ```html
 <div class="bg-primary-950-50">Foreground</div>

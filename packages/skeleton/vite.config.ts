@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
-import fg from 'fast-glob';
 import { basename, dirname, join } from 'node:path';
+import { glob } from 'tinyglobby';
 
 export default defineConfig({
 	build: {
@@ -10,9 +10,8 @@ export default defineConfig({
 		lib: {
 			entry: {
 				['index']: 'src/index.css',
-				['themes/index']: 'src/themes/index.ts',
 				...Object.fromEntries(
-					(await fg.glob('./src/{themes,optional}/*.{css,scss}')).map((path) => {
+					(await glob('./src/{themes,optional}/*.{css,scss}')).map((path) => {
 						const directory = basename(dirname(path));
 						const filename = basename(path);
 						return [join(directory, filename), path];
