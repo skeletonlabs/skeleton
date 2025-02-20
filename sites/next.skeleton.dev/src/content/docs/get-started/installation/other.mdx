@@ -49,33 +49,21 @@ The exact instructions for installing Skeleton will differ per framework, howeve
     </ProcessStep>
     <ProcessStep step="4">
         ### Configure Tailwind
-        Open `tailwind.config` in the root of your project. The structure of this file may differ slightly for your framework.
-        ```ts title="tailwind.config" {1,2, 13-16}
-		import { skeleton } from '@skeletonlabs/skeleton/plugin';
-		import * as themes from '@skeletonlabs/skeleton/themes';
+       	Locate your global stylesheet and append the following at the top of the file.
+         ```css {3-5}
+@import 'tailwindcss';
 
-        /** @type {import('tailwindcss').Config} */
-    	export default {
-    		content: [
-    			// IMPORTANT: preserve any settings provided here
-    		],
-    		theme: {
-    			extend: {},
-    		},
-    		plugins: [
-    			skeleton({
-    				// NOTE: each theme included will increase the size of your CSS bundle
-    				themes: [themes.cerberus, themes.rose],
-    			}),
-    		],
-    	};
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/optional/presets';
+@import '@skeletonlabs/skeleton/themes/cerberus';
         ```
+		Please consult the [Presets](/docs/design/presets) documentation to learn more about this optional feature.
     </ProcessStep>
     <ProcessStep step="6">
         ### Set Active Theme
-        Open the file containing the `<body>` tag for your project and set the `data-theme` attribute to define your active theme.
+        Open the file containing the `<html>` tag for your project and set the `data-theme` attribute as follows.
         ```html
-        <body data-theme="cerberus">...</body>
+        <html data-theme="cerberus">...</html>
         ```
     </ProcessStep>
     <ProcessStep step="check">
