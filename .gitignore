@@ -1,16 +1,19 @@
 # packages
 /packages/*
 !/packages/create-skeleton-app
-!/packages/skeleton*
-!/packages/plugin
-!/packages/vite-plugin-tw-plugin-watcher
+!/packages/skeleton
+!/packages/skeleton-*
 !/packages/necroparser
-!/packages/skeleton-cli
+
+# sites
 /sites/*
-!/sites/skeleton.dev
 !/sites/next.skeleton.dev
 !/sites/themes.skeleton.dev
-/templates/*
+
+# playgrounds
+/playgrounds/*
+!/playgrounds/skeleton
+!/playgrounds/skeleton-*
 
 # pagefind
 **/pagefind
