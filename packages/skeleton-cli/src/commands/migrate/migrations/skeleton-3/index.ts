@@ -1,4 +1,4 @@
-import fg from 'fast-glob';
+import { glob } from 'tinyglobby';
 import { transformPackageJson } from './transformers/transform-package.json';
 import type { MigrateOptions } from '../..';
 import { isCancel, log, multiselect, spinner } from '@clack/prompts';
@@ -27,15 +27,15 @@ export default async function (options: MigrateOptions) {
 	// Find all required files
 	const packageJson = {
 		name: 'package.json',
-		paths: await fg('package.json', { cwd })
+		paths: await glob('package.json', { cwd })
 	};
 	const appHtml = {
 		name: 'src/app.html',
-		paths: await fg('src/app.html', { cwd })
+		paths: await glob('src/app.html', { cwd })
 	};
 	const appCss = {
 		name: 'src/app.{css,pcss,postcss}',
-		paths: await fg('src/app.{css,pcss,postcss}', { cwd })
+		paths: await glob('src/app.{css,pcss,postcss}', { cwd })
 	};
 
 	// Validate file existence
@@ -49,7 +49,7 @@ export default async function (options: MigrateOptions) {
 	}
 
 	// Get source folders
-	const availableSourceFolders = await fg('*', {
+	const availableSourceFolders = await glob('*', {
 		cwd: cwd,
 		onlyDirectories: true,
 		ignore: ['node_modules']
@@ -112,7 +112,7 @@ export default async function (options: MigrateOptions) {
 	// Migrate source files
 	if (sourceFolders.length > 0) {
 		const sourceFileMatcher = `${sourceFolders.length === 1 ? sourceFolders.at(0) : `{${sourceFolders.join(',')}}`}/**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`;
-		const sourceFiles = await fg(sourceFileMatcher, {
+		const sourceFiles = await glob(sourceFileMatcher, {
 			cwd: cwd,
 			ignore: ['node_modules']
 		});

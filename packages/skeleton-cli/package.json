@@ -26,8 +26,8 @@
 		"test:watch": "vitest watch"
 	},
 	"devDependencies": {
-		"@types/node": "^22.1.0",
 		"@types/estree": "^1.0.6",
+		"@types/node": "^22.1.0",
 		"@types/semver": "^7.5.8",
 		"type-fest": "^4.27.0",
 		"typescript": "catalog:",
@@ -40,7 +40,6 @@
 		"colorette": "^2.0.20",
 		"commander": "^13.0.0",
 		"detect-indent": "^7.0.1",
-		"fast-glob": "^3.3.1",
 		"latest-version": "^9.0.0",
 		"magic-string": "^0.30.17",
 		"nanoid": "^5.0.9",
@@ -49,6 +48,7 @@
 		"postcss": "^8.4.49",
 		"semver": "^7.6.3",
 		"svelte": "catalog:",
+		"tinyglobby": "^0.2.12",
 		"ts-morph": "^25.0.0",
 		"zimmerframe": "^1.1.2"
 	}
