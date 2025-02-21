@@ -8,11 +8,8 @@
 	"access": "public",
 	"baseBranch": "dev",
 	"updateInternalDependencies": "patch",
-	"ignore": [
-		"next.skeleton.dev",
-		"themes.skeleton.dev",
-		"tailwind-v4-playground",
-		"@skeletonlabs/skeleton-common",
-		"@skeletonlabs/necroparser"
-	]
+	"privatePackages": {
+		"tag": false,
+		"version": false
+	}
 }
