@@ -61,7 +61,7 @@ Use the following path and filename conventions when creating a new component:
 
 ## Zag.js
 
-Skeleton components are built atop a foundation of [Zag.js](https://zagjs.com/). This provides a suite of headless component primitives handle logic and state, while providing a universal set of features. The Skeleton design system is then implemented as a layer on top of this.
+Skeleton components are built atop a foundation of [Zag.js](https://zagjs.com/). This provides a suite of headless component primitives that handle logic and state, while providing a universal set of features. The Skeleton design system is then implemented as a layer on top of this.
 
 When introducing a new Skeleton component, please refer to the documentation for each respective framework. For example:
 
@@ -100,7 +100,7 @@ let {
 - **Style** - contain and accept Tailwind utility classes to affect the style of the component.
 - **Event** - provide callback functions for external event handlers.
 - **Children** - contain reference to React children, Svelte Snippets, or similar.
-- **Zag** - when applicable, these are rest props that are spread directly into the Zag machine.
+- **Zag** - when applicable, these rest props that are spread directly into the Zag machine.
 
 ### Style Prop Conventions
 
@@ -168,7 +168,7 @@ You may need to conditionally update or swap between one or more sets of style p
 <div class="{base} {activeClasses} {classes}">...</div>
 ```
 
-> TIP: Use this convention in React as well, but without `$derived` as React already rerenders when stateful props change.
+> TIP: Use this convention in React as well, but does not require explicit derival. React automatically re-renders when stateful props change.
 
 ---
 
