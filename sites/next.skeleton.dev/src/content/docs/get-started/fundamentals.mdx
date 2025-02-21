@@ -116,25 +116,25 @@ Imagine the Avatar component was created like so:
 
 We can use the `background` style prop to replace the default background color.
 
-```tsx
+```svelte
 <Avatar background="bg-blue-500">Sk</Avatar>
 ```
 
 Since the component doesn't have a dedicated `border` prop, we can extend our class list using `classes`.
 
-```tsx
+```svelte
 <Avatar classes="border-4 border-green-500">Sk</Avatar>
 ```
 
 And we can optionally replace the default `base` styles like so. Just remember our other `{property}` styles will remain.
 
-```tsx
+```svelte
 <Avatar base="flex justify-center items-center overflow-visible">Sk</Avatar>
 ```
 
 Additionally, child elements within the template use these same conventions, but prefixed like `imageBase` and `imageClasses`.
 
-```tsx
+```svelte
 <Avatar ... imageClasses="grayscale" />
 ```
 
