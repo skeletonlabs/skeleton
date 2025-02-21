@@ -1,7 +1,6 @@
 {
-	"name": "themes.skeleton.dev",
+	"name": "@skeletonlabs/themes.skeleton.dev",
 	"private": true,
-	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",

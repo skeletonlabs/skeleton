@@ -8,9 +8,14 @@ order: 20
 export const components = componentSet;
 import NavGrid from '@components/docs/NavGrid.astro';
 
-{/* prettier-ignore */}
-<p class="text-xl">Skeleton is comprised of three pillars - the design system, our extensions to Tailwind, and an optional suite of framework-specific components.
-	Together these form a comprehensive solution for designing and implementing complex web interfaces at scale.</p>
+{
+
+<p className="text-xl">
+	Skeleton is comprised of three pillars - the design system, our extensions to Tailwind, and an optional suite of framework-specific
+	components. Together these form a comprehensive solution for designing and implementing complex web interfaces at scale.
+</p>
+
+}
 
 ---
 
@@ -97,44 +102,44 @@ Imagine the Avatar component was created like so:
 
 ```ts title="Example Props"
 {
-	(src = './some-placeholder.jpg'),
-		(alt = ''),
-		// ...
-		(base = 'flex justify-center items-center overflow-hidden'),
-		(background = 'bg-slate-500');
-	(rounded = 'rounded-full'),
-		// ...
-		(classes = '');
+	src = './some-placeholder.jpg',
+	alt = '',
+	// ...
+	base = 'flex justify-center items-center overflow-hidden',
+	background = 'bg-slate-500',
+	rounded = 'rounded-full',
+	// ...
+	classes = '',
 }
 ```
 
-```html title="Example Template"
+```svelte title="Example Template"
 <figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}">
-	<img {src} alt="{name}" class="{imageBase} {imageClasses}" />
+	<img {src} alt={name} class="{imageBase} {imageClasses}" />
 </figure>
 ```
 
 We can use the `background` style prop to replace the default background color.
 
-```ts
+```svelte
 <Avatar background="bg-blue-500">Sk</Avatar>
 ```
 
 Since the component doesn't have a dedicated `border` prop, we can extend our class list using `classes`.
 
-```ts
+```svelte
 <Avatar classes="border-4 border-green-500">Sk</Avatar>
 ```
 
 And we can optionally replace the default `base` styles like so. Just remember our other `{property}` styles will remain.
 
-```ts
+```svelte
 <Avatar base="flex justify-center items-center overflow-visible">Sk</Avatar>
 ```
 
 Additionally, child elements within the template use these same conventions, but prefixed like `imageBase` and `imageClasses`.
 
-```ts
+```svelte
 <Avatar ... imageClasses="grayscale" />
 ```
 

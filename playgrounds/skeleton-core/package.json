@@ -1,7 +1,7 @@
 {
-	"name": "tailwind-v4-playground",
+	"name": "@skeletonlabs/playground-skeleton-core",
+	"private": true,
 	"type": "module",
-	"version": "0.0.1",
 	"scripts": {
 		"build": "astro build",
 		"dev": "astro dev"

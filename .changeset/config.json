@@ -8,8 +8,8 @@
 	"access": "public",
 	"baseBranch": "dev",
 	"updateInternalDependencies": "patch",
-	"ignore": [
-		"@skeletonlabs/skeleton-common",
-		"@skeletonlabs/necroparser"
-	]
+	"privatePackages": {
+		"tag": false,
+		"version": false
+	}
 }

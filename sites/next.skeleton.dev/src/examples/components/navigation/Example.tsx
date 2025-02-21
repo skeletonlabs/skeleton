@@ -13,15 +13,30 @@ export const Page: React.FC = () => {
 	return (
 		<div className="card border-surface-100-900 grid h-[640px] w-full grid-cols-[auto_1fr] border-[1px]">
 			{/* Component */}
-			{/* prettier-ignore */}
 			<Navigation.Rail
-				header={<Navigation.Tile href="/" title="Menu"><IconMenu /></Navigation.Tile>}
-				footer={<Navigation.Tile href="/settings" title="settings"><IconSettings /></Navigation.Tile>}
+				header={
+					<Navigation.Tile href="/" title="Menu">
+						<IconMenu />
+					</Navigation.Tile>
+				}
+				footer={
+					<Navigation.Tile href="/settings" title="settings">
+						<IconSettings />
+					</Navigation.Tile>
+				}
 			>
-				<Navigation.Tile id="0" label="Files" href="#"><IconFolder /></Navigation.Tile>
-				<Navigation.Tile id="1" label="Images" href="#"><IconImage /></Navigation.Tile>
-				<Navigation.Tile id="2" label="Music" href="#"><IconMusic /></Navigation.Tile>
-				<Navigation.Tile id="3" label="Videos" href="#"><IconVideo /></Navigation.Tile>
+				<Navigation.Tile id="0" label="Files" href="#">
+					<IconFolder />
+				</Navigation.Tile>
+				<Navigation.Tile id="1" label="Images" href="#">
+					<IconImage />
+				</Navigation.Tile>
+				<Navigation.Tile id="2" label="Music" href="#">
+					<IconMusic />
+				</Navigation.Tile>
+				<Navigation.Tile id="3" label="Videos" href="#">
+					<IconVideo />
+				</Navigation.Tile>
 			</Navigation.Rail>
 			{/* Content */}
 			<div className="flex items-center justify-center">

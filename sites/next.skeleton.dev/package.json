@@ -1,13 +1,6 @@
 {
-	"name": "next.skeleton.dev",
+	"name": "@skeletonlabs/next.skeleton.dev",
 	"private": true,
-	"version": "0.0.1",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/skeletonlabs/skeleton.git"
-	},
-	"license": "MIT",
-	"homepage": "https://skeleton.dev/",
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
