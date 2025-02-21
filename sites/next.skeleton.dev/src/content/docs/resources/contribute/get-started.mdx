@@ -30,10 +30,10 @@ Skeleton makes use of [PNPM](https://pnpm.io/) and [PNPM workspaces](https://pnp
 2. [Fork the Skeleton monorepo](https://github.com/skeletonlabs/skeleton) via the option on GitHub.
 3. Use Git to clone the forked project to your local machine.
 4. Run `pnpm i` from the root to install the required dependencies.
-5. Point your terminal at one of the `/sites` or `/package` projects detailed below.
+5. Point your terminal at one of the `/sites`, `/packages` or `/playgrounds` projects detailed below.
 6. Run `pnpm dev` to start a local dev server for each project.
 
-> NOTE: Make sure you're running `pnpm 9.5.0` or higher. You can check with `pnpm --version`.
+> NOTE: Make sure you're running PNPM version `9.5.0` or higher. This is because Skeleton makes use of [PNPM catalogs](https://pnpm.io/catalogs) which where introduced in `9.5.0`. You can check your version with `pnpm --version`.
 
 ### Adding Dependencies
 
@@ -51,7 +51,7 @@ catalog:
 
 Use the following convention to link each project's dependency to the shared Catalog version:
 
-```bash
+```shell
 pnpm add <package>@catalog:
 ```
 
@@ -75,7 +75,8 @@ Modular Skeleton packages distributed via NPM.
 | `/packages/skeleton`        | The Skeleton core package, containing the Tailwind plugin.                |
 | `/packages/skeleton-react`  | The Skeleton React package, containing Skeleton React components.         |
 | `/packages/skeleton-svelte` | The Skeleton Svelte package, containing Skeleton Svelte components.       |
-| `/packages/skeleton-cli`    | The public-facing Skeleton CLI. Used for migrations, etc.                 |
+| `/packages/skeleton-cli`    | The Skeleton CLI, used for migrations, etc.                               |
+| `/packages/skeleton-common` | The Skeleton common package, containing shared internal only utilities.   |
 | `/packages/necroparser`     | An internal tool for generating component type schema for API references. |
 
 ## Branch
@@ -96,8 +97,8 @@ Please use the following naming convention when creating your pull request.
 | ----------- | ------------------------------------- |
 | `docs/*`    | When updating the documentation site. |
 | `feature/*` | When implementing a new feature.      |
-| `chore/*`   | When implementing small changes.      |
-| `bugfix/*`  | When implementing feature bugfixes.   |
+| `chore/*`   | When implementing a chore.            |
+| `bugfix/*`  | When implementing a fix for a bug.    |
 
 Keep branch names short and semantic, and use snake-case to separate words.
 
@@ -116,7 +117,7 @@ Follow these instructions to generate a changeset:
 2. Navigate to the root of the Skeleton monorepo.
 3. Run `pnpm changeset` to trigger the Changeset CLI.
 4. Follow the instructions when prompted.
-5. Changeset are added as `.md` files within the `/.changeset` directory.
+5. Changeset are added as `.md` files within the `.changeset/` directory.
 6. You may edit or revise a Changeset before your PR is merged.
 
 Changesets use semantic versioning. We recommend the following convention.
@@ -125,7 +126,7 @@ Changesets use semantic versioning. We recommend the following convention.
 | ------- | ------------------------------------------- |
 | `major` | Do not use. Reserved for maintainers only.  |
 | `minor` | For notable changes, such as a new feature. |
-| `patch` | For small changes, such as a fixing a typo. |
+| `patch` | For small changes, such as a fixing a bug.  |
 
 Changeset descriptions will appear verbatim on the [Changelog](https://github.com/skeletonlabs/skeleton/blob/dev/packages/skeleton/CHANGELOG.md). Keep it short, semantic, and and include the same [branch prefix](/docs/resources/contribute/get-started#pr-branch-conventions).
 
@@ -143,30 +144,28 @@ Skeleton makes use of the following technology to improve the developer experien
 
 ### Root Commands
 
-Run the following commands in the monorepo root to recursively check each PNPM workspace project:
+Run the following commands in the monorepo root:
 
-- `pnpm check` - triggers each project's respective diagnostic tooling, such a [Svelte Check](https://github.com/sveltejs/language-tools).
-- `pnpm format` - triggers [Prettier](https://prettier.io/) to automatically format code to the defined rulesets.
-- `pnpm lint` - triggers [ES Lint](https://eslint.org/) to check for any pending linting issues.
-- `pnpm test` - runs all available unit test using [Vitest](https://vitest.dev/).
+- `pnpm format` - Formats the monorepo using [Prettier](https://prettier.io/).
+- `pnpm lint` - Finds (and attempts to fix) any issues within the monorepo using [ESLint](https://eslint.org/).
+- `pnpm test` - Runs all unit tests using [Vitest](https://vitest.dev/).
+- `pnpm check` - Runs framework specific diagnostics, such as [Svelte Check](https://svelte.dev/docs/cli/sv-check), [Astro Check](https://docs.astro.build/en/reference/cli-reference/#astro-check), etc.
 
 ### Local Commands
 
-Additionally, you may also run the local instance of each command. Consult the local `package.json` for available options. For `format` and `lint` commands, use the following syntax to draw from the global configuration, but isolate to the current PNPM workspace:
+Additionally, you may also run the local instance of each command. Consult the local `package.json` for available options. For `format` and `lint` commands, use the following syntax to draw from the root `package.json`:
 
-```console
-pnpm -w format
-pnpm -w lint
+```shell
+pnpm -w <command>
 ```
 
 ### VS Code Extensions
 
-We recommend the use of VS Code for contributions, and the following VS Code extensions.
+We recommend the use of [VSCode](https://code.visualstudio.com/) for contributions, and the following VSCode extensions.
 
-- [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
-- [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
-- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
 - [Tailwind](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-- [PostCSS](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)
+- [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
+- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
+- [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [ES Lint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
