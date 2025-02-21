@@ -9,6 +9,8 @@
 	"baseBranch": "dev",
 	"updateInternalDependencies": "patch",
 	"ignore": [
+		"next.skeleton.dev",
+		"themes.skeleton.dev",
 		"@skeletonlabs/skeleton-common",
 		"@skeletonlabs/necroparser"
 	]
