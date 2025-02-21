@@ -31,7 +31,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 <Process>
     <ProcessStep step="1">
         ### Create a Project
-        Start by creating a new [Next.js project](https://nextjs.org/docs/app/getting-started/installation) via their CLI:
+        Use the [Next.js CLI](https://nextjs.org/docs/app/getting-started/installation) to scaffold a new project.
 		{/*
         ```console
         npx create-next-app@latest my-skeleton-app --typescript --tailwind --eslint
@@ -40,7 +40,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 		*/}
 		{/* prettier-ignore */}
 		<div class="card preset-outlined-warning-500 p-8 space-y-8">
-			<p>The Next.js CLI has not yet updated to implement <u>Tailwind v4</u> by default, so we recommend following the [official Tailwind guide](https://tailwindcss.com/docs/installation/framework-guides/nextjs) for now. Avoid installing Tailwind during the Next.js CLI prompts.</p>
+			<p>NOTE: The Next.js CLI does not yet install <u>Tailwind v4</u>. Please follow the [official Tailwind guide](https://tailwindcss.com/docs/installation/framework-guides/nextjs).</p>
 		</div>
     </ProcessStep>
     <ProcessStep step="2">
@@ -52,7 +52,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="4">
         ### Configure Tailwind
-        Open your global stylesheet in `/src/app/globals.css` and make the following changes:
+        Open your global stylesheet in `/src/app/globals.css` and add the following imports:
         ```css title="globals.css" {3-5}
         @import 'tailwindcss';
 
@@ -60,7 +60,6 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         @import '@skeletonlabs/skeleton/optional/presets';
         @import '@skeletonlabs/skeleton/themes/cerberus';
         ```
-        Please consult the [Presets](/docs/design/presets) documentation to learn more about this optional feature.
     </ProcessStep>
     <ProcessStep step="5">
         ### Set Active Theme

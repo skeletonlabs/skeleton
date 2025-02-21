@@ -37,9 +37,11 @@ Supports <u>all</u> standard Tailwind color utility classes using the following 
 <svg class="fill-surface-950">...</svg>
 ```
 
+---
+
 ## Contrast Colors
 
-Skeleton themes also include contrast color values for every shade. Use these to provide accessible overlapping text and icon fill color styles. Defined via each respective [theme property](/docs/get-started/core-api#colors).
+Contrast color values are available for every shade. Use these to set accessible text color and icon fill values.
 
 ```
 {property}-{color}-contrast-{shade}
@@ -56,15 +58,19 @@ Skeleton themes also include contrast color values for every shade. Use these to
 
 See the [Preset system](/docs/design/presets) for additional utility classes that automatically mix each color and contrast tone.
 
+---
+
 ## Color Pairings
 
-These utlities provide a condense utility class syntax that provides an opinioanted pairing of Skeleton's color shades, used to balance your interface elements in light and dark mode. These are enabled throught the use of the CSS's native [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark) property.
+Provides a condensed syntax for implementing dual-tone color values that are balanced to easily swap between light and dark mode. These are enabled through the use of the CSS [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark) function.
 
 ```
 {property}-{color}-{lightModeShade}-{darkModeShade}
 ```
 
-For example, the `text-primary-300-700` pairing will enable Tailwind to generate the following class:
+### How Pairings Work
+
+The `text-primary-300-700` pairing will enable Tailwind to generate the following class:
 
 ```css
 .text-primary-300-700 {
@@ -72,38 +78,53 @@ For example, the `text-primary-300-700` pairing will enable Tailwind to generate
 }
 ```
 
-Below is a static representation of each pairing. Only the primary color is shown, but all Skeleton colors are supported.
+Which is roughly equivilant to the following - just a lot more compact!
+
+```html
+<div class="text-primary-300 dark:text-primary-700">...</div>
+```
+
+### Pairing Previews
+
+Below is a static representation of each pairing. Only `primary` is shown, but all Skeleton colors are supported.
 
 <ExamplePairings />
 
-Toggle this website bewteen light and dark mode to see how each color reacts.
+Toggle this website bewteen light and dark mode to see how each color pairing reacts.
 
 <ExamplePairingsDynamic />
 
+### When to use Pairings
+
 Color Parings are useful for generating a hierarchy of visual layers, ranging from foreground to background elements. Each reuse the same color ramp but, but inverts the order when toggling from light to dark mode.
 
-<ExamplePairingsStack />
+<Preview client:visible>
+	<Fragment slot="preview">
+		<ExamplePairingsStack />
+	</Fragment>
+	<Fragment slot="code">
+		```html
+		<div class="bg-primary-950-50">Foreground</div>
+		<div class="bg-primary-900-100">...</div>
+		<div class="bg-primary-800-200">...</div>
+		<div class="bg-primary-700-300">...</div>
+		<div class="bg-primary-600-400">...</div>
+		<div class="bg-primary-500">Branding</div>
+		<div class="bg-primary-400-600">...</div>
+		<div class="bg-primary-300-700">...</div>
+		<div class="bg-primary-200-800">...</div>
+		<div class="bg-primary-100-900">...</div>
+		<div class="bg-primary-50-950">Background</div>
+		```
+	</Fragment>
+</Preview>
 
 - We can use shade `950` for light mode and `50` from dark mode to represent our body text color.
 - Then use shade `50` from light mode and `950` from dark mode to represent our app background.
 - Use the static `500` shade for key branding elements, such as buttons or banners.
 - Then reserve multiple layers between for elements such as cards, inputs, and more.
 
-Below is example of setting background colors for each available pairing.
-
-```html
-<div class="bg-primary-950-50">Foreground</div>
-<div class="bg-primary-900-100">...</div>
-<div class="bg-primary-800-200">...</div>
-<div class="bg-primary-700-300">...</div>
-<div class="bg-primary-600-400">...</div>
-<div class="bg-primary-500">Branding</div>
-<div class="bg-primary-400-600">...</div>
-<div class="bg-primary-300-700">...</div>
-<div class="bg-primary-200-800">...</div>
-<div class="bg-primary-100-900">...</div>
-<div class="bg-primary-50-950">Background</div>
-```
+---
 
 ## Transparancy
 
