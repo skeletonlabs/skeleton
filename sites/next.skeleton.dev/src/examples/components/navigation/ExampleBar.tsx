@@ -14,12 +14,19 @@ export const Page: React.FC = () => {
 				<p className="opacity-20">(Content)</p>
 			</div>
 			{/* Component */}
-			{/* prettier-ignore */}
 			<Navigation.Bar value={value} onChange={setValue}>
-				<Navigation.Tile id="0" label="Files"><IconFolder /></Navigation.Tile>
-				<Navigation.Tile id="1" label="Images"><IconImage /></Navigation.Tile>
-				<Navigation.Tile id="2" label="Music"><IconMusic /></Navigation.Tile>
-				<Navigation.Tile id="3" label="Videos"><IconVideo /></Navigation.Tile>
+				<Navigation.Tile id="0" label="Files">
+					<IconFolder />
+				</Navigation.Tile>
+				<Navigation.Tile id="1" label="Images">
+					<IconImage />
+				</Navigation.Tile>
+				<Navigation.Tile id="2" label="Music">
+					<IconMusic />
+				</Navigation.Tile>
+				<Navigation.Tile id="3" label="Videos">
+					<IconVideo />
+				</Navigation.Tile>
 			</Navigation.Bar>
 		</div>
 	);

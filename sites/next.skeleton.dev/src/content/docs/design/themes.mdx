@@ -9,8 +9,18 @@ import ThemesList from '@components/docs/ThemeList.astro';
 
 export const components = componentSet;
 
-{/* prettier-ignore */}
-<p class="text-xl">Skeleton themes utitlize [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) to define core settings for your design system. Provided with a number of presets theme out of the box, as well as a powerful theme generator to create your own. Enable one or more and quickly switch on-demand.</p>
+{
+
+<p class="text-xl">
+	Skeleton themes utitlize{' '}
+	<a className="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="external">
+		CSS custom properties
+	</a>
+	to define core settings for your design system. Provided with a number of presets theme out of the box, as well as a powerful theme
+	generator to create your own. Enable one or more and quickly switch on-demand.
+</p>
+
+}
 
 ---
 
@@ -86,12 +96,11 @@ You may define the active theme using the `data-theme` attribute on your `<html>
 
 You can modify any [theme property](/docs/get-started/core-api) on demand using the following technique. Simply add this to your global stylesheet, following all Tailwind and Skeleton configuration. Use this to override preset theme properties.
 
-{/* prettier-ignore */}
 ```css title="app.css"
 [data-theme='cerberus'] {
-    --spacing: 0.22rem;
-    --radius-container: 0.375rem;
-    --heading-font-weight: bolder;
+	--spacing: 0.22rem;
+	--radius-container: 0.375rem;
+	--heading-font-weight: bolder;
 }
 ```
 
