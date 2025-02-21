@@ -49,25 +49,29 @@ The exact instructions for installing Skeleton will differ per framework, howeve
     </ProcessStep>
     <ProcessStep step="4">
         ### Configure Tailwind
-       	Locate your global stylesheet and append the following at the top of the file.
-         ```css {3-5}
-@import 'tailwindcss';
+        Locate your global stylesheet and append the following at the top of the file.
+        ```css {3-5}
+        @import 'tailwindcss';
 
-@import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton/optional/presets';
-@import '@skeletonlabs/skeleton/themes/cerberus';
-``		Please consult the [Presets](/docs/design/presets) documentation to learn more about this optional feature.
+        @import '@skeletonlabs/skeleton';
+        @import '@skeletonlabs/skeleton/optional/presets';
+        @import '@skeletonlabs/skeleton/themes/cerberus';
+        ```
+        Please consult the [Presets](/docs/design/presets) documentation to learn more about this optional feature.
     </ProcessStep>
     <ProcessStep step="6">
         ### Set Active Theme
         Open the file containing the `<html>` tag for your project and set the `data-theme` attribute as follows.
-       ``html
-<html data-theme="cerberus">...</html>
-```
-</ProcessStep>
-<ProcessStep step="check"> ### Run the Project
-Start the dev server for your framework of choice.
-</ProcessStep>
+        ```html
+        <html data-theme="cerberus">
+            ...
+        </html>
+        ```
+    </ProcessStep>
+    <ProcessStep step="check">
+        ### Run the Project
+        Start the dev server for your framework of choice.
+    </ProcessStep>
 
 </Process>
 

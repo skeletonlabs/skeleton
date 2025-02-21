@@ -67,27 +67,29 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         ### Configure Tailwind
        	Locate your global stylesheet and append the following at the top of the file.
          ```css
+        @import 'tailwindcss';
 
-@import 'tailwindcss';
-
-@import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton/optional/presets';
-@import '@skeletonlabs/skeleton/themes/cerberus';
-``		Please consult the [Presets](/docs/design/presets) documentation to learn more about this optional feature.
+        @import '@skeletonlabs/skeleton';
+        @import '@skeletonlabs/skeleton/optional/presets';
+        @import '@skeletonlabs/skeleton/themes/cerberus';
+        ```
+        Please consult the [Presets](/docs/design/presets) documentation to learn more about this optional feature.
     </ProcessStep>
     <ProcessStep step="5">
         ### Set the Active Theme
         Open `index.html`, then set the `data-theme` attribute on the HTML tag to define the active theme.
-       ``html title="index.html"
-<html data-theme="cerberus">...</html>
-`
+
+        ```html title="index.html"
+        <html data-theme="cerberus">...</html>
+        ```
+
     </ProcessStep>
     <ProcessStep step="check">
         ### Done
         Start the dev server using the following command.
-    	`console
-npm run dev
-```
-</ProcessStep>
+    	```console
+        npm run dev
+        ```
+    </ProcessStep>
 
 </Process>

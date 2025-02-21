@@ -69,23 +69,21 @@ Learn how to install the Skeleton core into your Astro project. We'll cover usin
         ### Configure Tailwind
        Locate the global stylesheet in `./src/styles/global.css` and append the following at the top of the file.
          ```css title="global.css"
+        @import 'tailwindcss';
 
-@import 'tailwindcss';
-
-@import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton/optional/presets';
-@import '@skeletonlabs/skeleton/themes/cerberus';
-``
-		Please consult the [Presets](/docs/design/presets) documentation to learn more about this optional feature.
+        @import '@skeletonlabs/skeleton';
+        @import '@skeletonlabs/skeleton/optional/presets';
+        @import '@skeletonlabs/skeleton/themes/cerberus';
+        ```
+        Please consult the [Presets](/docs/design/presets) documentation to learn more about this optional feature.
     </ProcessStep>
     <ProcessStep step="5">
         ### Remove Default Content and Styles
-        We recommend you open `/src/components/welcome.astro` and remove all default HTML and CSS. Here's a simple starter layout.
-    	``astro
----
-const framework = 'Astro';
----
-
+        We recommend you open `/src/components/welcome.astro` and remove all default HTML and CSS. Here's a simple starter layout.|
+        ```astro
+        ---
+        const framework = 'Astro';
+        ---
     	<main class="p-10 space-y-4">
     		<h1 class="h1">Hello {framework}</h1>
     		<p>This page is working.</p>
