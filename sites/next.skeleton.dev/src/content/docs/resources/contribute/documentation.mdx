@@ -43,7 +43,7 @@ Navigate the app structure within the `/src` directory. This includes the follow
 | `/layouts`    | Contains our layouts.                                                                                                         |
 | `/lib`        | Contains our typescript modules.                                                                                              |
 | `/pages`      | Contains our pages.                                                                                                           |
-| `/stores`     | Contains our stores for state management.                                                                                     |
+| `/stores`     | Contains data stores for state management.                                                                                    |
 | `/styles`     | Contains our stylesheets.                                                                                                     |
 
 ## Pages
@@ -163,9 +163,7 @@ export const tableProps: [
 ```
 
 ```svelte
-<Table label="Props" data={tableData} tonal>
-	<!-- ... !-->
-</Table>
+<Table label="Props" data={tableData} tonal />
 ```
 
 > TIP: Optionally add the `tonal` or `kbd` props to highlight content in the first column.
