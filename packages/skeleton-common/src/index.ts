@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import catppuccin from '@skeletonlabs/skeleton/themes/catppuccin?raw';
+import catppuccin from '@skeletonlabs/skeleton/themes/catppuccin?inline';
 import cerberus from '@skeletonlabs/skeleton/themes/cerberus?raw';
 import concord from '@skeletonlabs/skeleton/themes/concord?raw';
 import crimson from '@skeletonlabs/skeleton/themes/crimson?raw';
@@ -23,7 +23,13 @@ import vintage from '@skeletonlabs/skeleton/themes/vintage?raw';
 import vox from '@skeletonlabs/skeleton/themes/vox?raw';
 import wintry from '@skeletonlabs/skeleton/themes/wintry?raw';
 
-export const themes = [
+interface Theme {
+	name: string;
+	css: string;
+	emoji: string;
+}
+
+export const themes: Theme[] = [
 	{
 		name: 'catppuccin',
 		css: catppuccin,
@@ -134,4 +140,4 @@ export const themes = [
 		css: wintry,
 		emoji: '🌨️'
 	}
-] as const;
+];
