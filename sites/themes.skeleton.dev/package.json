@@ -1,5 +1,5 @@
 {
-	"name": "@skeletonlabs/site-themes.skeleton.dev",
+	"name": "@skeletonlabs/themes.skeleton.dev",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",

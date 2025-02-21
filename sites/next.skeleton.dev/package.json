@@ -1,5 +1,5 @@
 {
-	"name": "@skeletonlabs/site-next.skeleton.dev",
+	"name": "@skeletonlabs/next.skeleton.dev",
 	"private": true,
 	"type": "module",
 	"scripts": {
