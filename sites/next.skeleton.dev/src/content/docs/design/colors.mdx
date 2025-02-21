@@ -15,6 +15,8 @@ import ExamplePairings from '@examples/design/colors/ExamplePairings.astro';
 import ExamplePairingsDynamic from '@examples/design/colors/ExamplePairingsDynamic.astro';
 import ExamplePairingsStack from '@examples/design/colors/ExamplePairingsStack.astro';
 
+## Color Palette
+
 <ExampleColors />
 
 Supports <u>all</u> standard Tailwind color utility classes using the following pattern.
@@ -56,25 +58,25 @@ See the [Preset system](/docs/design/presets) for additional utility classes tha
 
 ## Color Pairings
 
-Utility classes that provide an opinionated pairing of colors for light and dark mode.
+These utlities provide a condense utility class syntax that provides an opinioanted pairing of Skeleton's color shades, used to balance your interface elements in light and dark mode. These are enabled throught the use of the CSS's native [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark) property.
 
 ```
 {property}-{color}-{lightModeShade}-{darkModeShade}
 ```
 
-For example, here's what the `text-primary-300-700` color pairing represents. Since this is a combination of classes, Tailwind features like transparency are not possible. If you need this, consider using each primitive class directly.
+For example, the `text-primary-300-700` pairing will enable Tailwind to generate the following class:
 
 ```css
 .text-primary-300-700 {
-	@apply text-primary-300 dark:text-primary-700;
+	color: light-dark(var(--color-primary-300), var(--color-primary-700));
 }
 ```
 
-Below shows a static representation of each available pairing for the primary color.
+Below is a static representation of each pairing. Only the primary color is shown, but all Skeleton colors are supported.
 
 <ExamplePairings />
 
-Toggle light and dark mode to preview how the following pairings automatically adjust.
+Toggle this website bewteen light and dark mode to see how each color reacts.
 
 <ExamplePairingsDynamic />
 
@@ -86,6 +88,8 @@ Color Parings are useful for generating a hierarchy of visual layers, ranging fr
 - Then use shade `50` from light mode and `950` from dark mode to represent our app background.
 - Use the static `500` shade for key branding elements, such as buttons or banners.
 - Then reserve multiple layers between for elements such as cards, inputs, and more.
+
+Below is example of setting background colors for each available pairing.
 
 ```html
 <div class="bg-primary-950-50">Foreground</div>
@@ -99,4 +103,13 @@ Color Parings are useful for generating a hierarchy of visual layers, ranging fr
 <div class="bg-primary-200-800">...</div>
 <div class="bg-primary-100-900">...</div>
 <div class="bg-primary-50-950">Background</div>
+```
+
+## Transparancy
+
+Both Skeleton Colors and Color Pairings support Tailwind's color transparency syntax.
+
+```html
+<div class="bg-primary-500/25">Primary Color @ 25% transparency</div>
+<div class="bg-surface-50-950/60">Surface Pairing 50/950 @ 60% transparency</div>
 ```

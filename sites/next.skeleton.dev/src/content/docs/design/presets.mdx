@@ -21,10 +21,8 @@ import ExampleCustomRaw from '@examples/design/presets/ExampleCustom.astro?raw';
 import ExampleGradient from '@examples/design/presets/ExampleGradient.astro';
 import ExampleGradientRaw from '@examples/design/presets/ExampleGradient.astro?raw';
 
-<p class="text-xl">
-	Presets are complex utility classes that combine various Skeleton primitives. Allowing you quickly style buttons, badges, cards, and more.
-	Create any combination of styles by mixing Skeleton Presets and Tailwind primitives.
-</p>
+{/* prettier-ignore */}
+<p class="text-xl"> Presets are complex utility classes that combine various Skeleton primitives. Allowing you quickly style buttons, badges, cards, and more. Create any combination of styles by mixing Skeleton Presets and Tailwind primitives.</p>
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -42,6 +40,14 @@ import ExampleGradientRaw from '@examples/design/presets/ExampleGradient.astro?r
 5. **Ghost** - has no style by default, but shows a tonal preset on hover.
 6. **Ghost Icon** - has no style by default, but shows a branded tonal preset on hover.
 7. **Gradient** - a custom preset generated using Tailwind gradient primitives.
+
+## Enabling Presets
+
+Presets are optional, but we recommend users start with our built-ins enabled by default, including: filled, tonal, and outlined. Presets are enabled by importing the following in your global stylesheet.
+
+```css
+@import '@skeletonlabs/skeleton/optional/presets';
+```
 
 ## Built-Ins
 
