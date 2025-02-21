@@ -11,6 +11,7 @@
 	"ignore": [
 		"next.skeleton.dev",
 		"themes.skeleton.dev",
+		"tailwind-v4-playground",
 		"@skeletonlabs/skeleton-common",
 		"@skeletonlabs/necroparser"
 	]
