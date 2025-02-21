@@ -42,12 +42,48 @@ import ListDescRaw from '@examples/design/typography/ListDesc.astro?raw';
 import ListNav from '@examples/design/typography/ListNav.astro';
 import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 
-<p class="text-xl">
-	Skeleton provides an array of opt-in utility classes for common typographic elements. As well as a number of primitives for extending and
-	generating semantic typography sets. Use theme settings to provide the perfect typographic scale.
-</p>
+{/* prettier-ignore */}
+<p class="text-xl">Skeleton provides an array of opt-in utility classes for common typographic elements, with a fully functional typopgraphy scale based on your theme settings. As well as a number of primitives for extending and generating semantic typography sets.</p>
+
+## Typographic Scale
+
+Skeleton introduces a [Typographic Scale](https://designcode.io/typographic-scales) to Tailwind's [font-size](https://tailwindcss.com/docs/font-size) properties.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<TypeScale client:load />
+	</Fragment>
+	<Fragment slot="code">
+		<div class="space-y-4">
+			Scaling can be adjusted by modifying the [type scale](/docs/get-started/core-api#typography) theme property.
+			```css
+			[data-theme='cerberus'] {
+				--text-scaling: 0.25rem;
+			}
+			```
+			This affects the following text sizes.
+			```html
+			<h1 class="text-xs">text-xs</h1>
+			<h2 class="text-sm">text-sm</h2>
+			<h3 class="textba-base">text-base</h3>
+			<h4 class="text-lg">text-lg</h4>
+			<h5 class="text-xl">text-xl</h5>
+			<h6 class="text2-2xl">text-2xl</h6>
+			<h6 class="text3-3xl">text-3xl</h6>
+			<h6 class="text4-4xl">text-4xl</h6>
+			<h6 class="text5-5xl">text-5xl</h6>
+			<h6 class="text6-6xl">text-6xl</h6>
+			<h6 class="text7-7xl">text-7xl</h6>
+			<h6 class="text8-8xl">text-8xl</h6>
+			<h6 class="text9-9xl">text-9xl</h6>
+			```
+		</div>
+	</Fragment>
+</Preview>
 
 ## Utility Classes
+
+Use the following utility classes to quickly style semantic HTML elements. These classes are opt-in by default, providing an escape hatch when you need to break from convention.
 
 ### Headings
 
@@ -137,9 +173,11 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-### Lists
+## Lists
 
-#### Unordered
+Skeleton defers to Tailwind's built-in utility classes for common list styles.
+
+### Unordered
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -150,7 +188,7 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-#### Ordered
+### Ordered
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -161,7 +199,7 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-#### Basic
+### Basic
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -172,7 +210,7 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-#### Description
+### Description
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -183,7 +221,7 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-#### Navigation
+### Navigation
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -194,40 +232,13 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 	</Fragment>
 </Preview>
 
-## Primitives
+## Semantic Typography
 
-The basic building blocks that Skeleton typography is built upon.
+Typography can differ wildly from project to project, so we advise abstracting your own set of semantic typographic classes. These can be generated using any combination of Skeleton and Tailwind primities. Consider using a standaridzed prefix, such as `type-*` for each of these.
 
-### Typographic Scale
+> NOTE: this section is currently under construction.
 
-Primitive font sizes based on your theme's [typographic scale](https://designcode.io/typographic-scales), via the `--type-scale-factor` [theme property](/docs/get-started/core-api#type-scale).
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<TypeScale client:load />
-	</Fragment>
-	<Fragment slot="code">
-		```html
-		<h1 class="text-xs">text-xs</h1>
-		<h2 class="text-sm">text-sm</h2>
-		<h3 class="textba-base">text-base</h3>
-		<h4 class="text-lg">text-lg</h4>
-		<h5 class="text-xl">text-xl</h5>
-		<h6 class="text2-2xl">text-2xl</h6>
-		<h6 class="text3-3xl">text-3xl</h6>
-		<h6 class="text4-4xl">text-4xl</h6>
-		<h6 class="text5-5xl">text-5xl</h6>
-		<h6 class="text6-6xl">text-6xl</h6>
-		<h6 class="text7-7xl">text-7xl</h6>
-		<h6 class="text8-8xl">text-8xl</h6>
-		<h6 class="text9-9xl">text-9xl</h6>
-		```
-	</Fragment>
-</Preview>
-
-### Semantic Typography
-
-Given that typography can differ wildly from project to project, we've provided an opinionated boilerplate for generating a set of semantic typography. These classes are constructed using a combination of Skelton and Tailwind primitives. Tap the code view, copy the styles to your global stylesheet, then modify as desired. Use the `type-{foo}` prefix to help keep things standardized.
+{/\*
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -237,3 +248,4 @@ Given that typography can differ wildly from project to project, we've provided 
 		<Code code={SemanticRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+*/}
