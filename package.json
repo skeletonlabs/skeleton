@@ -42,7 +42,7 @@
 		"postinstall": "pnpm --recursive --filter \"./packages/*\" build"
 	},
 	"devDependencies": {
-		"@changesets/cli": "^2.28.0",
+		"@changesets/cli": "^2.28.1",
 		"@skeletonlabs/necroparser": "workspace:*",
 		"@svitejs/changesets-changelog-github-compact": "^1.1.0",
 		"@types/node": "^22.10.1",
