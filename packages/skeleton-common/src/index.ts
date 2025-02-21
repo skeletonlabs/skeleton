@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import catppuccin from '@skeletonlabs/skeleton/themes/catppuccin?inline';
+import catppuccin from '@skeletonlabs/skeleton/themes/catppuccin?raw';
 import cerberus from '@skeletonlabs/skeleton/themes/cerberus?raw';
 import concord from '@skeletonlabs/skeleton/themes/concord?raw';
 import crimson from '@skeletonlabs/skeleton/themes/crimson?raw';
