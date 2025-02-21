@@ -20,7 +20,6 @@ Skeleton comes with a curated selection of high quality preset themes out of the
 
 <ThemesList />
 
-
 Tap any of the theme previews above to copy the theme name to your clipboard. Then implement implement the following theme import in your global stylesheet.
 
 ```css title="app.css" {3}
@@ -71,7 +70,9 @@ You may register any number of themes by adding addition theme imports to your g
 With at least one theme registered, set the active theme using the `data-theme` attribute on your `<html>` element.
 
 ```html
-<html data-theme="cerberus">...</html>
+<html data-theme="cerberus">
+	...
+</html>
 ```
 
 ---
@@ -163,7 +164,6 @@ import "@fontsource/open-sans";
 ```
 
 Finally, use the following [theme properties](/docs/get-started/core-api#base-1) to set each respective font-family property. Note that for custom themes, these settings are can be defined directly within each respective theme file.
-
 
 ```css title="app.css"
 [data-theme='cerberus'] {

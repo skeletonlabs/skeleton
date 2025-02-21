@@ -294,8 +294,8 @@ importers:
   packages/skeleton-common:
     devDependencies:
       '@skeletonlabs/skeleton':
-        specifier: ^2.11.0
-        version: 2.11.0(svelte@5.20.2)
+        specifier: workspace:*
+        version: link:../skeleton
       typescript:
         specifier: 'catalog:'
         version: 5.7.3
@@ -2295,11 +2295,6 @@ packages:
     resolution: { integrity: sha512-TV7t8GKYaJWsn00tFDqBw8+Uqmr8A0fRU1tvTQhyZzGv0sJCGRQL3JGMI3ucuKo3XIZdUP+Lx7/gh2t3lewy7g== }
     engines: { node: '>=14.16' }
 
-  '@skeletonlabs/skeleton@2.11.0':
-    resolution: { integrity: sha512-ORMZYACsIlfKyBx2ZIHBy7zE877t99fxU7LzcY1dveVmn2//+OeqnbQb5RryNILsMR62Tuu1VLnCu01/ByHlbQ== }
-    peerDependencies:
-      svelte: ^3.56.0 || ^4.0.0 || ^5.0.0
-
   '@sveltejs/adapter-auto@3.3.1':
     resolution: { integrity: sha512-5Sc7WAxYdL6q9j/+D0jJKjGREGlfIevDyHSQ2eNETHcB1TKlQWHcAo8AS8H1QdjNvSXpvOwNjykDUHPEAyGgdQ== }
     peerDependencies:
@@ -3905,9 +3900,6 @@ packages:
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
     deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
-
-  esm-env@1.0.0:
-    resolution: { integrity: sha512-Cf6VksWPsTuW01vU9Mk/3vRue91Zevka5SjyNf3nEpokFRuqt/KjUQoGAwq9qMmhpLTHmXzSIrFRw8zxWzmFBA== }
 
   esm-env@1.2.2:
     resolution: { integrity: sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA== }
@@ -9139,11 +9131,6 @@ snapshots:
 
   '@sindresorhus/is@5.6.0': {}
 
-  '@skeletonlabs/skeleton@2.11.0(svelte@5.20.2)':
-    dependencies:
-      esm-env: 1.0.0
-      svelte: 5.20.2
-
   '@sveltejs/adapter-auto@3.3.1(@sveltejs/kit@2.17.2(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.20.2)(vite@6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.85.0)(tsx@4.19.3)(yaml@2.7.0)))(svelte@5.20.2)(vite@6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.85.0)(tsx@4.19.3)(yaml@2.7.0)))':
     dependencies:
       '@sveltejs/kit': 2.17.2(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.20.2)(vite@6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.85.0)(tsx@4.19.3)(yaml@2.7.0)))(svelte@5.20.2)(vite@6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.85.0)(tsx@4.19.3)(yaml@2.7.0))
@@ -11383,8 +11370,6 @@ snapshots:
       text-table: 0.2.0
     transitivePeerDependencies:
       - supports-color
-
-  esm-env@1.0.0: {}
 
   esm-env@1.2.2: {}
 

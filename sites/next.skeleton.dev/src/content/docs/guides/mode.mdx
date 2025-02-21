@@ -25,8 +25,11 @@ Actives dark mode by adding or removing the`.dark` class on your application's `
 ```css
 @custom-variant dark (&:where(.dark, .dark *));
 ```
+
 ```html
-<html class="dark">...</html>
+<html class="dark">
+	...
+</html>
 ```
 
 ### Data Attribute Strategy
@@ -36,8 +39,11 @@ Uses a data attribute instead of a class to activate dark mode.
 ```css
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 ```
+
 ```html
-<html data-theme="dark">...</html>
+<html data-theme="dark">
+	...
+</html>
 ```
 
 ### Using the Dark Variant
