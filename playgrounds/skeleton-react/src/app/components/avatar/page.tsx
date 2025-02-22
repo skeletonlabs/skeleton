@@ -1,11 +1,11 @@
 import { Skull } from 'lucide-react';
 
-import { Avatar } from '$lib/components/Avatar/Avatar.js';
+import { Avatar } from '@skeletonlabs/skeleton-react';
 
 const imgSrc =
 	'https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop';
 
-export function Component() {
+export default function Page() {
 	return (
 		<div className="space-y-10">
 			<header>

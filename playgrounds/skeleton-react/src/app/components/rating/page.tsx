@@ -1,8 +1,8 @@
 import { Bone, Skull } from 'lucide-react';
 import { useState } from 'react';
-import { Rating } from '$lib/index.js';
+import { Rating } from '@skeletonlabs/skeleton-react';
 
-export function Component() {
+export default function Page() {
 	const [value, setValue] = useState(3);
 
 	return (

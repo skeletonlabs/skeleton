@@ -1,8 +1,8 @@
-import { FileUpload, type FileUploadApi } from '$lib/index';
+import { FileUpload, type FileUploadApi } from '@skeletonlabs/skeleton-react';
 
 import { ImagePlus as IconDropzone, Paperclip as IconFile, Upload as IconUpload, XCircle as IconRemove } from 'lucide-react';
 
-export function Component() {
+export default function Page() {
 	// Local
 	let apiRef: FileUploadApi;
 

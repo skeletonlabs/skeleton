@@ -1,9 +1,9 @@
 import { Check as IconCheck, X as IconX, Moon as IconMoon, Sun as IconSun, Frown as IconFrown, Smile as IconSmile } from 'lucide-react';
 import { useState } from 'react';
 
-import { Switch } from '$lib/components/Switch/Switch.js';
+import { Switch } from '@skeletonlabs/skeleton-react';
 
-export function Component() {
+export default function Page() {
 	const [disturb, setDisturb] = useState(false);
 	const [notifications, setNotifications] = useState(true);
 	const [disabled, setDisabled] = useState(false);

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { TagsInput } from '$lib/components/TagsInput/TagsInput.js';
+import { TagsInput } from '@skeletonlabs/skeleton-react';
 import { XCircle as IconDelete } from 'lucide-react';
 
-export function Component() {
+export default function Page() {
 	const [flavors, setFlavors] = useState(['Vanilla', 'Chocolate', 'Strawberry']);
 
 	return (

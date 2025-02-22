@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { Progress } from '$lib/components/Progress/Progress.js';
+import { Progress } from '@skeletonlabs/skeleton-react';
 
-export function Component() {
+export default function Page() {
 	const [value, setValue] = useState(50);
 	const [max, setMax] = useState(100);
 

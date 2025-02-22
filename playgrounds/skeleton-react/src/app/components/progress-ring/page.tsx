@@ -1,9 +1,9 @@
 import { ThermometerSun as IconThermometer } from 'lucide-react';
 import { useState } from 'react';
 
-import { ProgressRing } from '$lib/components/ProgressRing/ProgressRing.js';
+import { ProgressRing } from '@skeletonlabs/skeleton-react';
 
-export function Component() {
+export default function Page() {
 	const [value, setValue] = useState(40);
 	const [max, setMax] = useState(100);
 

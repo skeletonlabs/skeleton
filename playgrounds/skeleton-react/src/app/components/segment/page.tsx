@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Segment } from '../../lib/components/Segment/Segment.js';
+import { Segment } from '@skeletonlabs/skeleton-react';
 import { AlignLeft as IconLeft, AlignCenter as IconCenter, AlignRight as IconRight, AlignJustify as IconJustify } from 'lucide-react';
 
-export function Component() {
+export default function Page() {
 	const [align, setAlign] = useState('left');
 	const [size, setSize] = useState('sm');
 

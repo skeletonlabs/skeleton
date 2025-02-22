@@ -1,4 +1,4 @@
-import { Pagination } from '$lib/components/Pagination/Pagination.js';
+import { Pagination } from '@skeletonlabs/skeleton-react';
 import { ChangeEvent, useState } from 'react';
 import {
 	ArrowLeft as IconArrowLeft,
@@ -8,7 +8,7 @@ import {
 	ChevronsRight as IconLast
 } from 'lucide-react';
 
-export function Component() {
+export default function Page() {
 	interface SourceData {
 		position: number;
 		name: string;

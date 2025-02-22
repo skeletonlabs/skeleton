@@ -1,9 +1,9 @@
 import { Skull as IconLogo, Menu as IconMenu, Box as IconBox, Settings as IconSettings } from 'lucide-react';
 import { useState } from 'react';
 
-import { Navigation } from '$lib/components/Navigation/Navigation.js';
+import { Navigation } from '@skeletonlabs/skeleton-react';
 
-export function Component() {
+export default function Page() {
 	const [value, setValue] = useState('0');
 
 	return (

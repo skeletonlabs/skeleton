@@ -1,9 +1,9 @@
 import { Plane as IconPlane, Sailboat as IconBoat, Car as IconCar } from 'lucide-react';
 import { useState } from 'react';
 
-import { Tabs } from '$lib/components/Tabs/Tabs.js';
+import { Tabs } from '@skeletonlabs/skeleton-react';
 
-export function Component() {
+export default function Page() {
 	const [group, setGroup] = useState('item-1');
 	const lorem =
 		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';

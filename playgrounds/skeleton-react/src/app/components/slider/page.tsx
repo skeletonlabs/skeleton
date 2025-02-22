@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Slider } from '$lib/components/Slider/Slider.js';
+import { Slider } from '@skeletonlabs/skeleton-react';
 
-export function Component() {
+export default function Page() {
 	const [value, setValue] = useState([40]);
 	const [valueMulti, setValueMulti] = useState([40, 60]);
 
