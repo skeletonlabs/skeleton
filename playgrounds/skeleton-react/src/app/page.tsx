@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Page() {
 	return (
 		<div className="flex h-full w-full items-center justify-center">
 			<div className="max-w-[600px] text-balance text-center">
