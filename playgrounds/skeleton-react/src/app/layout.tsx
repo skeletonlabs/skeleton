@@ -37,14 +37,14 @@ export default function RootLayout({
 						<div className="space-y-8">
 							<span className="font-bold">Components</span>
 							<nav className="type-scale-2 flex flex-col gap-2">
-								<a className="anchor" href="/components/accordions">
-									Accordions
+								<a className="anchor" href="/components/accordion">
+									Accordion
 								</a>
-								<a className="anchor" href="/components/avatars">
-									Avatars
+								<a className="anchor" href="/components/avatar">
+									Avatar
 								</a>
-								<a className="anchor" href="/components/app-bars">
-									App Bars
+								<a className="anchor" href="/components/app-bar">
+									App Bar
 								</a>
 								<a className="anchor" href="/components/file-upload">
 									File Upload
@@ -64,8 +64,8 @@ export default function RootLayout({
 								<a className="anchor" href="/components/progress-rings">
 									Progress Rings
 								</a>
-								<a className="anchor" href="/components/segment-control">
-									Segment Control
+								<a className="anchor" href="/components/segment">
+									Segment
 								</a>
 								<a className="anchor" href="/components/slider">
 									Slider

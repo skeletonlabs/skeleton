@@ -539,6 +539,9 @@ importers:
       '@skeletonlabs/skeleton-react':
         specifier: workspace:*
         version: link:../../packages/skeleton-react
+      '@tailwindcss/forms':
+        specifier: ^0.5.10
+        version: 0.5.10(tailwindcss@4.0.7)
       '@tailwindcss/postcss':
         specifier: ^4.0.8
         version: 4.0.8
