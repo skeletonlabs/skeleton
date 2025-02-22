@@ -9,10 +9,17 @@ order: 9999
 export const components = componentSet;
 import NavGrid from '@components/docs/NavGrid.astro';
 
-{/* prettier-ignore */}
-<div class="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
-	<p>WARNING: Skeleton v3 is currently in a pre-release status. It is not yet intended for production use. This may include bugs, incomplete documentation, and breaking changes leading up to the full release. Depending on the scale and scope of of your project, we may even encourage of your application to take full advantage of all changes.</p>
+{
+
+<div className="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
+	<p>
+		WARNING: Skeleton v3 is currently in a pre-release status. It is not yet intended for production use. This may include bugs, incomplete
+		documentation, and breaking changes leading up to the full release. Depending on the scale and scope of of your project, we may even
+		encourage of your application to take full advantage of all changes.
+	</p>
 </div>
+
+}
 
 ## Introduction
 
@@ -26,7 +33,7 @@ While Skeleton v3 introduces support for multiple frameworks, we’ve historical
 
 We recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop or revert changes if something goes wrong.
 
-```console
+```shell
 git checkout -b migration
 ```
 
@@ -78,10 +85,16 @@ What will NOT be migrated...
 
 Make sure to consult your local Git Diff to compare what has been modified before progressing forward or committing the these automated changes.
 
-{/* prettier-ignore */}
+{
+
 <div class="card preset-outlined-warning-500 preset-tonal-warning p-8 space-y-8">
-	<p>Early Adopters: In extremely rare instances the CLI may modify values outside the scope of Skeleton. If this occurs, please report this as a bug in the #sketon-cli-beta channel on Discord!</p>
+	<p>
+		Early Adopters: In extremely rare instances the CLI may modify values outside the scope of Skeleton. If this occurs, please report this
+		as a bug in the <code className="code">#skeleton-cli-beta</code> channel on Discord!
+	</p>
 </div>
+
+}
 
 ---
 
@@ -225,7 +238,7 @@ Members of the both the Skeleton team and the Svelte community are actively buil
 
 If you’ve completed all steps above in full, your application should once again be in a function state. Run your application's local dev server to confirm, and remember to merge all changes into your primary branch.
 
-```console
+```shell
 npm run dev
 ```
 
