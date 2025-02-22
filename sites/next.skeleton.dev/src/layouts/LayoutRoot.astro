@@ -8,7 +8,7 @@ interface Props {
 	classList?: string;
 }
 
-const { title, description, classList } = Astro.props satisfies Props;
+const { title, description, classList } = Astro.props;
 
 // Format meta tag data
 const meta = {
@@ -77,12 +77,14 @@ const meta = {
 			src="https://events.plygrnd.org/js/script.outbound-links.js"
 			is:inline></script>
 		<script>
-			// @ts-expect-error for window.plausible
+			declare global {
+				interface Window {
+					plausible: any;
+				}
+			}
 			window.plausible =
-				// @ts-expect-error for window.plausible
 				window.plausible ||
 				function () {
-					// @ts-expect-error for window.plausible
 					(window.plausible.q = window.plausible.q || []).push(arguments);
 				};
 		</script>
