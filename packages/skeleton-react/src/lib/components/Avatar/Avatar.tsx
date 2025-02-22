@@ -49,13 +49,13 @@ export const Avatar: React.FC<AvatarProps> = ({
 			{/* Image */}
 			{(src || srcSet) && (
 				<img
-					{...api.getImageProps()}
 					src={src}
 					srcSet={srcSet}
 					alt={name}
 					className={`${imageBase} ${imageClasses}`}
 					style={{ ...style, filter: filter ? `url(${filter})` : undefined }}
 					data-testid="avatar-image"
+					{...api.getImageProps()}
 				/>
 			)}
 			{/* Fallback */}

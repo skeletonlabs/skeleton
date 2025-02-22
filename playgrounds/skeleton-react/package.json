@@ -6,16 +6,21 @@
 		"build": "next build"
 	},
 	"dependencies": {
+		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-react": "workspace:*",
+		"@tailwindcss/postcss": "^4.0.8",
+		"@tailwindcss/typography": "^0.5.16",
+		"lucide-react": "^0.465.0",
+		"next": "15.1.7",
+		"postcss": "^8.5.3",
 		"react": "^19.0.0",
-		"react-dom": "^19.0.0",
-		"next": "15.1.7"
+		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
-		"typescript": "catalog:",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
-		"postcss": "^8",
-		"tailwindcss": "catalog:"
+		"tailwindcss": "catalog:",
+		"typescript": "catalog:"
 	}
 }
