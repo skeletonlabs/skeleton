@@ -81,17 +81,35 @@ const navigation = {
 
 <script>
 	import { preferredFrameworkStore } from 'src/stores/preferred-framework';
-	function rewriteAnchorHrefs(framework: ReturnType<(typeof preferredFrameworkStore)['get']>) {
-		for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a')) {
+	const SIDEBAR_SCROLL_KEY = 'sidebar-scroll-position';
+	function handleSidebarScroll(event: Event) {
+		if (!(event.target instanceof HTMLElement)) return;
+		sessionStorage.setItem(SIDEBAR_SCROLL_KEY, String(event.target.scrollTop));
+	}
+	function restoreScrollPosition() {
+		const sidebar = document.querySelector('[data-navigation]');
+		if (!sidebar) return;
+
+		const scrollPosition = sessionStorage.getItem(SIDEBAR_SCROLL_KEY);
+		sidebar.scrollTop = parseInt(scrollPosition ?? '0', 10);
+
+		sidebar.removeEventListener('scroll', handleSidebarScroll);
+		sidebar.addEventListener('scroll', handleSidebarScroll);
+	}
+	function rewriteAnchorHrefs(framework: ReturnType<typeof preferredFrameworkStore.get>) {
+		const anchors = document.querySelectorAll<HTMLAnchorElement>('a');
+		for (const anchor of anchors) {
 			if (!anchor.href.endsWith('meta')) continue;
 			anchor.setAttribute('href', anchor.href.replace('meta', framework));
 		}
 	}
+	restoreScrollPosition();
 	rewriteAnchorHrefs(preferredFrameworkStore.get());
 	preferredFrameworkStore.subscribe((preferredFramework) => {
 		rewriteAnchorHrefs(preferredFramework);
 	});
 	document.addEventListener('astro:after-swap', () => {
+		restoreScrollPosition();
 		rewriteAnchorHrefs(preferredFrameworkStore.get());
 	});
 </script>
