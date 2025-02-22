@@ -2,5 +2,5 @@
 "@skeletonlabs/skeleton-svelte": minor
 ---
 
-bugfix(avatar): removed unecessary h-full class from fallbackbase. 
+bugfix: in avaremoved unecessary h-full class from fallbackbase. 
   
