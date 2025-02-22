@@ -104,23 +104,3 @@ const urls = {
 		</aside>
 	</div>
 </LayoutRoot>
-
-<script>
-	const key = 'sidebar-scroll-position';
-	function onScroll(event: Event) {
-		if (!(event.target instanceof HTMLElement)) return;
-		sessionStorage.setItem(key, String(event.target.scrollTop));
-	}
-	function restoreScrollPosition() {
-		const sidebar = document.querySelector('[data-navigation]');
-		if (!sidebar) return;
-		const scrollPosition = sessionStorage.getItem(key);
-		sidebar.scrollTop = parseInt(scrollPosition ?? '0', 10);
-		sidebar.removeEventListener('scroll', onScroll);
-		sidebar.addEventListener('scroll', onScroll);
-	}
-	restoreScrollPosition();
-	document.addEventListener('astro:after-swap', () => {
-		restoreScrollPosition();
-	});
-</script>
