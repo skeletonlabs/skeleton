@@ -23,7 +23,7 @@
 		imageClasses = '',
 		style = '',
 		// Fallback
-		fallbackBase = 'w-full h-full flex justify-center items-center',
+		fallbackBase = 'w-full flex justify-center items-center',
 		fallbackClasses = '',
 		// Snippets
 		children
