@@ -81,11 +81,17 @@ const navigation = {
 
 <script>
 	import { preferredFrameworkStore } from 'src/stores/preferred-framework';
-	const preferredFramework = preferredFrameworkStore.get();
-
-	// Update all links ending with meta to use the selected framework
-	for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a')) {
-		if (!anchor.href.endsWith('meta')) continue;
-		anchor.setAttribute('href', anchor.href.replace('meta', preferredFramework));
+	function rewriteAnchorHrefs(framework: ReturnType<(typeof preferredFrameworkStore)['get']>) {
+		for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a')) {
+			if (!anchor.href.endsWith('meta')) continue;
+			anchor.setAttribute('href', anchor.href.replace('meta', framework));
+		}
 	}
+	rewriteAnchorHrefs(preferredFrameworkStore.get());
+	preferredFrameworkStore.subscribe((preferredFramework) => {
+		rewriteAnchorHrefs(preferredFramework);
+	});
+	document.addEventListener('astro:after-swap', () => {
+		rewriteAnchorHrefs(preferredFrameworkStore.get());
+	});
 </script>

@@ -106,36 +106,21 @@ const urls = {
 </LayoutRoot>
 
 <script>
-	(() => {
-		const key = 'toc-position';
-		let timeout = 0;
-		let position = { scrollTop: 0 };
+	const key = 'sidebar-scroll-position';
+	function onScroll(event: Event) {
+		if (!(event.target instanceof HTMLElement)) return;
+		sessionStorage.setItem(key, String(event.target.scrollTop));
+	}
+	function restoreScrollPosition() {
 		const sidebar = document.querySelector('[data-navigation]');
-
-		if (sidebar) {
-			const data = sessionStorage.getItem(key);
-			if (data) {
-				try {
-					const obj = JSON.parse(data);
-					position = {
-						...position,
-						...obj
-					};
-					sidebar.scrollTop = position.scrollTop || 0;
-				} catch (err) {
-					// ...
-				}
-			}
-
-			sidebar.addEventListener('scroll', () => {
-				position.scrollTop = sidebar.scrollTop;
-				if (!timeout) {
-					timeout = window.setTimeout(() => {
-						sessionStorage.setItem(key, JSON.stringify(position));
-						timeout = 0;
-					}, 100);
-				}
-			});
-		}
-	})();
+		if (!sidebar) return;
+		const scrollPosition = sessionStorage.getItem(key);
+		sidebar.scrollTop = parseInt(scrollPosition ?? '0', 10);
+		sidebar.removeEventListener('scroll', onScroll);
+		sidebar.addEventListener('scroll', onScroll);
+	}
+	restoreScrollPosition();
+	document.addEventListener('astro:after-swap', () => {
+		restoreScrollPosition();
+	});
 </script>
