@@ -1,3 +1,5 @@
+'use client';
+
 import { Bone, Skull } from 'lucide-react';
 import { useState } from 'react';
 import { Rating } from '@skeletonlabs/skeleton-react';

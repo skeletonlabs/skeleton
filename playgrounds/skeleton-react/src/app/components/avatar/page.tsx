@@ -9,7 +9,7 @@ export default function Page() {
 	return (
 		<div className="space-y-10">
 			<header>
-				<h1 className="h1">Avatars</h1>
+				<h1 className="h1">Avatar</h1>
 			</header>
 			<section className="space-y-4">
 				<Avatar src={imgSrc} name="basic" />

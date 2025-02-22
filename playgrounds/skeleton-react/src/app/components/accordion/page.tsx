@@ -1,4 +1,4 @@
-'use-client';
+'use client';
 
 import { Club, Diamond, Heart, Spade } from 'lucide-react';
 import { useState } from 'react';

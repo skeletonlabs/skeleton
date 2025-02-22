@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { Segment } from '@skeletonlabs/skeleton-react';
 import { AlignLeft as IconLeft, AlignCenter as IconCenter, AlignRight as IconRight, AlignJustify as IconJustify } from 'lucide-react';

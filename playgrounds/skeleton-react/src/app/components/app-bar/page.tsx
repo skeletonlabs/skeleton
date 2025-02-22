@@ -1,32 +1,30 @@
+'use client';
+
 import { Skull } from 'lucide-react';
 
 import { AppBar } from '@skeletonlabs/skeleton-react';
 
-function appbar() {
-	return (
-		<AppBar>
-			<AppBar.Toolbar>
-				<AppBar.ToolbarLead>
-					<span>
-						<Skull size={22} />
-					</span>
-					<span>Skeleton</span>
-				</AppBar.ToolbarLead>
-				<AppBar.ToolbarCenter>Skeleton</AppBar.ToolbarCenter>
-				<AppBar.ToolbarTrail>
-					<span>Skeleton</span>
-					<span>
-						<Skull size={22} />
-					</span>
-				</AppBar.ToolbarTrail>
-			</AppBar.Toolbar>
-		</AppBar>
-	);
-}
-
-function appbarHeadline() {
+export default function Page() {
 	return (
 		<>
+			<h1 className="h1">AppBar</h1>
+			<AppBar>
+				<AppBar.Toolbar>
+					<AppBar.ToolbarLead>
+						<span>
+							<Skull size={22} />
+						</span>
+						<span>Skeleton</span>
+					</AppBar.ToolbarLead>
+					<AppBar.ToolbarCenter>Skeleton</AppBar.ToolbarCenter>
+					<AppBar.ToolbarTrail>
+						<span>Skeleton</span>
+						<span>
+							<Skull size={22} />
+						</span>
+					</AppBar.ToolbarTrail>
+				</AppBar.Toolbar>
+			</AppBar>
 			<h3 className="h3">Headline</h3>
 			<AppBar>
 				<AppBar.Toolbar>
@@ -47,13 +45,6 @@ function appbarHeadline() {
 					<h1 className="h1">Headline</h1>
 				</AppBar.Headline>
 			</AppBar>
-		</>
-	);
-}
-
-function appbarSticky() {
-	return (
-		<>
 			<h3 className="h3">Sticky</h3>
 			<div className="flex max-h-64 flex-col space-y-4 overflow-y-auto">
 				<AppBar classes="sticky top-0">
@@ -139,13 +130,6 @@ function appbarSticky() {
 					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
 				</div>
 			</div>
-		</>
-	);
-}
-
-function appbarA11YKeyboard() {
-	return (
-		<>
 			<h3 className="h3">A11Y Keyboard</h3>
 			<button type="button" className="btn preset-filled">
 				Button before the AppBar
@@ -174,13 +158,6 @@ function appbarA11YKeyboard() {
 			<button type="button" className="btn preset-filled">
 				Button after the AppBar
 			</button>
-		</>
-	);
-}
-
-function appbarRTL() {
-	return (
-		<>
 			<h3 className="h3">RTL</h3>
 			<div dir="rtl">
 				<AppBar>
@@ -208,19 +185,6 @@ function appbarRTL() {
 					</AppBar.Headline>
 				</AppBar>
 			</div>
-		</>
-	);
-}
-
-export default function Page() {
-	return (
-		<>
-			<h1 className="h1">AppBars</h1>
-			{appbar()}
-			{appbarHeadline()}
-			{appbarSticky()}
-			{appbarA11YKeyboard()}
-			{appbarRTL()}
 		</>
 	);
 }

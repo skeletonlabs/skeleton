@@ -12,8 +12,13 @@ export default function RootLayout({
 }>) {
 	const [lightswitch, setLightswitch] = useState(false);
 
+	function onModeChange(newValue: boolean) {
+		setLightswitch(newValue);
+		document.documentElement.classList.toggle('dark');
+	}
+
 	return (
-		<html className={`${lightswitch && 'dark'}`} lang="en" data-theme="cerberus">
+		<html lang="en" className="dark" data-theme="cerberus">
 			<body>
 				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]" data-testid="app">
 					{/* Nav */}
@@ -26,7 +31,7 @@ export default function RootLayout({
 							name="mode"
 							controlActive="bg-surface-200"
 							checked={lightswitch}
-							onCheckedChange={setLightswitch}
+							onCheckedChange={onModeChange}
 							inactiveChild={<IconMoon size="14" />}
 							activeChild={<IconSun size="14" />}
 						>
@@ -52,8 +57,8 @@ export default function RootLayout({
 								<a className="anchor" href="/components/navigation">
 									Navigation
 								</a>
-								<a className="anchor" href="/components/ratings">
-									Ratings
+								<a className="anchor" href="/components/rating">
+									Rating
 								</a>
 								<a className="anchor" href="/components/pagination">
 									Pagination
