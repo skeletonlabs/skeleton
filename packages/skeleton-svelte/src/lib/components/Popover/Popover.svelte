@@ -65,7 +65,13 @@
 <span class="{base} {classes}" data-testid="popover">
 	<!-- Snippet: Trigger -->
 	{#if trigger}
-		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button" aria-label={triggerAriaLabel}>
+		<button
+			{...triggerProps}
+			class="{triggerBase} {triggerBackground} {triggerClasses}"
+			{disabled}
+			type="button"
+			aria-label={triggerAriaLabel}
+		>
 			{@render trigger()}
 		</button>
 	{/if}
