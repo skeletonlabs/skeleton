@@ -42,9 +42,7 @@
 	const id = $props.id();
 	const service = useMachine(pagination.machine, () => ({
 		id: id,
-		get count() {
-			return data.length;
-		},
+		count: data.length,
 		...zagProps
 	}));
 	const api = $derived(pagination.connect(service, normalizeProps));
@@ -53,8 +51,6 @@
 	const rxButtonActive = (page: { value: number }) => {
 		return api.page === page.value ? buttonActive : `${buttonInactive} ${buttonHover}`;
 	};
-
-	$inspect(api);
 </script>
 
 {#if api.totalPages > 1}

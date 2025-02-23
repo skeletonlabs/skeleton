@@ -11,10 +11,7 @@ export interface SegmentContextState {
 
 // Components ---
 
-export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Context, 'id' | 'orientation' | 'onValueChange'> {
-	/** Set the orientation. */
-	orientation?: radio.Context['orientation'];
-
+export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Props, 'id'> {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
@@ -60,10 +57,6 @@ export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Contex
 	// Label ---
 	/** Set aria-labelledby for element */
 	labelledby?: string;
-
-	// Events ---
-	/** Triggers when the value state is changed. */
-	onValueChange?: (value: string) => void;
 }
 
 export interface SegmentItemsProps extends React.PropsWithChildren, Omit<radio.ItemProps, 'invalid'> {

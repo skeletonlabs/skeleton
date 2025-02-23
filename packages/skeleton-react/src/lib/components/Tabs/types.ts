@@ -10,7 +10,7 @@ export interface TabsContextState {
 
 // Components ---
 
-export interface TabsRootProps extends React.PropsWithChildren, Omit<tabs.Context, 'id' | 'orientation' | 'onValueChange'> {
+export interface TabsRootProps extends React.PropsWithChildren, Omit<tabs.Props, 'id' | 'orientation'> {
 	/** Set tabs to stretch to fill the available width. */
 	fluid?: boolean;
 
@@ -19,10 +19,6 @@ export interface TabsRootProps extends React.PropsWithChildren, Omit<tabs.Contex
 	base?: string;
 	/** Provide arbitrary classes for the root element. */
 	classes?: string;
-
-	// Events ---
-	/** Triggers when the value state is changed. */
-	onValueChange?: (value: string) => void;
 }
 
 export interface TabsListProps extends React.PropsWithChildren {

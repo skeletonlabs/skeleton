@@ -4,7 +4,6 @@ import React, { useId } from 'react';
 import * as tagsInput from '@zag-js/tags-input';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import { TagsInputProps } from './types.js';
-import { noop } from '../../internal/noop.js';
 
 export const TagsInput: React.FC<TagsInputProps> = ({
 	placeholder = '',
@@ -34,23 +33,18 @@ export const TagsInput: React.FC<TagsInputProps> = ({
 	buttonDelete,
 	// State
 	stateDisabled = 'disabled',
-	// Events
-	onValueChange = noop,
 	// Zag
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		tagsInput.machine({
-			id: useId(),
-			onValueChange: (details) => onValueChange(details.value)
-		}),
-		{ context: { ...zagProps } }
-	);
-	const api = tagsInput.connect(state, send, normalizeProps);
+	const service = useMachine(tagsInput.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = tagsInput.connect(service, normalizeProps);
 
 	// Reactive
-	const rxDisabled = state.context.disabled ? stateDisabled : '';
+	const rxDisabled = service.prop('disabled') ? stateDisabled : '';
 
 	return (
 		<div {...api.getRootProps()} className={`${base} ${padding} ${gap} ${rxDisabled} ${classes}`} data-testid="tags">

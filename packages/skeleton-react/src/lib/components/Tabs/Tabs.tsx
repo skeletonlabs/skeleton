@@ -4,7 +4,6 @@ import { createContext, FC, useContext, useId } from 'react';
 import * as tabs from '@zag-js/tabs';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import { TabsContextState, TabsRootProps, TabsListProps, TabsControlProps, TabsContentProps, TabsPanelProps } from './types.js';
-import { noop } from '../../internal/noop.js';
 
 // Context ---
 
@@ -20,22 +19,17 @@ const TabsRoot: FC<TabsRootProps> = ({
 	// Root
 	base = 'w-full',
 	classes = '',
-	// Events
-	onValueChange = noop,
 	// Children
 	children,
 	// Zag
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		tabs.machine({
-			id: useId(),
-			onValueChange: (details) => onValueChange(details.value)
-		}),
-		{ context: zagProps }
-	);
-	const api = tabs.connect(state, send, normalizeProps);
+	const service = useMachine(tabs.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = tabs.connect(service, normalizeProps);
 
 	return (
 		<div {...api.getRootProps()} className={`${base} ${classes}`} data-testid="tabs">

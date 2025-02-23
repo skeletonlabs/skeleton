@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import * as tagsInput from '@zag-js/tags-input';
 
-export interface TagsInputProps extends Omit<tagsInput.Context, 'id' | 'onValueChange'> {
+export interface TagsInputProps extends Omit<tagsInput.Props, 'id'> {
 	/** Set the add tag input placeholder. */
 	placeholder?: string;
 
@@ -56,8 +56,4 @@ export interface TagsInputProps extends Omit<tagsInput.Context, 'id' | 'onValueC
 	// State ---
 	/** Set the component disabled state. */
 	stateDisabled?: string;
-
-	// Events ---
-	/** Triggers when the switch is toggled. */
-	onValueChange?: (value: string[]) => void;
 }

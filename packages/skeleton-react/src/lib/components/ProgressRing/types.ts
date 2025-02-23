@@ -1,6 +1,6 @@
 import * as progress from '@zag-js/progress';
 
-export interface ProgressRingProps extends React.PropsWithChildren, Omit<progress.Context, 'id'> {
+export interface ProgressRingProps extends React.PropsWithChildren, Omit<progress.Props, 'id'> {
 	/** Set the text for the scalable label */
 	label?: string;
 	/** When enabled, show a text label with the percentage amount */

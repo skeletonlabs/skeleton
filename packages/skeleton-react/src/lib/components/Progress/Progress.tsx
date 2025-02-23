@@ -34,8 +34,11 @@ export const Progress: FC<ProgressProps> = ({
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
-	const api = progress.connect(state, send, normalizeProps);
+	const service = useMachine(progress.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = progress.connect(service, normalizeProps);
 
 	// Reactive
 	const rxIndeterminate = api.indeterminate ? meterAnimate : '';

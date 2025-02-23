@@ -27,11 +27,16 @@ export const Avatar: React.FC<AvatarProps> = ({
 	fallbackBase = 'w-full h-full flex justify-center items-center',
 	fallbackClasses = '',
 	// Children
-	children
+	children,
+	// Zag
+	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(avatar.machine({ id: useId() }));
-	const api = avatar.connect(state, send, normalizeProps);
+	const service = useMachine(avatar.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = avatar.connect(service, normalizeProps);
 
 	function getInitials(name: string) {
 		return name

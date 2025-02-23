@@ -1,7 +1,7 @@
 import * as slider from '@zag-js/slider';
 import { ReactNode } from 'react';
 
-export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange' | `onValueChangeEnd` | 'thumbSize'> {
+export interface SliderProps extends Omit<slider.Props, 'id' | 'thumbSize'> {
 	/** Provide an array of value markers */
 	markers?: number[];
 	/** Set height classes for the overall slider. */
@@ -78,12 +78,6 @@ export interface SliderProps extends Omit<slider.Context, 'id' | 'onValueChange'
 	stateDisabled?: string;
 	/** Set read-only state classes for the root element. */
 	stateReadOnly?: string;
-
-	// Events ---
-	/** Triggers when the value state is being changed. */
-	onValueChange?: (value: number[]) => void;
-	/** Triggers when the value change has ended. */
-	onValueChangeEnd?: (value: number[]) => void;
 
 	// Children ---
 	/** Replace numeric markers with symbol, such as a icon. */

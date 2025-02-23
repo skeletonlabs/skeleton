@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useId } from 'react';
+import React, { useId } from 'react';
 
 import * as fileUpload from '@zag-js/file-upload';
 import { normalizeProps, useMachine } from '@zag-js/react';
@@ -49,24 +49,19 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	iconFile,
 	iconFileRemove,
 	// Zag
-	internalApi,
+	onApiReady,
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		fileUpload.machine({
-			id: useId()
-		}),
-		{ context: zagProps }
-	);
-	const api = fileUpload.connect(state, send, normalizeProps);
-
-	useEffect(() => {
-		if (internalApi) internalApi(api);
-	}, [internalApi, api]);
+	const service = useMachine(fileUpload.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = fileUpload.connect(service, normalizeProps);
+	onApiReady?.(api);
 
 	// Reactive
-	const rxDisabled = state.context.disabled ? stateDisabled : '';
+	const rxDisabled = service.prop('disabled') ? stateDisabled : '';
 	const rxInvalid = api.rejectedFiles.length > 0 ? stateInvalid : interfaceBorderColor;
 	const rxDragging = api.dragging && !children ? stateDragging : '';
 
