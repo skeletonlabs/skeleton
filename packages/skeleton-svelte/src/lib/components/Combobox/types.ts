@@ -1,15 +1,12 @@
 import type { Snippet } from 'svelte';
 import * as combobox from '@zag-js/combobox';
+import type { HTMLButtonAttributes } from 'svelte/elements';
 
-export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection' | 'value' | 'label' | 'multiple'> {
+export interface ComboboxProps extends Omit<combobox.Props, 'id' | 'collection'> {
 	/** Provide the list of label and value data */
 	data?: { label: string; value: string }[];
-	/** Bind the selected value. */
-	value?: string[] | undefined;
 	/** Set the label to display. */
 	label?: string;
-	/** Disable the trigger element of the combobox */
-	disabled?: boolean;
 
 	// Base ---
 	/** Set base classes for the root element. */
@@ -75,5 +72,5 @@ export interface ComboboxProps extends Omit<combobox.Context, 'id' | 'collection
 
 	// Events ---
 	/** Handle the combobox dropdown button click event. */
-	onclick?: (event: Event) => void;
+	onclick?: HTMLButtonAttributes['onclick'];
 }

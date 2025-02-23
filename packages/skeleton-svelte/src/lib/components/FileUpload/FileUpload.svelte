@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as fileUpload from '@zag-js/file-upload';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import { useId } from '$lib/internal/use-id.js';
+	import { useId } from '$lib/internal/apply-id.js';
 	import type { FileUploadProps } from './types.js';
 
 	// Props

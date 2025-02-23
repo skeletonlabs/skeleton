@@ -34,6 +34,7 @@
 		control,
 		lead,
 		panel,
+		// Zag
 		...zagProps
 	}: AccordionItemProps = $props();
 

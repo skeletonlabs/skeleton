@@ -2,7 +2,7 @@
 	import * as avatar from '@zag-js/avatar';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { AvatarProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
+	import { applyId } from '$lib/internal/apply-id.js';
 
 	let {
 		src,
@@ -26,20 +26,24 @@
 		fallbackBase = 'w-full h-full flex justify-center items-center',
 		fallbackClasses = '',
 		// Snippets
-		children
+		children,
+		// Zag
+		...zagProps
 	}: AvatarProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(avatar.machine({ id: useId() }));
-	const api = $derived(avatar.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	applyId(zagProps, id);
+	const service = useMachine(avatar.machine, zagProps);
+	const api = $derived(avatar.connect(service, normalizeProps));
 
-	// Generate Initials
-	function getInitials(name: string) {
-		return name
+	// Initials
+	const initials = $derived(
+		name
 			.split(' ')
 			.map((word) => word[0])
-			.join('');
-	}
+			.join('')
+	);
 </script>
 
 <!-- @component An image with a fallback for representing a single user. -->
@@ -63,7 +67,7 @@
 		{#if children}
 			{@render children()}
 		{:else}
-			{getInitials(name)}
+			{initials}
 		{/if}
 	</span>
 </figure>

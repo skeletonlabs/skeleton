@@ -5,17 +5,16 @@
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import type { ComboboxProps } from './types.js';
 	import { useId } from '$lib/internal/use-id.js';
+	import { applyId } from '$lib/internal/apply-id.js';
 
-	let {
-		data = $bindable([]),
-		value = $bindable([]),
-		label = '',
-		disabled = false,
+	const {
+		data = [],
 		// Base
 		base = '',
 		width = '',
 		classes = '',
 		// Label
+		label = '',
 		labelBase = 'label',
 		labelText = 'label-text',
 		labelClasses = '',
@@ -43,112 +42,94 @@
 		arrow,
 		// Events
 		onclick,
-		// Zag ---
+		// Zag
 		...zagProps
 	}: ComboboxProps = $props();
 
+	// Collection
+
 	// Zag
-	let options = $state.raw(data);
-	const collection = combobox.collection({
-		items: data,
-		// Map data structure
-		itemToValue: (item) => item.value,
-		itemToString: (item) => item.label
-	});
-	const [snapshot, send] = useMachine(
-		combobox.machine({
-			id: useId(),
-			collection,
-			value: $state.snapshot(value),
-			loopFocus: true,
-			onOpenChange(details) {
-				zagProps.onOpenChange?.(details);
-				options = data;
-			},
-			onInputValueChange(details) {
-				zagProps.onInputValueChange?.(details);
-				const filtered = data.filter((item) => item.label.toLowerCase().includes(details.inputValue.toLowerCase()));
-				const newOptions = filtered.length > 0 ? filtered : data;
-				collection.setItems(newOptions);
-				options = newOptions;
-			},
-			onValueChange(event) {
-				zagProps.onValueChange?.(event);
-				value = event.value;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get data() {
-					return $state.snapshot(data);
-				},
-				get value() {
-					return $state.snapshot(value);
-				}
-			}
-		}
+	const collection = $derived(
+		combobox.collection({
+			items: data,
+			itemToValue: (item) => item.value,
+			itemToString: (item) => item.label
+		})
 	);
-	const api = $derived(combobox.connect(snapshot, send, normalizeProps));
-	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
+	let options = $state.raw(data);
+	const id = $props.id();
+	applyId(zagProps, id);
+	const service = useMachine(combobox.machine, {
+		get collection() {
+			return collection;
+		},
+		onOpenChange(event) {
+			options = data;
+			zagProps.onOpenChange?.(event);
+		},
+		onInputValueChange(event) {
+			const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
+			const newOptions = filtered.length > 0 ? filtered : data;
+			options = newOptions;
+			zagProps.onInputValueChange?.(event);
+		},
+		...zagProps
+	});
+	const api = $derived(combobox.connect(service, normalizeProps));
+	const triggerProps = $derived(
+		mergeProps(api.getTriggerProps(), {
+			onclick: onclick
+		})
+	);
 </script>
 
-<span {...api.getRootProps()} class="{base} {width} {classes}" data-testid="combobox">
+<div {...api.getRootProps()} class="{base} {width} {classes}" data-testid="combobox">
 	<!-- Label -->
-	<label {...api.getLabelProps()} class="{labelBase} {labelClasses}">
-		{#if label}<span class={labelText}>{label}</span>{/if}
-		<!-- Input Group -->
-		<div {...api.getControlProps()} class="{inputGroupBase} {inputGroupClasses}">
-			<!-- Input -->
-			<input {...api.getInputProps()} class={inputGroupInput} {disabled} />
-			<!-- Arrow -->
-			<button {...triggerProps} class={inputGroupButton} {disabled}>
-				{#if arrow}
-					{@render arrow()}
-				{:else}
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="16"
-						height="16"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						style="opacity: 0.5"
-						class={inputGroupArrow}
-					>
-						<path d="m6 9 6 6 6-6" />
-					</svg>
-				{/if}
-			</button>
-		</div>
-	</label>
-	<!-- Menu -->
-	{#if api.open}
-		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerClasses}">
-			{#if options.length > 0}
-				<!-- Content (list) -->
-				<nav
-					{...api.getContentProps()}
-					class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses}"
-					style="z-index: {zIndex}"
+	<label {...api.getLabelProps()} class="{labelBase} {labelClasses}">{label}</label>
+	<!-- Control-->
+	<div {...api.getControlProps()} class="{inputGroupBase} {inputGroupClasses}">
+		<!-- Input -->
+		<input {...api.getInputProps()} class={inputGroupInput} disabled={api.disabled} />
+		<!-- Trigger -->
+		<button {...triggerProps} class={inputGroupButton} disabled={api.disabled}>
+			{#if arrow}
+				{@render arrow()}
+			{:else}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					style="opacity: 0.5"
+					class={inputGroupArrow}
 				>
-					{#each options as item}
-						{@const isChecked = api.getItemProps({ item })['data-state'] === 'checked'}
-						{@const displayClass = isChecked ? optionActive : optionHover}
-						<!-- Option -->
-						<!-- ZagJs should have set button type to "button" here. See https://github.com/skeletonlabs/skeleton/pull/2998#discussion_r1855511385 -->
-						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}" type="button">
-							{item.label}
-						</button>
-					{/each}
-				</nav>
+					<path d="m6 9 6 6 6-6" />
+				</svg>
 			{/if}
-		</div>
-	{/if}
-</span>
+		</button>
+	</div>
+	<!-- Positioner -->
+	<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerClasses}">
+		{#if options.length > 0}
+			<!-- Content -->
+			<ul {...api.getContentProps()} class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses}" style="z-index: {zIndex}">
+				{#each options as option}
+					{@const itemProps = api.getItemProps({ item: option })}
+					{@const optionState = itemProps['data-state'] === 'checked' ? optionActive : optionHover}
+					<!-- Option -->
+					<li {...itemProps} class="{optionBase} {optionState} {optionClasses}">
+						{option.label}
+					</li>
+				{/each}
+			</ul>
+		{/if}
+	</div>
+</div>
 
 <style lang="postcss">
 	[data-part='item'][data-highlighted]:not([data-state='checked']) {

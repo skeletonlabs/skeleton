@@ -1,12 +1,7 @@
 <script lang="ts">
 	import Combobox from '$lib/components/Combobox/Combobox.svelte';
 
-	interface ComboxData {
-		label: string;
-		value: string;
-	}
-
-	const comboboxData: ComboxData[] = [
+	const comboboxData = [
 		{ label: 'United States', value: 'US' },
 		{ label: 'Germany', value: 'DE' },
 		{ label: 'Japan', value: 'JP' }
@@ -27,6 +22,12 @@
 		<pre class="pre">{JSON.stringify(selectedCountry, null, 2)}</pre>
 	</section>
 	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
-		<Combobox data={comboboxData} bind:value={selectedCountry} label="Select Country" placeholder="Select..." />
+		<Combobox
+			data={comboboxData}
+			value={selectedCountry}
+			onValueChange={(e) => (selectedCountry = e.value)}
+			label="Select Country"
+			placeholder="Select..."
+		/>
 	</section>
 </div>
