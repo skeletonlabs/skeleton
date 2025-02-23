@@ -1,13 +1,10 @@
 <script lang="ts">
 	import * as slider from '@zag-js/slider';
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
-
 	import type { SliderProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
 
-	let {
-		value = $bindable([0]),
-		markers = [],
+	const {
+		markers = [0],
 		height = 'h-1.5',
 		// Root ---
 		base = 'w-full bg-green',
@@ -53,31 +50,19 @@
 	}: SliderProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		slider.machine({
-			id: useId(),
-			onValueChange(details) {
-				zagProps.onValueChange?.(details);
-				value = details.value;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get value() {
-					return value;
-				}
-			}
-		}
-	);
-	const api = $derived(slider.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(slider.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(slider.connect(service, normalizeProps));
 
 	// Reactive
-	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
-	const rxReadOnly = $derived(snapshot.context.readOnly ? stateReadOnly : thumbCursor);
+	const disabledClasses = $derived(service.prop('disabled') ? stateDisabled : '');
+	const readOnlyClasses = $derived(service.prop('readOnly') ? stateReadOnly : thumbCursor);
 </script>
 
-<div {...api.getRootProps()} class="{base} {height} {spaceY} {rxDisabled} {classes}" data-testid="slider">
+<div {...api.getRootProps()} class="{base} {height} {spaceY} {disabledClasses} {classes}" data-testid="slider">
 	<!-- Control -->
 	<div {...api.getControlProps()} class="{controlBase} {controlClasses}" data-testid="slider-control">
 		<!-- Track -->
@@ -91,7 +76,7 @@
 				<div {...api.getThumbProps({ index })}>
 					<!-- Thumb -->
 					<div
-						class="{thumbBase} {thumbSize} {thumbBg} {thumbRingSize} {thumbRingColor} {thumbRounded} {rxReadOnly} {thumbClasses}"
+						class="{thumbBase} {thumbSize} {thumbBg} {thumbRingSize} {thumbRingColor} {thumbRounded} {readOnlyClasses} {thumbClasses}"
 						data-testid="slider-thumb"
 					></div>
 					<!-- Hidden Input(s) -->
