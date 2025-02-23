@@ -2,7 +2,7 @@ packages:
   - 'packages/*'
   - 'sites/*'
 
-define: &zag_version '^0.78.3'
+define: &zag_version '^1.0.0'
 
 catalog:
   '@zag-js/svelte': *zag_version
@@ -23,4 +23,4 @@ catalog:
   '@zag-js/tags-input': *zag_version
   '@zag-js/tooltip': *zag_version
   typescript: '^5.6.3'
-  svelte: '^5.19.0'
+  svelte: '^5.20.2'

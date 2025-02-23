@@ -102,7 +102,7 @@ const AppBarHeadline: React.FC<AppBarHeadlineProps> = ({
 	);
 };
 
-export const AppBar = Object.assign(AppBarRoot, {
+export const AppBar = /* @__PURE__ */ Object.assign(AppBarRoot, {
 	Toolbar: Toolbar,
 	ToolbarLead: ToolbarLead,
 	ToolbarCenter: ToolbarCenter,

@@ -2,8 +2,8 @@
 	import { setNavigationContext } from './context.js';
 	import type { NavRailProps } from './types.js';
 
-	let {
-		value = $bindable(''),
+	const {
+		value,
 		expanded = false,
 		// Root
 		base = 'h-full flex flex-col',
@@ -43,7 +43,6 @@
 	}: NavRailProps = $props();
 
 	function onSelectionHandler(id: string) {
-		value = id;
 		if (onchange) onchange(id);
 	}
 

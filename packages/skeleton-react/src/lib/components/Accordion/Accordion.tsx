@@ -145,7 +145,7 @@ const AccordionPanel: FC<AccordionPanelProps> = ({
 	);
 };
 
-export const Accordion = Object.assign(AccordionRoot, {
+export const Accordion = /* @__PURE__ */ Object.assign(AccordionRoot, {
 	Item: AccordionItem,
 	Control: AccordionControl,
 	Panel: AccordionPanel

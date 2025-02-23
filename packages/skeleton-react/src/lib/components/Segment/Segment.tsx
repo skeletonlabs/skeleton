@@ -117,6 +117,6 @@ const SegmentItem: FC<SegmentItemsProps> = ({
 	);
 };
 
-export const Segment = Object.assign(SegmentRoot, {
+export const Segment = /* @__PURE__ */ Object.assign(SegmentRoot, {
 	Item: SegmentItem
 });

@@ -1,4 +1,6 @@
 // Exports for skeleton-svelte package
+import * as fileUpload from '@zag-js/file-upload';
+import type { PropTypes } from '@zag-js/svelte';
 
 // REMINDER
 // Do not export parent/child components. Use the dot-notation composition pattern:
@@ -22,7 +24,8 @@ export { default as TagsInput } from './components/TagsInput/TagsInput.svelte';
 export { default as Rating } from './components/Rating/index.js';
 
 // Types
-export type { FileUploadApi } from './components/FileUpload/types.js';
+type FileUploadApi = fileUpload.Api<PropTypes>;
+export type { FileUploadApi };
 
 // Temporary Features ---
 // The following will be removed or replaced in the future.

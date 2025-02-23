@@ -49,7 +49,7 @@
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">API Binding</h2>
-		<FileUpload name="example" accept="image/*" maxFiles={2} bind:internalApi={apiRef} />
+		<FileUpload name="example" accept="image/*" maxFiles={2} onApiReady={(api) => (apiRef = api)} />
 		<button type="button" class="btn preset-filled" onclick={apiRef.clearFiles}>Clear Files</button>
 	</section>
 	<section class="space-y-4">

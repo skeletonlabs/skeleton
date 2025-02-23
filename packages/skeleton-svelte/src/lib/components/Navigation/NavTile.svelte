@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { useId } from '$lib/internal/use-id.js';
 	import { getNavigationContext } from './context.js';
 	import type { NavTileProps } from './types.js';
 
-	let {
-		id = useId(),
+	const {
 		href,
 		target,
 		label,
@@ -38,6 +36,8 @@
 		// Snippets
 		children
 	}: NavTileProps = $props();
+
+	const id = $props.id();
 
 	// Context
 	const ctx = getNavigationContext();

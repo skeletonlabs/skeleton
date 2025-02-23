@@ -17,7 +17,7 @@
 	<!-- Default -->
 	<section class="space-y-4">
 		<pre class="pre">group: {JSON.stringify(group, null, 2)}</pre>
-		<Tabs bind:value={group}>
+		<Tabs value={group} onValueChange={(e) => (group = e.value)}>
 			{#snippet list()}
 				<Tabs.Control value="item-1">Control-1</Tabs.Control>
 				<Tabs.Control value="item-2">Control-2</Tabs.Control>
@@ -33,7 +33,7 @@
 	<!-- Icon + Label -->
 	<section class="space-y-4">
 		<h2 class="h2">Icon + Label</h2>
-		<Tabs bind:value={group}>
+		<Tabs value={group} onValueChange={(e) => (group = e.value)}>
 			{#snippet list()}
 				<Tabs.Control value="item-1">
 					{#snippet lead()}<IconPlane size={20} />{/snippet}
@@ -58,7 +58,7 @@
 	<!-- Icon Only -->
 	<section class="space-y-4">
 		<h2 class="h2">Icon Only</h2>
-		<Tabs bind:value={group}>
+		<Tabs value={group} onValueChange={(e) => (group = e.value)}>
 			{#snippet list()}
 				<Tabs.Control value="item-1">
 					<IconPlane size={20} />
@@ -80,7 +80,7 @@
 	<!-- Fluid -->
 	<section class="space-y-4">
 		<h2 class="h2">Fluid</h2>
-		<Tabs bind:value={group} fluid>
+		<Tabs value={group} onValueChange={(e) => (group = e.value)} fluid>
 			{#snippet list()}
 				<Tabs.Control value="item-1">Control-1</Tabs.Control>
 				<Tabs.Control value="item-2">Control-2</Tabs.Control>
@@ -96,7 +96,7 @@
 	<!-- Justify -->
 	<section class="space-y-4">
 		<h2 class="h2">Justify</h2>
-		<Tabs bind:value={group} listJustify="justify-center">
+		<Tabs value={group} onValueChange={(e) => (group = e.value)} listJustify="justify-center">
 			{#snippet list()}
 				<Tabs.Control value="item-1">Control-1</Tabs.Control>
 				<Tabs.Control value="item-2">Control-2</Tabs.Control>
@@ -108,7 +108,7 @@
 				<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
 			{/snippet}
 		</Tabs>
-		<Tabs bind:value={group} listJustify="justify-end">
+		<Tabs value={group} onValueChange={(e) => (group = e.value)} listJustify="justify-end">
 			{#snippet list()}
 				<Tabs.Control value="item-1">Control-1</Tabs.Control>
 				<Tabs.Control value="item-2">Control-2</Tabs.Control>
@@ -125,7 +125,7 @@
 	<section class="space-y-4">
 		<h2 class="h2">RTL</h2>
 		<div dir="rtl">
-			<Tabs bind:value={group} dir="rtl">
+			<Tabs value={group} onValueChange={(e) => (group = e.value)} dir="rtl">
 				{#snippet list()}
 					<Tabs.Control value="item-1">Control-1</Tabs.Control>
 					<Tabs.Control value="item-2">Control-2</Tabs.Control>

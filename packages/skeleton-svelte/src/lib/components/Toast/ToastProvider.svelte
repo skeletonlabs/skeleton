@@ -2,7 +2,6 @@
 	import { setContext } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import { fade } from 'svelte/transition';
-	import { useId } from '$lib/internal/use-id.js';
 	import type { PlacementStyles, Toast, ToastProviderProps } from './types.js';
 
 	const {
@@ -38,6 +37,8 @@
 		children
 	}: ToastProviderProps = $props();
 
+	const id = $props.id();
+
 	// Local
 	let defaults: Record<string, Toast> = {
 		info: { duration: 5000 },
@@ -61,7 +62,7 @@
 			toast = {
 				...defaults[String(toast.type || 'info')],
 				...toast,
-				id: useId()
+				id: id
 			};
 			// Push to Queue
 			toastQueue.push(toast);

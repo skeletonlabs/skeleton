@@ -4,7 +4,7 @@ import type { Snippet } from 'svelte';
 
 export interface NavContext {
 	parent: 'bar' | 'rail' | 'none';
-	value: string;
+	value?: string;
 	expanded: boolean;
 	onSelectionHandler: (id: string) => void;
 }
@@ -98,8 +98,6 @@ export interface NavRailProps extends NavCommonProps {
 }
 
 export interface NavTileProps {
-	/** Provide a unique ID. */
-	id?: string;
 	/** Provide an href link; turns Tiles into an anchor */
 	href?: string;
 	/** Set the href target attribute. */

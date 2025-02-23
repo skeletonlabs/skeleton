@@ -139,7 +139,7 @@ const TabsPanel: FC<TabsPanelProps> = ({
 
 // Export ---
 
-export const Tabs = Object.assign(TabsRoot, {
+export const Tabs = /* @__PURE__ */ Object.assign(TabsRoot, {
 	/** A group of tab controls. */
 	List: TabsList,
 	/** An individual tab control. */
