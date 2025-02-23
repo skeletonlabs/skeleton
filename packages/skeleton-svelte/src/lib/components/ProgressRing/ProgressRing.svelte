@@ -4,7 +4,7 @@
 	import { useId } from '$lib/internal/use-id.js';
 	import type { ProgressRingProps } from './types.js';
 
-	let {
+	const {
 		label,
 		showLabel = false,
 		strokeWidth = '10px',
@@ -43,8 +43,12 @@
 	}: ProgressRingProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
-	const api = $derived(progress.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(progress.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(progress.connect(service, normalizeProps));
 
 	// Reactive Classes
 	const rxAnimCircle = $derived(api.indeterminate ? 'animate-spin' : '');

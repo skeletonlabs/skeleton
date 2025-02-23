@@ -31,7 +31,8 @@
 	</section>
 	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
 		<Modal
-			bind:open={modalState}
+			open={modalState}
+			onOpenChange={(e) => (modalState = e.open)}
 			triggerBase="btn preset-tonal"
 			contentBase="card bg-surface-100-900 p-4 space-y-4 max-w-screen-sm shadow-xl"
 		>
@@ -55,7 +56,8 @@
 	</section>
 	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
 		<Modal
-			bind:open={drawerState}
+			open={drawerState}
+			onOpenChange={(e) => (drawerState = e.open)}
 			triggerBase="btn preset-tonal"
 			contentBase="bg-surface-100-900 p-4 space-y-4 shadow-xl w-[480px] h-screen"
 			positionerJustify="justify-start"

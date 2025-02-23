@@ -5,7 +5,7 @@
 	import { useId } from '$lib/internal/use-id.js';
 
 	// Props
-	let {
+	const {
 		// Root
 		base = 'flex items-center gap-4',
 		height = 'h-2',
@@ -34,16 +34,15 @@
 	}: ProgressProps = $props();
 
 	// Zag
-	const [state, send] = useMachine(
-		progress.machine({
-			id: useId()
-		}),
-		{ context: zagProps }
-	);
-	const api = $derived(progress.connect(state, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(progress.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(progress.connect(service, normalizeProps));
 
 	// Reactive
-	const rxIndeterminate = $derived(state.context.isIndeterminate ? meterAnimate : '');
+	const indeterminateClasses = $derived(api.indeterminate ? meterAnimate : '');
 </script>
 
 <!-- @component A linear progress bar. -->
@@ -58,7 +57,7 @@
 		<!-- Meter -->
 		<div
 			{...api.getRangeProps()}
-			class="{meterBase} {meterBg} {meterRounded} {meterTransition} {rxIndeterminate} {meterClasses}"
+			class="{meterBase} {meterBg} {meterRounded} {meterTransition} {indeterminateClasses} {meterClasses}"
 			data-testid="progress-meter"
 		></div>
 	</div>

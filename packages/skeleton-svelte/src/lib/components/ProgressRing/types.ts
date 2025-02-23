@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import * as progress from '@zag-js/progress';
 
-export interface ProgressRingProps extends Omit<progress.Context, 'id'> {
+export interface ProgressRingProps extends Omit<progress.Props, 'id'> {
 	/** Set the text for the scalable label */
 	label?: string;
 	/** When enabled, show a text label with the percentage amount */

@@ -3,11 +3,8 @@
 	import * as dialog from '@zag-js/dialog';
 	import { portal, normalizeProps, useMachine, mergeProps } from '@zag-js/svelte';
 	import type { ModalProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
 
-	let {
-		open = $bindable(false),
-		disabled = false,
+	const {
 		// Base
 		base = '',
 		classes = '',
@@ -46,32 +43,19 @@
 	}: ModalProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		dialog.machine({
-			id: useId(),
-			open
-		}),
-		{
-			context: {
-				...zagProps,
-				onOpenChange(details) {
-					zagProps.onOpenChange?.(details);
-					open = details.open;
-				},
-				get open() {
-					return $state.snapshot(open);
-				}
-			}
-		}
-	);
-	const api = $derived(dialog.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(dialog.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(dialog.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>
 
 <span class="{base} {classes}" data-testid="modal">
 	<!-- Trigger -->
 	{#if trigger}
-		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
+		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
 			{@render trigger()}
 		</button>
 	{/if}

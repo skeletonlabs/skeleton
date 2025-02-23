@@ -7,8 +7,8 @@
 	import IconJustify from 'lucide-svelte/icons/align-justify';
 
 	// State
-	let align = $state('left');
-	let size = $state('sm');
+	let align: string | null = $state('left');
+	let size: string | null = $state('sm');
 </script>
 
 <div class="space-y-10">
@@ -17,7 +17,7 @@
 	</header>
 	<section class="space-y-4">
 		<pre class="pre">{align}</pre>
-		<Segment bind:value={align} name="align">
+		<Segment value={align} onValueChange={(e) => (align = e.value)} name="align">
 			<Segment.Item value="left">
 				<IconLeft />
 			</Segment.Item>
@@ -34,7 +34,7 @@
 	</section>
 	<section class="space-y-4">
 		<pre class="pre">{size}</pre>
-		<Segment bind:value={size} name="size">
+		<Segment value={size} onValueChange={(e) => (size = e.value)} name="size">
 			<Segment.Item value="sm">sm</Segment.Item>
 			<Segment.Item value="md">md</Segment.Item>
 			<Segment.Item value="lg" disabled>lg</Segment.Item>
@@ -44,7 +44,7 @@
 	<section class="space-y-4">
 		<h2 class="h2">Vertical</h2>
 		<pre class="pre">{size}</pre>
-		<Segment bind:value={size} name="size" orientation="vertical">
+		<Segment value={size} onValueChange={(e) => (size = e.value)} name="size" orientation="vertical">
 			<Segment.Item value="sm">sm</Segment.Item>
 			<Segment.Item value="md">md</Segment.Item>
 			<Segment.Item value="lg" disabled>lg</Segment.Item>
@@ -53,7 +53,7 @@
 	<!-- Disabled -->
 	<section class="space-y-4">
 		<h2 class="h2">Disabled</h2>
-		<Segment bind:value={align} name="align" disabled>
+		<Segment value={align} onValueChange={(e) => (align = e.value)} name="align" disabled>
 			<Segment.Item value="left">
 				<IconLeft />
 			</Segment.Item>
@@ -71,7 +71,7 @@
 	<!-- Read-Only -->
 	<section class="space-y-4">
 		<h2 class="h2">Read-Only</h2>
-		<Segment bind:value={align} name="align" readOnly>
+		<Segment value={align} onValueChange={(e) => (align = e.value)} name="align" readOnly>
 			<Segment.Item value="left">
 				<IconLeft />
 			</Segment.Item>

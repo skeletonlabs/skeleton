@@ -6,8 +6,7 @@
 	import type { RatingProps } from './types.js';
 
 	// Props
-	let {
-		value = $bindable(),
+	const {
 		// Root
 		base = '',
 		classes = '',
@@ -36,29 +35,16 @@
 	}: RatingProps = $props();
 
 	// Zag
-	const [state, send] = useMachine(
-		rating.machine({
-			id: useId(),
-			onValueChange: (details) => {
-				zagProps.onValueChange?.(details);
-				value = details.value;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get value() {
-					return value;
-				}
-			}
-		}
-	);
-	const api = $derived(rating.connect(state, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(rating.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(rating.connect(service, normalizeProps));
 
 	// Reactive
-	const rxInteractive = $derived(state.context.isInteractive ? stateInteractive : '');
-	const rxReadOnly = $derived(state.context.readOnly ? stateReadOnly : '');
-	const rxDisabled = $derived(state.context.disabled ? stateDisabled : '');
+	const readOnlyclasses = $derived(zagProps.readOnly ? stateReadOnly : '');
+	const disabledClasses = $derived(zagProps.disabled ? stateDisabled : '');
 </script>
 
 <!-- @component A visual representation of a numeric range. -->
@@ -73,7 +59,7 @@
 	{/if}
 	<!-- Control -->
 	<div
-		class="{controlBase} {controlGap} {rxInteractive} {rxReadOnly} {rxDisabled} {controlClasses}"
+		class="{controlBase} {controlGap} {readOnlyclasses} {disabledClasses} {controlClasses}"
 		{...api.getControlProps()}
 		data-testid="rating-control"
 	>
