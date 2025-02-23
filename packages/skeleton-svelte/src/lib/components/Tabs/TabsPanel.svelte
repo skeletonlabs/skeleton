@@ -2,7 +2,7 @@
 	import { getTabContext } from './context.js';
 	import type { TabsPanelProps } from './types.js';
 
-	let {
+	const {
 		// Root
 		base = '',
 		classes = '',

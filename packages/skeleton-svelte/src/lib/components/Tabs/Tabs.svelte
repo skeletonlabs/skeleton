@@ -3,10 +3,8 @@
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { TabsProps } from './types.js';
 	import { setTabContext } from './context.js';
-	import { useId } from '$lib/internal/use-id.js';
 
-	let {
-		value = $bindable(''),
+	const {
 		fluid = false,
 		// Root
 		base = 'w-full',
@@ -29,24 +27,12 @@
 	}: TabsProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		tabs.machine({
-			id: useId(),
-			onValueChange(details) {
-				zagProps.onValueChange?.(details);
-				value = details.value;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get value() {
-					return value;
-				}
-			}
-		}
-	);
-	const api = $derived(tabs.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(tabs.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(tabs.connect(service, normalizeProps));
 
 	// Set Context
 	setTabContext({

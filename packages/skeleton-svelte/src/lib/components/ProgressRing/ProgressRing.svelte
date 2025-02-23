@@ -1,7 +1,6 @@
 <script lang="ts">
 	import * as progress from '@zag-js/progress';
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
-	import { useId } from '$lib/internal/use-id.js';
 	import type { ProgressRingProps } from './types.js';
 
 	const {

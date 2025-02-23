@@ -4,7 +4,7 @@
 		controlProps?: Record<string, unknown>;
 		panelProps?: Record<string, unknown>;
 	}
-	let { controlProps, panelProps }: Props = $props();
+	const { controlProps, panelProps }: Props = $props();
 </script>
 
 <Tabs value="foo">

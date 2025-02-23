@@ -2,7 +2,7 @@
 	import { getTabContext } from './context.js';
 	import type { TabsControlProps } from './types.js';
 
-	let {
+	const {
 		// Root
 		base = 'border-b-[1px] border-transparent',
 		padding = 'pb-2',
@@ -24,27 +24,24 @@
 	}: TabsControlProps = $props();
 
 	// Get Context
-	const ctx = getTabContext();
-	const state = $derived(ctx.api.getTriggerState(zagProps));
+	const context = getTabContext();
+	const state = $derived(context.api.getTriggerState(zagProps));
 
-	// Reactive
-	const rxActive = $derived(state.selected ? stateActive : stateInactive);
-	const rxLabelActive = $derived(state.selected ? stateLabelActive : stateLabelInactive);
-
-	// Styles
-	const commonWidth = $derived(ctx.fluid ? '100%' : '');
+	const conditionalDisabled = $derived(state.selected ? stateActive : stateInactive);
+	const conditionalLabelActive = $derived(state.selected ? stateLabelActive : stateLabelInactive);
+	const commonWidth = $derived(context.fluid ? '100%' : '');
 </script>
 
 <!-- @component A individual tab trigger element. -->
 
 <button
-	{...ctx.api.getTriggerProps(zagProps)}
-	class="{base} {padding} {translateX} {rxActive} {classes}"
+	{...context.api.getTriggerProps(zagProps)}
+	class="{base} {padding} {translateX} {conditionalDisabled} {classes}"
 	style:width={commonWidth}
 	data-testid="tabs-control"
 >
 	<!-- Label -->
-	<div class="{labelBase} {rxLabelActive} {labelClasses}" style:width={commonWidth} data-testid="tabs-control-label">
+	<div class="{labelBase} {conditionalLabelActive} {labelClasses}" style:width={commonWidth} data-testid="tabs-control-label">
 		{#if lead}<span>{@render lead()}</span>{/if}
 		<span>{@render children?.()}</span>
 	</div>

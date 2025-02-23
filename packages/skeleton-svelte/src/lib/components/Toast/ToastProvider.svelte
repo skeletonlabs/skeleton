@@ -5,7 +5,7 @@
 	import { useId } from '$lib/internal/use-id.js';
 	import type { PlacementStyles, Toast, ToastProviderProps } from './types.js';
 
-	let {
+	const {
 		placement = 'bottom-end',
 		offset = '16px',
 		dismissLabel = '',

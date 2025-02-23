@@ -22,31 +22,31 @@
 	</header>
 	<pre class="pre">{JSON.stringify({ disturb, notifications, disabled, icons, lightswitch, compact }, null, 2)}</pre>
 	<section class="space-y-4 p-4">
-		<Switch name="disturb" bind:checked={disturb} onCheckedChange={console.log}>
+		<Switch name="disturb" checked={disturb} onCheckedChange={(e) => (disturb = e.checked)}>
 			<p>Defaults to inactive state.</p>
 		</Switch>
 		<hr class="hr" />
-		<Switch name="notifications" bind:checked={notifications}>
+		<Switch name="notifications" checked={notifications} onCheckedChange={(e) => (notifications = e.checked)}>
 			<p>Defaults to active state.</p>
 		</Switch>
 		<hr class="hr" />
-		<Switch name="disabled" bind:checked={disabled} disabled>
+		<Switch name="disabled" checked={disabled} onCheckedChange={(e) => (disabled = e.checked)} disabled>
 			<p>Uses the disabled state.</p>
 		</Switch>
 		<hr class="hr" />
-		<Switch name="icons" controlActive="bg-secondary-500" bind:checked={icons}>
+		<Switch name="icons" controlActive="bg-secondary-500" checked={icons} onCheckedChange={(e) => (icons = e.checked)} disabled>
 			{#snippet inactiveChild()}<IconX size="14" />{/snippet}
 			{#snippet activeChild()}<IconCheck size="14" />{/snippet}
 			<p>Custom Icons</p>
 		</Switch>
 		<hr class="hr" />
-		<Switch name="mode" controlActive="bg-surface-200" bind:checked={lightswitch}>
+		<Switch name="mode" controlActive="bg-surface-200" checked={lightswitch} onCheckedChange={(e) => (lightswitch = e.checked)}>
 			{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 			{#snippet activeChild()}<IconSun size="14" />{/snippet}
 			<p>Lightswitch</p>
 		</Switch>
 		<hr class="hr" />
-		<Switch name="compact" compact controlWidth="w-9" bind:checked={compact}>
+		<Switch name="compact" compact controlWidth="w-9" checked={lightswitch} onCheckedChange={(e) => (lightswitch = e.checked)}>
 			{#snippet inactiveChild()}<IconSmile size="18" />{/snippet}
 			{#snippet activeChild()}<IconFrown size="18" />{/snippet}
 			<p>Compact</p>

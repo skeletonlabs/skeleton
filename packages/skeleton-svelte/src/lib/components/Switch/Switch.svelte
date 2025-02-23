@@ -2,12 +2,9 @@
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
 	import * as zagSwitch from '@zag-js/switch';
 	import type { SwitchProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
-	let {
-		name = '',
-		checked = $bindable(false),
-		disabled = $bindable(false),
-		compact = $bindable(false),
+
+	const {
+		compact = false,
 		// Root (Track)
 		base = 'inline-flex items-center gap-4',
 		classes = '',
@@ -49,51 +46,22 @@
 	}: SwitchProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		zagSwitch.machine({
-			id: useId(),
-			name
-		}),
-		{
-			context: {
-				...zagProps,
-				onCheckedChange: (details) => {
-					// Order of operations matters here:
-					zagProps.onCheckedChange?.(details);
-					checked = details.checked;
-				},
-				get checked() {
-					return checked;
-				},
-				get disabled() {
-					return disabled;
-				},
-				get compact() {
-					return compact;
-				}
-			}
-		}
+	const id = $props.id();
+	const service = useMachine(zagSwitch.machine, () => ({ id, ...zagProps }));
+	const api = $derived(zagSwitch.connect(service, normalizeProps));
+
+	const conditionalControlBase = $derived(compact ? thumbBase : controlBase);
+	const conditionalControlHeight = $derived(compact ? '' : controlHeight);
+	const conditionalControlPadding = $derived(compact ? '' : controlPadding);
+	const conditionalThumbInactive = $derived(compact ? controlInactive : thumbInactive);
+	const conditionalThumbActive = $derived(compact ? controlActive : thumbActive);
+	const conditionalThumbTranslateX = $derived(compact ? '' : thumbTranslateX);
+	const conditionalTrackState = $derived(api.checked ? controlActive : controlInactive);
+	const conditionalThumbState = $derived(
+		api.checked ? `${conditionalThumbActive} ${conditionalThumbTranslateX}` : conditionalThumbInactive
 	);
-	const api = $derived(zagSwitch.connect(snapshot, send, normalizeProps));
-
-	// Set Compact Mode
-	if (compact) {
-		controlBase = thumbBase;
-		// Removes the height class
-		controlHeight = '';
-		// Thumb inherits track styles
-		thumbInactive = controlInactive;
-		thumbActive = controlActive;
-		// Remove X-axis translate
-		thumbTranslateX = '';
-		// Remove padding
-		controlPadding = '';
-	}
-
-	const rxTrackState = $derived(api.checked ? controlActive : controlInactive);
-	const rxThumbState = $derived(api.checked ? `${thumbActive} ${thumbTranslateX}` : thumbInactive);
-	const rxDisabled = $derived(api.disabled ? controlDisabled : '');
-	const rxFocused = $derived(api.focused ? stateFocused : '');
+	const conditionalDisabled = $derived(api.disabled ? controlDisabled : '');
+	const conditionalFocused = $derived(api.focused ? stateFocused : '');
 </script>
 
 <!-- @component A control for toggling between checked states. -->
@@ -104,22 +72,23 @@
 	<!-- Control -->
 	<span
 		{...api.getControlProps()}
-		class="{controlBase} {rxTrackState} {rxFocused} {controlWidth} {controlHeight} {controlPadding} {controlRounded} {controlHover} {rxDisabled}  {controlClasses}"
+		class="{conditionalControlBase} {conditionalTrackState} {conditionalFocused} {controlWidth} {conditionalControlHeight} {conditionalControlPadding} {controlRounded} {controlHover} {conditionalDisabled}  {controlClasses}"
 		data-testid="switch-control"
 	>
 		<!-- Thumb -->
 		<span
 			{...api.getThumbProps()}
-			class="{thumbBase} {rxThumbState} {thumbRounded} {thumbTransition} {thumbEase} {thumbDuration} {thumbClasses}"
+			class="{thumbBase} {conditionalThumbState} {thumbRounded} {thumbTransition} {thumbEase} {thumbDuration} {thumbClasses}"
 			data-testid="switch-thumb"
 		>
-			<!-- Icon: Inactive -->
-			{#if !checked && inactiveChild}
+			{#if api.checked}
+				{#if activeChild}
+					<!-- Inactive -->
+					<span class={iconActiveBase} data-testid="switch-icon-active">{@render activeChild()}</span>
+				{/if}
+			{:else if inactiveChild}
+				<!-- Active -->
 				<span class={iconInactiveBase} data-testid="switch-icon-inactive">{@render inactiveChild()}</span>
-			{/if}
-			<!-- Icon: Active -->
-			{#if checked && activeChild}
-				<span class={iconActiveBase} data-testid="switch-icon-active">{@render activeChild()}</span>
 			{/if}
 		</span>
 	</span>

@@ -1,14 +1,10 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-
 	import * as tooltip from '@zag-js/tooltip';
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import type { TooltipProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
 
-	let {
-		open = $bindable(false),
-		disabled = false,
+	const {
 		arrow = false,
 		// Base
 		base = '',
@@ -40,32 +36,19 @@
 	}: TooltipProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		tooltip.machine({
-			id: useId(),
-			open,
-			onOpenChange(details) {
-				zagProps.onOpenChange?.(details);
-				open = details.open;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get open() {
-					return $state.snapshot(open);
-				}
-			}
-		}
-	);
-	const api = $derived(tooltip.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(tooltip.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(tooltip.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onmouseover, onclick }));
 </script>
 
 <span class="{base} {classes}" data-testid="tooltip">
 	<!-- Snippet: Trigger -->
 	{#if trigger}
-		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
+		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}">
 			{@render trigger()}
 		</button>
 	{/if}

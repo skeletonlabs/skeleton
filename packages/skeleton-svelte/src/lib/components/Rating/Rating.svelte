@@ -43,8 +43,8 @@
 	const api = $derived(rating.connect(service, normalizeProps));
 
 	// Reactive
-	const readOnlyclasses = $derived(zagProps.readOnly ? stateReadOnly : '');
-	const disabledClasses = $derived(zagProps.disabled ? stateDisabled : '');
+	const conditionalReadOnly = $derived(zagProps.readOnly ? stateReadOnly : '');
+	const conditionalDisabled = $derived(zagProps.disabled ? stateDisabled : '');
 </script>
 
 <!-- @component A visual representation of a numeric range. -->
@@ -59,7 +59,7 @@
 	{/if}
 	<!-- Control -->
 	<div
-		class="{controlBase} {controlGap} {readOnlyclasses} {disabledClasses} {controlClasses}"
+		class="{controlBase} {controlGap} {conditionalReadOnly} {conditionalDisabled} {controlClasses}"
 		{...api.getControlProps()}
 		data-testid="rating-control"
 	>

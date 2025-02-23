@@ -1,13 +1,7 @@
 import * as zagSwitch from '@zag-js/switch';
 import type { Snippet } from 'svelte';
 
-export interface SwitchProps extends Omit<zagSwitch.Context, 'id'> {
-	/** Set a unique name for the switch input. */
-	name: string;
-	/** Set the checked state. */
-	checked?: boolean;
-	/** Set the disabled state. */
-	disabled?: boolean;
+export interface SwitchProps extends Omit<zagSwitch.Props, 'id'> {
 	/** Set the compact display mode. */
 	compact?: boolean;
 

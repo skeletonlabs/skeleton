@@ -37,9 +37,7 @@
 	const id = $props.id();
 	const service = useMachine(radio.machine, () => ({
 		id: id,
-		get orientation() {
-			return zagProps.orientation ?? 'horizontal';
-		},
+		orientation: zagProps.orientation ?? 'horizontal',
 		...zagProps
 	}));
 	const api = $derived(radio.connect(service, normalizeProps));

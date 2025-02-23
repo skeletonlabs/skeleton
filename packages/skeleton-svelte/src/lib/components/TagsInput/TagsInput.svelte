@@ -5,8 +5,7 @@
 	import type { TagsInputProps } from './types.js';
 
 	// Props
-	let {
-		value = $bindable(),
+	const {
 		placeholder = '',
 		// Root
 		base = 'grid input',
@@ -39,32 +38,20 @@
 	}: TagsInputProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		tagsInput.machine({
-			id: useId(),
-			onValueChange: (details) => {
-				zagProps.onValueChange?.(details);
-				value = details.value;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get value() {
-					return $state.snapshot(value);
-				}
-			}
-		}
-	);
-	const api = $derived(tagsInput.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(tagsInput.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(tagsInput.connect(service, normalizeProps));
 
 	// Reactive
-	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
+	const conditionalDisabled = $derived(service.prop('disabled') ? stateDisabled : '');
 </script>
 
 <!-- @component Capture a set of values from users via input and suggestions. -->
 
-<div {...api.getRootProps()} class="{base} {padding} {gap} {rxDisabled} {classes}" data-testid="tags">
+<div {...api.getRootProps()} class="{base} {padding} {gap} {conditionalDisabled} {classes}" data-testid="tags">
 	<!-- Input -->
 	<input {...api.getInputProps()} {placeholder} class="{inputBase} {inputClasses}" data-testid="tags-input-add" />
 	<!-- Tag List -->
