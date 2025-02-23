@@ -36,7 +36,7 @@
 		</div>
 	</div>
 	<!-- Palette and Contrast -->
-	<Tabs bind:value={category as string} fluid>
+	<Tabs value={category} onValueChange={(e) => (category = e.value as typeof category)} fluid>
 		{#snippet list()}
 			<Tabs.Control value="base">Base</Tabs.Control>
 			<Tabs.Control value="headings">Headings</Tabs.Control>

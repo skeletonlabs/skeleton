@@ -68,7 +68,7 @@
 		<span>Clear All Palettes</span>
 	</button>
 	<!-- Color Tabs -->
-	<Tabs bind:value={globals.activeColor} fluid>
+	<Tabs value={globals.activeColor} onValueChange={(e) => (globals.activeColor = e.value)} fluid>
 		{#snippet list()}
 			{#each colorSelection as color}
 				<Tabs.Control value={color.value} labelBase="flex justify-center" stateInactive="">
@@ -104,7 +104,7 @@
 								<IconRandom size={14} />
 								<span>Random</span>
 							</button>
-							<Switch name="example" bind:checked={showAllShades} classes="!gap-2">
+							<Switch name="example" checked={showAllShades} onCheckedChange={(e) => (showAllShades = e.checked)} classes="!gap-2">
 								<span class="type-scale-1 opacity-60">All</span>
 							</Switch>
 						</div>

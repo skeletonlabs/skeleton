@@ -36,7 +36,7 @@
 	<header
 		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow-lg"
 	>
-		<Segment name="display" bind:value={globals.panel as string} classes="w-full">
+		<Segment name="display" value={globals.panel} onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)} classes="w-full">
 			<Segment.Item value="preview" classes="w-full">Preview</Segment.Item>
 			<Segment.Item value="code" classes="w-full">Code</Segment.Item>
 		</Segment>
