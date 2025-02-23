@@ -6,8 +6,8 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
-		"package": "tsc --project tsconfig.package.json",
-		"package:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
+		"package": "tsc --noCheck --project tsconfig.package.json",
+		"package:watch": "tsc --noCheck  --project tsconfig.package.json --watch --preserveWatchOutput",
 		"test": "vitest run"
 	},
 	"types": "./dist/index.d.ts",
