@@ -2,9 +2,8 @@
 	import * as avatar from '@zag-js/avatar';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { AvatarProps } from './types.js';
-	import { applyId } from '$lib/internal/apply-id.js';
 
-	let {
+	const {
 		src,
 		srcset,
 		name,
@@ -33,8 +32,10 @@
 
 	// Zag
 	const id = $props.id();
-	applyId(zagProps, id);
-	const service = useMachine(avatar.machine, zagProps);
+	const service = useMachine(avatar.machine, () => ({
+		id: id,
+		...zagProps
+	}));
 	const api = $derived(avatar.connect(service, normalizeProps));
 
 	// Initials

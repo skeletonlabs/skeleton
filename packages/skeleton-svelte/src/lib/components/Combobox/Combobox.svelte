@@ -4,8 +4,6 @@
 	import * as combobox from '@zag-js/combobox';
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import type { ComboboxProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
-	import { applyId } from '$lib/internal/apply-id.js';
 
 	const {
 		data = [],
@@ -58,8 +56,8 @@
 	);
 	let options = $state.raw(data);
 	const id = $props.id();
-	applyId(zagProps, id);
-	const service = useMachine(combobox.machine, {
+	const service = useMachine(combobox.machine, () => ({
+		id: id,
 		get collection() {
 			return collection;
 		},
@@ -74,7 +72,7 @@
 			zagProps.onInputValueChange?.(event);
 		},
 		...zagProps
-	});
+	}));
 	const api = $derived(combobox.connect(service, normalizeProps));
 	const triggerProps = $derived(
 		mergeProps(api.getTriggerProps(), {

@@ -5,7 +5,7 @@
 	import type { FileUploadProps } from './types.js';
 
 	// Props
-	let {
+	const {
 		label = `Select file or drag here`,
 		subtext = '',
 		// Root
@@ -48,35 +48,32 @@
 		iconFile,
 		iconFileRemove,
 		// Zag
-		internalApi = $bindable(),
+		onApiReady,
 		...zagProps
 	}: FileUploadProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		fileUpload.machine({
-			id: useId()
-		}),
-		{ context: { ...zagProps } }
-	);
-	const api = $derived(fileUpload.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(fileUpload.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(fileUpload.connect(service, normalizeProps));
 
-	$effect(() => {
-		// Provide the full Zag component API
-		internalApi = api;
-	});
+	// Effects
+	$effect(() => onApiReady?.(api));
 
 	// Reactive
-	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
-	const rxInvalid = $derived(api.rejectedFiles.length > 0 ? stateInvalid : interfaceBorderColor);
-	const rxDragging = $derived(api.dragging && !children ? stateDragging : '');
+	const disabledClasses = $derived(api.disabled ? stateDisabled : '');
+	const invalidClasses = $derived(api.rejectedFiles.length > 0 ? stateInvalid : interfaceBorderColor);
+	const draggingClasses = $derived(api.dragging && !children ? stateDragging : '');
 </script>
 
 <!-- @component A form component for handling file uploads. -->
 
 <div
 	{...api.getRootProps()}
-	class="{base} {rxDisabled} {classes}"
+	class="{base} {disabledClasses} {classes}"
 	style:display={children ? 'inline-block' : 'block'}
 	data-testid="uploader"
 >
@@ -88,7 +85,7 @@
 			{@render children()}
 		{:else}
 			<div
-				class="{interfaceBase} {interfaceBg} {interfaceBorder} {interfacePadding} {interfaceRounded} {rxInvalid} {rxDragging} {interfaceClasses}"
+				class="{interfaceBase} {interfaceBg} {interfaceBorder} {interfacePadding} {interfaceRounded} {invalidClasses} {draggingClasses} {interfaceClasses}"
 				data-testid="uploader-interface"
 			>
 				<!-- Icon -->
