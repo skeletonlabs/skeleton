@@ -14,7 +14,6 @@
 		// Label
 		label = '',
 		labelBase = 'label',
-		labelText = 'label-text',
 		labelClasses = '',
 		// Input
 		inputGroupBase = 'input-group grid-cols-[1fr_auto]',

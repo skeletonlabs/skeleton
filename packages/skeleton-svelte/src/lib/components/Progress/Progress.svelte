@@ -2,7 +2,6 @@
 	import * as progress from '@zag-js/progress';
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
 	import type { ProgressProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
 
 	// Props
 	const {

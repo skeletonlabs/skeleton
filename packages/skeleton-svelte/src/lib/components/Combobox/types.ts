@@ -19,8 +19,6 @@ export interface ComboboxProps extends Omit<combobox.Props, 'id' | 'collection'>
 	// Label ---
 	/** Set base classes for the label. */
 	labelBase?: string;
-	/** Set text and font classes for the label. */
-	labelText?: string;
 	/** Provide arbitrary classes for the label. */
 	labelClasses?: string;
 

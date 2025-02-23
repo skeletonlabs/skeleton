@@ -1,7 +1,6 @@
 <script lang="ts">
 	import * as tagsInput from '@zag-js/tags-input';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import { useId } from '$lib/internal/use-id.js';
 	import type { TagsInputProps } from './types.js';
 
 	// Props

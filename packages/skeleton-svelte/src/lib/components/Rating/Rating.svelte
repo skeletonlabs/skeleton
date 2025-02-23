@@ -1,7 +1,6 @@
 <script lang="ts">
 	import * as rating from '@zag-js/rating-group';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import { useId } from '$lib/internal/use-id.js';
 	import { starEmpty, starHalf, starFull } from '$lib/internal/snippets.js';
 	import type { RatingProps } from './types.js';
 
@@ -21,7 +20,6 @@
 		itemBase = '',
 		itemClasses = '',
 		// State
-		stateInteractive = 'cursor-pointer',
 		stateReadOnly = '',
 		stateDisabled = 'cursor-not-allowed opacity-50',
 		// Icons

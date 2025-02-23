@@ -8,11 +8,15 @@
 	import IconSun from 'lucide-svelte/icons/sun';
 
 	let { children } = $props();
-	let modeState = $state(false); // false = dark mode
+	let checked = $state(false); // false = dark mode
 
-	function onModeChange() {
-		document.documentElement.classList.toggle('dark');
-	}
+	$effect(() => {
+		if (checked) {
+			document.documentElement.classList.remove('dark');
+		} else {
+			document.documentElement.classList.add('dark');
+		}
+	});
 </script>
 
 <ToastProvider>
@@ -21,11 +25,11 @@
 		<div class="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
 			<a class="type-scale-3 bg-orange-500 p-2 font-mono font-bold text-white" href="/">skeleton-svelte</a>
 			<hr class="hr" />
-			<!-- <Switch name="mode" controlActive="bg-surface-200" bind:checked={modeState} onCheckedChange={onModeChange}>
+			<Switch name="mode" controlActive="bg-surface-200" {checked} onCheckedChange={(e) => (checked = e.checked)}>
 				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 				{#snippet activeChild()}<IconSun size="14" />{/snippet}
 				<p>Toggle Mode</p>
-			</Switch> -->
+			</Switch>
 			<hr class="hr" />
 			<!-- Components -->
 			<div class="space-y-8">
