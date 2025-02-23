@@ -21,6 +21,8 @@ export interface ModalProps extends Omit<dialog.Context, 'id' | 'open'> {
 	triggerBackground?: string;
 	/** Provide arbitrary classes for the trigger. */
 	triggerClasses?: string;
+	/** Set the aria-label for the trigger. */
+	triggerAriaLabel?: string;
 
 	// Backdrop ---
 	/** Set base classes for the backdrop. */
