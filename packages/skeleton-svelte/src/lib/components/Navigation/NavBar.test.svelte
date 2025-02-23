@@ -9,6 +9,6 @@
 </script>
 
 <Navigation.Bar value="0">
-	<Navigation.Tile id="0" label="Files" {...childProps}>TileOne</Navigation.Tile>
-	<Navigation.Tile id="1" label="Images" {...childProps}>TileTwo</Navigation.Tile>
+	<Navigation.Tile label="Files" {...childProps}>TileOne</Navigation.Tile>
+	<Navigation.Tile label="Images" {...childProps}>TileTwo</Navigation.Tile>
 </Navigation.Bar>
