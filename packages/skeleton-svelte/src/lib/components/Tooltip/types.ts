@@ -22,6 +22,8 @@ export interface TooltipProps extends Omit<tooltip.Context, 'id' | 'open'> {
 	triggerBackground?: string;
 	/** Provide arbitrary styles for the trigger. */
 	triggerClasses?: string;
+	/** Set the aria-label for the trigger. */
+	triggerAriaLabel?: string;
 
 	// Positioner ---
 	/** Set base classes for the positioner. */
