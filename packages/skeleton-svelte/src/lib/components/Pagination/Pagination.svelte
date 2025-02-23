@@ -3,7 +3,7 @@
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
 
 	import type { PaginationProps } from './types.js';
-	import { useId } from '$lib/internal/apply-id.js';
+	import { useId } from '$lib/internal/use-id.js';
 	import { untrack } from 'svelte';
 
 	let {

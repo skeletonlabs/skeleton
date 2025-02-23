@@ -3,7 +3,6 @@
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import { setAccordionContext } from './context.js';
 	import type { AccordionProps } from './types.js';
-	import { applyId } from '$lib/internal/apply-id.js';
 
 	// Props
 	let {
@@ -25,8 +24,10 @@
 
 	// Zag
 	const id = $props.id();
-	applyId(zagProps, id);
-	const service = useMachine(accordion.machine, zagProps);
+	const service = useMachine(accordion.machine, () => ({
+		id: id,
+		...zagProps
+	}));
 	const api = $derived(accordion.connect(service, normalizeProps));
 
 	// Context
