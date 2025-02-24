@@ -14,6 +14,7 @@ import { transformModule } from './transformers/transform-module';
 import { FALLBACK_THEME } from './utility/constants';
 import type { Theme } from './utility/types';
 import { transformStyleSheet } from './transformers/transform-stylesheet';
+import { THEME_MAPPINGS } from './utility/theme-mappings';
 
 interface FileMigration {
 	path: string;
@@ -88,7 +89,13 @@ export default async function (options: MigrateOptions) {
 	try {
 		const appHtmlCode = await readFile(appHtml.paths[0], 'utf-8');
 		const transformedAppHtml = transformAppHtml(appHtmlCode);
-		theme = transformedAppHtml.meta.theme;
+		if (transformedAppHtml.meta.theme && Object.hasOwn(THEME_MAPPINGS, transformedAppHtml.meta.theme.value)) {
+			theme = THEME_MAPPINGS[transformedAppHtml.meta.theme.value];
+		} else if (transformedAppHtml.meta.theme) {
+			theme = transformedAppHtml.meta.theme;
+		} else {
+			theme = FALLBACK_THEME;
+		}
 		migrations.push({ path: appHtml.paths[0], content: transformedAppHtml.code });
 		appHtmlSpinner.stop(`Successfully migrated ${appHtml.name}!`);
 	} catch (e) {
