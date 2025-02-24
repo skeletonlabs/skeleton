@@ -1,8 +1,8 @@
 # @skeletonlabs/skeleton-react
 
 ## 1.0.0-next.15
-### Minor Changes
 
+### Minor Changes
 
 - feat: Navigation - manually handle `selected` state of NavTile ([#3228](https://github.com/skeletonlabs/skeleton/pull/3228))
 
