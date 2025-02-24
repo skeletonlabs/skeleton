@@ -1,22 +1,13 @@
 {
 	"name": "@skeletonlabs/skeleton-common",
 	"private": true,
-	"scripts": {
-		"build": "vite build",
-		"dev": "vite build --watch"
-	},
-	"files": [
-		"dist"
-	],
-	"types": "./dist/index.d.ts",
+	"types": "./src/index.ts",
 	"exports": {
-		".": "./dist/index.js"
+		".": "./src/index.ts"
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
-		"typescript": "catalog:",
-		"vite": "^6.1.1",
-		"vite-plugin-dts": "^4.5.0"
+		"typescript": "catalog:"
 	},
 	"type": "module"
 }
