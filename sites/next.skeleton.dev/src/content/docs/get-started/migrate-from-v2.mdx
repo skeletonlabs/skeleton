@@ -83,7 +83,7 @@ What will NOT be migrated...
 - Component props will not be updated. Unfortunately there’s too many permutations.
 - Most v2 Utility features will not be migrated (ex: popovers, code blocks, etc)
 
-Make sure to consult your local Git Diff to compare what has been modified before progressing forward or committing the these automated changes.
+Make sure to consult your local Git Diff to compare what has been modified before progressing forward or committing these automated changes.
 
 {
 
@@ -135,7 +135,7 @@ Skeleton has sunset the ([troublesome](https://github.com/skeletonlabs/skeleton/
 Components have undergone the biggest update in Skeleton v3. Given the sheer number of changes, we recommend you compare each component to it's equivalent v3 documentation. We’ve highlighted a few of the key changes below:
 
 - Changes to adopt the new [Svelte 5 APIs](https://svelte.dev/docs/svelte/v5-migration-guide) like runes, snippets, event handlers, etc.
-- Changes to support [Zag.js](https://zagjs.com/), which serves as a foundation our cross-framework components.
+- Changes to support [Zag.js](https://zagjs.com/), which serves as a foundation of our cross-framework components.
 - Changes to the import path: `@skeletonlabs/skeleton-svelte`.
 - Changes to the component name and/or structure (including sub-components)
 - Changes based on newly introduces features and properties.
@@ -190,7 +190,7 @@ Taliwind v4 represents a major update for Tailwind. We've detailed the most nota
 - Make sure you’re using the newest strategies for supporting [Dark Mode](/docs/guides/mode).
 - You are still required to implement the [Tailwind Forms Plugin](/docs/tailwind/forms#prerequisites) to use Skeleton form elements.
 - The Skeleton `data-theme` attribute has moved from `<body>` to `<html>`
-- Themes colos are not stored in the [oklch format](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl), but optionally support any format.
+- Themes colors are now stored in the [oklch format](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl), but optionally support any format.
 
 ### Replace Unsupported Features
 
@@ -232,7 +232,7 @@ Skeleton v3 represents a point of reflection on what features should remain as p
 
 #### Popovers and Modals
 
-Members of the both the Skeleton team and the Svelte community are actively building [Floating UI Svelte](https://floating-ui-svelte.vercel.app/). The long term goal is to use this as a best-in-class solution for: popovers, tooltips, modals, drawers, and more. Until then, we are providing a [select set of components](/docs/integrations/popover/svelte), powered by Zag.js, to help bridge the gap. These components will be supported for the full duration of Skeleton v3.x. However, they will be replaced with a dedicated guide ([similar to React](/docs/integrations/popover/react)) in the future. We ask that you please be patience during this transitory phase.
+Members of the both the Skeleton team and the Svelte community are actively building [Floating UI Svelte](https://floating-ui-svelte.vercel.app/). The long term goal is to use this as a best-in-class solution for: popovers, tooltips, modals, drawers, and more. Until then, we are providing a [select set of components](/docs/integrations/popover/svelte), powered by Zag.js, to help bridge the gap. These components will be supported for the full duration of Skeleton v3.x. However, they will be replaced with a dedicated guide ([similar to React](/docs/integrations/popover/react)) in the future. We ask that you please be patient during this transitory phase.
 
 ### Migration Complete
 
