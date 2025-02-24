@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Switch from '$lib/components/Switch/Switch.svelte';
+	import { Switch } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconX from 'lucide-svelte/icons/x';
 	import IconCheck from 'lucide-svelte/icons/check';

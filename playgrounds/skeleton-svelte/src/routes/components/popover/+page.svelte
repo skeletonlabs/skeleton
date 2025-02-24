@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Popover from '$lib/components/Popover/Popover.svelte';
+	import { Popover } from '@skeletonlabs/skeleton-svelte';
 	import IconX from 'lucide-svelte/icons/x';
 
 	let openState = $state(false);

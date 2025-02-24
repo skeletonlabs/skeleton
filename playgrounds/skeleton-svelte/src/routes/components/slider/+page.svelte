@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Slider from '$lib/components/Slider/Slider.svelte';
+	import { Slider } from '@skeletonlabs/skeleton-svelte';
 
 	let value = $state([40]);
 	let valueMulti = $state([40, 60]);

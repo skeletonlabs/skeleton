@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Combobox from '$lib/components/Combobox/Combobox.svelte';
+	import { Combobox } from '@skeletonlabs/skeleton-svelte';
 
 	interface ComboxData {
 		label: string;

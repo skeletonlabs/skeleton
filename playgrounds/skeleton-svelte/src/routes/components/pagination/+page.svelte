@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Pagination from '$lib/components/Pagination/Pagination.svelte';
+	import { Pagination } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconArrowLeft from 'lucide-svelte/icons/arrow-left';
 	import IconArrowRight from 'lucide-svelte/icons/arrow-right';

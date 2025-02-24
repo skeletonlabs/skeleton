@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Tooltip from '$lib/components/Tooltip/Tooltip.svelte';
+	import { Tooltip } from '@skeletonlabs/skeleton-svelte';
 
 	let openState = $state(false);
 

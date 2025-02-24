@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Modal from '$lib/components/Modal/Modal.svelte';
+	import { Modal } from '@skeletonlabs/skeleton-svelte';
 
 	let modalState = $state(false);
 	let drawerState = $state(false);

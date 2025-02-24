@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Progress from '$lib/components/Progress/Progress.svelte';
+	import { Progress } from '@skeletonlabs/skeleton-svelte';
 	let value = $state(60);
 	let max = $state(100);
 </script>

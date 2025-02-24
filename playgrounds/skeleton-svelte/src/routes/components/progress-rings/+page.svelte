@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ProgressRing from '$lib/components/ProgressRing/ProgressRing.svelte';
+	import { ProgressRing } from '@skeletonlabs/skeleton-svelte';
 	import IconThermometer from 'lucide-svelte/icons/thermometer-sun';
 
 	let value = $state(40);

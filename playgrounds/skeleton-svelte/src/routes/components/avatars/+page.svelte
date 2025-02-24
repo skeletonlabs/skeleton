@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import { Avatar } from '@skeletonlabs/skeleton-svelte';
 	import Skull from 'lucide-svelte/icons/skull';
 
 	const imgSrc =
