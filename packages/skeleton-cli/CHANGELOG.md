@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.18
+### Patch Changes
+
+
+- Feature (migrate/skeleton-3): Tailwind V4 support. ([#3231](https://github.com/skeletonlabs/skeleton/pull/3231))
+
+
+- Feature (migrate/skeleton-3): Skeleton classes `@apply` rules in stylesheets (.{css,pcss,postcss}, <style></style>) are now transformed. ([#3231](https://github.com/skeletonlabs/skeleton/pull/3231))
+
 ## 0.0.1-next.17
 
 ### Patch Changes
