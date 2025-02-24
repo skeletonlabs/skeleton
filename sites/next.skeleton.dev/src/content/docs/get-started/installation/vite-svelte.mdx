@@ -70,17 +70,17 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 		import svelte from "@vitejs/plugin-svelte";
 		import tailwindcss from "@tailwindcss/vite";
 
-		export default defineConfig({
-			plugins: [
-				tailwindcss(),
-				svelte() // <-- Must come after Tailwind
-			],
-		});
+    	export default defineConfig({
+    		plugins: [
+    			tailwindcss(),
+    			svelte() // <-- Must come after Tailwind
+    		],
+    	});
     	```
     </ProcessStep>
     <ProcessStep step="4">
         ### Configure Tailwind
-		Open your global styleshset in `/src/index.css` and append the following at the top of the file.
+    	Open your global styleshset in `/src/index.css` and append the following at the top of the file.
          ```css title="index.css"
         @import 'tailwindcss';
 
