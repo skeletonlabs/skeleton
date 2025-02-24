@@ -43,7 +43,7 @@
 		<h2 class="h2">CSS Custom Properties</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Skeleton themes are generated using a number of <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a>, also known as as CSS variables.
+			Skeleton themes are generated using a number of <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a>, also known as CSS variables.
 		</p>
 		<Table source={tableCssProperties} />
 		<h3 class="h3">Overwriting Properties</h3>
