@@ -8,8 +8,8 @@
     "@skeletonlabs/skeleton-svelte": "0.0.0",
     "@skeletonlabs/skeleton-cli": "0.0.0",
     "@skeletonlabs/necroparser": "0.0.1",
-    "next.skeleton.dev": "0.0.1",
-    "themes.skeleton.dev": "0.0.1"
+    "@skeletonlabs/next.skeleton.dev": "0.0.1",
+    "@skeletonlabs/themes.skeleton.dev": "0.0.1"
   },
   "changesets": [
     "afraid-geckos-try",
