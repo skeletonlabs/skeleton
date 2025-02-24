@@ -60,15 +60,18 @@ Learn how to install the Skeleton core into your Astro project. We'll cover usin
         npm install tailwindcss @tailwindcss/vite
         ```
 		Implement the plugin in `astro.config` in the root of your project.
-		```ts title="astro.config"
-		import { defineConfig } from 'vite'
-		import tailwindcss from '@tailwindcss/vite'
+		```ts title="astro.config" {3} "tailwindcss()"
+		// @ts-check
+		import { defineConfig } from "astro/config";
+		import tailwindcss from "@tailwindcss/vite";
 
     	export default defineConfig({
-    		plugins: [
-    			tailwindcss(),
-    		],
-    	})
+    		vite: {
+    			plugins: [
+    				tailwindcss()
+    			],
+    		},
+    	});
     	```
     </ProcessStep>
     <ProcessStep step="3">
@@ -80,7 +83,7 @@ Learn how to install the Skeleton core into your Astro project. We'll cover usin
     </ProcessStep>
     <ProcessStep step="4">
         ### Configure Tailwind
-       Locate the global stylesheet in `./src/styles/global.css` and append the following at the top of the file.
+      	Create a global styleshseet in `/src/styles/global.css` and add import the following.
          ```css title="global.css"
         @import 'tailwindcss';
 
@@ -93,13 +96,14 @@ Learn how to install the Skeleton core into your Astro project. We'll cover usin
         ### Remove Default Content and Styles
         We recommend you open `/src/components/welcome.astro` and remove all default HTML and CSS. Here's a simple starter layout.
         ```astro
-        ---
-        const framework = 'Astro';
-        ---
+       ---
+    	const framework = 'Astro';
+    	import '../styles/global.css'
+    	---
     	<main class="p-10 space-y-4">
     		<h1 class="h1">Hello {framework}</h1>
     		<p>This page is working.</p>
-    		<button type="button" class="btn preset-filled">Example Button</button>
+    		<button type="button" class="btn preset-filled-primary-500">Example Button</button>
     	</main>
     	```
     </ProcessStep>
