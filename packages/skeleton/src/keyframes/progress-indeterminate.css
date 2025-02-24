@@ -2,10 +2,10 @@
 /* NOTE: only for use in the progress bar functional component. */
 
 @keyframes anim-progress-indeterminate {
-	from: {
+	from {
 		transform: translateX(-200%);
 	}
-	to: {
+	to {
 		transform: translateX(200%);
 	}
 }

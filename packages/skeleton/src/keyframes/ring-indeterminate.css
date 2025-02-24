@@ -2,11 +2,11 @@
 /* NOTE: only for use in the progress ring functional component. */
 
 @keyframes anim-ring-indeterminate {
-	from: {
+	from {
 		stroke-dasharray: 1, 400;
 		stroke-dashoffset: 0;
 	}
-	to: {
+	to {
 		stroke-dasharray: 400, 400;
 		stroke-dashoffset: -140;
 	}
