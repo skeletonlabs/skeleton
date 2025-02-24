@@ -4,6 +4,7 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 # build output
+out/
 dist/
 .vercel/
 **/plugin/generated
@@ -11,6 +12,8 @@ dist/
 # generated
 .astro/
 .svelte-kit/
+.next/
+next-env.d.ts
 sites/next.skeleton.dev/src/content/schemas/**/*.json
 
 # dependencies
