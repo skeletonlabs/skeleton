@@ -1,8 +1,8 @@
 import { defineConfig, configDefaults } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import RemixRouter from 'vite-plugin-remix-router';
-import skeletonPluginWatcher from 'vite-plugin-tw-plugin-watcher';
 import path from 'node:path';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,7 +11,8 @@ export default defineConfig({
 		react(),
 		// https://vite-remix-router.vercel.app/
 		RemixRouter(),
-		skeletonPluginWatcher(path.resolve(path.join('..', '..', 'packages', 'skeleton', 'src', 'plugin')))
+		// https://tailwindcss.com/docs/installation/using-vite
+		tailwindcss()
 	],
 	resolve: {
 		alias: {

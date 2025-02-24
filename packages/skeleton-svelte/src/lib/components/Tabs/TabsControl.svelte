@@ -13,7 +13,7 @@
 		labelClasses = '',
 		// State
 		stateInactive = '[&:not(:hover)]:opacity-50',
-		stateActive = 'border-surface-950-50 opacity-100',
+		stateActive = 'border-b-surface-950-50 opacity-100',
 		stateLabelInactive = '',
 		stateLabelActive = '',
 		// Snippets

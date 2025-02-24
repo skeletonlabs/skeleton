@@ -1,0 +1,230 @@
+/* Components: Typography */
+
+@utility h1 {
+	color: var(--heading-font-color);
+	font-family: var(--heading-font-family);
+	font-weight: var(--heading-font-weight);
+	font-style: var(--heading-font-style);
+	letter-spacing: var(--heading-letter-spacing);
+
+	font-size: var(--text-4xl);
+	line-height: var(--text-4xl--line-height);
+
+	@variant md {
+		font-size: var(--text-5xl);
+		line-height: var(--text-5xl--line-height);
+	}
+	@variant dark {
+		color: var(--heading-font-color-dark);
+	}
+}
+
+@utility h2 {
+	color: var(--heading-font-color);
+	font-family: var(--heading-font-family);
+	font-weight: var(--heading-font-weight);
+	font-style: var(--heading-font-style);
+	letter-spacing: var(--heading-letter-spacing);
+
+	font-size: var(--text-3xl);
+	line-height: var(--text-3xl--line-height);
+
+	@variant md {
+		font-size: var(--text-4xl);
+		line-height: var(--text-4xl--line-height);
+	}
+	@variant dark {
+		color: var(--heading-font-color-dark);
+	}
+}
+
+@utility h3 {
+	color: var(--heading-font-color);
+	font-family: var(--heading-font-family);
+	font-weight: var(--heading-font-weight);
+	font-style: var(--heading-font-style);
+	letter-spacing: var(--heading-letter-spacing);
+
+	font-size: var(--text-2xl);
+	line-height: var(--text-2xl--line-height);
+
+	@variant md {
+		font-size: var(--text-3xl);
+		line-height: var(--text-3xl--line-height);
+	}
+	@variant dark {
+		color: var(--heading-font-color-dark);
+	}
+}
+
+@utility h4 {
+	color: var(--heading-font-color);
+	font-family: var(--heading-font-family);
+	font-weight: var(--heading-font-weight);
+	font-style: var(--heading-font-style);
+	letter-spacing: var(--heading-letter-spacing);
+
+	font-size: var(--text-xl);
+	line-height: var(--text-xl--line-height);
+
+	@variant md {
+		font-size: var(--text-2xl);
+		line-height: var(--text-2xl--line-height);
+	}
+
+	@variant dark {
+		color: var(--heading-font-color-dark);
+	}
+}
+
+@utility h5 {
+	color: var(--heading-font-color);
+	font-family: var(--heading-font-family);
+	font-weight: var(--heading-font-weight);
+	font-style: var(--heading-font-style);
+	letter-spacing: var(--heading-letter-spacing);
+
+	font-size: var(--text-lg);
+	line-height: var(--text-lg--line-height);
+
+	@variant md {
+		font-size: var(--text-xl);
+		line-height: var(--text-xl--line-height);
+	}
+	@variant dark {
+		color: var(--heading-font-color-dark);
+	}
+}
+
+@utility h6 {
+	color: var(--heading-font-color);
+	font-family: var(--heading-font-family);
+	font-weight: var(--heading-font-weight);
+	font-style: var(--heading-font-style);
+	letter-spacing: var(--heading-letter-spacing);
+
+	font-size: var(--text-base);
+	line-height: var(--text-base--line-height);
+
+	@variant md {
+		font-size: var(--text-lg);
+		line-height: var(--text-lg--line-height);
+	}
+	@variant dark {
+		color: var(--heading-font-color-dark);
+	}
+}
+
+@utility anchor {
+	color: var(--anchor-font-color);
+	font-family: var(--anchor-font-family);
+	font-size: var(--anchor-font-size);
+	line-height: var(--anchor-line-height);
+	font-weight: var(--anchor-font-weight);
+	font-style: var(--anchor-font-style);
+	letter-spacing: var(--anchor-letter-spacing);
+	text-decoration: var(--anchor-text-decoration);
+
+	@variant hover {
+		text-decoration: var(--anchor-text-decoration-hover);
+	}
+	@variant active {
+		text-decoration: var(--anchor-text-decoration-active);
+	}
+	@variant focus {
+		text-decoration: var(--anchor-text-decoration-focus);
+	}
+	@variant dark {
+		color: var(--anchor-font-color-dark);
+	}
+}
+
+@utility blockquote {
+	border-left-width: 3px;
+	border-left-color: var(--color-primary-500);
+	padding-left: --spacing(4);
+	font-style: italic;
+}
+
+@utility kbd {
+	background-color: var(--color-surface-300-700);
+	border-width: 1px;
+	border-color: var(--color-surface-600-400);
+	border-radius: var(--radius-base);
+	color: var(--color-surface-contrast-500);
+	font-family: var(--font-mono);
+	font-size: var(--text-sm);
+	white-space: nowrap;
+	overflow-x: auto;
+	padding-inline: --spacing(1.5);
+	padding-block: --spacing(0.25);
+}
+
+@utility pre {
+	background-color: rgba(0, 0, 0, 0.85);
+	backdrop-filter: blur(var(--blur-sm));
+	border-radius: var(--radius-container);
+	color: var(--color-white);
+	font-size: var(--text-xs);
+	white-space: pre-wrap;
+	padding: --spacing(4);
+	overflow-x: auto;
+}
+
+@utility code {
+	&:not(pre &, .ec-line &) {
+		background-color: var(--color-primary-100-900);
+		border-radius: var(--radius-base);
+		color: var(--color-primary-contrast-50-950);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		white-space: nowrap;
+		padding-inline: --spacing(1.5);
+		padding-block: --spacing(0.75);
+		overflow-x: auto;
+	}
+}
+
+/* Insertions / Deletions --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
+
+@utility ins {
+	background-color: var(--color-success-500);
+	color: var(--color-success-contrast-500);
+	font-family: var(--font-mono);
+	position: relative;
+	display: block;
+	padding: --spacing(0.5);
+	padding-left: --spacing(5);
+	text-decoration: none;
+
+	&::before {
+		position: absolute;
+		left: --spacing(1);
+		font-family: var(--font-mono);
+	}
+	&::before {
+		content: '+';
+	}
+}
+
+@utility del {
+	background-color: var(--color-error-500);
+	color: var(--color-error-contrast-500);
+	font-family: var(--font-mono);
+	position: relative;
+	display: block;
+	padding: --spacing(0.5);
+	padding-left: --spacing(5);
+	text-decoration: none;
+
+	&::before {
+		position: absolute;
+		left: --spacing(1);
+		font-family: var(--font-mono);
+	}
+	&::before {
+		content: '−';
+	}
+}

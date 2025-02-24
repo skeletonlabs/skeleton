@@ -1,6 +1,6 @@
 <script lang="ts">
 	// State
-	import { globals, settingsBackgrounds } from '$lib/state/generator.svelte';
+	import { globals } from '$lib/state/generator.svelte';
 	// Constants
 	import * as constants from '$lib/constants/generator';
 	// Components (Skeleton)
@@ -15,27 +15,8 @@
 	import IconJustify from 'lucide-svelte/icons/align-justify';
 	import IconArrowUpRight from 'lucide-svelte/icons/arrow-up-right';
 
-	/** Automatically flips card bg colors based on the theme bg color. */
-	function setCardBgClass() {
-		let lightClass = 'bg-surface-100';
-		let darkClass = 'dark:bg-surface-900';
-		// If Light Condition
-		if (
-			settingsBackgrounds['--body-background-color'].includes('255 255 255') ||
-			settingsBackgrounds['--body-background-color'].includes('100')
-		) {
-			lightClass = 'bg-surface-50';
-		}
-		// If Dark Condition
-		if (settingsBackgrounds['--body-background-color-dark'].includes('900')) {
-			darkClass = 'dark:bg-surface-950';
-		}
-		return `${lightClass} ${darkClass}`;
-	}
-
 	// State
 	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);
-	const rxCardBgClass = $derived(setCardBgClass());
 </script>
 
 <div class="space-y-10">
@@ -67,8 +48,8 @@
 				<Avatar src="/images/female.png" name="" size="size-full" imageClasses="grayscale" />
 				<Avatar name="Skeleton" size="size-full" background={currentPresets.filled} />
 				<Avatar name="Kevin" size="size-full" background={currentPresets.tonal} />
-				<Avatar name="Kevin" size="size-full" background={currentPresets.outlined}><IconSkull size={24} /></Avatar>
-				<Avatar name="Kevin" size="size-full" background="preset-outlined-surface-200-800"><IconSkull size={24} /></Avatar>
+				<Avatar name="Kevin" size="size-full" background={currentPresets.outlined}><IconSkull size={20} /></Avatar>
+				<Avatar name="Kevin" size="size-full" background="preset-outlined-surface-200-800"><IconSkull size={20} /></Avatar>
 			</div>
 			<!-- Alert -->
 			<div class="card {currentPresets.tonal} grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]">
@@ -87,7 +68,7 @@
 			</blockquote>
 		</div>
 		<!-- Column 2 -->
-		<form class="card shadow {rxCardBgClass} border border-surface-200-800 p-5 space-y-5">
+		<form class="card shadow bg-surface-100-900 border border-surface-200-800 p-5 space-y-5">
 			<fieldset class="space-y-2">
 				<h2 class="h2">Login</h2>
 				<p class="opacity-60">Select a login method below.</p>
@@ -123,10 +104,10 @@
 			<div class="grid grid-cols-[auto_1fr] item-center gap-4">
 				<Switch name="example" checked={true} controlActive={currentPresets.filled} />
 				<div class="grid grid-cols-4 gap-4">
-					<button type="button" class="btn preset-filled"><IconSkull /></button>
-					<button type="button" class="btn {currentPresets.filled}"><IconSkull /></button>
-					<button type="button" class="btn {currentPresets.tonal}"><IconSkull /></button>
-					<button type="button" class="btn {currentPresets.outlined}"><IconSkull /></button>
+					<button type="button" class="btn preset-filled"><IconSkull size={20} /></button>
+					<button type="button" class="btn {currentPresets.filled}"><IconSkull size={20} /></button>
+					<button type="button" class="btn {currentPresets.tonal}"><IconSkull size={20} /></button>
+					<button type="button" class="btn {currentPresets.outlined}"><IconSkull size={20} /></button>
 				</div>
 			</div>
 			<!-- Segment Control -->
@@ -146,25 +127,25 @@
 			</Segment>
 			<!-- Cards -->
 			<div class="space-y-4">
-				<div class="card shadow {rxCardBgClass} border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 					<Avatar src="/images/male.png" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Gregory Smith</p>
-						<p class="opacity-60 type-scale-1">gregory.smith@example.com</p>
+						<p class="opacity-60 text-xs">gregory.smith@example.com</p>
 					</div>
 				</div>
-				<div class="card shadow {rxCardBgClass} border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 					<Avatar src="/images/female.png" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Stephanie Collins</p>
-						<p class="opacity-60 type-scale-1">stephanie.collins@example.com</p>
+						<p class="opacity-60 text-xs">stephanie.collins@example.com</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- App Bar -->
-	<AppBar background={rxCardBgClass} toolbarClasses="items-center" classes="shadow">
+	<AppBar background="bg-surface-100-900" toolbarClasses="items-center" classes="shadow">
 		{#snippet lead()}
 			<IconSkull size={32} />
 		{/snippet}
@@ -182,7 +163,7 @@
 	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
 		<!-- Column 1: Image -->
 		<div
-			class="relative w-full shadow {rxCardBgClass} rounded-container overflow-hidden"
+			class="relative w-full shadow bg-surface-100-900 rounded-container overflow-hidden"
 			style="background: url(https://picsum.photos/640/640) center center; backround-size: cover;"
 		>
 			<div class="absolute bottom-4 left-4 z-[2] flex justify-center items-center">
@@ -193,9 +174,9 @@
 			<div class="absolute top-0 left-0 z-[1] w-full h-full bg-gradient-to-b from-transparent {currentPresets.gradient}"></div>
 		</div>
 		<!-- Column 2: Chart -->
-		<div class="card shadow {rxCardBgClass} border border-surface-200-800 p-5 space-y-2">
+		<div class="card shadow bg-surface-100-900 border border-surface-200-800 p-5 space-y-2">
 			<header>
-				<small class="type-scale-3">Earnings</small>
+				<small class="text-base">Earnings</small>
 				<h2 class="h2 font-normal">$14,546</h2>
 			</header>
 			<ExampleChart preset={currentPresets.prop} />
@@ -203,7 +184,7 @@
 		<!-- Column 2: xxx -->
 		<div class="card {currentPresets.tonal} p-5 grid grid-rows-[auto_1fr]">
 			<header>
-				<small class="type-scale-3">Users</small>
+				<small class="text-base">Users</small>
 			</header>
 			<div class="spce-y-2 flex justify-center items-center scale-125">
 				<div>

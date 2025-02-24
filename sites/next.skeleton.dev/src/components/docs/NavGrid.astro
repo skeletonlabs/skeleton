@@ -25,7 +25,7 @@ const sortByOrder = (a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => 
 		collectionItems.sort(sortByOrder).map((item) => (
 			<>
 				<a
-					href={`/${collection}/${item.slug}`}
+					href={`/${collection}/${item.id}`}
 					class="card bg-surface-50-950 border-[1px] border-surface-200-800 hover:preset-tonal space-y-2 p-4 md:p-8"
 				>
 					<h3 class="h5">{item.data.title}</h3>

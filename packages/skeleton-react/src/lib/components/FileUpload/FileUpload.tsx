@@ -32,7 +32,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	fileBg = 'preset-tonal',
 	fileGap = 'gap-4 px-4',
 	filePadding = 'py-2',
-	fileRounded = 'rounded',
+	fileRounded = 'rounded-base',
 	fileClasses = '',
 	// File (content)
 	fileIcon = '',

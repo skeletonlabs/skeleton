@@ -1,0 +1,27 @@
+/* Components: Forms (Core) */
+
+@utility fieldset {
+	display: block;
+	width: 100%;
+}
+
+@utility legend {
+	display: block;
+	width: 100%;
+}
+
+@utility label {
+	display: block;
+	width: 100%;
+	& > * + * {
+		margin-top: --spacing(1);
+	}
+}
+
+@utility label-text {
+	display: block;
+	font-size: var(--text-xs);
+	line-height: var(--text-xs--line-height);
+	font-weight: var(--font-weight-medium);
+	text-decoration-line: none;
+}

@@ -29,17 +29,17 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"ci:publish": "changeset publish",
-		"dev": "pnpm --filter next.skeleton.dev dev",
 		"build": "pnpm --recursive build",
-		"package": "pnpm --recursive package",
+		"dev": "pnpm --parallel dev",
 		"test": "pnpm --recursive test",
+		"test:watch": "pnpm --recursive test:watch",
 		"check": "pnpm --recursive check",
 		"format": "prettier . --write",
 		"format:check": "prettier . --check",
 		"lint": "eslint . --fix --ignore-path .gitignore",
 		"lint:check": "eslint . --ignore-path .gitignore",
-		"postinstall": "pnpm package"
+		"changeset:publish": "changeset publish",
+		"postinstall": "pnpm --recursive --filter \"./packages/*\" build"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.28.1",

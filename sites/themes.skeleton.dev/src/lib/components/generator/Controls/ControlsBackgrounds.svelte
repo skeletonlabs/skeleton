@@ -8,37 +8,33 @@
 <div class="space-y-4">
 	<p class="opacity-60">Set the body background color for either mode.</p>
 	<!-- --body-background-color -->
-	<label class="label">
+	<label class="label space-y-2">
 		<span class="label-text">Light Mode Background</span>
-		<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-			<div class="input-group-cell" style:background={`rgba(${settingsBackgrounds['--body-background-color']})`}></div>
-			<select name="--body-background-color" bind:value={settingsBackgrounds['--body-background-color']}>
-				<option value="255 255 255">White</option>
-				{#each constants.colorNames as colorName}
-					<optgroup label={colorName}>
-						{#each constants.colorShades as colorShade}
-							<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-						{/each}
-					</optgroup>
-				{/each}
-			</select>
-		</div>
+		<div class="w-full h-8 border border-surface-200-800 rounded-base" style:background={'var(--body-background-color)'}></div>
+		<select class="select" name="--body-background-color" bind:value={settingsBackgrounds['--body-background-color']}>
+			<option value="255 255 255">White</option>
+			{#each constants.colorNames as colorName}
+				<optgroup label={colorName}>
+					{#each constants.colorShades as colorShade}
+						<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+					{/each}
+				</optgroup>
+			{/each}
+		</select>
 	</label>
 	<!-- --body-background-color-dark -->
-	<label class="label">
+	<label class="label space-y-2">
 		<span class="label-text">Dark Mode Background</span>
-		<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-			<div class="input-group-cell" style:background={`rgba(${settingsBackgrounds['--body-background-color-dark']})`}></div>
-			<select name="--body-background-color-dark" bind:value={settingsBackgrounds['--body-background-color-dark']}>
-				<option value="0 0 0">Black</option>
-				{#each constants.colorNames as colorName}
-					<optgroup label={colorName}>
-						{#each constants.colorShades as colorShade}
-							<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-						{/each}
-					</optgroup>
-				{/each}
-			</select>
-		</div>
+		<div class="w-full h-8 border border-surface-200-800 rounded-base" style:background={'var(--body-background-color-dark)'}></div>
+		<select class="select" name="--body-background-color-dark" bind:value={settingsBackgrounds['--body-background-color-dark']}>
+			<option value="0 0 0">Black</option>
+			{#each constants.colorNames as colorName}
+				<optgroup label={colorName}>
+					{#each constants.colorShades as colorShade}
+						<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+					{/each}
+				</optgroup>
+			{/each}
+		</select>
 	</label>
 </div>

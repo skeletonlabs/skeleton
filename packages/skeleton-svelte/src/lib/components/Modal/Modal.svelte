@@ -15,6 +15,7 @@
 		triggerBase = '',
 		triggerBackground = '',
 		triggerClasses = '',
+		triggerAriaLabel = '',
 		// Backdrop
 		backdropBase = 'fixed top-0 left-0 right-0 bottom-0 z-[998]',
 		backdropBackground = 'bg-surface-50/75 dark:bg-surface-950/75',
@@ -71,7 +72,13 @@
 <span class="{base} {classes}" data-testid="modal">
 	<!-- Trigger -->
 	{#if trigger}
-		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
+		<button
+			{...triggerProps}
+			class="{triggerBase} {triggerBackground} {triggerClasses}"
+			{disabled}
+			type="button"
+			aria-label={triggerAriaLabel}
+		>
 			{@render trigger()}
 		</button>
 	{/if}

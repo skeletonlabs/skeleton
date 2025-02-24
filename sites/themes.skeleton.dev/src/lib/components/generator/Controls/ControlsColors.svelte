@@ -105,7 +105,7 @@
 								<span>Random</span>
 							</button>
 							<Switch name="example" bind:checked={showAllShades} classes="!gap-2">
-								<span class="type-scale-1 opacity-60">All</span>
+								<span class="text-xs opacity-60">All</span>
 							</Switch>
 						</div>
 						<!-- Message -->
@@ -121,7 +121,7 @@
 							<tbody>
 								{#each rxShadeArray as shade}
 									<tr>
-										<td class="type-scale-1 opacity-60">{shade}</td>
+										<td class="text-xs opacity-60">{shade}</td>
 										<!-- --color-(name)-(shade) -->
 										<td>
 											<input
@@ -148,53 +148,49 @@
 						<!-- Light/Dark Contrast -->
 						<div class="space-y-4">
 							<div class="grid grid-cols-2 gap-4">
-								<!-- --color-(color)-contrast-dark -->
-								<label class="label">
+								<!-- --color-(color)-contrast-light -->
+								<label class="label space-y-2">
 									<span class="label-text">Light Contrast</span>
-									<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-										<div
-											class="input-group-cell"
-											style:background={`rgba(${settingsColors[`--color-${color.value}-contrast-light`]})`}
-										></div>
-										<select
-											class="select"
-											name={`--color-${color.value}-contrast-light`}
-											bind:value={settingsColors[`--color-${color.value}-contrast-light`]}
-										>
-											<option value="255 255 255">White</option>
-											{#each constants.colorNames as colorName}
-												<optgroup label={colorName}>
-													{#each constants.colorShades as colorShade}
-														<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-													{/each}
-												</optgroup>
-											{/each}
-										</select>
-									</div>
+									<div
+										class="w-full h-4 border border-surface-200-800 rounded-base"
+										style:background={`${settingsColors[`--color-${color.value}-contrast-light`]}`}
+									></div>
+									<select
+										class="select"
+										name={`--color-${color.value}-contrast-light`}
+										bind:value={settingsColors[`--color-${color.value}-contrast-light`]}
+									>
+										<option value="255 255 255">White</option>
+										{#each constants.colorNames as colorName}
+											<optgroup label={colorName}>
+												{#each constants.colorShades as colorShade}
+													<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+												{/each}
+											</optgroup>
+										{/each}
+									</select>
 								</label>
-								<!-- --color-surface-contrast-light -->
-								<label class="label">
+								<!-- --color-surface-contrast-dark -->
+								<label class="label space-y-2">
 									<span class="label-text">Dark Contrast</span>
-									<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800">
-										<div
-											class="input-group-cell"
-											style:background={`rgba(${settingsColors[`--color-${color.value}-contrast-dark`]})`}
-										></div>
-										<select
-											class="select"
-											name={`--color-${color.value}-contrast-dark`}
-											bind:value={settingsColors[`--color-${color.value}-contrast-dark`]}
-										>
-											<option value="0 0 0">Black</option>
-											{#each constants.colorNames as colorName}
-												<optgroup label={colorName}>
-													{#each constants.colorShades as colorShade}
-														<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-													{/each}
-												</optgroup>
-											{/each}
-										</select>
-									</div>
+									<div
+										class="w-full h-4 border border-surface-200-800 rounded-base"
+										style:background={`${settingsColors[`--color-${color.value}-contrast-dark`]}`}
+									></div>
+									<select
+										class="select"
+										name={`--color-${color.value}-contrast-dark`}
+										bind:value={settingsColors[`--color-${color.value}-contrast-dark`]}
+									>
+										<option value="0 0 0">Black</option>
+										{#each constants.colorNames as colorName}
+											<optgroup label={colorName}>
+												{#each constants.colorShades as colorShade}
+													<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
+												{/each}
+											</optgroup>
+										{/each}
+									</select>
 								</label>
 							</div>
 						</div>

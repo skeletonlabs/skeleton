@@ -54,7 +54,7 @@
 		<Progress value={null} {max}>
 			<span>Deafult Animation</span>
 		</Progress>
-		<!-- NOTE: `custom-indeterminate` defined in app.pcss -->
+		<!-- NOTE: `custom-indeterminate` defined in app.css -->
 		<Progress value={null} {max} meterAnimate="custom-indeterminate">
 			<span>Custom Animation</span>
 		</Progress>
@@ -69,7 +69,7 @@
 	</section>
 </div>
 
-<style lang="postcss">
+<style>
 	:global(.custom-indeterminate) {
 		animation: custom-indeterminate 2s linear infinite;
 	}

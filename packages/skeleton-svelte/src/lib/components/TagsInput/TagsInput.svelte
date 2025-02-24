@@ -9,7 +9,7 @@
 		value = $bindable(),
 		placeholder = '',
 		// Root
-		base = 'grid input',
+		base = 'grid input !h-auto',
 		gap = 'gap-2',
 		padding = 'p-3',
 		classes = '',

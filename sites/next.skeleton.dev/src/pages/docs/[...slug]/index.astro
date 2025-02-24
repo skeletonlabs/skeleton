@@ -1,35 +1,33 @@
 ---
 import LayoutRoot from '@layouts/LayoutRoot.astro';
 import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
 import { getCollection, getEntry } from 'astro:content';
 
 export const getStaticPaths = (async () => {
-	const entries = await getCollection('docs');
-	return entries.map((entry) => ({
+	const pages = await getCollection('docs');
+	return pages.map((page) => ({
 		params: {
-			slug: entry.slug
+			slug: page.id
 		},
 		props: {
-			entry
+			page: page
 		}
 	}));
 }) satisfies GetStaticPaths;
 
-const { entry } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await entry.render();
+const { page } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await render(page);
 
-// Get meta for the current page
-// This Regex replaces that last part of the url with meta, so "components/accordion/svelte" becomes "components/accordion/meta"
-const meta = await getEntry('docs', entry.slug.replace(/\/[^\/]*$/, '/meta'));
-
-// Append common frontmatter
-// https://github.com/withastro/astro/issues/7972
-// https://docs.astro.build/en/guides/content-collections/#modifying-frontmatter-with-remark
-if (meta !== undefined) {
-	Object.assign(remarkPluginFrontmatter, meta.data);
+let meta: Awaited<ReturnType<typeof getEntry>>;
+if (page.id.startsWith('components/') || page.id.startsWith('integrations/')) {
+	meta = await getEntry('docs', page.id.replace(/\/[^\/]*$/, '/meta'));
+	if (meta !== undefined) {
+		Object.assign(remarkPluginFrontmatter, meta.data);
+	}
 }
 ---
 
-<LayoutRoot title={meta ? meta.data.title : entry.data.title} description={meta ? meta.data.title : entry.data.description}>
+<LayoutRoot title={meta ? meta.data.title : page.data.title} description={meta ? meta.data.title : page.data.description}>
 	<Content />
 </LayoutRoot>

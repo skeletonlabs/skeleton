@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../app.pcss';
+	import '../app.css';
 	// Components
 	import ToastProvider from '$lib/components/Toast/ToastProvider.svelte';
 	import Switch from '$lib/components/Switch/Switch.svelte';

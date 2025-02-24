@@ -17,6 +17,7 @@
 		triggerBase = '',
 		triggerBackground = '',
 		triggerClasses = '',
+		triggerAriaLabel = '',
 		// Positioner
 		positionerBase = '',
 		zIndex = 'auto',
@@ -65,7 +66,13 @@
 <span class="{base} {classes}" data-testid="tooltip">
 	<!-- Snippet: Trigger -->
 	{#if trigger}
-		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" {disabled} type="button">
+		<button
+			{...triggerProps}
+			class="{triggerBase} {triggerBackground} {triggerClasses}"
+			{disabled}
+			type="button"
+			aria-label={triggerAriaLabel}
+		>
 			{@render trigger()}
 		</button>
 	{/if}

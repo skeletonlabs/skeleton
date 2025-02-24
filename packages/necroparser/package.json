@@ -1,10 +1,10 @@
 {
 	"name": "@skeletonlabs/necroparser",
 	"private": true,
-	"version": "0.0.2-next.0",
 	"type": "module",
 	"scripts": {
-		"package": "unbuild",
+		"build": "unbuild",
+		"dev": "unbuild --watch",
 		"test": "vitest run",
 		"test:watch": "vitest watch"
 	},
