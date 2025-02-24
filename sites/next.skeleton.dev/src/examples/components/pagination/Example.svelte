@@ -45,7 +45,7 @@
 					<th class="!text-right">Symbol</th>
 				</tr>
 			</thead>
-			<tbody class="hover:[&>tr]:preset-tonal-primary">
+			<tbody class="[&>tr]:hover:preset-tonal-primary">
 				{#each slicedSource(sourceData) as row}
 					<tr>
 						<td>{row.position}</td>

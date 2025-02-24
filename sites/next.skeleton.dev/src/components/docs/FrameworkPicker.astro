@@ -34,11 +34,23 @@ const cHover = 'hover:bg-gradient-to-t from-surface-100 dark:from-surface-900/30
 
 <script>
 	import { isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
-
-	for (const frameworkTab of document.querySelectorAll('[data-framework]')) {
-		const framework = frameworkTab.getAttribute('data-framework');
-		if (!framework) continue;
-		if (!isFramework(framework)) continue;
-		frameworkTab.addEventListener('click', () => preferredFrameworkStore.set(framework));
+	function onClick(event: MouseEvent) {
+		if (!(event.target instanceof HTMLElement)) return;
+		const framework = event.target.getAttribute('data-framework');
+		if (!(framework && isFramework(framework))) return;
+		preferredFrameworkStore.set(framework);
 	}
+	function attachFrameworkListeners() {
+		for (const frameworkTab of document.querySelectorAll('[data-framework]')) {
+			if (!(frameworkTab instanceof HTMLElement)) continue;
+			const framework = frameworkTab.getAttribute('data-framework');
+			if (!(framework && isFramework(framework))) continue;
+			frameworkTab.removeEventListener('click', onClick);
+			frameworkTab.addEventListener('click', onClick);
+		}
+	}
+	attachFrameworkListeners();
+	document.addEventListener('astro:after-swap', () => {
+		attachFrameworkListeners();
+	});
 </script>

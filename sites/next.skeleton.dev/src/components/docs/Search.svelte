@@ -139,12 +139,12 @@
 >
 	<!-- Search Field -->
 	<div class="input-group grid-cols-[auto_1fr_auto]">
-		<div class="input-group-cell">
+		<div class="ig-cell">
 			<IconSearch class="size-4 opacity-60" />
 		</div>
-		<input placeholder="Search..." bind:value={query} />
-		<button type="button" class="btn-icon preset-tonal translate-y-0.5 scale-75" onclick={toggleFilters} title="Show Filters" tabindex="-1">
-			<IconFilter class="size-6" />
+		<input class="ig-input" placeholder="Search..." bind:value={query} />
+		<button type="button" class="ig-btn hover:preset-tonal" onclick={toggleFilters} title="Show Filters" tabindex="-1">
+			<IconFilter class="size-4" />
 		</button>
 	</div>
 	<!-- Filters -->
@@ -167,7 +167,7 @@
 			{#if results.length === 0 && query !== ''}
 				<p class="py-10 text-center">No results found for <code class="code">{query}</code></p>
 			{:else if results.length === 0}
-				<p class="py-10 text-center">What can we help you find?</p>
+				<p class="py-10 text-center text-xl">What can we help you find?</p>
 			{:else}
 				<ol class="flex flex-col gap-4 space-y-4">
 					{#each results as result}
@@ -180,8 +180,8 @@
 							>
 								<span><IconBook class="size-6 opacity-60" /></span>
 								<div class="space-y-1">
-									<p class="type-scale-4 font-bold">{result.meta.title}</p>
-									<p class="type-scale-1">{result.url}</p>
+									<p class="text-lg font-bold">{result.meta.title}</p>
+									<p class="text-xs">{result.url}</p>
 								</div>
 								<span><IconChevronRight class="size-4 opacity-60" /></span>
 							</a>
@@ -197,8 +197,8 @@
 											<IconHash class="size-4 opacity-60" />
 										</span>
 										<div class="space-y-1 overflow-hidden">
-											<p class="type-scale-3 font-bold">{subResult.title}</p>
-											<p class="type-scale-1 text-surface-600-400 break-words">
+											<p class="text-base font-bold">{subResult.title}</p>
+											<p class="text-xs text-surface-600-400 break-words">
 												<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 												{@html subResult.excerpt}
 											</p>

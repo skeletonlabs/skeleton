@@ -1,97 +1,51 @@
-<!-- Source: https://github.com/skeletonlabs/floating-ui-svelte/tree/main/src/docs/components/CodeBlock -->
+<!-- @component Code Block based on: https://shiki.style/ -->
 
-<script lang="ts">
-	import MoonlightDark from './moonlight-dark.json';
-	import { page } from '$app/stores';
-	import type { BuiltinLanguage, SpecialLanguage } from 'shiki';
+<script module>
+	import { createHighlighterCoreSync } from 'shiki/core';
+	import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
+	// Themes
+	// https://shiki.style/themes
+	import auroraX from 'shiki/themes/aurora-x.mjs';
+	// Languages
+	// https://shiki.style/languages
+	import console from 'shiki/langs/console.mjs';
+	import html from 'shiki/langs/html.mjs';
+	import css from 'shiki/langs/css.mjs';
+	import js from 'shiki/langs/javascript.mjs';
+	import ts from 'shiki/langs/typescript.mjs';
 
-	interface Props {
-		code: string;
-		lang: BuiltinLanguage | SpecialLanguage;
-		mark?: Array<number | [number, number]>;
-	}
-
-	// Props
-	let { code, lang = 'text', mark = [] }: Props = $props();
-
-	const highlightedLineNumbers = $derived(
-		mark
-			.map((mark) => {
-				if (Array.isArray(mark)) {
-					const [start, end] = mark;
-					return Array.from({ length: end - start + 1 }, (_, i) => start + i);
-				}
-				return mark;
-			})
-			.flat()
-	);
-
-	// Process Language
-	const renderedCode = $derived(
-		// FIXME: https://github.com/sveltejs/eslint-plugin-svelte/issues/652
-		$page.data.highlighter.codeToHtml(code.trim(), {
-			lang,
-			themes: {
-				dark: MoonlightDark,
-				light: MoonlightDark
-			},
-			transformers: [
-				/**
-				 * This transformer adds the `highlighted` class to lines that are to be highlighted.
-				 */
-				{
-					// @ts-expect-error type
-					line(node, lineNumber) {
-						if (!highlightedLineNumbers.includes(lineNumber)) {
-							return;
-						}
-						// @ts-expect-error type
-						this.addClassToHast(node, 'highlighted');
-					}
-				}
-			]
-		})
-	);
-
-	// Sets the language badge color
-	function setLangCss() {
-		let color = 'bg-surface-500 text-white';
-		if (lang === 'css') color = 'bg-blue-700 text-white';
-		if (['ts', 'js'].includes(lang)) color = 'bg-yellow-400 text-black';
-		return color;
-	}
+	// https://shiki.style/guide/sync-usage
+	const shiki = createHighlighterCoreSync({
+		engine: createJavaScriptRegexEngine(),
+		// Implement your import theme.
+		themes: [auroraX],
+		// Implement your imported and supported languages.
+		langs: [console, html, css, js, ts]
+	});
 </script>
 
-<!-- eslint-disable svelte/no-at-html-tags -->
-<figure class="relative rounded-md overflow-hidden">
-	<!-- Language -->
-	<span class="absolute top-0 right-0 text-[10px] leading-none font-bold px-1 py-0.5 rounded-bl shadow {setLangCss()}">
-		{lang}
-	</span>
-	<!-- Rendered Code -->
-	<div class="codeblock">{@html renderedCode}</div>
-</figure>
+<script lang="ts">
+	import type { CodeBlockProps } from './types';
 
-<!-- eslint-enable svelte/no-at-html-tags -->
+	let {
+		code = '',
+		lang = 'console',
+		theme = 'aurora-x',
+		// Base Style Props
+		base = ' overflow-hidden',
+		rounded = 'rounded-container',
+		shadow = '',
+		classes = '',
+		// Pre Style Props
+		preBase = 'border border-surface-200-800 text-xs',
+		prePadding = '[&>pre]:p-4',
+		preClasses = ''
+	}: CodeBlockProps = $props();
 
-<style lang="postcss">
-	.codeblock :global {
-		.shiki {
-			@apply py-6 text-xs rounded-md whitespace-pre-wrap;
-			@apply !bg-black; /* set code block bg color */
-		}
-		.line {
-			/**
-			* Horizontal padding is added per line instead of the container
-			* so that highlights extend fully to the end of the codeblock
-			*/
-			@apply px-6 inline-block w-full;
-		}
-		.highlighted {
-			@apply !bg-surface-500/25;
-		}
-		.highlighted > span {
-			@apply !bg-transparent;
-		}
-	}
-</style>
+	const generatedHtml = $derived(shiki.codeToHtml(code, { lang, theme }));
+</script>
+
+<div class="{base} {rounded} {shadow} {classes} {preBase} {prePadding} {preClasses}">
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+	{@html generatedHtml}
+</div>

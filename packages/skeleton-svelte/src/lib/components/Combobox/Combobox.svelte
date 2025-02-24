@@ -21,8 +21,8 @@
 		labelClasses = '',
 		// Input
 		inputGroupBase = 'input-group grid-cols-[1fr_auto]',
-		inputGroupInput = '',
-		inputGroupButton = 'input-group-cell',
+		inputGroupInput = 'ig-input',
+		inputGroupButton = 'ig-btn hover:preset-tonal',
 		inputGroupArrow = '',
 		inputGroupClasses = '',
 		// Positioner
@@ -150,8 +150,8 @@
 	{/if}
 </span>
 
-<style lang="postcss">
+<style>
 	[data-part='item'][data-highlighted]:not([data-state='checked']) {
-		@apply bg-surface-500/10;
+		background-color: var(--color-surface-200-800);
 	}
 </style>

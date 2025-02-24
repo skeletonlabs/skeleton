@@ -70,7 +70,7 @@
 		<!-- 2 -->
 		<div class={`${cardClasses}`}>
 			<header class="space-y-1">
-				<h2 class="h6">Notifications.</h2>
+				<h2 class="h4">Notifications.</h2>
 				<p class="opacity-60">Review each available option.</p>
 			</header>
 			<hr class="hr" />
@@ -105,7 +105,7 @@
 		<div class={`${cardClasses} row-span-2`}>
 			<div class="space-y-4">
 				<header>
-					<h2 class="h5">Team</h2>
+					<h2 class="h4">Team</h2>
 					<p class="opacity-60">View all members of the team, or filter using the search field provided.</p>
 				</header>
 				<input type="search" class="input" placeholder="Search Members..." />
@@ -116,7 +116,7 @@
 							<Avatar src="https://i.pravatar.cc/150?img={i + 10}" name="" size="size-10" imageClasses="grayscale" />
 							<div class="text-left">
 								<p class="font-bold">{member.name}</p>
-								<p class="opacity-60 type-scale-1">{member.email}</p>
+								<p class="opacity-60 text-xs">{member.email}</p>
 							</div>
 						</button>
 					{/each}
@@ -165,7 +165,7 @@
 		<div class={`${cardClasses}`}>
 			<div class="flex justify-between items-center gap-4">
 				<div>
-					<h2 class="h6">Success</h2>
+					<h2 class="h4">Success</h2>
 					<p class="text-xs opacity-60">Task was completed.</p>
 				</div>
 				<div class="flex gap-1">
@@ -175,26 +175,26 @@
 		</div>
 		<!-- 6 -->
 		<div class={`${cardClasses} row-span-2`}>
-			<h2 class="h5">Statistics</h2>
+			<h2 class="h4">Statistics</h2>
 			<div class="card grid grid-cols-3 gap-5">
 				<div class="flex flex-col items-start">
 					<h2 class="text-3xl font-bold">64k+</h2>
 					<div class="grid grid-cols-1 gap-2">
-						<p class="type-scale-1 opacity-60">Downloads</p>
+						<p class="text-xs opacity-60">Downloads</p>
 						<badge class="badge preset-tonal-success">&uarr; 4%</badge>
 					</div>
 				</div>
 				<div class="flex flex-col items-start">
 					<h2 class="text-3xl font-bold">93k+</h2>
 					<div class="grid grid-cols-1 gap-2">
-						<p class="type-scale-1 opacity-60">Views</p>
+						<p class="text-xs opacity-60">Views</p>
 						<badge class="badge preset-tonal-error">&darr; 2.4%</badge>
 					</div>
 				</div>
 				<div class="flex flex-col items-start">
 					<h2 class="text-3xl font-bold">15k+</h2>
 					<div class="grid grid-cols-1 gap-2">
-						<p class="type-scale-1 opacity-60">Members</p>
+						<p class="text-xs opacity-60">Members</p>
 						<badge class="badge preset-tonal-success">&uarr; 8%</badge>
 					</div>
 				</div>
@@ -204,7 +204,7 @@
 		</div>
 		<!-- 7 -->
 		<div class={`${cardClasses} row-span-2 row-start-3`}>
-			<h2 class="h3 text-center">Progression</h2>
+			<h2 class="h4 text-center">Progression</h2>
 			<div class="grid grid-cols-[1fr_auto] grid-row-2 gap-5">
 				<ProgressRing value={32} max={100} showLabel size="size-56" strokeWidth="14px" labelClasses="text-4xl" classes="row-span-2" />
 				<ProgressRing value={66} max={100} showLabel size="size-16" strokeWidth="5px" labelClasses="text-sm" classes="self-center" />
@@ -223,21 +223,21 @@
 				</button>
 			</header>
 			<hr class="hr" />
-			<div class="space-y-4">
+			<div class="space-y-1">
 				<div class="flex justify-between items-center">
 					<span class="text-xl font-bold">$3,900</span>
 					<span class="badge preset-tonal-success">+20%</span>
 				</div>
 				<progress class="progress" value="39" max="100"></progress>
 			</div>
-			<div class="space-y-4">
+			<div class="space-y-1">
 				<div class="flex justify-between items-center">
 					<span class="text-xl font-bold">$6,400</span>
 					<span class="badge preset-tonal-error">-5%</span>
 				</div>
 				<progress class="progress" value="64" max="100"></progress>
 			</div>
-			<div class="space-y-4">
+			<div class="space-y-1">
 				<div class="flex justify-between items-center">
 					<span class="text-xl font-bold">$1,300</span>
 					<span class="badge preset-tonal-success">+8%</span>
@@ -247,31 +247,37 @@
 		</div>
 		<!-- 9 -->
 		<div class={`${cardClasses} row-span-2 col-start-2 row-start-4`}>
-			<p class="font-bold">Delivery</p>
-			<nav class="grid grid-cols-2 gap-2">
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Tomorrow</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Within 2 days</button>
-			</nav>
-			<p class="font-bold">Size</p>
-			<nav class="grid grid-cols-5 gap-2">
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">5.5</button>
-				<button class="btn preset-filled-primary-500">6</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">6.5</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">7</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">7.5</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">8</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">8.5</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">9</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">9.5</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">10</button>
-			</nav>
-			<p class="font-bold">Material</p>
-			<nav class="grid grid-cols-4 gap-2">
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Canvas</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Mesh</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Suede</button>
-				<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Leather</button>
-			</nav>
+			<div class="space-y-2">
+				<p class="font-bold">Delivery</p>
+				<nav class="grid grid-cols-2 gap-2">
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Tomorrow</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Within 2 days</button>
+				</nav>
+			</div>
+			<div class="space-y-2">
+				<p class="font-bold">Size</p>
+				<nav class="grid grid-cols-5 gap-2">
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">5.5</button>
+					<button class="btn preset-filled-primary-500">6</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">6.5</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">7</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">7.5</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">8</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">8.5</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">9</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">9.5</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">10</button>
+				</nav>
+			</div>
+			<div class="space-y-2">
+				<p class="font-bold">Material</p>
+				<nav class="grid grid-cols-4 gap-2">
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Canvas</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Mesh</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Suede</button>
+					<button class="btn preset-outlined-surface-200-800 hover:preset-tonal">Leather</button>
+				</nav>
+			</div>
 		</div>
 		<!-- 10 -->
 		<div class={`${cardClasses} row-span-2 row-start-5 text-center`}>
@@ -281,7 +287,7 @@
 			<div class="space-y-2 text-center">
 				<h2 class="h2">Invoice Paid</h2>
 				<p class="text-sm opacity-60">You paid $14,276. Receipt submited to:</p>
-				<p class="font-bold text-xl">me@email.com</p>
+				<p class="font-bold">me@email.com</p>
 			</div>
 			<nav class="grid grid-cols-1 gap-2">
 				<button class="btn preset-filled-primary-500">Mark Completed</button>
@@ -303,7 +309,7 @@
 							<th class="!text-right">Weight</th>
 						</tr>
 					</thead>
-					<tbody class="hover:[&>tr]:preset-tonal">
+					<tbody class="[&>tr]:hover:preset-tonal">
 						{#each tableData as row, i}
 							<tr>
 								<td>
@@ -339,13 +345,13 @@
 		</div>
 		<!-- 13 -->
 		<div class={`${cardClasses} row-span-2 row-start-7`}>
-			<div class="grid grid-cols-[1fr_auto] items-start gap-5">
-				<div class="space-y-2">
+			<div class="space-y-2">
+				<header class="flex justify-between items-center gap-4">
 					<h2 class="h6">Contributions</h2>
-					<h2 class="h2">+1,248</h2>
-					<p class="text-xs opacity-60"><span class="badge preset-tonal">+150% increase</span></p>
-				</div>
-				<IconUsers class="size-4 opacity-60" />
+					<IconUsers class="size-4 opacity-60" />
+				</header>
+				<h2 class="text-4xl font-bold">+1,248</h2>
+				<p class="text-xs opacity-60"><span class="badge preset-tonal">+150% increase</span></p>
 			</div>
 		</div>
 		<!-- 14 -->

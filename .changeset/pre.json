@@ -6,12 +6,10 @@
     "@skeletonlabs/skeleton": "2.10.0",
     "@skeletonlabs/skeleton-react": "0.0.0",
     "@skeletonlabs/skeleton-svelte": "0.0.0",
-    "vite-plugin-tw-plugin-watcher": "0.0.0",
-    "next.skeleton.dev": "0.0.1",
-    "skeleton.dev": "1.0.1",
-    "themes.skeleton.dev": "0.0.1",
+    "@skeletonlabs/skeleton-cli": "0.0.0",
     "@skeletonlabs/necroparser": "0.0.1",
-    "@skeletonlabs/skeleton-cli": "0.0.0"
+    "next.skeleton.dev": "0.0.1",
+    "themes.skeleton.dev": "0.0.1"
   },
   "changesets": [
     "afraid-geckos-try",

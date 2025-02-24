@@ -1,23 +1,10 @@
-# packages
-/packages/*
-!/packages/create-skeleton-app
-!/packages/skeleton*
-!/packages/plugin
-!/packages/vite-plugin-tw-plugin-watcher
-!/packages/necroparser
-!/packages/skeleton-cli
-/sites/*
-!/sites/skeleton.dev
-!/sites/next.skeleton.dev
-!/sites/themes.skeleton.dev
-/templates/*
-
 # pagefind
 **/pagefind
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 # build output
+out/
 dist/
 .vercel/
 **/plugin/generated
@@ -25,6 +12,8 @@ dist/
 # generated
 .astro/
 .svelte-kit/
+.next/
+next-env.d.ts
 sites/next.skeleton.dev/src/content/schemas/**/*.json
 
 # dependencies

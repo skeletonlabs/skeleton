@@ -8,5 +8,8 @@
 	"access": "public",
 	"baseBranch": "dev",
 	"updateInternalDependencies": "patch",
-	"ignore": ["!(@skeletonlabs/*|vite-plugin-tw-plugin-watcher)"]
+	"privatePackages": {
+		"tag": false,
+		"version": false
+	}
 }

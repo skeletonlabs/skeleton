@@ -1,0 +1,31 @@
+/* Components: Forms > Progress Bar */
+
+/*
+	BROWSER CONSISTENCY WARNING:
+	Safari ignores most of the styles provided here.
+*/
+
+@utility progress {
+	webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	border-radius: var(--radius-base);
+	background-color: var(--color-surface-200-800);
+	width: 100%;
+	height: --spacing(2);
+	overflow: hidden;
+
+	&::-webkit-progress-bar {
+		background-color: var(--color-surface-200-800);
+	}
+	&::-webkit-progress-value {
+		background-color: var(--color-surface-950-50);
+	}
+	&::-moz-progress-bar {
+		background-color: var(--color-surface-950-50);
+	}
+	&:indeterminate::-moz-progress-bar {
+		width: 0;
+	}
+}

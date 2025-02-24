@@ -26,18 +26,12 @@
 			role="region"
 			tabindex="-1"
 		>
-			<rect x="20" y="220" width="14" height="179" fill="rgb(var({preset}))" opacity="1" tabindex="-1" role="img" style="outline: none;"
-			></rect>
-			<rect x="96" y="112" width="14" height="287" fill="rgb(var({preset}))" opacity="1" tabindex="-1" role="img" style="outline: none;"
-			></rect>
-			<rect x="173" y="228" width="14" height="171" fill="rgb(var({preset}))" opacity="1" tabindex="-1" role="img" style="outline: none;"
-			></rect>
-			<rect x="249" y="176" width="14" height="223" fill="rgb(var({preset}))" opacity="1" tabindex="-1" role="img" style="outline: none;"
-			></rect>
-			<rect x="325" y="339" width="14" height="60" fill="rgb(var({preset}))" opacity="1" tabindex="-1" role="img" style="outline: none;"
-			></rect>
-			<rect x="402" y="65" width="14" height="334" fill="rgb(var({preset}))" opacity="1" tabindex="-1" role="img" style="outline: none;"
-			></rect>
+			<rect x="20" y="220" width="14" height="179" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
+			<rect x="96" y="112" width="14" height="287" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
+			<rect x="173" y="228" width="14" height="171" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
+			<rect x="249" y="176" width="14" height="223" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
+			<rect x="325" y="339" width="14" height="60" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
+			<rect x="402" y="65" width="14" height="334" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
 		</g>
 		<g
 			data-z-index="0.1"
@@ -53,7 +47,7 @@
 				y="216"
 				width="14"
 				height="183"
-				fill="rgb(var(--color-surface-500) / 0.3)"
+				fill="var(--color-surface-300-700)"
 				opacity="1"
 				tabindex="-1"
 				role="img"
@@ -64,7 +58,7 @@
 				y="61"
 				width="14"
 				height="338"
-				fill="rgb(var(--color-surface-500) / 0.3)"
+				fill="var(--color-surface-300-700)"
 				opacity="1"
 				tabindex="-1"
 				role="img"
@@ -75,7 +69,7 @@
 				y="300"
 				width="14"
 				height="99"
-				fill="rgb(var(--color-surface-500) / 0.3)"
+				fill="var(--color-surface-300-700)"
 				opacity="1"
 				tabindex="-1"
 				role="img"
@@ -86,7 +80,7 @@
 				y="300"
 				width="14"
 				height="99"
-				fill="rgb(var(--color-surface-500) / 0.3)"
+				fill="var(--color-surface-300-700)"
 				opacity="1"
 				tabindex="-1"
 				role="img"
@@ -97,7 +91,7 @@
 				y="311"
 				width="14"
 				height="88"
-				fill="rgb(var(--color-surface-500) / 0.3)"
+				fill="var(--color-surface-300-700)"
 				opacity="1"
 				tabindex="-1"
 				role="img"
@@ -108,7 +102,7 @@
 				y="260"
 				width="14"
 				height="139"
-				fill="rgb(var(--color-surface-500) / 0.3)"
+				fill="var(--color-surface-300-700)"
 				opacity="1"
 				tabindex="-1"
 				role="img"

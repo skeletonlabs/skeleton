@@ -1,10 +1,6 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-import path from 'node:path';
-
 // Integrations
 import partytown from '@astrojs/partytown';
-import tailwind from '@astrojs/tailwind';
 import svelte from '@astrojs/svelte';
 import react from '@astrojs/react';
 import expressiveCode from 'astro-expressive-code';
@@ -12,16 +8,14 @@ import icon from 'astro-icon';
 import AutoImport from 'astro-auto-import';
 import mdx from '@astrojs/mdx';
 // Vite Plugins
-import skeletonPluginWatcher from 'vite-plugin-tw-plugin-watcher';
-import pagefind from 'vite-plugin-pagefind';
+import tailwindcss from '@tailwindcss/vite';
+import { pagefind } from 'vite-plugin-pagefind';
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		// https://docs.astro.build/en/guides/integrations-guide/partytown/
 		partytown(),
-		// https://docs.astro.build/en/guides/integrations-guide/tailwind/
-		tailwind(),
 		// https://docs.astro.build/en/guides/integrations-guide/svelte/
 		svelte(),
 		// https://docs.astro.build/en/guides/integrations-guide/react/
@@ -31,7 +25,7 @@ export default defineConfig({
 		// https://expressive-code.com/
 		expressiveCode({
 			defaultProps: { wrap: true },
-			themes: ['dark-plus']
+			themes: ['dark-plus', 'github-dark']
 		}),
 		// https://www.astroicon.dev/
 		icon({
@@ -65,6 +59,13 @@ export default defineConfig({
 		mdx()
 	],
 	vite: {
-		plugins: [skeletonPluginWatcher(path.resolve(path.join('..', '..', 'packages', 'skeleton', 'src', 'plugin'))), pagefind()]
+		plugins: [
+			// https://tailwindcss.com/docs/installation/framework-guides/astro
+			tailwindcss(),
+			// https://github.com/Hugos68/vite-plugin-pagefind
+			pagefind({
+				outputDirectory: 'dist'
+			})
+		]
 	}
 });

@@ -50,24 +50,24 @@ const cIntegrations = await getCollection('docs', (entry) => {
 const navigation = {
 	'get-started': cGetStarted.sort(sortByOrder),
 	guides: cGuides.sort(sortByOrder),
-	design: cDesign.sort(sortByOrder),
-	tailwind: cTailwind.sort(sortByOrder),
-	components: cComponents,
+	'design-system': cDesign.sort(sortByOrder),
+	'tailwind-components': cTailwind.sort(sortByOrder),
+	'framework-components': cComponents,
 	integrations: cIntegrations,
 	resources: cResources.sort(sortByOrder)
 };
 ---
 
-<aside class="type-scale-2 space-y-10 overflow-y-auto pr-4" class:list={[classList]}>
+<aside class="text-sm space-y-10 overflow-y-auto pr-4" class:list={[classList]}>
 	{
 		Object.entries(navigation).map(([key, pages]) => (
 			<nav class="flex flex-col gap-2">
-				<span class="font-bold capitalize ml-2">{key.replace('-', ' ')}</span>
+				<span class="text-sm font-bold capitalize ml-2">{key.replace('-', ' ')}</span>
 				<ul class="flex flex-col gap-1">
 					{pages.map((page) => (
 						<a
-							class={`px-2 py-1 rounded ${currentPath.includes(page.slug.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
-							href={`/docs/${page.slug}`}
+							class={`px-2 py-1 rounded-base ${currentPath.includes(page.id.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
+							href={`/docs/${page.id}`}
 							title={page.data.title}
 						>
 							{page.data.title}
@@ -81,11 +81,35 @@ const navigation = {
 
 <script>
 	import { preferredFrameworkStore } from 'src/stores/preferred-framework';
-	const preferredFramework = preferredFrameworkStore.get();
-
-	// Update all links ending with meta to use the selected framework
-	for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a')) {
-		if (!anchor.href.endsWith('meta')) continue;
-		anchor.setAttribute('href', anchor.href.replace('meta', preferredFramework));
+	const SIDEBAR_SCROLL_KEY = 'sidebar-scroll-position';
+	function handleSidebarScroll(event: Event) {
+		if (!(event.target instanceof HTMLElement)) return;
+		sessionStorage.setItem(SIDEBAR_SCROLL_KEY, String(event.target.scrollTop));
 	}
+	function restoreScrollPosition() {
+		const sidebar = document.querySelector('[data-navigation]');
+		if (!sidebar) return;
+
+		const scrollPosition = sessionStorage.getItem(SIDEBAR_SCROLL_KEY);
+		sidebar.scrollTop = parseInt(scrollPosition ?? '0', 10);
+
+		sidebar.removeEventListener('scroll', handleSidebarScroll);
+		sidebar.addEventListener('scroll', handleSidebarScroll);
+	}
+	function rewriteAnchorHrefs(framework: ReturnType<typeof preferredFrameworkStore.get>) {
+		const anchors = document.querySelectorAll<HTMLAnchorElement>('a');
+		for (const anchor of anchors) {
+			if (!anchor.href.endsWith('meta')) continue;
+			anchor.setAttribute('href', anchor.href.replace('meta', framework));
+		}
+	}
+	restoreScrollPosition();
+	rewriteAnchorHrefs(preferredFrameworkStore.get());
+	preferredFrameworkStore.subscribe((preferredFramework) => {
+		rewriteAnchorHrefs(preferredFramework);
+	});
+	document.addEventListener('astro:after-swap', () => {
+		restoreScrollPosition();
+		rewriteAnchorHrefs(preferredFrameworkStore.get());
+	});
 </script>
