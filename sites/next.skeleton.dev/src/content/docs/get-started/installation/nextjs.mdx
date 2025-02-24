@@ -59,8 +59,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
                 NOTE: The Next.js CLI does not yet install <u>Tailwind v4</u>. Please follow the{' '}
                 <a className="anchor" href="https://tailwindcss.com/docs/installation/framework-guides/nextjs" target="_blank" rel="external">
                     official Tailwind guide
-                </a>
-                .
+                </a> and choose NO when prompted to installed Tailwind by the Next.js CLI.
             </p>
         </div>
 
@@ -77,13 +76,16 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     <ProcessStep step="4">
         ### Configure Tailwind
         Open your global stylesheet in `/src/app/globals.css` and add the following imports:
-        ```css title="globals.css" {3-5}
+        ```css title="globals.css" {3-7}
         @import 'tailwindcss';
+
+		@source '../../node_modules/@skeletonlabs/skeleton-react';
 
         @import '@skeletonlabs/skeleton';
         @import '@skeletonlabs/skeleton/optional/presets';
         @import '@skeletonlabs/skeleton/themes/cerberus';
         ```
+		> NOTE: make sure the `@source` path resolves correctly for your application structure.
     </ProcessStep>
     <ProcessStep step="5">
         ### Set Active Theme

@@ -65,21 +65,23 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         npm install tailwindcss @tailwindcss/vite
         ```
 		Implement the plugin in `vite.config` in the root of your project.
-		```ts title="vite.config"
-		import { defineConfig } from 'vite'
-		import tailwindcss from '@tailwindcss/vite'
+		```ts title="vite.config" {3} "tailwindcss()"
+		import { defineConfig } from "vite";
+		import react from "@vitejs/plugin-react";
+		import tailwindcss from "@tailwindcss/vite";
 
-    	export default defineConfig({
-    		plugins: [
-    			tailwindcss(),
-    		],
-    	})
+		export default defineConfig({
+			plugins: [
+				tailwindcss(),
+				react() // <-- Must come after Tailwind
+			],
+		});
     	```
     </ProcessStep>
     <ProcessStep step="4">
         ### Configure Tailwind
-       	Locate your global stylesheet and append the following at the top of the file.
-         ```css
+       	Open your global styleshset in `/src/index.css` and append the following at the top of the file.
+         ```css title="index.css"
         @import 'tailwindcss';
 
         @import '@skeletonlabs/skeleton';
@@ -94,7 +96,6 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
         ```html title="index.html" "data-theme="cerberus""
         <html data-theme="cerberus">...</html>
         ```
-
     </ProcessStep>
     <ProcessStep step="check">
         ### Done
