@@ -238,9 +238,6 @@ importers:
       detect-indent:
         specifier: ^7.0.1
         version: 7.0.1
-      fast-glob:
-        specifier: ^3.3.1
-        version: 3.3.3
       latest-version:
         specifier: ^9.0.0
         version: 9.0.0
@@ -250,15 +247,24 @@ importers:
       nanoid:
         specifier: ^5.0.9
         version: 5.1.0
+      node-html-parser:
+        specifier: ^7.0.1
+        version: 7.0.1
       package-manager-detector:
         specifier: ^0.2.8
         version: 0.2.9
+      postcss:
+        specifier: ^8.4.49
+        version: 8.5.3
       semver:
         specifier: ^7.6.3
         version: 7.7.1
       svelte:
         specifier: 'catalog:'
         version: 5.20.2
+      tinyglobby:
+        specifier: ^0.2.12
+        version: 0.2.12
       ts-morph:
         specifier: ^25.0.0
         version: 25.0.1
@@ -269,9 +275,6 @@ importers:
       '@types/estree':
         specifier: ^1.0.6
         version: 1.0.6
-      '@types/jsdom':
-        specifier: ^21.1.7
-        version: 21.1.7
       '@types/node':
         specifier: ^22.1.0
         version: 22.13.4
@@ -2702,9 +2705,6 @@ packages:
   '@types/http-cache-semantics@4.0.4':
     resolution: { integrity: sha512-1m0bIFVc7eJWyve9S0RnuRgcQqF/Xd5QsUZAZeQFr1Q3/p9JWoQQEqmVy+DPTNpGXwhgIetAoYF8JSc33q29QA== }
 
-  '@types/jsdom@21.1.7':
-    resolution: { integrity: sha512-yOriVnggzrnQ3a9OKOCxaVuSug3w3/SbOj5i7VwXWZEyUNl3bLF9V3MfxGbZKuwqJOQyRfqXyROBB1CoZLFWzA== }
-
   '@types/mdast@4.0.4':
     resolution: { integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA== }
 
@@ -2756,9 +2756,6 @@ packages:
 
   '@types/tar@6.1.13':
     resolution: { integrity: sha512-IznnlmU5f4WcGTh2ltRu/Ijpmk8wiWXfF0VA4s+HPjHZgvFggk1YaIkbo5krX/zUCzWF8N/l4+W/LNxnvAJ8nw== }
-
-  '@types/tough-cookie@4.0.5':
-    resolution: { integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA== }
 
   '@types/unist@2.0.11':
     resolution: { integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA== }
@@ -4473,6 +4470,10 @@ packages:
   hastscript@9.0.1:
     resolution: { integrity: sha512-g7df9rMFX/SPi34tyGCyUBREQoKkapwdY/T04Qn9TDWfHhAYt4/I0gMVirzK5wEzeUqIjEB+LXC/ypb7Aqno5w== }
 
+  he@1.2.0:
+    resolution: { integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw== }
+    hasBin: true
+
   hermes-estree@0.20.1:
     resolution: { integrity: sha512-SQpZK4BzR48kuOg0v4pb3EAGNclzIlqMj3Opu/mu7bbAoFw6oig6cEt/RAi0zTFW/iW6Iz9X9ggGuZTAZ/yZHg== }
 
@@ -5406,6 +5407,9 @@ packages:
   node-gyp-build@4.8.4:
     resolution: { integrity: sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ== }
     hasBin: true
+
+  node-html-parser@7.0.1:
+    resolution: { integrity: sha512-KGtmPY2kS0thCWGK0VuPyOS+pBKhhe8gXztzA2ilAOhbUbxa9homF1bOyKvhGzMLXUoRds9IOmr/v5lr/lqNmA== }
 
   node-mock-http@1.0.0:
     resolution: { integrity: sha512-0uGYQ1WQL1M5kKvGRXWQ3uZCHtLTO8hln3oBjIusM75WoesZ909uQJs/Hb946i2SS+Gsrhkaa6iAO17jRIv6DQ== }
@@ -9563,12 +9567,6 @@ snapshots:
 
   '@types/http-cache-semantics@4.0.4': {}
 
-  '@types/jsdom@21.1.7':
-    dependencies:
-      '@types/node': 22.13.4
-      '@types/tough-cookie': 4.0.5
-      parse5: 7.2.1
-
   '@types/mdast@4.0.4':
     dependencies:
       '@types/unist': 3.0.3
@@ -9626,8 +9624,6 @@ snapshots:
     dependencies:
       '@types/node': 22.13.4
       minipass: 4.2.8
-
-  '@types/tough-cookie@4.0.5': {}
 
   '@types/unist@2.0.11': {}
 
@@ -12078,6 +12074,8 @@ snapshots:
       property-information: 7.0.0
       space-separated-tokens: 2.0.2
 
+  he@1.2.0: {}
+
   hermes-estree@0.20.1: {}
 
   hermes-parser@0.20.1:
@@ -13211,6 +13209,11 @@ snapshots:
       whatwg-url: 5.0.0
 
   node-gyp-build@4.8.4: {}
+
+  node-html-parser@7.0.1:
+    dependencies:
+      css-select: 5.1.0
+      he: 1.2.0
 
   node-mock-http@1.0.0: {}
 

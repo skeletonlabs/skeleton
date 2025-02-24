@@ -1,1 +1,1 @@
-<div class:rounded={true}></div>
+<div class:rounded-base="{true}"></div>

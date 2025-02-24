@@ -1,9 +1,9 @@
 import type { PackageJson } from 'type-fest';
 import { coerce, lt } from 'semver';
-import { sortPropertiesAlphabetically } from '../../../../../utility/sort-properties-alphabetically';
+import { sortPropertiesAlphabetically } from '../../../../../utility/sort-properties-alphabetically.js';
 import detectIndent from 'detect-indent';
 
-function transformPackage(code: string, skeletonVersion: string, skeletonSvelteVersion: string) {
+function transformPackageJson(code: string, skeletonVersion: string, skeletonSvelteVersion: string) {
 	const pkg = JSON.parse(code) as PackageJson;
 	for (const field of ['dependencies', 'devDependencies'] as const) {
 		if (!pkg[field]) {
@@ -25,4 +25,4 @@ function transformPackage(code: string, skeletonVersion: string, skeletonSvelteV
 	};
 }
 
-export { transformPackage };
+export { transformPackageJson };

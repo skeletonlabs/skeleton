@@ -1,0 +1,6 @@
+@import "@skeletonlabs/skeleton";
+@import "@skeletonlabs/skeleton/optional/presets";
+@import "@skeletonlabs/skeleton/themes/cerberus";
+.foo {
+    @apply rounded-base;
+}

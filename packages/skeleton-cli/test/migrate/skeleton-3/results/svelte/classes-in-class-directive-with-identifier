@@ -2,4 +2,4 @@
 	const foo = true;
 </script>
 
-<div class:rounded={foo}></div>
+<div class:rounded-base="{foo}"></div>

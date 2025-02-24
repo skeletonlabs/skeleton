@@ -1,1 +1,1 @@
-<div class:rounded-token={true}></div>
+<div class:rounded-token="{true}"></div>

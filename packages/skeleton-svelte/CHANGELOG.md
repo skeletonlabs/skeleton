@@ -1,20 +1,16 @@
 # @skeletonlabs/skeleton-svelte
 
 ## 1.0.0-next.20
-### Minor Changes
 
+### Minor Changes
 
 - feat: Navigation - manually handle `selected` state of NavTile ([#3228](https://github.com/skeletonlabs/skeleton/pull/3228))
 
-
 ### Patch Changes
-
 
 - feat: Implement `aria-label` for triggers ([#3243](https://github.com/skeletonlabs/skeleton/pull/3243))
 
-
 - chore: Remove redundant null checks for triggers ([#3226](https://github.com/skeletonlabs/skeleton/pull/3226))
-
 
 - bugfix: only render button wrapping around `trigger` if the snippet was provided ([#3223](https://github.com/skeletonlabs/skeleton/pull/3223))
 
