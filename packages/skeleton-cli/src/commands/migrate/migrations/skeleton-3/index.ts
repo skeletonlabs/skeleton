@@ -67,6 +67,7 @@ export default async function (options: MigrateOptions) {
 	}
 
 	// Migrate package.json
+	let isUsingComponents = false;
 	const packageSpinner = spinner();
 	packageSpinner.start(`Migrating ${packageJson.name}...`);
 	try {
@@ -74,6 +75,7 @@ export default async function (options: MigrateOptions) {
 		const skeletonVersion = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
 		const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
 		const transformedPackageJson = transformPackageJson(packageJsonCode, skeletonVersion, skeletonSvelteVersion);
+		isUsingComponents = transformedPackageJson.meta.isUsingComponents;
 		migrations.push({ path: packageJson.paths[0], content: transformedPackageJson.code });
 		packageSpinner.stop(`Successfully migrated ${packageJson.name}!`);
 	} catch (e) {
@@ -81,9 +83,8 @@ export default async function (options: MigrateOptions) {
 		cli.error('Migration canceled, nothing written to disk');
 	}
 
-	let theme: Theme | undefined;
-
 	// Migrate app.html
+	let theme: Theme | undefined;
 	const appHtmlSpinner = spinner();
 	appHtmlSpinner.start(`Migrating ${appHtml.name}...`);
 	try {
@@ -108,7 +109,7 @@ export default async function (options: MigrateOptions) {
 	appCssSpinner.start(`Migrating ${appCss.name}...`);
 	try {
 		const appCssCode = await readFile(appCss.paths[0], 'utf-8');
-		const transformedAppCss = transformAppCss(appCssCode, theme ?? FALLBACK_THEME);
+		const transformedAppCss = transformAppCss(appCssCode, theme ?? FALLBACK_THEME, isUsingComponents);
 		migrations.push({ path: appCss.paths[0], content: transformedAppCss.code });
 		appCssSpinner.stop(`Successfully migrated ${appCss.name}!`);
 	} catch (e) {
