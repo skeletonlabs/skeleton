@@ -1,7 +1,7 @@
 import * as progress from '@zag-js/progress';
 import type { ReactNode } from 'react';
 
-export interface ProgressProps extends React.PropsWithChildren, Omit<progress.Context, 'id'> {
+export interface ProgressProps extends React.PropsWithChildren, Omit<progress.Props, 'id'> {
 	// Root ---
 	/** Set root base classes */
 	base?: string;

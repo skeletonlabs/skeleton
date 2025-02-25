@@ -5,7 +5,6 @@ import { useMachine, normalizeProps } from '@zag-js/react';
 import { useId, type FC } from 'react';
 import type { RatingProps } from './types';
 import { starEmpty, starHalf, starFull } from '../../internal/nodes';
-import { noop } from '../../internal/noop';
 
 export const Rating: FC<RatingProps> = ({
 	// Root
@@ -22,7 +21,6 @@ export const Rating: FC<RatingProps> = ({
 	itemBase = '',
 	itemClasses = '',
 	// State
-	stateInteractive = 'cursor-pointer',
 	stateReadOnly = '',
 	stateDisabled = 'cursor-not-allowed opacity-50',
 	// Icons
@@ -31,25 +29,19 @@ export const Rating: FC<RatingProps> = ({
 	iconFull = starFull,
 	// Children
 	label,
-	// Events
-	onValueChange = noop,
 	// Zag
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		rating.machine({
-			id: useId(),
-			onValueChange: (details) => onValueChange(details.value)
-		}),
-		{ context: zagProps }
-	);
-	const api = rating.connect(state, send, normalizeProps);
+	const service = useMachine(rating.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = rating.connect(service, normalizeProps);
 
 	// Reactive
-	const rxInteractive = state.context.isInteractive ? stateInteractive : '';
-	const rxReadOnly = state.context.readOnly ? stateReadOnly : '';
-	const rxDisabled = state.context.disabled ? stateDisabled : '';
+	const rxReadOnly = service.prop('readOnly') ? stateReadOnly : '';
+	const rxDisabled = service.prop('disabled') ? stateDisabled : '';
 
 	return (
 		<div {...api.getRootProps()} className={`${base} ${classes}`} data-testid="rating">
@@ -62,7 +54,7 @@ export const Rating: FC<RatingProps> = ({
 			{/* Control */}
 			<div
 				{...api.getControlProps()}
-				className={`${controlBase} ${controlGap} ${rxInteractive} ${rxReadOnly} ${rxDisabled} ${controlClasses}`}
+				className={`${controlBase} ${controlGap} ${rxReadOnly} ${rxDisabled} ${controlClasses}`}
 				data-testid="rating-control"
 			>
 				{api.items.map((item) => {

@@ -17,7 +17,7 @@ export interface AccordionItemContextState {
 
 // Accordion ---
 
-export interface AccordionProps extends React.PropsWithChildren, Omit<accordion.Context, 'id' | 'orientation' | 'onValueChange'> {
+export interface AccordionProps extends React.PropsWithChildren, Omit<accordion.Props, 'id' | 'orientation'> {
 	/** The slide animation duration as a float value (ex: 0.2). */
 	animDuration?: number;
 
@@ -27,10 +27,6 @@ export interface AccordionProps extends React.PropsWithChildren, Omit<accordion.
 	iconOpen?: ReactNode;
 	/** Set the closed state icon. */
 	iconClosed?: ReactNode;
-
-	// Events ---
-	/** Set the opened state. */
-	onValueChange?: (value: string[]) => void;
 
 	// Root ---
 	/** Sets base styles. */

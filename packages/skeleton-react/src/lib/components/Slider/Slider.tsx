@@ -5,7 +5,6 @@ import { FC, useId } from 'react';
 import * as slider from '@zag-js/slider';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import type { SliderProps } from './types';
-import { noop } from '../../internal/noop.js';
 
 export const Slider: FC<SliderProps> = ({
 	height = 'h-1.5',
@@ -46,28 +45,21 @@ export const Slider: FC<SliderProps> = ({
 	// State ---
 	stateDisabled = 'disabled',
 	stateReadOnly = 'cursor-not-allowed',
-	// Events ---
-	onValueChange = noop,
-	onValueChangeEnd = noop,
 	// Children ---
 	mark,
 	// Zag ---
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		slider.machine({
-			id: useId(),
-			onValueChange: (details) => onValueChange(details.value),
-			onValueChangeEnd: (details) => onValueChangeEnd(details.value)
-		}),
-		{ context: zagProps }
-	);
-	const api = slider.connect(state, send, normalizeProps);
+	const service = useMachine(slider.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = slider.connect(service, normalizeProps);
 
 	// Reactive
-	const rxDisabled = state.context.disabled ? stateDisabled : '';
-	const rxReadOnly = state.context.readOnly ? stateReadOnly : thumbCursor;
+	const rxDisabled = service.prop('disabled') ? stateDisabled : '';
+	const rxReadOnly = service.prop('readOnly') ? stateReadOnly : thumbCursor;
 
 	return (
 		<div {...api.getRootProps()} className={`${base} ${height} ${rxDisabled} ${classes}`} data-testid="slider">

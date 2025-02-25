@@ -1,4 +1,6 @@
-export interface AvatarProps extends React.PropsWithChildren {
+import type * as avatar from '@zag-js/avatar';
+
+export interface AvatarProps extends Omit<avatar.Props, 'id'>, React.PropsWithChildren {
 	/** The source of the avatar image. */
 	src?: string;
 	/** The source set of the avatar image. */

@@ -49,24 +49,21 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 	iconFile,
 	iconFileRemove,
 	// Zag
-	internalApi,
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		fileUpload.machine({
-			id: useId()
-		}),
-		{ context: zagProps }
-	);
-	const api = fileUpload.connect(state, send, normalizeProps);
+	const service = useMachine(fileUpload.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = fileUpload.connect(service, normalizeProps);
 
 	useEffect(() => {
-		if (internalApi) internalApi(api);
-	}, [internalApi, api]);
+		zagProps.onApiReady?.(api);
+	}, [zagProps, api]);
 
 	// Reactive
-	const rxDisabled = state.context.disabled ? stateDisabled : '';
+	const rxDisabled = service.prop('disabled') ? stateDisabled : '';
 	const rxInvalid = api.rejectedFiles.length > 0 ? stateInvalid : interfaceBorderColor;
 	const rxDragging = api.dragging && !children ? stateDragging : '';
 

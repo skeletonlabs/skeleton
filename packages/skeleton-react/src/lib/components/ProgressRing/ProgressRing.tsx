@@ -44,8 +44,11 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(progress.machine({ id: useId() }), { context: zagProps });
-	const api = progress.connect(state, send, normalizeProps);
+	const service = useMachine(progress.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = progress.connect(service, normalizeProps);
 
 	// Reactive Classes
 	const rxAnimCircle = api.indeterminate ? 'animate-spin' : '';

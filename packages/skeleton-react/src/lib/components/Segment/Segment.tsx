@@ -4,7 +4,6 @@ import { FC, createContext, useContext, useId } from 'react';
 import * as radio from '@zag-js/radio-group';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import type { SegmentContextState, SegmentProps, SegmentItemsProps } from './types.js';
-import { noop } from '../../internal/noop.js';
 
 // Contexts ---
 
@@ -16,7 +15,6 @@ export const SegmentContext = createContext<SegmentContextState>({
 // Components ---
 
 const SegmentRoot: FC<SegmentProps> = ({
-	orientation = 'horizontal',
 	// Root
 	base = 'inline-flex items-stretch overflow-hidden',
 	background = 'preset-outlined-surface-200-800',
@@ -37,8 +35,6 @@ const SegmentRoot: FC<SegmentProps> = ({
 	indicatorText = 'text-surface-contrast-950 dark:text-surface-contrast-50',
 	indicatorRounded = 'rounded-base',
 	indicatorClasses = '',
-	// Events
-	onValueChange = noop,
 	// Label
 	labelledby = '',
 	// Children
@@ -47,23 +43,20 @@ const SegmentRoot: FC<SegmentProps> = ({
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		radio.machine({
-			id: useId(),
-			onValueChange: (details) => onValueChange(details.value),
-			orientation
-		}),
-		{ context: zagProps }
-	);
-	const api = radio.connect(state, send, normalizeProps);
+	const service = useMachine(radio.machine, {
+		id: useId(),
+		orientation: zagProps.orientation ?? 'horizontal',
+		...zagProps
+	});
+	const api = radio.connect(service, normalizeProps);
 
 	// Set Context
 	const ctx = { api, indicatorText };
 
 	// Reactive
-	const rxOrientation = state.context.orientation === 'vertical' ? orientVertical : orientHorizontal;
-	const rxDisabled = state.context.disabled ? stateDisabled : '';
-	const rxReadOnly = state.context.readOnly ? stateReadOnly : '';
+	const rxOrientation = service.prop('orientation') === 'vertical' ? orientVertical : orientHorizontal;
+	const rxDisabled = service.prop('disabled') ? stateDisabled : '';
+	const rxReadOnly = service.prop('readOnly') ? stateReadOnly : '';
 
 	return (
 		<div

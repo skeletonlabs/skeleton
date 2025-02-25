@@ -2,9 +2,9 @@
 
 export interface NavContextState {
 	parent: string;
-	value: string;
+	value?: string;
 	expanded?: boolean;
-	onSelectionHandler: (id: string) => void;
+	onValueChange?: (id: string) => void;
 }
 
 // Components ---
@@ -45,7 +45,7 @@ export interface NavCommonProps {
 
 	// Events ---
 	/** Triggers when selection occurs. */
-	onChange?: (id: string) => void;
+	onValueChange?: (id: string) => void;
 }
 
 export interface NavBarProps extends NavCommonProps {

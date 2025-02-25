@@ -5,7 +5,7 @@ import type { PropTypes } from '@zag-js/react';
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface FileUploadApi extends fileUpload.Api<PropTypes> {}
 
-export interface FileUploadProps extends React.PropsWithChildren, Omit<fileUpload.Context, 'id'> {
+export interface FileUploadProps extends React.PropsWithChildren, Omit<fileUpload.Props, 'id'> {
 	/** Set the interface text value. */
 	label?: string;
 	/** Set the interface subtext value. */
@@ -89,5 +89,5 @@ export interface FileUploadProps extends React.PropsWithChildren, Omit<fileUploa
 
 	// Zag ---
 	/** Binds the Zag API for external use. */
-	internalApi?: (api: FileUploadApi) => void;
+	onApiReady?: (api: FileUploadApi) => void;
 }

@@ -4,12 +4,8 @@ import React, { useId } from 'react';
 import * as zagSwitch from '@zag-js/switch';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import { SwitchProps } from './types.js';
-import { noop } from '../../internal/noop.js';
 
 export const Switch: React.FC<SwitchProps> = ({
-	name = '',
-	checked = false,
-	disabled = false,
 	compact = false,
 	// Root (Track)
 	base = 'inline-flex items-center gap-4',
@@ -43,41 +39,29 @@ export const Switch: React.FC<SwitchProps> = ({
 	// Icons
 	iconInactiveBase = 'pointer-events-none',
 	iconActiveBase = 'pointer-events-none',
-	// Events
-	onCheckedChange = noop,
 	// Children
 	children,
 	inactiveChild,
-	activeChild
+	activeChild,
+	// Zag
+	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		zagSwitch.machine({
-			id: useId(),
-			name,
-			disabled,
-			checked,
-			onCheckedChange: (details) => onCheckedChange(details.checked)
-		})
-	);
-	const api = zagSwitch.connect(state, send, normalizeProps);
+	const service = useMachine(zagSwitch.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = zagSwitch.connect(service, normalizeProps);
 
-	// Set Compact Mode
-	if (compact) {
-		controlBase = thumbBase;
-		// Removes the height class
-		controlHeight = '';
-		// Thumb inherits track styles
-		thumbInactive = controlInactive;
-		thumbActive = controlActive;
-		// Remove X-axis translate
-		thumbTranslateX = '';
-		// Remove padding
-		controlPadding = '';
-	}
+	const rxControlBase = compact ? thumbBase : controlBase;
+	const rxControlHeight = compact ? '' : controlHeight;
+	const rxControlPadding = compact ? '' : controlPadding;
+	const rxThumbInactive = compact ? controlInactive : thumbInactive;
+	const rxThumbActive = compact ? controlActive : thumbActive;
+	const rxThumbTranslateX = compact ? '' : thumbTranslateX;
 
 	const rxTrackState = api.checked ? controlActive : controlInactive;
-	const rxThumbState = api.checked ? `${thumbActive} ${thumbTranslateX}` : thumbInactive;
+	const rxThumbState = api.checked ? `${rxThumbActive} ${rxThumbTranslateX}` : rxThumbInactive;
 	const rxDisabled = api.disabled ? controlDisabled : '';
 	const rxFocused = api.focused ? stateFocused : '';
 
@@ -88,7 +72,7 @@ export const Switch: React.FC<SwitchProps> = ({
 			{/* Control */}
 			<span
 				{...api.getControlProps()}
-				className={`${controlBase} ${rxTrackState} ${rxFocused} ${controlWidth} ${controlHeight} ${controlPadding} ${controlRounded} ${controlHover} ${rxDisabled}  ${controlClasses}`}
+				className={`${rxControlBase} ${rxTrackState} ${rxFocused} ${controlWidth} ${rxControlHeight} ${rxControlPadding} ${controlRounded} ${controlHover} ${rxDisabled}  ${controlClasses}`}
 				data-testid="switch-control"
 			>
 				{/* Thumb */}
@@ -98,13 +82,13 @@ export const Switch: React.FC<SwitchProps> = ({
 					data-testid="switch-thumb"
 				>
 					{/* Icon: Inactive */}
-					{!checked && inactiveChild ? (
+					{!api.checked && inactiveChild ? (
 						<span className={iconInactiveBase} data-testid="switch-icon-inactive">
 							{inactiveChild}
 						</span>
 					) : null}
 					{/* Icon: Active */}
-					{checked && activeChild ? (
+					{api.checked && activeChild ? (
 						<span className={iconActiveBase} data-testid="switch-icon-active">
 							{activeChild}
 						</span>

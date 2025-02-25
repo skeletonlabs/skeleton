@@ -1,7 +1,7 @@
 import * as rating from '@zag-js/rating-group';
 import type { ReactNode } from 'react';
 
-export interface RatingProps extends Omit<rating.Context, 'id' | 'onValueChange'> {
+export interface RatingProps extends Omit<rating.Props, 'id'> {
 	// Root ---
 	/** Set root base classes */
 	base?: string;
@@ -31,8 +31,6 @@ export interface RatingProps extends Omit<rating.Context, 'id' | 'onValueChange'
 	itemClasses?: string;
 
 	// State ---
-	/** Set item interactive state classes */
-	stateInteractive?: string;
 	/** Set item read-only state classes */
 	stateReadOnly?: string;
 	/** Set item disabled state classes */
@@ -47,8 +45,4 @@ export interface RatingProps extends Omit<rating.Context, 'id' | 'onValueChange'
 	iconFull?: ReactNode;
 	/** Set the label node */
 	label?: ReactNode;
-
-	// Events ---
-	/** Set the onValueChange callback */
-	onValueChange?: (value: number) => void;
 }

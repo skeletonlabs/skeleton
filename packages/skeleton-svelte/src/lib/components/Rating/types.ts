@@ -31,8 +31,6 @@ export interface RatingProps extends Omit<rating.Props, 'id'> {
 	itemClasses?: string;
 
 	// State ---
-	/** Set item interactive state classes */
-	stateInteractive?: string;
 	/** Set item read-only state classes */
 	stateReadOnly?: string;
 	/** Set item disabled state classes */

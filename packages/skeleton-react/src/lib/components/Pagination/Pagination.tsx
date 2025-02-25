@@ -41,19 +41,16 @@ export const Pagination: FC<PaginationProps> = ({
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		pagination.machine({
-			id: useId(),
-			// Use 'count' if specified; required for server-side pagination.
-			count: zagProps.count ?? data.length
-		}),
-		{ context: zagProps }
-	);
-	const api = pagination.connect(state, send, normalizeProps);
+	const service = useMachine(pagination.machine, {
+		id: useId(),
+		count: zagProps.count ?? data.length,
+		...zagProps
+	});
+	const api = pagination.connect(service, normalizeProps);
 
 	// Reactive
 	const rxButtonActive = (page: { value: number }) => {
-		return state.context.page === page.value ? buttonActive : `${buttonInactive} ${buttonHover}`;
+		return service.prop('page') === page.value ? buttonActive : `${buttonInactive} ${buttonHover}`;
 	};
 
 	return (

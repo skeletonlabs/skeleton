@@ -1,13 +1,7 @@
 import { ReactNode } from 'react';
 import * as zagSwitch from '@zag-js/switch';
 
-export interface SwitchProps extends React.PropsWithChildren, Omit<zagSwitch.Context, 'id' | 'onCheckedChange'> {
-	/** Set a unique name for the switch input. */
-	name: string;
-	/** Set the checked state. */
-	checked?: boolean;
-	/** Set the disabled state. */
-	disabled?: boolean;
+export interface SwitchProps extends React.PropsWithChildren, Omit<zagSwitch.Props, 'id'> {
 	/** Set the compact display mode. */
 	compact?: boolean;
 
@@ -74,10 +68,6 @@ export interface SwitchProps extends React.PropsWithChildren, Omit<zagSwitch.Con
 	iconInactiveBase?: string;
 	/** Set base classes for the active icon child. */
 	iconActiveBase?: string;
-
-	// Events ---
-	/** Triggers when the switch is toggled. */
-	onCheckedChange?: (value: boolean) => void;
 
 	// Children ---
 	/** The inactive state children. */

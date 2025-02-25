@@ -4,9 +4,7 @@ import { createContext, useContext, useId } from 'react';
 import type { FC } from 'react';
 import * as accordion from '@zag-js/accordion';
 import { useMachine, normalizeProps } from '@zag-js/react';
-
 import type { AccordionContextState, AccordionControlProps, AccordionItemProps, AccordionPanelProps, AccordionProps } from './types.js';
-import { noop } from '../../internal/noop.js';
 
 // Contexts ---
 
@@ -35,25 +33,17 @@ const AccordionRoot: FC<AccordionProps> = ({
 	// Icons
 	iconOpen = '-',
 	iconClosed = '+',
-	// Events
-	onValueChange = noop,
 	// Children
 	children,
 	// Zag
 	...zagProps
 }) => {
 	// Zag
-	const [state, send] = useMachine(
-		accordion.machine({
-			id: useId(),
-			onValueChange: (details) => {
-				onValueChange(details.value);
-			}
-		}),
-		{ context: zagProps }
-	);
-	const api = accordion.connect(state, send, normalizeProps);
-
+	const service = useMachine(accordion.machine, {
+		id: useId(),
+		...zagProps
+	});
+	const api = accordion.connect(service, normalizeProps);
 	return (
 		<div className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`} {...api.getRootProps()} data-testid="accordion">
 			<AccordionContext.Provider value={{ animDuration, iconOpen, iconClosed, api }}>{children}</AccordionContext.Provider>

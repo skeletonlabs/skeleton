@@ -9,7 +9,7 @@ export const NavContext = createContext<NavContextState>({
 	parent: 'none',
 	value: '',
 	expanded: false,
-	onSelectionHandler: () => {}
+	onValueChange: () => {}
 });
 
 // Components ---
@@ -47,23 +47,18 @@ export const NavRail: React.FC<NavRailProps> = ({
 	footerGap = 'gap-1',
 	footerClasses = '',
 	// Events
-	onChange,
+	onValueChange,
 	// Snippets
 	header,
 	children,
 	footer
 }) => {
-	function onSelectionHandler(id: string) {
-		value = id;
-		if (onChange) onChange(id);
-	}
-
 	// Set Context
 	const ctx = {
 		parent: 'rail',
 		value,
 		expanded,
-		onSelectionHandler
+		onValueChange
 	};
 
 	// Reactive
@@ -121,21 +116,16 @@ export const NavBar: React.FC<NavBarProps> = ({
 	tilesGap = 'gap-1',
 	tilesClasses = '',
 	// Events
-	onChange,
+	onValueChange,
 	// Snippets
 	children
 }) => {
-	function onSelectionHandler(id: string) {
-		value = id;
-		if (onChange) onChange(id);
-	}
-
 	// Set Context
 	const ctx = {
 		parent: 'bar',
 		value,
 		expanded: false,
-		onSelectionHandler
+		onValueChange
 	};
 
 	return (
@@ -207,7 +197,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 	function onClickHandler() {
 		if (onClick && !id) throw new Error('No ID was provided');
 		if (onClick && id) onClick(id);
-		if (ctx.onSelectionHandler && id) ctx.onSelectionHandler(id);
+		if (id) ctx.onValueChange?.(id);
 	}
 
 	return (
