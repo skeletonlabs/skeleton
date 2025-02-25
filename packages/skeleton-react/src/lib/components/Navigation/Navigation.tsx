@@ -233,7 +233,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 
 // Exports ---
 
-export const Navigation = Object.assign(() => null, {
+export const Navigation = /* @__PURE__ */ Object.assign(() => null, {
 	Rail: NavRail,
 	Bar: NavBar,
 	Tile: NavTile

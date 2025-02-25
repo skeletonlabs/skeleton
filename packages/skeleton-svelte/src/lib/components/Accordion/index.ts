@@ -1,4 +1,4 @@
 import Accordion from './Accordion.svelte';
 import Item from './AccordionItem.svelte';
 
-export default Object.assign(Accordion, { Item });
+export default /* @__PURE__ */ Object.assign(Accordion, { Item });
