@@ -64,7 +64,7 @@ Skeleton is built on top of the following technologies. These must be migrated i
 Before migration to tailwind V4 using their upgrade guide some manual steps are required:
 
 1. Remove the `skeleton` plugin from your `tailwind.config` file.
-2. Remove the `purgeCSS` vite plugin from your `vite.config` (You might or might not have this installed, if not, you can ignore this step).
+2. Remove the `purgecss` (`vite-plugin-tailwind-purgecss`) vite plugin from your `vite.config` (You might or might not have this installed, if not, you can ignore this step).
 3. Rename your `app.postcss` or `app.pcss` to `app.css`.
 
 - Migrate to the latest release of Tailwind v4 ([migration guide](https://tailwindcss.com/docs/upgrade-guide))
