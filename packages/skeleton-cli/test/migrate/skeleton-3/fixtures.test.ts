@@ -30,7 +30,7 @@ function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 		case 'app.html':
 			return TRANSFORMER_MAP[transformer](code).code;
 		case 'app.css':
-			return TRANSFORMER_MAP[transformer](code, FALLBACK_THEME).code;
+			return TRANSFORMER_MAP[transformer](code, FALLBACK_THEME, true).code;
 		case 'package.json':
 			return TRANSFORMER_MAP[transformer](code, '3.0.0', '1.0.0').code;
 	}
@@ -59,12 +59,12 @@ describe('fixtures', () => {
 		describe(transformerName, () => {
 			for (const { name, path } of cases) {
 				test(name, async () => {
-					const result = getResult(
+					const received = getResult(
 						await readFile(resolve(fileURLToPath(import.meta.url), path), 'utf-8'),
 						transformerName as keyof typeof TRANSFORMER_MAP
 					);
 					const expected = await readFile(resolve(fileURLToPath(import.meta.url), path.replace('fixtures', 'results')), 'utf-8');
-					expect(clean(result)).toEqual(clean(expected));
+					expect(clean(received)).toEqual(clean(expected));
 				});
 			}
 		});

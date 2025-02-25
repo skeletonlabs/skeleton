@@ -12,7 +12,7 @@ function getTailwindImport(root: Root) {
 	return tailwindImport;
 }
 
-function transformAppCss(code: string, theme: Theme) {
+function transformAppCss(code: string, theme: Theme, addAtSource: boolean) {
 	code = transformStyleSheet(code).code;
 	const root = parse(code);
 	const nodes: Node[] = [];
@@ -40,6 +40,14 @@ function transformAppCss(code: string, theme: Theme) {
 		case 'custom':
 			nodes.push(comment({ text: `Add your theme import for your theme: "${theme.value}" here` }));
 			break;
+	}
+	if (addAtSource) {
+		nodes.push(
+			atRule({
+				name: 'source',
+				params: '"../node_modules/@skeletonlabs/skeleton-svelte"'
+			})
+		);
 	}
 	const tailwindImport = getTailwindImport(root);
 	if (tailwindImport) {
