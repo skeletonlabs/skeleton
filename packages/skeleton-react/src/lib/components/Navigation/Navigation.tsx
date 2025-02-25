@@ -1,16 +1,8 @@
 'use client';
 
-import React, { createContext, useContext, useId } from 'react';
+import React, { useContext, useId } from 'react';
 import { NavContextState, NavRailProps, NavBarProps, NavTileProps } from './types.js';
-
-// Contexts ---
-
-export const NavContext = createContext<NavContextState>({
-	parent: 'none',
-	value: '',
-	expanded: false,
-	onValueChange: () => {}
-});
+import { NavContext } from './context.js';
 
 // Components ---
 

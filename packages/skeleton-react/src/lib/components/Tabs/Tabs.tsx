@@ -1,16 +1,10 @@
 'use client';
 
-import { createContext, FC, useContext, useId } from 'react';
+import { FC, useContext, useId } from 'react';
 import * as tabs from '@zag-js/tabs';
 import { useMachine, normalizeProps } from '@zag-js/react';
-import { TabsContextState, TabsRootProps, TabsListProps, TabsControlProps, TabsContentProps, TabsPanelProps } from './types.js';
-
-// Context ---
-
-export const TabsContext = createContext<TabsContextState>({
-	fluid: false,
-	api: {} as ReturnType<typeof tabs.connect>
-});
+import { TabsRootProps, TabsListProps, TabsControlProps, TabsContentProps, TabsPanelProps } from './types.js';
+import { TabsContext } from './context.js';
 
 // Components ---
 
