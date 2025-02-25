@@ -80,11 +80,11 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     </ProcessStep>
     <ProcessStep step="4">
         ### Configure Tailwind
-    	Open your global styleshset in `/src/index.css` and append the following at the top of the file.
-         ```css title="index.css"
+    	Open your global styleshset in `/src/app.css` and append the following at the top of the file.
+         ```css title="app.css"
         @import 'tailwindcss';
 
-    	@source '../node_modules/@skeletonlabs/skeleton-svelte';
+    	@source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
         @import '@skeletonlabs/skeleton';
         @import '@skeletonlabs/skeleton/optional/presets';
