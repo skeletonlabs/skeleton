@@ -1,11 +1,10 @@
 # @skeletonlabs/skeleton-cli
 
 ## 0.0.1-next.19
+
 ### Patch Changes
 
-
 - bugfix: Add `@source` when component library is present ([#3262](https://github.com/skeletonlabs/skeleton/pull/3262))
-
 
 - bugfix: Theme import is correctly migrated ([#3253](https://github.com/skeletonlabs/skeleton/pull/3253))
 
