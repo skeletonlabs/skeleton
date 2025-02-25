@@ -7,7 +7,7 @@
 
 <section class="w-full space-y-4">
 	<p>Not Editable Tags</p>
-	<TagsInput bind:value={flavors} placeholder="Add Tag..." editable={false} />
+	<TagsInput value={flavors} onValueChange={(e) => (flavors = e.value)} placeholder="Add Tag..." editable={false} />
 	<p>Add Tag on Paste</p>
-	<TagsInput bind:value={flavors} placeholder="Add Tag..." addOnPaste />
+	<TagsInput value={flavors} onValueChange={(e) => (flavors = e.value)} placeholder="Add Tag..." addOnPaste />
 </section>

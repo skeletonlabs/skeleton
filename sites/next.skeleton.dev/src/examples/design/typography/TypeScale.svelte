@@ -23,5 +23,12 @@
 		<span class={options[currentOption]}>{options[currentOption]}</span>
 	</div>
 	<!-- Ranger Slider -->
-	<input class="input max-w-[320px] mx-auto" type="range" bind:value={currentOption} max="12" step="1" />
+	<input
+		class="input max-w-[320px] mx-auto"
+		type="range"
+		value={currentOption}
+		onValueChange={(e) => (currentOption = e.value)}
+		max="12"
+		step="1"
+	/>
 </div>

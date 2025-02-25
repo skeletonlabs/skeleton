@@ -4,7 +4,8 @@
 </script>
 
 <Tooltip
-	bind:open={openState}
+	open={openState}
+	onOpenChange={(e) => (openState = e.open)}
 	positioning={{ placement: 'top' }}
 	triggerBase="underline"
 	contentBase="card preset-filled p-4"

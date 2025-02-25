@@ -16,7 +16,7 @@
 		<p class="opacity-20">(Content)</p>
 	</div>
 	<!-- Component -->
-	<Navigation.Bar bind:value onchange={console.log}>
+	<Navigation.Bar {value} onValueChange={(_value) => (value = _value)}>
 		<Navigation.Tile id="0" label="Files">
 			<IconFolder />
 		</Navigation.Tile>

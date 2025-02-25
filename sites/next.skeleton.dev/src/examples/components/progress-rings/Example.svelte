@@ -7,5 +7,5 @@
 
 <div class="grid grid-cols-1 gap-4 justify-center">
 	<ProgressRing {value} {max} />
-	<input type="range" class="input max-w-32" bind:value {max} />
+	<input type="range" class="input max-w-32" {value} onValueChange={(e) => (value = e.value)} {max} />
 </div>

@@ -5,4 +5,4 @@
 	let flavors = $state(['Vanilla', 'Chocolate', 'Strawberry']);
 </script>
 
-<TagsInput name="example" bind:value={flavors} placeholder="Add Tag..." disabled />
+<TagsInput name="example" value={flavors} onValueChange={(e) => (flavors = e.value)} placeholder="Add Tag..." disabled />

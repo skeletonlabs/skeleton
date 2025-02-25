@@ -181,7 +181,8 @@
 				<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800 rounded-container-token">
 					<button class="input-group-cell preset-tonal">+</button>
 					<textarea
-						bind:value={currentMessage}
+						value={currentMessage}
+						onValueChange={(e) => (currentMessage = e.value)}
 						class="bg-transparent border-0 ring-0"
 						name="prompt"
 						id="prompt"
