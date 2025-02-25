@@ -1,12 +1,11 @@
 <script lang="ts">
 	import * as tagsInput from '@zag-js/tags-input';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import { useId } from '$lib/internal/use-id.js';
+
 	import type { TagsInputProps } from './types.js';
 
 	// Props
-	let {
-		value = $bindable(),
+	const {
 		placeholder = '',
 		// Root
 		base = 'grid input !h-auto',
@@ -39,27 +38,15 @@
 	}: TagsInputProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		tagsInput.machine({
-			id: useId(),
-			onValueChange: (details) => {
-				zagProps.onValueChange?.(details);
-				value = details.value;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get value() {
-					return $state.snapshot(value);
-				}
-			}
-		}
-	);
-	const api = $derived(tagsInput.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(tagsInput.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(tagsInput.connect(service, normalizeProps));
 
 	// Reactive
-	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
+	const rxDisabled = $derived(service.prop('disabled') ? stateDisabled : '');
 </script>
 
 <!-- @component Capture a set of values from users via input and suggestions. -->

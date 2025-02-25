@@ -1,9 +1,7 @@
 import * as tagsInput from '@zag-js/tags-input';
 import type { Snippet } from 'svelte';
 
-export interface TagsInputProps extends Omit<tagsInput.Context, 'id' | 'value'> {
-	/** Set the tag values. */
-	value?: tagsInput.Context['value'];
+export interface TagsInputProps extends Omit<tagsInput.Props, 'id'> {
 	/** Set the add tag input placeholder. */
 	placeholder?: string;
 

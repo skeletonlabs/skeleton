@@ -1,13 +1,9 @@
 import type { Snippet } from 'svelte';
 import * as popover from '@zag-js/popover';
 
-export interface PopoverProps extends Omit<popover.Context, 'id' | 'open'> {
-	/** Set the open state of the popover. */
-	open?: boolean;
+export interface PopoverProps extends Omit<popover.Props, 'id'> {
 	/** Enable display of the popover arrow. */
 	arrow?: boolean;
-	/** Disable the trigger element of the popover */
-	disabled?: boolean;
 
 	// Base ---
 	/** Set base classes for the root element. */

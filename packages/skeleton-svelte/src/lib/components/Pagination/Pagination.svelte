@@ -1,15 +1,10 @@
 <script lang="ts">
 	import * as pagination from '@zag-js/pagination';
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
-
 	import type { PaginationProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
-	import { untrack } from 'svelte';
 
-	let {
-		page = $bindable(1),
-		pageSize = $bindable(10),
-		data = $bindable([]),
+	const {
+		data = [],
 		alternative = false,
 		textSeparator = 'of',
 		showFirstLastButtons = false,
@@ -44,44 +39,17 @@
 	}: PaginationProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		pagination.machine({
-			id: useId(),
-			page: page,
-			pageSize: pageSize,
-			count: zagProps.count ?? data.length
-		}),
-		{
-			context: {
-				...zagProps,
-				onPageChange(details) {
-					zagProps.onPageChange?.(details);
-					page = details.page;
-				},
-				onPageSizeChange(details) {
-					zagProps.onPageSizeChange?.(details);
-					pageSize = details.pageSize;
-				}
-			}
-		}
-	);
-	const api = $derived(pagination.connect(snapshot, send, normalizeProps));
-
-	$effect.pre(() => {
-		untrack(() => api).setPage(page);
-	});
-
-	$effect.pre(() => {
-		untrack(() => api).setPageSize(pageSize);
-	});
-
-	$effect.pre(() => {
-		untrack(() => api).setCount(zagProps.count ?? data.length);
-	});
+	const id = $props.id();
+	const service = useMachine(pagination.machine, () => ({
+		id: id,
+		count: zagProps.count ?? data.length,
+		...zagProps
+	}));
+	const api = $derived(pagination.connect(service, normalizeProps));
 
 	// Reactive
 	const rxButtonActive = (page: { value: number }) => {
-		return snapshot.context.page === page.value ? buttonActive : `${buttonInactive} ${buttonHover}`;
+		return service.prop('page') === page.value ? buttonActive : `${buttonInactive} ${buttonHover}`;
 	};
 </script>
 

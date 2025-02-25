@@ -12,7 +12,7 @@
 		{ label: 'Japan', value: 'JP' }
 	];
 
-	let selectedCountry = $state(['US']);
+	let selectedCountry: string[] = $state([]);
 </script>
 
 <div class="space-y-10">
@@ -27,6 +27,12 @@
 		<pre class="pre">{JSON.stringify(selectedCountry, null, 2)}</pre>
 	</section>
 	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
-		<Combobox data={comboboxData} bind:value={selectedCountry} label="Select Country" placeholder="Select..." />
+		<Combobox
+			data={comboboxData}
+			value={selectedCountry}
+			onValueChange={(e) => (selectedCountry = e.value)}
+			label="Select Country"
+			placeholder="Select..."
+		/>
 	</section>
 </div>

@@ -4,12 +4,9 @@
 	import * as popover from '@zag-js/popover';
 	import { portal, useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import type { PopoverProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
 
-	let {
-		open = $bindable(false),
+	const {
 		arrow = false,
-		disabled = false,
 		// Base
 		base = '',
 		classes = '',
@@ -40,38 +37,19 @@
 	}: PopoverProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		popover.machine({
-			id: useId(),
-			open,
-			onOpenChange(details) {
-				zagProps.onOpenChange?.(details);
-				open = details.open;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get open() {
-					return $state.snapshot(open);
-				}
-			}
-		}
-	);
-	const api = $derived(popover.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(popover.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(popover.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>
 
 <span class="{base} {classes}" data-testid="popover">
 	<!-- Snippet: Trigger -->
 	{#if trigger}
-		<button
-			{...triggerProps}
-			class="{triggerBase} {triggerBackground} {triggerClasses}"
-			{disabled}
-			type="button"
-			aria-label={triggerAriaLabel}
-		>
+		<button {...triggerProps} class="{triggerBase} {triggerBackground} {triggerClasses}" type="button" aria-label={triggerAriaLabel}>
 			{@render trigger()}
 		</button>
 	{/if}

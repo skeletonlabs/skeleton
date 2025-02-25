@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { useId } from '$lib/internal/use-id.js';
 	import { getNavigationContext } from './context.js';
 	import type { NavTileProps } from './types.js';
 
-	let {
-		id = useId(),
+	const propsId = $props.id();
+
+	const {
+		id = propsId,
 		href,
 		target,
 		label,
@@ -55,7 +56,7 @@
 	function onClickHandler() {
 		if (onclick && !id) throw new Error('No ID was provided');
 		if (onclick && id) onclick(id);
-		if (ctx.onSelectionHandler && id) ctx.onSelectionHandler(id);
+		ctx.onValueChange?.(id);
 	}
 </script>
 

@@ -1,12 +1,9 @@
 <script lang="ts">
 	import * as slider from '@zag-js/slider';
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
-
 	import type { SliderProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
 
-	let {
-		value = $bindable([0]),
+	const {
 		markers = [],
 		height = 'h-1.5',
 		// Root ---
@@ -53,28 +50,16 @@
 	}: SliderProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		slider.machine({
-			id: useId(),
-			onValueChange(details) {
-				zagProps.onValueChange?.(details);
-				value = details.value;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get value() {
-					return value;
-				}
-			}
-		}
-	);
-	const api = $derived(slider.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(slider.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(slider.connect(service, normalizeProps));
 
 	// Reactive
-	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
-	const rxReadOnly = $derived(snapshot.context.readOnly ? stateReadOnly : thumbCursor);
+	const rxDisabled = $derived(service.prop('disabled') ? stateDisabled : '');
+	const rxReadOnly = $derived(service.prop('readOnly') ? stateReadOnly : thumbCursor);
 </script>
 
 <div {...api.getRootProps()} class="{base} {height} {spaceY} {rxDisabled} {classes}" data-testid="slider">

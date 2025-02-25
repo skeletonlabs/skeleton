@@ -26,7 +26,7 @@
 	</header>
 	<section class="space-y-4">
 		<pre class="pre">{JSON.stringify(valueDefault)}</pre>
-		<Accordion bind:value={valueDefault}>
+		<Accordion value={valueDefault} onValueChange={(e) => (valueDefault = e.value)}>
 			{#each exampleItems as item, i}
 				<Accordion.Item value={item.value}>
 					{#snippet lead()}
@@ -46,7 +46,7 @@
 	<section class="space-y-4">
 		<h2 class="h2">Collapsible</h2>
 		<pre class="pre">{JSON.stringify(valueCollapsible)}</pre>
-		<Accordion bind:value={valueCollapsible} collapsible>
+		<Accordion value={valueCollapsible} onValueChange={(e) => (valueCollapsible = e.value)} collapsible>
 			{#each exampleItems as item, i}
 				<Accordion.Item value={item.value}>
 					{#snippet lead()}
@@ -66,7 +66,7 @@
 	<section class="space-y-4">
 		<h2 class="h2">Multiple</h2>
 		<pre class="pre">{JSON.stringify(valueMultiple)}</pre>
-		<Accordion bind:value={valueMultiple} multiple>
+		<Accordion value={valueMultiple} onValueChange={(e) => (valueMultiple = e.value)} multiple>
 			{#each exampleItems as item, i}
 				<Accordion.Item value={item.value}>
 					{#snippet lead()}

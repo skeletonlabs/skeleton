@@ -4,7 +4,7 @@ import type { PropTypes } from '@zag-js/svelte';
 
 export type FileUploadApi = fileUpload.Api<PropTypes>;
 
-export interface FileUploadProps extends Omit<fileUpload.Context, 'id' | 'value'> {
+export interface FileUploadProps extends Omit<fileUpload.Props, 'id'> {
 	/** Set the interface text value. */
 	label?: string;
 	/** Set the interface subtext value. */
@@ -90,5 +90,5 @@ export interface FileUploadProps extends Omit<fileUpload.Context, 'id' | 'value'
 
 	// Zag ---
 	/** Binds the Zag API for external use. */
-	internalApi?: FileUploadApi;
+	onApiReady?: (api: FileUploadApi) => void;
 }

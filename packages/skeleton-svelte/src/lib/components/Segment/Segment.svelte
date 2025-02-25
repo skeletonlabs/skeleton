@@ -3,11 +3,8 @@
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { SegmentProps } from './types.js';
 	import { setSegmentContext } from './context.js';
-	import { useId } from '$lib/internal/use-id.js';
 
-	let {
-		value = $bindable(''),
-		orientation = 'horizontal',
+	const {
 		// Root
 		base = 'inline-flex items-stretch overflow-hidden',
 		background = 'preset-outlined-surface-200-800',
@@ -28,10 +25,8 @@
 		indicatorText = 'text-surface-contrast-950 dark:text-surface-contrast-50',
 		indicatorRounded = 'rounded-base',
 		indicatorClasses = '',
-
 		// Label
 		labelledby = '',
-
 		// Snippets
 		children,
 		// Zag
@@ -39,25 +34,13 @@
 	}: SegmentProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		radio.machine({
-			id: useId(),
-			onValueChange(details) {
-				zagProps.onValueChange?.(details);
-				value = details.value;
-			},
-			orientation
-		}),
-		{
-			context: {
-				...zagProps,
-				get value() {
-					return value;
-				}
-			}
-		}
-	);
-	const api = $derived(radio.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(radio.machine, () => ({
+		id: id,
+		orientation: zagProps.orientation ?? 'horizontal',
+		...zagProps
+	}));
+	const api = $derived(radio.connect(service, normalizeProps));
 
 	// Set Context
 	setSegmentContext({
@@ -70,9 +53,9 @@
 	});
 
 	// Reactive
-	const rxOrientation = $derived(snapshot.context.orientation === 'vertical' ? orientVertical : orientHorizontal);
-	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
-	const rxReadOnly = $derived(snapshot.context.readOnly ? stateReadOnly : '');
+	const rxOrientation = $derived(service.prop('orientation') === 'vertical' ? orientVertical : orientHorizontal);
+	const rxDisabled = $derived(service.prop('disabled') ? stateDisabled : '');
+	const rxReadOnly = $derived(service.prop('readOnly') ? stateReadOnly : '');
 </script>
 
 <!-- @component Capture input for a limited set of options. -->

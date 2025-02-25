@@ -2,12 +2,9 @@
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
 	import * as zagSwitch from '@zag-js/switch';
 	import type { SwitchProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
-	let {
-		name = '',
-		checked = $bindable(false),
-		disabled = $bindable(false),
-		compact = $bindable(false),
+
+	const {
+		compact = false,
 		// Root (Track)
 		base = 'inline-flex items-center gap-4',
 		classes = '',
@@ -49,49 +46,22 @@
 	}: SwitchProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		zagSwitch.machine({
-			id: useId(),
-			name
-		}),
-		{
-			context: {
-				...zagProps,
-				onCheckedChange: (details) => {
-					// Order of operations matters here:
-					zagProps.onCheckedChange?.(details);
-					checked = details.checked;
-				},
-				get checked() {
-					return checked;
-				},
-				get disabled() {
-					return disabled;
-				},
-				get compact() {
-					return compact;
-				}
-			}
-		}
-	);
-	const api = $derived(zagSwitch.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(zagSwitch.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(zagSwitch.connect(service, normalizeProps));
 
 	// Set Compact Mode
-	if (compact) {
-		controlBase = thumbBase;
-		// Removes the height class
-		controlHeight = '';
-		// Thumb inherits track styles
-		thumbInactive = controlInactive;
-		thumbActive = controlActive;
-		// Remove X-axis translate
-		thumbTranslateX = '';
-		// Remove padding
-		controlPadding = '';
-	}
+	const rxControlBase = $derived(compact ? thumbBase : controlBase);
+	const rxControlHeight = $derived(compact ? '' : controlHeight);
+	const rxThumbInactive = $derived(compact ? controlInactive : thumbInactive);
+	const rxThumbActive = $derived(compact ? controlActive : thumbActive);
+	const rxControlPadding = $derived(compact ? '' : controlPadding);
 
 	const rxTrackState = $derived(api.checked ? controlActive : controlInactive);
-	const rxThumbState = $derived(api.checked ? `${thumbActive} ${thumbTranslateX}` : thumbInactive);
+	const rxThumbState = $derived(api.checked ? `${rxThumbActive} ${thumbTranslateX}` : rxThumbInactive);
 	const rxDisabled = $derived(api.disabled ? controlDisabled : '');
 	const rxFocused = $derived(api.focused ? stateFocused : '');
 </script>
@@ -104,7 +74,7 @@
 	<!-- Control -->
 	<span
 		{...api.getControlProps()}
-		class="{controlBase} {rxTrackState} {rxFocused} {controlWidth} {controlHeight} {controlPadding} {controlRounded} {controlHover} {rxDisabled}  {controlClasses}"
+		class="{rxControlBase} {rxTrackState} {rxFocused} {controlWidth} {rxControlHeight} {rxControlPadding} {controlRounded} {controlHover} {rxDisabled}  {controlClasses}"
 		data-testid="switch-control"
 	>
 		<!-- Thumb -->
@@ -114,11 +84,11 @@
 			data-testid="switch-thumb"
 		>
 			<!-- Icon: Inactive -->
-			{#if !checked && inactiveChild}
+			{#if !api.checked && inactiveChild}
 				<span class={iconInactiveBase} data-testid="switch-icon-inactive">{@render inactiveChild()}</span>
 			{/if}
 			<!-- Icon: Active -->
-			{#if checked && activeChild}
+			{#if api.checked && activeChild}
 				<span class={iconActiveBase} data-testid="switch-icon-active">{@render activeChild()}</span>
 			{/if}
 		</span>

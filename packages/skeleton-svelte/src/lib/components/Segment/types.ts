@@ -10,12 +10,7 @@ export interface SegmentContext {
 
 // Components ---
 
-export interface SegmentProps extends Omit<radio.Context, 'id' | 'orientation'> {
-	/** Set the active value. */
-	value?: string;
-	/** Set the orientation. */
-	orientation?: 'horizontal' | 'vertical';
-
+export interface SegmentProps extends Omit<radio.Props, 'id'> {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;

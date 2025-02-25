@@ -4,9 +4,9 @@ import type { Snippet } from 'svelte';
 
 export interface NavContext {
 	parent: 'bar' | 'rail' | 'none';
-	value: string;
+	value?: string;
 	expanded: boolean;
-	onSelectionHandler: (id: string) => void;
+	onValueChange?: (id: string) => void;
 }
 
 // Components ---
@@ -47,7 +47,7 @@ export interface NavCommonProps {
 
 	// Events ---
 	/** Triggers when selection occurs. */
-	onchange?: (id: string) => void;
+	onValueChange?: (id: string) => void;
 }
 
 export interface NavBarProps extends NavCommonProps {

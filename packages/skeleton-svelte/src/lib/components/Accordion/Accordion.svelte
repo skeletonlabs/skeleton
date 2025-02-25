@@ -1,13 +1,11 @@
 <script lang="ts">
 	import * as accordion from '@zag-js/accordion';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import { useId } from '$lib/internal/use-id.js';
 	import { setAccordionContext } from './context.js';
 	import type { AccordionProps } from './types.js';
 
 	// Props
-	let {
-		value = $bindable([]),
+	const {
 		animDuration = 200,
 		// Root
 		base = '',
@@ -24,24 +22,12 @@
 	}: AccordionProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		accordion.machine({
-			id: useId(),
-			onValueChange(details) {
-				zagProps.onValueChange?.(details);
-				value = details.value;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get value() {
-					return $state.snapshot(value);
-				}
-			}
-		}
-	);
-	const api = $derived(accordion.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(accordion.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(accordion.connect(service, normalizeProps));
 
 	// Context
 	setAccordionContext({

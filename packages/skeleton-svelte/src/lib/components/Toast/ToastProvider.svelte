@@ -2,10 +2,10 @@
 	import { setContext } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import { fade } from 'svelte/transition';
-	import { useId } from '$lib/internal/use-id.js';
+
 	import type { PlacementStyles, Toast, ToastProviderProps } from './types.js';
 
-	let {
+	const {
 		placement = 'bottom-end',
 		offset = '16px',
 		dismissLabel = '',
@@ -55,13 +55,14 @@
 	let toastQueue: Toast[] = $state([]);
 
 	// Context
+	const id = $props.id();
 	setContext('toast', {
 		create: (toast: Toast) => {
 			// Set default settings
 			toast = {
 				...defaults[String(toast.type || 'info')],
 				...toast,
-				id: useId()
+				id: id
 			};
 			// Push to Queue
 			toastQueue.push(toast);

@@ -2,8 +2,8 @@
 	import type { NavBarProps } from './types.js';
 	import { setNavigationContext } from './context.js';
 
-	let {
-		value = $bindable(''),
+	const {
+		value,
 		// Root
 		base = 'flex flex-col',
 		background = 'preset-filled-surface-100-900',
@@ -19,15 +19,10 @@
 		tilesGap = 'gap-1',
 		tilesClasses = '',
 		// Events
-		onchange,
+		onValueChange,
 		// Snippets
 		children
 	}: NavBarProps = $props();
-
-	function onSelectionHandler(id: string) {
-		value = id;
-		if (onchange) onchange(id);
-	}
 
 	// Context
 	setNavigationContext({
@@ -36,7 +31,9 @@
 			return value;
 		},
 		expanded: false,
-		onSelectionHandler
+		get onValueChange() {
+			return onValueChange;
+		}
 	});
 </script>
 

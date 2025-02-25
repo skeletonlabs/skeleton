@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { AppBarProps } from './types.js';
 
-	let {
+	const {
 		// Root
 		base = 'w-full flex flex-col',
 		background = 'bg-surface-100-900',

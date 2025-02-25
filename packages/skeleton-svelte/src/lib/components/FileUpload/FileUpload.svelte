@@ -1,11 +1,11 @@
 <script lang="ts">
 	import * as fileUpload from '@zag-js/file-upload';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import { useId } from '$lib/internal/use-id.js';
+
 	import type { FileUploadProps } from './types.js';
 
 	// Props
-	let {
+	const {
 		label = `Select file or drag here`,
 		subtext = '',
 		// Root
@@ -48,26 +48,23 @@
 		iconFile,
 		iconFileRemove,
 		// Zag
-		internalApi = $bindable(),
 		...zagProps
 	}: FileUploadProps = $props();
 
 	// Zag
-	const [snapshot, send] = useMachine(
-		fileUpload.machine({
-			id: useId()
-		}),
-		{ context: { ...zagProps } }
-	);
-	const api = $derived(fileUpload.connect(snapshot, send, normalizeProps));
+	const id = $props.id();
+	const service = useMachine(fileUpload.machine, () => ({
+		id: id,
+		...zagProps
+	}));
+	const api = $derived(fileUpload.connect(service, normalizeProps));
 
-	$effect(() => {
-		// Provide the full Zag component API
-		internalApi = api;
+	$effect.pre(() => {
+		zagProps.onApiReady?.(api);
 	});
 
 	// Reactive
-	const rxDisabled = $derived(snapshot.context.disabled ? stateDisabled : '');
+	const rxDisabled = $derived(service.prop('disabled') ? stateDisabled : '');
 	const rxInvalid = $derived(api.rejectedFiles.length > 0 ? stateInvalid : interfaceBorderColor);
 	const rxDragging = $derived(api.dragging && !children ? stateDragging : '');
 </script>

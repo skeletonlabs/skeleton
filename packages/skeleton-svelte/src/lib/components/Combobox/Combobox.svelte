@@ -1,16 +1,12 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-
 	import * as combobox from '@zag-js/combobox';
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import type { ComboboxProps } from './types.js';
-	import { useId } from '$lib/internal/use-id.js';
 
-	let {
-		data = $bindable([]),
-		value = $bindable([]),
+	const {
+		data = [],
 		label = '',
-		disabled = false,
 		// Base
 		base = '',
 		width = '',
@@ -49,47 +45,31 @@
 
 	// Zag
 	let options = $state.raw(data);
-	const collection = combobox.collection({
-		items: data,
-		// Map data structure
-		itemToValue: (item) => item.value,
-		itemToString: (item) => item.label
-	});
-	const [snapshot, send] = useMachine(
-		combobox.machine({
-			id: useId(),
-			collection,
-			value: $state.snapshot(value),
-			loopFocus: true,
-			onOpenChange(details) {
-				zagProps.onOpenChange?.(details);
-				options = data;
-			},
-			onInputValueChange(details) {
-				zagProps.onInputValueChange?.(details);
-				const filtered = data.filter((item) => item.label.toLowerCase().includes(details.inputValue.toLowerCase()));
-				const newOptions = filtered.length > 0 ? filtered : data;
-				collection.setItems(newOptions);
-				options = newOptions;
-			},
-			onValueChange(event) {
-				zagProps.onValueChange?.(event);
-				value = event.value;
-			}
-		}),
-		{
-			context: {
-				...zagProps,
-				get data() {
-					return $state.snapshot(data);
-				},
-				get value() {
-					return $state.snapshot(value);
-				}
-			}
-		}
+	const collection = $derived(
+		combobox.collection({
+			items: data,
+			// Map data structure
+			itemToValue: (item) => item.value,
+			itemToString: (item) => item.label
+		})
 	);
-	const api = $derived(combobox.connect(snapshot, send, normalizeProps));
+
+	const id = $props.id();
+	const service = useMachine(combobox.machine, () => ({
+		id: id,
+		collection: collection,
+		onOpenChange(event) {
+			options = data;
+			zagProps.onOpenChange?.(event);
+		},
+		onInputValueChange(event) {
+			const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
+			collection.setItems(filtered);
+			options = filtered;
+		},
+		...zagProps
+	}));
+	const api = $derived(combobox.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>
 
@@ -100,9 +80,9 @@
 		<!-- Input Group -->
 		<div {...api.getControlProps()} class="{inputGroupBase} {inputGroupClasses}">
 			<!-- Input -->
-			<input {...api.getInputProps()} class={inputGroupInput} {disabled} />
+			<input {...api.getInputProps()} class={inputGroupInput} />
 			<!-- Arrow -->
-			<button {...triggerProps} class={inputGroupButton} {disabled}>
+			<button {...triggerProps} class={inputGroupButton}>
 				{#if arrow}
 					{@render arrow()}
 				{:else}

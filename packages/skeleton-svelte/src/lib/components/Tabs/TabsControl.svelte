@@ -2,7 +2,7 @@
 	import { getTabContext } from './context.js';
 	import type { TabsControlProps } from './types.js';
 
-	let {
+	const {
 		// Root
 		base = 'border-b-[1px] border-transparent',
 		padding = 'pb-2',

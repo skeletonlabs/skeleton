@@ -2,8 +2,8 @@
 	import { setNavigationContext } from './context.js';
 	import type { NavRailProps } from './types.js';
 
-	let {
-		value = $bindable(''),
+	const {
+		value = '',
 		expanded = false,
 		// Root
 		base = 'h-full flex flex-col',
@@ -35,17 +35,12 @@
 		footerGap = 'gap-1',
 		footerClasses = '',
 		// Events
-		onchange,
+		onValueChange,
 		// Snippets
 		header,
 		tiles,
 		footer
 	}: NavRailProps = $props();
-
-	function onSelectionHandler(id: string) {
-		value = id;
-		if (onchange) onchange(id);
-	}
 
 	// Context
 	setNavigationContext({
@@ -56,7 +51,9 @@
 		get expanded() {
 			return expanded;
 		},
-		onSelectionHandler
+		get onValueChange() {
+			return onValueChange;
+		}
 	});
 
 	// Reactive

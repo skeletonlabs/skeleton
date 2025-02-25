@@ -10,9 +10,7 @@ export interface TabsContextState {
 
 // Components ---
 
-export interface TabsProps extends Omit<tabs.Context, 'id' | 'orientation'> {
-	/** Set the active value. */
-	value?: string;
+export interface TabsProps extends Omit<tabs.Props, 'id' | 'orientation'> {
 	/** Set tabs to stretch to fill the available width. */
 	fluid?: boolean;
 
