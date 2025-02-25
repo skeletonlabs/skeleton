@@ -21,7 +21,7 @@ export const Page: React.FC = () => {
 			name="mode"
 			controlActive="bg-surface-200"
 			checked={mode}
-			onCheckedChange={handleModeChange}
+			onCheckedChange={(e) => handleModeChange(e.checked)}
 			inactiveChild={<IconMoon size="14" />}
 			activeChild={<IconSun size="14" />}
 		/>

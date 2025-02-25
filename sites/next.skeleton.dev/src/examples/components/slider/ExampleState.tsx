@@ -7,9 +7,9 @@ export const Page: React.FC = () => {
 	return (
 		<div className="w-full space-y-4">
 			<p>Disabled</p>
-			<Slider name="value" value={value} onValueChange={setValue} disabled />
+			<Slider name="value" value={value} onValueChange={(e) => setValue(e.value)} disabled />
 			<p>Read-Only</p>
-			<Slider name="value" value={value} onValueChange={setValue} readOnly />
+			<Slider name="value" value={value} onValueChange={(e) => setValue(e.value)} readOnly />
 		</div>
 	);
 };

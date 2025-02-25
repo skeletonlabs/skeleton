@@ -7,7 +7,7 @@ export const Page: React.FC = () => {
 		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';
 
 	return (
-		<Tabs value={group} onValueChange={setGroup} dir="rtl">
+		<Tabs value={group} onValueChange={(e) => setGroup(e.value)} dir="rtl">
 			<Tabs.List>
 				<Tabs.Control value="plane">Plane</Tabs.Control>
 				<Tabs.Control value="boat">Boat</Tabs.Control>

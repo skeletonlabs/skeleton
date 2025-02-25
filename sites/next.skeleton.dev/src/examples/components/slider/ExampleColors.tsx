@@ -6,9 +6,9 @@ export const Page: React.FC = () => {
 
 	return (
 		<div className="w-full space-y-8">
-			<Slider value={value} onValueChange={setValue} meterBg="bg-primary-500" thumbRingColor="ring-primary-500" />
-			<Slider value={value} onValueChange={setValue} meterBg="bg-secondary-500" thumbRingColor="ring-secondary-500" />
-			<Slider value={value} onValueChange={setValue} meterBg="bg-tertiary-500" thumbRingColor="ring-tertiary-500" />
+			<Slider value={value} onValueChange={(e) => setValue(e.value)} meterBg="bg-primary-500" thumbRingColor="ring-primary-500" />
+			<Slider value={value} onValueChange={(e) => setValue(e.value)} meterBg="bg-secondary-500" thumbRingColor="ring-secondary-500" />
+			<Slider value={value} onValueChange={(e) => setValue(e.value)} meterBg="bg-tertiary-500" thumbRingColor="ring-tertiary-500" />
 		</div>
 	);
 };
