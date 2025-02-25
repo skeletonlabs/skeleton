@@ -61,13 +61,16 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
     <ProcessStep step="3">
 		### Configure Tailwind
         Open your global stylesheet in `/src/app/globals.css` and add the following imports:
-        ```css title="globals.css" {3-5}
+        ```css title="globals.css" {3-7}
         @import 'tailwindcss';
+
+		@source '../node_modules/@skeletonlabs/skeleton-svelte';
 
         @import '@skeletonlabs/skeleton';
         @import '@skeletonlabs/skeleton/optional/presets';
         @import '@skeletonlabs/skeleton/themes/cerberus';
         ```
+		> NOTE: please verify the `@source` path resolves to your `node_modules` directory.
     </ProcessStep>
     <ProcessStep step="4">
         ### Set Active Theme
