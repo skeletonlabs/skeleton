@@ -176,7 +176,7 @@ Here's an example of changes for a single component from v2 to the new equivalen
 	let value = $state([15]);
 </script>
 
-<Slider name="amount" bind:value markers={[25, 50, 75]} />
+<Slider name="amount" {value} onValueChange={(e) => (value = e.value)} markers={[25, 50, 75]} />
 ```
 
 We’ve denoted the most notable changes to each component in the table below:

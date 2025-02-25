@@ -258,29 +258,29 @@ See the examples per each framework below.
 
 ```svelte
 <script lang="ts">
-	let value = $state('foo');
+	let value = $state('chocolate');
 </script>
 
-<Control bind:value name="flavors">
-	<Control.Item id="chocolate" value="chocolate">Chocolate</Control.Item>
-	<Control.Item id="strawberry" value="strawberry">Strawberry</Control.Item>
-</Control>
+<Segment {value} onValueChange={(e) => (value = e.value)} name="flavors">
+	<Segment.Item id="chocolate" value="chocolate">Chocolate</Segment.Item>
+	<Segment.Item id="strawberry" value="strawberry">Strawberry</Segment.Item>
+</Segment>
 ```
 
 ### React
 
 ```tsx
-const [value, setValue] = useState('foo');
+const [value, setValue] = useState('chocolate');
 
 return (
-	<Control value={value} onValueChange={setValue} name="flavors">
-		<Control.Item id="chocolate" value="chocolate">
+	<Segment value={value} onValueChange={(e) => setValue(e.value)} name="flavors">
+		<Segment.Item id="chocolate" value="chocolate">
 			Chocolate
-		</Control.Item>
-		<Control.Item id="strawberry" value="strawberry">
+		</Segment.Item>
+		<Segment.Item id="strawberry" value="strawberry">
 			Strawberry
-		</Control.Item>
-	</Control>
+		</Segment.Item>
+	</Segment>
 );
 ```
 
