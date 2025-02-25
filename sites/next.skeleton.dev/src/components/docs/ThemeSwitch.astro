@@ -10,29 +10,31 @@ function capitalizeFirstLetter(text: string) {
 ---
 
 <select class="select" data-theme-list>
-	{
-		themes.map((theme) => (
-			<option value={theme.name} selected>
-				{capitalizeFirstLetter(theme.name)}
-			</option>
-		))
-	}
+	{themes.map((theme) => <option value={theme.name}>{capitalizeFirstLetter(theme.name)}</option>)}
 </select>
 
 <script>
-	const themeSelects = document.querySelectorAll<HTMLSelectElement>('[data-theme-list]');
-	themeSelects.forEach((themeSelect) => {
-		themeSelect.value = localStorage.getItem('theme') || 'cerberus';
-		themeSelect.addEventListener('change', (event) => {
-			if (!(event.target instanceof HTMLSelectElement)) return;
-			document.body.classList.add('transition-all');
-			document.body.classList.add('duration-200');
-			document.documentElement.setAttribute('data-theme', event.target.value);
-			localStorage.setItem('theme', event.target.value);
-			setTimeout(() => {
-				document.body.classList.remove('transition-all');
-				document.body.classList.remove('duration-200');
-			}, 200);
+	function setInitialThemeValue() {
+		const themeSelects = document.querySelectorAll<HTMLSelectElement>('[data-theme-list]');
+		themeSelects.forEach((themeSelect) => {
+			themeSelect.value = localStorage.getItem('theme') || 'cerberus';
+			function onInput(event: Event) {
+				if (!(event.target instanceof HTMLSelectElement)) return;
+				document.body.classList.add('transition-all');
+				document.body.classList.add('duration-200');
+				document.documentElement.setAttribute('data-theme', event.target.value);
+				localStorage.setItem('theme', event.target.value);
+				setTimeout(() => {
+					document.body.classList.remove('transition-all');
+					document.body.classList.remove('duration-200');
+				}, 200);
+			}
+			themeSelect.removeEventListener('input', onInput);
+			themeSelect.addEventListener('input', onInput);
 		});
+	}
+	setInitialThemeValue();
+	document.addEventListener('astro:after-swap', () => {
+		setInitialThemeValue();
 	});
 </script>
