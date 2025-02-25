@@ -29,10 +29,7 @@
 		"./dist/**/*.d.ts",
 		"./dist/**/*.cjs",
 		"./dist/**/*.d.cts",
-		"!./dist/**/*.test.*",
-		"!./dist/**/schema.json",
-		"!./dist/schemas.js",
-		"!./dist/schemas.d.ts"
+		"!./dist/**/*.test.*"
 	],
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",
