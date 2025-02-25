@@ -51,8 +51,22 @@ Please make sure you have accounted for the following:
 
 Skeleton is built on top of the following technologies. These must be migrated individually before proceeding with the Skeleton-specific migration. Note that Svelte and Tailwind provide dedicated CLIs to automate this process.
 
+### Svelte v5
+
 - Migrate to the latest release of Svelte v5 ([migration guide](https://svelte.dev/docs/svelte/v5-migration-guide))
+
+### SvelteKit v2
+
 - Migrate to the latest release of SvelteKit v2 ([migration guide](https://svelte.dev/docs/kit/migrating-to-sveltekit-2))
+
+### Tailwind v4
+
+Before migration to tailwind V4 using their upgrade guide some manual steps are required:
+
+1. Remove the `skeleton` plugin from your `tailwind.config` file.
+2. Remove the `purgeCSS` vite plugin from your `vite.config` (You might or might not have this installed, if not, you can ignore this step).
+3. Rename your `app.postcss` or `app.pcss` to `app.css`.
+
 - Migrate to the latest release of Tailwind v4 ([migration guide](https://tailwindcss.com/docs/upgrade-guide))
 
 ---
