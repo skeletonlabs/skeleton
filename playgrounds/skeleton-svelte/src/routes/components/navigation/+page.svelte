@@ -25,7 +25,7 @@
 		<h2 class="h2">Bar</h2>
 		<pre class="pre">value: {value}</pre>
 		<div class="w-[320px]">
-			<Navigation.Bar bind:value onchange={onChangeHandler}>
+			<Navigation.Bar {value} onValueChange={onChangeHandler}>
 				<Navigation.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1">
 					<IconBox />
 				</Navigation.Tile>
@@ -40,7 +40,7 @@
 				</Navigation.Tile>
 			</Navigation.Bar>
 		</div>
-		<Navigation.Bar bind:value onchange={onChangeHandler}>
+		<Navigation.Bar {value} onValueChange={onChangeHandler}>
 			<Navigation.Tile id="0" label="Tile 1" labelExpanded="Expanded Tile 1">
 				<IconBox />
 			</Navigation.Tile>

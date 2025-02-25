@@ -1,6 +1,5 @@
 import { defineConfig, configDefaults } from 'vitest/config';
 import react from '@vitejs/plugin-react';
-import RemixRouter from 'vite-plugin-remix-router';
 import path from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -9,8 +8,6 @@ export default defineConfig({
 	plugins: [
 		// @ts-expect-error remove once `vitest` adds `vite@6` as a peer dependency
 		react(),
-		// https://vite-remix-router.vercel.app/
-		RemixRouter(),
 		// https://tailwindcss.com/docs/installation/using-vite
 		tailwindcss()
 	],
