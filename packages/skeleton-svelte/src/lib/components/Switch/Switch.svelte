@@ -53,15 +53,15 @@
 	}));
 	const api = $derived(zagSwitch.connect(service, normalizeProps));
 
-	// Set Compact Mode
 	const rxControlBase = $derived(compact ? thumbBase : controlBase);
 	const rxControlHeight = $derived(compact ? '' : controlHeight);
+	const rxControlPadding = $derived(compact ? '' : controlPadding);
 	const rxThumbInactive = $derived(compact ? controlInactive : thumbInactive);
 	const rxThumbActive = $derived(compact ? controlActive : thumbActive);
-	const rxControlPadding = $derived(compact ? '' : controlPadding);
+	const rxThumbTranslateX = $derived(compact ? '' : thumbTranslateX);
 
 	const rxTrackState = $derived(api.checked ? controlActive : controlInactive);
-	const rxThumbState = $derived(api.checked ? `${rxThumbActive} ${thumbTranslateX}` : rxThumbInactive);
+	const rxThumbState = $derived(api.checked ? `${rxThumbActive} ${rxThumbTranslateX}` : rxThumbInactive);
 	const rxDisabled = $derived(api.disabled ? controlDisabled : '');
 	const rxFocused = $derived(api.focused ? stateFocused : '');
 </script>
@@ -74,7 +74,7 @@
 	<!-- Control -->
 	<span
 		{...api.getControlProps()}
-		class="{rxControlBase} {rxTrackState} {rxFocused} {controlWidth} {rxControlHeight} {rxControlPadding} {controlRounded} {controlHover} {rxDisabled}  {controlClasses}"
+		class="{rxControlBase} {rxTrackState} {rxFocused} {controlWidth} {rxControlHeight} {rxControlPadding} {controlRounded} {controlHover} {rxDisabled} {controlClasses}"
 		data-testid="switch-control"
 	>
 		<!-- Thumb -->
