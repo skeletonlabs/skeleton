@@ -23,7 +23,7 @@ export const Slider: FC<SliderProps> = ({
 	// Meter ---
 	meterBase = '',
 	meterBg = 'bg-surface-950-50',
-	materRounded = 'rounded-container',
+	meterRounded = 'rounded-container',
 	meterClasses = '',
 	// Thumb ---
 	thumbBase = 'ring-inset transition-scale duration-100 ease-in-out',
@@ -36,7 +36,7 @@ export const Slider: FC<SliderProps> = ({
 	thumbClasses = '',
 	// Markers ---
 	markersBase = '',
-	markerClasses = '',
+	markersClasses = '',
 	// Mark ---
 	markBase = '',
 	markText = 'text-[10px]',
@@ -74,7 +74,7 @@ export const Slider: FC<SliderProps> = ({
 					{/* Meter */}
 					<div
 						{...api.getRangeProps()}
-						className={`${meterBase} ${height} ${meterBg} ${materRounded} ${meterClasses}`}
+						className={`${meterBase} ${height} ${meterBg} ${meterRounded} ${meterClasses}`}
 						data-testid="slider-meter"
 					></div>
 				</div>
@@ -99,7 +99,7 @@ export const Slider: FC<SliderProps> = ({
 			</div>
 			{/* Markers */}
 			{markers.length > 0 && (
-				<div {...api.getMarkerGroupProps()} className={`${markersBase} ${markerClasses}`} data-testid="slider-markers">
+				<div {...api.getMarkerGroupProps()} className={`${markersBase} ${markersClasses}`} data-testid="slider-markers">
 					{markers.map((value: number) => (
 						// Mark
 						<span

@@ -21,7 +21,7 @@
 		// Meter ---
 		meterBase = '',
 		meterBg = 'bg-surface-950-50',
-		materRounded = 'rounded-container',
+		meterRounded = 'rounded-container',
 		meterClasses = '',
 		// Thumb ---
 		thumbBase = 'ring-inset transition-scale duration-100 ease-in-out',
@@ -34,7 +34,7 @@
 		thumbClasses = '',
 		// Markers ---
 		markersBase = '',
-		markerClasses = '',
+		markersClasses = '',
 		// Mark ---
 		markBase = '',
 		markText = 'text-[10px]',
@@ -68,7 +68,7 @@
 		<!-- Track -->
 		<div {...api.getTrackProps()} class="{trackBase} {trackBg} {height} {trackRounded} {trackClasses}" data-testid="slider-track">
 			<!-- Meter -->
-			<div {...api.getRangeProps()} class="{meterBase} {height} {meterBg} {materRounded} {meterClasses}" data-testid="slider-meter"></div>
+			<div {...api.getRangeProps()} class="{meterBase} {height} {meterBg} {meterRounded} {meterClasses}" data-testid="slider-meter"></div>
 		</div>
 		<!-- NOTE: this div centers thumbs vertically -->
 		<div class={height} style="display: flex; align-items: center; transform: translateY(-100%);" data-testid="slider-thumb-wrapper">
@@ -87,7 +87,7 @@
 	</div>
 	<!-- Markers -->
 	{#if markers.length > 0}
-		<div {...api.getMarkerGroupProps()} class="{markersBase} {markerClasses}" data-testid="slider-markers">
+		<div {...api.getMarkerGroupProps()} class="{markersBase} {markersClasses}" data-testid="slider-markers">
 			{#each markers as value}
 				<!-- Mark -->
 				<span {...api.getMarkerProps({ value })} class="{markBase} {markText} {markOpacity} {markClasses}" data-testid="slider-mark">

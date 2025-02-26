@@ -63,7 +63,7 @@ export interface SliderProps extends Omit<slider.Props, 'id' | 'thumbSize'> {
 	/** Set base classes for the markers. */
 	markersBase?: string;
 	/** Provide arbitrary classes for the markers. */
-	markerClasses?: string;
+	markersClasses?: string;
 
 	// Mark ---
 	/** Set base classes for each mark. */

@@ -35,7 +35,7 @@ export interface SliderProps extends Omit<slider.Props, 'id' | 'thumbSize'> {
 	/** Set background classes for the meter. */
 	meterBg?: string;
 	/** Set border radius classes for the meter. */
-	materRounded?: string;
+	meterRounded?: string;
 	/** Provide arbitrary classes for the meter. */
 	meterClasses?: string;
 
@@ -61,7 +61,7 @@ export interface SliderProps extends Omit<slider.Props, 'id' | 'thumbSize'> {
 	/** Set base classes for the markers. */
 	markersBase?: string;
 	/** Provide arbitrary classes for the markers. */
-	markerClasses?: string;
+	markersClasses?: string;
 
 	// Mark ---
 	/** Set base classes for each mark. */
