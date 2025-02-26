@@ -55,16 +55,21 @@ const {
 	<IconMenu />
 </button>
 
-<script is:inline>
-	const elemDrawer = document.querySelector('#drawer');
-	const elemTriggersList = document.querySelectorAll('[data-drawer-toggle], #drawer a');
-
-	// For each toggleable element
-	elemTriggersList.forEach((elem) => {
-		// Add a click listener
-		elem?.addEventListener('click', () => {
-			// Toggle the translation-x class
-			elemDrawer?.classList.toggle('-translate-x-[320px]');
+<script>
+	function initializeEventHandlers() {
+		const triggers = document.querySelectorAll('[data-drawer-toggle], #drawer a');
+		triggers.forEach((elem) => {
+			elem.addEventListener('click', () => {
+				const drawer = document.querySelector('#drawer');
+				if (!(drawer instanceof HTMLElement)) {
+					return;
+				}
+				drawer.classList.toggle('-translate-x-[320px]');
+			});
 		});
+	}
+	initializeEventHandlers();
+	document.addEventListener('astro:after-swap', () => {
+		initializeEventHandlers();
 	});
 </script>

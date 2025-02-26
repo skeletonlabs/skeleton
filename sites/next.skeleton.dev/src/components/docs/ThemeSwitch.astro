@@ -14,7 +14,7 @@ function capitalizeFirstLetter(text: string) {
 </select>
 
 <script>
-	function setInitialThemeValue() {
+	function initializeThemeValue() {
 		const themeSelects = document.querySelectorAll<HTMLSelectElement>('[data-theme-list]');
 		themeSelects.forEach((themeSelect) => {
 			themeSelect.value = localStorage.getItem('theme') || 'cerberus';
@@ -33,8 +33,8 @@ function capitalizeFirstLetter(text: string) {
 			themeSelect.addEventListener('input', onInput);
 		});
 	}
-	setInitialThemeValue();
+	initializeThemeValue();
 	document.addEventListener('astro:after-swap', () => {
-		setInitialThemeValue();
+		initializeThemeValue();
 	});
 </script>
