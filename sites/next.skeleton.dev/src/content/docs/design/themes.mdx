@@ -72,8 +72,9 @@ You may register any number of themes by adding addition theme imports to your g
 @import '@skeletonlabs/skeleton/themes/vox';
 
 /* Register a Custom Themes */
-/* Note that we exclude the .css extension */
-@import '@skeletonlabs/skeleton/themes/{my-theme-name}';
+/* Make sure to resolve the relative path. */
+/* Note the .css extension is optional. */
+@import '../{my-theme-name}';
 ```
 
 ## Activate a Theme
