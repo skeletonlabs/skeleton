@@ -3,7 +3,7 @@
 @import '@skeletonlabs/skeleton/themes/cerberus';
 @import '@skeletonlabs/skeleton/optional/presets';
 
-@source '../../node_modules/@skeletonlabs/skeleton-svelte';
+@source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
 @plugin "@tailwindcss/forms";
 

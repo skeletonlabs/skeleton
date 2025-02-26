@@ -28,8 +28,8 @@
 @import '@skeletonlabs/skeleton/themes/vox';
 @import '@skeletonlabs/skeleton/themes/wintry';
 
-@source '../../node_modules/@skeletonlabs/skeleton-react';
-@source '../../node_modules/@skeletonlabs/skeleton-svelte';
+@source '../../node_modules/@skeletonlabs/skeleton-react/dist';
+@source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
 /* Set Selector dark mode strategy */
 @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
