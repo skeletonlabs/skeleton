@@ -1,6 +1,6 @@
 ---
-"@skeletonlabs/skeleton-svelte": patch
-"@skeletonlabs/skeleton-react": patch
+"@skeletonlabs/skeleton-svelte": minor
+"@skeletonlabs/skeleton-react": minor
 ---
 
 feat: Zag 1.0

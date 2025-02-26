@@ -32,10 +32,10 @@
 
 	// Zag
 	const id = $props.id();
-	const service = useMachine(avatar.machine, {
+	const service = useMachine(avatar.machine, () => ({
 		id: id,
 		...zagProps
-	});
+	}));
 	const api = $derived(avatar.connect(service, normalizeProps));
 
 	// Generate Initials
@@ -50,6 +50,14 @@
 <!-- @component An image with a fallback for representing a single user. -->
 
 <figure {...api.getRootProps()} class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testid="avatar">
+	<!-- Fallback -->
+	<span {...api.getFallbackProps()} class="{fallbackBase} {fallbackClasses}" data-testid="avatar-fallback">
+		{#if children}
+			{@render children()}
+		{:else}
+			{getInitials(name)}
+		{/if}
+	</span>
 	<!-- Image -->
 	{#if src || srcset}
 		<img
@@ -63,12 +71,4 @@
 			{style}
 		/>
 	{/if}
-	<!-- Fallback -->
-	<span {...api.getFallbackProps()} class="{fallbackBase} {fallbackClasses}" data-testid="avatar-fallback">
-		{#if children}
-			{@render children()}
-		{:else}
-			{getInitials(name)}
-		{/if}
-	</span>
 </figure>
