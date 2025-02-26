@@ -79,12 +79,12 @@ Use the following steps to migrate to from PostCSS to the Vite plugin:
 2. Run `npm uninstall postcss @tailwindcss/postcss`
 3. Run `npm install @tailwindcss/vite`
 4. Open your `vite.config` in the root of your project
-5. Import the following at the top of the file: `import tailwind from '@tailwindcss/vite'`
+5. Import the following at the top of the file: `import tailwindcss from '@tailwindcss/vite'`
 6. Finally, add the Vite plugin ABOVE your specific framework plugin:
 
 ```ts
 plugins: [
-	tailwind(),
+	tailwindcss(),
 	sveltekit() // or svelte()
 ];
 ```
