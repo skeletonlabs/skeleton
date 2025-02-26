@@ -34,7 +34,7 @@
 		thumbClasses = '',
 		// Markers ---
 		markersBase = '',
-		markerslasses = '',
+		markerClasses = '',
 		// Mark ---
 		markBase = '',
 		markText = 'text-[10px]',
@@ -87,7 +87,7 @@
 	</div>
 	<!-- Markers -->
 	{#if markers.length > 0}
-		<div {...api.getMarkerGroupProps()} class="{markersBase} {markerslasses}" data-testid="slider-markers">
+		<div {...api.getMarkerGroupProps()} class="{markersBase} {markerClasses}" data-testid="slider-markers">
 			{#each markers as value}
 				<!-- Mark -->
 				<span {...api.getMarkerProps({ value })} class="{markBase} {markText} {markOpacity} {markClasses}" data-testid="slider-mark">

@@ -36,7 +36,7 @@ export const Slider: FC<SliderProps> = ({
 	thumbClasses = '',
 	// Markers ---
 	markersBase = '',
-	markerslasses = '',
+	markerClasses = '',
 	// Mark ---
 	markBase = '',
 	markText = 'text-[10px]',
@@ -99,7 +99,7 @@ export const Slider: FC<SliderProps> = ({
 			</div>
 			{/* Markers */}
 			{markers.length > 0 && (
-				<div {...api.getMarkerGroupProps()} className={`${markersBase} ${markerslasses}`} data-testid="slider-markers">
+				<div {...api.getMarkerGroupProps()} className={`${markersBase} ${markerClasses}`} data-testid="slider-markers">
 					{markers.map((value: number) => (
 						// Mark
 						<span
