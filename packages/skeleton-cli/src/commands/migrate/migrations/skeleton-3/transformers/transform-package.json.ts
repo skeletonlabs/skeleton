@@ -4,6 +4,7 @@ import { sortPropertiesAlphabetically } from '../../../../../utility/sort-proper
 import detectIndent from 'detect-indent';
 
 function transformPackageJson(code: string, skeletonVersion: string, skeletonSvelteVersion: string) {
+	let isUsingComponents = false;
 	const pkg = JSON.parse(code) as PackageJson;
 	for (const field of ['dependencies', 'devDependencies'] as const) {
 		if (!pkg[field]) {
@@ -11,6 +12,7 @@ function transformPackageJson(code: string, skeletonVersion: string, skeletonSve
 		}
 		const coerced = coerce(pkg[field]['@skeletonlabs/skeleton']);
 		if (coerced && lt(coerced.version, '3.0.0')) {
+			isUsingComponents = true;
 			delete pkg[field]['@skeletonlabs/skeleton'];
 			pkg[field]['@skeletonlabs/skeleton-svelte'] = `^${skeletonSvelteVersion}`;
 		}
@@ -21,7 +23,10 @@ function transformPackageJson(code: string, skeletonVersion: string, skeletonSve
 		pkg[field] = sortPropertiesAlphabetically(pkg[field] as Record<string, string>);
 	}
 	return {
-		code: JSON.stringify(pkg, null, detectIndent(code).indent || '\t')
+		code: JSON.stringify(pkg, null, detectIndent(code).indent || '\t'),
+		meta: {
+			isUsingComponents: isUsingComponents
+		}
 	};
 }
 
