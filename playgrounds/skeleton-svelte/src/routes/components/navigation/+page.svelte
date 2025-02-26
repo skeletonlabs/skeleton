@@ -69,7 +69,7 @@
 				{#snippet header()}
 					<a href="/" class="flex aspect-square w-full flex-col items-center justify-center gap-2">
 						<IconLogo size={expanded ? 48 : 24} />
-						<span class="font-bold {expanded ? 'type-scale-5' : 'type-scale-1'}">Skeleton</span>
+						<span class="font-bold {expanded ? 'text-xl' : 'text-xs'}">Skeleton</span>
 					</a>
 				{/snippet}
 				{#snippet tiles()}

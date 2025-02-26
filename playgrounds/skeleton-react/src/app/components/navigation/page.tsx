@@ -68,7 +68,7 @@ export default function Page() {
 						header={
 							<a href="/" className="flex aspect-square w-full flex-col items-center justify-center gap-2">
 								<IconLogo size={48} />
-								<span className="type-scale-5 font-bold">Skeleton</span>
+								<span className="text-xl font-bold">Skeleton</span>
 							</a>
 						}
 						footer={

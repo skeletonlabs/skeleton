@@ -43,7 +43,7 @@
 			{#snippet trigger()}Click Me{/snippet}
 			{#snippet content()}
 				<header class="flex justify-between">
-					<p class="font-bold type-scale-5">Popover</p>
+					<p class="font-bold text-xl">Popover</p>
 					<button class="btn-icon" onclick={popoverClose}>
 						<IconX />
 					</button>
