@@ -18,7 +18,7 @@
 		labelBase = 'label-text',
 		labelClasses = '',
 		// Item
-		itemBase = '',
+		itemBase = 'cursor-pointer',
 		itemClasses = '',
 		// State
 		stateReadOnly = '',
