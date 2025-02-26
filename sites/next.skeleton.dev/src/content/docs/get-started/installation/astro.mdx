@@ -159,10 +159,10 @@ While Astro can support [multiple Frontend frameworks](https://docs.astro.build/
         ### Add Source Path to CSS Config
         Open your global stylesheet in `/src/styles/global.css` and insert each required `@source`. These should come immediately before Skeleton imports.
         ```css
-		@source '../../node_modules/@skeletonlabs/skeleton-react';
+		@source '../../node_modules/@skeletonlabs/skeleton-react/dist';
         ```
         ```css
-		@source '../../node_modules/@skeletonlabs/skeleton-svelte';
+		@source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
         ```
 		> NOTE: please verify the `@source` path resolves to your `node_modules` directory.
     </ProcessStep>
