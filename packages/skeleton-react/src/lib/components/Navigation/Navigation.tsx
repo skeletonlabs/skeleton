@@ -156,7 +156,7 @@ export const NavTile: React.FC<NavTileProps> = ({
 	expandedGap = 'gap-4',
 	expandedClasses = '',
 	// Label (base)
-	labelBase = 'type-scale-1',
+	labelBase = 'text-xs',
 	labelClasses = '',
 	// Label (expanded)
 	labelExpandedBase = '',

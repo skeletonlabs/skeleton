@@ -22,7 +22,7 @@
 		// Interface (content)
 		interfaceIcon = '',
 		interfaceText = '',
-		interfaceSubtext = 'type-scale-1 opacity-60',
+		interfaceSubtext = 'text-xs opacity-60',
 		// Files List
 		filesListBase = 'mt-2 space-y-2',
 		filesListClasses = '',
@@ -35,8 +35,8 @@
 		fileClasses = '',
 		// File (content)
 		fileIcon = '',
-		fileName = 'type-scale-2 flex items-center gap-4',
-		fileSize = 'type-scale-1 opacity-60',
+		fileName = 'text-sm flex items-center gap-4',
+		fileSize = 'text-xs opacity-60',
 		fileButton = '',
 		// State
 		stateInvalid = 'border-error-500',

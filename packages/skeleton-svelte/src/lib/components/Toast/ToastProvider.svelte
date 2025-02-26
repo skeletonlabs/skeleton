@@ -21,12 +21,12 @@
 		toastShadow = 'shadow-xl',
 		toastClasses = '',
 		// Message
-		messageBase = 'grid grid-cols-1 max-w-xs type-scale-1',
+		messageBase = 'grid grid-cols-1 max-w-xs text-xs',
 		messageTitle = 'font-bold',
 		messageDescription = '',
 		messageClasses = '',
 		// Dismiss Button
-		btnDismissBase = 'btn-icon btn-icon-sm type-scale-3',
+		btnDismissBase = 'btn-icon btn-icon-sm text-base',
 		btnDimissPreset = '',
 		btnDismissHover = 'hover:preset-tonal',
 		btnDismissClasses = '',
