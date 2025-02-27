@@ -38,6 +38,8 @@ export default defineConfig({
 			imports: [
 				// import ApiTable from '@components/docs/ApiTable.astro';
 				'@components/docs/ApiTable.astro',
+				// import CompViz from '@components/docs/CompViz.astro';
+				'@components/docs/CompViz.astro',
 				{
 					// import componentSet from "@components/mdx/index";
 					'@components/mdx/index': [['default', 'componentSet']],
