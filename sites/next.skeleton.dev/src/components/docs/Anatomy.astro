@@ -6,7 +6,7 @@ const { isRoot, label, element } = Astro.props;
 	<!-- Label -->
 	<header class="flex justify-start items-center gap-2 pointer-events-none">
 		{isRoot && <code class="code">{`<${label}>`}</code>}
-		{!isRoot && <code class="code">&bull; {label}</code>}
+		{!isRoot && <code class="code">&star; {label}</code>}
 		{element && <span class="font-mono text-xs opacity-60">{`<${element}>`}</span>}
 	</header>
 	<!-- Children -->
