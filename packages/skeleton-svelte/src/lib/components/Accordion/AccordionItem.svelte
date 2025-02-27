@@ -5,7 +5,7 @@
 
 	// Props
 	const {
-		headingElement = 'h3',
+		headingLevel = 3,
 		// Root
 		base,
 		spaceY,
@@ -45,7 +45,7 @@
 
 <div class="{base} {spaceY} {classes}" {...ctx.api.getItemProps(zagProps)} data-testid="accordion-item">
 	<!-- Control -->
-	<svelte:element this={headingElement}>
+	<svelte:element this={`h${headingLevel}`}>
 		<button
 			class="{controlBase} {controlHover} {controlPadding} {controlRounded} {controlClasses}"
 			{...ctx.api.getItemTriggerProps(zagProps)}
@@ -81,7 +81,7 @@
 		<div
 			class="{panelBase} {panelPadding} {panelRounded} {panelClasses}"
 			{...ctx.api.getItemContentProps(zagProps)}
-			transition:slide={{ duration: ctx.animDuration }}
+			transition:slide={ctx.animationConfig}
 			data-testid="accordion-panel"
 		>
 			{@render panel?.()}

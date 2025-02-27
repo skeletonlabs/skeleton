@@ -3,10 +3,7 @@ import * as accordion from '@zag-js/accordion';
 
 // Accordion Context ---
 
-export interface AccordionContextState {
-	animDuration: number;
-	iconOpen: ReactNode;
-	iconClosed: ReactNode;
+export interface AccordionContextState extends Pick<AccordionProps, 'iconOpen' | 'iconClosed'> {
 	api: ReturnType<typeof accordion.connect>;
 }
 
@@ -18,9 +15,6 @@ export interface AccordionItemContextState {
 // Accordion ---
 
 export interface AccordionProps extends React.PropsWithChildren, Omit<accordion.Props, 'id' | 'orientation'> {
-	/** The slide animation duration as a float value (ex: 0.2). */
-	animDuration?: number;
-
 	// Slots ---
 	// https://www.totaltypescript.com/pass-component-as-prop-react
 	/** Set the open state icon. */
@@ -58,10 +52,8 @@ export interface AccordionItemProps extends React.PropsWithChildren, accordion.I
 // Accordion Control ---
 
 export interface AccordionControlProps extends React.PropsWithChildren {
-	/** The heading element. */
-	headingElement?: keyof React.JSX.IntrinsicElements;
-	/** Set a disabled state for the item. */
-	disabled?: boolean;
+	/** The heading level. */
+	headingLevel?: number;
 
 	// Root ---
 	/** Sets control's base styles. */

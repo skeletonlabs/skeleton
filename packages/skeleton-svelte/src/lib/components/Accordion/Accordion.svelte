@@ -6,7 +6,9 @@
 
 	// Props
 	const {
-		animDuration = 200,
+		animationConfig = {
+			duration: 200
+		},
 		// Root
 		base = '',
 		padding = '',
@@ -34,8 +36,8 @@
 		get api() {
 			return api;
 		},
-		get animDuration() {
-			return animDuration;
+		get animationConfig() {
+			return animationConfig;
 		},
 		get iconClosed() {
 			return iconClosed;

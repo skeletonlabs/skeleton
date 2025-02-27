@@ -10,7 +10,6 @@ import { AccordionContext, AccordionItemContext } from './context.js';
 // Components ---
 
 const AccordionRoot: FC<AccordionProps> = ({
-	animDuration = 0.2,
 	// Root
 	base = '',
 	padding = '',
@@ -34,7 +33,7 @@ const AccordionRoot: FC<AccordionProps> = ({
 	const api = accordion.connect(service, normalizeProps);
 	return (
 		<div className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`} {...api.getRootProps()} data-testid="accordion">
-			<AccordionContext.Provider value={{ animDuration, iconOpen, iconClosed, api }}>{children}</AccordionContext.Provider>
+			<AccordionContext.Provider value={{ iconOpen, iconClosed, api }}>{children}</AccordionContext.Provider>
 		</div>
 	);
 };
@@ -59,7 +58,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
 };
 
 const AccordionControl: FC<AccordionControlProps> = ({
-	headingElement = 'h3',
+	headingLevel = 3,
 	// Control
 	base = 'flex text-start items-center space-x-4 w-full',
 	hover = 'hover:preset-tonal-primary',
@@ -83,7 +82,7 @@ const AccordionControl: FC<AccordionControlProps> = ({
 	const ctx = useContext(AccordionContext);
 	const itemCtx = useContext(AccordionItemContext);
 
-	const HeadingElement = headingElement;
+	const HeadingElement = `h${headingLevel}` as keyof JSX.IntrinsicElements;
 
 	return (
 		<HeadingElement>

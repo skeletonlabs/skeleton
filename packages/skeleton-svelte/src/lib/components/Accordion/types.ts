@@ -1,20 +1,18 @@
 import type { Snippet } from 'svelte';
 import * as accordion from '@zag-js/accordion';
+import type { SlideParams } from 'svelte/transition';
 
 // Accordion Context ---
 
-export interface AccordionContext {
+export interface AccordionContext extends Pick<AccordionProps, 'animationConfig' | 'iconOpen' | 'iconClosed'> {
 	api: ReturnType<typeof accordion.connect>;
-	animDuration: number;
-	iconOpen?: Snippet;
-	iconClosed?: Snippet;
 }
 
 // Accordion ---
 
 export interface AccordionProps extends Omit<accordion.Props, 'id' | 'orientation'> {
-	/** The slide animation duration in milliseconds. */
-	animDuration?: number;
+	/** The animation configuration */
+	animationConfig?: SlideParams;
 
 	// Root ---
 	/** Sets base styles. */
@@ -42,8 +40,8 @@ export interface AccordionProps extends Omit<accordion.Props, 'id' | 'orientatio
 // Accordion Item ---
 
 export interface AccordionItemProps extends accordion.ItemProps {
-	/** The element used as the header. */
-	headingElement?: string;
+	/** The heading level. */
+	headingLevel?: number;
 
 	// Root ---
 	/** Sets base styles. */
