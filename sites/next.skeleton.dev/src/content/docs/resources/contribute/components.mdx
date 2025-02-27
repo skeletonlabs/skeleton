@@ -11,20 +11,24 @@ export const components = componentSet;
 
 Component packages can be located here within the monorepo.
 
-| Package                     | Framework                     | App Framework                        |
-| --------------------------- | ----------------------------- | ------------------------------------ |
-| `/packages/skeleton-svelte` | [Svelte](https://svelte.dev/) | [SvelteKit](https://kit.svelte.dev/) |
-| `/packages/skeleton-react`  | [React](https://react.dev/)   | [Vite/React](https://vitejs.dev/)    |
+| Directory                   | Framework/Library             |
+| --------------------------- | ----------------------------- |
+| `/packages/skeleton-svelte` | [Svelte](https://svelte.dev/) |
+| `/packages/skeleton-react`  | [React](https://react.dev/)   |
 
-The purpose of our component packages is two-fold. First, they house and export the full set of components available to that framework. Additionally, each project contains a dedicated meta-framework. This is used to test the components in their native environment. Use these projects as a sandbox to test and iterate before adding the components to the public facing Astro-base documentation website.
+## Playgrounds
+
+| Directory                      | Framework/Library             | App Framework                            |
+| ------------------------------ | ----------------------------- | ---------------------------------------- |
+| `/playgrounds/skeleton-svelte` | [Svelte](https://svelte.dev/) | [SvelteKit](https://svelte.dev/docs/kit) |
+| `/playgrounds/skeleton-react`  | [React](https://react.dev/)   | [NextJS](https://nextjs.org/)            |
 
 ### Dev Server
 
-To run each app framework, change your directory to the respective package and run the following command.
+To run all packages/playgrounds/sites in watch mode, use the following command in the monorepo root:
 
 ```shell
-cd packages/skeleton-svelte
-pnpm vite dev
+pnpm dev
 ```
 
 ### Server Ports
@@ -32,8 +36,8 @@ pnpm vite dev
 The following represents the _default_ localhost address and port for each project. This will be displayed in the terminal when starting each dev server.
 
 - Documentation Site: `http://localhost:4321/`
-- Svelte Package App: `http://localhost:5173/`
-- React Package App: `http://localhost:5173/`
+- SvelteKit Playground: `http://localhost:5173/`
+- NextJS Playground: `http://localhost:3000/`
 
 You may run the documentation site and framework packages in parallel at the same time. If the server shares a port, this will increment by one for the next server (ex: `5174`, `5175`, etc). Keep your eye on the terminal to retrieve the specific local address.
 
