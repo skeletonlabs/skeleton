@@ -1,12 +1,12 @@
 ---
-const { isRoot, label, element } = Astro.props;
+const { isComponent, label, element } = Astro.props;
 ---
 
 <div class="element bg-surface-50-950 preset-outlined-surface-600-400 border-dashed p-3 space-y-3">
 	<!-- Label -->
 	<header class="flex justify-start items-center gap-2 pointer-events-none">
-		{isRoot && <code class="code">{`<${label}>`}</code>}
-		{!isRoot && <code class="code">&star; {label}</code>}
+		{isComponent && <code class="code">{`<${label}>`}</code>}
+		{!isComponent && <code class="code">&star; {label}</code>}
 		{element && <span class="font-mono text-xs opacity-60">{`<${element}>`}</span>}
 	</header>
 	<!-- Children -->
