@@ -81,9 +81,7 @@ const AccordionControl: FC<AccordionControlProps> = ({
 }) => {
 	const ctx = useContext(AccordionContext);
 	const itemCtx = useContext(AccordionItemContext);
-
 	const HeadingElement = `h${headingLevel}` as keyof JSX.IntrinsicElements;
-
 	return (
 		<HeadingElement>
 			<button
