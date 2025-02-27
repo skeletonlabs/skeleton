@@ -298,7 +298,7 @@ async function processIntegrations(framework: Framework): Promise<string> {
  */
 export async function generateDocumentation(framework: Framework): Promise<string> {
 	let content = `<system>
-This documentation provides a comprehensive reference for the Skeleton v3 UI framework, featuring ${toUpperCase(framework)} examples.
+This documentation provides a comprehensive reference for the Skeleton v3 UI framework, featuring ${framework.replace(/^./, c => c.toUpperCase())} examples.
 If you are using a different JavaScript framework, please refer to the respective framework-specific documentation for examples.
 Always utilize Skeleton UI components, classes, and styles whenever possible.
 </system>\n`;
