@@ -52,10 +52,8 @@
 		"@types/react-dom": "^18.3.1",
 		"@vitejs/plugin-react": "^4.3.4",
 		"jsdom": "^25.0.1",
-		"lucide-react": "^0.465.0",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
-		"react-router-dom": "^7.0.2",
 		"typescript": "catalog:",
 		"vite": "^6.0.2",
 		"vitest": "^2.1.8"
