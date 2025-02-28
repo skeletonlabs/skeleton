@@ -1,15 +1,19 @@
 ---
-const { isComponent, isRow, label, element } = Astro.props;
+const { isComponent, label, descriptor, element } = Astro.props;
 
 const lableFallback = '(unlabled)';
 ---
 
 <div class="card flex-1 bg-surface-50-950 preset-outlined-surface-600-400 border-dashed p-3 space-y-3">
 	<header class="flex justify-between items-center gap-2 pointer-events-none">
-		<!-- Label -->
-		<code class:list={label ? 'code' : 'text-xs opacity-60'}>
-			{isComponent ? `<${label ?? lableFallback}>` : (label ?? lableFallback)}
-		</code>
+		<div class="flex items-center gap-2">
+			<!-- Label -->
+			<code class:list={label ? 'code' : 'text-xs opacity-60'}>
+				{isComponent ? `<${label ?? lableFallback}>` : (label ?? lableFallback)}
+			</code>
+			<!-- Descriptor -->
+			{descriptor && <span class="text-xs opacity-60">{descriptor}</span>}
+		</div>
 		<!-- Element -->
 		<span class="font-mono text-xs opacity-60">{`<${element ?? 'div'}>`}</span>
 	</header>
