@@ -1,20 +1,25 @@
 ---
-const { isComponent, label, element } = Astro.props;
+const { isComponent, isRow, label, element } = Astro.props;
 ---
 
-<div class="element bg-surface-50-950 preset-outlined-surface-600-400 border-dashed p-3 space-y-3">
+<div class="card flex-1 bg-surface-50-950 preset-outlined-surface-600-400 border-dashed p-3 space-y-3">
 	<!-- Label -->
-	<header class="flex justify-start items-center gap-2 pointer-events-none">
-		{isComponent && <code class="code">{`<${label}>`}</code>}
-		{!isComponent && <code class="code">&star; {label}</code>}
+	<header class="flex justify-between items-center gap-2 pointer-events-none">
+		{isComponent ? <code class="code">{`<${label}>`}</code> : <code class="code">{label}</code>}
 		{element && <span class="font-mono text-xs opacity-60">{`<${element}>`}</span>}
 	</header>
-	<!-- Children -->
-	<slot class="space-y-3" />
+	<!-- Default Slot -->
+	{
+		Astro.slots.has('default') && (
+			<div class:list={`flex gap-3 ${isRow ? 'flex-col lg:flex-row' : 'flex-col'}`}>
+				<slot />
+			</div>
+		)
+	}
 </div>
 
 <style lang="postcss">
-	.element:hover:not(:has(*:hover)) {
+	.card:hover:not(:has(*:hover)) {
 		background-color: var(--color-surface-100-900);
 		border-color: var(--color-primary-950-50);
 		border-style: solid;
