@@ -2,7 +2,6 @@ import { glob } from 'tinyglobby';
 import { getInterfaces } from '@skeletonlabs/necroparser';
 import { writeFile, mkdir, rm } from 'fs/promises';
 import { basename, dirname, join } from 'path';
-import { resolve } from 'node:url';
 import { intro, spinner, outro } from '@clack/prompts';
 
 const OUTPUT_DIR = join(import.meta.dirname, '../src/content/schemas');
