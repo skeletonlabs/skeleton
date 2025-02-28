@@ -7,6 +7,7 @@
 	const {
 		data = [],
 		label = '',
+		zIndex = 'auto',
 		// Base
 		base = '',
 		width = '',
@@ -23,7 +24,6 @@
 		inputGroupClasses = '',
 		// Positioner
 		positionerBase = '',
-		zIndex = 'auto',
 		positionerClasses = '',
 		// Content
 		contentBase = 'card p-2',

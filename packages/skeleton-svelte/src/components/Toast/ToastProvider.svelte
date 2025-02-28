@@ -10,10 +10,10 @@
 		offset = '16px',
 		dismissLabel = '',
 		// Group
-		groupBase = 'fixed flex flex-col items-end',
-		groupZIndex = 'z-[888]',
-		groupGap = 'gap-4',
-		groupClasses = '',
+		base = 'fixed flex flex-col items-end',
+		gap = 'gap-4',
+		zIndex = 'z-[888]',
+		classes = '',
 		// Toast
 		toastBase = 'card py-2 px-3 grid grid-cols-[1fr_auto] items-center',
 		toastPadding = 'py-2 px-3',
@@ -26,10 +26,10 @@
 		messageDescription = '',
 		messageClasses = '',
 		// Dismiss Button
-		btnDismissBase = 'btn-icon btn-icon-sm text-base',
-		btnDimissPreset = '',
-		btnDismissHover = 'hover:preset-tonal',
-		btnDismissClasses = '',
+		buttonDismissBase = 'btn-icon btn-icon-sm text-base',
+		buttonDimissPreset = '',
+		buttonDismissHover = 'hover:preset-tonal',
+		buttonDismissClasses = '',
 		// State
 		stateInfo = 'preset-filled',
 		stateError = 'preset-filled-error-500',
@@ -97,7 +97,7 @@
 <!-- Toast Group -->
 {#if toastQueue.length}
 	<div
-		class="{groupBase} {groupZIndex} {groupGap} {groupClasses}"
+		class="{base} {gap} {zIndex} {classes}"
 		style={formatStyleAttr(placementOptions[placement])}
 		data-part="root"
 		data-testid="toast-provider"
@@ -120,7 +120,7 @@
 				<!-- Dismiss -->
 				<button
 					type="button"
-					class="{btnDismissBase} {btnDimissPreset} {btnDismissHover} {btnDismissClasses}"
+					class="{buttonDismissBase} {buttonDimissPreset} {buttonDismissHover} {buttonDismissClasses}"
 					onclick={() => dismiss(toast.id)}
 				>
 					{#if dismissLabel}{dismissLabel}{:else}&times;{/if}

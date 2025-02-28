@@ -7,6 +7,7 @@
 
 	const {
 		arrow = false,
+		zIndex = 'auto',
 		// Base
 		base = '',
 		classes = '',
@@ -17,7 +18,6 @@
 		triggerAriaLabel = '',
 		// Positioner
 		positionerBase = '',
-		zIndex = 'auto',
 		positionerClasses = '',
 		// Content
 		contentBase = '',

@@ -8,6 +8,7 @@
 		// Base
 		base = '',
 		classes = '',
+		zIndex = 'auto',
 		// Trigger
 		triggerBase = '',
 		triggerBackground = '',
@@ -23,7 +24,6 @@
 		positionerJustify = 'justify-center',
 		positionerAlign = 'items-center',
 		positionerPadding = 'p-4',
-		zIndex = 'auto',
 		positionerClasses = '',
 		// Content
 		contentBase = '',

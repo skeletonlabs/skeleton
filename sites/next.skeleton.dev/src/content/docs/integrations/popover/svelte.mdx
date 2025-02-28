@@ -33,9 +33,17 @@ import schemaModal from '@content/schemas/svelte/modal.json';
 	</p>
 </div>
 
-## Components
+## Z-Index
 
-### Popover
+Skeleton does not take an opinionated stance regarding z-index stacking. This means elements may be occluded beneath other elements with a higher index. Adjust this using the `zIndex` component property.
+
+```svelte
+<Popover ... zIndex={10}>
+	<!-- ... -->
+</Popover>
+```
+
+## Popover
 
 Triggers an anchored popover when you <u>click</u> the trigger element. [View API Reference](https://zagjs.com/components/react/popover#methods-and-properties).
 
@@ -51,7 +59,21 @@ Triggers an anchored popover when you <u>click</u> the trigger element. [View AP
 	</Fragment>
 </Preview>
 
-### Tooltip
+### Anatomy
+
+<Anatomy label="Popover" element="span" isComponent>
+	<Anatomy label="trigger" element="button" />
+	<Anatomy label="positioner">
+		<Anatomy label="arrow" />
+		<Anatomy label="content" />
+	</Anatomy>
+</Anatomy>
+
+### API Reference
+
+<ApiTable schema={schemaPopover} />
+
+## Tooltip
 
 Triggers an anchored popover when you <u>hover</u> the trigger element. [View API Reference](https://zagjs.com/components/react/tooltip#methods-and-properties).
 
@@ -67,7 +89,21 @@ Triggers an anchored popover when you <u>hover</u> the trigger element. [View AP
 	</Fragment>
 </Preview>
 
-### Combobox
+### Anatomy
+
+<Anatomy label="Tooltip" element="span" isComponent>
+	<Anatomy label="trigger" element="button" />
+	<Anatomy label="positioner">
+		<Anatomy label="arrow" />
+		<Anatomy label="content" />
+	</Anatomy>
+</Anatomy>
+
+### API Reference
+
+<ApiTable schema={schemaTooltip} />
+
+## Combobox
 
 Triggers an anchored popover list when you tap the arrow. Includes auto-suggestion via typeahead. [View API Reference](https://zagjs.com/components/react/combobox#methods-and-properties).
 
@@ -80,7 +116,30 @@ Triggers an anchored popover list when you tap the arrow. Includes auto-suggesti
 	</Fragment>
 </Preview>
 
-### Modal
+### Anatomy
+
+<Anatomy label="Combobox" element="span" isComponent>
+	<Anatomy label="label">
+		<Anatomy label="labelText" element="span" />
+		<Anatomy label="inputGroup">
+			<Anatomy label="inputGroupInput" element="input" />
+			<Anatomy label="inputGroupButton" element="button">
+				<Anatomy label="inputGroupArrow" element="svg" />
+			</Anatomy>
+		</Anatomy>
+	</Anatomy>
+	<Anatomy label="positioner">
+		<Anatomy label="content" element="nav">
+			<Anatomy label="option" element="button" />
+		</Anatomy>
+	</Anatomy>
+</Anatomy>
+
+### API Reference
+
+<ApiTable schema={schemaCombobox} />
+
+## Modal
 
 Generate modals or dialogs that require a user's immediate attention. [View API Reference](https://zagjs.com/components/react/dialog#methods-and-properties).
 
@@ -102,15 +161,19 @@ Generate modals or dialogs that require a user's immediate attention. [View API 
 	</Fragment>
 </Preview>
 
-## Z-Index
+### Anatomy
 
-Skeleton does not take an opinionated stance regarding z-index stacking. This means elements may be occluded beneath other elements with a higher index. Adjust this using the `zIndex` component property.
+<Anatomy label="Modal" element="span" isComponent>
+	<Anatomy label="trigger" element="button" />
+	<Anatomy label="backdrop" />
+	<Anatomy label="positioner">
+		<Anatomy label="content" />
+	</Anatomy>
+</Anatomy>
 
-```svelte
-<Popover ... zIndex={10}>
-	<!-- ... -->
-</Popover>
-```
+### API Reference
+
+<ApiTable schema={schemaModal} />
 
 ## Native Browser APIs
 
@@ -119,10 +182,3 @@ Skeleton will always favor native browser APIs over third-party libraries such a
 - [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
 - [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
 - [CSS Anchoring Position](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning)
-
-## API Reference
-
-<ApiTable schema={schemaPopover} />
-<ApiTable schema={schemaTooltip} />
-<ApiTable schema={schemaCombobox} />
-<ApiTable schema={schemaModal} />

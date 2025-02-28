@@ -8,6 +8,8 @@ export interface ModalProps extends Omit<dialog.Props, 'id'> {
 	base?: string;
 	/** Provide arbitrary classes for the root element. */
 	classes?: string;
+	/** Set z-index for the positioner. */
+	zIndex?: string;
 
 	// Trigger ---
 	/** Set base classes for the trigger. */
@@ -38,8 +40,6 @@ export interface ModalProps extends Omit<dialog.Props, 'id'> {
 	positionerAlign?: string;
 	/** Set padding classes for the positioner. */
 	positionerPadding?: string;
-	/** Set z-index for the positioner. */
-	zIndex?: string;
 	/** Provide arbitrary classes for the positioner. */
 	positionerClasses?: string;
 
