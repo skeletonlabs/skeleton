@@ -1,8 +1,4 @@
-<div class="card p-4 bg-red-500 text-center">
-	<p>Semantic Typography needs to be updated.</p>
-</div>
-
-<!-- <div class="table-wrap">
+<div class="table-wrap">
 	<table class="table">
 		<thead>
 			<tr>
@@ -11,131 +7,180 @@
 			</tr>
 		</thead>
 		<tbody>
-			// type-display-4
+			<!-- preset-typo-display-4 -->
 			<tr>
-				<td><code class="code">type-display-4</code></td>
-				<td><h1 class="type-display-4">Aa</h1></td>
+				<td><code class="code">preset-typo-display-4</code></td>
+				<td><h1 class="preset-typo-display-4">Aa</h1></td>
 			</tr>
-			// type-display-3
+			<!-- preset-typo-display-3 -->
 			<tr>
-				<td><code class="code">type-display-3</code></td>
-				<td><h2 class="type-display-3">Aa</h2></td>
+				<td><code class="code">preset-typo-display-3</code></td>
+				<td><h2 class="preset-typo-display-3">Aa</h2></td>
 			</tr>
-			// type-display-2
+			<!-- preset-typo-display-2 -->
 			<tr>
-				<td><code class="code">type-display-2</code></td>
-				<td><h3 class="type-display-2">Aa</h3></td>
+				<td><code class="code">preset-typo-display-2</code></td>
+				<td><h3 class="preset-typo-display-2">Aa</h3></td>
 			</tr>
-			// type-display-1
+			<!-- preset-typo-display-1 -->
 			<tr>
-				<td><code class="code">type-display-1</code></td>
-				<td><h4 class="type-display-1">Aa</h4></td>
+				<td><code class="code">preset-typo-display-1</code></td>
+				<td><h4 class="preset-typo-display-1">Aa</h4></td>
 			</tr>
-			// type-headline
+			<!-- preset-typo-headline -->
 			<tr>
-				<td><code class="code">type-headline</code></td>
-				<td><p class="type-headline">Headline</p></td>
+				<td><code class="code">preset-typo-headline</code></td>
+				<td><p class="preset-typo-headline">Headline</p></td>
 			</tr>
-			// type-title
+			<!-- preset-typo-title -->
 			<tr>
-				<td><code class="code">type-title</code></td>
-				<td><p class="type-title">Title</p></td>
+				<td><code class="code">preset-typo-title</code></td>
+				<td><p class="preset-typo-title">Title</p></td>
 			</tr>
-			// type-subtitle
+			<!-- preset-typo-subtitle -->
 			<tr>
-				<td><code class="code">type-subtitle</code></td>
-				<td><p class="type-subtitle">Subtitle</p></td>
+				<td><code class="code">preset-typo-subtitle</code></td>
+				<td><p class="preset-typo-subtitle">Subtitle</p></td>
 			</tr>
-			// type-body-1
+			<!-- preset-typo-body-1 -->
 			<tr>
-				<td><code class="code">type-body-1</code></td>
+				<td><code class="code">preset-typo-body-1</code></td>
 				<td>
-					<p class="type-body-1">Body 1</p>
+					<p class="preset-typo-body-1">Body 1</p>
 				</td>
 			</tr>
-			// type-body-2
+			<!-- preset-typo-body-2 -->
 			<tr>
-				<td><code class="code">type-body-2</code></td>
+				<td><code class="code">preset-typo-body-2</code></td>
 				<td>
-					<p class="type-body-2">Body 2</p>
+					<p class="preset-typo-body-2">Body 2</p>
 				</td>
 			</tr>
-			// type-caption
+			<!-- preset-typo-caption -->
 			<tr>
-				<td><code class="code">type-caption</code></td>
-				<td><span class="type-caption">Caption</span></td>
+				<td><code class="code">preset-typo-caption</code></td>
+				<td><span class="preset-typo-caption">Caption</span></td>
 			</tr>
-			// type-menu
+			<!-- preset-typo-menu -->
 			<tr>
-				<td><code class="code">type-menu</code></td>
-				<td><span class="type-menu">Menu</span></td>
+				<td><code class="code">preset-typo-menu</code></td>
+				<td><span class="preset-typo-menu">Menu</span></td>
 			</tr>
-			// type-button
+			<!-- preset-typo-button -->
 			<tr>
-				<td><code class="code">type-button</code></td>
-				<td><span class="type-button">Button</span></td>
+				<td><code class="code">preset-typo-button</code></td>
+				<td><span class="preset-typo-button">Button</span></td>
 			</tr>
 		</tbody>
 	</table>
-</div> -->
+</div>
 
-<!--
-	Copy the following classes to your global stylesheet. Rename and modify as desired.
-	Reference: http://skeleton.dev/docs/get-started/core-api#typography
--->
-<!-- <style lang="postcss">
-	.type-display-4 {
-		@apply text-xs1 md:text-xs2 lg:text-xs3;
-		@apply heading-font-color dark:heading-font-color-dark;
-		@apply heading-font-family heading-font-weight;
-	}
-	.type-display-3 {
-		@apply text-xs0 md:text-xs1 lg:text-xs2;
-		@apply heading-font-color dark:heading-font-color-dark;
-		@apply heading-font-family heading-font-weight;
-	}
-	.type-display-2 {
-		@apply text-5xl md:text-xs0 lg:text-xs1;
-		@apply heading-font-color dark:heading-font-color-dark;
-		@apply heading-font-family heading-font-weight;
-	}
-	.type-display-1 {
-		@apply text-4xl md:text-5xl lg:text-xs0;
-		@apply heading-font-color dark:heading-font-color-dark;
-		@apply heading-font-family heading-font-weight;
-	}
-	.type-headline {
-		@apply text-2xl md:text-3xl lg:text-4xl;
-		@apply heading-font-color dark:heading-font-color-dark;
-		@apply heading-font-family heading-font-weight;
-	}
-	.type-title {
-		@apply text-xl md:text-2xl lg:text-3xl;
-		@apply heading-font-color dark:heading-font-color-dark;
-		@apply heading-font-family heading-font-weight;
-	}
-	.type-subtitle {
-		@apply text-base md:text-lg lg:text-xl;
-		@apply heading-font-color dark:heading-font-color-dark;
-		@apply heading-font-family;
-		@apply opacity-60;
+<style lang="postcss">
+	/* IGNORE THIS: this is only required for our example <style> block. */
+	/* https://tailwindcss.com/docs/functions-and-directives#reference-directive */
+	@reference "src/styles/app.css";
+
+	/*
+		Copy the following classes to your global stylesheet. Rename and modify as desired.
+		Reference: http://skeleton.dev/docs/get-started/core-api#typography
+	*/
+
+	/* Headings */
+	.preset-typo-display-4,
+	.preset-typo-display-3,
+	.preset-typo-display-2,
+	.preset-typo-display-1,
+	.preset-typo-headline,
+	.preset-typo-title,
+	.preset-typo-subtitle,
+	.preset-typo-caption,
+	.preset-typo-menu,
+	.preset-typo-button {
+		color: var(--heading-font-color);
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-font-weight);
+		@variant dark {
+			color: var(--heading-font-color-dark);
+		}
 	}
 
-	.type-body-1 {
-		@apply text-xl md:text-2xl lg:text-3xl;
+	/* Body */
+	.preset-typo-body-1,
+	.preset-typo-body-2,
+	.preset-typo-caption,
+	.preset-typo-menu,
+	.preset-typo-button {
+		color: var(--heading-font-color);
+		@variant dark {
+			color: var(--heading-font-color-dark);
+		}
 	}
-	.type-body-2 {
-		@apply text-lg lg:text-xl;
+
+	/* Unique Properties */
+	.preset-typo-display-4 {
+		font-size: var(--text-7xl);
+		@variant lg {
+			font-size: var(--text-9xl);
+		}
 	}
-	.type-caption {
-		@apply text-sm;
-		@apply italic opacity-60;
+	.preset-typo-display-3 {
+		font-size: var(--text-6xl);
+		@variant lg {
+			font-size: var(--text-8xl);
+		}
 	}
-	.type-menu {
-		@apply text-base;
-		@apply font-bold;
+	.preset-typo-display-2 {
+		font-size: var(--text-5xl);
+		@variant lg {
+			font-size: var(--text-7xl);
+		}
 	}
-	.type-button {
-		@apply text-base;
+	.preset-typo-display-1 {
+		font-size: var(--text-4xl);
+		@variant lg {
+			font-size: var(--text-6xl);
+		}
 	}
-</style> -->
+	.preset-typo-headline {
+		font-size: var(--text-2xl);
+		@variant lg {
+			font-size: var(--text-4xl);
+		}
+	}
+	.preset-typo-title {
+		font-size: var(--text-xl);
+		@variant lg {
+			font-size: var(--text-3xl);
+		}
+	}
+	.preset-typo-subtitle {
+		font-size: var(--text-base);
+		font-family: var(--heading-font-family);
+		color: var(--color-surface-700-300);
+		@variant lg {
+			font-size: var(--text-xl);
+		}
+	}
+	.preset-typo-body-1 {
+		font-size: var(--text-xl);
+		@variant lg {
+			font-size: var(--text-3xl);
+		}
+	}
+	.preset-typo-body-2 {
+		font-size: var(--text-lg);
+		@variant lg {
+			font-size: var(--text-xl);
+		}
+	}
+	.preset-typo-caption {
+		font-size: var(--text-sm);
+		color: var(--color-surface-700-300);
+	}
+	.preset-typo-menu {
+		font-weight: bold;
+	}
+	.preset-typo-button {
+		font-weight: bold;
+	}
+</style>
