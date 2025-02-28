@@ -1,8 +1,8 @@
 # @skeletonlabs/skeleton-svelte
 
 ## 1.0.0-next.21
-### Minor Changes
 
+### Minor Changes
 
 - feat: Zag 1.0 ([#3257](https://github.com/skeletonlabs/skeleton/pull/3257))
 
