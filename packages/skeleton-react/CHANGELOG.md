@@ -1,8 +1,8 @@
 # @skeletonlabs/skeleton-react
 
 ## 1.0.0-next.16
-### Minor Changes
 
+### Minor Changes
 
 - feat: Zag 1.0 ([#3257](https://github.com/skeletonlabs/skeleton/pull/3257))
 
