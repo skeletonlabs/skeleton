@@ -13,5 +13,6 @@
 		"module": "NodeNext",
 		"moduleResolution": "NodeNext",
 		"types": ["vitest/globals", "@testing-library/jest-dom"]
-	}
+	},
+	"include": ["src/**/*.ts", "src/**/*.svelte"]
 }
