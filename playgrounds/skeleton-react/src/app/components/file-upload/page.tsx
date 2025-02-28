@@ -49,7 +49,7 @@ export default function Page() {
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">API Binding</h2>
-				<FileUpload name="example" accept="image/*" maxFiles={2} internalApi={(api) => (apiRef = api)} />
+				<FileUpload name="example" accept="image/*" maxFiles={2} onApiReady={(api) => (apiRef = api)} />
 				<button
 					type="button"
 					className="btn preset-filled"

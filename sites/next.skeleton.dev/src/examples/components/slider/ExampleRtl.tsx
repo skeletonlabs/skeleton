@@ -7,8 +7,8 @@ export const Page: React.FC = () => {
 
 	return (
 		<div className="w-full space-y-8">
-			<Slider value={value} onValueChange={setValue} dir="rtl" />
-			<Slider value={valueMulti} onValueChange={setValueMulti} dir="rtl" />
+			<Slider value={value} onValueChange={(e) => setValue(e.value)} dir="rtl" />
+			<Slider value={valueMulti} onValueChange={(e) => setValueMulti(e.value)} dir="rtl" />
 		</div>
 	);
 };

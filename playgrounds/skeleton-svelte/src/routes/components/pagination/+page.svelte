@@ -73,7 +73,14 @@ Size: {size}
 				<option value={sourceData.length}>Show All</option>
 			</select>
 			<!-- Pagination (Alternative) -->
-			<Pagination bind:data={sourceData} bind:page bind:pageSize={size} alternative onPageSizeChange={console.log}>
+			<Pagination
+				data={sourceData}
+				{page}
+				onPageChange={(e) => (page = e.page)}
+				pageSize={size}
+				onPageSizeChange={(e) => (size = e.pageSize)}
+				alternative
+			>
 				{#snippet labelEllipsis()}<IconEllipsis class="size-4" />{/snippet}
 				{#snippet labelNext()}<IconArrowRight class="size-4" />{/snippet}
 				{#snippet labelPrevious()}<IconArrowLeft class="size-4" />{/snippet}

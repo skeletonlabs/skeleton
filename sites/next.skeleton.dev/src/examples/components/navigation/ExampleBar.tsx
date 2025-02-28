@@ -14,7 +14,7 @@ export const Page: React.FC = () => {
 				<p className="opacity-20">(Content)</p>
 			</div>
 			{/* Component */}
-			<Navigation.Bar value={value} onChange={setValue}>
+			<Navigation.Bar value={value} onValueChange={setValue}>
 				<Navigation.Tile id="0" label="Files">
 					<IconFolder />
 				</Navigation.Tile>

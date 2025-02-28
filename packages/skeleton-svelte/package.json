@@ -1,11 +1,11 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "1.0.0-next.20",
+	"version": "1.0.0-next.21",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
-		"build": "svelte-package",
-		"dev": "svelte-package --watch",
+		"build": "svelte-package --input src --output dist",
+		"dev": "svelte-package --input src --output dist --watch",
 		"test": "vitest run",
 		"test:watch": "vitest run --watch",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
@@ -60,7 +60,6 @@
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/svelte": "^5.2.6",
 		"jsdom": "^25.0.1",
-		"lucide-svelte": "^0.465.0",
 		"publint": "^0.2.12",
 		"svelte": "catalog:",
 		"svelte-check": "^4.1.1",
@@ -68,7 +67,7 @@
 		"tslib": "^2.8.1",
 		"typescript": "catalog:",
 		"vite": "^6.0.2",
-		"vitest": "3.0.0-beta.1"
+		"vitest": "3.0.7"
 	},
 	"type": "module"
 }

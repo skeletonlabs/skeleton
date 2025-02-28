@@ -25,7 +25,7 @@ export default function Page() {
 			</header>
 			<section className="space-y-4">
 				<pre className="pre">{JSON.stringify(valueDefault)}</pre>
-				<Accordion value={valueDefault} onValueChange={setValueDefault}>
+				<Accordion value={valueDefault} onValueChange={(e) => setValueDefault(e.value)}>
 					{exampleItems.map((item, i) => (
 						<div className="flex flex-col gap-2" key={item.value}>
 							<Accordion.Item value={item.value}>
@@ -40,7 +40,7 @@ export default function Page() {
 			<section className="space-y-4">
 				<h2 className="h2">Collapsible</h2>
 				<pre className="pre">{JSON.stringify(valueCollapsible)}</pre>
-				<Accordion value={valueCollapsible} onValueChange={setValueCollapsible} collapsible>
+				<Accordion value={valueCollapsible} onValueChange={(e) => setValueCollapsible(e.value)} collapsible>
 					{exampleItems.map((item, i) => (
 						<div className="flex flex-col gap-2" key={item.value}>
 							<Accordion.Item value={item.value}>
@@ -55,7 +55,7 @@ export default function Page() {
 			<section className="space-y-4">
 				<h2 className="h2">Multiple</h2>
 				<pre className="pre">{JSON.stringify(valueMultiple)}</pre>
-				<Accordion value={valueMultiple} onValueChange={setValueMultiple} multiple>
+				<Accordion value={valueMultiple} onValueChange={(e) => setValueMultiple(e.value)} multiple>
 					{exampleItems.map((item, i) => (
 						<div className="flex flex-col gap-2" key={item.value}>
 							<Accordion.Item value={item.value}>

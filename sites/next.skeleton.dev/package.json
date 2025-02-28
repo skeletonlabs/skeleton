@@ -10,6 +10,13 @@
 		"schema": "tsx ./scripts/generate-schemas.ts",
 		"pagefind": "pagefind --site dist --exclude-selectors \".expressive-code\""
 	},
+	"devDependencies": {
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"tinyglobby": "^0.2.12",
+		"tsx": "^4.19.2",
+		"vite-plugin-pagefind": "^1.0.5"
+	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
 		"@astrojs/mdx": "^4.0.8",
@@ -17,14 +24,15 @@
 		"@astrojs/react": "^4.2.0",
 		"@astrojs/svelte": "^7.0.4",
 		"@atproto/api": "^0.13.31",
+		"@clack/prompts": "^0.7.0",
 		"@floating-ui/react": "^0.26.28",
 		"@nanostores/persistent": "^0.10.2",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
+		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/vite": "^4.0.2",
-		"@types/react": "^18.3.13",
 		"astro": "^5.2.6",
 		"astro-auto-import": "^0.4.4",
 		"astro-expressive-code": "^0.38.3",
@@ -33,18 +41,14 @@
 		"lucide-svelte": "^0.465.0",
 		"nanostores": "^0.11.3",
 		"octokit": "^4.1.0",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1",
+		"pagefind": "^1.2.0",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
 		"react-hot-toast": "^2.4.1",
 		"sharp": "^0.33.5",
 		"svelte": "catalog:",
 		"svelte-check": "^4.1.1",
 		"tailwindcss": "catalog:",
-		"typescript": "catalog:",
-		"@clack/prompts": "^0.7.0",
-		"@tailwindcss/forms": "^0.5.9",
-		"pagefind": "^1.2.0",
-		"tsx": "^4.19.2",
-		"vite-plugin-pagefind": "^1.0.5"
+		"typescript": "catalog:"
 	}
 }

@@ -5,4 +5,4 @@
 	let starValue = $state(2);
 </script>
 
-<Rating bind:value={starValue} />
+<Rating value={starValue} onValueChange={(e) => (starValue = e.value)} />
