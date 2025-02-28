@@ -72,6 +72,32 @@ Tiles are universal between Rails and Bars. They default to buttons, but will co
 	</Fragment>
 </Preview>
 
+### Rail
+
+<Anatomy label="Navigation.Rail" element="aside" isComponent>
+	<Anatomy label="header" />
+	<Anatomy label="tiles">
+		<Anatomy label="Navigation.Tile" element="a|button" isComponent>
+			<Anatomy label="expanded">
+				<Anatomy label="label|labelExpanded" />
+			</Anatomy>
+		</Anatomy>
+	</Anatomy>
+	<Anatomy label="footer" />
+</Anatomy>
+
+### Bar
+
+<Anatomy label="Navigation.Bar" element="aside" isComponent>
+	<Anatomy label="tiles">
+		<Anatomy label="Navigation.Tile" element="a|button" isComponent>
+			<Anatomy label="expanded">
+				<Anatomy label="label|labelExpanded" />
+			</Anatomy>
+		</Anatomy>
+	</Anatomy>
+</Anatomy>
+
 ## API Reference
 
 <ApiTable />
