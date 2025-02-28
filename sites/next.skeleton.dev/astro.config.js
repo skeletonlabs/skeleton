@@ -51,8 +51,6 @@ export default defineConfig({
 					'@components/docs/Preview.tsx': ['Preview'],
 					// import { FrameworkTabs } from '@components/docs/FrameworkTabs';
 					'@components/docs/FrameworkTabs.tsx': ['FrameworkTabs']
-					// import { Table } from '@components/docs/Table';
-					// '@components/docs/Table.astro': ['Table'],
 				}
 			]
 		}),

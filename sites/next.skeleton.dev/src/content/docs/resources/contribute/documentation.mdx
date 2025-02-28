@@ -146,27 +146,40 @@ To allow for a common preview to have framework specific code, use the `codeReac
 
 > TIP: For React or Svelte components, make sure to use [Astro's hydration directives](https://docs.astro.build/en/guides/framework-components/#hydrating-interactive-components).
 
-### Tables
+### Anatomy
 
-Provided by [Markdown tables](https://www.tablesgenerator.com/markdown_tables) or the available Table component (`/src/components/docs/Table.astro`). The Table component will auto-generate headings based on the key names in the first object row.
+Allows you to [generate a visual aid](/docs/components/accordion/react#anatomy) that showcases how a component's template was contructed, how we label each part of the component, and how those labels are used for style prop prefixes.
 
-```ts
-export const tableProps: [
-	{
-		name: 'autocollapse';
-		type: 'boolean';
-		value: 'false';
-		description: 'Set the auto-collapse mode.';
-	}
-	// ...
-];
+```astro
+## Anatomy
+
+<Anatomy label="Accordion" isComponent>
+	<Anatomy label="Accordion.Item" isComponent>
+		<Anatomy label="Accordion.Control" element="button" isComponent isRow>
+			<Anatomy label="lead" />
+			<Anatomy label="content" />
+			<Anatomy label="indicator" />
+		</Anatomy>
+		<Anatomy label="Accordion.Panel" isComponent />
+	</Anatomy>
+	<Anatomy label="Accordion.Item" isComponent />
+</Anatomy>
 ```
 
-```svelte
-<Table label="Props" data={tableData} tonal />
-```
+* `label` - sets the left-side label text presented in a code tag.
+* `element` - sets the right-side element tag text; defaults to `div`.
+* `isComponent` - denotes a parent component element; wraps the `label` with `<>` brackets.
+* `isRow` - applies styles to ensure child elements align as a horizontal row.
 
-> TIP: Optionally add the `tonal` or `kbd` props to highlight content in the first column.
+### API Tables
+
+When placed on a component documentation page, these will automatically fetch and display the type schema for the respective component.
+
+```astro
+## API Reference
+
+<ApiTable />
+```
 
 ## Icons
 
