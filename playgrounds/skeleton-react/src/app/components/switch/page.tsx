@@ -20,15 +20,15 @@ export default function Page() {
 			</header>
 			<pre className="pre">{JSON.stringify({ disturb, notifications, disabled, icons, lightswitch, compact }, null, 2)}</pre>
 			<section className="space-y-4">
-				<Switch name="disturb" checked={disturb} onCheckedChange={setDisturb}>
+				<Switch name="disturb" checked={disturb} onCheckedChange={(e) => setDisturb(e.checked)}>
 					<p>Defaults to inactive state.</p>
 				</Switch>
 				<hr className="hr" />
-				<Switch name="notifications" checked={notifications} onCheckedChange={setNotifications}>
+				<Switch name="notifications" checked={notifications} onCheckedChange={(e) => setNotifications(e.checked)}>
 					<p>Defaults to active state.</p>
 				</Switch>
 				<hr className="hr" />
-				<Switch name="disabled" checked={disabled} onCheckedChange={setDisabled} disabled>
+				<Switch name="disabled" checked={disabled} onCheckedChange={(e) => setDisabled(e.checked)} disabled>
 					<p>Uses the disabled state.</p>
 				</Switch>
 				<hr className="hr" />
@@ -36,7 +36,7 @@ export default function Page() {
 					name="icons"
 					controlActive="bg-secondary-500"
 					checked={icons}
-					onCheckedChange={setIcons}
+					onCheckedChange={(e) => setIcons(e.checked)}
 					inactiveChild={<IconX size="14" />}
 					activeChild={<IconCheck size="14" />}
 				>
@@ -47,7 +47,7 @@ export default function Page() {
 					name="mode"
 					controlActive="bg-surface-200"
 					checked={lightswitch}
-					onCheckedChange={setLightswitch}
+					onCheckedChange={(e) => setLightswitch(e.checked)}
 					inactiveChild={<IconMoon size="14" />}
 					activeChild={<IconSun size="14" />}
 				>
@@ -57,7 +57,7 @@ export default function Page() {
 				<Switch
 					name="compact"
 					checked={compact}
-					onCheckedChange={setCompact}
+					onCheckedChange={(e) => setCompact(e.checked)}
 					controlWidth="w-9"
 					compact
 					inactiveChild={<IconFrown size="18" />}
