@@ -4,7 +4,7 @@
 	let size = $state('sm');
 </script>
 
-<Segment name="size" bind:value={size}>
+<Segment name="size" value={size} onValueChange={(e) => (size = e.value)}>
 	<Segment.Item value="sm">sm</Segment.Item>
 	<Segment.Item value="md" disabled>md</Segment.Item>
 	<Segment.Item value="lg">lg</Segment.Item>

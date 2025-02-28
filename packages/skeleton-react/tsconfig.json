@@ -1,31 +1,24 @@
 {
 	"compilerOptions": {
-		"target": "ES2022",
-		"lib": ["ES2022", "DOM", "DOM.Iterable"],
-		"module": "ESNext",
+		"esModuleInterop": true,
 		"skipLibCheck": true,
-
-		/* Bundler mode */
-		"moduleResolution": "Bundler",
+		"target": "es2022",
+		"allowJs": true,
 		"resolveJsonModule": true,
+		"moduleDetection": "force",
 		"isolatedModules": true,
-		"noEmit": true,
-		"jsx": "react-jsx",
-
-		/* Linting */
+		"verbatimModuleSyntax": true,
 		"strict": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
-
-		/* Types */
-		"types": ["vite-plugin-remix-router/client", "@testing-library/jest-dom", "@testing-library/user-event"],
-
-		/* Paths */
-		"paths": {
-			"$lib/*": ["./src/lib/*"]
-		}
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"module": "NodeNext",
+		"outDir": "dist",
+		"sourceMap": true,
+		"declaration": true,
+		"declarationMap": true,
+		"lib": ["es2022", "dom", "dom.iterable"],
+		"jsx": "react-jsx",
+		"types": ["@testing-library/jest-dom"]
 	},
-	"include": ["src"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+	"include": ["src/**/*.tsx", "src/**/*.ts"]
 }

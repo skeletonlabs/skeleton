@@ -129,10 +129,7 @@
 					<!-- Color Ramp -->
 					{#each color.ramp as shade}
 						<div class={`${shade.base} `}>
-							<span
-								class="flex items-center justify-center py-2 font-bold type-scale-1 {shade.contrast}"
-								class:underline={shade.value === 500}
-							>
+							<span class="flex items-center justify-center py-2 font-bold text-xs {shade.contrast}" class:underline={shade.value === 500}>
 								{shade.value}
 							</span>
 						</div>

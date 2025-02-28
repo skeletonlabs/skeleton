@@ -32,7 +32,8 @@
 	</section>
 	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
 		<Popover
-			bind:open={openState}
+			open={openState}
+			onOpenChange={(e) => (openState = e.open)}
 			positioning={{ placement: 'bottom', offset: { mainAxis: 20 } }}
 			triggerBase="btn preset-tonal"
 			contentBase="card bg-surface-200-800 p-4 space-y-4 max-w-[320px]"
@@ -42,7 +43,7 @@
 			{#snippet trigger()}Click Me{/snippet}
 			{#snippet content()}
 				<header class="flex justify-between">
-					<p class="font-bold type-scale-5">Popover</p>
+					<p class="font-bold text-xl">Popover</p>
 					<button class="btn-icon" onclick={popoverClose}>
 						<IconX />
 					</button>

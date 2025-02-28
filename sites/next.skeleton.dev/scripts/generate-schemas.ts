@@ -1,12 +1,11 @@
-import fg from 'fast-glob';
+import { glob } from 'tinyglobby';
 import { getInterfaces } from '@skeletonlabs/necroparser';
 import { writeFile, mkdir, rm } from 'fs/promises';
 import { basename, dirname, join } from 'path';
-import { resolve } from 'node:url';
 import { intro, spinner, outro } from '@clack/prompts';
 
 const OUTPUT_DIR = join(import.meta.dirname, '../src/content/schemas');
-const MATCHER = './node_modules/@skeletonlabs/skeleton-*/src/lib/components/*/types.ts';
+const MATCHER = './node_modules/@skeletonlabs/skeleton-**/src/components/**/types.ts';
 
 function toKebabCase(str: string) {
 	str = str.charAt(0).toLowerCase() + str.slice(1);
@@ -43,7 +42,7 @@ async function main() {
 	intro(`Generating schemas for: ${MATCHER}`);
 	try {
 		await rm(OUTPUT_DIR, { recursive: true, force: true });
-		const paths = await fg(resolve(import.meta.dirname, MATCHER), { absolute: true });
+		const paths = await glob(MATCHER, { absolute: true });
 		const s = spinner();
 		s.start('Processing files...');
 		const startTime = performance.now();

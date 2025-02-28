@@ -9,7 +9,7 @@
 	let align = $state('left');
 </script>
 
-<Segment name="align" bind:value={align}>
+<Segment name="align" value={align} onValueChange={(e) => (align = e.value)}>
 	<Segment.Item value="left">
 		<IconLeft />
 	</Segment.Item>

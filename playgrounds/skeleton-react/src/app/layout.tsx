@@ -23,7 +23,7 @@ export default function RootLayout({
 				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]" data-testid="app">
 					{/* Nav */}
 					<div className="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
-						<a className="type-scale-3 bg-blue-500 p-2 font-mono font-bold text-white" href="/">
+						<a className="text-sm bg-blue-500 p-2 font-mono font-bold text-white" href="/">
 							skeleton-react
 						</a>
 						<hr className="hr" />
@@ -41,7 +41,7 @@ export default function RootLayout({
 						{/* Components */}
 						<div className="space-y-8">
 							<span className="font-bold">Components</span>
-							<nav className="type-scale-2 flex flex-col gap-2">
+							<nav className="text-sm flex flex-col gap-2">
 								<a className="anchor" href="/components/accordion">
 									Accordion
 								</a>

@@ -7,24 +7,12 @@ order: 10
 
 export const components = componentSet;
 
-## Packages
-
-Component packages can be located here within the monorepo.
-
-| Package                     | Framework                     | App Framework                        |
-| --------------------------- | ----------------------------- | ------------------------------------ |
-| `/packages/skeleton-svelte` | [Svelte](https://svelte.dev/) | [SvelteKit](https://kit.svelte.dev/) |
-| `/packages/skeleton-react`  | [React](https://react.dev/)   | [Vite/React](https://vitejs.dev/)    |
-
-The purpose of our component packages is two-fold. First, they house and export the full set of components available to that framework. Additionally, each project contains a dedicated meta-framework. This is used to test the components in their native environment. Use these projects as a sandbox to test and iterate before adding the components to the public facing Astro-base documentation website.
-
 ### Dev Server
 
-To run each app framework, change your directory to the respective package and run the following command.
+To run all packages/playgrounds/sites in watch mode, use the following command in the monorepo root:
 
 ```shell
-cd packages/skeleton-svelte
-pnpm vite dev
+pnpm dev
 ```
 
 ### Server Ports
@@ -32,8 +20,8 @@ pnpm vite dev
 The following represents the _default_ localhost address and port for each project. This will be displayed in the terminal when starting each dev server.
 
 - Documentation Site: `http://localhost:4321/`
-- Svelte Package App: `http://localhost:5173/`
-- React Package App: `http://localhost:5173/`
+- SvelteKit Playground: `http://localhost:5173/`
+- NextJS Playground: `http://localhost:3000/`
 
 You may run the documentation site and framework packages in parallel at the same time. If the server shares a port, this will increment by one for the next server (ex: `5174`, `5175`, etc). Keep your eye on the terminal to retrieve the specific local address.
 
@@ -41,10 +29,10 @@ You may run the documentation site and framework packages in parallel at the sam
 
 Components are housed in the following location per framework:
 
-| Framework | Directory             |
-| --------- | --------------------- |
-| Svelte    | `/src/lib/components` |
-| React     | `/src/lib/components` |
+| Framework | Directory         |
+| --------- | ----------------- |
+| Svelte    | `/src/components` |
+| React     | `/src/components` |
 
 Use the following path and filename conventions when creating a new component:
 
@@ -258,29 +246,29 @@ See the examples per each framework below.
 
 ```svelte
 <script lang="ts">
-	let value = $state('foo');
+	let value = $state('chocolate');
 </script>
 
-<Control bind:value name="flavors">
-	<Control.Item id="chocolate" value="chocolate">Chocolate</Control.Item>
-	<Control.Item id="strawberry" value="strawberry">Strawberry</Control.Item>
-</Control>
+<Segment {value} onValueChange={(e) => (value = e.value)} name="flavors">
+	<Segment.Item id="chocolate" value="chocolate">Chocolate</Segment.Item>
+	<Segment.Item id="strawberry" value="strawberry">Strawberry</Segment.Item>
+</Segment>
 ```
 
 ### React
 
 ```tsx
-const [value, setValue] = useState('foo');
+const [value, setValue] = useState('chocolate');
 
 return (
-	<Control value={value} onValueChange={setValue} name="flavors">
-		<Control.Item id="chocolate" value="chocolate">
+	<Segment value={value} onValueChange={(e) => setValue(e.value)} name="flavors">
+		<Segment.Item id="chocolate" value="chocolate">
 			Chocolate
-		</Control.Item>
-		<Control.Item id="strawberry" value="strawberry">
+		</Segment.Item>
+		<Segment.Item id="strawberry" value="strawberry">
 			Strawberry
-		</Control.Item>
-	</Control>
+		</Segment.Item>
+	</Segment>
 );
 ```
 

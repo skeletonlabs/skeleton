@@ -17,7 +17,7 @@
 	</header>
 	<section class="space-y-4">
 		<pre class="pre">{align}</pre>
-		<Segment bind:value={align} name="align">
+		<Segment value={align} onValueChange={(e) => (align = e.value)} name="align">
 			<Segment.Item value="left">
 				<IconLeft />
 			</Segment.Item>
