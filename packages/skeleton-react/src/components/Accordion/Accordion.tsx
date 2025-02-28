@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext, useId } from 'react';
-import type { FC } from 'react';
+import type { FC, JSX } from 'react';
 import * as accordion from '@zag-js/accordion';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import type { AccordionControlProps, AccordionItemProps, AccordionPanelProps, AccordionProps } from './types.js';

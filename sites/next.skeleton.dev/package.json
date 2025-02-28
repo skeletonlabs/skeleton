@@ -11,7 +11,8 @@
 		"pagefind": "pagefind --site dist --exclude-selectors \".expressive-code\""
 	},
 	"devDependencies": {
-		"@types/react": "^19.0.10"
+		"@types/react": "^19",
+		"@types/react-dom": "^19"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
