@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.0.0-next.12
+### Patch Changes
+
+
+- bugfix: fix css property typo in form-groups classes ([#3283](https://github.com/skeletonlabs/skeleton/pull/3283))
+
 ## 3.0.0-next.11
 
 ### Patch Changes
