@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useId } from 'react';
+import { type FC, useId } from 'react';
 import * as avatar from '@zag-js/avatar';
 import { useMachine, normalizeProps } from '@zag-js/react';
-import { AvatarProps } from './types.js';
+import type { AvatarProps } from './types.js';
 
-export const Avatar: React.FC<AvatarProps> = ({
+export const Avatar: FC<AvatarProps> = ({
 	src,
 	srcSet,
 	name,

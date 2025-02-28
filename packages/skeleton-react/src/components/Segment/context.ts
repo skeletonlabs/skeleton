@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { SegmentContextState } from './types';
+import type { SegmentContextState } from './types.js';
 import type * as radioGroup from '@zag-js/radio-group';
 
 export const SegmentContext = createContext<SegmentContextState>({

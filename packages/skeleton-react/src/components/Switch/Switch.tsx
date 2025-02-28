@@ -3,7 +3,7 @@
 import React, { useId } from 'react';
 import * as zagSwitch from '@zag-js/switch';
 import { useMachine, normalizeProps } from '@zag-js/react';
-import { SwitchProps } from './types.js';
+import type { SwitchProps } from './types.js';
 
 export const Switch: React.FC<SwitchProps> = ({
 	compact = false,

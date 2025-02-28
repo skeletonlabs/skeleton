@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useContext, useId } from 'react';
-import { NavContextState, NavRailProps, NavBarProps, NavTileProps } from './types.js';
+import { type FC, useContext, useId } from 'react';
+import type { NavContextState, NavRailProps, NavBarProps, NavTileProps } from './types.js';
 import { NavContext } from './context.js';
 
 // Components ---
 
-export const NavRail: React.FC<NavRailProps> = ({
+export const NavRail: FC<NavRailProps> = ({
 	value = '',
 	expanded = false,
 	// Root
@@ -91,7 +91,7 @@ export const NavRail: React.FC<NavRailProps> = ({
 	);
 };
 
-export const NavBar: React.FC<NavBarProps> = ({
+export const NavBar: FC<NavBarProps> = ({
 	value = '',
 	// Root
 	base = 'h-full flex flex-col',
@@ -131,7 +131,7 @@ export const NavBar: React.FC<NavBarProps> = ({
 	);
 };
 
-export const NavTile: React.FC<NavTileProps> = ({
+export const NavTile: FC<NavTileProps> = ({
 	id,
 	href,
 	target,

@@ -1,10 +1,10 @@
 'use client';
 
-import { FC, useId } from 'react';
+import { type FC, useId } from 'react';
 
 import * as pagination from '@zag-js/pagination';
 import { useMachine, normalizeProps } from '@zag-js/react';
-import type { PaginationProps } from './types';
+import type { PaginationProps } from './types.js';
 
 export const Pagination: FC<PaginationProps> = ({
 	data,

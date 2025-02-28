@@ -1,6 +1,5 @@
 import { vi, beforeAll, describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
-
 import { Slider } from './Slider.js';
 
 describe('<Slider>', () => {

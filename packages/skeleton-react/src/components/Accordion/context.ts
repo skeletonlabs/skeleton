@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { AccordionContextState } from './types';
+import type { AccordionContextState } from './types.js';
 import type * as accordion from '@zag-js/accordion';
 
 export const AccordionContext = createContext<AccordionContextState>({

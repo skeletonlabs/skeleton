@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import * as pagination from '@zag-js/pagination';
 
 export interface PaginationProps extends Omit<pagination.Props, 'id'> {

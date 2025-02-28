@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { TabsContextState } from './types';
+import type { TabsContextState } from './types.js';
 import type * as tabs from '@zag-js/tabs';
 
 export const TabsContext = createContext<TabsContextState>({

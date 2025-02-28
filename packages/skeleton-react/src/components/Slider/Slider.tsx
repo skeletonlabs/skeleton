@@ -1,10 +1,10 @@
 'use client';
 
-import { FC, useId } from 'react';
+import { type FC, useId } from 'react';
 
 import * as slider from '@zag-js/slider';
 import { useMachine, normalizeProps } from '@zag-js/react';
-import type { SliderProps } from './types';
+import type { SliderProps } from './types.js';
 
 export const Slider: FC<SliderProps> = ({
 	height = 'h-1.5',

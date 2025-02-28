@@ -1,5 +1,5 @@
 import * as slider from '@zag-js/slider';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export interface SliderProps extends Omit<slider.Props, 'id' | 'thumbSize'> {
 	/** Provide an array of value markers */

@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useId } from 'react';
+import { type FC, useId } from 'react';
 import * as tagsInput from '@zag-js/tags-input';
 import { useMachine, normalizeProps } from '@zag-js/react';
-import { TagsInputProps } from './types.js';
+import type { TagsInputProps } from './types.js';
 
-export const TagsInput: React.FC<TagsInputProps> = ({
+export const TagsInput: FC<TagsInputProps> = ({
 	placeholder = '',
 	// Root
 	base = 'grid input !h-auto',

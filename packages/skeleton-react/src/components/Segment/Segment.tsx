@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useContext, useId } from 'react';
+import { type FC, useContext, useId } from 'react';
 import * as radio from '@zag-js/radio-group';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import type { SegmentProps, SegmentItemsProps } from './types.js';

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode, PropsWithChildren } from 'react';
 import * as tabs from '@zag-js/tabs';
 
 // Context ---
@@ -10,7 +10,7 @@ export interface TabsContextState {
 
 // Components ---
 
-export interface TabsRootProps extends React.PropsWithChildren, Omit<tabs.Props, 'id' | 'orientation'> {
+export interface TabsRootProps extends PropsWithChildren, Omit<tabs.Props, 'id' | 'orientation'> {
 	/** Set tabs to stretch to fill the available width. */
 	fluid?: boolean;
 
@@ -21,7 +21,7 @@ export interface TabsRootProps extends React.PropsWithChildren, Omit<tabs.Props,
 	classes?: string;
 }
 
-export interface TabsListProps extends React.PropsWithChildren {
+export interface TabsListProps extends PropsWithChildren {
 	// Root ---
 	/** Set base classes for the list element. */
 	base?: string;
@@ -37,7 +37,7 @@ export interface TabsListProps extends React.PropsWithChildren {
 	classes?: string;
 }
 
-export interface TabsControlProps extends React.PropsWithChildren, tabs.TriggerProps {
+export interface TabsControlProps extends PropsWithChildren, tabs.TriggerProps {
 	// Root ---
 	/** Set base classes for the control element. */
 	base?: string;
@@ -69,7 +69,7 @@ export interface TabsControlProps extends React.PropsWithChildren, tabs.TriggerP
 	lead?: ReactNode;
 }
 
-export interface TabsContentProps extends React.PropsWithChildren {
+export interface TabsContentProps extends PropsWithChildren {
 	// Root ---
 	/** Set base classes for the panel group element. */
 	base?: string;
@@ -77,7 +77,7 @@ export interface TabsContentProps extends React.PropsWithChildren {
 	classes?: string;
 }
 
-export interface TabsPanelProps extends React.PropsWithChildren, tabs.ContentProps {
+export interface TabsPanelProps extends PropsWithChildren, tabs.ContentProps {
 	// Root ---
 	/** Set base classes for the panel element. */
 	base?: string;

@@ -1,9 +1,9 @@
 'use client';
 
-import { FC, useContext, useId } from 'react';
+import { type FC, useContext, useId } from 'react';
 import * as tabs from '@zag-js/tabs';
 import { useMachine, normalizeProps } from '@zag-js/react';
-import { TabsRootProps, TabsListProps, TabsControlProps, TabsContentProps, TabsPanelProps } from './types.js';
+import type { TabsRootProps, TabsListProps, TabsControlProps, TabsContentProps, TabsPanelProps } from './types.js';
 import { TabsContext } from './context.js';
 
 // Components ---

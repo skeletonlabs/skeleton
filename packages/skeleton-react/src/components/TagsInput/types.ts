@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import * as tagsInput from '@zag-js/tags-input';
 
 export interface TagsInputProps extends Omit<tagsInput.Props, 'id'> {

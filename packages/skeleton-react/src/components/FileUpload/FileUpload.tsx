@@ -1,12 +1,11 @@
 'use client';
 
-import React, { useEffect, useId } from 'react';
-
+import { type FC, useEffect, useId } from 'react';
 import * as fileUpload from '@zag-js/file-upload';
 import { normalizeProps, useMachine } from '@zag-js/react';
-import { FileUploadProps } from './types.js';
+import type { FileUploadProps } from './types.js';
 
-export const FileUpload: React.FC<FileUploadProps> = ({
+export const FileUpload: FC<FileUploadProps> = ({
 	label = `Select file or drag here`,
 	subtext = '',
 	// Root

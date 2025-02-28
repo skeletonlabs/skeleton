@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import * as zagSwitch from '@zag-js/switch';
 
 export interface SwitchProps extends React.PropsWithChildren, Omit<zagSwitch.Props, 'id'> {
