@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tabs } from '$lib/index.js';
+	import { Tabs } from '../../index.js';
 	interface Props {
 		controlProps?: Record<string, unknown>;
 		panelProps?: Record<string, unknown>;

@@ -1,7 +1,7 @@
 <!-- Navigation Rail Test Component -->
 
 <script lang="ts">
-	import { Navigation } from '$lib/index.js';
+	import { Navigation } from '../../index.js';
 	interface Props {
 		rootProps?: Record<string, unknown>;
 		childProps?: Record<string, unknown>;

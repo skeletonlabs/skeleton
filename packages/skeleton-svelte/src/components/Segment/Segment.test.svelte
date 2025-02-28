@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Segment } from '$lib/index.js';
+	import { Segment } from '../../index.js';
 	interface Props {
 		childProps?: Record<string, unknown>;
 	}

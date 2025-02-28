@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
-import { Accordion } from '$lib/index.js';
+import { Accordion } from '../../index.js';
 
 describe('Accordion', () => {
 	describe('<Accordion>', () => {

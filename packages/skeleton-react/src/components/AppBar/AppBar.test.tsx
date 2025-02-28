@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
-import { AppBar } from '$lib/index.js';
+import { AppBar } from '../../index.js';
 
 describe('AppBar', () => {
 	describe('<AppBar>', () => {

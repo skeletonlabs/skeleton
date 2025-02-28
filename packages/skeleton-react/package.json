@@ -3,8 +3,8 @@
 	"version": "1.0.0-next.15",
 	"type": "module",
 	"scripts": {
-		"build": "tsc --noCheck --project tsconfig.package.json",
-		"dev": "tsc --noCheck --project tsconfig.package.json --watch --preserveWatchOutput",
+		"build": "tsc",
+		"dev": "tsc --watch",
 		"test": "vitest run",
 		"test:watch": "vitest run --watch"
 	},
@@ -13,8 +13,7 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
-		},
-		"./schemas": "./src/lib/schemas.ts"
+		}
 	},
 	"typesVersions": {
 		">4.0": {
@@ -24,12 +23,8 @@
 		}
 	},
 	"files": [
-		"./dist/**/*.js",
-		"./dist/**/*.map",
-		"./dist/**/*.d.ts",
-		"./dist/**/*.cjs",
-		"./dist/**/*.d.cts",
-		"!./dist/**/*.test.*"
+		"dist",
+		"!dist/**/.*test.*"
 	],
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",
@@ -50,10 +45,6 @@
 		"react-dom": "^18.0.0 || ^19.0.0"
 	},
 	"devDependencies": {
-		"tailwindcss": "catalog:",
-		"@tailwindcss/vite": "^4.0.2",
-		"@skeletonlabs/skeleton": "workspace:*",
-		"@tailwindcss/forms": "^0.5.9",
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/react": "^16.0.1",
 		"@testing-library/user-event": "^14.5.2",

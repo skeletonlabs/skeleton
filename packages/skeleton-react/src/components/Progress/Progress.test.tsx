@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render } from '@testing-library/react';
-import { Progress } from '$lib/index.js';
+import { Progress } from '../../index.js';
 import { act } from 'react';
 
 describe('Progress', () => {

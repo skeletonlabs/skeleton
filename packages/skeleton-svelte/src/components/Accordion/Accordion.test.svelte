@@ -1,7 +1,7 @@
 <!-- Accordion Test Component -->
 
 <script lang="ts">
-	import { Accordion } from '$lib/index.js';
+	import { Accordion } from '../../index.js';
 	interface Props {
 		childProps?: Record<string, unknown>;
 	}
