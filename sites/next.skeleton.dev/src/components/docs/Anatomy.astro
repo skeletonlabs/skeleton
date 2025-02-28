@@ -6,7 +6,7 @@ const { isComponent, isRow, label, element } = Astro.props;
 	<!-- Label -->
 	<header class="flex justify-between items-center gap-2 pointer-events-none">
 		{isComponent ? <code class="code">{`<${label}>`}</code> : <code class="code">{label}</code>}
-		{element && <span class="font-mono text-xs opacity-60">{`<${element}>`}</span>}
+		{element && <span class="font-mono text-xs opacity-60">{`<${element ?? 'div'}>`}</span>}
 	</header>
 	<!-- Default Slot -->
 	{
