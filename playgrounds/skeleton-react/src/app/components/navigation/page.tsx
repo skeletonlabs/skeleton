@@ -16,7 +16,7 @@ export default function Page() {
 			<section className="space-y-4">
 				<h2 className="h2">Bar</h2>
 				<pre className="pre">value: {value}</pre>
-				<Navigation.Bar value={value} onChange={setValue}>
+				<Navigation.Bar value={value} onValueChange={setValue}>
 					<Navigation.Tile id="0" label="Tile 1">
 						<IconBox />
 					</Navigation.Tile>

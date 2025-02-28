@@ -31,7 +31,7 @@ export default function RootLayout({
 							name="mode"
 							controlActive="bg-surface-200"
 							checked={lightswitch}
-							onCheckedChange={onModeChange}
+							onCheckedChange={(e) => onModeChange(e.checked)}
 							inactiveChild={<IconMoon size="14" />}
 							activeChild={<IconSun size="14" />}
 						>

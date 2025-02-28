@@ -18,7 +18,7 @@ export default function Page() {
 			{/* Default */}
 			<section className="space-y-4">
 				<pre className="pre">group: {JSON.stringify(group, null, 2)}</pre>
-				<Tabs value={group} onValueChange={setGroup}>
+				<Tabs value={group} onValueChange={(e) => setGroup(e.value)}>
 					<Tabs.List>
 						<Tabs.Control value="item-1">Control-1</Tabs.Control>
 						<Tabs.Control value="item-2">Control-2</Tabs.Control>
@@ -34,7 +34,7 @@ export default function Page() {
 			{/* Icon + Label */}
 			<section className="space-y-4">
 				<h2 className="h2">Icon + Label</h2>
-				<Tabs value={group} onValueChange={setGroup}>
+				<Tabs value={group} onValueChange={(e) => setGroup(e.value)}>
 					<Tabs.List>
 						<Tabs.Control value="item-1" lead={<IconPlane size={20} />}>
 							Control-1
@@ -56,7 +56,7 @@ export default function Page() {
 			{/* Icon Only */}
 			<section className="space-y-4">
 				<h2 className="h2">Icon Only</h2>
-				<Tabs value={group} onValueChange={setGroup}>
+				<Tabs value={group} onValueChange={(e) => setGroup(e.value)}>
 					<Tabs.List>
 						<Tabs.Control value="item-1">
 							<IconPlane size={20} />
@@ -78,7 +78,7 @@ export default function Page() {
 			{/* Fluid */}
 			<section className="space-y-4">
 				<h2 className="h2">Fluid</h2>
-				<Tabs value={group} onValueChange={setGroup} fluid>
+				<Tabs value={group} onValueChange={(e) => setGroup(e.value)} fluid>
 					<Tabs.List>
 						<Tabs.Control value="item-1">Control-1</Tabs.Control>
 						<Tabs.Control value="item-2">Control-2</Tabs.Control>
@@ -94,7 +94,7 @@ export default function Page() {
 			{/* Justify */}
 			<section className="space-y-4">
 				<h2 className="h2">Justify</h2>
-				<Tabs value={group} onValueChange={setGroup}>
+				<Tabs value={group} onValueChange={(e) => setGroup(e.value)}>
 					<Tabs.List justify="justify-center">
 						<Tabs.Control value="item-1">Control-1</Tabs.Control>
 						<Tabs.Control value="item-2">Control-2</Tabs.Control>
@@ -106,7 +106,7 @@ export default function Page() {
 						<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
 					</Tabs.Content>
 				</Tabs>
-				<Tabs value={group} onValueChange={setGroup}>
+				<Tabs value={group} onValueChange={(e) => setGroup(e.value)}>
 					<Tabs.List justify="justify-end">
 						<Tabs.Control value="item-1">Control-1</Tabs.Control>
 						<Tabs.Control value="item-2">Control-2</Tabs.Control>
@@ -123,7 +123,7 @@ export default function Page() {
 			<section className="space-y-4">
 				<h2 className="h2">RTL</h2>
 				<div dir="rtl">
-					<Tabs value={group} onValueChange={setGroup} dir="rtl">
+					<Tabs value={group} onValueChange={(e) => setGroup(e.value)} dir="rtl">
 						<Tabs.List>
 							<Tabs.Control value="item-1">Control-1</Tabs.Control>
 							<Tabs.Control value="item-2">Control-2</Tabs.Control>
