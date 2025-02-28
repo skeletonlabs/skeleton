@@ -1,11 +1,14 @@
 ---
 const { isComponent, isRow, label, element } = Astro.props;
+
+const lableFallback = '(unlabled)';
 ---
 
 <div class="card flex-1 bg-surface-50-950 preset-outlined-surface-600-400 border-dashed p-3 space-y-3">
-	<!-- Label -->
 	<header class="flex justify-between items-center gap-2 pointer-events-none">
-		{isComponent ? <code class="code">{`<${label}>`}</code> : <code class="code">{label}</code>}
+		<!-- Label -->
+		<code class:list={label ? 'code' : 'text-xs opacity-60'}>{isComponent ? `<${label ?? lableFallback}>` : (label ?? lableFallback)}</code>
+		<!-- Element -->
 		<span class="font-mono text-xs opacity-60">{`<${element ?? 'div'}>`}</span>
 	</header>
 	<!-- Default Slot -->
