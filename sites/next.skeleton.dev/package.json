@@ -12,7 +12,10 @@
 	},
 	"devDependencies": {
 		"@types/react": "^19",
-		"@types/react-dom": "^19"
+		"@types/react-dom": "^19",
+		"tinyglobby": "^0.2.12",
+		"tsx": "^4.19.2",
+		"vite-plugin-pagefind": "^1.0.5"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
@@ -46,8 +49,6 @@
 		"svelte": "catalog:",
 		"svelte-check": "^4.1.1",
 		"tailwindcss": "catalog:",
-		"tsx": "^4.19.2",
-		"typescript": "catalog:",
-		"vite-plugin-pagefind": "^1.0.5"
+		"typescript": "catalog:"
 	}
 }

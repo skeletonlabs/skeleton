@@ -1,4 +1,4 @@
-import fg from 'fast-glob';
+import { glob } from 'tinyglobby';
 import { getInterfaces } from '@skeletonlabs/necroparser';
 import { writeFile, mkdir, rm } from 'fs/promises';
 import { basename, dirname, join } from 'path';
@@ -43,7 +43,7 @@ async function main() {
 	intro(`Generating schemas for: ${MATCHER}`);
 	try {
 		await rm(OUTPUT_DIR, { recursive: true, force: true });
-		const paths = await fg(resolve(import.meta.dirname, MATCHER), { absolute: true });
+		const paths = await glob(resolve(import.meta.dirname, MATCHER), { absolute: true });
 		const s = spinner();
 		s.start('Processing files...');
 		const startTime = performance.now();
