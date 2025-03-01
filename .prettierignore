@@ -5,3 +5,5 @@
 build
 dist
 pagefind
+CHANGELOG.md
+pnpm-lock.yaml
