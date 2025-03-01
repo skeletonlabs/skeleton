@@ -8,8 +8,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  code-quality:
-    name: Ensure Code Quality
+  lint:
+    name: Run Linter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -24,7 +24,37 @@ jobs:
       - run: pnpm install
       - name: Run linter
         run: pnpm lint
+
+  check:
+    name: Run Framework Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install
       - name: Run framework checks
         run: pnpm check
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install
       - name: Run tests
         run: pnpm test
