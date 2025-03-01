@@ -1,7 +1,6 @@
 <script lang="ts">
 	import * as tagsInput from '@zag-js/tags-input';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-
 	import type { TagsInputProps } from './types.js';
 
 	// Props
@@ -23,9 +22,9 @@
 		tagBackground = 'preset-filled',
 		tagClasses = '',
 		// Input: Edit
-		inputEditBase = 'chip-input -translate-y-0.25',
-		tagEditBackground = 'preset-outlined-surface-200-800',
-		inputEditClasses,
+		tagEditInputBase = '',
+		tagEditInputBackground = '',
+		tagEditInputClasses = '',
 		// Delete Button
 		buttonDeleteBase = '',
 		buttonDeleteClasses = '',
@@ -85,7 +84,7 @@
 					<!-- Editing -->
 					<input
 						{...api.getItemInputProps({ index, value })}
-						class="{inputEditBase} {tagEditBackground} {inputEditClasses}"
+						class="{tagEditInputBase} {tagEditInputBackground} {tagEditInputClasses}"
 						style:display={itemState.editing ? '' : 'none'}
 						data-testid="tags-input-edit"
 					/>

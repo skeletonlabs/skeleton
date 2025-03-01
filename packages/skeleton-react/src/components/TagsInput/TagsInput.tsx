@@ -23,9 +23,9 @@ export const TagsInput: FC<TagsInputProps> = ({
 	tagBackground = 'preset-filled',
 	tagClasses = '',
 	// Input: Edit
-	inputEditBase = 'chip-input -translate-y-0.25',
-	tagEditBackground = 'preset-outlined-surface-200-800',
-	inputEditClasses,
+	tagEditInputBase = 'chip-input -translate-y-0.25',
+	tagEditInputBackground = 'preset-outlined-surface-200-800',
+	tagEditInputClasses,
 	// Delete Button
 	buttonDeleteBase = '',
 	buttonDeleteClasses = '',
@@ -79,7 +79,7 @@ export const TagsInput: FC<TagsInputProps> = ({
 								{/* Editing */}
 								<input
 									{...api.getItemInputProps({ index, value })}
-									className={`${inputEditBase} ${tagEditBackground} ${inputEditClasses}`}
+									className={`${tagEditInputBase} ${tagEditInputBackground} ${tagEditInputClasses}`}
 									style={{ display: itemState.editing ? '' : 'none' }}
 									data-testid="tags-input-edit"
 								/>
