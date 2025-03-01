@@ -37,8 +37,6 @@ jobs:
           node-version: 22
           cache: pnpm
         run: pnpm install
-      - name: Run formatter
-        run: pnpm format
       - name: Run linter
         run: pnpm lint
       - name: Run framework checks
