@@ -57,13 +57,13 @@ export interface ToastProviderProps {
 
 	// Group ---
 	/** Provide base classes for the root element. */
-	groupBase?: string;
-	/** Provide z-index classes for the root element. */
-	groupZIndex?: string;
+	base?: string;
 	/** Provide gap classes for the root element. */
-	groupGap?: string;
+	gap?: string;
+	/** Provide z-index classes for the root element. */
+	zIndex?: string;
 	/** Provide arbitrary classes for the root element. */
-	groupClasses?: string;
+	classes?: string;
 
 	// Toast ---
 	/** Provide base classes for the toast cards. */
@@ -89,13 +89,13 @@ export interface ToastProviderProps {
 
 	// Dismiss Button ---
 	/** Provide base classes for the dismiss button. */
-	btnDismissBase?: string;
+	buttonDismissBase?: string;
 	/** Provide preset classes for the dismiss button. */
-	btnDimissPreset?: string;
+	buttonDimissPreset?: string;
 	/** Provide hover classes for the dismiss button. */
-	btnDismissHover?: string;
+	buttonDismissHover?: string;
 	/** Provide arbitrary classes for the dismiss button. */
-	btnDismissClasses?: string;
+	buttonDismissClasses?: string;
 
 	// State ---
 	/** Provide base classes for info toasts. */

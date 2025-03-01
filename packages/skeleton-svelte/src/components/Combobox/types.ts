@@ -6,6 +6,8 @@ export interface ComboboxProps extends Omit<combobox.Props, 'id' | 'collection'>
 	data?: { label: string; value: string }[];
 	/** Set the label to display. */
 	label?: string;
+	/** Set z-index for the positioner. */
+	zIndex?: string;
 
 	// Base ---
 	/** Set base classes for the root element. */
@@ -38,8 +40,6 @@ export interface ComboboxProps extends Omit<combobox.Props, 'id' | 'collection'>
 	// Positioner ---
 	/** Set base classes for the positioner. */
 	positionerBase?: string;
-	/** Set z-index for the positioner. */
-	zIndex?: string;
 	/** Provide arbitrary classes for the positioner. */
 	positionerClasses?: string;
 

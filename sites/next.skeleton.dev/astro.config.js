@@ -38,6 +38,8 @@ export default defineConfig({
 			imports: [
 				// import ApiTable from '@components/docs/ApiTable.astro';
 				'@components/docs/ApiTable.astro',
+				// import Anatomy from '@components/docs/Anatomy.astro';
+				'@components/docs/Anatomy.astro',
 				{
 					// import componentSet from "@components/mdx/index";
 					'@components/mdx/index': [['default', 'componentSet']],
@@ -49,8 +51,6 @@ export default defineConfig({
 					'@components/docs/Preview.tsx': ['Preview'],
 					// import { FrameworkTabs } from '@components/docs/FrameworkTabs';
 					'@components/docs/FrameworkTabs.tsx': ['FrameworkTabs']
-					// import { Table } from '@components/docs/Table';
-					// '@components/docs/Table.astro': ['Table'],
 				}
 			]
 		}),

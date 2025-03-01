@@ -4,6 +4,8 @@ import * as popover from '@zag-js/popover';
 export interface PopoverProps extends Omit<popover.Props, 'id'> {
 	/** Enable display of the popover arrow. */
 	arrow?: boolean;
+	/** Set z-index for the positioner. */
+	zIndex?: string;
 
 	// Base ---
 	/** Set base classes for the root element. */
@@ -24,8 +26,6 @@ export interface PopoverProps extends Omit<popover.Props, 'id'> {
 	// Positioner ---
 	/** Set base classes for the positioner. */
 	positionerBase?: string;
-	/** Set z-index for the positioner. */
-	zIndex?: string;
 	/** Provide arbitrary classes for the positioner. */
 	positionerClasses?: string;
 
