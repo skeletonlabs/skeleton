@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: Markdown
 description: An MDX kitchen sink to test parsing and styles.
 ---
@@ -9,15 +9,15 @@ export const components = componentSet;
 {/* --- This is a Comment --- */}
 
 <FrameworkTabs client:load>
-	<Fragment slot="react">This is the `React` panel!</Fragment>
-	<Fragment slot="svelte">This is the `Svelte` panel!</Fragment>
-	{/* <Fragment slot="vue">This is the Vue panel!</Fragment> */}
+  <Fragment slot="react">This is the `React` panel!</Fragment>
+  <Fragment slot="svelte">This is the `Svelte` panel!</Fragment>
+  {/* <Fragment slot="vue">This is the Vue panel!</Fragment> */}
 </FrameworkTabs>
 
 ## Tailwind
 
 <button type="button" class="btn preset-filled">
-	Button
+  Button
 </button>
 
 ## Text
@@ -53,24 +53,24 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 ## Fenced Code Blocks
 
 ```ts title="my-test-file.js"
-const toggleDarkMode = document.querySelector('.preset-filled');
+const toggleDarkMode = document.querySelector(".preset-filled");
 
-jtd.addEvent(toggleDarkMode, 'click', function () {
-	if (jtd.getTheme() === 'dark') {
-		jtd.setTheme('light');
-		toggleDarkMode.textContent = 'Preview dark color scheme';
-	} else {
-		jtd.setTheme('dark');
-		toggleDarkMode.textContent = 'Return to the light side';
-	}
+jtd.addEvent(toggleDarkMode, "click", function () {
+  if (jtd.getTheme() === "dark") {
+    jtd.setTheme("light");
+    toggleDarkMode.textContent = "Preview dark color scheme";
+  } else {
+    jtd.setTheme("dark");
+    toggleDarkMode.textContent = "Return to the light side";
+  }
 });
 ```
 
 ```js
 // Javascript code with syntax highlighting.
 var fun = function lang(l) {
-	dateformat.i18n = require('./lang/' + l);
-	return true;
+  dateformat.i18n = require("./lang/" + l);
+  return true;
 };
 ```
 

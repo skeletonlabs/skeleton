@@ -13,24 +13,24 @@ pnpm add @skeletonlabs/skeleton
 1. Import our base stylesheet _after_ the tailwind import:
 
 ```css
-@import 'tailwindcss';
-@import '@skeletonlabs/skeleton'; /* Add Skeleton Stylesheet */
+@import "tailwindcss";
+@import "@skeletonlabs/skeleton"; /* Add Skeleton Stylesheet */
 ```
 
 2. Import a prebuild or custom theme _after_ the base skeleton import:
 
 ```css
-@import 'tailwindcss';
-@import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton/themes/cerberus'; /* Add Skeleton Theme */
+@import "tailwindcss";
+@import "@skeletonlabs/skeleton";
+@import "@skeletonlabs/skeleton/themes/cerberus"; /* Add Skeleton Theme */
 ```
 
 3. Set your imported theme in your HTML root:
 
 ```html
 <html data-theme="cerberus">
-	<!-- Add Skeleton Theme -->
-	<!-- ... -->
+  <!-- Add Skeleton Theme -->
+  <!-- ... -->
 </html>
 ```
 

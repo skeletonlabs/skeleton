@@ -1,35 +1,35 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: Chat
 description: Create a custom chat feed or AI prompt interface.
 showDocsUrl: true
 pubDate: 2024-11-19
-tags: ['blocks', 'machine learning']
+tags: ["blocks", "machine learning"]
 ---
 
 export const components = componentSet;
 
-import Example from '@examples/guides/cookbook/chat/Example.svelte';
-import ExampleRaw from '@examples/guides/cookbook/chat/Example.svelte?raw';
-import ExampleColumns from '@examples/guides/cookbook/chat/ExampleColumns.astro';
-import ExampleColumnsRaw from '@examples/guides/cookbook/chat/ExampleColumns.astro?raw';
-import ExampleRows from '@examples/guides/cookbook/chat/ExampleRows.astro';
-import ExampleRowsRaw from '@examples/guides/cookbook/chat/ExampleRows.astro?raw';
-import ExampleFeed from '@examples/guides/cookbook/chat/ExampleFeed.astro';
-import ExampleFeedRaw from '@examples/guides/cookbook/chat/ExampleFeed.astro?raw';
-import ExampleBubbles from '@examples/guides/cookbook/chat/ExampleBubbles.astro';
-import ExampleBubblesRaw from '@examples/guides/cookbook/chat/ExampleBubbles.astro?raw';
+import Example from "@examples/guides/cookbook/chat/Example.svelte";
+import ExampleRaw from "@examples/guides/cookbook/chat/Example.svelte?raw";
+import ExampleColumns from "@examples/guides/cookbook/chat/ExampleColumns.astro";
+import ExampleColumnsRaw from "@examples/guides/cookbook/chat/ExampleColumns.astro?raw";
+import ExampleRows from "@examples/guides/cookbook/chat/ExampleRows.astro";
+import ExampleRowsRaw from "@examples/guides/cookbook/chat/ExampleRows.astro?raw";
+import ExampleFeed from "@examples/guides/cookbook/chat/ExampleFeed.astro";
+import ExampleFeedRaw from "@examples/guides/cookbook/chat/ExampleFeed.astro?raw";
+import ExampleBubbles from "@examples/guides/cookbook/chat/ExampleBubbles.astro";
+import ExampleBubblesRaw from "@examples/guides/cookbook/chat/ExampleBubbles.astro?raw";
 
 <Preview client:visible>
-	<Fragment slot="preview">
-		<Example client:visible />
-	</Fragment>
-	<Fragment slot="codeReact">
-		<Code code={`Coming soon...`} lang="tsx" />
-	</Fragment>
-	<Fragment slot="codeSvelte">
-		<Code code={ExampleRaw} lang="svelte" />
-	</Fragment>
+  <Fragment slot="preview">
+    <Example client:visible />
+  </Fragment>
+  <Fragment slot="codeReact">
+    <Code code={`Coming soon...`} lang="tsx" />
+  </Fragment>
+  <Fragment slot="codeSvelte">
+    <Code code={ExampleRaw} lang="svelte" />
+  </Fragment>
 </Preview>
 
 ## Layout Columns
@@ -37,12 +37,12 @@ import ExampleBubblesRaw from '@examples/guides/cookbook/chat/ExampleBubbles.ast
 Use Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns) utility classes to define horizontal columns for your layout.
 
 <Preview client:visible>
-	<Fragment slot="preview">
-		<ExampleColumns />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleColumnsRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleColumns />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleColumnsRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ## Layout Rows
@@ -50,12 +50,12 @@ Use Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns)
 Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utility classes to define vertical layout rows for your layout.
 
 <Preview client:visible>
-	<Fragment slot="preview">
-		<ExampleRows />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleRowsRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleRows />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleRowsRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ## Message Feed
@@ -63,12 +63,12 @@ Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utili
 The feed simply loops through the available feed data. Each `<pre>` tag represents a single _bubble_ element.
 
 <Preview client:visible>
-	<Fragment slot="preview">
-		<ExampleFeed />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleFeedRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleFeed />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleFeedRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ## Message Bubbles
@@ -76,12 +76,12 @@ The feed simply loops through the available feed data. Each `<pre>` tag represen
 Provide styling to each bubble element.
 
 <Preview client:visible>
-	<Fragment slot="preview">
-		<ExampleBubbles />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleBubblesRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleBubbles />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleBubblesRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ## Prompt
@@ -95,9 +95,9 @@ Use Skeleton's [input group](/docs/tailwind/forms#groups) styles to create a cus
 Bind your scrollable feed panel element reference ([Svelte](https://svelte.dev/docs/svelte/bind) | [React](https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom)), then use [scrollTo](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo) to scroll the panel to the bottom on demand. Scroll behavior can be set via `behavior: 'smooth'`.
 
 ```ts
-function scrollChatBottom(behavior?: 'auto' | 'instant' | 'smooth' = 'smooth') {
-	// `elemChat` represents our scrollable panel element
-	elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
+function scrollChatBottom(behavior?: "auto" | "instant" | "smooth" = "smooth") {
+  // `elemChat` represents our scrollable panel element
+  elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
 }
 ```
 
@@ -107,15 +107,17 @@ Below we'll cover how to append the message feed with a new message from the hos
 
 ```ts
 let messageFeed = [
-	/* ...*/
+  /* ...*/
 ];
 ```
 
 Then bind to the textarea for your prompt in order to capture any message typed by the user.
 
 <Preview selected="codeReact" client:visible>
-	<Fragment slot="codeReact">```tsx let elemPrompt: HTMLElement = useRef(); ```</Fragment>
-	<Fragment slot="codeSvelte">```ts let elemPrompt: HTMLElement; ```</Fragment>
+  <Fragment slot="codeReact">
+    ```tsx let elemPrompt: HTMLElement = useRef(); ```
+  </Fragment>
+  <Fragment slot="codeSvelte">```ts let elemPrompt: HTMLElement; ```</Fragment>
 </Preview>
 
 <Preview selected="codeReact" client:visible>
@@ -135,23 +137,23 @@ Here's an example of how we might append a new message to the `messageFeed` arra
 
 ```ts
 function addMessage(): void {
-	const newMessage = {
-		id: messageFeed.length,
-		host: true,
-		avatar: 48,
-		name: 'Jane',
-		timestamp: new date(),
-		message: elemPrompt.value,
-		color: 'preset-tonal-primary'
-	};
-	// Append the new message to the message feed
-	messageFeed = [...messageFeed, newMessage];
-	// Clear the textarea message
-	elemPrompt.value = '';
-	// Smoothly scroll to the bottom of the feed
-	setTimeout(() => {
-		scrollChatBottom('smooth');
-	}, 0);
+  const newMessage = {
+    id: messageFeed.length,
+    host: true,
+    avatar: 48,
+    name: "Jane",
+    timestamp: new date(),
+    message: elemPrompt.value,
+    color: "preset-tonal-primary",
+  };
+  // Append the new message to the message feed
+  messageFeed = [...messageFeed, newMessage];
+  // Clear the textarea message
+  elemPrompt.value = "";
+  // Smoothly scroll to the bottom of the feed
+  setTimeout(() => {
+    scrollChatBottom("smooth");
+  }, 0);
 }
 ```
 

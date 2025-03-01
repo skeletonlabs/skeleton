@@ -1,18 +1,18 @@
 ---
-import LayoutRoot from '@layouts/LayoutRoot.astro';
-import type { GetStaticPaths } from 'astro';
-import { render } from 'astro:content';
-import { getCollection, getEntry } from 'astro:content';
+import { render } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
+import LayoutRoot from "@layouts/LayoutRoot.astro";
+import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async () => {
-	const pages = await getCollection('docs');
+	const pages = await getCollection("docs");
 	return pages.map((page) => ({
 		params: {
-			slug: page.id
+			slug: page.id,
 		},
 		props: {
-			page: page
-		}
+			page: page,
+		},
 	}));
 }) satisfies GetStaticPaths;
 
@@ -20,14 +20,17 @@ const { page } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(page);
 
 let meta: Awaited<ReturnType<typeof getEntry>>;
-if (page.id.startsWith('components/') || page.id.startsWith('integrations/')) {
-	meta = await getEntry('docs', page.id.replace(/\/[^\/]*$/, '/meta'));
+if (page.id.startsWith("components/") || page.id.startsWith("integrations/")) {
+	meta = await getEntry("docs", page.id.replace(/\/[^\/]*$/, "/meta"));
 	if (meta !== undefined) {
 		Object.assign(remarkPluginFrontmatter, meta.data);
 	}
 }
 ---
 
-<LayoutRoot title={meta ? meta.data.title : page.data.title} description={meta ? meta.data.title : page.data.description}>
-	<Content />
+<LayoutRoot
+  title={meta ? meta.data.title : page.data.title}
+  description={meta ? meta.data.title : page.data.description}
+>
+  <Content />
 </LayoutRoot>

@@ -1,7 +1,7 @@
-import type { Snippet } from 'svelte';
-import * as pagination from '@zag-js/pagination';
+import type * as pagination from "@zag-js/pagination";
+import type { Snippet } from "svelte";
 
-export interface PaginationProps extends Omit<pagination.Props, 'id'> {
+export interface PaginationProps extends Omit<pagination.Props, "id"> {
 	/** Provide source data as an array. */
 	data: unknown[];
 

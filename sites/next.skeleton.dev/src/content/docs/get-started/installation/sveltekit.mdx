@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: SvelteKit
 description: Install and configure Skeleton for SvelteKit.
 order: 10
@@ -7,8 +7,8 @@ order: 10
 
 export const components = componentSet;
 
-import Process from '@components/docs/Process.astro';
-import ProcessStep from '@components/docs/ProcessStep.astro';
+import Process from "@components/docs/Process.astro";
+import ProcessStep from "@components/docs/ProcessStep.astro";
 
 {/* --- */}
 
@@ -25,18 +25,29 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 {
 
 <div className="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
-	<p>
-		WARNING: The following guide will install a pre-release version of Skeleton v3. Some features may be missing, incomplete, or
-		non-functional at this time. Please report bugs and issues on{' '}
-		<a className="anchor" href="https://github.com/skeletonlabs/skeleton/issues/new/choose" target="_blank" rel="external">
-			GitHub
-		</a>{' '}
-		or{' '}
-		<a className="anchor" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="external">
-			Discord
-		</a>
-		.
-	</p>
+  <p>
+    WARNING: The following guide will install a pre-release version of Skeleton
+    v3. Some features may be missing, incomplete, or non-functional at this
+    time. Please report bugs and issues on{" "}
+    <a
+      className="anchor"
+      href="https://github.com/skeletonlabs/skeleton/issues/new/choose"
+      target="_blank"
+      rel="external"
+    >
+      GitHub
+    </a>{" "}
+    or{" "}
+    <a
+      className="anchor"
+      href="https://discord.gg/EXqV7W8MtY"
+      target="_blank"
+      rel="external"
+    >
+      Discord
+    </a>
+    .
+  </p>
 </div>
 
 }

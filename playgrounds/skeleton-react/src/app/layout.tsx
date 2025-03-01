@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { Switch } from '@skeletonlabs/skeleton-react';
-import { Moon as IconMoon, Sun as IconSun } from 'lucide-react';
-import './globals.css';
-import { useState } from 'react';
+import { Switch } from "@skeletonlabs/skeleton-react";
+import { Moon as IconMoon, Sun as IconSun } from "lucide-react";
+import "./globals.css";
+import { useState } from "react";
 
 export default function RootLayout({
-	children
+	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
@@ -14,16 +14,22 @@ export default function RootLayout({
 
 	function onModeChange(newValue: boolean) {
 		setLightswitch(newValue);
-		document.documentElement.classList.toggle('dark');
+		document.documentElement.classList.toggle("dark");
 	}
 
 	return (
 		<html lang="en" className="dark" data-theme="cerberus">
 			<body>
-				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]" data-testid="app">
+				<div
+					className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]"
+					data-testid="app"
+				>
 					{/* Nav */}
 					<div className="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
-						<a className="text-sm bg-blue-500 p-2 font-mono font-bold text-white" href="/">
+						<a
+							className="text-sm bg-blue-500 p-2 font-mono font-bold text-white"
+							href="/"
+						>
 							skeleton-react
 						</a>
 						<hr className="hr" />

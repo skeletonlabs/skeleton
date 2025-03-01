@@ -1,47 +1,47 @@
-'use client';
+"use client";
 
-import { type FC, useEffect, useId } from 'react';
-import * as fileUpload from '@zag-js/file-upload';
-import { normalizeProps, useMachine } from '@zag-js/react';
-import type { FileUploadProps } from './types.js';
+import * as fileUpload from "@zag-js/file-upload";
+import { normalizeProps, useMachine } from "@zag-js/react";
+import { type FC, useEffect, useId } from "react";
+import type { FileUploadProps } from "./types.js";
 
 export const FileUpload: FC<FileUploadProps> = ({
-	label = `Select file or drag here`,
-	subtext = '',
+	label = "Select file or drag here",
+	subtext = "",
 	// Root
-	base = '',
-	classes = '',
+	base = "",
+	classes = "",
 	// Interface
-	interfaceBase = 'flex flex-col items-center gap-2 hover:cursor-pointer',
-	interfaceBg = 'hover:preset-tonal',
-	interfaceBorder = 'border-[1px] border-dashed',
-	interfaceBorderColor = 'border-surface-200-800',
-	interfacePadding = 'p-4 py-10',
-	interfaceRounded = 'rounded-container',
-	interfaceClasses = '',
+	interfaceBase = "flex flex-col items-center gap-2 hover:cursor-pointer",
+	interfaceBg = "hover:preset-tonal",
+	interfaceBorder = "border-[1px] border-dashed",
+	interfaceBorderColor = "border-surface-200-800",
+	interfacePadding = "p-4 py-10",
+	interfaceRounded = "rounded-container",
+	interfaceClasses = "",
 	// Interface (content)
-	interfaceIcon = '',
-	interfaceText = '',
-	interfaceSubtext = 'text-xs opacity-60',
+	interfaceIcon = "",
+	interfaceText = "",
+	interfaceSubtext = "text-xs opacity-60",
 	// Files List
-	filesListBase = 'mt-2 space-y-2',
-	filesListClasses = '',
+	filesListBase = "mt-2 space-y-2",
+	filesListClasses = "",
 	// File
-	fileBase = 'grid grid-cols-[auto_1fr_auto] rtl:grid-cols-[1fr_auto_auto] items-center',
-	fileBg = 'preset-tonal',
-	fileGap = 'gap-4 px-4',
-	filePadding = 'py-2',
-	fileRounded = 'rounded-base',
-	fileClasses = '',
+	fileBase = "grid grid-cols-[auto_1fr_auto] rtl:grid-cols-[1fr_auto_auto] items-center",
+	fileBg = "preset-tonal",
+	fileGap = "gap-4 px-4",
+	filePadding = "py-2",
+	fileRounded = "rounded-base",
+	fileClasses = "",
 	// File (content)
-	fileIcon = '',
-	fileName = 'text-sm flex items-center gap-4',
-	fileSize = 'text-xs opacity-60',
-	fileButton = '',
+	fileIcon = "",
+	fileName = "text-sm flex items-center gap-4",
+	fileSize = "text-xs opacity-60",
+	fileButton = "",
 	// State
-	stateInvalid = 'border-error-500',
-	stateDisabled = 'disabled',
-	stateDragging = 'preset-filled-primary-500',
+	stateInvalid = "border-error-500",
+	stateDisabled = "disabled",
+	stateDragging = "preset-filled-primary-500",
 	// Children
 	children,
 	iconInterface,
@@ -53,7 +53,7 @@ export const FileUpload: FC<FileUploadProps> = ({
 	// Zag
 	const service = useMachine(fileUpload.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = fileUpload.connect(service, normalizeProps);
 
@@ -62,15 +62,16 @@ export const FileUpload: FC<FileUploadProps> = ({
 	}, [zagProps, api]);
 
 	// Reactive
-	const rxDisabled = service.prop('disabled') ? stateDisabled : '';
-	const rxInvalid = api.rejectedFiles.length > 0 ? stateInvalid : interfaceBorderColor;
-	const rxDragging = api.dragging && !children ? stateDragging : '';
+	const rxDisabled = service.prop("disabled") ? stateDisabled : "";
+	const rxInvalid =
+		api.rejectedFiles.length > 0 ? stateInvalid : interfaceBorderColor;
+	const rxDragging = api.dragging && !children ? stateDragging : "";
 
 	return (
 		<div
 			{...api.getRootProps()}
 			className={`${base} ${rxDisabled} ${classes}`}
-			style={{ display: children ? 'inline-block' : 'block' }}
+			style={{ display: children ? "inline-block" : "block" }}
 			data-testid="uploader"
 		>
 			<div {...api.getDropzoneProps()}>
@@ -84,19 +85,28 @@ export const FileUpload: FC<FileUploadProps> = ({
 					>
 						{/* Icon */}
 						{iconInterface && (
-							<span className={interfaceIcon} data-testid="uploader-interface-icon">
+							<span
+								className={interfaceIcon}
+								data-testid="uploader-interface-icon"
+							>
 								{iconInterface}
 							</span>
 						)}
 						{/* Label */}
 						{label && (
-							<p className={interfaceText} data-testid="uploader-interface-text">
+							<p
+								className={interfaceText}
+								data-testid="uploader-interface-text"
+							>
 								{label}
 							</p>
 						)}
 						{/* Subtext */}
 						{subtext && (
-							<small className={interfaceSubtext} data-testid="uploader-interface-subtext">
+							<small
+								className={interfaceSubtext}
+								data-testid="uploader-interface-subtext"
+							>
 								{subtext}
 							</small>
 						)}
@@ -105,7 +115,11 @@ export const FileUpload: FC<FileUploadProps> = ({
 			</div>
 			{/* Files (list) */}
 			{!children && (
-				<ul {...api.getItemGroupProps()} className={`${filesListBase} ${filesListClasses}`} data-testid="uploader-files-list">
+				<ul
+					{...api.getItemGroupProps()}
+					className={`${filesListBase} ${filesListClasses}`}
+					data-testid="uploader-files-list"
+				>
 					{api.acceptedFiles.map((file) => (
 						// File
 						<li
@@ -115,7 +129,11 @@ export const FileUpload: FC<FileUploadProps> = ({
 							data-testid="uploader-file"
 						>
 							{/* Name */}
-							<p {...api.getItemNameProps({ file })} className={fileName} data-testid="uploader-file-name">
+							<p
+								{...api.getItemNameProps({ file })}
+								className={fileName}
+								data-testid="uploader-file-name"
+							>
 								{iconFile ?? (
 									<span className={fileIcon} data-testid="uploader-file-icon">
 										{iconFile}
@@ -124,11 +142,19 @@ export const FileUpload: FC<FileUploadProps> = ({
 								<span>{file.name}</span>
 							</p>
 							{/* Size */}
-							<p {...api.getItemNameProps({ file })} className={fileSize} data-testid="uploader-file-size">
+							<p
+								{...api.getItemNameProps({ file })}
+								className={fileSize}
+								data-testid="uploader-file-size"
+							>
 								{api.getFileSize(file)}
 							</p>
 							{/* Button */}
-							<button {...api.getItemDeleteTriggerProps({ file })} className={fileButton} data-testid="uploader-file-button">
+							<button
+								{...api.getItemDeleteTriggerProps({ file })}
+								className={fileButton}
+								data-testid="uploader-file-button"
+							>
 								{iconFileRemove ?? <span>&#x2715;</span>}
 							</button>
 						</li>

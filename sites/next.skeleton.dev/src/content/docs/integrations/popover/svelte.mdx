@@ -1,36 +1,40 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 ---
 
 export const components = componentSet;
 
-import PostioningOptions from '@examples/components/popover/PostioningOptions.txt?raw';
-import ExamplePopover from '@examples/components/popover/ExamplePopover.svelte';
-import ExamplePopoverRaw from '@examples/components/popover/ExamplePopover.svelte?raw';
-import ExampleTooltip from '@examples/components/popover/ExampleTooltip.svelte';
-import ExampleTooltipRaw from '@examples/components/popover/ExampleTooltip.svelte?raw';
-import ExampleCombobox from '@examples/components/popover/ExampleCombobox.svelte';
-import ExampleComboboxRaw from '@examples/components/popover/ExampleCombobox.svelte?raw';
-import ExampleModal from '@examples/components/popover/ExampleModal.svelte';
-import ExampleModalRaw from '@examples/components/popover/ExampleModal.svelte?raw';
-import ExampleModalDrawer from '@examples/components/popover/ExampleModalDrawer.svelte';
-import ExampleModalDrawerRaw from '@examples/components/popover/ExampleModalDrawer.svelte?raw';
+import PostioningOptions from "@examples/components/popover/PostioningOptions.txt?raw";
+import ExamplePopover from "@examples/components/popover/ExamplePopover.svelte";
+import ExamplePopoverRaw from "@examples/components/popover/ExamplePopover.svelte?raw";
+import ExampleTooltip from "@examples/components/popover/ExampleTooltip.svelte";
+import ExampleTooltipRaw from "@examples/components/popover/ExampleTooltip.svelte?raw";
+import ExampleCombobox from "@examples/components/popover/ExampleCombobox.svelte";
+import ExampleComboboxRaw from "@examples/components/popover/ExampleCombobox.svelte?raw";
+import ExampleModal from "@examples/components/popover/ExampleModal.svelte";
+import ExampleModalRaw from "@examples/components/popover/ExampleModal.svelte?raw";
+import ExampleModalDrawer from "@examples/components/popover/ExampleModalDrawer.svelte";
+import ExampleModalDrawerRaw from "@examples/components/popover/ExampleModalDrawer.svelte?raw";
 
-import schemaPopover from '@content/schemas/svelte/popover.json';
-import schemaTooltip from '@content/schemas/svelte/tooltip.json';
-import schemaCombobox from '@content/schemas/svelte/combobox.json';
-import schemaModal from '@content/schemas/svelte/modal.json';
+import schemaPopover from "@content/schemas/svelte/popover.json";
+import schemaTooltip from "@content/schemas/svelte/tooltip.json";
+import schemaCombobox from "@content/schemas/svelte/combobox.json";
+import schemaModal from "@content/schemas/svelte/modal.json";
 
 ## Floating UI Svelte
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>
-		Please note this section will be the future home of the [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) integrateion guide,
-		an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this
-		project is in development, we have provided several Svelte-specific components to act as temporary substitutions. Note that these
-		components will remain available until our next major release (Skeleton v4.x). However, the goal will be to replace these with Floating
-		UI Svelte as soon as possible.
-	</p>
+  <p>
+    Please note this section will be the future home of the [Floating UI
+    Svelte](https://floating-ui-svelte.vercel.app/) integrateion guide, an
+    upcoming open-source library from [Skeleton
+    Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50).
+    While this project is in development, we have provided several
+    Svelte-specific components to act as temporary substitutions. Note that
+    these components will remain available until our next major release
+    (Skeleton v4.x). However, the goal will be to replace these with Floating UI
+    Svelte as soon as possible.
+  </p>
 </div>
 
 ## Components
@@ -40,15 +44,15 @@ import schemaModal from '@content/schemas/svelte/modal.json';
 Triggers an anchored popover when you <u>click</u> the trigger element. [View API Reference](https://zagjs.com/components/react/popover#methods-and-properties).
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExamplePopover client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<div class="space-y-4">
-			<Code code={ExamplePopoverRaw} lang="svelte" />
-			<Code code={PostioningOptions} lang="ts" />
-		</div>
-	</Fragment>
+  <Fragment slot="preview">
+    <ExamplePopover client:load />
+  </Fragment>
+  <Fragment slot="code">
+    <div class="space-y-4">
+      <Code code={ExamplePopoverRaw} lang="svelte" />
+      <Code code={PostioningOptions} lang="ts" />
+    </div>
+  </Fragment>
 </Preview>
 
 ### Tooltip
@@ -56,15 +60,15 @@ Triggers an anchored popover when you <u>click</u> the trigger element. [View AP
 Triggers an anchored popover when you <u>hover</u> the trigger element. [View API Reference](https://zagjs.com/components/react/tooltip#methods-and-properties).
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleTooltip client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<div class="space-y-4">
-			<Code code={ExampleTooltipRaw} lang="svelte" />
-			<Code code={PostioningOptions} lang="ts" />
-		</div>
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleTooltip client:load />
+  </Fragment>
+  <Fragment slot="code">
+    <div class="space-y-4">
+      <Code code={ExampleTooltipRaw} lang="svelte" />
+      <Code code={PostioningOptions} lang="ts" />
+    </div>
+  </Fragment>
 </Preview>
 
 ### Combobox
@@ -72,12 +76,12 @@ Triggers an anchored popover when you <u>hover</u> the trigger element. [View AP
 Triggers an anchored popover list when you tap the arrow. Includes auto-suggestion via typeahead. [View API Reference](https://zagjs.com/components/react/combobox#methods-and-properties).
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleCombobox client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleComboboxRaw} lang="svelte" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleCombobox client:load />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleComboboxRaw} lang="svelte" />
+  </Fragment>
 </Preview>
 
 ### Modal
@@ -85,21 +89,21 @@ Triggers an anchored popover list when you tap the arrow. Includes auto-suggesti
 Generate modals or dialogs that require a user's immediate attention. [View API Reference](https://zagjs.com/components/react/dialog#methods-and-properties).
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleModal client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleModalRaw} lang="svelte" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleModal client:load />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleModalRaw} lang="svelte" />
+  </Fragment>
 </Preview>
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleModalDrawer client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleModalDrawerRaw} lang="svelte" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleModalDrawer client:load />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleModalDrawerRaw} lang="svelte" />
+  </Fragment>
 </Preview>
 
 ## Z-Index
@@ -108,7 +112,7 @@ Skeleton does not take an opinionated stance regarding z-index stacking. This me
 
 ```svelte
 <Popover ... zIndex={10}>
-	<!-- ... -->
+  <!-- ... -->
 </Popover>
 ```
 

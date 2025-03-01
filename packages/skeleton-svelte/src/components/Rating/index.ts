@@ -1,3 +1,3 @@
-import Rating from './Rating.svelte';
+import Rating from "./Rating.svelte";
 
 export default Rating;

@@ -1,36 +1,36 @@
-'use client';
+"use client";
 
-import { type FC, useContext, useId } from 'react';
-import * as radio from '@zag-js/radio-group';
-import { useMachine, normalizeProps } from '@zag-js/react';
-import type { SegmentProps, SegmentItemsProps } from './types.js';
-import { SegmentContext } from './context.js';
+import * as radio from "@zag-js/radio-group";
+import { normalizeProps, useMachine } from "@zag-js/react";
+import { type FC, useContext, useId } from "react";
+import { SegmentContext } from "./context.js";
+import type { SegmentItemsProps, SegmentProps } from "./types.js";
 
 // Components ---
 
 const SegmentRoot: FC<SegmentProps> = ({
 	// Root
-	base = 'inline-flex items-stretch overflow-hidden',
-	background = 'preset-outlined-surface-200-800',
-	border = 'p-2',
-	gap = 'gap-2',
-	padding = '',
-	rounded = 'rounded-container',
-	width = '',
-	classes = '',
+	base = "inline-flex items-stretch overflow-hidden",
+	background = "preset-outlined-surface-200-800",
+	border = "p-2",
+	gap = "gap-2",
+	padding = "",
+	rounded = "rounded-container",
+	width = "",
+	classes = "",
 	// States
-	orientVertical = 'flex-col',
-	orientHorizontal = 'flex-row',
-	stateDisabled = 'disabled',
-	stateReadOnly = 'pointer-events-none',
+	orientVertical = "flex-col",
+	orientHorizontal = "flex-row",
+	stateDisabled = "disabled",
+	stateReadOnly = "pointer-events-none",
 	// Indicator
-	indicatorBase = 'top-[var(--top)] left-[var(--left)] w-[var(--width)] h-[var(--height)]',
-	indicatorBg = 'preset-filled',
-	indicatorText = 'text-surface-contrast-950 dark:text-surface-contrast-50',
-	indicatorRounded = 'rounded-base',
-	indicatorClasses = '',
+	indicatorBase = "top-[var(--top)] left-[var(--left)] w-[var(--width)] h-[var(--height)]",
+	indicatorBg = "preset-filled",
+	indicatorText = "text-surface-contrast-950 dark:text-surface-contrast-50",
+	indicatorRounded = "rounded-base",
+	indicatorClasses = "",
 	// Label
-	labelledby = '',
+	labelledby = "",
 	// Children
 	children,
 	// Zag
@@ -39,8 +39,8 @@ const SegmentRoot: FC<SegmentProps> = ({
 	// Zag
 	const service = useMachine(radio.machine, {
 		id: useId(),
-		orientation: zagProps.orientation ?? 'horizontal',
-		...zagProps
+		orientation: zagProps.orientation ?? "horizontal",
+		...zagProps,
 	});
 	const api = radio.connect(service, normalizeProps);
 
@@ -48,9 +48,12 @@ const SegmentRoot: FC<SegmentProps> = ({
 	const ctx = { api, indicatorText };
 
 	// Reactive
-	const rxOrientation = service.prop('orientation') === 'vertical' ? orientVertical : orientHorizontal;
-	const rxDisabled = service.prop('disabled') ? stateDisabled : '';
-	const rxReadOnly = service.prop('readOnly') ? stateReadOnly : '';
+	const rxOrientation =
+		service.prop("orientation") === "vertical"
+			? orientVertical
+			: orientHorizontal;
+	const rxDisabled = service.prop("disabled") ? stateDisabled : "";
+	const rxReadOnly = service.prop("readOnly") ? stateReadOnly : "";
 
 	return (
 		<div
@@ -64,7 +67,7 @@ const SegmentRoot: FC<SegmentProps> = ({
 				{...api.getIndicatorProps()}
 				className={`${indicatorBase} ${indicatorBg} ${indicatorRounded} ${indicatorClasses}`}
 				data-testid="segment-indicator"
-			></div>
+			/>
 			{/* Items */}
 			<SegmentContext.Provider value={ctx}>{children}</SegmentContext.Provider>
 		</div>
@@ -73,14 +76,14 @@ const SegmentRoot: FC<SegmentProps> = ({
 
 const SegmentItem: FC<SegmentItemsProps> = ({
 	// Root
-	base = 'btn cursor-pointer z-[1]',
-	classes = '',
+	base = "btn cursor-pointer z-[1]",
+	classes = "",
 	// Label
-	labelBase = 'pointer-events-none transition-colors duration-100',
-	labelClasses = '',
+	labelBase = "pointer-events-none transition-colors duration-100",
+	labelClasses = "",
 	// State
-	stateDisabled = 'disabled',
-	stateFocused = 'focused',
+	stateDisabled = "disabled",
+	stateFocused = "focused",
 	// Children
 	children,
 	// Zag
@@ -91,12 +94,16 @@ const SegmentItem: FC<SegmentItemsProps> = ({
 	const state = ctx.api.getItemState(zagProps);
 
 	// Reactive
-	const rxDisabled = state.disabled ? stateDisabled : '';
-	const rxActiveText = state.checked ? ctx.indicatorText : '';
-	const rxFocused = state.focused ? stateFocused : '';
+	const rxDisabled = state.disabled ? stateDisabled : "";
+	const rxActiveText = state.checked ? ctx.indicatorText : "";
+	const rxFocused = state.focused ? stateFocused : "";
 
 	return (
-		<label {...ctx.api.getItemProps(zagProps)} className={`${base} ${rxDisabled} ${rxFocused} ${classes}`} data-testid="segment-item">
+		<label
+			{...ctx.api.getItemProps(zagProps)}
+			className={`${base} ${rxDisabled} ${rxFocused} ${classes}`}
+			data-testid="segment-item"
+		>
 			{/* Label */}
 			<span
 				{...ctx.api.getItemTextProps(zagProps)}
@@ -106,11 +113,14 @@ const SegmentItem: FC<SegmentItemsProps> = ({
 				{children}
 			</span>
 			{/* Hidden Input */}
-			<input {...ctx.api.getItemHiddenInputProps(zagProps)} data-testid="segment-item-input" />
+			<input
+				{...ctx.api.getItemHiddenInputProps(zagProps)}
+				data-testid="segment-item-input"
+			/>
 		</label>
 	);
 };
 
 export const Segment = /* @__PURE__ */ Object.assign(SegmentRoot, {
-	Item: SegmentItem
+	Item: SegmentItem,
 });

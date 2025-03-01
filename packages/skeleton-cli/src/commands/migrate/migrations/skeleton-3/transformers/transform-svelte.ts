@@ -1,46 +1,60 @@
-import { type AST, parse } from 'svelte/compiler';
-import type { Node } from 'estree';
-import { walk } from 'zimmerframe';
-import MagicString from 'magic-string';
-import { transformClasses } from './transform-classes';
-import { transformModule } from './transform-module';
-import { transformStyleSheet } from './transform-stylesheet';
-import { EXPORT_MAPPINGS } from '../utility/export-mappings';
+import type { Node } from "estree";
+import MagicString from "magic-string";
+import { type AST, parse } from "svelte/compiler";
+import { walk } from "zimmerframe";
+import { EXPORT_MAPPINGS } from "../utility/export-mappings";
+import { transformClasses } from "./transform-classes";
+import { transformModule } from "./transform-module";
+import { transformStyleSheet } from "./transform-stylesheet";
 
 function renameComponent(s: MagicString, node: AST.Component, name: string) {
 	const adjustedStart = node.start + 1;
 	s.update(adjustedStart, adjustedStart + node.name.length, name);
 	const componentString = s.original.slice(node.start, node.end);
-	const indexOfNonSelfClosingTag = componentString.lastIndexOf('</');
-	if (indexOfNonSelfClosingTag === -1 || node.start + indexOfNonSelfClosingTag > node.end) {
+	const indexOfNonSelfClosingTag = componentString.lastIndexOf("</");
+	if (
+		indexOfNonSelfClosingTag === -1 ||
+		node.start + indexOfNonSelfClosingTag > node.end
+	) {
 		return;
 	}
-	s.update(node.start + indexOfNonSelfClosingTag + 2, node.start + indexOfNonSelfClosingTag + 2 + node.name.length, name);
+	s.update(
+		node.start + indexOfNonSelfClosingTag + 2,
+		node.start + indexOfNonSelfClosingTag + 2 + node.name.length,
+		name,
+	);
 }
 
 function transformScript(s: MagicString, script: AST.Script | null) {
 	if (!script) {
 		return {
 			meta: {
-				skeletonImports: []
-			}
+				skeletonImports: [],
+			},
 		};
 	}
 	const content = s.original.slice(script.start, script.end);
 	const openingTag = content.match(/^<script[^>]*>/)?.at(0);
 	const closingTag = content.match(/<\/script>$/)?.at(0);
 	if (!openingTag || !closingTag) {
-		throw new Error('Script tags not found in content');
+		throw new Error("Script tags not found in content");
 	}
-	const codeContent = content.slice(openingTag.length, content.length - closingTag.length);
+	const codeContent = content.slice(
+		openingTag.length,
+		content.length - closingTag.length,
+	);
 	const transformed = transformModule(codeContent);
 	if (!transformed.code.trim()) {
-		s.overwrite(script.start, script.end, '');
+		s.overwrite(script.start, script.end, "");
 	} else {
-		s.overwrite(script.start, script.end, `${openingTag}${transformed.code}${closingTag}`);
+		s.overwrite(
+			script.start,
+			script.end,
+			`${openingTag}${transformed.code}${closingTag}`,
+		);
 	}
 	return {
-		meta: transformed.meta
+		meta: transformed.meta,
 	};
 }
 
@@ -48,71 +62,100 @@ function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
 	if (!css) {
 		return;
 	}
-	const transformed = transformStyleSheet(s.original.slice(css.content.start, css.content.end));
+	const transformed = transformStyleSheet(
+		s.original.slice(css.content.start, css.content.end),
+	);
 	s.overwrite(css.content.start, css.content.end, transformed.code);
 }
 
-function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
-	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number';
+function hasRange(
+	node: Node | AST.SvelteNode,
+): node is (Node | AST.SvelteNode) & { start: number; end: number } {
+	return (
+		"start" in node &&
+		"end" in node &&
+		typeof node.start === "number" &&
+		typeof node.end === "number"
+	);
 }
 
-function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImports: string[]) {
+function transformFragment(
+	s: MagicString,
+	fragment: AST.Fragment,
+	skeletonImports: string[],
+) {
 	walk(
 		fragment as AST.SvelteNode,
 		{},
 		{
 			Literal(node, ctx) {
 				const parent = ctx.path.at(-1);
-				if (typeof node.raw === 'string' && node.raw !== '' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
+				if (
+					typeof node.raw === "string" &&
+					node.raw !== "" &&
+					!(parent && parent.type === "ImportDeclaration") &&
+					hasRange(node)
+				) {
 					s.update(node.start, node.end, transformClasses(node.raw).code);
 				}
 				ctx.next();
 			},
 			Text(node, ctx) {
-				if (node.data !== '' && hasRange(node)) {
+				if (node.data !== "" && hasRange(node)) {
 					s.update(node.start, node.end, transformClasses(node.data).code);
 				}
 				ctx.next();
 			},
 			ClassDirective(node, ctx) {
 				if (
-					!(node.expression.type === 'Identifier' && !('loc' in node.expression) && node.name === node.expression.name) &&
+					!(
+						node.expression.type === "Identifier" &&
+						!("loc" in node.expression) &&
+						node.name === node.expression.name
+					) &&
 					hasRange(node)
 				) {
-					const adjustedStart = node.start + 'class:'.length;
-					s.update(adjustedStart, adjustedStart + node.name.length, transformClasses(node.name).code);
+					const adjustedStart = node.start + "class:".length;
+					s.update(
+						adjustedStart,
+						adjustedStart + node.name.length,
+						transformClasses(node.name).code,
+					);
 				}
 				ctx.next();
 			},
 			Component(node, ctx) {
-				if (Object.hasOwn(EXPORT_MAPPINGS, node.name) && skeletonImports.includes(node.name)) {
+				if (
+					Object.hasOwn(EXPORT_MAPPINGS, node.name) &&
+					skeletonImports.includes(node.name)
+				) {
 					const exportMapping = EXPORT_MAPPINGS[node.name];
-					if (exportMapping.identifier.type === 'renamed' && hasRange(node)) {
+					if (exportMapping.identifier.type === "renamed" && hasRange(node)) {
 						renameComponent(s, node, exportMapping.identifier.value);
 					}
 				}
 				ctx.next();
-			}
-		}
+			},
+		},
 	);
 	return {
-		code: s.toString()
+		code: s.toString(),
 	};
 }
 
 function transformSvelte(code: string) {
 	const s = new MagicString(code);
 	const root = parse(code, {
-		modern: true
+		modern: true,
 	});
 	const skeletonImports = [
 		...transformScript(s, root.module).meta.skeletonImports,
-		...transformScript(s, root.instance).meta.skeletonImports
+		...transformScript(s, root.instance).meta.skeletonImports,
 	];
 	transformFragment(s, root.fragment, skeletonImports);
 	transformCss(s, root.css);
 	return {
-		code: s.toString()
+		code: s.toString(),
 	};
 }
 

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Switch } from '@skeletonlabs/skeleton-react';
-import { Check as IconCheck, X as IconX } from 'lucide-react';
+import { Switch } from "@skeletonlabs/skeleton-react";
+import { Check as IconCheck, X as IconX } from "lucide-react";
+import React from "react";
 
 export const Page: React.FC = () => {
 	const [icons, setIcons] = React.useState(false);

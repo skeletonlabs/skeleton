@@ -1,46 +1,50 @@
 ---
-import { Icon } from 'astro-icon/components';
+import BlueSkyFeed from "@components/docs/BlueskyFeed.svelte";
+import Footer from "@components/docs/Footer.astro";
+import Header from "@components/docs/Header.astro";
 // Components
-import LayoutRoot from '@layouts/LayoutRoot.astro';
-import Header from '@components/docs/Header.astro';
-import Footer from '@components/docs/Footer.astro';
-import BlueSkyFeed from '@components/docs/BlueskyFeed.svelte';
+import LayoutRoot from "@layouts/LayoutRoot.astro";
+import { Icon } from "astro-icon/components";
 
 const layoutProps = {
-	title: 'News',
-	description: 'Stay up to date with the latest news about Skeleton.',
-	classList: ''
+	title: "News",
+	description: "Stay up to date with the latest news about Skeleton.",
+	classList: "",
 };
 ---
 
 <LayoutRoot {...layoutProps}>
-	<!-- Header -->
-	<Header />
-	<!-- Main -->
-	<main class="max-w-3xl mx-auto space-y-10 px-4 py-10">
-		<header class="flex justify-between items-center">
-			<h2 class="h2">Latest News</h2>
-			<a
-				class="btn preset-outlined-surface-200-800 hover:preset-tonal"
-				href="https://bsky.app/profile/skeletonlabs.bsky.social"
-				target="_blank"
-			>
-				<Icon name="bluesky" size={16} />
-				<span>Feed</span>
-			</a>
-		</header>
-		<div class="grid gap-8">
-			<BlueSkyFeed client:only />
-		</div>
-		<div class="flex justify-center">
-			<a class="btn preset-filled" href="https://bsky.app/profile/skeletonlabs.bsky.social" target="_blank">
-				<span>View More</span>
-				<span>&rarr;</span>
-			</a>
-		</div>
-		<!-- Debugging -->
-		<!-- <pre class="pre">{JSON.stringify(timeline.feed, null, 2)}</pre> -->
-	</main>
-	<!-- Footer -->
-	<Footer />
+  <!-- Header -->
+  <Header />
+  <!-- Main -->
+  <main class="max-w-3xl mx-auto space-y-10 px-4 py-10">
+    <header class="flex justify-between items-center">
+      <h2 class="h2">Latest News</h2>
+      <a
+        class="btn preset-outlined-surface-200-800 hover:preset-tonal"
+        href="https://bsky.app/profile/skeletonlabs.bsky.social"
+        target="_blank"
+      >
+        <Icon name="bluesky" size={16} />
+        <span>Feed</span>
+      </a>
+    </header>
+    <div class="grid gap-8">
+      <BlueSkyFeed client:only />
+    </div>
+    <div class="flex justify-center">
+      <a
+        class="btn preset-filled"
+        href="https://bsky.app/profile/skeletonlabs.bsky.social"
+        target="_blank"
+      >
+        <span>View More</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+    <!-- Debugging -->
+    <!-- <pre class="pre">{JSON.stringify(timeline.feed, null, 2)}</pre> -->
+  </main>
+  <!-- Footer -->
+  <Footer />
 </LayoutRoot>

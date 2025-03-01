@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { type FC, useId } from 'react';
+import { type FC, useId } from "react";
 
-import * as pagination from '@zag-js/pagination';
-import { useMachine, normalizeProps } from '@zag-js/react';
-import type { PaginationProps } from './types.js';
+import * as pagination from "@zag-js/pagination";
+import { normalizeProps, useMachine } from "@zag-js/react";
+import type { PaginationProps } from "./types.js";
 
 export const Pagination: FC<PaginationProps> = ({
 	data,
 	alternative = false,
-	textSeparator = 'of',
+	textSeparator = "of",
 	showFirstLastButtons = false,
 	// Titles
 	titleFirst,
@@ -18,25 +18,25 @@ export const Pagination: FC<PaginationProps> = ({
 	titleNext,
 	titleLast,
 	// Root
-	base = 'inline-flex items-stretch overflow-hidden',
-	background = 'preset-outlined-surface-200-800',
-	border = 'p-2',
-	gap = 'gap-2',
-	padding = '',
-	rounded = 'rounded-container',
-	classes = '',
+	base = "inline-flex items-stretch overflow-hidden",
+	background = "preset-outlined-surface-200-800",
+	border = "p-2",
+	gap = "gap-2",
+	padding = "",
+	rounded = "rounded-container",
+	classes = "",
 	// Buttons
-	buttonBase = 'btn',
-	buttonActive = 'preset-filled',
-	buttonInactive = 'preset-tonal',
-	buttonHover = 'hover:preset-filled',
-	buttonClasses = '',
+	buttonBase = "btn",
+	buttonActive = "preset-filled",
+	buttonInactive = "preset-tonal",
+	buttonHover = "hover:preset-filled",
+	buttonClasses = "",
 	// Children
-	labelFirst = '\u00AB',
-	labelPrevious = '\u2190',
-	labelEllipsis = '\u22EF',
-	labelNext = '\u2192',
-	labelLast = '\u00BB',
+	labelFirst = "\u00AB",
+	labelPrevious = "\u2190",
+	labelEllipsis = "\u22EF",
+	labelNext = "\u2192",
+	labelLast = "\u00BB",
 	// Zag
 	...zagProps
 }) => {
@@ -44,13 +44,15 @@ export const Pagination: FC<PaginationProps> = ({
 	const service = useMachine(pagination.machine, {
 		id: useId(),
 		count: zagProps.count ?? data.length,
-		...zagProps
+		...zagProps,
 	});
 	const api = pagination.connect(service, normalizeProps);
 
 	// Reactive
 	const rxButtonActive = (page: { value: number }) => {
-		return service.prop('page') === page.value ? buttonActive : `${buttonInactive} ${buttonHover}`;
+		return service.prop("page") === page.value
+			? buttonActive
+			: `${buttonInactive} ${buttonHover}`;
 	};
 
 	return (
@@ -88,7 +90,7 @@ export const Pagination: FC<PaginationProps> = ({
 					{/* Numeral List */}
 					{!alternative &&
 						api.pages.map((page, i) => {
-							if (page.type === 'page')
+							if (page.type === "page")
 								return (
 									// Numeral
 									<button
@@ -102,22 +104,25 @@ export const Pagination: FC<PaginationProps> = ({
 										{page.value}
 									</button>
 								);
-							else
-								return (
-									// Ellipsis
-									<span
-										key={`ellipsis-${i}`}
-										{...api.getEllipsisProps({ index: i })}
-										className={`${buttonBase} ${buttonInactive} ${buttonClasses}`}
-										data-testid="pagination-ellipsis"
-									>
-										{labelEllipsis}
-									</span>
-								);
+
+							return (
+								// Ellipsis
+								<span
+									key={`ellipsis-${i}`}
+									{...api.getEllipsisProps({ index: i })}
+									className={`${buttonBase} ${buttonInactive} ${buttonClasses}`}
+									data-testid="pagination-ellipsis"
+								>
+									{labelEllipsis}
+								</span>
+							);
 						})}
 					{/* Alternative Interface */}
 					{alternative && (
-						<span className={`${buttonBase} ${buttonInactive} ${buttonClasses}`} data-testid="pagination-alt-ui">
+						<span
+							className={`${buttonBase} ${buttonInactive} ${buttonClasses}`}
+							data-testid="pagination-alt-ui"
+						>
 							<span>
 								{api.pageRange.start + 1} - {api.pageRange.end}
 							</span>

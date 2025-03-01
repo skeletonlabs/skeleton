@@ -1,12 +1,20 @@
-'use client';
+"use client";
 
-import * as rating from '@zag-js/rating-group';
-import { useMachine, normalizeProps } from '@zag-js/react';
-import { useId, type FC } from 'react';
-import type { RatingProps } from './types.js';
+import * as rating from "@zag-js/rating-group";
+import { normalizeProps, useMachine } from "@zag-js/react";
+import { type FC, useId } from "react";
+import type { RatingProps } from "./types.js";
 
 const starEmpty = (
-	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" height="24" width="24">
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		strokeWidth="1.5"
+		stroke="currentColor"
+		height="24"
+		width="24"
+	>
 		<path
 			strokeLinecap="round"
 			strokeLinejoin="round"
@@ -16,7 +24,15 @@ const starEmpty = (
 );
 
 const starHalf = (
-	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" height="24" width="24">
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		strokeWidth="1.5"
+		stroke="currentColor"
+		height="24"
+		width="24"
+	>
 		<path
 			strokeLinecap="round"
 			strokeLinejoin="round"
@@ -36,7 +52,13 @@ const starHalf = (
 );
 
 const starFull = (
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" height="24" width="24">
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		fill="currentColor"
+		height="24"
+		width="24"
+	>
 		<path
 			fillRule="evenodd"
 			d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
@@ -47,21 +69,21 @@ const starFull = (
 
 export const Rating: FC<RatingProps> = ({
 	// Root
-	base = '',
-	classes = '',
+	base = "",
+	classes = "",
 	// Control
-	controlBase = 'flex',
-	controlGap = 'gap-2',
+	controlBase = "flex",
+	controlGap = "gap-2",
 	controlClasses,
 	// Label
-	labelBase = 'label-text',
-	labelClasses = '',
+	labelBase = "label-text",
+	labelClasses = "",
 	// Item
-	itemBase = 'cursor-pointer',
-	itemClasses = '',
+	itemBase = "cursor-pointer",
+	itemClasses = "",
 	// State
-	stateReadOnly = '',
-	stateDisabled = 'cursor-not-allowed opacity-50',
+	stateReadOnly = "",
+	stateDisabled = "cursor-not-allowed opacity-50",
 	// Icons
 	iconEmpty = starEmpty,
 	iconHalf = starHalf,
@@ -74,19 +96,27 @@ export const Rating: FC<RatingProps> = ({
 	// Zag
 	const service = useMachine(rating.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = rating.connect(service, normalizeProps);
 
 	// Reactive
-	const rxReadOnly = service.prop('readOnly') ? stateReadOnly : '';
-	const rxDisabled = service.prop('disabled') ? stateDisabled : '';
+	const rxReadOnly = service.prop("readOnly") ? stateReadOnly : "";
+	const rxDisabled = service.prop("disabled") ? stateDisabled : "";
 
 	return (
-		<div {...api.getRootProps()} className={`${base} ${classes}`} data-testid="rating">
+		<div
+			{...api.getRootProps()}
+			className={`${base} ${classes}`}
+			data-testid="rating"
+		>
 			{/* Label */}
 			{!!label && (
-				<label {...api.getLabelProps()} className={`${labelBase} ${labelClasses}`} data-testid="rating-label">
+				<label
+					{...api.getLabelProps()}
+					className={`${labelBase} ${labelClasses}`}
+					data-testid="rating-label"
+				>
 					{label}
 				</label>
 			)}
@@ -101,14 +131,19 @@ export const Rating: FC<RatingProps> = ({
 					const icon = (() => {
 						if (!itemState.highlighted) {
 							return iconEmpty;
-						} else if (itemState.half) {
-							return iconHalf;
-						} else {
-							return iconFull;
 						}
+						if (itemState.half) {
+							return iconHalf;
+						}
+						return iconFull;
 					})();
 					return (
-						<span key={item} {...api.getItemProps({ index: item })} className={`${itemBase} ${itemClasses}`} data-testid="rating-item">
+						<span
+							key={item}
+							{...api.getItemProps({ index: item })}
+							className={`${itemBase} ${itemClasses}`}
+							data-testid="rating-item"
+						>
 							{/* Item */}
 							{icon}
 						</span>

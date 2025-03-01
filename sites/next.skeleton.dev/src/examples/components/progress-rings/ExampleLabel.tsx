@@ -1,4 +1,4 @@
-import { ProgressRing } from '@skeletonlabs/skeleton-react';
+import { ProgressRing } from "@skeletonlabs/skeleton-react";
 
 export const Page = () => {
 	return (

@@ -1,12 +1,12 @@
-import { describe, expect, it } from 'vitest';
-import { render } from '@testing-library/react';
+import { render } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 
-import { Tabs } from './Tabs.js';
+import { Tabs } from "./Tabs.js";
 
 // Tabs (integration)
 
-describe('<Tabs>', () => {
-	it('should render the entire component group', () => {
+describe("<Tabs>", () => {
+	it("should render the entire component group", () => {
 		const { getByTestId, getAllByTestId } = render(
 			<Tabs value="testGroup">
 				<Tabs.List>
@@ -17,14 +17,14 @@ describe('<Tabs>', () => {
 					<Tabs.Panel value="item-1">Panel-1</Tabs.Panel>
 					<Tabs.Panel value="item-2">Panel-2</Tabs.Panel>
 				</Tabs.Content>
-			</Tabs>
+			</Tabs>,
 		);
 
-		const componentRoot = getByTestId('tabs');
-		const componentList = getByTestId('tabs-list');
-		const componentControls = getAllByTestId('tabs-control');
-		const componentContent = getByTestId('tabs-content');
-		const componentPanel = getAllByTestId('tabs-panel');
+		const componentRoot = getByTestId("tabs");
+		const componentList = getByTestId("tabs-list");
+		const componentControls = getAllByTestId("tabs-control");
+		const componentContent = getByTestId("tabs-content");
+		const componentPanel = getAllByTestId("tabs-panel");
 
 		expect(componentRoot).toBeInTheDocument();
 		expect(componentList).toBeInTheDocument();
@@ -36,46 +36,46 @@ describe('<Tabs>', () => {
 
 // Tabs ---
 
-describe('<Tabs>', () => {
-	it('should render base classes on root', () => {
-		const testClass = 'bg-green-500';
+describe("<Tabs>", () => {
+	it("should render base classes on root", () => {
+		const testClass = "bg-green-500";
 		const { getByTestId } = render(
 			<Tabs value="testGroup" base={testClass}>
 				Test
-			</Tabs>
+			</Tabs>,
 		);
-		const component = getByTestId('tabs');
+		const component = getByTestId("tabs");
 		expect(component).toHaveClass(testClass);
 	});
 
-	it('should render arbitrary classes on root', () => {
-		const testClass = 'bg-green-500';
+	it("should render arbitrary classes on root", () => {
+		const testClass = "bg-green-500";
 		const { getByTestId } = render(
 			<Tabs value="testGroup" classes={testClass}>
 				Test
-			</Tabs>
+			</Tabs>,
 		);
-		const component = getByTestId('tabs');
+		const component = getByTestId("tabs");
 		expect(component).toHaveClass(testClass);
 	});
 });
 
-describe('<Tabs.Control>', () => {
-	it('should render custom child content', () => {
-		const testContent = 'someTextContent';
+describe("<Tabs.Control>", () => {
+	it("should render custom child content", () => {
+		const testContent = "someTextContent";
 		const { getByTestId } = render(
 			<Tabs value="testGroup">
 				<Tabs.List>
 					<Tabs.Control value="item-1">{testContent}</Tabs.Control>
 				</Tabs.List>
-			</Tabs>
+			</Tabs>,
 		);
-		const componentControl = getByTestId('tabs-control');
+		const componentControl = getByTestId("tabs-control");
 		expect(componentControl).toHaveTextContent(testContent);
 	});
 
-	it('should render base classes on root', () => {
-		const testClass = 'bg-green-500';
+	it("should render base classes on root", () => {
+		const testClass = "bg-green-500";
 		const { getByTestId } = render(
 			<Tabs value="testGroup">
 				<Tabs.List>
@@ -83,14 +83,14 @@ describe('<Tabs.Control>', () => {
 						Test
 					</Tabs.Control>
 				</Tabs.List>
-			</Tabs>
+			</Tabs>,
 		);
-		const component = getByTestId('tabs-control');
+		const component = getByTestId("tabs-control");
 		expect(component).toHaveClass(testClass);
 	});
 
-	it('should render arbitrary classes on root', () => {
-		const testClass = 'bg-green-500';
+	it("should render arbitrary classes on root", () => {
+		const testClass = "bg-green-500";
 		const { getByTestId } = render(
 			<Tabs value="testGroup">
 				<Tabs.List>
@@ -98,29 +98,29 @@ describe('<Tabs.Control>', () => {
 						Test
 					</Tabs.Control>
 				</Tabs.List>
-			</Tabs>
+			</Tabs>,
 		);
-		const component = getByTestId('tabs-control');
+		const component = getByTestId("tabs-control");
 		expect(component).toHaveClass(testClass);
 	});
 });
 
-describe('<Tabs.Panel>', () => {
-	it('should render custom child content', () => {
-		const testContent = 'someTextContent';
+describe("<Tabs.Panel>", () => {
+	it("should render custom child content", () => {
+		const testContent = "someTextContent";
 		const { getByTestId } = render(
 			<Tabs value="testGroup">
 				<Tabs.Content>
 					<Tabs.Panel value="item-1">{testContent}</Tabs.Panel>
 				</Tabs.Content>
-			</Tabs>
+			</Tabs>,
 		);
-		const componentControl = getByTestId('tabs-panel');
+		const componentControl = getByTestId("tabs-panel");
 		expect(componentControl).toHaveTextContent(testContent);
 	});
 
-	it('should render base classes on root', () => {
-		const testClass = 'bg-green-500';
+	it("should render base classes on root", () => {
+		const testClass = "bg-green-500";
 		const { getByTestId } = render(
 			<Tabs value="testGroup">
 				<Tabs.Content>
@@ -128,14 +128,14 @@ describe('<Tabs.Panel>', () => {
 						Test
 					</Tabs.Panel>
 				</Tabs.Content>
-			</Tabs>
+			</Tabs>,
 		);
-		const component = getByTestId('tabs-panel');
+		const component = getByTestId("tabs-panel");
 		expect(component).toHaveClass(testClass);
 	});
 
-	it('should render arbitrary classes on root', () => {
-		const testClass = 'bg-green-500';
+	it("should render arbitrary classes on root", () => {
+		const testClass = "bg-green-500";
 		const { getByTestId } = render(
 			<Tabs value="testGroup">
 				<Tabs.Content>
@@ -143,9 +143,9 @@ describe('<Tabs.Panel>', () => {
 						Test
 					</Tabs.Panel>
 				</Tabs.Content>
-			</Tabs>
+			</Tabs>,
 		);
-		const component = getByTestId('tabs-panel');
+		const component = getByTestId("tabs-panel");
 		expect(component).toHaveClass(testClass);
 	});
 });

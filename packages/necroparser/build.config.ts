@@ -1,10 +1,10 @@
-import { defineBuildConfig } from 'unbuild';
+import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
-	entries: ['./src/index.ts'],
+	entries: ["./src/index.ts"],
 	declaration: true,
 	clean: true,
 	rollup: {
-		emitCJS: true
-	}
+		emitCJS: true,
+	},
 });

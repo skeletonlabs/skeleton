@@ -1,9 +1,9 @@
-[data-theme='catppuccin'] {
+[data-theme="catppuccin"] {
 	--text-scaling: 1.067;
 	--base-font-color: var(--color-surface-700);
 	--base-font-color-dark: var(--color-surface-50);
-	--base-font-family:
-		ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri,
+	--base-font-family: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand,
+		Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
 		source-sans-pro, sans-serif;
 	--base-font-size: inherit;
 	--base-line-height: inherit;
@@ -12,7 +12,8 @@
 	--base-letter-spacing: 0em;
 	--heading-font-color: var(--color-tertiary-500);
 	--heading-font-color-dark: var(--color-secondary-200);
-	--heading-font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+	--heading-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
+		"DejaVu Sans", source-sans-pro, sans-serif;
 	--heading-font-weight: bolder;
 	--heading-font-style: normal;
 	--heading-letter-spacing: inherit;

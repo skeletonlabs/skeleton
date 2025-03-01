@@ -1,4 +1,4 @@
-import { Progress } from '@skeletonlabs/skeleton-react';
+import { Progress } from "@skeletonlabs/skeleton-react";
 
 export const Page = () => {
 	return (

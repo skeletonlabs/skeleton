@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: Documentation
 description: Guidelines for contributing to the Skeleton documentation website.
 order: 20
@@ -12,9 +12,9 @@ export const components = componentSet;
 The Skeleton documentation website is maintained using the Astro framework.
 
 <figure class="linker bg-noise">
-	<a href="https://astro.build/" target="_blank" class="btn preset-filled">
-		Astro Documentation &rarr;
-	</a>
+  <a href="https://astro.build/" target="_blank" class="btn preset-filled">
+    Astro Documentation &rarr;
+  </a>
 </figure>
 
 ### Integrations
@@ -105,21 +105,21 @@ Code Blocks are provided via [Expressive Code](https://expressive-code.com/) via
 <Code code={`<div>Skeleton<div>`} lang="html" />
 ```
 
-<Code code={'```html\n<div>Skeleton<div>\n```'} lang="mdx" />
+<Code code={"```html\n<div>Skeleton<div>\n```"} lang="mdx" />
 
 ### Preview
 
 Allows you to quickly toggle between an example component and it's source code.
 
 ```ts
-import Example from '@examples/foo/Example.astro';
-import ExampleRaw from '@examples/foo/Example.astro?raw';
+import Example from "@examples/foo/Example.astro";
+import ExampleRaw from "@examples/foo/Example.astro?raw";
 ```
 
 ```astro
 <Preview client:load>
-	<Fragment slot="preview"><Example /></Fragment>
-	<Fragment slot="code"><Code code={ExampleRaw} lang="html" /></Fragment>
+  <Fragment slot="preview"><Example /></Fragment>
+  <Fragment slot="code"><Code code={ExampleRaw} lang="html" /></Fragment>
 </Preview>
 ```
 
@@ -129,18 +129,18 @@ To allow for a common preview to have framework specific code, use the `codeReac
 
 ```astro
 <Preview client:load>
-	<Fragment slot="preview"><Example /></Fragment>
-	<Preview>
-		<Fragment slot="preview">
-			<Example />
-		</Fragment>
-		<Fragment slot="codeReact">
-			<Code code={ExampleSvelteRaw} lang="tsx" />
-		</Fragment>
-		<Fragment slot="codeSvelte">
-			<Code code={ExampleReactRaw} lang="svelte" />
-		</Fragment>
-	</Preview>
+  <Fragment slot="preview"><Example /></Fragment>
+  <Preview>
+    <Fragment slot="preview">
+      <Example />
+    </Fragment>
+    <Fragment slot="codeReact">
+      <Code code={ExampleSvelteRaw} lang="tsx" />
+    </Fragment>
+    <Fragment slot="codeSvelte">
+      <Code code={ExampleReactRaw} lang="svelte" />
+    </Fragment>
+  </Preview>
 </Preview>
 ```
 
@@ -152,13 +152,13 @@ Provided by [Markdown tables](https://www.tablesgenerator.com/markdown_tables) o
 
 ```ts
 export const tableProps: [
-	{
-		name: 'autocollapse';
-		type: 'boolean';
-		value: 'false';
-		description: 'Set the auto-collapse mode.';
-	}
-	// ...
+  {
+    name: "autocollapse";
+    type: "boolean";
+    value: "false";
+    description: "Set the auto-collapse mode.";
+  },
+  // ...
 ];
 ```
 
@@ -179,7 +179,7 @@ This application implements the [React version](https://lucide.dev/guide/package
 Additionally, this application implements [Astro-Icon](https://www.astroicon.dev/) for local custom SVGs and brand icon.
 
 ```ts
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 ```
 
 ```tsx

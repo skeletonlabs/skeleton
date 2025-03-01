@@ -1,4 +1,4 @@
-import { FileUpload } from '@skeletonlabs/skeleton-react';
+import { FileUpload } from "@skeletonlabs/skeleton-react";
 
 export const Page: React.FC = () => {
 	return (

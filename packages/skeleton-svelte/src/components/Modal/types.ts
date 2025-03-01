@@ -1,8 +1,8 @@
-import type { Snippet } from 'svelte';
-import * as dialog from '@zag-js/dialog';
-import type { FlyParams, FadeParams } from 'svelte/transition';
+import type * as dialog from "@zag-js/dialog";
+import type { Snippet } from "svelte";
+import type { FadeParams, FlyParams } from "svelte/transition";
 
-export interface ModalProps extends Omit<dialog.Props, 'id'> {
+export interface ModalProps extends Omit<dialog.Props, "id"> {
 	// Base ---
 	/** Set base classes for the root element. */
 	base?: string;

@@ -1,8 +1,9 @@
-[data-theme='vox'] {
+[data-theme="vox"] {
 	--text-scaling: 1.067;
 	--base-font-color: var(--color-surface-950);
 	--base-font-color-dark: var(--color-surface-50);
-	--base-font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+	--base-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
+		source-sans-pro, sans-serif;
 	--base-font-size: inherit;
 	--base-line-height: inherit;
 	--base-font-weight: normal;
@@ -10,7 +11,8 @@
 	--base-letter-spacing: 0em;
 	--heading-font-color: inherit;
 	--heading-font-color-dark: inherit;
-	--heading-font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+	--heading-font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova",
+		"Nimbus Sans", Arial, sans-serif;
 	--heading-font-weight: 600;
 	--heading-font-style: normal;
 	--heading-letter-spacing: 0.025em;

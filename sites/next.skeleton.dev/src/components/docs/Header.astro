@@ -1,73 +1,78 @@
 ---
-import { Icon } from 'astro-icon/components';
-// Stores
-import { socialLinks } from 'src/stores/social-links';
 // Components
-import Drawer from '@components/docs/Drawer.astro';
-import Lightswitch from '@components/docs/Lightswitch.astro';
-import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
-import Search from './Search.svelte';
-import Navigation from '@components/docs/Navigation.astro';
+import Drawer from "@components/docs/Drawer.astro";
+import Lightswitch from "@components/docs/Lightswitch.astro";
+import Navigation from "@components/docs/Navigation.astro";
+import ThemeSwitch from "@components/docs/ThemeSwitch.astro";
+import { Icon } from "astro-icon/components";
+// Stores
+import { socialLinks } from "src/stores/social-links";
+import Search from "./Search.svelte";
 
 const coreLinks = [
-	{ href: '/docs/get-started/introduction', label: 'Docs', target: '_self' },
-	{ href: '/news', label: 'News', target: '_self' },
-	{ href: 'https://themes.skeleton.dev/', label: 'Themes', target: '_blank' },
-	{ href: '/figma', label: 'Figma', target: '_self' }
+	{ href: "/docs/get-started/introduction", label: "Docs", target: "_self" },
+	{ href: "/news", label: "News", target: "_self" },
+	{ href: "https://themes.skeleton.dev/", label: "Themes", target: "_blank" },
+	{ href: "/figma", label: "Figma", target: "_self" },
 ];
 ---
 
 <header
-	class="sticky top-0 z-50 border-b-[1px] border-surface-500/20 bg-surface-50/90 dark:bg-surface-950/90 backdrop-blur w-full h-[70px] flex items-center"
+  class="sticky top-0 z-50 border-b-[1px] border-surface-500/20 bg-surface-50/90 dark:bg-surface-950/90 backdrop-blur w-full h-[70px] flex items-center"
 >
-	<div
-		class="container mx-auto grid max-w-screen-2xl grid-cols-[auto_1fr_auto] xl:grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 xl:px-10"
-	>
-		<!-- Left -->
-		<div class="flex items-center justify-start gap-6">
-			<!-- Mobile Nav Drawer -->
-			<Drawer navigation={coreLinks}>
-				<Navigation />
-			</Drawer>
-			<!-- Logo -->
-			<a class="hidden xl:inline-block" href="/" title="Skeleton">
-				<Icon name="skeleton" size={28} />
-			</a>
-			<!-- Navigation -->
-			<div class="hidden xl:flex items-center justify-start gap-6 opacity-60">
-				{
-					coreLinks.map((link) => (
-						<a class="hover:underline" href={link.href} target={link.target}>
-							{link.label}
-						</a>
-					))
-				}
-			</div>
-		</div>
-		<!-- Middle -->
-		<div class="flex items-center gap-2">
-			<!-- Search -->
-			<Search client:load />
-		</div>
-		<!-- Right -->
-		<div class="flex items-center justify-end gap-2">
-			<div class="hidden xl:flex items-center justify-end gap-2">
-				<Lightswitch />
-				<ThemeSwitch />
-			</div>
-			<!-- Social -->
-			<nav class="flex items-center">
-				{
-					socialLinks
-						.get()
-						.slice(0, 2)
-						.map((l) => (
-							<a class="btn-icon hover:preset-tonal" href={l.href} target="_blank" title={l.label}>
-								<Icon name={l.icon} size={20} />
-							</a>
-						))
-				}
-			</nav>
-		</div>
-	</div>
+  <div
+    class="container mx-auto grid max-w-screen-2xl grid-cols-[auto_1fr_auto] xl:grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 xl:px-10"
+  >
+    <!-- Left -->
+    <div class="flex items-center justify-start gap-6">
+      <!-- Mobile Nav Drawer -->
+      <Drawer navigation={coreLinks}>
+        <Navigation />
+      </Drawer>
+      <!-- Logo -->
+      <a class="hidden xl:inline-block" href="/" title="Skeleton">
+        <Icon name="skeleton" size={28} />
+      </a>
+      <!-- Navigation -->
+      <div class="hidden xl:flex items-center justify-start gap-6 opacity-60">
+        {
+          coreLinks.map((link) => (
+            <a class="hover:underline" href={link.href} target={link.target}>
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <!-- Middle -->
+    <div class="flex items-center gap-2">
+      <!-- Search -->
+      <Search client:load />
+    </div>
+    <!-- Right -->
+    <div class="flex items-center justify-end gap-2">
+      <div class="hidden xl:flex items-center justify-end gap-2">
+        <Lightswitch />
+        <ThemeSwitch />
+      </div>
+      <!-- Social -->
+      <nav class="flex items-center">
+        {
+          socialLinks
+            .get()
+            .slice(0, 2)
+            .map((l) => (
+              <a
+                class="btn-icon hover:preset-tonal"
+                href={l.href}
+                target="_blank"
+                title={l.label}
+              >
+                <Icon name={l.icon} size={20} />
+              </a>
+            ))
+        }
+      </nav>
+    </div>
+  </div>
 </header>

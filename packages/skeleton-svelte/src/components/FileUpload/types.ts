@@ -1,10 +1,10 @@
-import type { Snippet } from 'svelte';
-import * as fileUpload from '@zag-js/file-upload';
-import type { PropTypes } from '@zag-js/svelte';
+import type * as fileUpload from "@zag-js/file-upload";
+import type { PropTypes } from "@zag-js/svelte";
+import type { Snippet } from "svelte";
 
 export type FileUploadApi = fileUpload.Api<PropTypes>;
 
-export interface FileUploadProps extends Omit<fileUpload.Props, 'id'> {
+export interface FileUploadProps extends Omit<fileUpload.Props, "id"> {
 	/** Set the interface text value. */
 	label?: string;
 	/** Set the interface subtext value. */

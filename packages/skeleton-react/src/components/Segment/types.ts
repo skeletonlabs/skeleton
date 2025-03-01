@@ -1,6 +1,6 @@
 // Segment Control Types
 
-import type * as radio from '@zag-js/radio-group';
+import type * as radio from "@zag-js/radio-group";
 
 // Context ---
 
@@ -11,7 +11,9 @@ export interface SegmentContextState {
 
 // Components ---
 
-export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Props, 'id'> {
+export interface SegmentProps
+	extends React.PropsWithChildren,
+		Omit<radio.Props, "id"> {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
@@ -59,7 +61,9 @@ export interface SegmentProps extends React.PropsWithChildren, Omit<radio.Props,
 	labelledby?: string;
 }
 
-export interface SegmentItemsProps extends React.PropsWithChildren, Omit<radio.ItemProps, 'invalid'> {
+export interface SegmentItemsProps
+	extends React.PropsWithChildren,
+		Omit<radio.ItemProps, "invalid"> {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;

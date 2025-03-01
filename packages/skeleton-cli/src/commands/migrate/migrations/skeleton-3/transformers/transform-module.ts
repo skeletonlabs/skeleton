@@ -1,8 +1,8 @@
-import { transformClasses } from './transform-classes';
-import { Node } from 'ts-morph';
-import { addNamedImport } from '../../../../../utility/ts-morph/add-named-import';
-import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file';
-import { EXPORT_MAPPINGS } from '../utility/export-mappings';
+import { Node } from "ts-morph";
+import { addNamedImport } from "../../../../../utility/ts-morph/add-named-import";
+import { parseSourceFile } from "../../../../../utility/ts-morph/parse-source-file";
+import { EXPORT_MAPPINGS } from "../utility/export-mappings";
+import { transformClasses } from "./transform-classes";
 
 function transformModule(code: string) {
 	const file = parseSourceFile(code);
@@ -10,29 +10,40 @@ function transformModule(code: string) {
 	file.forEachDescendant((node) => {
 		if (Node.isImportDeclaration(node)) {
 			const moduleSpecifier = node.getModuleSpecifier();
-			if (moduleSpecifier.getLiteralText() === '@skeletonlabs/skeleton') {
-				node.setModuleSpecifier('@skeletonlabs/skeleton-svelte');
+			if (moduleSpecifier.getLiteralText() === "@skeletonlabs/skeleton") {
+				node.setModuleSpecifier("@skeletonlabs/skeleton-svelte");
 			}
 		}
 		if (
 			Node.isImportSpecifier(node) &&
-			node.getImportDeclaration().getModuleSpecifier().getLiteralText() === '@skeletonlabs/skeleton-svelte'
+			node.getImportDeclaration().getModuleSpecifier().getLiteralText() ===
+				"@skeletonlabs/skeleton-svelte"
 		) {
 			const name = node.getName();
 			if (Object.hasOwn(EXPORT_MAPPINGS, name)) {
 				const exportMapping = EXPORT_MAPPINGS[name];
 				switch (exportMapping.namedImport.type) {
-					case 'renamed': {
-						if (exportMapping.namedImport.value.match(/^[A-Za-z]+\.[A-Za-z]+$/)) {
+					case "renamed": {
+						if (
+							exportMapping.namedImport.value.match(/^[A-Za-z]+\.[A-Za-z]+$/)
+						) {
 							break;
 						}
 						node.remove();
-						addNamedImport(file, '@skeletonlabs/skeleton-svelte', exportMapping.namedImport.value);
+						addNamedImport(
+							file,
+							"@skeletonlabs/skeleton-svelte",
+							exportMapping.namedImport.value,
+						);
 						break;
 					}
-					case 'removed': {
+					case "removed": {
 						const parent = node.getImportDeclaration();
-						if (parent.getNamedImports().length === 1 && !parent.getDefaultImport() && !parent.getNamespaceImport()) {
+						if (
+							parent.getNamedImports().length === 1 &&
+							!parent.getDefaultImport() &&
+							!parent.getNamespaceImport()
+						) {
 							parent.remove();
 						} else {
 							node.remove();
@@ -45,16 +56,27 @@ function transformModule(code: string) {
 		}
 	});
 	file.forEachDescendant((node) => {
-		if (!node.wasForgotten() && Node.isIdentifier(node) && !Node.isImportSpecifier(node.getParent())) {
+		if (
+			!node.wasForgotten() &&
+			Node.isIdentifier(node) &&
+			!Node.isImportSpecifier(node.getParent())
+		) {
 			const name = node.getText();
-			if (Object.hasOwn(EXPORT_MAPPINGS, name) && skeletonImports.includes(name)) {
+			if (
+				Object.hasOwn(EXPORT_MAPPINGS, name) &&
+				skeletonImports.includes(name)
+			) {
 				const exportMapping = EXPORT_MAPPINGS[name];
-				if (exportMapping.identifier.type === 'renamed') {
+				if (exportMapping.identifier.type === "renamed") {
 					node.replaceWithText(exportMapping.identifier.value);
 				}
 			}
 		}
-		if (!node.wasForgotten() && Node.isStringLiteral(node) && !Node.isImportDeclaration(node.getParent())) {
+		if (
+			!node.wasForgotten() &&
+			Node.isStringLiteral(node) &&
+			!Node.isImportDeclaration(node.getParent())
+		) {
 			node.replaceWithText(transformClasses(node.getText()).code);
 		}
 	});
@@ -62,8 +84,8 @@ function transformModule(code: string) {
 	return {
 		code: file.getFullText(),
 		meta: {
-			skeletonImports: skeletonImports
-		}
+			skeletonImports: skeletonImports,
+		},
 	};
 }
 

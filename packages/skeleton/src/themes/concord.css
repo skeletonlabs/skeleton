@@ -1,4 +1,4 @@
-[data-theme='concord'] {
+[data-theme="concord"] {
 	--text-scaling: 1.067;
 	--base-font-color: var(--color-surface-950);
 	--base-font-color-dark: var(--color-surface-50);
@@ -10,7 +10,8 @@
 	--base-letter-spacing: 0em;
 	--heading-font-color: inherit;
 	--heading-font-color-dark: inherit;
-	--heading-font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+	--heading-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
+		"DejaVu Sans", source-sans-pro, sans-serif;
 	--heading-font-weight: bold;
 	--heading-font-style: normal;
 	--heading-letter-spacing: 0.025em;

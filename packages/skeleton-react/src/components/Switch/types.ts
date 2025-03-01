@@ -1,7 +1,9 @@
-import type { ReactNode } from 'react';
-import * as zagSwitch from '@zag-js/switch';
+import type * as zagSwitch from "@zag-js/switch";
+import type { ReactNode } from "react";
 
-export interface SwitchProps extends React.PropsWithChildren, Omit<zagSwitch.Props, 'id'> {
+export interface SwitchProps
+	extends React.PropsWithChildren,
+		Omit<zagSwitch.Props, "id"> {
 	/** Set the compact display mode. */
 	compact?: boolean;
 

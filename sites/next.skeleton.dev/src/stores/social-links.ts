@@ -1,4 +1,4 @@
-import { atom } from 'nanostores';
+import { atom } from "nanostores";
 
 interface SocialLink {
 	href: string;
@@ -8,23 +8,23 @@ interface SocialLink {
 
 export const socialLinks = atom<SocialLink[]>([
 	{
-		href: 'https://github.com/skeletonlabs/skeleton',
-		label: 'GitHub',
-		icon: 'github'
+		href: "https://github.com/skeletonlabs/skeleton",
+		label: "GitHub",
+		icon: "github",
 	},
 	{
-		href: 'https://discord.gg/EXqV7W8MtY',
-		label: 'Discord',
-		icon: 'discord'
+		href: "https://discord.gg/EXqV7W8MtY",
+		label: "Discord",
+		icon: "discord",
 	},
 	{
-		href: 'https://bsky.app/profile/skeletonlabs.bsky.social',
-		label: 'Bluesky',
-		icon: 'bluesky'
+		href: "https://bsky.app/profile/skeletonlabs.bsky.social",
+		label: "Bluesky",
+		icon: "bluesky",
 	},
 	{
-		href: 'https://www.youtube.com/@skeletonlabs',
-		label: 'YouTube',
-		icon: 'youtube'
-	}
+		href: "https://www.youtube.com/@skeletonlabs",
+		label: "YouTube",
+		icon: "youtube",
+	},
 ]);

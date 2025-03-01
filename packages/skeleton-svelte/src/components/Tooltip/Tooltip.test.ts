@@ -1,16 +1,16 @@
-import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/svelte';
+import { render, screen } from "@testing-library/svelte";
+import { describe, expect, it } from "vitest";
 
-import { Tooltip } from '../../index.js';
+import { Tooltip } from "../../index.js";
 
-describe('Tooltip', () => {
+describe("Tooltip", () => {
 	const testIds = {
-		root: 'tooltip'
+		root: "tooltip",
 	};
 
 	// NOTE: bare minimum test as this feature is considered temporary
 
-	it('Renders the component', () => {
+	it("Renders the component", () => {
 		render(Tooltip, {});
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toBeInTheDocument();

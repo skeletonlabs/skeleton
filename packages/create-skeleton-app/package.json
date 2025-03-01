@@ -2,12 +2,7 @@
 	"name": "create-skeleton-app",
 	"version": "0.0.53",
 	"description": "Use this CLI app to setup a new Skeleton application in a new SvelteKit project.",
-	"keywords": [
-		"skeleton",
-		"svelte",
-		"sveltekit",
-		"svelte-kit"
-	],
+	"keywords": ["skeleton", "svelte", "sveltekit", "svelte-kit"],
 	"homepage": "https://www.skeleton.dev",
 	"repository": {
 		"type": "git",
@@ -19,11 +14,7 @@
 	"type": "module",
 	"main": "./src/index.js",
 	"bin": "./src/index.js",
-	"files": [
-		"src/**",
-		"templates/**",
-		"fonts/**"
-	],
+	"files": ["src/**", "templates/**", "fonts/**"],
 	"engines": {
 		"node": ">=14.16"
 	},

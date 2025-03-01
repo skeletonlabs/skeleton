@@ -1,9 +1,13 @@
-import { useState } from 'react';
-import { TagsInput } from '@skeletonlabs/skeleton-react';
-import { XCircle as IconDelete } from 'lucide-react';
+import { TagsInput } from "@skeletonlabs/skeleton-react";
+import { XCircle as IconDelete } from "lucide-react";
+import { useState } from "react";
 
 export const Page: React.FC = () => {
-	const [flavors, setFlavors] = useState(['Vanilla', 'Chocolate', 'Strawberry']);
+	const [flavors, setFlavors] = useState([
+		"Vanilla",
+		"Chocolate",
+		"Strawberry",
+	]);
 
 	return (
 		<TagsInput

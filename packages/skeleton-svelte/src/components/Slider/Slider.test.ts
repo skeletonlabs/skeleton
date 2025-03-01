@@ -1,32 +1,32 @@
-import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/svelte';
+import { render, screen } from "@testing-library/svelte";
+import { describe, expect, it } from "vitest";
 
-import { Slider } from '../../index.js';
+import { Slider } from "../../index.js";
 
-describe('Slider', () => {
+describe("Slider", () => {
 	const testIds = {
-		root: 'slider',
-		markers: 'slider-markers',
-		mark: 'slider-mark',
-		thumb: 'slider-thumb'
+		root: "slider",
+		markers: "slider-markers",
+		mark: "slider-mark",
+		thumb: "slider-thumb",
 	};
 	const commonProps = {
-		value: [40]
+		value: [40],
 	};
 
-	it('Renders the component', () => {
+	it("Renders the component", () => {
 		render(Slider, { ...commonProps });
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toBeInTheDocument();
 	});
 
-	it('should render the component with multiple values', () => {
+	it("should render the component with multiple values", () => {
 		render(Slider, { value: [40, 60] });
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toBeInTheDocument();
 	});
 
-	it('should render the component with markers', () => {
+	it("should render the component with markers", () => {
 		render(Slider, { ...commonProps, markers: [25, 50, 75] });
 
 		const elemMakers = screen.getByTestId(testIds.markers);
@@ -36,21 +36,21 @@ describe('Slider', () => {
 		expect(elemMarks).toHaveLength(3);
 	});
 
-	it('should render the component in the disabled state', () => {
+	it("should render the component in the disabled state", () => {
 		render(Slider, { ...commonProps, disabled: true });
 		const component = screen.getByTestId(testIds.root);
-		expect(component).toHaveClass('disabled');
+		expect(component).toHaveClass("disabled");
 	});
 
-	it('should render the component in the read-only state', () => {
+	it("should render the component in the read-only state", () => {
 		render(Slider, { ...commonProps, readOnly: true });
 		const component = screen.getByTestId(testIds.thumb);
-		expect(component).toHaveClass('cursor-not-allowed');
+		expect(component).toHaveClass("cursor-not-allowed");
 	});
 
-	for (const prop of ['base', 'spaceY', 'classes']) {
+	for (const prop of ["base", "spaceY", "classes"]) {
 		it(`Correctly applies the root \`${prop}\` prop`, () => {
-			const value = 'bg-green-500';
+			const value = "bg-green-500";
 			render(Slider, { ...commonProps, [prop]: value });
 			const component = screen.getByTestId(testIds.root);
 			expect(component).toHaveClass(value);

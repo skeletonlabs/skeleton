@@ -1,52 +1,54 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: Typography
 description: The Skeleton typography system.
-srcCore: '/utilities/typography.css'
+srcCore: "/utilities/typography.css"
 order: 30
 ---
 
 export const components = componentSet;
 
-import TypeScale from '@examples/design/typography/TypeScale.svelte';
-import TypeScaleRaw from '@examples/design/typography/TypeScale.svelte?raw';
+import TypeScale from "@examples/design/typography/TypeScale.svelte";
+import TypeScaleRaw from "@examples/design/typography/TypeScale.svelte?raw";
 
-import Headings from '@examples/design/typography/Headings.astro';
-import HeadingsRaw from '@examples/design/typography/Headings.astro?raw';
-import Paragraphs from '@examples/design/typography/Paragraphs.astro';
-import ParagraphsRaw from '@examples/design/typography/Paragraphs.astro?raw';
-import Blockquotes from '@examples/design/typography/Blockquotes.astro';
-import BlockquotesRaw from '@examples/design/typography/Blockquotes.astro?raw';
-import Anchors from '@examples/design/typography/Anchors.astro';
-import AnchorsRaw from '@examples/design/typography/Anchors.astro?raw';
-import Pre from '@examples/design/typography/Pre.astro';
-import PreRaw from '@examples/design/typography/Pre.astro?raw';
-import CodeTag from '@examples/design/typography/CodeTag.astro';
-import CodeTagRaw from '@examples/design/typography/CodeTag.astro?raw';
-import Keyboard from '@examples/design/typography/Keyboard.astro';
-import KeyboardRaw from '@examples/design/typography/Keyboard.astro?raw';
-import InsDel from '@examples/design/typography/InsDel.astro';
-import InsDelRaw from '@examples/design/typography/InsDel.astro?raw';
+import Headings from "@examples/design/typography/Headings.astro";
+import HeadingsRaw from "@examples/design/typography/Headings.astro?raw";
+import Paragraphs from "@examples/design/typography/Paragraphs.astro";
+import ParagraphsRaw from "@examples/design/typography/Paragraphs.astro?raw";
+import Blockquotes from "@examples/design/typography/Blockquotes.astro";
+import BlockquotesRaw from "@examples/design/typography/Blockquotes.astro?raw";
+import Anchors from "@examples/design/typography/Anchors.astro";
+import AnchorsRaw from "@examples/design/typography/Anchors.astro?raw";
+import Pre from "@examples/design/typography/Pre.astro";
+import PreRaw from "@examples/design/typography/Pre.astro?raw";
+import CodeTag from "@examples/design/typography/CodeTag.astro";
+import CodeTagRaw from "@examples/design/typography/CodeTag.astro?raw";
+import Keyboard from "@examples/design/typography/Keyboard.astro";
+import KeyboardRaw from "@examples/design/typography/Keyboard.astro?raw";
+import InsDel from "@examples/design/typography/InsDel.astro";
+import InsDelRaw from "@examples/design/typography/InsDel.astro?raw";
 
-import Semantic from '@examples/design/typography/Semantic.svelte';
-import SemanticRaw from '@examples/design/typography/Semantic.svelte?raw';
+import Semantic from "@examples/design/typography/Semantic.svelte";
+import SemanticRaw from "@examples/design/typography/Semantic.svelte?raw";
 
-import ListUnordered from '@examples/design/typography/ListUnordered.astro';
-import ListUnorderedRaw from '@examples/design/typography/ListUnordered.astro?raw';
-import ListOrdered from '@examples/design/typography/ListOrdered.astro';
-import ListOrderedRaw from '@examples/design/typography/ListOrdered.astro?raw';
-import ListBasic from '@examples/design/typography/ListBasic.astro';
-import ListBasicRaw from '@examples/design/typography/ListBasic.astro?raw';
-import ListDesc from '@examples/design/typography/ListDesc.astro';
-import ListDescRaw from '@examples/design/typography/ListDesc.astro?raw';
-import ListNav from '@examples/design/typography/ListNav.astro';
-import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
+import ListUnordered from "@examples/design/typography/ListUnordered.astro";
+import ListUnorderedRaw from "@examples/design/typography/ListUnordered.astro?raw";
+import ListOrdered from "@examples/design/typography/ListOrdered.astro";
+import ListOrderedRaw from "@examples/design/typography/ListOrdered.astro?raw";
+import ListBasic from "@examples/design/typography/ListBasic.astro";
+import ListBasicRaw from "@examples/design/typography/ListBasic.astro?raw";
+import ListDesc from "@examples/design/typography/ListDesc.astro";
+import ListDescRaw from "@examples/design/typography/ListDesc.astro?raw";
+import ListNav from "@examples/design/typography/ListNav.astro";
+import ListNavRaw from "@examples/design/typography/ListNav.astro?raw";
 
 {
 
 <p class="text-xl">
-	Skeleton provides an array of opt-in utility classes for common typographic elements, with a fully functional typography scale based on
-	your theme settings. As well as a number of primitives for generating a semantic typography set for your project's individual needs.
+  Skeleton provides an array of opt-in utility classes for common typographic
+  elements, with a fully functional typography scale based on your theme
+  settings. As well as a number of primitives for generating a semantic
+  typography set for your project's individual needs.
 </p>
 
 }
@@ -94,89 +96,89 @@ Use the following utility classes to quickly style semantic HTML elements. These
 ### Headings
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<Headings />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={HeadingsRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <Headings />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={HeadingsRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Paragraphs
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<Paragraphs />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ParagraphsRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <Paragraphs />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ParagraphsRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Blockquotes
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<Blockquotes />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={BlockquotesRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <Blockquotes />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={BlockquotesRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Anchor
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<Anchors />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={AnchorsRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <Anchors />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={AnchorsRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Pre-Formatted
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<Pre />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={PreRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <Pre />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={PreRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Code
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<CodeTag />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={CodeTagRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <CodeTag />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={CodeTagRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Keyboard
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<Keyboard />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={KeyboardRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <Keyboard />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={KeyboardRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Insert & Delete
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<InsDel />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={InsDelRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <InsDel />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={InsDelRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ## Lists
@@ -186,56 +188,56 @@ Skeleton defers to Tailwind's built-in utility classes for common list styles.
 ### Unordered
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ListUnordered />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ListUnorderedRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ListUnordered />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ListUnorderedRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Ordered
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ListOrdered />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ListOrderedRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ListOrdered />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ListOrderedRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Basic
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ListBasic />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ListBasicRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ListBasic />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ListBasicRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Description
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ListDesc />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ListDescRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ListDesc />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ListDescRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ### Navigation
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ListNav />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ListNavRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ListNav />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ListNavRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ## Semantic Typography
@@ -243,10 +245,10 @@ Skeleton defers to Tailwind's built-in utility classes for common list styles.
 When working with your designers, they may craft a semantic typography set for your project. To handle this, we recommend implementing [custom presets](/docs/design/presets#custom-presets) that mix CSS primitives with semantic HTML elements to replicate all desired styles. Feel free to use the boilerplate below, adding each style to your global stylesheet.
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<Semantic client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={SemanticRaw} lang="svelte" />
-	</Fragment>
+  <Fragment slot="preview">
+    <Semantic client:load />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={SemanticRaw} lang="svelte" />
+  </Fragment>
 </Preview>

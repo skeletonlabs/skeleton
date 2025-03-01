@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
-import { Tabs } from '@skeletonlabs/skeleton-react';
-import { Plane as IconPlane, Sailboat as IconBoat, Car as IconCar } from 'lucide-react';
+import { Tabs } from "@skeletonlabs/skeleton-react";
+import {
+	Sailboat as IconBoat,
+	Car as IconCar,
+	Plane as IconPlane,
+} from "lucide-react";
+import type React from "react";
+import { useState } from "react";
 
 export const Page: React.FC = () => {
-	const [group, setGroup] = useState('plane');
+	const [group, setGroup] = useState("plane");
 	const lorem =
-		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';
+		"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.";
 
 	return (
 		<Tabs value={group} onValueChange={(e) => setGroup(e.value!)}>

@@ -1,7 +1,7 @@
-import * as rating from '@zag-js/rating-group';
-import type { Snippet } from 'svelte';
+import type * as rating from "@zag-js/rating-group";
+import type { Snippet } from "svelte";
 
-export interface RatingProps extends Omit<rating.Props, 'id'> {
+export interface RatingProps extends Omit<rating.Props, "id"> {
 	// Root ---
 	/** Set root base classes */
 	base?: string;

@@ -1,8 +1,9 @@
-[data-theme='vintage'] {
+[data-theme="vintage"] {
 	--text-scaling: 1.067;
 	--base-font-color: var(--color-surface-950);
 	--base-font-color-dark: var(--color-surface-50);
-	--base-font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+	--base-font-family: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro,
+		sans-serif;
 	--base-font-size: inherit;
 	--base-line-height: inherit;
 	--base-font-weight: normal;
@@ -10,7 +11,8 @@
 	--base-letter-spacing: 0em;
 	--heading-font-color: var(--color-secondary-950);
 	--heading-font-color-dark: 255 255 255;
-	--heading-font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
+	--heading-font-family: Optima, Candara, "Noto Sans", source-sans-pro,
+		sans-serif;
 	--heading-font-weight: bold;
 	--heading-font-style: normal;
 	--heading-letter-spacing: inherit;

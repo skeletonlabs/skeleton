@@ -1,12 +1,17 @@
-'use client';
+"use client";
 
-import { Skull as IconLogo, Menu as IconMenu, Box as IconBox, Settings as IconSettings } from 'lucide-react';
-import { useState } from 'react';
+import {
+	Box as IconBox,
+	Skull as IconLogo,
+	Menu as IconMenu,
+	Settings as IconSettings,
+} from "lucide-react";
+import { useState } from "react";
 
-import { Navigation } from '@skeletonlabs/skeleton-react';
+import { Navigation } from "@skeletonlabs/skeleton-react";
 
 export default function Page() {
-	const [value, setValue] = useState('0');
+	const [value, setValue] = useState("0");
 
 	return (
 		<div className="space-y-10">
@@ -66,7 +71,10 @@ export default function Page() {
 					<Navigation.Rail
 						expanded
 						header={
-							<a href="/" className="flex aspect-square w-full flex-col items-center justify-center gap-2">
+							<a
+								href="/"
+								className="flex aspect-square w-full flex-col items-center justify-center gap-2"
+							>
 								<IconLogo size={48} />
 								<span className="text-xl font-bold">Skeleton</span>
 							</a>

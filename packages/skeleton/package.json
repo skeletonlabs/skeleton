@@ -23,9 +23,7 @@
 			"default": "./dist/optional/*.css"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"peerDependencies": {
 		"tailwindcss": "^4.0.0"
 	},

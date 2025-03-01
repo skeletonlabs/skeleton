@@ -1,5 +1,5 @@
-import type { Snippet } from 'svelte';
-import * as tabs from '@zag-js/tabs';
+import type * as tabs from "@zag-js/tabs";
+import type { Snippet } from "svelte";
 
 // Context ---
 
@@ -10,7 +10,7 @@ export interface TabsContextState {
 
 // Components ---
 
-export interface TabsProps extends Omit<tabs.Props, 'id' | 'orientation'> {
+export interface TabsProps extends Omit<tabs.Props, "id" | "orientation"> {
 	/** Set tabs to stretch to fill the available width. */
 	fluid?: boolean;
 

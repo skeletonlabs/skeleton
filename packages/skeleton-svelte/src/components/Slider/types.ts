@@ -1,7 +1,7 @@
-import * as slider from '@zag-js/slider';
-import type { Snippet } from 'svelte';
+import type * as slider from "@zag-js/slider";
+import type { Snippet } from "svelte";
 
-export interface SliderProps extends Omit<slider.Props, 'id' | 'thumbSize'> {
+export interface SliderProps extends Omit<slider.Props, "id" | "thumbSize"> {
 	/** Provide an array of value markers */
 	markers?: number[];
 	/** Set height classes for the overall slider. */

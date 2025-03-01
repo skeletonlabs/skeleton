@@ -1,6 +1,6 @@
 name: 🛠️ Request New Feature
 description: Let us know what you would like to see added.
-labels: ['feature request']
+labels: ["feature request"]
 type: Feature
 body:
   - type: textarea
@@ -12,11 +12,11 @@ body:
     attributes:
       label: What type of pull request would this be?
       options:
-        - 'New Feature'
-        - 'Enhancement'
-        - 'Guide'
-        - 'Docs'
-        - 'Other'
+        - "New Feature"
+        - "Enhancement"
+        - "Guide"
+        - "Docs"
+        - "Other"
   - type: textarea
     id: references
     attributes:

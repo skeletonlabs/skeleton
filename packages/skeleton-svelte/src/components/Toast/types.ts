@@ -1,11 +1,11 @@
-import type { Snippet } from 'svelte';
+import type { Snippet } from "svelte";
 
 export interface PlacementStyles {
 	top?: string;
 	bottom?: string;
 	left?: string;
 	right?: string;
-	'align-items'?: string;
+	"align-items"?: string;
 }
 
 // Store
@@ -22,7 +22,7 @@ export interface Toast {
 	 * Define the toast type.
 	 * @default info
 	 */
-	type?: 'info' | 'error' | 'success';
+	type?: "info" | "error" | "success";
 	/** The duration of the toast. Default varies by type. */
 	duration?: number;
 }
@@ -43,7 +43,7 @@ export interface ToastProviderProps {
 	 * Offset from the viewport edge.
 	 * @default bottom-end
 	 */
-	placement?: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
+	placement?: "top-start" | "top-end" | "bottom-start" | "bottom-end";
 	/**
 	 * Offset from the viewport edge.
 	 * @default 16px

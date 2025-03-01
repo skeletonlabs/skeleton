@@ -1,69 +1,85 @@
-'use client';
+"use client";
 
-import { type FC, useId } from 'react';
-import * as tagsInput from '@zag-js/tags-input';
-import { useMachine, normalizeProps } from '@zag-js/react';
-import type { TagsInputProps } from './types.js';
+import { normalizeProps, useMachine } from "@zag-js/react";
+import * as tagsInput from "@zag-js/tags-input";
+import { type FC, useId } from "react";
+import type { TagsInputProps } from "./types.js";
 
 export const TagsInput: FC<TagsInputProps> = ({
-	placeholder = '',
+	placeholder = "",
 	// Root
-	base = 'grid input !h-auto',
-	gap = 'gap-2',
-	padding = 'p-3',
-	classes = '',
+	base = "grid input !h-auto",
+	gap = "gap-2",
+	padding = "p-3",
+	classes = "",
 	// Input: Add
-	inputBase = 'input-ghost',
-	inputClasses = '',
+	inputBase = "input-ghost",
+	inputClasses = "",
 	// Tag List
-	tagListBase = 'flex gap-2',
-	tagListClasses = '',
+	tagListBase = "flex gap-2",
+	tagListClasses = "",
 	// Tag
-	tagBase = 'chip',
-	tagBackground = 'preset-filled',
-	tagClasses = '',
+	tagBase = "chip",
+	tagBackground = "preset-filled",
+	tagClasses = "",
 	// Input: Edit
-	inputEditBase = 'chip-input -translate-y-0.25',
-	tagEditBackground = 'preset-outlined-surface-200-800',
+	inputEditBase = "chip-input -translate-y-0.25",
+	tagEditBackground = "preset-outlined-surface-200-800",
 	inputEditClasses,
 	// Delete Button
-	buttonDeleteBase = '',
-	buttonDeleteClasses = '',
+	buttonDeleteBase = "",
+	buttonDeleteClasses = "",
 	// Snippets
 	buttonDelete,
 	// State
-	stateDisabled = '',
+	stateDisabled = "",
 	// Zag
 	...zagProps
 }) => {
 	// Zag
 	const service = useMachine(tagsInput.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = tagsInput.connect(service, normalizeProps);
 
 	// Reactive
-	const rxDisabled = service.prop('disabled') ? stateDisabled : '';
+	const rxDisabled = service.prop("disabled") ? stateDisabled : "";
 
 	return (
-		<div {...api.getRootProps()} className={`${base} ${padding} ${gap} ${rxDisabled} ${classes}`} data-testid="tags">
+		<div
+			{...api.getRootProps()}
+			className={`${base} ${padding} ${gap} ${rxDisabled} ${classes}`}
+			data-testid="tags"
+		>
 			{/* Input */}
-			<input {...api.getInputProps()} placeholder={placeholder} className={`${inputBase} ${inputClasses}`} data-testid="tags-input-add" />
+			<input
+				{...api.getInputProps()}
+				placeholder={placeholder}
+				className={`${inputBase} ${inputClasses}`}
+				data-testid="tags-input-add"
+			/>
 			{/* Tag List */}
 			{api.value.length > 0 && (
-				<div className={`${tagListBase} ${tagListClasses}`} data-testid="tags-list">
+				<div
+					className={`${tagListBase} ${tagListClasses}`}
+					data-testid="tags-list"
+				>
 					{/* {#each api.value as value, index (value)}{/each} */}
 					{api.value.map((value, index) => {
 						const itemState = api.getItemState({ index, value });
 						return (
 							// Tag
-							<div key={value} {...api.getItemProps({ value, index })} data-testid="tags-tag">
+							<div
+								key={value}
+								{...api.getItemProps({ value, index })}
+								data-testid="tags-tag"
+							>
 								{/* Display */}
 								<div
 									{...api.getItemPreviewProps({ index, value })}
 									className={`${tagBase} ${tagBackground} ${tagClasses}`}
-									style={{ display: itemState.editing ? 'none' : '' }}
+									style={{ display: itemState.editing ? "none" : "" }}
 									data-testid="tag-display"
 								>
 									<span>{value}</span>
@@ -80,7 +96,7 @@ export const TagsInput: FC<TagsInputProps> = ({
 								<input
 									{...api.getItemInputProps({ index, value })}
 									className={`${inputEditBase} ${tagEditBackground} ${inputEditClasses}`}
-									style={{ display: itemState.editing ? '' : 'none' }}
+									style={{ display: itemState.editing ? "" : "none" }}
 									data-testid="tags-input-edit"
 								/>
 							</div>

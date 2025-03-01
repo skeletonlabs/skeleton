@@ -1,14 +1,18 @@
-'use client';
+"use client";
 
-import { Plane as IconPlane, Sailboat as IconBoat, Car as IconCar } from 'lucide-react';
-import { useState } from 'react';
+import {
+	Sailboat as IconBoat,
+	Car as IconCar,
+	Plane as IconPlane,
+} from "lucide-react";
+import { useState } from "react";
 
-import { Tabs } from '@skeletonlabs/skeleton-react';
+import { Tabs } from "@skeletonlabs/skeleton-react";
 
 export default function Page() {
-	const [group, setGroup] = useState('item-1');
+	const [group, setGroup] = useState("item-1");
 	const lorem =
-		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.';
+		"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.";
 
 	return (
 		<div className="space-y-10">
@@ -123,7 +127,11 @@ export default function Page() {
 			<section className="space-y-4">
 				<h2 className="h2">RTL</h2>
 				<div dir="rtl">
-					<Tabs value={group} onValueChange={(e) => setGroup(e.value)} dir="rtl">
+					<Tabs
+						value={group}
+						onValueChange={(e) => setGroup(e.value)}
+						dir="rtl"
+					>
 						<Tabs.List>
 							<Tabs.Control value="item-1">Control-1</Tabs.Control>
 							<Tabs.Control value="item-2">Control-2</Tabs.Control>

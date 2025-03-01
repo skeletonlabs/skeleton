@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: Layouts
 description: Learn best practices for creating responsive layouts using semantic HTML and Tailwind.
 order: 50
@@ -7,19 +7,20 @@ order: 50
 
 export const components = componentSet;
 
-import ExampleColOne from '@examples/guides/cookbook/layouts/ExampleColOne.astro';
-import ExampleColOneRaw from '@examples/guides/cookbook/layouts/ExampleColOne.astro?raw';
-import ExampleColThree from '@examples/guides/cookbook/layouts/ExampleColThree.astro';
-import ExampleColThreeRaw from '@examples/guides/cookbook/layouts/ExampleColThree.astro?raw';
-import ExampleColTwo from '@examples/guides/cookbook/layouts/ExampleColTwo.astro';
-import ExampleColTwoRaw from '@examples/guides/cookbook/layouts/ExampleColTwo.astro?raw';
-import ExampleStickyHeader from '@examples/guides/cookbook/layouts/ExampleStickyHeader.astro';
-import ExampleStickyHeaderRaw from '@examples/guides/cookbook/layouts/ExampleStickyHeader.astro?raw';
+import ExampleColOne from "@examples/guides/cookbook/layouts/ExampleColOne.astro";
+import ExampleColOneRaw from "@examples/guides/cookbook/layouts/ExampleColOne.astro?raw";
+import ExampleColThree from "@examples/guides/cookbook/layouts/ExampleColThree.astro";
+import ExampleColThreeRaw from "@examples/guides/cookbook/layouts/ExampleColThree.astro?raw";
+import ExampleColTwo from "@examples/guides/cookbook/layouts/ExampleColTwo.astro";
+import ExampleColTwoRaw from "@examples/guides/cookbook/layouts/ExampleColTwo.astro?raw";
+import ExampleStickyHeader from "@examples/guides/cookbook/layouts/ExampleStickyHeader.astro";
+import ExampleStickyHeaderRaw from "@examples/guides/cookbook/layouts/ExampleStickyHeader.astro?raw";
 
 <p class="text-xl">
-	Skeleton supports a variety of web-based frameworks and meta-frameworks, and this guide serves as a universal reference when implementing
-	page layouts. These techniques utilize native HTML and Tailwind, meaning Skeleton is supported but not required. The only prerequisite is
-	Tailwind itself.
+  Skeleton supports a variety of web-based frameworks and meta-frameworks, and
+  this guide serves as a universal reference when implementing page layouts.
+  These techniques utilize native HTML and Tailwind, meaning Skeleton is
+  supported but not required. The only prerequisite is Tailwind itself.
 </p>
 
 ## Real World Example
@@ -27,9 +28,13 @@ import ExampleStickyHeaderRaw from '@examples/guides/cookbook/layouts/ExampleSti
 See our real world three column example, which implements many of the concepts introduced below.
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="https://play.tailwindcss.com/zP9RcoacIS" target="_blank">
-		View Real World Example
-	</a>
+  <a
+    class="btn preset-filled"
+    href="https://play.tailwindcss.com/zP9RcoacIS"
+    target="_blank"
+  >
+    View Real World Example
+  </a>
 </figure>
 
 ## Semantic Markup
@@ -96,10 +101,10 @@ We recommend you utilize Tailwind's built-in [responsive breakpoints](https://ta
 ```html
 <!-- Use a single column on small screens; show multiple columns at the medium breakpoint or wider -->
 <div class="grid grid-cols-1 md:grid-cols-[auto_1fr]">
-	<!-- Hide the sidebar on small screens; show at the medium breakpoint or wider -->
-	<aside class="hidden md:block">(sidebar)</aside>
-	<!-- Remains visible at all breakpoints -->
-	<main>(main)</main>
+  <!-- Hide the sidebar on small screens; show at the medium breakpoint or wider -->
+  <aside class="hidden md:block">(sidebar)</aside>
+  <!-- Remains visible at all breakpoints -->
+  <main>(main)</main>
 </div>
 ```
 
@@ -108,7 +113,7 @@ By default, your `<html>` and `<body>` may collapse vertically and not extend to
 ```css
 html,
 body {
-	@apply h-full;
+  @apply h-full;
 }
 ```
 
@@ -121,9 +126,13 @@ Let's start by creating traditional layouts using a combination of semantic HTML
 <ExampleColOne />
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="https://play.tailwindcss.com/3ayrvPnIC4" target="_blank">
-		Preview and Source
-	</a>
+  <a
+    class="btn preset-filled"
+    href="https://play.tailwindcss.com/3ayrvPnIC4"
+    target="_blank"
+  >
+    Preview and Source
+  </a>
 </figure>
 
 ### Two Column
@@ -131,9 +140,13 @@ Let's start by creating traditional layouts using a combination of semantic HTML
 <ExampleColTwo />
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="https://play.tailwindcss.com/yCv0ZOICSx" target="_blank">
-		Preview and Source
-	</a>
+  <a
+    class="btn preset-filled"
+    href="https://play.tailwindcss.com/yCv0ZOICSx"
+    target="_blank"
+  >
+    Preview and Source
+  </a>
 </figure>
 
 ### Three Column
@@ -141,9 +154,13 @@ Let's start by creating traditional layouts using a combination of semantic HTML
 <ExampleColThree />
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="https://play.tailwindcss.com/BH0iosKxix" target="_blank">
-		Preview and Source
-	</a>
+  <a
+    class="btn preset-filled"
+    href="https://play.tailwindcss.com/BH0iosKxix"
+    target="_blank"
+  >
+    Preview and Source
+  </a>
 </figure>
 
 ## Sticky Positioning
@@ -163,9 +180,13 @@ For `<header>`, we'll implement a few specific utility classes:
 <ExampleStickyHeader />
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="https://play.tailwindcss.com/g7ory5pA4K" target="_blank">
-		Preview and Source
-	</a>
+  <a
+    class="btn preset-filled"
+    href="https://play.tailwindcss.com/g7ory5pA4K"
+    target="_blank"
+  >
+    Preview and Source
+  </a>
 </figure>
 
 ### Sticky Sidebar
@@ -176,9 +197,13 @@ For `<aside>`, we introduce two addition utility classes:
 - [h-screen](https://tailwindcss.com/docs/height#viewport-height) - ensures our sidebar matches the viewport height. See Calculate Offsets below for more complex layouts.
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="https://play.tailwindcss.com/aSzgim96nc" target="_blank">
-		Preview and Source
-	</a>
+  <a
+    class="btn preset-filled"
+    href="https://play.tailwindcss.com/aSzgim96nc"
+    target="_blank"
+  >
+    Preview and Source
+  </a>
 </figure>
 
 ## Advanced Techniques
@@ -201,9 +226,9 @@ Combine the grid arbitrary syntax with [minmax](https://developer.mozilla.org/en
 
 ```html
 <div class="container mx-auto grid grid-cols-[200px_minmax(0px,_1fr)_300px]">
-	<aside>(sidebar)</aside>
-	<main>(main)</main>
-	<aside>(sidebar)</aside>
+  <aside>(sidebar)</aside>
+  <main>(main)</main>
+  <aside>(sidebar)</aside>
 </div>
 ```
 

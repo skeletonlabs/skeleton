@@ -1,5 +1,5 @@
-import React from 'react';
-import toast, { Toaster, type Toast } from 'react-hot-toast';
+import type React from "react";
+import toast, { Toaster, type Toast } from "react-hot-toast";
 
 // Components ---
 
@@ -23,7 +23,11 @@ export const ToastSuccess: React.FC<{ settings?: Toast }> = ({ settings }) => {
 	return (
 		<div className="card preset-filled-success-500 py-2 px-3 shadow-xl grid grid-cols-[auto_1fr] items-center gap-4">
 			<p className="text-xs">The task was was completed successfully!</p>
-			<button type="button" className="btn-icon btn-icon-sm text-base hover:preset-tonal" onClick={() => toast.dismiss(settings?.id)}>
+			<button
+				type="button"
+				className="btn-icon btn-icon-sm text-base hover:preset-tonal"
+				onClick={() => toast.dismiss(settings?.id)}
+			>
 				<span>&times;</span>
 			</button>
 		</div>

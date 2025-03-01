@@ -1,20 +1,22 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: Core API
 description: Learn about the specific features Skeleton introduces to Tailwind.
 showDocsUrl: false
-srcCore: '/'
+srcCore: "/"
 order: 30
 ---
 
 export const components = componentSet;
-import NavGrid from '@components/docs/NavGrid.astro';
+import NavGrid from "@components/docs/NavGrid.astro";
 
 {
 
 <p class="text-xl">
-	The heart of Skeleton is our framework agnostic core package. This adapts and extends Tailwind to introduce our global styles, color
-	system, typography, and more. This section details all available Skeleton-provided utility classes and theme properties.
+  The heart of Skeleton is our framework agnostic core package. This adapts and
+  extends Tailwind to introduce our global styles, color system, typography, and
+  more. This section details all available Skeleton-provided utility classes and
+  theme properties.
 </p>
 
 }
@@ -26,13 +28,13 @@ import NavGrid from '@components/docs/NavGrid.astro';
 Extends Tailwind's base layer with a set of opinionated global styles.
 
 <figure class="linker bg-noise">
-	<a
-		class="btn preset-filled"
-		href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/base/globals.css"
-		target="_blank"
-	>
-		View Global Styles
-	</a>
+  <a
+    class="btn preset-filled"
+    href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/base/globals.css"
+    target="_blank"
+  >
+    View Global Styles
+  </a>
 </figure>
 
 - Sets the root color scheme to match Dark Mode settings.
@@ -46,13 +48,13 @@ Extends Tailwind's base layer with a set of opinionated global styles.
 Uses Tailwind's `@theme` to implement a variety of new properties and utility classes.
 
 <figure class="linker bg-noise">
-	<a
-		class="btn preset-filled"
-		href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/base/theme.scss"
-		target="_blank"
-	>
-		View Theme Properties
-	</a>
+  <a
+    class="btn preset-filled"
+    href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/base/theme.scss"
+    target="_blank"
+  >
+    View Theme Properties
+  </a>
 </figure>
 
 ### Colors
@@ -162,9 +164,13 @@ Sets the default width for border, divide, and ring width to match the active th
 ## @utility
 
 <figure class="linker bg-noise">
-	<a href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/utilities" target="_blank" class="btn preset-filled">
-		View Utilites
-	</a>
+  <a
+    href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/utilities"
+    target="_blank"
+    class="btn preset-filled"
+  >
+    View Utilites
+  </a>
 </figure>
 
 ### Tailwind Components
@@ -176,9 +182,13 @@ Allow you to style semantic HTML elements with utility classes.
 ## @variant
 
 <figure class="linker bg-noise">
-	<a href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/variants" target="_blank" class="btn preset-filled">
-		View Variants
-	</a>
+  <a
+    href="https://github.com/skeletonlabs/skeleton/blob/next/packages/skeleton/src/variants"
+    target="_blank"
+    class="btn preset-filled"
+  >
+    View Variants
+  </a>
 </figure>
 
 ### Themes
@@ -198,9 +208,9 @@ Enables you to target and style elements for a particular theme.
 Provides a canned set of styles for use with buttons, badges, cards, and more.
 
 <figure class="linker bg-noise">
-	<a href="/docs/design/presets" class="btn preset-filled">
-		Browse Presets
-	</a>
+  <a href="/docs/design/presets" class="btn preset-filled">
+    Browse Presets
+  </a>
 </figure>
 
 ### Preset Themes
@@ -208,7 +218,7 @@ Provides a canned set of styles for use with buttons, badges, cards, and more.
 Provides a hand curated set of themes for Skeleton.
 
 <figure class="linker bg-noise">
-	<a href="/docs/design/themes" class="btn preset-filled">
-		Browse Themes
-	</a>
+  <a href="/docs/design/themes" class="btn preset-filled">
+    Browse Themes
+  </a>
 </figure>

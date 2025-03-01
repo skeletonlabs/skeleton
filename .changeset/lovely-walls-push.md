@@ -1,5 +1,5 @@
 ---
-'@skeletonlabs/skeleton': patch
+"@skeletonlabs/skeleton": patch
 ---
 
 chore: Improved button hover state brightness effect

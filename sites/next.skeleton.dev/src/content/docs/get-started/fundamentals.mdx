@@ -1,18 +1,20 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: Fundamentals
 description: An introduction to the core concepts of Skeleton.
 order: 20
 ---
 
 export const components = componentSet;
-import NavGrid from '@components/docs/NavGrid.astro';
+import NavGrid from "@components/docs/NavGrid.astro";
 
 {
 
 <p className="text-xl">
-	Skeleton is comprised of three pillars - the design system, our extensions to Tailwind, and an optional suite of framework-specific
-	components. Together these form a comprehensive solution for designing and implementing complex web interfaces at scale.
+  Skeleton is comprised of three pillars - the design system, our extensions to
+  Tailwind, and an optional suite of framework-specific components. Together
+  these form a comprehensive solution for designing and implementing complex web
+  interfaces at scale.
 </p>
 
 }
@@ -59,9 +61,9 @@ Skeleton also offers optional component packages for select frameworks, each com
 Skeleton's components are built on **Zag.js**, which provides a collection of framework-agnostic UI component patterns to manage logic and state. Zag was founded and maintained by industry veterans, such Segun Adebayo - the creator and core maintainer for [Chakra UI](https://www.chakra-ui.com/).
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="https://zagjs.com/" target="_blank">
-		View Zag.js
-	</a>
+  <a class="btn preset-filled" href="https://zagjs.com/" target="_blank">
+    View Zag.js
+  </a>
 </figure>
 
 ### Importing Component
@@ -69,7 +71,7 @@ Skeleton's components are built on **Zag.js**, which provides a collection of fr
 Import the component you wish to use from your framework package of choice, then insert it into your page template.
 
 ```ts
-import { Avatar } from '@skeletonlabs/skeleton-{react|svelte}';
+import { Avatar } from "@skeletonlabs/skeleton-{react|svelte}";
 ```
 
 ```ts
@@ -114,8 +116,10 @@ Imagine the Avatar component was created like so:
 ```
 
 ```svelte title="Example Template"
-<figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}">
-	<img {src} alt={name} class="{imageBase} {imageClasses}" />
+<figure
+  class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}"
+>
+  <img {src} alt={name} class="{imageBase} {imageClasses}" />
 </figure>
 ```
 

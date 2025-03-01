@@ -1,25 +1,36 @@
-import { create } from 'create-svelte';
-import { readFileSync, writeFileSync, cpSync, appendFileSync, existsSync } from 'fs';
-import got from 'got';
-import { join, resolve } from 'path';
-import { cwd, chdir } from 'process';
-import { mkdirp, setNestedValue, checkIfDirSafeToInstall, iit } from './utils.js';
-import { fileURLToPath } from 'url';
-import JSON5 from 'json5';
+import {
+	appendFileSync,
+	cpSync,
+	existsSync,
+	readFileSync,
+	writeFileSync,
+} from "fs";
+import { join, resolve } from "path";
+import { fileURLToPath } from "url";
+import { create } from "create-svelte";
+import got from "got";
+import JSON5 from "json5";
+import { chdir, cwd } from "process";
+import {
+	checkIfDirSafeToInstall,
+	iit,
+	mkdirp,
+	setNestedValue,
+} from "./utils.js";
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 export const presetThemes = [
-	'skeleton',
-	'wintry',
-	'modern',
-	'hamlindigo',
-	'rocket',
-	'sahara',
-	'gold-nouveau',
-	'vintage',
-	'seafoam',
-	'crimson'
+	"skeleton",
+	"wintry",
+	"modern",
+	"hamlindigo",
+	"rocket",
+	"sahara",
+	"gold-nouveau",
+	"vintage",
+	"seafoam",
+	"crimson",
 ];
 // NOTE: Any changes here must also be reflected in the --help output in utils.js and shortcut expansions in index.js.
 // Probably a good idea to do a search on the values you are changing to catch any other areas they are used in
@@ -27,9 +38,9 @@ export const presetThemes = [
 export class SkeletonOptions {
 	constructor() {
 		// svelte-create expects these options, do not change the names or values.
-		this.name = 'skeleton-app'; // only used for the name field in the package.json
-		this.template = 'skeleton'; // 'default' | 'skeleton' | 'skeletonlib' has nothing to do with Skeleton
-		this.types = 'typescript'; //'typescript' | 'checkjs' | null;
+		this.name = "skeleton-app"; // only used for the name field in the package.json
+		this.template = "skeleton"; // 'default' | 'skeleton' | 'skeletonlib' has nothing to do with Skeleton
+		this.types = "typescript"; //'typescript' | 'checkjs' | null;
 		this.prettier = false;
 		this.eslint = false;
 		this.playwright = false;
@@ -39,24 +50,24 @@ export class SkeletonOptions {
 		this._ = []; //catch all for extraneous params from mri, used to capture project name.
 		this.help = false;
 		this.quiet = false;
-		this.path = '.';
+		this.path = ".";
 		this.forms = false;
 		this.typography = false;
 		this.codeblocks = false;
 		this.popups = false;
 		this.mdsvex = false;
 		this.inspector = false;
-		this.skeletontheme = ['skeleton'];
-		this.skeletontemplate = 'skeleton-template-bare';
-		this.skeletontemplatedir = '../templates';
-		this.packagemanager = 'npm';
+		this.skeletontheme = ["skeleton"];
+		this.skeletontemplate = "skeleton-template-bare";
+		this.skeletontemplatedir = "../templates";
+		this.packagemanager = "npm";
 		this.devDependencies = new Map([
-			['postcss', 'latest'],
-			['autoprefixer', 'latest'],
-			['tailwindcss', 'latest'],
-			['@skeletonlabs/skeleton', 'latest'],
-			['@skeletonlabs/tw-plugin', 'latest'],
-			['vite-plugin-tailwind-purgecss', 'latest']
+			["postcss", "latest"],
+			["autoprefixer", "latest"],
+			["tailwindcss", "latest"],
+			["@skeletonlabs/skeleton", "latest"],
+			["@skeletonlabs/tw-plugin", "latest"],
+			["vite-plugin-tailwind-purgecss", "latest"],
 		]);
 
 		// props below are private to the Skeleton team
@@ -81,7 +92,7 @@ export async function createSkeleton(opts) {
 	const startPath = cwd();
 	// Hidden option to change the install type to be a Svelte-Kit library project
 	if (opts.library) {
-		opts.template = 'skeletonlib';
+		opts.template = "skeletonlib";
 	}
 	// We could have been called directly as an API, so we still need to check if the directory is safe to install into
 	checkIfDirSafeToInstall(opts.path);
@@ -91,15 +102,17 @@ export async function createSkeleton(opts) {
 	chdir(opts.path);
 	if (opts.meta == undefined) {
 		if (existsSync(opts.skeletontemplate)) {
-			opts.metaObject = JSON.parse(readFileSync(opts.skeletontemplate, 'utf8'));
+			opts.metaObject = JSON.parse(readFileSync(opts.skeletontemplate, "utf8"));
 		} else {
-			const err = new Error(`Could not find skeleton template meta file at ${opts.skeletontemplate}`);
+			const err = new Error(
+				`Could not find skeleton template meta file at ${opts.skeletontemplate}`,
+			);
 			throw err;
 		}
 	}
 
 	// mri may only receive a single template and pass it to us as a string
-	if (typeof opts.skeletontheme === 'string') {
+	if (typeof opts.skeletontheme === "string") {
 		opts.skeletontheme = [opts.skeletontheme];
 	}
 
@@ -112,7 +125,12 @@ export async function createSkeleton(opts) {
 	copyTemplate(opts);
 
 	// Monorepo additions
-	if (opts.monorepo) cpSync(resolve(__dirname, '../README-MONO.md'), resolve(cwd(), 'README.md'), { force: true });
+	if (opts.monorepo)
+		cpSync(
+			resolve(__dirname, "../README-MONO.md"),
+			resolve(cwd(), "README.md"),
+			{ force: true },
+		);
 
 	if (opts.test) createTestConfig(opts);
 
@@ -125,36 +143,48 @@ export async function createSkeleton(opts) {
 }
 
 async function modifyPackageJson(opts) {
-	const pkgPath = join(cwd(), 'package.json');
-	let pkgJson = JSON.parse(readFileSync(pkgPath));
+	const pkgPath = join(cwd(), "package.json");
+	const pkgJson = JSON.parse(readFileSync(pkgPath));
 
 	// add required packages
 	for (const [pkg, version] of opts.devDependencies) {
-		setNestedValue(pkgJson, ['devDependencies', pkg], version);
+		setNestedValue(pkgJson, ["devDependencies", pkg], version);
 	}
 
 	// Extra packages and scripts for a monorepo install
 	if (opts.monorepo) {
-		['@sveltejs/adapter-vercel'].forEach((pkg) => (pkg.devDependencies[pkg] = opts.devDependencies.get(pkg)));
+		["@sveltejs/adapter-vercel"].forEach(
+			(pkg) => (pkg.devDependencies[pkg] = opts.devDependencies.get(pkg)),
+		);
 		// TODO copy over github workflows for deploying to CF
 		// TODO auto-detect if we are in a mono from '@pnpm/find-workspace-dir';
-		pkgJson['deployConfig'] = { '@skeletonlabs/skeleton': '^1.0.0' };
+		pkgJson["deployConfig"] = { "@skeletonlabs/skeleton": "^1.0.0" };
 	}
 
 	// Optional packages
-	if (opts.mdsvex) pkgJson.devDependencies['mdsvex'] = 'latest';
-	if (opts.typography) pkgJson.devDependencies['@tailwindcss/typography'] = 'latest';
-	if (opts.forms) pkgJson.devDependencies['@tailwindcss/forms'] = 'latest';
-	if (opts.types == 'typescript') pkgJson.devDependencies['@types/node'] = 'latest';
-	if (opts.codeblocks) setNestedValue(pkgJson, ['dependencies', 'highlight.js'], 'latest');
-	if (opts.popups) setNestedValue(pkgJson, ['dependencies', '@floating-ui/dom'], 'latest');
+	if (opts.mdsvex) pkgJson.devDependencies["mdsvex"] = "latest";
+	if (opts.typography)
+		pkgJson.devDependencies["@tailwindcss/typography"] = "latest";
+	if (opts.forms) pkgJson.devDependencies["@tailwindcss/forms"] = "latest";
+	if (opts.types == "typescript")
+		pkgJson.devDependencies["@types/node"] = "latest";
+	if (opts.codeblocks)
+		setNestedValue(pkgJson, ["dependencies", "highlight.js"], "latest");
+	if (opts.popups)
+		setNestedValue(pkgJson, ["dependencies", "@floating-ui/dom"], "latest");
 
 	// Template specific packages
 	if (opts.meta?.dependencies) {
-		pkgJson.dependencies = { ...pkgJson.dependencies, ...opts.meta.dependencies };
+		pkgJson.dependencies = {
+			...pkgJson.dependencies,
+			...opts.meta.dependencies,
+		};
 	}
 	if (opts.meta?.devDependencies) {
-		pkgJson.devDependencies = { ...pkgJson.devDependencies, ...opts.meta.devDependencies };
+		pkgJson.devDependencies = {
+			...pkgJson.devDependencies,
+			...opts.meta.devDependencies,
+		};
 	}
 
 	await getLatestPackageVersions(pkgJson);
@@ -164,14 +194,15 @@ async function modifyPackageJson(opts) {
 async function getLatestPackageVersions(pkgJson) {
 	const devDeps = Object.keys(pkgJson.devDependencies);
 	for await (const pkg of devDeps) {
-		if (pkgJson.devDependencies[pkg] == 'latest') {
+		if (pkgJson.devDependencies[pkg] == "latest") {
 			const data = await got(`https://registry.npmjs.org/${pkg}/latest`).json();
 			pkgJson.devDependencies[pkg] = data.version;
 		}
 	}
-	const deps = pkgJson.dependencies == undefined ? [] : Object.keys(pkgJson.dependencies);
+	const deps =
+		pkgJson.dependencies == undefined ? [] : Object.keys(pkgJson.dependencies);
 	for await (const pkg of deps) {
-		if (pkgJson.dependencies[pkg] == 'latest') {
+		if (pkgJson.dependencies[pkg] == "latest") {
 			const data = await got(`https://registry.npmjs.org/${pkg}/latest`).json();
 			pkgJson.dependencies[pkg] = data.version;
 		}
@@ -193,7 +224,7 @@ const mdsvexOptions = {
 		inspector: true,
 	},`;
 
-	let str = `import adapter from '@sveltejs/adapter-auto';
+	const str = `import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 ${iit(opts.mdsvex, mdsvexConfig)}
 
@@ -202,7 +233,7 @@ const config = {
 	extensions: ['.svelte'${iit(opts.mdsvex, `, '.md'`)}],
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: [${iit(opts.mdsvex, 'mdsvex(mdsvexOptions),')} vitePreprocess()],
+	preprocess: [${iit(opts.mdsvex, "mdsvex(mdsvexOptions),")} vitePreprocess()],
 	${iit(opts.inspector, inspectorConfig)}
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
@@ -212,11 +243,14 @@ const config = {
 	}
 };
 export default config;`;
-	writeFileSync(join(cwd(), 'svelte.config.js'), str);
+	writeFileSync(join(cwd(), "svelte.config.js"), str);
 }
 
 function createViteConfig(opts) {
-	const filename = join(cwd(), opts.types == 'typescript' ? 'vite.config.ts' : 'vite.config.js');
+	const filename = join(
+		cwd(),
+		opts.types == "typescript" ? "vite.config.ts" : "vite.config.js",
+	);
 	let contents = `import { purgeCss } from 'vite-plugin-tailwind-purgecss';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
@@ -242,19 +276,21 @@ export default defineConfig({
 
 async function createVSCodeSettings() {
 	try {
-		mkdirp(join(cwd(), '.vscode'));
+		mkdirp(join(cwd(), ".vscode"));
 		const data = await got(
-			'https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json'
+			"https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json",
 		).text();
-		writeFileSync(join(cwd(), '.vscode', 'settings.json'), data);
+		writeFileSync(join(cwd(), ".vscode", "settings.json"), data);
 	} catch {
-		console.error('Unable to download settings file for VSCode, please read manual instructions at https://skeleton.dev/guides/install');
+		console.error(
+			"Unable to download settings file for VSCode, please read manual instructions at https://skeleton.dev/guides/install",
+		);
 	}
 }
 
 export function createTailwindConfig(opts) {
-	let plugins = [];
-	let pluginImports = [];
+	const plugins = [];
+	const pluginImports = [];
 
 	if (opts.forms == true) {
 		pluginImports.push(`import forms from '@tailwindcss/forms'`);
@@ -267,47 +303,58 @@ export function createTailwindConfig(opts) {
 	pluginImports.push(`import { skeleton } from '@skeletonlabs/tw-plugin'`);
 	// Can't use JSON.stringify because we need code literals in there without everything being coerced to quoted strings
 
-	let configs = { themes: { preset: [], custom: [] } };
+	const configs = { themes: { preset: [], custom: [] } };
 	for (const theme of opts.skeletontheme) {
-		if (typeof theme === 'string') {
+		if (typeof theme === "string") {
 			configs.themes.preset.push({ name: theme, enhancements: true });
 		} else {
-			pluginImports.push(`import { ${theme.custom} } from './src/${theme.custom}'`);
+			pluginImports.push(
+				`import { ${theme.custom} } from './src/${theme.custom}'`,
+			);
 			configs.themes.custom.push(theme.custom);
 			createCustomTheme(opts, theme.custom);
 		}
 	}
 	if (configs.themes.preset.length == 0) delete configs.themes.preset;
 	if (configs.themes.custom.length == 0) delete configs.themes.custom;
-	let configsStr = JSON5.stringify(configs, { space: '\t' });
+	let configsStr = JSON5.stringify(configs, { space: "\t" });
 	if (configs.themes?.custom?.length) {
 		// stringify adds quotes around the custom theme imported variable, we need to remove them
-		configsStr = configsStr.replace(`'${configs.themes.custom}'`, configs.themes.custom);
+		configsStr = configsStr.replace(
+			`'${configs.themes.custom}'`,
+			configs.themes.custom,
+		);
 	}
 	configsStr = configsStr.replace(/^/gm, `\t\t`).slice(2);
 
 	plugins.push(`skeleton(${configsStr}),`);
 
 	const str = `import { join } from 'path'
-${iit(opts.types == 'typescript', `import type { Config } from 'tailwindcss'`)}
-${pluginImports.join(';\n')}
-${iit(opts.types == 'checkjs', `/** @type {import('tailwindcss').Config} */`)}
+${iit(opts.types == "typescript", `import type { Config } from 'tailwindcss'`)}
+${pluginImports.join(";\n")}
+${iit(opts.types == "checkjs", `/** @type {import('tailwindcss').Config} */`)}
 export default {
 	darkMode: 'class',
 	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],
 	theme: {
 		extend: {},
 	},
-	plugins: [\n\t\t${plugins.join(',\n\t\t')}\n\t\],
-}${iit(opts.types == 'typescript', ' satisfies Config')};
+	plugins: [\n\t\t${plugins.join(",\n\t\t")}\n\t\],
+}${iit(opts.types == "typescript", " satisfies Config")};
 `;
-	writeFileSync(join(cwd(), `tailwind.config.${iit(opts.types == 'typescript', 'ts', 'js')}`), str);
+	writeFileSync(
+		join(
+			cwd(),
+			`tailwind.config.${iit(opts.types == "typescript", "ts", "js")}`,
+		),
+		str,
+	);
 }
 
 function createCustomTheme(opts, name) {
 	const str = `// You can also use the generator at https://skeleton.dev/docs/generator to create these values for you
-${iit(opts.types == 'typescript', `import type { CustomThemeConfig } from '@skeletonlabs/tw-plugin';`)}
-export const ${name}${iit(opts.types == 'typescript', ': CustomThemeConfig')} = {
+${iit(opts.types == "typescript", `import type { CustomThemeConfig } from '@skeletonlabs/tw-plugin';`)}
+export const ${name}${iit(opts.types == "typescript", ": CustomThemeConfig")} = {
 	name: '${name}',
 	properties: {
 		// =~= Theme Properties =~=
@@ -406,8 +453,8 @@ export const ${name}${iit(opts.types == 'typescript', ': CustomThemeConfig')} = 
 		"--color-surface-900": "36 44 70", // #242c46
 	}
 }`;
-	let filename = name + iit(opts.types == 'typescript', '.ts', '.js');
-	writeFileSync(join(cwd(), 'src', filename), str);
+	const filename = name + iit(opts.types == "typescript", ".ts", ".js");
+	writeFileSync(join(cwd(), "src", filename), str);
 }
 function createPostCssConfig() {
 	const str = `module.exports = {
@@ -416,49 +463,53 @@ function createPostCssConfig() {
 		autoprefixer: {},
 	},
 }`;
-	writeFileSync(join(cwd(), 'postcss.config.cjs'), str);
+	writeFileSync(join(cwd(), "postcss.config.cjs"), str);
 }
 
 function copyTemplate(opts) {
 	if (opts.meta == null) {
-		opts.meta = JSON.parse(readFileSync(opts.skeletontemplate, 'utf8'));
+		opts.meta = JSON.parse(readFileSync(opts.skeletontemplate, "utf8"));
 	}
 
 	opts.meta.foldersToCopy.forEach((folder) => {
-		cpSync(resolve(opts.skeletontemplatedir, folder), resolve(opts.path, folder), { force: true, recursive: true });
+		cpSync(
+			resolve(opts.skeletontemplatedir, folder),
+			resolve(opts.path, folder),
+			{ force: true, recursive: true },
+		);
 	});
 
 	// Determine which font is used by the theme, copy it over to the static folder
 	// and then update the app.postcss file to include the correct font
 	// Themes can by applied to any template, so we can't have the fonts as part of the templates themselves.
-	let fontFamily = '';
-	let fontFile = '';
-	let addedFontConfig = '';
+	let fontFamily = "";
+	let fontFile = "";
+	let addedFontConfig = "";
 	for (const theme of opts.skeletontheme) {
 		switch (theme) {
-			case 'gold-nouveau':
-			case 'modern':
-			case 'seasonal':
-				fontFamily = 'Quicksand';
-				fontFile = 'Quicksand.ttf';
+			case "gold-nouveau":
+			case "modern":
+			case "seasonal":
+				fontFamily = "Quicksand";
+				fontFile = "Quicksand.ttf";
 				break;
-			case 'rocket':
-				fontFamily = 'Space Grotesk';
-				fontFile = 'SpaceGrotesk.ttf';
+			case "rocket":
+				fontFamily = "Space Grotesk";
+				fontFile = "SpaceGrotesk.ttf";
 				break;
-			case 'seafoam':
-				fontFamily = 'Playfair Display';
-				fontFile = 'PlayfairDisplay-Italic.ttf';
+			case "seafoam":
+				fontFamily = "Playfair Display";
+				fontFile = "PlayfairDisplay-Italic.ttf";
 				break;
-			case 'vintage':
-				fontFamily = 'Abril Fatface';
-				fontFile = 'AbrilFatface.ttf';
+			case "vintage":
+				fontFamily = "Abril Fatface";
+				fontFile = "AbrilFatface.ttf";
 				break;
 			default:
-				fontFamily = '';
-				fontFile = '';
+				fontFamily = "";
+				fontFile = "";
 		}
-		if (fontFamily !== '') {
+		if (fontFamily !== "") {
 			addedFontConfig += `
 /* ${theme} theme */
 @font-face {
@@ -466,21 +517,26 @@ function copyTemplate(opts) {
 	src: url('/fonts/${fontFile}');
 	font-display: swap;
 }`;
-			cpSync(resolve(__dirname, '../fonts/', fontFile), join(cwd(), 'static', 'fonts', fontFile));
+			cpSync(
+				resolve(__dirname, "../fonts/", fontFile),
+				join(cwd(), "static", "fonts", fontFile),
+			);
 		}
 	}
-	appendFileSync(join(cwd(), 'src', 'app.postcss'), addedFontConfig);
+	appendFileSync(join(cwd(), "src", "app.postcss"), addedFontConfig);
 
-	const layoutFile = resolve(cwd(), 'src/routes/+layout.svelte');
+	const layoutFile = resolve(cwd(), "src/routes/+layout.svelte");
 	// patch back in their theme choice - it may have been replaced by the theme template, it may still be the correct auto-genned one, depends on the template - we don't care, this fixes it.
-	let content = readFileSync(layoutFile, { encoding: 'utf8' });
+	let content = readFileSync(layoutFile, { encoding: "utf8" });
 	// Set the script ype depending on their choice of typescript or checkjs
-	content = (opts.types === 'typescript' ? `<script lang="ts">` : '<script>') + content.substring(content.indexOf('\n'));
+	content =
+		(opts.types === "typescript" ? `<script lang="ts">` : "<script>") +
+		content.substring(content.indexOf("\n"));
 
 	// Add in the basic boilerplate for codeblocks and popups if they were selected and do a basic check for the import name to avoid duplicates
 	const scriptEndReg = /<\/script>/g;
 
-	if (opts.codeblocks && content.indexOf('highlight.js') === -1) {
+	if (opts.codeblocks && content.indexOf("highlight.js") === -1) {
 		content = content.replace(
 			scriptEndReg,
 			`
@@ -498,11 +554,11 @@ function copyTemplate(opts) {
 	hljs.registerLanguage('javascript', javascript);
 	hljs.registerLanguage('typescript', typescript);
 	storeHighlightJs.set(hljs);
-</script>`
+</script>`,
 		);
 	}
 
-	if (opts?.popups && content.indexOf('@floating-ui/dom') === -1) {
+	if (opts?.popups && content.indexOf("@floating-ui/dom") === -1) {
 		content = content.replace(
 			scriptEndReg,
 			`
@@ -510,22 +566,27 @@ function copyTemplate(opts) {
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-</script>`
+</script>`,
 		);
 	}
 
 	writeFileSync(layoutFile, content);
 
 	// Update the data-theme attribute in the app.html file
-	content = readFileSync(resolve(opts.path, 'src/app.html'), { encoding: 'utf8' });
+	content = readFileSync(resolve(opts.path, "src/app.html"), {
+		encoding: "utf8",
+	});
 	const dataThemeRegex = /data-theme=".*"/gim;
-	let activeTheme = 'skeleton';
-	if (typeof opts.skeletontheme[0] === 'string') {
+	let activeTheme = "skeleton";
+	if (typeof opts.skeletontheme[0] === "string") {
 		activeTheme = opts.skeletontheme[0];
 	} else {
 		activeTheme = opts.skeletontheme[0].custom;
 	}
-	writeFileSync(resolve(opts.path, 'src/app.html'), content.replace(dataThemeRegex, `data-theme="${activeTheme}"`));
+	writeFileSync(
+		resolve(opts.path, "src/app.html"),
+		content.replace(dataThemeRegex, `data-theme="${activeTheme}"`),
+	);
 }
 
 function createTestConfig() {
@@ -542,5 +603,5 @@ const config: PlaywrightTestConfig = {
 
 export default config;
 `;
-	writeFileSync('playwright.config.ts', str);
+	writeFileSync("playwright.config.ts", str);
 }

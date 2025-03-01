@@ -1,11 +1,11 @@
-import React from 'react';
-import { Avatar } from '@skeletonlabs/skeleton-react';
-import { Skull } from 'lucide-react';
+import { Avatar } from "@skeletonlabs/skeleton-react";
+import { Skull } from "lucide-react";
+import type React from "react";
 
 export const Page: React.FC = () => {
 	return (
 		<div className="flex gap-4">
-			<Avatar name="John Doe"></Avatar>
+			<Avatar name="John Doe" />
 			<Avatar name="icon" background="preset-filled-primary-500">
 				<Skull size={24} />
 			</Avatar>

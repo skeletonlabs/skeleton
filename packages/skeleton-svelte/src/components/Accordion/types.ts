@@ -1,16 +1,18 @@
-import type { Snippet } from 'svelte';
-import * as accordion from '@zag-js/accordion';
-import type { SlideParams } from 'svelte/transition';
+import type * as accordion from "@zag-js/accordion";
+import type { Snippet } from "svelte";
+import type { SlideParams } from "svelte/transition";
 
 // Accordion Context ---
 
-export interface AccordionContext extends Pick<AccordionProps, 'animationConfig' | 'iconOpen' | 'iconClosed'> {
+export interface AccordionContext
+	extends Pick<AccordionProps, "animationConfig" | "iconOpen" | "iconClosed"> {
 	api: ReturnType<typeof accordion.connect>;
 }
 
 // Accordion ---
 
-export interface AccordionProps extends Omit<accordion.Props, 'id' | 'orientation'> {
+export interface AccordionProps
+	extends Omit<accordion.Props, "id" | "orientation"> {
 	/** The animation configuration */
 	animationConfig?: SlideParams;
 

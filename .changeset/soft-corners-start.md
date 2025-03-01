@@ -3,4 +3,3 @@
 ---
 
 bugfix: Theme import is correctly migrated
-  

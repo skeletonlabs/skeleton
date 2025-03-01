@@ -1,6 +1,6 @@
-import React from 'react';
-import { AppBar } from '@skeletonlabs/skeleton-react';
-import { ArrowLeft, Paperclip, Calendar, CircleUser } from 'lucide-react';
+import { AppBar } from "@skeletonlabs/skeleton-react";
+import { ArrowLeft, Calendar, CircleUser, Paperclip } from "lucide-react";
+import type React from "react";
 
 export const Page: React.FC = () => {
 	return (

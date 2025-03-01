@@ -1,8 +1,13 @@
-'use client';
+"use client";
 
-import { FileUpload, type FileUploadApi } from '@skeletonlabs/skeleton-react';
+import { FileUpload, type FileUploadApi } from "@skeletonlabs/skeleton-react";
 
-import { ImagePlus as IconDropzone, Paperclip as IconFile, Upload as IconUpload, XCircle as IconRemove } from 'lucide-react';
+import {
+	ImagePlus as IconDropzone,
+	Paperclip as IconFile,
+	XCircle as IconRemove,
+	Upload as IconUpload,
+} from "lucide-react";
 
 export default function Page() {
 	// Local
@@ -16,7 +21,13 @@ export default function Page() {
 			<section className="space-y-4">
 				<h2 className="h2">Dropzone</h2>
 				{/* Simple */}
-				<FileUpload name="example" accept="image/*" maxFiles={2} onFileChange={console.log} onFileReject={console.error} />
+				<FileUpload
+					name="example"
+					accept="image/*"
+					maxFiles={2}
+					onFileChange={console.log}
+					onFileReject={console.error}
+				/>
 				{/* Customized */}
 				<FileUpload
 					name="example"
@@ -32,7 +43,12 @@ export default function Page() {
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">Button</h2>
-				<FileUpload name="example-button" accept="image/*" onFileChange={console.log} maxFiles={2}>
+				<FileUpload
+					name="example-button"
+					accept="image/*"
+					onFileChange={console.log}
+					maxFiles={2}
+				>
 					<button className="btn preset-filled">
 						<IconUpload className="size-4" />
 						<span>Select File</span>
@@ -49,7 +65,12 @@ export default function Page() {
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">API Binding</h2>
-				<FileUpload name="example" accept="image/*" maxFiles={2} onApiReady={(api) => (apiRef = api)} />
+				<FileUpload
+					name="example"
+					accept="image/*"
+					maxFiles={2}
+					onApiReady={(api) => (apiRef = api)}
+				/>
 				<button
 					type="button"
 					className="btn preset-filled"

@@ -1,216 +1,223 @@
-import { describe, expect, it } from 'vitest';
-import { render } from '@testing-library/react';
-import { Accordion } from '../../index.js';
+import { render } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
+import { Accordion } from "../../index.js";
 
-describe('Accordion', () => {
-	describe('<Accordion>', () => {
-		const testId = 'accordion';
+describe("Accordion", () => {
+	describe("<Accordion>", () => {
+		const testId = "accordion";
 
-		it('Renders the component', () => {
-			const component = render(<Accordion></Accordion>);
+		it("Renders the component", () => {
+			const component = render(<Accordion />);
 			expect(component.getByTestId(testId)).toBeInTheDocument();
 		});
 
-		it('Renders the children', () => {
+		it("Renders the children", () => {
 			const component = render(
 				<Accordion>
-					<div data-testid="children"></div>
-				</Accordion>
+					<div data-testid="children" />
+				</Accordion>,
 			);
-			expect(component.getByTestId('children')).toBeInTheDocument();
+			expect(component.getByTestId("children")).toBeInTheDocument();
 		});
 
-		for (const prop of ['base', 'padding', 'spaceY', 'rounded', 'width', 'classes']) {
+		for (const prop of [
+			"base",
+			"padding",
+			"spaceY",
+			"rounded",
+			"width",
+			"classes",
+		]) {
 			it(`Correctly applies the \`${prop}\` prop`, () => {
-				const value = 'foo';
+				const value = "foo";
 				const component = render(<Accordion {...{ [prop]: value }} />);
 				expect(component.getByTestId(testId)).toHaveClass(value);
 			});
 		}
 	});
 
-	describe('<Accordion.Item>', () => {
-		const testId = 'accordion-item';
+	describe("<Accordion.Item>", () => {
+		const testId = "accordion-item";
 
-		it('Renders the component', () => {
+		it("Renders the component", () => {
 			const component = render(
 				<Accordion>
-					<Accordion.Item value="1"></Accordion.Item>
-				</Accordion>
+					<Accordion.Item value="1" />
+				</Accordion>,
 			);
 			expect(component.getByTestId(testId)).toBeInTheDocument();
 		});
 
-		it('Renders the children', () => {
+		it("Renders the children", () => {
 			const component = render(
 				<Accordion>
 					<Accordion.Item value="1">
-						<div data-testid="children"></div>
+						<div data-testid="children" />
 					</Accordion.Item>
-				</Accordion>
+				</Accordion>,
 			);
-			expect(component.getByTestId('children')).toBeInTheDocument();
+			expect(component.getByTestId("children")).toBeInTheDocument();
 		});
 
-		for (const prop of ['base', 'spaceY', 'classes']) {
+		for (const prop of ["base", "spaceY", "classes"]) {
 			it(`Correctly applies the \`${prop}\` prop`, () => {
-				const value = 'foo';
+				const value = "foo";
 				const component = render(
 					<Accordion>
-						<Accordion.Item value="1" {...{ [prop]: value }}></Accordion.Item>
-					</Accordion>
+						<Accordion.Item value="1" {...{ [prop]: value }} />
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toHaveClass(value);
 			});
 		}
 	});
 
-	describe('<Accordion.Control>', () => {
-		const testId = 'accordion-control';
+	describe("<Accordion.Control>", () => {
+		const testId = "accordion-control";
 
-		it('Renders the component', () => {
+		it("Renders the component", () => {
 			const component = render(
 				<Accordion>
 					<Accordion.Item value="1">
-						<Accordion.Control></Accordion.Control>
+						<Accordion.Control />
 					</Accordion.Item>
-				</Accordion>
+				</Accordion>,
 			);
 			expect(component.getByTestId(testId)).toBeInTheDocument();
 		});
 
-		it('Renders the children', () => {
+		it("Renders the children", () => {
 			const component = render(
 				<Accordion>
 					<Accordion.Item value="1">
 						<Accordion.Control>
-							<div data-testid="children"></div>
+							<div data-testid="children" />
 						</Accordion.Control>
 					</Accordion.Item>
-				</Accordion>
+				</Accordion>,
 			);
-			expect(component.getByTestId('children')).toBeInTheDocument();
+			expect(component.getByTestId("children")).toBeInTheDocument();
 		});
 
-		for (const prop of ['base', 'padding', 'rounded', 'classes']) {
+		for (const prop of ["base", "padding", "rounded", "classes"]) {
 			it(`Correctly applies the \`${prop}\` prop`, () => {
-				const value = 'foo';
+				const value = "foo";
 				const component = render(
 					<Accordion>
 						<Accordion.Item value="1">
-							<Accordion.Control {...{ [prop]: value }}></Accordion.Control>
+							<Accordion.Control {...{ [prop]: value }} />
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toHaveClass(value);
 			});
 		}
 
-		describe('Lead', () => {
-			const testId = 'accordion-lead';
+		describe("Lead", () => {
+			const testId = "accordion-lead";
 
-			it('Renders the subcomponent', () => {
+			it("Renders the subcomponent", () => {
 				const component = render(
 					<Accordion>
 						<Accordion.Item value="1">
-							<Accordion.Control lead="lead"></Accordion.Control>
+							<Accordion.Control lead="lead" />
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toBeInTheDocument();
-				expect(component.getByTestId(testId)).toHaveTextContent('lead');
+				expect(component.getByTestId(testId)).toHaveTextContent("lead");
 			});
 
-			for (const prop of ['leadBase', 'leadClasses']) {
+			for (const prop of ["leadBase", "leadClasses"]) {
 				it(`Correctly applies the \`${prop}\` prop`, () => {
-					const value = 'foo';
+					const value = "foo";
 					const component = render(
 						<Accordion>
 							<Accordion.Item value="1">
-								<Accordion.Control lead="lead" {...{ [prop]: value }}></Accordion.Control>
+								<Accordion.Control lead="lead" {...{ [prop]: value }} />
 							</Accordion.Item>
-						</Accordion>
+						</Accordion>,
 					);
 					expect(component.getByTestId(testId)).toHaveClass(value);
 				});
 			}
 		});
 
-		describe('Content', () => {
-			const testId = 'accordion-content';
+		describe("Content", () => {
+			const testId = "accordion-content";
 
-			it('Renders the subcomponent', () => {
+			it("Renders the subcomponent", () => {
 				const component = render(
 					<Accordion>
 						<Accordion.Item value="1">
-							<Accordion.Control></Accordion.Control>
-							<Accordion.Panel></Accordion.Panel>
+							<Accordion.Control />
+							<Accordion.Panel />
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toBeInTheDocument();
 			});
 
-			for (const prop of ['contentBase', 'contentClasses']) {
+			for (const prop of ["contentBase", "contentClasses"]) {
 				it(`Correctly applies the \`${prop}\` prop`, () => {
-					const value = 'foo';
+					const value = "foo";
 					const component = render(
 						<Accordion>
 							<Accordion.Item value="1">
-								<Accordion.Control {...{ [prop]: value }}></Accordion.Control>
+								<Accordion.Control {...{ [prop]: value }} />
 							</Accordion.Item>
-						</Accordion>
+						</Accordion>,
 					);
 					expect(component.getByTestId(testId)).toHaveClass(value);
 				});
 			}
 		});
 
-		describe('Indicator', () => {
-			const testId = 'accordion-indicator';
+		describe("Indicator", () => {
+			const testId = "accordion-indicator";
 
-			it('Renders the subcomponent', () => {
+			it("Renders the subcomponent", () => {
 				const component = render(
 					<Accordion>
 						<Accordion.Item value="1">
-							<Accordion.Control></Accordion.Control>
+							<Accordion.Control />
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toBeInTheDocument();
 			});
 
-			it('Renders `iconClosed` when the panel is closed', () => {
+			it("Renders `iconClosed` when the panel is closed", () => {
 				const component = render(
 					<Accordion iconClosed="iconClosed" iconOpen="iconOpen">
 						<Accordion.Item value="1">
-							<Accordion.Control></Accordion.Control>
+							<Accordion.Control />
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
-				expect(component.getByTestId(testId)).toHaveTextContent('iconClosed');
+				expect(component.getByTestId(testId)).toHaveTextContent("iconClosed");
 			});
 
-			it('Renders `iconOpen` when the panel is open', () => {
+			it("Renders `iconOpen` when the panel is open", () => {
 				const component = render(
-					<Accordion value={['1']} iconClosed="iconClosed" iconOpen="iconOpen">
+					<Accordion value={["1"]} iconClosed="iconClosed" iconOpen="iconOpen">
 						<Accordion.Item value="1">
-							<Accordion.Control></Accordion.Control>
+							<Accordion.Control />
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
-				expect(component.getByTestId(testId)).toHaveTextContent('iconOpen');
+				expect(component.getByTestId(testId)).toHaveTextContent("iconOpen");
 			});
 
-			for (const prop of ['indicatorBase', 'indicatorClasses']) {
+			for (const prop of ["indicatorBase", "indicatorClasses"]) {
 				it(`Correctly applies the \`${prop}\` prop`, () => {
-					const value = 'foo';
+					const value = "foo";
 					const component = render(
 						<Accordion>
 							<Accordion.Item value="1">
-								<Accordion.Control {...{ [prop]: value }}></Accordion.Control>
+								<Accordion.Control {...{ [prop]: value }} />
 							</Accordion.Item>
-						</Accordion>
+						</Accordion>,
 					);
 					expect(component.getByTestId(testId)).toHaveClass(value);
 				});
@@ -218,29 +225,29 @@ describe('Accordion', () => {
 		});
 	});
 
-	describe('<Accordion.Panel>', () => {
-		it('Renders the component', () => {
+	describe("<Accordion.Panel>", () => {
+		it("Renders the component", () => {
 			const component = render(
-				<Accordion value={['1']}>
+				<Accordion value={["1"]}>
 					<Accordion.Item value="1">
-						<Accordion.Panel></Accordion.Panel>
+						<Accordion.Panel />
 					</Accordion.Item>
-				</Accordion>
+				</Accordion>,
 			);
-			expect(component.getByTestId('accordion-panel')).toBeInTheDocument();
+			expect(component.getByTestId("accordion-panel")).toBeInTheDocument();
 		});
 
-		for (const prop of ['base', 'padding', 'rounded', 'classes']) {
+		for (const prop of ["base", "padding", "rounded", "classes"]) {
 			it(`Correctly applies the \`${prop}\` prop`, () => {
-				const value = 'foo';
+				const value = "foo";
 				const component = render(
-					<Accordion value={['1']}>
+					<Accordion value={["1"]}>
 						<Accordion.Item value="1">
-							<Accordion.Panel {...{ [prop]: value }}></Accordion.Panel>
+							<Accordion.Panel {...{ [prop]: value }} />
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
-				expect(component.getByTestId('accordion-panel')).toHaveClass(value);
+				expect(component.getByTestId("accordion-panel")).toHaveClass(value);
 			});
 		}
 	});

@@ -1,9 +1,11 @@
-import React, { type ReactNode } from 'react';
-import * as accordion from '@zag-js/accordion';
+import type * as accordion from "@zag-js/accordion";
+import type React from "react";
+import type { ReactNode } from "react";
 
 // Accordion Context ---
 
-export interface AccordionContextState extends Pick<AccordionProps, 'iconOpen' | 'iconClosed'> {
+export interface AccordionContextState
+	extends Pick<AccordionProps, "iconOpen" | "iconClosed"> {
 	api: ReturnType<typeof accordion.connect>;
 }
 
@@ -14,7 +16,9 @@ export interface AccordionItemContextState {
 
 // Accordion ---
 
-export interface AccordionProps extends React.PropsWithChildren, Omit<accordion.Props, 'id' | 'orientation'> {
+export interface AccordionProps
+	extends React.PropsWithChildren,
+		Omit<accordion.Props, "id" | "orientation"> {
 	// Slots ---
 	// https://www.totaltypescript.com/pass-component-as-prop-react
 	/** Set the open state icon. */
@@ -39,7 +43,9 @@ export interface AccordionProps extends React.PropsWithChildren, Omit<accordion.
 
 // Accordion Item ---
 
-export interface AccordionItemProps extends React.PropsWithChildren, accordion.ItemProps {
+export interface AccordionItemProps
+	extends React.PropsWithChildren,
+		accordion.ItemProps {
 	// Root ---
 	/** Sets base styles. */
 	base?: string;

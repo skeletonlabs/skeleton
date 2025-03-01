@@ -1,8 +1,8 @@
-import { createContext } from 'react';
-import type { TabsContextState } from './types.js';
-import type * as tabs from '@zag-js/tabs';
+import type * as tabs from "@zag-js/tabs";
+import { createContext } from "react";
+import type { TabsContextState } from "./types.js";
 
 export const TabsContext = createContext<TabsContextState>({
 	fluid: false,
-	api: {} as ReturnType<typeof tabs.connect>
+	api: {} as ReturnType<typeof tabs.connect>,
 });

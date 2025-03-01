@@ -1,8 +1,9 @@
-[data-theme='legacy'] {
+[data-theme="legacy"] {
 	--text-scaling: 1.067;
 	--base-font-color: var(--color-surface-950);
 	--base-font-color-dark: var(--color-surface-50);
-	--base-font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+	--base-font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova",
+		"Nimbus Sans", Arial, sans-serif;
 	--base-font-size: inherit;
 	--base-line-height: inherit;
 	--base-font-weight: normal;

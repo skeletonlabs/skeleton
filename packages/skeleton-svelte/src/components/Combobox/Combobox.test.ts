@@ -1,16 +1,16 @@
-import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/svelte';
+import { render, screen } from "@testing-library/svelte";
+import { describe, expect, it } from "vitest";
 
-import { Combobox } from '../../index.js';
+import { Combobox } from "../../index.js";
 
-describe('Combobox', () => {
+describe("Combobox", () => {
 	const testIds = {
-		root: 'combobox'
+		root: "combobox",
 	};
 
 	// NOTE: bare minimum test as this feature is considered temporary
 
-	it('Renders the component', () => {
+	it("Renders the component", () => {
 		render(Combobox, {});
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toBeInTheDocument();

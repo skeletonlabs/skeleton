@@ -1,5 +1,5 @@
 ---
-'@skeletonlabs/skeleton-cli': patch
+"@skeletonlabs/skeleton-cli": patch
 ---
 
 Bugfix: `cwd` was wrongly interpeted.

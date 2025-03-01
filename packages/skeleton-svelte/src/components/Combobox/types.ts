@@ -1,7 +1,8 @@
-import type { Snippet } from 'svelte';
-import * as combobox from '@zag-js/combobox';
+import type * as combobox from "@zag-js/combobox";
+import type { Snippet } from "svelte";
 
-export interface ComboboxProps extends Omit<combobox.Props, 'id' | 'collection'> {
+export interface ComboboxProps
+	extends Omit<combobox.Props, "id" | "collection"> {
 	/** Provide the list of label and value data */
 	data?: { label: string; value: string }[];
 	/** Set the label to display. */

@@ -1,7 +1,7 @@
-import type { Snippet } from 'svelte';
-import * as progress from '@zag-js/progress';
+import type * as progress from "@zag-js/progress";
+import type { Snippet } from "svelte";
 
-export interface ProgressRingProps extends Omit<progress.Props, 'id'> {
+export interface ProgressRingProps extends Omit<progress.Props, "id"> {
 	/** Set the text for the scalable label */
 	label?: string;
 	/** When enabled, show a text label with the percentage amount */
@@ -9,7 +9,7 @@ export interface ProgressRingProps extends Omit<progress.Props, 'id'> {
 	/** Set the stroke size (ex: 15px) */
 	strokeWidth?: string;
 	/** Defines the shape of the meter */
-	strokeLinecap?: 'inherit' | 'butt' | 'round' | 'square';
+	strokeLinecap?: "inherit" | "butt" | "round" | "square";
 
 	// Root (Figure) ---
 	/** Set the root base classes */

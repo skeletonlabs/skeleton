@@ -205,7 +205,7 @@
 		font-family: var(--font-mono);
 	}
 	&::before {
-		content: '+';
+		content: "+";
 	}
 }
 
@@ -225,6 +225,6 @@
 		font-family: var(--font-mono);
 	}
 	&::before {
-		content: '−';
+		content: "−";
 	}
 }

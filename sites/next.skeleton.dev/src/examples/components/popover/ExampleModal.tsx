@@ -1,24 +1,25 @@
 // Based On: https://floating-ui.com/docs/dialog
 
-import React, { useState } from 'react';
 import {
-	useFloating,
+	FloatingFocusManager,
+	FloatingOverlay,
 	useClick,
 	useDismiss,
-	useRole,
-	useInteractions,
+	useFloating,
 	useId,
-	FloatingOverlay,
-	FloatingFocusManager,
-	useTransitionStyles
-} from '@floating-ui/react';
+	useInteractions,
+	useRole,
+	useTransitionStyles,
+} from "@floating-ui/react";
+import type React from "react";
+import { useState } from "react";
 
 export const Page: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const { refs, context } = useFloating({
 		open: isOpen,
-		onOpenChange: setIsOpen
+		onOpenChange: setIsOpen,
 	});
 
 	// https://floating-ui.com/docs/useTransition#usetransitionstatus
@@ -26,17 +27,21 @@ export const Page: React.FC = () => {
 		duration: 200,
 		initial: {
 			opacity: 0,
-			transform: 'translateY(50px)'
-		}
+			transform: "translateY(50px)",
+		},
 	});
 
 	const click = useClick(context);
 	const dismiss = useDismiss(context, {
-		outsidePressEvent: 'mousedown'
+		outsidePressEvent: "mousedown",
 	});
 	const role = useRole(context);
 
-	const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role]);
+	const { getReferenceProps, getFloatingProps } = useInteractions([
+		click,
+		dismiss,
+		role,
+	]);
 
 	const labelId = useId();
 	const descriptionId = useId();
@@ -44,7 +49,11 @@ export const Page: React.FC = () => {
 	return (
 		<>
 			{/* Trigger */}
-			<button ref={refs.setReference} {...getReferenceProps()} className="btn preset-tonal">
+			<button
+				ref={refs.setReference}
+				{...getReferenceProps()}
+				className="btn preset-tonal"
+			>
 				Open Modal
 			</button>
 			{isMounted && (
@@ -62,7 +71,7 @@ export const Page: React.FC = () => {
 							{...getFloatingProps()}
 							className="card bg-surface-100-900 p-4 space-y-4 shadow-xl max-w-screen-sm"
 							style={{
-								...styles // Transition styles
+								...styles, // Transition styles
 							}}
 						>
 							<header className="flex justify-between">
@@ -70,15 +79,25 @@ export const Page: React.FC = () => {
 							</header>
 							<article>
 								<p className="opacity-60">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, ab adipisci. Libero cumque sunt quis error veritatis amet,
-									expedita voluptatem. Quos repudiandae consequuntur voluptatem et dicta quas, reprehenderit velit excepturi?
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+									ab adipisci. Libero cumque sunt quis error veritatis amet,
+									expedita voluptatem. Quos repudiandae consequuntur voluptatem
+									et dicta quas, reprehenderit velit excepturi?
 								</p>
 							</article>
 							<footer className="flex justify-end gap-4">
-								<button type="button" className="btn preset-tonal" onClick={() => setIsOpen(false)}>
+								<button
+									type="button"
+									className="btn preset-tonal"
+									onClick={() => setIsOpen(false)}
+								>
 									Cancel
 								</button>
-								<button type="button" className="btn preset-filled" onClick={() => setIsOpen(false)}>
+								<button
+									type="button"
+									className="btn preset-filled"
+									onClick={() => setIsOpen(false)}
+								>
 									Confirm
 								</button>
 							</footer>

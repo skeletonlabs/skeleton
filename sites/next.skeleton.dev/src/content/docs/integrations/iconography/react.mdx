@@ -1,24 +1,25 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 ---
 
-import { Triangle, Heart, UserRound } from 'lucide-react';
+import { Triangle, Heart, UserRound } from "lucide-react";
 
 export const components = componentSet;
 
 <p class="text-xl">
-	Skeleton takes an agnostic approach to icons, meaning you can use any combination of SVGs, emoji, unicode, or dedicated icon libraries.
-	Mix and match to fulfill your project's unique requirements.
+  Skeleton takes an agnostic approach to icons, meaning you can use any
+  combination of SVGs, emoji, unicode, or dedicated icon libraries. Mix and
+  match to fulfill your project's unique requirements.
 </p>
 
 ## Lucide
 
 <figure class="linker bg-noise">
-	<div class="flex gap-4">
-		<Heart size={48} />
-		<UserRound size={48} />
-		<Triangle size={48} />
-	</div>
+  <div class="flex gap-4">
+    <Heart size={48} />
+    <UserRound size={48} />
+    <Triangle size={48} />
+  </div>
 </figure>
 
 If you're looking for an opinionated solution, Skeleton recommends [Lucide](https://lucide.dev/). This provides a huge selection of icons that are available to all popular frameworks and feature a clean and modern style. All code examples in this documentation site implement Lucide, but feel free to replace with any alternative.
@@ -30,10 +31,10 @@ Follow the official instructions to install [Lucide for React](https://lucide.de
 ## Usage
 
 ```tsx
-import { Skull as IconSkull } from 'lucide-react';
+import { Skull as IconSkull } from "lucide-react";
 
 const App = () => {
-	return <IconSkull color="red" size={48} />;
+  return <IconSkull color="red" size={48} />;
 };
 
 export default App;

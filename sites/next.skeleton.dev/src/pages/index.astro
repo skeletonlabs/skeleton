@@ -1,109 +1,109 @@
 ---
+import Footer from "@components/docs/Footer.astro";
+import Header from "@components/docs/Header.astro";
+import HomeBottomCta from "@components/homepage/HomeBottomCta.astro";
+import HomeCompGrid from "@components/homepage/HomeCompGrid.svelte";
+import HomeDesignSystem from "@components/homepage/HomeDesignSystem.svelte";
+import HomeEvenMore from "@components/homepage/HomeEvenMore.astro";
+import HomeFrameworkComps from "@components/homepage/HomeFrameworkComps.svelte";
+import HomeHero from "@components/homepage/HomeHero.astro";
+import HomeMetrics from "@components/homepage/HomeMetrics.astro";
+import HomeOpenSource from "@components/homepage/HomeOpenSource.astro";
+import HomePlayground from "@components/homepage/HomePlayground.astro";
+import HomeSponsors from "@components/homepage/HomeSponsors.astro";
 // Components
-import LayoutRoot from '@layouts/LayoutRoot.astro';
-import Header from '@components/docs/Header.astro';
-import Footer from '@components/docs/Footer.astro';
-import HomeHero from '@components/homepage/HomeHero.astro';
-import HomeCompGrid from '@components/homepage/HomeCompGrid.svelte';
-import HomePlayground from '@components/homepage/HomePlayground.astro';
-import HomeDesignSystem from '@components/homepage/HomeDesignSystem.svelte';
-import HomeFrameworkComps from '@components/homepage/HomeFrameworkComps.svelte';
-import HomeEvenMore from '@components/homepage/HomeEvenMore.astro';
-import HomeOpenSource from '@components/homepage/HomeOpenSource.astro';
-import HomeMetrics from '@components/homepage/HomeMetrics.astro';
-import HomeSponsors from '@components/homepage/HomeSponsors.astro';
-import HomeBottomCta from '@components/homepage/HomeBottomCta.astro';
+import LayoutRoot from "@layouts/LayoutRoot.astro";
 // Props
 const layoutProps = {
-	title: 'Welcome',
-	classList: ''
+	title: "Welcome",
+	classList: "",
 };
 ---
 
 <LayoutRoot {...layoutProps}>
-	<!-- Header -->
-	<Header />
+  <!-- Header -->
+  <Header />
 
-	<!-- Main -->
-	<main class="bg-surface-50-950">
-		<!-- Gradient 1 -->
-		<!-- <div class="bg-radial-[at_50%_75%] from-sky-200 via-blue-400/10 to-indigo-900 to-90%"> -->
-		<div class="gradient-homepage-one">
-			<!-- Section: Hero -->
-			<section>
-				<div class="container mx-auto flex justify-center p-10 pt-20 pb-5">
-					<HomeHero />
-				</div>
-			</section>
+  <!-- Main -->
+  <main class="bg-surface-50-950">
+    <!-- Gradient 1 -->
+    <!-- <div class="bg-radial-[at_50%_75%] from-sky-200 via-blue-400/10 to-indigo-900 to-90%"> -->
+    <div class="gradient-homepage-one">
+      <!-- Section: Hero -->
+      <section>
+        <div class="container mx-auto flex justify-center p-10 pt-20 pb-5">
+          <HomeHero />
+        </div>
+      </section>
 
-			<!-- Section: Component Grid -->
-			<section class="hidden 2xl:block">
-				<div class="container mx-auto p-10 py-20">
-					<HomeCompGrid client:load />
-				</div>
-			</section>
+      <!-- Section: Component Grid -->
+      <section class="hidden 2xl:block">
+        <div class="container mx-auto p-10 py-20">
+          <HomeCompGrid client:load />
+        </div>
+      </section>
 
-			<!-- Section: Playground -->
-			<section class="hidden md:block">
-				<div class="container mx-auto p-10 py-20">
-					<HomePlayground />
-				</div>
-			</section>
-		</div>
+      <!-- Section: Playground -->
+      <section class="hidden md:block">
+        <div class="container mx-auto p-10 py-20">
+          <HomePlayground />
+        </div>
+      </section>
+    </div>
 
-		<!-- Gradient 2 -->
-		<div class="gradient-homepage-two">
-			<!-- Section: Design System -->
-			<section>
-				<div class="container mx-auto p-10 py-20">
-					<HomeDesignSystem client:load />
-				</div>
-			</section>
+    <!-- Gradient 2 -->
+    <div class="gradient-homepage-two">
+      <!-- Section: Design System -->
+      <section>
+        <div class="container mx-auto p-10 py-20">
+          <HomeDesignSystem client:load />
+        </div>
+      </section>
 
-			<!-- Section: Tailwind / Functional Components -->
-			<section>
-				<div class="container mx-auto p-10 py-20">
-					<HomeFrameworkComps client:load />
-				</div>
-			</section>
+      <!-- Section: Tailwind / Functional Components -->
+      <section>
+        <div class="container mx-auto p-10 py-20">
+          <HomeFrameworkComps client:load />
+        </div>
+      </section>
 
-			<!-- Section: Even More -->
-			<section>
-				<div class="container mx-auto p-10 py-20">
-					<HomeEvenMore />
-				</div>
-			</section>
+      <!-- Section: Even More -->
+      <section>
+        <div class="container mx-auto p-10 py-20">
+          <HomeEvenMore />
+        </div>
+      </section>
 
-			<!-- Section: Open Source -->
-			<section>
-				<div class="container mx-auto p-10 py-20">
-					<HomeOpenSource />
-				</div>
-			</section>
+      <!-- Section: Open Source -->
+      <section>
+        <div class="container mx-auto p-10 py-20">
+          <HomeOpenSource />
+        </div>
+      </section>
 
-			<!-- Section: Metrics -->
-			<section>
-				<div class="container mx-auto p-10 py-20">
-					<HomeMetrics />
-				</div>
-			</section>
-		</div>
+      <!-- Section: Metrics -->
+      <section>
+        <div class="container mx-auto p-10 py-20">
+          <HomeMetrics />
+        </div>
+      </section>
+    </div>
 
-		<!-- Section: Sponsors -->
-		<section>
-			<div class="container mx-auto p-10 py-20">
-				<HomeSponsors />
-			</div>
-		</section>
+    <!-- Section: Sponsors -->
+    <section>
+      <div class="container mx-auto p-10 py-20">
+        <HomeSponsors />
+      </div>
+    </section>
 
-		<!-- Section: CTA -->
-		<section>
-			<div class="container mx-auto p-10 py-20">
-				<HomeBottomCta />
-			</div>
-		</section>
-	</main>
+    <!-- Section: CTA -->
+    <section>
+      <div class="container mx-auto p-10 py-20">
+        <HomeBottomCta />
+      </div>
+    </section>
+  </main>
 
-	<!-- Footer -->
-	<Footer />
+  <!-- Footer -->
+  <Footer />
 </LayoutRoot>

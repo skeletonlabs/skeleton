@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: Dark Mode
 description: Learn how to use Tailwind's dark mode feature for your Skeleton project.
 order: 40
@@ -10,15 +10,26 @@ export const components = componentSet;
 {
 
 <p class="text-xl">
-	Skeleton makes use of{' '}
-	<a className="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="external">
-		Tailwind's Dark Mode
-	</a>{' '}
-	to enable multiple strategies to control the overall app or page mode, as well as{' '}
-	<a className="anchor" href="https://tailwindcss.com/docs/color-scheme" target="_blank" rel="external">
-		Color Scheme
-	</a>{' '}
-	to selectively toggle light or dark interfaces at any scope.
+  Skeleton makes use of{" "}
+  <a
+    className="anchor"
+    href="https://tailwindcss.com/docs/dark-mode"
+    target="_blank"
+    rel="external"
+  >
+    Tailwind's Dark Mode
+  </a>{" "}
+  to enable multiple strategies to control the overall app or page mode, as well
+  as{" "}
+  <a
+    className="anchor"
+    href="https://tailwindcss.com/docs/color-scheme"
+    target="_blank"
+    rel="external"
+  >
+    Color Scheme
+  </a>{" "}
+  to selectively toggle light or dark interfaces at any scope.
 </p>
 
 }
@@ -41,7 +52,7 @@ Activates dark mode by adding or removing the `.dark` class to your application'
 
 ```html
 <html class="dark">
-	...
+  ...
 </html>
 ```
 
@@ -55,7 +66,7 @@ Uses a data attribute instead of a class to activate dark mode.
 
 ```html
 <html data-theme="dark">
-	...
+  ...
 </html>
 ```
 
@@ -78,11 +89,11 @@ Skeleton now supports Tailwind's [Color Scheme](https://tailwindcss.com/docs/col
 <div class="bg-primary-50-950">Light or Dark</div>
 
 <div class="scheme-light">
-	<div class="bg-primary-50-950">Always Light Scheme</div>
+  <div class="bg-primary-50-950">Always Light Scheme</div>
 </div>
 
 <div class="scheme-dark">
-	<div class="bg-primary-50-950">Always Dark Scheme</div>
+  <div class="bg-primary-50-950">Always Dark Scheme</div>
 </div>
 ```
 

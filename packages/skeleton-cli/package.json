@@ -16,9 +16,7 @@
 	},
 	"bin": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "unbuild",
 		"dev": "unbuild --watch",

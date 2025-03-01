@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: Components
 description: Guidelines for contributing new Skeleton components.
 order: 10
@@ -95,29 +95,29 @@ Style props implement sementic naming conventions to enable specificity and avoi
 
 ```svelte
 <script lang="ts">
-	let {
-		// Parent
-		base = '...',
-		bg = '...',
-		classes = '...',
-		// Control
-		controlBase = '...',
-		controlBg = '...',
-		controlClasses = '...',
-		// Panel
-		panelBase = '...',
-		panelBg = '...',
-		panelPadding = '...',
-		panelClasses = '...'
-	}: Props = $props();
+  let {
+    // Parent
+    base = "...",
+    bg = "...",
+    classes = "...",
+    // Control
+    controlBase = "...",
+    controlBg = "...",
+    controlClasses = "...",
+    // Panel
+    panelBase = "...",
+    panelBg = "...",
+    panelPadding = "...",
+    panelClasses = "...",
+  }: Props = $props();
 </script>
 
 <!-- Parent -->
 <div class="{base} {bg} {classes}">
-	<!-- Control -->
-	<div class="{controlBase} {controlBg} {controlClasses}">...</div>
-	<!-- Panel -->
-	<div class="{panelBase} {panelBg} {panelPadding} {panelClasses}">...</div>
+  <!-- Control -->
+  <div class="{controlBase} {controlBg} {controlClasses}">...</div>
+  <!-- Panel -->
+  <div class="{panelBase} {panelBg} {panelPadding} {panelClasses}">...</div>
 </div>
 ```
 
@@ -140,16 +140,16 @@ You may need to conditionally update or swap between one or more sets of style p
 
 ```svelte
 <script lang="ts">
-	let {
-		active = true,
-		// ...
-		fooActive = '...',
-		fooInactive = '...'
-		// ...
-	}: Props = $props();
+  let {
+    active = true,
+    // ...
+    fooActive = "...",
+    fooInactive = "...",
+    // ...
+  }: Props = $props();
 
-	// Derivative
-	const activeClasses = $derived(active ? fooActive : fooInactive);
+  // Derivative
+  const activeClasses = $derived(active ? fooActive : fooInactive);
 </script>
 
 <div class="{base} {activeClasses} {classes}">...</div>
@@ -209,22 +209,22 @@ Skeleton expands the [Svelte Context API](https://svelte.dev/docs/svelte#setcont
 Here's an example of how this can be used:
 
 ```ts
-import { createContext } from '$lib/internal/create-context.js';
+import { createContext } from "$lib/internal/create-context.js";
 
 interface Session {
-	user: 'foo' | 'bar';
+  user: "foo" | "bar";
 }
 
-export const [setSession, getSession] = createContext<Session>({ user: 'foo' });
+export const [setSession, getSession] = createContext<Session>({ user: "foo" });
 ```
 
 This can then be consumed as follows:
 
 ```ts
-import { setSession, getSession } from './context.js';
+import { setSession, getSession } from "./context.js";
 
 // Must be set as type of Session:
-setSession({ user: 'bar' });
+setSession({ user: "bar" });
 
 // Returns as type of Session:
 const session = getSession();
@@ -246,29 +246,33 @@ See the examples per each framework below.
 
 ```svelte
 <script lang="ts">
-	let value = $state('chocolate');
+  let value = $state("chocolate");
 </script>
 
 <Segment {value} onValueChange={(e) => (value = e.value)} name="flavors">
-	<Segment.Item id="chocolate" value="chocolate">Chocolate</Segment.Item>
-	<Segment.Item id="strawberry" value="strawberry">Strawberry</Segment.Item>
+  <Segment.Item id="chocolate" value="chocolate">Chocolate</Segment.Item>
+  <Segment.Item id="strawberry" value="strawberry">Strawberry</Segment.Item>
 </Segment>
 ```
 
 ### React
 
 ```tsx
-const [value, setValue] = useState('chocolate');
+const [value, setValue] = useState("chocolate");
 
 return (
-	<Segment value={value} onValueChange={(e) => setValue(e.value)} name="flavors">
-		<Segment.Item id="chocolate" value="chocolate">
-			Chocolate
-		</Segment.Item>
-		<Segment.Item id="strawberry" value="strawberry">
-			Strawberry
-		</Segment.Item>
-	</Segment>
+  <Segment
+    value={value}
+    onValueChange={(e) => setValue(e.value)}
+    name="flavors"
+  >
+    <Segment.Item id="chocolate" value="chocolate">
+      Chocolate
+    </Segment.Item>
+    <Segment.Item id="strawberry" value="strawberry">
+      Strawberry
+    </Segment.Item>
+  </Segment>
 );
 ```
 
@@ -311,11 +315,11 @@ For React, this is handled via piecemeal components using a dot notation syntax,
 
 ```tsx
 <Accordion>
-	<Accordion.Item>
-		<Accordion.Lead>(lead)</Accordion.Lead>
-		<Accordion.Control>(control)</Accordion.Control>
-		<Accordion.Panel>(panel)</Accordion.Panel>
-	</Accordion.Item>
+  <Accordion.Item>
+    <Accordion.Lead>(lead)</Accordion.Lead>
+    <Accordion.Control>(control)</Accordion.Control>
+    <Accordion.Panel>(panel)</Accordion.Panel>
+  </Accordion.Item>
 </Accordion>
 ```
 
@@ -325,11 +329,11 @@ This is handled by pairing child components with [Svelte snippets](https://svelt
 
 ```svelte
 <Accordion>
-	<Accordion.Item>
-		{#snippet controlLead()}(lead){/snippet}
-		{#snippet control()}(control){/snippet}
-		{#snippet panel()}(panel){/snippet}
-	</Accordion.Item>
+  <Accordion.Item>
+    {#snippet controlLead()}(lead){/snippet}
+    {#snippet control()}(control){/snippet}
+    {#snippet panel()}(panel){/snippet}
+  </Accordion.Item>
 </Accordion>
 ```
 
@@ -349,12 +353,12 @@ For example, the accordion component would be setup as follows as the bottom of 
 
 ```ts
 export const Accordion = Object.assign(
-	AccordionRoot, // -> <Accordion>
-	{
-		Item: AccordionItem, // -> <Accordion.Item>
-		Control: AccordionControl, // -> <Accordion.Control>
-		Panel: AccordionPanel // -> <Accordion.Panel>
-	}
+  AccordionRoot, // -> <Accordion>
+  {
+    Item: AccordionItem, // -> <Accordion.Item>
+    Control: AccordionControl, // -> <Accordion.Control>
+    Panel: AccordionPanel, // -> <Accordion.Panel>
+  },
 );
 ```
 
@@ -363,14 +367,14 @@ export const Accordion = Object.assign(
 Create a new `index.ts` file colocated within the `/component/<ComponentName>` directory:
 
 ```ts
-import Accordion from './Accordion.svelte';
-import AccordionItem from './AccordionItem.svelte';
+import Accordion from "./Accordion.svelte";
+import AccordionItem from "./AccordionItem.svelte";
 
 export const Accordion = Object.assign(
-	Accordion, // -> <Accordion>
-	{
-		Item: AccordionItem // -> <Accordion.Item>
-	}
+  Accordion, // -> <Accordion>
+  {
+    Item: AccordionItem, // -> <Accordion.Item>
+  },
 );
 ```
 
@@ -383,8 +387,8 @@ Finally, make sure components are included in the package export list.
 Found in `/src/lib/index.ts`.
 
 ```ts
-export * from '../components/Foo/index.js';
-export * from '../components/Bar/index.js';
+export * from "../components/Foo/index.js";
+export * from "../components/Bar/index.js";
 ```
 
 ### Svelte
@@ -392,8 +396,8 @@ export * from '../components/Bar/index.js';
 Found in `/src/lib/index.ts`.
 
 ```ts
-export { default as Foo } from './components/Foo.svelte';
-export { default as Bar } from './components/Bar.svelte';
+export { default as Foo } from "./components/Foo.svelte";
+export { default as Bar } from "./components/Bar.svelte";
 ```
 
 ## Additional Resources

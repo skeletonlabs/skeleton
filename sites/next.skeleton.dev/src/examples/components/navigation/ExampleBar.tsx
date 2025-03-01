@@ -1,11 +1,16 @@
-import React from 'react';
-import { Navigation } from '@skeletonlabs/skeleton-react';
-import { Folder as IconFolder, Image as IconImage, Music as IconMusic, Video as IconVideo } from 'lucide-react';
+import { Navigation } from "@skeletonlabs/skeleton-react";
+import {
+	Folder as IconFolder,
+	Image as IconImage,
+	Music as IconMusic,
+	Video as IconVideo,
+} from "lucide-react";
+import React from "react";
 
 export const Page: React.FC = () => {
 	// You may optionally bind a selected state value
 	// Pass the ID item you wish to be selected by default.
-	const [value, setValue] = React.useState('0');
+	const [value, setValue] = React.useState("0");
 
 	return (
 		<div className="card border-surface-100-900 grid h-[512px] w-[320px] grid-rows-[1fr_auto] border-[1px]">

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { Skull } from 'lucide-react';
+import { Skull } from "lucide-react";
 
-import { AppBar } from '@skeletonlabs/skeleton-react';
+import { AppBar } from "@skeletonlabs/skeleton-react";
 
 export default function Page() {
 	return (
@@ -66,68 +66,100 @@ export default function Page() {
 				</AppBar>
 				<div>First line of the sticky AppBar</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 				<div>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima suscipit ipsam ut reiciendis a quia maiores, facere
-					adipisci accusamus animi nam porro cum dignissimos! Quibusdam asperiores aliquam reiciendis eligendi!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum minima
+					suscipit ipsam ut reiciendis a quia maiores, facere adipisci accusamus
+					animi nam porro cum dignissimos! Quibusdam asperiores aliquam
+					reiciendis eligendi!
 				</div>
 			</div>
 			<h3 className="h3">A11Y Keyboard</h3>
@@ -137,7 +169,10 @@ export default function Page() {
 			<AppBar>
 				<AppBar.Toolbar>
 					<AppBar.ToolbarLead>
-						<button type="button" className="btn-icon preset-filled-primary-500">
+						<button
+							type="button"
+							className="btn-icon preset-filled-primary-500"
+						>
 							<Skull size={22} />
 						</button>
 						<button type="button" className="btn preset-filled">
@@ -149,7 +184,10 @@ export default function Page() {
 						<button type="button" className="btn preset-filled">
 							Skeleton
 						</button>
-						<button type="button" className="btn-icon preset-filled-primary-500">
+						<button
+							type="button"
+							className="btn-icon preset-filled-primary-500"
+						>
 							<Skull size={22} />
 						</button>
 					</AppBar.ToolbarTrail>
@@ -163,7 +201,10 @@ export default function Page() {
 				<AppBar>
 					<AppBar.Toolbar>
 						<AppBar.ToolbarLead>
-							<button type="button" className="btn-icon preset-filled-primary-500">
+							<button
+								type="button"
+								className="btn-icon preset-filled-primary-500"
+							>
 								<Skull size={22} />
 							</button>
 							<button type="button" className="btn preset-filled">
@@ -175,7 +216,10 @@ export default function Page() {
 							<button type="button" className="btn preset-filled">
 								trail
 							</button>
-							<button type="button" className="btn-icon preset-filled-primary-500">
+							<button
+								type="button"
+								className="btn-icon preset-filled-primary-500"
+							>
 								<Skull size={22} />
 							</button>
 						</AppBar.ToolbarTrail>

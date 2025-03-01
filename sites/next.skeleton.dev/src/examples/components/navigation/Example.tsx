@@ -1,13 +1,13 @@
-import React from 'react';
-import { Navigation } from '@skeletonlabs/skeleton-react';
+import { Navigation } from "@skeletonlabs/skeleton-react";
 import {
-	Menu as IconMenu,
 	Folder as IconFolder,
 	Image as IconImage,
+	Menu as IconMenu,
 	Music as IconMusic,
+	Settings as IconSettings,
 	Video as IconVideo,
-	Settings as IconSettings
-} from 'lucide-react';
+} from "lucide-react";
+import type React from "react";
 
 export const Page: React.FC = () => {
 	return (

@@ -1,44 +1,45 @@
-'use client';
+"use client";
 
-import React, { useId } from 'react';
-import * as zagSwitch from '@zag-js/switch';
-import { useMachine, normalizeProps } from '@zag-js/react';
-import type { SwitchProps } from './types.js';
+import { normalizeProps, useMachine } from "@zag-js/react";
+import * as zagSwitch from "@zag-js/switch";
+import type React from "react";
+import { useId } from "react";
+import type { SwitchProps } from "./types.js";
 
 export const Switch: React.FC<SwitchProps> = ({
 	compact = false,
 	// Root (Track)
-	base = 'inline-flex items-center gap-4',
+	base = "inline-flex items-center gap-4",
 	// State
-	stateFocused = 'data-[focus-visible]:focused',
-	classes = '',
+	stateFocused = "data-[focus-visible]:focused",
+	classes = "",
 	// Control
-	controlBase = 'cursor-pointer transition duration-200',
-	controlInactive = 'preset-filled-surface-200-800',
-	controlActive = 'preset-filled-primary-500',
-	controlDisabled = 'opacity-50 cursor-not-allowed',
-	controlWidth = 'w-10',
-	controlHeight = 'h-6',
-	controlPadding = 'p-0.5',
-	controlRounded = 'rounded-full',
-	controlHover = 'hover:brightness-90 dark:hover:brightness-110',
-	controlClasses = '',
+	controlBase = "cursor-pointer transition duration-200",
+	controlInactive = "preset-filled-surface-200-800",
+	controlActive = "preset-filled-primary-500",
+	controlDisabled = "opacity-50 cursor-not-allowed",
+	controlWidth = "w-10",
+	controlHeight = "h-6",
+	controlPadding = "p-0.5",
+	controlRounded = "rounded-full",
+	controlHover = "hover:brightness-90 dark:hover:brightness-110",
+	controlClasses = "",
 	// Thumb
-	thumbBase = 'right-0 aspect-square h-full flex justify-center items-center text-right cursor-pointer',
-	thumbInactive = 'preset-filled-surface-50-950',
-	thumbActive = 'bg-surface-50 text-surface-contrast-50',
-	thumbRounded = 'rounded-full',
-	thumbTranslateX = 'translate-x-4 rtl:-translate-x-4',
-	thumbTransition = 'transition',
-	thumbEase = 'ease-in-out',
-	thumbDuration = 'duration-200',
-	thumbClasses = '',
+	thumbBase = "right-0 aspect-square h-full flex justify-center items-center text-right cursor-pointer",
+	thumbInactive = "preset-filled-surface-50-950",
+	thumbActive = "bg-surface-50 text-surface-contrast-50",
+	thumbRounded = "rounded-full",
+	thumbTranslateX = "translate-x-4 rtl:-translate-x-4",
+	thumbTransition = "transition",
+	thumbEase = "ease-in-out",
+	thumbDuration = "duration-200",
+	thumbClasses = "",
 	// Label
-	labelBase = '',
-	labelClasses = '',
+	labelBase = "",
+	labelClasses = "",
 	// Icons
-	iconInactiveBase = 'pointer-events-none',
-	iconActiveBase = 'pointer-events-none',
+	iconInactiveBase = "pointer-events-none",
+	iconActiveBase = "pointer-events-none",
 	// Children
 	children,
 	inactiveChild,
@@ -49,24 +50,30 @@ export const Switch: React.FC<SwitchProps> = ({
 	// Zag
 	const service = useMachine(zagSwitch.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = zagSwitch.connect(service, normalizeProps);
 
 	const rxControlBase = compact ? thumbBase : controlBase;
-	const rxControlHeight = compact ? '' : controlHeight;
-	const rxControlPadding = compact ? '' : controlPadding;
+	const rxControlHeight = compact ? "" : controlHeight;
+	const rxControlPadding = compact ? "" : controlPadding;
 	const rxThumbInactive = compact ? controlInactive : thumbInactive;
 	const rxThumbActive = compact ? controlActive : thumbActive;
-	const rxThumbTranslateX = compact ? '' : thumbTranslateX;
+	const rxThumbTranslateX = compact ? "" : thumbTranslateX;
 
 	const rxTrackState = api.checked ? controlActive : controlInactive;
-	const rxThumbState = api.checked ? `${rxThumbActive} ${rxThumbTranslateX}` : rxThumbInactive;
-	const rxDisabled = api.disabled ? controlDisabled : '';
-	const rxFocused = api.focused ? stateFocused : '';
+	const rxThumbState = api.checked
+		? `${rxThumbActive} ${rxThumbTranslateX}`
+		: rxThumbInactive;
+	const rxDisabled = api.disabled ? controlDisabled : "";
+	const rxFocused = api.focused ? stateFocused : "";
 
 	return (
-		<label {...api.getRootProps()} className={`${base} ${classes}`} data-testid="switch">
+		<label
+			{...api.getRootProps()}
+			className={`${base} ${classes}`}
+			data-testid="switch"
+		>
 			{/* Input */}
 			<input {...api.getHiddenInputProps()} data-testid="switch-input" />
 			{/* Control */}
@@ -83,7 +90,10 @@ export const Switch: React.FC<SwitchProps> = ({
 				>
 					{/* Icon: Inactive */}
 					{!api.checked && inactiveChild ? (
-						<span className={iconInactiveBase} data-testid="switch-icon-inactive">
+						<span
+							className={iconInactiveBase}
+							data-testid="switch-icon-inactive"
+						>
 							{inactiveChild}
 						</span>
 					) : null}
@@ -97,7 +107,11 @@ export const Switch: React.FC<SwitchProps> = ({
 			</span>
 			{/* Label */}
 			{children ? (
-				<span {...api.getLabelProps()} className={`${labelBase} ${labelClasses}`} data-testid="switch-label">
+				<span
+					{...api.getLabelProps()}
+					className={`${labelBase} ${labelClasses}`}
+					data-testid="switch-label"
+				>
 					{children}
 				</span>
 			) : null}

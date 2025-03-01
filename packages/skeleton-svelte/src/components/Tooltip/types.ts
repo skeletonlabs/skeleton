@@ -1,7 +1,7 @@
-import type { Snippet } from 'svelte';
-import * as tooltip from '@zag-js/tooltip';
+import type * as tooltip from "@zag-js/tooltip";
+import type { Snippet } from "svelte";
 
-export interface TooltipProps extends Omit<tooltip.Props, 'id'> {
+export interface TooltipProps extends Omit<tooltip.Props, "id"> {
 	/** Enable display of the popover arrow. */
 	arrow?: boolean;
 

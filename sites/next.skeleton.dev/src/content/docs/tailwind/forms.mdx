@@ -1,37 +1,37 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: "@layouts/LayoutDoc.astro"
 title: Forms and Inputs
 description: Various form and input styles.
-srcCore: '/utilities/forms.css'
+srcCore: "/utilities/forms.css"
 showDocsUrl: true
 ---
 
 export const components = componentSet;
 
-import Example from '@examples/tailwind/forms/Example.astro';
-import ExampleInputRaw from '@examples/tailwind/forms/ExampleInput.astro?raw';
-import ExampleSelectRaw from '@examples/tailwind/forms/ExampleSelect.astro?raw';
-import ExampleTextareaRaw from '@examples/tailwind/forms/ExampleTextarea.astro?raw';
-import ExampleSelection from '@examples/tailwind/forms/ExampleSelection.astro';
-import ExampleSelectionRaw from '@examples/tailwind/forms/ExampleSelection.astro?raw';
-import ExampleCheckboxes from '@examples/tailwind/forms/ExampleCheckboxes.astro';
-import ExampleCheckboxesRaw from '@examples/tailwind/forms/ExampleCheckboxes.astro?raw';
-import ExampleRadio from '@examples/tailwind/forms/ExampleRadio.astro';
-import ExampleRadioRaw from '@examples/tailwind/forms/ExampleRadio.astro?raw';
-import ExampleSpecial from '@examples/tailwind/forms/ExampleSpecial.astro';
-import ExampleSpecialRaw from '@examples/tailwind/forms/ExampleSpecial.astro?raw';
-import ExampleGroups from '@examples/tailwind/forms/ExampleGroups.astro';
-import ExampleGroupsRaw from '@examples/tailwind/forms/ExampleGroups.astro?raw';
+import Example from "@examples/tailwind/forms/Example.astro";
+import ExampleInputRaw from "@examples/tailwind/forms/ExampleInput.astro?raw";
+import ExampleSelectRaw from "@examples/tailwind/forms/ExampleSelect.astro?raw";
+import ExampleTextareaRaw from "@examples/tailwind/forms/ExampleTextarea.astro?raw";
+import ExampleSelection from "@examples/tailwind/forms/ExampleSelection.astro";
+import ExampleSelectionRaw from "@examples/tailwind/forms/ExampleSelection.astro?raw";
+import ExampleCheckboxes from "@examples/tailwind/forms/ExampleCheckboxes.astro";
+import ExampleCheckboxesRaw from "@examples/tailwind/forms/ExampleCheckboxes.astro?raw";
+import ExampleRadio from "@examples/tailwind/forms/ExampleRadio.astro";
+import ExampleRadioRaw from "@examples/tailwind/forms/ExampleRadio.astro?raw";
+import ExampleSpecial from "@examples/tailwind/forms/ExampleSpecial.astro";
+import ExampleSpecialRaw from "@examples/tailwind/forms/ExampleSpecial.astro?raw";
+import ExampleGroups from "@examples/tailwind/forms/ExampleGroups.astro";
+import ExampleGroupsRaw from "@examples/tailwind/forms/ExampleGroups.astro?raw";
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<Example />
-	</Fragment>
-	<div class="space-y-4" slot="code">
-		<Code code={ExampleInputRaw} lang="html" />
-		<Code code={ExampleSelectRaw} lang="html" />
-		<Code code={ExampleTextareaRaw} lang="html" />
-	</div>
+  <Fragment slot="preview">
+    <Example />
+  </Fragment>
+  <div class="space-y-4" slot="code">
+    <Code code={ExampleInputRaw} lang="html" />
+    <Code code={ExampleSelectRaw} lang="html" />
+    <Code code={ExampleTextareaRaw} lang="html" />
+  </div>
 </Preview>
 
 ## Prerequisites
@@ -41,9 +41,13 @@ import ExampleGroupsRaw from '@examples/tailwind/forms/ExampleGroups.astro?raw';
 Skeleton relies on the official [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms) plugin to normalize form styling. Ths plugin is required if you wish to make use of any utility classes provided on this page.
 
 <figure class="card-filled-enhanced flex justify-center gap-4 p-8">
-	<a class="btn preset-filled" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">
-		Plugin Doc
-	</a>
+  <a
+    class="btn preset-filled"
+    href="https://github.com/tailwindlabs/tailwindcss-forms"
+    target="_blank"
+  >
+    Plugin Doc
+  </a>
 </figure>
 
 Install the `@tailwindcss/forms` package.
@@ -55,7 +59,7 @@ npm install -D @tailwindcss/forms
 Implement the plugin using the `@plugin` directive immediately following the `tailwindcss` import.
 
 ```css {2}
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin '@tailwindcss/forms';
 
 /* ...Skeleton config here... */
@@ -68,56 +72,56 @@ The display of native and semantic HTML form elements can vary between both oper
 ## Select
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleSelection />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleSelectionRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleSelection />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleSelectionRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ## Checkboxes
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleCheckboxes />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleCheckboxesRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleCheckboxes />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleCheckboxesRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ## Radio Groups
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleRadio />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleRadioRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleRadio />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleRadioRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ## Other Inputs
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleSpecial />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleSpecialRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleSpecial />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleSpecialRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 ## Groups
 
 <Preview client:load>
-	<Fragment slot="preview">
-		<ExampleGroups />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleGroupsRaw} lang="astro" />
-	</Fragment>
+  <Fragment slot="preview">
+    <ExampleGroups />
+  </Fragment>
+  <Fragment slot="code">
+    <Code code={ExampleGroupsRaw} lang="astro" />
+  </Fragment>
 </Preview>
 
 | Class         | Usage                                   |

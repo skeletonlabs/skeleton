@@ -1,6 +1,6 @@
-import React from 'react';
-import { Navigation } from '@skeletonlabs/skeleton-react';
-import { Box as IconBox } from 'lucide-react';
+import { Navigation } from "@skeletonlabs/skeleton-react";
+import { Box as IconBox } from "lucide-react";
+import type React from "react";
 
 export const Page: React.FC = () => {
 	return (

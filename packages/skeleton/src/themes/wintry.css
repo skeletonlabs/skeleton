@@ -1,4 +1,4 @@
-[data-theme='wintry'] {
+[data-theme="wintry"] {
 	--text-scaling: 1.067;
 	--base-font-color: var(--color-surface-950);
 	--base-font-color-dark: var(--color-surface-50);
@@ -10,7 +10,8 @@
 	--base-letter-spacing: 0em;
 	--heading-font-color: inherit;
 	--heading-font-color-dark: inherit;
-	--heading-font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+	--heading-font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova",
+		"Nimbus Sans", Arial, sans-serif;
 	--heading-font-weight: bold;
 	--heading-font-style: normal;
 	--heading-letter-spacing: inherit;

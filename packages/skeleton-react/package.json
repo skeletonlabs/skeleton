@@ -17,15 +17,10 @@
 	},
 	"typesVersions": {
 		">4.0": {
-			"index.d.ts": [
-				"./dist/index.d.ts"
-			]
+			"index.d.ts": ["./dist/index.d.ts"]
 		}
 	},
-	"files": [
-		"dist",
-		"!dist/**/.*test.*"
-	],
+	"files": ["dist", "!dist/**/.*test.*"],
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",

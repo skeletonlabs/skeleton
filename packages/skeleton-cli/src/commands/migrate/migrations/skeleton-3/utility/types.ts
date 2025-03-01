@@ -1,5 +1,5 @@
 interface Theme {
-	type: 'preset' | 'custom';
+	type: "preset" | "custom";
 	value: string;
 }
 

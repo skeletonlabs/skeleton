@@ -1,6 +1,6 @@
-import React from 'react';
-import { Switch } from '@skeletonlabs/skeleton-react';
-import { Moon as IconMoon, Sun as IconSun } from 'lucide-react';
+import { Switch } from "@skeletonlabs/skeleton-react";
+import { Moon as IconMoon, Sun as IconSun } from "lucide-react";
+import React from "react";
 
 export const Page: React.FC = () => {
 	// Bind to the checked state

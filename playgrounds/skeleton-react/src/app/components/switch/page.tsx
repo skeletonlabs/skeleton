@@ -1,9 +1,16 @@
-'use client';
+"use client";
 
-import { Check as IconCheck, X as IconX, Moon as IconMoon, Sun as IconSun, Frown as IconFrown, Smile as IconSmile } from 'lucide-react';
-import { useState } from 'react';
+import {
+	Check as IconCheck,
+	Frown as IconFrown,
+	Moon as IconMoon,
+	Smile as IconSmile,
+	Sun as IconSun,
+	X as IconX,
+} from "lucide-react";
+import { useState } from "react";
 
-import { Switch } from '@skeletonlabs/skeleton-react';
+import { Switch } from "@skeletonlabs/skeleton-react";
 
 export default function Page() {
 	const [disturb, setDisturb] = useState(false);
@@ -18,17 +25,36 @@ export default function Page() {
 			<header>
 				<h1 className="h1">Switch</h1>
 			</header>
-			<pre className="pre">{JSON.stringify({ disturb, notifications, disabled, icons, lightswitch, compact }, null, 2)}</pre>
+			<pre className="pre">
+				{JSON.stringify(
+					{ disturb, notifications, disabled, icons, lightswitch, compact },
+					null,
+					2,
+				)}
+			</pre>
 			<section className="space-y-4">
-				<Switch name="disturb" checked={disturb} onCheckedChange={(e) => setDisturb(e.checked)}>
+				<Switch
+					name="disturb"
+					checked={disturb}
+					onCheckedChange={(e) => setDisturb(e.checked)}
+				>
 					<p>Defaults to inactive state.</p>
 				</Switch>
 				<hr className="hr" />
-				<Switch name="notifications" checked={notifications} onCheckedChange={(e) => setNotifications(e.checked)}>
+				<Switch
+					name="notifications"
+					checked={notifications}
+					onCheckedChange={(e) => setNotifications(e.checked)}
+				>
 					<p>Defaults to active state.</p>
 				</Switch>
 				<hr className="hr" />
-				<Switch name="disabled" checked={disabled} onCheckedChange={(e) => setDisabled(e.checked)} disabled>
+				<Switch
+					name="disabled"
+					checked={disabled}
+					onCheckedChange={(e) => setDisabled(e.checked)}
+					disabled
+				>
 					<p>Uses the disabled state.</p>
 				</Switch>
 				<hr className="hr" />

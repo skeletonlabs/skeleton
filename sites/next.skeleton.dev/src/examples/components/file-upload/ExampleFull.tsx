@@ -1,5 +1,9 @@
-import { FileUpload } from '@skeletonlabs/skeleton-react';
-import { ImagePlus as IconDropzone, Paperclip as IconFile, XCircle as IconRemove } from 'lucide-react';
+import { FileUpload } from "@skeletonlabs/skeleton-react";
+import {
+	ImagePlus as IconDropzone,
+	Paperclip as IconFile,
+	XCircle as IconRemove,
+} from "lucide-react";
 
 export const Page: React.FC = () => {
 	return (

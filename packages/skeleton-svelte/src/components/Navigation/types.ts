@@ -1,9 +1,9 @@
-import type { Snippet } from 'svelte';
+import type { Snippet } from "svelte";
 
 // Context ---
 
 export interface NavContext {
-	parent: 'bar' | 'rail' | 'none';
+	parent: "bar" | "rail" | "none";
 	value?: string;
 	expanded: boolean;
 	onValueChange?: (id: string) => void;
@@ -113,7 +113,7 @@ export interface NavTileProps {
 	/** Enable the active selected state. */
 	selected?: boolean;
 	/** Set button type. */
-	type?: 'button' | 'submit' | 'reset';
+	type?: "button" | "submit" | "reset";
 
 	// Root ---
 	/** Set base styles. */

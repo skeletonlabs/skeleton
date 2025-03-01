@@ -1,7 +1,7 @@
-import * as zagSwitch from '@zag-js/switch';
-import type { Snippet } from 'svelte';
+import type * as zagSwitch from "@zag-js/switch";
+import type { Snippet } from "svelte";
 
-export interface SwitchProps extends Omit<zagSwitch.Props, 'id'> {
+export interface SwitchProps extends Omit<zagSwitch.Props, "id"> {
 	/** Set the compact display mode. */
 	compact?: boolean;
 

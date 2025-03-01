@@ -1,18 +1,19 @@
-import React, { useRef, useState } from 'react';
 import {
-	useFloating,
-	autoUpdate,
-	offset,
-	flip,
-	shift,
+	FloatingArrow,
 	arrow,
+	autoUpdate,
+	flip,
+	offset,
+	shift,
 	useClick,
-	useFocus,
 	useDismiss,
-	useRole,
+	useFloating,
+	useFocus,
 	useInteractions,
-	FloatingArrow
-} from '@floating-ui/react';
+	useRole,
+} from "@floating-ui/react";
+import type React from "react";
+import { useRef, useState } from "react";
 
 interface PopoverProps extends React.PropsWithChildren {
 	trigger: React.ReactNode;
@@ -32,17 +33,17 @@ export const Popover: React.FC<PopoverProps> = ({
 	// prettier-ignore
 	trigger,
 	// Trigger
-	triggerBase = '',
-	triggerPreset = '',
-	triggerClasses = '',
+	triggerBase = "",
+	triggerPreset = "",
+	triggerClasses = "",
 	// Popover
-	popoverBase = 'z-10',
-	popoverClasses = '',
+	popoverBase = "z-10",
+	popoverClasses = "",
 	// Arrow
-	arrowBase = '',
-	arrowClasses = '',
+	arrowBase = "",
+	arrowClasses = "",
 	// Children
-	children
+	children,
 }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -51,8 +52,8 @@ export const Popover: React.FC<PopoverProps> = ({
 		open: isOpen,
 		onOpenChange: setIsOpen,
 		middleware: [offset(12), flip(), shift(), arrow({ element: arrowRef })],
-		placement: 'top',
-		whileElementsMounted: autoUpdate
+		placement: "top",
+		whileElementsMounted: autoUpdate,
 	});
 
 	const click = useClick(context, {});
@@ -60,20 +61,38 @@ export const Popover: React.FC<PopoverProps> = ({
 	const dismiss = useDismiss(context);
 	const role = useRole(context);
 
-	const { getReferenceProps, getFloatingProps } = useInteractions([click, focus, dismiss, role]);
+	const { getReferenceProps, getFloatingProps } = useInteractions([
+		click,
+		focus,
+		dismiss,
+		role,
+	]);
 
 	return (
 		<>
 			{/* Trigger */}
-			<button ref={refs.setReference} {...getReferenceProps()} className={`${triggerBase} ${triggerPreset} ${triggerClasses}`}>
-				{trigger ?? 'Trigger'}
+			<button
+				ref={refs.setReference}
+				{...getReferenceProps()}
+				className={`${triggerBase} ${triggerPreset} ${triggerClasses}`}
+			>
+				{trigger ?? "Trigger"}
 			</button>
 			{/* Popover */}
 			{isOpen && (
-				<div ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()} className={`floating  ${popoverBase} ${popoverClasses}`}>
-					<div>{children ?? '(children missing)'}</div>
+				<div
+					ref={refs.setFloating}
+					style={floatingStyles}
+					{...getFloatingProps()}
+					className={`floating  ${popoverBase} ${popoverClasses}`}
+				>
+					<div>{children ?? "(children missing)"}</div>
 					{/* Arrow */}
-					<FloatingArrow ref={arrowRef} context={context} className={`${arrowBase} ${arrowClasses}`} />
+					<FloatingArrow
+						ref={arrowRef}
+						context={context}
+						className={`${arrowBase} ${arrowClasses}`}
+					/>
 				</div>
 			)}
 		</>

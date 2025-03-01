@@ -1,7 +1,7 @@
-import * as progress from '@zag-js/progress';
-import type { Snippet } from 'svelte';
+import type * as progress from "@zag-js/progress";
+import type { Snippet } from "svelte";
 
-export interface ProgressProps extends Omit<progress.Props, 'id'> {
+export interface ProgressProps extends Omit<progress.Props, "id"> {
 	// Root ---
 	/** Set root base classes */
 	base?: string;

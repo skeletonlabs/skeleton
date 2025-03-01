@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import { Progress } from '@skeletonlabs/skeleton-react';
+import { Progress } from "@skeletonlabs/skeleton-react";
 
 export default function Page() {
 	const [value, setValue] = useState(50);
@@ -16,11 +16,21 @@ export default function Page() {
 			<section className="grid grid-cols-2 gap-4">
 				<label className="label">
 					<span className="label-text">Value</span>
-					<input className="input" type="number" value={value} onInput={(e) => setValue(e.currentTarget.valueAsNumber)} />
+					<input
+						className="input"
+						type="number"
+						value={value}
+						onInput={(e) => setValue(e.currentTarget.valueAsNumber)}
+					/>
 				</label>
 				<label className="label">
 					<span className="label-text">Max</span>
-					<input className="input" type="number" value={max} onInput={(e) => setMax(e.currentTarget.valueAsNumber)} />
+					<input
+						className="input"
+						type="number"
+						value={max}
+						onInput={(e) => setMax(e.currentTarget.valueAsNumber)}
+					/>
 				</label>
 			</section>
 			<section className="space-y-4">
@@ -41,9 +51,19 @@ export default function Page() {
 				<p>rounded (default)</p>
 				<Progress value={value} max={max} />
 				<p>rounded-sm</p>
-				<Progress value={value} max={max} rounded="rounded-sm" meterRounded="rounded-sm" />
+				<Progress
+					value={value}
+					max={max}
+					rounded="rounded-sm"
+					meterRounded="rounded-sm"
+				/>
 				<p>rounded-none</p>
-				<Progress value={value} max={max} rounded="rounded-none" meterRounded="rounded-none" />
+				<Progress
+					value={value}
+					max={max}
+					rounded="rounded-none"
+					meterRounded="rounded-none"
+				/>
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">Colors</h2>

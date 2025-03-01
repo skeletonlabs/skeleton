@@ -1,25 +1,30 @@
-'use client';
+"use client";
 
-import { useContext, useId } from 'react';
-import type { FC, JSX } from 'react';
-import * as accordion from '@zag-js/accordion';
-import { useMachine, normalizeProps } from '@zag-js/react';
-import type { AccordionControlProps, AccordionItemProps, AccordionPanelProps, AccordionProps } from './types.js';
-import { AccordionContext, AccordionItemContext } from './context.js';
+import * as accordion from "@zag-js/accordion";
+import { normalizeProps, useMachine } from "@zag-js/react";
+import { useContext, useId } from "react";
+import type { FC, JSX } from "react";
+import { AccordionContext, AccordionItemContext } from "./context.js";
+import type {
+	AccordionControlProps,
+	AccordionItemProps,
+	AccordionPanelProps,
+	AccordionProps,
+} from "./types.js";
 
 // Components ---
 
 const AccordionRoot: FC<AccordionProps> = ({
 	// Root
-	base = '',
-	padding = '',
-	spaceY = 'space-y-2',
-	rounded = 'rounded-base',
-	width = 'w-full',
-	classes = '',
+	base = "",
+	padding = "",
+	spaceY = "space-y-2",
+	rounded = "rounded-base",
+	width = "w-full",
+	classes = "",
 	// Icons
-	iconOpen = '-',
-	iconClosed = '+',
+	iconOpen = "-",
+	iconClosed = "+",
 	// Children
 	children,
 	// Zag
@@ -28,20 +33,26 @@ const AccordionRoot: FC<AccordionProps> = ({
 	// Zag
 	const service = useMachine(accordion.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = accordion.connect(service, normalizeProps);
 	return (
-		<div className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`} {...api.getRootProps()} data-testid="accordion">
-			<AccordionContext.Provider value={{ iconOpen, iconClosed, api }}>{children}</AccordionContext.Provider>
+		<div
+			className={`${base} ${padding} ${spaceY} ${rounded} ${width} ${classes}`}
+			{...api.getRootProps()}
+			data-testid="accordion"
+		>
+			<AccordionContext.Provider value={{ iconOpen, iconClosed, api }}>
+				{children}
+			</AccordionContext.Provider>
 		</div>
 	);
 };
 
 const AccordionItem: FC<AccordionItemProps> = ({
-	base = '',
-	spaceY = '',
-	classes = '',
+	base = "",
+	spaceY = "",
+	classes = "",
 	// Children
 	children,
 	...zagProps
@@ -50,7 +61,11 @@ const AccordionItem: FC<AccordionItemProps> = ({
 
 	return (
 		<AccordionItemContext.Provider value={zagProps}>
-			<div className={`${base} ${spaceY} ${classes}`} {...ctx?.api.getItemProps(zagProps)} data-testid="accordion-item">
+			<div
+				className={`${base} ${spaceY} ${classes}`}
+				{...ctx?.api.getItemProps(zagProps)}
+				data-testid="accordion-item"
+			>
 				{children}
 			</div>
 		</AccordionItemContext.Provider>
@@ -60,24 +75,24 @@ const AccordionItem: FC<AccordionItemProps> = ({
 const AccordionControl: FC<AccordionControlProps> = ({
 	headingLevel = 3,
 	// Control
-	base = 'flex text-start items-center space-x-4 w-full',
-	hover = 'hover:preset-tonal-primary',
-	padding = 'py-2 px-4',
-	rounded = 'rounded-base',
-	classes = '',
+	base = "flex text-start items-center space-x-4 w-full",
+	hover = "hover:preset-tonal-primary",
+	padding = "py-2 px-4",
+	rounded = "rounded-base",
+	classes = "",
 	// Lead
-	leadBase = '',
-	leadClasses = '',
+	leadBase = "",
+	leadClasses = "",
 	// Content
-	contentBase = 'flex-1',
-	contentClasses = '',
+	contentBase = "flex-1",
+	contentClasses = "",
 	// Indicator
-	indicatorBase = '',
-	indicatorClasses = '',
+	indicatorBase = "",
+	indicatorClasses = "",
 	// Icons
 	lead,
 	// Children
-	children
+	children,
 }) => {
 	const ctx = useContext(AccordionContext);
 	const itemCtx = useContext(AccordionItemContext);
@@ -91,17 +106,28 @@ const AccordionControl: FC<AccordionControlProps> = ({
 			>
 				{/* Lead */}
 				{lead && (
-					<div className={`${leadBase} ${leadClasses}`} data-testid="accordion-lead">
+					<div
+						className={`${leadBase} ${leadClasses}`}
+						data-testid="accordion-lead"
+					>
 						{lead}
 					</div>
 				)}
 				{/* Content */}
-				<div className={`${contentBase} ${contentClasses}`} data-testid="accordion-content">
+				<div
+					className={`${contentBase} ${contentClasses}`}
+					data-testid="accordion-content"
+				>
 					{children}
 				</div>
 				{/* Indicator */}
-				<div className={`${indicatorBase} ${indicatorClasses}`} data-testid="accordion-indicator">
-					{ctx.api.value.includes(itemCtx.value) ? ctx.iconOpen : ctx.iconClosed}
+				<div
+					className={`${indicatorBase} ${indicatorClasses}`}
+					data-testid="accordion-indicator"
+				>
+					{ctx.api.value.includes(itemCtx.value)
+						? ctx.iconOpen
+						: ctx.iconClosed}
 				</div>
 			</button>
 		</HeadingElement>
@@ -110,18 +136,22 @@ const AccordionControl: FC<AccordionControlProps> = ({
 
 const AccordionPanel: FC<AccordionPanelProps> = ({
 	// Panel
-	base = '',
-	padding = 'py-2 px-4',
-	rounded = '',
-	classes = '',
+	base = "",
+	padding = "py-2 px-4",
+	rounded = "",
+	classes = "",
 	// Children
-	children
+	children,
 }) => {
 	const ctx = useContext(AccordionContext);
 	const itemCtx = useContext(AccordionItemContext);
 	return (
 		ctx.api.value.includes(itemCtx.value) && (
-			<div {...ctx.api.getItemContentProps(itemCtx)} className={`${base} ${padding} ${rounded} ${classes}`} data-testid="accordion-panel">
+			<div
+				{...ctx.api.getItemContentProps(itemCtx)}
+				className={`${base} ${padding} ${rounded} ${classes}`}
+				data-testid="accordion-panel"
+			>
 				{children}
 			</div>
 		)
@@ -131,5 +161,5 @@ const AccordionPanel: FC<AccordionPanelProps> = ({
 export const Accordion = /* @__PURE__ */ Object.assign(AccordionRoot, {
 	Item: AccordionItem,
 	Control: AccordionControl,
-	Panel: AccordionPanel
+	Panel: AccordionPanel,
 });

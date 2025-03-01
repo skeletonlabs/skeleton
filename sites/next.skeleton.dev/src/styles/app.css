@@ -1,32 +1,32 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin "@tailwindcss/forms";
 
-@import '@skeletonlabs/skeleton';
+@import "@skeletonlabs/skeleton";
 /* Optional */
-@import '@skeletonlabs/skeleton/optional/presets';
+@import "@skeletonlabs/skeleton/optional/presets";
 /* Themes */
-@import '@skeletonlabs/skeleton/themes/catppuccin';
-@import '@skeletonlabs/skeleton/themes/cerberus';
-@import '@skeletonlabs/skeleton/themes/concord';
-@import '@skeletonlabs/skeleton/themes/crimson';
-@import '@skeletonlabs/skeleton/themes/fennec';
-@import '@skeletonlabs/skeleton/themes/hamlindigo';
-@import '@skeletonlabs/skeleton/themes/legacy';
-@import '@skeletonlabs/skeleton/themes/mint';
-@import '@skeletonlabs/skeleton/themes/modern';
-@import '@skeletonlabs/skeleton/themes/mona';
-@import '@skeletonlabs/skeleton/themes/nosh';
-@import '@skeletonlabs/skeleton/themes/nouveau';
-@import '@skeletonlabs/skeleton/themes/pine';
-@import '@skeletonlabs/skeleton/themes/reign';
-@import '@skeletonlabs/skeleton/themes/rocket';
-@import '@skeletonlabs/skeleton/themes/rose';
-@import '@skeletonlabs/skeleton/themes/sahara';
-@import '@skeletonlabs/skeleton/themes/seafoam';
-@import '@skeletonlabs/skeleton/themes/terminus';
-@import '@skeletonlabs/skeleton/themes/vintage';
-@import '@skeletonlabs/skeleton/themes/vox';
-@import '@skeletonlabs/skeleton/themes/wintry';
+@import "@skeletonlabs/skeleton/themes/catppuccin";
+@import "@skeletonlabs/skeleton/themes/cerberus";
+@import "@skeletonlabs/skeleton/themes/concord";
+@import "@skeletonlabs/skeleton/themes/crimson";
+@import "@skeletonlabs/skeleton/themes/fennec";
+@import "@skeletonlabs/skeleton/themes/hamlindigo";
+@import "@skeletonlabs/skeleton/themes/legacy";
+@import "@skeletonlabs/skeleton/themes/mint";
+@import "@skeletonlabs/skeleton/themes/modern";
+@import "@skeletonlabs/skeleton/themes/mona";
+@import "@skeletonlabs/skeleton/themes/nosh";
+@import "@skeletonlabs/skeleton/themes/nouveau";
+@import "@skeletonlabs/skeleton/themes/pine";
+@import "@skeletonlabs/skeleton/themes/reign";
+@import "@skeletonlabs/skeleton/themes/rocket";
+@import "@skeletonlabs/skeleton/themes/rose";
+@import "@skeletonlabs/skeleton/themes/sahara";
+@import "@skeletonlabs/skeleton/themes/seafoam";
+@import "@skeletonlabs/skeleton/themes/terminus";
+@import "@skeletonlabs/skeleton/themes/vintage";
+@import "@skeletonlabs/skeleton/themes/vox";
+@import "@skeletonlabs/skeleton/themes/wintry";
 
 @source '../../node_modules/@skeletonlabs/skeleton-react/dist';
 @source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
@@ -49,7 +49,7 @@ html {
 }
 
 .bg-noise {
-	background-image: url('../images/noise-light.png');
+	background-image: url("../images/noise-light.png");
 	background-repeat: repeat;
 	background-blend-mode: overlay;
 }
@@ -67,17 +67,35 @@ html {
 .gradient-homepage-one {
 	background-size: cover;
 	/* prettier-ignore */
-	background-image:
-		radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 30%),
-		radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-success-500) 18%, transparent) 0px, transparent 30%),
-		radial-gradient(at 100% 64%, color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px, transparent 40%);
+	background-image: radial-gradient(
+			at 24% 25%,
+			color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px,
+			transparent 30%
+		),
+		radial-gradient(
+			at 35% 13%,
+			color-mix(in oklab, var(--color-success-500) 18%, transparent) 0px,
+			transparent 30%
+		),
+		radial-gradient(
+			at 100% 64%,
+			color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px,
+			transparent 40%
+		);
 }
 .gradient-homepage-two {
 	background-size: cover;
 	/* prettier-ignore */
-	background-image:
-		radial-gradient(at 25% 40%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 35%),
-		radial-gradient(at 100% 58%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 35%);
+	background-image: radial-gradient(
+			at 25% 40%,
+			color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px,
+			transparent 35%
+		),
+		radial-gradient(
+			at 100% 58%,
+			color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px,
+			transparent 35%
+		);
 }
 
 /* Inner Page Gradient */
@@ -87,29 +105,36 @@ html {
 [data-theme='terminus'],
 [data-theme='vox'],
 */
-[data-theme='catppuccin'],
-[data-theme='cerberus'],
-[data-theme='crimson'],
-[data-theme='fennec'],
-[data-theme='hamlindigo'],
-[data-theme='legacy'],
-[data-theme='mint'],
-[data-theme='modern'],
-[data-theme='nouveau'],
-[data-theme='mona'],
-[data-theme='nosh'],
-[data-theme='pine'],
-[data-theme='rose'],
-[data-theme='sahara'],
-[data-theme='seafoam'],
-[data-theme='vintage'],
-[data-theme='wintry'] {
+[data-theme="catppuccin"],
+[data-theme="cerberus"],
+[data-theme="crimson"],
+[data-theme="fennec"],
+[data-theme="hamlindigo"],
+[data-theme="legacy"],
+[data-theme="mint"],
+[data-theme="modern"],
+[data-theme="nouveau"],
+[data-theme="mona"],
+[data-theme="nosh"],
+[data-theme="pine"],
+[data-theme="rose"],
+[data-theme="sahara"],
+[data-theme="seafoam"],
+[data-theme="vintage"],
+[data-theme="wintry"] {
 	& body {
 		background-attachment: fixed;
 		/* prettier-ignore */
-		background-image:
-		radial-gradient(at 0% 25%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
-		radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 30%);
+		background-image: radial-gradient(
+				at 0% 25%,
+				color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px,
+				transparent 30%
+			),
+			radial-gradient(
+				at 15% 06%,
+				color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px,
+				transparent 30%
+			);
 	}
 }
 
@@ -148,12 +173,12 @@ html {
 .floating {
 	transition-property: opacity;
 }
-.floating[data-status='open'],
-.floating[data-status='close'] {
+.floating[data-status="open"],
+.floating[data-status="close"] {
 	transition-duration: 250ms;
 }
-.floating[data-status='initial'],
-.floating[data-status='close'] {
+.floating[data-status="initial"],
+.floating[data-status="close"] {
 	opacity: 0;
 }
 

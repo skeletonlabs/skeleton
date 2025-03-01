@@ -1,8 +1,9 @@
-[data-theme='rose'] {
+[data-theme="rose"] {
 	--text-scaling: 1.067;
 	--base-font-color: var(--color-surface-950);
 	--base-font-color-dark: var(--color-surface-50);
-	--base-font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+	--base-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
+		source-sans-pro, sans-serif;
 	--base-font-size: inherit;
 	--base-line-height: inherit;
 	--base-font-weight: normal;
@@ -10,7 +11,8 @@
 	--base-letter-spacing: 0em;
 	--heading-font-color: var(--color-secondary-900);
 	--heading-font-color-dark: var(--color-secondary-100);
-	--heading-font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+	--heading-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri,
+		"DejaVu Sans", source-sans-pro, sans-serif;
 	--heading-font-weight: normal;
 	--heading-font-style: normal;
 	--heading-letter-spacing: 0.025em;

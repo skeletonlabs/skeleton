@@ -1,21 +1,22 @@
 // Based On: https://floating-ui.com/docs/popover
 
-import React, { useRef, useState } from 'react';
 import {
-	useFloating,
-	autoUpdate,
-	offset,
-	flip,
-	shift,
+	FloatingArrow,
+	FloatingFocusManager,
 	arrow,
+	autoUpdate,
+	flip,
+	offset,
+	shift,
 	useClick,
 	useDismiss,
-	useRole,
+	useFloating,
 	useInteractions,
-	FloatingFocusManager,
-	FloatingArrow
-} from '@floating-ui/react';
-import { X as IconX } from 'lucide-react';
+	useRole,
+} from "@floating-ui/react";
+import { X as IconX } from "lucide-react";
+import type React from "react";
+import { useRef, useState } from "react";
 
 export const Page: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -29,23 +30,31 @@ export const Page: React.FC = () => {
 			flip(),
 			shift(),
 			arrow({
-				element: arrowRef
-			})
+				element: arrowRef,
+			}),
 		],
-		placement: 'top',
-		whileElementsMounted: autoUpdate
+		placement: "top",
+		whileElementsMounted: autoUpdate,
 	});
 
 	const click = useClick(context);
 	const dismiss = useDismiss(context);
 	const role = useRole(context);
 
-	const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role]);
+	const { getReferenceProps, getFloatingProps } = useInteractions([
+		click,
+		dismiss,
+		role,
+	]);
 
 	return (
 		<>
 			{/* Trigger */}
-			<button ref={refs.setReference} {...getReferenceProps()} className="btn preset-tonal">
+			<button
+				ref={refs.setReference}
+				{...getReferenceProps()}
+				className="btn preset-tonal"
+			>
 				Click Me
 			</button>
 			{isOpen && (
@@ -61,18 +70,26 @@ export const Page: React.FC = () => {
 						<div className="space-y-4">
 							<header className="flex justify-between">
 								<p className="font-bold text-xl">Popover Example</p>
-								<button className="btn-icon hover:preset-tonal" onClick={() => setIsOpen(false)}>
+								<button
+									className="btn-icon hover:preset-tonal"
+									onClick={() => setIsOpen(false)}
+								>
 									<IconX />
 								</button>
 							</header>
 							<article>
 								<p className="opacity-60">
-									This will display a basic popover with a header and body. This also includes a title, description, and close button.
+									This will display a basic popover with a header and body. This
+									also includes a title, description, and close button.
 								</p>
 							</article>
 						</div>
 						{/* Arrow */}
-						<FloatingArrow ref={arrowRef} context={context} className="fill-surface-200-800" />
+						<FloatingArrow
+							ref={arrowRef}
+							context={context}
+							className="fill-surface-200-800"
+						/>
 					</div>
 				</FloatingFocusManager>
 			)}

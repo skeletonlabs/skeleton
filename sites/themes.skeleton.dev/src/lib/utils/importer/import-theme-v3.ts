@@ -1,17 +1,17 @@
 // Import v3 Theme File
 // Read v3 theme file contents, updates local generator state.
 
-import chroma from 'chroma-js';
-import * as constants from '$lib/constants/generator';
+import * as constants from "$lib/constants/generator";
 import {
-	settingsCore,
-	settingsColors,
 	settingsBackgrounds,
-	settingsTypography,
+	settingsColors,
+	settingsCore,
+	settingsEdges,
 	settingsSpacing,
-	settingsEdges
-} from '$lib/state/generator.svelte';
-import { genColorRamp } from '$lib/utils/generator/colors';
+	settingsTypography,
+} from "$lib/state/generator.svelte";
+import { genColorRamp } from "$lib/utils/generator/colors";
+import chroma from "chroma-js";
 
 export async function importThemeV3(fileText: string, fileName: string) {
 	// Create array for each line
@@ -21,33 +21,33 @@ export async function importThemeV3(fileText: string, fileName: string) {
 	// Line Formatting ---
 	let linesFormatted: string[];
 	// Filter to only supported properties
-	linesFormatted = lines.filter((line) => line.includes('--'));
+	linesFormatted = lines.filter((line) => line.includes("--"));
 	// Removing trailing comments
-	linesFormatted = linesFormatted.map((line) => line.split('/*')[0]);
+	linesFormatted = linesFormatted.map((line) => line.split("/*")[0]);
 	// Format Lines
 	linesFormatted = linesFormatted.map((line) => {
 		line = line.trim();
-		line = line.replaceAll(`;`, ''); // semi-colon
+		line = line.replaceAll(";", ""); // semi-colon
 		return line;
 	});
 
 	// Create key/value object
 	const properties: Record<string, string> = {};
 	linesFormatted.forEach((line) => {
-		const [key, value] = line.split(': ');
+		const [key, value] = line.split(": ");
 		properties[key] = value;
 	});
 
 	// Colors (oklch -> hex)
 	Object.entries(properties).forEach((property) => {
 		const [key, value] = property;
-		if (!key.includes('--color')) return;
-		if (value.includes('var')) return;
+		if (!key.includes("--color")) return;
+		if (value.includes("var")) return;
 		properties[key] = chroma(value).hex();
 	});
 
 	// Set Generator State ---
-	if (fileName) settingsCore.name = fileName.split('.')[0]; // before .css
+	if (fileName) settingsCore.name = fileName.split(".")[0]; // before .css
 	// Theme Properties
 	for (const key in properties) {
 		if (key in settingsColors) {

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { type FC, useId } from 'react';
-import * as avatar from '@zag-js/avatar';
-import { useMachine, normalizeProps } from '@zag-js/react';
-import type { AvatarProps } from './types.js';
+import * as avatar from "@zag-js/avatar";
+import { normalizeProps, useMachine } from "@zag-js/react";
+import { type FC, useId } from "react";
+import type { AvatarProps } from "./types.js";
 
 export const Avatar: FC<AvatarProps> = ({
 	src,
@@ -11,21 +11,21 @@ export const Avatar: FC<AvatarProps> = ({
 	name,
 	filter,
 	// Root
-	base = 'overflow-hidden isolate',
-	background = 'bg-surface-400-600',
-	size = 'size-16',
-	font = '',
-	border = '',
-	rounded = 'rounded-full',
-	shadow = '',
-	classes = '',
+	base = "overflow-hidden isolate",
+	background = "bg-surface-400-600",
+	size = "size-16",
+	font = "",
+	border = "",
+	rounded = "rounded-full",
+	shadow = "",
+	classes = "",
 	// Image
-	imageBase = 'w-full object-cover',
-	imageClasses = '',
+	imageBase = "w-full object-cover",
+	imageClasses = "",
 	style,
 	// Fallback
-	fallbackBase = 'w-full h-full flex justify-center items-center',
-	fallbackClasses = '',
+	fallbackBase = "w-full h-full flex justify-center items-center",
+	fallbackClasses = "",
 	// Children
 	children,
 	// Zag
@@ -34,15 +34,15 @@ export const Avatar: FC<AvatarProps> = ({
 	// Zag
 	const service = useMachine(avatar.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = avatar.connect(service, normalizeProps);
 
 	function getInitials(name: string) {
 		return name
-			.split(' ')
+			.split(" ")
 			.map((word) => word[0])
-			.join('');
+			.join("");
 	}
 
 	return (
@@ -64,7 +64,11 @@ export const Avatar: FC<AvatarProps> = ({
 				/>
 			)}
 			{/* Fallback */}
-			<span {...api.getFallbackProps()} className={`${fallbackBase} ${fallbackClasses}`} data-testid="avatar-fallback">
+			<span
+				{...api.getFallbackProps()}
+				className={`${fallbackBase} ${fallbackClasses}`}
+				data-testid="avatar-fallback"
+			>
 				{children ? children : getInitials(name)}
 			</span>
 		</figure>

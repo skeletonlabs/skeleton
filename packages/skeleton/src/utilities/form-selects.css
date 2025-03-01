@@ -24,8 +24,10 @@
 	border-width: 0;
 	--tw-ring-inset: inset;
 	--tw-ring-color: var(--color-surface-200-800);
-	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
-	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width)
+    var(--tw-ring-color, currentColor);
+	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+		var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 
 	@variant active {
 		--tw-ring-color: var(--color-primary-500);
@@ -83,7 +85,11 @@
 
 	& option:checked {
 		/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
-		background-image: linear-gradient(0deg, var(--color-primary-500) 0%, var(--color-primary-500) 100%);
+		background-image: linear-gradient(
+			0deg,
+			var(--color-primary-500) 0%,
+			var(--color-primary-500) 100%
+		);
 		color: var(--color-primary-contrast-950-50);
 	}
 }

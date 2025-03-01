@@ -1,5 +1,5 @@
-import type { ReactNode, PropsWithChildren } from 'react';
-import * as tabs from '@zag-js/tabs';
+import type * as tabs from "@zag-js/tabs";
+import type { PropsWithChildren, ReactNode } from "react";
 
 // Context ---
 
@@ -10,7 +10,9 @@ export interface TabsContextState {
 
 // Components ---
 
-export interface TabsRootProps extends PropsWithChildren, Omit<tabs.Props, 'id' | 'orientation'> {
+export interface TabsRootProps
+	extends PropsWithChildren,
+		Omit<tabs.Props, "id" | "orientation"> {
 	/** Set tabs to stretch to fill the available width. */
 	fluid?: boolean;
 

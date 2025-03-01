@@ -1,13 +1,21 @@
 // Theme Output Formatters
 // Deep clones each state object and formats as needed.
 
-import chroma from 'chroma-js';
-import type { SettingsCore, SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from '$lib/state/types';
+import type {
+	SettingsBackgrounds,
+	SettingsCore,
+	SettingsEdges,
+	SettingsSpacing,
+	SettingsTypography,
+} from "$lib/state/types";
+import chroma from "chroma-js";
 
 /** UTIL: Format from JS Object to CSS properties format. */
 function objectToCssProperties(obj: Record<string, unknown>) {
-	let css = '';
-	Object.entries(obj).forEach(([key, value]) => (css += `\t${key}: ${value};\n`));
+	let css = "";
+	Object.entries(obj).forEach(
+		([key, value]) => (css += `\t${key}: ${value};\n`),
+	);
 	return `\t${css.trim()}`;
 }
 
@@ -16,9 +24,9 @@ function objectToCssProperties(obj: Record<string, unknown>) {
 export function formatCore(core: SettingsCore) {
 	const _core = JSON.parse(JSON.stringify(core));
 	// Strip all special characters from theme name
-	_core.name = core.name.trim().replace(/[^a-zA-Z]/g, '');
+	_core.name = core.name.trim().replace(/[^a-zA-Z]/g, "");
 	// Fallback to `theme` when theme name is empty
-	if (_core.name === '') _core.name = 'theme';
+	if (_core.name === "") _core.name = "theme";
 	return _core;
 }
 
@@ -46,7 +54,8 @@ export function formatColors(colors: Record<string, string>) {
 	const _colors = JSON.parse(JSON.stringify(colors));
 	Object.keys(_colors).forEach((key) => {
 		// @ts-expect-error oklch param
-		if (_colors[key].includes('#')) _colors[key] = chroma(_colors[key]).css('oklch');
+		if (_colors[key].includes("#"))
+			_colors[key] = chroma(_colors[key]).css("oklch");
 	});
 	return objectToCssProperties(_colors);
 }

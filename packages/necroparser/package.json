@@ -17,10 +17,9 @@
 	},
 	"main": "./dist/index.cjs",
 	"types": "./dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"devDependencies": {
+		"@types/node": "^22.13.8",
 		"@zag-js/accordion": "^0.78.3",
 		"memfs": "^4.15.0",
 		"unbuild": "^3.2.0",

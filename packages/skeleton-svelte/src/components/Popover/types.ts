@@ -1,7 +1,7 @@
-import type { Snippet } from 'svelte';
-import * as popover from '@zag-js/popover';
+import type * as popover from "@zag-js/popover";
+import type { Snippet } from "svelte";
 
-export interface PopoverProps extends Omit<popover.Props, 'id'> {
+export interface PopoverProps extends Omit<popover.Props, "id"> {
 	/** Enable display of the popover arrow. */
 	arrow?: boolean;
 

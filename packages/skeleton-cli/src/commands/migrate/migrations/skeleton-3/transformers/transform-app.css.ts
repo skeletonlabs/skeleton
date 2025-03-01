@@ -1,11 +1,18 @@
-import { atRule, comment, parse, Node, Root, AtRule } from 'postcss';
-import type { Theme } from '../utility/types';
-import { transformStyleSheet } from './transform-stylesheet';
+import {
+	type AtRule,
+	type Node,
+	type Root,
+	atRule,
+	comment,
+	parse,
+} from "postcss";
+import type { Theme } from "../utility/types";
+import { transformStyleSheet } from "./transform-stylesheet";
 
 function getTailwindImport(root: Root) {
 	let tailwindImport: AtRule | undefined;
-	root.walkAtRules('import', (atRule) => {
-		if (atRule.params.includes('tailwindcss')) {
+	root.walkAtRules("import", (atRule) => {
+		if (atRule.params.includes("tailwindcss")) {
 			tailwindImport = atRule;
 		}
 	});
@@ -18,35 +25,39 @@ function transformAppCss(code: string, theme: Theme, addAtSource: boolean) {
 	const nodes: Node[] = [];
 	nodes.push(
 		atRule({
-			name: 'import',
-			params: '"@skeletonlabs/skeleton"'
-		})
+			name: "import",
+			params: '"@skeletonlabs/skeleton"',
+		}),
 	);
 	nodes.push(
 		atRule({
-			name: 'import',
-			params: '"@skeletonlabs/skeleton/optional/presets"'
-		})
+			name: "import",
+			params: '"@skeletonlabs/skeleton/optional/presets"',
+		}),
 	);
 	switch (theme.type) {
-		case 'preset':
+		case "preset":
 			nodes.push(
 				atRule({
-					name: 'import',
-					params: `"@skeletonlabs/skeleton/themes/${theme.value}"`
-				})
+					name: "import",
+					params: `"@skeletonlabs/skeleton/themes/${theme.value}"`,
+				}),
 			);
 			break;
-		case 'custom':
-			nodes.push(comment({ text: `Add your theme import for your theme: "${theme.value}" here` }));
+		case "custom":
+			nodes.push(
+				comment({
+					text: `Add your theme import for your theme: "${theme.value}" here`,
+				}),
+			);
 			break;
 	}
 	if (addAtSource) {
 		nodes.push(
 			atRule({
-				name: 'source',
-				params: '"../node_modules/@skeletonlabs/skeleton-svelte"'
-			})
+				name: "source",
+				params: '"../node_modules/@skeletonlabs/skeleton-svelte"',
+			}),
 		);
 	}
 	const tailwindImport = getTailwindImport(root);
@@ -56,7 +67,7 @@ function transformAppCss(code: string, theme: Theme, addAtSource: boolean) {
 		root.prepend(nodes);
 	}
 	return {
-		code: root.toString()
+		code: root.toString(),
 	};
 }
 

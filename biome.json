@@ -1,0 +1,26 @@
+{
+	"files": {
+		"ignore": [
+			"packages/create-skeleton-app",
+			"dist",
+			".svelte-kit",
+			".next",
+			".astro",
+			"node_modules",
+			"pagefind"
+		]
+	},
+	"overrides": [
+		{
+			"include": ["*.svelte"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useConst": "off",
+						"useImportType": "off"
+					}
+				}
+			}
+		}
+	]
+}

@@ -1,7 +1,7 @@
-import * as tagsInput from '@zag-js/tags-input';
-import type { Snippet } from 'svelte';
+import type * as tagsInput from "@zag-js/tags-input";
+import type { Snippet } from "svelte";
 
-export interface TagsInputProps extends Omit<tagsInput.Props, 'id'> {
+export interface TagsInputProps extends Omit<tagsInput.Props, "id"> {
 	/** Set the add tag input placeholder. */
 	placeholder?: string;
 

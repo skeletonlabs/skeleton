@@ -1,5 +1,5 @@
 ---
-'@skeletonlabs/skeleton-svelte': patch
+"@skeletonlabs/skeleton-svelte": patch
 ---
 
 chore: Implemented Svelte test specs for all components

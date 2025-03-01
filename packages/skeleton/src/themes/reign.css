@@ -1,8 +1,9 @@
-[data-theme='reign'] {
+[data-theme="reign"] {
 	--text-scaling: 1.067;
 	--base-font-color: 0 0 0;
 	--base-font-color-dark: 255 255 255;
-	--base-font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+	--base-font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
+		source-sans-pro, sans-serif;
 	--base-font-size: 18px;
 	--base-line-height: inherit;
 	--base-font-weight: lighter;
@@ -10,7 +11,8 @@
 	--base-letter-spacing: 0em;
 	--heading-font-color: inherit;
 	--heading-font-color-dark: inherit;
-	--heading-font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+	--heading-font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+		Consolas, "DejaVu Sans Mono", monospace;
 	--heading-font-weight: bold;
 	--heading-font-style: normal;
 	--heading-letter-spacing: 0.025em;

@@ -1,9 +1,9 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.replace('/docs', '').slice(1) + '/';
+const currentPath = `${pathname.replace("/docs", "").slice(1)}/`;
 
 interface Props {
 	classList?: string;
@@ -11,105 +11,112 @@ interface Props {
 const { classList } = Astro.props;
 
 // Sort Order
-const sortByOrder = (a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => {
+const sortByOrder = (
+	a: CollectionEntry<"docs">,
+	b: CollectionEntry<"docs">,
+) => {
 	return a.data.order - b.data.order;
 };
 
 // Query a collection via the start of the ID string
 async function queryCollection(startsWith: string) {
-	return await getCollection('docs', (entry) => {
+	return await getCollection("docs", (entry) => {
 		if (!entry.id.startsWith(startsWith)) return;
-		if (entry.id.split('/').length > 2) return;
-		if (entry.id.endsWith('meta')) return;
+		if (entry.id.split("/").length > 2) return;
+		if (entry.id.endsWith("meta")) return;
 		return entry;
 	});
 }
 
 // Query each collection we wish to display
-const cGetStarted = await queryCollection('get-started/');
-const cGuides = await queryCollection('guides/');
-const cDesign = await queryCollection('design/');
-const cTailwind = await queryCollection('tailwind/');
-const cResources = await queryCollection('resources/');
+const cGetStarted = await queryCollection("get-started/");
+const cGuides = await queryCollection("guides/");
+const cDesign = await queryCollection("design/");
+const cTailwind = await queryCollection("tailwind/");
+const cResources = await queryCollection("resources/");
 
 // Query the Components section
-const cComponents = await getCollection('docs', (entry) => {
-	if (!entry.id.startsWith('components/')) return;
-	if (!entry.id.endsWith('meta')) return;
+const cComponents = await getCollection("docs", (entry) => {
+	if (!entry.id.startsWith("components/")) return;
+	if (!entry.id.endsWith("meta")) return;
 	return entry;
 });
 
 // Query the Integrations section
-const cIntegrations = await getCollection('docs', (entry) => {
-	if (!entry.id.startsWith('integrations/')) return;
-	if (!entry.id.endsWith('meta')) return;
+const cIntegrations = await getCollection("docs", (entry) => {
+	if (!entry.id.startsWith("integrations/")) return;
+	if (!entry.id.endsWith("meta")) return;
 	return entry;
 });
 
 // Set the Label and Link List for each navigation section
 const navigation = {
-	'get-started': cGetStarted.sort(sortByOrder),
+	"get-started": cGetStarted.sort(sortByOrder),
 	guides: cGuides.sort(sortByOrder),
-	'design-system': cDesign.sort(sortByOrder),
-	'tailwind-components': cTailwind.sort(sortByOrder),
-	'framework-components': cComponents,
+	"design-system": cDesign.sort(sortByOrder),
+	"tailwind-components": cTailwind.sort(sortByOrder),
+	"framework-components": cComponents,
 	integrations: cIntegrations,
-	resources: cResources.sort(sortByOrder)
+	resources: cResources.sort(sortByOrder),
 };
 ---
 
 <aside class="text-sm space-y-10 overflow-y-auto pr-4" class:list={[classList]}>
-	{
-		Object.entries(navigation).map(([key, pages]) => (
-			<nav class="flex flex-col gap-2">
-				<span class="text-sm font-bold capitalize ml-2">{key.replace('-', ' ')}</span>
-				<ul class="flex flex-col gap-1">
-					{pages.map((page) => (
-						<a
-							class={`px-2 py-1 rounded-base ${currentPath.includes(page.id.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
-							href={`/docs/${page.id}`}
-							title={page.data.title}
-						>
-							{page.data.title}
-						</a>
-					))}
-				</ul>
-			</nav>
-		))
-	}
+  {
+    Object.entries(navigation).map(([key, pages]) => (
+      <nav class="flex flex-col gap-2">
+        <span class="text-sm font-bold capitalize ml-2">
+          {key.replace("-", " ")}
+        </span>
+        <ul class="flex flex-col gap-1">
+          {pages.map((page) => (
+            <a
+              class={`px-2 py-1 rounded-base ${currentPath.includes(page.id.replace("meta", "")) ? "preset-tonal" : "anchor"}`}
+              href={`/docs/${page.id}`}
+              title={page.data.title}
+            >
+              {page.data.title}
+            </a>
+          ))}
+        </ul>
+      </nav>
+    ))
+  }
 </aside>
 
 <script>
-	import { preferredFrameworkStore } from 'src/stores/preferred-framework';
-	const SIDEBAR_SCROLL_KEY = 'sidebar-scroll-position';
-	function handleSidebarScroll(event: Event) {
-		if (!(event.target instanceof HTMLElement)) return;
-		sessionStorage.setItem(SIDEBAR_SCROLL_KEY, String(event.target.scrollTop));
-	}
-	function restoreScrollPosition() {
-		const sidebar = document.querySelector('[data-navigation]');
-		if (!sidebar) return;
+  import { preferredFrameworkStore } from "src/stores/preferred-framework";
+  const SIDEBAR_SCROLL_KEY = "sidebar-scroll-position";
+  function handleSidebarScroll(event: Event) {
+    if (!(event.target instanceof HTMLElement)) return;
+    sessionStorage.setItem(SIDEBAR_SCROLL_KEY, String(event.target.scrollTop));
+  }
+  function restoreScrollPosition() {
+    const sidebar = document.querySelector("[data-navigation]");
+    if (!sidebar) return;
 
-		const scrollPosition = sessionStorage.getItem(SIDEBAR_SCROLL_KEY);
-		sidebar.scrollTop = parseInt(scrollPosition ?? '0', 10);
+    const scrollPosition = sessionStorage.getItem(SIDEBAR_SCROLL_KEY);
+    sidebar.scrollTop = parseInt(scrollPosition ?? "0", 10);
 
-		sidebar.removeEventListener('scroll', handleSidebarScroll);
-		sidebar.addEventListener('scroll', handleSidebarScroll);
-	}
-	function rewriteAnchorHrefs(framework: ReturnType<typeof preferredFrameworkStore.get>) {
-		const anchors = document.querySelectorAll<HTMLAnchorElement>('a');
-		for (const anchor of anchors) {
-			if (!anchor.href.endsWith('meta')) continue;
-			anchor.setAttribute('href', anchor.href.replace('meta', framework));
-		}
-	}
-	restoreScrollPosition();
-	rewriteAnchorHrefs(preferredFrameworkStore.get());
-	preferredFrameworkStore.subscribe((preferredFramework) => {
-		rewriteAnchorHrefs(preferredFramework);
-	});
-	document.addEventListener('astro:after-swap', () => {
-		restoreScrollPosition();
-		rewriteAnchorHrefs(preferredFrameworkStore.get());
-	});
+    sidebar.removeEventListener("scroll", handleSidebarScroll);
+    sidebar.addEventListener("scroll", handleSidebarScroll);
+  }
+  function rewriteAnchorHrefs(
+    framework: ReturnType<typeof preferredFrameworkStore.get>,
+  ) {
+    const anchors = document.querySelectorAll<HTMLAnchorElement>("a");
+    for (const anchor of anchors) {
+      if (!anchor.href.endsWith("meta")) continue;
+      anchor.setAttribute("href", anchor.href.replace("meta", framework));
+    }
+  }
+  restoreScrollPosition();
+  rewriteAnchorHrefs(preferredFrameworkStore.get());
+  preferredFrameworkStore.subscribe((preferredFramework) => {
+    rewriteAnchorHrefs(preferredFramework);
+  });
+  document.addEventListener("astro:after-swap", () => {
+    restoreScrollPosition();
+    rewriteAnchorHrefs(preferredFrameworkStore.get());
+  });
 </script>

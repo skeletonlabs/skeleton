@@ -1,5 +1,5 @@
-import type { Snippet } from 'svelte';
-import * as radio from '@zag-js/radio-group';
+import type * as radio from "@zag-js/radio-group";
+import type { Snippet } from "svelte";
 
 // Context ---
 
@@ -10,7 +10,7 @@ export interface SegmentContext {
 
 // Components ---
 
-export interface SegmentProps extends Omit<radio.Props, 'id'> {
+export interface SegmentProps extends Omit<radio.Props, "id"> {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;
@@ -64,7 +64,7 @@ export interface SegmentProps extends Omit<radio.Props, 'id'> {
 	children?: Snippet;
 }
 
-export interface SegmentItemProps extends Omit<radio.ItemProps, 'invalid'> {
+export interface SegmentItemProps extends Omit<radio.ItemProps, "invalid"> {
 	// Root ---
 	/** Sets base classes. */
 	base?: string;

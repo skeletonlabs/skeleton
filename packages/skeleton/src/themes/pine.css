@@ -1,8 +1,9 @@
-[data-theme='pine'] {
+[data-theme="pine"] {
 	--text-scaling: 1.067;
 	--base-font-color: var(--color-surface-950);
 	--base-font-color-dark: var(--color-surface-50);
-	--base-font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+	--base-font-family: Superclarendon, "Bookman Old Style", "URW Bookman",
+		"URW Bookman L", "Georgia Pro", Georgia, serif;
 	--base-font-size: inherit;
 	--base-line-height: inherit;
 	--base-font-weight: normal;
@@ -10,7 +11,8 @@
 	--base-letter-spacing: 0em;
 	--heading-font-color: var(--color-primary-800);
 	--heading-font-color-dark: var(--color-primary-300);
-	--heading-font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+	--heading-font-family: Superclarendon, "Bookman Old Style", "URW Bookman",
+		"URW Bookman L", "Georgia Pro", Georgia, serif;
 	--heading-font-weight: inherit;
 	--heading-font-style: normal;
 	--heading-letter-spacing: inherit;

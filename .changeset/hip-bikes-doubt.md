@@ -1,5 +1,5 @@
 ---
-'@skeletonlabs/skeleton-svelte': patch
+"@skeletonlabs/skeleton-svelte": patch
 ---
 
 feat: Implement `disabled` for Modal, Tooltip, Popover and Combobox
