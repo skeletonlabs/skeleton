@@ -39,12 +39,12 @@
 	}: ToastProviderProps = $props();
 
 	// Local
-	let defaults: Record<string, Toast> = {
+	const defaults: Record<string, Toast> = {
 		info: { duration: 5000 },
 		error: { duration: 5000 },
 		success: { duration: 2000 }
 	};
-	let placementOptions: Record<string, PlacementStyles> = {
+	const placementOptions: Record<string, PlacementStyles> = {
 		'top-start': { top: offset, left: offset, 'align-items': 'flex-start' },
 		'top-end': { top: offset, right: offset, 'align-items': 'flex-end' },
 		'bottom-start': { bottom: offset, left: offset, 'align-items': 'flex-start' },

@@ -1,7 +1,15 @@
 ---
-const { isComponent, label, descriptor, element } = Astro.props;
+interface Props {
+	isComponent?: boolean;
+	label?: string;
+	descriptor?: string;
+	tag?: string;
+}
 
-const lableFallback = '(unlabled)';
+const { isComponent, label, descriptor, tag } = Astro.props;
+
+const labelFallback = '(unlabled)';
+const tagFallback = 'div';
 ---
 
 <div class="card flex-1 bg-surface-50-950 preset-outlined-surface-600-400 border-dashed p-3 space-y-3">
@@ -9,13 +17,13 @@ const lableFallback = '(unlabled)';
 		<div class="flex items-center gap-2">
 			<!-- Label -->
 			<code class:list={label ? 'code' : 'text-xs opacity-60'}>
-				{isComponent ? `<${label ?? lableFallback}>` : (label ?? lableFallback)}
+				{isComponent ? `<${label ?? labelFallback}>` : (label ?? labelFallback)}
 			</code>
 			<!-- Descriptor -->
 			{descriptor && <span class="text-xs opacity-60">{descriptor}</span>}
 		</div>
 		<!-- Element -->
-		<span class="font-mono text-xs opacity-60">{`<${element ?? 'div'}>`}</span>
+		<span class="font-mono text-xs opacity-60">{`<${tag ?? tagFallback}>`}</span>
 	</header>
 	<!-- Default Slot -->
 	{
