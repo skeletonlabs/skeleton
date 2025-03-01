@@ -22,8 +22,7 @@
 		tagBackground = 'preset-filled',
 		tagClasses = '',
 		// Input: Edit
-		tagEditInputBase = '',
-		tagEditInputBackground = '',
+		tagEditInputBase = 'chip input',
 		tagEditInputClasses = '',
 		// Delete Button
 		buttonDeleteBase = '',

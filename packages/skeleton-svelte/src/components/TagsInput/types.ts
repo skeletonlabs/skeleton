@@ -38,8 +38,6 @@ export interface TagsInputProps extends Omit<tagsInput.Props, 'id'> {
 	// Tag Edit Input ---
 	/** Set base classes for the edit tag input. */
 	tagEditInputBase?: string;
-	/** Set background classes for the edit tag input. */
-	tagEditInputBackground?: string;
 	/** Provide arbitrary classes to the edit tag input. */
 	tagEditInputClasses?: string;
 
