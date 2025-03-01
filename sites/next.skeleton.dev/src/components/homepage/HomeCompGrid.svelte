@@ -10,7 +10,7 @@
 	import IconCheck from 'lucide-svelte/icons/check';
 	import IconUsers from 'lucide-svelte/icons/user';
 	import IconRewind from 'lucide-svelte/icons/rewind';
-	import IconFastFoward from 'lucide-svelte/icons/fast-forward';
+	import IconFastForward from 'lucide-svelte/icons/fast-forward';
 	import IconVolume from 'lucide-svelte/icons/volume-2';
 
 	// Classes
@@ -76,28 +76,48 @@
 			<hr class="hr" />
 			<section class="w-full space-y-5">
 				<div class="flex justify-between items-center gap-4">
-					<p class="opacity-60">Do not distrurb</p>
-					<Switch name="disturb" bind:checked={notifications.disturb}></Switch>
+					<p class="opacity-60">Do not disturb</p>
+					<Switch name="disturb" checked={notifications.disturb} onCheckedChange={(e) => (notifications.disturb = e.checked)}></Switch>
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Global notifications</p>
-					<Switch name="notifications" bind:checked={notifications.global} disabled={!notifications.disturb}></Switch>
+					<Switch
+						name="notifications"
+						checked={notifications.global}
+						disabled={!notifications.disturb}
+						onCheckedChange={(e) => (notifications.global = e.checked)}
+					></Switch>
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Personal notifications</p>
-					<Switch name="disabled" bind:checked={notifications.personal} disabled={!notifications.disturb}></Switch>
+					<Switch
+						name="disabled"
+						checked={notifications.personal}
+						disabled={!notifications.disturb}
+						onCheckedChange={(e) => (notifications.personal = e.checked)}
+					></Switch>
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Priority notifications</p>
-					<Switch name="disturb" bind:checked={notifications.priority} disabled={!notifications.disturb}></Switch>
+					<Switch
+						name="disturb"
+						checked={notifications.priority}
+						disabled={!notifications.disturb}
+						onCheckedChange={(e) => (notifications.priority = e.checked)}
+					></Switch>
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Featured News alerts</p>
-					<Switch name="notifications" bind:checked={notifications.news} disabled={!notifications.disturb}></Switch>
+					<Switch
+						name="notifications"
+						checked={notifications.news}
+						disabled={!notifications.disturb}
+						onCheckedChange={(e) => (notifications.news = e.checked)}
+					></Switch>
 				</div>
 			</section>
 		</div>
@@ -286,7 +306,7 @@
 			</button>
 			<div class="space-y-2 text-center">
 				<h2 class="h2">Invoice Paid</h2>
-				<p class="text-sm opacity-60">You paid $14,276. Receipt submited to:</p>
+				<p class="text-sm opacity-60">You paid $14,276. Receipt submitted to:</p>
 				<p class="font-bold">me@email.com</p>
 			</div>
 			<nav class="grid grid-cols-1 gap-2">
@@ -370,7 +390,7 @@
 							<p class="text-xs opacity-60">3:16</p>
 						</div>
 					</div>
-					<button type="button" class="btn hover:preset-tonal"><IconFastFoward class="size-4 opacity-60" /></button>
+					<button type="button" class="btn hover:preset-tonal"><IconFastForward class="size-4 opacity-60" /></button>
 				</div>
 				<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
 					<IconVolume class="size-4 opacity-60" />

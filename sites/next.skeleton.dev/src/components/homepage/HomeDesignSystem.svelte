@@ -22,7 +22,7 @@
 		},
 		{
 			label: 'Presets',
-			desc: 'Presets are utilty classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.'
+			desc: 'Presets are utility classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.'
 		},
 		{
 			label: 'Typography',
