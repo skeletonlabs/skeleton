@@ -28,7 +28,7 @@
 	};
 
 	// State
-	const settings = $state([]);
+	let settings: string[] = $state([]);
 </script>
 
 <section class="relative h-screen bg-surface-100-900 pb-96 overflow-y-auto">
@@ -45,7 +45,7 @@
 	<ControlsCore />
 	<!-- Settings Accordion -->
 	<div class="space-y-10">
-		<Accordion value={settings} collapsible spaceY="space-y-0">
+		<Accordion value={settings} onValueChange={(e) => (settings = e.value)} collapsible spaceY="space-y-0">
 			{#snippet iconOpen()}<IconOpen size={16} />{/snippet}
 			{#snippet iconClosed()}<IconClosed size={16} />{/snippet}
 			<hr class="hr" />
