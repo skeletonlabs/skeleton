@@ -15,14 +15,14 @@
 		inputBase = 'input-ghost',
 		inputClasses = '',
 		// Tag List
-		tagListBase = 'flex flex-wrap gap-2',
+		tagListBase = 'flex flex-wrap gap-1',
 		tagListClasses = '',
 		// Tag
 		tagBase = 'chip',
 		tagBackground = 'preset-filled',
 		tagClasses = '',
 		// Input: Edit
-		tagEditInputBase = 'chip text-surface-contrast-50',
+		tagEditInputBase = 'chip input',
 		tagEditInputClasses = '',
 		// Delete Button
 		buttonDeleteBase = '',

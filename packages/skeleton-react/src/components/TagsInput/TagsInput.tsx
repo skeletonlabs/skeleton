@@ -16,14 +16,14 @@ export const TagsInput: FC<TagsInputProps> = ({
 	inputBase = 'input-ghost',
 	inputClasses = '',
 	// Tag List
-	tagListBase = 'flex gap-2',
+	tagListBase = 'flex flex-wrap gap-1',
 	tagListClasses = '',
 	// Tag
 	tagBase = 'chip',
 	tagBackground = 'preset-filled',
 	tagClasses = '',
 	// Input: Edit
-	tagEditInputBase = 'chip text-surface-contrast-50',
+	tagEditInputBase = 'chip input',
 	tagEditInputClasses = '',
 	// Delete Button
 	buttonDeleteBase = '',
@@ -57,7 +57,7 @@ export const TagsInput: FC<TagsInputProps> = ({
 						const itemState = api.getItemState({ index, value });
 						return (
 							// Tag
-							<div key={value} {...api.getItemProps({ value, index })} data-testid="tags-tag">
+							<div className="contents" key={value} {...api.getItemProps({ value, index })} data-testid="tags-tag">
 								{/* Display */}
 								<div
 									{...api.getItemPreviewProps({ index, value })}
