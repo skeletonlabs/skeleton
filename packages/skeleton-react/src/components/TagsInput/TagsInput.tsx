@@ -78,7 +78,7 @@ export const TagsInput: FC<TagsInputProps> = ({
 								{/* Editing */}
 								<input
 									{...api.getItemInputProps({ index, value })}
-									className={`${tagEditInputBase} ${tagEditInputBackground} ${tagEditInputClasses}`}
+									className={`${tagEditInputBase} ${tagEditInputClasses}`}
 									style={{ display: itemState.editing ? '' : 'none' }}
 									data-testid="tags-input-edit"
 								/>

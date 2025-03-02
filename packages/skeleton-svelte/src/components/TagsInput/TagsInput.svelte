@@ -83,7 +83,7 @@
 					<!-- Editing -->
 					<input
 						{...api.getItemInputProps({ index, value })}
-						class="{tagEditInputBase} {tagEditInputBackground} {tagEditInputClasses}"
+						class="{tagEditInputBase} {tagEditInputClasses}"
 						style:display={itemState.editing ? '' : 'none'}
 						data-testid="tags-input-edit"
 					/>
