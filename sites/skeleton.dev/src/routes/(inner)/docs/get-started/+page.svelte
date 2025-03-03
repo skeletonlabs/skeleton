@@ -41,7 +41,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td><a href="https://v3.tailwindcss.com/" target="_blank" class="anchor">Taiwlind</a></td>
+						<td><a href="https://v3.tailwindcss.com/" target="_blank" class="anchor">Tailwind</a></td>
 						<td>v3</td>
 						<td>
 							<a href="https://tailwindcss.com/blog/tailwindcss-v4" target="_blank" class="anchor">Tailwind v4</a> is not supported by this version of Skeleton.
