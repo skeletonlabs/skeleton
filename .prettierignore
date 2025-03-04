@@ -6,3 +6,4 @@ pagefind/
 .astro/
 .next/
 .vercel/
+.pnpm-lock.yaml
