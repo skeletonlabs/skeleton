@@ -1,6 +1,6 @@
-import type { Props } from '@zag-js/accordion';
+import { External } from './external.js';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface Interface extends Props {
-	property: string;
+interface Interface extends External {
+	propertyTwo: string;
 }

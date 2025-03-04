@@ -21,7 +21,6 @@
 		"dist"
 	],
 	"devDependencies": {
-		"@zag-js/accordion": "catalog:",
 		"memfs": "^4.17.0",
 		"unbuild": "^3.5.0",
 		"vite": "^6.2.0",
