@@ -106,10 +106,10 @@ export const HeaderThemes: React.FC = () => {
 										<div className="aspect-square w-4 bg-primary-500 border-[1px] border-black/10 rounded-full" />
 										<div className="aspect-square w-4 bg-secondary-500 border-[1px] border-black/10 rounded-full" />
 										<div className="aspect-square w-4 bg-tertiary-500 border-[1px] border-black/10 rounded-full" />
-										<div className="aspect-square w-4 bg-success-500 border-[1px] border-black/10 rounded-full" />
-										<div className="aspect-square w-4 bg-warning-500 border-[1px] border-black/10 rounded-full" />
-										<div className="aspect-square w-4 bg-error-500 border-[1px] border-black/10 rounded-full" />
-										<div className="aspect-square w-4 bg-surface-500 border-[1px] border-black/10 rounded-full" />
+										{/* <div className="aspect-square w-4 bg-success-500 border-[1px] border-black/10 rounded-full" /> */}
+										{/* <div className="aspect-square w-4 bg-warning-500 border-[1px] border-black/10 rounded-full" /> */}
+										{/* <div className="aspect-square w-4 bg-error-500 border-[1px] border-black/10 rounded-full" /> */}
+										{/* <div className="aspect-square w-4 bg-surface-500 border-[1px] border-black/10 rounded-full" /> */}
 									</div>
 								</button>
 							))}
