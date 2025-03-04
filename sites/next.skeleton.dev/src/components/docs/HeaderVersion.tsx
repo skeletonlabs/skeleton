@@ -37,7 +37,7 @@ export const HeaderVersion: React.FC = () => {
 	return (
 		<div>
 			{/* Trigger */}
-			<button className="hidden xl:flex btn hover:preset-tonal" ref={refs.setReference} {...getReferenceProps()}>
+			<button className="btn hover:preset-tonal gap-1" ref={refs.setReference} {...getReferenceProps()}>
 				<span>v3</span>
 				<IconChevron className="size-4 opacity-60" />
 			</button>

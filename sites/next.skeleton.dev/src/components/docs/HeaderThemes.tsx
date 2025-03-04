@@ -62,7 +62,7 @@ export const HeaderThemes: React.FC = () => {
 	return (
 		<div>
 			{/* Trigger */}
-			<button className="btn hover:preset-tonal" title="Choose Theme" ref={refs.setReference} {...getReferenceProps()}>
+			<button className="btn hover:preset-tonal gap-1" title="Choose Theme" ref={refs.setReference} {...getReferenceProps()}>
 				<IconTheme className="xl:hidden size-5" />
 				<span className="hidden xl:inline">Theme</span>
 				<IconChevron className="size-4 opacity-60" />

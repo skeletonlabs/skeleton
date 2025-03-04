@@ -38,7 +38,7 @@ export const HeaderSponsors: React.FC = () => {
 	return (
 		<div>
 			{/* Trigger */}
-			<button className="hidden xl:flex btn hover:preset-tonal" title="Sponsor Us" ref={refs.setReference} {...getReferenceProps()}>
+			<button className="hidden xl:flex btn hover:preset-tonal gap-1" title="Sponsor Us" ref={refs.setReference} {...getReferenceProps()}>
 				<IconHeart className="size-5" />
 				<IconChevron className="size-4 opacity-60" />
 			</button>

@@ -27,22 +27,22 @@ const coreLinks = [
 		class="container mx-auto grid max-w-screen-2xl grid-cols-[auto_1fr_auto] xl:grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 xl:px-10"
 	>
 		<!-- Left -->
-		<div class="flex items-center justify-start gap-6">
+		<div class="flex items-stretch justify-start gap-4">
 			<!-- Mobile Nav Drawer -->
 			<Drawer navigation={coreLinks}>
 				<Navigation />
 			</Drawer>
 			<!-- Logo -->
 			<a class="hidden xl:inline-block" href="/" title="Skeleton">
-				<Icon name="skeleton" size={28} />
+				<Icon name="skeleton" size={32} />
 			</a>
-			<!-- Version Picker -->
-			<HeaderVersion client:load />
-			<!-- Navigation -->
-			<div class="hidden xl:flex justify-start items-center gap-5 opacity-60">
+			<div class="hidden xl:flex items-center">
+				<!-- Version Picker -->
+				<HeaderVersion client:load />
+				<!-- Navigation -->
 				{
 					coreLinks.map((link) => (
-						<a class="hover:underline" href={link.href} target={link.target}>
+						<a class="btn hover:preset-tonal" href={link.href} target={link.target}>
 							{link.label}
 						</a>
 					))

@@ -124,7 +124,7 @@
 <button
 	onclick={() => openDialog()}
 	type="button"
-	class="btn preset-tonal-surface preset-outlined-surface-200-800 hover:preset-tonal w-full xl:w-auto justify-start"
+	class="btn preset-tonal ring ring-inset ring-transparent hover:ring-surface-500 [&>*]:pointer-events-none hover:preset-tonal w-full xl:w-auto justify-start"
 >
 	<IconSearch class="size-4 opacity-60" />
 	<span class="opacity-60">Search...</span>
