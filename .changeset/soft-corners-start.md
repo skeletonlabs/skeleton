@@ -1,6 +1,5 @@
 ---
-"@skeletonlabs/skeleton-cli": patch
+'@skeletonlabs/skeleton-cli': patch
 ---
 
 bugfix: Theme import is correctly migrated
-  

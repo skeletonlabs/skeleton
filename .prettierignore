@@ -1,0 +1,8 @@
+node_modules/
+dist/
+build/
+pagefind/
+.svelte-kit/
+.astro/
+.next/
+.vercel/
