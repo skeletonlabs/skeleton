@@ -45,7 +45,7 @@ function transformAppCss(code: string, theme: Theme, addAtSource: boolean) {
 		nodes.push(
 			atRule({
 				name: 'source',
-				params: '"../node_modules/@skeletonlabs/skeleton-svelte"'
+				params: '"../node_modules/@skeletonlabs/skeleton-svelte/dist"'
 			})
 		);
 	}

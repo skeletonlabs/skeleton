@@ -18,10 +18,6 @@ const TRANSFORMER_MAP = {
 	'package.json': transformPackageJson
 };
 
-const fixtures = import.meta.glob('./fixtures/**/*', {
-	query: '?raw'
-});
-
 function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 	switch (transformer) {
 		case 'svelte':
@@ -40,31 +36,38 @@ function clean(code: string) {
 	return code.trim().replace(/\r\n|\r|\n/g, '\n');
 }
 
-const fixtureTests: Record<string, { name: string; path: string }[]> = {};
+const samples = import.meta.glob('./samples/**/*', {
+	query: '?raw'
+});
 
-for (const path of Object.keys(fixtures)) {
-	const name = path.split('/').at(-1);
-	const transformer = path.split('/').at(-2) as keyof typeof TRANSFORMER_MAP | undefined;
-	if (!name || !transformer || !(transformer in TRANSFORMER_MAP)) {
-		continue;
-	}
-	if (!fixtureTests[transformer]) {
-		fixtureTests[transformer] = [];
-	}
-	fixtureTests[transformer].push({ name, path });
-}
+const testCases = Object.keys(samples).reduce(
+	(acc, path) => {
+		const pathParts = path.split('/');
+		const transformer = pathParts[2];
+		const testName = pathParts[3];
+		const fileType = pathParts[4];
+		if (!transformer || !testName || !(transformer in TRANSFORMER_MAP) || !['input', 'output'].includes(fileType)) {
+			return acc;
+		}
+		acc[transformer] = acc[transformer] || {};
+		acc[transformer][testName] = acc[transformer][testName] || { input: '', output: '' };
+		acc[transformer][testName][fileType as 'input' | 'output'] = path;
+		return acc;
+	},
+	{} as Record<string, Record<string, { input: string; output: string }>>
+);
 
-describe('fixtures', () => {
-	for (const [transformerName, cases] of Object.entries(fixtureTests)) {
+describe('samples', () => {
+	for (const [transformerName, tests] of Object.entries(testCases)) {
 		describe(transformerName, () => {
-			for (const { name, path } of cases) {
-				test(name, async () => {
-					const received = getResult(
-						await readFile(resolve(fileURLToPath(import.meta.url), path), 'utf-8'),
-						transformerName as keyof typeof TRANSFORMER_MAP
-					);
-					const expected = await readFile(resolve(fileURLToPath(import.meta.url), path.replace('fixtures', 'results')), 'utf-8');
-					expect(clean(received)).toEqual(clean(expected));
+			for (const [testName, { input: inputPath, output: outputPath }] of Object.entries(tests)) {
+				if (!inputPath || !outputPath) {
+					continue;
+				}
+				test(testName, async () => {
+					const input = await readFile(resolve(fileURLToPath(import.meta.url), inputPath), 'utf-8');
+					const actual = getResult(input, transformerName as keyof typeof TRANSFORMER_MAP);
+					await expect(clean(actual)).toMatchFileSnapshot(outputPath);
 				});
 			}
 		});
