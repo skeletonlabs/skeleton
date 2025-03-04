@@ -30,7 +30,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "pnpm --recursive build",
-		"dev": "pnpm --parallel --filter=!create-skeleton-app dev",
+		"dev": "pnpm --parallel dev",
 		"test": "pnpm --recursive test",
 		"test:watch": "pnpm --recursive test:watch",
 		"check": "pnpm --recursive check",
