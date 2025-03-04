@@ -15,6 +15,7 @@ import {
 // Themes
 import { themes } from '@skeletonlabs/skeleton-common';
 // Icons
+import { ArrowUpRight as IconArrow } from 'lucide-react';
 import { ChevronDown as IconChevron } from 'lucide-react';
 import { SwatchBook as IconTheme } from 'lucide-react';
 
@@ -70,31 +71,49 @@ export const HeaderThemes: React.FC = () => {
 			{isOpen && (
 				<FloatingFocusManager context={context} modal={false}>
 					<div
-						className="card max-h-72 md:max-h-96 xl:max-h-none overflow-y-auto xl:overflow-y-visible bg-surface-50-950 border border-surface-200-800 grid grid-cols-1 xl:grid-cols-3 gap-2 p-4 pr-2"
+						className="card max-h-[calc(75vh)] xl:max-h-none overflow-y-auto xl:overflow-y-visible bg-surface-50-950 border border-surface-200-800 space-y-4 p-4 pr-2"
 						ref={refs.setFloating}
 						style={floatingStyles}
 						{...getFloatingProps()}
 					>
-						{themes.map((theme) => (
-							<button
-								key={theme.name}
-								data-theme={theme.name}
-								className={`w-full bg-surface-50-950 p-3 preset-outlined-surface-100-900 hover:preset-outlined-surface-950-50 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4 ${activeTheme === theme.name ? 'preset-outlined-surface-500' : ''}`}
-								onClick={() => onSelection(theme.name)}
+						{/* Theme Generator */}
+						<figure className="linker bg-noise !p-5">
+							<a
+								className="btn preset-filled"
+								href="https://themes.skeleton.dev/"
+								target="_blank"
+								rel="noreferrer"
+								onClick={() => setIsOpen(false)}
 							>
-								<span>{theme.emoji}</span>
-								<h3 className="text-sm capitalize font-bold text-left">{theme.name}</h3>
-								<div className="flex justify-center items-center -space-x-1.5">
-									<div className="aspect-square w-4 bg-primary-500 border-[1px] border-black/10 rounded-full" />
-									<div className="aspect-square w-4 bg-secondary-500 border-[1px] border-black/10 rounded-full" />
-									<div className="aspect-square w-4 bg-tertiary-500 border-[1px] border-black/10 rounded-full" />
-									<div className="aspect-square w-4 bg-success-500 border-[1px] border-black/10 rounded-full" />
-									<div className="aspect-square w-4 bg-warning-500 border-[1px] border-black/10 rounded-full" />
-									<div className="aspect-square w-4 bg-error-500 border-[1px] border-black/10 rounded-full" />
-									<div className="aspect-square w-4 bg-surface-500 border-[1px] border-black/10 rounded-full" />
-								</div>
-							</button>
-						))}
+								<span>Create a Theme</span>
+								<IconArrow className="size-4" />
+							</a>
+						</figure>
+						{/* Divider */}
+						<hr className="hr" />
+						{/* Theme List */}
+						<div className="grid grid-cols-1 xl:grid-cols-3 gap-2">
+							{themes.map((theme) => (
+								<button
+									key={theme.name}
+									data-theme={theme.name}
+									className={`w-full bg-surface-50-950 p-3 preset-outlined-surface-100-900 hover:preset-outlined-surface-950-50 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4 ${activeTheme === theme.name ? 'preset-outlined-surface-500' : ''}`}
+									onClick={() => onSelection(theme.name)}
+								>
+									<span>{theme.emoji}</span>
+									<h3 className="text-sm capitalize font-bold text-left">{theme.name}</h3>
+									<div className="flex justify-center items-center -space-x-1.5">
+										<div className="aspect-square w-4 bg-primary-500 border-[1px] border-black/10 rounded-full" />
+										<div className="aspect-square w-4 bg-secondary-500 border-[1px] border-black/10 rounded-full" />
+										<div className="aspect-square w-4 bg-tertiary-500 border-[1px] border-black/10 rounded-full" />
+										<div className="aspect-square w-4 bg-success-500 border-[1px] border-black/10 rounded-full" />
+										<div className="aspect-square w-4 bg-warning-500 border-[1px] border-black/10 rounded-full" />
+										<div className="aspect-square w-4 bg-error-500 border-[1px] border-black/10 rounded-full" />
+										<div className="aspect-square w-4 bg-surface-500 border-[1px] border-black/10 rounded-full" />
+									</div>
+								</button>
+							))}
+						</div>
 					</div>
 				</FloatingFocusManager>
 			)}

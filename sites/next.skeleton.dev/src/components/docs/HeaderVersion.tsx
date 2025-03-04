@@ -37,11 +37,7 @@ export const HeaderVersion: React.FC = () => {
 	return (
 		<div>
 			{/* Trigger */}
-			<button
-				className="hidden xl:flex btn preset-outlined-surface-200-800 hover:preset-tonal"
-				ref={refs.setReference}
-				{...getReferenceProps()}
-			>
+			<button className="hidden xl:flex btn hover:preset-tonal" ref={refs.setReference} {...getReferenceProps()}>
 				<span>v3</span>
 				<IconChevron className="size-4 opacity-60" />
 			</button>
@@ -55,7 +51,7 @@ export const HeaderVersion: React.FC = () => {
 						{...getFloatingProps()}
 					>
 						<a
-							className="btn hover:preset-tonal"
+							className="btn hover:preset-tonal justify-between"
 							href="https://v2.skeleton.dev/"
 							target="_blank"
 							rel="noreferrer"
@@ -65,7 +61,7 @@ export const HeaderVersion: React.FC = () => {
 							<IconArrow className="size-4 opacity-60" />
 						</a>
 						<a
-							className="btn hover:preset-tonal"
+							className="btn hover:preset-tonal justify-between"
 							href="https://v1.skeleton.dev/"
 							target="_blank"
 							rel="noreferrer"

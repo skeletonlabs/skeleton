@@ -14,6 +14,7 @@ import {
 	FloatingFocusManager
 } from '@floating-ui/react';
 // Icons
+import { ArrowUpRight as IconArrow } from 'lucide-react';
 import { ChevronDown as IconChevron } from 'lucide-react';
 import { Heart as IconHeart } from 'lucide-react';
 
@@ -51,22 +52,24 @@ export const HeaderSponsors: React.FC = () => {
 						{...getFloatingProps()}
 					>
 						<a
-							className="btn hover:preset-tonal justify-start"
+							className="btn hover:preset-tonal justify-between"
 							href="https://github.com/sponsors/skeletonlabs"
 							target="_blank"
 							rel="noreferrer"
 							onClick={() => setIsOpen(false)}
 						>
 							<span>GitHub Sponsors</span>
+							<IconArrow className="size-4 opacity-60" />
 						</a>
 						<a
-							className="btn hover:preset-tonal justify-start"
+							className="btn hover:preset-tonal justify-between"
 							href="https://ko-fi.com/skeletonlabs"
 							target="_blank"
 							rel="noreferrer"
 							onClick={() => setIsOpen(false)}
 						>
 							<span>Ko-Fi</span>
+							<IconArrow className="size-4 opacity-60" />
 						</a>
 					</div>
 				</FloatingFocusManager>
