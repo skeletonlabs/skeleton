@@ -8,10 +8,10 @@ describe('TagsInput', () => {
 	const testIds = {
 		root: 'tags',
 		inputAdd: 'tags-input-add',
-		delete: 'tag-delete'
+		delete: 'tag-delete',
 	};
 	const commonProps = {
-		value: ['Vanilla', 'Chocolate', 'Strawberry']
+		value: ['Vanilla', 'Chocolate', 'Strawberry'],
 	};
 
 	it('Renders the component', () => {

@@ -74,7 +74,7 @@ export const Rating: FC<RatingProps> = ({
 	// Zag
 	const service = useMachine(rating.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = rating.connect(service, normalizeProps);
 

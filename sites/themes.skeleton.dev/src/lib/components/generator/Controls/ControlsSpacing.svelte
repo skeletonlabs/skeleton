@@ -4,7 +4,7 @@
 	const options = [
 		{ label: 'Tight', size: '0.22rem' },
 		{ label: 'Base', size: '0.25rem' },
-		{ label: 'Loose', size: '0.28rem' }
+		{ label: 'Loose', size: '0.28rem' },
 	];
 
 	function set(newValue: string) {

@@ -9,11 +9,11 @@ describe('Progress', () => {
 		root: 'progress',
 		label: 'progress-label',
 		track: 'progress-track',
-		meter: 'progress-meter'
+		meter: 'progress-meter',
 	};
 	const commonProps = {
 		value: 50,
-		max: 100
+		max: 100,
 	};
 
 	it('Renders the component', () => {

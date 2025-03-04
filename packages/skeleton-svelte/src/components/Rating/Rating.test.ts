@@ -9,7 +9,7 @@ describe('Rating', () => {
 		root: 'rating',
 		control: 'rating-control',
 		item: 'rating-item',
-		input: 'rating-input'
+		input: 'rating-input',
 	};
 
 	it('Renders the component', () => {
@@ -30,7 +30,7 @@ describe('Rating', () => {
 			value: 1,
 			iconEmpty: mockSnippet('iconEmptySnippet'),
 			iconHalf: mockSnippet('iconHalfSnippet'),
-			iconFull: mockSnippet('iconFullSnippet')
+			iconFull: mockSnippet('iconFullSnippet'),
 		});
 		const component = screen.getAllByTestId(testIds.item);
 		expect(component[0].children[0]).toHaveTextContent('iconFullSnippet');

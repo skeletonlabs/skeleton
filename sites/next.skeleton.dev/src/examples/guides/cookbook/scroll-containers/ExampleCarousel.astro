@@ -6,18 +6,18 @@ const generatedArray = Array.from({ length: 6 });
 
 <div class="w-full">
 	<!-- Carousel -->
-	<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+	<div class="card grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4">
 		<!-- Button: Left -->
 		<button type="button" class="btn-icon preset-filled" data-carousel-left>
 			<ArrowLeft size={16} />
 		</button>
 		<!-- Full Images -->
-		<div data-carousel class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
+		<div data-carousel class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
 			<!-- Loop X many times. -->
 			{
 				generatedArray.map((_, i: number) => (
 					<img
-						class="snap-center w-[1024px] rounded-container"
+						class="rounded-container w-[1024px] snap-center"
 						src={`https://picsum.photos/seed/${i + 1}/1024/768`}
 						alt={`full-${i}`}
 						loading="lazy"
@@ -31,7 +31,7 @@ const generatedArray = Array.from({ length: 6 });
 		</button>
 	</div>
 	<!-- Thumbnails -->
-	<div class="card p-4 grid grid-cols-6 gap-4">
+	<div class="card grid grid-cols-6 gap-4 p-4">
 		<!-- Loop X many times. -->
 		{
 			generatedArray.map((_, i: number) => (
@@ -50,10 +50,10 @@ const generatedArray = Array.from({ length: 6 });
 
 <script>
 	// Query Element References
-	let elemCarousel: HTMLDivElement | null = document.querySelector('[data-carousel]');
-	let elemCarouselLeft: HTMLButtonElement | null = document.querySelector('[data-carousel-left]');
-	let elemCarouselRight: HTMLButtonElement | null = document.querySelector('[data-carousel-right]');
-	let elemThumbnails: NodeListOf<HTMLElement> = document.querySelectorAll('[data-thumbnail]');
+	const elemCarousel = document.querySelector<HTMLDivElement>('[data-carousel]');
+	const elemCarouselLeft = document.querySelector<HTMLButtonElement>('[data-carousel-left]');
+	const elemCarouselRight = document.querySelector<HTMLButtonElement>('[data-carousel-right]');
+	const elemThumbnails = document.querySelectorAll<HTMLElement>('[data-thumbnail]');
 
 	// Set Left/Right arrow click handlers
 	elemCarouselLeft?.addEventListener('click', () => carouselLeft());

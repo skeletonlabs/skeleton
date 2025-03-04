@@ -5,7 +5,7 @@ import { Combobox } from '../../index.js';
 
 describe('Combobox', () => {
 	const testIds = {
-		root: 'combobox'
+		root: 'combobox',
 	};
 
 	// NOTE: bare minimum test as this feature is considered temporary

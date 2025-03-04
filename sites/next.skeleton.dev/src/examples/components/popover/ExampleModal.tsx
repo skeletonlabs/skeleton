@@ -10,7 +10,7 @@ import {
 	useId,
 	FloatingOverlay,
 	FloatingFocusManager,
-	useTransitionStyles
+	useTransitionStyles,
 } from '@floating-ui/react';
 
 export const Page: React.FC = () => {
@@ -18,7 +18,7 @@ export const Page: React.FC = () => {
 
 	const { refs, context } = useFloating({
 		open: isOpen,
-		onOpenChange: setIsOpen
+		onOpenChange: setIsOpen,
 	});
 
 	// https://floating-ui.com/docs/useTransition#usetransitionstatus
@@ -26,13 +26,13 @@ export const Page: React.FC = () => {
 		duration: 200,
 		initial: {
 			opacity: 0,
-			transform: 'translateY(50px)'
-		}
+			transform: 'translateY(50px)',
+		},
 	});
 
 	const click = useClick(context);
 	const dismiss = useDismiss(context, {
-		outsidePressEvent: 'mousedown'
+		outsidePressEvent: 'mousedown',
 	});
 	const role = useRole(context);
 
@@ -51,7 +51,7 @@ export const Page: React.FC = () => {
 				// Backdrop
 				<FloatingOverlay
 					lockScroll
-					className="fixed top-0 left-0 right-0 bottom-0 z-[998] bg-surface-50/75 dark:bg-surface-950/75 backdrop-blur-sm flex justify-center items-center p-4"
+					className="bg-surface-50/75 dark:bg-surface-950/75 fixed bottom-0 left-0 right-0 top-0 z-[998] flex items-center justify-center p-4 backdrop-blur-sm"
 				>
 					<FloatingFocusManager context={context}>
 						{/* Modal */}
@@ -60,9 +60,9 @@ export const Page: React.FC = () => {
 							aria-labelledby={labelId}
 							aria-describedby={descriptionId}
 							{...getFloatingProps()}
-							className="card bg-surface-100-900 p-4 space-y-4 shadow-xl max-w-screen-sm"
+							className="card bg-surface-100-900 max-w-screen-sm space-y-4 p-4 shadow-xl"
 							style={{
-								...styles // Transition styles
+								...styles, // Transition styles
 							}}
 						>
 							<header className="flex justify-between">

@@ -33,111 +33,111 @@ export const themes: Theme[] = [
 	{
 		name: 'catppuccin',
 		css: catppuccin,
-		emoji: '🐈'
+		emoji: '🐈',
 	},
 	{
 		name: 'cerberus',
 		css: cerberus,
-		emoji: '🐺'
+		emoji: '🐺',
 	},
 	{
 		name: 'concord',
 		css: concord,
-		emoji: '🤖'
+		emoji: '🤖',
 	},
 	{
 		name: 'crimson',
 		css: crimson,
-		emoji: '🔴'
+		emoji: '🔴',
 	},
 	{
 		name: 'fennec',
 		css: fennec,
-		emoji: '🦊'
+		emoji: '🦊',
 	},
 	{
 		name: 'hamlindigo',
 		css: hamlindigo,
-		emoji: '👔'
+		emoji: '👔',
 	},
 	{
 		name: 'legacy',
 		css: legacy,
-		emoji: '💀'
+		emoji: '💀',
 	},
 	{
 		name: 'mint',
 		css: mint,
-		emoji: '🍃'
+		emoji: '🍃',
 	},
 	{
 		name: 'modern',
 		css: modern,
-		emoji: '🌸'
+		emoji: '🌸',
 	},
 	{
 		name: 'mona',
 		css: mona,
-		emoji: '🐙'
+		emoji: '🐙',
 	},
 	{
 		name: 'nosh',
 		css: nosh,
-		emoji: '🥙'
+		emoji: '🥙',
 	},
 	{
 		name: 'nouveau',
 		css: nouveau,
-		emoji: '👑'
+		emoji: '👑',
 	},
 	{
 		name: 'pine',
 		css: pine,
-		emoji: '🌲'
+		emoji: '🌲',
 	},
 	{
 		name: 'reign',
 		css: reign,
-		emoji: '📒'
+		emoji: '📒',
 	},
 	{
 		name: 'rocket',
 		css: rocket,
-		emoji: '🚀'
+		emoji: '🚀',
 	},
 	{
 		name: 'rose',
 		css: rose,
-		emoji: '🌷'
+		emoji: '🌷',
 	},
 	{
 		name: 'sahara',
 		css: sahara,
-		emoji: '🏜️'
+		emoji: '🏜️',
 	},
 	{
 		name: 'seafoam',
 		css: seafoam,
-		emoji: '🧜‍♀️'
+		emoji: '🧜‍♀️',
 	},
 	{
 		name: 'terminus',
 		css: terminus,
-		emoji: '🌑'
+		emoji: '🌑',
 	},
 	{
 		name: 'vintage',
 		css: vintage,
-		emoji: '📺'
+		emoji: '📺',
 	},
 	{
 		name: 'vox',
 		css: vox,
-		emoji: '👾'
+		emoji: '👾',
 	},
 	{
 		name: 'wintry',
 		css: wintry,
-		emoji: '🌨️'
-	}
+		emoji: '🌨️',
+	},
 ];

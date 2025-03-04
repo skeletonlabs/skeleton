@@ -37,7 +37,7 @@
 		// Events
 		onclick,
 		// Snippets
-		children
+		children,
 	}: NavTileProps = $props();
 
 	// Context

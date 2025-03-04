@@ -39,7 +39,7 @@ export const TagsInput: FC<TagsInputProps> = ({
 	// Zag
 	const service = useMachine(tagsInput.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = tagsInput.connect(service, normalizeProps);
 

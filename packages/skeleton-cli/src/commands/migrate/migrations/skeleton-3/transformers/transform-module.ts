@@ -62,8 +62,8 @@ function transformModule(code: string) {
 	return {
 		code: file.getFullText(),
 		meta: {
-			skeletonImports: skeletonImports
-		}
+			skeletonImports: skeletonImports,
+		},
 	};
 }
 

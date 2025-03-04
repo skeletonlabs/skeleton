@@ -54,19 +54,19 @@ const navigation = {
 	'tailwind-components': cTailwind.sort(sortByOrder),
 	'framework-components': cComponents,
 	integrations: cIntegrations,
-	resources: cResources.sort(sortByOrder)
+	resources: cResources.sort(sortByOrder),
 };
 ---
 
-<aside class="text-sm space-y-10 overflow-y-auto pr-4" class:list={[classList]}>
+<aside class="space-y-10 overflow-y-auto pr-4 text-sm" class:list={[classList]}>
 	{
 		Object.entries(navigation).map(([key, pages]) => (
 			<nav class="flex flex-col gap-2">
-				<span class="text-sm font-bold capitalize ml-2">{key.replace('-', ' ')}</span>
+				<span class="ml-2 text-sm font-bold capitalize">{key.replace('-', ' ')}</span>
 				<ul class="flex flex-col gap-1">
 					{pages.map((page) => (
 						<a
-							class={`px-2 py-1 rounded-base ${currentPath.includes(page.id.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
+							class={`rounded-base px-2 py-1 ${currentPath.includes(page.id.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
 							href={`/docs/${page.id}`}
 							title={page.data.title}
 						>

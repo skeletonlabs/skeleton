@@ -36,7 +36,7 @@ export const Progress: FC<ProgressProps> = ({
 	// Zag
 	const service = useMachine(progress.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = progress.connect(service, normalizeProps);
 

@@ -3,16 +3,16 @@ import { Icon } from 'astro-icon/components';
 import { ChevronRight as IconChevron } from 'lucide-react';
 ---
 
-<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-20">
+<div class="grid grid-cols-1 gap-20 xl:grid-cols-[256px_800px]">
 	<!-- Mascot -->
-	<div class="flex justify-center items-center">
-		<div class="relative size-48 md:size-64 aspect-square">
-			<Icon class="absolute top-0 left-0 z-[1] size-full aspect-square drop-shadow-md" name="skeleton-full" />
-			<div class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl"></div>
+	<div class="flex items-center justify-center">
+		<div class="relative aspect-square size-48 md:size-64">
+			<Icon class="absolute left-0 top-0 z-[1] aspect-square size-full drop-shadow-md" name="skeleton-full" />
+			<div class="bg-conic from-success-500 to-primary-500 absolute left-0 top-0 aspect-square size-full rounded-full blur-3xl"></div>
 		</div>
 	</div>
 	<!-- Hero Text -->
-	<div class="self-center space-y-4">
+	<div class="space-y-4 self-center">
 		<!-- Announcement -->
 		<!-- <a href="/#" class="btn btn-sm preset-filled-primary-500 gap-2 shadow">
 			<span>🎉</span>
@@ -20,7 +20,7 @@ import { ChevronRight as IconChevron } from 'lucide-react';
 			<IconChevron className="size-4" />
 		</a> -->
 		<!-- Text -->
-		<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">An adaptive design system powered by Tailwind CSS.</h1>
+		<h1 class="heading-font-family text-4xl font-bold md:text-5xl xl:text-balance">An adaptive design system powered by Tailwind CSS.</h1>
 		<p class="xl:text-balance">
 			Skeleton integrates with <a class="underline" href="https://tailwindcss.com/" target="_blank">Tailwind</a> to provide an opinionated solution
 			for generating adaptive design systems. Including easy to use components for your favorite web frameworks.

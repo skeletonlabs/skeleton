@@ -15,7 +15,7 @@ const AppBarRoot: FC<AppBarProps> = ({
 	shadow = '',
 	classes = '',
 	// Children
-	children
+	children,
 }) => {
 	return (
 		<div className={`${base} ${background} ${spaceY} ${border} ${padding} ${shadow} ${classes}`} role="toolbar" data-testid="app-bar">
@@ -31,7 +31,7 @@ const Toolbar: FC<ToolBarProps> = ({
 	gap = 'gap-4',
 	classes = '',
 	// Children
-	children
+	children,
 }) => {
 	return (
 		<div className={`${base} ${gridCols} ${gap} ${classes}`} data-testid="app-bar-toolbar">
@@ -47,7 +47,7 @@ const ToolbarLead: FC<ToolbarLeadProps> = ({
 	padding = '',
 	classes = '',
 	// Children
-	children
+	children,
 }) => {
 	return (
 		<div className={`${base} ${spaceX} ${padding} ${classes}`} data-testid="app-bar-toolbar-lead">
@@ -63,7 +63,7 @@ const ToolbarCenter: FC<ToolbarCenterProps> = ({
 	padding = '',
 	classes = '',
 	// Children
-	children
+	children,
 }) => {
 	return (
 		<div className={`${base} ${align} ${padding} ${classes}`} data-testid="app-bar-toolbar-center">
@@ -79,7 +79,7 @@ const ToolbarTrail: FC<ToolbarTrailProps> = ({
 	padding = '',
 	classes = '',
 	// Children
-	children
+	children,
 }) => {
 	return (
 		<div className={`${base} ${spaceX} ${padding} ${classes}`} data-testid="app-bar-toolbar-trail">
@@ -93,7 +93,7 @@ const AppBarHeadline: FC<AppBarHeadlineProps> = ({
 	base = 'w-full',
 	classes = '',
 	// Children
-	children
+	children,
 }) => {
 	return (
 		<div className={`${base} ${classes}`} data-testid="app-bar-headline">
@@ -107,5 +107,5 @@ export const AppBar = /* @__PURE__ */ Object.assign(AppBarRoot, {
 	ToolbarLead: ToolbarLead,
 	ToolbarCenter: ToolbarCenter,
 	ToolbarTrail: ToolbarTrail,
-	Headline: AppBarHeadline
+	Headline: AppBarHeadline,
 });

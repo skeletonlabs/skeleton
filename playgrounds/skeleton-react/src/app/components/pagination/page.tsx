@@ -7,7 +7,7 @@ import {
 	ArrowRight as IconArrowRight,
 	Ellipsis as IconEllipsis,
 	ChevronsLeft as IconFirst,
-	ChevronsRight as IconLast
+	ChevronsRight as IconLast,
 } from 'lucide-react';
 
 export default function Page() {
@@ -28,7 +28,7 @@ export default function Page() {
 		{ position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
 		{ position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
 		{ position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-		{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
+		{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 	];
 
 	// State

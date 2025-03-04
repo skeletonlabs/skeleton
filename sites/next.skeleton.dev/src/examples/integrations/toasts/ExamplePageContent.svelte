@@ -12,7 +12,7 @@
 		toast.create({
 			title: 'Error',
 			description: 'Uh oh, something went wrong.',
-			type: 'error'
+			type: 'error',
 		});
 	}
 
@@ -20,7 +20,7 @@
 		toast.create({
 			title: 'Success',
 			description: 'The task was was completed successfully!',
-			type: 'success'
+			type: 'success',
 		});
 	}
 </script>

@@ -11,7 +11,7 @@ describe('NavRail', () => {
 		root: 'nav-rail',
 		header: 'nav-rail-header',
 		tiles: 'nav-rail-tiles',
-		footer: 'nav-rail-footer'
+		footer: 'nav-rail-footer',
 	};
 
 	it('Renders the component', () => {
@@ -24,7 +24,7 @@ describe('NavRail', () => {
 		render(Navigation.Rail, {
 			header: mockSnippet('headerSnippet'),
 			tiles: mockSnippet('tilesSnippet'),
-			footer: mockSnippet('footerSnippet')
+			footer: mockSnippet('footerSnippet'),
 		});
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toHaveTextContent('headerSnippet');
@@ -47,7 +47,7 @@ describe('NavRail', () => {
 		render(Navigation.Rail, {
 			width: width,
 			widthExpanded: widthExpanded,
-			expanded: false
+			expanded: false,
 		});
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toHaveClass(width);
@@ -60,7 +60,7 @@ describe('NavRail', () => {
 		render(Navigation.Rail, {
 			width: width,
 			widthExpanded: widthExpanded,
-			expanded: true
+			expanded: true,
 		});
 		const component = screen.getByTestId(testIds.root);
 		expect(component).not.toHaveClass(width);
@@ -72,7 +72,7 @@ describe('NavRail', () => {
 			const value = 'bg-green-500';
 			render(Navigation.Rail, {
 				header: mockSnippet('header'),
-				[prop]: value
+				[prop]: value,
 			});
 			const component = screen.getByTestId(testIds.header);
 			expect(component).toHaveClass(value);
@@ -84,7 +84,7 @@ describe('NavRail', () => {
 			const value = 'bg-green-500';
 			render(Navigation.Rail, {
 				tiles: mockSnippet('tiles'),
-				[prop]: value
+				[prop]: value,
 			});
 			const component = screen.getByTestId(testIds.tiles);
 			expect(component).toHaveClass(value);
@@ -96,7 +96,7 @@ describe('NavRail', () => {
 			const value = 'bg-green-500';
 			render(Navigation.Rail, {
 				footer: mockSnippet('footer'),
-				[prop]: value
+				[prop]: value,
 			});
 			const component = screen.getByTestId(testIds.footer);
 			expect(component).toHaveClass(value);
@@ -106,7 +106,7 @@ describe('NavRail', () => {
 	describe('NavTile', () => {
 		const testIds = {
 			root: 'nav-tile',
-			labelExpanded: 'nav-tile-label-expanded'
+			labelExpanded: 'nav-tile-label-expanded',
 		};
 
 		it('Renders the component', () => {
@@ -142,7 +142,7 @@ describe('NavRail', () => {
 describe('NavBar', () => {
 	const testIds = {
 		root: 'nav-bar',
-		tileset: 'nav-bar-tileset'
+		tileset: 'nav-bar-tileset',
 	};
 
 	it('Renders the component', () => {
@@ -153,7 +153,7 @@ describe('NavBar', () => {
 
 	it('Renders all snippets', () => {
 		render(Navigation.Bar, {
-			children: mockSnippet('children')
+			children: mockSnippet('children'),
 		});
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toHaveTextContent('children');

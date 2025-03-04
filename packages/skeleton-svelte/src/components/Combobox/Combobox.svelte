@@ -50,8 +50,8 @@
 			items: data,
 			// Map data structure
 			itemToValue: (item) => item.value,
-			itemToString: (item) => item.label
-		})
+			itemToString: (item) => item.label,
+		}),
 	);
 
 	const id = $props.id();
@@ -67,7 +67,7 @@
 			collection.setItems(filtered);
 			options = filtered;
 		},
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(combobox.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));

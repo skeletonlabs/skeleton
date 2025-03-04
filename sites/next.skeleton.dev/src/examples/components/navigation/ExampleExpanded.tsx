@@ -6,7 +6,7 @@ import {
 	Music as IconMusic,
 	Video as IconVideo,
 	Gamepad as IconGames,
-	Settings as IconSettings
+	Settings as IconSettings,
 } from 'lucide-react';
 
 export const Page: React.FC = () => {

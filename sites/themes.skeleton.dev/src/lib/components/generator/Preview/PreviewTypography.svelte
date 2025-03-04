@@ -1,7 +1,7 @@
-<div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
+<div class="grid grid-cols-1 gap-10 xl:grid-cols-2">
 	<!-- Column 1 -->
 	<div class="space-y-10">
-		<div class="preset-filled-primary-500 w-56 aspect-square p-4 flex justify-center items-center">
+		<div class="preset-filled-primary-500 flex aspect-square w-56 items-center justify-center p-4">
 			<span class="h1 text-8xl text-current">Aa</span>
 		</div>
 		<!-- Headings -->

@@ -5,5 +5,5 @@ export const NavContext = createContext<NavContextState>({
 	parent: 'none',
 	value: '',
 	expanded: false,
-	onValueChange: () => {}
+	onValueChange: () => {},
 });

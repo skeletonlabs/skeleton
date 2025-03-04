@@ -13,7 +13,7 @@ import {
 	useRole,
 	useInteractions,
 	FloatingFocusManager,
-	FloatingArrow
+	FloatingArrow,
 } from '@floating-ui/react';
 import { X as IconX } from 'lucide-react';
 
@@ -29,11 +29,11 @@ export const Page: React.FC = () => {
 			flip(),
 			shift(),
 			arrow({
-				element: arrowRef
-			})
+				element: arrowRef,
+			}),
 		],
 		placement: 'top',
-		whileElementsMounted: autoUpdate
+		whileElementsMounted: autoUpdate,
 	});
 
 	const click = useClick(context);
@@ -55,12 +55,12 @@ export const Page: React.FC = () => {
 					<div
 						ref={refs.setFloating}
 						style={floatingStyles}
-						className="floating card bg-surface-200-800 p-4 max-w-[320px]"
+						className="floating card bg-surface-200-800 max-w-[320px] p-4"
 						{...getFloatingProps()}
 					>
 						<div className="space-y-4">
 							<header className="flex justify-between">
-								<p className="font-bold text-xl">Popover Example</p>
+								<p className="text-xl font-bold">Popover Example</p>
 								<button className="btn-icon hover:preset-tonal" onClick={() => setIsOpen(false)}>
 									<IconX />
 								</button>

@@ -20,12 +20,12 @@
 </script>
 
 <!-- bg-gradient-skeleton -->
-<section class="relative h-screen overflow-y-auto bg-body-color dark:bg-body-color-dark">
+<section class="bg-body-color dark:bg-body-color-dark relative h-screen overflow-y-auto">
 	<!-- Content -->
 	<article class="container mx-auto">
 		{#if globals.panel === 'preview'}
 			<!-- Components -->
-			<section class="p-10 space-y-10">
+			<section class="space-y-10 p-10">
 				<PreviewComponents />
 				<hr class="hr" />
 				<PreviewPalette />
@@ -34,7 +34,7 @@
 			</section>
 		{:else}
 			<!-- Theme Output -->
-			<section class="p-10 space-y-5">
+			<section class="space-y-5 p-10">
 				<header class="flex justify-between gap-4">
 					<!-- prettier-ignore -->
 					<p>
@@ -48,6 +48,6 @@
 	</article>
 	<!-- Footer -->
 	<footer class="p-10 py-5">
-		<p class="text-xs text-center opacity-20">Built by Skeleton Labs and the Skeleton community.</p>
+		<p class="text-center text-xs opacity-20">Built by Skeleton Labs and the Skeleton community.</p>
 	</footer>
 </section>

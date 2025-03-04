@@ -18,7 +18,7 @@ const cli = new Command()
 		writeErr(str) {
 			outro(red(str.replace('\n', ' ')));
 			process.exit(1);
-		}
+		},
 	})
 	.hook('preAction', (_, ctx) => {
 		const args = ctx.args.join(' ');

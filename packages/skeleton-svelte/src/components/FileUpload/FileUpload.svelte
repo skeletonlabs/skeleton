@@ -55,7 +55,7 @@
 	const id = $props.id();
 	const service = useMachine(fileUpload.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(fileUpload.connect(service, normalizeProps));
 

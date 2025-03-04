@@ -11,7 +11,7 @@ import NavGrid from '@components/docs/NavGrid.astro';
 
 {
 
-<div className="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
+<div className="card preset-outlined-error-500 preset-tonal-error space-y-8 p-8">
 	<p>
 		WARNING: Skeleton v3 is currently in a pre-release status. It is not yet intended for production use. This may include bugs, incomplete
 		documentation, and breaking changes leading up to the full release. Depending on the scale and scope of of your project, we may even
@@ -85,7 +85,7 @@ Use the following steps to migrate to from PostCSS to the Vite plugin:
 ```ts
 plugins: [
 	tailwindcss(),
-	sveltekit() // or svelte()
+	sveltekit(), // or svelte()
 ];
 ```
 
@@ -121,7 +121,7 @@ Make sure to consult your local Git Diff to compare what has been modified befor
 
 {
 
-<div class="card preset-outlined-warning-500 preset-tonal-warning p-8 space-y-8">
+<div class="card preset-outlined-warning-500 preset-tonal-warning space-y-8 p-8">
 	<p>
 		Early Adopters: In extremely rare instances the CLI may modify values outside the scope of Skeleton. If this occurs, please report this
 		as a bug in the <code className="code">#skeleton-cli-beta</code> channel on Discord!

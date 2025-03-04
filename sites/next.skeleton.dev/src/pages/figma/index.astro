@@ -19,12 +19,12 @@ import {
 	Clock3 as IconClock,
 	Shapes as IconShapes,
 	SwatchBook as IconSwatches,
-	MessageCircle as IconMessage
+	MessageCircle as IconMessage,
 } from 'lucide-react';
 
 const layoutProps = {
 	title: 'Figma UI Kit',
-	description: 'Learn more about the Figma UI Kit for Skeleton.'
+	description: 'Learn more about the Figma UI Kit for Skeleton.',
 };
 ---
 
@@ -32,7 +32,7 @@ const layoutProps = {
 <a
 	href="https://www.etesie.dev/support"
 	target="_blank"
-	class="fixed bottom-8 right-8 preset-filled p-4 rounded-full shadow-xl flex items-center justify-center"
+	class="preset-filled fixed bottom-8 right-8 flex items-center justify-center rounded-full p-4 shadow-xl"
 	aria-label="Contact Support"
 	title="Contact Support"
 >
@@ -43,11 +43,11 @@ const layoutProps = {
 	<!-- Header -->
 	<Header />
 	<!-- Main -->
-	<main class="container mx-auto space-y-10 xl:space-y-20 py-10 xl:py-20 px-4">
+	<main class="container mx-auto space-y-10 px-4 py-10 xl:space-y-20 xl:py-20">
 		<!-- Hero -->
-		<header class="w-full max-w-6xl mx-auto flex flex-col items-center gap-5 text-center">
+		<header class="mx-auto flex w-full max-w-6xl flex-col items-center gap-5 text-center">
 			<h1 class="h1">Design faster.<br />Align better.<br />Deliver consistently.</h1>
-			<p class="text-xl text-balance opacity-60 w-full max-w-6xl">
+			<p class="w-full max-w-6xl text-balance text-xl opacity-60">
 				Turn Figma into your superpower for creating apps that look stunning, align with clients and developers, and stay on-brand with
 				ease.
 			</p>
@@ -58,7 +58,7 @@ const layoutProps = {
 			</a>
 			<!-- Banner -->
 			<div class="relative">
-				<Image src={ImgHeroDark} class="w-full max-w-6xl hidden dark:block" alt="hero" />
+				<Image src={ImgHeroDark} class="hidden w-full max-w-6xl dark:block" alt="hero" />
 				<Image src={ImgHeroLight} class="w-full max-w-6xl dark:hidden" alt="hero" />
 			</div>
 		</header>
@@ -67,36 +67,36 @@ const layoutProps = {
 		<section class="space-y-10">
 			<header class="space-y-2 text-center">
 				<h2 class="h2">Struggling to create consistent designs?</h2>
-				<p class="opacity-60 max-w-6xl mx-auto text-balance">
+				<p class="mx-auto max-w-6xl text-balance opacity-60">
 					You’re not alone. We know these frustrations. We’re here to help by streamlining your workflow and bringing your design,
 					development, and customers into perfect harmony.
 				</p>
 			</header>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+			<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
 				<!-- 1 -->
-				<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10 space-y-10">
+				<div class="card preset-outlined-surface-200-800 bg-surface-50-950 space-y-10 p-10">
 					<IconClock size="32" className="opacity-60" />
-					<p class="text-2xl text-balance"><strong>Spending hours</strong> recreating components in Figma?</p>
+					<p class="text-balance text-2xl"><strong>Spending hours</strong> recreating components in Figma?</p>
 				</div>
 				<!-- 2 -->
-				<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10 space-y-10">
+				<div class="card preset-outlined-surface-200-800 bg-surface-50-950 space-y-10 p-10">
 					<IconShapes size="32" className="opacity-60" />
-					<p class="text-2xl text-balance">Finding it <strong>hard to align</strong> with developers or clients?</p>
+					<p class="text-balance text-2xl">Finding it <strong>hard to align</strong> with developers or clients?</p>
 				</div>
 				<!-- 3 -->
-				<div class="card preset-outlined-surface-200-800 bg-surface-50-950 p-10 space-y-10">
+				<div class="card preset-outlined-surface-200-800 bg-surface-50-950 space-y-10 p-10">
 					<IconSwatches size="32" className="opacity-60" />
-					<p class="text-2xl text-balance">Unsure how your design will look with <strong>a custom theme</strong>?</p>
+					<p class="text-balance text-2xl">Unsure how your design will look with <strong>a custom theme</strong>?</p>
 				</div>
 			</div>
 		</section>
 
 		<!-- Features -->
-		<section class="flex flex-col gap-24 w-full py-12">
+		<section class="flex w-full flex-col gap-24 py-12">
 			<!-- 1 -->
-			<div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10">
+			<div class="grid grid-cols-1 gap-10 md:grid-cols-[2fr_1fr]">
 				<div>
-					<Image src={ImgKit} class="rounded-container border border-surface-200-800 shadow-xl" alt="components" />
+					<Image src={ImgKit} class="rounded-container border-surface-200-800 border shadow-xl" alt="components" />
 				</div>
 				<header class="space-y-4">
 					<h2 class="h2">Align quickly with prebuilt Skeleton components.</h2>
@@ -106,7 +106,7 @@ const layoutProps = {
 				</header>
 			</div>
 			<!-- 2 -->
-			<div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10">
+			<div class="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr]">
 				<header class="space-y-4">
 					<h2 class="h2">Ensure consistency with theme imports.</h2>
 					<p class="opacity-60">
@@ -115,13 +115,13 @@ const layoutProps = {
 					</p>
 				</header>
 				<div>
-					<Image src={ImgPlugin} class="rounded-container border border-surface-200-800 shadow-xl" alt="components" />
+					<Image src={ImgPlugin} class="rounded-container border-surface-200-800 border shadow-xl" alt="components" />
 				</div>
 			</div>
 			<!-- 3 -->
-			<div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10">
+			<div class="grid grid-cols-1 gap-10 md:grid-cols-[2fr_1fr]">
 				<div>
-					<Image src={ImgTutorial} class="rounded-container border border-surface-200-800 shadow-xl" alt="components" />
+					<Image src={ImgTutorial} class="rounded-container border-surface-200-800 border shadow-xl" alt="components" />
 				</div>
 				<header class="space-y-4">
 					<h2 class="h2">Iterate faster with tutorials designed for every step of the design process.</h2>
@@ -136,7 +136,7 @@ const layoutProps = {
 		</section>
 
 		<!-- Quote -->
-		<section class="max-w-6xl mx-auto space-y-10">
+		<section class="mx-auto max-w-6xl space-y-10">
 			<blockquote class="blockquote text-3xl not-italic">
 				"...the Figma is very well put together and the most robust that I could find out of all the UI kits so our company chose to go with
 				Skeleton 🙂"
@@ -145,10 +145,10 @@ const layoutProps = {
 		</section>
 
 		<!-- Get Access -->
-		<section class="max-w-4xl mx-auto space-y-10">
+		<section class="mx-auto max-w-4xl space-y-10">
 			<FigmaBuyNow />
 			<!-- Attribution -->
-			<p class="md:text-xl text-center">
+			<p class="text-center md:text-xl">
 				Created with &#x2665; by <a class="anchor" href="https://www.linkedin.com/in/micha-mail%C3%A4nder-548aba16a/" target="_blank"
 					>Micha</a
 				>,
@@ -161,7 +161,7 @@ const layoutProps = {
 		</section>
 
 		<!-- Guides -->
-		<section class="space-y-10 w-full max-w-6xl mx-auto">
+		<section class="mx-auto w-full max-w-6xl space-y-10">
 			<h2 class="h2">Guides</h2>
 			<NavGrid collection="docs" path="figma/" classes="md:grid-cols-1" />
 		</section>

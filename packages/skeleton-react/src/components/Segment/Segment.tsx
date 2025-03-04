@@ -40,7 +40,7 @@ const SegmentRoot: FC<SegmentProps> = ({
 	const service = useMachine(radio.machine, {
 		id: useId(),
 		orientation: zagProps.orientation ?? 'horizontal',
-		...zagProps
+		...zagProps,
 	});
 	const api = radio.connect(service, normalizeProps);
 
@@ -112,5 +112,5 @@ const SegmentItem: FC<SegmentItemsProps> = ({
 };
 
 export const Segment = /* @__PURE__ */ Object.assign(SegmentRoot, {
-	Item: SegmentItem
+	Item: SegmentItem,
 });

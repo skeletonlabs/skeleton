@@ -5,7 +5,7 @@ import { Modal } from '../../index.js';
 
 describe('Modal', () => {
 	const testIds = {
-		root: 'modal'
+		root: 'modal',
 	};
 
 	// NOTE: bare minimum test as this feature is considered temporary

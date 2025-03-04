@@ -36,7 +36,7 @@
 	const id = $props.id();
 	const service = useMachine(progress.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(progress.connect(service, normalizeProps));
 

@@ -15,7 +15,7 @@ describe('Avatar', () => {
 			const component = render(
 				<Avatar name="name">
 					<div data-testid="child"></div>
-				</Avatar>
+				</Avatar>,
 			);
 			expect(component.getByTestId('child')).toBeInTheDocument();
 		});
@@ -62,7 +62,7 @@ describe('Avatar', () => {
 				const component = render(
 					<Avatar name="name">
 						<div data-testid="child"></div>
-					</Avatar>
+					</Avatar>,
 				);
 				expect(component.getByTestId('child')).toBeInTheDocument();
 			});

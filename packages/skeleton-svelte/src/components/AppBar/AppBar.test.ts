@@ -20,7 +20,7 @@ describe('AppBar', () => {
 			children: mockSnippet('childrenSnippet'),
 			lead: mockSnippet('leadSnippet'),
 			trail: mockSnippet('trailSnippet'),
-			headline: mockSnippet('headlineSnippet')
+			headline: mockSnippet('headlineSnippet'),
 		});
 		const component = screen.getByTestId(testId);
 		expect(component).toHaveTextContent('childrenSnippet');

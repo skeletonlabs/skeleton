@@ -5,7 +5,7 @@
 	let { children } = $props();
 </script>
 
-<main class="h-screen grid grid-rows-[auto_1fr_auto] overflow-hidden">
+<main class="grid h-screen grid-rows-[auto_1fr_auto] overflow-hidden">
 	<!-- Page Header -->
 	<AppHeader />
 	<!-- Page Content -->

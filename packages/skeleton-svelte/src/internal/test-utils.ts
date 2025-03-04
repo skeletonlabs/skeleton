@@ -5,7 +5,7 @@ import type { Snippet } from 'svelte';
 export function mockSnippet(key: string): Snippet<[]> {
 	return createRawSnippet(() => {
 		return {
-			render: () => `<span>${key}</span>`
+			render: () => `<span>${key}</span>`,
 		};
 	});
 }

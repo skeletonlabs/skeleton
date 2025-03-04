@@ -17,7 +17,7 @@ describe('<Tabs>', () => {
 					<Tabs.Panel value="item-1">Panel-1</Tabs.Panel>
 					<Tabs.Panel value="item-2">Panel-2</Tabs.Panel>
 				</Tabs.Content>
-			</Tabs>
+			</Tabs>,
 		);
 
 		const componentRoot = getByTestId('tabs');
@@ -42,7 +42,7 @@ describe('<Tabs>', () => {
 		const { getByTestId } = render(
 			<Tabs value="testGroup" base={testClass}>
 				Test
-			</Tabs>
+			</Tabs>,
 		);
 		const component = getByTestId('tabs');
 		expect(component).toHaveClass(testClass);
@@ -53,7 +53,7 @@ describe('<Tabs>', () => {
 		const { getByTestId } = render(
 			<Tabs value="testGroup" classes={testClass}>
 				Test
-			</Tabs>
+			</Tabs>,
 		);
 		const component = getByTestId('tabs');
 		expect(component).toHaveClass(testClass);
@@ -68,7 +68,7 @@ describe('<Tabs.Control>', () => {
 				<Tabs.List>
 					<Tabs.Control value="item-1">{testContent}</Tabs.Control>
 				</Tabs.List>
-			</Tabs>
+			</Tabs>,
 		);
 		const componentControl = getByTestId('tabs-control');
 		expect(componentControl).toHaveTextContent(testContent);
@@ -83,7 +83,7 @@ describe('<Tabs.Control>', () => {
 						Test
 					</Tabs.Control>
 				</Tabs.List>
-			</Tabs>
+			</Tabs>,
 		);
 		const component = getByTestId('tabs-control');
 		expect(component).toHaveClass(testClass);
@@ -98,7 +98,7 @@ describe('<Tabs.Control>', () => {
 						Test
 					</Tabs.Control>
 				</Tabs.List>
-			</Tabs>
+			</Tabs>,
 		);
 		const component = getByTestId('tabs-control');
 		expect(component).toHaveClass(testClass);
@@ -113,7 +113,7 @@ describe('<Tabs.Panel>', () => {
 				<Tabs.Content>
 					<Tabs.Panel value="item-1">{testContent}</Tabs.Panel>
 				</Tabs.Content>
-			</Tabs>
+			</Tabs>,
 		);
 		const componentControl = getByTestId('tabs-panel');
 		expect(componentControl).toHaveTextContent(testContent);
@@ -128,7 +128,7 @@ describe('<Tabs.Panel>', () => {
 						Test
 					</Tabs.Panel>
 				</Tabs.Content>
-			</Tabs>
+			</Tabs>,
 		);
 		const component = getByTestId('tabs-panel');
 		expect(component).toHaveClass(testClass);
@@ -143,7 +143,7 @@ describe('<Tabs.Panel>', () => {
 						Test
 					</Tabs.Panel>
 				</Tabs.Content>
-			</Tabs>
+			</Tabs>,
 		);
 		const component = getByTestId('tabs-panel');
 		expect(component).toHaveClass(testClass);

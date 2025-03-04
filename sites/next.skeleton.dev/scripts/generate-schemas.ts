@@ -28,11 +28,11 @@ async function processFile(path: string): Promise<number> {
 			if (property.type.startsWith('Snippet')) {
 				return {
 					...property,
-					typeKind: 'primitive'
+					typeKind: 'primitive',
 				};
 			}
 			return property;
-		}
+		},
 	});
 	await writeFile(outPath, JSON.stringify(interfaces, null, 2));
 	return Object.keys(interfaces).length;

@@ -6,5 +6,5 @@ type SearchFilters = {
 };
 
 export const docSearchSettingsStore = persistentMap<SearchFilters>('doc-search-settings', {
-	framework: 'preferred'
+	framework: 'preferred',
 });

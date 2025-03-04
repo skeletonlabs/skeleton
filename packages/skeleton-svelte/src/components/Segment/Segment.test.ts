@@ -38,7 +38,7 @@ describe('Segment', () => {
 describe('SegmentItem', () => {
 	const testIds = {
 		root: 'segment-item',
-		itemInput: 'segment-item-input'
+		itemInput: 'segment-item-input',
 	};
 
 	it('Renders the item', () => {

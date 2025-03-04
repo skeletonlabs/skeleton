@@ -28,7 +28,7 @@ const AccordionRoot: FC<AccordionProps> = ({
 	// Zag
 	const service = useMachine(accordion.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = accordion.connect(service, normalizeProps);
 	return (
@@ -77,7 +77,7 @@ const AccordionControl: FC<AccordionControlProps> = ({
 	// Icons
 	lead,
 	// Children
-	children
+	children,
 }) => {
 	const ctx = useContext(AccordionContext);
 	const itemCtx = useContext(AccordionItemContext);
@@ -115,7 +115,7 @@ const AccordionPanel: FC<AccordionPanelProps> = ({
 	rounded = '',
 	classes = '',
 	// Children
-	children
+	children,
 }) => {
 	const ctx = useContext(AccordionContext);
 	const itemCtx = useContext(AccordionItemContext);
@@ -131,5 +131,5 @@ const AccordionPanel: FC<AccordionPanelProps> = ({
 export const Accordion = /* @__PURE__ */ Object.assign(AccordionRoot, {
 	Item: AccordionItem,
 	Control: AccordionControl,
-	Panel: AccordionPanel
+	Panel: AccordionPanel,
 });

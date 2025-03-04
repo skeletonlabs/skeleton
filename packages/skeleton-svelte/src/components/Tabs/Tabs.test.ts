@@ -9,7 +9,7 @@ describe('Tabs', () => {
 	const testIds = {
 		root: 'tabs',
 		list: 'tabs-list',
-		content: 'tabs-content'
+		content: 'tabs-content',
 	};
 
 	it('Renders the component', () => {
@@ -38,7 +38,7 @@ describe('Tabs', () => {
 
 describe('Tabs.Control', () => {
 	const testIds = {
-		root: 'tabs-control'
+		root: 'tabs-control',
 	};
 
 	it('Renders the item', () => {
@@ -59,7 +59,7 @@ describe('Tabs.Control', () => {
 
 describe('Tabs.Panel', () => {
 	const testIds = {
-		root: 'tabs-panel'
+		root: 'tabs-panel',
 	};
 
 	it('Renders the item', () => {

@@ -19,22 +19,22 @@ function transformAppCss(code: string, theme: Theme, addAtSource: boolean) {
 	nodes.push(
 		atRule({
 			name: 'import',
-			params: '"@skeletonlabs/skeleton"'
-		})
+			params: '"@skeletonlabs/skeleton"',
+		}),
 	);
 	nodes.push(
 		atRule({
 			name: 'import',
-			params: '"@skeletonlabs/skeleton/optional/presets"'
-		})
+			params: '"@skeletonlabs/skeleton/optional/presets"',
+		}),
 	);
 	switch (theme.type) {
 		case 'preset':
 			nodes.push(
 				atRule({
 					name: 'import',
-					params: `"@skeletonlabs/skeleton/themes/${theme.value}"`
-				})
+					params: `"@skeletonlabs/skeleton/themes/${theme.value}"`,
+				}),
 			);
 			break;
 		case 'custom':
@@ -45,8 +45,8 @@ function transformAppCss(code: string, theme: Theme, addAtSource: boolean) {
 		nodes.push(
 			atRule({
 				name: 'source',
-				params: '"../node_modules/@skeletonlabs/skeleton-svelte/dist"'
-			})
+				params: '"../node_modules/@skeletonlabs/skeleton-svelte/dist"',
+			}),
 		);
 	}
 	const tailwindImport = getTailwindImport(root);
@@ -56,7 +56,7 @@ function transformAppCss(code: string, theme: Theme, addAtSource: boolean) {
 		root.prepend(nodes);
 	}
 	return {
-		code: root.toString()
+		code: root.toString(),
 	};
 }
 

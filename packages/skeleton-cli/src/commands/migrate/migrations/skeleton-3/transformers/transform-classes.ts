@@ -1,178 +1,178 @@
 const COLOR_PAIRING_REGEXES = [
 	{
 		find: /(\w+)-50-900-token\b/g,
-		replace: '$1-50-950'
+		replace: '$1-50-950',
 	},
 	{
 		find: /(\w+)-100-800-token\b/g,
-		replace: '$1-100-900'
+		replace: '$1-100-900',
 	},
 	{
 		find: /(\w+)-200-700-token\b/g,
-		replace: '$1-200-800'
+		replace: '$1-200-800',
 	},
 	{
 		find: /(\w+)-300-600-token\b/g,
-		replace: '$1-300-700'
+		replace: '$1-300-700',
 	},
 	{
 		find: /(\w+)-400-500-token\b/g,
-		replace: '$1-500'
+		replace: '$1-500',
 	},
 	{
 		find: /(\w+)-900-50-token\b/g,
-		replace: '$1-950-50'
+		replace: '$1-950-50',
 	},
 	{
 		find: /(\w+)-800-100-token\b/g,
-		replace: '$1-900-100'
+		replace: '$1-900-100',
 	},
 	{
 		find: /(\w+)-700-200-token\b/g,
-		replace: '$1-800-200'
+		replace: '$1-800-200',
 	},
 	{
 		find: /(\w+)-600-300-token\b/g,
-		replace: '$1-700-300'
+		replace: '$1-700-300',
 	},
 	{
 		find: /(\w+)-500-400-token\b/g,
-		replace: '$1-600-400'
-	}
+		replace: '$1-600-400',
+	},
 ];
 
 const BACKGROUND_REGEXES = [
 	{
 		find: /bg-(\w+)-backdrop-token\b/g,
-		replace: 'bg-$1-50/50 dark:bg-$1-950/50'
+		replace: 'bg-$1-50/50 dark:bg-$1-950/50',
 	},
 	{
 		find: /bg-(\w+)-hover-token\b/g,
-		replace: 'preset-tonal-$1'
+		replace: 'preset-tonal-$1',
 	},
 	{
 		find: /bg-(\w+)-active-token\b/g,
-		replace: 'preset-filled-$1-500'
-	}
+		replace: 'preset-filled-$1-500',
+	},
 ];
 
 const BORDER_RADIUS_REGEXES = [
 	{
 		find: /rounded-token\b/g,
-		replace: 'rounded-base'
+		replace: 'rounded-base',
 	},
 	{
 		find: /rounded-(tl|tr|bl|br)-token\b/g,
-		replace: 'rounded-$1-base'
+		replace: 'rounded-$1-base',
 	},
 	{
 		find: /rounded-container-token\b/g,
-		replace: 'rounded-container'
+		replace: 'rounded-container',
 	},
 	{
 		find: /rounded-(tl|tr|bl|br)-container-token\b/g,
-		replace: 'rounded-$1-container'
-	}
+		replace: 'rounded-$1-container',
+	},
 ];
 
 const BORDER_RING_REGEXES = [
 	{
 		find: /border-token\b/g,
-		replace: 'border'
+		replace: 'border',
 	},
 	{
 		find: /border-(\w+)-(\d+)-(\d+)-token\b/g,
-		replace: 'border-$1-$2-$3'
+		replace: 'border-$1-$2-$3',
 	},
 	{
 		find: /ring-token\b/g,
-		replace: 'ring'
+		replace: 'ring',
 	},
 	{
 		find: /ring-(\w+)-(\d+)-(\d+)-token\b/g,
-		replace: 'ring-$1-$2-$3'
-	}
+		replace: 'ring-$1-$2-$3',
+	},
 ];
 
 const TEXT_REGEXES = [
 	{
 		find: /font-headings-token\b/g,
-		replace: 'heading-font-family'
+		replace: 'heading-font-family',
 	},
 	{
 		find: /font-token\b/g,
-		replace: 'base-font-family'
+		replace: 'base-font-family',
 	},
 	{
 		find: /text-token\b/g,
-		replace: 'base-font-color'
+		replace: 'base-font-color',
 	},
 	{
 		find: /text-on-(\w+)-token\b/g,
-		replace: 'text-$1-contrast-500'
+		replace: 'text-$1-contrast-500',
 	},
 	{
 		find: /text-(\w+)-([^-]+)-([^-]+)-token\b/g,
-		replace: 'text-$1-$2-$3'
-	}
+		replace: 'text-$1-$2-$3',
+	},
 ];
 
 const DECORATION_ACCENT_REGEXES = [
 	{
 		find: /decoration-(\w+)-([^-]+)-([^-]+)-token\b/g,
-		replace: 'decoration-$1-$2-$3'
+		replace: 'decoration-$1-$2-$3',
 	},
 	{
 		find: /accent-(\w+)-token\b/g,
-		replace: 'accent-$1-500'
-	}
+		replace: 'accent-$1-500',
+	},
 ];
 
 const PRESET_REGEXES = [
 	{
 		find: /variant-filled-(\w+)\b/g,
-		replace: 'preset-filled-$1-500'
+		replace: 'preset-filled-$1-500',
 	},
 	{
 		find: /variant-filled\b/g,
-		replace: 'preset-filled'
+		replace: 'preset-filled',
 	},
 	{
 		find: /variant-ghost-(\w+)\b/g,
-		replace: 'preset-tonal-$1 border border-$1-500'
+		replace: 'preset-tonal-$1 border border-$1-500',
 	},
 	{
 		find: /variant-ghost\b/g,
-		replace: 'preset-tonal border border-surface-500'
+		replace: 'preset-tonal border border-surface-500',
 	},
 	{
 		find: /variant-soft-(\w+)\b/g,
-		replace: 'preset-tonal-$1'
+		replace: 'preset-tonal-$1',
 	},
 	{
 		find: /variant-soft\b/g,
-		replace: 'preset-tonal'
+		replace: 'preset-tonal',
 	},
 	{
 		find: /variant-ringed-(\w+)\b/g,
-		replace: 'preset-outlined-$1-500'
+		replace: 'preset-outlined-$1-500',
 	},
 	{
 		find: /variant-ringed\b/g,
-		replace: 'preset-outlined'
+		replace: 'preset-outlined',
 	},
 	{
 		find: /variant-glass-(\w+)\b/g,
-		replace: 'preset-tonal-$1'
+		replace: 'preset-tonal-$1',
 	},
 	{
 		find: /variant-glass\b/g,
-		replace: 'preset-tonal'
+		replace: 'preset-tonal',
 	},
 	{
 		find: /variant-gradient-(\w+)-(\w+)\b/g,
-		replace: 'from-$1-500 to-$2-500'
-	}
+		replace: 'from-$1-500 to-$2-500',
+	},
 ];
 
 const TAILWIND_COMPONENT_REGEXES = [
@@ -186,20 +186,20 @@ const TAILWIND_COMPONENT_REGEXES = [
 	// },
 	{
 		find: /btn-xl\b/g,
-		replace: 'btn-lg'
+		replace: 'btn-lg',
 	},
 	{
 		find: /btn-icon-xl\b/g,
-		replace: 'btn-icon-lg'
+		replace: 'btn-icon-lg',
 	},
 	{
 		find: /btn-group\b/g,
-		replace: ''
+		replace: '',
 	},
 	{
 		find: /table-hover\b/g,
-		replace: ''
-	}
+		replace: '',
+	},
 ];
 
 const CLASS_REGEXES = [
@@ -210,14 +210,14 @@ const CLASS_REGEXES = [
 	...TEXT_REGEXES,
 	...DECORATION_ACCENT_REGEXES,
 	...PRESET_REGEXES,
-	...TAILWIND_COMPONENT_REGEXES
+	...TAILWIND_COMPONENT_REGEXES,
 ];
 
 function transformClasses(code: string) {
 	return {
 		code: CLASS_REGEXES.reduce((result, migration) => {
 			return result.replace(migration.find, migration.replace);
-		}, code)
+		}, code),
 	};
 }
 

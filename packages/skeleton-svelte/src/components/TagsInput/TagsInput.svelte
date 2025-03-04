@@ -41,7 +41,7 @@
 	const id = $props.id();
 	const service = useMachine(tagsInput.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(tagsInput.connect(service, normalizeProps));
 

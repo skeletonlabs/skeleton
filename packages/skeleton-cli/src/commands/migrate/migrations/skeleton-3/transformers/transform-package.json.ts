@@ -25,8 +25,8 @@ function transformPackageJson(code: string, skeletonVersion: string, skeletonSve
 	return {
 		code: JSON.stringify(pkg, null, detectIndent(code).indent || '\t'),
 		meta: {
-			isUsingComponents: isUsingComponents
-		}
+			isUsingComponents: isUsingComponents,
+		},
 	};
 }
 

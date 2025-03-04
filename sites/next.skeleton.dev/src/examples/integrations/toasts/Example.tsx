@@ -5,7 +5,7 @@ import toast, { Toaster, type Toast } from 'react-hot-toast';
 
 export const ToastInfo: React.FC = () => {
 	return (
-		<div className="card preset-filled py-2 px-3 shadow-xl">
+		<div className="card preset-filled px-3 py-2 shadow-xl">
 			<p className="text-xs">Hello World! 👋</p>
 		</div>
 	);
@@ -13,7 +13,7 @@ export const ToastInfo: React.FC = () => {
 
 export const ToastError: React.FC = () => {
 	return (
-		<div className="card preset-filled-error-500 py-2 px-3 shadow-xl">
+		<div className="card preset-filled-error-500 px-3 py-2 shadow-xl">
 			<p className="text-xs">Uh oh, something went wrong.</p>
 		</div>
 	);
@@ -21,9 +21,9 @@ export const ToastError: React.FC = () => {
 
 export const ToastSuccess: React.FC<{ settings?: Toast }> = ({ settings }) => {
 	return (
-		<div className="card preset-filled-success-500 py-2 px-3 shadow-xl grid grid-cols-[auto_1fr] items-center gap-4">
+		<div className="card preset-filled-success-500 grid grid-cols-[auto_1fr] items-center gap-4 px-3 py-2 shadow-xl">
 			<p className="text-xs">The task was was completed successfully!</p>
-			<button type="button" className="btn-icon btn-icon-sm text-base hover:preset-tonal" onClick={() => toast.dismiss(settings?.id)}>
+			<button type="button" className="btn-icon btn-icon-sm hover:preset-tonal text-base" onClick={() => toast.dismiss(settings?.id)}>
 				<span>&times;</span>
 			</button>
 		</div>

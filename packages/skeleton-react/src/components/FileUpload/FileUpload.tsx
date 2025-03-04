@@ -53,7 +53,7 @@ export const FileUpload: FC<FileUploadProps> = ({
 	// Zag
 	const service = useMachine(fileUpload.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = fileUpload.connect(service, normalizeProps);
 

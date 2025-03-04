@@ -4,5 +4,5 @@ import type { TabsContextState } from './types.js';
 
 export const [setTabContext, getTabContext, key] = createContext<TabsContextState>({
 	fluid: false,
-	api: {} as ReturnType<typeof tabs.connect>
+	api: {} as ReturnType<typeof tabs.connect>,
 });

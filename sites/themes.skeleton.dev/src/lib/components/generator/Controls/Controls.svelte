@@ -24,17 +24,17 @@
 		controlPadding: 'px-5 py-3',
 		controlRounded: 'rounded-none',
 		controlHover: 'hover:preset-tonal',
-		panelPadding: 'p-5'
+		panelPadding: 'p-5',
 	};
 
 	// State
 	let settings: string[] = $state([]);
 </script>
 
-<section class="relative h-screen bg-surface-100-900 pb-96 overflow-y-auto">
+<section class="bg-surface-100-900 relative h-screen overflow-y-auto pb-96">
 	<!-- Header -->
 	<header
-		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow-lg"
+		class="bg-surface-100/50 dark:bg-surface-900/50 sticky top-0 z-10 flex items-center justify-between gap-4 p-5 shadow-lg backdrop-blur-xl"
 	>
 		<Segment name="display" value={globals.panel} onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)} classes="w-full">
 			<Segment.Item value="preview" classes="w-full">Preview</Segment.Item>

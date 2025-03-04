@@ -38,7 +38,7 @@
 	const service = useMachine(radio.machine, () => ({
 		id: id,
 		orientation: zagProps.orientation ?? 'horizontal',
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(radio.connect(service, normalizeProps));
 
@@ -49,7 +49,7 @@
 		},
 		get indicatorText() {
 			return indicatorText;
-		}
+		},
 	});
 
 	// Reactive

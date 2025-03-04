@@ -21,7 +21,7 @@
 		// Events
 		onValueChange,
 		// Snippets
-		children
+		children,
 	}: NavBarProps = $props();
 
 	// Context
@@ -33,7 +33,7 @@
 		expanded: false,
 		get onValueChange() {
 			return onValueChange;
-		}
+		},
 	});
 </script>
 

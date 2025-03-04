@@ -9,11 +9,11 @@ describe('ProgressRing', () => {
 		root: 'progress-ring',
 		ringChildren: 'progress-ring-children',
 		svgRing: 'progress-ring-svg',
-		ringLabel: 'progress-label'
+		ringLabel: 'progress-label',
 	};
 	const commonProps = {
 		value: 50,
-		max: 100
+		max: 100,
 	};
 
 	it('Renders the component', () => {

@@ -16,7 +16,7 @@ export default function Page() {
 		{ icon: Club, value: 'club', title: 'Club', content: lorem },
 		{ icon: Diamond, value: 'diamond', title: 'Diamond', content: lorem },
 		{ icon: Heart, value: 'heart', title: 'Heart', content: lorem },
-		{ icon: Spade, value: 'space', title: 'Spade', content: lorem }
+		{ icon: Spade, value: 'space', title: 'Spade', content: lorem },
 	];
 	return (
 		<div className="space-y-10">

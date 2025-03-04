@@ -5,8 +5,8 @@ import { socialLinks } from 'src/stores/social-links';
 const { classList = 'p-4' } = Astro.props;
 ---
 
-<footer class:list={['border-t-[1px] border-surface-500/20', classList]}>
-	<div class="container mx-auto flex flex-col xl:flex-row justify-between items-center gap-4">
+<footer class:list={['border-surface-500/20 border-t-[1px]', classList]}>
+	<div class="container mx-auto flex flex-col items-center justify-between gap-4 xl:flex-row">
 		<div class="flex items-center gap-4">
 			<!-- <Icon name="skeleton" size={20} /> -->
 			<p class="text-xs opacity-60">

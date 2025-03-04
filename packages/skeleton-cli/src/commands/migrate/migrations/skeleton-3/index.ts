@@ -28,15 +28,15 @@ export default async function (options: MigrateOptions) {
 	// Find all required files
 	const packageJson = {
 		name: 'package.json',
-		paths: await glob('package.json', { cwd })
+		paths: await glob('package.json', { cwd }),
 	};
 	const appHtml = {
 		name: 'src/app.html',
-		paths: await glob('src/app.html', { cwd })
+		paths: await glob('src/app.html', { cwd }),
 	};
 	const appCss = {
 		name: 'src/app.{css,pcss,postcss}',
-		paths: await glob('src/app.{css,pcss,postcss}', { cwd })
+		paths: await glob('src/app.{css,pcss,postcss}', { cwd }),
 	};
 
 	// Validate file existence
@@ -53,12 +53,12 @@ export default async function (options: MigrateOptions) {
 	const availableSourceFolders = await glob('*', {
 		cwd: cwd,
 		onlyDirectories: true,
-		ignore: ['node_modules']
+		ignore: ['node_modules'],
 	});
 	const sourceFolders = await multiselect({
 		message: 'What folders make use of Skeleton? (classes, imports, etc.)',
 		options: availableSourceFolders.map((folder) => ({ label: folder, value: folder })),
-		initialValues: availableSourceFolders
+		initialValues: availableSourceFolders,
 	});
 
 	if (isCancel(sourceFolders)) {
@@ -122,7 +122,7 @@ export default async function (options: MigrateOptions) {
 		const sourceFileMatcher = `${sourceFolders.length === 1 ? sourceFolders.at(0) : `{${sourceFolders.join(',')}}`}/**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`;
 		const sourceFiles = await glob(sourceFileMatcher, {
 			cwd: cwd,
-			ignore: ['node_modules']
+			ignore: ['node_modules'],
 		});
 		const sourceFilesSpinner = spinner();
 		sourceFilesSpinner.start(`Migrating source files...`);

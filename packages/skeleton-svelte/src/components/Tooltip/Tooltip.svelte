@@ -41,7 +41,7 @@
 	const id = $props.id();
 	const service = useMachine(tooltip.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(tooltip.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onmouseover, onclick }));

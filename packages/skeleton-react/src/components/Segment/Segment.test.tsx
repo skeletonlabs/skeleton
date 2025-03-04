@@ -10,7 +10,7 @@ describe('<Segment>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0">
 				<Segment.Item value="0">TestItem1</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment');
 		expect(component).toBeInTheDocument();
@@ -21,7 +21,7 @@ describe('<Segment>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0" classes={testClasses}>
 				<Segment.Item value="0">TestItem1</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment');
 		expect(component.getAttribute('class')).toContain(testClasses);
@@ -31,7 +31,7 @@ describe('<Segment>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0" disabled>
 				<Segment.Item value="0">TestItem1</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment');
 		expect(component.dataset.disabled).toBeDefined();
@@ -41,7 +41,7 @@ describe('<Segment>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0" readOnly>
 				<Segment.Item value="0">TestItem1</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment');
 		expect(component).toHaveClass('pointer-events-none');
@@ -52,7 +52,7 @@ describe('<Segment>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0" base={testClass}>
 				<Segment.Item value="0">TestItem1</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment');
 		expect(component).toHaveClass(testClass);
@@ -63,7 +63,7 @@ describe('<Segment>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0" classes={testClass}>
 				<Segment.Item value="0">TestItem1</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment');
 		expect(component).toHaveClass(testClass);
@@ -73,7 +73,7 @@ describe('<Segment>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0" labelledby="align-label">
 				<Segment.Item value="0">TestItem1</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment');
 		expect(component).toHaveAttribute('aria-labelledby', 'align-label');
@@ -87,7 +87,7 @@ describe('<Segment.Item>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0">
 				<Segment.Item value="0">TestItem1</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment-item');
 		expect(component).toBeInTheDocument();
@@ -98,7 +98,7 @@ describe('<Segment.Item>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0">
 				<Segment.Item value="0">{testTextContent}</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment-item');
 		expect(component).toHaveTextContent(testTextContent);
@@ -108,7 +108,7 @@ describe('<Segment.Item>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="1">
 				<Segment.Item value="0">TestItem1</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment-item');
 		const checked = component.getAttribute('data-state');
@@ -119,7 +119,7 @@ describe('<Segment.Item>', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0">
 				<Segment.Item value="0">TestItem1</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment-item');
 		const checked = component.getAttribute('data-state');
@@ -132,7 +132,7 @@ describe('<Segment.Item>', () => {
 				<Segment.Item value="0" disabled>
 					TestItem1
 				</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment-item-input');
 		expect(component).toHaveAttribute('disabled');
@@ -145,7 +145,7 @@ describe('<Segment.Item>', () => {
 				<Segment.Item value="0" base={testClass}>
 					TestItem1
 				</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment-item');
 		expect(component).toHaveClass(testClass);
@@ -158,7 +158,7 @@ describe('<Segment.Item>', () => {
 				<Segment.Item value="0" classes={testClass}>
 					TestItem1
 				</Segment.Item>
-			</Segment>
+			</Segment>,
 		);
 		const component = getByTestId('segment-item');
 		expect(component).toHaveClass(testClass);

@@ -13,18 +13,18 @@
 		'text-6xl',
 		'text-7xl',
 		'text-8xl',
-		'text-9xl'
+		'text-9xl',
 	];
 </script>
 
 <div class="w-full space-y-4">
 	<!-- Display -->
-	<div class="h-[200px] flex justify-center items-center overflow-hidden whitespace-nowrap">
+	<div class="flex h-[200px] items-center justify-center overflow-hidden whitespace-nowrap">
 		<span class={options[currentOption]}>{options[currentOption]}</span>
 	</div>
 	<!-- Ranger Slider -->
 	<input
-		class="input max-w-[320px] mx-auto"
+		class="input mx-auto max-w-[320px]"
 		type="range"
 		value={currentOption}
 		onValueChange={(e) => (currentOption = e.value)}

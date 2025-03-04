@@ -5,7 +5,7 @@ import { Tooltip } from '../../index.js';
 
 describe('Tooltip', () => {
 	const testIds = {
-		root: 'tooltip'
+		root: 'tooltip',
 	};
 
 	// NOTE: bare minimum test as this feature is considered temporary

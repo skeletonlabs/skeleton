@@ -20,7 +20,7 @@
 		// Implement your import theme.
 		themes: [auroraX],
 		// Implement your imported and supported languages.
-		langs: [console, html, css, js, ts]
+		langs: [console, html, css, js, ts],
 	});
 </script>
 
@@ -39,7 +39,7 @@
 		// Pre Style Props
 		preBase = 'border border-surface-200-800 text-xs',
 		prePadding = '[&>pre]:p-4',
-		preClasses = ''
+		preClasses = '',
 	}: CodeBlockProps = $props();
 
 	const generatedHtml = $derived(shiki.codeToHtml(code, { lang, theme }));

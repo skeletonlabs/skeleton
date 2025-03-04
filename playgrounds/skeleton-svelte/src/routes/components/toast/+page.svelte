@@ -7,7 +7,7 @@
 	function triggerInfo() {
 		toast.create({
 			description: 'This is a basic toast message.',
-			type: 'info'
+			type: 'info',
 		});
 	}
 
@@ -15,7 +15,7 @@
 		toast.create({
 			title: 'Error',
 			description: 'Error: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, pariatur distinctio beatae.',
-			type: 'error'
+			type: 'error',
 		});
 	}
 
@@ -23,7 +23,7 @@
 		toast.create({
 			title: 'Success',
 			description: 'The task was successful!',
-			type: 'success'
+			type: 'success',
 		});
 	}
 </script>

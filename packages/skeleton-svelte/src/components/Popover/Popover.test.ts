@@ -5,7 +5,7 @@ import { Popover } from '../../index.js';
 
 describe('Popover', () => {
 	const testIds = {
-		root: 'popover'
+		root: 'popover',
 	};
 
 	// NOTE: bare minimum test as this feature is considered temporary

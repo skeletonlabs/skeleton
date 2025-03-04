@@ -7,7 +7,7 @@
 	// Props
 	const {
 		animationConfig = {
-			duration: 200
+			duration: 200,
 		},
 		// Root
 		base = '',
@@ -27,7 +27,7 @@
 	const id = $props.id();
 	const service = useMachine(accordion.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(accordion.connect(service, normalizeProps));
 
@@ -44,7 +44,7 @@
 		},
 		get iconOpen() {
 			return iconOpen;
-		}
+		},
 	});
 </script>
 

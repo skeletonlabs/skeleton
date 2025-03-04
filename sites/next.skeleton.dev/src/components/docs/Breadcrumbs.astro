@@ -2,7 +2,7 @@
 const breadcrumbs = Astro.url.pathname.split('/').filter((crumb) => Boolean(crumb) && crumb !== 'docs');
 ---
 
-<ol class="text-xs flex gap-2">
+<ol class="flex gap-2 text-xs">
 	{
 		breadcrumbs.map((crumb, i) => (
 			<>

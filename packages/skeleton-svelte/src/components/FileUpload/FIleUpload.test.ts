@@ -8,7 +8,7 @@ describe('FileUpload', () => {
 	const testIds = {
 		root: 'uploader',
 		input: 'uploader-input',
-		filesList: 'uploader-files-list'
+		filesList: 'uploader-files-list',
 	};
 
 	it('Renders the component', () => {
@@ -19,7 +19,7 @@ describe('FileUpload', () => {
 
 	it('Renders children snippet', () => {
 		render(FileUpload, {
-			children: mockSnippet('childrenSnippet')
+			children: mockSnippet('childrenSnippet'),
 		});
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toHaveTextContent('childrenSnippet');
@@ -27,7 +27,7 @@ describe('FileUpload', () => {
 
 	it('Renders icon snippet', () => {
 		render(FileUpload, {
-			iconInterface: mockSnippet('iconInterfaceSnippet')
+			iconInterface: mockSnippet('iconInterfaceSnippet'),
 		});
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toHaveTextContent('iconInterfaceSnippet');

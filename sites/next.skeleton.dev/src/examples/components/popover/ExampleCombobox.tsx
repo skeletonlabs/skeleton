@@ -13,7 +13,7 @@ import {
 	useListNavigation,
 	useRole,
 	FloatingFocusManager,
-	FloatingPortal
+	FloatingPortal,
 } from '@floating-ui/react';
 
 // prettier-ignore
@@ -37,7 +37,7 @@ const Item = forwardRef<HTMLDivElement, ItemProps & React.HTMLProps<HTMLDivEleme
 			aria-selected={active}
 			{...rest}
 			style={{ ...rest.style }}
-			className="btn justify-start w-full hover:preset-tonal cursor-pointer"
+			className="btn hover:preset-tonal w-full cursor-pointer justify-start"
 		>
 			{children}
 		</div>
@@ -63,12 +63,12 @@ function AutoComplete() {
 				apply({ rects, availableHeight, elements }) {
 					Object.assign(elements.floating.style, {
 						width: `${rects.reference.width}px`,
-						maxHeight: `${availableHeight}px`
+						maxHeight: `${availableHeight}px`,
 					});
 				},
-				padding: 10
-			})
-		]
+				padding: 10,
+			}),
+		],
 	});
 
 	const role = useRole(context, { role: 'listbox' });
@@ -78,7 +78,7 @@ function AutoComplete() {
 		activeIndex,
 		onNavigate: setActiveIndex,
 		virtual: true,
-		loop: true
+		loop: true,
 	});
 
 	const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([role, dismiss, listNav]);
@@ -112,7 +112,7 @@ function AutoComplete() {
 							setActiveIndex(null);
 							setOpen(false);
 						}
-					}
+					},
 				})}
 				className="input max-w-[300px]"
 			/>
@@ -122,9 +122,9 @@ function AutoComplete() {
 						<div
 							{...getFloatingProps({
 								ref: refs.setFloating,
-								style: { ...floatingStyles }
+								style: { ...floatingStyles },
 							})}
-							className="card p-2 preset-outlined-surface-200-800 bg-surface-50-950 space-y-1 overflow-y-auto"
+							className="card preset-outlined-surface-200-800 bg-surface-50-950 space-y-1 overflow-y-auto p-2"
 						>
 							{items.length === 0 && <p className="opacity-60">No Results Found.</p>}
 							{items.map((item, index) => (
@@ -139,7 +139,7 @@ function AutoComplete() {
 											setInputValue(item);
 											setOpen(false);
 											refs.domReference.current?.focus();
-										}
+										},
 									})}
 									active={activeIndex === index}
 								>

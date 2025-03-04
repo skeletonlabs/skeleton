@@ -18,7 +18,7 @@
 	<div class="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
 		<!-- Nav -->
 		<div class="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
-			<a class="text-sm bg-orange-500 p-2 font-mono font-bold text-white" href="/">skeleton-svelte</a>
+			<a class="bg-orange-500 p-2 font-mono text-sm font-bold text-white" href="/">skeleton-svelte</a>
 			<hr class="hr" />
 			<Switch name="mode" controlActive="bg-surface-200" bind:checked={modeState} onCheckedChange={onModeChange}>
 				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
@@ -29,7 +29,7 @@
 			<!-- Components -->
 			<div class="space-y-8">
 				<span class="font-bold">Components</span>
-				<nav class="text-sm flex flex-col gap-2">
+				<nav class="flex flex-col gap-2 text-sm">
 					<a class="anchor" href="/components/accordions">Accordions</a>
 					<a class="anchor" href="/components/app-bars">App Bars</a>
 					<a class="anchor" href="/components/avatars">Avatars</a>
@@ -49,7 +49,7 @@
 			<!-- Svelte-Only -->
 			<div class="space-y-8">
 				<span class="font-bold">Svelte-Only</span>
-				<nav class="text-sm flex flex-col gap-2">
+				<nav class="flex flex-col gap-2 text-sm">
 					<a class="anchor" href="/components/popover">Popover</a>
 					<a class="anchor" href="/components/tooltip">Tooltip</a>
 					<a class="anchor" href="/components/combobox">Combobox</a>

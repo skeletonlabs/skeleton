@@ -2,54 +2,54 @@
 import { Check as IconCheck } from 'lucide-react';
 ---
 
-<div class="w-full max-w-[960px] flex flex-col card bg-surface-50-950 border-[1px] border-surface-200-800 overflow-hidden">
-	<div class="flex flex-col p-6 w-full">
+<div class="card bg-surface-50-950 border-surface-200-800 flex w-full max-w-[960px] flex-col overflow-hidden border-[1px]">
+	<div class="flex w-full flex-col p-6">
 		<h2 class="h2 pb-8" id="get-access">Get Access</h2>
-		<span class="text-xl font-semibold h-full pb-6">Figma UI Kit for Skeleton includes:</span>
+		<span class="h-full pb-6 text-xl font-semibold">Figma UI Kit for Skeleton includes:</span>
 		<div class="flex flex-col gap-3">
 			<div class="flex flex-row items-center gap-3">
-				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+				<div class="preset-tonal-primary flex h-5 w-5 items-center justify-center rounded-full">
 					<IconCheck size="12" />
 				</div>
 				<p>Figma Skeleton v3 Components library</p>
 			</div>
 			<div class="flex flex-row items-center gap-3">
-				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+				<div class="preset-tonal-primary flex h-5 w-5 items-center justify-center rounded-full">
 					<IconCheck size="12" />
 				</div>
 				<p>Lucide Icons</p>
 			</div>
 			<div class="flex flex-row items-center gap-3">
-				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+				<div class="preset-tonal-primary flex h-5 w-5 items-center justify-center rounded-full">
 					<IconCheck size="12" />
 				</div>
 				<p>Dark / Light Support</p>
 			</div>
 			<div class="flex flex-row items-center gap-3">
-				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+				<div class="preset-tonal-primary flex h-5 w-5 items-center justify-center rounded-full">
 					<IconCheck size="12" />
 				</div>
 				<p>Custom Theme Support</p>
 			</div>
 			<div class="flex flex-row items-center gap-3">
-				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+				<div class="preset-tonal-primary flex h-5 w-5 items-center justify-center rounded-full">
 					<IconCheck size="12" />
 				</div>
 				<p>Figma Plugin to import your custom Theme</p>
 			</div>
 			<div class="flex flex-row items-center gap-3">
-				<div class="flex w-5 h-5 preset-tonal-primary rounded-full justify-center items-center">
+				<div class="preset-tonal-primary flex h-5 w-5 items-center justify-center rounded-full">
 					<IconCheck size="12" />
 				</div>
 				<p>Tutorials</p>
 			</div>
 		</div>
 	</div>
-	<div class="flex flex-col md:flex-row bg-transparent w-full border-t border-surface-200-800">
-		<div class="flex flex-col gap-1 p-6 border-r md:border-t-0 border-b md:border-b-0 border-surface-200-800 w-full">
+	<div class="border-surface-200-800 flex w-full flex-col border-t bg-transparent md:flex-row">
+		<div class="border-surface-200-800 flex w-full flex-col gap-1 border-b border-r p-6 md:border-b-0 md:border-t-0">
 			<span class="text-lg font-semibold">Individual License</span>
-			<div class="flex flex-col h-full pt-12">
-				<div class="flex flex-row gap-1 items-end pb-4">
+			<div class="flex h-full flex-col pt-12">
+				<div class="flex flex-row items-end gap-1 pb-4">
 					<span class="text-4xl font-semibold">$109</span>
 					<span class="opacity-60">+1 year of updates </span>
 				</div>
@@ -57,15 +57,15 @@ import { Check as IconCheck } from 'lucide-react';
 					href="https://buy.polar.sh/polar_cl_4Wd2CxwXfx-g5z-87D2PNRkdamIiohCLnxH3UqaAqGA"
 					data-polar-checkout
 					data-polar-checkout-theme="dark"
-					class="btn btn-lg self-end preset-filled flex items-center gap-2 w-full">Buy</a
+					class="btn btn-lg preset-filled flex w-full items-center gap-2 self-end">Buy</a
 				>
 			</div>
 		</div>
-		<div class="flex flex-col gap-1 p-6 w-full">
+		<div class="flex w-full flex-col gap-1 p-6">
 			<span class="text-lg font-semibold">Team License</span>
 
-			<div class="flex flex-col h-full pt-12">
-				<div class="flex flex-row gap-1 items-end pb-4">
+			<div class="flex h-full flex-col pt-12">
+				<div class="flex flex-row items-end gap-1 pb-4">
 					<span class="text-4xl font-semibold">$219</span>
 					<span class="opacity-60">+1 year of updates </span>
 				</div>
@@ -73,7 +73,7 @@ import { Check as IconCheck } from 'lucide-react';
 					href="https://buy.polar.sh/polar_cl_vLLsRrjP5rIuLgp6Loez6lPjyg1vrAhH435-MVhIpIk"
 					data-polar-checkout
 					data-polar-checkout-theme="dark"
-					class="btn btn-lg self-end preset-filled flex items-center gap-2 w-full">Buy</a
+					class="btn btn-lg preset-filled flex w-full items-center gap-2 self-end">Buy</a
 				>
 			</div>
 		</div>
@@ -109,6 +109,6 @@ import { Check as IconCheck } from 'lucide-react';
 		// Observe changes to attributes
 		attributes: true,
 		// Only observe changes to the class attribute
-		attributeFilter: ['class']
+		attributeFilter: ['class'],
 	});
 </script>

@@ -4,7 +4,7 @@ import { glob } from 'astro/loaders';
 const docs = defineCollection({
 	loader: glob({
 		base: './src/content/docs',
-		pattern: ['**/*.mdx', '!**/_*.mdx']
+		pattern: ['**/*.mdx', '!**/_*.mdx'],
 	}),
 	schema: z.object({
 		title: z.string().optional().default('(Title)'),
@@ -16,14 +16,14 @@ const docs = defineCollection({
 		showDocsUrl: z.boolean().optional().default(false),
 		pubDate: z.date().optional(),
 		tags: z.array(z.string()).optional(),
-		order: z.number().optional().default(0)
-	})
+		order: z.number().optional().default(0),
+	}),
 });
 
 const schemas = defineCollection({
 	loader: glob({
 		base: './src/content/schemas',
-		pattern: '**/*.json'
+		pattern: '**/*.json',
 	}),
 	schema: z.array(
 		z.object({
@@ -39,14 +39,14 @@ const schemas = defineCollection({
 						tags: z.array(
 							z.object({
 								name: z.string(),
-								value: z.string()
-							})
-						)
-					})
-				})
-			)
-		})
-	)
+								value: z.string(),
+							}),
+						),
+					}),
+				}),
+			),
+		}),
+	),
 });
 
 export const collections = { docs, schemas };

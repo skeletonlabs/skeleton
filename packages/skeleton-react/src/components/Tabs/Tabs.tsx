@@ -21,7 +21,7 @@ const TabsRoot: FC<TabsRootProps> = ({
 	// Zag
 	const service = useMachine(tabs.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = tabs.connect(service, normalizeProps);
 
@@ -41,7 +41,7 @@ const TabsList: FC<TabsListProps> = ({
 	gap = 'gap-2',
 	classes = '',
 	// Children
-	children
+	children,
 }) => {
 	const ctx = useContext(TabsContext);
 
@@ -104,7 +104,7 @@ const TabsContent: FC<TabsContentProps> = ({
 	base = '',
 	classes = '',
 	// Children
-	children
+	children,
 }) => {
 	return (
 		<div className={`${base} ${classes}`} data-testid="tabs-content">
@@ -141,5 +141,5 @@ export const Tabs = /* @__PURE__ */ Object.assign(TabsRoot, {
 	/** A group of tab panels. */
 	Content: TabsContent,
 	/** An individual tab panel. */
-	Panel: TabsPanel
+	Panel: TabsPanel,
 });

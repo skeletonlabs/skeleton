@@ -16,21 +16,21 @@ interface DrawerProps {
 const {
 	navigation = [],
 	base = 'xl:hidden preset-filled-surface-100-900 shadow-xl fixed top-0 left-0 bottom-0 h-screen z-50 w-[320px] p-4 pb-24 space-y-10 overflow-y-auto transition-transform duration-100 -translate-x-[320px]',
-	classes = ''
+	classes = '',
 }: DrawerProps = Astro.props;
 ---
 
 {/* Drawer */}
 <div class={`${base} ${classes}`} id="drawer">
 	<!-- Header -->
-	<header class="flex justify-between items-center">
+	<header class="flex items-center justify-between">
 		<h2 class="h3">Skeleton</h2>
 		<button class="btn-icon" data-drawer-toggle>
 			<IconClose />
 		</button>
 	</header>
 	<!-- Theme / Lightswitch -->
-	<div class="grid grid-cols-[1fr_auto] gap-4 items-center">
+	<div class="grid grid-cols-[1fr_auto] items-center gap-4">
 		<ThemeSwitch />
 		<Lightswitch />
 	</div>
@@ -51,7 +51,7 @@ const {
 </div>
 
 {/* Hamburger Menu */}
-<button class="xl:hidden btn-icon" data-drawer-toggle>
+<button class="btn-icon xl:hidden" data-drawer-toggle>
 	<IconMenu />
 </button>
 

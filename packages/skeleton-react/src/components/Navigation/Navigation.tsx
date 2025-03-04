@@ -43,14 +43,14 @@ export const NavRail: FC<NavRailProps> = ({
 	// Snippets
 	header,
 	children,
-	footer
+	footer,
 }) => {
 	// Set Context
 	const ctx = {
 		parent: 'rail',
 		value,
 		expanded,
-		onValueChange
+		onValueChange,
 	};
 
 	// Reactive
@@ -110,14 +110,14 @@ export const NavBar: FC<NavBarProps> = ({
 	// Events
 	onValueChange,
 	// Snippets
-	children
+	children,
 }) => {
 	// Set Context
 	const ctx = {
 		parent: 'bar',
 		value,
 		expanded: false,
-		onValueChange
+		onValueChange,
 	};
 
 	return (
@@ -164,7 +164,7 @@ export const NavTile: FC<NavTileProps> = ({
 	// Events
 	onClick,
 	// Snippets
-	children
+	children,
 }) => {
 	// Get Context
 	const ctx = useContext<NavContextState>(NavContext);
@@ -228,5 +228,5 @@ export const NavTile: FC<NavTileProps> = ({
 export const Navigation = /* @__PURE__ */ Object.assign(() => null, {
 	Rail: NavRail,
 	Bar: NavBar,
-	Tile: NavTile
+	Tile: NavTile,
 });

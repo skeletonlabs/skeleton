@@ -15,9 +15,9 @@ export default defineConfig({
 						const directory = basename(dirname(path));
 						const filename = basename(path);
 						return [join(directory, filename), path];
-					})
-				)
-			}
-		}
-	}
+					}),
+				),
+			},
+		},
+	},
 });

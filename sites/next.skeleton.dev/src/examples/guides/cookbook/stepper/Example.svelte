@@ -8,7 +8,7 @@
 		{ label: 'Step 2', description: 'The description of step 2.' },
 		{ label: 'Step 3', description: 'The description of step 3.' },
 		{ label: 'Step 4', description: 'The description of step 4.' },
-		{ label: 'Step 5', description: 'The description of step 5.' }
+		{ label: 'Step 5', description: 'The description of step 5.' },
 	];
 
 	// Reactive
@@ -43,7 +43,7 @@
 		<!-- Timeline -->
 		<div class="relative">
 			<!-- Numerals -->
-			<div class="flex justify-between items-center gap-4">
+			<div class="flex items-center justify-between gap-4">
 				{#each steps as step, i}
 					<!-- Numeral Button -->
 					<button
@@ -56,21 +56,21 @@
 				{/each}
 			</div>
 			<!-- Line -->
-			<hr class="hr !border-surface-200-800 absolute top-[50%] left-0 right-0 z-[-1]" />
+			<hr class="hr !border-surface-200-800 absolute left-0 right-0 top-[50%] z-[-1]" />
 		</div>
 		<!-- Loop all steps -->
 		{#each steps as step, i (step)}
 			<!-- Filter to current step only -->
 			{#if isCurrentStep(i)}
 				<!-- Individual steps -->
-				<div class="card bg-surface-100-900 p-10 space-y-2 text-center">
+				<div class="card bg-surface-100-900 space-y-2 p-10 text-center">
 					<h2 class="h3">{step.label}</h2>
 					<p>{step.description}</p>
 				</div>
 			{/if}
 		{/each}
 		<!-- Navigation -->
-		<nav class="flex justify-between items-center gap-4">
+		<nav class="flex items-center justify-between gap-4">
 			<!-- Back Button -->
 			<button type="button" class="btn preset-tonal hover:preset-filled" onclick={prevStep} disabled={isFirstStep}>
 				<IconArrowLeft size={18} />

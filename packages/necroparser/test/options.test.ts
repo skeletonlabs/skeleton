@@ -20,10 +20,10 @@ interface FooProps {
 interface BarProps {
 	bar: number;
 }
-`
+`,
 			);
 			const interfaces = getInterfaces('/matcher.ts', {
-				matcher: /^FooProps$/
+				matcher: /^FooProps$/,
 			});
 			expect(interfaces).toStrictEqual([
 				{
@@ -32,15 +32,15 @@ interface BarProps {
 						{
 							documentation: {
 								tags: [],
-								text: null
+								text: null,
 							},
 							name: 'foo',
 							type: 'string',
 							typeKind: 'primitive',
-							required: true
-						}
-					]
-				}
+							required: true,
+						},
+					],
+				},
 			]);
 		});
 	});
@@ -53,7 +53,7 @@ interface FooProps {
 	foo: string;
 	bar: string;
 }
-`
+`,
 			);
 
 			const interfaces = getInterfaces('/transformProperty.ts', {
@@ -61,11 +61,11 @@ interface FooProps {
 					if (property.name === 'foo') {
 						return {
 							...property,
-							type: 'number'
+							type: 'number',
 						};
 					}
 					return property;
-				}
+				},
 			});
 			expect(interfaces).toStrictEqual([
 				{
@@ -74,25 +74,25 @@ interface FooProps {
 						{
 							documentation: {
 								tags: [],
-								text: null
+								text: null,
 							},
 							name: 'foo',
 							type: 'number',
 							typeKind: 'primitive',
-							required: true
+							required: true,
 						},
 						{
 							documentation: {
 								tags: [],
-								text: null
+								text: null,
 							},
 							name: 'bar',
 							type: 'string',
 							typeKind: 'primitive',
-							required: true
-						}
-					]
-				}
+							required: true,
+						},
+					],
+				},
 			]);
 		});
 	});

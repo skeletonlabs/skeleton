@@ -9,7 +9,7 @@
 	height="480"
 	viewBox="0 0 512 480"
 	aria-hidden="false"
-	class="w-full h-auto"
+	class="h-auto w-full"
 >
 	<!-- Bottom Line -->
 	<g data-z-index="2" aria-hidden="true">

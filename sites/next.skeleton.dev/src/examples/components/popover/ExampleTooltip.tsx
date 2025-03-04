@@ -11,7 +11,7 @@ export const Page: React.FC = () => {
 		onOpenChange: setIsOpen,
 		middleware: [offset(10), flip(), shift()],
 		placement: 'top',
-		whileElementsMounted: autoUpdate
+		whileElementsMounted: autoUpdate,
 	});
 
 	const hover = useHover(context, { move: false });

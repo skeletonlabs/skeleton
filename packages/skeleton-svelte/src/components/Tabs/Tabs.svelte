@@ -30,7 +30,7 @@
 	const id = $props.id();
 	const service = useMachine(tabs.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(tabs.connect(service, normalizeProps));
 
@@ -41,7 +41,7 @@
 		},
 		get fluid() {
 			return fluid;
-		}
+		},
 	});
 </script>
 

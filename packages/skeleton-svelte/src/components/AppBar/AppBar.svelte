@@ -37,7 +37,7 @@
 		children,
 		lead,
 		trail,
-		headline
+		headline,
 	}: AppBarProps = $props();
 </script>
 

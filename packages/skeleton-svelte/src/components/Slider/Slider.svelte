@@ -53,7 +53,7 @@
 	const id = $props.id();
 	const service = useMachine(slider.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(slider.connect(service, normalizeProps));
 

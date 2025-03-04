@@ -9,8 +9,8 @@ function transformAppHtml(code: string) {
 		return {
 			code: code,
 			meta: {
-				theme: undefined
-			}
+				theme: undefined,
+			},
 		};
 	}
 	const theme = body.getAttribute('data-theme');
@@ -18,8 +18,8 @@ function transformAppHtml(code: string) {
 		return {
 			code: code,
 			meta: {
-				theme: undefined
-			}
+				theme: undefined,
+			},
 		};
 	}
 	let type: 'preset' | 'custom';
@@ -36,9 +36,9 @@ function transformAppHtml(code: string) {
 		meta: {
 			theme: {
 				value: theme,
-				type: type
-			}
-		}
+				type: type,
+			},
+		},
 	};
 }
 

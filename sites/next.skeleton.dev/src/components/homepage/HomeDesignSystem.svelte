@@ -10,32 +10,32 @@
 	const steps = [
 		{
 			label: 'The Figma UI Kit',
-			desc: 'This premium kit allows you to import Skeleton themes directly into Figma a dedicated plugin. Switch between dark and light modes on the fly. Preview all available components instantly.'
+			desc: 'This premium kit allows you to import Skeleton themes directly into Figma a dedicated plugin. Switch between dark and light modes on the fly. Preview all available components instantly.',
 		},
 		{
 			label: 'Themes',
-			desc: 'Themes are empowered by CSS custom properties, enabling simple integration into Skeleton’s Tailwind plugin. Allowing for simple registration and easy switching on demand.'
+			desc: 'Themes are empowered by CSS custom properties, enabling simple integration into Skeleton’s Tailwind plugin. Allowing for simple registration and easy switching on demand.',
 		},
 		{
 			label: 'Colors',
-			desc: 'Manage your color palette with support for contrast tones. Make use of Color Pairings for balancing dark mode. As well as Presets to apply canned styles to elements and components.'
+			desc: 'Manage your color palette with support for contrast tones. Make use of Color Pairings for balancing dark mode. As well as Presets to apply canned styles to elements and components.',
 		},
 		{
 			label: 'Presets',
-			desc: 'Presets are utility classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.'
+			desc: 'Presets are utility classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.',
 		},
 		{
 			label: 'Typography',
-			desc: 'Skeleton provides an array of opt-in utility classes for typographic elements. Includes primitives for generating semantic typography. Adjust theme settings to set the perfect typographic scale.'
+			desc: 'Skeleton provides an array of opt-in utility classes for typographic elements. Includes primitives for generating semantic typography. Adjust theme settings to set the perfect typographic scale.',
 		},
 		{
 			label: 'Spacing',
-			desc: 'This extends the Tailwind spacing system, adjust dynamic scaling using a single theme-specified scale factor.'
+			desc: 'This extends the Tailwind spacing system, adjust dynamic scaling using a single theme-specified scale factor.',
 		},
 		{
 			label: 'Iconography',
-			desc: 'Skeleton takes an agnostic approach to icons, allowing you to bring your own icon library or mix and match to fulfill your project’s aesthetic.'
-		}
+			desc: 'Skeleton takes an agnostic approach to icons, allowing you to bring your own icon library or mix and match to fulfill your project’s aesthetic.',
+		},
 	];
 	const btnActive = 'btn preset-filled';
 	const btnInactive = 'btn preset-outlined-surface-800-200 hover:preset-tonal';
@@ -51,7 +51,7 @@
 	}
 </script>
 
-<div class="grid grid-cols-1 xl:grid-cols-[0.75fr_2fr] gap-10">
+<div class="grid grid-cols-1 gap-10 xl:grid-cols-[0.75fr_2fr]">
 	<!-- Text -->
 	<div class="space-y-8">
 		<h2 class="h2">Design System</h2>
@@ -71,13 +71,13 @@
 		</div>
 	</div>
 	<!-- Carousel -->
-	<div class="card bg-noise preset-filled-primary-500 aspect-video flex justify-center items-center overflow-hidden shadow-xl">
+	<div class="card bg-noise preset-filled-primary-500 flex aspect-video items-center justify-center overflow-hidden shadow-xl">
 		{#if state === 0}
 			<!-- Step 1: Figma -->
-			<img src="https://i.imgur.com/KOrl47B.png" alt="figma" class="w-full h-auto" />
+			<img src="https://i.imgur.com/KOrl47B.png" alt="figma" class="h-auto w-full" />
 		{:else if state == 1}
 			<!-- Step 2: Themes -->
-			<div class="w-full pt-10 pl-10">
+			<div class="w-full pl-10 pt-10">
 				<!-- <img src="https://i.imgur.com/6cnOrZ4.png" alt="code" class="w-full h-auto rounded-tl-container" /> -->
 				<!-- prettier-ignore -->
 				<pre class="pre box-border overflow-hidden w-full aspect-video mt-4 ml-4 xl:mt-10 xl:ml-10">
@@ -113,16 +113,16 @@ const theme = {
 		{:else if state == 2}
 			<!-- Step 3: Colors -->
 			<div class="grid grid-cols-3 gap-5 md:gap-10">
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-secondary-500"></div>
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-tertiary-500"></div>
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-success-500"></div>
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-error-500"></div>
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-warning-500"></div>
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-surface-500"></div>
+				<div class="bg-secondary-500 aspect-square w-10 rounded-full shadow-xl md:w-32"></div>
+				<div class="bg-tertiary-500 aspect-square w-10 rounded-full shadow-xl md:w-32"></div>
+				<div class="bg-success-500 aspect-square w-10 rounded-full shadow-xl md:w-32"></div>
+				<div class="bg-error-500 aspect-square w-10 rounded-full shadow-xl md:w-32"></div>
+				<div class="bg-warning-500 aspect-square w-10 rounded-full shadow-xl md:w-32"></div>
+				<div class="bg-surface-500 aspect-square w-10 rounded-full shadow-xl md:w-32"></div>
 			</div>
 		{:else if state == 3}
 			<!-- Step 4: Presets -->
-			<div class="md:scale-125 xl:scale-150 grid grid-cols-3 gap-4 xl:gap-10">
+			<div class="grid grid-cols-3 gap-4 md:scale-125 xl:scale-150 xl:gap-10">
 				<div class="flex flex-col items-center">
 					<button type="button" class="btn preset-filled">Filled</button>
 				</div>
@@ -146,16 +146,16 @@ const theme = {
 			</div>
 		{:else if state == 4}
 			<!-- Step 5: Typography -->
-			<div class="text-center space-y-4">
-				<h1 class="heading-font-family text-xs1 md:text-xs3 leading-none font-bold">Aa</h1>
+			<div class="space-y-4 text-center">
+				<h1 class="heading-font-family text-xs1 md:text-xs3 font-bold leading-none">Aa</h1>
 				<p class="text-xs md:text-lg">The quick brown fox jumped over the lazy dog.</p>
 			</div>
 		{:else if state == 5}
 			<!-- Step 6: Spacing -->
-			<div class="scale-75 md:scale-150 flex flex-col items-start gap-1">
+			<div class="flex scale-75 flex-col items-start gap-1 md:scale-150">
 				{#each spacing as rowHeight}
 					<div class="grid grid-cols-[32px_1fr] items-center gap-2">
-						<span class="text-xs text-right">{rowHeight}</span>
+						<span class="text-right text-xs">{rowHeight}</span>
 						<div class="bg-surface-50 h-2 {rowHeight}"></div>
 					</div>
 				{/each}

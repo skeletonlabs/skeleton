@@ -9,7 +9,7 @@ import {
 	settingsBackgrounds,
 	settingsTypography,
 	settingsSpacing,
-	settingsEdges
+	settingsEdges,
 } from '$lib/state/generator.svelte';
 import { genColorRamp } from '$lib/utils/generator/colors';
 

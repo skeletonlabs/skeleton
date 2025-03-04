@@ -3,74 +3,74 @@ import { Icon } from 'astro-icon/components';
 import { Ellipsis as IconEllipsis } from 'lucide-react';
 ---
 
-<div class="card bg-noise preset-filled-surface-100-900 px-10 py-8 grid grid-cols-1 xl:grid-cols-[auto_2fr] gap-10">
+<div class="card bg-noise preset-filled-surface-100-900 grid grid-cols-1 gap-10 px-10 py-8 xl:grid-cols-[auto_2fr]">
 	<!-- Text -->
-	<div class="self-center space-y-1">
+	<div class="space-y-1 self-center">
 		<h2 class="h2">Frameworks</h2>
-		<p class="xl:text-balance xl:max-w-96">See a real world example of Skeleton for your favorite web frameworks.</p>
+		<p class="xl:max-w-96 xl:text-balance">See a real world example of Skeleton for your favorite web frameworks.</p>
 		<p class="pt-4 text-xs opacity-50">Functional components limited to <u>React</u> and <u>Svelte</u>.</p>
 	</div>
 	<!-- Options -->
-	<div class="self-center grid grid-cols-2 md:grid-cols-6 gap-4">
+	<div class="grid grid-cols-2 gap-4 self-center md:grid-cols-6">
 		<a
 			href="https://github.com/skeletonlabs/skeleton-repl-nextjs"
 			target="_blank"
-			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 		>
-			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#00D8FF]">
+			<div class="flex aspect-square w-16 items-center justify-center rounded-full bg-[#00D8FF] xl:w-20">
 				<Icon name="react" class="size-10 text-white" />
 			</div>
-			<span class="font-bold text-xs">React</span>
+			<span class="text-xs font-bold">React</span>
 		</a>
 		<a
 			href="https://github.com/skeletonlabs/skeleton-repl-sveltekit"
 			target="_blank"
-			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 		>
-			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#FF3E00]">
+			<div class="flex aspect-square w-16 items-center justify-center rounded-full bg-[#FF3E00] xl:w-20">
 				<Icon name="svelte" class="size-10 text-white" />
 			</div>
-			<span class="font-bold text-xs">Svelte</span>
+			<span class="text-xs font-bold">Svelte</span>
 		</a>
 		<a
 			href="https://github.com/skeletonlabs/skeleton-repl-nuxt"
 			target="_blank"
-			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 		>
-			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#42B883]">
+			<div class="flex aspect-square w-16 items-center justify-center rounded-full bg-[#42B883] xl:w-20">
 				<Icon name="vue" class="size-10 text-white" />
 			</div>
-			<span class="font-bold text-xs">Vue</span>
+			<span class="text-xs font-bold">Vue</span>
 		</a>
 		<a
 			href="https://github.com/skeletonlabs/skeleton-repl-solidstart"
 			target="_blank"
-			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 		>
-			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#57A0FF]">
+			<div class="flex aspect-square w-16 items-center justify-center rounded-full bg-[#57A0FF] xl:w-20">
 				<Icon name="solid" class="size-10 text-white" />
 			</div>
-			<span class="font-bold text-xs">Solid</span>
+			<span class="text-xs font-bold">Solid</span>
 		</a>
 		<a
 			href="https://github.com/skeletonlabs/skeleton-repl-astro"
 			target="_blank"
-			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 		>
-			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#761CBA]">
+			<div class="flex aspect-square w-16 items-center justify-center rounded-full bg-[#761CBA] xl:w-20">
 				<Icon name="astro" class="size-10 text-white" />
 			</div>
-			<span class="font-bold text-xs">Astro</span>
+			<span class="text-xs font-bold">Astro</span>
 		</a>
 		<a
 			href="/docs/get-started/installation"
 			target="_blank"
-			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 		>
-			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center preset-tonal">
+			<div class="preset-tonal flex aspect-square w-16 items-center justify-center rounded-full xl:w-20">
 				<IconEllipsis className="size-4" />
 			</div>
-			<span class="font-bold text-xs">More</span>
+			<span class="text-xs font-bold">More</span>
 		</a>
 	</div>
 </div>

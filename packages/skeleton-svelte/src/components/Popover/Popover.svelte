@@ -40,7 +40,7 @@
 	const id = $props.id();
 	const service = useMachine(popover.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(popover.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));

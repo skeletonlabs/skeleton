@@ -6,7 +6,7 @@ export const Page = () => {
 	const [max] = useState(100);
 
 	return (
-		<div className="grid grid-cols-1 gap-4 justify-center">
+		<div className="grid grid-cols-1 justify-center gap-4">
 			{/* Progress */}
 			<ProgressRing value={value} max={max} />
 			{/* Range Input */}

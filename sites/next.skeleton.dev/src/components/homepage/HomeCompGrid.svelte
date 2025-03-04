@@ -22,7 +22,7 @@
 		global: false,
 		personal: false,
 		priority: false,
-		news: false
+		news: false,
 	});
 
 	// Seed Data
@@ -30,14 +30,14 @@
 		{ name: 'Janet Rosenbell', email: 'jrosenbell@email.com' },
 		{ name: 'Jason Greene', email: 'jgreene@email.com' },
 		{ name: 'Lucas Gamble', email: 'lgamble@email.com' },
-		{ name: 'Murray Henderson', email: 'mhenderson@email.com' }
+		{ name: 'Murray Henderson', email: 'mhenderson@email.com' },
 	];
 	const tableData = [
 		{ position: '0', name: 'Iron', symbol: 'Fe', atomic_no: '26' },
 		{ position: '1', name: 'Rhodium', symbol: 'Rh', atomic_no: '45' },
 		{ position: '2', name: 'Iodine', symbol: 'I', atomic_no: '53' },
 		{ position: '3', name: 'Radon', symbol: 'Rn', atomic_no: '86' },
-		{ position: '4', name: 'Technetium', symbol: 'Tc', atomic_no: '43' }
+		{ position: '4', name: 'Technetium', symbol: 'Tc', atomic_no: '43' },
 	];
 </script>
 
@@ -65,7 +65,7 @@
 					<input type="password" class="input" placeholder="me@example.com" />
 				</label>
 			</article>
-			<button class="w-full btn preset-filled-primary-500">Create Account</button>
+			<button class="btn preset-filled-primary-500 w-full">Create Account</button>
 		</div>
 		<!-- 2 -->
 		<div class={`${cardClasses}`}>
@@ -75,12 +75,12 @@
 			</header>
 			<hr class="hr" />
 			<section class="w-full space-y-5">
-				<div class="flex justify-between items-center gap-4">
+				<div class="flex items-center justify-between gap-4">
 					<p class="opacity-60">Do not disturb</p>
 					<Switch name="disturb" checked={notifications.disturb} onCheckedChange={(e) => (notifications.disturb = e.checked)}></Switch>
 				</div>
 				<hr class="hr" />
-				<div class="flex justify-between items-center gap-4">
+				<div class="flex items-center justify-between gap-4">
 					<p class="opacity-60">Global notifications</p>
 					<Switch
 						name="notifications"
@@ -90,7 +90,7 @@
 					></Switch>
 				</div>
 				<hr class="hr" />
-				<div class="flex justify-between items-center gap-4">
+				<div class="flex items-center justify-between gap-4">
 					<p class="opacity-60">Personal notifications</p>
 					<Switch
 						name="disabled"
@@ -100,7 +100,7 @@
 					></Switch>
 				</div>
 				<hr class="hr" />
-				<div class="flex justify-between items-center gap-4">
+				<div class="flex items-center justify-between gap-4">
 					<p class="opacity-60">Priority notifications</p>
 					<Switch
 						name="disturb"
@@ -110,7 +110,7 @@
 					></Switch>
 				</div>
 				<hr class="hr" />
-				<div class="flex justify-between items-center gap-4">
+				<div class="flex items-center justify-between gap-4">
 					<p class="opacity-60">Featured News alerts</p>
 					<Switch
 						name="notifications"
@@ -132,11 +132,11 @@
 				<div class="grid grid-cols-1 gap-2">
 					{#each teamData as member, i}
 						<hr class="hr" />
-						<button type="button" class="card w-full grid grid-cols-[auto_1fr] items-center gap-4 p-3">
+						<button type="button" class="card grid w-full grid-cols-[auto_1fr] items-center gap-4 p-3">
 							<Avatar src="https://i.pravatar.cc/150?img={i + 10}" name="" size="size-10" imageClasses="grayscale" />
 							<div class="text-left">
 								<p class="font-bold">{member.name}</p>
-								<p class="opacity-60 text-xs">{member.email}</p>
+								<p class="text-xs opacity-60">{member.email}</p>
 							</div>
 						</button>
 					{/each}
@@ -145,36 +145,36 @@
 		</div>
 		<!-- 4 -->
 		<div class={`${cardClasses} row-span-2`}>
-			<header class="flex justify-between items-center">
+			<header class="flex items-center justify-between">
 				<h2 class="h4">Music</h2>
 				<p class="text-xs opacity-60">Harman Kardon Luna</p>
 			</header>
-			<img src="https://i.imgur.com/kocJdtN.png" alt="Massive Attack" class="rounded-container border-[1px] border-surface-500/50" />
-			<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
+			<img src="https://i.imgur.com/kocJdtN.png" alt="Massive Attack" class="rounded-container border-surface-500/50 border-[1px]" />
+			<div class="grid grid-cols-[auto_1fr] items-center gap-2">
 				<IconPlay class="size-4 opacity-60" />
 				<Slider name="example" value={[75]} />
 			</div>
-			<div class="grid grid-cols-4 gap-2 items-center">
-				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
-					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
+			<div class="grid grid-cols-4 items-center gap-2">
+				<button type="button" class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2">
+					<div class="preset-filled-primary-500 flex aspect-square w-8 items-center justify-center rounded-full">
 						<IconNormalize class="size-4" />
 					</div>
 					<span class="text-[10px]">Normalize</span>
 				</button>
-				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
-					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
+				<button type="button" class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2">
+					<div class="preset-filled-primary-500 flex aspect-square w-8 items-center justify-center rounded-full">
 						<IconEqualizer class="size-4" />
 					</div>
 					<span class="text-[10px]">Equalizer</span>
 				</button>
-				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
-					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
+				<button type="button" class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2">
+					<div class="preset-filled-primary-500 flex aspect-square w-8 items-center justify-center rounded-full">
 						<Icon3dAudio class="size-4" />
 					</div>
 					<span class="text-[10px]">3D Audio</span>
 				</button>
-				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
-					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
+				<button type="button" class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2">
+					<div class="preset-filled-primary-500 flex aspect-square w-8 items-center justify-center rounded-full">
 						<IconCrossfade class="size-4" />
 					</div>
 					<span class="text-[10px]">Crossfade</span>
@@ -183,7 +183,7 @@
 		</div>
 		<!-- 5 -->
 		<div class={`${cardClasses}`}>
-			<div class="flex justify-between items-center gap-4">
+			<div class="flex items-center justify-between gap-4">
 				<div>
 					<h2 class="h4">Success</h2>
 					<p class="text-xs opacity-60">Task was completed.</p>
@@ -225,40 +225,40 @@
 		<!-- 7 -->
 		<div class={`${cardClasses} row-span-2 row-start-3`}>
 			<h2 class="h4 text-center">Progression</h2>
-			<div class="grid grid-cols-[1fr_auto] grid-row-2 gap-5">
+			<div class="grid-row-2 grid grid-cols-[1fr_auto] gap-5">
 				<ProgressRing value={32} max={100} showLabel size="size-56" strokeWidth="14px" labelClasses="text-4xl" classes="row-span-2" />
 				<ProgressRing value={66} max={100} showLabel size="size-16" strokeWidth="5px" labelClasses="text-sm" classes="self-center" />
 				<ProgressRing value={35} max={100} showLabel size="size-16" strokeWidth="5px" labelClasses="text-sm" classes="self-center" />
 			</div>
 		</div>
 		<!-- 8 -->
-		<div class={`${cardClasses} col-span-2 row-span-2 col-start-3 row-start-3`}>
+		<div class={`${cardClasses} col-span-2 col-start-3 row-span-2 row-start-3`}>
 			<header class="flex justify-between">
 				<div>
 					<h2 class="h3">Revenue</h2>
 					<p class="text-xs opacity-60">Posted April 1-13</p>
 				</div>
-				<button type="button" class="btn-icon rounded-full preset-tonal">
+				<button type="button" class="btn-icon preset-tonal rounded-full">
 					<IconArrowUpRight class="size-4" />
 				</button>
 			</header>
 			<hr class="hr" />
 			<div class="space-y-1">
-				<div class="flex justify-between items-center">
+				<div class="flex items-center justify-between">
 					<span class="text-xl font-bold">$3,900</span>
 					<span class="badge preset-tonal-success">+20%</span>
 				</div>
 				<progress class="progress" value="39" max="100"></progress>
 			</div>
 			<div class="space-y-1">
-				<div class="flex justify-between items-center">
+				<div class="flex items-center justify-between">
 					<span class="text-xl font-bold">$6,400</span>
 					<span class="badge preset-tonal-error">-5%</span>
 				</div>
 				<progress class="progress" value="64" max="100"></progress>
 			</div>
 			<div class="space-y-1">
-				<div class="flex justify-between items-center">
+				<div class="flex items-center justify-between">
 					<span class="text-xl font-bold">$1,300</span>
 					<span class="badge preset-tonal-success">+8%</span>
 				</div>
@@ -266,7 +266,7 @@
 			</div>
 		</div>
 		<!-- 9 -->
-		<div class={`${cardClasses} row-span-2 col-start-2 row-start-4`}>
+		<div class={`${cardClasses} col-start-2 row-span-2 row-start-4`}>
 			<div class="space-y-2">
 				<p class="font-bold">Delivery</p>
 				<nav class="grid grid-cols-2 gap-2">
@@ -301,7 +301,7 @@
 		</div>
 		<!-- 10 -->
 		<div class={`${cardClasses} row-span-2 row-start-5 text-center`}>
-			<button type="button" class="w-16 aspect-square preset-tonal-success flex justify-center items-center mx-auto rounded-full">
+			<button type="button" class="preset-tonal-success mx-auto flex aspect-square w-16 items-center justify-center rounded-full">
 				<IconCheck class="size-8" />
 			</button>
 			<div class="space-y-2 text-center">
@@ -315,7 +315,7 @@
 			</nav>
 		</div>
 		<!-- 11 -->
-		<div class={`${cardClasses} col-span-2 row-span-2 col-start-3 row-start-5`}>
+		<div class={`${cardClasses} col-span-2 col-start-3 row-span-2 row-start-5`}>
 			<input type="search" class="input" placeholder="Filter elements..." />
 			<div class="table-wrap">
 				<table class="table">
@@ -345,7 +345,7 @@
 			</div>
 		</div>
 		<!-- 12 -->
-		<div class={`${cardClasses} row-span-2 col-start-2 row-start-6 row-end-9`}>
+		<div class={`${cardClasses} col-start-2 row-span-2 row-start-6 row-end-9`}>
 			<h2 class="h4">Set Reminder</h2>
 			<label class="label">
 				<span class="label text">Mode</span>
@@ -366,7 +366,7 @@
 		<!-- 13 -->
 		<div class={`${cardClasses} row-span-2 row-start-7`}>
 			<div class="space-y-2">
-				<header class="flex justify-between items-center gap-4">
+				<header class="flex items-center justify-between gap-4">
 					<h2 class="h6">Contributions</h2>
 					<IconUsers class="size-4 opacity-60" />
 				</header>
@@ -375,24 +375,24 @@
 			</div>
 		</div>
 		<!-- 14 -->
-		<div class={`${cardClasses} col-span-2 row-span-2 col-start-3 row-start-7`}>
-			<div class="h-full grid grid-cols-[auto_2fr_0.5fr] items-center gap-2 px-5">
-				<button type="button" class="btn-icon btn-icon-lg rounded-full preset-filled-primary-500 scale-150">
+		<div class={`${cardClasses} col-span-2 col-start-3 row-span-2 row-start-7`}>
+			<div class="grid h-full grid-cols-[auto_2fr_0.5fr] items-center gap-2 px-5">
+				<button type="button" class="btn-icon btn-icon-lg preset-filled-primary-500 scale-150 rounded-full">
 					<IconPlay class="size-6 fill-current stroke-none" />
 				</button>
-				<div class="grid grid-cols-[auto_1fr_auto] gap-5 items-center px-10">
+				<div class="grid grid-cols-[auto_1fr_auto] items-center gap-5 px-10">
 					<button type="button" class="btn hover:preset-tonal"><IconRewind class="size-4 opacity-60" /></button>
 					<div class="space-y-1">
 						<p class="font-bold">Pink Floyd</p>
 						<progress class="progress" value={75} max={100}></progress>
-						<div class="flex justify-between items-end">
+						<div class="flex items-end justify-between">
 							<p class="text-xs opacity-60">Another Brick in the Wall</p>
 							<p class="text-xs opacity-60">3:16</p>
 						</div>
 					</div>
 					<button type="button" class="btn hover:preset-tonal"><IconFastForward class="size-4 opacity-60" /></button>
 				</div>
-				<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
+				<div class="grid grid-cols-[auto_1fr] items-center gap-2">
 					<IconVolume class="size-4 opacity-60" />
 					<Slider name="example" value={[70]} />
 				</div>

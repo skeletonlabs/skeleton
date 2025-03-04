@@ -22,7 +22,7 @@ export const Preview: React.FC<PreviewProps> = (props) => {
 	return (
 		<div className="mt-4 space-y-4">
 			{/* Tabs */}
-			<nav className="border-b-[1px] border-surface-200-800 flex gap-4">
+			<nav className="border-surface-200-800 flex gap-4 border-b-[1px]">
 				{/* Tab: Preview */}
 				{props.preview && (
 					<button className={`${cTab} ${selectedClass('preview')}`} onClick={() => setSelected('preview')}>
@@ -50,7 +50,7 @@ export const Preview: React.FC<PreviewProps> = (props) => {
 			</nav>
 			{/* Panel: Preview */}
 			<div
-				className={`card bg-noise bg-surface-50-950 border-[1px] border-surface-200-800 flex justify-center items-center p-8 ${props.preview && selected === 'preview' ? 'block' : 'hidden'}`}
+				className={`card bg-noise bg-surface-50-950 border-surface-200-800 flex items-center justify-center border-[1px] p-8 ${props.preview && selected === 'preview' ? 'block' : 'hidden'}`}
 			>
 				{props.preview}
 			</div>

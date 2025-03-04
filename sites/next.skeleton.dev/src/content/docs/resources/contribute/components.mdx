@@ -108,7 +108,7 @@ Style props implement sementic naming conventions to enable specificity and avoi
 		panelBase = '...',
 		panelBg = '...',
 		panelPadding = '...',
-		panelClasses = '...'
+		panelClasses = '...',
 	}: Props = $props();
 </script>
 
@@ -144,7 +144,7 @@ You may need to conditionally update or swap between one or more sets of style p
 		active = true,
 		// ...
 		fooActive = '...',
-		fooInactive = '...'
+		fooInactive = '...',
 		// ...
 	}: Props = $props();
 
@@ -353,8 +353,8 @@ export const Accordion = Object.assign(
 	{
 		Item: AccordionItem, // -> <Accordion.Item>
 		Control: AccordionControl, // -> <Accordion.Control>
-		Panel: AccordionPanel // -> <Accordion.Panel>
-	}
+		Panel: AccordionPanel, // -> <Accordion.Panel>
+	},
 );
 ```
 
@@ -369,8 +369,8 @@ import AccordionItem from './AccordionItem.svelte';
 export const Accordion = Object.assign(
 	Accordion, // -> <Accordion>
 	{
-		Item: AccordionItem // -> <Accordion.Item>
-	}
+		Item: AccordionItem, // -> <Accordion.Item>
+	},
 );
 ```
 

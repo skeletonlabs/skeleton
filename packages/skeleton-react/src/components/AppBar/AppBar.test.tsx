@@ -14,7 +14,7 @@ describe('AppBar', () => {
 			const component = render(
 				<AppBar>
 					<div data-testid="child"></div>
-				</AppBar>
+				</AppBar>,
 			);
 			expect(component.getByTestId('child')).toBeInTheDocument();
 		});
@@ -40,7 +40,7 @@ describe('AppBar', () => {
 			const component = render(
 				<AppBar.Toolbar>
 					<div data-testid="child"></div>
-				</AppBar.Toolbar>
+				</AppBar.Toolbar>,
 			);
 			expect(component.getByTestId('child')).toBeInTheDocument();
 		});
@@ -63,7 +63,7 @@ describe('AppBar', () => {
 					<AppBar.Toolbar>
 						<AppBar.ToolbarLead></AppBar.ToolbarLead>
 					</AppBar.Toolbar>
-				</AppBar>
+				</AppBar>,
 			);
 			expect(component.getByTestId(testId)).toBeInTheDocument();
 		});
@@ -76,7 +76,7 @@ describe('AppBar', () => {
 							<div data-testid="child"></div>
 						</AppBar.ToolbarLead>
 					</AppBar.Toolbar>
-				</AppBar>
+				</AppBar>,
 			);
 			expect(component.getByTestId('child')).toBeInTheDocument();
 		});
@@ -99,7 +99,7 @@ describe('AppBar', () => {
 					<AppBar.Toolbar>
 						<AppBar.ToolbarCenter></AppBar.ToolbarCenter>
 					</AppBar.Toolbar>
-				</AppBar>
+				</AppBar>,
 			);
 			expect(component.getByTestId(testId)).toBeInTheDocument();
 		});
@@ -112,7 +112,7 @@ describe('AppBar', () => {
 							<div data-testid="child"></div>
 						</AppBar.ToolbarCenter>
 					</AppBar.Toolbar>
-				</AppBar>
+				</AppBar>,
 			);
 			expect(component.getByTestId('child')).toBeInTheDocument();
 		});
@@ -135,7 +135,7 @@ describe('AppBar', () => {
 					<AppBar.Toolbar>
 						<AppBar.ToolbarTrail></AppBar.ToolbarTrail>
 					</AppBar.Toolbar>
-				</AppBar>
+				</AppBar>,
 			);
 			expect(component.getByTestId(testId)).toBeInTheDocument();
 		});
@@ -148,7 +148,7 @@ describe('AppBar', () => {
 							<div data-testid="child"></div>
 						</AppBar.ToolbarTrail>
 					</AppBar.Toolbar>
-				</AppBar>
+				</AppBar>,
 			);
 			expect(component.getByTestId('child')).toBeInTheDocument();
 		});
@@ -169,7 +169,7 @@ describe('AppBar', () => {
 			const component = render(
 				<AppBar>
 					<AppBar.Headline></AppBar.Headline>
-				</AppBar>
+				</AppBar>,
 			);
 			expect(component.getByTestId(testId)).toBeInTheDocument();
 		});
@@ -180,7 +180,7 @@ describe('AppBar', () => {
 					<AppBar.Headline>
 						<div data-testid="child"></div>
 					</AppBar.Headline>
-				</AppBar>
+				</AppBar>,
 			);
 			expect(component.getByTestId('child')).toBeInTheDocument();
 		});

@@ -9,7 +9,7 @@
 	const comboboxData: ComboxData[] = [
 		{ label: 'United States', value: 'US' },
 		{ label: 'Germany', value: 'DE' },
-		{ label: 'Japan', value: 'JP' }
+		{ label: 'Japan', value: 'JP' },
 	];
 
 	let selectedCountry = $state(['US']);

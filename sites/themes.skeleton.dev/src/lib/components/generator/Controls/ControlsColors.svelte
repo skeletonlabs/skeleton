@@ -29,7 +29,7 @@
 		{ label: 'Success', description: 'Used for successful states.', value: 'success', class: 'preset-filled-success-500' },
 		{ label: 'Warning', description: 'Used for warning states.', value: 'warning', class: 'preset-filled-warning-500' },
 		{ label: 'Error', description: 'Used for error states.', value: 'error', class: 'preset-filled-error-500' },
-		{ label: 'Surface', description: 'The neutral surface tones.', value: 'surface', class: 'preset-filled-surface-500' }
+		{ label: 'Surface', description: 'The neutral surface tones.', value: 'surface', class: 'preset-filled-surface-500' },
 	];
 	const shadesAll = constants.colorShades;
 	const shades3x = [constants.colorShades[0], 500, constants.colorShades[constants.colorShades.length - 1]]; // 50/500/950
@@ -41,7 +41,7 @@
 	function onClearPalette() {
 		if (
 			confirm(
-				'This will reset each color palette to neutral tones. This can be useful when starting a brand new theme. All current color changes will be lost, are you sure you wish to continue?'
+				'This will reset each color palette to neutral tones. This can be useful when starting a brand new theme. All current color changes will be lost, are you sure you wish to continue?',
 			)
 		) {
 			constants.colorNames.forEach((colorName) => seedColor(colorName, '#CCCCCC'));
@@ -72,7 +72,7 @@
 		{#snippet list()}
 			{#each colorSelection as color}
 				<Tabs.Control value={color.value} labelBase="flex justify-center" stateInactive="">
-					<div class="aspect-square w-[52px] rounded-md flex justify-center items-center {color.class}" title={color.description}>
+					<div class="flex aspect-square w-[52px] items-center justify-center rounded-md {color.class}" title={color.description}>
 						{#if color.value === globals.activeColor}<IconEdit size={20} />{/if}
 					</div>
 				</Tabs.Control>
@@ -152,7 +152,7 @@
 								<label class="label space-y-2">
 									<span class="label-text">Light Contrast</span>
 									<div
-										class="w-full h-4 border border-surface-200-800 rounded-base"
+										class="border-surface-200-800 rounded-base h-4 w-full border"
 										style:background={`${settingsColors[`--color-${color.value}-contrast-light`]}`}
 									></div>
 									<select
@@ -174,7 +174,7 @@
 								<label class="label space-y-2">
 									<span class="label-text">Dark Contrast</span>
 									<div
-										class="w-full h-4 border border-surface-200-800 rounded-base"
+										class="border-surface-200-800 rounded-base h-4 w-full border"
 										style:background={`${settingsColors[`--color-${color.value}-contrast-dark`]}`}
 									></div>
 									<select

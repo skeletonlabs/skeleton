@@ -43,7 +43,7 @@
 	const service = useMachine(pagination.machine, () => ({
 		id: id,
 		count: zagProps.count ?? data.length,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(pagination.connect(service, normalizeProps));
 

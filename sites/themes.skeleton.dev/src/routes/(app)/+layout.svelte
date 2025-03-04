@@ -6,7 +6,7 @@
 	let { children } = $props();
 </script>
 
-<main class="h-screen grid grid-rows-[auto_1fr_auto] gap-10">
+<main class="grid h-screen grid-rows-[auto_1fr_auto] gap-10">
 	<!-- Page Header -->
 	<AppHeader />
 	<!-- Page Content -->

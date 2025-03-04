@@ -5,7 +5,7 @@ import { describe, expect, test } from 'vitest';
 import { getInterfaces } from '../src/index.js';
 
 const fixturesTest = import.meta.glob('./fixtures/*.ts', {
-	query: '?raw'
+	query: '?raw',
 });
 
 describe('fixtures', () => {

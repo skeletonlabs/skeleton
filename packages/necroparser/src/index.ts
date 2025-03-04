@@ -65,8 +65,8 @@ function parseDocumentation(symbol: ts.Symbol, typeChecker: ts.TypeChecker): Pro
 		text: ts.displayPartsToString(symbol.getDocumentationComment(typeChecker)) || null,
 		tags: symbol.getJsDocTags(typeChecker).map((tag) => ({
 			name: tag.name,
-			value: ts.displayPartsToString(tag.text) || null
-		}))
+			value: ts.displayPartsToString(tag.text) || null,
+		})),
 	};
 }
 
@@ -77,7 +77,7 @@ function parseProperty(property: ts.Symbol, node: ts.Node, typeChecker: ts.TypeC
 		type: typeChecker.typeToString(propertyType),
 		typeKind: determineTypeKind(propertyType),
 		required: !(property.flags & ts.SymbolFlags.Optional),
-		documentation: parseDocumentation(property, typeChecker)
+		documentation: parseDocumentation(property, typeChecker),
 	};
 }
 
@@ -108,7 +108,7 @@ function getInterfaces(path: string, options: Options = {}): Interface[] {
 	const program = ts.createProgram({
 		rootNames: ['virtual.ts'],
 		options: {},
-		host
+		host,
 	});
 	const typeChecker = program.getTypeChecker();
 	const sourceFile = program.getSourceFile('virtual.ts')!;
@@ -130,7 +130,7 @@ function getInterfaces(path: string, options: Options = {}): Interface[] {
 					return options.transformProperty(parsedProperty);
 				}
 				return parsedProperty;
-			})
+			}),
 		});
 	});
 	return interfaces;

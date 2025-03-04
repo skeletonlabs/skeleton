@@ -6,13 +6,13 @@ import type { Globals, SettingsCore, SettingsBackgrounds, SettingsTypography, Se
 export const globals: Globals = $state({
 	/** Set the preview panel: preview | code */
 	panel: 'preview',
-	activeColor: 'primary'
+	activeColor: 'primary',
 });
 
 // Control Settings ---
 
 export const settingsCore: SettingsCore = $state({
-	name: ''
+	name: '',
 });
 
 export const settingsColors: Record<string, string> = $state({
@@ -190,12 +190,12 @@ export const settingsColors: Record<string, string> = $state({
 	'--color-surface-contrast-700': 'var(--color-surface-contrast-light)',
 	'--color-surface-contrast-800': 'var(--color-surface-contrast-light)',
 	'--color-surface-contrast-900': 'var(--color-surface-contrast-light)',
-	'--color-surface-contrast-950': 'var(--color-surface-contrast-light)'
+	'--color-surface-contrast-950': 'var(--color-surface-contrast-light)',
 });
 
 export const settingsBackgrounds: SettingsBackgrounds = $state({
 	'--body-background-color': 'var(--color-surface-50)',
-	'--body-background-color-dark': 'var(--color-surface-950)'
+	'--body-background-color-dark': 'var(--color-surface-950)',
 });
 
 // Reference: https://designcode.io/typographic-scales
@@ -230,12 +230,12 @@ export const settingsTypography: SettingsTypography = $state({
 	'--anchor-text-decoration': 'none',
 	'--anchor-text-decoration-hover': 'underline',
 	'--anchor-text-decoration-active': 'none',
-	'--anchor-text-decoration-focus': 'none'
+	'--anchor-text-decoration-focus': 'none',
 });
 
 // Reference: https://tailwindcss.com/docs/customizing-spacing
 export const settingsSpacing: SettingsSpacing = $state({
-	'--spacing': '0.25rem'
+	'--spacing': '0.25rem',
 });
 
 export const settingsEdges: SettingsEdges = $state({
@@ -243,5 +243,5 @@ export const settingsEdges: SettingsEdges = $state({
 	'--radius-container': '0.75rem',
 	'--default-border-width': '1px',
 	'--default-divide-width': '1px',
-	'--default-ring-width': '1px'
+	'--default-ring-width': '1px',
 });

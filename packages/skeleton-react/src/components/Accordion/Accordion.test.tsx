@@ -15,7 +15,7 @@ describe('Accordion', () => {
 			const component = render(
 				<Accordion>
 					<div data-testid="children"></div>
-				</Accordion>
+				</Accordion>,
 			);
 			expect(component.getByTestId('children')).toBeInTheDocument();
 		});
@@ -36,7 +36,7 @@ describe('Accordion', () => {
 			const component = render(
 				<Accordion>
 					<Accordion.Item value="1"></Accordion.Item>
-				</Accordion>
+				</Accordion>,
 			);
 			expect(component.getByTestId(testId)).toBeInTheDocument();
 		});
@@ -47,7 +47,7 @@ describe('Accordion', () => {
 					<Accordion.Item value="1">
 						<div data-testid="children"></div>
 					</Accordion.Item>
-				</Accordion>
+				</Accordion>,
 			);
 			expect(component.getByTestId('children')).toBeInTheDocument();
 		});
@@ -58,7 +58,7 @@ describe('Accordion', () => {
 				const component = render(
 					<Accordion>
 						<Accordion.Item value="1" {...{ [prop]: value }}></Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toHaveClass(value);
 			});
@@ -74,7 +74,7 @@ describe('Accordion', () => {
 					<Accordion.Item value="1">
 						<Accordion.Control></Accordion.Control>
 					</Accordion.Item>
-				</Accordion>
+				</Accordion>,
 			);
 			expect(component.getByTestId(testId)).toBeInTheDocument();
 		});
@@ -87,7 +87,7 @@ describe('Accordion', () => {
 							<div data-testid="children"></div>
 						</Accordion.Control>
 					</Accordion.Item>
-				</Accordion>
+				</Accordion>,
 			);
 			expect(component.getByTestId('children')).toBeInTheDocument();
 		});
@@ -100,7 +100,7 @@ describe('Accordion', () => {
 						<Accordion.Item value="1">
 							<Accordion.Control {...{ [prop]: value }}></Accordion.Control>
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toHaveClass(value);
 			});
@@ -115,7 +115,7 @@ describe('Accordion', () => {
 						<Accordion.Item value="1">
 							<Accordion.Control lead="lead"></Accordion.Control>
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toBeInTheDocument();
 				expect(component.getByTestId(testId)).toHaveTextContent('lead');
@@ -129,7 +129,7 @@ describe('Accordion', () => {
 							<Accordion.Item value="1">
 								<Accordion.Control lead="lead" {...{ [prop]: value }}></Accordion.Control>
 							</Accordion.Item>
-						</Accordion>
+						</Accordion>,
 					);
 					expect(component.getByTestId(testId)).toHaveClass(value);
 				});
@@ -146,7 +146,7 @@ describe('Accordion', () => {
 							<Accordion.Control></Accordion.Control>
 							<Accordion.Panel></Accordion.Panel>
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toBeInTheDocument();
 			});
@@ -159,7 +159,7 @@ describe('Accordion', () => {
 							<Accordion.Item value="1">
 								<Accordion.Control {...{ [prop]: value }}></Accordion.Control>
 							</Accordion.Item>
-						</Accordion>
+						</Accordion>,
 					);
 					expect(component.getByTestId(testId)).toHaveClass(value);
 				});
@@ -175,7 +175,7 @@ describe('Accordion', () => {
 						<Accordion.Item value="1">
 							<Accordion.Control></Accordion.Control>
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toBeInTheDocument();
 			});
@@ -186,7 +186,7 @@ describe('Accordion', () => {
 						<Accordion.Item value="1">
 							<Accordion.Control></Accordion.Control>
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toHaveTextContent('iconClosed');
 			});
@@ -197,7 +197,7 @@ describe('Accordion', () => {
 						<Accordion.Item value="1">
 							<Accordion.Control></Accordion.Control>
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId(testId)).toHaveTextContent('iconOpen');
 			});
@@ -210,7 +210,7 @@ describe('Accordion', () => {
 							<Accordion.Item value="1">
 								<Accordion.Control {...{ [prop]: value }}></Accordion.Control>
 							</Accordion.Item>
-						</Accordion>
+						</Accordion>,
 					);
 					expect(component.getByTestId(testId)).toHaveClass(value);
 				});
@@ -225,7 +225,7 @@ describe('Accordion', () => {
 					<Accordion.Item value="1">
 						<Accordion.Panel></Accordion.Panel>
 					</Accordion.Item>
-				</Accordion>
+				</Accordion>,
 			);
 			expect(component.getByTestId('accordion-panel')).toBeInTheDocument();
 		});
@@ -238,7 +238,7 @@ describe('Accordion', () => {
 						<Accordion.Item value="1">
 							<Accordion.Panel {...{ [prop]: value }}></Accordion.Panel>
 						</Accordion.Item>
-					</Accordion>
+					</Accordion>,
 				);
 				expect(component.getByTestId('accordion-panel')).toHaveClass(value);
 			});

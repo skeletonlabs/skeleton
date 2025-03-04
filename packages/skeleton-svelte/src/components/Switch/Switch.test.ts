@@ -10,10 +10,10 @@ describe('Switch', () => {
 		input: 'switch-input',
 		iconInactive: 'switch-icon-inactive',
 		iconActive: 'switch-icon-active',
-		control: 'switch-control'
+		control: 'switch-control',
 	};
 	const commonProps = {
-		name: 'test'
+		name: 'test',
 	};
 
 	it('Renders the component', () => {

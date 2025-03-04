@@ -35,20 +35,20 @@
 		stateError = 'preset-filled-error-500',
 		stateSuccess = 'preset-filled-success-500',
 		// Snippets
-		children
+		children,
 	}: ToastProviderProps = $props();
 
 	// Local
 	const defaults: Record<string, Toast> = {
 		info: { duration: 5000 },
 		error: { duration: 5000 },
-		success: { duration: 2000 }
+		success: { duration: 2000 },
 	};
 	const placementOptions: Record<string, PlacementStyles> = {
 		'top-start': { top: offset, left: offset, 'align-items': 'flex-start' },
 		'top-end': { top: offset, right: offset, 'align-items': 'flex-end' },
 		'bottom-start': { bottom: offset, left: offset, 'align-items': 'flex-start' },
-		'bottom-end': { bottom: offset, right: offset, 'align-items': 'flex-end' }
+		'bottom-end': { bottom: offset, right: offset, 'align-items': 'flex-end' },
 	};
 
 	// State
@@ -62,7 +62,7 @@
 			toast = {
 				...defaults[String(toast.type || 'info')],
 				...toast,
-				id: id
+				id: id,
 			};
 			// Push to Queue
 			toastQueue.push(toast);
@@ -70,7 +70,7 @@
 			setTimeout(() => {
 				dismiss(toast.id);
 			}, toast.duration);
-		}
+		},
 	});
 
 	function formatStyleAttr(style: PlacementStyles) {

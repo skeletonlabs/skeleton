@@ -8,10 +8,10 @@ describe('Slider', () => {
 		root: 'slider',
 		markers: 'slider-markers',
 		mark: 'slider-mark',
-		thumb: 'slider-thumb'
+		thumb: 'slider-thumb',
 	};
 	const commonProps = {
-		value: [40]
+		value: [40],
 	};
 
 	it('Renders the component', () => {

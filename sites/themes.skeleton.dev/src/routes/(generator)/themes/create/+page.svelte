@@ -14,8 +14,8 @@
 </svelte:head>
 
 <!-- Warning: Mobile Not Supported -->
-<div class="lg:hidden absolute top-0 z-50 left-0 w-full h-full bg-surface-50-950 flex justify-center items-center p-4">
-	<div class="card bg-surface-100-900 max-w-96 p-10 space-y-5 shadow-xl">
+<div class="bg-surface-50-950 absolute left-0 top-0 z-50 flex h-full w-full items-center justify-center p-4 lg:hidden">
+	<div class="card bg-surface-100-900 max-w-96 space-y-5 p-10 shadow-xl">
 		<Logo />
 		<h2 class="h2">Not Available.</h2>
 		<p class="opacity-60">
@@ -24,7 +24,7 @@
 	</div>
 </div>
 
-<main class="h-full grid grid-cols-[1fr_480px]">
+<main class="grid h-full grid-cols-[1fr_480px]">
 	<Preview />
 	<Controls />
 </main>

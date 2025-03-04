@@ -9,7 +9,7 @@
 	const comboboxData: ComboxData[] = [
 		{ label: 'United States', value: 'US' },
 		{ label: 'Germany', value: 'DE' },
-		{ label: 'Japan', value: 'JP' }
+		{ label: 'Japan', value: 'JP' },
 	];
 
 	let selectedCountry: string[] = $state([]);
@@ -26,7 +26,7 @@
 	<section>
 		<pre class="pre">{JSON.stringify(selectedCountry, null, 2)}</pre>
 	</section>
-	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
+	<section class="border-surface-200-800 flex items-center justify-center space-y-4 border p-20">
 		<Combobox
 			data={comboboxData}
 			value={selectedCountry}

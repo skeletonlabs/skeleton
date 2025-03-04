@@ -15,11 +15,11 @@
 	<div class="label">
 		<div class="flex justify-between gap-4">
 			<span class="label-text">Typographic Scale</span>
-			<a class="text-inherit underline label-text" href="https://designcode.io/typographic-scales" target="_blank">What's This?</a>
+			<a class="label-text text-inherit underline" href="https://designcode.io/typographic-scales" target="_blank">What's This?</a>
 		</div>
 		<!-- --text-scaling -->
 		<div
-			class="grid grid-cols-3 preset-outlined-surface-200-800 rounded-container overflow-hidden divide-x divide-y divide-surface-200-800"
+			class="preset-outlined-surface-200-800 rounded-container divide-surface-200-800 grid grid-cols-3 divide-x divide-y overflow-hidden"
 		>
 			{#each constants.typographicScales as typographicScale}
 				<button
@@ -55,7 +55,7 @@
 					<label class="label space-y-2">
 						<span class="label-text">Light Mode Font Color</span>
 						<div
-							class="w-full h-4 border border-surface-200-800 rounded-base"
+							class="border-surface-200-800 rounded-base h-4 w-full border"
 							style:background={`${settingsTypography['--base-font-color']}`}
 						></div>
 						<select class="select" name="--base-font-color" bind:value={settingsTypography['--base-font-color']}>
@@ -73,7 +73,7 @@
 					<label class="label space-y-2">
 						<span class="label-text">Dark Mode Font Color</span>
 						<div
-							class="w-full h-4 border border-surface-200-800 rounded-base"
+							class="border-surface-200-800 rounded-base h-4 w-full border"
 							style:background={`${settingsTypography['--base-font-color-dark']}`}
 						></div>
 						<select class="select" name="--base-font-color-dark" bind:value={settingsTypography['--base-font-color-dark']}>
@@ -151,7 +151,7 @@
 					<label class="label space-y-2">
 						<span class="label-text">Light Mode Font Color</span>
 						<div
-							class="w-full h-4 border border-surface-200-800 rounded-base"
+							class="border-surface-200-800 rounded-base h-4 w-full border"
 							style:background={settingsTypography['--heading-font-color'] === 'inherit'
 								? `${settingsTypography['--base-font-color']}`
 								: `${settingsTypography['--heading-font-color']}`}
@@ -172,7 +172,7 @@
 					<label class="label space-y-2">
 						<span class="label-text">Dark Mode Font Color</span>
 						<div
-							class="w-full h-4 border border-surface-200-800 rounded-base"
+							class="border-surface-200-800 rounded-base h-4 w-full border"
 							style:background={settingsTypography['--heading-font-color-dark'] === 'inherit'
 								? `${settingsTypography['--base-font-color-dark']}`
 								: `${settingsTypography['--heading-font-color-dark']}`}
@@ -235,7 +235,7 @@
 					<label class="label space-y-2">
 						<span class="label-text">Light Mode Font Color</span>
 						<div
-							class="w-full h-4 border border-surface-200-800 rounded-base"
+							class="border-surface-200-800 rounded-base h-4 w-full border"
 							style:background={settingsTypography['--anchor-font-color'] === 'inherit'
 								? `${settingsTypography['--base-font-color']}`
 								: `${settingsTypography['--anchor-font-color']}`}
@@ -255,7 +255,7 @@
 					<label class="label space-y-2">
 						<span class="label-text">Dark Mode Font Color</span>
 						<div
-							class="w-full h-4 border border-surface-200-800 rounded-base"
+							class="border-surface-200-800 rounded-base h-4 w-full border"
 							style:background={settingsTypography['--anchor-font-color-dark'] === 'inherit'
 								? `${settingsTypography['--base-font-color-dark']}`
 								: `${settingsTypography['--anchor-font-color-dark']}`}

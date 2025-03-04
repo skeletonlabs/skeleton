@@ -21,7 +21,7 @@
 
 <div class="space-y-10">
 	<!-- Swatches -->
-	<div class="h-2 grid grid-cols-6 gap-1">
+	<div class="grid h-2 grid-cols-6 gap-1">
 		<div class="bg-primary-500 h-full"></div>
 		<div class="bg-secondary-500 h-full"></div>
 		<div class="bg-tertiary-500 h-full"></div>
@@ -30,7 +30,7 @@
 		<div class="bg-error-500 h-full"></div>
 	</div>
 	<!-- Masonry -->
-	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
+	<div class="grid grid-cols-1 gap-10 2xl:grid-cols-3">
 		<!-- Column 1 -->
 		<div class="space-y-10">
 			<!-- Tabs -->
@@ -68,7 +68,7 @@
 			</blockquote>
 		</div>
 		<!-- Column 2 -->
-		<form class="card shadow bg-surface-100-900 border border-surface-200-800 p-5 space-y-5">
+		<form class="card bg-surface-100-900 border-surface-200-800 space-y-5 border p-5 shadow">
 			<fieldset class="space-y-2">
 				<h2 class="h2">Login</h2>
 				<p class="opacity-60">Select a login method below.</p>
@@ -101,7 +101,7 @@
 				<span class="badge {currentPresets.outlined}">Badge</span>
 			</div>
 			<!-- Buttons -->
-			<div class="grid grid-cols-[auto_1fr] item-center gap-4">
+			<div class="item-center grid grid-cols-[auto_1fr] gap-4">
 				<Switch name="example" checked={true} controlActive={currentPresets.filled} />
 				<div class="grid grid-cols-4 gap-4">
 					<button type="button" class="btn preset-filled"><IconSkull size={20} /></button>
@@ -127,18 +127,18 @@
 			</Segment>
 			<!-- Cards -->
 			<div class="space-y-4">
-				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+				<div class="card bg-surface-100-900 border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 border p-4 shadow">
 					<Avatar src="/images/male.png" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Gregory Smith</p>
-						<p class="opacity-60 text-xs">gregory.smith@example.com</p>
+						<p class="text-xs opacity-60">gregory.smith@example.com</p>
 					</div>
 				</div>
-				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+				<div class="card bg-surface-100-900 border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 border p-4 shadow">
 					<Avatar src="/images/female.png" name="" size="size-14" imageClasses="grayscale" />
 					<div>
 						<p class="font-bold">Stephanie Collins</p>
-						<p class="opacity-60 text-xs">stephanie.collins@example.com</p>
+						<p class="text-xs opacity-60">stephanie.collins@example.com</p>
 					</div>
 				</div>
 			</div>
@@ -160,21 +160,21 @@
 		{/snippet}
 	</AppBar>
 	<!-- Masonry -->
-	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
+	<div class="grid grid-cols-1 gap-10 2xl:grid-cols-3">
 		<!-- Column 1: Image -->
 		<div
-			class="relative w-full shadow bg-surface-100-900 rounded-container overflow-hidden"
+			class="bg-surface-100-900 rounded-container relative w-full overflow-hidden shadow"
 			style="background: url(https://picsum.photos/640/640) center center; backround-size: cover;"
 		>
-			<div class="absolute bottom-4 left-4 z-[2] flex justify-center items-center">
-				<p class="text-4xl text-balance max-w-[250px] font-bold inline-block {currentPresets.contrast}">
+			<div class="absolute bottom-4 left-4 z-[2] flex items-center justify-center">
+				<p class="inline-block max-w-[250px] text-balance text-4xl font-bold {currentPresets.contrast}">
 					Example text over a static image.
 				</p>
 			</div>
-			<div class="absolute top-0 left-0 z-[1] w-full h-full bg-gradient-to-b from-transparent {currentPresets.gradient}"></div>
+			<div class="absolute left-0 top-0 z-[1] h-full w-full bg-gradient-to-b from-transparent {currentPresets.gradient}"></div>
 		</div>
 		<!-- Column 2: Chart -->
-		<div class="card shadow bg-surface-100-900 border border-surface-200-800 p-5 space-y-2">
+		<div class="card bg-surface-100-900 border-surface-200-800 space-y-2 border p-5 shadow">
 			<header>
 				<small class="text-base">Earnings</small>
 				<h2 class="h2 font-normal">$14,546</h2>
@@ -182,11 +182,11 @@
 			<ExampleChart preset={currentPresets.prop} />
 		</div>
 		<!-- Column 2: xxx -->
-		<div class="card {currentPresets.tonal} p-5 grid grid-rows-[auto_1fr]">
+		<div class="card {currentPresets.tonal} grid grid-rows-[auto_1fr] p-5">
 			<header>
 				<small class="text-base">Users</small>
 			</header>
-			<div class="spce-y-2 flex justify-center items-center scale-125">
+			<div class="spce-y-2 flex scale-125 items-center justify-center">
 				<div>
 					<h2 class="h2 font-normal">1,337 <sup><IconArrowUpRight size={30} class="inline-block" /></sup></h2>
 					<p>New users in 30 days.</p>

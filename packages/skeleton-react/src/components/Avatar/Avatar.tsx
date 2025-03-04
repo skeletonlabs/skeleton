@@ -34,7 +34,7 @@ export const Avatar: FC<AvatarProps> = ({
 	// Zag
 	const service = useMachine(avatar.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = avatar.connect(service, normalizeProps);
 

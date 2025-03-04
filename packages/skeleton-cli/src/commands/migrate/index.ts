@@ -5,7 +5,7 @@ interface MigrateOptions {
 	cwd?: string;
 }
 const MIGRATIONS = {
-	'skeleton-3': skeleton3
+	'skeleton-3': skeleton3,
 } as const;
 
 const migrate = new Command('migrate')

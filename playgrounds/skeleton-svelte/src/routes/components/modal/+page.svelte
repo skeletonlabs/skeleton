@@ -29,7 +29,7 @@
 		<pre class="pre">{JSON.stringify(modalState, null, 2)}</pre>
 		<button class="btn preset-filled" onclick={modalOpen} disabled={modalState}>Open Popover</button>
 	</section>
-	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
+	<section class="border-surface-200-800 flex items-center justify-center space-y-4 border p-20">
 		<Modal
 			open={modalState}
 			onOpenChange={(e) => (modalState = e.open)}
@@ -54,7 +54,7 @@
 			{/snippet}
 		</Modal>
 	</section>
-	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
+	<section class="border-surface-200-800 flex items-center justify-center space-y-4 border p-20">
 		<Modal
 			open={drawerState}
 			onOpenChange={(e) => (drawerState = e.open)}

@@ -39,7 +39,7 @@
 		// Snippets
 		header,
 		tiles,
-		footer
+		footer,
 	}: NavRailProps = $props();
 
 	// Context
@@ -53,7 +53,7 @@
 		},
 		get onValueChange() {
 			return onValueChange;
-		}
+		},
 	});
 
 	// Reactive

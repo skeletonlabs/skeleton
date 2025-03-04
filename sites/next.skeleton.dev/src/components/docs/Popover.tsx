@@ -11,7 +11,7 @@ import {
 	useDismiss,
 	useRole,
 	useInteractions,
-	FloatingArrow
+	FloatingArrow,
 } from '@floating-ui/react';
 
 interface PopoverProps extends React.PropsWithChildren {
@@ -42,7 +42,7 @@ export const Popover: React.FC<PopoverProps> = ({
 	arrowBase = '',
 	arrowClasses = '',
 	// Children
-	children
+	children,
 }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -52,7 +52,7 @@ export const Popover: React.FC<PopoverProps> = ({
 		onOpenChange: setIsOpen,
 		middleware: [offset(12), flip(), shift(), arrow({ element: arrowRef })],
 		placement: 'top',
-		whileElementsMounted: autoUpdate
+		whileElementsMounted: autoUpdate,
 	});
 
 	const click = useClick(context, {});
@@ -70,7 +70,7 @@ export const Popover: React.FC<PopoverProps> = ({
 			</button>
 			{/* Popover */}
 			{isOpen && (
-				<div ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()} className={`floating  ${popoverBase} ${popoverClasses}`}>
+				<div ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()} className={`floating ${popoverBase} ${popoverClasses}`}>
 					<div>{children ?? '(children missing)'}</div>
 					{/* Arrow */}
 					<FloatingArrow ref={arrowRef} context={context} className={`${arrowBase} ${arrowClasses}`} />

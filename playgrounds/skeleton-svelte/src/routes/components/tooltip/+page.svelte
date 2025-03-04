@@ -20,7 +20,7 @@
 		<pre class="pre">{JSON.stringify(openState, null, 2)}</pre>
 		<button class="btn preset-filled" onclick={tooltipOpen} disabled={openState}>Hover</button>
 	</section>
-	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
+	<section class="border-surface-200-800 flex items-center justify-center space-y-4 border p-20">
 		<Tooltip
 			open={openState}
 			onOpenChange={(e) => (openState = e.open)}

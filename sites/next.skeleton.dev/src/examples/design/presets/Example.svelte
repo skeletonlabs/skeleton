@@ -3,7 +3,7 @@
 	const diagramCircle = 'preset-tonal w-8 aspect-square flex justify-center items-center rounded-full';
 </script>
 
-<div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+<div class="grid grid-cols-2 gap-10 md:grid-cols-4">
 	<!-- 1. Filled -->
 	<div class="flex flex-col items-center gap-4">
 		<button type="button" class="btn preset-filled-primary-500">Filled</button>

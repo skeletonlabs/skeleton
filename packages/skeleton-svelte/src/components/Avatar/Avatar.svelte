@@ -34,7 +34,7 @@
 	const id = $props.id();
 	const service = useMachine(avatar.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(avatar.connect(service, normalizeProps));
 

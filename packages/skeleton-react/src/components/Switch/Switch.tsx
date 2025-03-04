@@ -49,7 +49,7 @@ export const Switch: React.FC<SwitchProps> = ({
 	// Zag
 	const service = useMachine(zagSwitch.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = zagSwitch.connect(service, normalizeProps);
 
@@ -72,7 +72,7 @@ export const Switch: React.FC<SwitchProps> = ({
 			{/* Control */}
 			<span
 				{...api.getControlProps()}
-				className={`${rxControlBase} ${rxTrackState} ${rxFocused} ${controlWidth} ${rxControlHeight} ${rxControlPadding} ${controlRounded} ${controlHover} ${rxDisabled}  ${controlClasses}`}
+				className={`${rxControlBase} ${rxTrackState} ${rxFocused} ${controlWidth} ${rxControlHeight} ${rxControlPadding} ${controlRounded} ${controlHover} ${rxDisabled} ${controlClasses}`}
 				data-testid="switch-control"
 			>
 				{/* Thumb */}

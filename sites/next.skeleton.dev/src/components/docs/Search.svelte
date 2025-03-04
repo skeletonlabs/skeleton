@@ -86,7 +86,7 @@
 		return {
 			destroy: () => {
 				document.removeEventListener('click', onclick);
-			}
+			},
 		};
 	};
 
@@ -124,7 +124,7 @@
 <button
 	onclick={() => openDialog()}
 	type="button"
-	class="btn preset-tonal-surface preset-outlined-surface-200-800 hover:preset-tonal w-full xl:w-auto justify-start"
+	class="btn preset-tonal-surface preset-outlined-surface-200-800 hover:preset-tonal w-full justify-start xl:w-auto"
 >
 	<IconSearch class="size-4 opacity-60" />
 	<span class="opacity-60">Search...</span>
@@ -198,7 +198,7 @@
 										</span>
 										<div class="space-y-1 overflow-hidden">
 											<p class="text-base font-bold">{subResult.title}</p>
-											<p class="text-xs text-surface-600-400 break-words">
+											<p class="text-surface-600-400 break-words text-xs">
 												<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 												{@html subResult.excerpt}
 											</p>

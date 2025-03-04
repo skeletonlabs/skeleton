@@ -47,7 +47,7 @@
 	const id = $props.id();
 	const service = useMachine(dialog.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(dialog.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));

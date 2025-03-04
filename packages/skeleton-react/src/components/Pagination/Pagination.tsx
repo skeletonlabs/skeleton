@@ -44,7 +44,7 @@ export const Pagination: FC<PaginationProps> = ({
 	const service = useMachine(pagination.machine, {
 		id: useId(),
 		count: zagProps.count ?? data.length,
-		...zagProps
+		...zagProps,
 	});
 	const api = pagination.connect(service, normalizeProps);
 

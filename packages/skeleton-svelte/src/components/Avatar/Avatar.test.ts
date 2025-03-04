@@ -8,12 +8,12 @@ describe('Avatar', () => {
 	const testIds = {
 		root: 'avatar',
 		image: 'avatar-image',
-		fallback: 'avatar-fallback'
+		fallback: 'avatar-fallback',
 	};
 	const test = {
 		src: 'https://picsum.photos/100',
 		name: 'John Doe',
-		initials: 'JD'
+		initials: 'JD',
 	};
 
 	it('Renders the component', () => {

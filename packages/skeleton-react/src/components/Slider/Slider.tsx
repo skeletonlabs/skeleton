@@ -53,7 +53,7 @@ export const Slider: FC<SliderProps> = ({
 	// Zag
 	const service = useMachine(slider.machine, {
 		id: useId(),
-		...zagProps
+		...zagProps,
 	});
 	const api = slider.connect(service, normalizeProps);
 

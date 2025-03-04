@@ -49,7 +49,7 @@
 	const id = $props.id();
 	const service = useMachine(zagSwitch.machine, () => ({
 		id: id,
-		...zagProps
+		...zagProps,
 	}));
 	const api = $derived(zagSwitch.connect(service, normalizeProps));
 

@@ -33,7 +33,7 @@ describe('<ProgressRing>', () => {
 		const { getByText } = render(
 			<ProgressRing value={value} max={max}>
 				{childContent}
-			</ProgressRing>
+			</ProgressRing>,
 		);
 		const text = getByText(childContent);
 		expect(text).toBeInTheDocument();

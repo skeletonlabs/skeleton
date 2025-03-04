@@ -30,7 +30,7 @@
 		<pre class="pre">{JSON.stringify(openState, null, 2)}</pre>
 		<button class="btn preset-filled" onclick={popoverOpen} disabled={openState}>Open Popover</button>
 	</section>
-	<section class="border border-surface-200-800 space-y-4 p-20 flex justify-center items-center">
+	<section class="border-surface-200-800 flex items-center justify-center space-y-4 border p-20">
 		<Popover
 			open={openState}
 			onOpenChange={(e) => (openState = e.open)}
@@ -43,7 +43,7 @@
 			{#snippet trigger()}Click Me{/snippet}
 			{#snippet content()}
 				<header class="flex justify-between">
-					<p class="font-bold text-xl">Popover</p>
+					<p class="text-xl font-bold">Popover</p>
 					<button class="btn-icon" onclick={popoverClose}>
 						<IconX />
 					</button>

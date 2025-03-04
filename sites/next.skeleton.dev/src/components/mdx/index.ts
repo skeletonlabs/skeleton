@@ -29,7 +29,7 @@ const componentSet = {
 	ol: ListOrdered,
 	code: Code,
 	hr: HorzRule,
-	table: Table
+	table: Table,
 };
 
 export default componentSet;
