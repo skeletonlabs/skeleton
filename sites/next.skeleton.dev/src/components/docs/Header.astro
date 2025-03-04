@@ -3,14 +3,14 @@
 import { socialLinks } from 'src/stores/social-links';
 // Components
 import Drawer from '@components/docs/Drawer.astro';
+import { HeaderVersion } from './HeaderVersion';
+import { HeaderThemes } from './HeaderThemes';
+import { HeaderSponsors } from './HeaderSponsors';
 import Lightswitch from '@components/docs/Lightswitch.astro';
-import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
 import Search from './Search.svelte';
 import Navigation from '@components/docs/Navigation.astro';
 // Icons
 import { Icon } from 'astro-icon/components';
-import { ChevronDown as IconChevron } from 'lucide-react';
-import { Heart as IconHeart } from 'lucide-react';
 
 const coreLinks = [
 	{ href: '/docs/get-started/introduction', label: 'Docs', target: '_self' },
@@ -37,10 +37,7 @@ const coreLinks = [
 				<Icon name="skeleton" size={28} />
 			</a>
 			<!-- Version Picker -->
-			<button class="hidden xl:flex btn preset-outlined-surface-200-800 hover:preset-tonal">
-				<span>v3</span>
-				<IconChevron className="size-4 opacity-60" />
-			</button>
+			<HeaderVersion client:load />
 			<!-- Navigation -->
 			<div class="hidden xl:flex justify-start items-center gap-5 opacity-60">
 				{
@@ -62,7 +59,7 @@ const coreLinks = [
 		<div class="flex justify-end items-stretch gap-2">
 			<!-- Mode and Theme -->
 			<Lightswitch />
-			<ThemeSwitch />
+			<HeaderThemes client:load />
 			<!-- Divider -->
 			<span class="border-r border-surface-200-800"></span>
 			<!-- Social -->
@@ -81,10 +78,7 @@ const coreLinks = [
 			<!-- Divider -->
 			<span class="hidden xl:inline-block border-r border-surface-200-800"></span>
 			<!-- Sponsors -->
-			<button class="hidden xl:flex btn hover:preset-tonal" title="Sponsor Us">
-				<IconHeart className="size-5" />
-				<IconChevron className="size-4 opacity-60" />
-			</button>
+			<HeaderSponsors client:load />
 		</div>
 	</div>
 </header>

@@ -1,7 +1,5 @@
 ---
 import { Menu as IconMenu, X as IconClose } from 'lucide-react';
-import ThemeSwitch from './ThemeSwitch.astro';
-import Lightswitch from './Lightswitch.astro';
 
 interface DrawerProps {
 	navigation?: {
@@ -29,11 +27,6 @@ const {
 			<IconClose />
 		</button>
 	</header>
-	<!-- Theme / Lightswitch -->
-	<div class="grid grid-cols-[1fr_auto] gap-4 items-center">
-		<ThemeSwitch />
-		<Lightswitch />
-	</div>
 	<!-- Navigation -->
 	<nav class="flex flex-col gap-2">
 		<span class="font-bold capitalize">Navigate</span>
