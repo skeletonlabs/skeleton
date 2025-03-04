@@ -67,7 +67,8 @@ describe('samples', () => {
 				test(testName, async () => {
 					const input = await readFile(resolve(fileURLToPath(import.meta.url), inputPath), 'utf-8');
 					const actual = getResult(input, transformerName as keyof typeof TRANSFORMER_MAP);
-					await expect(clean(actual)).toMatchFileSnapshot(outputPath);
+					const expected = await readFile(resolve(fileURLToPath(import.meta.url), outputPath), 'utf-8');
+					expect(clean(actual)).toBe(clean(expected));
 				});
 			}
 		});
