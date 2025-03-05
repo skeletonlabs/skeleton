@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.17
+### Patch Changes
+
+
+- bugfix: Rename `TagsInput` inconsistent prop names: `inputEdit` or `tagEdit` to `tagEditInput` ([#3298](https://github.com/skeletonlabs/skeleton/pull/3298))
+
 ## 1.0.0-next.16
 
 ### Minor Changes
