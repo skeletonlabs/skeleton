@@ -23,7 +23,7 @@ export const TagsInput: FC<TagsInputProps> = ({
 	tagBackground = 'preset-filled',
 	tagClasses = '',
 	// Input: Edit
-	tagEditInputBase = 'chip input',
+	tagEditInputBase = 'input',
 	tagEditInputClasses = '',
 	// Delete Button
 	buttonDeleteBase = '',
