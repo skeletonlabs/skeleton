@@ -72,6 +72,8 @@
 		</div>
 		<!-- NOTE: this div centers thumbs vertically -->
 		<div class={height} style="display: flex; align-items: center; transform: translateY(-100%);" data-testid="slider-thumb-wrapper">
+			<!-- Disabled: skipping this so we can match Zag implementation. -->
+			<!-- eslint-disable @typescript-eslint/no-unused-vars -->
 			{#each api.value as _, index}
 				<div {...api.getThumbProps({ index })}>
 					<!-- Thumb -->

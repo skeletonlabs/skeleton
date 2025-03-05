@@ -48,6 +48,11 @@ export default typescript.config(
 				...globals.browser,
 				...globals.node
 			}
+		},
+		// Disabled temporarily while we communiticate this issue upstream to Zag.
+		// Zag does not not readily provide keys for for Svelte as they do React.
+		rules: {
+			'svelte/require-each-key': 'off'
 		}
 	},
 	/**

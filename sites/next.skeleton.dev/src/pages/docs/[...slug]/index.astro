@@ -21,7 +21,7 @@ const { Content, remarkPluginFrontmatter } = await render(page);
 
 let meta: Awaited<ReturnType<typeof getEntry>>;
 if (page.id.startsWith('components/') || page.id.startsWith('integrations/')) {
-	meta = await getEntry('docs', page.id.replace(/\/[^\/]*$/, '/meta'));
+	meta = await getEntry('docs', page.id.replace(/\/[^/]*$/, '/meta'));
 	if (meta !== undefined) {
 		Object.assign(remarkPluginFrontmatter, meta.data);
 	}

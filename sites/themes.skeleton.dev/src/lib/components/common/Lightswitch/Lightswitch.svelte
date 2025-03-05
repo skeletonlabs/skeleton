@@ -6,7 +6,11 @@
 
 	function toggleDarkMode() {
 		darkMode = !darkMode;
-		darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark');
+		if (darkMode) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
 	}
 </script>
 
