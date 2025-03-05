@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { generateDocumentation } from 'src/lib/generateLLM';
+import { generateDocumentation } from 'src/lib/generate-llm';
 
 export const GET: APIRoute = async () => {
 	const content = await generateDocumentation('svelte');
