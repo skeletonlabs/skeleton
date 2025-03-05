@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.22
+### Patch Changes
+
+
+- chore: Update Svelte peer dependency to 5.20.0 or higher because we rely on `$props.id` (which was released in 5.20.0) ([#3311](https://github.com/skeletonlabs/skeleton/pull/3311))
+
+
+- bugfix: Rename `TagsInput` inconsistent prop names: `inputEdit` or `tagEdit` to `tagEditInput` ([#3298](https://github.com/skeletonlabs/skeleton/pull/3298))
+
 ## 1.0.0-next.21
 
 ### Minor Changes

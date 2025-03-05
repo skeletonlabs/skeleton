@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.20
+### Patch Changes
+
+
+- bugfix: Append `dist` to the Skeleton `@source` path  as workaround for https://github.com/tailwindlabs/tailwindcss/issues/16038 ([#3307](https://github.com/skeletonlabs/skeleton/pull/3307))
+
 ## 0.0.1-next.19
 
 ### Patch Changes
