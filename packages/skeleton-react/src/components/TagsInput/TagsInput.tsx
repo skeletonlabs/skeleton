@@ -16,16 +16,15 @@ export const TagsInput: FC<TagsInputProps> = ({
 	inputBase = 'input-ghost',
 	inputClasses = '',
 	// Tag List
-	tagListBase = 'flex gap-2',
+	tagListBase = 'flex flex-wrap gap-1',
 	tagListClasses = '',
 	// Tag
 	tagBase = 'chip',
 	tagBackground = 'preset-filled',
 	tagClasses = '',
 	// Input: Edit
-	inputEditBase = 'chip-input -translate-y-0.25',
-	tagEditBackground = 'preset-outlined-surface-200-800',
-	inputEditClasses,
+	tagEditInputBase = 'input',
+	tagEditInputClasses = '',
 	// Delete Button
 	buttonDeleteBase = '',
 	buttonDeleteClasses = '',
@@ -58,7 +57,7 @@ export const TagsInput: FC<TagsInputProps> = ({
 						const itemState = api.getItemState({ index, value });
 						return (
 							// Tag
-							<div key={value} {...api.getItemProps({ value, index })} data-testid="tags-tag">
+							<div className="contents" key={value} {...api.getItemProps({ value, index })} data-testid="tags-tag">
 								{/* Display */}
 								<div
 									{...api.getItemPreviewProps({ index, value })}
@@ -79,7 +78,7 @@ export const TagsInput: FC<TagsInputProps> = ({
 								{/* Editing */}
 								<input
 									{...api.getItemInputProps({ index, value })}
-									className={`${inputEditBase} ${tagEditBackground} ${inputEditClasses}`}
+									className={`${tagEditInputBase} ${tagEditInputClasses}`}
 									style={{ display: itemState.editing ? '' : 'none' }}
 									data-testid="tags-input-edit"
 								/>
