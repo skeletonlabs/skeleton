@@ -30,9 +30,9 @@
 		"tailwindcss": "^4.0.0"
 	},
 	"devDependencies": {
-		"sass-embedded": "^1.83.4",
+		"sass-embedded": "^1.85.1",
 		"tinyglobby": "^0.2.12",
-		"vite": "^6.0.11"
+		"vite": "^6.2.0"
 	},
 	"type": "module",
 	"license": "MIT"

@@ -27,29 +27,29 @@
 	},
 	"devDependencies": {
 		"@types/estree": "^1.0.6",
-		"@types/node": "^22.1.0",
+		"@types/node": "^22.13.9",
 		"@types/semver": "^7.5.8",
-		"type-fest": "^4.27.0",
+		"type-fest": "^4.37.0",
 		"typescript": "catalog:",
-		"unbuild": "^3.2.0",
-		"vitest": "^2.0.5"
+		"unbuild": "^3.5.0",
+		"vitest": "^3.0.7"
 	},
 	"license": "MIT",
 	"dependencies": {
-		"@clack/prompts": "^0.7.0",
+		"@clack/prompts": "^0.10.0",
 		"colorette": "^2.0.20",
-		"commander": "^13.0.0",
+		"commander": "^13.1.0",
 		"detect-indent": "^7.0.1",
 		"latest-version": "^9.0.0",
 		"magic-string": "^0.30.17",
-		"nanoid": "^5.0.9",
+		"nanoid": "^5.1.2",
 		"node-html-parser": "^7.0.1",
-		"package-manager-detector": "^0.2.8",
-		"postcss": "^8.4.49",
-		"semver": "^7.6.3",
+		"package-manager-detector": "^0.2.11",
+		"postcss": "^8.5.3",
+		"semver": "^7.7.1",
 		"svelte": "catalog:",
 		"tinyglobby": "^0.2.12",
-		"ts-morph": "^25.0.0",
+		"ts-morph": "^25.0.1",
 		"zimmerframe": "^1.1.2"
 	}
 }
