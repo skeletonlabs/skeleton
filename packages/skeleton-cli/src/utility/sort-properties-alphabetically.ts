@@ -1,10 +1,10 @@
-function sortPropertiesAlphabetically(obj: Record<string, string>) {
-	const orderedObj: Record<string, string> = {};
-	const sortedEntries = Object.entries(obj).sort(([a], [b]) => a.localeCompare(b));
+function sortPropertiesAlphabetically(object: Record<string, string>) {
+	const orderedObject: Record<string, string> = {};
+	const sortedEntries = Object.entries(object).sort(([a], [b]) => a.localeCompare(b));
 	for (const [key, value] of sortedEntries) {
-		orderedObj[key] = value;
+		orderedObject[key] = value;
 	}
-	return orderedObj;
+	return orderedObject;
 }
 
 export { sortPropertiesAlphabetically };

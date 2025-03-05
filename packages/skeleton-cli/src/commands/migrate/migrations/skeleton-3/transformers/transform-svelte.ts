@@ -4,6 +4,7 @@ import { walk } from 'zimmerframe';
 import MagicString from 'magic-string';
 import { transformClasses } from './transform-classes';
 import { transformModule } from './transform-module';
+import { transformStyleSheet } from './transform-stylesheet';
 import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 
 function renameComponent(s: MagicString, node: AST.Component, name: string) {
@@ -17,7 +18,14 @@ function renameComponent(s: MagicString, node: AST.Component, name: string) {
 	s.update(node.start + indexOfNonSelfClosingTag + 2, node.start + indexOfNonSelfClosingTag + 2 + node.name.length, name);
 }
 
-function transformScript(s: MagicString, script: AST.Script) {
+function transformScript(s: MagicString, script: AST.Script | null) {
+	if (!script) {
+		return {
+			meta: {
+				skeletonImports: []
+			}
+		};
+	}
 	const content = s.original.slice(script.start, script.end);
 	const openingTag = content.match(/^<script[^>]*>/)?.at(0);
 	const closingTag = content.match(/<\/script>$/)?.at(0);
@@ -34,6 +42,14 @@ function transformScript(s: MagicString, script: AST.Script) {
 	return {
 		meta: transformed.meta
 	};
+}
+
+function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
+	if (!css) {
+		return;
+	}
+	const transformed = transformStyleSheet(s.original.slice(css.content.start, css.content.end));
+	s.overwrite(css.content.start, css.content.end, transformed.code);
 }
 
 function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
@@ -89,14 +105,12 @@ function transformSvelte(code: string) {
 	const root = parse(code, {
 		modern: true
 	});
-	let skeletonImports: string[] = [];
-	if (root.module) {
-		skeletonImports = [...skeletonImports, ...transformScript(s, root.module).meta.skeletonImports];
-	}
-	if (root.instance) {
-		skeletonImports = [...skeletonImports, ...transformScript(s, root.instance).meta.skeletonImports];
-	}
+	const skeletonImports = [
+		...transformScript(s, root.module).meta.skeletonImports,
+		...transformScript(s, root.instance).meta.skeletonImports
+	];
 	transformFragment(s, root.fragment, skeletonImports);
+	transformCss(s, root.css);
 	return {
 		code: s.toString()
 	};

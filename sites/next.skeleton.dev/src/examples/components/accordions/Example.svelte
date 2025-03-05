@@ -9,10 +9,10 @@
 	const lorem =
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
 
-	const value = $state(['club']);
+	let value = $state(['club']);
 </script>
 
-<Accordion {value}>
+<Accordion {value} onValueChange={(e) => (value = e.value)}>
 	<Accordion.Item value="club">
 		<!-- Control -->
 		{#snippet lead()}<Club size={24} />{/snippet}

@@ -1,0 +1,14 @@
+/* Components: Placeholders */
+
+@utility placeholder {
+	background-color: var(--color-surface-200-800);
+	border-radius: var(--radius-base);
+	min-height: --spacing(4);
+}
+
+@utility placeholder-circle {
+	aspect-ratio: 1 / 1;
+	background-color: var(--color-surface-200-800);
+	border-radius: 100%;
+	min-height: --spacing(5);
+}

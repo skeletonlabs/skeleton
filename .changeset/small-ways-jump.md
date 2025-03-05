@@ -1,5 +1,4 @@
 ---
-"vite-plugin-tw-plugin-watcher": patch
 "@skeletonlabs/skeleton-svelte": patch
 "@skeletonlabs/skeleton-react": patch
 "@skeletonlabs/skeleton": patch

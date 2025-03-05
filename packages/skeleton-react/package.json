@@ -1,22 +1,19 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "1.0.0-next.14",
+	"version": "1.0.0-next.16",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"package": "tsc --project tsconfig.package.json",
-		"package:watch": "tsc --project tsconfig.package.json --watch --preserveWatchOutput",
-		"test": "vitest run"
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"test": "vitest run",
+		"test:watch": "vitest run --watch"
 	},
 	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
-		},
-		"./schemas": "./src/lib/schemas.ts"
+		}
 	},
 	"typesVersions": {
 		">4.0": {
@@ -26,15 +23,8 @@
 		}
 	},
 	"files": [
-		"./dist/**/*.js",
-		"./dist/**/*.map",
-		"./dist/**/*.d.ts",
-		"./dist/**/*.cjs",
-		"./dist/**/*.d.cts",
-		"!./dist/**/*.test.*",
-		"!./dist/**/schema.json",
-		"!./dist/schemas.js",
-		"!./dist/schemas.d.ts"
+		"dist",
+		"!dist/**/.*test.*"
 	],
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",
@@ -55,26 +45,17 @@
 		"react-dom": "^18.0.0 || ^19.0.0"
 	},
 	"devDependencies": {
-		"@skeletonlabs/skeleton": "workspace:*",
-		"@tailwindcss/forms": "^0.5.9",
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/react": "^16.0.1",
 		"@testing-library/user-event": "^14.5.2",
-		"@types/react": "^18.3.13",
-		"@types/react-dom": "^18.3.1",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
 		"@vitejs/plugin-react": "^4.3.4",
-		"autoprefixer": "^10.4.20",
 		"jsdom": "^25.0.1",
-		"lucide-react": "^0.465.0",
-		"postcss": "^8.4.49",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1",
-		"react-router-dom": "^7.0.2",
-		"tailwindcss": "^3.4.16",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
 		"typescript": "catalog:",
 		"vite": "^6.0.2",
-		"vite-plugin-remix-router": "^2.0.0",
-		"vite-plugin-tw-plugin-watcher": "workspace:*",
 		"vitest": "^2.1.8"
 	}
 }

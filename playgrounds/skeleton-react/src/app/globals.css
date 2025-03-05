@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton/optional/presets';
+
+@source '../../node_modules/@skeletonlabs/skeleton-react/dist';
+
+@plugin '@tailwindcss/forms';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html,
+body {
+	@apply h-full overflow-hidden;
+}

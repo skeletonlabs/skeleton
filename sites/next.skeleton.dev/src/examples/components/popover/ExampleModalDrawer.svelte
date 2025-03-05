@@ -18,7 +18,8 @@ Tips for Drawer modals:
 -->
 
 <Modal
-	bind:open={drawerState}
+	open={drawerState}
+	onOpenChange={(e) => (drawerState = e.open)}
 	triggerBase="btn preset-tonal"
 	contentBase="bg-surface-100-900 p-4 space-y-4 shadow-xl w-[480px] h-screen"
 	positionerJustify="justify-start"

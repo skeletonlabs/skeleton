@@ -1,0 +1,25 @@
+{
+	"name": "@skeletonlabs/playground-skeleton-svelte",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build"
+	},
+	"devDependencies": {
+		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-svelte": "workspace:*",
+		"@sveltejs/adapter-auto": "^3.3.1",
+		"@sveltejs/kit": "^2.9.0",
+		"@sveltejs/vite-plugin-svelte": "^5.0.1",
+		"@tailwindcss/forms": "^0.5.7",
+		"@tailwindcss/vite": "^4.0.2",
+		"lucide-svelte": "^0.465.0",
+		"svelte": "catalog:",
+		"svelte-check": "^4.1.1",
+		"tailwindcss": "catalog:",
+		"typescript": "catalog:",
+		"vite": "^6.0.2"
+	},
+	"type": "module"
+}

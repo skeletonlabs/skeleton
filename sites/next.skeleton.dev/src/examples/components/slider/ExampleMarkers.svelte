@@ -4,4 +4,4 @@
 	let value = $state([40]);
 </script>
 
-<Slider bind:value markers={[25, 50, 75]} />
+<Slider {value} onValueChange={(e) => (value = e.value)} markers={[25, 50, 75]} />

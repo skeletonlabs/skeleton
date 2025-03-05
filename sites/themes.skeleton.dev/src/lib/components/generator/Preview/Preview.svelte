@@ -42,7 +42,7 @@
 					</p>
 					<button type="button" class="btn preset-outlined-surface-300-700 hover:preset-tonal" onclick={copyToClipboard}>Copy</button>
 				</header>
-				<CodeBlock lang="ts" code={generateTheme()} />
+				<CodeBlock lang="css" code={generateTheme()} />
 			</section>
 		{/if}
 	</article>

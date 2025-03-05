@@ -2,7 +2,7 @@
 layout: '@layouts/LayoutDoc.astro'
 title: Presets
 description: Canned styles for your interface elements.
-srcCore: '/plugin/utilities/presets.ts'
+srcCore: '/optional/presets.scss'
 order: 20
 ---
 
@@ -21,7 +21,14 @@ import ExampleCustomRaw from '@examples/design/presets/ExampleCustom.astro?raw';
 import ExampleGradient from '@examples/design/presets/ExampleGradient.astro';
 import ExampleGradientRaw from '@examples/design/presets/ExampleGradient.astro?raw';
 
-<p class="type-scale-5">Presets are complex utility classes that combine various Skeleton primitives. Allowing you quickly style buttons, badges, cards, and more. Create any combination of styles by mixing Skeleton Presets and Tailwind primitives.</p>
+{
+
+<p className="text-xl">
+	Presets are pre-defined styles that allow you to quickly and easily style buttons, badges, cards, and more. Create by mixing Skeleton and
+	Tailwind primitives.
+</p>
+
+}
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -40,7 +47,17 @@ import ExampleGradientRaw from '@examples/design/presets/ExampleGradient.astro?r
 6. **Ghost Icon** - has no style by default, but shows a branded tonal preset on hover.
 7. **Gradient** - a custom preset generated using Tailwind gradient primitives.
 
-## Built-Ins
+## Enabling Presets
+
+Skeleton provides an optional set of presets for `filled`, `tonal`, and `outlined` styles. To enable these, simply add the following import to your global stylesheet. This is recommended for new users to Skeleton.
+
+```css
+@import '@skeletonlabs/skeleton/optional/presets';
+```
+
+## Skeleton Presets
+
+Skeleton's provides the following opinionated set of styles, including accessible backgrounds and text colors.
 
 ### Filled
 
@@ -89,9 +106,14 @@ preset-outlined-{color}-{shade}-{shade}
 
 ## Custom Presets
 
-### Create a Preset
+For advanced users, we recommend disabing the Skeleton presets in favor of custom-generated presets. This ensures you retain full control over the look and feel of each element. Consider these best practices when creating presets.
 
-Presets are pre-generated combination of Skeleton and Tailwind primitives, which means you can abstract these to create your own set. Add these classes to your global stylesheet and use anywhere you would use the built-in presets. Use the `preset-{foo}` naming scheme to keep things standardized.
+- Custom presets are only limited by your imagination.
+- Use any combination of Skeleton or Tailwind-provided primitive to generate a preset.
+- Apply presets to any relevant element, including: buttons, cards, inputs, and more.
+- Use a set naming convention, such as `preset-{foo}` to keep things standardized.
+- Implement all presets in using Tailwind's [@utility directive](https://tailwindcss.com/docs/functions-and-directives#utility-directive) in your global stylesheet.
+- Abstrast presets to a stylesheet or NPM package for shared used between projects.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -104,7 +126,7 @@ Presets are pre-generated combination of Skeleton and Tailwind primitives, which
 
 ### Gradient Presets
 
-Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/gradient-color-stops) utility classes. Combine these to create your own unique gradient presets.
+Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/gradient-color-stops) utility classes that can be used to generate presets.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -114,3 +136,7 @@ Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/g
 		<Code code={ExampleGradientRaw} lang="astro" />
 	</Fragment>
 </Preview>
+
+### Glass Presets
+
+> TODO: examples coming soon!

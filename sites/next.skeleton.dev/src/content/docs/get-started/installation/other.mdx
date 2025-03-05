@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: Other
-description: Generic instructions for the Skeleton core.
+description: Generic guidance for installing Skeleton for other frameworks.
 order: 1000
 ---
 
@@ -14,20 +14,35 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 
 ## Requirements
 
-The core of Skeleton is our [Tailwind Plugin](/docs/get-started/plugin), which provides access to our framework agnostic [design system](/docs/get-started/fundamentals#design-system) and [Tailwind-based](/docs/get-started/fundamentals#tailwind) features - everything *except* components. This comes with two prerequisites:
+Skeleton's [Core Package](/docs/get-started/core-api) is framework agnostic, meaning many of the Design System and Tailwind-centric features can used on any number of frameworks. This includes everything _except_ components. In order to install Skeleton for additional framework, your app must be able to support the following:
 
-| Tooling | Minimum Version |
-|---|---|
-| Package Management | NPM, PNPM, Yarn, etc. |
-| [Tailwind](https://tailwindcss.com/) | 3 |
+| Tooling                              | Minimum Version       |
+| ------------------------------------ | --------------------- |
+| Package Management                   | NPM, PNPM, Yarn, etc. |
+| [Tailwind](https://tailwindcss.com/) | 4                     |
 
-The exact instructions for installing Skeleton will differ per framework, however we've provided a generic guide below. Use this as a foundation for getting started in non-supported frameworks.
+The exact instructions for installing Skeleton will differ per framework, however we've provided a general guidance below. Use this as a foundation for getting started in any number of unofficially supported frameworks.
 
 ## Installation
 
-<div class="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
-	<p>WARNING: The following guide will install a pre-release version of Skeleton v3. Be aware that some features may be missing, incomplete, or non-functional at this time. Please report bugs and issues on <a class='underline' href='https://github.com/skeletonlabs/skeleton/issues/new/choose' target='_blank' rel='external'>GitHub</a> or <a class='underline' href='https://discord.gg/EXqV7W8MtY' target='_blank' rel='external'>Discord</a>.</p>
+{
+
+<div className="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
+	<p>
+		WARNING: The following guide will install a pre-release version of Skeleton v3. Some features may be missing, incomplete, or
+		non-functional at this time. Please report bugs and issues on{' '}
+		<a className="anchor" href="https://github.com/skeletonlabs/skeleton/issues/new/choose" target="_blank" rel="external">
+			GitHub
+		</a>{' '}
+		or{' '}
+		<a className="anchor" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="external">
+			Discord
+		</a>
+		.
+	</p>
 </div>
+
+}
 
 <Process>
     <ProcessStep step="1">
@@ -36,50 +51,40 @@ The exact instructions for installing Skeleton will differ per framework, howeve
     </ProcessStep>
     <ProcessStep step="2">
         ### Install Tailwind
-		Follow the [official instructions](https://tailwindcss.com/docs/installation/framework-guides) to install Tailwind for your framework of choice.
+		Refer to the [official instructions](https://tailwindcss.com/docs/installation/framework-guides) for installing Tailwind on your framework of choice.
     </ProcessStep>
     <ProcessStep step="3">
         ### Install Skeleton
-        Install the Skeleton core package to gain access to the Skeleton Tailwind plugin.
+        Install the Skeleton core package to gain access to most features - excluding Components.
         ```console
         npm i -D @skeletonlabs/skeleton@next
         ```
     </ProcessStep>
     <ProcessStep step="4">
         ### Configure Tailwind
-        Open `tailwind.config` in the root of your project. The structure of this file may differ slightly for your framework.
-        ```ts title="tailwind.config" {1,2, 13-16}
-		import { skeleton } from '@skeletonlabs/skeleton/plugin';
-		import * as themes from '@skeletonlabs/skeleton/themes';
+        Locate your global stylesheet and append the following at the top of the file.
+        ```css {3-5}
+        @import 'tailwindcss';
 
-        /** @type {import('tailwindcss').Config} */
-		export default {
-			content: [
-				// IMPORTANT: preserve any settings provided here
-			],
-			theme: {
-				extend: {},
-			},
-			plugins: [
-				skeleton({
-					// NOTE: each theme included will increase the size of your CSS bundle
-					themes: [themes.cerberus, themes.rose],
-				}),
-			],
-		};
+        @import '@skeletonlabs/skeleton';
+        @import '@skeletonlabs/skeleton/optional/presets';
+        @import '@skeletonlabs/skeleton/themes/cerberus';
         ```
     </ProcessStep>
-	<ProcessStep step="6">
+    <ProcessStep step="6">
         ### Set Active Theme
-        Open the file containing the `<body>` tag for your project and set the `data-theme` attribute to define your active theme.
-        ```html
-        <body data-theme="cerberus">...</body>
+        Open the file containing the `<html>` tag for your project and set the `data-theme` attribute as follows.
+        ```html "data-theme="cerberus""
+        <html data-theme="cerberus">
+            ...
+        </html>
         ```
     </ProcessStep>
     <ProcessStep step="check">
         ### Run the Project
         Start the dev server for your framework of choice.
     </ProcessStep>
+
 </Process>
 
 ## Support

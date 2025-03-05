@@ -10,10 +10,10 @@
 	}
 </script>
 
-<button class="btn btn-icon preset-outlined-surface-200-800 hover:preset-tonal" onclick={toggleDarkMode}>
+<button class="btn-icon hover:preset-tonal" onclick={toggleDarkMode}>
 	{#if darkMode}
-		<IconSun size={18} />
+		<IconSun size={20} />
 	{:else}
-		<IconMoon size={18} />
+		<IconMoon size={20} />
 	{/if}
 </button>

@@ -19,14 +19,9 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-
       - name: Install dependencies
         run: pnpm install
-
-      - name: Build packages
-        run: pnpm package
-
-      - name: Run package checks
+      - name: Run checks
         run: pnpm check
 
   lint:
@@ -39,10 +34,8 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-
       - name: Install dependencies
         run: pnpm install
-
       - name: Run eslint
         run: pnpm lint:check
 
@@ -56,10 +49,8 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-
       - name: Install dependencies
         run: pnpm install
-
       - name: Run prettier
         run: pnpm format:check
 
@@ -73,9 +64,7 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-
       - name: Install dependencies
         run: pnpm install
-
       - name: Run tests
         run: pnpm test

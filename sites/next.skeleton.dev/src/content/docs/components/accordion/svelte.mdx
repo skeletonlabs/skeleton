@@ -11,7 +11,6 @@ import ExampleCollapsibleRaw from '@examples/components/accordions/ExampleCollap
 import ExampleMultiple from '@examples/components/accordions/ExampleMultiple.svelte';
 import ExampleMultipleRaw from '@examples/components/accordions/ExampleMultiple.svelte?raw';
 
-
 {/* --- */}
 
 ## Default
@@ -95,6 +94,19 @@ Use `multiple` to enable multiple items to be opened at once.
 </Accordion>
 ```
 
+## Anatomy
+
+<Anatomy label="Accordion" isComponent>
+	<Anatomy label="Accordion.Item" isComponent>
+		<Anatomy label="control" tag="button">
+			<Anatomy label="lead" />
+			<Anatomy label="content" />
+			<Anatomy label="indicator" />
+		</Anatomy>
+		<Anatomy label="panel" />
+	</Anatomy>
+</Anatomy>
+
 ## API Reference
 
-<ApiTable  />
+<ApiTable />

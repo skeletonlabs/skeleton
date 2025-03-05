@@ -104,10 +104,11 @@ You can optionally bind to the internal [Zag component API](https://zagjs.com/co
 
 ```ts
 function validateFileSize(file) {
-	if (file.size > 1024 * 1024 * 10) return ["FILE_TOO_LARGE"];
+	if (file.size > 1024 * 1024 * 10) return ['FILE_TOO_LARGE'];
 	return null;
 }
 ```
+
 ```tsx
 <FileUpload validate={validateFileSize} onFileReject={console.error}>
 ```
@@ -128,10 +129,11 @@ function generatePreview(event) {
 	reader.onload = (event) => {
 		const image = event.target.result;
 		// set the image as the src of an image element
-	}
+	};
 	reader.readAsDataURL(event.details.acceptedFiles[0]);
 }
 ```
+
 ```tsx
 <FileUpload onFileChange={generatePreview}>
 ```
@@ -144,7 +146,22 @@ function generatePreview(event) {
 <FileUpload capture> {/* Enable media capture on mobile devices */}
 ```
 
+## Anatomy
+
+<Anatomy label="FileUpload" isComponent>
+	<Anatomy tag="div">
+		<Anatomy tag="input" />
+		<Anatomy label="interface" />
+	</Anatomy>
+	<Anatomy label="fileList" tag="ul">
+		<Anatomy label="file" tag="li">
+			<Anatomy label="fileName" tag="p" />
+			<Anatomy label="fileSize" tag="p" />
+			<Anatomy label="fileButton" tag="button" />
+		</Anatomy>
+	</Anatomy>
+</Anatomy>
+
 ## API Reference
 
-<ApiTable   />
-
+<ApiTable />

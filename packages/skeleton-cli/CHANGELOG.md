@@ -1,5 +1,21 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.19
+
+### Patch Changes
+
+- bugfix: Add `@source` when component library is present ([#3262](https://github.com/skeletonlabs/skeleton/pull/3262))
+
+- bugfix: Theme import is correctly migrated ([#3253](https://github.com/skeletonlabs/skeleton/pull/3253))
+
+## 0.0.1-next.18
+
+### Patch Changes
+
+- Feature (migrate/skeleton-3): Tailwind V4 support. ([#3231](https://github.com/skeletonlabs/skeleton/pull/3231))
+
+- Feature (migrate/skeleton-3): Skeleton classes `@apply` rules in stylesheets (.{css,pcss,postcss}, <style></style>) are now transformed. ([#3231](https://github.com/skeletonlabs/skeleton/pull/3231))
+
 ## 0.0.1-next.17
 
 ### Patch Changes

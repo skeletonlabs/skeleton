@@ -9,7 +9,6 @@ import ExampleRaw from '@examples/components/avatars/Example.svelte?raw';
 import ExampleFallback from '@examples/components/avatars/ExampleFallback.svelte';
 import ExampleFallbackRaw from '@examples/components/avatars/ExampleFallback.svelte?raw';
 
-
 <Preview client:load>
 	<Fragment slot="preview">
 		<Example client:load />
@@ -25,14 +24,20 @@ When `src` or `srcSet` are missing or fail to load, a fallback will be displayed
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleFallback client:load />
+		<ExampleFallback />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleFallbackRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
+## Anatomy
+
+<Anatomy label="Avatar" tag="figure" isComponent>
+	<Anatomy label="image" tag="img" />
+	<Anatomy label="fallback" tag="span" />
+</Anatomy>
+
 ## API Reference
 
 <ApiTable />
-

@@ -133,7 +133,7 @@
 							class="card p-2 w-full flex items-center space-x-4 {person.id === currentPersonId
 								? 'preset-filled-primary-500'
 								: 'bg-surface-hover-token'}"
-							on:click={() => (currentPersonId = person.id)}
+							onclick={() => (currentPersonId = person.id)}
 						>
 							<Avatar src="https://i.pravatar.cc/?img={person.avatar}" name={person.name} size="size-8" />
 							<span class="flex-1 text-start">
@@ -181,15 +181,16 @@
 				<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800 rounded-container-token">
 					<button class="input-group-cell preset-tonal">+</button>
 					<textarea
-						bind:value={currentMessage}
+						value={currentMessage}
+						oninput={(e) => (currentMessage = e.currentTarget.value)}
 						class="bg-transparent border-0 ring-0"
 						name="prompt"
 						id="prompt"
 						placeholder="Write a message..."
 						rows="1"
-						on:keydown={onPromptKeydown}
+						onkeydown={onPromptKeydown}
 					></textarea>
-					<button class="input-group-cell {currentMessage ? 'preset-filled-primary-500' : 'preset-tonal'}" on:click={addMessage}>
+					<button class="input-group-cell {currentMessage ? 'preset-filled-primary-500' : 'preset-tonal'}" onclick={addMessage}>
 						<IconSend />
 					</button>
 				</div>

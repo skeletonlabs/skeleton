@@ -12,7 +12,7 @@ const tableData = await getCollection(collection, (item) => {
 
 <div class="table-wrap">
 	<table class="table">
-		<tbody class="hover:[&>tr]:preset-tonal">
+		<tbody class="[&>tr]:hover:preset-tonal">
 			{
 				tableData.map((row) => (
 					<tr title={row.data.description}>
@@ -24,9 +24,9 @@ const tableData = await getCollection(collection, (item) => {
 								))}
 							</div>
 						</td>
-						{/* <td class="text-right type-scale-1 opacity-60">{row.data.pubDate?.toLocaleDateString()}</td> */}
+						{/* <td class="text-right text-xs opacity-60">{row.data.pubDate?.toLocaleDateString()}</td> */}
 						<td class="text-right">
-							<a href={`/${collection}/${row.slug}`} class="btn preset-tonal hover:preset-filled">
+							<a href={`/${collection}/${row.id}`} class="btn preset-tonal hover:preset-filled">
 								Explore &rarr;
 							</a>
 						</td>

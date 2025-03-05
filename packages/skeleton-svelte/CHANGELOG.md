@@ -1,5 +1,39 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.21
+
+### Minor Changes
+
+- feat: Zag 1.0 ([#3257](https://github.com/skeletonlabs/skeleton/pull/3257))
+
+## 1.0.0-next.20
+
+### Minor Changes
+
+- feat: Navigation - manually handle `selected` state of NavTile ([#3228](https://github.com/skeletonlabs/skeleton/pull/3228))
+
+### Patch Changes
+
+- feat: Implement `aria-label` for triggers ([#3243](https://github.com/skeletonlabs/skeleton/pull/3243))
+
+- chore: Remove redundant null checks for triggers ([#3226](https://github.com/skeletonlabs/skeleton/pull/3226))
+
+- bugfix: only render button wrapping around `trigger` if the snippet was provided ([#3223](https://github.com/skeletonlabs/skeleton/pull/3223))
+
+## 1.0.0-next.19
+
+### Patch Changes
+
+- feat: set trigger button type to `button` for **Tooltip**, **Popover** and **Modal** ([#3208](https://github.com/skeletonlabs/skeleton/pull/3208))
+
+- feat: Implement `arrow` for Tooltip ([#3185](https://github.com/skeletonlabs/skeleton/pull/3185))
+
+- feat: renamed `positionerZIndex` to `zIndex` and used CSS values instead of Tailwind classes for **Popover**, **Modal**, **Tooltip** and **Combobox** ([#3210](https://github.com/skeletonlabs/skeleton/pull/3210))
+
+- feat: Implement `disabled` for Modal, Tooltip, Popover and Combobox ([#3186](https://github.com/skeletonlabs/skeleton/pull/3186))
+
+- feat: Make Svelte Slider marker snippet take the marker value as argument to enable marker customization ([#3205](https://github.com/skeletonlabs/skeleton/pull/3205))
+
 ## 1.0.0-next.18
 
 ### Patch Changes

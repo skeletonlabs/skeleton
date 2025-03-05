@@ -1,0 +1,125 @@
+/* Components: Forms > Input */
+
+@utility input {
+	display: block;
+	background-color: transparent;
+	border-radius: var(--radius-base);
+	font-size: var(--text-base);
+	line-height: --spacing(9);
+	height: --spacing(9);
+	width: 100%;
+	padding: --spacing(2);
+
+	/* Edges --- */
+	outline-color: transparent;
+	border-width: 0;
+	--tw-ring-inset: inset;
+	--tw-ring-color: var(--color-surface-200-800);
+	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
+	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+
+	@variant active {
+		--tw-ring-color: var(--color-primary-500);
+	}
+	@variant focus {
+		--tw-ring-color: var(--color-primary-500);
+	}
+	@variant focus-within {
+		--tw-ring-color: var(--color-primary-500);
+	}
+
+	/* Placeholder --- */
+
+	&::placeholder {
+		color: var(--color-surface-800-200);
+	}
+
+	/* File Date/Time --- */
+
+	&[type='date'] {
+		font-size: var(--text-sm);
+		line-height: var(--text-sm--line-height);
+	}
+
+	&[type='time'] {
+		font-size: var(--text-sm);
+		line-height: var(--text-sm--line-height);
+	}
+
+	&[type='datetime-local'] {
+		font-size: var(--text-sm);
+		line-height: var(--text-sm--line-height);
+	}
+
+	/* File Input --- */
+
+	&[type='file'] {
+		font-size: var(--text-sm);
+		height: auto;
+	}
+	&[type='file']::file-selector-button {
+		cursor: pointer;
+		background-color: var(--color-surface-950-50);
+		color: var(--color-surface-50-950);
+		border-radius: var(--radius-base);
+		font-weight: var(--font-weight-medium);
+		text-decoration-line: none;
+
+		/* Base Size */
+		font-size: var(--text-xs);
+		height: 100%;
+		padding-inline: --spacing(3);
+		padding-block: --spacing(0);
+		margin-right: --spacing(3);
+	}
+
+	/* Range Input --- */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
+
+	&[type='range'] {
+		accent-color: var(--color-surface-950-50);
+		box-shadow: none;
+	}
+
+	/* Color Picker Input --- */
+	/* https://stackoverflow.com/questions/11167281/webkit-css-to-control-the-box-around-the-color-in-an-inputtype-color */
+
+	&[type='color'] {
+		border-radius: var(--radius-base);
+		width: --spacing(9);
+		height: --spacing(9);
+		padding: 0;
+		border: none;
+		outline: none;
+		-webkit-appearance: none;
+	}
+	&[type='color']::-webkit-color-swatch-wrapper {
+		padding: 0;
+	}
+	&[type='color']::-webkit-color-swatch {
+		border: none;
+		border-radius: var(--radius-base);
+	}
+}
+
+/* Ghost Input*/
+/* Used for the <TagsInput> component. */
+@utility input-ghost {
+	/* Used for the <TagsInput> component. */
+	padding: 0px;
+	background-color: transparent;
+	border-color: transparent;
+
+	outline-color: transparent;
+	--tw-ring-color: transparent;
+
+	@variant active {
+		border-color: transparent !important;
+	}
+	@variant focus {
+		border-color: transparent !important;
+	}
+	@variant focus-within {
+		border-color: transparent !important;
+	}
+}

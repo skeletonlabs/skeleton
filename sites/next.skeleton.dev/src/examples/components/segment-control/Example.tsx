@@ -6,7 +6,7 @@ export const Page: React.FC = () => {
 	const [align, setAlign] = useState('left');
 
 	return (
-		<Segment value={align} name="align" onValueChange={setAlign}>
+		<Segment value={align} name="align" onValueChange={(e) => setAlign(e.value!)}>
 			<Segment.Item value="left">
 				<IconLeft />
 			</Segment.Item>

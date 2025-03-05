@@ -8,9 +8,14 @@ order: 20
 export const components = componentSet;
 import NavGrid from '@components/docs/NavGrid.astro';
 
-{/* prettier-ignore */}
-<p class="type-scale-5"> Skeleton is comprised of three pillars - the design system, Tailwind utilities, and framework-specific components.
-	Together these form a comprehensive solution for designing and implementing complex web interfaces at scale.</p>
+{
+
+<p className="text-xl">
+	Skeleton is comprised of three pillars - the design system, our extensions to Tailwind, and an optional suite of framework-specific
+	components. Together these form a comprehensive solution for designing and implementing complex web interfaces at scale.
+</p>
+
+}
 
 ---
 
@@ -22,11 +27,11 @@ A fully featured [Figma UI Kit](/docs/get-started/figma) is available to designe
 
 ### Iconography
 
-Skeleton is icon agnostic, meaning you may bring your own iconography solution. However, all code examples in this documentation website default to [Lucide](https://lucide.dev/). See our integration guides for [React](/docs/integrations/iconography/react) or [Svelte](/docs/integrations/iconography/react) if you wish to follow our lead.
+Skeleton is icon agnostic, meaning you may bring your own iconography solution. However, we highly recommend [Lucide](https://lucide.dev/) and utilize it for all examples in our documentation. Refer to our integration guides for [React](/docs/integrations/iconography/react) and [Svelte](/docs/integrations/iconography/svelte).
 
-### Systems
+### Core Features
 
-A number of helpful design systems provided courtesy of the Skeleton Tailwind plugin.
+The following features fall under the umbrella of our design system. Provided via the Skeleton core.
 
 <NavGrid collection="docs" path="design/" classes="md:grid-cols-2" />
 
@@ -34,7 +39,7 @@ A number of helpful design systems provided courtesy of the Skeleton Tailwind pl
 
 ## Tailwind
 
-Tailwind components that act as primitives for constructing complex interfaces. Provided courtesy of the Skeleton Tailwind plugin.
+Tailwind components that act as primitives for creating complex interfaces. Provided via the Skeleton core.
 
 <NavGrid collection="docs" path="tailwind/" classes="md:grid-cols-2" />
 
@@ -42,7 +47,7 @@ Tailwind components that act as primitives for constructing complex interfaces. 
 
 ## Components
 
-Skeleton also offers optional component packages for the follow frameworks, automatically integrating Skeleton's design system.
+Skeleton also offers optional component packages for select frameworks, each component automatically adapt to Skeleton's design system.
 
 | Framework | NPM Package                     | Description                                      |
 | --------- | ------------------------------- | ------------------------------------------------ |
@@ -51,15 +56,22 @@ Skeleton also offers optional component packages for the follow frameworks, auto
 
 ### Powered by Zag.js
 
-Skeleton's components utilize [Zag.js](https://zagjs.com/) as their foundation, which provides a collection of framework-agnostic UI component patterns to manage logic and state.
+Skeleton's components are built on **Zag.js**, which provides a collection of framework-agnostic UI component patterns to manage logic and state. Zag was founded and maintained by industry veterans, such Segun Adebayo - the creator and core maintainer for [Chakra UI](https://www.chakra-ui.com/).
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://zagjs.com/" target="_blank">
+		View Zag.js
+	</a>
+</figure>
 
 ### Importing Component
 
-Import the component you wish to use fom your framework package of choice, then insert it into your page template.
+Import the component you wish to use from your framework package of choice, then insert it into your page template.
 
 ```ts
-import { Avatar } from '@skeletonlabs/skeleton-{framework}';
+import { Avatar } from '@skeletonlabs/skeleton-{react|svelte}';
 ```
+
 ```ts
 <Avatar />
 ```
@@ -94,13 +106,14 @@ Imagine the Avatar component was created like so:
 	alt = '',
 	// ...
 	base = 'flex justify-center items-center overflow-hidden',
-	background = 'bg-slate-500'
+	background = 'bg-slate-500',
 	rounded = 'rounded-full',
 	// ...
-	classes = ''
+	classes = '',
 }
 ```
-```html title="Example Template"
+
+```svelte title="Example Template"
 <figure class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}">
 	<img {src} alt={name} class="{imageBase} {imageClasses}" />
 </figure>
@@ -108,25 +121,25 @@ Imagine the Avatar component was created like so:
 
 We can use the `background` style prop to replace the default background color.
 
-```ts
+```svelte
 <Avatar background="bg-blue-500">Sk</Avatar>
 ```
 
-Since the component doesn't have a dedicated `border` prop, we can extend our class list using `classses`.
+Since the component doesn't have a dedicated `border` prop, we can extend our class list using `classes`.
 
-```ts
+```svelte
 <Avatar classes="border-4 border-green-500">Sk</Avatar>
 ```
 
 And we can optionally replace the default `base` styles like so. Just remember our other `{property}` styles will remain.
 
-```ts
+```svelte
 <Avatar base="flex justify-center items-center overflow-visible">Sk</Avatar>
 ```
 
 Additionally, child elements within the template use these same conventions, but prefixed like `imageBase` and `imageClasses`.
 
-```ts
+```svelte
 <Avatar ... imageClasses="grayscale" />
 ```
 

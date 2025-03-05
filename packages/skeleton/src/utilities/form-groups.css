@@ -1,0 +1,57 @@
+/* Components: Forms > Input Group */
+
+@utility input-group {
+	display: grid;
+	align-items: stretch;
+	border-radius: var(--radius-base);
+	overflow: hidden;
+
+	/* Edges --- */
+	outline-color: transparent;
+	border-width: 0;
+	--tw-ring-inset: inset;
+	--tw-ring-color: var(--color-surface-200-800);
+	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
+	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+
+	& > * + * {
+		border-left-width: 1px !important;
+		border-color: var(--color-surface-200-800);
+	}
+}
+
+/* Child Elements -- */
+
+@utility ig-cell {
+	font-size: var(--text-sm);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-inline: --spacing(4);
+}
+
+@utility ig-input {
+	--tw-ring-inset: inset;
+	background-color: transparent;
+	border-width: 0;
+}
+
+@utility ig-select {
+	--tw-ring-inset: inset;
+	background-color: transparent;
+	border-width: 0;
+}
+
+@utility ig-btn {
+	--tw-ring-inset: inset;
+	cursor: pointer;
+	font-size: var(--text-base);
+	font-weight: var(--font-weight-medium);
+	text-decoration-line: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: --spacing(2);
+	padding-inline: --spacing(4);
+	white-space: nowrap;
+}

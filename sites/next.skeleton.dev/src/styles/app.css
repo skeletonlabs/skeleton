@@ -1,3 +1,39 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/forms";
+
+@import '@skeletonlabs/skeleton';
+/* Optional */
+@import '@skeletonlabs/skeleton/optional/presets';
+/* Themes */
+@import '@skeletonlabs/skeleton/themes/catppuccin';
+@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton/themes/concord';
+@import '@skeletonlabs/skeleton/themes/crimson';
+@import '@skeletonlabs/skeleton/themes/fennec';
+@import '@skeletonlabs/skeleton/themes/hamlindigo';
+@import '@skeletonlabs/skeleton/themes/legacy';
+@import '@skeletonlabs/skeleton/themes/mint';
+@import '@skeletonlabs/skeleton/themes/modern';
+@import '@skeletonlabs/skeleton/themes/mona';
+@import '@skeletonlabs/skeleton/themes/nosh';
+@import '@skeletonlabs/skeleton/themes/nouveau';
+@import '@skeletonlabs/skeleton/themes/pine';
+@import '@skeletonlabs/skeleton/themes/reign';
+@import '@skeletonlabs/skeleton/themes/rocket';
+@import '@skeletonlabs/skeleton/themes/rose';
+@import '@skeletonlabs/skeleton/themes/sahara';
+@import '@skeletonlabs/skeleton/themes/seafoam';
+@import '@skeletonlabs/skeleton/themes/terminus';
+@import '@skeletonlabs/skeleton/themes/vintage';
+@import '@skeletonlabs/skeleton/themes/vox';
+@import '@skeletonlabs/skeleton/themes/wintry';
+
+@source '../../node_modules/@skeletonlabs/skeleton-react/dist';
+@source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
+
+/* Set Selector dark mode strategy */
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
 /* Global Styles */
 
 html {
@@ -7,7 +43,9 @@ html {
 /* Local Utilities --- */
 
 .flex-centered {
-	@apply flex items-center justify-center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .bg-noise {
@@ -19,7 +57,8 @@ html {
 /* Astro Components --- */
 
 .astro-code {
-	@apply rounded-container p-4;
+	border-radius: var(--radius-container);
+	padding: --spacing(4);
 }
 
 /* Theme Enhancements --- */
@@ -29,16 +68,16 @@ html {
 	background-size: cover;
 	/* prettier-ignore */
 	background-image:
-		radial-gradient(at 24% 25%, rgba(var(--color-primary-500) / 0.30) 0px, transparent 30%),
-		radial-gradient(at 35% 13%, rgba(var(--color-success-500) / 0.18) 0px, transparent 30%),
-		radial-gradient(at 100% 64%, rgba(var(--color-error-500) / 0.03) 0px, transparent 40%);
+		radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 30%),
+		radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-success-500) 18%, transparent) 0px, transparent 30%),
+		radial-gradient(at 100% 64%, color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px, transparent 40%);
 }
 .gradient-homepage-two {
 	background-size: cover;
 	/* prettier-ignore */
 	background-image:
-		radial-gradient(at 25% 40%, rgba(var(--color-primary-500) / 0.10) 0px, transparent 35%),
-		radial-gradient(at 100% 58%, rgba(var(--color-success-500) / 0.05) 0px, transparent 35%);
+		radial-gradient(at 25% 40%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 35%),
+		radial-gradient(at 100% 58%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 35%);
 }
 
 /* Inner Page Gradient */
@@ -65,27 +104,33 @@ html {
 [data-theme='seafoam'],
 [data-theme='vintage'],
 [data-theme='wintry'] {
-	background-attachment: fixed;
-	/* prettier-ignore */
-	background-image:
-		radial-gradient(at 0% 25%, rgba(var(--color-primary-500) / 0.10) 0px, transparent 30%),
-		radial-gradient(at 15% 06%, rgba(var(--color-success-500) / 0.05) 0px, transparent 30%);
+	& body {
+		background-attachment: fixed;
+		/* prettier-ignore */
+		background-image:
+		radial-gradient(at 0% 25%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
+		radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 30%);
+	}
 }
 
 /* Filled Cards */
 .card-filled-enhanced {
-	@apply card preset-filled-primary-500;
+	border-radius: var(--radius-container);
+	background-color: var(--color-primary-500);
+	color: var(--color-primary-contrast-500);
 }
 
 /* Linker */
 /* Prominant link elements for MDX pages */
 
 .linker {
-	@apply card flex justify-center px-4 py-10 shadow;
-	@apply bg-noise preset-filled-primary-500;
-}
-.linker-item {
-	@apply btn bg-primary-50 text-primary-950 shadow;
+	border-radius: var(--radius-container);
+	display: flex;
+	justify-content: center;
+	padding-inline: --spacing(4);
+	padding-block: --spacing(10);
+	background-color: var(--color-primary-500);
+	color: var(--color-primary-contrast-500);
 }
 
 /* Floating UI */
@@ -115,17 +160,27 @@ html {
 /* Carbon Ad Styles */
 
 #carbonads {
-	@apply bg-surface-50-950 border border-surface-500/30;
+	background-color: var(--color-surface-50-950);
+	border-width: 1px;
+	border-color: var(--color-surface-200-800);
 }
 #carbonads .carbon-wrap {
-	@apply grid grid-cols-[auto_1fr] gap-4;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: --spacing(3);
 }
 #carbonads .carbon-text {
-	@apply text-[0.775em] leading-[1.4em] opacity-75 no-underline;
-	@apply p-1;
+	font-size: 11px;
+	padding: --spacing(1);
+	text-decoration-line: none;
+	opacity: 0.75;
 }
 #carbonads .carbon-poweredby {
-	@apply bg-surface-100-900;
-	@apply text-[0.5em] opacity-50 no-underline uppercase;
-	@apply block text-right p-1;
+	display: block;
+	background-color: var(--color-surface-100-900);
+	color: var(--color-surface-600-400);
+	font-size: 10px;
+	padding: --spacing(1);
+	text-align: right;
+	text-transform: uppercase;
 }

@@ -15,4 +15,10 @@
 	let selectedCountry = $state(['US']);
 </script>
 
-<Combobox data={comboboxData} bind:value={selectedCountry} label="Select Country" placeholder="Select..." />
+<Combobox
+	data={comboboxData}
+	value={selectedCountry}
+	onValueChange={(e) => (selectedCountry = e.value)}
+	label="Select Country"
+	placeholder="Select..."
+/>

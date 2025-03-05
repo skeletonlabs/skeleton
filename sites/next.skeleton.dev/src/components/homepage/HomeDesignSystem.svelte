@@ -22,7 +22,7 @@
 		},
 		{
 			label: 'Presets',
-			desc: 'Presets are utilty classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.'
+			desc: 'Presets are utility classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.'
 		},
 		{
 			label: 'Typography',
@@ -86,19 +86,19 @@ const theme = {
   "name": "theme",
   "properties": {
     "--type-scale-factor": "1.067",
-    "--type-scale-1": "calc(0.75rem * var(--type-scale-factor))",
-    "--type-scale-2": "calc(0.875rem * var(--type-scale-factor))",
-    "--type-scale-3": "calc(1rem * var(--type-scale-factor))",
-    "--type-scale-4": "calc(1.125rem * var(--type-scale-factor))",
-    "--type-scale-5": "calc(1.25rem * var(--type-scale-factor))",
-    "--type-scale-6": "calc(1.5rem * var(--type-scale-factor))",
-    "--type-scale-7": "calc(1.875rem * var(--type-scale-factor))",
-    "--type-scale-8": "calc(2.25rem * var(--type-scale-factor))",
-    "--type-scale-9": "calc(3rem * var(--type-scale-factor))",
-    "--type-scale-10": "calc(3.75rem * var(--type-scale-factor))",
-    "--type-scale-11": "calc(4.5rem * var(--type-scale-factor))",
-    "--type-scale-12": "calc(6rem * var(--type-scale-factor))",
-    "--type-scale-13": "calc(8rem * var(--type-scale-factor))",
+    "--text-xs": "calc(0.75rem * var(--type-scale-factor))",
+    "--text-sm": "calc(0.875rem * var(--type-scale-factor))",
+    "--text-base": "calc(1rem * var(--type-scale-factor))",
+    "--text-lg": "calc(1.125rem * var(--type-scale-factor))",
+    "--text-xl": "calc(1.25rem * var(--type-scale-factor))",
+    "--text-2xl": "calc(1.5rem * var(--type-scale-factor))",
+    "--text-3xl": "calc(1.875rem * var(--type-scale-factor))",
+    "--text-4xl": "calc(2.25rem * var(--type-scale-factor))",
+    "--text-5xl": "calc(3rem * var(--type-scale-factor))",
+    "--text-xs0": "calc(3.75rem * var(--type-scale-factor))",
+    "--text-xs1": "calc(4.5rem * var(--type-scale-factor))",
+    "--text-xs2": "calc(6rem * var(--type-scale-factor))",
+    "--text-xs3": "calc(8rem * var(--type-scale-factor))",
     "--base-font-color": "var(--color-surface-950)",
     "--base-font-color-dark": "var(--color-surface-50)",
     "--base-font-family": "system-ui, sans-serif",
@@ -147,7 +147,7 @@ const theme = {
 		{:else if state == 4}
 			<!-- Step 5: Typography -->
 			<div class="text-center space-y-4">
-				<h1 class="heading-font-family type-scale-11 md:type-scale-13 leading-none font-bold">Aa</h1>
+				<h1 class="heading-font-family text-xs1 md:text-xs3 leading-none font-bold">Aa</h1>
 				<p class="text-xs md:text-lg">The quick brown fox jumped over the lazy dog.</p>
 			</div>
 		{:else if state == 5}

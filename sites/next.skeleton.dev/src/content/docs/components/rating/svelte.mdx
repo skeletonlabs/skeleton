@@ -50,7 +50,6 @@ import ExampleRTLRaw from '@examples/components/rating/ExampleRTL.svelte?raw';
 	</Fragment>
 </Preview>
 
-
 ## Allow Half
 
 <Preview client:load>
@@ -95,6 +94,17 @@ import ExampleRTLRaw from '@examples/components/rating/ExampleRTL.svelte?raw';
 	</Fragment>
 </Preview>
 
+## Anatomy
+
+<Anatomy label="Ratings" isComponent>
+	<Anatomy label="label" />
+	<Anatomy label="control">
+		<Anatomy label="item" tag="span">
+			<Anatomy tag="svg" />
+		</Anatomy>
+	</Anatomy>
+</Anatomy>
+
 ## API Reference
 
-<ApiTable   />
+<ApiTable />

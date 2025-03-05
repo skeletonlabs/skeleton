@@ -45,7 +45,7 @@
 					<th class="!text-right">Symbol</th>
 				</tr>
 			</thead>
-			<tbody class="hover:[&>tr]:preset-tonal-primary">
+			<tbody class="[&>tr]:hover:preset-tonal-primary">
 				{#each slicedSource(sourceData) as row}
 					<tr>
 						<td>{row.position}</td>
@@ -59,14 +59,21 @@
 	</div>
 	<!-- Footer -->
 	<footer class="flex justify-between">
-		<select name="size" id="size" class="select max-w-[150px]" bind:value={size}>
+		<select name="size" id="size" class="select max-w-[150px]" value={size} onchange={(e) => (size = Number(e.currentTarget.value))}>
 			{#each [1, 2, 5] as v}
 				<option value={v}>Items {v}</option>
 			{/each}
 			<option value={sourceData.length}>Show All</option>
 		</select>
 		<!-- Pagination -->
-		<Pagination bind:data={sourceData} bind:page bind:pageSize={size} siblingCount={4}>
+		<Pagination
+			data={sourceData}
+			{page}
+			onPageChange={(e) => (page = e.page)}
+			pageSize={size}
+			onPageSizeChange={(e) => (size = e.pageSize)}
+			siblingCount={4}
+		>
 			{#snippet labelEllipsis()}<IconEllipsis class="size-4" />{/snippet}
 			{#snippet labelNext()}<IconArrowRight class="size-4" />{/snippet}
 			{#snippet labelPrevious()}<IconArrowLeft class="size-4" />{/snippet}
