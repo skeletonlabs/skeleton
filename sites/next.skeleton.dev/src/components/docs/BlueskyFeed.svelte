@@ -17,6 +17,8 @@
 </script>
 
 {#await postsPromise}
+	<!-- Disable: the value is not useful here. -->
+	<!-- eslint-disable @typescript-eslint/no-unused-vars -->
 	{#each { length: 15 } as _}
 		<div class="card bg-surface-100-900 opacity-50 animate-pulse h-96"></div>
 	{/each}

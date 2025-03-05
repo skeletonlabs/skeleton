@@ -29,8 +29,7 @@
 	$effect(() => docSearchSettingsStore.set(docSearchSettings));
 
 	const searchPromise = $derived.by(() => {
-		// Define deps since async context is not reactive
-		[pagefind, query, docSearchSettings.framework];
+		void [pagefind, query, docSearchSettings.framework];
 
 		return untrack(async () => {
 			if (pagefind === null || query === '') return [];

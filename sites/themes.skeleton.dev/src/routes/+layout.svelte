@@ -9,9 +9,11 @@
 	$effect(() => {
 		// Sets <body data-theme> based on active route
 		// Prevents generator CSS property precedence issues.
-		$page.url.pathname === '/themes/create'
-			? document.documentElement.setAttribute('data-theme', 'generated')
-			: document.documentElement.setAttribute('data-theme', ''); // cerberus
+		if ($page.url.pathname === '/themes/create') {
+			document.documentElement.setAttribute('data-theme', 'generated');
+		} else {
+			document.documentElement.setAttribute('data-theme', ''); // cerberus
+		}
 	});
 </script>
 

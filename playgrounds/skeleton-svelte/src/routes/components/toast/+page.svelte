@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import type { ToastContext } from '@skeletonlabs/skeleton-svelte';
 
-	export const toast: ToastContext = getContext('toast');
+	const toast: ToastContext = getContext('toast');
 
 	function triggerInfo() {
 		toast.create({
