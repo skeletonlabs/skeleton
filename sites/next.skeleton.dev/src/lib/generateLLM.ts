@@ -161,10 +161,10 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 }
 
 async function processGetStarted(): Promise<string> {
-	const allGetStarted = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('get-started/'));
+	const allGetStarted = (await getCollection('docs')).filter((entry) => entry.id.startsWith('get-started/'));
 	// Separate installation docs
-	const installationDocs = allGetStarted.filter((entry) => entry.slug.startsWith('get-started/installation/'));
-	const generalDocs = allGetStarted.filter((entry) => !entry.slug.startsWith('get-started/installation/'));
+	const installationDocs = allGetStarted.filter((entry) => entry.id.startsWith('get-started/installation/'));
+	const generalDocs = allGetStarted.filter((entry) => !entry.id.startsWith('get-started/installation/'));
 
 	let content = '# Get Started\n\n';
 	// Process general Get Started entries by appending title, description, and body
@@ -183,11 +183,11 @@ async function processGetStarted(): Promise<string> {
 
 async function processGuidesGeneral(): Promise<string> {
 	const guidesDocs = (await getCollection('docs')).filter(
-		(entry) => entry.slug.startsWith('guides/') && !entry.slug.startsWith('guides/figma/') && !entry.slug.startsWith('guides/cookbook/')
+		(entry) => entry.id.startsWith('guides/') && !entry.id.startsWith('guides/figma/') && !entry.id.startsWith('guides/cookbook/')
 	);
 	let guidesContent = '';
 	for (const doc of guidesDocs) {
-		let content = doc.body;
+		let content = doc.body ?? '';
 		// Guides only has preview blocks without ApiTables
 		content = await processPreviewBlocks(content, 'html');
 		content = `# ${doc.data.title}\n${doc.data.description}\n\n${content}`;
@@ -197,10 +197,10 @@ async function processGuidesGeneral(): Promise<string> {
 }
 
 async function processGuidesCookbook(): Promise<string> {
-	const cookbookDocs = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('guides/cookbook/'));
+	const cookbookDocs = (await getCollection('docs')).filter((entry) => entry.id.startsWith('guides/cookbook/'));
 	let cookbookContent = '';
 	for (const doc of cookbookDocs) {
-		let content = doc.body;
+		let content = doc.body ?? '';
 		// Cookbook only has PreviewBlocks
 		content = await processPreviewBlocks(content, 'html');
 		content = `# ${doc.data.title}\n${doc.data.description}\n\n${content}`;
@@ -223,10 +223,10 @@ async function processGuides(): Promise<string> {
 }
 
 async function processDesign(): Promise<string> {
-	const designDocs = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('design/'));
+	const designDocs = (await getCollection('docs')).filter((entry) => entry.id.startsWith('design/'));
 	let designContent = '';
 	for (const doc of designDocs) {
-		let content = doc.body;
+		let content = doc.body ?? '';
 		content = await processPreviewBlocks(content, 'html');
 		content = `# ${doc.data.title}\n${doc.data.description}\n\n${content}`;
 		designContent += content + '\n\n---\n\n';
@@ -236,10 +236,10 @@ async function processDesign(): Promise<string> {
 }
 
 async function processTailwind(): Promise<string> {
-	const tailwindDocs = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('tailwind/'));
+	const tailwindDocs = (await getCollection('docs')).filter((entry) => entry.id.startsWith('tailwind/'));
 	let tailwindContent = '';
 	for (const doc of tailwindDocs) {
-		let content = doc.body;
+		let content = doc.body ?? '';
 		content = await processPreviewBlocks(content, 'html');
 		content = `# ${doc.data.title}\n${doc.data.description}\n\n${content}`;
 		tailwindContent += content + '\n\n---\n\n';
@@ -253,15 +253,15 @@ async function processTailwind(): Promise<string> {
  * Replaces the `/meta` slug suffix with the framework-specific one.
  */
 async function processComponents(framework: Framework): Promise<string> {
-	const metaEntries = (await getCollection('docs')).filter((entry) => entry.slug.startsWith('components/') && entry.slug.endsWith('/meta'));
+	const metaEntries = (await getCollection('docs')).filter((entry) => entry.id.startsWith('components/') && entry.id.endsWith('/meta'));
 	let componentsContent = '';
 	for (const metaEntry of metaEntries) {
-		const docSlug = metaEntry.slug.replace(/\/meta$/, `/${framework}`);
+		const docSlug = metaEntry.id.replace(/\/meta$/, `/${framework}`);
 		const docEntry = await getEntry('docs', docSlug);
 		if (!docEntry) continue;
-		let content = docEntry.body;
+		let content = docEntry.body ?? '';
 		content = await processPreviewBlocks(content, framework);
-		content = await processApiTables(content, docEntry.slug);
+		content = await processApiTables(content, docEntry.id);
 		content = `# ${metaEntry.data.title}\n${metaEntry.data.description}\n\n${content}`;
 		componentsContent += content + '\n\n---\n\n';
 	}
@@ -274,17 +274,15 @@ async function processComponents(framework: Framework): Promise<string> {
  * Replaces the `/meta` slug suffix with the framework-specific one.
  */
 async function processIntegrations(framework: Framework): Promise<string> {
-	const metaEntries = (await getCollection('docs')).filter(
-		(entry) => entry.slug.startsWith('integrations/') && entry.slug.endsWith('/meta')
-	);
+	const metaEntries = (await getCollection('docs')).filter((entry) => entry.id.startsWith('integrations/') && entry.id.endsWith('/meta'));
 	let integrationsContent = '';
 	for (const metaEntry of metaEntries) {
-		const docSlug = metaEntry.slug.replace(/\/meta$/, `/${framework}`);
+		const docSlug = metaEntry.id.replace(/\/meta$/, `/${framework}`);
 		const docEntry = await getEntry('docs', docSlug);
 		if (!docEntry) continue;
-		let content = docEntry.body;
+		let content = docEntry.body ?? '';
 		content = await processPreviewBlocks(content, framework);
-		content = await processApiTables(content, docEntry.slug);
+		content = await processApiTables(content, docEntry.id);
 		content = `# ${metaEntry.data.title}\n${metaEntry.data.description}\n\n${content}`;
 		integrationsContent += content + '\n\n---\n\n';
 	}
