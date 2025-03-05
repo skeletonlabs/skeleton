@@ -148,15 +148,15 @@ For generic code that is not framework specific, such as an Astro component alon
 
 ```astro
 <Preview client:load>
-  <Fragment slot="preview"><Example /></Fragment>
-  <Preview>
-    <Fragment slot="preview">
-      <Example />
-    </Fragment>
-    <Fragment slot="code">
-      <Code code={ExampleGenericRaw} lang="astro" />
-    </Fragment>
-  </Preview>
+	<Fragment slot="preview"><Example /></Fragment>
+	<Preview>
+		<Fragment slot="preview">
+			<Example />
+		</Fragment>
+		<Fragment slot="code">
+			<Code code={ExampleGenericRaw} lang="astro" />
+		</Fragment>
+	</Preview>
 </Preview>
 ```
 
