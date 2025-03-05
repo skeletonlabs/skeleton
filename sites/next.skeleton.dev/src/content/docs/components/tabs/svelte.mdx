@@ -19,7 +19,7 @@ import ExampleRTLRaw from '@examples/components/tabs/ExampleRTL.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:load />
+		<Example client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleRaw} lang="svelte" />
@@ -32,7 +32,7 @@ Easily customize tabs content with icons and arrange them in any combination you
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleIcons client:load />
+		<ExampleIcons client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleIconsRaw} lang="svelte" />
@@ -41,7 +41,7 @@ Easily customize tabs content with icons and arrange them in any combination you
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleIconsLabel client:load />
+		<ExampleIconsLabel client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleIconsLabelRaw} lang="svelte" />
@@ -54,7 +54,7 @@ Set `fluid` to enable tabs to stretch to fill the available width.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleFluid client:load />
+		<ExampleFluid client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleFluidRaw} lang="svelte" />
@@ -65,7 +65,7 @@ Set `fluid` to enable tabs to stretch to fill the available width.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleJustify client:load />
+		<ExampleJustify client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleJustifyRaw} lang="svelte" />
@@ -76,7 +76,7 @@ Set `fluid` to enable tabs to stretch to fill the available width.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleRTL client:load />
+		<ExampleRTL client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleRTLRaw} lang="svelte" />

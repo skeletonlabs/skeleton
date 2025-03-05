@@ -1,18 +1,21 @@
 ---
-import { Icon } from 'astro-icon/components';
 // Stores
 import { socialLinks } from 'src/stores/social-links';
 // Components
 import Drawer from '@components/docs/Drawer.astro';
+import { HeaderVersion } from './HeaderVersion';
+import { HeaderThemes } from './HeaderThemes';
+import { HeaderSponsors } from './HeaderSponsors';
 import Lightswitch from '@components/docs/Lightswitch.astro';
-import ThemeSwitch from '@components/docs/ThemeSwitch.astro';
 import Search from './Search.svelte';
 import Navigation from '@components/docs/Navigation.astro';
+// Icons
+import { Icon } from 'astro-icon/components';
 
 const coreLinks = [
 	{ href: '/docs/get-started/introduction', label: 'Docs', target: '_self' },
 	{ href: '/news', label: 'News', target: '_self' },
-	{ href: 'https://themes.skeleton.dev/', label: 'Themes', target: '_blank' },
+	// { href: 'https://themes.skeleton.dev/', label: 'Themes', target: '_blank' },
 	{ href: '/figma', label: 'Figma', target: '_self' }
 ];
 ---
@@ -24,20 +27,22 @@ const coreLinks = [
 		class="container mx-auto grid max-w-screen-2xl grid-cols-[auto_1fr_auto] xl:grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 xl:px-10"
 	>
 		<!-- Left -->
-		<div class="flex items-center justify-start gap-6">
+		<div class="flex items-stretch justify-start gap-4">
 			<!-- Mobile Nav Drawer -->
 			<Drawer navigation={coreLinks}>
 				<Navigation />
 			</Drawer>
 			<!-- Logo -->
 			<a class="hidden xl:inline-block" href="/" title="Skeleton">
-				<Icon name="skeleton" size={28} />
+				<Icon name="skeleton" size={32} />
 			</a>
-			<!-- Navigation -->
-			<div class="hidden xl:flex items-center justify-start gap-6 opacity-60">
+			<div class="hidden xl:flex items-center">
+				<!-- Version Picker -->
+				<HeaderVersion client:load />
+				<!-- Navigation -->
 				{
 					coreLinks.map((link) => (
-						<a class="hover:underline" href={link.href} target={link.target}>
+						<a class="btn hover:preset-tonal" href={link.href} target={link.target}>
 							{link.label}
 						</a>
 					))
@@ -50,13 +55,15 @@ const coreLinks = [
 			<Search client:load />
 		</div>
 		<!-- Right -->
-		<div class="flex items-center justify-end gap-2">
-			<div class="hidden xl:flex items-center justify-end gap-2">
-				<Lightswitch />
-				<ThemeSwitch />
-			</div>
+		<!-- <div class="hidden xl:flex items-center justify-end gap-2"> -->
+		<div class="flex justify-end items-stretch gap-2">
+			<!-- Mode and Theme -->
+			<Lightswitch />
+			<HeaderThemes client:load />
+			<!-- Divider -->
+			<span class="border-r border-surface-200-800"></span>
 			<!-- Social -->
-			<nav class="flex items-center">
+			<nav class="flex items-center gap-1">
 				{
 					socialLinks
 						.get()
@@ -68,6 +75,10 @@ const coreLinks = [
 						))
 				}
 			</nav>
+			<!-- Divider -->
+			<span class="hidden xl:inline-block border-r border-surface-200-800"></span>
+			<!-- Sponsors -->
+			<HeaderSponsors client:load />
 		</div>
 	</div>
 </header>
