@@ -144,6 +144,22 @@ To allow for a common preview to have framework specific code, use the `codeReac
 </Preview>
 ```
 
+For generic code that is not framework specific, such as an Astro component along with JavaScript, use the `code` slot.
+
+```astro
+<Preview client:load>
+  <Fragment slot="preview"><Example /></Fragment>
+  <Preview>
+    <Fragment slot="preview">
+      <Example />
+    </Fragment>
+    <Fragment slot="code">
+      <Code code={ExampleGenericRaw} lang="astro" />
+    </Fragment>
+  </Preview>
+</Preview>
+```
+
 > TIP: For React or Svelte components, make sure to use [Astro's hydration directives](https://docs.astro.build/en/guides/framework-components/#hydrating-interactive-components).
 
 ### Anatomy
