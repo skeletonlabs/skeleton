@@ -1,3 +1,4 @@
+import React from 'react';
 import { Navigation } from '@skeletonlabs/skeleton-react';
 import {
 	Menu as IconMenu,
@@ -5,7 +6,6 @@ import {
 	Image as IconImage,
 	Music as IconMusic,
 	Video as IconVideo,
-	Gamepad as IconGames,
 	Settings as IconSettings
 } from 'lucide-react';
 
@@ -14,32 +14,28 @@ export const Page: React.FC = () => {
 		<div className="card border-surface-100-900 grid h-[640px] w-full grid-cols-[auto_1fr] border-[1px]">
 			{/* Component */}
 			<Navigation.Rail
-				expanded
 				header={
-					<Navigation.Tile href="/" labelExpanded="Menu">
+					<Navigation.Tile href="/" title="Menu">
 						<IconMenu />
 					</Navigation.Tile>
 				}
 				footer={
-					<Navigation.Tile href="/settings" labelExpanded="Settings">
+					<Navigation.Tile href="/" title="settings">
 						<IconSettings />
 					</Navigation.Tile>
 				}
 			>
-				<Navigation.Tile id="0" labelExpanded="Browse Files" href="#">
+				<Navigation.Tile label="Files" href="/">
 					<IconFolder />
 				</Navigation.Tile>
-				<Navigation.Tile id="1" labelExpanded="Browse Images" href="#">
+				<Navigation.Tile label="Images" href="/">
 					<IconImage />
 				</Navigation.Tile>
-				<Navigation.Tile id="2" labelExpanded="Browse Music" href="#">
+				<Navigation.Tile label="Music" href="/">
 					<IconMusic />
 				</Navigation.Tile>
-				<Navigation.Tile id="3" labelExpanded="Browse Videos" href="#">
+				<Navigation.Tile label="Videos" href="/">
 					<IconVideo />
-				</Navigation.Tile>
-				<Navigation.Tile id="4" labelExpanded="Browse Games" href="#">
-					<IconGames />
 				</Navigation.Tile>
 			</Navigation.Rail>
 			{/* Content */}

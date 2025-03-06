@@ -7,8 +7,6 @@
 	import IconMusic from 'lucide-svelte/icons/music';
 	import IconVideo from 'lucide-svelte/icons/video';
 	import IconSettings from 'lucide-svelte/icons/settings';
-
-	let hrefExample = '#';
 </script>
 
 <div class="card border-surface-100-900 grid h-[640px] w-full grid-cols-[auto_1fr] border-[1px]">
@@ -18,18 +16,10 @@
 			<Navigation.Tile href="/" title="Menu"><IconMenu /></Navigation.Tile>
 		{/snippet}
 		{#snippet tiles()}
-			<Navigation.Tile id="0" label="Files" href={hrefExample}>
-				<IconFolder />
-			</Navigation.Tile>
-			<Navigation.Tile id="1" label="Images" href={hrefExample}>
-				<IconImage />
-			</Navigation.Tile>
-			<Navigation.Tile id="2" label="Music" href={hrefExample}>
-				<IconMusic />
-			</Navigation.Tile>
-			<Navigation.Tile id="3" label="Videos" href={hrefExample}>
-				<IconVideo />
-			</Navigation.Tile>
+			<Navigation.Tile label="Files" href="/files"><IconFolder /></Navigation.Tile>
+			<Navigation.Tile label="Images" href="/images"><IconImage /></Navigation.Tile>
+			<Navigation.Tile label="Music" href="/music"><IconMusic /></Navigation.Tile>
+			<Navigation.Tile label="Videos" href="/videos"><IconVideo /></Navigation.Tile>
 		{/snippet}
 		{#snippet footer()}
 			<Navigation.Tile labelExpanded="Settings" href="/settings" title="settings"><IconSettings /></Navigation.Tile>
