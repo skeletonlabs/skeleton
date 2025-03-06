@@ -23,6 +23,13 @@
 	height: --spacing(9);
 	padding-inline: --spacing(4);
 	padding-block: --spacing(2);
+
+	@variant hover {
+		filter: brightness(125%);
+		@variant dark {
+			filter: brightness(75%);
+		}
+	}
 }
 
 @utility btn-icon {
@@ -47,6 +54,13 @@
 	line-height: --spacing(9);
 	width: --spacing(9);
 	height: --spacing(9);
+
+	@variant hover {
+		filter: brightness(125%);
+		@variant dark {
+			filter: brightness(75%);
+		}
+	}
 }
 
 @utility btn-group {
