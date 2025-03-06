@@ -11,16 +11,16 @@ export const Page: React.FC = () => {
 			</div>
 			{/* Component */}
 			<Navigation.Bar>
-				<Navigation.Tile label="Files" href="/files">
+				<Navigation.Tile label="Files" href="#/files">
 					<IconFolder />
 				</Navigation.Tile>
-				<Navigation.Tile label="Images" href="/images">
+				<Navigation.Tile label="Images" href="#/images">
 					<IconImage />
 				</Navigation.Tile>
-				<Navigation.Tile label="Music" href="/music">
+				<Navigation.Tile label="Music" href="#/music">
 					<IconMusic />
 				</Navigation.Tile>
-				<Navigation.Tile label="Videos" href="/videos">
+				<Navigation.Tile label="Videos" href="#/videos">
 					<IconVideo />
 				</Navigation.Tile>
 			</Navigation.Bar>
