@@ -66,6 +66,7 @@
 			const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
 			collection.setItems(filtered);
 			options = filtered;
+			zagProps.onInputValueChange?.(event);
 		},
 		...zagProps
 	}));
