@@ -29,7 +29,7 @@
 			<Navigation.Tile labelExpanded="Browse Images" href="#/images">
 				<IconImage />
 			</Navigation.Tile>
-			<Navigation.Tile labelExpanded="Browse Music" href="/music">
+			<Navigation.Tile labelExpanded="Browse Music" href="#/music">
 				<IconMusic />
 			</Navigation.Tile>
 			<Navigation.Tile labelExpanded="Browse Videos" href="/videos">
