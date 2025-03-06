@@ -58,6 +58,7 @@
 	const service = useMachine(combobox.machine, () => ({
 		id: id,
 		collection: collection,
+		...zagProps,
 		onOpenChange(event) {
 			options = data;
 			zagProps.onOpenChange?.(event);
@@ -66,8 +67,8 @@
 			const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
 			collection.setItems(filtered);
 			options = filtered;
-		},
-		...zagProps
+			zagProps.onInputValueChange?.(event);
+		}
 	}));
 	const api = $derived(combobox.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
