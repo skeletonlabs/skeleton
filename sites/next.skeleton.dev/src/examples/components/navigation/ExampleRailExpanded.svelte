@@ -32,7 +32,7 @@
 			<Navigation.Tile labelExpanded="Browse Music" href="#/music">
 				<IconMusic />
 			</Navigation.Tile>
-			<Navigation.Tile labelExpanded="Browse Videos" href="/videos">
+			<Navigation.Tile labelExpanded="Browse Videos" href="#/videos">
 				<IconVideo />
 			</Navigation.Tile>
 			<Navigation.Tile labelExpanded="Browse Games" href="/games">
