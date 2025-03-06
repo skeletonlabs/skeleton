@@ -125,7 +125,7 @@ import ExampleRaw from '@examples/foo/Example.astro?raw';
 
 #### Framework Specific Code
 
-To allow for a common preview to have framework specific code, use the `codeReact` and `codeSvelte` slots.
+To allow for a common preview to have framework specific code, use the `codeReact` and `codeSvelte` slots. For generic code that is not framework specific, such as an Astro component along with JavaScript, use the `code` slot instead.
 
 ```astro
 <Preview client:load>
@@ -133,6 +133,9 @@ To allow for a common preview to have framework specific code, use the `codeReac
 	<Preview>
 		<Fragment slot="preview">
 			<Example />
+		</Fragment>
+		<Fragment slot="code">
+			<Code code={ExampleGenericRaw} lang="astro" />
 		</Fragment>
 		<Fragment slot="codeReact">
 			<Code code={ExampleSvelteRaw} lang="tsx" />
