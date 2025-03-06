@@ -13,16 +13,16 @@
 	<!-- Component -->
 	<Navigation.Rail>
 		{#snippet header()}
-			<Navigation.Tile href="/" title="Menu"><IconMenu /></Navigation.Tile>
+			<Navigation.Tile href="#" title="Menu"><IconMenu /></Navigation.Tile>
 		{/snippet}
 		{#snippet tiles()}
-			<Navigation.Tile label="Files" href="/files"><IconFolder /></Navigation.Tile>
-			<Navigation.Tile label="Images" href="/images"><IconImage /></Navigation.Tile>
-			<Navigation.Tile label="Music" href="/music"><IconMusic /></Navigation.Tile>
-			<Navigation.Tile label="Videos" href="/videos"><IconVideo /></Navigation.Tile>
+			<Navigation.Tile label="Files" href="#/files"><IconFolder /></Navigation.Tile>
+			<Navigation.Tile label="Images" href="#/images"><IconImage /></Navigation.Tile>
+			<Navigation.Tile label="Music" href="#/music"><IconMusic /></Navigation.Tile>
+			<Navigation.Tile label="Videos" href="#/videos"><IconVideo /></Navigation.Tile>
 		{/snippet}
 		{#snippet footer()}
-			<Navigation.Tile labelExpanded="Settings" href="/settings" title="settings"><IconSettings /></Navigation.Tile>
+			<Navigation.Tile labelExpanded="Settings" href="#settings" title="settings"><IconSettings /></Navigation.Tile>
 		{/snippet}
 	</Navigation.Rail>
 	<!-- Content -->

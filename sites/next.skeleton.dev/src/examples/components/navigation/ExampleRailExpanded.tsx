@@ -29,24 +29,24 @@ export const Page: React.FC = () => {
 					</Navigation.Tile>
 				}
 				footer={
-					<Navigation.Tile href="/settings" labelExpanded="Settings">
+					<Navigation.Tile href="#/settings" labelExpanded="Settings">
 						<IconSettings />
 					</Navigation.Tile>
 				}
 			>
-				<Navigation.Tile labelExpanded="Browse Files" href="/files">
+				<Navigation.Tile labelExpanded="Browse Files" href="#/files">
 					<IconFolder />
 				</Navigation.Tile>
-				<Navigation.Tile labelExpanded="Browse Images" href="/images">
+				<Navigation.Tile labelExpanded="Browse Images" href="#/images">
 					<IconImage />
 				</Navigation.Tile>
-				<Navigation.Tile labelExpanded="Browse Music" href="/music">
+				<Navigation.Tile labelExpanded="Browse Music" href="#/music">
 					<IconMusic />
 				</Navigation.Tile>
-				<Navigation.Tile labelExpanded="Browse Videos" href="/videos">
+				<Navigation.Tile labelExpanded="Browse Videos" href="#/videos">
 					<IconVideo />
 				</Navigation.Tile>
-				<Navigation.Tile labelExpanded="Browse Games" href="/games">
+				<Navigation.Tile labelExpanded="Browse Games" href="#/games">
 					<IconGames />
 				</Navigation.Tile>
 			</Navigation.Rail>
