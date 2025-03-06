@@ -26,7 +26,7 @@
 			<Navigation.Tile labelExpanded="Browse Files" href="#/files">
 				<IconFolder />
 			</Navigation.Tile>
-			<Navigation.Tile labelExpanded="Browse Images" href="/images">
+			<Navigation.Tile labelExpanded="Browse Images" href="#/images">
 				<IconImage />
 			</Navigation.Tile>
 			<Navigation.Tile labelExpanded="Browse Music" href="/music">
