@@ -119,7 +119,7 @@ Tiles are universal between Rails and Bars. They default to buttons, but will co
 
 ### Anchor Tile Selection
 
-When using anchor Tiles, use the `selected` prop to highlight the active tile. For SvelteKit, this can be achieved using the `page` state and comparing the page pathname and tile URLs.
+When using anchor Tiles, use the `selected` prop to highlight the active tile. Use `window.location.href` to compare page pathname and tile URLs.
 
 <Code code={ExampleTilesSelectionRaw} lang="tsx" />
 
