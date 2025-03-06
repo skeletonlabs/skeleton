@@ -14,9 +14,9 @@
 	</div>
 	<!-- Component -->
 	<Navigation.Bar>
-		<Navigation.Tile label="Files" href="/files"><IconFolder /></Navigation.Tile>
-		<Navigation.Tile label="Images" href="/images"><IconImage /></Navigation.Tile>
-		<Navigation.Tile label="Music" href="/music"><IconMusic /></Navigation.Tile>
-		<Navigation.Tile label="Videos" href="/videos"><IconVideo /></Navigation.Tile>
+		<Navigation.Tile label="Files" href="#/files"><IconFolder /></Navigation.Tile>
+		<Navigation.Tile label="Images" href="#/images"><IconImage /></Navigation.Tile>
+		<Navigation.Tile label="Music" href="#/music"><IconMusic /></Navigation.Tile>
+		<Navigation.Tile label="Videos" href="#/videos"><IconVideo /></Navigation.Tile>
 	</Navigation.Bar>
 </div>
