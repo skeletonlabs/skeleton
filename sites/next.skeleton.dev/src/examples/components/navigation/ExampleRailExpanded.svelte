@@ -23,7 +23,7 @@
 			<Navigation.Tile labelExpanded="Menu" onclick={toggleExpanded} title="Toggle Menu Width"><IconMenu /></Navigation.Tile>
 		{/snippet}
 		{#snippet tiles()}
-			<Navigation.Tile labelExpanded="Browse Files" href="/files">
+			<Navigation.Tile labelExpanded="Browse Files" href="#/files">
 				<IconFolder />
 			</Navigation.Tile>
 			<Navigation.Tile labelExpanded="Browse Images" href="/images">
