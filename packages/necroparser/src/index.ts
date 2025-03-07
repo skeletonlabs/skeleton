@@ -1,5 +1,3 @@
-import { readFileSync } from 'node:fs';
-import { dirname } from 'node:path';
 import ts from 'typescript';
 
 interface Interface {
@@ -33,39 +31,11 @@ interface GetInterfacesOptions {
 export class Project {
 	private program: ts.Program;
 	private typeChecker: ts.TypeChecker;
-	private sourceFiles: Map<string, ts.SourceFile>;
 
-	constructor(filepaths: string[]) {
-		this.sourceFiles = new Map();
-		const host = this.createVirtualCompilerHost(filepaths);
-		this.program = ts.createProgram({
-			rootNames: filepaths,
-			options: {},
-			host
-		});
+	constructor(files: string[]) {
+		this.program = ts.createProgram(files, {});
 		this.typeChecker = this.program.getTypeChecker();
-		for (const filepath of filepaths) {
-			const sourceFile = this.program.getSourceFile(filepath);
-			if (sourceFile) {
-				this.sourceFiles.set(filepath, sourceFile);
-			}
-		}
 	}
-
-	private createVirtualCompilerHost(filepaths: string[]): ts.CompilerHost {
-		const host = ts.createCompilerHost({});
-		const originalGetSourceFile = host.getSourceFile;
-		host.getSourceFile = (fileName, scriptTarget) => {
-			if (filepaths.includes(fileName)) {
-				const sourceCode = readFileSync(fileName, 'utf-8');
-				return ts.createSourceFile(fileName, sourceCode, ts.ScriptTarget.Latest, true);
-			}
-			return originalGetSourceFile(fileName, scriptTarget);
-		};
-		host.getCurrentDirectory = () => dirname(filepaths[0]); // Use the first file's directory as base
-		return host;
-	}
-
 	private isFunctionType(type: ts.Type): boolean {
 		return type.getCallSignatures().length > 0;
 	}
@@ -119,38 +89,31 @@ export class Project {
 		};
 	}
 
-	private walkAst(node: ts.Node, callback: (node: ts.Node) => void): void {
-		ts.forEachChild(node, (childNode) => {
-			callback(childNode);
-			this.walkAst(childNode, callback);
-		});
-	}
-
 	public getInterfaces(filepath: string, options: GetInterfacesOptions = {}): Interface[] {
-		const sourceFile = this.sourceFiles.get(filepath);
+		const sourceFile = this.program.getSourceFile(filepath);
 		if (!sourceFile) {
 			throw new Error(`Filepath ${filepath} not found in the project. Ensure it was provided in the constructor.`);
 		}
-
 		const interfaces: Interface[] = [];
-		this.walkAst(sourceFile, (node) => {
+		ts.forEachChild(sourceFile, (node) => {
 			if (!ts.isInterfaceDeclaration(node)) {
 				return;
 			}
-			const name = node.name.getText();
 			if (options.filter && !options.filter(node)) {
 				return;
 			}
-			const nodeType = this.typeChecker.getTypeAtLocation(node);
 			interfaces.push({
-				name: name,
-				properties: nodeType.getProperties().map((property) => {
-					const parsedProperty = this.parseProperty(property, node);
-					if (options.transformProperty) {
-						return options.transformProperty(parsedProperty);
-					}
-					return parsedProperty;
-				})
+				name: node.name.getText(),
+				properties: this.typeChecker
+					.getTypeAtLocation(node)
+					.getProperties()
+					.map((property) => {
+						const parsedProperty = this.parseProperty(property, node);
+						if (options.transformProperty) {
+							return options.transformProperty(parsedProperty);
+						}
+						return parsedProperty;
+					})
 			});
 		});
 		return interfaces;

@@ -9,13 +9,12 @@ function log(message: string) {
 }
 
 async function generateSchemas() {
+	log('Generating schemas...');
 	const start = performance.now();
 	const inputPaths = await glob('./node_modules/@skeletonlabs/skeleton-**/src/components/**/types.ts');
 	const outputPath = resolve(import.meta.dirname, '../src/content/schemas');
 	const project = new Project(inputPaths);
-
 	await rm(outputPath, { recursive: true, force: true });
-
 	await Promise.all(
 		inputPaths.map(async (path) => {
 			const framework = path.match(/@skeletonlabs\/skeleton-(\w+)/)?.[1];
@@ -32,7 +31,8 @@ async function generateSchemas() {
 			await writeFile(join(frameworkPath, `${component}.json`), JSON.stringify(interfaces, null, 4));
 		})
 	);
-	log(`Generated ${inputPaths.length} schemas in ${((performance.now() - start) / 1000).toFixed(2)}s`);
+	const end = performance.now();
+	log(`Generated ${inputPaths.length} schemas in ${((end - start) / 1000).toFixed(2)}s`);
 }
 
 await generateSchemas();

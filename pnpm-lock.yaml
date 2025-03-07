@@ -129,6 +129,9 @@ importers:
       memfs:
         specifier: ^4.17.0
         version: 4.17.0
+      tinyglobby:
+        specifier: ^0.2.12
+        version: 0.2.12
       unbuild:
         specifier: ^3.5.0
         version: 3.5.0(typescript@5.8.2)
