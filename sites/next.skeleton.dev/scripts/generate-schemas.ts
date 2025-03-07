@@ -8,6 +8,11 @@ function log(message: string) {
 	console.log(`[${new Date().toLocaleTimeString()}] [generate-schemas] ${message}`);
 }
 
+function toKebabCase(str: string) {
+	str = str.charAt(0).toLowerCase() + str.slice(1);
+	return str.replace(/([A-Z])/g, '-$1').toLowerCase();
+}
+
 async function generateSchemas() {
 	log('Generating schemas...');
 	const start = performance.now();
@@ -21,7 +26,7 @@ async function generateSchemas() {
 	await Promise.allSettled(
 		inputPaths.map(async (path) => {
 			const framework = path.match(/@skeletonlabs\/skeleton-(\w+)/)?.[1];
-			const component = path.match(/\/components\/(\w+)/)?.[1].toLowerCase();
+			const component = toKebabCase(path.match(/\/components\/(\w+)/)?.[1] ?? '');
 			if (!(framework && component)) {
 				return;
 			}
