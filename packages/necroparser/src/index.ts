@@ -1,139 +1,105 @@
-import { readFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
-import ts from 'typescript';
+import { InterfaceDeclaration, JSDoc, Project, PropertyDeclaration, Type } from 'ts-morph';
 
-interface DocumentationTag {
+interface Tag {
 	name: string;
 	value: string | null;
 }
 
-interface PropertyDocumentation {
+interface Documentation {
 	text: string | null;
-	tags: DocumentationTag[];
+	tags: Tag[];
 }
 
-interface InterfaceProperty {
+interface Property {
 	name: string;
 	type: string;
 	typeKind: 'function' | 'array' | 'object' | 'primitive';
 	required: boolean;
-	documentation: PropertyDocumentation;
+	documentation: Documentation;
 }
 
 interface Interface {
 	name: string;
-	properties: InterfaceProperty[];
+	properties: Property[];
 }
 
-interface Options {
-	matcher?: RegExp | string;
-	transformProperty?: (property: InterfaceProperty) => InterfaceProperty;
-}
+class Parser {
+	private project: Project;
 
-function isFunctionType(type: ts.Type) {
-	return type.getCallSignatures().length > 0;
-}
-
-function isArrayType(type: ts.Type) {
-	return type.symbol?.name === 'Array' || type.symbol?.name === 'ReadonlyArray';
-}
-
-function isObjectType(type: ts.Type) {
-	if (!(type.flags & ts.TypeFlags.Object)) {
-		return false;
+	public constructor(...args: ConstructorParameters<typeof Project>) {
+		this.project = new Project(...args);
 	}
-	const objectType = type as ts.ObjectType;
-	const hasObjectFlags = Boolean(objectType.objectFlags & (ts.ObjectFlags.Reference | ts.ObjectFlags.Interface | ts.ObjectFlags.Anonymous));
-	return hasObjectFlags || type.getProperties().length > 0;
-}
 
-function determineTypeKind(type: ts.Type) {
-	if (isFunctionType(type)) {
-		return 'function';
-	}
-	if (isArrayType(type)) {
-		return 'array';
-	}
-	if (isObjectType(type)) {
-		return 'object';
-	}
-	return 'primitive';
-}
-
-function parseDocumentation(symbol: ts.Symbol, typeChecker: ts.TypeChecker): PropertyDocumentation {
-	return {
-		text: ts.displayPartsToString(symbol.getDocumentationComment(typeChecker)) || null,
-		tags: symbol.getJsDocTags(typeChecker).map((tag) => ({
-			name: tag.name,
-			value: ts.displayPartsToString(tag.text) || null
-		}))
-	};
-}
-
-function parseProperty(property: ts.Symbol, node: ts.Node, typeChecker: ts.TypeChecker): InterfaceProperty {
-	const propertyType = typeChecker.getTypeOfSymbolAtLocation(property, node);
-	return {
-		name: property.getName(),
-		type: typeChecker.typeToString(propertyType),
-		typeKind: determineTypeKind(propertyType),
-		required: !(property.flags & ts.SymbolFlags.Optional),
-		documentation: parseDocumentation(property, typeChecker)
-	};
-}
-
-function createVirtualCompilerHost(sourcePath: string, sourceCode: string) {
-	const host = ts.createCompilerHost({});
-	const originalGetSourceFile = host.getSourceFile;
-	const virtualFileName = 'virtual.ts';
-	host.getCurrentDirectory = () => dirname(sourcePath);
-	host.getSourceFile = (fileName, scriptTarget) => {
-		if (fileName === virtualFileName) {
-			return ts.createSourceFile(fileName, sourceCode, ts.ScriptTarget.Latest, true);
-		}
-		return originalGetSourceFile(resolve(dirname(sourcePath), fileName), scriptTarget);
-	};
-	return host;
-}
-
-function walkAst(node: ts.Node, callback: (node: ts.Node) => void) {
-	ts.forEachChild(node, (childNode) => {
-		callback(childNode);
-		walkAst(childNode, callback);
-	});
-}
-
-function getInterfaces(path: string, options: Options = {}): Interface[] {
-	const sourceCode = readFileSync(path, 'utf-8');
-	const host = createVirtualCompilerHost(path, sourceCode);
-	const program = ts.createProgram({
-		rootNames: ['virtual.ts'],
-		options: {},
-		host
-	});
-	const typeChecker = program.getTypeChecker();
-	const sourceFile = program.getSourceFile('virtual.ts')!;
-	const interfaces: Interface[] = [];
-	walkAst(sourceFile, (node) => {
-		if (!ts.isInterfaceDeclaration(node)) {
-			return;
-		}
-		const name = node.name.getText();
-		if (options.matcher && !name.match(options.matcher)) {
-			return;
-		}
-		const nodeType = typeChecker.getTypeAtLocation(node);
-		interfaces.push({
-			name: name,
-			properties: nodeType.getProperties().map((property) => {
-				const parsedProperty = parseProperty(property, node, typeChecker);
-				if (options.transformProperty) {
-					return options.transformProperty(parsedProperty);
-				}
-				return parsedProperty;
-			})
+	public getInterfaces(path: string): Interface[] {
+		const file = this.project.getSourceFileOrThrow(path);
+		return file.getInterfaces().map((interface_) => {
+			return {
+				name: interface_.getName(),
+				properties: this.getAllProperties(interface_).map((property) => {
+					const type = property.getType();
+					const jsdocs = property.getJsDocs();
+					return {
+						name: property.getName(),
+						type: type.getText(),
+						typeKind: this.determineTypeKind(type),
+						required: !property.hasQuestionToken(),
+						documentation: this.getDocumentation(jsdocs)
+					};
+				})
+			};
 		});
-	});
-	return interfaces;
+	}
+
+	private getAllProperties(interfaceDeclaration: InterfaceDeclaration) {
+		const properties = interfaceDeclaration.getProperties();
+		const baseTypes = interfaceDeclaration.getBaseTypes();
+		for (const baseType of baseTypes) {
+			const baseDecl = baseType.getSymbol()?.getDeclarations()[0];
+			if (baseDecl instanceof InterfaceDeclaration) {
+				properties.push(...this.getAllProperties(baseDecl));
+			}
+		}
+		return properties;
+	}
+
+	private isFunctionType(type: Type) {
+		return type.getCallSignatures().length > 0;
+	}
+
+	private isArrayType(type: Type) {
+		return type.isArray();
+	}
+
+	private isObjectType(type: Type) {
+		return type.isObject();
+	}
+
+	private determineTypeKind(type: Type): 'function' | 'array' | 'object' | 'primitive' {
+		if (this.isFunctionType(type)) {
+			return 'function';
+		}
+		if (this.isArrayType(type)) {
+			return 'array';
+		}
+		if (this.isObjectType(type)) {
+			return 'object';
+		}
+		return 'primitive';
+	}
+
+	private getDocumentation(jsdocs: JSDoc[]): Documentation {
+		return {
+			tags: jsdocs.flatMap((jsdoc) => {
+				return jsdoc.getTags().map((tag) => {
+					return {
+						name: tag.getTagName(),
+						value: tag.getCommentText() ?? null
+					};
+				});
+			}),
+			text: jsdocs.map((jsdoc) => jsdoc.getDescription()).join('\n') || null
+		};
+	}
 }
 
-export { getInterfaces };
+export { Parser };

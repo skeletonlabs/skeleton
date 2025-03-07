@@ -27,6 +27,7 @@
 		"vitest": "^3.0.7"
 	},
 	"dependencies": {
+		"ts-morph": "^25.0.1",
 		"typescript": "catalog:"
 	}
 }

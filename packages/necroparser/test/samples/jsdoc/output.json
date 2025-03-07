@@ -14,7 +14,7 @@
 							"value": null
 						}
 					],
-					"text": "Property"
+					"text": "\nProperty"
 				},
 				"name": "property",
 				"required": true,

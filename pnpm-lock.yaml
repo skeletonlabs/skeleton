@@ -122,6 +122,9 @@ importers:
 
   packages/necroparser:
     dependencies:
+      ts-morph:
+        specifier: ^25.0.1
+        version: 25.0.1
       typescript:
         specifier: 'catalog:'
         version: 5.8.2
