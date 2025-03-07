@@ -1,12 +1,9 @@
 import { glob } from 'tinyglobby';
-import { Parser } from '@skeletonlabs/necroparser';
+import { Project } from '@skeletonlabs/necroparser';
 import { writeFile, mkdir, rm } from 'fs/promises';
 import { basename, dirname, join } from 'path';
 import { intro, spinner, outro } from '@clack/prompts';
 
-const project = new Parser({
-	tsConfigFilePath: 'tsconfig.json'
-});
 const OUTPUT_DIR = join(import.meta.dirname, '../src/content/schemas');
 const MATCHER = './node_modules/@skeletonlabs/skeleton-**/src/components/**/types.ts';
 
@@ -15,7 +12,7 @@ function toKebabCase(str: string) {
 	return str.replace(/([A-Z])/g, '-$1').toLowerCase();
 }
 
-async function processFile(path: string): Promise<number> {
+async function processFile(project: Project, path: string): Promise<number> {
 	const component = basename(dirname(path));
 	const matches = path.match(/skeleton-([^/]+)(?=\/|$)/g);
 	const match = matches?.at(-1);
@@ -45,6 +42,9 @@ async function processFile(path: string): Promise<number> {
 
 async function main() {
 	intro(`Generating schemas for: ${MATCHER}`);
+	const project = new Project({
+		tsConfigFilePath: 'tsconfig.json'
+	});
 	try {
 		await rm(OUTPUT_DIR, { recursive: true, force: true });
 		const paths = await glob(MATCHER, { absolute: true });
@@ -56,7 +56,7 @@ async function main() {
 			const componentName = basename(dirname(path));
 			s.message(`Processing ${componentName}...`);
 			try {
-				totalInterfaces += await processFile(path);
+				totalInterfaces += await processFile(project, path);
 			} catch {
 				s.message(`Failed to process ${componentName}`);
 			}

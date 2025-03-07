@@ -1,4 +1,4 @@
-import { InterfaceDeclaration, JSDoc, Project, PropertySignature, Type } from 'ts-morph';
+import { InterfaceDeclaration, JSDoc, Project as TsMorphProject, PropertySignature, Type } from 'ts-morph';
 
 interface Tag {
 	name: string;
@@ -28,11 +28,11 @@ interface GetInterfacesOptions {
 	transformProperty?: (property: Property) => Property;
 }
 
-class Parser {
-	private project: Project;
+class Project {
+	private project: TsMorphProject;
 
-	public constructor(...args: ConstructorParameters<typeof Project>) {
-		this.project = new Project(...args);
+	public constructor(...args: ConstructorParameters<typeof TsMorphProject>) {
+		this.project = new TsMorphProject(...args);
 	}
 
 	public getInterfaces(path: string, options: GetInterfacesOptions = {}): Interface[] {
@@ -117,4 +117,4 @@ class Parser {
 	}
 }
 
-export { Parser };
+export { Project };

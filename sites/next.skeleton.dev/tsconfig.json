@@ -14,5 +14,5 @@
 			"@images/*": ["src/images/*"]
 		}
 	},
-	"include": ["src/**/*.tsx", "src/**/*.ts", "node_modules/@skeletonlabs/**/types.ts"]
+	"include": ["src/**/*.tsx", "src/**/*.ts", "node_modules/@skeletonlabs/skeleton-*/**/types.ts"]
 }
