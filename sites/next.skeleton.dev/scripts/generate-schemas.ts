@@ -25,19 +25,20 @@ async function processFile(path: string): Promise<number> {
 	}
 	const outPath = join(OUTPUT_DIR, framework, `${toKebabCase(component)}.json`);
 	await mkdir(dirname(outPath), { recursive: true });
-	const interfaces = project.getInterfaces(path);
-	// {
-	// 	matcher: /^[\w-]+Props$/,
-	// 	transformProperty(property) {
-	// 		if (property.type.startsWith('Snippet')) {
-	// 			return {
-	// 				...property,
-	// 				typeKind: 'primitive'
-	// 			};
-	// 		}
-	// 		return property;
-	// 	}
-	// }
+	const interfaces = project.getInterfaces(path, {
+		filter(interfaceDeclaration) {
+			return /^[\w-]+Props$/.test(interfaceDeclaration.getName());
+		},
+		transformProperty(property) {
+			if (property.type.startsWith('Snippet')) {
+				return {
+					...property,
+					typeKind: 'primitive'
+				};
+			}
+			return property;
+		}
+	});
 	await writeFile(outPath, JSON.stringify(interfaces, null, 2));
 	return Object.keys(interfaces).length;
 }

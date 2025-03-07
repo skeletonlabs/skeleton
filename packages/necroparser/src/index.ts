@@ -1,4 +1,4 @@
-import { InterfaceDeclaration, JSDoc, Project, PropertyDeclaration, ts, Type } from 'ts-morph';
+import { InterfaceDeclaration, JSDoc, Project, ts, Type } from 'ts-morph';
 
 interface Tag {
 	name: string;
@@ -23,6 +23,11 @@ interface Interface {
 	properties: Property[];
 }
 
+interface GetInterfacesOptions {
+	filter?: (interfaceDeclaration: InterfaceDeclaration) => boolean;
+	transformProperty?: (property: Property) => Property;
+}
+
 class Parser {
 	private project: Project;
 
@@ -30,31 +35,41 @@ class Parser {
 		this.project = new Project(...args);
 	}
 
-	public getInterfaces(path: string): Interface[] {
+	public getInterfaces(path: string, options: GetInterfacesOptions = {}): Interface[] {
 		const file = this.project.getSourceFileOrThrow(path);
-		return file.getInterfaces().map((interface_) => {
-			return {
-				name: interface_.getName(),
-				// TODO: Get all properties from extended interfaces
-				// @see https://github.com/dsherret/ts-morph/issues/1619
-				properties: interface_.getProperties().map((property) => {
-					const type = property.getType();
-					const jsdocs = property.getJsDocs();
-					const typeName =
-						type.getSymbol()?.getName() ||
-						type
-							.getApparentType()
-							.getText(undefined, ts.TypeFormatFlags.NoTruncation | ts.TypeFormatFlags.UseAliasDefinedOutsideCurrentScope);
-					return {
-						name: property.getName(),
-						type: typeName,
-						typeKind: this.determineTypeKind(type),
-						required: !property.hasQuestionToken(),
-						documentation: this.getDocumentation(jsdocs)
-					};
-				})
-			};
-		});
+		return file
+			.getInterfaces()
+			.map((interfaceDeclaration) => {
+				if (options.filter && !options.filter(interfaceDeclaration)) {
+					return;
+				}
+				return {
+					name: interfaceDeclaration.getName(),
+					// TODO: Get all properties from extended interfaces
+					// @see https://github.com/dsherret/ts-morph/issues/1619
+					properties: interfaceDeclaration.getProperties().map((propertyDeclaration) => {
+						const type = propertyDeclaration.getType();
+						const jsdocs = propertyDeclaration.getJsDocs();
+						const typeName =
+							type.getSymbol()?.getName() ||
+							type
+								.getApparentType()
+								.getText(undefined, ts.TypeFormatFlags.NoTruncation | ts.TypeFormatFlags.UseAliasDefinedOutsideCurrentScope);
+						const property: Property = {
+							name: propertyDeclaration.getName(),
+							type: typeName,
+							typeKind: this.determineTypeKind(type),
+							required: !propertyDeclaration.hasQuestionToken(),
+							documentation: this.getDocumentation(jsdocs)
+						};
+						if (options.transformProperty) {
+							return options.transformProperty(property);
+						}
+						return property;
+					})
+				};
+			})
+			.filter((interface_) => !!interface_);
 	}
 
 	private isFunctionType(type: Type) {
