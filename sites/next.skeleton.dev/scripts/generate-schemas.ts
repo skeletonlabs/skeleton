@@ -1,9 +1,12 @@
 import { glob } from 'tinyglobby';
-import { getInterfaces } from '@skeletonlabs/necroparser';
+import { Parser } from '@skeletonlabs/necroparser';
 import { writeFile, mkdir, rm } from 'fs/promises';
 import { basename, dirname, join } from 'path';
 import { intro, spinner, outro } from '@clack/prompts';
 
+const project = new Parser({
+	tsConfigFilePath: 'tsconfig.json'
+});
 const OUTPUT_DIR = join(import.meta.dirname, '../src/content/schemas');
 const MATCHER = './node_modules/@skeletonlabs/skeleton-**/src/components/**/types.ts';
 
@@ -22,18 +25,19 @@ async function processFile(path: string): Promise<number> {
 	}
 	const outPath = join(OUTPUT_DIR, framework, `${toKebabCase(component)}.json`);
 	await mkdir(dirname(outPath), { recursive: true });
-	const interfaces = getInterfaces(path, {
-		matcher: /^[\w-]+Props$/,
-		transformProperty(property) {
-			if (property.type.startsWith('Snippet')) {
-				return {
-					...property,
-					typeKind: 'primitive'
-				};
-			}
-			return property;
-		}
-	});
+	const interfaces = project.getInterfaces(path);
+	// {
+	// 	matcher: /^[\w-]+Props$/,
+	// 	transformProperty(property) {
+	// 		if (property.type.startsWith('Snippet')) {
+	// 			return {
+	// 				...property,
+	// 				typeKind: 'primitive'
+	// 			};
+	// 		}
+	// 		return property;
+	// 	}
+	// }
 	await writeFile(outPath, JSON.stringify(interfaces, null, 2));
 	return Object.keys(interfaces).length;
 }

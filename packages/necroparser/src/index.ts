@@ -1,4 +1,4 @@
-import { InterfaceDeclaration, JSDoc, Project, PropertyDeclaration, Type } from 'ts-morph';
+import { InterfaceDeclaration, JSDoc, Project, PropertyDeclaration, ts, Type } from 'ts-morph';
 
 interface Tag {
 	name: string;
@@ -35,12 +35,19 @@ class Parser {
 		return file.getInterfaces().map((interface_) => {
 			return {
 				name: interface_.getName(),
-				properties: this.getAllProperties(interface_).map((property) => {
+				// TODO: Get all properties from extended interfaces
+				// @see https://github.com/dsherret/ts-morph/issues/1619
+				properties: interface_.getProperties().map((property) => {
 					const type = property.getType();
 					const jsdocs = property.getJsDocs();
+					const typeName =
+						type.getSymbol()?.getName() ||
+						type
+							.getApparentType()
+							.getText(undefined, ts.TypeFormatFlags.NoTruncation | ts.TypeFormatFlags.UseAliasDefinedOutsideCurrentScope);
 					return {
 						name: property.getName(),
-						type: type.getText(),
+						type: typeName,
 						typeKind: this.determineTypeKind(type),
 						required: !property.hasQuestionToken(),
 						documentation: this.getDocumentation(jsdocs)
@@ -48,18 +55,6 @@ class Parser {
 				})
 			};
 		});
-	}
-
-	private getAllProperties(interfaceDeclaration: InterfaceDeclaration) {
-		const properties = interfaceDeclaration.getProperties();
-		const baseTypes = interfaceDeclaration.getBaseTypes();
-		for (const baseType of baseTypes) {
-			const baseDecl = baseType.getSymbol()?.getDeclarations()[0];
-			if (baseDecl instanceof InterfaceDeclaration) {
-				properties.push(...this.getAllProperties(baseDecl));
-			}
-		}
-		return properties;
 	}
 
 	private isFunctionType(type: Type) {

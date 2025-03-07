@@ -8,11 +8,10 @@ const samples = import.meta.glob('./samples/**/input.ts', {
 	query: '?raw'
 });
 
-describe('fixtures', () => {
+describe('samples', () => {
 	const parser = new Parser({
 		tsConfigFilePath: 'tsconfig.json'
 	});
-
 	for (const path of Object.keys(samples)) {
 		const parts = path.split('/');
 		const name = parts.at(-2);
