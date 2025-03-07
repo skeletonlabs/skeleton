@@ -21,7 +21,7 @@ async function generateSchemas() {
 	await Promise.allSettled(
 		inputPaths.map(async (path) => {
 			const framework = path.match(/@skeletonlabs\/skeleton-(\w+)/)?.[1];
-			const component = path.match(/\/components\/(\w+)/)?.[1];
+			const component = path.match(/\/components\/(\w+)/)?.[1].toLowerCase();
 			if (!(framework && component)) {
 				return;
 			}
