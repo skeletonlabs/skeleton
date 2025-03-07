@@ -4,41 +4,69 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import { Page as Example } from '@examples/components/navigation/Example.tsx';
-import ExampleRaw from '@examples/components/navigation/Example.tsx?raw';
-import { Page as ExampleExpanded } from '@examples/components/navigation/ExampleExpanded.tsx';
-import ExampleExpandedRaw from '@examples/components/navigation/ExampleExpanded.tsx?raw';
+import { Page as ExampleRail } from '@examples/components/navigation/ExampleRail';
+import ExampleRailRaw from '@examples/components/navigation/ExampleRail.tsx?raw';
+
+import { Page as ExampleRailRouting } from '@examples/components/navigation/ExampleRailRouting';
+import ExampleRailRoutingRaw from '@examples/components/navigation/ExampleRailRouting.tsx?raw';
+
+import { Page as ExampleRailExpanded } from '@examples/components/navigation/ExampleRailExpanded.tsx';
+import ExampleRailExpandedRaw from '@examples/components/navigation/ExampleRailExpanded.tsx?raw';
+
 import { Page as ExampleBar } from '@examples/components/navigation/ExampleBar.tsx';
 import ExampleBarRaw from '@examples/components/navigation/ExampleBar.tsx?raw';
+
+import { Page as ExampleBarRouting } from '@examples/components/navigation/ExampleBarRouting.tsx';
+import ExampleBarRoutingRaw from '@examples/components/navigation/ExampleBarRouting.tsx?raw';
+
 import { Page as ExampleTiles } from '@examples/components/navigation/ExampleTiles.tsx';
 import ExampleTilesRaw from '@examples/components/navigation/ExampleTiles.tsx?raw';
+
+import ExampleTilesSelectionRaw from '@examples/components/navigation/ExampleTilesSelectionReact.txt?raw';
 
 ## Rail
 
 - Recommended for medium to large screens.
 - Ideal for horizontal screen layouts.
 - Should be fixed to the left or right of the viewport.
-- Supports 3-7 tiles.
+- Supports 3-7 tiles based on viewport height.
+
+### Selection
+
+Define a `value` state on the Rail. This is updated to match each Tile `id` when presssed.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:visible />
+		<ExampleRail client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="tsx" />
+		<Code code={ExampleRailRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+### Routing
+
+Replace Tile `id` with `href` to convert each to a anchor link.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleRailRouting client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRailRoutingRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
 ### Expanded Mode
 
-Apply the `expanded` property to enable expanded mode. Each tile will resize and used the expanded label.
+Apply the `expanded` property to enable an expanded mode. Each tile will resize and used the expanded label.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleExpanded client:visible />
+		<ExampleRailExpanded client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleExpandedRaw} lang="tsx" />
+		<Code code={ExampleRailExpandedRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -47,8 +75,12 @@ Apply the `expanded` property to enable expanded mode. Each tile will resize and
 - Recommended for small screens.
 - Ideal for vertical screen layouts.
 - Should be fixed to the bottom of the viewport.
-- Supports 3-5 tiles.
+- Supports 3-5 tiles based on viewport width.
 - Consider progressive enhancement with the [Virtual Keyboard API](https://developer.mozilla.org/en-US/docs/Web/API/VirtualKeyboard_API).
+
+### Selection
+
+Define a `value` state on the Bar. This is updated to match each Tile `id` when presssed.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -59,9 +91,22 @@ Apply the `expanded` property to enable expanded mode. Each tile will resize and
 	</Fragment>
 </Preview>
 
+## Routing
+
+Replace Tile `id` with `href` to convert each to a anchor link.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleBarRouting client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleBarRoutingRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
 ## Tiles
 
-Tiles are universal between Rails and Bars. They default to buttons, but will convert to anchors when an `href` is provided. When implementing `value` for selection, each item will reflect the active state automatically. If you wish to set this state manually, use the `selected` property.
+Tiles are universal between Rails and Bars. They default to buttons, but will convert to anchors when an `href` is provided. When implementing `value` for selection, each item will update the value when clicked.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -71,6 +116,12 @@ Tiles are universal between Rails and Bars. They default to buttons, but will co
 		<Code code={ExampleTilesRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+### Anchor Tile Selection
+
+When using anchor Tiles, use the `selected` prop to highlight the active tile. Use `window.location.href` to compare page pathname and tile URLs.
+
+<Code code={ExampleTilesSelectionRaw} lang="tsx" />
 
 ## Anatomy
 

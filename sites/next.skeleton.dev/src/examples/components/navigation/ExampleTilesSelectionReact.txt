@@ -1,0 +1,31 @@
+import React, { useEffect } from 'react';
+import { Navigation } from '@skeletonlabs/skeleton-react';
+
+export const Page: React.FC = () => {
+	let urlPathname = '';
+
+	const links = [
+		{ label: 'Files', href: '#/files' },
+		{ label: 'Images', href: '#/images' },
+		{ label: 'Music', href: '#/music' },
+		{ label: 'Videos', href: '#/videos' },
+	];
+
+	useEffect(() => {
+		urlPathname = window.location.href;
+	});
+
+	return (
+		<Navigation.Bar>
+			{links.map((link) => (
+				<Navigation.Tile
+					label={link.label}
+					href={link.href}
+					selected={urlPathname === link.href}
+				>
+					{link.label}
+				</Navigation.Tile>
+			))}
+		</Navigation.Bar>
+	);
+};

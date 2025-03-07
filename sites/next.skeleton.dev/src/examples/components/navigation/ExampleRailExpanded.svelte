@@ -9,29 +9,33 @@
 	import IconGames from 'lucide-svelte/icons/gamepad';
 	import IconSettings from 'lucide-svelte/icons/settings';
 
-	let hrefExample = '#';
+	let isExpansed = $state(true);
+
+	function toggleExpanded() {
+		isExpansed = !isExpansed;
+	}
 </script>
 
 <div class="card border-surface-100-900 grid h-[760px] w-full grid-cols-[auto_1fr] border-[1px]">
 	<!-- Component -->
-	<Navigation.Rail expanded>
+	<Navigation.Rail expanded={isExpansed}>
 		{#snippet header()}
-			<Navigation.Tile href="/" labelExpanded="Menu"><IconMenu /></Navigation.Tile>
+			<Navigation.Tile labelExpanded="Menu" onclick={toggleExpanded} title="Toggle Menu Width"><IconMenu /></Navigation.Tile>
 		{/snippet}
 		{#snippet tiles()}
-			<Navigation.Tile id="0" labelExpanded="Browse Files" href={hrefExample}>
+			<Navigation.Tile labelExpanded="Browse Files" href="#/files">
 				<IconFolder />
 			</Navigation.Tile>
-			<Navigation.Tile id="1" labelExpanded="Browse Images" href={hrefExample}>
+			<Navigation.Tile labelExpanded="Browse Images" href="#/images">
 				<IconImage />
 			</Navigation.Tile>
-			<Navigation.Tile id="2" labelExpanded="Browse Music" href={hrefExample}>
+			<Navigation.Tile labelExpanded="Browse Music" href="#/music">
 				<IconMusic />
 			</Navigation.Tile>
-			<Navigation.Tile id="2" labelExpanded="Browse Videos" href={hrefExample}>
+			<Navigation.Tile labelExpanded="Browse Videos" href="#/videos">
 				<IconVideo />
 			</Navigation.Tile>
-			<Navigation.Tile id="2" labelExpanded="Browse Games" href={hrefExample}>
+			<Navigation.Tile labelExpanded="Browse Games" href="/games">
 				<IconGames />
 			</Navigation.Tile>
 		{/snippet}

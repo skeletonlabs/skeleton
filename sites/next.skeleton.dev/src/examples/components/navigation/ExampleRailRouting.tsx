@@ -15,26 +15,26 @@ export const Page: React.FC = () => {
 			{/* Component */}
 			<Navigation.Rail
 				header={
-					<Navigation.Tile href="/" title="Menu">
+					<Navigation.Tile href="#" title="Menu">
 						<IconMenu />
 					</Navigation.Tile>
 				}
 				footer={
-					<Navigation.Tile href="/settings" title="settings">
+					<Navigation.Tile href="#" title="settings">
 						<IconSettings />
 					</Navigation.Tile>
 				}
 			>
-				<Navigation.Tile id="0" label="Files" href="#">
+				<Navigation.Tile label="Files" href="#">
 					<IconFolder />
 				</Navigation.Tile>
-				<Navigation.Tile id="1" label="Images" href="#">
+				<Navigation.Tile label="Images" href="#">
 					<IconImage />
 				</Navigation.Tile>
-				<Navigation.Tile id="2" label="Music" href="#">
+				<Navigation.Tile label="Music" href="#">
 					<IconMusic />
 				</Navigation.Tile>
-				<Navigation.Tile id="3" label="Videos" href="#">
+				<Navigation.Tile label="Videos" href="#">
 					<IconVideo />
 				</Navigation.Tile>
 			</Navigation.Rail>
