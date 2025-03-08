@@ -8,6 +8,10 @@ import Example from '@examples/components/avatars/Example.svelte';
 import ExampleRaw from '@examples/components/avatars/Example.svelte?raw';
 import ExampleFallback from '@examples/components/avatars/ExampleFallback.svelte';
 import ExampleFallbackRaw from '@examples/components/avatars/ExampleFallback.svelte?raw';
+import ExampleFilter from '@examples/components/avatars/ExampleFilter.svelte';
+import ExampleFilterRaw from '@examples/components/avatars/ExampleFilter.svelte?raw';
+import ExampleStyle from '@examples/components/avatars/ExampleStyle.svelte';
+import ExampleStyleRaw from '@examples/components/avatars/ExampleStyle.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -28,6 +32,32 @@ When `src` or `srcSet` are missing or fail to load, a fallback will be displayed
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleFallbackRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Filters
+
+Avatars can implement [SVG Filters](/docs/guides/cookbook/svg-filters) using arbitrary Tailwind syntax.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleFilter client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleFilterRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Style Attribute
+
+Use the `style` prop to implement custom styles on the parent `<figure>` element.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleStyle />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleStyleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

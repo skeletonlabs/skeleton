@@ -7,7 +7,6 @@
 		src,
 		srcset,
 		name,
-		filter,
 		// Root
 		base = 'overflow-hidden isolate',
 		background = 'bg-surface-400-600',
@@ -49,7 +48,12 @@
 
 <!-- @component An image with a fallback for representing a single user. -->
 
-<figure {...api.getRootProps()} class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testid="avatar">
+<figure
+	{...api.getRootProps()}
+	class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}"
+	{style}
+	data-testid="avatar"
+>
 	<!-- Fallback -->
 	<span {...api.getFallbackProps()} class="{fallbackBase} {fallbackClasses}" data-testid="avatar-fallback">
 		{#if children}
@@ -60,15 +64,6 @@
 	</span>
 	<!-- Image -->
 	{#if src || srcset}
-		<img
-			{...api.getImageProps()}
-			{src}
-			{srcset}
-			alt={name}
-			class="{imageBase} {imageClasses}"
-			style:filter={filter && `url(${filter})`}
-			data-testid="avatar-image"
-			{style}
-		/>
+		<img {...api.getImageProps()} {src} {srcset} alt={name} class="{imageBase} {imageClasses}" data-testid="avatar-image" />
 	{/if}
 </figure>

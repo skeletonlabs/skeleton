@@ -29,9 +29,12 @@ This feature is enabled by [SVG filters](https://developer.mozilla.org/en-US/doc
 
 Apply a filter to any element using the Filter style property and passing the unique SVG Filter ID.
 
-```html
+```astro
 <!-- The Target Element -->
 <img ... style="filter: url(#Apollo)" />
+
+<!-- Via aribtrary Tailwind syntax -->
+<Avatar classes="[filter:url(#Apollo)]" />
 
 <!-- The SVG Filter with a matching unique ID -->
 <svg><filter id="Apollo">...</filter></svg>

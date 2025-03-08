@@ -9,7 +9,6 @@ export const Avatar: FC<AvatarProps> = ({
 	src,
 	srcSet,
 	name,
-	filter,
 	// Root
 	base = 'overflow-hidden isolate',
 	background = 'bg-surface-400-600',
@@ -49,6 +48,7 @@ export const Avatar: FC<AvatarProps> = ({
 		<figure
 			{...api.getRootProps()}
 			className={`${base} ${background} ${size} ${font} ${border} ${rounded} ${shadow} ${classes}`}
+			style={style}
 			data-testid="avatar"
 		>
 			{/* Image */}
@@ -58,7 +58,6 @@ export const Avatar: FC<AvatarProps> = ({
 					srcSet={srcSet}
 					alt={name}
 					className={`${imageBase} ${imageClasses}`}
-					style={{ ...style, filter: filter ? `url(${filter})` : undefined }}
 					data-testid="avatar-image"
 					{...api.getImageProps()}
 				/>

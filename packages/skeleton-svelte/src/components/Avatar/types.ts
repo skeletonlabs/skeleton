@@ -8,8 +8,8 @@ export interface AvatarProps extends Omit<avatar.Props, 'id'> {
 	srcset?: string;
 	/** Provide a name or username for the avatar. */
 	name: string;
-	/** Set avatar image filter name, such as: "#Apollo". */
-	filter?: string;
+	/** Set avatar image styles. */
+	style?: string;
 
 	// Root ---
 	/** Set base styles. */
@@ -34,8 +34,6 @@ export interface AvatarProps extends Omit<avatar.Props, 'id'> {
 	imageBase?: string;
 	/** Provide avatar image arbitrary CSS classes. */
 	imageClasses?: string;
-	/** Set avatar image styles. */
-	style?: string;
 
 	// Fallback ---
 	/** Set base classes for the fallback element. */
