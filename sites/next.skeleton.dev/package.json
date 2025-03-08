@@ -11,12 +11,13 @@
 		"pagefind": "pagefind --site dist --exclude-selectors \".expressive-code\""
 	},
 	"devDependencies": {
+		"@skeletonlabs/necroparser": "workspace:*",
 		"@types/react": "^19.0.10",
 		"@types/react-dom": "^19.0.4",
+		"colorette": "^2.0.20",
 		"tinyglobby": "^0.2.12",
 		"tsx": "^4.19.3",
-		"vite-plugin-pagefind": "^1.0.5",
-		"@skeletonlabs/necroparser": "workspace:*"
+		"vite-plugin-pagefind": "^1.0.5"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",

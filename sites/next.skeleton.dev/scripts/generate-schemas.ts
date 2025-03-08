@@ -1,67 +1,60 @@
 import { glob } from 'tinyglobby';
-import { getInterfaces } from '@skeletonlabs/necroparser';
-import { writeFile, mkdir, rm } from 'fs/promises';
-import { basename, dirname, join } from 'path';
-import { intro, spinner, outro } from '@clack/prompts';
+import { Project } from '@skeletonlabs/necroparser';
+import { mkdir, rm, writeFile } from 'fs/promises';
+import { join, resolve } from 'path';
+import { performance } from 'perf_hooks';
+import { blue, bold, gray } from 'colorette';
 
-const OUTPUT_DIR = join(import.meta.dirname, '../src/content/schemas');
-const MATCHER = './node_modules/@skeletonlabs/skeleton-**/src/components/**/types.ts';
+function log(message: string) {
+	console.log(`${gray(new Date().toLocaleTimeString())} ${blue('[generate-schemas]')} ${message}`);
+}
 
 function toKebabCase(str: string) {
 	str = str.charAt(0).toLowerCase() + str.slice(1);
 	return str.replace(/([A-Z])/g, '-$1').toLowerCase();
 }
 
-async function processFile(path: string): Promise<number> {
-	const component = basename(dirname(path));
-	const matches = path.match(/skeleton-([^/]+)(?=\/|$)/g);
-	const match = matches?.at(-1);
-	const framework = match?.replace('skeleton-', '');
-	if (!framework) {
-		throw new Error(`Invalid framework path: ${path}`);
-	}
-	const outPath = join(OUTPUT_DIR, framework, `${toKebabCase(component)}.json`);
-	await mkdir(dirname(outPath), { recursive: true });
-	const interfaces = getInterfaces(path, {
-		matcher: /^[\w-]+Props$/,
-		transformProperty(property) {
-			if (property.type.startsWith('Snippet')) {
-				return {
-					...property,
-					typeKind: 'primitive'
-				};
-			}
-			return property;
-		}
+async function generateSchemas() {
+	log('Preparing to generate schemas');
+	const start = performance.now();
+	const inputPaths = await glob('./node_modules/@skeletonlabs/skeleton-**/src/components/**/types.ts');
+	const outputPath = resolve(import.meta.dirname, '../src/content/schemas');
+	const project = new Project(inputPaths);
+	await rm(outputPath, {
+		recursive: true,
+		force: true
 	});
-	await writeFile(outPath, JSON.stringify(interfaces, null, 2));
-	return Object.keys(interfaces).length;
-}
-
-async function main() {
-	intro(`Generating schemas for: ${MATCHER}`);
-	try {
-		await rm(OUTPUT_DIR, { recursive: true, force: true });
-		const paths = await glob(MATCHER, { absolute: true });
-		const s = spinner();
-		s.start('Processing files...');
-		const startTime = performance.now();
-		let totalInterfaces = 0;
-		for (const path of paths) {
-			const componentName = basename(dirname(path));
-			s.message(`Processing ${componentName}...`);
-			try {
-				totalInterfaces += await processFile(path);
-			} catch {
-				s.message(`Failed to process ${componentName}`);
+	await Promise.allSettled(
+		inputPaths.map(async (path) => {
+			const framework = path.match(/@skeletonlabs\/skeleton-(\w+)/)?.[1];
+			const component = toKebabCase(path.match(/\/components\/(\w+)/)?.[1] ?? '');
+			if (!(framework && component)) {
+				return;
 			}
-		}
-		const seconds = ((performance.now() - startTime) / 1000).toFixed(1);
-		s.stop(`Processed ${totalInterfaces} interfaces from ${paths.length} files in ${seconds}s`);
-		outro('Documentation generation complete!');
-	} catch {
-		process.exit(1);
-	}
+			log(`Generating ${bold(framework)}/${bold(component)}`);
+			const interfaces = project.getInterfaces(path, {
+				filter(node) {
+					return /\w+Props/.test(node.name.getText());
+				},
+				transformProperty(property) {
+					if (property.type.startsWith('Snippet')) {
+						return {
+							...property,
+							typeKind: 'primitive'
+						};
+					}
+					return property;
+				}
+			});
+			const frameworkPath = join(outputPath, framework);
+			await mkdir(frameworkPath, {
+				recursive: true
+			});
+			await writeFile(join(frameworkPath, `${component}.json`), JSON.stringify(interfaces, null, 4));
+		})
+	);
+	const end = performance.now();
+	log(`Generated ${inputPaths.length} schemas in ${((end - start) / 1000).toFixed(2)}s`);
 }
 
-main();
+await generateSchemas();
