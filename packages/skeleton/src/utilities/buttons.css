@@ -1,28 +1,29 @@
 /* Components: Buttons */
 
 @utility btn {
-	cursor: pointer;
 	border-radius: var(--radius-base);
-	font-weight: var(--font-weight-medium);
-	text-decoration-line: none;
+
+	/* Icon Spacing */
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	gap: --spacing(2);
+
+	/* Typography */
+	text-decoration-line: none;
 	white-space: nowrap;
 
-	/* Transitions (all) */
+	/* Size */
+	font-size: var(--text-base);
+	line-height: var(--text-base--line-height);
+	padding-block: --spacing(1);
+	padding-inline: --spacing(4);
+
+	/* Transitions */
 	transition-property: all;
 	transition-timing-function: var(--default-transition-timing-function);
 	transition-duration: var(--default-transition-duration);
-
-	/* Base Size --- */
-	font-size: var(--text-base);
-	line-height: --spacing(9);
-	height: --spacing(9);
-	padding-inline: --spacing(4);
-	padding-block: --spacing(2);
 
 	@variant hover {
 		filter: brightness(125%);
@@ -33,27 +34,23 @@
 }
 
 @utility btn-icon {
-	cursor: pointer;
+	box-sizing: content-box;
 	border-radius: var(--radius-base);
-	font-weight: var(--font-weight-medium);
-	text-decoration-line: none;
+
+	/* Center Icons */
 	display: inline-flex;
-	flex-direction: row;
-	align-items: center;
 	justify-content: center;
-	gap: --spacing(2);
+	align-items: center;
+
+	/* Typography */
+	text-decoration-line: none;
 	white-space: nowrap;
 
-	/* Transitions (all) */
-	transition-property: all;
-	transition-timing-function: var(--default-transition-timing-function);
-	transition-duration: var(--default-transition-duration);
-
-	/* Base Size --- */
+	/* Size */
 	font-size: var(--text-base);
-	line-height: --spacing(9);
-	width: --spacing(9);
-	height: --spacing(9);
+	width: var(--text-base);
+	height: var(--text-base);
+	padding: --spacing(2);
 
 	@variant hover {
 		filter: brightness(125%);
@@ -63,56 +60,55 @@
 	}
 }
 
-@utility btn-group {
-	/* Group --- */
-	border-radius: var(--radius-container);
-	display: inline-flex;
-	gap: --spacing(2);
-	padding: --spacing(2);
-	overflow: hidden;
-}
-
 /* Sizes --- */
 
 /* Button */
 @utility btn-sm {
 	font-size: var(--text-xs);
-	line-height: --spacing(6);
-	height: --spacing(6);
+	line-height: var(--text-xs--line-height);
+	padding-block: --spacing(1);
 	padding-inline: --spacing(3);
-	padding-block: --spacing(2);
 }
 @utility btn-base {
 	font-size: var(--text-base);
-	line-height: --spacing(8);
-	height: --spacing(8);
+	line-height: var(--text-base--line-height);
+	padding-block: --spacing(1);
 	padding-inline: --spacing(4);
-	padding-block: --spacing(2);
 }
 @utility btn-lg {
-	font-size: var(--text-lg);
-	line-height: --spacing(12);
-	height: --spacing(12);
-	padding-inline: --spacing(6);
+	font-size: var(--text-xl);
+	line-height: var(--text-xl--line-height);
 	padding-block: --spacing(2);
+	padding-inline: --spacing(5);
 }
 
 /* Button Icon */
 @utility btn-icon-sm {
 	font-size: var(--text-xs);
-	line-height: --spacing(6);
-	width: --spacing(6);
-	height: --spacing(6);
+	width: var(--text-xs);
+	height: var(--text-xs);
+	padding: --spacing(1.5);
 }
 @utility btn-icon-base {
 	font-size: var(--text-base);
-	line-height: --spacing(8);
-	width: --spacing(8);
-	height: --spacing(8);
+	width: var(--text-base);
+	height: var(--text-base);
+	padding: --spacing(2);
 }
 @utility btn-icon-lg {
-	font-size: var(--text-lg);
-	line-height: --spacing(12);
-	width: --spacing(12);
-	height: --spacing(12);
+	font-size: var(--text-xl);
+	width: var(--text-xl);
+	height: var(--text-xl);
+	padding: --spacing(3);
+}
+
+/* Group --- */
+
+@utility btn-group {
+	border-radius: var(--radius-container);
+	display: inline-flex;
+	align-items: center;
+	gap: --spacing(2);
+	padding: --spacing(2);
+	overflow: hidden;
 }

@@ -13,7 +13,7 @@
 		/* Scrollbars --- */
 		/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color */
 		/* https://developer.chrome.com/docs/css-ui/scrollbar-styling */
-		scrollbar-color: var(--color-surface-200-800) var(--color-surface-50-950); /* thumb / track */
+		scrollbar-color: var(--color-surface-300-700) var(--color-surface-100-900); /* thumb / track */
 		scrollbar-width: thin;
 	}
 

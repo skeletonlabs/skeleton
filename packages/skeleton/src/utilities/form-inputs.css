@@ -1,16 +1,18 @@
 /* Components: Forms > Input */
 
 @utility input {
-	display: block;
 	background-color: transparent;
 	border-radius: var(--radius-base);
-	font-size: var(--text-base);
-	line-height: --spacing(9);
-	height: --spacing(9);
+	display: block;
 	width: 100%;
-	padding: --spacing(2);
 
-	/* Edges --- */
+	/* Size */
+	font-size: var(--text-base);
+	line-height: var(--text-base--line-height);
+	padding-block: --spacing(1);
+	padding-inline: --spacing(3);
+
+	/* Edges */
 	outline-color: transparent;
 	border-width: 0;
 	--tw-ring-inset: inset;
@@ -31,46 +33,25 @@
 	/* Placeholder --- */
 
 	&::placeholder {
-		color: var(--color-surface-800-200);
-	}
-
-	/* File Date/Time --- */
-
-	&[type='date'] {
-		font-size: var(--text-sm);
-		line-height: var(--text-sm--line-height);
-	}
-
-	&[type='time'] {
-		font-size: var(--text-sm);
-		line-height: var(--text-sm--line-height);
-	}
-
-	&[type='datetime-local'] {
-		font-size: var(--text-sm);
-		line-height: var(--text-sm--line-height);
+		color: var(--color-surface-700-300);
 	}
 
 	/* File Input --- */
 
-	&[type='file'] {
-		font-size: var(--text-sm);
-		height: auto;
-	}
 	&[type='file']::file-selector-button {
 		cursor: pointer;
+		border-radius: var(--radius-base);
 		background-color: var(--color-surface-950-50);
 		color: var(--color-surface-50-950);
-		border-radius: var(--radius-base);
-		font-weight: var(--font-weight-medium);
-		text-decoration-line: none;
+		transform: translateY(--spacing(-0.5));
+		margin-right: --spacing(2);
+		text-transform: capitalize;
 
-		/* Base Size */
+		/* Size */
 		font-size: var(--text-xs);
-		height: 100%;
-		padding-inline: --spacing(3);
+		height: var(--text-xs--line-height);
 		padding-block: --spacing(0);
-		margin-right: --spacing(3);
+		padding-inline: --spacing(3);
 	}
 
 	/* Range Input --- */
@@ -86,8 +67,8 @@
 
 	&[type='color'] {
 		border-radius: var(--radius-base);
-		width: --spacing(9);
-		height: --spacing(9);
+		width: --spacing(8.5);
+		height: --spacing(8.5);
 		padding: 0;
 		border: none;
 		outline: none;
@@ -105,11 +86,10 @@
 /* Ghost Input*/
 /* Used for the <TagsInput> component. */
 @utility input-ghost {
-	/* Used for the <TagsInput> component. */
 	padding: 0px;
 	background-color: transparent;
-	border-color: transparent;
 
+	border-color: transparent;
 	outline-color: transparent;
 	--tw-ring-color: transparent;
 

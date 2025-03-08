@@ -2,38 +2,41 @@
 
 @utility badge {
 	border-radius: var(--radius-base);
-	font-weight: var(--font-weight-medium);
-	text-decoration-line: none;
+
+	/* Icon Spacing */
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	gap: --spacing(2);
+
+	/* Typography */
+	text-decoration-line: none;
 	white-space: nowrap;
 
-	/* Base Size --- */
+	/* Size */
 	font-size: var(--text-xs);
-	line-height: --spacing(6);
-	height: --spacing(6);
+	line-height: var(--text-xs--line-height);
+	padding-block: --spacing(1);
 	padding-inline: --spacing(3);
-	padding-block: --spacing(2);
 }
 
 @utility badge-icon {
-	border-radius: var(--radius-base);
-	font-weight: var(--font-weight-medium);
-	text-decoration-line: none;
-	display: inline-flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	gap: --spacing(2);
-	white-space: nowrap;
+	box-sizing: content-box;
 	border-radius: 100%;
 
-	/* Base Size --- */
+	/* Center Icons */
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	/* Typography */
+	text-decoration-line: none;
+	white-space: nowrap;
+
+	/* Size */
 	font-size: var(--text-xs);
-	line-height: --spacing(6);
-	width: --spacing(6);
-	height: --spacing(6);
+	width: var(--text-xs);
+	height: var(--text-xs);
+	padding: --spacing(1.5);
 }
