@@ -4,41 +4,63 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Example from '@examples/components/navigation/Example.svelte';
-import ExampleRaw from '@examples/components/navigation/Example.svelte?raw';
-import ExampleExpanded from '@examples/components/navigation/ExampleExpanded.svelte';
-import ExampleExpandedRaw from '@examples/components/navigation/ExampleExpanded.svelte?raw';
+import ExampleRail from '@examples/components/navigation/ExampleRail.svelte';
+import ExampleRailRaw from '@examples/components/navigation/ExampleRail.svelte?raw';
+import ExampleRailRouting from '@examples/components/navigation/ExampleRailRouting.svelte';
+import ExampleRailRoutingRaw from '@examples/components/navigation/ExampleRailRouting.svelte?raw';
+import ExampleRailExpanded from '@examples/components/navigation/ExampleRailExpanded.svelte';
+import ExampleRailExpandedRaw from '@examples/components/navigation/ExampleRailExpanded.svelte?raw';
 import ExampleBar from '@examples/components/navigation/ExampleBar.svelte';
 import ExampleBarRaw from '@examples/components/navigation/ExampleBar.svelte?raw';
+import ExampleBarRouting from '@examples/components/navigation/ExampleBarRouting.svelte';
+import ExampleBarRoutingRaw from '@examples/components/navigation/ExampleBarRouting.svelte?raw';
 import ExampleTiles from '@examples/components/navigation/ExampleTiles.svelte';
 import ExampleTilesRaw from '@examples/components/navigation/ExampleTiles.svelte?raw';
+import ExampleTilesSelectionRaw from '@examples/components/navigation/ExampleTilesSelectionSvelte.txt?raw';
 
 ## Rail
 
 - Recommended for medium to large screens.
 - Ideal for horizontal screen layouts.
 - Should be fixed to the left or right of the viewport.
-- Supports 3-7 tiles.
+- Supports 3-7 tiles based on viewport height.
+
+### Selection
+
+Define a `value` state on the Rail. This is updated to match each Tile `id` when presssed.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:load />
+		<ExampleRail client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="svelte" />
+		<Code code={ExampleRailRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
-### Expanded Mode
+### Routing
 
-Apply the `expanded` property to enable expanded mode. Each tile will resize and used the expanded label.
+Replace Tile `id` with `href` to convert each to a anchor link.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleExpanded client:load />
+		<ExampleRailRouting client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleExpandedRaw} lang="svelte" />
+		<Code code={ExampleRailRoutingRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+### Expanded
+
+Apply the `expanded` property to enable an expanded mode. Each tile will resize and used the expanded label.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleRailExpanded client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRailExpandedRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -47,31 +69,82 @@ Apply the `expanded` property to enable expanded mode. Each tile will resize and
 - Recommended for small screens.
 - Ideal for vertical screen layouts.
 - Should be fixed to the bottom of the viewport.
-- Supports 3-5 tiles.
+- Supports 3-5 tiles based on viewport width.
 - Consider progressive enhancement with the [Virtual Keyboard API](https://developer.mozilla.org/en-US/docs/Web/API/VirtualKeyboard_API).
+
+### Selection
+
+Define a `value` state on the Bar. This is updated to match each Tile `id` when presssed.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleBar client:load />
+		<ExampleBar client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleBarRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
-## Tiles
+### Routing
 
-Tiles are universal between Rails and Bars. They default to buttons, but will convert to anchors when an `href` is provided. When implementing `value` for selection, each item will reflect the active state automatically. If you wish to set this state manually, use the `selected` property.
+Replace Tile `id` with `href` to convert each to a anchor link.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleTiles client:load />
+		<ExampleBarRouting client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleBarRoutingRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Tiles
+
+Tiles are universal between Rails and Bars. They default to buttons, but will convert to anchors when an `href` is provided. When implementing `value` for selection, each item will update the value when clicked.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleTiles client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleTilesRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
+### Anchor Tile Selection
+
+When using anchor Tiles, use the `selected` prop to highlight the active tile. For SvelteKit, this can be achieved using the `page` state and comparing the page pathname and tile URLs.
+
+<Code code={ExampleTilesSelectionRaw} lang="svelte" />
+
+## Anatomy
+
+### Rail
+
+<Anatomy label="Navigation.Rail" tag="aside" isComponent>
+	<Anatomy label="header" />
+	<Anatomy label="tiles">
+		<Anatomy label="Navigation.Tile" tag="a|button" isComponent>
+			<Anatomy label="expanded">
+				<Anatomy label="label|labelExpanded" />
+			</Anatomy>
+		</Anatomy>
+	</Anatomy>
+	<Anatomy label="footer" />
+</Anatomy>
+
+### Bar
+
+<Anatomy label="Navigation.Bar" tag="aside" isComponent>
+	<Anatomy label="tiles">
+		<Anatomy label="Navigation.Tile" tag="a|button" isComponent>
+			<Anatomy label="expanded">
+				<Anatomy label="label|labelExpanded" />
+			</Anatomy>
+		</Anatomy>
+	</Anatomy>
+</Anatomy>
+
 ## API Reference
 
-<ApiTable   />
+<ApiTable />

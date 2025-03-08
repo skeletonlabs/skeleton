@@ -1,0 +1,109 @@
+/* Components: Forms > Input Group */
+
+@utility input-group {
+	display: grid;
+	align-items: stretch;
+	border-radius: var(--radius-base);
+	overflow: hidden;
+
+	/* Edges --- */
+	outline-color: transparent;
+	border-width: 0;
+	--tw-ring-inset: inset;
+	--tw-ring-color: var(--color-surface-200-800);
+	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
+	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+
+	& > * + * {
+		border-left-width: 1px !important;
+		border-color: var(--color-surface-200-800);
+	}
+}
+
+/* Children: Cell --- */
+
+@utility ig-cell {
+	font-size: var(--text-sm);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-inline: --spacing(4);
+}
+
+/* Children: Form Elements --- */
+/* We recreate a subset of form element styles here */
+/* These are purpose-built to work in the group */
+
+@utility ig-input {
+	--tw-ring-inset: inset;
+	background-color: transparent;
+	border-width: 0;
+
+	@variant active {
+		--tw-ring-color: var(--color-primary-500);
+	}
+	@variant focus {
+		--tw-ring-color: var(--color-primary-500);
+	}
+	@variant focus-within {
+		--tw-ring-color: var(--color-primary-500);
+	}
+}
+
+@utility ig-select {
+	--tw-ring-inset: inset;
+	background-color: transparent;
+	border-width: 0;
+
+	@variant active {
+		--tw-ring-color: var(--color-primary-500);
+	}
+	@variant focus {
+		--tw-ring-color: var(--color-primary-500);
+	}
+	@variant focus-within {
+		--tw-ring-color: var(--color-primary-500);
+	}
+
+	/* Option --- */
+
+	& option {
+		background-color: var(--color-surface-50-950);
+		color: var(--color-surface-950-50);
+		border-radius: var(--radius-base);
+		font-size: var(--text-base);
+		line-height: --spacing(9);
+		height: --spacing(9);
+		padding: --spacing(2);
+	}
+
+	& option:checked {
+		/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
+		background-image: linear-gradient(0deg, var(--color-primary-500) 0%, var(--color-primary-500) 100%);
+		color: var(--color-primary-contrast-950-50);
+	}
+}
+
+@utility ig-btn {
+	--tw-ring-inset: inset;
+	cursor: pointer;
+	font-size: var(--text-base);
+	font-weight: var(--font-weight-medium);
+	text-decoration-line: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: --spacing(2);
+	padding-inline: --spacing(4);
+	white-space: nowrap;
+
+	@variant active {
+		--tw-ring-color: var(--color-primary-500);
+	}
+	@variant focus {
+		--tw-ring-color: var(--color-primary-500);
+	}
+	@variant focus-within {
+		--tw-ring-color: var(--color-primary-500);
+	}
+}

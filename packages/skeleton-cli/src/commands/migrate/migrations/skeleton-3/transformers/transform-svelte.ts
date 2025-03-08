@@ -2,9 +2,10 @@ import { type AST, parse } from 'svelte/compiler';
 import type { Node } from 'estree';
 import { walk } from 'zimmerframe';
 import MagicString from 'magic-string';
-import { transformClasses } from './transform-classes.js';
+import { transformClasses } from './transform-classes';
 import { transformModule } from './transform-module';
-import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
+import { transformStyleSheet } from './transform-stylesheet';
+import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 
 function renameComponent(s: MagicString, node: AST.Component, name: string) {
 	const adjustedStart = node.start + 1;
@@ -17,7 +18,14 @@ function renameComponent(s: MagicString, node: AST.Component, name: string) {
 	s.update(node.start + indexOfNonSelfClosingTag + 2, node.start + indexOfNonSelfClosingTag + 2 + node.name.length, name);
 }
 
-function transformScript(s: MagicString, script: AST.Script) {
+function transformScript(s: MagicString, script: AST.Script | null) {
+	if (!script) {
+		return {
+			meta: {
+				skeletonImports: []
+			}
+		};
+	}
 	const content = s.original.slice(script.start, script.end);
 	const openingTag = content.match(/^<script[^>]*>/)?.at(0);
 	const closingTag = content.match(/<\/script>$/)?.at(0);
@@ -31,27 +39,37 @@ function transformScript(s: MagicString, script: AST.Script) {
 	} else {
 		s.overwrite(script.start, script.end, `${openingTag}${transformed.code}${closingTag}`);
 	}
+	return {
+		meta: transformed.meta
+	};
+}
+
+function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
+	if (!css) {
+		return;
+	}
+	const transformed = transformStyleSheet(s.original.slice(css.content.start, css.content.end));
+	s.overwrite(css.content.start, css.content.end, transformed.code);
 }
 
 function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
-	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number' && node.start < node.end;
+	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number';
 }
 
-function transformFragment(s: MagicString, fragment: AST.Fragment) {
+function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImports: string[]) {
 	walk(
 		fragment as AST.SvelteNode,
 		{},
 		{
 			Literal(node, ctx) {
 				const parent = ctx.path.at(-1);
-				if (typeof node.value === 'string' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
-					// Add 1 to the start and subtract 1 from the end to exclude (and thus preserve) the quotes
-					s.update(node.start + 1, node.end - 1, transformClasses(node.value).code);
+				if (typeof node.raw === 'string' && node.raw !== '' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
+					s.update(node.start, node.end, transformClasses(node.raw).code);
 				}
 				ctx.next();
 			},
 			Text(node, ctx) {
-				if (hasRange(node)) {
+				if (node.data !== '' && hasRange(node)) {
 					s.update(node.start, node.end, transformClasses(node.data).code);
 				}
 				ctx.next();
@@ -67,8 +85,11 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 				ctx.next();
 			},
 			Component(node, ctx) {
-				if (node.name in COMPONENT_MAPPINGS && hasRange(node)) {
-					renameComponent(s, node, COMPONENT_MAPPINGS[node.name]);
+				if (Object.hasOwn(EXPORT_MAPPINGS, node.name) && skeletonImports.includes(node.name)) {
+					const exportMapping = EXPORT_MAPPINGS[node.name];
+					if (exportMapping.identifier.type === 'renamed' && hasRange(node)) {
+						renameComponent(s, node, exportMapping.identifier.value);
+					}
 				}
 				ctx.next();
 			}
@@ -84,13 +105,12 @@ function transformSvelte(code: string) {
 	const root = parse(code, {
 		modern: true
 	});
-	if (root.module) {
-		transformScript(s, root.module);
-	}
-	if (root.instance) {
-		transformScript(s, root.instance);
-	}
-	transformFragment(s, root.fragment);
+	const skeletonImports = [
+		...transformScript(s, root.module).meta.skeletonImports,
+		...transformScript(s, root.instance).meta.skeletonImports
+	];
+	transformFragment(s, root.fragment, skeletonImports);
+	transformCss(s, root.css);
 	return {
 		code: s.toString()
 	};

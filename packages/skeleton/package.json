@@ -1,87 +1,39 @@
 {
 	"name": "@skeletonlabs/skeleton",
-	"version": "3.0.0-next.10",
-	"description": "Core plugin for Skeleton.",
+	"version": "3.0.0-next.12",
 	"scripts": {
-		"package": "pnpm package:jss && tsup",
-		"package:jss": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/generate-jss.ts",
-		"convert": "tsx --tsconfig ./src/plugin/tsconfig.json ./scripts/convert-theme.ts && pnpm format"
+		"build": "vite build",
+		"dev": "vite build --watch"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/skeletonlabs/skeleton.git"
 	},
-	"bugs": {
-		"url": "https://github.com/skeletonlabs/skeleton/issues"
-	},
-	"keywords": [
-		"cli",
-		"components",
-		"ui",
-		"component",
-		"svelte",
-		"component-library",
-		"ui-components",
-		"ui-framework",
-		"tailwind",
-		"tailwindcss",
-		"components-library",
-		"sveltekit"
-	],
-	"license": "MIT",
-	"homepage": "https://skeleton.dev/",
-	"devDependencies": {
-		"@types/postcss-import": "^14.0.3",
-		"postcss": "^8.4.49",
-		"postcss-import": "^16.1.0",
-		"postcss-load-config": "^6.0.1",
-		"tailwindcss": "^3.4.16",
-		"tsup": "^8.3.5",
-		"typescript": "catalog:"
-	},
-	"dependencies": {
-		"postcss-js": "4.0.1",
-		"postcss-selector-parser": "^7.0.0"
-	},
-	"peerDependencies": {
-		"tailwindcss": ">=3.0.0"
-	},
-	"type": "module",
-	"main": "./dist/core/index.js",
-	"types": "./dist/core/index.d.ts",
 	"exports": {
 		".": {
-			"import": {
-				"types": "./dist/core/index.d.ts",
-				"default": "./dist/core/index.js"
-			},
-			"require": {
-				"types": "./dist/core/index.d.cts",
-				"default": "./dist/core/index.cjs"
-			}
+			"style": "./dist/index.css",
+			"default": "./dist/index.css"
 		},
-		"./plugin": {
-			"import": {
-				"types": "./dist/plugin/index.d.ts",
-				"default": "./dist/plugin/index.js"
-			},
-			"require": {
-				"types": "./dist/plugin/index.d.cts",
-				"default": "./dist/plugin/index.cjs"
-			}
+		"./themes/*": {
+			"style": "./dist/themes/*.css",
+			"default": "./dist/themes/*.css"
 		},
-		"./themes": {
-			"import": {
-				"types": "./dist/themes/index.d.ts",
-				"default": "./dist/themes/index.js"
-			},
-			"require": {
-				"types": "./dist/themes/index.d.cts",
-				"default": "./dist/themes/index.cjs"
-			}
+		"./optional/*": {
+			"style": "./dist/optional/*.css",
+			"default": "./dist/optional/*.css"
 		}
 	},
 	"files": [
 		"dist"
-	]
+	],
+	"peerDependencies": {
+		"tailwindcss": "^4.0.0"
+	},
+	"devDependencies": {
+		"sass-embedded": "^1.85.1",
+		"tinyglobby": "^0.2.12",
+		"vite": "^6.2.0"
+	},
+	"type": "module",
+	"license": "MIT"
 }

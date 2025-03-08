@@ -7,58 +7,93 @@ order: 40
 
 export const components = componentSet;
 
-<p class="type-scale-5">Skeleton makes use of Tailwind's [Dark Mode](https://tailwindcss.com/docs/dark-mode) out of the box. This allows the mode to be toggle manually by end users, automatically via operating system settings, or through a combination of both.</p>
+{
 
-## Fundamentals
+<p class="text-xl">
+	Skeleton makes use of{' '}
+	<a className="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="external">
+		Tailwind's Dark Mode
+	</a>{' '}
+	to enable multiple strategies to control the overall app or page mode, as well as{' '}
+	<a className="anchor" href="https://tailwindcss.com/docs/color-scheme" target="_blank" rel="external">
+		Color Scheme
+	</a>{' '}
+	to selectively toggle light or dark interfaces at any scope.
+</p>
 
-Tailwind offers two strategies, enabled within your project's [Tailwind configuration](https://tailwindcss.com/docs/dark-mode).
+}
 
-### Selector Strategy
+## Dark Mode
 
-```ts
-darkMode: 'selector'
-```
-
-See [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually) for toggling the selector. This is accomplished by adding or removing  a `.dark` class to your document's `<html>` element to determine the mode.
+Tailwind [multiple strategies](https://tailwindcss.com/docs/dark-mode) for configuring Dark Mode.
 
 ### Media Strategy
 
-```ts
-darkMode: 'media'
+Enable by default. Uses CSS's [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) and sets the active mode based on operating system settings.
+
+### Selector Strategy
+
+Activates dark mode by adding or removing the `.dark` class to your application's `<html>` element.
+
+```css
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
-Uses CSS's [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) to set the mode based on operating system settings. In some browser and devices this may require you to refresh the browser page to reflect the changes.
+```html
+<html class="dark">
+	...
+</html>
+```
 
-## Styling Elements
+### Data Attribute Strategy
 
-When styling elements with Tailwind, the base color represents light mode, while the `dark:` modifier overrides this value for dark mode. Note that all Skeleton components implement this technique to handle either the display for either mode.
+Uses a data attribute instead of a class to activate dark mode.
+
+```css
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+```
 
 ```html
-<!--
-Light Mode: White Background
-Dark Mode: Black Background
--->
+<html data-theme="dark">
+	...
+</html>
+```
+
+### Using the Dark Variant
+
+Apply a base style, then with Tailwind's `dark:` variant.
+
+```html
+<!-- Light Mode: White | Dark Mode: Black -->
 <div class="bg-white dark:bg-black">...</div>
 ```
 
-## Using Color Parings
+---
 
-Skeleton provides utility classes called [Color Pairings](/docs/design/colors#color-pairings). These combine both base and dark mode classes into a singlular class, enabling an opinionated way to balance Skeleton theme colors for either mode.
+## Color Scheme
+
+Skeleton now supports Tailwind's [Color Scheme](https://tailwindcss.com/docs/color-scheme) feature, which enables toggling light or dark interfaces at any scope. By default, the scheme matches the current Dark Mode setting. This feature is enabled by [Color Pairings](/docs/design/colors#color-pairings), which implement the native CSS property [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark).
+
+```html
+<div class="bg-primary-50-950">Light or Dark</div>
+
+<div class="scheme-light">
+	<div class="bg-primary-50-950">Always Light Scheme</div>
+</div>
+
+<div class="scheme-dark">
+	<div class="bg-primary-50-950">Always Dark Scheme</div>
+</div>
+```
 
 ---
 
-## Lightswitch Alternatives
+## Lightswitch
 
-In legacy versions of Skeleton we offered a `<Lightswitch>` component for toggling dark mode using the `selector` strategy. Unfortunately this is no longer possible given the sheer number of combinations of use cases:
+Legacy versions of Skeleton offer a unique `<Lightswitch>` component for controlling the Dark Mode `selector` strategy. Unfortunately this is no longer available due to the number of permutations required per framework and required feature capabilities, including:
 
-- Supporting the `selector`, `media`, or a hybrid strategy.
-- Supporting the unique APIs of each tech stacks and/or meta-framework.
-- Handling state and persistence; local vs remote storage (e.g. account-based storage)
+- Supporting one or more combinations of Dark Mode strategies.
+- Supporting the unique APIs of each meta-framework.
+- Handling state and persistence; ex: local vs remote vs account-based storage
 
-Given this, we recommend the following alternatives:
-
-1. Forego user-based selection in favor of only the `media` strategy, to adhere to the user's OS settings.
-2. Generate your own component based on our barebones [Astro component](https://github.com/skeletonlabs/skeleton/blob/next/sites/next.skeleton.dev/src/components/docs/Lightswitch.astro).
-3. Use [Tailwind's recommendations](https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection) and APIs provided to generate a component that meets all your needs.
-
-In the future we hope to revisit this with more specific examples and references.
+We may provide specific guidance per framework in the future, but for now we advise you generate your own component to meet your project's specific requirements. Please refer to the [Tailwind documentation](https://tailwindcss.com/docs/dark-mode) for additional tips and strategies.

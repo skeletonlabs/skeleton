@@ -11,7 +11,7 @@ export const components = componentSet;
 
 The Skeleton documentation website is maintained using the Astro framework.
 
-<figure class="linker">
+<figure class="linker bg-noise">
 	<a href="https://astro.build/" target="_blank" class="btn preset-filled">
 		Astro Documentation &rarr;
 	</a>
@@ -19,45 +19,48 @@ The Skeleton documentation website is maintained using the Astro framework.
 
 ### Integrations
 
-Review the full list of integrations in `astro.config.mjs`.
+Review the full list of integrations in `astro.config.js`.
 
-- [React](https://docs.astro.build/en/guides/integrations-guide/react/)
+- [Partytown](https://docs.astro.build/en/guides/integrations-guide/partytown/)
 - [Svelte](https://docs.astro.build/en/guides/integrations-guide/svelte/)
-- [Tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
-- [MDX (Markdown)](https://docs.astro.build/en/guides/markdown-content/)
-- [Prettier](https://docs.astro.build/en/editor-setup/#prettier)
+- [React](https://docs.astro.build/en/guides/integrations-guide/react/)
 - [Expressive Code](https://expressive-code.com/)
+- [Icon](https://www.astroicon.dev/)
+- [AutoImport](https://github.com/delucis/astro-auto-import)
+- [MDX (Markdown + JSX)](https://docs.astro.build/en/guides/markdown-content/)
 
 ## App Structure
 
 Navigate the app structure within the `/src` directory. This includes the following directories:
 
-| Path          | Description                               |
-| ------------- | ----------------------------------------- |
-| `/components` | Contains all doc site components.         |
-| `/content`    | Content collections for MDX page content. |
-| `/examples`   | Documentation page code block examples.   |
-| `/icons`      | Contains custom SVG icons for the site.   |
-| `/layouts`    | The Astro page layouts.                   |
-| `/pages`      | The Astro page route templates.           |
-| `/stores`     | A collection of Nanostores for state.     |
-| `/styles`     | All documentation website stylesheets.    |
+| Path          | Description                                                                                                                   |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `/components` | Contains our components.                                                                                                      |
+| `/content`    | Contains our MDX content managed with [Astro's content collections](https://docs.astro.build/en/guides/content-collections/). |
+| `/examples`   | Contains our code examples.                                                                                                   |
+| `/icons`      | Contains our SVG icons.                                                                                                       |
+| `/images`     | Contains our images.                                                                                                          |
+| `/layouts`    | Contains our layouts.                                                                                                         |
+| `/lib`        | Contains our typescript modules.                                                                                              |
+| `/pages`      | Contains our pages.                                                                                                           |
+| `/stores`     | Contains data stores for state management.                                                                                    |
+| `/styles`     | Contains our stylesheets.                                                                                                     |
 
 ## Pages
 
 ### Standard Pages
 
-1. Browse to `/content/docs/` and create a new `.mdx` file within the appropriate [content collection](https://docs.astro.build/en/guides/content-collections/).
-2. Complete all required Frontmatter metadata within the frontmatter `---` fences.
+1. Browse to `/content/docs/` and create a new `.mdx` file
+2. Populate all required Frontmatter metadata within the frontmatter `---` fences, see the content configuration in `/src/content.config.ts` for which properties need to be set.
 3. New pages will be automatically added to the sidebar navigation.
 
 ### Component Pages
 
-Component page content is split into three files within `/content/docs/components/{feature}/`.
+Component page content is split into three files within `/content/docs/components/<component>/`.
 
 - `meta.mdx` - common frontmatter metadata for the page header (ex: title, description, etc).
-- `react.mdx` - examples and usage information specific to the React component tab.
-- `svelte.mdx` - examples and usage information specific to the Svelte component tab.
+- `react.mdx` - examples and usage information specific to the React page.
+- `svelte.mdx` - examples and usage information specific to the Svelte page.
 
 ### Hidden Pages
 
@@ -65,15 +68,16 @@ If you wish to prevent a page from showing in the navigation, prefix it with an 
 
 ## Using MDX
 
-View the [Astro MDX Documention](https://docs.astro.build/en/guides/markdown-content/) or refer to `/content/docs/resources/_markdown.md` for a "kitchen sink" example page.
+View the [Astro MDX Documention](https://docs.astro.build/en/guides/markdown-content/) or refer to `/src/content/docs/resources/_markdown.md` for a "kitchen sink" example page.
 
 ### MDX Components
 
 This application makes use of [custom MDX components](https://mdxjs.com/table-of-components/) to enable Skeleton typography styles for page contents. Browse these components within `/src/components/mdx`. To enable MDX components for your page, add the following import.
 
-{/* prettier-ignore */}
-```ts
-{/* (frontmatter) */}
+```mdx
+---
+{ /* (frontmatter) */ }
+---
 
 export const components = componentSet {/* <-- ADD THIS! */}
 
@@ -84,8 +88,8 @@ export const components = componentSet {/* <-- ADD THIS! */}
 
 Functional components for the Astro project are housed in `/src/components`. These support Astro/Svelte/React.
 
-* Astro - used for simple presentational components without logic.
-* React/Svelte - functional components that implement state, logic, or interaction.
+- Astro - used for simple presentational components without logic.
+- React/Svelte - functional components that implement state, logic, or interaction.
 
 ## Global Components
 
@@ -95,7 +99,7 @@ A suite of global components are automatically imported within MDX pages via [as
 
 ### Essential Code
 
-Code Blocks are provided via [Expressive Code](https://expressive-code.com/) via either the `<Code>` component or Markdown fences. This is powered by the [Shiki](https://shiki.matsu.io/) syntaxt highlighter. View the [list of supported languages](https://github.com/shikijs/textmate-grammars-themes/blob/main/packages/tm-grammars/README.md).
+Code Blocks are provided via [Expressive Code](https://expressive-code.com/) via either the `<Code>` component or Markdown fences. This is powered by the [Shiki](https://shiki.matsu.io/) syntax highlighter. View the [list of supported languages](https://github.com/shikijs/textmate-grammars-themes/blob/main/packages/tm-grammars/README.md).
 
 ```tsx
 <Code code={`<div>Skeleton<div>`} lang="html" />
@@ -105,7 +109,7 @@ Code Blocks are provided via [Expressive Code](https://expressive-code.com/) via
 
 ### Preview
 
-Allows you to quickly toggle between an exapmle component and it's source code.
+Allows you to quickly toggle between an example component and it's source code.
 
 ```ts
 import Example from '@examples/foo/Example.astro';
@@ -119,31 +123,65 @@ import ExampleRaw from '@examples/foo/Example.astro?raw';
 </Preview>
 ```
 
+#### Framework Specific Code
+
+To allow for a common preview to have framework specific code, use the `codeReact` and `codeSvelte` slots. For generic code that is not framework specific, such as an Astro component along with JavaScript, use the `code` slot instead.
+
+```astro
+<Preview client:load>
+	<Fragment slot="preview"><Example /></Fragment>
+	<Preview>
+		<Fragment slot="preview">
+			<Example />
+		</Fragment>
+		<Fragment slot="code">
+			<Code code={ExampleGenericRaw} lang="astro" />
+		</Fragment>
+		<Fragment slot="codeReact">
+			<Code code={ExampleSvelteRaw} lang="tsx" />
+		</Fragment>
+		<Fragment slot="codeSvelte">
+			<Code code={ExampleReactRaw} lang="svelte" />
+		</Fragment>
+	</Preview>
+</Preview>
+```
+
 > TIP: For React or Svelte components, make sure to use [Astro's hydration directives](https://docs.astro.build/en/guides/framework-components/#hydrating-interactive-components).
 
-### Tables
+### Anatomy
 
-Provided by [Markdown tables](https://www.tablesgenerator.com/markdown_tables) or the available Table component (`/src/components/docs/Table.astro`). The Table component will auto-generate headings based on the key names in the first object row.
+Allows you to [generate a visual aid](/docs/components/accordion/react#anatomy) that showcases how a component's template is structured, how we label each part of the component, and how those labels are used for style prop prefixes.
 
-```ts
-export const tableProps: [
-	{
-		name: 'autocollapse';
-		type: 'boolean';
-		value: 'false';
-		description: 'Set the auto-collapse mode.';
-	}
-	// ...
-];
+```astro
+## Anatomy
+
+<Anatomy label="Accordion" isComponent>
+	<Anatomy label="Accordion.Item" isComponent>
+		<Anatomy label="Accordion.Control" element="button" isComponent>
+			<Anatomy label="lead" />
+			<Anatomy label="content" />
+			<Anatomy label="indicator" />
+		</Anatomy>
+		<Anatomy label="Accordion.Panel" isComponent />
+	</Anatomy>
+	<Anatomy label="Accordion.Item" isComponent />
+</Anatomy>
 ```
 
-```html
-<Table label="Props" data="{tableData}" tonal>
-	...
-</Table>
-```
+- `label` - sets the left-side label text presented in a code tag.
+- `element` - sets the right-side element tag text; defaults to `div`.
+- `isComponent` - denotes a parent component element; wraps the `label` with `<>` brackets.
 
-> TIP: Optionally add the `tonal` or `kbd` props to highlight content in the first column.
+### API Tables
+
+When placed on a component documentation page, these will automatically fetch and display the type schema for the respective component.
+
+```astro
+## API Reference
+
+<ApiTable />
+```
 
 ## Icons
 
@@ -165,7 +203,7 @@ import { Icon } from 'astro-icon/components';
 <Icon name="svelte" size={24} />
 ```
 
-* Each icon must be provided in a `.svg` format.
-* Icon assets can be located in `/src/icons`
-* The `name` attribute should match the icon filename.
-* You must restart the Astro server when inserting new icons.
+- Each icon must be provided in a `.svg` format.
+- Icon assets can be located in `/src/icons`
+- The `name` attribute should match the icon filename.
+- You must restart the Astro server when inserting new icons.

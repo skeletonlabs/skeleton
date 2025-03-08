@@ -63,7 +63,7 @@ const urls = {
 	<!-- Header -->
 	<Header />
 	<!-- Page -->
-	<div class="container mx-auto grid grid-cols-1 xl:grid-cols-[240px_1fr_280px] px-4 xl:px-10">
+	<div class="container mx-auto grid grid-cols-1 xl:grid-cols-[240px_minmax(0px,_1fr)_280px] px-4 xl:px-10">
 		<!-- Navigation -->
 		<aside class="hidden xl:block self-start sticky top-[70px] h-[calc(100vh-70px)] py-4 xl:py-10 !pb-96 overflow-y-auto" data-navigation>
 			<Navigation />
@@ -75,7 +75,7 @@ const urls = {
 				<!-- Breadcrumbs -->
 				<Breadcrumbs />
 				<h1 class="h1">{frontmatter.title ?? '(title)'}</h1>
-				<p class="type-scale-4 opacity-60">{frontmatter.description ?? '(description)'}</p>
+				<p class="text-lg opacity-60">{frontmatter.description ?? '(description)'}</p>
 			</header>
 			<!-- Chips -->
 			<ChipsBar {frontmatter} {urls} />
@@ -91,7 +91,12 @@ const urls = {
 		<!-- Sidebar -->
 		<aside class="hidden xl:block self-start sticky top-[70px] h-[calc(100vh-70px)] py-4 xl:py-10 space-y-8 overflow-y-auto">
 			<!-- Carbon Ads -->
-			<!-- <div class="card aspect-video flex justify-center items-center preset-tonal">(ad)</div> -->
+			<script
+				is:inline
+				async
+				type="text/javascript"
+				src="//cdn.carbonads.com/carbon.js?serve=CWYD627U&placement=carbonadsnet"
+				id="_carbonads_js"></script>
 			<!-- Table of Contents -->
 			<TableOfContents {headings} />
 			<!-- Promot -->
@@ -99,38 +104,3 @@ const urls = {
 		</aside>
 	</div>
 </LayoutRoot>
-
-<script>
-	(() => {
-		const key = 'toc-position';
-		let timeout = 0;
-		let position = { scrollTop: 0 };
-		const sidebar = document.querySelector('[data-navigation]');
-
-		if (sidebar) {
-			const data = sessionStorage.getItem(key);
-			if (data) {
-				try {
-					const obj = JSON.parse(data);
-					position = {
-						...position,
-						...obj
-					};
-					sidebar.scrollTop = position.scrollTop || 0;
-				} catch (err) {
-					// ...
-				}
-			}
-
-			sidebar.addEventListener('scroll', () => {
-				position.scrollTop = sidebar.scrollTop;
-				if (!timeout) {
-					timeout = window.setTimeout(() => {
-						sessionStorage.setItem(key, JSON.stringify(position));
-						timeout = 0;
-					}, 100);
-				}
-			});
-		}
-	})();
-</script>

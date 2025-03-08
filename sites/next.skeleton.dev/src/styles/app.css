@@ -1,35 +1,98 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/forms";
+
+@import '@skeletonlabs/skeleton';
+/* Optional */
+@import '@skeletonlabs/skeleton/optional/presets';
+/* Themes */
+@import '@skeletonlabs/skeleton/themes/catppuccin';
+@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton/themes/concord';
+@import '@skeletonlabs/skeleton/themes/crimson';
+@import '@skeletonlabs/skeleton/themes/fennec';
+@import '@skeletonlabs/skeleton/themes/hamlindigo';
+@import '@skeletonlabs/skeleton/themes/legacy';
+@import '@skeletonlabs/skeleton/themes/mint';
+@import '@skeletonlabs/skeleton/themes/modern';
+@import '@skeletonlabs/skeleton/themes/mona';
+@import '@skeletonlabs/skeleton/themes/nosh';
+@import '@skeletonlabs/skeleton/themes/nouveau';
+@import '@skeletonlabs/skeleton/themes/pine';
+@import '@skeletonlabs/skeleton/themes/reign';
+@import '@skeletonlabs/skeleton/themes/rocket';
+@import '@skeletonlabs/skeleton/themes/rose';
+@import '@skeletonlabs/skeleton/themes/sahara';
+@import '@skeletonlabs/skeleton/themes/seafoam';
+@import '@skeletonlabs/skeleton/themes/terminus';
+@import '@skeletonlabs/skeleton/themes/vintage';
+@import '@skeletonlabs/skeleton/themes/vox';
+@import '@skeletonlabs/skeleton/themes/wintry';
+
+@source '../../node_modules/@skeletonlabs/skeleton-react/dist';
+@source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
+
+/* Set Selector dark mode strategy */
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
 /* Global Styles */
 
 html {
 	scroll-behavior: smooth;
 }
 
-/* Local Utiilties --- */
+/* Local Utilities --- */
 
 .flex-centered {
-	@apply flex items-center justify-center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bg-noise {
+	background-image: url('../images/noise-light.png');
+	background-repeat: repeat;
+	background-blend-mode: overlay;
 }
 
 /* Astro Components --- */
 
 .astro-code {
-	@apply rounded-container p-4;
+	border-radius: var(--radius-container);
+	padding: --spacing(4);
 }
 
 /* Theme Enhancements --- */
 
-/* Background Gradient */
+/* Homepage Gradients */
+.gradient-homepage-one {
+	background-size: cover;
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 30%),
+		radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-success-500) 18%, transparent) 0px, transparent 30%),
+		radial-gradient(at 100% 64%, color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px, transparent 40%);
+}
+.gradient-homepage-two {
+	background-size: cover;
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 25% 40%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 35%),
+		radial-gradient(at 100% 58%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 35%);
+}
+
+/* Inner Page Gradient */
 /*
-[data-theme='jupiter']
-[data-theme='reign']
-[data-theme='terminus']
-[data-theme='vox']
-[data-theme='wumpus']
+[data-theme='concord'],
+[data-theme='reign'],
+[data-theme='terminus'],
+[data-theme='vox'],
 */
 [data-theme='catppuccin'],
 [data-theme='cerberus'],
 [data-theme='crimson'],
+[data-theme='fennec'],
 [data-theme='hamlindigo'],
+[data-theme='legacy'],
 [data-theme='mint'],
 [data-theme='modern'],
 [data-theme='nouveau'],
@@ -41,53 +104,33 @@ html {
 [data-theme='seafoam'],
 [data-theme='vintage'],
 [data-theme='wintry'] {
-	background-image: radial-gradient(at 20% 10%, rgba(var(--color-secondary-500) / 0.075) 0px, transparent 40%),
-		radial-gradient(at 75% 10%, rgba(var(--color-primary-500) / 0.075) 0px, transparent 50%);
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-[data-theme='legacy'] {
-	background-image: radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%),
-		radial-gradient(at 98% 1%, rgba(var(--color-error-500) / 0.33) 0px, transparent 50%);
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-/* Cards */
-.card-enhanced {
-	@apply card border border-surface-200-800;
-}
-[data-theme='catppuccin'] .card-enhanced,
-[data-theme='terminus'] .card-enhanced,
-[data-theme='vox'] .card-enhanced,
-[data-theme='rocket'] .card-enhanced {
-	@apply bg-surface-100/30 dark:bg-surface-900/30;
-}
-[data-theme='concord'] .card-enhanced,
-[data-theme='legacy'] .card-enhanced,
-[data-theme='mint'] .card-enhanced,
-[data-theme='vintage'] .card-enhanced {
-	@apply bg-surface-50/30 dark:bg-surface-950/30;
+	& body {
+		background-attachment: fixed;
+		/* prettier-ignore */
+		background-image:
+		radial-gradient(at 0% 25%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
+		radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 30%);
+	}
 }
 
 /* Filled Cards */
 .card-filled-enhanced {
-	@apply card preset-filled-primary-500;
+	border-radius: var(--radius-container);
+	background-color: var(--color-primary-500);
+	color: var(--color-primary-contrast-500);
 }
 
 /* Linker */
 /* Prominant link elements for MDX pages */
 
 .linker {
-	@apply card flex justify-center px-4 py-8 shadow;
-	@apply bg-gradient-to-br from-primary-500 to-primary-800 text-primary-contrast-500;
-}
-.linker-item {
-	@apply btn bg-surface-50 text-surface-950 shadow;
+	border-radius: var(--radius-container);
+	display: flex;
+	justify-content: center;
+	padding-inline: --spacing(4);
+	padding-block: --spacing(10);
+	background-color: var(--color-primary-500);
+	color: var(--color-primary-contrast-500);
 }
 
 /* Floating UI */
@@ -112,4 +155,32 @@ html {
 .floating[data-status='initial'],
 .floating[data-status='close'] {
 	opacity: 0;
+}
+
+/* Carbon Ad Styles */
+
+#carbonads {
+	background-color: var(--color-surface-50-950);
+	border-width: 1px;
+	border-color: var(--color-surface-200-800);
+}
+#carbonads .carbon-wrap {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: --spacing(3);
+}
+#carbonads .carbon-text {
+	font-size: 11px;
+	padding: --spacing(1);
+	text-decoration-line: none;
+	opacity: 0.75;
+}
+#carbonads .carbon-poweredby {
+	display: block;
+	background-color: var(--color-surface-100-900);
+	color: var(--color-surface-600-400);
+	font-size: 10px;
+	padding: --spacing(1);
+	text-align: right;
+	text-transform: uppercase;
 }

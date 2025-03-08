@@ -17,7 +17,7 @@ import ExampleMultipleRaw from '@examples/components/accordions/ExampleMultiple.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:load />
+		<Example client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleRaw} lang="tsx" />
@@ -28,7 +28,7 @@ import ExampleMultipleRaw from '@examples/components/accordions/ExampleMultiple.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleCollapsible client:load />
+		<ExampleCollapsible client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleCollapsibleRaw} lang="tsx" />
@@ -39,7 +39,7 @@ import ExampleMultipleRaw from '@examples/components/accordions/ExampleMultiple.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleMultiple client:load />
+		<ExampleMultiple client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleMultipleRaw} lang="tsx" />
@@ -62,7 +62,7 @@ const [value, setValue] = useState(['club']);
 </Accordion>
 ```
 
-### Harcoded
+### Hardcoded
 
 ```tsx
 <Accordion value={['club']}>...</Accordion>
@@ -72,7 +72,7 @@ const [value, setValue] = useState(['club']);
 
 Use `multiple` to enable multiple items to be opened at once.
 
-```html
+```tsx
 <Accordion multiple>...</Accordion>
 ```
 
@@ -92,6 +92,19 @@ import { Plus, Minus, Heart } from 'lucide-react';
 <Accordion.Control lead={<Heart size={24} />}>Heart</Accordion.Control>
 ```
 
+## Anatomy
+
+<Anatomy label="Accordion" isComponent>
+	<Anatomy label="Accordion.Item" isComponent>
+		<Anatomy label="Accordion.Control" tag="button" isComponent>
+			<Anatomy label="lead" />
+			<Anatomy label="content" />
+			<Anatomy label="indicator" />
+		</Anatomy>
+		<Anatomy label="Accordion.Panel" isComponent />
+	</Anatomy>
+</Anatomy>
+
 ## API Reference
 
-<ApiTable   />
+<ApiTable />

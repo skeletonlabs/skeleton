@@ -1,5 +1,75 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.1-next.19
+
+### Patch Changes
+
+- bugfix: Add `@source` when component library is present ([#3262](https://github.com/skeletonlabs/skeleton/pull/3262))
+
+- bugfix: Theme import is correctly migrated ([#3253](https://github.com/skeletonlabs/skeleton/pull/3253))
+
+## 0.0.1-next.18
+
+### Patch Changes
+
+- Feature (migrate/skeleton-3): Tailwind V4 support. ([#3231](https://github.com/skeletonlabs/skeleton/pull/3231))
+
+- Feature (migrate/skeleton-3): Skeleton classes `@apply` rules in stylesheets (.{css,pcss,postcss}, <style></style>) are now transformed. ([#3231](https://github.com/skeletonlabs/skeleton/pull/3231))
+
+## 0.0.1-next.17
+
+### Patch Changes
+
+- Feature (migrate/skeleton-3): Installing dependencies shows actual spinner. ([#3150](https://github.com/skeletonlabs/skeleton/pull/3150))
+
+## 0.0.1-next.16
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Perserve non-skeleton imports and identifiers. ([#3148](https://github.com/skeletonlabs/skeleton/pull/3148))
+
+## 0.0.1-next.15
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Export mappings are safely accessed. ([#3146](https://github.com/skeletonlabs/skeleton/pull/3146))
+
+## 0.0.1-next.14
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Correctly handle conflicting renames/imports. ([#3144](https://github.com/skeletonlabs/skeleton/pull/3144))
+
+## 0.0.1-next.13
+
+### Patch Changes
+
+- Feature (migrate/skeleton-3): All removed and renamed exports are now migrated. ([#3139](https://github.com/skeletonlabs/skeleton/pull/3139))
+
+## 0.0.1-next.12
+
+### Patch Changes
+
+- Chore (migrate/skeleton-3): Simpler method of preserving quotes in Svelte template. ([#3132](https://github.com/skeletonlabs/skeleton/pull/3132))
+
+## 0.0.1-next.11
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Special characters like `\n`, `\t`, etc. are no longer literally interpreted. ([#3130](https://github.com/skeletonlabs/skeleton/pull/3130))
+
+## 0.0.1-next.10
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Switch from `property in object` to `Object.hasOwn` so inherited properties aren't included. ([#3127](https://github.com/skeletonlabs/skeleton/pull/3127))
+
+## 0.0.1-next.9
+
+### Patch Changes
+
+- Bugfix (migrate/skeleton-3): Partially reverts the previous change to `hasRange` and checks for empty strings instead as it's more consistent in the cases where we're preserving quotes. ([#3125](https://github.com/skeletonlabs/skeleton/pull/3125))
+
 ## 0.0.1-next.8
 
 ### Patch Changes

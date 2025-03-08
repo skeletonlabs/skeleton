@@ -4,4 +4,4 @@
 	let valueMulti = $state([40, 60]);
 </script>
 
-<Slider bind:value={valueMulti} />
+<Slider value={valueMulti} onValueChange={(e) => (valueMulti = e.value)} />

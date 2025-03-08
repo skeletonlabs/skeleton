@@ -1,0 +1,14 @@
+{
+	"name": "@skeletonlabs/skeleton-common",
+	"version": "0.0.1",
+	"private": true,
+	"types": "./src/index.ts",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"devDependencies": {
+		"@skeletonlabs/skeleton": "workspace:*",
+		"typescript": "catalog:"
+	},
+	"type": "module"
+}

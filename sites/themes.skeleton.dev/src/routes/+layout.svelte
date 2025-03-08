@@ -2,16 +2,18 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-	import '../app.pcss';
+	import '../app.css';
 
 	let { children } = $props();
 
 	$effect(() => {
 		// Sets <body data-theme> based on active route
 		// Prevents generator CSS property precedence issues.
-		$page.url.pathname === '/themes/create'
-			? document.body.setAttribute('data-theme', 'generated')
-			: document.body.setAttribute('data-theme', 'cerberus');
+		if ($page.url.pathname === '/themes/create') {
+			document.documentElement.setAttribute('data-theme', 'generated');
+		} else {
+			document.documentElement.setAttribute('data-theme', ''); // cerberus
+		}
 	});
 </script>
 

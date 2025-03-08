@@ -59,11 +59,11 @@ const BACKGROUND_REGEXES = [
 const BORDER_RADIUS_REGEXES = [
 	{
 		find: /rounded-token\b/g,
-		replace: 'rounded'
+		replace: 'rounded-base'
 	},
 	{
 		find: /rounded-(tl|tr|bl|br)-token\b/g,
-		replace: 'rounded-$1'
+		replace: 'rounded-$1-base'
 	},
 	{
 		find: /rounded-container-token\b/g,

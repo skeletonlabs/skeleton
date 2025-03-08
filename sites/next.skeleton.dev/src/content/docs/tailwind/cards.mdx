@@ -2,7 +2,7 @@
 layout: '@layouts/LayoutDoc.astro'
 title: Cards
 description: Provides container elements that wrap and separate content.
-srcCore: '/plugin/components/cards.css'
+srcCore: '/utilities/cards.css'
 showDocsUrl: true
 ---
 
@@ -22,8 +22,6 @@ import ExampleDetailedRaw from '@examples/tailwind/cards/ExampleDetailed.astro?r
 	</Fragment>
 </Preview>
 
-## Fancy
-
 <Preview client:load>
 	<Fragment slot="preview">
 		<ExampleDetailed />
@@ -32,3 +30,37 @@ import ExampleDetailedRaw from '@examples/tailwind/cards/ExampleDetailed.astro?r
 		<Code code={ExampleDetailedRaw} lang="astro" />
 	</Fragment>
 </Preview>
+
+## Presets
+
+<div class="space-y-4">
+	<div class="grid grid-cols-3 gap-4">
+		<div class="card p-4 preset-filled-primary-500">Card</div>
+		<div class="card p-4 preset-tonal-primary">Card</div>
+		<div class="card p-4 preset-outlined-primary-500">Card</div>
+		{/* --- */}
+		<div class="card p-4 preset-filled-secondary-500">Card</div>
+		<div class="card p-4 preset-tonal-secondary">Card</div>
+		<div class="card p-4 preset-outlined-secondary-500">Card</div>
+		{/* --- */}
+		<div class="card p-4 preset-filled-tertiary-500">Card</div>
+		<div class="card p-4 preset-tonal-tertiary">Card</div>
+		<div class="card p-4 preset-outlined-tertiary-500">Card</div>
+		{/* --- */}
+		<div class="card p-4 preset-filled-success-500">Card</div>
+		<div class="card p-4 preset-tonal-success">Card</div>
+		<div class="card p-4 preset-outlined-success-500">Card</div>
+		{/* --- */}
+		<div class="card p-4 preset-filled-warning-500">Card</div>
+		<div class="card p-4 preset-tonal-warning">Card</div>
+		<div class="card p-4 preset-outlined-warning-500">Card</div>
+		{/* --- */}
+		<div class="card p-4 preset-filled-error-500">Card</div>
+		<div class="card p-4 preset-tonal-error">Card</div>
+		<div class="card p-4 preset-outlined-error-500">Card</div>
+		{/* --- */}
+		<div class="card p-4 preset-filled-surface-500">Card</div>
+		<div class="card p-4 preset-tonal-surface">Card</div>
+		<div class="card p-4 preset-outlined-surface-500">Card</div>
+	</div>
+</div>

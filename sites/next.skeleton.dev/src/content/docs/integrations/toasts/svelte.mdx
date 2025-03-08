@@ -10,7 +10,10 @@ import ExamplePageContentRaw from '@examples/integrations/toasts/ExamplePageCont
 import schema from '@content/schemas/svelte/toast.json';
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>This feature is currently available as an early access <code class="code">Beta</code> preview, meaning the features and API are not yet stable. This feature is not yet recommended for production use as breaking changes may occur. Please use this feature with caution.</p>
+	<p>
+		This feature is currently available as an early access <code class="code">Beta</code> preview, meaning the features and API are not yet
+		stable. This feature is not yet recommended for production use as breaking changes may occur. Please use this feature with caution.
+	</p>
 </div>
 
 ## Setup the Provider
@@ -33,12 +36,24 @@ There are three available types of toasts: `info | error | success`, with `info`
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleProvider client:load />
+		<ExampleProvider client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExamplePageContentRaw} lang="svelte" title="+page.svelte" />
 	</Fragment>
 </Preview>
+
+## Anatomy
+
+<Anatomy label="ToastProvider" isComponent>
+	<Anatomy label="toast">
+		<Anatomy label="message">
+			<Anatomy label="messageTitle" />
+			<Anatomy label="messageDescription" />
+		</Anatomy>
+		<Anatomy label="buttonDismiss" element="button" />
+	</Anatomy>
+</Anatomy>
 
 ## API Reference
 

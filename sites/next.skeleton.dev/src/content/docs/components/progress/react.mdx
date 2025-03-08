@@ -20,7 +20,7 @@ import ExampleNativeRaw from '@examples/components/progress/ExampleNative.astro?
 <Preview client:load>
 	<Fragment slot="preview">
 		<div className="size-full">
-			<Example client:load />
+			<Example client:visible />
 		</div>
 	</Fragment>
 	<Fragment slot="code">
@@ -34,7 +34,7 @@ Set the color using the `meterBg` prop.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleColors client:load />
+		<ExampleColors client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleColorsRaw} lang="tsx" />
@@ -47,7 +47,7 @@ Set the height using the `height` prop.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleHeight client:load />
+		<ExampleHeight client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleHeightRaw} lang="tsx" />
@@ -60,7 +60,7 @@ An indeterminate animation will be shown when the value is set to `null`.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleIndeterminate client:load />
+		<ExampleIndeterminate client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleIndeterminateRaw} lang="tsx" />
@@ -73,7 +73,7 @@ A custom indeterminate animation can be set by providing an animation class to t
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleCustomAnimation client:load />
+		<ExampleCustomAnimation client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleCustomAnimationRaw} lang="tsx" />
@@ -95,6 +95,15 @@ A native [progress](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pr
 	</Fragment>
 </Preview>
 
+## Anatomy
+
+<Anatomy label="Progress" tag="figure" isComponent>
+	<Anatomy label="label" />
+	<Anatomy label="track">
+		<Anatomy label="meter" />
+	</Anatomy>
+</Anatomy>
+
 ## API Reference
 
-<ApiTable   />
+<ApiTable />

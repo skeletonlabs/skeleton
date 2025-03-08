@@ -4,9 +4,9 @@
 	import IconDelete from 'lucide-svelte/icons/circle-x';
 
 	// State
-	let flavors = $state(['Vanilla', 'Chocolate', 'Stawberry']);
+	let flavors = $state(['Vanilla', 'Chocolate', 'Strawberry']);
 </script>
 
-<TagsInput bind:value={flavors} placeholder="Add Tag...">
+<TagsInput value={flavors} onValueChange={(e) => (flavors = e.value)} placeholder="Add Tag...">
 	{#snippet buttonDelete()}<IconDelete class="size-4" />{/snippet}
 </TagsInput>

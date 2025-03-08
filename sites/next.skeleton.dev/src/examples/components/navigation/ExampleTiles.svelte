@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 	import IconBox from 'lucide-svelte/icons/box';
-
-	let hrefExample = '#';
 </script>
 
 <div class="card preset-filled-surface-100-900 grid grid-cols-3 gap-5 p-5">
@@ -15,7 +13,7 @@
 		<IconBox />
 	</Navigation.Tile>
 	<!-- When adding an href, they are converted to anchors -->
-	<Navigation.Tile id="0" label="Anchor" href={hrefExample}>
+	<Navigation.Tile label="Anchor" href="#">
 		<IconBox />
 	</Navigation.Tile>
 </div>

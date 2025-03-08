@@ -1,7 +1,5 @@
 ---
 import { Menu as IconMenu, X as IconClose } from 'lucide-react';
-import ThemeSwitch from './ThemeSwitch.astro';
-import Lightswitch from './Lightswitch.astro';
 
 interface DrawerProps {
 	navigation?: {
@@ -29,11 +27,6 @@ const {
 			<IconClose />
 		</button>
 	</header>
-	<!-- Theme / Lightswitch -->
-	<div class="grid grid-cols-[1fr_auto] gap-4 items-center">
-		<ThemeSwitch />
-		<Lightswitch />
-	</div>
 	<!-- Navigation -->
 	<nav class="flex flex-col gap-2">
 		<span class="font-bold capitalize">Navigate</span>
@@ -55,16 +48,21 @@ const {
 	<IconMenu />
 </button>
 
-<script is:inline>
-	const elemDrawer = document.querySelector('#drawer');
-	const elemTriggersList = document.querySelectorAll('[data-drawer-toggle], #drawer a');
-
-	// For each toggleable element
-	elemTriggersList.forEach((elem) => {
-		// Add a click listener
-		elem?.addEventListener('click', () => {
-			// Toggle the translation-x class
-			elemDrawer?.classList.toggle('-translate-x-[320px]');
+<script>
+	function initializeEventHandlers() {
+		const triggers = document.querySelectorAll('[data-drawer-toggle], #drawer a');
+		triggers.forEach((elem) => {
+			elem.addEventListener('click', () => {
+				const drawer = document.querySelector('#drawer');
+				if (!(drawer instanceof HTMLElement)) {
+					return;
+				}
+				drawer.classList.toggle('-translate-x-[320px]');
+			});
 		});
+	}
+	initializeEventHandlers();
+	document.addEventListener('astro:after-swap', () => {
+		initializeEventHandlers();
 	});
 </script>

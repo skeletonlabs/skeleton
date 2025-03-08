@@ -129,10 +129,7 @@
 					<!-- Color Ramp -->
 					{#each color.ramp as shade}
 						<div class={`${shade.base} `}>
-							<span
-								class="flex items-center justify-center py-2 font-bold type-scale-1 {shade.contrast}"
-								class:underline={shade.value === 500}
-							>
+							<span class="flex items-center justify-center py-2 font-bold text-xs {shade.contrast}" class:underline={shade.value === 500}>
 								{shade.value}
 							</span>
 						</div>
@@ -184,37 +181,37 @@
 	<section class="space-y-5">
 		<h2 class="h4">Outlined</h2>
 		<div class="w-full grid grid-cols-11 gap-4">
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-950-50">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-950-50">
 				<IconCenter size={32} />
 			</div>
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-900-100">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-900-100">
 				<IconCenter size={32} />
 			</div>
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-800-200">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-800-200">
 				<IconCenter size={32} />
 			</div>
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-700-300">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-700-300">
 				<IconCenter size={32} />
 			</div>
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-600-400">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-600-400">
 				<IconCenter size={32} />
 			</div>
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-500">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-500">
 				<IconCenter size={32} />
 			</div>
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-400-600">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-400-600">
 				<IconCenter size={32} />
 			</div>
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-300-700">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-300-700">
 				<IconCenter size={32} />
 			</div>
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-200-800">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-200-800">
 				<IconCenter size={32} />
 			</div>
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-100-900">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-100-900">
 				<IconCenter size={32} />
 			</div>
-			<div class="aspect-square rounded-full flex justify-center items-center !ring-[1px] preset-outlined-primary-50-950">
+			<div class="aspect-square rounded-full flex justify-center items-center preset-outlined-primary-50-950">
 				<IconCenter size={32} />
 			</div>
 		</div>

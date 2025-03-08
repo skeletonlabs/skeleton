@@ -14,7 +14,7 @@ export const Page: React.FC = () => {
 				<IconBox />
 			</Navigation.Tile>
 			{/* When adding an href, they are converted to anchors */}
-			<Navigation.Tile id="0" label="Anchor" href="#">
+			<Navigation.Tile label="Anchor" href="#">
 				<IconBox />
 			</Navigation.Tile>
 		</div>

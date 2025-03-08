@@ -26,8 +26,12 @@ import ExampleRaw from '@examples/guides/cookbook/table-of-contents/Example.astr
 Browsers allow you to deep link to any element via the ID. This is accomplished with an anchor tag and hashed (`#`) href value. When interacting with these anchors, the viewport will automatically attempt to scroll the `<body>` element and bring the element into view.
 
 ```html
-<h2 class="#some-example-slug">Some Example Heading<h2>
+<h2 class="#some-example-slug">
+	Some Example Heading
+	<h2></h2>
+</h2>
 ```
+
 ```html
 <a href="#real-world-example" class="anchor">Some Example Heading</a>
 ```
@@ -39,10 +43,13 @@ Browsers allow you to deep link to any element via the ID. This is accomplished 
 You may optionally choose to implement a smooth [scroll behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) using CSS.
 
 ```html
-<body class="smooth-scroll">
+<body class="smooth-scroll"></body>
 ```
+
 ```css
-body { scroll-behavior: smooth; }
+body {
+	scroll-behavior: smooth;
+}
 ```
 
 ## Generate a Slug

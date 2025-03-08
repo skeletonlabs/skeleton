@@ -50,10 +50,10 @@ const generatedArray = Array.from({ length: 6 });
 
 <script>
 	// Query Element References
-	let elemCarousel: HTMLDivElement | null = document.querySelector('[data-carousel]');
-	let elemCarouselLeft: HTMLButtonElement | null = document.querySelector('[data-carousel-left]');
-	let elemCarouselRight: HTMLButtonElement | null = document.querySelector('[data-carousel-right]');
-	let elemThumbnails: NodeListOf<HTMLElement> = document.querySelectorAll('[data-thumbnail]');
+	const elemCarousel: HTMLDivElement | null = document.querySelector('[data-carousel]');
+	const elemCarouselLeft: HTMLButtonElement | null = document.querySelector('[data-carousel-left]');
+	const elemCarouselRight: HTMLButtonElement | null = document.querySelector('[data-carousel-right]');
+	const elemThumbnails: NodeListOf<HTMLElement> = document.querySelectorAll('[data-thumbnail]');
 
 	// Set Left/Right arrow click handlers
 	elemCarouselLeft?.addEventListener('click', () => carouselLeft());

@@ -1,12 +1,12 @@
-import { transformClasses } from './transform-classes.js';
-import { COMPONENT_MAPPINGS } from '../utility/component-mappings';
-import { REMOVED_COMPONENTS } from '../utility/removed-components';
+import { transformClasses } from './transform-classes';
 import { Node } from 'ts-morph';
 import { addNamedImport } from '../../../../../utility/ts-morph/add-named-import';
 import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file';
+import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 
 function transformModule(code: string) {
 	const file = parseSourceFile(code);
+	const skeletonImports: string[] = [];
 	file.forEachDescendant((node) => {
 		if (Node.isImportDeclaration(node)) {
 			const moduleSpecifier = node.getModuleSpecifier();
@@ -14,38 +14,56 @@ function transformModule(code: string) {
 				node.setModuleSpecifier('@skeletonlabs/skeleton-svelte');
 			}
 		}
-		if (Node.isImportSpecifier(node)) {
+		if (
+			Node.isImportSpecifier(node) &&
+			node.getImportDeclaration().getModuleSpecifier().getLiteralText() === '@skeletonlabs/skeleton-svelte'
+		) {
 			const name = node.getName();
-			if (name in COMPONENT_MAPPINGS) {
-				node.remove();
-				addNamedImport(file, '@skeletonlabs/skeleton-svelte', COMPONENT_MAPPINGS[name]);
+			if (Object.hasOwn(EXPORT_MAPPINGS, name)) {
+				const exportMapping = EXPORT_MAPPINGS[name];
+				switch (exportMapping.namedImport.type) {
+					case 'renamed': {
+						if (exportMapping.namedImport.value.match(/^[A-Za-z]+\.[A-Za-z]+$/)) {
+							break;
+						}
+						node.remove();
+						addNamedImport(file, '@skeletonlabs/skeleton-svelte', exportMapping.namedImport.value);
+						break;
+					}
+					case 'removed': {
+						const parent = node.getImportDeclaration();
+						if (parent.getNamedImports().length === 1 && !parent.getDefaultImport() && !parent.getNamespaceImport()) {
+							parent.remove();
+						} else {
+							node.remove();
+						}
+						break;
+					}
+				}
+				skeletonImports.push(name);
 			}
-			if (REMOVED_COMPONENTS.includes(name)) {
-				const parent = node.getParent().getParent().getParent();
-				if (
-					Node.isImportDeclaration(parent) &&
-					parent.getNamedImports().length === 1 &&
-					!parent.getDefaultImport() &&
-					!parent.getNamespaceImport()
-				) {
-					parent.remove();
-				} else {
-					node.remove();
+		}
+	});
+	file.forEachDescendant((node) => {
+		if (!node.wasForgotten() && Node.isIdentifier(node) && !Node.isImportSpecifier(node.getParent())) {
+			const name = node.getText();
+			if (Object.hasOwn(EXPORT_MAPPINGS, name) && skeletonImports.includes(name)) {
+				const exportMapping = EXPORT_MAPPINGS[name];
+				if (exportMapping.identifier.type === 'renamed') {
+					node.replaceWithText(exportMapping.identifier.value);
 				}
 			}
 		}
-		if (!node.wasForgotten() && Node.isIdentifier(node)) {
-			const name = node.getText();
-			if (name in COMPONENT_MAPPINGS) {
-				node.replaceWithText(COMPONENT_MAPPINGS[name]);
-			}
-		}
 		if (!node.wasForgotten() && Node.isStringLiteral(node) && !Node.isImportDeclaration(node.getParent())) {
-			node.setLiteralValue(transformClasses(node.getLiteralValue()).code);
+			node.replaceWithText(transformClasses(node.getText()).code);
 		}
 	});
+
 	return {
-		code: file.getFullText()
+		code: file.getFullText(),
+		meta: {
+			skeletonImports: skeletonImports
+		}
 	};
 }
 

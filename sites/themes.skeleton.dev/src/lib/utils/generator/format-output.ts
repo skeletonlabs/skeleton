@@ -4,6 +4,15 @@
 import chroma from 'chroma-js';
 import type { SettingsCore, SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from '$lib/state/types';
 
+/** UTIL: Format from JS Object to CSS properties format. */
+function objectToCssProperties(obj: Record<string, unknown>) {
+	let css = '';
+	Object.entries(obj).forEach(([key, value]) => (css += `\t${key}: ${value};\n`));
+	return `\t${css.trim()}`;
+}
+
+// ---
+
 export function formatCore(core: SettingsCore) {
 	const _core = JSON.parse(JSON.stringify(core));
 	// Strip all special characters from theme name
@@ -15,32 +24,28 @@ export function formatCore(core: SettingsCore) {
 
 export function formatTypography(typography: SettingsTypography) {
 	const _typography = JSON.parse(JSON.stringify(typography));
-	return _typography;
+	return objectToCssProperties(_typography);
 }
 
 export function formatSpacing(spacing: SettingsSpacing) {
 	const _spacing = JSON.parse(JSON.stringify(spacing));
-	_spacing['--space-scale-factor'] = String(_spacing['--space-scale-factor']);
-	return _spacing;
+	return objectToCssProperties(_spacing);
 }
 
 export function formageEdges(edges: SettingsEdges) {
 	const _edges = JSON.parse(JSON.stringify(edges));
-	Object.keys(_edges).forEach((key) => {
-		if (typeof _edges[key] === 'number') _edges[key] = String(_edges[key] + 'px');
-	});
-	return _edges;
+	return objectToCssProperties(_edges);
 }
 
 export function formatBackgrounds(backgrounds: SettingsBackgrounds) {
 	const _backgrounds = JSON.parse(JSON.stringify(backgrounds));
-	return _backgrounds;
+	return objectToCssProperties(_backgrounds);
 }
 
 export function formatColors(colors: Record<string, string>) {
 	const _colors = JSON.parse(JSON.stringify(colors));
 	Object.keys(_colors).forEach((key) => {
-		if (_colors[key].includes('#')) _colors[key] = chroma(_colors[key]).rgb().join(' ');
+		if (_colors[key].includes('#')) _colors[key] = chroma(_colors[key]).css('oklch');
 	});
-	return _colors;
+	return objectToCssProperties(_colors);
 }

@@ -24,77 +24,14 @@ import schemaModal from '@content/schemas/svelte/modal.json';
 ## Floating UI Svelte
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>Please note this section will be the future home of the [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) integrateion guide, an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this project is in development, we have provided several Svelte-specific components to act as temporary substitutions. Note that these components will remain available until our next major release (Skeleton v4.x). However, the goal will be to replace these with Floating UI Svelte as soon as possible.</p>
+	<p>
+		Please note this section will be the future home of the [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) integrateion guide,
+		an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this
+		project is in development, we have provided several Svelte-specific components to act as temporary substitutions. Note that these
+		components will remain available until our next major release (Skeleton v4.x). However, the goal will be to replace these with Floating
+		UI Svelte as soon as possible.
+	</p>
 </div>
-
-## Components
-
-### Popover
-
-Triggers an anchored popover when you <u>click</u> the trigger element. [View API Reference](https://zagjs.com/components/react/popover#methods-and-properties).
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExamplePopover client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<div class="space-y-4">
-			<Code code={ExamplePopoverRaw} lang="svelte" />
-			<Code code={PostioningOptions} lang="ts" />
-		</div>
-	</Fragment>
-</Preview>
-
-### Tooltip
-
-Triggers an anchored popover when you <u>hover</u> the trigger element. [View API Reference](https://zagjs.com/components/react/tooltip#methods-and-properties).
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleTooltip client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<div class="space-y-4">
-			<Code code={ExampleTooltipRaw} lang="svelte" />
-			<Code code={PostioningOptions} lang="ts" />
-		</div>
-	</Fragment>
-</Preview>
-
-### Combobox
-
-Triggers an anchored popover list when you tap the arrow. Includes auto-suggestion via typeahead. [View API Reference](https://zagjs.com/components/react/combobox#methods-and-properties).
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleCombobox client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleComboboxRaw} lang="svelte" />
-	</Fragment>
-</Preview>
-
-### Modal
-
-Generate modals or dialogs that require a user's immediate attention. [View API Reference](https://zagjs.com/components/react/dialog#methods-and-properties).
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleModal client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleModalRaw} lang="svelte" />
-	</Fragment>
-</Preview>
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleModalDrawer client:load />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleModalDrawerRaw} lang="svelte" />
-	</Fragment>
-</Preview>
 
 ## Z-Index
 
@@ -106,17 +43,142 @@ Skeleton does not take an opinionated stance regarding z-index stacking. This me
 </Popover>
 ```
 
+## Popover
+
+Triggers an anchored popover when you <u>click</u> the trigger element. [View API Reference](https://zagjs.com/components/react/popover#methods-and-properties).
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExamplePopover client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<div class="space-y-4">
+			<Code code={ExamplePopoverRaw} lang="svelte" />
+			<Code code={PostioningOptions} lang="ts" />
+		</div>
+	</Fragment>
+</Preview>
+
+### Anatomy
+
+<Anatomy label="Popover" element="span" isComponent>
+	<Anatomy label="trigger" element="button" />
+	<Anatomy label="positioner">
+		<Anatomy label="arrow" />
+		<Anatomy label="content" />
+	</Anatomy>
+</Anatomy>
+
+### API Reference
+
+<ApiTable schema={schemaPopover} />
+
+## Tooltip
+
+Triggers an anchored popover when you <u>hover</u> the trigger element. [View API Reference](https://zagjs.com/components/react/tooltip#methods-and-properties).
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleTooltip client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<div class="space-y-4">
+			<Code code={ExampleTooltipRaw} lang="svelte" />
+			<Code code={PostioningOptions} lang="ts" />
+		</div>
+	</Fragment>
+</Preview>
+
+### Anatomy
+
+<Anatomy label="Tooltip" element="span" isComponent>
+	<Anatomy label="trigger" element="button" />
+	<Anatomy label="positioner">
+		<Anatomy label="arrow" />
+		<Anatomy label="content" />
+	</Anatomy>
+</Anatomy>
+
+### API Reference
+
+<ApiTable schema={schemaTooltip} />
+
+## Combobox
+
+Triggers an anchored popover list when you tap the arrow. Includes auto-suggestion via typeahead. [View API Reference](https://zagjs.com/components/react/combobox#methods-and-properties).
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCombobox client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleComboboxRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+### Anatomy
+
+<Anatomy label="Combobox" element="span" isComponent>
+	<Anatomy label="label">
+		<Anatomy label="labelText" element="span" />
+		<Anatomy label="inputGroup">
+			<Anatomy label="inputGroupInput" element="input" />
+			<Anatomy label="inputGroupButton" element="button">
+				<Anatomy label="inputGroupArrow" element="svg" />
+			</Anatomy>
+		</Anatomy>
+	</Anatomy>
+	<Anatomy label="positioner">
+		<Anatomy label="content" element="nav">
+			<Anatomy label="option" element="button" />
+		</Anatomy>
+	</Anatomy>
+</Anatomy>
+
+### API Reference
+
+<ApiTable schema={schemaCombobox} />
+
+## Modal
+
+Generate modals or dialogs that require a user's immediate attention. [View API Reference](https://zagjs.com/components/react/dialog#methods-and-properties).
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleModal client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleModalRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleModalDrawer client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleModalDrawerRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+### Anatomy
+
+<Anatomy label="Modal" element="span" isComponent>
+	<Anatomy label="trigger" element="button" />
+	<Anatomy label="backdrop" />
+	<Anatomy label="positioner">
+		<Anatomy label="content" />
+	</Anatomy>
+</Anatomy>
+
+### API Reference
+
+<ApiTable schema={schemaModal} />
+
 ## Native Browser APIs
 
 Skeleton will always favor native browser APIs over third-party libraries such as Floating UI Svelte. The following is a list of current and upcoming incoming APIs we will aim to support in the future, but are not quite standardized cross-browser yet.
 
-* [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
-* [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
-* [CSS Anchoring Position](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning)
-
-## API Reference
-
-<ApiTable schema={schemaPopover} />
-<ApiTable schema={schemaTooltip} />
-<ApiTable schema={schemaCombobox} />
-<ApiTable schema={schemaModal} />
+- [Dialog Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
+- [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
+- [CSS Anchoring Position](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning)

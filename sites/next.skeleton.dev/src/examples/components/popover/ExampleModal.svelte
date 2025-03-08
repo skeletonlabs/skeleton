@@ -9,7 +9,8 @@
 </script>
 
 <Modal
-	bind:open={openState}
+	open={openState}
+	onOpenChange={(e) => (openState = e.open)}
 	triggerBase="btn preset-tonal"
 	contentBase="card bg-surface-100-900 p-4 space-y-4 shadow-xl max-w-screen-sm"
 	backdropClasses="backdrop-blur-sm"

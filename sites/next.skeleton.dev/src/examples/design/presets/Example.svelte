@@ -16,7 +16,7 @@
 	</div>
 	<!-- 3. Outlined -->
 	<div class="flex flex-col items-center gap-4">
-		<button type="button" class="btn preset-outlined-primary-500">Tonal</button>
+		<button type="button" class="btn preset-outlined-primary-500">Outlined</button>
 		<div class={diagramCircle}>3</div>
 	</div>
 	<!-- 4. Elevated -->
@@ -46,6 +46,7 @@
 <style lang="postcss">
 	/* Create a custom preset in your global stylesheet */
 	.preset-gradient {
-		@apply bg-gradient-to-br from-secondary-500 to-tertiary-500 text-white;
+		background-image: linear-gradient(45deg, var(--color-secondary-500), var(--color-tertiary-500));
+		color: var(--color-primary-contrast-500);
 	}
 </style>

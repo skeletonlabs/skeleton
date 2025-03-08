@@ -1,0 +1,38 @@
+<script>
+    import { Accordion, Navigation, FileUpload, TagsInput, Pagination, Progress, ProgressRing, Segment, Slider, Rating, Switch, Tabs, ToastProvider } from "@skeletonlabs/skeleton-svelte";
+</script>
+
+<Accordion.Item />
+<Accordion.Item></Accordion.Item>
+<Navigation />
+<Navigation></Navigation>
+<Navigation.Tile />
+<Navigation.Tile></Navigation.Tile>
+<FileUpload />
+<FileUpload></FileUpload>
+<FileUpload />
+<FileUpload></FileUpload>
+<TagsInput />
+<TagsInput></TagsInput>
+<Pagination />
+<Pagination></Pagination>
+<Progress />
+<Progress></Progress>
+<ProgressRing />
+<ProgressRing></ProgressRing>
+<Segment />
+<Segment></Segment>
+<Segment.Item />
+<Segment.Item></Segment.Item>
+<Slider />
+<Slider></Slider>
+<Rating />
+<Rating></Rating>
+<Switch />
+<Switch></Switch>
+<Tabs />
+<Tabs></Tabs>
+<Tabs.Control />
+<Tabs.Control></Tabs.Control>
+<ToastProvider />
+<ToastProvider></ToastProvider>

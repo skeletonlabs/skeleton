@@ -10,7 +10,7 @@
 
 <!--
 Tips for Drawer modals:
-- Use `contentBase` to set styles, incuding height/width
+- Use `contentBase` to set styles, including height/width
 - Set justify-start to align to the left
 - Clear the align and padding styles
 - Use `positionerClasses` to set the
@@ -18,7 +18,8 @@ Tips for Drawer modals:
 -->
 
 <Modal
-	bind:open={drawerState}
+	open={drawerState}
+	onOpenChange={(e) => (drawerState = e.open)}
 	triggerBase="btn preset-tonal"
 	contentBase="bg-surface-100-900 p-4 space-y-4 shadow-xl w-[480px] h-screen"
 	positionerJustify="justify-start"

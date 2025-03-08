@@ -6,6 +6,6 @@
 </script>
 
 <section class="w-full space-y-8">
-	<Slider bind:value dir="rtl" />
-	<Slider bind:value={valueMulti} dir="rtl" />
+	<Slider {value} onValueChange={(e) => (value = e.value)} dir="rtl" />
+	<Slider value={valueMulti} onValueChange={(e) => (valueMulti = e.value)} dir="rtl" />
 </section>

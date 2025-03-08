@@ -10,7 +10,7 @@
 <!-- Live Preview CSS -->
 <svelte:head>
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html `\<style\>${generatePreviewCss()}\</style\>`}
+	{@html `<style>${generatePreviewCss()}</style>`}
 </svelte:head>
 
 <!-- Warning: Mobile Not Supported -->

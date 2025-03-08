@@ -1,5 +1,25 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.16
+
+### Minor Changes
+
+- feat: Zag 1.0 ([#3257](https://github.com/skeletonlabs/skeleton/pull/3257))
+
+## 1.0.0-next.15
+
+### Minor Changes
+
+- feat: Navigation - manually handle `selected` state of NavTile ([#3228](https://github.com/skeletonlabs/skeleton/pull/3228))
+
+## 1.0.0-next.14
+
+### Patch Changes
+
+- bugfix: Make use of `useId` on Navigation component to set default `id` for Tiles if user had not defined it explicitly ([#3097](https://github.com/skeletonlabs/skeleton/pull/3097))
+
+- Implement `style` prop for Avatar component. ([#3117](https://github.com/skeletonlabs/skeleton/pull/3117))
+
 ## 1.0.0-next.13
 
 ### Patch Changes
@@ -50,7 +70,7 @@
 
 ### Patch Changes
 
-- chore: Standarize use of Use Client directive in all components. ([#2927](https://github.com/skeletonlabs/skeleton/pull/2927))
+- chore: Standardize use of Use Client directive in all components. ([#2927](https://github.com/skeletonlabs/skeleton/pull/2927))
 
 ## 1.0.0-next.8
 

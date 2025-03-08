@@ -10,7 +10,7 @@ export const Page: React.FC = () => {
 			name="icons"
 			controlActive="bg-secondary-500"
 			checked={icons}
-			onCheckedChange={setIcons}
+			onCheckedChange={(e) => setIcons(e.checked)}
 			inactiveChild={<IconX size="14" />}
 			activeChild={<IconCheck size="14" />}
 		/>

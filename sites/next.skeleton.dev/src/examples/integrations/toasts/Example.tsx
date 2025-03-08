@@ -6,7 +6,7 @@ import toast, { Toaster, type Toast } from 'react-hot-toast';
 export const ToastInfo: React.FC = () => {
 	return (
 		<div className="card preset-filled py-2 px-3 shadow-xl">
-			<p className="type-scale-1">Hello World! 👋</p>
+			<p className="text-xs">Hello World! 👋</p>
 		</div>
 	);
 };
@@ -14,7 +14,7 @@ export const ToastInfo: React.FC = () => {
 export const ToastError: React.FC = () => {
 	return (
 		<div className="card preset-filled-error-500 py-2 px-3 shadow-xl">
-			<p className="type-scale-1">Uh oh, something went wrong.</p>
+			<p className="text-xs">Uh oh, something went wrong.</p>
 		</div>
 	);
 };
@@ -22,8 +22,8 @@ export const ToastError: React.FC = () => {
 export const ToastSuccess: React.FC<{ settings?: Toast }> = ({ settings }) => {
 	return (
 		<div className="card preset-filled-success-500 py-2 px-3 shadow-xl grid grid-cols-[auto_1fr] items-center gap-4">
-			<p className="type-scale-1">The task was was completed successfully!</p>
-			<button type="button" className="btn-icon btn-icon-sm type-scale-3 hover:preset-tonal" onClick={() => toast.dismiss(settings?.id)}>
+			<p className="text-xs">The task was was completed successfully!</p>
+			<button type="button" className="btn-icon btn-icon-sm text-base hover:preset-tonal" onClick={() => toast.dismiss(settings?.id)}>
 				<span>&times;</span>
 			</button>
 		</div>

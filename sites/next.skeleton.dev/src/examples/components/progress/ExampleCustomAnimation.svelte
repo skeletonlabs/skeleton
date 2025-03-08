@@ -21,14 +21,14 @@
 			scale: 1;
 		}
 		50% {
-			scale: 0.25 1;
-			translate: 50%;
+			scale: 0.5 1;
+			translate: 0%;
 		}
 		75% {
 			scale: 1;
 		}
 		100% {
-			translate: 200%;
+			translate: 100%;
 		}
 	}
 </style>
