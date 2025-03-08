@@ -3,7 +3,7 @@ import { Project } from '@skeletonlabs/necroparser';
 import { mkdir, rm, writeFile } from 'fs/promises';
 import { join, resolve } from 'path';
 import { performance } from 'perf_hooks';
-import { blue, bold, gray, underline } from 'colorette';
+import { blue, bold, gray } from 'colorette';
 
 function log(message: string) {
 	console.log(`${gray(new Date().toLocaleTimeString())} ${blue('[generate-schemas]')} ${message}`);
