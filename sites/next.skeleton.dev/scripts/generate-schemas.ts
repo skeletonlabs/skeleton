@@ -3,9 +3,10 @@ import { Project } from '@skeletonlabs/necroparser';
 import { mkdir, rm, writeFile } from 'fs/promises';
 import { join, resolve } from 'path';
 import { performance } from 'perf_hooks';
+import { blue, bold, gray, underline } from 'colorette';
 
 function log(message: string) {
-	console.log(`[${new Date().toLocaleTimeString()}] [generate-schemas] ${message}`);
+	console.log(`${gray(new Date().toLocaleTimeString())} ${blue('[generate-schemas]')} ${message}`);
 }
 
 function toKebabCase(str: string) {
@@ -14,7 +15,7 @@ function toKebabCase(str: string) {
 }
 
 async function generateSchemas() {
-	log('Generating schemas...');
+	log('Preparing to generate schemas');
 	const start = performance.now();
 	const inputPaths = await glob('./node_modules/@skeletonlabs/skeleton-**/src/components/**/types.ts');
 	const outputPath = resolve(import.meta.dirname, '../src/content/schemas');
@@ -30,7 +31,7 @@ async function generateSchemas() {
 			if (!(framework && component)) {
 				return;
 			}
-			log(`Generating schema for ${framework}/${component}`);
+			log(`Generating ${bold(framework)}/${bold(component)}`);
 			const interfaces = project.getInterfaces(path, {
 				filter(node) {
 					return /\w+Props/.test(node.name.getText());

@@ -630,6 +630,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.0.4
         version: 19.0.4(@types/react@19.0.10)
+      colorette:
+        specifier: ^2.0.20
+        version: 2.0.20
       tinyglobby:
         specifier: ^0.2.12
         version: 0.2.12
