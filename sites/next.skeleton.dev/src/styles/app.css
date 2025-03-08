@@ -48,11 +48,12 @@ html {
 	justify-content: center;
 }
 
-.bg-noise {
+/* TODO: Fix the blend mode on iOS: https://github.com/skeletonlabs/skeleton/issues/3279 */
+/* .bg-noise {
 	background-image: url('../images/noise-light.png');
 	background-repeat: repeat;
 	background-blend-mode: overlay;
-}
+} */
 
 /* Astro Components --- */
 
