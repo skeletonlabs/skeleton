@@ -24,6 +24,7 @@
 		// Fallback
 		fallbackBase = 'w-full h-full flex justify-center items-center',
 		fallbackClasses = '',
+		fallbackStyle = '',
 		// Snippets
 		children,
 		// Zag
@@ -51,7 +52,7 @@
 
 <figure {...api.getRootProps()} class="{base} {background} {size} {font} {border} {rounded} {shadow} {classes}" data-testid="avatar">
 	<!-- Fallback -->
-	<span {...api.getFallbackProps()} class="{fallbackBase} {fallbackClasses}" data-testid="avatar-fallback">
+	<span {...api.getFallbackProps()} class="{fallbackBase} {fallbackClasses}" data-testid="avatar-fallback" style={fallbackStyle}>
 		{#if children}
 			{@render children()}
 		{:else}

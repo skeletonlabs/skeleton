@@ -26,6 +26,7 @@ export const Avatar: FC<AvatarProps> = ({
 	// Fallback
 	fallbackBase = 'w-full h-full flex justify-center items-center',
 	fallbackClasses = '',
+	fallbackStyle,
 	// Children
 	children,
 	// Zag
@@ -64,7 +65,12 @@ export const Avatar: FC<AvatarProps> = ({
 				/>
 			)}
 			{/* Fallback */}
-			<span {...api.getFallbackProps()} className={`${fallbackBase} ${fallbackClasses}`} data-testid="avatar-fallback">
+			<span
+				{...api.getFallbackProps()}
+				className={`${fallbackBase} ${fallbackClasses}`}
+				style={fallbackStyle}
+				data-testid="avatar-fallback"
+			>
 				{children ? children : getInitials(name)}
 			</span>
 		</figure>

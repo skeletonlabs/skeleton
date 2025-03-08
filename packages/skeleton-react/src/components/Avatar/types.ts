@@ -41,4 +41,6 @@ export interface AvatarProps extends Omit<avatar.Props, 'id'>, React.PropsWithCh
 	fallbackBase?: string;
 	/** Provide arbitrary CSS classes to fallback element. */
 	fallbackClasses?: string;
+	/** Set fallback element styles. */
+	fallbackStyle?: React.CSSProperties;
 }

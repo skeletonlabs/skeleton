@@ -71,6 +71,12 @@ describe('Avatar', () => {
 				const component = render(<Avatar name="name"></Avatar>);
 				expect(component.getByTestId(testId)).toHaveTextContent('n');
 			});
+
+			it('Correctly applies the `fallbackStyle` prop', () => {
+				const value = { backgroundColor: 'rgb(0, 128, 0)', opacity: 0.5 };
+				const component = render(<Avatar name="name" fallbackStyle={value}></Avatar>);
+				expect(component.getByTestId(testId)).toHaveStyle('background-color: rgb(0, 128, 0); opacity: 0.5;');
+			});
 		});
 	});
 });

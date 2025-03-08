@@ -68,5 +68,12 @@ describe('Avatar', () => {
 			const component = screen.getByTestId(testIds.fallback);
 			expect(component).toHaveTextContent(testValue);
 		});
+
+		it('Correctly applies the `fallbackStyle` prop', () => {
+			const value = 'background-color: rgb(0, 128, 0); opacity: 0.5;';
+			render(Avatar, { name: test.name, fallbackStyle: value });
+			const component = screen.getByTestId(testIds.fallback);
+			expect(component).toHaveStyle(value);
+		});
 	});
 });
