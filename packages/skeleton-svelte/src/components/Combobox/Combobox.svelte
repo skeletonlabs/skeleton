@@ -37,6 +37,7 @@
 		optionClasses = '',
 		// Snippets
 		arrow,
+		itemTemplate,
 		// Events
 		onclick,
 		// Zag ---
@@ -123,7 +124,11 @@
 						<!-- ZagJs should have set button type to "button" here. -->
 						<!-- See https://github.com/skeletonlabs/skeleton/pull/2998#discussion_r1855511385 -->
 						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}" type="button">
-							{item.label}
+							{#if itemTemplate}
+								{@render itemTemplate(item)}
+							{:else}
+								{item.label}
+							{/if}
 						</button>
 					{/each}
 				</nav>

@@ -68,6 +68,8 @@ export interface ComboboxProps extends Omit<combobox.Props, 'id' | 'collection'>
 	// Snippets ---
 	/** Provide a custom arrow icon. */
 	arrow?: Snippet;
+	/** Provide a custom template for the option. */
+	itemTemplate?: Snippet<[{ label: string; value: string }]>;
 
 	// Events ---
 	/** Handle the combobox dropdown button click event. */
