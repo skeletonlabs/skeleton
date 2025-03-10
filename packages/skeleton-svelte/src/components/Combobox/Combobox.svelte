@@ -1,8 +1,8 @@
-<script lang="ts">
+<script lang="ts" generics="T extends ComboboxItem">
 	import { fade } from 'svelte/transition';
 	import * as combobox from '@zag-js/combobox';
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
-	import type { ComboboxProps } from './types.js';
+	import type { ComboboxProps, ComboboxItem } from './types.js';
 
 	const {
 		data = [],
@@ -42,7 +42,7 @@
 		onclick,
 		// Zag ---
 		...zagProps
-	}: ComboboxProps = $props();
+	}: ComboboxProps<T> = $props();
 
 	// Zag
 	let options = $state.raw(data);

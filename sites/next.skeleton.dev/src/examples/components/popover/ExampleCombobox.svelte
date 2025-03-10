@@ -27,7 +27,7 @@
 	{#snippet item(item)}
 		<div class="flex w-full justify-between space-x-2">
 			<span>{item.label}</span>
-			<span>{(item as ComboboxData).emoji}</span>
+			<span>{item.emoji}</span>
 		</div>
 	{/snippet}
 </Combobox>

@@ -2,9 +2,9 @@
 import type { Snippet } from 'svelte';
 import * as combobox from '@zag-js/combobox';
 
-export interface ComboboxProps extends Omit<combobox.Props, 'id' | 'collection'> {
+export interface ComboboxProps<T extends ComboboxItem> extends Omit<combobox.Props, 'id' | 'collection'> {
 	/** Provide the list of label and value data */
-	data?: { label: string; value: string }[];
+	data?: T[];
 	/** Set the label to display. */
 	label?: string;
 	/** Set z-index for the positioner. */
@@ -70,9 +70,14 @@ export interface ComboboxProps extends Omit<combobox.Props, 'id' | 'collection'>
 	/** Provide a custom arrow icon. */
 	arrow?: Snippet;
 	/** Provide a custom template for the option. */
-	item?: Snippet<[{ label: string; value: string }]>;
+	item?: Snippet<[T]>;
 
 	// Events ---
 	/** Handle the combobox dropdown button click event. */
 	onclick?: (event: Event) => void;
+}
+
+export interface ComboboxItem {
+	label: string;
+	value: string;
 }
