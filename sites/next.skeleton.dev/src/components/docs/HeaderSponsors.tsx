@@ -46,31 +46,40 @@ export const HeaderSponsors: React.FC = () => {
 			{isOpen && (
 				<FloatingFocusManager context={context} modal={false}>
 					<div
-						className="card bg-surface-50-950 border border-surface-200-800 flex flex-col gap-1 p-4"
+						className="card max-w-72 bg-surface-50-950 border border-surface-200-800 p-4 space-y-4"
 						ref={refs.setFloating}
 						style={floatingStyles}
 						{...getFloatingProps()}
 					>
-						<a
-							className="btn hover:preset-tonal justify-between"
-							href="https://github.com/sponsors/skeletonlabs"
-							target="_blank"
-							rel="noreferrer"
-							onClick={() => setIsOpen(false)}
-						>
-							<span>GitHub Sponsors</span>
-							<IconArrow className="size-4 opacity-60" />
-						</a>
-						<a
-							className="btn hover:preset-tonal justify-between"
-							href="https://ko-fi.com/skeletonlabs"
-							target="_blank"
-							rel="noreferrer"
-							onClick={() => setIsOpen(false)}
-						>
-							<span>Ko-Fi</span>
-							<IconArrow className="size-4 opacity-60" />
-						</a>
+						<header className="space-y-2">
+							<p className="font-bold">Sponsor Us</p>
+							<p className="text-xs opacity-60">
+								Sponsor Skeleton and receive un incentives in return. Available on the following services.
+							</p>
+						</header>
+						<hr className="hr" />
+						<div className="flex flex-col gap-1">
+							<a
+								className="btn hover:preset-tonal justify-between"
+								href="https://github.com/sponsors/skeletonlabs"
+								target="_blank"
+								rel="noreferrer"
+								onClick={() => setIsOpen(false)}
+							>
+								<span>Via GitHub</span>
+								<IconArrow className="size-4 opacity-60" />
+							</a>
+							<a
+								className="btn hover:preset-tonal justify-between"
+								href="https://ko-fi.com/skeletonlabs"
+								target="_blank"
+								rel="noreferrer"
+								onClick={() => setIsOpen(false)}
+							>
+								<span>Via Ko-Fi</span>
+								<IconArrow className="size-4 opacity-60" />
+							</a>
+						</div>
 					</div>
 				</FloatingFocusManager>
 			)}
