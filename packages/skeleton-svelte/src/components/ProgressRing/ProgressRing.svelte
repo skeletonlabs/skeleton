@@ -65,8 +65,9 @@
 	<!-- SVG -->
 	<svg
 		{...api.getCircleProps()}
+		viewBox="0 0 100 100"
 		class="{svgBase} {svgClasses} {rxAnimCircle}"
-		style="--size:100%;--thickness:{strokeWidth};"
+		style="--size:100px;--thickness:{strokeWidth};"
 		data-testid="progress-ring-svg"
 	>
 		<!-- Track -->

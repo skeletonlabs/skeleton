@@ -63,8 +63,9 @@ export const ProgressRing: FC<ProgressRingProps> = ({
 			{/* SVG */}
 			<svg
 				{...api.getCircleProps()}
+				viewBox="0 0 100 100"
 				className={`${svgBase} ${svgClasses} ${rxAnimCircle}`}
-				style={{ '--size': '100%', '--thickness': strokeWidth } as React.CSSProperties}
+				style={{ '--size': '100px', '--thickness': strokeWidth } as React.CSSProperties}
 				data-testid="progress-ring-svg"
 			>
 				{/* Track */}
