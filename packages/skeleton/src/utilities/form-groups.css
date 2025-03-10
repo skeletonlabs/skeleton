@@ -1,12 +1,12 @@
 /* Components: Forms > Input Group */
 
 @utility input-group {
+	border-radius: var(--radius-base);
 	display: grid;
 	align-items: stretch;
-	border-radius: var(--radius-base);
 	overflow: hidden;
 
-	/* Edges --- */
+	/* Edges */
 	outline-color: transparent;
 	border-width: 0;
 	--tw-ring-inset: inset;
@@ -14,6 +14,7 @@
 	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
 	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 
+	/* Dividers */
 	& > * + * {
 		border-left-width: 1px !important;
 		border-color: var(--color-surface-200-800);
@@ -85,25 +86,32 @@
 }
 
 @utility ig-btn {
-	--tw-ring-inset: inset;
-	cursor: pointer;
-	font-size: var(--text-base);
-	font-weight: var(--font-weight-medium);
-	text-decoration-line: none;
-	display: flex;
-	justify-content: center;
+	/* Icon Spacing */
+	display: inline-flex;
+	flex-direction: row;
 	align-items: center;
+	justify-content: center;
 	gap: --spacing(2);
-	padding-inline: --spacing(4);
+
+	/* Typography */
+	text-decoration-line: none;
 	white-space: nowrap;
 
-	@variant active {
-		--tw-ring-color: var(--color-primary-500);
-	}
-	@variant focus {
-		--tw-ring-color: var(--color-primary-500);
-	}
-	@variant focus-within {
-		--tw-ring-color: var(--color-primary-500);
+	/* Size */
+	font-size: var(--text-base);
+	line-height: var(--text-base--line-height);
+	padding-block: --spacing(1);
+	padding-inline: --spacing(4);
+
+	/* Transitions */
+	transition-property: all;
+	transition-timing-function: var(--default-transition-timing-function);
+	transition-duration: var(--default-transition-duration);
+
+	@variant hover {
+		filter: brightness(125%);
+		@variant dark {
+			filter: brightness(75%);
+		}
 	}
 }

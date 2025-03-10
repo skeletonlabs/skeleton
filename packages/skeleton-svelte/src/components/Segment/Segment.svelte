@@ -15,7 +15,7 @@
 		width = '',
 		classes = '',
 		// States
-		orientVertical = 'flex-col',
+		orientVertical = 'flex-col items-stretch',
 		orientHorizontal = 'flex-row',
 		stateDisabled = 'disabled',
 		stateReadOnly = 'pointer-events-none',

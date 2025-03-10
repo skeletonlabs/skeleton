@@ -36,7 +36,7 @@ export const HeaderSponsors: React.FC = () => {
 	const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role]);
 
 	return (
-		<div>
+		<nav className="h-full flex items-stretch">
 			{/* Trigger */}
 			<button className="hidden xl:flex btn hover:preset-tonal gap-1" title="Sponsor Us" ref={refs.setReference} {...getReferenceProps()}>
 				<IconHeart className="size-5" />
@@ -74,6 +74,6 @@ export const HeaderSponsors: React.FC = () => {
 					</div>
 				</FloatingFocusManager>
 			)}
-		</div>
+		</nav>
 	);
 };

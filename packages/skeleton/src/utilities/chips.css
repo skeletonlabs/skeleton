@@ -1,28 +1,29 @@
 /* Components: Chips */
 
 @utility chip {
-	cursor: pointer;
 	border-radius: var(--radius-base);
-	font-weight: var(--font-weight-medium);
-	text-decoration-line: none;
+
+	/* Icon Spacing */
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	gap: --spacing(2);
+
+	/* Typography */
+	text-decoration-line: none;
 	white-space: nowrap;
+
+	/* Size */
+	font-size: var(--text-xs);
+	line-height: var(--text-xs--line-height);
+	padding-block: --spacing(1);
+	padding-inline: --spacing(3);
 
 	/* Transitions */
 	transition-property: all;
 	transition-timing-function: var(--default-transition-timing-function);
 	transition-duration: var(--default-transition-duration);
-
-	/* Base Size --- */
-	font-size: var(--text-xs);
-	line-height: --spacing(6);
-	height: --spacing(6);
-	padding-inline: --spacing(3);
-	padding-block: --spacing(2);
 
 	@variant hover {
 		filter: brightness(125%);
@@ -33,27 +34,23 @@
 }
 
 @utility chip-icon {
-	cursor: pointer;
+	box-sizing: content-box;
 	border-radius: var(--radius-base);
-	font-weight: var(--font-weight-medium);
-	text-decoration-line: none;
+
+	/* Center Icons */
 	display: inline-flex;
-	flex-direction: row;
-	align-items: center;
 	justify-content: center;
-	gap: --spacing(2);
+	align-items: center;
+
+	/* Typography */
+	text-decoration-line: none;
 	white-space: nowrap;
 
-	/* Base Size */
+	/* Size */
 	font-size: var(--text-xs);
-	line-height: --spacing(6);
-	width: --spacing(6);
-	height: --spacing(6);
-
-	/* Transitions */
-	transition-property: all;
-	transition-timing-function: var(--default-transition-timing-function);
-	transition-duration: var(--default-transition-duration);
+	width: var(--text-xs);
+	height: var(--text-xs);
+	padding: --spacing(1.5);
 
 	@variant hover {
 		filter: brightness(125%);
