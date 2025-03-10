@@ -1,15 +1,14 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type * as avatar from '@zag-js/avatar';
 
-export interface AvatarProps extends Omit<avatar.Props, 'id'> {
+export interface AvatarProps extends Omit<avatar.Props, 'id'>, Pick<HTMLAttributes<HTMLElement>, 'style'> {
 	/** Set avatar image source URL. */
 	src?: string;
 	/** The source set of the avatar image. */
 	srcset?: string;
 	/** Provide a name or username for the avatar. */
 	name: string;
-	/** Set avatar image styles. */
-	style?: string;
 
 	// Root ---
 	/** Set base styles. */

@@ -1,14 +1,13 @@
+import type { HTMLAttributes } from 'react';
 import type * as avatar from '@zag-js/avatar';
 
-export interface AvatarProps extends Omit<avatar.Props, 'id'>, React.PropsWithChildren {
+export interface AvatarProps extends Omit<avatar.Props, 'id'>, React.PropsWithChildren, Pick<HTMLAttributes<HTMLElement>, 'style'> {
 	/** The source of the avatar image. */
 	src?: string;
 	/** The source set of the avatar image. */
 	srcSet?: string;
 	/** Provide a name or username for the avatar. */
 	name: string;
-	/** Set avatar image styles. */
-	style?: React.CSSProperties;
 
 	// Root ---
 	/** Set base styles. */
