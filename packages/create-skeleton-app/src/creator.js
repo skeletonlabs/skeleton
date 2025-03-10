@@ -51,12 +51,12 @@ export class SkeletonOptions {
 		this.skeletontemplatedir = '../templates';
 		this.packagemanager = 'npm';
 		this.devDependencies = new Map([
-			['postcss', 'latest'],
-			['autoprefixer', 'latest'],
+			['postcss', '^8.5.3'],
+			['autoprefixer', '^10.4.21'],
 			['tailwindcss', '^3.4.17'],
-			['@skeletonlabs/skeleton', 'latest'],
-			['@skeletonlabs/tw-plugin', 'latest'],
-			['vite-plugin-tailwind-purgecss', 'latest'],
+			['@skeletonlabs/skeleton', '^2.11.0'],
+			['@skeletonlabs/tw-plugin', '^0.4.1'],
+			['vite-plugin-tailwind-purgecss', '^0.3.5'],
 		]);
 
 		// props below are private to the Skeleton team
@@ -142,12 +142,12 @@ async function modifyPackageJson(opts) {
 	}
 
 	// Optional packages
-	if (opts.mdsvex) pkgJson.devDependencies['mdsvex'] = 'latest';
+	if (opts.mdsvex) pkgJson.devDependencies['mdsvex'] = '^0.12.3';
 	if (opts.typography) pkgJson.devDependencies['@tailwindcss/typography'] = '^0.5.16';
 	if (opts.forms) pkgJson.devDependencies['@tailwindcss/forms'] = '^0.5.10';
-	if (opts.types == 'typescript') pkgJson.devDependencies['@types/node'] = 'latest';
-	if (opts.codeblocks) setNestedValue(pkgJson, ['dependencies', 'highlight.js'], 'latest');
-	if (opts.popups) setNestedValue(pkgJson, ['dependencies', '@floating-ui/dom'], 'latest');
+	if (opts.types == 'typescript') pkgJson.devDependencies['@types/node'] = '^22.13.10';
+	if (opts.codeblocks) setNestedValue(pkgJson, ['dependencies', 'highlight.js'], '^11.11.1');
+	if (opts.popups) setNestedValue(pkgJson, ['dependencies', '@floating-ui/dom'], '^1.6.13');
 
 	// Template specific packages
 	if (opts.meta?.dependencies) {
