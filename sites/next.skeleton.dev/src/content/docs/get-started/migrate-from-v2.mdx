@@ -9,18 +9,6 @@ order: 9999
 export const components = componentSet;
 import NavGrid from '@components/docs/NavGrid.astro';
 
-{
-
-<div className="card preset-outlined-error-500 preset-tonal-error p-8 space-y-8">
-	<p>
-		WARNING: Skeleton v3 is currently in a pre-release status. It is not yet intended for production use. This may include bugs, incomplete
-		documentation, and breaking changes leading up to the full release. Depending on the scale and scope of of your project, we may even
-		encourage of your application to take full advantage of all changes.
-	</p>
-</div>
-
-}
-
 ## Introduction
 
 Version 3 represents a major overhaul to Skeleton. This includes a ground up rewrite of quite literally every feature in the library. We have provided a migration CLI to help automate this process. However, some portions of this migration will still required manual intervention. This is not a trivial migration from prior versions, so please use caution when updating and ensure you follow this guide very carefully.
@@ -53,11 +41,23 @@ Skeleton is built on top of the following technologies. These must be migrated i
 
 ### Svelte v5
 
-Migrate to the latest release of Svelte v5 ([migration guide](https://svelte.dev/docs/svelte/v5-migration-guide))
+Migrate to the latest release of Svelte v5.
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://svelte.dev/docs/svelte/v5-migration-guide" target="_blank">
+		Svelte v5 Migration &rarr;
+	</a>
+</figure>
 
 ### SvelteKit v2
 
-Migrate to the latest release of SvelteKit v2 ([migration guide](https://svelte.dev/docs/kit/migrating-to-sveltekit-2))
+Migrate to the latest release of SvelteKit v2.
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://svelte.dev/docs/kit/migrating-to-sveltekit-2" target="_blank">
+		SvelteKit v2 Migration &rarr;
+	</a>
+</figure>
 
 ### Tailwind v4
 
@@ -67,7 +67,13 @@ Before migration to tailwind V4 using their upgrade guide some manual steps are 
 2. Rename your `app.postcss` or `app.pcss` to `app.css`.
 3. Remove the `purgecss` (`vite-plugin-tailwind-purgecss`) vite plugin from your `vite.config` (if installed).
 
-Migrate to the latest release of Tailwind v4 ([migration guide](https://tailwindcss.com/docs/upgrade-guide))
+Migrate to the latest release of Tailwind v4.
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://tailwindcss.com/docs/upgrade-guide" target="_blank">
+		Tailwind v4 Migration &rarr;
+	</a>
+</figure>
 
 ---
 
@@ -118,17 +124,6 @@ What will NOT be migrated...
 - Most v2 Utility features will not be migrated (ex: popovers, code blocks, etc)
 
 Make sure to consult your local Git Diff to compare what has been modified before progressing forward or committing these automated changes.
-
-{
-
-<div class="card preset-outlined-warning-500 preset-tonal-warning p-8 space-y-8">
-	<p>
-		Early Adopters: In extremely rare instances the CLI may modify values outside the scope of Skeleton. If this occurs, please report this
-		as a bug in the <code className="code">#skeleton-cli-beta</code> channel on Discord!
-	</p>
-</div>
-
-}
 
 ---
 
