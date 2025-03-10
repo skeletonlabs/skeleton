@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import type { Snippet } from 'svelte';
 import * as combobox from '@zag-js/combobox';
 
