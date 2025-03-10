@@ -47,6 +47,7 @@
 		"@zag-js/tooltip": "catalog:"
 	},
 	"peerDependencies": {
+		"@skeletonlabs/skeleton": "workspace:^",
 		"svelte": "^5.20.0"
 	},
 	"devDependencies": {
