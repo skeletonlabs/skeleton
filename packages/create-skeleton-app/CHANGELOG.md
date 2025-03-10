@@ -1,5 +1,11 @@
 # create-skeleton-app
 
+## 0.0.57
+
+### Patch Changes
+
+- chore: pin versions ([#3357](https://github.com/skeletonlabs/skeleton/pull/3357))
+
 ## 0.0.56
 
 ### Patch Changes
