@@ -23,7 +23,7 @@
 		titleNext,
 		titleLast,
 		// Buttons
-		buttonBase = 'btn-icon',
+		buttonBase = 'btn',
 		buttonActive = 'preset-filled',
 		buttonInactive = 'preset-tonal',
 		buttonHover = 'hover:preset-filled',
@@ -107,7 +107,7 @@
 		{/if}
 		<!-- Alternative Interface -->
 		{#if alternative}
-			<span class="{buttonBase} w-auto {buttonInactive} {buttonClasses}" data-testid="pagination-alt-ui">
+			<span class="{buttonBase} {buttonInactive} {buttonClasses}" data-testid="pagination-alt-ui">
 				<span>
 					{api.pageRange.start + 1} - {api.pageRange.end}
 				</span>
