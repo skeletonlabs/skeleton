@@ -2,4 +2,4 @@
 	import { Avatar } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Avatar src="https://i.pravatar.cc/150?img=48" name="skeleton" />
+<Avatar name="Jane Doe" style="background-color: #bada55; color: black;" />

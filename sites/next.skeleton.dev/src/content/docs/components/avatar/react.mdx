@@ -8,6 +8,10 @@ import { Page as Example } from '@examples/components/avatars/Example.tsx';
 import ExampleRaw from '@examples/components/avatars/Example.tsx?raw';
 import { Page as ExampleFallback } from '@examples/components/avatars/ExampleFallback.tsx';
 import ExampleFallbackRaw from '@examples/components/avatars/ExampleFallback.tsx?raw';
+import { Page as ExampleFilter } from '@examples/components/avatars/ExampleFilter.tsx';
+import ExampleFilterRaw from '@examples/components/avatars/ExampleFilter.tsx?raw';
+import { Page as ExampleStyle } from '@examples/components/avatars/ExampleStyle.tsx';
+import ExampleStyleRaw from '@examples/components/avatars/ExampleStyle.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -28,6 +32,32 @@ When `src` or `srcSet` are missing or fail to load, a fallback will be displayed
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleFallbackRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Filters
+
+Avatars can implement [SVG Filters](/docs/guides/cookbook/svg-filters) using arbitrary Tailwind syntax.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleFilter client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleFilterRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Style Attribute
+
+Use the `style` prop to implement custom styles on the parent `<figure>` element.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleStyle />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleStyleRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
