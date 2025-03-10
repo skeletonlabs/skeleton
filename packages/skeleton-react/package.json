@@ -15,13 +15,6 @@
 			"default": "./dist/index.js"
 		}
 	},
-	"typesVersions": {
-		">4.0": {
-			"index.d.ts": [
-				"./dist/index.d.ts"
-			]
-		}
-	},
 	"files": [
 		"dist",
 		"!dist/**/.*test.*"
