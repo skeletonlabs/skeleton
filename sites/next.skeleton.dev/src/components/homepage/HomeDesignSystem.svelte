@@ -10,11 +10,11 @@
 	const steps = [
 		{
 			label: 'The Figma UI Kit',
-			desc: 'This premium kit allows you to import Skeleton themes directly into Figma a dedicated plugin. Switch between dark and light modes on the fly. Preview all available components instantly.'
+			desc: 'This premium kit allows you preview and mock all available interface elements, including dark mode support. Comes with a Figma plugin to import theme colors automatically.'
 		},
 		{
 			label: 'Themes',
-			desc: 'Themes are empowered by CSS custom properties, enabling simple integration into Skeleton’s Tailwind plugin. Allowing for simple registration and easy switching on demand.'
+			desc: 'Themes are empowered by CSS custom properties, enabling simple integration into Tailwind. Register multiple themes and easily switch on demand.'
 		},
 		{
 			label: 'Colors',
@@ -30,7 +30,7 @@
 		},
 		{
 			label: 'Spacing',
-			desc: 'This extends the Tailwind spacing system, adjust dynamic scaling using a single theme-specified scale factor.'
+			desc: 'Use the new Tailwind spacing system to dynamically scaling using a single theme-specified scale factor.'
 		},
 		{
 			label: 'Iconography',
@@ -81,32 +81,35 @@
 				<!-- <img src="https://i.imgur.com/6cnOrZ4.png" alt="code" class="w-full h-auto rounded-tl-container" /> -->
 				<!-- prettier-ignore -->
 				<pre class="pre box-border overflow-hidden w-full aspect-video mt-4 ml-4 xl:mt-10 xl:ml-10">
-<code>{`import type { Theme } from '@skeletonlabs/skeleton/themes';\n
-const theme = {
-  "name": "theme",
-  "properties": {
-    "--type-scale-factor": "1.067",
-    "--text-xs": "calc(0.75rem * var(--type-scale-factor))",
-    "--text-sm": "calc(0.875rem * var(--type-scale-factor))",
-    "--text-base": "calc(1rem * var(--type-scale-factor))",
-    "--text-lg": "calc(1.125rem * var(--type-scale-factor))",
-    "--text-xl": "calc(1.25rem * var(--type-scale-factor))",
-    "--text-2xl": "calc(1.5rem * var(--type-scale-factor))",
-    "--text-3xl": "calc(1.875rem * var(--type-scale-factor))",
-    "--text-4xl": "calc(2.25rem * var(--type-scale-factor))",
-    "--text-5xl": "calc(3rem * var(--type-scale-factor))",
-    "--text-xs0": "calc(3.75rem * var(--type-scale-factor))",
-    "--text-xs1": "calc(4.5rem * var(--type-scale-factor))",
-    "--text-xs2": "calc(6rem * var(--type-scale-factor))",
-    "--text-xs3": "calc(8rem * var(--type-scale-factor))",
-    "--base-font-color": "var(--color-surface-950)",
-    "--base-font-color-dark": "var(--color-surface-50)",
-    "--base-font-family": "system-ui, sans-serif",
-    "--base-font-size": "inherit",
-    "--base-line-height": "inherit",
-    "--base-font-weight": "normal",
-    "--base-font-style": "normal",
-    "--base-letter-spacing": "0em",`.trim()}
+<code>{`[data-theme='cerberus'] {
+	--spacing: 0.25rem;
+	--text-scaling: 1.067;
+	--base-font-color: var(--color-surface-950);
+	--base-font-color-dark: var(--color-surface-50);
+	--base-font-family: system-ui;
+	--base-font-size: inherit;
+	--base-line-height: inherit;
+	--base-font-weight: normal;
+	--base-font-style: normal;
+	--base-letter-spacing: 0em;
+	--heading-font-color: inherit;
+	--heading-font-color-dark: inherit;
+	--heading-font-family: inherit;
+	--heading-font-weight: bold;
+	--heading-font-style: normal;
+	--heading-letter-spacing: inherit;
+	--anchor-font-color: var(--color-primary-500);
+	--anchor-font-color-dark: var(--color-primary-400);
+	--anchor-font-family: inherit;
+	--anchor-font-size: inherit;
+	--anchor-line-height: inherit;
+	--anchor-font-weight: inherit;
+	--anchor-font-style: inherit;
+	--anchor-letter-spacing: inherit;
+	--anchor-text-decoration: none;
+	--anchor-text-decoration-hover: underline;
+	--anchor-text-decoration-active: none;
+	--anchor-text-decoration-focus: none;`.trim()}
 </code>
 </pre>
 			</div>
@@ -127,19 +130,19 @@ const theme = {
 					<button type="button" class="btn preset-filled">Filled</button>
 				</div>
 				<div class="flex flex-col items-center">
-					<button type="button" class="btn preset-tonal hover:preset-filled">Tonal</button>
+					<button type="button" class="btn preset-tonal hover:preset-filled hover:brightness-100">Tonal</button>
 				</div>
 				<div class="flex flex-col items-center">
-					<button type="button" class="btn preset-outlined">Outlined</button>
+					<button type="button" class="btn preset-outlined hover:brightness-100">Outlined</button>
 				</div>
 				<div class="flex flex-col items-center">
 					<button type="button" class="btn preset-filled shadow-xl">Elevated</button>
 				</div>
 				<div class="flex flex-col items-center">
-					<button type="button" class="btn hover:preset-filled">Ghost</button>
+					<button type="button" class="btn hover:preset-filled hover:brightness-100">Ghost</button>
 				</div>
 				<div class="flex flex-col items-center">
-					<button type="button" class="btn hover:preset-filled">
+					<button type="button" class="btn hover:preset-filled hover:brightness-100">
 						<IconBookmark className="size-6" />
 					</button>
 				</div>
@@ -147,7 +150,7 @@ const theme = {
 		{:else if state == 4}
 			<!-- Step 5: Typography -->
 			<div class="text-center space-y-4">
-				<h1 class="heading-font-family text-xs1 md:text-xs3 leading-none font-bold">Aa</h1>
+				<h1 class="heading-font-family text-6xl md:text-9xl leading-none font-bold">Aa</h1>
 				<p class="text-xs md:text-lg">The quick brown fox jumped over the lazy dog.</p>
 			</div>
 		{:else if state == 5}
