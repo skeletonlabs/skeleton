@@ -20,13 +20,7 @@
 	},
 	"files": [
 		"dist",
-		"!dist/**/*.test.*",
-		"!dist/**/*.spec.*",
-		"./dist/**/*.svelte",
-		"./dist/**/*.js",
-		"./dist/**/*.d.ts",
-		"./dist/**/*.cjs",
-		"./dist/**/*.d.cts"
+		"!dist/**/*.test.*"
 	],
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",

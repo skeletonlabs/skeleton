@@ -17,7 +17,7 @@
 	},
 	"files": [
 		"dist",
-		"!dist/**/.*test.*"
+		"!dist/**/*.test.*"
 	],
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",
