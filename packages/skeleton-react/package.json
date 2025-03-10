@@ -15,16 +15,9 @@
 			"default": "./dist/index.js"
 		}
 	},
-	"typesVersions": {
-		">4.0": {
-			"index.d.ts": [
-				"./dist/index.d.ts"
-			]
-		}
-	},
 	"files": [
 		"dist",
-		"!dist/**/.*test.*"
+		"!dist/**/*.test.*"
 	],
 	"dependencies": {
 		"@zag-js/accordion": "catalog:",
@@ -41,6 +34,7 @@
 		"@zag-js/tags-input": "catalog:"
 	},
 	"peerDependencies": {
+		"@skeletonlabs/skeleton": "workspace:^",
 		"react": "^18.0.0 || ^19.0.0",
 		"react-dom": "^18.0.0 || ^19.0.0"
 	},
