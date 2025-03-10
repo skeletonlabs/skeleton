@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ProgressRing } from '@skeletonlabs/skeleton-svelte';
 
-	let value = $state(25);
+	let value: number | null = $state(25);
 	let max = 100;
 </script>
 
