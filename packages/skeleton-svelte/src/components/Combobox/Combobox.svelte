@@ -1,8 +1,8 @@
-<script lang="ts">
+<script lang="ts" generics="T extends ComboboxItem">
 	import { fade } from 'svelte/transition';
 	import * as combobox from '@zag-js/combobox';
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
-	import type { ComboboxProps } from './types.js';
+	import type { ComboboxProps, ComboboxItem } from './types.js';
 
 	const {
 		data = [],
@@ -37,11 +37,12 @@
 		optionClasses = '',
 		// Snippets
 		arrow,
+		item,
 		// Events
 		onclick,
 		// Zag ---
 		...zagProps
-	}: ComboboxProps = $props();
+	}: ComboboxProps<T> = $props();
 
 	// Zag
 	let options = $state.raw(data);
@@ -116,14 +117,18 @@
 					class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses}"
 					style="z-index: {zIndex}"
 				>
-					{#each options as item (item.label)}
-						{@const isChecked = api.getItemProps({ item })['data-state'] === 'checked'}
+					{#each options as option (option.label)}
+						{@const isChecked = api.getItemProps({ item: option })['data-state'] === 'checked'}
 						{@const displayClass = isChecked ? optionActive : optionHover}
 						<!-- Option -->
 						<!-- ZagJs should have set button type to "button" here. -->
 						<!-- See https://github.com/skeletonlabs/skeleton/pull/2998#discussion_r1855511385 -->
-						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}" type="button">
-							{item.label}
+						<button {...api.getItemProps({ item: option })} class="{optionBase} {displayClass} {optionClasses}" type="button">
+							{#if item}
+								{@render item(option)}
+							{:else}
+								{option.label}
+							{/if}
 						</button>
 					{/each}
 				</nav>
