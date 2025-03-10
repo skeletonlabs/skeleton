@@ -24,7 +24,7 @@
 	placeholder="Select..."
 >
 	<!-- This is optional. Combobox will render label by default -->
-	{#snippet itemTemplate(item)}
+	{#snippet item(item)}
 		<div class="flex w-full justify-between space-x-2">
 			<span>{item.label}</span>
 			<span>{(item as ComboboxData).emoji}</span>

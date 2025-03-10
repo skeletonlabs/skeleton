@@ -37,7 +37,7 @@
 		optionClasses = '',
 		// Snippets
 		arrow,
-		itemTemplate,
+		item,
 		// Events
 		onclick,
 		// Zag ---
@@ -117,17 +117,17 @@
 					class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses}"
 					style="z-index: {zIndex}"
 				>
-					{#each options as item (item.label)}
-						{@const isChecked = api.getItemProps({ item })['data-state'] === 'checked'}
+					{#each options as option (option.label)}
+						{@const isChecked = api.getItemProps({ item: option })['data-state'] === 'checked'}
 						{@const displayClass = isChecked ? optionActive : optionHover}
 						<!-- Option -->
 						<!-- ZagJs should have set button type to "button" here. -->
 						<!-- See https://github.com/skeletonlabs/skeleton/pull/2998#discussion_r1855511385 -->
-						<button {...api.getItemProps({ item })} class="{optionBase} {displayClass} {optionClasses}" type="button">
-							{#if itemTemplate}
-								{@render itemTemplate(item)}
+						<button {...api.getItemProps({ item: option })} class="{optionBase} {displayClass} {optionClasses}" type="button">
+							{#if item}
+								{@render item(option)}
 							{:else}
-								{item.label}
+								{option.label}
 							{/if}
 						</button>
 					{/each}

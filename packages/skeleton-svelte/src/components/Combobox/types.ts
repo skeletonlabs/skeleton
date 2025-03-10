@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import type { Snippet } from 'svelte';
 import * as combobox from '@zag-js/combobox';
 
@@ -69,7 +70,7 @@ export interface ComboboxProps extends Omit<combobox.Props, 'id' | 'collection'>
 	/** Provide a custom arrow icon. */
 	arrow?: Snippet;
 	/** Provide a custom template for the option. */
-	itemTemplate?: Snippet<[{ label: string; value: string }]>;
+	item?: Snippet<[{ label: string; value: string }]>;
 
 	// Events ---
 	/** Handle the combobox dropdown button click event. */
