@@ -1,4 +1,4 @@
-name: CI
+name: Code Quality
 
 on:
   pull_request:
@@ -9,38 +9,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check:
-    name: Run check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install
-      - name: Run checks
-        run: pnpm check
-
-  lint:
-    name: Run lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install
-      - name: Run eslint
-        run: pnpm lint:check
-
   format:
-    name: Run format
+    name: Format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -49,13 +19,46 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - name: Install dependencies
-        run: pnpm install
-      - name: Run prettier
-        run: pnpm format:check
-
+      - run: pnpm install
+      - run: pnpm format:check
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm lint:check
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm check
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm build
   test:
-    name: Run test
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -64,7 +67,5 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - name: Install dependencies
-        run: pnpm install
-      - name: Run tests
-        run: pnpm test
+      - run: pnpm install
+      - run: pnpm test
