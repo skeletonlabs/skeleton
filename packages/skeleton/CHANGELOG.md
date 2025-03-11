@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton
 
+## 3.0.0-next.13
+### Patch Changes
+
+
+- chore: Restore Button and Chip default hover states ([#3331](https://github.com/skeletonlabs/skeleton/pull/3331))
+
+
+- bugfix: Resolved a number of small display issues with Input Groups ([#3332](https://github.com/skeletonlabs/skeleton/pull/3332))
+
+
+- chore: Style improvements for Buttons, Badges, Chips, and Form elements ([#3345](https://github.com/skeletonlabs/skeleton/pull/3345))
+
 ## 3.0.0-next.12
 
 ### Patch Changes

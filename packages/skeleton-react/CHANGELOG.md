@@ -1,5 +1,26 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0-next.17
+### Patch Changes
+
+
+- bugfix: progress ring safari 100% ([#3360](https://github.com/skeletonlabs/skeleton/pull/3360))
+
+
+- bugfix: Rename `TagsInput` inconsistent prop names: `inputEdit` or `tagEdit` to `tagEditInput` ([#3298](https://github.com/skeletonlabs/skeleton/pull/3298))
+
+
+- chore: Removed `filter` prop and moved `style` prop to parent element ([#3344](https://github.com/skeletonlabs/skeleton/pull/3344))
+
+
+- chore: Style improvements for Buttons, Badges, Chips, and Form elements ([#3345](https://github.com/skeletonlabs/skeleton/pull/3345))
+
+
+- chore: Added `@skeletonlabs/skeleton` as a peer-dependency ([#3351](https://github.com/skeletonlabs/skeleton/pull/3351))
+
+- Updated dependencies [[`73a4e9f`](https://github.com/skeletonlabs/skeleton/commit/73a4e9f69b47f5684162adcaada6d460a5b73ca7), [`f427d83`](https://github.com/skeletonlabs/skeleton/commit/f427d83302826a238c43439fc67be4837d76b846), [`3af054d`](https://github.com/skeletonlabs/skeleton/commit/3af054dfb9f88b28694c2bf7630a3a40449a844c)]:
+  - @skeletonlabs/skeleton@3.0.0-next.13
+
 ## 1.0.0-next.16
 
 ### Minor Changes
