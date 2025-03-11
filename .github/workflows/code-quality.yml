@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   format:
-    name: Run format
+    name: Format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,12 +19,10 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - name: Install dependencies
         run: pnpm install
-      - name: Run prettier
         run: pnpm format:check
   lint:
-    name: Run lint
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,12 +31,10 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - name: Install dependencies
         run: pnpm install
-      - name: Run eslint
         run: pnpm lint:check
   check:
-    name: Run check
+    name: Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,12 +43,10 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - name: Install dependencies
         run: pnpm install
-      - name: Run checks
         run: pnpm check
   build:
-    name: Run build
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -61,12 +55,10 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - name: Install dependencies
         run: pnpm install
-      - name: Run builds
         run: pnpm build
   test:
-    name: Run test
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -75,7 +67,5 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - name: Install dependencies
         run: pnpm install
-      - name: Run tests
         run: pnpm test
