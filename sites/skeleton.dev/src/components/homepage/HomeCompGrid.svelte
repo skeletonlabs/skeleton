@@ -226,9 +226,9 @@
 		<div class={`${cardClasses} row-span-2 row-start-3`}>
 			<h2 class="h4 text-center">Progression</h2>
 			<div class="grid grid-cols-[1fr_auto] grid-row-2 gap-5">
-				<ProgressRing value={32} max={100} showLabel size="size-56" strokeWidth="14px" labelClasses="text-4xl" classes="row-span-2" />
-				<ProgressRing value={66} max={100} showLabel size="size-16" strokeWidth="5px" labelClasses="text-sm" classes="self-center" />
-				<ProgressRing value={35} max={100} showLabel size="size-16" strokeWidth="5px" labelClasses="text-sm" classes="self-center" />
+				<ProgressRing value={32} max={100} showLabel size="size-56" strokeWidth="5px" labelClasses="text-2xl" classes="row-span-2" />
+				<ProgressRing value={66} max={100} showLabel size="size-16" strokeWidth="10px" labelClasses="text-sm" classes="self-center" />
+				<ProgressRing value={35} max={100} showLabel size="size-16" strokeWidth="10px" labelClasses="text-sm" classes="self-center" />
 			</div>
 		</div>
 		<!-- 8 -->

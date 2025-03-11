@@ -53,9 +53,7 @@ export const HeaderSponsors: React.FC = () => {
 					>
 						<header className="space-y-2">
 							<p className="font-bold">Sponsor Us</p>
-							<p className="text-xs opacity-60">
-								Sponsor Skeleton and receive un incentives in return. Available on the following services.
-							</p>
+							<p className="text-xs opacity-60">Sponsor Skeleton and help support the project. Available on the following services.</p>
 						</header>
 						<hr className="hr" />
 						<div className="flex flex-col gap-1">
