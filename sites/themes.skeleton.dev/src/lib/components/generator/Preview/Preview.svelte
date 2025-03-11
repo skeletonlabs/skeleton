@@ -38,7 +38,7 @@
 				<header class="flex justify-between gap-4">
 					<!-- prettier-ignore -->
 					<p>
-						Copy the theme code below, then follow the <a href="https://next.skeleton.dev/docs/design/themes" target="_blank" class="anchor">documentation instructions</a>.
+						Copy the theme code below, then follow the <a href="https://skeleton.dev/docs/design/themes" target="_blank" class="anchor">documentation instructions</a>.
 					</p>
 					<button type="button" class="btn preset-outlined-surface-300-700 hover:preset-tonal" onclick={copyToClipboard}>Copy</button>
 				</header>

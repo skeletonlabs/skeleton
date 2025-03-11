@@ -7,7 +7,7 @@
 			"request": "launch",
 			"type": "node-terminal",
 			"autoAttachChildProcesses": true,
-			"cwd": "${workspaceFolder}/sites/next.skeleton.dev/",
+			"cwd": "${workspaceFolder}/sites/skeleton.dev/",
 			// pnpm and babel use try/catches as part of their normal operations and create a lot of false positives
 			// when debugging with Caught Exceptions turned on, so we just jump past them.
 			"skipFiles": ["<node_internals>/**", "**/node_modules/pnpm/**", "**/node_modules/@babel*/**"]

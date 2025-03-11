@@ -525,7 +525,7 @@ importers:
         specifier: ^6.2.1
         version: 6.2.1(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.2)(sass-embedded@1.85.1)(tsx@4.19.3)(yaml@2.7.0)
 
-  sites/next.skeleton.dev:
+  sites/skeleton.dev:
     dependencies:
       '@astrojs/check':
         specifier: ^0.9.4
