@@ -41,7 +41,7 @@ As a courtesy, please consult with Skeleton maintainers before adding dependenci
 
 Dependencies may be installed using the standard `pnpm i` command. However, in some cases it may be beneficial to maintain a uniform version shared across multiple projects or within each `package.json`. For this we can make use of [PNPM Catalogs](https://pnpm.io/catalogs).
 
-The master version is maintained in the monorepo root in `pnpm-workspace.yaml`:
+The main version is maintained in the monorepo root in `pnpm-workspace.yaml`:
 
 ```yaml
 catalog:
@@ -91,13 +91,11 @@ Isolated sandbox environments for developing, testing and experimenting.
 
 ## Branch
 
-Skeleton utilizes three primary branches.
+Create and target all pull requests agaist the `main` branch unless otherwise instructed.
 
-| Branch   | Description                                             | Pull Requests                                  |
-| -------- | ------------------------------------------------------- | ---------------------------------------------- |
-| `master` | Represents the release branch of the all projects.      | <X size={16} className='inline' /> Never       |
-| `dev`    | Represents a queue of new features prepped for release. | <Check size={16} className='inline' /> Allowed |
-| `next`   | Represents the bleeding edge pre-release branch.        | <Check size={16} className='inline' /> Allowed |
+| Branch | Description                                        | Pull Requests                                  |
+| ------ | -------------------------------------------------- | ---------------------------------------------- |
+| `main` | Represents the release branch of the all projects. | <Check size={16} className='inline' /> Allowed |
 
 ### PR Branch Conventions
 
@@ -116,6 +114,10 @@ Keep branch names short and semantic, and use snake-case to separate words.
 docs/get-started-typo-fix
 bugfix/accordion-render-issue
 ```
+
+## Documentation Schema
+
+Before your first run of the `/sites/skeleton.dev` documentation project, make sure to run `pnpm schema` first. This will generate the schema files required to populate API Reference tables on each component's documentation page.
 
 ## Changesets
 
