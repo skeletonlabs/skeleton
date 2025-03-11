@@ -1,5 +1,59 @@
 # @skeletonlabs/skeleton
 
+## 3.0.0
+### Minor Changes
+
+
+- chore: Updated to the latest dependencies ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Feature: Added radial and conic gradient support ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+### Patch Changes
+
+
+- chore: Restore Button and Chip default hover states ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Modified default styles based on theme gen improvements ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: fix css property typo in form-groups classes ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Resolved a number of small display issues with Input Groups ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added a `contentPath` utility function for tailwind content paths ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Fix conflicting build artifacts ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Improved button hover state brightness effect ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Resolve an issue causing a white flash when selecting inputs. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feat: Tailwind v4 ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- All Skeleton components have been updated to integrate Zag.js. This contains a number of breaking component API changes. Updates all documentation. And includes new CSS animations in the Tailwind plugin. ([More Information](https://github.com/skeletonlabs/skeleton/discussions/2784)) ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Moved Prettier and ESLint to repo root, updated formatting, and rectified linting issues ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- fix: add `string` type to `contentPath` args ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Improved global and per component focus state styles ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Style improvements for Buttons, Badges, Chips, and Form elements ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
 ## 3.0.0-next.13
 ### Patch Changes
 

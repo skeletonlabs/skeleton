@@ -34,7 +34,7 @@ pnpm add @skeletonlabs/skeleton
 </html>
 ```
 
-4. Enjoy Skeleton! Visit [the documentation](https://next.skeleton.dev/) for any questions.
+4. Enjoy Skeleton! Visit [the documentation](https://skeleton.dev/) for any questions.
 
 ## Project Setup
 

@@ -1,5 +1,148 @@
 # @skeletonlabs/skeleton-react
 
+## 1.0.0
+### Minor Changes
+
+
+- feat: Navigation - manually handle `selected` state of NavTile ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Feature: Added the Switch component. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- - chore: Svelte Accordion and Nav components now use dot notation syntax ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+  - Tab components overhauled to bring consistency between Svelte and React implementations
+  - Tabs.Item component removed
+  - Tabs.Panels (plural) component added
+
+- feature: Added the Navigation Rail, Bar, and Tile components ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Migrated Nav, Segment Control, and Switch component APIs to match new conventions ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Improvements to the File Upload component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added Segment Control component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the ProgressRing component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the FileUpload component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added Tags Input component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the Slider component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Updated to the latest dependencies ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the Ratings component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- All Skeleton components have been updated to integrate Zag.js. This contains a number of breaking component API changes. Updates all documentation. And includes new CSS animations in the Tailwind plugin. ([More Information](https://github.com/skeletonlabs/skeleton/discussions/2784)) ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feat: Zag 1.0 ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the Pagination component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+### Patch Changes
+
+
+- bugfix: Reinstate Pagination `count` prop. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Minor bugfix to progressRing indeterminate class logic ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Resolved Pagination alternative mode page count issue ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Standarize use of Use Client directive in all components. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Updated peer dependencies to support React 19 ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Add `showFirstLastButtons` prop to Pagination to enable toggling first and last buttons. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Add option to set `aria-labelledby` for Segment component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Modified default styles based on theme gen improvements ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Improved Ratings component default half star SVG ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: progress ring safari 100% ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: the React `<Nav>` component renamed `<Navigation>` to be uniform with other frameworks ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Moved Prettier and ESLint to repo root, updated formatting, and rectified linting issues ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Rename `TagsInput` inconsistent prop names: `inputEdit` or `tagEdit` to `tagEditInput` ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Remove `reactCompose` utility, added `$lib` alias path. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Move `react` and `react-dom` to `peerDependencies` ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Resolved regressions in the following test cases: progress ring, ratings, segment control, switch, and tabs ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Remove extra height class from NavBar ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Make use of `useId` on Navigation component to set default `id` for Tiles if user had not defined it explicitly ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: ProgressRing component no longer has a label by default, but can be enabled with `showLabel` prop. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Resolved regressions in the following test cases: accordion, appbar, avatar, navigation, and progress components ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Improved focus states for Switch and Slider components. Minor style improvements to the Ratings label text. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Removed `filter` prop and moved `style` prop to parent element ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Implement `style` prop for Avatar component. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: empty padding when switch has no children ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Improved global and per component focus state styles ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Style improvements for Buttons, Badges, Chips, and Form elements ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Set unique `key` properly for React's Rating component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Added `@skeletonlabs/skeleton` as a peer-dependency ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+- Updated dependencies [[`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00)]:
+  - @skeletonlabs/skeleton@3.0.0
+
 ## 1.0.0-next.17
 ### Patch Changes
 
