@@ -6,7 +6,7 @@
 	import IconUpload from 'lucide-svelte/icons/upload';
 	import IconRemove from 'lucide-svelte/icons/circle-x';
 	// Local
-	let apiRef: FileUploadApi;
+	let api: FileUploadApi = $state();
 </script>
 
 <div class="space-y-10">
@@ -49,8 +49,8 @@
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">API Binding</h2>
-		<FileUpload name="example" accept="image/*" maxFiles={2} bind:internalApi={apiRef} />
-		<button type="button" class="btn preset-filled" onclick={apiRef.clearFiles}>Clear Files</button>
+		<FileUpload name="example" accept="image/*" maxFiles={2} onApiReady={(api_) => (api = api_)} />
+		<button type="button" class="btn preset-filled" onclick={() => api?.clearFiles()}>Clear Files</button>
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">RTL</h2>

@@ -17,7 +17,7 @@
 	const cardClasses = 'card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5';
 
 	// State
-	let notifications = $state({
+	const notifications = $state({
 		disturb: true,
 		global: false,
 		personal: false,
