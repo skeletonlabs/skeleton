@@ -24,28 +24,20 @@
 					<tr>
 						<th>Tooling</th>
 						<th>Max Version</th>
-						<th>More Information</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td><a href="https://svelte.dev/" target="_blank" class="anchor">SvelteKit</a></td>
 						<td>v2</td>
-						<td>Additional frameworks coming in <a href="https://next.skeleton.dev/docs/get-started/installation" target="_blank" class="anchor">future versions</a>.</td>
 					</tr>
 					<tr>
 						<td><a href="https://svelte.dev/" target="_blank" class="anchor">Svelte</a></td>
 						<td>v4</td>
-						<td>
-							<a href="https://github.com/skeletonlabs/skeleton/discussions/2887" target="_blank" class="anchor">Svelte 5</a> is supported with some known issues.
-						</td>
 					</tr>
 					<tr>
 						<td><a href="https://v3.tailwindcss.com/" target="_blank" class="anchor">Tailwind</a></td>
 						<td>v3</td>
-						<td>
-							<a href="https://tailwindcss.com/blog/tailwindcss-v4" target="_blank" class="anchor">Tailwind v4</a> is not supported by this version of Skeleton.
-						</td>
 					</tr>
 				</tbody>
 			</table>

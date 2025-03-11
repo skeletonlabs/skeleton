@@ -21,3 +21,4 @@ repos.json
 /sites/*
 !/sites/skeleton.dev
 /templates/*
+/playgrounds/*
