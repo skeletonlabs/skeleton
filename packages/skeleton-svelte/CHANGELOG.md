@@ -1,5 +1,214 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0
+### Minor Changes
+
+
+- feat: Navigation - manually handle `selected` state of NavTile ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Implemented the Svelte components for Popover, Tooltip, Combobox, and Modal. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Feature: Added the Switch component. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- - chore: Svelte Accordion and Nav components now use dot notation syntax ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+  - Tab components overhauled to bring consistency between Svelte and React implementations
+  - Tabs.Item component removed
+  - Tabs.Panels (plural) component added
+
+- feature: Added the Navigation Rail, Bar, and Tile components ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the Svelte Toast component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Migrated Nav, Segment Control, and Switch component APIs to match new conventions ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Improvements to the File Upload component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added Segment Control component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the ProgressRing component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the FileUpload component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added Tags Input component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the Slider component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Updated to the latest dependencies ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the Ratings component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- All Skeleton components have been updated to integrate Zag.js. This contains a number of breaking component API changes. Updates all documentation. And includes new CSS animations in the Tailwind plugin. ([More Information](https://github.com/skeletonlabs/skeleton/discussions/2784)) ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feat: Zag 1.0 ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Added the Pagination component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+### Patch Changes
+
+
+- feat: set trigger button type to `button` for **Tooltip**, **Popover** and **Modal** ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Reinstate Pagination `count` prop. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feat: Implement `arrow` for Tooltip ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Resolved Pagination alternative mode page count issue ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feat: Implement `aria-label` for triggers ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feat: renamed `positionerZIndex` to `zIndex` and used CSS values instead of Tailwind classes for **Popover**, **Modal**, **Tooltip** and **Combobox** ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Add `showFirstLastButtons` prop to Pagination to enable toggling first and last buttons. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Call custom event handlers provided in ZagJs's internal handlers ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Remove redundant null checks for triggers ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: prevent internal overwrite of `ComboBox` `onInputValueChange`. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feature: Add option to set `aria-labelledby` for Segment component ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Modified default styles based on theme gen improvements ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Update Svelte peer dependency to 5.20.0 or higher because we rely on `$props.id` (which was released in 5.20.0) ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Only render `<button>` when `trigger` snippet is defined. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Improved Ratings component default half star SVG ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feat: Implement `disabled` for Modal, Tooltip, Popover and Combobox ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Added base style prop classes to Svelte Popover, Tooltip, and Modal components ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Set button type to `button` for Svelte's Combobox options ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Adjust Svelte Switch to allow for `bind:checked` and `onCheckedChange` at the same time. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Implemented Svelte test specs for all components ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Updated to the latest Svelte 5 RC peer depedency ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: progress ring safari 100% ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: resolved Svelte Pagination component reactivity issues ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feat: provide `item` snippet for Combobox ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feat: Make Svelte Slider marker snippet take the marker value as argument to enable marker customization ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Fixed reactivity issues within the Navigation related components ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Added positioner and z-index style props to the Svelte Popover, Tooltip, Combobox, and Modal components ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- `onOpenChange` will no longer be internally overriden and thus fix `bind:open` when used in conjunction with `onOpenChange`. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- docs: update `trigger` props description for _Popover_, _Modal_ and _Tooltip_ ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Disabled the unsupported Svelte Combobox multiple property ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Moved Prettier and ESLint to repo root, updated formatting, and rectified linting issues ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Renamed Nav component to Navigation to conform to our naming convention across packages ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Rename `TagsInput` inconsistent prop names: `inputEdit` or `tagEdit` to `tagEditInput` ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: only render button wrapping around `trigger` if the snippet was provided ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Remove extra height class from NavBar ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Remove `$effect` in `Segment.svelte` component that was emitting execessive logs ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Make use of `useId` on Navigation component to set default `id` for Tiles if user had not defined it explicitly ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: ProgressRing component no longer has a label by default, but can be enabled with `showLabel` prop. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- feat: Implements trigger event props for Svelte's *Popover*, *Modal*, *Combobox* and *Tooltip*. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: Resolve Zag dependency error ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Improved focus states for Switch and Slider components. Minor style improvements to the Ratings label text. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Removed `filter` prop and moved `style` prop to parent element ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Implement `style` prop for Avatar component. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- Bugfix: `bind:pageSize` now correctly updates in combination with `onPageSizeChange` handler. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- bugfix: empty padding when switch has no children ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Improved global and per component focus state styles ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Style improvements for Buttons, Badges, Chips, and Form elements ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+
+- chore: Added `@skeletonlabs/skeleton` as a peer-dependency ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+
+- Updated dependencies [[`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00)]:
+  - @skeletonlabs/skeleton@3.0.0
+
 ## 1.0.0-next.22
 ### Patch Changes
 
