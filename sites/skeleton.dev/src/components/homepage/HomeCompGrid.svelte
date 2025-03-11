@@ -77,7 +77,8 @@
 			<section class="w-full space-y-5">
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Do not disturb</p>
-					<Switch name="disturb" checked={notifications.doNotDisturb} onCheckedChange={(e) => (notifications.doNotDisturb = e.checked)}></Switch>
+					<Switch name="disturb" checked={notifications.doNotDisturb} onCheckedChange={(e) => (notifications.doNotDisturb = e.checked)}
+					></Switch>
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
