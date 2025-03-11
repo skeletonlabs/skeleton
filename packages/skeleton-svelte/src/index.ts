@@ -2,7 +2,7 @@
 
 // REMINDER
 // Do not export parent/child components. Use the dot-notation composition pattern:
-// https://next.skeleton.dev/docs/resources/contribute/components#dot-notation-syntax
+// https://skeleton.dev/docs/resources/contribute/components#dot-notation-syntax
 // (See Accordion, Nav, and Tabs for examples)
 
 // Components
