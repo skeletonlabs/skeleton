@@ -39,7 +39,7 @@ export default function Page() {
 						<feBlend mode="exclusion" x="0%" y="0%" width="100%" height="100%" in="blend3" in2="colormatrix3" result="blend5" />
 					</filter>
 				</svg>
-				<Avatar src={imgSrc} name="filtered" filter="#NoirLight" />
+				<Avatar src={imgSrc} name="filtered" style={{ filter: 'url(#NoirLight)' }} />
 			</section>
 		</div>
 	);
