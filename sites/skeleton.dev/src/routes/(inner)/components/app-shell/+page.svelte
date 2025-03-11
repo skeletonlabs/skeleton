@@ -47,7 +47,7 @@
 				</p>
 			</div>
 			<div class="alert-actions">
-				<a class="btn variant-filled" href="https://next.skeleton.dev/docs/guides/layouts" target="_blank">View Guide</a>
+				<a class="btn variant-filled" href="https://v3.skeleton.dev/docs/guides/layouts" target="_blank">View Guide</a>
 			</div>
 		</aside>
 		<div class="space-y-2">
