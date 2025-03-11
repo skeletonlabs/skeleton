@@ -1,5 +1,35 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.0.0-next.22
+### Patch Changes
+
+
+- bugfix: prevent internal overwrite of `ComboBox` `onInputValueChange`. ([#3327](https://github.com/skeletonlabs/skeleton/pull/3327))
+
+
+- chore: Update Svelte peer dependency to 5.20.0 or higher because we rely on `$props.id` (which was released in 5.20.0) ([#3311](https://github.com/skeletonlabs/skeleton/pull/3311))
+
+
+- bugfix: progress ring safari 100% ([#3360](https://github.com/skeletonlabs/skeleton/pull/3360))
+
+
+- feat: provide `item` snippet for Combobox ([#3348](https://github.com/skeletonlabs/skeleton/pull/3348))
+
+
+- bugfix: Rename `TagsInput` inconsistent prop names: `inputEdit` or `tagEdit` to `tagEditInput` ([#3298](https://github.com/skeletonlabs/skeleton/pull/3298))
+
+
+- chore: Removed `filter` prop and moved `style` prop to parent element ([#3344](https://github.com/skeletonlabs/skeleton/pull/3344))
+
+
+- chore: Style improvements for Buttons, Badges, Chips, and Form elements ([#3345](https://github.com/skeletonlabs/skeleton/pull/3345))
+
+
+- chore: Added `@skeletonlabs/skeleton` as a peer-dependency ([#3351](https://github.com/skeletonlabs/skeleton/pull/3351))
+
+- Updated dependencies [[`73a4e9f`](https://github.com/skeletonlabs/skeleton/commit/73a4e9f69b47f5684162adcaada6d460a5b73ca7), [`f427d83`](https://github.com/skeletonlabs/skeleton/commit/f427d83302826a238c43439fc67be4837d76b846), [`3af054d`](https://github.com/skeletonlabs/skeleton/commit/3af054dfb9f88b28694c2bf7630a3a40449a844c)]:
+  - @skeletonlabs/skeleton@3.0.0-next.13
+
 ## 1.0.0-next.21
 
 ### Minor Changes
