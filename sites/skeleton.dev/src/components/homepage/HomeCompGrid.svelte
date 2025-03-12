@@ -18,7 +18,7 @@
 
 	// State
 	const notifications = $state({
-		disturb: true,
+		doNotDisturb: false,
 		global: false,
 		personal: false,
 		priority: false,
@@ -47,7 +47,7 @@
 		<!-- 1 -->
 		<div class={`${cardClasses}`}>
 			<header>
-				<h3 class="h3">Create Account.</h3>
+				<h3 class="h3">Create Account</h3>
 				<p class="opacity-60">Complete the form to get started.</p>
 			</header>
 			<nav class="grid grid-cols-2 gap-5">
@@ -70,22 +70,23 @@
 		<!-- 2 -->
 		<div class={`${cardClasses}`}>
 			<header class="space-y-1">
-				<h2 class="h4">Notifications.</h2>
+				<h2 class="h4">Notifications</h2>
 				<p class="opacity-60">Review each available option.</p>
 			</header>
 			<hr class="hr" />
 			<section class="w-full space-y-5">
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Do not disturb</p>
-					<Switch name="disturb" checked={notifications.disturb} onCheckedChange={(e) => (notifications.disturb = e.checked)}></Switch>
+					<Switch name="doNotDisturb" checked={notifications.doNotDisturb} onCheckedChange={(e) => (notifications.doNotDisturb = e.checked)}
+					></Switch>
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Global notifications</p>
 					<Switch
 						name="notifications"
-						checked={notifications.global}
-						disabled={!notifications.disturb}
+						checked={notifications.global && !notifications.doNotDisturb}
+						disabled={notifications.doNotDisturb}
 						onCheckedChange={(e) => (notifications.global = e.checked)}
 					></Switch>
 				</div>
@@ -94,8 +95,8 @@
 					<p class="opacity-60">Personal notifications</p>
 					<Switch
 						name="disabled"
-						checked={notifications.personal}
-						disabled={!notifications.disturb}
+						checked={notifications.personal && !notifications.doNotDisturb}
+						disabled={notifications.doNotDisturb}
 						onCheckedChange={(e) => (notifications.personal = e.checked)}
 					></Switch>
 				</div>
@@ -104,8 +105,8 @@
 					<p class="opacity-60">Priority notifications</p>
 					<Switch
 						name="disturb"
-						checked={notifications.priority}
-						disabled={!notifications.disturb}
+						checked={notifications.priority && !notifications.doNotDisturb}
+						disabled={notifications.doNotDisturb}
 						onCheckedChange={(e) => (notifications.priority = e.checked)}
 					></Switch>
 				</div>
@@ -114,8 +115,8 @@
 					<p class="opacity-60">Featured News alerts</p>
 					<Switch
 						name="notifications"
-						checked={notifications.news}
-						disabled={!notifications.disturb}
+						checked={notifications.news && !notifications.doNotDisturb}
+						disabled={notifications.doNotDisturb}
 						onCheckedChange={(e) => (notifications.news = e.checked)}
 					></Switch>
 				</div>
