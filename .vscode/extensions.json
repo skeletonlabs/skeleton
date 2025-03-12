@@ -1,17 +1,28 @@
 {
-	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
-	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
-
-	// List of extensions which should be recommended for users of this workspace.
 	"recommendations": [
+		/**
+		 * Astro
+		 */
 		"astro-build.astro-vscode",
-		"svelte.svelte-vscode",
+		/**
+		 * MDX
+		 */
 		"unifiedjs.vscode-mdx",
+		/**
+		 * Tailwind
+		 */
 		"bradlc.vscode-tailwindcss",
-		"csstools.postcss",
+		/**
+		 * Svelte
+		 */
+		"svelte.svelte-vscode",
+		/**
+		 * Prettier
+		 */
 		"esbenp.prettier-vscode",
+		/**
+		 * ESLint
+		 */
 		"dbaeumer.vscode-eslint"
-	],
-	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
-	"unwantedRecommendations": ["heybourn.headwind"]
+	]
 }
