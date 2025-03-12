@@ -35,8 +35,8 @@ export default async function (options: MigrateOptions) {
 		paths: await glob('src/app.html', { cwd })
 	};
 	const appCss = {
-		name: 'src/app.{css,pcss,postcss}',
-		paths: await glob('src/app.{css,pcss,postcss}', { cwd })
+		name: 'src/app.css',
+		paths: await glob('src/app.css', { cwd })
 	};
 
 	// Validate file existence
@@ -123,7 +123,7 @@ export default async function (options: MigrateOptions) {
 			sourceFolders.map((folder) => `${folder}**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`),
 			{
 				cwd: cwd,
-				ignore: ['node_modules']
+				ignore: ['node_modules', 'src/app.css']
 			}
 		);
 		const sourceFilesSpinner = spinner();
@@ -168,7 +168,7 @@ export default async function (options: MigrateOptions) {
 	const writeSpinner = spinner();
 	writeSpinner.start('Applying all migrations...');
 	try {
-		await Promise.all(migrations.map(({ path, content }) => writeFile(path, content, 'utf-8')));
+		await Promise.all(migrations.map(({ path, content }) => writeFile(path, content)));
 		writeSpinner.stop('Successfully applied all migrations!');
 	} catch (e) {
 		writeSpinner.stop(`Failed to apply migrations: ${e instanceof Error ? e.message.replace('\n', ' ') : 'Unknown error'}`, 1);
