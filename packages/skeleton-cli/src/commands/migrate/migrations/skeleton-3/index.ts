@@ -119,11 +119,13 @@ export default async function (options: MigrateOptions) {
 
 	// Migrate source files
 	if (sourceFolders.length > 0) {
-		const sourceFileMatcher = `${sourceFolders.length === 1 ? sourceFolders.at(0) : `{${sourceFolders.join(',')}}`}/**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`;
-		const sourceFiles = await glob(sourceFileMatcher, {
-			cwd: cwd,
-			ignore: ['node_modules']
-		});
+		const sourceFiles = await glob(
+			sourceFolders.map((folder) => `${folder}**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`),
+			{
+				cwd: cwd,
+				ignore: ['node_modules']
+			}
+		);
 		const sourceFilesSpinner = spinner();
 		sourceFilesSpinner.start(`Migrating source files...`);
 		for (const sourceFile of sourceFiles) {
