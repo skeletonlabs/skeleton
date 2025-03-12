@@ -168,7 +168,7 @@ export default async function (options: MigrateOptions) {
 	const writeSpinner = spinner();
 	writeSpinner.start('Applying all migrations...');
 	try {
-		await Promise.all(migrations.map(({ path, content }) => writeFile(path, content)));
+		await Promise.all(migrations.map(({ path, content }) => writeFile(path, content, 'utf-8')));
 		writeSpinner.stop('Successfully applied all migrations!');
 	} catch (e) {
 		writeSpinner.stop(`Failed to apply migrations: ${e instanceof Error ? e.message.replace('\n', ' ') : 'Unknown error'}`, 1);
