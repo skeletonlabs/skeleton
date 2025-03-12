@@ -1,4 +1,5 @@
 name: Publish Skeleton (@latest)
+
 on:
   push:
     branches:
