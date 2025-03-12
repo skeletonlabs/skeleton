@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.2
+### Patch Changes
+
+
+- fix: Correct the glob matcher for sourcefiles in the `skeleton-3` migration ([#3388](https://github.com/skeletonlabs/skeleton/pull/3388))
+
 ## 0.0.1
 ### Patch Changes
 
