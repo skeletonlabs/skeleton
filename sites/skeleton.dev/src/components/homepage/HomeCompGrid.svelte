@@ -47,7 +47,7 @@
 		<!-- 1 -->
 		<div class={`${cardClasses}`}>
 			<header>
-				<h3 class="h3">Create Account.</h3>
+				<h3 class="h3">Create Account</h3>
 				<p class="opacity-60">Complete the form to get started.</p>
 			</header>
 			<nav class="grid grid-cols-2 gap-5">
@@ -70,7 +70,7 @@
 		<!-- 2 -->
 		<div class={`${cardClasses}`}>
 			<header class="space-y-1">
-				<h2 class="h4">Notifications.</h2>
+				<h2 class="h4">Notifications</h2>
 				<p class="opacity-60">Review each available option.</p>
 			</header>
 			<hr class="hr" />
