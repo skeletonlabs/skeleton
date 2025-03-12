@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.3
+### Patch Changes
+
+
+- fix: write to file using utf-8 ([#3390](https://github.com/skeletonlabs/skeleton/pull/3390))
+
 ## 0.0.2
 ### Patch Changes
 
