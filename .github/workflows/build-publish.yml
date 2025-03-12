@@ -1,9 +1,12 @@
 name: Publish Skeleton (@latest)
+
 on:
   push:
     branches:
       - main
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
     name: Build & Publish Release (@latest)
