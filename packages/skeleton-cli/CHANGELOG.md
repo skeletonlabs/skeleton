@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.4
+### Patch Changes
+
+
+- fix: app.css being transformed twice ([#3392](https://github.com/skeletonlabs/skeleton/pull/3392))
+
 ## 0.0.3
 ### Patch Changes
 
