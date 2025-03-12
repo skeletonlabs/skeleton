@@ -1,5 +1,4 @@
 <script lang="ts">
-	let currentOption = 6;
 	const options = [
 		'text-xs',
 		'text-sm',
@@ -15,6 +14,8 @@
 		'text-8xl',
 		'text-9xl'
 	];
+
+	let currentOption = $state(options.indexOf('text-3xl'));
 </script>
 
 <div class="w-full space-y-4">
@@ -27,8 +28,7 @@
 		class="input max-w-[320px] mx-auto"
 		type="range"
 		value={currentOption}
-		onValueChange={(e) => (currentOption = e.value)}
-		max="12"
-		step="1"
+		oninput={(e) => (currentOption = Number((e.target as HTMLInputElement).value))}
+		max={options.length - 1}
 	/>
 </div>
