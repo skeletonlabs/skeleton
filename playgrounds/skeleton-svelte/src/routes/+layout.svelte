@@ -9,7 +9,7 @@
 	let { children } = $props();
 	let modeState = $state(false); // false = dark mode
 
-	function onModeChange() {
+	function toggleMode() {
 		document.documentElement.classList.toggle('dark');
 	}
 </script>
@@ -20,7 +20,15 @@
 		<div class="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
 			<a class="text-sm bg-orange-500 p-2 font-mono font-bold text-white" href="/">skeleton-svelte</a>
 			<hr class="hr" />
-			<Switch name="mode" controlActive="bg-surface-200" checked={modeState} onCheckedChange={onModeChange}>
+			<Switch
+				name="mode"
+				controlActive="bg-surface-200"
+				checked={modeState}
+				onCheckedChange={(e) => {
+					modeState = e.checked;
+					toggleMode();
+				}}
+			>
 				{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
 				{#snippet activeChild()}<IconSun size="14" />{/snippet}
 				<p>Toggle Mode</p>
