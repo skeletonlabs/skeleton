@@ -128,7 +128,7 @@
 												type="text"
 												class="input"
 												bind:value={settingsColors[`--color-${color.value}-${shade}`]}
-												oninput={() => genColorRamp(showAllShades, color.value)}
+												onblur={() => genColorRamp(showAllShades, color.value)}
 											/>
 										</td>
 										<td class="w-[1%] whitespace-nowrap">
