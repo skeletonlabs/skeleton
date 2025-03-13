@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { Avatar, Slider, Switch, ProgressRing } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconPlay from 'lucide-svelte/icons/play';
-	import IconNormalize from 'lucide-svelte/icons/audio-waveform';
-	import IconEqualizer from 'lucide-svelte/icons/audio-lines';
-	import Icon3dAudio from 'lucide-svelte/icons/move-3d';
-	import IconCrossfade from 'lucide-svelte/icons/chart-no-axes-column-increasing';
-	import IconArrowUpRight from 'lucide-svelte/icons/arrow-up-right';
-	import IconCheck from 'lucide-svelte/icons/check';
-	import IconUsers from 'lucide-svelte/icons/user';
-	import IconRewind from 'lucide-svelte/icons/rewind';
-	import IconFastForward from 'lucide-svelte/icons/fast-forward';
-	import IconVolume from 'lucide-svelte/icons/volume-2';
+	import IconPlay from '@lucide/svelte/icons/play';
+	import IconNormalize from '@lucide/svelte/icons/audio-waveform';
+	import IconEqualizer from '@lucide/svelte/icons/audio-lines';
+	import Icon3dAudio from '@lucide/svelte/icons/move-3d';
+	import IconCrossfade from '@lucide/svelte/icons/chart-no-axes-column-increasing';
+	import IconArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
+	import IconCheck from '@lucide/svelte/icons/check';
+	import IconUsers from '@lucide/svelte/icons/user';
+	import IconRewind from '@lucide/svelte/icons/rewind';
+	import IconFastForward from '@lucide/svelte/icons/fast-forward';
+	import IconVolume from '@lucide/svelte/icons/volume-2';
 
 	// Classes
 	const cardClasses = 'card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5';

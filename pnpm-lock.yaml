@@ -485,6 +485,9 @@ importers:
 
   playgrounds/skeleton-svelte:
     devDependencies:
+      '@lucide/svelte':
+        specifier: ^0.479.0
+        version: 0.479.0(svelte@5.22.2)
       '@skeletonlabs/skeleton':
         specifier: workspace:*
         version: link:../../packages/skeleton
@@ -506,9 +509,6 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.0.12
         version: 4.0.12(vite@6.2.1(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.2)(sass-embedded@1.85.1)(tsx@4.19.3)(yaml@2.7.0))
-      lucide-svelte:
-        specifier: ^0.479.0
-        version: 0.479.0(svelte@5.22.2)
       svelte:
         specifier: 'catalog:'
         version: 5.22.2
@@ -551,6 +551,9 @@ importers:
       '@floating-ui/react':
         specifier: ^0.27.5
         version: 0.27.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@lucide/svelte':
+        specifier: ^0.479.0
+        version: 0.479.0(svelte@5.22.2)
       '@nanostores/persistent':
         specifier: ^0.10.2
         version: 0.10.2(nanostores@0.11.4)
@@ -587,9 +590,6 @@ importers:
       lucide-react:
         specifier: ^0.479.0
         version: 0.479.0(react@19.0.0)
-      lucide-svelte:
-        specifier: ^0.479.0
-        version: 0.479.0(svelte@5.22.2)
       nanostores:
         specifier: ^0.11.4
         version: 0.11.4
@@ -648,6 +648,9 @@ importers:
 
   sites/themes.skeleton.dev:
     devDependencies:
+      '@lucide/svelte':
+        specifier: ^0.479.0
+        version: 0.479.0(svelte@5.22.2)
       '@skeletonlabs/skeleton':
         specifier: workspace:*
         version: link:../../packages/skeleton
@@ -681,9 +684,6 @@ importers:
       chroma-js:
         specifier: ^3.1.2
         version: 3.1.2
-      lucide-svelte:
-        specifier: ^0.479.0
-        version: 0.479.0(svelte@5.22.2)
       shiki:
         specifier: ^3.2.0
         version: 3.2.0
@@ -1540,6 +1540,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@lucide/svelte@0.479.0':
+    resolution: {integrity: sha512-k/JaO8FHvmK7GLCy9vibA7O1a9nCtlfIs0tU/yYlmkqykVEvz9NRFkpR8g2kbsc79uFVz0Q2tjnRC09vd9AxmA==}
+    peerDependencies:
+      svelte: ^5
 
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -4147,11 +4152,6 @@ packages:
     resolution: {integrity: sha512-aBhNnveRhorBOK7uA4gDjgaf+YlHMdMhQ/3cupk6exM10hWlEU+2QtWYOfhXhjAsmdb6LeKR+NZnow4UxRRiTQ==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
-
-  lucide-svelte@0.479.0:
-    resolution: {integrity: sha512-epCj6WL86ykxg7oCQTmPEth5e11pwJUzIfG9ROUsWsTP+WPtb3qat+VmAjfx/r4TRW7memTFcbTPvMrZvKthqw==}
-    peerDependencies:
-      svelte: ^3 || ^4 || ^5.0.0-next.42
 
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -7346,6 +7346,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@lucide/svelte@0.479.0(svelte@5.22.2)':
+    dependencies:
+      svelte: 5.22.2
 
   '@manypkg/find-root@1.1.0':
     dependencies:
@@ -10576,10 +10580,6 @@ snapshots:
   lucide-react@0.479.0(react@19.0.0):
     dependencies:
       react: 19.0.0
-
-  lucide-svelte@0.479.0(svelte@5.22.2):
-    dependencies:
-      svelte: 5.22.2
 
   lz-string@1.5.0: {}
 

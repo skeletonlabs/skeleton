@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Icons
-	import IconCenter from 'lucide-svelte/icons/swatch-book';
+	import IconCenter from '@lucide/svelte/icons/swatch-book';
 
 	// Data
 	export const palette = [

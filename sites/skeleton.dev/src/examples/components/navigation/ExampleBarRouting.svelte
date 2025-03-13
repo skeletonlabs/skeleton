@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconFolder from 'lucide-svelte/icons/folder';
-	import IconImage from 'lucide-svelte/icons/image';
-	import IconMusic from 'lucide-svelte/icons/music';
-	import IconVideo from 'lucide-svelte/icons/video';
+	import IconFolder from '@lucide/svelte/icons/folder';
+	import IconImage from '@lucide/svelte/icons/image';
+	import IconMusic from '@lucide/svelte/icons/music';
+	import IconVideo from '@lucide/svelte/icons/video';
 </script>
 
 <div class="card border-surface-100-900 grid h-[512px] w-[320px] grid-rows-[1fr_auto] border-[1px]">

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { TagsInput } from '@skeletonlabs/skeleton-svelte';
-	import IconDelete from 'lucide-svelte/icons/circle-x';
+	import IconDelete from '@lucide/svelte/icons/circle-x';
 
 	let flavors = $state(['Vanilla', 'Chocolate', 'Strawberry']);
 </script>

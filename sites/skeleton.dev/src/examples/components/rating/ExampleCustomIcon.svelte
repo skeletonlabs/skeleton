@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Rating } from '@skeletonlabs/skeleton-svelte';
-	import { Bone, Skull } from 'lucide-svelte';
+	import { Bone, Skull } from '@lucide/svelte';
 </script>
 
 <Rating value={2}>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Rating } from '@skeletonlabs/skeleton-svelte';
-	import IconBone from 'lucide-svelte/icons/bone';
-	import IconSkull from 'lucide-svelte/icons/skull';
+	import IconBone from '@lucide/svelte/icons/bone';
+	import IconSkull from '@lucide/svelte/icons/skull';
 
 	let value = $state(3);
 </script>

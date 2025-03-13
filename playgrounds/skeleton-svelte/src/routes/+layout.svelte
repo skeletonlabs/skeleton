@@ -3,8 +3,8 @@
 	// Components
 	import { ToastProvider, Switch } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconMoon from 'lucide-svelte/icons/moon';
-	import IconSun from 'lucide-svelte/icons/sun';
+	import IconMoon from '@lucide/svelte/icons/moon';
+	import IconSun from '@lucide/svelte/icons/sun';
 
 	let { children } = $props();
 	let modeState = $state(false); // false = dark mode

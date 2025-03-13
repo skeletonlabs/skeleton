@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ProgressRing } from '@skeletonlabs/skeleton-svelte';
-	import IconThermometer from 'lucide-svelte/icons/thermometer-sun';
+	import IconThermometer from '@lucide/svelte/icons/thermometer-sun';
 
 	let value = $state(40);
 	let max = $state(100);

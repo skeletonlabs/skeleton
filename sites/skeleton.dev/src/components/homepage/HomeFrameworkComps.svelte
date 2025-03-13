@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconChevron from 'lucide-svelte/icons/chevron-right';
+	import IconChevron from '@lucide/svelte/icons/chevron-right';
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 
 	let checked = $state(true);

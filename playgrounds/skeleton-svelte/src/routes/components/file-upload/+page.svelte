@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { FileUpload, type FileUploadApi } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconDropzone from 'lucide-svelte/icons/image-plus';
-	import IconFile from 'lucide-svelte/icons/paperclip';
-	import IconUpload from 'lucide-svelte/icons/upload';
-	import IconRemove from 'lucide-svelte/icons/circle-x';
+	import IconDropzone from '@lucide/svelte/icons/image-plus';
+	import IconFile from '@lucide/svelte/icons/paperclip';
+	import IconUpload from '@lucide/svelte/icons/upload';
+	import IconRemove from '@lucide/svelte/icons/circle-x';
 	// Local
 	let api: FileUploadApi = $state();
 </script>

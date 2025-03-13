@@ -9,9 +9,9 @@
 	// Componets (skeleton)
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconUpload from 'lucide-svelte/icons/file-up';
-	import IconFile from 'lucide-svelte/icons/paperclip';
-	import IconRemove from 'lucide-svelte/icons/circle-x';
+	import IconUpload from '@lucide/svelte/icons/file-up';
+	import IconFile from '@lucide/svelte/icons/paperclip';
+	import IconRemove from '@lucide/svelte/icons/circle-x';
 
 	const defaultThemeName = 'cerberus';
 

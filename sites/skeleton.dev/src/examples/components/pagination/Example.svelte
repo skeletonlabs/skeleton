@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { Pagination } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconArrowLeft from 'lucide-svelte/icons/arrow-left';
-	import IconArrowRight from 'lucide-svelte/icons/arrow-right';
-	import IconEllipsis from 'lucide-svelte/icons/ellipsis';
-	import IconFirst from 'lucide-svelte/icons/chevrons-left';
-	import IconLast from 'lucide-svelte/icons/chevron-right';
+	import IconArrowLeft from '@lucide/svelte/icons/arrow-left';
+	import IconArrowRight from '@lucide/svelte/icons/arrow-right';
+	import IconEllipsis from '@lucide/svelte/icons/ellipsis';
+	import IconFirst from '@lucide/svelte/icons/chevrons-left';
+	import IconLast from '@lucide/svelte/icons/chevron-right';
 
 	interface SourceData {
 		position: number;
