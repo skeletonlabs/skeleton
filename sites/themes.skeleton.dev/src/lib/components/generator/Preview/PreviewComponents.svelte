@@ -8,12 +8,12 @@
 	// Components (generator)
 	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
 	// Icons
-	import IconSkull from 'lucide-svelte/icons/skull';
-	import IconLeft from 'lucide-svelte/icons/align-left';
-	import IconCenter from 'lucide-svelte/icons/align-center';
-	import IconRight from 'lucide-svelte/icons/align-right';
-	import IconJustify from 'lucide-svelte/icons/align-justify';
-	import IconArrowUpRight from 'lucide-svelte/icons/arrow-up-right';
+	import IconSkull from '@lucide/svelte/icons/skull';
+	import IconLeft from '@lucide/svelte/icons/align-left';
+	import IconCenter from '@lucide/svelte/icons/align-center';
+	import IconRight from '@lucide/svelte/icons/align-right';
+	import IconJustify from '@lucide/svelte/icons/align-justify';
+	import IconArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
 
 	// State
 	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconMoon from 'lucide-svelte/icons/moon';
-	import IconSun from 'lucide-svelte/icons/sun';
+	import IconMoon from '@lucide/svelte/icons/moon';
+	import IconSun from '@lucide/svelte/icons/sun';
 
 	// Bind to the checked state
 	let mode = $state(false);

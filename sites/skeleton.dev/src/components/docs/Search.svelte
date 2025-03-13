@@ -5,12 +5,12 @@
 	import { docSearchSettingsStore } from 'src/stores/doc-search-settings';
 	import { frameworks, isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
 	// Icons
-	import IconSearch from 'lucide-svelte/icons/search';
-	import IconFilter from 'lucide-svelte/icons/filter';
-	import IconBook from 'lucide-svelte/icons/book';
-	import IconHash from 'lucide-svelte/icons/hash';
-	import IconLoader from 'lucide-svelte/icons/loader';
-	import IconChevronRight from 'lucide-svelte/icons/chevron-right';
+	import IconSearch from '@lucide/svelte/icons/search';
+	import IconFilter from '@lucide/svelte/icons/filter';
+	import IconBook from '@lucide/svelte/icons/book';
+	import IconHash from '@lucide/svelte/icons/hash';
+	import IconLoader from '@lucide/svelte/icons/loader';
+	import IconChevronRight from '@lucide/svelte/icons/chevron-right';
 
 	let dialog: HTMLDialogElement | null = $state(null);
 	let pagefind: Pagefind | null = $state(null);

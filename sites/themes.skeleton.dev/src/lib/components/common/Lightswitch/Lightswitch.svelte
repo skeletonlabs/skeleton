@@ -1,6 +1,6 @@
 <script lang="ts">
-	import IconSun from 'lucide-svelte/icons/sun';
-	import IconMoon from 'lucide-svelte/icons/moon';
+	import IconSun from '@lucide/svelte/icons/sun';
+	import IconMoon from '@lucide/svelte/icons/moon';
 
 	let darkMode = $state(true);
 

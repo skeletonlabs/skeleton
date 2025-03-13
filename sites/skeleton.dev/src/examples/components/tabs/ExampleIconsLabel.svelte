@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconPlane from 'lucide-svelte/icons/plane';
-	import IconBoat from 'lucide-svelte/icons/sailboat';
-	import IconCar from 'lucide-svelte/icons/car';
+	import IconPlane from '@lucide/svelte/icons/plane';
+	import IconBoat from '@lucide/svelte/icons/sailboat';
+	import IconCar from '@lucide/svelte/icons/car';
 
 	let group = $state('plane');
 	const lorem =

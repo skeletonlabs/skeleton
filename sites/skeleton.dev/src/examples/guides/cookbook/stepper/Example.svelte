@@ -1,6 +1,6 @@
 <script lang="ts">
-	import IconArrowLeft from 'lucide-svelte/icons/arrow-left';
-	import IconArrowRight from 'lucide-svelte/icons/arrow-right';
+	import IconArrowLeft from '@lucide/svelte/icons/arrow-left';
+	import IconArrowRight from '@lucide/svelte/icons/arrow-right';
 
 	// Source Data
 	const steps = [

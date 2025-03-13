@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import Club from 'lucide-svelte/icons/club';
-	import Diamond from 'lucide-svelte/icons/diamond';
-	import Heart from 'lucide-svelte/icons/heart';
-	import Spade from 'lucide-svelte/icons/spade';
+	import Club from '@lucide/svelte/icons/club';
+	import Diamond from '@lucide/svelte/icons/diamond';
+	import Heart from '@lucide/svelte/icons/heart';
+	import Spade from '@lucide/svelte/icons/spade';
 
 	const lorem =
 		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';

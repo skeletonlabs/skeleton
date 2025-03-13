@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconX from 'lucide-svelte/icons/x';
-	import IconCheck from 'lucide-svelte/icons/check';
-	import IconMoon from 'lucide-svelte/icons/moon';
-	import IconSun from 'lucide-svelte/icons/sun';
-	import IconSmile from 'lucide-svelte/icons/frown';
-	import IconFrown from 'lucide-svelte/icons/smile';
+	import IconX from '@lucide/svelte/icons/x';
+	import IconCheck from '@lucide/svelte/icons/check';
+	import IconMoon from '@lucide/svelte/icons/moon';
+	import IconSun from '@lucide/svelte/icons/sun';
+	import IconSmile from '@lucide/svelte/icons/frown';
+	import IconFrown from '@lucide/svelte/icons/smile';
 
 	let disturb = $state(false);
 	let notifications = $state(true);

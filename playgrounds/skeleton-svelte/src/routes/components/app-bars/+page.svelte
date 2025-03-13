@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
-	import Skull from 'lucide-svelte/icons/skull';
+	import Skull from '@lucide/svelte/icons/skull';
 </script>
 
 <h1 class="h1">App Bar</h1>

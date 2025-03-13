@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconLogo from 'lucide-svelte/icons/skull';
-	import IconBox from 'lucide-svelte/icons/box';
-	import IconSettings from 'lucide-svelte/icons/settings';
+	import IconLogo from '@lucide/svelte/icons/skull';
+	import IconBox from '@lucide/svelte/icons/box';
+	import IconSettings from '@lucide/svelte/icons/settings';
 
 	let value = $state('0');
 	let expanded = $state(false);

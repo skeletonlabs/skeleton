@@ -8,10 +8,10 @@
 	// Components (Skeleton)
 	import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconEdit from 'lucide-svelte/icons/pencil';
-	import IconSeed from 'lucide-svelte/icons/sprout';
-	import IconRandom from 'lucide-svelte/icons/dices';
-	import IconClear from 'lucide-svelte/icons/eraser';
+	import IconEdit from '@lucide/svelte/icons/pencil';
+	import IconSeed from '@lucide/svelte/icons/sprout';
+	import IconRandom from '@lucide/svelte/icons/dices';
+	import IconClear from '@lucide/svelte/icons/eraser';
 
 	// Types
 	interface ColorSelection {

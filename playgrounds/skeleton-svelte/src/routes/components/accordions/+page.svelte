@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import Club from 'lucide-svelte/icons/club';
-	import Diamond from 'lucide-svelte/icons/diamond';
-	import Heart from 'lucide-svelte/icons/heart';
-	import Spade from 'lucide-svelte/icons/spade';
+	import Club from '@lucide/svelte/icons/club';
+	import Diamond from '@lucide/svelte/icons/diamond';
+	import Heart from '@lucide/svelte/icons/heart';
+	import Spade from '@lucide/svelte/icons/spade';
 
 	let valueDefault = $state(['club']);
 	let valueMultiple = $state(['club']);

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { TagsInput } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconDelete from 'lucide-svelte/icons/circle-x';
+	import IconDelete from '@lucide/svelte/icons/circle-x';
 
 	// State
 	let flavors = $state(['Vanilla', 'Chocolate', 'Strawberry']);

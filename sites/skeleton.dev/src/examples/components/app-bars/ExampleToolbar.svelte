@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
-	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
-	import Paperclip from 'lucide-svelte/icons/paperclip';
-	import Calendar from 'lucide-svelte/icons/calendar';
-	import CircleUser from 'lucide-svelte/icons/circle-user';
+	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
+	import Paperclip from '@lucide/svelte/icons/paperclip';
+	import Calendar from '@lucide/svelte/icons/calendar';
+	import CircleUser from '@lucide/svelte/icons/circle-user';
 </script>
 
 <AppBar>

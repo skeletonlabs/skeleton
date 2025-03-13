@@ -1,10 +1,10 @@
 <script lang="ts">
 	// Icons
-	import IconFigma from 'lucide-svelte/icons/figma';
-	import IconBookmark from 'lucide-svelte/icons/bookmark';
-	import IconHeart from 'lucide-svelte/icons/heart';
-	import IconUserRound from 'lucide-svelte/icons/user-round';
-	import IconTriangle from 'lucide-svelte/icons/triangle';
+	import IconFigma from '@lucide/svelte/icons/figma';
+	import IconBookmark from '@lucide/svelte/icons/bookmark';
+	import IconHeart from '@lucide/svelte/icons/heart';
+	import IconUserRound from '@lucide/svelte/icons/user-round';
+	import IconTriangle from '@lucide/svelte/icons/triangle';
 
 	let state = $state(0);
 	const steps = [

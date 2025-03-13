@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import IconDropzone from 'lucide-svelte/icons/image-plus';
-	import IconFile from 'lucide-svelte/icons/paperclip';
-	import IconRemove from 'lucide-svelte/icons/circle-x';
+	import IconDropzone from '@lucide/svelte/icons/image-plus';
+	import IconFile from '@lucide/svelte/icons/paperclip';
+	import IconRemove from '@lucide/svelte/icons/circle-x';
 </script>
 
 <FileUpload

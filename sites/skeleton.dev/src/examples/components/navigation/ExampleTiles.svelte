@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
-	import IconBox from 'lucide-svelte/icons/box';
+	import IconBox from '@lucide/svelte/icons/box';
 </script>
 
 <div class="card preset-filled-surface-100-900 grid grid-cols-3 gap-5 p-5">
