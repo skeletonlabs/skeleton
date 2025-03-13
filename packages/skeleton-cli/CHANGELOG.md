@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.4
+### Patch Changes
+
+
+- fix: app.css being transformed twice ([#3392](https://github.com/skeletonlabs/skeleton/pull/3392))
+
+## 0.0.3
+### Patch Changes
+
+
+- fix: write to file using utf-8 ([#3390](https://github.com/skeletonlabs/skeleton/pull/3390))
+
+## 0.0.2
+### Patch Changes
+
+
+- fix: Correct the glob matcher for sourcefiles in the `skeleton-3` migration ([#3388](https://github.com/skeletonlabs/skeleton/pull/3388))
+
 ## 0.0.1
 ### Patch Changes
 
