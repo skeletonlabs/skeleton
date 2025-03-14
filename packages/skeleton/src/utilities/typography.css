@@ -228,3 +228,10 @@
 		content: '−';
 	}
 }
+
+@utility mark {
+	color: var(--color-tertiary-contrast-500);
+	background-color: var(--color-tertiary-500);
+	border-radius: var(--radius-sm);
+	padding-inline: --spacing(1);
+}

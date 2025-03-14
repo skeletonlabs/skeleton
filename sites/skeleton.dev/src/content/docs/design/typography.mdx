@@ -27,6 +27,8 @@ import Keyboard from '@examples/design/typography/Keyboard.astro';
 import KeyboardRaw from '@examples/design/typography/Keyboard.astro?raw';
 import InsDel from '@examples/design/typography/InsDel.astro';
 import InsDelRaw from '@examples/design/typography/InsDel.astro?raw';
+import Mark from '@examples/design/typography/Mark.astro';
+import MarkRaw from '@examples/design/typography/Mark.astro?raw';
 
 import Semantic from '@examples/design/typography/Semantic.svelte';
 import SemanticRaw from '@examples/design/typography/Semantic.svelte?raw';
@@ -179,6 +181,16 @@ Use the following utility classes to quickly style semantic HTML elements. These
 	</Fragment>
 </Preview>
 
+### Mark
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Mark />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MarkRaw} lang="astro" />
+	</Fragment>
+</Preview>
 ## Lists
 
 Skeleton defers to Tailwind's built-in utility classes for common list styles.
