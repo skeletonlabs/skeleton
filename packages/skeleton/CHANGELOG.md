@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.1.0
+### Minor Changes
+
+
+- feat: `mark` utility ([#3408](https://github.com/skeletonlabs/skeleton/pull/3408))
+
 ## 3.0.0
 ### Minor Changes
 
