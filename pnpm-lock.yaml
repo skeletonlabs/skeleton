@@ -236,9 +236,6 @@ importers:
 
   packages/skeleton-react:
     dependencies:
-      '@skeletonlabs/skeleton':
-        specifier: workspace:^
-        version: link:../skeleton
       '@zag-js/accordion':
         specifier: 'catalog:'
         version: 1.3.1
