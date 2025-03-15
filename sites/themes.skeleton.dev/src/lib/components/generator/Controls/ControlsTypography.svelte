@@ -59,7 +59,7 @@
 							style:background={`${settingsTypography['--base-font-color']}`}
 						></div>
 						<select class="select" name="--base-font-color" bind:value={settingsTypography['--base-font-color']}>
-							<option value="0 0 0">Black</option>
+							<option value="oklch(0 0 0 / 1)">Black</option>
 							{#each constants.colorNames as colorName}
 								<optgroup label={colorName}>
 									{#each constants.colorShades as colorShade}
@@ -77,7 +77,7 @@
 							style:background={`${settingsTypography['--base-font-color-dark']}`}
 						></div>
 						<select class="select" name="--base-font-color-dark" bind:value={settingsTypography['--base-font-color-dark']}>
-							<option value="255 255 255">White</option>
+							<option value="oklch(1 0 0 / 1)">White</option>
 							{#each constants.colorNames as colorName}
 								<optgroup label={colorName}>
 									{#each constants.colorShades as colorShade}
@@ -158,7 +158,7 @@
 						></div>
 						<select class="select" name="--heading-font-color" bind:value={settingsTypography['--heading-font-color']}>
 							<option value="inherit">inherit</option>
-							<option value="0 0 0">Black</option>
+							<option value="oklch(0 0 0 / 1)">Black</option>
 							{#each constants.colorNames as colorName}
 								<optgroup label={colorName}>
 									{#each constants.colorShades as colorShade}
@@ -179,7 +179,7 @@
 						></div>
 						<select class="select" name="--heading-font-color-dark" bind:value={settingsTypography['--heading-font-color-dark']}>
 							<option value="inherit">inherit</option>
-							<option value="255 255 255">White</option>
+							<option value="oklch(1 0 0 / 1)">White</option>
 							{#each constants.colorNames as colorName}
 								<optgroup label={colorName}>
 									{#each constants.colorShades as colorShade}

@@ -12,7 +12,7 @@
 		<span class="label-text">Light Mode Background</span>
 		<div class="w-full h-8 border border-surface-200-800 rounded-base" style:background="var(--body-background-color)"></div>
 		<select class="select" name="--body-background-color" bind:value={settingsBackgrounds['--body-background-color']}>
-			<option value="255 255 255">White</option>
+			<option value="oklch(1 0 0 / 1)">White</option>
 			{#each constants.colorNames as colorName}
 				<optgroup label={colorName}>
 					{#each constants.colorShades as colorShade}
@@ -27,7 +27,7 @@
 		<span class="label-text">Dark Mode Background</span>
 		<div class="w-full h-8 border border-surface-200-800 rounded-base" style:background="var(--body-background-color-dark)"></div>
 		<select class="select" name="--body-background-color-dark" bind:value={settingsBackgrounds['--body-background-color-dark']}>
-			<option value="0 0 0">Black</option>
+			<option value="oklch(0 0 0 / 1)">Black</option>
 			{#each constants.colorNames as colorName}
 				<optgroup label={colorName}>
 					{#each constants.colorShades as colorShade}
