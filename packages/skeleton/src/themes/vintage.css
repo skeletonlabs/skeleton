@@ -9,7 +9,7 @@
 	--base-font-style: normal;
 	--base-letter-spacing: 0em;
 	--heading-font-color: var(--color-secondary-950);
-	--heading-font-color-dark: 255 255 255;
+	--heading-font-color-dark: oklch(1 0 0 / 1);
 	--heading-font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
 	--heading-font-weight: bold;
 	--heading-font-style: normal;
