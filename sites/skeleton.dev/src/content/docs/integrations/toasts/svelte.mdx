@@ -4,62 +4,30 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import ExampleProvider from '@examples/integrations/toasts/ExampleProvider.svelte';
-import ExamplePageContentRaw from '@examples/integrations/toasts/ExamplePageContent.svelte?raw';
-
-
 import Example from '@examples/integrations/toasts/Example.svelte';
 import ExampleRaw from '@examples/integrations/toasts/Example.svelte?raw';
 
-import schema from '@content/schemas/svelte/toast.json';
+<p class="text-xl">
+	[Svelte-French-Toast](https://svelte-french-toast.com/) provides a simple all-in-one solution for Toast notification. Custom toast templates can
+	be implemented as Svelte components, making it trivial to implement Skeleton and Tailwind utility classses.
+</p>
 
-<div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>
-		This feature is currently available as an early access <code class="code">Beta</code> preview, meaning the features and API are not yet
-		stable. This feature is not yet recommended for production use as breaking changes may occur. Please use this feature with caution.
-	</p>
-</div>
+<figure class="card-filled-enhanced flex justify-center gap-4 p-8">
+	<a href="https://svelte-french-toast.com/" target="_blank" class="btn preset-filled">
+		Documentation
+	</a>
+	<a href="https://github.com/kbrgl/svelte-french-toast" target="_blank" class="btn preset-filled">
+		GitHub
+	</a>
+</figure>
 
-## Setup the Provider
+## Installation
 
-Wrap the contents of your app with `ToastProvider` in your root layout. We'll interface with this using the [Svelte Context API](https://svelte.dev/docs/svelte/context).
-
-```svelte title="+layout.svelte"
-<script lang="ts">
-	import { ToastProvider } from '@skeletonlabs/skeleton-svelte';
-</script>
-
-<ToastProvider>
-	{@render children()}
-</ToastProvider>
+```console
+npm install svelte-french-toast
 ```
 
 ## Create a Toast
-
-There are three available types of toasts: `info | error | success`, with `info` being the default.
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleProvider client:visible />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExamplePageContentRaw} lang="svelte" title="+page.svelte" />
-	</Fragment>
-</Preview>
-
-## Anatomy
-
-<Anatomy label="ToastProvider" isComponent>
-	<Anatomy label="toast">
-		<Anatomy label="message">
-			<Anatomy label="messageTitle" />
-			<Anatomy label="messageDescription" />
-		</Anatomy>
-		<Anatomy label="buttonDismiss" element="button" />
-	</Anatomy>
-</Anatomy>
-
-
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -70,8 +38,24 @@ There are three available types of toasts: `info | error | success`, with `info`
 	</Fragment>
 </Preview>
 
+For most users we recommend the use of custom toast templates, which enable Tailwind styles.
 
+```svelte
+<!-- CustomToast.svelte -->
+<!-- ToastError.svelte -->
+<div class="card preset-filled-error-500 py-2 px-3 shadow-xl">
+	<p class="text-xs">Uh oh, something went wrong.</p>
+</div>
 
-## API Reference
+<!-- page.svelte -->
+<script>
+	import toast, { Toaster } from 'svelte-french-toast';
+	import ToastError from './ToastError.svelte';
 
-<ApiTable schema={schema} />
+	function triggerError() {
+		toast.custom(ToastError, { duration: 5000 });
+	}
+</script>
+
+<Toaster position="bottom-right" />
+```

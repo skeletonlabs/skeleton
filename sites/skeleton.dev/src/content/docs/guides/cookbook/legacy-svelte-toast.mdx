@@ -1,0 +1,67 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Legacy Svelte Toasts
+description: Legacy documentation for Svelte toasts
+showDocsUrl: true
+pubDate: 2025-03-15
+tags: ['legacy']
+---
+
+export const components = componentSet;
+
+import ExampleProvider from '@examples/integrations/toasts/ExampleProvider.svelte';
+import ExamplePageContentRaw from '@examples/integrations/toasts/ExamplePageContent.svelte?raw';
+
+import schema from '@content/schemas/svelte/toast.json';
+
+<div className="card preset-outlined-warning-500 p-8 space-y-8">
+	<p>
+		We are changing `toasts` to use `Svelte-French-Toast`.  
+		The documentation for the new integration can be found [here](/docs/integrations/toasts/svelte).  
+		This feature is deprecated and will be removed in the next major release.
+	</p>
+</div>
+
+
+## Setup the Provider
+
+Wrap the contents of your app with `ToastProvider` in your root layout. We'll interface with this using the [Svelte Context API](https://svelte.dev/docs/svelte/context).
+
+```svelte title="+layout.svelte"
+<script lang="ts">
+	import { ToastProvider } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<ToastProvider>
+	{@render children()}
+</ToastProvider>
+```
+
+## Create a Toast
+
+There are three available types of toasts: `info | error | success`, with `info` being the default.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleProvider client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExamplePageContentRaw} lang="svelte" title="+page.svelte" />
+	</Fragment>
+</Preview>
+
+## Anatomy
+
+<Anatomy label="ToastProvider" isComponent>
+	<Anatomy label="toast">
+		<Anatomy label="message">
+			<Anatomy label="messageTitle" />
+			<Anatomy label="messageDescription" />
+		</Anatomy>
+		<Anatomy label="buttonDismiss" element="button" />
+	</Anatomy>
+</Anatomy>
+
+## API Reference
+
+<ApiTable schema={schema} />
