@@ -32,7 +32,7 @@
 	--default-border-width: 1px;
 	--default-divide-width: 1px;
 	--default-ring-width: 1px;
-	--body-background-color: 255 255 255;
+	--body-background-color: oklch(1 0 0 / 1);
 	--body-background-color-dark: var(--color-surface-900);
 	--color-primary-50: oklch(93.95% 0.03 275.18deg);
 	--color-primary-100: oklch(86.47% 0.06 279.05deg);

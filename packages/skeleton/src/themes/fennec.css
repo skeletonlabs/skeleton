@@ -1,14 +1,14 @@
 [data-theme='fennec'] {
 	--text-scaling: 1.067;
-	--base-font-color: 0 0 0;
-	--base-font-color-dark: 255 255 255;
+	--base-font-color: oklch(0 0 0 / 1);
+	--base-font-color-dark: oklch(1 0 0 / 1);
 	--base-font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
 	--base-font-size: 20px;
 	--base-line-height: inherit;
 	--base-font-weight: normal;
 	--base-font-style: normal;
 	--base-letter-spacing: 0em;
-	--heading-font-color: 0 0 0;
+	--heading-font-color: oklch(0 0 0 / 1);
 	--heading-font-color-dark: var(--color-secondary-50);
 	--heading-font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
 	--heading-font-weight: normal;
