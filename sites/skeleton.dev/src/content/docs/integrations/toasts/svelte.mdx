@@ -8,8 +8,8 @@ import Example from '@examples/integrations/toasts/Example.svelte';
 import ExampleRaw from '@examples/integrations/toasts/Example.svelte?raw';
 
 <p class="text-xl">
-	[Svelte-French-Toast](https://svelte-french-toast.com/) provides a simple all-in-one solution for Toast notification. Custom toast templates can
-	be implemented as Svelte components, making it trivial to implement Skeleton and Tailwind utility classses.
+	[Svelte-French-Toast](https://svelte-french-toast.com/) provides a simple all-in-one solution for Toast notification. Custom toast
+	templates can be implemented as Svelte components, making it trivial to implement Skeleton and Tailwind utility classses.
 </p>
 
 <figure class="card-filled-enhanced flex justify-center gap-4 p-8">
@@ -41,12 +41,6 @@ npm install svelte-french-toast
 For most users we recommend the use of custom toast templates, which enable Tailwind styles.
 
 ```svelte
-<!-- CustomToast.svelte -->
-<!-- ToastError.svelte -->
-<div class="card preset-filled-error-500 py-2 px-3 shadow-xl">
-	<p class="text-xs">Uh oh, something went wrong.</p>
-</div>
-
 <!-- page.svelte -->
 <script>
 	import toast, { Toaster } from 'svelte-french-toast';
@@ -56,6 +50,12 @@ For most users we recommend the use of custom toast templates, which enable Tail
 		toast.custom(ToastError, { duration: 5000 });
 	}
 </script>
+
+<!-- CustomToast.svelte -->
+<!-- ToastError.svelte -->
+<div class="card preset-filled-error-500 py-2 px-3 shadow-xl">
+	<p class="text-xs">Uh oh, something went wrong.</p>
+</div>
 
 <Toaster position="bottom-right" />
 ```

@@ -60,7 +60,7 @@
 		create: (toast: Toast) => {
 			// Unique ID
 			const unid = id + '-' + crypto.randomUUID();
-			console.log(unid)
+			console.log(unid);
 			// Set default settings
 			toast = {
 				...defaults[String(toast.type || 'info')],
