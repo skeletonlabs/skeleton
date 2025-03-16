@@ -58,11 +58,14 @@
 	const id = $props.id();
 	setContext('toast', {
 		create: (toast: Toast) => {
+			// Unique ID
+			const unid = id + '-' + crypto.randomUUID();
+			console.log(unid)
 			// Set default settings
 			toast = {
 				...defaults[String(toast.type || 'info')],
 				...toast,
-				id: id
+				id: unid
 			};
 			// Push to Queue
 			toastQueue.push(toast);
