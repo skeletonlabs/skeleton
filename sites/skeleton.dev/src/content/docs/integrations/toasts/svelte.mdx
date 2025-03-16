@@ -55,11 +55,12 @@ For most users we recommend the use of custom toast templates, which enable Tail
 	}
 </script>
 
-<!-- CustomToast.svelte -->
+<Toaster position="bottom-right" />
+```
+
+```svelte
 <!-- ToastError.svelte -->
 <div class="card preset-filled-error-500 py-2 px-3 shadow-xl">
 	<p class="text-xs">Uh oh, something went wrong.</p>
 </div>
-
-<Toaster position="bottom-right" />
 ```
