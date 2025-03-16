@@ -54,24 +54,28 @@
 	// State
 	let toastQueue: Toast[] = $state([]);
 
+	// Unique toast count
+	let count = 0;
+
+	function getId(prefix: string) {
+		return prefix + String(count++);
+	}
 	// Context
-	const id = $props.id();
+	const prefix = $props.id();
 	setContext('toast', {
 		create: (toast: Toast) => {
-			// Unique ID
-			const unid = id + '-' + crypto.randomUUID();
 			// Set default settings
-			toast = {
+			const defaultToast = {
 				...defaults[String(toast.type || 'info')],
 				...toast,
-				id: unid
+				id: getId(prefix)
 			};
 			// Push to Queue
-			toastQueue.push(toast);
+			toastQueue.push(defaultToast);
 			// Set duration timeout
 			setTimeout(() => {
-				dismiss(toast.id);
-			}, toast.duration);
+				dismiss(defaultToast.id);
+			}, defaultToast.duration);
 		}
 	});
 
