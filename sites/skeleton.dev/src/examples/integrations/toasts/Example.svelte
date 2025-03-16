@@ -1,7 +1,6 @@
 <script>
 	import toast, { Toaster } from 'svelte-french-toast';
 
-	// Each trigger uses toast.custom() to render a custom Svelte component.
 	function triggerInfo() {
 		toast('Hello World! 👋', { duration: 5000 });
 	}
