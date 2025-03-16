@@ -1,6 +1,6 @@
 [data-theme='reign'] {
 	--text-scaling: 1.067;
-	--base-font-color: oklch(0 0 0 / 1)
+	--base-font-color: oklch(0 0 0 / 1);
 	--base-font-color-dark: oklch(1 0 0 / 1);
 	--base-font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
 	--base-font-size: 18px;
