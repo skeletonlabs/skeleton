@@ -14,7 +14,7 @@
 	--heading-font-weight: normal;
 	--heading-font-style: normal;
 	--heading-letter-spacing: inherit;
-	--anchor-font-color: 255 255 255;
+	--anchor-font-color: oklch(1 0 0 / 1);
 	--anchor-font-color-dark: var(--color-primary-500);
 	--anchor-font-family: inherit;
 	--anchor-font-size: inherit;
