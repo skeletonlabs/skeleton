@@ -1,0 +1,91 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+title: Lightswitch
+description: Learn how to create a ModeSwitch toggle.
+showDocsUrl: true
+pubDate: 2025-03-18
+tags: ['theme', 'mode', 'images']
+---
+
+export const components = componentSet;
+
+## About mode
+
+The `mode` refers to the `dark` or `light` theme of the website. Tailwind by default respects the `prefers-color-scheme` media query, which means that if the user has a dark mode preference set in their operating system, the website will automatically switch to dark mode.
+We do recommend respecting the user's preference, but sometimes you might want to give the user the option to switch between dark and light mode. This is where the lightswitch comes in.
+This guide will show you how to create a ModeSwitch using Tailwind and Skeleton.
+
+## Step 1: Enable manual mode switching
+
+To move away from the default `prefers-color-scheme` media query, we need to override Tailwind's default `dark` variant by utilizin the `@custom-variant` rule.
+This allows us to define our own selector for `dark` mode. Here is an example of how you can do this:
+
+```css
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+```
+
+This will allow us to use the `dark` variant in our CSS, and we can now manually switch between `dark` and `light` mode by setting the `data-mode` attribute on the `html` element.
+
+```html
+<html data-mode="light"></html>
+```
+
+Or for dark
+
+```html
+<html data-mode="dark"></html>
+```
+
+## Step 2: Create the ModeSwitch component
+
+To create a switch we'll utilize the `Switch` component from Skeleton, which is a simple toggle switch component. However, this guide will apply to any type of switch component you might want to use.
+
+Here is the implementation for the `ModeSwitch` component:
+
+```svelte
+<script lang="ts">
+	Import the Switch component, or any other switch component you want to use.
+	import { Switch, SwitchProps } from '@skeleton/skeleton-svelte';
+
+	// Define a function to retrieve the initial value of the switch.
+	const getInitialValue = () => {
+		// We don't have access to localStorage on the server, so we default to light mode.
+		if (typeof window === 'undefined') {
+			return false;
+		}
+		return localStorage.getItem('mode') === 'dark';
+	};
+
+	//Define a function that will be called when the switch is toggled.
+	const onValueChange: SwitchProps['onValueChange'] = (event) => {
+		const mode = event.checked ? 'dark' : 'light';
+		document.documentElement.setAttribute('data-theme', mode);
+		localStorage.setItem('mode', mode);
+	};
+</script>
+
+<!-- Create a script that runs *before* the DOM is mounted, this prevents a FOLM (Flash Of Light Mode) when the stored preference is `dark` -->
+<svelte:head>
+	<script>
+		const mode = localStorage.getItem('mode') || 'light';
+		document.documentElement.setAttribute('data-theme', mode);
+	</script>
+</svelte:head>
+
+<!-- Create the LightSwitch component and hook it up to the previously define functions -->
+<Switch value={getInitialValue()} {onValueChange}></Switch>
+```
+
+## Step 3: Add the ModeSwitch to your app
+
+Now that we have the `ModeSwitch` component, we can add it to our app. We recommend adding it to the header of your website, so it's easily accessible to the user.
+
+```svelte
+<script lang="ts">
+	import ModeSwitch from './ModeSwitch.svelte';
+</script>
+
+<header>
+	<ModeSwitch />
+</header>
+```
