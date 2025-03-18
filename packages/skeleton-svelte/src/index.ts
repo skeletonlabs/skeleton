@@ -28,8 +28,7 @@ export type { FileUploadApi } from './components/FileUpload/types.js';
 // The following will be removed or replaced in the future.
 
 // Toasts
-export { default as ToastProvider } from './components/Toast/ToastProvider.svelte';
-export type { ToastContext } from './components/Toast/types.js';
+export * from './components/Toast/index.js';
 // Popvers
 export { default as Combobox } from './components/Combobox/Combobox.svelte';
 export { default as Popover } from './components/Popover/Popover.svelte';
