@@ -275,6 +275,9 @@ importers:
       '@zag-js/tags-input':
         specifier: 'catalog:'
         version: 1.4.1
+      '@zag-js/toast':
+        specifier: 'catalog:'
+        version: 1.4.1
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.6.3
