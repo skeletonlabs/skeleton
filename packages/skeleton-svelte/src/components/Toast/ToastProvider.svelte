@@ -7,24 +7,24 @@
 
 	const {
 		// Toast
-		toastBase = 'card py-2 px-3 grid grid-cols-[1fr_auto] items-center',
-		toastPadding = 'py-2 px-3',
-		toastGap = 'gap-4',
-		toastShadow = 'shadow-xl',
+		toastBase = 'rounded',
+		toastPadding = 'p-4',
+		toastGap = '',
+		toastShadow = '',
 		toastClasses = '',
 		// Title
-		titleBase = 'font-bold',
+		titleBase = 'text-lg font-semibold',
 		titleClasses = '',
 		// Description
-		descriptionBase = 'text-sm',
+		descriptionBase = '',
 		descriptionClasses = '',
 		// Dismiss Button
-		buttonDismissBase = 'btn-icon btn-icon-sm text-base',
-		buttonDimissPreset = '',
-		buttonDismissHover = 'hover:preset-tonal',
+		buttonDismissBase = 'btn',
+		buttonDimissPreset = 'preset-filled-primary-500',
+		buttonDismissHover = '',
 		buttonDismissClasses = '',
 		// State
-		stateInfo = 'preset-filled',
+		stateInfo = 'preset-filled-surface-200-800',
 		stateError = 'preset-filled-error-500',
 		stateSuccess = 'preset-filled-success-500',
 		children,
@@ -38,6 +38,7 @@
 		store: toaster
 	}));
 	const api = $derived(toast.group.connect(service, normalizeProps));
+
 	setToastContext({
 		get toaster() {
 			return toaster;

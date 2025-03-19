@@ -5,7 +5,8 @@
 
 	function triggerInfo() {
 		toastContext.toaster.create({
-			description: 'This is a basic toast message.',
+			title: 'Info!',
+			description: 'This is an info toast.',
 			type: 'info'
 		});
 	}
@@ -13,7 +14,7 @@
 	function triggerError() {
 		toastContext.toaster.create({
 			title: 'Error',
-			description: 'Error: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, pariatur distinctio beatae.',
+			description: 'An error occurred!',
 			type: 'error'
 		});
 	}
