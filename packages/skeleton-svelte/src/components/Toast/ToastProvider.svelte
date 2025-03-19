@@ -7,10 +7,10 @@
 
 	const {
 		// Toast
-		base = 'min-w-xs flex justify-between items-center gap-3 p-3 rounded-container',
-		width = 'gap-3',
+		base = 'flex justify-between items-center gap-3',
+		width = 'min-w-xs',
 		padding = 'p-3',
-		rounded = '',
+		rounded = 'rounded-container',
 		classes = '',
 		// Message
 		messageBase = 'grid',
