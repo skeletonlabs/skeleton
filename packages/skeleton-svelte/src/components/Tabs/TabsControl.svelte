@@ -9,7 +9,7 @@
 		translateX = 'translate-y-[1px]',
 		classes = '',
 		// Label
-		labelBase = 'btn hover:preset-tonal-primary !filter-none',
+		labelBase = 'flex items-center justify-center gap-2 py-1 px-4 transition-all rounded-base hover:preset-tonal-primary',
 		labelClasses = '',
 		// State
 		stateInactive = '',
