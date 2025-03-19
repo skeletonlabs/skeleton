@@ -56,7 +56,7 @@
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
 
 	::selection {
-		background-color: var(--color-primary-500);
+		background-color: color-mix(in srgb, var(--color-primary-500) 40%, transparent);
 	}
 
 	/* States --- */
