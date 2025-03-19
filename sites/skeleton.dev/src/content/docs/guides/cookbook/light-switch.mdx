@@ -9,78 +9,51 @@ tags: ['theme', 'mode', 'guides']
 
 export const components = componentSet;
 
-## About mode
+import Process from '@components/docs/Process.astro';
+import ProcessStep from '@components/docs/ProcessStep.astro';
 
-The `mode` refers to the `dark` or `light` version of the website. Tailwind by default respects the `prefers-color-scheme` media query, which means that if the user has a dark mode preference set in their operating system, the website will automatically switch to dark mode.
-We do recommend respecting the user's preference, but sometimes you might want to give the user the option to switch between dark and light mode. This is where the `LightSwitch` comes in.
-This guide will show you how to create a `LightSwitch` using Tailwind and Skeleton.
+import ExampleReactRaw from '@examples/guides/cookbook/light-switch/Example.tsx?raw';
+import ExampleSvelteRaw from '@examples/guides/cookbook/light-switch/Example.svelte?raw';
 
-## Step 1: Enable manual mode switching
+Use [Dark Mode](http://localhost:4322/docs/guides/mode) to make use of either a base or `dark:` variant for your utility class styles. By default, Tailwind uses the `prefers-color-scheme` media query to determine and match the user's operating system settings. However, if you wish to provide your users manual control, you'll need to adjust the Dark Mode strategy for Tailwind, as well as provide the toggle interface (aka a light switch). This guide will show you how to fulfill both requirements.
 
-To move away from the default `prefers-color-scheme` media query, we need to override Tailwind's default `dark` variant by utilizin the `@custom-variant` rule.
-This allows us to define our own selector for `dark` mode. Here is an example of how you can do this:
-
-```css
-@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
-```
-
-This will allow us to use the `dark` variant in our CSS, and we can now manually switch between `dark` and `light` mode by setting the `data-mode` attribute on the `html` element.
-
-```html
-<html data-mode="light"></html>
-```
-
-Or for dark
-
-```html
-<html data-mode="dark"></html>
-```
-
-## Step 2: Create the LightSwitch component
-
-To create a switch we'll utilize the `Switch` component from Skeleton, which is a simple toggle switch component. However, this guide will apply to any type of switch component you might want to use.
-
-Here is the implementation for the `Lightswitch` component:
-
-```svelte
-<script lang="ts">
-	// Import the Switch component
-	import { Switch } from '@skeletonlabs/skeleton-svelte';
-
-	// Define a `checked` state that will be used to store the current mode.
-	let checked = $state(typeof window === 'undefined' ? false : localStorage.getItem('mode') === 'dark');
-
-	// Define a function that will be called when the switch is toggled.
-	const onCheckedChange = (event: { checked: boolean }) => {
-		const mode = event.checked ? 'dark' : 'light';
-		document.documentElement.setAttribute('data-mode', mode);
-		localStorage.setItem('mode', mode);
-		checked = event.checked;
-	};
-</script>
-
-<!-- Create a script that runs *before* the DOM is mounted, this prevents a FOLM (Flash Of Light Mode) when the stored preference is `dark` -->
-<svelte:head>
-	<script>
-		const mode = localStorage.getItem('mode') || 'light';
-		document.documentElement.setAttribute('data-mode', mode);
-	</script>
-</svelte:head>
-
-<!-- Create the LightSwitch component and hook it up to the previously define functions -->
-<Switch {checked} {onCheckedChange}></Switch>
-```
-
-## Step 3: Add the Lightswitch to your app
-
-Now that we have the `Lightswitch` component, we can add it to our app. We recommend adding it to the header of your website, so it's easily accessible to the user.
-
-```svelte
-<script lang="ts">
-	import Lightswitch from './Lightswitch.svelte';
-</script>
-
-<header>
-	<Lightswitch />
-</header>
-```
+{/* prettier-ignore */}
+<Process>
+	<ProcessStep step="1">
+        ## Adjust the Dark Mode Strategy
+        Open your global stylesheet and set the following variant:
+        ```css
+       @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+        ```
+		Then set the following data attribute on your application's `<html>` element for light mode:
+		```html
+		<html data-mode="light"></html>
+		```
+		Or for dark mode:
+		```html
+		<html data-mode="dark"></html>
+		```
+    </ProcessStep>
+	<ProcessStep step="1">
+        ## Create the Component
+        We'll create a implement a version of the Switch component that can toggle the mode on demand.
+       <Preview selected="codeReact" client:visible>
+			<Fragment slot="codeReact">
+				<Code code={ExampleReactRaw} lang="tsx" />
+			</Fragment>
+			<Fragment slot="codeSvelte">
+				<Code code={ExampleSvelteRaw} lang="svelte" />
+			</Fragment>
+		</Preview>
+    </ProcessStep>
+	<ProcessStep step="check">
+		## Import the Component
+		We'll then add the component to our app. Make sure to set the correct path and file extension.
+		```ts
+		import Lightswitch from './path/to/Lightswitch.{tsx|svelte}';
+		```
+		```svelte
+		<Lightswitch />
+		```
+    </ProcessStep>
+</Process>
