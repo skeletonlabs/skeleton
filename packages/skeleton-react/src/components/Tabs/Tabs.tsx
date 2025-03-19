@@ -59,13 +59,13 @@ const TabsControl: FC<TabsControlProps> = ({
 	translateX = 'translate-y-[1px]',
 	classes = '',
 	// Label
-	labelBase = 'btn hover:preset-tonal-primary',
+	labelBase = 'btn hover:preset-tonal-primary !filter-none',
 	labelClasses = '',
 	// State
-	stateInactive = '[&:not(:hover)]:opacity-50',
-	stateActive = 'border-b-surface-950-50 opacity-100',
-	stateLabelInactive = '',
-	stateLabelActive = '',
+	stateInactive = '',
+	stateActive = 'border-b-surface-950-50',
+	stateLabelInactive = '[&:not(:hover)]:opacity-50',
+	stateLabelActive = 'opacity-100',
 	// Nodes
 	lead,
 	// Children
