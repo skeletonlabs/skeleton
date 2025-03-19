@@ -53,6 +53,5 @@ export interface ToastProviderProps extends toast.StoreProps, PropsWithChildren 
 
 export interface ToastProps extends Omit<ToastProviderProps, 'children'> {
 	toast: toast.Options;
-	index: number;
 	parent: toast.GroupService;
 }

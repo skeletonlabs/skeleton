@@ -12,7 +12,8 @@ export { Segment } from './components/Segment/Segment.js';
 export { Slider } from './components/Slider/Slider.js';
 export { Switch } from './components/Switch/Switch.js';
 export { Tabs } from './components/Tabs/Tabs.js';
-export * from './components/Toast/index.js';
+export { ToastProvider } from './components/Toast/ToastProvider.js';
+export { ToastContext } from './components/Toast/context.js';
 
 // Types
 export type { FileUploadApi } from './components/FileUpload/types.js';
