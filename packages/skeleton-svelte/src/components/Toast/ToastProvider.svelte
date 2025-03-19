@@ -7,11 +7,11 @@
 
 	const {
 		// Toast
-		toastBase = 'rounded',
-		toastPadding = 'p-4',
-		toastGap = '',
-		toastShadow = '',
+		toastBase = 'rounded p-4 min-w-92 flex justify-between',
 		toastClasses = '',
+		// Text Region
+		textRegionBase = 'grid gap-1',
+		textRegionClasses = '',
 		// Title
 		titleBase = 'text-lg font-semibold',
 		titleClasses = '',
@@ -19,14 +19,12 @@
 		descriptionBase = '',
 		descriptionClasses = '',
 		// Dismiss Button
-		buttonDismissBase = 'btn',
-		buttonDimissPreset = 'preset-filled-primary-500',
-		buttonDismissHover = '',
+		buttonDismissBase = 'btn btn-icon bg-surface-950-50 text-surface-50-950',
 		buttonDismissClasses = '',
 		// State
-		stateInfo = 'preset-filled-surface-200-800',
-		stateError = 'preset-filled-error-500',
-		stateSuccess = 'preset-filled-success-500',
+		stateInfo = 'bg-surface-200-800',
+		stateError = 'bg-error-200-800',
+		stateSuccess = 'bg-success-200-800',
 		children,
 		...rest
 	}: ToastProviderProps = $props();
@@ -52,17 +50,14 @@
 	{#each api.getToasts() as toast, index (toast.id)}
 		<Toast
 			{toastBase}
-			{toastPadding}
-			{toastGap}
-			{toastShadow}
 			{toastClasses}
+			{textRegionBase}
+			{textRegionClasses}
 			{titleBase}
 			{titleClasses}
 			{descriptionBase}
 			{descriptionClasses}
 			{buttonDismissBase}
-			{buttonDimissPreset}
-			{buttonDismissHover}
 			{buttonDismissClasses}
 			{stateInfo}
 			{stateError}

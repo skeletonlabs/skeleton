@@ -22,16 +22,12 @@
 	});
 </script>
 
-<div
-	class="{props.toastBase} {stateClasses} {props.toastPadding} {props.toastShadow} {props.toastGap} {props.toastClasses}"
-	{...api.getRootProps()}
->
-	<h3 class="{props.titleBase} {props.titleClasses}" {...api.getTitleProps()}>{api.title}</h3>
-	<p class="{props.descriptionBase} {props.descriptionClasses}" {...api.getDescriptionProps()}>{api.description}</p>
-	<button
-		class="{props.buttonDismissBase} {props.buttonDimissPreset} {props.buttonDismissHover} {props.buttonDismissClasses}"
-		onclick={api.dismiss}>Close</button
-	>
+<div class="{props.toastBase} {stateClasses} {props.toastClasses}" {...api.getRootProps()}>
+	<div class="{props.textRegionBase} {props.textRegionClasses}">
+		<span class="{props.titleBase} {props.titleClasses}" {...api.getTitleProps()}>{api.title}</span>
+		<span class="{props.descriptionBase} {props.descriptionClasses}" {...api.getDescriptionProps()}>{api.description}</span>
+	</div>
+	<button class="{props.buttonDismissBase} {props.buttonDismissClasses}" onclick={api.dismiss}>X</button>
 </div>
 
 <style>

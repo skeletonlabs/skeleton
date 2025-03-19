@@ -9,14 +9,14 @@ export interface ToastProviderProps extends toast.StoreProps {
 	// Toast ---
 	/** Provide base classes for the toast cards. */
 	toastBase?: string;
-	/** Provide padding classes for the toast cards. */
-	toastPadding?: string;
-	/** Provide gap classes for the toast cards. */
-	toastGap?: string;
-	/** Provide shadow classes for the toast cards. */
-	toastShadow?: string;
 	/** Provide arbitrary classes for the toast cards. */
 	toastClasses?: string;
+
+	// Text Region ---
+	/** Provide base classes for the text region. */
+	textRegionBase?: string;
+	/** Provide classes for the text region. */
+	textRegionClasses?: string;
 
 	// Title ---
 	/** Provide base classes for the title. */
@@ -33,10 +33,6 @@ export interface ToastProviderProps extends toast.StoreProps {
 	// Dismiss Button ---
 	/** Provide base classes for the dismiss button. */
 	buttonDismissBase?: string;
-	/** Provide preset classes for the dismiss button. */
-	buttonDimissPreset?: string;
-	/** Provide hover classes for the dismiss button. */
-	buttonDismissHover?: string;
 	/** Provide arbitrary classes for the dismiss button. */
 	buttonDismissClasses?: string;
 
