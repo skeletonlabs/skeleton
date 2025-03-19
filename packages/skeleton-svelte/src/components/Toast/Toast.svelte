@@ -10,24 +10,28 @@
 		index: props.index
 	}));
 	const api = $derived(toast.connect(service, normalizeProps));
-	const stateClasses = $derived.by(() => {
+	const rxState = $derived.by(() => {
 		switch (api.type) {
-			case 'info':
-				return props.stateInfo;
-			case 'error':
-				return props.stateError;
 			case 'success':
 				return props.stateSuccess;
+			case 'error':
+				return props.stateError;
+			default:
+				return props.stateInfo;
 		}
 	});
 </script>
 
-<div class="{props.toastBase} {stateClasses} {props.toastClasses}" {...api.getRootProps()}>
-	<div class="{props.textRegionBase} {props.textRegionClasses}">
+<div class="{props.base} {props.width} {props.padding} {props.rounded} {rxState} {props.classes}" {...api.getRootProps()}>
+	<!-- Text -->
+	<div class="{props.messageBase} {props.messageClasses}">
+		<!-- Title -->
 		<span class="{props.titleBase} {props.titleClasses}" {...api.getTitleProps()}>{api.title}</span>
+		<!-- Description -->
 		<span class="{props.descriptionBase} {props.descriptionClasses}" {...api.getDescriptionProps()}>{api.description}</span>
 	</div>
-	<button class="{props.buttonDismissBase} {props.buttonDismissClasses}" onclick={api.dismiss}>X</button>
+	<!-- Dismiss Button -->
+	<button class="{props.buttonDismissBase} {props.buttonDismissClasses}" onclick={api.dismiss}>&times;</button>
 </div>
 
 <style>

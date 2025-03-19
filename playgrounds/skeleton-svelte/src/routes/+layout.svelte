@@ -14,11 +14,13 @@
 	}
 </script>
 
-<ToastProvider>
+<ToastProvider placement="bottom-end">
 	<div class="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
 		<!-- Nav -->
 		<div class="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
-			<a class="text-sm bg-orange-500 p-2 font-mono font-bold text-white" href="/">skeleton-svelte</a>
+			<header>
+				<a class="text-sm bg-orange-500 p-2 font-mono font-bold text-white" href="/">skeleton-svelte</a>
+			</header>
 			<hr class="hr" />
 			<Switch
 				name="mode"
@@ -36,7 +38,7 @@
 			<hr class="hr" />
 			<!-- Components -->
 			<div class="space-y-8">
-				<span class="font-bold">Components</span>
+				<div class="font-bold">Components</div>
 				<nav class="text-sm flex flex-col gap-2">
 					<a class="anchor" href="/components/accordions">Accordions</a>
 					<a class="anchor" href="/components/app-bars">App Bars</a>
@@ -52,17 +54,17 @@
 					<a class="anchor" href="/components/switch">Switch</a>
 					<a class="anchor" href="/components/tabs">Tabs</a>
 					<a class="anchor" href="/components/tags-input">Tags Input</a>
+					<a class="anchor" href="/components/toast">Toast</a>
 				</nav>
 			</div>
 			<!-- Svelte-Only -->
 			<div class="space-y-8">
-				<span class="font-bold">Svelte-Only</span>
+				<div class="font-bold">Svelte-Only</div>
 				<nav class="text-sm flex flex-col gap-2">
 					<a class="anchor" href="/components/popover">Popover</a>
 					<a class="anchor" href="/components/tooltip">Tooltip</a>
 					<a class="anchor" href="/components/combobox">Combobox</a>
 					<a class="anchor" href="/components/modal">Modal</a>
-					<a class="anchor" href="/components/toast">Toast</a>
 				</nav>
 			</div>
 		</div>

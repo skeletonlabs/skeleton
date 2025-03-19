@@ -5,7 +5,7 @@
 
 	function triggerInfo() {
 		toastContext.toaster.create({
-			title: 'Info!',
+			// title: 'Info!',
 			description: 'This is an info toast.',
 			type: 'info'
 		});
@@ -32,11 +32,9 @@
 	<header>
 		<h1 class="h1">Toasts</h1>
 	</header>
-	<section class="space-y-4">
-		<div class="flex gap-4">
-			<button class="btn preset-tonal" onclick={triggerInfo}>Toast: Info</button>
-			<button class="btn preset-tonal" onclick={triggerError}>Toast: Error</button>
-			<button class="btn preset-tonal" onclick={triggerSuccess}>Toast: Success</button>
-		</div>
+	<section class="border border-surface-200-800 flex justify-center items-center gap-4 p-20">
+		<button class="btn preset-tonal" onclick={triggerInfo}>Toast: Info</button>
+		<button class="btn preset-tonal" onclick={triggerError}>Toast: Error</button>
+		<button class="btn preset-tonal" onclick={triggerSuccess}>Toast: Success</button>
 	</section>
 </div>

@@ -7,24 +7,27 @@
 
 	const {
 		// Toast
-		toastBase = 'rounded p-4 min-w-92 flex justify-between',
-		toastClasses = '',
-		// Text Region
-		textRegionBase = 'grid gap-1',
-		textRegionClasses = '',
+		base = 'min-w-xs flex justify-between items-center gap-3 p-3 rounded-container',
+		width = 'gap-3',
+		padding = 'p-3',
+		rounded = '',
+		classes = '',
+		// Message
+		messageBase = 'grid',
+		messageClasses = '',
 		// Title
-		titleBase = 'text-lg font-semibold',
+		titleBase = 'font-semibold',
 		titleClasses = '',
 		// Description
-		descriptionBase = '',
+		descriptionBase = 'text-sm',
 		descriptionClasses = '',
 		// Dismiss Button
-		buttonDismissBase = 'btn btn-icon bg-surface-950-50 text-surface-50-950',
+		buttonDismissBase = 'btn-icon hover:preset-tonal',
 		buttonDismissClasses = '',
 		// State
-		stateInfo = 'bg-surface-200-800',
-		stateError = 'bg-error-200-800',
-		stateSuccess = 'bg-success-200-800',
+		stateInfo = 'preset-outlined-surface-200-800 preset-filled-surface-50-950',
+		stateSuccess = 'preset-filled-success-500',
+		stateError = 'preset-filled-error-500',
 		children,
 		...rest
 	}: ToastProviderProps = $props();
@@ -49,10 +52,13 @@
 <div {...api.getGroupProps()}>
 	{#each api.getToasts() as toast, index (toast.id)}
 		<Toast
-			{toastBase}
-			{toastClasses}
-			{textRegionBase}
-			{textRegionClasses}
+			{base}
+			{width}
+			{padding}
+			{rounded}
+			{classes}
+			{messageBase}
+			{messageClasses}
 			{titleBase}
 			{titleClasses}
 			{descriptionBase}

@@ -7,16 +7,22 @@ export interface ToastContext {
 
 export interface ToastProviderProps extends toast.StoreProps {
 	// Toast ---
-	/** Provide base classes for the toast cards. */
-	toastBase?: string;
+	/** Provide base classes for the root element. */
+	base?: string;
+	/** Provide width classes for the root element. */
+	width?: string;
+	/** Provide padding classes for the root element. */
+	padding?: string;
+	/** Provide border radius classes for the root element. */
+	rounded?: string;
 	/** Provide arbitrary classes for the toast cards. */
-	toastClasses?: string;
+	classes?: string;
 
-	// Text Region ---
-	/** Provide base classes for the text region. */
-	textRegionBase?: string;
-	/** Provide classes for the text region. */
-	textRegionClasses?: string;
+	// Message ---
+	/** Provide base classes for the message. */
+	messageBase?: string;
+	/** Provide classes for the message. */
+	messageClasses?: string;
 
 	// Title ---
 	/** Provide base classes for the title. */
@@ -39,10 +45,10 @@ export interface ToastProviderProps extends toast.StoreProps {
 	// State ---
 	/** Provide base classes for info toasts. */
 	stateInfo?: string;
-	/** Provide base classes for error toasts. */
-	stateError?: string;
 	/** Provide base classes for success toasts. */
 	stateSuccess?: string;
+	/** Provide base classes for error toasts. */
+	stateError?: string;
 
 	// Snippets ---
 	children?: Snippet;
