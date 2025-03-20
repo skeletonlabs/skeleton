@@ -1,7 +1,7 @@
 import AppShell from './AppShell.svelte';
-import Header from './Header.svelte';
-import Page from './Page.svelte';
-import Footer from './Footer.svelte';
-import Sidebar from './Sidebar.svelte';
+import Header from './AppShellHeader.svelte';
+import Page from './AppShellPage.svelte';
+import Footer from './AppShellFooter.svelte';
+import Sidebar from './AppShellSidebar.svelte';
 
-export default Object.assign(AppShell, { Header, Page, Footer, Sidebar });
+export default /* @__PURE__ */ Object.assign(AppShell, { Header, Page, Footer, Sidebar });

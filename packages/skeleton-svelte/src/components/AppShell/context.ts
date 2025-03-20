@@ -1,10 +1,5 @@
-export const appShellContextKey = 'appShell';
+import { createContext } from '../../internal/create-context.js';
+import type { AppShellContext } from './types.js';
 
-export interface AppShellContext {
-    scrollTop: number;
-    scrollBottom: number;
-    shouldHideHeader: boolean;
-    shouldHideFooter: boolean;
-    headerHeight: number;
-    footerHeight: number;
-}
+// @ts-expect-error - Defaults for context don't make sense
+export const [setAppShellContext, getAppShellContext, key] = createContext<AppShellContext>();

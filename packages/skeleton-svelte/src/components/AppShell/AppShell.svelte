@@ -1,27 +1,30 @@
 <script lang="ts">
-    import type { HTMLAttributes } from 'svelte/elements';
-    import { onMount, setContext } from 'svelte';
+    import { onMount } from 'svelte';
     import { MediaQuery } from 'svelte/reactivity';
-    import { type AppShellContext, appShellContextKey } from '$lib/AppShell/context';
+    import type { AppShellContext, AppShellProps } from './types.js';
+    import { setAppShellContext } from './context.js';
 
-    interface Props extends HTMLAttributes<HTMLDivElement> {
-        /**
-         * Media query that controls when {@linkplain hideOnScroll} applies.
-         * @default max-width: 600px
-         */
-        hideOnScrollQuery?: string;
-    }
+    // Props
+    const {
+        hideOnScrollQuery = 'max-width: 600px',
+        // Root
+        classes, 
+        base = "overflow-clip",
+        // Snippets
+        children,
+    }: AppShellProps = $props();
 
-    const { children, class: classes, hideOnScrollQuery = 'max-width: 600px', ...rest }: Props = $props();
-
-    // Contexts
+    // Auto-hide state
     let shouldHide = $state(false);
     let canHideHeader = $state(false);
     let canHideFooter = $state(false);
     const smallScreen = $derived(new MediaQuery(hideOnScrollQuery));
     const shouldHideHeader = $derived(shouldHide && canHideHeader && smallScreen.current);
     const shouldHideFooter = $derived(shouldHide && canHideFooter && smallScreen.current);
-    const context = $state<AppShellContext>({
+    let lastScrollTop = 0;
+
+    // Context
+    const ctx = $state<AppShellContext>({
         scrollTop: 0,
         scrollBottom: 0,
         get shouldHideHeader() {
@@ -33,20 +36,18 @@
         headerHeight: 0,
         footerHeight: 0
     });
-    setContext(appShellContextKey, context);
+    setAppShellContext(ctx);
 
     // Auto-hide logic
-    let lastScrollTop = 0;
-
     function onDocumentScroll() {
         const scrollTop = document.documentElement.scrollTop;
         const scrollBottom = document.documentElement.scrollHeight - document.documentElement.clientHeight - scrollTop;
 
-        // Can't hide the header if there is no content to replace the hiding header/footer
-        canHideHeader = scrollTop > context.headerHeight + 50;
-        canHideFooter = scrollBottom > context.footerHeight + 50;
+        // Can't hide the header/footer if there is no content to replace the hidden header/footer
+        canHideHeader = scrollTop > ctx.headerHeight + 50;
+        canHideFooter = scrollBottom > ctx.footerHeight + 50;
 
-        // Show/hide header after 50px of scrolling in respective direction
+        // Show/hide header after 100px of scrolling in respective direction
         const delta = scrollTop - lastScrollTop;
         if (!shouldHide && delta > 0) {
             if (delta > 100) shouldHide = true;
@@ -56,8 +57,6 @@
             else return;
         }
         lastScrollTop = scrollTop;
-
-        console.log({ shouldHide, scrollTop, scrollBottom });
     }
 
     onMount(() => {
@@ -66,8 +65,10 @@
     });
 </script>
 
-<div id="appShell" {...rest} class={['overflow-clip', classes]}>
-    {@render children?.()}
+<!-- @component Base application layout component. -->
+
+<div id="appShell" class="{base} {classes}">
+    {@render children()}
 </div>
 
 <style>
