@@ -126,7 +126,7 @@ export interface AppShellFooterProps {
 	 */
 	sticky?: boolean;
 	/**
-	 * Hide this header on mobile (narrow screens, as set by {@linkcode hideOnScrollQuery} on the parent `AppShell`)
+	 * Hide this header on mobile (narrow screens, as set by `hideOnScrollQuery` on the parent `AppShell`)
 	 * when scrolling down, and show it when scrolling up.
 	 *
 	 * Usually used when the header is an AppBar. Only applies when `sticky` is true.
