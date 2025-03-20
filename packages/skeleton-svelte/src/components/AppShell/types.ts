@@ -8,9 +8,9 @@ export interface AppShellContext {
 	/** Reactive calculated scrollBot value of root element in pixels, i.e. height of page below viewport that can be scrolled.  */
 	scrollBottom: number;
 	/** Reactive property indicating if the header should be auto-hidden based on scrolling pattern. */
-	shouldHideHeader: boolean;
+	readonly shouldHideHeader: boolean;
 	/** Reactive property indicating if the footer should be auto-hidden based on scrolling pattern. */
-	shouldHideFooter: boolean;
+	readonly shouldHideFooter: boolean;
 	/** Reactive height of the main header, in pixels. */
 	headerHeight: number;
 	/** Reactive height of the main footer, in pixels. */
@@ -73,8 +73,6 @@ export interface AppShellHeaderProps {
 
 export interface AppShellPageProps {
 	// Root ---
-	/** Sets base styles. */
-	base?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 

@@ -4,7 +4,6 @@
 	// Props
 	const {
 		// Root
-		base = 'grow',
 		classes,
 		// Snippets
 		children
@@ -13,7 +12,7 @@
 
 <!-- @component AppShell page subcomponent. -->
 
-<div id="appShell-page" class="{base} {classes}">
+<div id="appShell-page" class="{classes}">
 	{@render children()}
 </div>
 
