@@ -184,15 +184,3 @@ $theme-variables: (
 		#{$property}: var(--#{$name});
 	}
 }
-// Edges
-@utility border {
-	border-width: var(--default-border-width);
-}
-@utility ring {
-	border-width: var(--default-ring-width);
-}
-/* TODO which border? top or left
-@utility divide {
-	border-?-width: var(--default-divide-width);
-	}
-*/
