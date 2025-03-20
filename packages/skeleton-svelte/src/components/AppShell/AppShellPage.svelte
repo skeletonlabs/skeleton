@@ -4,6 +4,7 @@
 	// Props
 	const {
 		// Root
+		base = '[grid-area:page]',
 		classes,
 		// Snippets
 		children
@@ -15,9 +16,3 @@
 <div id="appShell-page" class={classes}>
 	{@render children()}
 </div>
-
-<style>
-	#appShell-page {
-		grid-area: page;
-	}
-</style>

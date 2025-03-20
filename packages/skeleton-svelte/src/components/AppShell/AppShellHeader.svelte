@@ -9,7 +9,7 @@
 		sticky = true,
 		hideOnScroll = false,
 		// Root
-		base = 'transition-[translate] duration-300',
+		base = '[grid-area:header] transition-[translate] duration-300',
 		stickyBase = 'sticky top-0',
 		hiddenBase = '-translate-y-full',
 		classes,
@@ -45,9 +45,3 @@
 <header id="appShell-header" bind:offsetHeight={ctx.headerHeight} class="{base}{rxSticky} {rxHidden} {classes}">
 	{@render children()}
 </header>
-
-<style>
-	header {
-		grid-area: header;
-	}
-</style>

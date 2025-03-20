@@ -9,7 +9,7 @@
 		hideOnScrollQuery = 'max-width: 600px',
 		// Root
 		classes,
-		base = 'overflow-clip',
+		base = 'grid [grid-template-areas:"header_header_header"_"sidebar-left_page_sidebar-right"_"footer_footer_footer"] overflow-clip',
 		// Snippets
 		children
 	}: AppShellProps = $props();
@@ -70,15 +70,3 @@
 <div id="appShell" class="{base} {classes}">
 	{@render children()}
 </div>
-
-<style>
-	:global(body, html) {
-		min-height: 100%;
-	}
-
-	#appShell {
-		display: grid;
-		grid-template-areas: 'header header header' 'sidebar-left page sidebar-right' 'footer footer footer';
-		grid-template-columns: auto 1fr auto;
-	}
-</style>

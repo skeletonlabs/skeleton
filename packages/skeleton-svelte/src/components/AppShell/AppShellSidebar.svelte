@@ -7,6 +7,8 @@
 		sticky = false,
 		position,
 		// Root
+		leftBase = '[grid-area:sidebar-left]',
+		rightBase = '[grid-area:sidebar-right]',
 		classes,
 		// Snippets
 		children
@@ -16,12 +18,13 @@
 	const ctx = getAppShellContext();
 
 	// Reactive
+	const rxPosition = $derived(position === 'left' ? leftBase : rightBase);
 	const rxSticky = $derived(sticky ? 'sticky' : '');
 </script>
 
 <!-- @component AppShell sidebar subcomponent. -->
 
-<div style:grid-area="sidebar-{position}">
+<div class={rxPosition}>
 	<aside class="{rxSticky} {classes}" style:top={sticky === 'header' ? ctx.headerHeight + 'px' : sticky === 'page' ? 0 : undefined}>
 		{@render children?.()}
 	</aside>

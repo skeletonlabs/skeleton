@@ -79,6 +79,8 @@ export interface AppShellHeaderProps {
 
 export interface AppShellPageProps {
 	// Root ---
+	/** Set base styles. */
+	base?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
@@ -106,6 +108,10 @@ export interface AppShellSidebarProps {
 	position: 'left' | 'right';
 
 	// Root ---
+	/** Set base styles for left-positioned sidebar. */
+	leftBase?: string;
+	/** Set base styles for right-positioned sidebar. */
+	rightBase?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 

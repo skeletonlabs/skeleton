@@ -8,7 +8,7 @@
 		sticky = true,
 		hideOnScroll = false,
 		// Root
-		base = 'transition-[translate] duration-300',
+		base = '[grid-area:footer] transition-[translate] duration-300',
 		stickyBase = 'sticky top-0',
 		hiddenBase = 'translate-y-full',
 		classes,
@@ -34,9 +34,3 @@
 <footer id="appShell-footer" bind:offsetHeight={ctx.footerHeight} class="{base} {rxSticky} {rxHidden} {classes}">
 	{@render children()}
 </footer>
-
-<style>
-	footer {
-		grid-area: footer;
-	}
-</style>
