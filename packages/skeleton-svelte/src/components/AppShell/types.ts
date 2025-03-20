@@ -61,6 +61,12 @@ export interface AppShellHeaderProps {
 	hideOnScroll?: boolean;
 
 	// Root ---
+	/** Set base styles. */
+	base?: string;
+	/** Set base styles for sticky mode. */
+	stickyBase?: string;
+	/** Set base styles for hidden mode. */
+	hiddenBase?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 
@@ -129,6 +135,12 @@ export interface AppShellFooterProps {
 	hideOnScroll?: boolean;
 
 	// Root ---
+	/** Set base styles. */
+	base?: string;
+	/** Set base styles for sticky mode. */
+	stickyBase?: string;
+	/** Set base styles for hidden mode. */
+	hiddenBase?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 

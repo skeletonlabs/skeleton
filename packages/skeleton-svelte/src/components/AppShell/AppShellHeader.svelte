@@ -9,6 +9,9 @@
 		sticky = true,
 		hideOnScroll = false,
 		// Root
+		base = 'transition-[translate] duration-300',
+		stickyBase = 'sticky top-0',
+		hiddenBase = '-translate-y-full',
 		classes,
 		// Snippets
 		children
@@ -18,9 +21,8 @@
 	const ctx = getAppShellContext();
 
 	// Reactive
-	const rxSticky = $derived(sticky ? 'sticky top-0' : '');
-	const rxHideOnScroll = $derived(sticky && hideOnScroll ? 'transition-[translate] duration-300' : '');
-	const rxHidden = $derived(sticky && hideOnScroll && ctx.shouldHideHeader ? '-translate-y-full' : '');
+	const rxSticky = $derived(sticky && stickyBase);
+	const rxHidden = $derived(sticky && hideOnScroll && ctx.shouldHideHeader && hiddenBase);
 
 	// Scroll padding logic
 	$effect(() => {
@@ -40,7 +42,7 @@
 
 <!-- @component AppShell header subcomponent. -->
 
-<header id="appShell-header" bind:offsetHeight={ctx.headerHeight} class="{rxSticky} {rxHideOnScroll} {rxHidden} {classes}">
+<header id="appShell-header" bind:offsetHeight={ctx.headerHeight} class="{base}{rxSticky} {rxHidden} {classes}">
 	{@render children()}
 </header>
 
