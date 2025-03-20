@@ -36,9 +36,20 @@
 /* These are purpose-built to work in the group */
 
 @utility ig-input {
-	--tw-ring-inset: inset;
 	background-color: transparent;
+	display: block;
+	width: 100%;
+
+	/* Size */
+	font-size: var(--text-base);
+	line-height: var(--text-base--line-height);
+	padding-block: --spacing(1);
+	padding-inline: --spacing(3);
+
+	/* Edges */
+	outline-color: transparent;
 	border-width: 0;
+	--tw-ring-inset: inset;
 
 	@variant active {
 		--tw-ring-color: var(--color-primary-500);
@@ -52,9 +63,19 @@
 }
 
 @utility ig-select {
-	--tw-ring-inset: inset;
 	background-color: transparent;
+	display: block;
+	width: 100%;
+
+	/* Size */
+	font-size: var(--text-base);
+	line-height: var(--text-base--line-height);
+	padding-block: --spacing(1);
+
+	/* Edges */
+	outline-color: transparent;
 	border-width: 0;
+	--tw-ring-inset: inset;
 
 	@variant active {
 		--tw-ring-color: var(--color-primary-500);
