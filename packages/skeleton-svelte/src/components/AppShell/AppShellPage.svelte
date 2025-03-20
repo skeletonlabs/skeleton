@@ -13,6 +13,6 @@
 
 <!-- @component AppShell page subcomponent. -->
 
-<div id="appShell-page" class="{base} {classes}"">
+<div id="appShell-page" class="{base} {classes}">
 	{@render children()}
 </div>
