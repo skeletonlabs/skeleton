@@ -9,7 +9,7 @@
 		hideOnScrollQuery = 'max-width: 600px',
 		// Root
 		classes,
-		base = 'grid [grid-template-areas:"header_header_header"_"sidebar-left_page_sidebar-right"_"footer_footer_footer"] overflow-clip',
+		base = 'grid grid-cols-[auto_1fr_auto] [grid-template-areas:"header_header_header"_"sidebar-left_page_sidebar-right"_"footer_footer_footer"] overflow-clip',
 		// Snippets
 		children
 	}: AppShellProps = $props();
