@@ -3,7 +3,7 @@
 	// Components
 	import { ToastProvider } from '@skeletonlabs/skeleton-svelte';
 	// Icons
-	import ModeSwitch from './mode-switch.svelte';
+	import LightSwitch from './light-switch.svelte';
 
 	let { children } = $props();
 </script>
@@ -14,7 +14,7 @@
 		<div class="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
 			<a class="text-sm bg-orange-500 p-2 font-mono font-bold text-white" href="/">skeleton-svelte</a>
 			<hr class="hr" />
-			<ModeSwitch></ModeSwitch>
+			<LightSwitch></LightSwitch>
 			<hr class="hr" />
 			<!-- Components -->
 			<div class="space-y-8">
