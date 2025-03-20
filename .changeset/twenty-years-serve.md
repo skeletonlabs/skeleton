@@ -2,5 +2,5 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-fix: fix: add missing core utilities
+fix: add missing core utilities
   
