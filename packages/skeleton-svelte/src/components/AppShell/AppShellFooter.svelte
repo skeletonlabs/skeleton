@@ -27,6 +27,8 @@
 	});
 </script>
 
+<!-- @component AppShell footer subcomponent. -->
+
 <footer id="appShell-footer" bind:offsetHeight={ctx.footerHeight} class="{rxSticky} {rxHideOnScroll} {rxHidden} {classes}">
 	{@render children()}
 </footer>

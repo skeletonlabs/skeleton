@@ -38,7 +38,7 @@
 	});
 </script>
 
-<!-- @component AppShell site header subcomponent. -->
+<!-- @component AppShell header subcomponent. -->
 
 <header id="appShell-header" bind:offsetHeight={ctx.headerHeight} class="{rxSticky} {rxHideOnScroll} {rxHidden} {classes}">
 	{@render children()}

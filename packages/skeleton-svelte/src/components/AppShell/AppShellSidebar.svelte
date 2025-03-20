@@ -19,6 +19,8 @@
 	const rxSticky = $derived(sticky ? 'sticky' : '');
 </script>
 
+<!-- @component AppShell sidebar subcomponent. -->
+
 <div style:grid-area="sidebar-{position}">
 	<aside class="{rxSticky} {classes}" style:top={sticky === 'header' ? ctx.headerHeight + 'px' : sticky === 'page' ? 0 : undefined}>
 		{@render children?.()}
