@@ -17,7 +17,12 @@
 	font-size: var(--text-base);
 	line-height: var(--text-base--line-height);
 	padding-block: --spacing(1);
-	padding-inline: --spacing(3);
+
+	/*
+		WARNING
+		Do not set `padding-inline` or it breaks
+		the native drop-down arrow for selects.
+	*/
 
 	/* Edges */
 	outline-color: transparent;
