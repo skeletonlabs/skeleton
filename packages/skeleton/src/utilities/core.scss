@@ -18,7 +18,6 @@ $theme-variables: (
 	(base-font-weight, font-weight),
 	(base-font-style, font-style),
 	(base-letter-spacing, letter-spacing),
-
 	// Heading
 	(heading-font-color, color),
 	(heading-font-color-dark, color),
@@ -28,7 +27,6 @@ $theme-variables: (
 	(heading-font-weight, font-weight),
 	(heading-font-style, font-style),
 	(heading-letter-spacing, letter-spacing),
-
 	// Anchor
 	(anchor-font-color, color),
 	(anchor-font-color-dark, color),
@@ -47,7 +45,7 @@ $theme-variables: (
 @each $variable in $theme-variables {
 	$name: list.nth($variable, 1);
 	$property: list.nth($variable, 2);
-	
+
 	@utility #{$name} {
 		#{$property}: var(--#{$name});
 	}
