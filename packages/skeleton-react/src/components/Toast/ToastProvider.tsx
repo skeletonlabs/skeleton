@@ -1,7 +1,7 @@
 import * as toast from '@zag-js/toast';
 import type { ToastProviderProps } from './types.js';
 import { Toast } from './Toast.js';
-import { useId } from 'react';
+import { useId, useRef } from 'react';
 import { normalizeProps, useMachine } from '@zag-js/react';
 import { ToastContext } from './context.js';
 
@@ -31,14 +31,14 @@ export function ToastProvider({
 	children,
 	...rest
 }: ToastProviderProps) {
-	const toaster = toast.createStore(rest);
+	const toaster = useRef(toast.createStore(rest));
 	const service = useMachine(toast.group.machine, {
 		id: useId(),
-		store: toaster
+		store: toaster.current
 	});
 	const api = toast.group.connect(service, normalizeProps);
 	return (
-		<ToastContext.Provider value={{ toaster }}>
+		<ToastContext.Provider value={{ toaster: toaster.current }}>
 			{children}
 			<div {...api.getGroupProps()}>
 				{api.getToasts().map((toast) => (

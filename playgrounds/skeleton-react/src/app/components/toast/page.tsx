@@ -6,9 +6,13 @@ import { ToastContext } from '@skeletonlabs/skeleton-react';
 export default function Page() {
 	const toastContext = useContext(ToastContext);
 
+	if (!toastContext) {
+		throw new Error('ToastContext is not provided');
+	}
+
 	function triggerInfo() {
 		toastContext.toaster.create({
-			// title: 'Info!',
+			title: 'Info!',
 			description: 'This is an info toast.',
 			type: 'info'
 		});

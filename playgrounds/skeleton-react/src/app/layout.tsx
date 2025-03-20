@@ -16,7 +16,6 @@ export default function RootLayout({
 		setLightswitch(newValue);
 		document.documentElement.classList.toggle('dark');
 	}
-
 	return (
 		<html lang="en" className="dark" data-theme="cerberus">
 			<body>

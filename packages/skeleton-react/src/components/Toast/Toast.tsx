@@ -8,7 +8,6 @@ export function Toast(props: ToastProps) {
 		parent: props.parent
 	});
 	const api = toast.connect(service, normalizeProps);
-
 	function getStateClasses() {
 		switch (api.type) {
 			case 'success':
