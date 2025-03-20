@@ -1,14 +1,13 @@
 @use 'sass:list';
 
-/* Add missing theme utilities - solution until variables can be renamed to follow Tailwind theme namespaces in v4 */
-
-// Colors
+// Colors (can't use the same sass loop as class name != var name)
 @utility body-color {
 	background-color: var(--body-background-color);
 }
 @utility body-color-dark {
 	background-color: var(--body-background-color-dark);
 }
+
 $theme-variables: (
 	// Base
 	(base-font-color, color),
@@ -19,6 +18,7 @@ $theme-variables: (
 	(base-font-weight, font-weight),
 	(base-font-style, font-style),
 	(base-letter-spacing, letter-spacing),
+
 	// Heading
 	(heading-font-color, color),
 	(heading-font-color-dark, color),
@@ -28,6 +28,7 @@ $theme-variables: (
 	(heading-font-weight, font-weight),
 	(heading-font-style, font-style),
 	(heading-letter-spacing, letter-spacing),
+
 	// Anchor
 	(anchor-font-color, color),
 	(anchor-font-color-dark, color),
@@ -42,9 +43,11 @@ $theme-variables: (
 	(anchor-text-decoration-focus, text-decoration),
 	(anchor-text-decoration-hover, text-decoration)
 );
+
 @each $variable in $theme-variables {
 	$name: list.nth($variable, 1);
 	$property: list.nth($variable, 2);
+	
 	@utility #{$name} {
 		#{$property}: var(--#{$name});
 	}
