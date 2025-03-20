@@ -1,14 +1,9 @@
 @use 'sass:list';
 
-// Colors (can't use the same sass loop as class name != var name)
-@utility body-color {
-	background-color: var(--body-background-color);
-}
-@utility body-color-dark {
-	background-color: var(--body-background-color-dark);
-}
-
 $theme-variables: (
+	// Colors
+	(body-background-color, background-color),
+	(body-background-color-dark, background-color),
 	// Base
 	(base-font-color, color),
 	(base-font-color-dark, color),
