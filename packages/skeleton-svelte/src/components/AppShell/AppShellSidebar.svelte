@@ -14,13 +14,13 @@
 
 	// Context
 	const ctx = getAppShellContext();
+
+	// Reactive
+	const rxSticky = $derived(sticky ? 'sticky' : '');
 </script>
 
 <div style:grid-area="sidebar-{position}">
-	<aside
-		class={[sticky && 'sticky', classes]}
-		style:top={sticky === 'header' ? ctx.headerHeight + 'px' : sticky === 'page' ? 0 : undefined}
-	>
+	<aside class="{rxSticky} {classes}" style:top={sticky === 'header' ? ctx.headerHeight + 'px' : sticky === 'page' ? 0 : undefined}>
 		{@render children?.()}
 	</aside>
 </div>

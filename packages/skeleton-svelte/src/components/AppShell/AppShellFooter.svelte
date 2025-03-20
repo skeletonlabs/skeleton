@@ -16,22 +16,18 @@
 	// Context
 	const ctx = getAppShellContext();
 
+	// Reactive
+	const rxSticky = $derived(sticky ? 'sticky top-0' : '');
+	const rxHideOnScroll = $derived(sticky && hideOnScroll ? 'transition-[translate] duration-300' : '');
+	const rxHidden = $derived(sticky && hideOnScroll && ctx.shouldHideHeader ? 'translate-y-full' : '');
+
 	// Remove contexts/styles set by this component on unmount
 	onMount(() => () => {
 		ctx.footerHeight = 0;
 	});
 </script>
 
-<footer
-	id="appShell-footer"
-	bind:offsetHeight={ctx.footerHeight}
-	class={[
-		sticky && 'sticky bottom-0',
-		sticky && hideOnScroll && 'transition-[translate] duration-300',
-		sticky && hideOnScroll && ctx.shouldHideFooter && 'translate-y-full',
-		classes
-	]}
->
+<footer id="appShell-footer" bind:offsetHeight={ctx.footerHeight} class="{rxSticky} {rxHideOnScroll} {rxHidden} {classes}">
 	{@render children()}
 </footer>
 

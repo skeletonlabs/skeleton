@@ -17,6 +17,11 @@
 	// Context
 	const ctx = getAppShellContext();
 
+	// Reactive
+	const rxSticky = $derived(sticky ? 'sticky top-0' : '');
+	const rxHideOnScroll = $derived(sticky && hideOnScroll ? 'transition-[translate] duration-300' : '');
+	const rxHidden = $derived(sticky && hideOnScroll && ctx.shouldHideHeader ? '-translate-y-full' : '');
+
 	// Scroll padding logic
 	$effect(() => {
 		if (sticky && scrollPadding != null)
@@ -35,16 +40,7 @@
 
 <!-- @component AppShell site header subcomponent. -->
 
-<header
-	id="appShell-header"
-	bind:offsetHeight={ctx.headerHeight}
-	class={[
-		sticky && 'sticky top-0',
-		sticky && hideOnScroll && 'transition-[translate] duration-300',
-		sticky && hideOnScroll && ctx.shouldHideHeader && '-translate-y-full',
-		classes
-	]}
->
+<header id="appShell-header" bind:offsetHeight={ctx.headerHeight} class="{rxSticky} {rxHideOnScroll} {rxHidden} {classes}">
 	{@render children()}
 </header>
 
