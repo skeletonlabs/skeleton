@@ -1,6 +1,6 @@
 import * as toast from '@zag-js/toast';
 
-export interface ToastProviderProps extends toast.StoreProps {
+export interface ToasterProps extends toast.StoreProps {
 	// Toaster ---
 	toaster: toast.Store;
 
@@ -49,7 +49,7 @@ export interface ToastProviderProps extends toast.StoreProps {
 	stateError?: string;
 }
 
-export interface ToastProps extends Omit<ToastProviderProps, 'toaster'> {
+export interface ToastProps extends Omit<ToasterProps, 'toaster'> {
 	toast: toast.Options;
 	index: number;
 	parent: toast.GroupService;

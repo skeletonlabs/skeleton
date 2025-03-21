@@ -1,7 +1,7 @@
 'use client';
 
 import * as toast from '@zag-js/toast';
-import type { ToastProviderProps } from './types.js';
+import type { ToasterProps } from './types.js';
 import { Toast } from './Toast.js';
 import { useId } from 'react';
 import { normalizeProps, useMachine } from '@zag-js/react';
@@ -31,7 +31,7 @@ export function Toaster({
 	stateInfo = 'preset-outlined-surface-200-800 preset-filled-surface-50-950',
 	stateSuccess = 'preset-filled-success-500',
 	stateError = 'preset-filled-error-500'
-}: ToastProviderProps) {
+}: ToasterProps) {
 	const service = useMachine(toast.group.machine, {
 		id: useId(),
 		store: toaster

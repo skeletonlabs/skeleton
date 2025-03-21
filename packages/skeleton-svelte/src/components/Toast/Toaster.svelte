@@ -2,7 +2,7 @@
 	import { normalizeProps, useMachine } from '@zag-js/svelte';
 	import * as toast from '@zag-js/toast';
 	import Toast from './Toast.svelte';
-	import type { ToastProviderProps } from './types.js';
+	import type { ToasterProps } from './types.js';
 
 	const {
 		// Toaster
@@ -29,7 +29,7 @@
 		stateInfo = 'preset-outlined-surface-200-800 preset-filled-surface-50-950',
 		stateSuccess = 'preset-filled-success-500',
 		stateError = 'preset-filled-error-500'
-	}: ToastProviderProps = $props();
+	}: ToasterProps = $props();
 
 	const id = $props.id();
 	const service = useMachine(toast.group.machine, () => ({
