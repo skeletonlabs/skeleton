@@ -1,5 +1,9 @@
 <script lang="ts">
-	import { toaster } from '../../../lib/toaster.js';
+	import { Toaster, createToaster } from '@skeletonlabs/skeleton-svelte';
+
+	const toaster = createToaster({
+		placement: 'bottom-end'
+	});
 
 	function triggerInfo() {
 		toaster.create({
@@ -25,6 +29,8 @@
 		});
 	}
 </script>
+
+<Toaster {toaster}></Toaster>
 
 <div class="space-y-10">
 	<header>

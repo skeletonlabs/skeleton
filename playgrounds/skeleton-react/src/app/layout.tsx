@@ -1,10 +1,9 @@
 'use client';
 
-import { Switch, Toaster } from '@skeletonlabs/skeleton-react';
+import { Switch } from '@skeletonlabs/skeleton-react';
 import { Moon as IconMoon, Sun as IconSun } from 'lucide-react';
 import './globals.css';
 import { useState } from 'react';
-import { toaster } from './lib/toaster';
 
 export default function RootLayout({
 	children
@@ -20,7 +19,6 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="dark" data-theme="cerberus">
 			<body>
-				<Toaster toaster={toaster}></Toaster>
 				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]" data-testid="app">
 					{/* Nav */}
 					<div className="bg-surface-100-900 space-y-8 overflow-y-auto p-8">

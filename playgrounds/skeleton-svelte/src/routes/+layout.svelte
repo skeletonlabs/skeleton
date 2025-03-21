@@ -1,11 +1,10 @@
 <script lang="ts">
 	import '../app.css';
 	// Components
-	import { Toaster, Switch } from '@skeletonlabs/skeleton-svelte';
+	import { Switch } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconMoon from '@lucide/svelte/icons/moon';
 	import IconSun from '@lucide/svelte/icons/sun';
-	import { toaster } from '../lib/toaster.js';
 
 	let { children } = $props();
 	let modeState = $state(false); // false = dark mode
@@ -14,8 +13,6 @@
 		document.documentElement.classList.toggle('dark');
 	}
 </script>
-
-<Toaster {toaster}></Toaster>
 
 <div class="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
 	<!-- Nav -->
