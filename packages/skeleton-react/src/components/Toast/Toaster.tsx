@@ -30,6 +30,7 @@ export function Toaster({
 	// State
 	stateInfo = 'preset-outlined-surface-200-800 preset-filled-surface-50-950',
 	stateSuccess = 'preset-filled-success-500',
+	stateWarning = 'preset-filled-warning-500',
 	stateError = 'preset-filled-error-500'
 }: ToasterProps) {
 	const service = useMachine(toast.group.machine, {
@@ -58,6 +59,7 @@ export function Toaster({
 					btnDismissClasses={btnDismissClasses}
 					stateInfo={stateInfo}
 					stateError={stateError}
+					stateWarning={stateWarning}
 					stateSuccess={stateSuccess}
 					toast={toast}
 					parent={service}

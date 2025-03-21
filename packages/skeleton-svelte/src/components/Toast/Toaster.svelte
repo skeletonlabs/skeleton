@@ -28,6 +28,7 @@
 		// State
 		stateInfo = 'preset-outlined-surface-200-800 preset-filled-surface-50-950',
 		stateSuccess = 'preset-filled-success-500',
+		stateWarning = 'preset-filled-warning-500',
 		stateError = 'preset-filled-error-500'
 	}: ToasterProps = $props();
 
@@ -57,6 +58,7 @@
 			{btnDismissClasses}
 			{stateInfo}
 			{stateError}
+			{stateWarning}
 			{stateSuccess}
 			{toast}
 			{index}

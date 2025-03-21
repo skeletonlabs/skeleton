@@ -7,36 +7,41 @@ export default function () {
 	return (
 		<>
 			<Toaster toaster={toaster}></Toaster>
-			<div className="grid gap-2">
+			<div className="flex gap-2">
 				<button
 					className="btn preset-filled"
 					onClick={() => {
 						toaster.info({
-							type: 'info',
 							title: 'This is a toast!'
 						});
 					}}
 				>
 					Info
 				</button>
-
 				<button
-					className="btn preset-tonal-success"
+					className="btn preset-tonal-warning"
 					onClick={() => {
-						toaster.info({
-							type: 'error',
+						toaster.warning({
 							title: 'This is a toast!'
 						});
 					}}
 				>
 					Success
 				</button>
-
 				<button
 					className="btn preset-tonal-error"
 					onClick={() => {
-						toaster.info({
-							type: 'error',
+						toaster.error({
+							title: 'This is a toast!'
+						});
+					}}
+				>
+					Toast!
+				</button>
+				<button
+					className="btn preset-tonal-success"
+					onClick={() => {
+						toaster.success({
 							title: 'This is a toast!'
 						});
 					}}

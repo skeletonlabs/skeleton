@@ -6,32 +6,35 @@
 
 <Toaster {toaster}></Toaster>
 
-<div class="grid gap-2">
+<div class="flex gap-2">
 	<button
 		class="btn preset-filled"
 		onclick={() => {
 			toaster.info({
-				type: 'info',
 				title: 'This is a toast!'
 			});
 		}}>Info</button
 	>
-
 	<button
-		class="btn preset-tonal-success"
+		class="btn preset-tonal-warning"
 		onclick={() => {
-			toaster.info({
-				type: 'error',
+			toaster.warning({
 				title: 'This is a toast!'
 			});
 		}}>Success</button
 	>
-
 	<button
 		class="btn preset-tonal-error"
 		onclick={() => {
-			toaster.info({
-				type: 'error',
+			toaster.error({
+				title: 'This is a toast!'
+			});
+		}}>Toast!</button
+	>
+	<button
+		class="btn preset-tonal-success"
+		onclick={() => {
+			toaster.success({
 				title: 'This is a toast!'
 			});
 		}}>Toast!</button

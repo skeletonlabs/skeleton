@@ -45,6 +45,8 @@ export interface ToasterProps extends toast.StoreProps {
 	stateInfo?: string;
 	/** Provide base classes for success toasts. */
 	stateSuccess?: string;
+	/** Provide base classes for warning toasts. */
+	stateWarning?: string;
 	/** Provide base classes for error toasts. */
 	stateError?: string;
 }

@@ -14,6 +14,8 @@ export function Toast(props: ToastProps) {
 		switch (api.type) {
 			case 'success':
 				return props.stateSuccess;
+			case 'warning':
+				return props.stateWarning;
 			case 'error':
 				return props.stateError;
 			default:
