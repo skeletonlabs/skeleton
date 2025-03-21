@@ -3,7 +3,7 @@
 @utility card {
 	border-radius: var(--radius-container);
 
-	& a {
+	&a {
 		/* Transitions (all) */
 		transition-property: all;
 		transition-timing-function: var(--default-transition-timing-function);
