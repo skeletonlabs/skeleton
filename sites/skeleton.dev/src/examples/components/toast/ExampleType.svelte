@@ -29,7 +29,7 @@
 			toaster.error({
 				title: 'This is a toast!'
 			});
-		}}>Toast!</button
+		}}>Error</button
 	>
 	<button
 		class="btn preset-tonal-success"
@@ -37,6 +37,6 @@
 			toaster.success({
 				title: 'This is a toast!'
 			});
-		}}>Toast!</button
+		}}>Success</button
 	>
 </div>

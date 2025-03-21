@@ -36,7 +36,7 @@ export default function () {
 						});
 					}}
 				>
-					Toast!
+					Warning
 				</button>
 				<button
 					className="btn preset-tonal-success"
@@ -46,7 +46,7 @@ export default function () {
 						});
 					}}
 				>
-					Toast!
+					Success
 				</button>
 			</div>
 		</>
