@@ -2,7 +2,7 @@
 	import { Toaster, createToaster } from '@skeletonlabs/skeleton-svelte';
 
 	const toaster = createToaster({
-		placement: 'top-end'
+		placement: 'bottom-end'
 	});
 </script>
 

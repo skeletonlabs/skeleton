@@ -4,7 +4,7 @@ import { Toaster, createToaster } from '@skeletonlabs/skeleton-react';
 
 export default function () {
 	const toaster = createToaster({
-		placement: 'top-end'
+		placement: 'bottom-end'
 	});
 	return (
 		<>
