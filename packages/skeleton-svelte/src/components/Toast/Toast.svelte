@@ -31,7 +31,7 @@
 		<span class="{props.descriptionBase} {props.descriptionClasses}" {...api.getDescriptionProps()}>{api.description}</span>
 	</div>
 	<!-- Dismiss Button -->
-	<button class="{props.buttonDismissBase} {props.buttonDismissClasses}" onclick={api.dismiss}>&times;</button>
+	<button class="{props.btnDismissBase} {props.btnDismissClasses}" onclick={api.dismiss}>&times;</button>
 </div>
 
 <style>

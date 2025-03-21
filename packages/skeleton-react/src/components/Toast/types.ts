@@ -35,9 +35,9 @@ export interface ToastProviderProps {
 
 	// Dismiss Button ---
 	/** Provide base classes for the dismiss button. */
-	buttonDismissBase?: string;
+	btnDismissBase?: string;
 	/** Provide arbitrary classes for the dismiss button. */
-	buttonDismissClasses?: string;
+	btnDismissClasses?: string;
 
 	// State ---
 	/** Provide base classes for info toasts. */

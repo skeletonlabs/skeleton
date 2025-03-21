@@ -23,8 +23,8 @@
 		descriptionBase = 'text-sm',
 		descriptionClasses = '',
 		// Dismiss Button
-		buttonDismissBase = 'btn-icon hover:preset-tonal',
-		buttonDismissClasses = '',
+		btnDismissBase = 'btn-icon hover:preset-tonal',
+		btnDismissClasses = '',
 		// State
 		stateInfo = 'preset-outlined-surface-200-800 preset-filled-surface-50-950',
 		stateSuccess = 'preset-filled-success-500',
@@ -53,8 +53,8 @@
 			{titleClasses}
 			{descriptionBase}
 			{descriptionClasses}
-			{buttonDismissBase}
-			{buttonDismissClasses}
+			{btnDismissBase}
+			{btnDismissClasses}
 			{stateInfo}
 			{stateError}
 			{stateSuccess}

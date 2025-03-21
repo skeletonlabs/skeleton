@@ -38,7 +38,7 @@ export function Toast(props: ToastProps) {
 					</span>
 				</div>
 				{/*  Dismiss Button */}
-				<button className={`${props.buttonDismissBase} ${props.buttonDismissClasses}`} onClick={api.dismiss}>
+				<button className={`${props.btnDismissBase} ${props.btnDismissClasses}`} onClick={api.dismiss}>
 					&times;
 				</button>
 			</div>
