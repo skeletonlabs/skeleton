@@ -3,9 +3,10 @@
 	import * as toast from '@zag-js/toast';
 	import Toast from './Toast.svelte';
 	import type { ToastProviderProps } from './types.js';
-	import { setToastContext } from './context.js';
 
 	const {
+		// Toaster
+		toaster,
 		// Toast
 		base = 'flex justify-between items-center gap-3',
 		width = 'min-w-xs',
@@ -27,27 +28,16 @@
 		// State
 		stateInfo = 'preset-outlined-surface-200-800 preset-filled-surface-50-950',
 		stateSuccess = 'preset-filled-success-500',
-		stateError = 'preset-filled-error-500',
-		children,
-		...rest
+		stateError = 'preset-filled-error-500'
 	}: ToastProviderProps = $props();
 
 	const id = $props.id();
-	const toaster = $derived(toast.createStore(rest));
 	const service = useMachine(toast.group.machine, () => ({
 		id: id,
 		store: toaster
 	}));
 	const api = $derived(toast.group.connect(service, normalizeProps));
-
-	setToastContext({
-		get toaster() {
-			return toaster;
-		}
-	});
 </script>
-
-{@render children?.()}
 
 <div {...api.getGroupProps()}>
 	{#each api.getToasts() as toast, index (toast.id)}

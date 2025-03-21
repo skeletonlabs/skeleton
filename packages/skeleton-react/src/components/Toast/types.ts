@@ -1,11 +1,8 @@
 import * as toast from '@zag-js/toast';
-import type { PropsWithChildren } from 'react';
 
-export interface ToastContextType {
+export interface ToastProviderProps {
+	// Toaster ---
 	toaster: toast.Store;
-}
-
-export interface ToastProviderProps extends toast.StoreProps, PropsWithChildren {
 	// Toast ---
 	/** Provide base classes for the root element. */
 	base?: string;
@@ -51,7 +48,7 @@ export interface ToastProviderProps extends toast.StoreProps, PropsWithChildren 
 	stateError?: string;
 }
 
-export interface ToastProps extends Omit<ToastProviderProps, 'children'> {
+export interface ToastProps extends Omit<ToastProviderProps, 'toaster'> {
 	toast: toast.Options;
 	parent: toast.GroupService;
 }

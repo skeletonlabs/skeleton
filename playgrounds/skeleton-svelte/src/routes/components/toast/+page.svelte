@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { getToastContext } from '@skeletonlabs/skeleton-svelte';
-
-	const toastContext = getToastContext();
+	import { toaster } from '../../../lib/toaster.js';
 
 	function triggerInfo() {
-		toastContext.toaster.create({
+		toaster.create({
 			// title: 'Info!',
 			description: 'This is an info toast.',
 			type: 'info'
@@ -12,7 +10,7 @@
 	}
 
 	function triggerError() {
-		toastContext.toaster.create({
+		toaster.create({
 			title: 'Error',
 			description: 'An error occurred!',
 			type: 'error'
@@ -20,7 +18,7 @@
 	}
 
 	function triggerSuccess() {
-		toastContext.toaster.create({
+		toaster.create({
 			title: 'Success',
 			description: 'The task was successful!',
 			type: 'success'

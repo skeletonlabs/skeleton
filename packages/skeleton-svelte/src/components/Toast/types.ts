@@ -1,11 +1,9 @@
 import * as toast from '@zag-js/toast';
-import type { Snippet } from 'svelte';
-
-export interface ToastContext {
-	toaster: toast.Store;
-}
 
 export interface ToastProviderProps extends toast.StoreProps {
+	// Toaster ---
+	toaster: toast.Store;
+
 	// Toast ---
 	/** Provide base classes for the root element. */
 	base?: string;
@@ -49,12 +47,9 @@ export interface ToastProviderProps extends toast.StoreProps {
 	stateSuccess?: string;
 	/** Provide base classes for error toasts. */
 	stateError?: string;
-
-	// Snippets ---
-	children?: Snippet;
 }
 
-export interface ToastProps extends Omit<ToastProviderProps, 'children'> {
+export interface ToastProps extends Omit<ToastProviderProps, 'toaster'> {
 	toast: toast.Options;
 	index: number;
 	parent: toast.GroupService;

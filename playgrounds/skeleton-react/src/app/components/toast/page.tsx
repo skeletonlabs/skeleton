@@ -1,17 +1,10 @@
 'use client';
 
-import { useContext } from 'react';
-import { ToastContext } from '@skeletonlabs/skeleton-react';
+import { toaster } from '@/app/lib/toaster';
 
 export default function Page() {
-	const toastContext = useContext(ToastContext);
-
-	if (!toastContext) {
-		throw new Error('ToastContext is not provided');
-	}
-
 	function triggerInfo() {
-		toastContext.toaster.create({
+		toaster.create({
 			title: 'Info!',
 			description: 'This is an info toast.',
 			type: 'info'
@@ -19,7 +12,7 @@ export default function Page() {
 	}
 
 	function triggerError() {
-		toastContext.toaster.create({
+		toaster.create({
 			title: 'Error',
 			description: 'An error occurred!',
 			type: 'error'
@@ -27,7 +20,7 @@ export default function Page() {
 	}
 
 	function triggerSuccess() {
-		toastContext.toaster.create({
+		toaster.create({
 			title: 'Success',
 			description: 'The task was successful!',
 			type: 'success'
