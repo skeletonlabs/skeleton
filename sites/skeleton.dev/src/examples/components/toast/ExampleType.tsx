@@ -19,6 +19,16 @@ export default function () {
 					Info
 				</button>
 				<button
+					className="btn preset-tonal-success"
+					onClick={() => {
+						toaster.success({
+							title: 'This is a toast!'
+						});
+					}}
+				>
+					Success
+				</button>
+				<button
 					className="btn preset-tonal-warning"
 					onClick={() => {
 						toaster.warning({
@@ -26,7 +36,7 @@ export default function () {
 						});
 					}}
 				>
-					Success
+					Warning
 				</button>
 				<button
 					className="btn preset-tonal-error"
@@ -36,17 +46,7 @@ export default function () {
 						});
 					}}
 				>
-					Warning
-				</button>
-				<button
-					className="btn preset-tonal-success"
-					onClick={() => {
-						toaster.success({
-							title: 'This is a toast!'
-						});
-					}}
-				>
-					Success
+					Error
 				</button>
 			</div>
 		</>

@@ -16,12 +16,20 @@
 		}}>Info</button
 	>
 	<button
+		class="btn preset-tonal-success"
+		onclick={() => {
+			toaster.success({
+				title: 'This is a toast!'
+			});
+		}}>Success</button
+	>
+	<button
 		class="btn preset-tonal-warning"
 		onclick={() => {
 			toaster.warning({
 				title: 'This is a toast!'
 			});
-		}}>Success</button
+		}}>Warning</button
 	>
 	<button
 		class="btn preset-tonal-error"
@@ -30,13 +38,5 @@
 				title: 'This is a toast!'
 			});
 		}}>Error</button
-	>
-	<button
-		class="btn preset-tonal-success"
-		onclick={() => {
-			toaster.success({
-				title: 'This is a toast!'
-			});
-		}}>Success</button
 	>
 </div>
