@@ -633,6 +633,9 @@ importers:
       colorette:
         specifier: ^2.0.20
         version: 2.0.20
+      next:
+        specifier: 15.2.1
+        version: 15.2.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       tinyglobby:
         specifier: ^0.2.12
         version: 0.2.12
