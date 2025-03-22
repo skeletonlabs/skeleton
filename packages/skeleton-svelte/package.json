@@ -38,6 +38,7 @@
 		"@zag-js/switch": "catalog:",
 		"@zag-js/tabs": "catalog:",
 		"@zag-js/tags-input": "catalog:",
+		"@zag-js/toast": "catalog:",
 		"@zag-js/tooltip": "catalog:"
 	},
 	"peerDependencies": {
