@@ -10,6 +10,8 @@ import ExampleType from '@examples/components/toast/ExampleType.tsx';
 import ExampleTypeRaw from '@examples/components/toast/ExampleType.tsx?raw';
 import ExamplePlacement from '@examples/components/toast/ExamplePlacement.tsx';
 import ExamplePlacementRaw from '@examples/components/toast/ExamplePlacement.tsx?raw';
+import ExamplePromise from '@examples/components/toast/ExamplePromise.tsx';
+import ExamplePromiseRaw from '@examples/components/toast/ExamplePromise.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -31,6 +33,8 @@ import ExamplePlacementRaw from '@examples/components/toast/ExamplePlacement.tsx
 	</Fragment>
 </Preview>
 
+Note: You can also use the more generic `create` method in combination with the `type` property when needing to create dynamic toast notifications.
+
 ## Placement
 
 <Preview client:load>
@@ -39,6 +43,17 @@ import ExamplePlacementRaw from '@examples/components/toast/ExamplePlacement.tsx
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExamplePlacementRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Promise
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExamplePromise client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExamplePromiseRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

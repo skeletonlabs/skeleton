@@ -10,6 +10,8 @@ import ExampleType from '@examples/components/toast/ExampleType.svelte';
 import ExampleTypeRaw from '@examples/components/toast/ExampleType.svelte?raw';
 import ExamplePlacement from '@examples/components/toast/ExamplePlacement.svelte';
 import ExamplePlacementRaw from '@examples/components/toast/ExamplePlacement.svelte?raw';
+import ExamplePromise from '@examples/components/toast/ExamplePromise.svelte';
+import ExamplePromiseRaw from '@examples/components/toast/ExamplePromise.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -41,6 +43,17 @@ Note: You can also use the more generic `create` method in combination with the 
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExamplePlacementRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Promise
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExamplePromise client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExamplePromiseRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
