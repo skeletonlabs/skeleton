@@ -19,26 +19,24 @@ function renameComponent(s: MagicString, node: AST.Component, name: string) {
 }
 
 function transformScript(s: MagicString, script: AST.Script | null) {
-	if (!script) {
+	if (
+		!script ||
+		!(
+			'start' in script.content &&
+			typeof script.content.start === 'number' &&
+			'end' in script.content &&
+			typeof script.content.end === 'number'
+		)
+	) {
 		return {
 			meta: {
 				skeletonImports: []
 			}
 		};
 	}
-	const content = s.original.slice(script.start, script.end);
-	const openingTag = content.match(/^<script[^>]*>/)?.at(0);
-	const closingTag = content.match(/<\/script>$/)?.at(0);
-	if (!openingTag || !closingTag) {
-		throw new Error('Script tags not found in content');
-	}
-	const codeContent = content.slice(openingTag.length, content.length - closingTag.length);
-	const transformed = transformModule(codeContent);
-	if (!transformed.code.trim()) {
-		s.overwrite(script.start, script.end, '');
-	} else {
-		s.overwrite(script.start, script.end, `${openingTag}${transformed.code}${closingTag}`);
-	}
+	const content = s.original.slice(script.content.start, script.content.end);
+	const transformed = transformModule(content);
+	s.overwrite(script.content.start, script.content.end, transformed.code);
 	return {
 		meta: transformed.meta
 	};
