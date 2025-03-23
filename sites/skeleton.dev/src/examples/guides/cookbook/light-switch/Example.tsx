@@ -2,9 +2,8 @@
 
 import { Switch } from '@skeletonlabs/skeleton-react';
 import { useEffect, useState } from 'react';
-import Script from 'next/script';
 
-export default function LightSwitch() {
+export default function () {
 	const [checked, setChecked] = useState(false);
 
 	useEffect(() => {
@@ -21,8 +20,7 @@ export default function LightSwitch() {
 
 	return (
 		<>
-			<Script
-				strategy="beforeInteractive"
+			<script
 				dangerouslySetInnerHTML={{
 					__html: `
 		const mode = localStorage.getItem('mode') || 'light';

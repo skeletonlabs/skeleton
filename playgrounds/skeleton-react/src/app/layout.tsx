@@ -9,7 +9,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" data-theme="cerberus">
+		<html lang="en" data-theme="cerberus" suppressHydrationWarning={true}>
 			<body>
 				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]" data-testid="app">
 					{/* Nav */}
