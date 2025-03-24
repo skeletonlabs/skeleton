@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.0.5
+### Patch Changes
+
+
+- fix: Simplify `script` parsing in Svelte modules ([#3451](https://github.com/skeletonlabs/skeleton/pull/3451))
+
 ## 0.0.4
 ### Patch Changes
 

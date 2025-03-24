@@ -1,5 +1,26 @@
 # @skeletonlabs/skeleton
 
+## 3.1.1
+### Patch Changes
+
+
+- fix: apply card hover style correctly ([#3449](https://github.com/skeletonlabs/skeleton/pull/3449))
+
+
+- bugfix: Adjust Input Group styles to match individual elements ([#3446](https://github.com/skeletonlabs/skeleton/pull/3446))
+
+
+- bugfix: Resolve issue with Select arrows overlapping text ([#3445](https://github.com/skeletonlabs/skeleton/pull/3445))
+
+
+- fix: add missing core utilities ([#3442](https://github.com/skeletonlabs/skeleton/pull/3442))
+
+
+- fix: add back transparency for selection color ([#3433](https://github.com/skeletonlabs/skeleton/pull/3433))
+
+
+- bugfix: Remove redundant styling for selected `option` in `select` elements ([#3422](https://github.com/skeletonlabs/skeleton/pull/3422))
+
 ## 3.1.0
 ### Minor Changes
 
