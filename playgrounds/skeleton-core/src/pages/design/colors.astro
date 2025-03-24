@@ -52,8 +52,14 @@ const colorPairings = [
 								const light = pairing[0];
 								const dark = pairing[1];
 								return (
-									<div class="w-full p-2 flex justify-center items-center" style={`background: var(--color-${name}-${light}-${dark})`}>
-										<strong class="text-xs text-center" style={`color: var(--color-${name}-contrast-${light}-${dark})`}>
+									<div
+										class="w-full p-2 flex justify-center items-center"
+										style={`background: light-dark(var(--color-${name}-${light}), var(--color-${name}-${dark})`}
+									>
+										<strong
+											class="text-xs text-center"
+											style={`color: light-dark(var(--color-${name}-contrast-${light}),var(--color-${name}-contrast-${dark}))`}
+										>
 											{light} | {dark}
 										</strong>
 									</div>
