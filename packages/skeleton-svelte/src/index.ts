@@ -19,6 +19,8 @@ export { default as Slider } from './components/Slider/Slider.svelte';
 export { default as Switch } from './components/Switch/Switch.svelte';
 export { default as Tabs } from './components/Tabs/index.js';
 export { default as TagsInput } from './components/TagsInput/TagsInput.svelte';
+export { default as Toaster } from './components/Toast/Toaster.svelte';
+export { createToaster } from './components/Toast/create-toaster.js';
 export { default as Rating } from './components/Rating/index.js';
 
 // Types
@@ -27,9 +29,6 @@ export type { FileUploadApi } from './components/FileUpload/types.js';
 // Temporary Features ---
 // The following will be removed or replaced in the future.
 
-// Toasts
-export { default as ToastProvider } from './components/Toast/ToastProvider.svelte';
-export type { ToastContext } from './components/Toast/types.js';
 // Popvers
 export { default as Combobox } from './components/Combobox/Combobox.svelte';
 export { default as Popover } from './components/Popover/Popover.svelte';
