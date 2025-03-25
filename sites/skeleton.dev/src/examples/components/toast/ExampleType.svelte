@@ -6,7 +6,7 @@
 
 <Toaster {toaster}></Toaster>
 
-<div class="flex gap-2">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
 	<button
 		class="btn preset-filled"
 		onclick={() => {

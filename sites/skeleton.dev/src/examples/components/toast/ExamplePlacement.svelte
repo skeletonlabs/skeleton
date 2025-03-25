@@ -14,5 +14,5 @@
 		toaster.info({
 			title: 'This is a toast!'
 		});
-	}}>Toast!</button
+	}}>Toast</button
 >
