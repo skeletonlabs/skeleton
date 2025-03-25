@@ -3,5 +3,5 @@
 "@skeletonlabs/skeleton-react": minor
 ---
 
-feat: toast
+feat: Removed Toast integration in favor of first-party Toast component.
   
