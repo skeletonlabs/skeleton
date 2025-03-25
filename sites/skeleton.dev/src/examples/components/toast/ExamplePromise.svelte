@@ -35,5 +35,5 @@
 				description: 'An error has occurred'
 			})
 		});
-	}}>Execute Task!</button
+	}}>Execute Task</button
 >

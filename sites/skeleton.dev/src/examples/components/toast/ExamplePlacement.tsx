@@ -17,7 +17,7 @@ export default function () {
 					});
 				}}
 			>
-				Toast!
+				Toast
 			</button>
 		</>
 	);

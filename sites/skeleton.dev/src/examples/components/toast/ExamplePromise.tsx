@@ -38,7 +38,7 @@ export default function () {
 					});
 				}}
 			>
-				Execute Task!
+				Execute Task
 			</button>
 		</>
 	);
