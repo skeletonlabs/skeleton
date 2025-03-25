@@ -13,6 +13,8 @@ import ExamplePlacementRaw from '@examples/components/toast/ExamplePlacement.tsx
 import ExamplePromise from '@examples/components/toast/ExamplePromise.tsx';
 import ExamplePromiseRaw from '@examples/components/toast/ExamplePromise.tsx?raw';
 
+It's common to place a single `<ToastProvider>` in global scope of your app, typically a root layout, this single instance will manage a single toast group with a `toaster` instance (returned by `createToaster`). Any style props set on the `<ToastProvider>` component are applied to toasts created by the passed in `toaster` instance.
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Example client:visible />
