@@ -24,6 +24,8 @@ import ExamplePromiseRaw from '@examples/components/toast/ExamplePromise.svelte?
 
 ## Type
 
+You can use the generic .create() method in combination with a specific type, or opt for the shorthand methods if preferred: .info(), .success(), .warning(), or .error().
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<ExampleType client:visible />
@@ -32,8 +34,6 @@ import ExamplePromiseRaw from '@examples/components/toast/ExamplePromise.svelte?
 		<Code code={ExampleTypeRaw} lang="svelte" />
 	</Fragment>
 </Preview>
-
-Note: You can also use the more generic `create` method in combination with the `type` property when needing to create dynamic toast notifications.
 
 ## Placement
 
