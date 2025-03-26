@@ -96,5 +96,9 @@
 		line-height: --spacing(9);
 		height: --spacing(9);
 		padding: --spacing(2);
+
+		&:checked {
+			background-color: var(--color-primary-500);
+		}
 	}
 }
