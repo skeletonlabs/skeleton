@@ -1,87 +1,42 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: Spacing
-description: The Skeleton spacing system.
+description: Set a dynamic scale for application whitespace.
 order: 40
 ---
 
 export const components = componentSet;
 
-export const spacing = [
-	{ value: '0', width: 'w-0' },
-	{ value: '[1px]', width: 'w-[1px]' },
-	{ value: '0.5', width: 'w-0.5' },
-	{ value: '1', width: 'w-1' },
-	{ value: '1.5', width: 'w-1.5' },
-	{ value: '2', width: 'w-2' },
-	{ value: '2.5', width: 'w-2.5' },
-	{ value: '3', width: 'w-3' },
-	{ value: '3.5', width: 'w-3.5' },
-	{ value: '4', width: 'w-4' },
-	{ value: '5', width: 'w-5' },
-	{ value: '6', width: 'w-6' },
-	{ value: '7', width: 'w-7' },
-	{ value: '8', width: 'w-8' },
-	{ value: '9', width: 'w-9' },
-	{ value: '10', width: 'w-10' },
-	{ value: '11', width: 'w-11' },
-	{ value: '12', width: 'w-12' },
-	{ value: '14', width: 'w-14' },
-	{ value: '16', width: 'w-16' },
-	{ value: '20', width: 'w-20' },
-	{ value: '24', width: 'w-24' },
-	{ value: '28', width: 'w-28' },
-	{ value: '32', width: 'w-32' },
-	{ value: '36', width: 'w-36' },
-	{ value: '40', width: 'w-40' },
-	{ value: '44', width: 'w-44' },
-	{ value: '48', width: 'w-48' },
-	{ value: '52', width: 'w-52' },
-	{ value: '56', width: 'w-56' },
-	{ value: '60', width: 'w-60' },
-	{ value: '64', width: 'w-64' },
-	{ value: '72', width: 'w-72' },
-	{ value: '80', width: 'w-80' }
-];
+import Example from '@examples/design/spacing/Example.svelte';
 
-Skeleton utilizes [Tailwind spacing system](https://tailwindcss.com/blog/tailwindcss-v4#dynamic-utility-values-and-variants) to enable dynamic scaling based for the following properties.
+This is enabled by the [Tailwind spacing system](https://tailwindcss.com/blog/tailwindcss-v4#dynamic-utility-values-and-variants).
 
-- `padding`
-- `margin`
-- `width`
-- `minWidth`
-- `maxWidth`
-- `height`
-- `minHeight`
-- `maxHeight`
-- `gap`
-- `inset`
-- `space`
-- `translate`
+<Preview client:load>
+	<Fragment slot="preview">
+		<Example client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<div class="space-y-4">
+			Scaling can be adjusted by modifying the [type scale](/docs/get-started/core-api#typography) theme property.
+			```css
+			[data-theme='cerberus'] {
+				--spacing: 0.25rem;
+			}
+			```
+			This affects the following utilities.
+			- `padding`
+			- `margin`
+			- `width`
+			- `minWidth`
+			- `maxWidth`
+			- `height`
+			- `minHeight`
+			- `maxHeight`
+			- `gap`
+			- `inset`
+			- `space`
+			- `translate`
+		</div>
+	</Fragment>
+</Preview>
 
-## Preview
-
-Try different themes to preview how scaling changes.
-
-<div class="table-wrap">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Size</th>
-				<th>Preview</th>
-			</tr>
-		</thead>
-		<tbody class="[&>tr]:hover:preset-tonal-primary">
-			{spacing.map((space) => (
-				<tr>
-					<td>
-						<small>{space.value}</small>
-					</td>
-					<td>
-						<div class:list={[space.width, 'h-[10px] bg-primary-500']}></div>
-					</td>
-				</tr>
-			))}
-		</tbody>
-	</table>
-</div>

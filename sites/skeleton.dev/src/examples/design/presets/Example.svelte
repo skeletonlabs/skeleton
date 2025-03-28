@@ -19,34 +19,44 @@
 		<button type="button" class="btn preset-outlined-primary-500">Outlined</button>
 		<div class={diagramCircle}>3</div>
 	</div>
-	<!-- 4. Elevated -->
+	<!-- 4. Glass -->
 	<div class="flex flex-col items-center gap-4">
-		<button type="button" class="btn preset-filled-surface-100-900 shadow-xl">Elevated</button>
+		<button type="button" class="btn preset-glass-primary">Glass</button>
 		<div class={diagramCircle}>4</div>
 	</div>
-	<!-- 5. Ghost -->
+	<!-- 5. Elevated -->
 	<div class="flex flex-col items-center gap-4">
-		<button type="button" class="btn hover:preset-tonal">Ghost</button>
+		<button type="button" class="btn preset-filled-surface-100-900 shadow-xl">Elevated</button>
 		<div class={diagramCircle}>5</div>
 	</div>
-	<!-- 6. Ghost (Icon) -->
+	<!-- 6. Ghost -->
+	<div class="flex flex-col items-center gap-4">
+		<button type="button" class="btn hover:preset-tonal">Ghost</button>
+		<div class={diagramCircle}>6</div>
+	</div>
+	<!-- 7. Ghost (Icon) -->
 	<div class="flex flex-col items-center gap-4">
 		<button type="button" class="btn hover:preset-tonal-primary">
 			<IconBookmark className="size-6" />
 		</button>
-		<div class={diagramCircle}>6</div>
+		<div class={diagramCircle}>7</div>
 	</div>
-	<!-- 7. Gradient -->
+	<!-- 8. Gradient -->
 	<div class="flex flex-col items-center gap-4">
 		<button type="button" class="btn preset-gradient">Gradient</button>
-		<div class={diagramCircle}>7</div>
+		<div class={diagramCircle}>8</div>
 	</div>
 </div>
 
-<style lang="postcss">
+<style>
 	/* Create a custom preset in your global stylesheet */
 	.preset-gradient {
-		background-image: linear-gradient(45deg, var(--color-secondary-500), var(--color-tertiary-500));
+		background-image: linear-gradient(-45deg, var(--color-primary-300), var(--color-primary-700));
 		color: var(--color-primary-contrast-500);
+	}
+	.preset-glass-primary {
+		background: color-mix(in oklab, var(--color-primary-500) 40%, transparent);
+		box-shadow: 0 0px 30px color-mix(in oklab, var(--color-primary-500) 50%, transparent) inset;
+		backdrop-filter: blur(16px);
 	}
 </style>

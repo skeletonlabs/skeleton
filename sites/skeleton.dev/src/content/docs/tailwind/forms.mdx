@@ -12,6 +12,8 @@ import Example from '@examples/tailwind/forms/Example.astro';
 import ExampleInputRaw from '@examples/tailwind/forms/ExampleInput.astro?raw';
 import ExampleSelectRaw from '@examples/tailwind/forms/ExampleSelect.astro?raw';
 import ExampleTextareaRaw from '@examples/tailwind/forms/ExampleTextarea.astro?raw';
+import ExampleInputs from '@examples/tailwind/forms/ExampleInputs.astro';
+import ExampleInputsRaw from '@examples/tailwind/forms/ExampleInputs.astro?raw';
 import ExampleSelection from '@examples/tailwind/forms/ExampleSelection.astro';
 import ExampleSelectionRaw from '@examples/tailwind/forms/ExampleSelection.astro?raw';
 import ExampleCheckboxes from '@examples/tailwind/forms/ExampleCheckboxes.astro';
@@ -65,6 +67,17 @@ Implement the plugin using the `@plugin` directive immediately following the `ta
 
 The display of native and semantic HTML form elements can vary between both operating systems and browsers. Skeleton does it's best to adhere to progressive enhancement best practices. However, we advise you validate support for each element per your target audience.
 
+## Inputs
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleInputs />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleInputsRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
 ## Select
 
 <Preview client:load>
@@ -98,7 +111,9 @@ The display of native and semantic HTML form elements can vary between both oper
 	</Fragment>
 </Preview>
 
-## Other Inputs
+## Kitchen Sink
+
+Display and functionality of these elements may vary greatly between devices and browsers.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -110,6 +125,8 @@ The display of native and semantic HTML form elements can vary between both oper
 </Preview>
 
 ## Groups
+
+Input groups support a subset of form elements and button styles. These pair well with [Presets](/docs/design/presets).
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -127,5 +144,3 @@ The display of native and semantic HTML form elements can vary between both oper
 | `ig-input`    | Defines a child input of `type="text"`. |
 | `ig-select`   | Defines a child select element.         |
 | `ig-btn`      | Defines a child button.                 |
-
-Note that cells and buttons support Preset utility classes.

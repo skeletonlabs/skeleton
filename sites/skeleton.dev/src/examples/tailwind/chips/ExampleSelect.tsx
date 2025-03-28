@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
 export const Page: React.FC = () => {
-	// The default color state
-	const [color, setColor] = useState('red');
-	// The available set of colors
 	const colors = ['red', 'blue', 'green'];
+	const [color, setColor] = useState(colors[0]);
 
 	return (
 		<div className="flex gap-2">
