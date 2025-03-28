@@ -1,24 +1,15 @@
 'use client';
 
-import { Switch } from '@skeletonlabs/skeleton-react';
-import { Moon as IconMoon, Sun as IconSun } from 'lucide-react';
+import LightSwitch from './light-switch';
 import './globals.css';
-import { useState } from 'react';
 
 export default function RootLayout({
 	children
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const [lightswitch, setLightswitch] = useState(false);
-
-	function onModeChange(newValue: boolean) {
-		setLightswitch(newValue);
-		document.documentElement.classList.toggle('dark');
-	}
-
 	return (
-		<html lang="en" className="dark" data-theme="cerberus">
+		<html lang="en" data-theme="cerberus" suppressHydrationWarning={true}>
 			<body>
 				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]" data-testid="app">
 					{/* Nav */}
@@ -27,16 +18,7 @@ export default function RootLayout({
 							skeleton-react
 						</a>
 						<hr className="hr" />
-						<Switch
-							name="mode"
-							controlActive="bg-surface-200"
-							checked={lightswitch}
-							onCheckedChange={(e) => onModeChange(e.checked)}
-							inactiveChild={<IconMoon size="14" />}
-							activeChild={<IconSun size="14" />}
-						>
-							<p>Toggle Mode</p>
-						</Switch>
+						<LightSwitch></LightSwitch>
 						<hr className="hr" />
 						{/* Components */}
 						<div className="space-y-8">
