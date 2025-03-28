@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.1.2
+### Patch Changes
+
+
+- bugfix: Input Group select updated to match checked state ([#3454](https://github.com/skeletonlabs/skeleton/pull/3454))
+
 ## 3.1.1
 ### Patch Changes
 
