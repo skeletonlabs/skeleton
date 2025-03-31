@@ -51,11 +51,11 @@ Activates dark mode by adding or removing the `.dark` class to your application'
 Uses a data attribute instead of a class to activate dark mode.
 
 ```css title="app.css"
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
 ```
 
 ```html title="app.html"
-<html data-theme="dark">
+<html data-mode="dark">
 	...
 </html>
 ```
