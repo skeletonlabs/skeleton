@@ -1,0 +1,7 @@
+<script lang="ts">
+	import Calendar from '$lib/components/Calendar/Calendar.svelte';
+</script>
+
+<main class="p-10">
+	<Calendar />
+</main>
