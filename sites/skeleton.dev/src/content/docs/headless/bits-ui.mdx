@@ -9,9 +9,9 @@ export const components = componentSet;
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
 
-import ExamplePageRaw from '@examples/headless/bits-ui/ExamplePage.txt?raw';
-import ExampleBoilerplateRaw from '@examples/headless/bits-ui/ExampleBoilerplate.txt?raw';
-import ExampleWholeRaw from '@examples/headless/bits-ui/ExampleWhole.txt?raw';
+import SnippetPage from '@examples/headless/bits-ui/ExamplePage.txt?raw';
+import SnippetBoilerplate from '@examples/headless/bits-ui/ExampleBoilerplate.txt?raw';
+import SnippetComplete from '@examples/headless/bits-ui/ExampleWhole.txt?raw';
 
 <img src="https://i.imgur.com/BQZdcCn.png" alt="banner" class="rounded-container shadow-xl" />
 
@@ -80,12 +80,12 @@ In the following guide, we'll implement a Bits UI `<Calendar>` component. This w
     <ProcessStep step="3">
         ### Component Boilerplate
 		Create a new component in `/lib/components/Calendar/Calendar.svelte` and insert the following markup.
-		<Code code={ExampleBoilerplateRaw} lang="svelte" />
+		<Code code={SnippetBoilerplate} lang="svelte" />
     </ProcessStep>
     <ProcessStep step="check">
         ### Add the Component
     	Finally, let's add our new component to the root `+page.svelte` in our project.
-		<Code code={ExamplePageRaw} lang="svelte" />
+		<Code code={SnippetPage} lang="svelte" />
     </ProcessStep>
 </Process>
 
@@ -126,7 +126,7 @@ Styling the `<Calendar.Day>` sub-component.
 
 For the sake of time, we won't cover every part of the component as reference. Instead, here's the fully styled component utilizing Skeleton primitives and some recommend configuration.
 
-<Code code={ExampleWholeRaw} lang="svelte" />
+<Code code={SnippetComplete} lang="svelte" />
 
 ## Tips
 
