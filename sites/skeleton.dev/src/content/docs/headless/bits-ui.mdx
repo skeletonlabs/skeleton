@@ -6,10 +6,14 @@ description: Flexible, unstyled, and accessible primitives that provide the foun
 
 export const components = componentSet;
 
+import { Image } from 'astro:assets';
+import ImgBitsBanner from '@images/headless/bits-ui/bits-header.png';
+import ImgBitsCalendar from '@images/headless/bits-ui/bits-calendar.png';
+
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
 
-<img src="https://i.imgur.com/BQZdcCn.png" alt="banner" class="rounded-container shadow-xl" />
+<Image src={ImgBitsBanner} alt="banner" class="rounded-container shadow-xl" />
 
 {
 
@@ -26,7 +30,7 @@ import ProcessStep from '@components/docs/ProcessStep.astro';
 	</a>
 </figure>
 
-We recommend you read the following documentation before you begin.
+At minimum, we recommend you read the following documentation before you start this integration guide.
 
 - [Introduction](https://www.bits-ui.com/docs/introduction)
 - [Getting Started](https://www.bits-ui.com/docs/getting-started)
@@ -39,13 +43,13 @@ We recommend you read the following documentation before you begin.
 | [Svelte](https://svelte.dev/)        | 5                  |
 | [Skeleton](https://skeleton.dev)     | 3                  |
 | [Tailwind](https://tailwindcss.com/) | 4                  |
-| [Bits](https://www.bits-ui.com/)     | 1                  |
+| [Bits UI](https://www.bits-ui.com/)  | 1                  |
 
 ## Introduction
 
-In the following guide, we'll implement a Bits UI `<Calendar>` component. This will showcase the bare minimum requirements for integrating Skeleton with Bits UI. You are then responsible for all further components.
+In this guide we'll implement the Bits UI `<Calendar>` component. This will showcase the bare minimum requirements for integrating Skeleton with Bits UI. You are then responsible for all further components.
 
-<img src="https://i.imgur.com/2l2AX7B.png" alt="calendar" class="rounded-container shadow-xl" />
+<Image src={ImgBitsCalendar} alt="calendar" class="rounded-container shadow-xl" />
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://www.bits-ui.com/docs/components/calendar" target="_blank">
@@ -58,23 +62,27 @@ In the following guide, we'll implement a Bits UI `<Calendar>` component. This w
 <Process>
     <ProcessStep step="1">
         ### Create a SvelteKit Project
-		For this guide, we'll setup a new SvelteKit project with Skeleton v3 and Tailwind v4.
-		<a class="btn preset-filled mt-4" href="/docs/get-started/installation/sveltekit" target="_blank">Setup SvelteKit + Skeleton</a>
+		To begin, we'll setup a new SvelteKit project with Skeleton v3 and Tailwind v4.
+
+    	<a class="btn preset-filled mt-4" href="/docs/get-started/installation/sveltekit" target="_blank">Setup SvelteKit + Skeleton</a>
     </ProcessStep>
     <ProcessStep step="2">
         ### Install Bits UI
-		Next, make sure to install the Bits UI package using your package manager of choice.
-		```console
-		npm install bits-ui
-		```
-		We'll also install [International Date](https://react-spectrum.adobe.com/internationalized/date/index.html) to aid with date/time formatting.
-		```console
-		npm i -D @internationalized/date
-		```
+    	Install the Bits UI package via your package manager of choice.
+
+    	```console
+    	npm install bits-ui
+    	```
+
+    	We'll also include the [Adobe International Date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to aid date/time formatting.
+
+    	```console
+    	npm i -D @internationalized/date
+    	```
     </ProcessStep>
     <ProcessStep step="3">
         ### Component Boilerplate
-		Create a new component in `/lib/components/Calendar/Calendar.svelte` and insert the following markup.
+    	Create a new component in `/lib/components/Calendar/Calendar.svelte` and insert the following markup. This will generate an unstyled version o the component.
 
     	```svelte
     	<script lang="ts">
@@ -130,7 +138,7 @@ In the following guide, we'll implement a Bits UI `<Calendar>` component. This w
     </ProcessStep>
     <ProcessStep step="check">
         ### Add the Component
-    	Finally, let's add our new component to the root `+page.svelte` in our project.
+    	Finally, let's add our new component to the root `+page.svelte` so that we may preview it.
 
     	```svelte
     	<script lang="ts">
@@ -180,7 +188,7 @@ Styling the `<Calendar.Day>` sub-component.
 
 ### Complete Example
 
-For the sake of time, we won't cover every part of the component as reference. Instead, here's the fully styled component utilizing Skeleton primitives and some recommend configuration.
+For the sake of time, we won't cover the entire component. Instead, here's the fully styled component utilizing Skeleton primitives with some recommend configuration.
 
 ```svelte
 <script lang="ts">
@@ -251,10 +259,11 @@ For the sake of time, we won't cover every part of the component as reference. I
 
 ## Tips
 
-- Styled examples at provided at the top of each documentation page. These use standard Tailwind utilities.
-- Use the styled examples as your foundation, then replace with Skeleton utility classes as needed.
-- For the Calendar, consider abstracting the `value` to a [$bindable](https://svelte.dev/docs/svelte/$bindable) prop to use outside the component.
+- Styled examples are provided near the top each component page. These use Tailwind utilty classes.
+- Use these styled examples as your foundation, then replace with Skeleton utility classes as needed.
+- For the Calendar, consider abstracting the `value` using a [$bindable](https://svelte.dev/docs/svelte/$bindable) prop.
 - Bits UI use [Phosphor icons](https://github.com/haruaki07/phosphor-svelte) for examples, but feel free to use [Lucide](/docs/integrations/iconography/svelte) or other alternatives.
+- If you wish to match other Skeleton conventions, see our [contributor component guidelines](/docs/resources/contribute/components).
 
 ## Attribution
 
