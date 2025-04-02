@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-// Floating UI React
 import { useFloating, autoUpdate, offset, useClick, useDismiss, useRole, useInteractions, FloatingFocusManager } from '@floating-ui/react';
-// Icons
 import { Menu as IconMenu, X as IconClose } from 'lucide-react';
 
 type NavigationLink = {
@@ -45,7 +43,7 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 							{...getFloatingProps()}
 							className="fixed top-0 left-0 bottom-0 z-50 h-screen overflow-y-auto bg-surface-50-950 p-4 w-72"
 						>
-							{/* Header row */}
+							{/* Header */}
 							<div className="flex items-center justify-between">
 								<h3 className="h3">Skeleton</h3>
 								<button onClick={() => setIsOpen(false)} aria-label="Close Drawer">
@@ -53,11 +51,11 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 								</button>
 							</div>
 
-							{/* Version Section */}
+							{/* Version */}
 							<div className="mt-4 w-full">
 								<span className="text-sm font-bold capitalize ml-2">Version</span>
 								<div className="mt-2 flex w-full justify-between gap-2">
-									<a className="btn flex-1 text-center cursor-not-allowed opacity-50 pointer-events-none">v3</a>
+									<a className="btn flex-1 text-center cursor-not-allowed opacity-50">v3</a>
 									<a href="https://v2.skeleton.dev/" target="_blank" rel="noreferrer" className="btn hover:preset-tonal flex-1 text-center">
 										v2
 									</a>
@@ -83,7 +81,7 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 								</nav>
 							</div>
 
-							{/* Child content */}
+							{/* Navigation */}
 							{children && <div className="mt-auto">{children}</div>}
 						</div>
 					</FloatingFocusManager>
