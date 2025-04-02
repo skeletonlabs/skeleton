@@ -12,6 +12,8 @@ import Example from '@examples/tailwind/cards/Example.astro';
 import ExampleRaw from '@examples/tailwind/cards/Example.astro?raw';
 import ExampleDetailed from '@examples/tailwind/cards/ExampleDetailed.astro';
 import ExampleDetailedRaw from '@examples/tailwind/cards/ExampleDetailed.astro?raw';
+import ExamplePresets from '@examples/tailwind/cards/ExamplePresets.astro';
+import ExamplePresetsRaw from '@examples/tailwind/cards/ExamplePresets.astro?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -33,34 +35,13 @@ import ExampleDetailedRaw from '@examples/tailwind/cards/ExampleDetailed.astro?r
 
 ## Presets
 
-<div class="space-y-4">
-	<div class="grid grid-cols-3 gap-4">
-		<div class="card p-4 preset-filled-primary-500">Card</div>
-		<div class="card p-4 preset-tonal-primary">Card</div>
-		<div class="card p-4 preset-outlined-primary-500">Card</div>
-		{/* --- */}
-		<div class="card p-4 preset-filled-secondary-500">Card</div>
-		<div class="card p-4 preset-tonal-secondary">Card</div>
-		<div class="card p-4 preset-outlined-secondary-500">Card</div>
-		{/* --- */}
-		<div class="card p-4 preset-filled-tertiary-500">Card</div>
-		<div class="card p-4 preset-tonal-tertiary">Card</div>
-		<div class="card p-4 preset-outlined-tertiary-500">Card</div>
-		{/* --- */}
-		<div class="card p-4 preset-filled-success-500">Card</div>
-		<div class="card p-4 preset-tonal-success">Card</div>
-		<div class="card p-4 preset-outlined-success-500">Card</div>
-		{/* --- */}
-		<div class="card p-4 preset-filled-warning-500">Card</div>
-		<div class="card p-4 preset-tonal-warning">Card</div>
-		<div class="card p-4 preset-outlined-warning-500">Card</div>
-		{/* --- */}
-		<div class="card p-4 preset-filled-error-500">Card</div>
-		<div class="card p-4 preset-tonal-error">Card</div>
-		<div class="card p-4 preset-outlined-error-500">Card</div>
-		{/* --- */}
-		<div class="card p-4 preset-filled-surface-500">Card</div>
-		<div class="card p-4 preset-tonal-surface">Card</div>
-		<div class="card p-4 preset-outlined-surface-500">Card</div>
-	</div>
-</div>
+Provides full support of [Presets](/docs/design/presets).
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExamplePresets />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExamplePresetsRaw} lang="astro" />
+	</Fragment>
+</Preview>

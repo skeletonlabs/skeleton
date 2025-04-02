@@ -20,7 +20,7 @@ const tableData = await getCollection(collection, (item) => {
 						<td>
 							<div class="flex flex-wrap gap-2">
 								{row.data.tags?.map((tag: string) => (
-									<span class="chip preset-tonal-primary">{tag}</span>
+									<span class="badge preset-tonal-primary">{tag}</span>
 								))}
 							</div>
 						</td>

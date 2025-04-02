@@ -62,15 +62,21 @@ See the [Preset system](/docs/design/presets) for additional utility classes tha
 
 ## Color Pairings
 
-Provides a condensed syntax for implementing dual-tone color values that are balanced to easily swap between light and dark mode. These are enabled through the use of the CSS [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark) function.
+Provides a condensed syntax of dual-tone color values balanced to swap between light and dark mode. These are supported for all the same properties standard colors support (`bg`, `border`, `fill`, etc).
 
 ```
 {property}-{color}-{lightModeShade}-{darkModeShade}
 ```
 
+For example:
+
+- `bg-surface-200-800`
+- `text-primary-400-600`
+- `border-secondary-50-950`
+
 ### How Pairings Work
 
-The `text-primary-300-700` pairing will enable Tailwind to generate the following class:
+Color Pairing are enabled through the use of the CSS [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark) function. For example, the `text-primary-300-700` pairing will be implemnted in your CSS bundle as follows:
 
 ```css
 .text-primary-300-700 {
@@ -78,19 +84,21 @@ The `text-primary-300-700` pairing will enable Tailwind to generate the followin
 }
 ```
 
-Which is roughly equivalent to the following - just a lot more compact!
+This roughly equivalent to the following, just more compact, and enabling support for Tailwind's [Color Scheme](https://tailwindcss.com/docs/color-scheme) utilities.
 
 ```html
 <div class="text-primary-300 dark:text-primary-700">...</div>
 ```
 
+By default, Skeleton sets the overall app's color scheme to match light or dark mode.
+
 ### Pairing Previews
 
-Below is a static representation of each pairing. Only `primary` is shown, but all Skeleton colors are supported.
+The following is a static representation of each pairing. Only `primary` is shown, but all Skeleton colors are supported.
 
 <ExamplePairings />
 
-Toggle this website between light and dark mode to see how each color pairing reacts.
+The following shows actual Color Pairings. Toggle this website between light and dark mode to see how these react.
 
 <ExamplePairingsDynamic />
 

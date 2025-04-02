@@ -14,8 +14,9 @@ import ExamplePresets from '@examples/tailwind/chips/ExamplePresets.astro';
 import ExamplePresetsRaw from '@examples/tailwind/chips/ExamplePresets.astro?raw';
 import ExampleDisabled from '@examples/tailwind/chips/ExampleDisabled.astro';
 import ExampleDisabledRaw from '@examples/tailwind/chips/ExampleDisabled.astro?raw';
-import { Page as ExampleSelect } from '@examples/tailwind/chips/ExampleSelect.tsx';
-import ExampleSelectRaw from '@examples/tailwind/chips/ExampleSelect.tsx?raw';
+import { Page as ExampleSelectReact } from '@examples/tailwind/chips/ExampleSelect.tsx';
+import ExampleSelectReactRaw from '@examples/tailwind/chips/ExampleSelect.tsx?raw';
+import ExampleSelectSvelteRaw from '@examples/tailwind/chips/ExampleSelect.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -28,6 +29,8 @@ import ExampleSelectRaw from '@examples/tailwind/chips/ExampleSelect.tsx?raw';
 
 ## Presets
 
+Provides full support of [Presets](/docs/design/presets).
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<ExamplePresets />
@@ -38,6 +41,8 @@ import ExampleSelectRaw from '@examples/tailwind/chips/ExampleSelect.tsx?raw';
 </Preview>
 
 ## Disabled
+
+When applied to a `<button>` element, you can use the `disabled` attribute.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -52,9 +57,12 @@ import ExampleSelectRaw from '@examples/tailwind/chips/ExampleSelect.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleSelect client:visible />
+		<ExampleSelectReact client:visible />
 	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleSelectRaw} lang="tsx" />
+	<Fragment slot="codeReact">
+		<Code code={ExampleSelectReactRaw} lang="tsx" />
+	</Fragment>
+	<Fragment slot="codeSvelte">
+		<Code code={ExampleSelectSvelteRaw} lang="svelte" />
 	</Fragment>
 </Preview>
