@@ -7,8 +7,8 @@ description: Flexible, unstyled, and accessible primitives that provide the foun
 export const components = componentSet;
 
 import { Image } from 'astro:assets';
-import ImgBanner from '@images/headless/bits-ui/bits-header.png';
-import ImgComponent from '@images/headless/bits-ui/bits-calendar.png';
+import ImgBanner from '@images/headless/bits-ui/bits-banner.png';
+import ImgComponent from '@images/headless/bits-ui/bits-component.png';
 
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
@@ -81,7 +81,7 @@ In this guide we'll implement the Bits UI `<Calendar>` component. This will show
     </ProcessStep>
     <ProcessStep step="3">
         ### Component Boilerplate
-    	Create a new component in `/lib/components/Calendar/Calendar.svelte` and insert the following markup. This will generate an unstyled version o the component.
+    	Create a new component in `/lib/components/Calendar/Calendar.svelte` and insert the following markup. This will generate an unstyled version of the component.
 
     	```svelte
     	<script lang="ts">
@@ -256,13 +256,9 @@ For the sake of time, we won't cover the entire component. Instead, here's the f
 </Calendar.Root>
 ```
 
-## Tips
+## Skeleton Conventions
 
-- Styled examples are provided near the top each component page. These use Tailwind utilty classes.
-- Use these styled examples as your foundation, then replace with Skeleton utility classes as needed.
-- For the Calendar, consider abstracting the `value` using a [$bindable](https://svelte.dev/docs/svelte/$bindable) prop.
-- Bits UI use [Phosphor icons](https://github.com/haruaki07/phosphor-svelte) for examples, but feel free to use [Lucide](/docs/integrations/iconography/svelte) or other alternatives.
-- If you wish to match other Skeleton conventions, see our [contributor component guidelines](/docs/resources/contribute/components).
+If you wish to match Skeleton component conventions, view our [contributor component guidelines](/docs/resources/contribute/components).
 
 ## Attribution
 
