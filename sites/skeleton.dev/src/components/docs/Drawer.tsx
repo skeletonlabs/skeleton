@@ -31,8 +31,8 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 	return (
 		<div>
 			{/* Trigger */}
-			<button className="btn hover:preset-tonal gap-1" {...getReferenceProps({ ref: refs.setReference })} onClick={() => setIsOpen(true)}>
-				<IconMenu className="size-4" />
+			<button className="block xl:hidden" {...getReferenceProps({ ref: refs.setReference })} onClick={() => setIsOpen(true)}>
+				<IconMenu />
 			</button>
 
 			{isOpen && (
@@ -41,10 +41,10 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 						<div
 							ref={refs.setFloating}
 							{...getFloatingProps()}
-							className="fixed top-0 left-0 bottom-0 z-50 h-screen overflow-y-auto bg-surface-50-950 p-4 w-72"
+							className="fixed top-0 left-0 bottom-0 z-50 h-screen bg-surface-100-900 w-2xs p-4 space-y-8 overflow-y-auto shadow-xl"
 						>
 							{/* Header */}
-							<div className="flex items-center justify-between">
+							<div className="flex justify-between items-center">
 								<h3 className="h3">Skeleton</h3>
 								<button onClick={() => setIsOpen(false)} aria-label="Close Drawer">
 									<IconClose className="size-5" />
@@ -52,34 +52,46 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 							</div>
 
 							{/* Version */}
-							<div className="mt-4 w-full">
-								<span className="text-sm font-bold capitalize ml-2">Version</span>
-								<div className="mt-2 flex w-full justify-between gap-2">
-									<a className="btn flex-1 text-center cursor-not-allowed opacity-50">v3</a>
-									<a href="https://v2.skeleton.dev/" target="_blank" rel="noreferrer" className="btn hover:preset-tonal flex-1 text-center">
+							<div className="space-y-4">
+								<div className="text-sm font-bold capitalize">Version</div>
+								<div className="grid grid-cols-3 gap-2">
+									<button className="btn preset-filled hover:preset-tonal text-center">v3</button>
+									<a
+										href="https://v2.skeleton.dev/"
+										target="_blank"
+										rel="noreferrer"
+										className="btn preset-outlined-surface-200-800 hover:preset-tonal text-center"
+									>
 										v2
 									</a>
-									<a href="https://v1.skeleton.dev/" target="_blank" rel="noreferrer" className="btn hover:preset-tonal flex-1 text-center">
+									<a
+										href="https://v1.skeleton.dev/"
+										target="_blank"
+										rel="noreferrer"
+										className="btn preset-outlined-surface-200-800 hover:preset-tonal text-center"
+									>
 										v1
 									</a>
 								</div>
 							</div>
 
 							{/* Navigation links */}
-							<div className="mt-4 mb-10">
-								<span className="text-sm font-bold capitalize ml-2">Navigation</span>
-								<nav className="mt-2">
-									<ul className="flex flex-col gap-1">
-										{navigation.map((link) => (
-											<li key={link.label}>
-												<a href={link.href} target={link.target} className="px-2 py-1 rounded-base anchor" onClick={() => setIsOpen(false)}>
-													{link.label}
-												</a>
-											</li>
-										))}
-									</ul>
-								</nav>
-							</div>
+							<nav>
+								<ul className="flex flex-col gap-1">
+									{navigation.map((link) => (
+										<li key={link.label}>
+											<a
+												href={link.href}
+												target={link.target}
+												className="anchor block px-2 py-1 rounded-base"
+												onClick={() => setIsOpen(false)}
+											>
+												{link.label}
+											</a>
+										</li>
+									))}
+								</ul>
+							</nav>
 
 							{/* Navigation */}
 							{children && <div className="mt-auto">{children}</div>}
