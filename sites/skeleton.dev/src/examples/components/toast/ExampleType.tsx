@@ -7,7 +7,7 @@ export default function () {
 	return (
 		<>
 			<Toaster toaster={toaster}></Toaster>
-			<div className="flex gap-2">
+			<div className="w-full max-w-72 grid grid-cols-2 gap-2">
 				<button
 					className="btn preset-filled"
 					onClick={() => {
@@ -19,7 +19,7 @@ export default function () {
 					Info
 				</button>
 				<button
-					className="btn preset-tonal-success"
+					className="btn preset-filled-success-500"
 					onClick={() => {
 						toaster.success({
 							title: 'This is a toast!'
@@ -29,7 +29,7 @@ export default function () {
 					Success
 				</button>
 				<button
-					className="btn preset-tonal-warning"
+					className="btn preset-filled-warning-500"
 					onClick={() => {
 						toaster.warning({
 							title: 'This is a toast!'
@@ -39,7 +39,7 @@ export default function () {
 					Warning
 				</button>
 				<button
-					className="btn preset-tonal-error"
+					className="btn preset-filled-error-500"
 					onClick={() => {
 						toaster.error({
 							title: 'This is a toast!'

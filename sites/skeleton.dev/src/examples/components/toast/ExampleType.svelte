@@ -6,7 +6,7 @@
 
 <Toaster {toaster}></Toaster>
 
-<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+<div class="w-full max-w-72 grid grid-cols-2 gap-2">
 	<button
 		class="btn preset-filled"
 		onclick={() => {
@@ -16,7 +16,7 @@
 		}}>Info</button
 	>
 	<button
-		class="btn preset-tonal-success"
+		class="btn preset-filled-success-500"
 		onclick={() => {
 			toaster.success({
 				title: 'This is a toast!'
@@ -24,7 +24,7 @@
 		}}>Success</button
 	>
 	<button
-		class="btn preset-tonal-warning"
+		class="btn preset-filled-warning-500"
 		onclick={() => {
 			toaster.warning({
 				title: 'This is a toast!'
@@ -32,7 +32,7 @@
 		}}>Warning</button
 	>
 	<button
-		class="btn preset-tonal-error"
+		class="btn preset-filled-error-500"
 		onclick={() => {
 			toaster.error({
 				title: 'This is a toast!'

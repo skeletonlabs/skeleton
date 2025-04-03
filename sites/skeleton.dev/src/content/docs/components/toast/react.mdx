@@ -13,9 +13,7 @@ import ExamplePlacementRaw from '@examples/components/toast/ExamplePlacement.tsx
 import ExamplePromise from '@examples/components/toast/ExamplePromise.tsx';
 import ExamplePromiseRaw from '@examples/components/toast/ExamplePromise.tsx?raw';
 
-> Note: For users using React 18 or below, see the [Styling Requirement]('#styling-requirement')
-
-It's common to place a single `<Toaster>` in global scope of your app, typically a root layout, this single instance will manage a single toast group with a `toaster` instance (returned by `createToaster`). Any style props set on the `<Toaster>` component are applied to toasts created by the passed in `toaster` instance.
+We recommend implementing a single instance of `<Toaster>` in global scope of your app, typically within a root layout. This single instance will manage a toast group with a `toaster` instance (via `createToaster`). Style props applied to the `<Toaster>` component are applied all child toasts created within that instance.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -28,7 +26,7 @@ It's common to place a single `<Toaster>` in global scope of your app, typically
 
 ## Type
 
-You can use the generic .create() method in combination with a specific type, or opt for the shorthand methods if preferred: .info(), .success(), .warning(), or .error().
+You can use the generic `create()` method in combination with a specific type, or opt for the shorthand methods if preferred: `info()`, `success()`, `warning()`, or `error()`.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -54,7 +52,7 @@ Use the `placement` prop on `<Toaster>` to set the position of the toast group.
 
 ## Promise
 
-Use `toaster.promise()` to create a toast that is able to be configured based on the state of a promise. The toast will automatically update based on the state of the promise.
+Use `promise()` to create a toast that is able to be configured based on the state of a promise. The toast will automatically update based on the state of the promise.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -65,10 +63,10 @@ Use `toaster.promise()` to create a toast that is able to be configured based on
 	</Fragment>
 </Preview>
 
-## Styling Requirement
+## Styling for React 18
 
-When using React 18 or below you must manually add the [Required Styles](https://zagjs.com/components/react/toast#requirement).
-If you are using React 19 or above, you may skip this step because the styles are automatically applied by the component.
+For **React 18** add these [styles](https://zagjs.com/components/react/toast#requirement) to your global stylesheet.
+For **React 19+**, these styles are set automatically.
 
 ```css title="styles.css"
 [data-scope='toast'][data-part='root'] {
@@ -100,4 +98,7 @@ If you are using React 19 or above, you may skip this step because the styles ar
 ## API Reference
 
 <ApiTable />
-```
+
+## Alternatives
+
+If you're looking for power user features or more control over templates, consider using [React-Hot-Toast](https://react-hot-toast.com/).
