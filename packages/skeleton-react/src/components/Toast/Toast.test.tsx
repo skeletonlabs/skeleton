@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { act, render, screen } from '@testing-library/svelte';
+import { act, render, screen } from '@testing-library/react';
 import { createToaster } from './create-toaster.js';
-import { Toaster } from '../../index.js';
+import { Toaster } from './Toaster.js';
 
 describe('createToaster', () => {
 	it('Creates a toaster', () => {
@@ -19,13 +19,13 @@ describe('createToaster', () => {
 describe('Toaster', () => {
 	it('Renders the component', () => {
 		const toaster = createToaster();
-		render(Toaster, { toaster });
+		render(<Toaster toaster={toaster} />);
 		expect(screen.getByTestId('toaster-root')).toBeInTheDocument();
 	});
 	it('Renders toasts', async () => {
 		const toaster = createToaster();
-		render(Toaster, { toaster });
-		await act(() => {
+		render(<Toaster toaster={toaster} />);
+		act(() => {
 			toaster.create({
 				duration: Infinity
 			});
@@ -41,13 +41,12 @@ describe('Toaster', () => {
 		it(`Correctly applies the \`${prop}\` prop`, async () => {
 			const value = 'bg-green-500';
 			const toaster = createToaster();
-			render(Toaster, { toaster, [prop]: value });
-			await act(() => {
+			render(<Toaster toaster={toaster} {...{ [prop]: value }} />);
+			act(() => {
 				toaster.create({
 					duration: Infinity
 				});
 			});
-			render(Toaster, { toaster, [prop]: value });
 			expect(screen.getByTestId('toast-root')).toHaveClass(value);
 		});
 	}
@@ -56,13 +55,12 @@ describe('Toaster', () => {
 		it(`Correctly applies the \`${prop}\` prop`, async () => {
 			const value = 'bg-green-500';
 			const toaster = createToaster();
-			render(Toaster, { toaster, [prop]: value });
-			await act(() => {
+			render(<Toaster toaster={toaster} {...{ [prop]: value }} />);
+			act(() => {
 				toaster.create({
 					duration: Infinity
 				});
 			});
-			render(Toaster, { toaster, [prop]: value });
 			expect(screen.getByTestId('toast-message')).toHaveClass(value);
 		});
 	}
@@ -71,13 +69,12 @@ describe('Toaster', () => {
 		it(`Correctly applies the \`${prop}\` prop`, async () => {
 			const value = 'bg-green-500';
 			const toaster = createToaster();
-			render(Toaster, { toaster, [prop]: value });
-			await act(() => {
+			render(<Toaster toaster={toaster} {...{ [prop]: value }} />);
+			act(() => {
 				toaster.create({
 					duration: Infinity
 				});
 			});
-			render(Toaster, { toaster, [prop]: value });
 			expect(screen.getByTestId('toast-title')).toHaveClass(value);
 		});
 	}
@@ -86,13 +83,12 @@ describe('Toaster', () => {
 		it(`Correctly applies the \`${prop}\` prop`, async () => {
 			const value = 'bg-green-500';
 			const toaster = createToaster();
-			render(Toaster, { toaster, [prop]: value });
-			await act(() => {
+			render(<Toaster toaster={toaster} {...{ [prop]: value }} />);
+			act(() => {
 				toaster.create({
 					duration: Infinity
 				});
 			});
-			render(Toaster, { toaster, [prop]: value });
 			expect(screen.getByTestId('toast-description')).toHaveClass(value);
 		});
 	}
@@ -101,13 +97,12 @@ describe('Toaster', () => {
 		it(`Correctly applies the \`${prop}\` prop`, async () => {
 			const value = 'bg-green-500';
 			const toaster = createToaster();
-			render(Toaster, { toaster, [prop]: value });
-			await act(() => {
+			render(<Toaster toaster={toaster} {...{ [prop]: value }} />);
+			act(() => {
 				toaster.create({
 					duration: Infinity
 				});
 			});
-			render(Toaster, { toaster, [prop]: value });
 			expect(screen.getByTestId('toast-dismiss')).toHaveClass(value);
 		});
 	}
@@ -133,8 +128,8 @@ describe('Toaster', () => {
 		it(`Correctly applies the \`${prop}\` prop for type \`${type}\``, async () => {
 			const value = 'bg-green-500';
 			const toaster = createToaster();
-			render(Toaster, { toaster, [prop]: value });
-			await act(() => {
+			render(<Toaster toaster={toaster} {...{ [prop]: value }} />);
+			act(() => {
 				toaster.create({
 					type,
 					duration: Infinity
