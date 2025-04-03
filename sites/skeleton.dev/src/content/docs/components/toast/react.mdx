@@ -13,6 +13,8 @@ import ExamplePlacementRaw from '@examples/components/toast/ExamplePlacement.tsx
 import ExamplePromise from '@examples/components/toast/ExamplePromise.tsx';
 import ExamplePromiseRaw from '@examples/components/toast/ExamplePromise.tsx?raw';
 
+> Note: For users using React 18 or below, see the [Styling Requirement]('#styling-requirement')
+
 It's common to place a single `<Toaster>` in global scope of your app, typically a root layout, this single instance will manage a single toast group with a `toaster` instance (returned by `createToaster`). Any style props set on the `<Toaster>` component are applied to toasts created by the passed in `toaster` instance.
 
 <Preview client:load>
@@ -23,8 +25,6 @@ It's common to place a single `<Toaster>` in global scope of your app, typically
 		<Code code={ExampleRaw} lang="tsx" />
 	</Fragment>
 </Preview>
-
-> Note: For users using React 18 or below, see the [Styling Requirement]('#styling-requirement')
 
 ## Type
 
@@ -65,13 +65,13 @@ Use `toaster.promise()` to create a toast that is able to be configured based on
 	</Fragment>
 </Preview>
 
-## Styling requirement
+## Styling Requirement
 
-When using React 18 or below you must manually add the [required styles](https://zagjs.com/components/react/toast#requirement).
+When using React 18 or below you must manually add the [Required Styles](https://zagjs.com/components/react/toast#requirement).
 If you are using React 19 or above, you may skip this step because the styles are automatically applied by the component.
 
 ```css title="styles.css"
-[data-part='root'] {
+[data-scope='toast'][data-part='root'] {
 	translate: var(--x) var(--y);
 	scale: var(--scale);
 	z-index: var(--z-index);
@@ -80,7 +80,7 @@ If you are using React 19 or above, you may skip this step because the styles ar
 	will-change: translate, opacity, scale;
 }
 
-[data-part='root'] {
+[data-scope='toast'][data-part='root'] {
 	transition:
 		translate 400ms,
 		scale 400ms,
@@ -88,7 +88,7 @@ If you are using React 19 or above, you may skip this step because the styles ar
 	transition-timing-function: cubic-bezier(0.21, 1.02, 0.73, 1);
 }
 
-[data-part='root'][data-state='closed'] {
+[data-scope='toast'][data-part='root'][data-state='closed'] {
 	transition:
 		translate 400ms,
 		scale 400ms,
