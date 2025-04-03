@@ -40,7 +40,7 @@
 	const api = $derived(toast.group.connect(service, normalizeProps));
 </script>
 
-<div {...api.getGroupProps()}>
+<div {...api.getGroupProps()} data-testid="toaster-root">
 	{#each api.getToasts() as toast, index (toast.id)}
 		<Toast
 			{base}

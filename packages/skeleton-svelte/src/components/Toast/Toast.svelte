@@ -24,16 +24,22 @@
 	});
 </script>
 
-<div class="{props.base} {props.width} {props.padding} {props.rounded} {rxState} {props.classes}" {...api.getRootProps()}>
+<div
+	class="{props.base} {props.width} {props.padding} {props.rounded} {rxState} {props.classes}"
+	{...api.getRootProps()}
+	data-testid="toast-root"
+>
 	<!-- Text -->
-	<div class="{props.messageBase} {props.messageClasses}">
+	<div class="{props.messageBase} {props.messageClasses}" data-testid="toast-message">
 		<!-- Title -->
-		<span class="{props.titleBase} {props.titleClasses}" {...api.getTitleProps()}>{api.title}</span>
+		<span class="{props.titleBase} {props.titleClasses}" {...api.getTitleProps()} data-testid="toast-title">{api.title}</span>
 		<!-- Description -->
-		<span class="{props.descriptionBase} {props.descriptionClasses}" {...api.getDescriptionProps()}>{api.description}</span>
+		<span class="{props.descriptionBase} {props.descriptionClasses}" {...api.getDescriptionProps()} data-testid="toast-description"
+			>{api.description}</span
+		>
 	</div>
 	<!-- Dismiss Button -->
-	<button class="{props.btnDismissBase} {props.btnDismissClasses}" onclick={api.dismiss}>&times;</button>
+	<button class="{props.btnDismissBase} {props.btnDismissClasses}" onclick={api.dismiss} data-testid="toast-dismiss">&times;</button>
 </div>
 
 <style>
