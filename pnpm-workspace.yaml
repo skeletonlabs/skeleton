@@ -3,7 +3,7 @@ packages:
   - 'sites/*'
   - 'playgrounds/*'
 
-define: &zag_version '^1.4.1'
+define: &zag_version '^1.7.0'
 
 catalog:
   '@zag-js/svelte': *zag_version
@@ -25,5 +25,5 @@ catalog:
   '@zag-js/toast': *zag_version
   '@zag-js/tooltip': *zag_version
   typescript: '^5.8.2'
-  svelte: '^5.22.1'
-  tailwindcss: '^4.0.9'
+  svelte: '^5.25.3'
+  tailwindcss: '^4.0.17'

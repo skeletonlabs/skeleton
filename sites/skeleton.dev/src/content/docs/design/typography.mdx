@@ -8,8 +8,8 @@ order: 30
 
 export const components = componentSet;
 
-import TypeScale from '@examples/design/typography/TypeScale.svelte';
-import TypeScaleRaw from '@examples/design/typography/TypeScale.svelte?raw';
+import ExampleTypescale from '@examples/design/typography/ExampleTypescale.svelte';
+import ExampleTypescaleRaw from '@examples/design/typography/ExampleTypescale.svelte?raw';
 
 import Headings from '@examples/design/typography/Headings.astro';
 import HeadingsRaw from '@examples/design/typography/Headings.astro?raw';
@@ -30,9 +30,6 @@ import InsDelRaw from '@examples/design/typography/InsDel.astro?raw';
 import Mark from '@examples/design/typography/Mark.astro';
 import MarkRaw from '@examples/design/typography/Mark.astro?raw';
 
-import Semantic from '@examples/design/typography/Semantic.svelte';
-import SemanticRaw from '@examples/design/typography/Semantic.svelte?raw';
-
 import ListUnordered from '@examples/design/typography/ListUnordered.astro';
 import ListUnorderedRaw from '@examples/design/typography/ListUnordered.astro?raw';
 import ListOrdered from '@examples/design/typography/ListOrdered.astro';
@@ -43,6 +40,9 @@ import ListDesc from '@examples/design/typography/ListDesc.astro';
 import ListDescRaw from '@examples/design/typography/ListDesc.astro?raw';
 import ListNav from '@examples/design/typography/ListNav.astro';
 import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
+
+import ExampleSemantic from '@examples/design/typography/ExampleSemantic.svelte';
+import ExampleSemanticRaw from '@examples/design/typography/ExampleSemantic.svelte?raw';
 
 {
 
@@ -55,18 +55,18 @@ import ListNavRaw from '@examples/design/typography/ListNav.astro?raw';
 
 ## Typographic Scale
 
-Skeleton introduces a [Typographic Scale](https://designcode.io/typographic-scales) to Tailwind's [font-size](https://tailwindcss.com/docs/font-size) properties.
+Skeleton introduces customizable [Typographic Scale](https://designcode.io/typographic-scales) to Tailwind's [font-size](https://tailwindcss.com/docs/font-size) properties.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<TypeScale client:visible />
+		<ExampleTypescale client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<div class="space-y-4">
 			Scaling can be adjusted by modifying the [type scale](/docs/get-started/core-api#typography) theme property.
 			```css
 			[data-theme='cerberus'] {
-				--text-scaling: 0.25rem;
+				--text-scaling: 1.067;
 			}
 			```
 			This affects the following text sizes.
@@ -256,9 +256,9 @@ When working with your designers, they may craft a semantic typography set for y
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Semantic client:visible />
+		<ExampleSemantic client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={SemanticRaw} lang="svelte" />
+		<Code code={ExampleSemanticRaw} lang="svelte" />
 	</Fragment>
 </Preview>

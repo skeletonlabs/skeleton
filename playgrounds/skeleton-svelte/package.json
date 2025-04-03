@@ -7,19 +7,19 @@
 		"build": "vite build"
 	},
 	"devDependencies": {
+		"@lucide/svelte": "^0.485.0",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
-		"@sveltejs/adapter-auto": "^4.0.0",
-		"@sveltejs/kit": "^2.19.0",
+		"@sveltejs/adapter-auto": "^5.0.0",
+		"@sveltejs/kit": "^2.20.2",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"@tailwindcss/forms": "^0.5.10",
-		"@tailwindcss/vite": "^4.0.12",
-		"@lucide/svelte": "^0.479.0",
+		"@tailwindcss/vite": "^4.0.17",
 		"svelte": "catalog:",
 		"svelte-check": "^4.1.5",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
-		"vite": "^6.2.1"
+		"vite": "^6.2.4"
 	},
 	"type": "module"
 }
