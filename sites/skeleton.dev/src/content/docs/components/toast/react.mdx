@@ -24,6 +24,8 @@ It's common to place a single `<Toaster>` in global scope of your app, typically
 	</Fragment>
 </Preview>
 
+> Note: For users using React 18 or below, see the [Styling Requirement]('#styling-requirement')
+
 ## Type
 
 You can use the generic .create() method in combination with a specific type, or opt for the shorthand methods if preferred: .info(), .success(), .warning(), or .error().
@@ -63,6 +65,39 @@ Use `toaster.promise()` to create a toast that is able to be configured based on
 	</Fragment>
 </Preview>
 
+## Styling requirement
+
+When using React 18 or below you must manually add the [required styles](https://zagjs.com/components/react/toast#requirement).
+If you are using React 19 or above, you may skip this step because the styles are automatically applied by the component.
+
+```css title="styles.css"
+[data-part='root'] {
+	translate: var(--x) var(--y);
+	scale: var(--scale);
+	z-index: var(--z-index);
+	height: var(--height);
+	opacity: var(--opacity);
+	will-change: translate, opacity, scale;
+}
+
+[data-part='root'] {
+	transition:
+		translate 400ms,
+		scale 400ms,
+		opacity 400ms;
+	transition-timing-function: cubic-bezier(0.21, 1.02, 0.73, 1);
+}
+
+[data-part='root'][data-state='closed'] {
+	transition:
+		translate 400ms,
+		scale 400ms,
+		opacity 200ms;
+	transition-timing-function: cubic-bezier(0.06, 0.71, 0.55, 1);
+}
+```
+
 ## API Reference
 
 <ApiTable />
+```
