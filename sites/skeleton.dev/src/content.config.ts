@@ -13,6 +13,7 @@ const docs = defineCollection({
 		srcReact: z.string().optional(),
 		srcAlly: z.string().optional(),
 		srcZag: z.string().optional(),
+		stability: z.enum(['alpha', 'beta', 'stable']).optional().default('stable'),
 		showDocsUrl: z.boolean().optional().default(false),
 		pubDate: z.date().optional(),
 		tags: z.array(z.string()).optional(),
