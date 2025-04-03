@@ -1,9 +1,8 @@
 import * as toast from '@zag-js/toast';
 
-export interface ToasterProps extends toast.StoreProps {
+export interface ToasterProps {
 	// Toaster ---
 	toaster: toast.Store;
-
 	// Toast ---
 	/** Provide base classes for the root element. */
 	base?: string;
@@ -53,6 +52,5 @@ export interface ToasterProps extends toast.StoreProps {
 
 export interface ToastProps extends Omit<ToasterProps, 'toaster'> {
 	toast: toast.Options;
-	index: number;
 	parent: toast.GroupService;
 }
