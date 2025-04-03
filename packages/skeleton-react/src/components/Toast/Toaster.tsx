@@ -40,7 +40,7 @@ export function Toaster({
 	const api = toast.group.connect(service, normalizeProps);
 
 	return (
-		<div {...api.getGroupProps()}>
+		<div {...api.getGroupProps()} data-testid="toaster-root">
 			{api.getToasts().map((toast) => (
 				<Toast
 					key={toast.id}

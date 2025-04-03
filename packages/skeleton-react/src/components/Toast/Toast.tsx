@@ -27,20 +27,25 @@ export function Toast(props: ToastProps) {
 			<div
 				className={`${props.base} ${props.width} ${props.padding} ${props.rounded} ${getStateClasses()} ${props.classes}`}
 				{...api.getRootProps()}
+				data-testid="toast-root"
 			>
-				{/* Text */}
-				<div className={`${props.messageBase} ${props.messageClasses}`}>
+				{/* Message */}
+				<div className={`${props.messageBase} ${props.messageClasses}`} data-testid="toast-message">
 					{/*  Title */}
-					<span className={`${props.titleBase} ${props.titleClasses}`} {...api.getTitleProps()}>
+					<span className={`${props.titleBase} ${props.titleClasses}`} {...api.getTitleProps()} data-testid="toast-title">
 						{api.title}
 					</span>
 					{/*  Description */}
-					<span className={`${props.descriptionBase} ${props.descriptionClasses}`} {...api.getDescriptionProps()}>
+					<span
+						className={`${props.descriptionBase} ${props.descriptionClasses}`}
+						{...api.getDescriptionProps()}
+						data-testid="toast-description"
+					>
 						{api.description}
 					</span>
 				</div>
 				{/*  Dismiss Button */}
-				<button className={`${props.btnDismissBase} ${props.btnDismissClasses}`} onClick={api.dismiss}>
+				<button className={`${props.btnDismissBase} ${props.btnDismissClasses}`} onClick={api.dismiss} data-testid="toast-dismiss">
 					&times;
 				</button>
 			</div>
