@@ -30,6 +30,7 @@ const cGetStarted = await queryCollection('get-started/');
 const cGuides = await queryCollection('guides/');
 const cDesign = await queryCollection('design/');
 const cTailwind = await queryCollection('tailwind/');
+const cHeadless = await queryCollection('headless/');
 const cResources = await queryCollection('resources/');
 
 // Query the Components section
@@ -53,6 +54,7 @@ const navigation = {
 	'design-system': cDesign.sort(sortByOrder),
 	'tailwind-components': cTailwind.sort(sortByOrder),
 	'functional-components': cComponents,
+	'headless-components': cHeadless,
 	integrations: cIntegrations,
 	resources: cResources.sort(sortByOrder)
 };
