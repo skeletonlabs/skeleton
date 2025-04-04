@@ -21,7 +21,7 @@ describe('TagsInput', () => {
 		expect(component).toBeInTheDocument();
 	});
 
-	it('Should render with a value', () => {
+	it('should render with a value', () => {
 		render(TagsInput, { ...commonProps });
 		const input = screen.getByTestId(testIds.input);
 		expect(input).toHaveValue(commonProps.value.join(', '));
