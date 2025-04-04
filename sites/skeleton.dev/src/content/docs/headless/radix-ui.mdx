@@ -40,15 +40,14 @@ At minimum, we recommend you read the following documentation before you start t
 
 | Tooling                               | Supported Versions |
 | ------------------------------------- | ------------------ |
-| [Vite](https://vite.dev/)             | 6                  |
 | [React](https://react.dev/)           | 18                 |
 | [Skeleton](https://skeleton.dev)      | 3                  |
-| [Radix UI](https://www.radix-ui.com/) | (stable)           |
+| [Radix UI](https://www.radix-ui.com/) | 1                  |
 | [Tailwind](https://tailwindcss.com/)  | 4                  |
 
 ## Introduction
 
-In this guide we'll implement the Radix UI `<ToggleGroup>` component. This will showcase the bare minimum requirements for integrating Skeleton with Radix UI. You are then responsible for all further components.
+In this guide we'll implement the following Radix UI `<ToggleGroup>` component. This will showcase the bare minimum requirements for integrating Skeleton with Radix UI.
 
 <Image src={ImgComponent} alt="calendar" class="rounded-container shadow-xl" />
 
@@ -77,7 +76,7 @@ In this guide we'll implement the Radix UI `<ToggleGroup>` component. This will 
     </ProcessStep>
     <ProcessStep step="3">
         ### Component Boilerplate
-    	Create a new component in `/src/components/ToggleGroup/ToggleGroup.tsx` and insert the following markup. This will generate an unstyled version of the component.
+    	Create a new component in `/src/components/ToggleGroup/ToggleGroup.tsx` and insert the following markup. This will generate an unstyled version of the component. Note that we have renamed the Radix component to `RadixToggleGroup` to remain semantic and avoid conlict with our own component name.
 
     	```tsx
     	import { type FC } from "react";
@@ -171,7 +170,7 @@ Styling each item component. Apply these styles to each button.
 
 ### Complete Example
 
-For the sake of time, we won't cover the entire component. Instead, here's the fully styled component utilizing Skeleton primitives with some recommend configuration.
+Below is a complete example showing the entire component with all styles and basic configuration.
 
 ```tsx
 import { useState, type FC } from 'react';
@@ -208,7 +207,7 @@ export const ToggleGroup: FC<ToggleGroupProps> = () => {
 };
 ```
 
-## Skeleton Conventions
+## Going Further
 
 If you wish to match Skeleton component conventions, view our [contributor component guidelines](/docs/resources/contribute/components).
 

@@ -8,7 +8,7 @@ export const components = componentSet;
 
 import { Image } from 'astro:assets';
 import ImgBanner from '@images/headless/bits-ui/bits-banner.png';
-import ImgComponent from '@images/headless/bits-ui/bits-component.png';
+import ImgComponent from '@images/headless/bits-ui/bits-component.gif';
 
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
@@ -46,7 +46,7 @@ At minimum, we recommend you read the following documentation before you start t
 
 ## Introduction
 
-In this guide we'll implement the Bits UI `<Calendar>` component. This will showcase the bare minimum requirements for integrating Skeleton with Bits UI. You are then responsible for all further components.
+In this guide we'll implement the following Bits UI `<Calendar>` component. This will showcase the bare minimum requirements for integrating Skeleton with Bits UI.
 
 <Image src={ImgComponent} alt="calendar" class="rounded-container shadow-xl" />
 
@@ -61,7 +61,7 @@ In this guide we'll implement the Bits UI `<Calendar>` component. This will show
 <Process>
     <ProcessStep step="1">
         ### Create a SvelteKit Project
-		To begin, we'll setup a new SvelteKit project with Skeleton v3 and Tailwind v4.
+		To begin, we'll setup a new SvelteKit project, including Skeleton v3 and Tailwind v4.
 
     	<a class="btn preset-filled mt-4" href="/docs/get-started/installation/sveltekit" target="_blank">Setup SvelteKit App</a>
     </ProcessStep>
@@ -73,7 +73,7 @@ In this guide we'll implement the Bits UI `<Calendar>` component. This will show
     	npm install bits-ui
     	```
 
-    	We'll also include the [Adobe International Date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to aid date/time formatting.
+    	We'll also include the [Adobe International Date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to assist with date/time formatting.
 
     	```console
     	npm i -D @internationalized/date
@@ -185,9 +185,11 @@ Styling the `<Calendar.Day>` sub-component.
 </Calendar.Day>
 ```
 
+For the sake of time we won't cover every sub-component.
+
 ### Complete Example
 
-For the sake of time, we won't cover the entire component. Instead, here's the fully styled component utilizing Skeleton primitives with some recommend configuration.
+Below is a complete example showing the entire component with all styles and basic configuration.
 
 ```svelte
 <script lang="ts">
@@ -256,7 +258,7 @@ For the sake of time, we won't cover the entire component. Instead, here's the f
 </Calendar.Root>
 ```
 
-## Skeleton Conventions
+## Going Further
 
 If you wish to match Skeleton component conventions, view our [contributor component guidelines](/docs/resources/contribute/components).
 

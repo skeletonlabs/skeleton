@@ -46,7 +46,7 @@ At minimum, we recommend you read the following documentation before you start t
 
 ## Introduction
 
-In this guide we'll implement the Melt UI `<Accordion>` component. This will showcase the bare minimum requirements for integrating Skeleton with Melt UI. You are then responsible for all further components.
+In this guide we'll implement the following Melt UI `<Accordion>` component. This will showcase the bare minimum requirements for integrating Skeleton with Melt UI.
 
 <Image src={ImgComponent} alt="banner" class="rounded-container shadow-xl" />
 
@@ -61,7 +61,7 @@ In this guide we'll implement the Melt UI `<Accordion>` component. This will sho
 <Process>
     <ProcessStep step="1">
         ### Create a SvelteKit Project
-		To begin, we'll setup a new SvelteKit project with Skeleton v3 and Tailwind v4.
+		To begin, we'll setup a new SvelteKit project, including Skeleton v3 and Tailwind v4.
 
     	<a class="btn preset-filled mt-4" href="/docs/get-started/installation/sveltekit" target="_blank">Setup SvelteKit App</a>
     </ProcessStep>
@@ -167,10 +167,11 @@ Before the close of the `#each` block, insert the follow to insert a `<hr />` di
 
 ### Complete Example
 
-Below is an example showing the full component with fake data and basic configuration.
+Below is a complete example showing the entire component with styles, transitions, and some basic configuration.
 
 ```svelte
 <script lang="ts">
+	import { slide } from 'svelte/transition';
 	import { Accordion, type AccordionItem } from 'melt/builders';
 
 	type Item = AccordionItem<{
@@ -199,7 +200,7 @@ Below is an example showing the full component with fake data and basic configur
 	const accordion = new Accordion({ multiple: true });
 </script>
 
-<div {...accordion.root} class="card overflow-hidden">
+<div {...accordion.root} class="card w-full max-w-xl overflow-hidden">
 	{#each items as i, index}
 		{@const item = accordion.getItem(i)}
 		<h2 {...item.heading}>
@@ -207,18 +208,17 @@ Below is an example showing the full component with fake data and basic configur
 				{item.item.title}
 			</button>
 		</h2>
-		<div
-			{...item.content}
-			class="preset-filled-surface-100-900 cursor-pointer p-4 transition-all duration-200 data-[state=closed]:h-0 data-[state=closed]:py-0"
-		>
-			{item.item.description}
-		</div>
+		{#if item.isExpanded}
+			<div {...item.content} class="preset-filled-surface-100-900 cursor-pointer p-4" transition:slide={{ duration: 100 }}>
+				{item.item.description}
+			</div>
+		{/if}
 		{#if index < items.length - 1}<hr class="hr border-surface-50-950" />{/if}
 	{/each}
 </div>
 ```
 
-## Skeleton Conventions
+## Going Further
 
 If you wish to match Skeleton component conventions, view our [contributor component guidelines](/docs/resources/contribute/components).
 
