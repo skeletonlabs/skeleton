@@ -1,17 +1,14 @@
 <script lang="ts">
 	import '../app.css';
-	// Components
-	import { ToastProvider } from '@skeletonlabs/skeleton-svelte';
-	// Icons
 	import LightSwitch from './light-switch.svelte';
 
 	let { children } = $props();
 </script>
 
-<ToastProvider>
-	<div class="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
-		<!-- Nav -->
-		<div class="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
+<div class="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
+	<!-- Nav -->
+	<div class="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
+		<header>
 			<a class="text-sm bg-orange-500 p-2 font-mono font-bold text-white" href="/">skeleton-svelte</a>
 			<hr class="hr" />
 			<LightSwitch></LightSwitch>
@@ -34,6 +31,7 @@
 					<a class="anchor" href="/components/switch">Switch</a>
 					<a class="anchor" href="/components/tabs">Tabs</a>
 					<a class="anchor" href="/components/tags-input">Tags Input</a>
+					<a class="anchor" href="/components/toast">Toast</a>
 				</nav>
 			</div>
 			<!-- Svelte-Only -->
@@ -44,13 +42,12 @@
 					<a class="anchor" href="/components/tooltip">Tooltip</a>
 					<a class="anchor" href="/components/combobox">Combobox</a>
 					<a class="anchor" href="/components/modal">Modal</a>
-					<a class="anchor" href="/components/toast">Toast</a>
 				</nav>
 			</div>
-		</div>
-		<!-- Page -->
-		<main class="space-y-8 overflow-y-auto p-8">
-			{@render children?.()}
-		</main>
+		</header>
 	</div>
-</ToastProvider>
+	<!-- Page -->
+	<main class="space-y-8 overflow-y-auto p-8">
+		{@render children?.()}
+	</main>
+</div>

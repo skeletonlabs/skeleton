@@ -10,15 +10,6 @@ const tableData = [
 
 <div class="table-wrap">
 	<table class="table caption-bottom">
-		<caption class="pt-4">A list of elements from the periodic table.</caption>
-		<thead>
-			<tr>
-				<th>Position</th>
-				<th>Symbol</th>
-				<th>Name</th>
-				<th class="!text-right">Weight</th>
-			</tr>
-		</thead>
 		<tbody class="[&>tr]:hover:preset-tonal-primary">
 			{
 				tableData.map((row) => (
@@ -31,11 +22,5 @@ const tableData = [
 				))
 			}
 		</tbody>
-		<tfoot>
-			<tr>
-				<td colspan="3">Total</td>
-				<td class="text-right">{tableData.length} Elements</td>
-			</tr>
-		</tfoot>
 	</table>
 </div>

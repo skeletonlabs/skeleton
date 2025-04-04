@@ -16,7 +16,7 @@ export const components = componentSet;
 	Skeleton themes utilize{' '}
 	<a className="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="external">
 		CSS custom properties
-	</a>
+	</a>{' '}
 	to define core settings for your design system. Provided with a number of presets theme out of the box, as well as a powerful theme
 	generator to create your own. Enable one or more and quickly switch on-demand.
 </p>
@@ -131,7 +131,7 @@ If your application supports multiple themes, you may isolate selection using th
 Your app's light and dark mode background color values can be adjusted using the following [theme properties](/docs/get-started/core-api#colors).
 
 ```css title="app.css"
-[data-theme='cerberus'] {
+[data-theme='cerberus'] body {
 	--body-background-color: pink;
 	--body-background-color-dark: green;
 }
@@ -140,7 +140,7 @@ Your app's light and dark mode background color values can be adjusted using the
 Background images are supported, including CSS mesh gradients. The following example adheres to theme colors.
 
 ```css title="app.css"
-[data-theme='cerberus'] {
+[data-theme='cerberus'] body {
 	background-image:
 		radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 30%),
 		radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-success-500) 18%, transparent) 0px, transparent 30%),
@@ -179,7 +179,7 @@ npm install @fontsource/open-sans
 Then import each font at the top of your global stylesheet, but below your Tailwind configuration.
 
 ```css title="app.css"
-import "@fontsource/open-sans";
+@import '@fontsource/open-sans';
 ```
 
 Finally, use the following [theme properties](/docs/get-started/core-api#base-1) to set each respective font-family property. Note that for custom themes, these settings are can be defined directly within each respective theme file.

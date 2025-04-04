@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "1.0.0",
+	"version": "1.2.0",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
@@ -38,6 +38,7 @@
 		"@zag-js/switch": "catalog:",
 		"@zag-js/tabs": "catalog:",
 		"@zag-js/tags-input": "catalog:",
+		"@zag-js/toast": "catalog:",
 		"@zag-js/tooltip": "catalog:"
 	},
 	"peerDependencies": {
@@ -45,12 +46,12 @@
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
-		"@sveltejs/adapter-auto": "^4.0.0",
-		"@sveltejs/kit": "^2.19.0",
+		"@sveltejs/adapter-auto": "^5.0.0",
+		"@sveltejs/kit": "^2.20.2",
 		"@sveltejs/package": "^2.3.10",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"@tailwindcss/forms": "^0.5.10",
-		"@tailwindcss/vite": "^4.0.12",
+		"@tailwindcss/vite": "^4.0.17",
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/svelte": "^5.2.7",
 		"jsdom": "^26.0.0",
@@ -60,8 +61,8 @@
 		"tailwindcss": "catalog:",
 		"tslib": "^2.8.1",
 		"typescript": "catalog:",
-		"vite": "^6.2.1",
-		"vitest": "3.0.8"
+		"vite": "^6.2.4",
+		"vitest": "3.1.1"
 	},
 	"type": "module"
 }

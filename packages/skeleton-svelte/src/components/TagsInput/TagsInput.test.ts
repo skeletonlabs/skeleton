@@ -7,6 +7,7 @@ import { TagsInput } from '../../index.js';
 describe('TagsInput', () => {
 	const testIds = {
 		root: 'tags',
+		input: 'tags-input',
 		inputAdd: 'tags-input-add',
 		delete: 'tag-delete'
 	};
@@ -18,6 +19,12 @@ describe('TagsInput', () => {
 		render(TagsInput, { ...commonProps });
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toBeInTheDocument();
+	});
+
+	it('should render with a value', () => {
+		render(TagsInput, { ...commonProps });
+		const input = screen.getByTestId(testIds.input);
+		expect(input).toHaveValue(commonProps.value.join(', '));
 	});
 
 	it('should render the `buttonDelete` snippet', () => {

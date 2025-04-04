@@ -2,6 +2,7 @@
 layout: '@layouts/LayoutDoc.astro'
 title: Dark Mode
 description: Learn how to use Tailwind's dark mode feature for your Skeleton project.
+srcCore: '/base/globals.css'
 order: 40
 ---
 
@@ -35,11 +36,11 @@ Enable by default. Uses CSS's [prefers-color-scheme](https://developer.mozilla.o
 
 Activates dark mode by adding or removing the `.dark` class to your application's `<html>` element.
 
-```css
+```css title="app.css"
 @custom-variant dark (&:where(.dark, .dark *));
 ```
 
-```html
+```html title="app.html"
 <html class="dark">
 	...
 </html>
@@ -49,12 +50,12 @@ Activates dark mode by adding or removing the `.dark` class to your application'
 
 Uses a data attribute instead of a class to activate dark mode.
 
-```css
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+```css title="app.css"
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
 ```
 
-```html
-<html data-theme="dark">
+```html title="app.html"
+<html data-mode="dark">
 	...
 </html>
 ```
@@ -63,7 +64,7 @@ Uses a data attribute instead of a class to activate dark mode.
 
 Apply a base style, then with Tailwind's `dark:` variant.
 
-```html
+```html title="app.html"
 <!-- Light Mode: White | Dark Mode: Black -->
 <div class="bg-white dark:bg-black">...</div>
 ```

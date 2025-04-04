@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton-react
 
+## 1.2.0
+### Minor Changes
+
+
+- feat: add hidden input for TagsInput ([#3487](https://github.com/skeletonlabs/skeleton/pull/3487))
+
+## 1.1.0
+### Minor Changes
+
+
+- feat: Removed Toast integration in favor of first-party Toast component. ([#3440](https://github.com/skeletonlabs/skeleton/pull/3440))
+
+
+### Patch Changes
+
+
+- fix: Update Zag to 1.7.0 ([#3476](https://github.com/skeletonlabs/skeleton/pull/3476))
+
 ## 1.0.0
 ### Minor Changes
 

@@ -20,6 +20,8 @@ import ExampleCustom from '@examples/design/presets/ExampleCustom.astro';
 import ExampleCustomRaw from '@examples/design/presets/ExampleCustom.astro?raw';
 import ExampleGradient from '@examples/design/presets/ExampleGradient.astro';
 import ExampleGradientRaw from '@examples/design/presets/ExampleGradient.astro?raw';
+import ExampleGlass from '@examples/design/presets/ExampleGlass.astro';
+import ExampleGlassRaw from '@examples/design/presets/ExampleGlass.astro?raw';
 
 {
 
@@ -42,10 +44,11 @@ import ExampleGradientRaw from '@examples/design/presets/ExampleGradient.astro?r
 1. **Filled** - a filled preset of the primary brand color.
 2. **Tonal** - a tonal preset of the primary brand color.
 3. **Outlined** - an outlined preset of the primary brand color.
-4. **Elevated** - mixes a filled preset with a shadow.
-5. **Ghost** - has no style by default, but shows a tonal preset on hover.
-6. **Ghost Icon** - has no style by default, but shows a branded tonal preset on hover.
-7. **Gradient** - a custom preset generated using Tailwind gradient primitives.
+4. **Glass** - a custom preset using background transparency and backdrop blur.
+5. **Elevated** - mixes a filled preset with a shadow.
+6. **Ghost** - has no style by default, but shows a tonal preset on hover.
+7. **Ghost Icon** - has no style by default, but shows a branded tonal preset on hover.
+8. **Gradient** - a custom preset generated using Tailwind gradient primitives.
 
 ## Enabling Presets
 
@@ -139,4 +142,11 @@ Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/g
 
 ### Glass Presets
 
-> TODO: examples coming soon!
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleGlass />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleGlassRaw} lang="astro" />
+	</Fragment>
+</Preview>

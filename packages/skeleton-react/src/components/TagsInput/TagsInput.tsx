@@ -49,6 +49,8 @@ export const TagsInput: FC<TagsInputProps> = ({
 		<div {...api.getRootProps()} className={`${base} ${padding} ${gap} ${rxDisabled} ${classes}`} data-testid="tags">
 			{/* Input */}
 			<input {...api.getInputProps()} placeholder={placeholder} className={`${inputBase} ${inputClasses}`} data-testid="tags-input-add" />
+			{/* Hidden Input */}
+			<input {...api.getHiddenInputProps()} data-testid="tags-input" />
 			{/* Tag List */}
 			{api.value.length > 0 && (
 				<div className={`${tagListBase} ${tagListClasses}`} data-testid="tags-list">
