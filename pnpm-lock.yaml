@@ -54,6 +54,9 @@ catalogs:
     '@zag-js/tags-input':
       specifier: ^1.7.0
       version: 1.7.0
+    '@zag-js/toast':
+      specifier: ^1.7.0
+      version: 1.7.0
     '@zag-js/tooltip':
       specifier: ^1.7.0
       version: 1.7.0
@@ -272,6 +275,9 @@ importers:
       '@zag-js/tags-input':
         specifier: 'catalog:'
         version: 1.7.0
+      '@zag-js/toast':
+        specifier: 'catalog:'
+        version: 1.7.0
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.6.3
@@ -355,6 +361,9 @@ importers:
         specifier: 'catalog:'
         version: 1.7.0
       '@zag-js/tags-input':
+        specifier: 'catalog:'
+        version: 1.7.0
+      '@zag-js/toast':
         specifier: 'catalog:'
         version: 1.7.0
       '@zag-js/tooltip':
@@ -2492,6 +2501,9 @@ packages:
 
   '@zag-js/tags-input@1.7.0':
     resolution: {integrity: sha512-ME/KwP1yrPHX0bP0EqkHI30IQgrE2cAkREoRluM5ScpG3Uiug98x6+zts0YS9j1OB3pyTl0d4alECBruxN8cPA==}
+
+  '@zag-js/toast@1.7.0':
+    resolution: {integrity: sha512-tvEO1vpC9QZ0oYJOKay2dvcq5lAPn4MT7ahnALs89iVjhWyguXAs5kzoq/Devlbuhi+bUY1YxvtrMDJjYVFhaA==}
 
   '@zag-js/tooltip@1.7.0':
     resolution: {integrity: sha512-ehZOewcxYZL4+ND5QMeDlQQrckssMTzxcReRCOVFXrRZb5X1jX6+ale9MSG+cJYMpQUqT2J5VtzMJH+GNj/jfw==}
@@ -8539,6 +8551,15 @@ snapshots:
       '@zag-js/dom-query': 1.7.0
       '@zag-js/interact-outside': 1.7.0
       '@zag-js/live-region': 1.7.0
+      '@zag-js/types': 1.7.0
+      '@zag-js/utils': 1.7.0
+
+  '@zag-js/toast@1.7.0':
+    dependencies:
+      '@zag-js/anatomy': 1.7.0
+      '@zag-js/core': 1.7.0
+      '@zag-js/dismissable': 1.7.0
+      '@zag-js/dom-query': 1.7.0
       '@zag-js/types': 1.7.0
       '@zag-js/utils': 1.7.0
 

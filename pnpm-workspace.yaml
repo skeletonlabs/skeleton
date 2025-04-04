@@ -22,6 +22,7 @@ catalog:
   '@zag-js/switch': *zag_version
   '@zag-js/tabs': *zag_version
   '@zag-js/tags-input': *zag_version
+  '@zag-js/toast': *zag_version
   '@zag-js/tooltip': *zag_version
   typescript: '^5.8.2'
   svelte: '^5.25.3'

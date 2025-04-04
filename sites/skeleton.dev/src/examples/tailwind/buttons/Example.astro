@@ -1,8 +1,15 @@
+---
+import { ArrowRight as IconArrowRight } from 'lucide-react';
+---
+
 <div class="flex items-center gap-4">
-	<button type="button" class="btn-icon preset-filled">&rarr;</button>
+	<!-- A simple icon button -->
+	<button type="button" class="btn-icon preset-filled"><IconArrowRight size={18} /></button>
+	<!-- A standard button -->
 	<button type="button" class="btn preset-filled">Button</button>
+	<!-- A button + icon -->
 	<button type="button" class="btn preset-filled">
 		<span>Button</span>
-		<span>&rarr;</span>
+		<IconArrowRight size={18} />
 	</button>
 </div>
