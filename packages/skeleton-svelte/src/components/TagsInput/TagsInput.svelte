@@ -52,6 +52,8 @@
 <div {...api.getRootProps()} class="{base} {padding} {gap} {rxDisabled} {classes}" data-testid="tags">
 	<!-- Input -->
 	<input {...api.getInputProps()} {placeholder} class="{inputBase} {inputClasses}" data-testid="tags-input-add" />
+	<!-- Hidden Input -->
+	<input {...api.getHiddenInputProps()} data-testid="tags-input" />
 	<!-- Tag List -->
 	{#if api.value.length > 0}
 		<div class="{tagListBase} {tagListClasses}" data-testid="tags-list">
