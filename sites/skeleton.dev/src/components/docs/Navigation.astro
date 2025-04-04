@@ -65,13 +65,18 @@ const navigation = {
 				<span class="text-sm font-bold capitalize ml-2">{key.replace('-', ' ')}</span>
 				<ul class="flex flex-col gap-1">
 					{pages.map((page) => (
-						<a
-							class={`px-2 py-1 rounded-base ${currentPath.includes(page.id.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
-							href={`/docs/${page.id}`}
-							title={page.data.title}
-						>
-							{page.data.title}
-						</a>
+						<li>
+							<a href={`/docs/${page.id}`} title={page.data.title}>
+								<span
+									class={`grow px-2 py-1 rounded-base ${currentPath.includes(page.id.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
+								>
+									{page.data.title}
+								</span>
+								{page.data.stability !== 'stable' && (
+									<span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{page.data.stability}</span>
+								)}
+							</a>
+						</li>
 					))}
 				</ul>
 			</nav>
