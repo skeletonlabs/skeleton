@@ -21,10 +21,10 @@ describe('TagsInput', () => {
 		expect(component).toBeInTheDocument();
 	});
 
-	it("Should render with a value", () => {
+	it('Should render with a value', () => {
 		render(TagsInput, { ...commonProps });
 		const input = screen.getByTestId(testIds.input);
-		expect(input).toHaveValue(commonProps.value.join(", "));
+		expect(input).toHaveValue(commonProps.value.join(', '));
 	});
 
 	it('should render the `buttonDelete` snippet', () => {

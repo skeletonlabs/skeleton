@@ -12,10 +12,10 @@ describe('<Switch>', () => {
 		expect(component).toBeInTheDocument();
 	});
 
-	it("should render with a value", () => {
+	it('should render with a value', () => {
 		const { getByTestId } = render(<TagsInput value={flavors} />);
 		const input = getByTestId('tags-input');
-		expect(input).toHaveValue(flavors.join(", "));
+		expect(input).toHaveValue(flavors.join(', '));
 	});
 
 	it('should render the component with an custom delete icon', () => {
