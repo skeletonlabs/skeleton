@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.2.0
+### Minor Changes
+
+
+- feat: add hidden input for TagsInput ([#3487](https://github.com/skeletonlabs/skeleton/pull/3487))
+
 ## 1.1.0
 ### Minor Changes
 
