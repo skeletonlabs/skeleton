@@ -1,14 +1,24 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
-const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.replace('/docs', '').slice(1) + '/';
+interface NavigationItem extends HTMLAttributes<'a'> {
+	title: string;
+	tag?: string;
+}
+
+interface NavigationGroup {
+	title: string;
+	items: NavigationItem[];
+}
 
 interface Props {
+	topGroups?: NavigationGroup[];
 	classList?: string;
+	bottomGroups?: NavigationGroup[];
 }
-const { classList } = Astro.props;
+const { topGroups, bottomGroups, classList } = Astro.props;
 
 // Sort Order
 const sortByOrder = (a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => {
@@ -46,35 +56,89 @@ const cIntegrations = await getCollection('docs', (entry) => {
 	return entry;
 });
 
-// Set the Label and Link List for each navigation section
-const navigation = {
-	'get-started': cGetStarted.sort(sortByOrder),
-	guides: cGuides.sort(sortByOrder),
-	'design-system': cDesign.sort(sortByOrder),
-	'tailwind-components': cTailwind.sort(sortByOrder),
-	'functional-components': cComponents,
-	integrations: cIntegrations,
-	resources: cResources.sort(sortByOrder)
-};
+const navigation: NavigationGroup[] = [
+	...(topGroups ?? []),
+	{
+		title: 'Get Started',
+		items: cGetStarted.toSorted(sortByOrder).map((page) => ({
+			title: page.data.title,
+			href: `/docs/${page.id}`,
+			tag: page.data.stability === 'stable' ? undefined : page.data.stability
+		}))
+	},
+	{
+		title: 'Guides',
+		items: cGuides.toSorted(sortByOrder).map((page) => ({
+			title: page.data.title,
+			href: `/docs/${page.id}`,
+			tag: page.data.stability === 'stable' ? undefined : page.data.stability
+		}))
+	},
+	{
+		title: 'Design System',
+		items: cDesign.toSorted(sortByOrder).map((page) => ({
+			title: page.data.title,
+			href: `/docs/${page.id}`,
+			tag: page.data.stability === 'stable' ? undefined : page.data.stability
+		}))
+	},
+	{
+		title: 'Tailwind Components',
+		items: cTailwind.toSorted(sortByOrder).map((page) => ({
+			title: page.data.title,
+			href: `/docs/${page.id}`,
+			tag: page.data.stability === 'stable' ? undefined : page.data.stability
+		}))
+	},
+	{
+		title: 'Functional Components',
+		items: cComponents.toSorted(sortByOrder).map((page) => ({
+			title: page.data.title,
+			href: `/docs/${page.id}`,
+			tag: page.data.stability === 'stable' ? undefined : page.data.stability
+		}))
+	},
+	{
+		title: 'Integrations',
+		items: cIntegrations.toSorted(sortByOrder).map((page) => ({
+			title: page.data.title,
+			href: `/docs/${page.id}`,
+			tag: page.data.stability === 'stable' ? undefined : page.data.stability
+		}))
+	},
+	{
+		title: 'Resources',
+		items: cResources.toSorted(sortByOrder).map((page) => ({
+			title: page.data.title,
+			href: `/docs/${page.id}`,
+			tag: page.data.stability === 'stable' ? undefined : page.data.stability
+		}))
+	},
+	...(bottomGroups ?? [])
+];
 ---
 
 <aside class="text-sm space-y-10 overflow-y-auto pr-4" class:list={[classList]}>
 	{
-		Object.entries(navigation).map(([key, pages]) => (
+		navigation.map((group) => (
 			<nav class="flex flex-col gap-2">
-				<span class="text-sm font-bold capitalize ml-2">{key.replace('-', ' ')}</span>
+				<span class="text-sm font-bold  ml-2">{group.title}</span>
 				<ul class="flex flex-col gap-1">
-					{pages.map((page) => (
+					{group.items.map((item) => (
 						<li>
-							<a href={`/docs/${page.id}`} title={page.data.title}>
+							<a href={item.href} title={item.title} class="flex justify-between items-center">
 								<span
-									class={`grow px-2 py-1 rounded-base ${currentPath.includes(page.id.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
+									class="grow px-2 py-1 rounded-base"
+									class:list={[
+										{
+											'preset-tonal': Astro.url.pathname === item.href,
+											anchor: Astro.url.pathname !== item.href
+										}
+									]}
 								>
-									{page.data.title}
+									{item.title}
 								</span>
-								{page.data.stability !== 'stable' && (
-									<span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{page.data.stability}</span>
-								)}
+								{item.tag && <span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{item.tag}</span>}
 							</a>
 						</li>
 					))}
@@ -104,6 +168,7 @@ const navigation = {
 	function rewriteAnchorHrefs(framework: ReturnType<typeof preferredFrameworkStore.get>) {
 		const anchors = document.querySelectorAll<HTMLAnchorElement>('a');
 		for (const anchor of anchors) {
+			console.log(anchor.href);
 			if (!anchor.href.endsWith('meta')) continue;
 			anchor.setAttribute('href', anchor.href.replace('meta', framework));
 		}
@@ -117,4 +182,5 @@ const navigation = {
 		restoreScrollPosition();
 		rewriteAnchorHrefs(preferredFrameworkStore.get());
 	});
+	console.log('Navigation component mounted');
 </script>
