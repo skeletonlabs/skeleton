@@ -45,7 +45,7 @@ export const Drawer: React.FC<DrawerProps> = ({ children }) => {
 							</div>
 
 							{/* Navigation */}
-							{children && <div className="mt-auto">{children}</div>}
+							{children}
 						</div>
 					</FloatingFocusManager>
 				</>
