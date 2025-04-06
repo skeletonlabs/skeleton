@@ -6,7 +6,7 @@ import type { AccordionIndicatorProps } from '../modules/types.js';
 export default function (props: AccordionIndicatorProps) {
 	const rootContext = useContext(AccordionRootContext);
 	const itemContext = useContext(AccordionItemContext);
-	const { children, ...restAttributes } = props;
+	const { child, children, ...restAttributes } = props;
 	const attributes = mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), restAttributes);
-	return <div {...attributes}>{children}</div>;
+	return child ? child(attributes) : <div {...attributes}>{children}</div>;
 }

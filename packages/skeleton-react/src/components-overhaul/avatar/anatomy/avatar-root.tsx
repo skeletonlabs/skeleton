@@ -8,7 +8,7 @@ import type { AvatarRootProps } from '../modules/types.js';
 
 export default function (props: AvatarRootProps) {
 	const [machineProps, componentProps] = avatar.splitProps(props);
-	const { children, ...restAttributes } = componentProps;
+	const { child, children, ...restAttributes } = componentProps;
 	const service = useMachine(avatar.machine, {
 		id: useId(),
 		...machineProps
@@ -23,7 +23,7 @@ export default function (props: AvatarRootProps) {
 	);
 	return (
 		<AvatarRootContext.Provider value={{ api }}>
-			<div {...attributes}>{children}</div>
+			{child ? child(attributes) : <div {...attributes}>{children}</div>}
 		</AvatarRootContext.Provider>
 	);
 }

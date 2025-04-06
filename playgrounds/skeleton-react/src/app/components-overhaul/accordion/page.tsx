@@ -1,3 +1,5 @@
+'use client';
+
 import { Accordion } from '@skeletonlabs/skeleton-react/overhaul';
 
 export default function Page() {
@@ -5,7 +7,7 @@ export default function Page() {
 		<Accordion>
 			<Accordion.Item value="item-1">
 				<Accordion.Heading>
-					<Accordion.Trigger>Item 1</Accordion.Trigger>
+					<Accordion.Trigger child={(attributes) => <button {...attributes}>My Button</button>}></Accordion.Trigger>
 					<Accordion.Content>Content for Item 1</Accordion.Content>
 				</Accordion.Heading>
 			</Accordion.Item>

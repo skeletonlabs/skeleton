@@ -30,7 +30,7 @@
 </script>
 
 {#if child}
-	{@render child({ props: restAttributes })}
+	{@render child(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

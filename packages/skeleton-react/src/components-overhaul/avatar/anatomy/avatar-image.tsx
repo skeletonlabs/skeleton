@@ -7,12 +7,13 @@ import type { AvatarImageProps } from '../modules/types.js';
 
 export default function (props: AvatarImageProps) {
 	const rootContext = useContext(AvatarRootContext);
+	const { child, ...restAttributes } = props;
 	const attributes = mergeProps(
 		rootContext.api.getImageProps(),
 		{
 			className: 'base:w-full base:object-cover'
 		},
-		props
+		restAttributes
 	);
-	return <img {...attributes} />;
+	return child ? child(attributes) : <img {...attributes} />;
 }

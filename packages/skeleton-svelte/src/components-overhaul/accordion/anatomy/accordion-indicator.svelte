@@ -11,7 +11,7 @@
 </script>
 
 {#if child}
-	{@render child(restAttributes)}
+	{@render child(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

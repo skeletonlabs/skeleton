@@ -8,7 +8,7 @@ import type { AccordionRootProps } from '../modules/types.js';
 
 export default function (props: AccordionRootProps) {
 	const [machineProps, componentProps] = accordion.splitProps(props);
-	const { children, ...restAttributes } = componentProps;
+	const { child, children, ...restAttributes } = componentProps;
 	const service = useMachine(accordion.machine, {
 		id: useId(),
 		...machineProps
@@ -23,7 +23,7 @@ export default function (props: AccordionRootProps) {
 	);
 	return (
 		<AccordionRootContext.Provider value={{ api }}>
-			<div {...attributes}>{children}</div>
+			{child ? child(attributes) : <div {...attributes}>{children}</div>}
 		</AccordionRootContext.Provider>
 	);
 }

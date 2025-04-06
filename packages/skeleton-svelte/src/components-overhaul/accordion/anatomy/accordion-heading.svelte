@@ -6,7 +6,7 @@
 	const tag = $derived(`h${level}`);
 </script>
 
-{#if child}
+{#if child}s
 	{@render child(restAttributes)}
 {:else}
 	<svelte:element this={tag} {...restAttributes}>

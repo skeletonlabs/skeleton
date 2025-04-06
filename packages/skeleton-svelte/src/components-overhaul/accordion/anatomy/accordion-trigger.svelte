@@ -20,7 +20,7 @@
 </script>
 
 {#if child}
-	{@render child(restAttributes)}
+	{@render child(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

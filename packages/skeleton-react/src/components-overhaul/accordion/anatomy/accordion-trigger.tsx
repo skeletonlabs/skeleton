@@ -8,7 +8,7 @@ import type { AccordionTriggerProps } from '../modules/types.js';
 export default function (props: AccordionTriggerProps) {
 	const rootContext = useContext(AccordionRootContext);
 	const itemContext = useContext(AccordionItemContext);
-	const { children, ...restAttributes } = props;
+	const { child, children, ...restAttributes } = props;
 	const attributes = mergeProps(
 		rootContext.api.getItemTriggerProps(itemContext.itemProps),
 		{
@@ -17,5 +17,5 @@ export default function (props: AccordionTriggerProps) {
 		},
 		restAttributes
 	);
-	return <button {...attributes}>{children}</button>;
+	return child ? child(attributes) : <button {...attributes}>{children}</button>;
 }
