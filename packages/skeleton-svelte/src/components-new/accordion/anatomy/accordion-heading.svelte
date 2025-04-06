@@ -3,9 +3,9 @@
 
 	const props: AccordionHeadingProps = $props();
 	const { level = 3, children, ...restAttributes } = $derived(props);
-	const Heading = $derived(`h${level}`);
+	const tag = $derived(`h${level}`);
 </script>
 
-<svelte:element this={Heading} {...restAttributes}>
+<svelte:element this={tag} {...restAttributes}>
 	{@render children?.()}
 </svelte:element>
