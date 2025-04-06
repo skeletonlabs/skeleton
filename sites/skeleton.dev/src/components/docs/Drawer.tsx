@@ -8,7 +8,8 @@ import {
 	useDismiss,
 	useRole,
 	useInteractions,
-	FloatingFocusManager
+	FloatingFocusManager,
+	FloatingOverlay
 } from '@floating-ui/react';
 import { Menu as IconMenu, X as IconClose } from 'lucide-react';
 
@@ -50,7 +51,7 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 			</button>
 
 			{isMounted && (
-				<>
+				<FloatingOverlay lockScroll className="fixed inset-0 bg-black/50 h-screen w-screen">
 					<FloatingFocusManager context={context} modal={false}>
 						<div
 							ref={refs.setFloating}
@@ -114,7 +115,7 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 							{children && <div className="mt-auto">{children}</div>}
 						</div>
 					</FloatingFocusManager>
-				</>
+				</FloatingOverlay>
 			)}
 		</div>
 	);
