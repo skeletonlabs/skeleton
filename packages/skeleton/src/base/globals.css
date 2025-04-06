@@ -34,7 +34,7 @@
 		/* Typography */
 		color: var(--base-font-color);
 		font-family: var(--base-font-family);
-		font-size: var(--base-font-size);
+		font-size: var(--base-font-size, var(--text-base));
 		line-height: var(--base-line-height);
 		font-weight: var(--base-font-weight);
 		font-style: var(--base-font-style);
