@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { useFloating, autoUpdate, offset, useClick, useDismiss, useRole, useInteractions, FloatingFocusManager } from '@floating-ui/react';
+import {
+	useTransitionStyles,
+	useFloating,
+	autoUpdate,
+	offset,
+	useClick,
+	useDismiss,
+	useRole,
+	useInteractions,
+	FloatingFocusManager
+} from '@floating-ui/react';
 import { Menu as IconMenu, X as IconClose } from 'lucide-react';
 
 type NavigationLink = {
@@ -22,6 +32,12 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 		middleware: [offset(0)],
 		whileElementsMounted: autoUpdate
 	});
+	const { styles: transitionStyles, isMounted } = useTransitionStyles(context, {
+		initial: { transform: 'translateX(-100%)' },
+		open: { transform: 'translateX(0)' },
+		close: { transform: 'translateX(-100%)' },
+		duration: 200
+	});
 
 	const click = useClick(context);
 	const dismiss = useDismiss(context);
@@ -35,12 +51,15 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 				<IconMenu />
 			</button>
 
-			{isOpen && (
+			{isMounted && (
 				<>
 					<FloatingFocusManager context={context} modal={false}>
 						<div
 							ref={refs.setFloating}
 							{...getFloatingProps()}
+							style={{
+								...transitionStyles
+							}}
 							className="fixed top-0 left-0 bottom-0 z-50 h-screen bg-surface-100-900 w-2xs p-4 space-y-8 overflow-y-auto shadow-xl"
 						>
 							{/* Header */}
