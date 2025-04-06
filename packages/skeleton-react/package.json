@@ -13,6 +13,10 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
+		},
+		"./overhauled": {
+			"types": "./dist/overhauled/index.d.ts",
+			"default": "./dist/overhauled/index.js"
 		}
 	},
 	"files": [
