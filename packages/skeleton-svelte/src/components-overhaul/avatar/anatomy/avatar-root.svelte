@@ -6,7 +6,7 @@
 
 	const props: AvatarRootProps = $props();
 	const [machineProps, componentProps] = $derived(avatar.splitProps(props));
-	const { children, ...restAttributes } = $derived(componentProps);
+	const { child, children, ...restAttributes } = $derived(componentProps);
 	const id = $props.id();
 	const service = useMachine(avatar.machine, () => ({
 		id: id,
@@ -29,6 +29,10 @@
 	});
 </script>
 
-<div {...attributes}>
-	{@render children?.()}
-</div>
+{#if child}
+	{@render child({ props: restAttributes })}
+{:else}
+	<div {...attributes}>
+		{@render children?.()}
+	</div>
+{/if}

@@ -6,10 +6,14 @@
 	const rootContext = AccordionRootContext.consume();
 	const itemContext = AccordionItemContext.consume();
 	const props: AccordionIndicatorProps = $props();
-	const { children, ...restAttributes } = $derived(props);
+	const { child, children, ...restAttributes } = $derived(props);
 	const attributes = $derived(mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), restAttributes));
 </script>
 
-<div {...attributes}>
-	{@render children?.()}
-</div>
+{#if child}
+	{@render child(restAttributes)}
+{:else}
+	<div {...attributes}>
+		{@render children?.()}
+	</div>
+{/if}

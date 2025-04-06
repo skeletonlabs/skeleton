@@ -1,10 +1,11 @@
 import * as avatar from '@zag-js/avatar';
 import type { HTMLAttributes, HTMLImgAttributes } from 'svelte/elements';
-import type { PropsWithChildren } from '../../../internal/props-with-children.js';
+import type { PropsWithChild } from '../../../internal/props-with-child.js';
+import type { PropsWithChildOrChildren } from '../../../internal/props-with-child-or-children.js';
 
-interface AvatarRootProps extends PropsWithChildren, Omit<avatar.Props, 'id'>, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {}
-type AvatarImageProps = HTMLImgAttributes;
-interface AvatarFallbackProps extends PropsWithChildren, HTMLAttributes<HTMLSpanElement> {}
+interface AvatarRootProps extends PropsWithChildOrChildren, Omit<avatar.Props, 'id'>, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {}
+interface AvatarImageProps extends PropsWithChild, HTMLImgAttributes {}
+interface AvatarFallbackProps extends PropsWithChildOrChildren, HTMLAttributes<HTMLSpanElement> {}
 interface AvatarRootContext {
 	api: avatar.Api;
 }

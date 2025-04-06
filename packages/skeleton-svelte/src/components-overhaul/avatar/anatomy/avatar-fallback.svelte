@@ -5,7 +5,7 @@
 
 	const rootContext = AvatarRootContext.consume();
 	const props: AvatarFallbackProps = $props();
-	const { children, ...restAttributes } = $derived(props);
+	const { child, children, ...restAttributes } = $derived(props);
 	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getFallbackProps(),
@@ -17,6 +17,10 @@
 	);
 </script>
 
-<span {...attributes}>
-	{@render children?.()}
-</span>
+{#if child}
+	{@render child(attributes)}
+{:else}
+	<span {...attributes}>
+		{@render children?.()}
+	</span>
+{/if}

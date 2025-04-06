@@ -5,7 +5,11 @@
 <Accordion>
 	<Accordion.Item value="item-1">
 		<Accordion.Heading>
-			<Accordion.Trigger>Item 1</Accordion.Trigger>
+			<Accordion.Trigger>
+				{#snippet child(attributes)}
+					<button {...attributes}>My Own Button</button>
+				{/snippet}
+			</Accordion.Trigger>
 			<Accordion.Content>Content for Item 1</Accordion.Content>
 		</Accordion.Heading>
 	</Accordion.Item>

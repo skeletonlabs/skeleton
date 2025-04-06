@@ -2,10 +2,14 @@
 	import type { AccordionHeadingProps } from '../modules/types.js';
 
 	const props: AccordionHeadingProps = $props();
-	const { level = 3, children, ...restAttributes } = $derived(props);
+	const { level = 3, child, children, ...restAttributes } = $derived(props);
 	const tag = $derived(`h${level}`);
 </script>
 
-<svelte:element this={tag} {...restAttributes}>
-	{@render children?.()}
-</svelte:element>
+{#if child}
+	{@render child(restAttributes)}
+{:else}
+	<svelte:element this={tag} {...restAttributes}>
+		{@render children?.()}
+	</svelte:element>
+{/if}
