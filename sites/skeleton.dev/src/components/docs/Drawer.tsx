@@ -51,7 +51,7 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 			</button>
 
 			{isMounted && (
-				<FloatingOverlay lockScroll className="fixed inset-0 bg-black/50 h-screen w-screen">
+				<FloatingOverlay lockScroll className="fixed inset-0 bg-black/50 h-screen w-screen z-50">
 					<FloatingFocusManager context={context} modal={false}>
 						<div
 							ref={refs.setFloating}
@@ -59,7 +59,7 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 							style={{
 								...transitionStyles
 							}}
-							className="fixed top-0 left-0 bottom-0 z-50 h-screen bg-surface-100-900 w-2xs p-4 space-y-8 overflow-y-auto shadow-xl"
+							className="fixed top-0 left-0 bottom-0 h-screen bg-surface-100-900 w-2xs p-4 space-y-8 overflow-y-auto shadow-xl"
 						>
 							{/* Header */}
 							<div className="flex justify-between items-center">
