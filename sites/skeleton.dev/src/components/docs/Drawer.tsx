@@ -34,8 +34,6 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 	});
 	const { styles: transitionStyles, isMounted } = useTransitionStyles(context, {
 		initial: { transform: 'translateX(-100%)' },
-		open: { transform: 'translateX(0)' },
-		close: { transform: 'translateX(-100%)' },
 		duration: 200
 	});
 
