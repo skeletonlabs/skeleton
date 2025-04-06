@@ -5,7 +5,7 @@
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
 		"build": "svelte-package --input src --output dist",
-		"dev": "svelte-package --input src --output dist --watch",
+		"dev": "pnpm build --watch",
 		"test": "vitest run",
 		"test:watch": "vitest run --watch",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
@@ -16,6 +16,11 @@
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js",
 			"default": "./dist/index.js"
+		},
+		"./overhaul": {
+			"types": "./dist/components/overhaul/index.d.ts",
+			"svelte": "./dist/components/overhaul/index.js",
+			"default": "./dist/components/overhaul/index.js"
 		}
 	},
 	"files": [

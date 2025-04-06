@@ -1,6 +1,6 @@
 import * as accordion from '@zag-js/accordion';
 import type { HTMLAttributes, HTMLButtonAttributes } from 'svelte/elements';
-import type { PropsWithChildren } from '../../../internal/props-with-children.js';
+import type { PropsWithChildren } from '../../../../internal/props-with-children.js';
 
 interface AccordionRootProps
 	extends PropsWithChildren,
