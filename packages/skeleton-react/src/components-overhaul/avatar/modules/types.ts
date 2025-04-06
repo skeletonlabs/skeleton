@@ -1,9 +1,9 @@
 import * as avatar from '@zag-js/avatar';
 import type { HTMLAttributes, ImgHTMLAttributes, PropsWithChildren } from 'react';
 
-interface AvatarRootProps extends PropsWithChildren, Omit<avatar.Props, 'id'>, Omit<HTMLAttributes<HTMLElement>, 'id' | 'dir'> {}
+interface AvatarRootProps extends PropsWithChildren, Omit<avatar.Props, 'id'>, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {}
 type AvatarImageProps = ImgHTMLAttributes<HTMLImageElement>;
-interface AvatarFallbackProps extends PropsWithChildren, HTMLAttributes<HTMLElement> {}
+interface AvatarFallbackProps extends PropsWithChildren, HTMLAttributes<HTMLSpanElement> {}
 interface AvatarRootContext {
 	api: avatar.Api;
 }

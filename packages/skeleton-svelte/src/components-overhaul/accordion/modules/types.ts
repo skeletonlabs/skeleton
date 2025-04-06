@@ -5,7 +5,7 @@ import type { PropsWithChildren } from '../../../internal/props-with-children.js
 interface AccordionRootProps
 	extends PropsWithChildren,
 		Omit<accordion.Props, 'id'>,
-		Omit<HTMLAttributes<HTMLElement>, 'id' | 'defaultValue' | 'dir'> {}
+		Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'defaultValue' | 'dir'> {}
 interface AccordionItemProps extends PropsWithChildren, accordion.ItemProps, HTMLAttributes<HTMLDivElement> {}
 interface AccordionHeadingProps extends PropsWithChildren, HTMLAttributes<HTMLHeadingElement> {
 	/**
