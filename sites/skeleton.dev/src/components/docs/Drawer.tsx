@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	useTransitionStyles,
 	useFloating,
@@ -27,6 +27,27 @@ interface DrawerProps {
 export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
+	const [viewportSize, setViewportSize] = useState({
+		width: typeof window !== 'undefined' ? window.innerWidth : 0,
+		height: typeof window !== 'undefined' ? window.innerHeight : 0
+	});
+
+	useEffect(() => {
+		function updateSize() {
+			setViewportSize({
+				width: window.innerWidth,
+				height: window.innerHeight
+			});
+		}
+		// Floating UI React might affect CSS classes such as `h-screen` which causes an unintended gap below the viewport, this is a temporary fix.
+		updateSize();
+		window.addEventListener('resize', updateSize);
+
+		return () => {
+			window.removeEventListener('resize', updateSize);
+		};
+	}, []);
+
 	const { refs, context } = useFloating({
 		open: isOpen,
 		onOpenChange: setIsOpen,
@@ -51,15 +72,23 @@ export const Drawer: React.FC<DrawerProps> = ({ navigation, children }) => {
 			</button>
 
 			{isMounted && (
-				<FloatingOverlay lockScroll className="fixed inset-0 bg-black/50 h-screen w-screen z-50">
+				<FloatingOverlay
+					lockScroll
+					className="fixed inset-0 bg-black/50 z-50"
+					style={{
+						width: `${viewportSize.width}px`,
+						height: `${viewportSize.height}px`
+					}}
+				>
 					<FloatingFocusManager context={context} modal={false}>
 						<div
 							ref={refs.setFloating}
 							{...getFloatingProps()}
 							style={{
-								...transitionStyles
+								...transitionStyles,
+								height: `${viewportSize.height}px`
 							}}
-							className="fixed top-0 left-0 bottom-0 h-screen bg-surface-100-900 w-2xs p-4 space-y-8 overflow-y-auto shadow-xl"
+							className="fixed top-0 left-0 bottom-0 bg-surface-100-900 w-2xs p-4 space-y-8 overflow-y-auto shadow-xl"
 						>
 							{/* Header */}
 							<div className="flex justify-between items-center">
