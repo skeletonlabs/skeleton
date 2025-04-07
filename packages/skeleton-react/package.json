@@ -14,9 +14,9 @@
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
 		},
-		"./overhaul": {
-			"types": "./dist/overhaul/index.d.ts",
-			"default": "./dist/overhaul/index.js"
+		"./composed": {
+			"types": "./dist/composed/index.d.ts",
+			"default": "./dist/composed/index.js"
 		}
 	},
 	"files": [

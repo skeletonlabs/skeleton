@@ -17,10 +17,10 @@
 			"svelte": "./dist/index.js",
 			"default": "./dist/index.js"
 		},
-		"./overhaul": {
-			"types": "./dist/overhaul/index.d.ts",
-			"svelte": "./dist/overhaul/index.js",
-			"default": "./dist/overhaul/index.js"
+		"./composed": {
+			"types": "./dist/composed/index.d.ts",
+			"svelte": "./dist/composed/index.js",
+			"default": "./dist/composed/index.js"
 		}
 	},
 	"files": [
