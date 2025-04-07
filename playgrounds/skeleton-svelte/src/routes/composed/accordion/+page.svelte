@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Accordion } from '@skeletonlabs/skeleton-svelte/overhaul';
+	import { Accordion } from '@skeletonlabs/skeleton-svelte/composed';
 </script>
 
 <Accordion>
