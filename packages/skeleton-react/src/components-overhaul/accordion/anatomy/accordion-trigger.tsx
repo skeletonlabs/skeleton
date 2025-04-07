@@ -17,5 +17,5 @@ export default function (props: AccordionTriggerProps) {
 		},
 		restAttributes
 	);
-	return child ? child(attributes) : <button {...attributes}>{children}</button>;
+	return child ? child({ attributes }) : <button {...attributes}>{children}</button>;
 }

@@ -18,7 +18,7 @@
 </script>
 
 {#if child}
-	{@render child(attributes)}
+	{@render child({ attributes })}
 {:else}
 	<img {...attributes} />
 {/if}

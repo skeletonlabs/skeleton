@@ -8,5 +8,5 @@ export default function (props: AccordionIndicatorProps) {
 	const itemContext = useContext(AccordionItemContext);
 	const { child, children, ...restAttributes } = props;
 	const attributes = mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), restAttributes);
-	return child ? child(attributes) : <div {...attributes}>{children}</div>;
+	return child ? child({ attributes }) : <div {...attributes}>{children}</div>;
 }

@@ -15,5 +15,5 @@ export default function (props: AvatarImageProps) {
 		},
 		restAttributes
 	);
-	return child ? child(attributes) : <img {...attributes} />;
+	return child ? child({ attributes }) : <img {...attributes} />;
 }

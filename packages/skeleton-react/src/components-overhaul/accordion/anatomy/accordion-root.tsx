@@ -23,7 +23,7 @@ export default function (props: AccordionRootProps) {
 	);
 	return (
 		<AccordionRootContext.Provider value={{ api }}>
-			{child ? child(attributes) : <div {...attributes}>{children}</div>}
+			{child ? child({ attributes }) : <div {...attributes}>{children}</div>}
 		</AccordionRootContext.Provider>
 	);
 }

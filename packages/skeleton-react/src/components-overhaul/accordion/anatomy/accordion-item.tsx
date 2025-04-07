@@ -13,7 +13,7 @@ export default function (props: AccordionItemProps) {
 	const attributes = mergeProps(rootContext.api.getItemProps(itemProps), restAttributes);
 	return (
 		<AccordionItemContext.Provider value={{ itemProps }}>
-			{child ? child(attributes) : <div {...attributes}>{children}</div>}
+			{child ? child({ attributes }) : <div {...attributes}>{children}</div>}
 		</AccordionItemContext.Provider>
 	);
 }

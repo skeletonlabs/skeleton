@@ -15,5 +15,5 @@ export default function (props: AvatarFallbackProps) {
 		},
 		restAttributes
 	);
-	return child ? child(attributes) : <span {...attributes}>{children}</span>;
+	return child ? child({ attributes }) : <span {...attributes}>{children}</span>;
 }

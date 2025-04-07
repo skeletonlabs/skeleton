@@ -23,7 +23,7 @@ export default function (props: AvatarRootProps) {
 	);
 	return (
 		<AvatarRootContext.Provider value={{ api }}>
-			{child ? child(attributes) : <div {...attributes}>{children}</div>}
+			{child ? child({ attributes }) : <div {...attributes}>{children}</div>}
 		</AvatarRootContext.Provider>
 	);
 }

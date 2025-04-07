@@ -19,7 +19,7 @@
 </script>
 
 {#if child}
-	{@render child(attributes)}
+	{@render child({ attributes })}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

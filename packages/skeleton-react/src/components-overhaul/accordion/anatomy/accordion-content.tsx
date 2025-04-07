@@ -16,5 +16,5 @@ export default function (props: AccordionContentProps) {
 		},
 		restAttributes
 	);
-	return child ? child(attributes) : <div {...attributes}>{children}</div>;
+	return child ? child({ attributes }) : <div {...attributes}>{children}</div>;
 }
