@@ -18,9 +18,9 @@
 			"default": "./dist/index.js"
 		},
 		"./overhaul": {
-			"types": "./dist/components-overhaul/index.d.ts",
-			"svelte": "./dist/components-overhaul/index.js",
-			"default": "./dist/components-overhaul/index.js"
+			"types": "./dist/overhaul/index.d.ts",
+			"svelte": "./dist/overhaul/index.js",
+			"default": "./dist/overhaul/index.js"
 		}
 	},
 	"files": [
