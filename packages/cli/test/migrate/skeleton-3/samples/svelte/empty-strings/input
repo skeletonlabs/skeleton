@@ -1,0 +1,7 @@
+<script>
+	let foo = "";
+</script>
+
+<div class=""></div>
+<div class={""}></div>
+<div class="{""}"></div>

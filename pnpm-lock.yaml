@@ -123,42 +123,7 @@ importers:
         specifier: ^8.28.0
         version: 8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
 
-  packages/necroparser:
-    dependencies:
-      typescript:
-        specifier: 'catalog:'
-        version: 5.8.2
-    devDependencies:
-      tinyglobby:
-        specifier: ^0.2.12
-        version: 0.2.12
-      unbuild:
-        specifier: ^3.5.0
-        version: 3.5.0(typescript@5.8.2)
-      vite:
-        specifier: ^6.2.5
-        version: 6.2.5(@types/node@22.13.14)(jiti@2.4.2)(lightningcss@1.29.2)(sass-embedded@1.86.0)(tsx@4.19.3)(yaml@2.7.1)
-      vitest:
-        specifier: ^3.1.1
-        version: 3.1.1(@types/debug@4.1.12)(@types/node@22.13.14)(jiti@2.4.2)(jsdom@26.0.0)(lightningcss@1.29.2)(sass-embedded@1.86.0)(tsx@4.19.3)(yaml@2.7.1)
-
-  packages/skeleton:
-    dependencies:
-      tailwindcss:
-        specifier: ^4.0.0
-        version: 4.0.7
-    devDependencies:
-      sass-embedded:
-        specifier: ^1.86.0
-        version: 1.86.0
-      tinyglobby:
-        specifier: ^0.2.12
-        version: 0.2.12
-      vite:
-        specifier: ^6.2.5
-        version: 6.2.5(@types/node@22.13.14)(jiti@2.4.2)(lightningcss@1.29.2)(sass-embedded@1.86.0)(tsx@4.19.3)(yaml@2.7.1)
-
-  packages/skeleton-cli:
+  packages/cli:
     dependencies:
       '@clack/prompts':
         specifier: ^0.10.0
@@ -227,6 +192,41 @@ importers:
       vitest:
         specifier: ^3.1.1
         version: 3.1.1(@types/debug@4.1.12)(@types/node@22.13.14)(jiti@2.4.2)(jsdom@26.0.0)(lightningcss@1.29.2)(sass-embedded@1.86.0)(tsx@4.19.3)(yaml@2.7.1)
+
+  packages/necroparser:
+    dependencies:
+      typescript:
+        specifier: 'catalog:'
+        version: 5.8.2
+    devDependencies:
+      tinyglobby:
+        specifier: ^0.2.12
+        version: 0.2.12
+      unbuild:
+        specifier: ^3.5.0
+        version: 3.5.0(typescript@5.8.2)
+      vite:
+        specifier: ^6.2.5
+        version: 6.2.5(@types/node@22.13.14)(jiti@2.4.2)(lightningcss@1.29.2)(sass-embedded@1.86.0)(tsx@4.19.3)(yaml@2.7.1)
+      vitest:
+        specifier: ^3.1.1
+        version: 3.1.1(@types/debug@4.1.12)(@types/node@22.13.14)(jiti@2.4.2)(jsdom@26.0.0)(lightningcss@1.29.2)(sass-embedded@1.86.0)(tsx@4.19.3)(yaml@2.7.1)
+
+  packages/skeleton:
+    dependencies:
+      tailwindcss:
+        specifier: ^4.0.0
+        version: 4.0.7
+    devDependencies:
+      sass-embedded:
+        specifier: ^1.86.0
+        version: 1.86.0
+      tinyglobby:
+        specifier: ^0.2.12
+        version: 0.2.12
+      vite:
+        specifier: ^6.2.5
+        version: 6.2.5(@types/node@22.13.14)(jiti@2.4.2)(lightningcss@1.29.2)(sass-embedded@1.86.0)(tsx@4.19.3)(yaml@2.7.1)
 
   packages/skeleton-common:
     devDependencies:
