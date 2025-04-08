@@ -1,5 +1,0 @@
-<style lang="postcss">
-	.foo {
-		@apply rounded-token;
-	}
-</style>
