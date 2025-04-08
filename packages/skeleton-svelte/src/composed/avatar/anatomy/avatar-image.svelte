@@ -5,7 +5,7 @@
 
 	const rootContext = AvatarRootContext.consume();
 	const props: AvatarImageProps = $props();
-	const { child, ...restAttributes } = $derived(props);
+	const { element, ...restAttributes } = $derived(props);
 	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getImageProps(),
@@ -17,8 +17,8 @@
 	);
 </script>
 
-{#if child}
-	{@render child({ attributes })}
+{#if element}
+	{@render element({ attributes })}
 {:else}
 	<img {...attributes} />
 {/if}

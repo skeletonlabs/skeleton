@@ -9,11 +9,11 @@ import type { AccordionItemProps } from '../modules/types.js';
 export default function (props: AccordionItemProps) {
 	const rootContext = useContext(AccordionRootContext);
 	const [itemProps, componentProps] = accordion.splitItemProps(props);
-	const { child, children, ...restAttributes } = componentProps;
+	const { element, children, ...restAttributes } = componentProps;
 	const attributes = mergeProps(rootContext.api.getItemProps(itemProps), restAttributes);
 	return (
 		<AccordionItemContext.Provider value={{ itemProps }}>
-			{child ? child({ attributes }) : <div {...attributes}>{children}</div>}
+			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}
 		</AccordionItemContext.Provider>
 	);
 }

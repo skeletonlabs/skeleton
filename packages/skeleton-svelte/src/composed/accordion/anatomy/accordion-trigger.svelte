@@ -6,7 +6,7 @@
 	const rootContext = AccordionRootContext.consume();
 	const itemContext = AccordionItemContext.consume();
 	const props: AccordionTriggerProps = $props();
-	const { child, children, ...restAttributes } = $derived(props);
+	const { element, children, ...restAttributes } = $derived(props);
 	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getItemTriggerProps(itemContext.itemProps),
@@ -19,8 +19,8 @@
 	);
 </script>
 
-{#if child}
-	{@render child({ attributes })}
+{#if element}
+	{@render element({ attributes })}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

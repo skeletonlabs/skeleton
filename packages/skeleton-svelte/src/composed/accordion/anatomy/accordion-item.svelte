@@ -7,7 +7,7 @@
 	const rootContext = AccordionRootContext.consume();
 	const props: AccordionItemProps = $props();
 	const [itemProps, componentProps] = $derived(accordion.splitItemProps(props));
-	const { child, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...restAttributes } = $derived(componentProps);
 	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getItemProps(itemProps),
@@ -24,8 +24,8 @@
 	});
 </script>
 
-{#if child}
-	{@render child({ attributes })}
+{#if element}
+	{@render element({ attributes })}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

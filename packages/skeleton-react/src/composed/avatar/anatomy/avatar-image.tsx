@@ -7,7 +7,7 @@ import type { AvatarImageProps } from '../modules/types.js';
 
 export default function (props: AvatarImageProps) {
 	const rootContext = useContext(AvatarRootContext);
-	const { child, ...restAttributes } = props;
+	const { element, ...restAttributes } = props;
 	const attributes = mergeProps(
 		rootContext.api.getImageProps(),
 		{
@@ -15,5 +15,5 @@ export default function (props: AvatarImageProps) {
 		},
 		restAttributes
 	);
-	return child ? child({ attributes }) : <img {...attributes} />;
+	return element ? element({ attributes }) : <img {...attributes} />;
 }

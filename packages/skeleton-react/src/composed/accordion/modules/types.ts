@@ -1,14 +1,15 @@
 import * as accordion from '@zag-js/accordion';
-import type { ButtonHTMLAttributes, HTMLAttributes } from 'react';
-import type { PropsWithChildOrChildren } from '../../../internal/props-with-child-or-children.js';
+import type { ButtonHTMLAttributes, HTMLAttributes, PropsWithChildren } from 'react';
+import type { PropsWithElement } from '../../../internal/props-with-child.js';
 
 interface AccordionRootProps
-	extends PropsWithChildOrChildren,
+	extends PropsWithChildren,
+		PropsWithElement,
 		Omit<accordion.Props, 'id'>,
 		Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'defaultValue' | 'dir'> {}
-interface AccordionItemProps extends PropsWithChildOrChildren, accordion.ItemProps, HTMLAttributes<HTMLDivElement> {}
-interface AccordionTriggerProps extends PropsWithChildOrChildren, ButtonHTMLAttributes<HTMLButtonElement> {}
-interface AccordionHeadingProps extends PropsWithChildOrChildren, HTMLAttributes<HTMLHeadingElement> {
+interface AccordionItemProps extends PropsWithChildren, PropsWithElement, accordion.ItemProps, HTMLAttributes<HTMLDivElement> {}
+interface AccordionTriggerProps extends PropsWithChildren, PropsWithElement, ButtonHTMLAttributes<HTMLButtonElement> {}
+interface AccordionHeadingProps extends PropsWithChildren, PropsWithElement, HTMLAttributes<HTMLHeadingElement> {
 	/**
 	 * The level of the heading. This is used to determine the heading level for accessibility purposes.
 	 *
@@ -16,8 +17,8 @@ interface AccordionHeadingProps extends PropsWithChildOrChildren, HTMLAttributes
 	 */
 	level?: 1 | 2 | 3 | 4 | 5 | 6;
 }
-interface AccordionIndicatorProps extends PropsWithChildOrChildren, HTMLAttributes<HTMLDivElement> {}
-interface AccordionContentProps extends PropsWithChildOrChildren, HTMLAttributes<HTMLDivElement> {}
+interface AccordionIndicatorProps extends PropsWithChildren, PropsWithElement, HTMLAttributes<HTMLDivElement> {}
+interface AccordionContentProps extends PropsWithChildren, PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 interface AccordionContext {
 	api: accordion.Api;
 }

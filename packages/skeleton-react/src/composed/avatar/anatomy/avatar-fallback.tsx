@@ -7,7 +7,7 @@ import type { AvatarFallbackProps } from '../modules/types.js';
 
 export default function (props: AvatarFallbackProps) {
 	const rootContext = useContext(AvatarRootContext);
-	const { child, children, ...restAttributes } = props;
+	const { element, children, ...restAttributes } = props;
 	const attributes = mergeProps(
 		rootContext.api.getFallbackProps(),
 		{
@@ -15,5 +15,5 @@ export default function (props: AvatarFallbackProps) {
 		},
 		restAttributes
 	);
-	return child ? child({ attributes }) : <span {...attributes}>{children}</span>;
+	return element ? element({ attributes }) : <span {...attributes}>{children}</span>;
 }

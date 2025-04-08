@@ -6,7 +6,7 @@
 
 	const props: AccordionRootProps = $props();
 	const [machineProps, componentProps] = $derived(accordion.splitProps(props));
-	const { child, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...restAttributes } = $derived(componentProps);
 	const id = $props.id();
 	const service = useMachine(accordion.machine, () => ({
 		id: id,
@@ -29,8 +29,8 @@
 	});
 </script>
 
-{#if child}
-	{@render child({ attributes })}
+{#if element}
+	{@render element({ attributes })}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

@@ -8,7 +8,7 @@ import type { AccordionContentProps } from '../modules/types.js';
 export default function (props: AccordionContentProps) {
 	const rootContext = useContext(AccordionRootContext);
 	const itemContext = useContext(AccordionItemContext);
-	const { child, children, ...restAttributes } = props;
+	const { element, children, ...restAttributes } = props;
 	const attributes = mergeProps(
 		rootContext.api.getItemContentProps(itemContext.itemProps),
 		{
@@ -16,5 +16,5 @@ export default function (props: AccordionContentProps) {
 		},
 		restAttributes
 	);
-	return child ? child({ attributes }) : <div {...attributes}>{children}</div>;
+	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }
