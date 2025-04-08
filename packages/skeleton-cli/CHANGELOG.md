@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 0.1.0
+### Minor Changes
+
+
+- feat: add `skeleton` to bin paths ([#3500](https://github.com/skeletonlabs/skeleton/pull/3500))
+
 ## 0.0.5
 ### Patch Changes
 
