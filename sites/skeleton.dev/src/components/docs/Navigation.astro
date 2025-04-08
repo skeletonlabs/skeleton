@@ -124,7 +124,6 @@ const navigation: NavigationGroup[] = [
 	function rewriteAnchorHrefs(framework: ReturnType<typeof preferredFrameworkStore.get>) {
 		const anchors = document.querySelectorAll<HTMLAnchorElement>('a');
 		for (const anchor of anchors) {
-			console.log(anchor.href);
 			if (!anchor.href.endsWith('meta')) continue;
 			anchor.setAttribute('href', anchor.href.replace('meta', framework));
 		}
@@ -138,5 +137,4 @@ const navigation: NavigationGroup[] = [
 		restoreScrollPosition();
 		rewriteAnchorHrefs(preferredFrameworkStore.get());
 	});
-	console.log('Navigation component mounted');
 </script>
