@@ -5,7 +5,7 @@ The CLI for Skeleton related tooling.
 ## Usage
 
 ```bash
-npx @skeletonlabs/skeleton-cli [command] [args]
+npx skeleton [command] [args]
 ```
 
 ## Commands
