@@ -14,7 +14,10 @@
 			"import": "./dist/index.mjs"
 		}
 	},
-	"bin": "./dist/index.mjs",
+	"bin": {
+		"skeleton": "./dist/index.mjs",
+		"@skeletonlabs/skeleton-cli": "./dist/index.mjs"
+	},
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
