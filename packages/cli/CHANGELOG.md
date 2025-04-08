@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-cli
 
+## 1.0.0
+### Major Changes
+
+
+- feat: 1.0 ([#3503](https://github.com/skeletonlabs/skeleton/pull/3503))
+
 ## 0.1.0
 ### Minor Changes
 
