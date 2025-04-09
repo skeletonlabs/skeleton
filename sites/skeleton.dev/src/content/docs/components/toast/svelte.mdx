@@ -10,10 +10,13 @@ import ExampleType from '@examples/components/toast/ExampleType.svelte';
 import ExampleTypeRaw from '@examples/components/toast/ExampleType.svelte?raw';
 import ExamplePlacement from '@examples/components/toast/ExamplePlacement.svelte';
 import ExamplePlacementRaw from '@examples/components/toast/ExamplePlacement.svelte?raw';
+import ExampleClosable from '@examples/components/toast/ExampleClosable.svelte';
+import ExampleClosableRaw from '@examples/components/toast/ExampleClosable.svelte?raw';
 import ExamplePromise from '@examples/components/toast/ExamplePromise.svelte';
 import ExamplePromiseRaw from '@examples/components/toast/ExamplePromise.svelte?raw';
 
-We recommend implementing a single instance of `<Toaster>` in global scope of your app, typically within a root layout. This single instance will manage a toast group with a `toaster` instance (via `createToaster`). Style props applied to the `<Toaster>` component are applied all child toasts created within that instance.
+The following examples will all create their own `toaster` and `<Toaster>` instance for example purposes. In actual apps we recommend creating a `toaster` once, and using that throughout your app.
+The same goes for the `<Toaster>` component, we recommend placing this once in a shared layout or root component of your app.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -50,6 +53,19 @@ Use the `placement` prop on `<Toaster>` to set the position of the toast group.
 	</Fragment>
 </Preview>
 
+## Closable
+
+You can use the `closable` prop to prevent a toast from being closable.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleClosable client:visible closable={false} />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleClosableRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
 ## Promise
 
 Use `promise()` to create a toast that is able to be configured based on the state of a promise. The toast will automatically update based on the state of the promise.
@@ -70,3 +86,7 @@ Use `promise()` to create a toast that is able to be configured based on the sta
 ## Alternatives
 
 If you're looking for power user features or more control over templates, consider using [Svelte-French-Toast](https://svelte-french-toast.com/).
+
+```
+
+```
