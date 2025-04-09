@@ -8,7 +8,7 @@
 
 {#if element}
 	{@render element({ attributes: restAttributes })}
-{:else}:
+{:else}
 	<svelte:element this={tag} {...restAttributes}>
 		{@render children?.()}
 	</svelte:element>
