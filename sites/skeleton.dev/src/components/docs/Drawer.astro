@@ -36,6 +36,7 @@ const {
 </button>
 
 <script>
+	// CSS classes such as `h-screen` causes an unintended gap below the viewport on smaller screens, this is a temporary fix.
 	function setDrawerHeight() {
 		const drawer = document.querySelector('#drawer');
 		if (!drawer) return;
