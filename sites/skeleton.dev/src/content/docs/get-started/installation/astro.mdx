@@ -30,39 +30,18 @@ Learn how to install the Skeleton core into your Astro project. We'll cover usin
         ### Create a Project
         Start by creating a new Astro project. We recommend selecting all default options.
         ```console
-        npm create astro@latest my-skeleton-app
+        npm create astro@latest --add tailwind my-skeleton-app
 		cd my-skeleton-app
         ```
     </ProcessStep>
     <ProcessStep step="2">
-        ### Install Tailwind
-        Install Tailwind and and the Tailwind Vite plugin.
-        ```console
-        npm install tailwindcss @tailwindcss/vite
-        ```
-		Implement the plugin in `astro.config` in the root of your project.
-		```ts title="astro.config" {3} "tailwindcss()"
-		// @ts-check
-		import { defineConfig } from "astro/config";
-		import tailwindcss from "@tailwindcss/vite";
-
-    	export default defineConfig({
-    		vite: {
-    			plugins: [
-    				tailwindcss()
-    			],
-    		},
-    	});
-    	```
-    </ProcessStep>
-    <ProcessStep step="3">
         ### Install Skeleton
         Install the Skeleton core package for the Tailwind plugin.
         ```console
         npm i -D @skeletonlabs/skeleton
         ```
     </ProcessStep>
-    <ProcessStep step="4">
+    <ProcessStep step="3">
         ### Configure Tailwind
       	Create a global styleshseet in `/src/styles/global.css` and add import the following.
          ```css title="global.css"
@@ -73,7 +52,7 @@ Learn how to install the Skeleton core into your Astro project. We'll cover usin
         @import '@skeletonlabs/skeleton/themes/cerberus';
         ```
     </ProcessStep>
-    <ProcessStep step="5">
+    <ProcessStep step="4">
         ### Remove Default Content and Styles
         We recommend you open `/src/components/welcome.astro` and remove all default HTML and CSS. Here's a simple starter layout.
         ```astro
@@ -88,7 +67,7 @@ Learn how to install the Skeleton core into your Astro project. We'll cover usin
     	</main>
     	```
     </ProcessStep>
-    <ProcessStep step="6">
+    <ProcessStep step="5">
         ### Set Active Theme
         Open `/src/layouts/Layout.astro`, then set the `data-theme` attribute on the HTML tag to define the active theme.
         ```html title="layouts/Layout.astro" "data-theme="cerberus""
