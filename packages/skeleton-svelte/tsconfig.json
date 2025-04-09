@@ -4,8 +4,6 @@
 		"checkJs": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
-		"verbatimModuleSyntax": true,
-		"lib": ["esnext", "DOM", "DOM.Iterable"],
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
@@ -13,6 +11,5 @@
 		"module": "NodeNext",
 		"moduleResolution": "NodeNext",
 		"types": ["vitest/globals", "@testing-library/jest-dom"]
-	},
-	"include": ["src"]
+	}
 }
