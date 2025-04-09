@@ -1,79 +1,102 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
-const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.replace('/docs', '').slice(1) + '/';
+interface NavigationItem extends HTMLAttributes<'a'> {
+	title: string;
+	tag?: string;
+}
+
+interface NavigationGroup {
+	title: string;
+	items: NavigationItem[];
+}
 
 interface Props {
+	topGroups?: NavigationGroup[];
 	classList?: string;
+	bottomGroups?: NavigationGroup[];
 }
-const { classList } = Astro.props;
+const { topGroups, bottomGroups, classList } = Astro.props;
 
-// Sort Order
-const sortByOrder = (a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => {
-	return a.data.order - b.data.order;
-};
+const sortByOrder = (a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => a.data.order - b.data.order;
 
-// Query a collection via the start of the ID string
 async function queryCollection(startsWith: string) {
-	return await getCollection('docs', (entry) => {
-		if (!entry.id.startsWith(startsWith)) return;
-		if (entry.id.split('/').length > 2) return;
-		if (entry.id.endsWith('meta')) return;
-		return entry;
-	});
+	return (
+		await getCollection('docs', (entry) => {
+			if (!entry.id.startsWith(startsWith)) return false;
+			if (entry.id.split('/').length > 2) return false;
+			if (entry.id.endsWith('meta')) return false;
+			return true;
+		})
+	).toSorted(sortByOrder);
 }
 
-// Query each collection we wish to display
-const cGetStarted = await queryCollection('get-started/');
-const cGuides = await queryCollection('guides/');
-const cDesign = await queryCollection('design/');
-const cTailwind = await queryCollection('tailwind/');
-const cHeadless = await queryCollection('headless/');
-const cResources = await queryCollection('resources/');
+async function queryMetaCollection(startsWith: string) {
+	return (
+		await getCollection('docs', (entry) => {
+			if (!entry.id.startsWith(startsWith)) return false;
+			if (!entry.id.endsWith('meta')) return false;
+			return true;
+		})
+	).toSorted(sortByOrder);
+}
 
-// Query the Components section
-const cComponents = await getCollection('docs', (entry) => {
-	if (!entry.id.startsWith('components/')) return;
-	if (!entry.id.endsWith('meta')) return;
-	return entry;
-});
+const toNavItems = (entries: CollectionEntry<'docs'>[]) =>
+	entries.map((page) => ({
+		title: page.data.title,
+		href: `/docs/${page.id}`,
+		tag: page.data.stability === 'stable' ? undefined : page.data.stability
+	}));
 
-// Query the Integrations section
-const cIntegrations = await getCollection('docs', (entry) => {
-	if (!entry.id.startsWith('integrations/')) return;
-	if (!entry.id.endsWith('meta')) return;
-	return entry;
-});
+// Define navigation sections
+const sections: [string, string, (prefix: string) => Promise<CollectionEntry<'docs'>[]>][] = [
+	['Get Started', 'get-started/', queryCollection],
+	['Guides', 'guides/', queryCollection],
+	['Design System', 'design/', queryCollection],
+	['Tailwind Components', 'tailwind/', queryCollection],
+	['Functional Components', 'components/', queryMetaCollection],
+	['Integrations', 'integrations/', queryMetaCollection],
+	['Resources', 'resources/', queryCollection]
+];
 
-// Set the Label and Link List for each navigation section
-const navigation = {
-	'get-started': cGetStarted.sort(sortByOrder),
-	guides: cGuides.sort(sortByOrder),
-	'design-system': cDesign.sort(sortByOrder),
-	'tailwind-components': cTailwind.sort(sortByOrder),
-	'functional-components': cComponents,
-	'headless-components': cHeadless,
-	integrations: cIntegrations,
-	resources: cResources.sort(sortByOrder)
-};
+// Build navigation dynamically
+const navigation: NavigationGroup[] = [
+	...(topGroups ?? []),
+	...(await Promise.all(
+		sections.map(async ([title, prefix, queryFn]) => ({
+			title,
+			items: toNavItems(await queryFn(prefix))
+		}))
+	)),
+	...(bottomGroups ?? [])
+];
 ---
 
-<aside class="text-sm space-y-10 overflow-y-auto pr-4" class:list={[classList]}>
+<aside class="text-sm space-y-10 pr-4" class:list={[classList]}>
 	{
-		Object.entries(navigation).map(([key, pages]) => (
+		navigation.map((group) => (
 			<nav class="flex flex-col gap-2">
-				<span class="text-sm font-bold capitalize ml-2">{key.replace('-', ' ')}</span>
+				<span class="text-sm font-bold  ml-2">{group.title}</span>
 				<ul class="flex flex-col gap-1">
-					{pages.map((page) => (
-						<a
-							class={`px-2 py-1 rounded-base ${currentPath.includes(page.id.replace('meta', '')) ? 'preset-tonal' : 'anchor'}`}
-							href={`/docs/${page.id}`}
-							title={page.data.title}
-						>
-							{page.data.title}
-						</a>
+					{group.items.map((item) => (
+						<li>
+							<a href={item.href} title={item.title} class="flex justify-between items-center">
+								<span
+									class="grow px-2 py-1 rounded-base"
+									class:list={[
+										{
+											'preset-tonal': Astro.url.pathname === item.href,
+											anchor: Astro.url.pathname !== item.href
+										}
+									]}
+								>
+									{item.title}
+								</span>
+								{item.tag && <span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{item.tag}</span>}
+							</a>
+						</li>
 					))}
 				</ul>
 			</nav>
