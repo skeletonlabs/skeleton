@@ -10,10 +10,13 @@ import ExampleType from '@examples/components/toast/ExampleType.tsx';
 import ExampleTypeRaw from '@examples/components/toast/ExampleType.tsx?raw';
 import ExamplePlacement from '@examples/components/toast/ExamplePlacement.tsx';
 import ExamplePlacementRaw from '@examples/components/toast/ExamplePlacement.tsx?raw';
+import ExampleClosable from '@examples/components/toast/ExampleClosable.tsx';
+import ExampleClosableRaw from '@examples/components/toast/ExampleClosable.tsx?raw';
 import ExamplePromise from '@examples/components/toast/ExamplePromise.tsx';
 import ExamplePromiseRaw from '@examples/components/toast/ExamplePromise.tsx?raw';
 
-We recommend implementing a single instance of `<Toaster>` in global scope of your app, typically within a root layout. This single instance will manage a toast group with a `toaster` instance (via `createToaster`). Style props applied to the `<Toaster>` component are applied all child toasts created within that instance.
+The following examples will all create their own `toaster` and `<Toaster>` instance for example purposes. In actual apps we recommend creating a `toaster` once, and using that throughout your app.
+The same goes for the `<Toaster>` component, we recommend placing this once in a shared layout or root component of your app.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -26,7 +29,7 @@ We recommend implementing a single instance of `<Toaster>` in global scope of yo
 
 ## Type
 
-You can use the generic `create()` method in combination with a specific type, or opt for the shorthand methods if preferred: `info()`, `success()`, `warning()`, or `error()`.
+Use the generic `create()` method in combination with a specific type, or opt for the shorthand methods if preferred: `info()`, `success()`, `warning()`, or `error()`.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -47,6 +50,19 @@ Use the `placement` prop on `<Toaster>` to set the position of the toast group.
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExamplePlacementRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Closable
+
+Use the `closable` prop to prevent a toast from being closable.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleClosable client:visible closable={false} />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleClosableRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

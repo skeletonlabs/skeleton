@@ -38,8 +38,12 @@
 			>{api.description}</span
 		>
 	</div>
-	<!-- Dismiss Button -->
-	<button class="{props.btnDismissBase} {props.btnDismissClasses}" onclick={api.dismiss} data-testid="toast-dismiss">&times;</button>
+	{#if api.closable}
+		<!-- Dismiss Button -->
+		<button class="{props.btnDismissBase} {props.btnDismissClasses}" {...api.getCloseTriggerProps()} data-testid="toast-dismiss"
+			>&times;</button
+		>
+	{/if}
 </div>
 
 <style>

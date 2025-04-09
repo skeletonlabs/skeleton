@@ -27,7 +27,8 @@ describe('Toaster', () => {
 		render(Toaster, { toaster });
 		await act(() => {
 			toaster.create({
-				duration: Infinity
+				duration: Infinity,
+				closable: true
 			});
 		});
 		expect(screen.getByTestId('toast-root')).toBeInTheDocument();
@@ -35,6 +36,17 @@ describe('Toaster', () => {
 		expect(screen.getByTestId('toast-title')).toBeInTheDocument();
 		expect(screen.getByTestId('toast-description')).toBeInTheDocument();
 		expect(screen.getByTestId('toast-dismiss')).toBeInTheDocument();
+	});
+	it('does not render the close button if the toast is not closable', async () => {
+		const toaster = createToaster();
+		render(Toaster, { toaster });
+		await act(() => {
+			toaster.create({
+				duration: Infinity,
+				closable: false
+			});
+		});
+		expect(screen.queryByTestId('toast-dismiss')).not.toBeInTheDocument();
 	});
 	const rootProps = ['base', 'width', 'padding', 'rounded', 'classes'];
 	for (const prop of rootProps) {
