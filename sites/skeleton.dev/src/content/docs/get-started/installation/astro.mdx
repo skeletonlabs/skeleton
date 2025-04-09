@@ -34,27 +34,6 @@ Learn how to install the Skeleton core into your Astro project. We'll cover usin
 		cd my-skeleton-app
         ```
     </ProcessStep>
-    <ProcessStep step="2">
-        ### Install Tailwind
-        Install Tailwind and and the Tailwind Vite plugin.
-        ```console
-        npm install tailwindcss @tailwindcss/vite
-        ```
-		Implement the plugin in `astro.config` in the root of your project.
-		```ts title="astro.config" {3} "tailwindcss()"
-		// @ts-check
-		import { defineConfig } from "astro/config";
-		import tailwindcss from "@tailwindcss/vite";
-
-    	export default defineConfig({
-    		vite: {
-    			plugins: [
-    				tailwindcss()
-    			],
-    		},
-    	});
-    	```
-    </ProcessStep>
     <ProcessStep step="3">
         ### Install Skeleton
         Install the Skeleton core package for the Tailwind plugin.
