@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-react
 
+## 1.2.1
+### Patch Changes
+
+
+- fix: respect closable toast option ([#3507](https://github.com/skeletonlabs/skeleton/pull/3507))
+
 ## 1.2.0
 ### Minor Changes
 
