@@ -13,10 +13,14 @@ import Navigation from '@components/docs/Navigation.astro';
 import { Icon } from 'astro-icon/components';
 
 const coreLinks = [
-	{ href: '/docs/get-started/introduction', label: 'Docs', target: '_self' },
-	{ href: '/news', label: 'News', target: '_self' },
-	// { href: 'https://themes.skeleton.dev/', label: 'Themes', target: '_blank' },
-	{ href: '/figma', label: 'Figma', target: '_self' }
+	{ href: '/docs/get-started/introduction', title: 'Docs' },
+	{ href: '/news', title: 'News' },
+	{ href: 'https://themes.skeleton.dev/', title: 'Themes', target: '_blank' },
+	{ href: '/figma', title: 'Figma' }
+];
+const versionLinks = [
+	{ href: 'https://v1.skeleton.dev/', title: 'Version 1', target: '_blank' },
+	{ href: 'https://v2.skeleton.dev/', title: 'Version 2', target: '_blank' }
 ];
 ---
 
@@ -27,8 +31,11 @@ const coreLinks = [
 		<!-- Left -->
 		<div class="flex items-stretch justify-start gap-4">
 			<!-- Mobile Nav Drawer -->
-			<Drawer navigation={coreLinks}>
-				<Navigation />
+			<Drawer>
+				<Navigation
+					topGroups={[{ title: 'Overview', items: coreLinks }]}
+					bottomGroups={[{ title: 'Previous Versions', items: versionLinks }]}
+				/>
 			</Drawer>
 			<!-- Logo -->
 			<a class="hidden xl:inline-block" href="/" title="Skeleton">
@@ -41,7 +48,7 @@ const coreLinks = [
 				{
 					coreLinks.map((link) => (
 						<a class="btn hover:preset-tonal" href={link.href} target={link.target}>
-							{link.label}
+							{link.title}
 						</a>
 					))
 				}
