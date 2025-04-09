@@ -27,17 +27,17 @@ describe('Toaster', () => {
 		render(<Toaster toaster={toaster} />);
 		toaster.create({
 			duration: Infinity,
-			closable: true,
+			closable: true
 		});
 		expect(screen.getByTestId('toast-root')).toBeInTheDocument();
 		expect(screen.getByTestId('toast-dismiss')).toBeInTheDocument();
 	});
-	it.skip("does not render the close button if the toast is not closable", async () => {
+	it.skip('does not render the close button if the toast is not closable', async () => {
 		const toaster = createToaster();
 		render(<Toaster toaster={toaster} />);
 		toaster.create({
 			duration: Infinity,
-			closable: false,
+			closable: false
 		});
 		expect(screen.queryByTestId('toast-dismiss')).not.toBeInTheDocument();
 	});
