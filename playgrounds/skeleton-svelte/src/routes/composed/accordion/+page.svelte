@@ -1,5 +1,9 @@
 <script lang="ts">
 	import { Accordion } from '@skeletonlabs/skeleton-svelte/composed';
+
+	const obj = {
+		class: 'bg-re'
+	};
 </script>
 
 <Accordion>
