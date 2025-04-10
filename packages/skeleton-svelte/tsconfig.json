@@ -4,6 +4,8 @@
 		"checkJs": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
+		"verbatimModuleSyntax": true,
+		"lib": ["esnext", "DOM", "DOM.Iterable"],
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
