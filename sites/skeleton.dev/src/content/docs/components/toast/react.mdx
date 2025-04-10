@@ -27,11 +27,11 @@ The first example showcases the complete setup process for a reusable toast comp
 	<Fragment slot="code">
 		<div class="space-y-4">
 			Import `createToaster()` and export a new shared reference.
-			<Code code={ToasterReuseUtil} lang="ts" title="toaster-svelte.ts" />
+			<Code code={ToasterReuseUtil} lang="ts" />
 			Import the `<Toaster>` component and `appToaster` reference in your root layout.
-			<Code code={ExampleReuseLayoutRaw} lang="svelte" title="+layout.svelte" />
+			<Code code={ExampleReuseLayoutRaw} lang="tsx" />
 			Import `appToaster` reference and use it to trigger toasts anywhere in your client-side app.
-			<Code code={ExampleReusePageRaw} lang="svelte" title="+page.svelte" />
+			<Code code={ExampleReusePageRaw} lang="tsx" />
 		</div>
 	</Fragment>
 </Preview>
