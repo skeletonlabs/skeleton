@@ -11,5 +11,6 @@
 		"strict": true,
 		"module": "NodeNext",
 		"moduleResolution": "NodeNext"
-	}
+	},
+	"include": ["src"]
 }
