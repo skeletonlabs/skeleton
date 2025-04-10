@@ -1,12 +1,12 @@
 'use client';
 
 import { Toaster } from '@skeletonlabs/skeleton-react';
-import { appToaster } from './toaster-react';
+import { toaster } from './toaster-react';
 
 export default function () {
 	return (
 		<>
-			<Toaster toaster={appToaster}></Toaster>
+			<Toaster toaster={toaster}></Toaster>
 
 			{/* ...layout content... */}
 		</>

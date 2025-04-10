@@ -1,6 +1,6 @@
 'use client';
 
-import { appToaster } from './toaster-react';
+import { toaster } from './toaster-react';
 
 export default function () {
 	return (
@@ -8,7 +8,7 @@ export default function () {
 			<button
 				className="btn preset-filled"
 				onClick={() => {
-					appToaster.info({
+					toaster.info({
 						title: 'This is a toast!'
 					});
 				}}

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { appToaster } from './toaster-svelte';
+	import { toaster } from './toaster-svelte';
 </script>
 
 <button
 	class="btn preset-filled"
 	onclick={() => {
-		appToaster.info({
+		toaster.info({
 			title: 'This is a toast!'
 		});
 	}}

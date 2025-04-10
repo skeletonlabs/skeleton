@@ -1,3 +1,3 @@
 import { createToaster } from '@skeletonlabs/skeleton-react';
 
-export const appToaster = createToaster();
+export const toaster = createToaster();

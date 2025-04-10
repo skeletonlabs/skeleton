@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Toaster } from '@skeletonlabs/skeleton-svelte';
-	import { appToaster } from './toaster-svelte';
+	import { toaster } from './toaster-svelte';
 </script>
 
-<Toaster toaster={appToaster}></Toaster>
+<Toaster {toaster}></Toaster>
