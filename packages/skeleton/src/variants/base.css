@@ -1,0 +1,5 @@
+@custom-variant skb {
+	@layer base {
+		@slot;
+	}
+}
