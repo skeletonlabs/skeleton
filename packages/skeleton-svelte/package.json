@@ -4,12 +4,11 @@
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
-		"build": "svelte-package --input src --output dist",
+		"build": "svelte-kit sync && svelte-package --input src --output dist",
 		"dev": "pnpm build --watch",
 		"test": "vitest run",
 		"test:watch": "vitest run --watch",
-		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"postinstall": "svelte-kit sync"
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
 	},
 	"types": "./dist/index.d.ts",
 	"exports": {
