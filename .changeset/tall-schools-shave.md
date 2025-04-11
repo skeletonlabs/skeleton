@@ -2,5 +2,5 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-feat: add `base` variant
+feat: add `skb` (`skeleton-base`) Tailwind variant
   

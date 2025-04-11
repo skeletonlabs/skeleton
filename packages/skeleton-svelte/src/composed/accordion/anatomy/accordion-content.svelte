@@ -11,7 +11,7 @@
 		mergeProps(
 			rootContext.api.getItemContentProps(itemContext.itemProps),
 			{
-				class: 'base:py-2 base:px-4'
+				class: 'skb:py-2 skb:px-4'
 			},
 			restAttributes
 		)

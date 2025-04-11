@@ -10,7 +10,7 @@
 		mergeProps(
 			rootContext.api.getFallbackProps(),
 			{
-				class: 'base:size-full base:flex base:justify-center base:items-center'
+				class: 'skb:size-full skb:flex skb:justify-center skb:items-center'
 			},
 			restAttributes
 		)

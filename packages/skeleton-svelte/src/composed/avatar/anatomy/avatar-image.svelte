@@ -10,7 +10,7 @@
 		mergeProps(
 			rootContext.api.getImageProps(),
 			{
-				class: 'base:w-full base:object-cover'
+				class: 'skb:w-full skb:object-cover'
 			},
 			restAttributes
 		)

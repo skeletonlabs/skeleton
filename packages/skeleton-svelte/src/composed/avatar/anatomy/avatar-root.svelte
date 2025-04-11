@@ -17,7 +17,7 @@
 		mergeProps(
 			api.getRootProps(),
 			{
-				class: 'base:isolate base:bg-surface-400-600 base:size-16 base:rounded-full base:overflow-hidden'
+				class: 'skb:isolate skb:bg-surface-400-600 skb:size-16 skb:rounded-full skb:overflow-hidden'
 			},
 			restAttributes
 		)

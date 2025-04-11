@@ -13,7 +13,7 @@ export default function (props: AccordionTriggerProps) {
 		rootContext.api.getItemTriggerProps(itemContext.itemProps),
 		{
 			className:
-				'base:w-full base:text-start base:hover:preset-tonal-primary base:py-2 base:px-4 base:rounded-base base:flex base:justify-between base:items-center'
+				'skb:w-full skb:text-start skb:hover:preset-tonal-primary skb:py-2 skb:px-4 skb:rounded-base skb:flex skb:justify-between skb:items-center'
 		},
 		restAttributes
 	);

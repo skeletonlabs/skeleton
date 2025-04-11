@@ -11,7 +11,7 @@ export default function (props: AvatarFallbackProps) {
 	const attributes = mergeProps(
 		rootContext.api.getFallbackProps(),
 		{
-			className: 'base:size-full base:flex base:justify-center base:items-center'
+			className: 'skb:size-full skb:flex skb:justify-center skb:items-center'
 		},
 		restAttributes
 	);

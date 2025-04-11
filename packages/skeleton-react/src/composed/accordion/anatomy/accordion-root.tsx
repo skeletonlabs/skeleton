@@ -17,7 +17,7 @@ export default function (props: AccordionRootProps) {
 	const attributes = mergeProps(
 		api.getRootProps(),
 		{
-			className: 'base:grid base:gap-2'
+			className: 'skb:grid skb:gap-2'
 		},
 		restAttributes
 	);

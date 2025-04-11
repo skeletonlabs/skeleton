@@ -17,7 +17,7 @@ export default function (props: AvatarRootProps) {
 	const attributes = mergeProps(
 		api.getRootProps(),
 		{
-			className: 'base:isolate base:bg-surface-400-600 base:size-16 base:rounded-full base:overflow-hidden'
+			className: 'skb:isolate skb:bg-surface-400-600 skb:size-16 skb:rounded-full skb:overflow-hidden'
 		},
 		restAttributes
 	);

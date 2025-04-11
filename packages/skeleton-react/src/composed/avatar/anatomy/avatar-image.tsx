@@ -11,7 +11,7 @@ export default function (props: AvatarImageProps) {
 	const attributes = mergeProps(
 		rootContext.api.getImageProps(),
 		{
-			className: 'base:w-full base:object-cover'
+			className: 'skb:w-full skb:object-cover'
 		},
 		restAttributes
 	);

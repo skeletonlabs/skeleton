@@ -12,7 +12,7 @@ export default function (props: AccordionContentProps) {
 	const attributes = mergeProps(
 		rootContext.api.getItemContentProps(itemContext.itemProps),
 		{
-			className: 'base:py-2 base:px-4'
+			className: 'skb:py-2 skb:px-4'
 		},
 		restAttributes
 	);

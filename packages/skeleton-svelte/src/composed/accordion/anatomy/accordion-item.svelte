@@ -12,7 +12,7 @@
 		mergeProps(
 			rootContext.api.getItemProps(itemProps),
 			{
-				class: 'base:grid base:gap-2'
+				class: 'skb:grid skb:gap-2'
 			},
 			restAttributes
 		)

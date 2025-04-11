@@ -1,4 +1,4 @@
-@custom-variant base {
+@custom-variant skb {
 	@layer base {
 		@slot;
 	}

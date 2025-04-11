@@ -80,7 +80,9 @@ export default function RootLayout({
 								<a className="anchor" href="/composed/accordion">
 									Accordion
 								</a>
-								{/* <a className="anchor" href="/components/avatars">Avatars</a> */}
+								<a className="anchor" href="/composed/avatar">
+									Avatar
+								</a>
 							</nav>
 						</div>
 					</div>
