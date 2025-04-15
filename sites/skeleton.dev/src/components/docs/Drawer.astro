@@ -12,50 +12,124 @@ interface DrawerProps {
 }
 
 const {
-	base = 'xl:hidden preset-filled-surface-100-900 shadow-xl fixed top-0 left-0 bottom-0 z-50 w-[320px] p-4 pb-24 space-y-10 overflow-y-auto transition-transform duration-100 -translate-x-[320px]',
+	base = 'xl:hidden preset-filled-surface-100-900 shadow-xl w-lg max-h-[unset] p-4 pb-24 open:grid gap-10 h-dvh backdrop:bg-black/50',
 	classes = ''
 }: DrawerProps = Astro.props;
 ---
 
 {/* Drawer */}
-<div class={`${base} ${classes}`} id="drawer">
+<dialog class={`${base} ${classes}`} data-drawer>
 	<!-- Header -->
 	<header class="flex justify-between items-center">
-		<h2 class="h3">Skeleton</h2>
-		<button class="btn-icon" data-drawer-toggle>
+		<h2 class="h3 ml-2">Skeleton</h2>
+		<button class="btn-icon" data-drawer-trigger>
 			<IconClose />
 		</button>
 	</header>
 	<!-- Slot -->
 	<slot />
-</div>
+</dialog>
 
-{/* Hamburger Menu */}
-<button class="xl:hidden btn-icon" data-drawer-toggle>
+{/* Drawer Trigger */}
+<button class="xl:hidden btn-icon translate-x" data-drawer-trigger>
 	<IconMenu />
 </button>
 
-<script>
-	// CSS classes such as `h-screen` causes an unintended gap below the viewport on smaller screens, this is a temporary fix.
-	function setDrawerHeight() {
-		const drawer = document.querySelector('#drawer');
-		if (!drawer) return;
-		(drawer as HTMLElement).style.height = `${window.innerHeight}px`;
+<style>
+	[data-drawer] {
+		transition:
+			display 200ms allow-discrete,
+			overlay 200ms allow-discrete;
+		animation: drawer-close 200ms forwards;
+		&[open] {
+			animation: drawer-open 200ms forwards;
+		}
+		&[open]::backdrop {
+			animation: backdrop-open 200ms forwards;
+		}
 	}
+
+	[data-drawer]::backdrop {
+		transition: opacity 100ms allow-discrete;
+		animation: backdrop-close 200ms forwards;
+	}
+
+	@keyframes drawer-open {
+		from {
+			translate: -100% 0;
+		}
+		to {
+			translate: 0 0;
+		}
+	}
+
+	@keyframes drawer-close {
+		from {
+			translate: 0 0;
+		}
+		to {
+			translate: -100% 0;
+		}
+	}
+
+	@keyframes backdrop-open {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes backdrop-close {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+</style>
+
+<script>
 	function initializeEventHandlers() {
-		setDrawerHeight();
-		window.addEventListener('resize', setDrawerHeight);
-		const triggers = document.querySelectorAll('[data-drawer-toggle], #drawer a');
-		triggers.forEach((elem) => {
-			elem.addEventListener('click', () => {
-				const drawer = document.querySelector('#drawer');
-				if (!(drawer instanceof HTMLElement)) {
+		const drawerTriggers = document.querySelectorAll<HTMLButtonElement>('[data-drawer-trigger]');
+		for (const drawerTrigger of drawerTriggers) {
+			drawerTrigger.addEventListener('click', () => {
+				const drawer = document.querySelector<HTMLDialogElement>('[data-drawer]');
+				if (!drawer) {
 					return;
 				}
-				drawer.classList.toggle('-translate-x-[320px]');
+				if (drawer.open) {
+					drawer.close();
+				} else {
+					drawer.showModal();
+				}
 			});
-		});
+		}
 	}
+	document.addEventListener('click', (event) => {
+		const drawer = document.querySelector<HTMLDialogElement>('[data-drawer]');
+		if (!drawer) {
+			return;
+		}
+		if (event.target === null || !(event.target instanceof Element)) {
+			return;
+		}
+		if (event.target.tagName !== 'DIALOG') {
+			//This prevents issues with forms
+			return;
+		}
+		const rect = event.target.getBoundingClientRect();
+		const clickedInDialog =
+			rect.top <= event.clientY &&
+			event.clientY <= rect.top + rect.height &&
+			rect.left <= event.clientX &&
+			event.clientX <= rect.left + rect.width;
+		if (clickedInDialog === false) {
+			drawer.close();
+		}
+	});
 	initializeEventHandlers();
 	document.addEventListener('astro:after-swap', () => {
 		initializeEventHandlers();
