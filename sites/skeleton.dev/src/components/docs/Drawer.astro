@@ -44,14 +44,13 @@ const {
 		&[open] {
 			animation: drawer-open 200ms forwards;
 		}
+		&::backdrop {
+			transition: opacity 100ms allow-discrete;
+			animation: backdrop-close 200ms forwards;
+		}
 		&[open]::backdrop {
 			animation: backdrop-open 200ms forwards;
 		}
-	}
-
-	[data-drawer]::backdrop {
-		transition: opacity 100ms allow-discrete;
-		animation: backdrop-close 200ms forwards;
 	}
 
 	@keyframes drawer-open {
