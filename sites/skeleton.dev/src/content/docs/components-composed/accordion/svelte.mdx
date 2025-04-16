@@ -4,3 +4,14 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
+import DefaultExample from '@examples/components-composed/svelte/accordion/default.svelte';
+import DefaultExampleRaw from '@examples/components-composed/svelte/accordion/default.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<DefaultExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
