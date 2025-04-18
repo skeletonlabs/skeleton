@@ -11,22 +11,15 @@ import TableOfContents from '@components/docs/TableOfContents.astro';
 
 import type { InferEntrySchema } from 'astro:content';
 
-interface PageHeadings {
+interface PageHeading {
 	depth: number;
 	slug: string;
 	text: string;
 }
 
-interface Chip {
-	label: string;
-	href: string;
-	icon?: string;
-	preset?: string;
-}
-
 interface Props {
-	frontmatter: InferEntrySchema<'docs'>
-	headings: PageHeadings[];
+	frontmatter: InferEntrySchema<'docs'>;
+	headings: PageHeading[];
 }
 
 // Props
