@@ -81,6 +81,13 @@ const urls = {
 			</header>
 			<!-- Chips -->
 			<ChipsBar {frontmatter} {urls} />
+			<!-- Stability Warning -->
+			{frontmatter.stability && frontmatter.stability !== 'stable' && (
+				<div class="preset-tonal-warning p-4 rounded grid gap-2">
+					<span class="h2"><span class="capitalize">{frontmatter.stability}</span> Feature</span>
+					<p>This feature is currently in a {frontmatter.stability} status and not intended for production use. It may receive breaking changes before it's stable release.</p>
+				</div>
+			)}
 			<!-- Framework Tabs -->
 			<FrameworkPicker />
 			<!-- Content -->
