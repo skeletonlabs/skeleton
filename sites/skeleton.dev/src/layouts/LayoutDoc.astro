@@ -9,6 +9,8 @@ import Breadcrumbs from '@components/docs/Breadcrumbs.astro';
 import FrameworkPicker from '@components/docs/FrameworkPicker.astro';
 import TableOfContents from '@components/docs/TableOfContents.astro';
 
+import type { InferEntrySchema } from 'astro:content';
+
 interface PageHeadings {
 	depth: number;
 	slug: string;
@@ -23,19 +25,7 @@ interface Chip {
 }
 
 interface Props {
-	frontmatter: {
-		// Required ---
-		title: string;
-		description: string;
-		// Optional ---
-		srcCore?: string;
-		srcSvelte?: string;
-		srcReact?: string;
-		srcAlly?: string;
-		srcZag?: string;
-		showDocsUrl?: boolean;
-		chips?: Chip[];
-	};
+	frontmatter: InferEntrySchema<'docs'>
 	headings: PageHeadings[];
 }
 
