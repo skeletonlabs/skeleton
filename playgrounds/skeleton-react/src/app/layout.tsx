@@ -73,6 +73,18 @@ export default function RootLayout({
 								</a>
 							</nav>
 						</div>
+						{/* Composed (Experimental) */}
+						<div className="space-y-8">
+							<span className="block font-bold">Composed (Experimental)</span>
+							<nav className="text-sm flex flex-col gap-2">
+								<a className="anchor" href="/composed/accordion">
+									Accordion
+								</a>
+								<a className="anchor" href="/composed/avatar">
+									Avatar
+								</a>
+							</nav>
+						</div>
 					</div>
 					{/* Page */}
 					<main className="overflow-y-auto p-8">{children}</main>
