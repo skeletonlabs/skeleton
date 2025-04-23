@@ -18,7 +18,7 @@ export const socialLinks = atom<SocialLink[]>([
 		icon: 'discord'
 	},
 	{
-		href: 'https://bsky.app/profile/skeletonlabs.bsky.social',
+		href: 'https://bsky.app/profile/skeleton.dev',
 		label: 'Bluesky',
 		icon: 'bluesky'
 	},
