@@ -15,7 +15,7 @@ Skeleton is an adaptive design system aimed at extending [Tailwind](https://tail
 
 - [GitHub](https://github.com/skeletonlabs/skeleton)
 - [Discord](https://discord.gg/EXqV7W8MtY)
-- [Bluesky](https://bsky.app/profile/skeletonlabs.bsky.social)
+- [Bluesky](https://bsky.app/profile/skeleton.dev)
 - [YouTube](https://www.youtube.com/@skeletonlabs)
 
 ## 👍 Sponsor Us
