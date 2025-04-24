@@ -155,8 +155,8 @@
 				<button type="button" class="btn hover:preset-tonal">Prices</button>
 				<button type="button" class="btn hover:preset-tonal">Blog</button>
 				<button type="button" class="btn hover:preset-tonal">About</button>
+				<button type="button" class="btn {currentPresets.filled}">Login</button>
 			</nav>
-			<button type="button" class="btn {currentPresets.filled}">Login</button>
 		{/snippet}
 	</AppBar>
 	<!-- Masonry -->
