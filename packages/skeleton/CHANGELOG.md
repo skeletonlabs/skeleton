@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.1.3
+### Patch Changes
+
+
+- Remove Color input border in Firefox ([#3530](https://github.com/skeletonlabs/skeleton/pull/3530))
+
 ## 3.1.2
 ### Patch Changes
 
