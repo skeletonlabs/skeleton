@@ -108,7 +108,7 @@
 
 	/* Firefox */
 
-	& :: -ms-expand {
+	& option :: -ms-expand {
 		display: none;
 	}
 }
