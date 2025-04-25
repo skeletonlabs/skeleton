@@ -105,4 +105,10 @@
 		height: --spacing(9);
 		padding: --spacing(2);
 	}
+
+	/* Firefox */
+
+	& :: -ms-expand {
+		display: none;
+	}
 }
