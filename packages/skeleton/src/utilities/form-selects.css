@@ -97,6 +97,7 @@
 
 	& option {
 		background-color: var(--color-surface-50-950);
+		border-radius: 0px;
 		color: var(--color-surface-950-50);
 		border-radius: var(--radius-base);
 		font-size: var(--text-base);
