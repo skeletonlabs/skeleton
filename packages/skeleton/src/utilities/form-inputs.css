@@ -81,6 +81,12 @@
 		border: none;
 		border-radius: var(--radius-base);
 	}
+	&[type='color']::-moz-color-swatch {
+		border: none;
+	}
+	&[type='color']::-moz-color-swatch {
+		border: none;
+	}
 }
 
 /* Ghost Input*/
