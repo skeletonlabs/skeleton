@@ -4,7 +4,7 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import PostioningOptions from '@examples/components/popover/PostioningOptions.txt?raw';
+import PositioningOptions from '@examples/components/popover/PositioningOptions.txt?raw';
 import ExamplePopover from '@examples/components/popover/ExamplePopover.svelte';
 import ExamplePopoverRaw from '@examples/components/popover/ExamplePopover.svelte?raw';
 import ExampleTooltip from '@examples/components/popover/ExampleTooltip.svelte';
@@ -25,7 +25,7 @@ import schemaModal from '@content/schemas/svelte/modal.json';
 
 <div class="card preset-outlined-warning-500 p-8 space-y-8">
 	<p>
-		Please note this section will be the future home of the [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) integrateion guide,
+		Please note this section will be the future home of the [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) integration guide,
 		an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this
 		project is in development, we have provided several Svelte-specific components to act as temporary substitutions. Note that these
 		components will remain available until our next major release (Skeleton v4.x). However, the goal will be to replace these with Floating
@@ -38,7 +38,7 @@ import schemaModal from '@content/schemas/svelte/modal.json';
 Skeleton does not take an opinionated stance regarding z-index stacking. This means elements may be occluded beneath other elements with a higher index. Adjust this using the `zIndex` component property.
 
 ```svelte
-<Popover ... zIndex={10}>
+<Popover ... zIndex="10">
 	<!-- ... -->
 </Popover>
 ```
@@ -54,7 +54,7 @@ Triggers an anchored popover when you <u>click</u> the trigger element. [View AP
 	<Fragment slot="code">
 		<div class="space-y-4">
 			<Code code={ExamplePopoverRaw} lang="svelte" />
-			<Code code={PostioningOptions} lang="ts" />
+			<Code code={PositioningOptions} lang="ts" />
 		</div>
 	</Fragment>
 </Preview>
@@ -84,7 +84,7 @@ Triggers an anchored popover when you <u>hover</u> the trigger element. [View AP
 	<Fragment slot="code">
 		<div class="space-y-4">
 			<Code code={ExampleTooltipRaw} lang="svelte" />
-			<Code code={PostioningOptions} lang="ts" />
+			<Code code={PositioningOptions} lang="ts" />
 		</div>
 	</Fragment>
 </Preview>
