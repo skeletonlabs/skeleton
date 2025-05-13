@@ -48,7 +48,7 @@
 	let options = $state.raw(data);
 	const collection = $derived(
 		combobox.collection({
-			items: data,
+			items: options,
 			// Map data structure
 			itemToValue: (item) => item.value,
 			itemToString: (item) => item.label
@@ -66,7 +66,6 @@
 		},
 		onInputValueChange(event) {
 			const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
-			collection.setItems(filtered);
 			options = filtered;
 			zagProps.onInputValueChange?.(event);
 		}
