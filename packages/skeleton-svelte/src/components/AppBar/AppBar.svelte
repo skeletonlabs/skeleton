@@ -43,7 +43,12 @@
 
 <!-- @component A header element for the top of a page layout. -->
 
-<header class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}" role="toolbar" data-testid="app-bar">
+<header
+	class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}"
+	role="group"
+	aria-labelledby="toolbar"
+	data-testid="app-bar"
+>
 	<section class="{toolbarBase} {toolbarGridCols} {toolbarGap} {toolbarClasses}" data-testid="app-bar-toolbar">
 		{#if lead}
 			<div class="{leadBase} {leadSpaceX} {leadPadding} {leadClasses}">
