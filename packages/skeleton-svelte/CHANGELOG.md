@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.2.2
+### Patch Changes
+
+
+- bugfix: Fix Combobox collection not updating on input ([#3542](https://github.com/skeletonlabs/skeleton/pull/3542))
+
 ## 1.2.1
 ### Patch Changes
 
