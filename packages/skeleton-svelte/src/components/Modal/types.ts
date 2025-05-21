@@ -69,5 +69,5 @@ export interface ModalProps extends Omit<dialog.Props, 'id'> {
 
 	// Events ---
 	/** Handle the dialog button click event. */
-	onclick?: () => void;
+	onclick?: (e: MouseEvent) => void;
 }
