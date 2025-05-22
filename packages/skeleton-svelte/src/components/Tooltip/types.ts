@@ -55,5 +55,5 @@ export interface TooltipProps extends Omit<tooltip.Props, 'id'> {
 	/** Handle the tooltip button hover event. */
 	onmouseover?: (e: MouseEvent) => void;
 	/** Handle the tooltip button click event. */
-	onclick?: (e: MouseEvent) => void;
+	onclick?: HTMLButtonAttributes['onclick'];
 }
