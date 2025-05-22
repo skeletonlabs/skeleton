@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-react
 
+## 1.2.2
+### Patch Changes
+
+
+- Segment/Pagination: move default border padding to padding prop ([#3554](https://github.com/skeletonlabs/skeleton/pull/3554))
+
 ## 1.2.1
 ### Patch Changes
 
