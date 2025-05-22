@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.2.3
+### Patch Changes
+
+
+- Segment/Pagination: move default border padding to padding prop ([#3554](https://github.com/skeletonlabs/skeleton/pull/3554))
+
 ## 1.2.2
 ### Patch Changes
 
