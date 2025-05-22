@@ -53,5 +53,5 @@ export interface PopoverProps extends Omit<popover.Props, 'id'> {
 
 	// Events ---
 	/** Handle the popover button click event. */
-	onclick?: () => void;
+	onclick?: HTMLButtonAttributes['onclick'];
 }
