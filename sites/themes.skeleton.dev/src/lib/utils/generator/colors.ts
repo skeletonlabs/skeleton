@@ -6,7 +6,7 @@ import { settingsColors } from '$lib/state/generator.svelte';
 
 // Common ---
 
-/* Takes color shade 50/500/960 and generates a color scale */
+/* Takes color shade 50/500/950 and generates a color scale */
 function genColorScale(colorHigh: string, colorMed: string, colorLow: string) {
 	return chroma
 		.scale([
@@ -21,13 +21,15 @@ export function getColorKey(var1: any, var2: any) {
 	return `--color-${var1 as String}-${var2 as String}` as keyof typeof settingsColors;
 }
 
-export function genColorContrast(colorName: string, shade: string, targetShade: keyof typeof settingsColors) {
-	const paletteShade = settingsColors[targetShade];
+export function genColorContrast(colorName: string, shade: string, targetShade: string) {
+	const paletteShade = settingsColors[targetShade as keyof typeof settingsColors];
 	let contrastLight = settingsColors[getColorKey(colorName, 'contrast-light')];
 	let contrastDark = settingsColors[getColorKey(colorName, 'contrast-dark')];
+
 	// Strip wrapping `var()`
 	if (contrastLight.includes('var')) contrastLight = contrastLight.replace('var(', '').replace(')', '');
 	if (contrastDark.includes('var')) contrastDark = contrastDark.replace('var(', '').replace(')', '');
+
 	// Get Raw Hex
 	if (!contrastLight.includes('inherit')) {
 		// If CSS Custom Property
@@ -37,14 +39,16 @@ export function genColorContrast(colorName: string, shade: string, targetShade: 
 		if (contrastLight.includes('--')) contrastLight = settingsColors[contrastLight as keyof typeof settingsColors];
 		if (contrastDark.includes('--')) contrastDark = settingsColors[contrastDark as keyof typeof settingsColors];
 	}
+
 	// Compare
 	const contrastRatioLight = chroma.contrast(chroma(paletteShade), contrastLight);
 	const contrastRatioDark = chroma.contrast(chroma(paletteShade), contrastDark);
+
 	// Set State
 	if (contrastRatioLight > contrastRatioDark) {
-		settingsColors[getColorKey(colorName, shade)] = `var(--color-${colorName}-contrast-light)`;
+		settingsColors[getColorKey(colorName, `contrast-${shade}`)] = `var(--color-${colorName}-contrast-light)`;
 	} else {
-		settingsColors[getColorKey(colorName, shade)] = `var(--color-${colorName}-contrast-dark)`;
+		settingsColors[getColorKey(colorName, `contrast-${shade}`)] = `var(--color-${colorName}-contrast-dark)`;
 	}
 }
 
@@ -54,6 +58,7 @@ function applyColorState(colorName: string, colorScale: string[]) {
 		const targetShade = getColorKey(colorName, shade);
 		// Set state
 		settingsColors[targetShade] = colorScale[i];
+		console.log(`Setting ${targetShade} to ${colorScale[i]}`);
 		// Generate Color Contrast
 		genColorContrast(colorName, String(shade), targetShade);
 	});
@@ -67,8 +72,11 @@ export function genColorRamp(disabled: boolean, colorName: string) {
 	const shade50 = settingsColors[getColorKey(colorName, '50')];
 	const shade500 = settingsColors[getColorKey(colorName, '500')];
 	const shade950 = settingsColors[getColorKey(colorName, '950')];
+	console.log('settingsColors:', settingsColors);
+	console.log(`Generating color ramp for ${colorName} with shades: ${shade50}, ${shade500}, ${shade950}`);
 	// Generate Color Scale
 	const colorScale = genColorScale(shade50, shade500, shade950);
+	console.log(`Generated color scale for ${colorName}:`, colorScale);
 	// Update Color State
 	applyColorState(colorName, colorScale);
 }
@@ -87,6 +95,7 @@ export function seedColor(colorName: string, seedColor: string) {
 	];
 	// Generate Color Scale
 	const colorScale = genColorScale(colorArray[0], colorArray[1], colorArray[2]);
+	console.log(`Generated color scale for ${colorName}:`, colorScale);
 	// Update Color State
 	applyColorState(colorName, colorScale);
 }
