@@ -58,7 +58,6 @@ function applyColorState(colorName: string, colorScale: string[]) {
 		const targetShade = getColorKey(colorName, shade);
 		// Set state
 		settingsColors[targetShade] = colorScale[i];
-		console.log(`Setting ${targetShade} to ${colorScale[i]}`);
 		// Generate Color Contrast
 		genColorContrast(colorName, String(shade), targetShade);
 	});
@@ -72,11 +71,8 @@ export function genColorRamp(disabled: boolean, colorName: string) {
 	const shade50 = settingsColors[getColorKey(colorName, '50')];
 	const shade500 = settingsColors[getColorKey(colorName, '500')];
 	const shade950 = settingsColors[getColorKey(colorName, '950')];
-	console.log('settingsColors:', settingsColors);
-	console.log(`Generating color ramp for ${colorName} with shades: ${shade50}, ${shade500}, ${shade950}`);
 	// Generate Color Scale
 	const colorScale = genColorScale(shade50, shade500, shade950);
-	console.log(`Generated color scale for ${colorName}:`, colorScale);
 	// Update Color State
 	applyColorState(colorName, colorScale);
 }
@@ -95,7 +91,6 @@ export function seedColor(colorName: string, seedColor: string) {
 	];
 	// Generate Color Scale
 	const colorScale = genColorScale(colorArray[0], colorArray[1], colorArray[2]);
-	console.log(`Generated color scale for ${colorName}:`, colorScale);
 	// Update Color State
 	applyColorState(colorName, colorScale);
 }
