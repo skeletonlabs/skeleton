@@ -17,8 +17,8 @@ function genColorScale(colorHigh: string, colorMed: string, colorLow: string) {
 		.colors(11);
 }
 
-export function getColorKey(var1: any, var2: any) {
-	return `--color-${var1 as String}-${var2 as String}` as keyof typeof settingsColors;
+export function getColorKey(var1: string, var2: string): string {
+	return `--color-${var1}-${var2}`;
 }
 
 export function genColorContrast(colorName: string, shade: string, targetShade: string) {
@@ -54,8 +54,8 @@ export function genColorContrast(colorName: string, shade: string, targetShade: 
 
 /* Applies the color scale to the color state */
 function applyColorState(colorName: string, colorScale: string[]) {
-	constants.colorShades.forEach((shade, i) => {
-		const targetShade = getColorKey(colorName, shade);
+	constants.colorShades.forEach((shade: string, i: number) => {
+		const targetShade: string = getColorKey(colorName, shade);
 		// Set state
 		settingsColors[targetShade] = colorScale[i];
 		// Generate Color Contrast
