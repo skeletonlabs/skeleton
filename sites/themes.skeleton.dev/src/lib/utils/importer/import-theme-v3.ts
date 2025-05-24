@@ -51,6 +51,7 @@ export async function importThemeV3(fileText: string, fileName: string) {
 	// Theme Properties
 	for (const key in properties) {
 		if (key in settingsColors) {
+			// @ts-expect-error type not satisfied
 			settingsColors[key] = properties[key];
 		} else if (key in settingsBackgrounds) {
 			// @ts-expect-error type not satisfied

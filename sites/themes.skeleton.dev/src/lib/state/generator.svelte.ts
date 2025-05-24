@@ -1,5 +1,13 @@
 import * as constants from '$lib/constants/generator';
-import type { Globals, SettingsCore, SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from './types';
+import type {
+	Globals,
+	SettingsCore,
+	SettingsColors,
+	SettingsBackgrounds,
+	SettingsTypography,
+	SettingsSpacing,
+	SettingsEdges
+} from './types';
 
 // Globals
 
@@ -15,7 +23,7 @@ export const settingsCore: SettingsCore = $state({
 	name: ''
 });
 
-export const settingsColors: Record<string, string> = $state({
+export const settingsColors: SettingsColors = $state({
 	// primary
 	'--color-primary-50': '#d3e5ff',
 	'--color-primary-100': '#a9cefd',

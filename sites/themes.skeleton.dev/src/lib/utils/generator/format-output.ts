@@ -2,7 +2,14 @@
 // Deep clones each state object and formats as needed.
 
 import chroma from 'chroma-js';
-import type { SettingsCore, SettingsBackgrounds, SettingsTypography, SettingsSpacing, SettingsEdges } from '$lib/state/types';
+import type {
+	SettingsCore,
+	SettingsColors,
+	SettingsBackgrounds,
+	SettingsTypography,
+	SettingsSpacing,
+	SettingsEdges
+} from '$lib/state/types';
 
 /** UTIL: Format from JS Object to CSS properties format. */
 function objectToCssProperties(obj: Record<string, unknown>) {
@@ -42,7 +49,7 @@ export function formatBackgrounds(backgrounds: SettingsBackgrounds) {
 	return objectToCssProperties(_backgrounds);
 }
 
-export function formatColors(colors: Record<string, string>) {
+export function formatColors(colors: SettingsColors) {
 	const _colors = JSON.parse(JSON.stringify(colors));
 	Object.keys(_colors).forEach((key) => {
 		if (_colors[key].includes('#')) _colors[key] = chroma(_colors[key]).css('oklch');

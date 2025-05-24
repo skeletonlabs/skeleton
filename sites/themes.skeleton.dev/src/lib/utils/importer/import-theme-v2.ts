@@ -60,9 +60,9 @@ export async function importThemeV2(fileText: string, fileName: string) {
 	// Set Generator State
 	if (fileName) settingsCore.name = fileName.split('.')[0]; // before .js|.ts
 	// Colors
-	for (const key in properties) {
+	for (const key of Object.keys(properties) as Array<keyof typeof settingsColors>) {
 		if (key in settingsColors) {
-			settingsColors[key] = properties[key];
+			settingsColors[key] = properties[key]!;
 		}
 	}
 
