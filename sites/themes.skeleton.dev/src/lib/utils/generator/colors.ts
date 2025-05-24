@@ -17,10 +17,14 @@ function genColorScale(colorHigh: string, colorMed: string, colorLow: string) {
 		.colors(11);
 }
 
-export function genColorContrast(colorName: string, shade: string, targetShade: string) {
+export function getColorKey(var1: any, var2: any) {
+	return `--color-${var1 as String}-${var2 as String}` as keyof typeof settingsColors;
+}
+
+export function genColorContrast(colorName: string, shade: string, targetShade: keyof typeof settingsColors) {
 	const paletteShade = settingsColors[targetShade];
-	let contrastLight = settingsColors[`--color-${colorName}-contrast-light`];
-	let contrastDark = settingsColors[`--color-${colorName}-contrast-dark`];
+	let contrastLight = settingsColors[getColorKey(colorName, 'contrast-light')];
+	let contrastDark = settingsColors[getColorKey(colorName, 'contrast-dark')];
 	// Strip wrapping `var()`
 	if (contrastLight.includes('var')) contrastLight = contrastLight.replace('var(', '').replace(')', '');
 	if (contrastDark.includes('var')) contrastDark = contrastDark.replace('var(', '').replace(')', '');
@@ -30,24 +34,24 @@ export function genColorContrast(colorName: string, shade: string, targetShade: 
 		if (contrastLight.includes('255 255 255')) contrastLight = '#FFFFFF';
 		if (contrastDark.includes('0 0 0')) contrastDark = '#000000';
 		// If White or Black
-		if (contrastLight.includes('--')) contrastLight = settingsColors[contrastLight];
-		if (contrastDark.includes('--')) contrastDark = settingsColors[contrastDark];
+		if (contrastLight.includes('--')) contrastLight = settingsColors[contrastLight as keyof typeof settingsColors];
+		if (contrastDark.includes('--')) contrastDark = settingsColors[contrastDark as keyof typeof settingsColors];
 	}
 	// Compare
 	const contrastRatioLight = chroma.contrast(chroma(paletteShade), contrastLight);
 	const contrastRatioDark = chroma.contrast(chroma(paletteShade), contrastDark);
 	// Set State
 	if (contrastRatioLight > contrastRatioDark) {
-		settingsColors[`--color-${colorName}-contrast-${shade}`] = `var(--color-${colorName}-contrast-light)`;
+		settingsColors[getColorKey(colorName, shade)] = `var(--color-${colorName}-contrast-light)`;
 	} else {
-		settingsColors[`--color-${colorName}-contrast-${shade}`] = `var(--color-${colorName}-contrast-dark)`;
+		settingsColors[getColorKey(colorName, shade)] = `var(--color-${colorName}-contrast-dark)`;
 	}
 }
 
 /* Applies the color scale to the color state */
 function applyColorState(colorName: string, colorScale: string[]) {
 	constants.colorShades.forEach((shade, i) => {
-		const targetShade = `--color-${colorName}-${shade}`;
+		const targetShade = getColorKey(colorName, shade);
 		// Set state
 		settingsColors[targetShade] = colorScale[i];
 		// Generate Color Contrast
@@ -60,9 +64,9 @@ function applyColorState(colorName: string, colorScale: string[]) {
 /* Blend between 50/500/950 colors automatically */
 export function genColorRamp(disabled: boolean, colorName: string) {
 	if (disabled) return;
-	const shade50 = settingsColors[`--color-${colorName}-50`];
-	const shade500 = settingsColors[`--color-${colorName}-500`];
-	const shade950 = settingsColors[`--color-${colorName}-950`];
+	const shade50 = settingsColors[getColorKey(colorName, '50')];
+	const shade500 = settingsColors[getColorKey(colorName, '500')];
+	const shade950 = settingsColors[getColorKey(colorName, '950')];
 	// Generate Color Scale
 	const colorScale = genColorScale(shade50, shade500, shade950);
 	// Update Color State
