@@ -55,20 +55,23 @@
 		</button>
 	{/if}
 	<!-- Tooltip Content -->
-	{#if api.open}
-		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerClasses}">
-			<!-- Arrow -->
-			{#if arrow}
-				<div {...api.getArrowProps()}>
-					<div {...api.getArrowTipProps()} class="{arrowBase} {arrowBackground} {arrowClasses}"></div>
+	<div {...api.getPositionerProps()} class="{positionerBase} {positionerClasses}">
+		<!-- Popover -->
+		{#if api.open}
+			<div {...api.getContentProps()} transition:fade={{ duration: 100 }} style="z-index: {zIndex};">
+				<!-- Arrow -->
+				{#if arrow}
+					<div {...api.getArrowProps()}>
+						<div {...api.getArrowTipProps()} class="{arrowBase} {arrowBackground} {arrowClasses}"></div>
+					</div>
+				{/if}
+				<!-- Snippet Content -->
+				<div class="{contentBase} {contentBackground} {contentClasses}">
+					{@render content?.()}
 				</div>
-			{/if}
-			<!-- Snippet Content -->
-			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}" style="z-index: {zIndex};">
-				{@render content?.()}
 			</div>
-		</div>
-	{/if}
+		{/if}
+	</div>
 </span>
 
 <style>
