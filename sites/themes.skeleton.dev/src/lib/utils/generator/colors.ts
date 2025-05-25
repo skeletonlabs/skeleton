@@ -54,8 +54,8 @@ export function genColorContrast(colorName: string, shade: string, targetShade: 
 
 /* Applies the color scale to the color state */
 function applyColorState(colorName: string, colorScale: string[]) {
-	constants.colorShades.forEach((shade: string, i: number) => {
-		const targetShade = getColorKey(colorName, shade);
+	constants.colorShades.forEach((shade: number, i: number) => {
+		const targetShade = getColorKey(colorName, shade.toString());
 		// Set state
 		settingsColors[targetShade] = colorScale[i];
 		// Generate Color Contrast
