@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.2.4
+### Patch Changes
+
+
+- Bugfix: z-index of tooltip was not working when an arrow element was present. ([#3562](https://github.com/skeletonlabs/skeleton/pull/3562))
+
 ## 1.2.3
 ### Patch Changes
 
