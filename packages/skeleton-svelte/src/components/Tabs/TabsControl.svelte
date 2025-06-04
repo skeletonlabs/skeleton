@@ -3,6 +3,9 @@
 	import type { TabsControlProps } from './types.js';
 
 	const {
+		// New prop to choose element type
+		as = 'button', // 'button' or 'a'
+
 		// Root
 		base = 'border-b-[1px] border-transparent',
 		padding = 'pb-2',
@@ -19,33 +22,59 @@
 		// Snippets
 		lead,
 		children,
-		// Zag
+		// Zag props
 		...zagProps
 	}: TabsControlProps = $props();
 
-	// Get Context
+	// Context
 	const ctx = getTabContext();
 	const state = $derived(ctx.api.getTriggerState(zagProps));
 
-	// Reactive
+	// State classes
 	const rxActive = $derived(state.selected ? stateActive : stateInactive);
 	const rxLabelActive = $derived(state.selected ? stateLabelActive : stateLabelInactive);
 
-	// Styles
+	// Layout
 	const commonWidth = $derived(ctx.fluid ? '100%' : '');
+
+	// Get all trigger props from Zag.js
+	const triggerProps = ctx.api.getTriggerProps(zagProps);
 </script>
 
-<!-- @component A individual tab trigger element. -->
+<!-- @component Individual tab trigger (anchor or button) -->
 
-<button
-	{...ctx.api.getTriggerProps(zagProps)}
-	class="{base} {padding} {translateX} {rxActive} {classes}"
-	style:width={commonWidth}
-	data-testid="tabs-control"
->
-	<!-- Label -->
-	<div class="{labelBase} {rxLabelActive} {labelClasses}" style:width={commonWidth} data-testid="tabs-control-label">
-		{#if lead}<span>{@render lead()}</span>{/if}
-		<span>{@render children?.()}</span>
-	</div>
-</button>
+{#if as === 'a'}
+	<a
+		{...triggerProps}
+		class="{base} {padding} {translateX} {rxActive} {classes}"
+		style:width={commonWidth}
+		data-testid="tabs-control"
+	>
+		<!-- Label -->
+		<div
+			class="{labelBase} {rxLabelActive} {labelClasses}"
+			style:width={commonWidth}
+			data-testid="tabs-control-label"
+		>
+			{#if lead}<span>{@render lead()}</span>{/if}
+			<span>{@render children?.()}</span>
+		</div>
+	</a>
+{:else}
+	<button
+		{...triggerProps}
+		class="{base} {padding} {translateX} {rxActive} {classes}"
+		style:width={commonWidth}
+		data-testid="tabs-control"
+	>
+		<!-- Label -->
+		<div
+			class="{labelBase} {rxLabelActive} {labelClasses}"
+			style:width={commonWidth}
+			data-testid="tabs-control-label"
+		>
+			{#if lead}<span>{@render lead()}</span>{/if}
+			<span>{@render children?.()}</span>
+		</div>
+	</button>
+{/if}

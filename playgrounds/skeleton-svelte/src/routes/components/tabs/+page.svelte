@@ -14,6 +14,7 @@
 	<header>
 		<h1 class="h1">Tabs</h1>
 	</header>
+
 	<!-- Default -->
 	<section class="space-y-4">
 		<pre class="pre">group: {JSON.stringify(group, null, 2)}</pre>
@@ -30,6 +31,7 @@
 			{/snippet}
 		</Tabs>
 	</section>
+
 	<!-- Icon + Label -->
 	<section class="space-y-4">
 		<h2 class="h2">Icon + Label</h2>
@@ -55,20 +57,15 @@
 			{/snippet}
 		</Tabs>
 	</section>
+
 	<!-- Icon Only -->
 	<section class="space-y-4">
 		<h2 class="h2">Icon Only</h2>
 		<Tabs value={group} onValueChange={(e) => (group = e.value)}>
 			{#snippet list()}
-				<Tabs.Control value="item-1">
-					<IconPlane size={20} />
-				</Tabs.Control>
-				<Tabs.Control value="item-2">
-					<IconBoat size={20} />
-				</Tabs.Control>
-				<Tabs.Control value="item-3">
-					<IconCar size={20} />
-				</Tabs.Control>
+				<Tabs.Control value="item-1"><IconPlane size={20} /></Tabs.Control>
+				<Tabs.Control value="item-2"><IconBoat size={20} /></Tabs.Control>
+				<Tabs.Control value="item-3"><IconCar size={20} /></Tabs.Control>
 			{/snippet}
 			{#snippet content()}
 				<Tabs.Panel value="item-1">Panel-1 - {lorem}</Tabs.Panel>
@@ -77,6 +74,7 @@
 			{/snippet}
 		</Tabs>
 	</section>
+
 	<!-- Fluid -->
 	<section class="space-y-4">
 		<h2 class="h2">Fluid</h2>
@@ -93,6 +91,7 @@
 			{/snippet}
 		</Tabs>
 	</section>
+
 	<!-- Justify -->
 	<section class="space-y-4">
 		<h2 class="h2">Justify</h2>
@@ -108,6 +107,7 @@
 				<Tabs.Panel value="item-3">Panel-3 - {lorem}</Tabs.Panel>
 			{/snippet}
 		</Tabs>
+
 		<Tabs value={group} onValueChange={(e) => (group = e.value)} listJustify="justify-end">
 			{#snippet list()}
 				<Tabs.Control value="item-1">Control-1</Tabs.Control>
@@ -121,6 +121,7 @@
 			{/snippet}
 		</Tabs>
 	</section>
+
 	<!-- RTL -->
 	<section class="space-y-4">
 		<h2 class="h2">RTL</h2>
@@ -138,5 +139,41 @@
 				{/snippet}
 			</Tabs>
 		</div>
+	</section>
+
+	<section class="space-y-4">
+		<h2 class="h2">Anchor-Based Tabs Test</h2>
+		<Tabs value={group} onValueChange={(e) => (group = e.value)}>
+			<Tabs.Control>
+				<a
+					href="#item-1"
+					on:click|preventDefault={() => (group = 'item-1')}
+					class:selected={group === 'item-1'}
+					class="inline-block px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200"
+				>
+					Control A
+				</a>
+				<a
+					href="#item-2"
+					on:click|preventDefault={() => (group = 'item-2')}
+					class:selected={group === 'item-2'}
+					class="inline-block px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200"
+				>
+					Control B
+				</a>
+				<a
+					href="#item-3"
+					on:click|preventDefault={() => (group = 'item-3')}
+					class:selected={group === 'item-3'}
+					class="inline-block px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200"
+				>
+					Control C
+				</a>
+			</Tabs.Control>
+
+			<Tabs.Panel value="item-1">Anchor Panel A - {lorem}</Tabs.Panel>
+			<Tabs.Panel value="item-2">Anchor Panel B - {lorem}</Tabs.Panel>
+			<Tabs.Panel value="item-3">Anchor Panel C - {lorem}</Tabs.Panel>
+		</Tabs>
 	</section>
 </div>
