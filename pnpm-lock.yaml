@@ -563,9 +563,6 @@ importers:
       '@nanostores/persistent':
         specifier: ^0.10.2
         version: 0.10.2(nanostores@0.11.4)
-      '@skeletonlabs/skeleton':
-        specifier: workspace:*
-        version: link:../../packages/skeleton
       '@skeletonlabs/skeleton-common':
         specifier: workspace:*
         version: link:../../packages/skeleton-common
@@ -623,9 +620,6 @@ importers:
       svelte-check:
         specifier: ^4.1.5
         version: 4.1.5(picomatch@4.0.2)(svelte@5.25.3)(typescript@5.8.2)
-      tailwindcss:
-        specifier: 'catalog:'
-        version: 4.0.17
       typescript:
         specifier: 'catalog:'
         version: 5.8.2
@@ -633,6 +627,9 @@ importers:
       '@skeletonlabs/necroparser':
         specifier: workspace:*
         version: link:../../packages/necroparser
+      '@skeletonlabs/skeleton':
+        specifier: workspace:*
+        version: link:../../packages/skeleton
       '@types/react':
         specifier: ^19.0.12
         version: 19.0.12
@@ -645,6 +642,9 @@ importers:
       next:
         specifier: 15.2.4
         version: 15.2.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      tailwindcss:
+        specifier: 'catalog:'
+        version: 4.0.17
       tinyglobby:
         specifier: ^0.2.12
         version: 0.2.12
