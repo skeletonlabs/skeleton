@@ -22,6 +22,7 @@ export { default as TagsInput } from './components/TagsInput/TagsInput.svelte';
 export { default as Toaster } from './components/Toast/Toaster.svelte';
 export { createToaster } from './components/Toast/create-toaster.js';
 export { default as Rating } from './components/Rating/index.js';
+export { default as TreeView } from './components/TreeView/index.js';
 
 // Types
 export type { FileUploadApi } from './components/FileUpload/types.js';
