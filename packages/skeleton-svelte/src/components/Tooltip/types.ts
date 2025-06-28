@@ -1,5 +1,6 @@
 import type { Snippet } from 'svelte';
 import * as tooltip from '@zag-js/tooltip';
+import type { HTMLButtonAttributes } from 'svelte/elements';
 
 export interface TooltipProps extends Omit<tooltip.Props, 'id'> {
 	/** Enable display of the popover arrow. */
