@@ -33,9 +33,11 @@ async function generateSchemas() {
 			}
 			log(`Generating ${bold(framework)}/${bold(component)}`);
 			const interfaces = project.getInterfaces(path, {
+				// @ts-expect-error type error
 				filter(node) {
 					return /\w+Props/.test(node.name.getText());
 				},
+				// @ts-expect-error type error
 				transformProperty(property) {
 					if (property.type.startsWith('Snippet')) {
 						return {
