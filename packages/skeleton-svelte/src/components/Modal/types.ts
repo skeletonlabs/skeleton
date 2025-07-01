@@ -1,6 +1,7 @@
 import type { Snippet } from 'svelte';
 import * as dialog from '@zag-js/dialog';
 import type { FlyParams, FadeParams } from 'svelte/transition';
+import type { HTMLButtonAttributes } from 'svelte/elements';
 
 export interface ModalProps extends Omit<dialog.Props, 'id'> {
 	// Base ---
