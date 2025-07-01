@@ -1,9 +1,8 @@
 <script lang="ts">
 	import * as tree from '@zag-js/tree-view';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import type { TreeViewProps, Node, TreeViewCollection } from './types.js';
+	import type { CollectionNode, TreeViewProps } from './types.js';
 	import { setTreeViewContext } from './context.js';
-	import TreeNode from './TreeViewNode.svelte';
 	import TreeViewNode from './TreeViewNode.svelte';
 
 	const {
@@ -19,10 +18,6 @@
 		padding = 'p-4',
 		shadow = '',
 		classes = '',
-		// Node
-		nodeBase,
-		nodeBg,
-		nodeClasses,
 		// Control
 		controlBase = 'flex gap-2',
 		controlBg = '',
@@ -50,10 +45,10 @@
 		itemShadow = '',
 		itemClasses = '',
 		// Indent
-		indentAmount: indentFactor = '1.2rem',
+		indentAmount = '1.2rem',
 		// Indicator
-		indicatorOpenRotation,
-		indicatorTransition,
+		indicatorOpenRotation = '90deg',
+		indicatorTransition = 'transition-transform',
 		// Snippets
 		branchIcon,
 		itemIcon,
@@ -64,7 +59,7 @@
 	}: TreeViewProps = $props();
 
 	// Zag
-	const treeCollection = tree.collection<(typeof collection)[number]>({
+	const treeCollection = tree.collection<CollectionNode>({
 		nodeToValue: (node) => node.id,
 		rootNode: {
 			id: 'ROOT_NODE',
@@ -73,7 +68,7 @@
 		}
 	});
 	const id = $props.id();
-	const service = useMachine(tree.machine as tree.Machine<(typeof collection)[number]>, () => ({
+	const service = useMachine(tree.machine as tree.Machine<CollectionNode>, () => ({
 		id: id,
 		collection: treeCollection,
 		...zagProps
@@ -87,37 +82,6 @@
 		},
 		// Animation
 		animationConfig,
-		// Control
-		controlBase,
-		controlBg,
-		controlSpaceY,
-		controlHover,
-		controlBorder,
-		controlPadding,
-		controlShadow,
-		controlClasses,
-		// Content
-		contentBase,
-		contentBg,
-		contentSpaceY,
-		contentBorder,
-		contentPadding,
-		contentShadow,
-		contentClasses,
-		// Item
-		itemBase,
-		itemBg,
-		itemSpaceY,
-		itemHover,
-		itemBorder,
-		itemPadding,
-		itemShadow,
-		itemClasses,
-		// Indent
-		indentAmount: indentFactor,
-		// Indicator
-		indicatorOpenRotation,
-		indicatorTransition,
 		branchIcon,
 		itemIcon,
 		nodeText,
@@ -129,7 +93,36 @@
 	<div {...api.getTreeProps()}>
 		{#if treeCollection.rootNode.children}
 			{#each treeCollection.rootNode.children as node, index}
-				<TreeViewNode {node} indexPath={[index]} />
+				<TreeViewNode
+					{controlBase}
+					{controlBg}
+					{controlSpaceY}
+					{controlHover}
+					{controlBorder}
+					{controlPadding}
+					{controlShadow}
+					{controlClasses}
+					{contentBase}
+					{contentBg}
+					{contentSpaceY}
+					{contentBorder}
+					{contentPadding}
+					{contentShadow}
+					{contentClasses}
+					{itemBase}
+					{itemBg}
+					{itemSpaceY}
+					{itemHover}
+					{itemBorder}
+					{itemPadding}
+					{itemShadow}
+					{itemClasses}
+					{indentAmount}
+					{indicatorOpenRotation}
+					{indicatorTransition}
+					{node}
+					indexPath={[index]}
+				/>
 			{/each}
 		{/if}
 	</div>

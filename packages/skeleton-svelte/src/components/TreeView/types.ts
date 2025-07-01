@@ -4,15 +4,30 @@ import type { SlideParams } from 'svelte/transition';
 
 // TreeViewContext ---
 
-export interface TreeViewContext<T = string> extends TreeNodeProps {
-	api: ReturnType<typeof tree.connect<never, Node<T>>>;
+export interface TreeViewContext {
+	/** The animation configuration. */
+	animationConfig?: SlideParams;
+	// Zag ---
+	/** The api of the state machine. */
+	api: ReturnType<typeof tree.connect<never, CollectionNode>>;
+	// Snippets ---
+	/** The lead icon for expandable branches. */
+	branchIcon?: Snippet;
+	/** The lead icon for end nodes */
+	itemIcon?: Snippet;
+	/** The snippet that accepts the node value for display. */
+	nodeText?: Snippet<[string]>;
+	/** The icon to indicate if the node children are expanded. */
+	nodeIndicator?: Snippet;
 }
 
 // Components ---
 
-export interface TreeViewProps<T = string> extends Omit<tree.Props, 'id' | 'collection'>, TreeNodeProps {
+export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'>, Omit<TreeNodeProps, keyof tree.NodeProps> {
+	/** The animation configuration. */
+	animationConfig?: SlideParams;
 	// Data ---
-	collection: TreeViewCollection<T>;
+	collection: TreeViewCollection;
 	// View ---
 	/** Set base styles. */
 	base?: string;
@@ -29,9 +44,9 @@ export interface TreeViewProps<T = string> extends Omit<tree.Props, 'id' | 'coll
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
 	// Node ---
-	nodeBase: string;
-	nodeBg: string;
-	nodeClasses: string;
+	nodeBase?: string;
+	nodeBg?: string;
+	nodeClasses?: string;
 	// Label ---
 	/** Set label snippet's styles. */
 	labelBase?: string;
@@ -49,11 +64,17 @@ export interface TreeViewProps<T = string> extends Omit<tree.Props, 'id' | 'coll
 	labelClasses?: string;
 	// Snippets ---
 	children?: Snippet;
+	/** The lead icon for expandable branches. */
+	branchIcon?: Snippet;
+	/** The lead icon for end nodes */
+	itemIcon?: Snippet;
+	/** The snippet that accepts the node value for display. */
+	nodeText?: Snippet;
+	/** The icon to indicate if the node children are expanded. */
+	nodeIndicator?: Snippet;
 }
 
-export interface TreeNodeProps {
-	/** The animation configuration */
-	animationConfig?: SlideParams;
+export interface TreeNodeProps extends tree.NodeProps {
 	// Content ---
 	/** Set content styles. */
 	contentBase?: string;
@@ -78,7 +99,7 @@ export interface TreeNodeProps {
 	/** Set control vertical spacing styles. */
 	controlSpaceY?: string;
 	/** Set control hover styles. */
-	controlHover: string;
+	controlHover?: string;
 	/** Set control border styles. */
 	controlBorder?: string;
 	/** Set control padding styles. */
@@ -96,7 +117,7 @@ export interface TreeNodeProps {
 	/** Set item vertical spacing styles. */
 	itemSpaceY?: string;
 	/** Set item hover styles. */
-	itemHover: string;
+	itemHover?: string;
 	/** Set item border styles. */
 	itemBorder?: string;
 	/** Set item padding styles. */
@@ -114,17 +135,12 @@ export interface TreeNodeProps {
 	indicatorOpenRotation?: string;
 	/** Set indicator transitions. */
 	indicatorTransition?: string;
-	// Snippets ---
-	branchIcon: Snippet;
-	itemIcon: Snippet;
-	nodeText: Snippet<[string]>;
-	nodeIndicator: Snippet;
 }
 
-export interface Node<T> {
+export interface CollectionNode {
 	id: string;
-	value: T;
-	children?: Node<T>[];
+	value: string;
+	children?: CollectionNode[];
 }
 
-export type TreeViewCollection<T> = Node<T>[];
+export type TreeViewCollection = CollectionNode[];
