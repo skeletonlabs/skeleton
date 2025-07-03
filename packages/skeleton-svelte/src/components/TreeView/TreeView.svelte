@@ -1,9 +1,22 @@
+<script lang="ts" module>
+	import { createRawSnippet } from 'svelte';
+
+	const chevron = createRawSnippet(() => {
+		return {
+			render: () => /* html */ `
+			<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+				<path d="m9 18 6-6-6-6" />
+			</svg>
+		`
+		};
+	});
+</script>
+
 <script lang="ts">
 	import * as tree from '@zag-js/tree-view';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import type { CollectionNode, TreeViewProps } from './types.js';
-	import { setTreeViewContext } from './context.js';
-	import TreeViewNode from './TreeViewNode.svelte';
+	import { slide } from 'svelte/transition';
 
 	const {
 		// Animation
@@ -61,6 +74,7 @@
 	// Zag
 	const treeCollection = tree.collection<CollectionNode>({
 		nodeToValue: (node) => node.id,
+		nodeToString: (node) => node.value,
 		rootNode: {
 			id: 'ROOT_NODE',
 			value: '',
@@ -74,56 +88,96 @@
 		...zagProps
 	}));
 	const api = $derived(tree.connect(service, normalizeProps));
-
-	// Context
-	setTreeViewContext({
-		get api() {
-			return api;
-		},
-		// Animation
-		animationConfig,
-		branchIcon,
-		itemIcon,
-		nodeText,
-		nodeIndicator
-	});
 </script>
 
+<!-- @component A collapsible TreeView. -->
+
+<!-- Tree -->
 <div class="{base} {bg} {spaceY} {border} {padding} {shadow} {classes}" {...api.getRootProps()}>
 	<div {...api.getTreeProps()}>
 		{#if treeCollection.rootNode.children}
 			{#each treeCollection.rootNode.children as node, index}
-				<TreeViewNode
-					{controlBase}
-					{controlBg}
-					{controlSpaceY}
-					{controlHover}
-					{controlBorder}
-					{controlPadding}
-					{controlShadow}
-					{controlClasses}
-					{contentBase}
-					{contentBg}
-					{contentSpaceY}
-					{contentBorder}
-					{contentPadding}
-					{contentShadow}
-					{contentClasses}
-					{itemBase}
-					{itemBg}
-					{itemSpaceY}
-					{itemHover}
-					{itemBorder}
-					{itemPadding}
-					{itemShadow}
-					{itemClasses}
-					{indentAmount}
-					{indicatorOpenRotation}
-					{indicatorTransition}
-					{node}
-					indexPath={[index]}
-				/>
+				{@render treeNode({ node, indexPath: [index] })}
 			{/each}
 		{/if}
 	</div>
 </div>
+
+<!-- Node -->
+{#snippet treeNode(nodeProps: tree.NodeProps)}
+	{#if api.getNodeState(nodeProps).isBranch}
+		<!-- Branch -->
+		<div {...api.getBranchProps(nodeProps)}>
+			<!-- Control -->
+			<button
+				class="{controlBase} {controlBg} {controlSpaceY} {controlHover} {controlBorder} {controlPadding} {controlShadow} {controlClasses}"
+				{...api.getBranchControlProps(nodeProps)}
+			>
+				<span
+					class="flex items-center {indicatorTransition}"
+					style="--indicator-rotation:{indicatorOpenRotation};"
+					{...api.getBranchIndicatorProps(nodeProps)}
+				>
+					{#if nodeIndicator}
+						{@render nodeIndicator()}
+					{:else}
+						{@render chevron()}
+					{/if}
+				</span>
+				{#if branchIcon}
+					<div>
+						{@render branchIcon()}
+					</div>
+				{/if}
+				<span {...api.getBranchTextProps(nodeProps)}>
+					{nodeProps.node.value}
+				</span>
+			</button>
+
+			<!-- Content -->
+			{#if api.expandedValue.includes(nodeProps.node.id)}
+				<div
+					class="{contentBase} {contentBg} {contentSpaceY} {contentBorder} {contentPadding} {contentShadow} {contentClasses}"
+					transition:slide={animationConfig}
+					{...api.getBranchContentProps(nodeProps)}
+				>
+					<div {...api.getBranchIndentGuideProps(nodeProps)} style="--indent-factor:{indentAmount}"></div>
+					<div class="flex flex-col">
+						{#if nodeProps.node.children}
+							{#each nodeProps.node.children as childNode, index}
+								{@render treeNode({ node: childNode, indexPath: [...nodeProps.indexPath, index] })}
+							{/each}
+						{/if}
+					</div>
+				</div>
+			{/if}
+		</div>
+	{:else}
+		<button
+			class="{itemBase} {itemBg} {itemSpaceY} {itemHover} {itemBorder} {itemPadding} {itemShadow} {itemClasses}"
+			{...api.getItemProps(nodeProps)}
+		>
+			{#if itemIcon}
+				<div>
+					{@render itemIcon()}
+				</div>
+			{/if}
+			<span {...api.getItemTextProps(nodeProps)}>
+				{nodeProps.node.value}
+			</span>
+		</button>
+	{/if}
+{/snippet}
+
+<style>
+	[data-scope='tree-view'][data-part='branch-indent-guide'] {
+		width: calc(var(--indent-factor));
+	}
+	[data-scope='tree-view'][data-part='branch-indicator'] {
+		&[data-state='open'] {
+			transform-box: fill-box;
+			transform-origin: center;
+			transform: rotate(var(--indicator-rotation));
+		}
+	}
+</style>
