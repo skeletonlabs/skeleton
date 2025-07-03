@@ -65,9 +65,7 @@
 		// Snippets
 		branchIcon,
 		itemIcon,
-		nodeText,
 		nodeIndicator,
-		children,
 		...zagProps
 	}: TreeViewProps = $props();
 

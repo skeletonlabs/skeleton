@@ -2,32 +2,15 @@ import * as tree from '@zag-js/tree-view';
 import type { Snippet } from 'svelte';
 import type { SlideParams } from 'svelte/transition';
 
-// TreeViewContext ---
-
-export interface TreeViewContext {
-	/** The animation configuration. */
-	animationConfig?: SlideParams;
-	// Zag ---
-	/** The api of the state machine. */
-	api: ReturnType<typeof tree.connect<never, CollectionNode>>;
-	// Snippets ---
-	/** The lead icon for expandable branches. */
-	branchIcon?: Snippet;
-	/** The lead icon for end nodes */
-	itemIcon?: Snippet;
-	/** The snippet that accepts the node value for display. */
-	nodeText?: Snippet<[string]>;
-	/** The icon to indicate if the node children are expanded. */
-	nodeIndicator?: Snippet;
-}
-
 // Components ---
 
-export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'>, Omit<TreeNodeProps, keyof tree.NodeProps> {
+export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	/** The animation configuration. */
 	animationConfig?: SlideParams;
+
 	// Data ---
 	collection: TreeViewCollection;
+
 	// View ---
 	/** Set base styles. */
 	base?: string;
@@ -43,38 +26,7 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'>, Om
 	shadow?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
-	// Node ---
-	nodeBase?: string;
-	nodeBg?: string;
-	nodeClasses?: string;
-	// Label ---
-	/** Set label snippet's styles. */
-	labelBase?: string;
-	/** Set label snippet's background styles. */
-	labelBg?: string;
-	/** Set label snippet's vertical spacing styles. */
-	labelSpaceY?: string;
-	/** Set label snippet's border styles. */
-	labelBorder?: string;
-	/** Set label snippet's padding styles. */
-	labelPadding?: string;
-	/** Set label snippet's shadow styles. */
-	labelShadow?: string;
-	/** Provide arbitrary CSS classes to the label. */
-	labelClasses?: string;
-	// Snippets ---
-	children?: Snippet;
-	/** The lead icon for expandable branches. */
-	branchIcon?: Snippet;
-	/** The lead icon for end nodes */
-	itemIcon?: Snippet;
-	/** The snippet that accepts the node value for display. */
-	nodeText?: Snippet;
-	/** The icon to indicate if the node children are expanded. */
-	nodeIndicator?: Snippet;
-}
 
-export interface TreeNodeProps extends tree.NodeProps {
 	// Content ---
 	/** Set content styles. */
 	contentBase?: string;
@@ -135,6 +87,30 @@ export interface TreeNodeProps extends tree.NodeProps {
 	indicatorOpenRotation?: string;
 	/** Set indicator transitions. */
 	indicatorTransition?: string;
+
+	// Label ---
+	/** Set label snippet's styles. */
+	labelBase?: string;
+	/** Set label snippet's background styles. */
+	labelBg?: string;
+	/** Set label snippet's vertical spacing styles. */
+	labelSpaceY?: string;
+	/** Set label snippet's border styles. */
+	labelBorder?: string;
+	/** Set label snippet's padding styles. */
+	labelPadding?: string;
+	/** Set label snippet's shadow styles. */
+	labelShadow?: string;
+	/** Provide arbitrary CSS classes to the label. */
+	labelClasses?: string;
+
+	// Snippets ---
+	/** The lead icon for expandable branches. */
+	branchIcon?: Snippet;
+	/** The lead icon for end nodes */
+	itemIcon?: Snippet;
+	/** The icon to indicate if the node children are expanded. */
+	nodeIndicator?: Snippet;
 }
 
 export interface CollectionNode {

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { TreeView } from '@skeletonlabs/skeleton-svelte';
-	import IconDelete from '@lucide/svelte/icons/arrow-big-right';
+	import { TreeView, type TreeViewCollection } from '@skeletonlabs/skeleton-svelte';
+	import IconArrow from '@lucide/svelte/icons/arrow-big-right';
 
 	let valueDefault = $state(['LEVEL_1']);
 	let valueIcons = $state(['LEVEL_1']);
 
-	const collection = [
+	const collection: TreeViewCollection = [
 		{
 			id: 'LEVEL_1',
 			value: 'node_modules',
@@ -38,9 +38,10 @@
 			</section>
 			<section class="space-y-4">
 				<h2 class="h2">Icons</h2>
-				<TreeView {collection}>
+				<pre class="pre">{JSON.stringify(valueIcons)}</pre>
+				<TreeView {collection} expandedValue={valueIcons} onExpandedChange={(e) => (valueIcons = e.expandedValue)}>
 					{#snippet nodeIndicator()}
-						&rArr;
+						<IconArrow />
 					{/snippet}
 					{#snippet branchIcon()}
 						📁
@@ -51,6 +52,6 @@
 				</TreeView>
 			</section>
 		</section>
-		<pre class="pre">{JSON.stringify(collection, null, 2)}</pre>
+		<pre class="pre h-fit">{JSON.stringify(collection, null, 2)}</pre>
 	</div>
 </div>
