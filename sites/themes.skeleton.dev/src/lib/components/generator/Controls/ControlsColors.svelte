@@ -127,7 +127,7 @@
 											<input
 												type="text"
 												class="input"
-												bind:value={settingsColors[getColorKey(color.value, shade)]}
+												bind:value={settingsColors[getColorKey(color.value, shade.toString())]}
 												onblur={() => genColorRamp(showAllShades, color.value)}
 											/>
 										</td>
@@ -137,7 +137,7 @@
 											<input
 												class="input"
 												type="color"
-												bind:value={settingsColors[getColorKey(color.value, shade)]}
+												bind:value={settingsColors[getColorKey(color.value, shade.toString())]}
 												oninput={() => genColorRamp(showAllShades, color.value)}
 											/>
 										</td>
