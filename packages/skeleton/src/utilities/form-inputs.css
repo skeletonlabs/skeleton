@@ -60,6 +60,7 @@
 	&[type='range'] {
 		accent-color: var(--color-surface-950-50);
 		box-shadow: none;
+		padding-inline: initial;
 	}
 
 	/* Color Picker Input --- */
