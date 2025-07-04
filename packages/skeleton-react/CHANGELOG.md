@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-react
 
+## 1.2.3
+### Patch Changes
+
+
+- chore: Remove aria role tooltip from AppBar component ([#3590](https://github.com/skeletonlabs/skeleton/pull/3590))
+
 ## 1.2.2
 ### Patch Changes
 
