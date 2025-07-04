@@ -61,13 +61,15 @@ Migrate to the latest release of SvelteKit v2.
 
 ### Tailwind v4
 
-Before migration to tailwind V4 using their upgrade guide some manual steps are required:
+Before migration to tailwind v4 using their upgrade guide some manual steps are required:
 
 1. Remove the `skeleton` plugin from your `tailwind.config` file.
 2. Rename your `app.postcss` or `app.pcss` to `app.css`.
 3. Remove the `purgecss` (`vite-plugin-tailwind-purgecss`) vite plugin from your `vite.config` (if installed).
 
 Migrate to the latest release of Tailwind v4.
+
+> TIP: Having trouble running Tailwind's automated migration script due to `@apply`? Remove the classes temporarily, then follow [these steps](/docs/get-started/migrate-from-v2#replacing-apply) to adapt to native CSS custom properties and Tailwind's new utilities.
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://tailwindcss.com/docs/upgrade-guide" target="_blank">
@@ -213,6 +215,35 @@ Taliwind v4 represents a major update for Tailwind. We've detailed the most nota
 - You are still required to implement the [Tailwind Forms Plugin](/docs/tailwind/forms#prerequisites) to use Skeleton form elements.
 - The Skeleton `data-theme` attribute has moved from `<body>` to `<html>`
 - Themes colors are now stored in the [oklch format](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl), but optionally support any format.
+
+### Replacing @apply
+
+We strongly encourage you take this opportunity to move away from any usage of `@apply`. Tailwind has long since advocated against heavy use of this, and Tailwind v4 introduces new directives and functions that make this much easier to avoid. Here's a trivial example:
+
+```css
+/* Before */
+
+.foo {
+	@apply bg-surface-50-950 text-surface-950 dark:text-surface-50 p-4;
+}
+```
+
+```css
+/* After */
+
+.foo {
+	background-color: var(--color-surface-50-950);
+	color: var(--color-surface-950);
+	padding: --spacing(4);
+	@variant dark {
+		color: var(--color-surface-50);
+	}
+}
+```
+
+- Usage of `@apply` may be found in your global stylesheet or component `<style>` blocks.
+- Refer to the Skeleton [Core API](/docs/get-started/core-api) documentation for a full list of Skeleton's CSS custom properties.
+- Refer to the Tailwind's [functions and directives](https://tailwindcss.com/docs/functions-and-directives) for information on how to utilize these new features.
 
 ### Replace Unsupported Features
 
