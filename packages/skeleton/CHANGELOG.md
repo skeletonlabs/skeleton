@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.1.4
+### Patch Changes
+
+
+- bugfix: Allow thumb to slide full length in range slider for all browsers ([#3566](https://github.com/skeletonlabs/skeleton/pull/3566))
+
 ## 3.1.3
 ### Patch Changes
 
