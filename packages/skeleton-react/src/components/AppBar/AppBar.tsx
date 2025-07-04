@@ -18,7 +18,7 @@ const AppBarRoot: FC<AppBarProps> = ({
 	children
 }) => {
 	return (
-		<div className={`${base} ${background} ${spaceY} ${border} ${padding} ${shadow} ${classes}`} role="toolbar" data-testid="app-bar">
+		<div className={`${base} ${background} ${spaceY} ${border} ${padding} ${shadow} ${classes}`} data-testid="app-bar">
 			{children}
 		</div>
 	);
