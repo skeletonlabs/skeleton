@@ -110,6 +110,7 @@
 			<button
 				class="{controlBase} {controlBg} {controlSpaceY} {controlHover} {controlBorder} {controlPadding} {controlShadow} {controlClasses}"
 				{...api.getBranchControlProps(nodeProps)}
+				data-testid="tree-control"
 			>
 				<span
 					class="flex items-center {indicatorTransition}"
@@ -139,6 +140,7 @@
 					class="{contentBase} {contentBg} {contentSpaceY} {contentBorder} {contentPadding} {contentShadow} {contentClasses}"
 					transition:slide={animationConfig}
 					{...api.getBranchContentProps(nodeProps)}
+					data-testid="tree-content"
 				>
 					<div {...api.getBranchIndentGuideProps(nodeProps)} style="--indent-factor:{indentAmount}"></div>
 					<div class="flex flex-col">
@@ -155,6 +157,7 @@
 		<button
 			class="{itemBase} {itemBg} {itemSpaceY} {itemHover} {itemBorder} {itemPadding} {itemShadow} {itemClasses}"
 			{...api.getItemProps(nodeProps)}
+			data-testid="tree-item"
 		>
 			{#if itemIcon}
 				<div data-testid="tree-item-icon">

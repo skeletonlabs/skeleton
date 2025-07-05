@@ -13,7 +13,10 @@ describe('TreeView', () => {
 		branchIcon: 'tree-branch-icon',
 		itemIcon: 'tree-item-icon',
 		branchText: 'tree-branch-text',
-		itemText: 'tree-item-text'
+		itemText: 'tree-item-text',
+		control: 'tree-control',
+		content: 'tree-content',
+		item: 'tree-item'
 	} as const;
 	const commonProps: TreeViewProps = {
 		collection: [
@@ -67,20 +70,30 @@ describe('TreeView', () => {
 		expect(input).toHaveTextContent(nodeToTest?.value ?? '');
 	});
 
-	// --- TODO: add tests that resemble these: ---
+	const propMap = [
+		{ testId: testIds.root, props: ['base', 'bg', 'spaceY', 'border', 'padding', 'shadow', 'classes'] },
+		{
+			testId: testIds.control,
+			props: ['controlBase', 'controlBg', 'controlSpaceY', 'controlBorder', 'controlPadding', 'controlShadow', 'controlClasses']
+		},
+		{
+			testId: testIds.content,
+			props: ['contentBase', 'contentBg', 'contentSpaceY', 'contentBorder', 'contentPadding', 'contentShadow', 'contentClasses']
+		},
+		{
+			testId: testIds.item,
+			props: ['itemBase', 'itemBg', 'itemSpaceY', 'itemBorder', 'itemPadding', 'itemShadow', 'itemClasses']
+		}
+	];
 
-	// it('should render the component in the disabled state', () => {
-	// 	render(TreeView, { ...commonProps, disabled: true });
-	// 	const component = screen.getByTestId(testIds.inputAdd);
-	// 	expect(component).toHaveAttribute('disabled');
-	// });
-
-	// for (const prop of ['base', 'gap', 'padding', 'classes']) {
-	// 	it(`Correctly applies the \`${prop}\` prop`, () => {
-	// 		const value = 'bg-green-500';
-	// 		render(TreeView, { ...commonProps, [prop]: value });
-	// 		const component = screen.getByTestId(testIds.root);
-	// 		expect(component).toHaveClass(value);
-	// 	});
-	// }
+	for (const item of propMap) {
+		for (const prop of item.props) {
+			it(`Correctly applies the ${prop} prop`, () => {
+				const value = 'bg-green-500';
+				render(TreeView, { ...commonProps, defaultExpandedValue: ['LEVEL_1'], [prop]: value });
+				const component = screen.getByTestId(item.testId);
+				expect(component).toHaveClass(value);
+			});
+		}
+	}
 });
