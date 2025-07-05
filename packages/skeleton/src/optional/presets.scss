@@ -13,20 +13,18 @@
 
 /* Generated */
 @each $name in constants.$color-names {
-	@each $name in constants.$color-names {
-		/* 500 */
-		@utility preset-filled-#{$name}-500 {
-			background-color: var(--color-#{$name}-500);
-			color: var(--color-#{$name}-contrast-500);
-		}
-		/* Pairings 50-950 */
-		@each $pairing in constants.$color-pairings {
-			$light: list.nth($pairing, 1);
-			$dark: list.nth($pairing, 2);
-			@utility preset-filled-#{$name}-#{$light}-#{$dark} {
-				background-color: var(--color-#{$name}-#{$light}-#{$dark});
-				color: var(--color-#{$name}-contrast-#{$light}-#{$dark});
-			}
+	/* 500 */
+	@utility preset-filled-#{$name}-500 {
+		background-color: var(--color-#{$name}-500);
+		color: var(--color-#{$name}-contrast-500);
+	}
+	/* Pairings 50-950 */
+	@each $pairing in constants.$color-pairings {
+		$light: list.nth($pairing, 1);
+		$dark: list.nth($pairing, 2);
+		@utility preset-filled-#{$name}-#{$light}-#{$dark} {
+			background-color: var(--color-#{$name}-#{$light}-#{$dark});
+			color: var(--color-#{$name}-contrast-#{$light}-#{$dark});
 		}
 	}
 }
@@ -56,20 +54,18 @@
 
 /* Generated */
 @each $name in constants.$color-names {
-	@each $name in constants.$color-names {
-		/* 500 */
-		@utility preset-outlined-#{$name}-500 {
+	/* 500 */
+	@utility preset-outlined-#{$name}-500 {
+		border-width: 1px;
+		border-color: var(--color-#{$name}-500);
+	}
+	/* Pairings 50-950 */
+	@each $pairing in constants.$color-pairings {
+		$light: list.nth($pairing, 1);
+		$dark: list.nth($pairing, 2);
+		@utility preset-outlined-#{$name}-#{$light}-#{$dark} {
 			border-width: 1px;
-			border-color: var(--color-#{$name}-500);
-		}
-		/* Pairings 50-950 */
-		@each $pairing in constants.$color-pairings {
-			$light: list.nth($pairing, 1);
-			$dark: list.nth($pairing, 2);
-			@utility preset-outlined-#{$name}-#{$light}-#{$dark} {
-				border-width: 1px;
-				border-color: var(--color-#{$name}-#{$light}-#{$dark});
-			}
+			border-color: var(--color-#{$name}-#{$light}-#{$dark});
 		}
 	}
 }
