@@ -65,7 +65,7 @@
 		// Snippets
 		branchIcon,
 		itemIcon,
-		nodeIndicator,
+		branchIndicator,
 		...zagProps
 	}: TreeViewProps = $props();
 
@@ -91,7 +91,7 @@
 <!-- @component A collapsible TreeView. -->
 
 <!-- Tree -->
-<div class="{base} {bg} {spaceY} {border} {padding} {shadow} {classes}" {...api.getRootProps()}>
+<div class="{base} {bg} {spaceY} {border} {padding} {shadow} {classes}" {...api.getRootProps()} data-testid="tree">
 	<div {...api.getTreeProps()}>
 		{#if treeCollection.rootNode.children}
 			{#each treeCollection.rootNode.children as node, index}
@@ -105,7 +105,7 @@
 {#snippet treeNode(nodeProps: tree.NodeProps)}
 	{#if api.getNodeState(nodeProps).isBranch}
 		<!-- Branch -->
-		<div {...api.getBranchProps(nodeProps)}>
+		<div {...api.getBranchProps(nodeProps)} data-testid="tree-branch">
 			<!-- Control -->
 			<button
 				class="{controlBase} {controlBg} {controlSpaceY} {controlHover} {controlBorder} {controlPadding} {controlShadow} {controlClasses}"
@@ -115,19 +115,20 @@
 					class="flex items-center {indicatorTransition}"
 					style="--indicator-rotation:{indicatorOpenRotation};"
 					{...api.getBranchIndicatorProps(nodeProps)}
+					data-testid="tree-indicator"
 				>
-					{#if nodeIndicator}
-						{@render nodeIndicator()}
+					{#if branchIndicator}
+						{@render branchIndicator()}
 					{:else}
 						{@render chevron()}
 					{/if}
 				</span>
 				{#if branchIcon}
-					<div>
+					<div data-testid="tree-branch-icon">
 						{@render branchIcon()}
 					</div>
 				{/if}
-				<span {...api.getBranchTextProps(nodeProps)}>
+				<span {...api.getBranchTextProps(nodeProps)} data-testid="tree-branch-text">
 					{nodeProps.node.value}
 				</span>
 			</button>
@@ -156,11 +157,11 @@
 			{...api.getItemProps(nodeProps)}
 		>
 			{#if itemIcon}
-				<div>
+				<div data-testid="tree-item-icon">
 					{@render itemIcon()}
 				</div>
 			{/if}
-			<span {...api.getItemTextProps(nodeProps)}>
+			<span {...api.getItemTextProps(nodeProps)} data-testid="tree-item-text">
 				{nodeProps.node.value}
 			</span>
 		</button>

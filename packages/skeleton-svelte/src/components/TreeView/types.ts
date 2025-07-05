@@ -110,7 +110,7 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	/** The lead icon for end nodes */
 	itemIcon?: Snippet;
 	/** The icon to indicate if the node children are expanded. */
-	nodeIndicator?: Snippet;
+	branchIndicator?: Snippet;
 }
 
 export interface CollectionNode {
