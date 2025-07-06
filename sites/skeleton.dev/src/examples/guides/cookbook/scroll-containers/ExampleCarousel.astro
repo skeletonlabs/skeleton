@@ -8,7 +8,7 @@ const generatedArray = Array.from({ length: 6 });
 	<!-- Carousel -->
 	<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
 		<!-- Button: Left -->
-		<button type="button" class="btn-icon preset-filled" data-carousel-left>
+		<button type="button" class="btn-icon preset-filled" data-carousel-left title="Previous slide" aria-label="Previous slide">
 			<ArrowLeft size={16} />
 		</button>
 		<!-- Full Images -->
@@ -26,7 +26,7 @@ const generatedArray = Array.from({ length: 6 });
 			}
 		</div>
 		<!-- Button: Right -->
-		<button type="button" class="btn-icon preset-filled" data-carousel-right>
+		<button type="button" class="btn-icon preset-filled" data-carousel-right title="Next slide" aria-label="Next slide">
 			<ArrowRight size={16} />
 		</button>
 	</div>
