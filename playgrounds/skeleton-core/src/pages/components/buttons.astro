@@ -9,7 +9,7 @@ import Layout from '@layouts/Layout.astro';
 		</div>
 		<!-- Sizes -->
 		<div class="flex items-center gap-4">
-			<button type="button" class="btn-icon btn-icon-sm preset-filled">
+			<button type="button" class="btn-icon btn-icon-sm preset-filled" title="Small right arrow" aria-label="Small right arrow">
 				<span>&rarr;</span>
 			</button>
 			<button type="button" class="btn btn-sm preset-filled">
@@ -21,7 +21,7 @@ import Layout from '@layouts/Layout.astro';
 			</button>
 		</div>
 		<div class="flex items-center gap-4">
-			<button type="button" class="btn-icon preset-filled">&rarr;</button>
+			<button type="button" class="btn-icon preset-filled" title="Right arrow" aria-label="Right arrow">&rarr;</button>
 			<button type="button" class="btn preset-filled">Base</button>
 			<button type="button" class="btn preset-filled">
 				<span>Base</span>
@@ -29,7 +29,9 @@ import Layout from '@layouts/Layout.astro';
 			</button>
 		</div>
 		<div class="flex items-center gap-4">
-			<button type="button" class="btn-icon btn-icon-lg preset-filled">&rarr;</button>
+			<button type="button" class="btn-icon btn-icon-lg preset-filled" title="Large right arrow" aria-label="Large right arrow"
+				>&rarr;</button
+			>
 			<button type="button" class="btn btn-lg preset-filled">Large</button>
 			<button type="button" class="btn btn-lg preset-filled">
 				<span>Large</span>
@@ -38,9 +40,13 @@ import Layout from '@layouts/Layout.astro';
 		</div>
 		<!-- Icons -->
 		<div class="flex items-center gap-4">
-			<button type="button" class="btn-icon btn-icon-sm preset-filled">&rarr;</button>
-			<button type="button" class="btn-icon preset-filled">&rarr;</button>
-			<button type="button" class="btn-icon btn-icon-lg preset-filled">&rarr;</button>
+			<button type="button" class="btn-icon btn-icon-sm preset-filled" title="Small right arrow" aria-label="Small right arrow"
+				>&rarr;</button
+			>
+			<button type="button" class="btn-icon preset-filled" title="Right arrow" aria-label="Right arrow">&rarr;</button>
+			<button type="button" class="btn-icon btn-icon-lg preset-filled" title="Large right arrow" aria-label="Large right arrow"
+				>&rarr;</button
+			>
 		</div>
 		<!-- Presets -->
 		<div class="space-y-4">
@@ -97,7 +103,12 @@ import Layout from '@layouts/Layout.astro';
 		<!-- Responsive -->
 		<div class="flex items-center gap-4">
 			<button type="button" class="btn btn-sm md:btn-base lg:btn-lg preset-filled">Responsive</button>
-			<button type="button" class="btn-icon btn-icon-sm md:btn-icon-base lg:btn-icon-lg preset-filled">&rarr;</button>
+			<button
+				type="button"
+				class="btn-icon btn-icon-sm md:btn-icon-base lg:btn-icon-lg preset-filled"
+				title="Responsive right arrow"
+				aria-label="Responsive right arrow">&rarr;</button
+			>
 		</div>
 		<!-- Disabled -->
 		<div class="flex items-center gap-4">
