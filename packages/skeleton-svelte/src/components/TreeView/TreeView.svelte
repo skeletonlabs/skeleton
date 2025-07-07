@@ -58,9 +58,9 @@
 		itemShadow = '',
 		itemClasses = '',
 		// Indent
-		indentAmount = '1.2rem',
+		indentAmount = 'indent-guide',
 		// Indicator
-		indicatorOpenRotation = '90deg',
+		indicatorRotationClass = 'branch-indicator',
 		indicatorTransition = 'transition-transform',
 		// Snippets
 		branchIcon,
@@ -113,8 +113,7 @@
 				data-testid="tree-control"
 			>
 				<span
-					class="flex items-center {indicatorTransition}"
-					style="--indicator-rotation:{indicatorOpenRotation};"
+					class="flex items-center {indicatorTransition} {indicatorRotationClass}"
 					{...api.getBranchIndicatorProps(nodeProps)}
 					data-testid="tree-indicator"
 				>
@@ -142,8 +141,8 @@
 					{...api.getBranchContentProps(nodeProps)}
 					data-testid="tree-content"
 				>
-					<div {...api.getBranchIndentGuideProps(nodeProps)} style="--indent-factor:{indentAmount}"></div>
-					<div class="flex flex-col">
+					<div {...api.getBranchIndentGuideProps(nodeProps)} class={indentAmount}></div>
+					<div class="{base} {bg} {spaceY} {border} {padding} {shadow} {classes}">
 						{#if nodeProps.node.children}
 							{#each nodeProps.node.children as childNode, index}
 								{@render treeNode({ node: childNode, indexPath: [...nodeProps.indexPath, index] })}
@@ -170,16 +169,3 @@
 		</button>
 	{/if}
 {/snippet}
-
-<style>
-	[data-scope='tree-view'][data-part='branch-indent-guide'] {
-		width: calc(var(--indent-factor));
-	}
-	[data-scope='tree-view'][data-part='branch-indicator'] {
-		&[data-state='open'] {
-			transform-box: fill-box;
-			transform-origin: center;
-			transform: rotate(var(--indicator-rotation));
-		}
-	}
-</style>

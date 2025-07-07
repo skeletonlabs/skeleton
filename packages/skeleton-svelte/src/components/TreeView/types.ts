@@ -84,7 +84,7 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	indentAmount?: string;
 	// Indicator ---
 	/** Set indicator transformations when open. */
-	indicatorOpenRotation?: string;
+	indicatorRotationClass?: string;
 	/** Set indicator transitions. */
 	indicatorTransition?: string;
 
