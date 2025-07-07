@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 
 import { Segment } from './Segment.js';
@@ -6,18 +6,6 @@ import { Segment } from './Segment.js';
 // Segment ---
 
 describe('<Segment>', () => {
-	beforeEach(() => {
-		global.ResizeObserver = class MockedResizeObserver {
-			observe = vi.fn();
-			unobserve = vi.fn();
-			disconnect = vi.fn();
-		};
-	});
-
-	afterEach(() => {
-		vi.clearAllMocks();
-	});
-
 	it('should render the component', () => {
 		const { getByTestId } = render(
 			<Segment name="align" value="0">
