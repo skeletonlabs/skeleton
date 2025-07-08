@@ -71,18 +71,18 @@ describe('TreeView', () => {
 	});
 
 	const propMap = [
-		{ testId: testIds.root, props: ['base', 'bg', 'spaceY', 'border', 'padding', 'shadow', 'classes'] },
+		{ testId: testIds.root, props: ['base', 'background', 'spaceY', 'border', 'padding', 'shadow', 'classes'] },
 		{
 			testId: testIds.control,
-			props: ['controlBase', 'controlBg', 'controlSpaceY', 'controlBorder', 'controlPadding', 'controlShadow', 'controlClasses']
+			props: ['controlBase', 'controlBackground', 'controlSpaceY', 'controlBorder', 'controlPadding', 'controlShadow', 'controlClasses']
 		},
 		{
 			testId: testIds.content,
-			props: ['contentBase', 'contentBg', 'contentSpaceY', 'contentBorder', 'contentPadding', 'contentShadow', 'contentClasses']
+			props: ['contentBase', 'contentBackground', 'contentSpaceY', 'contentBorder', 'contentPadding', 'contentShadow', 'contentClasses']
 		},
 		{
 			testId: testIds.item,
-			props: ['itemBase', 'itemBg', 'itemSpaceY', 'itemBorder', 'itemPadding', 'itemShadow', 'itemClasses']
+			props: ['itemBase', 'itemBackground', 'itemSpaceY', 'itemBorder', 'itemPadding', 'itemShadow', 'itemClasses']
 		}
 	];
 
