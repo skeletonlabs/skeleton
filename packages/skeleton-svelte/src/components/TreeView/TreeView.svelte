@@ -1,17 +1,3 @@
-<script lang="ts" module>
-	import { createRawSnippet } from 'svelte';
-
-	const chevron = createRawSnippet(() => {
-		return {
-			render: () => /* html */ `
-			<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-				<path d="m9 18 6-6-6-6" />
-			</svg>
-		`
-		};
-	});
-</script>
-
 <script lang="ts">
 	import * as tree from '@zag-js/tree-view';
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
@@ -168,4 +154,20 @@
 			</span>
 		</button>
 	{/if}
+{/snippet}
+
+{#snippet chevron()}
+	<svg
+		stroke="currentColor"
+		fill="none"
+		stroke-width="2"
+		viewBox="0 0 24 24"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		height="1em"
+		width="1em"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path d="m9 18 6-6-6-6" />
+	</svg>
 {/snippet}
