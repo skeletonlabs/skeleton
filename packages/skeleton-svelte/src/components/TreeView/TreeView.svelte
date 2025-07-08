@@ -5,13 +5,18 @@
 	import { slide } from 'svelte/transition';
 
 	const {
+		// Indent
+		indentAmount = 'indent-guide',
+		// Indicator
+		indicatorRotationClass = 'branch-indicator',
+		indicatorTransition = 'transition-transform',
 		// Animation
 		animationConfig,
 		// Data
 		collection,
 		// Root
 		base = 'flex flex-col w-fit',
-		bg = '',
+		background = '',
 		spaceY = 'space-y-4',
 		border = ' rounded-base',
 		padding = 'p-4',
@@ -19,7 +24,7 @@
 		classes = '',
 		// Control
 		controlBase = 'flex gap-2',
-		controlBg = '',
+		controlBackground = '',
 		controlSpaceY = '',
 		controlHover = 'hover:preset-tonal-primary',
 		controlBorder = 'rounded-base',
@@ -28,7 +33,7 @@
 		controlClasses = '',
 		// Content
 		contentBase = 'flex gap-1',
-		contentBg = '',
+		contentBackground = '',
 		contentSpaceY = '',
 		contentBorder = controlBorder,
 		contentPadding = '',
@@ -36,22 +41,18 @@
 		contentClasses = '',
 		// Item
 		itemBase = 'flex gap-2',
-		itemBg = '',
+		itemBackground = '',
 		itemSpaceY = '',
 		itemHover = controlHover,
 		itemBorder = contentBorder,
 		itemPadding = controlPadding,
 		itemShadow = '',
 		itemClasses = '',
-		// Indent
-		indentAmount = 'indent-guide',
-		// Indicator
-		indicatorRotationClass = 'branch-indicator',
-		indicatorTransition = 'transition-transform',
 		// Snippets
 		branchIcon,
 		itemIcon,
 		branchIndicator,
+		// Zag
 		...zagProps
 	}: TreeViewProps = $props();
 
@@ -77,7 +78,7 @@
 <!-- @component A collapsible TreeView. -->
 
 <!-- Tree -->
-<div class="{base} {bg} {spaceY} {border} {padding} {shadow} {classes}" {...api.getRootProps()} data-testid="tree">
+<div class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}" {...api.getRootProps()} data-testid="tree">
 	<div {...api.getTreeProps()}>
 		{#if treeCollection.rootNode.children}
 			{#each treeCollection.rootNode.children as node, index}
@@ -94,7 +95,7 @@
 		<div {...api.getBranchProps(nodeProps)} data-testid="tree-branch">
 			<!-- Control -->
 			<button
-				class="{controlBase} {controlBg} {controlSpaceY} {controlHover} {controlBorder} {controlPadding} {controlShadow} {controlClasses}"
+				class="{controlBase} {controlBackground} {controlSpaceY} {controlHover} {controlBorder} {controlPadding} {controlShadow} {controlClasses}"
 				{...api.getBranchControlProps(nodeProps)}
 				data-testid="tree-control"
 			>
@@ -122,13 +123,13 @@
 			<!-- Content -->
 			{#if api.expandedValue.includes(nodeProps.node.id)}
 				<div
-					class="{contentBase} {contentBg} {contentSpaceY} {contentBorder} {contentPadding} {contentShadow} {contentClasses}"
+					class="{contentBase} {contentBackground} {contentSpaceY} {contentBorder} {contentPadding} {contentShadow} {contentClasses}"
 					transition:slide={animationConfig}
 					{...api.getBranchContentProps(nodeProps)}
 					data-testid="tree-content"
 				>
 					<div {...api.getBranchIndentGuideProps(nodeProps)} class={indentAmount}></div>
-					<div class="{base} {bg} {spaceY} {border} {padding} {shadow} {classes}">
+					<div class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}">
 						{#if nodeProps.node.children}
 							{#each nodeProps.node.children as childNode, index}
 								{@render treeNode({ node: childNode, indexPath: [...nodeProps.indexPath, index] })}
@@ -140,7 +141,7 @@
 		</div>
 	{:else}
 		<button
-			class="{itemBase} {itemBg} {itemSpaceY} {itemHover} {itemBorder} {itemPadding} {itemShadow} {itemClasses}"
+			class="{itemBase} {itemBackground} {itemSpaceY} {itemHover} {itemBorder} {itemPadding} {itemShadow} {itemClasses}"
 			{...api.getItemProps(nodeProps)}
 			data-testid="tree-item"
 		>

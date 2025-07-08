@@ -15,7 +15,7 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	/** Set base styles. */
 	base?: string;
 	/** Set background styles. */
-	bg?: string;
+	background?: string;
 	/** Set vertical spacing styles. */
 	spaceY?: string;
 	/** Set border styles. */
@@ -31,7 +31,7 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	/** Set content styles. */
 	contentBase?: string;
 	/** Set content background styles. */
-	contentBg?: string;
+	contentBackground?: string;
 	/** Set content vertical spacing styles. */
 	contentSpaceY?: string;
 	/** Set content border styles. */
@@ -47,7 +47,7 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	/** Set control styles. */
 	controlBase?: string;
 	/** Set control background styles. */
-	controlBg?: string;
+	controlBackground?: string;
 	/** Set control vertical spacing styles. */
 	controlSpaceY?: string;
 	/** Set control hover styles. */
@@ -65,7 +65,7 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	/** Set item styles. */
 	itemBase?: string;
 	/** Set item background styles. */
-	itemBg?: string;
+	itemBackground?: string;
 	/** Set item vertical spacing styles. */
 	itemSpaceY?: string;
 	/** Set item hover styles. */
@@ -92,7 +92,7 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	/** Set label snippet's styles. */
 	labelBase?: string;
 	/** Set label snippet's background styles. */
-	labelBg?: string;
+	labelBackground?: string;
 	/** Set label snippet's vertical spacing styles. */
 	labelSpaceY?: string;
 	/** Set label snippet's border styles. */
