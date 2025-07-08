@@ -98,6 +98,7 @@
 				class="{controlBase} {controlBackground} {controlSpaceY} {controlHover} {controlBorder} {controlPadding} {controlShadow} {controlClasses}"
 				{...api.getBranchControlProps(nodeProps)}
 				data-testid="tree-control"
+				type="button"
 			>
 				<span
 					class="flex items-center {indicatorTransition} {indicatorRotationClass}"
@@ -144,6 +145,7 @@
 			class="{itemBase} {itemBackground} {itemSpaceY} {itemHover} {itemBorder} {itemPadding} {itemShadow} {itemClasses}"
 			{...api.getItemProps(nodeProps)}
 			data-testid="tree-item"
+			type="button"
 		>
 			{#if itemIcon}
 				<div data-testid="tree-item-icon">
