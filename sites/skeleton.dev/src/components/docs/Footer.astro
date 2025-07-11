@@ -18,7 +18,7 @@ const { classList = 'p-4' } = Astro.props;
 		<nav class="flex items-center">
 			{
 				socialLinks.get().map((l) => (
-					<a class="btn-icon hover:preset-tonal" href={l.href} target="_blank" title={l.label}>
+					<a class="btn-icon hover:preset-tonal" href={l.href} target="_blank" title={l.label} aria-label={l.label}>
 						<Icon name={l.icon} size={24} />
 					</a>
 				))

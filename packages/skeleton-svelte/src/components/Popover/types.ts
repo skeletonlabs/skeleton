@@ -3,10 +3,16 @@ import * as popover from '@zag-js/popover';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
 export interface PopoverProps extends Omit<popover.Props, 'id'> {
+	/** Set a positioner style for z-index, ex: "10" */
+	zIndex?: string;
+
+	// Arrow ---
 	/** Enable display of the popover arrow. */
 	arrow?: boolean;
-	/** Set z-index for the positioner. */
-	zIndex?: string;
+	/** Set a style value for --arrow-background, ex: "var(--color-surface-50-950)" */
+	arrowBackground?: string;
+	/** Set a style value for --arrow-size, ex: "10px" */
+	arrowSize?: string;
 
 	// Base ---
 	/** Set base classes for the root element. */
@@ -41,8 +47,6 @@ export interface PopoverProps extends Omit<popover.Props, 'id'> {
 	// Arrow ---
 	/** Set base classes for the arrow. */
 	arrowBase?: string;
-	/** Set background classes for the arrow. */
-	arrowBackground?: string;
 	/** Provide arbitrary classes for the arrow. */
 	arrowClasses?: string;
 
