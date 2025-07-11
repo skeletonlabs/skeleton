@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.1.5
+### Patch Changes
+
+
+- bugfix: Remove unnecessary loop in `preset.scss` ([#3593](https://github.com/skeletonlabs/skeleton/pull/3593))
+
 ## 3.1.4
 ### Patch Changes
 

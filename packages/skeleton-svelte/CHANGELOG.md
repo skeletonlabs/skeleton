@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.3.0
+### Minor Changes
+
+
+- bugfix: resolves issues with Svelte Tooltip and Popover arrow style props ([#3601](https://github.com/skeletonlabs/skeleton/pull/3601))
+
 ## 1.2.4
 ### Patch Changes
 
