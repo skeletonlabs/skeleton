@@ -9,7 +9,7 @@ export interface ModalProps extends Omit<dialog.Props, 'id'> {
 	base?: string;
 	/** Provide arbitrary classes for the root element. */
 	classes?: string;
-	/** Set z-index for the positioner. */
+	/** Set a positioner style for z-index, ex: "10" */
 	zIndex?: string;
 
 	// Trigger ---

@@ -21,27 +21,56 @@ import schemaTooltip from '@content/schemas/svelte/tooltip.json';
 import schemaCombobox from '@content/schemas/svelte/combobox.json';
 import schemaModal from '@content/schemas/svelte/modal.json';
 
-## Floating UI Svelte
+## Warning
 
-<div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>
-		Please note this section will be the future home of the [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) integration guide,
-		an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this
-		project is in development, we have provided several Svelte-specific components to act as temporary substitutions. Note that these
-		components will remain available until our next major release (Skeleton v4.x). However, the goal will be to replace these with Floating
-		UI Svelte as soon as possible.
-	</p>
+<div class="card preset-tonal-warning preset-outlined-warning-500 p-8 space-y-8">
+	The following components have been introduced as a temporary solution until either Floating UI provides Svelte bindings, the upcoming
+	native browser APIs become widely avialable, or another alternative is introduced (whichever comes first). Until that time, Skeleton will
+	continue to maintain these components for production use. Maintenance will continue until the next major version of Skeleton if an
+	alternative is introduced.
 </div>
+
+The following popover components are built using [Zag.js](https://zagjs.com/) primitives, and utilize [Floating UI](https://floating-ui.com/) to control positioning and anchoring of each related element.
+
+---
 
 ## Z-Index
 
-Skeleton does not take an opinionated stance regarding z-index stacking. This means elements may be occluded beneath other elements with a higher index. Adjust this using the `zIndex` component property.
+Neither Skeleton, Zag, or Floating UI take an opinionated stance regarding z-index stacking. This means elements may be occluded beneath other elements with a higher index. To adjust this value, set `zIndex` with a raw CSS value, such as `10`, `20`, `999` - provided as a string. Note that this property <u>does not</u> accept utility classes.
 
 ```svelte
 <Popover ... zIndex="10">
 	<!-- ... -->
 </Popover>
 ```
+
+- `zIndex="z-50"` - This will NOT work.
+- `zIndex={99}` - This will NOT work.
+- `zIndex="99"` - This will work as expected.
+
+## Arrows
+
+Both `<Popover>` and `<Tooltip>` allow for arrows. Skeleton follows [Zag's conventions](https://zagjs.com/components/svelte/tooltip#styling-the-arrow) for styling arrows. Add the `arrow` prop to enable the arrow, then use the following to adjust each style. Note these properties <u>do not</u> accept utility classes.
+
+| Prop Name         | CSS Custom Property  | Demo                                                      |
+| ----------------- | -------------------- | --------------------------------------------------------- |
+| `arrow`           | -                    | `<Tooltip arrow>`                                         |
+| `arrowBackground` | `--arrow-background` | `<Tooltip arrowBackground="var(--color-surface-50-950)">` |
+| `arrowSize`       | `--arrow-size`       | `<Tooltip arrowSize="10px">`                              |
+
+{/* prettier-ignore */}
+```svelte
+<Tooltip
+	...
+	arrow
+	arrowBackground="var(--color-surface-50-950)"
+	arrowSize="15px"
+>
+	...
+</Tooltip>
+```
+
+---
 
 ## Popover
 
