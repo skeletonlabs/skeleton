@@ -87,7 +87,7 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 		// 	    <Code code={ExampleRaw} lang="tsx" />
 		// </Fragment>
 		//</Preview>
-		// We really only care about the code part and detect which path it is refering to
+		// We really only care about the code part and detect which path it is referring to
 		// by using the rawImports Record
 
 		// <Code code={ExampleRaw} lang="tsx" /> -> ExampleRaw

@@ -69,6 +69,6 @@ export async function importThemeV3(fileText: string, fileName: string) {
 	}
 
 	/* Generate Contrast Colors */
-	/* NOTE: this is a bit redudant, but should get us by for now */
+	/* NOTE: this is a bit redundant, but should get us by for now */
 	constants.colorNames.forEach((name) => genColorRamp(false, name));
 }

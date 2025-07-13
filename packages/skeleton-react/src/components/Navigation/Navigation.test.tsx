@@ -210,7 +210,7 @@ describe('Navigation', () => {
 			expect(getByTestId(testId)).toHaveClass(expandedClasses);
 		});
 
-		it('Correctly applies the `active` prop based on wether the tile is active', async () => {
+		it('Correctly applies the `active` prop based on whether the tile is active', async () => {
 			const active = 'active';
 			const { getByTestId, rerender } = render(
 				<Navigation.Rail>

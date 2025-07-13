@@ -91,7 +91,7 @@ let {
 
 ### Style Prop Conventions
 
-Style props implement sementic naming conventions to enable specificity and avoid naming conflicts. These are organized into three specific categories. Each should be maintained in the following order.
+Style props implement semantic naming conventions to enable specificity and avoid naming conflicts. These are organized into three specific categories. Each should be maintained in the following order.
 
 ```svelte
 <script lang="ts">
@@ -122,7 +122,7 @@ Style props implement sementic naming conventions to enable specificity and avoi
 ```
 
 - `base` - houses any structural utility classes, which can be replaced in a faux-headless manner.
-  - The outter most element is referred to as the Parent in this context. Elements within are children.
+  - The outermost element is referred to as the Parent in this context. Elements within are children.
   - Parent props are not prefixed, which helps maintain parity cross-framework
   - Child props are prefixed: `titleBase`, `panelBase`, `controlBase`.
 - `{property}` - individual style props that house one or more “swappable” utility classes.
