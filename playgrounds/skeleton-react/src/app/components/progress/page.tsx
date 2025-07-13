@@ -57,7 +57,7 @@ export default function Page() {
 			<section className="space-y-4">
 				<h2 className="h2">Indeterminate</h2>
 				<Progress value={null}>
-					<span>Deafult Animation</span>
+					<span>Default Animation</span>
 				</Progress>
 				{/* NOTE: `custom-indeterminate` defined in app.pcss */}
 				<Progress value={null} meterAnimate="custom-indeterminate">

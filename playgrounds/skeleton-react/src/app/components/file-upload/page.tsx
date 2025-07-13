@@ -41,7 +41,7 @@ export default function Page() {
 			</section>
 			<section className="space-y-4">
 				<h2 className="h2">Disabled</h2>
-				{/* Deafult */}
+				{/* Default */}
 				<FileUpload name="example" disabled />
 				<FileUpload name="example" disabled>
 					<button className="btn preset-filled">Disabled</button>
