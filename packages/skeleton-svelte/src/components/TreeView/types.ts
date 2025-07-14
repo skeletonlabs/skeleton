@@ -1,3 +1,4 @@
+import type { PropTypes } from '@zag-js/svelte';
 import * as tree from '@zag-js/tree-view';
 import type { Snippet } from 'svelte';
 import type { SlideParams } from 'svelte/transition';
@@ -9,7 +10,7 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	animationConfig?: SlideParams;
 
 	// Data ---
-	collection: TreeViewCollection;
+	// collection?: CollectionNode[];
 
 	// View ---
 	/** Set base styles. */
@@ -111,12 +112,46 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	itemIcon?: Snippet;
 	/** The icon to indicate if the node children are expanded. */
 	branchIndicator?: Snippet;
+
+	children?: Snippet;
+	label?: Snippet;
 }
 
 export interface CollectionNode {
 	id: string;
 	value: string;
 	children?: CollectionNode[];
+	indexPath: number[];
 }
 
-export type TreeViewCollection = CollectionNode[];
+// export type TreeViewCollection = CollectionNode[];
+
+export interface NodeSnippets {
+	control?: Snippet;
+	content?: Snippet;
+	item?: Snippet;
+}
+
+// export interface TreeData {
+// 	nodes: TreeViewCollection;
+// 	nodeMap: Map<string, CollectionNode>;
+// 	snippetMap: Map<string, NodeSnippets>;
+// }
+
+export type SnippetTypes = 'item' | 'control' | 'content';
+
+export interface TreeViewContext extends TreeViewProps {
+	api?: ReturnType<typeof tree.connect<PropTypes, CollectionNode>>;
+	animationConfig?: SlideParams;
+	// treeData: TreeData;
+	registerNode: (node: CollectionNode) => number[];
+	unregisterNode: (nodeId: string) => void;
+	updateNode: (node: CollectionNode) => void;
+}
+
+export interface NodeContext {
+	node: CollectionNode;
+	registerChild: (child: CollectionNode) => number[];
+	unregisterChild: (childId: string) => void;
+	updateChild: (child: CollectionNode) => void;
+}

@@ -1,28 +1,27 @@
 <script lang="ts">
-	import { TreeView, type TreeViewCollection } from '@skeletonlabs/skeleton-svelte';
-	import IconArrow from '@lucide/svelte/icons/arrow-big-right';
+	import { TreeView } from '@skeletonlabs/skeleton-svelte';
 
 	let valueDefault = $state(['LEVEL_1']);
 	let valueIcons = $state(['LEVEL_1']);
 
-	const collection: TreeViewCollection = [
-		{
-			id: 'LEVEL_1',
-			value: 'node_modules',
-			children: [
-				{ id: 'LEVEL_2.1', value: 'zag-js' },
-				{ id: 'LEVEL_2.2', value: 'panda' },
-				{
-					id: 'LEVEL_2.3',
-					value: '@types',
-					children: [
-						{ id: 'LEVEL_3.1', value: 'react' },
-						{ id: 'LEVEL_3.2', value: 'react-dom' }
-					]
-				}
-			]
-		}
-	];
+	// const collection: TreeViewCollection = [
+	// 	{
+	// 		id: 'LEVEL_1',
+	// 		value: 'node_modules',
+	// 		children: [
+	// 			{ id: 'LEVEL_2.1', value: 'zag-js' },
+	// 			{ id: 'LEVEL_2.2', value: 'panda' },
+	// 			{
+	// 				id: 'LEVEL_2.3',
+	// 				value: '@types',
+	// 				children: [
+	// 					{ id: 'LEVEL_3.1', value: 'react' },
+	// 					{ id: 'LEVEL_3.2', value: 'react-dom' }
+	// 				]
+	// 			}
+	// 		]
+	// 	}
+	// ];
 </script>
 
 <div class="space-y-10 w-full">
@@ -31,6 +30,18 @@
 	</header>
 	<div class="flex justify-between w-full">
 		<section>
+			<TreeView onCheckedChange={(e) => console.log(e)}>
+				<TreeView.Branch id="this_is_the_first_branch" value="ah thats why">
+					<TreeView.Item id="it_also_has_an_id" value="this also has a value">and this would be child item</TreeView.Item>
+					do yo mind?
+				</TreeView.Branch>
+				<TreeView.Item id="test1" value="this is value 1 "></TreeView.Item>
+				<TreeView.Item id="test2" value="this is value 2"></TreeView.Item>
+				<TreeView.Item id="test3" value=" this is value 3"></TreeView.Item>
+				<TreeView.Item id="test4" value="this is value 4"></TreeView.Item>
+			</TreeView>
+		</section>
+		<!-- <section>
 			<section class="space-y-4">
 				<h2 class="h2">Default</h2>
 				<pre class="pre">{JSON.stringify(valueDefault)}</pre>
@@ -40,7 +51,7 @@
 				<h2 class="h2">Icons</h2>
 				<pre class="pre">{JSON.stringify(valueIcons)}</pre>
 				<TreeView {collection} expandedValue={valueIcons} onExpandedChange={(e) => (valueIcons = e.expandedValue)}>
-					{#snippet nodeIndicator()}
+					{#snippet branchIndicator()}
 						<IconArrow />
 					{/snippet}
 					{#snippet branchIcon()}
@@ -52,6 +63,6 @@
 				</TreeView>
 			</section>
 		</section>
-		<pre class="pre h-fit">{JSON.stringify(collection, null, 2)}</pre>
+		<pre class="pre h-fit">{JSON.stringify(collection, null, 2)}</pre> -->
 	</div>
 </div>
