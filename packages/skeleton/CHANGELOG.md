@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.1.6
+### Patch Changes
+
+
+- bugfix: Set universal input placeholder to ensure consistent coloring ([#3606](https://github.com/skeletonlabs/skeleton/pull/3606))
+
 ## 3.1.5
 ### Patch Changes
 
