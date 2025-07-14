@@ -54,7 +54,10 @@
 
 	/* Form Placeholders --- */
 
-	*::placeholder {
+	.input::placeholder,
+	.textarea::placeholder,
+	.ig-input::placeholder,
+	.ig-textarea::placeholder {
 		color: var(--color-surface-700-300);
 	}
 
