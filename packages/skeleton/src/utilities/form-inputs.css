@@ -30,12 +30,6 @@
 		--tw-ring-color: var(--color-primary-500);
 	}
 
-	/* Placeholder --- */
-
-	&::placeholder {
-		color: var(--color-surface-700-300);
-	}
-
 	/* File Input --- */
 
 	&[type='file']::file-selector-button {
