@@ -54,7 +54,7 @@
 
 	/* Form Placeholders --- */
 
-	*::placeholder {
+	::placeholder {
 		color: var(--color-surface-700-300);
 	}
 
