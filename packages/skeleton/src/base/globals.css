@@ -52,6 +52,12 @@
 		cursor: pointer;
 	}
 
+	/* Form Placeholders --- */
+
+	*::placeholder {
+		color: var(--color-surface-700-300);
+	}
+
 	/* Selection --- */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
 

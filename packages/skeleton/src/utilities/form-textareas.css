@@ -29,10 +29,4 @@
 	@variant focus-within {
 		--tw-ring-color: var(--color-primary-500);
 	}
-
-	/* Placeholder --- */
-
-	&::placeholder {
-		color: var(--color-surface-800-200);
-	}
 }
