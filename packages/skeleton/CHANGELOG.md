@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.1.7
+### Patch Changes
+
+
+- bugfix: Adjust selector for global placeholder styling ([#3608](https://github.com/skeletonlabs/skeleton/pull/3608))
+
 ## 3.1.6
 ### Patch Changes
 
