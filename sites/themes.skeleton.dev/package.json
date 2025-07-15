@@ -8,24 +8,24 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
 	},
 	"devDependencies": {
-		"@lucide/svelte": "^0.485.0",
+		"@lucide/svelte": "^0.525.0",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
-		"@sveltejs/adapter-vercel": "^5.6.3",
-		"@sveltejs/kit": "^2.20.2",
-		"@sveltejs/vite-plugin-svelte": "^5.0.3",
+		"@sveltejs/adapter-vercel": "^5.7.2",
+		"@sveltejs/kit": "^2.24.0",
+		"@sveltejs/vite-plugin-svelte": "^6.1.0",
 		"@tailwindcss/forms": "^0.5.10",
-		"@tailwindcss/vite": "^4.0.17",
+		"@tailwindcss/vite": "^4.1.11",
 		"@types/chroma-js": "^3.1.1",
 		"autoprefixer": "^10.4.21",
 		"chroma-js": "^3.1.2",
-		"shiki": "^3.2.1",
+		"shiki": "^3.8.0",
 		"svelte": "catalog:",
-		"svelte-check": "^4.1.5",
+		"svelte-check": "^4.2.2",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
-		"vite": "^6.2.5"
+		"vite": "^7.0.4"
 	},
 	"type": "module"
 }
