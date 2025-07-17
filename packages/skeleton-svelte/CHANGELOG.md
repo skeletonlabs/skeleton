@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.3.1
+### Patch Changes
+
+
+- chore: Update zag dependencies ([#3612](https://github.com/skeletonlabs/skeleton/pull/3612))
+
 ## 1.3.0
 ### Minor Changes
 
