@@ -21,10 +21,10 @@
 		"dist"
 	],
 	"devDependencies": {
-		"tinyglobby": "^0.2.12",
+		"tinyglobby": "^0.2.14",
 		"unbuild": "^3.5.0",
-		"vite": "^6.2.5",
-		"vitest": "^3.1.1"
+		"vite": "^7.0.4",
+		"vitest": "^3.2.4"
 	},
 	"dependencies": {
 		"typescript": "catalog:"
