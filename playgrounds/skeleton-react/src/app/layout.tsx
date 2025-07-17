@@ -50,7 +50,7 @@ export default function RootLayout({
 								<a className="anchor" href="/components/progress">
 									Progress
 								</a>
-								<a className="anchor" href="/components/progress-rings">
+								<a className="anchor" href="/components/progress-ring">
 									Progress Rings
 								</a>
 								<a className="anchor" href="/components/segment">
