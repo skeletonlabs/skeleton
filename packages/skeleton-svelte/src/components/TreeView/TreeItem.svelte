@@ -17,7 +17,14 @@
 				data-testid="tree-item"
 				type="button"
 			>
-				{node.value}
+				{#if treeContext.itemIcon}
+					<div data-testid="tree-item-icon">
+						{@render treeContext.itemIcon()}
+					</div>
+				{/if}
+				<span {...treeContext.api?.getItemTextProps(nodeProps)} data-testid="tree-item-text">
+					{node.value}
+				</span>
 			</button>
 		{/if}
 	{/snippet}

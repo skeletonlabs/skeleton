@@ -24,6 +24,9 @@
 	// ];
 </script>
 
+<button onclick={() => api?.expand()}> Expand All </button>
+<button onclick={() => api?.collapse()}> Collapse All </button>
+
 <div class="space-y-10 w-full">
 	<header>
 		<h1 class="h1">Tree View</h1>

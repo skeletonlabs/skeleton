@@ -12,9 +12,6 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	/** The animation configuration. */
 	animationConfig?: SlideParams;
 
-	// Data ---
-	// collection?: CollectionNode[];
-
 	// View ---
 	/** Set base styles. */
 	base?: string;
@@ -163,7 +160,6 @@ export type SnippetTypes = 'item' | 'control' | 'content';
 export interface TreeViewContext extends TreeViewProps {
 	api: ReturnType<typeof tree.connect<PropTypes, CollectionNode>> | undefined;
 	animationConfig?: SlideParams;
-	// treeData: TreeData;
 	registerNode: (node: CollectionNode) => number[];
 	unregisterNode: (nodeId: string) => void;
 	updateNode: (node: CollectionNode) => void;

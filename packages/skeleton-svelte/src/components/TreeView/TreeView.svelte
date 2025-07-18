@@ -176,7 +176,9 @@
 		itemClasses,
 
 		// Snippets
-		branchIndicator: branchIndicator ?? chevron
+		branchIndicator: branchIndicator ?? chevron,
+		branchIcon,
+		itemIcon
 	};
 
 	setTreeContext(treeContext);
@@ -184,10 +186,6 @@
 
 <!-- @component A collapsible TreeView. -->
 
-<!-- {@debug api} -->
-
-<button onclick={() => api?.expand()}> Expand All </button>
-<button onclick={() => api?.collapse()}> Collapse All </button>
 <!-- Tree -->
 <div class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}" {...api?.getRootProps()} data-testid="tree">
 	{#if label}

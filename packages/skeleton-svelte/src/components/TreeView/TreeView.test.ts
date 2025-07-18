@@ -1,11 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
-
-import TreeView from './TreeView.svelte';
-import type { TreeViewProps } from './types.js';
+import TreeViewTest from './TreeView.test.svelte';
 import { mockSnippet } from '../../internal/test-utils.js';
 
-describe('TreeView', () => {
+describe('TreeView (template-driven)', () => {
 	const testIds = {
 		root: 'tree',
 		branch: 'tree-branch',
@@ -18,56 +16,46 @@ describe('TreeView', () => {
 		content: 'tree-content',
 		item: 'tree-item'
 	} as const;
-	const commonProps: TreeViewProps = {
-		collection: [
-			{
-				id: 'LEVEL_1',
-				value: 'node_modules',
-				children: [{ id: 'LEVEL_2.1', value: 'zag-js' }]
-			}
-		]
-	} as const;
 
 	it('Renders the component', () => {
-		render(TreeView, { ...commonProps });
+		render(TreeViewTest);
 		const component = screen.getByTestId(testIds.root);
 		expect(component).toBeInTheDocument();
 	});
 
-	it(`should render with the branchIndicator snippet`, () => {
+	it('should render with the branchIndicator snippet', () => {
 		const testValue = 'testIndicator';
-		render(TreeView, { ...commonProps, branchIndicator: mockSnippet(testValue) });
+		render(TreeViewTest, { branchIndicator: mockSnippet(testValue) });
 		const input = screen.getByTestId(testIds.indicator);
 		expect(input).toHaveTextContent(testValue);
 	});
 
-	it(`should render with the branchIcon snippet`, () => {
+	it('should render with the branchIcon snippet', () => {
 		const testValue = 'testIcon';
-		render(TreeView, { ...commonProps, branchIcon: mockSnippet(testValue) });
+		render(TreeViewTest, { branchIcon: mockSnippet(testValue) });
 		const input = screen.getByTestId(testIds.branchIcon);
 		expect(input).toHaveTextContent(testValue);
 	});
 
-	it(`should render with the value/text of a branch`, () => {
-		const valueToTest = commonProps.collection[0].value;
-		render(TreeView, { ...commonProps });
+	it('should render with the value/text of a branch', () => {
+		const valueToTest = 'node_modules';
+		render(TreeViewTest);
 		const input = screen.getByTestId(testIds.branchText);
 		expect(input).toHaveTextContent(valueToTest);
 	});
 
-	it(`should render expanded with the itemIcon snippet`, () => {
+	it('should render expanded with the itemIcon snippet', () => {
 		const testValue = 'testIcon';
-		render(TreeView, { ...commonProps, defaultExpandedValue: ['LEVEL_1'], itemIcon: mockSnippet(testValue) });
+		render(TreeViewTest, { defaultExpandedValue: ['LEVEL_1'], itemIcon: mockSnippet(testValue) });
 		const input = screen.getByTestId(testIds.itemIcon);
 		expect(input).toHaveTextContent(testValue);
 	});
 
-	it(`should render expanded with the value/text of an item`, () => {
-		const nodeToTest = commonProps.collection[0].children?.at(0);
-		render(TreeView, { ...commonProps, defaultExpandedValue: ['LEVEL_1'] });
+	it('should render expanded with the value/text of an item', () => {
+		const valueToTest = 'zag-js';
+		render(TreeViewTest, { defaultExpandedValue: ['LEVEL_1'] });
 		const input = screen.getByTestId(testIds.itemText);
-		expect(nodeToTest).toBeDefined();
-		expect(input).toHaveTextContent(nodeToTest?.value ?? '');
+		expect(input).toHaveTextContent(valueToTest);
 	});
 
 	const propMap = [
@@ -90,7 +78,7 @@ describe('TreeView', () => {
 		for (const prop of item.props) {
 			it(`Correctly applies the ${prop} prop`, () => {
 				const value = 'bg-green-500';
-				render(TreeView, { ...commonProps, defaultExpandedValue: ['LEVEL_1'], [prop]: value });
+				render(TreeViewTest, { defaultExpandedValue: ['LEVEL_1'], [prop]: value });
 				const component = screen.getByTestId(item.testId);
 				expect(component).toHaveClass(value);
 			});

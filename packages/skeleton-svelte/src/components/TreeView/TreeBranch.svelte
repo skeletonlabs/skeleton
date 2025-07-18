@@ -28,6 +28,11 @@
 						{@render treeContext.branchIndicator()}
 					{/if}
 				</span>
+				{#if treeContext.branchIcon}
+					<div data-testid="tree-branch-icon">
+						{@render treeContext.branchIcon()}
+					</div>
+				{/if}
 				<span {...treeContext.api?.getBranchTextProps(nodeProps)} data-testid="tree-branch-text">
 					{nodeData.value}
 				</span>
