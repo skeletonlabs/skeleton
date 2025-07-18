@@ -4,11 +4,6 @@
 	import type { CollectionNode, TreeViewContext, TreeViewProps } from './types.js';
 	import { setTreeContext } from './context.js';
 
-	// interface Props {
-	// 	children?: import('svelte').Snippet;
-	// 	label?: import('svelte').Snippet;
-	// }
-
 	const {
 		// Indent
 		indentAmount = 'indent-guide',
@@ -17,8 +12,6 @@
 		indicatorTransition = 'transition-transform',
 		// Animation
 		animationConfig = { duration: 200 },
-		// Data
-		// collection,
 		// Root
 		base = 'flex flex-col w-fit',
 		background = '',
@@ -121,7 +114,6 @@
 	};
 
 	const updateNode = (node: CollectionNode) => {
-		console.log('this is the update', node);
 		if (nodes.has(node.id)) {
 			nodes.set(node.id, node);
 			nodes = new Map(nodes);
