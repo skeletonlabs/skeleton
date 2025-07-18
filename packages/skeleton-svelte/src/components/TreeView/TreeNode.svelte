@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { onMount, type Snippet } from 'svelte';
+	import { onMount } from 'svelte';
 	import type { CollectionNode, NodeContext, TreeNodeProps } from './types.js';
-	import { getNodeContext, getTreeContext, setNodeContext, setTreeContext } from './context.js';
-	import type { NodeProps } from '@zag-js/tree-view';
+	import { getNodeContext, getTreeContext, setNodeContext } from './context.js';
 
 	const { id, value, content }: TreeNodeProps = $props();
 
@@ -16,8 +15,8 @@
 	const nodeData: CollectionNode = $derived({
 		id,
 		value,
-		children: childNodes,
-		indexPath: currentIndexPath
+		indexPath: currentIndexPath,
+		children: childNodes
 	});
 
 	const updateSelf = () => {

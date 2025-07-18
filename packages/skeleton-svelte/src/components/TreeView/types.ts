@@ -6,6 +6,8 @@ import type { SlideParams } from 'svelte/transition';
 
 // Components ---
 
+export type TreeViewApi = tree.Api<PropTypes, CollectionNode>;
+
 export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	/** The animation configuration. */
 	animationConfig?: SlideParams;
@@ -116,6 +118,10 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 
 	children?: Snippet;
 	label?: Snippet;
+
+	// Zag ---
+	/** Binds the Zag API for external use. */
+	onApiReady?: (api: TreeViewApi) => void;
 }
 
 export interface TreeBranchProps {
@@ -142,23 +148,15 @@ export interface TreeNodeProps {
 export interface CollectionNode {
 	id: string;
 	value: string;
-	children?: CollectionNode[];
 	indexPath: number[];
+	children?: CollectionNode[];
 }
-
-// export type TreeViewCollection = CollectionNode[];
 
 export interface NodeSnippets {
 	control?: Snippet;
 	content?: Snippet;
 	item?: Snippet;
 }
-
-// export interface TreeData {
-// 	nodes: TreeViewCollection;
-// 	nodeMap: Map<string, CollectionNode>;
-// 	snippetMap: Map<string, NodeSnippets>;
-// }
 
 export type SnippetTypes = 'item' | 'control' | 'content';
 

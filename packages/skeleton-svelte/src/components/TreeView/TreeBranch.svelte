@@ -1,30 +1,14 @@
 <script lang="ts">
-	import * as tree from '@zag-js/tree-view';
-	import type { Snippet } from 'svelte';
 	import { getTreeContext } from './context.js';
 	import TreeNode from './TreeNode.svelte';
-	import { slide } from 'svelte/transition';
-	import { normalizeProps } from '@zag-js/svelte';
-	import { key } from '../Accordion/context.js';
 	import type { TreeBranchProps } from './types.js';
 
-	let { id, value, disabled = false, children }: TreeBranchProps = $props();
+	let { id, value, children, disabled = false }: TreeBranchProps = $props();
 
 	const treeContext = getTreeContext();
-
-	// const handleClick = (event: MouseEvent, nodeProps: any) => {
-	// 	console.log(`🖱️ TreeBranch ${id} clicked:`, {
-	// 		event,
-	// 		nodeProps,
-	// 		triggerProps: treeContext.getBranchControlProps(nodeProps),
-	// 		expandedValue: treeContext.expandedValue
-	// 		// willExpand: treeContext.expandedValue.includes(id)
-	// 	});
-	// };
 </script>
 
-<!-- {disabled} -->
-<TreeNode {id} {value}>
+<TreeNode {id} {value} {disabled}>
 	{#snippet content({ node: nodeData, nodeProps })}
 		<!-- Branch -->
 		<div {...treeContext.api?.getBranchProps(nodeProps)} data-testid="tree-branch">
@@ -48,9 +32,6 @@
 					{nodeData.value}
 				</span>
 			</button>
-			{#key treeContext.api?.getVisibleNodes()}
-				{JSON.stringify(treeContext.api?.expandedValue)}
-			{/key}
 
 			<!-- Content -->
 			<div
@@ -59,9 +40,7 @@
 				data-testid="tree-content"
 			>
 				<div {...treeContext.api?.getBranchIndentGuideProps(nodeProps)} class={treeContext.indentAmount}></div>
-				<div
-					class="{treeContext.base} {treeContext.background} {treeContext.spaceY} {treeContext.border} {treeContext.padding} {treeContext.shadow} {treeContext.classes}"
-				>
+				<div>
 					{@render children()}
 				</div>
 			</div>

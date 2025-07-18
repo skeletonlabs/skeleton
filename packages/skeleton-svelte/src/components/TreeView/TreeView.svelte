@@ -2,9 +2,7 @@
 	import * as tree from '@zag-js/tree-view';
 	import { useMachine, normalizeProps, type PropTypes } from '@zag-js/svelte';
 	import type { CollectionNode, TreeViewContext, TreeViewProps } from './types.js';
-	import { slide } from 'svelte/transition';
-	import { getTreeContext, setTreeContext } from './context.js';
-	import { onMount, tick } from 'svelte';
+	import { setTreeContext } from './context.js';
 
 	// interface Props {
 	// 	children?: import('svelte').Snippet;
@@ -15,7 +13,7 @@
 		// Indent
 		indentAmount = 'indent-guide',
 		// Indicator
-		indicatorRotationClass = 'branch-indicator',
+		indicatorRotationClass = 'branch-indicator-rotation',
 		indicatorTransition = 'transition-transform',
 		// Animation
 		animationConfig = { duration: 200 },
@@ -39,7 +37,7 @@
 		controlShadow = '',
 		controlClasses = '',
 		// Content
-		contentBase = 'flex gap-1',
+		contentBase = 'flex',
 		contentBackground = '',
 		contentSpaceY = '',
 		contentBorder = controlBorder,
@@ -66,8 +64,6 @@
 		// Zag
 		...zagProps
 	}: TreeViewProps = $props();
-
-	// let { selectionMode = 'single', expandOnClick = true, onSelectionChange, onExpandedChange, children, label }: Props = $props();
 
 	let nodes = $state<Map<string, CollectionNode>>(new Map());
 	let rootChildren = $derived<CollectionNode[]>(nodes.values().toArray());
@@ -96,17 +92,22 @@
 
 	let api = $derived<tree.Api<PropTypes, CollectionNode>>(tree.connect(service, normalizeProps));
 
-	$inspect(api.expandedValue);
+	$effect.pre(() => {
+		zagProps.onApiReady?.(api);
+	});
+
+	$effect(() => {
+		void api.expandedValue;
+	});
 
 	const registerNode = (node: CollectionNode) => {
-		// Calculate indexPath for root nodes
 		const index = nodes.size;
 		const nodeWithIndex = {
 			...node,
 			indexPath: [index]
 		};
 		nodes.set(node.id, nodeWithIndex);
-		nodes = new Map(nodes); // Trigger reactivity
+		nodes = new Map(nodes);
 		return nodeWithIndex.indexPath;
 	};
 
@@ -118,14 +119,14 @@
 		remainingNodes.forEach((node, index) => {
 			nodes.set(node.id, { ...node, indexPath: [index] });
 		});
-		nodes = new Map(nodes); // Trigger reactivity
+		nodes = new Map(nodes);
 	};
 
 	const updateNode = (node: CollectionNode) => {
 		console.log('this is the update', node);
 		if (nodes.has(node.id)) {
 			nodes.set(node.id, node);
-			nodes = new Map(nodes); // Trigger reactivity
+			nodes = new Map(nodes);
 		}
 	};
 
@@ -133,6 +134,9 @@
 		get api() {
 			return api;
 		},
+		indentAmount,
+		indicatorRotationClass,
+		indicatorTransition,
 		animationConfig,
 		registerNode,
 		unregisterNode,
@@ -176,15 +180,9 @@
 	};
 
 	setTreeContext(treeContext);
-
-	// $effect.pre(() => {
-	// 	zagProps.onApiReady?.(api);
-	// });
 </script>
 
 <!-- @component A collapsible TreeView. -->
-<!-- <pre>{JSON.stringify(Array.from(nodes.values()), undefined, 2)}</pre> -->
-<pre>{JSON.stringify(api, undefined, 2)}</pre>
 
 <!-- {@debug api} -->
 

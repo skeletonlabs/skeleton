@@ -1,18 +1,14 @@
 <script lang="ts">
-	import * as tree from '@zag-js/tree-view';
-	import type { Snippet } from 'svelte';
 	import { getTreeContext } from './context.js';
 	import TreeNode from './TreeNode.svelte';
-	import { normalizeProps } from '@zag-js/svelte';
 	import type { TreeItemProps } from './types.js';
 
-	let { id, value, disabled = false, children }: TreeItemProps = $props();
+	let { id, value, disabled = false }: TreeItemProps = $props();
 
 	const treeContext = getTreeContext();
 </script>
 
-<!-- {disabled} -->
-<TreeNode {id} {value}>
+<TreeNode {id} {value} {disabled}>
 	{#snippet content({ node, nodeProps })}
 		{#if node != null}
 			<button

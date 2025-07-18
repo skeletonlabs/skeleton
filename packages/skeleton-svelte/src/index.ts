@@ -26,7 +26,7 @@ export { default as TreeView } from './components/TreeView/index.js';
 
 // Types
 export type { FileUploadApi } from './components/FileUpload/types.js';
-export type { CollectionNode, TreeViewCollection } from './components/TreeView/types.js';
+export type { CollectionNode, TreeViewApi } from './components/TreeView/types.js';
 
 // Temporary Features ---
 // The following will be removed or replaced in the future.

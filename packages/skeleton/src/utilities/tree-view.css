@@ -8,7 +8,7 @@
 	width: --value(--indent-width- *, [ *]);
 }
 
-@utility branch-indicator {
+@utility branch-indicator-rotation {
 	transform-box: fill-box;
 	transform-origin: center;
 	&[data-state='open'] {
@@ -16,7 +16,7 @@
 	}
 }
 
-@utility branch-indicator-* {
+@utility branch-indicator-rotation-* {
 	transform-box: fill-box;
 	transform-origin: center;
 	&[data-state='open'] {
