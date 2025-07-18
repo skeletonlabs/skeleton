@@ -1,42 +1,32 @@
 <script lang="ts">
+	import * as tree from '@zag-js/tree-view';
 	import type { Snippet } from 'svelte';
 	import { getTreeContext } from './context.js';
 	import TreeNode from './TreeNode.svelte';
 	import { slide } from 'svelte/transition';
+	import { normalizeProps } from '@zag-js/svelte';
+	import { key } from '../Accordion/context.js';
+	import type { TreeBranchProps } from './types.js';
 
-	interface Props {
-		id: string;
-		value: string;
-		disabled?: boolean;
-		children: Snippet;
-		// trigger?: import('svelte').Snippet<
-		// 	[
-		// 		{
-		// 			nodeData: any;
-		// 		}
-		// 	]
-		// >;
-	}
-
-	let { id, value, disabled = false, children }: Props = $props();
+	let { id, value, disabled = false, children }: TreeBranchProps = $props();
 
 	const treeContext = getTreeContext();
 
-	const handleClick = (event: MouseEvent, nodeProps: any) => {
-		console.log(`🖱️ TreeBranch ${id} clicked:`, {
-			event,
-			nodeProps,
-			triggerProps: treeContext.api?.getBranchControlProps(nodeProps),
-			expandedValue: treeContext.api?.expandedValue,
-			willExpand: treeContext.api?.expandedValue.includes(id)
-		});
-	};
+	// const handleClick = (event: MouseEvent, nodeProps: any) => {
+	// 	console.log(`🖱️ TreeBranch ${id} clicked:`, {
+	// 		event,
+	// 		nodeProps,
+	// 		triggerProps: treeContext.getBranchControlProps(nodeProps),
+	// 		expandedValue: treeContext.expandedValue
+	// 		// willExpand: treeContext.expandedValue.includes(id)
+	// 	});
+	// };
 </script>
 
-<TreeNode {id} {value} {disabled}>
+<!-- {disabled} -->
+<TreeNode {id} {value}>
 	{#snippet content({ node: nodeData, nodeProps })}
 		<!-- Branch -->
-		<pre>{JSON.stringify(nodeProps, undefined, 2)}</pre>
 		<div {...treeContext.api?.getBranchProps(nodeProps)} data-testid="tree-branch">
 			<!-- Control -->
 			<button
@@ -44,7 +34,6 @@
 				{...treeContext.api?.getBranchControlProps(nodeProps)}
 				data-testid="tree-control"
 				type="button"
-				onmousedown={(e) => handleClick(e, nodeProps)}
 			>
 				<span
 					class="flex items-center {treeContext.indicatorTransition} {treeContext.indicatorRotationClass}"
@@ -59,6 +48,9 @@
 					{nodeData.value}
 				</span>
 			</button>
+			{#key treeContext.api?.getVisibleNodes()}
+				{JSON.stringify(treeContext.api?.expandedValue)}
+			{/key}
 
 			<!-- Content -->
 			<div

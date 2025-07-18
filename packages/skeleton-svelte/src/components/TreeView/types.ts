@@ -1,4 +1,5 @@
 import type { PropTypes } from '@zag-js/svelte';
+import type { NodeProps } from '@zag-js/tree-view';
 import * as tree from '@zag-js/tree-view';
 import type { Snippet } from 'svelte';
 import type { SlideParams } from 'svelte/transition';
@@ -117,6 +118,27 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	label?: Snippet;
 }
 
+export interface TreeBranchProps {
+	id: string;
+	value: string;
+	disabled?: boolean;
+	children: Snippet;
+}
+
+export interface TreeItemProps {
+	id: string;
+	value: string;
+	disabled?: boolean;
+	children?: Snippet;
+}
+
+export interface TreeNodeProps {
+	id: string;
+	value: string;
+	disabled?: boolean;
+	content: Snippet<[{ node: CollectionNode; nodeProps: NodeProps }]>;
+}
+
 export interface CollectionNode {
 	id: string;
 	value: string;
@@ -141,7 +163,7 @@ export interface NodeSnippets {
 export type SnippetTypes = 'item' | 'control' | 'content';
 
 export interface TreeViewContext extends TreeViewProps {
-	api?: ReturnType<typeof tree.connect<PropTypes, CollectionNode>>;
+	api: ReturnType<typeof tree.connect<PropTypes, CollectionNode>> | undefined;
 	animationConfig?: SlideParams;
 	// treeData: TreeData;
 	registerNode: (node: CollectionNode) => number[];

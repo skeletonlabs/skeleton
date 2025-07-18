@@ -33,7 +33,7 @@
 			<TreeView onCheckedChange={(e) => console.log(e)}>
 				<TreeView.Branch id="this_is_the_first_branch" value="ah thats why">
 					<TreeView.Item id="it_also_has_an_id" value="this also has a value">and this would be child item</TreeView.Item>
-					do yo mind?
+					<TreeView.Item id="child_2" value="this is the second child">?</TreeView.Item>
 				</TreeView.Branch>
 				<TreeView.Item id="test1" value="this is value 1 "></TreeView.Item>
 				<TreeView.Item id="test2" value="this is value 2"></TreeView.Item>
