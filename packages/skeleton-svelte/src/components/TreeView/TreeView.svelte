@@ -57,8 +57,6 @@
 		branchIcon,
 		itemIcon,
 		branchIndicator,
-		onSelectionChange,
-		onExpandedChange,
 		children,
 		label,
 		// Zag
