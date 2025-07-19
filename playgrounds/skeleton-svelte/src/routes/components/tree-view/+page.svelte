@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { TreeView, type TreeViewApi } from '@skeletonlabs/skeleton-svelte';
+	import Folder from '@lucide/svelte/icons/folder';
+	import File from '@lucide/svelte/icons/file';
 
 	let api = $state<TreeViewApi>();
 	let collection = $derived(api?.collection.rootNode.children);
@@ -33,6 +35,12 @@
 	<div class="flex justify-between w-full">
 		<section>
 			<TreeView selectionMode="multiple" onApiReady={(treeViewApi: TreeViewApi) => (api = treeViewApi)}>
+				{#snippet branchIcon()}
+					<Folder />
+				{/snippet}
+				{#snippet itemIcon()}
+					<File />
+				{/snippet}
 				<TreeView.Branch id="LEVEL_1" value="node_modules">
 					<TreeView.Item id="LEVEL_2.1" value="zag-js" />
 					<TreeView.Item id="LEVEL_2.2" value="panda" />
