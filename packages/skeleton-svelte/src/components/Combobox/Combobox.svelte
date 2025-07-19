@@ -8,6 +8,7 @@
 		data = [],
 		label = '',
 		zIndex = 'auto',
+		disableAutoFilter = false,
 		// Base
 		base = '',
 		width = '',
@@ -65,11 +66,19 @@
 			zagProps.onOpenChange?.(event);
 		},
 		onInputValueChange(event) {
-			const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
-			options = filtered;
+			if (!disableAutoFilter) {
+				const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
+				options = filtered;
+			}
 			zagProps.onInputValueChange?.(event);
 		}
 	}));
+
+	if (disableAutoFilter) {
+		$effect(() => {
+			options = data;
+		});
+	}
 	const api = $derived(combobox.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>

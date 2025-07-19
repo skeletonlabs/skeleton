@@ -9,6 +9,9 @@ export interface ComboboxProps<T extends ComboboxItem> extends Omit<combobox.Pro
 	/** Set a positioner style for z-index, ex: "10" */
 	zIndex?: string;
 
+	/** Set to true to disable the automatic internal filtering, allowing full custom control over data updates via onInputValueChange. Defaults to false. */
+	disableAutoFilter?: boolean;
+
 	// Base ---
 	/** Set base classes for the root element. */
 	base?: string;
