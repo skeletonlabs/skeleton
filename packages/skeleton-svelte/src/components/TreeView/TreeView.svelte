@@ -45,6 +45,7 @@
 		itemBorder = contentBorder,
 		itemPadding = controlPadding,
 		itemShadow = '',
+		itemSelected = '[&[data-selected]]:preset-tonal-primary',
 		itemClasses = '',
 		// Snippets
 		branchIcon,
@@ -163,6 +164,7 @@
 		itemBorder,
 		itemPadding,
 		itemShadow,
+		itemSelected,
 		itemClasses,
 
 		// Snippets

@@ -77,6 +77,8 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	itemPadding?: string;
 	/** Set item shadow styles. */
 	itemShadow?: string;
+	/** Set item selected styles. */
+	itemSelected?: string;
 	/** Provide arbitrary CSS classes to the items. */
 	itemClasses?: string;
 
