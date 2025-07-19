@@ -12,7 +12,7 @@
 	{#snippet content({ node, nodeProps })}
 		{#if node != null}
 			<button
-				class="{treeContext.itemBase} {treeContext.itemBackground} {treeContext.itemSpaceY} {treeContext.itemHover} {treeContext.itemBorder} {treeContext.itemPadding} {treeContext.itemShadow} {treeContext.itemSelected} {treeContext.itemClasses}"
+				class="{treeContext.itemBase} {treeContext.itemBackground} {treeContext.itemSpaceY} {treeContext.itemHover} {treeContext.itemBorder} {treeContext.itemPadding} {treeContext.itemShadow} {treeContext.itemClasses}"
 				{...treeContext.api?.getItemProps(nodeProps)}
 				data-testid="tree-item"
 				type="button"

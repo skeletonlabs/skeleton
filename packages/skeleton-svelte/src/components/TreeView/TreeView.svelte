@@ -22,7 +22,7 @@
 		classes = '',
 		// Control
 		controlBase = 'flex gap-2',
-		controlBackground = '',
+		controlBackground = '[&[data-selected]]:preset-tonal-primary',
 		controlSpaceY = '',
 		controlHover = 'hover:preset-tonal-primary',
 		controlBorder = 'rounded-base',
@@ -39,13 +39,12 @@
 		contentClasses = '',
 		// Item
 		itemBase = 'flex gap-2',
-		itemBackground = '',
+		itemBackground = '[&[data-selected]]:preset-tonal-primary',
 		itemSpaceY = '',
 		itemHover = controlHover,
 		itemBorder = contentBorder,
 		itemPadding = controlPadding,
 		itemShadow = '',
-		itemSelected = '[&[data-selected]]:preset-tonal-primary',
 		itemClasses = '',
 		// Snippets
 		branchIcon,
@@ -164,7 +163,6 @@
 		itemBorder,
 		itemPadding,
 		itemShadow,
-		itemSelected,
 		itemClasses,
 
 		// Snippets
