@@ -25,6 +25,9 @@
 		// Dismiss Button
 		btnDismissBase = 'btn-icon hover:preset-tonal',
 		btnDismissClasses = '',
+		// Accessibility
+		btnDismissTitle = 'Dismiss',
+		btnDismissAriaLabel = 'Dismiss',
 		// State
 		stateInfo = 'preset-outlined-surface-200-800 preset-filled-surface-50-950',
 		stateSuccess = 'preset-filled-success-500',
@@ -56,6 +59,8 @@
 			{descriptionClasses}
 			{btnDismissBase}
 			{btnDismissClasses}
+			{btnDismissTitle}
+			{btnDismissAriaLabel}
 			{stateInfo}
 			{stateError}
 			{stateWarning}
