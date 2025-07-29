@@ -14,7 +14,7 @@
 		<Navigation.Tile
 			{label}
 			{href}
-			selected={page.url.pathname  === link.href}
+			selected={page.url.pathname  === href}
 		>
 			{icon}
 		</Navigation.Tile>
