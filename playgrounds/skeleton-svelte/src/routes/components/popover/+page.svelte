@@ -44,7 +44,7 @@
 			{#snippet content()}
 				<header class="flex justify-between">
 					<p class="font-bold text-xl">Popover</p>
-					<button class="btn-icon" onclick={popoverClose}>
+					<button class="btn-icon" onclick={popoverClose} title="Close" aria-label="Close">
 						<IconX />
 					</button>
 				</header>

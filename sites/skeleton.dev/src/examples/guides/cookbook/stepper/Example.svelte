@@ -49,7 +49,8 @@
 					<button
 						class="btn-icon btn-icon-sm rounded-full {isCurrentStep(i) ? 'preset-filled-primary-500' : 'preset-filled-surface-200-800'}"
 						onclick={() => setStep(i)}
-						title={step.label}
+						title="Go to {step.label}"
+						aria-label="Go to {step.label}"
 					>
 						<span class="font-bold">{i + 1}</span>
 					</button>

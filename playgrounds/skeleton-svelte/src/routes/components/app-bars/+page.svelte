@@ -120,13 +120,13 @@
 <button type="button" class="btn preset-filled">Button before the AppBar</button>
 <AppBar>
 	{#snippet lead()}
-		<button type="button" class="btn-icon preset-filled-primary-500"><Skull size={22} /></button>
+		<button type="button" class="btn-icon preset-filled-primary-500" title="Menu" aria-label="Menu"><Skull size={22} /></button>
 		<button type="button" class="btn preset-filled">Skeleton</button>
 	{/snippet}
 	Skeleton
 	{#snippet trail()}
 		<button type="button" class="btn preset-filled">Skeleton</button>
-		<button type="button" class="btn-icon preset-filled-primary-500"><Skull size={22} /></button>
+		<button type="button" class="btn-icon preset-filled-primary-500" title="Menu" aria-label="Menu"><Skull size={22} /></button>
 	{/snippet}
 </AppBar>
 <button type="button" class="btn preset-filled">Button after the AppBar</button>
@@ -135,13 +135,13 @@
 <div dir="rtl">
 	<AppBar>
 		{#snippet lead()}
-			<button type="button" class="btn-icon preset-filled-primary-500"><Skull size={22} /></button>
+			<button type="button" class="btn-icon preset-filled-primary-500" title="Menu" aria-label="Menu"><Skull size={22} /></button>
 			<button type="button" class="btn preset-filled">lead</button>
 		{/snippet}
 		skeleton
 		{#snippet trail()}
 			<button type="button" class="btn preset-filled">trail</button>
-			<button type="button" class="btn-icon preset-filled-primary-500"><Skull size={22} /></button>
+			<button type="button" class="btn-icon preset-filled-primary-500" title="Menu" aria-label="Menu"><Skull size={22} /></button>
 		{/snippet}
 		{#snippet headline()}
 			<h1 class="h1">مرحبا بك</h1>

@@ -46,7 +46,13 @@ export function Toast(props: ToastProps) {
 				</div>
 				{api.closable && (
 					// Dismiss Button
-					<button className={`${props.btnDismissBase} ${props.btnDismissClasses}`} onClick={api.dismiss} data-testid="toast-dismiss">
+					<button
+						className={`${props.btnDismissBase} ${props.btnDismissClasses}`}
+						title={props.btnDismissTitle}
+						aria-label={props.btnDismissAriaLabel}
+						onClick={api.dismiss}
+						data-testid="toast-dismiss"
+					>
 						&times;
 					</button>
 				)}

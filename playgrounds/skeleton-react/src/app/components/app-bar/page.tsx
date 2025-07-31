@@ -137,7 +137,7 @@ export default function Page() {
 			<AppBar>
 				<AppBar.Toolbar>
 					<AppBar.ToolbarLead>
-						<button type="button" className="btn-icon preset-filled-primary-500">
+						<button type="button" className="btn-icon preset-filled-primary-500" title="Menu" aria-label="Menu">
 							<Skull size={22} />
 						</button>
 						<button type="button" className="btn preset-filled">
@@ -149,7 +149,7 @@ export default function Page() {
 						<button type="button" className="btn preset-filled">
 							Skeleton
 						</button>
-						<button type="button" className="btn-icon preset-filled-primary-500">
+						<button type="button" className="btn-icon preset-filled-primary-500" title="Menu" aria-label="Menu">
 							<Skull size={22} />
 						</button>
 					</AppBar.ToolbarTrail>

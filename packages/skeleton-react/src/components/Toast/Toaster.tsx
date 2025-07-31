@@ -27,6 +27,9 @@ export function Toaster({
 	// Dismiss Button
 	btnDismissBase = 'btn-icon hover:preset-tonal',
 	btnDismissClasses = '',
+	// Accessibility
+	btnDismissTitle = 'Dismiss',
+	btnDismissAriaLabel = 'Dismiss',
 	// State
 	stateInfo = 'preset-outlined-surface-200-800 preset-filled-surface-50-950',
 	stateSuccess = 'preset-filled-success-500',
@@ -57,6 +60,8 @@ export function Toaster({
 					descriptionClasses={descriptionClasses}
 					btnDismissBase={btnDismissBase}
 					btnDismissClasses={btnDismissClasses}
+					btnDismissTitle={btnDismissTitle}
+					btnDismissAriaLabel={btnDismissAriaLabel}
 					stateInfo={stateInfo}
 					stateError={stateError}
 					stateWarning={stateWarning}
