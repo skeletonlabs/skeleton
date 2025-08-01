@@ -8,6 +8,8 @@
 	const treeContext = getTreeContext();
 </script>
 
+<!-- @component A Branch of a TreeView. -->
+
 <TreeNode {id} {value} {disabled}>
 	{#snippet content({ node: nodeData, nodeProps })}
 		<!-- Branch -->
@@ -19,6 +21,7 @@
 				data-testid="tree-control"
 				type="button"
 			>
+				<!-- Indicator -->
 				<span
 					class="flex items-center {treeContext.indicatorTransition} {treeContext.indicatorRotationClass}"
 					{...treeContext.api?.getBranchIndicatorProps(nodeProps)}
@@ -28,11 +31,13 @@
 						{@render treeContext.branchIndicator()}
 					{/if}
 				</span>
+				<!-- Icon -->
 				{#if treeContext.branchIcon}
 					<div data-testid="tree-branch-icon">
 						{@render treeContext.branchIcon()}
 					</div>
 				{/if}
+				<!-- Text -->
 				<span {...treeContext.api?.getBranchTextProps(nodeProps)} data-testid="tree-branch-text">
 					{nodeData.value}
 				</span>
@@ -44,7 +49,9 @@
 				{...treeContext.api?.getBranchContentProps(nodeProps)}
 				data-testid="tree-content"
 			>
+				<!-- IndentGuide -->
 				<div {...treeContext.api?.getBranchIndentGuideProps(nodeProps)} class={treeContext.indentAmount}></div>
+				<!-- Children -->
 				<div>
 					{@render children()}
 				</div>
