@@ -1,5 +1,29 @@
 # @skeletonlabs/skeleton
 
+## 3.1.7
+### Patch Changes
+
+
+- bugfix: Adjust selector for global placeholder styling ([#3608](https://github.com/skeletonlabs/skeleton/pull/3608))
+
+## 3.1.6
+### Patch Changes
+
+
+- bugfix: Set universal input placeholder to ensure consistent coloring ([#3606](https://github.com/skeletonlabs/skeleton/pull/3606))
+
+## 3.1.5
+### Patch Changes
+
+
+- bugfix: Remove unnecessary loop in `preset.scss` ([#3593](https://github.com/skeletonlabs/skeleton/pull/3593))
+
+## 3.1.4
+### Patch Changes
+
+
+- bugfix: Allow thumb to slide full length in range slider for all browsers ([#3566](https://github.com/skeletonlabs/skeleton/pull/3566))
+
 ## 3.1.3
 ### Patch Changes
 

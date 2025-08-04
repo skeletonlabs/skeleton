@@ -169,7 +169,7 @@ Styling the `<Calendar.Root>` parent component.
 Styling the `<Calendar.PrevButton>` sub-component. You can clone these to `<Calendar.NextButton>` too.
 
 ```svelte
-<Calendar.PrevButton class="btn-icon preset-filled-primary-500">
+<Calendar.PrevButton class="btn-icon preset-filled-primary-500" title="Previous month" aria-label="Previous month">
 	<span>&larr;</span>
 </Calendar.PrevButton>
 ```
@@ -213,11 +213,11 @@ Below is a complete example showing the entire component with all styles and bas
 >
 	{#snippet children({ months, weekdays })}
 		<Calendar.Header class="flex items-center justify-between">
-			<Calendar.PrevButton class="btn-icon preset-filled-primary-500">
+			<Calendar.PrevButton class="btn-icon preset-filled-primary-500" title="Previous month" aria-label="Previous month">
 				<span>&larr;</span>
 			</Calendar.PrevButton>
 			<Calendar.Heading class="text-lg font-bold" />
-			<Calendar.NextButton class="btn-icon preset-filled-primary-500">
+			<Calendar.NextButton class="btn-icon preset-filled-primary-500" title="Next month" aria-label="Next month">
 				<span>&rarr;</span>
 			</Calendar.NextButton>
 		</Calendar.Header>
@@ -264,4 +264,4 @@ If you wish to match Skeleton component conventions, view our [contributor compo
 
 ## Attribution
 
-Bits UI is created and maintined by [Huntabyte](https://github.com/huntabyte). Consider [sponsoring him](https://github.com/sponsors/huntabyte) to support this open source project.
+Bits UI is created and maintained by [Huntabyte](https://github.com/huntabyte). Consider [sponsoring him](https://github.com/sponsors/huntabyte) to support this open source project.

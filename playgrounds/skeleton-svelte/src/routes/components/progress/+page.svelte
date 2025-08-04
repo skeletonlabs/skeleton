@@ -52,7 +52,7 @@
 	<section class="space-y-4">
 		<h2 class="h2">Indeterminate</h2>
 		<Progress value={null} {max}>
-			<span>Deafult Animation</span>
+			<span>Default Animation</span>
 		</Progress>
 		<!-- NOTE: `custom-indeterminate` defined in app.css -->
 		<Progress value={null} {max} meterAnimate="custom-indeterminate">

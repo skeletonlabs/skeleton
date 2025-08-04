@@ -22,7 +22,7 @@
 		</Rating>
 	</section>
 	<section class="space-y-4">
-		<h2 class="h2">With Halfs</h2>
+		<h2 class="h2">With Halves</h2>
 		<Rating {value} onValueChange={(e) => (value = e.value)} allowHalf></Rating>
 	</section>
 	<section class="space-y-4">

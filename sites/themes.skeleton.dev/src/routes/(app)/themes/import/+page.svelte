@@ -6,7 +6,7 @@
 	import { importThemeV2 } from '$lib/utils/importer/import-theme-v2';
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
 	// import { importThemeV3Rc1 } from '$lib/utils/importer/import-theme-v3-rc1';
-	// Componets (skeleton)
+	// Components (skeleton)
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconUpload from '@lucide/svelte/icons/file-up';
