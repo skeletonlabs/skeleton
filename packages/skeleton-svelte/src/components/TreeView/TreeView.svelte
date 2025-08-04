@@ -5,13 +5,6 @@
 	import { setTreeContext } from './context.js';
 
 	const {
-		// Indent
-		indentAmount = 'indent-guide',
-		// Indicator
-		indicatorRotationClass = 'branch-indicator-rotation',
-		indicatorTransition = 'transition-transform',
-		// Animation
-		animationConfig = { duration: 200 },
 		// Root
 		base = 'flex flex-col w-fit',
 		background = '',
@@ -20,36 +13,8 @@
 		padding = 'p-4',
 		shadow = '',
 		classes = '',
-		// Control
-		controlBase = 'flex gap-2',
-		controlBackground = '[&[data-selected]]:preset-tonal-primary',
-		controlSpaceY = '',
-		controlHover = 'hover:preset-tonal-primary',
-		controlBorder = 'rounded-base',
-		controlPadding = 'p-2',
-		controlShadow = '',
-		controlClasses = '',
-		// Content
-		contentBase = 'flex',
-		contentBackground = '',
-		contentSpaceY = '',
-		contentBorder = controlBorder,
-		contentPadding = '',
-		contentShadow = '',
-		contentClasses = '',
-		// Item
-		itemBase = 'flex gap-2',
-		itemBackground = '[&[data-selected]]:preset-tonal-primary',
-		itemSpaceY = '',
-		itemHover = controlHover,
-		itemBorder = contentBorder,
-		itemPadding = controlPadding,
-		itemShadow = '',
-		itemClasses = '',
+
 		// Snippets
-		branchIcon,
-		itemIcon,
-		branchIndicator,
 		children,
 		label,
 		// Zag
@@ -124,51 +89,9 @@
 		get api() {
 			return api;
 		},
-		indentAmount,
-		indicatorRotationClass,
-		indicatorTransition,
-		animationConfig,
 		registerNode,
 		unregisterNode,
-		updateNode,
-		// Base
-		background,
-		spaceY,
-		border,
-		padding,
-		shadow,
-		classes,
-		// Control
-		controlBase,
-		controlBackground,
-		controlSpaceY,
-		controlHover,
-		controlBorder,
-		controlPadding,
-		controlShadow,
-		controlClasses,
-		// Content
-		contentBase,
-		contentBackground,
-		contentSpaceY,
-		contentBorder,
-		contentPadding,
-		contentShadow,
-		contentClasses,
-		// Item
-		itemBase,
-		itemBackground,
-		itemSpaceY,
-		itemHover,
-		itemBorder,
-		itemPadding,
-		itemShadow,
-		itemClasses,
-
-		// Snippets
-		branchIndicator: branchIndicator ?? chevron,
-		branchIcon,
-		itemIcon
+		updateNode
 	};
 
 	setTreeContext(treeContext);
@@ -190,19 +113,3 @@
 		{/if}
 	</div>
 </div>
-
-{#snippet chevron()}
-	<svg
-		stroke="currentColor"
-		fill="none"
-		stroke-width="2"
-		viewBox="0 0 24 24"
-		stroke-linecap="round"
-		stroke-linejoin="round"
-		height="1em"
-		width="1em"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<path d="m9 18 6-6-6-6" />
-	</svg>
-{/snippet}

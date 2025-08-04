@@ -3,7 +3,37 @@
 	import TreeNode from './TreeNode.svelte';
 	import type { TreeBranchProps } from './types.js';
 
-	let { id, value, children, disabled = false }: TreeBranchProps = $props();
+	let {
+		id,
+		value,
+		children,
+		disabled = false, // Control
+		base = 'flex gap-2',
+		background = '',
+		selected = 'preset-tonal-primary',
+		spaceY = '',
+		hover = 'hover:preset-tonal-primary',
+		border = 'rounded-base',
+		padding = 'p-2',
+		shadow = '',
+		classes = '',
+		// Content
+		contentBase = 'flex',
+		contentBackground = '',
+		contentSpaceY = '',
+		contentBorder = border,
+		contentPadding = '',
+		contentShadow = '',
+		contentClasses = '',
+		// Indent
+		indentAmount = 'indent-guide',
+		// Indicator
+		indicatorRotationClass = 'branch-indicator-rotation',
+		indicatorTransition = 'transition-transform',
+		// Snippets
+		icon,
+		indicator
+	}: TreeBranchProps = $props();
 
 	const treeContext = getTreeContext();
 </script>
@@ -16,25 +46,27 @@
 		<div {...treeContext.api?.getBranchProps(nodeProps)} data-testid="tree-branch">
 			<!-- Control -->
 			<button
-				class="{treeContext.controlBase} {treeContext.controlBackground} {treeContext.controlSpaceY} {treeContext.controlHover} {treeContext.controlBorder} {treeContext.controlPadding} {treeContext.controlShadow} {treeContext.controlClasses}"
+				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} [&[data-selected]]:{selected}"
 				{...treeContext.api?.getBranchControlProps(nodeProps)}
-				data-testid="tree-control"
+				data-testid="tree-"
 				type="button"
 			>
 				<!-- Indicator -->
 				<span
-					class="flex items-center {treeContext.indicatorTransition} {treeContext.indicatorRotationClass}"
+					class="flex items-center {indicatorTransition} {indicatorRotationClass}"
 					{...treeContext.api?.getBranchIndicatorProps(nodeProps)}
 					data-testid="tree-indicator"
 				>
-					{#if treeContext.branchIndicator}
-						{@render treeContext.branchIndicator()}
+					{#if indicator}
+						{@render indicator()}
+					{:else}
+						{@render chevron()}
 					{/if}
 				</span>
 				<!-- Icon -->
-				{#if treeContext.branchIcon}
+				{#if icon}
 					<div data-testid="tree-branch-icon">
-						{@render treeContext.branchIcon()}
+						{@render icon()}
 					</div>
 				{/if}
 				<!-- Text -->
@@ -45,12 +77,12 @@
 
 			<!-- Content -->
 			<div
-				class="{treeContext.contentBase} {treeContext.contentBackground} {treeContext.contentSpaceY} {treeContext.contentBorder} {treeContext.contentPadding} {treeContext.contentShadow} {treeContext.contentClasses}"
+				class="{contentBase} {contentBackground} {contentSpaceY} {contentBorder} {contentPadding} {contentShadow} {contentClasses}"
 				{...treeContext.api?.getBranchContentProps(nodeProps)}
 				data-testid="tree-content"
 			>
 				<!-- IndentGuide -->
-				<div {...treeContext.api?.getBranchIndentGuideProps(nodeProps)} class={treeContext.indentAmount}></div>
+				<div {...treeContext.api?.getBranchIndentGuideProps(nodeProps)} class={indentAmount}></div>
 				<!-- Children -->
 				<div>
 					{@render children()}
@@ -59,3 +91,19 @@
 		</div>
 	{/snippet}
 </TreeNode>
+
+{#snippet chevron()}
+	<svg
+		stroke="currentColor"
+		fill="none"
+		stroke-width="2"
+		viewBox="0 0 24 24"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		height="1em"
+		width="1em"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path d="m9 18 6-6-6-6" />
+	</svg>
+{/snippet}

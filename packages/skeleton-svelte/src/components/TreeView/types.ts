@@ -9,9 +9,6 @@ import type { SlideParams } from 'svelte/transition';
 export type TreeViewApi = tree.Api<PropTypes, CollectionNode>;
 
 export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
-	/** The animation configuration. */
-	animationConfig?: SlideParams;
-
 	// View ---
 	/** Set base styles. */
 	base?: string;
@@ -27,67 +24,6 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	shadow?: string;
 	/** Provide arbitrary CSS classes. */
 	classes?: string;
-
-	// Content ---
-	/** Set content styles. */
-	contentBase?: string;
-	/** Set content background styles. */
-	contentBackground?: string;
-	/** Set content vertical spacing styles. */
-	contentSpaceY?: string;
-	/** Set content border styles. */
-	contentBorder?: string;
-	/** Set content padding styles. */
-	contentPadding?: string;
-	/** Set content shadow styles. */
-	contentShadow?: string;
-	/** Provide arbitrary CSS classes to the contents. */
-	contentClasses?: string;
-
-	// Control ---
-	/** Set control styles. */
-	controlBase?: string;
-	/** Set control background styles. */
-	controlBackground?: string;
-	/** Set control vertical spacing styles. */
-	controlSpaceY?: string;
-	/** Set control hover styles. */
-	controlHover?: string;
-	/** Set control border styles. */
-	controlBorder?: string;
-	/** Set control padding styles. */
-	controlPadding?: string;
-	/** Set control shadow styles. */
-	controlShadow?: string;
-	/** Provide arbitrary CSS classes to the controls. */
-	controlClasses?: string;
-
-	// Item ---
-	/** Set item styles. */
-	itemBase?: string;
-	/** Set item background styles. */
-	itemBackground?: string;
-	/** Set item vertical spacing styles. */
-	itemSpaceY?: string;
-	/** Set item hover styles. */
-	itemHover?: string;
-	/** Set item border styles. */
-	itemBorder?: string;
-	/** Set item padding styles. */
-	itemPadding?: string;
-	/** Set item shadow styles. */
-	itemShadow?: string;
-	/** Provide arbitrary CSS classes to the items. */
-	itemClasses?: string;
-
-	// Indent ---
-	/** Set indentation amount. */
-	indentAmount?: string;
-	// Indicator ---
-	/** Set indicator transformations when open. */
-	indicatorRotationClass?: string;
-	/** Set indicator transitions. */
-	indicatorTransition?: string;
 
 	// Label ---
 	/** Set label snippet's styles. */
@@ -106,14 +42,9 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	labelClasses?: string;
 
 	// Snippets ---
-	/** The lead icon for expandable branches. */
-	branchIcon?: Snippet;
-	/** The lead icon for end nodes */
-	itemIcon?: Snippet;
-	/** The icon to indicate if the node children are expanded. */
-	branchIndicator?: Snippet;
-
+	/** Where the nodes of the tree are rendered. */
 	children?: Snippet;
+	/** What to render as the label of the tree. */
 	label?: Snippet;
 
 	// Zag ---
@@ -122,17 +53,103 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 }
 
 export interface TreeBranchProps {
+	/** The animation configuration. */
+	animationConfig?: SlideParams;
+	// Content ---
+	/** Set content styles. */
+	contentBase?: string;
+	/** Set content background styles. */
+	contentBackground?: string;
+	/** Set content vertical spacing styles. */
+	contentSpaceY?: string;
+	/** Set content border styles. */
+	contentBorder?: string;
+	/** Set content padding styles. */
+	contentPadding?: string;
+	/** Set content shadow styles. */
+	contentShadow?: string;
+	/** Provide arbitrary CSS classes to the contents. */
+	contentClasses?: string;
+
+	// Control ---
+	/** Set control styles. */
+	base?: string;
+	/** Set control background styles. */
+	background?: string;
+	/** Set control styles when selected. */
+	selected?: string;
+	/** Set control vertical spacing styles. */
+	spaceY?: string;
+	/** Set control hover styles. */
+	hover?: string;
+	/** Set control border styles. */
+	border?: string;
+	/** Set control padding styles. */
+	padding?: string;
+	/** Set control shadow styles. */
+	shadow?: string;
+	/** Provide arbitrary CSS classes to the controls. */
+	classes?: string;
+
+	// Indent ---
+	/** Set indentation amount. */
+	indentAmount?: string;
+
+	// Indicator ---
+	/** Set indicator transformations when open. */
+	indicatorRotationClass?: string;
+	/** Set indicator transitions. */
+	indicatorTransition?: string;
+
+	// Logic ---
+	/** The unique identifier for the branch. */
 	id: string;
+	/** The "name" of the branch. */
 	value: string;
+	/** Whether the branch is disabled. */
 	disabled?: boolean;
+
+	// Snippets ---
+	/** The lead icon for expandable branches. */
+	icon?: Snippet;
+	/** The icon to indicate if the node children are expanded. */
+	indicator?: Snippet;
 	children: Snippet;
 }
 
 export interface TreeItemProps {
+	// Base ---
+	/** Set item styles. */
+	base?: string;
+	/** Set item background styles. */
+	background?: string;
+	/** Set item styles when selected. */
+	selected?: string;
+	/** Set item vertical spacing styles. */
+	spaceY?: string;
+	/** Set item hover styles. */
+	hover?: string;
+	/** Set item border styles. */
+	border?: string;
+	/** Set item padding styles. */
+	padding?: string;
+	/** Set item shadow styles. */
+	shadow?: string;
+	/** Provide arbitrary CSS classes to the items. */
+	classes?: string;
+
+	// Logic ---
+	/** The unique identifier for the item. */
 	id: string;
+	/** The "name" of the item. */
 	value: string;
+	/** Whether the item is disabled. */
 	disabled?: boolean;
-	children?: Snippet;
+
+	// Snippets ---
+	/** The lead icon for end nodes */
+	icon?: Snippet;
+	children: Snippet;
 }
 
 export interface TreeNodeProps {
@@ -157,7 +174,7 @@ export interface NodeSnippets {
 
 export type SnippetTypes = 'item' | 'control' | 'content';
 
-export interface TreeViewContext extends TreeViewProps {
+export interface TreeViewContext {
 	api: ReturnType<typeof tree.connect<PropTypes, CollectionNode>> | undefined;
 	animationConfig?: SlideParams;
 	registerNode: (node: CollectionNode) => number[];

@@ -3,7 +3,23 @@
 	import TreeNode from './TreeNode.svelte';
 	import type { TreeItemProps } from './types.js';
 
-	let { id, value, disabled = false }: TreeItemProps = $props();
+	let {
+		id,
+		value,
+		disabled = false,
+		// Item
+		base = 'flex gap-2',
+		background = '',
+		selected = 'preset-tonal-primary',
+		spaceY = '',
+		hover = 'hover:preset-tonal-primary',
+		border = 'rounded-base',
+		padding = 'p-2',
+		shadow = '',
+		classes = '',
+		// Snippets
+		icon
+	}: TreeItemProps = $props();
 
 	const treeContext = getTreeContext();
 </script>
@@ -15,19 +31,19 @@
 		{#if node != null}
 			<!-- Item -->
 			<button
-				class="{treeContext.itemBase} {treeContext.itemBackground} {treeContext.itemSpaceY} {treeContext.itemHover} {treeContext.itemBorder} {treeContext.itemPadding} {treeContext.itemShadow} {treeContext.itemClasses}"
+				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} [&[data-selected]]:{selected}"
 				{...treeContext.api?.getItemProps(nodeProps)}
-				data-testid="tree-item"
+				data-testid="tree-"
 				type="button"
 			>
 				<!-- Icon -->
-				{#if treeContext.itemIcon}
-					<div data-testid="tree-item-icon">
-						{@render treeContext.itemIcon()}
+				{#if icon}
+					<div data-testid="tree--icon">
+						{@render icon()}
 					</div>
 				{/if}
 				<!-- Text -->
-				<span {...treeContext.api?.getItemTextProps(nodeProps)} data-testid="tree-item-text">
+				<span {...treeContext.api?.getItemTextProps(nodeProps)} data-testid="tree--text">
 					{node.value}
 				</span>
 			</button>
