@@ -78,7 +78,7 @@
 
 	onMount(() => {
 		if (parentNodeContext) {
-			// Get thscriptx from parent when registering
+			// Register with parent node context and get index
 			currentIndexPath = parentNodeContext.registerChild(nodeData);
 		} else {
 			// For root nodes, register with tree context and get index
