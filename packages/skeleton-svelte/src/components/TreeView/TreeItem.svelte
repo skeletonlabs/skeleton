@@ -31,19 +31,21 @@
 		{#if node != null}
 			<!-- Item -->
 			<button
-				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} [&[data-selected]]:{selected}"
+				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} {[
+					treeContext.api?.selectedValue.includes(id) && selected
+				]}"
 				{...treeContext.api?.getItemProps(nodeProps)}
-				data-testid="tree-"
+				data-testid="tree-item"
 				type="button"
 			>
 				<!-- Icon -->
 				{#if icon}
-					<div data-testid="tree--icon">
+					<div data-testid="tree-item-icon">
 						{@render icon()}
 					</div>
 				{/if}
 				<!-- Text -->
-				<span {...treeContext.api?.getItemTextProps(nodeProps)} data-testid="tree--text">
+				<span {...treeContext.api?.getItemTextProps(nodeProps)} data-testid="tree-item-text">
 					{node.value}
 				</span>
 			</button>
