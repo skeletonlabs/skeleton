@@ -7,7 +7,8 @@
 		id,
 		value,
 		children,
-		disabled = false, // Control
+		disabled = false,
+		// Control
 		base = 'flex gap-2',
 		background = '',
 		selected = 'preset-tonal-primary',
@@ -26,10 +27,11 @@
 		contentShadow = '',
 		contentClasses = '',
 		// Indent
-		indentAmount = 'indent-guide',
+		indentAmount = 'w-6',
 		// Indicator
-		indicatorRotationClass = 'branch-indicator-rotation',
-		indicatorTransition = 'transition-transform',
+		indicatorBase = 'inline-flex items-center',
+		indicatorRotationClass = 'rotate-90',
+		indicatorTransition = 'transition-transform origin-center transform-fill',
 		// Snippets
 		icon,
 		indicator
@@ -46,14 +48,16 @@
 		<div {...treeContext.api?.getBranchProps(nodeProps)} data-testid="tree-branch">
 			<!-- Control -->
 			<button
-				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} [&[data-selected]]:{selected}"
+				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} {[
+					treeContext.api?.selectedValue.includes(id) && selected
+				]}"
 				{...treeContext.api?.getBranchControlProps(nodeProps)}
 				data-testid="tree-branch-control"
 				type="button"
 			>
 				<!-- Indicator -->
 				<span
-					class="flex items-center {indicatorTransition} {indicatorRotationClass}"
+					class="{indicatorBase} {indicatorTransition} {[treeContext.api?.expandedValue.includes(id) && indicatorRotationClass]}"
 					{...treeContext.api?.getBranchIndicatorProps(nodeProps)}
 					data-testid="tree-indicator"
 				>

@@ -96,6 +96,8 @@ export interface TreeBranchProps {
 	indentAmount?: string;
 
 	// Indicator ---
+	/** Set indicator base styles. */
+	indicatorBase: string;
 	/** Set indicator transformations when open. */
 	indicatorRotationClass?: string;
 	/** Set indicator transitions. */
