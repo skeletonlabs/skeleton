@@ -8,6 +8,7 @@
 		data = [],
 		label = '',
 		zIndex = 'auto',
+		filter = (item: T, value: string) => item.label.toLowerCase().includes(value.toLowerCase()),
 		// Base
 		base = '',
 		width = '',
@@ -45,7 +46,8 @@
 	}: ComboboxProps<T> = $props();
 
 	// Zag
-	let options = $state.raw(data);
+	let internalOptions = $state(data);
+	const options = $derived(filter === null ? data : internalOptions);
 	const collection = $derived(
 		combobox.collection({
 			items: options,
@@ -58,18 +60,24 @@
 	const id = $props.id();
 	const service = useMachine(combobox.machine, () => ({
 		id: id,
-		collection: collection,
+		get collection() {
+			return collection;
+		},
 		...zagProps,
 		onOpenChange(event) {
-			options = data;
+			if (event.open && filter !== null) {
+				internalOptions = data;
+			}
 			zagProps.onOpenChange?.(event);
 		},
 		onInputValueChange(event) {
-			const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
-			options = filtered;
+			if (filter !== null) {
+				internalOptions = data.filter((item) => filter(item, event.inputValue));
+			}
 			zagProps.onInputValueChange?.(event);
 		}
 	}));
+
 	const api = $derived(combobox.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>
