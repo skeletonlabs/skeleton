@@ -48,7 +48,7 @@
 			<button
 				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} [&[data-selected]]:{selected}"
 				{...treeContext.api?.getBranchControlProps(nodeProps)}
-				data-testid="tree-"
+				data-testid="tree-branch-control"
 				type="button"
 			>
 				<!-- Indicator -->
