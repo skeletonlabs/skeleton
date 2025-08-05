@@ -2,11 +2,24 @@ import type { PropTypes } from '@zag-js/svelte';
 import type { NodeProps } from '@zag-js/tree-view';
 import * as tree from '@zag-js/tree-view';
 import type { Snippet } from 'svelte';
-import type { SlideParams } from 'svelte/transition';
+
+// Context ---
+
+export interface TreeViewContext {
+	api: ReturnType<typeof tree.connect<PropTypes, CollectionNode>> | undefined;
+	registerNode: (node: CollectionNode) => number[];
+	unregisterNode: (nodeId: string) => void;
+	updateNode: (node: CollectionNode) => void;
+}
+
+export interface NodeContext {
+	node: CollectionNode;
+	registerChild: (child: CollectionNode) => number[];
+	unregisterChild: (childId: string) => void;
+	updateChild: (child: CollectionNode) => void;
+}
 
 // Components ---
-
-export type TreeViewApi = tree.Api<PropTypes, CollectionNode>;
 
 export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	// View ---
@@ -53,8 +66,6 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 }
 
 export interface TreeBranchProps {
-	/** The animation configuration. */
-	animationConfig?: SlideParams;
 	// Content ---
 	/** Set content styles. */
 	contentBase?: string;
@@ -161,32 +172,13 @@ export interface TreeNodeProps {
 	content: Snippet<[{ node: CollectionNode; nodeProps: NodeProps }]>;
 }
 
+// Zag ---
+
+export type TreeViewApi = tree.Api<PropTypes, CollectionNode>;
+
 export interface CollectionNode {
 	id: string;
 	value: string;
 	indexPath: number[];
 	children?: CollectionNode[];
-}
-
-export interface NodeSnippets {
-	control?: Snippet;
-	content?: Snippet;
-	item?: Snippet;
-}
-
-export type SnippetTypes = 'item' | 'control' | 'content';
-
-export interface TreeViewContext {
-	api: ReturnType<typeof tree.connect<PropTypes, CollectionNode>> | undefined;
-	animationConfig?: SlideParams;
-	registerNode: (node: CollectionNode) => number[];
-	unregisterNode: (nodeId: string) => void;
-	updateNode: (node: CollectionNode) => void;
-}
-
-export interface NodeContext {
-	node: CollectionNode;
-	registerChild: (child: CollectionNode) => number[];
-	unregisterChild: (childId: string) => void;
-	updateChild: (child: CollectionNode) => void;
 }
