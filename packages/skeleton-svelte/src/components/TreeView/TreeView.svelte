@@ -13,10 +13,13 @@
 		padding = 'p-4',
 		shadow = '',
 		classes = '',
-
+		// Label
+		label,
+		labelBase = 'label',
+		labelTypography = 'label-text h3',
+		labelClasses = '',
 		// Snippets
 		children,
-		label,
 		// Zag
 		...zagProps
 	}: TreeViewProps = $props();
@@ -101,11 +104,11 @@
 
 <!-- Tree -->
 <div class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}" {...api?.getRootProps()} data-testid="tree">
-	{#if label}
-		<h3 {...api?.getLabelProps()}>
-			{@render label()}
-		</h3>
-	{/if}
+	<label {...api?.getLabelProps()} class="{labelBase} {labelClasses}" data-testid="tree-label">
+		{#if label}
+			<span class={labelTypography}>{label}</span>
+		{/if}
+	</label>
 
 	<div {...api?.getTreeProps()}>
 		{#if children}

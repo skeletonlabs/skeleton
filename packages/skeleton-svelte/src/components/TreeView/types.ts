@@ -22,7 +22,7 @@ export interface NodeContext {
 // Components ---
 
 export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
-	// View ---
+	// Base ---
 	/** Set base styles. */
 	base?: string;
 	/** Set background styles. */
@@ -39,26 +39,18 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	classes?: string;
 
 	// Label ---
+	/** Set the label to display. */
+	label?: string;
 	/** Set label snippet's styles. */
 	labelBase?: string;
-	/** Set label snippet's background styles. */
-	labelBackground?: string;
-	/** Set label snippet's vertical spacing styles. */
-	labelSpaceY?: string;
-	/** Set label snippet's border styles. */
-	labelBorder?: string;
-	/** Set label snippet's padding styles. */
-	labelPadding?: string;
-	/** Set label snippet's shadow styles. */
-	labelShadow?: string;
+	/** Set label typography styles. */
+	labelTypography?: string;
 	/** Provide arbitrary CSS classes to the label. */
 	labelClasses?: string;
 
 	// Snippets ---
 	/** Where the nodes of the tree are rendered. */
 	children?: Snippet;
-	/** What to render as the label of the tree. */
-	label?: Snippet;
 
 	// Zag ---
 	/** Binds the Zag API for external use. */

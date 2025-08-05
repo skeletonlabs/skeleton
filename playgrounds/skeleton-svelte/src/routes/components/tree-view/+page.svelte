@@ -15,7 +15,7 @@
 	<button onclick={() => api?.collapse()}> Collapse All </button>
 	<div class="flex justify-between w-full">
 		<section>
-			<TreeView selectionMode="multiple" onApiReady={(treeViewApi: TreeViewApi) => (api = treeViewApi)}>
+			<TreeView label="this is a label" selectionMode="multiple" onApiReady={(treeViewApi: TreeViewApi) => (api = treeViewApi)}>
 				<TreeView.Branch id="LEVEL_1" value="node_modules">
 					{#snippet icon()}
 						<Folder />
