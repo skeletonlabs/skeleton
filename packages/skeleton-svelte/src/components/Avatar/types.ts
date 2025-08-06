@@ -43,4 +43,5 @@ export interface AvatarProps extends Omit<avatar.Props, 'id'>, Pick<HTMLAttribut
 	// Snippets ---
 	/** The default child slot. */
 	children?: Snippet;
+	initials?: number[];
 }
