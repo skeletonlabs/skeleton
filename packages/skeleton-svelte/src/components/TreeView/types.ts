@@ -102,7 +102,7 @@ export interface TreeBranchProps {
 
 	// Indicator ---
 	/** Set indicator base styles. */
-	indicatorBase: string;
+	indicatorBase?: string;
 	/** Set indicator transformations when open. */
 	indicatorRotationClass?: string;
 	/** Set indicator transitions. */
@@ -156,7 +156,6 @@ export interface TreeItemProps {
 	// Snippets ---
 	/** The lead icon for end nodes */
 	icon?: Snippet;
-	children: Snippet;
 }
 
 export interface TreeNodeProps {

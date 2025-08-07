@@ -23,9 +23,9 @@ describe('TreeView (template-driven)', () => {
 		expect(component).toBeInTheDocument();
 	});
 
-	it('should render with the branchIndicator snippet', () => {
+	it('should render with the indicator snippet', () => {
 		const testValue = 'testIndicator';
-		render(TreeViewTest, { branchIndicator: mockSnippet(testValue) });
+		render(TreeViewTest, { indicator: mockSnippet(testValue) });
 		const input = screen.getByTestId(testIds.indicator);
 		expect(input).toHaveTextContent(testValue);
 	});

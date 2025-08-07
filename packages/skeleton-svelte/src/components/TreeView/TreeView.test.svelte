@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import TreeView from './index.js';
-	import type { TreeViewProps } from './types.js';
+	import type { TreeBranchProps, TreeItemProps, TreeViewProps } from './types.js';
 
-	const { ...allProps }: TreeViewProps = $props();
+	const { ...allProps }: TreeViewProps & { indicator?: Snippet; branchIcon?: Snippet; itemIcon?: Snippet } = $props();
 </script>
 
 <TreeView {...allProps}>
