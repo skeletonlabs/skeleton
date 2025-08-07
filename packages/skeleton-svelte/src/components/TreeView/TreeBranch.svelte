@@ -40,6 +40,7 @@
 	const treeContext = getTreeContext();
 
 	const rxSelected = $derived([treeContext.api?.selectedValue.includes(id) && selected]);
+	const rxIndicatorRotation = $derived([treeContext.api?.expandedValue.includes(id) && indicatorRotationClass]);
 </script>
 
 <!-- @component A Branch of a TreeView. -->
@@ -57,7 +58,7 @@
 			>
 				<!-- Indicator -->
 				<span
-					class="{indicatorBase} {indicatorTransition} {[treeContext.api?.expandedValue.includes(id) && indicatorRotationClass]}"
+					class="{indicatorBase} {indicatorTransition} {rxIndicatorRotation}"
 					{...treeContext.api?.getBranchIndicatorProps(nodeProps)}
 					data-testid="tree-indicator"
 				>

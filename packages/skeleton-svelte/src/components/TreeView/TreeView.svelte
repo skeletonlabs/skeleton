@@ -3,6 +3,7 @@
 	import { useMachine, normalizeProps, type PropTypes } from '@zag-js/svelte';
 	import type { CollectionNode, TreeViewContext, TreeViewProps } from './types.js';
 	import { setTreeContext } from './context.js';
+	import { SvelteMap } from 'svelte/reactivity';
 
 	const {
 		// Root
@@ -67,7 +68,7 @@
 			indexPath: [index]
 		};
 		nodes.set(node.id, nodeWithIndex);
-		nodes = new Map(nodes);
+		nodes = new SvelteMap(nodes);
 		return nodeWithIndex.indexPath;
 	};
 
@@ -79,13 +80,13 @@
 		remainingNodes.forEach((node, index) => {
 			nodes.set(node.id, { ...node, indexPath: [index] });
 		});
-		nodes = new Map(nodes);
+		nodes = new SvelteMap(nodes);
 	};
 
 	const updateNode = (node: CollectionNode) => {
 		if (nodes.has(node.id)) {
 			nodes.set(node.id, node);
-			nodes = new Map(nodes);
+			nodes = new SvelteMap(nodes);
 		}
 	};
 
