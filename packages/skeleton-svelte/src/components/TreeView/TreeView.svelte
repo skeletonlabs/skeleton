@@ -15,8 +15,9 @@
 		classes = '',
 		// Label
 		label,
-		labelBase = 'label',
-		labelTypography = 'label-text h3',
+		labelElement = 'h3',
+		labelBase = 'label-text',
+		labelTypography = 'h3',
 		labelClasses = '',
 		// Snippets
 		children,
@@ -104,11 +105,16 @@
 
 <!-- Tree -->
 <div class="{base} {background} {spaceY} {border} {padding} {shadow} {classes}" {...api?.getRootProps()} data-testid="tree">
-	<label {...api?.getLabelProps()} class="{labelBase} {labelClasses}" data-testid="tree-label">
-		{#if label}
-			<span class={labelTypography}>{label}</span>
-		{/if}
-	</label>
+	{#if label}
+		<svelte:element
+			this={labelElement}
+			{...api?.getLabelProps()}
+			class="{labelBase} {labelClasses} {labelTypography}"
+			data-testid="tree-label"
+		>
+			{label}
+		</svelte:element>
+	{/if}
 
 	<div {...api?.getTreeProps()}>
 		{#if children}

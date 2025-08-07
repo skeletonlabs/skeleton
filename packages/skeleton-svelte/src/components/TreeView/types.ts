@@ -41,6 +41,8 @@ export interface TreeViewProps extends Omit<tree.Props, 'id' | 'collection'> {
 	// Label ---
 	/** Set the label to display. */
 	label?: string;
+	/** Set the label element type. */
+	labelElement?: string;
 	/** Set label snippet's styles. */
 	labelBase?: string;
 	/** Set label typography styles. */
