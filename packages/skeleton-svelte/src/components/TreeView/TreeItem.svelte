@@ -22,6 +22,8 @@
 	}: TreeItemProps = $props();
 
 	const treeContext = getTreeContext();
+
+	const rxSelected = $derived([treeContext.api?.selectedValue.includes(id) && selected]);
 </script>
 
 <!-- @component An Item of a TreeView. -->
@@ -31,9 +33,7 @@
 		{#if node != null}
 			<!-- Item -->
 			<button
-				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} {[
-					treeContext.api?.selectedValue.includes(id) && selected
-				]}"
+				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} {rxSelected}"
 				{...treeContext.api?.getItemProps(nodeProps)}
 				data-testid="tree-item"
 				type="button"

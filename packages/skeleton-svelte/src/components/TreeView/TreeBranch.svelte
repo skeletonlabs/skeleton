@@ -38,6 +38,8 @@
 	}: TreeBranchProps = $props();
 
 	const treeContext = getTreeContext();
+
+	const rxSelected = $derived([treeContext.api?.selectedValue.includes(id) && selected]);
 </script>
 
 <!-- @component A Branch of a TreeView. -->
@@ -48,9 +50,7 @@
 		<div {...treeContext.api?.getBranchProps(nodeProps)} data-testid="tree-branch">
 			<!-- Control -->
 			<button
-				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} {[
-					treeContext.api?.selectedValue.includes(id) && selected
-				]}"
+				class="{base} {background} {spaceY} {hover} {border} {padding} {shadow} {classes} {rxSelected}"
 				{...treeContext.api?.getBranchControlProps(nodeProps)}
 				data-testid="tree-branch-control"
 				type="button"
