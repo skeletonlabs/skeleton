@@ -24,6 +24,7 @@ catalog:
   '@zag-js/tags-input': *zag_version
   '@zag-js/toast': *zag_version
   '@zag-js/tooltip': *zag_version
+  '@zag-js/tree-view': *zag_version
   typescript: ^5.8.3
   svelte: ^5.36.1
   tailwindcss: ^4.1.11
