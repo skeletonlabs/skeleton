@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { ControlsProps } from './types';
 	// State
 	import { globals } from '$lib/state/generator.svelte';
 	// Components (Skeleton)
@@ -30,20 +29,6 @@
 
 	// State
 	let settings: string[] = $state([]);
-
-	// Accessibility
-	const {
-		colorTitle = 'Color Palette',
-		colorAriaLabel = 'Color Palette',
-		backgroundsTitle = 'Backgrounds',
-		backgroundsAriaLabel = 'Backgrounds',
-		spacingTitle = 'Spacing',
-		spacingAriaLabel = 'Spacing',
-		edgesTitle = 'Edges',
-		edgesAriaLabel = 'Edges',
-		typographyTitle = 'Typography',
-		typographyAriaLabel = 'Typography'
-	}: ControlsProps = $props();
 </script>
 
 <section class="relative h-screen bg-surface-100-900 pb-96 overflow-y-auto">
@@ -66,7 +51,7 @@
 			<hr class="hr" />
 			<!-- Controls: Colors -->
 			<Accordion.Item value="colors" {...accordionItemProps}>
-				{#snippet lead()}<span class="btn-icon preset-tonal" title={colorTitle} aria-label={colorAriaLabel}><IconColors size={20} /></span
+				{#snippet lead()}<span class="btn-icon preset-tonal" title="Color Palette" aria-label="Color Palette"><IconColors size={20} /></span
 					>{/snippet}
 				{#snippet control()}<span class="h4">Color Palette</span>{/snippet}
 				{#snippet panel()}<ControlsColors />{/snippet}
@@ -74,7 +59,7 @@
 			<hr class="hr" />
 			<!-- Controls: Backgrounds -->
 			<Accordion.Item value="backgrounds" {...accordionItemProps}>
-				{#snippet lead()}<span class="btn-icon preset-tonal" title={backgroundsTitle} aria-label={backgroundsAriaLabel}
+				{#snippet lead()}<span class="btn-icon preset-tonal" title="Backgrounds" aria-label="Backgrounds"
 						><IconBackgrounds size={20} /></span
 					>{/snippet}
 				{#snippet control()}<span class="h4">Backgrounds</span>{/snippet}
@@ -83,25 +68,21 @@
 			<hr class="hr" />
 			<!-- Controls: Spacing -->
 			<Accordion.Item value="spacing" {...accordionItemProps}>
-				{#snippet lead()}<span class="btn-icon preset-tonal" title={spacingTitle} aria-label={spacingAriaLabel}
-						><IconSpacing size={20} /></span
-					>{/snippet}
+				{#snippet lead()}<span class="btn-icon preset-tonal" title="Spacing" aria-label="Spacing"><IconSpacing size={20} /></span>{/snippet}
 				{#snippet control()}<span class="h4">Spacing</span>{/snippet}
 				{#snippet panel()}<ControlsSpacing />{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
 			<!-- Controls: Edges -->
 			<Accordion.Item value="edges" {...accordionItemProps}>
-				{#snippet lead()}<span class="btn-icon preset-tonal" title={edgesTitle} aria-label={edgesAriaLabel}><IconEdges size={20} /></span
-					>{/snippet}
+				{#snippet lead()}<span class="btn-icon preset-tonal" title="Edges" aria-label="Edges"><IconEdges size={20} /></span>{/snippet}
 				{#snippet control()}<span class="h4">Edges</span>{/snippet}
 				{#snippet panel()}<ControlsEdges />{/snippet}
 			</Accordion.Item>
 			<hr class="hr" />
 			<!-- Controls: Typography -->
 			<Accordion.Item value="typography" {...accordionItemProps}>
-				{#snippet lead()}<span class="btn-icon preset-tonal" title={typographyTitle} aria-label={typographyAriaLabel}
-						><IconTypography size={20} /></span
+				{#snippet lead()}<span class="btn-icon preset-tonal" title="Typography" aria-label="Typography"><IconTypography size={20} /></span
 					>{/snippet}
 				{#snippet control()}<span class="h4">Typography</span>{/snippet}
 				{#snippet panel()}<ControlsTypography />{/snippet}

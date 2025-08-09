@@ -39,8 +39,6 @@ export interface ToasterProps extends toast.StoreProps {
 	btnDismissBase?: string;
 	/** Provide arbitrary classes for the dismiss button. */
 	btnDismissClasses?: string;
-
-	// Accessibility ---
 	/** Provide the title attribute for the dismiss button. */
 	btnDismissTitle?: string;
 	/** Provide the aria-label attribute for the dismiss button. */

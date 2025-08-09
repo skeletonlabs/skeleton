@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { HomeCompGridProps } from './types';
 	import { Avatar, Slider, Switch, ProgressRing } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconPlay from '@lucide/svelte/icons/play';
@@ -13,14 +12,6 @@
 	import IconRewind from '@lucide/svelte/icons/rewind';
 	import IconFastForward from '@lucide/svelte/icons/fast-forward';
 	import IconVolume from '@lucide/svelte/icons/volume-2';
-
-	// Accessibility
-	const {
-		revenueExpandTitle = 'Expand revenue details',
-		revenueExpandAriaLabel = 'Expand revenue details',
-		playTitle = 'Play music',
-		playAriaLabel = 'Play music'
-	}: HomeCompGridProps = $props();
 
 	// Classes
 	const cardClasses = 'card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5';
@@ -248,7 +239,7 @@
 					<h2 class="h3">Revenue</h2>
 					<p class="text-xs opacity-60">Posted April 1-13</p>
 				</div>
-				<button type="button" class="btn-icon rounded-full preset-tonal" title={revenueExpandTitle} aria-label={revenueExpandAriaLabel}>
+				<button type="button" class="btn-icon rounded-full preset-tonal" title="Expand revenue details" aria-label="Expand revenue details">
 					<IconArrowUpRight class="size-4" />
 				</button>
 			</header>
@@ -390,8 +381,8 @@
 				<button
 					type="button"
 					class="btn-icon btn-icon-lg rounded-full preset-filled-primary-500 scale-150"
-					title={playTitle}
-					aria-label={playAriaLabel}
+					title="Play music"
+					aria-label="Play music"
 				>
 					<IconPlay class="size-6 fill-current stroke-none" />
 				</button>

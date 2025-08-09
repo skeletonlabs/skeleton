@@ -3,5 +3,4 @@
 "@skeletonlabs/skeleton-react": minor
 ---
 
-feature: Add accessibility props to btn-icon components
-  
+feature: Added `aria-label` and `title` props for icon buttons implemented within the Svelte and React Toast components.

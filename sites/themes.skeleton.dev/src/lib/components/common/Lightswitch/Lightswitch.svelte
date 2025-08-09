@@ -1,9 +1,6 @@
 <script lang="ts">
 	import IconSun from '@lucide/svelte/icons/sun';
 	import IconMoon from '@lucide/svelte/icons/moon';
-	import type { LightswitchProps } from './types';
-
-	const { title = 'Toggle dark mode.', ariaLabel = 'Toggle dark mode.' }: LightswitchProps = $props();
 
 	let darkMode = $state(true);
 
@@ -17,7 +14,7 @@
 	}
 </script>
 
-<button class="btn-icon hover:preset-tonal" onclick={toggleDarkMode} {title} aria-label={ariaLabel}>
+<button class="btn-icon hover:preset-tonal" onclick={toggleDarkMode} title="Toggle dark mode." aria-label="Toggle dark mode.">
 	{#if darkMode}
 		<IconSun size={20} />
 	{:else}
