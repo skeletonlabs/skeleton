@@ -40,8 +40,12 @@
 	</div>
 	{#if api.closable}
 		<!-- Dismiss Button -->
-		<button class="{props.btnDismissBase} {props.btnDismissClasses}" {...api.getCloseTriggerProps()} data-testid="toast-dismiss"
-			>&times;</button
+		<button
+			class="{props.btnDismissBase} {props.btnDismissClasses}"
+			title={props.btnDismissTitle}
+			aria-label={props.btnDismissAriaLabel}
+			{...api.getCloseTriggerProps()}
+			data-testid="toast-dismiss">&times;</button
 		>
 	{/if}
 </div>

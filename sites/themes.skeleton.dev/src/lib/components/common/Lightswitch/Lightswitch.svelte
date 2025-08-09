@@ -14,7 +14,7 @@
 	}
 </script>
 
-<button class="btn-icon hover:preset-tonal" onclick={toggleDarkMode}>
+<button class="btn-icon hover:preset-tonal" onclick={toggleDarkMode} title="Toggle dark mode." aria-label="Toggle dark mode.">
 	{#if darkMode}
 		<IconSun size={20} />
 	{:else}

@@ -239,7 +239,7 @@
 					<h2 class="h3">Revenue</h2>
 					<p class="text-xs opacity-60">Posted April 1-13</p>
 				</div>
-				<button type="button" class="btn-icon rounded-full preset-tonal">
+				<button type="button" class="btn-icon rounded-full preset-tonal" title="Expand revenue details" aria-label="Expand revenue details">
 					<IconArrowUpRight class="size-4" />
 				</button>
 			</header>
@@ -378,7 +378,12 @@
 		<!-- 14 -->
 		<div class={`${cardClasses} col-span-2 row-span-2 col-start-3 row-start-7`}>
 			<div class="h-full grid grid-cols-[auto_2fr_0.5fr] items-center gap-2 px-5">
-				<button type="button" class="btn-icon btn-icon-lg rounded-full preset-filled-primary-500 scale-150">
+				<button
+					type="button"
+					class="btn-icon btn-icon-lg rounded-full preset-filled-primary-500 scale-150"
+					title="Play music"
+					aria-label="Play music"
+				>
 					<IconPlay class="size-6 fill-current stroke-none" />
 				</button>
 				<div class="grid grid-cols-[auto_1fr_auto] gap-5 items-center px-10">
