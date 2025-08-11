@@ -66,7 +66,9 @@
 		...zagProps,
 		onOpenChange(event) {
 			if (event.open && filter !== null) {
-				internalOptions = data;
+				internalOptions = data.filter((item) => filter(item, api.inputValue));
+			} else if (event.open) {
+				internalOptions = [...data];
 			}
 			zagProps.onOpenChange?.(event);
 		},
