@@ -27,7 +27,7 @@ export const Avatar: FC<AvatarProps> = ({
 	fallbackClasses = '',
 	// Children
 	children,
-	initials,
+	initials = [0, -1],
 	// Zag
 	...zagProps
 }) => {
@@ -38,15 +38,14 @@ export const Avatar: FC<AvatarProps> = ({
 	});
 	const api = avatar.connect(service, normalizeProps);
 
-	const getInitials = (name: string, initials: number[] = [0, -1]) => {
-		if (!name) return '';
-
-		let nameArr = name.split(' ');
-
-		return initials.map(index => {
-			const namePart = nameArr.at(index);
-			return namePart ? namePart.charAt(0).toUpperCase() : '';
-		}).join('');
+	const getInitials = () => {
+		return initials.map(index => (name
+			.split(' ')
+			.at(index)
+			.charAt(0)
+			.toUpperCase()
+			.join('')
+		));
 	}
 
 	return (
@@ -69,7 +68,7 @@ export const Avatar: FC<AvatarProps> = ({
 			)}
 			{/* Fallback */}
 			<span {...api.getFallbackProps()} className={`${fallbackBase} ${fallbackClasses}`} data-testid="avatar-fallback">
-				{children ? children : getInitials(name, initials)}
+				{children ? children : getInitials()}
 			</span>
 		</figure>
 	);

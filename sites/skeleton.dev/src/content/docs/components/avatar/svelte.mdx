@@ -8,6 +8,9 @@ import Example from '@examples/components/avatars/Example.svelte';
 import ExampleRaw from '@examples/components/avatars/Example.svelte?raw';
 import ExampleFallback from '@examples/components/avatars/ExampleFallback.svelte';
 import ExampleFallbackRaw from '@examples/components/avatars/ExampleFallback.svelte?raw';
+import ExampleInitials from '@examples/components/avatars/ExampleInitials.svelte';
+import ExampleInitialsRaw from '@examples/components/avatars/ExampleInitials.svelte?raw';
+
 import ExampleFilter from '@examples/components/avatars/ExampleFilter.svelte';
 import ExampleFilterRaw from '@examples/components/avatars/ExampleFilter.svelte?raw';
 import ExampleStyle from '@examples/components/avatars/ExampleStyle.svelte';
@@ -19,6 +22,19 @@ import ExampleStyleRaw from '@examples/components/avatars/ExampleStyle.svelte?ra
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Initials
+
+Provide an `initials` array to define what part of the name is used to generate initials. Use index values to identify each desired name, and `-1` to represent the last possible name.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleInitials />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleInitialsRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

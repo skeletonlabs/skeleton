@@ -25,7 +25,7 @@
 		fallbackClasses = '',
 		// Snippets
 		children,
-		initials
+		initials = [0, -1]
 		// Zag
 		...zagProps
 	}: AvatarProps = $props();
@@ -39,16 +39,15 @@
 	const api = $derived(avatar.connect(service, normalizeProps));
 
 	// Generate Initials
-	function getInitials(name: string, initials: number[] = [0, -1]) {
-		if (!name) return '';
-
-		let nameArr = name.split(' ');
-
-		return initials.map(index => {
-				const namePart = nameArr.at(index);
-				return namePart ? namePart.charAt(0).toUpperCase() : '';
-		}).join('');
-  }
+	function getInitials() {
+		return initials.map(index => (name
+			.split(' ')
+			.at(index)
+			.charAt(0)
+			.toUpperCase()
+			.join('')
+		));
+    }
 </script>
 
 <!-- @component An image with a fallback for representing a single user. -->
@@ -64,7 +63,7 @@
 		{#if children}
 			{@render children()}
 		{:else}
-			{getInitials(name, initials)}
+			{getInitials()}
 		{/if}
 	</span>
 	<!-- Image -->
