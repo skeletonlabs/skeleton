@@ -8,6 +8,9 @@ import Example from '@examples/components/avatars/Example.svelte';
 import ExampleRaw from '@examples/components/avatars/Example.svelte?raw';
 import ExampleFallback from '@examples/components/avatars/ExampleFallback.svelte';
 import ExampleFallbackRaw from '@examples/components/avatars/ExampleFallback.svelte?raw';
+import ExampleInitials from '@examples/components/avatars/ExampleInitials.svelte';
+import ExampleInitialsRaw from '@examples/components/avatars/ExampleInitials.svelte?raw';
+
 import ExampleFilter from '@examples/components/avatars/ExampleFilter.svelte';
 import ExampleFilterRaw from '@examples/components/avatars/ExampleFilter.svelte?raw';
 import ExampleStyle from '@examples/components/avatars/ExampleStyle.svelte';
@@ -22,9 +25,22 @@ import ExampleStyleRaw from '@examples/components/avatars/ExampleStyle.svelte?ra
 	</Fragment>
 </Preview>
 
+## Initials
+
+Provide an `initials` array to define what part of the name is used to generate initials. Use index values to identify each desired name, and `-1` to represent the last possible name.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleInitials />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleInitialsRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
 ## Fallback
 
-When `src` or `srcSet` are missing or fail to load, a fallback will be displayed. By default this will show the user initials, based on the `name`. Optionally you can supply your own content using the default `children`. This can be used to display icons or implement a custom image using [@sveltejs/enhanced-img](https://kit.svelte.dev/docs/images#sveltejs-enhanced-img).
+When `src` or `srcSet` are missing or fail to load, a fallback will be displayed using the default `children`. This can be used to display icons or implement a custom image using [@sveltejs/enhanced-img](https://kit.svelte.dev/docs/images#sveltejs-enhanced-img).
 
 <Preview client:load>
 	<Fragment slot="preview">
