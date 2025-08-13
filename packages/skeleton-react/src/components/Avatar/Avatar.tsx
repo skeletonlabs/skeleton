@@ -9,6 +9,7 @@ export const Avatar: FC<AvatarProps> = ({
 	src,
 	srcSet,
 	name,
+	initials = [0, -1],
 	// Root
 	base = 'overflow-hidden isolate',
 	background = 'bg-surface-400-600',
@@ -27,7 +28,6 @@ export const Avatar: FC<AvatarProps> = ({
 	fallbackClasses = '',
 	// Children
 	children,
-	initials = [0, -1],
 	// Zag
 	...zagProps
 }) => {
@@ -38,14 +38,9 @@ export const Avatar: FC<AvatarProps> = ({
 	});
 	const api = avatar.connect(service, normalizeProps);
 
-	const getInitials = () => {
-		return initials.map(index => (name
-			.split(' ')
-			.at(index)
-			.charAt(0)
-			.toUpperCase()
-			.join('')
-		));
+	function getInitials() {
+		const lettersArr = initials.map((index) => name.split(' ').at(index)?.charAt(0).toUpperCase());
+		return lettersArr.join('');
 	}
 
 	return (

@@ -7,6 +7,7 @@
 		src,
 		srcset,
 		name,
+		initials = [0, -1],
 		// Root
 		base = 'overflow-hidden isolate',
 		background = 'bg-surface-400-600',
@@ -25,7 +26,6 @@
 		fallbackClasses = '',
 		// Snippets
 		children,
-		initials = [0, -1]
 		// Zag
 		...zagProps
 	}: AvatarProps = $props();
@@ -40,14 +40,9 @@
 
 	// Generate Initials
 	function getInitials() {
-		return initials.map(index => (name
-			.split(' ')
-			.at(index)
-			.charAt(0)
-			.toUpperCase()
-			.join('')
-		));
-    }
+		const lettersArr = initials.map((index) => name.split(' ').at(index)?.charAt(0).toUpperCase());
+		return lettersArr.join('');
+	}
 </script>
 
 <!-- @component An image with a fallback for representing a single user. -->
