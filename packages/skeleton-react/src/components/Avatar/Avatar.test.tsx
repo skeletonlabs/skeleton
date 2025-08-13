@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 import { Avatar } from '../../index.js';
 
 describe('Avatar', () => {
-	// const testId = 'avatar';
 	const testIds = {
 		root: 'avatar',
 		image: 'avatar-image',
@@ -38,8 +37,6 @@ describe('Avatar', () => {
 	}
 
 	describe('Image', () => {
-		// const testId = 'avatar-image';
-
 		it('Renders the component', () => {
 			const component = render(<Avatar name={test.name} src="src"></Avatar>);
 			expect(component.getByTestId(testIds.image)).toBeInTheDocument();
@@ -55,8 +52,6 @@ describe('Avatar', () => {
 	});
 
 	describe('Fallback', () => {
-		// const testId = 'avatar-fallback';
-
 		it('Renders the component', () => {
 			const component = render(<Avatar name={test.name}></Avatar>);
 			expect(component.getByTestId(testIds.fallback)).toBeInTheDocument();
