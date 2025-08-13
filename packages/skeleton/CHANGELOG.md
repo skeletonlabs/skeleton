@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.1.8
+### Patch Changes
+
+
+- bugfix: Added missing child border-radii to input group ([#3630](https://github.com/skeletonlabs/skeleton/pull/3630))
+
 ## 3.1.7
 ### Patch Changes
 
