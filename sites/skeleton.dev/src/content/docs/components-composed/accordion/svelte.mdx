@@ -7,11 +7,67 @@ export const components = componentSet;
 import DefaultExample from '@examples/components-composed/svelte/accordion/default.svelte';
 import DefaultExampleRaw from '@examples/components-composed/svelte/accordion/default.svelte?raw';
 
+import MultipleExample from '@examples/components-composed/svelte/accordion/multiple.svelte';
+import MultipleExampleRaw from '@examples/components-composed/svelte/accordion/multiple.svelte?raw';
+
+import CollapsibleExample from '@examples/components-composed/svelte/accordion/collapsible.svelte';
+import CollapsibleExampleRaw from '@examples/components-composed/svelte/accordion/collapsible.svelte?raw';
+
+import ControlledExample from '@examples/components-composed/svelte/accordion/controlled.svelte';
+import ControlledExampleRaw from '@examples/components-composed/svelte/accordion/controlled.svelte?raw';
+
+import IconsExample from '@examples/components-composed/svelte/accordion/icons.svelte';
+import IconsExampleRaw from '@examples/components-composed/svelte/accordion/icons.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<DefaultExample client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Collapsible
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CollapsibleExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CollapsibleExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Multiple
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<MultipleExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MultipleExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Controlled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ControlledExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ControlledExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Icons
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<IconsExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IconsExampleRaw} lang="svelte" />
 	</Fragment>
 </Preview>

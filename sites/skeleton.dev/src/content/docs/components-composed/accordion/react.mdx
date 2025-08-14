@@ -6,6 +6,14 @@ export const components = componentSet;
 
 import DefaultExample from '@examples/components-composed/react/accordion/default.tsx';
 import DefaultExampleRaw from '@examples/components-composed/react/accordion/default.tsx?raw';
+import CollapsibleExample from '@examples/components-composed/react/accordion/collapsible.tsx';
+import CollapsibleExampleRaw from '@examples/components-composed/react/accordion/collapsible.tsx?raw';
+import MultipleExample from '@examples/components-composed/react/accordion/multiple.tsx';
+import MultipleExampleRaw from '@examples/components-composed/react/accordion/multiple.tsx?raw';
+import ControlledExample from '@examples/components-composed/react/accordion/controlled.tsx';
+import ControlledExampleRaw from '@examples/components-composed/react/accordion/controlled.tsx?raw';
+import IconsExample from '@examples/components-composed/react/accordion/icons.tsx';
+import IconsExampleRaw from '@examples/components-composed/react/accordion/icons.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -13,5 +21,49 @@ import DefaultExampleRaw from '@examples/components-composed/react/accordion/def
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Collapsible
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CollapsibleExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CollapsibleExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Multiple
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<MultipleExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MultipleExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Controlled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ControlledExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ControlledExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Icons
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<IconsExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IconsExampleRaw} lang="tsx" />
 	</Fragment>
 </Preview>
