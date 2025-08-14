@@ -1,5 +1,32 @@
 # @skeletonlabs/skeleton-react
 
+## 1.3.0
+### Minor Changes
+
+
+- feature: Added `aria-label` and `title` props for icon buttons implemented within the Svelte and React Toast components. ([#3619](https://github.com/skeletonlabs/skeleton/pull/3619))
+
+
+- feature: Avatar compnonent now supports additional `initials` configuration ([#3627](https://github.com/skeletonlabs/skeleton/pull/3627))
+
+## 1.2.4
+### Patch Changes
+
+
+- chore: Update zag dependencies ([#3612](https://github.com/skeletonlabs/skeleton/pull/3612))
+
+## 1.2.3
+### Patch Changes
+
+
+- chore: Remove aria role tooltip from AppBar component ([#3590](https://github.com/skeletonlabs/skeleton/pull/3590))
+
+## 1.2.2
+### Patch Changes
+
+
+- Segment/Pagination: move default border padding to padding prop ([#3554](https://github.com/skeletonlabs/skeleton/pull/3554))
+
 ## 1.2.1
 ### Patch Changes
 

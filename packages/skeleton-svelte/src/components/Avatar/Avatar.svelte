@@ -7,6 +7,7 @@
 		src,
 		srcset,
 		name,
+		initials = [0, -1],
 		// Root
 		base = 'overflow-hidden isolate',
 		background = 'bg-surface-400-600',
@@ -38,11 +39,9 @@
 	const api = $derived(avatar.connect(service, normalizeProps));
 
 	// Generate Initials
-	function getInitials(name: string) {
-		return name
-			.split(' ')
-			.map((word) => word[0])
-			.join('');
+	function getInitials() {
+		const lettersArr = initials.map((index) => name.split(' ').at(index)?.charAt(0).toUpperCase());
+		return lettersArr.join('');
 	}
 </script>
 
@@ -59,7 +58,7 @@
 		{#if children}
 			{@render children()}
 		{:else}
-			{getInitials(name)}
+			{getInitials()}
 		{/if}
 	</span>
 	<!-- Image -->

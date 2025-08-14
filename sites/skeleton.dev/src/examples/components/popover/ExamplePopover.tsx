@@ -61,7 +61,7 @@ export const Page: React.FC = () => {
 						<div className="space-y-4">
 							<header className="flex justify-between">
 								<p className="font-bold text-xl">Popover Example</p>
-								<button className="btn-icon hover:preset-tonal" onClick={() => setIsOpen(false)}>
+								<button className="btn-icon hover:preset-tonal" onClick={() => setIsOpen(false)} title="Close" aria-label="Close">
 									<IconX />
 								</button>
 							</header>

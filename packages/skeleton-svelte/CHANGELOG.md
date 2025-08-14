@@ -1,5 +1,50 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.4.0
+### Minor Changes
+
+
+- feature: Added `aria-label` and `title` props for icon buttons implemented within the Svelte and React Toast components. ([#3619](https://github.com/skeletonlabs/skeleton/pull/3619))
+
+
+- feature: Avatar compnonent now supports additional `initials` configuration ([#3627](https://github.com/skeletonlabs/skeleton/pull/3627))
+
+## 1.3.1
+### Patch Changes
+
+
+- chore: Update zag dependencies ([#3612](https://github.com/skeletonlabs/skeleton/pull/3612))
+
+## 1.3.0
+### Minor Changes
+
+
+- bugfix: resolves issues with Svelte Tooltip and Popover arrow style props ([#3601](https://github.com/skeletonlabs/skeleton/pull/3601))
+
+## 1.2.4
+### Patch Changes
+
+
+- Bugfix: z-index of tooltip was not working when an arrow element was present. ([#3562](https://github.com/skeletonlabs/skeleton/pull/3562))
+
+
+- chore: Remove aria role tooltip from AppBar component ([#3590](https://github.com/skeletonlabs/skeleton/pull/3590))
+
+
+- bugfix: Resolve issue in Popover, Tooltip, and Modal types for missing import. ([#3584](https://github.com/skeletonlabs/skeleton/pull/3584))
+
+## 1.2.3
+### Patch Changes
+
+
+- Segment/Pagination: move default border padding to padding prop ([#3554](https://github.com/skeletonlabs/skeleton/pull/3554))
+
+## 1.2.2
+### Patch Changes
+
+
+- bugfix: Fix Combobox collection not updating on input ([#3542](https://github.com/skeletonlabs/skeleton/pull/3542))
+
 ## 1.2.1
 ### Patch Changes
 

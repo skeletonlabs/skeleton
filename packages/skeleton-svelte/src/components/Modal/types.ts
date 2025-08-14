@@ -1,6 +1,7 @@
 import type { Snippet } from 'svelte';
 import * as dialog from '@zag-js/dialog';
 import type { FlyParams, FadeParams } from 'svelte/transition';
+import type { HTMLButtonAttributes } from 'svelte/elements';
 
 export interface ModalProps extends Omit<dialog.Props, 'id'> {
 	// Base ---
@@ -8,7 +9,7 @@ export interface ModalProps extends Omit<dialog.Props, 'id'> {
 	base?: string;
 	/** Provide arbitrary classes for the root element. */
 	classes?: string;
-	/** Set z-index for the positioner. */
+	/** Set a positioner style for z-index, ex: "10" */
 	zIndex?: string;
 
 	// Trigger ---
@@ -69,5 +70,5 @@ export interface ModalProps extends Omit<dialog.Props, 'id'> {
 
 	// Events ---
 	/** Handle the dialog button click event. */
-	onclick?: () => void;
+	onclick?: HTMLButtonAttributes['onclick'];
 }

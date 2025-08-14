@@ -30,12 +30,6 @@
 		--tw-ring-color: var(--color-primary-500);
 	}
 
-	/* Placeholder --- */
-
-	&::placeholder {
-		color: var(--color-surface-700-300);
-	}
-
 	/* File Input --- */
 
 	&[type='file']::file-selector-button {
@@ -60,6 +54,7 @@
 	&[type='range'] {
 		accent-color: var(--color-surface-950-50);
 		box-shadow: none;
+		padding-inline: initial;
 	}
 
 	/* Color Picker Input --- */
@@ -80,6 +75,12 @@
 	&[type='color']::-webkit-color-swatch {
 		border: none;
 		border-radius: var(--radius-base);
+	}
+	&[type='color']::-moz-color-swatch {
+		border: none;
+	}
+	&[type='color']::-moz-color-swatch {
+		border: none;
 	}
 }
 

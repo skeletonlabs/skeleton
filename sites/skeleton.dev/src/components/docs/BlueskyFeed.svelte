@@ -3,14 +3,14 @@
 
 	const postsPromise = blueSkyAgent
 		.getAuthorFeed({
-			actor: 'skeletonlabs.bsky.social',
+			actor: 'skeleton.dev',
 			limit: 15,
 			filter: 'posts_no_replies'
 		})
 		.then((result) =>
 			result.data.feed
 				.filter((item) => {
-					return item.post.author.handle === 'skeletonlabs.bsky.social';
+					return item.post.author.handle === 'skeleton.dev';
 				})
 				.map((item) => item.post)
 		);

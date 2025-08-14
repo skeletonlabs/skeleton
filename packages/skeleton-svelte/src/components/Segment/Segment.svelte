@@ -8,9 +8,9 @@
 		// Root
 		base = 'inline-flex items-stretch overflow-hidden',
 		background = 'preset-outlined-surface-200-800',
-		border = 'p-2',
+		border = '',
 		gap = 'gap-2',
-		padding = '',
+		padding = 'p-2',
 		rounded = 'rounded-container',
 		width = '',
 		classes = '',

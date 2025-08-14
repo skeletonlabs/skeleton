@@ -19,7 +19,7 @@ Please read and apply all [contribution requirements](https://skeleton.dev/docs/
 - [ ] Run `pnpm test` in the root of the monorepo
 - [ ] If you modify `/package` projects, please supply a Changeset
 
-## Changsets
+## Changesets
 
 [View our documentation](https://skeleton.dev/docs/resources/contribute/get-started#changesets) to learn more about [Changesets](https://github.com/changesets/changesets). To create a Changeset:
 

@@ -4,7 +4,7 @@
 	// State
 	import { globals, settingsColors } from '$lib/state/generator.svelte';
 	// Utils
-	import { genColorRamp, seedColor, genRandomSeed } from '$lib/utils/generator/colors';
+	import { genColorRamp, seedColor, genRandomSeed, getColorKey } from '$lib/utils/generator/colors';
 	// Components (Skeleton)
 	import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Icons
@@ -127,7 +127,7 @@
 											<input
 												type="text"
 												class="input"
-												bind:value={settingsColors[`--color-${color.value}-${shade}`]}
+												bind:value={settingsColors[getColorKey(color.value, shade.toString())]}
 												onblur={() => genColorRamp(showAllShades, color.value)}
 											/>
 										</td>
@@ -137,7 +137,7 @@
 											<input
 												class="input"
 												type="color"
-												bind:value={settingsColors[`--color-${color.value}-${shade}`]}
+												bind:value={settingsColors[getColorKey(color.value, shade.toString())]}
 												oninput={() => genColorRamp(showAllShades, color.value)}
 											/>
 										</td>
@@ -153,12 +153,12 @@
 									<span class="label-text">Light Contrast</span>
 									<div
 										class="w-full h-4 border border-surface-200-800 rounded-base"
-										style:background={`${settingsColors[`--color-${color.value}-contrast-light`]}`}
+										style:background={`${settingsColors[getColorKey(color.value, 'contrast-light')]}`}
 									></div>
 									<select
 										class="select"
 										name={`--color-${color.value}-contrast-light`}
-										bind:value={settingsColors[`--color-${color.value}-contrast-light`]}
+										bind:value={settingsColors[getColorKey(color.value, 'contrast-light')]}
 									>
 										<option value="oklch(1 0 0 / 1)">White</option>
 										{#each constants.colorNames as colorName}
@@ -175,12 +175,12 @@
 									<span class="label-text">Dark Contrast</span>
 									<div
 										class="w-full h-4 border border-surface-200-800 rounded-base"
-										style:background={`${settingsColors[`--color-${color.value}-contrast-dark`]}`}
+										style:background={`${settingsColors[getColorKey(color.value, 'contrast-dark')]}`}
 									></div>
 									<select
 										class="select"
 										name={`--color-${color.value}-contrast-dark`}
-										bind:value={settingsColors[`--color-${color.value}-contrast-dark`]}
+										bind:value={settingsColors[getColorKey(color.value, 'contrast-dark')]}
 									>
 										<option value="oklch(0 0 0 / 1)">Black</option>
 										{#each constants.colorNames as colorName}

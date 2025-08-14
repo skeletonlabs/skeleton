@@ -51,7 +51,7 @@ export async function importThemeV2(fileText: string, fileName: string) {
 		// Update Properties
 		scale.forEach((color, i) => {
 			properties[`--color-${colorName}-${constants.colorShades[i]}`] = color; // hex
-			// TODO: replce with oklch format in the future
+			// TODO: replace with oklch format in the future
 			// // @ts-expect-error oklch param
 			// properties[`--color-${colorName}-${constants.colorShades[i]}`] = chroma(color).css('oklch');
 		});
@@ -60,13 +60,13 @@ export async function importThemeV2(fileText: string, fileName: string) {
 	// Set Generator State
 	if (fileName) settingsCore.name = fileName.split('.')[0]; // before .js|.ts
 	// Colors
-	for (const key in properties) {
+	for (const key of Object.keys(properties) as Array<keyof typeof settingsColors>) {
 		if (key in settingsColors) {
-			settingsColors[key] = properties[key];
+			settingsColors[key] = properties[key]!;
 		}
 	}
 
 	/* Generate Contrast Colors */
-	/* NOTE: this is a bit redudant, but should get us by for now */
+	/* NOTE: this is a bit redundant, but should get us by for now */
 	constants.colorNames.forEach((name) => genColorRamp(false, name));
 }

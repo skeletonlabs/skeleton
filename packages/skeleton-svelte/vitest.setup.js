@@ -1,11 +1,8 @@
 import '@testing-library/jest-dom/vitest';
-import { vitest } from 'vitest';
+import { vi } from 'vitest';
 
-// NOTE: Used for the <Slider> component
-// https://stackoverflow.com/questions/64558062/how-to-mock-resizeobserver-to-work-in-unit-tests-using-react-testing-library
-/* eslint-disable no-undef */
-global.ResizeObserver = vitest.fn().mockImplementation(() => ({
-	observe: vitest.fn(),
-	unobserve: vitest.fn(),
-	disconnect: vitest.fn()
-}));
+globalThis.ResizeObserver = class MockedResizeObserver {
+	observe = vi.fn();
+	unobserve = vi.fn();
+	disconnect = vi.fn();
+};

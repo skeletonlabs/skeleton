@@ -4,7 +4,7 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import PostioningOptions from '@examples/components/popover/PostioningOptions.txt?raw';
+import PositioningOptions from '@examples/components/popover/PositioningOptions.txt?raw';
 import ExamplePopover from '@examples/components/popover/ExamplePopover.svelte';
 import ExamplePopoverRaw from '@examples/components/popover/ExamplePopover.svelte?raw';
 import ExampleTooltip from '@examples/components/popover/ExampleTooltip.svelte';
@@ -21,27 +21,56 @@ import schemaTooltip from '@content/schemas/svelte/tooltip.json';
 import schemaCombobox from '@content/schemas/svelte/combobox.json';
 import schemaModal from '@content/schemas/svelte/modal.json';
 
-## Floating UI Svelte
+## Warning
 
-<div class="card preset-outlined-warning-500 p-8 space-y-8">
-	<p>
-		Please note this section will be the future home of the [Floating UI Svelte](https://floating-ui-svelte.vercel.app/) integrateion guide,
-		an upcoming open-source library from [Skeleton Labs](https://github.com/skeletonlabs/floating-ui-svelte/discussions/50). While this
-		project is in development, we have provided several Svelte-specific components to act as temporary substitutions. Note that these
-		components will remain available until our next major release (Skeleton v4.x). However, the goal will be to replace these with Floating
-		UI Svelte as soon as possible.
-	</p>
+<div class="card preset-tonal-warning preset-outlined-warning-500 p-8 space-y-8">
+	The following components have been introduced as a temporary solution until either Floating UI provides Svelte bindings, the upcoming
+	native browser APIs become widely available, or another alternative is introduced (whichever comes first). Until that time, Skeleton will
+	continue to maintain these components for production use. Maintenance will continue until the next major version of Skeleton if an
+	alternative is introduced.
 </div>
+
+The following popover components are built using [Zag.js](https://zagjs.com/) primitives, and utilize [Floating UI](https://floating-ui.com/) to control positioning and anchoring of each related element.
+
+---
 
 ## Z-Index
 
-Skeleton does not take an opinionated stance regarding z-index stacking. This means elements may be occluded beneath other elements with a higher index. Adjust this using the `zIndex` component property.
+Neither Skeleton, Zag, or Floating UI take an opinionated stance regarding z-index stacking. This means elements may be occluded beneath other elements with a higher index. To adjust this value, set `zIndex` with a raw CSS value, such as `10`, `20`, `999` - provided as a string. Note that this property <u>does not</u> accept utility classes.
 
 ```svelte
-<Popover ... zIndex={10}>
+<Popover ... zIndex="10">
 	<!-- ... -->
 </Popover>
 ```
+
+- `zIndex="z-50"` - This will NOT work.
+- `zIndex={99}` - This will NOT work.
+- `zIndex="99"` - This will work as expected.
+
+## Arrows
+
+Both `<Popover>` and `<Tooltip>` allow for arrows. Skeleton follows [Zag's conventions](https://zagjs.com/components/svelte/tooltip#styling-the-arrow) for styling arrows. Add the `arrow` prop to enable the arrow, then use the following to adjust each style. Note these properties <u>do not</u> accept utility classes.
+
+| Prop Name         | CSS Custom Property  | Demo                                                      |
+| ----------------- | -------------------- | --------------------------------------------------------- |
+| `arrow`           | -                    | `<Tooltip arrow>`                                         |
+| `arrowBackground` | `--arrow-background` | `<Tooltip arrowBackground="var(--color-surface-50-950)">` |
+| `arrowSize`       | `--arrow-size`       | `<Tooltip arrowSize="10px">`                              |
+
+{/* prettier-ignore */}
+```svelte
+<Tooltip
+	...
+	arrow
+	arrowBackground="var(--color-surface-50-950)"
+	arrowSize="15px"
+>
+	...
+</Tooltip>
+```
+
+---
 
 ## Popover
 
@@ -54,7 +83,7 @@ Triggers an anchored popover when you <u>click</u> the trigger element. [View AP
 	<Fragment slot="code">
 		<div class="space-y-4">
 			<Code code={ExamplePopoverRaw} lang="svelte" />
-			<Code code={PostioningOptions} lang="ts" />
+			<Code code={PositioningOptions} lang="ts" />
 		</div>
 	</Fragment>
 </Preview>
@@ -84,7 +113,7 @@ Triggers an anchored popover when you <u>hover</u> the trigger element. [View AP
 	<Fragment slot="code">
 		<div class="space-y-4">
 			<Code code={ExampleTooltipRaw} lang="svelte" />
-			<Code code={PostioningOptions} lang="ts" />
+			<Code code={PositioningOptions} lang="ts" />
 		</div>
 	</Fragment>
 </Preview>
@@ -175,7 +204,13 @@ Generate modals or dialogs that require a user's immediate attention. [View API 
 
 <ApiTable schema={schemaModal} />
 
-## Native Browser APIs
+## Alternatives
+
+### Svelte Attachment
+
+For power users, we realize the above components may not cover all use cases. As such, we've provided a baseline Svelte attachment for a more direct integration with the Floating UI DOM library. [View our guide here](/docs/guides/cookbook/floating-ui-attachments).
+
+### Native Browser APIs
 
 Skeleton will always favor native browser APIs over third-party libraries such as Floating UI Svelte. The following is a list of current and upcoming incoming APIs we will aim to support in the future, but are not quite standardized cross-browser yet.
 

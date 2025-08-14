@@ -9,6 +9,8 @@ export interface AvatarProps extends Omit<avatar.Props, 'id'>, Pick<HTMLAttribut
 	srcset?: string;
 	/** Provide a name or username for the avatar. */
 	name: string;
+	/** Initials will be generated based on the name and this index array. */
+	initials?: number[];
 
 	// Root ---
 	/** Set base styles. */

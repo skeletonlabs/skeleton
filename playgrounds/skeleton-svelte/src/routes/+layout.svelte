@@ -15,7 +15,7 @@
 			<hr class="hr" />
 			<!-- Components -->
 			<div class="space-y-8">
-				<span class="block font-bold">Components</span>
+				<div class="font-bold">Components</div>
 				<nav class="text-sm flex flex-col gap-2">
 					<a class="anchor" href="/components/accordions">Accordions</a>
 					<a class="anchor" href="/components/app-bars">App Bars</a>
@@ -44,7 +44,7 @@
 			</div>
 			<!-- Svelte-Only -->
 			<div class="space-y-8">
-				<span class="block font-bold">Svelte-Only</span>
+				<div class="font-bold">Svelte-Only</div>
 				<nav class="text-sm flex flex-col gap-2">
 					<a class="anchor" href="/components/popover">Popover</a>
 					<a class="anchor" href="/components/tooltip">Tooltip</a>

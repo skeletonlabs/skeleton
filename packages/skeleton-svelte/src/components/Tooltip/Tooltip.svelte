@@ -6,8 +6,11 @@
 	import type { TooltipProps } from './types.js';
 
 	const {
-		arrow = false,
 		zIndex = 'auto',
+		// Arrow
+		arrow = false,
+		arrowBackground = 'var(--color-surface-950-50)',
+		arrowSize = '10px',
 		// Base
 		base = '',
 		classes = '',
@@ -25,7 +28,7 @@
 		contentClasses = '',
 		// Arrow
 		arrowBase = '',
-		arrowBackground = '!bg-white',
+		// arrowBackground = '',
 		arrowClasses = '',
 		// Snippets
 		trigger,
@@ -55,25 +58,21 @@
 		</button>
 	{/if}
 	<!-- Tooltip Content -->
-	{#if api.open}
-		<div {...api.getPositionerProps()} transition:fade={{ duration: 100 }} class="{positionerBase} {positionerClasses}">
-			<!-- Arrow -->
-			{#if arrow}
-				<div {...api.getArrowProps()}>
-					<div {...api.getArrowTipProps()} class="{arrowBase} {arrowBackground} {arrowClasses}"></div>
+	<div {...api.getPositionerProps()} class="{positionerBase} {positionerClasses}">
+		<!-- Popover -->
+		{#if api.open}
+			<div {...api.getContentProps()} transition:fade={{ duration: 100 }} style="z-index: {zIndex};">
+				<!-- Arrow -->
+				{#if arrow}
+					<div {...api.getArrowProps()} style:--arrow-size={arrowSize}>
+						<div {...api.getArrowTipProps()} class="{arrowBase} {arrowClasses}" style:--arrow-background={arrowBackground}></div>
+					</div>
+				{/if}
+				<!-- Snippet Content -->
+				<div class="{contentBase} {contentBackground} {contentClasses}">
+					{@render content?.()}
 				</div>
-			{/if}
-			<!-- Snippet Content -->
-			<div {...api.getContentProps()} class="{contentBase} {contentBackground} {contentClasses}" style="z-index: {zIndex};">
-				{@render content?.()}
 			</div>
-		</div>
-	{/if}
+		{/if}
+	</div>
 </span>
-
-<style>
-	:global([data-part='arrow']) {
-		--arrow-size: 10px;
-		--arrow-background: white;
-	}
-</style>

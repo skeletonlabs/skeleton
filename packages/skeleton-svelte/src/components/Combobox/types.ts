@@ -6,7 +6,7 @@ export interface ComboboxProps<T extends ComboboxItem> extends Omit<combobox.Pro
 	data?: T[];
 	/** Set the label to display. */
 	label?: string;
-	/** Set z-index for the positioner. */
+	/** Set a positioner style for z-index, ex: "10" */
 	zIndex?: string;
 
 	// Base ---

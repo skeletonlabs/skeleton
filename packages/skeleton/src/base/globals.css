@@ -52,6 +52,15 @@
 		cursor: pointer;
 	}
 
+	/* Form Placeholders --- */
+
+	.input::placeholder,
+	.textarea::placeholder,
+	.ig-input::placeholder,
+	.ig-textarea::placeholder {
+		color: var(--color-surface-700-300);
+	}
+
 	/* Selection --- */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
 

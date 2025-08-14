@@ -51,6 +51,7 @@ export async function importThemeV3(fileText: string, fileName: string) {
 	// Theme Properties
 	for (const key in properties) {
 		if (key in settingsColors) {
+			// @ts-expect-error type not satisfied
 			settingsColors[key] = properties[key];
 		} else if (key in settingsBackgrounds) {
 			// @ts-expect-error type not satisfied
@@ -68,6 +69,6 @@ export async function importThemeV3(fileText: string, fileName: string) {
 	}
 
 	/* Generate Contrast Colors */
-	/* NOTE: this is a bit redudant, but should get us by for now */
+	/* NOTE: this is a bit redundant, but should get us by for now */
 	constants.colorNames.forEach((name) => genColorRamp(false, name));
 }

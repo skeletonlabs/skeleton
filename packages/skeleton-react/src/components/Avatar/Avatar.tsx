@@ -9,6 +9,7 @@ export const Avatar: FC<AvatarProps> = ({
 	src,
 	srcSet,
 	name,
+	initials = [0, -1],
 	// Root
 	base = 'overflow-hidden isolate',
 	background = 'bg-surface-400-600',
@@ -37,11 +38,9 @@ export const Avatar: FC<AvatarProps> = ({
 	});
 	const api = avatar.connect(service, normalizeProps);
 
-	function getInitials(name: string) {
-		return name
-			.split(' ')
-			.map((word) => word[0])
-			.join('');
+	function getInitials() {
+		const lettersArr = initials.map((index) => name.split(' ').at(index)?.charAt(0).toUpperCase());
+		return lettersArr.join('');
 	}
 
 	return (
@@ -64,7 +63,7 @@ export const Avatar: FC<AvatarProps> = ({
 			)}
 			{/* Fallback */}
 			<span {...api.getFallbackProps()} className={`${fallbackBase} ${fallbackClasses}`} data-testid="avatar-fallback">
-				{children ? children : getInitials(name)}
+				{children ? children : getInitials()}
 			</span>
 		</figure>
 	);
