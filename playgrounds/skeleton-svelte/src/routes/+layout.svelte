@@ -32,6 +32,7 @@
 					<a class="anchor" href="/components/tabs">Tabs</a>
 					<a class="anchor" href="/components/tags-input">Tags Input</a>
 					<a class="anchor" href="/components/toast">Toast</a>
+					<a class="anchor" href="/components/tree-view">TreeView</a>
 				</nav>
 			</div>
 			<!-- Svelte-Only -->
