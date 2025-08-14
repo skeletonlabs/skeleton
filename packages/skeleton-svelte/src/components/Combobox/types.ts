@@ -8,6 +8,8 @@ export interface ComboboxProps<T extends ComboboxItem> extends Omit<combobox.Pro
 	label?: string;
 	/** Set a positioner style for z-index, ex: "10" */
 	zIndex?: string;
+	/** Custom filter function for items based on input value. Defaults to case-insensitive label includes. Set to `null` to disable internal filtering and manage data updates manually via `onInputValueChange`. */
+	filter?: ((item: T, value: string) => boolean) | null;
 
 	// Base ---
 	/** Set base classes for the root element. */
