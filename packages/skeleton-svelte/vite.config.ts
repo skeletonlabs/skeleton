@@ -7,7 +7,7 @@ export default defineConfig({
 	plugins: [tailwindcss(), svelte(), svelteTesting()],
 	test: {
 		environment: 'jsdom',
-		setupFiles: ['./vitest.setup.js'],
+		setupFiles: './vitest.setup.js',
 		exclude: ['node_modules/**', '.svelte-kit/**', 'dist/**']
 	}
 });
