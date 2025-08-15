@@ -4,28 +4,44 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import DefaultExample from '@examples/components-composed/react/avatar/default.tsx';
-import DefaultExampleRaw from '@examples/components-composed/react/avatar/default.tsx?raw';
-
-import FilterExample from '@examples/components-composed/react/avatar/filter.tsx';
-import FilterExampleRaw from '@examples/components-composed/react/avatar/filter.tsx?raw';
+import Example from '@examples/components-composed/avatar/Example';
+import ExampleRaw from '@examples/components-composed/avatar/Example.tsx?raw';
+import ExampleFallback from '@examples/components-composed/avatar/ExampleFallback';
+import ExampleFallbackRaw from '@examples/components-composed/avatar/ExampleFallback.tsx?raw';
+import ExampleFilter from '@examples/components-composed/avatar/ExampleFilter';
+import ExampleFilterRaw from '@examples/components-composed/avatar/ExampleFilter.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<DefaultExample client:visible />
+		<Example client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={DefaultExampleRaw} lang="tsx" />
+		<Code code={ExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Fallback
+
+Use `<Avatar.Fallback>` to provide initials, icons, or a framework-specific image component.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleFallback client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleFallbackRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
 ## Filter
 
+Avatars can implement [SVG Filters](/docs/guides/cookbook/svg-filters) using the image `className` attribute.
+
 <Preview client:load>
 	<Fragment slot="preview">
-		<FilterExample client:visible />
+		<ExampleFilter client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={FilterExampleRaw} lang="tsx" />
+		<Code code={ExampleFilterRaw} lang="tsx" />
 	</Fragment>
 </Preview>

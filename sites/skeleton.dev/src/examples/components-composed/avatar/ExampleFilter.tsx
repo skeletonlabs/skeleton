@@ -6,7 +6,7 @@ export default function () {
 	return (
 		<>
 			<Avatar>
-				<Avatar.Image src="https://picsum.photos/100/100" className="filter-[url(#apollo)]" />
+				<Avatar.Image src="https://i.pravatar.cc/150?img=48" className="filter-[url(#apollo)]" />
 				<Avatar.Fallback>SK</Avatar.Fallback>
 			</Avatar>
 
