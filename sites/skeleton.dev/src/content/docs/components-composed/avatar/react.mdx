@@ -7,11 +7,25 @@ export const components = componentSet;
 import DefaultExample from '@examples/components-composed/react/avatar/default.tsx';
 import DefaultExampleRaw from '@examples/components-composed/react/avatar/default.tsx?raw';
 
+import FilterExample from '@examples/components-composed/react/avatar/filter.tsx';
+import FilterExampleRaw from '@examples/components-composed/react/avatar/filter.tsx?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<DefaultExample client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultExampleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Filter
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<FilterExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={FilterExampleRaw} lang="tsx" />
 	</Fragment>
 </Preview>

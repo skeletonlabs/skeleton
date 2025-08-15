@@ -7,11 +7,25 @@ export const components = componentSet;
 import DefaultExample from '@examples/components-composed/svelte/avatar/default.svelte';
 import DefaultExampleRaw from '@examples/components-composed/svelte/avatar/default.svelte?raw';
 
+import FilterExample from '@examples/components-composed/svelte/avatar/filter.svelte';
+import FilterExampleRaw from '@examples/components-composed/svelte/avatar/filter.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<DefaultExample client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Filter
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<FilterExample client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={FilterExampleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
