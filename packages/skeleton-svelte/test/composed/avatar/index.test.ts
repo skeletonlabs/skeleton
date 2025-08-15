@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/svelte';
-import Avatar from './index.svelte';
+import Avatar from './avatar.svelte';
 
 describe('avatar', () => {
 	describe('root', () => {
