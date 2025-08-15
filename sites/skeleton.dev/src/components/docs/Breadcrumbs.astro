@@ -1,22 +1,31 @@
 ---
-const breadcrumbs = Astro.url.pathname.split('/').filter((crumb) => Boolean(crumb) && crumb !== 'docs');
+const { pathname } = Astro.url;
+const exceptions = ['components', 'components-composed']; // Add more exceptions here
+const breadcrumbs = pathname.split('/').filter((crumb) => Boolean(crumb) && crumb !== 'docs');
 ---
 
-<ol class="text-xs flex gap-2">
+<ol class="flex gap-2 text-xs">
 	{
-		breadcrumbs.map((crumb, i) => (
-			<>
-				<li class="capitalize" class:list={{ 'opacity-60': i !== breadcrumbs.length - 1 }}>
-					{i > 0 && i !== breadcrumbs.length - 1 && breadcrumbs[0] !== 'components' ? (
-						<a href={`/docs/${breadcrumbs[0]}/${crumb}`} class="hover:underline">
-							{crumb.replace('-', ' ')}
-						</a>
-					) : (
-						crumb.replace('-', ' ')
-					)}
-				</li>
-				{i !== breadcrumbs.length - 1 && <li class="opacity-60">&rsaquo;</li>}
-			</>
-		))
+		breadcrumbs.map((crumb, i, arr) => {
+			const isLast = i === arr.length - 1;
+			const isException = exceptions.includes(breadcrumbs[0]);
+			const href = isException || isLast ? undefined : `/docs/${breadcrumbs[0]}/${crumb}`;
+			const displayCrumb = crumb.replace('-', ' ');
+
+			return (
+				<>
+					<li class={`capitalize ${isLast ? '' : 'opacity-60'}`}>
+						{href ? (
+							<a href={href} class="hover:underline">
+								{displayCrumb}
+							</a>
+						) : (
+							displayCrumb
+						)}
+					</li>
+					{!isLast && <li class="opacity-60">›</li>}
+				</>
+			);
+		})
 	}
 </ol>
