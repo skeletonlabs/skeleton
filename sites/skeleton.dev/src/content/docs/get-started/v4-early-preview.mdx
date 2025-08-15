@@ -85,18 +85,14 @@ Finally we're adding one more tool to your toolkit - the ability to override and
 **React**
 
 ```tsx
-export default function () {
-	return (
-		<Accordion>
-			<Accordion.Item value="item-1">
-				<Accordion.Heading>
-					<Accordion.Trigger element={({ attributes }) => <button {...attributes}>My Own Button</button>} />
-					<Accordion.Content>Content for Item 1</Accordion.Content>
-				</Accordion.Heading>
-			</Accordion.Item>
-		</Accordion>
-	);
-}
+<Accordion>
+	<Accordion.Item value="item-1">
+		<Accordion.Heading>
+			<Accordion.Trigger element={({ attributes }) => <button {...attributes}>My Own Button</button>} />
+			<Accordion.Content>Content for Item 1</Accordion.Content>
+		</Accordion.Heading>
+	</Accordion.Item>
+</Accordion>
 ```
 
 **Svelte**
