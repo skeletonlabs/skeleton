@@ -17,7 +17,7 @@
 		mergeProps(
 			api.getRootProps(),
 			{
-				class: 'skb:grid skb:gap-2'
+				class: 'skb:w-full skb:grid skb:gap-2'
 			},
 			restAttributes
 		)

@@ -12,7 +12,7 @@
 			rootContext.api.getItemTriggerProps(itemContext.itemProps),
 			{
 				class:
-					'skb:w-full skb:text-start skb:hover:preset-tonal-primary skb:py-2 skb:px-4 skb:rounded-base skb:flex skb:justify-between skb:items-center'
+					'skb:w-full skb:grid skb:items-center skb:gap-4 skb:py-2 skb:px-4 skb:rounded-base skb:text-left skb:hover:preset-tonal-primary'
 			},
 			restAttributes
 		)
