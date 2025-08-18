@@ -1,24 +1,45 @@
 <script lang="ts">
 	import { Accordion } from '@skeletonlabs/skeleton-svelte/composed';
+	import { loremIpsum } from '@lib/lorem-ipsum.js';
+	import Club from '@lucide/svelte/icons/club';
+	import Diamond from '@lucide/svelte/icons/diamond';
+	import Heart from '@lucide/svelte/icons/heart';
 </script>
 
-<Accordion>
+<Accordion class="w-full">
 	<Accordion.Item value="item-1">
 		<Accordion.Heading>
-			<Accordion.Trigger>Item 1</Accordion.Trigger>
-			<Accordion.Content>Content for Item 1</Accordion.Content>
+			<Accordion.Trigger class="justify-start gap-4">
+				<Club />
+				Club
+			</Accordion.Trigger>
 		</Accordion.Heading>
+		<Accordion.Content>
+			{loremIpsum()}
+		</Accordion.Content>
 	</Accordion.Item>
+	<hr class="hr" />
 	<Accordion.Item value="item-2">
 		<Accordion.Heading>
-			<Accordion.Trigger>Item 2</Accordion.Trigger>
-			<Accordion.Content>Content for Item 2</Accordion.Content>
+			<Accordion.Trigger class="justify-start gap-4">
+				<Diamond />
+				Diamond
+			</Accordion.Trigger>
 		</Accordion.Heading>
+		<Accordion.Content>
+			{loremIpsum()}
+		</Accordion.Content>
 	</Accordion.Item>
+	<hr class="hr" />
 	<Accordion.Item value="item-3">
 		<Accordion.Heading>
-			<Accordion.Trigger>Item 3</Accordion.Trigger>
-			<Accordion.Content>Content for Item 3</Accordion.Content>
+			<Accordion.Trigger class="justify-start gap-4">
+				<Heart />
+				Heart
+			</Accordion.Trigger>
 		</Accordion.Heading>
+		<Accordion.Content>
+			{loremIpsum()}
+		</Accordion.Content>
 	</Accordion.Item>
 </Accordion>
