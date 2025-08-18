@@ -4,23 +4,23 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Example from '@examples/components-composed/accordion/Example';
-import ExampleRaw from '@examples/components-composed/accordion/Example.svelte?raw';
-import ExampleCollapsible from '@examples/components-composed/accordion/ExampleCollapsible';
-import ExampleCollapsibleRaw from '@examples/components-composed/accordion/ExampleCollapsible.svelte?raw';
-import ExampleMultiple from '@examples/components-composed/accordion/ExampleMultiple';
-import ExampleMultipleRaw from '@examples/components-composed/accordion/ExampleMultiple.svelte?raw';
-import ExampleControlled from '@examples/components-composed/accordion/ExampleControlled';
-import ExampleControlledRaw from '@examples/components-composed/accordion/ExampleControlled.svelte?raw';
-import ExampleIcons from '@examples/components-composed/accordion/ExampleIcons';
-import ExampleIconsRaw from '@examples/components-composed/accordion/ExampleIcons.svelte?raw';
+import Default from '@examples/components/composed/accordion/svelte/default.svelte';
+import DefaultRaw from '@examples/components/composed/accordion/svelte/default.svelte?raw';
+import Collapsible from '@examples/components/composed/accordion/svelte/collapsible.svelte';
+import CollapsibleRaw from '@examples/components/composed/accordion/svelte/collapsible.svelte?raw';
+import Multiple from '@examples/components/composed/accordion/svelte/multiple.svelte';
+import MultipleRaw from '@examples/components/composed/accordion/svelte/multiple.svelte?raw';
+import Controlled from '@examples/components/composed/accordion/svelte/controlled.svelte';
+import ControlledRaw from '@examples/components/composed/accordion/svelte/controlled.svelte?raw';
+import Icons from '@examples/components/composed/accordion/svelte/icons.svelte';
+import IconsRaw from '@examples/components/composed/accordion/svelte/icons.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:visible />
+		<Default client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="svelte" />
+		<Code code={DefaultRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -28,10 +28,10 @@ import ExampleIconsRaw from '@examples/components-composed/accordion/ExampleIcon
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleCollapsible client:visible />
+		<Collapsible client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleCollapsibleRaw} lang="svelte" />
+		<Code code={CollapsibleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -39,10 +39,10 @@ import ExampleIconsRaw from '@examples/components-composed/accordion/ExampleIcon
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleMultiple client:visible />
+		<Multiple client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleMultipleRaw} lang="svelte" />
+		<Code code={MultipleRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -50,10 +50,10 @@ import ExampleIconsRaw from '@examples/components-composed/accordion/ExampleIcon
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleControlled client:visible />
+		<Controlled client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleControlledRaw} lang="svelte" />
+		<Code code={ControlledRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -61,9 +61,9 @@ import ExampleIconsRaw from '@examples/components-composed/accordion/ExampleIcon
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleIcons client:visible />
+		<Icons client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleIconsRaw} lang="svelte" />
+		<Code code={IconsRaw} lang="svelte" />
 	</Fragment>
 </Preview>
