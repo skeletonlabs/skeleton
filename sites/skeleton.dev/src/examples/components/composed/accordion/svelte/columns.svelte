@@ -1,44 +1,48 @@
 <script lang="ts">
 	import { Accordion } from '@skeletonlabs/skeleton-svelte/composed';
-	import Club from '@lucide/svelte/icons/club';
-	import Diamond from '@lucide/svelte/icons/diamond';
-	import Heart from '@lucide/svelte/icons/heart';
-	import Spade from '@lucide/svelte/icons/spade';
+
+	import IconClub from '@lucide/svelte/icons/club';
+	import IconDiamond from '@lucide/svelte/icons/diamond';
+	import IconHeart from '@lucide/svelte/icons/heart';
+	import IconSpade from '@lucide/svelte/icons/spade';
 </script>
 
 <Accordion>
 	<Accordion.Item value="club">
 		<Accordion.Heading>
-			<Accordion.Trigger class="flex items-center gap-4">
-				Club
-				<Club size={24} />
+			<Accordion.Trigger class="grid-cols-[1fr_auto]">
+				<span>Club</span>
+				<IconClub />
 			</Accordion.Trigger>
 			<Accordion.Content>Content for Item 1</Accordion.Content>
 		</Accordion.Heading>
 	</Accordion.Item>
+	<hr class="hr" />
 	<Accordion.Item value="diamond">
 		<Accordion.Heading>
-			<Accordion.Trigger class="flex items-center gap-4">
-				Diamond
-				<Diamond size={24} />
+			<Accordion.Trigger class="grid-cols-[1fr_auto]">
+				<span>Diamond</span>
+				<IconDiamond />
 			</Accordion.Trigger>
 			<Accordion.Content>Content for Item 2</Accordion.Content>
 		</Accordion.Heading>
 	</Accordion.Item>
+	<hr class="hr" />
 	<Accordion.Item value="heart">
 		<Accordion.Heading>
-			<Accordion.Trigger class="flex items-center gap-4">
-				Heart
-				<Heart size={24} />
+			<Accordion.Trigger class="grid-cols-[1fr_auto]">
+				<span>Heart</span>
+				<IconHeart />
 			</Accordion.Trigger>
 			<Accordion.Content>Content for Item 3</Accordion.Content>
 		</Accordion.Heading>
 	</Accordion.Item>
+	<hr class="hr" />
 	<Accordion.Item value="spade">
 		<Accordion.Heading>
-			<Accordion.Trigger class="flex items-center gap-4">
-				Spade
-				<Spade size={24} />
+			<Accordion.Trigger class="grid-cols-[1fr_auto]">
+				<span>Spade</span>
+				<IconSpade />
 			</Accordion.Trigger>
 			<Accordion.Content>Content for Item 4</Accordion.Content>
 		</Accordion.Heading>

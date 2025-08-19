@@ -11,12 +11,14 @@ export default function () {
 					<Accordion.Content>Content for Item 1</Accordion.Content>
 				</Accordion.Heading>
 			</Accordion.Item>
+			<hr className="hr" />
 			<Accordion.Item value="item-2">
 				<Accordion.Heading>
 					<Accordion.Trigger>Item 2</Accordion.Trigger>
 					<Accordion.Content>Content for Item 2</Accordion.Content>
 				</Accordion.Heading>
 			</Accordion.Item>
+			<hr className="hr" />
 			<Accordion.Item value="item-3">
 				<Accordion.Heading>
 					<Accordion.Trigger>Item 3</Accordion.Trigger>

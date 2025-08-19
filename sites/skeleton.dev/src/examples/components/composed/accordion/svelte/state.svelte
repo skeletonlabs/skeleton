@@ -2,7 +2,7 @@
 	import { Accordion } from '@skeletonlabs/skeleton-svelte/composed';
 </script>
 
-<Accordion multiple>
+<Accordion>
 	<Accordion.Item value="item-1">
 		<Accordion.Heading>
 			<Accordion.Trigger>Item 1</Accordion.Trigger>

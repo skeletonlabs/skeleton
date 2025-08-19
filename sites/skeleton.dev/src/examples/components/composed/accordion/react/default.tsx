@@ -13,7 +13,7 @@ export default function () {
 		<Accordion value={value} onValueChange={(e) => setValue(e.value)}>
 			<Accordion.Item value="item-1">
 				<Accordion.Heading>
-					<Accordion.Trigger className="grid-cols-[auto_1fr_auto]">
+					<Accordion.Trigger>
 						<IconClub />
 						<span>Club</span>
 						<Accordion.Indicator>{value.includes('item-1') ? '-' : '+'}</Accordion.Indicator>
@@ -24,7 +24,7 @@ export default function () {
 			<hr className="hr" />
 			<Accordion.Item value="item-2">
 				<Accordion.Heading>
-					<Accordion.Trigger className="grid-cols-[auto_1fr_auto]">
+					<Accordion.Trigger>
 						<IconDiamond />
 						<span>Diamond</span>
 						<Accordion.Indicator>{value.includes('item-2') ? '-' : '+'}</Accordion.Indicator>
@@ -35,7 +35,7 @@ export default function () {
 			<hr className="hr" />
 			<Accordion.Item value="item-3">
 				<Accordion.Heading>
-					<Accordion.Trigger className="grid-cols-[auto_1fr_auto]">
+					<Accordion.Trigger>
 						<IconHeart />
 						<span>Heart</span>
 						<Accordion.Indicator>{value.includes('item-3') ? '-' : '+'}</Accordion.Indicator>
@@ -44,9 +44,9 @@ export default function () {
 				</Accordion.Heading>
 			</Accordion.Item>
 			<hr className="hr" />
-			<Accordion.Item value="item-3">
+			<Accordion.Item value="item-4">
 				<Accordion.Heading>
-					<Accordion.Trigger className="grid-cols-[auto_1fr_auto]">
+					<Accordion.Trigger>
 						<IconSpade />
 						<span>Spade</span>
 						<Accordion.Indicator>{value.includes('item-4') ? '-' : '+'}</Accordion.Indicator>

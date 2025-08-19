@@ -4,7 +4,7 @@ import { Accordion } from '@skeletonlabs/skeleton-react/composed';
 
 export default function () {
 	return (
-		<Accordion multiple>
+		<Accordion>
 			<Accordion.Item value="item-1">
 				<Accordion.Heading>
 					<Accordion.Trigger>Item 1</Accordion.Trigger>
