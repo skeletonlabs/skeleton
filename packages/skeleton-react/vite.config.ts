@@ -7,6 +7,6 @@ export default defineConfig({
 		environment: 'jsdom',
 		globals: true,
 		setupFiles: './vitest.setup.js',
-		include: ['./src/**/*.test.{ts,tsx}']
+		exclude: ['node_modules/**', '.svelte-kit/**', 'dist/**']
 	}
 });

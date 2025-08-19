@@ -34,6 +34,14 @@
 					<a class="anchor" href="/components/toast">Toast</a>
 				</nav>
 			</div>
+			<!-- Composed (Experimental) -->
+			<div class="space-y-8">
+				<span class="block font-bold">Composed (Experimental)</span>
+				<nav class="text-sm flex flex-col gap-2">
+					<a class="anchor" href="/composed/accordion">Accordion</a>
+					<a class="anchor" href="/composed/avatar"> Avatar </a>
+				</nav>
+			</div>
 			<!-- Svelte-Only -->
 			<div class="space-y-8">
 				<div class="font-bold">Svelte-Only</div>

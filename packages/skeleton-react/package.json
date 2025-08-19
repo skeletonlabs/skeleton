@@ -13,6 +13,10 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
+		},
+		"./composed": {
+			"types": "./dist/composed/index.d.ts",
+			"default": "./dist/composed/index.js"
 		}
 	},
 	"files": [

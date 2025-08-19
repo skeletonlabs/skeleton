@@ -13,12 +13,10 @@
 		"noImplicitOverride": true,
 		"module": "NodeNext",
 		"outDir": "dist",
-		"sourceMap": true,
 		"declaration": true,
-		"declarationMap": true,
 		"lib": ["es2022", "dom", "dom.iterable"],
 		"jsx": "react-jsx",
 		"types": ["@testing-library/jest-dom"]
 	},
-	"include": ["src/**/*.tsx", "src/**/*.ts"]
+	"include": ["src"]
 }
