@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.2.0
+### Minor Changes
+
+
+- feat: add `skb` (`skeleton-base`) Tailwind variant ([#3491](https://github.com/skeletonlabs/skeleton/pull/3491))
+
 ## 3.1.8
 ### Patch Changes
 
