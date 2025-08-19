@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.5.0
+### Minor Changes
+
+
+- feat: add overhauled components ([#3491](https://github.com/skeletonlabs/skeleton/pull/3491))
+
 ## 1.4.0
 ### Minor Changes
 
