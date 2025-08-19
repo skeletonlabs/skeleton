@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/LayoutDoc.astro'
 title: Version 4 Preview
-description: Learn about the exciting changes coming in Skeleton v4.
+description: Learn about the exciting component changes coming in Skeleton v4.
 showDocsUrl: false
 order: 9999
 ---
@@ -10,11 +10,11 @@ export const components = componentSet;
 
 ## Component
 
-Starting in Skeleton v4, we will introduce a new component API for Skeleton, for all supported frameworks. This comes in the form of three primary changes, which we'll cover below.
+As we prepare for the upcoming release of Skeleton v4, we will introduce new component APIs for all Skeleton components and supported frameworks. This comes in the form of three primary changes, covered below.
 
 ### Composed Pattern
 
-The component structure will now be much more explicit and granular. While a bit more verbose, this offers direct access to all children within the component tree. Allowing you to pass pass arbitrary props and attributes directly to the the HTML template within. Including: `required`, `data-*`, `style`, `class`, and many other attributes.
+The component structure will now be much more explicit and granular. While a bit more verbose, this offers direct access to all children within the component tree. Allowing you to pass pass arbitrary props and attributes directly to the the HTML template within. Including: `required`, `data-*`, `style`, `class`, and many others.
 
 ```svelte
 <Accordion>
@@ -41,7 +41,7 @@ The component structure will now be much more explicit and granular. While a bit
 
 ### Simpler Stying
 
-The most painful part of using Skeleton in the past has been learning the unique conventions needed to apply styles to to each component. Previously we relied on reserved prop names, special prefixes, etc. This is no longer the case. You simply provide your styles via a common `class` attribute per component.
+The most painful part of using Skeleton in the past has been learning the unique conventions required to apply styles to to each component. Previously we relied on reserved prop names, special prefixes, etc. This is no longer the case. You simply provide your styles via a common `class` attribute per component.
 
 **v3 Styling**
 
@@ -58,7 +58,7 @@ The most painful part of using Skeleton in the past has been learning the unique
 </Avatar>
 ```
 
-Rather than opting for additional tooling like [Tailwind Merge](https://github.com/dcastil/tailwind-merge) under the hood, we instead accomplish this using the new custom variant syntax provided in Tailwind 4. This enables us to assign all internal styles to the `@base` layer in the CSS bundle.
+Rather than opting for additional tooling like [Tailwind Merge](https://github.com/dcastil/tailwind-merge) under the hood, we instead accomplish this using the new custom variant syntax provided in Tailwind 4.
 
 ```css
 @custom-variant skb {
@@ -68,7 +68,7 @@ Rather than opting for additional tooling like [Tailwind Merge](https://github.c
 }
 ```
 
-We inject these default Tailwind utility classes to the `class` attribute within each component, but prefix them with `skb` (short for "Skeleton Base"). This allows us us to denote the base classes automatically.
+This enables us to assign all internal styles to the `@base` layer within your generated CSS bundle. We then inject our Tailwind utility classes to the `class` attribute within each component for the default styling, but prefix them with `skb` (short for "Skeleton Base").
 
 ```ts
 {
@@ -76,7 +76,7 @@ We inject these default Tailwind utility classes to the `class` attribute within
 }
 ```
 
-Then, when you supply custom classes via the `class` attribute, those are appended to the end of the class list and automatically take precedence. And the composed component structure ensures you always target your desired element in the tree. Leading to a much more intuative experience overall. It should feel much closer to working with native HTML elements.
+Then, when you supply custom classes via the component's `class` attribute, those are appended to the end of the class list and automatically take precedence. By pairing this with the new composed component structure, this means you can alawys target the portion of the component you wish to adjust. Leading to a much more intuative experience overall that is closer to working with native HTML.
 
 ### Extensible Markup
 
@@ -118,21 +118,23 @@ export default function () {
 </Accordion>
 ```
 
-By exposing the the the internal attributes, this enables you to modify and override the inherent HTML markup as you see fit. Though we'll try to warn you when modifying the semantic element type might introduce accessibility issues.
+By exposing the the the internal `attributes`, this enables you to take control and template implementation.
+
+> NOTE: we expect this will open the door to custom animations. Expect more guidance on this in the future.
 
 ## Early Access Preview
 
-If you're interested in trying our early preview of the new Skeleton v4 components, you can do so immediately by simply updating to the latest versions of the production v3 Skeleton packages:
+If you're interested in trying our early preview of the new Skeleton v4 components, you can do so immediately by updating to the latest release of each production Skeleton v3 package:
 
 - `@skeletonlabs/skeleton` - for styling
 - `@skeletonlabs/skeleton-react` - for React components
 - `@skeletonlabs/skeleton-svelte` for Svelte components
 
-We have currently provided two new components that follow the above patterns. There are available in parallel to their standard v3 variants, which means you can easily swap between at will.
+We have currently provided two new components that follow the new patterns. There are available in parallel to their standard v3 variants, which means you can easily swap between at will.
 
-- Avatars: [React](/docs/components-composed/avatar/react) | [Svelte](/docs/components-composed/avatar/svelte)
-- Accordions: [React](/docs/components-composed/accordion/react) | [Svelte](/docs/components-composed/accordion/svelte)
+- Avatars: [React](/docs/components-composed/avatar/react) | [Svelte](/docs/components-composed/avatar/svelte) via import path `@skeletonlabs/skeleton-react/composed`
+- Accordions: [React](/docs/components-composed/accordion/react) | [Svelte](/docs/components-composed/accordion/svelte) via import path `@skeletonlabs/skeleton-svelte/composed`
 
 ## Request for Comment
 
-For the duration of this preview, we ask that you please test the new structure, styling, and markup features in your real-world projects. Note that these are considered experimental, and are subject to breaking changes at any time. However, we encourage you to share feedback in both [Discord](https://discord.com/invite/EXqV7W8MtY) (via `#contributors`) or leave a comment on [GitHub](https://github.com/skeletonlabs/skeleton). We'll aim to provide regular progress updates as we can.
+For the duration of this preview, we ask that you please test the new component structure, styling, and markup features in your projects. Note that these features are considered experimental and subject to breaking changes at any time. However, we encourage you to share feedback in both [Discord](https://discord.com/invite/EXqV7W8MtY) (via `#contributors`) and [GitHub](https://github.com/skeletonlabs/skeleton). We'll aim to provide progress updates as frequently as we can.
