@@ -8,7 +8,6 @@
 		data = [],
 		label = '',
 		zIndex = 'auto',
-		filter = (item: T, value: string) => item.label.toLowerCase().includes(value.toLowerCase()),
 		// Base
 		base = '',
 		width = '',
@@ -27,9 +26,10 @@
 		positionerBase = '',
 		positionerClasses = '',
 		// Content
-		contentBase = 'card p-2',
+		contentBase = 'card p-2 overflow-y-auto',
 		contentBackground = 'preset-outlined-surface-200-800 bg-surface-50-950',
 		contentSpaceY = 'space-y-1',
+		contentMaxHeight = 'max-h-80',
 		contentClasses = '',
 		// Option
 		optionBase = 'btn justify-start w-full',
@@ -46,8 +46,8 @@
 	}: ComboboxProps<T> = $props();
 
 	// Zag
-	let internalOptions = $state(data);
-	const options = $derived(filter === null ? data : internalOptions);
+	let options = $derived(data);
+
 	const collection = $derived(
 		combobox.collection({
 			items: options,
@@ -64,19 +64,20 @@
 			return collection;
 		},
 		...zagProps,
-		onOpenChange(event) {
-			if (event.open && filter !== null) {
-				internalOptions = data.filter((item) => filter(item, api.inputValue));
-			} else if (event.open) {
-				internalOptions = [...data];
+		async onOpenChange(event) {
+			if (zagProps.onOpenChange) {
+				zagProps.onOpenChange(event);
+				return;
 			}
-			zagProps.onOpenChange?.(event);
+			options = data;
 		},
-		onInputValueChange(event) {
-			if (filter !== null) {
-				internalOptions = data.filter((item) => filter(item, event.inputValue));
+		async onInputValueChange(event) {
+			if (zagProps.onInputValueChange) {
+				zagProps.onInputValueChange(event);
+				return;
 			}
-			zagProps.onInputValueChange?.(event);
+			const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
+			options = filtered;
 		}
 	}));
 
@@ -123,7 +124,7 @@
 				<!-- Content (list) -->
 				<nav
 					{...api.getContentProps()}
-					class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses}"
+					class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses} {contentMaxHeight}"
 					style="z-index: {zIndex}"
 				>
 					{#each options as option (option.label)}
