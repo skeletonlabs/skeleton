@@ -50,8 +50,7 @@ export interface ComboboxProps<T extends ComboboxItem> extends Omit<combobox.Pro
 	contentBackground?: string;
 	/** Set space-y classes for the content. */
 	contentSpaceY?: string;
-	/** Maximum height of the combobox options list container. Controls vertical scrolling when there are many options. Default: 'max-h-80'.
-	 * Use Tailwind CSS classes (e.g., 'max-h-64') or a valid CSS value (e.g., '300px'). */
+	/** Set max-h classes for the content. */
 	contentMaxHeight?: string;
 	/** Provide arbitrary classes for the content. */
 	contentClasses?: string;
