@@ -7,7 +7,10 @@ export const components = componentSet;
 import { Page as Example } from '@examples/components/avatars/Example.tsx';
 import ExampleRaw from '@examples/components/avatars/Example.tsx?raw';
 import { Page as ExampleFallback } from '@examples/components/avatars/ExampleFallback.tsx';
+import { Page as ExampleInitials } from '@examples/components/avatars/ExampleInitials.tsx';
+
 import ExampleFallbackRaw from '@examples/components/avatars/ExampleFallback.tsx?raw';
+import ExampleInitialsRaw from '@examples/components/avatars/ExampleInitials.tsx?raw';
 import { Page as ExampleFilter } from '@examples/components/avatars/ExampleFilter.tsx';
 import ExampleFilterRaw from '@examples/components/avatars/ExampleFilter.tsx?raw';
 import { Page as ExampleStyle } from '@examples/components/avatars/ExampleStyle.tsx';
@@ -22,9 +25,22 @@ import ExampleStyleRaw from '@examples/components/avatars/ExampleStyle.tsx?raw';
 	</Fragment>
 </Preview>
 
+## Initials
+
+Provide an `initials` array to define what part of the name is used to generate initials. Use index values to identify each desired name, and `-1` to represent the last possible name.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleInitials />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleInitialsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
 ## Fallback
 
-When `src` or `srcSet` are missing or fail to load, a fallback will be displayed. By default this will show the user initials, based on the `name`. Optionally you can supply your own content using the default `children`. This can be used to display icons or even pass a [Next.js image component](https://nextjs.org/docs/pages/api-reference/components/image).
+When `src` or `srcSet` are missing or fail to load, a fallback will be displayed using the default `children`. This can be used to display icons or even pass a [Next.js image component](https://nextjs.org/docs/pages/api-reference/components/image).
 
 <Preview client:load>
 	<Fragment slot="preview">

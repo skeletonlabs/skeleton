@@ -9,34 +9,17 @@ import Breadcrumbs from '@components/docs/Breadcrumbs.astro';
 import FrameworkPicker from '@components/docs/FrameworkPicker.astro';
 import TableOfContents from '@components/docs/TableOfContents.astro';
 
-interface PageHeadings {
+import type { InferEntrySchema } from 'astro:content';
+
+interface PageHeading {
 	depth: number;
 	slug: string;
 	text: string;
 }
 
-interface Chip {
-	label: string;
-	href: string;
-	icon?: string;
-	preset?: string;
-}
-
 interface Props {
-	frontmatter: {
-		// Required ---
-		title: string;
-		description: string;
-		// Optional ---
-		srcCore?: string;
-		srcSvelte?: string;
-		srcReact?: string;
-		srcAlly?: string;
-		srcZag?: string;
-		showDocsUrl?: boolean;
-		chips?: Chip[];
-	};
-	headings: PageHeadings[];
+	frontmatter: InferEntrySchema<'docs'>;
+	headings: PageHeading[];
 }
 
 // Props
@@ -78,6 +61,20 @@ const urls = {
 			</header>
 			<!-- Chips -->
 			<ChipsBar {frontmatter} {urls} />
+			<!-- Stability Warning -->
+			{
+				frontmatter.stability && frontmatter.stability !== 'stable' && (
+					<div class="preset-tonal-warning border border-warning-500 p-4 rounded grid gap-2">
+						<span class="h2">
+							<span class="capitalize">{frontmatter.stability}</span> Feature
+						</span>
+						<p>
+							This feature is currently in a {frontmatter.stability} status and not intended for production use. It may receive breaking
+							changes before it's stable release.
+						</p>
+					</div>
+				)
+			}
 			<!-- Framework Tabs -->
 			<FrameworkPicker />
 			<!-- Content -->

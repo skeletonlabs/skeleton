@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "1.2.4",
+	"version": "1.4.0",
 	"type": "module",
 	"scripts": {
 		"build": "tsc",
@@ -13,6 +13,10 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
+		},
+		"./composed": {
+			"types": "./dist/composed/index.d.ts",
+			"default": "./dist/composed/index.js"
 		}
 	},
 	"files": [

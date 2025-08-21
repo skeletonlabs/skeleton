@@ -1,5 +1,20 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.5.0
+### Minor Changes
+
+
+- feat: add overhauled components ([#3491](https://github.com/skeletonlabs/skeleton/pull/3491))
+
+## 1.4.0
+### Minor Changes
+
+
+- feature: Added `aria-label` and `title` props for icon buttons implemented within the Svelte and React Toast components. ([#3619](https://github.com/skeletonlabs/skeleton/pull/3619))
+
+
+- feature: Avatar compnonent now supports additional `initials` configuration ([#3627](https://github.com/skeletonlabs/skeleton/pull/3627))
+
 ## 1.3.1
 ### Patch Changes
 

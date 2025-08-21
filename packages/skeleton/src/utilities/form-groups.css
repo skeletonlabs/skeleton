@@ -14,6 +14,16 @@
 	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
 	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 
+	/* Child Edges */
+	& > :first-child {
+		border-top-left-radius: var(--radius-base);
+		border-bottom-left-radius: var(--radius-base);
+	}
+	& > :last-child {
+		border-top-right-radius: var(--radius-base);
+		border-bottom-right-radius: var(--radius-base);
+	}
+
 	/* Dividers */
 	& > * + * {
 		border-left-width: 1px !important;

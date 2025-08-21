@@ -57,6 +57,7 @@ const sections: [string, string, (prefix: string) => Promise<CollectionEntry<'do
 	['Design System', 'design/', queryCollection],
 	['Tailwind Components', 'tailwind/', queryCollection],
 	['Functional Components', 'components/', queryMetaCollection],
+	['Composed Components', 'components-composed/', queryMetaCollection],
 	['Headless Components', 'headless/', queryCollection],
 	['Integrations', 'integrations/', queryMetaCollection],
 	['Resources', 'resources/', queryCollection]
@@ -79,7 +80,7 @@ const navigation: NavigationGroup[] = [
 	{
 		navigation.map((group) => (
 			<nav class="flex flex-col gap-2">
-				<span class="text-sm font-bold  ml-2">{group.title}</span>
+				<span class="text-sm font-bold ml-2">{group.title}</span>
 				<ul class="flex flex-col gap-1">
 					{group.items.map((item) => (
 						<li>
