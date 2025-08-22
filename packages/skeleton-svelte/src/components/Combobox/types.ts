@@ -50,6 +50,8 @@ export interface ComboboxProps<T extends ComboboxItem> extends Omit<combobox.Pro
 	contentBackground?: string;
 	/** Set space-y classes for the content. */
 	contentSpaceY?: string;
+	/** Set max-h classes for the content. */
+	contentMaxHeight?: string;
 	/** Provide arbitrary classes for the content. */
 	contentClasses?: string;
 

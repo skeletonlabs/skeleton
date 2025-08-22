@@ -26,9 +26,10 @@
 		positionerBase = '',
 		positionerClasses = '',
 		// Content
-		contentBase = 'card p-2',
+		contentBase = 'card p-2 overflow-y-auto',
 		contentBackground = 'preset-outlined-surface-200-800 bg-surface-50-950',
 		contentSpaceY = 'space-y-1',
+		contentMaxHeight = 'max-h-80',
 		contentClasses = '',
 		// Option
 		optionBase = 'btn justify-start w-full',
@@ -45,7 +46,8 @@
 	}: ComboboxProps<T> = $props();
 
 	// Zag
-	let options = $state.raw(data);
+	let options = $derived(data);
+
 	const collection = $derived(
 		combobox.collection({
 			items: options,
@@ -58,18 +60,27 @@
 	const id = $props.id();
 	const service = useMachine(combobox.machine, () => ({
 		id: id,
-		collection: collection,
-		...zagProps,
-		onOpenChange(event) {
-			options = data;
-			zagProps.onOpenChange?.(event);
+		get collection() {
+			return collection;
 		},
-		onInputValueChange(event) {
+		...zagProps,
+		async onOpenChange(event) {
+			if (zagProps.onOpenChange) {
+				zagProps.onOpenChange(event);
+				return;
+			}
+			options = data;
+		},
+		async onInputValueChange(event) {
+			if (zagProps.onInputValueChange) {
+				zagProps.onInputValueChange(event);
+				return;
+			}
 			const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
 			options = filtered;
-			zagProps.onInputValueChange?.(event);
 		}
 	}));
+
 	const api = $derived(combobox.connect(service, normalizeProps));
 	const triggerProps = $derived(mergeProps(api.getTriggerProps(), { onclick }));
 </script>
@@ -113,7 +124,7 @@
 				<!-- Content (list) -->
 				<nav
 					{...api.getContentProps()}
-					class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses}"
+					class="{contentBase} {contentBackground} {contentSpaceY} {contentClasses} {contentMaxHeight}"
 					style="z-index: {zIndex}"
 				>
 					{#each options as option (option.label)}

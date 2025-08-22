@@ -145,6 +145,21 @@ Triggers an anchored popover list when you tap the arrow. Includes auto-suggesti
 	</Fragment>
 </Preview>
 
+Supplying a custom filter:
+
+```ts
+let selectedValue = $state(['']);
+function customSearchFn(e) { ... }
+```
+
+{/* prettier-ignore */}
+```svelte
+<Combobox
+	onValueChange={(e) => (selectedValue = e.value)}
+	onInputValueChange={(e) => customSearchFn(e.inputValue)}
+>...</Combobox>
+```
+
 ### Anatomy
 
 <Anatomy label="Combobox" element="span" isComponent>
