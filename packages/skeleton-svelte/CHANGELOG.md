@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.5.1
+### Patch Changes
+
+
+- chore: Ensure Comboxbox data is reactive, enable custom filtering, and set max content height ([#3615](https://github.com/skeletonlabs/skeleton/pull/3615))
+
 ## 1.5.0
 ### Minor Changes
 
