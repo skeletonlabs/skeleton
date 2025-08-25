@@ -6,7 +6,7 @@
 	"prettier": false,
 	"linked": [],
 	"access": "public",
-	"baseBranch": "main",
+	"baseBranch": "v3",
 	"updateInternalDependencies": "patch",
 	"privatePackages": {
 		"tag": false,
