@@ -1,15 +1,15 @@
-name: Publish Skeleton (@latest)
+name: Publish Skeleton (@next)
 
 on:
   push:
     branches:
-      - v3
+      - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
-    name: Build & Publish Release (@latest)
+    name: Build & Publish Release (@next)
     if: github.repository == 'skeletonlabs/skeleton'
     runs-on: ubuntu-latest
     steps:
@@ -27,8 +27,8 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: 'chore(latest-release): version package'
-          title: 'chore(latest-release): version package'
+          commit: 'chore(next-release): version package'
+          title: 'chore(next-release): version package'
           publish: pnpm changeset:publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
