@@ -8,7 +8,7 @@ export default function (props: AccordionHeadingProps) {
 	const Tag: keyof JSX.IntrinsicElements = `h${level}`;
 	const attributes = mergeProps(
 		{
-			className: accordionClasses.content
+			className: accordionClasses.heading
 		},
 		restAttributes
 	);
