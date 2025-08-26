@@ -19,6 +19,7 @@
 		"dist"
 	],
 	"devDependencies": {
+		"@rollup/pluginutils": "^5.2.0",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"estree-walker": "^3.0.3",
 		"magic-string": "^0.30.17",
