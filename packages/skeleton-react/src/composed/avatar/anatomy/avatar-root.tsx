@@ -5,7 +5,7 @@ import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import * as avatar from '@zag-js/avatar';
 import { AvatarRootContext } from '../modules/context.js';
 import type { AvatarRootProps } from '../modules/types.js';
-import { avatarClasses } from '@skeletonlabs/skeleton-common';
+import { classesAvatar } from '@skeletonlabs/skeleton-common';
 
 export default function (props: AvatarRootProps) {
 	const [machineProps, componentProps] = avatar.splitProps(props);
@@ -18,7 +18,7 @@ export default function (props: AvatarRootProps) {
 	const attributes = mergeProps(
 		api.getRootProps(),
 		{
-			className: avatarClasses.root
+			className: classesAvatar.root
 		},
 		restAttributes
 	);

@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { mergeProps } from '@zag-js/react';
 import { AccordionRootContext, AccordionItemContext } from '../modules/context.js';
 import type { AccordionTriggerProps } from '../modules/types.js';
-import { accordionClasses } from '@skeletonlabs/skeleton-common';
+import { classesAccordion } from '@skeletonlabs/skeleton-common';
 
 export default function (props: AccordionTriggerProps) {
 	const rootContext = useContext(AccordionRootContext);
@@ -13,7 +13,7 @@ export default function (props: AccordionTriggerProps) {
 	const attributes = mergeProps(
 		rootContext.api.getItemTriggerProps(itemContext.itemProps),
 		{
-			className: accordionClasses.trigger
+			className: classesAccordion.trigger
 		},
 		restAttributes
 	);

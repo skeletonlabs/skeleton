@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { accordionClasses } from '@skeletonlabs/skeleton-common';
+	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import type { AccordionHeadingProps } from '../modules/types.js';
 
 	const props: AccordionHeadingProps = $props();
@@ -8,7 +8,7 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				class: accordionClasses.heading
+				class: classesAccordion.heading
 			},
 			restAttributes
 		)

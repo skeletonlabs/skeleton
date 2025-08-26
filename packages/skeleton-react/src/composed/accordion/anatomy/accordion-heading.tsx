@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 import { mergeProps } from '@zag-js/react';
-import { accordionClasses } from '@skeletonlabs/skeleton-common';
+import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import type { AccordionHeadingProps } from '../modules/types.js';
 
 export default function (props: AccordionHeadingProps) {
@@ -8,7 +8,7 @@ export default function (props: AccordionHeadingProps) {
 	const Tag: keyof JSX.IntrinsicElements = `h${level}`;
 	const attributes = mergeProps(
 		{
-			className: accordionClasses.heading
+			className: classesAccordion.heading
 		},
 		restAttributes
 	);

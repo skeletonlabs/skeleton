@@ -1,4 +1,4 @@
-export const accordionClasses = {
+export const classesAccordion = {
 	root: 'skb:w-full skb:grid skb:gap-2',
 	content: 'skb:py-2 skb:px-4',
 	heading: '',

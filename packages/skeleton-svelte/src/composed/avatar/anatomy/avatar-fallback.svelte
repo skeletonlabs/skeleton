@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { avatarClasses } from '@skeletonlabs/skeleton-common';
+	import { classesAvatar } from '@skeletonlabs/skeleton-common';
 	import { AvatarRootContext } from '../modules/context.js';
 	import type { AvatarFallbackProps } from '../modules/types.js';
 
@@ -11,7 +11,7 @@
 		mergeProps(
 			rootContext.api.getFallbackProps(),
 			{
-				class: avatarClasses.fallback
+				class: classesAvatar.fallback
 			},
 			restAttributes
 		)

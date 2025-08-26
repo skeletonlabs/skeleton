@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as avatar from '@zag-js/avatar';
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
-	import { avatarClasses } from '@skeletonlabs/skeleton-common';
+	import { classesAvatar } from '@skeletonlabs/skeleton-common';
 	import { AvatarRootContext } from '../modules/context.js';
 	import type { AvatarRootProps } from '../modules/types.js';
 
@@ -18,7 +18,7 @@
 		mergeProps(
 			api.getRootProps(),
 			{
-				class: avatarClasses.root
+				class: classesAvatar.root
 			},
 			restAttributes
 		)

@@ -3,7 +3,7 @@
 import { useContext } from 'react';
 import * as accordion from '@zag-js/accordion';
 import { mergeProps } from '@zag-js/react';
-import { accordionClasses } from '@skeletonlabs/skeleton-common';
+import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import { AccordionRootContext, AccordionItemContext } from '../modules/context.js';
 import type { AccordionItemProps } from '../modules/types.js';
 
@@ -14,7 +14,7 @@ export default function (props: AccordionItemProps) {
 	const attributes = mergeProps(
 		rootContext.api.getItemProps(itemProps),
 		{
-			class: accordionClasses.item
+			class: classesAccordion.item
 		},
 		restAttributes
 	);
