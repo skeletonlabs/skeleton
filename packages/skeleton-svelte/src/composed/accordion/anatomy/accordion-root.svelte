@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import * as accordion from '@zag-js/accordion';
+	import { accordionClasses } from '@skeletonlabs/skeleton-common';
 	import { AccordionRootContext } from '../modules/context.js';
 	import type { AccordionRootProps } from '../modules/types.js';
 
@@ -17,7 +18,7 @@
 		mergeProps(
 			api.getRootProps(),
 			{
-				class: 'skb:w-full skb:grid skb:gap-2'
+				class: accordionClasses.root
 			},
 			restAttributes
 		)

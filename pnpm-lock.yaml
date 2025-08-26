@@ -239,6 +239,9 @@ importers:
 
   packages/skeleton-react:
     dependencies:
+      '@skeletonlabs/skeleton-common':
+        specifier: workspace:*
+        version: link:../skeleton-common
       '@zag-js/accordion':
         specifier: 'catalog:'
         version: 1.18.3
@@ -318,6 +321,9 @@ importers:
 
   packages/skeleton-svelte:
     dependencies:
+      '@skeletonlabs/skeleton-common':
+        specifier: workspace:*
+        version: link:../skeleton-common
       '@zag-js/accordion':
         specifier: 'catalog:'
         version: 1.18.3

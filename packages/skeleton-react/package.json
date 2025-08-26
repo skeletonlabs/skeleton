@@ -24,6 +24,7 @@
 		"!dist/**/*.test.*"
 	],
 	"dependencies": {
+		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
 		"@zag-js/file-upload": "catalog:",

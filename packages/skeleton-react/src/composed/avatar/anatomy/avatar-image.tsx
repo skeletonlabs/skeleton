@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { mergeProps } from '@zag-js/react';
 import { AvatarRootContext } from '../modules/context.js';
 import type { AvatarImageProps } from '../modules/types.js';
+import { avatarClasses } from '@skeletonlabs/skeleton-common';
 
 export default function (props: AvatarImageProps) {
 	const rootContext = useContext(AvatarRootContext);
@@ -11,7 +12,7 @@ export default function (props: AvatarImageProps) {
 	const attributes = mergeProps(
 		rootContext.api.getImageProps(),
 		{
-			className: 'skb:w-full skb:object-cover'
+			className: avatarClasses.image
 		},
 		restAttributes
 	);
