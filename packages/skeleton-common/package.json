@@ -19,10 +19,10 @@
 		"dist"
 	],
 	"devDependencies": {
+		"@skeletonlabs/skeleton": "workspace:*",
 		"unbuild": "^3.5.0"
 	},
 	"dependencies": {
-		"typescript": "catalog:",
-		"@skeletonlabs/skeleton": "workspace:*"
+		"typescript": "catalog:"
 	}
 }

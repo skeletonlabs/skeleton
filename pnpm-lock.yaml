@@ -230,13 +230,13 @@ importers:
 
   packages/skeleton-common:
     dependencies:
-      '@skeletonlabs/skeleton':
-        specifier: workspace:*
-        version: link:../skeleton
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
     devDependencies:
+      '@skeletonlabs/skeleton':
+        specifier: workspace:*
+        version: link:../skeleton
       unbuild:
         specifier: ^3.5.0
         version: 3.5.0(typescript@5.8.3)
