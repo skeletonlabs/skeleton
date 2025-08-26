@@ -120,11 +120,11 @@ export default function () {
 </Accordion>
 ```
 
-By exposing the the the internal `attributes`, this enables you to take control and template implementation.
+By exposing the the the internal `attributes`, this enables you to take control and modify the template implementation.
 
 ### Custom Animations
 
-Building on the extensible markup concept, this provides additional control over the tempalte markup. Which in turn means you can implement animations as you see fit. Here's a quick example:
+Building on the extensible markup concept, this provides additional control over the template markup. Which in turn means you can implement animations as you see fit. Here's a quick example:
 
 ```ts
 import { slide } from 'svelte/transition';
@@ -157,9 +157,9 @@ This requires the following:
 4. Add the `transition:slide` and configure your preferred options.
 5. Then implement the wrapping `#if` block that triggers transitions when `attribute.hidden` is toggled.
 
-While we showcase this with [Svelte Transitons](https://svelte.dev/docs/svelte/transition), you could substitute with any viable alternative. Including [Motion](https://motion.dev/), a framework agnostic animation library.
+While we showcase this with [Svelte Transitons](https://svelte.dev/docs/svelte/transition), you could easily substitute with any viable alternative. Including [Motion](https://motion.dev/), a framework agnostic animation library. This will be our recommendation for React and all future component frameworks we support.
 
-And while this is very verbose, we don't expect you to implement this per every component instance. But instead, abstract these changes to a local component in your project. So instead of using the stock `<Accordion.Content>` that lacks animation, you would implement your own `<AccordionContentAnimated>` component. The final result might look something like this:
+And while this is very verbose, we don't expect you to implement this per every component instance. But instead, abstract these changes to a local component in your project. For example, instead of using the stock `<Accordion.Content>` that lacks animation, you would implement your own `<AccordionContentAnimated>` component with the above logic. Then the developer experience would then be something like this:
 
 ```ts
 import AccordionContentAnimated from 'my/local/lib/AccordionContentAnimated.svelte';
