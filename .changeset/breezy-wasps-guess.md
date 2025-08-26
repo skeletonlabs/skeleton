@@ -1,7 +1,8 @@
 ---
-"@skeletonlabs/skeleton-svelte": patch
-"@skeletonlabs/skeleton-react": patch
+"@skeletonlabs/skeleton": major
+"@skeletonlabs/skeleton-svelte": major
+"@skeletonlabs/skeleton-react": major
 ---
 
-chore: move common styles (tailwind classes) into `@skeletonlabs/skeleton-common`.
+V4
   
