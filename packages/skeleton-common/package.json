@@ -6,6 +6,10 @@
 	"exports": {
 		".": "./src/index.ts"
 	},
+	"scripts": {
+		"build": "tsc",
+		"build:watch": "tsc --watch"
+	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
 		"typescript": "catalog:"

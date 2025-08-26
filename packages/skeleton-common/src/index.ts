@@ -1,3 +1,3 @@
-export * from './themes';
-export * from './classes/accordion';
-export * from './classes/avatar';
+export * from './themes.js';
+export * from './classes/accordion.js';
+export * from './classes/avatar.js';
