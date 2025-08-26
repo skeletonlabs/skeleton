@@ -1,2 +1,2 @@
-@source '../../skeleton-svelte/node_modules/@skeletonlabs/skeleton-common/dist';
-@source '../../skeleton-react/node_modules/@skeletonlabs/skeleton-common/dist';
+@source '../../skeleton-svelte';
+@source '../../skeleton-react';
