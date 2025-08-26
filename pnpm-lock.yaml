@@ -237,6 +237,12 @@ importers:
       '@skeletonlabs/skeleton':
         specifier: workspace:*
         version: link:../skeleton
+      estree-walker:
+        specifier: ^3.0.3
+        version: 3.0.3
+      magic-string:
+        specifier: ^0.30.17
+        version: 0.30.17
       unbuild:
         specifier: ^3.5.0
         version: 3.5.0(typescript@5.8.3)
@@ -882,6 +888,11 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
+  '@babel/parser@7.28.3':
+    resolution: {integrity: sha512-7+Ey1mAgYqFAx2h0RuoxcQT5+MlG3GTV0TQrgr7/ZliKsm/MNDxVVutlWaziMq7wJNAz8MTqz55XLpWvva6StA==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+
   '@babel/plugin-transform-react-jsx-self@7.27.1':
     resolution: {integrity: sha512-6UzkCs+ejGdZ5mFFC/OCUrv028ab2fp1znZmCZjAOBKiBK2jXD1O+BPSfX8X2qjJ75fZBMSnQn3Rq2mrBJK2mw==}
     engines: {node: '>=6.9.0'}
@@ -908,6 +919,10 @@ packages:
 
   '@babel/types@7.28.1':
     resolution: {integrity: sha512-x0LvFTekgSX+83TI28Y9wYPUfzrnl2aT5+5QLnO6v7mSJYtEEevuDRN0F0uSHRk1G1IWZC43o00Y0xDDrpBGPQ==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/types@7.28.2':
+    resolution: {integrity: sha512-ruv7Ae4J5dUYULmeXw1gmb7rYRz57OWCPM57pHojnLq/3Z1CK2lNSLTCVjxVk1F/TZHwOZZrOWi0ur95BbLxNQ==}
     engines: {node: '>=6.9.0'}
 
   '@bufbuild/protobuf@2.6.0':
@@ -2325,6 +2340,12 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4 <5.9.0'
 
+  '@typescript-eslint/tsconfig-utils@8.41.0':
+    resolution: {integrity: sha512-TDhxYFPUYRFxFhuU5hTIJk+auzM/wKvWgoNYOPcOf6i4ReYlOoYN8q1dV5kOTjNQNJgzWN3TUUQMtlLOcUgdUw==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      typescript: '>=4.8.4 <6.0.0'
+
   '@typescript-eslint/type-utils@8.37.0':
     resolution: {integrity: sha512-SPkXWIkVZxhgwSwVq9rqj/4VFo7MnWwVaRNznfQDc/xPYHjXnPfLWn+4L6FF1cAz6e7dsqBeMawgl7QjUMj4Ow==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -2334,6 +2355,10 @@ packages:
 
   '@typescript-eslint/types@8.37.0':
     resolution: {integrity: sha512-ax0nv7PUF9NOVPs+lmQ7yIE7IQmAf8LGcXbMvHX5Gm+YJUYNAl340XkGnrimxZ0elXyoQJuN5sbg6C4evKA4SQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@typescript-eslint/types@8.41.0':
+    resolution: {integrity: sha512-9EwxsWdVqh42afLbHP90n2VdHaWU/oWgbH2P0CfcNfdKL7CuKpwMQGjwev56vWu9cSKU7FWSu6r9zck6CVfnag==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@typescript-eslint/typescript-estree@8.37.0':
@@ -6822,6 +6847,10 @@ snapshots:
     dependencies:
       '@babel/types': 7.28.1
 
+  '@babel/parser@7.28.3':
+    dependencies:
+      '@babel/types': 7.28.2
+
   '@babel/plugin-transform-react-jsx-self@7.27.1(@babel/core@7.28.0)':
     dependencies:
       '@babel/core': 7.28.0
@@ -6837,8 +6866,8 @@ snapshots:
   '@babel/template@7.27.2':
     dependencies:
       '@babel/code-frame': 7.27.1
-      '@babel/parser': 7.28.0
-      '@babel/types': 7.28.1
+      '@babel/parser': 7.28.3
+      '@babel/types': 7.28.2
 
   '@babel/traverse@7.28.0':
     dependencies:
@@ -6853,6 +6882,11 @@ snapshots:
       - supports-color
 
   '@babel/types@7.28.1':
+    dependencies:
+      '@babel/helper-string-parser': 7.27.1
+      '@babel/helper-validator-identifier': 7.27.1
+
+  '@babel/types@7.28.2':
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
@@ -8306,8 +8340,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.37.0(typescript@5.8.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.37.0(typescript@5.8.3)
-      '@typescript-eslint/types': 8.37.0
+      '@typescript-eslint/tsconfig-utils': 8.41.0(typescript@5.8.3)
+      '@typescript-eslint/types': 8.41.0
       debug: 4.4.1
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -8319,6 +8353,10 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.37.0
 
   '@typescript-eslint/tsconfig-utils@8.37.0(typescript@5.8.3)':
+    dependencies:
+      typescript: 5.8.3
+
+  '@typescript-eslint/tsconfig-utils@8.41.0(typescript@5.8.3)':
     dependencies:
       typescript: 5.8.3
 
@@ -8335,6 +8373,8 @@ snapshots:
       - supports-color
 
   '@typescript-eslint/types@8.37.0': {}
+
+  '@typescript-eslint/types@8.41.0': {}
 
   '@typescript-eslint/typescript-estree@8.37.0(typescript@5.8.3)':
     dependencies:
@@ -8881,7 +8921,7 @@ snapshots:
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@typescript-eslint/scope-manager': 8.37.0
-      '@typescript-eslint/types': 8.37.0
+      '@typescript-eslint/types': 8.41.0
       astrojs-compiler-sync: 1.1.1(@astrojs/compiler@2.12.2)
       debug: 4.4.1
       entities: 6.0.1
