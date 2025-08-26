@@ -5,7 +5,6 @@
 		"moduleDetection": "force",
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
-		"allowImportingTsExtensions": true,
 		"types": ["node"],
 		"strict": true,
 		"noEmit": true,
@@ -14,5 +13,5 @@
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true
 	},
-	"include": ["src"]
+	"include": ["src/*.ts"]
 }
