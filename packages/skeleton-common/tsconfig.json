@@ -3,8 +3,8 @@
 		"target": "ESNext",
 		"lib": ["ESNext"],
 		"moduleDetection": "force",
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
 		"types": ["node"],
 		"strict": true,
 		"noEmit": true,
@@ -13,5 +13,5 @@
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true
 	},
-	"include": ["src/index.ts"]
+	"include": ["src"]
 }
