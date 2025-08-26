@@ -11,7 +11,7 @@ Closes #{issueNumber}
 Please read and apply all [contribution requirements](https://skeleton.dev/docs/resources/contribute/).
 
 - [ ] Your branch should be prefixed with: `docs/`, `feature/`, `chore/`, `bugfix/`
-- [ ] Contributions should target the `main` branch
+- [ ] v3 Contributions target the `v3` branch; v4 Contributions target `main` branch
 - [ ] Documentation should be updated to describe all relevant changes
 - [ ] Run `pnpm check` in the root of the monorepo
 - [ ] Run `pnpm format` in the root of the monorepo
