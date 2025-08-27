@@ -14,5 +14,9 @@
     "@skeletonlabs/skeleton.dev": "0.0.1",
     "@skeletonlabs/themes.skeleton.dev": "0.0.1"
   },
-  "changesets": []
+  "changesets": [
+    "forty-badgers-clap",
+    "little-files-notice",
+    "small-words-drum"
+  ]
 }
