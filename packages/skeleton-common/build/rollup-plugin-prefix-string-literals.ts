@@ -32,17 +32,16 @@ export default function(prefix: string, options: PrefixStringLiteralOptions): Ro
                         typeof node.end === 'number' &&
                         node
                     ) {
-            const newValue = node.value
-              .split(' ')
-              .map((v) => {
-                if (options.escapePrefix && v.startsWith(options.escapePrefix)) {
-                    return v.slice(options.escapePrefix.length);
-                }
-                return `${prefix}:${v}`;
-              })
-              .join(' ');
-
-            s.overwrite(node.start + 1, node.end - 1, newValue);
+                        const value = node.value
+                        .split(' ')
+                        .map((v) => {
+                            if (options.escapePrefix && v.startsWith(options.escapePrefix)) {
+                                return v.slice(options.escapePrefix.length);
+                            }
+                            return `${prefix}:${v}`;
+                        })
+                        .join(' ');
+                        s.overwrite(node.start + 1, node.end - 1, value);
                     }
                 }
             });
