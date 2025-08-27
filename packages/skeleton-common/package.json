@@ -2,13 +2,30 @@
 	"name": "@skeletonlabs/skeleton-common",
 	"version": "0.0.1",
 	"private": true,
-	"types": "./src/index.ts",
+	"type": "module",
+	"scripts": {
+		"build": "unbuild",
+		"dev": "unbuild --watch"
+	},
 	"exports": {
-		".": "./src/index.ts"
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		}
 	},
+	"main": "./dist/index.cjs",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
 	"devDependencies": {
+		"@rollup/pluginutils": "^5.2.0",
 		"@skeletonlabs/skeleton": "workspace:*",
-		"typescript": "catalog:"
+		"estree-walker": "^3.0.3",
+		"magic-string": "^0.30.17",
+		"unbuild": "^3.5.0"
 	},
-	"type": "module"
+	"dependencies": {
+		"typescript": "catalog:"
+	}
 }

@@ -5,6 +5,7 @@ import * as accordion from '@zag-js/accordion';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { AccordionRootContext } from '../modules/context.js';
 import type { AccordionRootProps } from '../modules/types.js';
+import { classesAccordion } from '@skeletonlabs/skeleton-common';
 
 export default function (props: AccordionRootProps) {
 	const [machineProps, componentProps] = accordion.splitProps(props);
@@ -17,7 +18,7 @@ export default function (props: AccordionRootProps) {
 	const attributes = mergeProps(
 		api.getRootProps(),
 		{
-			className: 'skb:w-full skb:grid skb:gap-2'
+			className: classesAccordion.root
 		},
 		restAttributes
 	);

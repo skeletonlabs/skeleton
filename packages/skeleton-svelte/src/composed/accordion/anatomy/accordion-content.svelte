@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { AccordionItemContext, AccordionRootContext } from '../modules/context.js';
+	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import type { AccordionContentProps } from '../modules/types.js';
 
 	const rootContext = AccordionRootContext.consume();
@@ -11,7 +12,7 @@
 		mergeProps(
 			rootContext.api.getItemContentProps(itemContext.itemProps),
 			{
-				class: 'skb:py-2 skb:px-4'
+				class: classesAccordion.content
 			},
 			restAttributes
 		)

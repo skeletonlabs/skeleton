@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
+	import { classesAvatar } from '@skeletonlabs/skeleton-common';
 	import { AvatarRootContext } from '../modules/context.js';
 	import type { AvatarImageProps } from '../modules/types.js';
 
@@ -10,7 +11,7 @@
 		mergeProps(
 			rootContext.api.getImageProps(),
 			{
-				class: 'skb:w-full skb:object-cover'
+				class: classesAvatar.image
 			},
 			restAttributes
 		)

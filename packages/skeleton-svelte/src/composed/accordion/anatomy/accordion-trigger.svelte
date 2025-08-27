@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { AccordionItemContext, AccordionRootContext } from '../modules/context.js';
+	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import type { AccordionTriggerProps } from '../modules/types.js';
 
 	const rootContext = AccordionRootContext.consume();
@@ -11,8 +12,7 @@
 		mergeProps(
 			rootContext.api.getItemTriggerProps(itemContext.itemProps),
 			{
-				class:
-					'skb:w-full skb:grid skb:items-center skb:gap-4 skb:py-2 skb:px-4 skb:rounded-base skb:text-left skb:hover:preset-tonal-primary'
+				class: classesAccordion.trigger
 			},
 			restAttributes
 		)

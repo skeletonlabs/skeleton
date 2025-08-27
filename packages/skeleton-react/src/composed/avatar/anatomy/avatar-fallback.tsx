@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { mergeProps } from '@zag-js/react';
 import { AvatarRootContext } from '../modules/context.js';
 import type { AvatarFallbackProps } from '../modules/types.js';
+import { classesAvatar } from '@skeletonlabs/skeleton-common';
 
 export default function (props: AvatarFallbackProps) {
 	const rootContext = useContext(AvatarRootContext);
@@ -11,7 +12,7 @@ export default function (props: AvatarFallbackProps) {
 	const attributes = mergeProps(
 		rootContext.api.getFallbackProps(),
 		{
-			className: 'skb:size-full skb:flex skb:justify-center skb:items-center'
+			className: classesAvatar.fallback
 		},
 		restAttributes
 	);

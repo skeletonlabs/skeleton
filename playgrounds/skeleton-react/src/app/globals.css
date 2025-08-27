@@ -3,8 +3,6 @@
 @import '@skeletonlabs/skeleton/themes/cerberus';
 @import '@skeletonlabs/skeleton/optional/presets';
 
-@source '../../node_modules/@skeletonlabs/skeleton-react/dist';
-
 @plugin '@tailwindcss/forms';
 
 @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));

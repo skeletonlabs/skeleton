@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
+	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { AccordionRootContext, AccordionItemContext } from '../modules/context.js';
 	import type { AccordionIndicatorProps } from '../modules/types.js';
 
@@ -7,7 +8,15 @@
 	const itemContext = AccordionItemContext.consume();
 	const props: AccordionIndicatorProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), restAttributes));
+	const attributes = $derived(
+		mergeProps(
+			rootContext.api.getItemIndicatorProps(itemContext.itemProps),
+			{
+				class: classesAccordion.indicator
+			},
+			restAttributes
+		)
+	);
 </script>
 
 {#if element}
