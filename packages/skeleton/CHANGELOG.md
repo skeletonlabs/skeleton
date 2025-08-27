@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.3.0-next.0
+### Minor Changes
+
+
+- feat: Add framework package `@source` rules to remove the need for users to explicitely add these ([#3656](https://github.com/skeletonlabs/skeleton/pull/3656))
+
 ## 3.2.0
 ### Minor Changes
 

@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-react
 
+## 1.5.0-next.0
+### Minor Changes
+
+
+- feat: Use classes inside `@skeletonlabs/skeleton-common` to dedupe tailwind classes ([#3656](https://github.com/skeletonlabs/skeleton/pull/3656))
+
+
+### Patch Changes
+
+- Updated dependencies [[`d65abd7`](https://github.com/skeletonlabs/skeleton/commit/d65abd7c5bd9e694aeeaa3b54310971e63e8de50)]:
+  - @skeletonlabs/skeleton-common@0.0.1-next.0
+
 ## 1.4.0
 ### Minor Changes
 
