@@ -116,17 +116,6 @@ While Astro can support [multiple Frontend frameworks](https://docs.astro.build/
         ```
     </ProcessStep>
 	<ProcessStep step="3">
-        ### Add Source Path to CSS Config
-        Open your global stylesheet in `/src/styles/global.css` and insert each required `@source`. These should come immediately before Skeleton imports.
-        ```css
-		@source '../../node_modules/@skeletonlabs/skeleton-react/dist';
-        ```
-        ```css
-		@source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
-        ```
-		> NOTE: please verify the `@source` path resolves to your `node_modules` directory.
-    </ProcessStep>
-	<ProcessStep step="4">
         ### Using Wrapper Components
         In most cases, frontend framework components may not be fully functional if used directly within `.astro` files. To overcome this, you may utilize a wrapper component of that framework. Here's a demo using the Skeleton Avatar component as an example.
 		#### React
