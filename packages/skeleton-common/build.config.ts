@@ -13,7 +13,8 @@ export default defineBuildConfig({
 		'rollup:options'(_, options) {
 			options.plugins?.push(
 				prefixStringLiterals('skb', {
-					include: ['**/src/classes/**']
+					include: ['**/src/classes/**'],
+					escapePrefix: '!!'
 				})
 			);
 		}

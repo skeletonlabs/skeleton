@@ -7,6 +7,7 @@ import { RollupOptions } from 'unbuild';
 interface PrefixStringLiteralOptions {
     include?: string[];
     exclude?: string[];
+    escapePrefix?: string;
 }
 
 export default function(prefix: string, options: PrefixStringLiteralOptions): RollupOptions['plugins'][number] {
@@ -31,14 +32,17 @@ export default function(prefix: string, options: PrefixStringLiteralOptions): Ro
                         typeof node.end === 'number' &&
                         node
                     ) {
-                        s.overwrite(
-                            node.start + 1,
-                            node.end - 1,
-                            node.value
-                                .split(' ')
-                                .map((v) => `${prefix}:${v}`)
-                                .join(' ')
-                        );
+            const newValue = node.value
+              .split(' ')
+              .map((v) => {
+                if (options.escapePrefix && v.startsWith(options.escapePrefix)) {
+                    return v.slice(options.escapePrefix.length);
+                }
+                return `${prefix}:${v}`;
+              })
+              .join(' ');
+
+            s.overwrite(node.start + 1, node.end - 1, newValue);
                     }
                 }
             });
