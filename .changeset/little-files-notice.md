@@ -1,6 +1,6 @@
 ---
-"@skeletonlabs/skeleton": patch
+"@skeletonlabs/skeleton": minor
 ---
 
-chore: add framework dependency sources
+feat: Add framework package `@source` rules to remove the need for users to explicitely add these
   

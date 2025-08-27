@@ -1,7 +1,7 @@
 ---
-"@skeletonlabs/skeleton-svelte": patch
-"@skeletonlabs/skeleton-react": patch
+"@skeletonlabs/skeleton-svelte": minor
+"@skeletonlabs/skeleton-react": minor
 ---
 
-chore: use shared classes
+feat: Use classes inside `@skeletonlabs/skeleton-common` to dedupe tailwind classes
   
