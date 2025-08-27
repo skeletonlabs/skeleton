@@ -88,6 +88,7 @@ Finally we're adding one more tool to your toolkit - the ability to override and
 export default function () {
 	return (
 		<Accordion>
+			{/* ... */}
 			<Accordion.Item value="item-1">
 				<Accordion.Heading>
 					<Accordion.Trigger element={({ attributes }) => <button {...attributes}>My Own Button</button>} />
@@ -104,6 +105,7 @@ export default function () {
 
 ```svelte
 <Accordion>
+	<!-- ... -->
 	<Accordion.Item value="item-1">
 		<Accordion.Heading>
 			<Accordion.Trigger>
@@ -118,9 +120,63 @@ export default function () {
 </Accordion>
 ```
 
-By exposing the the the internal `attributes`, this enables you to take control and template implementation.
+By exposing the the the internal `attributes`, this enables you to take control and modify the template implementation.
 
-> NOTE: we expect this will open the door to custom animations. Expect more guidance on this in the future.
+### Custom Animations
+
+Building on the extensible markup concept, this provides additional control over the template markup. Which in turn means you can implement animations as you see fit. Here's a quick example:
+
+```ts
+import { slide } from 'svelte/transition';
+```
+
+```svelte
+<Accordion>
+	<!-- ... -->
+	<Accordion.Item value="item-1">
+		<Accordion.Heading>
+			<Accordion.Trigger>Item 1</Accordion.Trigger>
+			<Accordion.Content>
+				{#snippet element({ attributes })}
+					{#if attributes.hidden !== true}
+						<div {...attributes} hidden={false} transition:slide={{ duration: 100 }}>Content for Item 1</div>
+					{/if}
+				{/snippet}
+			</Accordion.Content>
+		</Accordion.Heading>
+	</Accordion.Item>
+	<!-- ... -->
+</Accordion>
+```
+
+This requires the following:
+
+1. Implement the `element()` snippet to gain access to the `attributes`.
+2. Spread the `attributes` to the custom element, a `<div>` in this example.
+3. Override the `hidden` attribute to `false` to prevent it from showing/hiding the element too soon.
+4. Add the `transition:slide` and configure your preferred options.
+5. Then implement the wrapping `#if` block that triggers transitions when `attribute.hidden` is toggled.
+
+While we showcase this with [Svelte Transitons](https://svelte.dev/docs/svelte/transition), you could easily substitute with any viable alternative. Including [Motion](https://motion.dev/), a framework agnostic animation library. This will be our recommendation for React and all future component frameworks we support.
+
+And while this is very verbose, we don't expect you to implement this per every component instance. But instead, abstract these changes to a local component in your project. For example, instead of using the stock `<Accordion.Content>` that lacks animation, you would implement your own `<AccordionContentAnimated>` component with the above logic. Then the developer experience would then be something like this:
+
+```ts
+import AccordionContentAnimated from 'my/local/lib/AccordionContentAnimated.svelte';
+```
+
+```svelte
+<Accordion>
+	<!-- ... -->
+	<Accordion.Item value="item-1">
+		<Accordion.Heading>
+			<Accordion.Trigger>Item 1</Accordion.Trigger>
+			<AccordionContentAnimated>Content for Item 1</AccordionContentAnimated>
+		</Accordion.Heading>
+	</Accordion.Item>
+	<!-- ... -->
+</Accordion>
+```
 
 ## Early Access Preview
 
@@ -138,3 +194,7 @@ We have currently provided two new components that follow the new patterns. Ther
 ## Request for Comment
 
 For the duration of this preview, we ask that you please test the new component structure, styling, and markup features in your projects. Note that these features are considered experimental and subject to breaking changes at any time. However, we encourage you to share feedback in both [Discord](https://discord.com/invite/EXqV7W8MtY) (via `#contributors`) and [GitHub](https://github.com/skeletonlabs/skeleton). We'll aim to provide progress updates as frequently as we can.
+
+## Contribute
+
+If you wish to contribute to Skeleton Next (v4), please refer to our [updated guidelines](https://next.skeleton.dev/docs/resources/contribute).
