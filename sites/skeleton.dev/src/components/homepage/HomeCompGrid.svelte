@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Avatar } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconPlay from '@lucide/svelte/icons/play';
 	import IconNormalize from '@lucide/svelte/icons/audio-waveform';
@@ -17,13 +16,13 @@
 	const cardClasses = 'card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5';
 
 	// State
-	const notifications = $state({
-		doNotDisturb: false,
-		global: false,
-		personal: false,
-		priority: false,
-		news: false
-	});
+	// const notifications = $state({
+	// 	doNotDisturb: false,
+	// 	global: false,
+	// 	personal: false,
+	// 	priority: false,
+	// 	news: false
+	// });
 
 	// Seed Data
 	const teamData = [
@@ -131,7 +130,7 @@
 				</header>
 				<input type="search" class="input" placeholder="Search Members..." />
 				<div class="grid grid-cols-1 gap-2">
-					{#each teamData as member, i}
+					{#each teamData as member}
 						<hr class="hr" />
 						<button type="button" class="card w-full grid grid-cols-[auto_1fr] items-center gap-4 p-3">
 							<!-- <Avatar src="https://i.pravatar.cc/150?img={i + 10}" name="" size="size-10" imageClasses="grayscale" /> -->
