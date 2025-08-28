@@ -3,16 +3,10 @@
 	import { globals } from '$lib/state/generator.svelte';
 	// Constants
 	import * as constants from '$lib/constants/generator';
-	// Components (Skeleton)
-	// import { AppBar, Avatar, Segment, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Components (generator)
 	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
 	// Icons
 	import IconSkull from '@lucide/svelte/icons/skull';
-	import IconLeft from '@lucide/svelte/icons/align-left';
-	import IconCenter from '@lucide/svelte/icons/align-center';
-	import IconRight from '@lucide/svelte/icons/align-right';
-	import IconJustify from '@lucide/svelte/icons/align-justify';
 	import IconArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
 
 	// State

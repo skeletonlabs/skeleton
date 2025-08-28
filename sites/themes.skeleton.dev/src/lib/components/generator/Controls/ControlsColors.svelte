@@ -1,42 +1,35 @@
 <script lang="ts">
 	// Constants
 	import * as constants from '$lib/constants/generator';
-	// State
-	import { globals, settingsColors } from '$lib/state/generator.svelte';
 	// Utils
-	import { genColorRamp, seedColor, genRandomSeed, getColorKey } from '$lib/utils/generator/colors';
-	// Components (Skeleton)
-	// import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
+	import { seedColor } from '$lib/utils/generator/colors';
 	// Icons
-	import IconEdit from '@lucide/svelte/icons/pencil';
-	import IconSeed from '@lucide/svelte/icons/sprout';
-	import IconRandom from '@lucide/svelte/icons/dices';
 	import IconClear from '@lucide/svelte/icons/eraser';
 
 	// Types
-	interface ColorSelection {
-		label: string;
-		description: string;
-		value: string;
-		class: string;
-	}
+	// interface ColorSelection {
+	// 	label: string;
+	// 	description: string;
+	// 	value: string;
+	// 	class: string;
+	// }
 
 	// Local
-	const colorSelection: ColorSelection[] = [
-		{ label: 'Primary', description: 'The primary brand color.', value: 'primary', class: 'preset-filled-primary-500' },
-		{ label: 'Secondary', description: 'A secondary accent color.', value: 'secondary', class: 'preset-filled-secondary-500' },
-		{ label: 'Tertiary', description: 'A tertiary accent color.', value: 'tertiary', class: 'preset-filled-tertiary-500' },
-		{ label: 'Success', description: 'Used for successful states.', value: 'success', class: 'preset-filled-success-500' },
-		{ label: 'Warning', description: 'Used for warning states.', value: 'warning', class: 'preset-filled-warning-500' },
-		{ label: 'Error', description: 'Used for error states.', value: 'error', class: 'preset-filled-error-500' },
-		{ label: 'Surface', description: 'The neutral surface tones.', value: 'surface', class: 'preset-filled-surface-500' }
-	];
-	const shadesAll = constants.colorShades;
-	const shades3x = [constants.colorShades[0], 500, constants.colorShades[constants.colorShades.length - 1]]; // 50/500/950
+	// const colorSelection: ColorSelection[] = [
+	// 	{ label: 'Primary', description: 'The primary brand color.', value: 'primary', class: 'preset-filled-primary-500' },
+	// 	{ label: 'Secondary', description: 'A secondary accent color.', value: 'secondary', class: 'preset-filled-secondary-500' },
+	// 	{ label: 'Tertiary', description: 'A tertiary accent color.', value: 'tertiary', class: 'preset-filled-tertiary-500' },
+	// 	{ label: 'Success', description: 'Used for successful states.', value: 'success', class: 'preset-filled-success-500' },
+	// 	{ label: 'Warning', description: 'Used for warning states.', value: 'warning', class: 'preset-filled-warning-500' },
+	// 	{ label: 'Error', description: 'Used for error states.', value: 'error', class: 'preset-filled-error-500' },
+	// 	{ label: 'Surface', description: 'The neutral surface tones.', value: 'surface', class: 'preset-filled-surface-500' }
+	// ];
+	// const shadesAll = constants.colorShades;
+	// const shades3x = [constants.colorShades[0], 500, constants.colorShades[constants.colorShades.length - 1]]; // 50/500/950
 
 	// State
-	let showAllShades = $state(false);
-	const rxShadeArray = $derived(showAllShades ? shadesAll : shades3x);
+	// let showAllShades = $state(false);
+	// const rxShadeArray = $derived(showAllShades ? shadesAll : shades3x);
 
 	function onClearPalette() {
 		if (
@@ -48,16 +41,16 @@
 		}
 	}
 
-	function promptColorSeed(colorName: string) {
-		const promptSeed = prompt(`Automatically generate a ${colorName} color palette from a hex color value that you provide.`);
-		if (promptSeed) seedColor(colorName, promptSeed);
-	}
+	// function promptColorSeed(colorName: string) {
+	// 	const promptSeed = prompt(`Automatically generate a ${colorName} color palette from a hex color value that you provide.`);
+	// 	if (promptSeed) seedColor(colorName, promptSeed);
+	// }
 
-	function promptRandomColor(colorName: string) {
-		if (confirm(`Generate a random palette for the ${colorName} color?`)) {
-			genRandomSeed(colorName);
-		}
-	}
+	// function promptRandomColor(colorName: string) {
+	// 	if (confirm(`Generate a random palette for the ${colorName} color?`)) {
+	// 		genRandomSeed(colorName);
+	// 	}
+	// }
 </script>
 
 <div class="space-y-4">

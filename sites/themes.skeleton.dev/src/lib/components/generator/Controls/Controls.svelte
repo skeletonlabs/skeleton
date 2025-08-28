@@ -1,34 +1,17 @@
 <script lang="ts">
-	// State
-	import { globals } from '$lib/state/generator.svelte';
-	// Components (Skeleton)
-	// import { Accordion, Segment } from '@skeletonlabs/skeleton-svelte';
 	// Components (Settings)
 	import ControlsCore from './ControlsCore.svelte';
-	import ControlsColors from './ControlsColors.svelte';
-	import ControlsBackgrounds from './ControlsBackgrounds.svelte';
-	import ControlsTypography from './ControlsTypography.svelte';
-	import ControlsSpacing from './ControlsSpacing.svelte';
-	import ControlsEdges from './ControlsEdges.svelte';
-	// Icons
-	import IconColors from '@lucide/svelte/icons/palette';
-	import IconBackgrounds from '@lucide/svelte/icons/layers-2';
-	import IconTypography from '@lucide/svelte/icons/a-large-small';
-	import IconSpacing from '@lucide/svelte/icons/scaling';
-	import IconEdges from '@lucide/svelte/icons/square-dashed';
-	import IconOpen from '@lucide/svelte/icons/chevron-up';
-	import IconClosed from '@lucide/svelte/icons/chevron-down';
 
 	// Local
-	const accordionItemProps = {
-		controlPadding: 'px-5 py-3',
-		controlRounded: 'rounded-none',
-		controlHover: 'hover:preset-tonal',
-		panelPadding: 'p-5'
-	};
+	// const accordionItemProps = {
+	// 	controlPadding: 'px-5 py-3',
+	// 	controlRounded: 'rounded-none',
+	// 	controlHover: 'hover:preset-tonal',
+	// 	panelPadding: 'p-5'
+	// };
 
 	// State
-	let settings: string[] = $state([]);
+	// let settings: string[] = $state([]);
 </script>
 
 <section class="relative h-screen bg-surface-100-900 pb-96 overflow-y-auto">

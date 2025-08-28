@@ -1,5 +1,5 @@
-<script lang="ts">
-	// import { Switch } from '@skeletonlabs/skeleton-svelte';
+<!-- <script lang="ts">
+	import { Switch } from '@skeletonlabs/skeleton-svelte';
 
 	let checked = $state(false);
 
@@ -23,4 +23,4 @@
 	</script>
 </svelte:head>
 
-<!-- <Switch {checked} {onCheckedChange}></Switch> -->
+<Switch {checked} {onCheckedChange}></Switch> -->

@@ -1,8 +1,5 @@
 'use client';
 
-// import { Switch } from '@skeletonlabs/skeleton-react';
-// import { useEffect, useState } from 'react';
-
 export default function LightSwitch() {
 	// const [checked, setChecked] = useState(false);
 
