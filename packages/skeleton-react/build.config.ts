@@ -10,7 +10,8 @@ export default defineBuildConfig({
 		emitCJS: true,
 		output: {
 			preserveModules: true
-		}
+		},
+		inlineDependencies: true
 	},
 	failOnWarn: false,
 	hooks: {
