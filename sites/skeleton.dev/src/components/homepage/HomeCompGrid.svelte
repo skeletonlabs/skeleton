@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Avatar, Slider, Switch, ProgressRing } from '@skeletonlabs/skeleton-svelte';
+	import { Avatar } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconPlay from '@lucide/svelte/icons/play';
 	import IconNormalize from '@lucide/svelte/icons/audio-waveform';
@@ -77,48 +77,48 @@
 			<section class="w-full space-y-5">
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Do not disturb</p>
-					<Switch name="doNotDisturb" checked={notifications.doNotDisturb} onCheckedChange={(e) => (notifications.doNotDisturb = e.checked)}
-					></Switch>
+					<!-- <Switch name="doNotDisturb" checked={notifications.doNotDisturb} onCheckedChange={(e) => (notifications.doNotDisturb = e.checked)}
+					></Switch> -->
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Global notifications</p>
-					<Switch
+					<!-- <Switch
 						name="notifications"
 						checked={notifications.global && !notifications.doNotDisturb}
 						disabled={notifications.doNotDisturb}
 						onCheckedChange={(e) => (notifications.global = e.checked)}
-					></Switch>
+					></Switch> -->
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Personal notifications</p>
-					<Switch
+					<!-- <Switch
 						name="disabled"
 						checked={notifications.personal && !notifications.doNotDisturb}
 						disabled={notifications.doNotDisturb}
 						onCheckedChange={(e) => (notifications.personal = e.checked)}
-					></Switch>
+					></Switch> -->
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Priority notifications</p>
-					<Switch
+					<!-- <Switch
 						name="disturb"
 						checked={notifications.priority && !notifications.doNotDisturb}
 						disabled={notifications.doNotDisturb}
 						onCheckedChange={(e) => (notifications.priority = e.checked)}
-					></Switch>
+					></Switch> -->
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
 					<p class="opacity-60">Featured News alerts</p>
-					<Switch
+					<!-- <Switch
 						name="notifications"
 						checked={notifications.news && !notifications.doNotDisturb}
 						disabled={notifications.doNotDisturb}
 						onCheckedChange={(e) => (notifications.news = e.checked)}
-					></Switch>
+					></Switch> -->
 				</div>
 			</section>
 		</div>
@@ -134,7 +134,7 @@
 					{#each teamData as member, i}
 						<hr class="hr" />
 						<button type="button" class="card w-full grid grid-cols-[auto_1fr] items-center gap-4 p-3">
-							<Avatar src="https://i.pravatar.cc/150?img={i + 10}" name="" size="size-10" imageClasses="grayscale" />
+							<!-- <Avatar src="https://i.pravatar.cc/150?img={i + 10}" name="" size="size-10" imageClasses="grayscale" /> -->
 							<div class="text-left">
 								<p class="font-bold">{member.name}</p>
 								<p class="opacity-60 text-xs">{member.email}</p>
@@ -153,7 +153,7 @@
 			<img src="https://i.imgur.com/kocJdtN.png" alt="Massive Attack" class="rounded-container border-[1px] border-surface-500/50" />
 			<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
 				<IconPlay class="size-4 opacity-60" />
-				<Slider name="example" value={[75]} />
+				<!-- <Slider name="example" value={[75]} /> -->
 			</div>
 			<div class="grid grid-cols-4 gap-2 items-center">
 				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
@@ -227,9 +227,9 @@
 		<div class={`${cardClasses} row-span-2 row-start-3`}>
 			<h2 class="h4 text-center">Progression</h2>
 			<div class="grid grid-cols-[1fr_auto] grid-row-2 gap-5">
-				<ProgressRing value={32} max={100} showLabel size="size-56" strokeWidth="5px" labelClasses="text-2xl" classes="row-span-2" />
+				<!-- <ProgressRing value={32} max={100} showLabel size="size-56" strokeWidth="5px" labelClasses="text-2xl" classes="row-span-2" />
 				<ProgressRing value={66} max={100} showLabel size="size-16" strokeWidth="10px" labelClasses="text-sm" classes="self-center" />
-				<ProgressRing value={35} max={100} showLabel size="size-16" strokeWidth="10px" labelClasses="text-sm" classes="self-center" />
+				<ProgressRing value={35} max={100} showLabel size="size-16" strokeWidth="10px" labelClasses="text-sm" classes="self-center" /> -->
 			</div>
 		</div>
 		<!-- 8 -->
@@ -400,7 +400,7 @@
 				</div>
 				<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
 					<IconVolume class="size-4 opacity-60" />
-					<Slider name="example" value={[70]} />
+					<!-- <Slider name="example" value={[70]} /> -->
 				</div>
 			</div>
 		</div>
