@@ -1,5 +1,3 @@
-'use client';
-
 import { Club, Diamond, Heart, Spade } from 'lucide-react';
 import { useState } from 'react';
 import { Accordion } from '@skeletonlabs/skeleton-react';

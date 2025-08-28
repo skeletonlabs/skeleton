@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { TagsInput } from '@skeletonlabs/skeleton-react';
 import { XCircle as IconDelete } from 'lucide-react';

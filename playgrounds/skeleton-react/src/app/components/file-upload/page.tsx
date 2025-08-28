@@ -1,5 +1,3 @@
-'use client';
-
 import { FileUpload, type FileUploadApi } from '@skeletonlabs/skeleton-react';
 
 import { ImagePlus as IconDropzone, Paperclip as IconFile, Upload as IconUpload, XCircle as IconRemove } from 'lucide-react';

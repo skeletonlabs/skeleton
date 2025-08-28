@@ -1,5 +1,3 @@
-'use client';
-
 import * as toast from '@zag-js/toast';
 import { normalizeProps, useMachine } from '@zag-js/react';
 import type { ToastProps } from './types.js';

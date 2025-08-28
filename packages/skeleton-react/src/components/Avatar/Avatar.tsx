@@ -1,5 +1,3 @@
-'use client';
-
 import { type FC, useId } from 'react';
 import * as avatar from '@zag-js/avatar';
 import { useMachine, normalizeProps } from '@zag-js/react';

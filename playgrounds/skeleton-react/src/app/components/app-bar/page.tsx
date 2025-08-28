@@ -1,5 +1,3 @@
-'use client';
-
 import { Skull } from 'lucide-react';
 
 import { AppBar } from '@skeletonlabs/skeleton-react';

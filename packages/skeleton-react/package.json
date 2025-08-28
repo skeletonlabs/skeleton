@@ -3,20 +3,23 @@
 	"version": "1.5.0-next.0",
 	"type": "module",
 	"scripts": {
-		"build": "tsc",
-		"dev": "tsc --watch",
+		"build": "unbuild",
+		"dev": "unbuild --watch",
 		"test": "vitest run",
 		"test:watch": "vitest run --watch"
 	},
 	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
+			"style": "./dist/index.css",
 			"types": "./dist/index.d.ts",
-			"default": "./dist/index.js"
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
 		},
 		"./composed": {
 			"types": "./dist/composed/index.d.ts",
-			"default": "./dist/composed/index.js"
+			"import": "./dist/composed/index.mjs",
+			"require": "./dist/composed/index.cjs"
 		}
 	},
 	"files": [
@@ -54,6 +57,7 @@
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"typescript": "catalog:",
+		"unbuild": "^3.5.0",
 		"vite": "^7.0.4",
 		"vitest": "^3.2.4"
 	}

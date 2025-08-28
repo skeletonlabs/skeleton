@@ -1,5 +1,3 @@
-'use client';
-
 import { type FC, useContext, useId } from 'react';
 import * as tabs from '@zag-js/tabs';
 import { useMachine, normalizeProps } from '@zag-js/react';

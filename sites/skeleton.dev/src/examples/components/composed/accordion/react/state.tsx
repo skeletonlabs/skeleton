@@ -1,5 +1,3 @@
-'use client';
-
 import { Accordion } from '@skeletonlabs/skeleton-react/composed';
 
 export default function () {

@@ -1,5 +1,3 @@
-'use client';
-
 import { useId } from 'react';
 import type { FC } from 'react';
 import { normalizeProps, useMachine } from '@zag-js/react';

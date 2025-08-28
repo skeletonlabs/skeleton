@@ -8,6 +8,7 @@
 	},
 	"exports": {
 		".": {
+			"style": "./dist/index.css",
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.cjs"
 		}

@@ -1,5 +1,3 @@
-'use client';
-
 import * as progress from '@zag-js/progress';
 import { normalizeProps, useMachine } from '@zag-js/react';
 import { useId } from 'react';

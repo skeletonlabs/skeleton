@@ -1,5 +1,3 @@
-'use client';
-
 import LightSwitch from './light-switch';
 import './globals.css';
 

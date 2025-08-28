@@ -1,5 +1,3 @@
-'use client';
-
 import { Plane as IconPlane, Sailboat as IconBoat, Car as IconCar } from 'lucide-react';
 import { useState } from 'react';
 

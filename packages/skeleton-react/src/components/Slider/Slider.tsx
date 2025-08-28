@@ -1,5 +1,3 @@
-'use client';
-
 import { type FC, useId } from 'react';
 
 import * as slider from '@zag-js/slider';

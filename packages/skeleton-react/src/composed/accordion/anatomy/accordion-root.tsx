@@ -1,5 +1,3 @@
-'use client';
-
 import { useId } from 'react';
 import * as accordion from '@zag-js/accordion';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';

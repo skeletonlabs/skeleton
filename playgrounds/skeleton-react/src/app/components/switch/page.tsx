@@ -1,5 +1,3 @@
-'use client';
-
 import { Check as IconCheck, X as IconX, Moon as IconMoon, Sun as IconSun, Frown as IconFrown, Smile as IconSmile } from 'lucide-react';
 import { useState } from 'react';
 

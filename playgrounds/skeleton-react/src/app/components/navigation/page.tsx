@@ -1,5 +1,3 @@
-'use client';
-
 import { Skull as IconLogo, Menu as IconMenu, Box as IconBox, Settings as IconSettings } from 'lucide-react';
 import { useState } from 'react';
 

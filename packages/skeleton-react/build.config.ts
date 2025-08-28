@@ -1,10 +1,9 @@
 import { defineBuildConfig } from 'unbuild';
 import { join } from 'node:path';
 import { copyFile } from 'node:fs/promises';
-import prefixStringLiterals from './build/rollup-plugin-prefix-string-literals.js';
 
 export default defineBuildConfig({
-	entries: ['./src/index.ts'],
+	entries: ['./src/index.ts', './src/composed/index.ts'],
 	declaration: true,
 	clean: true,
 	rollup: {
@@ -13,14 +12,6 @@ export default defineBuildConfig({
 	},
 	failOnWarn: false,
 	hooks: {
-		'rollup:options'(_, options) {
-			options.plugins?.push(
-				prefixStringLiterals('skb', {
-					include: ['**/src/classes/**'],
-					escapePrefix: '!!'
-				})
-			);
-		},
 		async 'build:done'(ctx) {
 			await copyFile('src/index.css', join(ctx.options.outDir, 'index.css'));
 		}

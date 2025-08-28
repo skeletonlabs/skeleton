@@ -1,5 +1,3 @@
-'use client';
-
 import { Switch } from '@skeletonlabs/skeleton-react';
 import { useEffect, useState } from 'react';
 

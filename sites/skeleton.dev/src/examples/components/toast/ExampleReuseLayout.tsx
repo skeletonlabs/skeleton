@@ -1,5 +1,3 @@
-'use client';
-
 import { Toaster } from '@skeletonlabs/skeleton-react';
 import { toaster } from './toaster-react';
 

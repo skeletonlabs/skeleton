@@ -1,5 +1,3 @@
-'use client';
-
 import { type FC, useEffect, useId } from 'react';
 import * as fileUpload from '@zag-js/file-upload';
 import { normalizeProps, useMachine } from '@zag-js/react';

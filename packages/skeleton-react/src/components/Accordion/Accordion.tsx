@@ -1,5 +1,3 @@
-'use client';
-
 import { useContext, useId } from 'react';
 import type { FC, JSX } from 'react';
 import * as accordion from '@zag-js/accordion';

@@ -1,5 +1,3 @@
-'use client';
-
 import { useContext } from 'react';
 import * as accordion from '@zag-js/accordion';
 import { mergeProps } from '@zag-js/react';

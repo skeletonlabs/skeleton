@@ -1,5 +1,3 @@
-'use client';
-
 import { type FC, useContext, useId } from 'react';
 import type { NavContextState, NavRailProps, NavBarProps, NavTileProps } from './types.js';
 import { NavContext } from './context.js';

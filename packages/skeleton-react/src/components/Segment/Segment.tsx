@@ -1,5 +1,3 @@
-'use client';
-
 import { type FC, useContext, useId } from 'react';
 import * as radio from '@zag-js/radio-group';
 import { useMachine, normalizeProps } from '@zag-js/react';

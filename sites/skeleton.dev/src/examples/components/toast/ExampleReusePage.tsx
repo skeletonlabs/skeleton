@@ -1,5 +1,3 @@
-'use client';
-
 import { toaster } from './toaster-react';
 
 export default function () {

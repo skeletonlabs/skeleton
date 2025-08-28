@@ -1,5 +1,3 @@
-'use client';
-
 import { Toaster, createToaster } from '@skeletonlabs/skeleton-react';
 
 export default function () {

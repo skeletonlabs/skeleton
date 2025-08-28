@@ -1,5 +1,3 @@
-'use client';
-
 import { ThermometerSun as IconThermometer } from 'lucide-react';
 import { useState } from 'react';
 

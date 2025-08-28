@@ -1,5 +1,3 @@
-'use client';
-
 import { Pagination } from '@skeletonlabs/skeleton-react';
 import { ChangeEvent, useState } from 'react';
 import {

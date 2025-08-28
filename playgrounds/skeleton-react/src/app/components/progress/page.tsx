@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 
 import { Progress } from '@skeletonlabs/skeleton-react';

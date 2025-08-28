@@ -1,5 +1,3 @@
-'use client';
-
 import { type FC, useId } from 'react';
 import * as tagsInput from '@zag-js/tags-input';
 import { useMachine, normalizeProps } from '@zag-js/react';

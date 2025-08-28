@@ -1,5 +1,3 @@
-'use client';
-
 import * as toast from '@zag-js/toast';
 import type { ToasterProps } from './types.js';
 import { Toast } from './Toast.js';
