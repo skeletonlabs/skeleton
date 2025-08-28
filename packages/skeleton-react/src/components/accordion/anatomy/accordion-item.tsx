@@ -14,7 +14,7 @@ export default function (props: AccordionItemProps) {
 	const attributes = mergeProps(
 		rootContext.api.getItemProps(itemProps),
 		{
-			class: classesAccordion.item
+			className: classesAccordion.item
 		},
 		restAttributes
 	);

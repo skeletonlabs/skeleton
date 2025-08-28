@@ -30,57 +30,6 @@ export default function RootLayout({
 								<a className="anchor" href="/components/avatar">
 									Avatar
 								</a>
-								<a className="anchor" href="/components/app-bar">
-									App Bar
-								</a>
-								<a className="anchor" href="/components/file-upload">
-									File Upload
-								</a>
-								<a className="anchor" href="/components/navigation">
-									Navigation
-								</a>
-								<a className="anchor" href="/components/rating">
-									Rating
-								</a>
-								<a className="anchor" href="/components/pagination">
-									Pagination
-								</a>
-								<a className="anchor" href="/components/progress">
-									Progress
-								</a>
-								<a className="anchor" href="/components/progress-ring">
-									Progress Rings
-								</a>
-								<a className="anchor" href="/components/segment">
-									Segment
-								</a>
-								<a className="anchor" href="/components/slider">
-									Slider
-								</a>
-								<a className="anchor" href="/components/switch">
-									Switch
-								</a>
-								<a className="anchor" href="/components/tabs">
-									Tabs
-								</a>
-								<a className="anchor" href="/components/tags-input">
-									Tags Input
-								</a>
-								<a className="anchor" href="/components/toast">
-									Toast
-								</a>
-							</nav>
-						</div>
-						{/* Composed (Experimental) */}
-						<div className="space-y-8">
-							<span className="block font-bold">Composed (Experimental)</span>
-							<nav className="text-sm flex flex-col gap-2">
-								<a className="anchor" href="/composed/accordion">
-									Accordion
-								</a>
-								<a className="anchor" href="/composed/avatar">
-									Avatar
-								</a>
 							</nav>
 						</div>
 					</div>

@@ -13,7 +13,7 @@ export default function (props: AccordionIndicatorProps) {
 	const attributes = mergeProps(
 		rootContext.api.getItemIndicatorProps(itemContext.itemProps),
 		{
-			class: classesAccordion.indicator
+			className: classesAccordion.indicator
 		},
 		restAttributes
 	);
