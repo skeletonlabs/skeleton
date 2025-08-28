@@ -65,8 +65,8 @@ Components are housed in the following location per framework:
 
 | Framework | Directory         |
 | --------- | ----------------- |
-| Svelte    | `/src/components` |
 | React     | `/src/components` |
+| Svelte    | `/src/components` |
 
 Skeleton uses a consistent naming convention per component:
 
@@ -123,6 +123,7 @@ import type { PropsWithElement } from '../../../internal/props-with-child.js';
 // Context API ---
 
 interface AvatarContext {
+	/** Implements the Avatar API */
 	api: avatar.Api;
 }
 
@@ -149,6 +150,7 @@ export type {
 - Component Context API types should use the naming convention: `{Component}Context`
 - Component prop types should use the naming convention: `{Component}{Part}Props`
 - Use `Omit<>` to avoid conflicting Zag props. Such as `id`, which we set automatically within most components.
+- Use [JSDoc comment blocks](https://jsdoc.app/) to document the intended usage.
 - React-Only: Implement `PropsWithChildren` for components that contain a child slot.
 - React-Only: Implement `ComponentProps` to describe the DOM element (ex: Img, Button, etc)
 
@@ -173,6 +175,44 @@ export { AvatarContext };
 <div class="card preset-tonal-warning preset-outlined-warning-500 p-8 space-y-8">
 	TODO: we need a detailed walkthrough on translating Zag primitives to components
 </div>
+
+### Source Code
+
+To obtain component source code, locate each respective component on the Zag website.
+
+| Framework | Directory                                                       |
+| --------- | --------------------------------------------------------------- |
+| React     | [Avatar Docs](https://zagjs.com/components/react/avatar#usage)  |
+| Svelte    | [Avatar Docs](https://zagjs.com/components/svelte/avatar#usage) |
+
+In most cases, Zag presents all source code in a single file. Take care when splitting this into multiple component parts. Most source should be defined in the component root - including the primitive imports, and defining the `machine` and `api`.
+
+```
+(code example here)
+```
+
+### Context API
+
+In some cases you may need to pass data from the parent root component, down to the children. For this, we can utilize each framework's Context API:
+
+| Framework | Documentation                                                                                               |
+| --------- | ----------------------------------------------------------------------------------------------------------- |
+| React     | [View Component API docs](https://svelte.dev/docs/kit/state-management#Using-state-and-stores-with-context) |
+| Svelte    | [View Component API docs](https://react.dev/learn/passing-data-deeply-with-context)                         |
+
+```
+(code example here)
+```
+
+### Common Conventions
+
+While each component will present a unique set of requirements, we recommend you adhere to the following common conventions.
+
+- React-Only: Replace the hardcoded `id` with `useId()`, to generate a unique ID per component
+- Svelte-Only: Replace the hardcoded `id` with `$props.id()`, to inheret a use-provided ID.
+- Avoid hardcoded text or icons. Implement a means for users to override these (props, snippets, sub-components).
+- (another)...
+- (another)...
 
 ---
 
@@ -248,3 +288,31 @@ export default function (props: NavigationRootPropps) {
 	return <div className={classesAvatar.root}>...</div>;
 }
 ```
+
+## Component Exports
+
+Finally, make sure components are included in the package export list.
+
+### React
+
+Found in `/src/lib/index.ts`.
+
+```ts
+export * from '../components/Foo/index.js';
+export * from '../components/Bar/index.js';
+```
+
+### Svelte
+
+Found in `/src/lib/index.ts`.
+
+```ts
+export { default as Foo } from './components/Foo.svelte';
+export { default as Bar } from './components/Bar.svelte';
+```
+
+## Additional Resources
+
+- [Component Party](https://component-party.dev/) - easily compare features between each framework
+- [React Documentation](https://react.dev/) - the React documentation website.
+- [Svelte Documentation](https://svelte.dev/) - the Svelte documentation website.
