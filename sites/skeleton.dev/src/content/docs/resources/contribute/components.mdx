@@ -23,9 +23,43 @@ The following represents the _default_ localhost address and port for each proje
 - SvelteKit Playground: `http://localhost:5173/`
 - NextJS Playground: `http://localhost:3000/`
 
-You may run the documentation site and framework packages in parallel at the same time. If the server shares a port, this will increment by one for the next server (ex: `5174`, `5175`, etc). Keep your eye on the terminal to retrieve the specific local address.
+You may run the sites and playgrounds in parallel at the same time. If a server shares a port, this will increment by one for the next server (ex: `5174`, `5175`, etc). Keep your eye on the terminal to retrieve the specific local address for each.
 
-## Add Components
+### Zag.js
+
+Skeleton components are built using a foundation of [Zag.js](https://zagjs.com/). This provides a suite of headless component primitives that handle logic and state, while providing a universal set of features per all supported frameworks. The Skeleton design system is then implemented as a layer on top of this.
+
+When introducing a new Skeleton component, please refer to the documentation for each respective framework. For example:
+
+- Avatar (React): https://zagjs.com/components/react/avatar
+- Avatar (Svelte): https://zagjs.com/components/svelte/avatar
+
+Continue reading below to learn how implement the Zag primitives as components using Skeleton-specific conventions.
+
+---
+
+## Adding Components
+
+### Anatomy
+
+When creating a component, start by breaking it down into its core parts. If the component utilizes a [Zag primitive](https://zagjs.com/components/svelte/avatar), you may copy the source [directly from Zag's Usage section](https://zagjs.com/components/svelte/avatar#usage). For custom in-house components, you may use Skeleton's common terminology and discuss the potential anatomy with the Skeleton team.
+
+For exapmle, the Zag Avatar component utilizes the following DOM structure:
+
+```html
+<div>
+	<img />
+	<span>...</span>
+</div>
+```
+
+We typically implement one component respective of each element:
+
+- `<Avatar>`
+- `<Avatar.Image>`
+- `<Avatar.Fallback>`
+
+### Directory and File Names
 
 Components are housed in the following location per framework:
 
@@ -34,370 +68,183 @@ Components are housed in the following location per framework:
 | Svelte    | `/src/components` |
 | React     | `/src/components` |
 
-Use the following path and filename conventions when creating a new component:
+Skeleton uses a consistent naming convention per component:
 
 ```
-/components
-    /<component>
-        <component>.{svelte|tsx|...}
-        <component>.test.ts
-		index.ts
-        types.ts
+avatar/
+├── anatomy/
+│   ├── avatar-fallback.{tsx|svelte}
+│   ├── avatar-image.{tsx|svelte}
+│   └── avatar-root.{tsx|svelte}
+├── modules/
+│   ├── anatomy.ts
+│   ├── context.ts
+│   └── types.ts
+└── index.ts
 ```
 
----
+### Anatomy Folder
 
-## Zag.js
+The anatomy folder contains each component part inside a seperate file.
 
-Skeleton components are built atop a foundation of [Zag.js](https://zagjs.com/). This provides a suite of headless component primitives that handle logic and state, while providing a universal set of features. The Skeleton design system is then implemented as a layer on top of this.
+### Modules Folder
 
-When introducing a new Skeleton component, please refer to the documentation for each respective framework. For example:
+The modules folder contains three files, which we'll cover below.
 
-- Avatar (React): https://zagjs.com/components/react/avatar
-- Avatar (Svelte): https://zagjs.com/components/svelte/avatar
+#### Anatomy File
 
-In most cases you can follow the documentation instructions verbatim to generate the foundation for the new component. Please refer to other components for specific implementation details. Continue reading below to learn how to further augment the component with all Skeleton-specific conventions.
+The `anatomy.ts` file contains the exported anatomy, which enables the friendly dot notation syntax when consumed.
 
----
+```ts title="anatomy.ts"
+import AvatarRoot from '../anatomy/avatar-root.js';
+import AvatarImage from '../anatomy/avatar-image.js';
+import AvatarFallback from '../anatomy/avatar-fallback.js';
 
-## Props
+const Avatar = Object.assign(
+	AvatarRoot, // <Avatar>
+	{
+		Image: AvatarImage, // <Avatar.Image>
+		Fallback: AvatarFallback // <Avatar.Fallback>
+	}
+);
 
-Skeleton designates a few categories of component properties. These should be maintained in the following order.
-
-```ts
-let {
-	// Functional
-	open = false,
-	// Style
-	base ='...',
-	bg = '...',
-	classes = '...',
-	// Event
-	onclick = () => {},
-	// Snippets
-	lead
-	trail
-	children,
-	// Zag (when applicable)
-	...zagProps
-}: Props = $props();
+export { Avatar };
 ```
 
-- **Functional** - these should be single instance props that directly affect the functionality of the component.
-- **Style** - contain and accept Tailwind utility classes to affect the style of the component.
-- **Event** - provide callback functions for external event handlers.
-- **Children** - contain reference to React children, Svelte Snippets, or similar.
-- **Zag** - when applicable, these rest props that are spread directly into the Zag machine.
+#### Types File
 
-### Style Prop Conventions
-
-Style props implement semantic naming conventions to enable specificity and avoid naming conflicts. These are organized into three specific categories. Each should be maintained in the following order.
-
-```svelte
-<script lang="ts">
-	let {
-		// Parent
-		base = '...',
-		bg = '...',
-		classes = '...',
-		// Control
-		controlBase = '...',
-		controlBg = '...',
-		controlClasses = '...',
-		// Panel
-		panelBase = '...',
-		panelBg = '...',
-		panelPadding = '...',
-		panelClasses = '...'
-	}: Props = $props();
-</script>
-
-<!-- Parent -->
-<div class="{base} {bg} {classes}">
-	<!-- Control -->
-	<div class="{controlBase} {controlBg} {controlClasses}">...</div>
-	<!-- Panel -->
-	<div class="{panelBase} {panelBg} {panelPadding} {panelClasses}">...</div>
-</div>
-```
-
-- `base` - houses any structural utility classes, which can be replaced in a faux-headless manner.
-  - The outermost element is referred to as the Parent in this context. Elements within are children.
-  - Parent props are not prefixed, which helps maintain parity cross-framework
-  - Child props are prefixed: `titleBase`, `panelBase`, `controlBase`.
-- `{property}` - individual style props that house one or more “swappable” utility classes.
-  - Naming should follow Tailwind convention, except for single letter descriptors (ex: `padding` instead of `p`).
-  - Parent props are not prefixed: `background`, `margin`, `border`.
-  - Child props are prefixed: `titleBg`, `controlMargin`, `panelBorder`.
-- `classes` - allows you to extend or override the class list with an arbitrary set of utility classes.
-  - Uses `classes` (plural) to avoid conflict with the standard `class` attribute.
-  - Parent instances are not prefixed: `classes`
-  - Child instances are prefixed: `titleClasses`, `controlClasses`, `panelClasses`
-
-### Dynamic Style Props
-
-You may need to conditionally update or swap between one or more sets of style prop classes. For this, we will use an derivative pattern as demonstrated below.
-
-```svelte
-<script lang="ts">
-	let {
-		active = true,
-		// ...
-		fooActive = '...',
-		fooInactive = '...'
-		// ...
-	}: Props = $props();
-
-	// Derivative
-	const activeClasses = $derived(active ? fooActive : fooInactive);
-</script>
-
-<div class="{base} {activeClasses} {classes}">...</div>
-```
-
-> TIP: Use this convention in React as well, but does not require explicit derival. React automatically re-renders when stateful props change.
-
----
-
-## Type Definitions
-
-All component props should be strongly typed using Typescript. Each prop should be described using [JSDoc](https://jsdoc.app/about-getting-started) comments. This provides additional context through Intellisense features of text editors and IDEs and helps generate the schema used for API references on each documentation page.
+The `types.ts` file contains the exported types for each part and context:
 
 ```ts title="types.ts"
-export interface <component>Props {
-	/** Sets the open state of the item. */
-	open?: boolean;
+import * as avatar from '@zag-js/avatar';
+import type { ComponentProps, PropsWithChildren } from 'react';
+import type { PropsWithElement } from '../../../internal/props-with-child.js';
 
-	// Parent ---
-	/** Set the parent base styles. */
-	base?: string;
-	/** Set the parent background styles. */
-	background?: string;
-	/** Provide the parent a set of arbitrary classes. */
-	classes?: string;
+// Context API ---
 
-	// Lead ---
-	/** Sets the lead snippet element's base styles. */
-	leadBase?: string;
-	/** Sets the lead snippet element's padding styles. */
-	leadPadding?: string;
-	/** Provide arbitrary CSS classes to the lead snippet. */
-	leadClasses?: string;
-
-	// Children ---
-	/** The default slot contents within the component. */
-	children?: Snippet;
-}
-```
-
-- The type file should be co-located with the component and named `types.ts`.
-- The interface name should match `<component>Props`.
-- Use comments to denote blocks of related props.
-- Keep each prop description short and semantic.
-- The order should match prop implementation.
-
-## Context API
-
-### Svelte
-
-Skeleton expands the [Svelte Context API](https://svelte.dev/docs/svelte#setcontext) via a utility called `createContext`. This adds the following functionality.
-
-- Generates a unique key using the [Symbol API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol).
-- Ensures type safety when getting and setting context.
-- Allows for a fallback when there is no context provided.
-
-Here's an example of how this can be used:
-
-```ts
-import { createContext } from '$lib/internal/create-context.js';
-
-interface Session {
-	user: 'foo' | 'bar';
+interface AvatarContext {
+	api: avatar.Api;
 }
 
-export const [setSession, getSession] = createContext<Session>({ user: 'foo' });
+// Components ---
+
+interface AvatarRootProps
+	extends PropsWithChildren,
+		PropsWithElement,
+		Omit<avatar.Props, 'id'>,
+		Omit<ComponentProps<'div'>, 'id' | 'dir'> {}
+
+interface AvatarImageProps extends PropsWithElement, ComponentProps<'img'> {}
+
+interface AvatarFallbackProps extends PropsWithChildren, PropsWithElement, ComponentProps<'span'> {}
+
+export type {
+	AvatarRootContext
+	AvatarRootProps
+	AvatarImageProps
+	AvatarFallbackProps
+};
 ```
 
-This can then be consumed as follows:
+- Component Context API types should use the naming convention: `{Component}Context`
+- Component prop types should use the naming convention: `{Component}{Part}Props`
+- Use `Omit<>` to avoid conflicting Zag props. Such as `id`, which we set automatically within most components.
+- React-Only: Implement `PropsWithChildren` for components that contain a child slot.
+- React-Only: Implement `ComponentProps` to describe the DOM element (ex: Img, Button, etc)
 
-```ts
-import { setSession, getSession } from './context.js';
+#### Context File
 
-// Must be set as type of Session:
-setSession({ user: 'bar' });
+The `context.ts` file contains the exported context for each part and context. This enables strong typing.
 
-// Returns as type of Session:
-const session = getSession();
-```
+```ts title="context.ts"
+import { createContext } from 'react';
+import type { AvatarContext as AvatarContextType } from './types.js';
 
-## Form Components
+const AvatarContext = createContext<AvatarContextType>(null!);
 
-When implementing form components (ex: Segment Control), please adhere to the following conventions:
-
-- For components with a parent/child structure, pass all shared values through the parent.
-- Data in should use a `value` prop, while data out should use an `onValueChange` event handler.
-- When supported by the framework, use of two-way binding for the `value` is encouraged.
-- Pass state that's unique to the child components directly to each child item.
-- When embedding form inputs within components for state management, always use `type="hidden"`.
-
-See the examples per each framework below.
-
-### Svelte
-
-```svelte
-<script lang="ts">
-	let value = $state('chocolate');
-</script>
-
-<Segment {value} onValueChange={(e) => (value = e.value)} name="flavors">
-	<Segment.Item id="chocolate" value="chocolate">Chocolate</Segment.Item>
-	<Segment.Item id="strawberry" value="strawberry">Strawberry</Segment.Item>
-</Segment>
-```
-
-### React
-
-```tsx
-const [value, setValue] = useState('chocolate');
-
-return (
-	<Segment value={value} onValueChange={(e) => setValue(e.value)} name="flavors">
-		<Segment.Item id="chocolate" value="chocolate">
-			Chocolate
-		</Segment.Item>
-		<Segment.Item id="strawberry" value="strawberry">
-			Strawberry
-		</Segment.Item>
-	</Segment>
-);
-```
-
-## Component Schema
-
-When you add or change component `types.ts` data, new schema data will be generated to populate the component's API Reference in each component's documentation page. This should generate automatically, but can be triggered using `pnpm schema` in the monorepo root. In most cases you you should only need to implement the follow component in the page to display the generated schema data. The schema path will be discovered automatically, and no import is required.
-
-```mdx
-## API Reference
-
-<ApiTable />
-```
-
-Generated schemas reside in the documentation project, within the following directory.
-
-```
-/src/content/schemas/{framework}/{component}.json
+export { AvatarContext };
 ```
 
 ---
 
-## Animations
+## Using Zag Primitives
 
-Skeleton opts for what we feel is the most optimal solution for animations per framework. This means implementation and capabilities may differ slightly for each. Please refer to the [Accordion](/docs/components/accordion/react) component source code as reference.
-
-| Package                     | Solution                                                       |
-| --------------------------- | -------------------------------------------------------------- |
-| `/packages/skeleton-svelte` | [Svelte Transition](https://svelte.dev/docs/svelte-transition) |
-| `/packages/skeleton-react`  | [Zag Presence](https://zagjs.com/components/react/presence)    |
+{/* prettier-ignore */}
+<div class="card preset-tonal-warning preset-outlined-warning-500 p-8 space-y-8">
+	TODO: we need a detailed walkthrough on translating Zag primitives to components
+</div>
 
 ---
 
-## Composed Pattern
+## Styling Components
 
-To keep component syntax consistent cross-framework, we utilize what we refer to as a "composed pattern". Components are composed using a set of smaller components, named slots, or snippets - depending on the framework. Implementation differs per framework.
+Styles are common and shared between all framework iterations of the same component. These reside in the `skeleton-common` package and are named to match their respective component.
 
-### React
-
-For React, this is handled via piecemeal components using a dot notation syntax, as described in the section below.
-
-```tsx
-<Accordion>
-	<Accordion.Item>
-		<Accordion.Lead>(lead)</Accordion.Lead>
-		<Accordion.Control>(control)</Accordion.Control>
-		<Accordion.Panel>(panel)</Accordion.Panel>
-	</Accordion.Item>
-</Accordion>
+```
+packages/
+└── skeleton-common/
+	└── src/
+		└── classes/
+			├── accordion.ts
+			├── avatar.ts
+			└── ...
 ```
 
-### Svelte
+Here's an example of the Avatar styles found in `avatar.ts`:
 
-This is handled by pairing child components with [Svelte snippets](https://svelte-5-preview.vercel.app/docs/snippets).
-
-```svelte
-<Accordion>
-	<Accordion.Item>
-		{#snippet controlLead()}(lead){/snippet}
-		{#snippet control()}(control){/snippet}
-		{#snippet panel()}(panel){/snippet}
-	</Accordion.Item>
-</Accordion>
+```ts title="avatar.ts"
+export const classesAvatar = {
+	root: 'isolate bg-surface-400-600 size-16 rounded-full overflow-hidden',
+	image: 'w-full object-cover',
+	fallback: 'size-full flex justify-center items-center'
+};
 ```
 
-## Dot Notation Syntax
+- Use the naming convention of `classes{Component}`
+- Create a key for each component part.
+- Set the value to each component's default class list.
 
-The implementation of this will differ per component framework.
+### Style Prefix
 
-### React
+During build time, Skeleton will automatically prefix each class in the class list with `skb:`. The purpose of this prefix is to assign each class to the Tailwind `@base` layer, ensuring user-provided classes take precedence over these classes. This is accomplished using the following Tailwind custom variant.
 
-To implement this, we use `Object.assign()`
-
-```ts
-Object.assign(Root, { Child1, Child2, Child3 });
-```
-
-For example, the accordion component would be setup as follows as the bottom of the `Accordion.tsx` file.
-
-```ts
-export const Accordion = Object.assign(
-	AccordionRoot, // -> <Accordion>
-	{
-		Item: AccordionItem, // -> <Accordion.Item>
-		Control: AccordionControl, // -> <Accordion.Control>
-		Panel: AccordionPanel // -> <Accordion.Panel>
+```css title="base.css"
+@custom-variant skb {
+	@layer base {
+		@slot;
 	}
-);
+}
 ```
 
-### Svelte
+> NOTE: This is implemented in `/packages/skeleton/src/variants/base.css`
 
-Create a new `index.ts` file colocated within the `/component/<ComponentName>` directory:
+### Importing Class Lists
 
-```ts
-import Accordion from './Accordion.svelte';
-import AccordionItem from './AccordionItem.svelte';
+For Zag primitives, you can import and implement each class list Using Zag's `mergeProps` utility for attributes.
 
-export const Accordion = Object.assign(
-	Accordion, // -> <Accordion>
-	{
-		Item: AccordionItem // -> <Accordion.Item>
-	}
-);
+```tsx title="avatar-root.tsx" {1,2,9}
+import { mergeProps } from '@zag-js/react';
+import { classesAvatar } from '@skeletonlabs/skeleton-common';
+
+export default function (props: AvatarRootProps) {
+	// ...
+
+	const attributes = mergeProps(
+		// api.getRootProps(),
+		{ className: classesAvatar.root }
+		// restAttributes
+	);
+
+	// return();
+}
 ```
 
-## Component Exports
+For custom components (not Zag-based), simply append the class list to the end of the `class` attribute:
 
-Finally, make sure components are included in the package export list.
+```tsx title="navigation-root.tsx" {1,4}
+import { classesAvatar } from '@skeletonlabs/skeleton-common';
 
-### React
-
-Found in `/src/lib/index.ts`.
-
-```ts
-export * from '../components/Foo/index.js';
-export * from '../components/Bar/index.js';
+export default function (props: NavigationRootPropps) {
+	return <div className={classesAvatar.root}>...</div>;
+}
 ```
-
-### Svelte
-
-Found in `/src/lib/index.ts`.
-
-```ts
-export { default as Foo } from './components/Foo.svelte';
-export { default as Bar } from './components/Bar.svelte';
-```
-
-## Additional Resources
-
-- [Component Party](https://component-party.dev/) - easily compare features between each framework
-- [React Documentation](https://react.dev/) - the React documentation website.
-- [Svelte Documentation](https://svelte.dev/) - the Svelte documentation website.
