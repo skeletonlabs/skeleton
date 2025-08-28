@@ -3,15 +3,7 @@
 	// Themes
 	import { themes } from '@skeletonlabs/skeleton-common';
 	// Utils
-	import { importThemeV2 } from '$lib/utils/importer/import-theme-v2';
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
-	// import { importThemeV3Rc1 } from '$lib/utils/importer/import-theme-v3-rc1';
-	// Components (skeleton)
-	// import { FileUpload } from '@skeletonlabs/skeleton-svelte';
-	// Icons
-	import IconUpload from '@lucide/svelte/icons/file-up';
-	import IconFile from '@lucide/svelte/icons/paperclip';
-	import IconRemove from '@lucide/svelte/icons/circle-x';
 
 	const defaultThemeName = 'cerberus';
 
@@ -29,31 +21,30 @@
 		goto('/themes/create');
 	}
 
-	// @ts-expect-error type
-	async function onFileUpload(event) {
-		if (event.acceptedFiles.length <= 0) return;
-		// Reset to default theme
-		resetToDefaults();
-		// Gather Theme Data
-		const fileName = event.acceptedFiles[0].name;
-		const file = event.acceptedFiles[0];
-		const fileText = await file.text();
-		const isCssFormat = fileName.includes('.css');
+	// async function onFileUpload(event) {
+	// 	if (event.acceptedFiles.length <= 0) return;
+	// 	// Reset to default theme
+	// 	resetToDefaults();
+	// 	// Gather Theme Data
+	// 	const fileName = event.acceptedFiles[0].name;
+	// 	const file = event.acceptedFiles[0];
+	// 	const fileText = await file.text();
+	// 	const isCssFormat = fileName.includes('.css');
 
-		// Run Importer
-		if (isCssFormat) {
-			importThemeV3(fileText, fileName);
-		} else {
-			importThemeV2(fileText, fileName);
-		}
+	// 	// Run Importer
+	// 	if (isCssFormat) {
+	// 		importThemeV3(fileText, fileName);
+	// 	} else {
+	// 		importThemeV2(fileText, fileName);
+	// 	}
 
-		// ******** DEBUG ONLY ********
-		// importThemeV3Rc1(fileText, fileName);
-		// ************ / *************
+	// 	// ******** DEBUG ONLY ********
+	// 	// importThemeV3Rc1(fileText, fileName);
+	// 	// ************ / *************
 
-		// Redirect to Generator page
-		goto('/themes/create');
-	}
+	// 	// Redirect to Generator page
+	// 	goto('/themes/create');
+	// }
 </script>
 
 <div class="space-y-10">
