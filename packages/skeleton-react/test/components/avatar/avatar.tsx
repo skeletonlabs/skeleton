@@ -1,4 +1,4 @@
-import { Avatar } from '../../../src/composed/index.js';
+import { Avatar } from '../../../src/index.js';
 
 export default function () {
 	return (

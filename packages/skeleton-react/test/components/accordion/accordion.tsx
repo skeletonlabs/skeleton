@@ -1,4 +1,4 @@
-import { Accordion } from '../../../src/composed/index.js';
+import { Accordion } from '../../../src/index.js';
 
 export default function () {
 	return (

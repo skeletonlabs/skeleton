@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Avatar } from '@skeletonlabs/skeleton-svelte/composed';
+	import { Avatar } from '../../../src/index.js';
 </script>
 
 <Avatar data-testid="root">
