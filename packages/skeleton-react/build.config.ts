@@ -11,7 +11,9 @@ export default defineBuildConfig({
 		output: {
 			preserveModules: true
 		},
-		inlineDependencies: true
+		esbuild: {
+			jsx: 'automatic'
+		}
 	},
 	failOnWarn: false,
 	hooks: {
