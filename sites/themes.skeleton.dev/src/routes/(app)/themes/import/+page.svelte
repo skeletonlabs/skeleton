@@ -7,7 +7,7 @@
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
 	// import { importThemeV3Rc1 } from '$lib/utils/importer/import-theme-v3-rc1';
 	// Components (skeleton)
-	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
+	// import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconUpload from '@lucide/svelte/icons/file-up';
 	import IconFile from '@lucide/svelte/icons/paperclip';
@@ -58,7 +58,7 @@
 
 <div class="space-y-10">
 	<!-- Upload -->
-	<FileUpload
+	<!-- <FileUpload
 		name="file"
 		accept=".css, .ts, .js"
 		maxFiles={1}
@@ -71,7 +71,7 @@
 		{#snippet iconInterface()}<IconUpload class="size-16" />{/snippet}
 		{#snippet iconFile()}<IconFile class="size-4" />{/snippet}
 		{#snippet iconFileRemove()}<IconRemove class="size-4" />{/snippet}
-	</FileUpload>
+	</FileUpload> -->
 	<!-- Text -->
 	<div class="flex justify-center gap-4">
 		<span class="opacity-10">&mdash;</span>

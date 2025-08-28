@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tabs } from '@skeletonlabs/skeleton-svelte';
+	// import { Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Constants
 	import * as constants from '$lib/constants/generator';
 	// State
@@ -36,7 +36,7 @@
 		</div>
 	</div>
 	<!-- Palette and Contrast -->
-	<Tabs value={category} onValueChange={(e) => (category = e.value as typeof category)} fluid>
+	<!-- <Tabs value={category} onValueChange={(e) => (category = e.value as typeof category)} fluid>
 		{#snippet list()}
 			<Tabs.Control value="base">Base</Tabs.Control>
 			<Tabs.Control value="headings">Headings</Tabs.Control>
@@ -47,12 +47,12 @@
 				{#if category === 'base'}Set global defaults for text colors and font styles.{/if}
 				{#if category === 'headings'}Adjust headings (H1-H6) text color and font styles.{/if}
 				{#if category === 'anchors'}Adjust anchor link text color and font styles.{/if}
-			</p>
-			<!-- Panel: Base -->
-			<Tabs.Panel value="base">
-				<div class="grid grid-cols-2 gap-4">
-					<!-- --base-font-color -->
-					<label class="label space-y-2">
+			</p> -->
+	<!-- Panel: Base -->
+	<!-- <Tabs.Panel value="base">
+				<div class="grid grid-cols-2 gap-4"> -->
+	<!-- --base-font-color -->
+	<!-- <label class="label space-y-2">
 						<span class="label-text">Light Mode Font Color</span>
 						<div
 							class="w-full h-4 border border-surface-200-800 rounded-base"
@@ -68,9 +68,9 @@
 								</optgroup>
 							{/each}
 						</select>
-					</label>
-					<!-- --base-font-color-dark -->
-					<label class="label space-y-2">
+					</label> -->
+	<!-- --base-font-color-dark -->
+	<!-- <label class="label space-y-2">
 						<span class="label-text">Dark Mode Font Color</span>
 						<div
 							class="w-full h-4 border border-surface-200-800 rounded-base"
@@ -86,54 +86,54 @@
 								</optgroup>
 							{/each}
 						</select>
-					</label>
-					<!-- --base-font-family -->
-					<label class="label col-span-2">
+					</label> -->
+	<!-- --base-font-family -->
+	<!-- <label class="label col-span-2">
 						<span class="label-text">Font Family</span>
 						<select class="select" name="--base-font-family" bind:value={settingsTypography['--base-font-family']}>
 							= {#each constants.fontFamilies as fontFamily}
 								<option value={fontFamily}>{fontFamily}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --base-font-size -->
-					<label class="label">
+					</label> -->
+	<!-- --base-font-size -->
+	<!-- <label class="label">
 						<span class="label-text">Font Size</span>
 						<select class="select" name="--base-font-size" bind:value={settingsTypography['--base-font-size']}>
 							{#each constants.fontSizes as fontSize}
 								<option value={fontSize}>{fontSize}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --base-line-height -->
-					<label class="label">
+					</label> -->
+	<!-- --base-line-height -->
+	<!-- <label class="label">
 						<span class="label-text">Line Height</span>
 						<select class="select" name="--base-line-height" bind:value={settingsTypography['--base-line-height']}>
 							{#each constants.lineHeights as lineHeight}
 								<option value={lineHeight}>{lineHeight}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --base-font-weight -->
-					<label class="label">
+					</label> -->
+	<!-- --base-font-weight -->
+	<!-- <label class="label">
 						<span class="label-text">Font Weight</span>
 						<select class="select" name="--base-font-weight" bind:value={settingsTypography['--base-font-weight']}>
 							{#each constants.fontWeights as fontWeight}
 								<option value={fontWeight}>{fontWeight}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --base-font-style -->
-					<label class="label">
+					</label> -->
+	<!-- --base-font-style -->
+	<!-- <label class="label">
 						<span class="label-text">Font Style</span>
 						<select class="select" name="--base-font-style" bind:value={settingsTypography['--base-font-style']}>
 							{#each constants.fontStyles as fontStyle}
 								<option value={fontStyle}>{fontStyle}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --base-letter-spacing -->
-					<label class="label">
+					</label> -->
+	<!-- --base-letter-spacing -->
+	<!-- <label class="label">
 						<span class="label-text">Letter Spacing</span>
 						<select class="select" name="--base-letter-spacing" bind:value={settingsTypography['--base-letter-spacing']}>
 							{#each constants.letterSpacings as letterSpacing}
@@ -142,13 +142,13 @@
 						</select>
 					</label>
 				</div>
-			</Tabs.Panel>
+			</Tabs.Panel> -->
 
-			<!-- Panel: Headings -->
-			<Tabs.Panel value="headings">
-				<div class="grid grid-cols-2 gap-4">
-					<!-- --heading-font-color -->
-					<label class="label space-y-2">
+	<!-- Panel: Headings -->
+	<!-- <Tabs.Panel value="headings">
+				<div class="grid grid-cols-2 gap-4"> -->
+	<!-- --heading-font-color -->
+	<!-- <label class="label space-y-2">
 						<span class="label-text">Light Mode Font Color</span>
 						<div
 							class="w-full h-4 border border-surface-200-800 rounded-base"
@@ -167,9 +167,9 @@
 								</optgroup>
 							{/each}
 						</select>
-					</label>
-					<!-- --heading-font-color-dark -->
-					<label class="label space-y-2">
+					</label> -->
+	<!-- --heading-font-color-dark -->
+	<!-- <label class="label space-y-2">
 						<span class="label-text">Dark Mode Font Color</span>
 						<div
 							class="w-full h-4 border border-surface-200-800 rounded-base"
@@ -188,36 +188,36 @@
 								</optgroup>
 							{/each}
 						</select>
-					</label>
-					<!-- --heading-font-family -->
-					<label class="label col-span-2">
+					</label> -->
+	<!-- --heading-font-family -->
+	<!-- <label class="label col-span-2">
 						<span class="label-text">Font Family</span>
 						<select class="select" name="--heading-font-family" bind:value={settingsTypography['--heading-font-family']}>
 							= {#each constants.fontFamilies as fontFamily}
 								<option value={fontFamily}>{fontFamily}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --heading-font-weight -->
-					<label class="label">
+					</label> -->
+	<!-- --heading-font-weight -->
+	<!-- <label class="label">
 						<span class="label-text">Font Weight</span>
 						<select class="select" name="--heading-font-weight" bind:value={settingsTypography['--heading-font-weight']}>
 							{#each constants.fontWeights as fontWeight}
 								<option value={fontWeight}>{fontWeight}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --heading-font-style -->
-					<label class="label">
+					</label> -->
+	<!-- --heading-font-style -->
+	<!-- <label class="label">
 						<span class="label-text">Font Style</span>
 						<select class="select" name="--heading-font-style" bind:value={settingsTypography['--heading-font-style']}>
 							{#each constants.fontStyles as fontStyle}
 								<option value={fontStyle}>{fontStyle}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --heading-letter-spacing -->
-					<label class="label">
+					</label> -->
+	<!-- --heading-letter-spacing -->
+	<!-- <label class="label">
 						<span class="label-text">Letter Spacing</span>
 						<select class="select" name="--heading-letter-spacing" bind:value={settingsTypography['--heading-letter-spacing']}>
 							{#each constants.letterSpacings as letterSpacing}
@@ -226,13 +226,13 @@
 						</select>
 					</label>
 				</div>
-			</Tabs.Panel>
+			</Tabs.Panel> -->
 
-			<!-- Panel: Anchors -->
-			<Tabs.Panel value="anchors">
-				<div class="grid grid-cols-2 gap-4">
-					<!-- --anchor-font-color -->
-					<label class="label space-y-2">
+	<!-- Panel: Anchors -->
+	<!-- <Tabs.Panel value="anchors">
+				<div class="grid grid-cols-2 gap-4"> -->
+	<!-- --anchor-font-color -->
+	<!-- <label class="label space-y-2">
 						<span class="label-text">Light Mode Font Color</span>
 						<div
 							class="w-full h-4 border border-surface-200-800 rounded-base"
@@ -250,9 +250,9 @@
 								</optgroup>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-font-color-dark -->
-					<label class="label space-y-2">
+					</label> -->
+	<!-- --anchor-font-color-dark -->
+	<!-- <label class="label space-y-2">
 						<span class="label-text">Dark Mode Font Color</span>
 						<div
 							class="w-full h-4 border border-surface-200-800 rounded-base"
@@ -270,90 +270,90 @@
 								</optgroup>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-font-family -->
-					<label class="label col-span-2">
+					</label> -->
+	<!-- --anchor-font-family -->
+	<!-- <label class="label col-span-2">
 						<span class="label-text">Font Family</span>
 						<select class="select" name="--anchor-font-family" bind:value={settingsTypography['--anchor-font-family']}>
 							= {#each constants.fontFamilies as fontFamily}
 								<option value={fontFamily}>{fontFamily}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-font-size -->
-					<label class="label">
+					</label> -->
+	<!-- --anchor-font-size -->
+	<!-- <label class="label">
 						<span class="label-text">Font Size</span>
 						<select class="select" name="--anchor-font-size" bind:value={settingsTypography['--anchor-font-size']}>
 							{#each constants.fontSizes as fontSize}
 								<option value={fontSize}>{fontSize}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-line-height -->
-					<label class="label">
+					</label> -->
+	<!-- --anchor-line-height -->
+	<!-- <label class="label">
 						<span class="label-text">Line Height</span>
 						<select class="select" name="--anchor-line-height" bind:value={settingsTypography['--anchor-line-height']}>
 							{#each constants.lineHeights as lineHeight}
 								<option value={lineHeight}>{lineHeight}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-font-weight -->
-					<label class="label">
+					</label> -->
+	<!-- --anchor-font-weight -->
+	<!-- <label class="label">
 						<span class="label-text">Font Weight</span>
 						<select class="select" name="--anchor-font-weight" bind:value={settingsTypography['--anchor-font-weight']}>
 							{#each constants.fontWeights as fontWeight}
 								<option value={fontWeight}>{fontWeight}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-font-style -->
-					<label class="label">
+					</label> -->
+	<!-- --anchor-font-style -->
+	<!-- <label class="label">
 						<span class="label-text">Font Style</span>
 						<select class="select" name="--anchor-font-style" bind:value={settingsTypography['--anchor-font-style']}>
 							{#each constants.fontStyles as fontStyle}
 								<option value={fontStyle}>{fontStyle}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-letter-spacing -->
-					<label class="label">
+					</label> -->
+	<!-- --anchor-letter-spacing -->
+	<!-- <label class="label">
 						<span class="label-text">Letter Spacing</span>
 						<select class="select" name="--anchor-letter-spacing" bind:value={settingsTypography['--anchor-letter-spacing']}>
 							{#each constants.letterSpacings as letterSpacing}
 								<option value={letterSpacing}>{letterSpacing}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-text-decoration -->
-					<label class="label">
+					</label> -->
+	<!-- --anchor-text-decoration -->
+	<!-- <label class="label">
 						<span class="label-text">Decoration</span>
 						<select class="select" name="--anchor-text-decoration" bind:value={settingsTypography['--anchor-text-decoration']}>
 							{#each constants.textDecorations as textDecoration}
 								<option value={textDecoration}>{textDecoration}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-text-decoration-hover -->
-					<label class="label">
+					</label> -->
+	<!-- --anchor-text-decoration-hover -->
+	<!-- <label class="label">
 						<span class="label-text">Hover</span>
 						<select class="select" name="--anchor-text-decoration-hover" bind:value={settingsTypography['--anchor-text-decoration-hover']}>
 							{#each constants.textDecorations as textDecoration}
 								<option value={textDecoration}>{textDecoration}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-text-decoration-active -->
-					<label class="label">
+					</label> -->
+	<!-- --anchor-text-decoration-active -->
+	<!-- <label class="label">
 						<span class="label-text">Active</span>
 						<select class="select" name="--anchor-text-decoration-hover" bind:value={settingsTypography['--anchor-text-decoration-hover']}>
 							{#each constants.textDecorations as textDecoration}
 								<option value={textDecoration}>{textDecoration}</option>
 							{/each}
 						</select>
-					</label>
-					<!-- --anchor-text-decoration-focus -->
-					<label class="label">
+					</label> -->
+	<!-- --anchor-text-decoration-focus -->
+	<!-- <label class="label">
 						<span class="label-text">Focus</span>
 						<select class="select" name="--anchor-text-decoration-focus" bind:value={settingsTypography['--anchor-text-decoration-focus']}>
 							{#each constants.textDecorations as textDecoration}
@@ -364,5 +364,5 @@
 				</div>
 			</Tabs.Panel>
 		{/snippet}
-	</Tabs>
+	</Tabs> -->
 </div>

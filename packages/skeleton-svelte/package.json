@@ -17,16 +17,10 @@
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js",
 			"default": "./dist/index.js"
-		},
-		"./composed": {
-			"types": "./dist/composed/index.d.ts",
-			"svelte": "./dist/composed/index.js",
-			"default": "./dist/composed/index.js"
 		}
 	},
 	"files": [
-		"dist",
-		"!dist/**/*.test.*"
+		"dist"
 	],
 	"dependencies": {
 		"@skeletonlabs/skeleton-common": "workspace:*",

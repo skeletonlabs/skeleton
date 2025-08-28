@@ -6,7 +6,7 @@
 	// Utils
 	import { genColorRamp, seedColor, genRandomSeed, getColorKey } from '$lib/utils/generator/colors';
 	// Components (Skeleton)
-	import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
+	// import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Icons
 	import IconEdit from '@lucide/svelte/icons/pencil';
 	import IconSeed from '@lucide/svelte/icons/sprout';
@@ -68,7 +68,7 @@
 		<span>Clear All Palettes</span>
 	</button>
 	<!-- Color Tabs -->
-	<Tabs value={globals.activeColor} onValueChange={(e) => (globals.activeColor = e.value)} fluid>
+	<!-- <Tabs value={globals.activeColor} onValueChange={(e) => (globals.activeColor = e.value)} fluid>
 		{#snippet list()}
 			{#each colorSelection as color}
 				<Tabs.Control value={color.value} labelBase="flex justify-center" stateInactive="">
@@ -82,9 +82,9 @@
 			{#each colorSelection as color}
 				{#if color.value === globals.activeColor}
 					{@const activeColorLabel = colorSelection.find((c) => c.value === globals.activeColor)?.label}
-					<div class="space-y-4">
-						<!-- Actions -->
-						<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-2">
+					<div class="space-y-4"> -->
+	<!-- Actions -->
+	<!-- <div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-2">
 							<h3 class="h5">{activeColorLabel}</h3>
 							<button
 								type="button"
@@ -107,23 +107,23 @@
 							<Switch name="example" checked={showAllShades} onCheckedChange={(e) => (showAllShades = e.checked)} classes="!gap-2">
 								<span class="text-xs opacity-60">All</span>
 							</Switch>
-						</div>
-						<!-- Message -->
-						<div>
+						</div> -->
+	<!-- Message -->
+	<!-- <div>
 							{#if showAllShades}
 								<p class="opacity-60">All shades must be manually defined.</p>
 							{:else}
 								<p class="opacity-60">Shades automatically blend between 50/500/950.</p>
 							{/if}
-						</div>
-						<!-- Table: Shades -->
-						<table class="table">
+						</div> -->
+	<!-- Table: Shades -->
+	<!-- <table class="table">
 							<tbody>
 								{#each rxShadeArray as shade}
 									<tr>
-										<td class="text-xs opacity-60">{shade}</td>
-										<!-- --color-(name)-(shade) -->
-										<td>
+										<td class="text-xs opacity-60">{shade}</td> -->
+	<!-- --color-(name)-(shade) -->
+	<!-- <td>
 											<input
 												type="text"
 												class="input"
@@ -131,10 +131,10 @@
 												onblur={() => genColorRamp(showAllShades, color.value)}
 											/>
 										</td>
-										<td class="w-[1%] whitespace-nowrap">
-											<!-- Known issue in Chrome; can ignore the console warning -->
-											<!-- https://github.com/sveltejs/svelte/issues/8446#issuecomment-2213484541 -->
-											<input
+										<td class="w-[1%] whitespace-nowrap"> -->
+	<!-- Known issue in Chrome; can ignore the console warning -->
+	<!-- https://github.com/sveltejs/svelte/issues/8446#issuecomment-2213484541 -->
+	<!-- <input
 												class="input"
 												type="color"
 												bind:value={settingsColors[getColorKey(color.value, shade.toString())]}
@@ -144,12 +144,12 @@
 									</tr>
 								{/each}
 							</tbody>
-						</table>
-						<!-- Light/Dark Contrast -->
-						<div class="space-y-4">
-							<div class="grid grid-cols-2 gap-4">
-								<!-- --color-(color)-contrast-light -->
-								<label class="label space-y-2">
+						</table> -->
+	<!-- Light/Dark Contrast -->
+	<!-- <div class="space-y-4">
+							<div class="grid grid-cols-2 gap-4"> -->
+	<!-- --color-(color)-contrast-light -->
+	<!-- <label class="label space-y-2">
 									<span class="label-text">Light Contrast</span>
 									<div
 										class="w-full h-4 border border-surface-200-800 rounded-base"
@@ -169,9 +169,9 @@
 											</optgroup>
 										{/each}
 									</select>
-								</label>
-								<!-- --color-surface-contrast-dark -->
-								<label class="label space-y-2">
+								</label> -->
+	<!-- --color-surface-contrast-dark -->
+	<!-- <label class="label space-y-2">
 									<span class="label-text">Dark Contrast</span>
 									<div
 										class="w-full h-4 border border-surface-200-800 rounded-base"
@@ -198,5 +198,5 @@
 				{/if}
 			{/each}
 		{/snippet}
-	</Tabs>
+	</Tabs> -->
 </div>

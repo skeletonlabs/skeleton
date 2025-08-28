@@ -4,7 +4,7 @@
 	// Constants
 	import * as constants from '$lib/constants/generator';
 	// Components (Skeleton)
-	import { AppBar, Avatar, Segment, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
+	// import { AppBar, Avatar, Segment, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 	// Components (generator)
 	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
 	// Icons
@@ -34,22 +34,22 @@
 		<!-- Column 1 -->
 		<div class="space-y-10">
 			<!-- Tabs -->
-			<Tabs value="planes" fluid>
+			<!-- <Tabs value="planes" fluid>
 				{#snippet list()}
 					<Tabs.Control value="planes" labelBase="btn {currentPresets.hover}">Planes</Tabs.Control>
 					<Tabs.Control value="trains" labelBase="btn {currentPresets.hover}">Trains</Tabs.Control>
 					<Tabs.Control value="automobiles" labelBase="btn {currentPresets.hover}">Automobiles</Tabs.Control>
 				{/snippet}
-			</Tabs>
+			</Tabs> -->
 			<!-- Avatars -->
 			<div class="grid grid-cols-6 gap-4">
 				<!-- Source: https://avatar.iran.liara.run/ -->
-				<Avatar src="/images/male.png" name="" size="size-full" imageClasses="grayscale" />
+				<!-- <Avatar src="/images/male.png" name="" size="size-full" imageClasses="grayscale" />
 				<Avatar src="/images/female.png" name="" size="size-full" imageClasses="grayscale" />
 				<Avatar name="Skeleton" size="size-full" background={currentPresets.filled} />
 				<Avatar name="Kevin" size="size-full" background={currentPresets.tonal} />
 				<Avatar name="Kevin" size="size-full" background={currentPresets.outlined}><IconSkull size={20} /></Avatar>
-				<Avatar name="Kevin" size="size-full" background="preset-outlined-surface-200-800"><IconSkull size={20} /></Avatar>
+				<Avatar name="Kevin" size="size-full" background="preset-outlined-surface-200-800"><IconSkull size={20} /></Avatar> -->
 			</div>
 			<!-- Alert -->
 			<div class="card {currentPresets.tonal} grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]">
@@ -102,7 +102,7 @@
 			</div>
 			<!-- Buttons -->
 			<div class="grid grid-cols-[auto_1fr] item-center gap-4">
-				<Switch name="example" checked={true} controlActive={currentPresets.filled} />
+				<!-- <Switch name="example" checked={true} controlActive={currentPresets.filled} /> -->
 				<div class="grid grid-cols-4 gap-4">
 					<button type="button" class="btn preset-filled"><IconSkull size={20} /></button>
 					<button type="button" class="btn {currentPresets.filled}"><IconSkull size={20} /></button>
@@ -111,7 +111,7 @@
 				</div>
 			</div>
 			<!-- Segment Control -->
-			<Segment name="display" value="left" classes="w-full">
+			<!-- <Segment name="display" value="left" classes="w-full">
 				<Segment.Item value="left" classes="w-full">
 					<IconLeft />
 				</Segment.Item>
@@ -124,18 +124,18 @@
 				<Segment.Item value="justify" classes="w-full">
 					<IconJustify />
 				</Segment.Item>
-			</Segment>
+			</Segment> -->
 			<!-- Cards -->
 			<div class="space-y-4">
 				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
-					<Avatar src="/images/male.png" name="" size="size-14" imageClasses="grayscale" />
+					<!-- <Avatar src="/images/male.png" name="" size="size-14" imageClasses="grayscale" /> -->
 					<div>
 						<p class="font-bold">Gregory Smith</p>
 						<p class="opacity-60 text-xs">gregory.smith@example.com</p>
 					</div>
 				</div>
 				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
-					<Avatar src="/images/female.png" name="" size="size-14" imageClasses="grayscale" />
+					<!-- <Avatar src="/images/female.png" name="" size="size-14" imageClasses="grayscale" /> -->
 					<div>
 						<p class="font-bold">Stephanie Collins</p>
 						<p class="opacity-60 text-xs">stephanie.collins@example.com</p>
@@ -145,7 +145,7 @@
 		</div>
 	</div>
 	<!-- App Bar -->
-	<AppBar background="bg-surface-100-900" toolbarClasses="items-center" classes="shadow">
+	<!-- <AppBar background="bg-surface-100-900" toolbarClasses="items-center" classes="shadow">
 		{#snippet lead()}
 			<IconSkull size={32} />
 		{/snippet}
@@ -158,7 +158,7 @@
 			</nav>
 			<button type="button" class="btn {currentPresets.filled}">Login</button>
 		{/snippet}
-	</AppBar>
+	</AppBar> -->
 	<!-- Masonry -->
 	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
 		<!-- Column 1: Image -->

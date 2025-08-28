@@ -4,17 +4,12 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import { Page as Example } from '@examples/components/avatars/Example.tsx';
-import ExampleRaw from '@examples/components/avatars/Example.tsx?raw';
-import { Page as ExampleFallback } from '@examples/components/avatars/ExampleFallback.tsx';
-import { Page as ExampleInitials } from '@examples/components/avatars/ExampleInitials.tsx';
-
-import ExampleFallbackRaw from '@examples/components/avatars/ExampleFallback.tsx?raw';
-import ExampleInitialsRaw from '@examples/components/avatars/ExampleInitials.tsx?raw';
-import { Page as ExampleFilter } from '@examples/components/avatars/ExampleFilter.tsx';
-import ExampleFilterRaw from '@examples/components/avatars/ExampleFilter.tsx?raw';
-import { Page as ExampleStyle } from '@examples/components/avatars/ExampleStyle.tsx';
-import ExampleStyleRaw from '@examples/components/avatars/ExampleStyle.tsx?raw';
+import Example from '@examples/components/composed/avatar/react/default.tsx';
+import ExampleRaw from '@examples/components/composed/avatar/react/default.tsx?raw';
+import ExampleFallback from '@examples/components/composed/avatar/react/fallback.tsx';
+import ExampleFallbackRaw from '@examples/components/composed/avatar/react/fallback.tsx?raw';
+import ExampleFilter from '@examples/components/composed/avatar/react/filter.tsx';
+import ExampleFilterRaw from '@examples/components/composed/avatar/react/filter.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -25,35 +20,22 @@ import ExampleStyleRaw from '@examples/components/avatars/ExampleStyle.tsx?raw';
 	</Fragment>
 </Preview>
 
-## Initials
-
-Provide an `initials` array to define what part of the name is used to generate initials. Use index values to identify each desired name, and `-1` to represent the last possible name.
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleInitials />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleInitialsRaw} lang="tsx" />
-	</Fragment>
-</Preview>
-
 ## Fallback
 
-When `src` or `srcSet` are missing or fail to load, a fallback will be displayed using the default `children`. This can be used to display icons or even pass a [Next.js image component](https://nextjs.org/docs/pages/api-reference/components/image).
+Use `<Avatar.Fallback>` to provide initials, icons, or a framework-specific image component.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleFallback />
+		<ExampleFallback client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleFallbackRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
-## Filters
+## Filter
 
-Avatars can implement [SVG Filters](/docs/guides/cookbook/svg-filters) using arbitrary Tailwind syntax.
+Avatars can implement [SVG Filters](/docs/guides/cookbook/svg-filters) using the image `className` attribute.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -63,27 +45,3 @@ Avatars can implement [SVG Filters](/docs/guides/cookbook/svg-filters) using arb
 		<Code code={ExampleFilterRaw} lang="tsx" />
 	</Fragment>
 </Preview>
-
-## Style Attribute
-
-Use the `style` prop to implement custom styles on the parent `<figure>` element.
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleStyle />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleStyleRaw} lang="tsx" />
-	</Fragment>
-</Preview>
-
-## Anatomy
-
-<Anatomy label="Avatar" tag="figure" isComponent>
-	<Anatomy label="image" tag="img" />
-	<Anatomy label="fallback" tag="span" />
-</Anatomy>
-
-## API Reference
-
-<ApiTable />

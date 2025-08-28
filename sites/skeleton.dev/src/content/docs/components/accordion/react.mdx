@@ -4,107 +4,74 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import { Page as Example } from '@examples/components/accordions/Example.tsx';
-import ExampleRaw from '@examples/components/accordions/Example.tsx?raw';
-import { Page as ExampleCollapsible } from '@examples/components/accordions/ExampleCollapsible.tsx';
-import ExampleCollapsibleRaw from '@examples/components/accordions/ExampleCollapsible.tsx?raw';
-import { Page as ExampleMultiple } from '@examples/components/accordions/ExampleMultiple.tsx';
-import ExampleMultipleRaw from '@examples/components/accordions/ExampleMultiple.tsx?raw';
-
-{/* --- */}
-
-## Default
+import Default from '@examples/components/composed/accordion/react/default.tsx';
+import DefaultRaw from '@examples/components/composed/accordion/react/default.tsx?raw';
+import State from '@examples/components/composed/accordion/react/state';
+import StateRaw from '@examples/components/composed/accordion/react/state.tsx?raw';
+import Collapsible from '@examples/components/composed/accordion/react/collapsible.tsx';
+import CollapsibleRaw from '@examples/components/composed/accordion/react/collapsible.tsx?raw';
+import Multiple from '@examples/components/composed/accordion/react/multiple.tsx';
+import MultipleRaw from '@examples/components/composed/accordion/react/multiple.tsx?raw';
+import Columns from '@examples/components/composed/accordion/react/columns';
+import ColumnsRaw from '@examples/components/composed/accordion/react/columns.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:visible />
+		<Default client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="tsx" />
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## State
+
+Note that `value` and `onValueChanged` are optional on the root component.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<State client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={StateRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
 ## Collapsible
 
+By default you can't close open items. Adding `collapsible` changes this behavior.
+
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleCollapsible client:visible />
+		<Collapsible client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleCollapsibleRaw} lang="tsx" />
+		<Code code={CollapsibleRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
 ## Multiple
 
+Adding `multiple` allows items to open independently.
+
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleMultiple client:visible />
+		<Multiple client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleMultipleRaw} lang="tsx" />
+		<Code code={MultipleRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
-## Open State
+## Grid Columns
 
-Each Item `id` added to the Accordion `value` array will be open by default.
+Use [Grid Columns](https://tailwindcss.com/docs/grid-template-columns) to adjust the layout of the Trigger component.
 
-### useState Hook
-
-```ts
-const [value, setValue] = useState(['club']);
-```
-
-```tsx
-<Accordion value={value} onValueChange={setValue}>
-	...
-</Accordion>
-```
-
-### Hardcoded
-
-```tsx
-<Accordion value={['club']}>...</Accordion>
-```
-
-## Multiple Items
-
-Use `multiple` to enable multiple items to be opened at once.
-
-```tsx
-<Accordion multiple>...</Accordion>
-```
-
-## Custom Icons
-
-```ts
-import { Plus, Minus, Heart } from 'lucide-react';
-```
-
-```tsx
-<Accordion iconOpen={<Plus size={24} />} iconClosed={<Minus size={24} />}>
-	...
-</Accordion>
-```
-
-```tsx
-<Accordion.Control lead={<Heart size={24} />}>Heart</Accordion.Control>
-```
-
-## Anatomy
-
-<Anatomy label="Accordion" isComponent>
-	<Anatomy label="Accordion.Item" isComponent>
-		<Anatomy label="Accordion.Control" tag="button" isComponent>
-			<Anatomy label="lead" />
-			<Anatomy label="content" />
-			<Anatomy label="indicator" />
-		</Anatomy>
-		<Anatomy label="Accordion.Panel" isComponent />
-	</Anatomy>
-</Anatomy>
-
-## API Reference
-
-<ApiTable />
+<Preview client:load>
+	<Fragment slot="preview">
+		<Columns client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ColumnsRaw} lang="tsx" />
+	</Fragment>
+</Preview>

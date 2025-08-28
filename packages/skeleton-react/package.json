@@ -15,16 +15,10 @@
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.cjs"
-		},
-		"./composed": {
-			"types": "./dist/composed/index.d.ts",
-			"import": "./dist/composed/index.mjs",
-			"require": "./dist/composed/index.cjs"
 		}
 	},
 	"files": [
-		"dist",
-		"!dist/**/*.test.*"
+		"dist"
 	],
 	"dependencies": {
 		"@skeletonlabs/skeleton-common": "workspace:*",

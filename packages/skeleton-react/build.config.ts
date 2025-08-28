@@ -3,12 +3,14 @@ import { join } from 'node:path';
 import { copyFile } from 'node:fs/promises';
 
 export default defineBuildConfig({
-	entries: ['./src/index.ts', './src/composed/index.ts'],
+	entries: ['./src/index.ts'],
 	declaration: true,
 	clean: true,
 	rollup: {
 		emitCJS: true,
-		inlineDependencies: true
+		output: {
+			preserveModules: true
+		}
 	},
 	failOnWarn: false,
 	hooks: {
