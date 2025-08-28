@@ -1,8 +1,7 @@
-import { walk } from 'estree-walker';
+import { walk, type Node } from 'estree-walker';
 import MagicString from 'magic-string';
 import { createFilter } from "@rollup/pluginutils";
-import { RollupOptions } from 'unbuild';
-
+import type { RolldownPlugin } from 'rolldown';
 
 interface PrefixStringLiteralOptions {
     include?: string[];
@@ -10,7 +9,7 @@ interface PrefixStringLiteralOptions {
     escapePrefix?: string;
 }
 
-export default function(prefix: string, options: PrefixStringLiteralOptions): RollupOptions['plugins'][number] {
+export default function(prefix: string, options: PrefixStringLiteralOptions): RolldownPlugin {
     const filter = createFilter(options.include, options.exclude);
     return {
         name: 'prefix-string-literals',
@@ -20,7 +19,7 @@ export default function(prefix: string, options: PrefixStringLiteralOptions): Ro
             const s = new MagicString(code);
             const ast = this.parse(code);
 
-            walk(ast, {
+            walk(ast as Node, {
                 enter(node) {
                     if (
                         node.type === 'Literal' &&

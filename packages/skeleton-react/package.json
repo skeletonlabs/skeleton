@@ -3,18 +3,18 @@
 	"version": "1.5.0-next.0",
 	"type": "module",
 	"scripts": {
-		"build": "unbuild",
-		"dev": "unbuild --watch",
+		"build": "tsdown",
+		"dev": "tsdown --watch",
 		"test": "vitest run",
 		"test:watch": "vitest run --watch"
 	},
+	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"style": "./dist/index.css",
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs"
+			"default": "./dist/index.js",
+			"types": "./dist/index.d.ts"
 		}
 	},
 	"files": [
@@ -51,7 +51,7 @@
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"typescript": "catalog:",
-		"unbuild": "^3.5.0",
+		"tsdown": "^0.14.2",
 		"vite": "^7.0.4",
 		"vitest": "^3.2.4"
 	}

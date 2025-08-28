@@ -3,17 +3,16 @@
 	"version": "0.0.1-next.0",
 	"type": "module",
 	"scripts": {
-		"build": "unbuild",
-		"dev": "unbuild --watch"
+		"build": "tsdown",
+		"dev": "tsdown --watch"
 	},
 	"exports": {
 		".": {
 			"style": "./dist/index.css",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs"
+			"default": "./dist/index.js"
 		}
 	},
-	"main": "./dist/index.cjs",
+	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
@@ -23,9 +22,9 @@
 		"@skeletonlabs/skeleton": "workspace:*",
 		"estree-walker": "^3.0.3",
 		"magic-string": "^0.30.17",
-		"unbuild": "^3.5.0"
-	},
-	"dependencies": {
-		"typescript": "catalog:"
+		"rolldown": "1.0.0-beta.34",
+		"tsdown": "^0.14.2",
+		"typescript": "catalog:",
+		"unplugin-raw": "^0.6.1"
 	}
 }

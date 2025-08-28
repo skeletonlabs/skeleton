@@ -1,9 +1,9 @@
 ---
-"@skeletonlabs/skeleton-common": patch
-"@skeletonlabs/skeleton-svelte": patch
-"@skeletonlabs/skeleton-react": patch
-"@skeletonlabs/skeleton": patch
+"@skeletonlabs/skeleton-common": major
+"@skeletonlabs/skeleton-svelte": major
+"@skeletonlabs/skeleton-react": major
+"@skeletonlabs/skeleton": major
 ---
 
-fix: rework sourcing of sty les
+feat: v4 preperation
   

@@ -4,15 +4,15 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"build": "unbuild",
-		"dev": "unbuild --watch",
+		"build": "tsdown",
+		"dev": "tsdown --watch",
 		"test": "vitest run",
 		"test:watch": "vitest watch"
 	},
 	"exports": {
 		".": {
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs"
+			"default": "./dist/index.js",
+			"types": "./dist/index.d.ts"
 		}
 	},
 	"main": "./dist/index.cjs",
@@ -22,7 +22,7 @@
 	],
 	"devDependencies": {
 		"tinyglobby": "^0.2.14",
-		"unbuild": "^3.5.0",
+		"tsdown": "^0.14.2",
 		"vite": "^7.0.4",
 		"vitest": "^3.2.4"
 	},
