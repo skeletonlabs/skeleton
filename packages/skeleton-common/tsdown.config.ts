@@ -9,15 +9,15 @@ export default defineConfig({
 		Raw(),
 		StringTransform({
 			transform(str) {
-				const PREFIX = 'skb';
-				const ESCAPE_PREFIX = 'not-skb';
+				const PREFIX = 'skb:';
+				const ESCAPE_PREFIX = 'not-skb:';
 				return str
 					.split(' ')
 					.map((str) => {
 						if (str.startsWith(ESCAPE_PREFIX)) {
 							return str.slice(ESCAPE_PREFIX.length);
 						}
-						return `${PREFIX}:${str}`;
+						return `${PREFIX}${str}`;
 					})
 					.join(' ');
 			},
