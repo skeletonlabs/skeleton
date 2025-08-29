@@ -30,6 +30,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "pnpm --recursive build",
+		"build:packages": "pnpm --recursive --filter \"./packages/*\" build",
 		"dev": "pnpm --parallel dev",
 		"test": "pnpm --recursive test",
 		"test:watch": "pnpm --recursive test:watch",
@@ -39,7 +40,7 @@
 		"lint": "eslint . --fix",
 		"lint:check": "eslint .",
 		"changeset:publish": "changeset publish",
-		"postinstall": "pnpm --recursive --filter \"./packages/*\" build"
+		"postinstall": "pnpm build:packages"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.29.5",
