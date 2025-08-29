@@ -23,7 +23,7 @@
 	"devDependencies": {
 		"tinyglobby": "^0.2.14",
 		"tsdown": "^0.14.2",
-		"vite": "^7.0.4",
+		"vite": "^7.1.3",
 		"vitest": "^3.2.4"
 	},
 	"dependencies": {
