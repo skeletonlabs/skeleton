@@ -7,12 +7,11 @@
 		"moduleResolution": "Bundler",
 		"types": ["node"],
 		"strict": true,
-		"allowImportingTsExtensions": true,
 		"noEmit": true,
 		"esModuleInterop": true,
 		"isolatedModules": true,
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true
 	},
-	"include": ["src", "src/plugins/rolldown-plugin-string-transform.ts"]
+	"include": ["src", "build/rolldown-plugin-string-transform.ts"]
 }

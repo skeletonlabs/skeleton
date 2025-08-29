@@ -1,6 +1,7 @@
 import { defineConfig } from 'tsdown';
 import Raw from 'unplugin-raw/rolldown';
-import StringEdit from './src/plugins/rolldown-plugin-string-transform.ts';
+// @ts-expect-error - We use .ts here instead of .js because tsdown's config resolver runs the typescript directly without transpiling
+import StringEdit from './build/rolldown-plugin-string-transform.ts';
 
 export default defineConfig({
 	publint: true,
