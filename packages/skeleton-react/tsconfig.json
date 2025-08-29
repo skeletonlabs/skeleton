@@ -16,10 +16,7 @@
 		"declaration": true,
 		"lib": ["es2022", "dom", "dom.iterable"],
 		"jsx": "react-jsx",
-		"types": ["@testing-library/jest-dom"],
-		"paths": {
-			"@/*": ["./src/*"]
-		}
+		"types": ["@testing-library/jest-dom"]
 	},
 	"include": ["src"]
 }

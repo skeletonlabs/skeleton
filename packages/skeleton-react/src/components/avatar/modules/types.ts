@@ -1,6 +1,6 @@
 import * as avatar from '@zag-js/avatar';
 import type { ComponentProps, PropsWithChildren } from 'react';
-import type { PropsWithElement } from '@/internal/props-with-child.js';
+import type { PropsWithElement } from '../../../internal/props-with-child.js';
 
 interface AvatarRootProps
 	extends PropsWithChildren,

@@ -5,10 +5,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	preprocess: [vitePreprocess()],
 	kit: {
-		adapter: adapter(),
-		alias: {
-			'@': './src'
-		}
+		adapter: adapter()
 	}
 };
 export default config;
