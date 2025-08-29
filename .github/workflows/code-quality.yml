@@ -49,7 +49,7 @@ jobs:
       - run: pnpm install
       - run: pnpm check
   build:
-    name: Build
+    name: Build Packages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -59,7 +59,7 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install
-      - run: pnpm build
+      - run: pnpm build:packages
   test:
     name: Test
     runs-on: ubuntu-latest
