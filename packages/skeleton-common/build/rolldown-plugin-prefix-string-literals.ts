@@ -4,12 +4,13 @@ import { createFilter } from "@rollup/pluginutils";
 import type { RolldownPlugin } from 'rolldown';
 
 interface PrefixStringLiteralOptions {
+    prefix: string;
+    escapePrefix?: string;
     include?: string[];
     exclude?: string[];
-    escapePrefix?: string;
 }
 
-export default function(prefix: string, options: PrefixStringLiteralOptions): RolldownPlugin {
+export default function(options: PrefixStringLiteralOptions): RolldownPlugin {
     const filter = createFilter(options.include, options.exclude);
     return {
         name: 'prefix-string-literals',
@@ -37,7 +38,7 @@ export default function(prefix: string, options: PrefixStringLiteralOptions): Ro
                             if (options.escapePrefix && v.startsWith(options.escapePrefix)) {
                                 return v.slice(options.escapePrefix.length);
                             }
-                            return `${prefix}:${v}`;
+                            return `${options.prefix}:${v}`;
                         })
                         .join(' ');
                         s.overwrite(node.start + 1, node.end - 1, value);

@@ -7,9 +7,10 @@ export default defineConfig({
 	copy: ['src/index.css'],
 	plugins: [
 		raw(),
-		prefixStringLiterals('skb', {
-			include: ['**/src/classes/**'],
-			escapePrefix: '!!'
+		prefixStringLiterals({
+			prefix: 'skb',
+			escapePrefix: '!!',
+			include: ['**/src/classes/**']
 		})
 	]
 });
