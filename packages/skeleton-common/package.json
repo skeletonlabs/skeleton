@@ -8,8 +8,9 @@
 	},
 	"exports": {
 		".": {
-			"style": "./dist/index.css",
-			"default": "./dist/index.js"
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"style": "./dist/index.css"
 		}
 	},
 	"main": "./dist/index.js",

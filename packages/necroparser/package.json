@@ -11,11 +11,11 @@
 	},
 	"exports": {
 		".": {
-			"default": "./dist/index.js",
-			"types": "./dist/index.d.ts"
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
 		}
 	},
-	"main": "./dist/index.cjs",
+	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
