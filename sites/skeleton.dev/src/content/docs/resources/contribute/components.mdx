@@ -44,7 +44,7 @@ Continue reading below to learn how implement the Zag primitives as components u
 
 When creating a component, start by breaking it down into its core parts. If the component utilizes a [Zag primitive](https://zagjs.com/components/svelte/avatar), you may copy the source [directly from Zag's Usage section](https://zagjs.com/components/svelte/avatar#usage). For custom in-house components, you may use Skeleton's common terminology and discuss the potential anatomy with the Skeleton team.
 
-For exapmle, the Zag Avatar component utilizes the following DOM structure:
+For example, the Zag Avatar component utilizes the following DOM structure:
 
 ```html
 <div>
@@ -53,7 +53,7 @@ For exapmle, the Zag Avatar component utilizes the following DOM structure:
 </div>
 ```
 
-We typically implement one component respective of each element:
+As such, we'll implement one component part respective of each element:
 
 - `<Avatar>`
 - `<Avatar.Image>`
@@ -89,8 +89,6 @@ The anatomy folder contains each component part inside a seperate file.
 
 ### Modules Folder
 
-The modules folder contains three files, which we'll cover below.
-
 #### Anatomy File
 
 The `anatomy.ts` file contains the exported anatomy, which enables the friendly dot notation syntax when consumed.
@@ -113,21 +111,21 @@ export { Avatar };
 
 #### Types File
 
-The `types.ts` file contains the exported types for each part and context:
+The `types.ts` file contains the exported types for each component context and part:
 
 ```ts title="types.ts"
 import * as avatar from '@zag-js/avatar';
 import type { ComponentProps, PropsWithChildren } from 'react';
 import type { PropsWithElement } from '../../../internal/props-with-child.js';
 
-// Context API ---
+// Context Types ---
 
 interface AvatarContext {
 	/** Implements the Avatar API */
 	api: avatar.Api;
 }
 
-// Components ---
+// Component Props Types ---
 
 interface AvatarRootProps
 	extends PropsWithChildren,
@@ -147,16 +145,16 @@ export type {
 };
 ```
 
-- Component Context API types should use the naming convention: `{Component}Context`
+- Component Context types should use the naming convention: `{Component}{Part}Context`
 - Component prop types should use the naming convention: `{Component}{Part}Props`
-- Use `Omit<>` to avoid conflicting Zag props. Such as `id`, which we set automatically within most components.
+- Use `Omit<>` to avoid conflicting Zag props; such as `id`, which is set automatically within components.
 - Use [JSDoc comment blocks](https://jsdoc.app/) to document the intended usage.
 - React-Only: Implement `PropsWithChildren` for components that contain a child slot.
 - React-Only: Implement `ComponentProps` to describe the DOM element (ex: Img, Button, etc)
 
 #### Context File
 
-The `context.ts` file contains the exported context for each part and context. This enables strong typing.
+The `context.ts` file contains the exported context for each part's context. This pattern enables strong typing.
 
 ```ts title="context.ts"
 import { createContext } from 'react';
@@ -171,48 +169,36 @@ export { AvatarContext };
 
 ## Using Zag Primitives
 
-{/* prettier-ignore */}
-<div class="card preset-tonal-warning preset-outlined-warning-500 p-8 space-y-8">
-	TODO: we need a detailed walkthrough on translating Zag primitives to components
-</div>
-
 ### Source Code
 
-To obtain component source code, locate each respective component on the Zag website.
+Locate the respective framework component source code on the Zag website. Here's Avatars for example:
 
 | Framework | Directory                                                       |
 | --------- | --------------------------------------------------------------- |
 | React     | [Avatar Docs](https://zagjs.com/components/react/avatar#usage)  |
 | Svelte    | [Avatar Docs](https://zagjs.com/components/svelte/avatar#usage) |
 
-In most cases, Zag presents all source code in a single file. Take care when splitting this into multiple component parts. Most source should be defined in the component root - including the primitive imports, and defining the `machine` and `api`.
-
-```
-(code example here)
-```
+In most cases, Zag provides all source code in a single file. Take care when splitting this into multiple component parts. We recommend starting with the root component - including the primitive imports, and defining the `machine` and `api`. Then utilize Context API and child components for the innards.
 
 ### Context API
 
-In some cases you may need to pass data from the parent root component, down to the children. For this, we can utilize each framework's Context API:
+In some cases you may need to pass data from parent down to child components. For this, we can utilize each framework's Context API:
 
 | Framework | Documentation                                                                                               |
 | --------- | ----------------------------------------------------------------------------------------------------------- |
 | React     | [View Component API docs](https://svelte.dev/docs/kit/state-management#Using-state-and-stores-with-context) |
 | Svelte    | [View Component API docs](https://react.dev/learn/passing-data-deeply-with-context)                         |
 
-```
-(code example here)
-```
+Note that Skeleton implements a [set convention for Context API](/docs/resources/contribute/components#context-file) to enable strong typing.
 
 ### Common Conventions
 
-While each component will present a unique set of requirements, we recommend you adhere to the following common conventions.
+While each component will present a unique set of challenges, we recommend you reference other existing components to understand how they were implemented. But there are a few common conventions we'll detail below.
 
-- React-Only: Replace the hardcoded `id` with `useId()`, to generate a unique ID per component
-- Svelte-Only: Replace the hardcoded `id` with `$props.id()`, to inheret a use-provided ID.
-- Avoid hardcoded text or icons. Implement a means for users to override these (props, snippets, sub-components).
-- (another)...
-- (another)...
+- Try to stick as close to the Zag implementation as possible; don't get creative.
+- Avoid hardcoded english text or icons. Consider pass-throughs using props, snippets, or sub-components.
+- React-Only: Replace the hardcoded `id` with `useId()`
+- Svelte-Only: Replace the hardcoded `id` with `$props.id()`
 
 ---
 
@@ -246,7 +232,7 @@ export const classesAvatar = {
 
 ### Style Prefix
 
-During build time, Skeleton will automatically prefix each class in the class list with `skb:`. The purpose of this prefix is to assign each class to the Tailwind `@base` layer, ensuring user-provided classes take precedence over these classes. This is accomplished using the following Tailwind custom variant.
+It's worth noting that during build time, Skeleton will automatically prefix each class in the class list with `skb:`. The purpose of this prefix is to assign each class to the Tailwind `@base` layer, ensuring user-provided classes take precedence over these classes. This is accomplished using the following Tailwind custom variant.
 
 ```css title="base.css"
 @custom-variant skb {
@@ -279,36 +265,20 @@ export default function (props: AvatarRootProps) {
 }
 ```
 
-For custom components (not Zag-based), simply append the class list to the end of the `class` attribute:
+The process is similar for custom components. Even if they don't introduce Zag primitives, we can still use the Zag `mergeProps` utility.
 
-```tsx title="navigation-root.tsx" {1,4}
-import { classesAvatar } from '@skeletonlabs/skeleton-common';
-
-export default function (props: NavigationRootPropps) {
-	return <div className={classesAvatar.root}>...</div>;
-}
+```tsx title="navigation-root.tsx"
+code example here
 ```
 
 ## Component Exports
 
-Finally, make sure components are included in the package export list.
-
-### React
-
-Found in `/src/lib/index.ts`.
+Finally, make sure to export the component each respective framework package. This is handled in `/src/index.ts`.
 
 ```ts
-export * from '../components/Foo/index.js';
-export * from '../components/Bar/index.js';
-```
-
-### Svelte
-
-Found in `/src/lib/index.ts`.
-
-```ts
-export { default as Foo } from './components/Foo.svelte';
-export { default as Bar } from './components/Bar.svelte';
+export * from './components/accordion/index.js';
+export * from './components/avatar/index.js';
+// ...
 ```
 
 ## Additional Resources
