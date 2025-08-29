@@ -7,7 +7,7 @@
 		"build": "vite build"
 	},
 	"devDependencies": {
-		"@lucide/svelte": "^0.525.0",
+		"@lucide/svelte": "^0.542.0",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@sveltejs/adapter-auto": "^6.1.0",
