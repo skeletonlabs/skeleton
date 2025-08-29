@@ -24,7 +24,7 @@
 	<label class="label">
 		<span class="label-text">Scale Factor</span>
 		<div class="grid grid-cols-3 gap-4">
-			{#each options as o}
+			{#each options as o (o)}
 				<button type="button" class="btn {activeClass(o.size)}" onclick={() => set(o.size)}>{o.label}</button>
 			{/each}
 		</div>

@@ -46,7 +46,7 @@
 	<input class="input" type="range" bind:value min={0.2} max={0.3} step="0.01" />
 	<!-- Display -->
 	<div class="grid grid-cols-1 gap-1">
-		{#each tableSpacing.reverse() as ts}
+		{#each tableSpacing.reverse() as ts (ts)}
 			<div class="grid grid-cols-[50px_1fr] items-center gap-1">
 				<span class="text-xs">{ts.width}</span>
 				<div class="{ts.width} h-[10px] bg-primary-500" style:--spacing={`${value}rem`}></div>

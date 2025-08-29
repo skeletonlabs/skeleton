@@ -56,7 +56,7 @@
 	<div class="space-y-8">
 		<h2 class="h2">Design System</h2>
 		<nav class="grid grid-cols-2 gap-4">
-			{#each steps as step, i}
+			{#each steps as step, i (step)}
 				<button type="button" onclick={() => setState(i)} class={`${setStateClass(i)} ${i === 0 ? 'col-span-2' : ''}`}>
 					{#if i === 0}<IconFigma class="size-4" />{/if}
 					<span>{step.label}</span>
@@ -156,7 +156,7 @@
 		{:else if state == 5}
 			<!-- Step 6: Spacing -->
 			<div class="scale-75 md:scale-150 flex flex-col items-start gap-1">
-				{#each spacing as rowHeight}
+				{#each spacing as rowHeight (rowHeight)}
 					<div class="grid grid-cols-[32px_1fr] items-center gap-2">
 						<span class="text-xs text-right">{rowHeight}</span>
 						<div class="bg-surface-50 h-2 {rowHeight}"></div>

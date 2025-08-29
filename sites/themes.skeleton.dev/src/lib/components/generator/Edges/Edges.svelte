@@ -28,7 +28,7 @@
 	<input {name} type="hidden" />
 	<!-- Selection List -->
 	<div class="grid {gridCols} gap-4">
-		{#each items as itemValue}
+		{#each items as itemValue (itemValue)}
 			<Edge value={itemValue} active={value} onselect={setValue} {thickness} />
 		{/each}
 	</div>

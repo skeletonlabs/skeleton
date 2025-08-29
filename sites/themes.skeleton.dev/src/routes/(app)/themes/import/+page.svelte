@@ -71,7 +71,7 @@
 	</div>
 	<!-- Templates -->
 	<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-		{#each themes as theme}
+		{#each themes as theme (theme.name)}
 			<button
 				data-theme={theme.name}
 				class="w-full bg-surface-50-950 p-4 preset-outlined-surface-200-800 hover:preset-outlined-surface-800-200 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4"
