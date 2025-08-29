@@ -1,5 +1,5 @@
 {
-	"name": "@skeletonlabs/playground-skeleton-core",
+	"name": "@skeletonlabs/playground-skeleton",
 	"version": "0.0.1",
 	"private": true,
 	"type": "module",
