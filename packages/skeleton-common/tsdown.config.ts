@@ -1,13 +1,13 @@
 import { defineConfig } from 'tsdown';
 import Raw from 'unplugin-raw/rolldown';
 // @ts-expect-error - We use .ts here instead of .js because tsdown's config resolver runs the typescript directly without transpiling
-import StringEdit from './build/rolldown-plugin-string-transform.ts';
+import StringTransform from './build/rolldown-plugin-string-transform.ts';
 
 export default defineConfig({
 	copy: ['src/index.css'],
 	plugins: [
 		Raw(),
-		StringEdit({
+		StringTransform({
 			transform(str) {
 				const PREFIX = 'skb';
 				const ESCAPE_PREFIX = 'not-skb';
