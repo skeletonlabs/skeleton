@@ -1,6 +1,6 @@
 import * as accordion from '@zag-js/accordion';
 import type { PropsWithChildren, ComponentProps } from 'react';
-import type { PropsWithElement } from '../../../internal/props-with-child.js';
+import type { PropsWithElement } from '@/internal/props-with-child.js';
 
 interface AccordionRootProps
 	extends PropsWithChildren,
