@@ -3,14 +3,13 @@ import MagicString from 'magic-string';
 import { createFilter } from "@rollup/pluginutils";
 import type { RolldownPlugin } from 'rolldown';
 
-interface PrefixStringLiteralOptions {
-    prefix: string;
-    escapePrefix?: string;
+interface StringTransformOptions {
+    transform: (str: string) => string;
     include?: string[];
     exclude?: string[];
 }
 
-export default function(options: PrefixStringLiteralOptions): RolldownPlugin {
+export default function(options: StringTransformOptions): RolldownPlugin {
     const filter = createFilter(options.include, options.exclude);
     return {
         name: 'prefix-string-literals',
@@ -32,15 +31,7 @@ export default function(options: PrefixStringLiteralOptions): RolldownPlugin {
                         typeof node.end === 'number' &&
                         node
                     ) {
-                        const value = node.value
-                        .split(' ')
-                        .map((v) => {
-                            if (options.escapePrefix && v.startsWith(options.escapePrefix)) {
-                                return v.slice(options.escapePrefix.length);
-                            }
-                            return `${options.prefix}:${v}`;
-                        })
-                        .join(' ');
+                        const value = options.transform(node.value);
                         s.overwrite(node.start + 1, node.end - 1, value);
                     }
                 }
