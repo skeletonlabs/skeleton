@@ -1,6 +1,5 @@
 import { defineConfig } from 'tsdown';
 
 export default defineConfig({
-	publint: true,
 	copy: ['src/index.css']
 });

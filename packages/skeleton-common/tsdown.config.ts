@@ -4,7 +4,6 @@ import Raw from 'unplugin-raw/rolldown';
 import StringEdit from './build/rolldown-plugin-string-transform.ts';
 
 export default defineConfig({
-	publint: true,
 	copy: ['src/index.css'],
 	plugins: [
 		Raw(),
