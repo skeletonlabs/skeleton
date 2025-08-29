@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.1
+### Major Changes
+
+
+- feat: v4 preperation ([#3662](https://github.com/skeletonlabs/skeleton/pull/3662))
+
+
+### Patch Changes
+
+- Updated dependencies [[`770431d`](https://github.com/skeletonlabs/skeleton/commit/770431da15a354c66ef69cc0df5049e893147e2f)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.1
+
 ## 1.5.0-next.0
 ### Minor Changes
 

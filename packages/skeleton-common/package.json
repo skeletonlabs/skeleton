@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-common",
-	"version": "0.0.1-next.0",
+	"version": "1.0.0-next.1",
 	"type": "module",
 	"scripts": {
 		"build": "tsdown",
