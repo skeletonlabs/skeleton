@@ -130,7 +130,7 @@
 				</header>
 				<input type="search" class="input" placeholder="Search Members..." />
 				<div class="grid grid-cols-1 gap-2">
-					{#each teamData as member}
+					{#each teamData as member (member)}
 						<hr class="hr" />
 						<button type="button" class="card w-full grid grid-cols-[auto_1fr] items-center gap-4 p-3">
 							<!-- <Avatar src="https://i.pravatar.cc/150?img={i + 10}" name="" size="size-10" imageClasses="grayscale" /> -->
@@ -330,7 +330,7 @@
 						</tr>
 					</thead>
 					<tbody class="[&>tr]:hover:preset-tonal">
-						{#each tableData as row, i}
+						{#each tableData as row, i (row)}
 							<tr>
 								<td>
 									<input type="checkbox" class="checkbox" checked={i === 1} />

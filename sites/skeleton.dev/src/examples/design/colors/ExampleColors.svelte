@@ -424,11 +424,11 @@
 </script>
 
 <div class="grid w-full grid-cols-2 lg:grid-cols-7">
-	{#each palette as color}
+	{#each palette as color (color)}
 		<div class="space-y-4 text-center">
 			<small class="block opacity-60">{color.name}</small>
 			<div class="grid grid-rows-11">
-				{#each color.ramp as shade}
+				{#each color.ramp as shade (shade)}
 					<div class="{shade.base} flex items-center justify-center py-2">
 						<strong class={[shade.contrast, { underline: shade.value === 500 }, 'text-sm']}>{shade.value}</strong>
 					</div>

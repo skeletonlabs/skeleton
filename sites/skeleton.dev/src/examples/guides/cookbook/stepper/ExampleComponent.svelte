@@ -9,7 +9,7 @@
 </script>
 
 <!-- <Stepper> -->
-{#each steps as step}
+{#each steps as step (step)}
 	<!-- 1. Dynamically render the step component. -->
 	<!-- 2. Spread the component props. -->
 	<step.component {...step.props} />

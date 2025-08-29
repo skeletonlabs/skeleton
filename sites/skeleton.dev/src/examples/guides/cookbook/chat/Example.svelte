@@ -126,7 +126,7 @@
 			<div class="p-4 space-y-4 overflow-y-auto">
 				<small class="opacity-50">Contacts</small>
 				<div class="flex flex-col space-y-1">
-					{#each people as person}
+					{#each people as person (person.id)}
 						<button
 							type="button"
 							class="card p-2 w-full flex items-center space-x-4 {person.id === currentPersonId
@@ -149,7 +149,7 @@
 		<div class="grid grid-row-[1fr_auto]">
 			<!-- Conversation -->
 			<section bind:this={elemChat} class="max-h-[500px] p-4 overflow-y-auto space-y-4">
-				{#each messageFeed as bubble}
+				{#each messageFeed as bubble (bubble.id)}
 					{#if bubble.host === true}
 						<div class="grid grid-cols-[auto_1fr] gap-2">
 							<!-- <Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" name={bubble.name} size="size-12" /> -->

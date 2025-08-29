@@ -20,7 +20,7 @@
 		<div
 			class="grid grid-cols-3 preset-outlined-surface-200-800 rounded-container overflow-hidden divide-x divide-y divide-surface-200-800"
 		>
-			{#each constants.typographicScales as typographicScale}
+			{#each constants.typographicScales as typographicScale (typographicScale)}
 				<button
 					type="button"
 					onclick={() => (settingsTypography['--text-scaling'] = typographicScale.value)}

@@ -151,7 +151,7 @@
 		<label class="label">
 			<select class="select" bind:value={docSearchSettings.framework}>
 				<option value="preferred">Preferred Framework</option>
-				{#each frameworks as framework}
+				{#each frameworks as framework (framework.slug)}
 					<option value={framework.slug}>Only {framework.name}</option>
 				{/each}
 				<option value="all">All Frameworks</option>
@@ -169,7 +169,7 @@
 				<p class="py-10 text-center text-xl">What can we help you find?</p>
 			{:else}
 				<ol class="flex flex-col gap-4 space-y-4">
-					{#each results as result}
+					{#each results as result (result)}
 						<li class="space-y-2">
 							<!-- Page Result -->
 							<a
@@ -186,7 +186,7 @@
 							</a>
 							<!-- Inner Result -->
 							<div class="border-surface-200-800 divide-surface-100-900 space-y-2 divide-y-[1px] border-l pl-4">
-								{#each result.sub_results.filter((r) => r.title !== result.meta.title) as subResult}
+								{#each result.sub_results.filter((r) => r.title !== result.meta.title) as subResult (subResult)}
 									<a
 										class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] items-center gap-4 space-y-1 p-4"
 										href={subResult.url}

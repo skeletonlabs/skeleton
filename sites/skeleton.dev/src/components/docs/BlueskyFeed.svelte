@@ -17,9 +17,7 @@
 </script>
 
 {#await postsPromise}
-	<!-- Disable: the value is not useful here. -->
-	<!-- eslint-disable @typescript-eslint/no-unused-vars -->
-	{#each { length: 15 } as _}
+	{#each { length: 15 } as _ (_)}
 		<div class="card bg-surface-100-900 opacity-50 animate-pulse h-96"></div>
 	{/each}
 {:then posts}
@@ -52,7 +50,7 @@
 								{/if}
 							</div>
 						{:else if post.embed.$type.includes('images')}
-							{#each post.embed.images as image}
+							{#each post.embed.images as image (image)}
 								<img class="w-full bg-surface-500/10 p-1 rounded-container overflow-hidden shadow" src={image.thumb} alt={image.alt} />
 							{/each}
 						{/if}
