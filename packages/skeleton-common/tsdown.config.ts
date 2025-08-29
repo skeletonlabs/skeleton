@@ -1,6 +1,6 @@
 import { defineConfig } from 'tsdown';
 import Raw from 'unplugin-raw/rolldown';
-import StringEdit from './build/rolldown-plugin-string-transform.js';
+import StringEdit from './rolldown-plugin-string-transform.js';
 
 export default defineConfig({
 	publint: true,
