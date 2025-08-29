@@ -1,6 +1,5 @@
 <script lang="ts">
 	import IconSend from '@lucide/svelte/icons/send-horizontal';
-	import { Avatar } from '@skeletonlabs/skeleton-svelte';
 	import { onMount } from 'svelte';
 
 	// Types
@@ -135,7 +134,7 @@
 								: 'bg-surface-hover-token'}"
 							onclick={() => (currentPersonId = person.id)}
 						>
-							<Avatar src="https://i.pravatar.cc/?img={person.avatar}" name={person.name} size="size-8" />
+							<!-- <Avatar src="https://i.pravatar.cc/?img={person.avatar}" name={person.name} size="size-8" /> -->
 							<span class="flex-1 text-start">
 								{person.name}
 							</span>
@@ -153,7 +152,7 @@
 				{#each messageFeed as bubble}
 					{#if bubble.host === true}
 						<div class="grid grid-cols-[auto_1fr] gap-2">
-							<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" name={bubble.name} size="size-12" />
+							<!-- <Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" name={bubble.name} size="size-12" /> -->
 							<div class="card p-4 preset-tonal rounded-tl-none space-y-2">
 								<header class="flex justify-between items-center">
 									<p class="font-bold">{bubble.name}</p>
@@ -171,7 +170,7 @@
 								</header>
 								<p>{bubble.message}</p>
 							</div>
-							<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" name={bubble.name} size="size-12" />
+							<!-- <Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" name={bubble.name} size="size-12" /> -->
 						</div>
 					{/if}
 				{/each}

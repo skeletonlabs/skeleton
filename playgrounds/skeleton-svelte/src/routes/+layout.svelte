@@ -17,29 +17,8 @@
 			<div class="space-y-8">
 				<div class="font-bold">Components</div>
 				<nav class="text-sm flex flex-col gap-2">
-					<a class="anchor" href="/components/accordions">Accordions</a>
-					<a class="anchor" href="/components/app-bars">App Bars</a>
-					<a class="anchor" href="/components/avatars">Avatars</a>
-					<a class="anchor" href="/components/file-upload">File Upload</a>
-					<a class="anchor" href="/components/navigation">Navigation</a>
-					<a class="anchor" href="/components/pagination">Pagination</a>
-					<a class="anchor" href="/components/progress">Progress</a>
-					<a class="anchor" href="/components/progress-rings">Progress Rings</a>
-					<a class="anchor" href="/components/ratings">Ratings</a>
-					<a class="anchor" href="/components/segment-control">Segment Control</a>
-					<a class="anchor" href="/components/slider">Slider</a>
-					<a class="anchor" href="/components/switch">Switch</a>
-					<a class="anchor" href="/components/tabs">Tabs</a>
-					<a class="anchor" href="/components/tags-input">Tags Input</a>
-					<a class="anchor" href="/components/toast">Toast</a>
-				</nav>
-			</div>
-			<!-- Composed (Experimental) -->
-			<div class="space-y-8">
-				<span class="block font-bold">Composed (Experimental)</span>
-				<nav class="text-sm flex flex-col gap-2">
-					<a class="anchor" href="/composed/accordion">Accordion</a>
-					<a class="anchor" href="/composed/avatar"> Avatar </a>
+					<a class="anchor" href="/components/accordion">Accordions</a>
+					<a class="anchor" href="/components/avatar">Avatars</a>
 				</nav>
 			</div>
 			<!-- Svelte-Only -->

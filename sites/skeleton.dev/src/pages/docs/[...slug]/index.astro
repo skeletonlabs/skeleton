@@ -20,7 +20,7 @@ const { page } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(page);
 
 let meta: Awaited<ReturnType<typeof getEntry>>;
-if (['components/', 'components-composed/', 'integrations/'].some((id) => page.id.startsWith(id))) {
+if (['components/', 'integrations/'].some((id) => page.id.startsWith(id))) {
 	meta = await getEntry('docs', page.id.replace(/\/[^/]*$/, '/meta'));
 	if (meta !== undefined) {
 		Object.assign(remarkPluginFrontmatter, meta.data);
