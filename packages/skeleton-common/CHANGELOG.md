@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.1
+### Major Changes
+
+
+- feat: v4 preperation ([#3662](https://github.com/skeletonlabs/skeleton/pull/3662))
+
 ## 0.0.1-next.0
 ### Patch Changes
 

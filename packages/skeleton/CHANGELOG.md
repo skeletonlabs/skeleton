@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 4.0.0-next.1
+### Major Changes
+
+
+- feat: v4 preperation ([#3662](https://github.com/skeletonlabs/skeleton/pull/3662))
+
 ## 3.3.0-next.0
 ### Minor Changes
 

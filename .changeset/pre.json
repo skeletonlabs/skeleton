@@ -12,10 +12,12 @@
     "@skeletonlabs/playground-skeleton-react": "0.0.1",
     "@skeletonlabs/playground-skeleton-svelte": "0.0.1",
     "@skeletonlabs/skeleton.dev": "0.0.1",
-    "@skeletonlabs/themes.skeleton.dev": "0.0.1"
+    "@skeletonlabs/themes.skeleton.dev": "0.0.1",
+    "@skeletonlabs/playground-skeleton": "0.0.1"
   },
   "changesets": [
     "forty-badgers-clap",
+    "kind-feet-serve",
     "little-files-notice",
     "small-words-drum"
   ]
