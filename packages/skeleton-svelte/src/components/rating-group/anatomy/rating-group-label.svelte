@@ -21,5 +21,5 @@
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<label {...attributes}>{children}</label>
+	<label {...attributes}>{@render children?.()}</label>
 {/if}

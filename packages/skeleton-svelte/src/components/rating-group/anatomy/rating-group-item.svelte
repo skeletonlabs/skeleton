@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { RatingGroupRootContext } from '../modules/context.js';
+	import { RatingGroupRootContext, RatingGroupItemContext } from '../modules/context.js';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 	import type { RatingGroupItemProps } from '../modules/types.js';
 	import * as ratingGroup from '@zag-js/rating-group';
@@ -18,10 +18,15 @@
 			restAttributes
 		)
 	);
+	RatingGroupItemContext.provide({
+		get itemState() {
+			return rootContext.api.getItemState(itemProps);
+		}
+	});
 </script>
 
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<div {...attributes}>{children}</div>
+	<div {...attributes}>{@render children?.()}</div>
 {/if}
