@@ -26,12 +26,13 @@ interface AccordionRootContext {
 }
 interface AccordionItemContext {
 	itemProps: accordion.ItemProps;
+	itemState: accordion.ItemState;
 }
 interface AccordionRootContextProps {
 	children: Snippet<[accordion.Api]>;
 }
 interface AccordionItemContextProps {
-	children: Snippet<[accordion.ItemProps]>;
+	children: Snippet<[accordion.ItemState]>;
 }
 
 export type {

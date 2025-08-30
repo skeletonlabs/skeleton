@@ -21,6 +21,9 @@
 	AccordionItemContext.provide({
 		get itemProps() {
 			return itemProps;
+		},
+		get itemState() {
+			return rootContext.api.getItemState(itemProps);
 		}
 	});
 </script>

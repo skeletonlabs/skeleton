@@ -23,6 +23,7 @@ interface AccordionRootContext {
 	api: accordion.Api;
 }
 interface AccordionItemContext {
+	itemProps: accordion.ItemProps;
 	itemState: accordion.ItemState;
 }
 interface AccordionRootContextProps {

@@ -6,4 +6,4 @@
 	const itemContext = AccordionItemContext.consume();
 </script>
 
-{@render props.children(itemContext.itemProps)}
+{@render props.children(itemContext.itemState)}
