@@ -60,6 +60,9 @@ catalogs:
     '@zag-js/tooltip':
       specifier: ^1.22.1
       version: 1.22.1
+    '@zag-js/tree-view':
+      specifier: ^1.22.1
+      version: 1.22.1
     svelte:
       specifier: ^5.38.6
       version: 5.38.6
@@ -394,6 +397,9 @@ importers:
         specifier: 'catalog:'
         version: 1.22.1
       '@zag-js/tooltip':
+        specifier: 'catalog:'
+        version: 1.22.1
+      '@zag-js/tree-view':
         specifier: 'catalog:'
         version: 1.22.1
     devDependencies:
@@ -2690,6 +2696,9 @@ packages:
 
   '@zag-js/tooltip@1.22.1':
     resolution: {integrity: sha512-0ub0p22CzYnaXv0prAnWNjqUBkdw4nO4yGk5qntaodajpLNQ4gSdq7Hj4afHzJqwbKAkwb3KzJFqcqIm9Y/dfw==}
+
+  '@zag-js/tree-view@1.22.1':
+    resolution: {integrity: sha512-AQmOn1mB+nLJEaq0xdSVnTI8Vt3nB3OweqdB12jkbdIOcWI9eY0RfhiNHC0k0mgAw+dMjyn84op/gOd9VVdtmA==}
 
   '@zag-js/types@1.22.1':
     resolution: {integrity: sha512-lvpDSMR96e7H7TdwOiVpMzj6css5Ydix1nBi7BlmjME6v5OPR0KZwVDGD6h5UtTeVjPq8dPaqM8TJWw+QwbQSw==}
@@ -8808,6 +8817,15 @@ snapshots:
       '@zag-js/dom-query': 1.22.1
       '@zag-js/focus-visible': 1.22.1
       '@zag-js/popper': 1.22.1
+      '@zag-js/types': 1.22.1
+      '@zag-js/utils': 1.22.1
+
+  '@zag-js/tree-view@1.22.1':
+    dependencies:
+      '@zag-js/anatomy': 1.22.1
+      '@zag-js/collection': 1.22.1
+      '@zag-js/core': 1.22.1
+      '@zag-js/dom-query': 1.22.1
       '@zag-js/types': 1.22.1
       '@zag-js/utils': 1.22.1
 
