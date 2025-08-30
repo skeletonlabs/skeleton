@@ -15,7 +15,17 @@ export default typescript.config(
 	 * Ignore
 	 */
 	{
-		ignores: ['**/node_modules/', '**/dist/', '**/build/', '**/pagefind/', '**/.svelte-kit/', '**/.astro/', '**/.next/', '**/.vercel/']
+		ignores: [
+			'**/node_modules/',
+			'**/dist/',
+			'**/build/',
+			'**/pagefind/',
+			'**/.svelte-kit/',
+			'**/.astro/',
+			'**/.next/',
+			'**/.vercel/',
+			'**/next-env.d.ts'
+		]
 	},
 	/**
 	 * Prettier
@@ -48,11 +58,6 @@ export default typescript.config(
 				...globals.browser,
 				...globals.node
 			}
-		},
-		// Disabled temporarily while we communiticate this issue upstream to Zag.
-		// Zag does not not readily provide keys for for Svelte as they do React.
-		rules: {
-			'svelte/require-each-key': 'off'
 		}
 	},
 	/**

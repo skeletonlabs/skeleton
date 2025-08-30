@@ -44,7 +44,7 @@
 		<div class="relative">
 			<!-- Numerals -->
 			<div class="flex justify-between items-center gap-4">
-				{#each steps as step, i}
+				{#each steps as step, i (step)}
 					<!-- Numeral Button -->
 					<button
 						class="btn-icon btn-icon-sm rounded-full {isCurrentStep(i) ? 'preset-filled-primary-500' : 'preset-filled-surface-200-800'}"

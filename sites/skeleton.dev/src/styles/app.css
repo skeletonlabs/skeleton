@@ -2,9 +2,9 @@
 @plugin "@tailwindcss/forms";
 
 @import '@skeletonlabs/skeleton';
-/* Optional */
+@import '@skeletonlabs/skeleton-svelte';
+@import '@skeletonlabs/skeleton-react';
 @import '@skeletonlabs/skeleton/optional/presets';
-/* Themes */
 @import '@skeletonlabs/skeleton/themes/catppuccin';
 @import '@skeletonlabs/skeleton/themes/cerberus';
 @import '@skeletonlabs/skeleton/themes/concord';
@@ -27,9 +27,6 @@
 @import '@skeletonlabs/skeleton/themes/vintage';
 @import '@skeletonlabs/skeleton/themes/vox';
 @import '@skeletonlabs/skeleton/themes/wintry';
-
-@source '../../node_modules/@skeletonlabs/skeleton-react/dist';
-@source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
 /* Set Selector dark mode strategy */
 @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));

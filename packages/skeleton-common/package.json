@@ -1,18 +1,19 @@
 {
 	"name": "@skeletonlabs/skeleton-common",
-	"version": "0.0.1-next.0",
+	"version": "1.0.0-next.1",
 	"type": "module",
 	"scripts": {
-		"build": "unbuild",
-		"dev": "unbuild --watch"
+		"build": "tsdown",
+		"dev": "tsdown --watch"
 	},
 	"exports": {
 		".": {
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs"
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"style": "./dist/index.css"
 		}
 	},
-	"main": "./dist/index.cjs",
+	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
@@ -21,10 +22,10 @@
 		"@rollup/pluginutils": "^5.2.0",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"estree-walker": "^3.0.3",
-		"magic-string": "^0.30.17",
-		"unbuild": "^3.5.0"
-	},
-	"dependencies": {
-		"typescript": "catalog:"
+		"magic-string": "^0.30.18",
+		"rolldown": "1.0.0-beta.34",
+		"tsdown": "^0.14.2",
+		"typescript": "catalog:",
+		"unplugin-raw": "^0.6.1"
 	}
 }

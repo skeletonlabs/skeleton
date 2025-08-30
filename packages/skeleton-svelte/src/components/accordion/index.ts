@@ -1,0 +1,11 @@
+export { Accordion } from './modules/accordion-anatomy';
+export type { AccordionRootProps } from './anatomy/accordion-root.svelte';
+export type { AccordionRootContextProps } from './anatomy/accordion-root-context.svelte';
+export type { AccordionItemProps } from './anatomy/accordion-item.svelte';
+export type { AccordionItemContextProps } from './anatomy/accordion-item-context.svelte';
+export type { AccordionHeadingProps } from './anatomy/accordion-heading.svelte';
+export type { AccordionTriggerProps } from './anatomy/accordion-trigger.svelte';
+export type { AccordionIndicatorProps } from './anatomy/accordion-indicator.svelte';
+export type { AccordionContentProps } from './anatomy/accordion-content.svelte';
+export type { AccordionRootContextType as AccordionRootContext } from './modules/accordion-root-context.js';
+export type { AccordionItemContextType as AccordionItemContext } from './modules/accordion-item-context.js';

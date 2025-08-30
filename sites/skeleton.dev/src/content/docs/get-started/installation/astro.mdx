@@ -115,13 +115,22 @@ While Astro can support [multiple Frontend frameworks](https://docs.astro.build/
 		@skeletonlabs/skeleton-svelte
         ```
     </ProcessStep>
-	<ProcessStep step="3">
+    	<ProcessStep step="3">
+        ### Add Style Imports
+        
+        Import the stylesheets for the framework(s) you intend to use in your global stylesheet created above.
+        ```css title="global.css"
+        @import '@skeletonlabs/skeleton-react'; 
+        @import '@skeletonlabs/skeleton-svelte';
+        ```
+    </ProcessStep>
+    <ProcessStep step="4">
         ### Using Wrapper Components
         In most cases, frontend framework components may not be fully functional if used directly within `.astro` files. To overcome this, you may utilize a wrapper component of that framework. Here's a demo using the Skeleton Avatar component as an example.
-		#### React
-		```tsx title="ReactAvatarWrapper.tsx"
-		import React from 'react';
-		import { Avatar } from '@skeletonlabs/skeleton-react';
+    	#### React
+    	```tsx title="ReactAvatarWrapper.tsx"
+    	import React from 'react';
+    	import { Avatar } from '@skeletonlabs/skeleton-react';
 
     	export const ReactAvatarWrapper: React.FC = () => {
     		const imgSrc = '...';
