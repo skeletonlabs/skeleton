@@ -1,13 +1,16 @@
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
+import { splitItemProps, type ItemProps } from '@zag-js/rating-group';
 import { mergeProps } from '@zag-js/react';
-import { useContext } from 'react';
-import { RatingGroupItemContext, RatingGroupRootContext } from '../modules/context.js';
-import type { RatingGroupItemProps } from '../modules/types.js';
-import * as ratingGroup from '@zag-js/rating-group';
+import { useContext, type ComponentProps } from 'react';
+import { RatingGroupItemContext } from './rating-group-item-context.js';
+import { RatingGroupRootContext } from './rating-group-root-context.js';
+import type { PropsWithElement } from '../../internal/props-with-element.js';
+
+export interface RatingGroupItemProps extends PropsWithElement, ItemProps, Omit<ComponentProps<'span'>, 'id' | 'defaultValue' | 'dir'> {}
 
 export default function (props: RatingGroupItemProps) {
 	const rootContext = useContext(RatingGroupRootContext);
-	const [itemProps, componentProps] = ratingGroup.splitItemProps(props);
+	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...restAttributes } = componentProps;
 	const attributes = mergeProps(
 		rootContext.api.getItemProps(itemProps),

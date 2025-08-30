@@ -4,7 +4,7 @@ import AvatarFallback from './avatar-fallback.svelte';
 import AvatarRootContext from './avatar-root-context.svelte';
 
 export const Avatar = Object.assign(AvatarRoot, {
+	Context: AvatarRootContext,
 	Image: AvatarImage,
-	Fallback: AvatarFallback,
-	Context: AvatarRootContext
+	Fallback: AvatarFallback
 });

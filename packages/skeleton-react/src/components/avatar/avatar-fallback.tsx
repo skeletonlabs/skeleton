@@ -1,10 +1,12 @@
 'use client';
 
-import { useContext } from 'react';
+import { useContext, type ComponentProps } from 'react';
 import { mergeProps } from '@zag-js/react';
-import { AvatarRootContext } from '../modules/context.js';
-import type { AvatarFallbackProps } from '../modules/types.js';
+import { AvatarRootContext } from './avatar-root-context.js';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
+import type { PropsWithElement } from '../../internal/props-with-element.js';
+
+export interface AvatarFallbackProps extends PropsWithElement, ComponentProps<'span'> {}
 
 export default function (props: AvatarFallbackProps) {
 	const rootContext = useContext(AvatarRootContext);

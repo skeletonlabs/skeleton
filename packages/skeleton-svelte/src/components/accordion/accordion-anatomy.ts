@@ -8,11 +8,11 @@ import AccordionRootContext from './accordion-root-context.svelte';
 import AccordionItemContext from './accordion-item-context.svelte';
 
 export const Accordion = Object.assign(AccordionRoot, {
+	Context: AccordionRootContext,
 	Item: AccordionItem,
+	ItemContext: AccordionItemContext,
 	Heading: AccordionHeading,
 	Trigger: AccordionTrigger,
 	Indicator: AccordionIndicator,
-	Content: AccordionContent,
-	Context: AccordionRootContext,
-	ItemContext: AccordionItemContext
+	Content: AccordionContent
 });
