@@ -6,3 +6,5 @@ export type { RatingGroupControlProps } from './anatomy/rating-group-control.js'
 export type { RatingGroupItemProps } from './anatomy/rating-group-item.js';
 export type { RatingGroupItemContextProps } from './anatomy/rating-group-item-context.js';
 export type { RatingGroupHiddenInputProps } from './anatomy/rating-group-hidden-input.js';
+export type { RatingGroupRootContextType as RatingGroupRootContext } from './modules/rating-group-root-context.js';
+export type { RatingGroupItemContextType as RatingGroupItemContext } from './modules/rating-group-item-context.js';

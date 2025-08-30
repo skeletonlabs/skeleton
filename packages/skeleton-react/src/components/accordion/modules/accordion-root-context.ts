@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import type { Api } from '@zag-js/accordion';
 
-interface AccordionRootContextType {
+export interface AccordionRootContextType {
 	api: Api;
 }
 

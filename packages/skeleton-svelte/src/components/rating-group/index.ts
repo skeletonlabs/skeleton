@@ -6,3 +6,5 @@ export type { RatingGroupControlProps } from './anatomy/rating-group-control.sve
 export type { RatingGroupItemProps } from './anatomy/rating-group-item.svelte';
 export type { RatingGroupItemContextProps } from './anatomy/rating-group-item-context.svelte';
 export type { RatingGroupHiddenInputProps } from './anatomy/rating-group-hidden-input.svelte';
+export type { RatingGroupRootContextType as RatingGroupRootContext } from './modules/rating-group-root-context.js';
+export type { RatingGroupItemContextType as RatingGroupItemContext } from './modules/rating-group-item-context.js';

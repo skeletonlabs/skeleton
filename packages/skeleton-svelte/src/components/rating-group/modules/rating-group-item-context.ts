@@ -1,7 +1,7 @@
 import { createContext } from '../../../internal/create-context.js';
 import type { ItemState } from '@zag-js/rating-group';
 
-interface RatingGroupItemContextType {
+export interface RatingGroupItemContextType {
 	itemState: ItemState;
 }
 

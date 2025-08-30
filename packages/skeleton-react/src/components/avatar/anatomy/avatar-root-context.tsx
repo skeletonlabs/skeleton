@@ -1,12 +1,11 @@
 import { useContext, type ReactNode } from 'react';
-import { AvatarRootContext } from '../modules/avatar-root-context.js';
-import type { Api } from '@zag-js/avatar';
+import { AvatarRootContext, type AvatarRootContextType } from '../modules/avatar-root-context.js';
 
 export interface AvatarRootContextProps {
-	children: (api: Api) => ReactNode;
+	children: (context: AvatarRootContextType) => ReactNode;
 }
 
 export default function (props: AvatarRootContextProps) {
 	const rootContext = useContext(AvatarRootContext);
-	return props.children(rootContext.api);
+	return props.children(rootContext);
 }

@@ -1,7 +1,7 @@
 import { createContext } from '../../../internal/create-context.js';
 import type { Api } from '@zag-js/accordion';
 
-interface AccordionRootContextType {
+export interface AccordionRootContextType {
 	api: Api;
 }
 

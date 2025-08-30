@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { Api } from '@zag-js/avatar';
+	import type { AvatarRootContextType } from '../modules/avatar-root-context.js';
 
 	export interface AvatarRootContextProps {
-		children: Snippet<[Api]>;
+		children: Snippet<[AvatarRootContextType]>;
 	}
 </script>
 
@@ -14,4 +14,4 @@
 	const rootContext = AvatarRootContext.consume();
 </script>
 
-{@render props.children(rootContext.api)}
+{@render props.children(rootContext)}

@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import type { Api } from '@zag-js/rating-group';
 
-interface RatingGroupRootContextType {
+export interface RatingGroupRootContextType {
 	api: Api;
 }
 

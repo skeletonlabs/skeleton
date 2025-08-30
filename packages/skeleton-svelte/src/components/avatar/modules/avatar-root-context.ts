@@ -1,7 +1,7 @@
-import type { Api } from '@zag-js/avatar';
 import { createContext } from '../../../internal/create-context.js';
+import type { Api } from '@zag-js/avatar';
 
-interface AvatarRootContextType {
+export interface AvatarRootContextType {
 	api: Api;
 }
 

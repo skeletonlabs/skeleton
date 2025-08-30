@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import type { ItemProps, ItemState } from '@zag-js/accordion';
 
-interface AccordionItemContextType {
+export interface AccordionItemContextType {
 	itemProps: ItemProps;
 	itemState: ItemState;
 }

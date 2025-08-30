@@ -7,3 +7,5 @@ export type { AccordionHeadingProps } from './anatomy/accordion-heading';
 export type { AccordionTriggerProps } from './anatomy/accordion-trigger';
 export type { AccordionIndicatorProps } from './anatomy/accordion-indicator';
 export type { AccordionContentProps } from './anatomy/accordion-content';
+export type { AccordionRootContextType as AccordionRootContext } from './modules/accordion-root-context.js';
+export type { AccordionItemContextType as AccordionItemContext } from './modules/accordion-item-context.js';

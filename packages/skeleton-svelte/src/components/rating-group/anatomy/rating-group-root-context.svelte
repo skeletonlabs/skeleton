@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { Api } from '@zag-js/rating-group';
+	import type { RatingGroupRootContextType } from '../modules/rating-group-root-context.js';
 
 	export interface RatingGroupRootContextProps {
-		children: Snippet<[Api]>;
+		children: Snippet<[RatingGroupRootContextType]>;
 	}
 </script>
 
@@ -14,4 +14,4 @@
 	const rootContext = RatingGroupRootContext.consume();
 </script>
 
-{@render props.children(rootContext.api)}
+{@render props.children(rootContext)}

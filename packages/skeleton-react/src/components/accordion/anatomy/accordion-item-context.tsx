@@ -1,12 +1,11 @@
 import { useContext, type ReactNode } from 'react';
-import { AccordionItemContext } from '../modules/accordion-item-context.js';
-import type { ItemState } from '@zag-js/accordion';
+import { AccordionItemContext, type AccordionItemContextType } from '../modules/accordion-item-context.js';
 
 export interface AccordionItemContextProps {
-	children: (itemState: ItemState) => ReactNode;
+	children: (context: AccordionItemContextType) => ReactNode;
 }
 
 export default function (props: AccordionItemContextProps) {
 	const itemContext = useContext(AccordionItemContext);
-	return props.children(itemContext.itemState);
+	return props.children(itemContext);
 }

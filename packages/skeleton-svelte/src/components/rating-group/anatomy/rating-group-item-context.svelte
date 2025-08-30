@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { ItemState } from '@zag-js/rating-group';
+	import type { RatingGroupItemContextType } from '../modules/rating-group-item-context.js';
 
 	export interface RatingGroupItemContextProps {
-		children: Snippet<[ItemState]>;
+		children: Snippet<[RatingGroupItemContextType]>;
 	}
 </script>
 
@@ -14,4 +14,4 @@
 	const itemContext = RatingGroupItemContext.consume();
 </script>
 
-{@render props.children(itemContext.itemState)}
+{@render props.children(itemContext)}

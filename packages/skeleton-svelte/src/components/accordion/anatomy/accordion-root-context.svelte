@@ -1,9 +1,9 @@
 <script lang="ts" module>
-	import type { Api } from '@zag-js/accordion';
 	import type { Snippet } from 'svelte';
+	import type { AccordionRootContextType } from '../modules/accordion-root-context.js';
 
 	export interface AccordionRootContextProps {
-		children: Snippet<[Api]>;
+		children: Snippet<[AccordionRootContextType]>;
 	}
 </script>
 
@@ -14,4 +14,4 @@
 	const rootContext = AccordionRootContext.consume();
 </script>
 
-{@render props.children(rootContext.api)}
+{@render props.children(rootContext)}
