@@ -2,6 +2,7 @@ import * as avatar from '@zag-js/avatar';
 import type { HTMLAttributes, HTMLImgAttributes } from 'svelte/elements';
 import type { PropsWithChildren } from '../../../internal/props-with-children.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
+import type { Snippet } from 'svelte';
 
 interface AvatarRootProps
 	extends PropsWithElement,
@@ -13,5 +14,8 @@ interface AvatarFallbackProps extends PropsWithElement, PropsWithChildren, HTMLA
 interface AvatarRootContext {
 	api: avatar.Api;
 }
+interface AvatarRootContextProps {
+	children: Snippet<[avatar.Api]>;
+}
 
-export type { AvatarRootProps, AvatarImageProps, AvatarFallbackProps, AvatarRootContext };
+export type { AvatarRootProps, AvatarImageProps, AvatarFallbackProps, AvatarRootContext, AvatarRootContextProps };

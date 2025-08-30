@@ -1,29 +1,42 @@
 import * as ratingGroup from '@zag-js/rating-group';
-import type { ComponentProps, PropsWithChildren } from 'react';
-import type { PropsWithElement } from '../../../internal/props-with-child.js';
+import type { ComponentProps, PropsWithChildren, ReactNode } from 'react';
+import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
 interface RatingGroupRootProps
 	extends PropsWithChildren,
 		PropsWithElement,
 		Omit<ratingGroup.Props, 'id'>,
 		Omit<ComponentProps<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+
 interface RatingGroupLabelProps extends PropsWithChildren, PropsWithElement, Omit<ComponentProps<'label'>, 'id' | 'defaultValue' | 'dir'> {}
 interface RatingGroupControlProps extends PropsWithChildren, PropsWithElement, Omit<ComponentProps<'div'>, 'id' | 'defaultValue' | 'dir'> {}
 interface RatingGroupItemProps
-	extends PropsWithChildren,
-		PropsWithElement,
+	extends PropsWithElement,
 		ratingGroup.ItemProps,
 		Omit<ComponentProps<'span'>, 'id' | 'defaultValue' | 'dir'> {}
+
 interface RatingGroupHiddenInputProps extends PropsWithElement, Omit<ComponentProps<'input'>, 'id' | 'defaultValue' | 'dir'> {}
 interface RatingGroupRootContext {
 	api: ratingGroup.Api;
 }
+interface RatingGroupItemContext {
+	itemState: ratingGroup.ItemState;
+}
+interface RatingGroupRootContextProps {
+	children: (api: ratingGroup.Api) => ReactNode;
+}
+interface RatingGroupItemContextProps {
+	children: (itemState: ratingGroup.ItemState) => ReactNode;
+}
 
 export type {
 	RatingGroupRootProps,
+	RatingGroupRootContextProps,
 	RatingGroupLabelProps,
 	RatingGroupControlProps,
 	RatingGroupItemProps,
+	RatingGroupItemContextProps,
 	RatingGroupHiddenInputProps,
-	RatingGroupRootContext
+	RatingGroupRootContext,
+	RatingGroupItemContext
 };

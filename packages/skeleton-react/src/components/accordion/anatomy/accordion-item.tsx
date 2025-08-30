@@ -19,7 +19,7 @@ export default function (props: AccordionItemProps) {
 		restAttributes
 	);
 	return (
-		<AccordionItemContext.Provider value={{ itemProps }}>
+		<AccordionItemContext.Provider value={{ itemState: rootContext.api.getItemState(itemProps) }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}
 		</AccordionItemContext.Provider>
 	);

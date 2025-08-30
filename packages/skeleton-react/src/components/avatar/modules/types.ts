@@ -1,5 +1,5 @@
 import * as avatar from '@zag-js/avatar';
-import type { ComponentProps, PropsWithChildren } from 'react';
+import type { ComponentProps, PropsWithChildren, ReactNode } from 'react';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
 interface AvatarRootProps
@@ -12,5 +12,8 @@ interface AvatarFallbackProps extends PropsWithChildren, PropsWithElement, Compo
 interface AvatarRootContext {
 	api: avatar.Api;
 }
+interface AvatarRootContextProps {
+	children: (api: avatar.Api) => ReactNode;
+}
 
-export type { AvatarRootProps, AvatarImageProps, AvatarFallbackProps, AvatarRootContext };
+export type { AvatarRootProps, AvatarImageProps, AvatarFallbackProps, AvatarRootContext, AvatarRootContextProps };

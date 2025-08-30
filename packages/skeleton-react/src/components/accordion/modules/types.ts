@@ -1,5 +1,5 @@
 import * as accordion from '@zag-js/accordion';
-import type { PropsWithChildren, ComponentProps } from 'react';
+import type { PropsWithChildren, ComponentProps, ReactNode } from 'react';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
 interface AccordionRootProps
@@ -19,11 +19,17 @@ interface AccordionHeadingProps extends PropsWithChildren, PropsWithElement, Com
 }
 interface AccordionIndicatorProps extends PropsWithChildren, PropsWithElement, ComponentProps<'div'> {}
 interface AccordionContentProps extends PropsWithChildren, PropsWithElement, ComponentProps<'div'> {}
-interface AccordionContext {
+interface AccordionRootContext {
 	api: accordion.Api;
 }
 interface AccordionItemContext {
-	itemProps: accordion.ItemProps;
+	itemState: accordion.ItemState;
+}
+interface AccordionRootContextProps {
+	children: (api: accordion.Api) => ReactNode;
+}
+interface AccordionItemContextProps {
+	children: (itemState: accordion.ItemState) => ReactNode;
 }
 
 export type {
@@ -33,6 +39,8 @@ export type {
 	AccordionHeadingProps,
 	AccordionIndicatorProps,
 	AccordionContentProps,
-	AccordionContext,
-	AccordionItemContext
+	AccordionRootContext,
+	AccordionItemContext,
+	AccordionItemContextProps,
+	AccordionRootContextProps
 };

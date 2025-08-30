@@ -2,6 +2,7 @@ import * as accordion from '@zag-js/accordion';
 import type { HTMLAttributes, HTMLButtonAttributes } from 'svelte/elements';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import type { PropsWithChildren } from '../../../internal/props-with-children.js';
+import type { Snippet } from 'svelte';
 
 interface AccordionRootProps
 	extends PropsWithElement,
@@ -26,6 +27,12 @@ interface AccordionRootContext {
 interface AccordionItemContext {
 	itemProps: accordion.ItemProps;
 }
+interface AccordionRootContextProps {
+	children: Snippet<[accordion.Api]>;
+}
+interface AccordionItemContextProps {
+	children: Snippet<[accordion.ItemProps]>;
+}
 
 export type {
 	AccordionRootProps,
@@ -35,5 +42,7 @@ export type {
 	AccordionIndicatorProps,
 	AccordionContentProps,
 	AccordionRootContext,
-	AccordionItemContext
+	AccordionItemContext,
+	AccordionRootContextProps,
+	AccordionItemContextProps
 };

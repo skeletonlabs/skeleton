@@ -1,7 +1,7 @@
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { useContext } from 'react';
-import { RatingGroupRootContext } from '../modules/context.js';
+import { RatingGroupItemContext, RatingGroupRootContext } from '../modules/context.js';
 import type { RatingGroupItemProps } from '../modules/types.js';
 import * as ratingGroup from '@zag-js/rating-group';
 
@@ -16,5 +16,10 @@ export default function (props: RatingGroupItemProps) {
 		},
 		restAttributes
 	);
-	return element ? element({ attributes }) : <span {...attributes}>{children}</span>;
+	const itemState = rootContext.api.getItemState(itemProps);
+	return (
+		<RatingGroupItemContext.Provider value={{ itemState }}>
+			{element ? element({ attributes }) : <span {...attributes}>{children}</span>}
+		</RatingGroupItemContext.Provider>
+	);
 }
