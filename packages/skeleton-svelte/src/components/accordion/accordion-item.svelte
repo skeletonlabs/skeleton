@@ -1,13 +1,23 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from 'svelte/elements';
+	import type { PropsWithElement } from '../../internal/props-with-element.js';
+	import type { ItemProps } from '@zag-js/accordion';
+
+	interface AccordionItemProps extends PropsWithElement, ItemProps, HTMLAttributes<HTMLDivElement> {}
+
+	export type { AccordionItemProps };
+</script>
+
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import * as accordion from '@zag-js/accordion';
+	import { splitItemProps } from '@zag-js/accordion';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
-	import { AccordionItemContext, AccordionRootContext } from '../modules/context.js';
-	import type { AccordionItemProps } from '../modules/types.js';
+	import { AccordionItemContext } from './accordion-item-context.js';
+	import { AccordionRootContext } from './accordion-root-context.js';
 
 	const rootContext = AccordionRootContext.consume();
 	const props: AccordionItemProps = $props();
-	const [itemProps, componentProps] = $derived(accordion.splitItemProps(props));
+	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
 	const attributes = $derived(
 		mergeProps(

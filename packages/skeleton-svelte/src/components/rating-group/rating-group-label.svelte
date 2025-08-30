@@ -1,8 +1,16 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from 'svelte/elements';
+	import type { PropsWithElement } from '../../internal/props-with-element.js';
+
+	interface RatingGroupLabelProps extends PropsWithElement, Omit<HTMLAttributes<HTMLLabelElement>, 'id' | 'defaultValue' | 'dir'> {}
+
+	export type { RatingGroupLabelProps };
+</script>
+
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { RatingGroupRootContext } from '../modules/context.js';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
-	import type { RatingGroupLabelProps } from '../modules/types.js';
+	import { RatingGroupRootContext } from './rating-group-root-context.js';
 
 	const rootContext = RatingGroupRootContext.consume();
 	const props: RatingGroupLabelProps = $props();

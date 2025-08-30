@@ -1,8 +1,17 @@
+<script lang="ts" module>
+	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { PropsWithElement } from '../../internal/props-with-element.js';
+
+	interface AccordionTriggerProps extends PropsWithElement, HTMLButtonAttributes {}
+
+	export type { AccordionTriggerProps };
+</script>
+
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { AccordionItemContext, AccordionRootContext } from '../modules/context.js';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
-	import type { AccordionTriggerProps } from '../modules/types.js';
+	import { AccordionItemContext } from './accordion-item-context.js';
+	import { AccordionRootContext } from './accordion-root-context.js';
 
 	const rootContext = AccordionRootContext.consume();
 	const itemContext = AccordionItemContext.consume();

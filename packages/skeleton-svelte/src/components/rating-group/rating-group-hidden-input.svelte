@@ -1,8 +1,16 @@
+<script lang="ts" module>
+	import type { HTMLInputAttributes } from 'svelte/elements';
+	import type { PropsWithElement } from '../../internal/props-with-element.js';
+
+	interface RatingGroupHiddenInputProps extends PropsWithElement, Omit<HTMLInputAttributes, 'id' | 'defaultValue' | 'dir' | 'children'> {}
+
+	export type { RatingGroupHiddenInputProps };
+</script>
+
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { RatingGroupRootContext } from '../modules/context.js';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
-	import type { RatingGroupHiddenInputProps } from '../modules/types.js';
+	import { RatingGroupRootContext } from './rating-group-root-context.js';
 
 	const rootContext = RatingGroupRootContext.consume();
 	const props: RatingGroupHiddenInputProps = $props();

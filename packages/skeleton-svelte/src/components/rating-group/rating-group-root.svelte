@@ -1,22 +1,34 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from 'svelte/elements';
+	import type { PropsWithElement } from '../../internal/props-with-element.js';
+	import type { Props } from '@zag-js/rating-group';
+
+	interface RatingGroupRootProps
+		extends PropsWithElement,
+			Omit<Props, 'id'>,
+			Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'defaultValue' | 'dir'> {}
+
+	export type { RatingGroupRootProps };
+</script>
+
 <script lang="ts">
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
-	import * as ratingGroup from '@zag-js/rating-group';
+	import { splitProps, machine, connect } from '@zag-js/rating-group';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
-	import { RatingGroupRootContext } from '../modules/context.js';
-	import type { RatingGroupRootProps } from '../modules/types.js';
+	import { RatingGroupRootContext } from './rating-group-root-context.js';
 
 	const props: RatingGroupRootProps = $props();
 	// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672
-	const [machineProps, componentProps] = $derived(ratingGroup.splitProps(props));
+	const [machineProps, componentProps] = $derived(splitProps(props));
 	// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672
 	const { element, children, ...restAttributes } = $derived(componentProps);
 	const id = $props.id();
-	const service = useMachine(ratingGroup.machine, () => ({
+	const service = useMachine(machine, () => ({
 		// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672
 		id: id,
 		...machineProps
 	}));
-	const api = $derived(ratingGroup.connect(service, normalizeProps));
+	const api = $derived(connect(service, normalizeProps));
 	const attributes = $derived(
 		mergeProps(
 			api.getRootProps(),

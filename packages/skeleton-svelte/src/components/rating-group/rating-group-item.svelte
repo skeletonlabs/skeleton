@@ -1,13 +1,26 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from 'svelte/elements';
+	import type { PropsWithElement } from '../../internal/props-with-element.js';
+	import type { ItemProps } from '@zag-js/rating-group';
+
+	interface RatingGroupItemProps
+		extends PropsWithElement,
+			ItemProps,
+			Omit<HTMLAttributes<HTMLSpanElement>, 'id' | 'defaultValue' | 'dir'> {}
+
+	export type { RatingGroupItemProps };
+</script>
+
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { RatingGroupRootContext, RatingGroupItemContext } from '../modules/context.js';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
-	import type { RatingGroupItemProps } from '../modules/types.js';
-	import * as ratingGroup from '@zag-js/rating-group';
+	import { splitItemProps } from '@zag-js/rating-group';
+	import { RatingGroupRootContext } from './rating-group-root-context.js';
+	import { RatingGroupItemContext } from './rating-group-item-context.js';
 
 	const rootContext = RatingGroupRootContext.consume();
 	const props: RatingGroupItemProps = $props();
-	const [itemProps, componentProps] = $derived(ratingGroup.splitItemProps(props));
+	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
 	const attributes = $derived(
 		mergeProps(
