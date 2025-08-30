@@ -1,5 +1,5 @@
-export { Avatar } from './avatar-anatomy';
-export type { AvatarRootProps } from './avatar-root';
-export type { AvatarRootContextProps } from './avatar-root-context';
-export type { AvatarImageProps } from './avatar-image';
-export type { AvatarFallbackProps } from './avatar-fallback';
+export { Avatar } from './modules/avatar-anatomy.js';
+export type { AvatarRootProps } from './anatomy/avatar-root.js';
+export type { AvatarRootContextProps } from './anatomy/avatar-root-context.js';
+export type { AvatarImageProps } from './anatomy/avatar-image.js';
+export type { AvatarFallbackProps } from './anatomy/avatar-fallback.js';

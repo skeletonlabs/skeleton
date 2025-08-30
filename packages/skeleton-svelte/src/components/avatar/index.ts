@@ -1,5 +1,5 @@
-export { Avatar } from './avatar.anatomy';
-export type { AvatarRootProps } from './avatar-root.svelte';
-export type { AvatarRootContextProps } from './avatar-root-context.svelte';
-export type { AvatarImageProps } from './avatar-image.svelte';
-export type { AvatarFallbackProps } from './avatar-fallback.svelte';
+export { Avatar } from './modules/avatar-anatomy';
+export type { AvatarRootProps } from './anatomy/avatar-root.svelte';
+export type { AvatarRootContextProps } from './anatomy/avatar-root-context.svelte';
+export type { AvatarImageProps } from './anatomy/avatar-image.svelte';
+export type { AvatarFallbackProps } from './anatomy/avatar-fallback.svelte';
