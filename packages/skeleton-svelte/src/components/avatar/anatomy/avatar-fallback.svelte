@@ -1,8 +1,14 @@
+<script lang="ts" module>
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from 'svelte/elements';
+
+	export interface AvatarFallbackProps extends PropsWithElement, HTMLAttributes<HTMLSpanElement> {}
+</script>
+
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesAvatar } from '@skeletonlabs/skeleton-common';
-	import { AvatarRootContext } from '../modules/context.js';
-	import type { AvatarFallbackProps } from '../modules/types.js';
+	import { AvatarRootContext } from '../modules/avatar-root-context.js';
 
 	const rootContext = AvatarRootContext.consume();
 	const props: AvatarFallbackProps = $props();

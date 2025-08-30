@@ -1,8 +1,15 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from 'svelte/elements';
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+
+	export interface AccordionContentProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
+</script>
+
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { AccordionItemContext, AccordionRootContext } from '../modules/context.js';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
-	import type { AccordionContentProps } from '../modules/types.js';
+	import { AccordionRootContext } from '../modules/accordion-root-context.js';
+	import { AccordionItemContext } from '../modules/accordion-item-context.js';
 
 	const rootContext = AccordionRootContext.consume();
 	const itemContext = AccordionItemContext.consume();

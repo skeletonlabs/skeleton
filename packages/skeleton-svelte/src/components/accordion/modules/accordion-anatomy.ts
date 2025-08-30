@@ -4,13 +4,15 @@ import AccordionHeading from '../anatomy/accordion-heading.svelte';
 import AccordionTrigger from '../anatomy/accordion-trigger.svelte';
 import AccordionIndicator from '../anatomy/accordion-indicator.svelte';
 import AccordionContent from '../anatomy/accordion-content.svelte';
+import AccordionRootContext from '../anatomy/accordion-root-context.svelte';
+import AccordionItemContext from '../anatomy/accordion-item-context.svelte';
 
-const Accordion = Object.assign(AccordionRoot, {
+export const Accordion = Object.assign(AccordionRoot, {
+	Context: AccordionRootContext,
 	Item: AccordionItem,
+	ItemContext: AccordionItemContext,
 	Heading: AccordionHeading,
 	Trigger: AccordionTrigger,
 	Indicator: AccordionIndicator,
 	Content: AccordionContent
 });
-
-export { Accordion };
