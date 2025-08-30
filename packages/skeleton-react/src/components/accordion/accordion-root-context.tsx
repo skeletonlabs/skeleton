@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { AccordionRootContext } from './accordion-root-context.js';
+import { AccordionRootContext } from './accordion-root.context';
 import type { Api } from '@zag-js/accordion';
 
 export interface AccordionRootContextProps {

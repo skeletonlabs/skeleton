@@ -1,4 +1,4 @@
-export { RatingGroup } from './rating-group-anatomy.js';
+export { RatingGroup } from './rating-group.anatomy.js';
 export type { RatingGroupRootProps } from './rating-group-root.jsx';
 export type { RatingGroupRootContextProps } from './rating-group-root-context.jsx';
 export type { RatingGroupLabelProps } from './rating-group-label.jsx';

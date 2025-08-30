@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { RatingGroupItemContext } from './rating-group-item-context.js';
+	import { RatingGroupItemContext } from './rating-group-item.context.js';
 
 	const props: RatingGroupItemContextProps = $props();
 	const itemContext = RatingGroupItemContext.consume();

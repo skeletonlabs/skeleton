@@ -1,6 +1,6 @@
 import { useContext, type ReactNode } from 'react';
 import type { ItemState } from '@zag-js/rating-group';
-import { RatingGroupItemContext } from './rating-group-item-context.js';
+import { RatingGroupItemContext } from './rating-group-item.context';
 
 export interface RatingGroupItemContextProps {
 	children: (itemState: ItemState) => ReactNode;

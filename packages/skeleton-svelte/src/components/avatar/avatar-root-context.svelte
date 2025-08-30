@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { AvatarRootContext } from './avatar-root-context.js';
+	import { AvatarRootContext } from './avatar-root.context.js';
 
 	const props: AvatarRootContextProps = $props();
 	const rootContext = AvatarRootContext.consume();

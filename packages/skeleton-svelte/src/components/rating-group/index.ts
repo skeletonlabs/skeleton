@@ -1,4 +1,4 @@
-export { RatingGroup } from './rating-group-anatomy.js';
+export { RatingGroup } from './rating-group.anatomy';
 export type { RatingGroupRootProps } from './rating-group-root.svelte';
 export type { RatingGroupRootContextProps } from './rating-group-root-context.svelte';
 export type { RatingGroupLabelProps } from './rating-group-label.svelte';

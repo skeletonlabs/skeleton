@@ -1,4 +1,4 @@
-import { createContext } from '../../internal/create-context.js';
+import { createContext } from '../../internal/create-context';
 import type { ItemProps, ItemState } from '@zag-js/accordion';
 
 interface AccordionItemContextType {

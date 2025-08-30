@@ -1,7 +1,7 @@
-import AvatarRoot from './avatar-root.jsx';
-import AvatarImage from './avatar-image.jsx';
-import AvatarFallback from './avatar-fallback.jsx';
-import AvatarRootContext from './avatar-root-context.jsx';
+import AvatarRoot from './avatar-root';
+import AvatarImage from './avatar-image';
+import AvatarFallback from './avatar-fallback';
+import AvatarRootContext from './avatar-root-context';
 
 const Avatar = Object.assign(AvatarRoot, {
 	Context: AvatarRootContext,

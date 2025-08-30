@@ -1,8 +1,8 @@
 import { useContext, type ComponentProps, type PropsWithChildren } from 'react';
 import { mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
-import { AccordionItemContext } from './accordion-item-context.js';
-import { AccordionRootContext } from './accordion-root-context.js';
+import { AccordionItemContext } from './accordion-item.context';
+import { AccordionRootContext } from './accordion-root.context';
 import type { PropsWithElement } from '../../internal/props-with-element.js';
 
 export interface AccordionTriggerProps extends PropsWithChildren, PropsWithElement, ComponentProps<'button'> {}

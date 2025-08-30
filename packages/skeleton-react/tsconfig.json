@@ -1,22 +1,22 @@
 {
 	"compilerOptions": {
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"target": "es2022",
-		"allowJs": true,
-		"resolveJsonModule": true,
+		"lib": ["ESNext", "DOM"],
+		"target": "ESNext",
+		"module": "ESNext",
 		"moduleDetection": "force",
-		"isolatedModules": true,
+		"allowJs": true,
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
 		"verbatimModuleSyntax": true,
+		"noEmit": true,
 		"strict": true,
-		"noUncheckedIndexedAccess": true,
-		"noImplicitOverride": true,
-		"module": "NodeNext",
-		"outDir": "dist",
-		"declaration": true,
-		"lib": ["es2022", "dom", "dom.iterable"],
-		"jsx": "react-jsx",
-		"types": ["@testing-library/jest-dom"]
+		"skipLibCheck": true,
+		"noFallthroughCasesInSwitch": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"jsx": "preserve",
+		"jsxImportSource": "react"
 	},
 	"include": ["src"]
 }

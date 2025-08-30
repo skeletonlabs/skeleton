@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { AccordionItemContext } from './accordion-item-context.js';
+import { AccordionItemContext } from './accordion-item.context';
 import type { ItemState } from '@zag-js/accordion';
 
 export interface AccordionItemContextProps {

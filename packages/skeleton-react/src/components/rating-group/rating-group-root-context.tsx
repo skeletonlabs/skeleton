@@ -1,6 +1,6 @@
 import { useContext, type ReactNode } from 'react';
 import type { Api } from '@zag-js/rating-group';
-import { RatingGroupRootContext } from './rating-group-root-context.js';
+import { RatingGroupRootContext } from './rating-group-root.context';
 
 export interface RatingGroupRootContextProps {
 	children: (api: Api) => ReactNode;

@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { AccordionItemContext } from './accordion-item-context.js';
+	import { AccordionItemContext } from './accordion-item.context.js';
 
 	const props: AccordionItemContextProps = $props();
 	const itemContext = AccordionItemContext.consume();

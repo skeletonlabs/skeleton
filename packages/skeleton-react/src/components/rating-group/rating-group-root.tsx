@@ -2,8 +2,8 @@ import { splitProps, machine, connect, type Props } from '@zag-js/rating-group';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { useId, type ComponentProps } from 'react';
 import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
-import { RatingGroupRootContext } from './rating-group-root-context.js';
-import type { PropsWithElement } from '../../internal/props-with-element.js';
+import { RatingGroupRootContext } from './rating-group-root.context';
+import type { PropsWithElement } from '../../internal/props-with-element';
 
 export interface RatingGroupRootProps
 	extends PropsWithElement,

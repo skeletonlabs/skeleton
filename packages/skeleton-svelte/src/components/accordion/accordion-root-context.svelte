@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { AccordionRootContext } from './accordion-root-context.js';
+	import { AccordionRootContext } from './accordion-root.context.js';
 
 	const props: AccordionRootContextProps = $props();
 	const rootContext = AccordionRootContext.consume();

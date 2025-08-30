@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '../../internal/props-with-element.js';
+	import type { PropsWithElement } from '../../internal/props-with-element';
 	import type { Props } from '@zag-js/rating-group';
 
 	export interface RatingGroupRootProps
@@ -13,7 +13,7 @@
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { splitProps, machine, connect } from '@zag-js/rating-group';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
-	import { RatingGroupRootContext } from './rating-group-root-context.js';
+	import { RatingGroupRootContext } from './rating-group-root.context.js';
 
 	const props: RatingGroupRootProps = $props();
 	// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672

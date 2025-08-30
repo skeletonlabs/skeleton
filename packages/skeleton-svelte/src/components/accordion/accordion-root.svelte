@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { Props } from '@zag-js/accordion';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '../../internal/props-with-element.js';
+	import type { PropsWithElement } from '../../internal/props-with-element';
 
 	export interface AccordionRootProps
 		extends PropsWithElement,
@@ -13,7 +13,7 @@
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { machine, connect, splitProps } from '@zag-js/accordion';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
-	import { AccordionRootContext } from './accordion-root-context.js';
+	import { AccordionRootContext } from './accordion-root.context.js';
 
 	const props: AccordionRootProps = $props();
 	const [machineProps, componentProps] = $derived(splitProps(props));

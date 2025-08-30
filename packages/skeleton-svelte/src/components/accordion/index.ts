@@ -1,4 +1,4 @@
-export { Accordion } from './accordion-anatomy.js';
+export { Accordion } from './accordion.anatomy';
 export type { AccordionRootProps } from './accordion-root.svelte';
 export type { AccordionRootContextProps } from './accordion-root-context.svelte';
 export type { AccordionItemProps } from './accordion-item.svelte';

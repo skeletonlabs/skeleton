@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { RatingGroupRootContext } from './rating-group-root-context.js';
+	import { RatingGroupRootContext } from './rating-group-root.context.js';
 
 	const props: RatingGroupRootContextProps = $props();
 	const rootContext = RatingGroupRootContext.consume();
