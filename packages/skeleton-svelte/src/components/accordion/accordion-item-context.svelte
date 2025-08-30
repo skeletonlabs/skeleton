@@ -2,10 +2,9 @@
 	import type { Snippet } from 'svelte';
 	import type { ItemState } from '@zag-js/accordion';
 
-	interface AccordionItemContextProps {
+	export interface AccordionItemContextProps {
 		children: Snippet<[ItemState]>;
 	}
-	export type { AccordionItemContextProps };
 </script>
 
 <script lang="ts">

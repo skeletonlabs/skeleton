@@ -5,6 +5,4 @@ interface RatingGroupRootContextType {
 	api: Api;
 }
 
-const RatingGroupRootContext = createContext<RatingGroupRootContextType>();
-
-export { RatingGroupRootContext };
+export const RatingGroupRootContext = createContext<RatingGroupRootContextType>();

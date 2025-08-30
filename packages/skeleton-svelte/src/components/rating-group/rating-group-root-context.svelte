@@ -2,11 +2,9 @@
 	import type { Snippet } from 'svelte';
 	import type { Api } from '@zag-js/rating-group';
 
-	interface RatingGroupRootContextProps {
+	export interface RatingGroupRootContextProps {
 		children: Snippet<[Api]>;
 	}
-
-	export type { RatingGroupRootContextProps };
 </script>
 
 <script lang="ts">

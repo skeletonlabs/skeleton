@@ -2,9 +2,9 @@
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '../../internal/props-with-element.js';
 
-	interface RatingGroupHiddenInputProps extends PropsWithElement, Omit<HTMLInputAttributes, 'id' | 'defaultValue' | 'dir' | 'children'> {}
-
-	export type { RatingGroupHiddenInputProps };
+	export interface RatingGroupHiddenInputProps
+		extends PropsWithElement,
+			Omit<HTMLInputAttributes, 'id' | 'defaultValue' | 'dir' | 'children'> {}
 </script>
 
 <script lang="ts">

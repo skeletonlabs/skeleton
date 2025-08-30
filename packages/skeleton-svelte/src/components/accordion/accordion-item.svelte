@@ -3,9 +3,7 @@
 	import type { PropsWithElement } from '../../internal/props-with-element.js';
 	import type { ItemProps } from '@zag-js/accordion';
 
-	interface AccordionItemProps extends PropsWithElement, ItemProps, HTMLAttributes<HTMLDivElement> {}
-
-	export type { AccordionItemProps };
+	export interface AccordionItemProps extends PropsWithElement, ItemProps, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">

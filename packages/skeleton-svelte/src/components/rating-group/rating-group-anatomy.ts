@@ -6,7 +6,7 @@ import RatingGroupHiddenInput from './rating-group-hidden-input.svelte';
 import RatingGroupRootContext from './rating-group-root-context.svelte';
 import RatingGroupItemContext from './rating-group-item-context.svelte';
 
-const RatingGroup = Object.assign(RatingGroupRoot, {
+export const RatingGroup = Object.assign(RatingGroupRoot, {
 	Label: RatingGroupLabel,
 	Control: RatingGroupControl,
 	Item: RatingGroupItem,
@@ -14,5 +14,3 @@ const RatingGroup = Object.assign(RatingGroupRoot, {
 	Context: RatingGroupRootContext,
 	ItemContext: RatingGroupItemContext
 });
-
-export { RatingGroup };

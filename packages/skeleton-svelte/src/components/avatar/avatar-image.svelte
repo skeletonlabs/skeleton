@@ -2,9 +2,7 @@
 	import type { PropsWithElement } from '../../internal/props-with-element.js';
 	import type { HTMLImgAttributes } from 'svelte/elements';
 
-	interface AvatarImageProps extends PropsWithElement, HTMLImgAttributes {}
-
-	export type { AvatarImageProps };
+	export interface AvatarImageProps extends PropsWithElement, HTMLImgAttributes {}
 </script>
 
 <script lang="ts">

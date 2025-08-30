@@ -3,12 +3,10 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '../../internal/props-with-element.js';
 
-	interface AccordionRootProps
+	export interface AccordionRootProps
 		extends PropsWithElement,
 			Omit<Props, 'id'>,
 			Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'defaultValue' | 'dir'> {}
-
-	export type { AccordionRootProps };
 </script>
 
 <script lang="ts">

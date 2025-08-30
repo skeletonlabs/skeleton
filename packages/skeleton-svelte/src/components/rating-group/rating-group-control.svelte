@@ -2,9 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '../../internal/props-with-element.js';
 
-	interface RatingGroupControlProps extends PropsWithElement, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'defaultValue' | 'dir'> {}
-
-	export type { RatingGroupControlProps };
+	export interface RatingGroupControlProps extends PropsWithElement, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'defaultValue' | 'dir'> {}
 </script>
 
 <script lang="ts">

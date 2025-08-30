@@ -2,9 +2,7 @@
 	import type { PropsWithElement } from '../../internal/props-with-element.js';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface AvatarFallbackProps extends PropsWithElement, HTMLAttributes<HTMLSpanElement> {}
-
-	export type { AvatarFallbackProps };
+	export interface AvatarFallbackProps extends PropsWithElement, HTMLAttributes<HTMLSpanElement> {}
 </script>
 
 <script lang="ts">

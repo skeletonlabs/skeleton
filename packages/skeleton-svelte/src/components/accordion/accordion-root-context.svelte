@@ -2,11 +2,9 @@
 	import type { Api } from '@zag-js/accordion';
 	import type { Snippet } from 'svelte';
 
-	interface AccordionRootContextProps {
+	export interface AccordionRootContextProps {
 		children: Snippet<[Api]>;
 	}
-
-	export type { AccordionRootContextProps };
 </script>
 
 <script lang="ts">

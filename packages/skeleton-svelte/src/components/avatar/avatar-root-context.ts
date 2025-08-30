@@ -5,6 +5,4 @@ interface AvatarRootContextType {
 	api: Api;
 }
 
-const AvatarRootContext = createContext<AvatarRootContextType>();
-
-export { AvatarRootContext };
+export const AvatarRootContext = createContext<AvatarRootContextType>();

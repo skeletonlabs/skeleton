@@ -5,6 +5,4 @@ interface RatingGroupItemContextType {
 	itemState: ItemState;
 }
 
-const RatingGroupItemContext = createContext<RatingGroupItemContextType>();
-
-export { RatingGroupItemContext };
+export const RatingGroupItemContext = createContext<RatingGroupItemContextType>();

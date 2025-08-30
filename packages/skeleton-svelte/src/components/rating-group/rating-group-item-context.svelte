@@ -2,11 +2,9 @@
 	import type { Snippet } from 'svelte';
 	import type { ItemState } from '@zag-js/rating-group';
 
-	interface RatingGroupItemContextProps {
+	export interface RatingGroupItemContextProps {
 		children: Snippet<[ItemState]>;
 	}
-
-	export type { RatingGroupItemContextProps };
 </script>
 
 <script lang="ts">

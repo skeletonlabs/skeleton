@@ -3,9 +3,7 @@
 	import type { PropsWithElement } from '../../internal/props-with-element.js';
 	import type { Props } from '@zag-js/avatar';
 
-	interface AvatarRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {}
-
-	export type { AvatarRootProps };
+	export interface AvatarRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">

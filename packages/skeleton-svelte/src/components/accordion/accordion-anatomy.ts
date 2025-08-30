@@ -7,7 +7,7 @@ import AccordionContent from './accordion-content.svelte';
 import AccordionRootContext from './accordion-root-context.svelte';
 import AccordionItemContext from './accordion-item-context.svelte';
 
-const Accordion = Object.assign(AccordionRoot, {
+export const Accordion = Object.assign(AccordionRoot, {
 	Item: AccordionItem,
 	Heading: AccordionHeading,
 	Trigger: AccordionTrigger,
@@ -16,5 +16,3 @@ const Accordion = Object.assign(AccordionRoot, {
 	Context: AccordionRootContext,
 	ItemContext: AccordionItemContext
 });
-
-export { Accordion };

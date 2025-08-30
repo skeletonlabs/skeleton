@@ -3,12 +3,10 @@
 	import type { PropsWithElement } from '../../internal/props-with-element.js';
 	import type { ItemProps } from '@zag-js/rating-group';
 
-	interface RatingGroupItemProps
+	export interface RatingGroupItemProps
 		extends PropsWithElement,
 			ItemProps,
 			Omit<HTMLAttributes<HTMLSpanElement>, 'id' | 'defaultValue' | 'dir'> {}
-
-	export type { RatingGroupItemProps };
 </script>
 
 <script lang="ts">

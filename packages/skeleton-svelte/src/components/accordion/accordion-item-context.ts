@@ -6,6 +6,4 @@ interface AccordionItemContextType {
 	itemState: ItemState;
 }
 
-const AccordionItemContext = createContext<AccordionItemContextType>();
-
-export { AccordionItemContext };
+export const AccordionItemContext = createContext<AccordionItemContextType>();

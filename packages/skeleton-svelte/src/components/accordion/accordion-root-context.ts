@@ -5,7 +5,4 @@ interface AccordionRootContextType {
 	api: Api;
 }
 
-const AccordionRootContext = createContext<AccordionRootContextType>();
-
-export { AccordionRootContext };
-export type { AccordionRootContextType };
+export const AccordionRootContext = createContext<AccordionRootContextType>();

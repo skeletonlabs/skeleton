@@ -2,9 +2,7 @@
 	import type { PropsWithElement } from '../../internal/props-with-element.js';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface AccordionIndicatorProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
-
-	export type { AccordionIndicatorProps };
+	export interface AccordionIndicatorProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">

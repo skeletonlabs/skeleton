@@ -2,11 +2,9 @@
 	import type { Snippet } from 'svelte';
 	import type { Api } from '@zag-js/avatar';
 
-	interface AvatarRootContextProps {
+	export interface AvatarRootContextProps {
 		children: Snippet<[Api]>;
 	}
-
-	export type { AvatarRootContextProps };
 </script>
 
 <script lang="ts">
