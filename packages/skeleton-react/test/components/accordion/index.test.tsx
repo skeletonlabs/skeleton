@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import Accordion from './accordion.js';
+import Accordion from './accordion.jsx';
 
 describe('accordion', () => {
 	describe('root', () => {
@@ -28,6 +28,13 @@ describe('accordion', () => {
 		it('renders', () => {
 			render(<Accordion />);
 			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+		});
+	});
+
+	describe('indicator', () => {
+		it('renders', () => {
+			render(<Accordion />);
+			expect(screen.getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
