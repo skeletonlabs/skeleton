@@ -15,7 +15,17 @@ export default typescript.config(
 	 * Ignore
 	 */
 	{
-		ignores: ['**/node_modules/', '**/dist/', '**/build/', '**/pagefind/', '**/.svelte-kit/', '**/.astro/', '**/.next/', '**/.vercel/']
+		ignores: [
+			'**/node_modules/',
+			'**/dist/',
+			'**/build/',
+			'**/pagefind/',
+			'**/.svelte-kit/',
+			'**/.astro/',
+			'**/.next/',
+			'**/.vercel/',
+			'**/next-env.d.ts'
+		]
 	},
 	/**
 	 * Prettier

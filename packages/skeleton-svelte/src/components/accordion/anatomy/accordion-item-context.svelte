@@ -1,0 +1,17 @@
+<script lang="ts" module>
+	import type { Snippet } from 'svelte';
+	import type { AccordionItemContextType } from '../modules/accordion-item-context.js';
+
+	export interface AccordionItemContextProps {
+		children: Snippet<[AccordionItemContextType]>;
+	}
+</script>
+
+<script lang="ts">
+	import { AccordionItemContext } from '../modules/accordion-item-context.js';
+
+	const props: AccordionItemContextProps = $props();
+	const itemContext = AccordionItemContext.consume();
+</script>
+
+{@render props.children(itemContext)}
