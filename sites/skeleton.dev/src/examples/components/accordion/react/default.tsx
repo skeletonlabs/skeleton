@@ -10,7 +10,7 @@ export default function () {
 		<Accordion>
 			<Accordion.Item value="item-1">
 				<Accordion.Heading>
-					<Accordion.Trigger>
+					<Accordion.Trigger className="grid-cols-[auto_1fr_auto]">
 						<IconClub />
 						<span>Club</span>
 						<Accordion.Indicator>
@@ -23,7 +23,7 @@ export default function () {
 			<hr className="hr" />
 			<Accordion.Item value="item-2">
 				<Accordion.Heading>
-					<Accordion.Trigger>
+					<Accordion.Trigger className="grid-cols-[auto_1fr_auto]">
 						<IconDiamond />
 						<span>Diamond</span>
 						<Accordion.Indicator>
@@ -36,7 +36,7 @@ export default function () {
 			<hr className="hr" />
 			<Accordion.Item value="item-3">
 				<Accordion.Heading>
-					<Accordion.Trigger>
+					<Accordion.Trigger className="grid-cols-[auto_1fr_auto]">
 						<IconHeart />
 						<span>Heart</span>
 						<Accordion.Indicator>
@@ -49,7 +49,7 @@ export default function () {
 			<hr className="hr" />
 			<Accordion.Item value="item-4">
 				<Accordion.Heading>
-					<Accordion.Trigger>
+					<Accordion.Trigger className="grid-cols-[auto_1fr_auto]">
 						<IconSpade />
 						<span>Spade</span>
 						<Accordion.Indicator>
