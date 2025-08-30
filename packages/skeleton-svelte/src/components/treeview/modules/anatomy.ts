@@ -13,11 +13,11 @@ const TreeView = Object.assign(TreeViewRoot, {
 	Tree: TreeViewTree,
 	Label: TreeViewLabel,
 	Branch: TreeViewBranch,
-	Control: TreeViewBranchControl,
-	Text: TreeViewBranchText,
-	Indicator: TreeViewBranchIndicator,
-	Content: TreeViewBranchContent,
-	IndentGuide: TreeViewBranchIndentGuide,
+	BranchControl: TreeViewBranchControl,
+	BranchText: TreeViewBranchText,
+	BranchIndicator: TreeViewBranchIndicator,
+	BranchContent: TreeViewBranchContent,
+	BranchIndentGuide: TreeViewBranchIndentGuide,
 	Item: TreeViewItem
 });
 

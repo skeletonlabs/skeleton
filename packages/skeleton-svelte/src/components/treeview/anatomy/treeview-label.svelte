@@ -16,12 +16,14 @@
 			restAttributes
 		)
 	);
+
+	const tag = $derived(`h${level}`);
 </script>
 
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<svelte:element this={`h${level}`} {...attributes}>
+	<svelte:element this={tag} {...attributes}>
 		{@render children?.()}
 	</svelte:element>
 {/if}

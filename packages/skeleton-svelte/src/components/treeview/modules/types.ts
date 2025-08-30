@@ -51,3 +51,5 @@ export type {
 	TreeViewRootContext,
 	TreeViewNodeContext
 };
+
+export type TreeViewNodeProps = tree.NodeProps;
