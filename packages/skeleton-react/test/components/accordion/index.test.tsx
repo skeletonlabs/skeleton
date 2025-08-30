@@ -31,6 +31,13 @@ describe('accordion', () => {
 		});
 	});
 
+	describe('indicator', () => {
+		it('renders', () => {
+			render(<Accordion />);
+			expect(screen.getByTestId('indicator')).toBeInTheDocument();
+		});
+	});
+
 	describe('content', () => {
 		it('renders', () => {
 			render(<Accordion />);

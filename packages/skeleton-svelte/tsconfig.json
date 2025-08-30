@@ -15,7 +15,8 @@
 		"noFallthroughCasesInSwitch": true,
 		"noPropertyAccessFromIndexSignature": true,
 		"noUnusedLocals": true,
-		"noUnusedParameters": true
+		"noUnusedParameters": true,
+		"types": ["@testing-library/jest-dom/vitest"]
 	},
 	"include": ["src"]
 }

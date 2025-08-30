@@ -16,7 +16,8 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"jsx": "preserve",
-		"jsxImportSource": "react"
+		"jsxImportSource": "react",
+		"types": ["@testing-library/jest-dom/vitest"]
 	},
-	"include": ["src"]
+	"include": ["src", "test"]
 }
