@@ -15,7 +15,7 @@
 		"noPropertyAccessFromIndexSignature": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"jsx": "preserve",
+		"jsx": "react-jsx",
 		"jsxImportSource": "react",
 		"types": ["@testing-library/jest-dom/vitest"]
 	},
