@@ -15,5 +15,5 @@
 			"@images/*": ["src/images/*"]
 		}
 	},
-	"exclude": ["node_modules", "dist", "public/pagefind", "./scripts/generate-schemas.ts"]
+	"include": ["src", "scripts/generate-type-documentation.ts"]
 }
