@@ -1,10 +1,11 @@
-'use client';
-
 import { mergeProps } from '@zag-js/react';
-import { useContext } from 'react';
+import { useContext, type ComponentProps, type PropsWithChildren } from 'react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
-import { AccordionRootContext, AccordionItemContext } from '../modules/context.js';
-import type { AccordionIndicatorProps } from '../modules/types.js';
+import { AccordionItemContext } from '../modules/accordion-item-context.js';
+import { AccordionRootContext } from '../modules/accordion-root-context.js';
+import type { PropsWithElement } from '../../../internal/props-with-element.js';
+
+export interface AccordionIndicatorProps extends PropsWithChildren, PropsWithElement, ComponentProps<'div'> {}
 
 export default function (props: AccordionIndicatorProps) {
 	const rootContext = useContext(AccordionRootContext);

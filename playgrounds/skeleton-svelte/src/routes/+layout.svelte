@@ -19,17 +19,8 @@
 				<nav class="text-sm flex flex-col gap-2">
 					<a class="anchor" href="/components/accordion">Accordions</a>
 					<a class="anchor" href="/components/avatar">Avatars</a>
+					<a class="anchor" href="/components/rating-group">Rating Group</a>
 					<a class="anchor" href="/components/treeview">TreeView</a>
-				</nav>
-			</div>
-			<!-- Svelte-Only -->
-			<div class="space-y-8">
-				<div class="font-bold">Svelte-Only</div>
-				<nav class="text-sm flex flex-col gap-2">
-					<a class="anchor" href="/components/popover">Popover</a>
-					<a class="anchor" href="/components/tooltip">Tooltip</a>
-					<a class="anchor" href="/components/combobox">Combobox</a>
-					<a class="anchor" href="/components/modal">Modal</a>
 				</nav>
 			</div>
 		</header>
