@@ -35,11 +35,11 @@ const types = defineCollection({
 				typeKind: z.string(),
 				optional: z.boolean(),
 				JSDoc: z.object({
-					text: z.string().nullable(),
+					description: z.string().nullable(),
 					tags: z.array(
 						z.object({
 							name: z.string(),
-							value: z.string()
+							value: z.string().nullable()
 						})
 					)
 				})
@@ -48,4 +48,4 @@ const types = defineCollection({
 	)
 });
 
-export const collections = { docs, schemas: types };
+export const collections = { docs, types };
