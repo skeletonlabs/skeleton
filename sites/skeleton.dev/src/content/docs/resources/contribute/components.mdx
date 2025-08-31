@@ -15,13 +15,21 @@ To run all packages/playgrounds/sites in watch mode, use the following command i
 pnpm dev
 ```
 
+If you wish to focus on a specific framework you may run the framework-specific dev command:
+
+```shell
+pnpm dev:{framework}
+```
+
+This will limit the monorepo to only running the framework package (and its dependencies) and the corresponding playground for the specified framework and thus reduce resource usage and console bloat.
+
 ### Server Ports
 
 The following represents the _default_ localhost address and port for each project. This will be displayed in the terminal when starting each dev server.
 
 - Documentation Site: `http://localhost:4321/`
-- SvelteKit Playground: `http://localhost:5173/`
-- NextJS Playground: `http://localhost:3000/`
+- Svelte Playground: `http://localhost:5173/`
+- React Playground: `http://localhost:3000/`
 
 You may run the sites and playgrounds in parallel at the same time. If a server shares a port, this will increment by one for the next server (ex: `5174`, `5175`, etc). Keep your eye on the terminal to retrieve the specific local address for each.
 
@@ -75,11 +83,11 @@ avatar/
 ├── anatomy/
 │   ├── avatar-fallback.{tsx|svelte}
 │   ├── avatar-image.{tsx|svelte}
+│   ├── avatar-root-context.{tsx|svelte}
 │   └── avatar-root.{tsx|svelte}
 ├── modules/
-│   ├── anatomy.ts
-│   ├── context.ts
-│   └── types.ts
+│   ├── avatar-anatomy.ts
+│   └── avatar-root-context.ts
 └── index.ts
 ```
 
@@ -87,83 +95,75 @@ avatar/
 
 The anatomy folder contains each component part inside a seperate file.
 
+### Component Part File
+
+Every component part should export their component as a default export and their prop types as named exports.
+
+#### React
+
+```tsx title="avatar-root.tsx"
+export interface AvatarRootProps {
+	// ...
+}
+
+export default function (props: AvatarRootProps) {
+	// ...
+}
+```
+
+#### Svelte
+
+```svelte title="avatar-root.svelte"
+<script lang="ts" module>
+	export interface AvatarRootProps {
+		// ...
+	}
+</script>
+
+<script lang="ts">
+	const props: AvatarRootProps = $props();
+
+	// ...
+</script>
+
+<!-- ... --->
+```
+
 ### Modules Folder
 
 #### Anatomy File
 
-The `anatomy.ts` file contains the exported anatomy, which enables the friendly dot notation syntax when consumed.
+The `{component}-anatomy.ts` file contains the exported anatomy, which enables the friendly dot notation syntax when consumed.
 
-```ts title="anatomy.ts"
+```ts title="avatar-anatomy.ts"
 import AvatarRoot from '../anatomy/avatar-root.js';
 import AvatarImage from '../anatomy/avatar-image.js';
 import AvatarFallback from '../anatomy/avatar-fallback.js';
 
-const Avatar = Object.assign(
+export const Avatar = Object.assign(
 	AvatarRoot, // <Avatar>
 	{
 		Image: AvatarImage, // <Avatar.Image>
 		Fallback: AvatarFallback // <Avatar.Fallback>
 	}
 );
-
-export { Avatar };
 ```
 
-#### Types File
+#### Context Part File
 
-The `types.ts` file contains the exported types for each component context and part:
+The `{component}-{part}-context.ts` file contains the exported context for each part's context. This pattern enables strong typing.
 
-```ts title="types.ts"
-import * as avatar from '@zag-js/avatar';
-import type { ComponentProps, PropsWithChildren } from 'react';
-import type { PropsWithElement } from '../../../internal/props-with-child.js';
+```ts title="avatar-root-context.ts"
+import { createContext } from 'react';
 
-// Context Types ---
-
-interface AvatarContext {
-	/** Implements the Avatar API */
-	api: avatar.Api;
+export interface AvatarContextType {
+	// ...
 }
 
-// Component Props Types ---
-
-interface AvatarRootProps
-	extends PropsWithChildren,
-		PropsWithElement,
-		Omit<avatar.Props, 'id'>,
-		Omit<ComponentProps<'div'>, 'id' | 'dir'> {}
-
-interface AvatarImageProps extends PropsWithElement, ComponentProps<'img'> {}
-
-interface AvatarFallbackProps extends PropsWithChildren, PropsWithElement, ComponentProps<'span'> {}
-
-export type {
-	AvatarRootContext
-	AvatarRootProps
-	AvatarImageProps
-	AvatarFallbackProps
-};
+export const AvatarContext = createContext<AvatarContextType>(null!);
 ```
 
-- Component Context types should use the naming convention: `{Component}{Part}Context`
-- Component prop types should use the naming convention: `{Component}{Part}Props`
-- Use `Omit<>` to avoid conflicting Zag props; such as `id`, which is set automatically within components.
-- Use [JSDoc comment blocks](https://jsdoc.app/) to document the intended usage.
-- React-Only: Implement `PropsWithChildren` for components that contain a child slot.
-- React-Only: Implement `ComponentProps` to describe the DOM element (ex: Img, Button, etc)
-
-#### Context File
-
-The `context.ts` file contains the exported context for each part's context. This pattern enables strong typing.
-
-```ts title="context.ts"
-import { createContext } from 'react';
-import type { AvatarContext as AvatarContextType } from './types.js';
-
-const AvatarContext = createContext<AvatarContextType>(null!);
-
-export { AvatarContext };
-```
+> NOTE: The interface is suffixed `Type` to avoid conflicting with the context variable name.
 
 ---
 
@@ -219,11 +219,13 @@ packages/
 Here's an example of the Avatar styles found in `avatar.ts`:
 
 ```ts title="avatar.ts"
-export const classesAvatar = {
+import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
+
+export const classesAvatar = defineSkeletonClasses({
 	root: 'isolate bg-surface-400-600 size-16 rounded-full overflow-hidden',
 	image: 'w-full object-cover',
 	fallback: 'size-full flex justify-center items-center'
-};
+});
 ```
 
 - Use the naming convention of `classes{Component}`
@@ -232,7 +234,7 @@ export const classesAvatar = {
 
 ### Style Prefix
 
-It's worth noting that during build time, Skeleton will automatically prefix each class in the class list with `skb:`. The purpose of this prefix is to assign each class to the Tailwind `@base` layer, ensuring user-provided classes take precedence over these classes. This is accomplished using the following Tailwind custom variant.
+It's worth noting that during build time, Skeleton will automatically prefix each class in the class list with `skb:` (this is why we're using `with { type: 'macro' }`, this signals to the build process to run `defineSkeletonClasses` at build time). The purpose of this prefix is to assign each class to the Tailwind `@base` layer, ensuring user-provided classes take precedence over these classes. This is accomplished using the following Tailwind custom variant.
 
 ```css title="base.css"
 @custom-variant skb {
@@ -243,6 +245,8 @@ It's worth noting that during build time, Skeleton will automatically prefix eac
 ```
 
 > NOTE: This is implemented in `/packages/skeleton/src/variants/base.css`
+
+If you need to prevent a class from being prefixed at build time you may mark that class explicitely by prefixing the class with `not-skb:`.
 
 ### Importing Class Lists
 
