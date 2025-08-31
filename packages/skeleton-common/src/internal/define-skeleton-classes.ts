@@ -1,4 +1,4 @@
-export function defineSkeletonClasses(anatomy: Record<string, string>) {
+export function defineSkeletonClasses<T extends Record<string, string>>(anatomy: T) {
 	const PREFIX = 'skb:';
 	const ESCAPE_PREFIX = 'not-skb:';
 	return Object.fromEntries(
@@ -14,5 +14,5 @@ export function defineSkeletonClasses(anatomy: Record<string, string>) {
 				})
 				.join(' ')
 		])
-	);
+	) as T;
 }
