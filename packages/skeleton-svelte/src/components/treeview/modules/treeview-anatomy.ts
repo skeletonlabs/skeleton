@@ -8,6 +8,8 @@ import TreeViewBranchIndicator from '../anatomy/treeview-branch-indicator.svelte
 import TreeViewBranchContent from '../anatomy/treeview-branch-content.svelte';
 import TreeViewBranchIndentGuide from '../anatomy/treeview-branch-indent-guide.svelte';
 import TreeViewLabel from '../anatomy/treeview-label.svelte';
+import TreeViewRootContext from '../anatomy/treeview-root-context.svelte';
+import TreeViewNodeContext from '../anatomy/treeview-node-context.svelte';
 
 const TreeView = Object.assign(TreeViewRoot, {
 	Tree: TreeViewTree,
@@ -18,7 +20,9 @@ const TreeView = Object.assign(TreeViewRoot, {
 	BranchIndicator: TreeViewBranchIndicator,
 	BranchContent: TreeViewBranchContent,
 	BranchIndentGuide: TreeViewBranchIndentGuide,
-	Item: TreeViewItem
+	Item: TreeViewItem,
+	RootContext: TreeViewRootContext,
+	NodeContext: TreeViewNodeContext
 });
 
 export { TreeView };

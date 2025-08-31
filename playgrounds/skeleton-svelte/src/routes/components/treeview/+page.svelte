@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TreeView, createTreeViewCollection, isNodeBranch, type TreeViewNodeProps } from '@skeletonlabs/skeleton-svelte';
+	import { TreeView, createTreeViewCollection, type TreeViewNodeProps } from '@skeletonlabs/skeleton-svelte';
 
 	interface Node {
 		id: string;
@@ -37,31 +37,34 @@
 
 {#snippet treeNode(nodeProps: TreeViewNodeProps)}
 	{@const { node, indexPath } = nodeProps}
-	{#if node.children && node.children.length > 0}
-		<TreeView.Branch {nodeProps}>
-			<TreeView.BranchIndicator />
-			<TreeView.BranchControl>
-				<TreeView.BranchText>{node.name}</TreeView.BranchText>
-			</TreeView.BranchControl>
-
-			<TreeView.BranchContent>
-				<TreeView.BranchIndentGuide />
-				{#each node.children as childNode, childIndex}
-					{@render treeNode({ indexPath: [...indexPath, childIndex], node: childNode })}
-				{/each}
-			</TreeView.BranchContent>
-		</TreeView.Branch>
-	{:else}
-		<TreeView.Item {nodeProps}>
-			{node.name}
-		</TreeView.Item>
-	{/if}
+	<TreeView.RootContext>
+		{#snippet children({ api })}
+			{#if api.getNodeState(nodeProps).isBranch}
+				<TreeView.Branch {nodeProps}>
+					<TreeView.BranchIndicator />
+					<TreeView.BranchControl>
+						<TreeView.BranchText>{node.name}</TreeView.BranchText>
+					</TreeView.BranchControl>
+					<TreeView.BranchContent>
+						<TreeView.BranchIndentGuide />
+						{#each node.children as childNode, childIndex (childIndex)}
+							{@render treeNode({ indexPath: [...indexPath, childIndex], node: childNode })}
+						{/each}
+					</TreeView.BranchContent>
+				</TreeView.Branch>
+			{:else}
+				<TreeView.Item {nodeProps}>
+					{node.name}
+				</TreeView.Item>
+			{/if}
+		{/snippet}
+	</TreeView.RootContext>
 {/snippet}
 
 <TreeView {collection}>
 	<TreeView.Label>File System</TreeView.Label>
 	<TreeView.Tree>
-		{#each collection.rootNode.children || [] as node, index}
+		{#each collection.rootNode.children || [] as node, index (index)}
 			{@render treeNode({ indexPath: [index], node })}
 		{/each}
 	</TreeView.Tree>

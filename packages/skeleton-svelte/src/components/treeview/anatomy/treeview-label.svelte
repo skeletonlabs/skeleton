@@ -1,7 +1,21 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from 'svelte/elements';
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
+
+	export interface TreeViewLabelProps extends PropsWithElement, PropsWithChildren, HTMLAttributes<HTMLSpanElement> {
+		/**
+		 * The level of the label. This is used to determine the heading level for accessibility purposes.
+		 *
+		 * @defaultValue 3
+		 */
+		level?: 1 | 2 | 3 | 4 | 5 | 6;
+	}
+</script>
+
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import type { TreeViewLabelProps } from '../modules/types.js';
-	import { TreeViewRootContext } from '../modules/context.js';
+	import { TreeViewRootContext } from '../modules/treeview-root-context.js';
 	import { classesTreeview } from '@skeletonlabs/skeleton-common';
 
 	const props: TreeViewLabelProps = $props();

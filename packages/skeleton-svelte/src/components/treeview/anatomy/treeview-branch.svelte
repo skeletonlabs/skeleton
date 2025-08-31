@@ -1,7 +1,18 @@
+<script lang="ts" module>
+	import * as tree from '@zag-js/tree-view';
+	import type { HTMLAttributes } from 'svelte/elements';
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
+
+	export interface TreeViewBranchProps extends PropsWithElement, PropsWithChildren, HTMLAttributes<HTMLDivElement> {
+		nodeProps: tree.NodeProps;
+	}
+</script>
+
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { TreeViewNodeContext, TreeViewRootContext } from '../modules/context.js';
-	import type { TreeViewBranchProps } from '../modules/types.js';
+	import { TreeViewRootContext } from '../modules/treeview-root-context.js';
+	import { TreeViewNodeContext } from '../modules/treeview-node-context.js';
 	import { classesTreeview } from '@skeletonlabs/skeleton-common';
 
 	const props: TreeViewBranchProps = $props();
