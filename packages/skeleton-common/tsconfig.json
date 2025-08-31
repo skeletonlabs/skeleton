@@ -13,5 +13,5 @@
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true
 	},
-	"include": ["src", "build/rolldown-plugin-string-transform.ts"]
+	"include": ["src", "marcros/define-skeleton-classes.macro.ts"]
 }
