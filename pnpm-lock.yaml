@@ -6,66 +6,6 @@ settings:
 
 catalogs:
   default:
-    '@zag-js/accordion':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/avatar':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/combobox':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/dialog':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/file-upload':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/pagination':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/popover':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/progress':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/radio-group':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/rating-group':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/react':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/slider':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/svelte':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/switch':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/tabs':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/tags-input':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/toast':
-      specifier: ^1.22.1
-      version: 1.22.1
-    '@zag-js/tooltip':
-      specifier: ^1.22.1
-      version: 1.22.1
-    svelte:
-      specifier: ^5.38.6
-      version: 5.38.6
-    tailwindcss:
-      specifier: ^4.1.12
-      version: 4.1.12
     typescript:
       specifier: ^5.9.2
       version: 5.9.2
@@ -233,9 +173,6 @@ importers:
       '@skeletonlabs/skeleton':
         specifier: workspace:*
         version: link:../skeleton
-      rolldown:
-        specifier: 1.0.0-beta.34
-        version: 1.0.0-beta.34
       tsdown:
         specifier: ^0.14.2
         version: 0.14.2(publint@0.3.12)(typescript@5.9.2)
