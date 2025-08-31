@@ -2,6 +2,7 @@ packages:
   - packages/*
   - sites/*
   - playgrounds/*
+  - scripts
 
 catalog:
   '@zag-js/svelte': ^1.22.1

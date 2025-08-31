@@ -1,0 +1,16 @@
+{
+	"name": "@skeletonlabs/scripts",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"generate-type-docs": "tsx src/generate-type-docs.ts"
+	},
+	"type": "module",
+	"packageManager": "pnpm@10.12.4",
+	"devDependencies": {
+		"tinyglobby": "^0.2.14",
+		"ts-morph": "^26.0.0",
+		"tsx": "^4.20.5",
+		"typescript": "catalog:"
+	}
+}
