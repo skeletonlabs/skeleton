@@ -20,7 +20,6 @@
 	],
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
-		"rolldown": "1.0.0-beta.34",
 		"tsdown": "^0.14.2",
 		"typescript": "catalog:",
 		"unplugin-macros": "^0.18.1",
