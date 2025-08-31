@@ -31,17 +31,17 @@ async function processFramework(config: (typeof frameworks)[keyof typeof framewo
 					const sourceFile = project.addSourceFileAtPath(part);
 					const iface = sourceFile.getInterface(interfaceName);
 					if (!iface) {
-						console.warn(`Interface ${interfaceName} not found in ${part}`);
+						console.warn(`Interface "${interfaceName}" not found in ${part}`);
 						return null;
 					}
-					const resolvedType = iface.getType();
-					const properties = resolvedType
+					const properties = iface
+						.getType()
 						.getProperties()
 						.map((prop) => {
 							const propType = prop.getTypeAtLocation(sourceFile);
 							return {
 								name: prop.getName(),
-								type: propType.getText(),
+								type: propType.getText(undefined, ts.TypeFormatFlags.UseAliasDefinedOutsideCurrentScope),
 								optional: prop.hasFlags(ts.SymbolFlags.Optional)
 							};
 						})
