@@ -7,33 +7,40 @@ function toPascalCase(name: string): string {
 	return name.replace(/(^\w|[-_]\w)/g, (m) => m.replace(/[-_]/, '').toUpperCase());
 }
 
-async function processFramework(config: (typeof frameworks)[keyof typeof frameworks]) {
+async function extractTypes(framework: (typeof frameworks)[number]) {
 	const componentDirectories = await glob('*', {
-		cwd: config.componentDirectoryPath,
+		cwd: join(framework.root, 'dist', 'components'),
 		onlyDirectories: true,
 		absolute: true
 	});
 
 	return await Promise.all(
 		componentDirectories.map(async (componentDirectory) => {
-			const anatomy = await glob(`./anatomy/*${config.dtsExtension}`, {
+			const parts = await glob(`./anatomy/*${framework.dtsExtension}`, {
 				cwd: componentDirectory,
 				absolute: true
 			});
-
 			const project = new Project({
-				tsConfigFilePath: config.tsConfigFilePath
+				tsConfigFilePath: join(framework.root, 'tsconfig.json')
 			});
 
-			return anatomy
+			const anatomy = parts
 				.map((part) => {
-					const interfaceName = `${toPascalCase(basename(part).replace(config.dtsExtension, ''))}Props`;
+					const componentName = toPascalCase(basename(part).replace(framework.dtsExtension, ''));
+					const componentPropsInterfaceName = `${componentName}Props`;
 					const sourceFile = project.addSourceFileAtPath(part);
-					const iface = sourceFile.getInterface(interfaceName);
+					const iface = sourceFile.getInterface(componentPropsInterfaceName);
 					if (!iface) {
-						console.warn(`Interface "${interfaceName}" not found in ${part}`);
+						console.warn(`Interface "${componentPropsInterfaceName}" not found in ${part}`);
 						return null;
 					}
+					iface.getExtends().forEach((ext) => {
+						const text = ext.getText();
+						if (framework.extendsBlacklistPatterns.some((pattern) => pattern.test(text))) {
+							iface.removeExtends(ext);
+						}
+					});
+
 					const properties = iface
 						.getType()
 						.getProperties()
@@ -41,52 +48,60 @@ async function processFramework(config: (typeof frameworks)[keyof typeof framewo
 							const propType = prop.getTypeAtLocation(sourceFile);
 							return {
 								name: prop.getName(),
+								description: prop
+									.getJsDocTags()
+									.map((tag) => tag.getText())
+									.join('\n'),
 								type: propType.getText(undefined, ts.TypeFormatFlags.UseAliasDefinedOutsideCurrentScope),
 								optional: prop.hasFlags(ts.SymbolFlags.Optional)
 							};
 						})
 						.filter(Boolean);
 					return {
-						file: part,
-						interface: interfaceName,
+						component: componentName,
+						interface: componentPropsInterfaceName,
 						properties: properties
 					};
 				})
 				.filter(Boolean);
+
+			return {
+				component: basename(componentDirectory),
+				anatomy: anatomy
+			};
 		})
 	);
 }
 
 const monorepoRoot = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
-const frameworks = {
-	svelte: {
-		root: join(monorepoRoot, 'packages', 'skeleton-svelte'),
-		get tsConfigFilePath() {
-			return join(this.root, 'tsconfig.json');
-		},
-		get componentDirectoryPath() {
-			return join(this.root, 'dist', 'components');
-		},
-		dtsExtension: '.svelte.d.ts'
+const frameworks = [
+	{
+		name: 'svelte',
+		dtsExtension: '.svelte.d.ts',
+		extendsBlacklistPatterns: [/^HTML.*Attributes(?:<.*>)?$/, /^Omit<\s*HTML.*Attributes.*>$/],
+		root: join(monorepoRoot, 'packages', 'skeleton-svelte')
 	},
-	react: {
-		root: join(monorepoRoot, 'packages', 'skeleton-react'),
-		get tsConfigFilePath() {
-			return join(this.root, 'tsconfig.json');
-		},
-		get componentDirectoryPath() {
-			return join(this.root, 'dist', 'components');
-		},
-		dtsExtension: '.d.ts'
+	{
+		name: 'react',
+		dtsExtension: '.d.ts',
+		extendsBlacklistPatterns: [/^ComponentProps$/],
+		root: join(monorepoRoot, 'packages', 'skeleton-react')
 	}
-};
+] as const;
 
 async function main() {
-	for (const [framework, config] of Object.entries(frameworks)) {
-		const docs = await processFramework(config);
-		console.log(`Framework: ${framework}`);
-		console.dir(docs, { depth: null });
+	for (const framework of frameworks) {
+		const types = await extractTypes(framework);
+		console.dir(
+			{
+				framework: framework,
+				types: types
+			},
+			{
+				depth: null
+			}
+		);
 	}
 }
 
