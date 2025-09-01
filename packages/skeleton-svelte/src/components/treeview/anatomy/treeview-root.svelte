@@ -10,20 +10,20 @@
 </script>
 
 <script lang="ts">
-	import * as tree from '@zag-js/tree-view';
+	import { machine, connect, splitProps } from '@zag-js/tree-view';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { TreeViewRootContext } from '../modules/treeview-root-context.js';
 	import { classesTreeview } from '@skeletonlabs/skeleton-common';
 
 	const props: TreeViewRootProps = $props();
-	const [machineProps, componentProps] = $derived(tree.splitProps(props));
+	const [machineProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
 	const id = $props.id();
-	const service = useMachine(tree.machine, () => ({
+	const service = useMachine(machine, () => ({
 		id: id,
 		...machineProps
 	}));
-	const api = $derived(tree.connect(service, normalizeProps));
+	const api = $derived(connect(service, normalizeProps));
 	const attributes = $derived(
 		mergeProps(
 			api.getRootProps(),
