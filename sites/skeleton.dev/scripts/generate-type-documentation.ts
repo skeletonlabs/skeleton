@@ -167,11 +167,20 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 			'utf-8'
 		)
 	);
-	const componentNode = sourceFile.getFirstDescendantByKindOrThrow(tsMorph.SyntaxKind.ObjectLiteralExpression);
-	const order = componentNode
-		.getProperties()
-		.filter(tsMorph.Node.isPropertyAssignment)
-		.map((p) => `${kebabToPascal(component)}${p.getName()}`);
+	const anatomy = sourceFile.getFirstDescendantByKindOrThrow(tsMorph.SyntaxKind.ObjectLiteralExpression);
+	const order = [
+		`${kebabToPascal(component)}Root`,
+		...anatomy
+			.getProperties()
+			.filter(tsMorph.Node.isPropertyAssignment)
+			.map((p) => {
+				const name = p.getName();
+				if (name === 'Context') {
+					return `${kebabToPascal(component)}RootContext`;
+				}
+				return `${kebabToPascal(component)}${name}`;
+			})
+	];
 	project.removeSourceFile(sourceFile);
 	return order;
 }
@@ -193,11 +202,14 @@ async function getComponentEntries(framework: (typeof frameworks)[number], parse
 
 	for (const [component, files] of Object.entries(components)) {
 		const order = await getPartOrderFromAnatomy(framework.name, component);
-		const filesInOrder = [
-			...files.filter((f) => !order.some((o) => f.toLowerCase().endsWith(pascalToKebab(o) + framework.config.declarationExtension))),
-			...order.flatMap((o) => files.filter((f) => f.toLowerCase().endsWith(pascalToKebab(o) + framework.config.declarationExtension)))
-		];
-
+		const filesInOrder = order.flatMap((name) =>
+			files.filter((f) => f.toLowerCase().endsWith(pascalToKebab(name) + framework.config.declarationExtension))
+		);
+		console.log({
+			files,
+			filesInOrder,
+			order
+		});
 		const contentObj = Object.assign(
 			{},
 			...(await Promise.all(
