@@ -237,7 +237,7 @@ async function main() {
 								if (classValue) {
 									_interface.properties.push({
 										name: framework.config.classPropertyName,
-										type: 'string',
+										type: 'string | undefined',
 										typeKind: 'primitive',
 										optional: true,
 										JSDoc: {
