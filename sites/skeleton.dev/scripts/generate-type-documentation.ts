@@ -43,9 +43,47 @@ class SourceFile {
 		this.sourceFile = sourceFile;
 	}
 
+	private isFunctionType(type: tsMorph.Type) {
+		if (type.getCallSignatures().length > 0) {
+			return true;
+		}
+		if (type.getUnionTypes().some((t) => t.getCallSignatures().length > 0)) {
+			return true;
+		}
+		return false;
+	}
+
+	private isArrayType(type: tsMorph.Type) {
+		if (type.isArray()) {
+			return true;
+		}
+		if (type.getUnionTypes().some((t) => t.isArray())) {
+			return true;
+		}
+		return false;
+	}
+
+	private isObjectType(type: tsMorph.Type) {
+		if (type.isObject()) {
+			return true;
+		}
+		if (type.getUnionTypes().some((t) => t.isObject())) {
+			return true;
+		}
+		return false;
+	}
+
 	private getTypeKind(symbol: tsMorph.Symbol): TypeKind {
 		const type = symbol.getTypeAtLocation(this.sourceFile);
-		// TODO: Implement logic to determine the type kind based on the type flags
+		if (this.isFunctionType(type)) {
+			return 'function';
+		}
+		if (this.isArrayType(type)) {
+			return 'array';
+		}
+		if (this.isObjectType(type)) {
+			return 'object';
+		}
 		return 'primitive';
 	}
 
