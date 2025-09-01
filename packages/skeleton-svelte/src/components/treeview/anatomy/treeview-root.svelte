@@ -2,11 +2,9 @@
 	import type { Props } from '@zag-js/tree-view';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
 
 	export interface TreeViewRootProps
 		extends PropsWithElement,
-			PropsWithChildren,
 			Omit<Props, 'id'>,
 			Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'defaultValue' | 'dir'> {}
 </script>

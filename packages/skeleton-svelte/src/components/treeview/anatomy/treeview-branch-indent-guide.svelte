@@ -1,9 +1,8 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
 
-	export interface TreeViewBranchIndentGuideProps extends PropsWithElement, PropsWithChildren, HTMLAttributes<HTMLDivElement> {}
+	export interface TreeViewBranchIndentGuideProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">

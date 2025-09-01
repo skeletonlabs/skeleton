@@ -1,9 +1,8 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
 
-	export interface TreeViewLabelProps extends PropsWithElement, PropsWithChildren, HTMLAttributes<HTMLSpanElement> {
+	export interface TreeViewLabelProps extends PropsWithElement, HTMLAttributes<HTMLSpanElement> {
 		/**
 		 * The level of the label. This is used to determine the heading level for accessibility purposes.
 		 *

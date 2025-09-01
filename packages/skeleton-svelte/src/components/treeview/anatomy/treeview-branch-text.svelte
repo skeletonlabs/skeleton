@@ -1,9 +1,8 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
 
-	export interface TreeViewBranchTextProps extends PropsWithElement, PropsWithChildren, HTMLAttributes<HTMLSpanElement> {}
+	export interface TreeViewBranchTextProps extends PropsWithElement, HTMLAttributes<HTMLSpanElement> {}
 </script>
 
 <script lang="ts">
