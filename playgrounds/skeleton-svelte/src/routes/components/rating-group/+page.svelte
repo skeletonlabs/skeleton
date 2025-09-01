@@ -6,12 +6,12 @@
 <RatingGroup count={5}>
 	<RatingGroup.Control>
 		<RatingGroup.Context>
-			{#snippet children({ items })}
-				{#each items as index (index)}
+			{#snippet children(ctx)}
+				{#each ctx.api.items as index (index)}
 					<RatingGroup.Item {index}>
 						<RatingGroup.ItemContext>
-							{#snippet children({ highlighted })}
-								{#if highlighted}
+							{#snippet children(ctx)}
+								{#if ctx.itemState.highlighted}
 									<StarIcon fill="currentColor" />
 								{:else}
 									<StarIcon />

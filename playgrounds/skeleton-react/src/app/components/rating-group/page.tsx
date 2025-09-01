@@ -8,11 +8,11 @@ export default function Page() {
 		<RatingGroup count={5}>
 			<RatingGroup.Control>
 				<RatingGroup.Context>
-					{({ items }) =>
-						items.map((index) => (
+					{(ctx) =>
+						ctx.api.items.map((index) => (
 							<RatingGroup.Item key={index} index={index}>
 								<RatingGroup.ItemContext>
-									{({ highlighted }) => (highlighted ? <StarIcon fill="currentColor" /> : <StarIcon />)}
+									{(ctx) => (ctx.itemState.highlighted ? <StarIcon fill="currentColor" /> : <StarIcon />)}
 								</RatingGroup.ItemContext>
 							</RatingGroup.Item>
 						))
