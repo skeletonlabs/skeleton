@@ -5,6 +5,4 @@ export interface TreeViewNodeContextType {
 	nodeProps: tree.NodeProps;
 }
 
-const TreeViewNodeContext = createContext<TreeViewNodeContextType>();
-
-export { TreeViewNodeContext };
+export const TreeViewNodeContext = createContext<TreeViewNodeContextType>();

@@ -5,5 +5,4 @@ export interface TreeViewRootContextType {
 	api: tree.Api;
 }
 
-const TreeViewRootContext = createContext<TreeViewRootContextType>();
-export { TreeViewRootContext };
+export const TreeViewRootContext = createContext<TreeViewRootContextType>();

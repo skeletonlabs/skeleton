@@ -11,7 +11,7 @@ import TreeViewLabel from '../anatomy/treeview-label.svelte';
 import TreeViewRootContext from '../anatomy/treeview-root-context.svelte';
 import TreeViewNodeContext from '../anatomy/treeview-node-context.svelte';
 
-const TreeView = Object.assign(TreeViewRoot, {
+export const TreeView = Object.assign(TreeViewRoot, {
 	Tree: TreeViewTree,
 	Label: TreeViewLabel,
 	Branch: TreeViewBranch,
@@ -24,5 +24,3 @@ const TreeView = Object.assign(TreeViewRoot, {
 	RootContext: TreeViewRootContext,
 	NodeContext: TreeViewNodeContext
 });
-
-export { TreeView };

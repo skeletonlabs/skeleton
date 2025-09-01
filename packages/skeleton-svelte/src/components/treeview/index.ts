@@ -1,4 +1,5 @@
-export * from './modules/treeview-helpers.js';
+export { createTreeViewCollection } from './modules/treeview-helpers.js';
+export type { TreeViewCollection, TreeViewCollectionOptions, TreeViewNodeProps } from './modules/treeview-helpers.js';
 
 export { TreeView } from './modules/treeview-anatomy.js';
 
