@@ -5,7 +5,6 @@
 
 <RatingGroup count={5}>
 	<RatingGroup.Label>Rate:</RatingGroup.Label>
-
 	<RatingGroup.Control>
 		<RatingGroup.Context>
 			{#snippet children(ctx)}
