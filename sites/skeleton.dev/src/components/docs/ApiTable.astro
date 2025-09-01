@@ -1,31 +1,25 @@
-<!-- ---
-import { getEntry, type CollectionEntry } from 'astro:content';
+---
+import { getEntry } from 'astro:content';
 import { Popover } from '@components/docs/Popover';
 
-interface Props {
-	schema?: CollectionEntry<'schemas'>['data'];
-}
-
-const { schema } = Astro.props;
 const { slug } = Astro.params;
+const component = slug?.split('/').at(-2);
+const framework = slug?.split('/').at(-1);
 
-async function getSchemaFromSlug(slug: string | undefined) {
-	if (!slug) return null;
-	const parts = slug.split('/');
-	const component = parts.at(-2);
-	const framework = parts.at(-1);
-	if (!component || !framework) return null;
-	return getEntry<'schemas', string>('schemas', `${framework}/${component}`)?.then((entry) => entry?.data);
+const types = await getEntry('types', `${framework}/${component}`);
+
+if (!types) {
+	throw new Error(`Types not found for ${framework}/${component}`);
 }
 ---
 
 <div class="space-y-8">
 	{
-		(schema ?? (await getSchemaFromSlug(slug)) ?? []).map((i) => {
+		Object.entries(types['data']).map(([name, properties]) => {
 			return (
 				<section class="space-y-4">
 					{/* Label */}
-					<h3 class="h3">{i.name.replace('Props', '')}</h3>
+					<h3 class="h3">{name.replace('Props', '')}</h3>
 					{/* Table */}
 					<div class="table-wrap">
 						<table class="table caption-bottom">
@@ -37,13 +31,13 @@ async function getSchemaFromSlug(slug: string | undefined) {
 								</tr>
 							</thead>
 							<tbody class="[&>tr]:hover:preset-tonal">
-								{i.properties.map((property) => (
+								{properties.map((property) => (
 									<tr class="align-top">
 										{/* Property */}
 										<td>
 											<div class="flex items-center gap-1">
 												<code class="code">{property.name}</code>
-												{property.required ? <span>*</span> : null}
+												{property.optional ? null : <span>*</span>}
 											</div>
 										</td>
 										{/* Type */}
@@ -64,10 +58,10 @@ async function getSchemaFromSlug(slug: string | undefined) {
 										{/* Description */}
 										<td>
 											<div class="grid grid-cols-1 gap-2">
-												<article>{property.documentation.text}</article>
-												{property.documentation.tags.some((tag) => tag.name === 'default') ? (
+												<article>{property.JSDoc.description}</article>
+												{property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
 													<small class="italic opacity-60">
-														Default: {property.documentation.tags.find((tag) => tag.name === 'default')!.value}
+														Default: {property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}
 													</small>
 												) : null}
 											</div>
@@ -81,4 +75,4 @@ async function getSchemaFromSlug(slug: string | undefined) {
 			);
 		})
 	}
-</div> -->
+</div>

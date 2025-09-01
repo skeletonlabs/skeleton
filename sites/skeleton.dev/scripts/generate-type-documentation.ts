@@ -1,11 +1,13 @@
 import { mkdir, rm, writeFile } from 'node:fs/promises';
 import { basename, dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 
-const MONOREPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
-const OUTPUT_DIRECTORY = join(MONOREPO_ROOT, 'sites', 'skeleton.dev', 'src', 'content', 'types');
+const SKELETON_DEV_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const MONOREPO_ROOT = join(dirname(SKELETON_DEV_ROOT), '..');
+const OUTPUT_DIRECTORY = join(SKELETON_DEV_ROOT, 'src', 'content', 'types');
+const CLASSES_DIRECTORY = join(MONOREPO_ROOT, 'packages', 'skeleton-common', 'dist', 'classes');
 
 type TypeKind = 'function' | 'array' | 'object' | 'primitive';
 
@@ -43,15 +45,7 @@ class SourceFile {
 
 	private getTypeKind(symbol: tsMorph.Symbol): TypeKind {
 		const type = symbol.getTypeAtLocation(this.sourceFile);
-		if (type.isArray()) {
-			return 'array';
-		}
-		if (type.isObject()) {
-			return 'object';
-		}
-		if (type.getCallSignatures().length > 0) {
-			return 'function';
-		}
+		// TODO: Implement logic to determine the type kind based on the type flags
 		return 'primitive';
 	}
 
@@ -133,17 +127,32 @@ class Parser {
 	}
 }
 
-function kebabToPascal(str: string): string {
-	return str
-		.split('-')
-		.map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-		.join('');
+function capitalize(str: string) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function kebabToPascal(str: string) {
+	return str.split('-').map(capitalize).join('');
+}
+
+async function getClassValue(component: string, part: string) {
+	const { [`classes${kebabToPascal(component)}`]: classes } = await import(
+		pathToFileURL(join(CLASSES_DIRECTORY, `${component}.js`)).toString()
+	);
+	const key = part
+		.replace(new RegExp(`^${kebabToPascal(component).charAt(0).toUpperCase() + kebabToPascal(component).slice(1)}`), '')
+		.replace(/^./, (c) => c.toLowerCase());
+	if (!Object.hasOwn(classes, key)) {
+		return;
+	}
+	return classes[key];
 }
 
 const frameworks = [
 	{
 		name: 'svelte',
 		config: {
+			classPropertyName: 'class',
 			declarationExtension: '.svelte.d.ts',
 			extendsBlacklist: [/^HTML.*Attributes(?:<.*>)?$/, /^Omit<\s*HTML.*Attributes.*>$/] as RegExp[]
 		}
@@ -151,6 +160,7 @@ const frameworks = [
 	{
 		name: 'react',
 		config: {
+			classPropertyName: 'className',
 			declarationExtension: '.d.ts',
 			extendsBlacklist: [/^ComponentProps(?:<.*>)?$/, /^Omit<\s*ComponentProps.*>$/] as RegExp[]
 		}
@@ -166,30 +176,53 @@ async function main() {
 			})
 		).reduce(
 			(acc, file) => {
-				const parent = dirname(file).split(/[/\\]/).slice(-2, -1)[0]; // parent folder before 'anatomy'
-				(acc[parent] = acc[parent] || []).push(file); // keep full absolute path
+				const parent = dirname(file).split(/[/\\]/).slice(-2, -1)[0];
+				(acc[parent] = acc[parent] || []).push(file);
 				return acc;
 			},
 			{} as Record<string, string[]>
 		);
 		const parser = new Parser(framework);
 
-		const entries = Object.entries(components).map(([component, files]) => ({
-			path: join(OUTPUT_DIRECTORY, framework.name, `${component}.json`),
-			content: JSON.stringify(
-				Object.assign(
-					{},
-					...files.map((file) => {
-						const sourceFile = parser.getSourceFile(file);
-						const componentName = kebabToPascal(basename(file).replace(framework.config.declarationExtension, ''));
-						const _interface = sourceFile.getInterface(`${componentName}Props`);
-						return { [_interface.name]: _interface.properties };
-					})
-				),
-				null,
-				2
-			)
-		}));
+		const entries = await Promise.all(
+			Object.entries(components).map(async ([component, files]) => ({
+				path: join(OUTPUT_DIRECTORY, framework.name, `${component}.json`),
+				content: JSON.stringify(
+					Object.assign(
+						{},
+						...(await Promise.all(
+							files.map(async (file) => {
+								const sourceFile = parser.getSourceFile(file);
+								const part = kebabToPascal(basename(file).replace(framework.config.declarationExtension, ''));
+								const _interface = sourceFile.getInterface(`${part}Props`);
+								const classValue = await getClassValue(component, part);
+								if (classValue) {
+									_interface.properties.push({
+										name: framework.config.classPropertyName,
+										type: 'string',
+										typeKind: 'primitive',
+										optional: true,
+										JSDoc: {
+											description: 'The base classes provided by Skeleton',
+											tags: [
+												{
+													name: 'default',
+													value: classValue
+												}
+											]
+										}
+									});
+								}
+
+								return { [_interface.name]: _interface.properties };
+							})
+						))
+					),
+					null,
+					2
+				)
+			}))
+		);
 		await rm(join(OUTPUT_DIRECTORY, framework.name), { recursive: true, force: true });
 		await mkdir(join(OUTPUT_DIRECTORY, framework.name), { recursive: true });
 		await Promise.all(entries.map((entry) => writeFile(entry.path, entry.content)));
