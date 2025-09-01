@@ -15,7 +15,7 @@
 	const rootContext = TreeViewRootContext.consume();
 	const props: TreeViewBranchIndentGuideProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
-	const nodeState = rootContext.api.getNodeState(nodeContext.nodeProps);
+	const nodeState = $derived(rootContext.api.getNodeState(nodeContext.nodeProps));
 
 	const translate = $derived(`translate-[${nodeState.depth * 1.5}rem]`);
 	const attributes = $derived(
