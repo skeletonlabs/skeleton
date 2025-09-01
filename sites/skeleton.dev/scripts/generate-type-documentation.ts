@@ -1,13 +1,13 @@
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { basename, dirname, join } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 
 const SKELETON_DEV_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const MONOREPO_ROOT = join(dirname(SKELETON_DEV_ROOT), '..');
 const OUTPUT_DIRECTORY = join(SKELETON_DEV_ROOT, 'src', 'content', 'types');
-const CLASSES_DIRECTORY = join(MONOREPO_ROOT, 'packages', 'skeleton-common', 'dist', 'classes');
+const CLASSES_DIRECTORY = join(MONOREPO_ROOT, 'packages', 'skeleton-common', 'src', 'classes');
 
 type TypeKind = 'function' | 'array' | 'object' | 'primitive';
 
@@ -114,7 +114,6 @@ class Parser {
 			skipAddingFilesFromTsConfig: true,
 			tsConfigFilePath: join(MONOREPO_ROOT, 'packages', `skeleton-${framework.name}`, 'tsconfig.json')
 		});
-
 		this.project.addSourceFilesAtPaths(
 			join(MONOREPO_ROOT, 'packages', `skeleton-${framework.name}`, 'dist', 'components/*/anatomy/*.d.ts')
 		);
@@ -168,7 +167,7 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 		)
 	);
 	const anatomy = sourceFile.getFirstDescendantByKindOrThrow(tsMorph.SyntaxKind.ObjectLiteralExpression);
-	const order = [
+	return [
 		`${kebabToPascal(component)}Root`,
 		...anatomy
 			.getProperties()
@@ -181,35 +180,29 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 				return `${kebabToPascal(component)}${name}`;
 			})
 	];
-	project.removeSourceFile(sourceFile);
-	return order;
 }
 
 async function getClassValue(component: string, part: string) {
-	const { [`classes${kebabToPascal(component)}`]: classes } = await import(
-		pathToFileURL(join(CLASSES_DIRECTORY, `${component}.js`)).toString()
-	);
-
-	const key = part
-		.replace(new RegExp(`^${kebabToPascal(component).charAt(0).toUpperCase() + kebabToPascal(component).slice(1)}`), '')
-		.replace(/^./, (c) => c.toLowerCase());
-
-	return Object.hasOwn(classes, key) ? classes[key] : undefined;
+	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
+	const sourceFile = project.createSourceFile(`${component}.ts`, await readFile(join(CLASSES_DIRECTORY, `${component}.ts`), 'utf-8'));
+	const classes = sourceFile.getFirstDescendantByKindOrThrow(tsMorph.SyntaxKind.ObjectLiteralExpression);
+	const property = classes
+		.getProperties()
+		.filter(tsMorph.Node.isPropertyAssignment)
+		.find((p) => p.getName() === part.replace(capitalize(component), '').toLowerCase());
+	if (!property) {
+		return;
+	}
+	return property.getInitializerOrThrow().getText().replaceAll("'", '"');
 }
 
 async function getComponentEntries(framework: (typeof frameworks)[number], parser: Parser, components: Record<string, string[]>) {
 	const entries = [];
-
 	for (const [component, files] of Object.entries(components)) {
 		const order = await getPartOrderFromAnatomy(framework.name, component);
 		const filesInOrder = order.flatMap((name) =>
 			files.filter((f) => f.toLowerCase().endsWith(pascalToKebab(name) + framework.config.declarationExtension))
 		);
-		console.log({
-			files,
-			filesInOrder,
-			order
-		});
 		const contentObj = Object.assign(
 			{},
 			...(await Promise.all(
@@ -220,7 +213,7 @@ async function getComponentEntries(framework: (typeof frameworks)[number], parse
 					const classValue = await getClassValue(component, part);
 
 					if (classValue) {
-						_interface.properties.push({
+						_interface.properties.unshift({
 							name: framework.config.classPropertyName,
 							type: 'string | undefined',
 							typeKind: 'primitive',

@@ -1,76 +1,62 @@
 ---
 import { getEntry } from 'astro:content';
-import { Popover } from '@components/docs/Popover';
 
-const { slug } = Astro.params;
-const component = slug?.split('/').at(-2);
-const framework = slug?.split('/').at(-1);
+interface Props {
+	component: string;
+	framework: string;
+}
+
+const framework = Astro.props.framework ?? Astro.params.slug?.split('/').at(-1);
+const component = Astro.props.component ?? Astro.params.slug?.split('/').at(-2);
 
 const types = await getEntry('types', `${framework}/${component}`);
 
 if (!types) {
 	throw new Error(`Types not found for ${framework}/${component}`);
 }
+
+function capitalize(str: string) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+}
 ---
 
-<div class="space-y-8">
+<div class="grid gap-8">
 	{
 		Object.entries(types['data']).map(([name, properties]) => {
 			return (
-				<section class="space-y-4">
-					{/* Label */}
-					<h3 class="h3">{name.replace('Props', '')}</h3>
-					{/* Table */}
-					<div class="table-wrap">
-						<table class="table caption-bottom">
-							<thead>
-								<tr>
-									<th>Property</th>
-									<th>Type</th>
-									<th>Description</th>
+				<section class="grid gap-4">
+					<h3 class="h3">{name.replace(capitalize(component), '').replace('Props', '')}</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Property</th>
+								<th>Default</th>
+								<th>Type</th>
+							</tr>
+						</thead>
+						<tbody class="[&>tr]:hover:preset-tonal">
+							{properties.map((property) => (
+								<tr class="align-top">
+									<td>
+										<code class="code">{property.name}</code>
+									</td>
+									<td>
+										{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
+											<code class="code w-fit break-words !whitespace-pre-wrap">
+												{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}
+											</code>
+										) : (
+											<span class="opacity-50">-</span>
+										)}
+									</td>
+									<td class="grid gap-2">
+										<code class="code w-fit break-words !whitespace-pre-wrap">{property.type}</code>{' '}
+										<span>{property.JSDoc.description}</span>
+									</td>
 								</tr>
-							</thead>
-							<tbody class="[&>tr]:hover:preset-tonal">
-								{properties.map((property) => (
-									<tr class="align-top">
-										{/* Property */}
-										<td>
-											<div class="flex items-center gap-1">
-												<code class="code">{property.name}</code>
-												{property.optional ? null : <span>*</span>}
-											</div>
-										</td>
-										{/* Type */}
-										<td>
-											{property.typeKind === 'primitive' ? (
-												<span class="italic opacity-60">{property.type}</span>
-											) : (
-												<Popover
-													trigger={`${property.typeKind} \u24D8`}
-													triggerBase="opacity-60 whitespace-nowrap mr-4"
-													arrowBase="fill-surface-950-50"
-													client:load
-												>
-													<div class="card bg-surface-950-50 text-surface-50-950 p-4 max-w-96 shadow-xl">{property.type}</div>
-												</Popover>
-											)}
-										</td>
-										{/* Description */}
-										<td>
-											<div class="grid grid-cols-1 gap-2">
-												<article>{property.JSDoc.description}</article>
-												{property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
-													<small class="italic opacity-60">
-														Default: {property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}
-													</small>
-												) : null}
-											</div>
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
+							))}
+						</tbody>
+					</table>
 				</section>
 			);
 		})
