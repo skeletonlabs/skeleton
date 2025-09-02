@@ -42,16 +42,13 @@ function capitalize(str: string) {
 									</td>
 									<td>
 										{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
-											<code class="code w-fit break-words !whitespace-pre-wrap">
-												{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}
-											</code>
+											<span>{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}</span>
 										) : (
 											<span class="opacity-50">-</span>
 										)}
 									</td>
 									<td class="grid gap-2">
-										<code class="code w-fit break-words !whitespace-pre-wrap">{property.type}</code>{' '}
-										<span>{property.JSDoc.description}</span>
+										<pre class="pre !p-2">{property.type}</pre> <span>{property.JSDoc.description}</span>
 									</td>
 								</tr>
 							))}
