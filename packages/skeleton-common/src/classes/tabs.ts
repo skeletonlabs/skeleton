@@ -3,6 +3,7 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with
 export const classesTabs = defineSkeletonClasses({
 	root: '',
 	list: 'flex gap-2 border-b-1 border-surface-200-800',
-	trigger: 'btn',
+	trigger: 'pb-2',
+	label: 'btn hover:preset-tonal-primary',
 	content: ''
 });
