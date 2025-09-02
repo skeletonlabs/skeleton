@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-	import { TabsRootContext } from '../modules/tabs-root-context';
+	import { TabsRootContext } from '../modules/tabs-root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
 	import { splitContentProps } from '@zag-js/tabs';
