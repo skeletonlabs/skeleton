@@ -15,5 +15,5 @@
 			"@images/*": ["src/images/*"]
 		}
 	},
-	"include": ["src", "scripts/generate-type-documentation.ts"]
+	"include": ["src", "scripts"]
 }
