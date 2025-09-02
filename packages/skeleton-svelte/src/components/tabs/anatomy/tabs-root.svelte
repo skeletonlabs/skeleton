@@ -16,7 +16,6 @@
 	import { TabsRootContext } from '../modules/tabs-root-context.js';
 
 	const props: TabsRootProps = $props();
-
 	const [machineProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
 	const id = $props.id();

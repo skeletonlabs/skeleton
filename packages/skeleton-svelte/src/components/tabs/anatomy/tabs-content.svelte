@@ -13,7 +13,6 @@
 	import { splitContentProps } from '@zag-js/tabs';
 
 	const props: TabsContentProps = $props();
-
 	const rootContext = TabsRootContext.consume();
 	const [contentProps, componentProps] = $derived(splitContentProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);

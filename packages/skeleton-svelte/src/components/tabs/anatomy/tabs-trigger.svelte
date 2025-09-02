@@ -13,7 +13,6 @@
 	import { splitTriggerProps } from '@zag-js/tabs';
 
 	const props: TabsTriggerProps = $props();
-
 	const rootContext = TabsRootContext.consume();
 	const [triggerProps, componentProps] = $derived(splitTriggerProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
