@@ -14,7 +14,7 @@ dist/
 .svelte-kit/
 .next/
 next-env.d.ts
-sites/skeleton.dev/src/content/schemas/**/*.json
+sites/skeleton.dev/src/content/types/*/*.json
 
 # dependencies
 node_modules/
