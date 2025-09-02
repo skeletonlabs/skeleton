@@ -1,4 +1,4 @@
-import { defineSkeletonClasses } from '../internal/define-skeleton-classes';
+import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesTabs = defineSkeletonClasses({
 	root: '',
