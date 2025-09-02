@@ -39,7 +39,7 @@ async function getClassValue(component: string, part: string) {
 	const property = classes
 		.getProperties()
 		.filter(tsMorph.Node.isPropertyAssignment)
-		.find((p) => p.getName() === part.replace(capitalize(component), '').toLowerCase());
+		.find((p) => p.getName() === part.replace(capitalize(kebabToPascal(component)), '').toLowerCase());
 	if (!property) {
 		return;
 	}
