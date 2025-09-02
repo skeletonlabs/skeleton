@@ -3,6 +3,7 @@ import Raw from 'unplugin-raw/rolldown';
 import Macros from 'unplugin-macros/rolldown';
 
 export default defineConfig({
+	unbundle: true,
 	copy: ['src/index.css'],
 	plugins: [Raw(), Macros()]
 });
