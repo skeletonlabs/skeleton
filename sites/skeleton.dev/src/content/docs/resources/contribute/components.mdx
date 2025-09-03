@@ -298,7 +298,20 @@ export default function (props: AvatarRootProps) {
 The process is similar for custom components without Zag primitives. We still use the Zag `mergeProps` utility.
 
 ```tsx title="navigation-root.tsx"
-code example coming soon...
+import { mergeProps } from '@zag-js/react';
+import { classesNavigation } from '@skeletonlabs/skeleton-common';
+
+export default function (props: NavigationRootProps) {
+	// ...
+
+	const attributes = mergeProps(
+		// api.getRootProps(),
+		{ className: classesNavigation.root }
+		// restAttributes
+	);
+
+	// return();
+}
 ```
 
 ---
