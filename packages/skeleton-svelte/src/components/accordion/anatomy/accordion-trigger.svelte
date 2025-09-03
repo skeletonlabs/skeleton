@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 
 	export interface AccordionTriggerProps extends PropsWithElement, HTMLButtonAttributes {}
 </script>

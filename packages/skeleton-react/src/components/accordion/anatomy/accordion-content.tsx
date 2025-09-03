@@ -5,7 +5,7 @@ import { mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import { AccordionRootContext } from '../modules/accordion-root-context.js';
 import { AccordionItemContext } from '../modules/accordion-item-context.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
+import type { PropsWithElement } from '@/internal/props-with-element.js';
 
 export interface AccordionContentProps extends PropsWithChildren, PropsWithElement, ComponentProps<'div'> {}
 
