@@ -6,6 +6,7 @@ import { StarIcon } from 'lucide-react';
 export default function Page() {
 	return (
 		<RatingGroup count={5}>
+			<RatingGroup.Label>Rate:</RatingGroup.Label>
 			<RatingGroup.Control>
 				<RatingGroup.Context>
 					{(ctx) =>

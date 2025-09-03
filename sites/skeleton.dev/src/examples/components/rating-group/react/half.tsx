@@ -1,18 +1,26 @@
 'use client';
 
 import { RatingGroup } from '@skeletonlabs/skeleton-react';
-import { StarIcon } from 'lucide-react';
+import { StarIcon, StarHalfIcon } from 'lucide-react';
 
 export default function Page() {
 	return (
-		<RatingGroup count={5}>
+		<RatingGroup count={5} allowHalf={true}>
 			<RatingGroup.Control>
 				<RatingGroup.Context>
 					{(ctx) =>
 						ctx.api.items.map((index) => (
 							<RatingGroup.Item key={index} index={index}>
 								<RatingGroup.ItemContext>
-									{(ctx) => (ctx.itemState.highlighted ? <StarIcon fill="currentColor" /> : <StarIcon />)}
+									{(ctx) => {
+										if (ctx.itemState.half) {
+											return <StarHalfIcon fill="currentColor" />;
+										}
+										if (ctx.itemState.highlighted) {
+											return <StarIcon fill="currentColor" />;
+										}
+										return <StarIcon />;
+									}}
 								</RatingGroup.ItemContext>
 							</RatingGroup.Item>
 						))

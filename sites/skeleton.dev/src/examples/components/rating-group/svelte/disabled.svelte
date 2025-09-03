@@ -3,7 +3,7 @@
 	import StarIcon from '@lucide/svelte/icons/star';
 </script>
 
-<RatingGroup count={5}>
+<RatingGroup count={5} disabled={true}>
 	<RatingGroup.Control>
 		<RatingGroup.Context>
 			{#snippet children(ctx)}

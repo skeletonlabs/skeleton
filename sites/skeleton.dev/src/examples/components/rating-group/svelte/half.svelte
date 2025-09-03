@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { RatingGroup } from '@skeletonlabs/skeleton-svelte';
 	import StarIcon from '@lucide/svelte/icons/star';
+	import StarHalfIcon from '@lucide/svelte/icons/star-half';
 </script>
 
-<RatingGroup count={5}>
+<RatingGroup count={5} allowHalf={true}>
 	<RatingGroup.Control>
 		<RatingGroup.Context>
 			{#snippet children(ctx)}
@@ -11,7 +12,9 @@
 					<RatingGroup.Item {index}>
 						<RatingGroup.ItemContext>
 							{#snippet children(ctx)}
-								{#if ctx.itemState.highlighted}
+								{#if ctx.itemState.half}
+									<StarHalfIcon fill="currentColor" />
+								{:else if ctx.itemState.highlighted}
 									<StarIcon fill="currentColor" />
 								{:else}
 									<StarIcon />

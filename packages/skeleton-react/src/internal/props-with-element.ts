@@ -1,7 +1,8 @@
 import type { JSX } from 'react';
 
-interface PropsWithElement {
-	element?: (...args: [{ attributes: Record<string, unknown> }]) => JSX.Element | null;
+export interface PropsWithElement {
+	/**
+	 * Render the element yourself
+	 */
+	element?: (arg: { attributes: Record<string, unknown> }) => JSX.Element | null;
 }
-
-export type { PropsWithElement };
