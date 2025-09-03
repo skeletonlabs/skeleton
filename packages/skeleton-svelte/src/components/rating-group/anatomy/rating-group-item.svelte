@@ -6,7 +6,26 @@
 	export interface RatingGroupItemProps
 		extends PropsWithElement,
 			ItemProps,
-			Omit<HTMLAttributes<HTMLSpanElement>, 'id' | 'defaultValue' | 'dir'> {}
+			Omit<HTMLAttributes<HTMLSpanElement>, 'id' | 'defaultValue' | 'dir'> {
+		/**
+		 * The content to render when the item is in the empty state.
+		 *
+		 * @default StarEmpty
+		 */
+		empty?: Snippet;
+		/**
+		 * The content to render when the item is in the half state.
+		 *
+		 * @default StarHalf
+		 */
+		half?: Snippet;
+		/**
+		 * The content to render when the item is in the full state.
+		 *
+		 * @default StarFull
+		 */
+		full?: Snippet;
+	}
 </script>
 
 <script lang="ts">
@@ -15,11 +34,15 @@
 	import { splitItemProps } from '@zag-js/rating-group';
 	import { RatingGroupRootContext } from '../modules/rating-group-root-context.js';
 	import { RatingGroupItemContext } from '../modules/rating-group-item-context.js';
+	import StarFull from '../../../internal/components/star-full.svelte';
+	import StarEmpty from '../../../internal/components/star-empty.svelte';
+	import StarHalf from '../../../internal/components/star-half.svelte';
+	import type { Snippet } from 'svelte';
 
 	const rootContext = RatingGroupRootContext.consume();
 	const props: RatingGroupItemProps = $props();
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, empty = starEmpty, half = starHalf, full = starFull, ...restAttributes } = $derived(componentProps);
 	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getItemProps(itemProps),
@@ -29,15 +52,38 @@
 			restAttributes
 		)
 	);
+	const itemState = $derived(rootContext.api.getItemState(itemProps));
 	RatingGroupItemContext.provide({
 		get itemState() {
-			return rootContext.api.getItemState(itemProps);
+			return itemState;
 		}
 	});
 </script>
 
+{#snippet starEmpty()}
+	<StarEmpty />
+{/snippet}
+
+{#snippet starHalf()}
+	<StarHalf />
+{/snippet}
+
+{#snippet starFull()}
+	<StarFull />
+{/snippet}
+
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<div {...attributes}>{@render children?.()}</div>
+	<div {...attributes}>
+		{#if children}
+			{@render children()}
+		{:else if itemState.highlighted}
+			{@render full?.()}
+		{:else if itemState.half}
+			{@render half?.()}
+		{:else}
+			{@render empty?.()}
+		{/if}
+	</div>
 {/if}
