@@ -3,7 +3,7 @@ import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { useId, type ComponentProps } from 'react';
 import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 import { RatingGroupRootContext } from '../modules/rating-group-root-context';
-import type { PropsWithElement } from '../../../internal/props-with-element';
+import type { PropsWithElement } from '@/internal/props-with-element';
 
 export interface RatingGroupRootProps
 	extends PropsWithElement,
