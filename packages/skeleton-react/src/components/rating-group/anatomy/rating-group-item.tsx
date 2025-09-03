@@ -47,7 +47,7 @@ export default function (props: RatingGroupItemProps) {
 			{element ? (
 				element({ attributes })
 			) : (
-				<div {...attributes}>{children ? children : itemState.highlighted ? full : itemState.half ? half : empty}</div>
+				<div {...attributes}>{children ? children : !itemState.highlighted ? empty : itemState.half ? half : full}</div>
 			)}
 		</RatingGroupItemContext.Provider>
 	);

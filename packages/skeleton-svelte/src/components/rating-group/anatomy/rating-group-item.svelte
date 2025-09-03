@@ -78,12 +78,12 @@
 	<div {...attributes}>
 		{#if children}
 			{@render children()}
-		{:else if itemState.highlighted}
-			{@render full?.()}
+		{:else if !itemState.highlighted}
+			{@render empty?.()}
 		{:else if itemState.half}
 			{@render half?.()}
 		{:else}
-			{@render empty?.()}
+			{@render full?.()}
 		{/if}
 	</div>
 {/if}
