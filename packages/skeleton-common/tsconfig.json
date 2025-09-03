@@ -11,7 +11,7 @@
 		"esModuleInterop": true,
 		"isolatedModules": true,
 		"skipDefaultLibCheck": true,
-		"skipLibCheck": true,
+		"skipLibCheck": true
 	},
 	"include": ["src"]
 }
