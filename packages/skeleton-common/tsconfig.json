@@ -11,7 +11,10 @@
 		"esModuleInterop": true,
 		"isolatedModules": true,
 		"skipDefaultLibCheck": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"paths": {
+			"@/*": ["src/*"]
+		}
 	},
 	"include": ["src", "marcros/define-skeleton-classes.macro.ts"]
 }
