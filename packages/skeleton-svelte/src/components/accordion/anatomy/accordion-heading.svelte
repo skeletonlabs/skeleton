@@ -6,7 +6,7 @@
 		/**
 		 * The level of the heading. This is used to determine the heading level for accessibility purposes.
 		 *
-		 * @defaultValue 3
+		 * @default 3
 		 */
 		level?: 1 | 2 | 3 | 4 | 5 | 6;
 	}
