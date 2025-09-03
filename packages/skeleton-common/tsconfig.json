@@ -16,5 +16,5 @@
 			"@/*": ["./src/*"]
 		}
 	},
-	"include": ["src", "marcros/define-skeleton-classes.macro.ts"]
+	"include": ["src"]
 }
