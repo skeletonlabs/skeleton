@@ -34,9 +34,9 @@
 	import { splitItemProps } from '@zag-js/rating-group';
 	import { RatingGroupRootContext } from '../modules/rating-group-root-context.js';
 	import { RatingGroupItemContext } from '../modules/rating-group-item-context.js';
-	import StarFull from '../../../internal/components/star-full.svelte';
-	import StarEmpty from '../../../internal/components/star-empty.svelte';
-	import StarHalf from '../../../internal/components/star-half.svelte';
+	import StarFull from '@/internal/components/star-full.svelte';
+	import StarEmpty from '@/internal/components/star-empty.svelte';
+	import StarHalf from '@/internal/components/star-half.svelte';
 	import type { Snippet } from 'svelte';
 
 	const rootContext = RatingGroupRootContext.consume();
