@@ -10,6 +10,9 @@ import ExampleRaw from '@examples/components/tabs/react/default.tsx?raw';
 import ExampleFluid from '@examples/components/tabs/react/fluid.tsx';
 import ExampleFluidRaw from '@examples/components/tabs/react/fluid.tsx?raw';
 
+import ExampleVertical from '@examples/components/tabs/react/vertical.tsx';
+import ExampleVerticalRaw from '@examples/components/tabs/react/vertical.tsx?raw';
+
 import ExampleRtl from '@examples/components/tabs/react/rtl.tsx';
 import ExampleRtlRaw from '@examples/components/tabs/react/rtl.tsx?raw';
 
@@ -30,6 +33,17 @@ import ExampleRtlRaw from '@examples/components/tabs/react/rtl.tsx?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleFluidRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Vertical
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleVertical client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleVerticalRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

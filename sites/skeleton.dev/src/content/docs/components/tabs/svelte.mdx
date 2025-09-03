@@ -10,6 +10,9 @@ import ExampleRaw from '@examples/components/tabs/svelte/default.svelte?raw';
 import ExampleFluid from '@examples/components/tabs/svelte/fluid.svelte';
 import ExampleFluidRaw from '@examples/components/tabs/svelte/fluid.svelte?raw';
 
+import ExampleVertical from '@examples/components/tabs/svelte/vertical.svelte';
+import ExampleVerticalRaw from '@examples/components/tabs/svelte/vertical.svelte?raw';
+
 import ExampleRtl from '@examples/components/tabs/svelte/rtl.svelte';
 import ExampleRtlRaw from '@examples/components/tabs/svelte/rtl.svelte?raw';
 
@@ -30,6 +33,17 @@ import ExampleRtlRaw from '@examples/components/tabs/svelte/rtl.svelte?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleFluidRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Vertical
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleVertical client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleVerticalRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
