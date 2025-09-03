@@ -10,19 +10,19 @@
 		/**
 		 * The content to render when the item is in the empty state.
 		 *
-		 * @default StarEmpty
+		 * @default StarEmpty (SVG)
 		 */
 		empty?: Snippet;
 		/**
 		 * The content to render when the item is in the half state.
 		 *
-		 * @default StarHalf
+		 * @default StarHalf (SVG)
 		 */
 		half?: Snippet;
 		/**
 		 * The content to render when the item is in the full state.
 		 *
-		 * @default StarFull
+		 * @default StarFull (SVG)
 		 */
 		full?: Snippet;
 	}

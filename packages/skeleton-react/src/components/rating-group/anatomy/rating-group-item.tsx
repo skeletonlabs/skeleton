@@ -13,19 +13,19 @@ export interface RatingGroupItemProps extends PropsWithElement, ItemProps, Omit<
 	/**
 	 * The content to render when the item is in the empty state.
 	 *
-	 * @default StarEmpty
+	 * @default StarEmpty (SVG)
 	 */
 	empty?: ReactNode;
 	/**
 	 * The content to render when the item is in the half state.
 	 *
-	 * @default StarHalf
+	 * @default StarHalf (SVG)
 	 */
 	half?: ReactNode;
 	/**
 	 * The content to render when the item is in the full state.
 	 *
-	 * @default StarFull
+	 * @default StarFull (SVG)
 	 */
 	full?: ReactNode;
 }
