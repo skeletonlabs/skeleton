@@ -11,10 +11,6 @@ const component = Astro.props.component ?? Astro.params.slug?.split('/').at(-2);
 
 const types = await getEntry('types', `${framework}/${component}`);
 
-if (!types) {
-	throw new Error(`Types not found for ${framework}/${component}`);
-}
-
 function capitalize(str: string) {
 	return str.charAt(0).toUpperCase() + str.slice(1);
 }
@@ -22,40 +18,47 @@ function capitalize(str: string) {
 
 <div class="grid gap-8">
 	{
-		Object.entries(types['data']).map(([name, properties]) => {
-			return (
-				<section class="grid gap-4">
-					<h3 class="h3">{name.replace(capitalize(component), '').replace('Props', '')}</h3>
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Property</th>
-								<th>Default</th>
-								<th>Type</th>
-							</tr>
-						</thead>
-						<tbody class="[&>tr]:hover:preset-tonal">
-							{properties.map((property) => (
-								<tr class="align-top">
-									<td>
-										<code class="code">{property.name}</code>
-									</td>
-									<td>
-										{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
-											<span>{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}</span>
-										) : (
-											<span class="opacity-50">-</span>
-										)}
-									</td>
-									<td class="grid gap-2">
-										<pre class="pre !p-2">{property.type}</pre> <span>{property.JSDoc.description}</span>
-									</td>
+		!types ? (
+			<p class="italic text-sm opacity-50">
+				Unable to load types for {framework}/{component}
+			</p>
+		) : (
+			Object.entries(types['data']).map(([name, properties]) => {
+				return (
+					<section class="grid gap-4">
+						<h3 class="h3">{name.replace(capitalize(component), '').replace('Props', '')}</h3>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Property</th>
+									<th>Default</th>
+									<th>Type</th>
 								</tr>
-							))}
-						</tbody>
-					</table>
-				</section>
-			);
-		})
+							</thead>
+							<tbody class="[&>tr]:hover:preset-tonal">
+								{properties.map((property) => (
+									<tr class="align-top">
+										<td>
+											<code class="code">{property.name}</code>
+										</td>
+										<td>
+											{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
+												<span>{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}</span>
+											) : (
+												<span class="opacity-50">-</span>
+											)}
+										</td>
+										<td class="grid gap-2">
+											<pre class="pre !p-2">{property.type}</pre>
+											<span>{property.JSDoc.description}</span>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</section>
+				);
+			})
+		)
 	}
 </div>
