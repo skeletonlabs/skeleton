@@ -4,7 +4,7 @@ import { mergeProps } from '@zag-js/react';
 import { useContext, type ComponentProps } from 'react';
 import { RatingGroupItemContext } from '../modules/rating-group-item-context.js';
 import { RatingGroupRootContext } from '../modules/rating-group-root-context.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
+import type { PropsWithElement } from '@/internal/props-with-element.js';
 
 export interface RatingGroupItemProps extends PropsWithElement, ItemProps, Omit<ComponentProps<'span'>, 'id' | 'defaultValue' | 'dir'> {}
 

@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 
 	export interface RatingGroupHiddenInputProps
 		extends PropsWithElement,
