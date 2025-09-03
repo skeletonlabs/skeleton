@@ -4,17 +4,17 @@ import { useContext, type ComponentProps } from 'react';
 import { TabsRootContext } from '../modules/tabs-root-context.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
-export interface TabsListProps extends PropsWithElement, Omit<ComponentProps<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+export interface TabsIndicatorProps extends PropsWithElement, Omit<ComponentProps<'div'>, 'children'> {}
 
-export default function (props: TabsListProps) {
+export default function (props: TabsIndicatorProps) {
 	const rootContext = useContext(TabsRootContext);
-	const { element, children, ...restAttributes } = props;
+	const { element, ...restAttributes } = props;
 	const attributes = mergeProps(
-		rootContext.api.getListProps(),
+		rootContext.api.getIndicatorProps(),
 		{
-			className: classesTabs.list
+			className: classesTabs.indicator
 		},
 		restAttributes
 	);
-	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
+	return element ? element({ attributes }) : <div {...attributes}></div>;
 }

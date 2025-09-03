@@ -2,7 +2,7 @@
 
 import { Tabs } from '@skeletonlabs/skeleton-react';
 
-export default function Page() {
+export default function () {
 	return (
 		<Tabs defaultValue="tab-1">
 			<Tabs.List>
