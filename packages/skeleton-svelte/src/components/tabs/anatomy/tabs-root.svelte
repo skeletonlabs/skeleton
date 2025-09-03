@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { Props } from '@zag-js/tabs';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 
 	export interface TabsRootProps
 		extends Omit<Props, 'id'>,

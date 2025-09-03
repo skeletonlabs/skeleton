@@ -3,7 +3,7 @@ import { splitTriggerProps, type TriggerProps } from '@zag-js/tabs';
 import { mergeProps } from '@zag-js/react';
 import { useContext, type ComponentProps } from 'react';
 import { TabsRootContext } from '../modules/tabs-root-context.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
+import type { PropsWithElement } from '@/internal/props-with-element.js';
 
 export interface TabsTriggerProps extends PropsWithElement, TriggerProps, Omit<ComponentProps<'button'>, 'value'> {}
 
