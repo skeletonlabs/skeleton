@@ -1,13 +1,13 @@
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { basename, dirname, join } from 'node:path';
+import { join } from 'node:path';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 import { Parser } from './parser';
-import { kebabToPascal, capitalize, pascalToKebab } from './string-utils';
-import { frameworks, type Framework } from './framework';
+import { kebabToPascal, capitalize } from './string-utils';
+import { frameworks } from './framework';
 import { MONOREPO_ROOT, CLASSES_DIRECTORY, OUTPUT_DIRECTORY } from './constants';
 
-async function getPartOrderFromAnatomy(framework: string, component: string) {
+async function getPartOrderFromAnatomyFile(framework: string, component: string) {
 	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
 	const sourceFile = project.createSourceFile(
 		`${component}-anatomy.js`,
@@ -46,75 +46,89 @@ async function getClassValue(component: string, part: string) {
 	return property.getInitializerOrThrow().getText().replaceAll("'", '"');
 }
 
-async function getComponentEntries(framework: Framework, parser: Parser, components: Record<string, string[]>) {
-	const entries = [];
-	for (const [component, files] of Object.entries(components)) {
-		const order = await getPartOrderFromAnatomy(framework.name, component);
-		const filesInOrder = order.flatMap((name) =>
-			files.filter((f) => f.toLowerCase().endsWith(pascalToKebab(name) + framework.config.declarationExtension))
-		);
-		const contentObj = Object.assign(
-			{},
-			...(await Promise.all(
-				filesInOrder.map(async (file) => {
-					const sourceFile = parser.getSourceFile(file);
-					const part = kebabToPascal(basename(file).replace(framework.config.declarationExtension, ''));
-					const _interface = sourceFile.getInterface(`${part}Props`);
-					const classValue = await getClassValue(component, part);
-
-					if (classValue) {
-						_interface.properties.unshift({
-							name: framework.config.classPropertyName,
-							type: 'string | undefined',
-							typeKind: 'primitive',
-							optional: true,
-							JSDoc: {
-								description: 'The base classes provided by Skeleton',
-								tags: [{ name: 'default', value: classValue }]
-							}
-						});
-					}
-
-					return { [_interface.name]: _interface.properties };
-				})
-			))
-		);
-
-		entries.push({
-			path: join(OUTPUT_DIRECTORY, framework.name, `${component}.json`),
-			content: JSON.stringify(contentObj, null, 2)
-		});
+function getComponentNameFromPath(path: string): string {
+	const segments = path.split(/[\\/]/);
+	const component = segments.at(-3);
+	if (!component) {
+		throw new Error(`Could not determine component from path: ${path}`);
 	}
+	return component;
+}
 
-	return entries;
+function getComponentPartNameFromPath(path: string): string {
+	const segments = path.split(/[\\/]/);
+	const componentPart = segments.at(-1)?.split('.').at(0);
+	if (!componentPart) {
+		throw new Error(`Could not determine component part from path: ${path}`);
+	}
+	return componentPart;
 }
 
 async function main() {
 	for (const framework of frameworks) {
-		const componentFiles = await glob(`**/anatomy/*.d.ts`, {
+		await rm(join(OUTPUT_DIRECTORY, framework.name), { recursive: true, force: true });
+		await mkdir(join(OUTPUT_DIRECTORY, framework.name), { recursive: true });
+
+		const paths = await glob(`**/anatomy/*.d.ts`, {
 			cwd: join(MONOREPO_ROOT, 'packages', `skeleton-${framework.name}`, 'dist', 'components'),
 			absolute: true
 		});
 
-		const components = componentFiles.reduce(
-			(acc, file) => {
-				const parent = dirname(file).split(/[/\\]/).slice(-2, -1)[0];
-				(acc[parent] = acc[parent] || []).push(file);
+		const components = paths.reduce(
+			(acc, path) => {
+				const component = getComponentNameFromPath(path);
+				if (!acc[component]) {
+					acc[component] = [];
+				}
+				acc[component].push(path);
 				return acc;
 			},
 			{} as Record<string, string[]>
 		);
 
 		const parser = new Parser(framework);
-		const entries = await getComponentEntries(framework, parser, components);
 
-		await rm(join(OUTPUT_DIRECTORY, framework.name), { recursive: true, force: true });
-		await mkdir(join(OUTPUT_DIRECTORY, framework.name), { recursive: true });
-		await Promise.all(entries.map((entry) => writeFile(entry.path, entry.content)));
+		for (const [component, parts] of Object.entries(components)) {
+			const types = await Promise.all(
+				parts.map(async (part) => {
+					const sourceFile = parser.getSourceFile(part);
+					const componentPartName = getComponentPartNameFromPath(part);
+					const _interface = sourceFile.getInterface(`${kebabToPascal(componentPartName)}Props`);
+					return {
+						name: _interface.name,
+						props: _interface.props,
+						meta: {
+							classValue: await getClassValue(component, componentPartName)
+						}
+					};
+				})
+			);
+
+			const partOrder = await getPartOrderFromAnatomyFile(framework.name, component);
+
+			types.toSorted((a, b) => {
+				const aName = a.name.replace(/Props$/, '');
+				const bName = b.name.replace(/Props$/, '');
+				return partOrder.indexOf(aName) - partOrder.indexOf(bName);
+			});
+
+			const result = JSON.stringify(
+				{
+					name: component,
+					types: types
+				},
+				null,
+				4
+			);
+
+			const outputPath = join(OUTPUT_DIRECTORY, framework.name, `${component}.json`);
+
+			await writeFile(outputPath, result, 'utf-8');
+		}
 	}
 }
 
-main().catch((err) => {
-	console.error(err);
+main().catch((error) => {
+	console.error(error);
 	process.exit(1);
 });
