@@ -8,6 +8,8 @@ import Example from '@examples/components/rating-group/react/default.tsx';
 import ExampleRaw from '@examples/components/rating-group/react/default.tsx?raw';
 import ExampleHalf from '@examples/components/rating-group/react/half.tsx';
 import ExampleHalfRaw from '@examples/components/rating-group/react/half.tsx?raw';
+import ExampleCustomIcons from '@examples/components/rating-group/react/custom-icons.tsx';
+import ExampleCustomIconsRaw from '@examples/components/rating-group/react/custom-icons.tsx?raw';
 import ExampleLabel from '@examples/components/rating-group/react/label.tsx';
 import ExampleLabelRaw from '@examples/components/rating-group/react/label.tsx?raw';
 import ExampleDisabled from '@examples/components/rating-group/react/disabled.tsx';
@@ -32,6 +34,17 @@ import ExampleRtlRaw from '@examples/components/rating-group/react/rtl.tsx?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleHalfRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Custom Icons
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCustomIcons client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleCustomIconsRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
