@@ -51,6 +51,7 @@ function capitalize(str: string) {
 											)}
 										</td>
 										<td class="grid gap-2">
+											{/* This pre tag will otherwise include the line breaks prettier adds */}
 											{/* prettier-ignore */}
 											<pre class="pre text-xs rounded-container !bg-neutral-800 !text-white border border-surface-700/50 !p-1.5">{property.type}</pre>
 											<span>{property.JSDoc.description}</span>
