@@ -3,19 +3,20 @@ import fs from 'fs/promises';
 import path from 'path';
 
 type Framework = 'svelte' | 'react';
-type Schema = {
-	name: string;
-	properties: Array<{
-		type: string;
+
+type TypesRecord = Record<
+	string,
+	Array<{
 		name: string;
+		type: string;
 		typeKind: string;
-		required: boolean;
-		documentation: {
-			tags: Array<{ value: string; name: string }>;
-			text: string | null;
+		optional?: boolean;
+		JSDoc?: {
+			description?: string | null;
+			tags?: Array<{ name: string; value: string | null }>;
 		};
-	}>;
-};
+	}>
+>;
 
 // Exact copy from ApiTable.astro
 async function getSchemaFromSlug(slug: string | undefined) {
@@ -24,34 +25,33 @@ async function getSchemaFromSlug(slug: string | undefined) {
 	const component = parts.at(-2);
 	const framework = parts.at(-1);
 	if (!component || !framework) return null;
-	const entry = await getEntry('schemas', `${framework}/${component}`);
+	const entry = await getEntry('types', `${framework}/${component}`);
 	return entry?.data;
 }
 
 // Replacement from ApiTable.astro but instead converts schema to markdown tables
-function generateMarkdownApiTable(schema: Schema[]): string {
-	if (!schema || !Array.isArray(schema) || schema.length === 0) {
-		return '';
-	}
+function generateMarkdownApiTable(schema: TypesRecord | null | undefined): string {
+	if (!schema || typeof schema !== 'object') return '';
 	let markdown = '';
-	schema.forEach((section) => {
-		const sectionTitle = section.name.replace('Props', '');
+	for (const [sectionName, properties] of Object.entries(schema)) {
+		const sectionTitle = sectionName.replace('Props', '');
 		markdown += `\n### ${sectionTitle}\n\n`;
 		markdown += `| Property | Type | Description |\n`;
 		markdown += `| --- | --- | --- |\n`;
-		section.properties.forEach((property) => {
-			const propName = `\`${property.name}\`${property.required ? '*' : ''}`;
+		for (const property of properties) {
+			const required = property.optional ? false : true;
+			const propName = `\`${property.name}\`${required ? '*' : ''}`;
 			const typeStr = property.type;
-			let description = property.documentation.text || '';
-			const defaultTag = property.documentation.tags.find((tag) => tag.name === 'default');
-			if (defaultTag) {
+			let description = (property.JSDoc?.description ?? '') as string;
+			const defaultTag = property.JSDoc?.tags?.find((t) => t.name === 'default');
+			if (defaultTag && defaultTag.value) {
 				description += `\nDefault: ${defaultTag.value}`;
 			}
 			description = description.replace(/\n/g, ' ');
 			markdown += `| ${propName} | ${typeStr} | ${description} |\n`;
-		});
+		}
 		markdown += `\n`;
-	});
+	}
 	return markdown;
 }
 
@@ -110,6 +110,7 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 	return content;
 }
 
+// TODO: wait for the APITable update, prehaps the API table could be export its function so no rewrite is needed here
 /**
  * Replaces preview blocks with Markdown code blocks.
  * @param content The content to process.
@@ -133,26 +134,23 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 	for (const apiMatch of apiTableMatches.reverse()) {
 		const fullMatch = apiMatch[0];
 		const schemaVar = apiMatch[1]?.trim();
-		let schemaData: Schema[];
+		let schemaData: TypesRecord | null;
 		if (schemaVar) {
 			const importPath = schemaImports[schemaVar];
 			if (importPath) {
-				const resolvedPath = importPath.replace(/^@schemas|@content\/schemas/, './src/content/schemas');
+				const resolvedPath = importPath.replace(/^@types|@content\/types/, './src/content/types');
 				try {
 					const schemaModule = await import(/* @vite-ignore */ path.resolve(resolvedPath));
 					schemaData = schemaModule.default || schemaModule;
 				} catch (err) {
 					console.error('Error importing schema file:', resolvedPath, err);
-					schemaData = [];
+					schemaData = null;
 				}
 			} else {
-				schemaData = [];
+				schemaData = null;
 			}
 		} else {
-			schemaData = (await getSchemaFromSlug(docSlug)) as Schema[];
-		}
-		if (!Array.isArray(schemaData)) {
-			schemaData = [];
+			schemaData = (await getSchemaFromSlug(docSlug)) as unknown as TypesRecord | null;
 		}
 		const markdownTable = generateMarkdownApiTable(schemaData);
 		content = content.replace(fullMatch, markdownTable);
