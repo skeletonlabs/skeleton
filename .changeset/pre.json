@@ -16,8 +16,10 @@
     "@skeletonlabs/playground-skeleton": "0.0.1"
   },
   "changesets": [
+    "dry-coats-return",
     "forty-badgers-clap",
     "kind-feet-serve",
+    "legal-suits-write",
     "little-files-notice",
     "small-words-drum"
   ]
