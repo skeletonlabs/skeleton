@@ -24,52 +24,45 @@ function capitalize(str: string) {
 				Unable to load types for {framework}/{component}
 			</p>
 		) : (
-			Object.entries(types['data']).map(([name, properties]) => {
-				return (
+			<section class="grid gap-4">
+				{types.data.types.map((type) => (
 					<>
-						<section class="grid gap-4">
-							<h3 class="h3">{name.replace(capitalize(component), '').replace('Props', '')}</h3>
-							{properties.find((p) => p.name === 'class')?.JSDoc.tags.find((tag) => tag.name === 'default')?.value ? (
-								<Code code={`${properties.find((p) => p.name === 'class')?.JSDoc.tags.find((tag) => tag.name === 'default')?.value}`} />
-							) : (
-								''
-							)}
-							<table class="table">
-								<thead>
-									<tr>
-										<th>Property</th>
-										<th>Default</th>
-										<th>Type</th>
+						<h3 class="h3">{type.name.replace(capitalize(component), '').replace('Props', '')}</h3>
+						{type.metadata.classValue && <Code code={type.metadata.classValue} />}
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Property</th>
+									<th>Default</th>
+									<th>Type</th>
+								</tr>
+							</thead>
+							<tbody class="[&>tr]:hover:preset-tonal">
+								{type.props.map((property) => (
+									<tr class="align-top">
+										<td>
+											<code class="code">{property.name}</code>
+										</td>
+										<td>
+											{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
+												<span>{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}</span>
+											) : (
+												<span class="opacity-50">-</span>
+											)}
+										</td>
+										<td class="grid gap-2">
+											<pre class="pre text-xs rounded-container !bg-neutral-800 !text-white border border-surface-700/50 !p-1.5">
+												{property.type}
+											</pre>
+											<span>{property.JSDoc.description}</span>
+										</td>
 									</tr>
-								</thead>
-								<tbody class="[&>tr]:hover:preset-tonal">
-									{properties
-										.filter((property) => property.name !== 'class')
-										.map((property) => (
-											<tr class="align-top">
-												<td>
-													<code class="code">{property.name}</code>
-												</td>
-												<td>
-													{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
-														<span>{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}</span>
-													) : (
-														<span class="opacity-50">-</span>
-													)}
-												</td>
-												<td class="grid gap-2">
-													{/* prettier-ignore */}
-													<pre class="pre text-xs rounded-container !bg-neutral-800 !text-white border border-surface-700/50 !p-1.5">{property.type}</pre>
-													<span>{property.JSDoc.description}</span>
-												</td>
-											</tr>
-										))}
-								</tbody>
-							</table>
-						</section>
+								))}
+							</tbody>
+						</table>
 					</>
-				);
-			})
+				))}
+			</section>
 		)
 	}
 </div>

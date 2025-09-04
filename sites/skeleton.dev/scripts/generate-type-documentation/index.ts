@@ -3,11 +3,11 @@ import { join } from 'node:path';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 import { Parser } from './parser';
-import { kebabToPascal, capitalize } from './string-utils';
+import { kebabToPascal } from './string-utils';
 import { frameworks } from './framework';
 import { MONOREPO_ROOT, CLASSES_DIRECTORY, OUTPUT_DIRECTORY } from './constants';
 
-async function getPartOrderFromAnatomyFile(framework: string, component: string) {
+async function getPartOrderFromAnatomy(framework: string, component: string) {
 	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
 	const sourceFile = project.createSourceFile(
 		`${component}-anatomy.js`,
@@ -39,7 +39,7 @@ async function getClassValue(component: string, part: string) {
 	const property = classes
 		.getProperties()
 		.filter(tsMorph.Node.isPropertyAssignment)
-		.find((p) => p.getName() === part.replace(capitalize(kebabToPascal(component)), '').toLowerCase());
+		.find((p) => p.getName() === part.replace(`${component}-`, '').toLowerCase());
 	if (!property) {
 		return;
 	}
@@ -89,24 +89,25 @@ async function main() {
 		const parser = new Parser(framework);
 
 		for (const [component, parts] of Object.entries(components)) {
-			const types = await Promise.all(
-				parts.map(async (part) => {
-					const sourceFile = parser.getSourceFile(part);
-					const componentPartName = getComponentPartNameFromPath(part);
-					const _interface = sourceFile.getInterface(`${kebabToPascal(componentPartName)}Props`);
-					return {
-						name: _interface.name,
-						props: _interface.props,
-						meta: {
-							classValue: await getClassValue(component, componentPartName)
-						}
-					};
-				})
-			);
+			const partOrder = await getPartOrderFromAnatomy(framework.name, component);
 
-			const partOrder = await getPartOrderFromAnatomyFile(framework.name, component);
-
-			types.toSorted((a, b) => {
+			const types = (
+				await Promise.all(
+					parts.map(async (part) => {
+						const sourceFile = parser.getSourceFile(part);
+						const componentPartName = getComponentPartNameFromPath(part);
+						const _interface = sourceFile.getInterface(`${kebabToPascal(componentPartName)}Props`);
+						const classValue = await getClassValue(component, componentPartName);
+						return {
+							name: _interface.name,
+							props: _interface.props,
+							metadata: {
+								classValue: classValue
+							}
+						};
+					})
+				)
+			).toSorted((a, b) => {
 				const aName = a.name.replace(/Props$/, '');
 				const bName = b.name.replace(/Props$/, '');
 				return partOrder.indexOf(aName) - partOrder.indexOf(bName);
