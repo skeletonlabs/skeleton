@@ -43,7 +43,11 @@ async function getClassValue(component: string, part: string) {
 	if (!property) {
 		return;
 	}
-	return property.getInitializerOrThrow().getText().replaceAll("'", '"');
+	const text = property.getInitializerOrThrow().getText().trim();
+	if (text === "''") {
+		return;
+	}
+	return text.replaceAll("'", '"');
 }
 
 function getComponentNameFromPath(path: string): string {
