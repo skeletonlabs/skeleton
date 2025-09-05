@@ -10,8 +10,8 @@
 	import { FileUploadRootContext } from '../modules/file-upload-root-context';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: FileUploadItemGroupProps = $props();
 	const rootContext = FileUploadRootContext.consume();
+	const props: FileUploadItemGroupProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
 	const attributes = $derived(mergeProps(rootContext.api.getItemGroupProps(), { class: classesFileUpload.itemGroup }, restAttributes));
 </script>

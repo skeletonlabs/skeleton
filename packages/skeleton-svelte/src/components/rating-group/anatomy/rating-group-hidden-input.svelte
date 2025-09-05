@@ -12,8 +12,8 @@
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 	import { RatingGroupRootContext } from '../modules/rating-group-root-context';
 
-	const rootContext = RatingGroupRootContext.consume();
 	const props: RatingGroupHiddenInputProps = $props();
+	const rootContext = RatingGroupRootContext.consume();
 	const { element, ...restAttributes } = $derived(props);
 	const attributes = $derived(
 		mergeProps(

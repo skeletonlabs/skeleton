@@ -11,9 +11,9 @@
 	import { FileUploadRootContext } from '../modules/file-upload-root-context';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: FileUploadItemDeleteTriggerProps = $props();
 	const rootContext = FileUploadRootContext.consume();
 	const itemContext = FileUploadItemContext.consume();
+	const props: FileUploadItemDeleteTriggerProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
 	const attributes = $derived(
 		mergeProps(

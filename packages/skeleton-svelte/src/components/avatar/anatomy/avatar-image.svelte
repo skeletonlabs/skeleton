@@ -10,8 +10,8 @@
 	import { classesAvatar } from '@skeletonlabs/skeleton-common';
 	import { AvatarRootContext } from '../modules/avatar-root-context';
 
-	const rootContext = AvatarRootContext.consume();
 	const props: AvatarImageProps = $props();
+	const rootContext = AvatarRootContext.consume();
 	const { element, ...restAttributes } = $derived(props);
 	const attributes = $derived(
 		mergeProps(

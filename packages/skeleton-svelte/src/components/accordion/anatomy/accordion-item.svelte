@@ -13,8 +13,8 @@
 	import { AccordionItemContext } from '../modules/accordion-item-context';
 	import { AccordionRootContext } from '../modules/accordion-root-context';
 
-	const rootContext = AccordionRootContext.consume();
 	const props: AccordionItemProps = $props();
+	const rootContext = AccordionRootContext.consume();
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
 	const attributes = $derived(

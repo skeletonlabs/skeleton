@@ -11,9 +11,9 @@
 	import { AccordionRootContext } from '../modules/accordion-root-context';
 	import { AccordionItemContext } from '../modules/accordion-item-context';
 
+	const props: AccordionContentProps = $props();
 	const rootContext = AccordionRootContext.consume();
 	const itemContext = AccordionItemContext.consume();
-	const props: AccordionContentProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
 	const attributes = $derived(
 		mergeProps(

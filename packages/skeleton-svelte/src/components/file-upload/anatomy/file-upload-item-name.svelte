@@ -12,8 +12,8 @@
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemNameProps = $props();
-	const itemContext = FileUploadItemContext.consume();
 	const rootContext = FileUploadRootContext.consume();
+	const itemContext = FileUploadItemContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
 	const attributes = $derived(
 		mergeProps(rootContext.api.getItemNameProps(itemContext.itemProps), { class: classesFileUpload.itemName }, restAttributes)
