@@ -1,0 +1,12 @@
+export { FileUpload } from './modules/file-upload-anatomy.js';
+export type { FileUploadRootProps } from './anatomy/file-upload-root.js';
+export type { FileUploadRootContextProps } from './anatomy/file-upload-root-context.js';
+export type { FileUploadDropzoneProps } from './anatomy/file-upload-dropzone.js';
+export type { FileUploadTriggerProps } from './anatomy/file-upload-trigger.js';
+export type { FileUploadItemGroupProps } from './anatomy/file-upload-item-group.js';
+export type { FileUploadItemProps } from './anatomy/file-upload-item.js';
+export type { FileUploadItemContextProps } from './anatomy/file-upload-item-context.js';
+export type { FileUploadItemNameProps } from './anatomy/file-upload-item-name.js';
+export type { FileUploadItemDeleteTriggerProps } from './anatomy/file-upload-item-delete-trigger.js';
+export type { FileUploadRootContextType as FileUploadRootContext } from './modules/file-upload-root-context.js';
+export type { FileUploadItemContextType as FileUploadItemContext } from './modules/file-upload-item-context.js';

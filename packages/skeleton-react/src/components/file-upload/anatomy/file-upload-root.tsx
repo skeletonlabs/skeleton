@@ -1,5 +1,3 @@
-'use client';
-
 import { useId, type ComponentProps } from 'react';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesFileUpload } from '@skeletonlabs/skeleton-common';

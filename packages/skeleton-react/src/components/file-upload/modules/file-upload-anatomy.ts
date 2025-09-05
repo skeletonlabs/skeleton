@@ -5,6 +5,7 @@ import FileUploadHiddenInput from '../anatomy/file-upload-hidden-input';
 import FileUploadTrigger from '../anatomy/file-upload-trigger';
 import FileUploadItemGroup from '../anatomy/file-upload-item-group';
 import FileUploadItem from '../anatomy/file-upload-item';
+import fileUploadItemContext from '../anatomy/file-upload-item-context';
 import FileUploadItemName from '../anatomy/file-upload-item-name';
 import FileUploadItemDeleteTrigger from '../anatomy/file-upload-item-delete-trigger';
 
@@ -15,6 +16,7 @@ export const FileUpload = Object.assign(FileUploadRoot, {
 	Trigger: FileUploadTrigger,
 	ItemGroup: FileUploadItemGroup,
 	Item: FileUploadItem,
+	ItemContext: fileUploadItemContext,
 	ItemName: FileUploadItemName,
 	ItemDeleteTrigger: FileUploadItemDeleteTrigger
 });

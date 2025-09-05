@@ -1,0 +1,11 @@
+import { useContext, type ReactNode } from 'react';
+import { FileUploadItemContext, type FileUploadItemContextType } from '../modules/file-upload-item-context.js';
+
+export interface FileUploadItemContextProps {
+	children: (context: FileUploadItemContextType) => ReactNode;
+}
+
+export default function (props: FileUploadItemContextProps) {
+	const itemContext = useContext(FileUploadItemContext);
+	return props.children(itemContext);
+}

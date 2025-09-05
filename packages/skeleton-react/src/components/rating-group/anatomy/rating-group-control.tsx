@@ -4,7 +4,7 @@ import { useContext, type ComponentProps } from 'react';
 import { RatingGroupRootContext } from '../modules/rating-group-root-context.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
 
-export interface RatingGroupControlProps extends PropsWithElement, Omit<ComponentProps<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+export interface RatingGroupControlProps extends PropsWithElement, ComponentProps<'div'> {}
 
 export default function (props: RatingGroupControlProps) {
 	const rootContext = useContext(RatingGroupRootContext);

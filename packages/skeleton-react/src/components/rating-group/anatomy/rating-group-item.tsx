@@ -9,7 +9,7 @@ import StarHalf from '@/internal/components/star-half.js';
 import StarFull from '@/internal/components/star-full.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
 
-export interface RatingGroupItemProps extends PropsWithElement, ItemProps, Omit<ComponentProps<'span'>, 'id' | 'defaultValue' | 'dir'> {
+export interface RatingGroupItemProps extends PropsWithElement, ItemProps, ComponentProps<'span'> {
 	/**
 	 * The content to render when the item is in the empty state.
 	 *
