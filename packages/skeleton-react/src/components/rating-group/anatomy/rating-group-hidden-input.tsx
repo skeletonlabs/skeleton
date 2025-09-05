@@ -1,12 +1,10 @@
 import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { useContext, type ComponentProps } from 'react';
-import { RatingGroupRootContext } from '../modules/rating-group-root-context.js';
-import type { PropsWithElement } from '@/internal/props-with-element.js';
+import { RatingGroupRootContext } from '../modules/rating-group-root-context';
+import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface RatingGroupHiddenInputProps
-	extends PropsWithElement,
-		Omit<ComponentProps<'input'>, 'id' | 'defaultValue' | 'dir' | 'children'> {}
+export interface RatingGroupHiddenInputProps extends PropsWithElement, ComponentProps<'input'> {}
 
 export default function (props: RatingGroupHiddenInputProps) {
 	const rootContext = useContext(RatingGroupRootContext);

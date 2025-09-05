@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { AvatarRootContext, type AvatarRootContextType } from '../modules/avatar-root-context.js';
+import { AvatarRootContext, type AvatarRootContextType } from '../modules/avatar-root-context';
 
 export interface AvatarRootContextProps {
 	children: (context: AvatarRootContextType) => ReactNode;

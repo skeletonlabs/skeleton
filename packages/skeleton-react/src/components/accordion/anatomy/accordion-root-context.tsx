@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { AccordionRootContext, type AccordionRootContextType } from '../modules/accordion-root-context.js';
+import { AccordionRootContext, type AccordionRootContextType } from '../modules/accordion-root-context';
 
 export interface AccordionRootContextProps {
 	children: (context: AccordionRootContextType) => ReactNode;

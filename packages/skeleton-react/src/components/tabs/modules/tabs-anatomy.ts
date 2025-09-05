@@ -1,9 +1,9 @@
-import TabsRoot from '../anatomy/tabs-root.jsx';
-import TabsRootContext from '../anatomy/tabs-root-context.jsx';
-import TabsList from '../anatomy/tabs-list.jsx';
-import TabsTrigger from '../anatomy/tabs-trigger.jsx';
-import tabsIndicator from '../anatomy/tabs-indicator.js';
-import TabsContent from '../anatomy/tabs-content.jsx';
+import TabsRoot from '../anatomy/tabs-root';
+import TabsRootContext from '../anatomy/tabs-root-context';
+import TabsList from '../anatomy/tabs-list';
+import TabsTrigger from '../anatomy/tabs-trigger';
+import tabsIndicator from '../anatomy/tabs-indicator';
+import TabsContent from '../anatomy/tabs-content';
 
 export const Tabs = Object.assign(TabsRoot, {
 	Context: TabsRootContext,

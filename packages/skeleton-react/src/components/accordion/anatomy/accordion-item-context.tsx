@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { AccordionItemContext, type AccordionItemContextType } from '../modules/accordion-item-context.js';
+import { AccordionItemContext, type AccordionItemContextType } from '../modules/accordion-item-context';
 
 export interface AccordionItemContextProps {
 	children: (context: AccordionItemContextType) => ReactNode;

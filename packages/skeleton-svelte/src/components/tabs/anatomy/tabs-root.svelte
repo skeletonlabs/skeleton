@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { Props } from '@zag-js/tabs';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface TabsRootProps
 		extends Omit<Props, 'id'>,
@@ -13,7 +13,7 @@
 	import { connect, machine, splitProps } from '@zag-js/tabs';
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
-	import { TabsRootContext } from '../modules/tabs-root-context.js';
+	import { TabsRootContext } from '../modules/tabs-root-context';
 
 	const props: TabsRootProps = $props();
 	const [machineProps, componentProps] = $derived(splitProps(props));

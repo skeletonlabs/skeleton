@@ -2,8 +2,8 @@ import { useId, type ComponentProps, type PropsWithChildren } from 'react';
 import { splitProps, machine, connect, type Props } from '@zag-js/accordion';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
-import { AccordionRootContext } from '../modules/accordion-root-context.js';
-import type { PropsWithElement } from '@/internal/props-with-element.js';
+import { AccordionRootContext } from '../modules/accordion-root-context';
+import type { PropsWithElement } from '@/internal/props-with-element';
 
 export interface AccordionRootProps
 	extends PropsWithChildren,

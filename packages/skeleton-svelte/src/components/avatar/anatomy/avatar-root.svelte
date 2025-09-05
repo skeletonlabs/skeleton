@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/avatar';
 
 	export interface AvatarRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {}
@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import { classesAvatar } from '@skeletonlabs/skeleton-common';
-	import { AvatarRootContext } from '../modules/avatar-root-context.js';
+	import { AvatarRootContext } from '../modules/avatar-root-context';
 	import { connect, machine, splitProps } from '@zag-js/avatar';
 
 	const props: AvatarRootProps = $props();

@@ -1,10 +1,10 @@
 import { useContext, type ComponentProps } from 'react';
 import { mergeProps } from '@zag-js/react';
 import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
-import { RatingGroupRootContext } from '../modules/rating-group-root-context.js';
-import type { PropsWithElement } from '@/internal/props-with-element.js';
+import { RatingGroupRootContext } from '../modules/rating-group-root-context';
+import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface RatingGroupLabelProps extends PropsWithElement, Omit<ComponentProps<'label'>, 'id' | 'defaultValue' | 'dir'> {}
+export interface RatingGroupLabelProps extends PropsWithElement, ComponentProps<'label'> {}
 
 export default function (props: RatingGroupLabelProps) {
 	const rootContext = useContext(RatingGroupRootContext);
