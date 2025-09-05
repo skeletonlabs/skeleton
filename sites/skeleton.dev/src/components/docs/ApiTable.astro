@@ -1,5 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
+import { Code } from 'astro-expressive-code/components';
 
 interface Props {
 	component: string;
@@ -23,10 +24,11 @@ function capitalize(str: string) {
 				Unable to load types for {framework}/{component}
 			</p>
 		) : (
-			Object.entries(types['data']).map(([name, properties]) => {
-				return (
-					<section class="grid gap-4">
-						<h3 class="h3">{name.replace(capitalize(component), '').replace('Props', '')}</h3>
+			<section class="grid gap-4">
+				{types.data.types.map((type) => (
+					<>
+						<h3 class="h3">{type.name.replace(capitalize(component), '').replace('Props', '')}</h3>
+						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} />}
 						<table class="table">
 							<thead>
 								<tr>
@@ -36,7 +38,7 @@ function capitalize(str: string) {
 								</tr>
 							</thead>
 							<tbody class="[&>tr]:hover:preset-tonal">
-								{properties.map((property) => (
+								{type.props.map((property) => (
 									<tr class="align-top">
 										<td>
 											<code class="code">{property.name}</code>
@@ -49,16 +51,18 @@ function capitalize(str: string) {
 											)}
 										</td>
 										<td class="grid gap-2">
-											<pre class="pre !p-2">{property.type}</pre>
+											{/* This pre tag will otherwise include the line breaks prettier adds */}
+											{/* prettier-ignore */}
+											<pre class="pre max-w-[400px] !bg-surface-950 border border-surface-800 !p-1.5">{property.type}</pre>
 											<span>{property.JSDoc.description}</span>
 										</td>
 									</tr>
 								))}
 							</tbody>
 						</table>
-					</section>
-				);
-			})
+					</>
+				))}
+			</section>
 		)
 	}
 </div>

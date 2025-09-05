@@ -3,9 +3,9 @@ import * as tsMorph from 'ts-morph';
 import { MONOREPO_ROOT } from './constants';
 import type { Framework } from './framework';
 
-type TypeKind = 'function' | 'array' | 'object' | 'primitive';
+export type TypeKind = 'function' | 'array' | 'object' | 'primitive';
 
-interface Property {
+export interface Property {
 	name: string;
 	type: string;
 	typeKind: TypeKind;
@@ -13,22 +13,22 @@ interface Property {
 	JSDoc: JSDoc;
 }
 
-interface JSDoc {
+export interface JSDoc {
 	description: string | null;
 	tags: Tag[];
 }
 
-interface Tag {
+export interface Tag {
 	name: string;
 	value: string | null;
 }
 
-interface Interface {
+export interface Interface {
 	name: string;
-	properties: Property[];
+	props: Property[];
 }
 
-class SourceFile {
+export class SourceFile {
 	constructor(
 		private framework: Framework,
 		private sourceFile: tsMorph.SourceFile
@@ -82,7 +82,9 @@ class SourceFile {
 
 	public getInterface(name: string): Interface {
 		const interface_ = this.sourceFile.getInterface(name);
-		if (!interface_) throw new Error(`Interface not found: ${name}`);
+		if (!interface_) {
+			throw new Error(`Interface not found: ${name}`);
+		}
 
 		interface_.getExtends().forEach((ext) => {
 			if (this.framework.config.extendsBlacklist.some((pattern) => pattern.test(ext.getText()))) {
@@ -92,7 +94,7 @@ class SourceFile {
 
 		return {
 			name: interface_.getName(),
-			properties: interface_
+			props: interface_
 				.getType()
 				.getProperties()
 				.map((symbol) => this.getProperty(symbol))
