@@ -17,7 +17,7 @@
 		mergeProps(
 			rootContext.api.getRangeProps(),
 			{
-				class: classesProgressLinear.track
+				class: classesProgressLinear.range
 			},
 			restAttributes
 		)
