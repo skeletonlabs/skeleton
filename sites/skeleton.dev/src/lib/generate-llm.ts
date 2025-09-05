@@ -1,22 +1,10 @@
-import { getEntry, getCollection } from 'astro:content';
+import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 import fs from 'fs/promises';
 import path from 'path';
 
 type Framework = 'svelte' | 'react';
 
-type TypesRecord = Record<
-	string,
-	Array<{
-		name: string;
-		type: string;
-		typeKind: string;
-		optional?: boolean;
-		JSDoc?: {
-			description?: string | null;
-			tags?: Array<{ name: string; value: string | null }>;
-		};
-	}>
->;
+type TypesRecord = CollectionEntry<'types'>['data'];
 
 // Exact copy from ApiTable.astro
 async function getSchemaFromSlug(slug: string | undefined) {
@@ -33,12 +21,12 @@ async function getSchemaFromSlug(slug: string | undefined) {
 function generateMarkdownApiTable(schema: TypesRecord | null | undefined): string {
 	if (!schema || typeof schema !== 'object') return '';
 	let markdown = '';
-	for (const [sectionName, properties] of Object.entries(schema)) {
-		const sectionTitle = sectionName.replace('Props', '');
+	for (const type of schema.types) {
+		const sectionTitle = type.name.replace('Props', '');
 		markdown += `\n### ${sectionTitle}\n\n`;
 		markdown += `| Property | Type | Description |\n`;
 		markdown += `| --- | --- | --- |\n`;
-		for (const property of properties) {
+		for (const property of type.props) {
 			const required = property.optional ? false : true;
 			const propName = `\`${property.name}\`${required ? '*' : ''}`;
 			const typeStr = property.type;
