@@ -45,6 +45,13 @@ describe('file-upload', () => {
 		});
 	});
 
+	describe('item-size-text', () => {
+		it('renders', () => {
+			render(<FileUpload />);
+			expect(screen.getByTestId('item-size-text')).toBeInTheDocument();
+		});
+	});
+
 	describe('item-delete-trigger', () => {
 		it('renders', () => {
 			render(<FileUpload />);

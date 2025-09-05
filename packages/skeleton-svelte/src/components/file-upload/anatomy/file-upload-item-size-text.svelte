@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
 
-	export interface FileUploadItemNameProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
+	export interface FileUploadItemSizeTextProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">
@@ -11,12 +11,12 @@
 	import { FileUploadRootContext } from '../modules/file-upload-root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: FileUploadItemNameProps = $props();
+	const props: FileUploadItemSizeTextProps = $props();
 	const itemContext = FileUploadItemContext.consume();
 	const rootContext = FileUploadRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
 	const attributes = $derived(
-		mergeProps(rootContext.api.getItemNameProps(itemContext.itemProps), { class: classesFileUpload.itemName }, restAttributes)
+		mergeProps(rootContext.api.getItemSizeTextProps(itemContext.itemProps), { class: classesFileUpload.itemName }, restAttributes)
 	);
 </script>
 

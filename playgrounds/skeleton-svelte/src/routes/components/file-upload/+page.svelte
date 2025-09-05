@@ -4,9 +4,9 @@
 
 <FileUpload>
 	<FileUpload.Dropzone>
+		<FileUpload.Trigger>Upload</FileUpload.Trigger>
 		<FileUpload.HiddenInput />
 	</FileUpload.Dropzone>
-	<FileUpload.Trigger>Upload</FileUpload.Trigger>
 	<FileUpload.ItemGroup>
 		<FileUpload.Context>
 			{#snippet children(ctx)}
