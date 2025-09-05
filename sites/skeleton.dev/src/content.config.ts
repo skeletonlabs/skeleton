@@ -26,26 +26,34 @@ const types = defineCollection({
 		base: './src/content/types',
 		pattern: '**/*.json'
 	}),
-	schema: z.record(
-		z.string(),
-		z.array(
+	schema: z.object({
+		name: z.string(),
+		types: z.array(
 			z.object({
 				name: z.string(),
-				type: z.string(),
-				typeKind: z.string(),
-				optional: z.boolean(),
-				JSDoc: z.object({
-					description: z.string().nullable(),
-					tags: z.array(
-						z.object({
-							name: z.string(),
-							value: z.string().nullable()
+				props: z.array(
+					z.object({
+						name: z.string(),
+						type: z.string(),
+						typeKind: z.string(),
+						optional: z.boolean(),
+						JSDoc: z.object({
+							description: z.string().nullable(),
+							tags: z.array(
+								z.object({
+									name: z.string(),
+									value: z.string().nullable()
+								})
+							)
 						})
-					)
+					})
+				),
+				metadata: z.object({
+					classValue: z.string().optional()
 				})
 			})
 		)
-	)
+	})
 });
 
 export const collections = { docs, types };

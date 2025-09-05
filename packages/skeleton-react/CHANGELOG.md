@@ -1,5 +1,20 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.2
+### Minor Changes
+
+
+- feat: tabs ([#3679](https://github.com/skeletonlabs/skeleton/pull/3679))
+
+
+- feat: rating-group ([#3681](https://github.com/skeletonlabs/skeleton/pull/3681))
+
+
+### Patch Changes
+
+- Updated dependencies [[`f272f42`](https://github.com/skeletonlabs/skeleton/commit/f272f42ae2a92648d275618089a5c41aaf4efe13), [`5d517a8`](https://github.com/skeletonlabs/skeleton/commit/5d517a840ac27bea4d5fd2fd2b150abf779075b0)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.2
+
 ## 2.0.0-next.1
 ### Major Changes
 

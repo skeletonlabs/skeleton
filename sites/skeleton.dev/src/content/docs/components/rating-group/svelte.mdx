@@ -8,6 +8,8 @@ import Example from '@examples/components/rating-group/svelte/default.svelte';
 import ExampleRaw from '@examples/components/rating-group/svelte/default.svelte?raw';
 import ExampleHalf from '@examples/components/rating-group/svelte/half.svelte';
 import ExampleHalfRaw from '@examples/components/rating-group/svelte/half.svelte?raw';
+import ExampleCustomIcons from '@examples/components/rating-group/svelte/custom-icons.svelte';
+import ExampleCustomIconsRaw from '@examples/components/rating-group/svelte/custom-icons.svelte?raw';
 import ExampleLabel from '@examples/components/rating-group/svelte/label.svelte';
 import ExampleLabelRaw from '@examples/components/rating-group/svelte/label.svelte?raw';
 import ExampleDisabled from '@examples/components/rating-group/svelte/disabled.svelte';
@@ -32,6 +34,17 @@ import ExampleRtlRaw from '@examples/components/rating-group/svelte/rtl.svelte?r
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleHalfRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Custom Icons
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleCustomIcons client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleCustomIconsRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
