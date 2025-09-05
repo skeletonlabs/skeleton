@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { FileUploadRootContext, type FileUploadRootContextType } from '../modules/file-upload-root-context.js';
+import { FileUploadRootContext, type FileUploadRootContextType } from '../modules/file-upload-root-context';
 
 export interface FileUploadRootContextProps {
 	children: (context: FileUploadRootContextType) => ReactNode;

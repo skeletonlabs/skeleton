@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/file-upload';
 
 	export interface FileUploadRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {}
@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
-	import { FileUploadRootContext } from '../modules/file-upload-root-context.js';
+	import { FileUploadRootContext } from '../modules/file-upload-root-context';
 	import { connect, machine, splitProps } from '@zag-js/file-upload';
 
 	const props: FileUploadRootProps = $props();

@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { ItemProps } from '@zag-js/rating-group';
 
 	export interface RatingGroupItemProps
@@ -32,8 +32,8 @@
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 	import { splitItemProps } from '@zag-js/rating-group';
-	import { RatingGroupRootContext } from '../modules/rating-group-root-context.js';
-	import { RatingGroupItemContext } from '../modules/rating-group-item-context.js';
+	import { RatingGroupRootContext } from '../modules/rating-group-root-context';
+	import { RatingGroupItemContext } from '../modules/rating-group-item-context';
 	import StarFull from '@/internal/components/star-full.svelte';
 	import StarEmpty from '@/internal/components/star-empty.svelte';
 	import StarHalf from '@/internal/components/star-half.svelte';

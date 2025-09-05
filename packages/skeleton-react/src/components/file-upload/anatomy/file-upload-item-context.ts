@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { FileUploadItemContext, type FileUploadItemContextType } from '../modules/file-upload-item-context.js';
+import { FileUploadItemContext, type FileUploadItemContextType } from '../modules/file-upload-item-context';
 
 export interface FileUploadItemContextProps {
 	children: (context: FileUploadItemContextType) => ReactNode;

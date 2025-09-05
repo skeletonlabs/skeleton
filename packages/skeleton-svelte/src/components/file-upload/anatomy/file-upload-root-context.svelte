@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { FileUploadRootContextType } from '../modules/file-upload-root-context.js';
+	import type { FileUploadRootContextType } from '../modules/file-upload-root-context';
 
 	export interface FileUploadRootContextProps {
 		children: Snippet<[FileUploadRootContextType]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { FileUploadRootContext } from '../modules/file-upload-root-context.js';
+	import { FileUploadRootContext } from '../modules/file-upload-root-context';
 
 	const props: FileUploadRootContextProps = $props();
 	const rootContext = FileUploadRootContext.consume();

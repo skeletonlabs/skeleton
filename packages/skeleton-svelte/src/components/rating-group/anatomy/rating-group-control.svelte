@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface RatingGroupControlProps extends PropsWithElement, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'defaultValue' | 'dir'> {}
 </script>
@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
-	import { RatingGroupRootContext } from '../modules/rating-group-root-context.js';
+	import { RatingGroupRootContext } from '../modules/rating-group-root-context';
 
 	const rootContext = RatingGroupRootContext.consume();
 	const props: RatingGroupControlProps = $props();

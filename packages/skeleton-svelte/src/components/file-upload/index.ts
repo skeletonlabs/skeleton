@@ -1,4 +1,4 @@
-export { FileUpload } from './modules/file-upload-anatomy.js';
+export { FileUpload } from './modules/file-upload-anatomy';
 export type { FileUploadRootProps } from './anatomy/file-upload-root.svelte';
 export type { FileUploadRootContextProps } from './anatomy/file-upload-root-context.svelte';
 export type { FileUploadDropzoneProps } from './anatomy/file-upload-dropzone.svelte';
@@ -8,5 +8,5 @@ export type { FileUploadItemProps } from './anatomy/file-upload-item.svelte';
 export type { FileUploadItemContextProps } from './anatomy/file-upload-item-context.svelte';
 export type { FileUploadItemNameProps } from './anatomy/file-upload-item-name.svelte';
 export type { FileUploadItemDeleteTriggerProps } from './anatomy/file-upload-item-delete-trigger.svelte';
-export type { FileUploadRootContextType as FileUploadRootContext } from './modules/file-upload-root-context.js';
-export type { FileUploadItemContextType as FileUploadItemContext } from './modules/file-upload-item-context.js';
+export type { FileUploadRootContextType as FileUploadRootContext } from './modules/file-upload-root-context';
+export type { FileUploadItemContextType as FileUploadItemContext } from './modules/file-upload-item-context';
