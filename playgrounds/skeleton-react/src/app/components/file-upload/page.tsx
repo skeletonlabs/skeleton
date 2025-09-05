@@ -8,7 +8,6 @@ export default function Page() {
 		<FileUpload>
 			<FileUpload.Dropzone>
 				<FileUpload.Trigger>Upload</FileUpload.Trigger>
-
 				<FileUpload.HiddenInput />
 			</FileUpload.Dropzone>
 			<FileUpload.ItemGroup>
@@ -17,6 +16,7 @@ export default function Page() {
 						ctx.api.acceptedFiles.map((file) => (
 							<FileUpload.Item key={file.name} file={file}>
 								<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
+								<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
 								<FileUpload.ItemDeleteTrigger>
 									<X />
 								</FileUpload.ItemDeleteTrigger>

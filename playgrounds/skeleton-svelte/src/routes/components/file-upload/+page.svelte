@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
+	import X from '@lucide/svelte/icons/x';
 </script>
 
 <FileUpload>
@@ -13,7 +14,8 @@
 				{#each ctx.api.acceptedFiles as file (file.name)}
 					<FileUpload.Item {file}>
 						<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
-						<FileUpload.ItemDeleteTrigger>Delete</FileUpload.ItemDeleteTrigger>
+						<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
+						<FileUpload.ItemDeleteTrigger><X /></FileUpload.ItemDeleteTrigger>
 					</FileUpload.Item>
 				{/each}
 			{/snippet}
