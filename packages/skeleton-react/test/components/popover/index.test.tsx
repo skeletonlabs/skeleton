@@ -21,12 +21,6 @@ describe('popover', () => {
 			expect(screen.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
-	describe('content', () => {
-		it('renders', () => {
-			render(<Popover />);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
-		});
-	});
 	describe('arrow', () => {
 		it('renders', () => {
 			render(<Popover />);
@@ -37,6 +31,12 @@ describe('popover', () => {
 		it('renders', () => {
 			render(<Popover />);
 			expect(screen.getByTestId('arrow-tip')).toBeInTheDocument();
+		});
+	});
+	describe('content', () => {
+		it('renders', () => {
+			render(<Popover />);
+			expect(screen.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 	describe('title', () => {
