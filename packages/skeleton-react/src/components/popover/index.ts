@@ -1,0 +1,10 @@
+export { Popover } from './modules/popover-anatomy.js';
+export type { PopoverRootProps } from './anatomy/popover-root.js';
+export type { PopoverRootContextProps } from './anatomy/popover-root-context.js';
+export type { PopoverTriggerProps } from './anatomy/popover-trigger.js';
+export type { PopoverPositionerProps } from './anatomy/popover-positioner.js';
+export type { PopoverContentProps } from './anatomy/popover-content.js';
+export type { PopoverTitleProps } from './anatomy/popover-title.js';
+export type { PopoverDescriptionProps } from './anatomy/popover-description.js';
+export type { PopoverCloseTriggerProps } from './anatomy/popover-close-trigger.js';
+export type { PopoverRootContextType as PopoverRootContext } from './modules/popover-root-context.js';
