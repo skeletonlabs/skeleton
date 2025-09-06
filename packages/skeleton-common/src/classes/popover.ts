@@ -5,6 +5,8 @@ export const classesPopover = defineSkeletonClasses({
 	trigger: 'btn preset-filled',
 	positioner: '',
 	content: 'bg-surface-100-900 p-4 rounded-container',
+	arrow: '',
+	arrowTip: '',
 	title: '',
 	description: '',
 	closeTrigger: 'btn preset-tonal'
