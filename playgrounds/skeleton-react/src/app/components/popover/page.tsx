@@ -7,10 +7,10 @@ export default function () {
 		<Popover>
 			<Popover.Trigger>Open</Popover.Trigger>
 			<Popover.Positioner>
-				<Popover.Arrow>
-					<Popover.ArrowTip />
-				</Popover.Arrow>
 				<Popover.Content>
+					<Popover.Arrow>
+						<Popover.ArrowTip />
+					</Popover.Arrow>
 					<Popover.Title>Title</Popover.Title>
 					<Popover.Description>Description</Popover.Description>
 					<Popover.CloseTrigger>Close</Popover.CloseTrigger>
