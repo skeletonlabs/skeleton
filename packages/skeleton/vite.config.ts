@@ -3,6 +3,7 @@ import { basename, dirname, join } from 'node:path';
 import { glob } from 'tinyglobby';
 
 export default defineConfig({
+	logLevel: 'silent',
 	build: {
 		cssCodeSplit: true,
 		cssMinify: false,
