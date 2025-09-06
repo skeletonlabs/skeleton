@@ -2,10 +2,10 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 
 export const classesPopover = defineSkeletonClasses({
 	root: '',
-	trigger: '',
+	trigger: 'btn preset-filled',
 	positioner: '',
-	content: '',
+	content: 'bg-surface-100-900 p-4 rounded-container',
 	title: '',
 	description: '',
-	closeTrigger: ''
+	closeTrigger: 'btn preset-tonal'
 });
