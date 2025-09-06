@@ -8,8 +8,8 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
-	import { AccordionItemContext } from '../modules/accordion-item-context';
 	import { AccordionRootContext } from '../modules/accordion-root-context';
+	import { AccordionItemContext } from '../modules/accordion-item-context';
 
 	const props: AccordionTriggerProps = $props();
 	const rootContext = AccordionRootContext.consume();

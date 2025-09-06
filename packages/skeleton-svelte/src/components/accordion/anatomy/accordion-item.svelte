@@ -10,8 +10,8 @@
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitItemProps } from '@zag-js/accordion';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
-	import { AccordionItemContext } from '../modules/accordion-item-context';
 	import { AccordionRootContext } from '../modules/accordion-root-context';
+	import { AccordionItemContext } from '../modules/accordion-item-context';
 
 	const props: AccordionItemProps = $props();
 	const rootContext = AccordionRootContext.consume();

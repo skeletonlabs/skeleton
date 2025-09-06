@@ -4,7 +4,7 @@
 
 	export interface AccordionHeadingProps extends PropsWithElement, HTMLAttributes<HTMLHeadingElement> {
 		/**
-		 * The level of the heading. This is used to determine the heading level for accessibility purposes.
+		 * The level of the heading.
 		 *
 		 * @default 3
 		 */
