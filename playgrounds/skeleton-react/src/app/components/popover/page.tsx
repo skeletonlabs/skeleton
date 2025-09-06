@@ -4,7 +4,7 @@ import { Popover } from '@skeletonlabs/skeleton-react';
 
 export default function () {
 	return (
-		<Popover portalled={true}>
+		<Popover>
 			<Popover.Trigger>Open</Popover.Trigger>
 			<Popover.Positioner>
 				<Popover.Content>

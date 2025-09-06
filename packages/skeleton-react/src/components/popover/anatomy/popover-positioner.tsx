@@ -10,12 +10,6 @@ export default function (props: PopoverPositionerProps) {
 	const rootContext = useContext(PopoverRootContext);
 	const { element, children, ...restAttributes } = props;
 	const Wrapper = rootContext.api.portalled ? Portal : Fragment;
-	const attributes = mergeProps(
-		rootContext.api.getPositionerProps(),
-		{
-			className: classesPopover.positioner
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getPositionerProps(), { className: classesPopover.positioner }, restAttributes);
 	return <Wrapper>{element ? element({ attributes }) : <div {...attributes}>{children}</div>}</Wrapper>;
 }

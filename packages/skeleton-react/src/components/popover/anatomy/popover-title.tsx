@@ -9,12 +9,6 @@ export interface PopoverTitleProps extends PropsWithElement, ComponentProps<'div
 export default function (props: PopoverTitleProps) {
 	const rootContext = useContext(PopoverRootContext);
 	const { element, children, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getTitleProps(),
-		{
-			className: classesPopover.title
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getTitleProps(), { className: classesPopover.title }, restAttributes);
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

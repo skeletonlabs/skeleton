@@ -9,12 +9,6 @@ export interface PopoverDescriptionProps extends PropsWithElement, ComponentProp
 export default function (props: PopoverDescriptionProps) {
 	const rootContext = useContext(PopoverRootContext);
 	const { element, children, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getDescriptionProps(),
-		{
-			className: classesPopover.description
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getDescriptionProps(), { className: classesPopover.description }, restAttributes);
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }
