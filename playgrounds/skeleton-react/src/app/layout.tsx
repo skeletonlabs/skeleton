@@ -36,6 +36,9 @@ export default function RootLayout({
 								<a className="anchor" href="/components/tabs">
 									Tabs
 								</a>
+								<a className="anchor" href="/components/tooltip">
+									Tooltip
+								</a>
 							</nav>
 						</div>
 					</div>
