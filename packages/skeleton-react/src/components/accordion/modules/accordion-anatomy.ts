@@ -1,11 +1,11 @@
-import AccordionRoot from '../anatomy/accordion-root.js';
-import AccordionItem from '../anatomy/accordion-item.js';
-import AccordionHeading from '../anatomy/accordion-heading.js';
-import AccordionTrigger from '../anatomy/accordion-trigger.js';
-import AccordionIndicator from '../anatomy/accordion-indicator.js';
-import AccordionContent from '../anatomy/accordion-content.js';
-import AccordionRootContext from '../anatomy/accordion-root-context.js';
-import AccordionItemContext from '../anatomy/accordion-item-context.js';
+import AccordionRoot from '../anatomy/accordion-root';
+import AccordionItem from '../anatomy/accordion-item';
+import AccordionHeading from '../anatomy/accordion-heading';
+import AccordionTrigger from '../anatomy/accordion-trigger';
+import AccordionIndicator from '../anatomy/accordion-indicator';
+import AccordionContent from '../anatomy/accordion-content';
+import AccordionRootContext from '../anatomy/accordion-root-context';
+import AccordionItemContext from '../anatomy/accordion-item-context';
 
 export const Accordion = Object.assign(AccordionRoot, {
 	Context: AccordionRootContext,

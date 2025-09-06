@@ -1,5 +1,3 @@
-'use client';
-
 import { useContext, type ComponentProps } from 'react';
 import { mergeProps } from '@zag-js/react';
 import { AvatarRootContext } from '../modules/avatar-root-context';
