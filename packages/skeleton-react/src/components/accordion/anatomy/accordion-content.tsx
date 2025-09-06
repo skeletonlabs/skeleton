@@ -1,5 +1,3 @@
-'use client';
-
 import { useContext, type ComponentProps, type PropsWithChildren } from 'react';
 import { mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
