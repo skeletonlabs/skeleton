@@ -1,1 +1,1 @@
-export * from './modules/tabs-anatomy.js';
+export * from './modules/tabs-anatomy';
