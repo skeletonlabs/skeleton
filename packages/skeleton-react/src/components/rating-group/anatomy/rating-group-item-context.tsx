@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { RatingGroupItemContext, type RatingGroupItemContextType } from '../modules/rating-group-item-context.js';
+import { RatingGroupItemContext, type RatingGroupItemContextType } from '../modules/rating-group-item-context';
 
 export interface RatingGroupItemContextProps {
 	children: (context: RatingGroupItemContextType) => ReactNode;

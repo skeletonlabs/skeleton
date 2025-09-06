@@ -15,6 +15,5 @@
 			"@images/*": ["src/images/*"]
 		}
 	},
-	"include": ["src", "scripts"],
-	"exclude": ["src/lib/generate-llm.ts"]
+	"include": ["src", "scripts"]
 }
