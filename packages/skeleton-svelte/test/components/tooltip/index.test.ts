@@ -1,40 +1,36 @@
 import { describe, expect, it } from 'vitest';
-import { render } from '@testing-library/svelte';
+import { render, screen } from '@testing-library/svelte';
 import Tooltip from './tooltip.svelte';
 
 describe('tooltip', () => {
 	describe('root', () => {
 		it('renders', () => {
-			const screen = render(Tooltip);
+			render(Tooltip);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
-
-	describe('list', () => {
-		it('renders', () => {
-			const screen = render(Tooltip);
-			expect(screen.getByTestId('list')).toBeInTheDocument();
-		});
-	});
-
 	describe('trigger', () => {
 		it('renders', () => {
-			const screen = render(Tooltip);
+			render(Tooltip);
 			expect(screen.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
-
-	describe('indicator', () => {
+	describe('positioner', () => {
 		it('renders', () => {
-			const screen = render(Tooltip);
-			expect(screen.getByTestId('indicator')).toBeInTheDocument();
+			render(Tooltip);
+			expect(screen.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
-
-	describe('content', () => {
+	describe('arrow', () => {
 		it('renders', () => {
-			const screen = render(Tooltip);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+			render(Tooltip);
+			expect(screen.getByTestId('arrow')).toBeInTheDocument();
+		});
+	});
+	describe('arrow tip', () => {
+		it('renders', () => {
+			render(Tooltip);
+			expect(screen.getByTestId('arrow-tip')).toBeInTheDocument();
 		});
 	});
 });
