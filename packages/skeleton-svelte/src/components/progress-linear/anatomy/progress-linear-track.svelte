@@ -10,9 +10,14 @@
 	import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
 	import { ProgressLinearRootContext } from '../modules/progress-linear-root-context.js';
 
+	// Context
 	const rootContext = ProgressLinearRootContext.consume();
+
+	// Props
 	const props: ProgressLinearTrackProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
+
+	// Attributes
 	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getTrackProps(),
@@ -23,8 +28,6 @@
 		)
 	);
 </script>
-
-<!-- <div {...api.getTrackProps()}></div> -->
 
 {#if element}
 	{@render element({ attributes })}

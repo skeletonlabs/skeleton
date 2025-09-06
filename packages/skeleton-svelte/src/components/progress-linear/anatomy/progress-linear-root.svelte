@@ -48,8 +48,6 @@
 	});
 </script>
 
-<!-- <div {...api.getRootProps()}></div> -->
-
 {#if element}
 	{@render element({ attributes })}
 {:else}
