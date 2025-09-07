@@ -52,6 +52,20 @@ describe('combobox', () => {
 		});
 	});
 
+	describe('item group', () => {
+		it('renders', () => {
+			render(<Combobox />);
+			expect(screen.getByTestId('item-group')).toBeInTheDocument();
+		});
+	});
+
+	describe('item group label', () => {
+		it('renders', () => {
+			render(<Combobox />);
+			expect(screen.getByTestId('item-group-label')).toBeInTheDocument();
+		});
+	});
+
 	describe('item', () => {
 		it('renders', () => {
 			render(<Combobox />);

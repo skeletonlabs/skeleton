@@ -10,7 +10,10 @@ export default function () {
 			</Combobox.Control>
 			<Combobox.Positioner data-testid="positioner">
 				<Combobox.Content data-testid="content">
-					<Combobox.Item item="item-1" data-testid="item" />
+					<Combobox.ItemGroup data-testid="item-group">
+						<Combobox.ItemGroupLabel data-testid="item-group-label" />
+						<Combobox.Item item="item" data-testid="item" />
+					</Combobox.ItemGroup>
 				</Combobox.Content>
 			</Combobox.Positioner>
 		</Combobox>
