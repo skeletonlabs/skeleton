@@ -4,11 +4,11 @@ import { DialogRootContext } from '../modules/dialog-root-context';
 import { classesDialog } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface DialogBackdropProps extends PropsWithElement, ComponentProps<'div'> {}
+export interface DialogBackdropProps extends PropsWithElement, Omit<ComponentProps<'div'>, 'children'> {}
 
 export default function (props: DialogBackdropProps) {
 	const rootContext = useContext(DialogRootContext);
-	const { element, children, ...restAttributes } = props;
+	const { element, ...restAttributes } = props;
 	const attributes = mergeProps(rootContext.api.getBackdropProps(), { className: classesDialog.backdrop }, restAttributes);
-	return <Portal>{element ? element({ attributes }) : <div {...attributes}>{children}</div>}</Portal>;
+	return <Portal>{element ? element({ attributes }) : <div {...attributes} />}</Portal>;
 }
