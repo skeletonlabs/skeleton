@@ -1,0 +1,222 @@
+[
+    {
+        "name": "AvatarProps",
+        "properties": [
+            {
+                "name": "src",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set avatar image source URL.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "srcset",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The source set of the avatar image.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": "Provide a name or username for the avatar.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "background",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "size",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set size styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "font",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set font styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "border",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set border styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "rounded",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set border radius styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "shadow",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set shadow styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "imageBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set avatar image base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "imageClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide avatar image arbitrary CSS classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "fallbackBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the fallback element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "fallbackClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to fallback element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "children",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The default child slot.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; image: string; fallback: string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the avatar. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onStatusChange",
+                "type": "(details: StatusChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Functional called when the image loading status changes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "style",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,297 @@
+[
+    {
+        "name": "AppBarProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "background",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "spaceY",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set vertical spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "border",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set border styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "padding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "shadow",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set shadow styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "toolbarBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets toolbar's base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "toolbarGridCols",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets toolbar's grid columns styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "toolbarGap",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets toolbar's gap styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "toolbarClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the toolbar.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "leadBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the lead snippet element's base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "leadSpaceX",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the lead snippet element's horizontal spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "leadPadding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the lead snippet element's padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "leadClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the lead snippet.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "centerBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the center snippet element's base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "centerAlign",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the center snippet element's alignment styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "centerPadding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the center snippet element's padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "centerClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the center snippet.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trailBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the trail snippet element's base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trailSpaceX",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the trail snippet element's horizontal spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trailPadding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the trail snippet element's padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trailClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the trail snippet.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "headlineBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the headline snippet element's base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "headlineClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the headline snippet.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "children",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The center slot.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "lead",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The lead slot.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trail",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The trail slot.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "headline",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The headline slot.",
+                    "tags": []
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,337 @@
+[
+    {
+        "name": "RatingProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set root base classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "gap",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set root gap classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set root arbitrary classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set control base classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlGap",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set control gap classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set control arbitrary classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label base classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label arbitrary classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item base classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item arbitrary classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "stateReadOnly",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item read-only state classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "stateDisabled",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item disabled state classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "iconEmpty",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the empty icon snippet",
+                    "tags": []
+                }
+            },
+            {
+                "name": "iconHalf",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the half icon snippet",
+                    "tags": []
+                }
+            },
+            {
+                "name": "iconFull",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the full icon snippet",
+                    "tags": []
+                }
+            },
+            {
+                "name": "label",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the label snippet",
+                    "tags": []
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; label: string; hiddenInput: string; control: string; item: (id: string) => string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the rating. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled value of the rating",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultValue",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial value of the rating when rendered.\nUse when you don't need to control the value of the rating.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the rating is disabled.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onValueChange",
+                "type": "(details: ValueChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function to be called when the rating value changes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The name attribute of the rating element (used in forms).",
+                    "tags": []
+                }
+            },
+            {
+                "name": "translations",
+                "type": "IntlTranslations",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "Specifies the localized strings that identifies the accessibility elements and their states",
+                    "tags": []
+                }
+            },
+            {
+                "name": "required",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the rating is required.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "count",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The total number of ratings.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "5"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "form",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The associate form of the underlying input element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "readOnly",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the rating is readonly.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "allowHalf",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to allow half stars.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "autoFocus",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to autofocus the rating.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onHoverChange",
+                "type": "(details: HoverChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function to be called when the rating value is hovered.",
+                    "tags": []
+                }
+            }
+        ]
+    }
+]

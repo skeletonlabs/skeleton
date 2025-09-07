@@ -1,0 +1,762 @@
+[
+    {
+        "name": "ComboboxProps",
+        "properties": [
+            {
+                "name": "data",
+                "type": "T[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "Provide the list of label and value data",
+                    "tags": []
+                }
+            },
+            {
+                "name": "label",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the label to display.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "zIndex",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set a positioner style for z-index, ex: \"10\"",
+                    "tags": []
+                }
+            },
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "width",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set width classes for the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the label.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelText",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set text and font classes for the label.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the label.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "inputGroupBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the input group.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "inputGroupInput",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set input classes for the input group.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "inputGroupButton",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set button classes for the input group.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "inputGroupArrow",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set arrow classes for the input group.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "inputGroupClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the input group.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "positionerBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the positioner.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "positionerClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the positioner.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the content.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentBackground",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background classes for the content.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentSpaceY",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set space-y classes for the content.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the content.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "optionBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the option.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "optionFocus",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set focus classes for the option.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "optionHover",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set hover classes for the option.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "optionActive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set active classes for the option.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "optionClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the option.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "arrow",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide a custom arrow icon.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "item",
+                "type": "Snippet<[T]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide a custom template for the option.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onclick",
+                "type": "(event: Event) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Handle the combobox dropdown button click event.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; label: string; control: string; input: string; content: string; trigger: string; clearTrigger: string; item: (id: string, index?: number) => string; positioner: string; itemGroup: (id: string | number) => string; itemGroupLabel: (id: string | number) => string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the combobox. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "multiple",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to allow multiple selection.\n\n**Good to know:** When `multiple` is `true`, the `selectionBehavior` is automatically set to `clear`.\nIt is recommended to render the selected items in a separate container.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled value of the combobox's selected items",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultValue",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The initial value of the combobox's selected items when rendered.\nUse when you don't need to control the value of the combobox's selected items.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "[]"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the combobox is disabled",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onValueChange",
+                "type": "(details: ValueChangeDetails<any>) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when a new item is selected",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The `name` attribute of the combobox's input. Useful for form submission",
+                    "tags": []
+                }
+            },
+            {
+                "name": "translations",
+                "type": "IntlTranslations",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "Specifies the localized strings that identifies the accessibility elements and their states",
+                    "tags": []
+                }
+            },
+            {
+                "name": "required",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the combobox is required",
+                    "tags": []
+                }
+            },
+            {
+                "name": "invalid",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the combobox is invalid",
+                    "tags": []
+                }
+            },
+            {
+                "name": "form",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The associate form of the combobox.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "readOnly",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the combobox is readonly. This puts the combobox in a \"non-editable\" mode\nbut the user can still interact with it",
+                    "tags": []
+                }
+            },
+            {
+                "name": "autoFocus",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to autofocus the input on mount",
+                    "tags": []
+                }
+            },
+            {
+                "name": "loopFocus",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to loop the keyboard navigation through the items",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "composite",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the combobox is a composed with other composite widgets like tabs",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "navigate",
+                "type": "(details: NavigateDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function to navigate to the selected item",
+                    "tags": []
+                }
+            },
+            {
+                "name": "inputValue",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled value of the combobox's input",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultInputValue",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial value of the combobox's input when rendered.\nUse when you don't need to control the value of the combobox's input.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "onInputValueChange",
+                "type": "(details: InputValueChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when the input's value changes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onHighlightChange",
+                "type": "(details: HighlightChangeDetails<any>) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when an item is highlighted using the pointer\nor keyboard navigation.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onPointerDownOutside",
+                "type": "(event: PointerDownOutsideEvent) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when the pointer is pressed down outside the component",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onFocusOutside",
+                "type": "(event: FocusOutsideEvent) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when the focus is moved outside the component",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onInteractOutside",
+                "type": "(event: InteractOutsideEvent) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when an interaction happens outside the component",
+                    "tags": []
+                }
+            },
+            {
+                "name": "open",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled open state of the combobox",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultOpen",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial open state of the combobox when rendered.\nUse when you don't need to control the open state of the combobox.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "placeholder",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The placeholder text of the combobox's input",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultHighlightedValue",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial highlighted value of the combobox when rendered.\nUse when you don't need to control the highlighted value of the combobox.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "highlightedValue",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled highlighted value of the combobox",
+                    "tags": []
+                }
+            },
+            {
+                "name": "inputBehavior",
+                "type": "\"autohighlight\" | \"autocomplete\" | \"none\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Defines the auto-completion behavior of the combobox.\n\n- `autohighlight`: The first focused item is highlighted as the user types\n- `autocomplete`: Navigating the listbox with the arrow keys selects the item and the input is updated",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"none\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "selectionBehavior",
+                "type": "\"clear\" | \"replace\" | \"preserve\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The behavior of the combobox input when an item is selected\n\n- `replace`: The selected item string is set as the input value\n- `clear`: The input value is cleared\n- `preserve`: The input value is preserved",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"replace\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "openOnClick",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to open the combobox popup on initial click on the input",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "false"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "openOnChange",
+                "type": "boolean | ((details: InputValueChangeDetails) => boolean)",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to show the combobox when the input value changes",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "allowCustomValue",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to allow typing custom values in the input",
+                    "tags": []
+                }
+            },
+            {
+                "name": "positioning",
+                "type": "PositioningOptions",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The positioning options to dynamically position the menu",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "{ placement: \"bottom-start\" }"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "onSelect",
+                "type": "(details: SelectionDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when an item is selected",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onOpenChange",
+                "type": "(details: OpenChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when the popup is opened",
+                    "tags": []
+                }
+            },
+            {
+                "name": "closeOnSelect",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to close the combobox when an item is selected.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "openOnKeyPress",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to open the combobox on arrow key press",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "scrollToIndexFn",
+                "type": "(details: ScrollToIndexDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function to scroll to a specific index",
+                    "tags": []
+                }
+            },
+            {
+                "name": "disableLayer",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to disable registering this a dismissable layer",
+                    "tags": []
+                }
+            }
+        ]
+    }
+]

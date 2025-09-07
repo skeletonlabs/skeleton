@@ -1,0 +1,472 @@
+[
+    {
+        "name": "TabsProps",
+        "properties": [
+            {
+                "name": "fluid",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set tabs to stretch to fill the available width.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "listBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the list element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "listJustify",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set justify classes for the list element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "listBorder",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set border classes for the list element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "listMargin",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set margin classes for the list element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "listGap",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set gap classes for the list element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "listClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the list element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the panel group element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the panel group element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "list",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Slot containing the list of tab controls.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "content",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Slot containing the list of panels.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; trigger: string; list: string; content: string; indicator: string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the tabs. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled selected tab value",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultValue",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial selected tab value when rendered.\nUse when you don't need to control the selected tab value.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onValueChange",
+                "type": "(details: ValueChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Callback to be called when the selected/active tab changes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onFocusChange",
+                "type": "(details: FocusChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Callback to be called when the focused tab changes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "translations",
+                "type": "IntlTranslations",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "Specifies the localized strings that identifies the accessibility elements and their states",
+                    "tags": []
+                }
+            },
+            {
+                "name": "loopFocus",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the keyboard navigation will loop from last tab to first, and vice versa.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "activationMode",
+                "type": "\"manual\" | \"automatic\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The activation mode of the tabs. Can be `manual` or `automatic`\n- `manual`: Tabs are activated when clicked or press `enter` key.\n- `automatic`: Tabs are activated when receiving focus",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"automatic\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "composite",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tab is composite",
+                    "tags": []
+                }
+            },
+            {
+                "name": "deselectable",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the active tab can be deselected when clicking on it.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "navigate",
+                "type": "(details: NavigateDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function to navigate to the selected tab when clicking on it.\nUseful if tab triggers are anchor elements.",
+                    "tags": []
+                }
+            }
+        ]
+    },
+    {
+        "name": "TabsControlProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "padding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set padding classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "translateX",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set x-axis translate classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the label element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the label element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "stateInactive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set inactive classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "stateActive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set active classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "stateLabelInactive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set inactive classes for the label element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "stateLabelActive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set active classes for the label element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "lead",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The lead slot.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "children",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The default child slot.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": "The value of the tab",
+                    "tags": []
+                }
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tab is disabled",
+                    "tags": []
+                }
+            }
+        ]
+    },
+    {
+        "name": "TabsPanelProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the panel element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the panel element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "children",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The default child slot.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": "The value of the tab",
+                    "tags": []
+                }
+            }
+        ]
+    }
+]

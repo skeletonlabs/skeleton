@@ -1,0 +1,512 @@
+[
+    {
+        "name": "TagsInputProps",
+        "properties": [
+            {
+                "name": "placeholder",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the add tag input placeholder.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the root.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "gap",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set gap classes for the root.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "padding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set padding classes for the root.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the root.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "inputBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the add tag input.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "inputClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the add tag input.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "tagListBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the tag list.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "tagListClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the tag list.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "tagBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for each tag.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "tagBackground",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background classes for each tag.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "tagClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to each tag.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "tagEditInputBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the edit tag input.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "tagEditInputClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the edit tag input.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "buttonDeleteBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the delete button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "buttonDeleteClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the delete button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "stateDisabled",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the component disabled state.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "buttonDelete",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The delete button label snippet.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; input: string; hiddenInput: string; clearBtn: string; label: string; control: string; item: (opts: ItemProps) => string; itemDeleteTrigger: (opts: ItemProps) => string; itemInput: (opts: ItemProps) => string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the tags input. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled tag value",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultValue",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The initial tag value when rendered.\nUse when you don't need to control the tag value.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tags input should be disabled",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onValueChange",
+                "type": "(details: ValueChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Callback fired when the tag values is updated",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The name attribute for the input. Useful for form submissions",
+                    "tags": []
+                }
+            },
+            {
+                "name": "translations",
+                "type": "IntlTranslations",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "Specifies the localized strings that identifies the accessibility elements and their states",
+                    "tags": []
+                }
+            },
+            {
+                "name": "required",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tags input is required",
+                    "tags": []
+                }
+            },
+            {
+                "name": "validate",
+                "type": "(details: ValidateArgs) => boolean",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Returns a boolean that determines whether a tag can be added.\nUseful for preventing duplicates or invalid tag values.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "invalid",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tags input is invalid",
+                    "tags": []
+                }
+            },
+            {
+                "name": "max",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The max number of tags",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "Infinity"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "form",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The associate form of the underlying input element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "readOnly",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tags input should be read-only",
+                    "tags": []
+                }
+            },
+            {
+                "name": "autoFocus",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the input should be auto-focused",
+                    "tags": []
+                }
+            },
+            {
+                "name": "maxLength",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The max length of the input.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "delimiter",
+                "type": "string | RegExp",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The character that serves has:\n- event key to trigger the addition of a new tag\n- character used to split tags when pasting into the input",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\",\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "editable",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether a tag can be edited after creation, by pressing `Enter` or double clicking.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "inputValue",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled tag input's value",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultInputValue",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial tag input value when rendered.\nUse when you don't need to control the tag input value.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onInputValueChange",
+                "type": "(details: InputValueChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Callback fired when the input value is updated",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onHighlightChange",
+                "type": "(details: HighlightChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Callback fired when a tag is highlighted by pointer or keyboard navigation",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onValueInvalid",
+                "type": "(details: ValidityChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Callback fired when the max tag count is reached or the `validateTag` function returns `false`",
+                    "tags": []
+                }
+            },
+            {
+                "name": "blurBehavior",
+                "type": "\"clear\" | \"add\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The behavior of the tags input when the input is blurred\n- `\"add\"`: add the input value as a new tag\n- `\"clear\"`: clear the input value",
+                    "tags": []
+                }
+            },
+            {
+                "name": "addOnPaste",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to add a tag when you paste values into the tag input",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "false"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "allowOverflow",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to allow tags to exceed max. In this case,\nwe'll attach `data-invalid` to the root",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onPointerDownOutside",
+                "type": "(event: PointerDownOutsideEvent) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when the pointer is pressed down outside the component",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onFocusOutside",
+                "type": "(event: FocusOutsideEvent) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when the focus is moved outside the component",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onInteractOutside",
+                "type": "(event: InteractOutsideEvent) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when an interaction happens outside the component",
+                    "tags": []
+                }
+            }
+        ]
+    }
+]

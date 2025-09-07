@@ -1,0 +1,426 @@
+[
+    {
+        "name": "ProgressRingProps",
+        "properties": [
+            {
+                "name": "label",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the text for the scalable label",
+                    "tags": []
+                }
+            },
+            {
+                "name": "showLabel",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "When enabled, show a text label with the percentage amount",
+                    "tags": []
+                }
+            },
+            {
+                "name": "strokeWidth",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the stroke size (ex: 15px)",
+                    "tags": []
+                }
+            },
+            {
+                "name": "strokeLinecap",
+                "type": "\"inherit\" | \"butt\" | \"round\" | \"square\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Defines the shape of the meter",
+                    "tags": []
+                }
+            },
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the root base classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "size",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the root size classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the root element",
+                    "tags": []
+                }
+            },
+            {
+                "name": "childrenBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the nested children base classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "childrenClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the nested children.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "svgBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the SVG element base classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "svgClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the SVG element",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the track base classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackStroke",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the track stroke color classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the track element",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the meter base classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterStroke",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the meter stroke color classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterTransition",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the meter transition classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterAnimate",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the meter animation classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterDuration",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the meter transition duration classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the meter element",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the label classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelFill",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the label fill color classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelFontSize",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the label font size",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelFontWeight",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the label font weight",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the label element",
+                    "tags": []
+                }
+            },
+            {
+                "name": "children",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The default child slot.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "orientation",
+                "type": "\"horizontal\" | \"vertical\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The orientation of the element.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"horizontal\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; track: string; label: string; circle: string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the progress bar. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled value of the progress bar.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultValue",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial value of the progress bar when rendered.\nUse when you don't need to control the value of the progress bar.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "50"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "onValueChange",
+                "type": "(details: ValueChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Callback fired when the value changes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "translations",
+                "type": "IntlTranslations",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The localized messages to use.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "locale",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The locale to use for formatting the value.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"en-US\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "min",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The minimum allowed value of the progress bar.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "0"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "max",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The maximum allowed value of the progress bar.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "100"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "formatOptions",
+                "type": "NumberFormatOptions",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The options to use for formatting the value.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "{ style: \"percent\" }"
+                        },
+                        {
+                            "name": "see",
+                            "value": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

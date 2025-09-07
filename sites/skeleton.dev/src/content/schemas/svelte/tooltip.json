@@ -1,0 +1,421 @@
+[
+    {
+        "name": "TooltipProps",
+        "properties": [
+            {
+                "name": "zIndex",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set a positioner style for z-index, ex: \"10\"",
+                    "tags": []
+                }
+            },
+            {
+                "name": "arrow",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Enable display of the popover arrow.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "arrowBackground",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set a style value for --arrow-background, ex: \"var(--color-surface-50-950)\"",
+                    "tags": []
+                }
+            },
+            {
+                "name": "arrowSize",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set a style value for --arrow-size, ex: \"10px\"",
+                    "tags": []
+                }
+            },
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "triggerBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base styles for the trigger.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "triggerBackground",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background styles for the trigger.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "triggerClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary styles for the trigger.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "triggerAriaLabel",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the aria-label for the trigger.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "positionerBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the positioner.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "positionerClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the positioner.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base styles for the content.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentBackground",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background styles for the content.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary styles for the content.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "arrowBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the arrow.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "arrowClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the arrow.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trigger",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide the template contents inside the trigger button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "content",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide the template contents of the tooltip itself.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onmouseover",
+                "type": "MouseEventHandler<HTMLButtonElement>",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Handle the tooltip button hover event.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onclick",
+                "type": "MouseEventHandler<HTMLButtonElement>",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Handle the tooltip button click event.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ trigger: string; content: string; arrow: string; positioner: string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the tooltip. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tooltip is disabled",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "aria-label",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Custom label for the tooltip.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "open",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled open state of the tooltip",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultOpen",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial open state of the tooltip when rendered.\nUse when you don't need to control the open state of the tooltip.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "positioning",
+                "type": "PositioningOptions",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The user provided options used to position the popover content",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onOpenChange",
+                "type": "(details: OpenChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function called when the tooltip is opened.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "closeOnEscape",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to close the tooltip when the Escape key is pressed.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "openDelay",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The open delay of the tooltip.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "1000"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "closeDelay",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The close delay of the tooltip.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "500"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "closeOnPointerDown",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether to close the tooltip on pointerdown.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "closeOnScroll",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tooltip should close on scroll",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "closeOnClick",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tooltip should close on click",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "interactive",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tooltip's content is interactive.\nIn this mode, the tooltip will remain open when user hovers over the content.",
+                    "tags": [
+                        {
+                            "name": "see",
+                            "value": "https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus"
+                        },
+                        {
+                            "name": "default",
+                            "value": "false"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,842 @@
+[
+    {
+        "name": "TreeViewProps",
+        "properties": [
+            {
+                "name": "animationConfig",
+                "type": "SlideParams",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The animation configuration.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "background",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "spaceY",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set vertical spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "border",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set border styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "padding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "shadow",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set shadow styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set content styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentBackground",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set content background styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentSpaceY",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set content vertical spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentBorder",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set content border styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentPadding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set content padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentShadow",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set content shadow styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "contentClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the contents.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set control styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlBackground",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set control background styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlSpaceY",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set control vertical spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlHover",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set control hover styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlBorder",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set control border styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlPadding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set control padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlShadow",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set control shadow styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the controls.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemBackground",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item background styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemSpaceY",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item vertical spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemHover",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item hover styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemBorder",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item border styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemPadding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemShadow",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set item shadow styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the items.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "indentAmount",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set indentation amount.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "indicatorRotationClass",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set indicator transformations when open.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "indicatorTransition",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set indicator transitions.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label snippet's styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelBackground",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label snippet's background styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelSpaceY",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label snippet's vertical spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelBorder",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label snippet's border styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelPadding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label snippet's padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelShadow",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label snippet's shadow styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the label.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "branchIcon",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The lead icon for expandable branches.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "itemIcon",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The lead icon for end nodes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "branchIndicator",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The icon to indicate if the node children are expanded.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "children",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "label",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "onApiReady",
+                "type": "(api: TreeViewApi) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Binds the Zag API for external use.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; tree: string; label: string; node: (value: string) => string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the tree elements. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onFocusChange",
+                "type": "(details: FocusChangeDetails<any>) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Called when the focused node changes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onCheckedChange",
+                "type": "(details: CheckedChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Called when the checked value changes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "expandedValue",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled expanded node ids",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultExpandedValue",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The initial expanded node ids when rendered.\nUse when you don't need to control the expanded node value.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "selectedValue",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled selected node value",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultSelectedValue",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The initial selected node value when rendered.\nUse when you don't need to control the selected node value.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultCheckedValue",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The initial checked node value when rendered.\nUse when you don't need to control the checked node value.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "checkedValue",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled checked node value",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultFocusedValue",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial focused node value when rendered.\nUse when you don't need to control the focused node value.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "focusedValue",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The value of the focused node",
+                    "tags": []
+                }
+            },
+            {
+                "name": "selectionMode",
+                "type": "\"multiple\" | \"single\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tree supports multiple selection\n- \"single\": only one node can be selected\n- \"multiple\": multiple nodes can be selected",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"single\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "onExpandedChange",
+                "type": "(details: ExpandedChangeDetails<any>) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Called when the tree is opened or closed",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onSelectionChange",
+                "type": "(details: SelectionChangeDetails<any>) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Called when the selection changes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onLoadChildrenComplete",
+                "type": "(details: LoadChildrenCompleteDetails<any>) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Called when a node finishes loading children",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onLoadChildrenError",
+                "type": "(details: LoadChildrenErrorDetails<any>) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Called when loading children fails for one or more nodes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "expandOnClick",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether clicking on a branch should open it or not",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "typeahead",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the tree supports typeahead search",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "loadChildren",
+                "type": "(details: LoadChildrenDetails<any>) => Promise<any[]>",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function to load children for a node asynchronously.\nWhen provided, branches will wait for this promise to resolve before expanding.",
+                    "tags": []
+                }
+            }
+        ]
+    },
+    {
+        "name": "TreeBranchProps",
+        "properties": [
+            {
+                "name": "id",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "children",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            }
+        ]
+    },
+    {
+        "name": "TreeItemProps",
+        "properties": [
+            {
+                "name": "id",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "children",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            }
+        ]
+    },
+    {
+        "name": "TreeNodeProps",
+        "properties": [
+            {
+                "name": "id",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "content",
+                "type": "Snippet<[{ node: CollectionNode; nodeProps: NodeProps; }]>",
+                "typeKind": "primitive",
+                "required": true,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            }
+        ]
+    }
+]

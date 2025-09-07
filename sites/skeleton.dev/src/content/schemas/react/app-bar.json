@@ -1,0 +1,282 @@
+[
+    {
+        "name": "AppBarProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "background",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "spaceY",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set vertical spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "border",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set border styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "padding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "shadow",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set shadow styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes.",
+                    "tags": []
+                }
+            }
+        ]
+    },
+    {
+        "name": "ToolBarProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the toolbar component's base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "gridCols",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the toolbar component's grid columns styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "gap",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the toolbar component's gap styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the toolbar component.",
+                    "tags": []
+                }
+            }
+        ]
+    },
+    {
+        "name": "ToolbarLeadProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the lead component's base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "spaceX",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the lead component's horizontal spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "padding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the lead component's padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the lead component.",
+                    "tags": []
+                }
+            }
+        ]
+    },
+    {
+        "name": "ToolbarCenterProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the center component's base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "align",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the center component's alignment styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "padding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the center component's padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the center component.",
+                    "tags": []
+                }
+            }
+        ]
+    },
+    {
+        "name": "ToolbarTrailProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the trail component's base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "spaceX",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the trail component's horizontal spacing styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "padding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the trail component's padding styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the trail component.",
+                    "tags": []
+                }
+            }
+        ]
+    },
+    {
+        "name": "AppBarHeadlineProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets the headline component's base styles.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes to the headline component.",
+                    "tags": []
+                }
+            }
+        ]
+    }
+]

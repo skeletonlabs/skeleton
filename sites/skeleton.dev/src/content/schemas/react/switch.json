@@ -1,0 +1,457 @@
+[
+    {
+        "name": "SwitchProps",
+        "properties": [
+            {
+                "name": "compact",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the compact display mode.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "stateFocused",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set classes for the focus state.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlInactive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set inactive state classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlActive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set active state classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlDisabled",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set disabled state classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlWidth",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set width classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlHeight",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set height classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlPadding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set padding classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlRounded",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set rounded classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlHover",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set hover classes for the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the control element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the thumb element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbInactive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set inactive classes for the thumb element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbActive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set active classes for the thumb element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbRounded",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set rounded classes for the thumb element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbTranslateX",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set animation X-axis translate classes for the thumb element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbTransition",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set animation transition classes for the thumb element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbEase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set animation easing classes for the thumb element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbDuration",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set animation duration classes for the thumb element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the thumb element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the label element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes to the label element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "iconInactiveBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the inactive icon child.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "iconActiveBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the active icon child.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "inactiveChild",
+                "type": "ReactNode",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The inactive state children.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "activeChild",
+                "type": "ReactNode",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The active state children.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "children",
+                "type": "ReactNode",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": null,
+                    "tags": []
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; hiddenInput: string; control: string; label: string; thumb: string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the switch. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "string | number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The value of switch input. Useful for form submission.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"on\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the switch is disabled.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The name of the input field in a switch\n(Useful for form submission).",
+                    "tags": []
+                }
+            },
+            {
+                "name": "required",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "If `true`, the switch input is marked as required,",
+                    "tags": []
+                }
+            },
+            {
+                "name": "invalid",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "If `true`, the switch is marked as invalid.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "label",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Specifies the localized strings that identifies the accessibility elements and their states",
+                    "tags": []
+                }
+            },
+            {
+                "name": "form",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The id of the form that the switch belongs to",
+                    "tags": []
+                }
+            },
+            {
+                "name": "readOnly",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the switch is read-only",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onCheckedChange",
+                "type": "(details: CheckedChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function to call when the switch is clicked.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "checked",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled checked state of the switch",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultChecked",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial checked state of the switch when rendered.\nUse when you don't need to control the checked state of the switch.",
+                    "tags": []
+                }
+            }
+        ]
+    }
+]

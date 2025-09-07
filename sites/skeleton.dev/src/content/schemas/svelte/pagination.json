@@ -1,0 +1,422 @@
+[
+    {
+        "name": "PaginationProps",
+        "properties": [
+            {
+                "name": "data",
+                "type": "unknown[]",
+                "typeKind": "array",
+                "required": true,
+                "documentation": {
+                    "text": "Provide source data as an array.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "alternative",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Enables alternative display with stats and first/last buttons.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "textSeparator",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the separator text or character, such as \"of\" in \"X of Y\".",
+                    "tags": []
+                }
+            },
+            {
+                "name": "showFirstLastButtons",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Show first and last page button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets base classes for the list.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "background",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets background classes for the list.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "border",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets border classes for the list.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "gap",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets gap classes for the list.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "padding",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets padding classes for the list.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "rounded",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets border radius classes for the list.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes for the root.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "titleFirst",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set an optional title for the first button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "titlePrevious",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set an optional title for the previous button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "titleNumeral",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set an optional title for the numeral buttons (ex: Page 1).",
+                    "tags": []
+                }
+            },
+            {
+                "name": "titleNext",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set an optional title for the next button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "titleLast",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set an optional title for the last button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "buttonBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets base classes for buttons.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "buttonActive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets active state classes for buttons.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "buttonInactive",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets inactive state classes for buttons.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "buttonHover",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Sets hover state classes for buttons.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "buttonClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary CSS classes for buttons.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelFirst",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set button icon or label for first button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelPrevious",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set button icon or label for previous button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelEllipsis",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set button icon or label for ellipsis.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelNext",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set button icon or label for next button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelLast",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set button icon or label for last button.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; ellipsis: (index: number) => string; prevTrigger: string; nextTrigger: string; item: (page: number) => string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the accordion. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "translations",
+                "type": "IntlTranslations",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "Specifies the localized strings that identifies the accessibility elements and their states",
+                    "tags": []
+                }
+            },
+            {
+                "name": "count",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Total number of data items",
+                    "tags": []
+                }
+            },
+            {
+                "name": "pageSize",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled number of data items per page",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultPageSize",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial number of data items per page when rendered.\nUse when you don't need to control the page size of the pagination.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "10"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "siblingCount",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Number of pages to show beside active page",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "1"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "page",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled active page",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultPage",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial active page when rendered.\nUse when you don't need to control the active page of the pagination.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "1"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "onPageChange",
+                "type": "(details: PageChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Called when the page number is changed",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onPageSizeChange",
+                "type": "(details: PageSizeChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Called when the page size is changed",
+                    "tags": []
+                }
+            },
+            {
+                "name": "type",
+                "type": "\"button\" | \"link\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The type of the trigger element",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"button\""
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

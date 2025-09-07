@@ -1,0 +1,366 @@
+[
+    {
+        "name": "ProgressProps",
+        "properties": [
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set root base classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "bg",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set root background classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "width",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set root width classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "height",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set root height classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "rounded",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set root rounded classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set root arbitrary classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label base classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelText",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label text classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "labelClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set label classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the track base classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackBg",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the track background classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackRounded",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the track border radius classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set arbitrary track classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set meter base classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterBg",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set meter bg classes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterRounded",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set meter rounded classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterTransition",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set meter transition classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterAnimate",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set meter animation classes for indeterminate mode. (value === undefined)",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set meter arbitrary classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "children",
+                "type": "Snippet<[]>",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set the label",
+                    "tags": []
+                }
+            },
+            {
+                "name": "orientation",
+                "type": "\"horizontal\" | \"vertical\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The orientation of the element.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"horizontal\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; track: string; label: string; circle: string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the progress bar. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled value of the progress bar.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultValue",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The initial value of the progress bar when rendered.\nUse when you don't need to control the value of the progress bar.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "50"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "onValueChange",
+                "type": "(details: ValueChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Callback fired when the value changes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "translations",
+                "type": "IntlTranslations",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The localized messages to use.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "locale",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The locale to use for formatting the value.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"en-US\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "min",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The minimum allowed value of the progress bar.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "0"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "max",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The maximum allowed value of the progress bar.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "100"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "formatOptions",
+                "type": "NumberFormatOptions",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The options to use for formatting the value.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "{ style: \"percent\" }"
+                        },
+                        {
+                            "name": "see",
+                            "value": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

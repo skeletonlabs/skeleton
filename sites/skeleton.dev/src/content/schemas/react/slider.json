@@ -1,0 +1,587 @@
+[
+    {
+        "name": "SliderProps",
+        "properties": [
+            {
+                "name": "markers",
+                "type": "number[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "Provide an array of value markers",
+                    "tags": []
+                }
+            },
+            {
+                "name": "height",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set height classes for the overall slider.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "base",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "classes",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the root.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the control.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "controlClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the control.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the track.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackBg",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background classes for the track.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackRounded",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set border radius classes for the track.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "trackClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the track.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the meter.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterBg",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background classes for the meter.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterRounded",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set border radius classes for the meter.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "meterClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the meter.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the thumb.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbSize",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set size classes for the thumb.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbBg",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set background classes for the thumb.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbRingSize",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set ring size classes for the thumb.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbRingColor",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set ring color classes for the thumb.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbRounded",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set border-radius classes for the thumb.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbCursor",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set cursor classes for the thumb.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "thumbClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the thumb.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "markersBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for the markers.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "markersClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for the markers.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "markBase",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set base classes for each mark.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "markText",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set text size classes for each mark.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "markOpacity",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set opacity classes for each mark.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "markClasses",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Provide arbitrary classes for each mark.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "stateDisabled",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set disabled state classes for the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "stateReadOnly",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Set read-only state classes for the root element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "mark",
+                "type": "ReactNode",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Replace numeric markers with symbol, such as a icon.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "orientation",
+                "type": "\"horizontal\" | \"vertical\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The orientation of the slider",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"horizontal\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ids",
+                "type": "Partial<{ root: string; thumb: (index: number) => string; hiddenInput: (index: number) => string; control: string; track: string; range: string; label: string; valueText: string; marker: (index: number) => string; }>",
+                "typeKind": "object",
+                "required": false,
+                "documentation": {
+                    "text": "The ids of the elements in the slider. Useful for composition.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "value",
+                "type": "number[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The controlled value of the slider",
+                    "tags": []
+                }
+            },
+            {
+                "name": "defaultValue",
+                "type": "number[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The initial value of the slider when rendered.\nUse when you don't need to control the value of the slider.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the slider is disabled",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onValueChange",
+                "type": "(details: ValueChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function invoked when the value of the slider changes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onFocusChange",
+                "type": "(details: FocusChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function invoked when the slider's focused index changes",
+                    "tags": []
+                }
+            },
+            {
+                "name": "dir",
+                "type": "\"ltr\" | \"rtl\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The document's text/writing direction.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"ltr\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "getRootNode",
+                "type": "() => ShadowRoot | Node | Document",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The name associated with each slider thumb (when used in a form)",
+                    "tags": []
+                }
+            },
+            {
+                "name": "invalid",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the slider is invalid",
+                    "tags": []
+                }
+            },
+            {
+                "name": "min",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The minimum value of the slider",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "0"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "max",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The maximum value of the slider",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "100"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "form",
+                "type": "string",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The associate form of the underlying input element.",
+                    "tags": []
+                }
+            },
+            {
+                "name": "readOnly",
+                "type": "boolean",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "Whether the slider is read-only",
+                    "tags": []
+                }
+            },
+            {
+                "name": "aria-label",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The aria-label of each slider thumb. Useful for providing an accessible name to the slider",
+                    "tags": []
+                }
+            },
+            {
+                "name": "aria-labelledby",
+                "type": "string[]",
+                "typeKind": "array",
+                "required": false,
+                "documentation": {
+                    "text": "The `id` of the elements that labels each slider thumb. Useful for providing an accessible name to the slider",
+                    "tags": []
+                }
+            },
+            {
+                "name": "onValueChangeEnd",
+                "type": "(details: ValueChangeDetails) => void",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function invoked when the slider value change is done",
+                    "tags": []
+                }
+            },
+            {
+                "name": "getAriaValueText",
+                "type": "(details: ValueTextDetails) => string",
+                "typeKind": "function",
+                "required": false,
+                "documentation": {
+                    "text": "Function that returns a human readable value for the slider thumb",
+                    "tags": []
+                }
+            },
+            {
+                "name": "step",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The step value of the slider",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "1"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "minStepsBetweenThumbs",
+                "type": "number",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The minimum permitted steps between multiple thumbs.\n\n`minStepsBetweenThumbs` * `step` should reflect the gap between the thumbs.\n\n- `step: 1` and `minStepsBetweenThumbs: 10` => gap is `10`\n- `step: 10` and `minStepsBetweenThumbs: 2` => gap is `20`",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "0"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "origin",
+                "type": "\"start\" | \"center\" | \"end\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The origin of the slider range. The track is filled from the origin\nto the thumb for single values.\n- \"start\": Useful when the value represents an absolute value\n- \"center\": Useful when the value represents an offset (relative)\n- \"end\": Useful when the value represents an offset from the end",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"start\""
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "thumbAlignment",
+                "type": "\"center\" | \"contain\"",
+                "typeKind": "primitive",
+                "required": false,
+                "documentation": {
+                    "text": "The alignment of the slider thumb relative to the track\n- `center`: the thumb will extend beyond the bounds of the slider track.\n- `contain`: the thumb will be contained within the bounds of the track.",
+                    "tags": [
+                        {
+                            "name": "default",
+                            "value": "\"contain\""
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]
