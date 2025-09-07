@@ -13,9 +13,7 @@ export default function (props: AccordionIndicatorProps) {
 	const { element, children, ...restAttributes } = props;
 	const attributes = mergeProps(
 		rootContext.api.getItemIndicatorProps(itemContext.itemProps),
-		{
-			className: classesAccordion.indicator
-		},
+		{ className: classesAccordion.indicator },
 		restAttributes
 	);
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;

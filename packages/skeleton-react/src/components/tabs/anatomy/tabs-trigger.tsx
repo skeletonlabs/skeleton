@@ -11,12 +11,6 @@ export default function (props: TabsTriggerProps) {
 	const rootContext = useContext(TabsRootContext);
 	const [itemProps, componentProps] = splitTriggerProps(props);
 	const { element, children, ...restAttributes } = componentProps;
-	const attributes = mergeProps(
-		rootContext.api.getTriggerProps(itemProps),
-		{
-			className: classesTabs.trigger
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getTriggerProps(itemProps), { className: classesTabs.trigger }, restAttributes);
 	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
 }
