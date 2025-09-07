@@ -9,12 +9,6 @@ export interface FileUploadDropzoneProps extends PropsWithElement, ComponentProp
 export default function (props: FileUploadDropzoneProps) {
 	const rootContext = useContext(FileUploadRootContext);
 	const { element, children, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getDropzoneProps(),
-		{
-			className: classesFileUpload.dropzone
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getDropzoneProps(), { className: classesFileUpload.dropzone }, restAttributes);
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

@@ -9,12 +9,6 @@ export interface FileUploadTriggerProps extends PropsWithElement, ComponentProps
 export default function (props: FileUploadTriggerProps) {
 	const rootContext = useContext(FileUploadRootContext);
 	const { element, children, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getTriggerProps(),
-		{
-			className: classesFileUpload.trigger
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getTriggerProps(), { className: classesFileUpload.trigger }, restAttributes);
 	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
 }

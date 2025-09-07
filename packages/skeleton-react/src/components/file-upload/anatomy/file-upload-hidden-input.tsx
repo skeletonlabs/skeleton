@@ -9,12 +9,6 @@ export interface FileUploadHiddenInputProps extends PropsWithElement, Omit<Compo
 export default function (props: FileUploadHiddenInputProps) {
 	const rootContext = useContext(FileUploadRootContext);
 	const { element, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getHiddenInputProps(),
-		{
-			className: classesFileUpload.hiddenInput
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getHiddenInputProps(), { className: classesFileUpload.hiddenInput }, restAttributes);
 	return element ? element({ attributes }) : <input {...attributes} />;
 }

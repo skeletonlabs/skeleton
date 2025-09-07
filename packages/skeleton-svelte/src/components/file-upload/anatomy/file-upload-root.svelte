@@ -21,15 +21,7 @@
 		...machineProps
 	}));
 	const api = $derived(connect(service, normalizeProps));
-	const attributes = $derived(
-		mergeProps(
-			api.getRootProps(),
-			{
-				class: classesFileUpload.root
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesFileUpload.root }, restAttributes));
 	FileUploadRootContext.provide({
 		get api() {
 			return api;

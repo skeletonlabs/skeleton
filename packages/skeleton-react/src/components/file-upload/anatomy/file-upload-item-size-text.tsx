@@ -13,9 +13,7 @@ export default function (props: FileUploadItemSizeTextProps) {
 	const { element, children, ...restAttributes } = props;
 	const attributes = mergeProps(
 		rootContext.api.getItemSizeTextProps(itemContext.itemProps),
-		{
-			className: classesFileUpload.itemSizeText
-		},
+		{ className: classesFileUpload.itemSizeText },
 		restAttributes
 	);
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;

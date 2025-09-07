@@ -15,13 +15,7 @@ export default function (props: FileUploadRootProps) {
 		...machineProps
 	});
 	const api = connect(service, normalizeProps);
-	const attributes = mergeProps(
-		api.getRootProps(),
-		{
-			className: classesFileUpload.root
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(api.getRootProps(), { className: classesFileUpload.root }, restAttributes);
 	return (
 		<FileUploadRootContext.Provider value={{ api }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}

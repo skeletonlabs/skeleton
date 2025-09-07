@@ -9,12 +9,6 @@ export interface FileUploadItemGroupProps extends PropsWithElement, ComponentPro
 export default function (props: FileUploadItemGroupProps) {
 	const rootContext = useContext(FileUploadRootContext);
 	const { element, children, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getItemGroupProps(),
-		{
-			className: classesFileUpload.itemGroup
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getItemGroupProps(), { className: classesFileUpload.itemGroup }, restAttributes);
 	return element ? element({ attributes }) : <ul {...attributes}>{children}</ul>;
 }

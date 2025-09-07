@@ -12,13 +12,7 @@ export default function (props: FileUploadItemProps) {
 	const rootContext = useContext(FileUploadRootContext);
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...restAttributes } = componentProps;
-	const attributes = mergeProps(
-		rootContext.api.getItemProps(itemProps),
-		{
-			className: classesFileUpload.item
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getItemProps(itemProps), { className: classesFileUpload.item }, restAttributes);
 	return (
 		<FileUploadItemContext.Provider value={{ itemProps }}>
 			{element ? element({ attributes }) : <li {...attributes}>{children}</li>}
