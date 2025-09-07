@@ -16,13 +16,7 @@
 	const itemContext = AccordionItemContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
 	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getItemContentProps(itemContext.itemProps),
-			{
-				class: classesAccordion.content
-			},
-			restAttributes
-		)
+		mergeProps(rootContext.api.getItemContentProps(itemContext.itemProps), { class: classesAccordion.content }, restAttributes)
 	);
 </script>
 

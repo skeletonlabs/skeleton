@@ -19,13 +19,7 @@ export default function (props: AccordionRootProps) {
 		...machineProps
 	});
 	const api = connect(service, normalizeProps);
-	const attributes = mergeProps(
-		api.getRootProps(),
-		{
-			className: classesAccordion.root
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(api.getRootProps(), { className: classesAccordion.root }, restAttributes);
 	return (
 		<AccordionRootContext.Provider value={{ api }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}

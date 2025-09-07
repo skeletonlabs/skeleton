@@ -9,12 +9,6 @@ export interface TabsIndicatorProps extends PropsWithElement, Omit<ComponentProp
 export default function (props: TabsIndicatorProps) {
 	const rootContext = useContext(TabsRootContext);
 	const { element, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getIndicatorProps(),
-		{
-			className: classesTabs.indicator
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getIndicatorProps(), { className: classesTabs.indicator }, restAttributes);
 	return element ? element({ attributes }) : <div {...attributes}></div>;
 }
