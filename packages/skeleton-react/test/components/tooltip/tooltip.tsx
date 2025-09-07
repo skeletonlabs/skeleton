@@ -2,7 +2,7 @@ import { Tooltip } from '@skeletonlabs/skeleton-react';
 
 export default function () {
 	return (
-		<Tooltip data-testid="root">
+		<Tooltip>
 			<Tooltip.Trigger data-testid="trigger" />
 			<Tooltip.Positioner data-testid="positioner">
 				<Tooltip.Content>

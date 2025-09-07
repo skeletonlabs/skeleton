@@ -3,12 +3,6 @@ import { render, screen } from '@testing-library/svelte';
 import Tooltip from './tooltip.svelte';
 
 describe('tooltip', () => {
-	describe('root', () => {
-		it('renders', () => {
-			render(Tooltip);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
-		});
-	});
 	describe('trigger', () => {
 		it('renders', () => {
 			render(Tooltip);

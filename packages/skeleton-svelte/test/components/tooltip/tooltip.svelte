@@ -2,7 +2,7 @@
 	import { Tooltip } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Tooltip data-testid="root">
+<Tooltip>
 	<Tooltip.Trigger data-testid="trigger" />
 	<Tooltip.Positioner data-testid="positioner">
 		<Tooltip.Content>

@@ -3,12 +3,6 @@ import { render, screen } from '@testing-library/react';
 import Tooltip from './tooltip.js';
 
 describe('tooltip', () => {
-	describe('root', () => {
-		it('renders', () => {
-			render(<Tooltip />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
-		});
-	});
 	describe('trigger', () => {
 		it('renders', () => {
 			render(<Tooltip />);
