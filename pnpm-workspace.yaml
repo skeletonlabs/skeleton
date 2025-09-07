@@ -8,7 +8,7 @@ catalog:
   '@zag-js/react': ^1.22.1
   '@zag-js/accordion': ^1.22.1
   '@zag-js/avatar': ^1.22.1
-  '@zag-js/combobox': ^1.22.1
+  '@zag-js/combobox': 1.22.1
   '@zag-js/dialog': ^1.22.1
   '@zag-js/file-upload': ^1.22.1
   '@zag-js/pagination': ^1.22.1
