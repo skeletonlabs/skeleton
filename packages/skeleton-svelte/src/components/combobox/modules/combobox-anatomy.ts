@@ -7,7 +7,6 @@ import ComboboxTrigger from '../anatomy/combobox-trigger';
 import ComboboxPositioner from '../anatomy/combobox-positioner';
 import ComboboxContent from '../anatomy/combobox-content';
 import ComboboxItemGroup from '../anatomy/combobox-item-group';
-import ComboboxItemGroupContext from '../anatomy/combobox-item-group-context';
 import ComboboxItemGroupLabel from '../anatomy/combobox-item-group-label';
 import ComboboxItem from '../anatomy/combobox-item';
 import ComboboxItemContext from '../anatomy/combobox-item-context';
@@ -22,7 +21,6 @@ export const Combobox = Object.assign(ComboboxRoot, {
 	Positioner: ComboboxPositioner,
 	Content: ComboboxContent,
 	ItemGroup: ComboboxItemGroup,
-	ItemGroupContext: ComboboxItemGroupContext,
 	ItemGroupLabel: ComboboxItemGroupLabel,
 	Item: ComboboxItem,
 	ItemContext: ComboboxItemContext
