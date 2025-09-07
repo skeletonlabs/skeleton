@@ -17,13 +17,7 @@ export default function (props: SwitchRootProps) {
 		...machineProps
 	});
 	const api = connect(service, normalizeProps);
-	const attributes = mergeProps(
-		api.getRootProps(),
-		{
-			className: classesSwitch.root
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(api.getRootProps(), { className: classesSwitch.root }, restAttributes);
 	return (
 		<SwitchRootContext.Provider value={{ api }}>
 			{element ? element({ attributes }) : <label {...attributes}>{children}</label>}

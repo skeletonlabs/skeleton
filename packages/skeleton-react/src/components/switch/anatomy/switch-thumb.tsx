@@ -11,12 +11,6 @@ export interface SwitchThumbProps extends PropsWithElement, Omit<ComponentProps<
 export default function (props: SwitchThumbProps) {
 	const rootContext = useContext(SwitchRootContext);
 	const { element, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getThumbProps(),
-		{
-			className: classesSwitch.thumb
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getThumbProps(), { className: classesSwitch.thumb }, restAttributes);
 	return element ? element({ attributes }) : <span {...attributes} />;
 }

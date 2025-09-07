@@ -13,15 +13,7 @@
 	const props: SwitchThumbProps = $props();
 	const rootContext = SwitchRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getThumbProps(),
-			{
-				class: classesSwitch.thumb
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getThumbProps(), { class: classesSwitch.thumb }, restAttributes));
 </script>
 
 {#if element}

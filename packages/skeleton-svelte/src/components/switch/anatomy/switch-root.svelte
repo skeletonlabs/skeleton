@@ -21,15 +21,7 @@
 		...machineProps
 	}));
 	const api = $derived(connect(service, normalizeProps));
-	const attributes = $derived(
-		mergeProps(
-			api.getRootProps(),
-			{
-				class: classesSwitch.root
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesSwitch.root }, restAttributes));
 	SwitchRootContext.provide({
 		get api() {
 			return api;

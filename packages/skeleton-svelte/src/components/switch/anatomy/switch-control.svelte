@@ -13,15 +13,7 @@
 	const props: SwitchControlProps = $props();
 	const rootContext = SwitchRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getControlProps(),
-			{
-				class: classesSwitch.control
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getControlProps(), { class: classesSwitch.control }, restAttributes));
 </script>
 
 {#if element}

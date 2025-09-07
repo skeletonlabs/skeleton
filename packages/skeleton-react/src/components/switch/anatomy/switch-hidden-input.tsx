@@ -11,12 +11,6 @@ export interface SwitchHiddenInputProps extends PropsWithElement, Omit<Component
 export default function (props: SwitchHiddenInputProps) {
 	const rootContext = useContext(SwitchRootContext);
 	const { element, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getHiddenInputProps(),
-		{
-			className: classesSwitch.hiddenInput
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getHiddenInputProps(), { className: classesSwitch.hiddenInput }, restAttributes);
 	return element ? element({ attributes }) : <input {...attributes} />;
 }

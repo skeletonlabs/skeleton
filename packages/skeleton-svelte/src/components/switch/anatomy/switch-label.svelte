@@ -13,15 +13,7 @@
 	const props: SwitchLabelProps = $props();
 	const rootContext = SwitchRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getLabelProps(),
-			{
-				class: classesSwitch.label
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getLabelProps(), { class: classesSwitch.label }, restAttributes));
 </script>
 
 {#if element}
