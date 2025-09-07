@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import Dialog from './dialog.js';
+import Dialog from './dialog';
 
 describe('dialog', () => {
 	describe('trigger', () => {
