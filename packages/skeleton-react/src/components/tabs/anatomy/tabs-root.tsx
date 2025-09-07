@@ -15,13 +15,7 @@ export default function (props: TabsRootProps) {
 		...machineProps
 	});
 	const api = connect(service, normalizeProps);
-	const attributes = mergeProps(
-		api.getRootProps(),
-		{
-			className: classesTabs.root
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(api.getRootProps(), { className: classesTabs.root }, restAttributes);
 	return (
 		<TabsRootContext.Provider value={{ api }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}
