@@ -10,8 +10,8 @@
 
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { TreeViewRootContext } from '../modules/treeview-root-context.js';
-	import { TreeViewNodeContext } from '../modules/treeview-node-context.js';
+	import { TreeViewRootContext } from '../modules/tree-view-root-context.js';
+	import { TreeViewNodeContext } from '../modules/tree-view-node-context.js';
 	import { classesTreeview } from '@skeletonlabs/skeleton-common';
 
 	const props: TreeViewBranchProps = $props();

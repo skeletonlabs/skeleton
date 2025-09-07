@@ -21,7 +21,7 @@
 					<a class="anchor" href="/components/avatar">Avatars</a>
 					<a class="anchor" href="/components/rating-group">Rating Group</a>
 					<a class="anchor" href="/components/tabs">Tabs</a>
-					<a class="anchor" href="/components/treeview">TreeView</a>
+					<a class="anchor" href="/components/tree-view">TreeView</a>
 				</nav>
 			</div>
 		</header>

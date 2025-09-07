@@ -14,7 +14,7 @@
 
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { TreeViewRootContext } from '../modules/treeview-root-context.js';
+	import { TreeViewRootContext } from '../modules/tree-view-root-context.js';
 	import { classesTreeview } from '@skeletonlabs/skeleton-common';
 
 	const props: TreeViewLabelProps = $props();

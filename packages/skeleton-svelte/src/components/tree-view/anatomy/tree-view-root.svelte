@@ -12,7 +12,7 @@
 <script lang="ts">
 	import { machine, connect, splitProps } from '@zag-js/tree-view';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
-	import { TreeViewRootContext } from '../modules/treeview-root-context.js';
+	import { TreeViewRootContext } from '../modules/tree-view-root-context.js';
 	import { classesTreeview } from '@skeletonlabs/skeleton-common';
 
 	const props: TreeViewRootProps = $props();

@@ -2,25 +2,30 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
-	export interface TreeViewBranchTextProps extends PropsWithElement, HTMLAttributes<HTMLSpanElement> {}
+	export interface TreeViewBranchIndentGuideProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { TreeViewRootContext } from '../modules/treeview-root-context.js';
+	import { TreeViewRootContext } from '../modules/tree-view-root-context.js';
 	import { classesTreeview } from '@skeletonlabs/skeleton-common';
-	import { TreeViewNodeContext } from '../modules/treeview-node-context.js';
+	import { TreeViewNodeContext } from '../modules/tree-view-node-context.js';
 
 	const nodeContext = TreeViewNodeContext.consume();
 	const rootContext = TreeViewRootContext.consume();
-	const props: TreeViewBranchTextProps = $props();
+	const props: TreeViewBranchIndentGuideProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
+	const nodeState = $derived(rootContext.api.getNodeState(nodeContext.nodeProps));
 
+	const translate = $derived(`translate-[${nodeState.depth * 1.5}rem]`);
 	const attributes = $derived(
 		mergeProps(
-			rootContext.api.getBranchTextProps(nodeContext.nodeProps),
+			rootContext.api.getBranchIndentGuideProps(nodeContext.nodeProps),
 			{
-				class: classesTreeview.branchText
+				class: classesTreeview.branchIndentGuide
+			},
+			{
+				class: translate
 			},
 			restAttributes
 		)
@@ -30,7 +35,7 @@
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<span {...attributes}>
+	<div {...attributes}>
 		{@render children?.()}
-	</span>
+	</div>
 {/if}

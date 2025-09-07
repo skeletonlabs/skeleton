@@ -2,22 +2,25 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
-	export interface TreeViewTreeProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
+	export interface TreeViewBranchIndicatorProps extends PropsWithElement, HTMLAttributes<HTMLSpanElement> {}
 </script>
 
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
-	import { TreeViewRootContext } from '../modules/treeview-root-context.js';
+	import { TreeViewRootContext } from '../modules/tree-view-root-context.js';
+	import { TreeViewNodeContext } from '../modules/tree-view-node-context.js';
 	import { classesTreeview } from '@skeletonlabs/skeleton-common';
 
-	const props: TreeViewTreeProps = $props();
+	const nodeContext = TreeViewNodeContext.consume();
 	const rootContext = TreeViewRootContext.consume();
+	const props: TreeViewBranchIndicatorProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
+
 	const attributes = $derived(
 		mergeProps(
-			rootContext.api.getTreeProps(),
+			rootContext.api.getBranchIndicatorProps(nodeContext.nodeProps),
 			{
-				class: classesTreeview.tree
+				class: classesTreeview.branchIndicator
 			},
 			restAttributes
 		)
@@ -27,7 +30,7 @@
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<div {...attributes}>
+	<span {...attributes}>
 		{@render children?.()}
-	</div>
+	</span>
 {/if}
