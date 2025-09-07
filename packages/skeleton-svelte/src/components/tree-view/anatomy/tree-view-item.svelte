@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { NodeProps } from '@zag-js/tree-view';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 
 	export interface TreeViewItemProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {
 		nodeProps: NodeProps;
