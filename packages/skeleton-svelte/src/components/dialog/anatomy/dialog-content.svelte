@@ -13,15 +13,7 @@
 	const props: DialogContentProps = $props();
 	const rootContext = DialogRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getContentProps(),
-			{
-				class: classesDialog.content
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getContentProps(), { class: classesDialog.content }, restAttributes));
 </script>
 
 {#if element}
