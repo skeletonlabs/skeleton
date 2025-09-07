@@ -33,6 +33,9 @@ export default function RootLayout({
 								<a className="anchor" href="/components/rating-group">
 									Rating Group
 								</a>
+								<a className="anchor" href="/components/tabs">
+									Tabs
+								</a>
 							</nav>
 						</div>
 					</div>

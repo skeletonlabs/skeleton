@@ -1,84 +1,68 @@
 ---
-import { getEntry, type CollectionEntry } from 'astro:content';
-import { Popover } from '@components/docs/Popover';
+import { getEntry } from 'astro:content';
+import { Code } from 'astro-expressive-code/components';
 
 interface Props {
-	schema?: CollectionEntry<'schemas'>['data'];
+	component: string;
+	framework: string;
 }
 
-const { schema } = Astro.props;
-const { slug } = Astro.params;
+const framework = Astro.props.framework ?? Astro.params.slug?.split('/').at(-1);
+const component = Astro.props.component ?? Astro.params.slug?.split('/').at(-2);
 
-async function getSchemaFromSlug(slug: string | undefined) {
-	if (!slug) return null;
-	const parts = slug.split('/');
-	const component = parts.at(-2);
-	const framework = parts.at(-1);
-	if (!component || !framework) return null;
-	return getEntry<'schemas', string>('schemas', `${framework}/${component}`)?.then((entry) => entry?.data);
+const types = await getEntry('types', `${framework}/${component}`);
+
+function capitalize(str: string) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
 }
 ---
 
-<div class="space-y-8">
+<div class="grid gap-8">
 	{
-		(schema ?? (await getSchemaFromSlug(slug)) ?? []).map((i) => {
-			return (
-				<section class="space-y-4">
-					{/* Label */}
-					<h3 class="h3">{i.name.replace('Props', '')}</h3>
-					{/* Table */}
-					<div class="table-wrap">
-						<table class="table caption-bottom">
+		!types ? (
+			<p class="italic text-sm opacity-50">
+				Unable to load types for {framework}/{component}
+			</p>
+		) : (
+			<section class="grid gap-4">
+				{types.data.types.map((type) => (
+					<>
+						<h3 class="h3">{type.name.replace(capitalize(component), '').replace('Props', '')}</h3>
+						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} />}
+						<table class="table">
 							<thead>
 								<tr>
 									<th>Property</th>
+									<th>Default</th>
 									<th>Type</th>
-									<th>Description</th>
 								</tr>
 							</thead>
 							<tbody class="[&>tr]:hover:preset-tonal">
-								{i.properties.map((property) => (
+								{type.props.map((property) => (
 									<tr class="align-top">
-										{/* Property */}
 										<td>
-											<div class="flex items-center gap-1">
-												<code class="code">{property.name}</code>
-												{property.required ? <span>*</span> : null}
-											</div>
+											<code class="code">{property.name}</code>
 										</td>
-										{/* Type */}
 										<td>
-											{property.typeKind === 'primitive' ? (
-												<span class="italic opacity-60">{property.type}</span>
+											{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
+												<span>{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}</span>
 											) : (
-												<Popover
-													trigger={`${property.typeKind} \u24D8`}
-													triggerBase="opacity-60 whitespace-nowrap mr-4"
-													arrowBase="fill-surface-950-50"
-													client:load
-												>
-													<div class="card bg-surface-950-50 text-surface-50-950 p-4 max-w-96 shadow-xl">{property.type}</div>
-												</Popover>
+												<span class="opacity-50">-</span>
 											)}
 										</td>
-										{/* Description */}
-										<td>
-											<div class="grid grid-cols-1 gap-2">
-												<article>{property.documentation.text}</article>
-												{property.documentation.tags.some((tag) => tag.name === 'default') ? (
-													<small class="italic opacity-60">
-														Default: {property.documentation.tags.find((tag) => tag.name === 'default')!.value}
-													</small>
-												) : null}
-											</div>
+										<td class="grid gap-2">
+											{/* This pre tag will otherwise include the line breaks prettier adds */}
+											{/* prettier-ignore */}
+											<pre class="pre max-w-[400px] !bg-surface-950 border border-surface-800 !p-1.5">{property.type}</pre>
+											<span>{property.JSDoc.description}</span>
 										</td>
 									</tr>
 								))}
 							</tbody>
 						</table>
-					</div>
-				</section>
-			);
-		})
+					</>
+				))}
+			</section>
+		)
 	}
 </div>

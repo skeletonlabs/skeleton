@@ -1,12 +1,12 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface AccordionHeadingProps extends PropsWithElement, HTMLAttributes<HTMLHeadingElement> {
 		/**
-		 * The level of the heading. This is used to determine the heading level for accessibility purposes.
+		 * The level of the heading.
 		 *
-		 * @defaultValue 3
+		 * @default 3
 		 */
 		level?: 1 | 2 | 3 | 4 | 5 | 6;
 	}

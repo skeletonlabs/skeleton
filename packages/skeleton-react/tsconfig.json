@@ -17,7 +17,10 @@
 		"noUnusedParameters": true,
 		"jsx": "react-jsx",
 		"jsxImportSource": "react",
-		"types": ["@testing-library/jest-dom/vitest"]
+		"types": ["@testing-library/jest-dom/vitest"],
+		"paths": {
+			"@/*": ["./src/*"]
+		}
 	},
 	"include": ["src", "test"]
 }

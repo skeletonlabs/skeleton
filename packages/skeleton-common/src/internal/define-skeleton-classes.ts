@@ -6,6 +6,7 @@ export function defineSkeletonClasses<T extends Record<string, string>>(anatomy:
 			key,
 			value
 				.split(' ')
+				.filter((cls) => cls.length > 0)
 				.map((cls) => {
 					if (cls.startsWith(ESCAPE_PREFIX)) {
 						return cls.slice(ESCAPE_PREFIX.length);

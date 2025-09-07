@@ -21,33 +21,39 @@ const docs = defineCollection({
 	})
 });
 
-const schemas = defineCollection({
+const types = defineCollection({
 	loader: glob({
-		base: './src/content/schemas',
+		base: './src/content/types',
 		pattern: '**/*.json'
 	}),
-	schema: z.array(
-		z.object({
-			name: z.string(),
-			properties: z.array(
-				z.object({
-					name: z.string(),
-					type: z.string(),
-					typeKind: z.string(),
-					required: z.boolean(),
-					documentation: z.object({
-						text: z.string().nullable(),
-						tags: z.array(
-							z.object({
-								name: z.string(),
-								value: z.string()
-							})
-						)
+	schema: z.object({
+		name: z.string(),
+		types: z.array(
+			z.object({
+				name: z.string(),
+				props: z.array(
+					z.object({
+						name: z.string(),
+						type: z.string(),
+						typeKind: z.string(),
+						optional: z.boolean(),
+						JSDoc: z.object({
+							description: z.string().nullable(),
+							tags: z.array(
+								z.object({
+									name: z.string(),
+									value: z.string().nullable()
+								})
+							)
+						})
 					})
+				),
+				metadata: z.object({
+					classValue: z.string().optional()
 				})
-			)
-		})
-	)
+			})
+		)
+	})
 });
 
-export const collections = { docs, schemas };
+export const collections = { docs, types };

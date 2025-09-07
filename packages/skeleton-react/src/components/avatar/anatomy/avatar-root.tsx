@@ -1,11 +1,9 @@
-'use client';
-
 import { useId, type ComponentProps } from 'react';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
 import { splitProps, machine, connect, type Props } from '@zag-js/avatar';
-import { AvatarRootContext } from '../modules/avatar-root-context.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
+import { AvatarRootContext } from '../modules/avatar-root-context';
+import type { PropsWithElement } from '@/internal/props-with-element';
 
 export interface AvatarRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<ComponentProps<'div'>, 'id' | 'dir'> {}
 

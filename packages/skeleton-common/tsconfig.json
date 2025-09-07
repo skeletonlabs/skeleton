@@ -13,5 +13,5 @@
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true
 	},
-	"include": ["src", "marcros/define-skeleton-classes.macro.ts"]
+	"include": ["src"]
 }
