@@ -13,15 +13,7 @@
 	const props: TooltipPositionerProps = $props();
 	const rootContext = TooltipRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getPositionerProps(),
-			{
-				class: classesTooltip.positioner
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getPositionerProps(), { class: classesTooltip.positioner }, restAttributes));
 </script>
 
 {#if element}

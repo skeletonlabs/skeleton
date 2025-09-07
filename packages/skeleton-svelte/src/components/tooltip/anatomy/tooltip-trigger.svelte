@@ -13,15 +13,7 @@
 	const props: TooltipTriggerProps = $props();
 	const rootContext = TooltipRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getTriggerProps(),
-			{
-				class: classesTooltip.trigger
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(), { class: classesTooltip.trigger }, restAttributes));
 </script>
 
 {#if element}

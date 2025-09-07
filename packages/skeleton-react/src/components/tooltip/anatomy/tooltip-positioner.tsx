@@ -9,12 +9,6 @@ export interface TooltipPositionerProps extends PropsWithElement, ComponentProps
 export default function (props: TooltipPositionerProps) {
 	const rootContext = useContext(TooltipRootContext);
 	const { element, children, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getPositionerProps(),
-		{
-			className: classesTooltip.positioner
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getPositionerProps(), { className: classesTooltip.positioner }, restAttributes);
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

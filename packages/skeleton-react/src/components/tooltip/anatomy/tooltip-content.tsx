@@ -9,12 +9,6 @@ export interface TooltipContentProps extends PropsWithElement, ComponentProps<'d
 export default function (props: TooltipContentProps) {
 	const rootContext = useContext(TooltipRootContext);
 	const { element, children, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getContentProps(),
-		{
-			className: classesTooltip.content
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getContentProps(), { className: classesTooltip.content }, restAttributes);
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

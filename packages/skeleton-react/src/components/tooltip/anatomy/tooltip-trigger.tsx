@@ -9,12 +9,6 @@ export interface TooltipTriggerProps extends PropsWithElement, ComponentProps<'b
 export default function (props: TooltipTriggerProps) {
 	const rootContext = useContext(TooltipRootContext);
 	const { element, children, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getTriggerProps(),
-		{
-			className: classesTooltip.trigger
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getTriggerProps(), { className: classesTooltip.trigger }, restAttributes);
 	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
 }
