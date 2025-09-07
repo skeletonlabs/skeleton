@@ -3,12 +3,6 @@ import { render, screen } from '@testing-library/react';
 import Popover from './popover.js';
 
 describe('popover', () => {
-	describe('root', () => {
-		it('renders', () => {
-			render(<Popover />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
-		});
-	});
 	describe('trigger', () => {
 		it('renders', () => {
 			render(<Popover />);

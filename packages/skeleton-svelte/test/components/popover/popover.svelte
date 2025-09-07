@@ -2,7 +2,7 @@
 	import { Popover } from '../../../src/index';
 </script>
 
-<Popover data-testid="root">
+<Popover>
 	<Popover.Trigger data-testid="trigger" />
 	<Popover.Positioner data-testid="positioner">
 		<Popover.Content data-testid="content">

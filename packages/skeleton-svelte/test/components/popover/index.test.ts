@@ -3,12 +3,6 @@ import { render, screen } from '@testing-library/svelte';
 import Popover from './popover.svelte';
 
 describe('popover', () => {
-	describe('root', () => {
-		it('renders', () => {
-			render(Popover);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
-		});
-	});
 	describe('trigger', () => {
 		it('renders', () => {
 			render(Popover);
