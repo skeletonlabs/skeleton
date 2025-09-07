@@ -30,6 +30,9 @@ export default function RootLayout({
 								<a className="anchor" href="/components/avatar">
 									Avatar
 								</a>
+								<a className="anchor" href="/components/dialog">
+									Dialog
+								</a>
 								<a className="anchor" href="/components/rating-group">
 									Rating Group
 								</a>
