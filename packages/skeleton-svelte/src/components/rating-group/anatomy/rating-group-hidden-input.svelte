@@ -15,15 +15,7 @@
 	const props: RatingGroupHiddenInputProps = $props();
 	const rootContext = RatingGroupRootContext.consume();
 	const { element, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getHiddenInputProps(),
-			{
-				class: classesRatingGroup.hiddenInput
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getHiddenInputProps(), { class: classesRatingGroup.hiddenInput }, restAttributes));
 </script>
 
 {#if element}
