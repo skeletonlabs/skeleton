@@ -2,6 +2,7 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 
 export const classesDialog = defineSkeletonClasses({
 	trigger: '',
+	backdrop: '',
 	positioner: '',
 	content: '',
 	title: '',

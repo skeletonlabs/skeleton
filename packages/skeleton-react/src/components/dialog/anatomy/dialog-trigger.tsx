@@ -9,12 +9,6 @@ export interface DialogTriggerProps extends PropsWithElement, ComponentProps<'bu
 export default function (props: DialogTriggerProps) {
 	const rootContext = useContext(DialogRootContext);
 	const { element, children, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getTriggerProps(),
-		{
-			className: classesDialog.trigger
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getTriggerProps(), { className: classesDialog.trigger }, restAttributes);
 	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
 }
