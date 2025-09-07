@@ -24,15 +24,7 @@
 		...machineProps
 	}));
 	const api = $derived(connect(service, normalizeProps));
-	const attributes = $derived(
-		mergeProps(
-			api.getRootProps(),
-			{
-				class: classesAccordion.root
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesAccordion.root }, restAttributes));
 	AccordionRootContext.provide({
 		get api() {
 			return api;
