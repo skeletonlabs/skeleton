@@ -43,15 +43,7 @@
 	const rootContext = RatingGroupRootContext.consume();
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, empty = starEmpty, half = starHalf, full = starFull, ...restAttributes } = $derived(componentProps);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getItemProps(itemProps),
-			{
-				class: classesRatingGroup.item
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getItemProps(itemProps), { class: classesRatingGroup.item }, restAttributes));
 	const itemState = $derived(rootContext.api.getItemState(itemProps));
 	RatingGroupItemContext.provide({
 		get itemState() {

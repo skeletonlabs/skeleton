@@ -27,15 +27,7 @@
 		...machineProps
 	}));
 	const api = $derived(connect(service, normalizeProps));
-	const attributes = $derived(
-		mergeProps(
-			api.getRootProps(),
-			{
-				class: classesRatingGroup.root
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesRatingGroup.root }, restAttributes));
 	RatingGroupRootContext.provide({
 		get api() {
 			return api;
