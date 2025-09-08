@@ -1,4 +1,4 @@
-import { Accordion } from '../../../src/index.js';
+import { Accordion } from '../../../src/index';
 
 export default function () {
 	return (
