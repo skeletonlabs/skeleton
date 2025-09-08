@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tooltip } from '@skeletonlabs/skeleton-svelte';
+	import { Tooltip } from '../../../src/index';
 </script>
 
 <Tooltip>

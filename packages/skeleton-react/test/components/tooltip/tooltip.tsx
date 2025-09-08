@@ -1,4 +1,4 @@
-import { Tooltip } from '@skeletonlabs/skeleton-react';
+import { Tooltip } from '../../../src/index';
 
 export default function () {
 	return (
