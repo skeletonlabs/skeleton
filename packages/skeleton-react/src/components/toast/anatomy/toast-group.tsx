@@ -6,8 +6,8 @@ import { ToastGroupContext } from '../modules/toast-group-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
 export interface ToastGroupProps extends PropsWithElement, Omit<ComponentProps<'div'>, 'id' | 'dir' | 'children'> {
-	children: (toast: Props) => JSX.Element | null;
 	toaster: Store;
+	children?: (toast: Props) => JSX.Element | null;
 }
 
 export default function (props: ToastGroupProps) {
@@ -20,7 +20,7 @@ export default function (props: ToastGroupProps) {
 	const attributes = mergeProps(api.getGroupProps(), { className: classesToast.group }, restAttributes);
 	return (
 		<ToastGroupContext.Provider value={{ groupApi: api, groupService: service }}>
-			{element ? element({ attributes }) : <div {...attributes}>{api.getToasts().map(children)}</div>}
+			{element ? element({ attributes }) : <div {...attributes}>{api.getToasts().map((toast) => children?.(toast))}</div>}
 		</ToastGroupContext.Provider>
 	);
 }
