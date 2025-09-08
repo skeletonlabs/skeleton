@@ -1,33 +1,33 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
-	import type { Props } from '@zag-js/avatar';
+	import type { Props } from '@zag-js/progress';
 
 	export interface ProgressLinearRootProps
 		extends PropsWithElement,
 			Omit<Props, 'id'>,
-			Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {} // REVIEWER: is `dir` needed?
+			Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
-	import * as progress from '@zag-js/progress';
+	import { splitProps, machine, connect } from '@zag-js/progress';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 
-	import { ProgressLinearRootContext } from '../modules/progress-linear-root-context.js';
 	import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
+	import { ProgressLinearRootContext } from '../modules/progress-linear-root-context.js';
 
 	// Props
 	const props: ProgressLinearRootProps = $props();
-	const [machineProps, componentProps] = $derived(progress.splitProps(props));
+	const [machineProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
 	const id = $props.id();
 
 	// Zag
-	const service = useMachine(progress.machine, () => ({
+	const service = useMachine(machine, () => ({
 		id,
 		...machineProps
 	}));
-	const api = $derived(progress.connect(service, normalizeProps));
+	const api = $derived(connect(service, normalizeProps));
 
 	// Attributes
 	const attributes = $derived(
