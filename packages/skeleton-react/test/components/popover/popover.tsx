@@ -1,4 +1,4 @@
-import { Popover } from '@skeletonlabs/skeleton-react';
+import { Popover } from '../../../src/index';
 
 export default function () {
 	return (
