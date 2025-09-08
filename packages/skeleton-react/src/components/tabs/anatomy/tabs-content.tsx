@@ -11,12 +11,6 @@ export default function (props: TabsContentProps) {
 	const rootContext = useContext(TabsRootContext);
 	const [itemProps, componentProps] = splitContentProps(props);
 	const { element, children, ...restAttributes } = componentProps;
-	const attributes = mergeProps(
-		rootContext.api.getContentProps(itemProps),
-		{
-			className: classesTabs.content
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getContentProps(itemProps), { className: classesTabs.content }, restAttributes);
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }
