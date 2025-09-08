@@ -19,6 +19,9 @@ import ExampleIndeterminateRaw from '@examples/components/progress-linear/react/
 import ExampleCustomAnimation from '@examples/components/progress-linear/react/custom-animation';
 import ExampleCustomAnimationRaw from '@examples/components/progress-linear/react/custom-animation.tsx?raw';
 
+import ExampleNative from '@examples/components/progress-linear/react/native';
+import ExampleNativeRaw from '@examples/components/progress-linear/react/native.tsx?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Example client:visible />
@@ -69,6 +72,19 @@ import ExampleCustomAnimationRaw from '@examples/components/progress-linear/reac
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleCustomAnimationRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Native Alternative
+
+The native [`progress`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) element is available cross browser, but does not support indeterminate animations.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleNative client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleNativeRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

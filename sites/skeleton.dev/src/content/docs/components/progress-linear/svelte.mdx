@@ -19,6 +19,9 @@ import ExampleIndeterminateRaw from '@examples/components/progress-linear/svelte
 import ExampleCustomAnimation from '@examples/components/progress-linear/svelte/custom-animation.svelte';
 import ExampleCustomAnimationRaw from '@examples/components/progress-linear/svelte/custom-animation.svelte?raw';
 
+import ExampleNative from '@examples/components/progress-linear/svelte/native.svelte';
+import ExampleNativeRaw from '@examples/components/progress-linear/svelte/native.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Example client:visible />
@@ -69,6 +72,19 @@ import ExampleCustomAnimationRaw from '@examples/components/progress-linear/svel
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ExampleCustomAnimationRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Native Alternative
+
+The native [`progress`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) element is available cross browser, but does not support indeterminate animations.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleNative client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleNativeRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
