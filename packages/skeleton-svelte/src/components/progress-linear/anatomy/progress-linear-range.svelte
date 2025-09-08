@@ -17,15 +17,12 @@
 	const props: ProgressLinearRangeProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
 
-	// Conditional Classes
-	let rxIndeterminate = $derived(rootContext.api.indeterminate ? 'animate-progress-indeterminate' : '');
-
 	// Attributes
 	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getRangeProps(),
 			{
-				class: `${classesProgressLinear.range} ${rxIndeterminate}`
+				class: classesProgressLinear.range
 			},
 			restAttributes
 		)
