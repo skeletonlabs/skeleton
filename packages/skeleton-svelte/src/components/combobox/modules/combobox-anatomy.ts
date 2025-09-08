@@ -1,15 +1,15 @@
-import ComboboxRoot from '../anatomy/combobox-root';
-import ComboboxRootContext from '../anatomy/combobox-root-context';
-import ComboboxLabel from '../anatomy/combobox-label';
-import ComboboxControl from '../anatomy/combobox-control';
-import ComboboxInput from '../anatomy/combobox-input';
-import ComboboxTrigger from '../anatomy/combobox-trigger';
-import ComboboxPositioner from '../anatomy/combobox-positioner';
-import ComboboxContent from '../anatomy/combobox-content';
-import ComboboxItemGroup from '../anatomy/combobox-item-group';
-import ComboboxItemGroupLabel from '../anatomy/combobox-item-group-label';
-import ComboboxItem from '../anatomy/combobox-item';
-import ComboboxItemContext from '../anatomy/combobox-item-context';
+import ComboboxRoot from '../anatomy/combobox-root.svelte';
+import ComboboxRootContext from '../anatomy/combobox-root-context.svelte';
+import ComboboxLabel from '../anatomy/combobox-label.svelte';
+import ComboboxControl from '../anatomy/combobox-control.svelte';
+import ComboboxInput from '../anatomy/combobox-input.svelte';
+import ComboboxTrigger from '../anatomy/combobox-trigger.svelte';
+import ComboboxPositioner from '../anatomy/combobox-positioner.svelte';
+import ComboboxContent from '../anatomy/combobox-content.svelte';
+import ComboboxItemGroup from '../anatomy/combobox-item-group.svelte';
+import ComboboxItemGroupLabel from '../anatomy/combobox-item-group-label.svelte';
+import ComboboxItem from '../anatomy/combobox-item.svelte';
+import ComboboxItemContext from '../anatomy/combobox-item-context.svelte';
 
 export const Combobox = Object.assign(ComboboxRoot, {
 	Root: ComboboxRoot,
