@@ -13,15 +13,7 @@
 	const props: TabsListProps = $props();
 	const rootContext = TabsRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getListProps(),
-			{
-				class: classesTabs.list
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getListProps(), { class: classesTabs.list }, restAttributes));
 </script>
 
 {#if element}

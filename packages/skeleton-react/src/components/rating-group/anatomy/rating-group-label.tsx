@@ -9,12 +9,6 @@ export interface RatingGroupLabelProps extends PropsWithElement, Omit<ComponentP
 export default function (props: RatingGroupLabelProps) {
 	const rootContext = useContext(RatingGroupRootContext);
 	const { element, children, ...restAttributes } = props;
-	const attributes = mergeProps(
-		rootContext.api.getLabelProps(),
-		{
-			className: classesRatingGroup.label
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getLabelProps(), { className: classesRatingGroup.label }, restAttributes);
 	return element ? element({ attributes }) : <label {...attributes}>{children}</label>;
 }

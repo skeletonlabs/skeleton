@@ -12,13 +12,7 @@ export default function (props: AccordionItemProps) {
 	const rootContext = useContext(AccordionRootContext);
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...restAttributes } = componentProps;
-	const attributes = mergeProps(
-		rootContext.api.getItemProps(itemProps),
-		{
-			className: classesAccordion.item
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(rootContext.api.getItemProps(itemProps), { className: classesAccordion.item }, restAttributes);
 	return (
 		<AccordionItemContext.Provider value={{ itemProps, itemState: rootContext.api.getItemState(itemProps) }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}

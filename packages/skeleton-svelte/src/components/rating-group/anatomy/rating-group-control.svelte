@@ -13,15 +13,7 @@
 	const props: RatingGroupControlProps = $props();
 	const rootContext = RatingGroupRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getControlProps(),
-			{
-				class: classesRatingGroup.control
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getControlProps(), { class: classesRatingGroup.control }, restAttributes));
 </script>
 
 {#if element}

@@ -21,15 +21,7 @@
 		...machineProps
 	}));
 	const api = $derived(connect(service, normalizeProps));
-	const attributes = $derived(
-		mergeProps(
-			api.getRootProps(),
-			{
-				class: classesAvatar.root
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesAvatar.root }, restAttributes));
 	AvatarRootContext.provide({
 		get api() {
 			return api;
