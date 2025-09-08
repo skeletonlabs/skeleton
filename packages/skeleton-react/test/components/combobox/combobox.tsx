@@ -1,4 +1,4 @@
-import { Combobox } from '@skeletonlabs/skeleton-react';
+import { Combobox } from '../../../src/index';
 
 export default function () {
 	return (
