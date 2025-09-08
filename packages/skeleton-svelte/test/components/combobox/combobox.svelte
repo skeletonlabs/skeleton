@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Combobox } from '@skeletonlabs/skeleton-svelte';
+	import { Combobox } from '../../../src/index';
 </script>
 
 <Combobox data-testid="root">
