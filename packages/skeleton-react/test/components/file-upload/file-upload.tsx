@@ -1,4 +1,4 @@
-import { FileUpload } from '../../../src/index.js';
+import { FileUpload } from '../../../src/index';
 
 export default function () {
 	return (
