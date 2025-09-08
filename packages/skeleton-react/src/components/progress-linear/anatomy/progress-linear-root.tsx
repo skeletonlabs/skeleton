@@ -9,7 +9,10 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 // Local
 import { ProgressLinearRootContext } from '../modules/progress-linear-root-context';
 
-export interface ProgressLinearRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<ComponentProps<'div'>, 'id' | 'dir'> {}
+export interface ProgressLinearRootProps
+	extends PropsWithElement,
+		Omit<Props, 'id'>,
+		Omit<ComponentProps<'div'>, 'id' | 'dir' | 'defaultValue'> {}
 
 export default function (props: ProgressLinearRootProps) {
 	// Props
