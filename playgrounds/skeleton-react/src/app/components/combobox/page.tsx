@@ -46,18 +46,17 @@ export default function () {
 		groupBy: (item) => item.type
 	});
 
-	console.log(collection.group());
 	const onOpenChange = () => {
 		setItems(data);
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
-		const filtered = items.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
+		const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
 		setItems(filtered.length > 0 ? filtered : data);
 	};
 
 	return (
-		<Combobox collection={collection} onInputValueChange={onInputValueChange} onOpenChange={onOpenChange}>
+		<Combobox collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange}>
 			<Combobox.Label>Label</Combobox.Label>
 			<Combobox.Control>
 				<Combobox.Input />
