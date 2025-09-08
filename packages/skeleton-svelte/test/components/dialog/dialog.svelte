@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Dialog } from '@skeletonlabs/skeleton-svelte';
+	import { Dialog } from '../../../src/index';
 </script>
 
 <Dialog>

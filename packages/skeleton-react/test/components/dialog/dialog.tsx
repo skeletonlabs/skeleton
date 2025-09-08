@@ -1,4 +1,4 @@
-import { Dialog } from '@skeletonlabs/skeleton-react';
+import { Dialog } from '../../../src/index';
 
 export default function () {
 	return (
