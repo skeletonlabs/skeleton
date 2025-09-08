@@ -1,4 +1,4 @@
-import { RatingGroup } from '../../../src/index.js';
+import { RatingGroup } from '../../../src/index';
 
 export default function () {
 	return (
