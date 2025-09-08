@@ -63,7 +63,7 @@
 	</Combobox.Control>
 	<Combobox.Positioner>
 		<Combobox.Content>
-			{#each collection.group() as [type, items]}
+			{#each collection.group() as [type, items] (type)}
 				<Combobox.ItemGroup>
 					<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
 					{#each items as item (item.value)}
