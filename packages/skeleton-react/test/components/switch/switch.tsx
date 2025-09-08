@@ -1,4 +1,4 @@
-import { Switch } from '@skeletonlabs/skeleton-react';
+import { Switch } from '../../../src/index';
 
 export default function () {
 	return (
