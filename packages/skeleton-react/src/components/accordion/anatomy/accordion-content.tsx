@@ -13,9 +13,7 @@ export default function (props: AccordionContentProps) {
 	const { element, children, ...restAttributes } = props;
 	const attributes = mergeProps(
 		rootContext.api.getItemContentProps(itemContext.itemProps),
-		{
-			className: classesAccordion.content
-		},
+		{ className: classesAccordion.content },
 		restAttributes
 	);
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;

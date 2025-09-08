@@ -15,13 +15,7 @@ export default function (props: AvatarRootProps) {
 		...machineProps
 	});
 	const api = connect(service, normalizeProps);
-	const attributes = mergeProps(
-		api.getRootProps(),
-		{
-			className: classesAvatar.root
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(api.getRootProps(), { className: classesAvatar.root }, restAttributes);
 	return (
 		<AvatarRootContext.Provider value={{ api }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}

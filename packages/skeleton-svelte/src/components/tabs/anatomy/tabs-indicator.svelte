@@ -13,15 +13,7 @@
 	const props: TabsIndicatorProps = $props();
 	const rootContext = TabsRootContext.consume();
 	const { element, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getIndicatorProps(),
-			{
-				class: classesTabs.indicator
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getIndicatorProps(), { class: classesTabs.indicator }, restAttributes));
 </script>
 
 {#if element}

@@ -21,13 +21,7 @@ export default function (props: RatingGroupRootProps) {
 		...machineProps
 	});
 	const api = connect(service, normalizeProps);
-	const attributes = mergeProps(
-		api.getRootProps(),
-		{
-			className: classesRatingGroup.root
-		},
-		restAttributes
-	);
+	const attributes = mergeProps(api.getRootProps(), { className: classesRatingGroup.root }, restAttributes);
 	return (
 		<RatingGroupRootContext.Provider value={{ api }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}
