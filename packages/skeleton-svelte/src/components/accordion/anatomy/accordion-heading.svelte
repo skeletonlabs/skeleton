@@ -18,14 +18,7 @@
 
 	const props: AccordionHeadingProps = $props();
 	const { level = 3, element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			{
-				class: classesAccordion.heading
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps({ class: classesAccordion.heading }, restAttributes));
 	const tag = $derived(`h${level}`);
 </script>
 
