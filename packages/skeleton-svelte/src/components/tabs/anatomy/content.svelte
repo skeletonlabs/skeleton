@@ -13,10 +13,11 @@
 	import { splitContentProps } from '@zag-js/tabs';
 
 	const props: TabsContentProps = $props();
-	const [contentProps, componentProps] = $derived(splitContentProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
 
 	const rootContext = TabsRootContext.consume();
+
+	const [contentProps, componentProps] = $derived(splitContentProps(props));
+	const { element, children, ...restAttributes } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(rootContext.api.getContentProps(contentProps), { class: classesTabs.content }, restAttributes));
 </script>
