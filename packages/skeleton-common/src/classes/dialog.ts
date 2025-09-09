@@ -4,7 +4,7 @@ export const classesDialog = defineSkeletonClasses({
 	trigger: 'btn preset-filled',
 	backdrop: 'fixed inset-0 bg-black/50',
 	positioner: 'fixed inset-0 flex justify-center items-center',
-	content: 'bg-surface-100-900 rounded-container p-4',
+	content: 'preset-filled-surface-100-900 border-1 border-surface-200-800 rounded-container p-4',
 	title: '',
 	description: '',
 	closeTrigger: 'btn preset-filled'
