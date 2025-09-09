@@ -8,11 +8,14 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesDialog } from '@skeletonlabs/skeleton-common';
-	import { DialogRootContext } from '../modules/dialog-root-context';
+	import { DialogRootContext } from '../modules/root-context';
 
 	const props: DialogDescriptionProps = $props();
+
 	const rootContext = DialogRootContext.consume();
+
 	const { element, children, ...restAttributes } = $derived(props);
+
 	const attributes = $derived(mergeProps(rootContext.api.getDescriptionProps(), { class: classesDialog.description }, restAttributes));
 </script>
 

@@ -1,25 +1,28 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	export interface DialogCloseTriggerProps extends PropsWithElement, HTMLButtonAttributes {}
+	export interface DialogTitleProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesDialog } from '@skeletonlabs/skeleton-common';
-	import { DialogRootContext } from '../modules/dialog-root-context';
+	import { DialogRootContext } from '../modules/root-context';
 
-	const props: DialogCloseTriggerProps = $props();
+	const props: DialogTitleProps = $props();
+
 	const rootContext = DialogRootContext.consume();
+
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(mergeProps(rootContext.api.getCloseTriggerProps(), { class: classesDialog.closeTrigger }, restAttributes));
+
+	const attributes = $derived(mergeProps(rootContext.api.getTitleProps(), { class: classesDialog.title }, restAttributes));
 </script>
 
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<button {...attributes}>
+	<div {...attributes}>
 		{@render children?.()}
-	</button>
+	</div>
 {/if}

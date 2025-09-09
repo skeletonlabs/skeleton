@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Dialog } from '../../../src/index';
+	import { Dialog } from '@/index';
 </script>
 
 <Dialog>

@@ -1,4 +1,4 @@
-import { Dialog } from '../../../src/index';
+import { Dialog } from '@/index';
 
 export default function () {
 	return (
