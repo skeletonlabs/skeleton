@@ -2,18 +2,21 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	export interface SwitchControlProps extends PropsWithElement, HTMLAttributes<HTMLSpanElement> {}
+	export interface SwitchLabelProps extends PropsWithElement, HTMLAttributes<HTMLSpanElement> {}
 </script>
 
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesSwitch } from '@skeletonlabs/skeleton-common';
-	import { SwitchRootContext } from '../modules/switch-root-context';
+	import { SwitchRootContext } from '../modules/root-context';
 
-	const props: SwitchControlProps = $props();
+	const props: SwitchLabelProps = $props();
+
 	const rootContext = SwitchRootContext.consume();
+
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(mergeProps(rootContext.api.getControlProps(), { class: classesSwitch.control }, restAttributes));
+
+	const attributes = $derived(mergeProps(rootContext.api.getLabelProps(), { class: classesSwitch.label }, restAttributes));
 </script>
 
 {#if element}

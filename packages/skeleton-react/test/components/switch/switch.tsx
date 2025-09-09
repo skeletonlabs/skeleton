@@ -1,4 +1,4 @@
-import { Switch } from '../../../src/index';
+import { Switch } from '@/index';
 
 export default function () {
 	return (

@@ -8,11 +8,14 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesSwitch } from '@skeletonlabs/skeleton-common';
-	import { SwitchRootContext } from '../modules/switch-root-context';
+	import { SwitchRootContext } from '../modules/root-context';
 
 	const props: SwitchHiddenInputProps = $props();
+
 	const rootContext = SwitchRootContext.consume();
+
 	const { element, ...restAttributes } = $derived(props);
+
 	const attributes = $derived(mergeProps(rootContext.api.getHiddenInputProps(), { class: classesSwitch.hiddenInput }, restAttributes));
 </script>
 

@@ -1,8 +1,8 @@
-export { Switch } from './modules/switch-anatomy';
-export type { SwitchRootProps } from './anatomy/switch-root';
-export type { SwitchRootContextProps } from './anatomy/switch-root-context';
-export type { SwitchHiddenInputProps } from './anatomy/switch-hidden-input';
-export type { SwitchControlProps } from './anatomy/switch-control';
-export type { SwitchThumbProps } from './anatomy/switch-thumb';
-export type { SwitchLabelProps } from './anatomy/switch-label';
-export type { SwitchRootContextType as SwitchRootContext } from './modules/switch-root-context';
+export { Switch } from './modules/anatomy';
+export type { SwitchRootProps } from './anatomy/root';
+export type { SwitchRootContextProps } from './anatomy/root-context';
+export type { SwitchHiddenInputProps } from './anatomy/hidden-input';
+export type { SwitchControlProps } from './anatomy/control';
+export type { SwitchThumbProps } from './anatomy/thumb';
+export type { SwitchLabelProps } from './anatomy/label';
+export type { SwitchRootContextType as SwitchRootContext } from './modules/root-context';
