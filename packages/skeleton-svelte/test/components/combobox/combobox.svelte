@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Combobox } from '../../../src/index';
+	import { Combobox } from '@/index';
 </script>
 
 <Combobox data-testid="root">

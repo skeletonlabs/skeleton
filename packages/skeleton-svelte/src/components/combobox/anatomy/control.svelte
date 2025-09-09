@@ -1,25 +1,25 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	export interface ComboboxTriggerProps extends PropsWithElement, HTMLButtonAttributes {}
+	export interface ComboboxControlProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
-	import { ComboboxRootContext } from '../modules/combobox-root-context';
+	import { ComboboxRootContext } from '../modules/root-context';
 
-	const props: ComboboxTriggerProps = $props();
+	const props: ComboboxControlProps = $props();
 	const rootContext = ComboboxRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(), { class: classesCombobox.trigger }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getControlProps(), { class: classesCombobox.control }, restAttributes));
 </script>
 
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<button {...attributes}>
+	<div {...attributes}>
 		{@render children?.()}
-	</button>
+	</div>
 {/if}

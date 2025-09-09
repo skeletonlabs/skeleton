@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { ComboboxItemGroupContext, type ComboboxItemGroupContextType } from '../modules/combobox-item-group-context';
+import { ComboboxItemGroupContext, type ComboboxItemGroupContextType } from '../modules/item-group-context';
 
 export interface ComboboxItemGroupContextProps {
 	children: (context: ComboboxItemGroupContextType) => ReactNode;

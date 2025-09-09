@@ -1,9 +1,9 @@
 import { useContext, useId, type ComponentProps } from 'react';
 import { mergeProps } from '@zag-js/react';
-import { ComboboxRootContext } from '../modules/combobox-root-context';
+import { ComboboxRootContext } from '../modules/root-context';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import { splitItemGroupProps, type ItemGroupProps } from '@zag-js/combobox';
-import { ComboboxItemGroupContext } from '../modules/combobox-item-group-context';
+import { ComboboxItemGroupContext } from '../modules/item-group-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
 export interface ComboboxItemGroupProps extends PropsWithElement, Omit<ItemGroupProps, 'id'>, Omit<ComponentProps<'div'>, 'id'> {}

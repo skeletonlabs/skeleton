@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
-	import { ComboboxRootContext } from '../modules/combobox-root-context';
+	import { ComboboxRootContext } from '../modules/root-context';
 
 	const props: ComboboxInputProps = $props();
 	const rootContext = ComboboxRootContext.consume();

@@ -1,6 +1,6 @@
 import { useContext, type ComponentProps } from 'react';
 import { mergeProps } from '@zag-js/react';
-import { ComboboxRootContext } from '../modules/combobox-root-context';
+import { ComboboxRootContext } from '../modules/root-context';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 

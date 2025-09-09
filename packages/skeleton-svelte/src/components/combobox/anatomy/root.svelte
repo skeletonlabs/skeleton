@@ -12,7 +12,7 @@
 <script lang="ts">
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
-	import { ComboboxRootContext } from '../modules/combobox-root-context';
+	import { ComboboxRootContext } from '../modules/root-context';
 	import { connect, machine, splitProps } from '@zag-js/combobox';
 
 	const props: ComboboxRootProps = $props();

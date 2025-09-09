@@ -9,9 +9,9 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
-	import { ComboboxRootContext } from '../modules/combobox-root-context';
+	import { ComboboxRootContext } from '../modules/root-context';
 	import { splitItemProps } from '@zag-js/combobox';
-	import { ComboboxItemContext } from '../modules/combobox-item-context';
+	import { ComboboxItemContext } from '../modules/item-context';
 
 	const props: ComboboxItemProps = $props();
 	const rootContext = ComboboxRootContext.consume();

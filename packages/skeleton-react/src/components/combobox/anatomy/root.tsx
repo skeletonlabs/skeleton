@@ -2,7 +2,7 @@ import { useId, type ComponentProps } from 'react';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import { splitProps, machine, connect, type Props } from '@zag-js/combobox';
-import { ComboboxRootContext } from '../modules/combobox-root-context';
+import { ComboboxRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
 export interface ComboboxRootProps

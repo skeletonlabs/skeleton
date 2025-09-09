@@ -1,4 +1,4 @@
-import { Combobox } from '../../../src/index';
+import { Combobox } from '@/index';
 
 export default function () {
 	return (

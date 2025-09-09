@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { mergeProps, portal } from '@zag-js/svelte';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
-	import { ComboboxRootContext } from '../modules/combobox-root-context';
+	import { ComboboxRootContext } from '../modules/root-context';
 	import { createAttachmentKey, fromAction } from 'svelte/attachments';
 
 	const props: ComboboxPositionerProps = $props();
