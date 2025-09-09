@@ -12,13 +12,14 @@
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { ComboboxRootContext } from '../modules/root-context';
-	import { splitItemGroupLabelProps, type ItemGroupLabelProps } from '@zag-js/combobox';
 	import { ComboboxItemGroupContext } from '../modules/item-group-context';
+	import { splitItemGroupLabelProps, type ItemGroupLabelProps } from '@zag-js/combobox';
+
+	const props: ComboboxItemGroupLabelProps = $props();
 
 	const rootContext = ComboboxRootContext.consume();
 	const itemGroupContext = ComboboxItemGroupContext.consume();
 
-	const props: ComboboxItemGroupLabelProps = $props();
 	const [itemGroupLabelProps] = $derived(
 		splitItemGroupLabelProps({
 			htmlFor: itemGroupContext.itemGroupProps.id,

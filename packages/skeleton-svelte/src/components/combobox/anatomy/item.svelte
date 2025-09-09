@@ -13,9 +13,10 @@
 	import { splitItemProps } from '@zag-js/combobox';
 	import { ComboboxItemContext } from '../modules/item-context';
 
+	const props: ComboboxItemProps = $props();
+
 	const rootContext = ComboboxRootContext.consume();
 
-	const props: ComboboxItemProps = $props();
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
 

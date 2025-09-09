@@ -11,9 +11,10 @@
 	import { ComboboxRootContext } from '../modules/root-context';
 	import { createAttachmentKey, fromAction } from 'svelte/attachments';
 
+	const props: ComboboxPositionerProps = $props();
+
 	const rootContext = ComboboxRootContext.consume();
 
-	const props: ComboboxPositionerProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
 
 	const attributes = $derived({
