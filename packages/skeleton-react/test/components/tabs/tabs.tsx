@@ -1,4 +1,4 @@
-import { Tabs } from '../../../src/index';
+import { Tabs } from '@/index';
 
 export default function () {
 	return (
