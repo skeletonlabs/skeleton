@@ -5,10 +5,10 @@ export const classesProgressLinear = defineSkeletonClasses({
 		// Common
 		'items-center justify-center gap-2',
 		// Horizontal Orientation
-		'data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:flex',
+		'data-[orientation=horizontal]:flex data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:w-full',
 		// Vertical Orientation
-		'data-[orientation=vertical]:flex-col data-[orientation=vertical]:inline-flex'
-	].join(' '),
+		'data-[orientation=vertical]:inline-flex data-[orientation=vertical]:flex-col'
+	],
 	label: 'whitespace-nowrap',
 	track: [
 		// Common
@@ -17,7 +17,7 @@ export const classesProgressLinear = defineSkeletonClasses({
 		'data-[orientation=horizontal]:w-full data-[orientation=horizontal]:h-2',
 		// Vertical Orientation
 		'data-[orientation=vertical]:w-2 data-[orientation=vertical]:h-[100px]'
-	].join(' '),
+	],
 	range: [
 		// Common
 		'h-full bg-surface-950-50 rounded-base',
@@ -25,5 +25,5 @@ export const classesProgressLinear = defineSkeletonClasses({
 		'data-[orientation=horizontal]:transition-[width] data-[orientation=horizontal]:data-[state=indeterminate]:animate-progress-indeterminate-horz',
 		// Vertical Orientation
 		'data-[orientation=vertical]:transition-[height] data-[orientation=vertical]:data-[state=indeterminate]:animate-progress-indeterminate-vert'
-	].join(' ')
+	]
 });

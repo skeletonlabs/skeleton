@@ -54,7 +54,7 @@
 	</section>
 	<section class="space-y-4">
 		<h3 class="h3">Orientation</h3>
-		<div class="space-x-4">
+		<div class="flex flex-row items-start gap-4">
 			<ProgressLinear orientation="vertical" {value}>
 				<ProgressLinear.Label>{value}%</ProgressLinear.Label>
 				<ProgressLinear.Track>
@@ -62,7 +62,7 @@
 				</ProgressLinear.Track>
 			</ProgressLinear>
 			<ProgressLinear orientation="vertical" value={null}>
-				<ProgressLinear.Label>{value}%</ProgressLinear.Label>
+				<ProgressLinear.Label>null</ProgressLinear.Label>
 				<ProgressLinear.Track>
 					<ProgressLinear.Range />
 				</ProgressLinear.Track>

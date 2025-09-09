@@ -13,6 +13,9 @@ import ExampleColorRaw from '@examples/components/progress-linear/react/color.ts
 import ExampleHeight from '@examples/components/progress-linear/react/height';
 import ExampleHeightRaw from '@examples/components/progress-linear/react/height.tsx?raw';
 
+import ExampleOrientation from '@examples/components/progress-linear/react/orientation';
+import ExampleOrientationRaw from '@examples/components/progress-linear/react/orientation.tsx?raw';
+
 import ExampleIndeterminate from '@examples/components/progress-linear/react/indeterminate';
 import ExampleIndeterminateRaw from '@examples/components/progress-linear/react/indeterminate.tsx?raw';
 
@@ -57,7 +60,16 @@ Provide background color values for the track and range to customize the colors.
 
 ## Orientation
 
-...
+For vertical orieintation, a height must be defined on the Track component. The default is `h-[100px]`.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleOrientation client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleOrientationRaw} lang="tsx" />
+	</Fragment>
+</Preview>
 
 ## Indeterminate
 
@@ -82,6 +94,12 @@ You must explicitely specify a `null` value to trigger indeterminate mode.
 		<Code code={ExampleCustomAnimationRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+Consider using following variants to target the orientation and state.
+
+- `data-[orientation=horizontal]:my-custom-animation` - target the horizontal orientation.
+- `data-[orientation=vertical]:my-custom-animation` - target the vertical orientation.
+- `data-[state=indeterminate]:my-custom-animation` - target the indeterminate state.
 
 ## Native Alternative
 

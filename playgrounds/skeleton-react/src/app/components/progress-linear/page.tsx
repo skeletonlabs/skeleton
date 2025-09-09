@@ -54,6 +54,23 @@ export default function Page() {
 				</ProgressLinear>
 			</section>
 			<section className="space-y-4">
+				<h3 className="h3">Orientation</h3>
+				<div className="flex flex-row items-start gap-4">
+					<ProgressLinear orientation="vertical" value={value} onValueChange={(e) => setValue(e.value)}>
+						<ProgressLinear.Label>{value}%</ProgressLinear.Label>
+						<ProgressLinear.Track>
+							<ProgressLinear.Range />
+						</ProgressLinear.Track>
+					</ProgressLinear>
+					<ProgressLinear orientation="vertical" value={null}>
+						<ProgressLinear.Label>null</ProgressLinear.Label>
+						<ProgressLinear.Track>
+							<ProgressLinear.Range />
+						</ProgressLinear.Track>
+					</ProgressLinear>
+				</div>
+			</section>
+			<section className="space-y-4">
 				<h3 className="h3">Labeled</h3>
 				<ProgressLinear value={value} onValueChange={(e) => setValue(e.value)}>
 					<ProgressLinear.Label>{value}%</ProgressLinear.Label>

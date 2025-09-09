@@ -13,6 +13,9 @@ import ExampleColorRaw from '@examples/components/progress-linear/svelte/color.s
 import ExampleHeight from '@examples/components/progress-linear/svelte/height.svelte';
 import ExampleHeightRaw from '@examples/components/progress-linear/svelte/height.svelte?raw';
 
+import ExampleOrientation from '@examples/components/progress-linear/svelte/orientation.svelte';
+import ExampleOrientationRaw from '@examples/components/progress-linear/svelte/orientation.svelte?raw';
+
 import ExampleIndeterminate from '@examples/components/progress-linear/svelte/indeterminate.svelte';
 import ExampleIndeterminateRaw from '@examples/components/progress-linear/svelte/indeterminate.svelte?raw';
 
@@ -57,7 +60,16 @@ Provide background color values for the track and range to customize the colors.
 
 ## Orientation
 
-...
+For vertical orieintation, a height must be defined on the Track component. The default is `h-[100px]`.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleOrientation client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleOrientationRaw} lang="svelte" />
+	</Fragment>
+</Preview>
 
 ## Indeterminate
 
@@ -82,6 +94,12 @@ You must explicitely specify a `null` value to trigger indeterminate mode.
 		<Code code={ExampleCustomAnimationRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+Consider using following variants to target the orientation and state.
+
+- `data-[orientation=horizontal]:my-custom-animation` - target the horizontal orientation.
+- `data-[orientation=vertical]:my-custom-animation` - target the vertical orientation.
+- `data-[state=indeterminate]:my-custom-animation` - target the indeterminate state.
 
 ## Native Alternative
 
