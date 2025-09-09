@@ -39,7 +39,6 @@ async function getClassValue(component: string, part: string) {
 	if (typeof value !== 'string') {
 		throw new Error(`Expected class value to be a string for ${component} ${part}`);
 	}
-	// Remove the "skb:" prefix from all classes
 	return value
 		.split(' ')
 		.map((str) => str.replace('skb:', ''))
@@ -97,7 +96,7 @@ async function main() {
 						const sourceFile = parser.getSourceFile(part);
 						const componentPartName = getComponentPartNameFromPath(part);
 						const _interface = sourceFile.getInterface(`${kebabToPascal(component)}${kebabToPascal(componentPartName)}Props`);
-						const classValue = await getClassValue(component, componentPartName);
+						const classValue = componentPartName.endsWith('context') ? undefined : await getClassValue(component, componentPartName);
 						return {
 							name: _interface.name,
 							props: _interface.props,
