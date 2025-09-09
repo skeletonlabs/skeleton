@@ -8,10 +8,10 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 export interface AccordionContentProps extends PropsWithChildren, PropsWithElement, ComponentProps<'div'> {}
 
 export default function (props: AccordionContentProps) {
-	const { element, children, ...restAttributes } = props;
-
 	const rootContext = useContext(AccordionRootContext);
 	const itemContext = useContext(AccordionItemContext);
+
+	const { element, children, ...restAttributes } = props;
 
 	const attributes = mergeProps(
 		rootContext.api.getItemContentProps(itemContext.itemProps),

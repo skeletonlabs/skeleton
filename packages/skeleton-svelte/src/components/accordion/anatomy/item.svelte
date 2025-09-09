@@ -14,10 +14,11 @@
 	import { AccordionItemContext } from '../modules/item-context';
 
 	const props: AccordionItemProps = $props();
-	const [itemProps, componentProps] = $derived(splitItemProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
 
 	const rootContext = AccordionRootContext.consume();
+
+	const [itemProps, componentProps] = $derived(splitItemProps(props));
+	const { element, children, ...restAttributes } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(rootContext.api.getItemProps(itemProps), { class: classesAccordion.item }, restAttributes));
 
