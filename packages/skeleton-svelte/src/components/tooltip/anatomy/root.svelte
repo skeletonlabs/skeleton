@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import { TooltipRootContext } from '../modules/tooltip-root-context';
+	import { TooltipRootContext } from '../modules/root-context';
 	import { connect, machine, splitProps } from '@zag-js/tooltip';
 
 	const props: TooltipRootProps = $props();

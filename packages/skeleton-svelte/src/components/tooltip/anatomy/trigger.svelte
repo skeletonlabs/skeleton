@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesTooltip } from '@skeletonlabs/skeleton-common';
-	import { TooltipRootContext } from '../modules/tooltip-root-context';
+	import { TooltipRootContext } from '../modules/root-context';
 
 	const props: TooltipTriggerProps = $props();
 
