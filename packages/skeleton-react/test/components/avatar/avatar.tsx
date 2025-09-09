@@ -1,4 +1,4 @@
-import { Avatar } from '../../../src/index';
+import { Avatar } from '@/index';
 
 export default function () {
 	return (
