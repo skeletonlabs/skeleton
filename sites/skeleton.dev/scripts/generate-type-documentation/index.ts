@@ -36,8 +36,8 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 async function getClassValue(component: string, part: string) {
 	const module = await import(pathToFileURL(join(CLASSES_DIRECTORY, `${component}.js`)).href);
 	const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
-	if (typeof value !== 'string') {
-		throw new Error(`Expected class value to be a string for ${component} ${part}`);
+	if (!value || typeof value !== 'string') {
+		return;
 	}
 	return value
 		.split(' ')
@@ -96,7 +96,7 @@ async function main() {
 						const sourceFile = parser.getSourceFile(part);
 						const componentPartName = getComponentPartNameFromPath(part);
 						const _interface = sourceFile.getInterface(`${kebabToPascal(component)}${kebabToPascal(componentPartName)}Props`);
-						const classValue = componentPartName.endsWith('context') ? undefined : await getClassValue(component, componentPartName);
+						const classValue = await getClassValue(component, componentPartName);
 						return {
 							name: _interface.name,
 							props: _interface.props,
