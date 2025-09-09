@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { RatingGroup } from '@skeletonlabs/skeleton-svelte';
+	import { RatingGroup } from '@/index';
 </script>
 
 <RatingGroup count={3} data-testid="root">

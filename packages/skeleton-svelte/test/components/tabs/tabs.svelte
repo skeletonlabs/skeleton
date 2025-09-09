@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tabs } from '@skeletonlabs/skeleton-svelte';
+	import { Tabs } from '@/index';
 </script>
 
 <Tabs data-testid="root">

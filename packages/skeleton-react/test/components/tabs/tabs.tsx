@@ -1,4 +1,4 @@
-import { Tabs } from '@skeletonlabs/skeleton-react';
+import { Tabs } from '@/index';
 
 export default function () {
 	return (
