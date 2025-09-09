@@ -1,1 +1,1 @@
-export * from './modules/tabs-anatomy';
+export * from './modules/anatomy';
