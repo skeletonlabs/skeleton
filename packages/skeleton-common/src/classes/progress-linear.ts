@@ -1,8 +1,29 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
 
 export const classesProgressLinear = defineSkeletonClasses({
-	root: 'w-full flex items-center gap-4',
+	root: [
+		// Common
+		'items-center justify-center gap-2',
+		// Horizontal Orientation
+		'data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:flex',
+		// Vertical Orientation
+		'data-[orientation=vertical]:flex-col data-[orientation=vertical]:inline-flex'
+	].join(' '),
 	label: 'whitespace-nowrap',
-	track: 'w-full h-2 bg-surface-200-800 rounded-base overflow-hidden',
-	range: 'h-full bg-surface-950-50 rounded-base transition-[width] data-[state=indeterminate]:animate-progress-indeterminate'
+	track: [
+		// Common
+		'bg-surface-200-800 rounded-base overflow-hidden',
+		// Horizontal Orientation
+		'data-[orientation=horizontal]:w-full data-[orientation=horizontal]:h-2',
+		// Vertical Orientation
+		'data-[orientation=vertical]:w-2 data-[orientation=vertical]:h-[100px]'
+	].join(' '),
+	range: [
+		// Common
+		'h-full bg-surface-950-50 rounded-base',
+		// Horizontal Orientation
+		'data-[orientation=horizontal]:transition-[width] data-[orientation=horizontal]:data-[state=indeterminate]:animate-progress-indeterminate-horz',
+		// Vertical Orientation
+		'data-[orientation=vertical]:transition-[height] data-[orientation=vertical]:data-[state=indeterminate]:animate-progress-indeterminate-vert'
+	].join(' ')
 });

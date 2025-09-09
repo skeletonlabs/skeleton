@@ -53,6 +53,23 @@
 		</ProgressLinear>
 	</section>
 	<section class="space-y-4">
+		<h3 class="h3">Orientation</h3>
+		<div class="space-x-4">
+			<ProgressLinear orientation="vertical" {value}>
+				<ProgressLinear.Label>{value}%</ProgressLinear.Label>
+				<ProgressLinear.Track>
+					<ProgressLinear.Range />
+				</ProgressLinear.Track>
+			</ProgressLinear>
+			<ProgressLinear orientation="vertical" value={null}>
+				<ProgressLinear.Label>{value}%</ProgressLinear.Label>
+				<ProgressLinear.Track>
+					<ProgressLinear.Range />
+				</ProgressLinear.Track>
+			</ProgressLinear>
+		</div>
+	</section>
+	<section class="space-y-4">
 		<h3 class="h3">Labeled</h3>
 		<ProgressLinear {value}>
 			<ProgressLinear.Label>{value}%</ProgressLinear.Label>
