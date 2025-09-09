@@ -3,7 +3,9 @@
 
 	const toaster = createToaster({});
 
-	$effect(() => toaster.create({}));
+	$effect(() => {
+		toaster.create({});
+	});
 </script>
 
 <Toast.Group {toaster} data-testid="group">
