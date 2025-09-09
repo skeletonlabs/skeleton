@@ -9,12 +9,12 @@
 		</ProgressLinear.Track>
 	</ProgressLinear>
 	<ProgressLinear>
-		<ProgressLinear.Track class="h-2">
+		<ProgressLinear.Track class="h-4">
 			<ProgressLinear.Range />
 		</ProgressLinear.Track>
 	</ProgressLinear>
 	<ProgressLinear>
-		<ProgressLinear.Track class="h-3">
+		<ProgressLinear.Track class="h-6">
 			<ProgressLinear.Range />
 		</ProgressLinear.Track>
 	</ProgressLinear>

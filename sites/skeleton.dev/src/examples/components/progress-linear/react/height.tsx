@@ -9,12 +9,12 @@ export default function () {
 				</ProgressLinear.Track>
 			</ProgressLinear>
 			<ProgressLinear>
-				<ProgressLinear.Track className="h-2">
+				<ProgressLinear.Track className="h-4">
 					<ProgressLinear.Range />
 				</ProgressLinear.Track>
 			</ProgressLinear>
 			<ProgressLinear>
-				<ProgressLinear.Track className="h-3">
+				<ProgressLinear.Track className="h-6">
 					<ProgressLinear.Range />
 				</ProgressLinear.Track>
 			</ProgressLinear>
