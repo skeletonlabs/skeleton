@@ -11,14 +11,18 @@
 	import { connect, machine, splitProps } from '@zag-js/popover';
 
 	const props: PopoverRootProps = $props();
+
 	const [machineProps, componentProps] = $derived(splitProps(props));
 	const { children } = $derived(componentProps);
+
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
 		id: id,
 		...machineProps
 	}));
+
 	const api = $derived(connect(service, normalizeProps));
+
 	PopoverRootContext.provide({
 		get api() {
 			return api;

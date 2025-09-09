@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	export interface PopoverArrowProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
+	export interface PopoverArrowTipProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">
@@ -10,19 +10,13 @@
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
 	import { PopoverRootContext } from '../modules/popover-root-context';
 
+	const props: PopoverArrowTipProps = $props();
+
 	const rootContext = PopoverRootContext.consume();
-	const props: PopoverArrowProps = $props();
+
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getArrowProps(),
-			{
-				style: '--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);',
-				class: classesPopover.arrow
-			},
-			restAttributes
-		)
-	);
+
+	const attributes = $derived(mergeProps(rootContext.api.getArrowTipProps(), { class: classesPopover.arrowTip }, restAttributes));
 </script>
 
 {#if element}

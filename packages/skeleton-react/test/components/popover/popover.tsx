@@ -1,4 +1,4 @@
-import { Popover } from '../../../src/index';
+import { Popover } from '@/index';
 
 export default function () {
 	return (

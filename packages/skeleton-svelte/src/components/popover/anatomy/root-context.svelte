@@ -11,6 +11,7 @@
 	import { PopoverRootContext } from '../modules/popover-root-context';
 
 	const props: PopoverRootContextProps = $props();
+
 	const rootContext = PopoverRootContext.consume();
 </script>
 

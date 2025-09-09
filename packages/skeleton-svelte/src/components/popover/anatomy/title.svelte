@@ -2,22 +2,21 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	export interface PopoverPositionerProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
+	export interface PopoverTitleProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps, portal } from '@zag-js/svelte';
+	import { mergeProps } from '@zag-js/svelte';
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
 	import { PopoverRootContext } from '../modules/popover-root-context';
-	import { createAttachmentKey, fromAction } from 'svelte/attachments';
+
+	const props: PopoverTitleProps = $props();
 
 	const rootContext = PopoverRootContext.consume();
-	const props: PopoverPositionerProps = $props();
+
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived({
-		...mergeProps(rootContext.api.getPositionerProps(), { class: classesPopover.positioner }, restAttributes),
-		[createAttachmentKey()]: fromAction(portal, () => ({ disabled: !rootContext.api.portalled }))
-	});
+
+	const attributes = $derived(mergeProps(rootContext.api.getTitleProps(), { class: classesPopover.title }, restAttributes));
 </script>
 
 {#if element}

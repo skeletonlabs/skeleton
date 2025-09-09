@@ -1,8 +1,8 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLButtonAttributes } from 'svelte/elements';
 
-	export interface PopoverContentProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
+	export interface PopoverCloseTriggerProps extends PropsWithElement, HTMLButtonAttributes {}
 </script>
 
 <script lang="ts">
@@ -10,16 +10,19 @@
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
 	import { PopoverRootContext } from '../modules/popover-root-context';
 
+	const props: PopoverCloseTriggerProps = $props();
+
 	const rootContext = PopoverRootContext.consume();
-	const props: PopoverContentProps = $props();
+
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(mergeProps(rootContext.api.getContentProps(), { class: classesPopover.content }, restAttributes));
+
+	const attributes = $derived(mergeProps(rootContext.api.getCloseTriggerProps(), { class: classesPopover.closeTrigger }, restAttributes));
 </script>
 
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<div {...attributes}>
+	<button {...attributes}>
 		{@render children?.()}
-	</div>
+	</button>
 {/if}

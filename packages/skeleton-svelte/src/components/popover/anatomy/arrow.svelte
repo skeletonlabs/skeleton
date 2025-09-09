@@ -1,8 +1,8 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	export interface PopoverTriggerProps extends PropsWithElement, HTMLButtonAttributes {}
+	export interface PopoverArrowProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">
@@ -10,16 +10,28 @@
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
 	import { PopoverRootContext } from '../modules/popover-root-context';
 
+	const props: PopoverArrowProps = $props();
+
 	const rootContext = PopoverRootContext.consume();
-	const props: PopoverTriggerProps = $props();
+
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(), { class: classesPopover.trigger }, restAttributes));
+
+	const attributes = $derived(
+		mergeProps(
+			rootContext.api.getArrowProps(),
+			{
+				style: '--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);',
+				class: classesPopover.arrow
+			},
+			restAttributes
+		)
+	);
 </script>
 
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<button {...attributes}>
+	<div {...attributes}>
 		{@render children?.()}
-	</button>
+	</div>
 {/if}
