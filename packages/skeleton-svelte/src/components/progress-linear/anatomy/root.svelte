@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/progress';
 
 	export interface ProgressLinearRootProps
@@ -12,24 +12,21 @@
 <script lang="ts">
 	import { splitProps, machine, connect } from '@zag-js/progress';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
-
 	import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
 	import { ProgressLinearRootContext } from '../modules/progress-linear-root-context.js';
 
-	// Props
 	const props: ProgressLinearRootProps = $props();
+
 	const [machineProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
-	const id = $props.id();
 
-	// Zag
+	const id = $props.id();
 	const service = useMachine(machine, () => ({
 		id,
 		...machineProps
 	}));
 	const api = $derived(connect(service, normalizeProps));
 
-	// Attributes
 	const attributes = $derived(
 		mergeProps(
 			api.getRootProps(),
@@ -40,7 +37,6 @@
 		)
 	);
 
-	// Context
 	ProgressLinearRootContext.provide({
 		get api() {
 			return api;

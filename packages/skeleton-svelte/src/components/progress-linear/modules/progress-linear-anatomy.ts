@@ -1,12 +1,12 @@
-import ProgressLinearRoot from '../anatomy/progress-linear-root.svelte';
-import ProgressLinearRootContext from '../anatomy/progress-linear-root-context.svelte';
-import ProgressLinearLabel from '../anatomy/progress-linear-label.svelte';
-import ProgressLinearTrack from '../anatomy/progress-linear-track.svelte';
-import ProgressLinearRange from '../anatomy/progress-linear-range.svelte';
+import Root from '../anatomy/root.svelte';
+import RootContext from '../anatomy/root-context.svelte';
+import Label from '../anatomy/label.svelte';
+import Track from '../anatomy/track.svelte';
+import Range from '../anatomy/range.svelte';
 
-export const ProgressLinear = Object.assign(ProgressLinearRoot, {
-	Context: ProgressLinearRootContext,
-	Label: ProgressLinearLabel,
-	Track: ProgressLinearTrack,
-	Range: ProgressLinearRange
+export const ProgressLinear = Object.assign(Root, {
+	Context: RootContext,
+	Label: Label,
+	Track: Track,
+	Range: Range
 });
