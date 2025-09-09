@@ -13,7 +13,7 @@
 	import { splitProps, machine, connect } from '@zag-js/progress';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
-	import { ProgressLinearRootContext } from '../modules/progress-linear-root-context.js';
+	import { ProgressLinearRootContext } from '../modules/root-context.js';
 
 	const props: ProgressLinearRootProps = $props();
 

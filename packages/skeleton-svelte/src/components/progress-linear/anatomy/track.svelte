@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
-	import { ProgressLinearRootContext } from '../modules/progress-linear-root-context';
+	import { ProgressLinearRootContext } from '../modules/root-context';
 
 	const props: ProgressLinearTrackProps = $props();
 

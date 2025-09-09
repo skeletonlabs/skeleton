@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { ProgressLinearRootContextType } from '../modules/progress-linear-root-context';
+	import type { ProgressLinearRootContextType } from '../modules/root-context';
 
 	export interface ProgressLinearRootContextProps {
 		children: Snippet<[ProgressLinearRootContextType]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { ProgressLinearRootContext } from '../modules/progress-linear-root-context';
+	import { ProgressLinearRootContext } from '../modules/root-context';
 
 	const props: ProgressLinearRootContextProps = $props();
 
