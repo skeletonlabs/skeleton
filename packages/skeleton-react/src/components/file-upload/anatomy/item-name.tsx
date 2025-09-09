@@ -1,8 +1,8 @@
 import { useContext, type ComponentProps } from 'react';
 import { mergeProps } from '@zag-js/react';
-import { FileUploadRootContext } from '../modules/file-upload-root-context';
+import { FileUploadRootContext } from '../modules/root-context';
 import { classesFileUpload } from '@skeletonlabs/skeleton-common';
-import { FileUploadItemContext } from '../modules/file-upload-item-context';
+import { FileUploadItemContext } from '../modules/item-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
 export interface FileUploadItemNameProps extends PropsWithElement, ComponentProps<'div'> {}
@@ -10,11 +10,14 @@ export interface FileUploadItemNameProps extends PropsWithElement, ComponentProp
 export default function (props: FileUploadItemNameProps) {
 	const rootContext = useContext(FileUploadRootContext);
 	const itemContext = useContext(FileUploadItemContext);
+
 	const { element, children, ...restAttributes } = props;
+
 	const attributes = mergeProps(
 		rootContext.api.getItemNameProps(itemContext.itemProps),
 		{ className: classesFileUpload.itemName },
 		restAttributes
 	);
+
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

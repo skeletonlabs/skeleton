@@ -7,14 +7,17 @@
 
 <script lang="ts">
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
-	import { FileUploadItemContext } from '../modules/file-upload-item-context';
-	import { FileUploadRootContext } from '../modules/file-upload-root-context';
+	import { FileUploadItemContext } from '../modules/item-context';
+	import { FileUploadRootContext } from '../modules/root-context';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemDeleteTriggerProps = $props();
+
 	const rootContext = FileUploadRootContext.consume();
 	const itemContext = FileUploadItemContext.consume();
+
 	const { element, children, ...restAttributes } = $derived(props);
+
 	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getItemDeleteTriggerProps(itemContext.itemProps),

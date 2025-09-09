@@ -8,15 +8,23 @@
 
 <script lang="ts">
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
-	import { FileUploadRootContext } from '../modules/file-upload-root-context';
-	import { FileUploadItemContext } from '../modules/file-upload-item-context';
+	import { FileUploadRootContext } from '../modules/root-context';
+	import { FileUploadItemContext } from '../modules/item-context';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemProps = $props();
+
 	const rootContext = FileUploadRootContext.consume();
+
 	const { element, children, ...restAttributes } = $derived(props);
+
 	const attributes = $derived(mergeProps(rootContext.api.getItemProps(props), { class: classesFileUpload.item }, restAttributes));
-	FileUploadItemContext.provide({ itemProps: props });
+
+	FileUploadItemContext.provide({
+		get itemProps() {
+			return props;
+		}
+	});
 </script>
 
 {#if element}
