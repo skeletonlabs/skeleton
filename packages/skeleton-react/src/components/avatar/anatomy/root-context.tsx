@@ -7,5 +7,6 @@ export interface AvatarRootContextProps {
 
 export default function (props: AvatarRootContextProps) {
 	const rootContext = useContext(AvatarRootContext);
+
 	return props.children(rootContext);
 }

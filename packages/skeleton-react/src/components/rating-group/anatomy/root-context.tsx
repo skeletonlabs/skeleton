@@ -7,5 +7,6 @@ export interface RatingGroupRootContextProps {
 
 export default function (props: RatingGroupRootContextProps) {
 	const rootContext = useContext(RatingGroupRootContext);
+
 	return props.children(rootContext);
 }

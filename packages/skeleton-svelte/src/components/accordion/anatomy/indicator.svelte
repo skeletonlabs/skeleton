@@ -12,9 +12,12 @@
 	import { AccordionItemContext } from '../modules/item-context';
 
 	const props: AccordionIndicatorProps = $props();
+
+	const { element, children, ...restAttributes } = $derived(props);
+
 	const rootContext = AccordionRootContext.consume();
 	const itemContext = AccordionItemContext.consume();
-	const { element, children, ...restAttributes } = $derived(props);
+
 	const attributes = $derived(
 		mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), { class: classesAccordion.indicator }, restAttributes)
 	);

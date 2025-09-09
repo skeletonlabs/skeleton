@@ -8,9 +8,12 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 export interface TabsTriggerProps extends PropsWithElement, TriggerProps, Omit<ComponentProps<'button'>, 'value'> {}
 
 export default function (props: TabsTriggerProps) {
-	const rootContext = useContext(TabsRootContext);
 	const [itemProps, componentProps] = splitTriggerProps(props);
 	const { element, children, ...restAttributes } = componentProps;
+
+	const rootContext = useContext(TabsRootContext);
+
 	const attributes = mergeProps(rootContext.api.getTriggerProps(itemProps), { className: classesTabs.trigger }, restAttributes);
+
 	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
 }

@@ -20,6 +20,7 @@
 	const [machineProps, componentProps] = $derived(splitProps(props));
 	// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672
 	const { element, children, ...restAttributes } = $derived(componentProps);
+
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
 		// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672
@@ -27,7 +28,9 @@
 		...machineProps
 	}));
 	const api = $derived(connect(service, normalizeProps));
+
 	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesRatingGroup.root }, restAttributes));
+
 	RatingGroupRootContext.provide({
 		get api() {
 			return api;

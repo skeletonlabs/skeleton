@@ -1,18 +1,18 @@
-import AccordionRoot from '../anatomy/root.svelte';
-import AccordionRootContext from '../anatomy/root-context.svelte';
-import AccordionItem from '../anatomy/item.svelte';
-import AccordionItemContext from '../anatomy/item-context.svelte';
-import AccordionHeading from '../anatomy/heading.svelte';
-import AccordionTrigger from '../anatomy/trigger.svelte';
-import AccordionIndicator from '../anatomy/indicator.svelte';
-import AccordionContent from '../anatomy/content.svelte';
+import Root from '../anatomy/root.svelte';
+import RootContext from '../anatomy/root-context.svelte';
+import Item from '../anatomy/item.svelte';
+import ItemContext from '../anatomy/item-context.svelte';
+import Heading from '../anatomy/heading.svelte';
+import Trigger from '../anatomy/trigger.svelte';
+import Indicator from '../anatomy/indicator.svelte';
+import Content from '../anatomy/content.svelte';
 
-export const Accordion = Object.assign(AccordionRoot, {
-	Context: AccordionRootContext,
-	Item: AccordionItem,
-	ItemContext: AccordionItemContext,
-	Heading: AccordionHeading,
-	Trigger: AccordionTrigger,
-	Indicator: AccordionIndicator,
-	Content: AccordionContent
+export const Accordion = Object.assign(Root, {
+	Context: RootContext,
+	Item: Item,
+	ItemContext: ItemContext,
+	Heading: Heading,
+	Trigger: Trigger,
+	Indicator: Indicator,
+	Content: Content
 });

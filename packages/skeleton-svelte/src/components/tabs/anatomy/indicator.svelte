@@ -11,8 +11,10 @@
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
 
 	const props: TabsIndicatorProps = $props();
-	const rootContext = TabsRootContext.consume();
 	const { element, ...restAttributes } = $derived(props);
+
+	const rootContext = TabsRootContext.consume();
+
 	const attributes = $derived(mergeProps(rootContext.api.getIndicatorProps(), { class: classesTabs.indicator }, restAttributes));
 </script>
 

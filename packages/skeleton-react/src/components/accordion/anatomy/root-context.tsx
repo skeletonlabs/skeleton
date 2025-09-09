@@ -7,5 +7,6 @@ export interface AccordionRootContextProps {
 
 export default function (props: AccordionRootContextProps) {
 	const rootContext = useContext(AccordionRootContext);
+
 	return props.children(rootContext);
 }

@@ -11,6 +11,7 @@
 	import { AccordionItemContext } from '../modules/item-context';
 
 	const props: AccordionItemContextProps = $props();
+
 	const itemContext = AccordionItemContext.consume();
 </script>
 

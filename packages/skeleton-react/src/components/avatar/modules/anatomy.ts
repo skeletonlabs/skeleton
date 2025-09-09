@@ -1,12 +1,10 @@
-import AvatarRoot from '../anatomy/root';
-import AvatarImage from '../anatomy/image';
-import AvatarFallback from '../anatomy/fallback';
-import AvatarRootContext from '../anatomy/root-context';
+import Root from '../anatomy/root';
+import RootContext from '../anatomy/root-context';
+import Image from '../anatomy/image';
+import Fallback from '../anatomy/fallback';
 
-const Avatar = Object.assign(AvatarRoot, {
-	Context: AvatarRootContext,
-	Image: AvatarImage,
-	Fallback: AvatarFallback
+export const Avatar = Object.assign(Root, {
+	Context: RootContext,
+	Image: Image,
+	Fallback: Fallback
 });
-
-export { Avatar };

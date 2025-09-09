@@ -11,6 +11,7 @@
 	import { RatingGroupItemContext } from '../modules/item-context';
 
 	const props: RatingGroupItemContextProps = $props();
+
 	const itemContext = RatingGroupItemContext.consume();
 </script>
 

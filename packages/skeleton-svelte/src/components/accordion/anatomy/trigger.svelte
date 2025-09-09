@@ -12,9 +12,11 @@
 	import { AccordionItemContext } from '../modules/item-context';
 
 	const props: AccordionTriggerProps = $props();
+	const { element, children, ...restAttributes } = $derived(props);
+
 	const rootContext = AccordionRootContext.consume();
 	const itemContext = AccordionItemContext.consume();
-	const { element, children, ...restAttributes } = $derived(props);
+
 	const attributes = $derived(
 		mergeProps(rootContext.api.getItemTriggerProps(itemContext.itemProps), { class: classesAccordion.trigger }, restAttributes)
 	);

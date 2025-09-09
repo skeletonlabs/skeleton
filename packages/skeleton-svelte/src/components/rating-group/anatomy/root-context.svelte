@@ -11,6 +11,7 @@
 	import { RatingGroupRootContext } from '../modules/root-context';
 
 	const props: RatingGroupRootContextProps = $props();
+
 	const rootContext = RatingGroupRootContext.consume();
 </script>
 

@@ -40,11 +40,15 @@
 	import type { Snippet } from 'svelte';
 
 	const props: RatingGroupItemProps = $props();
-	const rootContext = RatingGroupRootContext.consume();
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, empty = starEmpty, half = starHalf, full = starFull, ...restAttributes } = $derived(componentProps);
-	const attributes = $derived(mergeProps(rootContext.api.getItemProps(itemProps), { class: classesRatingGroup.item }, restAttributes));
+
+	const rootContext = RatingGroupRootContext.consume();
+
 	const itemState = $derived(rootContext.api.getItemState(itemProps));
+
+	const attributes = $derived(mergeProps(rootContext.api.getItemProps(itemProps), { class: classesRatingGroup.item }, restAttributes));
+
 	RatingGroupItemContext.provide({
 		get itemState() {
 			return itemState;

@@ -11,8 +11,10 @@
 	import { AvatarRootContext } from '../modules/root-context';
 
 	const props: AvatarImageProps = $props();
-	const rootContext = AvatarRootContext.consume();
 	const { element, ...restAttributes } = $derived(props);
+
+	const rootContext = AvatarRootContext.consume();
+
 	const attributes = $derived(mergeProps(rootContext.api.getImageProps(), { class: classesAvatar.image }, restAttributes));
 </script>
 

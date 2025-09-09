@@ -8,9 +8,12 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 export interface TabsContentProps extends PropsWithElement, ContentProps, ComponentProps<'div'> {}
 
 export default function (props: TabsContentProps) {
-	const rootContext = useContext(TabsRootContext);
 	const [itemProps, componentProps] = splitContentProps(props);
 	const { element, children, ...restAttributes } = componentProps;
+
+	const rootContext = useContext(TabsRootContext);
+
 	const attributes = mergeProps(rootContext.api.getContentProps(itemProps), { className: classesTabs.content }, restAttributes);
+
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

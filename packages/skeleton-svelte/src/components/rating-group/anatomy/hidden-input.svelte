@@ -13,8 +13,10 @@
 	import { RatingGroupRootContext } from '../modules/root-context';
 
 	const props: RatingGroupHiddenInputProps = $props();
-	const rootContext = RatingGroupRootContext.consume();
 	const { element, ...restAttributes } = $derived(props);
+
+	const rootContext = RatingGroupRootContext.consume();
+
 	const attributes = $derived(mergeProps(rootContext.api.getHiddenInputProps(), { class: classesRatingGroup.hiddenInput }, restAttributes));
 </script>
 

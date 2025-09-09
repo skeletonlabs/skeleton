@@ -11,8 +11,10 @@
 	import { AvatarRootContext } from '../modules/root-context';
 
 	const props: AvatarFallbackProps = $props();
-	const rootContext = AvatarRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
+
+	const rootContext = AvatarRootContext.consume();
+
 	const attributes = $derived(mergeProps(rootContext.api.getFallbackProps(), { class: classesAvatar.fallback }, restAttributes));
 </script>
 

@@ -31,11 +31,15 @@ export interface RatingGroupItemProps extends PropsWithElement, ItemProps, Omit<
 }
 
 export default function (props: RatingGroupItemProps) {
-	const rootContext = useContext(RatingGroupRootContext);
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, empty = <StarEmpty />, half = <StarHalf />, full = <StarFull />, ...restAttributes } = componentProps;
-	const attributes = mergeProps(rootContext.api.getItemProps(itemProps), { className: classesAccordion.item }, restAttributes);
+
+	const rootContext = useContext(RatingGroupRootContext);
+
 	const itemState = rootContext.api.getItemState(itemProps);
+
+	const attributes = mergeProps(rootContext.api.getItemProps(itemProps), { className: classesAccordion.item }, restAttributes);
+
 	return (
 		<RatingGroupItemContext.Provider value={{ itemState }}>
 			{element ? (

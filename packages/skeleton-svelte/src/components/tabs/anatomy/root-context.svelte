@@ -11,6 +11,7 @@
 	import { TabsRootContext } from '../modules/root-context';
 
 	const props: TabsRootContextProps = $props();
+
 	const rootContext = TabsRootContext.consume();
 </script>
 

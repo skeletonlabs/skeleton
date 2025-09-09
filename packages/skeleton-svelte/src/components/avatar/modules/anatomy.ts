@@ -1,10 +1,10 @@
-import AvatarRoot from '../anatomy/root.svelte';
-import AvatarRootContext from '../anatomy/root-context.svelte';
-import AvatarImage from '../anatomy/image.svelte';
-import AvatarFallback from '../anatomy/fallback.svelte';
+import Root from '../anatomy/root.svelte';
+import RootContext from '../anatomy/root-context.svelte';
+import Image from '../anatomy/image.svelte';
+import Fallback from '../anatomy/fallback.svelte';
 
-export const Avatar = Object.assign(AvatarRoot, {
-	Context: AvatarRootContext,
-	Image: AvatarImage,
-	Fallback: AvatarFallback
+export const Avatar = Object.assign(Root, {
+	Context: RootContext,
+	Image: Image,
+	Fallback: Fallback
 });

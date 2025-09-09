@@ -1,18 +1,18 @@
-import RatingGroupRoot from '../anatomy/root';
-import RatingGroupLabel from '../anatomy/label';
-import RatingGroupControl from '../anatomy/control';
-import RatingGroupItem from '../anatomy/item';
-import RatingGroupHiddenInput from '../anatomy/hidden-input';
-import RatingGroupRootContext from '../anatomy/root-context';
-import RatingGroupItemContext from '../anatomy/item-context';
+import Root from '../anatomy/root';
+import RootContext from '../anatomy/root-context';
+import Label from '../anatomy/label';
+import Control from '../anatomy/control';
+import Item from '../anatomy/item';
+import ItemContext from '../anatomy/item-context';
+import HiddenInput from '../anatomy/hidden-input';
 
-const RatingGroup = Object.assign(RatingGroupRoot, {
-	Label: RatingGroupLabel,
-	Control: RatingGroupControl,
-	Item: RatingGroupItem,
-	HiddenInput: RatingGroupHiddenInput,
-	Context: RatingGroupRootContext,
-	ItemContext: RatingGroupItemContext
+const RatingGroup = Object.assign(Root, {
+	Context: RootContext,
+	Label: Label,
+	Control: Control,
+	Item: Item,
+	ItemContext: ItemContext,
+	HiddenInput: HiddenInput
 });
 
 export { RatingGroup };

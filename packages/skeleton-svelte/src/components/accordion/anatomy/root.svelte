@@ -18,13 +18,16 @@
 	const props: AccordionRootProps = $props();
 	const [machineProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
+
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
 		id: id,
 		...machineProps
 	}));
 	const api = $derived(connect(service, normalizeProps));
+
 	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesAccordion.root }, restAttributes));
+
 	AccordionRootContext.provide({
 		get api() {
 			return api;

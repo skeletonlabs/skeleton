@@ -7,5 +7,6 @@ export interface AccordionItemContextProps {
 
 export default function (props: AccordionItemContextProps) {
 	const itemContext = useContext(AccordionItemContext);
+
 	return props.children(itemContext);
 }

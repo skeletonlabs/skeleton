@@ -11,8 +11,10 @@
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
 
 	const props: TabsListProps = $props();
-	const rootContext = TabsRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
+
+	const rootContext = TabsRootContext.consume();
+
 	const attributes = $derived(mergeProps(rootContext.api.getListProps(), { class: classesTabs.list }, restAttributes));
 </script>
 

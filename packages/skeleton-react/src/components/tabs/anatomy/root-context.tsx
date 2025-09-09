@@ -7,5 +7,6 @@ export interface TabsRootContextProps {
 
 export default function (props: TabsRootContextProps) {
 	const rootContext = useContext(TabsRootContext);
+
 	return props.children(rootContext);
 }

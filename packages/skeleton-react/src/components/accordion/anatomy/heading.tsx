@@ -14,7 +14,10 @@ export interface AccordionHeadingProps extends PropsWithChildren, PropsWithEleme
 
 export default function (props: AccordionHeadingProps) {
 	const { level = 3, element, children, ...restAttributes } = props;
+
 	const Tag: keyof JSX.IntrinsicElements = `h${level}`;
+
 	const attributes = mergeProps({ className: classesAccordion.heading }, restAttributes);
+
 	return element ? element({ attributes }) : <Tag {...attributes}>{children}</Tag>;
 }

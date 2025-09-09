@@ -14,12 +14,15 @@ export interface AccordionRootProps
 export default function (props: AccordionRootProps) {
 	const [machineProps, componentProps] = splitProps(props);
 	const { element, children, ...restAttributes } = componentProps;
+
 	const service = useMachine(machine, {
 		id: useId(),
 		...machineProps
 	});
 	const api = connect(service, normalizeProps);
+
 	const attributes = mergeProps(api.getRootProps(), { className: classesAccordion.root }, restAttributes);
+
 	return (
 		<AccordionRootContext.Provider value={{ api }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}

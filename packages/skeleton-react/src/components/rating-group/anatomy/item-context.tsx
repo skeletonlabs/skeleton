@@ -7,5 +7,6 @@ export interface RatingGroupItemContextProps {
 
 export default function (props: RatingGroupItemContextProps) {
 	const itemContext = useContext(RatingGroupItemContext);
+
 	return props.children(itemContext);
 }

@@ -11,6 +11,7 @@
 	import { AccordionRootContext } from '../modules/root-context';
 
 	const props: AccordionRootContextProps = $props();
+
 	const rootContext = AccordionRootContext.consume();
 </script>
 

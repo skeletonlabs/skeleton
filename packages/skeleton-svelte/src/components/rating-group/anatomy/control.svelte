@@ -11,8 +11,10 @@
 	import { RatingGroupRootContext } from '../modules/root-context';
 
 	const props: RatingGroupControlProps = $props();
-	const rootContext = RatingGroupRootContext.consume();
 	const { element, children, ...restAttributes } = $derived(props);
+
+	const rootContext = RatingGroupRootContext.consume();
+
 	const attributes = $derived(mergeProps(rootContext.api.getControlProps(), { class: classesRatingGroup.control }, restAttributes));
 </script>
 

@@ -10,9 +10,9 @@ import { MONOREPO_ROOT, CLASSES_DIRECTORY, OUTPUT_DIRECTORY } from './constants'
 async function getPartOrderFromAnatomy(framework: string, component: string) {
 	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
 	const sourceFile = project.createSourceFile(
-		`${component}-anatomy.js`,
+		`anatomy.js`,
 		await readFile(
-			join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components', component, 'modules', `${component}-anatomy.js`),
+			join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components', component, 'modules', `anatomy.js`),
 			'utf-8'
 		)
 	);
@@ -96,7 +96,7 @@ async function main() {
 					parts.map(async (part) => {
 						const sourceFile = parser.getSourceFile(part);
 						const componentPartName = getComponentPartNameFromPath(part);
-						const _interface = sourceFile.getInterface(`${kebabToPascal(componentPartName)}Props`);
+						const _interface = sourceFile.getInterface(`${kebabToPascal(component)}${kebabToPascal(componentPartName)}Props`);
 						const classValue = await getClassValue(component, componentPartName);
 						return {
 							name: _interface.name,

@@ -15,13 +15,16 @@ export default function (props: RatingGroupRootProps) {
 	const [machineProps, componentProps] = splitProps(props);
 	// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672
 	const { element, children, ...restAttributes } = componentProps;
+
 	const service = useMachine(machine, {
 		// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672
 		id: useId(),
 		...machineProps
 	});
 	const api = connect(service, normalizeProps);
+
 	const attributes = mergeProps(api.getRootProps(), { className: classesRatingGroup.root }, restAttributes);
+
 	return (
 		<RatingGroupRootContext.Provider value={{ api }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}
