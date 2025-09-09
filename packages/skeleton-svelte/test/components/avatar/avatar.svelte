@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Avatar } from '../../../src/index';
+	import { Avatar } from '@/index';
 </script>
 
 <Avatar data-testid="root">
