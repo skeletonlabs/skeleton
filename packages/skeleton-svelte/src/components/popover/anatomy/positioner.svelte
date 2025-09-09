@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { mergeProps, portal } from '@zag-js/svelte';
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
-	import { PopoverRootContext } from '../modules/popover-root-context';
+	import { PopoverRootContext } from '../modules/root-context';
 	import { createAttachmentKey, fromAction } from 'svelte/attachments';
 
 	const props: PopoverPositionerProps = $props();

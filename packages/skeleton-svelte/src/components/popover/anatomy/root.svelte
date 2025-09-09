@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { useMachine, normalizeProps } from '@zag-js/svelte';
-	import { PopoverRootContext } from '../modules/popover-root-context';
+	import { PopoverRootContext } from '../modules/root-context';
 	import { connect, machine, splitProps } from '@zag-js/popover';
 
 	const props: PopoverRootProps = $props();

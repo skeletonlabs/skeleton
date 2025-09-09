@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { PopoverRootContextType } from '../modules/popover-root-context';
+	import type { PopoverRootContextType } from '../modules/root-context';
 
 	export interface PopoverRootContextProps {
 		children: Snippet<[PopoverRootContextType]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { PopoverRootContext } from '../modules/popover-root-context';
+	import { PopoverRootContext } from '../modules/root-context';
 
 	const props: PopoverRootContextProps = $props();
 
