@@ -11,6 +11,7 @@
 	import { TooltipRootContext } from '../modules/tooltip-root-context';
 
 	const props: TooltipRootContextProps = $props();
+
 	const rootContext = TooltipRootContext.consume();
 </script>
 

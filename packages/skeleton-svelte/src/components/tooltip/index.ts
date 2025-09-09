@@ -1,9 +1,9 @@
-export { Tooltip } from './modules/tooltip-anatomy';
-export type { TooltipRootProps } from './anatomy/tooltip-root.svelte';
-export type { TooltipRootContextProps } from './anatomy/tooltip-root-context.svelte';
-export type { TooltipTriggerProps } from './anatomy/tooltip-trigger.svelte';
-export type { TooltipPositionerProps } from './anatomy/tooltip-positioner.svelte';
-export type { TooltipContentProps } from './anatomy/tooltip-content.svelte';
-export type { TooltipArrowProps } from './anatomy/tooltip-arrow.svelte';
-export type { TooltipArrowTipProps } from './anatomy/tooltip-arrow-tip.svelte';
-export type { TooltipRootContextType as TooltipRootContext } from './modules/tooltip-root-context';
+export { Tooltip } from './modules/anatomy';
+export type { TooltipRootProps } from './anatomy/root.svelte';
+export type { TooltipRootContextProps } from './anatomy/root-context.svelte';
+export type { TooltipTriggerProps } from './anatomy/trigger.svelte';
+export type { TooltipPositionerProps } from './anatomy/positioner.svelte';
+export type { TooltipContentProps } from './anatomy/content.svelte';
+export type { TooltipArrowProps } from './anatomy/arrow.svelte';
+export type { TooltipArrowTipProps } from './anatomy/arrow-tip.svelte';
+export type { TooltipRootContextType as TooltipRootContext } from './modules/root-context';

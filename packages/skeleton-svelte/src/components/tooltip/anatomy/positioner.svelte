@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	export interface TooltipArrowTipProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
+	export interface TooltipPositionerProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">
@@ -10,10 +10,13 @@
 	import { classesTooltip } from '@skeletonlabs/skeleton-common';
 	import { TooltipRootContext } from '../modules/tooltip-root-context';
 
-	const props: TooltipArrowTipProps = $props();
+	const props: TooltipPositionerProps = $props();
+
 	const rootContext = TooltipRootContext.consume();
+
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(mergeProps(rootContext.api.getArrowTipProps(), { class: classesTooltip.arrowTip }, restAttributes));
+
+	const attributes = $derived(mergeProps(rootContext.api.getPositionerProps(), { class: classesTooltip.positioner }, restAttributes));
 </script>
 
 {#if element}

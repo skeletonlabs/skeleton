@@ -10,9 +10,12 @@
 	import { classesTooltip } from '@skeletonlabs/skeleton-common';
 	import { TooltipRootContext } from '../modules/tooltip-root-context';
 
-	const rootContext = TooltipRootContext.consume();
 	const props: TooltipArrowProps = $props();
+
+	const rootContext = TooltipRootContext.consume();
+
 	const { element, children, ...restAttributes } = $derived(props);
+
 	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getArrowProps(),

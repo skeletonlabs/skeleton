@@ -1,8 +1,8 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLButtonAttributes } from 'svelte/elements';
 
-	export interface TooltipPositionerProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
+	export interface TooltipTriggerProps extends PropsWithElement, HTMLButtonAttributes {}
 </script>
 
 <script lang="ts">
@@ -10,16 +10,19 @@
 	import { classesTooltip } from '@skeletonlabs/skeleton-common';
 	import { TooltipRootContext } from '../modules/tooltip-root-context';
 
-	const props: TooltipPositionerProps = $props();
+	const props: TooltipTriggerProps = $props();
+
 	const rootContext = TooltipRootContext.consume();
+
 	const { element, children, ...restAttributes } = $derived(props);
-	const attributes = $derived(mergeProps(rootContext.api.getPositionerProps(), { class: classesTooltip.positioner }, restAttributes));
+
+	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(), { class: classesTooltip.trigger }, restAttributes));
 </script>
 
 {#if element}
 	{@render element({ attributes })}
 {:else}
-	<div {...attributes}>
+	<button {...attributes}>
 		{@render children?.()}
-	</div>
+	</button>
 {/if}

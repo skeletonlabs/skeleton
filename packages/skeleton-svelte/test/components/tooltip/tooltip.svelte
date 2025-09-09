@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tooltip } from '../../../src/index';
+	import { Tooltip } from '@/index';
 </script>
 
 <Tooltip>

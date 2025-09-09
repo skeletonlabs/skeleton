@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { type TooltipRootContextType, TooltipRootContext } from '../modules/tooltip-root-context.js';
+import { type TooltipRootContextType, TooltipRootContext } from '../modules/root-context';
 
 export interface TooltipRootContextProps {
 	children: (context: TooltipRootContextType) => ReactNode;

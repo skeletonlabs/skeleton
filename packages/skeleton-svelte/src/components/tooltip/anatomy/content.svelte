@@ -11,8 +11,11 @@
 	import { TooltipRootContext } from '../modules/tooltip-root-context';
 
 	const props: TooltipContentProps = $props();
+
 	const rootContext = TooltipRootContext.consume();
+
 	const { element, children, ...restAttributes } = $derived(props);
+
 	const attributes = $derived(mergeProps(rootContext.api.getContentProps(), { class: classesTooltip.content }, restAttributes));
 </script>
 
