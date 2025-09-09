@@ -11,13 +11,16 @@
 <script lang="ts">
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
-	import { ToastRootContext } from '../modules/toast-root-context';
-	import { ToastGroupContext } from '../modules/toast-group-context';
+	import { ToastRootContext } from '../modules/root-context';
+	import { ToastGroupContext } from '../modules/group-context';
 	import { connect, machine } from '@zag-js/toast';
 
 	const props: ToastRootProps = $props();
+
 	const groupContext = ToastGroupContext.consume();
+
 	const { element, children, toast, ...restAttributes } = $derived(props);
+
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
 		id: id,
@@ -25,7 +28,9 @@
 		...toast
 	}));
 	const api = $derived(connect(service, normalizeProps));
+
 	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesToast.root }, restAttributes));
+
 	ToastRootContext.provide({
 		get api() {
 			return api;

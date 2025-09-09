@@ -12,19 +12,23 @@
 <script lang="ts">
 	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
-	import { ToastGroupContext } from '../modules/toast-group-context';
+	import { ToastGroupContext } from '../modules/group-context';
 	import { group } from '@zag-js/toast';
 	import type { Snippet } from 'svelte';
 
 	const props: ToastGroupProps = $props();
+
 	const { element, children, toaster, ...restAttributes } = $derived(props);
+
 	const id = $props.id();
 	const service = useMachine(group.machine, () => ({
 		id: id,
 		store: toaster
 	}));
 	const api = $derived(group.connect(service, normalizeProps));
+
 	const attributes = $derived(mergeProps(api.getGroupProps(), { class: classesToast.group }, restAttributes));
+
 	ToastGroupContext.provide({
 		get groupApi() {
 			return api;

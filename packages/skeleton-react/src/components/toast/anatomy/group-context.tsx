@@ -1,5 +1,5 @@
 import { useContext, type ReactNode } from 'react';
-import { ToastGroupContext, type ToastGroupContextType } from '../modules/toast-group-context';
+import { ToastGroupContext, type ToastGroupContextType } from '../modules/group-context';
 
 export interface ToastGroupContextProps {
 	children: (context: ToastGroupContextType) => ReactNode;
@@ -7,5 +7,6 @@ export interface ToastGroupContextProps {
 
 export default function (props: ToastGroupContextProps) {
 	const groupContext = useContext(ToastGroupContext);
+
 	return props.children(groupContext);
 }
