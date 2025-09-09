@@ -67,6 +67,10 @@ As such, we'll implement one component part respective of each element:
 - `<Avatar.Image>` - the child image
 - `<Avatar.Fallback>` - the fallback span
 
+We'll also include a context component, to enable power-users access to the component tree's Context API.
+
+- `<Avatar.Context>` - the context component; this is omitted from the component documentation.
+
 ### Directory and File Names
 
 Components are housed in the following location per framework:
@@ -81,13 +85,13 @@ Skeleton uses a consistent naming convention per component:
 ```
 avatar/
 ├── anatomy/
-│   ├── avatar-fallback.{tsx|svelte}
-│   ├── avatar-image.{tsx|svelte}
-│   ├── avatar-root-context.{tsx|svelte}
-│   └── avatar-root.{tsx|svelte}
+│   ├── fallback.{tsx|svelte}
+│   ├── image.{tsx|svelte}
+│   ├── root-context.{tsx|svelte}
+│   └── root.{tsx|svelte}
 ├── modules/
-│   ├── avatar-anatomy.ts
-│   └── avatar-root-context.ts
+│   ├── anatomy.ts
+│   └── root-context.ts
 └── index.ts
 ```
 
@@ -99,7 +103,7 @@ The anatomy folder contains each component part inside a seperate file.
 
 Every component part should export their component as a default export and their prop types as named exports.
 
-#### React
+**React**
 
 ```tsx title="avatar-root.tsx"
 export interface AvatarRootProps {
@@ -111,7 +115,7 @@ export default function (props: AvatarRootProps) {
 }
 ```
 
-#### Svelte
+**Svelte**
 
 ```svelte title="avatar-root.svelte"
 <script lang="ts" module>
@@ -128,6 +132,18 @@ export default function (props: AvatarRootProps) {
 
 <!-- ... --->
 ```
+
+Note that you may need to extend or omit portions of the type to avoid conflicts between Zag and HTML attributes.
+
+#### Extend
+
+- `PropsWithElement` - from Skeleton's `@/internal/props-with-element`; allow for HTML template overrides.
+
+#### Omit
+
+- `Omit<Props, 'id'>` - omit attributes provided by Zag.js primitives.
+- React: `Omit<ComponentProps<'div'>, 'id' | 'dir'>` - omit conflicting HTML attributes.
+- Svelte: `Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'>` - omit conflicting HTML attributes.
 
 ### Modules Folder
 
@@ -219,9 +235,11 @@ Note that Skeleton implements a [set convention for Context API](/docs/resources
 While each component will present a unique set of challenges, we recommend you reference other existing components to understand how they were implemented. But there are a few common conventions we'll detail below.
 
 - Try to stick as close to the Zag implementation DOM structure and naming as possible; don't get creative.
+- Use whitespace to seperate Zag versus Skeleton logic, such as props, attributes, and context definitions.
 - Avoid hardcoded english text or icons. Consider pass-throughs using props, snippets, or sub-components.
 - React-Only: Replace the hardcoded `id` with `useId()`
 - Svelte-Only: Replace the hardcoded `id` with `$props.id()`
+- Default to the named import pattern, such as `import { foo, bar, fizz } from 'whatever';`
 
 > NOTE: if you're a contributor reading this and you feel there are more conventions to share. Please consider bringing this up with the Skeleton team. We might ask you to append these as you work on your contributions. The more knowledge we share, the more everyone benefits!
 
@@ -235,10 +253,11 @@ Styles are common and shared between all framework iterations of the same compon
 packages/
 └── skeleton-common/
 	└── src/
-		└── classes/
-			├── accordion.ts
-			├── avatar.ts
-			└── ...
+		├── classes/
+		|	├── accordion.ts
+		|	├── avatar.ts
+		|	└── ...
+		└── index.ts
 ```
 
 Here's an example of the Avatar styles found in `avatar.ts`:
@@ -257,6 +276,8 @@ export const classesAvatar = defineSkeletonClasses({
 - Use the naming convention of `classes{Component}`
 - Create a key for each component part.
 - Set the value to each component's default class list.
+- You can optionally pass an array of strings `['', '']` to document multi-line.
+- Make sure to export the component class file in `index.ts`.
 
 ### Style Prefix
 
