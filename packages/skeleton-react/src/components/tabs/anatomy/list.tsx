@@ -7,9 +7,9 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 export interface TabsListProps extends PropsWithElement, Omit<ComponentProps<'div'>, 'id' | 'defaultValue' | 'dir'> {}
 
 export default function (props: TabsListProps) {
-	const { element, children, ...restAttributes } = props;
-
 	const rootContext = useContext(TabsRootContext);
+
+	const { element, children, ...restAttributes } = props;
 
 	const attributes = mergeProps(rootContext.api.getListProps(), { className: classesTabs.list }, restAttributes);
 

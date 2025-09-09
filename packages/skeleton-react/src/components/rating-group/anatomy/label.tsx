@@ -7,9 +7,9 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 export interface RatingGroupLabelProps extends PropsWithElement, Omit<ComponentProps<'label'>, 'id' | 'defaultValue' | 'dir'> {}
 
 export default function (props: RatingGroupLabelProps) {
-	const { element, children, ...restAttributes } = props;
-
 	const rootContext = useContext(RatingGroupRootContext);
+
+	const { element, children, ...restAttributes } = props;
 
 	const attributes = mergeProps(rootContext.api.getLabelProps(), { className: classesRatingGroup.label }, restAttributes);
 
