@@ -3,10 +3,10 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 export const classesPopover = defineSkeletonClasses({
 	trigger: 'btn preset-filled',
 	positioner: '',
-	content: 'bg-surface-100-900 p-4 rounded-container',
+	content: 'relative preset-filled-surface-100-900 border-1 border-surface-200-800 p-4 rounded-container',
 	arrow: '',
-	arrowTip: '',
-	title: '',
+	arrowTip: 'border-t-1 border-l-1 border-surface-200-800',
+	title: 'h4 pr-32',
 	description: '',
-	closeTrigger: 'btn preset-tonal'
+	closeTrigger: 'absolute top-4 right-4 btn-icon preset-tonal'
 });

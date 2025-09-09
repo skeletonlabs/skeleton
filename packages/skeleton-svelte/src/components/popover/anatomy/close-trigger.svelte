@@ -9,15 +9,20 @@
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
 	import { PopoverRootContext } from '../modules/root-context';
+	import X from '@/internal/components/x.svelte';
 
 	const props: PopoverCloseTriggerProps = $props();
 
 	const rootContext = PopoverRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children = x, ...restAttributes } = $derived(props);
 
 	const attributes = $derived(mergeProps(rootContext.api.getCloseTriggerProps(), { class: classesPopover.closeTrigger }, restAttributes));
 </script>
+
+{#snippet x()}
+	<X />
+{/snippet}
 
 {#if element}
 	{@render element({ attributes })}
