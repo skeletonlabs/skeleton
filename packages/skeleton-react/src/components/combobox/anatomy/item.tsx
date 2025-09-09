@@ -10,9 +10,12 @@ export interface ComboboxItemProps extends PropsWithElement, ItemProps, Componen
 
 export default function (props: ComboboxItemProps) {
 	const rootContext = useContext(ComboboxRootContext);
+
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...restAttributes } = componentProps;
+
 	const attributes = mergeProps(rootContext.api.getItemProps(itemProps), { className: classesCombobox.item }, restAttributes);
+
 	return (
 		<ComboboxItemContext.Provider value={{ itemState: rootContext.api.getItemState(itemProps) }}>
 			{element ? element({ attributes }) : <li {...attributes}>{children}</li>}

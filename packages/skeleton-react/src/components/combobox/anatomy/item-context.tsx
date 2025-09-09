@@ -7,5 +7,6 @@ export interface ComboboxItemContextProps {
 
 export default function (props: ComboboxItemContextProps) {
 	const itemContext = useContext(ComboboxItemContext);
+
 	return props.children(itemContext);
 }

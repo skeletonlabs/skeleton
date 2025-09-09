@@ -13,12 +13,15 @@ export interface ComboboxRootProps
 export default function (props: ComboboxRootProps) {
 	const [machineProps, componentProps] = splitProps(props);
 	const { element, children, ...restAttributes } = componentProps;
+
 	const service = useMachine(machine, {
 		id: useId(),
 		...machineProps
 	});
 	const api = connect(service, normalizeProps);
+
 	const attributes = mergeProps(api.getRootProps(), { className: classesCombobox.root }, restAttributes);
+
 	return (
 		<ComboboxRootContext.Provider value={{ api }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}

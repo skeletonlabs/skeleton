@@ -8,7 +8,10 @@ export interface ComboboxPositionerProps extends PropsWithElement, ComponentProp
 
 export default function (props: ComboboxPositionerProps) {
 	const rootContext = useContext(ComboboxRootContext);
+
 	const { element, children, ...restAttributes } = props;
+
 	const attributes = mergeProps(rootContext.api.getPositionerProps(), { className: classesCombobox.positioner }, restAttributes);
+
 	return <Portal>{element ? element({ attributes }) : <div {...attributes}>{children}</div>}</Portal>;
 }

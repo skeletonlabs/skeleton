@@ -10,8 +10,9 @@
 <script lang="ts">
 	import { ComboboxItemGroupContext } from '../modules/item-group-context';
 
-	const props: ComboboxItemGroupContextProps = $props();
 	const itemgroupContext = ComboboxItemGroupContext.consume();
+
+	const props: ComboboxItemGroupContextProps = $props();
 </script>
 
 {@render props.children(itemgroupContext)}

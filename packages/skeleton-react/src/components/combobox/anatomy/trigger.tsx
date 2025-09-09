@@ -8,7 +8,10 @@ export interface ComboboxTriggerProps extends PropsWithElement, ComponentProps<'
 
 export default function (props: ComboboxTriggerProps) {
 	const rootContext = useContext(ComboboxRootContext);
+
 	const { element, children, ...restAttributes } = props;
+
 	const attributes = mergeProps(rootContext.api.getTriggerProps(), { className: classesCombobox.trigger }, restAttributes);
+
 	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
 }

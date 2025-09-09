@@ -10,16 +10,19 @@ export interface ComboboxItemGroupProps extends PropsWithElement, Omit<ItemGroup
 
 export default function (props: ComboboxItemGroupProps) {
 	const rootContext = useContext(ComboboxRootContext);
+
 	const [itemGroupProps, componentProps] = splitItemGroupProps({
 		id: useId(),
 		...props
 	});
 	const { element, children, ...restAttributes } = componentProps;
+
 	const attributes = mergeProps(
 		rootContext.api.getItemGroupProps(itemGroupProps),
 		{ className: classesCombobox.itemGroup },
 		restAttributes
 	);
+
 	return (
 		<ComboboxItemGroupContext.Provider value={{ itemGroupProps }}>
 			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}

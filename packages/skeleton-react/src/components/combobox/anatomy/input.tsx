@@ -8,7 +8,10 @@ export interface ComboboxInputProps extends PropsWithElement, Omit<ComponentProp
 
 export default function (props: ComboboxInputProps) {
 	const rootContext = useContext(ComboboxRootContext);
+
 	const { element, ...restAttributes } = props;
+
 	const attributes = mergeProps(rootContext.api.getInputProps(), { className: classesCombobox.input }, restAttributes);
+
 	return element ? element({ attributes }) : <input {...attributes} />;
 }

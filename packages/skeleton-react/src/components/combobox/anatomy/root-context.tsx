@@ -7,5 +7,6 @@ export interface ComboboxRootContextProps {
 
 export default function (props: ComboboxRootContextProps) {
 	const rootContext = useContext(ComboboxRootContext);
+
 	return props.children(rootContext);
 }

@@ -8,7 +8,10 @@ export interface ComboboxControlProps extends PropsWithElement, ComponentProps<'
 
 export default function (props: ComboboxControlProps) {
 	const rootContext = useContext(ComboboxRootContext);
+
 	const { element, children, ...restAttributes } = props;
+
 	const attributes = mergeProps(rootContext.api.getControlProps(), { className: classesCombobox.control }, restAttributes);
+
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

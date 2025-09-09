@@ -16,8 +16,9 @@
 	import { splitItemGroupProps } from '@zag-js/combobox';
 	import { ComboboxItemGroupContext } from '../modules/item-group-context';
 
-	const props: ComboboxItemGroupProps = $props();
 	const rootContext = ComboboxRootContext.consume();
+
+	const props: ComboboxItemGroupProps = $props();
 	const id = $props.id();
 	const [itemGroupProps, componentProps] = $derived(
 		splitItemGroupProps({
@@ -26,9 +27,11 @@
 		})
 	);
 	const { element, children, ...restAttributes } = $derived(componentProps);
+
 	const attributes = $derived(
 		mergeProps(rootContext.api.getItemGroupProps(itemGroupProps), { class: classesCombobox.itemGroup }, restAttributes)
 	);
+
 	ComboboxItemGroupContext.provide({
 		get itemGroupProps() {
 			return itemGroupProps;

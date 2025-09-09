@@ -8,7 +8,10 @@ export interface ComboboxLabelProps extends PropsWithElement, ComponentProps<'la
 
 export default function (props: ComboboxLabelProps) {
 	const rootContext = useContext(ComboboxRootContext);
+
 	const { element, children, ...restAttributes } = props;
+
 	const attributes = mergeProps(rootContext.api.getLabelProps(), { className: classesCombobox.label }, restAttributes);
+
 	return element ? element({ attributes }) : <label {...attributes}>{children}</label>;
 }

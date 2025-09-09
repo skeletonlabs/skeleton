@@ -10,9 +10,11 @@
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { ComboboxRootContext } from '../modules/root-context';
 
-	const props: ComboboxTriggerProps = $props();
 	const rootContext = ComboboxRootContext.consume();
+
+	const props: ComboboxTriggerProps = $props();
 	const { element, children, ...restAttributes } = $derived(props);
+
 	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(), { class: classesCombobox.trigger }, restAttributes));
 </script>
 

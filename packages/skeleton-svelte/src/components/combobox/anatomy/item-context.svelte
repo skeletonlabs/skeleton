@@ -10,8 +10,9 @@
 <script lang="ts">
 	import { ComboboxItemContext } from '../modules/item-context';
 
-	const props: ComboboxItemContextProps = $props();
 	const itemContext = ComboboxItemContext.consume();
+
+	const props: ComboboxItemContextProps = $props();
 </script>
 
 {@render props.children(itemContext)}
