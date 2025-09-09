@@ -5,5 +5,6 @@ export const classesToast = defineSkeletonClasses({
 	group: '',
 	title: '',
 	description: '',
+	actionTrigger: '',
 	closeTrigger: ''
 });

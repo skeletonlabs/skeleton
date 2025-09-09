@@ -11,6 +11,7 @@
 		<Toast {toast} data-testid="root">
 			<Toast.Title data-testid="title" />
 			<Toast.Description data-testid="description" />
+			<Toast.ActionTrigger data-testid="action-trigger" />
 			<Toast.CloseTrigger data-testid="close-trigger" />
 		</Toast>
 	{/snippet}

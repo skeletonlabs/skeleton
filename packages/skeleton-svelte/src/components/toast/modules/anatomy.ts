@@ -4,6 +4,7 @@ import Group from '../anatomy/group.svelte';
 import GroupContext from '../anatomy/group-context.svelte';
 import Title from '../anatomy/title.svelte';
 import Description from '../anatomy/description.svelte';
+import ActionTrigger from '../anatomy/action-trigger.svelte';
 import CloseTrigger from '../anatomy/close-trigger.svelte';
 
 export const Toast = Object.assign(Root, {
@@ -12,5 +13,6 @@ export const Toast = Object.assign(Root, {
 	GroupContext: GroupContext,
 	Title: Title,
 	Description: Description,
+	ActionTrigger: ActionTrigger,
 	CloseTrigger: CloseTrigger
 });

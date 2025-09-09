@@ -4,6 +4,7 @@ import Group from '../anatomy/group';
 import GroupContext from '../anatomy/group-context';
 import Title from '../anatomy/title';
 import Description from '../anatomy/description';
+import ActionTrigger from '../anatomy/action-trigger';
 import CloseTrigger from '../anatomy/close-trigger';
 
 export const Toast = Object.assign(Root, {
@@ -12,5 +13,6 @@ export const Toast = Object.assign(Root, {
 	GroupContext: GroupContext,
 	Title: Title,
 	Description: Description,
+	ActionTrigger: ActionTrigger,
 	CloseTrigger: CloseTrigger
 });

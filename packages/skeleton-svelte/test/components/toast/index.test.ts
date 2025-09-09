@@ -37,6 +37,15 @@ describe('toast', () => {
 		});
 	});
 
+	describe('action trigger', () => {
+		it('renders', async () => {
+			render(Toast);
+			await waitFor(() => {
+				expect(screen.getByTestId('action-trigger')).toBeInTheDocument();
+			});
+		});
+	});
+
 	describe('close trigger', () => {
 		it('renders', async () => {
 			render(Toast);

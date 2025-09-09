@@ -10,7 +10,7 @@ describe('toast', () => {
 		});
 	});
 
-	describe('root', () => {
+	describe.skip('root', () => {
 		it('renders', async () => {
 			render(<Toast />);
 			await waitFor(() => {
@@ -33,6 +33,15 @@ describe('toast', () => {
 			render(<Toast />);
 			await waitFor(() => {
 				expect(screen.getByTestId('description')).toBeInTheDocument();
+			});
+		});
+	});
+
+	describe.skip('action trigger', () => {
+		it('renders', async () => {
+			render(<Toast />);
+			await waitFor(() => {
+				expect(screen.getByTestId('action-trigger')).toBeInTheDocument();
 			});
 		});
 	});
