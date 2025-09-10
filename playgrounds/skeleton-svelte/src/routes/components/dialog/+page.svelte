@@ -9,7 +9,7 @@
 		<Dialog.Content>
 			<Dialog.Title>This is the title</Dialog.Title>
 			<Dialog.Description>This is the description</Dialog.Description>
-			<Dialog.CloseTrigger />
+			<Dialog.CloseTrigger>Close</Dialog.CloseTrigger>
 		</Dialog.Content>
 	</Dialog.Positioner>
 </Dialog>

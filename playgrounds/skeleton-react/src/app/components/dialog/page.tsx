@@ -11,7 +11,7 @@ export default function () {
 				<Dialog.Content>
 					<Dialog.Title>Dialog Title</Dialog.Title>
 					<Dialog.Description>This is a description of the dialog.</Dialog.Description>
-					<Dialog.CloseTrigger />
+					<Dialog.CloseTrigger>Close</Dialog.CloseTrigger>
 				</Dialog.Content>
 			</Dialog.Positioner>
 		</Dialog>
