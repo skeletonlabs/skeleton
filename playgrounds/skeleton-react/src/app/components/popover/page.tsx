@@ -13,7 +13,7 @@ export default function () {
 					</Popover.Arrow>
 					<Popover.Title>Title</Popover.Title>
 					<Popover.Description>Description</Popover.Description>
-					<Popover.CloseTrigger />
+					<Popover.CloseTrigger>Close</Popover.CloseTrigger>
 				</Popover.Content>
 			</Popover.Positioner>
 		</Popover>
