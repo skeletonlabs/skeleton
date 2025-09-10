@@ -9,20 +9,15 @@
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesDialog } from '@skeletonlabs/skeleton-common';
 	import { DialogRootContext } from '../modules/root-context';
-	import X from '@/internal/components/x.svelte';
 
 	const props: DialogCloseTriggerProps = $props();
 
 	const rootContext = DialogRootContext.consume();
 
-	const { element, children = x, ...restAttributes } = $derived(props);
+	const { element, children, ...restAttributes } = $derived(props);
 
 	const attributes = $derived(mergeProps(rootContext.api.getCloseTriggerProps(), { class: classesDialog.closeTrigger }, restAttributes));
 </script>
-
-{#snippet x()}
-	<X />
-{/snippet}
 
 {#if element}
 	{@render element({ attributes })}
