@@ -16,15 +16,7 @@
 
 	const { element, children, ...restAttributes } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getTrackProps(),
-			{
-				class: classesProgressLinear.track
-			},
-			restAttributes
-		)
-	);
+	const attributes = $derived(mergeProps(rootContext.api.getTrackProps(), { class: classesProgressLinear.track }, restAttributes));
 </script>
 
 {#if element}

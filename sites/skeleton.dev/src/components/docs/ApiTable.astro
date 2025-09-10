@@ -28,7 +28,7 @@ function capitalize(str: string) {
 				{types.data.types.map((type) => (
 					<>
 						<h3 class="h3">{type.name.replace(capitalize(component), '').replace('Props', '')}</h3>
-						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} lang="ts" />}
+						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} />}
 						<table class="table">
 							<thead>
 								<tr>

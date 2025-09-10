@@ -2,7 +2,6 @@
 	import { ProgressLinear } from '@skeletonlabs/skeleton-svelte';
 
 	let value = $state(25);
-	// setTimeout(() => (value = 75), 2000);
 </script>
 
 <div class="space-y-10">
