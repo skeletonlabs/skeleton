@@ -27,7 +27,9 @@ export default function (props: ToastRootProps) {
 	return (
 		<>
 			<ToastRootContext.Provider value={{ api }}>
+				<div {...api.getGhostBeforeProps()}></div>
 				{element ? element({ attributes }) : <div {...attributes}>{children}</div>}
+				<div {...api.getGhostAfterProps()}></div>
 			</ToastRootContext.Provider>
 			<style>{`
                 [data-part='root'] {

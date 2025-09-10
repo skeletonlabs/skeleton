@@ -9,15 +9,20 @@
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { ToastRootContext } from '../modules/root-context';
+	import X from '@/internal/components/x.svelte';
 
 	const props: ToastCloseTriggerProps = $props();
 
 	const rootContext = ToastRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children = x, ...restAttributes } = $derived(props);
 
 	const attributes = $derived(mergeProps(rootContext.api.getCloseTriggerProps(), { class: classesToast.closeTrigger }, restAttributes));
 </script>
+
+{#snippet x()}
+	<X />
+{/snippet}
 
 {#if element}
 	{@render element({ attributes })}

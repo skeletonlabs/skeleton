@@ -38,6 +38,7 @@
 	});
 </script>
 
+<div {...api.getGhostBeforeProps()}></div>
 {#if element}
 	{@render element({ attributes: restAttributes })}
 {:else}
@@ -45,6 +46,7 @@
 		{@render children?.()}
 	</div>
 {/if}
+<div {...api.getGhostAfterProps()}></div>
 
 <style>
 	[data-part='root'] {

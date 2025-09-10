@@ -17,7 +17,7 @@ export default function Page() {
 					<Toast key={toast.id} toast={toast}>
 						<Toast.Title>{toast.title}</Toast.Title>
 						<Toast.Description>{toast.description}</Toast.Description>
-						<Toast.CloseTrigger>Close</Toast.CloseTrigger>
+						<Toast.CloseTrigger />
 					</Toast>
 				)}
 			</Toast.Group>
