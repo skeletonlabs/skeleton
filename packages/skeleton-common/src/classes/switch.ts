@@ -8,7 +8,7 @@ export const classesSwitch = defineSkeletonClasses({
 		'data-focus:ring-2 data-focus:ring-surface-950-50'
 	],
 	thumb: [
-		'rounded-full block bg-surface-50-950 h-full aspect-square transition-transform',
+		'rounded-full block preset-filled-surface-50-950 h-full aspect-square transition-transform grid place-items-center',
 		'data-[state=checked]:bg-surface-950-50 data-[state=checked]:translate-x-4 rtl:data-[state=checked]:-translate-x-4'
 	],
 	label: ''
