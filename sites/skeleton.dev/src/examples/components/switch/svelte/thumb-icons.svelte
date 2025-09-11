@@ -10,14 +10,13 @@
 			<Switch.Context>
 				{#snippet children(ctx)}
 					{#if ctx.api.checked}
-						<Sun size={12} />
+						<Sun class="size-3 stroke-surface-50-950" />
 					{:else}
-						<Moon size={12} />
+						<Moon class="size-3 stroke-surface-950-50" />
 					{/if}
 				{/snippet}
 			</Switch.Context>
 		</Switch.Thumb>
 	</Switch.Control>
-	<Switch.Label>Label</Switch.Label>
 	<Switch.HiddenInput />
 </Switch>

@@ -10,8 +10,8 @@ import DefaultRaw from '@examples/components/switch/svelte/default.svelte?raw';
 import List from '@examples/components/switch/svelte/list.svelte';
 import ListRaw from '@examples/components/switch/svelte/list.svelte?raw';
 
-import ThumbContent from '@examples/components/switch/svelte/thumb-content.svelte';
-import ThumbContentRaw from '@examples/components/switch/svelte/thumb-content.svelte?raw';
+import ThumbIcons from '@examples/components/switch/svelte/thumb-icons.svelte';
+import ThumbIconsRaw from '@examples/components/switch/svelte/thumb-icons.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -33,14 +33,14 @@ import ThumbContentRaw from '@examples/components/switch/svelte/thumb-content.sv
 	</Fragment>
 </Preview>
 
-## Thumb Content
+## Icons
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ThumbContent client:visible />
+		<ThumbIcons client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ThumbContentRaw} lang="svelte" />
+		<Code code={ThumbIconsRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
