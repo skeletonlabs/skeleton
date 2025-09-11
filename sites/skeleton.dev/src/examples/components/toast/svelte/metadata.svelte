@@ -1,21 +1,21 @@
 <script lang="ts">
-	import { createToaster, Toast } from '@skeletonlabs/skeleton-svelte';
+	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 
 	const toaster = createToaster({});
 </script>
 
 <button
 	class="btn preset-filled"
-	onclick={() => toaster.info({ title: 'Toast', description: 'This is a toast message.', duration: Infinity })}
+	onclick={() => toaster.info({ title: 'Title', description: 'The value of foo is:', meta: { foo: 'bar' } })}
 >
-	Show Toast
+	Toast!
 </button>
 
 <Toast.Group {toaster}>
 	{#snippet children(toast)}
 		<Toast {toast}>
 			<Toast.Title>{toast.title}</Toast.Title>
-			<Toast.Description>{toast.description}</Toast.Description>
+			<Toast.Description>{toast.description} {toast.meta?.foo}</Toast.Description>
 			<Toast.CloseTrigger />
 		</Toast>
 	{/snippet}

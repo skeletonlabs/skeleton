@@ -1,23 +1,22 @@
-'use client';
+import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 
-import { createToaster, Toast } from '@skeletonlabs/skeleton-react';
-
-export default function Page() {
+export default function () {
 	const toaster = createToaster({});
+
 	return (
 		<>
 			<button
 				className="btn preset-filled"
-				onClick={() => toaster.info({ type: '', title: 'Toast', description: 'This is a toast message.', duration: Infinity })}
+				onClick={() => toaster.info({ title: 'Title', description: 'This is a description.', closable: false })}
 			>
-				Show Toast
+				Toast!
 			</button>
 			<Toast.Group toaster={toaster}>
 				{(toast) => (
-					<Toast key={toast.id} toast={toast}>
+					<Toast toast={toast}>
 						<Toast.Title>{toast.title}</Toast.Title>
 						<Toast.Description>{toast.description}</Toast.Description>
-						<Toast.CloseTrigger />
+						{toast.closable && <Toast.CloseTrigger />}
 					</Toast>
 				)}
 			</Toast.Group>

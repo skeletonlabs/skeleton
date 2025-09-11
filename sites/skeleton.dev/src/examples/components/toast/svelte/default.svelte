@@ -1,15 +1,10 @@
 <script lang="ts">
-	import { createToaster, Toast } from '@skeletonlabs/skeleton-svelte';
+	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 
 	const toaster = createToaster({});
 </script>
 
-<button
-	class="btn preset-filled"
-	onclick={() => toaster.info({ title: 'Toast', description: 'This is a toast message.', duration: Infinity })}
->
-	Show Toast
-</button>
+<button class="btn preset-filled" onclick={() => toaster.info({ title: 'Title', description: 'This is a description.' })}>Toast!</button>
 
 <Toast.Group {toaster}>
 	{#snippet children(toast)}
