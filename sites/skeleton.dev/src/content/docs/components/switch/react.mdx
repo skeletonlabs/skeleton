@@ -1,0 +1,49 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/switch/react/default';
+import DefaultRaw from '@examples/components/switch/react/default?raw';
+
+import List from '@examples/components/switch/react/list';
+import ListRaw from '@examples/components/switch/react/list?raw';
+
+import ThumbIcons from '@examples/components/switch/react/thumb-icons';
+import ThumbIconsRaw from '@examples/components/switch/react/thumb-icons?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## List
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<List client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Icons
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ThumbIcons client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ThumbIconsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />

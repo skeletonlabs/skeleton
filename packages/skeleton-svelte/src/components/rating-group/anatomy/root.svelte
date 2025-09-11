@@ -16,14 +16,12 @@
 	import { RatingGroupRootContext } from '../modules/root-context';
 
 	const props: RatingGroupRootProps = $props();
-	// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672
+
 	const [machineProps, componentProps] = $derived(splitProps(props));
-	// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672
 	const { element, children, ...restAttributes } = $derived(componentProps);
 
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
-		// @ts-expect-error - https://github.com/chakra-ui/zag/issues/2672
 		id: id,
 		...machineProps
 	}));
