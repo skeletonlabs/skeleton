@@ -17,10 +17,6 @@
 		"./themes/*": {
 			"style": "./dist/themes/*.css",
 			"default": "./dist/themes/*.css"
-		},
-		"./optional/*": {
-			"style": "./dist/optional/*.css",
-			"default": "./dist/optional/*.css"
 		}
 	},
 	"files": [
