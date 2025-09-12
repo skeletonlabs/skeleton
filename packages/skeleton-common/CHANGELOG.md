@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.3
+### Minor Changes
+
+
+- feat: progress-linear ([#3694](https://github.com/skeletonlabs/skeleton/pull/3694))
+
 ## 1.0.0-next.2
 ### Minor Changes
 
