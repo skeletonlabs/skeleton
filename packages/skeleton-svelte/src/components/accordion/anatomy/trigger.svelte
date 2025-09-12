@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface AccordionTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+	export interface AccordionTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -26,7 +26,7 @@
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

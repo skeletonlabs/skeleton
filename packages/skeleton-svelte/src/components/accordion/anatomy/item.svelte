@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { ItemProps } from '@zag-js/accordion';
 
-	export interface AccordionItemProps extends PropsWithElement, ItemProps, HTMLAttributes<'div'> {}
+	export interface AccordionItemProps extends ItemProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -20,13 +20,17 @@
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(mergeProps(accordion().getItemProps(itemProps), { class: classesAccordion.item }, rest));
+	const attributes = $derived(
+		mergeProps(accordion().getItemProps(itemProps), rest, {
+			class: classesAccordion.item
+		})
+	);
 
 	AccordionItemContext.provide(() => itemProps);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

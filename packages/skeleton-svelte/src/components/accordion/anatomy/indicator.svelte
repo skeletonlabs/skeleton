@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface AccordionIndicatorProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface AccordionIndicatorProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -13,18 +13,16 @@
 
 	const props: AccordionIndicatorProps = $props();
 
-	const rootContext = AccordionRootContext.consume();
-	const itemContext = AccordionItemContext.consume();
+	const accordion = AccordionRootContext.consume();
+	const itemProps = AccordionItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), { class: classesAccordion.indicator }, rest)
-	);
+	const attributes = $derived(mergeProps(accordion().getItemIndicatorProps(itemProps()), rest, { class: classesAccordion.indicator }));
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}
