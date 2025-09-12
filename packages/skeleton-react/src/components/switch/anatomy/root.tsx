@@ -1,11 +1,12 @@
-import { useId, type ComponentProps } from 'react';
+import { useId } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesSwitch } from '@skeletonlabs/skeleton-common';
 import { splitProps, machine, connect, type Props } from '@zag-js/switch';
 import { SwitchRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface SwitchRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<ComponentProps<'label'>, 'id' | 'dir'> {}
+export interface SwitchRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'label'>, 'id' | 'dir'> {}
 
 export default function (props: SwitchRootProps) {
 	const [machineProps, componentProps] = splitProps(props);

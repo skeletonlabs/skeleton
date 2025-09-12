@@ -1,7 +1,8 @@
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import { splitItemProps, type ItemProps } from '@zag-js/rating-group';
 import { mergeProps } from '@zag-js/react';
-import { useContext, type ComponentProps, type ReactNode } from 'react';
+import { useContext, type ReactNode } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { RatingGroupItemContext } from '../modules/item-context';
 import { RatingGroupRootContext } from '../modules/root-context';
 import StarEmpty from '@/internal/components/star-empty';
@@ -9,7 +10,7 @@ import StarHalf from '@/internal/components/star-half';
 import StarFull from '@/internal/components/star-full';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface RatingGroupItemProps extends PropsWithElement, ItemProps, Omit<ComponentProps<'span'>, 'id' | 'defaultValue' | 'dir'> {
+export interface RatingGroupItemProps extends PropsWithElement, ItemProps, Omit<HTMLAttributes<'span'>, 'id' | 'defaultValue' | 'dir'> {
 	/**
 	 * The content to render when the item is in the empty state.
 	 *

@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { ContentProps } from '@zag-js/tabs';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface TabsContentProps extends ContentProps, PropsWithElement, HTMLAttributes<HTMLDivElement> {}
+	export interface TabsContentProps extends ContentProps, PropsWithElement, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">

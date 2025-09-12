@@ -1,12 +1,9 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/progress';
 
-	export interface ProgressLinearRootProps
-		extends PropsWithElement,
-			Omit<Props, 'id'>,
-			Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {}
+	export interface ProgressLinearRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
