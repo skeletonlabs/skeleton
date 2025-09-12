@@ -1,12 +1,12 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/combobox';
 
 	export interface ComboboxRootProps
 		extends PropsWithElement,
 			Omit<Props, 'id'>,
-			Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir' | 'placeholder'> {}
+			Omit<HTMLAttributes<'div'>, 'id' | 'dir' | 'placeholder'> {}
 </script>
 
 <script lang="ts">

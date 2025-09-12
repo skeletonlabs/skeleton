@@ -1,12 +1,9 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { ItemGroupProps } from '@zag-js/combobox';
 
-	export interface ComboboxItemGroupProps
-		extends PropsWithElement,
-			Omit<ItemGroupProps, 'id'>,
-			Omit<HTMLAttributes<HTMLDivElement>, 'id'> {}
+	export interface ComboboxItemGroupProps extends PropsWithElement, Omit<ItemGroupProps, 'id'>, Omit<HTMLAttributes<'div'>, 'id'> {}
 </script>
 
 <script lang="ts">

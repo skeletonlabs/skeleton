@@ -1,4 +1,5 @@
-import { useId, type ComponentProps } from 'react';
+import { useId } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import { splitProps, machine, connect, type Props } from '@zag-js/combobox';
@@ -8,7 +9,7 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 export interface ComboboxRootProps
 	extends PropsWithElement,
 		Omit<Props, 'id'>,
-		Omit<ComponentProps<'div'>, 'id' | 'dir' | 'defaultValue' | 'onSelect'> {}
+		Omit<HTMLAttributes<'div'>, 'id' | 'dir' | 'defaultValue' | 'onSelect'> {}
 
 export default function (props: ComboboxRootProps) {
 	const [machineProps, componentProps] = splitProps(props);

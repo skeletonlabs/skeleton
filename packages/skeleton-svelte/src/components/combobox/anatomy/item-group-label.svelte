@@ -1,11 +1,8 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface ComboboxItemGroupLabelProps
-		extends PropsWithElement,
-			Omit<ItemGroupLabelProps, 'htmlFor'>,
-			HTMLAttributes<HTMLDivElement> {}
+	export interface ComboboxItemGroupLabelProps extends PropsWithElement, Omit<ItemGroupLabelProps, 'htmlFor'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">

@@ -1,10 +1,11 @@
-import { useContext, type ComponentProps } from 'react';
+import { useContext } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps } from '@zag-js/react';
 import { ComboboxRootContext } from '../modules/root-context';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface ComboboxControlProps extends PropsWithElement, ComponentProps<'div'> {}
+export interface ComboboxControlProps extends PropsWithElement, HTMLAttributes<'div'> {}
 
 export default function (props: ComboboxControlProps) {
 	const rootContext = useContext(ComboboxRootContext);

@@ -1,8 +1,8 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { HTMLInputAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface ComboboxInputProps extends PropsWithElement, HTMLInputAttributes {}
+	export interface ComboboxInputProps extends PropsWithElement, HTMLAttributes<'input'> {}
 </script>
 
 <script lang="ts">

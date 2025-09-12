@@ -1,4 +1,5 @@
-import { useContext, useId, type ComponentProps } from 'react';
+import { useContext, useId } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps } from '@zag-js/react';
 import { ComboboxRootContext } from '../modules/root-context';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
@@ -6,7 +7,7 @@ import { splitItemGroupProps, type ItemGroupProps } from '@zag-js/combobox';
 import { ComboboxItemGroupContext } from '../modules/item-group-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface ComboboxItemGroupProps extends PropsWithElement, Omit<ItemGroupProps, 'id'>, Omit<ComponentProps<'div'>, 'id'> {}
+export interface ComboboxItemGroupProps extends PropsWithElement, Omit<ItemGroupProps, 'id'>, Omit<HTMLAttributes<'div'>, 'id'> {}
 
 export default function (props: ComboboxItemGroupProps) {
 	const rootContext = useContext(ComboboxRootContext);
