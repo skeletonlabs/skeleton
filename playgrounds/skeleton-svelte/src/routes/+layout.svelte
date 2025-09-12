@@ -17,6 +17,7 @@
 			<nav class="text-sm flex flex-col gap-1">
 				<a class="anchor" href="/components/accordion"> Accordion </a>
 				<a class="anchor" href="/components/avatar"> Avatar </a>
+				<a class="anchor" href="/components/popover"> Popover </a>
 				<a class="anchor" href="/components/progress-linear"> Progress Linear </a>
 				<a class="anchor" href="/components/rating-group"> Rating Group </a>
 				<a class="anchor" href="/components/switch"> Switch </a>
