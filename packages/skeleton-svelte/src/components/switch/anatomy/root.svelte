@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/switch';
 
-	export interface SwitchRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'label'>, 'id' | 'dir'> {}
+	export interface SwitchRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'label'>, 'id' | 'dir' | 'form'> {}
 </script>
 
 <script lang="ts">
