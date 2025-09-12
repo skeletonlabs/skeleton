@@ -5,4 +5,6 @@ export * from './components/progress-linear/index';
 export * from './components/rating-group/index';
 export * from './components/switch/index';
 export * from './components/tabs/index';
+export * from './components/toast/index';
+
 export * from './hooks/use-list-collection';
