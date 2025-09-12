@@ -1,8 +1,4 @@
-import { createContext } from 'react';
+import { createContext } from '@/internal/create-context';
 import type { Api } from '@zag-js/progress';
 
-export interface ProgressLinearRootContextType {
-	api: Api;
-}
-
-export const ProgressLinearRootContext = createContext<ProgressLinearRootContextType>(null!);
+export const ProgressLinearRootContext = createContext<Api>();

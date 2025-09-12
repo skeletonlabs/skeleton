@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface ProgressLinearLabelProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface ProgressLinearLabelProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -12,23 +12,19 @@
 
 	const props: ProgressLinearLabelProps = $props();
 
-	const rootContext = ProgressLinearRootContext.consume();
+	const progressLinear = ProgressLinearRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getLabelProps(),
-			{
-				class: classesProgressLinear.label
-			},
-			rest
-		)
+		mergeProps(progressLinear().getLabelProps(), rest, {
+			class: classesProgressLinear.label
+		})
 	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

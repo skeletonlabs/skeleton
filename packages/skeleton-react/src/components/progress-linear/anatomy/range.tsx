@@ -5,14 +5,16 @@ import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
 import { ProgressLinearRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface ProgressLinearRangeProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'children'> {}
+export interface ProgressLinearRangeProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 
 export default function (props: ProgressLinearRangeProps) {
-	const rootContext = useContext(ProgressLinearRootContext);
+	const progressLinear = useContext(ProgressLinearRootContext);
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getRangeProps(), { className: classesProgressLinear.range }, rest);
+	const attributes = mergeProps(progressLinear.getRangeProps(), rest, {
+		className: classesProgressLinear.range
+	});
 
-	return element ? element({ attributes }) : <div {...attributes} />;
+	return element ? element(attributes) : <div {...attributes} />;
 }

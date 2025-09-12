@@ -15,13 +15,13 @@
 
 	const props: AvatarRootProps = $props();
 
-	const [machineProps, componentProps] = $derived(splitProps(props));
+	const [avatarProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
 	const api = useAvatar(() => ({
 		id: id,
-		...machineProps
+		...avatarProps
 	}));
 
 	const attributes = $derived(
