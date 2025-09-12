@@ -22,6 +22,7 @@
 				<a class="anchor" href="/components/switch"> Switch </a>
 				<a class="anchor" href="/components/tabs"> Tabs </a>
 				<a class="anchor" href="/components/tooltip"> Tooltip </a>
+				<a class="anchor" href="/components/toast"> Toast </a>
 			</nav>
 		</div>
 	</div>
