@@ -18,8 +18,9 @@
 	const { element, children, ...restAttributes } = $derived(props);
 
 	const attributes = $derived({
-		...mergeProps(rootContext.api.getPositionerProps(), { class: classesPopover.positioner }, restAttributes),
-		[createAttachmentKey()]: fromAction(portal, () => ({ disabled: !rootContext.api.portalled }))
+		...mergeProps(rootContext.api.getPositionerProps(), { class: classesPopover.positioner }, restAttributes, {
+			[createAttachmentKey()]: fromAction(portal, () => ({ disabled: !rootContext.api.portalled }))
+		})
 	});
 </script>
 
