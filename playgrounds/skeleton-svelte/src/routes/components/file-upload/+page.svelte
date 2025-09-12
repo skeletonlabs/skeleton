@@ -1,9 +1,12 @@
 <script lang="ts">
-	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
+	import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-svelte';
 	import X from '@lucide/svelte/icons/x';
+
+	const id = $props.id();
+	const fileUpload = useFileUpload({ id });
 </script>
 
-<FileUpload>
+<FileUpload.Provider value={fileUpload}>
 	<FileUpload.Dropzone>
 		<FileUpload.Trigger>Upload</FileUpload.Trigger>
 		<FileUpload.HiddenInput />
@@ -21,4 +24,6 @@
 			{/snippet}
 		</FileUpload.Context>
 	</FileUpload.ItemGroup>
-</FileUpload>
+</FileUpload.Provider>
+
+<button class="btn preset-outlined-error-500" onclick={() => fileUpload().clearFiles()}> Clear Files </button>

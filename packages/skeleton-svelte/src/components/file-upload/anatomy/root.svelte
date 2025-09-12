@@ -18,7 +18,11 @@
 	const [machineProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
 
-	const api = useFileUpload(() => machineProps);
+	const id = $props.id();
+	const api = useFileUpload(() => ({
+		id: id,
+		...machineProps
+	}));
 
 	const attributes = $derived(mergeProps(api().getRootProps(), { class: classesFileUpload.root }, restAttributes));
 

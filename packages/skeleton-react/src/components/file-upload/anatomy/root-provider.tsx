@@ -6,11 +6,11 @@ import { FileUploadRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
 export interface FileUploadRootProviderProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
-	api: Api;
+	value: Api;
 }
 
 export default function (props: FileUploadRootProviderProps) {
-	const { element, children, api, ...restAttributes } = props;
+	const { element, children, value: api, ...restAttributes } = props;
 
 	const attributes = mergeProps(api.getRootProps(), { className: classesFileUpload.root }, restAttributes);
 

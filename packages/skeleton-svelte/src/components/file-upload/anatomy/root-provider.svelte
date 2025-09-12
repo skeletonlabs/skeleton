@@ -4,7 +4,7 @@
 	import type { Api } from '@zag-js/file-upload';
 
 	export interface FileUploadRootProviderProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
-		api: () => Api;
+		value: () => Api;
 	}
 </script>
 
@@ -15,9 +15,9 @@
 
 	const props: FileUploadRootProviderProps = $props();
 
-	const { element, children, api, ...restAttributes } = $derived(props);
+	const { element, children, value: api, ...restAttributes } = $derived(props);
 
-	const attributes = $derived(mergeProps(api().getRootProps(), { class: classesFileUpload.rootprovider }, restAttributes));
+	const attributes = $derived(mergeProps(api().getRootProps(), { class: classesFileUpload.root }, restAttributes));
 
 	FileUploadRootContext.provide({
 		get api() {
