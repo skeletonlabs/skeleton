@@ -10,9 +10,9 @@ export interface ProgressLinearTrackProps extends PropsWithElement, HTMLAttribut
 export default function (props: ProgressLinearTrackProps) {
 	const rootContext = useContext(ProgressLinearRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getTrackProps(), { className: classesProgressLinear.track }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getTrackProps(), { className: classesProgressLinear.track }, rest);
 
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

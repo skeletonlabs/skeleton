@@ -14,9 +14,9 @@
 
 	const rootContext = SwitchRootContext.consume();
 
-	const { element, ...restAttributes } = $derived(props);
+	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getHiddenInputProps(), { class: classesSwitch.hiddenInput }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getHiddenInputProps(), { class: classesSwitch.hiddenInput }, rest));
 </script>
 
 {#if element}

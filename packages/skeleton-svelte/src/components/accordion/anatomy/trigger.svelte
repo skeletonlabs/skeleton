@@ -13,13 +13,15 @@
 
 	const props: AccordionTriggerProps = $props();
 
-	const rootContext = AccordionRootContext.consume();
-	const itemContext = AccordionItemContext.consume();
+	const accordion = AccordionRootContext.consume();
+	const itemProps = AccordionItemContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(rootContext.api.getItemTriggerProps(itemContext.itemProps), { class: classesAccordion.trigger }, restAttributes)
+		mergeProps(accordion().getItemTriggerProps(itemProps()), rest, {
+			class: classesAccordion.trigger
+		})
 	);
 </script>
 

@@ -10,7 +10,7 @@ export interface SwitchRootProps extends PropsWithElement, Omit<Props, 'id'>, Om
 
 export default function (props: SwitchRootProps) {
 	const [machineProps, componentProps] = splitProps(props);
-	const { element, children, ...restAttributes } = componentProps;
+	const { element, children, ...rest } = componentProps;
 
 	const service = useMachine(machine, {
 		id: useId(),
@@ -18,7 +18,7 @@ export default function (props: SwitchRootProps) {
 	});
 	const api = connect(service, normalizeProps);
 
-	const attributes = mergeProps(api.getRootProps(), { className: classesSwitch.root }, restAttributes);
+	const attributes = mergeProps(api.getRootProps(), { className: classesSwitch.root }, rest);
 
 	return (
 		<SwitchRootContext.Provider value={{ api }}>

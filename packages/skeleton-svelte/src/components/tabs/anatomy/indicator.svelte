@@ -14,9 +14,9 @@
 
 	const rootContext = TabsRootContext.consume();
 
-	const { element, ...restAttributes } = $derived(props);
+	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getIndicatorProps(), { class: classesTabs.indicator }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getIndicatorProps(), { class: classesTabs.indicator }, rest));
 </script>
 
 {#if element}

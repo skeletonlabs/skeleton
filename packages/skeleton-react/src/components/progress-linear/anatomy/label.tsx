@@ -10,9 +10,9 @@ export interface ProgressLinearLabelProps extends PropsWithElement, HTMLAttribut
 export default function (props: ProgressLinearLabelProps) {
 	const rootContext = useContext(ProgressLinearRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getLabelProps(), { className: classesProgressLinear.label }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getLabelProps(), { className: classesProgressLinear.label }, rest);
 
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

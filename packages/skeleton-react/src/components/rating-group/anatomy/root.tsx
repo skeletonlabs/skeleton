@@ -13,7 +13,7 @@ export interface RatingGroupRootProps
 
 export default function (props: RatingGroupRootProps) {
 	const [machineProps, componentProps] = splitProps(props);
-	const { element, children, ...restAttributes } = componentProps;
+	const { element, children, ...rest } = componentProps;
 
 	const service = useMachine(machine, {
 		id: useId(),
@@ -21,7 +21,7 @@ export default function (props: RatingGroupRootProps) {
 	});
 	const api = connect(service, normalizeProps);
 
-	const attributes = mergeProps(api.getRootProps(), { className: classesRatingGroup.root }, restAttributes);
+	const attributes = mergeProps(api.getRootProps(), { className: classesRatingGroup.root }, rest);
 
 	return (
 		<RatingGroupRootContext.Provider value={{ api }}>

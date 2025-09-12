@@ -14,9 +14,9 @@
 
 	const rootContext = ToastRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getDescriptionProps(), { class: classesToast.description }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getDescriptionProps(), { class: classesToast.description }, rest));
 </script>
 
 {#if element}

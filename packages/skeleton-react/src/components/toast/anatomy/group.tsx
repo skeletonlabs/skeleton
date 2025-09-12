@@ -13,7 +13,7 @@ export interface ToastGroupProps extends PropsWithElement, Omit<HTMLAttributes<'
 }
 
 export default function (props: ToastGroupProps) {
-	const { element, children, toaster, ...restAttributes } = props;
+	const { element, children, toaster, ...rest } = props;
 
 	const service = useMachine(group.machine, {
 		id: useId(),
@@ -21,7 +21,7 @@ export default function (props: ToastGroupProps) {
 	});
 	const api = group.connect(service, normalizeProps);
 
-	const attributes = mergeProps(api.getGroupProps(), { className: classesToast.group }, restAttributes);
+	const attributes = mergeProps(api.getGroupProps(), { className: classesToast.group }, rest);
 
 	return (
 		<ToastGroupContext.Provider value={{ groupApi: api, groupService: service }}>

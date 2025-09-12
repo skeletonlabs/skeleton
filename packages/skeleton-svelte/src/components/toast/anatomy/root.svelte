@@ -19,7 +19,7 @@
 
 	const groupContext = ToastGroupContext.consume();
 
-	const { element, children, toast, ...restAttributes } = $derived(props);
+	const { element, children, toast, ...rest } = $derived(props);
 
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
@@ -29,7 +29,7 @@
 	}));
 	const api = $derived(connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesToast.root }, restAttributes));
+	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesToast.root }, rest));
 
 	ToastRootContext.provide({
 		get api() {
@@ -40,7 +40,7 @@
 
 <div {...api.getGhostBeforeProps()}></div>
 {#if element}
-	{@render element({ attributes: restAttributes })}
+	{@render element({ attributes: rest })}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

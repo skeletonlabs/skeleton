@@ -16,10 +16,10 @@
 	const rootContext = AccordionRootContext.consume();
 	const itemContext = AccordionItemContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), { class: classesAccordion.indicator }, restAttributes)
+		mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), { class: classesAccordion.indicator }, rest)
 	);
 </script>
 

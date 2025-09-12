@@ -10,9 +10,9 @@ export interface SwitchLabelProps extends PropsWithElement, HTMLAttributes<'span
 export default function (props: SwitchLabelProps) {
 	const rootContext = useContext(SwitchRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getLabelProps(), { className: classesSwitch.label }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getLabelProps(), { className: classesSwitch.label }, rest);
 
 	return element ? element({ attributes }) : <span {...attributes}>{children}</span>;
 }

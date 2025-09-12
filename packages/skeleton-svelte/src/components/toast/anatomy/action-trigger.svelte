@@ -14,9 +14,9 @@
 
 	const rootContext = ToastRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getActionTriggerProps(), { class: classesToast.actionTrigger }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getActionTriggerProps(), { class: classesToast.actionTrigger }, rest));
 </script>
 
 {#if element}

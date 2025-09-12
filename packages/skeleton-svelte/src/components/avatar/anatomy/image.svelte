@@ -14,9 +14,9 @@
 
 	const rootContext = AvatarRootContext.consume();
 
-	const { element, ...restAttributes } = $derived(props);
+	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getImageProps(), { class: classesAvatar.image }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getImageProps(), { class: classesAvatar.image }, rest));
 </script>
 
 {#if element}

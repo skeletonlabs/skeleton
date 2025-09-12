@@ -18,7 +18,7 @@
 
 	const props: ToastGroupProps = $props();
 
-	const { element, children, toaster, ...restAttributes } = $derived(props);
+	const { element, children, toaster, ...rest } = $derived(props);
 
 	const id = $props.id();
 	const service = useMachine(group.machine, () => ({
@@ -27,7 +27,7 @@
 	}));
 	const api = $derived(group.connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getGroupProps(), { class: classesToast.group }, restAttributes));
+	const attributes = $derived(mergeProps(api.getGroupProps(), { class: classesToast.group }, rest));
 
 	ToastGroupContext.provide({
 		get groupApi() {
@@ -40,7 +40,7 @@
 </script>
 
 {#if element}
-	{@render element({ attributes: restAttributes })}
+	{@render element({ attributes: rest })}
 {:else}
 	<div {...attributes}>
 		{#each api.getToasts() as toast (toast.id)}

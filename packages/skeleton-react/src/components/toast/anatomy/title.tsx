@@ -10,9 +10,9 @@ export interface ToastTitleProps extends PropsWithElement, HTMLAttributes<'div'>
 export default function (props: ToastTitleProps) {
 	const rootContext = useContext(ToastRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getTitleProps(), { className: classesToast.title }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getTitleProps(), { className: classesToast.title }, rest);
 
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

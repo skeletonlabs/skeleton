@@ -15,7 +15,7 @@
 	const props: ProgressLinearRootProps = $props();
 
 	const [machineProps, componentProps] = $derived(splitProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
@@ -30,7 +30,7 @@
 			{
 				class: classesProgressLinear.root
 			},
-			restAttributes
+			rest
 		)
 	);
 

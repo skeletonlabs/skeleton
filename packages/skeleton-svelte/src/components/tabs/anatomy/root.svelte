@@ -14,7 +14,7 @@
 
 	const props: TabsRootProps = $props();
 	const [machineProps, componentProps] = $derived(splitProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
@@ -23,7 +23,7 @@
 	}));
 	const api = $derived(connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesTabs.root }, restAttributes));
+	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesTabs.root }, rest));
 
 	TabsRootContext.provide({
 		get api() {

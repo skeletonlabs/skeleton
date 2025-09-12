@@ -10,9 +10,9 @@ export interface ProgressLinearRangeProps extends PropsWithElement, Omit<HTMLAtt
 export default function (props: ProgressLinearRangeProps) {
 	const rootContext = useContext(ProgressLinearRootContext);
 
-	const { element, ...restAttributes } = props;
+	const { element, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getRangeProps(), { className: classesProgressLinear.range }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getRangeProps(), { className: classesProgressLinear.range }, rest);
 
 	return element ? element({ attributes }) : <div {...attributes} />;
 }

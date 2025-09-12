@@ -13,7 +13,7 @@ export interface ProgressLinearRootProps
 
 export default function (props: ProgressLinearRootProps) {
 	const [machineProps, componentProps] = splitProps(props);
-	const { element, children, ...restAttributes } = componentProps;
+	const { element, children, ...rest } = componentProps;
 
 	const service = useMachine(machine, {
 		id: useId(),
@@ -26,7 +26,7 @@ export default function (props: ProgressLinearRootProps) {
 		{
 			className: classesProgressLinear.root
 		},
-		restAttributes
+		rest
 	);
 
 	return (

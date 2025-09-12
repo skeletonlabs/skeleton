@@ -10,9 +10,9 @@ export interface AvatarImageProps extends PropsWithElement, Omit<HTMLAttributes<
 export default function (props: AvatarImageProps) {
 	const rootContext = useContext(AvatarRootContext);
 
-	const { element, ...restAttributes } = props;
+	const { element, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getImageProps(), { className: classesAvatar.image }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getImageProps(), { className: classesAvatar.image }, rest);
 
 	return element ? element({ attributes }) : <img {...attributes} />;
 }

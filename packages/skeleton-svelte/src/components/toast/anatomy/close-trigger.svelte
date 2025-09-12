@@ -15,9 +15,9 @@
 
 	const rootContext = ToastRootContext.consume();
 
-	const { element, children = x, ...restAttributes } = $derived(props);
+	const { element, children = x, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getCloseTriggerProps(), { class: classesToast.closeTrigger }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getCloseTriggerProps(), { class: classesToast.closeTrigger }, rest));
 </script>
 
 {#snippet x()}

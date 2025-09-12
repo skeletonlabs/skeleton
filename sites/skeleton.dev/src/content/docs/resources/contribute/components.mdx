@@ -336,7 +336,7 @@ import { mergeProps } from '@zag-js/react';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
 
 export default function (props: AvatarRootProps) {
-	const { children, ...restAttributes } = props;
+	const { children, ...rest } = props;
 
 	const attributes = mergeProps(
 		// Zag Props
@@ -344,7 +344,7 @@ export default function (props: AvatarRootProps) {
 		// Skeleton Props
 		{ className: classesAvatar.root }
 		// User Props
-		restAttributes
+		rest
 	);
 
 	return <div {...attributes}>{children}</div>;
@@ -358,13 +358,13 @@ import { mergeProps } from '@zag-js/react';
 import { classesNavigation } from '@skeletonlabs/skeleton-common';
 
 export default function (props: NavigationRootProps) {
-	const { children, ...restAttributes } = props;
+	const { children, ...rest } = props;
 
 	const attributes = mergeProps(
 		// Skeleton Props
 		{ className: classesNavigation.root }
 		// User Props
-		restAttributes
+		rest
 	);
 
 	return <div {...attributes}>{children}</div>;

@@ -12,9 +12,9 @@ export interface RatingGroupHiddenInputProps
 export default function (props: RatingGroupHiddenInputProps) {
 	const rootContext = useContext(RatingGroupRootContext);
 
-	const { element, ...restAttributes } = props;
+	const { element, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getHiddenInputProps(), { className: classesRatingGroup.hiddenInput }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getHiddenInputProps(), { className: classesRatingGroup.hiddenInput }, rest);
 
 	return element ? element({ attributes }) : <input {...attributes} />;
 }

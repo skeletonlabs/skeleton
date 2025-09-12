@@ -10,7 +10,7 @@ export interface AvatarRootProps extends PropsWithElement, Omit<Props, 'id'>, Om
 
 export default function (props: AvatarRootProps) {
 	const [machineProps, componentProps] = splitProps(props);
-	const { element, children, ...restAttributes } = componentProps;
+	const { element, children, ...rest } = componentProps;
 
 	const service = useMachine(machine, {
 		id: useId(),
@@ -18,7 +18,7 @@ export default function (props: AvatarRootProps) {
 	});
 	const api = connect(service, normalizeProps);
 
-	const attributes = mergeProps(api.getRootProps(), { className: classesAvatar.root }, restAttributes);
+	const attributes = mergeProps(api.getRootProps(), { className: classesAvatar.root }, rest);
 
 	return (
 		<AvatarRootContext.Provider value={{ api }}>

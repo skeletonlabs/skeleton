@@ -10,9 +10,9 @@ export interface TabsListProps extends PropsWithElement, Omit<HTMLAttributes<'di
 export default function (props: TabsListProps) {
 	const rootContext = useContext(TabsRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getListProps(), { className: classesTabs.list }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getListProps(), { className: classesTabs.list }, rest);
 
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

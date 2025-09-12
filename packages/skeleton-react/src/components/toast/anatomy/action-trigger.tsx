@@ -10,9 +10,9 @@ export interface ToastActionTriggerProps extends PropsWithElement, HTMLAttribute
 export default function (props: ToastActionTriggerProps) {
 	const rootContext = useContext(ToastRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getActionTriggerProps(), { className: classesToast.actionTrigger }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getActionTriggerProps(), { className: classesToast.actionTrigger }, rest);
 
 	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
 }

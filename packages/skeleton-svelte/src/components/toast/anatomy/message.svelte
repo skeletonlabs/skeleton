@@ -11,9 +11,9 @@
 
 	const props: ToastMessageProps = $props();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps({ class: classesToast.message }, restAttributes));
+	const attributes = $derived(mergeProps({ class: classesToast.message }, rest));
 </script>
 
 {#if element}

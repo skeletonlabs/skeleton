@@ -10,9 +10,9 @@ export interface RatingGroupControlProps extends PropsWithElement, Omit<HTMLAttr
 export default function (props: RatingGroupControlProps) {
 	const rootContext = useContext(RatingGroupRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getControlProps(), { className: classesRatingGroup.control }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getControlProps(), { className: classesRatingGroup.control }, rest);
 
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

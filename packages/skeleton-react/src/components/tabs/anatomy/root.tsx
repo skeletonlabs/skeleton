@@ -10,7 +10,7 @@ export interface TabsRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit
 
 export default function (props: TabsRootProps) {
 	const [machineProps, componentProps] = splitProps(props);
-	const { element, children, ...restAttributes } = componentProps;
+	const { element, children, ...rest } = componentProps;
 
 	const service = useMachine(machine, {
 		id: useId(),
@@ -18,7 +18,7 @@ export default function (props: TabsRootProps) {
 	});
 	const api = connect(service, normalizeProps);
 
-	const attributes = mergeProps(api.getRootProps(), { className: classesTabs.root }, restAttributes);
+	const attributes = mergeProps(api.getRootProps(), { className: classesTabs.root }, rest);
 
 	return (
 		<TabsRootContext.Provider value={{ api }}>

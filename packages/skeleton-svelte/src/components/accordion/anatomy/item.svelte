@@ -15,21 +15,14 @@
 
 	const props: AccordionItemProps = $props();
 
-	const rootContext = AccordionRootContext.consume();
+	const accordion = AccordionRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(mergeProps(rootContext.api.getItemProps(itemProps), { class: classesAccordion.item }, restAttributes));
+	const attributes = $derived(mergeProps(accordion().getItemProps(itemProps), { class: classesAccordion.item }, rest));
 
-	AccordionItemContext.provide({
-		get itemProps() {
-			return itemProps;
-		},
-		get itemState() {
-			return rootContext.api.getItemState(itemProps);
-		}
-	});
+	AccordionItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

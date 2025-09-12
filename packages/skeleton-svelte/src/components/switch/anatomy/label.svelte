@@ -14,9 +14,9 @@
 
 	const rootContext = SwitchRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getLabelProps(), { class: classesSwitch.label }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getLabelProps(), { class: classesSwitch.label }, rest));
 </script>
 
 {#if element}

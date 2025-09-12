@@ -10,9 +10,9 @@ export interface SwitchControlProps extends PropsWithElement, HTMLAttributes<'sp
 export default function (props: SwitchControlProps) {
 	const rootContext = useContext(SwitchRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getControlProps(), { className: classesSwitch.control }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getControlProps(), { className: classesSwitch.control }, rest);
 
 	return element ? element({ attributes }) : <span {...attributes}>{children}</span>;
 }

@@ -6,9 +6,9 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 export interface ToastMessageProps extends PropsWithElement, HTMLAttributes<'div'> {}
 
 export default function (props: ToastMessageProps) {
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps({ className: classesToast.message }, restAttributes);
+	const attributes = mergeProps({ className: classesToast.message }, rest);
 
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

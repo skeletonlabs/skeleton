@@ -14,9 +14,9 @@
 
 	const rootContext = ProgressLinearRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getTrackProps(), { class: classesProgressLinear.track }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getTrackProps(), { class: classesProgressLinear.track }, rest));
 </script>
 
 {#if element}

@@ -14,9 +14,9 @@
 
 	const rootContext = SwitchRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getThumbProps(), { class: classesSwitch.thumb }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getThumbProps(), { class: classesSwitch.thumb }, rest));
 </script>
 
 {#if element}

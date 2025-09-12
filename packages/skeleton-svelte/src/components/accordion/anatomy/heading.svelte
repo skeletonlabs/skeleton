@@ -17,11 +17,11 @@
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 
 	const props: AccordionHeadingProps = $props();
-	const { level = 3, element, children, ...restAttributes } = $derived(props);
+	const { level = 3, element, children, ...rest } = $derived(props);
 
 	const tag = $derived(`h${level}`);
 
-	const attributes = $derived(mergeProps({ class: classesAccordion.heading }, restAttributes));
+	const attributes = $derived(mergeProps({ class: classesAccordion.heading }, rest));
 </script>
 
 {#if element}

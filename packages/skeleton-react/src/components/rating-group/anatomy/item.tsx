@@ -35,11 +35,11 @@ export default function (props: RatingGroupItemProps) {
 	const rootContext = useContext(RatingGroupRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
-	const { element, children, empty = <StarEmpty />, half = <StarHalf />, full = <StarFull />, ...restAttributes } = componentProps;
+	const { element, children, empty = <StarEmpty />, half = <StarHalf />, full = <StarFull />, ...rest } = componentProps;
 
 	const itemState = rootContext.api.getItemState(itemProps);
 
-	const attributes = mergeProps(rootContext.api.getItemProps(itemProps), { className: classesAccordion.item }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getItemProps(itemProps), { className: classesAccordion.item }, rest);
 
 	return (
 		<RatingGroupItemContext.Provider value={{ itemState }}>

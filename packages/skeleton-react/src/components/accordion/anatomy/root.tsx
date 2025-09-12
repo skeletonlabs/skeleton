@@ -1,32 +1,29 @@
-import { useId, type PropsWithChildren } from 'react';
 import type { HTMLAttributes } from '@/internal/html-attributes';
-import { splitProps, machine, connect, type Props } from '@zag-js/accordion';
-import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
+import { splitProps, type Props } from '@zag-js/accordion';
+import { mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import { AccordionRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import { useAccordion } from '../modules/use-accordion';
 
 export interface AccordionRootProps
-	extends PropsWithChildren,
-		PropsWithElement,
-		Omit<Props, 'id'>,
-		Omit<HTMLAttributes<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+	extends Omit<Props, 'id'>,
+		PropsWithElement<'div'>,
+		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function (props: AccordionRootProps) {
-	const [machineProps, componentProps] = splitProps(props);
-	const { element, children, ...restAttributes } = componentProps;
+	const [accordionProps, componentProps] = splitProps(props);
+	const { element, children, ...rest } = componentProps;
 
-	const service = useMachine(machine, {
-		id: useId(),
-		...machineProps
+	const accordion = useAccordion(accordionProps);
+
+	const attributes = mergeProps(accordion.getRootProps(), rest, {
+		className: classesAccordion.root
 	});
-	const api = connect(service, normalizeProps);
-
-	const attributes = mergeProps(api.getRootProps(), { className: classesAccordion.root }, restAttributes);
 
 	return (
-		<AccordionRootContext.Provider value={{ api }}>
-			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}
+		<AccordionRootContext.Provider value={accordion}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
 		</AccordionRootContext.Provider>
 	);
 }

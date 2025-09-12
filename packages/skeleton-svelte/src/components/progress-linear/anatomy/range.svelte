@@ -14,7 +14,7 @@
 
 	const rootContext = ProgressLinearRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
@@ -22,7 +22,7 @@
 			{
 				class: classesProgressLinear.range
 			},
-			restAttributes
+			rest
 		)
 	);
 </script>

@@ -11,9 +11,9 @@ export interface ToastCloseTriggerProps extends PropsWithElement, HTMLAttributes
 export default function (props: ToastCloseTriggerProps) {
 	const rootContext = useContext(ToastRootContext);
 
-	const { element, children = <X />, ...restAttributes } = props;
+	const { element, children = <X />, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getCloseTriggerProps(), { className: classesToast.closeTrigger }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getCloseTriggerProps(), { className: classesToast.closeTrigger }, rest);
 
 	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
 }

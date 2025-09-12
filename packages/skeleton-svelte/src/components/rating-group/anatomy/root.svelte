@@ -18,7 +18,7 @@
 	const props: RatingGroupRootProps = $props();
 
 	const [machineProps, componentProps] = $derived(splitProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
@@ -27,7 +27,7 @@
 	}));
 	const api = $derived(connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesRatingGroup.root }, restAttributes));
+	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesRatingGroup.root }, rest));
 
 	RatingGroupRootContext.provide({
 		get api() {

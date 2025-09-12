@@ -10,9 +10,9 @@ export interface ToastDescriptionProps extends PropsWithElement, HTMLAttributes<
 export default function (props: ToastDescriptionProps) {
 	const rootContext = useContext(ToastRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getDescriptionProps(), { className: classesToast.description }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getDescriptionProps(), { className: classesToast.description }, rest);
 
 	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
 }

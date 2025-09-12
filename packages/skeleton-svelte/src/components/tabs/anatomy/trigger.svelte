@@ -17,9 +17,9 @@
 	const rootContext = TabsRootContext.consume();
 
 	const [triggerProps, componentProps] = $derived(splitTriggerProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(triggerProps), { class: classesTabs.trigger }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(triggerProps), { class: classesTabs.trigger }, rest));
 </script>
 
 {#if element}

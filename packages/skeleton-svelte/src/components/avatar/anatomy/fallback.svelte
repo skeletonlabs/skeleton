@@ -14,9 +14,9 @@
 
 	const rootContext = AvatarRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getFallbackProps(), { class: classesAvatar.fallback }, restAttributes));
+	const attributes = $derived(mergeProps(rootContext.api.getFallbackProps(), { class: classesAvatar.fallback }, rest));
 </script>
 
 {#if element}

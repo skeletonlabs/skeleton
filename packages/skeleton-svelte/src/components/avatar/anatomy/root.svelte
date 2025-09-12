@@ -14,7 +14,7 @@
 
 	const props: AvatarRootProps = $props();
 	const [machineProps, componentProps] = $derived(splitProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
@@ -23,7 +23,7 @@
 	}));
 	const api = $derived(connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesAvatar.root }, restAttributes));
+	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesAvatar.root }, rest));
 
 	AvatarRootContext.provide({
 		get api() {
@@ -33,7 +33,7 @@
 </script>
 
 {#if element}
-	{@render element({ attributes: restAttributes })}
+	{@render element({ attributes: rest })}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

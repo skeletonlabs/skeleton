@@ -10,9 +10,9 @@ export interface AvatarFallbackProps extends PropsWithElement, HTMLAttributes<'s
 export default function (props: AvatarFallbackProps) {
 	const rootContext = useContext(AvatarRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getFallbackProps(), { className: classesAvatar.fallback }, restAttributes);
+	const attributes = mergeProps(rootContext.api.getFallbackProps(), { className: classesAvatar.fallback }, rest);
 
 	return element ? element({ attributes }) : <span {...attributes}>{children}</span>;
 }
