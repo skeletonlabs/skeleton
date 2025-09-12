@@ -143,8 +143,7 @@ Note that you may need to extend or omit portions of the type to avoid conflicts
 #### Omit
 
 - `Omit<Props, 'id'>` - omit the `id` field from the `Props` interface as they will be provided inside the component itself.
-- React: `Omit<HTMLAttributes<'div'>, 'id' | 'dir'>` - omit conflicting HTML attributes.
-- Svelte: `Omit<HTMLAttributes<'div'>, 'id' | 'dir'>` - omit conflicting HTML attributes.
+- `Omit<HTMLAttributes<'div'>, 'id' | 'dir' | ...>` - omit conflicting HTML attributes.
 
 ### Modules Folder
 
