@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface AccordionRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
+	export interface AccordionRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
 		value: () => Api;
 	}
 </script>
@@ -13,7 +13,7 @@
 	import { AccordionRootContext } from '../modules/root-context';
 	import type { Api } from '@zag-js/accordion';
 
-	const props: AccordionRootProps = $props();
+	const props: AccordionRootProviderProps = $props();
 
 	const { element, children, value: accordion, ...rest } = $derived(props);
 

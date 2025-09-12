@@ -5,11 +5,11 @@ import type { Api } from '@zag-js/avatar';
 import { AvatarRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface AvatarRootProps extends PropsWithElement<'div'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
+export interface AvatarRootProviderProps extends PropsWithElement<'div'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
 	value: Api;
 }
 
-export default function (props: AvatarRootProps) {
+export default function (props: AvatarRootProviderProps) {
 	const { element, children, value: avatar, ...rest } = props;
 
 	const attributes = mergeProps(avatar.getRootProps(), rest, {

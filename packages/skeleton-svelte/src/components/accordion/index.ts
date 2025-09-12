@@ -1,6 +1,7 @@
 export { Accordion } from './modules/anatomy';
 export { useAccordion } from './modules/use-accordion.svelte';
 export type { AccordionRootProps } from './anatomy/root.svelte';
+export type { AccordionRootProviderProps } from './anatomy/root-provider.svelte';
 export type { AccordionRootContextProps } from './anatomy/root-context.svelte';
 export type { AccordionItemProps } from './anatomy/item.svelte';
 export type { AccordionHeadingProps } from './anatomy/heading.svelte';
