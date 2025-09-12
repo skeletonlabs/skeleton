@@ -1,9 +1,9 @@
 import { mergeProps } from '@zag-js/react';
 import { classesToast } from '@skeletonlabs/skeleton-common';
-import type { ComponentProps } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface ToastMessageProps extends PropsWithElement, ComponentProps<'div'> {}
+export interface ToastMessageProps extends PropsWithElement, HTMLAttributes<'div'> {}
 
 export default function (props: ToastMessageProps) {
 	const { element, children, ...restAttributes } = props;

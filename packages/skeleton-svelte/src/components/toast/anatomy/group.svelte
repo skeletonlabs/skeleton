@@ -1,9 +1,9 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Store, Props } from '@zag-js/toast';
 
-	export interface ToastGroupProps extends PropsWithElement, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir' | 'children'> {
+	export interface ToastGroupProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir' | 'children'> {
 		toaster: Store;
 		children?: Snippet<[Props]>;
 	}

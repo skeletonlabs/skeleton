@@ -1,4 +1,5 @@
-import { useContext, useId, type ComponentProps } from 'react';
+import { useContext, useId } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesToast } from '@skeletonlabs/skeleton-common';
 import { machine, connect, type Options } from '@zag-js/toast';
@@ -6,7 +7,7 @@ import { ToastRootContext } from '../modules/root-context';
 import { ToastGroupContext } from '../modules/group-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface ToastRootProps extends PropsWithElement, Omit<ComponentProps<'div'>, 'id' | 'dir'> {
+export interface ToastRootProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
 	toast: Options;
 }
 

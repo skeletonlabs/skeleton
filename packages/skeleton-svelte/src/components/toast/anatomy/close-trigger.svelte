@@ -1,8 +1,8 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface ToastCloseTriggerProps extends PropsWithElement, HTMLButtonAttributes {}
+	export interface ToastCloseTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">

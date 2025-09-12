@@ -1,9 +1,9 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Options } from '@zag-js/toast';
 
-	export interface ToastRootProps extends PropsWithElement, Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'> {
+	export interface ToastRootProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
 		toast: Options;
 	}
 </script>
