@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton
 
+## 4.0.0-next.2
+### Minor Changes
+
+
+- feat: merge optional `preset` styles into core ([#3714](https://github.com/skeletonlabs/skeleton/pull/3714))
+
+
+### Patch Changes
+
+
+- feat: progress-linear ([#3694](https://github.com/skeletonlabs/skeleton/pull/3694))
+
 ## 4.0.0-next.1
 ### Major Changes
 

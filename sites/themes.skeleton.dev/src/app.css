@@ -2,7 +2,6 @@
 @plugin '@tailwindcss/forms';
 
 @import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton/optional/presets';
 
 /* Themes */
 /* NOTE: currently only used for the Import preview card */
