@@ -3,10 +3,10 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with
 export const classesToast = defineSkeletonClasses({
 	root: [
 		'card p-3 w-full md:w-md ring flex items-center gap-2',
-		'preset-filled-surface-50-950 ring-surface-200-800',
-		'data-[type=success]:preset-filled-success-500 data-[type=success]:ring-transparent',
-		'data-[type=warning]:preset-filled-warning-500 data-[type=warning]:ring-transparent',
-		'data-[type=error]:preset-filled-error-500 data-[type=error]:ring-transparent'
+		'data-[type=info]:preset-filled-surface-50-950 data-[type=info]:ring-surface-200-800',
+		'data-[type=success]:preset-filled-success-500',
+		'data-[type=warning]:preset-filled-warning-500',
+		'data-[type=error]:preset-filled-error-500'
 	],
 	group: '',
 	message: 'flex-1',
