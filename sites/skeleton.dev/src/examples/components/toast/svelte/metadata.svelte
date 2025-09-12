@@ -8,14 +8,16 @@
 	class="btn preset-filled"
 	onclick={() => toaster.info({ title: 'Title', description: 'The value of foo is:', meta: { foo: 'bar' } })}
 >
-	Toast!
+	Toast
 </button>
 
 <Toast.Group {toaster}>
 	{#snippet children(toast)}
 		<Toast {toast}>
-			<Toast.Title>{toast.title}</Toast.Title>
-			<Toast.Description>{toast.description} {toast.meta?.foo}</Toast.Description>
+			<Toast.Message>
+				<Toast.Title>{toast.title}</Toast.Title>
+				<Toast.Description>{toast.description} {toast.meta?.foo}</Toast.Description>
+			</Toast.Message>
 			<Toast.CloseTrigger />
 		</Toast>
 	{/snippet}

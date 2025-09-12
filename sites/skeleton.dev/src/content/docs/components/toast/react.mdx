@@ -4,16 +4,26 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Default from '@examples/components/toast/react/default.tsx';
-import DefaultRaw from '@examples/components/toast/react/default.tsx?raw';
-import Closable from '@examples/components/toast/react/closable.tsx';
-import ClosableRaw from '@examples/components/toast/react/closable.tsx?raw';
-import Placement from '@examples/components/toast/react/placement.tsx';
-import PlacementRaw from '@examples/components/toast/react/placement.tsx?raw';
-import Metadata from '@examples/components/toast/react/metadata.tsx';
-import MetadataRaw from '@examples/components/toast/react/metadata.tsx?raw';
-import Promise from '@examples/components/toast/react/promise.tsx';
-import PromiseRaw from '@examples/components/toast/react/promise.tsx?raw';
+import Default from '@examples/components/toast/react/default';
+import DefaultRaw from '@examples/components/toast/react/default?raw';
+
+import Type from '@examples/components/toast/react/type';
+import TypeRaw from '@examples/components/toast/react/type?raw';
+
+import Action from '@examples/components/toast/react/action';
+import ActionRaw from '@examples/components/toast/react/action?raw';
+
+import Closable from '@examples/components/toast/react/closable';
+import ClosableRaw from '@examples/components/toast/react/closable?raw';
+
+import Placement from '@examples/components/toast/react/placement';
+import PlacementRaw from '@examples/components/toast/react/placement?raw';
+
+import Metadata from '@examples/components/toast/react/metadata';
+import MetadataRaw from '@examples/components/toast/react/metadata?raw';
+
+import Promise from '@examples/components/toast/react/promise';
+import PromiseRaw from '@examples/components/toast/react/promise?raw';
 
 ## Default
 
@@ -23,6 +33,28 @@ import PromiseRaw from '@examples/components/toast/react/promise.tsx?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Type
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Type client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={TypeRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Action
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Action client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ActionRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

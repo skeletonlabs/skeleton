@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { createToaster, Toast } from '@skeletonlabs/skeleton-svelte';
-
+	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 	const toaster = createToaster({});
 </script>
 
@@ -11,7 +10,12 @@
 			title: 'Toast',
 			description: 'This is a toast message.',
 			duration: Infinity,
-			action: { label: 'Undo', onClick: () => toaster.success({ title: 'Undone' }) }
+			action: {
+				label: 'Undo',
+				onClick: () => {
+					toaster.success({ title: 'Task undone', description: 'The task has been undone.' });
+				}
+			}
 		})}
 >
 	Toast

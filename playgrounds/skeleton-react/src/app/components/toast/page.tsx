@@ -17,7 +17,7 @@ export default function Page() {
 					})
 				}
 			>
-				Show Toast
+				Toast
 			</button>
 			<Toast.Group toaster={toaster}>
 				{(toast) => (
