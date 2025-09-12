@@ -1,16 +1,23 @@
 <script lang="ts">
 	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
+	import Skull from '@lucide/svelte/icons/skull';
 
 	const toaster = createToaster({});
 </script>
+
+{#snippet skull()}
+	<Skull class="size-4" />
+{/snippet}
 
 <button
 	class="btn preset-filled"
 	onclick={() =>
 		toaster.info({
 			title: 'Title',
-			description: 'The value of foo is:',
-			meta: { foo: 'bar' }
+			description: 'This is a description.',
+			meta: {
+				icon: skull
+			}
 		})}
 >
 	Toast
@@ -20,7 +27,10 @@
 	{#snippet children(toast)}
 		<Toast {toast}>
 			<Toast.Message>
-				<Toast.Title>{toast.title}</Toast.Title>
+				<Toast.Title class="flex gap-2 items-center">
+					{toast.title}
+					{@render toast.meta!.icon()}
+				</Toast.Title>
 				<Toast.Description>{toast.description} {toast.meta?.foo}</Toast.Description>
 			</Toast.Message>
 			<Toast.CloseTrigger />

@@ -1,4 +1,5 @@
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
+import { Skull } from 'lucide-react';
 
 export default function () {
 	const toaster = createToaster({});
@@ -10,9 +11,9 @@ export default function () {
 				onClick={() =>
 					toaster.info({
 						title: 'Title',
-						description: 'The value of foo is:',
+						description: 'This is a description.',
 						meta: {
-							foo: 'bar'
+							icon: <Skull className="size-4" />
 						}
 					})
 				}
@@ -23,10 +24,11 @@ export default function () {
 				{(toast) => (
 					<Toast toast={toast} key={toast.id}>
 						<Toast.Message>
-							<Toast.Title>{toast.title}</Toast.Title>
-							<Toast.Description>
-								{toast.description} {toast.meta?.foo}
-							</Toast.Description>
+							<Toast.Title className="flex gap-2 items-center">
+								{toast.title}
+								{toast.meta!.icon}
+							</Toast.Title>
+							<Toast.Description>{toast.description}</Toast.Description>
 						</Toast.Message>
 						<Toast.CloseTrigger />
 					</Toast>
