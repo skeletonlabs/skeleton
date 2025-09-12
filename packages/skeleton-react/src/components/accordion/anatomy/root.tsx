@@ -1,4 +1,5 @@
-import { useId, type ComponentProps, type PropsWithChildren } from 'react';
+import { useId, type PropsWithChildren } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { splitProps, machine, connect, type Props } from '@zag-js/accordion';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
@@ -9,7 +10,7 @@ export interface AccordionRootProps
 	extends PropsWithChildren,
 		PropsWithElement,
 		Omit<Props, 'id'>,
-		Omit<ComponentProps<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+		Omit<HTMLAttributes<'div'>, 'id' | 'defaultValue' | 'dir'> {}
 
 export default function (props: AccordionRootProps) {
 	const [machineProps, componentProps] = splitProps(props);

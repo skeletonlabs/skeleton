@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { TriggerProps } from '@zag-js/tabs';
-	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface TabsTriggerProps extends TriggerProps, PropsWithElement, Omit<HTMLButtonAttributes, 'value' | 'disabled'> {}
+	export interface TabsTriggerProps extends TriggerProps, PropsWithElement, Omit<HTMLAttributes<'button'>, 'value' | 'disabled'> {}
 </script>
 
 <script lang="ts">

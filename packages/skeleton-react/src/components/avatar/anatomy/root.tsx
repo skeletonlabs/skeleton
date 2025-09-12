@@ -1,11 +1,12 @@
-import { useId, type ComponentProps } from 'react';
+import { useId } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
 import { splitProps, machine, connect, type Props } from '@zag-js/avatar';
 import { AvatarRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface AvatarRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<ComponentProps<'div'>, 'id' | 'dir'> {}
+export interface AvatarRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {}
 
 export default function (props: AvatarRootProps) {
 	const [machineProps, componentProps] = splitProps(props);

@@ -1,8 +1,8 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface TabsIndicatorProps extends PropsWithElement, Omit<HTMLAttributes<HTMLDivElement>, 'children'> {}
+	export interface TabsIndicatorProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'children'> {}
 </script>
 
 <script lang="ts">

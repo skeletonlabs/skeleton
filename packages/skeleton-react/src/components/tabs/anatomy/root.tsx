@@ -1,11 +1,12 @@
 import { splitProps, machine, connect, type Props } from '@zag-js/tabs';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
-import { useId, type ComponentProps } from 'react';
+import { useId } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { TabsRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesTabs } from '@skeletonlabs/skeleton-common';
 
-export interface TabsRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<ComponentProps<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+export interface TabsRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'div'>, 'id' | 'defaultValue' | 'dir'> {}
 
 export default function (props: TabsRootProps) {
 	const [machineProps, componentProps] = splitProps(props);
