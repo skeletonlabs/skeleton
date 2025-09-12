@@ -19,8 +19,10 @@
 				<nav class="text-sm flex flex-col gap-2">
 					<a class="anchor" href="/components/accordion">Accordions</a>
 					<a class="anchor" href="/components/avatar">Avatars</a>
+					<a class="anchor" href="/components/progress-linear">Progress-Linear</a>
 					<a class="anchor" href="/components/dialog">Dialog</a>
 					<a class="anchor" href="/components/rating-group">Rating Group</a>
+					<a class="anchor" href="/components/switch">Switch</a>
 					<a class="anchor" href="/components/tabs">Tabs</a>
 				</nav>
 			</div>

@@ -4,24 +4,24 @@ packages:
   - playgrounds/*
 
 catalog:
-  '@zag-js/svelte': ^1.22.1
-  '@zag-js/react': ^1.22.1
-  '@zag-js/accordion': ^1.22.1
-  '@zag-js/avatar': ^1.22.1
-  '@zag-js/combobox': ^1.22.1
-  '@zag-js/dialog': 1.22.1
-  '@zag-js/file-upload': ^1.22.1
-  '@zag-js/pagination': ^1.22.1
-  '@zag-js/popover': ^1.22.1
-  '@zag-js/progress': ^1.22.1
-  '@zag-js/radio-group': ^1.22.1
-  '@zag-js/rating-group': ^1.22.1
-  '@zag-js/slider': ^1.22.1
-  '@zag-js/switch': ^1.22.1
-  '@zag-js/tabs': ^1.22.1
-  '@zag-js/tags-input': ^1.22.1
-  '@zag-js/toast': ^1.22.1
-  '@zag-js/tooltip': ^1.22.1
+  '@zag-js/svelte': ^1.23.0
+  '@zag-js/react': ^1.23.0
+  '@zag-js/accordion': ^1.23.0
+  '@zag-js/avatar': ^1.23.0
+  '@zag-js/combobox': ^1.23.0
+  '@zag-js/dialog': ^1.23.0
+  '@zag-js/file-upload': ^1.23.0
+  '@zag-js/pagination': ^1.23.0
+  '@zag-js/popover': ^1.23.0
+  '@zag-js/progress': ^1.23.0
+  '@zag-js/radio-group': ^1.23.0
+  '@zag-js/rating-group': ^1.23.0
+  '@zag-js/slider': ^1.23.0
+  '@zag-js/switch': ^1.23.0
+  '@zag-js/tabs': ^1.23.0
+  '@zag-js/tags-input': ^1.23.0
+  '@zag-js/toast': ^1.23.0
+  '@zag-js/tooltip': ^1.23.0
   typescript: ^5.9.2
   svelte: ^5.38.6
   tailwindcss: ^4.1.12
