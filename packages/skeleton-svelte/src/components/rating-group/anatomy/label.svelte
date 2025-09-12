@@ -1,8 +1,8 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface RatingGroupLabelProps extends PropsWithElement, Omit<HTMLAttributes<HTMLLabelElement>, 'id' | 'defaultValue' | 'dir'> {}
+	export interface RatingGroupLabelProps extends PropsWithElement, Omit<HTMLAttributes<'label'>, 'id' | 'defaultValue' | 'dir'> {}
 </script>
 
 <script lang="ts">

@@ -1,10 +1,11 @@
 import { classesTabs } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
-import { useContext, type ComponentProps } from 'react';
+import { useContext } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { TabsRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface TabsIndicatorProps extends PropsWithElement, Omit<ComponentProps<'div'>, 'children'> {}
+export interface TabsIndicatorProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'children'> {}
 
 export default function (props: TabsIndicatorProps) {
 	const rootContext = useContext(TabsRootContext);

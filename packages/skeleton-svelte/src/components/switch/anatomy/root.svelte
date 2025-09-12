@@ -1,9 +1,9 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/switch';
 
-	export interface SwitchRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<HTMLLabelElement>, 'id' | 'dir'> {}
+	export interface SwitchRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'label'>, 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
