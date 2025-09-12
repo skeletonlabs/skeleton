@@ -17,10 +17,11 @@
 
 	const { element, children, ...restAttributes } = $derived(props);
 
-	const attributes = $derived({
-		...mergeProps(rootContext.api.getPositionerProps(), { class: classesDialog.positioner }, restAttributes),
-		[createAttachmentKey()]: fromAction(portal, () => undefined)
-	});
+	const attributes = $derived(
+		mergeProps(rootContext.api.getPositionerProps(), { class: classesDialog.positioner }, restAttributes, {
+			[createAttachmentKey()]: fromAction(portal, () => undefined)
+		})
+	);
 </script>
 
 {#if element}
