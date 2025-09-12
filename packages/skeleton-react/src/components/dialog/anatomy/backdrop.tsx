@@ -1,10 +1,11 @@
-import { useContext, type ComponentProps } from 'react';
+import { useContext } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps, Portal } from '@zag-js/react';
 import { DialogRootContext } from '../modules/root-context';
 import { classesDialog } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface DialogBackdropProps extends PropsWithElement, Omit<ComponentProps<'div'>, 'children'> {}
+export interface DialogBackdropProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'children'> {}
 
 export default function (props: DialogBackdropProps) {
 	const rootContext = useContext(DialogRootContext);
