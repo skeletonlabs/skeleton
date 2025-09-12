@@ -1,4 +1,5 @@
-import { useContext, type ComponentProps, type PropsWithChildren } from 'react';
+import { useContext } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { splitItemProps, type ItemProps } from '@zag-js/file-upload';
 import { mergeProps } from '@zag-js/react';
 import { classesFileUpload } from '@skeletonlabs/skeleton-common';
@@ -6,7 +7,7 @@ import { FileUploadRootContext } from '../modules/root-context';
 import { FileUploadItemContext } from '../modules/item-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface FileUploadItemProps extends PropsWithChildren, PropsWithElement, ItemProps, ComponentProps<'li'> {}
+export interface FileUploadItemProps extends PropsWithElement, ItemProps, HTMLAttributes<'li'> {}
 
 export default function (props: FileUploadItemProps) {
 	const rootContext = useContext(FileUploadRootContext);

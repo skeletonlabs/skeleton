@@ -1,9 +1,9 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { ItemProps } from '@zag-js/file-upload';
 
-	export interface FileUploadItemProps extends PropsWithElement, ItemProps, HTMLAttributes<HTMLLIElement> {}
+	export interface FileUploadItemProps extends PropsWithElement, ItemProps, HTMLAttributes<'li'> {}
 </script>
 
 <script lang="ts">

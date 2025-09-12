@@ -1,11 +1,12 @@
-import { useId, type ComponentProps } from 'react';
+import { useId } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesFileUpload } from '@skeletonlabs/skeleton-common';
 import { splitProps, machine, connect, type Props } from '@zag-js/file-upload';
 import { FileUploadRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface FileUploadRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<ComponentProps<'div'>, 'id' | 'dir'> {}
+export interface FileUploadRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {}
 
 export default function (props: FileUploadRootProps) {
 	const [machineProps, componentProps] = splitProps(props);

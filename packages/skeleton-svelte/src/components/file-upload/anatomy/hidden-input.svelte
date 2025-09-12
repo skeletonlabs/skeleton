@@ -1,8 +1,8 @@
 <script lang="ts" module>
-	import type { HTMLInputAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface FileUploadHiddenInputProps extends PropsWithElement, Omit<HTMLInputAttributes, 'children'> {}
+	export interface FileUploadHiddenInputProps extends PropsWithElement, Omit<HTMLAttributes<'input'>, 'children'> {}
 </script>
 
 <script lang="ts">

@@ -1,10 +1,11 @@
 import { classesFileUpload } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
-import { useContext, type ComponentProps } from 'react';
+import { useContext } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { FileUploadRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface FileUploadHiddenInputProps extends PropsWithElement, Omit<ComponentProps<'input'>, 'children'> {}
+export interface FileUploadHiddenInputProps extends PropsWithElement, Omit<HTMLAttributes<'input'>, 'children'> {}
 
 export default function (props: FileUploadHiddenInputProps) {
 	const rootContext = useContext(FileUploadRootContext);

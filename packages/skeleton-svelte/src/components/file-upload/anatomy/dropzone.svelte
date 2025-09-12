@@ -1,9 +1,9 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { DropzoneProps } from '@zag-js/file-upload';
 
-	export interface FileUploadDropzoneProps extends PropsWithElement, DropzoneProps, HTMLAttributes<HTMLDivElement> {}
+	export interface FileUploadDropzoneProps extends PropsWithElement, DropzoneProps, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">

@@ -1,8 +1,8 @@
 <script lang="ts" module>
-	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface FileUploadTriggerProps extends PropsWithElement, HTMLButtonAttributes {}
+	export interface FileUploadTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
