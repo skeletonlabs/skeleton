@@ -13,7 +13,7 @@ export default function () {
 						title: 'Title',
 						description: 'This is a description.',
 						meta: {
-							icon: <Skull className="size-4" />
+							icon: <Skull className="size-8" />
 						}
 					})
 				}
@@ -23,11 +23,9 @@ export default function () {
 			<Toast.Group toaster={toaster}>
 				{(toast) => (
 					<Toast toast={toast} key={toast.id}>
+						{toast.meta!.icon}
 						<Toast.Message>
-							<Toast.Title className="flex gap-2 items-center">
-								{toast.title}
-								{toast.meta!.icon}
-							</Toast.Title>
+							<Toast.Title className="flex gap-2 items-center">{toast.title}</Toast.Title>
 							<Toast.Description>{toast.description}</Toast.Description>
 						</Toast.Message>
 						<Toast.CloseTrigger />

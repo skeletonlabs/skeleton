@@ -3,7 +3,7 @@
 	const toaster = createToaster({});
 </script>
 
-<div class="grid gap-2">
+<div class="grid grid-cols-2 gap-2">
 	<button
 		class="btn preset-filled"
 		onclick={() =>
@@ -23,6 +23,16 @@
 			})}
 	>
 		Success
+	</button>
+	<button
+		class="btn preset-filled-warning-500"
+		onclick={() =>
+			toaster.warning({
+				title: 'Warning',
+				description: 'This is a warning toast.'
+			})}
+	>
+		Warning
 	</button>
 	<button
 		class="btn preset-filled-error-500"

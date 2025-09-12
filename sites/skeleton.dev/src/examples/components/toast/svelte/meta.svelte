@@ -6,7 +6,7 @@
 </script>
 
 {#snippet skull()}
-	<Skull class="size-4" />
+	<Skull class="size-8" />
 {/snippet}
 
 <button
@@ -26,11 +26,9 @@
 <Toast.Group {toaster}>
 	{#snippet children(toast)}
 		<Toast {toast}>
+			{@render toast.meta!.icon()}
 			<Toast.Message>
-				<Toast.Title class="flex gap-2 items-center">
-					{toast.title}
-					{@render toast.meta!.icon()}
-				</Toast.Title>
+				<Toast.Title class="flex gap-2 items-center">{toast.title}</Toast.Title>
 				<Toast.Description>{toast.description} {toast.meta?.foo}</Toast.Description>
 			</Toast.Message>
 			<Toast.CloseTrigger />

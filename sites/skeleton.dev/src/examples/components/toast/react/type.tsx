@@ -5,7 +5,7 @@ export default function () {
 
 	return (
 		<>
-			<div className="grid gap-2">
+			<div className="grid grid-cols-2 gap-2">
 				<button
 					className="btn preset-filled"
 					onClick={() =>
@@ -27,6 +27,17 @@ export default function () {
 					}
 				>
 					Success
+				</button>
+				<button
+					className="btn preset-filled-warning-500"
+					onClick={() =>
+						toaster.warning({
+							title: 'Warning',
+							description: 'This is a warning toast.'
+						})
+					}
+				>
+					Warning
 				</button>
 				<button
 					className="btn preset-filled-error-500"
