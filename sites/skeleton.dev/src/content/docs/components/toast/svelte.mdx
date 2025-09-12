@@ -19,8 +19,8 @@ import ClosableRaw from '@examples/components/toast/svelte/closable.svelte?raw';
 import Placement from '@examples/components/toast/svelte/placement.svelte';
 import PlacementRaw from '@examples/components/toast/svelte/placement.svelte?raw';
 
-import Metadata from '@examples/components/toast/svelte/metadata.svelte';
-import MetadataRaw from '@examples/components/toast/svelte/metadata.svelte?raw';
+import Meta from '@examples/components/toast/svelte/meta.svelte';
+import MetaRaw from '@examples/components/toast/svelte/meta.svelte?raw';
 
 import Promise from '@examples/components/toast/svelte/promise.svelte';
 import PromiseRaw from '@examples/components/toast/svelte/promise.svelte?raw';
@@ -80,11 +80,11 @@ The following examples all showcase a one off example of `<Toast.Group>`, in a r
 	</Fragment>
 </Preview>
 
-## Metadata
+## Meta
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Metadata client:visible />
+		<Meta client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={MetadataRaw} lang="svelte" />
