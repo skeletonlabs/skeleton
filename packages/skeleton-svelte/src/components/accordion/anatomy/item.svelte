@@ -1,9 +1,9 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { ItemProps } from '@zag-js/accordion';
 
-	export interface AccordionItemProps extends PropsWithElement, ItemProps, HTMLAttributes<HTMLDivElement> {}
+	export interface AccordionItemProps extends PropsWithElement, ItemProps, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">

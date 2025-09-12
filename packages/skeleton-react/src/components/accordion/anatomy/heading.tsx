@@ -1,9 +1,10 @@
 import { mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
-import type { ComponentProps, JSX, PropsWithChildren } from 'react';
+import type { JSX, PropsWithChildren } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface AccordionHeadingProps extends PropsWithChildren, PropsWithElement, ComponentProps<'h3'> {
+export interface AccordionHeadingProps extends PropsWithChildren, PropsWithElement, HTMLAttributes<'h3'> {
 	/**
 	 * The level of the heading.
 	 *
