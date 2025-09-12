@@ -7,7 +7,7 @@
 		<Accordion.Heading>
 			<Accordion.Trigger>
 				{#snippet element({ attributes })}
-					<button {...attributes}>My Own Button</button>
+					<button {...attributes}>My Button</button>
 				{/snippet}
 			</Accordion.Trigger>
 			<Accordion.Content>Content for Item 1</Accordion.Content>

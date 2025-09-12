@@ -1,11 +1,22 @@
 /* Components: Keyframe - Progress Indeterminate */
 /* NOTE: only for use in the progress bar functional component. */
 
-@keyframes anim-progress-indeterminate {
+/* Horizontal */
+@keyframes anim-progress-indeterminate-horz {
 	from {
 		transform: translateX(-200%);
 	}
 	to {
 		transform: translateX(200%);
+	}
+}
+
+/* Vertical */
+@keyframes anim-progress-indeterminate-vert {
+	from {
+		transform: translateY(-200%);
+	}
+	to {
+		transform: translateY(200%);
 	}
 }

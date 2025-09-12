@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.3
+### Minor Changes
+
+
+- feat: progress-linear ([#3694](https://github.com/skeletonlabs/skeleton/pull/3694))
+
+
+### Patch Changes
+
+- Updated dependencies [[`a9c651a`](https://github.com/skeletonlabs/skeleton/commit/a9c651adac035dc4613f0118bca05f0cfb0b22b5)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.3
+
 ## 2.0.0-next.2
 ### Minor Changes
 

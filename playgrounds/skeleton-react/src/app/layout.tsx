@@ -9,21 +9,18 @@ export default function RootLayout({
 	return (
 		<html lang="en" data-theme="cerberus" suppressHydrationWarning={true}>
 			<body>
-				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]" data-testid="app">
-					{/* Nav */}
-					<div className="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
-						<header>
-							<a className="text-sm bg-blue-500 p-2 font-mono font-bold text-white" href="/">
+				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
+					<div className="bg-surface-100-900 p-8 flex flex-col gap-8">
+						<header className="flex justify-between items-center">
+							<a className="inline-block text-sm bg-blue-500 p-2 font-mono font-bold text-white" href="/">
 								skeleton-react
 							</a>
+							<LightSwitch />
 						</header>
 						<hr className="hr" />
-						<LightSwitch></LightSwitch>
-						<hr className="hr" />
-						{/* Components */}
-						<div className="space-y-8">
+						<div className="flex flex-col gap-4">
 							<div className="font-bold">Components</div>
-							<nav className="text-sm flex flex-col gap-2">
+							<nav className="text-sm flex flex-col gap-1">
 								<a className="anchor" href="/components/accordion">
 									Accordion
 								</a>
@@ -33,8 +30,14 @@ export default function RootLayout({
 								<a className="anchor" href="/components/combobox">
 									Combobox
 								</a>
+								<a className="anchor" href="/components/progress-linear">
+									Progress Linear
+								</a>
 								<a className="anchor" href="/components/rating-group">
 									Rating Group
+								</a>
+								<a className="anchor" href="/components/switch">
+									Switch
 								</a>
 								<a className="anchor" href="/components/tabs">
 									Tabs
@@ -42,7 +45,6 @@ export default function RootLayout({
 							</nav>
 						</div>
 					</div>
-					{/* Page */}
 					<main className="overflow-y-auto p-8">{children}</main>
 				</div>
 			</body>

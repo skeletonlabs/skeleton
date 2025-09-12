@@ -3,9 +3,10 @@ import { join } from 'node:path';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 import { Parser } from './parser';
-import { kebabToPascal } from './string-utils';
+import { kebabToCamel, kebabToPascal } from './string-utils';
 import { frameworks } from './framework';
 import { MONOREPO_ROOT, CLASSES_DIRECTORY, OUTPUT_DIRECTORY } from './constants';
+import { pathToFileURL } from 'node:url';
 
 async function getPartOrderFromAnatomy(framework: string, component: string) {
 	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
@@ -33,17 +34,15 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 }
 
 async function getClassValue(component: string, part: string) {
-	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
-	const sourceFile = project.createSourceFile(`${component}.ts`, await readFile(join(CLASSES_DIRECTORY, `${component}.ts`), 'utf-8'));
-	const classes = sourceFile.getFirstDescendantByKindOrThrow(tsMorph.SyntaxKind.ObjectLiteralExpression);
-	const property = classes
-		.getProperties()
-		.filter(tsMorph.Node.isPropertyAssignment)
-		.find((p) => p.getName() === part.replace(`${component}-`, '').toLowerCase());
-	if (!property) {
+	const module = await import(pathToFileURL(join(CLASSES_DIRECTORY, `${component}.js`)).href);
+	const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
+	if (!value || typeof value !== 'string') {
 		return;
 	}
-	return property.getInitializerOrThrow().getText().replaceAll("'", '"');
+	return value
+		.split(' ')
+		.map((str) => str.replace('skb:', ''))
+		.join(' ');
 }
 
 function getComponentNameFromPath(path: string): string {
