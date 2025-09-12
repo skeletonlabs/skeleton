@@ -33,8 +33,10 @@
 				title: 'Error',
 				description: `Your number is ${number}`
 			})
-		})}>Toast</button
+		})}
 >
+	Toast
+</button>
 
 <Toast.Group {toaster}>
 	{#snippet children(toast)}

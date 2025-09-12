@@ -15,7 +15,10 @@ export default function () {
 						action: {
 							label: 'Undo',
 							onClick: () => {
-								toaster.success({ title: 'Task undone', description: 'The task has been undone.' });
+								toaster.success({
+									title: 'Task undone',
+									description: 'The task has been undone.'
+								});
 							}
 						}
 					})

@@ -7,7 +7,15 @@ export default function () {
 		<>
 			<button
 				className="btn preset-filled"
-				onClick={() => toaster.info({ title: 'Title', description: 'The value of foo is:', meta: { foo: 'bar' } })}
+				onClick={() =>
+					toaster.info({
+						title: 'Title',
+						description: 'The value of foo is:',
+						meta: {
+							foo: 'bar'
+						}
+					})
+				}
 			>
 				Toast
 			</button>

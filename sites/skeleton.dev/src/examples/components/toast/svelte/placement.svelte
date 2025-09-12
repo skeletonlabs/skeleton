@@ -6,7 +6,16 @@
 	});
 </script>
 
-<button class="btn preset-filled" onclick={() => toaster.info({ title: 'Title', description: 'This is a description.' })}>Toast</button>
+<button
+	class="btn preset-filled"
+	onclick={() =>
+		toaster.info({
+			title: 'Title',
+			description: 'This is a description.'
+		})}
+>
+	Toast
+</button>
 
 <Toast.Group {toaster}>
 	{#snippet children(toast)}

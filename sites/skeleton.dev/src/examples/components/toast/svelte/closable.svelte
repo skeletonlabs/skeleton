@@ -4,9 +4,17 @@
 	const toaster = createToaster({});
 </script>
 
-<button class="btn preset-filled" onclick={() => toaster.info({ title: 'Title', description: 'This is a description.', closable: false })}
-	>Toast</button
+<button
+	class="btn preset-filled"
+	onclick={() =>
+		toaster.info({
+			title: 'Title',
+			description: 'This is a description.',
+			closable: false
+		})}
 >
+	Toast
+</button>
 
 <Toast.Group {toaster}>
 	{#snippet children(toast)}

@@ -4,14 +4,36 @@
 </script>
 
 <div class="grid gap-2">
-	<button class="btn preset-filled" onclick={() => toaster.info({ title: 'Info', description: 'This is an info toast.' })}>Info</button>
+	<button
+		class="btn preset-filled"
+		onclick={() =>
+			toaster.info({
+				title: 'Info',
+				description: 'This is an info toast.'
+			})}
+	>
+		Info
+	</button>
 	<button
 		class="btn preset-filled-success-500"
-		onclick={() => toaster.success({ title: 'Success', description: 'This is a success toast.' })}>Success</button
+		onclick={() =>
+			toaster.success({
+				title: 'Success',
+				description: 'This is a success toast.'
+			})}
 	>
-	<button class="btn preset-filled-error-500" onclick={() => toaster.error({ title: 'Error', description: 'This is an error toast.' })}
-		>Error</button
+		Success
+	</button>
+	<button
+		class="btn preset-filled-error-500"
+		onclick={() =>
+			toaster.error({
+				title: 'Error',
+				description: 'This is an error toast.'
+			})}
 	>
+		Error
+	</button>
 </div>
 
 <Toast.Group {toaster}>

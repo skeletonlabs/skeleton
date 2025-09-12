@@ -6,18 +6,36 @@ export default function () {
 	return (
 		<>
 			<div className="grid gap-2">
-				<button className="btn preset-filled" onClick={() => toaster.info({ title: 'Info', description: 'This is an info toast.' })}>
+				<button
+					className="btn preset-filled"
+					onClick={() =>
+						toaster.info({
+							title: 'Info',
+							description: 'This is an info toast.'
+						})
+					}
+				>
 					Info
 				</button>
 				<button
 					className="btn preset-filled-success-500"
-					onClick={() => toaster.success({ title: 'Success', description: 'This is a success toast.' })}
+					onClick={() =>
+						toaster.success({
+							title: 'Success',
+							description: 'This is a success toast.'
+						})
+					}
 				>
 					Success
 				</button>
 				<button
 					className="btn preset-filled-error-500"
-					onClick={() => toaster.error({ title: 'Error', description: 'This is an error toast.' })}
+					onClick={() =>
+						toaster.error({
+							title: 'Error',
+							description: 'This is an error toast.'
+						})
+					}
 				>
 					Error
 				</button>

@@ -6,7 +6,12 @@
 
 <button
 	class="btn preset-filled"
-	onclick={() => toaster.info({ title: 'Title', description: 'The value of foo is:', meta: { foo: 'bar' } })}
+	onclick={() =>
+		toaster.info({
+			title: 'Title',
+			description: 'The value of foo is:',
+			meta: { foo: 'bar' }
+		})}
 >
 	Toast
 </button>

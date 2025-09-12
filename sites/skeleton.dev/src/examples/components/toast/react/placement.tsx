@@ -7,7 +7,15 @@ export default function () {
 
 	return (
 		<>
-			<button className="btn preset-filled" onClick={() => toaster.info({ title: 'Title', description: 'This is a description.' })}>
+			<button
+				className="btn preset-filled"
+				onClick={() =>
+					toaster.info({
+						title: 'Title',
+						description: 'This is a description.'
+					})
+				}
+			>
 				Toast
 			</button>
 			<Toast.Group toaster={toaster}>
