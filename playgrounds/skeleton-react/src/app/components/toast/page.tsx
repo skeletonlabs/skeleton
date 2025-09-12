@@ -21,7 +21,7 @@ export default function Page() {
 			</button>
 			<Toast.Group toaster={toaster}>
 				{(toast) => (
-					<Toast key={toast.id} toast={toast}>
+					<Toast toast={toast} key={toast.id}>
 						<Toast.Message>
 							<Toast.Title>{toast.title}</Toast.Title>
 							<Toast.Description>{toast.description}</Toast.Description>

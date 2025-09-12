@@ -13,7 +13,7 @@ export default function () {
 			</button>
 			<Toast.Group toaster={toaster}>
 				{(toast) => (
-					<Toast toast={toast}>
+					<Toast toast={toast} key={toast.id}>
 						<Toast.Message>
 							<Toast.Title>{toast.title}</Toast.Title>
 							<Toast.Description>{toast.description}</Toast.Description>
