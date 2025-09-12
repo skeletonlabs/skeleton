@@ -1,11 +1,12 @@
-import { useContext, type ComponentProps, type PropsWithChildren } from 'react';
+import { useContext, type PropsWithChildren } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import { AccordionItemContext } from '../modules/item-context';
 import { AccordionRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface AccordionTriggerProps extends PropsWithChildren, PropsWithElement, ComponentProps<'button'> {}
+export interface AccordionTriggerProps extends PropsWithChildren, PropsWithElement, HTMLAttributes<'button'> {}
 
 export default function (props: AccordionTriggerProps) {
 	const rootContext = useContext(AccordionRootContext);

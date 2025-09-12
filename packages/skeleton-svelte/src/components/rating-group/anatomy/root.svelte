@@ -1,12 +1,12 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/rating-group';
 
 	export interface RatingGroupRootProps
 		extends PropsWithElement,
 			Omit<Props, 'id'>,
-			Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'defaultValue' | 'dir'> {}
+			Omit<HTMLAttributes<'div'>, 'id' | 'defaultValue' | 'dir'> {}
 </script>
 
 <script lang="ts">
