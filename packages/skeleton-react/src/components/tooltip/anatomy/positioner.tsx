@@ -1,5 +1,5 @@
 import { useContext, type ComponentProps } from 'react';
-import { mergeProps } from '@zag-js/react';
+import { mergeProps, Portal } from '@zag-js/react';
 import { TooltipRootContext } from '../modules/root-context';
 import { classesTooltip } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
@@ -13,5 +13,5 @@ export default function (props: TooltipPositionerProps) {
 
 	const attributes = mergeProps(rootContext.api.getPositionerProps(), { className: classesTooltip.positioner }, restAttributes);
 
-	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
+	return <Portal>{element ? element({ attributes }) : <div {...attributes}>{children}</div>}</Portal>;
 }

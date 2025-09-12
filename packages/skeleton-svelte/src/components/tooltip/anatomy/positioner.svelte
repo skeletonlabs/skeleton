@@ -6,9 +6,10 @@
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
+	import { mergeProps, portal } from '@zag-js/svelte';
 	import { classesTooltip } from '@skeletonlabs/skeleton-common';
 	import { TooltipRootContext } from '../modules/root-context';
+	import { createAttachmentKey, fromAction } from 'svelte/attachments';
 
 	const props: TooltipPositionerProps = $props();
 
@@ -16,7 +17,11 @@
 
 	const { element, children, ...restAttributes } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getPositionerProps(), { class: classesTooltip.positioner }, restAttributes));
+	const attributes = $derived(
+		mergeProps(rootContext.api.getPositionerProps(), { class: classesTooltip.positioner }, restAttributes, {
+			[createAttachmentKey()]: fromAction(portal, () => undefined)
+		})
+	);
 </script>
 
 {#if element}
