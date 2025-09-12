@@ -1,11 +1,12 @@
 import { classesTabs } from '@skeletonlabs/skeleton-common';
 import { splitTriggerProps, type TriggerProps } from '@zag-js/tabs';
 import { mergeProps } from '@zag-js/react';
-import { useContext, type ComponentProps } from 'react';
+import { useContext } from 'react';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import { TabsRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface TabsTriggerProps extends PropsWithElement, TriggerProps, Omit<ComponentProps<'button'>, 'value'> {}
+export interface TabsTriggerProps extends PropsWithElement, TriggerProps, Omit<HTMLAttributes<'button'>, 'value'> {}
 
 export default function (props: TabsTriggerProps) {
 	const rootContext = useContext(TabsRootContext);
