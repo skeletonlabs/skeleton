@@ -2,13 +2,14 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with
 
 export const classesToast = defineSkeletonClasses({
 	root: [
-		'relative p-4 border-1 rounded-container min-w-sm',
-		'bg-surface-100-900 data-[type=success]:preset-filled-success-100-900 data-[type=error]:preset-filled-error-100-900',
-		'border-surface-200-800 data-[type=success]:border-success-200-800 data-[type=error]:border-error-200-800'
+		'card p-4 md:w-md ring grid grid-cols-[1fr_auto_auto] items-center gap-2',
+		'preset-filled-surface-50-950 data-[type=success]:preset-filled-success-50-950 data-[type=error]:preset-filled-error-50-950',
+		'ring-surface-200-800 data-[type=success]:ring-success-200-800 data-[type=error]:ring-error-200-800'
 	],
 	group: '',
-	title: 'h4',
+	message: '',
+	title: 'font-medium',
 	description: '',
-	actionTrigger: '',
-	closeTrigger: 'absolute top-1/2 -translate-y-1/2 right-4 btn-icon hover:preset-tonal'
+	actionTrigger: 'btn preset-outlined-surface-200-800 hover:preset-tonal',
+	closeTrigger: 'btn-icon hover:preset-tonal'
 });

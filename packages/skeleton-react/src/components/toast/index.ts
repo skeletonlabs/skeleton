@@ -4,6 +4,7 @@ export type { ToastGroupProps } from './anatomy/group';
 export type { ToastGroupContextProps } from './anatomy/group-context';
 export type { ToastRootProps } from './anatomy/root';
 export type { ToastRootContextProps } from './anatomy/root-context';
+export type { ToastMessageProps } from './anatomy/message';
 export type { ToastTitleProps } from './anatomy/title';
 export type { ToastDescriptionProps } from './anatomy/description';
 export type { ToastCloseTriggerProps } from './anatomy/close-trigger';

@@ -8,15 +8,25 @@ export default function Page() {
 		<>
 			<button
 				className="btn preset-filled"
-				onClick={() => toaster.info({ type: '', title: 'Toast', description: 'This is a toast message.', duration: Infinity })}
+				onClick={() =>
+					toaster.info({
+						title: 'Toast',
+						description: 'This is a toast message.',
+						action: { label: 'Undo', onClick: () => {} },
+						duration: Infinity
+					})
+				}
 			>
 				Show Toast
 			</button>
 			<Toast.Group toaster={toaster}>
 				{(toast) => (
 					<Toast key={toast.id} toast={toast}>
-						<Toast.Title>{toast.title}</Toast.Title>
-						<Toast.Description>{toast.description}</Toast.Description>
+						<Toast.Message>
+							<Toast.Title>{toast.title}</Toast.Title>
+							<Toast.Description>{toast.description}</Toast.Description>
+						</Toast.Message>
+						{toast.action && <Toast.ActionTrigger>{toast.action.label}</Toast.ActionTrigger>}
 						<Toast.CloseTrigger />
 					</Toast>
 				)}
