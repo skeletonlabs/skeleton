@@ -138,12 +138,13 @@ Note that you may need to extend or omit portions of the type to avoid conflicts
 #### Extend
 
 - `PropsWithElement` - from Skeleton's `@/internal/props-with-element`; allow for HTML template overrides.
+- `HTMLAttributes<Tag>` - from Skeleton's `@/internal/html-attributes`; allow for standard HTML attributes.
 
 #### Omit
 
 - `Omit<Props, 'id'>` - omit the `id` field from the `Props` interface as they will be provided inside the component itself.
-- React: `Omit<ComponentProps<'div'>, 'id' | 'dir'>` - omit conflicting HTML attributes.
-- Svelte: `Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'dir'>` - omit conflicting HTML attributes.
+- React: `Omit<HTMLAttributes<'div'>, 'id' | 'dir'>` - omit conflicting HTML attributes.
+- Svelte: `Omit<HTMLAttributes<'div'>, 'id' | 'dir'>` - omit conflicting HTML attributes.
 
 ### Modules Folder
 
