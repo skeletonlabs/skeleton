@@ -1,4 +1,5 @@
 export { FileUpload } from './modules/anatomy';
+export { useFileUpload } from './modules/use-file-upload.svelte';
 export type { FileUploadRootProps } from './anatomy/root.svelte';
 export type { FileUploadRootContextProps } from './anatomy/root-context.svelte';
 export type { FileUploadDropzoneProps } from './anatomy/dropzone.svelte';

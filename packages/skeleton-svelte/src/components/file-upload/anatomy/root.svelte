@@ -7,28 +7,24 @@
 </script>
 
 <script lang="ts">
-	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
+	import { mergeProps } from '@zag-js/svelte';
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
 	import { FileUploadRootContext } from '../modules/root-context';
-	import { connect, machine, splitProps } from '@zag-js/file-upload';
+	import { splitProps } from '@zag-js/file-upload';
+	import { useFileUpload } from '../modules/use-file-upload.svelte';
 
 	const props: FileUploadRootProps = $props();
 
 	const [machineProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...restAttributes } = $derived(componentProps);
 
-	const id = $props.id();
-	const service = useMachine(machine, () => ({
-		id: id,
-		...machineProps
-	}));
-	const api = $derived(connect(service, normalizeProps));
+	const api = useFileUpload(() => machineProps);
 
-	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesFileUpload.root }, restAttributes));
+	const attributes = $derived(mergeProps(api().getRootProps(), { class: classesFileUpload.root }, restAttributes));
 
 	FileUploadRootContext.provide({
 		get api() {
-			return api;
+			return api();
 		}
 	});
 </script>

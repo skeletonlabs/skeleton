@@ -1,4 +1,5 @@
 export { FileUpload } from './modules/anatomy';
+export { useFileUpload } from './modules/use-file-upload';
 export type { FileUploadRootProps } from './anatomy/root';
 export type { FileUploadRootContextProps } from './anatomy/root-context';
 export type { FileUploadDropzoneProps } from './anatomy/dropzone';
