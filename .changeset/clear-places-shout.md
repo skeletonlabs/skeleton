@@ -4,5 +4,4 @@
 "@skeletonlabs/skeleton-react": minor
 ---
 
-feat: toasts
-  
+feat: toast
