@@ -17,10 +17,14 @@
 			<div class="space-y-8">
 				<div class="font-bold">Components</div>
 				<nav class="text-sm flex flex-col gap-2">
+					<a class="anchor" href="/components/accordion">Accordions</a>
+					<a class="anchor" href="/components/avatar">Avatars</a>
+					<a class="anchor" href="/components/progress-linear">Progress-Linear</a>
 					<a class="anchor" href="/components/accordion">Accordion</a>
 					<a class="anchor" href="/components/avatar">Avatar</a>
 					<a class="anchor" href="/components/file-upload">File Upload</a>
 					<a class="anchor" href="/components/rating-group">Rating Group</a>
+					<a class="anchor" href="/components/switch">Switch</a>
 					<a class="anchor" href="/components/tabs">Tabs</a>
 				</nav>
 			</div>
