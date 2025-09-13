@@ -5,11 +5,11 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { useProgressLinear } from '../modules/use-progress-linear';
 
-export interface ProgressLinearProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
+export interface ProgressLinearRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
 	value: ReturnType<typeof useProgressLinear>;
 }
 
-export default function (props: ProgressLinearProviderProps) {
+export default function (props: ProgressLinearRootProviderProps) {
 	const { element, children, value: progressLinear, ...rest } = props;
 
 	const attributes = mergeProps(progressLinear.getRootProps(), rest, {
