@@ -1,14 +1,14 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
+	import type { useRatingGroup } from '../modules/use-rating-group.svelte';
 
 	export interface RatingGroupRootContextProps {
-		children: Snippet<[() => Api]>;
+		children: Snippet<[ReturnType<typeof useRatingGroup>]>;
 	}
 </script>
 
 <script lang="ts">
 	import { RatingGroupRootContext } from '../modules/root-context';
-	import type { Api } from '@zag-js/rating-group';
 
 	const props: RatingGroupRootContextProps = $props();
 

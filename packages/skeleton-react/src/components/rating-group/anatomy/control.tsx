@@ -5,7 +5,7 @@ import type { HTMLAttributes } from '@/internal/html-attributes';
 import { RatingGroupRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface RatingGroupControlProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'defaultValue' | 'dir'> {}
+export interface RatingGroupControlProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
 export default function (props: RatingGroupControlProps) {
 	const ratingGroup = useContext(RatingGroupRootContext);

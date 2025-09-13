@@ -5,7 +5,7 @@ import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 import { RatingGroupRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface RatingGroupLabelProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'defaultValue' | 'dir'> {}
+export interface RatingGroupLabelProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {}
 
 export default function (props: RatingGroupLabelProps) {
 	const ratingGroup = useContext(RatingGroupRootContext);

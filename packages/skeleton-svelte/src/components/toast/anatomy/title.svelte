@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface ToastTitleProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface ToastTitleProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: ToastTitleProps = $props();
 
-	const rootContext = ToastRootContext.consume();
+	const toast = ToastRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getTitleProps(), { class: classesToast.title }, rest));
+	const attributes = $derived(
+		mergeProps(toast().getTitleProps(), rest, {
+			class: classesToast.title
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { Api } from '@zag-js/avatar';
+	import type { useAvatar } from '../modules/use-avatar.svelte';
 
 	export interface AvatarRootContextProps {
-		children: Snippet<[() => Api]>;
+		children: Snippet<[ReturnType<typeof useAvatar>]>;
 	}
 </script>
 

@@ -5,7 +5,7 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { useProgressLinear } from '../modules/use-progress-linear';
 
-export interface ProgressLinearProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
+export interface ProgressLinearProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 	value: ReturnType<typeof useProgressLinear>;
 }
 

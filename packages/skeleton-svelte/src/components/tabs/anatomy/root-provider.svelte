@@ -1,10 +1,10 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { Api } from '@zag-js/tabs';
+	import type { useTabs } from '../modules/use-tabs.svelte';
 
 	export interface TabsRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-		value: () => Api;
+		value: ReturnType<typeof useTabs>;
 	}
 </script>
 

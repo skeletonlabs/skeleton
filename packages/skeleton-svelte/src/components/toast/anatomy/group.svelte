@@ -33,14 +33,7 @@
 		})
 	);
 
-	ToastGroupContext.provide({
-		get groupApi() {
-			return api;
-		},
-		get groupService() {
-			return service;
-		}
-	});
+	ToastGroupContext.provide(() => service);
 </script>
 
 {#if element}

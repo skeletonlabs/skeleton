@@ -1,4 +1,4 @@
 import { createContext } from '@/internal/create-context';
-import type { Api } from '@zag-js/switch';
+import type { useSwitch } from './use-switch.svelte';
 
-export const SwitchRootContext = createContext<() => Api>();
+export const SwitchRootContext = createContext<ReturnType<typeof useSwitch>>();

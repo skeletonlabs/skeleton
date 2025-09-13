@@ -1,9 +1,10 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { useAccordion } from '../modules/use-accordion.svelte';
 
-	export interface AccordionRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
-		value: () => Api;
+	export interface AccordionRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
+		value: ReturnType<typeof useAccordion>;
 	}
 </script>
 
@@ -11,7 +12,6 @@
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { AccordionRootContext } from '../modules/root-context';
-	import type { Api } from '@zag-js/accordion';
 
 	const props: AccordionRootProviderProps = $props();
 

@@ -1,14 +1,14 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
+	import type { useSwitch } from '../modules/use-switch.svelte';
 
 	export interface SwitchRootContextProps {
-		children: Snippet<[() => Api]>;
+		children: Snippet<[ReturnType<typeof useSwitch>]>;
 	}
 </script>
 
 <script lang="ts">
 	import { SwitchRootContext } from '../modules/root-context';
-	import type { Api } from '@zag-js/switch';
 
 	const props: SwitchRootContextProps = $props();
 

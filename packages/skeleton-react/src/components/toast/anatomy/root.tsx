@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useId } from 'react';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { classesToast } from '@skeletonlabs/skeleton-common';
 import { ToastRootContext } from '../modules/root-context';
@@ -8,7 +8,7 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 
 export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-	toast: Options;
+	toast: Omit<Options, 'id' | 'parent'>;
 }
 
 export default function (props: ToastRootProps) {
@@ -17,8 +17,9 @@ export default function (props: ToastRootProps) {
 	const { element, children, toast: toastProps, ...rest } = props;
 
 	const service = useMachine(machine, {
-		...toastProps,
-		parent: group
+		id: useId(),
+		parent: group,
+		...toastProps
 	});
 	const toast = connect(service, normalizeProps);
 

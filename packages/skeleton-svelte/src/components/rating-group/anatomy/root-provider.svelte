@@ -1,10 +1,10 @@
 <script lang="ts" module>
-	import type { Api } from '@zag-js/rating-group';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { useRatingGroup } from '../modules/use-rating-group.svelte';
 
 	export interface RatingGroupRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-		value: () => Api;
+		value: ReturnType<typeof useRatingGroup>;
 	}
 </script>
 

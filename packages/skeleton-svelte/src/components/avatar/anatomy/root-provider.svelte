@@ -1,10 +1,10 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { Api } from '@zag-js/avatar';
+	import type { useAvatar } from '../modules/use-avatar.svelte';
 
 	export interface AvatarRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-		value: () => Api;
+		value: ReturnType<typeof useAvatar>;
 	}
 </script>
 

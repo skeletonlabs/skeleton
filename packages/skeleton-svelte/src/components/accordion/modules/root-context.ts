@@ -1,4 +1,4 @@
 import { createContext } from '@/internal/create-context';
-import type { Api } from '@zag-js/accordion';
+import type { useAccordion } from './use-accordion.svelte';
 
-export const AccordionRootContext = createContext<() => Api>();
+export const AccordionRootContext = createContext<ReturnType<typeof useAccordion>>();

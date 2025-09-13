@@ -17,14 +17,14 @@
 
 	const props: ToastRootProps = $props();
 
-	const groupContext = ToastGroupContext.consume();
+	const group = ToastGroupContext.consume();
 
 	const { element, children, toast, ...rest } = $derived(props);
 
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
 		id: id,
-		parent: groupContext.groupService,
+		parent: group,
 		...toast
 	}));
 	const api = $derived(connect(service, normalizeProps));
@@ -35,11 +35,7 @@
 		})
 	);
 
-	ToastRootContext.provide({
-		get api() {
-			return api;
-		}
-	});
+	ToastRootContext.provide(() => api);
 </script>
 
 <div {...api.getGhostBeforeProps()}></div>

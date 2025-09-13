@@ -1,10 +1,10 @@
 <script lang="ts" module>
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { Api } from '@zag-js/switch';
+	import type { useSwitch } from '../modules/use-switch.svelte';
 
 	export interface SwitchRootProviderProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir' | 'form'> {
-		value: () => Api;
+		value: ReturnType<typeof useSwitch>;
 	}
 </script>
 

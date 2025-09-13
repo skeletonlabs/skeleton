@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { Api } from '@zag-js/progress';
+	import type { useProgressLinear } from '../modules/use-progress-linear.svelte';
 
 	export interface ProgressLinearRootContextProps {
-		children: Snippet<[() => Api]>;
+		children: Snippet<[ReturnType<typeof useProgressLinear>]>;
 	}
 </script>
 

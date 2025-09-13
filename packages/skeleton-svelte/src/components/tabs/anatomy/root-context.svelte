@@ -1,14 +1,14 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
+	import type { useTabs } from '../modules/use-tabs.svelte';
 
 	export interface TabsRootContextProps {
-		children: Snippet<[() => Api]>;
+		children: Snippet<[ReturnType<typeof useTabs>]>;
 	}
 </script>
 
 <script lang="ts">
 	import { TabsRootContext } from '../modules/root-context';
-	import type { Api } from '@zag-js/tabs';
 
 	const props: TabsRootContextProps = $props();
 

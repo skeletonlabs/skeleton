@@ -12,7 +12,9 @@ export default function (props: ProgressLinearLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(progressLinear.getLabelProps(), { className: classesProgressLinear.label }, rest);
+	const attributes = mergeProps(progressLinear.getLabelProps(), rest, {
+		className: classesProgressLinear.label
+	});
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

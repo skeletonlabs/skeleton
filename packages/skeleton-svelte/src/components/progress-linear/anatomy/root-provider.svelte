@@ -1,10 +1,10 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { Api } from '@zag-js/progress';
+	import { useProgressLinear } from '../modules/use-progress-linear.svelte';
 
 	export interface ProgressLinearRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-		value: () => Api;
+		value: ReturnType<typeof useProgressLinear>;
 	}
 </script>
 

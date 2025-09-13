@@ -2,9 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface RatingGroupHiddenInputProps
-		extends PropsWithElement<'input'>,
-			HTMLAttributes<'input', 'id' | 'defaultValue' | 'dir' | 'children'> {}
+	export interface RatingGroupHiddenInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input'> {}
 </script>
 
 <script lang="ts">

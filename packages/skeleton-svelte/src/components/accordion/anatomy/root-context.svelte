@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { Api } from '@zag-js/accordion';
+	import type { useAccordion } from '../modules/use-accordion.svelte';
 
 	export interface AccordionRootContextProps {
-		children: Snippet<[() => Api]>;
+		children: Snippet<[ReturnType<typeof useAccordion>]>;
 	}
 </script>
 
