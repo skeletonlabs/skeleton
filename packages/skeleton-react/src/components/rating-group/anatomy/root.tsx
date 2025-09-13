@@ -9,7 +9,7 @@ import type { HTMLAttributes } from '@/internal/html-attributes';
 export interface RatingGroupRootProps
 	extends Omit<Props, 'id'>,
 		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'defaultValue' | 'dir'> {}
+		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function (props: RatingGroupRootProps) {
 	const [ratingGroupProps, componentProps] = splitProps(props);

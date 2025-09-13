@@ -5,7 +5,7 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { useAccordion } from '../modules/use-accordion';
 
-export interface AccordionRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
+export interface AccordionRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
 	value: ReturnType<typeof useAccordion>;
 }
 

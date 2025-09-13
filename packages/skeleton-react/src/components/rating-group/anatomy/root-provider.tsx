@@ -5,7 +5,7 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { useRatingGroup } from '../modules/use-rating-group';
 
-export interface RatingGroupRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
+export interface RatingGroupRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
 	value: ReturnType<typeof useRatingGroup>;
 }
 

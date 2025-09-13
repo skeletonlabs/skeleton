@@ -6,7 +6,7 @@ import { useTabs } from '../modules/use-tabs';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface TabsRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'defaultValue' | 'dir'> {}
+export interface TabsRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function (props: TabsRootProps) {
 	const [tabsProps, componentProps] = splitProps(props);
