@@ -1,36 +1,37 @@
-import { useContext, useId } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
+import { useContext } from 'react';
+import { mergeProps } from '@zag-js/react';
 import { classesToast } from '@skeletonlabs/skeleton-common';
-import { machine, connect, type Options } from '@zag-js/toast';
 import { ToastRootContext } from '../modules/root-context';
 import { ToastGroupContext } from '../modules/group-context';
+import { useToast } from '../modules/use-toast';
+import type { Options } from '@zag-js/toast';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface ToastRootProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
+export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 	toast: Options;
 }
 
 export default function (props: ToastRootProps) {
-	const groupContext = useContext(ToastGroupContext);
+	const group = useContext(ToastGroupContext);
 
-	const { element, children, toast, ...rest } = props;
+	const { element, children, toast: toastProps, ...rest } = props;
 
-	const service = useMachine(machine, {
-		id: useId(),
-		parent: groupContext.groupService,
-		...toast
+	const toast = useToast({
+		...toastProps,
+		parent: group.service
 	});
-	const api = connect(service, normalizeProps);
 
-	const attributes = mergeProps(api.getRootProps(), { className: classesToast.root }, rest);
+	const attributes = mergeProps(toast.getRootProps(), rest, {
+		className: classesToast.root
+	});
 
 	return (
 		<>
-			<ToastRootContext.Provider value={{ api }}>
-				<div {...api.getGhostBeforeProps()}></div>
-				{element ? element({ attributes }) : <div {...attributes}>{children}</div>}
-				<div {...api.getGhostAfterProps()}></div>
+			<ToastRootContext.Provider value={toast}>
+				<div {...toast.getGhostBeforeProps()}></div>
+				{element ? element(attributes) : <div {...attributes}>{children}</div>}
+				<div {...toast.getGhostAfterProps()}></div>
 			</ToastRootContext.Provider>
 			<style>{`
                 [data-part='root'] {
