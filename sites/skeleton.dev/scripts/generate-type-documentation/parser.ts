@@ -28,10 +28,7 @@ export interface Interface {
 }
 
 export class SourceFile {
-	constructor(
-		private framework: string,
-		private sourceFile: tsMorph.SourceFile
-	) {}
+	constructor(private sourceFile: tsMorph.SourceFile) {}
 
 	private isFunctionType(type: tsMorph.Type) {
 		return type.getCallSignatures().length > 0 || type.getUnionTypes().some((t) => t.getCallSignatures().length > 0);
@@ -104,7 +101,7 @@ export class SourceFile {
 export class Parser {
 	private project: tsMorph.Project;
 
-	constructor(private framework: string) {
+	constructor(framework: string) {
 		this.project = new tsMorph.Project({
 			skipAddingFilesFromTsConfig: true,
 			tsConfigFilePath: join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'tsconfig.json')
@@ -115,6 +112,6 @@ export class Parser {
 	public getSourceFile(path: string): SourceFile {
 		const sourceFile = this.project.getSourceFile(path);
 		if (!sourceFile) throw new Error(`Source file not found: ${path}`);
-		return new SourceFile(this.framework, sourceFile);
+		return new SourceFile(sourceFile);
 	}
 }
