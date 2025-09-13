@@ -79,7 +79,7 @@ export class SourceFile {
 	public getInterface(name: string): Interface {
 		const interface_ = this.sourceFile.getInterface(name);
 		if (!interface_) {
-			throw new Error(`Interface not found: ${name}`);
+			throw new Error(`Interface not found: ${name}` + `in file: ${this.sourceFile.getFilePath()}`);
 		}
 
 		interface_.getExtends().forEach((ext) => {
