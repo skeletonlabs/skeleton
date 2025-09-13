@@ -42,6 +42,9 @@ export default function RootLayout({
 								<a className="anchor" href="/components/toast">
 									Toast
 								</a>
+								<a className="anchor" href="/components/tooltip">
+									Tooltip
+								</a>
 							</nav>
 						</div>
 					</div>
