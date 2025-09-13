@@ -13,8 +13,8 @@
 	</FileUpload.Dropzone>
 	<FileUpload.ItemGroup>
 		<FileUpload.Context>
-			{#snippet children(ctx)}
-				{#each ctx.api.acceptedFiles as file (file.name)}
+			{#snippet children(fileUpload)}
+				{#each fileUpload().acceptedFiles as file (file.name)}
 					<FileUpload.Item {file}>
 						<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
 						<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
