@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface ComboboxInputProps extends PropsWithElement, HTMLAttributes<'input'> {}
+	export interface ComboboxInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input'> {}
 </script>
 
 <script lang="ts">
@@ -16,7 +16,8 @@
 
 	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(combobox().getInputProps(), { class: classesCombobox.input }, rest));
+	const attributes = $derived(mergeProps(combobox().getInputProps(), rest, { 
+		class: classesCombobox.input }));
 </script>
 
 {#if element}

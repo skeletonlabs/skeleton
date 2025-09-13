@@ -1,5 +1,7 @@
 export { Combobox } from './modules/anatomy';
+export { useCombobox } from './modules/use-combobox.svelte';
 export type { ComboboxRootProps } from './anatomy/root.svelte';
+export type { ComboboxRootProviderProps } from './anatomy/root-provider.svelte';
 export type { ComboboxRootContextProps } from './anatomy/root-context.svelte';
 export type { ComboboxLabelProps } from './anatomy/label.svelte';
 export type { ComboboxControlProps } from './anatomy/control.svelte';
@@ -8,6 +10,3 @@ export type { ComboboxTriggerProps } from './anatomy/trigger.svelte';
 export type { ComboboxPositionerProps } from './anatomy/positioner.svelte';
 export type { ComboboxContentProps } from './anatomy/content.svelte';
 export type { ComboboxItemProps } from './anatomy/item.svelte';
-export type { ComboboxItemContextProps } from './anatomy/item-context.svelte';
-export type { ComboboxRootContextType as ComboboxRootContext } from './modules/root-context';
-export type { ComboboxItemContextType as ComboboxItemContext } from './modules/item-context';
