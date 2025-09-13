@@ -1,18 +1,20 @@
 import { useContext } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps } from '@zag-js/react';
 import { FileUploadRootContext } from '../modules/root-context';
 import { classesFileUpload } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface FileUploadTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+export interface FileUploadTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
 export default function (props: FileUploadTriggerProps) {
-	const rootContext = useContext(FileUploadRootContext);
+	const fileUpload = useContext(FileUploadRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getTriggerProps(), { className: classesFileUpload.trigger }, restAttributes);
+	const attributes = mergeProps(fileUpload.getTriggerProps(), rest, {
+		className: classesFileUpload.trigger
+	});
 
-	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
+	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

@@ -1,8 +1,4 @@
 import { createContext } from '@/internal/create-context';
-import type { Api } from '@zag-js/file-upload';
+import type { useFileUpload } from './use-file-upload.svelte';
 
-export type FileUploadRootContextType = {
-	api: Api;
-};
-
-export const FileUploadRootContext = createContext<FileUploadRootContextType>();
+export const FileUploadRootContext = createContext<ReturnType<typeof useFileUpload>>();

@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/file-upload';
 
-	export interface FileUploadRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {}
+	export interface FileUploadRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
@@ -16,25 +16,25 @@
 	const props: FileUploadRootProps = $props();
 
 	const [machineProps, componentProps] = $derived(splitProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
-	const api = useFileUpload(() => ({
+	const fileUpload = useFileUpload(() => ({
 		id: id,
 		...machineProps
 	}));
 
-	const attributes = $derived(mergeProps(api().getRootProps(), { class: classesFileUpload.root }, restAttributes));
+	const attributes = $derived(
+		mergeProps(fileUpload().getRootProps(), rest, {
+			class: classesFileUpload.root
+		})
+	);
 
-	FileUploadRootContext.provide({
-		get api() {
-			return api();
-		}
-	});
+	FileUploadRootContext.provide(() => fileUpload());
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface FileUploadTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+	export interface FileUploadTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: FileUploadTriggerProps = $props();
 
-	const rootContext = FileUploadRootContext.consume();
+	const fileUpload = FileUploadRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(), { class: classesFileUpload.trigger }, restAttributes));
+	const attributes = $derived(
+		mergeProps(fileUpload().getTriggerProps(), rest, {
+			class: classesFileUpload.trigger
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

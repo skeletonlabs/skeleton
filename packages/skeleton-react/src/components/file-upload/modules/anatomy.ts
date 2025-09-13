@@ -6,7 +6,6 @@ import HiddenInput from '../anatomy/hidden-input';
 import Trigger from '../anatomy/trigger';
 import ItemGroup from '../anatomy/item-group';
 import Item from '../anatomy/item';
-import ItemContext from '../anatomy/item-context';
 import ItemName from '../anatomy/item-name';
 import ItemSizeText from '../anatomy/item-size-text';
 import ItemDeleteTrigger from '../anatomy/item-delete-trigger';
@@ -19,7 +18,6 @@ export const FileUpload = Object.assign(Root, {
 	HiddenInput: HiddenInput,
 	ItemGroup: ItemGroup,
 	Item: Item,
-	ItemContext: ItemContext,
 	ItemName: ItemName,
 	ItemSizeText: ItemSizeText,
 	ItemDeleteTrigger: ItemDeleteTrigger

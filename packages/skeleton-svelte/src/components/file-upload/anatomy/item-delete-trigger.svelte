@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface FileUploadItemDeleteTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+	export interface FileUploadItemDeleteTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -13,22 +13,20 @@
 
 	const props: FileUploadItemDeleteTriggerProps = $props();
 
-	const rootContext = FileUploadRootContext.consume();
-	const itemContext = FileUploadItemContext.consume();
+	const fileUpload = FileUploadRootContext.consume();
+	const itemProps = FileUploadItemContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getItemDeleteTriggerProps(itemContext.itemProps),
-			{ class: classesFileUpload.itemDeleteTrigger },
-			restAttributes
-		)
+		mergeProps(fileUpload().getItemDeleteTriggerProps(itemProps()), rest, {
+			class: classesFileUpload.itemDeleteTrigger
+		})
 	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

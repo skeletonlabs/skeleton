@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface FileUploadItemNameProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface FileUploadItemNameProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -13,18 +13,20 @@
 
 	const props: FileUploadItemNameProps = $props();
 
-	const rootContext = FileUploadRootContext.consume();
-	const itemContext = FileUploadItemContext.consume();
+	const fileUpload = FileUploadRootContext.consume();
+	const itemProps = FileUploadItemContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(rootContext.api.getItemNameProps(itemContext.itemProps), { class: classesFileUpload.itemName }, restAttributes)
+		mergeProps(fileUpload().getItemNameProps(itemProps()), rest, {
+			class: classesFileUpload.itemName
+		})
 	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

@@ -5,14 +5,16 @@ import { classesFileUpload } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface FileUploadItemGroupProps extends PropsWithElement, HTMLAttributes<'ul'> {}
+export interface FileUploadItemGroupProps extends PropsWithElement<'ul'>, HTMLAttributes<'ul'> {}
 
 export default function (props: FileUploadItemGroupProps) {
-	const rootContext = useContext(FileUploadRootContext);
+	const fileUpload = useContext(FileUploadRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getItemGroupProps(), { className: classesFileUpload.itemGroup }, restAttributes);
+	const attributes = mergeProps(fileUpload.getItemGroupProps(), rest, {
+		className: classesFileUpload.itemGroup
+	});
 
-	return element ? element({ attributes }) : <ul {...attributes}>{children}</ul>;
+	return element ? element(attributes) : <ul {...attributes}>{children}</ul>;
 }

@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface FileUploadHiddenInputProps extends PropsWithElement, Omit<HTMLAttributes<'input'>, 'children'> {}
+	export interface FileUploadHiddenInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'children'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: FileUploadHiddenInputProps = $props();
 
-	const rootContext = FileUploadRootContext.consume();
+	const fileUpload = FileUploadRootContext.consume();
 
-	const { element, ...restAttributes } = $derived(props);
+	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getHiddenInputProps(), { class: classesFileUpload.hiddenInput }, restAttributes));
+	const attributes = $derived(
+		mergeProps(fileUpload().getHiddenInputProps(), rest, {
+			class: classesFileUpload.hiddenInput
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<input {...attributes} />
 {/if}

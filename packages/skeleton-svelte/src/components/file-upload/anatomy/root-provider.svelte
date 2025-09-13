@@ -1,10 +1,10 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { Api } from '@zag-js/file-upload';
+	import type { useFileUpload } from '../modules/use-file-upload.svelte';
 
-	export interface FileUploadRootProviderProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
-		value: () => Api;
+	export interface FileUploadRootProviderProps extends PropsWithElement<'div'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
+		value: ReturnType<typeof useFileUpload>;
 	}
 </script>
 
@@ -15,19 +15,19 @@
 
 	const props: FileUploadRootProviderProps = $props();
 
-	const { element, children, value: api, ...restAttributes } = $derived(props);
+	const { element, children, value: api, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(api().getRootProps(), { class: classesFileUpload.root }, restAttributes));
+	const attributes = $derived(
+		mergeProps(api().getRootProps(), rest, {
+			class: classesFileUpload.root
+		})
+	);
 
-	FileUploadRootContext.provide({
-		get api() {
-			return api();
-		}
-	});
+	FileUploadRootContext.provide(() => api());
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

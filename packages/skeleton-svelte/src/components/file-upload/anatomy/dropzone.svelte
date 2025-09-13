@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { DropzoneProps } from '@zag-js/file-upload';
 
-	export interface FileUploadDropzoneProps extends PropsWithElement, DropzoneProps, HTMLAttributes<'div'> {}
+	export interface FileUploadDropzoneProps extends DropzoneProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -13,15 +13,19 @@
 
 	const props: FileUploadDropzoneProps = $props();
 
-	const rootContext = FileUploadRootContext.consume();
+	const fileUpload = FileUploadRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getDropzoneProps(props), { class: classesFileUpload.dropzone }, restAttributes));
+	const attributes = $derived(
+		mergeProps(fileUpload().getDropzoneProps(props), rest, {
+			class: classesFileUpload.dropzone
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

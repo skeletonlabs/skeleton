@@ -1,12 +1,14 @@
 import { useContext, type ReactNode } from 'react';
-import { FileUploadRootContext, type FileUploadRootContextType } from '../modules/root-context';
+import { FileUploadRootContext } from '../modules/root-context';
 
 export interface FileUploadRootContextProps {
-	children: (context: FileUploadRootContextType) => ReactNode;
+	children: (fileUpload: ReturnType<typeof useContext>) => ReactNode;
 }
 
 export default function (props: FileUploadRootContextProps) {
-	const rootContext = useContext(FileUploadRootContext);
+	const fileUpload = useContext(FileUploadRootContext);
 
-	return props.children(rootContext);
+	const { children } = props;
+
+	return children(fileUpload);
 }

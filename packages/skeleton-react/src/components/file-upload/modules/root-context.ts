@@ -1,8 +1,4 @@
-import { createContext } from 'react';
-import type { Api } from '@zag-js/file-upload';
+import { createContext } from '@/internal/create-context';
+import type { useFileUpload } from './use-file-upload';
 
-export interface FileUploadRootContextType {
-	api: Api;
-}
-
-export const FileUploadRootContext = createContext<FileUploadRootContextType>(null!);
+export const FileUploadRootContext = createContext<ReturnType<typeof useFileUpload>>();

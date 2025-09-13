@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { ItemProps } from '@zag-js/file-upload';
+	import { splitItemProps, type ItemProps } from '@zag-js/file-upload';
 
-	export interface FileUploadItemProps extends PropsWithElement, ItemProps, HTMLAttributes<'li'> {}
+	export interface FileUploadItemProps extends ItemProps, PropsWithElement<'li'>, HTMLAttributes<'li'> {}
 </script>
 
 <script lang="ts">
@@ -14,21 +14,22 @@
 
 	const props: FileUploadItemProps = $props();
 
-	const rootContext = FileUploadRootContext.consume();
+	const fileUpload = FileUploadRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const [itemProps, componentProps] = $derived(splitItemProps(props));
+	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(mergeProps(rootContext.api.getItemProps(props), { class: classesFileUpload.item }, restAttributes));
+	const attributes = $derived(
+		mergeProps(fileUpload().getItemProps(itemProps), rest, {
+			class: classesFileUpload.item
+		})
+	);
 
-	FileUploadItemContext.provide({
-		get itemProps() {
-			return props;
-		}
-	});
+	FileUploadItemContext.provide(() => itemProps);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<li {...attributes}>
 		{@render children?.()}
