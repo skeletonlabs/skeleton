@@ -4,6 +4,7 @@
 	import { themes } from '@skeletonlabs/skeleton-common';
 	// Utils
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
+	import { resolve } from '$app/paths';
 
 	const defaultThemeName = 'cerberus';
 
@@ -18,7 +19,7 @@
 		// Run template import
 		importThemeV3(fileCss, fileName);
 		// Redirect to Generator page
-		goto('/themes/create');
+		goto(resolve('/themes/create'));
 	}
 
 	// async function onFileUpload(event) {

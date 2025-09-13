@@ -48,22 +48,22 @@
 		"postinstall": "pnpm build:packages"
 	},
 	"devDependencies": {
-		"@changesets/cli": "^2.29.6",
-		"@eslint/js": "^9.34.0",
+		"@changesets/cli": "^2.29.7",
+		"@eslint/js": "^9.35.0",
 		"@svitejs/changesets-changelog-github-compact": "^1.2.0",
-		"@types/node": "^24.3.0",
-		"eslint": "^9.34.0",
+		"@types/node": "^24.3.3",
+		"eslint": "^9.35.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-astro": "^1.3.1",
 		"eslint-plugin-prettier": "^5.5.4",
 		"eslint-plugin-react": "^7.37.5",
-		"eslint-plugin-svelte": "^3.11.0",
-		"globals": "^16.3.0",
+		"eslint-plugin-svelte": "^3.12.3",
+		"globals": "^16.4.0",
 		"prettier": "^3.6.2",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-svelte": "^3.4.0",
 		"prettier-plugin-tailwindcss": "^0.6.14",
-		"typescript-eslint": "^8.41.0"
+		"typescript-eslint": "^8.43.0"
 	},
 	"packageManager": "pnpm@10.12.4"
 }
