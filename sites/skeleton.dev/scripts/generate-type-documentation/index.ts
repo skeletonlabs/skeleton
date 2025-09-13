@@ -84,7 +84,7 @@ async function main() {
 			{} as Record<string, string[]>
 		);
 
-		const parser = new Parser();
+		const parser = new Parser(framework);
 
 		for (const [component, parts] of Object.entries(components)) {
 			const partOrder = await getPartOrderFromAnatomy(framework, component);
