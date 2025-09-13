@@ -67,9 +67,10 @@ As such, we'll implement one component part respective of each element:
 - `<Avatar.Image>` - the child image
 - `<Avatar.Fallback>` - the fallback span
 
-We'll also include a context component, to enable power-users access to the component tree's Context API.
+We'll also include two special components:
 
-- `<Avatar.Context>` - the context component; this is omitted from the component documentation.
+- `<Avatar.Provider>` - Similar to `<Avatar>` but allows the user to pass in the api.
+- `<Avatar.Context>` - Provides access to the component tree's Context API.
 
 ### Directory and File Names
 
@@ -88,9 +89,11 @@ avatar/
 │   ├── fallback.{tsx|svelte}
 │   ├── image.{tsx|svelte}
 │   ├── root-context.{tsx|svelte}
+│   ├── root-provider.{tsx|svelte}
 │   └── root.{tsx|svelte}
 ├── modules/
 │   ├── anatomy.ts
+│   ├── use-{component}.{ts|svelte.ts}
 │   └── root-context.ts
 └── index.ts
 ```
@@ -137,13 +140,12 @@ Note that you may need to extend or omit portions of the type to avoid conflicts
 
 #### Extend
 
-- `PropsWithElement` - from Skeleton's `@/internal/props-with-element`; allow for HTML template overrides.
-- `HTMLAttributes<Tag>` - from Skeleton's `@/internal/html-attributes`; allow for standard HTML attributes.
+- `PropsWithElement<Tag>` - from Skeleton's `@/internal/props-with-element`; allow for HTML template overrides.
+- `HTMLAttributes<Tag, Omit>` - from Skeleton's `@/internal/html-attributes`; allow for standard HTML attributes.
 
 #### Omit
 
 - `Omit<Props, 'id'>` - omit the `id` field from the `Props` interface as they will be provided inside the component itself.
-- `Omit<HTMLAttributes<'div'>, 'id' | 'dir' | ...>` - omit conflicting HTML attributes.
 
 ### Modules Folder
 
@@ -172,16 +174,11 @@ The `{part}-context.ts` file contains the exported context for each part's [cont
 For most components this will only be necessary for the root component, some components however may require context for other parts as well, reference other components for examples.
 
 ```ts title="avatar-root-context.ts"
-import { createContext } from 'react';
+import { createContext } from '@/internal/create-context';
+import type { useAvatar } from './use-avatar';
 
-export interface AvatarContextType {
-	// ...
-}
-
-export const AvatarContext = createContext<AvatarContextType>(null!);
+export const AvatarContext = createContext<ReturnType<typeof useAvatar>>();
 ```
-
-> NOTE: The interface is suffixed `Type` to avoid conflicting with the context reference itself.
 
 #### Index File
 
@@ -189,11 +186,12 @@ The index prepares all above files for export.
 
 ```ts
 export { Avatar } from './modules/anatomy';
+export { useAvatar } from './modules/use-avatar';
 export type { AvatarRootProps } from './anatomy/root';
+export type { AvatarRootProviderProps } from './anatomy/root-provider';
 export type { AvatarRootContextProps } from './anatomy/root-context';
 export type { AvatarImageProps } from './anatomy/image';
 export type { AvatarFallbackProps } from './anatomy/fallback';
-export type { AvatarRootContextType as AvatarRootContext } from './modules/root-context';
 ```
 
 ### Component Exports
@@ -336,16 +334,11 @@ import { mergeProps } from '@zag-js/react';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
 
 export default function (props: AvatarRootProps) {
-	const { children, ...restAttributes } = props;
+	const { children, ...rest } = props;
 
-	const attributes = mergeProps(
-		// Zag Props
-		api.getRootProps(),
-		// Skeleton Props
-		{ className: classesAvatar.root }
-		// User Props
-		restAttributes
-	);
+	const attributes = mergeProps(api.getRootProps(), rest, {
+		className: classesAvatar.root
+	});
 
 	return <div {...attributes}>{children}</div>;
 }
@@ -358,14 +351,11 @@ import { mergeProps } from '@zag-js/react';
 import { classesNavigation } from '@skeletonlabs/skeleton-common';
 
 export default function (props: NavigationRootProps) {
-	const { children, ...restAttributes } = props;
+	const { children, ...rest } = props;
 
-	const attributes = mergeProps(
-		// Skeleton Props
-		{ className: classesNavigation.root }
-		// User Props
-		restAttributes
-	);
+	const attributes = mergeProps(rest, {
+		className: classesNavigation.root
+	});
 
 	return <div {...attributes}>{children}</div>;
 }

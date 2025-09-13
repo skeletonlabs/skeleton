@@ -6,7 +6,7 @@
 	<Accordion.Item value="item-1">
 		<Accordion.Heading>
 			<Accordion.Trigger>
-				{#snippet element({ attributes })}
+				{#snippet element(attributes)}
 					<button {...attributes}>My Button</button>
 				{/snippet}
 			</Accordion.Trigger>

@@ -1,5 +1,3 @@
-'use client';
-
 import { Avatar } from '@skeletonlabs/skeleton-react';
 
 export default function () {

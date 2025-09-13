@@ -4,7 +4,6 @@ import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 import { Parser } from './parser';
 import { kebabToCamel, kebabToPascal } from './string-utils';
-import { frameworks } from './framework';
 import { MONOREPO_ROOT, CLASSES_DIRECTORY, OUTPUT_DIRECTORY } from './constants';
 import { pathToFileURL } from 'node:url';
 
@@ -64,12 +63,12 @@ function getComponentPartNameFromPath(path: string): string {
 }
 
 async function main() {
-	for (const framework of frameworks) {
-		await rm(join(OUTPUT_DIRECTORY, framework.name), { recursive: true, force: true });
-		await mkdir(join(OUTPUT_DIRECTORY, framework.name), { recursive: true });
+	for (const framework of ['svelte', 'react'] as const) {
+		await rm(join(OUTPUT_DIRECTORY, framework), { recursive: true, force: true });
+		await mkdir(join(OUTPUT_DIRECTORY, framework), { recursive: true });
 
 		const paths = await glob(`**/anatomy/*.d.ts`, {
-			cwd: join(MONOREPO_ROOT, 'packages', `skeleton-${framework.name}`, 'dist', 'components'),
+			cwd: join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components'),
 			absolute: true
 		});
 
@@ -88,7 +87,7 @@ async function main() {
 		const parser = new Parser(framework);
 
 		for (const [component, parts] of Object.entries(components)) {
-			const partOrder = await getPartOrderFromAnatomy(framework.name, component);
+			const partOrder = await getPartOrderFromAnatomy(framework, component);
 
 			const types = (
 				await Promise.all(
@@ -121,7 +120,7 @@ async function main() {
 				4
 			);
 
-			const outputPath = join(OUTPUT_DIRECTORY, framework.name, `${component}.json`);
+			const outputPath = join(OUTPUT_DIRECTORY, framework, `${component}.json`);
 
 			await writeFile(outputPath, result, 'utf-8');
 		}

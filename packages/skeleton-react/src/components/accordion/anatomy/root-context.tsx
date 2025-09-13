@@ -1,12 +1,15 @@
 import { useContext, type ReactNode } from 'react';
-import { AccordionRootContext, type AccordionRootContextType } from '../modules/root-context';
+import { AccordionRootContext } from '../modules/root-context';
+import type { useAccordion } from '../modules/use-accordion';
 
 export interface AccordionRootContextProps {
-	children: (context: AccordionRootContextType) => ReactNode;
+	children: (accordion: ReturnType<typeof useAccordion>) => ReactNode;
 }
 
 export default function (props: AccordionRootContextProps) {
-	const rootContext = useContext(AccordionRootContext);
+	const accordion = useContext(AccordionRootContext);
 
-	return props.children(rootContext);
+	const { children } = props;
+
+	return children(accordion);
 }

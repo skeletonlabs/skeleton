@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface ToastCloseTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+	export interface ToastCloseTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -13,11 +13,15 @@
 
 	const props: ToastCloseTriggerProps = $props();
 
-	const rootContext = ToastRootContext.consume();
+	const toast = ToastRootContext.consume();
 
-	const { element, children = x, ...restAttributes } = $derived(props);
+	const { element, children = x, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getCloseTriggerProps(), { class: classesToast.closeTrigger }, restAttributes));
+	const attributes = $derived(
+		mergeProps(toast().getCloseTriggerProps(), rest, {
+			class: classesToast.closeTrigger
+		})
+	);
 </script>
 
 {#snippet x()}
@@ -25,7 +29,7 @@
 {/snippet}
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

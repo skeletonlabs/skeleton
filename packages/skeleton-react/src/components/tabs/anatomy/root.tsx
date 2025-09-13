@@ -1,28 +1,26 @@
-import { splitProps, machine, connect, type Props } from '@zag-js/tabs';
-import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
-import { useId } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
+import { splitProps, type Props } from '@zag-js/tabs';
+import { mergeProps } from '@zag-js/react';
 import { TabsRootContext } from '../modules/root-context';
-import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesTabs } from '@skeletonlabs/skeleton-common';
+import { useTabs } from '../modules/use-tabs';
+import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface TabsRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+export interface TabsRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function (props: TabsRootProps) {
-	const [machineProps, componentProps] = splitProps(props);
-	const { element, children, ...restAttributes } = componentProps;
+	const [tabsProps, componentProps] = splitProps(props);
+	const { element, children, ...rest } = componentProps;
 
-	const service = useMachine(machine, {
-		id: useId(),
-		...machineProps
+	const tabs = useTabs(tabsProps);
+
+	const attributes = mergeProps(tabs.getRootProps(), rest, {
+		className: classesTabs.root
 	});
-	const api = connect(service, normalizeProps);
-
-	const attributes = mergeProps(api.getRootProps(), { className: classesTabs.root }, restAttributes);
 
 	return (
-		<TabsRootContext.Provider value={{ api }}>
-			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}
+		<TabsRootContext.Provider value={tabs}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
 		</TabsRootContext.Provider>
 	);
 }

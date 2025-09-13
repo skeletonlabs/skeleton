@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface AvatarFallbackProps extends PropsWithElement, HTMLAttributes<'span'> {}
+	export interface AvatarFallbackProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: AvatarFallbackProps = $props();
 
-	const rootContext = AvatarRootContext.consume();
+	const avatar = AvatarRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getFallbackProps(), { class: classesAvatar.fallback }, restAttributes));
+	const attributes = $derived(
+		mergeProps(avatar().getFallbackProps(), rest, {
+			class: classesAvatar.fallback
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<span {...attributes}>
 		{@render children?.()}
