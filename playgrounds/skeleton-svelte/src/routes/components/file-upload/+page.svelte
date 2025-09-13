@@ -3,7 +3,7 @@
 	import X from '@lucide/svelte/icons/x';
 
 	const id = $props.id();
-	const fileUpload = useFileUpload({ id });
+	const fileUpload = useFileUpload({ id, disabled: true });
 </script>
 
 <FileUpload.Provider value={fileUpload}>
