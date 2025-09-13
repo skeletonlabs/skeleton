@@ -30,7 +30,8 @@
 		"@zag-js/react": "catalog:",
 		"@zag-js/switch": "catalog:",
 		"@zag-js/tabs": "catalog:",
-		"@zag-js/toast": "catalog:"
+		"@zag-js/toast": "catalog:",
+		"@zag-js/tooltip": "catalog:"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0 || ^19.0.0",
