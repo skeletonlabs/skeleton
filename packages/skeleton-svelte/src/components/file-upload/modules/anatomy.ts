@@ -6,7 +6,6 @@ import Trigger from '../anatomy/trigger.svelte';
 import HiddenInput from '../anatomy/hidden-input.svelte';
 import ItemGroup from '../anatomy/item-group.svelte';
 import Item from '../anatomy/item.svelte';
-import ItemContext from '../anatomy/item-context.svelte';
 import ItemName from '../anatomy/item-name.svelte';
 import ItemSizeText from '../anatomy/item-size-text.svelte';
 import ItemDeleteTrigger from '../anatomy/item-delete-trigger.svelte';
@@ -19,7 +18,6 @@ export const FileUpload = Object.assign(Root, {
 	HiddenInput: HiddenInput,
 	ItemGroup: ItemGroup,
 	Item: Item,
-	ItemContext: ItemContext,
 	ItemName: ItemName,
 	ItemSizeText: ItemSizeText,
 	ItemDeleteTrigger: ItemDeleteTrigger
