@@ -1,15 +1,13 @@
 export { FileUpload } from './modules/anatomy';
 export { useFileUpload } from './modules/use-file-upload';
 export type { FileUploadRootProps } from './anatomy/root';
+export type { FileUploadRootProviderProps } from './anatomy/root-provider';
 export type { FileUploadRootContextProps } from './anatomy/root-context';
 export type { FileUploadDropzoneProps } from './anatomy/dropzone';
 export type { FileUploadTriggerProps } from './anatomy/trigger';
 export type { FileUploadHiddenInputProps } from './anatomy/hidden-input';
 export type { FileUploadItemGroupProps } from './anatomy/item-group';
 export type { FileUploadItemProps } from './anatomy/item';
-export type { FileUploadItemContextProps } from './anatomy/item-context';
 export type { FileUploadItemNameProps } from './anatomy/item-name';
 export type { FileUploadItemSizeTextProps } from './anatomy/item-size-text';
 export type { FileUploadItemDeleteTriggerProps } from './anatomy/item-delete-trigger';
-export type { FileUploadRootContextType as FileUploadRootContext } from './modules/root-context';
-export type { FileUploadItemContextType as FileUploadItemContext } from './modules/item-context';
