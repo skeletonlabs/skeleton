@@ -30,8 +30,8 @@
 	<Switch.Control>
 		<Switch.Thumb>
 			<Switch.Context>
-				{#snippet children(ctx)}
-					{#if ctx.api.checked}
+				{#snippet children(switch_)}
+					{#if switch_().checked}
 						<Sun class="size-4 stroke-surface-50-950" />
 					{:else}
 						<Moon class="size-4 stroke-surface-950-50" />

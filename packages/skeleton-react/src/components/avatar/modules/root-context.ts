@@ -1,8 +1,4 @@
-import type { Api } from '@zag-js/avatar';
-import { createContext } from 'react';
+import { createContext } from '@/internal/create-context';
+import type { useAvatar } from './use-avatar';
 
-export interface AvatarRootContextType {
-	api: Api;
-}
-
-export const AvatarRootContext = createContext<AvatarRootContextType>(null!);
+export const AvatarRootContext = createContext<ReturnType<typeof useAvatar>>();

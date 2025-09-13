@@ -1,8 +1,4 @@
-import type { Api } from '@zag-js/rating-group';
 import { createContext } from '@/internal/create-context';
+import type { useRatingGroup } from './use-rating-group.svelte';
 
-export interface RatingGroupRootContextType {
-	api: Api;
-}
-
-export const RatingGroupRootContext = createContext<RatingGroupRootContextType>();
+export const RatingGroupRootContext = createContext<ReturnType<typeof useRatingGroup>>();

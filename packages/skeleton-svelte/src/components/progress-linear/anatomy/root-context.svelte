@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { ProgressLinearRootContextType } from '../modules/root-context';
+	import type { useProgressLinear } from '../modules/use-progress-linear.svelte';
 
 	export interface ProgressLinearRootContextProps {
-		children: Snippet<[ProgressLinearRootContextType]>;
+		children: Snippet<[ReturnType<typeof useProgressLinear>]>;
 	}
 </script>
 
@@ -12,7 +12,9 @@
 
 	const props: ProgressLinearRootContextProps = $props();
 
-	const rootContext = ProgressLinearRootContext.consume();
+	const progressLinear = ProgressLinearRootContext.consume();
+
+	const { children } = $derived(props);
 </script>
 
-{@render props.children(rootContext)}
+{@render children(progressLinear)}

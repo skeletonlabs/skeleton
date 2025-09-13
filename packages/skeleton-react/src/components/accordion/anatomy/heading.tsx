@@ -4,7 +4,7 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 import type { JSX, PropsWithChildren } from 'react';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface AccordionHeadingProps extends PropsWithChildren, PropsWithElement, HTMLAttributes<'h3'> {
+export interface AccordionHeadingProps extends PropsWithChildren, PropsWithElement<'h3'>, HTMLAttributes<'h3'> {
 	/**
 	 * The level of the heading.
 	 *
@@ -14,11 +14,13 @@ export interface AccordionHeadingProps extends PropsWithChildren, PropsWithEleme
 }
 
 export default function (props: AccordionHeadingProps) {
-	const { level = 3, element, children, ...restAttributes } = props;
+	const { level = 3, element, children, ...rest } = props;
 
 	const Tag: keyof JSX.IntrinsicElements = `h${level}`;
 
-	const attributes = mergeProps({ className: classesAccordion.heading }, restAttributes);
+	const attributes = mergeProps(rest, {
+		className: classesAccordion.heading
+	});
 
-	return element ? element({ attributes }) : <Tag {...attributes}>{children}</Tag>;
+	return element ? element(attributes) : <Tag {...attributes}>{children}</Tag>;
 }

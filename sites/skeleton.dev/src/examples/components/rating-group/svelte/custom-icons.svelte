@@ -6,16 +6,20 @@
 
 <RatingGroup count={5}>
 	<RatingGroup.Control>
-		{#each Array.from({ length: 5 }), index}
-			<RatingGroup.Item index={index + 1}>
-				{#snippet empty()}
-					<Bone />
-				{/snippet}
-				{#snippet full()}
-					<Skull />
-				{/snippet}
-			</RatingGroup.Item>
-		{/each}
+		<RatingGroup.Context>
+			{#snippet children(ratingGroup)}
+				{#each ratingGroup().items as index (index)}
+					<RatingGroup.Item {index}>
+						{#snippet empty()}
+							<Bone />
+						{/snippet}
+						{#snippet full()}
+							<Skull />
+						{/snippet}
+					</RatingGroup.Item>
+				{/each}
+			{/snippet}
+		</RatingGroup.Context>
 	</RatingGroup.Control>
 	<RatingGroup.HiddenInput />
 </RatingGroup>

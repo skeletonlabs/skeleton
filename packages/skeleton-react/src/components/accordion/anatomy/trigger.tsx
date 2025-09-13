@@ -6,19 +6,17 @@ import { AccordionItemContext } from '../modules/item-context';
 import { AccordionRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface AccordionTriggerProps extends PropsWithChildren, PropsWithElement, HTMLAttributes<'button'> {}
+export interface AccordionTriggerProps extends PropsWithChildren, PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
 export default function (props: AccordionTriggerProps) {
-	const rootContext = useContext(AccordionRootContext);
-	const itemContext = useContext(AccordionItemContext);
+	const accordion = useContext(AccordionRootContext);
+	const itemProps = useContext(AccordionItemContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		rootContext.api.getItemTriggerProps(itemContext.itemProps),
-		{ className: classesAccordion.trigger },
-		restAttributes
-	);
+	const attributes = mergeProps(accordion.getItemTriggerProps(itemProps), rest, {
+		className: classesAccordion.trigger
+	});
 
-	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
+	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

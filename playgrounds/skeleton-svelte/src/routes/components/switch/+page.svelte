@@ -3,9 +3,9 @@
 </script>
 
 <Switch>
-	<Switch.HiddenInput />
+	<Switch.Label>Label</Switch.Label>
 	<Switch.Control>
 		<Switch.Thumb />
 	</Switch.Control>
-	<Switch.Label>Label</Switch.Label>
+	<Switch.HiddenInput />
 </Switch>
