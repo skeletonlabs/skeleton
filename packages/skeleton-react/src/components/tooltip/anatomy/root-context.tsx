@@ -1,11 +1,15 @@
 import { useContext, type ReactNode } from 'react';
-import { type TooltipRootContextType, TooltipRootContext } from '../modules/root-context';
+import { TooltipRootContext } from '../modules/root-context';
+import type { useTooltip } from '../modules/use-tooltip';
 
 export interface TooltipRootContextProps {
-	children: (context: TooltipRootContextType) => ReactNode;
+	children: (tooltip: ReturnType<typeof useTooltip>) => ReactNode;
 }
 
 export default function (props: TooltipRootContextProps) {
-	const rootContext = useContext(TooltipRootContext);
-	return props.children(rootContext);
+	const tooltip = useContext(TooltipRootContext);
+
+	const { children } = props;
+
+	return children(tooltip);
 }

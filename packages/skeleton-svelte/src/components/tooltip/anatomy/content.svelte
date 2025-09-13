@@ -12,15 +12,15 @@
 
 	const props: TooltipContentProps = $props();
 
-	const rootContext = TooltipRootContext.consume();
+	const tooltip = TooltipRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getContentProps(), { class: classesTooltip.content }, restAttributes));
+	const attributes = $derived(mergeProps(tooltip.api.getContentProps(), { class: classesTooltip.content }, rest));
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

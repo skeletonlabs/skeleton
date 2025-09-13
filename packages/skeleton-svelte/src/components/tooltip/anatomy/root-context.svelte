@@ -12,7 +12,7 @@
 
 	const props: TooltipRootContextProps = $props();
 
-	const rootContext = TooltipRootContext.consume();
+	const tooltip = TooltipRootContext.consume();
 </script>
 
-{@render props.children(rootContext)}
+{@render props.children(tooltip)}

@@ -1,18 +1,20 @@
 import { useContext } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps } from '@zag-js/react';
 import { TooltipRootContext } from '../modules/root-context';
 import { classesTooltip } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface TooltipArrowTipProps extends PropsWithElement, HTMLAttributes<'div'> {}
+export interface TooltipArrowTipProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function (props: TooltipArrowTipProps) {
-	const rootContext = useContext(TooltipRootContext);
+	const tooltip = useContext(TooltipRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getArrowTipProps(), { className: classesTooltip.arrowTip }, restAttributes);
+	const attributes = mergeProps(tooltip.getArrowTipProps(), rest, {
+		className: classesTooltip.arrowTip
+	});
 
-	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
+	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -12,24 +12,24 @@
 
 	const props: TooltipArrowProps = $props();
 
-	const rootContext = TooltipRootContext.consume();
+	const tooltip = TooltipRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
-			rootContext.api.getArrowProps(),
+			tooltip.api.getArrowProps(),
 			{
 				style: '--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);',
 				class: classesTooltip.arrow
 			},
-			restAttributes
+			rest
 		)
 	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

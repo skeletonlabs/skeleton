@@ -1,8 +1,4 @@
-import type { Api } from '@zag-js/tooltip';
-import { createContext } from 'react';
+import { createContext } from '@/internal/create-context';
+import type { useTooltip } from './use-tooltip';
 
-export interface TooltipRootContextType {
-	api: Api;
-}
-
-export const TooltipRootContext = createContext<TooltipRootContextType>(null!);
+export const TooltipRootContext = createContext<ReturnType<typeof useTooltip>>();

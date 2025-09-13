@@ -12,15 +12,15 @@
 
 	const props: TooltipTriggerProps = $props();
 
-	const rootContext = TooltipRootContext.consume();
+	const tooltip = TooltipRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(), { class: classesTooltip.trigger }, restAttributes));
+	const attributes = $derived(mergeProps(tooltip.api.getTriggerProps(), { class: classesTooltip.trigger }, rest));
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

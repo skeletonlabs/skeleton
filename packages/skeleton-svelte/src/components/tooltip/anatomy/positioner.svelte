@@ -13,19 +13,19 @@
 
 	const props: TooltipPositionerProps = $props();
 
-	const rootContext = TooltipRootContext.consume();
+	const tooltip = TooltipRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(rootContext.api.getPositionerProps(), { class: classesTooltip.positioner }, restAttributes, {
+		mergeProps(tooltip.api.getPositionerProps(), { class: classesTooltip.positioner }, rest, {
 			[createAttachmentKey()]: fromAction(portal, () => undefined)
 		})
 	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}
