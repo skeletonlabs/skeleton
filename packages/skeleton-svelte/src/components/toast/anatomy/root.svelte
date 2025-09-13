@@ -24,7 +24,7 @@
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
 		id: id,
-		parent: group,
+		parent: group(),
 		...toastProps
 	}));
 	const toast = $derived(connect(service, normalizeProps));
