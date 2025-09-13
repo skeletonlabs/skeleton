@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Options } from '@zag-js/toast';
 
-	export interface ToastRootProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
+	export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 		toast: Options;
 	}
 </script>
@@ -29,7 +29,11 @@
 	}));
 	const api = $derived(connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesToast.root }, rest));
+	const attributes = $derived(
+		mergeProps(api.getRootProps(), rest, {
+			class: classesToast.root
+		})
+	);
 
 	ToastRootContext.provide({
 		get api() {
@@ -40,7 +44,7 @@
 
 <div {...api.getGhostBeforeProps()}></div>
 {#if element}
-	{@render element({ attributes: rest })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

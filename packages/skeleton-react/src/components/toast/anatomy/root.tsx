@@ -18,7 +18,7 @@ export default function (props: ToastRootProps) {
 
 	const service = useMachine(machine, {
 		...toastProps,
-		parent: group.service
+		parent: group
 	});
 	const toast = connect(service, normalizeProps);
 

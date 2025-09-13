@@ -1,4 +1,4 @@
 import { createContext } from '@/internal/create-context';
-import type { GroupService, GroupApi } from '@zag-js/toast';
+import type { GroupService } from '@zag-js/toast';
 
-export const ToastGroupContext = createContext<{ api: GroupApi; service: GroupService }>();
+export const ToastGroupContext = createContext<GroupService>();

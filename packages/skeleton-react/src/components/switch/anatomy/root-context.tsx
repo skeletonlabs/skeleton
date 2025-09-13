@@ -1,9 +1,9 @@
 import { useContext, type ReactNode } from 'react';
 import { SwitchRootContext } from '../modules/root-context';
-import type { Api } from '@zag-js/switch';
+import type { useSwitch } from '../modules/use-switch';
 
 export interface SwitchRootContextProps {
-	children: (switch_: Api) => ReactNode;
+	children: (switch_: ReturnType<typeof useSwitch>) => ReactNode;
 }
 
 export default function (props: SwitchRootContextProps) {

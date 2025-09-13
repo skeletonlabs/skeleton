@@ -5,7 +5,7 @@ import { classesAvatar } from '@skeletonlabs/skeleton-common';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface AvatarImageProps extends PropsWithElement<'img'>, Omit<HTMLAttributes<'img'>, 'children'> {}
+export interface AvatarImageProps extends PropsWithElement<'img'>, HTMLAttributes<'img', 'children'> {}
 
 export default function (props: AvatarImageProps) {
 	const avatar = useContext(AvatarRootContext);

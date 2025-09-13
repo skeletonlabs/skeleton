@@ -3,10 +3,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface TabsTriggerProps
-		extends TriggerProps,
-			PropsWithElement<'button'>,
-			Omit<HTMLAttributes<'button'>, 'value' | 'disabled'> {}
+	export interface TabsTriggerProps extends TriggerProps, PropsWithElement<'button'>, HTMLAttributes<'button', 'value' | 'disabled'> {}
 </script>
 
 <script lang="ts">

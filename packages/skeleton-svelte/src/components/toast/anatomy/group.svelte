@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Store, Props } from '@zag-js/toast';
 
-	export interface ToastGroupProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir' | 'children'> {
+	export interface ToastGroupProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'children'> {
 		toaster: Store;
 		children?: Snippet<[Props]>;
 	}
@@ -27,7 +27,11 @@
 	}));
 	const api = $derived(group.connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getGroupProps(), { class: classesToast.group }, rest));
+	const attributes = $derived(
+		mergeProps(api.getGroupProps(), rest, {
+			class: classesToast.group
+		})
+	);
 
 	ToastGroupContext.provide({
 		get groupApi() {
@@ -40,7 +44,7 @@
 </script>
 
 {#if element}
-	{@render element({ attributes: rest })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{#each api.getToasts() as toast (toast.id)}

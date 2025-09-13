@@ -1,9 +1,9 @@
 import { useContext, type ReactNode } from 'react';
 import { ProgressLinearRootContext } from '../modules/root-context';
-import type { Api } from '@zag-js/progress';
+import type { useProgressLinear } from '../modules/use-progress-linear';
 
 export interface ProgressLinearRootContextProps {
-	children: (progressLinear: Api) => ReactNode;
+	children: (progressLinear: ReturnType<typeof useProgressLinear>) => ReactNode;
 }
 
 export default function (props: ProgressLinearRootContextProps) {

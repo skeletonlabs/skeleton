@@ -6,7 +6,7 @@ import { AvatarRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { useAvatar } from '../modules/use-avatar';
 
-export interface AvatarRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {}
+export interface AvatarRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
 export default function (props: AvatarRootProps) {
 	const [avatarProps, componentProps] = splitProps(props);

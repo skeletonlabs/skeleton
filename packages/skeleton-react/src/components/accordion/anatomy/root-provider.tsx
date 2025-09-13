@@ -1,12 +1,12 @@
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { Api } from '@zag-js/accordion';
 import { mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
-import type { PropsWithElement } from '@/internal/props-with-element';
 import { AccordionRootContext } from '../modules/root-context';
+import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { useAccordion } from '../modules/use-accordion';
 
 export interface AccordionRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
-	value: Api;
+	value: ReturnType<typeof useAccordion>;
 }
 
 export default function (props: AccordionRootProviderProps) {

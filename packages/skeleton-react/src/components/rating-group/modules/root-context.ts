@@ -1,4 +1,4 @@
 import { createContext } from '@/internal/create-context';
-import type { Api } from '@zag-js/rating-group';
+import type { useRatingGroup } from './use-rating-group';
 
-export const RatingGroupRootContext = createContext<Api>();
+export const RatingGroupRootContext = createContext<ReturnType<typeof useRatingGroup>>();

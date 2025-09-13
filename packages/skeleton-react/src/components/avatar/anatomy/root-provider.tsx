@@ -1,12 +1,12 @@
-import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps } from '@zag-js/react';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
-import type { Api } from '@zag-js/avatar';
 import { AvatarRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { useAvatar } from '../modules/use-avatar';
 
-export interface AvatarRootProviderProps extends PropsWithElement<'div'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
-	value: Api;
+export interface AvatarRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
+	value: ReturnType<typeof useAvatar>;
 }
 
 export default function (props: AvatarRootProviderProps) {

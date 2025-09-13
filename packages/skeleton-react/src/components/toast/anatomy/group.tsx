@@ -26,7 +26,7 @@ export default function (props: ToastGroupProps) {
 	});
 
 	return (
-		<ToastGroupContext.Provider value={{ api: api, service: service }}>
+		<ToastGroupContext.Provider value={service}>
 			{element ? element(attributes) : <div {...attributes}>{api.getToasts().map((toast) => children?.(toast))}</div>}
 		</ToastGroupContext.Provider>
 	);

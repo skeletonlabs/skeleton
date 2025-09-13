@@ -1,9 +1,9 @@
 import { useContext, type ReactNode } from 'react';
-import type { Api } from '@zag-js/accordion';
 import { AccordionRootContext } from '../modules/root-context';
+import type { useAccordion } from '../modules/use-accordion';
 
 export interface AccordionRootContextProps {
-	children: (context: Api) => ReactNode;
+	children: (accordion: ReturnType<typeof useAccordion>) => ReactNode;
 }
 
 export default function (props: AccordionRootContextProps) {
