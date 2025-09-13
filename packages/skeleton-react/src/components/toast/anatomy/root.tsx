@@ -1,10 +1,9 @@
 import { useContext } from 'react';
-import { mergeProps } from '@zag-js/react';
+import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { classesToast } from '@skeletonlabs/skeleton-common';
 import { ToastRootContext } from '../modules/root-context';
 import { ToastGroupContext } from '../modules/group-context';
-import { useToast } from '../modules/use-toast';
-import type { Options } from '@zag-js/toast';
+import { machine, connect, type Options } from '@zag-js/toast';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 
@@ -17,10 +16,11 @@ export default function (props: ToastRootProps) {
 
 	const { element, children, toast: toastProps, ...rest } = props;
 
-	const toast = useToast({
+	const service = useMachine(machine, {
 		...toastProps,
 		parent: group.service
 	});
+	const toast = connect(service, normalizeProps);
 
 	const attributes = mergeProps(toast.getRootProps(), rest, {
 		className: classesToast.root

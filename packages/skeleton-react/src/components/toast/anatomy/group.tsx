@@ -21,7 +21,9 @@ export default function (props: ToastGroupProps) {
 	});
 	const api = group.connect(service, normalizeProps);
 
-	const attributes = mergeProps(api.getGroupProps(), { className: classesToast.group }, rest);
+	const attributes = mergeProps(api.getGroupProps(), rest, {
+		className: classesToast.group
+	});
 
 	return (
 		<ToastGroupContext.Provider value={{ api: api, service: service }}>
