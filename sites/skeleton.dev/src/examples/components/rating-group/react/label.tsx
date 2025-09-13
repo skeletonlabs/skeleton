@@ -7,9 +7,9 @@ export default function () {
 		<RatingGroup count={5}>
 			<RatingGroup.Label>Rate us:</RatingGroup.Label>
 			<RatingGroup.Control>
-				{Array.from({ length: 5 }).map((_, index) => (
-					<RatingGroup.Item key={index} index={index + 1} />
-				))}
+				<RatingGroup.Context>
+					{(ratingGroup) => ratingGroup.items.map((index) => <RatingGroup.Item key={index} index={index} />)}
+				</RatingGroup.Context>
 			</RatingGroup.Control>
 			<RatingGroup.HiddenInput />
 		</RatingGroup>
