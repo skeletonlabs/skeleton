@@ -1,8 +1,4 @@
-import type { Api } from '@zag-js/switch';
-import { createContext } from 'react';
+import { createContext } from '@/internal/create-context';
+import type { useSwitch } from './use-switch';
 
-export interface SwitchRootContextType {
-	api: Api;
-}
-
-export const SwitchRootContext = createContext<SwitchRootContextType>(null!);
+export const SwitchRootContext = createContext<ReturnType<typeof useSwitch>>();

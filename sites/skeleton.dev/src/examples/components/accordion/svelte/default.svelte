@@ -16,8 +16,8 @@
 				<span>Club</span>
 				<Accordion.Indicator>
 					<Accordion.Context>
-						{#snippet children(ctx)}
-							{ctx.api.value.includes('item-1') ? '-' : '+'}
+						{#snippet children(accordion)}
+							{accordion().value.includes('item-1') ? '-' : '+'}
 						{/snippet}
 					</Accordion.Context>
 				</Accordion.Indicator>
@@ -33,8 +33,8 @@
 				<span>Diamond</span>
 				<Accordion.Indicator>
 					<Accordion.Context>
-						{#snippet children(ctx)}
-							{ctx.api.value.includes('item-2') ? '-' : '+'}
+						{#snippet children(accordion)}
+							{accordion().value.includes('item-2') ? '-' : '+'}
 						{/snippet}
 					</Accordion.Context>
 				</Accordion.Indicator>
@@ -50,8 +50,8 @@
 				<span>Heart</span>
 				<Accordion.Indicator>
 					<Accordion.Context>
-						{#snippet children(ctx)}
-							{ctx.api.value.includes('item-3') ? '-' : '+'}
+						{#snippet children(accordion)}
+							{accordion().value.includes('item-3') ? '-' : '+'}
 						{/snippet}
 					</Accordion.Context>
 				</Accordion.Indicator>
@@ -67,8 +67,8 @@
 				<span>Spade</span>
 				<Accordion.Indicator>
 					<Accordion.Context>
-						{#snippet children(ctx)}
-							{ctx.api.value.includes('item-4') ? '-' : '+'}
+						{#snippet children(accordion)}
+							{accordion().value.includes('item-4') ? '-' : '+'}
 						{/snippet}
 					</Accordion.Context>
 				</Accordion.Indicator>

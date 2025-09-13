@@ -2,19 +2,21 @@ import { classesTabs } from '@skeletonlabs/skeleton-common';
 import { splitContentProps, type ContentProps } from '@zag-js/tabs';
 import { mergeProps } from '@zag-js/react';
 import { useContext } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 import { TabsRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface TabsContentProps extends PropsWithElement, ContentProps, HTMLAttributes<'div'> {}
+export interface TabsContentProps extends ContentProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function (props: TabsContentProps) {
-	const rootContext = useContext(TabsRootContext);
+	const tabs = useContext(TabsRootContext);
 
-	const [itemProps, componentProps] = splitContentProps(props);
-	const { element, children, ...restAttributes } = componentProps;
+	const [contentProps, componentProps] = splitContentProps(props);
+	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(rootContext.api.getContentProps(itemProps), { className: classesTabs.content }, restAttributes);
+	const attributes = mergeProps(tabs.getContentProps(contentProps), rest, {
+		className: classesTabs.content
+	});
 
-	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
+	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

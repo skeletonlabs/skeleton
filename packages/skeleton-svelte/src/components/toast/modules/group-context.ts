@@ -1,9 +1,4 @@
-import type { GroupService, GroupApi } from '@zag-js/toast';
 import { createContext } from '@/internal/create-context';
+import type { GroupService } from '@zag-js/toast';
 
-export interface ToastGroupContextType {
-	groupApi: GroupApi;
-	groupService: GroupService;
-}
-
-export const ToastGroupContext = createContext<ToastGroupContextType>();
+export const ToastGroupContext = createContext<() => GroupService>();

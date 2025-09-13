@@ -1,8 +1,4 @@
-import { createContext } from 'react';
-import type { Api } from '@zag-js/accordion';
+import { createContext } from '@/internal/create-context';
+import type { useAccordion } from './use-accordion';
 
-export interface AccordionRootContextType {
-	api: Api;
-}
-
-export const AccordionRootContext = createContext<AccordionRootContextType>(null!);
+export const AccordionRootContext = createContext<ReturnType<typeof useAccordion>>();

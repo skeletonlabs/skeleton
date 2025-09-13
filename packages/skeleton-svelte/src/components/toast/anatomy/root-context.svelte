@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { ToastRootContextType } from '../modules/root-context';
+	import type { Api } from '@zag-js/toast';
 
 	export interface ToastRootContextProps {
-		children: Snippet<[ToastRootContextType]>;
+		children: Snippet<[() => Api]>;
 	}
 </script>
 
@@ -12,7 +12,9 @@
 
 	const props: ToastRootContextProps = $props();
 
-	const rootContext = ToastRootContext.consume();
+	const toast = ToastRootContext.consume();
+
+	const { children } = $derived(props);
 </script>
 
-{@render props.children(rootContext)}
+{@render children(toast)}

@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface AccordionContentProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface AccordionContentProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -13,18 +13,20 @@
 
 	const props: AccordionContentProps = $props();
 
-	const rootContext = AccordionRootContext.consume();
-	const itemContext = AccordionItemContext.consume();
+	const accordion = AccordionRootContext.consume();
+	const itemProps = AccordionItemContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(rootContext.api.getItemContentProps(itemContext.itemProps), { class: classesAccordion.content }, restAttributes)
+		mergeProps(accordion().getItemContentProps(itemProps()), rest, {
+			class: classesAccordion.content
+		})
 	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

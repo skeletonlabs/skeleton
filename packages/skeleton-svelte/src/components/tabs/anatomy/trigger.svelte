@@ -3,7 +3,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface TabsTriggerProps extends TriggerProps, PropsWithElement, Omit<HTMLAttributes<'button'>, 'value' | 'disabled'> {}
+	export interface TabsTriggerProps extends TriggerProps, PropsWithElement<'button'>, HTMLAttributes<'button', 'value' | 'disabled'> {}
 </script>
 
 <script lang="ts">
@@ -14,16 +14,20 @@
 
 	const props: TabsTriggerProps = $props();
 
-	const rootContext = TabsRootContext.consume();
+	const tabs = TabsRootContext.consume();
 
 	const [triggerProps, componentProps] = $derived(splitTriggerProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(triggerProps), { class: classesTabs.trigger }, restAttributes));
+	const attributes = $derived(
+		mergeProps(tabs().getTriggerProps(triggerProps), rest, {
+			class: classesTabs.trigger
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

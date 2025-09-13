@@ -1,8 +1,4 @@
-import { createContext } from 'react';
-import type { Api } from '@zag-js/tabs';
+import { createContext } from '@/internal/create-context';
+import type { useTabs } from './use-tabs';
 
-export interface TabsRootContextType {
-	api: Api;
-}
-
-export const TabsRootContext = createContext<TabsRootContextType>(null!);
+export const TabsRootContext = createContext<ReturnType<typeof useTabs>>();
