@@ -174,16 +174,11 @@ The `{part}-context.ts` file contains the exported context for each part's [cont
 For most components this will only be necessary for the root component, some components however may require context for other parts as well, reference other components for examples.
 
 ```ts title="avatar-root-context.ts"
-import { createContext } from 'react';
+import { createContext } from '@/internal/create-context';
+import type { useAvatar } from './use-avatar';
 
-export interface AvatarContextType {
-	// ...
-}
-
-export const AvatarContext = createContext<AvatarContextType>(null!);
+export const AvatarContext = createContext<ReturnType<typeof useAvatar>>();
 ```
-
-> NOTE: The interface is suffixed `Type` to avoid conflicting with the context reference itself.
 
 #### Index File
 
@@ -191,11 +186,12 @@ The index prepares all above files for export.
 
 ```ts
 export { Avatar } from './modules/anatomy';
+export { useAvatar } from './modules/use-avatar';
 export type { AvatarRootProps } from './anatomy/root';
+export type { AvatarRootProviderProps } from './anatomy/root-provider';
 export type { AvatarRootContextProps } from './anatomy/root-context';
 export type { AvatarImageProps } from './anatomy/image';
 export type { AvatarFallbackProps } from './anatomy/fallback';
-export type { AvatarRootContextType as AvatarRootContext } from './modules/root-context';
 ```
 
 ### Component Exports
@@ -340,14 +336,9 @@ import { classesAvatar } from '@skeletonlabs/skeleton-common';
 export default function (props: AvatarRootProps) {
 	const { children, ...rest } = props;
 
-	const attributes = mergeProps(
-		// Zag Props
-		api.getRootProps(),
-		// Skeleton Props
-		{ className: classesAvatar.root }
-		// User Props
-		rest
-	);
+	const attributes = mergeProps(api.getRootProps(), rest, {
+		className: classesAvatar.root
+	});
 
 	return <div {...attributes}>{children}</div>;
 }
@@ -362,12 +353,9 @@ import { classesNavigation } from '@skeletonlabs/skeleton-common';
 export default function (props: NavigationRootProps) {
 	const { children, ...rest } = props;
 
-	const attributes = mergeProps(
-		// Skeleton Props
-		{ className: classesNavigation.root }
-		// User Props
-		rest
-	);
+	const attributes = mergeProps(rest, {
+		className: classesNavigation.root
+	});
 
 	return <div {...attributes}>{children}</div>;
 }
