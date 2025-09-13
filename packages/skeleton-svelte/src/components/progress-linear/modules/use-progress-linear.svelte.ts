@@ -3,6 +3,6 @@ import { useMachine, normalizeProps } from '@zag-js/svelte';
 
 export function useProgressLinear(props: () => Props) {
 	const service = useMachine(machine, props);
-	const api = $derived(connect(service, normalizeProps));
-	return () => api;
+	const progressLinear = $derived(connect(service, normalizeProps));
+	return () => progressLinear;
 }

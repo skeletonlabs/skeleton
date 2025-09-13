@@ -19,18 +19,18 @@
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
-	const api = useAvatar(() => ({
+	const avatar = useAvatar(() => ({
 		id: id,
 		...avatarProps
 	}));
 
 	const attributes = $derived(
-		mergeProps(api().getRootProps(), rest, {
+		mergeProps(avatar().getRootProps(), rest, {
 			class: classesAvatar.root
 		})
 	);
 
-	AvatarRootContext.provide(api);
+	AvatarRootContext.provide(() => avatar());
 </script>
 
 {#if element}

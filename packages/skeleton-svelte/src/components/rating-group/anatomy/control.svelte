@@ -12,12 +12,12 @@
 
 	const props: RatingGroupControlProps = $props();
 
-	const rootContext = RatingGroupRootContext.consume();
+	const ratingGroup = RatingGroupRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(rootContext().getControlProps(), rest, {
+		mergeProps(ratingGroup().getControlProps(), rest, {
 			class: classesRatingGroup.control
 		})
 	);
