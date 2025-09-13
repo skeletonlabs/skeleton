@@ -1,18 +1,16 @@
 import { mergeProps } from '@zag-js/react';
 import { classesSwitch } from '@skeletonlabs/skeleton-common';
-import { splitProps, type Props } from '@zag-js/switch';
 import { SwitchRootContext } from '../modules/root-context';
-import { useSwitch } from '../modules/use-switch';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { Api } from '@zag-js/switch';
 
-export interface SwitchRootProps extends Omit<Props, 'id'>, PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {}
+export interface SwitchRootProviderProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {
+	value: Api;
+}
 
-export default function (props: SwitchRootProps) {
-	const [switchProps, componentProps] = splitProps(props);
-	const { element, children, ...rest } = componentProps;
-
-	const switch_ = useSwitch(switchProps);
+export default function (props: SwitchRootProviderProps) {
+	const { element, children, value: switch_, ...rest } = props;
 
 	const attributes = mergeProps(switch_.getRootProps(), rest, {
 		className: classesSwitch.root

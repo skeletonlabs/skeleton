@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface SwitchLabelProps extends PropsWithElement, HTMLAttributes<'span'> {}
+	export interface SwitchLabelProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: SwitchLabelProps = $props();
 
-	const rootContext = SwitchRootContext.consume();
+	const switch_ = SwitchRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getLabelProps(), { class: classesSwitch.label }, rest));
+	const attributes = $derived(
+		mergeProps(switch_().getLabelProps(), rest, {
+			class: classesSwitch.label
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<span {...attributes}>
 		{@render children?.()}

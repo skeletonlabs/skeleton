@@ -1,28 +1,21 @@
 <script lang="ts" module>
-	import type { Props } from '@zag-js/switch';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { Api } from '@zag-js/switch';
 
-	export interface SwitchRootProps extends Omit<Props, 'id'>, PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir' | 'form'> {}
+	export interface SwitchRootProviderProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir' | 'form'> {
+		value: () => Api;
+	}
 </script>
 
 <script lang="ts">
 	import { mergeProps } from '@zag-js/svelte';
 	import { classesSwitch } from '@skeletonlabs/skeleton-common';
 	import { SwitchRootContext } from '../modules/root-context';
-	import { splitProps } from '@zag-js/switch';
-	import { useSwitch } from '../modules/use-switch.svelte';
 
-	const props: SwitchRootProps = $props();
+	const props: SwitchRootProviderProps = $props();
 
-	const [switchProps, componentProps] = $derived(splitProps(props));
-	const { element, children, ...rest } = $derived(componentProps);
-
-	const id = $props.id();
-	const switch_ = useSwitch(() => ({
-		id: id,
-		...switchProps
-	}));
+	const { element, children, value: switch_, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(switch_().getRootProps(), rest, {

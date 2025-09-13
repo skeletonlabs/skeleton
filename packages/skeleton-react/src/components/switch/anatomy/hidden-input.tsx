@@ -5,14 +5,16 @@ import { SwitchRootContext } from '../modules/root-context';
 import { classesSwitch } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface SwitchHiddenInputProps extends PropsWithElement, Omit<HTMLAttributes<'input'>, 'children'> {}
+export interface SwitchHiddenInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'children'> {}
 
 export default function (props: SwitchHiddenInputProps) {
-	const rootContext = useContext(SwitchRootContext);
+	const switch_ = useContext(SwitchRootContext);
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getHiddenInputProps(), { className: classesSwitch.hiddenInput }, rest);
+	const attributes = mergeProps(switch_.getHiddenInputProps(), rest, {
+		className: classesSwitch.hiddenInput
+	});
 
-	return element ? element({ attributes }) : <input {...attributes} />;
+	return element ? element(attributes) : <input {...attributes} />;
 }

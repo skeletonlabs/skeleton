@@ -1,8 +1,4 @@
+import { createContext } from '@/internal/create-context';
 import type { Api } from '@zag-js/switch';
-import { createContext } from 'react';
 
-export interface SwitchRootContextType {
-	api: Api;
-}
-
-export const SwitchRootContext = createContext<SwitchRootContextType>(null!);
+export const SwitchRootContext = createContext<Api>();
