@@ -1,8 +1,4 @@
 import { createContext } from '@/internal/create-context';
-import type { Api } from '@zag-js/popover';
+import type { usePopover } from './use-popover';
 
-export interface PopoverRootContextType {
-	api: Api;
-}
-
-export const PopoverRootContext = createContext<PopoverRootContextType>();
+export const PopoverRootContext = createContext<ReturnType<typeof usePopover>>();

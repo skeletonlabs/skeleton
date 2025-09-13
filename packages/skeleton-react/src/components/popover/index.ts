@@ -1,5 +1,7 @@
 export { Popover } from './modules/anatomy';
+export { usePopover } from './modules/use-popover';
 export type { PopoverRootProps } from './anatomy/root';
+export type { PopoverRootProviderProps } from './anatomy/root-provider';
 export type { PopoverRootContextProps } from './anatomy/root-context';
 export type { PopoverTriggerProps } from './anatomy/trigger';
 export type { PopoverPositionerProps } from './anatomy/positioner';
@@ -7,4 +9,3 @@ export type { PopoverContentProps } from './anatomy/content';
 export type { PopoverTitleProps } from './anatomy/title';
 export type { PopoverDescriptionProps } from './anatomy/description';
 export type { PopoverCloseTriggerProps } from './anatomy/close-trigger';
-export type { PopoverRootContextType as PopoverRootContext } from './modules/root-context';

@@ -1,14 +1,14 @@
 <script lang="ts" module>
-	import type { PropsWithChildren } from '@/internal/props-with-children';
 	import type { Props } from '@zag-js/popover';
+	import type { PropsWithChildren } from '@/internal/props-with-children';
 
-	export interface PopoverRootProps extends PropsWithChildren, Omit<Props, 'id'> {}
+	export interface PopoverRootProps extends Omit<Props, 'id'>, PropsWithChildren {}
 </script>
 
 <script lang="ts">
-	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import { PopoverRootContext } from '../modules/root-context';
-	import { connect, machine, splitProps } from '@zag-js/popover';
+	import { splitProps } from '@zag-js/popover';
+	import { usePopover } from '../modules/use-popover';
 
 	const props: PopoverRootProps = $props();
 
@@ -16,18 +16,12 @@
 	const { children } = $derived(componentProps);
 
 	const id = $props.id();
-	const service = useMachine(machine, () => ({
+	const popover = usePopover(() => ({
 		id: id,
 		...machineProps
 	}));
 
-	const api = $derived(connect(service, normalizeProps));
-
-	PopoverRootContext.provide({
-		get api() {
-			return api;
-		}
-	});
+	PopoverRootContext.provide(() => popover());
 </script>
 
 {@render children?.()}

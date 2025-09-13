@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface PopoverContentProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface PopoverContentProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: PopoverContentProps = $props();
 
-	const rootContext = PopoverRootContext.consume();
+	const popover = PopoverRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getContentProps(), { class: classesPopover.content }, restAttributes));
+	const attributes = $derived(
+		mergeProps(popover().getContentProps(), rest, {
+			class: classesPopover.content
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

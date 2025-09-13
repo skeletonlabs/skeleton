@@ -1,18 +1,20 @@
-import { useContext, type PropsWithChildren } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
+import { useContext } from 'react';
 import { mergeProps } from '@zag-js/react';
 import { classesPopover } from '@skeletonlabs/skeleton-common';
 import { PopoverRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface PopoverCloseTriggerProps extends PropsWithChildren, PropsWithElement, HTMLAttributes<'button'> {}
+export interface PopoverCloseTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
 export default function (props: PopoverCloseTriggerProps) {
-	const rootContext = useContext(PopoverRootContext);
+	const popover = useContext(PopoverRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getCloseTriggerProps(), { className: classesPopover.closeTrigger }, restAttributes);
+	const attributes = mergeProps(popover.getCloseTriggerProps(), rest, {
+		className: classesPopover.closeTrigger
+	});
 
-	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
+	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

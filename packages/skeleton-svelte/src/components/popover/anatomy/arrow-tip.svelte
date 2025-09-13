@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface PopoverArrowTipProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface PopoverArrowTipProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: PopoverArrowTipProps = $props();
 
-	const rootContext = PopoverRootContext.consume();
+	const popover = PopoverRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getArrowTipProps(), { class: classesPopover.arrowTip }, restAttributes));
+	const attributes = $derived(
+		mergeProps(popover().getArrowTipProps(), rest, {
+			class: classesPopover.arrowTip
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

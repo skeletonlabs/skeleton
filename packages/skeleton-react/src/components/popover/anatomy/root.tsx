@@ -1,20 +1,15 @@
-import { useId, type PropsWithChildren } from 'react';
-import { useMachine, normalizeProps } from '@zag-js/react';
-import { splitProps, machine, connect, type Props } from '@zag-js/popover';
+import { type PropsWithChildren } from 'react';
+import { splitProps, type Props } from '@zag-js/popover';
 import { PopoverRootContext } from '../modules/root-context';
+import { usePopover } from '../modules/use-popover';
 
 export interface PopoverRootProps extends PropsWithChildren, Omit<Props, 'id'> {}
 
 export default function (props: PopoverRootProps) {
-	const [machineProps, componentProps] = splitProps(props);
+	const [popoverProps, componentProps] = splitProps(props);
 	const { children } = componentProps;
 
-	const service = useMachine(machine, {
-		id: useId(),
-		...machineProps
-	});
+	const popover = usePopover(popoverProps);
 
-	const api = connect(service, normalizeProps);
-
-	return <PopoverRootContext.Provider value={{ api }}>{children}</PopoverRootContext.Provider>;
+	return <PopoverRootContext.Provider value={popover}>{children}</PopoverRootContext.Provider>;
 }

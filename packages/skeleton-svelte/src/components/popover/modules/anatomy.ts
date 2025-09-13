@@ -1,4 +1,5 @@
 import Root from '../anatomy/root.svelte';
+import RootProvider from '../anatomy/root-provider.svelte';
 import RootContext from '../anatomy/root-context.svelte';
 import Trigger from '../anatomy/trigger.svelte';
 import Positioner from '../anatomy/positioner.svelte';
@@ -10,6 +11,7 @@ import Description from '../anatomy/description.svelte';
 import CloseTrigger from '../anatomy/close-trigger.svelte';
 
 export const Popover = Object.assign(Root, {
+	Provider: RootProvider,
 	Context: RootContext,
 	Trigger: Trigger,
 	Positioner: Positioner,

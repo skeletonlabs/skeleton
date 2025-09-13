@@ -1,5 +1,7 @@
 export { Popover } from './modules/anatomy';
+export { usePopover } from './modules/use-popover';
 export type { PopoverRootProps } from './anatomy/root.svelte';
+export type { PopoverRootProviderProps } from './anatomy/root-provider.svelte';
 export type { PopoverRootContextProps } from './anatomy/root-context.svelte';
 export type { PopoverTriggerProps } from './anatomy/trigger.svelte';
 export type { PopoverPositionerProps } from './anatomy/positioner.svelte';
@@ -7,4 +9,3 @@ export type { PopoverContentProps } from './anatomy/content.svelte';
 export type { PopoverTitleProps } from './anatomy/title.svelte';
 export type { PopoverDescriptionProps } from './anatomy/description.svelte';
 export type { PopoverCloseTriggerProps } from './anatomy/close-trigger.svelte';
-export type { PopoverRootContextType as PopoverRootContext } from './modules/root-context';

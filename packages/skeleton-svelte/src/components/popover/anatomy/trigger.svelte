@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface PopoverTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+	export interface PopoverTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: PopoverTriggerProps = $props();
 
-	const rootContext = PopoverRootContext.consume();
+	const popover = PopoverRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(), { class: classesPopover.trigger }, restAttributes));
+	const attributes = $derived(
+		mergeProps(popover().getTriggerProps(), rest, {
+			class: classesPopover.trigger
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

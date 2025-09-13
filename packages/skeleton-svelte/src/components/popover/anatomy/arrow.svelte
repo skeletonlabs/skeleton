@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface PopoverArrowProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface PopoverArrowProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -12,24 +12,20 @@
 
 	const props: PopoverArrowProps = $props();
 
-	const rootContext = PopoverRootContext.consume();
+	const popover = PopoverRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(
-			rootContext.api.getArrowProps(),
-			{
-				style: '--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);',
-				class: classesPopover.arrow
-			},
-			restAttributes
-		)
+		mergeProps(popover().getArrowProps(), rest, {
+			class: classesPopover.arrow,
+			style: '--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);'
+		})
 	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

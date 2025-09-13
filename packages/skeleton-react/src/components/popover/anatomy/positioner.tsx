@@ -5,16 +5,18 @@ import { PopoverRootContext } from '../modules/root-context';
 import { classesPopover } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface PopoverPositionerProps extends PropsWithElement, HTMLAttributes<'div'> {}
+export interface PopoverPositionerProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function (props: PopoverPositionerProps) {
-	const rootContext = useContext(PopoverRootContext);
+	const popover = useContext(PopoverRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const Wrapper = rootContext.api.portalled ? Portal : Fragment;
+	const Wrapper = popover.portalled ? Portal : Fragment;
 
-	const attributes = mergeProps(rootContext.api.getPositionerProps(), { className: classesPopover.positioner }, restAttributes);
+	const attributes = mergeProps(popover.getPositionerProps(), rest, {
+		className: classesPopover.positioner
+	});
 
-	return <Wrapper>{element ? element({ attributes }) : <div {...attributes}>{children}</div>}</Wrapper>;
+	return <Wrapper>{element ? element(attributes) : <div {...attributes}>{children}</div>}</Wrapper>;
 }

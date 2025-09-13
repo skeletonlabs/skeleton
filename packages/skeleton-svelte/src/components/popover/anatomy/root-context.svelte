@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { PopoverRootContextType } from '../modules/root-context';
+	import type { usePopover } from '../modules/use-popover';
 
 	export interface PopoverRootContextProps {
-		children: Snippet<[PopoverRootContextType]>;
+		children: Snippet<[ReturnType<typeof usePopover>]>;
 	}
 </script>
 
@@ -12,7 +12,9 @@
 
 	const props: PopoverRootContextProps = $props();
 
-	const rootContext = PopoverRootContext.consume();
+	const popover = PopoverRootContext.consume();
+
+	const { children } = $derived(props);
 </script>
 
-{@render props.children(rootContext)}
+{@render children(popover)}
