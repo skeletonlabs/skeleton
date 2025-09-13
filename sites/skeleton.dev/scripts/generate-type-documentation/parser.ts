@@ -1,7 +1,6 @@
 import { join } from 'node:path';
 import * as tsMorph from 'ts-morph';
 import { MONOREPO_ROOT } from './constants';
-import type { Framework } from './framework';
 
 export type TypeKind = 'function' | 'array' | 'object' | 'primitive';
 
@@ -30,7 +29,7 @@ export interface Interface {
 
 export class SourceFile {
 	constructor(
-		private framework: Framework,
+		private framework: string,
 		private sourceFile: tsMorph.SourceFile
 	) {}
 
@@ -87,7 +86,7 @@ export class SourceFile {
 		}
 
 		interface_.getExtends().forEach((ext) => {
-			if (this.framework.config.extendsBlacklist.some((pattern) => pattern.test(ext.getText()))) {
+			if (/HTMLAttributes<[^>]+>/.test(ext.getText())) {
 				interface_.removeExtends(ext);
 			}
 		});
@@ -105,14 +104,12 @@ export class SourceFile {
 export class Parser {
 	private project: tsMorph.Project;
 
-	constructor(private framework: Framework) {
+	constructor(private framework: string) {
 		this.project = new tsMorph.Project({
 			skipAddingFilesFromTsConfig: true,
-			tsConfigFilePath: join(MONOREPO_ROOT, 'packages', `skeleton-${framework.name}`, 'tsconfig.json')
+			tsConfigFilePath: join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'tsconfig.json')
 		});
-		this.project.addSourceFilesAtPaths(
-			join(MONOREPO_ROOT, 'packages', `skeleton-${framework.name}`, 'dist', 'components/*/anatomy/*.d.ts')
-		);
+		this.project.addSourceFilesAtPaths(join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components/*/anatomy/*.d.ts'));
 	}
 
 	public getSourceFile(path: string): SourceFile {
