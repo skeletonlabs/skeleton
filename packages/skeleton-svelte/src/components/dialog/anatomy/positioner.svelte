@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface DialogPositionerProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface DialogPositionerProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -13,19 +13,20 @@
 
 	const props: DialogPositionerProps = $props();
 
-	const rootContext = DialogRootContext.consume();
+	const dialog = DialogRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(rootContext.api.getPositionerProps(), { class: classesDialog.positioner }, restAttributes, {
+		mergeProps(dialog().getPositionerProps(), rest, {
+			class: classesDialog.positioner,
 			[createAttachmentKey()]: fromAction(portal, () => undefined)
 		})
 	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

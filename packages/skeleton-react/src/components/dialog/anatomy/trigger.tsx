@@ -1,18 +1,20 @@
 import { useContext } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps } from '@zag-js/react';
 import { DialogRootContext } from '../modules/root-context';
 import { classesDialog } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface DialogTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+export interface DialogTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
 export default function (props: DialogTriggerProps) {
-	const rootContext = useContext(DialogRootContext);
+	const dialog = useContext(DialogRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getTriggerProps(), { className: classesDialog.trigger }, restAttributes);
+	const attributes = mergeProps(dialog.getTriggerProps(), rest, {
+		className: classesDialog.trigger
+	});
 
-	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
+	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface DialogCloseTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+	export interface DialogCloseTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: DialogCloseTriggerProps = $props();
 
-	const rootContext = DialogRootContext.consume();
+	const dialog = DialogRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getCloseTriggerProps(), { class: classesDialog.closeTrigger }, restAttributes));
+	const attributes = $derived(
+		mergeProps(dialog().getCloseTriggerProps(), rest, {
+			class: classesDialog.closeTrigger
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

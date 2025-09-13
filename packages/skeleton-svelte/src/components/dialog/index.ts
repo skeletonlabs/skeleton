@@ -1,5 +1,7 @@
 export { Dialog } from './modules/anatomy';
+export { useDialog } from './modules/use-dialog.svelte';
 export type { DialogRootProps } from './anatomy/root.svelte';
+export type { DialogRootProviderProps } from './anatomy/root-provider.svelte';
 export type { DialogRootContextProps } from './anatomy/root-context.svelte';
 export type { DialogTriggerProps } from './anatomy/trigger.svelte';
 export type { DialogBackdropProps } from './anatomy/backdrop.svelte';
@@ -8,4 +10,3 @@ export type { DialogContentProps } from './anatomy/content.svelte';
 export type { DialogTitleProps } from './anatomy/title.svelte';
 export type { DialogDescriptionProps } from './anatomy/description.svelte';
 export type { DialogCloseTriggerProps } from './anatomy/close-trigger.svelte';
-export type { DialogRootContextType as DialogRootContext } from './modules/root-context';

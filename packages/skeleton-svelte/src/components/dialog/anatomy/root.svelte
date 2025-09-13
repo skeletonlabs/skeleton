@@ -1,14 +1,14 @@
 <script lang="ts" module>
-	import type { PropsWithChildren } from '@/internal/props-with-children';
 	import type { Props } from '@zag-js/dialog';
+	import type { PropsWithChildren } from '@/internal/props-with-children';
 
-	export interface DialogRootProps extends PropsWithChildren, Omit<Props, 'id'> {}
+	export interface DialogRootProps extends Omit<Props, 'id'>, PropsWithChildren {}
 </script>
 
 <script lang="ts">
-	import { useMachine, normalizeProps } from '@zag-js/svelte';
 	import { DialogRootContext } from '../modules/root-context';
-	import { connect, machine, splitProps } from '@zag-js/dialog';
+	import { splitProps } from '@zag-js/dialog';
+	import { useDialog } from '../modules/use-dialog.svelte';
 
 	const props: DialogRootProps = $props();
 
@@ -16,18 +16,12 @@
 	const { children } = $derived(componentProps);
 
 	const id = $props.id();
-	const service = useMachine(machine, () => ({
+	const dialog = useDialog(() => ({
 		id: id,
 		...machineProps
 	}));
 
-	const api = $derived(connect(service, normalizeProps));
-
-	DialogRootContext.provide({
-		get api() {
-			return api;
-		}
-	});
+	DialogRootContext.provide(() => dialog());
 </script>
 
 {@render children?.()}

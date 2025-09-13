@@ -1,12 +1,15 @@
 import { useContext, type ReactNode } from 'react';
-import { DialogRootContext, type DialogRootContextType } from '../modules/root-context';
+import { DialogRootContext } from '../modules/root-context';
+import type { useDialog } from '../modules/use-dialog';
 
 export interface DialogRootContextProps {
-	children: (context: DialogRootContextType) => ReactNode;
+	children: (dialog: ReturnType<typeof useDialog>) => ReactNode;
 }
 
 export default function (props: DialogRootContextProps) {
-	const rootContext = useContext(DialogRootContext);
+	const dialog = useContext(DialogRootContext);
 
-	return props.children(rootContext);
+	const { children } = props;
+
+	return children(dialog);
 }

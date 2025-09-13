@@ -1,18 +1,20 @@
 import { useContext } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps, Portal } from '@zag-js/react';
 import { DialogRootContext } from '../modules/root-context';
 import { classesDialog } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface DialogBackdropProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'children'> {}
+export interface DialogBackdropProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 
 export default function (props: DialogBackdropProps) {
-	const rootContext = useContext(DialogRootContext);
+	const dialog = useContext(DialogRootContext);
 
-	const { element, ...restAttributes } = props;
+	const { element, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getBackdropProps(), { className: classesDialog.backdrop }, restAttributes);
+	const attributes = mergeProps(dialog.getBackdropProps(), rest, {
+		className: classesDialog.backdrop
+	});
 
-	return <Portal>{element ? element({ attributes }) : <div {...attributes} />}</Portal>;
+	return <Portal>{element ? element(attributes) : <div {...attributes} />}</Portal>;
 }

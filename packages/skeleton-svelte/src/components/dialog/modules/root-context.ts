@@ -1,8 +1,4 @@
 import { createContext } from '@/internal/create-context';
-import type { Api } from '@zag-js/dialog';
+import type { useDialog } from './use-dialog.svelte';
 
-export interface DialogRootContextType {
-	api: Api;
-}
-
-export const DialogRootContext = createContext<DialogRootContextType>();
+export const DialogRootContext = createContext<ReturnType<typeof useDialog>>();

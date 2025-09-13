@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface DialogContentProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface DialogContentProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: DialogContentProps = $props();
 
-	const rootContext = DialogRootContext.consume();
+	const dialog = DialogRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getContentProps(), { class: classesDialog.content }, restAttributes));
+	const attributes = $derived(
+		mergeProps(dialog().getContentProps(), rest, {
+			class: classesDialog.content
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

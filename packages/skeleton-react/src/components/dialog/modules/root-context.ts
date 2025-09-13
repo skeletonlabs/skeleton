@@ -1,8 +1,4 @@
-import { createContext } from 'react';
-import type { Api } from '@zag-js/dialog';
+import { createContext } from '@/internal/create-context';
+import type { useDialog } from './use-dialog';
 
-export interface DialogRootContextType {
-	api: Api;
-}
-
-export const DialogRootContext = createContext<DialogRootContextType>(null!);
+export const DialogRootContext = createContext<ReturnType<typeof useDialog>>();

@@ -5,14 +5,16 @@ import { DialogRootContext } from '../modules/root-context';
 import { classesDialog } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface DialogDescriptionProps extends PropsWithElement, HTMLAttributes<'div'> {}
+export interface DialogDescriptionProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function (props: DialogDescriptionProps) {
-	const rootContext = useContext(DialogRootContext);
+	const dialog = useContext(DialogRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getDescriptionProps(), { className: classesDialog.description }, restAttributes);
+	const attributes = mergeProps(dialog.getDescriptionProps(), rest, {
+		className: classesDialog.description
+	});
 
-	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
+	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

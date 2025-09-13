@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface DialogBackdropProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'children'> {}
+	export interface DialogBackdropProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 </script>
 
 <script lang="ts">
@@ -13,18 +13,20 @@
 
 	const props: DialogBackdropProps = $props();
 
-	const rootContext = DialogRootContext.consume();
+	const dialog = DialogRootContext.consume();
 
-	const { element, ...restAttributes } = $derived(props);
+	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived({
-		...mergeProps(rootContext.api.getBackdropProps(), { class: classesDialog.backdrop }, restAttributes),
-		[createAttachmentKey()]: fromAction(portal, () => undefined)
-	});
+	const attributes = $derived(
+		mergeProps(dialog().getBackdropProps(), rest, {
+			class: classesDialog.backdrop,
+			[createAttachmentKey()]: fromAction(portal, () => undefined)
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}></div>
 {/if}

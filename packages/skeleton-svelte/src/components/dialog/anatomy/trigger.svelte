@@ -12,15 +12,15 @@
 
 	const props: DialogTriggerProps = $props();
 
-	const rootContext = DialogRootContext.consume();
+	const dialog = DialogRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(), { class: classesDialog.trigger }, restAttributes));
+	const attributes = $derived(mergeProps(dialog().getTriggerProps(), { class: classesDialog.trigger }, rest));
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}
