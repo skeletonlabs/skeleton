@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface DialogTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+	export interface DialogTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -16,7 +16,11 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(dialog().getTriggerProps(), { class: classesDialog.trigger }, rest));
+	const attributes = $derived(
+		mergeProps(dialog().getTriggerProps(), rest, {
+			class: classesDialog.trigger
+		})
+	);
 </script>
 
 {#if element}
