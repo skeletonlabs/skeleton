@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { PopoverRootContext } from '../modules/root-context';
 	import { splitProps } from '@zag-js/popover';
-	import { usePopover } from '../modules/use-popover';
+	import { usePopover } from '../modules/use-popover.svelte';
 
 	const props: PopoverRootProps = $props();
 

@@ -1,5 +1,5 @@
 export { Popover } from './modules/anatomy';
-export { usePopover } from './modules/use-popover';
+export { usePopover } from './modules/use-popover.svelte';
 export type { PopoverRootProps } from './anatomy/root.svelte';
 export type { PopoverRootProviderProps } from './anatomy/root-provider.svelte';
 export type { PopoverRootContextProps } from './anatomy/root-context.svelte';
