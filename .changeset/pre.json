@@ -16,9 +16,11 @@
     "@skeletonlabs/playground-skeleton": "0.0.1"
   },
   "changesets": [
+    "clear-places-shout",
     "dry-coats-return",
     "evil-hands-obey",
     "forty-badgers-clap",
+    "hot-beers-think",
     "kind-feet-serve",
     "legal-suits-write",
     "little-files-notice",
