@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.4
+### Minor Changes
+
+
+- feat: toast ([#3704](https://github.com/skeletonlabs/skeleton/pull/3704))
+
+
+- feat: switch ([#3695](https://github.com/skeletonlabs/skeleton/pull/3695))
+
 ## 1.0.0-next.3
 ### Minor Changes
 
