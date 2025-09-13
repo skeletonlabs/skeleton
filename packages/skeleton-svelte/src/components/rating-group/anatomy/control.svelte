@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface RatingGroupControlProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+	export interface RatingGroupControlProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,21 @@
 
 	const props: RatingGroupControlProps = $props();
 
-	const rootContext = RatingGroupRootContext.consume();
+	const ratingGroup = RatingGroupRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getControlProps(), { class: classesRatingGroup.control }, restAttributes));
+	const attributes = $derived(
+		mergeProps(ratingGroup().getControlProps(), rest, {
+			class: classesRatingGroup.control
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
-	<div {...attributes}>{@render children?.()}</div>
+	<div {...attributes}>
+		{@render children?.()}
+	</div>
 {/if}

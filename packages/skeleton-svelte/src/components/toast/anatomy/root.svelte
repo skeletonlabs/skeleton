@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Options } from '@zag-js/toast';
 
-	export interface ToastRootProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
+	export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 		toast: Options;
 	}
 </script>
@@ -17,36 +17,36 @@
 
 	const props: ToastRootProps = $props();
 
-	const groupContext = ToastGroupContext.consume();
+	const group = ToastGroupContext.consume();
 
-	const { element, children, toast, ...restAttributes } = $derived(props);
+	const { element, children, toast: toastProps, ...rest } = $derived(props);
 
 	const id = $props.id();
 	const service = useMachine(machine, () => ({
 		id: id,
-		parent: groupContext.groupService,
-		...toast
+		parent: group(),
+		...toastProps
 	}));
-	const api = $derived(connect(service, normalizeProps));
+	const toast = $derived(connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesToast.root }, restAttributes));
+	const attributes = $derived(
+		mergeProps(toast.getRootProps(), rest, {
+			class: classesToast.root
+		})
+	);
 
-	ToastRootContext.provide({
-		get api() {
-			return api;
-		}
-	});
+	ToastRootContext.provide(() => toast);
 </script>
 
-<div {...api.getGhostBeforeProps()}></div>
+<div {...toast.getGhostBeforeProps()}></div>
 {#if element}
-	{@render element({ attributes: restAttributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}
 	</div>
 {/if}
-<div {...api.getGhostAfterProps()}></div>
+<div {...toast.getGhostAfterProps()}></div>
 
 <style>
 	[data-part='root'] {

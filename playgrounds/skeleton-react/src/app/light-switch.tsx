@@ -33,8 +33,8 @@ export default function LightSwitch() {
 				<Switch.Control>
 					<Switch.Thumb>
 						<Switch.Context>
-							{(ctx) =>
-								ctx.api.checked ? <Sun className="size-4 stroke-surface-50-950" /> : <Moon className="size-4 stroke-surface-950-50" />
+							{(switch_) =>
+								switch_.checked ? <Sun className="size-4 stroke-surface-50-950" /> : <Moon className="size-4 stroke-surface-950-50" />
 							}
 						</Switch.Context>
 					</Switch.Thumb>

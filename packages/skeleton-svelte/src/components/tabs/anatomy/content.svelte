@@ -3,7 +3,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface TabsContentProps extends ContentProps, PropsWithElement, HTMLAttributes<'div'> {}
+	export interface TabsContentProps extends ContentProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -14,16 +14,20 @@
 
 	const props: TabsContentProps = $props();
 
-	const rootContext = TabsRootContext.consume();
+	const tabs = TabsRootContext.consume();
 
 	const [contentProps, componentProps] = $derived(splitContentProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(mergeProps(rootContext.api.getContentProps(contentProps), { class: classesTabs.content }, restAttributes));
+	const attributes = $derived(
+		mergeProps(tabs().getContentProps(contentProps), rest, {
+			class: classesTabs.content
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

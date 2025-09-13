@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface AvatarImageProps extends PropsWithElement, HTMLAttributes<'img'> {}
+	export interface AvatarImageProps extends PropsWithElement<'img'>, HTMLAttributes<'img'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: AvatarImageProps = $props();
 
-	const rootContext = AvatarRootContext.consume();
+	const avatar = AvatarRootContext.consume();
 
-	const { element, ...restAttributes } = $derived(props);
+	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getImageProps(), { class: classesAvatar.image }, restAttributes));
+	const attributes = $derived(
+		mergeProps(avatar().getImageProps(), rest, {
+			class: classesAvatar.image
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<img {...attributes} />
 {/if}

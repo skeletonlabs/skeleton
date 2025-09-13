@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface SwitchHiddenInputProps extends PropsWithElement, Omit<HTMLAttributes<'input'>, 'children'> {}
+	export interface SwitchHiddenInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'children'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: SwitchHiddenInputProps = $props();
 
-	const rootContext = SwitchRootContext.consume();
+	const switch_ = SwitchRootContext.consume();
 
-	const { element, ...restAttributes } = $derived(props);
+	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getHiddenInputProps(), { class: classesSwitch.hiddenInput }, restAttributes));
+	const attributes = $derived(
+		mergeProps(switch_().getHiddenInputProps(), rest, {
+			class: classesSwitch.hiddenInput
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<input {...attributes} />
 {/if}

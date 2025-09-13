@@ -5,14 +5,16 @@ import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 import { RatingGroupRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface RatingGroupLabelProps extends PropsWithElement, Omit<HTMLAttributes<'label'>, 'id' | 'defaultValue' | 'dir'> {}
+export interface RatingGroupLabelProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {}
 
 export default function (props: RatingGroupLabelProps) {
-	const rootContext = useContext(RatingGroupRootContext);
+	const ratingGroup = useContext(RatingGroupRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getLabelProps(), { className: classesRatingGroup.label }, restAttributes);
+	const attributes = mergeProps(ratingGroup.getLabelProps(), rest, {
+		className: classesRatingGroup.label
+	});
 
-	return element ? element({ attributes }) : <label {...attributes}>{children}</label>;
+	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }

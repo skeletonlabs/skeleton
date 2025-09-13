@@ -5,14 +5,16 @@ import type { HTMLAttributes } from '@/internal/html-attributes';
 import { TabsRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface TabsIndicatorProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'children'> {}
+export interface TabsIndicatorProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 
 export default function (props: TabsIndicatorProps) {
-	const rootContext = useContext(TabsRootContext);
+	const tabs = useContext(TabsRootContext);
 
-	const { element, ...restAttributes } = props;
+	const { element, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getIndicatorProps(), { className: classesTabs.indicator }, restAttributes);
+	const attributes = mergeProps(tabs.getIndicatorProps(), rest, {
+		className: classesTabs.indicator
+	});
 
-	return element ? element({ attributes }) : <div {...attributes}></div>;
+	return element ? element(attributes) : <div {...attributes}></div>;
 }

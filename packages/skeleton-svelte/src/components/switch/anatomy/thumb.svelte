@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface SwitchThumbProps extends PropsWithElement, HTMLAttributes<'span'> {}
+	export interface SwitchThumbProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: SwitchThumbProps = $props();
 
-	const rootContext = SwitchRootContext.consume();
+	const switch_ = SwitchRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getThumbProps(), { class: classesSwitch.thumb }, restAttributes));
+	const attributes = $derived(
+		mergeProps(switch_().getThumbProps(), rest, {
+			class: classesSwitch.thumb
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<span {...attributes}>
 		{@render children?.()}

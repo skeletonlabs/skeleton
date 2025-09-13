@@ -1,7 +1,6 @@
 import { join } from 'node:path';
 import * as tsMorph from 'ts-morph';
 import { MONOREPO_ROOT } from './constants';
-import type { Framework } from './framework';
 
 export type TypeKind = 'function' | 'array' | 'object' | 'primitive';
 
@@ -29,10 +28,7 @@ export interface Interface {
 }
 
 export class SourceFile {
-	constructor(
-		private framework: Framework,
-		private sourceFile: tsMorph.SourceFile
-	) {}
+	constructor(private sourceFile: tsMorph.SourceFile) {}
 
 	private isFunctionType(type: tsMorph.Type) {
 		return type.getCallSignatures().length > 0 || type.getUnionTypes().some((t) => t.getCallSignatures().length > 0);
@@ -87,7 +83,7 @@ export class SourceFile {
 		}
 
 		interface_.getExtends().forEach((ext) => {
-			if (this.framework.config.extendsBlacklist.some((pattern) => pattern.test(ext.getText()))) {
+			if (/HTMLAttributes<[^>]+>/.test(ext.getText())) {
 				interface_.removeExtends(ext);
 			}
 		});
@@ -105,19 +101,17 @@ export class SourceFile {
 export class Parser {
 	private project: tsMorph.Project;
 
-	constructor(private framework: Framework) {
+	constructor(framework: string) {
 		this.project = new tsMorph.Project({
 			skipAddingFilesFromTsConfig: true,
-			tsConfigFilePath: join(MONOREPO_ROOT, 'packages', `skeleton-${framework.name}`, 'tsconfig.json')
+			tsConfigFilePath: join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'tsconfig.json')
 		});
-		this.project.addSourceFilesAtPaths(
-			join(MONOREPO_ROOT, 'packages', `skeleton-${framework.name}`, 'dist', 'components/*/anatomy/*.d.ts')
-		);
+		this.project.addSourceFilesAtPaths(join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components/*/anatomy/*.d.ts'));
 	}
 
 	public getSourceFile(path: string): SourceFile {
 		const sourceFile = this.project.getSourceFile(path);
 		if (!sourceFile) throw new Error(`Source file not found: ${path}`);
-		return new SourceFile(this.framework, sourceFile);
+		return new SourceFile(sourceFile);
 	}
 }

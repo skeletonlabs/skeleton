@@ -1,18 +1,20 @@
 import { useContext } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps } from '@zag-js/react';
 import { SwitchRootContext } from '../modules/root-context';
 import { classesSwitch } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface SwitchHiddenInputProps extends PropsWithElement, Omit<HTMLAttributes<'input'>, 'children'> {}
+export interface SwitchHiddenInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'children'> {}
 
 export default function (props: SwitchHiddenInputProps) {
-	const rootContext = useContext(SwitchRootContext);
+	const switch_ = useContext(SwitchRootContext);
 
-	const { element, ...restAttributes } = props;
+	const { element, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getHiddenInputProps(), { className: classesSwitch.hiddenInput }, restAttributes);
+	const attributes = mergeProps(switch_.getHiddenInputProps(), rest, {
+		className: classesSwitch.hiddenInput
+	});
 
-	return element ? element({ attributes }) : <input {...attributes} />;
+	return element ? element(attributes) : <input {...attributes} />;
 }
