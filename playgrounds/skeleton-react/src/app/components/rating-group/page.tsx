@@ -4,11 +4,11 @@ import { RatingGroup } from '@skeletonlabs/skeleton-react';
 
 export default function Page() {
 	return (
-		<RatingGroup count={5}>
+		<RatingGroup count={10} allowHalf defaultValue={7.5}>
 			<RatingGroup.Control>
-				{Array.from({ length: 5 }).map((_, index) => (
-					<RatingGroup.Item key={index} index={index + 1} />
-				))}
+				<RatingGroup.Context>
+					{(ratingGroup) => ratingGroup.items.map((index) => <RatingGroup.Item key={index} index={index} />)}
+				</RatingGroup.Context>
 			</RatingGroup.Control>
 			<RatingGroup.HiddenInput />
 		</RatingGroup>

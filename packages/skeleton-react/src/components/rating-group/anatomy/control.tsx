@@ -1,9 +1,9 @@
 import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { useContext } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 import { RatingGroupRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
 export interface RatingGroupControlProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
