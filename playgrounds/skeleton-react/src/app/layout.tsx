@@ -27,6 +27,9 @@ export default function RootLayout({
 								<a className="anchor" href="/components/avatar">
 									Avatar
 								</a>
+								<a className="anchor" href="/components/combobox">
+									Combobox
+								</a>
 								<a className="anchor" href="/components/progress-linear">
 									Progress Linear
 								</a>
