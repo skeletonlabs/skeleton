@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface ProgressLinearTrackProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface ProgressLinearTrackProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: ProgressLinearTrackProps = $props();
 
-	const rootContext = ProgressLinearRootContext.consume();
+	const progressLinear = ProgressLinearRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getTrackProps(), { class: classesProgressLinear.track }, restAttributes));
+	const attributes = $derived(
+		mergeProps(progressLinear().getTrackProps(), rest, {
+			class: classesProgressLinear.track
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

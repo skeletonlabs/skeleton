@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { TabsRootContextType } from '../modules/root-context';
+	import type { useTabs } from '../modules/use-tabs.svelte';
 
 	export interface TabsRootContextProps {
-		children: Snippet<[TabsRootContextType]>;
+		children: Snippet<[ReturnType<typeof useTabs>]>;
 	}
 </script>
 
@@ -12,7 +12,9 @@
 
 	const props: TabsRootContextProps = $props();
 
-	const rootContext = TabsRootContext.consume();
+	const tabs = TabsRootContext.consume();
+
+	const { children } = $derived(props);
 </script>
 
-{@render props.children(rootContext)}
+{@render children(tabs)}

@@ -1,18 +1,20 @@
 import { useContext } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 import { mergeProps } from '@zag-js/react';
 import { ToastRootContext } from '../modules/root-context';
 import { classesToast } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface ToastDescriptionProps extends PropsWithElement, HTMLAttributes<'div'> {}
+export interface ToastDescriptionProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function (props: ToastDescriptionProps) {
-	const rootContext = useContext(ToastRootContext);
+	const toast = useContext(ToastRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getDescriptionProps(), { className: classesToast.description }, restAttributes);
+	const attributes = mergeProps(toast.getDescriptionProps(), rest, {
+		className: classesToast.description
+	});
 
-	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
+	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

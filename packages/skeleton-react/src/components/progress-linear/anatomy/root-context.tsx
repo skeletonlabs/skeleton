@@ -1,12 +1,15 @@
 import { useContext, type ReactNode } from 'react';
-import { ProgressLinearRootContext, type ProgressLinearRootContextType } from '../modules/root-context';
+import { ProgressLinearRootContext } from '../modules/root-context';
+import type { useProgressLinear } from '../modules/use-progress-linear';
 
 export interface ProgressLinearRootContextProps {
-	children: (context: ProgressLinearRootContextType) => ReactNode;
+	children: (progressLinear: ReturnType<typeof useProgressLinear>) => ReactNode;
 }
 
 export default function (props: ProgressLinearRootContextProps) {
-	const rootContext = useContext(ProgressLinearRootContext);
+	const progressLinear = useContext(ProgressLinearRootContext);
 
-	return props.children(rootContext);
+	const { children } = props;
+
+	return children(progressLinear);
 }

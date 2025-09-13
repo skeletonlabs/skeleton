@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { AvatarRootContextType } from '../modules/root-context';
+	import type { useAvatar } from '../modules/use-avatar.svelte';
 
 	export interface AvatarRootContextProps {
-		children: Snippet<[AvatarRootContextType]>;
+		children: Snippet<[ReturnType<typeof useAvatar>]>;
 	}
 </script>
 
@@ -12,7 +12,9 @@
 
 	const props: AvatarRootContextProps = $props();
 
-	const rootContext = AvatarRootContext.consume();
+	const avatar = AvatarRootContext.consume();
+
+	const { children } = $derived(props);
 </script>
 
-{@render props.children(rootContext)}
+{@render children(avatar)}

@@ -3,37 +3,38 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/avatar';
 
-	export interface AvatarRootProps extends PropsWithElement, Omit<Props, 'id'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {}
+	export interface AvatarRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
-	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
+	import { mergeProps } from '@zag-js/svelte';
 	import { classesAvatar } from '@skeletonlabs/skeleton-common';
 	import { AvatarRootContext } from '../modules/root-context';
-	import { connect, machine, splitProps } from '@zag-js/avatar';
+	import { splitProps } from '@zag-js/avatar';
+	import { useAvatar } from '../modules/use-avatar.svelte';
 
 	const props: AvatarRootProps = $props();
-	const [machineProps, componentProps] = $derived(splitProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+
+	const [avatarProps, componentProps] = $derived(splitProps(props));
+	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
-	const service = useMachine(machine, () => ({
+	const avatar = useAvatar(() => ({
 		id: id,
-		...machineProps
+		...avatarProps
 	}));
-	const api = $derived(connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesAvatar.root }, restAttributes));
+	const attributes = $derived(
+		mergeProps(avatar().getRootProps(), rest, {
+			class: classesAvatar.root
+		})
+	);
 
-	AvatarRootContext.provide({
-		get api() {
-			return api;
-		}
-	});
+	AvatarRootContext.provide(() => avatar());
 </script>
 
 {#if element}
-	{@render element({ attributes: restAttributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

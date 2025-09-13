@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface AccordionHeadingProps extends PropsWithElement, HTMLAttributes<'h3'> {
+	export interface AccordionHeadingProps extends PropsWithElement<'h3'>, HTMLAttributes<'h3'> {
 		/**
 		 * The level of the heading.
 		 *
@@ -17,15 +17,19 @@
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 
 	const props: AccordionHeadingProps = $props();
-	const { level = 3, element, children, ...restAttributes } = $derived(props);
+	const { level = 3, element, children, ...rest } = $derived(props);
 
 	const tag = $derived(`h${level}`);
 
-	const attributes = $derived(mergeProps({ class: classesAccordion.heading }, restAttributes));
+	const attributes = $derived(
+		mergeProps(rest, {
+			class: classesAccordion.heading
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<svelte:element this={tag} {...attributes}>
 		{@render children?.()}

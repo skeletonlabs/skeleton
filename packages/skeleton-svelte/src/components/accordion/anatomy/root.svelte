@@ -3,40 +3,38 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface AccordionRootProps
-		extends PropsWithElement,
-			Omit<Props, 'id'>,
-			Omit<HTMLAttributes<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+	export interface AccordionRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
-	import { machine, connect, splitProps } from '@zag-js/accordion';
+	import { mergeProps } from '@zag-js/svelte';
+	import { splitProps } from '@zag-js/accordion';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { AccordionRootContext } from '../modules/root-context';
+	import { useAccordion } from '../modules/use-accordion.svelte';
 
 	const props: AccordionRootProps = $props();
-	const [machineProps, componentProps] = $derived(splitProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+
+	const [accordionProps, componentProps] = $derived(splitProps(props));
+	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
-	const service = useMachine(machine, () => ({
+	const accordion = useAccordion(() => ({
 		id: id,
-		...machineProps
+		...accordionProps
 	}));
-	const api = $derived(connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesAccordion.root }, restAttributes));
+	const attributes = $derived(
+		mergeProps(accordion().getRootProps(), rest, {
+			class: classesAccordion.root
+		})
+	);
 
-	AccordionRootContext.provide({
-		get api() {
-			return api;
-		}
-	});
+	AccordionRootContext.provide(() => accordion());
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
-	import type { SwitchRootContextType } from '../modules/root-context';
+	import type { useSwitch } from '../modules/use-switch.svelte';
 
 	export interface SwitchRootContextProps {
-		children: Snippet<[SwitchRootContextType]>;
+		children: Snippet<[ReturnType<typeof useSwitch>]>;
 	}
 </script>
 
@@ -12,7 +12,9 @@
 
 	const props: SwitchRootContextProps = $props();
 
-	const rootContext = SwitchRootContext.consume();
+	const switch_ = SwitchRootContext.consume();
+
+	const { children } = $derived(props);
 </script>
 
-{@render props.children(rootContext)}
+{@render children(switch_)}
