@@ -1,12 +1,15 @@
 import { useContext, type ReactNode } from 'react';
-import { type TabsRootContextType, TabsRootContext } from '../modules/root-context';
+import { TabsRootContext } from '../modules/root-context';
+import type { Api } from '@zag-js/tabs';
 
 export interface TabsRootContextProps {
-	children: (context: TabsRootContextType) => ReactNode;
+	children: (tabs: Api) => ReactNode;
 }
 
 export default function (props: TabsRootContextProps) {
-	const rootContext = useContext(TabsRootContext);
+	const tabs = useContext(TabsRootContext);
 
-	return props.children(rootContext);
+	const { children } = props;
+
+	return children(tabs);
 }
