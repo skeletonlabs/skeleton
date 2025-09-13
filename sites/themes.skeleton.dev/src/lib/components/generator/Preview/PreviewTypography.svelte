@@ -1,3 +1,7 @@
+<script>
+	import { resolve } from '$app/paths';
+</script>
+
 <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
 	<!-- Column 1 -->
 	<div class="space-y-10">
@@ -21,7 +25,7 @@
 			<!-- Blockquotes -->
 			<blockquote class="blockquote">"The quick brown fox jumps over the lazy dog."</blockquote>
 			<!-- Anchors -->
-			<div><a href="/" class="anchor">An example link</a></div>
+			<div><a href={resolve('/')} class="anchor">An example link</a></div>
 			<!-- Code -->
 			<div>Insert the <code class="code">.example</code> class here.</div>
 			<!-- KBD -->
@@ -35,23 +39,23 @@
 			<h2 class="h2">Lorem Ipsum</h2>
 			<p class="text-xl">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Tincidunt dui ut ornare lectus sit <a class="anchor" href="/">amet est placerat</a>. Nulla aliquet porttitor lacus luctus accumsan
-				tortor posuere. Tempor orci eu lobortis elementum nibh tellus molestie nunc non. Vitae suscipit tellus mauris a diam maecenas sed
-				enim ut. Blandit aliquam etiam erat velit scelerisque in dictum. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar
-				pellentesque habitant.
+				Tincidunt dui ut ornare lectus sit <a class="anchor" href={resolve('/')}>amet est placerat</a>. Nulla aliquet porttitor lacus luctus
+				accumsan tortor posuere. Tempor orci eu lobortis elementum nibh tellus molestie nunc non. Vitae suscipit tellus mauris a diam
+				maecenas sed enim ut. Blandit aliquam etiam erat velit scelerisque in dictum. Rhoncus aenean vel elit scelerisque mauris
+				pellentesque pulvinar pellentesque habitant.
 			</p>
 			<h3 class="h3">Elementum Pulvinar</h3>
 			<p>
 				Id diam vel quam elementum pulvinar etiam non quam lacus. Vel pretium lectus quam id leo in vitae turpis. Aliquet sagittis id
-				consectetur purus ut faucibus pulvinar. Dui id ornare arcu odio ut sem <a class="anchor" href="/">nulla pharetra</a> diam. Nec ultrices
-				dui sapien eget mi. Interdum varius sit amet mattis vulputate. Sed risus pretium quam vulputate dignissim suspendisse in est. Sed nisi
-				lacus sed viverra tellus in hac.
+				consectetur purus ut faucibus pulvinar. Dui id ornare arcu odio ut sem <a class="anchor" href={resolve('/')}>nulla pharetra</a> diam.
+				Nec ultrices dui sapien eget mi. Interdum varius sit amet mattis vulputate. Sed risus pretium quam vulputate dignissim suspendisse in
+				est. Sed nisi lacus sed viverra tellus in hac.
 			</p>
 			<h4 class="h4">Consectetur Libero</h4>
 			<p>
 				Elementum eu facilisis sed odio morbi. Adipiscing at in tellus integer. In est ante in nibh mauris. Leo duis ut diam quam nulla
 				porttitor massa id. Urna neque viverra justo nec ultrices dui sapien eget mi. Ut pharetra sit amet aliquam id diam maecenas.
-				Scelerisque in dictum non consectetur. Nec feugiat nisl <a class="anchor" href="/">pretium fusce</a> id velit ut.
+				Scelerisque in dictum non consectetur. Nec feugiat nisl <a class="anchor" href={resolve('/')}>pretium fusce</a> id velit ut.
 			</p>
 		</div>
 		<!-- Insert / Delete -->

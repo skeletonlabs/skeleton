@@ -1,5 +1,20 @@
 # @skeletonlabs/skeleton-svelte
 
+## 2.0.0-next.4
+### Minor Changes
+
+
+- feat: toast ([#3704](https://github.com/skeletonlabs/skeleton/pull/3704))
+
+
+- feat: switch ([#3695](https://github.com/skeletonlabs/skeleton/pull/3695))
+
+
+### Patch Changes
+
+- Updated dependencies [[`dff68d8`](https://github.com/skeletonlabs/skeleton/commit/dff68d8f824ddb1aef820e75ab3bdebe06546e07), [`3776570`](https://github.com/skeletonlabs/skeleton/commit/3776570c21d060a653bdde8a164e95e8aecdbaab)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.4
+
 ## 2.0.0-next.3
 ### Minor Changes
 
