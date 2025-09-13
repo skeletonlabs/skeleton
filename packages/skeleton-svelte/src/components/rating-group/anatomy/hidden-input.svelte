@@ -1,10 +1,10 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 
 	export interface RatingGroupHiddenInputProps
-		extends PropsWithElement,
-			Omit<HTMLAttributes<'input'>, 'id' | 'defaultValue' | 'dir' | 'children'> {}
+		extends PropsWithElement<'input'>,
+			HTMLAttributes<'input', 'id' | 'defaultValue' | 'dir' | 'children'> {}
 </script>
 
 <script lang="ts">
@@ -14,15 +14,19 @@
 
 	const props: RatingGroupHiddenInputProps = $props();
 
-	const rootContext = RatingGroupRootContext.consume();
+	const ratingGroup = RatingGroupRootContext.consume();
 
 	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getHiddenInputProps(), { class: classesRatingGroup.hiddenInput }, rest));
+	const attributes = $derived(
+		mergeProps(ratingGroup().getHiddenInputProps(), rest, {
+			class: classesRatingGroup.hiddenInput
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<input {...attributes} />
 {/if}

@@ -1,43 +1,40 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/rating-group';
+	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface RatingGroupRootProps
-		extends PropsWithElement,
-			Omit<Props, 'id'>,
-			Omit<HTMLAttributes<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+	export interface RatingGroupRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
-	import { splitProps, machine, connect } from '@zag-js/rating-group';
+	import { mergeProps } from '@zag-js/svelte';
+	import { splitProps } from '@zag-js/rating-group';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 	import { RatingGroupRootContext } from '../modules/root-context';
+	import { useRatingGroup } from '../modules/use-rating-group.svelte';
 
 	const props: RatingGroupRootProps = $props();
 
-	const [machineProps, componentProps] = $derived(splitProps(props));
+	const [ratingGroupProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
-	const service = useMachine(machine, () => ({
+	const ratingGroup = useRatingGroup(() => ({
 		id: id,
-		...machineProps
+		...ratingGroupProps
 	}));
-	const api = $derived(connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getRootProps(), { class: classesRatingGroup.root }, rest));
+	const attributes = $derived(
+		mergeProps(ratingGroup().getRootProps(), rest, {
+			class: classesRatingGroup.root
+		})
+	);
 
-	RatingGroupRootContext.provide({
-		get api() {
-			return api;
-		}
-	});
+	RatingGroupRootContext.provide(() => ratingGroup());
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}

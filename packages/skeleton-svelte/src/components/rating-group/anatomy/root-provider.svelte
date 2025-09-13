@@ -1,8 +1,11 @@
 <script lang="ts" module>
+	import type { Api } from '@zag-js/rating-group';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface RatingGroupLabelProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {}
+	export interface RatingGroupRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
+		value: () => Api;
+	}
 </script>
 
 <script lang="ts">
@@ -10,23 +13,23 @@
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 	import { RatingGroupRootContext } from '../modules/root-context';
 
-	const props: RatingGroupLabelProps = $props();
+	const props: RatingGroupRootProviderProps = $props();
 
-	const ratingGroup = RatingGroupRootContext.consume();
-
-	const { element, children, ...rest } = $derived(props);
+	const { element, children, value: ratingGroup, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(ratingGroup().getControlProps(), rest, {
-			class: classesRatingGroup.label
+		mergeProps(ratingGroup().getRootProps(), rest, {
+			class: classesRatingGroup.root
 		})
 	);
+
+	RatingGroupRootContext.provide(() => ratingGroup());
 </script>
 
 {#if element}
 	{@render element(attributes)}
 {:else}
-	<label {...attributes}>
+	<div {...attributes}>
 		{@render children?.()}
-	</label>
+	</div>
 {/if}

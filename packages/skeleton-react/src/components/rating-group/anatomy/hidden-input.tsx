@@ -6,15 +6,15 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 import { RatingGroupRootContext } from '../modules/root-context';
 
 export interface RatingGroupHiddenInputProps
-	extends PropsWithElement,
-		Omit<HTMLAttributes<'input'>, 'id' | 'defaultValue' | 'dir' | 'children'> {}
+	extends PropsWithElement<'input'>,
+		HTMLAttributes<'input', 'id' | 'defaultValue' | 'dir' | 'children'> {}
 
 export default function (props: RatingGroupHiddenInputProps) {
-	const rootContext = useContext(RatingGroupRootContext);
+	const ratingGroup = useContext(RatingGroupRootContext);
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getHiddenInputProps(), { className: classesRatingGroup.hiddenInput }, rest);
+	const attributes = mergeProps(ratingGroup.getHiddenInputProps(), { className: classesRatingGroup.hiddenInput }, rest);
 
-	return element ? element({ attributes }) : <input {...attributes} />;
+	return element ? element(attributes) : <input {...attributes} />;
 }
