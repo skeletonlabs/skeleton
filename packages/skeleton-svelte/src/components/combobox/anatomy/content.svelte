@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface ComboboxContentProps extends PropsWithElement, HTMLAttributes<'ul'> {}
+	export interface ComboboxContentProps extends PropsWithElement<'div'>, HTMLAttributes<'ul'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: ComboboxContentProps = $props();
 
-	const rootContext = ComboboxRootContext.consume();
+	const combobox = ComboboxRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getContentProps(), { class: classesCombobox.content }, restAttributes));
+	const attributes = $derived(
+		mergeProps(combobox().getContentProps(), rest, {
+			class: classesCombobox.content
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<ul {...attributes}>
 		{@render children?.()}

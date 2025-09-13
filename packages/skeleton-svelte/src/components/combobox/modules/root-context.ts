@@ -1,8 +1,4 @@
-import type { Api } from '@zag-js/combobox';
 import { createContext } from '@/internal/create-context';
+import type { useCombobox } from './use-combobox.svelte';
 
-export interface ComboboxRootContextType {
-	api: Api;
-}
-
-export const ComboboxRootContext = createContext<ComboboxRootContextType>();
+export const ComboboxRootContext = createContext<ReturnType<typeof useCombobox>>();

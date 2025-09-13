@@ -3,7 +3,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { ItemProps } from '@zag-js/combobox';
 
-	export interface ComboboxItemProps extends PropsWithElement, Omit<ItemProps, 'id'>, Omit<HTMLAttributes<'li'>, 'value'> {}
+	export interface ComboboxItemProps extends Omit<ItemProps, 'id'>, PropsWithElement<'li'>, HTMLAttributes<'li', 'value'> {}
 </script>
 
 <script lang="ts">
@@ -11,26 +11,23 @@
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { ComboboxRootContext } from '../modules/root-context';
 	import { splitItemProps } from '@zag-js/combobox';
-	import { ComboboxItemContext } from '../modules/item-context';
 
 	const props: ComboboxItemProps = $props();
 
-	const rootContext = ComboboxRootContext.consume();
+	const combobox = ComboboxRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(mergeProps(rootContext.api.getItemProps(itemProps), { class: classesCombobox.item }, restAttributes));
-
-	ComboboxItemContext.provide({
-		get itemState() {
-			return rootContext.api.getItemState(itemProps);
-		}
-	});
+	const attributes = $derived(
+		mergeProps(combobox().getItemProps(itemProps), rest, {
+			class: classesCombobox.item
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<li {...attributes}>
 		{@render children?.()}

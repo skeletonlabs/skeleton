@@ -12,15 +12,15 @@
 
 	const props: ComboboxInputProps = $props();
 
-	const rootContext = ComboboxRootContext.consume();
+	const combobox = ComboboxRootContext.consume();
 
-	const { element, ...restAttributes } = $derived(props);
+	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getInputProps(), { class: classesCombobox.input }, restAttributes));
+	const attributes = $derived(mergeProps(combobox().getInputProps(), { class: classesCombobox.input }, rest));
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<input {...attributes} />
 {/if}

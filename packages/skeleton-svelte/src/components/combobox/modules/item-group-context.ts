@@ -1,8 +1,4 @@
-import type { ItemGroupProps } from '@zag-js/combobox';
 import { createContext } from '@/internal/create-context';
+import type { ItemGroupProps } from '@zag-js/combobox';
 
-export interface ComboboxItemGroupContextType {
-	itemGroupProps: ItemGroupProps;
-}
-
-export const ComboboxItemGroupContext = createContext<ComboboxItemGroupContextType>();
+export const ComboboxItemGroupContext = createContext<() => ItemGroupProps>();

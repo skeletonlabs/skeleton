@@ -3,7 +3,6 @@ import { mergeProps } from '@zag-js/react';
 import { ComboboxRootContext } from '../modules/root-context';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import { splitItemProps, type ItemProps } from '@zag-js/combobox';
-import { ComboboxItemContext } from '../modules/item-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 
@@ -19,9 +18,5 @@ export default function (props: ComboboxItemProps) {
 		className: classesCombobox.item
 	});
 
-	return (
-		<ComboboxItemContext.Provider value={itemProps}>
-			{element ? element(attributes) : <li {...attributes}>{children}</li>}
-		</ComboboxItemContext.Provider>
-	);
+	return element ? element(attributes) : <li {...attributes}>{children}</li>;
 }

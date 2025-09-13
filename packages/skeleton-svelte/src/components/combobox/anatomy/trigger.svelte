@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface ComboboxTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+	export interface ComboboxTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -12,15 +12,19 @@
 
 	const props: ComboboxTriggerProps = $props();
 
-	const rootContext = ComboboxRootContext.consume();
+	const combobox = ComboboxRootContext.consume();
 
-	const { element, children, ...restAttributes } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rootContext.api.getTriggerProps(), { class: classesCombobox.trigger }, restAttributes));
+	const attributes = $derived(
+		mergeProps(combobox().getTriggerProps(), rest, {
+			class: classesCombobox.trigger
+		})
+	);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<button {...attributes}>
 		{@render children?.()}

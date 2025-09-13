@@ -3,7 +3,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { ItemGroupProps } from '@zag-js/combobox';
 
-	export interface ComboboxItemGroupProps extends PropsWithElement, Omit<ItemGroupProps, 'id'>, Omit<HTMLAttributes<'div'>, 'id'> {}
+	export interface ComboboxItemGroupProps extends Omit<ItemGroupProps, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id'> {}
 </script>
 
 <script lang="ts">
@@ -15,7 +15,7 @@
 
 	const props: ComboboxItemGroupProps = $props();
 
-	const rootContext = ComboboxRootContext.consume();
+	const combobox = ComboboxRootContext.consume();
 
 	const id = $props.id();
 	const [itemGroupProps, componentProps] = $derived(
@@ -24,21 +24,19 @@
 			...props
 		})
 	);
-	const { element, children, ...restAttributes } = $derived(componentProps);
+	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
-		mergeProps(rootContext.api.getItemGroupProps(itemGroupProps), { class: classesCombobox.itemGroup }, restAttributes)
+		mergeProps(combobox().getItemGroupProps(itemGroupProps), rest, {
+			class: classesCombobox.itemGroup
+		})
 	);
 
-	ComboboxItemGroupContext.provide({
-		get itemGroupProps() {
-			return itemGroupProps;
-		}
-	});
+	ComboboxItemGroupContext.provide(() => itemGroupProps);
 </script>
 
 {#if element}
-	{@render element({ attributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{@render children?.()}
