@@ -1,12 +1,15 @@
 import { useContext, type ReactNode } from 'react';
-import { ComboboxRootContext, type ComboboxRootContextType } from '../modules/root-context';
+import { ComboboxRootContext } from '../modules/root-context';
+import type { useCombobox } from '../modules/use-combobox';
 
 export interface ComboboxRootContextProps {
-	children: (context: ComboboxRootContextType) => ReactNode;
+	children: (combobox: ReturnType<typeof useCombobox>) => ReactNode;
 }
 
 export default function (props: ComboboxRootContextProps) {
-	const rootContext = useContext(ComboboxRootContext);
+	const combobox = useContext(ComboboxRootContext);
 
-	return props.children(rootContext);
+	const { children } = props;
+
+	return children(combobox);
 }

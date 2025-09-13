@@ -5,14 +5,16 @@ import { ComboboxRootContext } from '../modules/root-context';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface ComboboxTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+export interface ComboboxTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
 export default function (props: ComboboxTriggerProps) {
-	const rootContext = useContext(ComboboxRootContext);
+	const combobox = useContext(ComboboxRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getTriggerProps(), { className: classesCombobox.trigger }, restAttributes);
+	const attributes = mergeProps(combobox.getTriggerProps(), rest, {
+		className: classesCombobox.trigger
+	});
 
-	return element ? element({ attributes }) : <button {...attributes}>{children}</button>;
+	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

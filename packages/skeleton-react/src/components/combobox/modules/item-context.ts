@@ -1,8 +1,4 @@
-import type { ItemState } from '@zag-js/combobox';
-import { createContext } from 'react';
+import { createContext } from '@/internal/create-context';
+import type { ItemProps } from '@zag-js/combobox';
 
-export interface ComboboxItemContextType {
-	itemState: ItemState;
-}
-
-export const ComboboxItemContext = createContext<ComboboxItemContextType>(null!);
+export const ComboboxItemContext = createContext<ItemProps>();

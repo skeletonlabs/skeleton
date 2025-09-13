@@ -5,14 +5,16 @@ import { ComboboxRootContext } from '../modules/root-context';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface ComboboxInputProps extends PropsWithElement, Omit<HTMLAttributes<'input'>, 'children'> {}
+export interface ComboboxInputProps extends PropsWithElement<'input'>, Omit<HTMLAttributes<'input'>, 'children'> {}
 
 export default function (props: ComboboxInputProps) {
-	const rootContext = useContext(ComboboxRootContext);
+	const combobox = useContext(ComboboxRootContext);
 
-	const { element, ...restAttributes } = props;
+	const { element, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getInputProps(), { className: classesCombobox.input }, restAttributes);
+	const attributes = mergeProps(combobox.getInputProps(), rest, {
+		className: classesCombobox.input
+	});
 
-	return element ? element({ attributes }) : <input {...attributes} />;
+	return element ? element(attributes) : <input {...attributes} />;
 }
