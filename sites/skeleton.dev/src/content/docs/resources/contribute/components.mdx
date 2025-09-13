@@ -67,9 +67,10 @@ As such, we'll implement one component part respective of each element:
 - `<Avatar.Image>` - the child image
 - `<Avatar.Fallback>` - the fallback span
 
-We'll also include a context component, to enable power-users access to the component tree's Context API.
+We'll also include two special components:
 
-- `<Avatar.Context>` - the context component; this is omitted from the component documentation.
+- `<Avatar.Provider>` - Similar to `<Avatar>` but allows the user to pass in the api.
+- `<Avatar.Context>` - Provides access to the component tree's Context API.
 
 ### Directory and File Names
 
@@ -88,9 +89,11 @@ avatar/
 │   ├── fallback.{tsx|svelte}
 │   ├── image.{tsx|svelte}
 │   ├── root-context.{tsx|svelte}
+│   ├── root-provider.{tsx|svelte}
 │   └── root.{tsx|svelte}
 ├── modules/
 │   ├── anatomy.ts
+│   ├── use-{component}.{ts|svelte.ts}
 │   └── root-context.ts
 └── index.ts
 ```
@@ -137,13 +140,12 @@ Note that you may need to extend or omit portions of the type to avoid conflicts
 
 #### Extend
 
-- `PropsWithElement` - from Skeleton's `@/internal/props-with-element`; allow for HTML template overrides.
-- `HTMLAttributes<Tag>` - from Skeleton's `@/internal/html-attributes`; allow for standard HTML attributes.
+- `PropsWithElement<Tag>` - from Skeleton's `@/internal/props-with-element`; allow for HTML template overrides.
+- `HTMLAttributes<Tag, Omit>` - from Skeleton's `@/internal/html-attributes`; allow for standard HTML attributes.
 
 #### Omit
 
 - `Omit<Props, 'id'>` - omit the `id` field from the `Props` interface as they will be provided inside the component itself.
-- `Omit<HTMLAttributes<'div'>, 'id' | 'dir' | ...>` - omit conflicting HTML attributes.
 
 ### Modules Folder
 
