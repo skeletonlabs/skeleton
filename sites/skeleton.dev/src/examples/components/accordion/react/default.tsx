@@ -1,5 +1,3 @@
-'use client';
-
 import { Accordion } from '@skeletonlabs/skeleton-react';
 import { Club as IconClub, Diamond as IconDiamond, Heart as IconHeart, Spade as IconSpade } from 'lucide-react';
 
@@ -14,7 +12,7 @@ export default function () {
 						<IconClub />
 						<span>Club</span>
 						<Accordion.Indicator>
-							<Accordion.Context>{(ctx) => (ctx.api.value.includes('item-1') ? '-' : '+')}</Accordion.Context>
+							<Accordion.Context>{(accordion) => (accordion.value.includes('item-1') ? '-' : '+')}</Accordion.Context>
 						</Accordion.Indicator>
 					</Accordion.Trigger>
 					<Accordion.Content>{lorem}</Accordion.Content>
@@ -27,7 +25,7 @@ export default function () {
 						<IconDiamond />
 						<span>Diamond</span>
 						<Accordion.Indicator>
-							<Accordion.Context>{(ctx) => (ctx.api.value.includes('item-2') ? '-' : '+')}</Accordion.Context>
+							<Accordion.Context>{(accordion) => (accordion.value.includes('item-2') ? '-' : '+')}</Accordion.Context>
 						</Accordion.Indicator>
 					</Accordion.Trigger>
 					<Accordion.Content>{lorem}</Accordion.Content>
@@ -40,7 +38,7 @@ export default function () {
 						<IconHeart />
 						<span>Heart</span>
 						<Accordion.Indicator>
-							<Accordion.Context>{(ctx) => (ctx.api.value.includes('item-3') ? '-' : '+')}</Accordion.Context>
+							<Accordion.Context>{(accordion) => (accordion.value.includes('item-3') ? '-' : '+')}</Accordion.Context>
 						</Accordion.Indicator>
 					</Accordion.Trigger>
 					<Accordion.Content>{lorem}</Accordion.Content>
@@ -53,7 +51,7 @@ export default function () {
 						<IconSpade />
 						<span>Spade</span>
 						<Accordion.Indicator>
-							<Accordion.Context>{(ctx) => (ctx.api.value.includes('item-4') ? '-' : '+')}</Accordion.Context>
+							<Accordion.Context>{(accordion) => (accordion.value.includes('item-4') ? '-' : '+')}</Accordion.Context>
 						</Accordion.Indicator>
 					</Accordion.Trigger>
 					<Accordion.Content>{lorem}</Accordion.Content>

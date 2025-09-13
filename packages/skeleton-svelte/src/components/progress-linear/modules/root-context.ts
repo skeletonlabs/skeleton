@@ -1,8 +1,4 @@
 import { createContext } from '@/internal/create-context.js';
-import type { Api } from '@zag-js/progress';
+import type { useProgressLinear } from './use-progress-linear.svelte';
 
-export interface ProgressLinearRootContextType {
-	api: Api;
-}
-
-export const ProgressLinearRootContext = createContext<ProgressLinearRootContextType>();
+export const ProgressLinearRootContext = createContext<ReturnType<typeof useProgressLinear>>();

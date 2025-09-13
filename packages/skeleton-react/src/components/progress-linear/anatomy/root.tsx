@@ -1,37 +1,29 @@
-import { useId } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
-import { splitProps, machine, connect, type Props } from '@zag-js/progress';
+import { mergeProps } from '@zag-js/react';
+import { splitProps, type Props } from '@zag-js/progress';
 import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
 import { ProgressLinearRootContext } from '../modules/root-context';
+import { useProgressLinear } from '../modules/use-progress-linear';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
 export interface ProgressLinearRootProps
-	extends PropsWithElement,
-		Omit<Props, 'id'>,
-		Omit<HTMLAttributes<'div'>, 'id' | 'dir' | 'defaultValue'> {}
+	extends Omit<Props, 'id'>,
+		PropsWithElement<'div'>,
+		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function (props: ProgressLinearRootProps) {
-	const [machineProps, componentProps] = splitProps(props);
-	const { element, children, ...restAttributes } = componentProps;
+	const [progressLinearProps, componentProps] = splitProps(props);
+	const { element, children, ...rest } = componentProps;
 
-	const service = useMachine(machine, {
-		id: useId(),
-		...machineProps
+	const progressLinear = useProgressLinear(progressLinearProps);
+
+	const attributes = mergeProps(progressLinear.getRootProps(), rest, {
+		className: classesProgressLinear.root
 	});
-	const api = connect(service, normalizeProps);
-
-	const attributes = mergeProps(
-		api.getRootProps(),
-		{
-			className: classesProgressLinear.root
-		},
-		restAttributes
-	);
 
 	return (
-		<ProgressLinearRootContext.Provider value={{ api }}>
-			{element ? element({ attributes }) : <div {...attributes}>{children}</div>}
+		<ProgressLinearRootContext.Provider value={progressLinear}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
 		</ProgressLinearRootContext.Provider>
 	);
 }

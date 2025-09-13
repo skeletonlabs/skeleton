@@ -5,14 +5,16 @@ import type { HTMLAttributes } from '@/internal/html-attributes';
 import { TabsRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface TabsListProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+export interface TabsListProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
 export default function (props: TabsListProps) {
-	const rootContext = useContext(TabsRootContext);
+	const tabs = useContext(TabsRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getListProps(), { className: classesTabs.list }, restAttributes);
+	const attributes = mergeProps(tabs.getListProps(), rest, {
+		className: classesTabs.list
+	});
 
-	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
+	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -2,8 +2,9 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Store, Props } from '@zag-js/toast';
+	import type { Snippet } from 'svelte';
 
-	export interface ToastGroupProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'dir' | 'children'> {
+	export interface ToastGroupProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'children'> {
 		toaster: Store;
 		children?: Snippet<[Props]>;
 	}
@@ -14,11 +15,10 @@
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { ToastGroupContext } from '../modules/group-context';
 	import { group } from '@zag-js/toast';
-	import type { Snippet } from 'svelte';
 
 	const props: ToastGroupProps = $props();
 
-	const { element, children, toaster, ...restAttributes } = $derived(props);
+	const { element, children, toaster, ...rest } = $derived(props);
 
 	const id = $props.id();
 	const service = useMachine(group.machine, () => ({
@@ -27,20 +27,17 @@
 	}));
 	const api = $derived(group.connect(service, normalizeProps));
 
-	const attributes = $derived(mergeProps(api.getGroupProps(), { class: classesToast.group }, restAttributes));
+	const attributes = $derived(
+		mergeProps(api.getGroupProps(), rest, {
+			class: classesToast.group
+		})
+	);
 
-	ToastGroupContext.provide({
-		get groupApi() {
-			return api;
-		},
-		get groupService() {
-			return service;
-		}
-	});
+	ToastGroupContext.provide(() => service);
 </script>
 
 {#if element}
-	{@render element({ attributes: restAttributes })}
+	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
 		{#each api.getToasts() as toast (toast.id)}

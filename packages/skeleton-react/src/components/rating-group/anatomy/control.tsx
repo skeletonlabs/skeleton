@@ -1,18 +1,20 @@
 import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { useContext } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 import { RatingGroupRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface RatingGroupControlProps extends PropsWithElement, Omit<HTMLAttributes<'div'>, 'id' | 'defaultValue' | 'dir'> {}
+export interface RatingGroupControlProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
 export default function (props: RatingGroupControlProps) {
-	const rootContext = useContext(RatingGroupRootContext);
+	const ratingGroup = useContext(RatingGroupRootContext);
 
-	const { element, children, ...restAttributes } = props;
+	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rootContext.api.getControlProps(), { className: classesRatingGroup.control }, restAttributes);
+	const attributes = mergeProps(ratingGroup.getControlProps(), rest, {
+		className: classesRatingGroup.control
+	});
 
-	return element ? element({ attributes }) : <div {...attributes}>{children}</div>;
+	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }
