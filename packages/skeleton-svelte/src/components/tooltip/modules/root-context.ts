@@ -1,8 +1,4 @@
 import { createContext } from '@/internal/create-context';
-import type { Api } from '@zag-js/tooltip';
+import type { useTooltip } from './use-tooltip.svelte';
 
-export interface TooltipRootContextType {
-	api: Api;
-}
-
-export const TooltipRootContext = createContext<TooltipRootContextType>();
+export const TooltipRootContext = createContext<ReturnType<typeof useTooltip>>();

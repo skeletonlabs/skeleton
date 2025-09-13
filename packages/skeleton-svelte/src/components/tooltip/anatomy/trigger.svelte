@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface TooltipTriggerProps extends PropsWithElement, HTMLAttributes<'button'> {}
+	export interface TooltipTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -16,7 +16,11 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(tooltip.api.getTriggerProps(), { class: classesTooltip.trigger }, rest));
+	const attributes = $derived(
+		mergeProps(tooltip().getTriggerProps(), rest, {
+			class: classesTooltip.trigger
+		})
+	);
 </script>
 
 {#if element}

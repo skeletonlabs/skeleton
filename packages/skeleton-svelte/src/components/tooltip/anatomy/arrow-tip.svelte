@@ -2,7 +2,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 
-	export interface TooltipArrowTipProps extends PropsWithElement, HTMLAttributes<'div'> {}
+	export interface TooltipArrowTipProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -16,7 +16,11 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(tooltip.api.getArrowTipProps(), { class: classesTooltip.arrowTip }, rest));
+	const attributes = $derived(
+		mergeProps(tooltip().getArrowTipProps(), rest, {
+			class: classesTooltip.arrowTip
+		})
+	);
 </script>
 
 {#if element}
