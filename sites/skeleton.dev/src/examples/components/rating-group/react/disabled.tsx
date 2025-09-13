@@ -1,5 +1,3 @@
-'use client';
-
 import { RatingGroup } from '@skeletonlabs/skeleton-react';
 
 export default function Page() {

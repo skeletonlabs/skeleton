@@ -1,5 +1,3 @@
-'use client';
-
 import { Accordion } from '@skeletonlabs/skeleton-react';
 import { Club as IconClub, Diamond as IconDiamond, Heart as IconHeart, Spade as IconSpade } from 'lucide-react';
 
