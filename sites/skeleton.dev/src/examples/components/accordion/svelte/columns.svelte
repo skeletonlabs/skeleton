@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 	import IconClub from '@lucide/svelte/icons/club';
 	import IconDiamond from '@lucide/svelte/icons/diamond';
 	import IconHeart from '@lucide/svelte/icons/heart';
 	import IconSpade from '@lucide/svelte/icons/spade';
+	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 </script>
 
 <Accordion>

@@ -1,6 +1,6 @@
-import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
+import { createToaster, Toast } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Type() {
 	const toaster = createToaster({});
 
 	return (
@@ -11,7 +11,7 @@ export default function () {
 					onClick={() =>
 						toaster.info({
 							title: 'Info',
-							description: 'This is an info toast.'
+							description: 'This is an info toast.',
 						})
 					}
 				>
@@ -22,7 +22,7 @@ export default function () {
 					onClick={() =>
 						toaster.success({
 							title: 'Success',
-							description: 'This is a success toast.'
+							description: 'This is a success toast.',
 						})
 					}
 				>
@@ -33,7 +33,7 @@ export default function () {
 					onClick={() =>
 						toaster.warning({
 							title: 'Warning',
-							description: 'This is a warning toast.'
+							description: 'This is a warning toast.',
 						})
 					}
 				>
@@ -44,7 +44,7 @@ export default function () {
 					onClick={() =>
 						toaster.error({
 							title: 'Error',
-							description: 'This is an error toast.'
+							description: 'This is an error toast.',
 						})
 					}
 				>

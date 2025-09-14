@@ -1,4 +1,5 @@
 import type { JSX, ReactNode } from 'react';
+
 import type { HTMLAttributes } from './html-attributes';
 
 export interface PropsWithElement<T extends keyof JSX.IntrinsicElements> {

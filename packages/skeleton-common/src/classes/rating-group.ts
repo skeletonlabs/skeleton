@@ -5,5 +5,5 @@ export const classesRatingGroup = defineSkeletonClasses({
 	label: '',
 	control: 'flex gap-2 data-disabled:cursor-not-allowed data-disabled:opacity-50',
 	item: '',
-	hiddenInput: ''
+	hiddenInput: '',
 });

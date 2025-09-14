@@ -1,19 +1,21 @@
-import { mergeProps } from '@zag-js/react';
 import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
-import { ProgressLinearRootContext } from '../modules/root-context';
-import type { PropsWithElement } from '@/internal/props-with-element';
+import { mergeProps } from '@zag-js/react';
+
 import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+
+import { ProgressLinearRootContext } from '../modules/root-context';
 import type { useProgressLinear } from '../modules/use-progress-linear';
 
 export interface ProgressLinearRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
 	value: ReturnType<typeof useProgressLinear>;
 }
 
-export default function (props: ProgressLinearRootProviderProps) {
+export default function ProgressLinearRootProvider(props: ProgressLinearRootProviderProps) {
 	const { element, children, value: progressLinear, ...rest } = props;
 
 	const attributes = mergeProps(progressLinear.getRootProps(), rest, {
-		className: classesProgressLinear.root
+		className: classesProgressLinear.root,
 	});
 
 	return (

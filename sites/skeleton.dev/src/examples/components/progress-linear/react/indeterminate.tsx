@@ -1,6 +1,6 @@
 import { ProgressLinear } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Indeterminate() {
 	return (
 		<ProgressLinear value={null}>
 			<ProgressLinear.Track>

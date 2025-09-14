@@ -1,5 +1,6 @@
 <script lang="ts" module>
 	import type { Props } from '@zag-js/tabs';
+
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
@@ -7,9 +8,10 @@
 </script>
 
 <script lang="ts">
-	import { splitProps } from '@zag-js/tabs';
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
+	import { splitProps } from '@zag-js/tabs';
+
 	import { TabsRootContext } from '../modules/root-context';
 	import { useTabs } from '../modules/use-tabs.svelte';
 
@@ -20,13 +22,13 @@
 	const id = $props.id();
 	const tabs = useTabs(() => ({
 		id: id,
-		...tabsProps
+		...tabsProps,
 	}));
 
 	const attributes = $derived(
 		mergeProps(tabs().getRootProps(), rest, {
-			class: classesTabs.root
-		})
+			class: classesTabs.root,
+		}),
 	);
 
 	TabsRootContext.provide(() => tabs());

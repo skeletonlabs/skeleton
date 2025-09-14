@@ -1,11 +1,12 @@
-import skeleton3 from './migrations/skeleton-3';
 import { Argument, Command, Option } from 'commander';
+
+import skeleton3 from './migrations/skeleton-3';
 
 interface MigrateOptions {
 	cwd?: string;
 }
 const MIGRATIONS = {
-	'skeleton-3': skeleton3
+	'skeleton-3': skeleton3,
 } as const;
 
 const migrate = new Command('migrate')

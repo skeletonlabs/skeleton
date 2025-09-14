@@ -3,16 +3,16 @@
 <script module>
 	import { createHighlighterCoreSync } from 'shiki/core';
 	import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
-	// Themes
-	// https://shiki.style/themes
-	import auroraX from 'shiki/themes/aurora-x.mjs';
 	// Languages
 	// https://shiki.style/languages
 	import console from 'shiki/langs/console.mjs';
-	import html from 'shiki/langs/html.mjs';
 	import css from 'shiki/langs/css.mjs';
+	import html from 'shiki/langs/html.mjs';
 	import js from 'shiki/langs/javascript.mjs';
 	import ts from 'shiki/langs/typescript.mjs';
+	// Themes
+	// https://shiki.style/themes
+	import auroraX from 'shiki/themes/aurora-x.mjs';
 
 	// https://shiki.style/guide/sync-usage
 	const shiki = createHighlighterCoreSync({
@@ -20,7 +20,7 @@
 		// Implement your import theme.
 		themes: [auroraX],
 		// Implement your imported and supported languages.
-		langs: [console, html, css, js, ts]
+		langs: [console, html, css, js, ts],
 	});
 </script>
 
@@ -39,7 +39,7 @@
 		// Pre Style Props
 		preBase = 'border border-surface-200-800 text-xs',
 		prePadding = '[&>pre]:p-4',
-		preClasses = ''
+		preClasses = '',
 	}: CodeBlockProps = $props();
 
 	const generatedHtml = $derived(shiki.codeToHtml(code, { lang, theme }));

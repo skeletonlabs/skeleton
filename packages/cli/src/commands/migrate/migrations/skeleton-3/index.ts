@@ -1,20 +1,22 @@
-import { glob } from 'tinyglobby';
-import { transformPackageJson } from './transformers/transform-package.json';
-import type { MigrateOptions } from '../..';
-import { isCancel, log, multiselect, spinner } from '@clack/prompts';
-import { cli } from '../../../..';
-import { extname } from 'node:path';
-import { transformSvelte } from './transformers/transform-svelte';
 import { readFile, writeFile } from 'node:fs/promises';
-import { installDependencies } from '../../../../utility/install-dependencies';
+import { extname } from 'node:path';
+
+import { isCancel, log, multiselect, spinner } from '@clack/prompts';
 import getLatestVersion from 'latest-version';
+import { glob } from 'tinyglobby';
+
+import { cli } from '../../../..';
+import { installDependencies } from '../../../../utility/install-dependencies';
+import type { MigrateOptions } from '../..';
 import { transformAppCss } from './transformers/transform-app.css';
 import { transformAppHtml } from './transformers/transform-app.html';
 import { transformModule } from './transformers/transform-module';
-import { FALLBACK_THEME } from './utility/constants';
-import type { Theme } from './utility/types';
+import { transformPackageJson } from './transformers/transform-package.json';
 import { transformStyleSheet } from './transformers/transform-stylesheet';
+import { transformSvelte } from './transformers/transform-svelte';
+import { FALLBACK_THEME } from './utility/constants';
 import { THEME_MAPPINGS } from './utility/theme-mappings';
+import type { Theme } from './utility/types';
 
 interface FileMigration {
 	path: string;
@@ -28,15 +30,15 @@ export default async function (options: MigrateOptions) {
 	// Find all required files
 	const packageJson = {
 		name: 'package.json',
-		paths: await glob('package.json', { cwd })
+		paths: await glob('package.json', { cwd }),
 	};
 	const appHtml = {
 		name: 'src/app.html',
-		paths: await glob('src/app.html', { cwd })
+		paths: await glob('src/app.html', { cwd }),
 	};
 	const appCss = {
 		name: 'src/app.css',
-		paths: await glob('src/app.css', { cwd })
+		paths: await glob('src/app.css', { cwd }),
 	};
 
 	// Validate file existence
@@ -53,12 +55,12 @@ export default async function (options: MigrateOptions) {
 	const availableSourceFolders = await glob('*', {
 		cwd: cwd,
 		onlyDirectories: true,
-		ignore: ['node_modules']
+		ignore: ['node_modules'],
 	});
 	const sourceFolders = await multiselect({
 		message: 'What folders make use of Skeleton? (classes, imports, etc.)',
 		options: availableSourceFolders.map((folder) => ({ label: folder, value: folder })),
-		initialValues: availableSourceFolders
+		initialValues: availableSourceFolders,
 	});
 
 	if (isCancel(sourceFolders)) {
@@ -121,8 +123,8 @@ export default async function (options: MigrateOptions) {
 			sourceFolders.map((folder) => `${folder}**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`),
 			{
 				cwd: cwd,
-				ignore: ['node_modules', 'src/app.css']
-			}
+				ignore: ['node_modules', 'src/app.css'],
+			},
 		);
 		const sourceFilesSpinner = spinner();
 		sourceFilesSpinner.start(`Migrating source files...`);

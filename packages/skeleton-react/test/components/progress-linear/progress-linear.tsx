@@ -1,6 +1,6 @@
 import { ProgressLinear } from '@/index';
 
-export default function () {
+export default function ProgressLinearTest() {
 	return (
 		<ProgressLinear data-testid="root">
 			<ProgressLinear.Label data-testid="label" />

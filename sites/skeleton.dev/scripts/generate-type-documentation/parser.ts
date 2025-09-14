@@ -1,5 +1,7 @@
 import { join } from 'node:path';
+
 import * as tsMorph from 'ts-morph';
+
 import { MONOREPO_ROOT } from './constants';
 
 export type TypeKind = 'function' | 'array' | 'object' | 'primitive';
@@ -61,7 +63,7 @@ export class SourceFile {
 
 		return {
 			description: jsDoc.getDescription().trim(),
-			tags: jsDoc.getTags().map((tag) => ({ name: tag.getTagName(), value: tag.getCommentText() ?? null }))
+			tags: jsDoc.getTags().map((tag) => ({ name: tag.getTagName(), value: tag.getCommentText() ?? null })),
 		};
 	}
 
@@ -72,7 +74,7 @@ export class SourceFile {
 			type: type.getText(undefined, tsMorph.ts.TypeFormatFlags.UseAliasDefinedOutsideCurrentScope),
 			typeKind: this.getTypeKind(symbol),
 			optional: symbol.isOptional(),
-			JSDoc: this.getDocumentation(symbol)
+			JSDoc: this.getDocumentation(symbol),
 		};
 	}
 
@@ -93,7 +95,7 @@ export class SourceFile {
 			props: interface_
 				.getType()
 				.getProperties()
-				.map((symbol) => this.getProperty(symbol))
+				.map((symbol) => this.getProperty(symbol)),
 		};
 	}
 }
@@ -104,7 +106,7 @@ export class Parser {
 	constructor(framework: string) {
 		this.project = new tsMorph.Project({
 			skipAddingFilesFromTsConfig: true,
-			tsConfigFilePath: join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'tsconfig.json')
+			tsConfigFilePath: join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'tsconfig.json'),
 		});
 		this.project.addSourceFilesAtPaths(join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components/*/anatomy/*.d.ts'));
 	}

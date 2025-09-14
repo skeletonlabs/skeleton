@@ -1,14 +1,12 @@
 ---
-import LayoutRoot from '@layouts/LayoutRoot.astro';
-
-import Header from '@components/docs/Header.astro';
-import Footer from '@components/docs/Footer.astro';
-import ChipsBar from '@components/docs/ChipsBar.astro';
-import Navigation from '@components/docs/Navigation.astro';
 import Breadcrumbs from '@components/docs/Breadcrumbs.astro';
+import ChipsBar from '@components/docs/ChipsBar.astro';
+import Footer from '@components/docs/Footer.astro';
 import FrameworkPicker from '@components/docs/FrameworkPicker.astro';
+import Header from '@components/docs/Header.astro';
+import Navigation from '@components/docs/Navigation.astro';
 import TableOfContents from '@components/docs/TableOfContents.astro';
-
+import LayoutRoot from '@layouts/LayoutRoot.astro';
 import type { InferEntrySchema } from 'astro:content';
 
 interface PageHeading {
@@ -27,7 +25,7 @@ const { frontmatter, headings } = Astro.props satisfies Props;
 // Layout Props
 const layoutProps = {
 	title: frontmatter.title,
-	classList: 'grid grid-rows-[auto_1fr]'
+	classList: 'grid grid-rows-[auto_1fr]',
 };
 // GitHub Settings
 const branch = 'main';
@@ -37,7 +35,7 @@ const urls = {
 	githubDocsUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/sites/${site}/src/content`,
 	githubSkeletonUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton/src`,
 	githubSvelteUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-svelte`,
-	githubReactUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-react`
+	githubReactUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-react`,
 };
 ---
 
