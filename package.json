@@ -32,6 +32,8 @@
 		"eslint-plugin-astro": "catalog:",
 		"eslint-plugin-prettier": "catalog:",
 		"eslint-plugin-react": "catalog:",
+		"eslint-plugin-react-refresh": "catalog:",
+		"eslint-plugin-simple-import-sort": "catalog:",
 		"eslint-plugin-svelte": "catalog:",
 		"globals": "catalog:",
 		"prettier": "catalog:",
@@ -41,8 +43,8 @@
 		"typescript-eslint": "catalog:"
 	},
 	"engines": {
-		"node": ">=22.x.x",
-		"pnpm": ">=10.x.x"
+		"node": ">=22",
+		"pnpm": ">=10"
 	},
 	"packageManager": "pnpm@10.16.1"
 }

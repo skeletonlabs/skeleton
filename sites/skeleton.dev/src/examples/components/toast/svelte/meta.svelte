@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 	import Skull from '@lucide/svelte/icons/skull';
+	import { createToaster, Toast } from '@skeletonlabs/skeleton-svelte';
 
 	const toaster = createToaster({});
 </script>
@@ -16,8 +16,8 @@
 			title: 'Title',
 			description: 'This is a description.',
 			meta: {
-				icon: skull
-			}
+				icon: skull,
+			},
 		})}
 >
 	Toast

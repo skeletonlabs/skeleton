@@ -1,6 +1,6 @@
 import { Avatar } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Filter() {
 	return (
 		<>
 			<Avatar>

@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
+import { describe, expect, it } from 'vitest';
+
 import ProgressLinear from './progress-linear.svelte';
 
 describe('progress-linear', () => {

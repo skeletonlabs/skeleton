@@ -162,8 +162,8 @@ export const Avatar = Object.assign(
 	Root, // <Avatar>
 	{
 		Image: Image, // <Avatar.Image>
-		Fallback: Fallback // <Avatar.Fallback>
-	}
+		Fallback: Fallback, // <Avatar.Fallback>
+	},
 );
 ```
 
@@ -242,7 +242,7 @@ While each component will present a unique set of challenges, we recommend you r
 #### React Specific
 
 - Pass the `id` field into the `useMachine` hook using the `useId()` hook from `react`.
-- Consume context using `useContext()` from `react`.
+- Consume context using `use()` from `react`.
 - Use the `className` attribute to pass Skeleton classes.
 
 #### Svelte Specific
@@ -278,7 +278,7 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 export const classesAvatar = defineSkeletonClasses({
 	root: 'isolate bg-surface-400-600 size-16 rounded-full overflow-hidden',
 	image: 'w-full object-cover',
-	fallback: 'size-full flex justify-center items-center'
+	fallback: 'size-full flex justify-center items-center',
 });
 ```
 
@@ -303,8 +303,8 @@ export const classesProgressLinear = defineSkeletonClasses({
 		// Horizontal Orientation
 		'data-[orientation=horizontal]:flex data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:w-full',
 		// Vertical Orientation
-		'data-[orientation=vertical]:inline-flex data-[orientation=vertical]:flex-col'
-	]
+		'data-[orientation=vertical]:inline-flex data-[orientation=vertical]:flex-col',
+	],
 	// ...
 });
 ```
@@ -337,7 +337,7 @@ export default function (props: AvatarRootProps) {
 	const { children, ...rest } = props;
 
 	const attributes = mergeProps(api.getRootProps(), rest, {
-		className: classesAvatar.root
+		className: classesAvatar.root,
 	});
 
 	return <div {...attributes}>{children}</div>;
@@ -354,7 +354,7 @@ export default function (props: NavigationRootProps) {
 	const { children, ...rest } = props;
 
 	const attributes = mergeProps(rest, {
-		className: classesNavigation.root
+		className: classesNavigation.root,
 	});
 
 	return <div {...attributes}>{children}</div>;

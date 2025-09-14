@@ -1,4 +1,5 @@
 import { parse } from 'postcss';
+
 import { transformClasses } from './transform-classes';
 
 function transformStyleSheet(code: string) {
@@ -8,7 +9,7 @@ function transformStyleSheet(code: string) {
 	});
 
 	return {
-		code: parsed.toString()
+		code: parsed.toString(),
 	};
 }
 

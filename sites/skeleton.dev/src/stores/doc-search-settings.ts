@@ -1,4 +1,5 @@
 import { persistentMap } from '@nanostores/persistent';
+
 import type { Framework } from './preferred-framework';
 
 type SearchFilters = {
@@ -6,5 +7,5 @@ type SearchFilters = {
 };
 
 export const docSearchSettingsStore = persistentMap<SearchFilters>('doc-search-settings', {
-	framework: 'preferred'
+	framework: 'preferred',
 });

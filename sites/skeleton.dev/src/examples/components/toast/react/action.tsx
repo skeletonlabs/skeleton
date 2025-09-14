@@ -1,6 +1,6 @@
-import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
+import { createToaster, Toast } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Action() {
 	const toaster = createToaster({});
 
 	return (
@@ -17,10 +17,10 @@ export default function () {
 							onClick: () => {
 								toaster.success({
 									title: 'Task undone',
-									description: 'The task has been undone.'
+									description: 'The task has been undone.',
 								});
-							}
-						}
+							},
+						},
 					})
 				}
 			>

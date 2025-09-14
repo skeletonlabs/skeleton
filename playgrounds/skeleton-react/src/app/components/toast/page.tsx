@@ -13,7 +13,7 @@ export default function Page() {
 						title: 'Toast',
 						description: 'This is a toast message.',
 						action: { label: 'Undo', onClick: () => {} },
-						duration: Infinity
+						duration: Infinity,
 					})
 				}
 			>

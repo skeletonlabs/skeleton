@@ -1,5 +1,5 @@
-import { connect, machine, type Api, type Props } from '@zag-js/progress';
-import { useMachine, normalizeProps } from '@zag-js/svelte';
+import { type Api, connect, machine, type Props } from '@zag-js/progress';
+import { normalizeProps, useMachine } from '@zag-js/svelte';
 
 export function useProgressLinear(props: Props | (() => Props)): () => Api {
 	const service = useMachine(machine, props);

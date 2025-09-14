@@ -1,6 +1,7 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
+
 	import { useProgressLinear } from '../modules/use-progress-linear.svelte';
 
 	export interface ProgressLinearRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
@@ -9,8 +10,9 @@
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { ProgressLinearRootContext } from '../modules/root-context';
 
 	const props: ProgressLinearRootProviderProps = $props();
@@ -19,8 +21,8 @@
 
 	const attributes = $derived(
 		mergeProps(avatar().getRootProps(), rest, {
-			class: classesProgressLinear.root
-		})
+			class: classesProgressLinear.root,
+		}),
 	);
 
 	ProgressLinearRootContext.provide(() => avatar());

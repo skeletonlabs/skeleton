@@ -1,15 +1,15 @@
 <script lang="ts">
 	// Icons
-	import IconPlay from '@lucide/svelte/icons/play';
-	import IconNormalize from '@lucide/svelte/icons/audio-waveform';
-	import IconEqualizer from '@lucide/svelte/icons/audio-lines';
-	import Icon3dAudio from '@lucide/svelte/icons/move-3d';
-	import IconCrossfade from '@lucide/svelte/icons/chart-no-axes-column-increasing';
 	import IconArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
+	import IconEqualizer from '@lucide/svelte/icons/audio-lines';
+	import IconNormalize from '@lucide/svelte/icons/audio-waveform';
+	import IconCrossfade from '@lucide/svelte/icons/chart-no-axes-column-increasing';
 	import IconCheck from '@lucide/svelte/icons/check';
-	import IconUsers from '@lucide/svelte/icons/user';
-	import IconRewind from '@lucide/svelte/icons/rewind';
 	import IconFastForward from '@lucide/svelte/icons/fast-forward';
+	import Icon3dAudio from '@lucide/svelte/icons/move-3d';
+	import IconPlay from '@lucide/svelte/icons/play';
+	import IconRewind from '@lucide/svelte/icons/rewind';
+	import IconUsers from '@lucide/svelte/icons/user';
 	import IconVolume from '@lucide/svelte/icons/volume-2';
 
 	// Classes
@@ -29,14 +29,14 @@
 		{ name: 'Janet Rosenbell', email: 'jrosenbell@email.com' },
 		{ name: 'Jason Greene', email: 'jgreene@email.com' },
 		{ name: 'Lucas Gamble', email: 'lgamble@email.com' },
-		{ name: 'Murray Henderson', email: 'mhenderson@email.com' }
+		{ name: 'Murray Henderson', email: 'mhenderson@email.com' },
 	];
 	const tableData = [
 		{ position: '0', name: 'Iron', symbol: 'Fe', atomic_no: '26' },
 		{ position: '1', name: 'Rhodium', symbol: 'Rh', atomic_no: '45' },
 		{ position: '2', name: 'Iodine', symbol: 'I', atomic_no: '53' },
 		{ position: '3', name: 'Radon', symbol: 'Rn', atomic_no: '86' },
-		{ position: '4', name: 'Technetium', symbol: 'Tc', atomic_no: '43' }
+		{ position: '4', name: 'Technetium', symbol: 'Tc', atomic_no: '43' },
 	];
 </script>
 

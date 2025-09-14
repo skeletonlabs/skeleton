@@ -1,7 +1,7 @@
 import { Accordion } from '@skeletonlabs/skeleton-react';
 import { Club as IconClub, Diamond as IconDiamond, Heart as IconHeart, Spade as IconSpade } from 'lucide-react';
 
-export default function () {
+export default function Collapsible() {
 	return (
 		<Accordion>
 			<Accordion.Item value="item-1">

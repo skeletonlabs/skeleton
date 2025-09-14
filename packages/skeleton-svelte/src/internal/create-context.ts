@@ -9,6 +9,6 @@ export function createContext<T>() {
 		},
 		provide(value: T) {
 			return setContext(key, value);
-		}
+		},
 	};
 }

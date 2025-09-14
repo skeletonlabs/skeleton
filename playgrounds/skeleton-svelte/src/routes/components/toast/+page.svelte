@@ -11,7 +11,7 @@
 			title: 'Toast',
 			description: 'This is a toast message.',
 			duration: Infinity,
-			action: { label: 'Undo', onClick: () => toaster.success({ title: 'Undone' }) }
+			action: { label: 'Undo', onClick: () => toaster.success({ title: 'Undone' }) },
 		})}
 >
 	Toast

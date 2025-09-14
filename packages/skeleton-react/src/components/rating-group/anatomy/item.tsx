@@ -1,13 +1,15 @@
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
-import { splitItemProps, type ItemProps } from '@zag-js/rating-group';
+import { type ItemProps, splitItemProps } from '@zag-js/rating-group';
 import { mergeProps } from '@zag-js/react';
-import { useContext, type ReactNode } from 'react';
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import { RatingGroupRootContext } from '../modules/root-context';
+import { type ReactNode, use } from 'react';
+
 import StarEmpty from '@/internal/components/star-empty';
-import StarHalf from '@/internal/components/star-half';
 import StarFull from '@/internal/components/star-full';
+import StarHalf from '@/internal/components/star-half';
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
+
+import { RatingGroupRootContext } from '../modules/root-context';
 
 export interface RatingGroupItemProps extends ItemProps, PropsWithElement<'span'>, HTMLAttributes<'span', 'id' | 'dir'> {
 	/**
@@ -30,8 +32,8 @@ export interface RatingGroupItemProps extends ItemProps, PropsWithElement<'span'
 	full?: ReactNode;
 }
 
-export default function (props: RatingGroupItemProps) {
-	const ratingGroup = useContext(RatingGroupRootContext);
+export default function RatingGroupItem(props: RatingGroupItemProps) {
+	const ratingGroup = use(RatingGroupRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, empty = <StarEmpty />, half = <StarHalf />, full = <StarFull />, ...rest } = componentProps;
@@ -39,7 +41,7 @@ export default function (props: RatingGroupItemProps) {
 	const itemState = ratingGroup.getItemState(itemProps);
 
 	const attributes = mergeProps(ratingGroup.getItemProps(itemProps), rest, {
-		className: classesAccordion.item
+		className: classesAccordion.item,
 	});
 
 	return element ? (

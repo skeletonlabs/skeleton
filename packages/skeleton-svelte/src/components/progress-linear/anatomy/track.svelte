@@ -1,13 +1,14 @@
 <script lang="ts" module>
-	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface ProgressLinearTrackProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { ProgressLinearRootContext } from '../modules/root-context';
 
 	const props: ProgressLinearTrackProps = $props();
@@ -18,8 +19,8 @@
 
 	const attributes = $derived(
 		mergeProps(progressLinear().getTrackProps(), rest, {
-			class: classesProgressLinear.track
-		})
+			class: classesProgressLinear.track,
+		}),
 	);
 </script>
 
