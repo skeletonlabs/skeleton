@@ -1,4 +1,5 @@
 import { parse } from 'node-html-parser';
+
 import { THEME_MAPPINGS } from '../utility/theme-mappings';
 
 function transformAppHtml(code: string) {

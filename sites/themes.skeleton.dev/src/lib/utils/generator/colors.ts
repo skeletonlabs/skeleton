@@ -1,6 +1,7 @@
 // Color Utilities
 
 import chroma from 'chroma-js';
+
 import * as constants from '$lib/constants/generator';
 import { settingsColors } from '$lib/state/generator.svelte';
 

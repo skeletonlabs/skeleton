@@ -1,14 +1,14 @@
-import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 // Integrations
 import partytown from '@astrojs/partytown';
-import svelte from '@astrojs/svelte';
 import react from '@astrojs/react';
-import expressiveCode from 'astro-expressive-code';
-import icon from 'astro-icon';
-import AutoImport from 'astro-auto-import';
-import mdx from '@astrojs/mdx';
+import svelte from '@astrojs/svelte';
 // Vite Plugins
 import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'astro/config';
+import AutoImport from 'astro-auto-import';
+import expressiveCode from 'astro-expressive-code';
+import icon from 'astro-icon';
 import { pagefind } from 'vite-plugin-pagefind';
 
 // https://astro.build/config

@@ -1,8 +1,9 @@
 <script lang="ts" module>
+	import type { Props, Store } from '@zag-js/toast';
+	import type { Snippet } from 'svelte';
+
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { Store, Props } from '@zag-js/toast';
-	import type { Snippet } from 'svelte';
 
 	export interface ToastGroupProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'children'> {
 		toaster: Store;
@@ -11,10 +12,11 @@
 </script>
 
 <script lang="ts">
-	import { useMachine, normalizeProps, mergeProps } from '@zag-js/svelte';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
-	import { ToastGroupContext } from '../modules/group-context';
+	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { group } from '@zag-js/toast';
+
+	import { ToastGroupContext } from '../modules/group-context';
 
 	const props: ToastGroupProps = $props();
 

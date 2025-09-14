@@ -13,8 +13,8 @@
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AccordionHeadingProps = $props();
 	const { level = 3, element, children, ...rest } = $derived(props);

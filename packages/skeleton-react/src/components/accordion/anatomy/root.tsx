@@ -1,9 +1,11 @@
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import { splitProps, type Props } from '@zag-js/accordion';
-import { mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
-import { AccordionRootContext } from '../modules/root-context';
+import { type Props, splitProps } from '@zag-js/accordion';
+import { mergeProps } from '@zag-js/react';
+
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
+
+import { AccordionRootContext } from '../modules/root-context';
 import { useAccordion } from '../modules/use-accordion';
 
 export interface AccordionRootProps

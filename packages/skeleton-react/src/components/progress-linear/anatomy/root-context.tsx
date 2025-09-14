@@ -1,4 +1,5 @@
-import { use, type ReactNode } from 'react';
+import { type ReactNode, use } from 'react';
+
 import { ProgressLinearRootContext } from '../modules/root-context';
 import type { useProgressLinear } from '../modules/use-progress-linear';
 

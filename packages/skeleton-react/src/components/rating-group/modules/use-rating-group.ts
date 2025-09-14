@@ -1,4 +1,4 @@
-import { machine, connect, type Props, type Api } from '@zag-js/rating-group';
+import { type Api, connect, machine, type Props } from '@zag-js/rating-group';
 import { normalizeProps, useMachine } from '@zag-js/react';
 import { useId } from 'react';
 

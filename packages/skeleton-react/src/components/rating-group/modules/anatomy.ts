@@ -1,10 +1,10 @@
-import Root from '../anatomy/root';
-import RootProvider from '../anatomy/root-provider';
-import RootContext from '../anatomy/root-context';
-import Label from '../anatomy/label';
 import Control from '../anatomy/control';
-import Item from '../anatomy/item';
 import HiddenInput from '../anatomy/hidden-input';
+import Item from '../anatomy/item';
+import Label from '../anatomy/label';
+import Root from '../anatomy/root';
+import RootContext from '../anatomy/root-context';
+import RootProvider from '../anatomy/root-provider';
 
 const RatingGroup = Object.assign(Root, {
 	Provider: RootProvider,

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { transformClasses } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-classes.js';
 
 describe('transformClasses', () => {

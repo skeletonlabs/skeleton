@@ -1,10 +1,12 @@
-import { mergeProps } from '@zag-js/react';
-import { splitProps, type Props } from '@zag-js/progress';
 import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
+import { type Props, splitProps } from '@zag-js/progress';
+import { mergeProps } from '@zag-js/react';
+
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+
 import { ProgressLinearRootContext } from '../modules/root-context';
 import { useProgressLinear } from '../modules/use-progress-linear';
-import type { PropsWithElement } from '@/internal/props-with-element';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 
 export interface ProgressLinearRootProps
 	extends Omit<Props, 'id'>,

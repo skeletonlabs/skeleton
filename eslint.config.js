@@ -1,12 +1,13 @@
-import { defineConfig, globalIgnores } from 'eslint/config';
 import javascript from '@eslint/js';
-import typescript from 'typescript-eslint';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import astro from 'eslint-plugin-astro';
-import svelte from 'eslint-plugin-svelte';
-import globals from 'globals';
+import prettier from 'eslint-plugin-prettier/recommended';
 import react from 'eslint-plugin-react';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import prettier from 'eslint-plugin-prettier/recommended';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import svelte from 'eslint-plugin-svelte';
+import globals from 'globals';
+import typescript from 'typescript-eslint';
 
 export default defineConfig(
 	globalIgnores([
@@ -44,17 +45,12 @@ export default defineConfig(
 		...reactRefresh.configs.recommended,
 	},
 	{
+		plugins: {
+			'simple-import-sort': simpleImportSort,
+		},
 		rules: {
-			'sort-imports': [
-				'warn',
-				{
-					ignoreCase: false,
-					ignoreDeclarationSort: false,
-					ignoreMemberSort: false,
-					memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-					allowSeparatedGroups: true,
-				},
-			],
+			'simple-import-sort/imports': 'warn',
+			'simple-import-sort/exports': 'warn',
 		},
 	},
 );

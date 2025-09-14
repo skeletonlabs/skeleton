@@ -1,15 +1,15 @@
 <script lang="ts">
 	// Icons
-	import IconPlay from '@lucide/svelte/icons/play';
-	import IconNormalize from '@lucide/svelte/icons/audio-waveform';
-	import IconEqualizer from '@lucide/svelte/icons/audio-lines';
-	import Icon3dAudio from '@lucide/svelte/icons/move-3d';
-	import IconCrossfade from '@lucide/svelte/icons/chart-no-axes-column-increasing';
 	import IconArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
+	import IconEqualizer from '@lucide/svelte/icons/audio-lines';
+	import IconNormalize from '@lucide/svelte/icons/audio-waveform';
+	import IconCrossfade from '@lucide/svelte/icons/chart-no-axes-column-increasing';
 	import IconCheck from '@lucide/svelte/icons/check';
-	import IconUsers from '@lucide/svelte/icons/user';
-	import IconRewind from '@lucide/svelte/icons/rewind';
 	import IconFastForward from '@lucide/svelte/icons/fast-forward';
+	import Icon3dAudio from '@lucide/svelte/icons/move-3d';
+	import IconPlay from '@lucide/svelte/icons/play';
+	import IconRewind from '@lucide/svelte/icons/rewind';
+	import IconUsers from '@lucide/svelte/icons/user';
 	import IconVolume from '@lucide/svelte/icons/volume-2';
 
 	// Classes

@@ -6,8 +6,9 @@
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { RatingGroupRootContext } from '../modules/root-context';
 
 	const props: RatingGroupControlProps = $props();

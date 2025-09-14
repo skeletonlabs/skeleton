@@ -1,18 +1,18 @@
-import React, { useRef, useState } from 'react';
 import {
-	useFloating,
-	autoUpdate,
-	offset,
-	flip,
-	shift,
 	arrow,
-	useClick,
-	useFocus,
-	useDismiss,
-	useRole,
-	useInteractions,
+	autoUpdate,
+	flip,
 	FloatingArrow,
+	offset,
+	shift,
+	useClick,
+	useDismiss,
+	useFloating,
+	useFocus,
+	useInteractions,
+	useRole,
 } from '@floating-ui/react';
+import React, { useRef, useState } from 'react';
 
 interface PopoverProps extends React.PropsWithChildren {
 	trigger: React.ReactNode;

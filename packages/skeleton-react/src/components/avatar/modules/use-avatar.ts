@@ -1,4 +1,4 @@
-import { machine, connect, type Props, type Api } from '@zag-js/avatar';
+import { type Api, connect, machine, type Props } from '@zag-js/avatar';
 import { normalizeProps, useMachine } from '@zag-js/react';
 import { useId } from 'react';
 

@@ -1,11 +1,13 @@
-import { useId } from 'react';
-import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { classesToast } from '@skeletonlabs/skeleton-common';
-import { group, type Store, type Props } from '@zag-js/toast';
-import { ToastGroupContext } from '../modules/group-context';
-import type { PropsWithElement } from '@/internal/props-with-element';
-import type { HTMLAttributes } from '@/internal/html-attributes';
+import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
+import { group, type Props, type Store } from '@zag-js/toast';
 import type { JSX } from 'react';
+import { useId } from 'react';
+
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+
+import { ToastGroupContext } from '../modules/group-context';
 
 export interface ToastGroupProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'children'> {
 	toaster: Store;

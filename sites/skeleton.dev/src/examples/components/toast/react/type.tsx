@@ -1,4 +1,4 @@
-import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
+import { createToaster, Toast } from '@skeletonlabs/skeleton-react';
 
 export default function Type() {
 	const toaster = createToaster({});

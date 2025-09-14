@@ -1,9 +1,11 @@
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import { mergeProps } from '@zag-js/react';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
-import { splitProps, type Props } from '@zag-js/avatar';
-import { AvatarRootContext } from '../modules/root-context';
+import { type Props, splitProps } from '@zag-js/avatar';
+import { mergeProps } from '@zag-js/react';
+
+import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
+
+import { AvatarRootContext } from '../modules/root-context';
 import { useAvatar } from '../modules/use-avatar';
 
 export interface AvatarRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}

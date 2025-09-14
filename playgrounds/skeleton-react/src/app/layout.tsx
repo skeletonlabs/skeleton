@@ -1,5 +1,6 @@
-import LightSwitch from './light-switch';
 import './globals.css';
+
+import LightSwitch from './light-switch';
 
 export default function RootLayout({
 	children,

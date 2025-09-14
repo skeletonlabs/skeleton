@@ -1,4 +1,5 @@
-import { use, type ReactNode } from 'react';
+import { type ReactNode, use } from 'react';
+
 import { TabsRootContext } from '../modules/root-context';
 import type { useTabs } from '../modules/use-tabs';
 

@@ -33,6 +33,7 @@
 		"eslint-plugin-prettier": "catalog:",
 		"eslint-plugin-react": "catalog:",
 		"eslint-plugin-react-refresh": "catalog:",
+		"eslint-plugin-simple-import-sort": "catalog:",
 		"eslint-plugin-svelte": "catalog:",
 		"globals": "catalog:",
 		"prettier": "catalog:",

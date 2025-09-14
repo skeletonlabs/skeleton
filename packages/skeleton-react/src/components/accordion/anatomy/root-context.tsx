@@ -1,4 +1,5 @@
-import { use, type ReactNode } from 'react';
+import { type ReactNode, use } from 'react';
+
 import { AccordionRootContext } from '../modules/root-context';
 import type { useAccordion } from '../modules/use-accordion';
 

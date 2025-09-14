@@ -1,12 +1,13 @@
 import * as constants from '$lib/constants/generator';
+
 import type {
 	Globals,
-	SettingsCore,
-	SettingsColors,
 	SettingsBackgrounds,
-	SettingsTypography,
-	SettingsSpacing,
+	SettingsColors,
+	SettingsCore,
 	SettingsEdges,
+	SettingsSpacing,
+	SettingsTypography,
 } from './types';
 
 // Globals

@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	// Themes
 	import { themes } from '@skeletonlabs/skeleton-common';
+
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	// Utils
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
-	import { resolve } from '$app/paths';
 
 	const defaultThemeName = 'cerberus';
 

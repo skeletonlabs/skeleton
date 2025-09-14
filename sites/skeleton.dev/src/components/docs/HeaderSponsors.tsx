@@ -1,22 +1,22 @@
-import React from 'react';
-import { useState } from 'react';
 // Floating UI React
 import {
-	useFloating,
 	autoUpdate,
-	offset,
 	flip,
+	FloatingFocusManager,
+	offset,
 	shift,
 	useClick,
 	useDismiss,
-	useRole,
+	useFloating,
 	useInteractions,
-	FloatingFocusManager,
+	useRole,
 } from '@floating-ui/react';
 // Icons
 import { ArrowUpRight as IconArrow } from 'lucide-react';
 import { ChevronDown as IconChevron } from 'lucide-react';
 import { Heart as IconHeart } from 'lucide-react';
+import React from 'react';
+import { useState } from 'react';
 
 export const HeaderSponsors: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);

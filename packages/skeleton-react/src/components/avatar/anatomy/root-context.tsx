@@ -1,4 +1,5 @@
-import { use, type ReactNode } from 'react';
+import { type ReactNode, use } from 'react';
+
 import { AvatarRootContext } from '../modules/root-context';
 import type { useAvatar } from '../modules/use-avatar';
 

@@ -1,4 +1,5 @@
-import { use, type ReactNode } from 'react';
+import { type ReactNode, use } from 'react';
+
 import { SwitchRootContext } from '../modules/root-context';
 import type { useSwitch } from '../modules/use-switch';
 

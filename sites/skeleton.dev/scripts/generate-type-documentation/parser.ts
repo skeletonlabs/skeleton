@@ -1,5 +1,7 @@
 import { join } from 'node:path';
+
 import * as tsMorph from 'ts-morph';
+
 import { MONOREPO_ROOT } from './constants';
 
 export type TypeKind = 'function' | 'array' | 'object' | 'primitive';

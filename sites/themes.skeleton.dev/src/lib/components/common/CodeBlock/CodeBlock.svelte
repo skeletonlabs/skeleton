@@ -3,16 +3,16 @@
 <script module>
 	import { createHighlighterCoreSync } from 'shiki/core';
 	import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
-	// Themes
-	// https://shiki.style/themes
-	import auroraX from 'shiki/themes/aurora-x.mjs';
 	// Languages
 	// https://shiki.style/languages
 	import console from 'shiki/langs/console.mjs';
-	import html from 'shiki/langs/html.mjs';
 	import css from 'shiki/langs/css.mjs';
+	import html from 'shiki/langs/html.mjs';
 	import js from 'shiki/langs/javascript.mjs';
 	import ts from 'shiki/langs/typescript.mjs';
+	// Themes
+	// https://shiki.style/themes
+	import auroraX from 'shiki/themes/aurora-x.mjs';
 
 	// https://shiki.style/guide/sync-usage
 	const shiki = createHighlighterCoreSync({

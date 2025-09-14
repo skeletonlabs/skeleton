@@ -1,5 +1,5 @@
-import { machine, connect, type Props, type Api } from '@zag-js/tabs';
 import { normalizeProps, useMachine } from '@zag-js/react';
+import { type Api, connect, machine, type Props } from '@zag-js/tabs';
 import { useId } from 'react';
 
 export function useTabs(props: Omit<Props, 'id'>): Api {

@@ -1,5 +1,5 @@
 import { Switch } from '@skeletonlabs/skeleton-react';
-import { Sun, Moon } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 
 export default function ThumbIcons() {
 	return (

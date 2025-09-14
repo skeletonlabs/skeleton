@@ -1,6 +1,7 @@
-import { use, type ReactNode } from 'react';
-import { ToastRootContext } from '../modules/root-context';
 import type { Api } from '@zag-js/toast';
+import { type ReactNode, use } from 'react';
+
+import { ToastRootContext } from '../modules/root-context';
 
 export interface ToastRootContextProps {
 	children: (toast: Api) => ReactNode;

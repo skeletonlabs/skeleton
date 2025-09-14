@@ -2,14 +2,15 @@
 // Read v3 theme file contents, updates local generator state.
 
 import chroma from 'chroma-js';
+
 import * as constants from '$lib/constants/generator';
 import {
-	settingsCore,
-	settingsColors,
 	settingsBackgrounds,
-	settingsTypography,
-	settingsSpacing,
+	settingsColors,
+	settingsCore,
 	settingsEdges,
+	settingsSpacing,
+	settingsTypography,
 } from '$lib/state/generator.svelte';
 import { genColorRamp } from '$lib/utils/generator/colors';
 

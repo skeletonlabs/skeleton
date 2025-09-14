@@ -1,4 +1,5 @@
-import { atRule, comment, parse, Node, Root, AtRule } from 'postcss';
+import { AtRule, atRule, comment, Node, parse, Root } from 'postcss';
+
 import type { Theme } from '../utility/types';
 import { transformStyleSheet } from './transform-stylesheet';
 

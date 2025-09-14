@@ -2,13 +2,14 @@
 // Deep clones each state object and formats as needed.
 
 import chroma from 'chroma-js';
+
 import type {
-	SettingsCore,
-	SettingsColors,
 	SettingsBackgrounds,
-	SettingsTypography,
-	SettingsSpacing,
+	SettingsColors,
+	SettingsCore,
 	SettingsEdges,
+	SettingsSpacing,
+	SettingsTypography,
 } from '$lib/state/types';
 
 /** UTIL: Format from JS Object to CSS properties format. */

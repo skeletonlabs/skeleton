@@ -1,7 +1,7 @@
+import Fallback from '../anatomy/fallback';
+import Image from '../anatomy/image';
 import Root from '../anatomy/root';
 import RootContext from '../anatomy/root-context';
-import Image from '../anatomy/image';
-import Fallback from '../anatomy/fallback';
 
 export const Avatar = Object.assign(Root, {
 	Context: RootContext,

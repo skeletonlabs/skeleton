@@ -1,9 +1,11 @@
-import { use } from 'react';
-import { mergeProps } from '@zag-js/react';
 import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
-import { ProgressLinearRootContext } from '../modules/root-context';
-import type { PropsWithElement } from '@/internal/props-with-element';
+import { mergeProps } from '@zag-js/react';
+import { use } from 'react';
+
 import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+
+import { ProgressLinearRootContext } from '../modules/root-context';
 
 export interface ProgressLinearTrackProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 

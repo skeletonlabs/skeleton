@@ -1,5 +1,5 @@
-import { Project } from 'ts-morph';
 import { nanoid } from 'nanoid';
+import { Project } from 'ts-morph';
 
 const project = new Project({
 	useInMemoryFileSystem: true,

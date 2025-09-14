@@ -1,10 +1,10 @@
-import Root from '../anatomy/root.svelte';
-import RootProvider from '../anatomy/root-provider.svelte';
-import RootContext from '../anatomy/root-context.svelte';
 import Control from '../anatomy/control.svelte';
-import Thumb from '../anatomy/thumb.svelte';
-import Label from '../anatomy/label.svelte';
 import HiddenInput from '../anatomy/hidden-input.svelte';
+import Label from '../anatomy/label.svelte';
+import Root from '../anatomy/root.svelte';
+import RootContext from '../anatomy/root-context.svelte';
+import RootProvider from '../anatomy/root-provider.svelte';
+import Thumb from '../anatomy/thumb.svelte';
 
 export const Switch = Object.assign(Root, {
 	Provider: RootProvider,

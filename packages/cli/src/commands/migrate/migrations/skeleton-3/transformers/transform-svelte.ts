@@ -1,11 +1,12 @@
-import { type AST, parse } from 'svelte/compiler';
 import type { Node } from 'estree';
-import { walk } from 'zimmerframe';
 import MagicString from 'magic-string';
+import { type AST, parse } from 'svelte/compiler';
+import { walk } from 'zimmerframe';
+
+import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 import { transformClasses } from './transform-classes';
 import { transformModule } from './transform-module';
 import { transformStyleSheet } from './transform-stylesheet';
-import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 
 function renameComponent(s: MagicString, node: AST.Component, name: string) {
 	const adjustedStart = node.start + 1;

@@ -1,4 +1,4 @@
-import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
 import fs from 'fs/promises';
 import path from 'path';
 
