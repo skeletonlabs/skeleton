@@ -1,15 +1,16 @@
 <script lang="ts" module>
-	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface TooltipPositionerProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps, portal } from '@zag-js/svelte';
 	import { classesTooltip } from '@skeletonlabs/skeleton-common';
-	import { TooltipRootContext } from '../modules/root-context';
+	import { mergeProps, portal } from '@zag-js/svelte';
 	import { createAttachmentKey, fromAction } from 'svelte/attachments';
+
+	import { TooltipRootContext } from '../modules/root-context';
 
 	const props: TooltipPositionerProps = $props();
 
@@ -20,8 +21,8 @@
 	const attributes = $derived(
 		mergeProps(tooltip().getPositionerProps(), rest, {
 			class: classesTooltip.positioner,
-			[createAttachmentKey()]: fromAction(portal, () => undefined)
-		})
+			[createAttachmentKey()]: fromAction(portal, () => undefined),
+		}),
 	);
 </script>
 

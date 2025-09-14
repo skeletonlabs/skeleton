@@ -1,5 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
+
 	import type { useTooltip } from '../modules/use-tooltip.svelte';
 
 	export interface TooltipRootContextProps {

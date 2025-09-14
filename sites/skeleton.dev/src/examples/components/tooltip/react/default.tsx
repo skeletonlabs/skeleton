@@ -1,6 +1,6 @@
 import { Tooltip } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Default() {
 	return (
 		<Tooltip>
 			<Tooltip.Trigger className="btn preset-filled">Trigger</Tooltip.Trigger>

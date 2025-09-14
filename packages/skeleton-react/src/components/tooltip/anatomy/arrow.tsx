@@ -1,14 +1,16 @@
-import { useContext, type CSSProperties } from 'react';
-import { mergeProps } from '@zag-js/react';
-import { TooltipRootContext } from '../modules/root-context';
 import { classesTooltip } from '@skeletonlabs/skeleton-common';
-import type { PropsWithElement } from '@/internal/props-with-element';
+import { mergeProps } from '@zag-js/react';
+import { type CSSProperties, use } from 'react';
+
 import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+
+import { TooltipRootContext } from '../modules/root-context';
 
 export interface TooltipArrowProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function (props: TooltipArrowProps) {
-	const tooltip = useContext(TooltipRootContext);
+export default function Arrow(props: TooltipArrowProps) {
+	const tooltip = use(TooltipRootContext);
 
 	const { element, children, ...rest } = props;
 
@@ -16,8 +18,8 @@ export default function (props: TooltipArrowProps) {
 		className: classesTooltip.arrow,
 		style: {
 			'--arrow-size': 'calc(var(--spacing) * 2)',
-			'--arrow-background': 'var(--color-surface-100-900)'
-		} as CSSProperties
+			'--arrow-background': 'var(--color-surface-100-900)',
+		} as CSSProperties,
 	});
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;

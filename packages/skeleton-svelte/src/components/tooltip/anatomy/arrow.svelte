@@ -1,13 +1,14 @@
 <script lang="ts" module>
-	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface TooltipArrowProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesTooltip } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { TooltipRootContext } from '../modules/root-context';
 
 	const props: TooltipArrowProps = $props();
@@ -19,8 +20,8 @@
 	const attributes = $derived(
 		mergeProps(tooltip().getArrowProps(), rest, {
 			class: classesTooltip.arrow,
-			style: '--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);'
-		})
+			style: '--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);',
+		}),
 	);
 </script>
 

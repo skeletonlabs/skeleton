@@ -1,10 +1,10 @@
-export { Tooltip } from './modules/anatomy';
-export { useTooltip } from './modules/use-tooltip';
-export type { TooltipRootProps } from './anatomy/root';
-export type { TooltipRootProviderProps } from './anatomy/root-provider';
-export type { TooltipRootContextProps } from './anatomy/root-context';
-export type { TooltipTriggerProps } from './anatomy/trigger';
-export type { TooltipPositionerProps } from './anatomy/positioner';
-export type { TooltipContentProps } from './anatomy/content';
 export type { TooltipArrowProps } from './anatomy/arrow';
 export type { TooltipArrowTipProps } from './anatomy/arrow-tip';
+export type { TooltipContentProps } from './anatomy/content';
+export type { TooltipPositionerProps } from './anatomy/positioner';
+export type { TooltipRootProps } from './anatomy/root';
+export type { TooltipRootContextProps } from './anatomy/root-context';
+export type { TooltipRootProviderProps } from './anatomy/root-provider';
+export type { TooltipTriggerProps } from './anatomy/trigger';
+export { Tooltip } from './modules/anatomy';
+export { useTooltip } from './modules/use-tooltip';

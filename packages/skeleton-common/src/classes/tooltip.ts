@@ -5,5 +5,5 @@ export const classesTooltip = defineSkeletonClasses({
 	positioner: '',
 	content: '',
 	arrow: '',
-	arrowTip: ''
+	arrowTip: '',
 });
