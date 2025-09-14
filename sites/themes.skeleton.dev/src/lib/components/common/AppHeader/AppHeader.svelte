@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Logo from '$lib/components/common/Logo/Logo.svelte';
+	import { resolve } from '$app/paths';
 	// Components (common)
 	import Lightswitch from '$lib/components/common/Lightswitch/Lightswitch.svelte';
-	import { resolve } from '$app/paths';
+	import Logo from '$lib/components/common/Logo/Logo.svelte';
 </script>
 
 <header class="sticky top-0 z-10 border-b-[1px] border-surface-500/20 bg-surface-50-950 w-full p-4 py-3 xl:px-10">

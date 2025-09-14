@@ -1,5 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
+
 	import type { useTabs } from '../modules/use-tabs.svelte';
 
 	export interface TabsRootContextProps {

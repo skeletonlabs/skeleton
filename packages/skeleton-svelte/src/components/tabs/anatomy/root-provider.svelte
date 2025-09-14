@@ -1,6 +1,7 @@
 <script lang="ts" module>
-	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
+
 	import type { useTabs } from '../modules/use-tabs.svelte';
 
 	export interface TabsRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
@@ -11,6 +12,7 @@
 <script lang="ts">
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
+
 	import { TabsRootContext } from '../modules/root-context';
 
 	const props: TabsRootProviderProps = $props();
@@ -18,8 +20,8 @@
 
 	const attributes = $derived(
 		mergeProps(tabs().getRootProps(), rest, {
-			class: classesTabs.root
-		})
+			class: classesTabs.root,
+		}),
 	);
 
 	TabsRootContext.provide(() => tabs());

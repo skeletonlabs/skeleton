@@ -1,5 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
+
 	import type { useAvatar } from '../modules/use-avatar.svelte';
 
 	export interface AvatarRootContextProps {

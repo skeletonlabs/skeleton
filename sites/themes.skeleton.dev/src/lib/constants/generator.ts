@@ -18,7 +18,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		anchor: 'text-primary-500 dark:text-primary-500',
 		hover: 'hover:preset-tonal-primary',
 		gradient: 'to-primary-500',
-		contrast: 'text-primary-contrast-500 dark:text-primary-contrast-500'
+		contrast: 'text-primary-contrast-500 dark:text-primary-contrast-500',
 	},
 	secondary: {
 		prop: '--color-secondary-500',
@@ -29,7 +29,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		anchor: 'text-secondary-500 dark:text-secondary-500',
 		hover: 'hover:preset-tonal-secondary',
 		gradient: 'to-secondary-500',
-		contrast: 'text-secondary-contrast-500 dark:text-secondary-contrast-500'
+		contrast: 'text-secondary-contrast-500 dark:text-secondary-contrast-500',
 	},
 	tertiary: {
 		prop: '--color-tertiary-500',
@@ -40,7 +40,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		anchor: 'text-tertiary-500 dark:text-tertiary-500',
 		hover: 'hover:preset-tonal-tertiary',
 		gradient: 'to-tertiary-500',
-		contrast: 'text-tertiary-contrast-500 dark:text-tertiary-contrast-500'
+		contrast: 'text-tertiary-contrast-500 dark:text-tertiary-contrast-500',
 	},
 	success: {
 		prop: '--color-success-500',
@@ -51,7 +51,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		anchor: 'text-success-500 dark:text-success-500',
 		hover: 'hover:preset-tonal-success',
 		gradient: 'to-success-500',
-		contrast: 'text-success-contrast-500 dark:text-success-contrast-500'
+		contrast: 'text-success-contrast-500 dark:text-success-contrast-500',
 	},
 	warning: {
 		prop: '--color-warning-500',
@@ -62,7 +62,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		anchor: 'text-warning-500 dark:text-warning-500',
 		hover: 'hover:preset-tonal-warning',
 		gradient: 'to-warning-500',
-		contrast: 'text-warning-contrast-500 dark:text-warning-contrast-500'
+		contrast: 'text-warning-contrast-500 dark:text-warning-contrast-500',
 	},
 	error: {
 		prop: '--color-error-500',
@@ -73,7 +73,7 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		anchor: 'text-error-500 dark:text-error-500',
 		hover: 'hover:preset-tonal-error',
 		gradient: 'to-error-500',
-		contrast: 'text-error-contrast-500 dark:text-error-contrast-500'
+		contrast: 'text-error-contrast-500 dark:text-error-contrast-500',
 	},
 	surface: {
 		prop: '--color-surface-500',
@@ -84,8 +84,8 @@ export const previewPresets: Record<string, Record<string, string>> = {
 		anchor: 'text-surface-500 dark:text-surface-500',
 		hover: 'hover:preset-tonal-surface',
 		gradient: 'to-surface-500',
-		contrast: 'text-surface-contrast-500 dark:text-surface-contrast-500'
-	}
+		contrast: 'text-surface-contrast-500 dark:text-surface-contrast-500',
+	},
 };
 
 // Typography ---
@@ -99,7 +99,7 @@ export const typographicScales = [
 	{ value: '1.333', label: 'Perfect Fourth' },
 	{ value: '1.414', label: 'Augmented Fourth' },
 	{ value: '1.5', label: 'Perfect Fifth' },
-	{ value: '1.618', label: 'Golden Ratio' }
+	{ value: '1.618', label: 'Golden Ratio' },
 ] as const;
 
 export const fontFamilies: string[] = [
@@ -120,7 +120,7 @@ export const fontFamilies: string[] = [
 	`'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif`, // Removed Rockwell
 	`Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif`,
 	`Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif`,
-	`'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive`
+	`'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive`,
 ] as const;
 
 export const fontSizes = [
@@ -130,7 +130,7 @@ export const fontSizes = [
 	'16px', // '1rem',
 	'18px', // '1.125rem',
 	'20px', // '1.25rem',
-	'24px' // '1.5rem'
+	'24px', // '1.5rem'
 ] as const;
 
 export const lineHeights = [
@@ -140,7 +140,7 @@ export const lineHeights = [
 	'24px', // '1.5rem',
 	'28px', // '1.75rem',
 	'32px', // '2rem',
-	'36px' // '2.25rem,
+	'36px', // '2.25rem,
 ] as const;
 
 export const fontWeights = [
@@ -157,7 +157,7 @@ export const fontWeights = [
 	'600',
 	'700',
 	'800',
-	'900'
+	'900',
 ] as const;
 
 export const fontStyles = ['inherit', 'normal', 'italic'];

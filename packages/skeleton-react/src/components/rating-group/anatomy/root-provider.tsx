@@ -1,19 +1,21 @@
-import { mergeProps } from '@zag-js/react';
 import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
-import { RatingGroupRootContext } from '../modules/root-context';
-import type { PropsWithElement } from '@/internal/props-with-element';
+import { mergeProps } from '@zag-js/react';
+
 import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+
+import { RatingGroupRootContext } from '../modules/root-context';
 import type { useRatingGroup } from '../modules/use-rating-group';
 
 export interface RatingGroupRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
 	value: ReturnType<typeof useRatingGroup>;
 }
 
-export default function (props: RatingGroupRootProviderProps) {
+export default function RatingGroupRootProvider(props: RatingGroupRootProviderProps) {
 	const { element, children, value: ratingGroup, ...rest } = props;
 
 	const attributes = mergeProps(ratingGroup.getRootProps(), rest, {
-		className: classesRatingGroup.root
+		className: classesRatingGroup.root,
 	});
 
 	return (

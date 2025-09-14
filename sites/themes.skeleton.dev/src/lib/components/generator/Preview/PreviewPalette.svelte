@@ -17,8 +17,8 @@
 				{ value: 700, base: 'bg-primary-700', contrast: 'text-primary-contrast-700' },
 				{ value: 800, base: 'bg-primary-800', contrast: 'text-primary-contrast-800' },
 				{ value: 900, base: 'bg-primary-900', contrast: 'text-primary-contrast-900' },
-				{ value: 950, base: 'bg-primary-950', contrast: 'text-primary-contrast-950' }
-			]
+				{ value: 950, base: 'bg-primary-950', contrast: 'text-primary-contrast-950' },
+			],
 		},
 		{
 			name: 'Secondary',
@@ -33,8 +33,8 @@
 				{ value: 700, base: 'bg-secondary-700', contrast: 'text-secondary-contrast-700' },
 				{ value: 800, base: 'bg-secondary-800', contrast: 'text-secondary-contrast-800' },
 				{ value: 900, base: 'bg-secondary-900', contrast: 'text-secondary-contrast-900' },
-				{ value: 950, base: 'bg-secondary-950', contrast: 'text-secondary-contrast-950' }
-			]
+				{ value: 950, base: 'bg-secondary-950', contrast: 'text-secondary-contrast-950' },
+			],
 		},
 		{
 			name: 'Tertiary',
@@ -49,8 +49,8 @@
 				{ value: 700, base: 'bg-tertiary-700', contrast: 'text-tertiary-contrast-700' },
 				{ value: 800, base: 'bg-tertiary-800', contrast: 'text-tertiary-contrast-800' },
 				{ value: 900, base: 'bg-tertiary-900', contrast: 'text-tertiary-contrast-900' },
-				{ value: 950, base: 'bg-tertiary-950', contrast: 'text-tertiary-contrast-950' }
-			]
+				{ value: 950, base: 'bg-tertiary-950', contrast: 'text-tertiary-contrast-950' },
+			],
 		},
 		{
 			name: 'Success',
@@ -65,8 +65,8 @@
 				{ value: 700, base: 'bg-success-700', contrast: 'text-success-contrast-700' },
 				{ value: 800, base: 'bg-success-800', contrast: 'text-success-contrast-800' },
 				{ value: 900, base: 'bg-success-900', contrast: 'text-success-contrast-900' },
-				{ value: 950, base: 'bg-success-950', contrast: 'text-success-contrast-950' }
-			]
+				{ value: 950, base: 'bg-success-950', contrast: 'text-success-contrast-950' },
+			],
 		},
 		{
 			name: 'Warning',
@@ -81,8 +81,8 @@
 				{ value: 700, base: 'bg-warning-700', contrast: 'text-warning-contrast-700' },
 				{ value: 800, base: 'bg-warning-800', contrast: 'text-warning-contrast-800' },
 				{ value: 900, base: 'bg-warning-900', contrast: 'text-warning-contrast-900' },
-				{ value: 950, base: 'bg-warning-950', contrast: 'text-warning-contrast-950' }
-			]
+				{ value: 950, base: 'bg-warning-950', contrast: 'text-warning-contrast-950' },
+			],
 		},
 		{
 			name: 'Error',
@@ -97,8 +97,8 @@
 				{ value: 700, base: 'bg-error-700', contrast: 'text-error-contrast-700' },
 				{ value: 800, base: 'bg-error-800', contrast: 'text-error-contrast-800' },
 				{ value: 900, base: 'bg-error-900', contrast: 'text-error-contrast-900' },
-				{ value: 950, base: 'bg-error-950', contrast: 'text-error-contrast-950' }
-			]
+				{ value: 950, base: 'bg-error-950', contrast: 'text-error-contrast-950' },
+			],
 		},
 		{
 			name: 'Surface',
@@ -113,9 +113,9 @@
 				{ value: 700, base: 'bg-surface-700', contrast: 'text-surface-contrast-700' },
 				{ value: 800, base: 'bg-surface-800', contrast: 'text-surface-contrast-800' },
 				{ value: 900, base: 'bg-surface-900', contrast: 'text-surface-contrast-900' },
-				{ value: 950, base: 'bg-surface-950', contrast: 'text-surface-contrast-950' }
-			]
-		}
+				{ value: 950, base: 'bg-surface-950', contrast: 'text-surface-contrast-950' },
+			],
+		},
 	];
 </script>
 

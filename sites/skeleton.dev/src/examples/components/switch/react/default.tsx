@@ -1,6 +1,6 @@
 import { Switch } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Default() {
 	return (
 		<Switch>
 			<Switch.Control>

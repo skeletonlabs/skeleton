@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import { ProgressLinear } from '@skeletonlabs/skeleton-react';
+import { useState } from 'react';
 
 export default function Page() {
 	const [value, setValue] = useState<number | null>(25);
