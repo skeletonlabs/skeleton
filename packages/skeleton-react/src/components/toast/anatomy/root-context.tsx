@@ -1,4 +1,4 @@
-import { useContext, type ReactNode } from 'react';
+import { use, type ReactNode } from 'react';
 import { ToastRootContext } from '../modules/root-context';
 import type { Api } from '@zag-js/toast';
 
@@ -7,7 +7,7 @@ export interface ToastRootContextProps {
 }
 
 export default function (props: ToastRootContextProps) {
-	const toast = useContext(ToastRootContext);
+	const toast = use(ToastRootContext);
 
 	const { children } = props;
 

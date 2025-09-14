@@ -1,7 +1,7 @@
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import { splitItemProps, type ItemProps } from '@zag-js/rating-group';
 import { mergeProps } from '@zag-js/react';
-import { useContext, type ReactNode } from 'react';
+import { use, type ReactNode } from 'react';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import { RatingGroupRootContext } from '../modules/root-context';
 import StarEmpty from '@/internal/components/star-empty';
@@ -31,7 +31,7 @@ export interface RatingGroupItemProps extends ItemProps, PropsWithElement<'span'
 }
 
 export default function (props: RatingGroupItemProps) {
-	const ratingGroup = useContext(RatingGroupRootContext);
+	const ratingGroup = use(RatingGroupRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, empty = <StarEmpty />, half = <StarHalf />, full = <StarFull />, ...rest } = componentProps;

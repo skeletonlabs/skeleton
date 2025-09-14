@@ -1,4 +1,4 @@
-import { useContext, useId } from 'react';
+import { use, useId } from 'react';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { classesToast } from '@skeletonlabs/skeleton-common';
 import { ToastRootContext } from '../modules/root-context';
@@ -8,33 +8,33 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 
 export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-	toast: Omit<Options, 'id' | 'parent'>;
+    toast: Omit<Options, 'id' | 'parent'>;
 }
 
 export default function (props: ToastRootProps) {
-	const group = useContext(ToastGroupContext);
+    const group = use(ToastGroupContext);
 
-	const { element, children, toast: toastProps, ...rest } = props;
+    const { element, children, toast: toastProps, ...rest } = props;
 
-	const service = useMachine(machine, {
-		id: useId(),
-		parent: group,
-		...toastProps
-	});
-	const toast = connect(service, normalizeProps);
+    const service = useMachine(machine, {
+        id: useId(),
+        parent: group,
+        ...toastProps
+    });
+    const toast = connect(service, normalizeProps);
 
-	const attributes = mergeProps(toast.getRootProps(), rest, {
-		className: classesToast.root
-	});
+    const attributes = mergeProps(toast.getRootProps(), rest, {
+        className: classesToast.root
+    });
 
-	return (
-		<>
-			<ToastRootContext.Provider value={toast}>
-				<div {...toast.getGhostBeforeProps()}></div>
-				{element ? element(attributes) : <div {...attributes}>{children}</div>}
-				<div {...toast.getGhostAfterProps()}></div>
-			</ToastRootContext.Provider>
-			<style>{`
+    return (
+        <>
+            <ToastRootContext.Provider value={toast}>
+                <div {...toast.getGhostBeforeProps()}></div>
+                {element ? element(attributes) : <div {...attributes}>{children}</div>}
+                <div {...toast.getGhostAfterProps()}></div>
+            </ToastRootContext.Provider>
+            <style>{`
                 [data-part='root'] {
                     translate: var(--x) var(--y);
                     scale: var(--scale);
@@ -58,6 +58,6 @@ export default function (props: ToastRootProps) {
                     transition-timing-function: cubic-bezier(0.06, 0.71, 0.55, 1);
                 }
             `}</style>
-		</>
-	);
+        </>
+    );
 }

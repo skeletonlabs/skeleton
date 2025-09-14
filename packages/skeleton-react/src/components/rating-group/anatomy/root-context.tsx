@@ -1,4 +1,4 @@
-import { useContext, type ReactNode } from 'react';
+import { use, type ReactNode } from 'react';
 import { RatingGroupRootContext } from '../modules/root-context';
 import type { useRatingGroup } from '../modules/use-rating-group';
 
@@ -7,7 +7,7 @@ export interface RatingGroupRootContextProps {
 }
 
 export default function (props: RatingGroupRootContextProps) {
-	const ratingGroup = useContext(RatingGroupRootContext);
+	const ratingGroup = use(RatingGroupRootContext);
 
 	const { children } = props;
 
