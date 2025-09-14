@@ -8,7 +8,7 @@ import type { HTMLAttributes } from '@/internal/html-attributes';
 
 export interface TabsContentProps extends ContentProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function (props: TabsContentProps) {
+export default function TabsContent(props: TabsContentProps) {
 	const tabs = useContext(TabsRootContext);
 
 	const [contentProps, componentProps] = splitContentProps(props);

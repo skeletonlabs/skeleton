@@ -6,7 +6,7 @@ export interface AccordionRootContextProps {
 	children: (accordion: ReturnType<typeof useAccordion>) => ReactNode;
 }
 
-export default function (props: AccordionRootContextProps) {
+export default function RootContext(props: AccordionRootContextProps) {
 	const accordion = useContext(AccordionRootContext);
 
 	const { children } = props;

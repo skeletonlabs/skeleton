@@ -6,7 +6,7 @@ export interface TabsRootContextProps {
 	children: (tabs: ReturnType<typeof useTabs>) => ReactNode;
 }
 
-export default function (props: TabsRootContextProps) {
+export default function RootContext(props: TabsRootContextProps) {
 	const tabs = useContext(TabsRootContext);
 
 	const { children } = props;

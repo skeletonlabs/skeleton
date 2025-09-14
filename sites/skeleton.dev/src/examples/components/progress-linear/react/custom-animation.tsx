@@ -1,15 +1,15 @@
 import { ProgressLinear } from '@skeletonlabs/skeleton-react';
 
-export default function () {
-	return (
-		<>
-			<ProgressLinear value={null}>
-				<ProgressLinear.Track>
-					<ProgressLinear.Range className="my-custom-animation" />
-				</ProgressLinear.Track>
-			</ProgressLinear>
-			{/* Inlining styles like this only works in React 19+. For React 18 and below, add these styles to your global CSS file. */}
-			<style>{`
+export default function CustomAnimation() {
+    return (
+        <>
+            <ProgressLinear value={null}>
+                <ProgressLinear.Track>
+                    <ProgressLinear.Range className="my-custom-animation" />
+                </ProgressLinear.Track>
+            </ProgressLinear>
+            {/* Inlining styles like this only works in React 19+. For React 18 and below, add these styles to your global CSS file. */}
+            <style>{`
                 .my-custom-animation {
                     animation: my-custom-animation 2s ease-in-out infinite;
                 }
@@ -32,6 +32,6 @@ export default function () {
                     }
                 }
             `}</style>
-		</>
-	);
+        </>
+    );
 }

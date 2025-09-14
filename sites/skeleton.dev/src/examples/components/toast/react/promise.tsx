@@ -1,6 +1,6 @@
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Promise_() {
 	const toaster = createToaster({});
 
 	function generatePositiveNumber() {

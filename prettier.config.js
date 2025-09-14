@@ -20,6 +20,5 @@ export default {
 	],
 	printWidth: 140,
 	singleQuote: true,
-	useTabs: true,
-	trailingComma: 'none'
+	useTabs: true
 };

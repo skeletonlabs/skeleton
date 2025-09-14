@@ -63,6 +63,7 @@ catalog:
   eslint-plugin-astro: ^1.3.1
   eslint-plugin-prettier: ^5.5.4
   eslint-plugin-react: ^7.37.5
+  eslint-plugin-react-refresh: 0.4.20
   eslint-plugin-svelte: ^3.12.3
   globals: ^16.4.0
   jsdom: ^26.1.0
