@@ -12,7 +12,6 @@
 		"noUncheckedIndexedAccess": true,
 		"noImplicitOverride": true,
 		"declaration": true,
-		"composite": true,
 		"declarationMap": true,
 		"module": "preserve",
 		"noEmit": true,
@@ -24,5 +23,5 @@
 			"@/*": ["./src/*"]
 		}
 	},
-	"include": ["src"]
+	"include": ["src", "test"]
 }
