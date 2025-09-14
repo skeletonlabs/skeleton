@@ -1,7 +1,8 @@
 packages:
   - packages/*
-  - sites/*
   - playgrounds/*
+  - sites/*
+
 catalog:
   '@astrojs/check': ^0.9.4
   '@astrojs/mdx': ^4.3.4
@@ -29,6 +30,7 @@ catalog:
   '@testing-library/svelte': ^5.2.8
   '@types/chroma-js': ^3.1.1
   '@types/estree': ^1.0.8
+  '@types/node': ^24.4.0
   '@types/react': ^19.1.12
   '@types/react-dom': ^19.1.9
   '@types/semver': ^7.7.0
@@ -42,7 +44,6 @@ catalog:
   '@zag-js/progress': ^1.24.0
   '@zag-js/rating-group': ^1.24.0
   '@zag-js/react': ^1.24.0
-  'vitest': '^3.2.4'
   '@zag-js/svelte': ^1.24.0
   '@zag-js/switch': ^1.24.0
   '@zag-js/tabs': ^1.24.0
@@ -102,6 +103,12 @@ catalog:
   unplugin-macros: ^0.18.1
   unplugin-raw: ^0.6.1
   vite: ^7.1.3
-  vite-plugin-pagefind: ^1.0.6
+  vite-plugin-pagefind: ^1.0.7
+  vitest: ^3.2.4
   zimmerframe: ^1.1.2
-  '@types/node': '^24.3.0'
+
+catalogMode: strict
+
+cleanupUnusedCatalogs: true
+
+engineStrict: true

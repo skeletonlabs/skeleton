@@ -1,40 +1,15 @@
 {
-	"name": "skeleton",
+	"name": "@skeletonlabs/monorepo",
 	"version": "1.0.0",
 	"private": true,
-	"description": "monorepo for @skeletonlabs/skeleton",
-	"keywords": [
-		"cli",
-		"components",
-		"ui",
-		"component",
-		"svelte",
-		"react",
-		"component-library",
-		"ui-components",
-		"ui-framework",
-		"tailwind",
-		"tailwindcss",
-		"components-library",
-		"sveltekit"
-	],
-	"homepage": "https://skeleton.dev/",
-	"bugs": {
-		"url": "https://github.com/skeletonlabs/skeleton/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/skeletonlabs/skeleton.git"
-	},
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
 		"build": "pnpm --recursive build",
 		"build:packages": "pnpm --recursive --filter \"./packages/*\" build",
 		"dev": "pnpm --parallel dev",
-		"dev:docs": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton.dev dev",
+		"dev:docs": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-svelte --filter @skeletonlabs/skeleton-react --filter @skeletonlabs/skeleton-common --filter @skeletonlabs/skeleton.dev dev",
 		"dev:themes": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-themes dev",
-		"dev:core": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/playground-skeleton dev",
 		"dev:svelte": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-svelte --filter @skeletonlabs/skeleton-common --filter @skeletonlabs/playground-skeleton-svelte dev",
 		"dev:react": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-react --filter @skeletonlabs/skeleton-common --filter @skeletonlabs/playground-skeleton-react dev",
 		"test": "pnpm --recursive test",
@@ -65,5 +40,9 @@
 		"prettier-plugin-tailwindcss": "catalog:",
 		"typescript-eslint": "catalog:"
 	},
-	"packageManager": "pnpm@10.12.4"
+	"engines": {
+		"node": ">=22.x.x",
+		"pnpm": ">=10.16.1"
+	},
+	"packageManager": "pnpm@10.16.1"
 }
