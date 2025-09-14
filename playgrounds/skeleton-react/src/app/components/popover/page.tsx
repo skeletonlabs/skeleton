@@ -2,7 +2,7 @@
 
 import { Popover } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Page() {
 	return (
 		<Popover>
 			<Popover.Trigger>Open</Popover.Trigger>

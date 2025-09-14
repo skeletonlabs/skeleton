@@ -1,6 +1,6 @@
 import { Popover } from '@/index';
 
-export default function () {
+export default function PopoverTest() {
 	return (
 		<Popover>
 			<Popover.Trigger data-testid="trigger" />

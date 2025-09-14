@@ -25,6 +25,7 @@
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
 		"@zag-js/file-upload": "catalog:",
+		"@zag-js/popover": "catalog:",
 		"@zag-js/progress": "catalog:",
 		"@zag-js/rating-group": "catalog:",
 		"@zag-js/react": "catalog:",

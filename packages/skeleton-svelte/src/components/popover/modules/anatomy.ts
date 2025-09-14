@@ -1,14 +1,14 @@
-import Root from '../anatomy/root.svelte';
-import RootProvider from '../anatomy/root-provider.svelte';
-import RootContext from '../anatomy/root-context.svelte';
-import Trigger from '../anatomy/trigger.svelte';
-import Positioner from '../anatomy/positioner.svelte';
-import Content from '../anatomy/content.svelte';
 import Arrow from '../anatomy/arrow.svelte';
 import ArrowTip from '../anatomy/arrow-tip.svelte';
-import Title from '../anatomy/title.svelte';
-import Description from '../anatomy/description.svelte';
 import CloseTrigger from '../anatomy/close-trigger.svelte';
+import Content from '../anatomy/content.svelte';
+import Description from '../anatomy/description.svelte';
+import Positioner from '../anatomy/positioner.svelte';
+import Root from '../anatomy/root.svelte';
+import RootContext from '../anatomy/root-context.svelte';
+import RootProvider from '../anatomy/root-provider.svelte';
+import Title from '../anatomy/title.svelte';
+import Trigger from '../anatomy/trigger.svelte';
 
 export const Popover = Object.assign(Root, {
 	Provider: RootProvider,
@@ -20,5 +20,5 @@ export const Popover = Object.assign(Root, {
 	ArrowTip: ArrowTip,
 	Title: Title,
 	Description: Description,
-	CloseTrigger: CloseTrigger
+	CloseTrigger: CloseTrigger,
 });

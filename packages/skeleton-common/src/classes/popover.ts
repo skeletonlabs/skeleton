@@ -8,5 +8,5 @@ export const classesPopover = defineSkeletonClasses({
 	arrowTip: '',
 	title: '',
 	description: '',
-	closeTrigger: ''
+	closeTrigger: '',
 });

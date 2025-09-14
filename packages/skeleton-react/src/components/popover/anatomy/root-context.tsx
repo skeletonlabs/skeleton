@@ -1,4 +1,5 @@
-import { useContext, type ReactNode } from 'react';
+import { type ReactNode, use } from 'react';
+
 import { PopoverRootContext } from '../modules/root-context';
 import type { usePopover } from '../modules/use-popover';
 
@@ -6,8 +7,8 @@ export interface PopoverRootContextProps {
 	children: (popover: ReturnType<typeof usePopover>) => ReactNode;
 }
 
-export default function (props: PopoverRootContextProps) {
-	const popover = useContext(PopoverRootContext);
+export default function RootContext(props: PopoverRootContextProps) {
+	const popover = use(PopoverRootContext);
 
 	const { children } = props;
 

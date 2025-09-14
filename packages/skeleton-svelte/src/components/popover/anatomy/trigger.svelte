@@ -1,13 +1,14 @@
 <script lang="ts" module>
-	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface PopoverTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { PopoverRootContext } from '../modules/root-context';
 
 	const props: PopoverTriggerProps = $props();
@@ -18,8 +19,8 @@
 
 	const attributes = $derived(
 		mergeProps(popover().getTriggerProps(), rest, {
-			class: classesPopover.trigger
-		})
+			class: classesPopover.trigger,
+		}),
 	);
 </script>
 
