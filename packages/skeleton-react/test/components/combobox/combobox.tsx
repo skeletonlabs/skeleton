@@ -1,6 +1,6 @@
 import { Combobox } from '@/index';
 
-export default function () {
+export default function ComboboxTest() {
 	return (
 		<Combobox data-testid="root">
 			<Combobox.Label data-testid="label" />

@@ -7,43 +7,43 @@ const data = [
 	{
 		label: 'Apple',
 		value: 'apple',
-		type: 'Fruits'
+		type: 'Fruits',
 	},
 	{
 		label: 'Banana',
 		value: 'banana',
-		type: 'Fruits'
+		type: 'Fruits',
 	},
 	{
 		label: 'Orange',
 		value: 'orange',
-		type: 'Fruits'
+		type: 'Fruits',
 	},
 	{
 		label: 'Carrot',
 		value: 'carrot',
-		type: 'Vegetables'
+		type: 'Vegetables',
 	},
 	{
 		label: 'Broccoli',
 		value: 'broccoli',
-		type: 'Vegetables'
+		type: 'Vegetables',
 	},
 	{
 		label: 'Spinach',
 		value: 'spinach',
-		type: 'Vegetables'
-	}
+		type: 'Vegetables',
+	},
 ];
 
-export default function () {
+export default function Page() {
 	const [items, setItems] = useState(data);
 
 	const collection = useListCollection({
 		items: items,
 		itemToString: (item) => item.label,
 		itemToValue: (item) => item.value,
-		groupBy: (item) => item.type
+		groupBy: (item) => item.type,
 	});
 
 	const onOpenChange = () => {

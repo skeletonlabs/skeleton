@@ -1,5 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
+
 	import type { useCombobox } from '../modules/use-combobox.svelte';
 
 	export interface ComboboxRootContextProps {

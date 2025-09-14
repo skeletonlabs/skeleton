@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface ComboboxItemGroupLabelProps
 		extends Omit<ItemGroupLabelProps, 'htmlFor'>,
@@ -9,11 +9,12 @@
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
-	import { ComboboxRootContext } from '../modules/root-context';
+	import { type ItemGroupLabelProps, splitItemGroupLabelProps } from '@zag-js/combobox';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { ComboboxItemGroupContext } from '../modules/item-group-context';
-	import { splitItemGroupLabelProps, type ItemGroupLabelProps } from '@zag-js/combobox';
+	import { ComboboxRootContext } from '../modules/root-context';
 
 	const props: ComboboxItemGroupLabelProps = $props();
 
@@ -23,15 +24,15 @@
 	const [itemGroupLabelProps] = $derived(
 		splitItemGroupLabelProps({
 			htmlFor: itemGroupProps().id,
-			...props
-		})
+			...props,
+		}),
 	);
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(combobox().getItemGroupLabelProps(itemGroupLabelProps), rest, {
-			class: classesCombobox.itemGroupLabel
-		})
+			class: classesCombobox.itemGroupLabel,
+		}),
 	);
 </script>
 

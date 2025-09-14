@@ -10,5 +10,5 @@ export const classesCombobox = defineSkeletonClasses({
 	content: 'bg-surface-100-900 p-2 rounded-container flex flex-col gap-2',
 	itemGroup: 'flex flex-col gap-1',
 	itemGroupLabel: '',
-	item: 'data-highlighted:preset-filled-primary-500 data-[state=checked]:preset-filled-primary-500 px-2 py-1 rounded'
+	item: 'data-highlighted:preset-filled-primary-500 data-[state=checked]:preset-filled-primary-500 px-2 py-1 rounded',
 });

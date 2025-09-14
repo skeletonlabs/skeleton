@@ -1,9 +1,11 @@
-import { mergeProps } from '@zag-js/react';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
+import { mergeProps } from '@zag-js/react';
+
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+
 import { ComboboxRootContext } from '../modules/root-context';
 import { useCombobox } from '../modules/use-combobox';
-import type { PropsWithElement } from '@/internal/props-with-element';
-import type { HTMLAttributes } from '@/internal/html-attributes';
 
 export interface ComboboxRootProviderProps
 	extends PropsWithElement<'div'>,
@@ -11,11 +13,11 @@ export interface ComboboxRootProviderProps
 	value: ReturnType<typeof useCombobox>;
 }
 
-export default function (props: ComboboxRootProviderProps) {
+export default function RootProvider(props: ComboboxRootProviderProps) {
 	const { element, children, value: combobox, ...rest } = props;
 
 	const attributes = mergeProps(combobox.getRootProps(), rest, {
-		className: classesCombobox.root
+		className: classesCombobox.root,
 	});
 
 	return (

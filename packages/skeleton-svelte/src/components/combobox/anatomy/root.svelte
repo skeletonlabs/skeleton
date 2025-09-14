@@ -1,7 +1,8 @@
 <script lang="ts" module>
+	import type { Props } from '@zag-js/combobox';
+
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { Props } from '@zag-js/combobox';
 
 	export interface ComboboxRootProps
 		extends Omit<Props, 'id'>,
@@ -10,10 +11,11 @@
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
-	import { ComboboxRootContext } from '../modules/root-context';
 	import { splitProps } from '@zag-js/combobox';
+	import { mergeProps } from '@zag-js/svelte';
+
+	import { ComboboxRootContext } from '../modules/root-context';
 	import { useCombobox } from '../modules/use-combobox.svelte';
 
 	const props: ComboboxRootProps = $props();
@@ -23,13 +25,13 @@
 	const id = $props.id();
 	const combobox = useCombobox(() => ({
 		id: id,
-		...comboboxProps
+		...comboboxProps,
 	}));
 
 	const attributes = $derived(
 		mergeProps(combobox().getRootProps(), rest, {
-			class: classesCombobox.root
-		})
+			class: classesCombobox.root,
+		}),
 	);
 
 	ComboboxRootContext.provide(() => combobox());
