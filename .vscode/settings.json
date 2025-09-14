@@ -1,8 +1,20 @@
 {
 	"editor.formatOnSave": true,
 	"eslint.enable": true,
+	"svelte.enable-ts-plugin": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll": "explicit"
 	},
-	"tailwindCSS.experimental.classRegex": ["(?:class|className):\\s*['\"]([^'\"]*)['\"]"]
+	"editor.quickSuggestions": {
+		"strings": "on"
+	},
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"tailwindCSS.includeLanguages": {
+		"html": "html",
+		"javascript": "javascript",
+		"typescript": "javascript",
+		"css": "css"
+	}
 }
