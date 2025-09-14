@@ -7,6 +7,9 @@ export const components = componentSet;
 import Default from '@examples/components/file-upload/react/default';
 import DefaultRaw from '@examples/components/file-upload/react/default?raw';
 
+import Disabled from '@examples/components/file-upload/react/disabled';
+import DisabledRaw from '@examples/components/file-upload/react/disabled?raw';
+
 import ClearFiles from '@examples/components/file-upload/react/clear-files';
 import ClearFilesRaw from '@examples/components/file-upload/react/clear-files?raw';
 
@@ -16,6 +19,17 @@ import ClearFilesRaw from '@examples/components/file-upload/react/clear-files?ra
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

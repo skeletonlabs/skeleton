@@ -7,6 +7,9 @@ export const components = componentSet;
 import Default from '@examples/components/file-upload/svelte/default.svelte';
 import DefaultRaw from '@examples/components/file-upload/svelte/default.svelte?raw';
 
+import Disabled from '@examples/components/file-upload/svelte/disabled.svelte';
+import DisabledRaw from '@examples/components/file-upload/svelte/disabled.svelte?raw';
+
 import ClearFiles from '@examples/components/file-upload/svelte/clear-files.svelte';
 import ClearFilesRaw from '@examples/components/file-upload/svelte/clear-files.svelte?raw';
 
@@ -16,6 +19,17 @@ import ClearFilesRaw from '@examples/components/file-upload/svelte/clear-files.s
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
