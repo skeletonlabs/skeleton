@@ -6,10 +6,11 @@
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
-	import { AccordionRootContext } from '../modules/root-context';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { AccordionItemContext } from '../modules/item-context';
+	import { AccordionRootContext } from '../modules/root-context';
 
 	const props: AccordionTriggerProps = $props();
 
@@ -20,8 +21,8 @@
 
 	const attributes = $derived(
 		mergeProps(accordion().getItemTriggerProps(itemProps()), rest, {
-			class: classesAccordion.trigger
-		})
+			class: classesAccordion.trigger,
+		}),
 	);
 </script>
 

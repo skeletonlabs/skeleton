@@ -1,8 +1,8 @@
 'use client';
 
 import { Switch } from '@skeletonlabs/skeleton-react';
-import { Sun, Moon } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Moon, Sun } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function LightSwitch() {
 	const [checked, setChecked] = useState(false);
@@ -26,7 +26,7 @@ export default function LightSwitch() {
 					__html: `
 		const mode = localStorage.getItem('mode') || 'light';
 		document.documentElement.setAttribute('data-mode', mode);
-          `
+          `,
 				}}
 			/>
 			<Switch checked={checked} onCheckedChange={onCheckedChange}>

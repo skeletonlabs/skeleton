@@ -1,5 +1,5 @@
-import { connect, machine, type Api, type Props } from '@zag-js/rating-group';
-import { useMachine, normalizeProps } from '@zag-js/svelte';
+import { type Api, connect, machine, type Props } from '@zag-js/rating-group';
+import { normalizeProps, useMachine } from '@zag-js/svelte';
 
 export function useRatingGroup(props: Props | (() => Props)): () => Api {
 	const service = useMachine(machine, props);

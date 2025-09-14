@@ -1,19 +1,21 @@
-import { mergeProps } from '@zag-js/react';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
-import { AccordionRootContext } from '../modules/root-context';
-import type { PropsWithElement } from '@/internal/props-with-element';
+import { mergeProps } from '@zag-js/react';
+
 import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+
+import { AccordionRootContext } from '../modules/root-context';
 import type { useAccordion } from '../modules/use-accordion';
 
 export interface AccordionRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
 	value: ReturnType<typeof useAccordion>;
 }
 
-export default function (props: AccordionRootProviderProps) {
+export default function AccordionRootProvider(props: AccordionRootProviderProps) {
 	const { element, children, value: accordion, ...rest } = props;
 
 	const attributes = mergeProps(accordion.getRootProps(), rest, {
-		className: classesAccordion.root
+		className: classesAccordion.root,
 	});
 
 	return (

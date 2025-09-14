@@ -1,15 +1,17 @@
 <script lang="ts" module>
 	import type { Props } from '@zag-js/rating-group';
-	import type { PropsWithElement } from '@/internal/props-with-element';
+
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface RatingGroupRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
-	import { splitProps } from '@zag-js/rating-group';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
+	import { splitProps } from '@zag-js/rating-group';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { RatingGroupRootContext } from '../modules/root-context';
 	import { useRatingGroup } from '../modules/use-rating-group.svelte';
 
@@ -21,13 +23,13 @@
 	const id = $props.id();
 	const ratingGroup = useRatingGroup(() => ({
 		id: id,
-		...ratingGroupProps
+		...ratingGroupProps,
 	}));
 
 	const attributes = $derived(
 		mergeProps(ratingGroup().getRootProps(), rest, {
-			class: classesRatingGroup.root
-		})
+			class: classesRatingGroup.root,
+		}),
 	);
 
 	RatingGroupRootContext.provide(() => ratingGroup());

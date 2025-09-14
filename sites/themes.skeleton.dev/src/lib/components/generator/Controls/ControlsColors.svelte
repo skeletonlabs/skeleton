@@ -1,10 +1,11 @@
 <script lang="ts">
 	// Constants
+	// Icons
+	import IconClear from '@lucide/svelte/icons/eraser';
+
 	import * as constants from '$lib/constants/generator';
 	// Utils
 	import { seedColor } from '$lib/utils/generator/colors';
-	// Icons
-	import IconClear from '@lucide/svelte/icons/eraser';
 
 	// Types
 	// interface ColorSelection {
@@ -34,7 +35,7 @@
 	function onClearPalette() {
 		if (
 			confirm(
-				'This will reset each color palette to neutral tones. This can be useful when starting a brand new theme. All current color changes will be lost, are you sure you wish to continue?'
+				'This will reset each color palette to neutral tones. This can be useful when starting a brand new theme. All current color changes will be lost, are you sure you wish to continue?',
 			)
 		) {
 			constants.colorNames.forEach((colorName) => seedColor(colorName, '#CCCCCC'));

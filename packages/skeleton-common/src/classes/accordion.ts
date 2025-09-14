@@ -6,5 +6,5 @@ export const classesAccordion = defineSkeletonClasses({
 	heading: '',
 	trigger: 'w-full grid items-center gap-4 py-2 px-4 rounded-base text-left hover:preset-tonal-primary',
 	item: 'grid gap-2',
-	indicator: ''
+	indicator: '',
 });

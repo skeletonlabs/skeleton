@@ -6,12 +6,12 @@ export const classesToast = defineSkeletonClasses({
 		'data-[type=info]:preset-filled-surface-50-950 data-[type=info]:ring-surface-200-800',
 		'data-[type=success]:preset-filled-success-500',
 		'data-[type=warning]:preset-filled-warning-500',
-		'data-[type=error]:preset-filled-error-500'
+		'data-[type=error]:preset-filled-error-500',
 	],
 	group: '',
 	message: 'flex-1',
 	title: 'font-medium text-sm',
 	description: 'text-sm',
 	actionTrigger: 'btn preset-filled',
-	closeTrigger: 'btn-icon hover:preset-tonal'
+	closeTrigger: 'btn-icon hover:preset-tonal',
 });

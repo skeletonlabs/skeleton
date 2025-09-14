@@ -1,9 +1,10 @@
 // Import v2 Theme File
 // Read v2 theme file contents, updates local generator state.
 
-import * as constants from '$lib/constants/generator';
 import chroma from 'chroma-js';
-import { settingsCore, settingsColors } from '$lib/state/generator.svelte';
+
+import * as constants from '$lib/constants/generator';
+import { settingsColors, settingsCore } from '$lib/state/generator.svelte';
 import { genColorRamp } from '$lib/utils/generator/colors';
 
 export async function importThemeV2(fileText: string, fileName: string) {
@@ -45,7 +46,7 @@ export async function importThemeV2(fileText: string, fileName: string) {
 			.scale([
 				chroma(`rgb(${properties[`--color-${colorName}-50`].split(' ')})`),
 				chroma(`rgb(${properties[`--color-${colorName}-500`].split(' ')})`),
-				chroma(`rgb(${properties[`--color-${colorName}-900`].split(' ')})`)
+				chroma(`rgb(${properties[`--color-${colorName}-900`].split(' ')})`),
 			])
 			.colors(11);
 		// Update Properties

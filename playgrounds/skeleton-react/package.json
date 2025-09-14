@@ -9,18 +9,18 @@
 	"dependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",
-		"@tailwindcss/forms": "^0.5.10",
-		"@tailwindcss/postcss": "^4.1.12",
-		"lucide-react": "^0.542.0",
-		"next": "15.5.2",
-		"postcss": "^8.5.6",
-		"react": "^19.1.1",
-		"react-dom": "^19.1.1"
+		"@tailwindcss/forms": "catalog:",
+		"@tailwindcss/postcss": "catalog:",
+		"lucide-react": "catalog:",
+		"next": "catalog:",
+		"postcss": "catalog:",
+		"react": "catalog:",
+		"react-dom": "catalog:"
 	},
 	"devDependencies": {
-		"@types/node": "^24.3.0",
-		"@types/react": "^19.1.12",
-		"@types/react-dom": "^19.1.9",
+		"@types/node": "catalog:",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:"
 	}

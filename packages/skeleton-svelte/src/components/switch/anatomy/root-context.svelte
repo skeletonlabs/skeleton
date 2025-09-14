@@ -1,5 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
+
 	import type { useSwitch } from '../modules/use-switch.svelte';
 
 	export interface SwitchRootContextProps {

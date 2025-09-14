@@ -1,5 +1,5 @@
-import { connect, machine, type Api, type Props } from '@zag-js/tabs';
-import { useMachine, normalizeProps } from '@zag-js/svelte';
+import { normalizeProps, useMachine } from '@zag-js/svelte';
+import { type Api, connect, machine, type Props } from '@zag-js/tabs';
 
 export function useTabs(props: Props | (() => Props)): () => Api {
 	const service = useMachine(machine, props);

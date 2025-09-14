@@ -1,6 +1,6 @@
 import { RatingGroup } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Rtl() {
 	return (
 		<RatingGroup count={5}>
 			<RatingGroup.Control>

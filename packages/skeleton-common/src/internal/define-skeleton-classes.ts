@@ -17,6 +17,6 @@ export function defineSkeletonClasses<T extends Record<string, string | string[]
 				.join(' ');
 
 			return [key, transformed];
-		})
+		}),
 	) as { [K in keyof T]: string };
 }

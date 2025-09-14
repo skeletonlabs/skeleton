@@ -1,71 +1,56 @@
 import javascript from '@eslint/js';
-import typescript from 'typescript-eslint';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import astro from 'eslint-plugin-astro';
-import svelte from 'eslint-plugin-svelte';
-import react from 'eslint-plugin-react';
-import globals from 'globals';
 import prettier from 'eslint-plugin-prettier/recommended';
+import react from 'eslint-plugin-react';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import svelte from 'eslint-plugin-svelte';
+import globals from 'globals';
+import typescript from 'typescript-eslint';
 
-/**
- * @see https://eslint.org/docs/latest/use/configure/
- * @type {import('eslint').Linter.Config}
- */
-export default typescript.config(
-	/**
-	 * Ignore
-	 */
-	{
-		ignores: [
-			'**/node_modules/',
-			'**/dist/',
-			'**/build/',
-			'**/pagefind/',
-			'**/.svelte-kit/',
-			'**/.astro/',
-			'**/.next/',
-			'**/.vercel/',
-			'**/next-env.d.ts'
-		]
-	},
-	/**
-	 * Prettier
-	 */
+export default defineConfig(
+	globalIgnores([
+		'**/node_modules/',
+		'**/dist/',
+		'**/build/',
+		'**/pagefind/',
+		'**/.svelte-kit/',
+		'**/.astro/',
+		'**/.next/',
+		'**/.vercel/',
+		'**/next-env.d.ts',
+	]),
 	prettier,
-	/**
-	 * Javascript
-	 */
 	javascript.configs.recommended,
-	/**
-	 * Typescript
-	 */
 	typescript.configs.recommended,
-	/**
-	 * Astro
-	 */
+	svelte.configs.recommended,
 	astro.configs.recommended,
-	/**
-	 * Svelte
-	 */
-	svelte.configs['flat/recommended'],
 	{
 		files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
 		languageOptions: {
 			parserOptions: {
-				extraFileExtensions: ['.svelte'],
-				parser: typescript.parser
+				parser: typescript.parser,
 			},
 			globals: {
 				...globals.browser,
-				...globals.node
-			}
-		}
+				...globals.node,
+			},
+		},
 	},
-	/**
-	 * React
-	 */
 	{
-		files: ['**/*.tsx', '**/*.jsx'],
+		files: ['**/*.jsx', '**/*.tsx'],
 		...react.configs.flat.recommended,
-		...react.configs.flat['jsx-runtime']
-	}
+		...react.configs.flat['jsx-runtime'],
+		...reactRefresh.configs.recommended,
+	},
+	{
+		plugins: {
+			'simple-import-sort': simpleImportSort,
+		},
+		rules: {
+			'simple-import-sort/imports': 'warn',
+			'simple-import-sort/exports': 'warn',
+		},
+	},
 );
