@@ -1,6 +1,6 @@
 import { FileUpload } from '@/index';
 
-export default function () {
+export default function FileUploadTest() {
 	return (
 		<FileUpload data-testid="root">
 			<FileUpload.Dropzone data-testid="dropzone">

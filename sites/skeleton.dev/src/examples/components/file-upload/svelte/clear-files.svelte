@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-svelte';
 	import X from '@lucide/svelte/icons/x';
+	import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-svelte';
 
 	const fileUpload = useFileUpload({
-		defaultAcceptedFiles: [new File(['file'], 'example.png', { type: 'image/png' })]
+		defaultAcceptedFiles: [new File(['file'], 'example.png', { type: 'image/png' })],
 	});
 </script>
 

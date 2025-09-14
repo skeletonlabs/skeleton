@@ -1,9 +1,9 @@
 import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-react';
 import { X } from 'lucide-react';
 
-export default function () {
+export default function ClearFiles() {
 	const fileUpload = useFileUpload({
-		defaultAcceptedFiles: [new File(['file'], 'example.png', { type: 'image/png' })]
+		defaultAcceptedFiles: [new File(['file'], 'example.png', { type: 'image/png' })],
 	});
 	return (
 		<div className="w-full grid gap-4">

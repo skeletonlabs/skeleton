@@ -1,4 +1,4 @@
-import { connect, machine, type Api, type Props } from '@zag-js/file-upload';
+import { type Api, connect, machine, type Props } from '@zag-js/file-upload';
 import { normalizeProps, useMachine } from '@zag-js/svelte';
 
 export function useFileUpload(props: Props | (() => Props)): () => Api {

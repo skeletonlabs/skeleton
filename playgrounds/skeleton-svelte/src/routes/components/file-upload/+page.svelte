@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-svelte';
 	import X from '@lucide/svelte/icons/x';
+	import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-svelte';
 
 	const id = $props.id();
 	const fileUpload = useFileUpload({ id, disabled: true });

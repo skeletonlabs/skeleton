@@ -7,9 +7,10 @@
 
 <script lang="ts">
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { FileUploadItemContext } from '../modules/item-context';
 	import { FileUploadRootContext } from '../modules/root-context';
-	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemDeleteTriggerProps = $props();
 
@@ -20,8 +21,8 @@
 
 	const attributes = $derived(
 		mergeProps(fileUpload().getItemDeleteTriggerProps(itemProps()), rest, {
-			class: classesFileUpload.itemDeleteTrigger
-		})
+			class: classesFileUpload.itemDeleteTrigger,
+		}),
 	);
 </script>
 

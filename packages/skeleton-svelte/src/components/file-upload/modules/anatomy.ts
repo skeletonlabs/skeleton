@@ -1,14 +1,14 @@
-import Root from '../anatomy/root.svelte';
-import RootProvider from '../anatomy/root-provider.svelte';
-import RootContext from '../anatomy/root-context.svelte';
 import Dropzone from '../anatomy/dropzone.svelte';
-import Trigger from '../anatomy/trigger.svelte';
 import HiddenInput from '../anatomy/hidden-input.svelte';
-import ItemGroup from '../anatomy/item-group.svelte';
 import Item from '../anatomy/item.svelte';
+import ItemDeleteTrigger from '../anatomy/item-delete-trigger.svelte';
+import ItemGroup from '../anatomy/item-group.svelte';
 import ItemName from '../anatomy/item-name.svelte';
 import ItemSizeText from '../anatomy/item-size-text.svelte';
-import ItemDeleteTrigger from '../anatomy/item-delete-trigger.svelte';
+import Root from '../anatomy/root.svelte';
+import RootContext from '../anatomy/root-context.svelte';
+import RootProvider from '../anatomy/root-provider.svelte';
+import Trigger from '../anatomy/trigger.svelte';
 
 export const FileUpload = Object.assign(Root, {
 	Provider: RootProvider,
@@ -20,5 +20,5 @@ export const FileUpload = Object.assign(Root, {
 	Item: Item,
 	ItemName: ItemName,
 	ItemSizeText: ItemSizeText,
-	ItemDeleteTrigger: ItemDeleteTrigger
+	ItemDeleteTrigger: ItemDeleteTrigger,
 });

@@ -7,8 +7,9 @@
 
 <script lang="ts">
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
-	import { FileUploadRootContext } from '../modules/root-context';
 	import { mergeProps } from '@zag-js/svelte';
+
+	import { FileUploadRootContext } from '../modules/root-context';
 
 	const props: FileUploadHiddenInputProps = $props();
 
@@ -18,8 +19,8 @@
 
 	const attributes = $derived(
 		mergeProps(fileUpload().getHiddenInputProps(), rest, {
-			class: classesFileUpload.hiddenInput
-		})
+			class: classesFileUpload.hiddenInput,
+		}),
 	);
 </script>
 

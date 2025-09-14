@@ -1,7 +1,7 @@
 import { FileUpload } from '@skeletonlabs/skeleton-react';
 import { X } from 'lucide-react';
 
-export default function () {
+export default function Default() {
 	return (
 		<FileUpload className="w-full">
 			<FileUpload.Dropzone>
