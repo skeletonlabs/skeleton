@@ -1,5 +1,6 @@
 <script lang="ts" module>
 	import type { Props } from '@zag-js/accordion';
+
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
@@ -7,9 +8,10 @@
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
-	import { splitProps } from '@zag-js/accordion';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
+	import { splitProps } from '@zag-js/accordion';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { AccordionRootContext } from '../modules/root-context';
 	import { useAccordion } from '../modules/use-accordion.svelte';
 
@@ -21,13 +23,13 @@
 	const id = $props.id();
 	const accordion = useAccordion(() => ({
 		id: id,
-		...accordionProps
+		...accordionProps,
 	}));
 
 	const attributes = $derived(
 		mergeProps(accordion().getRootProps(), rest, {
-			class: classesAccordion.root
-		})
+			class: classesAccordion.root,
+		}),
 	);
 
 	AccordionRootContext.provide(() => accordion());

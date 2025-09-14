@@ -1,6 +1,6 @@
 import { Switch } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function List() {
 	return (
 		<div className="grid gap-2 w-full">
 			{['Option 1', 'Option 2', 'Option 3'].map((label, i) => (

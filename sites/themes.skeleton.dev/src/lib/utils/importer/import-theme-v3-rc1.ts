@@ -2,13 +2,14 @@
 // Read v3 RC1 theme file contents, updates local generator state.
 
 import chroma from 'chroma-js';
+
 import {
-	settingsCore,
-	settingsColors,
 	settingsBackgrounds,
-	settingsTypography,
+	settingsColors,
+	settingsCore,
+	settingsEdges,
 	settingsSpacing,
-	settingsEdges
+	settingsTypography,
 } from '$lib/state/generator.svelte';
 
 export async function importThemeV3Rc1(fileText: string, fileName: string) {

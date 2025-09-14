@@ -1,7 +1,7 @@
 import { ProgressLinear } from '@skeletonlabs/skeleton-react';
 import { useState } from 'react';
 
-export default function () {
+export default function Default() {
 	const [value, setValue] = useState<number | null>(75);
 	return (
 		<ProgressLinear value={value} onValueChange={(e) => setValue(e.value)}>

@@ -1,11 +1,12 @@
-import { type AST, parse } from 'svelte/compiler';
 import type { Node } from 'estree';
-import { walk } from 'zimmerframe';
 import MagicString from 'magic-string';
+import { type AST, parse } from 'svelte/compiler';
+import { walk } from 'zimmerframe';
+
+import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 import { transformClasses } from './transform-classes';
 import { transformModule } from './transform-module';
 import { transformStyleSheet } from './transform-stylesheet';
-import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 
 function renameComponent(s: MagicString, node: AST.Component, name: string) {
 	const adjustedStart = node.start + 1;
@@ -30,15 +31,15 @@ function transformScript(s: MagicString, script: AST.Script | null) {
 	) {
 		return {
 			meta: {
-				skeletonImports: []
-			}
+				skeletonImports: [],
+			},
 		};
 	}
 	const content = s.original.slice(script.content.start, script.content.end);
 	const transformed = transformModule(content);
 	s.overwrite(script.content.start, script.content.end, transformed.code);
 	return {
-		meta: transformed.meta
+		meta: transformed.meta,
 	};
 }
 
@@ -90,27 +91,27 @@ function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImpor
 					}
 				}
 				ctx.next();
-			}
-		}
+			},
+		},
 	);
 	return {
-		code: s.toString()
+		code: s.toString(),
 	};
 }
 
 function transformSvelte(code: string) {
 	const s = new MagicString(code);
 	const root = parse(code, {
-		modern: true
+		modern: true,
 	});
 	const skeletonImports = [
 		...transformScript(s, root.module).meta.skeletonImports,
-		...transformScript(s, root.instance).meta.skeletonImports
+		...transformScript(s, root.instance).meta.skeletonImports,
 	];
 	transformFragment(s, root.fragment, skeletonImports);
 	transformCss(s, root.css);
 	return {
-		code: s.toString()
+		code: s.toString(),
 	};
 }
 

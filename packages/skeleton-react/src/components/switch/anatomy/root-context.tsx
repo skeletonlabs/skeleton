@@ -1,4 +1,5 @@
-import { useContext, type ReactNode } from 'react';
+import { type ReactNode, use } from 'react';
+
 import { SwitchRootContext } from '../modules/root-context';
 import type { useSwitch } from '../modules/use-switch';
 
@@ -6,8 +7,8 @@ export interface SwitchRootContextProps {
 	children: (switch_: ReturnType<typeof useSwitch>) => ReactNode;
 }
 
-export default function (props: SwitchRootContextProps) {
-	const switch_ = useContext(SwitchRootContext);
+export default function SwitchRootContextComponent(props: SwitchRootContextProps) {
+	const switch_ = use(SwitchRootContext);
 
 	const { children } = props;
 

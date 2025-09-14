@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Components (generator)
 	import Logo from '$lib/components/common/Logo/Logo.svelte';
-	import Preview from '$lib/components/generator/Preview/Preview.svelte';
 	import Controls from '$lib/components/generator/Controls/Controls.svelte';
+	import Preview from '$lib/components/generator/Preview/Preview.svelte';
 	// Utils
 	import { generatePreviewCss } from '$lib/utils/generator/generate-css';
 </script>

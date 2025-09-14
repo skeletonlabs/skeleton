@@ -1,30 +1,30 @@
 ---
 // Layout
-import LayoutRoot from '@layouts/LayoutRoot.astro';
+import FigmaBuyNow from '@components/docs/FigmaBuyNow.astro';
+import Footer from '@components/docs/Footer.astro';
 // Components
 import Header from '@components/docs/Header.astro';
-import Footer from '@components/docs/Footer.astro';
-import FigmaBuyNow from '@components/docs/FigmaBuyNow.astro';
 import NavGrid from '@components/docs/NavGrid.astro';
-// Images
-import { Image } from 'astro:assets';
 import ImgHeroDark from '@images/get-started/figma/hero-dark.webp';
 import ImgHeroLight from '@images/get-started/figma/hero-light.webp';
 import ImgPlugin from '@images/get-started/figma/plugin.webp';
 import ImgTutorial from '@images/get-started/figma/tutorials.webp';
 import ImgKit from '@images/get-started/figma/ui-kit.webp';
+import LayoutRoot from '@layouts/LayoutRoot.astro';
+// Images
+import { Image } from 'astro:assets';
 // Icons
 import {
 	ChevronRight as IconChevron,
 	Clock3 as IconClock,
+	MessageCircle as IconMessage,
 	Shapes as IconShapes,
 	SwatchBook as IconSwatches,
-	MessageCircle as IconMessage
 } from 'lucide-react';
 
 const layoutProps = {
 	title: 'Figma UI Kit',
-	description: 'Learn more about the Figma UI Kit for Skeleton.'
+	description: 'Learn more about the Figma UI Kit for Skeleton.',
 };
 ---
 

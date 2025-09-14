@@ -20,9 +20,9 @@
 	],
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
-		"tsdown": "^0.14.2",
+		"tsdown": "catalog:",
 		"typescript": "catalog:",
-		"unplugin-macros": "^0.18.1",
-		"unplugin-raw": "^0.6.1"
+		"unplugin-macros": "catalog:",
+		"unplugin-raw": "catalog:"
 	}
 }
