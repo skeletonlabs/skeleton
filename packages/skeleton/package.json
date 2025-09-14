@@ -26,9 +26,9 @@
 		"tailwindcss": "^4.0.0"
 	},
 	"devDependencies": {
-		"sass-embedded": "^1.91.0",
-		"tinyglobby": "^0.2.14",
-		"vite": "^7.1.3"
+		"sass-embedded": "catalog:",
+		"tinyglobby": "catalog:",
+		"vite": "catalog:"
 	},
 	"type": "module",
 	"license": "MIT"

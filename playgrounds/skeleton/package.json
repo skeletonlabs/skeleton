@@ -9,9 +9,9 @@
 	},
 	"dependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
-		"@tailwindcss/forms": "^0.5.10",
-		"@tailwindcss/vite": "^4.1.12",
-		"astro": "^5.13.5",
+		"@tailwindcss/forms": "catalog:",
+		"@tailwindcss/vite": "catalog:",
+		"astro": "catalog:",
 		"tailwindcss": "catalog:"
 	}
 }
