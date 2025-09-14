@@ -5,7 +5,7 @@ import type { HTMLAttributes } from '@/internal/html-attributes';
 import { TabsRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface TabsIndicatorProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
+export interface TabsIndicatorProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> { }
 
 export default function TabsIndicator(props: TabsIndicatorProps) {
 	const tabs = useContext(TabsRootContext);
