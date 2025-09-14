@@ -1,13 +1,15 @@
 <script lang="ts" module>
 	import type { Props } from '@zag-js/dialog';
+
 	import type { PropsWithChildren } from '@/internal/props-with-children';
 
 	export interface DialogRootProps extends Omit<Props, 'id'>, PropsWithChildren {}
 </script>
 
 <script lang="ts">
-	import { DialogRootContext } from '../modules/root-context';
 	import { splitProps } from '@zag-js/dialog';
+
+	import { DialogRootContext } from '../modules/root-context';
 	import { useDialog } from '../modules/use-dialog.svelte';
 
 	const props: DialogRootProps = $props();
@@ -18,7 +20,7 @@
 	const id = $props.id();
 	const dialog = useDialog(() => ({
 		id: id,
-		...machineProps
+		...machineProps,
 	}));
 
 	DialogRootContext.provide(() => dialog());

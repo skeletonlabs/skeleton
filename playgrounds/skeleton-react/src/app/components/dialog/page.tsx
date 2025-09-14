@@ -2,7 +2,7 @@
 
 import { Dialog } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Page() {
 	return (
 		<Dialog>
 			<Dialog.Trigger>Open Dialog</Dialog.Trigger>

@@ -1,13 +1,13 @@
-import Root from '../anatomy/root';
-import RootProvider from '../anatomy/root-provider';
-import RootContext from '../anatomy/root-context';
-import Trigger from '../anatomy/trigger';
 import Backdrop from '../anatomy/backdrop';
-import Positioner from '../anatomy/positioner';
-import Content from '../anatomy/content';
-import Title from '../anatomy/title';
-import Description from '../anatomy/description';
 import CloseTrigger from '../anatomy/close-trigger';
+import Content from '../anatomy/content';
+import Description from '../anatomy/description';
+import Positioner from '../anatomy/positioner';
+import Root from '../anatomy/root';
+import RootContext from '../anatomy/root-context';
+import RootProvider from '../anatomy/root-provider';
+import Title from '../anatomy/title';
+import Trigger from '../anatomy/trigger';
 
 export const Dialog = Object.assign(Root, {
 	Provider: RootProvider,
@@ -18,5 +18,5 @@ export const Dialog = Object.assign(Root, {
 	Content: Content,
 	Title: Title,
 	Description: Description,
-	CloseTrigger: CloseTrigger
+	CloseTrigger: CloseTrigger,
 });

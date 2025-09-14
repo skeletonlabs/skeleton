@@ -1,13 +1,14 @@
 <script lang="ts" module>
-	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface DialogDescriptionProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesDialog } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
 	import { DialogRootContext } from '../modules/root-context';
 
 	const props: DialogDescriptionProps = $props();
@@ -18,8 +19,8 @@
 
 	const attributes = $derived(
 		mergeProps(dialog().getDescriptionProps(), rest, {
-			class: classesDialog.description
-		})
+			class: classesDialog.description,
+		}),
 	);
 </script>
 

@@ -1,15 +1,16 @@
 <script lang="ts" module>
-	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface DialogBackdropProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps, portal } from '@zag-js/svelte';
 	import { classesDialog } from '@skeletonlabs/skeleton-common';
-	import { DialogRootContext } from '../modules/root-context';
+	import { mergeProps, portal } from '@zag-js/svelte';
 	import { createAttachmentKey, fromAction } from 'svelte/attachments';
+
+	import { DialogRootContext } from '../modules/root-context';
 
 	const props: DialogBackdropProps = $props();
 
@@ -20,8 +21,8 @@
 	const attributes = $derived(
 		mergeProps(dialog().getBackdropProps(), rest, {
 			class: classesDialog.backdrop,
-			[createAttachmentKey()]: fromAction(portal, () => undefined)
-		})
+			[createAttachmentKey()]: fromAction(portal, () => undefined),
+		}),
 	);
 </script>
 

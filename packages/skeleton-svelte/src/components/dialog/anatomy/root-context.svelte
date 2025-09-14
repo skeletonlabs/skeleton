@@ -1,5 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
+
 	import type { useDialog } from '../modules/use-dialog.svelte';
 
 	export interface DialogRootContextProps {

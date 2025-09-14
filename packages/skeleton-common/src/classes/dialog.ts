@@ -7,5 +7,5 @@ export const classesDialog = defineSkeletonClasses({
 	content: 'preset-filled-surface-100-900 border-1 border-surface-200-800 rounded-container p-4 min-w-sm',
 	title: 'h4',
 	description: '',
-	closeTrigger: ''
+	closeTrigger: '',
 });

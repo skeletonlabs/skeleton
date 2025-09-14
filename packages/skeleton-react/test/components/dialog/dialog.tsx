@@ -1,6 +1,6 @@
 import { Dialog } from '@/index';
 
-export default function () {
+export default function DialogTest() {
 	return (
 		<Dialog>
 			<Dialog.Trigger data-testid="trigger" />

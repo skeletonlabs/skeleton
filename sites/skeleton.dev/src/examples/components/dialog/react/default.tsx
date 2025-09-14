@@ -1,6 +1,6 @@
 import { Dialog } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Default() {
 	return (
 		<Dialog>
 			<Dialog.Trigger className="btn preset-filled">Open Dialog</Dialog.Trigger>
