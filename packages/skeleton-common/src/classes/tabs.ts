@@ -6,5 +6,5 @@ export const classesTabs = defineSkeletonClasses({
 	trigger: 'btn hover:preset-tonal-primary data-disabled:opacity-50 data-disabled:pointer-events-none',
 	indicator:
 		'bg-surface-950-50 data-[orientation=horizontal]:w-(--width) data-[orientation=horizontal]:h-0.5 data-[orientation=horizontal]:bottom-0 data-[orientation=vertical]:w-0.5 data-[orientation=vertical]:h-(--height) data-[orientation=vertical]:end-0',
-	content: ''
+	content: '',
 });

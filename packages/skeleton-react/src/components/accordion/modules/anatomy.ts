@@ -1,10 +1,10 @@
+import Content from '../anatomy/content';
+import Heading from '../anatomy/heading';
+import Indicator from '../anatomy/indicator';
+import Item from '../anatomy/item';
 import Root from '../anatomy/root';
 import RootContext from '../anatomy/root-context';
-import Item from '../anatomy/item';
-import Heading from '../anatomy/heading';
 import Trigger from '../anatomy/trigger';
-import Indicator from '../anatomy/indicator';
-import Content from '../anatomy/content';
 
 export const Accordion = Object.assign(Root, {
 	Context: RootContext,
@@ -12,5 +12,5 @@ export const Accordion = Object.assign(Root, {
 	Heading: Heading,
 	Trigger: Trigger,
 	Indicator: Indicator,
-	Content: Content
+	Content: Content,
 });

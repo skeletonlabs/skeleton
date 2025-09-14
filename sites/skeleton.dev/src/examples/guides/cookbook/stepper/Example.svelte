@@ -8,7 +8,7 @@
 		{ label: 'Step 2', description: 'The description of step 2.' },
 		{ label: 'Step 3', description: 'The description of step 3.' },
 		{ label: 'Step 4', description: 'The description of step 4.' },
-		{ label: 'Step 5', description: 'The description of step 5.' }
+		{ label: 'Step 5', description: 'The description of step 5.' },
 	];
 
 	// Reactive

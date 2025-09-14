@@ -1,6 +1,7 @@
 import type { Snippet } from 'svelte';
-import type { HTMLAttributes } from './html-attributes';
 import type { SvelteHTMLElements } from 'svelte/elements';
+
+import type { HTMLAttributes } from './html-attributes';
 
 interface PropsWithElement<T extends keyof SvelteHTMLElements> {
 	/**

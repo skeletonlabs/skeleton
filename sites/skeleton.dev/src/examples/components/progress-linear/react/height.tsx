@@ -1,6 +1,6 @@
 import { ProgressLinear } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Height() {
 	return (
 		<div className="flex w-full flex-col gap-8">
 			<ProgressLinear>

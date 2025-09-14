@@ -5,14 +5,14 @@
 		.getAuthorFeed({
 			actor: 'skeleton.dev',
 			limit: 15,
-			filter: 'posts_no_replies'
+			filter: 'posts_no_replies',
 		})
 		.then((result) =>
 			result.data.feed
 				.filter((item) => {
 					return item.post.author.handle === 'skeleton.dev';
 				})
-				.map((item) => item.post)
+				.map((item) => item.post),
 		);
 </script>
 

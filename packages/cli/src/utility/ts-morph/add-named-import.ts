@@ -12,7 +12,7 @@ function addNamedImport(file: SourceFile, specifier: string, name: string) {
 	} else {
 		file.addImportDeclaration({
 			moduleSpecifier: specifier,
-			namedImports: [name]
+			namedImports: [name],
 		});
 	}
 }

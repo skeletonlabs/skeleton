@@ -1,13 +1,15 @@
-import { fileURLToPath, resolve } from 'node:url';
-import { describe, expect, test } from 'vitest';
 import { readFile } from 'node:fs/promises';
-import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-svelte.js';
-import { transformModule } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-module.js';
-import { transformAppHtml } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.html.js';
-import { transformPackageJson } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-package.json.js';
+import { fileURLToPath, resolve } from 'node:url';
+
+import { describe, expect, test } from 'vitest';
+
 import { transformAppCss } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.css.js';
-import { FALLBACK_THEME } from '../../../src/commands/migrate/migrations/skeleton-3/utility/constants.js';
+import { transformAppHtml } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.html.js';
+import { transformModule } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-module.js';
+import { transformPackageJson } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-package.json.js';
 import { transformStyleSheet } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-stylesheet.js';
+import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-svelte.js';
+import { FALLBACK_THEME } from '../../../src/commands/migrate/migrations/skeleton-3/utility/constants.js';
 
 const TRANSFORMER_MAP = {
 	svelte: transformSvelte,
@@ -15,7 +17,7 @@ const TRANSFORMER_MAP = {
 	stylesheet: transformStyleSheet,
 	'app.html': transformAppHtml,
 	'app.css': transformAppCss,
-	'package.json': transformPackageJson
+	'package.json': transformPackageJson,
 };
 
 function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
@@ -37,7 +39,7 @@ function clean(code: string) {
 }
 
 const samples = import.meta.glob('./samples/**/*', {
-	query: '?raw'
+	query: '?raw',
 });
 
 const testCases = Object.keys(samples).reduce(
@@ -54,7 +56,7 @@ const testCases = Object.keys(samples).reduce(
 		acc[transformer][testName][fileType as 'input' | 'output'] = path;
 		return acc;
 	},
-	{} as Record<string, Record<string, { input: string; output: string }>>
+	{} as Record<string, Record<string, { input: string; output: string }>>,
 );
 
 describe('samples', () => {

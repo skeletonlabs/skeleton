@@ -1,5 +1,6 @@
 <script lang="ts" module>
 	import type { Snippet } from 'svelte';
+
 	import type { useRatingGroup } from '../modules/use-rating-group.svelte';
 
 	export interface RatingGroupRootContextProps {

@@ -1,6 +1,6 @@
 import { Accordion } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function State() {
 	return (
 		<Accordion>
 			<Accordion.Item value="item-1">

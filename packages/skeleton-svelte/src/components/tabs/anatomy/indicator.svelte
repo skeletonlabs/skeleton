@@ -6,9 +6,10 @@
 </script>
 
 <script lang="ts">
-	import { TabsRootContext } from '../modules/root-context';
-	import { mergeProps } from '@zag-js/svelte';
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
+	import { TabsRootContext } from '../modules/root-context';
 
 	const props: TabsIndicatorProps = $props();
 
@@ -18,8 +19,8 @@
 
 	const attributes = $derived(
 		mergeProps(tabs().getIndicatorProps(), rest, {
-			class: classesTabs.indicator
-		})
+			class: classesTabs.indicator,
+		}),
 	);
 </script>
 
